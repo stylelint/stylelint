@@ -1,0 +1,10 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "semi": false,
+    "no-use-before-define": false
+  }
+}

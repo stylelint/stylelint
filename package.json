@@ -1,0 +1,33 @@
+{
+  "name": "stylelint",
+  "version": "0.0.0",
+  "description": "Modern CSS linter",
+  "keywords": [
+    "css",
+    "lint",
+    "csslint"
+  ],
+  "author": "Maxime Thirouin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stylelint/stylelint.git"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "index.js"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^0.10.1",
+    "jscs": "^1.8.1",
+    "tape": "^3.0.3"
+  },
+  "scripts": {
+    "jscs": "jscs .",
+    "eslint": "eslint .",
+    "pretest": "npm run jscs && npm run eslint",
+    "test": "tape test/*.js"
+  }
+}
