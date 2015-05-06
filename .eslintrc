@@ -1,10 +1,27 @@
-{
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  "rules": {
-    "semi": false,
-    "no-use-before-define": false
-  }
-}
+---
+# babel support more syntax stuff than eslint for now
+parser: babel-eslint
+
+ecmaFeatures:
+  modules: true
+
+env:
+  es6: true
+  browser: true
+  node: true
+
+# 0: off, 1: warning, 2: error
+rules:
+  # semicolons are useless
+  semi: [2, "never"]
+
+  quotes: [2, "double"]
+
+  # 2 spaces indentation
+  indent: [2, 2]
+
+  # trailing coma are cool for diff
+  comma-dangle: [2, "always-multiline"]
+
+  # enforce comma at eol (never before)
+  comma-style: [2, "last"]

@@ -1,1 +1,10 @@
+sudo: false
+
 language: node_js
+node_js:
+  - 0.12
+  - iojs
+
+notifications:
+  webhooks:
+    - https://webhooks.gitter.im/e/d763493612da45967361

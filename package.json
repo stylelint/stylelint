@@ -1,11 +1,12 @@
 {
   "name": "stylelint",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Modern CSS linter",
   "keywords": [
     "css",
     "lint",
-    "csslint"
+    "csslint",
+    "stylelint"
   ],
   "author": "Maxime Thirouin",
   "license": "MIT",
@@ -13,23 +14,26 @@
     "type": "git",
     "url": "https://github.com/stylelint/stylelint.git"
   },
+  "main": "dist/index.js",
   "files": [
     "CHANGELOG.md",
     "LICENSE",
-    "index.js"
+    "dist"
   ],
   "dependencies": {
     "postcss": "^4.1.9"
   },
   "devDependencies": {
-    "eslint": "^0.10.1",
-    "jscs": "^1.8.1",
-    "tape": "4.0.0"
+    "babel": "^5.2.15",
+    "babel-eslint": "^3.0.1",
+    "babel-tape-runner": "^1.1.0",
+    "eslint": "^0.20.0",
+    "tape": "^4.0.0"
   },
   "scripts": {
-    "jscs": "jscs .",
-    "eslint": "eslint .",
-    "pretest": "npm run jscs && npm run eslint",
-    "test": "tape test/*.js"
+    "prepublish": "babel src --out-dir dist",
+    "lint": "eslint .",
+    "tape": "babel-tape-runner 'src/**/__tests__/*.js'",
+    "test": "npm run lint && npm run tape"
   }
 }
