@@ -1,5 +1,7 @@
 # stylelint
 
+[![Join the chat at https://gitter.im/stylelint/stylelint](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/stylelint/stylelint?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 /travis/[![Travis Build Status](https://img.shields.io/travis/stylelint/stylelint.svg)](https://travis-ci.org/stylelint/stylelint)
 /appveyor/[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/stylelint/stylelint.svg)](https://travis-ci.org/stylelint/stylelint)
 
