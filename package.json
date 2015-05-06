@@ -18,11 +18,13 @@
     "LICENSE",
     "index.js"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "postcss": "^4.1.9"
+  },
   "devDependencies": {
     "eslint": "^0.10.1",
     "jscs": "^1.8.1",
-    "tape": "^3.0.3"
+    "tape": "4.0.0"
   },
   "scripts": {
     "jscs": "jscs .",
