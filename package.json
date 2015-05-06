@@ -32,7 +32,7 @@
   },
   "scripts": {
     "prepublish": "babel src --out-dir dist",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "tape": "babel-tape-runner 'src/**/__tests__/*.js'",
     "test": "npm run lint && npm run tape"
   }
