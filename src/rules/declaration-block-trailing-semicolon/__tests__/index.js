@@ -2,10 +2,9 @@ import test from "tape"
 import testRule from "../../__tests__/utils/testRule"
 
 import trailingSemicolon from ".."
+import { messages } from ".."
 
 const testTrailingSemicolon = testRule(trailingSemicolon)
-const expectedError = "Expected a trailing semicolon (declaration-block-trailing-semicolon)"
-const rejectedError = "Expected no trailing semicolon (declaration-block-trailing-semicolon)"
 
 test("declaration-block-trailing-semicolon success", t => {
   t.test("with `true` setting", st => {
@@ -84,7 +83,7 @@ test("declaration-block-trailing-semicolon failure", t => {
 
         st.equal(
           warnings[0].text,
-          expectedError,
+          messages.expected,
           "warning contains expected text"
         )
       }
@@ -102,7 +101,7 @@ test("declaration-block-trailing-semicolon failure", t => {
 
         st.equal(
           warnings[0].text,
-          expectedError,
+          messages.expected,
           "warning contains expected text"
         )
       }
@@ -124,7 +123,7 @@ test("declaration-block-trailing-semicolon failure", t => {
 
         st.equal(
           warnings[0].text,
-          rejectedError,
+          messages.rejected,
           "warning contains expected text"
         )
       }
@@ -142,7 +141,7 @@ test("declaration-block-trailing-semicolon failure", t => {
 
         st.equal(
           warnings[0].text,
-          rejectedError,
+          messages.rejected,
           "warning contains expected text"
         )
       }

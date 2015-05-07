@@ -1,5 +1,10 @@
 const ruleName = "declaration-block-trailing-semicolon"
 
+export const messages = {
+  expected: `Expected a trailing semicolon (${ruleName})`,
+  rejected: `Expected no trailing semicolon (${ruleName})`,
+}
+
 /**
  * @param {boolean} options - If true, expect trailing semicolons;
  *   if false, reject them
@@ -16,7 +21,7 @@ export default function declarationBlockTrailingSemicolon(options) {
       }
 
       result.warn(
-        `Expected a trailing semicolon (${ruleName})`,
+        messages.expected,
         { node: rule }
       )
     }
@@ -27,7 +32,7 @@ export default function declarationBlockTrailingSemicolon(options) {
       }
 
       result.warn(
-        `Expected no trailing semicolon (${ruleName})`,
+        messages.rejected,
         { node: rule }
       )
     }
