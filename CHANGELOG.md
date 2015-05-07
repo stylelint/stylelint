@@ -1,3 +1,3 @@
-# HEAD
+# 0.1.0
 
-Nothing yet
+Added: `value-trailing-semicolon` rule
