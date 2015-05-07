@@ -32,8 +32,8 @@
   },
   "scripts": {
     "prepublish": "babel src --out-dir dist",
-    "lint": "eslint .",
-    "tape": "babel-tape-runner 'src/**/__tests__/*.js'",
+    "lint": "eslint . --ignore-path .gitignore",
+    "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
     "test": "npm run lint && npm run tape"
   }
 }
