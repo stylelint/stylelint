@@ -25,3 +25,6 @@ rules:
 
   # enforce comma at eol (never before)
   comma-style: [2, "last"]
+
+  # allow functions declarations at bottom of scope
+  no-use-before-define: [2, "nofunc"]
