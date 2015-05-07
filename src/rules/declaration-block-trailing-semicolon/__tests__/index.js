@@ -79,13 +79,13 @@ test("declaration-block-trailing-semicolon failure", t => {
         st.equal(
           warnings.length,
           1,
-          "lone declaration"
+          "should warn if semicolon is absent with lone declaration"
         )
 
         st.equal(
           warnings[0].text,
           expectedError,
-          "should add a warning if semicolon is missing "
+          "warning contains expected text"
         )
       }
     )
@@ -97,13 +97,13 @@ test("declaration-block-trailing-semicolon failure", t => {
         st.equal(
           warnings.length,
           1,
-          "should add warnings if semicolon are missing"
+          "should warn if semicolon is absent with multiple declarations"
         )
 
         st.equal(
           warnings[0].text,
           expectedError,
-          "should provide a clear message"
+          "warning contains expected text"
         )
       }
     )
@@ -119,13 +119,13 @@ test("declaration-block-trailing-semicolon failure", t => {
         st.equal(
           warnings.length,
           1,
-          "lone declaration"
+          "should warn if semicolon is present with lone declaration"
         )
 
         st.equal(
           warnings[0].text,
           rejectedError,
-          "should add a warning if semicolon is missing "
+          "warning contains expected text"
         )
       }
     )
@@ -137,13 +137,13 @@ test("declaration-block-trailing-semicolon failure", t => {
         st.equal(
           warnings.length,
           1,
-          "should add warnings if semicolon are missing"
+          "should warn if semicolon is present with lone declaration"
         )
 
         st.equal(
           warnings[0].text,
           rejectedError,
-          "should provide a clear message"
+          "warning contains expected text"
         )
       }
     )
