@@ -44,7 +44,7 @@ For example, specifying the maximum number of digits after the "." in a number
 
 ## Before and after
 
-If the rule is *specifying what whitespace is allowed* around something then use `*-before/after` and use `coma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` and `range-operator` to identify that something.
+If the rule is *specifying what whitespace is allowed* around something then use `*-before/after` and use `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` and `range-operator` to identify that something.
 
 For example, what whitespace is allowed before a coma and after the operator in a function:
 
