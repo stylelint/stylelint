@@ -44,9 +44,15 @@ For example, specifying the maximum number of digits after the "." in a number
 
 ## Before and after
 
-If the rule is *specifying what whitespace is allowed* around something then use `*-before/after` and use `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` and `range-operator` to identify that something.
+If the rule is *specifying what whitespace must be* around something then use `*-before/after` and use `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` and `range-operator` to identify that something.
 
-For example, what whitespace is allowed before a coma and after the operator in a function:
+For example, what whitespace must be before a coma and after the operator in a function:
 
 * `function-coma-before`: `string`
 * `function-operator-after`: `string`
+
+If the rule handles (via its options) both single and multiple lines, target these using `single-line` and `multi-line` respectively.
+
+For example, what whitespace must be after the opening brace of a block:
+
+* `block-opening-brace-after`: `object { single-line: "", multi-line: "" }`
