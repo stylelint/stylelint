@@ -3,7 +3,7 @@
 Rules are:
 
 * Made of lowercase words separated by hyphens.
-* Split into two parts:
+* Usually split into two parts:
   * The first describes [what thing](http://apps.workflower.fi/vocabs/css/en) the rule applies to.
   * The second describes what the rule is enforcing.
 
@@ -12,6 +12,17 @@ selector-max-specificity
    ^           ^
    |           |
 the thing    what the rule is enforcing
+```
+
+* Except when the rule applies to the whole CSS document.
+
+```js
+eof-new-line
+eol-no-whitespace
+indentation
+    ^
+    | 
+  what the rules are enforcing
 ```
 
 ## No
