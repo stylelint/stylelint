@@ -10,17 +10,18 @@ export const messages = {
  */
 export default function declarationNoImportant(options) {
   return (css, result) => {
-    if (options) {
-      css.eachDecl(function (decl) {
-        if (!decl.important) {
-          return
-        }
 
-        result.warn(
-          messages.unexpected,
-          { node: decl }
-        )
-      })
-    }
+    if (!options) { return }
+
+    css.eachDecl(function (decl) {
+      if (!decl.important) {
+        return
+      }
+
+      result.warn(
+        messages.unexpected,
+        { node: decl }
+      )
+    })
   }
 }
