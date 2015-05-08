@@ -1,5 +1,5 @@
 import test from "tape"
-import testRule from "../../__tests__/utils/testRule"
+import testRule from "../../../testUtils/testRule"
 
 import trailingSemicolon from ".."
 import { messages } from ".."
