@@ -9,7 +9,7 @@ Disallow the use of `!important` within declarations.
 
 ### `true`
 
-The following patterns are *not* considered warnings:
+The following patterns are considered warnings:
 
 ```css
 body {
@@ -17,7 +17,7 @@ body {
 }
 ```
 
-The following patterns are considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 body {
