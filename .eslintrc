@@ -43,7 +43,8 @@ rules:
   # consistent whitespace before function paren
   space-before-function-paren: [2, {"anonymous": "always", "named": "never"}]
 
-  # consistent whitespace in brackets (disabled as buggy)
+  # consistent whitespace in brackets
+  # disabled as possibly buggy: https://github.com/babel/babel-eslint/issues/87
   # space-in-brackets: [2, "always"]
 
   # consistent whitespace in parens
