@@ -1,4 +1,4 @@
-# stylelint [![Travis Build Status](https://img.shields.io/travis/stylelint/stylelint.svg)](https://travis-ci.org/stylelint/stylelint) [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/stylelint/stylelint.svg)](https://travis-ci.org/stylelint/stylelint) [![Join the chat at https://gitter.im/stylelint/stylelint](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/stylelint/stylelint?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# stylelint [![Travis Build Status](https://img.shields.io/travis/stylelint/stylelint.svg)](https://travis-ci.org/stylelint/stylelint) [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/MoOx/stylelint.svg?label=winbuild)](https://ci.appveyor.com/project/MoOx/stylelint) [![Join the chat at https://gitter.im/stylelint/stylelint](https://img.shields.io/badge/gitter%20-join%20chat%20%E2%9E%9E-1dce73.svg)](https://gitter.im/stylelint/stylelint)
 
 > Modern CSS linter.
 
