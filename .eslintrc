@@ -34,20 +34,20 @@ rules:
   # semicolons are useless
   semi: [2, "never"]
 
-  # consistent whitespace before function paren
-  space-before-function-paren: [2, {"anonymous": "always", "named": "never"}]
-
   # consistent whitespace after keywords
   space-after-keywords: [2, "always"]
 
-  # consistent whitespace in parens
-  space-in-parens: [2, "never"]
+  # consistent whitespace before blocks
+  space-before-blocks: [2, "always"]
+
+  # consistent whitespace before function paren
+  space-before-function-paren: [2, {"anonymous": "always", "named": "never"}]
 
   # consistent whitespace in brackets (disabled as buggy)
   # space-in-brackets: [2, "always"]
 
+  # consistent whitespace in parens
+  space-in-parens: [2, "never"]
+
   # consistent whitespace in single line comments
   spaced-line-comment: [2, "always"]
-
-  # consistent whitespace before blocks
-  space-before-blocks: [2, "always"]
