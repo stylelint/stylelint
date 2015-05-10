@@ -1,81 +1,19 @@
-import test from "tape"
-import testRule from "../../../testUtils/testRule"
+import { ruleTester } from "../../../testUtils"
+import declarationNoImportant, { ruleName, messages } from ".."
 
-import noImportant, { messages } from ".."
+const testDeclarationNoImportant = ruleTester(declarationNoImportant, ruleName)
 
-const testNoImportant = testRule(noImportant)
+testDeclarationNoImportant(true, tr => {
+  tr.ok("a { color: pink; }", "declaration without !important")
 
-test("declaration-no-important success", t => {
-  t.test("with `true` setting", st => {
-    st.plan(1)
-
-    testNoImportant(
-      "body { background: pink; }",
-      true,
-      warnings => {
-        st.equal(
-          warnings.length,
-          0,
-          "should not add warning if !important is not present"
-        )
-      }
-    )
-  })
-
-  t.test("with `false` setting", st => {
-    st.plan(2)
-
-    testNoImportant(
-      "body { background: pink; }",
-      false,
-      warnings => {
-        st.equal(
-          warnings.length,
-          0,
-          "should not add warning if !important is not present"
-        )
-      }
-    )
-
-    testNoImportant(
-      "body { color: orange !important; }",
-      false,
-      warnings => {
-        st.equal(
-          warnings.length,
-          0,
-          "should not add warning if !important is present"
-        )
-      }
-    )
-  })
-
-  t.end()
+  tr.notOk(
+    "a { color: pink !important; }",
+    "declaration with !important",
+    messages.unexpected
+  )
 })
 
-test("declaration-no-important failure", t => {
-
-  t.test("with `true` setting", st => {
-    st.plan(2)
-
-    testNoImportant(
-      "body { background: pink !important; }",
-      true,
-      warnings => {
-        st.equal(
-          warnings.length,
-          1,
-          "should add warning if !important is present"
-        )
-
-        st.equal(
-          warnings[0].text,
-          messages.unexpected,
-          "warning contains expected text"
-        )
-      }
-    )
-  })
-
-  t.end()
+testDeclarationNoImportant(false, tr => {
+  tr.ok("a { color: pink; }", "declaration without !important")
+  tr.ok("a { color: pink !important; }", "declaration with !important")
 })

@@ -1,152 +1,48 @@
-import test from "tape"
-import testRule from "../../../testUtils/testRule"
+import { ruleTester } from "../../../testUtils"
+import declarationBlockTrailingSemicolon, { ruleName, messages } from ".."
 
-import trailingSemicolon from ".."
-import { messages } from ".."
+const testDeclarationBlockTrailingSemicolon = ruleTester(declarationBlockTrailingSemicolon, ruleName)
 
-const testTrailingSemicolon = testRule(trailingSemicolon)
+testDeclarationBlockTrailingSemicolon(true, tr => {
+  tr.ok(
+    "a { color: pink; }",
+    "single-line declaration block with trailing semicolon"
+  )
+  tr.ok(
+    "a { background: orange; color: pink; }",
+    "multi-line declaration block with trailing semicolon"
+  )
 
-test("declaration-block-trailing-semicolon success", t => {
-  t.test("with `true` setting", st => {
-    st.plan(2)
-
-    testTrailingSemicolon(
-      "body { background: pink; }",
-      true,
-      warnings => {
-        st.equal(
-          warnings.length,
-          0,
-          "should not add warning if semicolon is present with lone declaration"
-        )
-      }
-    )
-
-    testTrailingSemicolon(
-      "body { color: orange; background: pink; }",
-      true,
-      warnings => {
-        st.equal(
-          warnings.length,
-          0,
-          "should not add warnings if semicolon is present with multiple declarations"
-        )
-      }
-    )
-  })
-
-  t.test("with `false` setting", st => {
-    st.plan(2)
-
-    testTrailingSemicolon(
-      "body { background: pink }",
-      false,
-      warnings => {
-        st.equal(
-          warnings.length,
-          0,
-          "should not add warning if semicolon is absent with lone declaration"
-        )
-      }
-    )
-
-    testTrailingSemicolon(
-      "body { color: orange; background: pink }",
-      false,
-      warnings => {
-        st.equal(
-          warnings.length,
-          0,
-          "should not add warnings if semicolon is absent with multiple declarations"
-        )
-      }
-    )
-  })
-
-  t.end()
+  tr.notOk(
+    "a { color: pink }",
+    "single-line declaration block without trailing semicolon",
+    messages.expected
+  )
+  tr.notOk(
+    "a { background: orange; color: pink }",
+    "multi-line declaration block without trailing semicolon",
+    messages.expected
+  )
 })
 
-test("declaration-block-trailing-semicolon failure", t => {
+testDeclarationBlockTrailingSemicolon(false, tr => {
+  tr.ok(
+    "a { color: pink }",
+    "single-line declaration block without trailing semicolon"
+  )
+  tr.ok(
+    "a { background: orange; color: pink }",
+    "multi-line declaration block without trailing semicolon"
+  )
 
-  t.test("with `true` setting", st => {
-    st.plan(4)
-
-    testTrailingSemicolon(
-      "body { background: pink }",
-      true,
-      warnings => {
-        st.equal(
-          warnings.length,
-          1,
-          "should warn if semicolon is absent with lone declaration"
-        )
-
-        st.equal(
-          warnings[0].text,
-          messages.expected,
-          "warning contains expected text"
-        )
-      }
-    )
-
-    testTrailingSemicolon(
-      "body { color: orange; background: pink }",
-      true,
-      warnings => {
-        st.equal(
-          warnings.length,
-          1,
-          "should warn if semicolon is absent with multiple declarations"
-        )
-
-        st.equal(
-          warnings[0].text,
-          messages.expected,
-          "warning contains expected text"
-        )
-      }
-    )
-  })
-
-  t.test("with `false` setting", st => {
-    st.plan(4)
-
-    testTrailingSemicolon(
-      "body { background: pink; }",
-      false,
-      warnings => {
-        st.equal(
-          warnings.length,
-          1,
-          "should warn if semicolon is present with lone declaration"
-        )
-
-        st.equal(
-          warnings[0].text,
-          messages.rejected,
-          "warning contains expected text"
-        )
-      }
-    )
-
-    testTrailingSemicolon(
-      "body { color: orange; background: pink; }",
-      false,
-      warnings => {
-        st.equal(
-          warnings.length,
-          1,
-          "should warn if semicolon is present with lone declaration"
-        )
-
-        st.equal(
-          warnings[0].text,
-          messages.rejected,
-          "warning contains expected text"
-        )
-      }
-    )
-  })
-
-  t.end()
+  tr.notOk(
+    "a { color: pink; }",
+    "single-line declaration block with trailing semicolon",
+    messages.rejected
+  )
+  tr.notOk(
+    "a { background: orange; color: pink; }",
+    "multi-line declaration block with trailing semicolon",
+    messages.rejected
+  )
 })
