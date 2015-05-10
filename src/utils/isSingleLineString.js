@@ -6,5 +6,5 @@
  * @return {boolean}
  */
 export default function (str) {
-  return !/[\n\r]/.test(str)
+  return !/[\n\r]/.test(str.trim())
 }
