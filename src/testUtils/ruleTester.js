@@ -37,10 +37,10 @@ export default function (rule, ruleName) {
          *
          * @param {string} cssString
          */
-        ok(cssString) {
+        ok(cssString, description) {
           t.test(`pass: ${jsesc(cssString)}`, st => {
             postcssProcess(cssString, result => {
-              st.equal(result.warnings().length, 0, `no warnings`)
+              st.equal(result.warnings().length, 0, `${description} should pass`)
               st.end()
             })
           })
@@ -54,14 +54,15 @@ export default function (rule, ruleName) {
          * @param {string} cssString
          * @param {string} message
          */
-        notOk(cssString, message) {
+        notOk(cssString, description, warningMessage) {
           t.test(`fail: ${jsesc(cssString)}`, st => {
             postcssProcess(cssString, result => {
               const warnings = result.warnings()
               const oneWarning = warnings.length === 1
-              st.ok(oneWarning, `one warning`)
+              st.ok(oneWarning, `${description} should warn`)
               if (oneWarning) {
-                st.equal(warnings[0].text, message, `correct warning message`)
+                st.equal(warnings[0].text, warningMessage,
+                  `${description} should report "${warningMessage}"`)
               } else {
                 st.pass("no warning to test")
               }
