@@ -1,4 +1,4 @@
-import charBefore from "../../utils/charBefore"
+import charNeighbor from "../../utils/charNeighbor"
 
 export const ruleName = "block-opening-brace-before"
 export const messages = {
@@ -29,13 +29,13 @@ export default function (whitespaceKeyword) {
       const blockString = block.toString()
 
       // There should not be whitespace two characters before the `{`
-      if (/\s/.test(charBefore(blockString, "{", 2))) {
+      if (/\s/.test(charNeighbor(blockString, "{", -2))) {
         warn()
         return
       }
 
       const expectedChar = whitespaceKeywordMap[whitespaceKeyword]
-      const actualChar = charBefore(blockString, "{")
+      const actualChar = charNeighbor(blockString, "{")
       if (actualChar !== expectedChar) {
         warn()
       }
