@@ -49,7 +49,7 @@ testBlockOpeningBraceAfter({ singleLine: "space", multiLine: "newline" }, tr => 
   tr.ok(
     "@media print {\na { color: pink; }\nspan { color: orange; } }",
     "newline after multi-line at-rule's opening `{` and " +
-    "singe space before the single-line nested rule's"
+    "single space before the single-line nested rule's"
   )
   tr.notOk(
     "@media print {\na {color: pink; }\nspan { color: orange; } }",

@@ -61,7 +61,7 @@ export function expectSpaceTests(tr) {
   tr.notOk(
     "@media print {\na { color: pink; } }",
     "newline after single-line at-rule's opening `{` and " +
-    "singe space before the single-line nested rule's",
+    "single space before the single-line nested rule's",
     spaceMsg
   )
   tr.notOk(
@@ -141,7 +141,7 @@ testBlockOpeningBraceAfter("newline", tr => {
   tr.notOk(
     "@media print {\na { color: pink; } }",
     "newline after at-rule's opening `{` and " +
-    "singe space before the nested rule's",
+    "single space before the nested rule's",
     newlineMsg
   )
   tr.notOk(
