@@ -1,4 +1,4 @@
-const ruleName = "declaration-no-important"
+export const ruleName = "declaration-no-important"
 
 export const messages = {
   unexpected: `Unexpected !important (${ruleName})`,
