@@ -38,4 +38,6 @@ postcss()
 
 ## [Changelog](CHANGELOG.md)
 
+## [Contributing](CONTRIBUTING.md)
+
 ## [License](LICENSE)
