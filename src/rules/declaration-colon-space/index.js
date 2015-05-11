@@ -10,7 +10,7 @@ export const messages = {
 
 const keyCharOffsetMap = {
   before: -1,
-  after: 1
+  after: 1,
 }
 
 const valueKeywordMap = {
@@ -34,14 +34,14 @@ export default function (options) {
       const between = decl.between
 
       for (let key in options) {
-        checkPosition(key);
+        checkPosition(key)
       }
 
       function checkPosition(position) {
 
         // There should not be whitespace two characters before/after the `:`
         if (/\s/.test(charNeighbor(between, ":", 2 * keyCharOffsetMap[position]))) {
-          warn(position, options[position]);
+          warn(position, options[position])
           return
         }
 
@@ -52,7 +52,7 @@ export default function (options) {
         actualChar = (actualChar === undefined) ? "" : actualChar
 
         if (actualChar !== expectedChar) {
-          warn(position, options[position]);
+          warn(position, options[position])
         }
       }
 
