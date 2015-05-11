@@ -4,7 +4,7 @@ We are just getting started and any help would be very welcome.
 
 ## Ways to contribute
 
-* Adding [new rules](docs/adding-a-new-rule.md).
+* Adding [new rules](docs/adding-a-new-rule.md). There are [plenty](https://github.com/stylelint/stylelint/issues/1) to choose from!
 * Expanding the [documentation](docs).
 * Working on [open issues](https://github.com/stylelint/stylelint/issues).
 
