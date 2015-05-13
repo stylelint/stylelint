@@ -1,7 +1,8 @@
-import _ from "lodash"
-import { standardWhitespaceOptions,
+import {
+  standardWhitespaceOptions,
   standardWhitespaceChecker,
-  standardWhitespaceMessages } from "../../utils"
+  standardWhitespaceMessages
+} from "../../utils"
 
 export const ruleName = "selector-combinator-space"
 
@@ -26,15 +27,19 @@ export default function (options) {
   return function (css, result) {
     css.eachRule(function (rule) {
       const selector = rule.selector
-      _.forEach(selector, (char, i) => {
-        if (!_.includes(combinators, char)) { return }
-        spaceChecker.before(selector, i, msg => {
+      for (let i = 0, l = selector.length; i < l; i++) {
+        if (combinators.indexOf(selector[i]) === -1) { continue }
+        checkCombinator(i)
+      }
+
+      function checkCombinator(index) {
+        spaceChecker.before(selector, index, msg => {
           result.warn(msg, { node: rule })
         })
-        spaceChecker.after(selector, i, msg => {
+        spaceChecker.after(selector, index, msg => {
           result.warn(msg, { node: rule })
         })
-      })
+      }
     })
   }
 }

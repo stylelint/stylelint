@@ -1,7 +1,8 @@
-import _ from "lodash"
-import { standardWhitespaceOptions,
+import {
+  standardWhitespaceOptions,
   standardWhitespaceChecker,
-  standardWhitespaceMessages } from "../../utils"
+  standardWhitespaceMessages
+} from "../../utils"
 
 export const ruleName = "declaration-bang-space"
 
@@ -28,16 +29,20 @@ export default function (options) {
 
       // Start from the right and only pay attention to the first
       // exclamation mark found
-      _.forEachRight(declString, (char, i) => {
-        if (char !== "!") { return }
-        spaceChecker.before(declString, i, msg => {
+      for (let i = declString.length - 1; i >= 0; i--) {
+        if (declString[i] !== "!") { continue }
+        checkBang(i)
+        break
+      }
+
+      function checkBang(index) {
+        spaceChecker.before(declString, index, msg => {
           result.warn(msg, { node: decl })
         })
-        spaceChecker.after(declString, i, msg => {
+        spaceChecker.after(declString, index, msg => {
           result.warn(msg, { node: decl })
         })
-        return false
-      })
+      }
     })
   }
 }

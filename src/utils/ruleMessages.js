@@ -1,5 +1,3 @@
-import _ from "lodash"
-
 /**
  * Format a message so that it indicates the rule that triggered it.
  *
@@ -9,10 +7,11 @@ import _ from "lodash"
  * @return {string} Message marked with the rule name
  */
 export default function (ruleName, messages) {
-  return _.mapValues(messages, value => {
-    if (_.isString(value)) {
-      return `${value} (${ruleName})`
-    }
-    return x => `${value(x)} (${ruleName})`
-  })
+  return Object.keys(messages).reduce((r, k) => {
+    const value = messages[k]
+    r[k] = (typeof value === "string")
+      ? `${value} (${ruleName})`
+      : x => `${value(x)} (${ruleName})`
+    return r
+  }, {})
 }
