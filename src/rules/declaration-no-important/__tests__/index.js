@@ -3,17 +3,25 @@ import declarationNoImportant, { ruleName, messages } from ".."
 
 const testDeclarationNoImportant = ruleTester(declarationNoImportant, ruleName)
 
-testDeclarationNoImportant(true, tr => {
-  tr.ok("a { color: pink; }", "declaration without !important")
+testDeclarationNoImportant(null, tr => {
+  tr.ok("a {}", "no values")
+  tr.ok("a { color: pink; }", "without !important")
 
   tr.notOk(
     "a { color: pink !important; }",
-    messages.unexpected,
-    "declaration with !important"
+    messages.rejected,
+    "with !important"
   )
-})
 
-testDeclarationNoImportant(false, tr => {
-  tr.ok("a { color: pink; }", "declaration without !important")
-  tr.ok("a { color: pink !important; }", "declaration with !important")
+  tr.notOk(
+    "a { color: pink ! important; }",
+    messages.rejected,
+    "with ! important"
+  )
+
+  tr.notOk(
+    "a { color: pink!important; }",
+    messages.rejected,
+    "with value!important"
+  )
 })
