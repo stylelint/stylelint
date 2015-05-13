@@ -5,4 +5,5 @@ export default {
   "declaration-no-important": require("./declaration-no-important"),
   "number-leading-zero": require("./number-leading-zero"),
   "rule-set-no-single-line": require("./rule-set-no-single-line"),
+  "selector-combinator-space": require("./selector-combinator-space"),
 }
