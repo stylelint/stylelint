@@ -1,6 +1,6 @@
 # declaration-colon-space
 
-Enforce (no) space before and/or after the colon within declarations.
+Require or disallow a space before and/or after the colon within declarations.
 
 ## Options
 
@@ -13,47 +13,33 @@ There *must always* be a single space before the colon, but *any whitespace can*
 The following patterns are considered warnings:
 
 ```css
-body {
-  background: pink;
-}
+a { color: pink; }
 ```
 
 ```css
-body {
-  background:pink;
-}
+a { color:pink; }
 ```
 
 ```css
-body {
-  background      : pink; /* multiple spaces before */
-}
+a { color      : pink; /* multiple spaces before */ }
 ```
 
 ```css
-body {
-  background  :pink; /* tab before */
-}
+a { color  :pink; /* tab before */ }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-body {
-  background : pink;
-}
+a { color : pink; }
 ```
 
 ```css
-body {
-  background :pink;
-}
+a { color :pink; }
 ```
 
 ```css
-body {
-  background :    pink; /* multiple spaces after */
-}
+a { color :    pink; /* multiple spaces after */ }
 ```
 
 ### `{ before: "never" }`
@@ -63,29 +49,21 @@ There *must never* be whitespace before the colon, but *any whitespace can* come
 The following patterns are considered warnings:
 
 ```css
-body {
-  background : pink;
-}
+a { color : pink; }
 ```
 
 ```css
-body {
-  background      :pink; /* multiple spaces */
-}
+a { color      :pink; /* multiple spaces */ }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-body {
-  background: pink;
-}
+a { color: pink; }
 ```
 
 ```css
-body {
-  background:pink;
-}
+a { color:pink; }
 ```
 
 ### `{ after: "always" }`
@@ -95,29 +73,21 @@ There *must always* be a single space after the colon, but *any whitespace can* 
 The following patterns are considered warnings:
 
 ```css
-body {
-  background :pink;
-}
+a { color :pink; }
 ```
 
 ```css
-body {
-  background:pink;
-}
+a { color:pink; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-body {
-  background : pink;
-}
+a { color : pink; }
 ```
 
 ```css
-body {
-  background: pink;
-}
+a { color: pink; }
 ```
 
 ### `{ after: "never" }`
@@ -127,29 +97,21 @@ There *must never* be whitespace after the colon, but *any whitespace can* come 
 The following patterns are considered warnings:
 
 ```css
-body {
-  background : pink;
-}
+a { color : pink; }
 ```
 
 ```css
-body {
-  background: pink;
-}
+a { color: pink; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-body {
-  background:pink;
-}
+a { color:pink; }
 ```
 
 ```css
-body {
-  background :pink;
-}
+a { color :pink; }
 ```
 
 ### `{ before: "always", after: "always" }`
@@ -159,49 +121,37 @@ There *must always* be a single space before and after the colon.
 The following patterns are considered warnings:
 
 ```css
-body {
-  background:pink;
-}
+a { color:pink; }
 ```
 
 ```css
-body {
-  background: pink;
-}
+a { color: pink; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-body {
-  background : pink;
-}
+a { color : pink; }
 ```
 
 ### `{ before: "never", after: "never" }`
 
-There there *must never* be any whitespace and before the colon.
+There *must never* be any whitespace and before the colon.
 
 The following patterns are considered warnings:
 
 ```css
-body {
-  background : pink;
-}
+a { color : pink; }
 ```
 
 ```css
-body {
-  background: pink;
-}
+a { color: pink; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-body {
-  background:pink;
-}
+a { color:pink; }
 ```
 
 ### `{ before: "always", after: "never" }`
@@ -211,49 +161,37 @@ There *must always* be a single space before the colon and there *must never* be
 The following patterns are considered warnings:
 
 ```css
-body {
-  background : pink;
-}
+a { color : pink; }
 ```
 
 ```css
-body {
-  background: pink;
-}
+a { color: pink; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-body {
-  background :pink;
-}
+a { color :pink; }
 ```
 
 ### `{ before: "never", after: "always" }`
 
-There there *must never* be any whitespace before the colon and there *must always* be a single space after the colon
+There *must never* be any whitespace before the colon and there *must always* be a single space after the colon
 
 The following patterns are considered warnings:
 
 ```css
-body {
-  background : pink;
-}
+a { color : pink; }
 ```
 
 ```css
-body {
-  background:pink;
-}
+a { color:pink; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-body {
-  background: pink;
-}
+a { color: pink; }
 ```
 
 
