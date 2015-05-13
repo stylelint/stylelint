@@ -19,6 +19,9 @@ rules:
   # enforce comma at eol (never before)
   comma-style: [2, "last"]
 
+  # turn off consistent return
+  consistent-return: 0
+
   # 2 spaces indentation
   indent: [2, 2]
 
