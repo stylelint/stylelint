@@ -1,17 +1,11 @@
 export const ruleName = "declaration-no-important"
 
 export const messages = {
-  unexpected: `Unexpected !important (${ruleName})`,
+  rejected: `!important disallowed (${ruleName})`,
 }
 
-/**
- * @param {boolean} options - If true, no !important;
- *   if false, do nothing
- */
-export default function declarationNoImportant(options) {
+export default function declarationNoImportant() {
   return (css, result) => {
-
-    if (!options) { return }
 
     css.eachDecl(function (decl) {
       if (!decl.important) {
@@ -19,7 +13,7 @@ export default function declarationNoImportant(options) {
       }
 
       result.warn(
-        messages.unexpected,
+        messages.rejected,
         { node: decl }
       )
     })
