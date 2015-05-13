@@ -1,7 +1,7 @@
 export const ruleName = "declaration-no-important"
 
 export const messages = {
-  rejected: `!important disallowed (${ruleName})`,
+  rejected: `Unexpected !important (${ruleName})`,
 }
 
 export default function declarationNoImportant() {
