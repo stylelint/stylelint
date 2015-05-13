@@ -15,13 +15,13 @@ testDeclarationBlockTrailingSemicolon(true, tr => {
 
   tr.notOk(
     "a { color: pink }",
-    "single-line declaration block without trailing semicolon",
-    messages.expected
+    messages.expected,
+    "single-line declaration block without trailing semicolon"
   )
   tr.notOk(
     "a { background: orange; color: pink }",
-    "multi-line declaration block without trailing semicolon",
-    messages.expected
+    messages.expected,
+    "multi-line declaration block without trailing semicolon"
   )
 })
 
@@ -37,12 +37,12 @@ testDeclarationBlockTrailingSemicolon(false, tr => {
 
   tr.notOk(
     "a { color: pink; }",
-    "single-line declaration block with trailing semicolon",
-    messages.rejected
+    messages.rejected,
+    "single-line declaration block with trailing semicolon"
   )
   tr.notOk(
     "a { background: orange; color: pink; }",
-    "multi-line declaration block with trailing semicolon",
-    messages.rejected
+    messages.rejected,
+    "multi-line declaration block with trailing semicolon"
   )
 })

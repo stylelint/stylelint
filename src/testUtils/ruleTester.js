@@ -52,17 +52,20 @@ export default function (rule, ruleName) {
          * with the expected warning message.
          *
          * @param {string} cssString
-         * @param {string} message
+         * @param {string} warningMessage
+         * @param {string} [description]
          */
-        notOk(cssString, description, warningMessage) {
+        notOk(cssString, warningMessage, description) {
           t.test(`fail: ${jsesc(cssString)}`, st => {
             postcssProcess(cssString, result => {
               const warnings = result.warnings()
               const oneWarning = warnings.length === 1
               st.ok(oneWarning, `${description} should warn`)
               if (oneWarning) {
-                st.equal(warnings[0].text, warningMessage,
-                  `${description} should report "${warningMessage}"`)
+                const finishedDescription = (description)
+                  ? `${description} should report "${warningMessage}"`
+                  : `should report "${warningMessage}"`
+                st.equal(warnings[0].text, warningMessage, finishedDescription)
               } else {
                 st.pass("no warning to test")
               }

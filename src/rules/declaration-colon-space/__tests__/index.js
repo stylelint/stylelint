@@ -10,23 +10,23 @@ testDeclarationColonSpace({ "before": "always" }, tr => {
 
   tr.notOk(
     "a { color: pink; }",
-    "no space before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "no space before"
   )
   tr.notOk(
     "a { color  : pink; }",
-    "two spaces before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "two spaces before"
   )
   tr.notOk(
     "a { color\t: pink; }",
-    "tab before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "tab before"
   )
   tr.notOk(
     "a { color\n: pink; }",
-    "newline before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "newline before"
   )
 })
 
@@ -37,23 +37,23 @@ testDeclarationColonSpace({ "before": "never" }, tr => {
 
   tr.notOk(
     "a { color : pink; }",
-    "space before",
-    messages.rejectedBefore()
+    messages.rejectedBefore(),
+    "space before"
   )
   tr.notOk(
     "a { color  : pink; }",
-    "two spaces before",
-    messages.rejectedBefore()
+    messages.rejectedBefore(),
+    "two spaces before"
   )
   tr.notOk(
     "a { color\t: pink; }",
-    "tab before",
-    messages.rejectedBefore()
+    messages.rejectedBefore(),
+    "tab before"
   )
   tr.notOk(
     "a { color\n: pink; }",
-    "newline before",
-    messages.rejectedBefore()
+    messages.rejectedBefore(),
+    "newline before"
   )
 })
 
@@ -64,23 +64,23 @@ testDeclarationColonSpace({ "after": "always" }, tr => {
 
   tr.notOk(
     "a { color :pink; }",
-    "no space after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "no space after"
   )
   tr.notOk(
     "a { color :  pink; }",
-    "two spaces after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "two spaces after"
   )
   tr.notOk(
     "a { color :\tpink; }",
-    "tab after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "tab after"
   )
   tr.notOk(
     "a { color :\npink; }",
-    "newline after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "newline after"
   )
 })
 
@@ -91,23 +91,23 @@ testDeclarationColonSpace({ "after": "never" }, tr => {
 
   tr.notOk(
     "a { color : pink; }",
-    "space after",
-    messages.rejectedAfter()
+    messages.rejectedAfter(),
+    "space after"
   )
   tr.notOk(
     "a { color:  pink; }",
-    "two spaces after",
-    messages.rejectedAfter()
+    messages.rejectedAfter(),
+    "two spaces after"
   )
   tr.notOk(
     "a { color :\tpink; }",
-    "tab after",
-    messages.rejectedAfter()
+    messages.rejectedAfter(),
+    "tab after"
   )
   tr.notOk(
     "a { color :\npink; }",
-    "newline after",
-    messages.rejectedAfter()
+    messages.rejectedAfter(),
+    "newline after"
   )
 })
 
@@ -116,23 +116,23 @@ testDeclarationColonSpace({ "before": "always", "after": "never" }, tr => {
 
   tr.notOk(
     "a { color : pink }",
-    "space before and after",
-    messages.rejectedAfter()
+    messages.rejectedAfter(),
+    "space before and after"
   )
   tr.notOk(
     "a { color  :pink; }",
-    "two spaces before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "two spaces before"
   )
   tr.notOk(
     "a { color:pink; }",
-    "no space before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "no space before"
   )
   tr.notOk(
     "a { color\n:pink; }",
-    "newline before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "newline before"
   )
 })
 
@@ -141,23 +141,23 @@ testDeclarationColonSpace({ before: "never", after: "always" }, tr => {
 
   tr.notOk(
     "a { color : pink; }",
-    "space before and after",
-    messages.rejectedBefore()
+    messages.rejectedBefore(),
+    "space before and after"
   )
   tr.notOk(
     "a { color:  pink!; }",
-    "two spaces after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "two spaces after"
   )
   tr.notOk(
     "a { color:pink; }",
-    "no space after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "no space after"
   )
   tr.notOk(
     "a { color:\npink; }",
-    "newline after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "newline after"
   )
 })
 
@@ -166,38 +166,38 @@ testDeclarationColonSpace({ "before": "always", "after": "always" }, tr => {
 
   tr.notOk(
     "a { color: pink; }",
-    "no space before and one after",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "no space before and one after"
   )
   tr.notOk(
     "a { color  : pink; }",
-    "two spaces before and one after",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "two spaces before and on after"
   )
   tr.notOk(
     "a { color\n: pink; }",
-    "newline before and space after",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "newline before and spaceafter"
   )
   tr.notOk(
     "a { color :pink}",
-    "one space before and none after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "one space before and noe after"
   )
   tr.notOk(
     "a { color :  pink }",
-    "one before and two after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "one before and two afte"
   )
   tr.notOk(
     "a { color :pink }",
-    "one space before and none after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "one space before and noe after"
   )
   tr.notOk(
     "a { color :\npink }",
-    "one space before and newline after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "one space before and neline after"
   )
 })
 
@@ -206,22 +206,22 @@ testDeclarationColonSpace({ "before": "never", "after": "never" }, tr => {
 
   tr.notOk(
     "a { color: pink; }",
-    "no space before and one after",
-    messages.rejectedAfter()
+    messages.rejectedAfter(),
+    "no space before and oneafter"
   )
   tr.notOk(
     "a { color :pink; }",
-    "one space before and none after",
-    messages.rejectedBefore()
+    messages.rejectedBefore(),
+    "one space before and non after"
   )
   tr.notOk(
     "a { color\n:pink; }",
-    "newline before and no space after",
-    messages.rejectedBefore()
+    messages.rejectedBefore(),
+    "newline before and no spce after"
   )
   tr.notOk(
     "a { color:\npink; }",
-    "no space before and newline after",
-    messages.rejectedAfter()
+    messages.rejectedAfter(),
+    "no space before and newine after"
   )
 })

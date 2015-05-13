@@ -11,18 +11,18 @@ testDeclarationBangBefore({ before: "always" }, tr => {
 
   tr.notOk(
     "a { color: pink  !important; }",
-    "two spaces before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "two spaces before"
   )
   tr.notOk(
     "a { color: pink!important; }",
-    "no space before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "no space before"
   )
   tr.notOk(
     "a { color: pink\n!important; }",
-    "newline before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "newline before"
   )
 })
 
@@ -34,13 +34,13 @@ testDeclarationBangBefore({ before: "never" }, tr => {
 
   tr.notOk(
     "a { color: pink !important; }",
-    "space before",
-    messages.rejectedBefore()
+    messages.rejectedBefore(),
+    "space before"
   )
   tr.notOk(
     "a { color: pink\n!important; }",
-    "newline before",
-    messages.rejectedBefore()
+    messages.rejectedBefore(),
+    "newline before"
   )
 })
 
@@ -52,18 +52,18 @@ testDeclarationBangBefore({ after: "always" }, tr => {
 
   tr.notOk(
     "a { color: pink!important; }",
-    "no space after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "no space after"
   )
   tr.notOk(
     "a { color: pink!  important; }",
-    "two spaces after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "two spaces after"
   )
   tr.notOk(
     "a { color: pink!\nimportant; }",
-    "newline after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "newline after"
   )
 })
 
@@ -75,13 +75,13 @@ testDeclarationBangBefore({ after: "never" }, tr => {
 
   tr.notOk(
     "a { color: pink! important; }",
-    "space after",
-    messages.rejectedAfter()
+    messages.rejectedAfter(),
+    "space after"
   )
   tr.notOk(
     "a { color: pink!\nimportant; }",
-    "newline after",
-    messages.rejectedAfter()
+    messages.rejectedAfter(),
+    "newline after"
   )
 })
 
@@ -91,23 +91,23 @@ testDeclarationBangBefore({ before: "always", after: "never" }, tr => {
 
   tr.notOk(
     "a { color: pink ! important; }",
-    "space before and after",
-    messages.rejectedAfter()
+    messages.rejectedAfter(),
+    "space before and after"
   )
   tr.notOk(
     "a { color: pink  !important; }",
-    "two spaces before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "two spaces before"
   )
   tr.notOk(
     "a { color: pink!important; }",
-    "no space before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "no space before"
   )
   tr.notOk(
     "a { color: pink\n!important; }",
-    "newline before",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "newline before"
   )
 })
 
@@ -117,23 +117,23 @@ testDeclarationBangBefore({ before: "never", after: "always" }, tr => {
 
   tr.notOk(
     "a { color: pink ! important; }",
-    "space before and after",
-    messages.rejectedBefore()
+    messages.rejectedBefore(),
+    "space before and after"
   )
   tr.notOk(
     "a { color: pink!  important; }",
-    "two spaces after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "two spaces after"
   )
   tr.notOk(
     "a { color: pink!important; }",
-    "no space after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "no space after"
   )
   tr.notOk(
     "a { color: pink!\nimportant; }",
-    "newline before",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "newline before"
   )
 })
 
@@ -143,43 +143,43 @@ testDeclarationBangBefore({ before: "always", after: "always" }, tr => {
 
   tr.notOk(
     "a { color: pink! important; }",
-    "no space before and one after",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "no space before and one after"
   )
   tr.notOk(
     "a { color: pink  ! important; }",
-    "two spaces before and one after",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "two spaces before and one after"
   )
   tr.notOk(
     "a { color: pink! important; }",
-    "no space before and one after",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "no space before and one after"
   )
   tr.notOk(
     "a { color: pink\n! important; }",
-    "newline before and one after",
-    messages.expectedBefore()
+    messages.expectedBefore(),
+    "newline before and one after"
   )
   tr.notOk(
     "a { color: pink !important; }",
-    "one space before and none after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "one space before and none after"
   )
   tr.notOk(
     "a { color: pink !  important; }",
-    "one before and two after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "one before and two after"
   )
   tr.notOk(
     "a { color: pink !important; }",
-    "one space before and none after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "one space before and none after"
   )
   tr.notOk(
     "a { color: pink !\nimportant; }",
-    "one space before and newline after",
-    messages.expectedAfter()
+    messages.expectedAfter(),
+    "one space before and newline after"
   )
 })
 
@@ -189,22 +189,22 @@ testDeclarationBangBefore({ before: "never", after: "never" }, tr => {
 
   tr.notOk(
     "a { color: pink! important; }",
-    "no space before and one after",
-    messages.rejectedAfter()
+    messages.rejectedAfter(),
+    "no space before and one after"
   )
   tr.notOk(
     "a { color: pink !important; }",
-    "one space before and none after",
-    messages.rejectedBefore()
+    messages.rejectedBefore(),
+    "one space before and none after"
   )
   tr.notOk(
     "a { color: pink\n!important; }",
-    "newline before and no space after",
-    messages.rejectedBefore()
+    messages.rejectedBefore(),
+    "newline before and no space after"
   )
   tr.notOk(
     "a { color: pink!\nimportant; }",
-    "no space before and newline after",
-    messages.rejectedAfter()
+    messages.rejectedAfter(),
+    "no space before and newline after"
   )
 })

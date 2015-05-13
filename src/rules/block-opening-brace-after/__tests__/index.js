@@ -1,2 +1,0 @@
-import "./oneWhitespace"
-import "./differentWhitespaces"

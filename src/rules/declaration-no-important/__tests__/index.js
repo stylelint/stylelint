@@ -9,19 +9,19 @@ testDeclarationNoImportant(null, tr => {
 
   tr.notOk(
     "a { color: pink !important; }",
-    "with !important",
-    messages.rejected
+    messages.rejected,
+    "with !important"
   )
 
   tr.notOk(
     "a { color: pink ! important; }",
-    "with ! important",
-    messages.rejected
+    messages.rejected,
+    "with ! important"
   )
 
   tr.notOk(
     "a { color: pink!important; }",
-    "with value!important",
-    messages.rejected
+    messages.rejected,
+    "with value!important"
   )
 })
