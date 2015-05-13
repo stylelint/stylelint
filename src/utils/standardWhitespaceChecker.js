@@ -4,13 +4,24 @@
  *
  * @param {string} whitespace - The whitespace to look for
  * @param {object} whitespaceOptions - A set of options created by
- *   `standardWhitespaceOptions()`; so it will have `expectBefore`,
- *   `expectAfter`, `rejectBefore`, etc. properties.
- * @param {object} whitespaceMessages
- * @return {[type]}                    [description]
+ *   `standardWhitespaceOptions()`; so it will have properties
+ *   `expectBefore`, `expectAfter`, `rejectBefore`, etc.
+ * @param {object} whitespaceMessages - A set of messages passed through
+ *   `standardWhitespaceMessages()`; so it will have functions
+ *   `expectedBefore()`, `expectedAfter()`, `rejectedBefore()`, etc.
+ * @return {objects} The standardWhitespaceChecker with fun functions to use
  */
 export default function (whitespace, whitespaceOptions, whitespaceMessages) {
   return {
+
+    /**
+     * Check for whitespace *before* some position in a string.
+     *
+     * @param {string} source
+     * @param {number} index - The index of the character to look before
+     *   in `source`
+     * @param {function} cb - A callback that accepts a message
+     */
     before(source, index, cb) {
       if (whitespaceOptions.ignoreBefore) { return }
 
@@ -29,6 +40,14 @@ export default function (whitespace, whitespaceOptions, whitespaceMessages) {
       }
     },
 
+    /**
+     * Check for whitespace *after* some position in a string.
+     *
+     * @param {string} source
+     * @param {number} index - The index of the character to look after
+     *   in `source`
+     * @param {function} cb - A callback that accepts a message
+     */
     after(source, index, cb) {
       if (whitespaceOptions.ignoreAfter) { return }
 
