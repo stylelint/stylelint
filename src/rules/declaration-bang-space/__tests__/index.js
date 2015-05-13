@@ -3,6 +3,88 @@ import declarationBangBefore, { ruleName, messages } from ".."
 
 const testDeclarationBangBefore = ruleTester(declarationBangBefore, ruleName)
 
+testDeclarationBangBefore({ before: "always" }, tr => {
+  tr.ok("a { color: pink; }", "no !important")
+  tr.ok("a { color: pink !important; }", "space only before")
+  tr.ok("a { color: pink ! important; }", "space before and after")
+  tr.ok("a { color: pink !\nimportant; }", "space before and newline after")
+
+  tr.notOk(
+    "a { color: pink  !important; }",
+    "two spaces before",
+    messages.expectedBefore()
+  )
+  tr.notOk(
+    "a { color: pink!important; }",
+    "no space before",
+    messages.expectedBefore()
+  )
+  tr.notOk(
+    "a { color: pink\n!important; }",
+    "newline before",
+    messages.expectedBefore()
+  )
+})
+
+testDeclarationBangBefore({ before: "never" }, tr => {
+  tr.ok("a { color: pink; }", "no !important")
+  tr.ok("a { color: pink!important; }", "no spaces")
+  tr.ok("a { color: pink! important; }", "no space before and after")
+  tr.ok("a { color: pink!\nimportant; }", "no space before and newline after")
+
+  tr.notOk(
+    "a { color: pink !important; }",
+    "space before",
+    messages.rejectedBefore()
+  )
+  tr.notOk(
+    "a { color: pink\n!important; }",
+    "newline before",
+    messages.rejectedBefore()
+  )
+})
+
+testDeclarationBangBefore({ after: "always" }, tr => {
+  tr.ok("a { color: pink; }", "no !important")
+  tr.ok("a { color: pink! important; }", "space only after")
+  tr.ok("a { color: pink ! important; }", "space before and after")
+  tr.ok("a { color: pink\n! important; }", "newline before and space after")
+
+  tr.notOk(
+    "a { color: pink!important; }",
+    "no space after",
+    messages.expectedAfter()
+  )
+  tr.notOk(
+    "a { color: pink!  important; }",
+    "two spaces after",
+    messages.expectedAfter()
+  )
+  tr.notOk(
+    "a { color: pink!\nimportant; }",
+    "newline after",
+    messages.expectedAfter()
+  )
+})
+
+testDeclarationBangBefore({ after: "never" }, tr => {
+  tr.ok("a { color: pink; }", "no !important")
+  tr.ok("a { color: pink!important; }", "no space before or after")
+  tr.ok("a { color: pink !important; }", "space before and none after")
+  tr.ok("a { color: pink\n!important; }", "newline before and none after")
+
+  tr.notOk(
+    "a { color: pink! important; }",
+    "space after",
+    messages.rejectedAfter()
+  )
+  tr.notOk(
+    "a { color: pink!\nimportant; }",
+    "newline after",
+    messages.rejectedAfter()
+  )
+})
+
 testDeclarationBangBefore({ before: "always", after: "never" }, tr => {
   tr.ok("a { color: pink; }", "no !important")
   tr.ok("a { color: pink !important; }", "space only before")
