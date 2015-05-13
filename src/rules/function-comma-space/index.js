@@ -24,7 +24,7 @@ export default function (options) {
 
   return function (css, result) {
     css.eachDecl(function (decl) {
-      // Content might contain parentheses, cannot contain a function,
+      // Content might contain commas, cannot contain a function,
       // so ignore it
       if (decl.prop === "content") { return }
 
@@ -32,24 +32,28 @@ export default function (options) {
       let isInsideFunction = false
       for (let i = 0, l = value.length; i < l; i++) {
         const char = value[i]
+
         // If we not inside or starting a function, ignore
         if (!isInsideFunction && char !== "(") { continue }
+
         // Beginning of a function, so start inspecting any commas
         if (!isInsideFunction && char === "(") {
           isInsideFunction = true
           continue
         }
-        // End of a function, so stop inspecting fcommas
+
+        // End of a function, so stop inspecting commas
         if (isInsideFunction && char === ")") {
           isInsideFunction = false
           continue
         }
+
         if (isInsideFunction && char === ",") {
-          checkCombinator(i)
+          checkComma(i)
         }
       }
 
-      function checkCombinator(index) {
+      function checkComma(index) {
         spaceChecker.before(value, index, msg => {
           result.warn(msg, { node: decl })
         })

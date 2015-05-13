@@ -5,7 +5,7 @@ const testSelectorCombinatorSpace = ruleTester(selectorCombinatorSpace, ruleName
 
 testSelectorCombinatorSpace({ before: "always" }, tr => {
   tr.ok("a {}")
-  tr.ok("background-size: 0, 0, 0")
+  tr.ok("a { background-size: 0, 0, 0; }")
   tr.ok("a { transform: translate(1 , 1); }")
   tr.ok("a { transform: translate(1 ,1); }")
   tr.ok("a { transform: color(rgb(0 , 0 ,0) lightness(50%)); }")
@@ -19,7 +19,7 @@ testSelectorCombinatorSpace({ before: "always" }, tr => {
 
 testSelectorCombinatorSpace({ after: "always" }, tr => {
   tr.ok("a {}")
-  tr.ok("background-size: 0,0,0")
+  tr.ok("a { background-size: 0,0,0; }")
   tr.ok("a { transform: translate(1 , 1); }")
   tr.ok("a { transform: translate(1, 1); }")
   tr.ok("a { transform: color(rgb(0 , 0, 0) lightness(50%)); }")
@@ -33,7 +33,7 @@ testSelectorCombinatorSpace({ after: "always" }, tr => {
 
 testSelectorCombinatorSpace({ before: "never" }, tr => {
   tr.ok("a {}")
-  tr.ok("background-size: 0 , 0 , 0")
+  tr.ok("a { background-size: 0 , 0 , 0; }")
   tr.ok("a { transform: translate(1, 1); }")
   tr.ok("a { transform: translate(1,1); }")
   tr.ok("a { transform: color(rgb(0, 0,0) lightness(50%)); }")
@@ -48,7 +48,7 @@ testSelectorCombinatorSpace({ before: "never" }, tr => {
 
 testSelectorCombinatorSpace({ after: "never" }, tr => {
   tr.ok("a {}")
-  tr.ok("background-size: 0, 0, 0")
+  tr.ok("a { background-size: 0, 0, 0; }")
   tr.ok("a { transform: translate(1 ,1); }")
   tr.ok("a { transform: translate(1,1); }")
   tr.ok("a { transform: color(rgb(0 ,0,0) lightness(50%)); }")
@@ -62,7 +62,7 @@ testSelectorCombinatorSpace({ after: "never" }, tr => {
 
 testSelectorCombinatorSpace({ before: "always", after: "always" }, tr => {
   tr.ok("a {}")
-  tr.ok("background-size: 0,0,0")
+  tr.ok("a { background-size: 0,0,0; }")
   tr.ok("a { transform: translate(1 , 1); }")
   tr.ok("a { transform: color(rgb(0 , 0 , 0) lightness(50%)); }")
 
@@ -80,7 +80,7 @@ testSelectorCombinatorSpace({ before: "always", after: "always" }, tr => {
 
 testSelectorCombinatorSpace({ before: "always", after: "never" }, tr => {
   tr.ok("a {}")
-  tr.ok("background-size: 0 ,0 ,0")
+  tr.ok("a { background-size: 0 ,0 ,0; }")
   tr.ok("a { transform: translate(1 ,1); }")
   tr.ok("a { transform: color(rgb(0 ,0 ,0) lightness(50%)); }")
 
@@ -97,7 +97,7 @@ testSelectorCombinatorSpace({ before: "always", after: "never" }, tr => {
 
 testSelectorCombinatorSpace({ before: "never", after: "always" }, tr => {
   tr.ok("a {}")
-  tr.ok("background-size: 0 ,0 ,0")
+  tr.ok("a { background-size: 0 ,0 ,0; }")
   tr.ok("a { transform: translate(1, 1); }")
   tr.ok("a { transform: color(rgb(0, 0, 0) lightness(50%)); }")
 
@@ -115,7 +115,7 @@ testSelectorCombinatorSpace({ before: "never", after: "always" }, tr => {
 
 testSelectorCombinatorSpace({ before: "never", after: "never" }, tr => {
   tr.ok("a {}")
-  tr.ok("background-size: 0 , 0 , 0")
+  tr.ok("a { background-size: 0 , 0 , 0; }")
   tr.ok("a { transform: translate(1,1); }")
   tr.ok("a { transform: color(rgb(0,0,0) lightness(50%)); }")
 
