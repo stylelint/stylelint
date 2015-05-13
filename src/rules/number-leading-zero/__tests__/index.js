@@ -33,33 +33,33 @@ testNumberLeadingZero(true, tr => {
 
   tr.notOk(
     "a { line-height: .5; }",
-    "unitless fractional value without leading zero",
-    messages.expected
+    messages.expected,
+    "unitless fractional value without leading zero"
   )
   tr.notOk(
     "a { line-height: -.5; }",
-    "negative unitless fractional value without leading zero",
-    messages.expected
+    messages.expected,
+    "negative unitless fractional value without leading zero"
   )
   tr.notOk(
     "a { margin: .5px; }",
-    "fractional value with units without leading zero",
-    messages.expected
+    messages.expected,
+    "fractional value with units without leading zero"
   )
   tr.notOk(
     "a { margin: 1px .5px; }",
-    "fractional value without leading zero in the middle of a list",
-    messages.expected
+    messages.expected,
+    "fractional value without leading zero in the middle of a list"
   )
   tr.notOk(
     "a { transform: translate(.4px, 2px); }",
-    "fractional value without leading zero at the beginning  of a function",
-    messages.expected
+    messages.expected,
+    "fractional value without leading zero at the beginning  of a function"
   )
   tr.notOk(
     "a { transform: translate(2px, .4px); }",
-    "fractional value without leading zero in the middle of a function",
-    messages.expected
+    messages.expected,
+    "fractional value without leading zero in the middle of a function"
   )
 })
 
@@ -93,32 +93,32 @@ testNumberLeadingZero(false, tr => {
 
   tr.notOk(
     "a { line-height: 0.5; }",
-    "unitless fractional value with leading zero",
-    messages.rejected
+    messages.rejected,
+    "unitless fractional value with leading zero"
   )
   tr.notOk(
     "a { line-height: -0.5; }",
-    "negative unitless fractional value with leading zero",
-    messages.rejected
+    messages.rejected,
+    "negative unitless fractional value with leading zero"
   )
   tr.notOk(
     "a { margin: 0.5px; }",
-    "fractional value with units with leading zero",
-    messages.rejected
+    messages.rejected,
+    "fractional value with units with leading zero"
   )
   tr.notOk(
     "a { margin: 1px 0.5px; }",
-    "fractional value with leading zero in the middle of a list",
-    messages.rejected
+    messages.rejected,
+    "fractional value with leading zero in the middle of a list"
   )
   tr.notOk(
     "a { transform: translate(0.4px, 2px); }",
-    "fractional value with leading zero at the beginning  of a function",
-    messages.rejected
+    messages.rejected,
+    "fractional value with leading zero at the beginning  of a function"
   )
   tr.notOk(
     "a { transform: translate(2px, 0.8px); }",
-    "fractional value with leading zero in the middle of a function",
-    messages.rejected
+    messages.rejected,
+    "fractional value with leading zero in the middle of a function"
   )
 })

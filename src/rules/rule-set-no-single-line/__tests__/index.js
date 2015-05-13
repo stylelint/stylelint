@@ -19,13 +19,13 @@ testRuleSetNoSingleLine(true, tr => {
 
   tr.notOk(
     "a { color: pink; }",
-    "single-line rule set",
-    messages.rejected
+    messages.rejected,
+    "single-line rule set"
   )
   tr.notOk(
     "@media print {\na { color: pink; }}",
-    "single-line rule set within multi-line at-rule",
-    messages.rejected
+    messages.rejected,
+    "single-line rule set within multi-line at-rule"
   )
 })
 

@@ -8,8 +8,8 @@ testDeclarationNoImportant(true, tr => {
 
   tr.notOk(
     "a { color: pink !important; }",
-    "declaration with !important",
-    messages.unexpected
+    messages.unexpected,
+    "declaration with !important"
   )
 })
 

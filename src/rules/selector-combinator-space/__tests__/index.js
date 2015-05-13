@@ -19,38 +19,38 @@ testSelectorCombinatorSpace({ before: "always" }, tr => {
 
   tr.notOk(
     "a  +a {}",
-    "two spaces before + combinator",
-    messages.expectedBefore("+")
+    messages.expectedBefore("+"),
+    "two spaces before + combinator"
   )
   tr.notOk(
     "a\n+ a {}",
-    "newline before + combinator",
-    messages.expectedBefore("+")
+    messages.expectedBefore("+"),
+    "newline before + combinator"
   )
   tr.notOk(
     "a+a {}",
-    "no space before + combinator",
-    messages.expectedBefore("+")
+    messages.expectedBefore("+"),
+    "no space before + combinator"
   )
   tr.notOk(
     "a>a {}",
-    "no space before > combinator",
-    messages.expectedBefore(">")
+    messages.expectedBefore(">"),
+    "no space before > combinator"
   )
   tr.notOk(
     "a~a {}",
-    "no space before ~ combinator",
-    messages.expectedBefore("~")
+    messages.expectedBefore("~"),
+    "no space before ~ combinator"
   )
   tr.notOk(
     "a + .foo.bar~ a {}",
-    "multiple combinators: no space before ~ combinator",
-    messages.expectedBefore("~")
+    messages.expectedBefore("~"),
+    "multiple combinators: no space before ~ combinator"
   )
   tr.notOk(
     "#foo+ .foo.bar ~ a {}",
-    "multiple combinators: no space before + combinator",
-    messages.expectedBefore("+")
+    messages.expectedBefore("+"),
+    "multiple combinators: no space before + combinator"
   )
 })
 
@@ -69,43 +69,43 @@ testSelectorCombinatorSpace({ before: "never" }, tr => {
 
   tr.notOk(
     "a +a {}",
-    "space before + combinator",
-    messages.rejectedBefore("+")
+    messages.rejectedBefore("+"),
+    "space before + combinator"
   )
   tr.notOk(
     "a >a {}",
-    "space before > combinator",
-    messages.rejectedBefore(">")
+    messages.rejectedBefore(">"),
+    "space before > combinator"
   )
   tr.notOk(
     "a ~a {}",
-    "space before ~ combinator",
-    messages.rejectedBefore("~")
+    messages.rejectedBefore("~"),
+    "space before ~ combinator"
   )
   tr.notOk(
     "a\n+a {}",
-    "newline before + combinator",
-    messages.rejectedBefore("+")
+    messages.rejectedBefore("+"),
+    "newline before + combinator"
   )
   tr.notOk(
     "a\n>a {}",
-    "newline before > combinator",
-    messages.rejectedBefore(">")
+    messages.rejectedBefore(">"),
+    "newline before > combinator"
   )
   tr.notOk(
     "a\n~a {}",
-    "newline before ~ combinator",
-    messages.rejectedBefore("~")
+    messages.rejectedBefore("~"),
+    "newline before ~ combinator"
   )
   tr.notOk(
     "a + .foo.bar~ a {}",
-    "multiple combinators: space before + combinator",
-    messages.rejectedBefore("+")
+    messages.rejectedBefore("+"),
+    "multiple combinators: space before + combinator"
   )
   tr.notOk(
     "#foo+ .foo.bar ~ a {}",
-    "multiple combinators: no space before ~ combinator",
-    messages.rejectedBefore("~")
+    messages.rejectedBefore("~"),
+    "multiple combinators: no space before ~ combinator"
   )
 })
 
@@ -125,38 +125,38 @@ testSelectorCombinatorSpace({ after: "always" }, tr => {
 
   tr.notOk(
     "a+  a {}",
-    "two spaces after + combinator",
-    messages.expectedAfter("+")
+    messages.expectedAfter("+"),
+    "two spaces after + combinator"
   )
   tr.notOk(
     "a+\na {}",
-    "newline after + combinator",
-    messages.expectedAfter("+")
+    messages.expectedAfter("+"),
+    "newline after + combinator"
   )
   tr.notOk(
     "a+a {}",
-    "no space after + combinator",
-    messages.expectedAfter("+")
+    messages.expectedAfter("+"),
+    "no space after + combinator"
   )
   tr.notOk(
     "a>a {}",
-    "no space after > combinator",
-    messages.expectedAfter(">")
+    messages.expectedAfter(">"),
+    "no space after > combinator"
   )
   tr.notOk(
     "a~a {}",
-    "no space after ~ combinator",
-    messages.expectedAfter("~")
+    messages.expectedAfter("~"),
+    "no space after ~ combinator"
   )
   tr.notOk(
     "a + .foo.bar ~a {}",
-    "multiple combinators: no space after ~ combinator",
-    messages.expectedAfter("~")
+    messages.expectedAfter("~"),
+    "multiple combinators: no space after ~ combinator"
   )
   tr.notOk(
     "#foo +.foo.bar ~ a {}",
-    "multiple combinators: no space after + combinator",
-    messages.expectedAfter("+")
+    messages.expectedAfter("+"),
+    "multiple combinators: no space after + combinator"
   )
 })
 
@@ -175,43 +175,43 @@ testSelectorCombinatorSpace({ after: "never" }, tr => {
 
   tr.notOk(
     "a+ a {}",
-    "space after + combinator",
-    messages.rejectedAfter("+")
+    messages.rejectedAfter("+"),
+    "space after + combinator"
   )
   tr.notOk(
     "a> a {}",
-    "space after > combinator",
-    messages.rejectedAfter(">")
+    messages.rejectedAfter(">"),
+    "space after > combinator"
   )
   tr.notOk(
     "a~ a {}",
-    "space after ~ combinator",
-    messages.rejectedAfter("~")
+    messages.rejectedAfter("~"),
+    "space after ~ combinator"
   )
   tr.notOk(
     "a+\na{}",
-    "newline after + combinator",
-    messages.rejectedAfter("+")
+    messages.rejectedAfter("+"),
+    "newline after + combinator"
   )
   tr.notOk(
     "a>\na{}",
-    "newline after > combinator",
-    messages.rejectedAfter(">")
+    messages.rejectedAfter(">"),
+    "newline after > combinator"
   )
   tr.notOk(
     "a~\na{}",
-    "newline after ~ combinator",
-    messages.rejectedAfter("~")
+    messages.rejectedAfter("~"),
+    "newline after ~ combinator"
   )
   tr.notOk(
     "a + .foo.bar ~a {}",
-    "multiple combinators: space after + combinator",
-    messages.rejectedAfter("+")
+    messages.rejectedAfter("+"),
+    "multiple combinators: space after + combinator"
   )
   tr.notOk(
     "#foo +.foo.bar ~ a {}",
-    "multiple combinators: no space after ~ combinator",
-    messages.rejectedAfter("~")
+    messages.rejectedAfter("~"),
+    "multiple combinators: no space after ~ combinator"
   )
 })
 
@@ -224,63 +224,63 @@ testSelectorCombinatorSpace({ before: "always", after: "always" }, tr => {
 
   tr.notOk(
     "a  + a {}",
-    "two spaces before and one space after + combinator",
-    messages.expectedBefore("+")
+    messages.expectedBefore("+"),
+    "two spaces before and one space after + combinator"
   )
   tr.notOk(
     "a +  a {}",
-    "one space before and two spaces after + combinator",
-    messages.expectedAfter("+")
+    messages.expectedAfter("+"),
+    "one space before and two spaces after + combinator"
   )
   tr.notOk(
     "a\n + a {}",
-    "newline and space before and one space after + combinator",
-    messages.expectedBefore("+")
+    messages.expectedBefore("+"),
+    "newline and space before and one space after + combinator"
   )
   tr.notOk(
     "a + \na {}",
-    "one space before and newline and space after + combinator",
-    messages.expectedAfter("+")
+    messages.expectedAfter("+"),
+    "one space before and newline and space after + combinator"
   )
   tr.notOk(
     "a+ a {}",
-    "no space before but space after + combinator",
-    messages.expectedBefore("+")
+    messages.expectedBefore("+"),
+    "no space before but space after + combinator"
   )
   tr.notOk(
     "a> a {}",
-    "no space before but space after > combinator",
-    messages.expectedBefore(">")
+    messages.expectedBefore(">"),
+    "no space before but space after > combinator"
   )
   tr.notOk(
     "a~ a {}",
-    "no space before but space after ~ combinator",
-    messages.expectedBefore("~")
+    messages.expectedBefore("~"),
+    "no space before but space after ~ combinator"
   )
   tr.notOk(
     "a +a {}",
-    "space before but no space after + combinator",
-    messages.expectedAfter("+")
+    messages.expectedAfter("+"),
+    "space before but no space after + combinator"
   )
   tr.notOk(
     "a >a {}",
-    "space before but no space after > combinator",
-    messages.expectedAfter(">")
+    messages.expectedAfter(">"),
+    "space before but no space after > combinator"
   )
   tr.notOk(
     "a ~a {}",
-    "space before but no space after ~ combinator",
-    messages.expectedAfter("~")
+    messages.expectedAfter("~"),
+    "space before but no space after ~ combinator"
   )
   tr.notOk(
     "a + .foo.bar ~a {}",
-    "multiple combinators: space before but no space after ~ combinator",
-    messages.expectedAfter("~")
+    messages.expectedAfter("~"),
+    "multiple combinators: space before but no space after ~ combinator"
   )
   tr.notOk(
     "#foo+ .foo.bar ~ a {}",
-    "multiple combinators: no space before but space after + combinator",
-    messages.expectedBefore("+")
+    messages.expectedBefore("+"),
+    "multiple combinators: no space before but space after + combinator"
   )
 })
 
@@ -292,33 +292,33 @@ testSelectorCombinatorSpace({ before: "always", after: "never" }, tr => {
 
   tr.notOk(
     "a + a {}",
-    "space before and after + combinator",
-    messages.rejectedAfter("+")
+    messages.rejectedAfter("+"),
+    "space before and after + combinator"
   )
   tr.notOk(
     "a > a {}",
-    "space before and after > combinator",
-    messages.rejectedAfter(">")
+    messages.rejectedAfter(">"),
+    "space before and after > combinator"
   )
   tr.notOk(
     "a ~ a {}",
-    "space before and after ~ combinator",
-    messages.rejectedAfter("~")
+    messages.rejectedAfter("~"),
+    "space before and after ~ combinator"
   )
   tr.notOk(
     "a+a {}",
-    "no space before or after + combinator",
-    messages.expectedBefore("+")
+    messages.expectedBefore("+"),
+    "no space before or after + combinator"
   )
   tr.notOk(
     "a>a {}",
-    "no space before or after > combinator",
-    messages.expectedBefore(">")
+    messages.expectedBefore(">"),
+    "no space before or after > combinator"
   )
   tr.notOk(
     "a~a {}",
-    "no space before or after ~ combinator",
-    messages.expectedBefore("~")
+    messages.expectedBefore("~"),
+    "no space before or after ~ combinator"
   )
 })
 
@@ -330,33 +330,33 @@ testSelectorCombinatorSpace({ before: "never", after: "always" }, tr => {
 
   tr.notOk(
     "a + a {}",
-    "space before and after + combinator",
-    messages.rejectedBefore("+")
+    messages.rejectedBefore("+"),
+    "space before and after + combinator"
   )
   tr.notOk(
     "a > a {}",
-    "space before and after > combinator",
-    messages.rejectedBefore(">")
+    messages.rejectedBefore(">"),
+    "space before and after > combinator"
   )
   tr.notOk(
     "a ~ a {}",
-    "space before and after ~ combinator",
-    messages.rejectedBefore("~")
+    messages.rejectedBefore("~"),
+    "space before and after ~ combinator"
   )
   tr.notOk(
     "a+a {}",
-    "no space before or after + combinator",
-    messages.expectedAfter("+")
+    messages.expectedAfter("+"),
+    "no space before or after + combinator"
   )
   tr.notOk(
     "a>a {}",
-    "no space before or after > combinator",
-    messages.expectedAfter(">")
+    messages.expectedAfter(">"),
+    "no space before or after > combinator"
   )
   tr.notOk(
     "a~a {}",
-    "no space before or after ~ combinator",
-    messages.expectedAfter("~")
+    messages.expectedAfter("~"),
+    "no space before or after ~ combinator"
   )
 })
 
@@ -368,32 +368,32 @@ testSelectorCombinatorSpace({ before: "never", after: "never" }, tr => {
 
   tr.notOk(
     "a+ a {}",
-    "no space before but space after + combinator",
-    messages.rejectedAfter("+")
+    messages.rejectedAfter("+"),
+    "no space before but space after + combinator"
   )
   tr.notOk(
     "a> a {}",
-    "no space before but space after > combinator",
-    messages.rejectedAfter(">")
+    messages.rejectedAfter(">"),
+    "no space before but space after > combinator"
   )
   tr.notOk(
     "a~ a {}",
-    "no space before but space after ~ combinator",
-    messages.rejectedAfter("~")
+    messages.rejectedAfter("~"),
+    "no space before but space after ~ combinator"
   )
   tr.notOk(
     "a +a {}",
-    "space before but no space after + combinator",
-    messages.rejectedBefore("+")
+    messages.rejectedBefore("+"),
+    "space before but no space after + combinator"
   )
   tr.notOk(
     "a >a {}",
-    "space before but no space after > combinator",
-    messages.rejectedBefore(">")
+    messages.rejectedBefore(">"),
+    "space before but no space after > combinator"
   )
   tr.notOk(
     "a ~a {}",
-    "space before but no space after ~ combinator",
-    messages.rejectedBefore("~")
+    messages.rejectedBefore("~"),
+    "space before but no space after ~ combinator"
   )
 })
