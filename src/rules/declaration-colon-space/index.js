@@ -1,67 +1,43 @@
-import charNeighbor from "../../utils/charNeighbor"
+import {
+  standardWhitespaceOptions,
+  standardWhitespaceChecker,
+  standardWhitespaceMessages
+} from "../../utils"
 
 export const ruleName = "declaration-colon-space"
-export const messages = {
-  expected: (k, v) => (
-    `Expected there ${v} to be a space ` +
-    `${k} a declaration colon (${ruleName})`
-  ),
-}
 
-const keyCharOffsetMap = {
-  before: -1,
-  after: 1,
-}
-
-const valueKeywordMap = {
-  always: " ",
-  never: "",
-}
+export const messages = standardWhitespaceMessages(ruleName, {
+  expectedBefore: () => `Expected single space before ":"`,
+  rejectedBefore: () => `Expected no space before ":"`,
+  expectedAfter: () => `Expected single space after ":"`,
+  rejectedAfter: () => `Expected no space after ":"`,
+})
 
 /**
- * @param {object} options {
- *   "before": "always"|"never",
- *   "after": "always|never"
- * }
+ * @param {object} options
+ * @param {"always"|"never"} [options.before]
+ * @param {"always"|"never"} [options.after]
  */
 export default function (options) {
   return function (css, result) {
 
+    if (!options) { return }
+
+    const spaceOptions = standardWhitespaceOptions(options)
+    const spaceChecker = standardWhitespaceChecker(" ", spaceOptions, messages)
+
     css.eachDecl(function (decl) {
 
-      if (!options) { return }
-
       const between = decl.between
+      const charIndex = between.indexOf(":")
 
-      for (let key in options) {
-        checkPosition(key)
-      }
+      spaceChecker.before(between, charIndex, msg => {
+        result.warn(msg, { node: decl })
+      })
 
-      function checkPosition(position) {
-
-        // There should not be whitespace two characters before/after the `:`
-        if (/\s/.test(charNeighbor(between, ":", 2 * keyCharOffsetMap[position]))) {
-          warn(position, options[position])
-          return
-        }
-
-        let expectedChar = valueKeywordMap[options[position]]
-
-        let actualChar = charNeighbor(between, ":", keyCharOffsetMap[position])
-
-        actualChar = (actualChar === undefined) ? "" : actualChar
-
-        if (actualChar !== expectedChar) {
-          warn(position, options[position])
-        }
-      }
-
-      function warn(key, value) {
-        result.warn(
-          messages.expected(key, value),
-          { node: decl }
-        )
-      }
+      spaceChecker.after(between, charIndex, msg => {
+        result.warn(msg, { node: decl })
+      })
     })
   }
 }

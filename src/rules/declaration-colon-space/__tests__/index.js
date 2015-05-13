@@ -3,146 +3,225 @@ import declarationColonSpace, { ruleName, messages } from ".."
 
 const testDeclarationColonSpace = ruleTester(declarationColonSpace, ruleName)
 
-const beforeAlwaysMsg = messages.expected("before", "always")
-const beforeNeverMsg = messages.expected("before", "never")
-
-const afterAlwaysMsg = messages.expected("after", "always")
-const afterNeverMsg = messages.expected("after", "never")
-
 testDeclarationColonSpace({ "before": "always" }, tr => {
-  tr.ok(
-    "a { color : pink; }",
-    "single space before declaration's colon"
-  )
+  tr.ok("a { color :pink }", "space only before")
+  tr.ok("a { color : pink }", "space before and after")
+  tr.ok("a { color :\npink }", "space before and newline after")
+
   tr.notOk(
     "a { color: pink; }",
-    "nothing before declaration's colon",
-    beforeAlwaysMsg
+    "no space before",
+    messages.expectedBefore()
   )
   tr.notOk(
-    "a { color   : pink; }",
-    "multiple spaces before declaration's colon",
-    beforeAlwaysMsg
+    "a { color  : pink; }",
+    "two spaces before",
+    messages.expectedBefore()
   )
   tr.notOk(
     "a { color\t: pink; }",
-    "tab before declaration's colon",
-    beforeAlwaysMsg
+    "tab before",
+    messages.expectedBefore()
   )
   tr.notOk(
     "a { color\n: pink; }",
-    "newline before declaration's colon",
-    beforeAlwaysMsg
+    "newline before",
+    messages.expectedBefore()
   )
 })
 
 testDeclarationColonSpace({ "before": "never" }, tr => {
-  tr.ok(
-    "a { color: pink; }",
-    "nothing before declaration's colon"
-  )
+  tr.ok("a { color:pink }", "no space before and after")
+  tr.ok("a { color: pink }", "no space before and space after")
+  tr.ok("a { color:\npink }", "no space before and newline after")
+
   tr.notOk(
     "a { color : pink; }",
-    "single space before declaration's colon",
-    beforeNeverMsg
+    "space before",
+    messages.rejectedBefore()
   )
   tr.notOk(
     "a { color  : pink; }",
-    "multiple spaces before declaration's colon",
-    beforeNeverMsg
+    "two spaces before",
+    messages.rejectedBefore()
   )
   tr.notOk(
     "a { color\t: pink; }",
-    "tab before declaration's colon",
-    beforeNeverMsg
+    "tab before",
+    messages.rejectedBefore()
   )
-
   tr.notOk(
     "a { color\n: pink; }",
-    "newline before declaration's colon",
-    beforeNeverMsg
+    "newline before",
+    messages.rejectedBefore()
   )
 })
 
 testDeclarationColonSpace({ "after": "always" }, tr => {
-  tr.ok(
-    "a { color: pink; }",
-    "single space after declaration's colon"
+  tr.ok("a { color: pink }", "space only after")
+  tr.ok("a { color : pink }", "space before and after")
+  tr.ok("a { color\n: pink }", "newline before and space after")
+
+  tr.notOk(
+    "a { color :pink; }",
+    "no space after",
+    messages.expectedAfter()
   )
   tr.notOk(
-    "a { color:pink; }",
-    "nothing after declaration's colon",
-    afterAlwaysMsg
+    "a { color :  pink; }",
+    "two spaces after",
+    messages.expectedAfter()
   )
   tr.notOk(
-    "a { color:    pink; }",
-    "multiple spaces after declaration's colon",
-    afterAlwaysMsg
+    "a { color :\tpink; }",
+    "tab after",
+    messages.expectedAfter()
   )
   tr.notOk(
-    "a { color:\tpink; }",
-    "tab after declaration's colon",
-    afterAlwaysMsg
-  )
-  tr.notOk(
-    "a { color:\npink; }",
-    "newline after declaration's colon",
-    afterAlwaysMsg
+    "a { color :\npink; }",
+    "newline after",
+    messages.expectedAfter()
   )
 })
 
 testDeclarationColonSpace({ "after": "never" }, tr => {
-  tr.ok(
-    "a { color:pink; }",
-    "nothing after declaration's colon"
-  )
-  tr.notOk(
-    "a { color: pink; }",
-    "single space after declaration's colon",
-    afterNeverMsg
-  )
-  tr.notOk(
-    "a { color:    pink; }",
-    "multiple spaces after declaration's colon",
-    afterNeverMsg
-  )
-  tr.notOk(
-    "a { color:\tpink; }",
-    "tab after declaration's colon",
-    afterNeverMsg
-  )
+  tr.ok("a { color:pink }", "no space before and after")
+  tr.ok("a { color :pink }", "space before and no space after")
+  tr.ok("a { color\n:pink }", "newline before and no space after")
 
   tr.notOk(
-    "a { color:\npink; }",
-    "newline after declaration's colon",
-    afterNeverMsg
-  )
-})
-
-testDeclarationColonSpace({ "before": "always", "after": "always" }, tr => {
-  tr.ok(
     "a { color : pink; }",
-    "single space before and after declaration's colon"
+    "space after",
+    messages.rejectedAfter()
+  )
+  tr.notOk(
+    "a { color:  pink; }",
+    "two spaces after",
+    messages.rejectedAfter()
+  )
+  tr.notOk(
+    "a { color :\tpink; }",
+    "tab after",
+    messages.rejectedAfter()
+  )
+  tr.notOk(
+    "a { color :\npink; }",
+    "newline after",
+    messages.rejectedAfter()
   )
 })
 
 testDeclarationColonSpace({ "before": "always", "after": "never" }, tr => {
-  tr.ok(
-    "a { color :pink; }",
-    "single space before, but not after declaration's colon"
+  tr.ok("a { color :pink; }", "space before and none after")
+
+  tr.notOk(
+    "a { color : pink }",
+    "space before and after",
+    messages.rejectedAfter()
+  )
+  tr.notOk(
+    "a { color  :pink; }",
+    "two spaces before",
+    messages.expectedBefore()
+  )
+  tr.notOk(
+    "a { color:pink; }",
+    "no space before",
+    messages.expectedBefore()
+  )
+  tr.notOk(
+    "a { color\n:pink; }",
+    "newline before",
+    messages.expectedBefore()
   )
 })
 
-testDeclarationColonSpace({ "before": "never", "after": "always" }, tr => {
-  tr.ok(
+testDeclarationColonSpace({ before: "never", after: "always" }, tr => {
+  tr.ok("a { color: pink }", "space only after")
+
+  tr.notOk(
+    "a { color : pink; }",
+    "space before and after",
+    messages.rejectedBefore()
+  )
+  tr.notOk(
+    "a { color:  pink!; }",
+    "two spaces after",
+    messages.expectedAfter()
+  )
+  tr.notOk(
+    "a { color:pink; }",
+    "no space after",
+    messages.expectedAfter()
+  )
+  tr.notOk(
+    "a { color:\npink; }",
+    "newline after",
+    messages.expectedAfter()
+  )
+})
+
+testDeclarationColonSpace({ "before": "always", "after": "always" }, tr => {
+  tr.ok("a { color : pink }", "space before and after")
+
+  tr.notOk(
     "a { color: pink; }",
-    "single space after, but not before declaration's colon"
+    "no space before and one after",
+    messages.expectedBefore()
+  )
+  tr.notOk(
+    "a { color  : pink; }",
+    "two spaces before and one after",
+    messages.expectedBefore()
+  )
+  tr.notOk(
+    "a { color\n: pink; }",
+    "newline before and space after",
+    messages.expectedBefore()
+  )
+  tr.notOk(
+    "a { color :pink}",
+    "one space before and none after",
+    messages.expectedAfter()
+  )
+  tr.notOk(
+    "a { color :  pink }",
+    "one before and two after",
+    messages.expectedAfter()
+  )
+  tr.notOk(
+    "a { color :pink }",
+    "one space before and none after",
+    messages.expectedAfter()
+  )
+  tr.notOk(
+    "a { color :\npink }",
+    "one space before and newline after",
+    messages.expectedAfter()
   )
 })
 
 testDeclarationColonSpace({ "before": "never", "after": "never" }, tr => {
-  tr.ok(
-    "a { color:pink; }",
-    "no space before or after declaration's colon"
+  tr.ok("a { color:pink; }", "no spaces before or after")
+
+  tr.notOk(
+    "a { color: pink; }",
+    "no space before and one after",
+    messages.rejectedAfter()
+  )
+  tr.notOk(
+    "a { color :pink; }",
+    "one space before and none after",
+    messages.rejectedBefore()
+  )
+  tr.notOk(
+    "a { color\n:pink; }",
+    "newline before and no space after",
+    messages.rejectedBefore()
+  )
+  tr.notOk(
+    "a { color:\npink; }",
+    "no space before and newline after",
+    messages.rejectedAfter()
   )
 })
