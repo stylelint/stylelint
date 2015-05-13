@@ -8,9 +8,9 @@ export const ruleName = "declaration-colon-space"
 
 export const messages = standardWhitespaceMessages(ruleName, {
   expectedBefore: () => `Expected single space before ":"`,
-  rejectedBefore: () => `Expected no space before ":"`,
+  rejectedBefore: () => `Unexpected space before ":"`,
   expectedAfter: () => `Expected single space after ":"`,
-  rejectedAfter: () => `Expected no space after ":"`,
+  rejectedAfter: () => `Unexpected space after ":"`,
 })
 
 /**

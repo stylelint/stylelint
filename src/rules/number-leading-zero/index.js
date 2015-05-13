@@ -1,7 +1,7 @@
 export const ruleName = "number leading zero"
 export const messages = {
-  expected: `Fractional values less than 1 should have a leading zero (${ruleName})`,
-  rejected: `Fractional values less than 1 should not have a leading zero (${ruleName})`,
+  expected: `Expected a leading zero for fractional value less than 1(${ruleName})`,
+  rejected: `Unexpected leading zero for fractional value less than 1(${ruleName})`,
 }
 
 /**

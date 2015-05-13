@@ -2,7 +2,7 @@ export const ruleName = "declaration-block-trailing-semicolon"
 
 export const messages = {
   expected: `Expected a trailing semicolon (${ruleName})`,
-  rejected: `Expected no trailing semicolon (${ruleName})`,
+  rejected: `Unexpected trailing semicolon (${ruleName})`,
 }
 
 /**
