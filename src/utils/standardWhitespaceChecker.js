@@ -14,17 +14,17 @@ export default function (whitespace, whitespaceOptions, whitespaceMessages) {
     before(source, index, cb) {
       if (whitespaceOptions.ignoreBefore) { return }
 
-      const spaceBefore = source[index - 1] === whitespace
-
       if (whitespaceOptions.expectBefore) {
         // Check for the space 1 character before and no additional
         // whitespace 2 characters before
-        if (spaceBefore && !/\s/.test(source[index - 2])) { return }
+        if (source[index - 1] === whitespace
+          && !/\s/.test(source[index - 2])) { return }
         cb(whitespaceMessages.expectedBefore(source[index]))
       }
 
       if (whitespaceOptions.rejectBefore) {
-        if (!spaceBefore) { return }
+        // Check that there's no whitespace at all before
+        if (!/\s/.test(source[index - 1])) { return }
         cb(whitespaceMessages.rejectedBefore(source[index]))
       }
     },
@@ -32,17 +32,17 @@ export default function (whitespace, whitespaceOptions, whitespaceMessages) {
     after(source, index, cb) {
       if (whitespaceOptions.ignoreAfter) { return }
 
-      const isSpace = source[index + 1] === whitespace
-
       if (whitespaceOptions.expectAfter) {
         // Check for the space 1 character after and no additional
         // whitespace 2 characters after
-        if (isSpace && !/\s/.test(source[index + 2])) { return }
+        if (source[index + 1] === whitespace
+          && !/\s/.test(source[index + 2])) { return }
         cb(whitespaceMessages.expectedAfter(source[index]))
       }
 
       if (whitespaceOptions.rejectAfter) {
-        if (!isSpace) { return }
+        // Check that there's no whitespace at all ater
+        if (!/\s/.test(source[index + 1])) { return }
         cb(whitespaceMessages.rejectedAfter(source[index]))
       }
     },
