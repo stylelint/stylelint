@@ -1,31 +1,23 @@
 # declaration-no-important
 
-Disallow the use of `!important` within declarations.
+Disallow `!important` within declarations.
 
 The following patterns are considered warnings:
 
 ```css
-body {
-  background: pink !important;
-}
+a { color: pink !important; }
 ```
 
 ```css
-body {
-  background: pink ! important;
-}
+a { color: pink ! important; }
 ```
 
 ```css
-body {
-  background: pink!important;
-}
+a { color: pink!important; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-body {
-  background: pink;
-}
+a { color: pink; }
 ```
