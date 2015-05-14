@@ -2,10 +2,10 @@
 
 * Rules are standalone.
 * Rules are unopinionated:
-  * All rules are turn off by default.
+  * All rules are turned off by default.
   * All rules do *not* have default values for options.
 
-## Naming rules
+## Rule names
 
 Rules are:
 
@@ -60,7 +60,7 @@ For example, specifying the maximum number of digits after the "." in a number
 
 If the rule is *specifying what space must be* around something then use `*-space` and use `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` and `range-operator` to identify that something.
 
-For example, what space must be before a coma and after the operator in a function:
+For example, specifying what space must be before a comma and after the operator in a function:
 
 * `function-coma-space`: `object` - `{ before: "always"|"never", after: "always"|"never" }`
 
@@ -78,7 +78,7 @@ Take the form of:
 Each rule must be accompanied by tests that contain:
 
 * All patterns that are considered warnings.
-* At least one pattern that should *not* be considered a warning.
+* All patterns that should *not* be considered warnings.
 
 ## README.md
 
@@ -89,5 +89,5 @@ Each rule must be accompanied by a README.md, which takes the form of:
 3. Code example (if necessary).
 4. Expanded description (if necessary).
 5. Options (if applicable).
-6. Example patterns that are considered warning (for each option value).
-7. Example patterns that are *not* considered warning (for each option value).
+6. Example patterns that are considered warnings (for each option value).
+7. Example patterns that are *not* considered warnings (for each option value).
