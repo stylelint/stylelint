@@ -2,9 +2,17 @@
 
 Require or disallow a space before and/or after the combinator of selectors.
 
+```css
+    a > b + c ~ d e { color: pink; }
+/**   ↑   ↑   ↑  ↑ 
+ * These are combinators */
+```
+
+Combinators are used to combine several different selectors into new and more specific ones. There are several types of combinators, including: child (`>`), adjacent sibling (`+`), general sibling (`~`), and descendant (which is represented by a blank space between two selectors). The descendent combinator is *not* applicable to this rule.
+
 ## Options
 
-* `object`: `{ before: "always"|"never", after: "always"|"never" }`
+`object`: `{ before: "always"|"never", after: "always"|"never" }`
 
 ### `{ before: "always" }`
 

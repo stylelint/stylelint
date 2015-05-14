@@ -2,9 +2,15 @@
 
 Require or disallow a space before and/or after the colon within declarations.
 
+```css
+    a { color: pink; }
+/**          ↑
+ * The space around this colon */
+```
+
 ## Options
 
-* `object`: `{ before: "always"|"never", after: "always"|"never" }`
+`object`: `{ before: "always"|"never", after: "always"|"never" }`
 
 ### `{ before: "always" }`
 

@@ -2,9 +2,15 @@
 
 Require or disallow a leading zero for fractional value less than 1.
 
+```css
+    a { line-height: 0.5; }
+/**                  ↑
+ *   This leading zero */
+```
+
 ## Options
 
-* `string`: `"always"|"never"`
+`string`: `"always"|"never"`
 
 ### `"always"`
 

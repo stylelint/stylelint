@@ -2,9 +2,15 @@
 
 Require or disallow a space before and/or after the bang within declarations.
 
+```css
+    a { color: pink !important; }
+/**                 ↑
+ * The space around this exclamation mark */
+```
+
 ## Options
 
-* `object`: `{ before: "always"|"never", after: "always"|"never" }`
+`object`: `{ before: "always"|"never", after: "always"|"never" }`
 
 ### `{ before: "always" }`
 

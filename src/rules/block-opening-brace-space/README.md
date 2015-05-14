@@ -2,9 +2,15 @@
 
 Require or disallow a space before and/or after the opening brace of a block.
 
+```css
+    a { color: pink; }
+/**   ↑  
+ * The space around this brace */
+```
+
 ## Options
 
-* `object`: `{ before: "always"|"never", after: "always"|"never" }`
+`object`: `{ before: "always"|"never", after: "always"|"never" }`
 
 ### `{ before: "always" }`
 

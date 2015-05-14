@@ -2,9 +2,17 @@
 
 Require or disallow a trailing semicolon with a declaration block.
 
+```css
+    a { background: orange; color: pink; }
+/**                                    ↑
+ *                        This semicolon */
+```
+
+The trailing semicolon is the *last* semicolon in a declaration block and it is optional.
+
 ## Options
 
-* `string`: `"always"|"never"`
+`string`: `"always"|"never"`
 
 ### `"always"`
 
