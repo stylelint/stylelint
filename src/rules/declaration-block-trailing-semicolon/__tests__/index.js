@@ -3,7 +3,7 @@ import declarationBlockTrailingSemicolon, { ruleName, messages } from ".."
 
 const testDeclarationBlockTrailingSemicolon = ruleTester(declarationBlockTrailingSemicolon, ruleName)
 
-testDeclarationBlockTrailingSemicolon(true, tr => {
+testDeclarationBlockTrailingSemicolon("always", tr => {
   tr.ok(
     "a { color: pink; }",
     "single-line declaration block with trailing semicolon"
@@ -25,7 +25,7 @@ testDeclarationBlockTrailingSemicolon(true, tr => {
   )
 })
 
-testDeclarationBlockTrailingSemicolon(false, tr => {
+testDeclarationBlockTrailingSemicolon("never", tr => {
   tr.ok(
     "a { color: pink }",
     "single-line declaration block without trailing semicolon"

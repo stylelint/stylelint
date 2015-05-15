@@ -6,12 +6,18 @@ export const messages = {
 }
 
 /**
- * @param {boolean} options - If true, expect trailing semicolons;
- *   if false, reject them
+ * @param {"always"|"never"} options
  */
 export default function declarationBlockTrailingSemicolon(options) {
   return (css, result) => {
-    const checkRule = (options) ? expectSemicolon : rejectSemicolon
+    let checkRule
+    if (options === "always") {
+      checkRule = expectSemicolon
+    } else if (options === "never") {
+      checkRule = rejectSemicolon
+    } else {
+      return
+    }
 
     css.eachRule(checkRule)
 
