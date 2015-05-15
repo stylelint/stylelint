@@ -5,10 +5,9 @@ export const messages = {
 }
 
 /**
- * @param {boolean} isOn - If true, expect leading zeros;
- *   if false, reject them
+ * @param {"always"|"never"} options
  */
-export default function (expectLeadingZero) {
+export default function (options) {
   return (css, result) => {
     css.eachDecl(function (decl) {
       const value = decl.value
@@ -16,7 +15,7 @@ export default function (expectLeadingZero) {
       // Get out quickly if there are no periods
       if (value.indexOf(".") === -1) { return }
 
-      if (expectLeadingZero && lacksLeadingZero(value)) {
+      if (options === "always" && lacksLeadingZero(value)) {
         result.warn(
           messages.expected,
           { node: decl }
@@ -24,7 +23,7 @@ export default function (expectLeadingZero) {
         return
       }
 
-      if (!expectLeadingZero && containsLeadingZero(value)) {
+      if (options === "never" && containsLeadingZero(value)) {
         result.warn(
           messages.rejected,
           { node: decl }

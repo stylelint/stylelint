@@ -3,7 +3,7 @@ import numberLeadingZero, { ruleName, messages } from ".."
 
 const testNumberLeadingZero = ruleTester(numberLeadingZero, ruleName)
 
-testNumberLeadingZero(true, tr => {
+testNumberLeadingZero("always", tr => {
   tr.ok("a {}", "no values")
   tr.ok("a { margin: 0; }", "plain zero")
   tr.ok("a { line-height: 2; }", "plain integer")
@@ -63,7 +63,7 @@ testNumberLeadingZero(true, tr => {
   )
 })
 
-testNumberLeadingZero(false, tr => {
+testNumberLeadingZero("never", tr => {
   tr.ok("a {}", "no values")
   tr.ok("a { margin: 0; }", "plain zero")
   tr.ok("a { line-height: 2; }", "plain integer")
