@@ -28,16 +28,22 @@ export default function (options) {
 
     css.eachDecl(function (decl) {
 
-      const between = decl.between
-      const charIndex = between.indexOf(":")
+      const declString = decl.toString()
 
-      spaceChecker.before(between, charIndex, msg => {
-        result.warn(msg, { node: decl })
-      })
+      for (let i = 0, l = declString.length; i < l; i++) {
+        if (declString[i] !== ":") { continue }
+        checkColon(i)
+        break
+      }
 
-      spaceChecker.after(between, charIndex, msg => {
-        result.warn(msg, { node: decl })
-      })
+      function checkColon(index) {
+        spaceChecker.before(declString, index, msg => {
+          result.warn(msg, { node: decl })
+        })
+        spaceChecker.after(declString, index, msg => {
+          result.warn(msg, { node: decl })
+        })
+      }
     })
   }
 }
