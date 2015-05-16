@@ -1,9 +1,9 @@
 import { ruleTester } from "../../../testUtils"
-import blockOpeningBraceSpace, { ruleName, messages } from ".."
+import blockClosingBraceSpace, { ruleName, messages } from ".."
 
-const testBlockOpeningBraceSpace = ruleTester(blockOpeningBraceSpace, ruleName)
+const testBlockClosingBraceSpace = ruleTester(blockClosingBraceSpace, ruleName)
 
-testBlockOpeningBraceSpace({ before: "always" }, tr => {
+testBlockClosingBraceSpace({ before: "always" }, tr => {
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; } b { color: red; }")
   tr.ok("a { color: pink; }b { color: red; }")
@@ -15,7 +15,7 @@ testBlockOpeningBraceSpace({ before: "always" }, tr => {
   tr.notOk("a { color: pink; } b { color: red;}", messages.expectedBefore())
 })
 
-testBlockOpeningBraceSpace({ before: "never" }, tr => {
+testBlockClosingBraceSpace({ before: "never" }, tr => {
   tr.ok("a { color: pink;}")
   tr.ok("a { color: pink;} b { color: red;}")
   tr.ok("a { color: pink;}b { color: red;}")
@@ -27,7 +27,7 @@ testBlockOpeningBraceSpace({ before: "never" }, tr => {
   tr.notOk("a { color: pink;} b { color: red; }", messages.rejectedBefore())
 })
 
-testBlockOpeningBraceSpace({ after: "always" }, tr => {
+testBlockClosingBraceSpace({ after: "always" }, tr => {
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; } b { color: red; }")
   tr.ok("a { color: pink;} b { color: red;}")
@@ -38,7 +38,7 @@ testBlockOpeningBraceSpace({ after: "always" }, tr => {
   tr.notOk("a { color: pink; }\tb { color: red; }", messages.expectedAfter())
 })
 
-testBlockOpeningBraceSpace({ after: "never" }, tr => {
+testBlockClosingBraceSpace({ after: "never" }, tr => {
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; }b { color: red; }")
   tr.ok("a { color: pink;}b { color: red;}")
@@ -49,7 +49,7 @@ testBlockOpeningBraceSpace({ after: "never" }, tr => {
   tr.notOk("a { color: pink; }\tb { color: red; }", messages.rejectedAfter())
 })
 
-testBlockOpeningBraceSpace({ before: "always", after: "always" }, tr => {
+testBlockClosingBraceSpace({ before: "always", after: "always" }, tr => {
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; } b { color: red; }")
 
@@ -59,7 +59,7 @@ testBlockOpeningBraceSpace({ before: "always", after: "always" }, tr => {
   tr.notOk("a { color: pink; }\nb { color: red; }", messages.expectedAfter())
 })
 
-testBlockOpeningBraceSpace({ before: "never", after: "always" }, tr => {
+testBlockClosingBraceSpace({ before: "never", after: "always" }, tr => {
   tr.ok("a { color: pink;}")
   tr.ok("a { color: pink;} b { color: red;}")
 
@@ -69,7 +69,7 @@ testBlockOpeningBraceSpace({ before: "never", after: "always" }, tr => {
   tr.notOk("a { color: pink;}\nb { color: red;}", messages.expectedAfter())
 })
 
-testBlockOpeningBraceSpace({ before: "always", after: "never" }, tr => {
+testBlockClosingBraceSpace({ before: "always", after: "never" }, tr => {
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; }b { color: red; }")
 
@@ -79,7 +79,7 @@ testBlockOpeningBraceSpace({ before: "always", after: "never" }, tr => {
   tr.notOk("a { color: pink; }\nb { color: red; }", messages.rejectedAfter())
 })
 
-testBlockOpeningBraceSpace({ before: "never", after: "never" }, tr => {
+testBlockClosingBraceSpace({ before: "never", after: "never" }, tr => {
   tr.ok("a { color: pink;}")
   tr.ok("a { color: pink;}b { color: red;}")
 
