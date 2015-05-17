@@ -29,13 +29,13 @@ export function blockOpeningBraceSpaceChecker(locationChecker) {
       for (let i = 0, l = blockString.length; i < l; i++) {
         if (blockString[i] !== "{") { continue }
         // Only pay attention to the first brace encountered
-        checkLocation(blockString, i, block)
+        checkLocation(blockString, i, block, blockString.slice(i))
         break
       }
     }
 
-    function checkLocation(str, index, node) {
-      locationChecker(str, index, m => result.warn(m, { node }))
+    function checkLocation(str, index, node, lineCheckStr) {
+      locationChecker(str, index, m => result.warn(m, { node }), lineCheckStr)
     }
   }
 }
