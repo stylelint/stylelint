@@ -26,10 +26,6 @@ a { line-height: .5; }
 a { transform: translate(2px, .4px); }
 ```
 
-```css
-a { margin: .3em .123px .999999px; }
-```
-
 The following patterns are *not* considered warnings:
 
 ```css
@@ -38,10 +34,6 @@ a { line-height: 0.5; }
 
 ```css
 a { transform: translate(2px, 0.4px); }
-```
-
-```css
-a { margin: 0.3em 0.123px 0.999999px; }
 ```
 
 ### `"never"`
@@ -58,9 +50,6 @@ a { line-height: 0.5; }
 a { transform: translate(2px, 0.4px); }
 ```
 
-```css
-a { margin: 0.3em 0.123px 0.999999px; }
-```
 
 The following patterns are *not* considered warnings:
 
@@ -70,8 +59,4 @@ a { line-height: .5; }
 
 ```css
 a { transform: translate(2px, .4px); }
-```
-
-```css
-a { margin: .3em .123px .999999px; }
 ```
