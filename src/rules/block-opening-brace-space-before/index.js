@@ -9,6 +9,10 @@ export const ruleName = "block-opening-brace-space-before"
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => "Expected single space before \"{\"",
   rejectedBefore: () => "Unexpected space before \"{\"",
+  expectedBeforeSingleLine: () => "Expected single space before \"{\" of a single-line block",
+  rejectedBeforeSingleLine: () => "Unexpected space before \"{\" of a single-line block",
+  expectedBeforeMultiLine: () => "Expected single space before \"{\" of a multi-line block",
+  rejectedBeforeMultiLine: () => "Unexpected space before \"{\" of a multi-line block",
 })
 
 /**
