@@ -1,0 +1,61 @@
+# function-comma-space-before
+
+Require or disallow a space before the commas of functions.
+
+```css
+    a { transform: translate(1, 1) }
+/**                           ↑  
+ * The space before these commas */
+```
+
+## Options
+
+`string`: `"always"|"never"`
+
+### `"always"`
+
+There *must always* be a single space before the comma.
+
+The following patterns are considered warnings:
+
+```css
+a { transform: translate(1,1) }
+```
+
+```css
+a { transform: translate(1, 1) }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { transform: translate(1 ,1) }
+```
+
+```css
+a { transform: translate(1 , 1) }
+```
+
+### `"never"`
+
+There *must never* be whitespace before the comma.
+
+The following patterns are considered warnings:
+
+```css
+a { transform: translate(1 ,1) }
+```
+
+```css
+a { transform: translate(1 , 1) }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { transform: translate(1,1) }
+```
+
+```css
+a { transform: translate(1, 1) }
+```
