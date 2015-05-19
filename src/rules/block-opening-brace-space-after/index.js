@@ -8,6 +8,10 @@ export const ruleName = "block-opening-brace-space-after"
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected single space after \"{\"",
   rejectedAfter: () => "Unexpected space after \"{\"",
+  expectedAfterSingleLine: () => "Expected single space after \"{\" of a single-line block",
+  rejectedAfterSingleLine: () => "Unexpected space after \"{\" of a single-line block",
+  expectedAfterMultiLine: () => "Expected single space after \"{\" of a multi-line block",
+  rejectedAfterMultiLine: () => "Unexpected space after \"{\" of a multi-line block",
 })
 
 /**
@@ -18,7 +22,7 @@ export default function (expectation) {
   return blockOpeningBraceSpaceChecker(checker.after)
 }
 
-export function blockOpeningBraceSpaceChecker(locationChecker) {
+export function blockOpeningBraceSpaceChecker(checkLodation) {
   return function (css, result) {
     // Check both kinds of "block": rules and at-rules
     css.eachRule(checkBlock)
@@ -29,13 +33,13 @@ export function blockOpeningBraceSpaceChecker(locationChecker) {
       for (let i = 0, l = blockString.length; i < l; i++) {
         if (blockString[i] !== "{") { continue }
         // Only pay attention to the first brace encountered
-        checkLocation(blockString, i, block, blockString.slice(i))
+        checkBrace(blockString, i, block, blockString.slice(i))
         break
       }
     }
 
-    function checkLocation(str, index, node, lineCheckStr) {
-      locationChecker(str, index, m => result.warn(m, { node }), lineCheckStr)
+    function checkBrace(str, index, node, lineCheckStr) {
+      checkLodation(str, index, m => result.warn(m, { node }), lineCheckStr)
     }
   }
 }

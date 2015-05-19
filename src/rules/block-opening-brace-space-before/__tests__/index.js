@@ -40,8 +40,6 @@ testRule("always-single-line", tr => {
   tr.notOk("@media print { a\n{ color: pink; } }", messages.expectedBeforeSingleLine())
 
   // Ignoring multi-line blocks
-  tr.ok("a { color: pink; }")
-  tr.ok("@media print { a { color: pink; } }")
   tr.ok("a{ color:\npink; }")
   tr.ok("@media print { a{ color:\npink; } }")
   tr.ok("@media print{ a { color:\npink; } }")
