@@ -1,14 +1,19 @@
-import { ruleMessages } from "../../utils"
+import {
+  ruleMessages,
+  isSingleLineString
+} from "../../utils"
 
 export const ruleName = "block-closing-brace-newline-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => "Expected single newline before \"}\"",
-  rejectedBefore: () => "Unexpected newline before \"}\"",
+  expectedBefore: () => "Expected newline before \"}\"",
+  rejectedBefore: () => "Unexpected space before \"}\"",
+  expectedBeforeMultiLine: () => "Expected newline before \"}\" of a multi-line block",
+  rejectedBeforeMultiLine: () => "Unexpected space before \"}\" of a multi-line block",
 })
 
 /**
- * @param {"always"|"never"} expectation
+ * @param {"always"|"never"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
   return function (css, result) {
@@ -17,16 +22,28 @@ export default function (expectation) {
     css.eachAtRule(checkBlock)
 
     function checkBlock(block) {
+      const blockString = block.toString()
+      const blockStringNoSelector = blockString.slice(blockString.indexOf("{"))
+      const blockIsMultiLine = !isSingleLineString(blockStringNoSelector)
+
       // We're really just checking whether a
       // newline *starts* the block's final space -- between
       // the last declaration and the closing brace. We can
       // ignore any other whitespace between them, because that
       // will be checked by the indentation rule.
-      if (expectation === "always" && block.after[0] !== "\n") {
-        result.warn(messages.expectedBefore(), { node: block })
+      if (block.after[0] !== "\n") {
+        if (expectation === "always") {
+          result.warn(messages.expectedBefore(), { node: block })
+        } else if (blockIsMultiLine && expectation === "always-multi-line") {
+          result.warn(messages.expectedBeforeMultiLine(), { node: block })
+        }
       }
-      if (expectation === "never" && block.after) {
-        result.warn(messages.rejectedBefore(), { node: block })
+      if (block.after) {
+        if (expectation === "never") {
+          result.warn(messages.rejectedBefore(), { node: block })
+        } else if (blockIsMultiLine && expectation === "never-multi-line") {
+          result.warn(messages.rejectedBeforeMultiLine(), { node: block })
+        }
       }
     }
   }
