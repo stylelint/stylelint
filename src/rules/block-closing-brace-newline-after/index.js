@@ -6,8 +6,8 @@ import {
 export const ruleName = "block-closing-brace-newline-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => "Expected single newline after \"}\"",
-  rejectedAfter: () => "Unexpected newline after \"}\"",
+  expectedAfter: () => "Expected newline after \"}\"",
+  rejectedAfter: () => "Unexpected space after \"}\"",
 })
 
 /**
