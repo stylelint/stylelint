@@ -24,3 +24,63 @@ testRule("never", tr => {
   tr.notOk("a { color: pink; }  b { color: red; }", messages.rejectedAfter())
   tr.notOk("a { color: pink; }\tb { color: red; }", messages.rejectedAfter())
 })
+
+testRule("always-single-line", tr => {
+  tr.ok("a { color: pink; }")
+  tr.ok("a { color: pink; }\nb { color: red; }")
+  tr.ok("a { color: pink;}\n\t\tb { color: red;}")
+
+  // Ignore multi-line
+  tr.ok("a { color: pink;\ntop: 0; }b { color: red; }")
+  tr.ok("a { color: pink;\ntop: 0;}b { color: red;}")
+
+  tr.notOk("a { color: pink; }b { color: red; }", messages.expectedAfterSingleLine())
+  tr.notOk("a { color: pink; } b { color: red; }", messages.expectedAfterSingleLine())
+  tr.notOk("a { color: pink; }  b { color: red; }", messages.expectedAfterSingleLine())
+  tr.notOk("a { color: pink; }\tb { color: red; }", messages.expectedAfterSingleLine())
+})
+
+testRule("never-single-line", tr => {
+  tr.ok("a { color: pink; }")
+  tr.ok("a { color: pink; }b { color: red; }")
+  tr.ok("a { color: pink;}b { color: red;}")
+
+  // Ignore multi-line
+  tr.ok("a { color: pink;\ntop: 0; }\nb { color: red; }")
+  tr.ok("a { color: pink;\ntop: 0;} b { color: red;}")
+
+  tr.notOk("a { color: pink; }\nb { color: red; }", messages.rejectedAfterSingleLine())
+  tr.notOk("a { color: pink; } b { color: red; }", messages.rejectedAfterSingleLine())
+  tr.notOk("a { color: pink; }  b { color: red; }", messages.rejectedAfterSingleLine())
+  tr.notOk("a { color: pink; }\tb { color: red; }", messages.rejectedAfterSingleLine())
+})
+
+testRule("always-multi-line", tr => {
+  tr.ok("a { color: pink;\ntop: 0; }")
+  tr.ok("a { color: pink;\ntop: 0; }\nb { color: red; }")
+  tr.ok("a { color: pink;\ntop: 0;}\n\t\tb { color: red;}")
+
+  // Ignore single-line
+  tr.ok("a { color: pink; }\nb { color: red; }")
+  tr.ok("a { color: pink; }b { color: red;}")
+
+  tr.notOk("a { color: pink;\ntop: 0; }b { color: red; }", messages.expectedAfterMultiLine())
+  tr.notOk("a { color: pink;\ntop: 0; } b { color: red; }", messages.expectedAfterMultiLine())
+  tr.notOk("a { color: pink;\ntop: 0; }  b { color: red; }", messages.expectedAfterMultiLine())
+  tr.notOk("a { color: pink;\ntop: 0; }\tb { color: red; }", messages.expectedAfterMultiLine())
+})
+
+testRule("never-multi-line", tr => {
+  tr.ok("a { color: pink;\ntop: 0; }")
+  tr.ok("a { color: pink;\ntop: 0; }b { color: red; }")
+  tr.ok("a { color: pink;\ntop: 0;}b { color: red;}")
+
+  // Ignore single-line
+  tr.ok("a { color: pink; }\nb { color: red; }")
+  tr.ok("a { color: pink;} b { color: red;}")
+
+  tr.notOk("a { color: pink;\ntop: 0; }\nb { color: red; }", messages.rejectedAfterMultiLine())
+  tr.notOk("a { color: pink;\ntop: 0; } b { color: red; }", messages.rejectedAfterMultiLine())
+  tr.notOk("a { color: pink;\ntop: 0; }  b { color: red; }", messages.rejectedAfterMultiLine())
+  tr.notOk("a { color: pink;\ntop: 0; }\tb { color: red; }", messages.rejectedAfterMultiLine())
+})
