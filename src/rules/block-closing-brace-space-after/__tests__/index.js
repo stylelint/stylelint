@@ -24,3 +24,19 @@ testRule("never", tr => {
   tr.notOk("a { color: pink; }\nb { color: red; }", messages.rejectedAfter())
   tr.notOk("a { color: pink; }\tb { color: red; }", messages.rejectedAfter())
 })
+
+testRule("always-multi-line", tr => {
+  tr.ok("a { color: pink;\nbackground: orange; }")
+  tr.ok("a { color: pink;\nbackground: orange; } b { color: red; }")
+  tr.ok("a { color: pink;\nbackground: orange;} b { color: red;}")
+
+  // Ignore single line
+  tr.ok("a { color: pink; }")
+  tr.ok("a { color: pink; }b { color: red; }")
+  tr.ok("a { color: pink;}b { color: red;}")
+
+  tr.notOk("a { color: pink;\nbackground: orange;}b { color: red; }", messages.expectedAfterMultiLine())
+  tr.notOk("a { color: pink;\nbackground: orange;}  b { color: red; }", messages.expectedAfterMultiLine())
+  tr.notOk("a { color: pink;\nbackground: orange;}\nb { color: red; }", messages.expectedAfterMultiLine())
+  tr.notOk("a { color: pink;\nbackground: orange;}\tb { color: red; }", messages.expectedAfterMultiLine())
+})
