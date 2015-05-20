@@ -18,7 +18,7 @@ export default function (expectation) {
   return functionCommaSpaceChecker(checker.after)
 }
 
-export function functionCommaSpaceChecker(locationChecker) {
+export function functionCommaSpaceChecker(checkLocation) {
   return function (css, result) {
     css.eachDecl(function (decl) {
       // Content might contain commas, cannot contain a function,
@@ -46,13 +46,13 @@ export function functionCommaSpaceChecker(locationChecker) {
         }
 
         if (isInsideFunction && char === ",") {
-          check(value, i, decl)
+          checkComma(value, i, decl)
         }
       }
     })
 
-    function check(str, index, node) {
-      locationChecker(str, index, m => result.warn(m, { node }))
+    function checkComma(str, index, node) {
+      checkLocation(str, index, m => result.warn(m, { node }))
     }
   }
 }
