@@ -47,7 +47,7 @@ Rules are configured within the `rules` key of the config. Each rule can be turn
 {
   "rules": {
     "rule-set-no-single-line": 0, // turn rule off
-    "number-no-important": 2, // turn rule off
+    "number-no-important": 2, // turn rule on
   }
 }
 ```
