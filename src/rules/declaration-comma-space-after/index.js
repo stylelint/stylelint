@@ -1,6 +1,7 @@
 import {
   ruleMessages,
-  whitespaceChecker
+  whitespaceChecker,
+  valueIndexOf
 } from "../../utils"
 
 export const ruleName = "declaration-comma-space-after"
@@ -18,37 +19,18 @@ export default function (expectation) {
   return declarationCommaSpaceChecker(checker.after)
 }
 
-export function declarationCommaSpaceChecker(locationChecker) {
+export function declarationCommaSpaceChecker(checkLocation) {
   return function (css, result) {
     css.eachDecl(function (decl) {
-      // Content might contain commas that we do not care about,
-      // so ignore it
-      if (decl.prop === "content") { return }
-
       const value = decl.value
-      let isInsideFunction = false
-      for (let i = 0, l = value.length; i < l; i++) {
-        const char = value[i]
-        // If we are inside a function and not ending it, ignore
-        if (isInsideFunction && char !== ")") { continue }
-        // End of a function, so start inspecting any commas
-        if (isInsideFunction && char === ")") {
-          isInsideFunction = false
-          continue
-        }
-        // Beginning of a function, so stop inspecting commas
-        if (!isInsideFunction && char === "(") {
-          isInsideFunction = true
-          continue
-        }
-        if (!isInsideFunction && char === ",") {
-          check(value, i, decl)
-        }
-      }
+
+      valueIndexOf({ value, char: ",", outsideFunction: true }, index => {
+        checkComma(value, index, decl)
+      })
     })
 
-    function check(str, index, node) {
-      locationChecker(str, index, m => result.warn(m, { node }))
+    function checkComma(source, index, node) {
+      checkLocation(source, index, m => result.warn(m, { node }))
     }
   }
 }

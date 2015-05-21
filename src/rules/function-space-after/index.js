@@ -1,6 +1,7 @@
 import {
   ruleMessages,
-  isWhitespace
+  isWhitespace,
+  valueIndexOf
 } from "../../utils"
 
 export const ruleName = "function-space-after"
@@ -18,18 +19,14 @@ const acceptableNextChars = [ " ", ")", undefined ]
 export default function (expectation) {
   return function (css, result) {
     css.eachDecl(function (decl) {
-      if (decl.prop === "content") { return }
-
       const value = decl.value
 
-      for (let i = 0, l = value.length; i < l; i++) {
-        if (value[i] === ")") {
-          checkEnd(value, i, decl)
-        }
-      }
+      valueIndexOf({ value, char: ")" }, index => {
+        checkClosingParen(value, index, decl)
+      })
     })
 
-    function checkEnd(str, i, node) {
+    function checkClosingParen(str, i, node) {
       // Allow for the function's ending being the end of the value
       if (expectation === "always") {
         if (acceptableNextChars.indexOf(str[i + 1]) === -1 || isWhitespace(str[i + 2])) {

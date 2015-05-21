@@ -5,7 +5,9 @@ const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
   tr.ok("a {}")
-  tr.ok("a::before { content: \"(a) ( a )\"; }")
+  tr.ok("a::before { content: \"var(--hoot)color(blue)\"; }")
+  tr.ok("a::before { background: url('var(--hoot)color(blue)'); }")
+  tr.ok("a::before { content: attr(data-foo); }")
   tr.ok("a { transform: translate(1, 1); }")
   tr.ok("a { transform: translate(1, 1) }")
   tr.ok("a { transform: translate(1, 1)}")
@@ -22,7 +24,9 @@ testRule("always", tr => {
 
 testRule("never", tr => {
   tr.ok("a {}")
-  tr.ok("a::before { content: \"(a) ( a )\"; }")
+  tr.ok("a::before { content: \"var(--hoot) color(blue)\"; }")
+  tr.ok("a::before { background: url('var(--hoot) color(blue)'); }")
+  tr.ok("a::before { content: attr(data-foo); }")
   tr.ok("a { transform: translate(1, 1); }")
   tr.ok("a { transform: translate(1, 1) }")
   tr.ok("a { transform: translate(1, 1)}")
