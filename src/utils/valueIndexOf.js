@@ -25,11 +25,13 @@ export default function (options, callback) {
   for (let i = 0, l = value.length; i < l; i++) {
     const currentChar = value[i]
     if (!isInsideString && quotes.indexOf(currentChar) !== -1) {
+      if (value[i - 1] === "\\") { continue }
       openingQuote = currentChar
       isInsideString = true
       continue
     }
     if (isInsideString && currentChar === openingQuote) {
+      if (value[i - 1] === "\\") { continue }
       isInsideString = false
       continue
     }
