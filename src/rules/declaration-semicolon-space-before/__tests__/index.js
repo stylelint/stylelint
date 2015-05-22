@@ -8,6 +8,7 @@ testRule("always", tr => {
   tr.ok("a { color: pink ; }")
   tr.ok("a::before { content: \";a\" ; }")
   tr.ok("a { color: pink ; top: 0 ; }")
+  tr.ok("a { color: pink ; top: 0}")
 
   tr.notOk("a { color: pink; }", messages.expectedBefore())
   tr.notOk("a { color: pink  ; }", messages.expectedBefore())

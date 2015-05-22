@@ -6,8 +6,10 @@ const testRule = ruleTester(rule, ruleName)
 testRule("always", tr => {
   tr.ok("a {}")
   tr.ok("a { color: pink; }")
+  tr.ok("a { color: pink; }")
   tr.ok("a::before { content: \";a\"; }")
   tr.ok("a { color: pink; top: 0;}", "no space between trailing semicolon and closing brace")
+  tr.ok("a { color: pink; top: 0}")
 
   tr.notOk("a { color: pink;top: 0; }", messages.expectedAfter())
   tr.notOk("a { color: pink;  top: 0; }", messages.expectedAfter())

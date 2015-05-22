@@ -19,11 +19,15 @@ export default function (expectation) {
   const check = whitespaceChecker("\n", expectation, messages)
   return function (css, result) {
     css.eachDecl(function (decl) {
+      // Ignore last declaration if there's no trailing semicolon
+      const parentRule = decl.parent
+      if (!parentRule.semicolon && parentRule.last === decl) { return }
+
       const nextDecl = decl.next()
       if (!nextDecl) { return }
       check.after(nextDecl.toString(), -1, m => {
         return result.warn(m, { node: decl })
-      }, decl.parent.toString().slice("{"))
+      }, parentRule.toString().slice("{"))
     })
   }
 }

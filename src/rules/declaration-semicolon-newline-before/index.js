@@ -3,23 +3,22 @@ import {
   whitespaceChecker
 } from "../../utils"
 
-export const ruleName = "declaration-semicolon-space-before"
+export const ruleName = "declaration-semicolon-newline-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected single space before ";"`,
+  expectedBefore: () => `Expected newline before ";"`,
   rejectedBefore: () => `Unexpected space before ";"`,
-  expectedBeforeSingleLine: () => `Expected single space before ";" within single-line declaration block`,
-  rejectedBeforeSingleLine: () => `Unexpected space before ";" within single-line declaration block`,
+  expectedBeforeMultiLine: () => `Expected newline before ";" within multi-line declaration block`,
+  rejectedBeforeMultiLine: () => `Unexpected space before ";" within multi-line declaration block`,
 })
 
 /**
- * @param {"always"|"never"|"always-single-line"|"never-single-line"} expectation
+ * @param {"always"|"never"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
-  const check = whitespaceChecker(" ", expectation, messages)
+  const check = whitespaceChecker("\n", expectation, messages)
   return function (css, result) {
     css.eachDecl(function (decl) {
-      // Ignore last declaration if there's no trailing semicolon
       const parentRule = decl.parent
       if (!parentRule.semicolon && parentRule.last === decl) { return }
 

@@ -9,6 +9,7 @@ testRule("always", tr => {
   tr.ok("a::before { content: \";a\";\n}")
   tr.ok("a { color: pink;\ntop: 0; }", "space between trailing semicolon and closing brace")
   tr.ok("a { color: pink;\ntop: 0;}", "no space between trailing semicolon and closing brace")
+  tr.ok("a { color: pink;\ntop: 0}")
 
   tr.notOk("a { color: pink;top: 0; }", messages.expectedAfter())
   tr.notOk("a { color: pink; top: 0; }", messages.expectedAfter())
@@ -19,7 +20,7 @@ testRule("always", tr => {
 testRule("never", tr => {
   tr.ok("a {}")
   tr.ok("a { color: pink; }")
-  tr.ok("a::before { content: \"; a\"; }")
+  tr.ok("a::before { content: \";\na\"; }")
   tr.ok("a { color: pink;top: 0; }", "space between trailing semicolon and closing brace")
   tr.ok("a { color: pink;top: 0;}", "no space between trailing semicolon and closing brace")
 
@@ -48,7 +49,7 @@ testRule("always-multi-line", tr => {
 testRule("never-multi-line", tr => {
   tr.ok("a {}")
   tr.ok("a {\ncolor: pink;\n}")
-  tr.ok("a::before {\ncontent: \"; a\";\n}")
+  tr.ok("a::before {\ncontent: \";\na\";\n}")
   tr.ok("a {\ncolor: pink;top: 0; }", "space between trailing semicolon and closing brace")
   tr.ok("a {\ncolor: pink;top: 0;}", "no space between trailing semicolon and closing brace")
 
