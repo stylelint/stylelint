@@ -48,6 +48,9 @@ export default function (options, callback) {
         }
         continue
       }
+      if (!isInsideString && /^[a-zA-Z]*\(/.test(value.slice(i))) {
+        continue
+      }
     }
     // If we have a match,
     // and it is inside or outside of a function, as requested in options,
@@ -56,7 +59,7 @@ export default function (options, callback) {
       if (insideFunction && !isInsideFunction) { continue }
       if (outsideFunction && isInsideFunction) { continue }
       callback(i)
-      if (options.onlyOne) { break }
+      if (options.onlyOne) { return }
     }
   }
 }
