@@ -25,11 +25,13 @@ export default function (options, callback) {
   for (let i = 0, l = value.length; i < l; i++) {
     const currentChar = value[i]
     if (!isInsideString && quotes.indexOf(currentChar) !== -1) {
+      if (value[i - 1] === "\\") { continue }
       openingQuote = currentChar
       isInsideString = true
       continue
     }
     if (isInsideString && currentChar === openingQuote) {
+      if (value[i - 1] === "\\") { continue }
       isInsideString = false
       continue
     }
@@ -46,6 +48,9 @@ export default function (options, callback) {
         }
         continue
       }
+      if (!isInsideString && /^[a-zA-Z]*\(/.test(value.slice(i))) {
+        continue
+      }
     }
     // If we have a match,
     // and it is inside or outside of a function, as requested in options,
@@ -54,7 +59,7 @@ export default function (options, callback) {
       if (insideFunction && !isInsideFunction) { continue }
       if (outsideFunction && isInsideFunction) { continue }
       callback(i)
-      if (options.onlyOne) { break }
+      if (options.onlyOne) { return }
     }
   }
 }
