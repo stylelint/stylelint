@@ -10,7 +10,7 @@ Object.keys(autoprefixer.data.prefixes).forEach(function (item) {
     return
   }
   if (item[0] === "@") {
-    atRules.add(item)
+    atRules.add(item.slice(1))
     return
   }
   properties.add(item)
