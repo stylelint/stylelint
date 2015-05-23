@@ -57,7 +57,7 @@ Some rules require options. There are no default values, so each rule that requi
 ```js
 {
   "rules": {
-    "declaration-colon-space": [2, { before: never", after: "always" }],
+    "declaration-colon-space": [2, { before: "never", after: "always" }],
     "number-leading-zero": [2, "always"],
   }
 }
