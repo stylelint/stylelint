@@ -1,4 +1,8 @@
-import { ruleMessages } from "../../utils"
+import _ from "lodash"
+import {
+  ruleMessages,
+  valueIndexOf
+} from "../../utils"
 
 export const ruleName = "indentation"
 export const messages = ruleMessages(ruleName, {
@@ -9,21 +13,15 @@ export const messages = ruleMessages(ruleName, {
  * @param {object} options
  * @param {number|"tab"} space - Number of whitespaces to expect, or else
  *   keyword "tab" for single `\t`
- * @param {"always"|"never"} block - Whether extra level of indentation should
- *   be used for nested blocks
- * @param {"always"|"never"} value - Whether extra level of indentation should
- *   be used for multi-line values
+ * @param {"always"|"never"} [block="always"] - Whether extra level of
+ *   indentation should be used for nested blocks
+ * @param {"always"|"never"} [value="always"] - Whether extra level of
+ *   indentation should be used for multi-line values
  */
 export default function (options) {
   const isTab = options.space === "tab"
 
-  const indentChar = (isTab) ? "\t" : (() => {
-    let r = ""
-    for (let i = 0; i < options.space; i++) {
-      r += " "
-    }
-    return r
-  }())
+  const indentChar = (isTab) ? "\t" : _.repeat(" ", options.space)
 
   const warningWord = (isTab) ? "tab" : "space"
 
@@ -37,18 +35,23 @@ export default function (options) {
 
   return function (css, result) {
     css.eachRule(checkNode)
-    css.eachDecl(checkNode)
     css.eachAtRule(checkNode)
+    css.eachDecl(checkNode)
 
     function checkNode(node) {
 
       // Expected whitespace equals the indent character
       // repated according to the indentation level
-      const nodeLevel = indentationLevel(node)
-      let expectedWhitespace = ""
-      for (let i = 0; i < nodeLevel; i++) {
-        expectedWhitespace += indentChar
+      let nodeLevel = indentationLevel(node)
+
+      // unless option.block is "never", in which case
+      // everything is taken down a level (all blocks
+      // are level 0)
+      if (options.block === "never" && nodeLevel > 0) {
+        nodeLevel--
       }
+
+      const expectedWhitespace = _.repeat(indentChar, nodeLevel)
 
       const { before, after } = node
 
@@ -70,21 +73,52 @@ export default function (options) {
         )
       }
 
-      // Only blocks have the `after` string to check
-      if (!after) { return }
-
+      // Only blocks have the `after` string to check.
       // Only inspect `after` strings that start with a newline,
       // otherwise there's no indentation involved
-      if (after.indexOf("\n") !== -1 && after.slice(1) !== expectedWhitespace) {
+      if (after && after.indexOf("\n") !== -1
+        && after.slice(after.lastIndexOf("\n") + 1) !== expectedWhitespace) {
         result.warn(
           messages.expected(legibleExpectation(nodeLevel, node.source.end.line)),
           { node }
         )
       }
+
+      // If this is a declaration, check the value
+      if (node.value) {
+        checkValue(node, nodeLevel)
+      }
     }
 
     function isFirstNodeInRoot(node) {
       return css.first === node
+    }
+
+    function checkValue(node, declLevel) {
+      const value = node.value
+      if (value.indexOf("\n") === -1) { return }
+
+      const valueLevel = (options.value === "never")
+        ? declLevel
+        : declLevel + 1
+      const postNewlineExpected = _.repeat(indentChar, valueLevel)
+
+      valueIndexOf({ value, char: "\n" }, (newlineIndex, newlineCount) => {
+        // Starting at the index after the newline, we want to
+        // check that the whitespace characters before the first
+        // non-whitespace character equal the expected indentation
+        const postNewlineActual = /^(\s*)\S/.exec(value.slice(newlineIndex + 1))[1]
+
+        if (postNewlineActual !== postNewlineExpected) {
+          result.warn(
+            messages.expected(legibleExpectation(
+              valueLevel,
+              node.source.start.line + newlineCount
+            )),
+            { node }
+          )
+        }
+      })
     }
   }
 }

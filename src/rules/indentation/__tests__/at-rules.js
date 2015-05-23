@@ -15,6 +15,17 @@ tr.ok(
   }
 }`)
 
+tr.ok(
+`@media print {
+  a {
+    color: pink;
+  }
+}
+
+@media screen {
+  b { color: orange; }
+}`)
+
 tr.notOk(
 `  @media print {
   a {
@@ -50,5 +61,36 @@ tr.notOk(
   }
 \t}`, messages.expected("0 spaces at line 5"))
 
+})
+
+// { space: "tab", block: "never"  }
+testRule({ space: "tab", block: "never" }, tr => {
+
+tr.ok(
+`@media print {
+
+a {
+\tcolor: pink;
+}
+
+}`)
+
+tr.notOk(
+`@media print {
+
+\ta {
+\tcolor: pink;
+}
+
+}`, messages.expected("0 tabs at line 3"))
+
+tr.notOk(
+`@media print {
+
+a {
+color: pink;
+}
+
+}`, messages.expected("1 tab at line 4"))
 
 })

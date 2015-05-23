@@ -21,6 +21,7 @@ export default function (options, callback) {
   let isInsideFunction = false
   let openingQuote
   let openingParenCount = 0
+  let count = 0
 
   for (let i = 0, l = value.length; i < l; i++) {
     const currentChar = value[i]
@@ -58,7 +59,8 @@ export default function (options, callback) {
     if (!isInsideString && currentChar === options.char) {
       if (insideFunction && !isInsideFunction) { continue }
       if (outsideFunction && isInsideFunction) { continue }
-      callback(i)
+      count++
+      callback(i, count)
       if (options.onlyOne) { return }
     }
   }

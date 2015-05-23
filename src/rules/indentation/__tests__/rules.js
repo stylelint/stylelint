@@ -23,6 +23,16 @@ tr.ok(
 tr.ok(
 `a {
   color: pink;
+} b { top: 0; }`)
+
+tr.ok(
+`a { color: pink;
+  top: 0; background: orange;
+}`)
+
+tr.ok(
+`a {
+  color: pink;
 }
 
 
@@ -33,6 +43,14 @@ b {
 tr.ok(
 `a {
   color: pink;}`)
+
+tr.ok(
+`a {
+  background-position: top left,
+    top right,
+    bottom left;
+  color: pink;
+}`)
 
 // Rule start/end errors
 tr.notOk(
@@ -89,6 +107,25 @@ tr.notOk(
  background: orange;
 }`,
 messages.expected("2 spaces at line 3"))
+
+
+tr.notOk(
+`a {
+  background-position: top left,
+  top right,
+    bottom left;
+  color: pink;
+}`,
+messages.expected("4 spaces at line 3"))
+
+tr.notOk(
+`a {
+  background-position: top left,
+    top right,
+  bottom left;
+  color: pink;
+}`,
+messages.expected("4 spaces at line 4"))
 
 })
 
@@ -166,5 +203,48 @@ tr.notOk(
  background: orange;
 }`,
 messages.expected("1 tab at line 3"))
+
+tr.notOk(
+`a { color: pink;
+top: 0; background: orange;
+}`,
+messages.expected("1 tab at line 2"))
+
+})
+
+// { space: 2, value: "never" }
+testRule({ space: 2, value: "never" }, tr => {
+
+tr.ok(
+`a {
+  background-position: top left, top right, bottom left;
+  color: pink;
+}`)
+
+tr.ok(
+`a {
+  background-position: top left,
+  top right,
+  bottom left;
+  color: pink;
+}`)
+
+tr.notOk(
+`a {
+  background-position: top left,
+    top right,
+  bottom left;
+  color: pink;
+}`,
+messages.expected("2 spaces at line 3"))
+
+tr.notOk(
+`a {
+  background-position: top left,
+  top right,
+    bottom left;
+  color: pink;
+}`,
+messages.expected("2 spaces at line 4"))
 
 })
