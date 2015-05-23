@@ -5,6 +5,8 @@ import ruleMessages from "./ruleMessages"
 import whitespaceChecker from "./whitespaceChecker"
 import valueIndexOf from "./valueIndexOf"
 import lineCount from "./lineCount"
+import vendorPrefixSets from "./vendorPrefixSets"
+import stripVendorPrefix from "./stripVendorPrefix"
 
 export default {
   charNeighbor,
@@ -14,4 +16,6 @@ export default {
   whitespaceChecker,
   valueIndexOf,
   lineCount,
+  vendorPrefixSets,
+  stripVendorPrefix,
 }
