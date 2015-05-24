@@ -16,12 +16,20 @@ const quotes = [ "\"", "'" ]
  * @return {undefined}
  */
 export default function (options, callback) {
-  const { value, insideFunction, outsideFunction } = options
+  const { value, char, insideFunction, outsideFunction } = options
   let isInsideString = false
   let isInsideFunction = false
   let openingQuote
   let openingParenCount = 0
   let count = 0
+
+  const charToFindIsArray = Array.isArray(char)
+  function charMatchesCharToFind(charToCheck) {
+    if (charToFindIsArray) {
+      return char.indexOf(charToCheck) !== -1
+    }
+    return charToCheck === char
+  }
 
   for (let i = 0, l = value.length; i < l; i++) {
     const currentChar = value[i]
@@ -56,7 +64,7 @@ export default function (options, callback) {
     // If we have a match,
     // and it is inside or outside of a function, as requested in options,
     // send it to the callback
-    if (!isInsideString && currentChar === options.char) {
+    if (!isInsideString && charMatchesCharToFind(currentChar)) {
       if (insideFunction && !isInsideFunction) { continue }
       if (outsideFunction && isInsideFunction) { continue }
       count++
