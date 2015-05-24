@@ -21,6 +21,7 @@
     "dist"
   ],
   "dependencies": {
+    "balanced-match": "^0.2.0",
     "lodash": "^3.9.1",
     "postcss": "^4.1.9"
   },
