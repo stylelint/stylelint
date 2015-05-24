@@ -1,7 +1,8 @@
 import {
   ruleMessages,
   whitespaceChecker,
-  valueIndexOf
+  valueIndexOf,
+  functionArguments
 } from "../../utils"
 
 export const ruleName = "function-calc-operator-space-after"
@@ -11,21 +12,26 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfter: () => `Unexpected space after operator within calc function`,
 })
 
+const operators = [ "+", "/", "-", "*" ]
+
 /**
  * @param {"always"|"never"} expectation
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
-  return functionCommaSpaceChecker(checker.after)
+  return functionCalcOperatorSpaceChecker(checker.after)
 }
 
-export function functionCommaSpaceChecker(checkLocation) {
+export function functionCalcOperatorSpaceChecker(checkLocation) {
   return function (css, result) {
     css.eachDecl(function (decl) {
       const value = decl.value
 
-      valueIndexOf({ value, char: ",", insideFunction: true }, index => {
-        checkComma(value, index, decl)
+      functionArguments(value, "calc", calcInnards => {
+        console.log(calcInnards)
+        valueIndexOf({ value: calcInnards, char: operators, outsideFunction: true }, index => {
+          checkComma(calcInnards, index, decl)
+        })
       })
     })
 

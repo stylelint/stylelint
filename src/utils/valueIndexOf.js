@@ -5,7 +5,9 @@ const quotes = [ "\"", "'" ]
  *
  * @param {object} options
  * @param {string} options.value - The value to look through
- * @param {string} options.char - The character to find
+ * @param {string|string[]} options.char - The target of the search. Can be
+ *   a single character, a string with some length, or an array of single-character
+ *   targets, all of which count as a match
  * @param {boolean} [options.insideFunction] - If `true`, only will report
  *   `char` found inside a function
  * @param {boolean} [options.outsideFunction] - If `true`, only will report
@@ -23,12 +25,14 @@ export default function (options, callback) {
   let openingParenCount = 0
   let count = 0
 
-  const charToFindIsArray = Array.isArray(char)
-  function charMatchesCharToFind(charToCheck) {
-    if (charToFindIsArray) {
-      return char.indexOf(charToCheck) !== -1
+  const targetIsArray = Array.isArray(char)
+  const targetLength = char.length
+
+  function matchesTarget(toBeChecked) {
+    if (targetIsArray) {
+      return char.indexOf(toBeChecked) !== -1
     }
-    return charToCheck === char
+    return toBeChecked === char
   }
 
   for (let i = 0, l = value.length; i < l; i++) {
@@ -66,10 +70,16 @@ export default function (options, callback) {
         continue
       }
     }
-    // If we have a match,
-    // and it is inside or outside of a function, as requested in options,
-    // send it to the callback
-    if (!isInsideString && charMatchesCharToFind(currentChar)) {
+
+    const toBeChecked = (!targetIsArray && targetLength > 1)
+      ? value.substr(i, targetLength)
+      : currentChar
+
+    if (!isInsideString && matchesTarget(toBeChecked)) {
+
+      // If we have a match,
+      // and it is inside or outside of a function, as requested in options,
+      // send it to the callback
       if (insideFunction && !isInsideFunction) { continue }
       if (outsideFunction && isInsideFunction) { continue }
       matchFound(i)
