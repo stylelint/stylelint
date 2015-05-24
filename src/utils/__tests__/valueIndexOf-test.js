@@ -151,6 +151,15 @@ test("handles escaped double-quotes in single-quote strings", t => {
   t.end()
 })
 
+test("count", t => {
+  let endCounts = []
+  valueIndexOf({ value: "123 123 123", char: "1" }, (index, count) => {
+    endCounts.push(count)
+  })
+  t.deepEqual(endCounts, [ 1, 2, 3 ])
+  t.end()
+})
+
 function valueIndexOfResults(options) {
   const results = []
   valueIndexOf(options, i => results.push(i))

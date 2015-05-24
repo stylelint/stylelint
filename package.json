@@ -21,6 +21,7 @@
     "dist"
   ],
   "dependencies": {
+    "lodash": "^3.9.1",
     "postcss": "^4.1.9"
   },
   "devDependencies": {
