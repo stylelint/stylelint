@@ -1,4 +1,4 @@
-import _ from "lodash"
+import { repeat } from "lodash"
 import {
   ruleMessages,
   valueIndexOf
@@ -21,7 +21,7 @@ export const messages = ruleMessages(ruleName, {
 export default function (options) {
   const isTab = options.space === "tab"
 
-  const indentChar = (isTab) ? "\t" : _.repeat(" ", options.space)
+  const indentChar = (isTab) ? "\t" : repeat(" ", options.space)
 
   const warningWord = (isTab) ? "tab" : "space"
 
@@ -51,7 +51,7 @@ export default function (options) {
         nodeLevel--
       }
 
-      const expectedWhitespace = _.repeat(indentChar, nodeLevel)
+      const expectedWhitespace = repeat(indentChar, nodeLevel)
 
       const { before, after } = node
 
@@ -101,7 +101,7 @@ export default function (options) {
       const valueLevel = (options.value === "never")
         ? declLevel
         : declLevel + 1
-      const postNewlineExpected = _.repeat(indentChar, valueLevel)
+      const postNewlineExpected = repeat(indentChar, valueLevel)
 
       valueIndexOf({ value, char: "\n" }, (newlineIndex, newlineCount) => {
         // Starting at the index after the newline, we want to
