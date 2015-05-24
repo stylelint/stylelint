@@ -82,7 +82,7 @@ export default function (rule, ruleName) {
         .use(rule(options))
         .process(cssString)
         .then(callback)
-        .catch(err => console.error(err))
+        .catch(err => console.error(err.stack))
     }
   }
 
