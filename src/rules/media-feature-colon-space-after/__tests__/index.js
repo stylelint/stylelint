@@ -5,6 +5,7 @@ const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
   tr.ok("@media (max-width: 600px) {}")
+  tr.ok("@media (max-width : 600px) {}")
   tr.ok("@media (max-width: 600px) and (min-width: 3em) {}")
 
   tr.notOk("@media (max-width:600px) {}", messages.expectedAfter())
