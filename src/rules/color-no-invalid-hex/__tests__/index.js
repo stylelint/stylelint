@@ -1,0 +1,18 @@
+import { ruleTester } from "../../../testUtils"
+import rule, { ruleName, messages } from ".."
+
+const testRule = ruleTester(rule, ruleName)
+
+testRule(null, tr => {
+  tr.ok("a { color: pink; }")
+  tr.ok("a { color: #000; }")
+  tr.ok("a { something: #000, #fff, #ababab; }")
+
+  tr.ok("a { padding: 000; }")
+  tr.ok("a::before { content: \"#ababa\"; }")
+
+  tr.notOk("a { color: #ababa; }", messages.rejected("#ababa"))
+  tr.notOk("a { something: #00, #fff, #ababab; }", messages.rejected("#00"))
+  tr.notOk("a { something: #000, #fff1ap, #ababab; }", messages.rejected("#fff1ap"))
+  tr.notOk("a { something: #000, #fff, #12345aa; }", messages.rejected("#12345aa"))
+})
