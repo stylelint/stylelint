@@ -11,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
 
 const whitespacesToReject = [ " ", "\t" ]
 
-export default function declarationNoImportant() {
+export default function () {
   return function (css, result) {
     let lineCount = 0
     const rootString = css.source.input.css
