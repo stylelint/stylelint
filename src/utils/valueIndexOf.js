@@ -37,6 +37,11 @@ export default function (options, callback) {
       if (value[i - 1] === "\\") { continue }
       openingQuote = currentChar
       isInsideString = true
+
+      // For string-quotes rule
+      if (charMatchesCharToFind(currentChar)) {
+        matchFound(i)
+      }
       continue
     }
     if (isInsideString && currentChar === openingQuote) {
@@ -67,9 +72,13 @@ export default function (options, callback) {
     if (!isInsideString && charMatchesCharToFind(currentChar)) {
       if (insideFunction && !isInsideFunction) { continue }
       if (outsideFunction && isInsideFunction) { continue }
-      count++
-      callback(i, count)
+      matchFound(i)
       if (options.onlyOne) { return }
     }
+  }
+
+  function matchFound(i) {
+    count++
+    callback(i, count)
   }
 }
