@@ -11,7 +11,7 @@ export default function (ruleName, messages) {
     const value = messages[k]
     r[k] = (typeof value === "string")
       ? `${value} (${ruleName})`
-      : x => `${value(x)} (${ruleName})`
+      : (...args) => `${value(...args)} (${ruleName})`
     return r
   }, {})
 }
