@@ -15,6 +15,7 @@ import valueIndexOf from "./valueIndexOf"
  */
 export default function (source, functionName, callback) {
   valueIndexOf({ value: source, char: functionName }, index => {
+    if (source[index + functionName.length] !== "(") { return }
     const parensMatch = balanacedMatch("(", ")", source.substr(index))
     callback(parensMatch.body)
   })
