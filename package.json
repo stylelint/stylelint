@@ -22,6 +22,7 @@
   ],
   "dependencies": {
     "lodash": "^3.9.1",
+    "autoprefixer-core": "^5.1.11",
     "postcss": "^4.1.9"
   },
   "devDependencies": {
