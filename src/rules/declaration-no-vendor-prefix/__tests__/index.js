@@ -5,10 +5,11 @@ const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
   tr.ok("a {}")
+  tr.ok(":root { --foo-bar: 1px; }")
   tr.ok("a { transform: scale(1); }", "property")
-  tr.ok("a { box-sizing: border-box; }", "noather property")
+  tr.ok("a { box-sizing: border-box; }", "another property")
   tr.ok("a { display: flex; }", "value")
-  tr.ok("a { -webkit-font-smoothing: antialiased; }", "non-standard property")
+  tr.ok("a { -webkit-font-smoothing: antialiased; }", "non-standard prefixed property")
 
   tr.notOk("a { -webkit-transform: scale(1); }", messages.rejected("-webkit-transform"))
   tr.notOk("a { -webkit-transform: scale(1); transform: scale(1); }", messages.rejected("-webkit-transform"))
@@ -20,6 +21,4 @@ testRule(null, tr => {
 
   tr.notOk("a { display: -webkit-flex; }", messages.rejected("-webkit-flex"), "non-hack prefixed value")
   tr.notOk("a { -ms-interpolation-mode: nearest-neighbor; }", messages.rejected("-ms-interpolation-mode"), "hack prefixed property")
-  // tr.notOk("a { display: -webkit-box; }", messages.rejected("-webkit-box"), "hack prefixed value")
-  // tr.notOk("a { image-rendering: -webkit-optimize-contrast; }", messages.rejected("-webkit-optimize-contrast"), "hack prefixed value")
 })
