@@ -1,7 +1,7 @@
 import {
   ruleMessages,
   isWhitespace,
-  valueIndexOf
+  styleSearch
 } from "../../utils"
 
 export const ruleName = "function-space-after"
@@ -21,7 +21,7 @@ export default function (expectation) {
     css.eachDecl(function (decl) {
       const value = decl.value
 
-      valueIndexOf({ value, char: ")" }, index => {
+      styleSearch({ source: value, target: ")" }, index => {
         checkClosingParen(value, index, decl)
       })
     })

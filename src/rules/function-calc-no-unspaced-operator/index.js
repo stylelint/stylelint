@@ -1,7 +1,7 @@
 import {
   ruleMessages,
   whitespaceChecker,
-  valueIndexOf,
+  styleSearch,
   functionArguments
 } from "../../utils"
 
@@ -28,7 +28,7 @@ export default function () {
         checkSymbol("/")
 
         function checkSymbol(symbol) {
-          valueIndexOf({ value: expression, char: symbol, outsideFunction: true }, index => {
+          styleSearch({ source: expression, target: symbol, outsideFunctions: true }, index => {
             // Deal with signs
             if ((symbol === "+" || symbol === "-") && /\d/.test(expression[index + 1])) {
               const expressionBeforeSign = expression.substr(0, index)

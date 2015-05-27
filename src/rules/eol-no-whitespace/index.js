@@ -1,6 +1,6 @@
 import {
   ruleMessages,
-  valueIndexOf
+  styleSearch
 } from "../../utils"
 
 export const ruleName = "eol-no-whitespace"
@@ -15,7 +15,7 @@ export default function () {
   return function (css, result) {
     let lineCount = 0
     const rootString = css.source.input.css
-    valueIndexOf({ value: rootString, char: [ "\n", "\r" ] }, function (index) {
+    styleSearch({ source: rootString, target: [ "\n", "\r" ] }, function (index) {
       lineCount++
       if (whitespacesToReject.indexOf(rootString[index - 1]) !== -1) {
         result.warn(messages.rejected(lineCount), { node: css })

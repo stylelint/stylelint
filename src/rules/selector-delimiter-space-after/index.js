@@ -1,7 +1,7 @@
 import {
   ruleMessages,
   whitespaceChecker,
-  valueIndexOf
+  styleSearch
 } from "../../utils"
 
 export const ruleName = "selector-delimiter-space-after"
@@ -22,7 +22,7 @@ export function selectorDelimiterSpaceChecker(checkLocation) {
   return function (css, result) {
     css.eachRule(function (rule) {
       const selector = rule.selector
-      valueIndexOf({ value: selector, char: "," }, function (index) {
+      styleSearch({ source: selector, target: "," }, function (index) {
         checkDelimiter(selector, index, rule)
       })
     })

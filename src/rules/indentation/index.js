@@ -1,7 +1,7 @@
 import { repeat } from "lodash"
 import {
   ruleMessages,
-  valueIndexOf
+  styleSearch
 } from "../../utils"
 
 export const ruleName = "indentation"
@@ -103,7 +103,7 @@ export default function (options) {
         : declLevel + 1
       const postNewlineExpected = repeat(indentChar, valueLevel)
 
-      valueIndexOf({ value, char: "\n" }, (newlineIndex, newlineCount) => {
+      styleSearch({ source: value, target: "\n" }, (newlineIndex, newlineCount) => {
         // Starting at the index after the newline, we want to
         // check that the whitespace characters before the first
         // non-whitespace character equal the expected indentation
