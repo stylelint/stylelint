@@ -15,6 +15,6 @@ testRule(null, tr => {
 
   tr.notOk("a { color: #ababa; }", messages.rejected("#ababa"))
   tr.notOk("a { something: #00, #fff, #ababab; }", messages.rejected("#00"))
-  tr.notOk("a { something: #000, #fff1ap, #ababab; }", messages.rejected("#fff1ap"))
+  tr.notOk("a { something: #000, #fff1az, #ababab; }", messages.rejected("#fff1az"))
   tr.notOk("a { something: #000, #fff, #12345aa; }", messages.rejected("#12345aa"))
 })

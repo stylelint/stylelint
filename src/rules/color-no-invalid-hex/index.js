@@ -1,4 +1,3 @@
-import color from "color"
 import {
   ruleMessages,
   valueIndexOf
@@ -17,13 +16,9 @@ export default function () {
 
       valueIndexOf({ value, char: "#" }, hashIndex => {
         const hexValue = /^#[0-9A-Za-z]+/.exec(value.substr(hashIndex))[0]
-        try {
-          color(hexValue)
-        } catch (err) {
-          // Ensure that this is the error we are looking for
-          if (err.message.slice(0, 21) === "Unable to parse color") {
-            result.warn(messages.rejected(hexValue), { node: decl })
-          }
+
+        if (!/^#(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(hexValue)) {
+          result.warn(messages.rejected(hexValue), { node: decl })
         }
       })
     })
