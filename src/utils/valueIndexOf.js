@@ -43,7 +43,7 @@ export default function (options, callback) {
       isInsideString = true
 
       // For string-quotes rule
-      if (charMatchesCharToFind(currentChar)) {
+      if (matchesTarget(currentChar)) {
         matchFound(i)
       }
       continue
