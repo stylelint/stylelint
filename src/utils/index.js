@@ -5,6 +5,7 @@ import ruleMessages from "./ruleMessages"
 import whitespaceChecker from "./whitespaceChecker"
 import valueIndexOf from "./valueIndexOf"
 import lineCount from "./lineCount"
+import isAutoprefixable from "./isAutoprefixable"
 
 export default {
   charNeighbor,
@@ -14,4 +15,5 @@ export default {
   whitespaceChecker,
   valueIndexOf,
   lineCount,
+  isAutoprefixable,
 }
