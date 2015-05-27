@@ -6,6 +6,7 @@ import whitespaceChecker from "./whitespaceChecker"
 import valueIndexOf from "./valueIndexOf"
 import lineCount from "./lineCount"
 import functionArguments from "./functionArguments"
+import isAutoprefixable from "./isAutoprefixable"
 
 export default {
   charNeighbor,
@@ -16,4 +17,5 @@ export default {
   valueIndexOf,
   lineCount,
   functionArguments,
+  isAutoprefixable,
 }
