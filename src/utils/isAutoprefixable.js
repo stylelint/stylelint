@@ -18,3 +18,10 @@ const prefixes = new Prefixes(
 export default function (prefixedIdent) {
   return autoprefixer.data.prefixes[prefixes.unprefixed(prefixedIdent)]
 }
+
+// A Set containing all the prefixed selectors that could be unprefixed
+export const prefixedSelectors = new Set()
+
+prefixes.remove.selectors.forEach(selectorObj => {
+  prefixedSelectors.add(selectorObj.prefixed)
+})
