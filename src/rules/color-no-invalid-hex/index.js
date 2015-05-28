@@ -1,6 +1,6 @@
 import {
   ruleMessages,
-  valueIndexOf
+  styleSearch
 } from "../../utils"
 
 export const ruleName = "color-no-invalid-hex"
@@ -14,7 +14,7 @@ export default function () {
     css.eachDecl(function (decl) {
       const value = decl.value
 
-      valueIndexOf({ value, char: "#" }, hashIndex => {
+      styleSearch({ source: value, target: "#" }, hashIndex => {
         const hexValue = /^#[0-9A-Za-z]+/.exec(value.substr(hashIndex))[0]
 
         if (!/^#(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(hexValue)) {

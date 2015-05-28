@@ -1,6 +1,6 @@
 import {
   ruleMessages,
-  valueIndexOf,
+  styleSearch,
   lineCount
 } from "../../utils"
 
@@ -19,7 +19,7 @@ export default function (expectation) {
 
   return function (root, result) {
     const cssString = root.source.input.css
-    valueIndexOf({ value: cssString, char: erroneousQuote }, index => {
+    styleSearch({ source: cssString, target: erroneousQuote }, index => {
       result.warn(
         messages.expected(expectation, lineCount(cssString.slice(0, index))),
         { node: root }

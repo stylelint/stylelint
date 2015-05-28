@@ -1,5 +1,5 @@
 import balanacedMatch from "balanced-match"
-import valueIndexOf from "./valueIndexOf"
+import styleSearch from "./styleSearch"
 
 /**
  * Search for functions by name. For every match,
@@ -14,7 +14,7 @@ import valueIndexOf from "./valueIndexOf"
  *   as the argument
  */
 export default function (source, functionName, callback) {
-  valueIndexOf({ value: source, char: functionName }, index => {
+  styleSearch({ source, target: functionName }, index => {
     if (source[index + functionName.length] !== "(") { return }
     const parensMatch = balanacedMatch("(", ")", source.substr(index))
     callback(parensMatch.body)

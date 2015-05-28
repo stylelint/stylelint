@@ -1,7 +1,7 @@
 import {
   ruleMessages,
   isWhitespace,
-  valueIndexOf
+  styleSearch
 } from "../../utils"
 
 export const ruleName = "function-token-no-space"
@@ -15,7 +15,7 @@ export default function () {
     css.eachDecl(function (decl) {
       const value = decl.value
 
-      valueIndexOf({ value, char: "(" }, index => {
+      styleSearch({ source: value, target: "(" }, index => {
         checkOpeningParen(value, index, decl)
       })
     })

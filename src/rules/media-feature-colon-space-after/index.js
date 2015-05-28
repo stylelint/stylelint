@@ -1,7 +1,7 @@
 import {
   ruleMessages,
   whitespaceChecker,
-  valueIndexOf
+  styleSearch
 } from "../../utils"
 
 export const ruleName = "media-feature-colon-space-after"
@@ -23,7 +23,7 @@ export function mediaFeatureColonSpaceChecker(checkLocation) {
   return function (css, result) {
     css.eachAtRule(function (atRule) {
       const params = atRule.params
-      valueIndexOf({ value: params, char: ":" }, index => {
+      styleSearch({ source: params, target: ":" }, index => {
         checkColon(params, index, atRule)
       })
     })

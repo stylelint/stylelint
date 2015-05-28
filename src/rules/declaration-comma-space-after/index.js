@@ -1,7 +1,7 @@
 import {
   ruleMessages,
   whitespaceChecker,
-  valueIndexOf
+  styleSearch
 } from "../../utils"
 
 export const ruleName = "declaration-comma-space-after"
@@ -24,7 +24,7 @@ export function declarationCommaSpaceChecker(checkLocation) {
     css.eachDecl(function (decl) {
       const value = decl.value
 
-      valueIndexOf({ value, char: ",", outsideFunction: true }, index => {
+      styleSearch({ source: value, target: ",", outsideFunctionalNotation: true }, index => {
         checkComma(value, index, decl)
       })
     })
