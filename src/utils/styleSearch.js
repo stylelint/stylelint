@@ -1,39 +1,39 @@
 /**
  * Search within styles.
  *
- * Ignores any matches within CSS strings.
+ * Ignores any matches within CSS strings. Optionally restricts
+ * the search to characters within or outside of functional notation.
  *
  * @param {object} options
- * @param {string} options.source - The source to look through
+ * @param {string} options.source - The source to search through
  * @param {string|string[]} options.target - The target of the search. Can be
  *   - a single character,
  *   - a string with some length,
- *   - an array of single-character targets, all of which count as a match
- * @param {boolean} [options.withinFunctions] - If `true`, only will report
- *   `target` found inside a function
- * @param {boolean} [options.outsideFunctions] - If `true`, only will report
- *   `target` found outside functions
+ *   - an array of strings, all of which count as matches
+ * @param {boolean} [options.withinFunctionalNotation] - If `true`, only will report
+ *   matches found inside a function
+ * @param {boolean} [options.outsideFunctionalNotation] - If `true`, only will report
+ *   matches found outside functions
  * @param {boolean} [onlyOne] - Stop looking after the first match is found
- * @param {function} callback - Function that takes the index of `target` or
- *   `undefined` if `target` is not found
- * @return {undefined}
+ * @param {function} callback - Function that takes the index of a match as its
+ *   argument
  */
 export default function (options, callback) {
   const {
     source,
     target,
-    withinFunctions,
-    outsideFunctions
+    withinFunctionalNotation,
+    outsideFunctionalNotation
   } = options
 
   const targetIsArray = Array.isArray(target)
 
   const checkAgainstTarget = (() => {
     if (!targetIsArray) {
-      return checkChar.bind(target)
+      return checkChar.bind(null, target)
     }
     return function (index) {
-      target.some(t => {
+      return target.some(t => {
         return checkChar(t, index)
       })
     }
@@ -48,7 +48,7 @@ export default function (options, callback) {
     }
 
     // Target is multiple characters
-    return source.substr(index, targetStringLength) === targetStringLength
+    return source.substr(index, targetStringLength) === targetString
   }
 
   let insideString = false
@@ -92,7 +92,7 @@ export default function (options, callback) {
     }
 
     // If we are paying attention to functions ...
-    if (withinFunctions || outsideFunctions) {
+    if (withinFunctionalNotation || outsideFunctionalNotation) {
 
       // Register the beginning of a function
       if (currentChar === "(") {
@@ -120,12 +120,11 @@ export default function (options, callback) {
     }
 
     if (checkAgainstTarget(i)) {
-
       // If we have a match,
       // and it is inside or outside of a function, as requested in options,
       // send it to the callback
-      if (insideFunction && !withinFunctions) { continue }
-      if (outsideFunctions && withinFunctions) { continue }
+      if (withinFunctionalNotation && !insideFunction) { continue }
+      if (outsideFunctionalNotation && insideFunction) { continue }
       matchFound(i)
       if (options.onlyOne) { return }
     }

@@ -24,7 +24,7 @@ export function declarationCommaSpaceChecker(checkLocation) {
     css.eachDecl(function (decl) {
       const value = decl.value
 
-      styleSearch({ source: value, target: ",", outsideFunctions: true }, index => {
+      styleSearch({ source: value, target: ",", outsideFunctionalNotation: true }, index => {
         checkComma(value, index, decl)
       })
     })

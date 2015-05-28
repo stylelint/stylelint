@@ -36,65 +36,65 @@ test("`onlyOne` option", t => {
   t.end()
 })
 
-test("`insideFunction` option", t => {
+test("`withinFunctionalNotation` option", t => {
   t.deepEqual(styleSearchResults({
     source: "abc var(--cba)",
     target: "c",
-    insideFunction: true,
+    withinFunctionalNotation: true,
   }), [10])
   t.deepEqual(styleSearchResults({
     source: "abc var(--cba)",
     target: "a",
-    insideFunction: true,
+    withinFunctionalNotation: true,
   }), [12])
   t.deepEqual(styleSearchResults({
     source: "abc \"var(--cba)\"",
     target: "a",
-    insideFunction: true,
+    withinFunctionalNotation: true,
   }), [])
   t.deepEqual(styleSearchResults({
     source: "translate(1px, calc(1px * 2))",
     target: "1",
-    insideFunction: true,
+    withinFunctionalNotation: true,
   }), [ 10, 20 ])
   t.deepEqual(styleSearchResults({
     source: "abc \"var(--cba)\"",
     target: "a",
-    insideFunction: false,
+    withinFunctionalNotation: false,
   }), [0])
   t.deepEqual(styleSearchResults({
     source: "var(--horse)",
     target: "v",
-    insideFunction: true,
+    withinFunctionalNotation: true,
   }), [])
   t.end()
 })
 
-test("`outsideFunctions` option", t => {
+test("`outsideFunctionalNotation` option", t => {
   t.deepEqual(styleSearchResults({
     source: "abc var(--cba)",
     target: "c",
-    outsideFunctions: true,
+    outsideFunctionalNotation: true,
   }), [2])
   t.deepEqual(styleSearchResults({
     source: "abc var(--cba)",
     target: "a",
-    outsideFunctions: true,
+    outsideFunctionalNotation: true,
   }), [0])
   t.deepEqual(styleSearchResults({
     source: "abc \"a var(--cba)\"",
     target: "a",
-    outsideFunctions: true,
+    outsideFunctionalNotation: true,
   }), [0])
   t.deepEqual(styleSearchResults({
     source: "translate(1px, calc(1px * 2))",
     target: "1",
-    outsideFunctions: true,
+    outsideFunctionalNotation: true,
   }), [])
   t.deepEqual(styleSearchResults({
     source: "var(--horse)",
     target: "v",
-    outsideFunctions: true,
+    outsideFunctionalNotation: true,
   }), [])
   t.end()
 })
@@ -157,6 +157,58 @@ test("count", t => {
     endCounts.push(count)
   })
   t.deepEqual(endCounts, [ 1, 2, 3 ])
+  t.end()
+})
+
+test("non-single-character target", t => {
+  t.deepEqual(styleSearchResults({
+    source: "abc cba",
+    target: "abc",
+  }), [0])
+  t.deepEqual(styleSearchResults({
+    source: "abc cba",
+    target: "cb",
+  }), [4])
+  t.deepEqual(styleSearchResults({
+    source: "abc cba",
+    target: "c c",
+  }), [2])
+  t.deepEqual(styleSearchResults({
+    source: "abc cba abc",
+    target: "abc",
+  }), [ 0, 8 ])
+  t.deepEqual(styleSearchResults({
+    source: "abc cba 'abc'",
+    target: "abc",
+  }), [0])
+  t.deepEqual(styleSearchResults({
+    source: "abc cb",
+    target: "aa",
+  }), [])
+  t.end()
+})
+
+test("array target", t => {
+  t.deepEqual(styleSearchResults({
+    source: "abc cba",
+    target: [ "a", "b" ],
+  }), [ 0, 1, 5, 6 ])
+  t.deepEqual(styleSearchResults({
+    source: "abc cba",
+    target: [ "c", "b" ],
+  }), [ 1, 2, 4, 5 ])
+  t.deepEqual(styleSearchResults({
+    source: "abc cba",
+    target: [ "bc", "a" ],
+  }), [ 0, 1, 6 ])
+  t.deepEqual(styleSearchResults({
+    source: "abc cba",
+    target: [ "abc", "f" ],
+  }), [0])
+  t.deepEqual(styleSearchResults({
+    source: "abc cba",
+    target: [ 0, 1, 2 ],
+  }), [])
   t.end()
 })
 
