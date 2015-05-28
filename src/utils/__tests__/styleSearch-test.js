@@ -214,6 +214,6 @@ test("array target", t => {
 
 function styleSearchResults(options) {
   const results = []
-  styleSearch(options, i => results.push(i))
+  styleSearch(options, match => results.push(match.startIndex))
   return results
 }

@@ -103,11 +103,11 @@ export default function (options) {
         : declLevel + 1
       const postNewlineExpected = repeat(indentChar, valueLevel)
 
-      styleSearch({ source: value, target: "\n" }, (newlineIndex, newlineCount) => {
+      styleSearch({ source: value, target: "\n" }, (match, newlineCount) => {
         // Starting at the index after the newline, we want to
         // check that the whitespace characters before the first
         // non-whitespace character equal the expected indentation
-        const postNewlineActual = /^(\s*)\S/.exec(value.slice(newlineIndex + 1))[1]
+        const postNewlineActual = /^(\s*)\S/.exec(value.slice(match.startIndex + 1))[1]
 
         if (postNewlineActual !== postNewlineExpected) {
           result.warn(

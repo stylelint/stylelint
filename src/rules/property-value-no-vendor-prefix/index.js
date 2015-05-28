@@ -17,8 +17,8 @@ export default function () {
     css.eachDecl(function (decl) {
       const { prop, value } = decl
 
-      styleSearch({ source: value, target: valuePrefixes }, index => {
-        const fullIdentifier = /^(-[a-z-]+)\b/.exec(value.slice(index))[1]
+      styleSearch({ source: value, target: valuePrefixes }, match => {
+        const fullIdentifier = /^(-[a-z-]+)\b/.exec(value.slice(match.startIndex))[1]
         if (isAutoprefixable.propertyValue(prop, fullIdentifier)) {
           result.warn(messages.rejected(fullIdentifier), { node: decl })
         }

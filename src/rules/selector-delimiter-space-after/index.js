@@ -22,8 +22,8 @@ export function selectorDelimiterSpaceChecker(checkLocation) {
   return function (css, result) {
     css.eachRule(function (rule) {
       const selector = rule.selector
-      styleSearch({ source: selector, target: "," }, function (index) {
-        checkDelimiter(selector, index, rule)
+      styleSearch({ source: selector, target: "," }, match => {
+        checkDelimiter(selector, match.startIndex, rule)
       })
     })
 

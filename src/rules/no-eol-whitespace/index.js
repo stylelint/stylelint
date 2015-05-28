@@ -15,9 +15,9 @@ export default function () {
   return function (css, result) {
     let lineCount = 0
     const rootString = css.source.input.css
-    styleSearch({ source: rootString, target: [ "\n", "\r" ] }, function (index) {
+    styleSearch({ source: rootString, target: [ "\n", "\r" ] }, match => {
       lineCount++
-      if (whitespacesToReject.indexOf(rootString[index - 1]) !== -1) {
+      if (whitespacesToReject.indexOf(rootString[match.startIndex - 1]) !== -1) {
         result.warn(messages.rejected(lineCount), { node: css })
       }
     })

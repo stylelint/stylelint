@@ -15,8 +15,8 @@ export default function () {
     css.eachDecl(function (decl) {
       const value = decl.value
 
-      styleSearch({ source: value, target: "(" }, index => {
-        checkOpeningParen(value, index, decl)
+      styleSearch({ source: value, target: "(" }, match => {
+        checkOpeningParen(value, match.startIndex, decl)
       })
     })
 
