@@ -1,15 +1,15 @@
 import { ruleMessages } from "../../utils"
 
-export const ruleName = "eof-newline"
+export const ruleName = "no-missing-eof-newline"
 
 export const messages = ruleMessages(ruleName, {
-  expected: "Expected newline at end of file",
+  rejected: "Unexpected missing newline at end of file",
 })
 
 export default function () {
   return function (root, result) {
     if (root.source.input.css.slice(-1) !== "\n") {
-      result.warn(messages.expected, { node: root })
+      result.warn(messages.rejected, { node: root })
     }
   }
 }

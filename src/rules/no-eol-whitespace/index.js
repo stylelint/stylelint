@@ -3,7 +3,7 @@ import {
   styleSearch
 } from "../../utils"
 
-export const ruleName = "eol-no-whitespace"
+export const ruleName = "no-eol-whitespace"
 
 export const messages = ruleMessages(ruleName, {
   rejected: line => `Unexpected whitespace at end of line ${line}`,
