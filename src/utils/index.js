@@ -5,7 +5,7 @@ import whitespaceChecker from "./whitespaceChecker"
 import styleSearch from "./styleSearch"
 import lineCount from "./lineCount"
 import functionArguments from "./functionArguments"
-import isAutoprefixable, { prefixedSelectors } from "./isAutoprefixable"
+import isAutoprefixable from "./isAutoprefixable"
 
 export default {
   isSingleLineString,
@@ -16,5 +16,5 @@ export default {
   lineCount,
   functionArguments,
   isAutoprefixable,
-  prefixedSelectors,
+  // prefixedSelectors,
 }

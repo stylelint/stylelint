@@ -7,6 +7,7 @@ testRule(null, tr => {
   tr.ok("a {}")
   tr.ok("a::before {}")
   tr.ok("a:hover {}")
+  tr.ok("a[data-foo=\":-webkit-full-screen\"] {}")
 
   tr.ok(":fullscreen a {}")
   tr.notOk(":-webkit-full-screen a {}", messages.rejected(":-webkit-full-screen"))

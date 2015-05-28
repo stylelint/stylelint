@@ -1,7 +1,7 @@
 import {
   ruleMessages,
   styleSearch,
-  prefixedSelectors
+  isAutoprefixable
 } from "../../utils"
 
 export const ruleName = "selector-no-vendor-prefix"
@@ -18,7 +18,7 @@ export default function () {
       // Check each pseudo-selector
       styleSearch({ source: selector, target: ":" }, index => {
         const pseudoSelector = /:{1,2}[a-z-]+\b/.exec(selector.slice(index))[0]
-        if (prefixedSelectors.has(pseudoSelector)) {
+        if (isAutoprefixable.selector(pseudoSelector)) {
           result.warn(messages.rejected(pseudoSelector), { node: rule })
         }
       })
