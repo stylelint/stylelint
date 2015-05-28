@@ -18,7 +18,7 @@ export default function () {
       // but this isn't a custom property
       if (prop[0] !== "-" || prop[1] === "-") { return }
 
-      if (isAutoprefixable(prop)) {
+      if (isAutoprefixable.property(prop)) {
         result.warn(messages.rejected(prop), { node: decl })
       }
     })
