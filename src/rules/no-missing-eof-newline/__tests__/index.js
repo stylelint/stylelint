@@ -8,7 +8,7 @@ testRule(null, tr => {
   tr.ok("a { color: pink; }\n")
   tr.ok("a { color: pink; }\n\n\n")
 
-  tr.notOk("", messages.expected)
-  tr.notOk("a { color: pink; }", messages.expected)
-  tr.notOk("a { color: pink; }\n\n\nb{ color: orange; }", messages.expected)
+  tr.notOk("", messages.rejected)
+  tr.notOk("a { color: pink; }", messages.rejected)
+  tr.notOk("a { color: pink; }\n\n\nb{ color: orange; }", messages.rejected)
 })
