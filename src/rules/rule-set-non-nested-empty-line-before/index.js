@@ -3,11 +3,11 @@ import {
   isSingleLineString
 } from "../../utils"
 
-export const ruleName = "rule-set-non-nested-empty-newline-before"
+export const ruleName = "rule-set-non-nested-empty-line-before"
 
 export const messages = ruleMessages(ruleName, {
-  expected: "Expected empty newline before non-nested rule set",
-  rejected: "Unexpected empty newline before non-nested rule set",
+  expected: "Expected empty line before non-nested rule set",
+  rejected: "Unexpected empty line before non-nested rule set",
 })
 
 /**
@@ -23,17 +23,17 @@ export default function (expectation) {
       // Ignore nested rule sets
       if (rule.parent !== root) { return }
 
-      const expectEmptyNewline = (expectation === "always"
+      const expectEmptyLine = (expectation === "always"
         || expectation === "always-multi-line" && !isSingleLineString(rule.toString()))
 
-      const rejectEmptyNewline = (expectation === "never"
+      const rejectEmptyLine = (expectation === "never"
         || expectation === "never-multi-line" && !isSingleLineString(rule.toString()))
 
-      const emptyNewlineBefore = rule.before.indexOf("\n\n") !== -1
-      if (expectEmptyNewline && !emptyNewlineBefore) {
+      const emptyLineBefore = rule.before.indexOf("\n\n") !== -1
+      if (expectEmptyLine && !emptyLineBefore) {
         result.warn(messages.expected, { node: rule })
       }
-      if (rejectEmptyNewline && emptyNewlineBefore) {
+      if (rejectEmptyLine && emptyLineBefore) {
         result.warn(messages.rejected, { node: rule })
       }
     })
