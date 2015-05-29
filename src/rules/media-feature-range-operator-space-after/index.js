@@ -17,19 +17,25 @@ const rangeOperatorRegex = /[^><](>=?|<=?|=)/g
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
-  return (css, result) => {
-    css.eachAtRule(atRule => {
-      const params = atRule.params
-      let match
-      while ((match = rangeOperatorRegex.exec(params)) !== null) {
-        checkOperator(match, params, atRule)
-      }
+  return (root, result) => {
+    root.eachAtRule(atRule => {
+      findMediaOperator(atRule, checkAfterOperator)
     })
 
-    function checkOperator(match, params, node) {
+    function checkAfterOperator(match, params, node) {
       checker.after(params, match.index + match[1].length, m => {
         result.warn(m, { node })
       })
     }
+  }
+}
+
+export function findMediaOperator(atRule, cb) {
+  if (atRule.name !== "media") { return }
+
+  const params = atRule.params
+  let match
+  while ((match = rangeOperatorRegex.exec(params)) !== null) {
+    cb(match, params, atRule)
   }
 }
