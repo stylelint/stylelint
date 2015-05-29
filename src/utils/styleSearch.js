@@ -37,9 +37,9 @@ export default function (options, callback) {
     if (!targetIsArray) {
       return checkChar.bind(null, target)
     }
-    return () => {
+    return (index) => {
       for (let ti = 0, tl = target.length; ti < tl; ti++) {
-        const checkResult = checkChar(target[ti])
+        const checkResult = checkChar(target[ti], index)
         if (checkResult) { return checkResult }
       }
       return false
@@ -86,7 +86,7 @@ export default function (options, callback) {
 
       // For string-quotes rule
       if (target === currentChar) {
-        matchFound(i)
+        matchFound(checkAgainstTarget(i))
       }
       continue
     }
