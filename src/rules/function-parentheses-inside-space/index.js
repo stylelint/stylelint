@@ -21,11 +21,11 @@ export default function (expectation) {
     css.eachDecl(function (decl) {
       const value = decl.value
 
-      styleSearch({ source: value, target: "(" }, index => {
-        checkOpening(value, index, decl)
+      styleSearch({ source: value, target: "(" }, match => {
+        checkOpening(value, match.startIndex, decl)
       })
-      styleSearch({ source: value, target: ")" }, index => {
-        checkClosing(value, index, decl)
+      styleSearch({ source: value, target: ")" }, match => {
+        checkClosing(value, match.startIndex, decl)
       })
     })
 

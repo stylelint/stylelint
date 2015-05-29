@@ -21,8 +21,8 @@ export default function (expectation) {
     css.eachDecl(function (decl) {
       const value = decl.value
 
-      styleSearch({ source: value, target: ")" }, index => {
-        checkClosingParen(value, index, decl)
+      styleSearch({ source: value, target: ")" }, match => {
+        checkClosingParen(value, match.startIndex, decl)
       })
     })
 

@@ -16,8 +16,8 @@ export default function () {
       const selector = rule.selector
 
       // Check each pseudo-selector
-      styleSearch({ source: selector, target: ":" }, index => {
-        const pseudoSelector = /:{1,2}[a-z-]+\b/.exec(selector.slice(index))[0]
+      styleSearch({ source: selector, target: ":" }, match => {
+        const pseudoSelector = /:{1,2}[a-z-]+\b/.exec(selector.slice(match.startIndex))[0]
         if (isAutoprefixable.selector(pseudoSelector)) {
           result.warn(messages.rejected(pseudoSelector), { node: rule })
         }

@@ -212,8 +212,30 @@ test("array target", t => {
   t.end()
 })
 
+test("match object", t => {
+  styleSearch({ source: "abc", target: "bc" }, match => {
+    t.equal(match.startIndex, 1)
+    t.equal(match.endIndex, 3)
+    t.equal(match.target, "bc")
+  })
+
+  const twoMatches = []
+  styleSearch({ source: "abc bca", target: [ "bc ", "ca" ] }, match => {
+    twoMatches.push(match)
+  })
+  const firstMatch = twoMatches[0]
+  const secondMatch = twoMatches[1]
+  t.equal(firstMatch.startIndex, 1)
+  t.equal(firstMatch.endIndex, 4)
+  t.equal(firstMatch.target, "bc ")
+  t.equal(secondMatch.startIndex, 5)
+  t.equal(secondMatch.endIndex, 7)
+  t.equal(secondMatch.target, "ca")
+  t.end()
+})
+
 function styleSearchResults(options) {
   const results = []
-  styleSearch(options, i => results.push(i))
+  styleSearch(options, match => results.push(match.startIndex))
   return results
 }

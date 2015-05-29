@@ -22,8 +22,8 @@ export default function (expectation) {
 
       const params = atRule.params
 
-      styleSearch({ source: params, target: "(" }, index => {
-        const nextCharIsSpace = params[index + 1] === " "
+      styleSearch({ source: params, target: "(" }, match => {
+        const nextCharIsSpace = params[match.startIndex + 1] === " "
         if (nextCharIsSpace && expectation === "never") {
           result.warn(messages.rejectedOpening, { node: atRule })
         }
@@ -32,8 +32,8 @@ export default function (expectation) {
         }
       })
 
-      styleSearch({ source: params, target: ")" }, index => {
-        const prevCharIsSpace = params[index - 1] === " "
+      styleSearch({ source: params, target: ")" }, match => {
+        const prevCharIsSpace = params[match.startIndex - 1] === " "
         if (prevCharIsSpace && expectation === "never") {
           result.warn(messages.rejectedClosing, { node: atRule })
         }

@@ -23,8 +23,8 @@ export function mediaFeatureColonSpaceChecker(checkLocation) {
   return function (css, result) {
     css.eachAtRule(function (atRule) {
       const params = atRule.params
-      styleSearch({ source: params, target: ":" }, index => {
-        checkColon(params, index, atRule)
+      styleSearch({ source: params, target: ":" }, match => {
+        checkColon(params, match.startIndex, atRule)
       })
     })
 

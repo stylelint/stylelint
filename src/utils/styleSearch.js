@@ -4,6 +4,11 @@
  * Ignores any matches within CSS strings. Optionally restricts
  * the search to characters within or outside of functional notation.
  *
+ * Returns a `match` object with the following properties:
+ * - startIndex
+ * - endIndex
+ * - target
+ *
  * @param {object} options
  * @param {string} options.source - The source to search through
  * @param {string|string[]} options.target - The target of the search. Can be
@@ -32,10 +37,12 @@ export default function (options, callback) {
     if (!targetIsArray) {
       return checkChar.bind(null, target)
     }
-    return function (index) {
-      return target.some(t => {
-        return checkChar(t, index)
-      })
+    return (index) => {
+      for (let ti = 0, tl = target.length; ti < tl; ti++) {
+        const checkResult = checkChar(target[ti], index)
+        if (checkResult) { return checkResult }
+      }
+      return false
     }
   }())
 
@@ -43,12 +50,20 @@ export default function (options, callback) {
     const targetStringLength = targetString.length
 
     // Target is a single character
-    if (targetStringLength === 1) {
-      return source[index] === targetString
+    if (targetStringLength === 1 && source[index] !== targetString) {
+      return false
     }
 
     // Target is multiple characters
-    return source.substr(index, targetStringLength) === targetString
+    if (source.substr(index, targetStringLength) !== targetString) {
+      return false
+    }
+
+    return {
+      startIndex: index,
+      endIndex: index + targetStringLength,
+      target: targetString,
+    }
   }
 
   let insideString = false
@@ -71,7 +86,7 @@ export default function (options, callback) {
 
       // For string-quotes rule
       if (target === currentChar) {
-        matchFound(i)
+        matchFound(checkAgainstTarget(i))
       }
       continue
     }
@@ -119,19 +134,21 @@ export default function (options, callback) {
       }
     }
 
-    if (checkAgainstTarget(i)) {
-      // If we have a match,
-      // and it is inside or outside of a function, as requested in options,
-      // send it to the callback
-      if (withinFunctionalNotation && !insideFunction) { continue }
-      if (outsideFunctionalNotation && insideFunction) { continue }
-      matchFound(i)
-      if (options.onlyOne) { return }
-    }
+    const match = checkAgainstTarget(i)
+
+    if (!match) { continue }
+
+    // If we have a match,
+    // and it is inside or outside of a function, as requested in options,
+    // send it to the callback
+    if (withinFunctionalNotation && !insideFunction) { continue }
+    if (outsideFunctionalNotation && insideFunction) { continue }
+    matchFound(match)
+    if (options.onlyOne) { return }
   }
 
-  function matchFound(i) {
+  function matchFound(match) {
     matchCount++
-    callback(i, matchCount)
+    callback(match, matchCount)
   }
 }

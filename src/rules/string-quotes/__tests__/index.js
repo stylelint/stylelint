@@ -14,7 +14,7 @@ testRule("single", tr => {
   tr.notOk("a::before { content: \"foo\"; }", messages.expected("single", 1))
   tr.notOk("a::before\n{\n  content: \"foo\";\n}", messages.expected("single", 3))
   tr.notOk("a[id=\"foo\"] {}", messages.expected("single", 1))
-  tr.notOk("a { background: url(\"foo\"); }", messages.expected("single", 1))
+  tr.notOk("a\n{ background: url(\"foo\"); }", messages.expected("single", 2))
 })
 
 testRule("double", tr => {

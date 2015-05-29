@@ -28,7 +28,9 @@ export default function () {
         checkSymbol("/")
 
         function checkSymbol(symbol) {
-          styleSearch({ source: expression, target: symbol, outsideFunctionalNotation: true }, index => {
+          styleSearch({ source: expression, target: symbol, outsideFunctionalNotation: true }, match => {
+            const index = match.startIndex
+
             // Deal with signs
             if ((symbol === "+" || symbol === "-") && /\d/.test(expression[index + 1])) {
               const expressionBeforeSign = expression.substr(0, index)
