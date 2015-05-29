@@ -16,5 +16,4 @@ export default {
   lineCount,
   functionArguments,
   isAutoprefixable,
-  // prefixedSelectors,
 }
