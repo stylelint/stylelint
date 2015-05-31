@@ -16,6 +16,7 @@ testRule("single", tr => {
   tr.ok("a:after { color: pink; }")
   tr.ok("a:first-letter { color: pink; }")
   tr.ok("a:first-line { color: pink; }")
+  tr.ok("a:before, a[data-before='before'] { color: pink; }")
 
   tr.notOk("a::before { color: pink; }", messages.expected("single"))
   tr.notOk("a::after { color: pink; }", messages.expected("single"))
@@ -26,6 +27,7 @@ testRule("single", tr => {
 testRule("double", tr => {
   tr.ok("")
   tr.ok("a { color: pink; }")
+
   tr.ok("::selection { color: pink; }")
   tr.ok("a::spelling-error { color: pink; }")
   tr.ok("a::grammar-error { color: pink; }")
@@ -36,6 +38,7 @@ testRule("double", tr => {
   tr.ok("a::after { color: pink; }")
   tr.ok("a::first-letter { color: pink; }")
   tr.ok("a::first-line { color: pink; }")
+  tr.ok("a::before, a[data-before='before'] { color: pink; }")
 
   tr.notOk("a:before { color: pink; }", messages.expected("double"))
   tr.notOk("a:after { color: pink; }", messages.expected("double"))

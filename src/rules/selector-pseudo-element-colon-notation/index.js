@@ -23,9 +23,9 @@ export default function (expectation) {
       if (selector.indexOf(":") === -1) { return }
 
       // match only level 1 and 2 pseudo elements
-      styleSearch({ source: selector, target: [ "before", "after", "first-line", "first-letter" ] }, match => {
+      styleSearch({ source: selector, target: [ ":before", ":after", ":first-line", ":first-letter" ] }, match => {
 
-        let prevChar = selector[match.startIndex - 2]
+        let prevChar = selector[match.startIndex - 1]
 
         if (expectation === "single" && prevChar === ":") {
           result.warn(messages.expected("single"), { node: rule })
