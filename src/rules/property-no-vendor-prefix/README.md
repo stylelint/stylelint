@@ -25,5 +25,6 @@ a { transform: scale(1); }
 ```
 
 ```css
-a { columns: 2; }
+a { 
+columns: 2; }
 ```

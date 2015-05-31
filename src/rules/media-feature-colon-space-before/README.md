@@ -1,0 +1,61 @@
+# media-feature-colon-space-before
+
+Require or disallow a space before colon in media features.
+
+```css
+    @media (max-width :600px) {}
+/**                   ↑  
+ * The space before this colon */
+```
+
+## Options
+
+`string`: `"always"|"never"`
+
+### `"always"`
+
+There *must always* be a single space before the colon.
+
+The following patterns are considered warnings:
+
+```css
+@media (max-width:600px) {}
+```
+
+```css
+@media (max-width: 600px) {}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+@media (max-width :600px) {}
+```
+
+```css
+@media (max-width : 600px) {}
+```
+
+### `"never"`
+
+There *must never* be whitespace before the colon.
+
+The following patterns are considered warnings:
+
+```css
+@media (max-width :600px) {}
+```
+
+```css
+@media (max-width : 600px) {}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+@media (max-width:600px) {}
+```
+
+```css
+@media (max-width: 600px) {}
+```
