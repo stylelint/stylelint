@@ -18,7 +18,8 @@
   "files": [
     "CHANGELOG.md",
     "LICENSE",
-    "dist"
+    "dist",
+    "src"
   ],
   "dependencies": {
     "balanced-match": "^0.2.0",
