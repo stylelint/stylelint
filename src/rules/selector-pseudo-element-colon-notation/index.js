@@ -25,13 +25,12 @@ export default function (expectation) {
       // match only level 1 and 2 pseudo elements
       styleSearch({ source: selector, target: [ ":before", ":after", ":first-line", ":first-letter" ] }, match => {
 
-        let prevChar = selector[match.startIndex - 1]
+        const prevCharIsColon = selector[match.startIndex - 1] === ":"
 
-        if (expectation === "single" && prevChar === ":") {
-          result.warn(messages.expected("single"), { node: rule })
-        } else if (expectation === "double" && prevChar !== ":") {
-          result.warn(messages.expected("double"), { node: rule })
-        }
+        if (expectation === "single" && !prevCharIsColon) { return }
+        if (expectation === "double" && prevCharIsColon) { return }
+
+        result.warn(messages.expected(expectation), { node: rule })
       })
     })
   }
