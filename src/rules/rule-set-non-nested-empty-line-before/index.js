@@ -17,25 +17,31 @@ export default function (expectation) {
   return (root, result) => {
     root.eachRule(rule => {
 
-      // Ignore the first node
-      if (rule === root.first) { return }
-
       // Ignore nested rule sets
       if (rule.parent !== root) { return }
 
-      const expectEmptyLine = (expectation === "always"
-        || expectation === "always-multi-line" && !isSingleLineString(rule.toString()))
+      // Ignore the first node
+      if (rule === root.first) { return }
 
-      const rejectEmptyLine = (expectation === "never"
-        || expectation === "never-multi-line" && !isSingleLineString(rule.toString()))
-
-      const emptyLineBefore = rule.before.indexOf("\n\n") !== -1
-      if (expectEmptyLine && !emptyLineBefore) {
-        result.warn(messages.expected, { node: rule })
-      }
-      if (rejectEmptyLine && emptyLineBefore) {
-        result.warn(messages.rejected, { node: rule })
-      }
+      checkRuleEmptyLineBefore(rule, expectation, result, messages)
     })
+  }
+}
+
+export function checkRuleEmptyLineBefore(rule, expectation, result, msgs) {
+
+  const expectEmptyLine = (expectation === "always"
+    || expectation === "always-multi-line" && !isSingleLineString(rule.toString()))
+
+  const rejectEmptyLine = (expectation === "never"
+    || expectation === "never-multi-line" && !isSingleLineString(rule.toString()))
+
+  const emptyLineBefore = rule.before.indexOf("\n\n") !== -1
+
+  if (expectEmptyLine && !emptyLineBefore) {
+    result.warn(msgs.expected, { node: rule })
+  }
+  if (rejectEmptyLine && emptyLineBefore) {
+    result.warn(msgs.rejected, { node: rule })
   }
 }
