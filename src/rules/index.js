@@ -1,3 +1,6 @@
+import blockOpeningBraceNewlineAfter from "./block-opening-brace-newline-after"
+import declarationNoImportant from "./declaration-no-important"
+
 export default {
   "at-rule-no-vendor-prefix": require("./at-rule-no-vendor-prefix"),
   "block-closing-brace-newline-after": require("./block-closing-brace-newline-after"),
@@ -5,7 +8,7 @@ export default {
   "block-closing-brace-space-after": require("./block-closing-brace-space-after"),
   "block-closing-brace-space-before": require("./block-closing-brace-space-before"),
   "block-no-empty": require("./block-no-empty"),
-  "block-opening-brace-newline-after": require("./block-opening-brace-newline-after"),
+  "block-opening-brace-newline-after": blockOpeningBraceNewlineAfter,
   "block-opening-brace-newline-before": require("./block-opening-brace-newline-before"),
   "block-opening-brace-space-after": require("./block-opening-brace-space-after"),
   "block-opening-brace-space-before": require("./block-opening-brace-space-before"),
@@ -18,7 +21,7 @@ export default {
   "declaration-colon-space-before": require("./declaration-colon-space-before"),
   "declaration-comma-space-after": require("./declaration-comma-space-after"),
   "declaration-comma-space-before": require("./declaration-comma-space-before"),
-  "declaration-no-important": require("./declaration-no-important"),
+  "declaration-no-important": declarationNoImportant,
   "declaration-semicolon-newline-after": require("./declaration-semicolon-newline-after"),
   "declaration-semicolon-newline-before": require("./declaration-semicolon-newline-before"),
   "declaration-semicolon-space-after": require("./declaration-semicolon-space-after"),
