@@ -1,6 +1,6 @@
 # block-opening-brace-newline-before
 
-Require or disallow a newline before the opening brace of a block.
+Require or disallow a newline before the opening brace of blocks.
 
 ```css
     a 

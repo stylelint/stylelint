@@ -1,6 +1,6 @@
 # number-leading-zero
 
-Require or disallow a leading zero for fractional value less than 1.
+Require or disallow a leading zero for fractional numbers less than 1.
 
 ```css
     a { line-height: 0.5; }

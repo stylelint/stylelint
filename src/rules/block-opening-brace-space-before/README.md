@@ -1,6 +1,6 @@
 # block-opening-brace-space-before
 
-Require or disallow a space before the opening brace of a block.
+Require or disallow a space before the opening brace of blocks.
 
 ```css
     a { color: pink; }

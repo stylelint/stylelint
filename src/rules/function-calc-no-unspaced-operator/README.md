@@ -1,6 +1,6 @@
 # function-calc-no-unspaced-operator
 
-Disallow an unspaced operator within a `calc` function.
+Disallow an unspaced operator within `calc` functions.
 
 ```css
     a { top: calc(1px + 2px); }

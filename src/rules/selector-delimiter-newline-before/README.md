@@ -1,6 +1,6 @@
 # selector-delimiter-newline-before
 
-Require or disallow a newline before the delimiters in a selector.
+Require or disallow a newline before the delimiters of selectors.
 
 ```css
     a

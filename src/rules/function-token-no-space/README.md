@@ -1,6 +1,6 @@
 # function-token-no-space
 
-Disallow a space between a function token and its parameters.
+Disallow a space between function tokens and their parameters.
 
 ```css
     a { transform: translate (1, 1); }

@@ -1,6 +1,6 @@
 # media-query-parentheses-inside-space
 
-Require or disallow a single space on the inside of the parentheses within a media query.
+Require or disallow a single space on the inside of the parentheses within media queries.
 
 ```css
     @media ( max-width: 300px ) {}

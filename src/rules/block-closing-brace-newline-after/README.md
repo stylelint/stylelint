@@ -1,6 +1,6 @@
 # block-closing-brace-newline-after
 
-Require or disallow a newline after the closing brace of a block.
+Require or disallow a newline after the closing brace of blocks.
 
 ```css
     a { color: pink; }

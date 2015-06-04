@@ -1,6 +1,6 @@
 # function-parentheses-inside-space
 
-Require or disallow a single space on the inside of the parentheses of a function.
+Require or disallow a single space on the inside of the parentheses of functions.
 
 ```css
     a { transform: translate( 1, 1 ); }
