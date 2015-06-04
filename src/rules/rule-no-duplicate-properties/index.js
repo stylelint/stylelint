@@ -1,6 +1,6 @@
 import { ruleMessages } from "../../utils"
 
-export const ruleName = "declaration-block-no-duplicate-properties"
+export const ruleName = "rule-no-duplicate-properties"
 
 export const messages = ruleMessages(ruleName, {
   rejected: p => `Unexpected duplicate property "${p}"`,

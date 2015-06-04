@@ -1,8 +1,8 @@
 import isSingleLineString from "../../utils/isSingleLineString"
 
-export const ruleName = "rule-set-no-single-line"
+export const ruleName = "rule-no-single-line"
 export const messages = {
-  rejected: `Unexpected single-line rule-set (${ruleName})`,
+  rejected: `Unexpected single-line rule (${ruleName})`,
 }
 
 /**

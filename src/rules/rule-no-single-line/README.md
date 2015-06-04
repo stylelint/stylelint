@@ -1,6 +1,6 @@
-# rule-set-no-single-line
+# rule-no-single-line
 
-Disallow single-line rule-sets.
+Disallow single-line rules.
 
 The following patterns are considered warnings:
 

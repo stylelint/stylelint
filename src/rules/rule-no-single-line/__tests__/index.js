@@ -6,30 +6,30 @@ const testRuleSetNoSingleLine = ruleTester(ruleSetNoSingleLine, ruleName)
 testRuleSetNoSingleLine(true, tr => {
   tr.ok(
     "a {\ncolor: pink; }",
-    "multi-line rule set with newline at start"
+    "multi-line rule with newline at start"
   )
   tr.ok(
     "a { color: pink;\n}",
-    "multi-line rule set with newline at end"
+    "multi-line rule with newline at end"
   )
   tr.ok(
     "a { color: pink;\nbackground: orange; }",
-    "multi-line rule set with newline in middle"
+    "multi-line rule with newline in middle"
   )
 
   tr.notOk(
     "a { color: pink; }",
     messages.rejected,
-    "single-line rule set"
+    "single-line rule"
   )
   tr.notOk(
     "@media print {\na { color: pink; }}",
     messages.rejected,
-    "single-line rule set within multi-line at-rule"
+    "single-line rule within multi-line at-rule"
   )
 })
 
 testRuleSetNoSingleLine(false, tr => {
-  tr.ok("a {\ncolor: pink;\n}", "multi-line rule set")
-  tr.ok("a { color: pink; }", "single-line rule set")
+  tr.ok("a {\ncolor: pink;\n}", "multi-line rule")
+  tr.ok("a { color: pink; }", "single-line rule")
 })

@@ -2,13 +2,13 @@ import {
   ruleMessages
 } from "../../utils"
 
-import { checkRuleEmptyLineBefore } from "../rule-set-non-nested-empty-line-before"
+import { checkRuleEmptyLineBefore } from "../rule-non-nested-empty-line-before"
 
-export const ruleName = "rule-set-nested-empty-line-before"
+export const ruleName = "rule-nested-empty-line-before"
 
 export const messages = ruleMessages(ruleName, {
-  expected: "Expected empty line before nested rule set",
-  rejected: "Unexpected empty line before nested rule set",
+  expected: "Expected empty line before nested rule",
+  rejected: "Unexpected empty line before nested rule",
 })
 
 /**

@@ -3,11 +3,11 @@ import {
   isSingleLineString
 } from "../../utils"
 
-export const ruleName = "rule-set-non-nested-empty-line-before"
+export const ruleName = "rule-non-nested-empty-line-before"
 
 export const messages = ruleMessages(ruleName, {
-  expected: "Expected empty line before non-nested rule set",
-  rejected: "Unexpected empty line before non-nested rule set",
+  expected: "Expected empty line before non-nested rule",
+  rejected: "Unexpected empty line before non-nested rule",
 })
 
 /**

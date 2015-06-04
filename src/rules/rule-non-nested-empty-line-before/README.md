@@ -1,6 +1,6 @@
-# rule-set-non-nested-empty-line-before
+# rule-non-nested-empty-line-before
 
-Require or disallow an empty line before a non-nested rule-set.
+Require or disallow an empty line before non-nested rules.
 
 ```css
     a {}

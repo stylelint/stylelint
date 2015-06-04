@@ -1,6 +1,6 @@
-# declaration-block-no-duplicate-properties
+# rule-no-duplicate-properties
 
-Disallow duplicate properties within declaration blocks.
+Disallow duplicate properties within rules.
 
 ```css
     a { color: pink; color: orange; }

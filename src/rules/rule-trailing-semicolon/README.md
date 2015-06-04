@@ -1,6 +1,6 @@
-# declaration-block-trailing-semicolon
+# rule-trailing-semicolon
 
-Require or disallow a trailing semicolon with a declaration block.
+Require or disallow a trailing semicolon within rules.
 
 ```css
     a { background: orange; color: pink; }
@@ -8,7 +8,7 @@ Require or disallow a trailing semicolon with a declaration block.
  *                        This semicolon */
 ```
 
-The trailing semicolon is the *last* semicolon in a declaration block and it is optional.
+The trailing semicolon is the *last* semicolon in a rule and it is optional.
 
 ## Options
 

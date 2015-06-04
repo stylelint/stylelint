@@ -1,4 +1,4 @@
-export const ruleName = "declaration-block-trailing-semicolon"
+export const ruleName = "rule-trailing-semicolon"
 
 export const messages = {
   expected: `Expected a trailing semicolon (${ruleName})`,
