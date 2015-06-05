@@ -27,6 +27,10 @@ export function blockOpeningBraceNewlineChecker(checkLocation) {
     css.eachAtRule(checkBlock)
 
     function checkBlock(block) {
+
+      // return early if an empty block
+      if (block.nodes.length === 0) { return }
+
       const blockString = block.toString()
       for (let i = 0, l = blockString.length; i < l; i++) {
         if (blockString[i] !== "{") { continue }
