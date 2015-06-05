@@ -37,6 +37,7 @@ import mediaFeatureRangeOperatorSpaceBefore from "./media-feature-range-operator
 import mediaQueryParenthesesInsideSpace from "./media-query-parentheses-inside-space"
 import noEolWhitespace from "./no-eol-whitespace"
 import noMissingEofNewline from "./no-missing-eof-newline"
+import noMultipleEmptyLines from ".no-multiple-empty-lines"
 import numberLeadingZero from "./number-leading-zero"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
@@ -98,6 +99,7 @@ export default {
   "media-query-parentheses-inside-space": mediaQueryParenthesesInsideSpace,
   "no-eol-whitespace": noEolWhitespace,
   "no-missing-eof-newline": noMissingEofNewline,
+  "no-multiple-empty-lines": noMultipleEmptyLines,
   "number-leading-zero": numberLeadingZero,
   "number-no-trailing-zeros": numberNoTrailingZeros,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
