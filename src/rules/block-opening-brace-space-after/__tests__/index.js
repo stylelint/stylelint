@@ -4,6 +4,8 @@ import rule, { ruleName, messages } from ".."
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
+  tr.ok("a {}")
+  tr.ok("a { }")
   tr.ok("a { color: pink; }")
   tr.ok("@media print { a { color: pink; } }")
 
@@ -16,6 +18,8 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
+  tr.ok("a {}")
+  tr.ok("a { }")
   tr.ok("a {color: pink; }")
   tr.ok("@media print {a {color: pink; } }")
 
@@ -29,6 +33,8 @@ testRule("never", tr => {
 
 testRule("always-single-line", tr => {
   // Regular "always" tests
+  tr.ok("a {}")
+  tr.ok("a { }")
   tr.ok("a { color: pink; }")
   tr.ok("@media print { a { color: pink; } }")
 
@@ -47,6 +53,8 @@ testRule("always-single-line", tr => {
 
 testRule("never-single-line", tr => {
   // Regular "never" tests
+  tr.ok("a {}")
+  tr.ok("a { }")
   tr.ok("a {color: pink; }")
   tr.ok("@media print {a {color: pink; } }")
 
@@ -67,6 +75,8 @@ testRule("always-multi-line", tr => {
   tr.ok("@media print { a { color: pink;\nbackground: orange } }")
 
   // Ignoring single-line blocks
+  tr.ok("a {}")
+  tr.ok("a { }")
   tr.ok("a {color: pink; }")
   tr.ok("@media print {a {color: pink; } }")
   tr.ok("a { color: pink; }")
@@ -86,6 +96,8 @@ testRule("never-multi-line", tr => {
   tr.ok("@media print {a\n{color: pink;\nbackground: orange } }")
 
   // Ignoring single-line blocks
+  tr.ok("a {}")
+  tr.ok("a { }")
   tr.ok("a { color: pink; }")
   tr.ok("@media print { a { color: pink; } }")
   tr.ok("a { color: pink; }")

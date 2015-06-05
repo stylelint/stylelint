@@ -8,39 +8,28 @@ export const messages = {
 /**
  * @param {"always"|"never"} options
  */
-export default function declarationBlockTrailingSemicolon(options) {
+export default function ruleTrailingSemicolon(options) {
   return (css, result) => {
-    let checkRule
-    if (options === "always") {
-      checkRule = expectSemicolon
-    } else if (options === "never") {
-      checkRule = rejectSemicolon
-    } else {
-      return
-    }
 
-    css.eachRule(checkRule)
+    css.eachRule(function (rule) {
 
-    function expectSemicolon(rule) {
-      if (rule.semicolon) {
+      // return early if an empty rule
+      if (rule.nodes.length === 0) { return }
+
+      if (options === "always" && !rule.semicolon) {
+        result.warn(
+          messages.expected,
+          { node: rule }
+        )
         return
       }
 
-      result.warn(
-        messages.expected,
-        { node: rule }
-      )
-    }
-
-    function rejectSemicolon(rule) {
-      if (!rule.semicolon) {
-        return
+      if (options === "never" && rule.semicolon) {
+        result.warn(
+          messages.rejected,
+          { node: rule }
+        )
       }
-
-      result.warn(
-        messages.rejected,
-        { node: rule }
-      )
-    }
+    })
   }
 }

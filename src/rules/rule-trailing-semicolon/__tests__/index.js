@@ -1,9 +1,11 @@
 import { ruleTester } from "../../../testUtils"
-import declarationBlockTrailingSemicolon, { ruleName, messages } from ".."
+import ruleTrailingSemicolon, { ruleName, messages } from ".."
 
-const testDeclarationBlockTrailingSemicolon = ruleTester(declarationBlockTrailingSemicolon, ruleName)
+const testRuleTrailingSemicolon = ruleTester(ruleTrailingSemicolon, ruleName)
 
-testDeclarationBlockTrailingSemicolon("always", tr => {
+testRuleTrailingSemicolon("always", tr => {
+  tr.ok("a {}")
+  tr.ok("a { }")
   tr.ok(
     "a { color: pink; }",
     "single-line declaration block with trailing semicolon"
@@ -25,7 +27,9 @@ testDeclarationBlockTrailingSemicolon("always", tr => {
   )
 })
 
-testDeclarationBlockTrailingSemicolon("never", tr => {
+testRuleTrailingSemicolon("never", tr => {
+  tr.ok("a {}")
+  tr.ok("a { }")
   tr.ok(
     "a { color: pink }",
     "single-line declaration block without trailing semicolon"
