@@ -11,8 +11,6 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected space after function's \")\"",
 })
 
-const acceptableNextChars = [ " ", ")", undefined ]
-
 /**
  * @param {"always"|"never"} expectation
  */
@@ -26,14 +24,16 @@ export default function (expectation) {
       })
     })
 
-    function checkClosingParen(str, i, node) {
-      // Allow for the function's ending being the end of the value
+    function checkClosingParen(source, index, node) {
+      const nextChar = source[index + 1]
       if (expectation === "always") {
-        if (acceptableNextChars.indexOf(str[i + 1]) === -1 || isWhitespace(str[i + 2])) {
-          result.warn(messages.expected, { node })
-        }
+        // Allow for the next character to be a single empty space,
+        // another closing parenthesis, a comma, or the end of the value
+        if (nextChar === " " && !isWhitespace(source[index + 2])) { return }
+        if ([ ")", ",", undefined ].indexOf(nextChar) !== -1) { return }
+        result.warn(messages.expected, { node })
       } else if (expectation === "never") {
-        if (isWhitespace(str[i + 1])) {
+        if (isWhitespace(nextChar)) {
           result.warn(messages.rejected, { node })
         }
       }
