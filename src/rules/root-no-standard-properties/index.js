@@ -3,7 +3,7 @@ import { ruleMessages } from "../../utils"
 export const ruleName = "root-no-standard-properties"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: p => `Unexpected standard property "${p}" in rule set applied to ":root"`,
+  rejected: p => `Unexpected standard property "${p}" applied to ":root"`,
 })
 
 export default function () {

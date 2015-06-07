@@ -7,8 +7,8 @@ import { declarationCommaSpaceChecker } from "../declaration-comma-space-after"
 export const ruleName = "declaration-comma-space-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected single space before comma within a declaration value`,
-  rejectedBefore: () => `Unexpected space before comma within a declaration value`,
+  expectedBefore: () => `Expected single space before ","`,
+  rejectedBefore: () => `Unexpected space before ","`,
 })
 
 /**

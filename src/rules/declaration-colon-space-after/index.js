@@ -7,7 +7,7 @@ export const ruleName = "declaration-colon-space-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected single space after ":"`,
-  rejectedAfter: () => `Unexpected space after comma ":"`,
+  rejectedAfter: () => `Unexpected space after ":"`,
 })
 
 /**

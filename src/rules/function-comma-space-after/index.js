@@ -7,8 +7,8 @@ import {
 export const ruleName = "function-comma-space-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => `Expected single space after comma within a function`,
-  rejectedAfter: () => `Unexpected space after comma within a function`,
+  expectedAfter: () => `Expected single space after ","`,
+  rejectedAfter: () => `Unexpected space after ","`,
 })
 
 /**

@@ -4,8 +4,8 @@ import {
 
 export const ruleName = "number-leading-zero"
 export const messages = ruleMessages(ruleName, {
-  expected: `Expected a leading zero for fractional value less than 1`,
-  rejected: `Unexpected leading zero for fractional value less than 1`,
+  expected: `Expected a leading zero`,
+  rejected: `Unexpected leading zero`,
 })
 
 /**
