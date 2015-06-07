@@ -3,20 +3,20 @@ import {
   whitespaceChecker
 } from "../../utils"
 
-export const ruleName = "declaration-semicolon-space-after"
+export const ruleName = "rule-semicolon-newline-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => `Expected single space after ";"`,
-  rejectedAfter: () => `Unexpected space after ";"`,
-  expectedAfterSingleLine: () => `Expected single space after ";" within single-line declaration block`,
-  rejectedAfterSingleLine: () => `Unexpected space after ";" within single-line declaration block`,
+  expectedAfter: () => `Expected newline after ";"`,
+  rejectedAfter: () => `Unexpected newline after ";"`,
+  expectedAfterMultiLine: () => `Expected newline after ";" within multi-line rule`,
+  rejectedAfterMultiLine: () => `Unexpected newline after ";" within multi-line rule`,
 })
 
 /**
- * @param {"always"|"never"|"always-single-line"|"never-single-line"} expectation
+ * @param {"always"|"never"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
-  const check = whitespaceChecker(" ", expectation, messages)
+  const check = whitespaceChecker("\n", expectation, messages)
   return function (css, result) {
     css.eachDecl(function (decl) {
       // Ignore last declaration if there's no trailing semicolon
