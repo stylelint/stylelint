@@ -41,13 +41,13 @@ postcss()
 Rules are configured within the `rules` key of the config. Each rule can be turned off or on: 
 
 * 0 - turn the rule off
-* 1 or 2 - turn the rule on
+* 2 - turn the rule on
 
 ```js
 {
   "rules": {
-    "rule-set-no-single-line": 0, // turn rule off
-    "number-no-important": 2, // turn rule on
+    "rule-no-single-line": 0, // turn rule off
+    "declaration-no-important": 2, // turn rule on
   }
 }
 ```
@@ -57,7 +57,12 @@ Some rules require options. There are no default values, so each rule that requi
 ```js
 {
   "rules": {
-    "declaration-colon-space": [2, { before: "never", after: "always" }],
+    "indentation": [2, {
+      space: 2,
+      block: "always",
+      value: "always",
+    }],
+    "declaration-colon-space-before: [2, "never"],
     "number-leading-zero": [2, "always"],
   }
 }
