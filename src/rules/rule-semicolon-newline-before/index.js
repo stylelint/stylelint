@@ -3,13 +3,13 @@ import {
   whitespaceChecker
 } from "../../utils"
 
-export const ruleName = "declaration-semicolon-newline-before"
+export const ruleName = "rule-semicolon-newline-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected newline before ";"`,
   rejectedBefore: () => `Unexpected space before ";"`,
-  expectedBeforeMultiLine: () => `Expected newline before ";" within multi-line declaration block`,
-  rejectedBeforeMultiLine: () => `Unexpected space before ";" within multi-line declaration block`,
+  expectedBeforeMultiLine: () => `Expected newline before ";" within multi-line rule`,
+  rejectedBeforeMultiLine: () => `Unexpected space before ";" within multi-line rule`,
 })
 
 /**
