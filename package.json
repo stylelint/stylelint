@@ -36,8 +36,9 @@
     "tape": "^4.0.0"
   },
   "scripts": {
-    "prepublish": "babel src --out-dir dist",
+    "docs-build": "babel-node scripts/rules",
     "lint": "eslint . --ignore-path .gitignore",
+    "prepublish": "babel src --out-dir dist",
     "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
     "test": "npm run lint && npm run tape"
   }
