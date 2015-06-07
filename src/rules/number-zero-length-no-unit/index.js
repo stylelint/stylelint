@@ -8,9 +8,9 @@ import {
   styleSearch
 } from "../../utils"
 
-export const ruleName = "number-no-unitized-zero"
+export const ruleName = "number-zero-length-no-unit"
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected unit on zero value",
+  rejected: "Unexpected unit on zero length value",
 })
 
 // Only length units can be left off

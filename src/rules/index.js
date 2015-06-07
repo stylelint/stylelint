@@ -39,6 +39,7 @@ import noEolWhitespace from "./no-eol-whitespace"
 import noMissingEofNewline from "./no-missing-eof-newline"
 import numberLeadingZero from "./number-leading-zero"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
+import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
 import propertyValueNoVendorPrefix from "./property-value-no-vendor-prefix"
 import rootNoStandardProperties from "./root-no-standard-properties"
@@ -100,6 +101,7 @@ export default {
   "no-missing-eof-newline": noMissingEofNewline,
   "number-leading-zero": numberLeadingZero,
   "number-no-trailing-zeros": numberNoTrailingZeros,
+  "number-zero-length-no-unit": numberZeroLengthNoUnit,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
   "property-value-no-vendor-prefix": propertyValueNoVendorPrefix,
   "root-no-standard-properties": rootNoStandardProperties,
