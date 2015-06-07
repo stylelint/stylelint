@@ -38,7 +38,7 @@ postcss()
 
 #### Configuring rules
 
-Rules are configured within the `rules` key of the config. Each rule can be turned off or on: 
+[Rules](docs/rules.md) are configured within the `rules` key of the config. Each rule can be turned off or on: 
 
 * 0 - turn the rule off
 * 2 - turn the rule on
