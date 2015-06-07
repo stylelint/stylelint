@@ -5,8 +5,10 @@ Disallow units for lengths of zero.
 ```css
     a { top: 0px; }
 /**          ↑ ↑
- * This zero and this unit */
+ * This zero and this type of length unit */
 ```
+
+For zero lengths the unit identifier is optional.
 
 The following patterns are considered warnings:
 
