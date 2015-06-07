@@ -33,7 +33,7 @@ import mediaFeatureRangeOperatorSpaceBefore from "./media-feature-range-operator
 import mediaQueryParenthesesInsideSpace from "./media-query-parentheses-inside-space"
 import noEolWhitespace from "./no-eol-whitespace"
 import noMissingEofNewline from "./no-missing-eof-newline"
-import noMultipleEmptyLines from ".no-multiple-empty-lines"
+import noMultipleEmptyLines from "./no-multiple-empty-lines"
 import numberLeadingZero from "./number-leading-zero"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
 import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
