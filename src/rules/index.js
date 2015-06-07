@@ -18,10 +18,6 @@ import declarationColonSpaceBefore from "./declaration-colon-space-before"
 import declarationCommaSpaceAfter from "./declaration-comma-space-after"
 import declarationCommaSpaceBefore from "./declaration-comma-space-before"
 import declarationNoImportant from "./declaration-no-important"
-import declarationSemicolonNewlineAfter from "./declaration-semicolon-newline-after"
-import declarationSemicolonNewlineBefore from "./declaration-semicolon-newline-before"
-import declarationSemicolonSpaceAfter from "./declaration-semicolon-space-after"
-import declarationSemicolonSpaceBefore from "./declaration-semicolon-space-before"
 import functionCalcNoUnspacedOperator from "./function-calc-no-unspaced-operator"
 import functionCommaSpaceAfter from "./function-comma-space-after"
 import functionCommaSpaceBefore from "./function-comma-space-before"
@@ -45,8 +41,12 @@ import propertyValueNoVendorPrefix from "./property-value-no-vendor-prefix"
 import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
 import ruleNoDuplicateProperties from "./rule-no-duplicate-properties"
-import ruleNoSingleLine from "./rule-no-single-line"
 import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
+import ruleNoSingleLine from "./rule-no-single-line"
+import ruleSemicolonNewlineAfter from "./rule-semicolon-newline-after"
+import ruleSemicolonNewlineBefore from "./rule-semicolon-newline-before"
+import ruleSemicolonSpaceAfter from "./rule-semicolon-space-after"
+import ruleSemicolonSpaceBefore from "./rule-semicolon-space-before"
 import ruleTrailingSemicolon from "./rule-trailing-semicolon"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
@@ -80,10 +80,6 @@ export default {
   "declaration-comma-space-after": declarationCommaSpaceAfter,
   "declaration-comma-space-before": declarationCommaSpaceBefore,
   "declaration-no-important": declarationNoImportant,
-  "declaration-semicolon-newline-after": declarationSemicolonNewlineAfter,
-  "declaration-semicolon-newline-before": declarationSemicolonNewlineBefore,
-  "declaration-semicolon-space-after": declarationSemicolonSpaceAfter,
-  "declaration-semicolon-space-before": declarationSemicolonSpaceBefore,
   "function-calc-no-unspaced-operator": functionCalcNoUnspacedOperator,
   "function-comma-space-after": functionCommaSpaceAfter,
   "function-comma-space-before": functionCommaSpaceBefore,
@@ -109,6 +105,10 @@ export default {
   "rule-no-duplicate-properties": ruleNoDuplicateProperties,
   "rule-no-single-line": ruleNoSingleLine,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
+  "rule-semicolon-newline-after": ruleSemicolonNewlineAfter,
+  "rule-semicolon-newline-before": ruleSemicolonNewlineBefore,
+  "rule-semicolon-space-after": ruleSemicolonSpaceAfter,
+  "rule-semicolon-space-before": ruleSemicolonSpaceBefore,
   "rule-trailing-semicolon": ruleTrailingSemicolon,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,
