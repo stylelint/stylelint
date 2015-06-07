@@ -1,9 +1,9 @@
 import { ruleTester } from "../../../testUtils"
-import ruleTrailingSemicolon, { ruleName, messages } from ".."
+import rule, { ruleName, messages } from ".."
 
-const testRuleTrailingSemicolon = ruleTester(ruleTrailingSemicolon, ruleName)
+const testRule = ruleTester(rule, ruleName)
 
-testRuleTrailingSemicolon("always", tr => {
+testRule("always", tr => {
   tr.ok("a {}")
   tr.ok("a { }")
   tr.ok(
@@ -27,7 +27,7 @@ testRuleTrailingSemicolon("always", tr => {
   )
 })
 
-testRuleTrailingSemicolon("never", tr => {
+testRule("never", tr => {
   tr.ok("a {}")
   tr.ok("a { }")
   tr.ok(

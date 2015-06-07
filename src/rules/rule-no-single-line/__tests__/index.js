@@ -1,9 +1,9 @@
 import { ruleTester } from "../../../testUtils"
-import ruleSetNoSingleLine, { ruleName, messages } from ".."
+import rule, { ruleName, messages } from ".."
 
-const testRuleSetNoSingleLine = ruleTester(ruleSetNoSingleLine, ruleName)
+const testRule = ruleTester(rule, ruleName)
 
-testRuleSetNoSingleLine(true, tr => {
+testRule(true, tr => {
   tr.ok(
     "a {\ncolor: pink; }",
     "multi-line rule with newline at start"
@@ -29,7 +29,7 @@ testRuleSetNoSingleLine(true, tr => {
   )
 })
 
-testRuleSetNoSingleLine(false, tr => {
+testRule(false, tr => {
   tr.ok("a {\ncolor: pink;\n}", "multi-line rule")
   tr.ok("a { color: pink; }", "single-line rule")
 })
