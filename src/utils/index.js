@@ -6,6 +6,7 @@ import styleSearch from "./styleSearch"
 import lineCount from "./lineCount"
 import functionArguments from "./functionArguments"
 import isAutoprefixable from "./isAutoprefixable"
+import report from "./report"
 
 export default {
   isSingleLineString,
@@ -16,4 +17,5 @@ export default {
   lineCount,
   functionArguments,
   isAutoprefixable,
+  report,
 }

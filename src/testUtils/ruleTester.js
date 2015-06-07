@@ -1,6 +1,7 @@
 import postcss from "postcss"
 import jsesc from "jsesc"
 import test from "tape"
+import disableRanges from "../disableRanges"
 
 /**
  * Create a ruleTester for a specified rule.
@@ -79,6 +80,9 @@ export default function (rule, ruleName) {
 
     function postcssProcess(cssString, callback) {
       postcss()
+        // First add disabledRanges to the result
+        .use(disableRanges)
+        // Then run the rule
         .use(rule(options))
         .process(cssString)
         .then(callback)
