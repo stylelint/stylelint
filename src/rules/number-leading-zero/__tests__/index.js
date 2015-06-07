@@ -1,9 +1,9 @@
 import { ruleTester } from "../../../testUtils"
-import numberLeadingZero, { ruleName, messages } from ".."
+import rule, { ruleName, messages } from ".."
 
-const testNumberLeadingZero = ruleTester(numberLeadingZero, ruleName)
+const testRule = ruleTester(rule, ruleName)
 
-testNumberLeadingZero("always", tr => {
+testRule("always", tr => {
   tr.ok("a {}", "no values")
   tr.ok("a { margin: 0; }", "plain zero")
   tr.ok("a { line-height: 2; }", "plain integer")
@@ -63,7 +63,7 @@ testNumberLeadingZero("always", tr => {
   )
 })
 
-testNumberLeadingZero("never", tr => {
+testRule("never", tr => {
   tr.ok("a {}", "no values")
   tr.ok("a { margin: 0; }", "plain zero")
   tr.ok("a { line-height: 2; }", "plain integer")

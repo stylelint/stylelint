@@ -1,9 +1,9 @@
 import { ruleTester } from "../../../testUtils"
-import declarationNoImportant, { ruleName, messages } from ".."
+import rule, { ruleName, messages } from ".."
 
-const testDeclarationNoImportant = ruleTester(declarationNoImportant, ruleName)
+const testRule = ruleTester(rule, ruleName)
 
-testDeclarationNoImportant(null, tr => {
+testRule(null, tr => {
   tr.ok("a {}", "no values")
   tr.ok("a { color: pink; }", "without !important")
 
