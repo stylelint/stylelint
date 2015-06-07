@@ -7,8 +7,8 @@ import {
 export const ruleName = "media-feature-colon-space-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => `Expected single space after ":" in media feature`,
-  rejectedAfter: () => `Unexpected space after ":" in media feature`,
+  expectedAfter: () => `Expected single space after ":"`,
+  rejectedAfter: () => `Unexpected space after ":"`,
 })
 
 /**

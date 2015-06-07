@@ -10,7 +10,7 @@ import {
 
 export const ruleName = "number-zero-length-no-unit"
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected unit on zero length value",
+  rejected: "Unexpected unit on zero length number",
 })
 
 // Only length units can be left off

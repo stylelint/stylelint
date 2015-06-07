@@ -7,10 +7,10 @@ import {
 export const ruleName = "function-parentheses-inside-space"
 
 export const messages = ruleMessages(ruleName, {
-  expectedOpening: "Expected single space before \"(\" of a function",
-  rejectedOpening: "Unexpected space before \"(\" of a function",
-  expectedClosing: "Expected single space before \")\" of a function",
-  rejectedClosing: "Unexpected space before \")\" of a function",
+  expectedOpening: "Expected single space before \"(\"",
+  rejectedOpening: "Unexpected space before \"(\"",
+  expectedClosing: "Expected single space before \")\"",
+  rejectedClosing: "Unexpected space before \")\"",
 })
 
 /**
