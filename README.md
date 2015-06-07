@@ -62,7 +62,7 @@ Some rules require options. There are no default values, so each rule that requi
       block: "always",
       value: "always",
     }],
-    "declaration-colon-space-before: [2, "never"],
+    "declaration-colon-space-before": [2, "never"],
     "number-leading-zero": [2, "always"],
   }
 }
