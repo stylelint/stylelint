@@ -4,7 +4,7 @@ import {
   styleSearch
 } from "../../utils"
 
-export const ruleName = "media-query-list-space-after"
+export const ruleName = "media-query-list-comma-space-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected single space after ","`,

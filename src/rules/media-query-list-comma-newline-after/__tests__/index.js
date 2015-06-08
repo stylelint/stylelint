@@ -8,7 +8,7 @@ testRule("always", tr => {
   tr.ok("@media screen and (color),\nprojection and (color) {}")
   tr.ok("@media screen and (color) ,\n  projection and (color) {}")
   tr.ok("@media screen and (color)\n,\n\t\t\tprojection and (color) {}",
-    "arbitrary whitespace after newline")
+    "indentation after the newline after the comma")
 
   tr.notOk("@media screen and (color),projection and (color)", messages.expectedAfter())
   tr.notOk("@media screen and (color), projection and (color)", messages.expectedAfter())

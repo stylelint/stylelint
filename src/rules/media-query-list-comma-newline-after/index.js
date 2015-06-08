@@ -18,6 +18,6 @@ export default function (expectation) {
   const checker = whitespaceChecker("\n", expectation, messages)
 
   // Only check for the newline after the comma, while allowing
-  // arbitrary whitespace to indent after the newline
+  // arbitrary indentation after the newline
   return mediaQueryListCommaChecker(checker.afterOneOnly)
 }

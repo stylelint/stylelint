@@ -4,7 +4,7 @@ import {
 } from "../../utils"
 import { mediaQueryListCommaChecker } from "../media-query-list-comma-space-after"
 
-export const ruleName = "media-query-list-space-before"
+export const ruleName = "media-query-list-comma-space-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected single space before ","`,
