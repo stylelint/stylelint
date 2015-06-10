@@ -3,7 +3,7 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-testRule(true, tr => {
+testRule(null, tr => {
   tr.ok(
     "a {\ncolor: pink; }",
     "multi-line rule with newline at start"
@@ -27,9 +27,4 @@ testRule(true, tr => {
     messages.rejected,
     "single-line rule within multi-line at-rule"
   )
-})
-
-testRule(false, tr => {
-  tr.ok("a {\ncolor: pink;\n}", "multi-line rule")
-  tr.ok("a { color: pink; }", "single-line rule")
 })

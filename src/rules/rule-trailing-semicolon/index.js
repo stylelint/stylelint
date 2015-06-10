@@ -25,7 +25,7 @@ export default function (expectation) {
       if (expectation === "always" && rule.semicolon) { return }
       if (expectation === "never" && !rule.semicolon) { return }
 
-      let message = (expectation === "always") ? messages.expected : messages.rejected
+      const message = (expectation === "always") ? messages.expected : messages.rejected
 
       report({
         message: message,

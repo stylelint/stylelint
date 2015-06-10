@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
@@ -24,7 +25,12 @@ export default function (expectation) {
 
       const declString = decl.toString()
       check.before(declString, declString.length, m => {
-        return result.warn(m, { node: decl })
+        return report({
+          message: m,
+          node: decl,
+          result,
+          ruleName,
+        })
       }, parentRule.toString().slice("{"))
     })
   }
