@@ -1,9 +1,12 @@
-import { ruleMessages } from "../../utils"
+import {
+  report,
+  ruleMessages
+} from "../../utils"
 
 export const ruleName = "selector-root-no-composition"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected composition of the \":root\" selector",
+  rejected: `Unexpected composition of the ":root" selector`,
 })
 
 export default function () {
@@ -11,9 +14,14 @@ export default function () {
     css.eachRule(function (rule) {
       if (rule.selector.indexOf(":root") === -1) { return }
 
-      if (rule.selector.trim() !== ":root") {
-        result.warn(messages.rejected, { node: rule })
-      }
+      if (rule.selector.trim() === ":root") { return }
+
+      report({
+        message: messages.rejected,
+        node: rule,
+        result,
+        ruleName,
+      })
     })
   }
 }
