@@ -1,21 +1,25 @@
+import {
+  report,
+  ruleMessages
+} from "../../utils"
+
 export const ruleName = "declaration-no-important"
 
-export const messages = {
-  rejected: `Unexpected !important (${ruleName})`,
-}
+export const messages = ruleMessages(ruleName, {
+  rejected: `Unexpected !important`,
+})
 
-export default function declarationNoImportant() {
-  return (css, result) => {
-
+export default function () {
+  return function (css, result) {
     css.eachDecl(function (decl) {
-      if (!decl.important) {
-        return
-      }
+      if (!decl.important) { return }
 
-      result.warn(
-        messages.rejected,
-        { node: decl }
-      )
+      report({
+        message: messages.rejected,
+        node: decl,
+        result,
+        ruleName,
+      })
     })
   }
 }
