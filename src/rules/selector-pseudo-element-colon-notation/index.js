@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages,
   styleSearch
 } from "../../utils"
@@ -30,7 +31,12 @@ export default function (expectation) {
         if (expectation === "single" && !prevCharIsColon) { return }
         if (expectation === "double" && prevCharIsColon) { return }
 
-        result.warn(messages.expected(expectation), { node: rule })
+        report({
+          message: messages.expected(expectation),
+          node: rule,
+          result,
+          ruleName,
+        })
       })
     })
   }

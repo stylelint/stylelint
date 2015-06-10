@@ -1,14 +1,19 @@
+import {
+  report,
+  ruleMessages
+} from "../../utils"
+
 export const ruleName = "rule-trailing-semicolon"
 
-export const messages = {
-  expected: `Expected a trailing semicolon (${ruleName})`,
-  rejected: `Unexpected trailing semicolon (${ruleName})`,
-}
+export const messages = ruleMessages(ruleName, {
+  expected: `Expected a trailing semicolon`,
+  rejected: `Unexpected trailing semicolon`,
+})
 
 /**
- * @param {"always"|"never"} options
+ * @param {"always"|"never"} expectation
  */
-export default function ruleTrailingSemicolon(options) {
+export default function (expectation) {
   return (css, result) => {
 
     css.eachRule(function (rule) {
@@ -16,20 +21,18 @@ export default function ruleTrailingSemicolon(options) {
       // return early if an empty rule
       if (rule.nodes.length === 0) { return }
 
-      if (options === "always" && !rule.semicolon) {
-        result.warn(
-          messages.expected,
-          { node: rule }
-        )
-        return
-      }
+      // check semi colon
+      if (expectation === "always" && rule.semicolon) { return }
+      if (expectation === "never" && !rule.semicolon) { return }
 
-      if (options === "never" && rule.semicolon) {
-        result.warn(
-          messages.rejected,
-          { node: rule }
-        )
-      }
+      let message = (expectation === "always") ? messages.expected : messages.rejected
+
+      report({
+        message: message,
+        node: rule,
+        result,
+        ruleName,
+      })
     })
   }
 }
