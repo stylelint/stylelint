@@ -1,6 +1,7 @@
 import {
-  ruleMessages,
   isAutoprefixable,
+  report,
+  ruleMessages,
   styleSearch
 } from "../../utils"
 
@@ -20,7 +21,12 @@ export default function () {
       styleSearch({ source: value, target: valuePrefixes }, match => {
         const fullIdentifier = /^(-[a-z-]+)\b/.exec(value.slice(match.startIndex))[1]
         if (isAutoprefixable.propertyValue(prop, fullIdentifier)) {
-          result.warn(messages.rejected(fullIdentifier), { node: decl })
+          report({
+            message: messages.rejected(fullIdentifier),
+            node: decl,
+            result,
+            ruleName,
+          })
         }
       })
     })

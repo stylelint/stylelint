@@ -1,17 +1,19 @@
 import {
+  report,
   ruleMessages
 } from "../../utils"
 
 export const ruleName = "number-leading-zero"
+
 export const messages = ruleMessages(ruleName, {
   expected: `Expected a leading zero for fractional value less than 1`,
   rejected: `Unexpected leading zero for fractional value less than 1`,
 })
 
 /**
- * @param {"always"|"never"} options
+ * @param {"always"|"never"} expectation
  */
-export default function (options) {
+export default function (expectation) {
   return (css, result) => {
     css.eachDecl(function (decl) {
       const value = decl.value
@@ -19,20 +21,18 @@ export default function (options) {
       // Get out quickly if there are no periods
       if (value.indexOf(".") === -1) { return }
 
-      if (options === "always" && lacksLeadingZero(value)) {
-        result.warn(
-          messages.expected,
-          { node: decl }
-        )
-        return
-      }
+        // check leadingzero
+      if (expectation === "always" && !lacksLeadingZero(value)) { return }
+      if (expectation === "never" && !containsLeadingZero(value)) { return }
 
-      if (options === "never" && containsLeadingZero(value)) {
-        result.warn(
-          messages.rejected,
-          { node: decl }
-        )
-      }
+      const message = (expectation === "always") ? messages.expected : messages.rejected
+
+      report({
+        message: message,
+        node: decl,
+        result,
+        ruleName,
+      })
     })
   }
 }

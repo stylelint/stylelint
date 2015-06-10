@@ -1,7 +1,8 @@
 import {
+  report,
   ruleMessages,
-  whitespaceChecker,
-  styleSearch
+  styleSearch,
+  whitespaceChecker
 } from "../../utils"
 
 export const ruleName = "media-feature-colon-space-after"
@@ -29,7 +30,14 @@ export function mediaFeatureColonSpaceChecker(checkLocation) {
     })
 
     function checkColon(source, index, node) {
-      checkLocation(source, index, m => result.warn(m, { node }))
+      checkLocation(source, index, m =>
+        report({
+          message: m,
+          node: node,
+          result,
+          ruleName,
+        })
+      )
     }
   }
 }

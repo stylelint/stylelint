@@ -8,8 +8,8 @@ import { selectorDelimiterSpaceChecker } from "../selector-delimiter-space-after
 export const ruleName = "selector-delimiter-newline-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => `Expected newline after selector delimiter`,
-  rejectedAfter: () => `Unexpected space after selector delimiter`,
+  expectedAfter: () => "Expected newline after selector delimiter",
+  rejectedAfter: () => "Unexpected space after selector delimiter",
 })
 /**
  * @param {"always"|"never"} expectation

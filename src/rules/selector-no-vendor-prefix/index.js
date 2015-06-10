@@ -20,14 +20,14 @@ export default function () {
       styleSearch({ source: selector, target: ":" }, match => {
         const pseudoSelector = /:{1,2}[a-z-]+\b/.exec(selector.slice(match.startIndex))[0]
 
-        if (!isAutoprefixable.selector(pseudoSelector)) { return }
-
-        report({
-          message: messages.rejected(pseudoSelector),
-          node: rule,
-          result,
-          ruleName,
-        })
+        if (isAutoprefixable.selector(pseudoSelector)) {
+          report({
+            message: messages.rejected(pseudoSelector),
+            node: rule,
+            result,
+            ruleName,
+          })
+        }
       })
     })
   }

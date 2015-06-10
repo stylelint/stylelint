@@ -1,4 +1,7 @@
-import { ruleMessages } from "../../utils"
+import {
+  report,
+  ruleMessages
+} from "../../utils"
 
 export const ruleName = "rule-no-duplicate-properties"
 
@@ -13,7 +16,12 @@ export default function () {
       rule.eachDecl(function (decl) {
         const prop = decl.prop
         if (decls.indexOf(prop) !== -1) {
-          result.warn(messages.rejected(prop), { node: decl })
+          report({
+            message: messages.rejected(prop),
+            node: decl,
+            result,
+            ruleName,
+          })
         }
         decls.push(prop)
       })
