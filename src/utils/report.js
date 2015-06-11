@@ -1,28 +1,28 @@
 /**
  * Report a violation.
  *
- * @param {object} v - Violation details object
- * @param {string} v.ruleName - The name of the rule
- * @param {Result} v.result - PostCSS Result object
- * @param {string} v.message - Message to inform user of the violation
- * @param {Node} v.node - PostCSS Node object
+ * @param {object} violation - Violation details object
+ * @param {string} violation.ruleName - The name of the rule
+ * @param {Result} violation.result - PostCSS Result object
+ * @param {string} violation.message - Message to inform user of the violation
+ * @param {Node} violation.node - PostCSS Node object
  */
-export default function (v) {
+export default function (violation) {
 
-  const startLine = v.node.source && v.node.source.start.line
+  const startLine = violation.node.source && violation.node.source.start.line
 
-  if (v.result.disabledRanges) {
-    for (let range of v.result.disabledRanges) {
+  if (violation.result.disabledRanges) {
+    for (let range of violation.result.disabledRanges) {
       if (
         // If the violation is within a disabledRange ...
         range.start <= startLine
         && (range.end === undefined || range.end >= startLine)
         // And that disabledRange's rules include this one ...
-        && (!range.rules || range.rules.indexOf(v.ruleName) !== -1)
+        && (!range.rules || range.rules.indexOf(violation.ruleName) !== -1)
         // Do not register a warning
       ) { return }
     }
   }
 
-  v.result.warn(v.message, { node: v.node })
+  violation.result.warn(violation.message, { node: violation.node })
 }
