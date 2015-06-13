@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
@@ -34,7 +35,14 @@ export function declarationBangSpaceChecker(locationChecker) {
     })
 
     function check(str, index, node) {
-      locationChecker(str, index, m => result.warn(m, { node }))
+      locationChecker(str, index, m =>
+        report({
+          message: m,
+          node: node,
+          result,
+          ruleName,
+        })
+      )
     }
   }
 }

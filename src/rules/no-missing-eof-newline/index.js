@@ -1,4 +1,8 @@
-import { ruleMessages } from "../../utils"
+import {
+  lineCount,
+  report,
+  ruleMessages
+} from "../../utils"
 
 export const ruleName = "no-missing-eof-newline"
 
@@ -9,7 +13,13 @@ export const messages = ruleMessages(ruleName, {
 export default function () {
   return function (root, result) {
     if (root.source.input.css.slice(-1) !== "\n") {
-      result.warn(messages.rejected, { node: root })
+      report({
+        message: messages.rejected,
+        node: root,
+        line: lineCount(root.source.input.css),
+        result,
+        ruleName,
+      })
     }
   }
 }

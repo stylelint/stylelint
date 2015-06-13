@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages
 } from "../../utils"
 
@@ -29,10 +30,20 @@ export default function (expectation) {
       const emptyLineBefore = comment.before.indexOf("\n\n") !== -1
 
       if (expectEmptyLine && !emptyLineBefore) {
-        result.warn(messages.expected, { node: comment })
+        report({
+          message: messages.expected,
+          node: comment,
+          result,
+          ruleName,
+        })
       }
       if (rejectEmptyLine && emptyLineBefore) {
-        result.warn(messages.rejected, { node: comment })
+        report({
+          message: messages.rejected,
+          node: comment,
+          result,
+          ruleName,
+        })
       }
     })
   }

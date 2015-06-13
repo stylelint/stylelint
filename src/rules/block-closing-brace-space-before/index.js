@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
@@ -32,7 +33,12 @@ export default function (expectation) {
       const blockString = block.toString()
       const blockStringNoSelector = blockString.slice(blockString.indexOf("{"))
       checker.before(blockString, blockString.length - 1, msg => {
-        result.warn(msg, { node: block })
+        report({
+          message: msg,
+          node: block,
+          result,
+          ruleName,
+        })
       }, blockStringNoSelector)
     }
   }

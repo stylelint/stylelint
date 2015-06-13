@@ -1,7 +1,8 @@
 import {
+  lineCount,
+  report,
   ruleMessages,
-  styleSearch,
-  lineCount
+  styleSearch
 } from "../../utils"
 
 export const ruleName = "string-quotes"
@@ -20,10 +21,14 @@ export default function (expectation) {
   return function (root, result) {
     const cssString = root.source.input.css
     styleSearch({ source: cssString, target: erroneousQuote }, match => {
-      result.warn(
-        messages.expected(expectation, lineCount(cssString.slice(0, match.startIndex))),
-        { node: root }
-      )
+      const line = lineCount(cssString.slice(0, match.startIndex))
+      report({
+        message: messages.expected(expectation, line),
+        node: root,
+        line: line,
+        result,
+        ruleName,
+      })
     })
   }
 }

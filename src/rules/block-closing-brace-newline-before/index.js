@@ -1,6 +1,7 @@
 import {
-  ruleMessages,
-  isSingleLineString
+  isSingleLineString,
+  report,
+  ruleMessages
 } from "../../utils"
 
 export const ruleName = "block-closing-brace-newline-before"
@@ -37,16 +38,36 @@ export default function (expectation) {
       // will be checked by the indentation rule.
       if (block.after[0] !== "\n") {
         if (expectation === "always") {
-          result.warn(messages.expectedBefore(), { node: block })
+          report({
+            message: messages.expectedBefore(),
+            node: block,
+            result,
+            ruleName,
+          })
         } else if (blockIsMultiLine && expectation === "always-multi-line") {
-          result.warn(messages.expectedBeforeMultiLine(), { node: block })
+          report({
+            message: messages.expectedBeforeMultiLine(),
+            node: block,
+            result,
+            ruleName,
+          })
         }
       }
       if (block.after) {
         if (expectation === "never") {
-          result.warn(messages.rejectedBefore(), { node: block })
+          report({
+            message: messages.rejectedBefore(),
+            node: block,
+            result,
+            ruleName,
+          })
         } else if (blockIsMultiLine && expectation === "never-multi-line") {
-          result.warn(messages.rejectedBeforeMultiLine(), { node: block })
+          report({
+            message: messages.rejectedBeforeMultiLine(),
+            node: block,
+            result,
+            ruleName,
+          })
         }
       }
     }

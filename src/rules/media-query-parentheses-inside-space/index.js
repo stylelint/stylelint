@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages,
   styleSearch
 } from "../../utils"
@@ -25,20 +26,40 @@ export default function (expectation) {
       styleSearch({ source: params, target: "(" }, match => {
         const nextCharIsSpace = params[match.startIndex + 1] === " "
         if (nextCharIsSpace && expectation === "never") {
-          result.warn(messages.rejectedOpening, { node: atRule })
+          report({
+            message: messages.rejectedOpening,
+            node: atRule,
+            result,
+            ruleName,
+          })
         }
         if (!nextCharIsSpace && expectation === "always") {
-          result.warn(messages.expectedOpening, { node: atRule })
+          report({
+            message: messages.expectedOpening,
+            node: atRule,
+            result,
+            ruleName,
+          })
         }
       })
 
       styleSearch({ source: params, target: ")" }, match => {
         const prevCharIsSpace = params[match.startIndex - 1] === " "
         if (prevCharIsSpace && expectation === "never") {
-          result.warn(messages.rejectedClosing, { node: atRule })
+          report({
+            message: messages.rejectedClosing,
+            node: atRule,
+            result,
+            ruleName,
+          })
         }
         if (!prevCharIsSpace && expectation === "always") {
-          result.warn(messages.expectedClosing, { node: atRule })
+          report({
+            message: messages.expectedClosing,
+            node: atRule,
+            result,
+            ruleName,
+          })
         }
       })
     })

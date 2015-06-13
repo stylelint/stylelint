@@ -1,6 +1,7 @@
 import {
-  ruleMessages,
-  functionArguments
+  functionArguments,
+  report,
+  ruleMessages
 } from "../../utils"
 
 export const ruleName = "function-url-quotes"
@@ -52,7 +53,12 @@ export default function (expectation) {
       block.eachDecl(function (decl) {
         functionArguments(decl.value, "url", args => {
           if (strDefiesExpectation(args)) {
-            result.warn(messages.expected(quoteMsg), { node: decl })
+            report({
+              message: messages.expected(quoteMsg),
+              node: decl,
+              result,
+              ruleName,
+            })
           }
         })
       })
@@ -61,17 +67,32 @@ export default function (expectation) {
     function checkAtRuleParams(atRule) {
       functionArguments(atRule.params, "url", args => {
         if (strDefiesExpectation(args)) {
-          result.warn(messages.expected(quoteMsg), { node: atRule })
+          report({
+            message: messages.expected(quoteMsg),
+            node: atRule,
+            result,
+            ruleName,
+          })
         }
       })
       functionArguments(atRule.params, "url-prefix", args => {
         if (strDefiesExpectation(args)) {
-          result.warn(messages.expected(quoteMsg, "url-prefix"), { node: atRule })
+          report({
+            message: messages.expected(quoteMsg, "url-prefix"),
+            node: atRule,
+            result,
+            ruleName,
+          })
         }
       })
       functionArguments(atRule.params, "domain", args => {
         if (strDefiesExpectation(args)) {
-          result.warn(messages.expected(quoteMsg, "domain"), { node: atRule })
+          report({
+            message: messages.expected(quoteMsg, "domain"),
+            node: atRule,
+            result,
+            ruleName,
+          })
         }
       })
     }
