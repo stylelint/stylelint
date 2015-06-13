@@ -23,8 +23,8 @@ the thing    what the rule is enforcing
 * Except when the rule applies to the whole CSS document.
 
 ```js
-eof-new-line
-eol-no-whitespace
+no-eol-whitespace
+no-missing-eof-newline
 indentation
     ↑ 
   what the rules are enforcing
@@ -32,39 +32,47 @@ indentation
 
 ### No
 
-Most rules *require or disallow the inclusion* of something.
+Most rules *require or disallow* something.
 
-For example, whether there must or must not be a trailing semicolon at the end of a declaration block:
+For example, whether there must or must not be a trailing semicolon at the end of a rule:
 
-* `declaration-block-trailing-semicolon`: `string - "always"|"never"`
-  * `"always"` - there *must always* be a trailing semicolon
-  * `"never"` - there *must never* be a trailing semicolon
+* `rule-trailing-semicolon`: `string - "always"|"never"`
+  * `"always"` - there *must always* be a trailing semicolon.
+  * `"never"` - there *must never* be a trailing semicolon.
 
-However, some rules just *disallow* something. Use `*-no-*` to identify these rules.
+However, some rules *just disallow* something. Use `*-no-*` to identify these rules.
 
-For example, whether empty rule-sets should be disallowed or not:
+For example, whether empty rules should be disallowed or not:
 
-* `rule-set-no-empty` - rule-sets *must not* be empty
+* `rule-no-empty` - rules *must not* be empty.
 
-In this case it doesn't make sense to enforce that every rule-set *must* be empty.
+Notice how, for a rule like this, it does not make sense to provide an option to enforce the opposite i.e. that every rule *must* be empty.
 
 ### Max
 
 If the rule is *setting a limit* to something use `*-max-*`.
 
-For example, specifying the maximum number of digits after the "." in a number
+For example, specifying the maximum number of digits after the "." in a number:
 
 * `number-max-precision`: `int` 
 
-### Space
+### Space/newline
 
-If the rule is *specifying what space must be* around something then use `*-space` and use `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` and `range-operator` to identify that something.
+If the rule is *specifying what whitespace must be around a thing* use:
 
-For example, specifying what space must be before a comma and after the operator in a function:
+1. `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` or `range-operator` to specify the thing.
+2. `space` or `newline` to specify if a single space, newline or no space must be used.
+3. `before`, `after` or `inside` to specify the location of the whitespace in relation to the thing.
 
-* `function-coma-space`: `object` - `{ before: "always"|"never", after: "always"|"never" }`
+For example, specifying if a *single space or no space* must be before a comma in a function:
 
-If the rule handles (via its keyword options) both single and multiple lines, target these using `always-single-line`, `always-multi-line`, `never-single-line` and `never-multi-line`.
+* `function-coma-space-before`: `string` - `"always"|"never"`
+
+Use the plural of the thing when using `inside`. For example, specifying if a *single space or no space* must be inside the parentheses of a function:
+
+* `function-parentheses-inside-space`: `string` - `"always"|"never"`
+
+If the rule handles (via its keyword options) both single and multiple line rules, target these using `always-single-line`, `always-multi-line`, `never-single-line` and `never-multi-line`.
 
 ## Messages
 
