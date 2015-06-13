@@ -74,7 +74,7 @@ export default function () {
         range(valueWithZeroStart, valueWithZeroEnd).forEach(i => ignorableIndexes.add(i))
 
         // Only pay attention if the value parses to 0
-        if (parseInt(valueWithZero, 10) !== 0) { return }
+        if (parseFloat(valueWithZero, 10) !== 0) { return }
 
         // If there is not a length unit at the end of this value, ignore.
         // (Length units are 2, 3, or 4 characters)
