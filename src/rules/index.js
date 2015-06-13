@@ -11,6 +11,8 @@ import blockOpeningBraceSpaceAfter from "./block-opening-brace-space-after"
 import blockOpeningBraceSpaceBefore from "./block-opening-brace-space-before"
 import colorNoInvalidHex from "./color-no-invalid-hex"
 import commentEmptyLineBefore from "./comment-empty-line-before"
+import customPropertyNoOutsideRoot from "./custom-property-no-outside-root"
+import customPropertyPattern from "./custom-property-pattern"
 import declarationBangSpaceAfter from "./declaration-bang-space-after"
 import declarationBangSpaceBefore from "./declaration-bang-space-before"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
@@ -30,12 +32,17 @@ import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
 import mediaFeatureColonSpaceBefore from "./media-feature-colon-space-before"
 import mediaFeatureRangeOperatorSpaceAfter from "./media-feature-range-operator-space-after"
 import mediaFeatureRangeOperatorSpaceBefore from "./media-feature-range-operator-space-before"
+import mediaQueryListCommaNewlineAfter from "./media-query-list-comma-newline-after"
+import mediaQueryListCommaNewlineBefore from "./media-query-list-comma-newline-before"
+import mediaQueryListCommaSpaceAfter from "./media-query-list-comma-space-after"
+import mediaQueryListCommaSpaceBefore from "./media-query-list-comma-space-before"
 import mediaQueryParenthesesInsideSpace from "./media-query-parentheses-inside-space"
 import noEolWhitespace from "./no-eol-whitespace"
 import noMissingEofNewline from "./no-missing-eof-newline"
-import noMultipleEmptyLines from ".no-multiple-empty-lines"
+import noMultipleEmptyLines from "./no-multiple-empty-lines"
 import numberLeadingZero from "./number-leading-zero"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
+import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
 import propertyValueNoVendorPrefix from "./property-value-no-vendor-prefix"
 import rootNoStandardProperties from "./root-no-standard-properties"
@@ -73,6 +80,8 @@ export default {
   "block-opening-brace-space-before": blockOpeningBraceSpaceBefore,
   "color-no-invalid-hex": colorNoInvalidHex,
   "comment-empty-line-before": commentEmptyLineBefore,
+  "custom-property-no-outside-root": customPropertyNoOutsideRoot,
+  "custom-property-pattern": customPropertyPattern,
   "declaration-bang-space-after": declarationBangSpaceAfter,
   "declaration-bang-space-before": declarationBangSpaceBefore,
   "declaration-colon-space-after": declarationColonSpaceAfter,
@@ -92,12 +101,17 @@ export default {
   "media-feature-colon-space-before": mediaFeatureColonSpaceBefore,
   "media-feature-range-operator-space-after": mediaFeatureRangeOperatorSpaceAfter,
   "media-feature-range-operator-space-before": mediaFeatureRangeOperatorSpaceBefore,
+  "media-query-list-comma-newline-after": mediaQueryListCommaNewlineAfter,
+  "media-query-list-comma-newline-before": mediaQueryListCommaNewlineBefore,
+  "media-query-list-comma-space-after": mediaQueryListCommaSpaceAfter,
+  "media-query-list-comma-space-before": mediaQueryListCommaSpaceBefore,
   "media-query-parentheses-inside-space": mediaQueryParenthesesInsideSpace,
   "no-eol-whitespace": noEolWhitespace,
   "no-missing-eof-newline": noMissingEofNewline,
   "no-multiple-empty-lines": noMultipleEmptyLines,
   "number-leading-zero": numberLeadingZero,
   "number-no-trailing-zeros": numberNoTrailingZeros,
+  "number-zero-length-no-unit": numberZeroLengthNoUnit,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
   "property-value-no-vendor-prefix": propertyValueNoVendorPrefix,
   "root-no-standard-properties": rootNoStandardProperties,

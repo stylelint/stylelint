@@ -38,6 +38,7 @@
 * [`no-multiple-empty-lines`](../src/rules/no-multiple-empty-lines/README.md): Disallow multiple empty lines.
 * [`number-leading-zero`](../src/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
 * [`number-no-trailing-zeros`](../src/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros within numbers.
+* [`number-zero-length-no-unit`](../src/rules/number-zero-length-no-unit/README.md): Disallow units for lengths of zero.
 * [`property-no-vendor-prefix`](../src/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties.
 * [`property-value-no-vendor-prefix`](../src/rules/property-value-no-vendor-prefix/README.md): Disallow vendor prefixes for property values.
 * [`root-no-standard-properties`](../src/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` selectors.

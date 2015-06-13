@@ -26,7 +26,7 @@ export default function (expectation) {
 
       const nextDecl = decl.next()
       if (!nextDecl) { return }
-      check.after(nextDecl.toString(), -1, m => {
+      check.afterOneOnly(nextDecl.toString(), -1, m => {
         return report({
           message: m,
           node: decl,

@@ -8,8 +8,8 @@ import { mediaFeatureColonSpaceChecker } from "../media-feature-colon-space-afte
 export const ruleName = "media-feature-colon-space-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected single space before ":" in media feature`,
-  rejectedBefore: () => `Unexpected space before ":" in media feature`,
+  expectedBefore: () => `Expected single space before ":"`,
+  rejectedBefore: () => `Unexpected space before ":"`,
 })
 
 /**

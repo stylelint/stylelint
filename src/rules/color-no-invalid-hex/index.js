@@ -7,7 +7,7 @@ import {
 export const ruleName = "color-no-invalid-hex"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: c => `Invalid hex color "${c}"`,
+  rejected: c => `Unexpected invalid hex color "${c}"`,
 })
 
 export default function () {

@@ -8,8 +8,8 @@ import {
 export const ruleName = "function-space-after"
 
 export const messages = ruleMessages(ruleName, {
-  expected: "Expected single space after function's \")\"",
-  rejected: "Unexpected space after function's \")\"",
+  expected: "Expected single space after \")\"",
+  rejected: "Unexpected space after \")\"",
 })
 
 /**

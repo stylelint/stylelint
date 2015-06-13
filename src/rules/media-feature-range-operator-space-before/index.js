@@ -9,8 +9,8 @@ import { findMediaOperator } from "../media-feature-range-operator-space-after"
 export const ruleName = "media-feature-range-operator-space-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected single space before range operator in media feature`,
-  rejectedBefore: () => `Unexpected space before range operator in media feature`,
+  expectedBefore: () => `Expected single space before range operator`,
+  rejectedBefore: () => `Unexpected space before range operator`,
 })
 
 /**

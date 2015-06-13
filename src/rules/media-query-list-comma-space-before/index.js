@@ -2,9 +2,9 @@ import {
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
-import { declarationCommaSpaceChecker } from "../declaration-comma-space-after"
+import { mediaQueryListCommaChecker } from "../media-query-list-comma-space-after"
 
-export const ruleName = "declaration-comma-space-before"
+export const ruleName = "media-query-list-comma-space-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected single space before ","`,
@@ -16,5 +16,5 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
-  return declarationCommaSpaceChecker(checker.before)
+  return mediaQueryListCommaChecker(checker.before)
 }

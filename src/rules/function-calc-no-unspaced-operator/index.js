@@ -9,9 +9,9 @@ import {
 export const ruleName = "function-calc-no-unspaced-operator"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: o => `Expected single space before "${o}" operator within calc function`,
-  expectedAfter: o => `Expected single space after "${o}" operator within calc function`,
-  expectedOperatorBeforeSign: o => `Expected an operator before sign "${o}" within calc function`,
+  expectedBefore: o => `Expected single space before "${o}" operator`,
+  expectedAfter: o => `Expected single space after "${o}" operator`,
+  expectedOperatorBeforeSign: o => `Expected an operator before sign "${o}"`,
 })
 
 export default function () {
