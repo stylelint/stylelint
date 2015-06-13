@@ -1,6 +1,7 @@
 import {
   ruleMessages,
-  styleSearch
+  styleSearch,
+  report
 } from "../../utils"
 
 export const ruleName = "no-eol-whitespace"
@@ -18,7 +19,13 @@ export default function () {
     styleSearch({ source: rootString, target: [ "\n", "\r" ] }, match => {
       lineCount++
       if (whitespacesToReject.indexOf(rootString[match.startIndex - 1]) !== -1) {
-        result.warn(messages.rejected(lineCount), { node: css })
+        report({
+          message: messages.rejected(lineCount),
+          node: css,
+          line: lineCount,
+          result,
+          ruleName,
+        })
       }
     })
   }

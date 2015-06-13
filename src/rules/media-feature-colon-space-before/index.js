@@ -2,6 +2,7 @@ import {
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
+
 import { mediaFeatureColonSpaceChecker } from "../media-feature-colon-space-after"
 
 export const ruleName = "media-feature-colon-space-before"

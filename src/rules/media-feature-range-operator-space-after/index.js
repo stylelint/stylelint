@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
@@ -23,9 +24,14 @@ export default function (expectation) {
     })
 
     function checkAfterOperator(match, params, node) {
-      checker.after(params, match.index + match[1].length, m => {
-        result.warn(m, { node })
-      })
+      checker.after(params, match.index + match[1].length, m =>
+        report({
+          message: m,
+          node: node,
+          result,
+          ruleName,
+        })
+      )
     }
   }
 }

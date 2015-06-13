@@ -1,6 +1,7 @@
 import {
-  ruleMessages,
   isWhitespace,
+  report,
+  ruleMessages,
   styleSearch
 } from "../../utils"
 
@@ -31,10 +32,20 @@ export default function (expectation) {
         // another closing parenthesis, a comma, or the end of the value
         if (nextChar === " " && !isWhitespace(source[index + 2])) { return }
         if ([ ")", ",", undefined ].indexOf(nextChar) !== -1) { return }
-        result.warn(messages.expected, { node })
+        report({
+          message: messages.expected,
+          node: node,
+          result,
+          ruleName,
+        })
       } else if (expectation === "never") {
         if (isWhitespace(nextChar)) {
-          result.warn(messages.rejected, { node })
+          report({
+            message: messages.rejected,
+            node: node,
+            result,
+            ruleName,
+          })
         }
       }
     }

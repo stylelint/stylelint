@@ -1,6 +1,7 @@
 import {
-  ruleMessages,
-  isAutoprefixable
+  isAutoprefixable,
+  report,
+  ruleMessages
 } from "../../utils"
 
 export const ruleName = "property-no-vendor-prefix"
@@ -19,7 +20,12 @@ export default function () {
       if (prop[0] !== "-" || prop[1] === "-") { return }
 
       if (isAutoprefixable.property(prop)) {
-        result.warn(messages.rejected(prop), { node: decl })
+        report({
+          message: messages.rejected(prop),
+          node: decl,
+          result,
+          ruleName,
+        })
       }
     })
   }

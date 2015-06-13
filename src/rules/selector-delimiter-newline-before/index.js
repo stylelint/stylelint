@@ -2,6 +2,7 @@ import {
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
+
 import { selectorDelimiterSpaceChecker } from "../selector-delimiter-space-after"
 
 export const ruleName = "selector-delimiter-newline-before"

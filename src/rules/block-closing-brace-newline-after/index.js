@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
@@ -34,7 +35,12 @@ export default function (expectation) {
       // Only check one after, because there might be other
       // spaces handled by the indentation rule
       checker.afterOneOnly(nextNode.toString(), -1, msg => {
-        result.warn(msg, { node: block })
+        report({
+          message: msg,
+          node: block,
+          result,
+          ruleName,
+        })
       }, blockStringNoSelector)
     }
   }

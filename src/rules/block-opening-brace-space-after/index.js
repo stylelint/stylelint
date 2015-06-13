@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
@@ -22,7 +23,7 @@ export default function (expectation) {
   return blockOpeningBraceSpaceChecker(checker.after)
 }
 
-export function blockOpeningBraceSpaceChecker(checkLodation) {
+export function blockOpeningBraceSpaceChecker(checkLocation) {
   return function (css, result) {
     // Check both kinds of "block": rules and at-rules
     css.eachRule(checkBlock)
@@ -43,7 +44,13 @@ export function blockOpeningBraceSpaceChecker(checkLodation) {
     }
 
     function checkBrace(str, index, node, lineCheckStr) {
-      checkLodation(str, index, m => result.warn(m, { node }), lineCheckStr)
+      checkLocation(str, index, m =>
+        report({
+          message: m,
+          node: node,
+          result,
+          ruleName,
+        }), lineCheckStr)
     }
   }
 }

@@ -1,6 +1,7 @@
 import {
-  ruleMessages,
   isWhitespace,
+  report,
+  ruleMessages,
   styleSearch
 } from "../../utils"
 
@@ -33,11 +34,21 @@ export default function (expectation) {
       const nextCharIsSpace = source[index + 1] === " "
       if (expectation === "always") {
         if (!nextCharIsSpace || isWhitespace(source[index + 2])) {
-          result.warn(messages.expectedOpening, { node })
+          report({
+            message: messages.expectedOpening,
+            node: node,
+            result,
+            ruleName,
+          })
         }
       } else if (expectation === "never") {
         if (nextCharIsSpace) {
-          result.warn(messages.rejectedOpening, { node })
+          report({
+            message: messages.rejectedOpening,
+            node: node,
+            result,
+            ruleName,
+          })
         }
       }
     }
@@ -46,11 +57,21 @@ export default function (expectation) {
       const prevCharIsSpace = source[index - 1] === " "
       if (expectation === "always") {
         if (!prevCharIsSpace || isWhitespace(source[index - 2])) {
-          result.warn(messages.expectedClosing, { node })
+          report({
+            message: messages.expectedClosing,
+            node: node,
+            result,
+            ruleName,
+          })
         }
       } else if (expectation === "never") {
         if (prevCharIsSpace) {
-          result.warn(messages.rejectedClosing, { node })
+          report({
+            message: messages.rejectedClosing,
+            node: node,
+            result,
+            ruleName,
+          })
         }
       }
     }

@@ -1,8 +1,9 @@
 import {
+  functionArguments,
+  report,
   ruleMessages,
-  whitespaceChecker,
   styleSearch,
-  functionArguments
+  whitespaceChecker
 } from "../../utils"
 
 export const ruleName = "function-calc-no-unspaced-operator"
@@ -40,15 +41,34 @@ export default function () {
               // Otherwise, ensure that there is a real operator preceeding them
               if (/[\*/+-]\s*$/.test(expressionBeforeSign)) { return }
 
-              result.warn(messages.expectedOperatorBeforeSign(symbol), { node: decl })
+              report({
+                message: messages.expectedOperatorBeforeSign(symbol),
+                node: decl,
+                result,
+                ruleName,
+              })
+
               return
             }
 
-            checker.after(expression, index, m => result.warn(m, { node: decl }))
-            checker.before(expression, index, m => result.warn(m, { node: decl }))
+            checker.after(expression, index, m =>
+              report({
+                message: m,
+                node: decl,
+                result,
+                ruleName,
+              })
+            )
+            checker.before(expression, index, m =>
+              report({
+                message: m,
+                node: decl,
+                result,
+                ruleName,
+              })
+            )
           })
         }
-
       })
     })
   }

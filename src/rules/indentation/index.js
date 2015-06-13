@@ -1,5 +1,6 @@
 import { repeat } from "lodash"
 import {
+  report,
   ruleMessages,
   styleSearch
 } from "../../utils"
@@ -67,10 +68,13 @@ export default function (options) {
       // because anything besides that is not indentation for this node:
       // it is separation, checked by a separate rule
       if (inspectBefore && before.slice(before.lastIndexOf("\n") + 1) !== expectedWhitespace) {
-        result.warn(
-          messages.expected(legibleExpectation(nodeLevel, node.source.start.line)),
-          { node }
-        )
+        report({
+          message: messages.expected(legibleExpectation(nodeLevel, node.source.start.line)),
+          node: node,
+          line: node.source.start.line,
+          result,
+          ruleName,
+        })
       }
 
       // Only blocks have the `after` string to check.
@@ -78,10 +82,13 @@ export default function (options) {
       // otherwise there's no indentation involved
       if (after && after.indexOf("\n") !== -1
         && after.slice(after.lastIndexOf("\n") + 1) !== expectedWhitespace) {
-        result.warn(
-          messages.expected(legibleExpectation(nodeLevel, node.source.end.line)),
-          { node }
-        )
+        report({
+          message: messages.expected(legibleExpectation(nodeLevel, node.source.end.line)),
+          node: node,
+          line: node.source.end.line,
+          result,
+          ruleName,
+        })
       }
 
       // If this is a declaration, check the value
@@ -110,13 +117,16 @@ export default function (options) {
         const postNewlineActual = /^(\s*)\S/.exec(value.slice(match.startIndex + 1))[1]
 
         if (postNewlineActual !== postNewlineExpected) {
-          result.warn(
-            messages.expected(legibleExpectation(
-              valueLevel,
-              node.source.start.line + newlineCount
-            )),
-            { node }
-          )
+
+          const line = node.source.start.line + newlineCount
+
+          report({
+            message: messages.expected(legibleExpectation(valueLevel, line)),
+            node: node,
+            line: line,
+            result,
+            ruleName,
+          })
         }
       })
     }

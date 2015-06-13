@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
@@ -41,7 +42,13 @@ export function blockOpeningBraceNewlineChecker(checkLocation) {
     }
 
     function checkBrace(str, index, node, lineCheckStr) {
-      checkLocation(str, index, m => result.warn(m, { node }), lineCheckStr)
+      checkLocation(str, index, m =>
+        report({
+          message: m,
+          node: node,
+          result,
+          ruleName,
+        }), lineCheckStr)
     }
   }
 }

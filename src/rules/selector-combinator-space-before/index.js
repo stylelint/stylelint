@@ -2,6 +2,7 @@ import {
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
+
 import { selectorCombinatorSpaceChecker } from "../selector-combinator-space-after"
 
 export const ruleName = "selector-combinator-space-before"

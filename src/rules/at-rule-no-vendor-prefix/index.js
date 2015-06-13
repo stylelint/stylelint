@@ -1,6 +1,7 @@
 import {
-  ruleMessages,
-  isAutoprefixable
+  isAutoprefixable,
+  report,
+  ruleMessages
 } from "../../utils"
 
 export const ruleName = "at-rule-no-vendor-prefix"
@@ -17,7 +18,12 @@ export default function () {
       if (name[0] !== "-") { return }
 
       if (isAutoprefixable.atRuleName(name)) {
-        result.warn(messages.rejected(name), { node: atRule })
+        report({
+          message: messages.rejected(name),
+          node: atRule,
+          result,
+          ruleName,
+        })
       }
     })
   }

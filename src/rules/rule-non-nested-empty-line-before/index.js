@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages,
   isSingleLineString
 } from "../../utils"
@@ -6,8 +7,8 @@ import {
 export const ruleName = "rule-non-nested-empty-line-before"
 
 export const messages = ruleMessages(ruleName, {
-  expected: "Expected empty line before non-nested rule",
-  rejected: "Unexpected empty line before non-nested rule",
+  expected: `Expected empty line before non-nested rule`,
+  rejected: `Unexpected empty line before non-nested rule`,
 })
 
 /**
@@ -39,9 +40,19 @@ export function checkRuleEmptyLineBefore(rule, expectation, result, msgs) {
   const emptyLineBefore = rule.before.indexOf("\n\n") !== -1
 
   if (expectEmptyLine && !emptyLineBefore) {
-    result.warn(msgs.expected, { node: rule })
+    report({
+      message: msgs.expected,
+      node: rule,
+      result,
+      ruleName,
+    })
   }
   if (rejectEmptyLine && emptyLineBefore) {
-    result.warn(msgs.rejected, { node: rule })
+    report({
+      message: msgs.rejected,
+      node: rule,
+      result,
+      ruleName,
+    })
   }
 }

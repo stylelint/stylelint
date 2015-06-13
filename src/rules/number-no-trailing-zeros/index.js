@@ -1,8 +1,10 @@
 import {
+  report,
   ruleMessages
 } from "../../utils"
 
 export const ruleName = "number-no-trailing-zeros"
+
 export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected trailing zero(s)",
 })
@@ -16,7 +18,12 @@ export default function () {
       if (value.indexOf(".") === -1) { return }
 
       if (/\.\d*0+(?:\D|$)/g.test(value)) {
-        result.warn(messages.rejected, { node: decl })
+        report({
+          message: messages.rejected,
+          node: decl,
+          result,
+          ruleName,
+        })
       }
     })
   }

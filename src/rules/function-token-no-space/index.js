@@ -1,13 +1,14 @@
 import {
-  ruleMessages,
+  report,
   isWhitespace,
+  ruleMessages,
   styleSearch
 } from "../../utils"
 
 export const ruleName = "function-token-no-space"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected space between function name and \"(\"",
+  rejected: `Unexpected space between function name and "("`,
 })
 
 export default function () {
@@ -22,7 +23,12 @@ export default function () {
 
     function checkOpeningParen(source, index, node) {
       if (isWhitespace(source[index - 1])) {
-        result.warn(messages.rejected, { node })
+        report({
+          message: messages.rejected,
+          node: node,
+          result,
+          ruleName,
+        })
       }
     }
   }

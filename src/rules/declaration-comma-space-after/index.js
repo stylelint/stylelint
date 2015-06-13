@@ -1,7 +1,8 @@
 import {
+  report,
   ruleMessages,
-  whitespaceChecker,
-  styleSearch
+  styleSearch,
+  whitespaceChecker
 } from "../../utils"
 
 export const ruleName = "declaration-comma-space-after"
@@ -30,7 +31,14 @@ export function declarationCommaSpaceChecker(checkLocation) {
     })
 
     function checkComma(source, index, node) {
-      checkLocation(source, index, m => result.warn(m, { node }))
+      checkLocation(source, index, m =>
+        report({
+          message: m,
+          node: node,
+          result,
+          ruleName,
+        })
+      )
     }
   }
 }

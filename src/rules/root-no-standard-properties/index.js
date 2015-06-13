@@ -1,4 +1,7 @@
-import { ruleMessages } from "../../utils"
+import {
+  report,
+  ruleMessages
+} from "../../utils"
 
 export const ruleName = "root-no-standard-properties"
 
@@ -15,7 +18,12 @@ export default function () {
         const prop = decl.prop
 
         if (prop.indexOf("--") !== 0) {
-          result.warn(messages.rejected(prop), { node: decl })
+          report({
+            message: messages.rejected(prop),
+            node: decl,
+            result,
+            ruleName,
+          })
         }
       })
     })

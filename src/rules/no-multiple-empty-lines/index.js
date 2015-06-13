@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages,
   styleSearch
 } from "../../utils"
@@ -17,7 +18,14 @@ export default function () {
       lineCount++
       if (isNewline(rootString[match.startIndex + 1])
         && isNewline(rootString[match.startIndex + 2])) {
-        result.warn(messages.rejected(lineCount + 2), { node: css })
+        const line = lineCount + 2
+        report({
+          message: messages.rejected(line),
+          node: css,
+          line: line,
+          result,
+          ruleName,
+        })
       }
     })
   }

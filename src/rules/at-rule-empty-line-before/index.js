@@ -1,4 +1,5 @@
 import {
+  report,
   ruleMessages
 } from "../../utils"
 
@@ -21,12 +22,18 @@ export default function (expectation) {
 
       const emptyLineBefore = atRule.before.indexOf("\n\n") !== -1
 
-      if (expectation === "always" && !emptyLineBefore) {
-        result.warn(messages.expected, { node: atRule })
-      }
-      if (expectation === "never" && emptyLineBefore) {
-        result.warn(messages.rejected, { node: atRule })
-      }
+      if (expectation === "always" && emptyLineBefore) { return }
+
+      if (expectation === "never" && !emptyLineBefore) { return }
+
+      const message = (expectation === "always") ? messages.expected : messages.rejected
+
+      report({
+        message: message,
+        node: atRule,
+        result,
+        ruleName,
+      })
     })
   }
 }
