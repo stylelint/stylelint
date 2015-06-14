@@ -12,7 +12,24 @@ $ npm install stylelint
 
 ### Usage
 
-For now you must use it as a [PostCSS](https://github.com/postcss/postcss#usage) plugin directly
+For now you must use the linter as a [PostCSS](https://github.com/postcss/postcss#usage) plugin directly. You can use a [postcss runner](https://github.com/postcss/postcss#usage), like `grunt`, `gulp` or `webpack`. For example, using `gulp`:
+
+```js
+gulp.task("css", function () {
+  var postcss = require("gulp-postcss")
+  var stylelint = require("stylelint")
+  var logWarnings = require("postcss-log-warnings")
+  return gulp.src("src/**/*.css")
+    .pipe(postcss([
+      stylelint({
+        // config
+      }),
+      logWarnings()
+    ]))
+})
+```
+
+Or you can use the node API:
 
 ```js
 var fs = require("fs")
@@ -23,17 +40,14 @@ var logWarnings = require("postcss-log-warnings")
 // css to be processed
 var css = fs.readFileSync("input.css", "utf8")
 
-postcss()
-  .use(
+  postcss([
     stylelint({
       // config
-    })
-  )
-  .use(
-    logWarnings()
-  )
-  .process(css)
-  .css
+    }),
+    logWarnings(),
+   ])
+  .process(css, { from: file })
+  .then()
 ```
 
 #### Configuring rules
