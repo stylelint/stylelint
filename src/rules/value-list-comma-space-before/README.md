@@ -1,6 +1,6 @@
-# declaration-comma-space-before
+# value-list-comma-space-before
 
-Require or disallow a space before the commas of declarations.
+Require or disallow a space before the commas of value lists.
 
 ```css
     a { background-size: 0, 0; }

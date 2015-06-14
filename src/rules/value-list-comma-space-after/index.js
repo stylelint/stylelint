@@ -5,7 +5,7 @@ import {
   whitespaceChecker
 } from "../../utils"
 
-export const ruleName = "declaration-comma-space-after"
+export const ruleName = "value-list-comma-space-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected single space after ","`,
@@ -17,10 +17,10 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
-  return declarationCommaSpaceChecker(checker.after)
+  return valueListCommaSpaceChecker(checker.after)
 }
 
-export function declarationCommaSpaceChecker(checkLocation) {
+export function valueListCommaSpaceChecker(checkLocation) {
   return function (css, result) {
     css.eachDecl(function (decl) {
       const value = decl.value

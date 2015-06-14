@@ -17,8 +17,6 @@ import declarationBangSpaceAfter from "./declaration-bang-space-after"
 import declarationBangSpaceBefore from "./declaration-bang-space-before"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
-import declarationCommaSpaceAfter from "./declaration-comma-space-after"
-import declarationCommaSpaceBefore from "./declaration-comma-space-before"
 import declarationNoImportant from "./declaration-no-important"
 import functionCalcNoUnspacedOperator from "./function-calc-no-unspaced-operator"
 import functionCommaSpaceAfter from "./function-comma-space-after"
@@ -44,7 +42,6 @@ import numberLeadingZero from "./number-leading-zero"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
 import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
-import propertyValueNoVendorPrefix from "./property-value-no-vendor-prefix"
 import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
 import ruleNoDuplicateProperties from "./rule-no-duplicate-properties"
@@ -65,6 +62,9 @@ import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
 import selectorRootNoComposition from "./selector-root-no-composition"
 import stringQuotes from "./string-quotes"
+import valueListCommaSpaceAfter from "./value-list-comma-space-after"
+import valueListCommaSpaceBefore from "./value-list-comma-space-before"
+import valueNoVendorPrefix from "./value-no-vendor-prefix"
 
 export default {
   "at-rule-empty-line-before": atRuleEmptyLineBefore,
@@ -86,8 +86,6 @@ export default {
   "declaration-bang-space-before": declarationBangSpaceBefore,
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
-  "declaration-comma-space-after": declarationCommaSpaceAfter,
-  "declaration-comma-space-before": declarationCommaSpaceBefore,
   "declaration-no-important": declarationNoImportant,
   "function-calc-no-unspaced-operator": functionCalcNoUnspacedOperator,
   "function-comma-space-after": functionCommaSpaceAfter,
@@ -113,7 +111,6 @@ export default {
   "number-no-trailing-zeros": numberNoTrailingZeros,
   "number-zero-length-no-unit": numberZeroLengthNoUnit,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
-  "property-value-no-vendor-prefix": propertyValueNoVendorPrefix,
   "root-no-standard-properties": rootNoStandardProperties,
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
   "rule-no-duplicate-properties": ruleNoDuplicateProperties,
@@ -134,4 +131,7 @@ export default {
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
   "selector-root-no-composition": selectorRootNoComposition,
   "string-quotes": stringQuotes,
+  "value-list-comma-space-after": valueListCommaSpaceAfter,
+  "value-list-comma-space-before": valueListCommaSpaceBefore,
+  "value-no-vendor-prefix": valueNoVendorPrefix,
 }

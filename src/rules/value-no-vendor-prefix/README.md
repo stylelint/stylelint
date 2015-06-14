@@ -1,6 +1,6 @@
-# property-value-no-vendor-prefix
+# value-no-vendor-prefix
 
-Disallow vendor prefixes for property values.
+Disallow vendor prefixes for values.
 
 ```css
     .foo { display: -webkit-flex; }

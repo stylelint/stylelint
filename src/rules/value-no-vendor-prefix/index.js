@@ -5,10 +5,10 @@ import {
   styleSearch
 } from "../../utils"
 
-export const ruleName = "property-value-no-vendor-prefix"
+export const ruleName = "value-no-vendor-prefix"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: p => `Unexpected vendor-prefixed property value "${p}"`,
+  rejected: p => `Unexpected vendor-prefixed value "${p}"`,
 })
 
 const valuePrefixes = [ "-webkit-", "-moz-", "-ms-", "-o-" ]
