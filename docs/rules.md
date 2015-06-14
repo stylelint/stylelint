@@ -17,8 +17,6 @@
 * [`declaration-bang-space-before`](../src/rules/declaration-bang-space-before/README.md): Require or disallow a space before the bang of declarations.
 * [`declaration-colon-space-after`](../src/rules/declaration-colon-space-after/README.md): Require or disallow a space after the colon of declarations.
 * [`declaration-colon-space-before`](../src/rules/declaration-colon-space-before/README.md): Require or disallow a space before the colon of declarations.
-* [`declaration-comma-space-after`](../src/rules/declaration-comma-space-after/README.md): Require or disallow a space after the commas of declarations.
-* [`declaration-comma-space-before`](../src/rules/declaration-comma-space-before/README.md): Require or disallow a space before the commas of declarations.
 * [`declaration-no-important`](../src/rules/declaration-no-important/README.md): Disallow `!important` within declarations.
 * [`function-calc-no-unspaced-operator`](../src/rules/function-calc-no-unspaced-operator/README.md): Disallow an unspaced operator within `calc` functions.
 * [`function-comma-space-after`](../src/rules/function-comma-space-after/README.md): Require or disallow a space after the commas of functions.
@@ -38,9 +36,8 @@
 * [`no-multiple-empty-lines`](../src/rules/no-multiple-empty-lines/README.md): Disallow multiple empty lines.
 * [`number-leading-zero`](../src/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
 * [`number-no-trailing-zeros`](../src/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros within numbers.
-* [`number-zero-length-no-unit`](../src/rules/number-zero-length-no-unit/README.md): Disallow units for lengths of zero.
+* [`number-zero-length-no-unit`](../src/rules/number-zero-length-no-unit/README.md): Disallow units for zero lengths.
 * [`property-no-vendor-prefix`](../src/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties.
-* [`property-value-no-vendor-prefix`](../src/rules/property-value-no-vendor-prefix/README.md): Disallow vendor prefixes for property values.
 * [`root-no-standard-properties`](../src/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` selectors.
 * [`rule-nested-empty-line-before`](../src/rules/rule-nested-empty-line-before/README.md): Require or disallow an empty line before nested rules.
 * [`rule-no-duplicate-properties`](../src/rules/rule-no-duplicate-properties/README.md): Disallow duplicate properties within rules.
@@ -61,3 +58,6 @@
 * [`selector-pseudo-element-colon-notation`](../src/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
 * [`selector-root-no-composition`](../src/rules/selector-root-no-composition/README.md): Disallow the composition of`:root` selectors.
 * [`string-quotes`](../src/rules/string-quotes/README.md): Specify single or double quotes around strings.
+* [`value-list-comma-space-after`](../src/rules/value-list-comma-space-after/README.md): Require or disallow a space after the commas of value lists.
+* [`value-list-comma-space-before`](../src/rules/value-list-comma-space-before/README.md): Require or disallow a space before the commas of value lists.
+* [`value-no-vendor-prefix`](../src/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values.
