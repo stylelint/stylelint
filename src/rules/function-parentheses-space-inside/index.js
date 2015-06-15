@@ -5,13 +5,13 @@ import {
   styleSearch
 } from "../../utils"
 
-export const ruleName = "function-parentheses-inside-space"
+export const ruleName = "function-parentheses-space-inside"
 
 export const messages = ruleMessages(ruleName, {
-  expectedOpening: "Expected single space before \"(\"",
-  rejectedOpening: "Unexpected space before \"(\"",
-  expectedClosing: "Expected single space before \")\"",
-  rejectedClosing: "Unexpected space before \")\"",
+  expectedOpening: `Expected single space after "("`,
+  rejectedOpening: `Unexpected space after "("`,
+  expectedClosing: `Expected single space before ")"`,
+  rejectedClosing: `Unexpected space before ")"`,
 })
 
 /**

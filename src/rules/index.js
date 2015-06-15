@@ -11,6 +11,7 @@ import blockOpeningBraceSpaceAfter from "./block-opening-brace-space-after"
 import blockOpeningBraceSpaceBefore from "./block-opening-brace-space-before"
 import colorNoInvalidHex from "./color-no-invalid-hex"
 import commentEmptyLineBefore from "./comment-empty-line-before"
+import commentSpaceInside from "./comment-space-inside"
 import customPropertyNoOutsideRoot from "./custom-property-no-outside-root"
 import customPropertyPattern from "./custom-property-pattern"
 import declarationBangSpaceAfter from "./declaration-bang-space-after"
@@ -21,7 +22,7 @@ import declarationNoImportant from "./declaration-no-important"
 import functionCalcNoUnspacedOperator from "./function-calc-no-unspaced-operator"
 import functionCommaSpaceAfter from "./function-comma-space-after"
 import functionCommaSpaceBefore from "./function-comma-space-before"
-import functionParenthesesInsideSpace from "./function-parentheses-inside-space"
+import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
 import functionSpaceAfter from "./function-space-after"
 import functionTokenNoSpace from "./function-token-no-space"
 import functionUrlQuotes from "./function-url-quotes"
@@ -34,7 +35,7 @@ import mediaQueryListCommaNewlineAfter from "./media-query-list-comma-newline-af
 import mediaQueryListCommaNewlineBefore from "./media-query-list-comma-newline-before"
 import mediaQueryListCommaSpaceAfter from "./media-query-list-comma-space-after"
 import mediaQueryListCommaSpaceBefore from "./media-query-list-comma-space-before"
-import mediaQueryParenthesesInsideSpace from "./media-query-parentheses-inside-space"
+import mediaQueryParenthesesSpaceInside from "./media-query-parentheses-space-inside"
 import noEolWhitespace from "./no-eol-whitespace"
 import noMissingEofNewline from "./no-missing-eof-newline"
 import noMultipleEmptyLines from "./no-multiple-empty-lines"
@@ -80,6 +81,7 @@ export default {
   "block-opening-brace-space-before": blockOpeningBraceSpaceBefore,
   "color-no-invalid-hex": colorNoInvalidHex,
   "comment-empty-line-before": commentEmptyLineBefore,
+  "comment-space-inside": commentSpaceInside,
   "custom-property-no-outside-root": customPropertyNoOutsideRoot,
   "custom-property-pattern": customPropertyPattern,
   "declaration-bang-space-after": declarationBangSpaceAfter,
@@ -90,7 +92,7 @@ export default {
   "function-calc-no-unspaced-operator": functionCalcNoUnspacedOperator,
   "function-comma-space-after": functionCommaSpaceAfter,
   "function-comma-space-before": functionCommaSpaceBefore,
-  "function-parentheses-inside-space": functionParenthesesInsideSpace,
+  "function-parentheses-space-inside": functionParenthesesSpaceInside,
   "function-space-after": functionSpaceAfter,
   "function-token-no-space": functionTokenNoSpace,
   "function-url-quotes": functionUrlQuotes,
@@ -103,7 +105,7 @@ export default {
   "media-query-list-comma-newline-before": mediaQueryListCommaNewlineBefore,
   "media-query-list-comma-space-after": mediaQueryListCommaSpaceAfter,
   "media-query-list-comma-space-before": mediaQueryListCommaSpaceBefore,
-  "media-query-parentheses-inside-space": mediaQueryParenthesesInsideSpace,
+  "media-query-parentheses-space-inside": mediaQueryParenthesesSpaceInside,
   "no-eol-whitespace": noEolWhitespace,
   "no-missing-eof-newline": noMissingEofNewline,
   "no-multiple-empty-lines": noMultipleEmptyLines,

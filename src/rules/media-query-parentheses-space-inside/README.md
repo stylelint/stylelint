@@ -1,4 +1,4 @@
-# media-query-parentheses-inside-space
+# media-query-parentheses-space-inside
 
 Require or disallow a single space on the inside of the parentheses within media queries.
 
