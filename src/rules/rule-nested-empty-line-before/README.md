@@ -40,6 +40,77 @@ The following patterns are *not* considered warnings:
 }
 ```
 
+### `"always-except-first"`
+
+There *must always* be an empty line before rules, except for the first rule.
+
+The following patterns are considered warnings:
+
+```css
+@media {
+
+  a {} 
+}
+```
+
+```css
+@media {
+
+  a {}
+  b {} 
+}
+```
+
+```css
+@media {
+
+  a {}
+
+  b {} 
+}
+```
+
+```css
+@media {
+
+  a {}
+
+  b {}
+
+  c {}
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+@media { a {} }
+```
+
+```css
+@media { 
+  a {} 
+}
+```
+
+```css
+@media { 
+  a {} 
+
+  b {}
+}
+```
+
+```css
+@media {
+  a {}
+
+  b {}
+
+  c {}
+}
+```
+
 ### `"never"`
 
 There *must never* be an empty before rules.
@@ -86,6 +157,76 @@ The following patterns are *not* considered warnings:
 @media {
 
   a {
+    color: pink;
+    top: 0;
+  } 
+}
+```
+
+### `"always-multi-line-except-first"`
+
+There *must always* be an empty line before multi-line rules, except for the first rule.
+
+The following patterns are considered warnings:
+
+```css
+@media {
+
+  a {
+    color: pink;
+    top: 0;
+  } 
+}
+```
+
+```css
+@media {
+
+  a {
+    color: pink;
+    top: 0;
+  }
+
+  b {
+    color: pink;
+    top: 0;
+  } 
+}
+```
+
+```css
+@media {
+
+  a {
+    color: pink;
+    top: 0;
+  }
+  b {
+    color: pink;
+    top: 0;
+  } 
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+@media { 
+  a {
+    color: pink;
+    top: 0;
+  } 
+}
+```
+
+```css
+@media {
+  a {
+    color: pink;
+    top: 0;
+  } 
+
+  b {
     color: pink;
     top: 0;
   } 

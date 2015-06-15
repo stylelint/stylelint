@@ -31,11 +31,23 @@ export default function (expectation) {
 
 export function checkRuleEmptyLineBefore(rule, expectation, result, msgs) {
 
-  const expectEmptyLine = (expectation === "always"
-    || expectation === "always-multi-line" && !isSingleLineString(rule.toString()))
+  const expectEmptyLine = expectation === "always"
+    || (expectation === "always-except-first"
+      && rule !== rule.parent.first)
+    || (expectation === "always-multi-line"
+      && !isSingleLineString(rule.toString()))
+    || (expectation === "always-multi-line-except-first"
+      && rule !== rule.parent.first
+      && !isSingleLineString(rule.toString()))
 
-  const rejectEmptyLine = (expectation === "never"
-    || expectation === "never-multi-line" && !isSingleLineString(rule.toString()))
+  const rejectEmptyLine = expectation === "never"
+    || (expectation === "always-except-first"
+      && rule === rule.parent.first)
+    || (expectation === "never-multi-line"
+      && !isSingleLineString(rule.toString()))
+    || (expectation === "always-multi-line-except-first"
+      && rule === rule.parent.first
+      && !isSingleLineString(rule.toString()))
 
   const emptyLineBefore = rule.before.indexOf("\n\n") !== -1
 
