@@ -19,6 +19,7 @@ testRule(null, tr => {
   tr.ok("a { color: color(rgb(0,0,0) lightness(50%)); }", "zero in functions")
   tr.ok("a { color: color(rgb(0,0,0) lightness(0%)); }", "% is ok")
   tr.ok("a { transition-delay: 0s; }", "dimension unit is ok")
+  tr.ok("@media (min-width: 0)", "media feature")
 
   tr.notOk("a { top: 0px; }", messages.rejected)
   tr.notOk("a { top: 0.000px; }", messages.rejected)
@@ -27,4 +28,5 @@ testRule(null, tr => {
   tr.notOk("a { padding: 1px 2px 0rem 3px; }", messages.rejected)
   tr.notOk("a { padding: 1px 2px 3px 0em; }", messages.rejected)
   tr.notOk("a { padding: calc(1in + 0in * 2)); }", messages.rejected)
+  tr.notOk("@media (min-width: 0px) {}", messages.rejected, "media feature")
 })
