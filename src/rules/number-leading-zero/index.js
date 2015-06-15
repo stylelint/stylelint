@@ -15,25 +15,31 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   return (css, result) => {
-    css.eachDecl(function (decl) {
-      const value = decl.value
+    css.eachDecl(decl => {
+      check(decl.value, decl)
+    })
 
+    css.eachAtRule(atRule => {
+      check(atRule.params, atRule)
+    })
+
+    function check(source, node) {
       // Get out quickly if there are no periods
-      if (value.indexOf(".") === -1) { return }
+      if (source.indexOf(".") === -1) { return }
 
         // check leadingzero
-      if (expectation === "always" && !lacksLeadingZero(value)) { return }
-      if (expectation === "never" && !containsLeadingZero(value)) { return }
+      if (expectation === "always" && !lacksLeadingZero(source)) { return }
+      if (expectation === "never" && !containsLeadingZero(source)) { return }
 
       const message = (expectation === "always") ? messages.expected : messages.rejected
 
       report({
         message: message,
-        node: decl,
+        node,
         result,
         ruleName,
       })
-    })
+    }
   }
 }
 

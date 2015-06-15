@@ -30,6 +30,7 @@ testRule("always", tr => {
     "a { transform: translate(0.4px, 0.8px); }",
     "multiple fractional values with leading zeros in a function"
   )
+  tr.ok("@media (min-width: 0.01em)", "media feature")
 
   tr.notOk(
     "a { line-height: .5; }",
@@ -61,6 +62,7 @@ testRule("always", tr => {
     messages.expected,
     "fractional value without leading zero in the middle of a function"
   )
+  tr.notOk("@media (min-width: .01em)", messages.expected, "media feature")
 })
 
 testRule("never", tr => {
