@@ -22,10 +22,11 @@
     "src"
   ],
   "dependencies": {
-    "balanced-match": "^0.2.0",
     "autoprefixer-core": "^5.1.11",
+    "balanced-match": "^0.2.0",
     "lodash": "^3.9.1",
-    "postcss": "^4.1.9"
+    "postcss": "^4.1.9",
+    "postcss-selector-parser": "0.0.5"
   },
   "devDependencies": {
     "babel": "^5.2.15",
