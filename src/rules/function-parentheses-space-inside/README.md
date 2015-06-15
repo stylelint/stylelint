@@ -1,4 +1,4 @@
-# function-parentheses-inside-space
+# function-parentheses-space-inside
 
 Require or disallow a single space on the inside of the parentheses of functions.
 
