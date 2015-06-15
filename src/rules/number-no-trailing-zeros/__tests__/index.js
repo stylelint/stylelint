@@ -10,6 +10,7 @@ testRule(null, tr => {
   tr.ok("a { padding: 10px 1px 1.05px 3.00003em; }")
   tr.ok("a { padding: 0.01px; }")
   tr.ok("a { padding: .01px; }")
+  tr.ok("@media (min-width: 100px) {}")
 
   tr.notOk("a { padding: 1.0px; }", messages.rejected)
   tr.notOk("a { padding: 1.000px; }", messages.rejected)
@@ -21,4 +22,5 @@ testRule(null, tr => {
   tr.notOk("a { transform: translate(2px, 0.40px); }", messages.rejected)
   tr.notOk("a { padding: 10px 1px 10.010px 3.00003em; }", messages.rejected)
   tr.notOk("a { padding: 10px 1px 10.01px 3.000030em; }", messages.rejected)
+  tr.notOk("@media (min-width: 100.0px) {}", messages.rejected)
 })
