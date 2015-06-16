@@ -37,9 +37,11 @@ testRule([
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; color: red; }")
   tr.ok("a { top: 0; color: pink; }")
-  tr.ok("a { width: 0; top: 0; color: pink; }")
   tr.ok("a { -moz-transform: scale(1); -webkit-transform: scale(1); transform: scale(1); }")
   tr.ok("a { -webkit-font-smoothing: antialiased; top: 0; color: pink; }")
+  tr.ok("a { top: 0; color: pink; width: 0; }")
+  tr.ok("a { top: 0; color: pink; width: 0; height: 0; }")
+  tr.ok("a { top: 0; color: pink; width: 0; height: 0; display: none; }")
 
   tr.notOk("a { color: pink; top: 0;  }",
     messages.expected("top", "color"))
@@ -51,4 +53,10 @@ testRule([
     messages.expected("-moz-transform", "-webkit-transform"))
   tr.notOk("a { color: pink; -webkit-font-smoothing: antialiased; }",
     messages.expected("-webkit-font-smoothing", "color"))
+  tr.notOk("a { height: 0; color: pink; }",
+    messages.expected("color", "height"))
+  tr.notOk("a { top: 0; height: 0; color: pink; }",
+    messages.expected("color", "height"))
+  tr.notOk("a { top: 0; height: 0; color: pink; width: 0 }",
+    messages.expected("color", "height"))
 })
