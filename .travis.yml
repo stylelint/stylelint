@@ -6,5 +6,6 @@ node_js:
   - iojs
 
 notifications:
+  email: false
   webhooks:
     - https://webhooks.gitter.im/e/d763493612da45967361
