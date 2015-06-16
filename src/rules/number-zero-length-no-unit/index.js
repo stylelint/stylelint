@@ -1,9 +1,10 @@
 import {
-  findLastIndex,
   findIndex,
+  findLastIndex,
   range
 } from "lodash"
 import {
+  report,
   ruleMessages,
   styleSearch
 } from "../../utils"
@@ -91,7 +92,12 @@ export default function () {
           && !lengthUnits.has(valueWithZero.slice(-4))
         ) { return }
 
-        result.warn(messages.rejected, { node })
+        report({
+          message: messages.rejected,
+          node,
+          result,
+          ruleName,
+        })
       })
     }
   }

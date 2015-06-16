@@ -1,7 +1,8 @@
 import {
+  report,
   ruleMessages,
-  whitespaceChecker,
-  styleSearch
+  styleSearch,
+  whitespaceChecker
 } from "../../utils"
 
 export const ruleName = "media-query-list-comma-space-after"
@@ -29,7 +30,14 @@ export function mediaQueryListCommaChecker(checkLocation) {
     })
 
     function checkComma(source, index, node) {
-      checkLocation(source, index, m => result.warn(m, { node }))
+      checkLocation(source, index, m =>
+        report({
+          message: m,
+          node,
+          result,
+          ruleName,
+        })
+      )
     }
   }
 }

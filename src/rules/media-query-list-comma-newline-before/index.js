@@ -1,7 +1,8 @@
 import {
+  isWhitespace,
+  report,
   ruleMessages,
-  styleSearch,
-  isWhitespace
+  styleSearch
 } from "../../utils"
 
 export const ruleName = "media-query-list-comma-newline-before"
@@ -24,10 +25,20 @@ export default function (expectation) {
         // Check for a newline anywhere before the comma, while allowing
         // arbitrary indentation between the newline and the comma
         if (expectation === "always" && !/[^\s]\n[ \t]*$/.test(paramsBeforeComma)) {
-          result.warn(messages.expectedBefore(), { node: atRule })
+          report({
+            message: messages.expectedBefore(),
+            node: atRule,
+            result,
+            ruleName,
+          })
         }
         if (expectation === "never" && isWhitespace(params[match.startIndex - 1])) {
-          result.warn(messages.rejectedBefore(), { node: atRule })
+          report({
+            message: messages.rejectedBefore(),
+            node: atRule,
+            result,
+            ruleName,
+          })
         }
       })
     })
