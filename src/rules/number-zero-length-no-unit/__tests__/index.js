@@ -4,6 +4,11 @@ import rule, { ruleName, messages } from ".."
 const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
+  tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a { top: 0; }", "unitless zero")
   tr.ok("a { top: 10px; }", "zero at end of non-zero value")
   tr.ok("a { top: 100.00px; }", "zero at end of non-zero value after decimal")

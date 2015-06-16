@@ -4,9 +4,13 @@ import rule, { ruleName, messages } from ".."
 const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
+  tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
 
   tr.ok(".foo { display: flex; }")
+
   tr.notOk(".foo { display: -webkit-flex; }",
     messages.rejected("-webkit-flex"))
   tr.notOk(".foo { color: pink; display: -webkit-flex; }",

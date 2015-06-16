@@ -6,6 +6,9 @@ const testRule = ruleTester(rule, ruleName)
 testRule(null, tr => {
   tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok(":root {}")
   tr.ok("   :root\n {}")
 

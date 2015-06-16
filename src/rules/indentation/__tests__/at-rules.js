@@ -8,6 +8,11 @@ const testRule = ruleTester(rule, ruleName)
 // { space: 2 }
 testRule({ space: 2 }, tr => {
 
+tr.ok("")
+tr.ok("a {}")
+tr.ok("a { }")
+tr.ok("@import url(x.css)")
+
 tr.ok(
 `@media print {
   a {
@@ -65,6 +70,11 @@ tr.notOk(
 
 // { space: "tab", block: "never"  }
 testRule({ space: "tab", block: "never" }, tr => {
+
+tr.ok("")
+tr.ok("a {}")
+tr.ok("a { }")
+tr.ok("@import url(x.css)")
 
 tr.ok(
 `@media print {

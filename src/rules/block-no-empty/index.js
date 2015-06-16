@@ -17,7 +17,7 @@ export default function () {
     css.eachAtRule(checkBlock)
 
     function checkBlock(block) {
-      if (block.nodes.length === 0) {
+      if (block.nodes !== undefined && block.nodes.length === 0) {
         report({
           message: messages.rejected,
           node: block,

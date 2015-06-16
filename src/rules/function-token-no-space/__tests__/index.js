@@ -4,7 +4,11 @@ import rule, { ruleName, messages } from ".."
 const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
+  tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a::before { content: \"var (--a) var\n(--a)\"; }")
   tr.ok("a::before { background: url('var (--hoot) color (blue)'); }")
   tr.ok("a::before { content: attr(data-foo); }")

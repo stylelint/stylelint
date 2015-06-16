@@ -4,7 +4,11 @@ import rule, { ruleName, messages } from ".."
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
+  tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a::before { content: \"foo,bar,baz\"; }")
   tr.ok("a::before { content: attr(data-foo,\"baz\"); }")
   tr.ok("a::before { background: url('foo,bar,baz'); }")
@@ -19,7 +23,11 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
+  tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a::before { content: \"foo ,bar ,baz\"; }")
   tr.ok("a::before { content: attr(data-foo ,\"baz\"); }")
   tr.ok("a::before { background: url('foo ,bar ,baz'); }")
@@ -34,7 +42,11 @@ testRule("never", tr => {
 })
 
 testRule("always-single-line", tr => {
+  tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a::before { content: \"foo,bar,baz\"; }")
   tr.ok("a::before { content: attr(data-foo,\"baz\"); }")
   tr.ok("a::before { background: url('foo,bar,baz'); }")
@@ -49,7 +61,11 @@ testRule("always-single-line", tr => {
 })
 
 testRule("never-single-line", tr => {
+  tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a::before { content: \"foo ,bar ,baz\"; }")
   tr.ok("a::before { content: attr(data-foo ,\"baz\"); }")
   tr.ok("a::before { background: url('foo ,bar ,baz'); }")

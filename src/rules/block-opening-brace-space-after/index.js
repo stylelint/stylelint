@@ -32,7 +32,7 @@ export function blockOpeningBraceSpaceChecker(checkLocation) {
     function checkBlock(block) {
 
       // return early if an empty block
-      if (block.nodes.length === 0) { return }
+      if (block.nodes === undefined || block.nodes.length === 0) { return }
 
       const blockString = block.toString()
       for (let i = 0, l = blockString.length; i < l; i++) {

@@ -4,6 +4,9 @@ import rule, { ruleName, messages } from ".."
 const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
+  tr.ok("")
+  tr.ok("@import url(x.css)")
+
   tr.ok(
     "a {\ncolor: pink; }",
     "multi-line rule with newline at start"
@@ -15,6 +18,18 @@ testRule(null, tr => {
   tr.ok(
     "a { color: pink;\nbackground: orange; }",
     "multi-line rule with newline in middle"
+  )
+
+  tr.notOk(
+    "a {}",
+    messages.rejected,
+    "empty single-line rule"
+  )
+
+  tr.notOk(
+    "a { }",
+    messages.rejected,
+    "empty with space single-line rule"
   )
 
   tr.notOk(

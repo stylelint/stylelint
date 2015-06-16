@@ -5,6 +5,8 @@ const testRule = ruleTester(rule, ruleName)
 
 testRule("double", tr => {
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
 
   // at-rules
   tr.ok("@import url(\"foo.css\");", messages.expected("double quotes"))
@@ -40,6 +42,8 @@ testRule("double", tr => {
 
 testRule("single", tr => {
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
 
   // at-rules
   tr.ok("@import url('foo.css');", messages.expected("single quotes"))
@@ -74,6 +78,8 @@ testRule("single", tr => {
 
 testRule("none", tr => {
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
 
   // at-rules
   tr.ok("@import url(foo.css);", messages.expected("no quotes"))

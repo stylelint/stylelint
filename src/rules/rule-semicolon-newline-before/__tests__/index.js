@@ -4,7 +4,11 @@ import rule, { ruleName, messages } from ".."
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
+  tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a { color: pink\n; }")
   tr.ok("a::before { content: \";a\"\n; }")
   tr.ok("a { color: pink\n;top: 0 }")
@@ -17,7 +21,11 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
+  tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a { color: pink; }")
   tr.ok("a::before { content: \";a\"; }")
   tr.ok("a { color: pink;top: 0 }")
@@ -30,7 +38,11 @@ testRule("never", tr => {
 })
 
 testRule("always-multi-line", tr => {
+  tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a {\ncolor: pink\n; }")
   tr.ok("a::before {\ncontent: \";a\"\n; }")
   tr.ok("a {\ncolor: pink\n;top: 0 }")
@@ -46,7 +58,11 @@ testRule("always-multi-line", tr => {
 })
 
 testRule("never-multi-line", tr => {
+  tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a {\ncolor: pink;\n}")
   tr.ok("a::before {\ncontent: \";a\";\n}")
   tr.ok("a {\ncolor: pink;\ntop: 0 }")

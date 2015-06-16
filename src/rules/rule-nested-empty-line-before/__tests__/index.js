@@ -5,6 +5,9 @@ const testRule = ruleTester(rule, ruleName)
 
 function testAlways(tr) {
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
   tr.ok("a {} b {}", "non-nested node ignored")
   tr.ok("a {}\nb {}", "non-nested node ignored")
   tr.ok("@media {\n\n  a {}\n\n}")
@@ -23,6 +26,9 @@ testRule("always", testAlways)
 
 testRule("never", tr => {
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
   tr.ok("a {} b {}", "non-nested node ignored")
   tr.ok("a {}\nb {}", "non-nested node ignored")
   tr.ok("@media {\n  a {}\n}")
@@ -40,6 +46,9 @@ testRule("never", tr => {
 
 testRule("always-except-first", tr => {
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
   tr.ok("a {} b {}", "non-nested node ignored")
   tr.ok("a {}\nb {}", "non-nested node ignored")
   tr.ok("@media {\n  a {}\n\n}")
@@ -57,6 +66,9 @@ testRule("always-except-first", tr => {
 testRule("always-multi-line", tr => {
   tr.ok("@media { a { color:pink; } b { top: 0; } }", "single-line ignored")
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
   tr.ok("a {} b {}", "non-nested node ignored")
   tr.ok("a {}\nb {}", "non-nested node ignored")
   tr.ok("@media {\n\n  a {\n    color: pink;\n}\n\n}")
@@ -73,6 +85,9 @@ testRule("always-multi-line", tr => {
 testRule("always-multi-line-except-first", tr => {
   tr.ok("@media { a { color:pink; } b { top: 0; } }", "single-line ignored")
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
   tr.ok("a {} b {}", "non-nested node ignored")
   tr.ok("a {}\nb {}", "non-nested node ignored")
   tr.ok("@media {\n  a {\n    color: pink;\n}\n\n}")
@@ -88,6 +103,9 @@ testRule("always-multi-line-except-first", tr => {
 testRule("never-multi-line", tr => {
   tr.ok("@media {\n\na { color:pink; }\n\nb { top: 0; } }", "single-line ignored")
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
   tr.ok("a {} b {}", "non-nested node ignored")
   tr.ok("a {}\nb {}", "non-nested node ignored")
   tr.ok("@media {\n  a {\n    color: pink;\n}\n}")

@@ -5,6 +5,10 @@ const testRule = ruleTester(rule, ruleName)
 
 testRule("single", tr => {
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a { color: pink; }")
   tr.ok("::selection { color: pink; }")
   tr.ok("a::spelling-error { color: pink; }")
@@ -26,6 +30,10 @@ testRule("single", tr => {
 
 testRule("double", tr => {
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a { color: pink; }")
 
   tr.ok("::selection { color: pink; }")
