@@ -13,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
 })
 
 /**
- * @param {"always"|"never"} expectation
+ * @param {"always"|"never"|"always-single-line"|"never-single-line"} expectation
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
