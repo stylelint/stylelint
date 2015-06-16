@@ -23,9 +23,16 @@ const lengthUnits = new Set([
 ])
 
 export default function () {
-  return function (css, result) {
-    css.eachDecl(function (decl) {
-      const value = decl.value
+  return (css, result) => {
+    css.eachDecl(decl => {
+      check(decl.value, decl)
+    })
+
+    css.eachAtRule(atRule => {
+      check(atRule.params, atRule)
+    })
+
+    function check(value, node) {
       const ignorableIndexes = new Set()
 
       styleSearch({ source: value, target: "0" }, match => {
@@ -84,8 +91,8 @@ export default function () {
           && !lengthUnits.has(valueWithZero.slice(-4))
         ) { return }
 
-        result.warn(messages.rejected, { node: decl })
+        result.warn(messages.rejected, { node })
       })
-    })
+    }
   }
 }

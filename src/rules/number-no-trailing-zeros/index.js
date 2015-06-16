@@ -10,22 +10,27 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function () {
-  return function (css, result) {
-    css.eachDecl(function (decl) {
-      const value = decl.value
+  return (root, result) => {
+    root.eachDecl(decl => {
+      check(decl.value, decl)
+    })
 
+    root.eachAtRule(atRule => {
+      check(atRule.params, atRule)
+    })
+
+    function check(source, node) {
       // Get out quickly if there are no periods
-      if (value.indexOf(".") === -1) { return }
+      if (source.indexOf(".") === -1) { return }
 
-      if (/\.\d*0+(?:\D|$)/g.test(value)) {
+      if (/\.\d*0+(?:\D|$)/g.test(source)) {
         report({
           message: messages.rejected,
-          node: decl,
+          node,
           result,
           ruleName,
         })
       }
-    })
+    }
   }
 }
-
