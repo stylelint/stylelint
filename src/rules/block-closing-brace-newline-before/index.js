@@ -1,4 +1,6 @@
 import {
+  hasBlock,
+  hasEmptyBlock,
   isSingleLineString,
   report,
   ruleMessages
@@ -7,10 +9,10 @@ import {
 export const ruleName = "block-closing-brace-newline-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => "Expected newline before \"}\"",
-  rejectedBefore: () => "Unexpected space before \"}\"",
-  expectedBeforeMultiLine: () => "Expected newline before \"}\" of a multi-line block",
-  rejectedBeforeMultiLine: () => "Unexpected space before \"}\" of a multi-line block",
+  expectedBefore: () => `Expected newline before "}"`,
+  rejectedBefore: () => `Unexpected space before "}"`,
+  expectedBeforeMultiLine: () => `Expected newline before "}" of a multi-line block`,
+  rejectedBeforeMultiLine: () => `Unexpected space before "}" of a multi-line block`,
 })
 
 /**
@@ -18,53 +20,54 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   return function (css, result) {
-    // Check both kinds of "block": rules and at-rules
-    css.eachRule(checkBlock)
-    css.eachAtRule(checkBlock)
 
-    function checkBlock(block) {
+    // Check both kinds of statements: rules and at-rules
+    css.eachRule(check)
+    css.eachAtRule(check)
 
-      // return early if an empty block
-      if (block.nodes.length === 0) { return }
+    function check(statement) {
 
-      const blockString = block.toString()
-      const blockStringNoSelector = blockString.slice(blockString.indexOf("{"))
-      const blockIsMultiLine = !isSingleLineString(blockStringNoSelector)
+      // return early if blockless or has empty block
+      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
+
+      const statementString = statement.toString()
+      const blockString = statementString.slice(statementString.indexOf("{"))
+      const blockIsMultiLine = !isSingleLineString(blockString)
 
       // We're really just checking whether a
       // newline *starts* the block's final space -- between
       // the last declaration and the closing brace. We can
       // ignore any other whitespace between them, because that
       // will be checked by the indentation rule.
-      if (block.after[0] !== "\n") {
+      if (statement.after[0] !== "\n") {
         if (expectation === "always") {
           report({
             message: messages.expectedBefore(),
-            node: block,
+            node: statement,
             result,
             ruleName,
           })
         } else if (blockIsMultiLine && expectation === "always-multi-line") {
           report({
             message: messages.expectedBeforeMultiLine(),
-            node: block,
+            node: statement,
             result,
             ruleName,
           })
         }
       }
-      if (block.after) {
+      if (statement.after) {
         if (expectation === "never") {
           report({
             message: messages.rejectedBefore(),
-            node: block,
+            node: statement,
             result,
             ruleName,
           })
         } else if (blockIsMultiLine && expectation === "never-multi-line") {
           report({
             message: messages.rejectedBeforeMultiLine(),
-            node: block,
+            node: statement,
             result,
             ruleName,
           })

@@ -4,6 +4,7 @@ import rule, { ruleName, messages } from ".."
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
+  tr.ok("@import url(x.css)")
   tr.ok("a\n{ color: pink; }")
   tr.ok("a\n{color: pink; }")
   tr.ok("@media print\n{ a\n{ color: pink; } }")

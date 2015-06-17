@@ -7,12 +7,12 @@ import { blockOpeningBraceNewlineChecker } from "../block-opening-brace-newline-
 export const ruleName = "block-opening-brace-newline-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => "Expected newline before \"{\"",
-  rejectedBefore: () => "Unexpected newline before \"{\"",
-  expectedBeforeSingleLine: () => "Expected newline before \"{\" of a single-line block",
-  rejectedBeforeSingleLine: () => "Unexpected space before \"{\" of a single-line block",
-  expectedBeforeMultiLine: () => "Expected newline before \"{\" of a multi-line block",
-  rejectedBeforeMultiLine: () => "Unexpected space before \"{\" of a multi-line block",
+  expectedBefore: () => `Expected newline before "{"`,
+  rejectedBefore: () => `Unexpected newline before "{"`,
+  expectedBeforeSingleLine: () => `Expected newline before "{" of a single-line block`,
+  rejectedBeforeSingleLine: () => `Unexpected space before "{" of a single-line block`,
+  expectedBeforeMultiLine: () => `Expected newline before "{" of a multi-line block`,
+  rejectedBeforeMultiLine: () => `Unexpected space before "{" of a multi-line block`,
 })
 
 /**
