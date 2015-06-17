@@ -1,0 +1,25 @@
+# custom-property-no-outside-root
+
+Disallow custom properties outside of `:root` selectors.
+
+```css
+    a { --foo-bar: 1px; }
+/** ↑       ↑
+ * These selectors and these types of custom properties */
+```
+
+The following patterns are considered warnings:
+
+```css
+a { --foo-bar: 1px; }
+```
+
+```css
+:root, a { --foo-bar: 1px; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+:root { --foo-bar: 1px; }
+```
