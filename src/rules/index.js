@@ -48,6 +48,7 @@ import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
 import ruleNoDuplicateProperties from "./rule-no-duplicate-properties"
 import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
 import ruleNoSingleLine from "./rule-no-single-line"
+import rulePropertiesOrder from "./rule-properties-order"
 import ruleSemicolonNewlineAfter from "./rule-semicolon-newline-after"
 import ruleSemicolonNewlineBefore from "./rule-semicolon-newline-before"
 import ruleSemicolonSpaceAfter from "./rule-semicolon-space-after"
@@ -118,6 +119,7 @@ export default {
   "rule-no-duplicate-properties": ruleNoDuplicateProperties,
   "rule-no-single-line": ruleNoSingleLine,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
+  "rule-properties-order": rulePropertiesOrder,
   "rule-semicolon-newline-after": ruleSemicolonNewlineAfter,
   "rule-semicolon-newline-before": ruleSemicolonNewlineBefore,
   "rule-semicolon-space-after": ruleSemicolonSpaceAfter,
