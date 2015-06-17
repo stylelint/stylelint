@@ -4,7 +4,11 @@ import rule, { ruleName, messages } from ".."
 const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
-  tr.ok("a {}", "no values")
+  tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a { color: pink; }", "without !important")
 
   tr.notOk(

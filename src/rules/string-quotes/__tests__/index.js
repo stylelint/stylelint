@@ -5,12 +5,17 @@ const testRule = ruleTester(rule, ruleName)
 
 testRule("single", tr => {
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import 'x.css'")
+
   tr.ok("a { color: pink; }")
   tr.ok("a::before { content: 'foo'; }")
   tr.ok("a::before { content: 'foo\"horse\"\'cow\''; }")
   tr.ok("a { background: url('foo'); }")
   tr.ok("a[id='foo'] {}")
 
+  tr.notOk("@import \"x.css\"", messages.expected("single", 1))
   tr.notOk("a::before { content: \"foo\"; }", messages.expected("single", 1))
   tr.notOk("a::before\n{\n  content: \"foo\";\n}", messages.expected("single", 3))
   tr.notOk("a[id=\"foo\"] {}", messages.expected("single", 1))
@@ -19,12 +24,17 @@ testRule("single", tr => {
 
 testRule("double", tr => {
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import \"x.css\"")
+
   tr.ok("a { color: pink; }")
   tr.ok("a::before { content: \"foo\"; }")
   tr.ok(`a::before { content: "foo\"horse\"'cow'"; }`)
   tr.ok("a { background: url(\"foo\"); }")
   tr.ok("a[id=\"foo\"] {}")
 
+  tr.notOk("@import 'x.css'", messages.expected("double", 1))
   tr.notOk("a::before { content: 'foo'; }", messages.expected("double", 1))
   tr.notOk("a::before\n{\n  content: 'foo';\n}", messages.expected("double", 3))
   tr.notOk("a[id='foo'] {}", messages.expected("double", 1))

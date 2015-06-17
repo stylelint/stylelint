@@ -4,7 +4,11 @@ import rule, { ruleName, messages } from ".."
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
+  tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a::before { content: \"(a) ( a )\"; }")
   tr.ok("a::before { background: url( 'asdf(Vcxvsd)ASD' ); }")
   tr.ok("a { transform: translate( 1, 1 ); }")
@@ -25,7 +29,11 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
+  tr.ok("")
   tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok("a::before { content: \"(a) ( a )\"; }")
   tr.ok("a::before { background: url('asdf( Vcxvsd )ASD'); }")
   tr.ok("a::before { content: \"(a) ( a )\"; }")

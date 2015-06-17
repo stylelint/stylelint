@@ -5,6 +5,10 @@ const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
   tr.ok("")
+  tr.ok("a {}")
+  tr.ok("a { }")
+  tr.ok("@import url(x.css)")
+
   tr.ok(":root { --foo: 0; }")
   tr.ok("a, :root { --foo: 0; }")
   tr.ok("a { color: pink; } :root { --foo: 0; }")
