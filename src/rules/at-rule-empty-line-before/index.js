@@ -1,4 +1,5 @@
 import {
+  hasBlock,
   report,
   ruleMessages
 } from "../../utils"
@@ -26,7 +27,23 @@ export default function (expectation) {
 
       if (expectation === "never" && !emptyLineBefore) { return }
 
-      const message = (expectation === "always") ? messages.expected : messages.rejected
+      if (expectation === "always-except-blockless-group") {
+        const previousNode = atRule.prev()
+
+        if (previousNode.type === "atrule"
+          && !hasBlock(previousNode)
+          && !hasBlock(atRule)
+          && !emptyLineBefore) { return }
+
+        if (previousNode.type === "atrule"
+          && hasBlock(previousNode)
+          && emptyLineBefore) { return }
+
+        if (previousNode.type !== "atrule"
+          && emptyLineBefore) { return }
+      }
+
+      const message = (expectation === "never") ? messages.rejected : messages.expected
 
       report({
         message: message,
