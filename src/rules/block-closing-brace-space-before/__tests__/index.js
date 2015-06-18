@@ -6,6 +6,7 @@ const testRule = ruleTester(rule, ruleName)
 testRule("always", tr => {
   tr.ok("a {}")
   tr.ok("a { }")
+  tr.ok("@import url(x.css)")
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; } b { color: red; }")
   tr.ok("a { color: pink; }b { color: red; }")

@@ -42,15 +42,15 @@ export default function (expectation) {
   }
 
   return function (css, result) {
-    css.eachAtRule(checkBlock)
-    css.eachRule(checkBlock)
+    css.eachAtRule(check)
+    css.eachRule(check)
 
-    function checkBlock(block) {
-      if (block.type === "atrule") {
-        checkAtRuleParams(block)
+    function check(statement) {
+      if (statement.type === "atrule") {
+        checkAtRuleParams(statement)
       }
 
-      block.eachDecl(function (decl) {
+      statement.eachDecl(function (decl) {
         functionArguments(decl.value, "url", args => {
           if (strDefiesExpectation(args)) {
             report({

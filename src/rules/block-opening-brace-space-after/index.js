@@ -1,4 +1,6 @@
 import {
+  hasBlock,
+  hasEmptyBlock,
   report,
   ruleMessages,
   whitespaceChecker
@@ -7,12 +9,12 @@ import {
 export const ruleName = "block-opening-brace-space-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => "Expected single space after \"{\"",
-  rejectedAfter: () => "Unexpected space after \"{\"",
-  expectedAfterSingleLine: () => "Expected single space after \"{\" of a single-line block",
-  rejectedAfterSingleLine: () => "Unexpected space after \"{\" of a single-line block",
-  expectedAfterMultiLine: () => "Expected single space after \"{\" of a multi-line block",
-  rejectedAfterMultiLine: () => "Unexpected space after \"{\" of a multi-line block",
+  expectedAfter: () => `Expected single space after "{"`,
+  rejectedAfter: () => `Unexpected space after "{"`,
+  expectedAfterSingleLine: () => `Expected single space after "{" of a single-line block`,
+  rejectedAfterSingleLine: () => `Unexpected space after "{" of a single-line block`,
+  expectedAfterMultiLine: () => `Expected single space after "{" of a multi-line block`,
+  rejectedAfterMultiLine: () => `Unexpected space after "{" of a multi-line block`,
 })
 
 /**
@@ -25,20 +27,21 @@ export default function (expectation) {
 
 export function blockOpeningBraceSpaceChecker(checkLocation) {
   return function (css, result) {
-    // Check both kinds of "block": rules and at-rules
+
+    // Check both kinds of statements: rules and at-rules
     css.eachRule(checkBlock)
     css.eachAtRule(checkBlock)
 
-    function checkBlock(block) {
+    function checkBlock(statement) {
 
-      // return early if an empty block
-      if (block.nodes.length === 0) { return }
+      // return early if blockless or has empty block
+      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
-      const blockString = block.toString()
-      for (let i = 0, l = blockString.length; i < l; i++) {
-        if (blockString[i] !== "{") { continue }
+      const statementString = statement.toString()
+      for (let i = 0, l = statementString.length; i < l; i++) {
+        if (statementString[i] !== "{") { continue }
         // Only pay attention to the first brace encountered
-        checkBrace(blockString, i, block, blockString.slice(i))
+        checkBrace(statementString, i, statement, statementString.slice(i))
         break
       }
     }

@@ -15,9 +15,6 @@ export default function (expectation) {
 
     css.eachRule(function (rule) {
 
-      // return early if an empty block
-      if (rule.nodes.length === 0) { return }
-
       let previousProp = {}
       let isFirstDecl = true
 
