@@ -33,6 +33,10 @@
 * [`media-feature-colon-space-before`](../src/rules/media-feature-colon-space-before/README.md): Require or disallow a space before colon in media features.
 * [`media-feature-range-operator-space-after`](../src/rules/media-feature-range-operator-space-after/README.md): Require or disallow a space after range operator in media features.
 * [`media-feature-range-operator-space-before`](../src/rules/media-feature-range-operator-space-before/README.md): Require or disallow a space before range operator in media features.
+* [`media-query-list-comma-newline-after`](../src/rules/media-query-list-comma-newline-after/README.md): Require or disallow a newline after the commas of media query lists.
+* [`media-query-list-comma-newline-before`](../src/rules/media-query-list-comma-newline-before/README.md): Require or disallow a newline before the commas of media query lists.
+* [`media-query-list-comma-space-after`](../src/rules/media-query-list-comma-space-after/README.md): Require or disallow a single space after the commas of media query lists.
+* [`media-query-list-comma-space-before`](../src/rules/media-query-list-comma-space-before/README.md): Require or disallow a single space before the commas of media query lists.
 * [`media-query-parentheses-space-inside`](../src/rules/media-query-parentheses-space-inside/README.md): Require or disallow a single space on the inside of the parentheses within media queries.
 * [`no-eol-whitespace`](../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
 * [`no-missing-eof-newline`](../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
@@ -63,6 +67,8 @@
 * [`selector-pseudo-element-colon-notation`](../src/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
 * [`selector-root-no-composition`](../src/rules/selector-root-no-composition/README.md): Disallow the composition of`:root` selectors.
 * [`string-quotes`](../src/rules/string-quotes/README.md): Specify single or double quotes around strings.
+* [`value-list-comma-newline-after`](../src/rules/value-list-comma-newline-after/README.md): Require or disallow a newline after the commas of value lists.
+* [`value-list-comma-newline-before`](../src/rules/value-list-comma-newline-before/README.md): Require or disallow a newline before the commas of value lists.
 * [`value-list-comma-space-after`](../src/rules/value-list-comma-space-after/README.md): Require or disallow a space after the commas of value lists.
 * [`value-list-comma-space-before`](../src/rules/value-list-comma-space-before/README.md): Require or disallow a space before the commas of value lists.
 * [`value-no-vendor-prefix`](../src/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values.
