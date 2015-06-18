@@ -3,10 +3,8 @@
 Specify a blacklist of disallowed properties.
 
 ```css
-    a { 
-      color: pink;
-    }
-/**    ↑ 
+    a { text-rendering: optimizeLegibility; }
+/**          ↑ 
  * These properties */
 ```
 
@@ -21,35 +19,29 @@ Blacklisted properties *must never* be used.
 Given:
 
 ```js
-["background-size", "transform"]
+["text-rendering", "animation"]
 ```
 
 The following patterns are considered warnings:
 
 
 ```css
-a {
-  background-size: cover;
-}
+a { text-rendering: optimizeLegibility; }
 ```
 
 ```css
 a {
-  transform: scale(1);
+  animation: my-animation 2s;
   color: pink;
 }
 ```
 
 ```css
-a {
-  -webkit-transform: scale(1);
-}
+a { -webkit-animation: my-animation 2s; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a {
-  background: pink;
-}
+a { background: pink; }
 ```
