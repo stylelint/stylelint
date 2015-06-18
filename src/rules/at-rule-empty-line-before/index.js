@@ -27,7 +27,7 @@ export default function (expectation) {
 
       if (expectation === "never" && !emptyLineBefore) { return }
 
-      if (expectation === "always-except-blockless-pair") {
+      if (expectation === "always-except-blockless-group") {
         const previousNode = atRule.prev()
 
         if (previousNode.type === "atrule"

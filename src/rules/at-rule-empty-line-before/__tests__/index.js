@@ -16,7 +16,7 @@ testRule("always", tr => {
   tr.notOk("a {}\n\n/* comment */\n@media {}", messages.expected)
 })
 
-testRule("always-except-blockless-pair", tr => {
+testRule("always-except-blockless-group", tr => {
   tr.ok("")
   tr.ok("a {} b {}", "rule ignored")
   tr.ok("@font-face {}", "first node ignored")
