@@ -16,6 +16,26 @@ testRule("always", tr => {
   tr.notOk("a {}\n\n/* comment */\n@media {}", messages.expected)
 })
 
+testRule("always-except-blockless-group", tr => {
+  tr.ok("")
+  tr.ok("a {} b {}", "rule ignored")
+  tr.ok("@font-face {}", "first node ignored")
+  tr.ok("a {}\n\n@media {}")
+  tr.ok("@keyframes foo {}\n\n@media {}")
+
+  tr.ok("@keyframes foo {}\n\n@import 'x.css'", "empty line not blockless pair")
+  tr.ok("@import 'x.css';\n@import 'y.css'", "no empty line blockless pair")
+  tr.ok("@import 'x.css';", "single blockless rule")
+
+  tr.notOk("a {} @media {}", messages.expected)
+  tr.notOk("@keyframes foo {} @media {}", messages.expected)
+  tr.notOk("a {}\n@media {}", messages.expected)
+  tr.notOk("a {}\n\n/* comment */\n@media {}", messages.expected)
+
+  tr.notOk("@keyframes foo {}\n@import 'x.css'", messages.expected)
+  tr.notOk("@import 'x.css';\n\n@import 'y.css'", messages.expected)
+})
+
 testRule("never", tr => {
   tr.ok("")
   tr.ok("a {}\n\nb {}", "rule ignored")
