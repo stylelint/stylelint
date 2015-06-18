@@ -72,7 +72,7 @@ Use the plural of the thing when using `inside`. For example, specifying if a *s
 
 * `function-parentheses-inside-space`: `string` - `"always"|"never"`
 
-If the rule handles (via its keyword options) both single and multiple line rules, target these using `always-single-line`, `always-multi-line`, `never-single-line` and `never-multi-line`.
+If the rule can applied to both single and multiple lines, target these using a combination of `always-single-line`, `always-multi-line`, `never-single-line` and `never-multi-line` keyword options. Use `*-except-*` for exceptions e.g. `always-except-inline`.
 
 ## Messages
 
