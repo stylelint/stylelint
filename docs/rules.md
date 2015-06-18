@@ -44,6 +44,7 @@
 * [`number-leading-zero`](../src/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
 * [`number-no-trailing-zeros`](../src/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros within numbers.
 * [`number-zero-length-no-unit`](../src/rules/number-zero-length-no-unit/README.md): Disallow units for zero lengths.
+* [`property-blacklist`](../src/rules/property-blacklist/README.md): Specify a blacklist of disallowed properties.
 * [`property-no-vendor-prefix`](../src/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties.
 * [`root-no-standard-properties`](../src/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` selectors.
 * [`rule-nested-empty-line-before`](../src/rules/rule-nested-empty-line-before/README.md): Require or disallow an empty line before nested rules.
