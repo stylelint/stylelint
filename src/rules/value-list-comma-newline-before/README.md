@@ -1,11 +1,12 @@
-# value-list-comma-space-after
+# value-list-comma-newline-before
 
-Require or disallow a space after the commas of value lists.
+Require or disallow a newline before the commas of value lists.
 
 ```css
-    a { background-size: 0, 0; }
-/**                       ↑  
- * The space after these commas */
+    a { background-size: 0
+      , 0; }
+/**   ↑  
+ * The newline before these commas */
 ```
 
 ## Options
@@ -14,7 +15,7 @@ Require or disallow a space after the commas of value lists.
 
 ### `"always"`
 
-There *must always* be a single space after the comma.
+There *must always* be a single newline before the comma.
 
 The following patterns are considered warnings:
 
@@ -23,81 +24,30 @@ a { background-size: 0,0; }
 ```
 
 ```css
-a { background-size: 0
-      , 0; }
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-a { background-size: 0, 0; }
-```
-
-```css
-a { background-size: 0 
-      , 0; }
-```
-
-### `"never"`
-
-There *must never* be whitespace after the comma.
-
-The following patterns are considered warnings:
-
-```css
-a { background-size: 0, 0; }
-```
-
-```css
-a { background-size: 0 ,
+a { background-size: 0, 
       0; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a { background-size: 0,0; }
-```
-
-```css
 a { background-size: 0
-      ,0; }
+      , 0; }
 ```
 
-### `"always-single-line"`
+### `"never"`
 
-There *must always* be a single space after the comma in single-line value lists.
-
-The following patterns are considered warnings:
-
-```css
-a { background-size: 0,0; }
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-a { background-size: 0, 0; }
-```
-
-```css
-a { background-size: 0
-    , 0; }
-```
-
-```css
-a { background-size: 0
-      ,0; }
-```
-
-### `"never-single-line"`
-
-There *must never* be whitespace after the comma in single-line value lists.
+There *must never* be whitespace before the comma.
 
 The following patterns are considered warnings:
 
 ```css
 a { background-size: 0, 0; }
+```
+
+```css
+a { background-size: 0
+      , 0; }
 ```
 
 The following patterns are *not* considered warnings:
@@ -107,11 +57,58 @@ a { background-size: 0,0; }
 ```
 
 ```css
-a { background-size: 0
-      ,0; }
+a { background-size: 0,
+      0; }
 ```
+
+### `"always-multi-line"`
+
+There *must always* be a single newline before the comma in multi-line value lists.
+
+The following patterns are considered warnings:
+
+```css
+a { background-size: 0, 
+      0; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { background-size: 0, 0; }
+```
+
+```css
+a { background-size: 0,0; }
+```
+
+```css
+a { background-size: 0
+      , 0; }
+```
+
+### `"never-multi-line"`
+
+There *must never* be whitespace before the comma in multi-line value lists.
+
+The following patterns are considered warnings:
 
 ```css
 a { background-size: 0 
       , 0; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { background-size: 0,0; }
+```
+
+```css
+a { background-size: 0, 0; }
+```
+
+```css
+a { background-size: 0,
+      0; }
 ```

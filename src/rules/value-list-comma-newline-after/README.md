@@ -1,11 +1,12 @@
-# value-list-comma-space-after
+# value-list-comma-newline-after
 
-Require or disallow a space after the commas of value lists.
+Require or disallow a newline after the commas of value lists.
 
 ```css
-    a { background-size: 0, 0; }
+    a { background-size: 0, 
+          0; }            ↑
 /**                       ↑  
- * The space after these commas */
+ * The newline after these commas */
 ```
 
 ## Options
@@ -14,7 +15,7 @@ Require or disallow a space after the commas of value lists.
 
 ### `"always"`
 
-There *must always* be a single space after the comma.
+There *must always* be a single newline after the comma.
 
 The following patterns are considered warnings:
 
@@ -30,12 +31,8 @@ a { background-size: 0
 The following patterns are *not* considered warnings:
 
 ```css
-a { background-size: 0, 0; }
-```
-
-```css
-a { background-size: 0 
-      , 0; }
+a { background-size: 0,
+      0; }
 ```
 
 ### `"never"`
@@ -64,40 +61,41 @@ a { background-size: 0
       ,0; }
 ```
 
-### `"always-single-line"`
+### `"always-multi-line"`
 
-There *must always* be a single space after the comma in single-line value lists.
+There *must always* be a single newline after the comma in multi-line value lists.
 
 The following patterns are considered warnings:
-
-```css
-a { background-size: 0,0; }
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-a { background-size: 0, 0; }
-```
 
 ```css
 a { background-size: 0
     , 0; }
 ```
 
+The following patterns are *not* considered warnings:
+
 ```css
-a { background-size: 0
-      ,0; }
+a { background-size: 0, 0; }
 ```
 
-### `"never-single-line"`
+```css
+a { background-size: 0,0; }
+```
 
-There *must never* be whitespace after the comma in single-line value lists.
+```css
+a { background-size: 0,
+      0; }
+```
+
+### `"never-multi-line"`
+
+There *must never* be whitespace after the comma in multi-line value lists.
 
 The following patterns are considered warnings:
 
 ```css
-a { background-size: 0, 0; }
+a { background-size: 0 
+      , 0; }
 ```
 
 The following patterns are *not* considered warnings:
@@ -107,11 +105,10 @@ a { background-size: 0,0; }
 ```
 
 ```css
-a { background-size: 0
-      ,0; }
+a { background-size: 0, 0; }
 ```
 
 ```css
-a { background-size: 0 
-      , 0; }
+a { background-size: 0
+      ,0; }
 ```

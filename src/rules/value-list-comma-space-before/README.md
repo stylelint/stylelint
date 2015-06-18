@@ -10,7 +10,7 @@ Require or disallow a space before the commas of value lists.
 
 ## Options
 
-`string`: `"always"|"never"`
+`string`: `"always"|"never"|"always-single-line"|"never-single-line"`
 
 ### `"always"`
 
@@ -23,7 +23,8 @@ a { background-size: 0,0; }
 ```
 
 ```css
-a { background-size: 0, 0; }
+a { background-size: 0
+      , 0; }
 ```
 
 The following patterns are *not* considered warnings:
@@ -33,7 +34,8 @@ a { background-size: 0 ,0; }
 ```
 
 ```css
-a { background-size: 0 , 0; }
+a { background-size: 0 ,
+      0; }
 ```
 
 ### `"never"`
@@ -47,7 +49,8 @@ a { background-size: 0 ,0; }
 ```
 
 ```css
-a { background-size: 0 , 0; }
+a { background-size: 0 ,
+      0; }
 ```
 
 The following patterns are *not* considered warnings:
@@ -57,5 +60,58 @@ a { background-size: 0,0; }
 ```
 
 ```css
-a { background-size: 0, 0; }
+a { background-size: 0, 
+      0; }
+```
+
+### `"always-single-line"`
+
+There *must always* be a single space before the comma in single-line value lists.
+
+The following patterns are considered warnings:
+
+```css
+a { background-size: 0,0; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { background-size: 0 ,0; }
+```
+
+```css
+a { background-size: 0 ,
+      0; }
+```
+
+```css
+a { background-size: 0
+      , 0; }
+```
+
+### `"never-single-line"`
+
+There *must never* be whitespace before the comma in single-line value lists.
+
+The following patterns are considered warnings:
+
+```css
+a { background-size: 0 ,0; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { background-size: 0,0; }
+```
+
+```css
+a { background-size: 0, 
+      0; }
+```
+
+```css
+a { background-size: 0 ,
+      0; }
 ```
