@@ -7,18 +7,18 @@ import {
 export const ruleName = "rule-properties-order"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (first, second) => `Expected property "${first}" to come before property "${second}" `,
+  expected: (first, second) => `Expected property "${first}" to come before property "${second}"`,
 })
 
 export default function (expectation) {
-  return function (css, result) {
+  return (root, result) => {
 
-    css.eachRule(function (rule) {
+    root.eachRule(rule => {
 
       let previousProp = {}
       let isFirstDecl = true
 
-      rule.eachDecl(function (decl) {
+      rule.eachDecl(decl => {
 
         const prop = {
           name: decl.prop,
