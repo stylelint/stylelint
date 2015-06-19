@@ -9,6 +9,7 @@ testRule("alphabetical", tr => {
   tr.ok("a { color: pink; color: red; }")
   tr.ok("a { color: pink; color: red; } b { color: pink; color: red; }")
   tr.ok("a { color: pink; top: 0; }")
+  tr.ok("a { border: 1px solid pink; border-left-width: 0; }")
   tr.ok("a { color: pink; top: 0; transform: scale(1); }")
   tr.ok("a { -moz-transform: scale(1); -webkit-transform: scale(1); transform: scale(1); }")
   tr.ok("a { color: pink; -webkit-font-smoothing: antialiased; top: 0; }")
