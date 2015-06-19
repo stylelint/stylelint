@@ -82,6 +82,11 @@ Some rules require options. There are no default values, so each rule that requi
 }
 ```
 
+### Requirements
+
+* node@0.12 or io.js@2
+* node@0.10 with [babel-node](http://babeljs.io/docs/usage/cli/#babel-node)
+
 ## [Changelog](CHANGELOG.md)
 
 ## [Contributing](CONTRIBUTING.md)
