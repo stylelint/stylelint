@@ -30,6 +30,8 @@ export default function (expectation) {
       if (expectation === "always-except-blockless-group") {
         const previousNode = atRule.prev()
 
+        if (!previousNode && emptyLineBefore) { return }
+
         if (previousNode.type === "atrule"
           && !hasBlock(previousNode)
           && !hasBlock(atRule)
