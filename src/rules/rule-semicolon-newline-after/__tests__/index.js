@@ -13,11 +13,23 @@ testRule("always", tr => {
   tr.ok("a { color: pink;\ntop: 0; }", "space between trailing semicolon and closing brace")
   tr.ok("a { color: pink;\ntop: 0;}", "no space between trailing semicolon and closing brace")
   tr.ok("a { color: pink;\ntop: 0}")
+  tr.ok("a {\n  color: pink; /* 1 */\n  top: 0\n}", "end-of-line comment")
+  tr.ok("a {\n  color: pink;\n  /* 1 */\n  top: 0\n}", "next-line comment")
 
   tr.notOk("a { color: pink;top: 0; }", messages.expectedAfter())
   tr.notOk("a { color: pink; top: 0; }", messages.expectedAfter())
   tr.notOk("a { color: pink; top: 0; }", messages.expectedAfter())
   tr.notOk("a { color: pink;\ttop: 0; }", messages.expectedAfter())
+  tr.notOk(
+    "a {\n  color: pink;  /* 1 */\n  top: 0\n}",
+    messages.expectedAfter(),
+    "end-of-line comment with two spaces before"
+  )
+  tr.notOk(
+    "a {\n  color: pink; /* 1 */ top: 0\n}",
+    messages.expectedAfter(),
+    "next node is comment without newline after"
+  )
 })
 
 testRule("never", tr => {
@@ -45,6 +57,7 @@ testRule("always-multi-line", tr => {
 
   // Ignore single-line
   tr.ok("a { color: pink; top: 0; }")
+  tr.ok("a { color: pink; /* 1 */ top: 0; }")
 
   tr.notOk("a {\ncolor: pink;top: 0;\n}", messages.expectedAfterMultiLine())
   tr.notOk("a {\ncolor: pink; top: 0;\n}", messages.expectedAfterMultiLine())
