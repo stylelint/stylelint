@@ -3,8 +3,8 @@
 Disallow end-of-line whitespace.
 
 ```css
-    a { color: pink; }···   
-/**                    ↑ 
+    a { color: pink; }···
+/**                    ↑
  *       This whitespace */
 ```
 
@@ -18,8 +18,20 @@ a { color: pink; }·
 a { color: pink; }····
 ```
 
+Comment strings are also checked -- so the following is a warning:
+
+```css
+/* something····
+ * something else */
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
 a { color: pink; }
+```
+
+```css
+/* something
+ * something else */
 ```

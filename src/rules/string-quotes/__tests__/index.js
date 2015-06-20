@@ -8,6 +8,7 @@ testRule("single", tr => {
   tr.ok("a { color: pink; }")
   tr.ok("a::before { content: 'foo'; }")
   tr.ok("a::before { content: 'foo\"horse\"\'cow\''; }")
+  tr.ok("a { /* \"horse\" */ }")
   tr.ok("a { background: url('foo'); }")
   tr.ok("a[id='foo'] {}")
 
@@ -22,6 +23,7 @@ testRule("double", tr => {
   tr.ok("a { color: pink; }")
   tr.ok("a::before { content: \"foo\"; }")
   tr.ok(`a::before { content: "foo\"horse\"'cow'"; }`)
+  tr.ok("a { /* 'horse' */ }")
   tr.ok("a { background: url(\"foo\"); }")
   tr.ok("a[id=\"foo\"] {}")
 

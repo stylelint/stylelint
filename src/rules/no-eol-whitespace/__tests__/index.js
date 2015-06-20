@@ -13,6 +13,12 @@ testRule(null, tr => {
 
   tr.ok("a::before { content: \"  \n\t\n\"; }", "breaking the rule within a string")
 
+  tr.notOk(
+    "/* foo  \nbar */ a { color: pink; }",
+    messages.rejected(1),
+    "eol-whitespace within a comment"
+  )
+
   tr.ok("a,\nb {}", "selector delimiter")
   tr.notOk("a, \nb {}", messages.rejected(1),
     "selector delimiter with space before newline")

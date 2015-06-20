@@ -13,4 +13,5 @@ testRule(null, tr => {
 
   tr.notOk("a {}\n\n\nb{}", messages.rejected(3))
   tr.notOk("a {}\n\n/** horse */\n\n\nb{}", messages.rejected(5))
+  tr.notOk("/* horse\n\n\n */\na{}", messages.rejected(3))
 })

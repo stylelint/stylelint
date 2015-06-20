@@ -14,7 +14,7 @@ export default function () {
   return function (css, result) {
     let lineCount = 0
     const rootString = css.source.input.css
-    styleSearch({ source: rootString, target: [ "\n", "\r" ] }, match => {
+    styleSearch({ source: rootString, target: [ "\n", "\r" ], checkComments: true }, match => {
       lineCount++
       if (isNewline(rootString[match.startIndex + 1])
         && isNewline(rootString[match.startIndex + 2])) {

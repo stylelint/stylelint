@@ -10,6 +10,11 @@ testRule({ space: 2 }, tr => {
 
 tr.ok("")
 tr.ok("a {color: pink;}")
+tr.ok(
+`/* anything
+    goes
+\t\t\twithin a comment */
+`)
 
 tr.ok(
 `a {

@@ -8,6 +8,13 @@ Specify single or double quotes around strings.
  * These quotes and these quotes */
 ```
 
+Quotes within comments are ignored.
+
+```css
+/* "This is fine" */
+/* 'And this is also fine' */
+```
+
 ## Options
 
 `string`: `"single"|"double"`

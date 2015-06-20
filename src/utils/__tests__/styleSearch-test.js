@@ -125,6 +125,18 @@ test("ignores matches within double-quote strings", t => {
   /* eslint-enable quotes */
 })
 
+test("ignores matches within comments", t => {
+  t.deepEqual(styleSearchResults({
+    source: "abc/*comment*/",
+    target: "m",
+  }), [])
+  t.deepEqual(styleSearchResults({
+    source: "abc/*command*/",
+    target: "a",
+  }), [0])
+  t.end()
+})
+
 test("handles escaped double-quotes in double-quote strings", t => {
   /* eslint-disable quotes */
   t.deepEqual(styleSearchResults({
