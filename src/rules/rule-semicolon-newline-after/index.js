@@ -24,9 +24,15 @@ export default function (expectation) {
       const parentRule = decl.parent
       if (!parentRule.semicolon && parentRule.last === decl) { return }
 
-      const nextDecl = decl.next()
-      if (!nextDecl) { return }
-      check.afterOneOnly(nextDecl.toString(), -1, m => {
+      const nextNode = decl.next()
+      if (!nextNode) { return }
+
+      // Allow end-of-line comments one space after the semicolon
+      let nodeToCheck = (nextNode.type === "comment" && nextNode.before === " ")
+        ? nextNode.next()
+        : nextNode
+
+      check.afterOneOnly(nodeToCheck.toString(), -1, m => {
         return report({
           message: m,
           node: decl,
