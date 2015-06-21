@@ -14,6 +14,8 @@ testRule("always", tr => {
   tr.ok("@media print {\na {\ncolor: pink; } }")
   tr.ok("@media print{\na{\ncolor: pink; } }")
   tr.ok("@media print{\n\ta{\n  color: pink; } }")
+  tr.ok("a { /* 1 */\n  color: pink;\n}", "end-of-line comment")
+  tr.ok("a {\n  /* 1 */\n  color: pink;\n}", "next-line comment")
 
   tr.notOk("a { color: pink; }", messages.expectedAfter())
   tr.notOk("a {color: pink; }", messages.expectedAfter())
@@ -21,6 +23,16 @@ testRule("always", tr => {
   tr.notOk("a {\tcolor: pink; }", messages.expectedAfter())
   tr.notOk("@media print { a {\ncolor: pink; } }", messages.expectedAfter())
   tr.notOk("@media print {\na { color: pink; } }", messages.expectedAfter())
+  tr.notOk(
+    "a {  /* 1 */\n  color: pink;\n}",
+    messages.expectedAfter(),
+    "end-of-line comment with two spaces before"
+  )
+  tr.notOk(
+    "a { /* 1 */ color: pink; }",
+    messages.expectedAfter(),
+    "next node is comment without newline after"
+  )
 })
 
 testRule("never", tr => {
@@ -63,6 +75,7 @@ testRule("always-multi-line", tr => {
   tr.ok("a { color: pink; }")
   tr.ok("a {\tcolor: pink; }")
   tr.ok("a {  color: pink;  background: orange; }")
+  tr.ok("a { /* 1 */ color: pink; }")
 })
 
 testRule("never-multi-line", tr => {

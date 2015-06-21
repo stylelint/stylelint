@@ -18,6 +18,7 @@ testRule("always", tr => {
   tr.notOk("@media print\n{ a { color: pink; } }", messages.expectedBefore())
   tr.notOk("@media print{ a\n{ color: pink; } }", messages.expectedBefore())
   tr.notOk("@media print\n{ a{ color: pink; } }", messages.expectedBefore())
+  tr.notOk("a\n/* foo */{ a{ color: pink; } }", messages.expectedBefore())
 })
 
 testRule("never", tr => {

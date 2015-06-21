@@ -3,10 +3,18 @@
 Require or disallow a newline after the opening brace of blocks.
 
 ```css
-    a { 
+    a {
       ↑ color: pink; }
 /**   ↑  
  * The newline after this brace */
+```
+
+End-of-line comments are allowed one space after the opening brace.
+
+```css
+a { /* something to say */
+  color: pink;
+}
 ```
 
 ## Options
