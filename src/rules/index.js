@@ -62,6 +62,8 @@ import selectorDelimiterNewlineBefore from "./selector-delimiter-newline-before"
 import selectorDelimiterSpaceAfter from "./selector-delimiter-space-after"
 import selectorDelimiterSpaceBefore from "./selector-delimiter-space-before"
 import selectorNoId from "./selector-no-id"
+import selectorNoType from "./selector-no-type"
+import selectorNoUniversal from "./selector-no-universal"
 import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
 import selectorRootNoComposition from "./selector-root-no-composition"
@@ -137,6 +139,8 @@ export default {
   "selector-delimiter-space-after": selectorDelimiterSpaceAfter,
   "selector-delimiter-space-before": selectorDelimiterSpaceBefore,
   "selector-no-id": selectorNoId,
+  "selector-no-type": selectorNoType,
+  "selector-no-universal": selectorNoUniversal,
   "selector-no-vendor-prefix": selectorNoVendorPrefix,
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
   "selector-root-no-composition": selectorRootNoComposition,
