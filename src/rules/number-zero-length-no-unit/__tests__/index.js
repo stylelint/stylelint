@@ -5,6 +5,7 @@ const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
   tr.ok("a { top: 0; }", "unitless zero")
+  tr.ok("a { padding: 0 /* 0px */; }", "united zero in comment")
   tr.ok("a { top: 10px; }", "zero at end of non-zero value")
   tr.ok("a { top: 100.00px; }", "zero at end of non-zero value after decimal")
   tr.ok("a { top: 100.010px; }")

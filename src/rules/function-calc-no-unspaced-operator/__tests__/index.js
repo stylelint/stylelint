@@ -5,6 +5,7 @@ const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
   tr.ok("a {}")
+  tr.ok("a { padding: 0 /* calc(1px+2px) */ 0; }")
   tr.ok("a { color: color(red s(-10%)); }")
   tr.ok("a { color: color(red s( -10%)); }")
 

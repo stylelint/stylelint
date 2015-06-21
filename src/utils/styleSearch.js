@@ -1,7 +1,7 @@
 /**
  * Search within styles.
  *
- * Ignores any matches within CSS strings. Optionally restricts
+ * Ignores any matches within CSS strings or comments. Optionally restricts
  * the search to characters within or outside of functional notation.
  *
  * Returns a `match` object with the following properties:
@@ -18,7 +18,7 @@
  * @param {boolean} [options.withinFunctionalNotation] - If `true`, only will report
  *   matches found inside a function
  * @param {boolean} [options.outsideFunctionalNotation] - If `true`, only will report
- *   matches found outside functions
+ * @param {boolean} [options.checkComments] - If `true`, comments will *not* be ignored
  * @param {boolean} [onlyOne] - Stop looking after the first match is found
  * @param {function} callback - Function that takes the index of a match as its
  *   argument
@@ -67,6 +67,7 @@ export default function (options, callback) {
   }
 
   let insideString = false
+  let insideComment = false
   let insideFunction = false
   let openingQuote
   let openingParenCount = 0
@@ -75,6 +76,34 @@ export default function (options, callback) {
   for (let i = 0, l = source.length; i < l; i++) {
 
     const currentChar = source[i]
+
+    // Register the beginning of a comment
+    if (!options.checkComments) {
+      if (
+        !insideComment
+        && currentChar === "/"
+        && source[i - 1] !== "\\"
+        && source[i + 1] === "*"
+      ) {
+        insideComment = true
+        continue
+      }
+
+      if (insideComment) {
+
+        // Register the end of a comment
+        if (
+          currentChar === "*"
+          && source[i - 1] !== "\\"
+          && source[i + 1] === "/"
+        ) {
+          insideComment = false
+          continue
+        }
+
+        continue
+      }
+    }
 
     // Register the beginning of a string
     if (!insideString && (currentChar === "\"" || currentChar === "'")) {
