@@ -31,7 +31,12 @@ export default function (expectation) {
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
       const statementString = statement.toString()
-      const blockString = statementString.slice(statementString.indexOf("{"))
+
+      // Sometimes at-rules do not have blocks (e.g. @import or @extend)
+      const openingBraceIndex = statementString.indexOf("{")
+      if (openingBraceIndex === -1) { return }
+      const blockString = statementString.slice(openingBraceIndex)
+
       const blockIsMultiLine = !isSingleLineString(blockString)
 
       // We're really just checking whether a

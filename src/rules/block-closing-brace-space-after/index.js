@@ -25,7 +25,12 @@ export default function (expectation) {
 
     function check(statement) {
       const statementString = statement.toString()
-      const blockString = statementString.slice(statementString.indexOf("{"))
+
+      // Sometimes at-rules do not have blocks (e.g. @import or @extend)
+      const openingBraceIndex = statementString.indexOf("{")
+      if (openingBraceIndex === -1) { return }
+      const blockString = statementString.slice(openingBraceIndex)
+
       const nextNode = statement.next()
       if (!nextNode) { return }
       checker.after(nextNode.toString(), -1, msg => {
