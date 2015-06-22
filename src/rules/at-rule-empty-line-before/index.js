@@ -58,13 +58,13 @@ export default function (expectation, options) {
         ruleName,
       })
 
-      function isInBlocklessGroup (atRule) {
-        const previousNode = atRule.prev()
+      function isInBlocklessGroup(aR) {
+        const previousNode = aR.prev()
 
         return (previousNode
             && previousNode.type === "atrule"
             && !hasBlock(previousNode)
-            && !hasBlock(atRule))
+            && !hasBlock(aR))
       }
     })
   }
