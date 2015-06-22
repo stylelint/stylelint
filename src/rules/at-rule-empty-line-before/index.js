@@ -32,16 +32,16 @@ export default function (expectation) {
 
         if (!previousNode && emptyLineBefore) { return }
 
-        if (previousNode.type === "atrule"
+        if (previousNode && previousNode.type === "atrule"
           && !hasBlock(previousNode)
           && !hasBlock(atRule)
           && !emptyLineBefore) { return }
 
-        if (previousNode.type === "atrule"
+        if (previousNode && previousNode.type === "atrule"
           && hasBlock(previousNode)
           && emptyLineBefore) { return }
 
-        if (previousNode.type !== "atrule"
+        if (previousNode && previousNode.type !== "atrule"
           && emptyLineBefore) { return }
       }
 
