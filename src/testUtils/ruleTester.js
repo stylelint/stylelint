@@ -18,18 +18,30 @@ import disableRanges from "../disableRanges"
  * @return {function} ruleTester for the specified rule
  */
 export default function (rule, ruleName) {
-  const ruleTesterInstance = (options, cb) => {
-    return buildRuleTester(test, options, cb)
+  const ruleTesterInstance = (primaryOptions, secondaryOptions, cb) => {
+    if (typeof secondaryOptions === "function") {
+      cb = secondaryOptions
+      secondaryOptions = null
+    }
+    return buildRuleTester(test, primaryOptions, secondaryOptions, cb)
   }
 
-  ruleTesterInstance.only = (options, cb) => {
-    return buildRuleTester(test.only, options, cb)
+  ruleTesterInstance.only = (primaryOptions, secondaryOptions, cb) => {
+    if (typeof secondaryOptions === "function") {
+      cb = secondaryOptions
+      secondaryOptions = null
+    }
+    return buildRuleTester(test.only, primaryOptions, secondaryOptions, cb)
   }
 
   return ruleTesterInstance
 
-  function buildRuleTester(testFn, options, cb) {
-    testFn(`${ruleName.toUpperCase()}: ${JSON.stringify(options)}`, t => {
+  function buildRuleTester(testFn, primaryOptions, secondaryOptions, cb) {
+    let optionsString = JSON.stringify(primaryOptions)
+    if (secondaryOptions) {
+      optionsString += `, ${JSON.stringify(secondaryOptions)}`
+    }
+    testFn(`${ruleName.toUpperCase()}: ${optionsString}`, t => {
       cb({
 
         /**
@@ -83,7 +95,7 @@ export default function (rule, ruleName) {
         // First add disabledRanges to the result
         .use(disableRanges)
         // Then run the rule
-        .use(rule(options))
+        .use(rule(primaryOptions, secondaryOptions))
         .process(cssString)
         .then(callback)
         .catch(err => console.error(err.stack))
