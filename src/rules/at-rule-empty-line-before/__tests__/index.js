@@ -17,7 +17,7 @@ testRule("always", tr => {
   tr.notOk("a {}\n\n/* comment */\n@media {}", messages.expected)
 })
 
-testRule("always-except-blockless-group", tr => {
+testRule("always", { except: ["blockless-group"] }, tr => {
   tr.ok("")
   tr.ok("a {} b {}", "rule ignored")
   tr.ok("@font-face {}", "first node ignored")
@@ -35,7 +35,7 @@ testRule("always-except-blockless-group", tr => {
   tr.notOk("a {}\n\n/* comment */\n@media {}", messages.expected)
 
   tr.notOk("@keyframes foo {}\n@import 'x.css'", messages.expected)
-  tr.notOk("@import 'x.css';\n\n@import 'y.css'", messages.expected)
+  tr.notOk("@import 'x.css';\n\n@import 'y.css'", messages.rejected)
 })
 
 testRule("never", tr => {
@@ -50,4 +50,25 @@ testRule("never", tr => {
 
   tr.notOk("a {}\n\n@media {}", messages.rejected)
   tr.notOk("@keyframes foo {}\n/* comment */\n\n@media {}", messages.rejected)
+})
+
+testRule("never", { except: ["blockless-group"] }, tr => {
+  tr.ok("")
+  tr.ok("a {}\n\nb {}", "rule ignored")
+  tr.ok("\n\n@font-face {}", "first node ignored")
+  tr.ok("a {}\n@media {}")
+  tr.ok("a {} @media {}")
+  tr.ok("@keyframes foo {}\n@media {}")
+  tr.ok("@keyframes foo {} @media {}")
+  tr.ok("a {\n  @mixin foo;\n}")
+
+  tr.ok("@keyframes foo {}\n@import 'x.css'", "no empty line not blockless pair")
+  tr.ok("@import 'x.css';\n\n@import 'y.css'", "empty line blockless pair")
+  tr.ok("@import 'x.css';", "single blockless rule")
+
+  tr.notOk("a {}\n\n@media {}", messages.rejected)
+  tr.notOk("@keyframes foo {}\n/* comment */\n\n@media {}", messages.rejected)
+
+  tr.notOk("@keyframes foo {}\n\n@import 'x.css'", messages.rejected)
+  tr.notOk("@import 'x.css';\n@import 'y.css'", messages.expected)
 })

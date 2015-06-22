@@ -13,8 +13,9 @@ export const messages = ruleMessages(ruleName, {
 
 /**
  * @param {"always"|"never"} expectation
+ * @param {object} options
  */
-export default function (expectation) {
+export default function (expectation, options) {
   return (root, result) => {
     root.eachAtRule(atRule => {
 
@@ -23,29 +24,26 @@ export default function (expectation) {
 
       const emptyLineBefore = atRule.before.indexOf("\n\n") !== -1
 
-      if (expectation === "always" && emptyLineBefore) { return }
+      let expectEmptyLineBefore = (expectation === "always") ? true : false
 
-      if (expectation === "never" && !emptyLineBefore) { return }
+      // got except options?
+      if (options === Object(options) && "except" in options) {
 
-      if (expectation === "always-except-blockless-group") {
-        const previousNode = atRule.prev()
+        if (options.except.indexOf("blockless-group") !== -1) {
 
-        if (!previousNode && emptyLineBefore) { return }
+          const previousNode = atRule.prev()
 
-        if (previousNode && previousNode.type === "atrule"
-          && !hasBlock(previousNode)
-          && !hasBlock(atRule)
-          && !emptyLineBefore) { return }
-
-        if (previousNode && previousNode.type === "atrule"
-          && hasBlock(previousNode)
-          && emptyLineBefore) { return }
-
-        if (previousNode && previousNode.type !== "atrule"
-          && emptyLineBefore) { return }
+          // if this at-rule and the one before it are are blockless, then reverse the expectation
+          if (previousNode && previousNode.type === "atrule"
+            && !hasBlock(previousNode)
+            && !hasBlock(atRule)) { expectEmptyLineBefore = !expectEmptyLineBefore }
+        }
       }
 
-      const message = (expectation === "never") ? messages.rejected : messages.expected
+      // return if our expectation is met for this at-rule
+      if (expectEmptyLineBefore === emptyLineBefore) { return }
+
+      const message = expectEmptyLineBefore ? messages.expected : messages.rejected
 
       report({
         message: message,
