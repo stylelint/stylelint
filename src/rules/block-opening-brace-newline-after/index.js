@@ -39,6 +39,7 @@ export default function (expectation) {
       const nodeToCheck = (firstNode.type === "comment" && firstNode.before === " ")
         ? firstNode.next()
         : firstNode
+      if (!nodeToCheck) { return }
 
       // The string to check for multi-line vs single-line is the block:
       // the curly braces and everything between them
