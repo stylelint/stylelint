@@ -11,23 +11,21 @@ export const messages = ruleMessages(ruleName, {
 })
 
 /**
- * @param {object} options
  * @param {number|"tab"} space - Number of whitespaces to expect, or else
  *   keyword "tab" for single `\t`
- * @param {"always"|"never"} [block="always"] - Whether extra level of
- *   indentation should be used for nested blocks
- * @param {"always"|"never"} [value="always"] - Whether extra level of
- *   indentation should be used for multi-line values
+ * @param {object} options
+ * @param {array} except = ["block", "value"] - Whether extra level of
+ *   indentation should be used for nested blocks and multi-line values respectively
  */
-export default function (options) {
-  const isTab = options.space === "tab"
+export default function (space, options) {
+  const isTab = space === "tab"
 
-  const indentChar = (isTab) ? "\t" : repeat(" ", options.space)
+  const indentChar = (isTab) ? "\t" : repeat(" ", space)
 
   const warningWord = (isTab) ? "tab" : "space"
 
   function legibleExpectation(level, line) {
-    const count = (isTab) ? level : level * options.space
+    const count = (isTab) ? level : level * space
     const quantifiedWarningWord = (count === 1)
       ? warningWord
       : warningWord + "s"
@@ -48,7 +46,7 @@ export default function (options) {
       // unless option.block is "never", in which case
       // everything is taken down a level (all blocks
       // are level 0)
-      if (options.block === "never" && nodeLevel > 0) {
+      if (options && options.except && options.except.indexOf("block") !== -1 && nodeLevel > 0) {
         nodeLevel--
       }
 
@@ -105,7 +103,7 @@ export default function (options) {
       const value = node.value
       if (value.indexOf("\n") === -1) { return }
 
-      const valueLevel = (options.value === "never")
+      const valueLevel = (options && options.except && options.except.indexOf("value") !== -1)
         ? declLevel
         : declLevel + 1
       const postNewlineExpected = repeat(indentChar, valueLevel)
