@@ -26,17 +26,23 @@ export default function (expectation, options) {
 
       let expectEmptyLineBefore = (expectation === "always") ? true : false
 
-      // got except options?
-      if (options === Object(options) && "except" in options) {
+      // got options?
+      if (options === Object(options)) {
 
-        if (options.except.indexOf("blockless-group") !== -1) {
+        if ("except" in options && options.except.indexOf("blockless-group") !== -1) {
+          if (isInBlocklessGroup(atRule)) {
 
-          const previousNode = atRule.prev()
+            // if this at-rule and the one before it are are blockless, then reverse the expectation
+            expectEmptyLineBefore = !expectEmptyLineBefore
+          }
+        }
 
-          // if this at-rule and the one before it are are blockless, then reverse the expectation
-          if (previousNode && previousNode.type === "atrule"
-            && !hasBlock(previousNode)
-            && !hasBlock(atRule)) { expectEmptyLineBefore = !expectEmptyLineBefore }
+        if ("ignore" in options && options.ignore.indexOf("blockless-group") !== -1) {
+          if (isInBlocklessGroup(atRule)) {
+
+            // skip this at-rule
+            return
+          }
         }
       }
 
@@ -51,6 +57,15 @@ export default function (expectation, options) {
         result,
         ruleName,
       })
+
+      function isInBlocklessGroup (atRule) {
+        const previousNode = atRule.prev()
+
+        return (previousNode
+            && previousNode.type === "atrule"
+            && !hasBlock(previousNode)
+            && !hasBlock(atRule))
+      }
     })
   }
 }
