@@ -31,6 +31,7 @@ export default function (expectation) {
       let nodeToCheck = (nextNode.type === "comment" && nextNode.before === " ")
         ? nextNode.next()
         : nextNode
+      if (!nodeToCheck) { return }
 
       check.afterOneOnly(nodeToCheck.toString(), -1, m => {
         return report({
