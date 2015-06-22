@@ -1,9 +1,9 @@
 import {
   ruleMessages,
+  styleSearch,
+  report,
   whitespaceChecker
 } from "../../utils"
-
-import { selectorDelimiterSpaceChecker } from "../selector-delimiter-space-after"
 
 export const ruleName = "selector-delimiter-newline-after"
 
@@ -16,5 +16,25 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker("\n", expectation, messages)
-  return selectorDelimiterSpaceChecker(checker.after)
+  return (root, result) => {
+    root.eachRule(rule => {
+      // Allow for the special case of nested rule sets
+      // that should be indented
+      const checkLocation = (rule.parent === root)
+        ? checker.after
+        : checker.afterOneOnly
+
+      const selector = rule.selector
+      styleSearch({ source: selector, target: "," }, match => {
+        checkLocation(selector, match.startIndex, m =>
+          report({
+            message: m,
+            node: rule,
+            result,
+            ruleName,
+          })
+        )
+      })
+    })
+  }
 }

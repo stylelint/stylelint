@@ -10,6 +10,8 @@ testRule("always", tr => {
   tr.ok("a ,\nb {}")
   tr.ok("a\n,\nb {}")
   tr.ok("a,\nb[data-foo=\"tr,tr\"] {}")
+  tr.ok("a {\n  &:hover,\n  &:focus {\n    color: pink; }\n}", "nested in rule set")
+  tr.ok("@media (min-width: 10px) {\n  a,\n  b {}\n}", "nested in at-rule")
 
   tr.notOk("a,b {}", messages.expectedAfter())
   tr.notOk("a, b {}", messages.expectedAfter())
@@ -17,6 +19,7 @@ testRule("always", tr => {
   tr.notOk("a,\tb {}", messages.expectedAfter())
   tr.notOk("a,\nb,c {}", messages.expectedAfter())
   tr.notOk("a,\nb,\n c {}", messages.expectedAfter())
+  tr.notOk("a,\n  b {}", messages.expectedAfter())
 })
 
 testRule("never", tr => {
