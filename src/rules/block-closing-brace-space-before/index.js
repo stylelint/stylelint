@@ -34,8 +34,13 @@ export default function (expectation) {
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
       const statementString = statement.toString()
-      const blockString = statementString.slice(statementString.indexOf("{"))
-      checker.before(statementString, statementString.length - 1, msg => {
+
+      // Sometimes at-rules do not have blocks (e.g. @import or @extend)
+      const openingBraceIndex = statementString.indexOf("{")
+      if (openingBraceIndex === -1) { return }
+      const blockString = statementString.slice(openingBraceIndex)
+
+      checker.before(blockString, blockString.length - 1, msg => {
         report({
           message: msg,
           node: statement,

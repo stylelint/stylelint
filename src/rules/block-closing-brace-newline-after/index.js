@@ -31,7 +31,12 @@ export default function (expectation) {
       if (!nextNode) { return }
 
       const statementString = statement.toString()
-      const blockString = statementString.slice(statementString.indexOf("{"))
+
+      // Sometimes at-rules do not have blocks (e.g. @import or @extend)
+      const openingBraceIndex = statementString.indexOf("{")
+      if (openingBraceIndex === -1) { return }
+
+      const blockString = statementString.slice(openingBraceIndex)
 
       // Only check one after, because there might be other
       // spaces handled by the indentation rule

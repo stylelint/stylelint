@@ -7,6 +7,8 @@ testRule("always", tr => {
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; }\nb { color: red; }")
   tr.ok("a { color: pink;}\n\t\tb { color: red;}")
+  tr.ok("a { @extend foo; color: pink; }")
+  tr.ok("a { @extend foo; /* comment */\ncolor: pink;  }")
 
   // Ignores nested closing braces
   tr.ok("@media print { a { color: pink; }\nb { color: red; }}")
