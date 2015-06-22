@@ -14,7 +14,7 @@ testRule("always", tr => {
   tr.notOk("a { color: pink;\n/** comment */\ntop: 0; }", messages.expected)
 })
 
-testRule("always-except-inline", tr => {
+testRule("always", { ignore: ["inline"] }, tr => {
   tr.ok("")
   tr.ok("/** comment */", "first node ignored")
   tr.ok("a {}\n\n/** comment */")
