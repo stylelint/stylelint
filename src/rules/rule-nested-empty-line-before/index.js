@@ -13,15 +13,16 @@ export const messages = ruleMessages(ruleName, {
 
 /**
  * @param {"always"|"never"|"always-multi-line"|"never-multi-line"} expectation
- */
-export default function (expectation) {
+ * @param {object} options
+ * @param {array} except = ["first-nested"] */
+export default function (expectation, options) {
   return (root, result) => {
     root.eachRule(rule => {
 
       // Only attend to nested rule sets
       if (rule.parent === root) { return }
 
-      checkRuleEmptyLineBefore(rule, expectation, result, messages)
+      checkRuleEmptyLineBefore(rule, expectation, options, result, messages)
     })
   }
 }

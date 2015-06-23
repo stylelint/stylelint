@@ -5,8 +5,8 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-// { space: 2 }
-testRule({ space: 2 }, tr => {
+// 2 spaces
+testRule(2, tr => {
 
 tr.ok(
 `@media print {
@@ -63,8 +63,8 @@ tr.notOk(
 
 })
 
-// { space: "tab", block: "never"  }
-testRule({ space: "tab", block: "never" }, tr => {
+// tab except block
+testRule("tab", { except: ["block"] }, tr => {
 
 tr.ok(
 `@media print {

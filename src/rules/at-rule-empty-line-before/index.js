@@ -1,5 +1,6 @@
 import {
   hasBlock,
+  optionsHaveException,
   report,
   ruleMessages
 } from "../../utils"
@@ -13,8 +14,10 @@ export const messages = ruleMessages(ruleName, {
 
 /**
  * @param {"always"|"never"} expectation
+ * @param {object} options - Can contain the following:
+ *   - except: ["blockless-group"]
  */
-export default function (expectation) {
+export default function (expectation, options) {
   return (root, result) => {
     root.eachAtRule(atRule => {
 
@@ -23,29 +26,22 @@ export default function (expectation) {
 
       const emptyLineBefore = atRule.before.indexOf("\n\n") !== -1
 
-      if (expectation === "always" && emptyLineBefore) { return }
+      let expectEmptyLineBefore = (expectation === "always") ? true : false
 
-      if (expectation === "never" && !emptyLineBefore) { return }
+      const previousNode = atRule.prev()
 
-      if (expectation === "always-except-blockless-group") {
-        const previousNode = atRule.prev()
-
-        if (!previousNode && emptyLineBefore) { return }
-
-        if (previousNode && previousNode.type === "atrule"
-          && !hasBlock(previousNode)
-          && !hasBlock(atRule)
-          && !emptyLineBefore) { return }
-
-        if (previousNode && previousNode.type === "atrule"
-          && hasBlock(previousNode)
-          && emptyLineBefore) { return }
-
-        if (previousNode && previousNode.type !== "atrule"
-          && emptyLineBefore) { return }
+      // if this at-rule and the one before it are are blockless, then reverse the expectation
+      if (options && optionsHaveException(options, "blockless-group")
+        && previousNode && previousNode.type === "atrule"
+        && !hasBlock(previousNode)
+        && !hasBlock(atRule)) {
+        expectEmptyLineBefore = !expectEmptyLineBefore
       }
 
-      const message = (expectation === "never") ? messages.rejected : messages.expected
+      // return if our expectation is met for this at-rule
+      if (expectEmptyLineBefore === emptyLineBefore) { return }
+
+      const message = expectEmptyLineBefore ? messages.expected : messages.rejected
 
       report({
         message: message,

@@ -25,8 +25,8 @@ export default postcss.plugin("stylelint", settings => {
         : ruleSettings
       if (ruleSeverity === 0) { return }
 
-      // Otherwise, pass the options object to the rule
-      ruleDefinitions[ruleName](ruleSettings[1])(css, result)
+      // Otherwise, run the rule with the primary and secondary options
+      ruleDefinitions[ruleName](ruleSettings[1], ruleSettings[2])(css, result)
     })
   }
 })

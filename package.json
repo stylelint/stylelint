@@ -22,19 +22,19 @@
     "src"
   ],
   "dependencies": {
-    "autoprefixer-core": "^5.1.11",
+    "autoprefixer-core": "^5.2.1",
     "balanced-match": "^0.2.0",
-    "lodash": "^3.9.1",
-    "postcss": "^4.1.9",
-    "postcss-selector-parser": "0.0.5"
+    "lodash": "^3.9.3",
+    "postcss": "^4.1.12",
+    "postcss-selector-parser": "1.0.1"
   },
   "devDependencies": {
-    "babel": "^5.2.15",
-    "babel-eslint": "^3.1.1",
+    "babel": "^5.6.3",
+    "babel-eslint": "^3.1.17",
     "babel-tape-runner": "^1.1.0",
-    "eslint": "^0.21.0",
+    "eslint": "^0.23.0",
     "jsesc": "^0.5.0",
-    "sinon": "^1.14.1",
+    "sinon": "^1.15.3",
     "tape": "^4.0.0"
   },
   "scripts": {

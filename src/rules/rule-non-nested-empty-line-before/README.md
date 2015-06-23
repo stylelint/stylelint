@@ -10,6 +10,8 @@ Require or disallow an empty line before non-nested rules.
  *   This line */
 ```
 
+If the rule is the very first node in a stylesheet then it is ignored.
+
 ## Options
 
 `string`: `"always"|"never"|"always-multi-line"|"never-multi-line"`

@@ -11,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
 })
 
 /**
- * @param {"always"|"never"|"always-except-inline"} expectation
+ * @param {"always"|"never"|" expectation
  */
 export default function (expectation) {
   return (root, result) => {
@@ -20,31 +20,24 @@ export default function (expectation) {
       // Ignore the first node
       if (comment === root.first) { return }
 
-      const isInlineComment = comment.before.indexOf("\n") === -1
+      // Ignore inline comments
+      if (comment.before.indexOf("\n") === -1) { return }
 
-      const expectEmptyLine = (expectation === "always"
-        || expectation === "always-except-inline" && !isInlineComment)
-
-      const rejectEmptyLine = (expectation === "never")
+      const expectEmptyLineBefore = (expectation === "always") ? true : false
 
       const emptyLineBefore = comment.before.indexOf("\n\n") !== -1
 
-      if (expectEmptyLine && !emptyLineBefore) {
-        report({
-          message: messages.expected,
-          node: comment,
-          result,
-          ruleName,
-        })
-      }
-      if (rejectEmptyLine && emptyLineBefore) {
-        report({
-          message: messages.rejected,
-          node: comment,
-          result,
-          ruleName,
-        })
-      }
+      // return if our expectation is met
+      if (expectEmptyLineBefore === emptyLineBefore) { return }
+
+      const message = expectEmptyLineBefore ? messages.expected : messages.rejected
+
+      report({
+        message: message,
+        node: comment,
+        result,
+        ruleName,
+      })
     })
   }
 }
