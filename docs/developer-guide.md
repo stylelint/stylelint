@@ -1,6 +1,6 @@
 # Developer guide
 
-Have a look at the [user guide](user-guide.md) to familiarize yourself with things like rule naming conventions.
+Have a look at the [user guide](user-guide.md) to familiarize yourself with things like the rule naming conventions.
 
 ## Running tests
 
@@ -8,6 +8,12 @@ You can run the tests via:
 
 ```console
 npm test
+```
+
+To run tests in a single file, instead of all the tests at once, you'll need to use `babel-tape-runner` (because the codebase is ES6). For example:
+
+```console
+babel-tape-runner src/rules/media-feature-name-no-vendor-prefix/__tests__/index.js
 ```
 
 ## Adding a new rule

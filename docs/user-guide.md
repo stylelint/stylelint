@@ -14,12 +14,12 @@ Rules are:
 * Made of lowercase words separated by hyphens.
 * Usually split into two parts:
   * The first describes what [*thing*](http://apps.workflower.fi/vocabs/css/en) the rule applies to.
-  * The second describes what the rule is enforcing.
+  * The second describes what the rule is checking.
 
 ```js
 number-leading-zero
   ↑         ↑
-the thing   what the rule is enforcing
+the thing   what the rule is checking
 ```
 
 * Except when the rule applies to the whole stylesheet:
@@ -28,7 +28,7 @@ the thing   what the rule is enforcing
 no-eol-whitespace
 indentation
     ↑ 
-  what the rules are enforcing
+  what the rules are checking
 ``` 
 
 #### No
@@ -47,7 +47,7 @@ For example, whether numbers *must* or *must not* have a leading zero:
  *   This leading zero */
 ```
 
-However, some rules *just disallow* something. `*-no-*` is used identify these rules.
+However, some rules *just disallow* something. `*-no-*` is used to identify these rules.
 
 For example, whether empty blocks should be disallowed:
 
@@ -103,7 +103,7 @@ Additionally, some whitespace rule make use of another set of keywords:
 
 For example, specifying if a single space or no space must come before a comma in a function:
 
-* `function-coma-space-before`: `string` - `"always"|"never"`
+* `function-comma-space-before`: `string` - `"always"|"never"`
 
 ```css
     a { transform: translate(1, 1) }
@@ -136,8 +136,8 @@ Say you want to enforce no space before and a single space after the colon in ev
 You can enforce that with:
 
 ```js
-declaration-colon-space-before: [2, "never"],
-declaration-colon-space-after: [2, "always"]
+declaration-colon-space-after: [2, "always"],
+declaration-colon-space-before: [2, "never"]
 ```
 
 Some *things* (e.g. declaration blocks and value lists) can span more than one line. In these cases `newline` rules and extra options can be used to provide flexibility.
@@ -163,9 +163,7 @@ b {
 
 There is only a single-line value list in this example. The selector is multi-line, as is the declaration block and, as such, also the rule. But the value list isn't and that is what the `*-multi-line` and `*-single-line` refer to in the context of this rule.
 
-##### Examples
-
-###### A 
+###### Example A 
 
 Say you only want to allow single-line value lists. And you want to enforce no space before and a single space after the commas: 
 
@@ -179,11 +177,11 @@ a {
 You can enforce that with:
 
 ```js
-value-list-comma-space-after: [2, "never"],
-value-list-comma-space-before: [2, "always"]
+value-list-comma-space-after: [2, "always"],
+value-list-comma-space-before: [2, "never"]
 ``` 
 
-###### B
+###### Example B
 
 Say you want to allow both single-line and multi-line value lists. You want there to be a single space after the commas in the single-line lists and no space before the commas in both the single-line and multi-line lists:
 
@@ -204,13 +202,13 @@ value-list-comma-space-after: [2, "always-single-line"],
 value-list-comma-space-before: [2, "never']
 ```
 
-###### C
+###### Example C
 
-Say you want to allow both single-line and multi-line value lists. You want there to be no space before the commas in the single-line lists, no space before the commas in the single-line lists, and always a space after the commas in both lists:
+Say you want to allow both single-line and multi-line value lists. You want there to be no space before the commas in the single-line lists and always a space after the commas in both lists:
 
 ```css
 a {
-  font-family: sans, serif, monospace
+  font-family: sans, serif, monospace;
   box-shadow: 1px 1px 1px #000
     , 2px 2px 1px 1px #ccc inset
     , 2px 2px 1px 2px #ccc inset;
@@ -225,7 +223,7 @@ value-list-comma-space-after: [2, "always"],
 value-list-comma-space-before: [2, "never-single-line"]
 ```
 
-###### D
+###### Example D
 
 Lastly, the rules are flexible enough to enforce entirely different conventions for single-line and multi-line rules. Say you want to allow both single-line and multi-line value lists. You want the single-line lists to have a single space before and after the colons. Whereas you want the multi-line lists to have a single newline before the commas, but no space after.
 
@@ -240,6 +238,7 @@ a {
 ```
 
 You can enforce that with:
+
 
 ```js
 value-list-comma-newline-after: [2, "never-multi-line"],
