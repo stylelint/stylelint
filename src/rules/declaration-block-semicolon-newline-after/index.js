@@ -4,7 +4,7 @@ import {
   whitespaceChecker
 } from "../../utils"
 
-export const ruleName = "rule-semicolon-newline-after"
+export const ruleName = "declaration-block-semicolon-newline-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected newline after ";"`,
@@ -33,6 +33,8 @@ export default function (expectation) {
         : nextNode
       if (!nodeToCheck) { return }
 
+      const parentRuleString = parentRule.toString()
+
       check.afterOneOnly(nodeToCheck.toString(), -1, m => {
         return report({
           message: m,
@@ -40,7 +42,7 @@ export default function (expectation) {
           result,
           ruleName,
         })
-      }, parentRule.toString().slice("{"))
+      }, parentRuleString.slice(parentRuleString.indexOf("{")))
     })
   }
 }

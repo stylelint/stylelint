@@ -35,11 +35,13 @@ testRule("always-single-line", tr => {
   tr.ok("a { color: pink ; }")
   tr.ok("a::before { content: \";a\" ; }")
   tr.ok("a { color: pink ; top: 0 ; }")
+  tr.ok("a,\nb { color: pink ; top: 0 ; }", "multi-line rule, single-line declaration-block")
 
   // Ignore multi-line
   tr.ok("a {\n  color: pink;\n  top: 0;\n}")
 
   tr.notOk("a { color: pink; }", messages.expectedBeforeSingleLine())
+  tr.notOk("a,\nb { color: pink; }", messages.expectedBeforeSingleLine())
   tr.notOk("a { color: pink  ; }", messages.expectedBeforeSingleLine())
   tr.notOk("a { color: pink\t; }", messages.expectedBeforeSingleLine())
   tr.notOk("a { color: pink ; top: 0; }", messages.expectedBeforeSingleLine())
@@ -50,11 +52,13 @@ testRule("never-single-line", tr => {
   tr.ok("a { color: pink; }")
   tr.ok("a::before { content: \";a\"; }")
   tr.ok("a { color: pink; top: 0; }")
+  tr.ok("a,\nb { color: pink; top: 0; }", "multi-line rule, single-line declaration-block")
 
   // Ignore multi-line
   tr.ok("a {\n  color: pink ;\n  top: 0 ;\n}")
 
   tr.notOk("a { color: pink ; }", messages.rejectedBeforeSingleLine())
+  tr.notOk("a,\nb { color: pink ; }", messages.rejectedBeforeSingleLine())
   tr.notOk("a { color: pink  ; }", messages.rejectedBeforeSingleLine())
   tr.notOk("a { color: pink\t; }", messages.rejectedBeforeSingleLine())
   tr.notOk("a { color: pink; top: 0 ; }", messages.rejectedBeforeSingleLine())

@@ -4,13 +4,13 @@ import {
   whitespaceChecker
 } from "../../utils"
 
-export const ruleName = "rule-semicolon-space-before"
+export const ruleName = "declaration-block-semicolon-space-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected single space before ";"`,
-  rejectedBefore: () => `Unexpected space before ";"`,
-  expectedBeforeSingleLine: () => `Expected single space before ";" within single-line rule`,
-  rejectedBeforeSingleLine: () => `Unexpected space before ";" within single-line rule`,
+  expectedAfter: () => `Expected single space after ";"`,
+  rejectedAfter: () => `Unexpected space after ";"`,
+  expectedAfterSingleLine: () => `Expected single space after ";" within single-line rule`,
+  rejectedAfterSingleLine: () => `Unexpected space after ";" within single-line rule`,
 })
 
 /**
@@ -24,15 +24,19 @@ export default function (expectation) {
       const parentRule = decl.parent
       if (!parentRule.semicolon && parentRule.last === decl) { return }
 
-      const declString = decl.toString()
-      check.before(declString, declString.length, m => {
+      const nextDecl = decl.next()
+      if (!nextDecl) { return }
+
+      const parentRuleString = parentRule.toString()
+
+      check.after(nextDecl.toString(), -1, m => {
         return report({
           message: m,
           node: decl,
           result,
           ruleName,
         })
-      }, parentRule.toString().slice("{"))
+      }, parentRuleString.slice(parentRuleString.indexOf("{")))
     })
   }
 }

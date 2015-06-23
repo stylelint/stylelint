@@ -1,4 +1,4 @@
-# rule-semicolon-space-before
+# declaration-block-semicolon-space-before
 
 Require or disallow a space before the semicolons of rules.
 

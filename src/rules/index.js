@@ -16,6 +16,10 @@ import customPropertyNoOutsideRoot from "./custom-property-no-outside-root"
 import customPropertyPattern from "./custom-property-pattern"
 import declarationBangSpaceAfter from "./declaration-bang-space-after"
 import declarationBangSpaceBefore from "./declaration-bang-space-before"
+import declarationBlockSemicolonNewlineAfter from "./declaration-block-semicolon-newline-after"
+import declarationBlockSemicolonNewlineBefore from "./declaration-block-semicolon-newline-before"
+import declarationBlockSemicolonSpaceAfter from "./declaration-block-semicolon-space-after"
+import declarationBlockSemicolonSpaceBefore from "./declaration-block-semicolon-space-before"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
 import declarationNoImportant from "./declaration-no-important"
@@ -51,10 +55,6 @@ import ruleNoDuplicateProperties from "./rule-no-duplicate-properties"
 import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
 import ruleNoSingleLine from "./rule-no-single-line"
 import rulePropertiesOrder from "./rule-properties-order"
-import ruleSemicolonNewlineAfter from "./rule-semicolon-newline-after"
-import ruleSemicolonNewlineBefore from "./rule-semicolon-newline-before"
-import ruleSemicolonSpaceAfter from "./rule-semicolon-space-after"
-import ruleSemicolonSpaceBefore from "./rule-semicolon-space-before"
 import ruleTrailingSemicolon from "./rule-trailing-semicolon"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
@@ -94,6 +94,10 @@ export default {
   "custom-property-pattern": customPropertyPattern,
   "declaration-bang-space-after": declarationBangSpaceAfter,
   "declaration-bang-space-before": declarationBangSpaceBefore,
+  "declaration-block-semicolon-newline-after": declarationBlockSemicolonNewlineAfter,
+  "declaration-block-semicolon-newline-before": declarationBlockSemicolonNewlineBefore,
+  "declaration-block-semicolon-space-after": declarationBlockSemicolonSpaceAfter,
+  "declaration-block-semicolon-space-before": declarationBlockSemicolonSpaceBefore,
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
   "declaration-no-important": declarationNoImportant,
@@ -129,10 +133,6 @@ export default {
   "rule-no-single-line": ruleNoSingleLine,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
   "rule-properties-order": rulePropertiesOrder,
-  "rule-semicolon-newline-after": ruleSemicolonNewlineAfter,
-  "rule-semicolon-newline-before": ruleSemicolonNewlineBefore,
-  "rule-semicolon-space-after": ruleSemicolonSpaceAfter,
-  "rule-semicolon-space-before": ruleSemicolonSpaceBefore,
   "rule-trailing-semicolon": ruleTrailingSemicolon,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,
