@@ -1,6 +1,6 @@
 # value-list-comma-newline-before
 
-Require or disallow a newline before the commas of value lists.
+Require or disallow a single newline before the commas of value lists.
 
 ```css
     a { background-size: 0
@@ -11,7 +11,7 @@ Require or disallow a newline before the commas of value lists.
 
 ## Options
 
-`string`: `"always"|"never"|"always-multi-line"|"never-multi-line"`
+`string`: `"always"|"always-multi-line"|"never-multi-line"`
 
 ### `"always"`
 
@@ -33,32 +33,6 @@ The following patterns are *not* considered warnings:
 ```css
 a { background-size: 0
       , 0; }
-```
-
-### `"never"`
-
-There *must never* be whitespace before the comma.
-
-The following patterns are considered warnings:
-
-```css
-a { background-size: 0, 0; }
-```
-
-```css
-a { background-size: 0
-      , 0; }
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-a { background-size: 0,0; }
-```
-
-```css
-a { background-size: 0,
-      0; }
 ```
 
 ### `"always-multi-line"`
