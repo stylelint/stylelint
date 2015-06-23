@@ -1,5 +1,6 @@
 import { repeat } from "lodash"
 import {
+  optionsHaveException,
   report,
   ruleMessages,
   styleSearch
@@ -46,7 +47,7 @@ export default function (space, options) {
       // unless option.block is "never", in which case
       // everything is taken down a level (all blocks
       // are level 0)
-      if (options && options.except && options.except.indexOf("block") !== -1 && nodeLevel > 0) {
+      if (options && optionsHaveException(options, "block") && nodeLevel > 0) {
         nodeLevel--
       }
 
@@ -103,7 +104,7 @@ export default function (space, options) {
       const value = node.value
       if (value.indexOf("\n") === -1) { return }
 
-      const valueLevel = (options && options.except && options.except.indexOf("value") !== -1)
+      const valueLevel = (options && optionsHaveException(options, "value"))
         ? declLevel
         : declLevel + 1
       const postNewlineExpected = repeat(indentChar, valueLevel)

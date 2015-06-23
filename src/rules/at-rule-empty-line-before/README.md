@@ -10,6 +10,8 @@ Require or disallow an empty line before @rules.
  *       This line */
 ```
 
+If the at-rule is the very first node in a stylesheet then it is ignored.
+
 ## Options
 
 `string`: `"always"|"never"`
@@ -58,4 +60,31 @@ a {} @media {}
 ```css
 a {} 
 @media {}
+```
+
+## Optional options
+
+### `except: ["blockless-group"]`
+
+This will reverse the primary option for at-rules within a blockless group. 
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+@import url(x.css);
+
+@import url(y.css);
+
+@media print {}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+@import url(x.css);
+@import url(y.css);
+
+@media print {}
 ```

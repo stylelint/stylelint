@@ -259,3 +259,36 @@ The following patterns are *not* considered warnings:
   } 
 }
 ```
+
+## Optional options
+
+### `except: ["first-nested"]`
+
+This will reverse the primary option if the rule is the first in a block. 
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+@media { 
+
+  a {}
+
+  b {}
+
+  c {}
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+@media {
+  a {} 
+
+  b {}
+
+  c {}
+}
+```

@@ -10,9 +10,11 @@ Require or disallow an empty line before comments.
  *           This line */
 ```
 
+If the comment is the very first node in a stylesheet then it is ignored. Inline comments are also ignored. 
+
 ## Options
 
-`string`: `"always"|"never"|"always-except-inline"`
+`string`: `"always"|"never"`
 
 ### `"always"`
 
@@ -30,30 +32,6 @@ a {}
 ```
 
 The following patterns are *not* considered warnings:
-
-```css
-a {}
-
-/* comment */
-```
-
-### `"always-except-inlines"`
-
-There *must always* be an empty line before @rules, except when the comment is inline.
-
-The following patterns are considered warnings:
-
-
-```css
-a {}
-/* comment */
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-a {} /* comment */
-```
 
 ```css
 a {}

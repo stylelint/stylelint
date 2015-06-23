@@ -1,7 +1,6 @@
 import {
   hasBlock,
   optionsHaveException,
-  optionsHaveIgnored,
   report,
   ruleMessages
 } from "../../utils"
@@ -17,7 +16,6 @@ export const messages = ruleMessages(ruleName, {
  * @param {"always"|"never"} expectation
  * @param {object} options - Can contain the following:
  *   - except: ["blockless-group"]
- *   - ignore: ["blockless-group"]
  */
 export default function (expectation, options) {
   return (root, result) => {
@@ -30,16 +28,14 @@ export default function (expectation, options) {
 
       let expectEmptyLineBefore = (expectation === "always") ? true : false
 
-      if (options) {
+      const previousNode = atRule.prev()
 
-        // if this at-rule and the one before it are are blockless, then reverse the expectation
-        if (optionsHaveException(options, "blockless-group") && isInBlocklessGroup(atRule)) {
-          expectEmptyLineBefore = !expectEmptyLineBefore
-        }
-
-        if (optionsHaveIgnored(options, "blockless-group") && isInBlocklessGroup(atRule)) {
-          return
-        }
+      // if this at-rule and the one before it are are blockless, then reverse the expectation
+      if (options && optionsHaveException(options, "blockless-group")
+        && previousNode && previousNode.type === "atrule"
+        && !hasBlock(previousNode)
+        && !hasBlock(atRule)) {
+        expectEmptyLineBefore = !expectEmptyLineBefore
       }
 
       // return if our expectation is met for this at-rule
@@ -53,15 +49,6 @@ export default function (expectation, options) {
         result,
         ruleName,
       })
-
-      function isInBlocklessGroup(aR) {
-        const previousNode = aR.prev()
-
-        return (previousNode
-            && previousNode.type === "atrule"
-            && !hasBlock(previousNode)
-            && !hasBlock(aR))
-      }
     })
   }
 }
