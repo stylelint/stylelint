@@ -10,7 +10,7 @@ Require or disallow a single space after the commas of value lists.
 
 ## Options
 
-`string`: `"always"|"never"|"always-multi-line"|"never-multi-line"`
+`string`: `"always"|"never"|"always-single-line"|"never-single-line"`
 
 ### `"always"`
 
