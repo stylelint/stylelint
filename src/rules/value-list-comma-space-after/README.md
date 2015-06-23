@@ -1,6 +1,6 @@
 # value-list-comma-space-after
 
-Require or disallow a space after the commas of value lists.
+Require or disallow a single space after the commas of value lists.
 
 ```css
     a { background-size: 0, 0; }
