@@ -179,7 +179,7 @@ a {
 You can enforce that with:
 
 ```js
-value-list-comma-space-after: [2, "never"]
+value-list-comma-space-after: [2, "never"],
 value-list-comma-space-before: [2, "always"]
 ``` 
 
@@ -199,8 +199,8 @@ a {
 You can enforce that with:
 
 ```js
-value-list-comma-newline-after: [2, "always-multi-line"]
-value-list-comma-space-after: [2, "always-single-line"]
+value-list-comma-newline-after: [2, "always-multi-line"],
+value-list-comma-space-after: [2, "always-single-line"],
 value-list-comma-space-before: [2, "never']
 ```
 
@@ -220,8 +220,8 @@ a {
 You can enforce that with:
 
 ```js
-value-list-comma-newline-before: [2, "always-multi-line"]
-value-list-comma-space-after: [2, "always"]
+value-list-comma-newline-before: [2, "always-multi-line"],
+value-list-comma-space-after: [2, "always"],
 value-list-comma-space-before: [2, "never-single-line"]
 ```
 
@@ -234,7 +234,7 @@ Lastly, the rules are flexible enough to enforce entirely different conventions 
 a {
   font-family: sans , serif , monospace; /* single-line list with a single space before and after the comma */
   box-shadow: 1px 1px 1px #000 /* multi-line list ... */
-    ,2px 2px 1px 1px #ccc inset, /* ... with newline before, ...  */
+    ,2px 2px 1px 1px #ccc inset /* ... with newline before, ...  */
     ,2px 2px 1px 2px #ccc inset; /* ... but no space after the comma */
 }
 ```
@@ -242,8 +242,8 @@ a {
 You can enforce that with:
 
 ```js
-value-list-comma-newline-after: [2, "never-multi-line"]
-value-list-comma-newline-before: [2, "always-multi-line"]
-value-list-comma-space-after: [2, "always-single-line"]
+value-list-comma-newline-after: [2, "never-multi-line"],
+value-list-comma-newline-before: [2, "always-multi-line"],
+value-list-comma-space-after: [2, "always-single-line"],
 value-list-comma-space-before: [2, "always-single-line"]
 ```
