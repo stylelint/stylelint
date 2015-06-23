@@ -4,26 +4,29 @@ import {
   whitespaceChecker
 } from "../../utils"
 
-export const ruleName = "rule-semicolon-newline-before"
+export const ruleName = "declaration-block-semicolon-space-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected newline before ";"`,
+  expectedBefore: () => `Expected single space before ";"`,
   rejectedBefore: () => `Unexpected space before ";"`,
-  expectedBeforeMultiLine: () => `Expected newline before ";" within multi-line rule`,
-  rejectedBeforeMultiLine: () => `Unexpected space before ";" within multi-line rule`,
+  expectedBeforeSingleLine: () => `Expected single space before ";" within single-line rule`,
+  rejectedBeforeSingleLine: () => `Unexpected space before ";" within single-line rule`,
 })
 
 /**
- * @param {"always"|"never"|"always-multi-line"|"never-multi-line"} expectation
+ * @param {"always"|"never"|"always-single-line"|"never-single-line"} expectation
  */
 export default function (expectation) {
-  const check = whitespaceChecker("\n", expectation, messages)
+  const check = whitespaceChecker(" ", expectation, messages)
   return function (css, result) {
     css.eachDecl(function (decl) {
+      // Ignore last declaration if there's no trailing semicolon
       const parentRule = decl.parent
       if (!parentRule.semicolon && parentRule.last === decl) { return }
 
       const declString = decl.toString()
+      const parentRuleString = parentRule.toString()
+
       check.before(declString, declString.length, m => {
         return report({
           message: m,
@@ -31,7 +34,7 @@ export default function (expectation) {
           result,
           ruleName,
         })
-      }, parentRule.toString().slice("{"))
+      }, parentRuleString.slice(parentRuleString.indexOf("{")))
     })
   }
 }

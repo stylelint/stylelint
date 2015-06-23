@@ -1,14 +1,23 @@
-# rule-semicolon-newline-before
+# declaration-block-semicolon-newline-after
 
-Require or disallow a newline before the semicolons of rules.
+Require or disallow a newline after the semicolons of rules.
 
 ```css
-    a { 
-      color: pink 
-      ; top: 0;
-    } ↑
-/**   ↑  
- * The newline before this semicolon */
+    a {
+      color: pink;
+      top: 0;    ↑
+    }            ↑
+/**              ↑  
+ * The newline after this semicolon */
+```
+
+End-of-line comments are allowed one space after the semicolon.
+
+```css
+a {
+  color: pink; /* something to say */
+  top: 0;
+}
 ```
 
 ## Options
@@ -17,49 +26,38 @@ Require or disallow a newline before the semicolons of rules.
 
 ### `"always"`
 
-There *must always* be a single newline before the semicolon.
+There *must always* be a single newline after the semicolon.
 
 The following patterns are considered warnings:
 
 ```css
-a { color: pink; }
-```
-
-```css
-a { 
-  color: pink; top: 0; 
-}
+a { color: pink; top: 0; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a { color: pink
-; }
-```
-
-```css
-a { 
-  color: pink
-  ; top: 0; 
+a {
+  color: pink;
+  top: 0;
 }
 ```
 
 ### `"never"`
 
-There *must never* be whitespace before the semicolon.
+There *must never* be whitespace after the semicolon.
 
 The following patterns are considered warnings:
 
 ```css
-a { color: pink
-; }
+a { color: pink;
+}
 ```
 
 ```css
-a { 
-  color: pink
-  ; top: 0; 
+a {
+  color: pink;
+  top: 0;
 }
 ```
 
@@ -70,20 +68,20 @@ a { color: pink; }
 ```
 
 ```css
-a { 
-  color: pink; top: 0; 
+a {
+  color: pink; top: 0;
 }
 ```
 
 ### `"always-multi-line"`
 
-There *must always* be a single newline before the semicolon in multi-line rules.
+There *must always* be a single newline after the semicolon in multi-line rules.
 
 The following patterns are considered warnings:
 
 ```css
-a { 
-  color: pink; top: 0; 
+a {
+  color: pink; top: 0;
 }
 ```
 
@@ -98,22 +96,22 @@ a { color: pink; top: 0; }
 ```
 
 ```css
-a { 
-  color: pink
-  ; top: 0; 
+a {
+  color: pink;
+  top: 0;
 }
 ```
 
 ### `"never-multi-line"`
 
-There *must never* be whitespace before the semicolon in multi-line rules.
+There *must never* be whitespace after the semicolon in multi-line rules.
 
 The following patterns are considered warnings:
 
 ```css
-a { 
-  color: pink
-  ; top: 0; 
+a {
+  color: pink;
+  top: 0;
 }
 ```
 
@@ -128,8 +126,8 @@ a { color: pink; top: 0; }
 ```
 
 ```css
-a { 
-  color: pink; 
-  top: 0; 
+a {
+  color: pink
+  ; top: 0;
 }
 ```
