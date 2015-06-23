@@ -1,5 +1,7 @@
 import {
   hasBlock,
+  optionsHaveException,
+  optionsHaveIgnored,
   report,
   ruleMessages
 } from "../../utils"
@@ -13,7 +15,9 @@ export const messages = ruleMessages(ruleName, {
 
 /**
  * @param {"always"|"never"} expectation
- * @param {object} options
+ * @param {object} options - Can contain the following:
+ *   - except: ["blockless-group"]
+ *   - ignore: ["blockless-group"]
  */
 export default function (expectation, options) {
   return (root, result) => {
@@ -26,23 +30,15 @@ export default function (expectation, options) {
 
       let expectEmptyLineBefore = (expectation === "always") ? true : false
 
-      // got options?
-      if (options === Object(options)) {
+      if (options) {
 
-        if ("except" in options && options.except.indexOf("blockless-group") !== -1) {
-          if (isInBlocklessGroup(atRule)) {
-
-            // if this at-rule and the one before it are are blockless, then reverse the expectation
-            expectEmptyLineBefore = !expectEmptyLineBefore
-          }
+        // if this at-rule and the one before it are are blockless, then reverse the expectation
+        if (optionsHaveException(options, "blockless-group") && isInBlocklessGroup(atRule)) {
+          expectEmptyLineBefore = !expectEmptyLineBefore
         }
 
-        if ("ignore" in options && options.ignore.indexOf("blockless-group") !== -1) {
-          if (isInBlocklessGroup(atRule)) {
-
-            // skip this at-rule
-            return
-          }
+        if (optionsHaveIgnored(options, "blockless-group") && isInBlocklessGroup(atRule)) {
+          return
         }
       }
 
