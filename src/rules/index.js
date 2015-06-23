@@ -29,6 +29,7 @@ import functionUrlQuotes from "./function-url-quotes"
 import indentation from "./indentation"
 import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
 import mediaFeatureColonSpaceBefore from "./media-feature-colon-space-before"
+import mediaFeatureNameNoVendorPrefix from "./media-feature-name-no-vendor-prefix"
 import mediaFeatureRangeOperatorSpaceAfter from "./media-feature-range-operator-space-after"
 import mediaFeatureRangeOperatorSpaceBefore from "./media-feature-range-operator-space-before"
 import mediaQueryListCommaNewlineAfter from "./media-query-list-comma-newline-after"
@@ -106,6 +107,7 @@ export default {
   "indentation": indentation,
   "media-feature-colon-space-after": mediaFeatureColonSpaceAfter,
   "media-feature-colon-space-before": mediaFeatureColonSpaceBefore,
+  "media-feature-name-no-vendor-prefix": mediaFeatureNameNoVendorPrefix,
   "media-feature-range-operator-space-after": mediaFeatureRangeOperatorSpaceAfter,
   "media-feature-range-operator-space-before": mediaFeatureRangeOperatorSpaceBefore,
   "media-query-list-comma-newline-after": mediaQueryListCommaNewlineAfter,

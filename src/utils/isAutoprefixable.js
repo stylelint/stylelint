@@ -24,6 +24,10 @@ export default {
     })
   },
 
+  mediaFeatureName(x) {
+    return x.indexOf("device-pixel-ratio") !== -1
+  },
+
   property(x) {
     return autoprefixer.data.prefixes[prefixes.unprefixed(x)]
   },
