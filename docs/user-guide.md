@@ -16,18 +16,18 @@ Rules are:
   * The first describes what [*thing*](http://apps.workflower.fi/vocabs/css/en) the rule applies to.
   * The second describes what the rule is checking.
 
-```js
-number-leading-zero
-  ↑         ↑
+```
+"number-leading-zero"
+    ↑       ↑
 the thing   what the rule is checking
 ```
 
 * Except when the rule applies to the whole stylesheet:
 
-```js
-no-eol-whitespace
-indentation
-    ↑
+```
+"no-eol-whitespace"
+"indentation"
+     ↑
   what the rules are checking
 ```
 
