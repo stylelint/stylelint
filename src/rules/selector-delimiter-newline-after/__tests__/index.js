@@ -22,18 +22,20 @@ testRule("always", tr => {
   tr.notOk("a,\n  b {}", messages.expectedAfter())
 })
 
-testRule("never", tr => {
-  tr.ok("a {}")
-  tr.ok("a,b {}")
-  tr.ok("a,b,c {}")
-  tr.ok("a ,b {}")
-  tr.ok("a\n,b {}")
-  tr.ok("a,b[data-foo=\"tr, tr\"] {}")
+testRule("always-multi-line", tr => {
+  tr.ok("a,\nb {}")
+  tr.ok("a, b {}", "ignores single-line")
+  tr.ok("a, b {\n}", "ignores single-line selector, multi-line block")
 
-  tr.notOk("a, b {}", messages.rejectedAfter())
-  tr.notOk("a,  b {}", messages.rejectedAfter())
-  tr.notOk("a,\nb {}", messages.rejectedAfter())
-  tr.notOk("a,\tb {}", messages.rejectedAfter())
-  tr.notOk("a,b, c {}", messages.rejectedAfter())
-  tr.notOk("a,b,\n c {}", messages.rejectedAfter())
+  tr.notOk("a,\nb, c {}", messages.expectedAfterMultiLine())
+  tr.notOk("a,\nb, c {\n}", messages.expectedAfterMultiLine())
+})
+
+testRule("never-multi-line", tr => {
+  tr.ok("a\n,b {}")
+  tr.ok("a ,b {}", "ignores single-line")
+  tr.ok("a ,b {\n}", "ignores single-line selector, multi-line block")
+
+  tr.notOk("a,\nb ,c {}", messages.rejectedAfterMultiLine())
+  tr.notOk("a,\nb ,c {\n}", messages.rejectedAfterMultiLine())
 })

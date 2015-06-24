@@ -8,11 +8,13 @@ import {
 export const ruleName = "selector-delimiter-newline-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => "Expected newline after selector delimiter",
-  rejectedAfter: () => "Unexpected space after selector delimiter",
+  expectedAfter: () => `Expected newline after ","`,
+  expectedAfterMultiLine: () => `Expected newline after "," in multi-line selector`,
+  rejectedAfterMultiLine: () => `Unexpected space after "," in multi-line selector`,
 })
+
 /**
- * @param {"always"|"never"} expectation
+ * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
   const checker = whitespaceChecker("\n", expectation, messages)

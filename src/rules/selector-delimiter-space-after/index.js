@@ -8,11 +8,14 @@ import {
 export const ruleName = "selector-delimiter-space-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => "Expected single space after selector delimiter",
-  rejectedAfter: () => "Unexpected space after selector delimiter",
+  expectedAfter: () => `Expected single space after ","`,
+  rejectedAfter: () => `Unexpected space after ","`,
+  expectedAfterSingleLine: () => `Expected single space after "," in a single-line selector`,
+  rejectedAfterSingleLine: () => `Unexpected space after "," in a single-line selector`,
 })
+
 /**
- * @param {"always"|"never"} expectation
+ * @param {"always"|"never"|"always-single-line"|"never-single-line"} expectation
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
