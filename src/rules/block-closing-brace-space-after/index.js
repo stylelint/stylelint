@@ -8,7 +8,7 @@ export const ruleName = "block-closing-brace-space-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected single space after "}"`,
-  rejectedAfter: () => `Unexpected space after "}"`,
+  rejectedAfter: () => `Unexpected whitespace after "}"`,
   expectedAfterMultiLine: () => `Expected single space after "}" of a multi-line block`,
 })
 

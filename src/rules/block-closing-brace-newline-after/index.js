@@ -8,11 +8,11 @@ export const ruleName = "block-closing-brace-newline-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected newline after "}"`,
-  rejectedAfter: () => `Unexpected space after "}"`,
+  rejectedAfter: () => `Unexpected whitespace after "}"`,
   expectedAfterSingleLine: () => `Expected single space after "}" of a single-line block`,
-  rejectedAfterSingleLine: () => `Unexpected space after "}" of a single-line block`,
+  rejectedAfterSingleLine: () => `Unexpected whitespace after "}" of a single-line block`,
   expectedAfterMultiLine: () => `Expected single space after "}" of a multi-line block`,
-  rejectedAfterMultiLine: () => `Unexpected space after "}" of a multi-line block`,
+  rejectedAfterMultiLine: () => `Unexpected whitespace after "}" of a multi-line block`,
 })
 
 /**

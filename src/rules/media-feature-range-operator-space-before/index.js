@@ -10,7 +10,7 @@ export const ruleName = "media-feature-range-operator-space-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected single space before range operator`,
-  rejectedBefore: () => `Unexpected space before range operator`,
+  rejectedBefore: () => `Unexpected whitespace before range operator`,
 })
 
 /**

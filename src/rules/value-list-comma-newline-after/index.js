@@ -9,7 +9,7 @@ export const ruleName = "value-list-comma-newline-after"
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected newline after ","`,
   expectedAfterMultiLine: () => `Expected newline after "," in multi-line value`,
-  rejectedAfterMultiLine: () => `Unexpected space after "," in multi-line value`,
+  rejectedAfterMultiLine: () => `Unexpected whitespace after "," in multi-line value`,
 })
 
 /**

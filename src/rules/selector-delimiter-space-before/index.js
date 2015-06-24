@@ -9,9 +9,9 @@ export const ruleName = "selector-delimiter-space-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected single space before ","`,
-  rejectedBefore: () => `Unexpected space before ","`,
+  rejectedBefore: () => `Unexpected whitespace before ","`,
   expectedBeforeSingleLine: () => `Expected single space before "," in a single-line selector`,
-  rejectedBeforeSingleLine: () => `Unexpected space before "," in a single-line selector`,
+  rejectedBeforeSingleLine: () => `Unexpected whitespace before "," in a single-line selector`,
 })
 
 /**

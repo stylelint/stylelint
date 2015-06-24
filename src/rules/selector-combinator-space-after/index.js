@@ -8,7 +8,7 @@ export const ruleName = "selector-combinator-space-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: c => `Expected single space after "${c}" combinator `,
-  rejectedAfter: c => `Unexpected space after "${c}" combinator`,
+  rejectedAfter: c => `Unexpected whitespace after "${c}" combinator`,
 })
 
 const combinators = [ ">", "+", "~" ]
