@@ -6,7 +6,7 @@ Require or disallow an empty line before non-nested rules.
     a {}
           /* ← */
     b {}  /* ↑ */
-/**          ↑  
+/**          ↑
  *   This line */
 ```
 
@@ -58,7 +58,7 @@ a {} b {}
 ```
 
 ```css
-a {} 
+a {}
 b {}
 ```
 
@@ -69,19 +69,19 @@ There *must always* be an empty line before multi-line rules.
 The following patterns are considered warnings:
 
 ```css
-a 
-{} 
-b 
+a
+{}
+b
 {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a 
+a
 {}
 
-b 
+b
 {}
 ```
 
@@ -92,19 +92,39 @@ There *must never* be an empty line before multi-line rules.
 The following patterns are considered warnings:
 
 ```css
-a 
+a
 {}
 
-b 
+b
 {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a 
-{} 
-b 
+a
+{}
+b
 {}
 ```
 
+### `ignore: ["after-comment"]`
+
+Ignore rules that come after a comment.
+
+The following patterns are *not* considered warnings:
+
+```css
+@media {
+  /* comment */
+  a {}
+}
+```
+
+```css
+@media {
+  /* comment */
+
+  a {}
+}
+```

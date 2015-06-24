@@ -66,7 +66,7 @@ a {}
 
 ### `except: ["blockless-group"]`
 
-This will reverse the primary option for at-rules within a blockless group. 
+Reverse the primary option for at-rules within a blockless group. 
 
 For example, with `"always"`:
 

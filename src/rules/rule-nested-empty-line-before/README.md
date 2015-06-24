@@ -7,7 +7,7 @@ Require or disallow an empty line before nested rules.
            /* ← */
       a {} /* ↑ */
     }      /* ↑ */
-/**           ↑  
+/**           ↑
  *    This line */
 ```
 
@@ -26,8 +26,8 @@ The following patterns are considered warnings:
 ```
 
 ```css
-@media { 
-  a {} 
+@media {
+  a {}
 }
 ```
 
@@ -36,7 +36,7 @@ The following patterns are *not* considered warnings:
 ```css
 @media {
 
-  a {} 
+  a {}
 }
 ```
 
@@ -49,7 +49,7 @@ The following patterns are considered warnings:
 ```css
 @media {
 
-  a {} 
+  a {}
 }
 ```
 
@@ -57,7 +57,7 @@ The following patterns are considered warnings:
 @media {
 
   a {}
-  b {} 
+  b {}
 }
 ```
 
@@ -66,7 +66,7 @@ The following patterns are considered warnings:
 
   a {}
 
-  b {} 
+  b {}
 }
 ```
 
@@ -88,14 +88,14 @@ The following patterns are *not* considered warnings:
 ```
 
 ```css
-@media { 
-  a {} 
+@media {
+  a {}
 }
 ```
 
 ```css
-@media { 
-  a {} 
+@media {
+  a {}
 
   b {}
 }
@@ -122,17 +122,17 @@ The following patterns are considered warnings:
 ```
 
 ```css
-@media { 
+@media {
 
-  a {} 
+  a {}
 }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-@media { 
-  a {} 
+@media {
+  a {}
 }
 ```
 
@@ -143,11 +143,11 @@ There *must always* be an empty line before multi-line rules.
 The following patterns are considered warnings:
 
 ```css
-@media { 
+@media {
   a {
     color: pink;
     top: 0;
-  } 
+  }
 }
 ```
 
@@ -159,7 +159,7 @@ The following patterns are *not* considered warnings:
   a {
     color: pink;
     top: 0;
-  } 
+  }
 }
 ```
 
@@ -175,7 +175,7 @@ The following patterns are considered warnings:
   a {
     color: pink;
     top: 0;
-  } 
+  }
 }
 ```
 
@@ -190,7 +190,7 @@ The following patterns are considered warnings:
   b {
     color: pink;
     top: 0;
-  } 
+  }
 }
 ```
 
@@ -204,18 +204,18 @@ The following patterns are considered warnings:
   b {
     color: pink;
     top: 0;
-  } 
+  }
 }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-@media { 
+@media {
   a {
     color: pink;
     top: 0;
-  } 
+  }
 }
 ```
 
@@ -224,12 +224,12 @@ The following patterns are *not* considered warnings:
   a {
     color: pink;
     top: 0;
-  } 
+  }
 
   b {
     color: pink;
     top: 0;
-  } 
+  }
 }
 ```
 
@@ -245,7 +245,7 @@ The following patterns are considered warnings:
   a {
     color: pink;
     top: 0;
-  } 
+  }
 }
 ```
 
@@ -256,7 +256,7 @@ The following patterns are *not* considered warnings:
   a {
     color: pink;
     top: 0;
-  } 
+  }
 }
 ```
 
@@ -264,14 +264,14 @@ The following patterns are *not* considered warnings:
 
 ### `except: ["first-nested"]`
 
-This will reverse the primary option if the rule is the first in a block. 
+Reverse the primary option if the rule is the first in a block.
 
 For example, with `"always"`:
 
 The following patterns are considered warnings:
 
 ```css
-@media { 
+@media {
 
   a {}
 
@@ -285,10 +285,31 @@ The following patterns are *not* considered warnings:
 
 ```css
 @media {
-  a {} 
+  a {}
 
   b {}
 
   c {}
+}
+```
+
+### `ignore: ["after-comment"]`
+
+Ignore rules that come after a comment.
+
+The following patterns are *not* considered warnings:
+
+```css
+@media {
+  /* comment */
+  a {}
+}
+```
+
+```css
+@media {
+  /* comment */
+
+  a {}
 }
 ```
