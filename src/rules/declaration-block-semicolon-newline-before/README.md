@@ -1,6 +1,6 @@
 # declaration-block-semicolon-newline-before
 
-Require or disallow a newline before the semicolons of rules.
+Require or disallow a newline before the semicolons of declaration blocks.
 
 ```css
     a { 
@@ -17,7 +17,7 @@ Require or disallow a newline before the semicolons of rules.
 
 ### `"always"`
 
-There *must always* be a single newline before the semicolon.
+There *must always* be a single newline before the semicolons.
 
 The following patterns are considered warnings:
 
@@ -47,7 +47,7 @@ a {
 
 ### `"never"`
 
-There *must never* be whitespace before the semicolon.
+There *must never* be whitespace before the semicolons.
 
 The following patterns are considered warnings:
 
@@ -77,7 +77,7 @@ a {
 
 ### `"always-multi-line"`
 
-There *must always* be a single newline before the semicolon in multi-line rules.
+There *must always* be a single newline before the semicolons in multi-line rules.
 
 The following patterns are considered warnings:
 
@@ -106,7 +106,7 @@ a {
 
 ### `"never-multi-line"`
 
-There *must never* be whitespace before the semicolon in multi-line rules.
+There *must never* be whitespace before the semicolons in multi-line rules.
 
 The following patterns are considered warnings:
 

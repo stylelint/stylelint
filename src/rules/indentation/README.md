@@ -1,6 +1,6 @@
 # indentation
 
-Specify indentation
+Specify indentation.
 
 ```css
    |@media print {

@@ -14,7 +14,7 @@ Require or disallow a space after the commas of functions.
 
 ### `"always"`
 
-There *must always* be a single space after the comma.
+There *must always* be a single space after the commas.
 
 The following patterns are considered warnings:
 
@@ -38,7 +38,7 @@ a { transform: translate(1 , 1) }
 
 ### `"never"`
 
-There *must never* be whitespace after the comma.
+There *must never* be whitespace after the commas.
 
 The following patterns are considered warnings:
 

@@ -14,7 +14,7 @@ Require or disallow a newline before the commas of media query lists.
 
 ### `"always"`
 
-There *must always* be a single newline before the comma.
+There *must always* be a single newline before the commas.
 
 The following patterns are considered warnings:
 
@@ -42,7 +42,7 @@ projection and (color) {}
 
 ### `"never"`
 
-There *must never* be whitepace before the comma.
+There *must never* be whitepace before the commas.
 
 The following patterns are considered warnings:
 

@@ -24,8 +24,8 @@ a {
 
 ```css
 @media print {
- a { 
-   color: pink; 
+ a {
+   color: pink;
  }
 }
 ```

@@ -1,6 +1,6 @@
 # declaration-block-semicolon-space-before
 
-Require or disallow a space before the semicolons of rules.
+Require or disallow a space before the semicolons of declaration blocks.
 
 ```css
     a { color: pink; }
@@ -14,7 +14,7 @@ Require or disallow a space before the semicolons of rules.
 
 ### `"always"`
 
-There *must always* be a single space before the semicolon.
+There *must always* be a single space before the semicolons.
 
 The following patterns are considered warnings:
 
@@ -38,7 +38,7 @@ a { color: pink ; top: 0 ; }
 
 ### `"never"`
 
-There *must never* be whitespace before the semicolon.
+There *must never* be whitespace before the semicolons.
 
 The following patterns are considered warnings:
 
@@ -62,7 +62,7 @@ a { color: pink; top: 0; }
 
 ### `"always-single-line"`
 
-There *must always* be a single space before the semicolon in single-line rules.
+There *must always* be a single space before the semicolons in single-line declaration blocks.
 
 The following patterns are considered warnings:
 
@@ -86,7 +86,7 @@ a { color: pink ; top: 0 ; }
 
 ### `"never-single-line"`
 
-There *must never* be whitespace before the semicolon in single-line rules.
+There *must never* be whitespace before the semicolons in single-line declaration blocks.
 
 The following patterns are considered warnings:
 

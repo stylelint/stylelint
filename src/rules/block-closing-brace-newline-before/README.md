@@ -1,6 +1,6 @@
 # block-closing-brace-newline-before
 
-Require or disallow a newline before the closing brace blocks.
+Require or disallow a newline before the closing brace of blocks.
 
 ```css
     a { color: pink; 

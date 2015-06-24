@@ -15,7 +15,7 @@ Require or disallow a newline before the delimiters of selectors.
 
 ### `"always"`
 
-There *must always* be a single newline before the delimiter.
+There *must always* be a single newline before the delimiters.
 
 The following patterns are considered warnings:
 
@@ -42,7 +42,7 @@ a
 
 ### `"always-multi-line"`
 
-There *must always* be a single newline before the delimiter in multi-line selectors.
+There *must always* be a single newline before the delimiters in multi-line selectors.
 
 The following patterns are considered warnings:
 
@@ -70,7 +70,7 @@ b { color: pink; }
 
 ### `"never-multi-line"`
 
-There *must never* be whitespace before the delimiter in multi-line selectors.
+There *must never* be whitespace before the delimiters in multi-line selectors.
 
 The following patterns are considered warnings:
 

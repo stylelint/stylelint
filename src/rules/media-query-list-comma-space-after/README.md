@@ -14,7 +14,7 @@ Require or disallow a single space after the commas of media query lists.
 
 ### `"always"`
 
-There *must always* be a single space after the comma.
+There *must always* be a single space after the commas.
 
 The following patterns are considered warnings:
 
@@ -39,7 +39,7 @@ The following patterns are *not* considered warnings:
 
 ### `"never"`
 
-There *must never* be whitepace after the comma.
+There *must never* be whitepace after the commas.
 
 The following patterns are considered warnings:
 

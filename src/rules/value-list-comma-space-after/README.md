@@ -14,7 +14,7 @@ Require or disallow a single space after the commas of value lists.
 
 ### `"always"`
 
-There *must always* be a single space after the comma.
+There *must always* be a single space after the commas.
 
 The following patterns are considered warnings:
 
@@ -40,7 +40,7 @@ a { background-size: 0
 
 ### `"never"`
 
-There *must never* be whitespace after the comma.
+There *must never* be whitespace after the commas.
 
 The following patterns are considered warnings:
 
@@ -66,7 +66,7 @@ a { background-size: 0
 
 ### `"always-single-line"`
 
-There *must always* be a single space after the comma in single-line value lists.
+There *must always* be a single space after the commas in single-line value lists.
 
 The following patterns are considered warnings:
 
@@ -92,7 +92,7 @@ a { background-size: 0
 
 ### `"never-single-line"`
 
-There *must never* be whitespace after the comma in single-line value lists.
+There *must never* be whitespace after the commas in single-line value lists.
 
 The following patterns are considered warnings:
 

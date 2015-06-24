@@ -18,7 +18,7 @@ If the comment is the very first node in a stylesheet then it is ignored. Inline
 
 ### `"always"`
 
-There *must always* be an empty line before @rules.
+There *must always* be an empty line before comments.
 
 The following patterns are considered warnings:
 
@@ -41,7 +41,7 @@ a {}
 
 ### `"never"`
 
-There *must never* be an empty before @rules.
+There *must never* be an empty before comments.
 
 The following patterns are considered warnings:
 

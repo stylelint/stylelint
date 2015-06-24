@@ -15,7 +15,7 @@ Require or disallow a space before the delimiters of selectors.
 
 ### `"always"`
 
-There *must always* be a single space before the delimiter.
+There *must always* be a single space before the delimiters.
 
 The following patterns are considered warnings:
 
@@ -39,7 +39,7 @@ a , b { color: pink; }
 
 ### `"never"`
 
-There *must never* be whitespace before the delimiter.
+There *must never* be whitespace before the delimiters.
 
 The following patterns are considered warnings:
 
@@ -63,7 +63,7 @@ a, b { color: pink; }
 
 ### `"always-single-line"`
 
-There *must always* be a single space before the delimiter in single-line selectors.
+There *must always* be a single space before the delimiters in single-line selectors.
 
 The following patterns are considered warnings:
 
@@ -80,7 +80,7 @@ b { color: pink; }
 
 ### `"never-single-line"`
 
-There *must never* be a single space before the delimiter in single-line selectors.
+There *must never* be a single space before the delimiters in single-line selectors.
 
 The following patterns are considered warnings:
 

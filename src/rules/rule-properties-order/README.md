@@ -3,15 +3,15 @@
 Specify the order of properties within rules.
 
 ```css
-    a { 
+    a {
       color: pink;
       top: 0;
     }
-/**    ↑ 
+/**    ↑
  * These properties */
 ```
 
-Prefixed properties *must always* be alphabetically order and *must always* preceed the unprefixed property. 
+Prefixed properties *must always* be alphabetically order and *must always* preceed the unprefixed property.
 
 ## Options
 
@@ -24,7 +24,7 @@ Properties *must always* be ordered alphabetically.
 The following patterns are considered warnings:
 
 ```css
-a { 
+a {
   top: 0;
   color: pink;
 }
@@ -34,24 +34,24 @@ a {
 a {
   -moz-transform: scale(1);
   transform: scale(1);
-  -webkit-transform: scale(1); 
+  -webkit-transform: scale(1);
 }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a { 
+a {
   color: pink;
   top: 0;
 }
 ```
 
 ```css
-a { 
+a {
   -moz-transform: scale(1);
   -webkit-transform: scale(1);
-  transform: scale(1); 
+  transform: scale(1);
 }
 ```
 
@@ -70,7 +70,7 @@ The following patterns are considered warnings:
 ```css
 a {
   color: pink;
-  top: 0; 
+  top: 0;
 }
 ```
 
@@ -78,23 +78,23 @@ a {
 a {
   -moz-transform: scale(1);
   transform: scale(1);
-  -webkit-transform: scale(1); 
+  -webkit-transform: scale(1);
 }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a { 
+a {
   top: 0;
   color: pink;
 }
 ```
 
 ```css
-a { 
+a {
   -moz-transform: scale(1);
   -webkit-transform: scale(1);
-  transform: scale(1); 
+  transform: scale(1);
 }
 ```

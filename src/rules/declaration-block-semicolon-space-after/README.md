@@ -1,6 +1,6 @@
 # declaration-block-semicolon-space-after
 
-Require or disallow a space after the semicolons of rules.
+Require or disallow a space after the semicolons of declaration blocks.
 
 ```css
     a { color: pink; top: 0; }
@@ -76,7 +76,7 @@ a { color: pink;top: 0; }
 
 ### `"always-single-line"`
 
-There *must always* be a single space after the semicolon in single-line rules.
+There *must always* be a single space after the semicolon in single-line declaration blocks.
 
 The following patterns are considered warnings:
 
@@ -99,7 +99,7 @@ a {
 
 ### `"never-single-line"`
 
-There *must never* be whitespace after the semicolon in single-line rules.
+There *must never* be whitespace after the semicolon in single-line declaration blocks.
 
 The following patterns are considered warnings:
 

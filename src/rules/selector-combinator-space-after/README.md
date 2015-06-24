@@ -1,6 +1,6 @@
 # selector-combinator-space-after
 
-Require or disallow a space after the combinator of selectors.
+Require or disallow a space after the combinators of selectors.
 
 ```css
     a > b + c ~ d e { color: pink; }
@@ -16,7 +16,7 @@ Combinators are used to combine several different selectors into new and more sp
 
 ### `"always"`
 
-There *must always* be a single space after the combinator.
+There *must always* be a single space after the combinators.
 
 The following patterns are considered warnings:
 
@@ -40,7 +40,7 @@ a> b { color: pink; }
 
 ### `"never"`
 
-There *must never* be whitespace after the combinator.
+There *must never* be whitespace after the combinators.
 
 The following patterns are considered warnings:
 

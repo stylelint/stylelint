@@ -1,6 +1,6 @@
 # media-feature-range-operator-space-before
 
-Require or disallow a space before range operator in media features.
+Require or disallow a space before the range operator in media features.
 
 ```css
     @media (max-width >= 600px) {}

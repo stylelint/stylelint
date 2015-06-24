@@ -15,7 +15,7 @@ Require or disallow a single newline before the commas of value lists.
 
 ### `"always"`
 
-There *must always* be a single newline before the comma.
+There *must always* be a single newline before the commas.
 
 The following patterns are considered warnings:
 
@@ -37,7 +37,7 @@ a { background-size: 0
 
 ### `"always-multi-line"`
 
-There *must always* be a single newline before the comma in multi-line value lists.
+There *must always* be a single newline before the commas in multi-line value lists.
 
 The following patterns are considered warnings:
 
@@ -63,7 +63,7 @@ a { background-size: 0
 
 ### `"never-multi-line"`
 
-There *must never* be whitespace before the comma in multi-line value lists.
+There *must never* be whitespace before the commas in multi-line value lists.
 
 The following patterns are considered warnings:
 
