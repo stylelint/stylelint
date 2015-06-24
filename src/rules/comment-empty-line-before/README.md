@@ -6,11 +6,11 @@ Require or disallow an empty line before comments.
     a {}
                   /* ← */
     /* comment */ /* ↑ */
-/**                  ↑  
+/**                  ↑
  *           This line */
 ```
 
-If the comment is the very first node in a stylesheet then it is ignored. Inline comments are also ignored. 
+If the comment is the very first node in a stylesheet then it is ignored. Inline comments are also ignored.
 
 ## Options
 
@@ -58,6 +58,6 @@ a {} /* comment */
 ```
 
 ```css
-a {} 
+a {}
 /* comment */
 ```
