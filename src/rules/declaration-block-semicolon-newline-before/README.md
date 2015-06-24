@@ -1,6 +1,6 @@
 # declaration-block-semicolon-newline-before
 
-Require or disallow a newline before the semicolons of declaration blocks.
+Require a single newline or disallow whitespace before the semicolons of declaration blocks.
 
 ```css
     a {

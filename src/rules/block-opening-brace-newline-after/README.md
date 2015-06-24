@@ -1,6 +1,6 @@
 # block-opening-brace-newline-after
 
-Require or disallow a newline after the opening brace of blocks.
+Require a single newline or disallow whitespace after the opening brace of blocks.
 
 ```css
     a {

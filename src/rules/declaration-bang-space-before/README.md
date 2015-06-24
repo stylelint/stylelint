@@ -1,6 +1,6 @@
 # declaration-bang-space-before
 
-Require or disallow a space before the bang of declarations.
+Require a single space or disallow whitespace before the bang of declarations.
 
 ```css
     a { color: pink !important; }

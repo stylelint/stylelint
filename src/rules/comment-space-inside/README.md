@@ -1,6 +1,6 @@
 # comment-space-inside
 
-Require or disallow a single space on the inside of comment markers.
+Require a single space or disallow whitespace on the inside of comment markers.
 
 ```css
     /* comment */

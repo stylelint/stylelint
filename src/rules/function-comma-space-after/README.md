@@ -1,6 +1,6 @@
 # function-comma-space-after
 
-Require or disallow a space after the commas of functions.
+Require a single space or disallow whitespace after the commas of functions.
 
 ```css
     a { transform: translate(1, 1) }

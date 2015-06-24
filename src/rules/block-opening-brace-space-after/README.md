@@ -1,6 +1,6 @@
 # block-opening-brace-space-after
 
-Require or disallow a space after the opening brace of blocks.
+Require a single space or disallow whitespace after the opening brace of blocks.
 
 ```css
     a { color: pink; }

@@ -1,6 +1,6 @@
 # media-query-list-comma-newline-before
 
-Require or disallow a newline before the commas of media query lists.
+Require a single newline or disallow whitespace before the commas of media query lists.
 
 ```css
     @media screen and (color), projection and (color) {}

@@ -1,6 +1,6 @@
 # media-feature-colon-space-before
 
-Require or disallow a space before the colon in media features.
+Require a single space or disallow whitespace before the colon in media features.
 
 ```css
     @media (max-width :600px) {}

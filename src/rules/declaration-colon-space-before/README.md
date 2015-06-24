@@ -1,6 +1,6 @@
 # declaration-colon-space-before
 
-Require or disallow a space before the colon of declarations.
+Require a single space or disallow whitespace before the colon of declarations.
 
 ```css
     a { color: pink }

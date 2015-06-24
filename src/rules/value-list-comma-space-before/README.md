@@ -1,6 +1,6 @@
 # value-list-comma-space-before
 
-Require or disallow a single space before the commas of value lists.
+Require a single space or disallow whitespace before the commas of value lists.
 
 ```css
     a { background-size: 0, 0; }

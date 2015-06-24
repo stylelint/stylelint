@@ -1,6 +1,6 @@
 # declaration-block-semicolon-space-before
 
-Require or disallow a space before the semicolons of declaration blocks.
+Require a single space or disallow whitespace before the semicolons of declaration blocks.
 
 ```css
     a { color: pink; }

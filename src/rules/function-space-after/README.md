@@ -1,6 +1,6 @@
 # function-space-after
 
-Require or disallow a space after functions.
+Require a single space or disallow whitespace after functions.
 
 ```css
     a { transform: translate(1, 1) scale(3); }

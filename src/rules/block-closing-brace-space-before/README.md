@@ -1,6 +1,6 @@
 # block-closing-brace-space-before
 
-Require or disallow a space before the closing brace of blocks.
+Require a single space or disallow whitespace before the closing brace of blocks.
 
 ```css
     a { color: pink; }
