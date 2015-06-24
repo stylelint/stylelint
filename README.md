@@ -52,7 +52,7 @@ var css = fs.readFileSync("input.css", "utf8")
 
 #### Configuring rules
 
-[Rules](docs/rules.md) are configured within the `rules` key of the config. Each rule can be turned off or on: 
+[Rules](docs/rules.md) are configured within the `rules` key of the config. Each rule can be turned off or on:
 
 * 0 - turn the rule off
 * 2 - turn the rule on
@@ -71,10 +71,8 @@ Some rules require options. There are no default values, so each rule that requi
 ```js
 {
   "rules": {
-    "indentation": [2, {
-      space: 2,
-      block: "always",
-      value: "always",
+    "indentation": [2, "tab", {
+      except: ["value"],
     }],
     "declaration-colon-space-before": [2, "never"],
     "number-leading-zero": [2, "always"],
