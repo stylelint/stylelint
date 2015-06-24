@@ -35,6 +35,13 @@ testRule("always", { except: ["first-nested"] }, tr => {
   tr.notOk("@media {\n  b {}\n  a {}\n\n}", messages.expected)
 })
 
+testRule("always", { ignore: ["after-comment"] }, tr => {
+  tr.ok("@media {\n  /* foo */\n  a {}\n}")
+  tr.ok("@media {\n  /* foo */\n\n  a {}\n}")
+
+  tr.notOk("@media {\n\n  a{}\n  b {}\n\n}", messages.expected)
+})
+
 testRule("never", tr => {
   tr.ok("")
   tr.ok("a {} b {}", "non-nested node ignored")
@@ -50,6 +57,13 @@ testRule("never", tr => {
   tr.notOk("@media {\ta {}\n\n\tb{}\n}", messages.rejected)
   tr.notOk("@media {\n\n\ta {}}", messages.rejected)
   tr.notOk("@media {\na {}\n/* comment */\n\nb {}}", messages.rejected)
+})
+
+testRule("never", { ignore: ["after-comment"] }, tr => {
+  tr.ok("@media {\n  /* foo */\n  a {}\n}")
+  tr.ok("@media {\n  /* foo */\n\n  a {}\n}")
+
+  tr.notOk("@media {\n  a{}\n\n  b {}\n}", messages.rejected)
 })
 
 testRule("always-multi-line", tr => {

@@ -16,6 +16,13 @@ testRule("always", tr => {
   tr.notOk("b {}\n\n/* comment here*/\na {}", messages.expected)
 })
 
+testRule("always", { ignore: ["after-comment"] }, tr => {
+  tr.ok("/* foo */\na {}")
+  tr.ok("/* foo */\n\na {}")
+
+  tr.notOk("b {} a {}", messages.expected)
+})
+
 testRule("never", tr => {
   tr.ok("")
   tr.ok("\n\na {}", "first node ignored")
@@ -27,6 +34,13 @@ testRule("never", tr => {
   tr.notOk("b {}\n\na {}", messages.rejected)
   tr.notOk("b {}\t\n\n\ta {}", messages.rejected)
   tr.notOk("b {}\n\n/* comment here*/\n\na {}", messages.rejected)
+})
+
+testRule("never", { ignore: ["after-comment"] }, tr => {
+  tr.ok("/* foo */\na {}")
+  tr.ok("/* foo */\n\na {}")
+
+  tr.notOk("b {}\n\na {}", messages.rejected)
 })
 
 testRule("always-multi-line", tr => {

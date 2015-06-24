@@ -1,6 +1,7 @@
 import {
   isSingleLineString,
   optionsHaveException,
+  optionsHaveIgnored,
   report,
   ruleMessages
 } from "../../utils"
@@ -34,19 +35,23 @@ export function checkRuleEmptyLineBefore(rule, expectation, options, result, msg
 
   let expectEmptyLineBefore = (expectation.indexOf("always") !== -1) ? true : false
 
-  // return if our exceptation if for multiple and the rule is single-line
-  if (expectation.indexOf("multi-line") !== -1
-      && isSingleLineString(rule.toString())) { return }
+  // Optionally ignore the expectation if a comment precedes this node
+  if (optionsHaveIgnored(options, "after-comment")
+    && rule.prev() && rule.prev().type === "comment") { return }
 
-  // reverse the expectation for first nested node?
-  if (options && optionsHaveException(options, "first-nested")
+  // Ignore if our exceptation is for multiple and the rule is single-line
+  if (expectation.indexOf("multi-line") !== -1
+    && isSingleLineString(rule.toString())) { return }
+
+  // Optionally reverse the expectation for the first nested node
+  if (optionsHaveException(options, "first-nested")
     && rule === rule.parent.first) {
     expectEmptyLineBefore = !expectEmptyLineBefore
   }
 
   const emptyLineBefore = rule.before.indexOf("\n\n") !== -1
 
-  // return if our expectation is met
+  // Return if our expectation is met
   if (expectEmptyLineBefore === emptyLineBefore) { return }
 
   const message = expectEmptyLineBefore ? msgs.expected : msgs.rejected
