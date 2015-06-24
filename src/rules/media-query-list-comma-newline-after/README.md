@@ -4,7 +4,7 @@ Require or disallow a newline after the commas of media query lists.
 
 ```css
     @media screen and (color), projection and (color) {}
-/**                          ↑  
+/**                          ↑
  *                These commas */
 ```
 

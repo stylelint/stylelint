@@ -4,7 +4,7 @@ Require or disallow a space before the semicolons of declaration blocks.
 
 ```css
     a { color: pink; }
-/**                ↑  
+/**                ↑
  * The space before this semicolon */
 ```
 

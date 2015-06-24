@@ -4,7 +4,7 @@ Require or disallow a space after the commas of functions.
 
 ```css
     a { transform: translate(1, 1) }
-/**                           ↑  
+/**                           ↑
  * The space after these commas */
 ```
 

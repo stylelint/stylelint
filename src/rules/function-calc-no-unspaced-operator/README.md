@@ -4,7 +4,7 @@ Disallow an unspaced operator within `calc` functions.
 
 ```css
     a { top: calc(1px + 2px); }
-/**                   ↑ 
+/**                   ↑
  * The space around this operator */
 ```
 

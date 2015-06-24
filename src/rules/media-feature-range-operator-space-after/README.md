@@ -4,7 +4,7 @@ Require or disallow a space after the range operator in media features.
 
 ```css
     @media (max-width >= 600px) {}
-/**                    ↑  
+/**                    ↑
  * The space after this */
 ```
 

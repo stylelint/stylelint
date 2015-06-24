@@ -7,7 +7,7 @@ Require or disallow a newline after the semicolons of declaration blocks.
       color: pink;
       top: 0;    ↑
     }            ↑
-/**              ↑  
+/**              ↑
  * The newline after this semicolon */
 ```
 

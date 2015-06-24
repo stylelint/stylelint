@@ -4,7 +4,7 @@ Disallow vendor prefixes for selectors.
 
 ```css
     input::-moz-placeholder {}
-/**          ↑ 
+/**          ↑
  * These prefixes */
 ```
 

@@ -4,7 +4,7 @@ Disallow `!important` within declarations.
 
 ```css
     a { color: pink !important; }
-/**                      ↑ 
+/**                      ↑
  *         This !important */
 ```
 

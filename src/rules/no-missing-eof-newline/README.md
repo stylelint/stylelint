@@ -5,7 +5,7 @@ Disallow missing end-of-file newline.
 ```css
     a { color: pink; }
 \n
-/** ↑ 
+/** ↑
  *  This newline */
 ```
 

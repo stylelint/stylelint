@@ -5,7 +5,7 @@ Require or disallow a newline after the opening brace of blocks.
 ```css
     a {
       ↑ color: pink; }
-/**   ↑  
+/**   ↑
  * The newline after this brace */
 ```
 

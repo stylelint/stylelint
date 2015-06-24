@@ -4,7 +4,7 @@ Disallow a space between function tokens and their parameters.
 
 ```css
     a { transform: translate (1, 1); }
-/**                         ↑ 
+/**                         ↑
  *                 This space */
 ```
 

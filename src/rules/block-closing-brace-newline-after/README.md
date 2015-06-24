@@ -5,7 +5,7 @@ Require or disallow a newline after the closing brace of blocks.
 ```css
     a { color: pink; }
     b { color: red; }↑
-/**                  ↑  
+/**                  ↑
  * The newline after this brace */
 ```
 
@@ -31,7 +31,7 @@ a { color: pink;
 The following patterns are *not* considered warnings:
 
 ```css
-a { color: pink; } 
+a { color: pink; }
 b { color: red; }
 ```
 

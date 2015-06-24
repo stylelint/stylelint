@@ -4,7 +4,7 @@ Disallow vendor prefixes for properties.
 
 ```css
     a { -webkit-transform: scale(1); }
-/**         ↑ 
+/**         ↑
  * These prefixes */
 ```
 
@@ -25,6 +25,6 @@ a { transform: scale(1); }
 ```
 
 ```css
-a { 
+a {
 columns: 2; }
 ```

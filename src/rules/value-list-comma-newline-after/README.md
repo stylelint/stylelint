@@ -3,9 +3,9 @@
 Require or disallow a single newline after the commas of value lists.
 
 ```css
-    a { background-size: 0, 
+    a { background-size: 0,
           0; }            ↑
-/**                       ↑  
+/**                       ↑
  * The newline after these commas */
 ```
 
@@ -68,7 +68,7 @@ There *must never* be whitespace after the commas in multi-line value lists.
 The following patterns are considered warnings:
 
 ```css
-a { background-size: 0 
+a { background-size: 0
       , 0; }
 ```
 

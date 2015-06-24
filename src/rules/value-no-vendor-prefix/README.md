@@ -4,7 +4,7 @@ Disallow vendor prefixes for values.
 
 ```css
     .foo { display: -webkit-flex; }
-/**                     ↑ 
+/**                     ↑
  *         These prefixes */
 ```
 

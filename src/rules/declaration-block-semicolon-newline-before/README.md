@@ -3,11 +3,11 @@
 Require or disallow a newline before the semicolons of declaration blocks.
 
 ```css
-    a { 
-      color: pink 
+    a {
+      color: pink
       ; top: 0;
     } ↑
-/**   ↑  
+/**   ↑
  * The newline before this semicolon */
 ```
 
@@ -26,8 +26,8 @@ a { color: pink; }
 ```
 
 ```css
-a { 
-  color: pink; top: 0; 
+a {
+  color: pink; top: 0;
 }
 ```
 
@@ -39,9 +39,9 @@ a { color: pink
 ```
 
 ```css
-a { 
+a {
   color: pink
-  ; top: 0; 
+  ; top: 0;
 }
 ```
 
@@ -57,9 +57,9 @@ a { color: pink
 ```
 
 ```css
-a { 
+a {
   color: pink
-  ; top: 0; 
+  ; top: 0;
 }
 ```
 
@@ -70,8 +70,8 @@ a { color: pink; }
 ```
 
 ```css
-a { 
-  color: pink; top: 0; 
+a {
+  color: pink; top: 0;
 }
 ```
 
@@ -82,8 +82,8 @@ There *must always* be a single newline before the semicolons in multi-line rule
 The following patterns are considered warnings:
 
 ```css
-a { 
-  color: pink; top: 0; 
+a {
+  color: pink; top: 0;
 }
 ```
 
@@ -98,9 +98,9 @@ a { color: pink; top: 0; }
 ```
 
 ```css
-a { 
+a {
   color: pink
-  ; top: 0; 
+  ; top: 0;
 }
 ```
 
@@ -111,9 +111,9 @@ There *must never* be whitespace before the semicolons in multi-line rules.
 The following patterns are considered warnings:
 
 ```css
-a { 
+a {
   color: pink
-  ; top: 0; 
+  ; top: 0;
 }
 ```
 
@@ -128,8 +128,8 @@ a { color: pink; top: 0; }
 ```
 
 ```css
-a { 
-  color: pink; 
-  top: 0; 
+a {
+  color: pink;
+  top: 0;
 }
 ```

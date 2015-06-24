@@ -3,9 +3,9 @@
 Require or disallow a newline before the opening brace of blocks.
 
 ```css
-    a 
+    a
       { color: pink; }
-/**   ↑  
+/**   ↑
  * The newline before this brace */
 ```
 
@@ -45,7 +45,7 @@ a { color: pink; }
 ```
 
 ```css
-a 
+a
 {color: pink;}
 ```
 

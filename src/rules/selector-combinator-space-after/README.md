@@ -4,7 +4,7 @@ Require or disallow a space after the combinators of selectors.
 
 ```css
     a > b + c ~ d e { color: pink; }
-/**   ↑   ↑   ↑  ↑ 
+/**   ↑   ↑   ↑  ↑
  * These are combinators */
 ```
 

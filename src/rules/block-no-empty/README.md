@@ -4,7 +4,7 @@ Disallow empty blocks.
 
 ```css
     a { }
-/**    ↑ 
+/**    ↑
  *  Blocks like this */
 ```
 

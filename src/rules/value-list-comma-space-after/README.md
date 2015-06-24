@@ -4,7 +4,7 @@ Require or disallow a single space after the commas of value lists.
 
 ```css
     a { background-size: 0, 0; }
-/**                       ↑  
+/**                       ↑
  * The space after these commas */
 ```
 
@@ -34,7 +34,7 @@ a { background-size: 0, 0; }
 ```
 
 ```css
-a { background-size: 0 
+a { background-size: 0
       , 0; }
 ```
 
@@ -112,6 +112,6 @@ a { background-size: 0
 ```
 
 ```css
-a { background-size: 0 
+a { background-size: 0
       , 0; }
 ```

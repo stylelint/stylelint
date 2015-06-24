@@ -4,7 +4,7 @@ Require or disallow a space before the closing brace of blocks.
 
 ```css
     a { color: pink; }
-/**                  ↑  
+/**                  ↑
  * The space before this brace */
 ```
 
