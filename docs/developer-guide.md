@@ -1,6 +1,6 @@
 # Developer guide
 
-Have a look at the [user guide](user-guide.md) to familiarize yourself with things like the rule naming conventions.
+Have a look at the [user guide](../docs/user-guide.md) to familiarize yourself with things like the rule naming conventions.
 
 ## Running tests
 
