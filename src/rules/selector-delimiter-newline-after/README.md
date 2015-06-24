@@ -3,15 +3,15 @@
 Require or disallow a newline after the delimiters of selectors.
 
 ```css
-    a, 
+    a,
     b↑{ color: pink; }
-/**  ↑  
+/**  ↑
  * The newline after this delimiter */
 ```
 
 ## Options
 
-`string`: `"always"|"never"`
+`string`: `"always"|"always-multi-line"|"never-multi-line"`
 
 ### `"always"`
 
@@ -31,7 +31,7 @@ a
 The following patterns are *not* considered warnings:
 
 ```css
-a, 
+a,
 b { color: pink; }
 ```
 
@@ -41,11 +41,22 @@ a
 b { color: pink; }
 ```
 
-### `"never"`
+### `"always-multi-line"`
 
-There *must never* be whitepace after the delimiter.
+There *must always* be a single newline after the delimiter in multi-line selectors.
 
 The following patterns are considered warnings:
+
+```css
+a
+, b { color: pink; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a, b { color: pink; }
+```
 
 ```css
 a,
@@ -54,7 +65,23 @@ b { color: pink; }
 
 ```css
 a
-, 
+,
+b { color: pink; }
+```
+
+### `"never-multi-line"`
+
+There *must never* be whitespace after the delimiter in multi-line selectors.
+
+The following patterns are considered warnings:
+
+```css
+a
+, b { color: pink; }
+```
+
+```css
+a,
 b { color: pink; }
 ```
 

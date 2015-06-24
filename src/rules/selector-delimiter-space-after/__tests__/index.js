@@ -34,3 +34,19 @@ testRule("never", tr => {
   tr.notOk("a,b, c {}", messages.rejectedAfter())
   tr.notOk("a,b,  c {}", messages.rejectedAfter())
 })
+
+testRule("always-single-line", tr => {
+  tr.ok("a, b {}")
+  tr.ok("a, b {\n}", "single-line selector, multi-line block")
+
+  tr.notOk("a,b {}", messages.expectedAfterSingleLine())
+  tr.notOk("a,b {\n}", messages.expectedAfterSingleLine())
+})
+
+testRule("never-single-line", tr => {
+  tr.ok("a,b {}")
+  tr.ok("a,b {\n}", "single-line selector, multi-line block")
+
+  tr.notOk("a, b {}", messages.rejectedAfterSingleLine())
+  tr.notOk("a, b {\n}", messages.rejectedAfterSingleLine())
+})

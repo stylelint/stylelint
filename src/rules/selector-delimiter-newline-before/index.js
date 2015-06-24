@@ -8,11 +8,13 @@ import { selectorDelimiterSpaceChecker } from "../selector-delimiter-space-after
 export const ruleName = "selector-delimiter-newline-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => "Expected newline before selector delimiter",
-  rejectedBefore: () => "Unexpected space before selector delimiter",
+  expectedBefore: () => `Expected newline before ","`,
+  expectedBeforeMultiLine: () => `Expected newline before "," in multi-line selector`,
+  rejectedBeforeMultiLine: () => `Unexpected space before "," in multi-line selector`,
 })
+
 /**
- * @param {"always"|"never"} expectation
+ * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
   const checker = whitespaceChecker("\n", expectation, messages)
