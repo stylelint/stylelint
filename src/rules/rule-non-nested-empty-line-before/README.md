@@ -108,6 +108,8 @@ b
 {}
 ```
 
+## Optional options
+
 ### `ignore: ["after-comment"]`
 
 Ignore rules that come after a comment.

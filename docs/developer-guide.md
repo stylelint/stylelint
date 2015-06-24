@@ -46,3 +46,4 @@ Each rule must be accompanied by a README.md, which takes the form of:
 5. Options (if applicable).
 6. Example patterns that are considered warnings (for each option value).
 7. Example patterns that are *not* considered warnings (for each option value).
+5. Optional options (if applicable).

@@ -6,7 +6,7 @@ Require or disallow an empty line before @rules.
     a {}
               /* ← */
     @media {} /* ↑ */
-/**              ↑  
+/**              ↑
  *       This line */
 ```
 
@@ -58,7 +58,7 @@ a {} @media {}
 ```
 
 ```css
-a {} 
+a {}
 @media {}
 ```
 
@@ -66,7 +66,7 @@ a {}
 
 ### `except: ["blockless-group"]`
 
-Reverse the primary option for at-rules within a blockless group. 
+Reverse the primary option for at-rules within a blockless group.
 
 For example, with `"always"`:
 

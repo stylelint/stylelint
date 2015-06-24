@@ -27,7 +27,7 @@ export default function (expectation) {
 
       const emptyLineBefore = comment.before.indexOf("\n\n") !== -1
 
-      // return if our expectation is met
+      // Return if the exceptation is met
       if (expectEmptyLineBefore === emptyLineBefore) { return }
 
       const message = expectEmptyLineBefore ? messages.expected : messages.rejected

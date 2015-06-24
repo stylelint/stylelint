@@ -30,15 +30,15 @@ export default function (expectation, options) {
 
       const previousNode = atRule.prev()
 
-      // if this at-rule and the one before it are are blockless, then reverse the expectation
-      if (options && optionsHaveException(options, "blockless-group")
+      // Optionally reverse the expectation if in a blockless group
+      if (optionsHaveException(options, "blockless-group")
         && previousNode && previousNode.type === "atrule"
         && !hasBlock(previousNode)
         && !hasBlock(atRule)) {
         expectEmptyLineBefore = !expectEmptyLineBefore
       }
 
-      // return if our expectation is met for this at-rule
+      // Return if the exceptation is met
       if (expectEmptyLineBefore === emptyLineBefore) { return }
 
       const message = expectEmptyLineBefore ? messages.expected : messages.rejected

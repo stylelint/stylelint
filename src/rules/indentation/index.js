@@ -47,7 +47,7 @@ export default function (space, options) {
       // unless option.block is "never", in which case
       // everything is taken down a level (all blocks
       // are level 0)
-      if (options && optionsHaveException(options, "block") && nodeLevel > 0) {
+      if (optionsHaveException(options, "block") && nodeLevel > 0) {
         nodeLevel--
       }
 
@@ -104,7 +104,7 @@ export default function (space, options) {
       const value = node.value
       if (value.indexOf("\n") === -1) { return }
 
-      const valueLevel = (options && optionsHaveException(options, "value"))
+      const valueLevel = (optionsHaveException(options, "value"))
         ? declLevel
         : declLevel + 1
       const postNewlineExpected = repeat(indentChar, valueLevel)
