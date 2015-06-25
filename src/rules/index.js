@@ -28,7 +28,6 @@ import functionCommaSpaceAfter from "./function-comma-space-after"
 import functionCommaSpaceBefore from "./function-comma-space-before"
 import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
 import functionSpaceAfter from "./function-space-after"
-import functionTokenNoSpace from "./function-token-no-space"
 import functionUrlQuotes from "./function-url-quotes"
 import indentation from "./indentation"
 import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
@@ -107,7 +106,6 @@ export default {
   "function-comma-space-before": functionCommaSpaceBefore,
   "function-parentheses-space-inside": functionParenthesesSpaceInside,
   "function-space-after": functionSpaceAfter,
-  "function-token-no-space": functionTokenNoSpace,
   "function-url-quotes": functionUrlQuotes,
   "indentation": indentation,
   "media-feature-colon-space-after": mediaFeatureColonSpaceAfter,

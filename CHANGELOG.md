@@ -27,7 +27,6 @@
 * Added `function-comma-space-before` rule.
 * Added `function-parentheses-space-inside` rule.
 * Added `function-space-after` rule.
-* Added `function-token-no-space` rule.
 * Added `function-url-quotes` rule.
 * Added `indentation` rule.
 * Added `media-feature-colon-space-after` rule.
@@ -73,4 +72,3 @@
 * Added `value-list-comma-space-after` rule.
 * Added `value-list-comma-space-before` rule.
 * Added `value-no-vendor-prefix` rule.
-
