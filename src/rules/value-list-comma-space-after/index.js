@@ -9,9 +9,9 @@ export const ruleName = "value-list-comma-space-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected single space after ","`,
-  rejectedAfter: () => `Unexpected space after ","`,
+  rejectedAfter: () => `Unexpected whitespace after ","`,
   expectedAfterSingleLine: () => `Expected single space after "," in a single-line value`,
-  rejectedAfterSingleLine: () => `Unexpected space after "," in a single-line value`,
+  rejectedAfterSingleLine: () => `Unexpected whitespace after "," in a single-line value`,
 })
 
 /**

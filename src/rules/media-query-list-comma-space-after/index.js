@@ -9,7 +9,7 @@ export const ruleName = "media-query-list-comma-space-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected single space after ","`,
-  rejectedAfter: () => `Unexpected space after ","`,
+  rejectedAfter: () => `Unexpected whitespace after ","`,
 })
 
 /**

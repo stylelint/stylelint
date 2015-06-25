@@ -9,7 +9,7 @@ export const ruleName = "selector-combinator-space-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: c => `Expected single space before "${c}" combinator`,
-  rejectedBefore: c => `Unexpected space before "${c}" combinator`,
+  rejectedBefore: c => `Unexpected whitespace before "${c}" combinator`,
 })
 
 /**

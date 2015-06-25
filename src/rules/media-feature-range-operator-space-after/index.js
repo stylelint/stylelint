@@ -8,7 +8,7 @@ export const ruleName = "media-feature-range-operator-space-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected single space after range operator`,
-  rejectedAfter: () => `Unexpected space after range operator`,
+  rejectedAfter: () => `Unexpected whitespace after range operator`,
 })
 
 const rangeOperatorRegex = /[^><](>=?|<=?|=)/g

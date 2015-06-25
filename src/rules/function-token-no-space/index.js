@@ -8,7 +8,7 @@ import {
 export const ruleName = "function-token-no-space"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: `Unexpected space between function name and "("`,
+  rejected: `Unexpected whitespace between function name and "("`,
 })
 
 export default function () {

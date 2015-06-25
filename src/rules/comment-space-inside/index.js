@@ -7,9 +7,9 @@ export const ruleName = "comment-space-inside"
 
 export const messages = ruleMessages(ruleName, {
   expectedOpening: `Expected single space after "/*`,
-  rejectedOpening: `Unexpected space after "/*`,
+  rejectedOpening: `Unexpected whitespace after "/*`,
   expectedClosing: `Expected single space before "*/"`,
-  rejectedClosing: `Unexpected space before "*/"`,
+  rejectedClosing: `Unexpected whitespace before "*/"`,
 })
 
 /**

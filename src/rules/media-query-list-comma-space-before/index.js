@@ -8,7 +8,7 @@ export const ruleName = "media-query-list-comma-space-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected single space before ","`,
-  rejectedBefore: () => `Unexpected space before ","`,
+  rejectedBefore: () => `Unexpected whitespace before ","`,
 })
 
 /**

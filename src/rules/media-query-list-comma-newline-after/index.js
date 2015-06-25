@@ -8,7 +8,7 @@ export const ruleName = "media-query-list-comma-newline-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected newline after ","`,
-  rejectedAfter: () => `Unexpected space after ","`,
+  rejectedAfter: () => `Unexpected whitespace after ","`,
 })
 
 /**

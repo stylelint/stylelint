@@ -10,9 +10,9 @@ export const ruleName = "block-opening-brace-newline-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected newline after "{"`,
-  rejectedAfter: () => `Unexpected space after "{"`,
+  rejectedAfter: () => `Unexpected whitespace after "{"`,
   expectedAfterMultiLine: () => `Expected newline after "{" of a multi-line block`,
-  rejectedAfterMultiLine: () => `Unexpected space after "{" of a multi-line block`,
+  rejectedAfterMultiLine: () => `Unexpected whitespace after "{" of a multi-line block`,
 })
 
 /**

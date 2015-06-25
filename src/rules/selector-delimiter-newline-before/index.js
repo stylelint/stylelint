@@ -10,7 +10,7 @@ export const ruleName = "selector-delimiter-newline-before"
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected newline before ","`,
   expectedBeforeMultiLine: () => `Expected newline before "," in multi-line selector`,
-  rejectedBeforeMultiLine: () => `Unexpected space before "," in multi-line selector`,
+  rejectedBeforeMultiLine: () => `Unexpected whitespace before "," in multi-line selector`,
 })
 
 /**
