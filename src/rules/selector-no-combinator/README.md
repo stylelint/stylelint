@@ -1,6 +1,6 @@
 # selector-no-combinator
 
-Disallow combinators.
+Disallow combinators in selectors.
 
 ```css
     a > b + c ~ d e { color: pink; }
