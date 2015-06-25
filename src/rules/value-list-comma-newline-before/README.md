@@ -1,6 +1,6 @@
 # value-list-comma-newline-before
 
-Require or disallow a single newline before the commas of value lists.
+Require a single newline or disallow whitespace before the commas of value lists.
 
 ```css
     a { background-size: 0

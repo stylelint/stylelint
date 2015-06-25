@@ -50,6 +50,7 @@
 * [`number-zero-length-no-unit`](../src/rules/number-zero-length-no-unit/README.md): Disallow units for zero lengths.
 * [`property-blacklist`](../src/rules/property-blacklist/README.md): Specify a blacklist of disallowed properties.
 * [`property-no-vendor-prefix`](../src/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties.
+* [`property-whitelist`](../src/rules/property-whitelist/README.md): Specify a whitelist of allowed properties.
 * [`root-no-standard-properties`](../src/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` selectors.
 * [`rule-nested-empty-line-before`](../src/rules/rule-nested-empty-line-before/README.md): Require or disallow an empty line before nested rules.
 * [`rule-no-duplicate-properties`](../src/rules/rule-no-duplicate-properties/README.md): Disallow duplicate properties within rules.
@@ -70,8 +71,8 @@
 * [`selector-pseudo-element-colon-notation`](../src/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
 * [`selector-root-no-composition`](../src/rules/selector-root-no-composition/README.md): Disallow the composition of`:root` selectors.
 * [`string-quotes`](../src/rules/string-quotes/README.md): Specify single or double quotes around strings.
-* [`value-list-comma-newline-after`](../src/rules/value-list-comma-newline-after/README.md): Require or disallow a single newline after the commas of value lists.
-* [`value-list-comma-newline-before`](../src/rules/value-list-comma-newline-before/README.md): Require or disallow a single newline before the commas of value lists.
+* [`value-list-comma-newline-after`](../src/rules/value-list-comma-newline-after/README.md): Require a single newline or disallow whitespace after the commas of value lists.
+* [`value-list-comma-newline-before`](../src/rules/value-list-comma-newline-before/README.md): Require a single newline or disallow whitespace before the commas of value lists.
 * [`value-list-comma-space-after`](../src/rules/value-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of value lists.
 * [`value-list-comma-space-before`](../src/rules/value-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of value lists.
 * [`value-no-vendor-prefix`](../src/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values.
