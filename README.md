@@ -18,13 +18,13 @@ For now you must use the linter as a [PostCSS](https://github.com/postcss/postcs
 gulp.task("css", function () {
   var postcss = require("gulp-postcss")
   var stylelint = require("stylelint")
-  var logWarnings = require("postcss-log-warnings")
+  var reporter = require("postcss-reporter")
   return gulp.src("src/**/*.css")
     .pipe(postcss([
       stylelint({
         // config
       }),
-      logWarnings()
+      reporter()
     ]))
 })
 ```
@@ -35,7 +35,7 @@ Or you can use the node API:
 var fs = require("fs")
 var postcss = require("postcss")
 var stylelint = require("stylelint")
-var logWarnings = require("postcss-log-warnings")
+var reporter = require("postcss-reporter")
 
 // css to be processed
 var css = fs.readFileSync("input.css", "utf8")
@@ -44,7 +44,7 @@ var css = fs.readFileSync("input.css", "utf8")
     stylelint({
       // config
     }),
-    logWarnings(),
+    reporter(),
    ])
   .process(css, { from: file })
   .then()
