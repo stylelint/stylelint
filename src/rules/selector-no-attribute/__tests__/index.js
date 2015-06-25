@@ -12,4 +12,5 @@ testRule(null, tr => {
   tr.notOk("a[rel=\"external\"] {}", messages.rejected)
   tr.notOk("a, .foo[type=\"text\"] {}", messages.rejected)
   tr.notOk("a > [foo] {}", messages.rejected)
+  tr.notOk("a[rel='external'] {}", messages.rejected)
 })
