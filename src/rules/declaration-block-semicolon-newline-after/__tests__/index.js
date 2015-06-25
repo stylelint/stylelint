@@ -15,6 +15,7 @@ testRule("always", tr => {
   tr.ok("a { color: pink;\ntop: 0}")
   tr.ok("a {\n  color: pink; /* 1 */\n  top: 0\n}", "end-of-line comment")
   tr.ok("a {\n  color: pink;\n  /* 1 */\n  top: 0\n}", "next-line comment")
+  tr.ok("a,\nb { color: pink;\ntop: 0}", "multi-line rule, multi-line declaration-block")
 
   tr.notOk("a { color: pink;top: 0; }", messages.expectedAfter())
   tr.notOk("a { color: pink; top: 0; }", messages.expectedAfter())
@@ -32,19 +33,6 @@ testRule("always", tr => {
   )
 })
 
-testRule("never", tr => {
-  tr.ok("a {}")
-  tr.ok("a { color: pink; }")
-  tr.ok("a::before { content: \";\na\"; }")
-  tr.ok("a { color: pink;top: 0; }", "space between trailing semicolon and closing brace")
-  tr.ok("a { color: pink;top: 0;}", "no space between trailing semicolon and closing brace")
-
-  tr.notOk("a { color: pink; top: 0; }", messages.rejectedAfter())
-  tr.notOk("a { color: pink;  top: 0; }", messages.rejectedAfter())
-  tr.notOk("a { color: pink;\ntop: 0; }", messages.rejectedAfter())
-  tr.notOk("a { color: pink;\ttop: 0; }", messages.rejectedAfter())
-})
-
 testRule("always-multi-line", tr => {
   tr.ok("a {}")
   tr.ok("a {\ncolor: pink;\n}")
@@ -58,6 +46,7 @@ testRule("always-multi-line", tr => {
   // Ignore single-line
   tr.ok("a { color: pink; top: 0; }")
   tr.ok("a { color: pink; /* 1 */ top: 0; }")
+  tr.ok("a,\nb { color: pink; top: 0}", "multi-line rule, single-line declaration-block")
 
   tr.notOk("a {\ncolor: pink;top: 0;\n}", messages.expectedAfterMultiLine())
   tr.notOk("a {\ncolor: pink; top: 0;\n}", messages.expectedAfterMultiLine())
@@ -74,6 +63,7 @@ testRule("never-multi-line", tr => {
 
   // Ignore single-line
   tr.ok("a { color: pink; top: 0; }")
+  tr.ok("a,\nb { color: pink; top: 0}", "multi-line rule, single-line declaration-block")
 
   tr.notOk("a {\ncolor: pink; top: 0;\n}", messages.rejectedAfterMultiLine())
   tr.notOk("a {\ncolor: pink;  top: 0;\n}", messages.rejectedAfterMultiLine())

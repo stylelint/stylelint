@@ -8,13 +8,12 @@ export const ruleName = "declaration-block-semicolon-newline-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected newline before ";"`,
-  rejectedBefore: () => `Unexpected whitespace before ";"`,
   expectedBeforeMultiLine: () => `Expected newline before ";" within multi-line rule`,
   rejectedBeforeMultiLine: () => `Unexpected whitespace before ";" within multi-line rule`,
 })
 
 /**
- * @param {"always"|"never"|"always-multi-line"|"never-multi-line"} expectation
+ * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
   const check = whitespaceChecker("\n", expectation, messages)

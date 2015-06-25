@@ -8,13 +8,12 @@ export const ruleName = "declaration-block-semicolon-newline-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected newline after ";"`,
-  rejectedAfter: () => `Unexpected newline after ";"`,
   expectedAfterMultiLine: () => `Expected newline after ";" within multi-line rule`,
   rejectedAfterMultiLine: () => `Unexpected newline after ";" within multi-line rule`,
 })
 
 /**
- * @param {"always"|"never"|"always-multi-line"|"never-multi-line"} expectation
+ * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
   const check = whitespaceChecker("\n", expectation, messages)
