@@ -30,7 +30,6 @@
 * [`function-comma-space-before`](../src/rules/function-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of functions.
 * [`function-parentheses-space-inside`](../src/rules/function-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses of functions.
 * [`function-space-after`](../src/rules/function-space-after/README.md): Require a single space or disallow whitespace after functions.
-* [`function-token-no-space`](../src/rules/function-token-no-space/README.md): Disallow a space between function tokens and their parameters.
 * [`function-url-quotes`](../src/rules/function-url-quotes/README.md): Specify single, double or no quotes for urls.
 * [`indentation`](../src/rules/indentation/README.md): Specify indentation.
 * [`media-feature-colon-space-after`](../src/rules/media-feature-colon-space-after/README.md): Require a single space or disallow whitespace after the colon in media features.
