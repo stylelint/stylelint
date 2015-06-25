@@ -48,6 +48,7 @@ import numberLeadingZero from "./number-leading-zero"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
 import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyBlacklist from "./property-blacklist"
+import propertyWhitelist from "./property-whitelist"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
 import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
@@ -126,6 +127,7 @@ export default {
   "number-no-trailing-zeros": numberNoTrailingZeros,
   "number-zero-length-no-unit": numberZeroLengthNoUnit,
   "property-blacklist": propertyBlacklist,
+  "property-whitelist": propertyWhitelist,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
   "root-no-standard-properties": rootNoStandardProperties,
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
