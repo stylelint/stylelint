@@ -13,7 +13,7 @@ Require a single newline or disallow whitespace before the semicolons of declara
 
 ## Options
 
-`string`: `"always"|"never"|"always-multi-line"|"never-multi-line"`
+`string`: `"always"|"always-multi-line"|"never-multi-line"`
 
 ### `"always"`
 
@@ -42,36 +42,6 @@ a { color: pink
 a {
   color: pink
   ; top: 0;
-}
-```
-
-### `"never"`
-
-There *must never* be whitespace before the semicolons.
-
-The following patterns are considered warnings:
-
-```css
-a { color: pink
-; }
-```
-
-```css
-a {
-  color: pink
-  ; top: 0;
-}
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-a { color: pink; }
-```
-
-```css
-a {
-  color: pink; top: 0;
 }
 ```
 

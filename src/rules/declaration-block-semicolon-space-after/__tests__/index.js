@@ -17,18 +17,6 @@ testRule("always", tr => {
   tr.notOk("a { color: pink;\ttop: 0; }", messages.expectedAfter())
 })
 
-testRule("never", tr => {
-  tr.ok("a {}")
-  tr.ok("a { color: pink; }")
-  tr.ok("a::before { content: \"; a\"; }")
-  tr.ok("a { color: pink;top: 0; }", "space between trailing semicolon and closing brace")
-
-  tr.notOk("a { color: pink; top: 0; }", messages.rejectedAfter())
-  tr.notOk("a { color: pink;  top: 0; }", messages.rejectedAfter())
-  tr.notOk("a { color: pink;\ntop: 0; }", messages.rejectedAfter())
-  tr.notOk("a { color: pink;\ttop: 0; }", messages.rejectedAfter())
-})
-
 testRule("always-single-line", tr => {
   tr.ok("a {}")
   tr.ok("a { color: pink; }")
