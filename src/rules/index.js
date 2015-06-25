@@ -63,6 +63,7 @@ import selectorDelimiterNewlineBefore from "./selector-delimiter-newline-before"
 import selectorDelimiterSpaceAfter from "./selector-delimiter-space-after"
 import selectorDelimiterSpaceBefore from "./selector-delimiter-space-before"
 import selectorNoAttribute from "./selector-no-attribute"
+import selectorNoCombinator from "./selector-no-combinator"
 import selectorNoId from "./selector-no-id"
 import selectorNoType from "./selector-no-type"
 import selectorNoUniversal from "./selector-no-universal"
@@ -142,6 +143,7 @@ export default {
   "selector-delimiter-space-after": selectorDelimiterSpaceAfter,
   "selector-delimiter-space-before": selectorDelimiterSpaceBefore,
   "selector-no-attribute": selectorNoAttribute,
+  "selector-no-combinator": selectorNoCombinator,
   "selector-no-id": selectorNoId,
   "selector-no-type": selectorNoType,
   "selector-no-universal": selectorNoUniversal,
