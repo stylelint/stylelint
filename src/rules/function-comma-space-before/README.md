@@ -1,6 +1,6 @@
 # function-comma-space-before
 
-Require or disallow a space before the commas of functions.
+Require a single space or disallow whitespace before the commas of functions.
 
 ```css
     a { transform: translate(1, 1) }

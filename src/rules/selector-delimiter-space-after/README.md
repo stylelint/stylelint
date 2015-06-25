@@ -1,6 +1,6 @@
 # selector-delimiter-space-after
 
-Require or disallow a space after the delimiters of selectors.
+Require a single space or disallow whitespace after the delimiters of selectors.
 
 ```css
     a, b { color: pink; }

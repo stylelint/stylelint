@@ -1,6 +1,6 @@
 # media-query-list-comma-space-before
 
-Require or disallow a single space before the commas of media query lists.
+Require a single space or disallow whitespace before the commas of media query lists.
 
 ```css
     @media screen and (color), projection and (color) {}

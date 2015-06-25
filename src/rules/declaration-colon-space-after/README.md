@@ -1,6 +1,6 @@
 # declaration-colon-space-after
 
-Require or disallow a space after the colon of declarations.
+Require a single space or disallow whitespace after the colon of declarations.
 
 ```css
     a { color: pink }
