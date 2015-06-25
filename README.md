@@ -12,7 +12,7 @@ $ npm install stylelint
 
 ### Usage
 
-For now you must use the linter as a [PostCSS](https://github.com/postcss/postcss#usage) plugin directly. You can use a [postcss runner](https://github.com/postcss/postcss#usage), like `grunt`, `gulp` or `webpack`. For example, using `gulp`:
+For now you must use the linter as a [PostCSS](https://github.com/postcss/postcss#usage) plugin directly. You can either use a [postcss runner](https://github.com/postcss/postcss#usage), like `grunt`, `gulp` or `webpack`. For example, using `gulp`:
 
 ```js
 gulp.task("css", function () {
