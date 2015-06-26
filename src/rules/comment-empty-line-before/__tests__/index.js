@@ -1,10 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
+
   tr.ok("/** comment */", "first node ignored")
   tr.ok("a { color: pink; /** comment */\ntop: 0; }", "inline comment ignored")
   tr.ok("a {} /** comment */", "inline comment ignored")
@@ -16,7 +20,8 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
+
   tr.ok("\n\n/** comment */", "first node ignored")
   tr.ok("a { color: pink; /** comment */\ntop: 0; }", "inline comment ignored")
   tr.ok("a {} /** comment */")

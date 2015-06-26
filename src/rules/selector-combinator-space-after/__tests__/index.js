@@ -1,10 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
-  tr.ok("a {}", "no combinator")
+  warningFreeBasics(tr)
+
   tr.ok("a + a {}", "space before and after + combinator")
   tr.ok("a > a {}", "space before and after > combinator")
   tr.ok("a ~ a {}", "space before and after ~ combinator")
@@ -55,7 +59,8 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
-  tr.ok("a {}", "no combinator")
+  warningFreeBasics(tr)
+
   tr.ok("a +a {}", "space before none after + combinator")
   tr.ok("a >a {}", "space before none after > combinator")
   tr.ok("a ~a {}", "space before none after ~ combinator")

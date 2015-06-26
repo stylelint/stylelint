@@ -1,4 +1,7 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
@@ -7,7 +10,8 @@ testRule([
   "transform",
   "background-size",
 ], tr => {
-  tr.ok("a {}")
+  warningFreeBasics(tr)
+
   tr.ok("a { background-size: cover; }")
   tr.ok("a { transform: scale(1); }")
   tr.ok("a { -webkit-transform: scale(1); }")

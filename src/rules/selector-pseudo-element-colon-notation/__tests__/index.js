@@ -1,16 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("single", tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
   tr.ok("a { color: pink; }")
-  tr.ok("::selection { color: pink; }")
-  tr.ok("a::spelling-error { color: pink; }")
-  tr.ok("a::grammar-error { color: pink; }")
-  tr.ok("li::marker { font-variant-numeric: tabular-nums; }")
-  tr.ok("input::placeholder { color: pink; }")
 
   tr.ok("a:before { color: pink; }")
   tr.ok("a:after { color: pink; }")
@@ -22,17 +20,18 @@ testRule("single", tr => {
   tr.notOk("a::after { color: pink; }", messages.expected("single"))
   tr.notOk("a::first-line { color: pink; }", messages.expected("single"))
   tr.notOk("a::first-letter { color: pink; }", messages.expected("single"))
-})
 
-testRule("double", tr => {
-  tr.ok("")
-  tr.ok("a { color: pink; }")
-
+  // Ignores newer pseudo-elements that only accept double
   tr.ok("::selection { color: pink; }")
   tr.ok("a::spelling-error { color: pink; }")
   tr.ok("a::grammar-error { color: pink; }")
   tr.ok("li::marker { font-variant-numeric: tabular-nums; }")
   tr.ok("input::placeholder { color: pink; }")
+})
+
+testRule("double", tr => {
+  warningFreeBasics(tr)
+  tr.ok("a { color: pink; }")
 
   tr.ok("a::before { color: pink; }")
   tr.ok("a::after { color: pink; }")
@@ -44,4 +43,10 @@ testRule("double", tr => {
   tr.notOk("a:after { color: pink; }", messages.expected("double"))
   tr.notOk("a:first-line { color: pink; }", messages.expected("double"))
   tr.notOk("a:first-letter { color: pink; }", messages.expected("double"))
+
+  tr.ok("::selection { color: pink; }")
+  tr.ok("a::spelling-error { color: pink; }")
+  tr.ok("a::grammar-error { color: pink; }")
+  tr.ok("li::marker { font-variant-numeric: tabular-nums; }")
+  tr.ok("input::placeholder { color: pink; }")
 })

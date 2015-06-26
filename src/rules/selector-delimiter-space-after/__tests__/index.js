@@ -1,15 +1,18 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
-  tr.ok("a {}")
+  warningFreeBasics(tr)
+
   tr.ok("a, b {}")
   tr.ok("a, b, c {}")
   tr.ok("a , b {}")
   tr.ok("a\n, b {}")
-  tr.ok("a, b[data-foo=\"tr,tr\"] {}")
 
   tr.notOk("a,b {}", messages.expectedAfter())
   tr.notOk("a,  b {}", messages.expectedAfter())
@@ -17,15 +20,17 @@ testRule("always", tr => {
   tr.notOk("a,\tb {}", messages.expectedAfter())
   tr.notOk("a, b,c {}", messages.expectedAfter())
   tr.notOk("a, b,  c {}", messages.expectedAfter())
+
+  tr.ok("a, b[data-foo=\"tr,tr\"] {}", "string")
 })
 
 testRule("never", tr => {
-  tr.ok("a {}")
+  warningFreeBasics(tr)
+
   tr.ok("a,b {}")
   tr.ok("a,b,c {}")
   tr.ok("a ,b {}")
   tr.ok("a\n,b {}")
-  tr.ok("a,b[data-foo=\"tr, tr\"] {}")
 
   tr.notOk("a, b {}", messages.rejectedAfter())
   tr.notOk("a,  b {}", messages.rejectedAfter())
@@ -33,9 +38,13 @@ testRule("never", tr => {
   tr.notOk("a,\tb {}", messages.rejectedAfter())
   tr.notOk("a,b, c {}", messages.rejectedAfter())
   tr.notOk("a,b,  c {}", messages.rejectedAfter())
+
+  tr.ok("a,b[data-foo=\"tr, tr\"] {}", "string")
 })
 
 testRule("always-single-line", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a, b {}")
   tr.ok("a, b {\n}", "single-line selector, multi-line block")
 
@@ -44,6 +53,8 @@ testRule("always-single-line", tr => {
 })
 
 testRule("never-single-line", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a,b {}")
   tr.ok("a,b {\n}", "single-line selector, multi-line block")
 

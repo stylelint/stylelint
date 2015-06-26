@@ -1,9 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { top: 0; }", "unitless zero")
   tr.ok("a { padding: 0 /* 0px */; }", "united zero in comment")
   tr.ok("a { top: 10px; }", "zero at end of non-zero value")

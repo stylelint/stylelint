@@ -1,9 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("@media (max-width: 600px) {}")
   tr.ok("@media screen and (color), projection and (color) {}")
   tr.ok("@media screen and (color) , projection and (color) {}")
@@ -16,6 +21,8 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("@media (max-width: 600px) {}")
   tr.ok("@media screen and (color),projection and (color) {}")
   tr.ok("@media screen and (color) ,projection and (color) {}")

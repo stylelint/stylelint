@@ -1,10 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
-  tr.ok("a {}")
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink;\n}")
   tr.ok("a::before { content: \";a\";\n}")
   tr.ok("a {\ncolor: pink;\n top:0;\n}")
@@ -34,7 +38,8 @@ testRule("always", tr => {
 })
 
 testRule("always-multi-line", tr => {
-  tr.ok("a {}")
+  warningFreeBasics(tr)
+
   tr.ok("a {\ncolor: pink;\n}")
   tr.ok("a::before {\ncontent: \";a\";\n}")
   tr.ok("a {\ncolor: pink;\n top:0;\n}")
@@ -55,7 +60,8 @@ testRule("always-multi-line", tr => {
 })
 
 testRule("never-multi-line", tr => {
-  tr.ok("a {}")
+  warningFreeBasics(tr)
+
   tr.ok("a {\ncolor: pink;\n}")
   tr.ok("a::before {\ncontent: \";\na\";\n}")
   tr.ok("a {\ncolor: pink;top: 0; }", "space between trailing semicolon and closing brace")

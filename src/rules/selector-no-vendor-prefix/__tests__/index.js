@@ -1,13 +1,13 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
-  tr.ok("a {}")
-  tr.ok("a::before {}")
-  tr.ok("a:hover {}")
-  tr.ok("a[data-foo=\":-webkit-full-screen\"] {}")
+  warningFreeBasics(tr)
 
   tr.ok(":fullscreen a {}")
   tr.notOk(":-webkit-full-screen a {}", messages.rejected(":-webkit-full-screen"))
@@ -16,4 +16,8 @@ testRule(null, tr => {
   tr.ok("input::placeholder { color: pink; }")
   tr.notOk("input:-moz-placeholder, input::placeholder { color: pink; }",
     messages.rejected(":-moz-placeholder"))
+
+  tr.ok("a::before {}", "handles pseudo-element")
+  tr.ok("a:hover {}", "handles pseudo-class")
+  tr.ok("a[data-foo=\":-webkit-full-screen\"] {}", "string")
 })

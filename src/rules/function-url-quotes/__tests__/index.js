@@ -1,10 +1,13 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("double", tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
 
   // at-rules
   tr.ok("@import url(\"foo.css\");", messages.expected("double quotes"))
@@ -39,7 +42,7 @@ testRule("double", tr => {
 })
 
 testRule("single", tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
 
   // at-rules
   tr.ok("@import url('foo.css');", messages.expected("single quotes"))
@@ -73,7 +76,7 @@ testRule("single", tr => {
 })
 
 testRule("none", tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
 
   // at-rules
   tr.ok("@import url(foo.css);", messages.expected("no quotes"))

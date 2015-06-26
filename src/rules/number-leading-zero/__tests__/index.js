@@ -1,10 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
-  tr.ok("a {}", "no values")
+  warningFreeBasics(tr)
+
   tr.ok("a { margin: 0; }", "plain zero")
   tr.ok("a { line-height: 2; }", "plain integer")
   tr.ok("a { margin: 2px; }", "integer with units")
@@ -66,7 +70,8 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
-  tr.ok("a {}", "no values")
+  warningFreeBasics(tr)
+
   tr.ok("a { margin: 0; }", "plain zero")
   tr.ok("a { line-height: 2; }", "plain integer")
   tr.ok("a { margin: 2px; }", "integer with units")

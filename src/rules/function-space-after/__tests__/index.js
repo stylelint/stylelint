@@ -1,10 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
-  tr.ok("a {}")
+  warningFreeBasics(tr)
+
   tr.ok("a::before { content: \"var(--hoot)color(blue)\"; }")
   tr.ok("a::before { background: url('var(--hoot)color(blue)'); }")
   tr.ok("a::before { content: attr(data-foo); }")
@@ -27,7 +31,8 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
-  tr.ok("a {}")
+  warningFreeBasics(tr)
+
   tr.ok("a::before { content: \"var(--hoot) color(blue)\"; }")
   tr.ok("a::before { background: url('var(--hoot) color(blue)'); }")
   tr.ok("a::before { content: attr(data-foo); }")

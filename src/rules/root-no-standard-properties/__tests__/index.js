@@ -1,10 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
+
   tr.ok(":root { --foo: 0; }")
   tr.ok("a, :root { --foo: 0; }")
   tr.ok("a { color: pink; } :root { --foo: 0; }")

@@ -1,9 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink; }", "no !important")
   tr.ok("a { color: pink !important; }", "space only before")
   tr.ok("a { color: pink ! important; }", "space before and after")
@@ -27,6 +32,8 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink; }", "no !important")
   tr.ok("a { color: pink!important; }", "no spaces")
   tr.ok("a { color: pink! important; }", "no space before and after")

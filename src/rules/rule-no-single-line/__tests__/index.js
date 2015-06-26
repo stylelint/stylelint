@@ -1,9 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
+  tr.ok("")
+  tr.ok("@import \"foo.css\";")
+
   tr.ok(
     "a {\ncolor: pink; }",
     "multi-line rule with newline at start"

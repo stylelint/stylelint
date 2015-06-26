@@ -1,10 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
-  tr.ok("a {}")
+  warningFreeBasics(tr)
+
   tr.ok("a\n,b {}")
   tr.ok("a\n,b\n,c {}")
   tr.ok("a\n, b {}")
@@ -20,6 +24,8 @@ testRule("always", tr => {
 })
 
 testRule("always-multi-line", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a\n,b {}")
   tr.ok("a, b {}", "ignores single-line")
   tr.ok("a, b {\n}", "ignores single-line selector, multi-line block")
@@ -29,6 +35,8 @@ testRule("always-multi-line", tr => {
 })
 
 testRule("never-multi-line", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a,\nb {}")
   tr.ok("a ,b {}", "ignores single-line")
   tr.ok("a ,b {\n}", "ignores single-line selector, multi-line block")

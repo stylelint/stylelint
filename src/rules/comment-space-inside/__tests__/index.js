@@ -1,9 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("/* comment */")
   tr.ok("/* comment comment */")
   tr.ok("/* comment\ncomment */")
@@ -20,6 +25,8 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("/*comment*/")
   tr.ok("/*comment comment*/")
   tr.ok("/*comment\ncomment*/")
