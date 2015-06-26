@@ -14,6 +14,11 @@ testRule("always", tr => {
   tr.ok("a { color: pink;\n} b { color: red;\n}")
   tr.ok("a { color: pink;\n}b { color: red;\n}")
 
+  tr.ok("@media print {\n  a {\n     color: pink;\n  }\n}",
+    "indentation after the newline before the closing braces")
+  tr.ok("@media print {\n\ta {\n\t\tcolor: pink;\n\t\t{\n\t\t\t&:hover;\n\t\t\t}\n\t\t}\n}",
+    "3 level deep nesting with indentation after the newline before the closing braces")
+
   tr.notOk("a { color: pink;}", messages.expectedBefore())
   tr.notOk("a { color: pink; }", messages.expectedBefore())
   tr.notOk("a { color: pink; \n}", messages.expectedBefore())
