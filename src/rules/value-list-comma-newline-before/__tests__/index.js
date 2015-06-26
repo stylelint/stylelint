@@ -25,11 +25,13 @@ testRule("always-multi-line", tr => {
 
   tr.ok("a { background-size: 0\n,0\n,0; }")
   tr.ok("a { background-size: 0\n,  0\n,\t0; }")
+
   tr.notOk("a { background-size: 0\n, 0, 0; }", messages.expectedBeforeMultiLine())
   tr.notOk("a { background-size: 0\n, 0 , 0; }", messages.expectedBeforeMultiLine())
   tr.notOk("a { background-size: 0\n, 0\t, 0; }", messages.expectedBeforeMultiLine())
 
   tr.ok("a { background-size: 0, 0; }", "ignores single-line")
+  tr.ok("a { background-size: 0, 0;\n}", "ignores single-line list, multi-line block")
 })
 
 testRule("never-multi-line", tr => {
@@ -39,5 +41,6 @@ testRule("never-multi-line", tr => {
   tr.notOk("a { background-size: 0,\n0\n, 0; }", messages.rejectedBeforeMultiLine())
   tr.notOk("a { background-size: 0\n,\t0,\n0; }", messages.rejectedBeforeMultiLine())
 
-  tr.ok("a { background-size: 0, 0; }", "ignores single-line")
+  tr.ok("a { background-size: 0 ,0; }", "ignores single-line")
+  tr.ok("a { background-size: 0 ,0;\n}", "ignores single-line list, multi-line block")
 })

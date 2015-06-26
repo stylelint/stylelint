@@ -39,8 +39,11 @@ testRule("always-single-line", tr => {
 
   tr.ok("a { background-size: 0 , 0; }")
   tr.ok("a { background-size: 0, 0; }")
+  tr.ok("a { background-size: 0, 0;\n}", "single-line list, multi-line block")
   tr.ok("a { background-size: 0\n,0}", "ignores multi-line")
+
   tr.notOk("a { background-size: 0,0; }", messages.expectedAfterSingleLine())
+  tr.notOk("a { background-size: 0,0;\n}", messages.expectedAfterSingleLine())
   tr.notOk("a { background-size: 0,  0; }", messages.expectedAfterSingleLine())
   tr.notOk("a { background-size: 0,\t0; }", messages.expectedAfterSingleLine())
 
@@ -53,8 +56,11 @@ testRule("never-single-line", tr => {
 
   tr.ok("a { background-size: 0 ,0; }")
   tr.ok("a { background-size: 0,0; }")
+  tr.ok("a { background-size: 0,0;\n}", "single-line list, multi-line block")
   tr.ok("a { background-size: 0\n,  0}", "ignores multi-line values")
+
   tr.notOk("a { background-size: 0, 0; }", messages.rejectedAfterSingleLine())
+  tr.notOk("a { background-size: 0, 0;\n}", messages.rejectedAfterSingleLine())
   tr.notOk("a { background-size: 0,  0; }", messages.rejectedAfterSingleLine())
   tr.notOk("a { background-size: 0,\t0; }", messages.rejectedAfterSingleLine())
 

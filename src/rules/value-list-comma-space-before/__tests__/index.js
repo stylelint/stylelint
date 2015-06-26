@@ -39,8 +39,11 @@ testRule("always-single-line", tr => {
 
   tr.ok("a { background-size: 0 , 0; }")
   tr.ok("a { background-size: 0 ,0; }")
-  tr.ok("a { background-size: 0,\n0; }", "ignores multi-line value")
+  tr.ok("a { background-size: 0 ,0;\n}", "single-line list, multi-line block")
+  tr.ok("a { background-size: 0,\n0; }", "ignores multi-line list")
+
   tr.notOk("a { background-size: 0, 0; }", messages.expectedBeforeSingleLine())
+  tr.notOk("a { background-size: 0, 0;\n}", messages.expectedBeforeSingleLine())
   tr.notOk("a { background-size: 0  , 0; }", messages.expectedBeforeSingleLine())
   tr.notOk("a { background-size: 0\t, 0; }", messages.expectedBeforeSingleLine())
 
@@ -53,8 +56,11 @@ testRule("never-single-line", tr => {
 
   tr.ok("a { background-size: 0, 0; }")
   tr.ok("a { background-size: 0,0; }")
-  tr.ok("a { background-size: 0 ,\n0; }", "ignores multi-line value")
+  tr.ok("a { background-size: 0,0;\n}", "single-line list, multi-line block")
+  tr.ok("a { background-size: 0 ,\n0; }", "ignores multi-line list")
+
   tr.notOk("a { background-size: 0 , 0; }", messages.rejectedBeforeSingleLine())
+  tr.notOk("a { background-size: 0 , 0;\n}", messages.rejectedBeforeSingleLine())
   tr.notOk("a { background-size: 0  , 0; }", messages.rejectedBeforeSingleLine())
   tr.notOk("a { background-size: 0\t, 0; }", messages.rejectedBeforeSingleLine())
 
