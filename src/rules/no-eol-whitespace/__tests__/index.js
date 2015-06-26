@@ -1,4 +1,6 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)

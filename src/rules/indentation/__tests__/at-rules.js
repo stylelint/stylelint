@@ -1,12 +1,16 @@
 /* eslint-disable indent, no-multiple-empty-lines */
 
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 // 2 spaces
 testRule(2, tr => {
+warningFreeBasics(tr)
 
 tr.ok(
 `@media print {
@@ -65,6 +69,7 @@ tr.notOk(
 
 // tab except block
 testRule("tab", { except: ["block"] }, tr => {
+warningFreeBasics(tr)
 
 tr.ok(
 `@media print {

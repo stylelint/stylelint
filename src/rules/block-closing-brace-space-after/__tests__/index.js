@@ -1,9 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; } b { color: red; }")
   tr.ok("a { color: pink;} b { color: red;}")
@@ -23,6 +28,8 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; }b { color: red; }")
   tr.ok("a { color: pink;}b { color: red;}")
@@ -40,6 +47,8 @@ testRule("never", tr => {
 })
 
 testRule("always-multi-line", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink;\nbackground: orange; }")
   tr.ok("a { color: pink;\nbackground: orange; } b { color: red; }")
   tr.ok("a { color: pink;\nbackground: orange;} b { color: red;}")

@@ -1,12 +1,16 @@
 /* eslint-disable indent, no-multiple-empty-lines */
 
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 // 2 spaces
 testRule(2, tr => {
+warningFreeBasics(tr)
 
 tr.ok("")
 tr.ok("a {color: pink;}")
@@ -136,6 +140,7 @@ messages.expected("4 spaces at line 4"))
 
 // tab
 testRule("tab", tr => {
+warningFreeBasics(tr)
 
 tr.ok("")
 tr.ok("a {color: pink;}")
@@ -219,6 +224,7 @@ messages.expected("1 tab at line 2"))
 
 // 2 spaces except value
 testRule(2, { except: ["value"] }, tr => {
+warningFreeBasics(tr)
 
 tr.ok(
 `a {

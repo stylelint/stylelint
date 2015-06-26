@@ -1,10 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
+
   tr.ok("a {}", "first node ignored")
   tr.ok("@media { a {} }", "nested node ignored")
   tr.ok("b {}\n\na {}")
@@ -24,7 +28,8 @@ testRule("always", { ignore: ["after-comment"] }, tr => {
 })
 
 testRule("never", tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
+
   tr.ok("\n\na {}", "first node ignored")
   tr.ok("@media {\n\na {} }", "nested node ignored")
   tr.ok("b {}\na {}")
@@ -44,7 +49,8 @@ testRule("never", { ignore: ["after-comment"] }, tr => {
 })
 
 testRule("always-multi-line", tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
+
   tr.ok("a {}", "first node ignored")
   tr.ok("@media { a\n{} }", "nested node ignored")
   tr.ok("b {}\na {}", "single-line ignored")
@@ -58,7 +64,8 @@ testRule("always-multi-line", tr => {
 })
 
 testRule("never-multi-line", tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
+
   tr.ok("\n\na\n{}", "first node ignored")
   tr.ok("@media\n{\n\na\n{} }", "nested node ignored")
   tr.ok("b {}\n\na {}", "single-line ignored")

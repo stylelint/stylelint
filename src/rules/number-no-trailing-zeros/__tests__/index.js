@@ -1,9 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule(null, tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { padding: 1px; }")
   tr.ok("a { padding: 10px; }")
   tr.ok("a { padding: 10.01px; }")

@@ -1,9 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; }\nb { color: red; }")
   tr.ok("a { color: pink;}\n\t\tb { color: red;}")
@@ -23,6 +28,8 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; }b { color: red; }")
   tr.ok("a { color: pink;}b { color: red;}")
@@ -40,6 +47,8 @@ testRule("never", tr => {
 })
 
 testRule("always-single-line", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; }\nb { color: red; }")
   tr.ok("a { color: pink;}\n\t\tb { color: red;}")
@@ -61,6 +70,8 @@ testRule("always-single-line", tr => {
 })
 
 testRule("never-single-line", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; }b { color: red; }")
   tr.ok("a { color: pink;}b { color: red;}")
@@ -82,6 +93,8 @@ testRule("never-single-line", tr => {
 })
 
 testRule("always-multi-line", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink;\ntop: 0; }")
   tr.ok("a { color: pink;\ntop: 0; }\nb { color: red; }")
   tr.ok("a { color: pink;\ntop: 0;}\n\t\tb { color: red;}")
@@ -103,6 +116,8 @@ testRule("always-multi-line", tr => {
 })
 
 testRule("never-multi-line", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink;\ntop: 0; }")
   tr.ok("a { color: pink;\ntop: 0; }b { color: red; }")
   tr.ok("a { color: pink;\ntop: 0;}b { color: red;}")

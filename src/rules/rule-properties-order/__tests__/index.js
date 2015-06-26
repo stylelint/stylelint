@@ -1,10 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("alphabetical", tr => {
-  tr.ok("a {}")
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; color: red; }")
   tr.ok("a { color: pink; color: red; } b { color: pink; color: red; }")
@@ -34,7 +38,8 @@ testRule([
   "top",
   "color",
 ], tr => {
-  tr.ok("a {}")
+  warningFreeBasics(tr)
+
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; color: red; }")
   tr.ok("a { top: 0; color: pink; }")

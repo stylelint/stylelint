@@ -1,11 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
-  tr.ok("a {}")
-  tr.ok("a { }")
+  warningFreeBasics(tr)
+
   tr.ok(
     "a { color: pink; }",
     "single-line declaration block with trailing semicolon"
@@ -28,8 +31,8 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
-  tr.ok("a {}")
-  tr.ok("a { }")
+  warningFreeBasics(tr)
+
   tr.ok(
     "a { color: pink }",
     "single-line declaration block without trailing semicolon"

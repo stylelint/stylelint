@@ -1,11 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
-  tr.ok("a {}")
-  tr.ok("a { }")
+  warningFreeBasics(tr)
+
   tr.ok("@import url(x.css)")
   tr.ok("a {\ncolor: pink; }")
   tr.ok("a{\ncolor: pink; }")
@@ -36,8 +39,8 @@ testRule("always", tr => {
 })
 
 testRule("never", tr => {
-  tr.ok("a {}")
-  tr.ok("a { }")
+  warningFreeBasics(tr)
+
   tr.ok("a {color: pink; }")
   tr.ok("a{color: pink; }")
   tr.ok("@media print {a {color: pink; } }")
@@ -52,9 +55,9 @@ testRule("never", tr => {
 })
 
 testRule("always-multi-line", tr => {
+  warningFreeBasics(tr)
+
   // Regular "always" tests
-  tr.ok("a {}")
-  tr.ok("a { }")
   tr.ok("a {\ncolor: pink; }")
   tr.ok("a {\n  color: pink;\n  background: orange; }")
   tr.ok("a{\ncolor: pink; }")
@@ -79,14 +82,14 @@ testRule("always-multi-line", tr => {
 })
 
 testRule("never-multi-line", tr => {
+  warningFreeBasics(tr)
+
   tr.ok("a {color: pink;\nbackground: orange; }")
   tr.ok("a{color: pink;\nbackground: orange; }")
   tr.ok("@media print {a {color: pink;\nbackground: orange; } }")
   tr.ok("@media print{a{color: pink;\nbackground: orange; } }")
 
   // Ignore single-line
-  tr.ok("a {}")
-  tr.ok("a { }")
   tr.ok("a { color: pink; }")
   tr.ok("a {  color: pink; }")
   tr.ok("a {\tcolor: pink; }")

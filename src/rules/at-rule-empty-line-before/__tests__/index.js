@@ -1,10 +1,14 @@
-import { ruleTester } from "../../../testUtils"
+import {
+  ruleTester,
+  warningFreeBasics
+} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
 testRule("always", tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
+
   tr.ok("a {} b {}", "rule ignored")
   tr.ok("@font-face {}", "first node ignored")
   tr.ok("a {}\n\n@media {}")
@@ -18,7 +22,8 @@ testRule("always", tr => {
 })
 
 testRule("always", { except: ["blockless-group"] }, tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
+
   tr.ok("a {} b {}", "rule ignored")
   tr.ok("@font-face {}", "first node ignored")
   tr.ok("a {}\n\n@media {}")
@@ -39,7 +44,8 @@ testRule("always", { except: ["blockless-group"] }, tr => {
 })
 
 testRule("never", tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
+
   tr.ok("a {}\n\nb {}", "rule ignored")
   tr.ok("\n\n@font-face {}", "first node ignored")
   tr.ok("a {}\n@media {}")
@@ -53,7 +59,8 @@ testRule("never", tr => {
 })
 
 testRule("never", { except: ["blockless-group"] }, tr => {
-  tr.ok("")
+  warningFreeBasics(tr)
+
   tr.ok("a {}\n\nb {}", "rule ignored")
   tr.ok("\n\n@font-face {}", "first node ignored")
   tr.ok("a {}\n@media {}")
