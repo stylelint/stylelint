@@ -11,6 +11,8 @@ testRule("always", tr => {
 
   tr.ok("a { background-size: 0\n,0\n,0; }")
   tr.ok("a { background-size: 0\n,  0\n,\t0; }")
+  tr.ok("a { background-size: 0\n    ,0\n,0; }", "indentation after the newline before the comma")
+  tr.ok("a { background-size: 0\n\t\t,0\n,0; }", "indentation after the newline before the comma")
   tr.notOk("a { background-size: 0, 0; }", messages.expectedBefore())
   tr.notOk("a { background-size: 0 , 0; }", messages.expectedBefore())
   tr.notOk("a { background-size: 0  , 0; }", messages.expectedBefore())
