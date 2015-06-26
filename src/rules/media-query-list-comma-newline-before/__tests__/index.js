@@ -34,3 +34,30 @@ testRule("never", tr => {
   tr.notOk("@media screen and (color)\n, projection and (color)", messages.rejectedBefore())
   tr.notOk("@media screen and (color)\t, projection and (color)", messages.rejectedBefore())
 })
+
+/*
+testRule("always-multi-line", tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("@media screen and (color)\n, projection and (color) {}", "multi-line list, single-line block")
+  tr.ok("@media screen and (color)\n, projection and (color) {\n}", "multi-line list, multi-line block")
+  tr.ok("@media screen and (color),projection and (color) {}", "ignore single line list, single-lint block")
+  tr.ok("@media screen and (color),projection and (color) {\n}", "ignore single line list, multi-line block")
+
+  tr.notOk("@media screen and (color),projection and (color)\n, print {}", messages.expectedBeforeMultiLine())
+  tr.notOk("@media screen and (color),projection and (color)\n, print {\n}", messages.expectedBeforeMultiLine())
+})
+
+testRule("never-multi-line", tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("@media screen and (color),\nprojection and (color) {}", "multi-line list, single-line block")
+  tr.ok("@media screen and (color),\nprojection and (color) {\n}", "multi-line list, multi-line block")
+  tr.ok("@media screen and (color) ,projection and (color) {}", "ignore single line list, single-lint block")
+  tr.ok("@media screen and (color) ,projection and (color) {\n}", "ignore single line list, multi-line block")
+
+  tr.notOk("@media screen and (color) ,projection and (color),\nprint {}", messages.expectedBeforeMultiLine())
+  tr.notOk("@media screen and (color) ,projection and (color),\nprint {\n}", messages.expectedBeforeMultiLine())
+})
+
+*/
