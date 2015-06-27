@@ -1,6 +1,6 @@
-# no-missing-eof-newline
+# no-omitted-eof-newline
 
-Disallow missing end-of-file newline.
+Disallow omitted end-of-file newline.
 
 ```css
     a { color: pink; }

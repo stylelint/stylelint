@@ -4,10 +4,10 @@ import {
   ruleMessages
 } from "../../utils"
 
-export const ruleName = "no-missing-eof-newline"
+export const ruleName = "no-omitted-eof-newline"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected missing newline at end of file",
+  rejected: "Unexpected omitted newline at end of file",
 })
 
 export default function () {
