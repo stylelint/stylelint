@@ -41,8 +41,8 @@ import mediaQueryListCommaSpaceAfter from "./media-query-list-comma-space-after"
 import mediaQueryListCommaSpaceBefore from "./media-query-list-comma-space-before"
 import mediaQueryParenthesesSpaceInside from "./media-query-parentheses-space-inside"
 import noEolWhitespace from "./no-eol-whitespace"
-import noMissingEofNewline from "./no-missing-eof-newline"
 import noMultipleEmptyLines from "./no-multiple-empty-lines"
+import noOmittedEofNewline from "./no-omitted-eof-newline"
 import numberLeadingZero from "./number-leading-zero"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
 import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
@@ -121,8 +121,8 @@ export default {
   "media-query-list-comma-space-before": mediaQueryListCommaSpaceBefore,
   "media-query-parentheses-space-inside": mediaQueryParenthesesSpaceInside,
   "no-eol-whitespace": noEolWhitespace,
-  "no-missing-eof-newline": noMissingEofNewline,
   "no-multiple-empty-lines": noMultipleEmptyLines,
+  "no-omitted-eof-newline": noOmittedEofNewline,
   "number-leading-zero": numberLeadingZero,
   "number-no-trailing-zeros": numberNoTrailingZeros,
   "number-zero-length-no-unit": numberZeroLengthNoUnit,

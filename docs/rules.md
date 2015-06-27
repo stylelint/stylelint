@@ -43,8 +43,8 @@
 * [`media-query-list-comma-space-before`](../src/rules/media-query-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of media query lists.
 * [`media-query-parentheses-space-inside`](../src/rules/media-query-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within media queries.
 * [`no-eol-whitespace`](../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
-* [`no-missing-eof-newline`](../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
 * [`no-multiple-empty-lines`](../src/rules/no-multiple-empty-lines/README.md): Disallow multiple empty lines.
+* [`no-omitted-eof-newline`](../src/rules/no-omitted-eof-newline/README.md): Disallow omitted end-of-file newline.
 * [`number-leading-zero`](../src/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
 * [`number-no-trailing-zeros`](../src/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros within numbers.
 * [`number-zero-length-no-unit`](../src/rules/number-zero-length-no-unit/README.md): Disallow units for zero lengths.
