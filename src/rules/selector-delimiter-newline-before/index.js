@@ -18,5 +18,5 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker("\n", expectation, messages)
-  return selectorDelimiterSpaceChecker(checker.before)
+  return selectorDelimiterSpaceChecker(checker.beforeAllowingIndentation)
 }

@@ -22,7 +22,6 @@ testRule("always", tr => {
   tr.notOk("a  ,b {}", messages.expectedBefore())
   tr.notOk("a\t,b {}", messages.expectedBefore())
   tr.notOk("a\n,b,c {}", messages.expectedBefore())
-  tr.notOk("a\n,b\n ,c {}", messages.expectedBefore())
 })
 
 testRule("always-multi-line", tr => {

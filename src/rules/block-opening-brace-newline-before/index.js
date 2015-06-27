@@ -42,7 +42,7 @@ export default function (expectation) {
       // the curly braces and everything between them
       const lineCheckStr = statement.toString().slice(strBeforeOpeningBrace.length)
 
-      checker.before({
+      checker.beforeAllowingIndentation({
         lineCheckStr,
         source: strBeforeOpeningBrace.toString(),
         index: strBeforeOpeningBrace.length,

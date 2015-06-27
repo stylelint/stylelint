@@ -16,7 +16,7 @@ testRule("always", tr => {
   tr.ok("@media print\n{a\n{color: pink; } }")
   tr.ok("@media print\n\t{a\n\t\t{color: pink; } }",
     "indentation after the newline before the opening braces")
-  tr.ok("@media print\n\t{a\n\t\t{color: pink;\n\t\t{\n\t\t\t&:hover{\n\t\t\t\tcolor:black;} } } }",
+  tr.ok("@media print\n\t{a\n\t\t{color: pink;\n\t\t&:hover\n\t\t\t{\n\t\t\t\tcolor:black;} } }",
     "3 level deep indentation after the newline before the opening braces")
 
   tr.notOk("a { color: pink; }", messages.expectedBefore())
