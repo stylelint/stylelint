@@ -31,7 +31,7 @@ export default function (expectation) {
     function check(statement) {
       const nextNode = statement.next()
       if (!nextNode) { return }
-      if (!hasBlock) { return }
+      if (!hasBlock(statement)) { return }
 
       checker.after({
         source: nextNode.toString(),

@@ -14,6 +14,7 @@ testRule("always", tr => {
   tr.ok("a { color: pink;} b { color: red;}")
   tr.ok("@media print { a { color: pink; } b { color: red; } }")
   tr.ok("@media print { a { color: pink; } } @media screen { b { color: red; } }")
+  tr.ok("@import 'foo.css';\n@import 'bar.css';", "two blockless statements")
 
   // Ignores nested closing braces
   tr.ok("@media print { a { color: pink; } b { color: red; }}")
