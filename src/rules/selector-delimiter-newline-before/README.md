@@ -1,6 +1,6 @@
 # selector-delimiter-newline-before
 
-Require a single newline or disallow whitespace before the delimiters of selectors.
+Require a newline or disallow whitespace before the delimiters of selectors.
 
 ```css
     a
@@ -15,7 +15,7 @@ Require a single newline or disallow whitespace before the delimiters of selecto
 
 ### `"always"`
 
-There *must always* be a single newline before the delimiters.
+There *must always* be a newline before the delimiters.
 
 The following patterns are considered warnings:
 
@@ -42,7 +42,7 @@ a
 
 ### `"always-multi-line"`
 
-There *must always* be a single newline before the delimiters in multi-line selectors.
+There *must always* be a newline before the delimiters in multi-line selectors.
 
 The following patterns are considered warnings:
 

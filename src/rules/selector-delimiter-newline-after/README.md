@@ -1,6 +1,6 @@
 # selector-delimiter-newline-after
 
-Require a single newline or disallow whitespace after the delimiters of selectors.
+Require a newline or disallow whitespace after the delimiters of selectors.
 
 ```css
     a,
@@ -15,7 +15,7 @@ Require a single newline or disallow whitespace after the delimiters of selector
 
 ### `"always"`
 
-There *must always* be a single newline after the delimiters.
+There *must always* be a newline after the delimiters.
 
 The following patterns are considered warnings:
 
@@ -43,7 +43,7 @@ b { color: pink; }
 
 ### `"always-multi-line"`
 
-There *must always* be a single newline after the delimiters in multi-line selectors.
+There *must always* be a newline after the delimiters in multi-line selectors.
 
 The following patterns are considered warnings:
 

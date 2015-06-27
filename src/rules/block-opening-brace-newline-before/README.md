@@ -1,6 +1,6 @@
 # block-opening-brace-newline-before
 
-Require a single newline or disallow whitespace before the opening brace of blocks.
+Require a newline or disallow whitespace before the opening brace of blocks.
 
 ```css
     a
@@ -15,7 +15,7 @@ Require a single newline or disallow whitespace before the opening brace of bloc
 
 ### `"always"`
 
-There *must always* be a single newline before the opening brace.
+There *must always* be a newline before the opening brace.
 
 The following patterns are considered warnings:
 

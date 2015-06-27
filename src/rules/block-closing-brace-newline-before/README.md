@@ -1,6 +1,6 @@
 # block-closing-brace-newline-before
 
-Require a single newline or disallow whitespace before the closing brace of blocks.
+Require a newline or disallow whitespace before the closing brace of blocks.
 
 ```css
     a { color: pink;
@@ -15,7 +15,7 @@ Require a single newline or disallow whitespace before the closing brace of bloc
 
 ### `"always"`
 
-There *must always* be a single newline before the closing brace.
+There *must always* be a newline before the closing brace.
 
 The following patterns are considered warnings:
 

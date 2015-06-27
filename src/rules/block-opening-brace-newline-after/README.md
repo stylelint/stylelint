@@ -1,6 +1,6 @@
 # block-opening-brace-newline-after
 
-Require a single newline or disallow whitespace after the opening brace of blocks.
+Require a newline or disallow whitespace after the opening brace of blocks.
 
 ```css
     a {
@@ -23,7 +23,7 @@ a { /* something to say */
 
 ### `"always"`
 
-There *must always* be a single newline after the opening brace.
+There *must always* be a newline after the opening brace.
 
 The following patterns are considered warnings:
 

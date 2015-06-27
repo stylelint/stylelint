@@ -1,6 +1,6 @@
 # declaration-block-semicolon-newline-after
 
-Require a single newline or disallow whitespace after the semicolons of declaration blocks.
+Require a newline or disallow whitespace after the semicolons of declaration blocks.
 
 ```css
     a {
@@ -26,7 +26,7 @@ a {
 
 ### `"always"`
 
-There *must always* be a single newline after the semicolon.
+There *must always* be a newline after the semicolon.
 
 The following patterns are considered warnings:
 
@@ -45,7 +45,7 @@ a {
 
 ### `"always-multi-line"`
 
-There *must always* be a single newline after the semicolon in multi-line rules.
+There *must always* be a newline after the semicolon in multi-line rules.
 
 The following patterns are considered warnings:
 
