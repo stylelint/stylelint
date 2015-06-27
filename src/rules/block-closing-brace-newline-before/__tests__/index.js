@@ -27,20 +27,6 @@ testRule("always", tr => {
   tr.notOk("a { color: pink;\n} b { color: red; }", messages.expectedBefore())
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
-
-  tr.ok("a { color: pink;}")
-  tr.ok("a { color: pink;} b { color: red;}")
-  tr.ok("a { color: pink;}b { color: red;}")
-
-  tr.notOk("a { color: pink; }", messages.rejectedBefore())
-  tr.notOk("a { color: pink;\n}", messages.rejectedBefore())
-  tr.notOk("a { color: pink;  }", messages.rejectedBefore())
-  tr.notOk("a { color: pink;\t}", messages.rejectedBefore())
-  tr.notOk("a { color: pink;} b { color: red;\n}", messages.rejectedBefore())
-})
-
 testRule("always-multi-line", tr => {
   warningFreeBasics(tr)
 

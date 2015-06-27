@@ -11,7 +11,7 @@ Require a newline or disallow whitespace before the closing brace of blocks.
 
 ## Options
 
-`string`: `"always"|"never"`
+`string`: `"always"|"always-multi-line"|"never-multi-line"`
 
 ### `"always"`
 
@@ -20,38 +20,62 @@ There *must always* be a newline before the closing brace.
 The following patterns are considered warnings:
 
 ```css
-a { color: pink; } b { color: red;}
-```
-
-```css
-a { color: pink; }
-b { color: red; }
+a { color: pink;}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
 a { color: pink;
-} b { color: red; }
+}
 ```
 
-### `"never"`
+```css
+a {
+color: pink;
+}
+```
 
-There *must never* be whitespace before the closing brace.
+### `"always-multi-line"`
+
+There *must always* be a newline before the closing brace in multi-line blocks.
 
 The following patterns are considered warnings:
 
 ```css
-a { color: pink;
-} b { color: red; }
-```
-
-```css
-a { color: pink; } b { color: red; }
+a {
+color: pink;}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a { color: pink;}b { color: red; }
+a { color: pink; }
+```
+
+```css
+a { color: pink;
+}
+```
+
+### `"never-multi-line"`
+
+There *must never* be whitespace before the closing brace in multi-line blocks.
+
+The following patterns are considered warnings:
+
+```css
+a {
+color: pink; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { color: pink; }
+```
+
+```css
+a {
+color: pink;}
 ```

@@ -10,13 +10,12 @@ export const ruleName = "block-closing-brace-newline-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected newline before "}"`,
-  rejectedBefore: () => `Unexpected whitespace before "}"`,
   expectedBeforeMultiLine: () => `Expected newline before "}" of a multi-line block`,
   rejectedBeforeMultiLine: () => `Unexpected whitespace before "}" of a multi-line block`,
 })
 
 /**
- * @param {"always"|"never"|"always-multi-line"|"never-multi-line"} expectation
+ * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
   return function (css, result) {

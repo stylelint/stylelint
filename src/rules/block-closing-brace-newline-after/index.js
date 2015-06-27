@@ -8,7 +8,6 @@ export const ruleName = "block-closing-brace-newline-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected newline after "}"`,
-  rejectedAfter: () => `Unexpected whitespace after "}"`,
   expectedAfterSingleLine: () => `Expected single space after "}" of a single-line block`,
   rejectedAfterSingleLine: () => `Unexpected whitespace after "}" of a single-line block`,
   expectedAfterMultiLine: () => `Expected single space after "}" of a multi-line block`,
@@ -16,7 +15,7 @@ export const messages = ruleMessages(ruleName, {
 })
 
 /**
- * @param {"always"|"never"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line"} expectation
+ * @param {"always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
   const checker = whitespaceChecker("\n", expectation, messages)

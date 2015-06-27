@@ -27,25 +27,6 @@ testRule("always", tr => {
   tr.notOk("@media print { a { color: pink; }} @media screen { b { color: red; }}", messages.expectedAfter())
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
-
-  tr.ok("a { color: pink; }")
-  tr.ok("a { color: pink; }b { color: red; }")
-  tr.ok("a { color: pink;}b { color: red;}")
-
-  // Ignores nested closing braces
-  tr.ok("@media print { a { color: pink; }b { color: red; } }")
-  tr.ok("@media print { a { color: pink; } }@media screen { b { color: red; } }")
-
-  tr.notOk("a { color: pink; }\nb { color: red; }", messages.rejectedAfter())
-  tr.notOk("a { color: pink; } b { color: red; }", messages.rejectedAfter())
-  tr.notOk("a { color: pink; }  b { color: red; }", messages.rejectedAfter())
-  tr.notOk("a { color: pink; }\tb { color: red; }", messages.rejectedAfter())
-  tr.notOk("@media print { a { color: pink; }\nb { color: red; }}", messages.rejectedAfter())
-  tr.notOk("@media print { a { color: pink; }}\n @media screen { b { color: red; }}", messages.rejectedAfter())
-})
-
 testRule("always-single-line", tr => {
   warningFreeBasics(tr)
 
