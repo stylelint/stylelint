@@ -1,6 +1,6 @@
 # block-opening-brace-newline-before
 
-Require a newline or disallow whitespace before the opening brace of blocks.
+Require a newline before the opening brace of blocks.
 
 ```css
     a
@@ -11,7 +11,7 @@ Require a newline or disallow whitespace before the opening brace of blocks.
 
 ## Options
 
-`string`: `"always"|"never"`
+`string`: `"always"|"always-single-line"|"always-multi-line"`
 
 ### `"always"`
 
@@ -24,7 +24,8 @@ a{ color: pink; }
 ```
 
 ```css
-a {color: pink;}
+a{ color: pink;
+}
 ```
 
 The following patterns are *not* considered warnings:
@@ -34,23 +35,52 @@ a
 { color: pink; }
 ```
 
-### `"never"`
+```css
+a
+{
+color: pink; }
+```
 
-There *must never* be whitespace before the opening brace.
+### `"always-single-line"`
+
+There *must always* be a newline before the opening brace in single-line blocks.
 
 The following patterns are considered warnings:
 
 ```css
-a { color: pink; }
+a{ color: pink; }
 ```
+
+The following patterns are *not* considered warnings:
 
 ```css
 a
-{color: pink;}
+{ color: pink; }
+```
+
+```css
+a{
+color: pink; }
+```
+
+### `"always-multi-line"`
+
+There *must always* be a newline before the opening brace in multi-line blocks.
+
+The following patterns are considered warnings:
+
+```css
+a{
+color: pink; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
 a{ color: pink; }
+```
+
+```css
+a {
+color: pink; }
 ```

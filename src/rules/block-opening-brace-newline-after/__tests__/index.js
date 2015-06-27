@@ -38,22 +38,6 @@ testRule("always", tr => {
   )
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
-
-  tr.ok("a {color: pink; }")
-  tr.ok("a{color: pink; }")
-  tr.ok("@media print {a {color: pink; } }")
-  tr.ok("@media print{a{color: pink; } }")
-
-  tr.notOk("a { color: pink; }", messages.rejectedAfter())
-  tr.notOk("a {\ncolor: pink; }", messages.rejectedAfter())
-  tr.notOk("a {  color: pink; }", messages.rejectedAfter())
-  tr.notOk("a {\tcolor: pink; }", messages.rejectedAfter())
-  tr.notOk("@media print {\na {color: pink; } }", messages.rejectedAfter())
-  tr.notOk("@media print {a {\ncolor: pink; } }", messages.rejectedAfter())
-})
-
 testRule("always-multi-line", tr => {
   warningFreeBasics(tr)
 
@@ -79,27 +63,4 @@ testRule("always-multi-line", tr => {
   tr.ok("a {\tcolor: pink; }")
   tr.ok("a {  color: pink;  background: orange; }")
   tr.ok("a { /* 1 */ color: pink; }")
-})
-
-testRule("never-multi-line", tr => {
-  warningFreeBasics(tr)
-
-  tr.ok("a {color: pink;\nbackground: orange; }")
-  tr.ok("a{color: pink;\nbackground: orange; }")
-  tr.ok("@media print {a {color: pink;\nbackground: orange; } }")
-  tr.ok("@media print{a{color: pink;\nbackground: orange; } }")
-
-  // Ignore single-line
-  tr.ok("a { color: pink; }")
-  tr.ok("a {  color: pink; }")
-  tr.ok("a {\tcolor: pink; }")
-  tr.ok("@media print { a { color: pink; } }")
-  tr.ok("@media print {\ta {\tcolor: pink; } }")
-
-  tr.notOk("a { color: pink;\nbackground: orange; }", messages.rejectedAfterMultiLine())
-  tr.notOk("a {\ncolor: pink;\nbackground: orange; }", messages.rejectedAfterMultiLine())
-  tr.notOk("a {  color: pink;\nbackground: orange; }", messages.rejectedAfterMultiLine())
-  tr.notOk("a {\tcolor: pink;\nbackground: orange; }", messages.rejectedAfterMultiLine())
-  tr.notOk("@media print {\na {color: pink;\nbackground: orange; } }", messages.rejectedAfterMultiLine())
-  tr.notOk("@media print {a {\ncolor: pink;\nbackground: orange; } }", messages.rejectedAfterMultiLine())
 })
