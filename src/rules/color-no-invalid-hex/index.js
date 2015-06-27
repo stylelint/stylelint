@@ -11,8 +11,8 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function () {
-  return function (css, result) {
-    css.eachDecl(function (decl) {
+  return function (root, result) {
+    root.eachDecl(function (decl) {
       const value = decl.value
 
       styleSearch({ source: value, target: "#" }, match => {

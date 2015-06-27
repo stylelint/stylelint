@@ -15,9 +15,9 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
 
-  return function (css, result) {
+  return (root, result) => {
 
-    css.eachRule(function (rule) {
+    root.eachRule(rule => {
       const selector = rule.selector
 
       // get out early if no pseudo elements or classes

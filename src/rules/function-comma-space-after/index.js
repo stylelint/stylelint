@@ -21,8 +21,8 @@ export default function (expectation) {
 }
 
 export function functionCommaSpaceChecker(checkLocation) {
-  return function (css, result) {
-    css.eachDecl(function (decl) {
+  return (root, result) => {
+    root.eachDecl(decl => {
       const value = decl.value
 
       styleSearch({ source: value, target: ",", withinFunctionalNotation: true }, match => {

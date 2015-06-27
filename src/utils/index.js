@@ -1,3 +1,4 @@
+import blockString from "./blockString"
 import functionArguments from "./functionArguments"
 import isAutoprefixable from "./isAutoprefixable"
 import hasBlock from "./hasBlock"
@@ -9,10 +10,12 @@ import optionsHaveException from "./optionsHaveException"
 import optionsHaveIgnored from "./optionsHaveIgnored"
 import report from "./report"
 import ruleMessages from "./ruleMessages"
+import statementStringBeforeBlock from "./statementStringBeforeBlock"
 import styleSearch from "./styleSearch"
 import whitespaceChecker from "./whitespaceChecker"
 
 export default {
+  blockString,
   functionArguments,
   isAutoprefixable,
   hasBlock,
@@ -24,6 +27,7 @@ export default {
   optionsHaveIgnored,
   report,
   ruleMessages,
+  statementStringBeforeBlock,
   styleSearch,
   whitespaceChecker,
 }

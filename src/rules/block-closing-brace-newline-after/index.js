@@ -1,7 +1,9 @@
 import {
+  blockString,
   report,
   ruleMessages,
-  whitespaceChecker
+  whitespaceChecker,
+  hasBlock
 } from "../../utils"
 
 export const ruleName = "block-closing-brace-newline-after"
@@ -19,29 +21,23 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker("\n", expectation, messages)
-  return function (css, result) {
+  return (root, result) => {
 
     // Check both kinds of statements: rules and at-rules
-    css.eachRule(check)
-    css.eachAtRule(check)
+    root.eachRule(check)
+    root.eachAtRule(check)
 
     function check(statement) {
       const nextNode = statement.next()
       if (!nextNode) { return }
-
-      const statementString = statement.toString()
-
-      // Sometimes at-rules do not have blocks (e.g. @import or @extend)
-      const openingBraceIndex = statementString.indexOf("{")
-      if (openingBraceIndex === -1) { return }
-
-      const blockString = statementString.slice(openingBraceIndex)
+      if (!hasBlock(statement)) { return }
 
       // Only check one after, because there might be other
       // spaces handled by the indentation rule
       checker.afterOneOnly({
         source: nextNode.toString(),
         index: -1,
+        lineCheckStr: blockString(statement),
         err: msg => {
           report({
             message: msg,
@@ -50,7 +46,6 @@ export default function (expectation) {
             ruleName,
           })
         },
-        lineCheckStr: blockString,
       })
     }
   }

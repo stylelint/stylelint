@@ -16,8 +16,8 @@ export const messages = ruleMessages(ruleName, {
  * @param {"always"|"never"} expectation
  */
 export default function (expectation) {
-  return function (css, result) {
-    css.eachComment(function (comment) {
+  return function (root, result) {
+    root.eachComment(function (comment) {
 
       const left = comment.left
       const right = comment.right

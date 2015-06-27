@@ -29,6 +29,8 @@ testRule("always", tr => {
     messages.expectedAfter(),
     "newline after"
   )
+
+  tr.ok("a::before { content: \"!!!\" ! important; }", "ignores string")
 })
 
 testRule("never", tr => {

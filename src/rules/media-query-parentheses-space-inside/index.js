@@ -17,8 +17,8 @@ export const messages = ruleMessages(ruleName, {
  * @param {"always"|"never"} expectation
  */
 export default function (expectation) {
-  return function (css, result) {
-    css.eachAtRule(function (atRule) {
+  return (root, result) => {
+    root.eachAtRule(atRule => {
       if (atRule.name !== "media") { return }
 
       const params = atRule.params

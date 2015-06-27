@@ -18,7 +18,7 @@ export default function (expectation) {
 
   const erroneousQuote = (expectation === "single") ? "\"" : "'"
 
-  return function (root, result) {
+  return (root, result) => {
     const cssString = root.source.input.css
     styleSearch({ source: cssString, target: erroneousQuote }, match => {
       const line = lineCount(cssString.slice(0, match.startIndex))

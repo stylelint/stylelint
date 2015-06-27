@@ -1,4 +1,5 @@
 import {
+  blockString,
   hasBlock,
   hasEmptyBlock,
   report,
@@ -22,39 +23,23 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
-  return blockOpeningBraceSpaceChecker(checker.after)
-}
-
-export function blockOpeningBraceSpaceChecker(checkLocation) {
-  return function (css, result) {
+  return (root, result) => {
 
     // Check both kinds of statements: rules and at-rules
-    css.eachRule(checkBlock)
-    css.eachAtRule(checkBlock)
+    root.eachRule(check)
+    root.eachAtRule(check)
 
-    function checkBlock(statement) {
-
-      // return early if blockless or has empty block
+    function check(statement) {
+      // Return early if blockless or has empty block
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
-      const statementString = statement.toString()
-      for (let i = 0, l = statementString.length; i < l; i++) {
-        if (statementString[i] !== "{") { continue }
-        // Only pay attention to the first brace encountered
-        checkBrace(statementString, i, statement, statementString.slice(i))
-        break
-      }
-    }
-
-    function checkBrace(source, index, node, lineCheckStr) {
-      checkLocation({
-        source,
-        index,
-        lineCheckStr,
+      checker.after({
+        source: blockString(statement),
+        index: 0,
         err: m => {
           report({
             message: m,
-            node: node,
+            node: statement,
             result,
             ruleName,
           })

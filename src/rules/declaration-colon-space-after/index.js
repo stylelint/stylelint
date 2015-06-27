@@ -20,8 +20,8 @@ export default function (expectation) {
 }
 
 export function declarationColonSpaceChecker(locationChecker) {
-  return function (css, result) {
-    css.eachDecl(function (decl) {
+  return (root, result) => {
+    root.eachDecl(decl => {
       const declString = decl.toString()
 
       for (let i = 0, l = declString.length; i < l; i++) {

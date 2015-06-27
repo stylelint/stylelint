@@ -10,8 +10,8 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function () {
-  return function (css, result) {
-    css.eachRule(function (rule) {
+  return (root, result) => {
+    root.eachRule(rule => {
       var decls = []
       rule.eachDecl(function (decl) {
         const prop = decl.prop

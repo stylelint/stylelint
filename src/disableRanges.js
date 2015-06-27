@@ -5,7 +5,7 @@ const disableCommand = commandPrefix + "disable"
 const enableCommand = commandPrefix + "enable"
 
 // Run it like a plugin ...
-export default function (css, result) {
+export default function (root, result) {
   result.disabledRanges = []
 
   let withinDisabledRange = false

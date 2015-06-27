@@ -11,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function () {
-  return function (root, result) {
+  return (root, result) => {
     if (root.source.input.css.slice(-1) !== "\n") {
       report({
         message: messages.rejected,

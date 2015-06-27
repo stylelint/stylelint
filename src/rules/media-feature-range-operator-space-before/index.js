@@ -18,8 +18,8 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
-  return (css, result) => {
-    css.eachAtRule(atRule => {
+  return (root, result) => {
+    root.eachAtRule(atRule => {
       findMediaOperator(atRule, checkBeforeOperator)
     })
 

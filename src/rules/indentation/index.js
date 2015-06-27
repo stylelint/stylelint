@@ -33,10 +33,10 @@ export default function (space, options) {
     return `${count} ${quantifiedWarningWord} at line ${line}`
   }
 
-  return function (css, result) {
-    css.eachRule(checkNode)
-    css.eachAtRule(checkNode)
-    css.eachDecl(checkNode)
+  return (root, result) => {
+    root.eachRule(checkNode)
+    root.eachAtRule(checkNode)
+    root.eachDecl(checkNode)
 
     function checkNode(node) {
 
@@ -97,7 +97,7 @@ export default function (space, options) {
     }
 
     function isFirstNodeInRoot(node) {
-      return css.first === node
+      return root.first === node
     }
 
     function checkValue(node, declLevel) {

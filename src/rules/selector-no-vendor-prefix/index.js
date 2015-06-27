@@ -12,8 +12,8 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function () {
-  return function (css, result) {
-    css.eachRule(function (rule) {
+  return (root, result) => {
+    root.eachRule(rule => {
       const selector = rule.selector
 
       // Check each pseudo-selector

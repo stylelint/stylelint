@@ -11,8 +11,8 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function () {
-  return (css, result) => {
-    css.eachAtRule(atRule => {
+  return (root, result) => {
+    root.eachAtRule(atRule => {
       const { params } = atRule
       if (isAutoprefixable.mediaFeatureName(params)) {
         report({

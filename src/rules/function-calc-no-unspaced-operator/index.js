@@ -17,8 +17,8 @@ export const messages = ruleMessages(ruleName, {
 export default function () {
   const checker = whitespaceChecker(" ", "always", messages)
 
-  return function (css, result) {
-    css.eachDecl(function (decl) {
+  return (root, result) => {
+    root.eachDecl(decl => {
       const value = decl.value
 
       functionArguments(value, "calc", expression => {
