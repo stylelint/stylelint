@@ -14,7 +14,8 @@ export const messages = ruleMessages(ruleName, {
 /**
  * @param {"always"|"never"|"always-multi-line"|"never-multi-line"} expectation
  * @param {object} options
- * @param {array} except = ["first-nested"] */
+ * @param {array} options.except - ["first-nested"]
+ */
 export default function (expectation, options) {
   return (root, result) => {
     root.eachRule(rule => {

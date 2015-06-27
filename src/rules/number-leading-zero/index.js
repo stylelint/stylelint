@@ -14,12 +14,12 @@ export const messages = ruleMessages(ruleName, {
  * @param {"always"|"never"} expectation
  */
 export default function (expectation) {
-  return (css, result) => {
-    css.eachDecl(decl => {
+  return (root, result) => {
+    root.eachDecl(decl => {
       check(decl.value, decl)
     })
 
-    css.eachAtRule(atRule => {
+    root.eachAtRule(atRule => {
       check(atRule.params, atRule)
     })
 

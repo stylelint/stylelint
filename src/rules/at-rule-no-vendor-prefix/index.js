@@ -11,8 +11,8 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function () {
-  return function (css, result) {
-    css.eachAtRule(function (atRule) {
+  return function (root, result) {
+    root.eachAtRule(function (atRule) {
       const name = atRule.name
 
       if (name[0] !== "-") { return }

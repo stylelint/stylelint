@@ -11,8 +11,8 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function () {
-  return function (css, result) {
-    css.eachRule(function (rule) {
+  return (root, result) => {
+    root.eachRule(rule => {
 
       if (!isSingleLineString(rule.toString())) { return }
 

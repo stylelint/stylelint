@@ -11,9 +11,9 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function () {
-  return function (css, result) {
+  return (root, result) => {
     let lineCount = 0
-    const rootString = css.source.input.css
+    const rootString = root.source.input.css
     styleSearch({ source: rootString, target: [ "\n", "\r" ], checkComments: true }, match => {
       lineCount++
       if (isNewline(rootString[match.startIndex + 1])
@@ -21,7 +21,7 @@ export default function () {
         const line = lineCount + 2
         report({
           message: messages.rejected(line),
-          node: css,
+          node: root,
           line: line,
           result,
           ruleName,

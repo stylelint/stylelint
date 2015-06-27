@@ -22,8 +22,8 @@ export default function (expectation) {
 }
 
 export function selectorCombinatorSpaceChecker(locationChecker) {
-  return function (css, result) {
-    css.eachRule(function (rule) {
+  return (root, result) => {
+    root.eachRule(rule => {
       const selector = rule.selector
       for (let i = 0, l = selector.length; i < l; i++) {
         if (combinators.indexOf(selector[i]) === -1) { continue }

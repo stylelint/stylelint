@@ -3,12 +3,12 @@ import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
 
 export default postcss.plugin("stylelint", settings => {
-  return (css, result) => {
+  return (root, result) => {
     if (!settings) { return }
     if (!settings.rules) { return }
 
     // First check for disabled ranges
-    disableRanges(css, result)
+    disableRanges(root, result)
 
     Object.keys(settings.rules).forEach(ruleName => {
       if (!ruleDefinitions[ruleName]) {
@@ -26,7 +26,7 @@ export default postcss.plugin("stylelint", settings => {
       if (ruleSeverity === 0) { return }
 
       // Otherwise, run the rule with the primary and secondary options
-      ruleDefinitions[ruleName](ruleSettings[1], ruleSettings[2])(css, result)
+      ruleDefinitions[ruleName](ruleSettings[1], ruleSettings[2])(root, result)
     })
   }
 })

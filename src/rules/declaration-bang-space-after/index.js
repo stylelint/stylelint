@@ -20,8 +20,8 @@ export default function (expectation) {
 }
 
 export function declarationBangSpaceChecker(locationChecker) {
-  return function (css, result) {
-    css.eachDecl(function (decl) {
+  return function (root, result) {
+    root.eachDecl(function (decl) {
       if (!decl.important) { return }
       const declString = decl.toString()
 

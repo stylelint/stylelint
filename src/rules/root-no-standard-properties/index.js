@@ -10,8 +10,8 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function () {
-  return function (css, result) {
-    css.eachRule(function (rule) {
+  return (root, result) => {
+    root.eachRule(rule => {
       if (rule.selector.indexOf(":root") === -1) { return }
 
       rule.eachDecl(function (decl) {

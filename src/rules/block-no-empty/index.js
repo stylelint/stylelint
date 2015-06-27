@@ -12,11 +12,11 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function () {
-  return function (css, result) {
+  return (root, result) => {
 
     // Check both kinds of statements: rules and at-rules
-    css.eachRule(check)
-    css.eachAtRule(check)
+    root.eachRule(check)
+    root.eachAtRule(check)
 
     function check(statement) {
       if (hasBlock(statement) && hasEmptyBlock(statement)) {

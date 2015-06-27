@@ -14,9 +14,9 @@ export const messages = ruleMessages(ruleName, {
  * @param {"always"|"never"} expectation
  */
 export default function (expectation) {
-  return (css, result) => {
+  return (root, result) => {
 
-    css.eachRule(function (rule) {
+    root.eachRule(rule => {
 
       // return early if an empty rule
       if (rule.nodes.length === 0) { return }

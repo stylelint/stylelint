@@ -1,4 +1,6 @@
 import {
+  blockString,
+  hasBlock,
   report,
   ruleMessages,
   whitespaceChecker
@@ -20,25 +22,21 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
-  return function (css, result) {
+  return function (root, result) {
 
     // Check both kinds of statements: rules and at-rules
-    css.eachRule(check)
-    css.eachAtRule(check)
+    root.eachRule(check)
+    root.eachAtRule(check)
 
     function check(statement) {
-      const statementString = statement.toString()
-
-      // Sometimes at-rules do not have blocks (e.g. @import or @extend)
-      const openingBraceIndex = statementString.indexOf("{")
-      if (openingBraceIndex === -1) { return }
-      const blockString = statementString.slice(openingBraceIndex)
-
       const nextNode = statement.next()
       if (!nextNode) { return }
+      if (!hasBlock) { return }
+
       checker.after({
         source: nextNode.toString(),
         index: -1,
+        lineCheckStr: blockString(statement),
         err: msg => {
           report({
             message: msg,
@@ -47,7 +45,6 @@ export default function (expectation) {
             ruleName,
           })
         },
-        lineCheckStr: blockString,
       })
     }
   }

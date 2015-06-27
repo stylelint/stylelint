@@ -23,8 +23,8 @@ export default function (expectation) {
 }
 
 export function selectorListCommaWhitespaceChecker(checkLocation) {
-  return function (css, result) {
-    css.eachRule(function (rule) {
+  return (root, result) => {
+    root.eachRule(rule => {
       const selector = rule.selector
       styleSearch({ source: selector, target: "," }, match => {
         checkDelimiter(selector, match.startIndex, rule)

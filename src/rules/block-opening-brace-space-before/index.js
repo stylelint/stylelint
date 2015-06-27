@@ -1,8 +1,12 @@
 import {
+  blockString,
+  hasBlock,
+  hasEmptyBlock,
+  report,
   ruleMessages,
+  statementStringBeforeBlock,
   whitespaceChecker
 } from "../../utils"
-import { blockOpeningBraceSpaceChecker } from "../block-opening-brace-space-after"
 
 export const ruleName = "block-opening-brace-space-before"
 
@@ -20,5 +24,31 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
-  return blockOpeningBraceSpaceChecker(checker.before)
+  return (root, result) => {
+
+    // Check both kinds of statements: rules and at-rules
+    root.eachRule(check)
+    root.eachAtRule(check)
+
+    function check(statement) {
+      // Return early if blockless or has empty block
+      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
+
+      const source = statementStringBeforeBlock(statement)
+
+      checker.before({
+        source,
+        index: source.length,
+        lineCheckStr: blockString(statement),
+        err: m => {
+          report({
+            message: m,
+            node: statement,
+            result,
+            ruleName,
+          })
+        },
+      })
+    }
+  }
 }

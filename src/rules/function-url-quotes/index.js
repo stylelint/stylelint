@@ -41,9 +41,9 @@ export default function (expectation) {
     return charDefiesExpectation(str[0]) || charDefiesExpectation(str[str.length - 1])
   }
 
-  return function (css, result) {
-    css.eachAtRule(check)
-    css.eachRule(check)
+  return (root, result) => {
+    root.eachAtRule(check)
+    root.eachRule(check)
 
     function check(statement) {
       if (statement.type === "atrule") {

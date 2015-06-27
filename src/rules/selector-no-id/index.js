@@ -11,8 +11,8 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function () {
-  return (css, result) => {
-    css.eachRule(rule => {
+  return (root, result) => {
+    root.eachRule(rule => {
       selectorParser(selectorAST => {
         selectorAST.eachId(() => {
           report({

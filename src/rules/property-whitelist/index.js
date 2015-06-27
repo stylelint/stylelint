@@ -11,9 +11,9 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function (whitelist) {
-  return (css, result) => {
+  return (root, result) => {
 
-    css.eachDecl(decl => {
+    root.eachDecl(decl => {
 
       const prop = decl.prop
 

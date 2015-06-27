@@ -14,8 +14,8 @@ export const messages = ruleMessages(ruleName, {
 const valuePrefixes = [ "-webkit-", "-moz-", "-ms-", "-o-" ]
 
 export default function () {
-  return function (css, result) {
-    css.eachDecl(function (decl) {
+  return (root, result) => {
+    root.eachDecl(decl => {
       const { prop, value } = decl
 
       styleSearch({ source: value, target: valuePrefixes }, match => {

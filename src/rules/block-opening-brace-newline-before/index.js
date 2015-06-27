@@ -3,6 +3,7 @@ import {
   hasEmptyBlock,
   ruleMessages,
   report,
+  statementStringBeforeBlock,
   whitespaceChecker
 } from "../../utils"
 
@@ -22,29 +23,27 @@ export const messages = ruleMessages(ruleName, {
 export default function (expectation) {
   const checker = whitespaceChecker("\n", expectation, messages)
 
-  return function (css, result) {
+  return (root, result) => {
 
     // Check both kinds of statement: rules and at-rules
-    css.eachRule(check)
-    css.eachAtRule(check)
+    root.eachRule(check)
+    root.eachAtRule(check)
 
     function check(statement) {
 
       // Return early if blockless or has empty block
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
-      const strBeforeOpeningBrace = (statement.type === "rule")
-        ? statement.selector + statement.between
-        : "@" + statement.name + statement.afterName + statement.params + statement.between
+      const beforeBrace = statementStringBeforeBlock(statement)
 
       // The string to check for multi-line vs single-line is the block:
       // the curly braces and everything between them
-      const lineCheckStr = statement.toString().slice(strBeforeOpeningBrace.length)
+      const lineCheckStr = statement.toString().slice(beforeBrace.length)
 
       checker.beforeAllowingIndentation({
         lineCheckStr,
-        source: strBeforeOpeningBrace.toString(),
-        index: strBeforeOpeningBrace.length,
+        source: beforeBrace,
+        index: beforeBrace.length,
         err: m => {
           report({
             message: m,

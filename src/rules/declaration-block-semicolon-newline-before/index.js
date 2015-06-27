@@ -1,4 +1,5 @@
 import {
+  blockString,
   report,
   ruleMessages,
   whitespaceChecker
@@ -17,17 +18,17 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const check = whitespaceChecker("\n", expectation, messages)
-  return function (css, result) {
-    css.eachDecl(function (decl) {
+  return function (root, result) {
+    root.eachDecl(function (decl) {
       const parentRule = decl.parent
       if (!parentRule.semicolon && parentRule.last === decl) { return }
 
       const declString = decl.toString()
-      const parentRuleString = parentRule.toString()
 
       check.before({
         source: declString,
         index: declString.length,
+        lineCheckStr: blockString(parentRule),
         err: m => {
           return report({
             message: m,
@@ -36,7 +37,6 @@ export default function (expectation) {
             ruleName,
           })
         },
-        lineCheckStr: parentRuleString.slice(parentRuleString.indexOf("{")),
       })
     })
   }
