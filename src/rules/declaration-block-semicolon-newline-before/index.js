@@ -8,8 +8,8 @@ export const ruleName = "declaration-block-semicolon-newline-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected newline before ";"`,
-  expectedBeforeMultiLine: () => `Expected newline before ";" within multi-line rule`,
-  rejectedBeforeMultiLine: () => `Unexpected whitespace before ";" within multi-line rule`,
+  expectedBeforeMultiLine: () => `Expected newline before ";" in a multi-line rule`,
+  rejectedBeforeMultiLine: () => `Unexpected whitespace before ";" in a multi-line rule`,
 })
 
 /**

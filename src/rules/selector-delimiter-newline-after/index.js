@@ -9,8 +9,8 @@ export const ruleName = "selector-delimiter-newline-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected newline after ","`,
-  expectedAfterMultiLine: () => `Expected newline after "," in multi-line selector`,
-  rejectedAfterMultiLine: () => `Unexpected whitespace after "," in multi-line selector`,
+  expectedAfterMultiLine: () => `Expected newline after "," in a multi-line selector`,
+  rejectedAfterMultiLine: () => `Unexpected whitespace after "," in a multi-line selector`,
 })
 
 /**

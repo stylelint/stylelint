@@ -9,8 +9,8 @@ export const ruleName = "declaration-block-semicolon-space-after"
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected single space after ";"`,
   rejectedAfter: () => `Unexpected whitespace after ";"`,
-  expectedAfterSingleLine: () => `Expected single space after ";" within single-line rule`,
-  rejectedAfterSingleLine: () => `Unexpected whitespace after ";" within single-line rule`,
+  expectedAfterSingleLine: () => `Expected single space after ";" in a single-line rule`,
+  rejectedAfterSingleLine: () => `Unexpected whitespace after ";" in a single-line rule`,
 })
 
 /**

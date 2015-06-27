@@ -8,8 +8,8 @@ export const ruleName = "value-list-comma-newline-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected newline before ","`,
-  expectedBeforeMultiLine: () => `Expected newline before "," in multi-line list`,
-  rejectedBeforeMultiLine: () => `Unexpected whitespace before "," in multi-line list`,
+  expectedBeforeMultiLine: () => `Expected newline before "," in a multi-line list`,
+  rejectedBeforeMultiLine: () => `Unexpected whitespace before "," in a multi-line list`,
 })
 
 /**
