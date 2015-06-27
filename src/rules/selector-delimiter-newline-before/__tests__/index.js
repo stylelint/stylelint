@@ -14,13 +14,14 @@ testRule("always", tr => {
   tr.ok("a\n, b {}")
   tr.ok("a\n,\nb {}")
   tr.ok("a\n,b[data-foo=\"tr,tr\"] {}")
+  tr.ok("a\n    ,b {}", "indentation after the newline before the comma")
+  tr.ok("a\n\t\t,b {}", "indentation after the newline before the comma")
 
   tr.notOk("a,b {}", messages.expectedBefore())
   tr.notOk("a ,b {}", messages.expectedBefore())
   tr.notOk("a  ,b {}", messages.expectedBefore())
   tr.notOk("a\t,b {}", messages.expectedBefore())
   tr.notOk("a\n,b,c {}", messages.expectedBefore())
-  tr.notOk("a\n,b\n ,c {}", messages.expectedBefore())
 })
 
 testRule("always-multi-line", tr => {

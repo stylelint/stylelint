@@ -46,8 +46,8 @@ export default function (targetWhitespace, expectation, messages) {
    *   before and then ensure there is no whitespace two before; this option
    *   bypasses that second check.
    */
-  function before({ source, index, err, lineCheckStr, onlyOneChar=false }) {
-    activeArgs = { source, index, err, onlyOneChar }
+  function before({ source, index, err, lineCheckStr, onlyOneChar=false, allowIndentation=false }) {
+    activeArgs = { source, index, err, onlyOneChar, allowIndentation }
     switch (expectation) {
       case "always":
         expectBefore()
@@ -112,7 +112,16 @@ export default function (targetWhitespace, expectation, messages) {
     }
   }
 
+  function beforeAllowingIndentation(obj) {
+    before(assign({}, obj, { allowIndentation: true }))
+  }
+
   function expectBefore(messageFunc=messages.expectedBefore) {
+    if (activeArgs.allowIndentation) {
+      expectBeforeAllowingIndentation(messageFunc)
+      return
+    }
+
     const { source, index } = activeArgs
     const oneCharBefore = source[index - 1]
     const twoCharsBefore = source[index - 2]
@@ -120,6 +129,19 @@ export default function (targetWhitespace, expectation, messages) {
     if ((isValue(oneCharBefore) && oneCharBefore !== targetWhitespace)
       || (!activeArgs.onlyOneChar && isValue(twoCharsBefore) && isWhitespace(twoCharsBefore))) {
       activeArgs.err(messageFunc(source[index]))
+    }
+  }
+
+  function expectBeforeAllowingIndentation(messageFunc=messages.expectedBefore) {
+    const { source, index, err } = activeArgs
+    let i = index - 1
+    while (source[i] && source[i] !== targetWhitespace) {
+      if (source[i] === "\t" || source[i] === " ") {
+        i--
+        continue
+      }
+      err(messageFunc(source[index]))
+      return
     }
   }
 
@@ -158,6 +180,7 @@ export default function (targetWhitespace, expectation, messages) {
 
   return {
     before,
+    beforeAllowingIndentation,
     after,
     afterOneOnly,
   }
