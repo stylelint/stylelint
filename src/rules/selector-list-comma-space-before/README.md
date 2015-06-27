@@ -1,11 +1,11 @@
-# selector-delimiter-space-after
+# selector-list-comma-space-before
 
-Require a single space or disallow whitespace after the delimiters of selectors.
+Require a single space or disallow whitespace before the commas of selector lists.
 
 ```css
     a, b { color: pink; }
 /**  ↑
- * The space after this delimiter */
+ * The space before this comma */
 ```
 
 ## Options
@@ -15,7 +15,7 @@ Require a single space or disallow whitespace after the delimiters of selectors.
 
 ### `"always"`
 
-There *must always* be a single space after the delimiters.
+There *must always* be a single space before the commas.
 
 The following patterns are considered warnings:
 
@@ -24,13 +24,13 @@ a,b { color: pink; }
 ```
 
 ```css
-a ,b { color: pink; }
+a, b { color: pink; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a, b { color: pink; }
+a ,b { color: pink; }
 ```
 
 ```css
@@ -39,12 +39,12 @@ a , b { color: pink; }
 
 ### `"never"`
 
-There *must never* be whitespace after the delimiters.
+There *must never* be whitespace before the commas.
 
 The following patterns are considered warnings:
 
 ```css
-a, b { color: pink; }
+a ,b { color: pink; }
 ```
 
 ```css
@@ -58,12 +58,12 @@ a,b { color: pink; }
 ```
 
 ```css
-a ,b { color: pink; }
+a, b { color: pink; }
 ```
 
 ### `"always-single-line"`
 
-There *must always* be a single space after the delimiters in single-line selectors.
+There *must always* be a single space before the commas in single-line selector lists.
 
 The following patterns are considered warnings:
 
@@ -74,23 +74,23 @@ a,b { color: pink; }
 The following patterns are *not* considered warnings:
 
 ```css
-a
-,b { color: pink; }
+a,
+b { color: pink; }
 ```
 
 ### `"never-single-line"`
 
-There *must never* be a single space after the delimiters in single-line selectors.
+There *must never* be a single space before the commas in single-line selector lists.
 
 The following patterns are considered warnings:
 
 ```css
-a, b { color: pink; }
+a ,b { color: pink; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a
-, b { color: pink; }
+a ,
+b { color: pink; }
 ```

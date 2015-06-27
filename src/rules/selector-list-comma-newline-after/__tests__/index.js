@@ -31,7 +31,7 @@ testRule("always-multi-line", tr => {
 
   tr.ok("a,\nb {}")
   tr.ok("a, b {}", "ignores single-line")
-  tr.ok("a, b {\n}", "ignores single-line selector, multi-line block")
+  tr.ok("a, b {\n}", "ignores single-line selector list, multi-line block")
 
   tr.notOk("a,\nb, c {}", messages.expectedAfterMultiLine())
   tr.notOk("a,\nb, c {\n}", messages.expectedAfterMultiLine())
@@ -42,7 +42,7 @@ testRule("never-multi-line", tr => {
 
   tr.ok("a\n,b {}")
   tr.ok("a ,b {}", "ignores single-line")
-  tr.ok("a ,b {\n}", "ignores single-line selector, multi-line block")
+  tr.ok("a ,b {\n}", "ignores single-line selector list, multi-line block")
 
   tr.notOk("a,\nb ,c {}", messages.rejectedAfterMultiLine())
   tr.notOk("a,\nb ,c {\n}", messages.rejectedAfterMultiLine())

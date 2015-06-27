@@ -58,10 +58,10 @@ import rulePropertiesOrder from "./rule-properties-order"
 import ruleTrailingSemicolon from "./rule-trailing-semicolon"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
-import selectorDelimiterNewlineAfter from "./selector-delimiter-newline-after"
-import selectorDelimiterNewlineBefore from "./selector-delimiter-newline-before"
-import selectorDelimiterSpaceAfter from "./selector-delimiter-space-after"
-import selectorDelimiterSpaceBefore from "./selector-delimiter-space-before"
+import selectorListCommaNewlineAfter from "./selector-list-comma-newline-after"
+import selectorListCommaNewlineBefore from "./selector-list-comma-newline-before"
+import selectorListCommaSpaceAfter from "./selector-list-comma-space-after"
+import selectorListCommaSpaceBefore from "./selector-list-comma-space-before"
 import selectorNoAttribute from "./selector-no-attribute"
 import selectorNoCombinator from "./selector-no-combinator"
 import selectorNoId from "./selector-no-id"
@@ -138,10 +138,10 @@ export default {
   "rule-trailing-semicolon": ruleTrailingSemicolon,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,
-  "selector-delimiter-newline-after": selectorDelimiterNewlineAfter,
-  "selector-delimiter-newline-before": selectorDelimiterNewlineBefore,
-  "selector-delimiter-space-after": selectorDelimiterSpaceAfter,
-  "selector-delimiter-space-before": selectorDelimiterSpaceBefore,
+  "selector-list-comma-newline-after": selectorListCommaNewlineAfter,
+  "selector-list-comma-newline-before": selectorListCommaNewlineBefore,
+  "selector-list-comma-space-after": selectorListCommaSpaceAfter,
+  "selector-list-comma-space-before": selectorListCommaSpaceBefore,
   "selector-no-attribute": selectorNoAttribute,
   "selector-no-combinator": selectorNoCombinator,
   "selector-no-id": selectorNoId,
