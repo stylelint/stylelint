@@ -16,15 +16,19 @@ For now you must use the linter as a [PostCSS](https://github.com/postcss/postcs
 
 ```js
 gulp.task("css", function () {
+
   var postcss = require("gulp-postcss")
   var stylelint = require("stylelint")
   var reporter = require("postcss-reporter")
+
   return gulp.src("src/**/*.css")
     .pipe(postcss([
       stylelint({
         // config
       }),
-      reporter()
+      reporter({
+        clearMessages: true,
+      })
     ]))
 })
 ```
@@ -48,6 +52,7 @@ var css = fs.readFileSync("input.css", "utf8")
    ])
   .process(css, { from: file })
   .then()
+  .catch(err => console.error(err.stack))
 ```
 
 #### Configuring rules
