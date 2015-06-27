@@ -14,28 +14,13 @@ testRule("always", tr => {
   tr.ok("@media screen and (color)\n     ,  projection and (color) {}")
   tr.ok("@media screen and (color)\n\t\t,\nprojection and (color) {}",
     "indentation after the newline before the comma")
+  tr.ok("@media screen and (color)\n\n, projection and (color)")
 
   tr.notOk("@media screen and (color), projection and (color)", messages.expectedBefore())
   tr.notOk("@media screen and (color)  , projection and (color)", messages.expectedBefore())
-  tr.notOk("@media screen and (color)\n\n, projection and (color)", messages.expectedBefore())
   tr.notOk("@media screen and (color)\t, projection and (color)", messages.expectedBefore())
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
-
-  tr.ok("@media (max-width: 600px) {}")
-  tr.ok("@media screen and (color),projection and (color) {}")
-  tr.ok("@media screen and (color), projection and (color) {}")
-  tr.ok("@media screen and (color),\nprojection and (color) {}")
-
-  tr.notOk("@media screen and (color) , projection and (color)", messages.rejectedBefore())
-  tr.notOk("@media screen and (color)  , projection and (color)", messages.rejectedBefore())
-  tr.notOk("@media screen and (color)\n, projection and (color)", messages.rejectedBefore())
-  tr.notOk("@media screen and (color)\t, projection and (color)", messages.rejectedBefore())
-})
-
-/*
 testRule("always-multi-line", tr => {
   warningFreeBasics(tr)
 
@@ -56,8 +41,6 @@ testRule("never-multi-line", tr => {
   tr.ok("@media screen and (color) ,projection and (color) {}", "ignore single line list, single-lint block")
   tr.ok("@media screen and (color) ,projection and (color) {\n}", "ignore single line list, multi-line block")
 
-  tr.notOk("@media screen and (color) ,projection and (color),\nprint {}", messages.expectedBeforeMultiLine())
-  tr.notOk("@media screen and (color) ,projection and (color),\nprint {\n}", messages.expectedBeforeMultiLine())
+  tr.notOk("@media screen and (color) ,projection and (color),\nprint {}", messages.rejectedBeforeMultiLine())
+  tr.notOk("@media screen and (color) ,projection and (color),\nprint {\n}", messages.rejectedBeforeMultiLine())
 })
-
-*/

@@ -19,10 +19,10 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
-  return mediaQueryListCommaChecker(checker.after)
+  return mediaQueryListCommaWhitespaceChecker(checker.after)
 }
 
-export function mediaQueryListCommaChecker(checkLocation) {
+export function mediaQueryListCommaWhitespaceChecker(checkLocation) {
   return function (root, result) {
     root.eachAtRule(function (atRule) {
       const params = atRule.params

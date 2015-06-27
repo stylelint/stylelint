@@ -2,13 +2,14 @@ import {
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
-import { mediaQueryListCommaChecker } from "../media-query-list-comma-space-after"
+import { mediaQueryListCommaWhitespaceChecker } from "../media-query-list-comma-space-after"
 
 export const ruleName = "media-query-list-comma-newline-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected newline after ","`,
-  rejectedAfter: () => `Unexpected whitespace after ","`,
+  expectedAfterMultiLine: () => `Expected newline after "," in a multi-line list`,
+  rejectedAfterMultiLine: () => `Unexpected whitespace after "," in a multi-line list`,
 })
 
 /**
@@ -19,5 +20,5 @@ export default function (expectation) {
 
   // Only check for the newline after the comma, while allowing
   // arbitrary indentation after the newline
-  return mediaQueryListCommaChecker(checker.afterOneOnly)
+  return mediaQueryListCommaWhitespaceChecker(checker.afterOneOnly)
 }

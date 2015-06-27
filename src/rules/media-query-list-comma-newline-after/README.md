@@ -10,7 +10,7 @@ Require a newline or disallow whitespace after the commas of media query lists.
 
 ## Options
 
-`string`: `"always"|"never"`
+`string`: `"always"|"always-multi-line"|"never-multi-line"`
 
 ### `"always"`
 
@@ -40,11 +40,18 @@ projection and (color) {}
 projection and (color) {}
 ```
 
-### `"never"`
+### `"always-multi-line"`
 
-There *must never* be whitepace after the commas.
+There *must always* be a newline after the commas in multi-line media query lists.
 
 The following patterns are considered warnings:
+
+```css
+@media screen and (color)
+, projection and (color) {}
+```
+
+The following patterns are *not* considered warnings:
 
 ```css
 @media screen and (color), projection and (color) {}
@@ -55,8 +62,36 @@ The following patterns are considered warnings:
 projection and (color) {}
 ```
 
+```css
+@media screen and (color)
+,
+projection and (color) {}
+```
+
+### `"never-multi-line"`
+
+There *must never* be a white after the commas in multi-line media query lists.
+
+The following patterns are considered warnings:
+
+```css
+@media screen and (color),
+projection and (color) {}
+```
+
+```css
+@media screen and (color)
+,
+projection and (color) {}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
-@media screen and (color),projection and (color) {}
+@media screen and (color), projection and (color) {}
+```
+
+```css
+@media screen and (color)
+,projection and (color) {}
 ```

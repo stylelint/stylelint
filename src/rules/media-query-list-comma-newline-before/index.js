@@ -1,46 +1,21 @@
 import {
-  isWhitespace,
-  report,
   ruleMessages,
-  styleSearch
+  whitespaceChecker
 } from "../../utils"
+import { mediaQueryListCommaWhitespaceChecker } from "../media-query-list-comma-space-after"
 
 export const ruleName = "media-query-list-comma-newline-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected newline before ","`,
-  rejectedBefore: () => `Unexpected whitespace before ","`,
+  expectedBeforeMultiLine: () => `Expected newline before "," in a multi-line list`,
+  rejectedBeforeMultiLine: () => `Unexpected whitespace before "," in a multi-line list`,
 })
 
 /**
- * @param {"always"|"never"} expectation
+ * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
-  return (root, result) => {
-    root.eachAtRule(atRule => {
-      const params = atRule.params
-      styleSearch({ source: params, target: "," }, match => {
-        const paramsBeforeComma = params.substr(0, match.startIndex)
-
-        // Check for a newline anywhere before the comma, while allowing
-        // arbitrary indentation between the newline and the comma
-        if (expectation === "always" && !/[^\s]\n[ \t]*$/.test(paramsBeforeComma)) {
-          report({
-            message: messages.expectedBefore(),
-            node: atRule,
-            result,
-            ruleName,
-          })
-        }
-        if (expectation === "never" && isWhitespace(params[match.startIndex - 1])) {
-          report({
-            message: messages.rejectedBefore(),
-            node: atRule,
-            result,
-            ruleName,
-          })
-        }
-      })
-    })
-  }
+  const checker = whitespaceChecker("\n", expectation, messages)
+  return mediaQueryListCommaWhitespaceChecker(checker.beforeAllowingIndentation)
 }

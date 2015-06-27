@@ -2,7 +2,7 @@ import {
   ruleMessages,
   whitespaceChecker
 } from "../../utils"
-import { mediaQueryListCommaChecker } from "../media-query-list-comma-space-after"
+import { mediaQueryListCommaWhitespaceChecker } from "../media-query-list-comma-space-after"
 
 export const ruleName = "media-query-list-comma-space-before"
 
@@ -18,5 +18,5 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
-  return mediaQueryListCommaChecker(checker.before)
+  return mediaQueryListCommaWhitespaceChecker(checker.before)
 }
