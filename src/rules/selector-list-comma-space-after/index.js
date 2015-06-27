@@ -19,10 +19,10 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker(" ", expectation, messages)
-  return selectorDelimiterSpaceChecker(checker.after)
+  return selectorListCommaWhitespaceChecker(checker.after)
 }
 
-export function selectorDelimiterSpaceChecker(checkLocation) {
+export function selectorListCommaWhitespaceChecker(checkLocation) {
   return function (css, result) {
     css.eachRule(function (rule) {
       const selector = rule.selector

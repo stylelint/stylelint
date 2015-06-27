@@ -3,7 +3,7 @@ import {
   whitespaceChecker
 } from "../../utils"
 
-import { selectorDelimiterSpaceChecker } from "../selector-list-comma-space-after"
+import { selectorListCommaWhitespaceChecker } from "../selector-list-comma-space-after"
 
 export const ruleName = "selector-list-comma-newline-before"
 
@@ -18,5 +18,5 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker("\n", expectation, messages)
-  return selectorDelimiterSpaceChecker(checker.beforeAllowingIndentation)
+  return selectorListCommaWhitespaceChecker(checker.beforeAllowingIndentation)
 }
