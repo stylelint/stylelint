@@ -2,13 +2,13 @@
 
 * [`at-rule-empty-line-before`](../src/rules/at-rule-empty-line-before/README.md): Require or disallow an empty line before @rules.
 * [`at-rule-no-vendor-prefix`](../src/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for @rules.
-* [`block-closing-brace-newline-after`](../src/rules/block-closing-brace-newline-after/README.md): Require a single newline or disallow whitespace after the closing brace of blocks.
-* [`block-closing-brace-newline-before`](../src/rules/block-closing-brace-newline-before/README.md): Require a single newline or disallow whitespace before the closing brace of blocks.
+* [`block-closing-brace-newline-after`](../src/rules/block-closing-brace-newline-after/README.md): Require a newline or disallow whitespace after the closing brace of blocks.
+* [`block-closing-brace-newline-before`](../src/rules/block-closing-brace-newline-before/README.md): Require a newline or disallow whitespace before the closing brace of blocks.
 * [`block-closing-brace-space-after`](../src/rules/block-closing-brace-space-after/README.md): Require a single space or disallow whitespace after the closing brace of blocks.
 * [`block-closing-brace-space-before`](../src/rules/block-closing-brace-space-before/README.md): Require a single space or disallow whitespace before the closing brace of blocks.
 * [`block-no-empty`](../src/rules/block-no-empty/README.md): Disallow empty blocks.
-* [`block-opening-brace-newline-after`](../src/rules/block-opening-brace-newline-after/README.md): Require a single newline or disallow whitespace after the opening brace of blocks.
-* [`block-opening-brace-newline-before`](../src/rules/block-opening-brace-newline-before/README.md): Require a single newline or disallow whitespace before the opening brace of blocks.
+* [`block-opening-brace-newline-after`](../src/rules/block-opening-brace-newline-after/README.md): Require a newline after the opening brace of blocks.
+* [`block-opening-brace-newline-before`](../src/rules/block-opening-brace-newline-before/README.md): Require a newline or disallow whitespace before the opening brace of blocks.
 * [`block-opening-brace-space-after`](../src/rules/block-opening-brace-space-after/README.md): Require a single space or disallow whitespace after the opening brace of blocks.
 * [`block-opening-brace-space-before`](../src/rules/block-opening-brace-space-before/README.md): Require a single space or disallow whitespace before the opening brace of blocks.
 * [`color-no-invalid-hex`](../src/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
@@ -18,8 +18,8 @@
 * [`custom-property-pattern`](../src/rules/custom-property-pattern/README.md): Specify pattern of custom properties.
 * [`declaration-bang-space-after`](../src/rules/declaration-bang-space-after/README.md): Require a single space or disallow whitespace after the bang of declarations.
 * [`declaration-bang-space-before`](../src/rules/declaration-bang-space-before/README.md): Require a single space or disallow whitespace before the bang of declarations.
-* [`declaration-block-semicolon-newline-after`](../src/rules/declaration-block-semicolon-newline-after/README.md): Require a single newline or disallow whitespace after the semicolons of declaration blocks.
-* [`declaration-block-semicolon-newline-before`](../src/rules/declaration-block-semicolon-newline-before/README.md): Require a single newline or disallow whitespace before the semicolons of declaration blocks.
+* [`declaration-block-semicolon-newline-after`](../src/rules/declaration-block-semicolon-newline-after/README.md): Require a newline or disallow whitespace after the semicolons of declaration blocks.
+* [`declaration-block-semicolon-newline-before`](../src/rules/declaration-block-semicolon-newline-before/README.md): Require a newline or disallow whitespace before the semicolons of declaration blocks.
 * [`declaration-block-semicolon-space-after`](../src/rules/declaration-block-semicolon-space-after/README.md): Require a single space or disallow whitespace after the semicolons of declaration blocks.
 * [`declaration-block-semicolon-space-before`](../src/rules/declaration-block-semicolon-space-before/README.md): Require a single space or disallow whitespace before the semicolons of declaration blocks.
 * [`declaration-colon-space-after`](../src/rules/declaration-colon-space-after/README.md): Require a single space or disallow whitespace after the colon of declarations.
@@ -37,8 +37,8 @@
 * [`media-feature-name-no-vendor-prefix`](../src/rules/media-feature-name-no-vendor-prefix/README.md): Disallow vendor prefixes for media feature names.
 * [`media-feature-range-operator-space-after`](../src/rules/media-feature-range-operator-space-after/README.md): Require a single space or disallow whitespace after the range operator in media features.
 * [`media-feature-range-operator-space-before`](../src/rules/media-feature-range-operator-space-before/README.md): Require a single space or disallow whitespace before the range operator in media features.
-* [`media-query-list-comma-newline-after`](../src/rules/media-query-list-comma-newline-after/README.md): Require a single newline or disallow whitespace after the commas of media query lists.
-* [`media-query-list-comma-newline-before`](../src/rules/media-query-list-comma-newline-before/README.md): Require a single newline or disallow whitespace before the commas of media query lists.
+* [`media-query-list-comma-newline-after`](../src/rules/media-query-list-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of media query lists.
+* [`media-query-list-comma-newline-before`](../src/rules/media-query-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of media query lists.
 * [`media-query-list-comma-space-after`](../src/rules/media-query-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of media query lists.
 * [`media-query-list-comma-space-before`](../src/rules/media-query-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of media query lists.
 * [`media-query-parentheses-space-inside`](../src/rules/media-query-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within media queries.
@@ -60,10 +60,12 @@
 * [`rule-trailing-semicolon`](../src/rules/rule-trailing-semicolon/README.md): Require or disallow a trailing semicolon within rules.
 * [`selector-combinator-space-after`](../src/rules/selector-combinator-space-after/README.md): Require a single space or disallow whitespace after the combinators of selectors.
 * [`selector-combinator-space-before`](../src/rules/selector-combinator-space-before/README.md): Require a single space or disallow whitespace before the combinators of selectors.
-* [`selector-delimiter-newline-after`](../src/rules/selector-delimiter-newline-after/README.md): Require a single newline or disallow whitespace after the delimiters of selectors.
-* [`selector-delimiter-newline-before`](../src/rules/selector-delimiter-newline-before/README.md): Require a single newline or disallow whitespace before the delimiters of selectors.
-* [`selector-delimiter-space-after`](../src/rules/selector-delimiter-space-after/README.md): Require a single space or disallow whitespace after the delimiters of selectors.
-* [`selector-delimiter-space-before`](../src/rules/selector-delimiter-space-before/README.md): Require a single space or disallow whitespace before the delimiters of selectors.
+* [`selector-list-comma-newline-after`](../src/rules/selector-list-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of selector lists.
+* [`selector-list-comma-newline-before`](../src/rules/selector-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of selector lists.
+* [`selector-list-comma-space-after`](../src/rules/selector-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of selector lists.
+* [`selector-list-comma-space-before`](../src/rules/selector-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of selector lists.
+* [`selector-no-attribute`](../src/rules/selector-no-attribute/README.md): Disallow attribute selectors.
+* [`selector-no-combinator`](../src/rules/selector-no-combinator/README.md): Disallow combinators in selectors.
 * [`selector-no-id`](../src/rules/selector-no-id/README.md): Disallow id selectors.
 * [`selector-no-type`](../src/rules/selector-no-type/README.md): Disallow type selectors.
 * [`selector-no-universal`](../src/rules/selector-no-universal/README.md): Disallow universal selectors.
@@ -71,8 +73,8 @@
 * [`selector-pseudo-element-colon-notation`](../src/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
 * [`selector-root-no-composition`](../src/rules/selector-root-no-composition/README.md): Disallow the composition of`:root` selectors.
 * [`string-quotes`](../src/rules/string-quotes/README.md): Specify single or double quotes around strings.
-* [`value-list-comma-newline-after`](../src/rules/value-list-comma-newline-after/README.md): Require a single newline or disallow whitespace after the commas of value lists.
-* [`value-list-comma-newline-before`](../src/rules/value-list-comma-newline-before/README.md): Require a single newline or disallow whitespace before the commas of value lists.
+* [`value-list-comma-newline-after`](../src/rules/value-list-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of value lists.
+* [`value-list-comma-newline-before`](../src/rules/value-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of value lists.
 * [`value-list-comma-space-after`](../src/rules/value-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of value lists.
 * [`value-list-comma-space-before`](../src/rules/value-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of value lists.
 * [`value-no-vendor-prefix`](../src/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values.
