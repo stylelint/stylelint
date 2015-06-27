@@ -3,15 +3,15 @@ import {
   whitespaceChecker
 } from "../../utils"
 
-import { selectorDelimiterSpaceChecker } from "../selector-delimiter-space-after"
+import { selectorDelimiterSpaceChecker } from "../selector-list-comma-space-after"
 
-export const ruleName = "selector-delimiter-space-before"
+export const ruleName = "selector-list-comma-space-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected single space before ","`,
   rejectedBefore: () => `Unexpected whitespace before ","`,
-  expectedBeforeSingleLine: () => `Expected single space before "," in a single-line selector`,
-  rejectedBeforeSingleLine: () => `Unexpected whitespace before "," in a single-line selector`,
+  expectedBeforeSingleLine: () => `Expected single space before "," in a single-line list`,
+  rejectedBeforeSingleLine: () => `Unexpected whitespace before "," in a single-line list`,
 })
 
 /**

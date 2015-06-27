@@ -3,14 +3,14 @@ import {
   whitespaceChecker
 } from "../../utils"
 
-import { selectorDelimiterSpaceChecker } from "../selector-delimiter-space-after"
+import { selectorDelimiterSpaceChecker } from "../selector-list-comma-space-after"
 
-export const ruleName = "selector-delimiter-newline-before"
+export const ruleName = "selector-list-comma-newline-before"
 
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected newline before ","`,
-  expectedBeforeMultiLine: () => `Expected newline before "," in a multi-line selector`,
-  rejectedBeforeMultiLine: () => `Unexpected whitespace before "," in a multi-line selector`,
+  expectedBeforeMultiLine: () => `Expected newline before "," in a multi-line list`,
+  rejectedBeforeMultiLine: () => `Unexpected whitespace before "," in a multi-line list`,
 })
 
 /**

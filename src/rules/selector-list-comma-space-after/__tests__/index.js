@@ -46,7 +46,7 @@ testRule("always-single-line", tr => {
   warningFreeBasics(tr)
 
   tr.ok("a, b {}")
-  tr.ok("a, b {\n}", "single-line selector, multi-line block")
+  tr.ok("a, b {\n}", "single-line selector list, multi-line block")
 
   tr.notOk("a,b {}", messages.expectedAfterSingleLine())
   tr.notOk("a,b {\n}", messages.expectedAfterSingleLine())
@@ -56,7 +56,7 @@ testRule("never-single-line", tr => {
   warningFreeBasics(tr)
 
   tr.ok("a,b {}")
-  tr.ok("a,b {\n}", "single-line selector, multi-line block")
+  tr.ok("a,b {\n}", "single-line selector list, multi-line block")
 
   tr.notOk("a, b {}", messages.rejectedAfterSingleLine())
   tr.notOk("a, b {\n}", messages.rejectedAfterSingleLine())

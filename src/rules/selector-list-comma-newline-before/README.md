@@ -1,12 +1,12 @@
-# selector-delimiter-newline-before
+# selector-list-comma-newline-before
 
-Require a newline or disallow whitespace before the delimiters of selectors.
+Require a newline or disallow whitespace before the commas of selector lists.
 
 ```css
     a
     , b { color: pink; }
 /** ↑
- * The newline before this delimiter */
+ * The newline before this comma */
 ```
 
 ## Options
@@ -15,7 +15,7 @@ Require a newline or disallow whitespace before the delimiters of selectors.
 
 ### `"always"`
 
-There *must always* be a newline before the delimiters.
+There *must always* be a newline before the commas.
 
 The following patterns are considered warnings:
 
@@ -42,7 +42,7 @@ a
 
 ### `"always-multi-line"`
 
-There *must always* be a newline before the delimiters in multi-line selectors.
+There *must always* be a newline before the commas in multi-line selector lists.
 
 The following patterns are considered warnings:
 
@@ -70,7 +70,7 @@ b { color: pink; }
 
 ### `"never-multi-line"`
 
-There *must never* be whitespace before the delimiters in multi-line selectors.
+There *must never* be whitespace before the commas in multi-line selector lists.
 
 The following patterns are considered warnings:
 
