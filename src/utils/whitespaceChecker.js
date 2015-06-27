@@ -5,13 +5,18 @@ import isSingleLineString from "./isSingleLineString"
 /**
  * Create a whitespaceChecker, which exposes the following functions:
  * - `before()`
+ * - `beforeAllowingIndentation()`
  * - `after()`
  * - `afterOneOnly()`
  *
  * @param {" "|"\n"} targetWhitespace
- * @param {"always"} expectation - One of the "always"/"never" strings
+ * @param {
+ *     "always"|"never"
+ *     |"always-single-line"|"always-multi-line"
+ *     | "never-single-line"|"never-multi-line"
+ *   } expectation
  * @param {object} messages - An object of message functions;
- *   calling `before()` or `after()` and the `expectation` that is passed
+ *   calling `before*()` or `after*()` and the `expectation` that is passed
  *   determines which message functions are required
  * @param {function} [messages.exectedBefore]
  * @param {function} [messages.rejectedBefore]
@@ -21,32 +26,47 @@ import isSingleLineString from "./isSingleLineString"
  * @param {function} [messages.rejectedBeforeSingleLine]
  * @param {function} [messages.expectedBeforeMultiLine]
  * @param {function} [messages.rejectedBeforeMultiLine]
- * @return {object} The checker
+ * @return {object} The checker, with its exposed checking functions
  */
 export default function (targetWhitespace, expectation, messages) {
 
   // Keep track of active arguments in order to avoid passing
-  // too much stuff around, making signatures confusing.
-  // This variable gets reset anytime `before()` or `after()` is called.
+  // too much stuff around, making signatures long and confusing.
+  // This variable gets reset anytime a checking function is called.
   let activeArgs
 
   /**
    * Check for whitespace before a character.
    *
-   * @param {string} source
-   * @param {number} index - The index of the character to check before
-   * @param {function} err - A callback that receives the warning message
-   *   if there is one. Typically this callback will register the message
+   * @param {object} args - Named arguments object
+   * @param {string} args.source
+   * @param {number} args.index - The index of the character to check before
+   * @param {function} args.err - If a violation is found, this callback
+   *   will be invoked with the relevant warning message.
+   *   Typically this callback will register the message
    *   as a warning on the PostCSS result that the rule is dealing with.
-   * @param {string} [lineCheckStr] - Single- and multi-line checkers
-   *   will use this string to check whether they should proceed. If none
-   *   is passed, they will use `source`.
-   * @param {string} [onlyOneChar=false] - Only check *one* character before.
+   * @param {string} [args.lineCheckStr] - Single- and multi-line checkers
+   *   will use this string to determine whether they should proceed,
+   *   i.e. if this string is one line only, single-line checkers will check,
+   *   multi-line checkers will pass.
+   *   If none is passed, they will use `source`.
+   * @param {boolean} [args.onlyOneChar=false] - Only check *one* character before.
    *   By default, "always-*" checks will look for the `targetWhitespace` one
    *   before and then ensure there is no whitespace two before; this option
    *   bypasses that second check.
+   * @param {boolean} [args.allowIndentation=false] - Allow arbitrary indentation
+   *   between the `targetWhitespace` (almost definitely a newline) and the `index`.
+   *   With this option, the checker will see if a newline *begins* the whitespace before
+   *   the `index`.
    */
-  function before({ source, index, err, lineCheckStr, onlyOneChar=false, allowIndentation=false }) {
+  function before({
+    source,
+    index,
+    err,
+    lineCheckStr,
+    onlyOneChar=false,
+    allowIndentation=false
+  }) {
     activeArgs = { source, index, err, onlyOneChar, allowIndentation }
     switch (expectation) {
       case "always":
@@ -79,7 +99,7 @@ export default function (targetWhitespace, expectation, messages) {
   /**
    * Check for whitespace after a character.
    *
-   * Parameters are the same as for `before()`, above, just substitute
+   * Parameters are pretty much the same as for `before()`, above, just substitute
    * the word "after" for "before".
    */
   function after({ source, index, err, lineCheckStr, onlyOneChar=false }) {
