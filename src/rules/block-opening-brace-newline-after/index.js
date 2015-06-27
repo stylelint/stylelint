@@ -10,13 +10,12 @@ export const ruleName = "block-opening-brace-newline-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected newline after "{"`,
-  rejectedAfter: () => `Unexpected whitespace after "{"`,
   expectedAfterMultiLine: () => `Expected newline after "{" of a multi-line block`,
   rejectedAfterMultiLine: () => `Unexpected whitespace after "{" of a multi-line block`,
 })
 
 /**
- * @param {"always"|"never"|"always-multi-line"|"never-multi-line"} expectation
+ * @param {"always"|"always-multi-line"} expectation
  */
 export default function (expectation) {
   const checker = whitespaceChecker("\n", expectation, messages)

@@ -11,7 +11,7 @@ Require a newline after the opening brace of blocks.
 
 ## Options
 
-`string`: `"always"|"always-multi-line"`
+`string`: `"always"|"always-multi-line"|"never-multi-line`
 
 ### `"always"`
 
@@ -62,3 +62,26 @@ a { color: pink; }
 a {
 color: pink; }
 ```
+
+### `"never-multi-line"`
+
+There *must never* be whitespace after the opening brace in multi-line blocks.
+
+The following patterns are considered warnings:
+
+```css
+a { color: pink;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { color: pink; }
+```
+
+```css
+a {color: pink;
+}
+```
+

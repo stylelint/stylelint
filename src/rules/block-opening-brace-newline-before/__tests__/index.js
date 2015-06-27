@@ -52,6 +52,28 @@ testRule("always-single-line", tr => {
   tr.notOk("@media print\n{ a{ color: pink; } }", messages.expectedBeforeSingleLine())
 })
 
+testRule("never-single-line", tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a{ color: pink; }")
+  tr.ok("a{color: pink; }")
+  tr.ok("@media print{ a{ color: pink; } }")
+  tr.ok("@media print{a{color: pink; } }")
+
+  // Ignoring multi-line blocks
+  tr.ok("a\n{ color: pink;\nbackground:orange; }")
+  tr.ok("@media print { a\n{ color: pink;\nbackground:orange; } }")
+  tr.ok("@media print{ a\n{ color: pink;\nbackground:orange; } }")
+  tr.ok("@media print{\na{ color: pink; } }")
+
+  tr.notOk("a\n{ color: pink; }", messages.rejectedBeforeSingleLine())
+  tr.notOk("a { color: pink; }", messages.rejectedBeforeSingleLine())
+  tr.notOk("a  { color: pink; }", messages.rejectedBeforeSingleLine())
+  tr.notOk("a\t{ color: pink; }", messages.rejectedBeforeSingleLine())
+  tr.notOk("@media print\n{ a\n{ color: pink; } }", messages.rejectedBeforeSingleLine())
+  tr.notOk("@media print { a\n{ color: pink; } }", messages.rejectedBeforeSingleLine())
+})
+
 testRule("always-multi-line", tr => {
   warningFreeBasics(tr)
 
@@ -71,4 +93,25 @@ testRule("always-multi-line", tr => {
   tr.notOk("a { color: pink;\nbackground: orange; }", messages.expectedBeforeMultiLine())
   tr.notOk("@media print\n{\na { color: pink;\nbackground: orange; } }", messages.expectedBeforeMultiLine())
   tr.notOk("@media print { a\n{ color: pink;\nbackground: orange; } }", messages.expectedBeforeMultiLine())
+})
+
+testRule("never-multi-line", tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a{ color: pink;\nbackground: orange; }")
+  tr.ok("@media print{\na{ color: pink;\nbackground: orange } }")
+
+  // Ignoring single-line blocks
+  tr.ok("a { color: pink; }")
+  tr.ok("@media print { a { color: pink; } }")
+  tr.ok("a{ color: pink; }")
+  tr.ok("a  { color: pink; }")
+  tr.ok("a\t{ color: pink; }")
+
+  tr.notOk("a { color: pink;\nbackground: orange; }", messages.rejectedBeforeMultiLine())
+  tr.notOk("a  { color: pink;\nbackground: orange; }", messages.rejectedBeforeMultiLine())
+  tr.notOk("a\t{ color: pink;\nbackground: orange; }", messages.rejectedBeforeMultiLine())
+  tr.notOk("a\n{ color: pink;\nbackground: orange; }", messages.rejectedBeforeMultiLine())
+  tr.notOk("@media print\n{\na{ color: pink;\nbackground: orange; } }", messages.rejectedBeforeMultiLine())
+  tr.notOk("@media print{ a\n{ color: pink;\nbackground: orange; } }", messages.rejectedBeforeMultiLine())
 })
