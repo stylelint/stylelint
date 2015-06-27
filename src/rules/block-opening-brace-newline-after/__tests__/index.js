@@ -38,22 +38,6 @@ testRule("always", tr => {
   )
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
-
-  tr.ok("a {color: pink; }")
-  tr.ok("a{color: pink; }")
-  tr.ok("@media print {a {color: pink; } }")
-  tr.ok("@media print{a{color: pink; } }")
-
-  tr.notOk("a { color: pink; }", messages.rejectedAfter())
-  tr.notOk("a {\ncolor: pink; }", messages.rejectedAfter())
-  tr.notOk("a {  color: pink; }", messages.rejectedAfter())
-  tr.notOk("a {\tcolor: pink; }", messages.rejectedAfter())
-  tr.notOk("@media print {\na {color: pink; } }", messages.rejectedAfter())
-  tr.notOk("@media print {a {\ncolor: pink; } }", messages.rejectedAfter())
-})
-
 testRule("always-multi-line", tr => {
   warningFreeBasics(tr)
 
