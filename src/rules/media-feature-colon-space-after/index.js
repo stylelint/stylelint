@@ -30,14 +30,14 @@ export function mediaFeatureColonSpaceChecker(checkLocation) {
     })
 
     function checkColon(source, index, node) {
-      checkLocation(source, index, m =>
+      checkLocation({ source, index, err: m =>
         report({
           message: m,
           node: node,
           result,
           ruleName,
-        })
-      )
+        }),
+      })
     }
   }
 }

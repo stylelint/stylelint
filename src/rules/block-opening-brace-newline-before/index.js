@@ -42,12 +42,19 @@ export default function (expectation) {
       // the curly braces and everything between them
       const lineCheckStr = statement.toString().slice(strBeforeOpeningBrace.length)
 
-      checker.before(strBeforeOpeningBrace.toString(), strBeforeOpeningBrace.length, m => report({
-        message: m,
-        node: statement,
-        result,
-        ruleName,
-      }), lineCheckStr)
+      checker.before({
+        lineCheckStr,
+        source: strBeforeOpeningBrace.toString(),
+        index: strBeforeOpeningBrace.length,
+        err: m => {
+          report({
+            message: m,
+            node: statement,
+            result,
+            ruleName,
+          })
+        },
+      })
     }
   }
 }

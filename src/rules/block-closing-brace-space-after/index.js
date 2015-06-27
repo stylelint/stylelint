@@ -33,14 +33,19 @@ export default function (expectation) {
 
       const nextNode = statement.next()
       if (!nextNode) { return }
-      checker.after(nextNode.toString(), -1, msg => {
-        report({
-          message: msg,
-          node: statement,
-          result,
-          ruleName,
-        })
-      }, blockString)
+      checker.after({
+        source: nextNode.toString(),
+        index: -1,
+        err: msg => {
+          report({
+            message: msg,
+            node: statement,
+            result,
+            ruleName,
+          })
+        },
+        lineCheckStr: blockString,
+      })
     }
   }
 }

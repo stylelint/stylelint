@@ -29,14 +29,19 @@ export default function (expectation) {
 
       const parentRuleString = parentRule.toString()
 
-      check.after(nextDecl.toString(), -1, m => {
-        return report({
-          message: m,
-          node: decl,
-          result,
-          ruleName,
-        })
-      }, parentRuleString.slice(parentRuleString.indexOf("{")))
+      check.after({
+        source: nextDecl.toString(),
+        index: -1,
+        err: m => {
+          return report({
+            message: m,
+            node: decl,
+            result,
+            ruleName,
+          })
+        },
+        lineCheckStr: parentRuleString.slice(parentRuleString.indexOf("{")),
+      })
     })
   }
 }

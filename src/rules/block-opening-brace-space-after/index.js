@@ -46,14 +46,20 @@ export function blockOpeningBraceSpaceChecker(checkLocation) {
       }
     }
 
-    function checkBrace(str, index, node, lineCheckStr) {
-      checkLocation(str, index, m =>
-        report({
-          message: m,
-          node: node,
-          result,
-          ruleName,
-        }), lineCheckStr)
+    function checkBrace(source, index, node, lineCheckStr) {
+      checkLocation({
+        source,
+        index,
+        lineCheckStr,
+        err: m => {
+          report({
+            message: m,
+            node: node,
+            result,
+            ruleName,
+          })
+        },
+      })
     }
   }
 }

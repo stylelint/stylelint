@@ -34,14 +34,19 @@ export default function (expectation) {
 
       const parentRuleString = parentRule.toString()
 
-      check.afterOneOnly(nodeToCheck.toString(), -1, m => {
-        return report({
-          message: m,
-          node: decl,
-          result,
-          ruleName,
-        })
-      }, parentRuleString.slice(parentRuleString.indexOf("{")))
+      check.afterOneOnly({
+        source: nodeToCheck.toString(),
+        index: -1,
+        err: m => {
+          return report({
+            message: m,
+            node: decl,
+            result,
+            ruleName,
+          })
+        },
+        lineCheckStr: parentRuleString.slice(parentRuleString.indexOf("{")),
+      })
     })
   }
 }

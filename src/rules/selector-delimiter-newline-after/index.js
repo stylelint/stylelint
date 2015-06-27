@@ -28,14 +28,17 @@ export default function (expectation) {
 
       const selector = rule.selector
       styleSearch({ source: selector, target: "," }, match => {
-        checkLocation(selector, match.startIndex, m =>
-          report({
-            message: m,
-            node: rule,
-            result,
-            ruleName,
-          })
-        )
+        checkLocation({
+          source: selector,
+          index: match.startIndex,
+          err: m =>
+            report({
+              message: m,
+              node: rule,
+              result,
+              ruleName,
+            }),
+        })
       })
     })
   }

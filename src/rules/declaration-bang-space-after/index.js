@@ -34,15 +34,15 @@ export function declarationBangSpaceChecker(locationChecker) {
       }
     })
 
-    function check(str, index, node) {
-      locationChecker(str, index, m =>
+    function check(source, index, node) {
+      locationChecker({ source, index, err: m =>
         report({
           message: m,
           node: node,
           result,
           ruleName,
-        })
-      )
+        }),
+      })
     }
   }
 }

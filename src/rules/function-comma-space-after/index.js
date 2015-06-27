@@ -31,14 +31,14 @@ export function functionCommaSpaceChecker(checkLocation) {
     })
 
     function checkComma(source, index, node) {
-      checkLocation(source, index, m =>
+      checkLocation({ source, index, err: m =>
         report({
           message: m,
           node: node,
           result,
           ruleName,
-        })
-      )
+        }),
+      })
     }
   }
 }

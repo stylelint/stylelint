@@ -32,14 +32,14 @@ export function selectorDelimiterSpaceChecker(checkLocation) {
     })
 
     function checkDelimiter(source, index, node) {
-      checkLocation(source, index, m =>
+      checkLocation({ source, index, err: m =>
         report({
           message: m,
           node: node,
           result,
           ruleName,
-        })
-      )
+        }),
+      })
     }
   }
 }

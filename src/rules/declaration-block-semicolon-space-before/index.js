@@ -27,14 +27,19 @@ export default function (expectation) {
       const declString = decl.toString()
       const parentRuleString = parentRule.toString()
 
-      check.before(declString, declString.length, m => {
-        return report({
-          message: m,
-          node: decl,
-          result,
-          ruleName,
-        })
-      }, parentRuleString.slice(parentRuleString.indexOf("{")))
+      check.before({
+        source: declString,
+        index: declString.length,
+        err: m => {
+          return report({
+            message: m,
+            node: decl,
+            result,
+            ruleName,
+          })
+        },
+        lineCheckStr: parentRuleString.slice(parentRuleString.indexOf("{")),
+      })
     })
   }
 }

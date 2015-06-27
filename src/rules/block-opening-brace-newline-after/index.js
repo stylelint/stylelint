@@ -49,12 +49,19 @@ export default function (expectation) {
             ("@" + statement.name + statement.afterName + statement.params + statement.between).length
           )
 
-      checker.afterOneOnly(nodeToCheck.toString(), -1, m => report({
-        message: m,
-        node: nodeToCheck,
-        result,
-        ruleName,
-      }), lineCheckStr)
+      checker.afterOneOnly({
+        lineCheckStr,
+        source: nodeToCheck.toString(),
+        index: -1,
+        err: m => {
+          report({
+            message: m,
+            node: nodeToCheck,
+            result,
+            ruleName,
+          })
+        },
+      })
     }
   }
 }

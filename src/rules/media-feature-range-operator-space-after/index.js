@@ -24,14 +24,18 @@ export default function (expectation) {
     })
 
     function checkAfterOperator(match, params, node) {
-      checker.after(params, match.index + match[1].length, m =>
-        report({
-          message: m,
-          node: node,
-          result,
-          ruleName,
-        })
-      )
+      checker.after({
+        source: params,
+        index: match.index + match[1].length,
+        err: m => {
+          report({
+            message: m,
+            node: node,
+            result,
+            ruleName,
+          })
+        },
+      })
     }
   }
 }

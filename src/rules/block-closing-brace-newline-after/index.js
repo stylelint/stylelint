@@ -40,14 +40,19 @@ export default function (expectation) {
 
       // Only check one after, because there might be other
       // spaces handled by the indentation rule
-      checker.afterOneOnly(nextNode.toString(), -1, msg => {
-        report({
-          message: msg,
-          node: statement,
-          result,
-          ruleName,
-        })
-      }, blockString)
+      checker.afterOneOnly({
+        source: nextNode.toString(),
+        index: -1,
+        err: msg => {
+          report({
+            message: msg,
+            node: statement,
+            result,
+            ruleName,
+          })
+        },
+        lineCheckStr: blockString,
+      })
     }
   }
 }

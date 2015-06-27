@@ -26,13 +26,17 @@ export default function (expectation) {
     function checkBeforeOperator(match, params, node) {
       // The extra `+ 1` is because the match itself contains
       // the character before the operator
-      checker.before(params, match.index + 1, m => {
-        report({
-          message: m,
-          node: node,
-          result,
-          ruleName,
-        })
+      checker.before({
+        source: params,
+        index: match.index + 1,
+        err: m => {
+          report({
+            message: m,
+            node: node,
+            result,
+            ruleName,
+          })
+        },
       })
     }
   }

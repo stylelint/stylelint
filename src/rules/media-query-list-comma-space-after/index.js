@@ -32,14 +32,14 @@ export function mediaQueryListCommaChecker(checkLocation) {
     })
 
     function checkComma(source, index, node) {
-      checkLocation(source, index, m =>
+      checkLocation({ source, index, err: m =>
         report({
           message: m,
           node,
           result,
           ruleName,
-        })
-      )
+        }),
+      })
     }
   }
 }

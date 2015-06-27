@@ -1,3 +1,4 @@
+import { assign } from "lodash"
 import isWhitespace from "./isWhitespace"
 import isSingleLineString from "./isSingleLineString"
 
@@ -45,7 +46,7 @@ export default function (targetWhitespace, expectation, messages) {
    *   before and then ensure there is no whitespace two before; this option
    *   bypasses that second check.
    */
-  function before(source, index, err, lineCheckStr, onlyOneChar=false) {
+  function before({ source, index, err, lineCheckStr, onlyOneChar=false }) {
     activeArgs = { source, index, err, onlyOneChar }
     switch (expectation) {
       case "always":
@@ -81,7 +82,7 @@ export default function (targetWhitespace, expectation, messages) {
    * Parameters are the same as for `before()`, above, just substitute
    * the word "after" for "before".
    */
-  function after(source, index, err, lineCheckStr, onlyOneChar=false) {
+  function after({ source, index, err, lineCheckStr, onlyOneChar=false }) {
     activeArgs = { source, index, err, onlyOneChar }
     switch (expectation) {
       case "always":
@@ -131,8 +132,8 @@ export default function (targetWhitespace, expectation, messages) {
     }
   }
 
-  function afterOneOnly(source, index, err, lineCheckStr) {
-    after(source, index, err, lineCheckStr, true)
+  function afterOneOnly(obj) {
+    after(assign({}, obj, { onlyOneChar: true }))
   }
 
   function expectAfter(messageFunc=messages.expectedAfter) {

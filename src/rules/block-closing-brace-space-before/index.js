@@ -40,14 +40,19 @@ export default function (expectation) {
       if (openingBraceIndex === -1) { return }
       const blockString = statementString.slice(openingBraceIndex)
 
-      checker.before(blockString, blockString.length - 1, msg => {
-        report({
-          message: msg,
-          node: statement,
-          result,
-          ruleName,
-        })
-      }, blockString)
+      checker.before({
+        source: blockString,
+        index: blockString.length - 1,
+        err: msg => {
+          report({
+            message: msg,
+            node: statement,
+            result,
+            ruleName,
+          })
+        },
+        lineCheckStr: blockString,
+      })
     }
   }
 }
