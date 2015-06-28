@@ -2,7 +2,7 @@
 
 > Modern CSS linter.
 
-See [opened issues](https://github.com/stylelint/stylelint/issues) for status of the project.
+Supports the latest CSS syntax and features, including custom properties, range media features and calc().
 
 ### Installation
 
