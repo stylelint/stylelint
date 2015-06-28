@@ -1,5 +1,5 @@
 import {
-  hasBlock,
+  cssStatementHasBlock,
   optionsHaveException,
   report,
   ruleMessages
@@ -33,8 +33,8 @@ export default function (expectation, options) {
       // Optionally reverse the expectation if in a blockless group
       if (optionsHaveException(options, "blockless-group")
         && previousNode && previousNode.type === "atrule"
-        && !hasBlock(previousNode)
-        && !hasBlock(atRule)) {
+        && !cssStatementHasBlock(previousNode)
+        && !cssStatementHasBlock(atRule)) {
         expectEmptyLineBefore = !expectEmptyLineBefore
       }
 

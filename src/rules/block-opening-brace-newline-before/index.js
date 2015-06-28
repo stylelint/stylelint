@@ -1,9 +1,9 @@
 import {
-  hasBlock,
-  hasEmptyBlock,
+  cssStatementHasBlock,
+  cssStatementHasEmptyBlock,
   ruleMessages,
   report,
-  statementStringBeforeBlock,
+  cssStatementStringBeforeBlock,
   whitespaceChecker
 } from "../../utils"
 
@@ -32,9 +32,9 @@ export default function (expectation) {
     function check(statement) {
 
       // Return early if blockless or has empty block
-      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
+      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
-      const beforeBrace = statementStringBeforeBlock(statement)
+      const beforeBrace = cssStatementStringBeforeBlock(statement)
 
       // The string to check for multi-line vs single-line is the block:
       // the curly braces and everything between them

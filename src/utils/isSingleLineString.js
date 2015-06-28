@@ -5,9 +5,9 @@
  * The fact that it's trimmed means that newline characters at the
  * beginning or end will be ignored.
  *
- * @param {string} str - A block rendered as a string
+ * @param {string} input
  * @return {boolean}
  */
-export default function (str) {
-  return !/[\n\r]/.test(str.trim())
+export default function (input) {
+  return !/[\n\r]/.test(input.trim())
 }

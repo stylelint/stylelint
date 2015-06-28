@@ -1,8 +1,8 @@
-import blockString from "./blockString"
-import functionArguments from "./functionArguments"
+import cssStatementBlockString from "./cssStatementBlockString"
+import cssFunctionArguments from "./cssFunctionArguments"
 import isAutoprefixable from "./isAutoprefixable"
-import hasBlock from "./hasBlock"
-import hasEmptyBlock from "./hasEmptyBlock"
+import cssStatementHasBlock from "./cssStatementHasBlock"
+import cssStatementHasEmptyBlock from "./cssStatementHasEmptyBlock"
 import isSingleLineString from "./isSingleLineString"
 import isWhitespace from "./isWhitespace"
 import lineCount from "./lineCount"
@@ -10,16 +10,16 @@ import optionsHaveException from "./optionsHaveException"
 import optionsHaveIgnored from "./optionsHaveIgnored"
 import report from "./report"
 import ruleMessages from "./ruleMessages"
-import statementStringBeforeBlock from "./statementStringBeforeBlock"
+import cssStatementStringBeforeBlock from "./cssStatementStringBeforeBlock"
 import styleSearch from "./styleSearch"
 import whitespaceChecker from "./whitespaceChecker"
 
 export default {
-  blockString,
-  functionArguments,
+  cssStatementBlockString,
+  cssFunctionArguments,
   isAutoprefixable,
-  hasBlock,
-  hasEmptyBlock,
+  cssStatementHasBlock,
+  cssStatementHasEmptyBlock,
   isSingleLineString,
   isWhitespace,
   lineCount,
@@ -27,7 +27,7 @@ export default {
   optionsHaveIgnored,
   report,
   ruleMessages,
-  statementStringBeforeBlock,
+  cssStatementStringBeforeBlock,
   styleSearch,
   whitespaceChecker,
 }

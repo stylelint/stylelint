@@ -1,5 +1,5 @@
 import {
-  blockString,
+  cssStatementBlockString,
   report,
   ruleMessages,
   whitespaceChecker
@@ -30,7 +30,7 @@ export default function (expectation) {
       check.before({
         source: declString,
         index: declString.length,
-        lineCheckStr: blockString(parentRule),
+        lineCheckStr: cssStatementBlockString(parentRule),
         err: m => {
           return report({
             message: m,
