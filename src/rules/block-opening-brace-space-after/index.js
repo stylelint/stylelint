@@ -1,7 +1,7 @@
 import {
-  blockString,
-  hasBlock,
-  hasEmptyBlock,
+  cssStatementBlockString,
+  cssStatementHasBlock,
+  cssStatementHasEmptyBlock,
   report,
   ruleMessages,
   whitespaceChecker
@@ -31,10 +31,10 @@ export default function (expectation) {
 
     function check(statement) {
       // Return early if blockless or has empty block
-      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
+      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
       checker.after({
-        source: blockString(statement),
+        source: cssStatementBlockString(statement),
         index: 0,
         err: m => {
           report({

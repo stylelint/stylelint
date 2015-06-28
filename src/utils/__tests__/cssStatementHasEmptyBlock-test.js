@@ -1,8 +1,8 @@
-import hasEmptyBlock from "../hasEmptyBlock"
+import cssStatementHasEmptyBlock from "../cssStatementHasEmptyBlock"
 import postcss from "postcss"
 import test from "tape"
 
-test("hasEmptyBlock", t => {
+test("cssStatementHasEmptyBlock", t => {
   t.ok(postcssCheck("a {}"), "empty rule")
   t.ok(postcssCheck("a { }"), "emtpy rule with space")
   t.ok(postcssCheck("a {\n}"), "emtpy rule with newline")
@@ -32,5 +32,5 @@ test("hasEmptyBlock", t => {
 
 function postcssCheck(cssString) {
   const root = postcss.parse(cssString)
-  return hasEmptyBlock(root.first)
+  return cssStatementHasEmptyBlock(root.first)
 }

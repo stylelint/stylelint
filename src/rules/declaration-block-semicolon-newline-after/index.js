@@ -1,5 +1,5 @@
 import {
-  blockString,
+  cssStatementBlockString,
   report,
   ruleMessages,
   whitespaceChecker
@@ -36,7 +36,7 @@ export default function (expectation) {
       check.afterOneOnly({
         source: nodeToCheck.toString(),
         index: -1,
-        lineCheckStr: blockString(parentRule),
+        lineCheckStr: cssStatementBlockString(parentRule),
         err: m => {
           return report({
             message: m,

@@ -1,31 +1,35 @@
 /**
  * Report a violation.
  *
+ * This function accounts for `disabledRanges` attached to the result.
+ * That is, if the reported violation is within a disabledRange,
+ * it is ignored. Otherwise, it is attached to the result as a
+ * postcss warning.
+ *
  * @param {object} violation - Violation details object
  * @param {string} violation.ruleName - The name of the rule
- * @param {Result} violation.result - PostCSS Result object
+ * @param {Result} violation.result - postcss Result object
  * @param {string} violation.message - Message to inform user of the violation
  * @param {number} violation.line - Line number of the violation
- * @param {Node} violation.node - PostCSS Node object
+ * @param {Node} violation.node - postcss Node object
  */
-export default function (violation) {
+export default function ({ ruleName, result, message, line, node }) {
 
-  const startLine = (violation.line)
-    ? violation.line
-    : violation.node.source && violation.node.source.start.line
+  const startLine = (line)
+    ? line
+    : node.source && node.source.start.line
 
-  if (violation.result.disabledRanges) {
-    for (let range of violation.result.disabledRanges) {
+  if (result.disabledRanges) {
+    for (let range of result.disabledRanges) {
       if (
-        // If the violation is within a disabledRange ...
-        range.start <= startLine
-        && (range.end === undefined || range.end >= startLine)
-        // And that disabledRange's rules include this one ...
-        && (!range.rules || range.rules.indexOf(violation.ruleName) !== -1)
-        // Do not register a warning
+        // If the violation is within a disabledRange,
+        // and that disabledRange's rules include this one,
+        // do not register a warning
+        range.start <= startLine && (range.end >= startLine || range.end === undefined)
+        && (!range.rules || range.rules.indexOf(ruleName) !== -1)
       ) { return }
     }
   }
 
-  violation.result.warn(violation.message, { node: violation.node })
+  result.warn(message, { node: node })
 }

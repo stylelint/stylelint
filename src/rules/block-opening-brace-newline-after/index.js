@@ -1,7 +1,7 @@
 import {
-  blockString,
-  hasBlock,
-  hasEmptyBlock,
+  cssStatementBlockString,
+  cssStatementHasBlock,
+  cssStatementHasEmptyBlock,
   report,
   ruleMessages,
   whitespaceChecker
@@ -30,7 +30,7 @@ export default function (expectation) {
     function check(statement) {
 
       // Return early if blockless or has empty block
-      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
+      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
       // Allow an end-of-line comment one space after the brace
       const firstNode = statement.first
@@ -42,7 +42,7 @@ export default function (expectation) {
       checker.afterOneOnly({
         source: nodeToCheck.toString(),
         index: -1,
-        lineCheckStr: blockString(statement),
+        lineCheckStr: cssStatementBlockString(statement),
         err: m => {
           report({
             message: m,

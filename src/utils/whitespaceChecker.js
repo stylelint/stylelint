@@ -44,7 +44,7 @@ export default function (targetWhitespace, expectation, messages) {
    * @param {function} args.err - If a violation is found, this callback
    *   will be invoked with the relevant warning message.
    *   Typically this callback will register the message
-   *   as a warning on the PostCSS result that the rule is dealing with.
+   *   as a warning on the postcss result that the rule is dealing with.
    * @param {string} [args.lineCheckStr] - Single- and multi-line checkers
    *   will use this string to determine whether they should proceed,
    *   i.e. if this string is one line only, single-line checkers will check,

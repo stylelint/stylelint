@@ -1,5 +1,5 @@
 import {
-  functionArguments,
+  cssFunctionArguments,
   report,
   ruleMessages,
   styleSearch,
@@ -21,7 +21,7 @@ export default function () {
     root.eachDecl(decl => {
       const value = decl.value
 
-      functionArguments(value, "calc", expression => {
+      cssFunctionArguments(value, "calc", expression => {
 
         checkSymbol("+")
         checkSymbol("-")
