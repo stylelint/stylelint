@@ -23,10 +23,6 @@ There *must always* be an empty line before comments.
 The following patterns are considered warnings:
 
 ```css
-a {} /* comment */
-```
-
-```css
 a {}
 /* comment */
 ```
@@ -37,6 +33,10 @@ The following patterns are *not* considered warnings:
 a {}
 
 /* comment */
+```
+
+```css
+a {} /* comment */
 ```
 
 ### `"never"`
@@ -54,10 +54,10 @@ a {}
 The following patterns are *not* considered warnings:
 
 ```css
-a {} /* comment */
+a {}
+/* comment */
 ```
 
 ```css
-a {}
-/* comment */
+a {} /* comment */
 ```
