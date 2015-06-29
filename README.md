@@ -87,7 +87,7 @@ Some rules require options. There are no default values, so each rule that requi
 
 #### Shareable configs
 
-If you perfer to enforce a third-party styleguide (rather than craft your own config), you can use:
+If you prefer to enforce a third-party styleguide (rather than craft your own config), you can use:
 
 * [SuitCSS shareable config](https://github.com/stylelint/stylelint-config-suitcss)
 
