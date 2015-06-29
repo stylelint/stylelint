@@ -4,13 +4,13 @@
 
 See [opened issues](https://github.com/stylelint/stylelint/issues) for status of the project.
 
-### Installation
+## Installation
 
 ```console
 $ npm install stylelint
 ```
 
-### Usage
+## Usage
 
 For now you must use the linter as a [PostCSS](https://github.com/postcss/postcss#usage) plugin directly. You can either use a [postcss runner](https://github.com/postcss/postcss#usage), like `grunt`, `gulp` or `webpack`. For example, using `gulp`:
 
@@ -55,7 +55,7 @@ var css = fs.readFileSync("input.css", "utf8")
   .catch(err => console.error(err.stack))
 ```
 
-#### Configuring rules
+### Configuring rules
 
 [Rules](docs/rules.md) are configured within the `rules` key of the config. Each rule can be turned off or on:
 
@@ -85,7 +85,7 @@ Some rules require options. There are no default values, so each rule that requi
 }
 ```
 
-### Requirements
+## Requirements
 
 * node@0.12 or io.js@2
 * node@0.10 with [babel-node](http://babeljs.io/docs/usage/cli/#babel-node)
