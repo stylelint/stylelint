@@ -1,10 +1,10 @@
 import {
-  blockString,
-  hasBlock,
-  hasEmptyBlock,
+  cssStatementBlockString,
+  cssStatementHasBlock,
+  cssStatementHasEmptyBlock,
   report,
   ruleMessages,
-  statementStringBeforeBlock,
+  cssStatementStringBeforeBlock,
   whitespaceChecker
 } from "../../utils"
 
@@ -32,14 +32,14 @@ export default function (expectation) {
 
     function check(statement) {
       // Return early if blockless or has empty block
-      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
+      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
-      const source = statementStringBeforeBlock(statement)
+      const source = cssStatementStringBeforeBlock(statement)
 
       checker.before({
         source,
         index: source.length,
-        lineCheckStr: blockString(statement),
+        lineCheckStr: cssStatementBlockString(statement),
         err: m => {
           report({
             message: m,

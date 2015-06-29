@@ -1,6 +1,6 @@
 import {
-  blockString,
-  hasBlock,
+  cssStatementBlockString,
+  cssStatementHasBlock,
   report,
   ruleMessages,
   whitespaceChecker
@@ -31,12 +31,12 @@ export default function (expectation) {
     function check(statement) {
       const nextNode = statement.next()
       if (!nextNode) { return }
-      if (!hasBlock(statement)) { return }
+      if (!cssStatementHasBlock(statement)) { return }
 
       checker.after({
         source: nextNode.toString(),
         index: -1,
-        lineCheckStr: blockString(statement),
+        lineCheckStr: cssStatementBlockString(statement),
         err: msg => {
           report({
             message: msg,

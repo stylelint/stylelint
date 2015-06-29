@@ -1,11 +1,11 @@
 import test from "tape"
-import functionArguments from "../functionArguments"
+import cssFunctionArguments from "../cssFunctionArguments"
 
 test("passes function arguments to callback", t => {
-  functionArguments("calc(1 + 3)", "calc", args => {
+  cssFunctionArguments("calc(1 + 3)", "calc", args => {
     t.equal(args, "1 + 3")
   })
-  functionArguments("4px 5px calc(1px + 3px)", "calc", args => {
+  cssFunctionArguments("4px 5px calc(1px + 3px)", "calc", args => {
     t.equal(args, "1px + 3px")
   })
   t.end()
@@ -13,17 +13,17 @@ test("passes function arguments to callback", t => {
 
 test("works with nested functions", t => {
   const calcArgs = []
-  functionArguments("4px 5px calc(calc(1px + 2px) + 3px)", "calc", args => {
+  cssFunctionArguments("4px 5px calc(calc(1px + 2px) + 3px)", "calc", args => {
     calcArgs.push(args)
   })
   t.deepEqual(calcArgs, [ "calc(1px + 2px) + 3px", "1px + 2px" ])
 
   const colorFuncValue = "color(red s(- 10%) s( - 10%))"
-  functionArguments(colorFuncValue, "color", args => {
+  cssFunctionArguments(colorFuncValue, "color", args => {
     t.equal(args, "red s(- 10%) s( - 10%)")
   })
   const sArgs = []
-  functionArguments(colorFuncValue, "s", args => {
+  cssFunctionArguments(colorFuncValue, "s", args => {
     sArgs.push(args)
   })
   t.deepEqual(sArgs, [ "- 10%", " - 10%" ])
@@ -31,10 +31,10 @@ test("works with nested functions", t => {
 })
 
 test("ignores strings", t => {
-  functionArguments("calc(1px)", "calc", args => {
+  cssFunctionArguments("calc(1px)", "calc", args => {
     t.equal(args, "1px")
   })
-  functionArguments("\"calc(1px)\"", "calc", args => {
+  cssFunctionArguments("\"calc(1px)\"", "calc", args => {
     t.equal(args, null)
   })
   t.end()

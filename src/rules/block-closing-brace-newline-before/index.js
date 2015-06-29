@@ -1,7 +1,7 @@
 import {
-  blockString,
-  hasBlock,
-  hasEmptyBlock,
+  cssStatementBlockString,
+  cssStatementHasBlock,
+  cssStatementHasEmptyBlock,
   isSingleLineString,
   report,
   ruleMessages
@@ -28,9 +28,9 @@ export default function (expectation) {
     function check(statement) {
 
       // Return early if blockless or has empty block
-      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
+      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
-      const blockIsMultiLine = !isSingleLineString(blockString(statement))
+      const blockIsMultiLine = !isSingleLineString(cssStatementBlockString(statement))
 
       // We're really just checking whether a
       // newline *starts* the block's final space -- between

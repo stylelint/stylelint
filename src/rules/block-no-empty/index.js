@@ -1,6 +1,6 @@
 import {
-  hasBlock,
-  hasEmptyBlock,
+  cssStatementHasBlock,
+  cssStatementHasEmptyBlock,
   report,
   ruleMessages
 } from "../../utils"
@@ -19,7 +19,7 @@ export default function () {
     root.eachAtRule(check)
 
     function check(statement) {
-      if (hasBlock(statement) && hasEmptyBlock(statement)) {
+      if (cssStatementHasBlock(statement) && cssStatementHasEmptyBlock(statement)) {
         report({
           message: messages.rejected,
           node: statement,

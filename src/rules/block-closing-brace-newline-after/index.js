@@ -1,9 +1,9 @@
 import {
-  blockString,
+  cssStatementBlockString,
   report,
   ruleMessages,
   whitespaceChecker,
-  hasBlock
+  cssStatementHasBlock
 } from "../../utils"
 
 export const ruleName = "block-closing-brace-newline-after"
@@ -30,14 +30,14 @@ export default function (expectation) {
     function check(statement) {
       const nextNode = statement.next()
       if (!nextNode) { return }
-      if (!hasBlock(statement)) { return }
+      if (!cssStatementHasBlock(statement)) { return }
 
       // Only check one after, because there might be other
       // spaces handled by the indentation rule
       checker.afterOneOnly({
         source: nextNode.toString(),
         index: -1,
-        lineCheckStr: blockString(statement),
+        lineCheckStr: cssStatementBlockString(statement),
         err: msg => {
           report({
             message: msg,

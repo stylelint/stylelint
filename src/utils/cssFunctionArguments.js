@@ -1,9 +1,9 @@
-import balanacedMatch from "balanced-match"
+import balancedMatch from "balanced-match"
 import styleSearch from "./styleSearch"
 
 /**
- * Search for functions by name. For every match,
- * invoke the callback, passing the functions
+ * Search a CSS string for functions by name.
+ * For every match, invoke the callback, passing the function's
  * "argument(s) string" (whatever is inside the parentheses)
  * as an argument.
  *
@@ -16,7 +16,7 @@ import styleSearch from "./styleSearch"
 export default function (source, functionName, callback) {
   styleSearch({ source, target: functionName }, match => {
     if (source[match.endIndex] !== "(") { return }
-    const parensMatch = balanacedMatch("(", ")", source.substr(match.startIndex))
+    const parensMatch = balancedMatch("(", ")", source.substr(match.startIndex))
     callback(parensMatch.body)
   })
 }

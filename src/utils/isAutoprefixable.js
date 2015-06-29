@@ -2,40 +2,48 @@ import autoprefixer from "autoprefixer-core"
 import Prefixes from "autoprefixer-core/lib/prefixes"
 import Browsers from "autoprefixer-core/lib/browsers"
 
+/**
+ * Use Autoprefixer's secret powers to determine whether or
+ * not a certain CSS identifier contains a vendor prefix that
+ * Autoprefixer, given the standardized identifier, could add itself.
+ *
+ * Used by `*-no-vendor-prefix-*` rules to find superfluous
+ * vendor prefixes.
+ */
+
 const prefixes = new Prefixes(
   autoprefixer.data.prefixes,
   new Browsers(autoprefixer.data.browsers, [])
 )
 
 /**
- * Each function below determines whether a vendor-prefixed CSS identifier
- * would be taken care of by Autoprefixer if the standard
- * version of the identifier were used.
+ * Most identifier types have to be looked up in a unique way,
+ * so we're exposing special functions for each.
  */
 export default {
 
-  atRuleName(x) {
-    return prefixes.remove[`@${x}`]
+  atRuleName(identifier) {
+    return prefixes.remove[`@${identifier}`]
   },
 
-  selector(x) {
+  selector(identifier) {
     return prefixes.remove.selectors.some(selectorObj => {
-      return x === selectorObj.prefixed
+      return identifier === selectorObj.prefixed
     })
   },
 
-  mediaFeatureName(x) {
-    return x.indexOf("device-pixel-ratio") !== -1
+  mediaFeatureName(identifier) {
+    return identifier.indexOf("device-pixel-ratio") !== -1
   },
 
-  property(x) {
-    return autoprefixer.data.prefixes[prefixes.unprefixed(x)]
+  property(identifier) {
+    return autoprefixer.data.prefixes[prefixes.unprefixed(identifier)]
   },
 
-  propertyValue(p, v) {
-    const possiblePrefixableValues = prefixes.remove[p] && prefixes.remove[p].values
+  propertyValue(prop, value) {
+    const possiblePrefixableValues = prefixes.remove[prop] && prefixes.remove[prop].values
     return possiblePrefixableValues && possiblePrefixableValues.some(valueObj => {
-      return v === valueObj.prefixed
+      return value === valueObj.prefixed
     })
   },
 

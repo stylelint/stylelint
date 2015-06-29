@@ -1,38 +1,45 @@
 /**
- * Search within styles.
+ * Search within CSS strings for some character(s),
+ * and for every match found invoke a callback,
+ * passing it a `match` object with the following properties:
+ * - startIndex: where the match begins
+ * - endIndex: where the match ends
+ * - target: what got matched
  *
- * Ignores any matches within CSS strings or comments. Optionally restricts
- * the search to characters within or outside of functional notation.
- *
- * Returns a `match` object with the following properties:
- * - startIndex
- * - endIndex
- * - target
+ * Always ignores CSS strings (e.g. `content` property values).
+ * By default ignores comments.
+ * Optionally restricts the search to characters within or outside of functional notation.
  *
  * @param {object} options
- * @param {string} options.source - The source to search through
+ * @param {string} options.source - The source string to search through
  * @param {string|string[]} options.target - The target of the search. Can be
  *   - a single character,
  *   - a string with some length,
  *   - an array of strings, all of which count as matches
- * @param {boolean} [options.withinFunctionalNotation] - If `true`, only will report
- *   matches found inside a function
- * @param {boolean} [options.outsideFunctionalNotation] - If `true`, only will report
+ *     (the `match` object passed to the `callback` will differentiate which string of
+ *     the array got matched via its `target` property)
+ * @param {boolean} [options.withinFunctionalNotation] - If `true`, only report
+ *   matches found *inside* CSS functions
+ * @param {boolean} [options.outsideFunctionalNotation] - If `true`, only report
+ *   matches found *outside* CSS functions
  * @param {boolean} [options.checkComments] - If `true`, comments will *not* be ignored
- * @param {boolean} [onlyOne] - Stop looking after the first match is found
- * @param {function} callback - Function that takes the index of a match as its
- *   argument
+ * @param {boolean} [options.onlyOne] - Stop looking after the first match is found
+ * @param {function} callback - Is invoked for every match, receiving the `match` object
+ *   and a count of how many matches have been found up to that point
  */
 export default function (options, callback) {
   const {
     source,
     target,
-    withinFunctionalNotation,
-    outsideFunctionalNotation
   } = options
 
   const targetIsArray = Array.isArray(target)
 
+  // If the target is just a string, it is easy to check whether
+  // some index of the source matches it.
+  // If the target is an array of strings, though, we have to
+  // check whether some index of the source mathces *any* of
+  // those target strings (stopping after the first match).
   const checkAgainstTarget = (() => {
     if (!targetIsArray) {
       return checkChar.bind(null, target)
@@ -69,9 +76,9 @@ export default function (options, callback) {
   let insideString = false
   let insideComment = false
   let insideFunction = false
-  let openingQuote
   let openingParenCount = 0
   let matchCount = 0
+  let openingQuote
 
   for (let i = 0, l = source.length; i < l; i++) {
 
@@ -82,7 +89,7 @@ export default function (options, callback) {
       if (
         !insideComment
         && currentChar === "/"
-        && source[i - 1] !== "\\"
+        && source[i - 1] !== "\\" // escaping
         && source[i + 1] === "*"
       ) {
         insideComment = true
@@ -90,25 +97,24 @@ export default function (options, callback) {
       }
 
       if (insideComment) {
-
         // Register the end of a comment
         if (
           currentChar === "*"
-          && source[i - 1] !== "\\"
+          && source[i - 1] !== "\\" // escaping
           && source[i + 1] === "/"
         ) {
           insideComment = false
           continue
         }
-
+        // Or just keep going, because we're
+        // still inside a comment
         continue
       }
     }
 
     // Register the beginning of a string
     if (!insideString && (currentChar === "\"" || currentChar === "'")) {
-      // Ignore escaped quote
-      if (source[i - 1] === "\\") { continue }
+      if (source[i - 1] === "\\") { continue } // escaping
 
       openingQuote = currentChar
       insideString = true
@@ -121,22 +127,19 @@ export default function (options, callback) {
     }
 
     if (insideString) {
-
       // Register the end of a string
       if (currentChar === openingQuote) {
-        // Ignore escaped quote
-        if (source[i - 1] === "\\") { continue }
+        if (source[i - 1] === "\\") { continue } // escaping
         insideString = false
         continue
       }
-
       // If we are inside a string and it is not ending,
       // we should ignore the current char
       continue
     }
 
     // If we are paying attention to functions ...
-    if (withinFunctionalNotation || outsideFunctionalNotation) {
+    if (options.withinFunctionalNotation || options.outsideFunctionalNotation) {
 
       // Register the beginning of a function
       if (currentChar === "(") {
@@ -170,8 +173,8 @@ export default function (options, callback) {
     // If we have a match,
     // and it is inside or outside of a function, as requested in options,
     // send it to the callback
-    if (withinFunctionalNotation && !insideFunction) { continue }
-    if (outsideFunctionalNotation && insideFunction) { continue }
+    if (options.withinFunctionalNotation && !insideFunction) { continue }
+    if (options.outsideFunctionalNotation && insideFunction) { continue }
     matchFound(match)
     if (options.onlyOne) { return }
   }

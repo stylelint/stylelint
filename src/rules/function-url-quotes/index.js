@@ -1,5 +1,5 @@
 import {
-  functionArguments,
+  cssFunctionArguments,
   report,
   ruleMessages
 } from "../../utils"
@@ -51,7 +51,7 @@ export default function (expectation) {
       }
 
       statement.eachDecl(function (decl) {
-        functionArguments(decl.value, "url", args => {
+        cssFunctionArguments(decl.value, "url", args => {
           if (strDefiesExpectation(args)) {
             report({
               message: messages.expected(quoteMsg),
@@ -65,7 +65,7 @@ export default function (expectation) {
     }
 
     function checkAtRuleParams(atRule) {
-      functionArguments(atRule.params, "url", args => {
+      cssFunctionArguments(atRule.params, "url", args => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg),
@@ -75,7 +75,7 @@ export default function (expectation) {
           })
         }
       })
-      functionArguments(atRule.params, "url-prefix", args => {
+      cssFunctionArguments(atRule.params, "url-prefix", args => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg, "url-prefix"),
@@ -85,7 +85,7 @@ export default function (expectation) {
           })
         }
       })
-      functionArguments(atRule.params, "domain", args => {
+      cssFunctionArguments(atRule.params, "domain", args => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg, "domain"),
