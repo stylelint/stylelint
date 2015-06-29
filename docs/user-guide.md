@@ -9,7 +9,7 @@
 
 ### Rule names
 
-Rules are:
+Rules names are:
 
 * Made of lowercase words separated by hyphens.
 * Usually split into two parts:
@@ -121,7 +121,7 @@ The plural of the punctuation is used for `inside` rules. For example, specifyin
  * The space inside these two parentheses */
 ```
 
-##### Whitespace rules work together
+### Rules work together
 
 The `before` and `after` rules can be used together to enforce strict conventions.
 
@@ -163,7 +163,7 @@ b {
 
 There is only a single-line value list in this example. The selector is multi-line, as is the declaration block and, as such, also the rule. But the value list isn't and that is what the `*-multi-line` and `*-single-line` refer to in the context of this rule.
 
-###### Example A
+#### Example A
 
 Say you only want to allow single-line value lists. And you want to enforce no space before and a single space after the commas:
 
@@ -181,7 +181,7 @@ You can enforce that with:
 "value-list-comma-space-before": [2, "never"],
 ```
 
-###### Example B
+#### Example B
 
 Say you want to allow both single-line and multi-line value lists. You want there to be a single space after the commas in the single-line lists and no space before the commas in both the single-line and multi-line lists:
 
@@ -202,7 +202,7 @@ You can enforce that with:
 "value-list-comma-space-before": [2, "never'],
 ```
 
-###### Example C
+#### Example C
 
 Say you want to allow both single-line and multi-line value lists. You want there to be no space before the commas in the single-line lists and always a space after the commas in both lists:
 
@@ -223,7 +223,7 @@ You can enforce that with:
 "value-list-comma-space-before": [2, "never-single-line"],
 ```
 
-###### Example D
+#### Example D
 
 Lastly, the rules are flexible enough to enforce entirely different conventions for single-line and multi-line lists. Say you want to allow both single-line and multi-line value lists. You want the single-line lists to have a single space before and after the colons. Whereas you want the multi-line lists to have a single newline before the commas, but no space after:
 
