@@ -85,6 +85,31 @@ Some rules require options. There are no default values, so each rule that requi
 }
 ```
 
+#### Shareable configs
+
+If you prefer to enforce a third-party styleguide (rather than craft your own config), you can use:
+
+* [SuitCSS shareable config](https://github.com/stylelint/stylelint-config-suitcss)
+
+You can also extend a shareable config file, starting with what's there and making your own modifications and additions:
+
+```js
+var assign = require("lodash.assign")
+var configSuitcss = require("stylelint-config-suitcss")
+
+// change indentation to tabs and disable the number-leading-zero rule
+var myConfig = {
+  "rules": {
+    "indentation": [2, "tab"],
+    "number-leading-zero": 0,
+  }
+}
+
+var config = {
+  rules: assign(configSuitcss.rules, myConfig.rules)
+}
+```
+
 ## Requirements
 
 * node@0.12 or io.js@2
