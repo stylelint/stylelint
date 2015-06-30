@@ -26,13 +26,13 @@
     "balanced-match": "^0.2.0",
     "lodash": "^3.9.3",
     "postcss": "^4.1.12",
-    "postcss-selector-parser": "1.0.1"
+    "postcss-selector-parser": "^1.0.1"
   },
   "devDependencies": {
     "babel": "^5.6.3",
     "babel-eslint": "^3.1.17",
     "babel-tape-runner": "^1.1.0",
-    "eslint": "^0.23.0",
+    "eslint": "^0.24.0",
     "jsesc": "^0.5.0",
     "sinon": "^1.15.3",
     "tape": "^4.0.0"
