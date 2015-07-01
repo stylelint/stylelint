@@ -88,3 +88,107 @@ The following patterns are *not* considered warnings:
 
 @media print {}
 ```
+
+### `except: ["all-nested"]`
+
+Reverse the primary option for at-rules that are nested.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+a {
+
+  @extend foo;
+  color: pink;
+}
+
+b {
+  color: pink;
+
+  @extend foo;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  @extend foo;
+  color: pink;
+}
+
+b {
+  color: pink;
+  @extend foo;
+}
+```
+
+### `except: ["first-nested"]`
+
+Reverse the primary option for at-rules that are nested and the first child of their parent node.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+a {
+
+  @extend foo;
+  color: pink;
+}
+
+b {
+  color: pink;
+  @extend foo;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  @extend foo;
+  color: pink;
+}
+
+b {
+  color: pink;
+
+  @extend foo;
+}
+```
+
+### `ignore: ["all-nested"]`
+
+Ignore at-rules that are nested.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+a {
+  @extend foo;
+  color: pink;
+}
+
+a {
+
+  @extend foo;
+  color: pink;
+}
+
+b {
+  color: pink;
+  @extend foo;
+}
+
+b {
+  color: pink;
+
+  @extend foo;
+}
+```

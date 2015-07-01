@@ -1,6 +1,7 @@
 import {
   cssStatementHasBlock,
   optionsHaveException,
+  optionsHaveIgnored,
   report,
   ruleMessages
 } from "../../utils"
@@ -15,7 +16,8 @@ export const messages = ruleMessages(ruleName, {
 /**
  * @param {"always"|"never"} expectation
  * @param {object} options - Can contain the following:
- *   - except: ["blockless-group"]
+ *   - except: ["blockless-group", "first-nested", "all-nested"]
+ *   - ignore: ["all-nested"]
  */
 export default function (expectation, options) {
   return (root, result) => {
@@ -23,6 +25,9 @@ export default function (expectation, options) {
 
       // Ignore the first node
       if (atRule === root.first) { return }
+
+      const isNested = atRule.parent !== root
+      if (optionsHaveIgnored(options, "all-nested") && isNested) { return }
 
       const emptyLineBefore = atRule.before.indexOf("\n\n") !== -1
 
@@ -35,6 +40,16 @@ export default function (expectation, options) {
         && previousNode && previousNode.type === "atrule"
         && !cssStatementHasBlock(previousNode)
         && !cssStatementHasBlock(atRule)) {
+        expectEmptyLineBefore = !expectEmptyLineBefore
+      }
+
+      // Optionally reverse the expectation if nested
+      if (optionsHaveException(options, "all-nested") && isNested) {
+        expectEmptyLineBefore = !expectEmptyLineBefore
+      }
+      if (optionsHaveException(options, "first-nested")
+        && isNested
+        && atRule === atRule.parent.first) {
         expectEmptyLineBefore = !expectEmptyLineBefore
       }
 
