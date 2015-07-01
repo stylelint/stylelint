@@ -35,21 +35,12 @@ export default function (expectation, options) {
 
       const previousNode = atRule.prev()
 
-      // Optionally reverse the expectation if in a blockless group
-      if (optionsHaveException(options, "blockless-group")
-        && previousNode && previousNode.type === "atrule"
-        && !cssStatementHasBlock(previousNode)
-        && !cssStatementHasBlock(atRule)) {
-        expectEmptyLineBefore = !expectEmptyLineBefore
-      }
-
-      // Optionally reverse the expectation if nested
-      if (optionsHaveException(options, "all-nested") && isNested) {
-        expectEmptyLineBefore = !expectEmptyLineBefore
-      }
-      if (optionsHaveException(options, "first-nested")
-        && isNested
-        && atRule === atRule.parent.first) {
+      // Reverse the expectation if any exceptions apply
+      if (
+        (optionsHaveException(options, "all-nested") && isNested)
+        || getsFirstNestedException()
+        || getsBlocklessGroupException()
+      ) {
         expectEmptyLineBefore = !expectEmptyLineBefore
       }
 
@@ -64,6 +55,23 @@ export default function (expectation, options) {
         result,
         ruleName,
       })
+
+      function getsBlocklessGroupException() {
+        return (
+          optionsHaveException(options, "blockless-group")
+          && previousNode && previousNode.type === "atrule"
+          && !cssStatementHasBlock(previousNode)
+          && !cssStatementHasBlock(atRule)
+        )
+      }
+
+      function getsFirstNestedException() {
+        return (
+          optionsHaveException(options, "first-nested")
+          && isNested
+          && atRule === atRule.parent.first
+        )
+      }
     })
   }
 }
