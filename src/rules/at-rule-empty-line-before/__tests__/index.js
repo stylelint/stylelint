@@ -6,7 +6,7 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-function alwaysAlwaysTests(tr) {
+function sharedAlwaysTests(tr) {
   warningFreeBasics(tr)
 
   tr.ok("a {} b {}", "rule ignored")
@@ -21,13 +21,13 @@ function alwaysAlwaysTests(tr) {
 }
 
 testRule("always", tr => {
-  alwaysAlwaysTests(tr)
+  sharedAlwaysTests(tr)
 
   tr.ok("a {\n\n  @mixin foo;\n}")
 })
 
 testRule("always", { except: ["blockless-group"] }, tr => {
-  alwaysAlwaysTests(tr)
+  sharedAlwaysTests(tr)
 
   tr.ok("a {\n\n  @mixin foo;\n}")
 
@@ -40,7 +40,7 @@ testRule("always", { except: ["blockless-group"] }, tr => {
 })
 
 testRule("always", { except: ["all-nested"] }, tr => {
-  alwaysAlwaysTests(tr)
+  sharedAlwaysTests(tr)
 
   tr.ok("a {\n  @mixin foo;\n  color: pink;\n}")
   tr.ok("a {\n  color: pink;\n  @mixin foo;\n}")
@@ -50,7 +50,7 @@ testRule("always", { except: ["all-nested"] }, tr => {
 })
 
 testRule("always", { except: ["first-nested"] }, tr => {
-  alwaysAlwaysTests(tr)
+  sharedAlwaysTests(tr)
 
   tr.ok("a {\n  @mixin foo;\n  color: pink;\n}")
 
@@ -59,7 +59,7 @@ testRule("always", { except: ["first-nested"] }, tr => {
 })
 
 testRule("always", { ignore: ["all-nested"] }, tr => {
-  alwaysAlwaysTests(tr)
+  sharedAlwaysTests(tr)
 
   tr.ok("a {\n  @mixin foo;\n  color: pink;\n}")
   tr.ok("a {\n  color: pink;\n  @mixin foo;\n}")
@@ -67,7 +67,7 @@ testRule("always", { ignore: ["all-nested"] }, tr => {
   tr.ok("a {\n\n  color: pink;\n\n  @mixin foo;\n}")
 })
 
-testRule("never", tr => {
+function sharedNeverTests(tr) {
   warningFreeBasics(tr)
 
   tr.ok("a {}\n\nb {}", "rule ignored")
@@ -76,30 +76,52 @@ testRule("never", tr => {
   tr.ok("a {} @media {}")
   tr.ok("@keyframes foo {}\n@media {}")
   tr.ok("@keyframes foo {} @media {}")
-  tr.ok("a {\n  @mixin foo;\n}")
 
   tr.notOk("a {}\n\n@media {}", messages.rejected)
   tr.notOk("@keyframes foo {}\n/* comment */\n\n@media {}", messages.rejected)
+}
+
+testRule("never", tr => {
+  sharedNeverTests(tr)
+  tr.ok("a {\n  @mixin foo;\n}")
 })
 
 testRule("never", { except: ["blockless-group"] }, tr => {
-  warningFreeBasics(tr)
-
-  tr.ok("a {}\n\nb {}", "rule ignored")
-  tr.ok("\n\n@font-face {}", "first node ignored")
-  tr.ok("a {}\n@media {}")
-  tr.ok("a {} @media {}")
-  tr.ok("@keyframes foo {}\n@media {}")
-  tr.ok("@keyframes foo {} @media {}")
+  sharedNeverTests(tr)
   tr.ok("a {\n  @mixin foo;\n}")
 
   tr.ok("@keyframes foo {}\n@import 'x.css'", "no empty line not blockless pair")
   tr.ok("@import 'x.css';\n\n@import 'y.css'", "empty line blockless pair")
   tr.ok("@import 'x.css';", "single blockless rule")
 
-  tr.notOk("a {}\n\n@media {}", messages.rejected)
-  tr.notOk("@keyframes foo {}\n/* comment */\n\n@media {}", messages.rejected)
-
   tr.notOk("@keyframes foo {}\n\n@import 'x.css'", messages.rejected)
   tr.notOk("@import 'x.css';\n@import 'y.css'", messages.expected)
+})
+
+testRule("never", { except: ["all-nested"] }, tr => {
+  sharedNeverTests(tr)
+
+  tr.ok("a {\n\n  @mixin foo;\n  color: pink;\n}")
+  tr.ok("a {\n  color: pink;\n\n  @mixin foo;\n}")
+
+  tr.notOk("a {\n  @mixin foo;\n  color: pink;\n}", messages.expected)
+  tr.notOk("a {\n\n  color: pink;\n  @mixin foo;\n}", messages.expected)
+})
+
+testRule("never", { except: ["first-nested"] }, tr => {
+  sharedNeverTests(tr)
+
+  tr.ok("a {\n\n  @mixin foo;\n  color: pink;\n}")
+
+  tr.notOk("a {\n  color: pink;\n\n  @mixin foo;\n}", messages.rejected)
+  tr.notOk("a {\n  @mixin foo;\n  color: pink;\n}", messages.expected)
+})
+
+testRule("never", { ignore: ["all-nested"] }, tr => {
+  sharedNeverTests(tr)
+
+  tr.ok("a {\n  @mixin foo;\n  color: pink;\n}")
+  tr.ok("a {\n  color: pink;\n  @mixin foo;\n}")
+  tr.ok("a {\n\n  @mixin foo;\n  color: pink;\n}")
+  tr.ok("a {\n\n  color: pink;\n\n  @mixin foo;\n}")
 })
