@@ -67,6 +67,23 @@ testRule("always", { ignore: ["all-nested"] }, tr => {
   tr.ok("a {\n\n  color: pink;\n\n  @mixin foo;\n}")
 })
 
+testRule("always", { except: [ "blockless-group", "all-nested" ] }, tr => {
+  sharedAlwaysTests(tr)
+
+  tr.ok("a {\n  @mixin foo;\n  color: pink;\n}")
+  tr.ok("a {\n  color: pink;\n  @mixin foo;\n}")
+  tr.ok("@keyframes foo {}\n\n@import 'x.css'", "empty line not blockless pair")
+  tr.ok("@import 'x.css';\n@import 'y.css'", "no empty line blockless pair")
+  tr.ok("@import 'x.css';", "single blockless rule")
+
+  tr.notOk("@keyframes foo {}\n@import 'x.css'", messages.expected)
+  tr.notOk("@import 'x.css';\n\n@import 'y.css'", messages.rejected)
+  tr.notOk("a {\n\n  @mixin foo;\n  color: pink;\n}", messages.rejected)
+  tr.notOk("a {\n\n  color: pink;\n\n  @mixin foo;\n}", messages.rejected)
+
+  tr.ok("a {\n  @mixin foo;\n  @mixin bar;\n}")
+})
+
 function sharedNeverTests(tr) {
   warningFreeBasics(tr)
 
