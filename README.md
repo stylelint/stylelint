@@ -8,10 +8,6 @@ Supports the latest CSS syntax and features, including custom properties, range 
 
 *Note: See the [`0.1.0` roadmap issue](https://github.com/stylelint/stylelint/issues/15) for details of our progress towards the first release.*
 
-```console
-$ npm install stylelint
-```
-
 ## Usage
 
 For now you must use the linter as a [PostCSS](https://github.com/postcss/postcss#usage) plugin directly. You can either use a [postcss runner](https://github.com/postcss/postcss#usage), like `grunt`, `gulp` or `webpack`. For example, using `gulp`:
