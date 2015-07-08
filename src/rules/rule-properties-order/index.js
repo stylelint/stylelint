@@ -18,66 +18,76 @@ export default function (expectation) {
       let previousProp = {}
       let isFirstDecl = true
 
-      rule.eachDecl(decl => {
+      rule.each(child => {
 
-        const prop = {
-          name: decl.prop,
-          unprefixedName: vendor.unprefixed(decl.prop),
+        // Restart if nested rule
+        if (child.type === 'rule') {
+          previousProp = {}
+          isFirstDecl = true
         }
 
-        // skip first decl
-        if (isFirstDecl) {
-          isFirstDecl = false
-          previousProp = prop
-          return
-        }
+        // Check order if declaration
+        if (child.type === 'decl') {
 
-        // same unprefixed property name
-        if (prop.unprefixedName === previousProp.unprefixedName
-          && prop.name >= previousProp.name) {
-          previousProp = prop
-          return
-        }
+          const prop = {
+            name: child.prop,
+            unprefixedName: vendor.unprefixed(child.prop),
+          }
 
-        // different unprefixed property names
-        if (prop.unprefixedName !== previousProp.unprefixedName) {
-
-          // alphabetical
-          if (expectation === "alphabetical"
-            && prop.unprefixedName >= previousProp.unprefixedName) {
+          // skip first decl
+          if (isFirstDecl) {
+            isFirstDecl = false
             previousProp = prop
             return
           }
 
-          // array of properties
-          if (Array.isArray(expectation)) {
+          // same unprefixed property name
+          if (prop.unprefixedName === previousProp.unprefixedName
+            && prop.name >= previousProp.name) {
+            previousProp = prop
+            return
+          }
 
-            const propIndex = expectation.indexOf(prop.unprefixedName)
-            const previousPropIndex = expectation.indexOf(previousProp.unprefixedName)
+          // different unprefixed property names
+          if (prop.unprefixedName !== previousProp.unprefixedName) {
 
-            // check that two known properties are in order
-            if (propIndex !== -1 && previousPropIndex !== -1
-              && propIndex >= previousPropIndex) {
+            // alphabetical
+            if (expectation === "alphabetical"
+              && prop.unprefixedName >= previousProp.unprefixedName) {
               previousProp = prop
               return
             }
 
-            // skip over unknown properties as any subsequent known properties will flag
-            if (propIndex === -1) {
-              previousProp = prop
-              return
+            // array of properties
+            if (Array.isArray(expectation)) {
+
+              const propIndex = expectation.indexOf(prop.unprefixedName)
+              const previousPropIndex = expectation.indexOf(previousProp.unprefixedName)
+
+              // check that two known properties are in order
+              if (propIndex !== -1 && previousPropIndex !== -1
+                && propIndex >= previousPropIndex) {
+                previousProp = prop
+                return
+              }
+
+              // skip over unknown properties as any subsequent known properties will flag
+              if (propIndex === -1) {
+                previousProp = prop
+                return
+              }
             }
           }
+
+          report({
+            message: messages.expected(prop.name, previousProp.name),
+            node: child,
+            result,
+            ruleName,
+          })
+
+          previousProp = prop
         }
-
-        report({
-          message: messages.expected(prop.name, previousProp.name),
-          node: decl,
-          result,
-          ruleName,
-        })
-
-        previousProp = prop
       })
     })
   }
