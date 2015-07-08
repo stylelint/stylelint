@@ -6,7 +6,12 @@ Supports the latest CSS syntax and features, including custom properties, range 
 
 ## Installation
 
-*Note: See the [`0.1.0` roadmap issue](https://github.com/stylelint/stylelint/issues/15) for details of our progress towards the first release.*
+
+```console
+$ npm install stylelint
+```
+
+*Note: see issue [#133](https://github.com/stylelint/stylelint/issues/133) for details of our progress towards more accurate line numbers*.
 
 ## Usage
 
