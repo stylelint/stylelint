@@ -6,7 +6,6 @@ Supports the latest CSS syntax and features, including custom properties, range 
 
 ## Installation
 
-
 ```console
 $ npm install stylelint
 ```
