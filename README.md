@@ -10,7 +10,7 @@ Supports the latest CSS syntax and features, including custom properties, range 
 $ npm install stylelint
 ```
 
-*Note: see issue [#133](https://github.com/stylelint/stylelint/issues/133) for details of our progress towards more accurate line numbers*.
+_Note: see issue [#133](https://github.com/stylelint/stylelint/issues/133) for details of our progress towards more accurate line numbers_.
 
 ## Usage
 
@@ -62,10 +62,9 @@ var css = fs.readFileSync("input.css", "utf8")
 [Rules](docs/rules.md) are configured within the `rules` key of the config.
 Like [ESLint](http://eslint.org/docs/user-guide/configuring#configuring-rules), each rule can be turned off or on:
 
-* 0 - turn the rule off
-* ~~1 - turn the rule on as a warning (doesn't affect exit code)~~
-_see issue [#26](https://github.com/stylelint/stylelint/issues/26) for details of our progress towards adding severities_
-* 2 - turn the rule on as an error (~~exit code is 1 when triggered~~ _might produce exit code 1 in the near future_)
+* `0` - turn the rule off.
+* ~~`1` - turn the rule on as a warning (does not affect exit code).~~ _Note: see issue [#26](https://github.com/stylelint/stylelint/issues/26) for details of our progress towards adding severities._
+* `2` - turn the rule on as an error. _Note: might produce exit code 1 in the future_.
 
 ```js
 {
