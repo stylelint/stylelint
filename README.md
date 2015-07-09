@@ -10,7 +10,7 @@ Supports the latest CSS syntax and features, including custom properties, range 
 $ npm install stylelint
 ```
 
-Currently, reported line numbers are only _approximate_, marking the beginning of the CSS node to which the warning relates. _See issue [#133](https://github.com/stylelint/stylelint/issues/133) for details of our progress towards addressing this._
+Currently, reported line numbers are only _approximate_, marking the beginning of the CSS node to which the warning relates. _See issue [#133](https://github.com/stylelint/stylelint/issues/133) for more details._
 
 ## Usage
 
@@ -74,7 +74,7 @@ Like [ESLint](http://eslint.org/docs/user-guide/configuring#configuring-rules), 
 * ~~`1` - turn the rule on as a warning (does not affect exit code).~~
 * `2` - turn the rule on ~~as an error (exit code is 1 when triggered)~~.
 
-Severities are not yet implemented. _See issue [#26](https://github.com/stylelint/stylelint/issues/26) for details of our progress._
+Severities are not yet implemented. _See issue [#26](https://github.com/stylelint/stylelint/issues/26) for more details._
 
 An example of turning one rule off and another on:
 
