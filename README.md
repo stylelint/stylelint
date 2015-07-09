@@ -10,13 +10,13 @@ Supports the latest CSS syntax and features, including custom properties, range 
 $ npm install stylelint
 ```
 
-_The reported line numbers of some warnings may be inaccurate. See issue [#133](https://github.com/stylelint/stylelint/issues/133) for details of our progress towards resolving this._
+Currently, reported line numbers are only _approximate_, marking the beginning of the CSS node to which the warning relates. _See issue [#133](https://github.com/stylelint/stylelint/issues/133) for details of our progress towards addressing this._
 
 ## Usage
 
-You must, for now, use the linter as a [PostCSS plugin](https://github.com/postcss/postcss#usage). This means you can either use a PostCSS runner, such as: [`gulp-postcss`](https://github.com/postcss/gulp-postcss), [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss) and [`postcss-loader`](https://github.com/postcss/postcss-loader), or you can use the PostCSS JS API.
+You must, for now, use the linter as a [PostCSS plugin](https://github.com/postcss/postcss#usage). You can either use a PostCSS runner -- such as [`gulp-postcss`](https://github.com/postcss/gulp-postcss), [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss) and [`postcss-loader`](https://github.com/postcss/postcss-loader) -- or you can use the PostCSS JS API directly..
 
-The linter also expects a config. You can either craft your own config or use a [pre-written one](#shareable-configs).
+The linter also _expects a config_. You can either craft your own config or use a [pre-written one](#shareable-configs).
 
 An example of using [`gulp-postcss`](https://github.com/postcss/gulp-postcss) and crafting your own config:
 
@@ -74,8 +74,7 @@ Like [ESLint](http://eslint.org/docs/user-guide/configuring#configuring-rules), 
 * ~~`1` - turn the rule on as a warning (does not affect exit code).~~
 * `2` - turn the rule on ~~as an error (exit code is 1 when triggered)~~.
 
-_Severities are not yet implemented. See issue [#26](https://github.com/stylelint/stylelint/issues/26) for details of our progress._
-
+Severities are not yet implemented. _See issue [#26](https://github.com/stylelint/stylelint/issues/26) for details of our progress._
 
 An example of turning one rule off and another on:
 
@@ -89,7 +88,7 @@ An example of turning one rule off and another on:
 }
 ```
 
-Some of the rules expect options. Each of these must be explicitly configured as there are no default values.
+Some of the rules expect options. Each of these rules must be explicitly configured as _there are no default values_.
 
 An example of explicitly configuring the options for three rules:
 
