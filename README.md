@@ -10,11 +10,15 @@ Supports the latest CSS syntax and features, including custom properties, range 
 $ npm install stylelint
 ```
 
-_Note: see issue [#133](https://github.com/stylelint/stylelint/issues/133) for details of our progress towards more accurate line numbers_.
+Currently, reported line numbers are only _approximate_, marking the beginning of the CSS node to which the warning relates. _See issue [#133](https://github.com/stylelint/stylelint/issues/133) for details of our progress towards addressing this._
 
 ## Usage
 
-For now you must use the linter as a [PostCSS](https://github.com/postcss/postcss#usage) plugin directly. You can either use a [postcss runner](https://github.com/postcss/postcss#usage), like `grunt`, `gulp` or `webpack`. For example, using `gulp`:
+You must, for now, use the linter as a [PostCSS plugin](https://github.com/postcss/postcss#usage). You can either use a PostCSS runner -- such as [`gulp-postcss`](https://github.com/postcss/gulp-postcss), [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss) and [`postcss-loader`](https://github.com/postcss/postcss-loader) -- or you can use the PostCSS JS API directly..
+
+The linter also _expects a config_. You can either craft your own config or use a [pre-written one](#shareable-configs).
+
+An example of using [`gulp-postcss`](https://github.com/postcss/gulp-postcss) and crafting your own config:
 
 ```js
 gulp.task("css", function () {
@@ -25,8 +29,13 @@ gulp.task("css", function () {
 
   return gulp.src("src/**/*.css")
     .pipe(postcss([
-      stylelint({
-        // config
+      stylelint({ // an example config that has four rules
+        "rules": {
+          "color-no-invalid-hex": 2,
+          "declaration-colon-space-before": [2, "never"],
+          "indentation": [2, "tab"],
+          "number-leading-zero": [2, "always"]
+        }
       }),
       reporter({
         clearMessages: true,
@@ -35,24 +44,23 @@ gulp.task("css", function () {
 })
 ```
 
-Or you can use the node API:
+An example of using the JS API and the [`stylelint-config-suitcss`](https://github.com/stylelint/stylelint-config-suitcss) config:
 
 ```js
 var fs = require("fs")
 var postcss = require("postcss")
 var stylelint = require("stylelint")
+var configSuitcss = require("stylelint-config-suitcss")
 var reporter = require("postcss-reporter")
 
 // css to be processed
 var css = fs.readFileSync("input.css", "utf8")
 
   postcss([
-    stylelint({
-      // config
-    }),
+    stylelint(configSuitcss), // using the pre-written SuitCSS config
     reporter(),
    ])
-  .process(css, { from: file })
+  .process(css, { from: "input.css" })
   .then()
   .catch(err => console.error(err.stack))
 ```
@@ -63,8 +71,13 @@ var css = fs.readFileSync("input.css", "utf8")
 Like [ESLint](http://eslint.org/docs/user-guide/configuring#configuring-rules), each rule can be turned off or on:
 
 * `0` - turn the rule off.
-* ~~`1` - turn the rule on as a warning (does not affect exit code).~~ _Note: see issue [#26](https://github.com/stylelint/stylelint/issues/26) for details of our progress towards adding severities._
-* `2` - turn the rule on as an error. _Note: might produce exit code 1 in the future_.
+* ~~`1` - turn the rule on as a warning (does not affect exit code).~~
+* `2` - turn the rule on ~~as an error (exit code is 1 when triggered)~~.
+
+Severities are not yet implemented. _See issue [#26](https://github.com/stylelint/stylelint/issues/26) for details of our progress._
+
+An example of turning one rule off and another on:
+
 
 ```js
 {
@@ -75,7 +88,9 @@ Like [ESLint](http://eslint.org/docs/user-guide/configuring#configuring-rules), 
 }
 ```
 
-Some rules require options. There are no default values, so each rule that requires options must be explicitly configured:
+Some of the rules expect options. Each of these rules must be explicitly configured as _there are no default values_.
+
+An example of explicitly configuring the options for three rules:
 
 ```js
 {
@@ -101,7 +116,7 @@ You can also extend a shareable config file, starting with what's there and maki
 var assign = require("lodash.assign")
 var configSuitcss = require("stylelint-config-suitcss")
 
-// change indentation to tabs and disable the number-leading-zero rule
+// change indentation to tabs and turn off the number-leading-zero rule
 var myConfig = {
   "rules": {
     "indentation": [2, "tab"],
@@ -109,6 +124,7 @@ var myConfig = {
   }
 }
 
+// merge the configs together
 var config = {
   rules: assign(configSuitcss.rules, myConfig.rules)
 }
