@@ -77,7 +77,7 @@ Like [ESLint](http://eslint.org/docs/user-guide/configuring#configuring-rules), 
 _Severities are not yet implemented. See issue [#26](https://github.com/stylelint/stylelint/issues/26) for details of our progress._
 
 
-For example, turning one rule off and another on:
+An example of turning one rule off and another on:
 
 
 ```js
@@ -91,7 +91,7 @@ For example, turning one rule off and another on:
 
 Some of the rules expect options. Each of these must be explicitly configured as there are no default values.
 
-For example, explicitly configuring the options of three rules:
+An example of explicitly configuring the options for three rules:
 
 ```js
 {
@@ -117,7 +117,7 @@ You can also extend a shareable config file, starting with what's there and maki
 var assign = require("lodash.assign")
 var configSuitcss = require("stylelint-config-suitcss")
 
-// change indentation to tabs and disable the number-leading-zero rule
+// change indentation to tabs and turn off the number-leading-zero rule
 var myConfig = {
   "rules": {
     "indentation": [2, "tab"],
@@ -125,7 +125,7 @@ var myConfig = {
   }
 }
 
-// merge configs together
+// merge the configs together
 var config = {
   rules: assign(configSuitcss.rules, myConfig.rules)
 }
