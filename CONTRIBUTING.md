@@ -14,6 +14,6 @@ We communicate mostly via [issues](https://github.com/stylelint/stylelint/issues
 
 ### Conduct
 
-Please be kind and courteous. There's no need to be mean or rude. Respect that people have differences of opinion and that every design or implementation choice carries a trade-off and numerous costs. There is seldom a right answer, merely an optimal answer given a set of values and circumstances.
+Respect that people have differences of opinion and that every design or implementation choice carries a trade-off and numerous costs. There is seldom a right answer, merely an optimal answer given a set of values and circumstances.
 
 Please keep unstructured critique to a minimum. If you have solid ideas you want to experiment with, make a fork and see how it works.
