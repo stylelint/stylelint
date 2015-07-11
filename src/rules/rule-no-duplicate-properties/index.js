@@ -23,8 +23,8 @@ export default function () {
     })
 
     function checkRulesInNode(node) {
-      var decls = []
-      node.each(function (child) {
+      let decls = []
+      node.each(child => {
         if (child.nodes && child.nodes.length) {
           checkRulesInNode(child)
         }
