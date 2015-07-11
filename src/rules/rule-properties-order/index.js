@@ -13,56 +13,69 @@ export const messages = ruleMessages(ruleName, {
 export default function (expectation) {
   return (root, result) => {
 
-    root.eachRule(rule => {
+    // Shallow loop
+    root.each(node => {
+      if (node.type === "rule" || node.type === "at-rule") {
+        checkInNode(node)
+      }
+    })
+
+    function checkInNode(node) {
 
       let previousProp = {}
       let isFirstDecl = true
 
-      rule.eachDecl(decl => {
+      node.each(child => {
 
-        const prop = {
-          name: decl.prop,
-          unprefixedName: vendor.unprefixed(decl.prop),
+        if (child.nodes && child.nodes.length) {
+          checkInNode(child)
         }
 
-        // skip first decl
+        if (child.type !== "decl") { return }
+
+        const prop = {
+          name: child.prop,
+          unprefixedName: vendor.unprefixed(child.prop),
+        }
+
+        // Skip first decl
         if (isFirstDecl) {
           isFirstDecl = false
           previousProp = prop
           return
         }
 
-        // same unprefixed property name
+        // Same unprefixed property name
         if (prop.unprefixedName === previousProp.unprefixedName
           && prop.name >= previousProp.name) {
           previousProp = prop
           return
         }
 
-        // different unprefixed property names
+        // Different unprefixed property names
         if (prop.unprefixedName !== previousProp.unprefixedName) {
 
-          // alphabetical
+          // Alphabetical
           if (expectation === "alphabetical"
             && prop.unprefixedName >= previousProp.unprefixedName) {
             previousProp = prop
             return
           }
 
-          // array of properties
+          // Array of properties
           if (Array.isArray(expectation)) {
 
             const propIndex = expectation.indexOf(prop.unprefixedName)
             const previousPropIndex = expectation.indexOf(previousProp.unprefixedName)
 
-            // check that two known properties are in order
+            // Check that two known properties are in order
             if (propIndex !== -1 && previousPropIndex !== -1
               && propIndex >= previousPropIndex) {
               previousProp = prop
               return
             }
 
-            // skip over unknown properties as any subsequent known properties will flag
+            // Skip over unknown properties as any subsequent known properties will flag
             if (propIndex === -1) {
               previousProp = prop
               return
@@ -72,13 +85,13 @@ export default function (expectation) {
 
         report({
           message: messages.expected(prop.name, previousProp.name),
-          node: decl,
+          node: child,
           result,
           ruleName,
         })
 
         previousProp = prop
       })
-    })
+    }
   }
 }
