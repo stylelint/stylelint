@@ -11,20 +11,35 @@ export const messages = ruleMessages(ruleName, {
 
 export default function () {
   return (root, result) => {
-    root.eachRule(rule => {
-      var decls = []
-      rule.eachDecl(function (decl) {
-        const prop = decl.prop
+    // In order to accommodate nested blocks (postcss-nested),
+    // we need to run a shallow loop (instead of eachDecl() or eachRule(),
+    // which loop recursively) and allow each nested block to accumulate
+    // its own list of properties -- so that a property in a nested rule
+    // does not conflict with the same property in the parent rule
+    root.each(node => {
+      if (node.type === "rule" || node.type === "at-rule") {
+        checkRulesInNode(node)
+      }
+    })
+
+    function checkRulesInNode(node) {
+      let decls = []
+      node.each(child => {
+        if (child.nodes && child.nodes.length) {
+          checkRulesInNode(child)
+        }
+        if (child.type !== "decl") { return }
+        const prop = child.prop
         if (decls.indexOf(prop) !== -1) {
           report({
             message: messages.rejected(prop),
-            node: decl,
+            node: child,
             result,
             ruleName,
           })
         }
         decls.push(prop)
       })
-    })
+    }
   }
 }
