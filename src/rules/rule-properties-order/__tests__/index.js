@@ -17,6 +17,7 @@ testRule("alphabetical", tr => {
   tr.ok("a { color: pink; top: 0; transform: scale(1); }")
   tr.ok("a { -moz-transform: scale(1); -webkit-transform: scale(1); transform: scale(1); }")
   tr.ok("a { color: pink; -webkit-font-smoothing: antialiased; top: 0; }")
+  tr.ok("a {{ &:hover { color: red; top: 0; } } }")
   tr.ok("a { top: 0; { &:hover { color: red; } } }")
   tr.ok("a { top: 0; &:hover { color: red; } }")
   tr.ok("a { color: red; width: 0; { &:hover { color: red; top: 0; } } }")
@@ -36,6 +37,8 @@ testRule("alphabetical", tr => {
   tr.notOk("a { -webkit-font-smoothing: antialiased; color: pink;  top: 0; }",
     messages.expected("color", "-webkit-font-smoothing"))
   tr.notOk("a { width: 0; { &:hover { top: 0; color: red; } } }",
+    messages.expected("color", "top"))
+  tr.notOk("a {{ &:hover { top: 0; color: red; } } }",
     messages.expected("color", "top"))
   tr.notOk("a { width: 0; &:hover { top: 0; color: red; } }",
     messages.expected("color", "top"))
