@@ -13,6 +13,7 @@ testRule("always", tr => {
   tr.ok("a { color: pink! important; }", "space only after")
   tr.ok("a { color: pink ! important; }", "space before and after")
   tr.ok("a { color: pink\n! important; }", "newline before and space after")
+  tr.ok("a { color: pink\r\n! important; }", "CRLF before and space after")
 
   tr.notOk(
     "a { color: pink!important; }",
@@ -29,6 +30,11 @@ testRule("always", tr => {
     messages.expectedAfter(),
     "newline after"
   )
+  tr.notOk(
+    "a { color: pink!\r\nimportant; }",
+    messages.expectedAfter(),
+    "CRLF after"
+  )
 
   tr.ok("a::before { content: \"!!!\" ! important; }", "ignores string")
 })
@@ -40,6 +46,7 @@ testRule("never", tr => {
   tr.ok("a { color: pink!important; }", "no space before or after")
   tr.ok("a { color: pink !important; }", "space before and none after")
   tr.ok("a { color: pink\n!important; }", "newline before and none after")
+  tr.ok("a { color: pink\r\n!important; }", "CRLF before and none after")
 
   tr.notOk(
     "a { color: pink! important; }",
@@ -50,5 +57,10 @@ testRule("never", tr => {
     "a { color: pink!\nimportant; }",
     messages.rejectedAfter(),
     "newline after"
+  )
+  tr.notOk(
+    "a { color: pink!\r\nimportant; }",
+    messages.rejectedAfter(),
+    "CRLF after"
   )
 })

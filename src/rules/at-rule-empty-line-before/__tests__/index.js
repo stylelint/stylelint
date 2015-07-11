@@ -13,11 +13,14 @@ function sharedAlwaysTests(tr) {
   tr.ok("@font-face {}", "first node ignored")
   tr.ok("a {}\n\n@media {}")
   tr.ok("@keyframes foo {}\n\n@media {}")
+  tr.ok("a {}\r\n\r\n@media {}", "windows")
 
   tr.notOk("a {} @media {}", messages.expected)
   tr.notOk("@keyframes foo {} @media {}", messages.expected)
   tr.notOk("a {}\n@media {}", messages.expected)
+  tr.notOk("a {}\r\n@media {}", messages.expected)
   tr.notOk("a {}\n\n/* comment */\n@media {}", messages.expected)
+  tr.notOk("a {}\r\n\r\n/* comment */\r\n@media {}", messages.expected)
 }
 
 testRule("always", tr => {

@@ -18,6 +18,6 @@ export const messages = ruleMessages(ruleName, {
  * @param {"always"|"never"} expectation
  */
 export default function (expectation) {
-  const checker = whitespaceChecker(" ", expectation, messages)
+  const checker = whitespaceChecker("space", expectation, messages)
   return selectorListCommaWhitespaceChecker(checker.before)
 }

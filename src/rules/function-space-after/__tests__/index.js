@@ -25,9 +25,11 @@ testRule("always", tr => {
   tr.notOk("a { transform: translate(1, 1)scale(3); }", messages.expected)
   tr.notOk("a { transform: translate(1, 1)  scale(3); }", messages.expected)
   tr.notOk("a { transform: translate(1, 1)\nscale(3); }", messages.expected)
+  tr.notOk("a { transform: translate(1, 1)\r\nscale(3); }", messages.expected, "CRLF")
   tr.notOk("a { color: color(rgb(0,0,0)lightness(50%)) };", messages.expected)
   tr.notOk("a { color: color(rgb(0,0,0)  lightness(50%)) };", messages.expected)
   tr.notOk("a { color: color(rgb(0,0,0)\nlightness(50%)) };", messages.expected)
+  tr.notOk("a { color: color(rgb(0,0,0)\r\nlightness(50%)) };", messages.expected, "CRLF")
 })
 
 testRule("never", tr => {
@@ -45,6 +47,7 @@ testRule("never", tr => {
   tr.notOk("a { transform: translate(1, 1) scale(3); }", messages.rejected)
   tr.notOk("a { transform: translate(1, 1)  scale(3); }", messages.rejected)
   tr.notOk("a { transform: translate(1, 1)\nscale(3); }", messages.rejected)
+  tr.notOk("a { transform: translate(1, 1)\r\nscale(3); }", messages.rejected, "CRLF")
   tr.notOk("a { color: color(rgb(0,0,0) lightness(50%)) };", messages.rejected)
   tr.notOk("a { color: color(rgb(0,0,0)  lightness(50%)) };", messages.rejected)
   tr.notOk("a { color: color(rgb(0,0,0)\nlightness(50%)) };", messages.rejected)

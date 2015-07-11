@@ -19,7 +19,7 @@ export const messages = ruleMessages(ruleName, {
  * @param {"always"|"always-multi-line"} expectation
  */
 export default function (expectation) {
-  const checker = whitespaceChecker("\n", expectation, messages)
+  const checker = whitespaceChecker("newline", expectation, messages)
 
   return (root, result) => {
 

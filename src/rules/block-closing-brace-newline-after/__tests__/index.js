@@ -11,7 +11,9 @@ testRule("always", tr => {
 
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; }\nb { color: red; }")
+  tr.ok("a { color: pink; }\r\nb { color: red; }", "CRLF")
   tr.ok("a { color: pink;}\n\t\tb { color: red;}")
+  tr.ok("a { color: pink;}\r\n\t\tb { color: red;}", "CRLF")
   tr.ok("a { @extend foo; color: pink; }")
   tr.ok("a { @extend foo; /* comment */\ncolor: pink;  }")
 
@@ -32,7 +34,9 @@ testRule("always-single-line", tr => {
 
   tr.ok("a { color: pink; }")
   tr.ok("a { color: pink; }\nb { color: red; }")
+  tr.ok("a { color: pink; }\r\nb { color: red; }", "CRLF")
   tr.ok("a { color: pink;}\n\t\tb { color: red;}")
+  tr.ok("a { color: pink;}\r\n\t\tb { color: red;}", "CRLF")
 
   // Ignores nested closing braces
   tr.ok("@media print { a { color: pink; }\nb { color: red; }}")
@@ -41,6 +45,7 @@ testRule("always-single-line", tr => {
   // Ignore multi-line
   tr.ok("a { color: pink;\ntop: 0; }b { color: red; }")
   tr.ok("a { color: pink;\ntop: 0;}b { color: red;}")
+  tr.ok("a { color: pink;\r\ntop: 0;}b { color: red;}", "CRLF")
 
   tr.notOk("a { color: pink; }b { color: red; }", messages.expectedAfterSingleLine())
   tr.notOk("a { color: pink; } b { color: red; }", messages.expectedAfterSingleLine())
@@ -78,6 +83,7 @@ testRule("always-multi-line", tr => {
 
   tr.ok("a { color: pink;\ntop: 0; }")
   tr.ok("a { color: pink;\ntop: 0; }\nb { color: red; }")
+  tr.ok("a { color: pink;\r\ntop: 0; }\r\nb { color: red; }", "CRLF")
   tr.ok("a { color: pink;\ntop: 0;}\n\t\tb { color: red;}")
 
   // Ignores nested closing braces
@@ -89,6 +95,7 @@ testRule("always-multi-line", tr => {
   tr.ok("a { color: pink; }b { color: red;}")
 
   tr.notOk("a { color: pink;\ntop: 0; }b { color: red; }", messages.expectedAfterMultiLine())
+  tr.notOk("a { color: pink;\r\ntop: 0; }b { color: red; }", messages.expectedAfterMultiLine(), "CRLF")
   tr.notOk("a { color: pink;\ntop: 0; } b { color: red; }", messages.expectedAfterMultiLine())
   tr.notOk("a { color: pink;\ntop: 0; }  b { color: red; }", messages.expectedAfterMultiLine())
   tr.notOk("a { color: pink;\ntop: 0; }\tb { color: red; }", messages.expectedAfterMultiLine())
@@ -102,16 +109,24 @@ testRule("never-multi-line", tr => {
   tr.ok("a { color: pink;\ntop: 0; }")
   tr.ok("a { color: pink;\ntop: 0; }b { color: red; }")
   tr.ok("a { color: pink;\ntop: 0;}b { color: red;}")
+  tr.ok("a { color: pink;\r\ntop: 0;}b { color: red;}", "CRLF")
 
   // Ignores nested closing braces
   tr.ok("@media print { a {\ncolor: pink; }b { color: red; }}")
   tr.ok("@media print { a {\ncolor: pink; }}@media screen { b { color: red; }}")
+  tr.ok("@media print { a {\r\ncolor: pink; }}@media screen { b { color: red; }}", "CRLF")
 
   // Ignore single-line
   tr.ok("a { color: pink; }\nb { color: red; }")
+  tr.ok("a { color: pink; }\r\nb { color: red; }", "CRLF")
   tr.ok("a { color: pink;} b { color: red;}")
 
   tr.notOk("a { color: pink;\ntop: 0; }\nb { color: red; }", messages.rejectedAfterMultiLine())
+  tr.notOk(
+    "a { color: pink;\r\ntop: 0; }\r\nb { color: red; }",
+    messages.rejectedAfterMultiLine(),
+    "CRLF"
+  )
   tr.notOk("a { color: pink;\ntop: 0; } b { color: red; }", messages.rejectedAfterMultiLine())
   tr.notOk("a { color: pink;\ntop: 0; }  b { color: red; }", messages.rejectedAfterMultiLine())
   tr.notOk("a { color: pink;\ntop: 0; }\tb { color: red; }", messages.rejectedAfterMultiLine())

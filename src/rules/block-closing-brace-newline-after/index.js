@@ -20,7 +20,7 @@ export const messages = ruleMessages(ruleName, {
  * @param {"always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
-  const checker = whitespaceChecker("\n", expectation, messages)
+  const checker = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
 
     // Check both kinds of statements: rules and at-rules

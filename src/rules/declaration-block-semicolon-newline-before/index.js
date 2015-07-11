@@ -17,7 +17,7 @@ export const messages = ruleMessages(ruleName, {
  * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
-  const check = whitespaceChecker("\n", expectation, messages)
+  const check = whitespaceChecker("newline", expectation, messages)
   return function (root, result) {
     root.eachDecl(function (decl) {
       const parentRule = decl.parent

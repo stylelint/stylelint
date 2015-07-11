@@ -26,6 +26,7 @@ export default function (expectation) {
       const expectEmptyLineBefore = (expectation === "always") ? true : false
 
       const emptyLineBefore = comment.before.indexOf("\n\n") !== -1
+        || comment.before.indexOf("\r\n\r\n") !== -1
 
       // Return if the exceptation is met
       if (expectEmptyLineBefore === emptyLineBefore) { return }

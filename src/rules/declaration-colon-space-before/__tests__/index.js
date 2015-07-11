@@ -12,6 +12,7 @@ testRule("always", tr => {
   tr.ok("a { color :pink }", "space only before")
   tr.ok("a { color : pink }", "space before and after")
   tr.ok("a { color :\npink }", "space before and newline after")
+  tr.ok("a { color :\r\npink }", "space before and CRLF after")
 
   tr.notOk(
     "a { color: pink; }",
@@ -33,6 +34,11 @@ testRule("always", tr => {
     messages.expectedBefore(),
     "newline before"
   )
+  tr.notOk(
+    "a { color\r\n: pink; }",
+    messages.expectedBefore(),
+    "CRLF before"
+  )
 })
 
 testRule("never", tr => {
@@ -41,6 +47,7 @@ testRule("never", tr => {
   tr.ok("a { color:pink }", "no space before and after")
   tr.ok("a { color: pink }", "no space before and space after")
   tr.ok("a { color:\npink }", "no space before and newline after")
+  tr.ok("a { color:\r\npink }", "no space before and CRLF after")
 
   tr.notOk(
     "a { color : pink; }",
@@ -61,5 +68,10 @@ testRule("never", tr => {
     "a { color\n: pink; }",
     messages.rejectedBefore(),
     "newline before"
+  )
+  tr.notOk(
+    "a { color\r\n: pink; }",
+    messages.rejectedBefore(),
+    "CRLF before"
   )
 })

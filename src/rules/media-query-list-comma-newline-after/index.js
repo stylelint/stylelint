@@ -16,7 +16,7 @@ export const messages = ruleMessages(ruleName, {
  * @param {"always"|"never"} expectation
  */
 export default function (expectation) {
-  const checker = whitespaceChecker("\n", expectation, messages)
+  const checker = whitespaceChecker("newline", expectation, messages)
 
   // Only check for the newline after the comma, while allowing
   // arbitrary indentation after the newline

@@ -26,7 +26,7 @@ export const messages = ruleMessages(ruleName, {
  *   } expectation
  */
 export default function (expectation) {
-  const checker = whitespaceChecker(" ", expectation, messages)
+  const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
 
     // Check both kinds of statement: rules and at-rules

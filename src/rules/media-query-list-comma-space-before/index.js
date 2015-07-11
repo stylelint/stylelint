@@ -17,6 +17,6 @@ export const messages = ruleMessages(ruleName, {
  * @param {"always"|"never"|"always-single-line"|"never-single-line"} expectation
  */
 export default function (expectation) {
-  const checker = whitespaceChecker(" ", expectation, messages)
+  const checker = whitespaceChecker("space", expectation, messages)
   return mediaQueryListCommaWhitespaceChecker(checker.before)
 }

@@ -14,6 +14,7 @@ testRule("always", tr => {
   tr.notOk("a { background-size: 0,0; }", messages.expectedAfter())
   tr.notOk("a { background-size: 0,  0; }", messages.expectedAfter())
   tr.notOk("a { background-size: 0,\n0; }", messages.expectedAfter())
+  tr.notOk("a { background-size: 0,\r\n0; }", messages.expectedAfter(), "CRLF")
   tr.notOk("a { background-size: 0,\t0; }", messages.expectedAfter())
 
   tr.ok("a::before { content: \"foo,bar,baz\"; }", "strings")
@@ -28,6 +29,7 @@ testRule("never", tr => {
   tr.notOk("a { background-size: 0, 0; }", messages.rejectedAfter())
   tr.notOk("a { background-size: 0,  0; }", messages.rejectedAfter())
   tr.notOk("a { background-size: 0,\n0; }", messages.rejectedAfter())
+  tr.notOk("a { background-size: 0,\r\n0; }", messages.rejectedAfter(), "CRLF")
   tr.notOk("a { background-size: 0,\t0; }", messages.rejectedAfter())
 
   tr.ok("a::before { content: \"foo, bar, baz\"; }", "strings")
@@ -40,10 +42,13 @@ testRule("always-single-line", tr => {
   tr.ok("a { background-size: 0 , 0; }")
   tr.ok("a { background-size: 0, 0; }")
   tr.ok("a { background-size: 0, 0;\n}", "single-line list, multi-line block")
+  tr.ok("a { background-size: 0, 0;\r\n}", "single-line list, multi-line block with CRLF")
   tr.ok("a { background-size: 0\n,0}", "ignores multi-line")
+  tr.ok("a { background-size: 0\r\n,0}", "ignores multi-line with CRLF")
 
   tr.notOk("a { background-size: 0,0; }", messages.expectedAfterSingleLine())
   tr.notOk("a { background-size: 0,0;\n}", messages.expectedAfterSingleLine())
+  tr.notOk("a { background-size: 0,0;\r\n}", messages.expectedAfterSingleLine(), "CRLF")
   tr.notOk("a { background-size: 0,  0; }", messages.expectedAfterSingleLine())
   tr.notOk("a { background-size: 0,\t0; }", messages.expectedAfterSingleLine())
 
@@ -57,10 +62,13 @@ testRule("never-single-line", tr => {
   tr.ok("a { background-size: 0 ,0; }")
   tr.ok("a { background-size: 0,0; }")
   tr.ok("a { background-size: 0,0;\n}", "single-line list, multi-line block")
+  tr.ok("a { background-size: 0,0;\r\n}", "single-line list, multi-line block with CRLF")
   tr.ok("a { background-size: 0\n,  0}", "ignores multi-line values")
+  tr.ok("a { background-size: 0\r\n,  0}", "ignores multi-line values with CRLF")
 
   tr.notOk("a { background-size: 0, 0; }", messages.rejectedAfterSingleLine())
   tr.notOk("a { background-size: 0, 0;\n}", messages.rejectedAfterSingleLine())
+  tr.notOk("a { background-size: 0, 0;\r\n}", messages.rejectedAfterSingleLine(), "CRLF")
   tr.notOk("a { background-size: 0,  0; }", messages.rejectedAfterSingleLine())
   tr.notOk("a { background-size: 0,\t0; }", messages.rejectedAfterSingleLine())
 

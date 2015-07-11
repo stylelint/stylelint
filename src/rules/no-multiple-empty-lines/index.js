@@ -14,10 +14,12 @@ export default function () {
   return (root, result) => {
     let lineCount = 0
     const rootString = root.source.input.css
-    styleSearch({ source: rootString, target: [ "\n", "\r" ], checkComments: true }, match => {
+    styleSearch({ source: rootString, target: "\n", checkComments: true }, match => {
       lineCount++
-      if (isNewline(rootString[match.startIndex + 1])
-        && isNewline(rootString[match.startIndex + 2])) {
+      if (
+        rootString.substr(match.startIndex + 1, 2) === "\n\n"
+        || rootString.substr(match.startIndex + 1, 4) === "\r\n\r\n"
+      ) {
         const line = lineCount + 2
         report({
           message: messages.rejected(line),
@@ -29,8 +31,4 @@ export default function () {
       }
     })
   }
-}
-
-function isNewline(char) {
-  return char === "\n" || char === "\r"
 }

@@ -9,7 +9,9 @@ import isSingleLineString from "./isSingleLineString"
  * - `after()`
  * - `afterOneOnly()`
  *
- * @param {" "|"\n"} targetWhitespace
+ * @param {"space"|"newline"} targetWhitespace - This is a keyword instead
+ *   of the actual character (e.g. " ") in order to accommodate
+ *   different styles of newline ("\n" vs "\r\n")
  * @param {
  *     "always"|"never"
  *     |"always-single-line"|"always-multi-line"
@@ -146,16 +148,35 @@ export default function (targetWhitespace, expectation, messages) {
     const oneCharBefore = source[index - 1]
     const twoCharsBefore = source[index - 2]
 
-    if ((isValue(oneCharBefore) && oneCharBefore !== targetWhitespace)
-      || (!activeArgs.onlyOneChar && isValue(twoCharsBefore) && isWhitespace(twoCharsBefore))) {
-      activeArgs.err(messageFunc(source[index]))
+    if (!isValue(oneCharBefore)) { return }
+
+    if (targetWhitespace === "newline") {
+      // If index is preceeded by a Windows CR-LF ...
+      if (oneCharBefore === "\n" && twoCharsBefore === "\r") {
+        if (activeArgs.onlyOneChar || !isWhitespace(source[index - 3])) { return }
+      }
+
+      // If index is followed by a Unix LF ...
+      if (oneCharBefore === "\n" && twoCharsBefore !== "\r") {
+        if (activeArgs.onlyOneChar || !isWhitespace(twoCharsBefore)) { return }
+      }
     }
+
+    if (targetWhitespace === "space" && oneCharBefore === " ") {
+      if (activeArgs.onlyOneChar || !isWhitespace(twoCharsBefore)) { return }
+    }
+
+    activeArgs.err(messageFunc(source[index]))
   }
 
   function expectBeforeAllowingIndentation(messageFunc=messages.expectedBefore) {
     const { source, index, err } = activeArgs
+    const expectedChar = (() => {
+      if (targetWhitespace === "newline") { return "\n" }
+      if (targetWhitespace === "space") { return " " }
+    }())
     let i = index - 1
-    while (source[i] && source[i] !== targetWhitespace) {
+    while (source[i] && source[i] !== expectedChar) {
       if (source[i] === "\t" || source[i] === " ") {
         i--
         continue
@@ -180,13 +201,29 @@ export default function (targetWhitespace, expectation, messages) {
 
   function expectAfter(messageFunc=messages.expectedAfter) {
     const { source, index } = activeArgs
+
     const oneCharAfter = source[index + 1]
     const twoCharsAfter = source[index + 2]
 
-    if ((isValue(oneCharAfter) && oneCharAfter !== targetWhitespace)
-      || (!activeArgs.onlyOneChar && isValue(twoCharsAfter) && isWhitespace(twoCharsAfter))) {
-      activeArgs.err(messageFunc(source[index]))
+    if (!isValue(oneCharAfter)) { return }
+
+    if (targetWhitespace === "newline") {
+      // If index is followed by a Windows CR-LF ...
+      if (oneCharAfter === "\r" && twoCharsAfter === "\n") {
+        if (activeArgs.onlyOneChar || !isWhitespace(source[index + 3])) { return }
+      }
+
+      // If index is followed by a Unix LF ...
+      if (oneCharAfter === "\n") {
+        if (activeArgs.onlyOneChar || !isWhitespace(twoCharsAfter)) { return }
+      }
     }
+
+    if (targetWhitespace === "space" && oneCharAfter === " ") {
+      if (activeArgs.onlyOneChar || !isWhitespace(twoCharsAfter)) { return }
+    }
+
+    activeArgs.err(messageFunc(source[index]))
   }
 
   function rejectAfter(messageFunc=messages.rejectedAfter) {

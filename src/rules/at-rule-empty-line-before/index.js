@@ -30,6 +30,7 @@ export default function (expectation, options) {
       if (optionsHaveIgnored(options, "all-nested") && isNested) { return }
 
       const emptyLineBefore = atRule.before.indexOf("\n\n") !== -1
+        || atRule.before.indexOf("\r\n\r\n") !== -1
 
       let expectEmptyLineBefore = (expectation === "always") ? true : false
 
