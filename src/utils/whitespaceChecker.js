@@ -65,7 +65,7 @@ export default function (targetWhitespace, expectation, messages) {
     err,
     lineCheckStr,
     onlyOneChar=false,
-    allowIndentation=false
+    allowIndentation=false,
   }) {
     activeArgs = { source, index, err, onlyOneChar, allowIndentation }
     switch (expectation) {
