@@ -21,6 +21,7 @@ testRule("alphabetical", tr => {
   tr.ok("a { top: 0; &:hover { color: red; } }")
   tr.ok("a { color: red; width: 0; { &:hover { color: red; top: 0; } } }")
   tr.ok("a { color: red; width: 0; &:hover { color: red; top: 0; } }")
+  tr.ok("a { color: red; width: 0; @media print { color: red; top: 0; } }")
 
   tr.notOk("a { top: 0; color: pink; }",
     messages.expected("color", "top"))
@@ -37,6 +38,8 @@ testRule("alphabetical", tr => {
   tr.notOk("a { width: 0; { &:hover { top: 0; color: red; } } }",
     messages.expected("color", "top"))
   tr.notOk("a { width: 0; &:hover { top: 0; color: red; } }",
+    messages.expected("color", "top"))
+  tr.notOk("a { width: 0; @media print { top: 0; color: red; } }",
     messages.expected("color", "top"))
 })
 

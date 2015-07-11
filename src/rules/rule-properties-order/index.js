@@ -13,82 +13,85 @@ export const messages = ruleMessages(ruleName, {
 export default function (expectation) {
   return (root, result) => {
 
-    root.eachRule(rule => {
+    // Shallow loop
+    root.each(node => {
+      if (node.type === "rule" || node.type === "at-rule") {
+        checkInNode(node)
+      }
+    })
+
+    function checkInNode(node) {
 
       let previousProp = {}
       let isFirstDecl = true
 
-      rule.each(child => {
+      node.each(child => {
 
-        // Restart if nested rule
-        if (child.type === 'rule') {
-          previousProp = {}
-          isFirstDecl = true
+        if (child.nodes && child.nodes.length) {
+          checkInNode(child)
         }
 
-        // Check order if declaration
-        if (child.type === 'decl') {
+        if (child.type !== "decl") { return }
 
-          const prop = {
-            name: child.prop,
-            unprefixedName: vendor.unprefixed(child.prop),
-          }
+        const prop = {
+          name: child.prop,
+          unprefixedName: vendor.unprefixed(child.prop),
+        }
 
-          // skip first decl
-          if (isFirstDecl) {
-            isFirstDecl = false
+        // Skip first decl
+        if (isFirstDecl) {
+          isFirstDecl = false
+          previousProp = prop
+          return
+        }
+
+        // Same unprefixed property name
+        if (prop.unprefixedName === previousProp.unprefixedName
+          && prop.name >= previousProp.name) {
+          previousProp = prop
+          return
+        }
+
+        // Different unprefixed property names
+        if (prop.unprefixedName !== previousProp.unprefixedName) {
+
+          // Alphabetical
+          if (expectation === "alphabetical"
+            && prop.unprefixedName >= previousProp.unprefixedName) {
             previousProp = prop
             return
           }
 
-          // same unprefixed property name
-          if (prop.unprefixedName === previousProp.unprefixedName
-            && prop.name >= previousProp.name) {
-            previousProp = prop
-            return
-          }
+          // Array of properties
+          if (Array.isArray(expectation)) {
 
-          // different unprefixed property names
-          if (prop.unprefixedName !== previousProp.unprefixedName) {
+            const propIndex = expectation.indexOf(prop.unprefixedName)
+            const previousPropIndex = expectation.indexOf(previousProp.unprefixedName)
 
-            // alphabetical
-            if (expectation === "alphabetical"
-              && prop.unprefixedName >= previousProp.unprefixedName) {
+            // Check that two known properties are in order
+            if (propIndex !== -1 && previousPropIndex !== -1
+              && propIndex >= previousPropIndex) {
               previousProp = prop
               return
             }
 
-            // array of properties
-            if (Array.isArray(expectation)) {
-
-              const propIndex = expectation.indexOf(prop.unprefixedName)
-              const previousPropIndex = expectation.indexOf(previousProp.unprefixedName)
-
-              // check that two known properties are in order
-              if (propIndex !== -1 && previousPropIndex !== -1
-                && propIndex >= previousPropIndex) {
-                previousProp = prop
-                return
-              }
-
-              // skip over unknown properties as any subsequent known properties will flag
-              if (propIndex === -1) {
-                previousProp = prop
-                return
-              }
+            // Skip over unknown properties as any subsequent known properties will flag
+            if (propIndex === -1) {
+              previousProp = prop
+              return
             }
           }
-
-          report({
-            message: messages.expected(prop.name, previousProp.name),
-            node: child,
-            result,
-            ruleName,
-          })
-
-          previousProp = prop
         }
+
+        report({
+          message: messages.expected(prop.name, previousProp.name),
+          node: child,
+          result,
+          ruleName,
+        })
+
+        previousProp = prop
       })
-    })
+    }
   }
 }
