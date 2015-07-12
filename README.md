@@ -14,7 +14,7 @@ Currently, reported line numbers are only _approximate_, marking the beginning o
 
 ## Usage
 
-You must, for now, use the linter as a [PostCSS plugin](https://github.com/postcss/postcss#usage). You can either use a PostCSS runner -- such as [`gulp-postcss`](https://github.com/postcss/gulp-postcss), [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss) and [`postcss-loader`](https://github.com/postcss/postcss-loader) -- or you can use the PostCSS JS API directly..
+You must, for now, use the linter as a [PostCSS plugin](https://github.com/postcss/postcss#usage). You can either use a PostCSS runner -- such as [`gulp-postcss`](https://github.com/postcss/gulp-postcss), [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss) and [`postcss-loader`](https://github.com/postcss/postcss-loader) -- or you can use the PostCSS JS API directly.
 
 The linter also _expects a config_. You can either craft your own config or use a [pre-written one](#shareable-configs).
 
@@ -67,7 +67,10 @@ var css = fs.readFileSync("input.css", "utf8")
 
 ### Configuring rules
 
-[Rules](docs/rules.md) are configured within the `rules` key of the config.
+[Rules](docs/rules.md) are configured within the `rules` key of the config. The [user guide](docs/user-guide.md) contains details of how rules are named and how certain ones should be configured in unison.
+
+#### Turning rules on and off
+
 Like [ESLint](http://eslint.org/docs/user-guide/configuring#configuring-rules), each rule can be turned off or on:
 
 * `0` - turn the rule off.
@@ -88,7 +91,27 @@ An example of turning one rule off and another on:
 }
 ```
 
-Some of the rules expect options. Each of these rules must be explicitly configured as _there are no default values_.
+Rules can be temporarily turned off by using special comments in your CSS. For example, you can either turn all the rules off:
+
+```css
+/* stylelint-disable */
+a {}
+/* stylelint-enable */
+```
+
+Or you can turn off individual rules:
+
+```css
+/* stylelint-disable selector-no-id, declaration-no-important  */
+#id {
+  color: pink !important;
+}
+/* stylelint-enable */
+```
+
+#### Configuring options
+
+Only the `*-no-*` rules don't expect options. All the other rules must be explicitly configured as _there are no default values_.
 
 An example of explicitly configuring the options for three rules:
 
