@@ -1,4 +1,4 @@
-# Head
+# 0.1.1
 
 * Fixed: nesting support of `rule-no-duplicate-properties` rule.
 * Fixed: nesting support of `rule-properties-order` rule.
