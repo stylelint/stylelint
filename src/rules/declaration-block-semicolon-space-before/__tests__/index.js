@@ -18,6 +18,7 @@ testRule("always", tr => {
   tr.notOk("a { color: pink  ; }", messages.expectedBefore())
   tr.notOk("a { color: pink\t; }", messages.expectedBefore())
   tr.notOk("a { color: pink\n; }", messages.expectedBefore())
+  tr.notOk("a { color: pink\r\n; }", messages.expectedBefore(), "CRLF")
   tr.notOk("a { color: pink ; top: 0; }", messages.expectedBefore())
 })
 
@@ -32,6 +33,7 @@ testRule("never", tr => {
   tr.notOk("a { color: pink  ; }", messages.rejectedBefore())
   tr.notOk("a { color: pink\t; }", messages.rejectedBefore())
   tr.notOk("a { color: pink\n; }", messages.rejectedBefore())
+  tr.notOk("a { color: pink\r\n; }", messages.rejectedBefore(), "CRLF")
   tr.notOk("a { color: pink; top: 0 ; }", messages.rejectedBefore())
 })
 
@@ -45,9 +47,11 @@ testRule("always-single-line", tr => {
 
   // Ignore multi-line
   tr.ok("a {\n  color: pink;\n  top: 0;\n}")
+  tr.ok("a {\r\n  color: pink;\r\n  top: 0;\r\n}", "CRLF")
 
   tr.notOk("a { color: pink; }", messages.expectedBeforeSingleLine())
   tr.notOk("a,\nb { color: pink; }", messages.expectedBeforeSingleLine())
+  tr.notOk("a,\r\nb { color: pink; }", messages.expectedBeforeSingleLine(), "CRLF")
   tr.notOk("a { color: pink  ; }", messages.expectedBeforeSingleLine())
   tr.notOk("a { color: pink\t; }", messages.expectedBeforeSingleLine())
   tr.notOk("a { color: pink ; top: 0; }", messages.expectedBeforeSingleLine())
@@ -66,6 +70,7 @@ testRule("never-single-line", tr => {
 
   tr.notOk("a { color: pink ; }", messages.rejectedBeforeSingleLine())
   tr.notOk("a,\nb { color: pink ; }", messages.rejectedBeforeSingleLine())
+  tr.notOk("a,\r\nb { color: pink ; }", messages.rejectedBeforeSingleLine(), "CRLF")
   tr.notOk("a { color: pink  ; }", messages.rejectedBeforeSingleLine())
   tr.notOk("a { color: pink\t; }", messages.rejectedBeforeSingleLine())
   tr.notOk("a { color: pink; top: 0 ; }", messages.rejectedBeforeSingleLine())

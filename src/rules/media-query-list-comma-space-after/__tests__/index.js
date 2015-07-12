@@ -13,10 +13,12 @@ testRule("always", tr => {
   tr.ok("@media screen and (color), projection and (color) {}")
   tr.ok("@media screen and (color) , projection and (color) {}")
   tr.ok("@media screen and (color)\n, projection and (color) {}")
+  tr.ok("@media screen and (color)\r\n, projection and (color) {}", "CRLF")
 
   tr.notOk("@media screen and (color),projection and (color)", messages.expectedAfter())
   tr.notOk("@media screen and (color),  projection and (color)", messages.expectedAfter())
   tr.notOk("@media screen and (color),\nprojection and (color)", messages.expectedAfter())
+  tr.notOk("@media screen and (color),\r\nprojection and (color)", messages.expectedAfter(), "CRLF")
   tr.notOk("@media screen and (color),\tprojection and (color)", messages.expectedAfter())
 })
 
@@ -27,10 +29,12 @@ testRule("never", tr => {
   tr.ok("@media screen and (color),projection and (color) {}")
   tr.ok("@media screen and (color) ,projection and (color) {}")
   tr.ok("@media screen and (color)\n,projection and (color) {}")
+  tr.ok("@media screen and (color)\r\n,projection and (color) {}", "CRLF")
 
   tr.notOk("@media screen and (color), projection and (color)", messages.rejectedAfter())
   tr.notOk("@media screen and (color),  projection and (color)", messages.rejectedAfter())
   tr.notOk("@media screen and (color),\nprojection and (color)", messages.rejectedAfter())
+  tr.notOk("@media screen and (color),\r\nprojection and (color)", messages.rejectedAfter(), "CRLF")
   tr.notOk("@media screen and (color),\tprojection and (color)", messages.rejectedAfter())
 })
 
@@ -39,12 +43,21 @@ testRule("always-single-line", tr => {
 
   tr.ok("@media screen and (color), projection and (color) {}")
   tr.ok("@media screen and (color), projection and (color) {\n}", "single-line list, multi-line block")
+  tr.ok("@media screen and (color), projection and (color) {\r\n}", "single-line list, multi-line block and CRLF")
   tr.ok("@media screen and (color)\n,projection and (color) {}", "ignore multi-line")
+  tr.ok("@media screen and (color)\r\n,projection and (color) {}", "ignore multi-line and CRLF")
 
   tr.notOk("@media screen and (color) ,projection and (color) {}", messages.expectedAfterSingleLine())
-  tr.notOk("@media screen and (color) ,projection and (color) {\n}",
+  tr.notOk(
+    "@media screen and (color) ,projection and (color) {\n}",
     messages.expectedAfterSingleLine(),
-    "single-line list, multi-line block")
+    "single-line list, multi-line block"
+  )
+  tr.notOk(
+    "@media screen and (color) ,projection and (color) {\r\n}",
+    messages.expectedAfterSingleLine(),
+    "single-line list, multi-line block and CRLF"
+  )
 })
 
 testRule("never-single-line", tr => {
@@ -52,10 +65,19 @@ testRule("never-single-line", tr => {
 
   tr.ok("@media screen and (color) ,projection and (color) {}")
   tr.ok("@media screen and (color) ,projection and (color) {\n}", "single-line list, multi-line block")
+  tr.ok("@media screen and (color) ,projection and (color) {\r\n}", "single-line list, multi-line block and CRLF")
   tr.ok("@media screen and (color),\nprojection and (color) {}", "ignore multi-line")
+  tr.ok("@media screen and (color),\r\nprojection and (color) {}", "ignore multi-line and CRLF")
 
   tr.notOk("@media screen and (color), projection and (color) {}", messages.rejectedAfterSingleLine())
-  tr.notOk("@media screen and (color), projection and (color) {\n}",
+  tr.notOk(
+    "@media screen and (color), projection and (color) {\n}",
     messages.rejectedAfterSingleLine(),
-    "single-line list, multi-line block")
+    "single-line list, multi-line block"
+  )
+  tr.notOk(
+    "@media screen and (color), projection and (color) {\r\n}",
+    messages.rejectedAfterSingleLine(),
+    "single-line list, multi-line block and CRLF"
+  )
 })

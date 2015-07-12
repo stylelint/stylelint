@@ -18,7 +18,7 @@ export const messages = ruleMessages(ruleName, {
  * @param {"always"|"never"|"always-single-line"|"never-single-line"} expectation
  */
 export default function (expectation) {
-  const check = whitespaceChecker(" ", expectation, messages)
+  const check = whitespaceChecker("space", expectation, messages)
   return function (root, result) {
     root.eachDecl(function (decl) {
       // Ignore last declaration if there's no trailing semicolon

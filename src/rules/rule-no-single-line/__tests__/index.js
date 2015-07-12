@@ -14,12 +14,24 @@ testRule(null, tr => {
     "multi-line rule with newline at start"
   )
   tr.ok(
+    "a {\r\ncolor: pink; }",
+    "multi-line rule with CRLF at start"
+  )
+  tr.ok(
     "a { color: pink;\n}",
     "multi-line rule with newline at end"
   )
   tr.ok(
+    "a { color: pink;\r\n}",
+    "multi-line rule with CRLF at end"
+  )
+  tr.ok(
     "a { color: pink;\nbackground: orange; }",
     "multi-line rule with newline in middle"
+  )
+  tr.ok(
+    "a { color: pink;\r\nbackground: orange; }",
+    "multi-line rule with CRLF in middle"
   )
 
   tr.notOk(
@@ -31,5 +43,10 @@ testRule(null, tr => {
     "@media print {\na { color: pink; }}",
     messages.rejected,
     "single-line rule within multi-line at-rule"
+  )
+  tr.notOk(
+    "@media print {\r\na { color: pink; }}",
+    messages.rejected,
+    "single-line rule within multi-line at-rule and CRLF"
   )
 })

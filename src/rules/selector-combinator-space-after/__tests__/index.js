@@ -18,6 +18,7 @@ testRule("always", tr => {
   tr.ok("a~ a {}", "no before and one after ~ combinator")
   tr.ok("a\n+ a {}", "newline before space after + combinator")
   tr.ok("a\n> a {}", "newline before space after > combinator")
+  tr.ok("a\r\n> a {}", "CRLF before space after > combinator")
   tr.ok("a\n~ a {}", "newline before space after ~ combinator")
   tr.ok(".foo~ a+ bar {}", "multiple combinators with no space before and one after")
 
@@ -69,8 +70,10 @@ testRule("never", tr => {
   tr.ok("a>a {}", "no space before or after > combinator")
   tr.ok("a~a {}", "no space before or after ~ combinator")
   tr.ok("a\n+a {}", "newline before and no space after + combinator")
+  tr.ok("a\r\n+a {}", "CRLF before and no space after + combinator")
   tr.ok("a\n>a {}", "newline before and no space after > combinator")
   tr.ok("a\n~a {}", "newline before and no space after ~ combinator")
+  tr.ok("a\r\n~a {}", "CRLF before and no space after ~ combinator")
 
   tr.notOk(
     "a+ a {}",
@@ -93,6 +96,11 @@ testRule("never", tr => {
     "newline after + combinator"
   )
   tr.notOk(
+    "a+\r\na{}",
+    messages.rejectedAfter("+"),
+    "CRLF after + combinator"
+  )
+  tr.notOk(
     "a>\na{}",
     messages.rejectedAfter(">"),
     "newline after > combinator"
@@ -101,6 +109,11 @@ testRule("never", tr => {
     "a~\na{}",
     messages.rejectedAfter("~"),
     "newline after ~ combinator"
+  )
+  tr.notOk(
+    "a~\r\na{}",
+    messages.rejectedAfter("~"),
+    "CRLF after ~ combinator"
   )
   tr.notOk(
     "a + .foo.bar ~a {}",

@@ -17,7 +17,7 @@ const rangeOperatorRegex = /[^><](>=?|<=?|=)/g
  * @param {"always"|"never"} expectation
  */
 export default function (expectation) {
-  const checker = whitespaceChecker(" ", expectation, messages)
+  const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     root.eachAtRule(atRule => {
       findMediaOperator(atRule, checkAfterOperator)

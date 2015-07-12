@@ -17,8 +17,10 @@ testRule("always", tr => {
   tr.notOk("a {  color: pink; }", messages.expectedAfter())
   tr.notOk("a {\tcolor: pink; }", messages.expectedAfter())
   tr.notOk("a {\ncolor: pink; }", messages.expectedAfter())
+  tr.notOk("a {\r\ncolor: pink; }", messages.expectedAfter(), "CRLF")
   tr.notOk("@media print {\na { color: pink; } }", messages.expectedAfter())
   tr.notOk("@media print { a {\ncolor: pink; } }", messages.expectedAfter())
+  tr.notOk("@media print { a {\r\ncolor: pink; } }", messages.expectedAfter(), "CRLF")
 })
 
 testRule("never", tr => {
@@ -31,6 +33,7 @@ testRule("never", tr => {
   tr.notOk("a {  color: pink; }", messages.rejectedAfter())
   tr.notOk("a {\tcolor: pink; }", messages.rejectedAfter())
   tr.notOk("a {\ncolor: pink; }", messages.rejectedAfter())
+  tr.notOk("a {\r\ncolor: pink; }", messages.rejectedAfter(), "CRLF")
   tr.notOk("@media print {\na {color: pink; } }", messages.rejectedAfter())
   tr.notOk("@media print {a {\ncolor: pink; } }", messages.rejectedAfter())
 })
@@ -50,6 +53,7 @@ testRule("always-single-line", tr => {
 
   // Ignoring multi-line blocks
   tr.ok("a {\ncolor: pink; }")
+  tr.ok("a {\r\ncolor: pink; }", "CRLF")
   tr.ok("a {color:\npink; }")
   tr.ok("@media print {a {color:\npink; } }")
   tr.ok("@media print{a {color:\npink; } }")
@@ -72,6 +76,7 @@ testRule("never-single-line", tr => {
   tr.ok("a { color:\npink; }")
   tr.ok("@media print { a { color:\npink; } }")
   tr.ok("@media print { a\n{color: pink; } }")
+  tr.ok("@media print { a\r\n{color: pink; } }", "CRLF")
 })
 
 testRule("always-multi-line", tr => {
@@ -91,6 +96,7 @@ testRule("always-multi-line", tr => {
   tr.notOk("a {  color: pink;\nbackground: orange; }", messages.expectedAfterMultiLine())
   tr.notOk("a {\tcolor: pink;\nbackground: orange; }", messages.expectedAfterMultiLine())
   tr.notOk("a {\ncolor: pink;\nbackground: orange; }", messages.expectedAfterMultiLine())
+  tr.notOk("a {\r\ncolor: pink;\r\nbackground: orange; }", messages.expectedAfterMultiLine(), "CRLF")
   tr.notOk("@media print\n{a { color: pink;\nbackground: orange; } }", messages.expectedAfterMultiLine())
   tr.notOk("@media print { a\n{color: pink;\nbackground: orange; } }", messages.expectedAfterMultiLine())
 })
@@ -100,6 +106,7 @@ testRule("never-multi-line", tr => {
 
   tr.ok("a {color: pink;\nbackground: orange; }")
   tr.ok("@media print {a\n{color: pink;\nbackground: orange } }")
+  tr.ok("@media print {a\r\n{color: pink;\r\nbackground: orange } }", "CRLF")
 
   // Ignoring single-line blocks
   tr.ok("a { color: pink; }")
@@ -111,6 +118,7 @@ testRule("never-multi-line", tr => {
   tr.notOk("a { color: pink;\nbackground: orange; }", messages.rejectedAfterMultiLine())
   tr.notOk("a {  color: pink;\nbackground: orange; }", messages.rejectedAfterMultiLine())
   tr.notOk("a {\tcolor: pink;\nbackground: orange; }", messages.rejectedAfterMultiLine())
+  tr.notOk("a {\tcolor: pink;\r\nbackground: orange; }", messages.rejectedAfterMultiLine(), "CRLF")
   tr.notOk("a {\ncolor: pink;\nbackground: orange; }", messages.rejectedAfterMultiLine())
   tr.notOk("@media print\n{ a {color: pink;\nbackground: orange; } }", messages.rejectedAfterMultiLine())
   tr.notOk("@media print{a\n{ color: pink;\nbackground: orange; } }", messages.rejectedAfterMultiLine())

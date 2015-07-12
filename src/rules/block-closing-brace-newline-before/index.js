@@ -37,7 +37,7 @@ export default function (expectation) {
       // the last declaration and the closing brace. We can
       // ignore any other whitespace between them, because that
       // will be checked by the indentation rule.
-      if (statement.after[0] !== "\n") {
+      if (statement.after[0] !== "\n" && statement.after.substr(0, 2) !== "\r\n") {
         if (expectation === "always") {
           report({
             message: messages.expectedBefore(),
