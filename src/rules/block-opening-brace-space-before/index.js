@@ -2,9 +2,10 @@ import {
   cssStatementBlockString,
   cssStatementHasBlock,
   cssStatementHasEmptyBlock,
+  cssStatementIsNestingBlock,
+  cssStatementStringBeforeBlock,
   report,
   ruleMessages,
-  cssStatementStringBeforeBlock,
   whitespaceChecker
 } from "../../utils"
 
@@ -31,8 +32,8 @@ export default function (expectation) {
     root.eachAtRule(check)
 
     function check(statement) {
-      // Return early if blockless or has empty block
-      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
+      // Return early if blockless, has empty block or is a nesting block
+      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement) || cssStatementIsNestingBlock(statement)) { return }
 
       const source = cssStatementStringBeforeBlock(statement)
 
