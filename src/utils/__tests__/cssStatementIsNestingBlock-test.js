@@ -23,10 +23,16 @@ function postcssCheck(cssString) {
   const root = postcss.parse(cssString)
   let isNestingBlock = false
   root.eachRule(rule => {
-    if (cssStatementIsNestingBlock(rule)) { isNestingBlock = true }
+    if (cssStatementIsNestingBlock(rule)) {
+      isNestingBlock = true
+      return false
+    }
   })
   root.eachAtRule(atRule => {
-    if (cssStatementIsNestingBlock(atRule)) { isNestingBlock = true }
+    if (cssStatementIsNestingBlock(atRule)) {
+      isNestingBlock = true
+      return false
+    }
   })
   return isNestingBlock
 }
