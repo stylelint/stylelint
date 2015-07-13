@@ -164,6 +164,12 @@ var config = {
 }
 ```
 
+## Complementary tools
+
+The linter works well with:
+
+* [stylehack](https://github.com/ben-eb/stylehacks) - Detect/remove browser hacks from CSS files.
+
 ## Requirements
 
 * node@0.12 or io.js@2
