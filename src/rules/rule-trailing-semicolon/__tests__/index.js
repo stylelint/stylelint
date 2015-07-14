@@ -51,12 +51,6 @@ testRule("always", tr => {
   )
 
   tr.notOk(
-    "a { color: red { &:hover { color: pink; }}}",
-    messages.expected,
-    "nesting with first-level decl"
-  )
-
-  tr.notOk(
     "a { color: red; { &:hover { color: pink }}}",
     messages.expected,
     "nesting with first-level decl"

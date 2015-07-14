@@ -18,9 +18,10 @@ export default function (expectation) {
   return (root, result) => {
 
     root.eachRule(rule => {
-
       // Return early if an empty rule
       if (cssStatementHasEmptyBlock(rule)) { return }
+
+      if (!rule.last || rule.last.type !== "decl") { return }
 
       // Check semi colon
       if (expectation === "always" && rule.semicolon) { return }
