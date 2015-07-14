@@ -1,7 +1,12 @@
+# Head
+
+* Fixed: nesting support for the `rule-trailing-semicolon` rule.
+* Fixed: nesting support for the `block-opening-brace-space-before` rule.
+
 # 0.1.1
 
-* Fixed: nesting support of `rule-no-duplicate-properties` rule.
-* Fixed: nesting support of `rule-properties-order` rule.
+* Fixed: nesting support for the `rule-no-duplicate-properties` rule.
+* Fixed: nesting support for the `rule-properties-order` rule.
 * Fixed: whitespace rules accommodate Windows CR-LF line endings.
 
 # 0.1.0
