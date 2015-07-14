@@ -1,9 +1,10 @@
 import {
   cssStatementHasBlock,
   cssStatementHasEmptyBlock,
-  ruleMessages,
-  report,
+  cssStatementIsNestingBlock,
   cssStatementStringBeforeBlock,
+  report,
+  ruleMessages,
   whitespaceChecker
 } from "../../utils"
 
@@ -32,7 +33,7 @@ export default function (expectation) {
     function check(statement) {
 
       // Return early if blockless or has empty block
-      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
+      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement) || cssStatementIsNestingBlock(statement)) { return }
 
       const beforeBrace = cssStatementStringBeforeBlock(statement)
 

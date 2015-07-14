@@ -1,7 +1,8 @@
 # Head
 
-* Fixed: nesting support for the `rule-trailing-semicolon` rule.
+* Fixed: nesting support for the `block-opening-brace-newline-before` rule.
 * Fixed: nesting support for the `block-opening-brace-space-before` rule.
+* Fixed: nesting support for the `rule-trailing-semicolon` rule.
 
 # 0.1.1
 
