@@ -1,6 +1,7 @@
 import {
   report,
-  ruleMessages
+  ruleMessages,
+  cssStatementHasEmptyBlock
 } from "../../utils"
 
 export const ruleName = "rule-trailing-semicolon"
@@ -17,11 +18,12 @@ export default function (expectation) {
   return (root, result) => {
 
     root.eachRule(rule => {
+      // Return early if an empty rule
+      if (cssStatementHasEmptyBlock(rule)) { return }
 
-      // return early if an empty rule
-      if (rule.nodes.length === 0) { return }
+      if (!rule.last || rule.last.type !== "decl") { return }
 
-      // check semi colon
+      // Check semi colon
       if (expectation === "always" && rule.semicolon) { return }
       if (expectation === "never" && !rule.semicolon) { return }
 
