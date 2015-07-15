@@ -1,4 +1,4 @@
-# Head
+# 0.1.2
 
 * Fixed: nesting support for the `block-opening-brace-newline-before` rule.
 * Fixed: nesting support for the `block-opening-brace-space-before` rule.
