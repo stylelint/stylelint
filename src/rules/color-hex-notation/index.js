@@ -11,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
 })
 
 /**
- * @param {"single"|"double"} expectation
+ * @param {"lowercase"|"uppercase"} expectation
  */
 export default function (expectation) {
   return (root, result) => {
