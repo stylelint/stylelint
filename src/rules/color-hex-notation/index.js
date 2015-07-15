@@ -22,9 +22,9 @@ export default function (expectation) {
 
         const hexValue = /^#[0-9A-Za-z]+/.exec(value.substr(match.startIndex))[0]
 
-        if (expectation === "lowercase" && (/^#(?:[0-9a-z]+)$/.test(hexValue))) { return }
+        if (expectation === "lowercase" && hexValue === hexValue.toLowerCase()) { return }
 
-        if (expectation === "uppercase" && (/^#(?:[0-9A-Z]+)$/.test(hexValue))) { return }
+        if (expectation === "uppercase" && hexValue === hexValue.toUpperCase()) { return }
 
         report({
           message: messages.expected(expectation, hexValue),

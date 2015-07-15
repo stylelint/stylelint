@@ -16,7 +16,8 @@ testRule("lowercase", tr => {
   tr.ok("a { color: #00fc; }", "four digits")
 
   tr.ok("a { padding: 000; }")
-  tr.ok("a::before { content: \"#ababa\"; }")
+  tr.ok("a::before { content: \"#ABABA\"; }")
+  tr.ok("a { color: white /* #FFF */; }")
 
   tr.notOk("a { color: #Ababa; }", messages.expected("lowercase", "#Ababa"))
   tr.notOk("a { something: #000F, #fff, #ababab; }", messages.expected("lowercase", "#000F"))
@@ -35,6 +36,7 @@ testRule("uppercase", tr => {
 
   tr.ok("a { padding: 000; }")
   tr.ok("a::before { content: \"#ababa\"; }")
+  tr.ok("a { color: white /* #fff */; }")
 
   tr.notOk("a { color: #aBABA; }", messages.expected("uppercase", "#aBABA"))
   tr.notOk("a { something: #000f, #FFF, #ABABAB; }", messages.expected("uppercase", "#000f"))
