@@ -1,3 +1,7 @@
+# Head
+
+* Added: `color-hex-notation` rule.
+
 # 0.1.2
 
 * Fixed: nesting support for the `block-opening-brace-newline-before` rule.

@@ -9,6 +9,7 @@ import blockOpeningBraceNewlineAfter from "./block-opening-brace-newline-after"
 import blockOpeningBraceNewlineBefore from "./block-opening-brace-newline-before"
 import blockOpeningBraceSpaceAfter from "./block-opening-brace-space-after"
 import blockOpeningBraceSpaceBefore from "./block-opening-brace-space-before"
+import colorHexNotation from "./color-hex-notation"
 import colorNoInvalidHex from "./color-no-invalid-hex"
 import commentEmptyLineBefore from "./comment-empty-line-before"
 import commentSpaceInside from "./comment-space-inside"
@@ -89,6 +90,7 @@ export default {
   "block-opening-brace-newline-before": blockOpeningBraceNewlineBefore,
   "block-opening-brace-space-after": blockOpeningBraceSpaceAfter,
   "block-opening-brace-space-before": blockOpeningBraceSpaceBefore,
+  "color-hex-notation": colorHexNotation,
   "color-no-invalid-hex": colorNoInvalidHex,
   "comment-empty-line-before": commentEmptyLineBefore,
   "comment-space-inside": commentSpaceInside,
