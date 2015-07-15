@@ -4,7 +4,7 @@ import {
   styleSearch
 } from "../../utils"
 
-export const ruleName = "color-hex-notation"
+export const ruleName = "color-hex-case"
 
 export const messages = ruleMessages(ruleName, {
   expected: (c, h) => `Expected ${c} hex color ${h}`,

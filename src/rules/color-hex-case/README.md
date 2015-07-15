@@ -1,6 +1,6 @@
-# color-hex-notation
+# color-hex-case
 
-Specify lowercase or uppercase notation for hex colors.
+Specify lowercase or uppercase for hex colors.
 
 ```css
     a { color: #fff }
