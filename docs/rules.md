@@ -11,6 +11,7 @@
 * [`block-opening-brace-newline-before`](../src/rules/block-opening-brace-newline-before/README.md): Require a newline or disallow whitespace before the opening brace of blocks.
 * [`block-opening-brace-space-after`](../src/rules/block-opening-brace-space-after/README.md): Require a single space or disallow whitespace after the opening brace of blocks.
 * [`block-opening-brace-space-before`](../src/rules/block-opening-brace-space-before/README.md): Require a single space or disallow whitespace before the opening brace of blocks.
+* [`color-hex-notation`](../src/rules/color-hex-notation/README.md): Specify lowercase or uppercase notation for hex colors.
 * [`color-no-invalid-hex`](../src/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
 * [`comment-empty-line-before`](../src/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments.
 * [`comment-space-inside`](../src/rules/comment-space-inside/README.md): Require a single space or disallow whitespace on the inside of comment markers.
