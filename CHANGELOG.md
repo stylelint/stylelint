@@ -1,6 +1,6 @@
 # Head
 
-* Added: `color-hex-notation` rule.
+* Added: `color-hex-case` rule.
 
 # 0.1.2
 
