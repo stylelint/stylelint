@@ -7,7 +7,7 @@ import {
 export const ruleName = "color-hex-length"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (l, h, v) => `Expected "${h}"" to be in the ${l} notation form of "${v}"`,
+  expected: (h, v) => `Expected "${h}" to be "${v}"`,
 })
 
 /**
@@ -29,7 +29,7 @@ export default function (expectation) {
         const variant = expectation === "long" ? longer : shorter
 
         report({
-          message: messages.expected(expectation, hexValue, variant(hexValue)),
+          message: messages.expected(hexValue, variant(hexValue)),
           node: decl,
           result,
           ruleName,

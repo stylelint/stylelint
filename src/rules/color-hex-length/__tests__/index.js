@@ -24,10 +24,10 @@ testRule("short", tr => {
   tr.ok("a::before { content: \"#ABABAB\"; }")
   tr.ok("a { color: white /* #FFFFFF */; }")
 
-  tr.notOk("a { color: #FFFFFF; }", messages.expected("short", "#FFFFFF", "#FFF"))
-  tr.notOk("a { color: #FfaAFF; }", messages.expected("short", "#FfaAFF", "#FaF"))
-  tr.notOk("a { color: #00aa00aa; }", messages.expected("short", "#00aa00aa", "#0a0a"))
-  tr.notOk("a { something: #fff, #aba, #00ffAAaa; }", messages.expected("short", "#00ffAAaa", "#0fAa"))
+  tr.notOk("a { color: #FFFFFF; }", messages.expected("#FFFFFF", "#FFF"))
+  tr.notOk("a { color: #FfaAFF; }", messages.expected("#FfaAFF", "#FaF"))
+  tr.notOk("a { color: #00aa00aa; }", messages.expected("#00aa00aa", "#0a0a"))
+  tr.notOk("a { something: #fff, #aba, #00ffAAaa; }", messages.expected("#00ffAAaa", "#0fAa"))
 })
 
 testRule("long", tr => {
@@ -48,8 +48,8 @@ testRule("long", tr => {
   tr.ok("a::before { content: \"#ABA\"; }")
   tr.ok("a { color: white /* #FFF */; }")
 
-  tr.notOk("a { color: #FFF; }", messages.expected("long", "#FFF", "#FFFFFF"))
-  tr.notOk("a { color: #Ffa; }", messages.expected("long", "#Ffa", "#FFffaa"))
-  tr.notOk("a { color: #0a0a; }", messages.expected("long", "#0a0a", "#00aa00aa"))
-  tr.notOk("a { something: #ffffff, #aabbaa, #0fAa; }", messages.expected("long", "#0fAa", "#00ffAAaa"))
+  tr.notOk("a { color: #FFF; }", messages.expected("#FFF", "#FFFFFF"))
+  tr.notOk("a { color: #Ffa; }", messages.expected("#Ffa", "#FFffaa"))
+  tr.notOk("a { color: #0a0a; }", messages.expected("#0a0a", "#00aa00aa"))
+  tr.notOk("a { something: #ffffff, #aabbaa, #0fAa; }", messages.expected("#0fAa", "#00ffAAaa"))
 })
