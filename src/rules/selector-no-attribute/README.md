@@ -1,4 +1,4 @@
-# selector-no-type
+# selector-no-attribute
 
 Disallow attribute selectors.
 

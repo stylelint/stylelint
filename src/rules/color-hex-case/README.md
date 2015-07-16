@@ -10,9 +10,9 @@ Specify lowercase or uppercase for hex colors.
 
 ## Options
 
-`string`: `"lowecase"|"uppercase"`
+`string`: `"lower"|"upper"`
 
-### `"lowercase"`
+### `"lower"`
 
 The following patterns are considered warnings:
 
@@ -31,7 +31,7 @@ a { color: #000; }
 a { color: #fff; }
 ```
 
-### `"uppercase"`
+### `"upper"`
 
 The following patterns are considered warnings:
 
