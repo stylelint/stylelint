@@ -13,13 +13,21 @@ npm test
 To run tests in a single file, instead of all the tests at once, you'll need to use `babel-tape-runner` (because the codebase is ES6). For example:
 
 ```console
-babel-tape-runner src/rules/media-feature-name-no-vendor-prefix/__tests__/index.js
+babel-tape-runner src/rules/color-hex-case/__tests__/index.js
 ```
 
 ## Adding a new rule
 
 1. First, open [an issue](https://github.com/stylelint/stylelint/issues/new) with the title "New rule: *rule-name*" and let everyone else know when you intend to start on the new rule.
 2. Once you have something to show, create a [pull request](https://github.com/stylelint/stylelint/compare).
+
+### Options
+
+Use explicit, rather than implicit, options. For example:
+
+* `color-hex-case: "upper"|"lower"` rather than `color-hex-uppercase: "always"|"never"`
+
+As `color-hex-uppercase: "never"` *implies* always lowercase.
 
 ### Messages
 
