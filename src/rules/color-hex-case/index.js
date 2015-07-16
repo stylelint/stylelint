@@ -7,11 +7,11 @@ import {
 export const ruleName = "color-hex-case"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (c, h) => `Expected ${c} hex color ${h}`,
+  expected: (c, h) => `Expected ${c}case hex color ${h}`,
 })
 
 /**
- * @param {"lowercase"|"uppercase"} expectation
+ * @param {"lower"|"upper"} expectation
  */
 export default function (expectation) {
   return (root, result) => {
@@ -22,9 +22,9 @@ export default function (expectation) {
 
         const hexValue = /^#[0-9A-Za-z]+/.exec(value.substr(match.startIndex))[0]
 
-        if (expectation === "lowercase" && hexValue === hexValue.toLowerCase()) { return }
+        if (expectation === "lower" && hexValue === hexValue.toLowerCase()) { return }
 
-        if (expectation === "uppercase" && hexValue === hexValue.toUpperCase()) { return }
+        if (expectation === "upper" && hexValue === hexValue.toUpperCase()) { return }
 
         report({
           message: messages.expected(expectation, hexValue),

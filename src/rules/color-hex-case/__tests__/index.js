@@ -6,7 +6,7 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-testRule("lowercase", tr => {
+testRule("lower", tr => {
   warningFreeBasics(tr)
 
   tr.ok("a { color: pink; }")
@@ -19,13 +19,13 @@ testRule("lowercase", tr => {
   tr.ok("a::before { content: \"#ABABA\"; }")
   tr.ok("a { color: white /* #FFF */; }")
 
-  tr.notOk("a { color: #Ababa; }", messages.expected("lowercase", "#Ababa"))
-  tr.notOk("a { something: #000F, #fff, #ababab; }", messages.expected("lowercase", "#000F"))
-  tr.notOk("a { something: #000, #FFFFAZ, #ababab; }", messages.expected("lowercase", "#FFFFAZ"))
-  tr.notOk("a { something: #000, #fff, #12345AA; }", messages.expected("lowercase", "#12345AA"))
+  tr.notOk("a { color: #Ababa; }", messages.expected("lower", "#Ababa"))
+  tr.notOk("a { something: #000F, #fff, #ababab; }", messages.expected("lower", "#000F"))
+  tr.notOk("a { something: #000, #FFFFAZ, #ababab; }", messages.expected("lower", "#FFFFAZ"))
+  tr.notOk("a { something: #000, #fff, #12345AA; }", messages.expected("lower", "#12345AA"))
 })
 
-testRule("uppercase", tr => {
+testRule("upper", tr => {
   warningFreeBasics(tr)
 
   tr.ok("a { color: pink; }")
@@ -38,8 +38,8 @@ testRule("uppercase", tr => {
   tr.ok("a::before { content: \"#ababa\"; }")
   tr.ok("a { color: white /* #fff */; }")
 
-  tr.notOk("a { color: #aBABA; }", messages.expected("uppercase", "#aBABA"))
-  tr.notOk("a { something: #000f, #FFF, #ABABAB; }", messages.expected("uppercase", "#000f"))
-  tr.notOk("a { something: #000, #ffffaz, #ABABAB; }", messages.expected("uppercase", "#ffffaz"))
-  tr.notOk("a { something: #000, #FFF, #12345aa; }", messages.expected("uppercase", "#12345aa"))
+  tr.notOk("a { color: #aBABA; }", messages.expected("upper", "#aBABA"))
+  tr.notOk("a { something: #000f, #FFF, #ABABAB; }", messages.expected("upper", "#000f"))
+  tr.notOk("a { something: #000, #ffffaz, #ABABAB; }", messages.expected("upper", "#ffffaz"))
+  tr.notOk("a { something: #000, #FFF, #12345aa; }", messages.expected("upper", "#12345aa"))
 })
