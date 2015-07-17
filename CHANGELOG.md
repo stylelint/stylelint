@@ -2,6 +2,9 @@
 
 * Added: `color-hex-case` rule.
 * Added: `color-hex-length` rule.
+* Fixed: Formalized selector-indentation-checking within the `indentation` rule.
+* Fixed: Allow for arbitrary whitespace after the newline in the `selector-list-comma-newline-*` rules.
+* Fixed: `selector-combinator-space-*` no longer checks `:nth-child()` arguments.
 
 # 0.1.2
 
