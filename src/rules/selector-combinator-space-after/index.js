@@ -1,6 +1,7 @@
 import {
   report,
   ruleMessages,
+  styleSearch,
   whitespaceChecker
 } from "../../utils"
 
@@ -25,10 +26,13 @@ export function selectorCombinatorSpaceChecker(locationChecker) {
   return (root, result) => {
     root.eachRule(rule => {
       const selector = rule.selector
-      for (let i = 0, l = selector.length; i < l; i++) {
-        if (combinators.indexOf(selector[i]) === -1) { continue }
-        check(selector, i, rule)
-      }
+      styleSearch({
+        source: selector,
+        target: combinators,
+        outsideFunctionalNotation: true,
+      }, match => {
+        check(selector, match.startIndex, rule)
+      })
     })
 
     function check(source, index, node) {

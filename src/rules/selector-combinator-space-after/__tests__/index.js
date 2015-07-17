@@ -21,6 +21,8 @@ testRule("always", tr => {
   tr.ok("a\r\n> a {}", "CRLF before space after > combinator")
   tr.ok("a\n~ a {}", "newline before space after ~ combinator")
   tr.ok(".foo~ a+ bar {}", "multiple combinators with no space before and one after")
+  tr.ok(".foo:nth-child(2n+1) {}", "unspaced + in nth-child argument")
+  tr.ok(".foo:nth-child(2n-1) {}", "unspaced - in nth-child argument")
 
   tr.notOk(
     "a+  a {}",
@@ -74,6 +76,8 @@ testRule("never", tr => {
   tr.ok("a\n>a {}", "newline before and no space after > combinator")
   tr.ok("a\n~a {}", "newline before and no space after ~ combinator")
   tr.ok("a\r\n~a {}", "CRLF before and no space after ~ combinator")
+  tr.ok(".foo:nth-child(2n + 1) {}", "spaced + in nth-child argument")
+  tr.ok(".foo:nth-child(2n - 1) {}", "spaced - in nth-child argument")
 
   tr.notOk(
     "a+ a {}",
