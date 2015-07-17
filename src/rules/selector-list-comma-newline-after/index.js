@@ -20,15 +20,9 @@ export default function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
     root.eachRule(rule => {
-      // Allow for the special case of nested rule sets
-      // that should be indented
-      const checkLocation = (rule.parent === root)
-        ? checker.after
-        : checker.afterOneOnly
-
       const selector = rule.selector
       styleSearch({ source: selector, target: "," }, match => {
-        checkLocation({
+        checker.afterOneOnly({
           source: selector,
           index: match.startIndex,
           err: m =>

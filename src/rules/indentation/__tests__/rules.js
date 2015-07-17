@@ -75,6 +75,13 @@ tr.notOk(
 messages.expected("0 spaces at line 3"))
 
 tr.notOk(
+`a,
+b {
+  color: pink;
+  }`,
+messages.expected("0 spaces at line 4"))
+
+tr.notOk(
 `a { color: pink;
   }`,
 messages.expected("0 spaces at line 2"))
