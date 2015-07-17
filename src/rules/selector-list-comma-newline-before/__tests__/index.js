@@ -19,6 +19,7 @@ testRule("always", tr => {
   tr.ok("a\n    ,b {}", "indentation after the newline before the comma")
   tr.ok("a\r\n    ,b {}", "indentation after the CRLF before the comma")
   tr.ok("a\n\t\t,b {}", "indentation after the newline before the comma")
+  tr.ok("\ta\n\t, b {}", "indented statement")
 
   tr.notOk("a,b {}", messages.expectedBefore())
   tr.notOk("a ,b {}", messages.expectedBefore())
@@ -35,6 +36,7 @@ testRule("always-multi-line", tr => {
   tr.ok("a\r\n,b {}", "CRLF")
   tr.ok("a, b {}", "ignores single-line")
   tr.ok("a, b {\n}", "ignores single-line selector list, multi-line block")
+  tr.ok("\ta\n\t, b {\n}", "indented statement")
 
   tr.notOk("a\n,b, c {}", messages.expectedBeforeMultiLine())
   tr.notOk("a\r\n,b, c {}", messages.expectedBeforeMultiLine(), "CRLF")

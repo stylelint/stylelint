@@ -50,11 +50,31 @@ a {
 }
 ```
 
+```css
+@media print {
+  a,
+    b {
+    background-position: top left,
+      top right;
+  }
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
 @media print {
   a {
+    background-position: top left,
+      top right;
+  }
+}
+```
+
+```css
+@media print {
+  a,
+  b {
     background-position: top left,
       top right;
   }

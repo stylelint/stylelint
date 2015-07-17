@@ -19,6 +19,7 @@ testRule("always", tr => {
   tr.ok("a {\n  &:hover,\n  &:focus {\n    color: pink; }\n}", "nested in rule set")
   tr.ok("@media (min-width: 10px) {\n  a,\n  b {}\n}", "nested in at-rule")
   tr.ok("@media (min-width: 10px) {\r\n  a,\r\n  b {}\r\n}", "nested in at-rule and CRLF")
+  tr.ok("\ta,\n\tb {}", "indented statement")
 
   tr.notOk("a,b {}", messages.expectedAfter())
   tr.notOk("a, b {}", messages.expectedAfter())
@@ -26,9 +27,6 @@ testRule("always", tr => {
   tr.notOk("a,\tb {}", messages.expectedAfter())
   tr.notOk("a,\nb,c {}", messages.expectedAfter())
   tr.notOk("a,\r\nb,c {}", messages.expectedAfter(), "CRLF")
-  tr.notOk("a,\nb,\n c {}", messages.expectedAfter())
-  tr.notOk("a,\n  b {}", messages.expectedAfter())
-  tr.notOk("a,\r\n  b {}", messages.expectedAfter(), "CRLF")
 })
 
 testRule("always-multi-line", tr => {
@@ -39,6 +37,7 @@ testRule("always-multi-line", tr => {
   tr.ok("a, b {}", "ignores single-line")
   tr.ok("a, b {\n}", "ignores single-line selector list, multi-line block")
   tr.ok("a, b {\r\n}", "ignores single-line selector list, multi-line block with CRLF")
+  tr.ok("\ta,\n\tb {\n}", "indented statement")
 
   tr.notOk("a,\nb, c {}", messages.expectedAfterMultiLine())
   tr.notOk("a,\nb, c {\n}", messages.expectedAfterMultiLine())

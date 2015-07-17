@@ -94,6 +94,11 @@ export default function (space, options) {
       if (node.value) {
         checkValue(node, nodeLevel)
       }
+
+      // If this is a rule, check the selector
+      if (node.selector) {
+        checkSelector(node, nodeLevel)
+      }
     }
 
     function isFirstNodeInRoot(node) {
@@ -107,7 +112,6 @@ export default function (space, options) {
       const valueLevel = (optionsHaveException(options, "value"))
         ? declLevel
         : declLevel + 1
-      const postNewlineExpected = repeat(indentChar, valueLevel)
 
       styleSearch({ source: value, target: "\n" }, (match, newlineCount) => {
         // Starting at the index after the newline, we want to
@@ -115,13 +119,34 @@ export default function (space, options) {
         // non-whitespace character equal the expected indentation
         const postNewlineActual = /^(\s*)\S/.exec(value.slice(match.startIndex + 1))[1]
 
-        if (postNewlineActual !== postNewlineExpected) {
-
+        if (postNewlineActual !== repeat(indentChar, valueLevel)) {
           const line = node.source.start.line + newlineCount
-
           report({
             message: messages.expected(legibleExpectation(valueLevel, line)),
             node: node,
+            line: line,
+            result,
+            ruleName,
+          })
+        }
+      })
+    }
+
+    function checkSelector(rule, ruleLevel) {
+      const selector = rule.selector
+      if (selector.indexOf("\n") === -1) { return }
+
+      styleSearch({ source: selector, target: "\n" }, (match, newlineCount) => {
+        // Starting at the index after the newline, we want to
+        // check that the whitespace characters before the first
+        // non-whitespace character equal the expected indentation
+        const postNewlineActual = /^(\s*)\S/.exec(selector.slice(match.startIndex + 1))[1]
+
+        if (postNewlineActual !== repeat(indentChar, ruleLevel)) {
+          const line = rule.source.start.line + newlineCount
+          report({
+            message: messages.expected(legibleExpectation(ruleLevel, line)),
+            node: rule,
             line: line,
             result,
             ruleName,
