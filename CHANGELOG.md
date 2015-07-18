@@ -1,3 +1,7 @@
+# Head
+
+* Changed: The `color-hex-case` rule message to be consistent with the `color-hex-length` rule.
+
 # 0.2.0
 
 * Added: `color-hex-case` rule.
