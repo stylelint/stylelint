@@ -1,6 +1,8 @@
 # Head
 
 * Changed: The `color-hex-case` rule message to be consistent with the `color-hex-length` rule.
+* Added: `nesting-block-opening-brace-space-before` rule.
+* Added: `nesting-block-opening-brace-newline-before` rule.
 
 # 0.2.0
 

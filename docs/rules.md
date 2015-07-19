@@ -44,6 +44,8 @@
 * [`media-query-list-comma-space-after`](../src/rules/media-query-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of media query lists.
 * [`media-query-list-comma-space-before`](../src/rules/media-query-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of media query lists.
 * [`media-query-parentheses-space-inside`](../src/rules/media-query-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within media queries.
+* [`nesting-block-opening-brace-newline-before`](../src/rules/nesting-block-opening-brace-newline-before/README.md): Require a newline or disallow whitespace before the opening brace of nesting blocks.
+* [`nesting-block-opening-brace-space-before`](../src/rules/nesting-block-opening-brace-space-before/README.md): Require a single space or disallow whitespace before the opening brace of nesting blocks.
 * [`no-eol-whitespace`](../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
 * [`no-missing-eof-newline`](../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
 * [`no-multiple-empty-lines`](../src/rules/no-multiple-empty-lines/README.md): Disallow multiple empty lines.
