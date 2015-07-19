@@ -3,7 +3,7 @@
 * Added: `nesting-block-opening-brace-space-before` rule.
 * Added: `nesting-block-opening-brace-newline-before` rule.
 * Fixed: the `color-hex-case` rule message is now consistent with the `color-hex-length` rule.
-* Fixed: the `property-blacklist` rule message is now consistent with the `property-whitelist rule.
+* Fixed: the `property-blacklist` rule message is now consistent with the `property-whitelist` rule.
 * Fixed: a typo in the `comment-space-inside` rule message.
 
 # 0.2.0
