@@ -1,15 +1,17 @@
 # Head
 
-* Changed: The `color-hex-case` rule message to be consistent with the `color-hex-length` rule.
 * Added: `nesting-block-opening-brace-space-before` rule.
 * Added: `nesting-block-opening-brace-newline-before` rule.
+* Fixed: the `color-hex-case` rule message is now consistent with the `color-hex-length` rule.
+* Fixed: the `property-blacklist` rule message is now consistent with the `property-whitelist rule.
+* Fixed: a typo in the `comment-space-inside` rule message.
 
 # 0.2.0
 
 * Added: `color-hex-case` rule.
 * Added: `color-hex-length` rule.
-* Fixed: Formalized selector-indentation-checking within the `indentation` rule.
-* Fixed: Allow for arbitrary whitespace after the newline in the `selector-list-comma-newline-*` rules.
+* Fixed: formalized selector-indentation-checking within the `indentation` rule.
+* Fixed: allow for arbitrary whitespace after the newline in the `selector-list-comma-newline-*` rules.
 * Fixed: `selector-combinator-space-*` no longer checks `:nth-child()` arguments.
 
 # 0.1.2
