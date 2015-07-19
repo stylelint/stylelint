@@ -110,3 +110,60 @@ top right;
 }
 }
 ```
+
+### `hierarchical: true|false`
+
+Add additional indentation levels for hierarchical relationships between selectors.
+
+The basic rule is this: If selectors are grouped in such a way that Rule A should be
+followed by other rules whose selectors start with the same characters as Rule A's
+(complete) selector, then Rule A is superordinate to those rules. This hierarchy can
+nest indefinitely.
+
+For example, with `2`:
+
+The following patterns are considered warnings:
+
+```css
+.foo {}
+.foo-sub {}
+```
+
+```css
+#foo ul {}
+#foo ul > li {}
+#foo ul > li > a {}
+#bar ul {}
+```
+
+```css
+.foo {}
+  .foo-one {}
+  .foo-two {}
+  .foo-two-sub {}
+  .foo-three {}
+.bar {}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+.foo {}
+  .foo-sub {}
+```
+
+```css
+#foo ul {}
+  #foo ul > li {}
+    #foo ul > li > a {}
+#bar ul {}
+```
+
+```css
+.foo {}
+  .foo-one {}
+  .foo-two {}
+    .foo-two-sub {}
+  .foo-three {}
+.bar {}
+```

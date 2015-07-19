@@ -12,8 +12,6 @@ const testRule = ruleTester(rule, ruleName)
 testRule(2, tr => {
 warningFreeBasics(tr)
 
-tr.ok("")
-tr.ok("a {color: pink;}")
 tr.ok(
 `/* anything
     goes
