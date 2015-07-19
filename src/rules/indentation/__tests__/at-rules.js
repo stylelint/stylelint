@@ -31,11 +31,12 @@ tr.ok(
 }`)
 
 tr.notOk(
-`  @media print {
+`
+  @media print {
   a {
     color: pink;
   }
-}`, messages.expected("0 spaces at line 1"))
+}`, messages.expected("0 spaces at line 2"))
 
 tr.notOk(
 `@media print {

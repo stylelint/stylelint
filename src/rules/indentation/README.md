@@ -111,14 +111,16 @@ top right;
 }
 ```
 
-### `hierarchical: true|false`
+### `hierarchicalSelectors: true|false`
 
 Add additional indentation levels for hierarchical relationships between selectors.
 
 The basic rule is this: If selectors are grouped in such a way that Rule A should be
-followed by other rules whose selectors start with the same characters as Rule A's
+followed by other rules whose selectors *start* with the same characters as Rule A's
 (complete) selector, then Rule A is superordinate to those rules. This hierarchy can
 nest indefinitely.
+
+Such a pattern can apply to combinators or BEM-style naming.
 
 For example, with `2`:
 

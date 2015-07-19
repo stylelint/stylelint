@@ -8,8 +8,7 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-// 2 spaces
-testRule(2, { hierarchical: true }, tr => {
+testRule(2, { hierarchicalSelectors: true }, tr => {
 warningFreeBasics(tr)
 
 tr.ok(
@@ -39,6 +38,15 @@ tr.ok(
   .bar-one {}`
 )
 
+tr.ok(
+`.foo {
+  top: 0;
+}
+  .foo-one {
+    top: 1px;
+  }`
+)
+
 tr.notOk(
 `.foo {}
     .foo-one {}
@@ -56,9 +64,26 @@ messages.expected("2 spaces at line 4"))
 tr.notOk(
 `.foo {}
   .foo-one {}
+.bar {}
+  .bar-one {
+  top: 0;
+  }`,
+messages.expected("4 spaces at line 5"))
+
+tr.notOk(
+`.foo {}
+  .foo-one {}
   .bar {}
   .bar-one {}`,
 messages.expected("0 spaces at line 3"))
+
+tr.notOk(
+`.foo {}
+  .foo-one {
+    color: pink;
+     top: 0;
+  }`,
+messages.expected("4 spaces at line 4"))
 
 tr.ok(
 `.foo {}
@@ -92,20 +117,30 @@ messages.expected("4 spaces at line 4"))
 
 tr.notOk(
 `.foo {}
-  .foo-one {}
+  .foo-one {
+    top: 0;
+  }
   .foo-two {}
-    .foo-two-sub {}
+    .foo-two-sub {
+      top: 10px;
+    }
   .foo-three {}
   .bar {}`,
-messages.expected("0 spaces at line 6"))
+messages.expected("0 spaces at line 10"))
 
 tr.ok(
-`#foo {}
+`#foo {
+  top: 3px;
+}
   #foo ul {}
     #foo ul > li {}
-      #foo ul > li span {}
+      #foo ul > li span {
+        top: 4px;
+      }
     #foo ul a {}
-  #foo div {}
+  #foo div {
+    top: 6px;
+  }
     #foo div span {}
 #bar {}`
 )
@@ -145,5 +180,19 @@ tr.notOk(
   #bar a {}
 #baz b {}`,
 messages.expected("0 spaces at line 3"))
+
+tr.ok(
+`@media print {
+  .foo {
+    top: 0;
+  }
+    .foo-bar {
+      top: 10px;
+    }
+  .bar {
+    top: 1px;
+  }
+}`
+)
 
 })

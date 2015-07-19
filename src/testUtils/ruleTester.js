@@ -72,9 +72,8 @@ export default function (rule, ruleName) {
           t.test(`fail: ${jsesc(cssString)}`, st => {
             postcssProcess(cssString, result => {
               const warnings = result.warnings()
-              const oneWarning = warnings.length === 1
-              st.ok(oneWarning, `${description} should warn`)
-              if (oneWarning) {
+              st.equal(warnings.length, 1, `${description} should warn`)
+              if (warnings.length === 1) {
                 const finishedDescription = (description)
                   ? `${description} should report "${warningMessage}"`
                   : `should report "${warningMessage}"`
