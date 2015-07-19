@@ -2,7 +2,7 @@
 
 > Modern CSS linter.
 
-Supports the latest CSS syntax and features, including custom properties, range media features and calc().
+Supports the latest CSS syntax and features, including custom properties, range context for media features, calc() and nesting.
 
 ## Installation
 
