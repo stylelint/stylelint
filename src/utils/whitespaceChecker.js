@@ -176,7 +176,7 @@ export default function (targetWhitespace, expectation, messages) {
       if (targetWhitespace === "space") { return " " }
     }())
     let i = index - 1
-    while (source[i] && source[i] !== expectedChar) {
+    while (source[i] !== expectedChar) {
       if (source[i] === "\t" || source[i] === " ") {
         i--
         continue
