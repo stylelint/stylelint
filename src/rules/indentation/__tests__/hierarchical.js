@@ -12,6 +12,11 @@ testRule(2, { hierarchicalSelectors: true }, tr => {
 warningFreeBasics(tr)
 
 tr.ok(
+`.foo {}
+.foo {}`
+)
+
+tr.ok(
 `@media print {
   a {
     color: pink;
@@ -194,5 +199,52 @@ tr.ok(
   }
 }`
 )
+
+tr.notOk(
+`@media print {
+  .foo {
+    top: 0;
+  }
+    .foo-bar {
+      top: 10px;
+       bottom: 0;
+    }
+  .bar {
+    top: 1px;
+  }
+}`,
+messages.expected("6 spaces at line 7"))
+
+tr.ok(
+`.foo {}
+  @media print {
+    .foo-one {
+      color: pink;
+    }
+  }`
+)
+
+tr.notOk(
+`.foo {}
+  @media print {
+  .foo-one {
+      color: pink;
+    }
+  }`,
+messages.expected("4 spaces at line 3"))
+
+tr.ok(
+`.foo {}
+  @media print {
+    .foo-one {}
+  }`
+)
+
+tr.notOk(
+`.foo {}
+  @media print {
+      .foo-one {}
+  }`,
+messages.expected("4 spaces at line 3"))
 
 })

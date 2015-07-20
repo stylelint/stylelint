@@ -3,7 +3,8 @@ import {
   optionsHaveException,
   report,
   ruleMessages,
-  styleSearch
+  styleSearch,
+  cssStatementHasBlock
 } from "../../utils"
 
 export const ruleName = "indentation"
@@ -13,11 +14,10 @@ export const messages = ruleMessages(ruleName, {
 
 // The hierarchyMap keeps track of nodes with confirmed
 // superordinates and indentation levels.
-// It can then be used by rules to check
+// It can then be used to quickly check the indentation level of
+// some prior node, or (when hierarchicalSelectors is one) by rules to check
 // if they have a peer in the hierarchyMap, and should share that
-// peer's superordinate. If a rule is not subordinate to the previous
-// rule, we'll recursively check the hierarchyMap to see if
-// the rule is still part of the hierarchical structure.
+// peer's superordinate.
 const hierarchyMap = new Map()
 
 function addNodeToHierarchy(node, superordinate, level) {
@@ -29,10 +29,9 @@ function addNodeToHierarchy(node, superordinate, level) {
  *   keyword "tab" for single `\t`
  * @param {object} [options]
  * @param {array} [options.except = ["block", "value"]] - Do *not* expect extra level of
- *   indentation should for nested blocks and multi-line values respectively
+ *   indentation for nested blocks and multi-line values, respectively
  * @param {array} [options.hierarchicalSelectors = false] - If `true`, we'll look for a
- *   hierarchical style of indentation, where rules whose selectors *start* with
- *   previous rule's selector will be indented (see tests and docs)
+ *   hierarchical style of indentation (see tests and docs)
  */
 export default function (space, options) {
   const isTab = space === "tab"
@@ -40,24 +39,27 @@ export default function (space, options) {
   const warningWord = (isTab) ? "tab" : "space"
 
   return (root, result) => {
-    // Cycle through all nodes using eachInside and then return early for
-    // unrelated nodes. This is done instead of using
+    // Cycle through all nodes using eachInside.
+    // This is done instead of using
     // eachRule, eachAtRule, and eachDecl,
     // so that any hierarchy can be accounted for *in order*.
     root.eachInside(node => {
-      if ([ "rule", "atrule", "decl" ].indexOf(node.type) === -1) { return }
 
       let nodeLevel = indentationLevel(node)
 
       if (options && options.hierarchicalSelectors) {
-        // hierarchicalSelectorsLevel will add the node to the hierarchyMap
+        // hierarchicalSelectorsLevel will add the node to the hierarchyMap ...
         nodeLevel = hierarchicalSelectorsLevel(node, nodeLevel)
       } else {
-        // Add this node to the hierarchyMap for future reference.
-        // If there isn't a selector hierarchy, then the superordinate
+        // ... so if it doesn't run we need to add this node to
+        // the hierarchyMap for future reference.
+        // If there isn't a selector hierarchy enforced, then the superordinate
         // can only be the node's parent.
         addNodeToHierarchy(node, node.parent, nodeLevel)
       }
+
+      // At this point, the node's indent level should be calculated,
+      // and this information should be saved in hierarchyMap
 
       const expectedWhitespace = repeat(indentChar, nodeLevel)
 
@@ -112,27 +114,36 @@ export default function (space, options) {
     function indentationLevel(node, level=0) {
       if (node.parent.type === "root") { return level }
 
-      let newLevel
+      // In case by recursion we're checking a node that's
+      // already been checked ...
+      if (hierarchyMap.has(node)) {
+        return hierarchyMap.get(node).level
+      }
+
+      let calculatedLevel
       if (hierarchyMap.has(node.parent)) {
         // If the hierarchyMap already contains this node's
-        // parent, refer to that level
-        newLevel = hierarchyMap.get(node.parent).level + 1
+        // parent, use that level
+        calculatedLevel = hierarchyMap.get(node.parent).level + 1
       } else {
         // Typically, indentation level equals the ancestor nodes
         // separating this node from root; so recursively
         // run this operation
-        newLevel = indentationLevel(node.parent, level + 1)
+        calculatedLevel = indentationLevel(node.parent, level + 1) + 1
       }
 
       // If options.except includes "block",
       // blocks are taken down one from their calculated level
       // (all blocks are the same level as their parents)
-      if (optionsHaveException(options, "block")
-        && node.type !== "decl") {
-        newLevel--
+      if (
+        optionsHaveException(options, "block")
+        && (node.type === "rule" || node.type === "atrule")
+        && cssStatementHasBlock(node)
+      ) {
+        calculatedLevel--
       }
 
-      return newLevel
+      return calculatedLevel
     }
 
     function checkValue(node, declLevel) {
@@ -208,11 +219,42 @@ export default function (space, options) {
 function hierarchicalSelectorsLevel(node, nodeLevel) {
   const prevNode = node.prev()
 
-  if (node.type !== "rule" || !prevNode || prevNode.type !== "rule") {
+  // For various reasons we might rule out that this is
+  // a hierarchical node
+  if (
+    !prevNode
+    || prevNode.type !== "rule"
+    || node.type === "decl"
+    || node.type === "comment"
+  ) {
+    addNodeToHierarchy(node, node.parent, nodeLevel)
     return nodeLevel
   }
 
-  const isFirstSubordinate = node.selector.indexOf(prevNode.selector) === 0
+  // For at-rules: if *all* of the rules in the at-rule start with
+  // selector of the rule before the at-rule, it should be subordinated
+  // to the previous rule
+  if (node.type === "atrule") {
+    let insubordinate
+    node.eachRule(rule => {
+      if (!isSubordinateTo(rule, prevNode)) {
+        insubordinate = true
+        return false
+      }
+    })
+    if (insubordinate) {
+      addNodeToHierarchy(node, node.parent, expectedLevel)
+      return nodeLevel
+    }
+    const expectedLevel = (hierarchyMap.has(prevNode))
+      ? hierarchyMap.get(prevNode).level + 1
+      : nodeLevel + 1
+    addNodeToHierarchy(node, prevNode, expectedLevel)
+    return expectedLevel
+  }
+
+  // For rules ...
+  const isFirstSubordinate = isSubordinateTo(node, prevNode)
   if (isFirstSubordinate) {
     const expectedLevel = (hierarchyMap.has(prevNode))
       ? hierarchyMap.get(prevNode).level + 1
@@ -230,7 +272,7 @@ function hierarchicalSelectorsLevel(node, nodeLevel) {
   while (maybePeer) {
     if (hierarchyMap.has(maybePeer)) {
       const maybePeerInfo = hierarchyMap.get(maybePeer)
-      if (node.selector.indexOf(maybePeerInfo.superordinate.selector) === 0) {
+      if (isSubordinateTo(node, maybePeerInfo.superordinate)) {
         addNodeToHierarchy(node, maybePeerInfo.superordinate, maybePeerInfo.level)
         return maybePeerInfo.level
       } else {
@@ -242,4 +284,12 @@ function hierarchicalSelectorsLevel(node, nodeLevel) {
   }
 
   return nodeLevel
+}
+
+function isSubordinateTo(a, b) {
+  return (
+    a && b
+    && a.selector.indexOf(b.selector) === 0
+    && a.selector !== b.selector
+  )
 }
