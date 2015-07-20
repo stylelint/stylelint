@@ -19,7 +19,7 @@ Specify indentation.
 
 ### `2`
 
-Always indent blocks and values by 2 spaces.
+Always indent at-rules, rules, comments, declarations, and multi-line values by 2 spaces.
 
 The following patterns are considered warnings:
 
@@ -60,6 +60,14 @@ a {
 }
 ```
 
+```css
+a {
+/* blergh */
+  color: pink;
+}
+  /* blergh */
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -79,6 +87,14 @@ The following patterns are *not* considered warnings:
       top right;
   }
 }
+```
+
+```css
+a {
+  /* blergh */
+  color: pink;
+}
+/* blergh */
 ```
 
 ## Optional options
@@ -120,6 +136,9 @@ followed by other rules whose selectors *start* with the same characters as Rule
 (complete) selector, then Rule A is superordinate to those rules. This hierarchy can
 nest indefinitely.
 
+If a `@media` statement only contains rules that are subordinate to the rule *before*
+the `@media` statement, it is considered subordinate to that rule (see example below).
+
 Such a pattern can apply to combinators or BEM-style naming.
 
 For example, with `2`:
@@ -135,16 +154,21 @@ The following patterns are considered warnings:
 #foo ul {}
 #foo ul > li {}
 #foo ul > li > a {}
-#bar ul {}
 ```
 
 ```css
 .foo {}
-  .foo-one {}
   .foo-two {}
   .foo-two-sub {}
-  .foo-three {}
 .bar {}
+```
+
+```css
+.foo {}
+@media print {
+  .foo-one {}
+  .foo-two {}
+}
 ```
 
 The following patterns are *not* considered warnings:
@@ -167,5 +191,15 @@ The following patterns are *not* considered warnings:
   .foo-two {}
     .foo-two-sub {}
   .foo-three {}
+.bar {}
+```
+
+```css
+.foo {}
+  @media print {
+    .foo-one {}
+    .foo-two {}
+      .foo-two-sub {}
+  }
 .bar {}
 ```
