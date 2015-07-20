@@ -7,6 +7,10 @@ export default postcss.plugin("stylelint", settings => {
     if (!settings) { return }
     if (!settings.rules) { return }
 
+    if (settings.plugins) {
+      addPluginsToDefinitions(settings.plugins, ruleDefinitions)
+    }
+
     // First check for disabled ranges
     disableRanges(root, result)
 
@@ -19,7 +23,6 @@ export default postcss.plugin("stylelint", settings => {
 
       // If severity is 0, run nothing
       const ruleSettings = settings.rules[ruleName]
-
       const ruleSeverity = (Array.isArray(ruleSettings))
         ? ruleSettings[0]
         : ruleSettings
@@ -30,3 +33,13 @@ export default postcss.plugin("stylelint", settings => {
     })
   }
 })
+
+function addPluginsToDefinitions(plugins, definitions) {
+  Object.keys(plugins).forEach(name => {
+    if (typeof plugins[name] !== "function") {
+      addPluginsToDefinitions(plugins[name], definitions)
+      return
+    }
+    definitions[name] = plugins[name]
+  })
+}
