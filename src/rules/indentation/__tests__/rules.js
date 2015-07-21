@@ -12,13 +12,27 @@ const testRule = ruleTester(rule, ruleName)
 testRule(2, tr => {
 warningFreeBasics(tr)
 
-tr.ok("")
-tr.ok("a {color: pink;}")
 tr.ok(
 `/* anything
     goes
 \t\t\twithin a comment */
 `)
+
+// No enforcement if no newline
+tr.ok(
+`a { top: 0; } b { top: 1px; }`)
+tr.ok(
+`a {
+  top: 0;
+}
+b { top: 1px; bottom: 4px; }`)
+tr.ok(
+`a {
+  top: 0;
+} b { top: 1px; }`
+)
+
+// Real checks ...
 
 tr.ok(
 `a {
