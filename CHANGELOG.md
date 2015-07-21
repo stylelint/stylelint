@@ -1,5 +1,6 @@
 # Head
 
+* Added: `hierarchicalSelectors` option to `indentation` rule.
 * Added: `nesting-block-opening-brace-space-before` rule.
 * Added: `nesting-block-opening-brace-newline-before` rule.
 * Fixed: the `color-hex-case` rule message is now consistent with the `color-hex-length` rule.
