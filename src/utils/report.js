@@ -6,12 +6,14 @@
  * it is ignored. Otherwise, it is attached to the result as a
  * postcss warning.
  *
+ * You *must* pass *either* a node or a line number.
+ *
  * @param {object} violation - Violation details object
  * @param {string} violation.ruleName - The name of the rule
  * @param {Result} violation.result - postcss Result object
  * @param {string} violation.message - Message to inform user of the violation
- * @param {number} violation.line - Line number of the violation
- * @param {Node} violation.node - postcss Node object
+ * @param {Node} [violation.node] - postcss Node object
+ * @param {number} [violation.line] - Line number of the violation
  */
 export default function ({ ruleName, result, message, line, node }) {
 
