@@ -1,5 +1,7 @@
-# Head
+# 0.3.0
 
+* Added: exposure of `report`, `ruleMessages`, and `styleSearch` in `stylelint.utils` for use by external plugin rules.
+* Added: plugin rule support.
 * Added: `hierarchicalSelectors` option to `indentation` rule.
 * Added: `nesting-block-opening-brace-space-before` rule.
 * Added: `nesting-block-opening-brace-newline-before` rule.
