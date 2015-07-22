@@ -44,10 +44,10 @@ const cssB = (
 
 const configA = {
   plugins: {
-    warnAboutFoo,
+    "warn-about-foo": warnAboutFoo,
   },
   rules: {
-    warnAboutFoo: [ 2, "always" ],
+    "warn-about-foo": [ 2, "always" ],
     "block-no-empty": 2,
   },
 }
