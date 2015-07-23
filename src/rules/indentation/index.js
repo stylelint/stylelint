@@ -129,7 +129,7 @@ export default function (space, options) {
         // Typically, indentation level equals the ancestor nodes
         // separating this node from root; so recursively
         // run this operation
-        calculatedLevel = indentationLevel(node.parent, level + 1) + 1
+        calculatedLevel = indentationLevel(node.parent, level + 1)
       }
 
       // If options.except includes "block",
@@ -283,6 +283,7 @@ function hierarchicalSelectorsLevel(node, nodeLevel) {
     }
   }
 
+  addNodeToHierarchy(node, node.parent, nodeLevel)
   return nodeLevel
 }
 
