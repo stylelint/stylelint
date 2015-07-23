@@ -62,7 +62,7 @@ testRule("always", tr => {
   )
 })
 
-testRule.only("never", tr => {
+testRule("never", tr => {
   warningFreeBasics(tr)
 
   tr.ok("a +a {}", "space before none after + combinator")
