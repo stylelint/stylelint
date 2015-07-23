@@ -247,4 +247,18 @@ tr.notOk(
   }`,
 messages.expected("4 spaces at line 3"))
 
+tr.ok(
+`:root {
+  --Grid: #fff;
+}
+
+.r-Grid {
+  color: red;
+}
+
+  .r-Grid-cell {
+    text-align: center;
+  }`
+)
+
 })
