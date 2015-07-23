@@ -24,6 +24,7 @@ testRule("always", tr => {
   tr.ok(".foo ~a +bar {}", "multiple combinators with space before and none after")
   tr.ok(".foo:nth-child(2n+1) {}", "unspaced + in nth-child argument")
   tr.ok(".foo:nth-child(2n-1) {}", "unspaced - in nth-child argument")
+  tr.ok("a[rel~='copyright'] {}", "attribute selector with ~=")
 
   tr.notOk(
     "a  +a {}",
@@ -83,6 +84,7 @@ testRule("never", tr => {
   tr.ok(".foo~ a+ bar {}", "multiple combinators with no space before")
   tr.ok(".foo:nth-child(2n + 1) {}", "spaced + in nth-child argument")
   tr.ok(".foo:nth-child(2n - 1) {}", "spaced - in nth-child argument")
+  tr.ok("a[rel~='copyright'] {}", "attribute selector with ~=")
 
   tr.notOk(
     "a +a {}",
