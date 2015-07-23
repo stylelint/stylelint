@@ -1,6 +1,9 @@
+# Head
+* Fixed: `hierarchicalSelectors` bug in `indentation` rule.
+
 # 0.3.1
 
-* Fixed:  `~=` is no longer mistaken for combinator in `selector-combinator-space-*`.
+* Fixed: `~=` is no longer mistaken for combinator in `selector-combinator-space-*`.
 
 # 0.3.0
 
