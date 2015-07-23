@@ -1,4 +1,4 @@
-# Head
+# 0.3.2
 * Fixed: `hierarchicalSelectors` bug in `indentation` rule.
 
 # 0.3.1
