@@ -1,3 +1,7 @@
+# Head
+
+* Fixed:  `~=` is no longer mistaken for combinator in `selector-combinator-space-*`.
+
 # 0.3.0
 
 * Added: exposure of `report`, `ruleMessages`, and `styleSearch` in `stylelint.utils` for use by external plugin rules.
