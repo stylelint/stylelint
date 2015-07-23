@@ -31,6 +31,9 @@ export function selectorCombinatorSpaceChecker(locationChecker) {
         target: combinators,
         outsideFunctionalNotation: true,
       }, match => {
+        // Catch ~= in attribute selectors
+        if (match.target === "~" && selector[match.endIndex] === "=") { return }
+
         check(selector, match.startIndex, rule)
       })
     })
