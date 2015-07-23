@@ -1,4 +1,4 @@
-# Head
+# 0.3.1
 
 * Fixed:  `~=` is no longer mistaken for combinator in `selector-combinator-space-*`.
 
