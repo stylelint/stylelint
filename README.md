@@ -78,7 +78,7 @@ You can run the linter before or after your css processors. Depending on which p
 
 ### Configuring rules
 
-[Rules](docs/rules.md) are configured within the `rules` key of the config. The [user guide](docs/user-guide.md) contains details of how rules are named and how certain ones should be configured in unison.
+[Rules](docs/rules.md) are built into the linter and focus on _standard_ CSS. They are configured within the `rules` key of the config. The [user guide](docs/user-guide.md) contains details of how rules are named and how certain ones should be configured in unison.
 
 #### Turning rules on and off
 
@@ -166,11 +166,7 @@ var config = {
 
 ### Plugin rules
 
-#### Using plugin rules
-
-To use a plugin rule, add a `"plugins"` property to your config.
-The key is the rule's name; the value is the rule function itself.
-Then, within the `"rules"` object, your can add settings for your plugin rule just like any standard rule.
+[Plugins](docs/plugins.md) are userland rules that support _non-standard_ CSS features. To use one, add a `"plugins"` property to your config. The key is the rule's name; the value is the rule function itself. Then, within the `"rules"` object, your can add settings for your plugin rule just like any standard rule.
 
 ```js
 var myConfig = {
@@ -184,35 +180,6 @@ var myConfig = {
   },
 }
 ```
-
-#### Creating plugin rules
-
-```js
-// Abbreviated example:
-
-var stylelint = require("stylelint")
-
-var myPluginRule = function(expectationKeyword, optionsObject) {
-  return function(postcssRoot, postcssResult) {
-    // ... some logic ...
-    stylelint.utils.report({ .. })
-  }
-}
-```
-
-In order for your plugin rule to work with the standard configuration format, (e.g. `[2, "tab", { hierarchicalSelectors: true }]`), it should be a function that accepts 2 arguments: the expectation keyword (e.g. `"tab"`) and, optionally, an options object (e.g. `{ hierarchicalSelectors: true }`).
-
-It should return a function that is essentially a little PostCSS plugin: it takes 2 arguments: the PostCSS Root (the parsed AST), and the PostCSS LazyResult.
-You'll have to [learn about the PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md).
-
-A few of stylelint's internal utilities are exposed publicly in `stylelint.utils`, to help you write plugin rules.
-For details about the APIs of these functions, please look at comments in the source code and examples in the standard rules.
-
-- `report`: Report your linting warnings. *You'll want to use this: do not use `node.warn()` directly.* If you use `report`,
-your plugin will respect disabled ranges and other possible future features of stylelint, so it will fit in better with the standard rules.
-- `ruleMessages`: Tailor your messages to look like the messages of other stylelint rules. Currently, this means that the name of the rule is appended, in parentheses, to the end of the message.
-- `ruleTester`: An easy way to write unit tests for your plugins. Basically, it's a wrapper around [`tape`](https://github.com/substack/tape) that allows you write simple `ok`/`notOk`assertions checking whether a given string of CSS gets a linter warning or not, when run through stylelint with a specific rule and configuration. *If you use ruleTester, you will need to install `tape` and `postcss` as `devDependencies`.*
-- `styleSearch`: Search within CSS strings, and for every match found invoke a callback, passing a match object with details about the match. `styleSearch` ignores CSS strings (e.g. `content: "foo";`) and by default ignores comments. It can also be restricted to substrings within or outside of CSS functional notation.
 
 ## Complementary tools
 
