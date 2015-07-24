@@ -58,6 +58,7 @@
 * [`root-no-standard-properties`](../src/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` selectors.
 * [`rule-nested-empty-line-before`](../src/rules/rule-nested-empty-line-before/README.md): Require or disallow an empty line before nested rules.
 * [`rule-no-duplicate-properties`](../src/rules/rule-no-duplicate-properties/README.md): Disallow duplicate properties within rules.
+* [`rule-no-shorthand-property-overrides`](../src/rules/rule-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
 * [`rule-no-single-line`](../src/rules/rule-no-single-line/README.md): Disallow single-line rules.
 * [`rule-non-nested-empty-line-before`](../src/rules/rule-non-nested-empty-line-before/README.md): Require or disallow an empty line before non-nested rules.
 * [`rule-properties-order`](../src/rules/rule-properties-order/README.md): Specify the order of properties within rules.

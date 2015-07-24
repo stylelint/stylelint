@@ -57,6 +57,7 @@ import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
 import ruleNoDuplicateProperties from "./rule-no-duplicate-properties"
 import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
+import ruleNoShorthandPropertyOverrides from "./rule-no-shorthand-property-overrides"
 import ruleNoSingleLine from "./rule-no-single-line"
 import rulePropertiesOrder from "./rule-properties-order"
 import ruleTrailingSemicolon from "./rule-trailing-semicolon"
@@ -140,6 +141,7 @@ export default {
   "root-no-standard-properties": rootNoStandardProperties,
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
   "rule-no-duplicate-properties": ruleNoDuplicateProperties,
+  "rule-no-shorthand-property-overrides": ruleNoShorthandPropertyOverrides,
   "rule-no-single-line": ruleNoSingleLine,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
   "rule-properties-order": rulePropertiesOrder,
