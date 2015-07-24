@@ -1,7 +1,10 @@
 # Head
+
+* Added: `rule-no-shorthand-property-overrides` rule.
 * Added: `ruleTester` to `stylelint.utils` for use by authors of custom rules.
 
 # 0.3.2
+
 * Fixed: `hierarchicalSelectors` bug in `indentation` rule.
 
 # 0.3.1
