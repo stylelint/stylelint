@@ -211,6 +211,7 @@ For details about the APIs of these functions, please look at comments in the so
 - `report`: Report your linting warnings. *You'll want to use this: do not use `node.warn()` directly.* If you use `report`,
 your plugin will respect disabled ranges and other possible future features of stylelint, so it will fit in better with the standard rules.
 - `ruleMessages`: Tailor your messages to look like the messages of other stylelint rules. Currently, this means that the name of the rule is appended, in parentheses, to the end of the message.
+- `ruleTester`: An easy way to write unit tests for your plugins. Basically, it's a wrapper around [`tape`](https://github.com/substack/tape) that allows you write simple `ok`/`notOk`assertions checking whether a given string of CSS gets a linter warning or not, when run through stylelint with a specific rule and configuration. *If you use ruleTester, you will need to install `tape` and `postcss` as `devDependencies`.*
 - `styleSearch`: Search within CSS strings, and for every match found invoke a callback, passing a match object with details about the match. `styleSearch` ignores CSS strings (e.g. `content: "foo";`) and by default ignores comments. It can also be restricted to substrings within or outside of CSS functional notation.
 
 ## Complementary tools
