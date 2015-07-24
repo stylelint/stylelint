@@ -1,6 +1,6 @@
 # 0.4.1
 
-# Removed: `ruleTester` from `stylelint.utils` because of the additional dependencies it forces.
+- Removed: `ruleTester` from `stylelint.utils` because of the additional dependencies it forces.
 
 # 0.4.0
 
