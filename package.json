@@ -38,7 +38,6 @@
     "babel-eslint": "^3.1.17",
     "babel-tape-runner": "^1.1.0",
     "eslint": "^0.24.0",
-    "jsesc": "^0.5.0",
     "sinon": "^1.15.3",
     "tape": "^4.0.0"
   },

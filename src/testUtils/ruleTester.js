@@ -1,5 +1,4 @@
 import postcss from "postcss"
-import jsesc from "jsesc"
 import test from "tape"
 import disableRanges from "../disableRanges"
 
@@ -51,7 +50,7 @@ export default function (rule, ruleName) {
          * @param {string} cssString
          */
         ok(cssString, description) {
-          t.test(`pass: ${jsesc(cssString)}`, st => {
+          t.test(`pass: ${JSON.stringify(cssString)}`, st => {
             postcssProcess(cssString, result => {
               st.equal(result.warnings().length, 0, `${description} should pass`)
               st.end()
@@ -69,7 +68,7 @@ export default function (rule, ruleName) {
          * @param {string} [description]
          */
         notOk(cssString, warningMessage, description) {
-          t.test(`fail: ${jsesc(cssString)}`, st => {
+          t.test(`fail: ${JSON.stringify(cssString)}`, st => {
             postcssProcess(cssString, result => {
               const warnings = result.warnings()
               st.equal(warnings.length, 1, `${description} should warn`)

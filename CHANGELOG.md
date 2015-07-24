@@ -1,4 +1,5 @@
 # Head
+* Removed: `jsesc` devDependency.
 * Added: `ruleTester` to `stylelint.utils` for use by authors of custom rules.
 
 # 0.3.2
