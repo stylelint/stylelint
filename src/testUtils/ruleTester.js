@@ -1,7 +1,9 @@
-import ruleTester from "stylelint-rule-tester"
 import disableRanges from "../disableRanges"
+import ruleTester from "stylelint-rule-tester"
 
-export default function (rule, ruleName, options={}) {
+export default function (rule, ruleName, options) {
+  options = options || {}
   options.preceedingPlugins = [disableRanges]
+
   return ruleTester(rule, ruleName, options)
 }
