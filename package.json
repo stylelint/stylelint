@@ -39,6 +39,7 @@
     "babel-tape-runner": "^1.1.0",
     "eslint": "^0.24.0",
     "sinon": "^1.15.3",
+    "stylelint-rule-tester": "stylelint/stylelint-rule-tester",
     "tape": "^4.0.0"
   },
   "scripts": {
