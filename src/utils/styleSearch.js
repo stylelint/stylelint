@@ -40,7 +40,7 @@ export default function (options, callback) {
   // If the target is an array of strings, though, we have to
   // check whether some index of the source mathces *any* of
   // those target strings (stopping after the first match).
-  const checkAgainstTarget = (() => {
+  const checkAgainstTarget = (function () {
     if (!targetIsArray) {
       return checkChar.bind(null, target)
     }

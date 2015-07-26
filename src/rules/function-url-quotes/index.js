@@ -15,7 +15,7 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
 
-  const quoteMsg = (() => {
+  const quoteMsg = (function () {
     switch (expectation) {
       case "single":
         return "single quotes"
@@ -26,7 +26,7 @@ export default function (expectation) {
     }
   }())
 
-  const charDefiesExpectation = (() => {
+  const charDefiesExpectation = (function () {
     switch (expectation) {
       case "single":
         return c => c !== "'"
