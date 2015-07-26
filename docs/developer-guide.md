@@ -89,3 +89,7 @@ For details about the APIs of these functions, please look at comments in the so
 your plugin will respect disabled ranges and other possible future features of stylelint, so it will fit in better with the standard rules.
 - `ruleMessages`: Tailor your messages to look like the messages of other stylelint rules. Currently, this means that the name of the rule is appended, in parentheses, to the end of the message.
 - `styleSearch`: Search within CSS strings, and for every match found invoke a callback, passing a match object with details about the match. `styleSearch` ignores CSS strings (e.g. `content: "foo";`) and by default ignores comments. It can also be restricted to substrings within or outside of CSS functional notation.
+
+### Testing plugins
+
+For testing you plugin, you might consider using the same rule-testing function that stylelint uses internally: https://github.com/stylelint/stylelint-rule-tester.
