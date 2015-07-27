@@ -19,7 +19,7 @@ export default function () {
     root.eachAtRule(check)
 
     function check(statement) {
-      if (cssStatementHasBlock(statement) && cssStatementHasEmptyBlock(statement)) {
+      if (cssStatementHasEmptyBlock(statement)) {
         report({
           message: messages.rejected,
           node: statement,
