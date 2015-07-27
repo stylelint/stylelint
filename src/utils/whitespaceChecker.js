@@ -171,7 +171,7 @@ export default function (targetWhitespace, expectation, messages) {
 
   function expectBeforeAllowingIndentation(messageFunc=messages.expectedBefore) {
     const { source, index, err } = activeArgs
-    const expectedChar = (() => {
+    const expectedChar = (function () {
       if (targetWhitespace === "newline") { return "\n" }
       if (targetWhitespace === "space") { return " " }
     }())

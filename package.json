@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "babel": "^5.6.3",
-    "babel-eslint": "^3.1.17",
     "babel-tape-runner": "^1.1.0",
     "eslint": "^0.24.0",
     "sinon": "^1.15.3",
