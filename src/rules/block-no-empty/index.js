@@ -1,5 +1,4 @@
 import {
-  cssStatementHasBlock,
   cssStatementHasEmptyBlock,
   report,
   ruleMessages
