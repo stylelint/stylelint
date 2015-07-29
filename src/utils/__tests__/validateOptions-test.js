@@ -161,3 +161,42 @@ test("validateOptions for secondary options objects with subarrays", t => {
 
   t.end()
 })
+
+test("validateOptions for `*-no-*` rule with no options", t => {
+  const result = mockResult()
+
+  validateOptions({
+    result,
+    ruleName: "no-dancing",
+    possible: [],
+    actual: undefined,
+  })
+  t.notOk(result.warn.called)
+  result.warn.reset()
+
+  validateOptions({
+    result,
+    ruleName: "no-dancing",
+    possible: [],
+    actual: "foo",
+  })
+  t.ok(result.warn.calledOnce)
+  t.ok(result.warn.calledWithMatch({
+    message: "Invalid option value \"foo\" for rule \"no-dancing\"",
+  }))
+  result.warn.reset()
+
+  validateOptions({
+    result,
+    ruleName: "no-dancing",
+    possible: [],
+    actual: false,
+  })
+  t.ok(result.warn.calledOnce)
+  t.ok(result.warn.calledWithMatch({
+    message: "Invalid option value \"false\" for rule \"no-dancing\"",
+  }))
+  result.warn.reset()
+
+  t.end()
+})

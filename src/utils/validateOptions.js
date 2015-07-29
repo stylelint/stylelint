@@ -39,6 +39,10 @@ export default function ({ result, ruleName, possible, actual }) {
 }
 
 function isValid(possibilities, actuality) {
+  if (!possibilities.length) {
+    return actuality === undefined
+  }
+
   for (let i = 0, l = possibilities.length; i < l; i++) {
     const possibility = possibilities[i]
     if (typeof possibility === "function" && possibility(actuality)) { return true }
