@@ -13,6 +13,7 @@ import optionsHaveIgnored from "./optionsHaveIgnored"
 import report from "./report"
 import ruleMessages from "./ruleMessages"
 import styleSearch from "./styleSearch"
+import validateOptions from "./validateOptions"
 import whitespaceChecker from "./whitespaceChecker"
 
 export default {
@@ -31,5 +32,6 @@ export default {
   report,
   ruleMessages,
   styleSearch,
+  validateOptions,
   whitespaceChecker,
 }
