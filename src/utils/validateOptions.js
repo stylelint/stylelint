@@ -2,9 +2,7 @@ export default function ({ result, ruleName, possible, actual }) {
 
   if (Array.isArray(possible)) {
     if (isValid(possible, actual)) { return }
-    result.warn({
-      message: `Invalid option value "${actual}" for rule "${ruleName}"`,
-    })
+    result.warn(`Invalid option value "${actual}" for rule "${ruleName}"`)
     return
   }
 
@@ -12,9 +10,7 @@ export default function ({ result, ruleName, possible, actual }) {
 
   Object.keys(actual).forEach(optionName => {
     if (!possible[optionName]) {
-      result.warn({
-        message: `Invalid option name "${optionName}" for rule "${ruleName}"`,
-      })
+      result.warn(`Invalid option name "${optionName}" for rule "${ruleName}"`)
       return
     }
 
@@ -23,18 +19,14 @@ export default function ({ result, ruleName, possible, actual }) {
     if (Array.isArray(actualOptionValue)) {
       actualOptionValue.forEach(singleValue => {
         if (isValid(possible[optionName], singleValue)) { return }
-        result.warn({
-          message: `Invalid value "${singleValue}" for option "${optionName}" of rule "${ruleName}"`,
-        })
+        result.warn(`Invalid value "${singleValue}" for option "${optionName}" of rule "${ruleName}"`)
       })
       return
     }
 
     if (isValid(possible[optionName], actualOptionValue)) { return }
 
-    result.warn({
-      message: `Invalid value "${actualOptionValue}" for option "${optionName}" of rule "${ruleName}"`,
-    })
+    result.warn(`Invalid value "${actualOptionValue}" for option "${optionName}" of rule "${ruleName}"`)
   })
 }
 
