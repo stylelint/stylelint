@@ -3,7 +3,8 @@ import {
   optionsHaveException,
   optionsHaveIgnored,
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "at-rule-empty-line-before"
@@ -21,6 +22,18 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation, options) {
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [ "always", "never" ],
+    })
+    validateOptions({ result, ruleName,
+      actual: options,
+      possible: {
+        except: [ "blockless-group", "first-nested", "all-nested" ],
+        ignore: ["all-nested"],
+      },
+    })
+
     root.eachAtRule(atRule => {
 
       // Ignore the first node
