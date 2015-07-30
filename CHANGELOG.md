@@ -1,4 +1,4 @@
-# Head
+# 0.5.0
 
 - Added: validation of all rule options.
 
