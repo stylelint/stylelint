@@ -2,6 +2,7 @@ import {
   cssStatementBlockString,
   report,
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -14,12 +15,19 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfterSingleLine: () => `Unexpected whitespace after ";" in a single-line rule`,
 })
 
-/**
- * @param {"always"|"never"|"always-single-line"|"never-single-line"} expectation
- */
 export default function (expectation) {
   const check = whitespaceChecker("space", expectation, messages)
   return function (root, result) {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+        "always-single-line",
+        "never-single-line",
+      ],
+    })
+
     root.eachDecl(function (decl) {
       // Ignore last declaration if there's no trailing semicolon
       const parentRule = decl.parent

@@ -1,5 +1,6 @@
 import {
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -12,10 +13,17 @@ export const messages = ruleMessages(ruleName, {
   rejectedBefore: () => `Unexpected whitespace before ":"`,
 })
 
-/**
- * @param {"always"|"never"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
-  return mediaFeatureColonSpaceChecker(checker.before)
+  return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+      ],
+    })
+
+    mediaFeatureColonSpaceChecker(checker.before, root, result)
+  }
 }

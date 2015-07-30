@@ -3,7 +3,8 @@ import {
   optionsHaveException,
   optionsHaveIgnored,
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "rule-non-nested-empty-line-before"
@@ -13,11 +14,24 @@ export const messages = ruleMessages(ruleName, {
   rejected: `Unexpected empty line before non-nested rule`,
 })
 
-/**
- * @param {"always"|"never"|"always-multi-line"|"never-multi-line"} expectation
- */
 export default function (expectation, options) {
   return (root, result) => {
+    validateOptions({ ruleName, result,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+        "always-multi-line",
+        "never-multi-line",
+      ],
+    })
+    validateOptions({ ruleName, result,
+      actual: options,
+      possible: {
+        ignore: ["after-comment"],
+      },
+    })
+
     root.eachRule(rule => {
 
       // Ignore nested rule sets

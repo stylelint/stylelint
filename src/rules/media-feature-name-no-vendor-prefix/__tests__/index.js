@@ -6,7 +6,7 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-testRule(null, tr => {
+testRule(undefined, tr => {
   warningFreeBasics(tr)
 
   // Right now we're under the impression that the only

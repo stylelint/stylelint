@@ -1,6 +1,7 @@
 import {
   report,
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -11,35 +12,40 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfter: () => `Unexpected whitespace after ":"`,
 })
 
-/**
- * @param {"always"|"never"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
-  return declarationColonSpaceChecker(checker.after)
-}
-
-export function declarationColonSpaceChecker(locationChecker) {
   return (root, result) => {
-    root.eachDecl(decl => {
-      const declString = decl.toString()
-
-      for (let i = 0, l = declString.length; i < l; i++) {
-        if (declString[i] !== ":") { continue }
-        check(declString, i, decl)
-        break
-      }
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+      ],
     })
 
-    function check(source, index, node) {
-      locationChecker({ source, index, err: m =>
-        report({
-          message: m,
-          node: node,
-          result,
-          ruleName,
-        }),
-      })
+    declarationColonSpaceChecker(checker.after, root, result)
+  }
+}
+
+export function declarationColonSpaceChecker(locationChecker, root, result) {
+  root.eachDecl(decl => {
+    const declString = decl.toString()
+
+    for (let i = 0, l = declString.length; i < l; i++) {
+      if (declString[i] !== ":") { continue }
+      check(declString, i, decl)
+      break
     }
+  })
+
+  function check(source, index, node) {
+    locationChecker({ source, index, err: m =>
+      report({
+        message: m,
+        node: node,
+        result,
+        ruleName,
+      }),
+    })
   }
 }

@@ -6,7 +6,8 @@ import blockNoEmpty, {
 
 const testBlockNoEmpty = ruleTester(blockNoEmpty, blockNoEmptyName)
 
-testBlockNoEmpty("disabling all rules", tr => {
+// disabling all rules
+testBlockNoEmpty(undefined, tr => {
   tr.notOk("a {}", blockNoEmptyMessages.rejected)
 
   tr.ok("/* stylelint-disable */\na {}")
@@ -15,13 +16,15 @@ testBlockNoEmpty("disabling all rules", tr => {
   tr.ok("b { color: pink;}\n/* stylelint-disable */\na {}")
 })
 
-testBlockNoEmpty("disabling specific rules", tr => {
+// disabling specific rules
+testBlockNoEmpty(undefined, tr => {
   tr.ok(`/* stylelint-disable ${blockNoEmptyName} */\na {}`)
   tr.notOk("/* stylelint-disable declaration-no-important */\na {}",
     blockNoEmptyMessages.rejected)
 })
 
-testBlockNoEmpty("multiple disabled ranges", tr => {
+// multiple disabled ranges
+testBlockNoEmpty(undefined, tr => {
   tr.ok(
     "/* stylelint-disable */\n" +
     "a {}\n" +

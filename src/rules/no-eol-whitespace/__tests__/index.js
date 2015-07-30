@@ -5,7 +5,7 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-testRule(null, tr => {
+testRule(undefined, tr => {
   tr.ok("", "empty string")
 
   tr.ok("\n", "no nodes")

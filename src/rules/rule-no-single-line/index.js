@@ -1,7 +1,8 @@
 import {
   isSingleLineString,
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "rule-no-single-line"
@@ -10,8 +11,10 @@ export const messages = ruleMessages(ruleName, {
   rejected: `Unexpected single-line rule`,
 })
 
-export default function () {
+export default function (o) {
   return (root, result) => {
+    validateOptions({ ruleName, result, actual: o })
+
     root.eachRule(rule => {
 
       if (!isSingleLineString(rule.toString())) { return }

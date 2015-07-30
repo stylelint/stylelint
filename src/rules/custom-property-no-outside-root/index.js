@@ -1,6 +1,7 @@
 import {
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "custom-property-no-outside-root"
@@ -9,8 +10,10 @@ export const messages = ruleMessages(ruleName, {
   rejected: `Unexpected custom property outside root`,
 })
 
-export default function () {
+export default function (o) {
   return (root, result) => {
+    validateOptions({ result, ruleName, actual: o })
+
     root.eachRule(rule => {
       // Ignore rules whose selector is just `:root`
       if (rule.selector.trim() === ":root") { return }

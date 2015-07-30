@@ -2,6 +2,7 @@ import {
   ruleMessages,
   styleSearch,
   report,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -13,12 +14,18 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfterMultiLine: () => `Unexpected whitespace after "," in a multi-line list`,
 })
 
-/**
- * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
+    validateOptions({ ruleName, result,
+      actual: expectation,
+      possible: [
+        "always",
+        "always-multi-line",
+        "never-multi-line",
+      ],
+    })
+
     root.eachRule(rule => {
       const selector = rule.selector
       styleSearch({ source: selector, target: "," }, match => {

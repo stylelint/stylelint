@@ -1,7 +1,8 @@
 import {
   cssFunctionArguments,
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "function-url-quotes"
@@ -10,9 +11,6 @@ export const messages = ruleMessages(ruleName, {
   expected: (q, f="url") => `Expected ${q} around ${f} argument`,
 })
 
-/**
- * @param {"single"|"double"|"none"} expectation
- */
 export default function (expectation) {
 
   const quoteMsg = (function () {
@@ -42,6 +40,15 @@ export default function (expectation) {
   }
 
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "single",
+        "double",
+        "none",
+      ],
+    })
+
     root.eachAtRule(check)
     root.eachRule(check)
 

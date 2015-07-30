@@ -1,7 +1,8 @@
 import {
   report,
   ruleMessages,
-  styleSearch
+  styleSearch,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "media-query-parentheses-space-inside"
@@ -13,11 +14,16 @@ export const messages = ruleMessages(ruleName, {
   rejectedClosing: `Unexpected whitespace before ")"`,
 })
 
-/**
- * @param {"always"|"never"} expectation
- */
 export default function (expectation) {
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+      ],
+    })
+
     root.eachAtRule(atRule => {
       if (atRule.name !== "media") { return }
 

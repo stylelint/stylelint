@@ -1,7 +1,8 @@
 import {
   report,
   ruleMessages,
-  styleSearch
+  styleSearch,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "color-no-invalid-hex"
@@ -10,8 +11,10 @@ export const messages = ruleMessages(ruleName, {
   rejected: c => `Unexpected invalid hex color "${c}"`,
 })
 
-export default function () {
+export default function (o) {
   return (root, result) => {
+    validateOptions({ result, ruleName, actual: o })
+
     root.eachDecl(decl => {
       const value = decl.value
 

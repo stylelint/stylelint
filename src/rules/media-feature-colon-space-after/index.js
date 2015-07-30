@@ -2,6 +2,7 @@ import {
   report,
   ruleMessages,
   styleSearch,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -12,32 +13,37 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfter: () => `Unexpected whitespace after ":"`,
 })
 
-/**
- * @param {"always"|"never"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
-  return mediaFeatureColonSpaceChecker(checker.after)
-}
-
-export function mediaFeatureColonSpaceChecker(checkLocation) {
   return (root, result) => {
-    root.eachAtRule(atRule => {
-      const params = atRule.params
-      styleSearch({ source: params, target: ":" }, match => {
-        checkColon(params, match.startIndex, atRule)
-      })
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+      ],
     })
 
-    function checkColon(source, index, node) {
-      checkLocation({ source, index, err: m =>
-        report({
-          message: m,
-          node: node,
-          result,
-          ruleName,
-        }),
-      })
-    }
+    mediaFeatureColonSpaceChecker(checker.after, root, result)
+  }
+}
+
+export function mediaFeatureColonSpaceChecker(checkLocation, root, result) {
+  root.eachAtRule(atRule => {
+    const params = atRule.params
+    styleSearch({ source: params, target: ":" }, match => {
+      checkColon(params, match.startIndex, atRule)
+    })
+  })
+
+  function checkColon(source, index, node) {
+    checkLocation({ source, index, err: m =>
+      report({
+        message: m,
+        node: node,
+        result,
+        ruleName,
+      }),
+    })
   }
 }

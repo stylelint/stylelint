@@ -2,6 +2,7 @@ import {
   cssStatementBlockString,
   report,
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -13,12 +14,18 @@ export const messages = ruleMessages(ruleName, {
   rejectedBeforeMultiLine: () => `Unexpected whitespace before ";" in a multi-line rule`,
 })
 
-/**
- * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
- */
 export default function (expectation) {
   const check = whitespaceChecker("newline", expectation, messages)
   return function (root, result) {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "always-multi-line",
+        "never-multi-line",
+      ],
+    })
+
     root.eachDecl(function (decl) {
       const parentRule = decl.parent
       if (!parentRule.semicolon && parentRule.last === decl) { return }

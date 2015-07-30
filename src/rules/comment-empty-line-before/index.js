@@ -1,6 +1,7 @@
 import {
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "comment-empty-line-before"
@@ -10,11 +11,16 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected empty line before comment",
 })
 
-/**
- * @param {"always"|"never"|" expectation
- */
 export default function (expectation) {
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+      ],
+    })
+
     root.eachComment(comment => {
 
       // Ignore the first node

@@ -1,5 +1,6 @@
 import {
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 import { mediaQueryListCommaWhitespaceChecker } from "../media-query-list-comma-space-after"
@@ -12,10 +13,17 @@ export const messages = ruleMessages(ruleName, {
   rejectedBeforeMultiLine: () => `Unexpected whitespace before "," in a multi-line list`,
 })
 
-/**
- * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
-  return mediaQueryListCommaWhitespaceChecker(checker.beforeAllowingIndentation)
+  return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "always-multi-line",
+        "never-multi-line",
+      ],
+    })
+    mediaQueryListCommaWhitespaceChecker(checker.beforeAllowingIndentation, root, result)
+  }
 }

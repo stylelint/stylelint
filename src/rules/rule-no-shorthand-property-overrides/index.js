@@ -1,6 +1,7 @@
 import {
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 import shorthands from "./shorthands"
 
@@ -13,8 +14,10 @@ export const messages = ruleMessages(ruleName, {
   ),
 })
 
-export default function () {
+export default function (o) {
   return (root, result) => {
+    validateOptions({ ruleName, result, actual: o })
+
     root.eachRule(rule => {
       const ruleDeclarations = new Set()
       // Shallow iteration so nesting doesn't produce

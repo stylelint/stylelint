@@ -1,7 +1,8 @@
 import {
   report,
   ruleMessages,
-  styleSearch
+  styleSearch,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "color-hex-case"
@@ -10,11 +11,16 @@ export const messages = ruleMessages(ruleName, {
   expected: (h, v) => `Expected "${h}" to be "${v}"`,
 })
 
-/**
- * @param {"lower"|"upper"} expectation
- */
 export default function (expectation) {
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "lower",
+        "upper",
+      ],
+    })
+
     root.eachDecl(decl => {
       const value = decl.value
 

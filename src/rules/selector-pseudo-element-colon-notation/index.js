@@ -1,7 +1,8 @@
 import {
   report,
   ruleMessages,
-  styleSearch
+  styleSearch,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "selector-psuedo-element-colon-notation"
@@ -10,12 +11,16 @@ export const messages = ruleMessages(ruleName, {
   expected: (q) => `Expected ${q} colon pseudo-element notation`,
 })
 
-/**
- * @param {"single"|"double"} expectation
- */
 export default function (expectation) {
 
   return (root, result) => {
+    validateOptions({ ruleName, result,
+      actual: expectation,
+      possible: [
+        "single",
+        "double",
+      ],
+    })
 
     root.eachRule(rule => {
       const selector = rule.selector

@@ -1,5 +1,6 @@
 import {
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 import { checkNestingBlockOpeningBraceBefore } from "../nesting-block-opening-brace-newline-before"
@@ -15,10 +16,21 @@ export const messages = ruleMessages(ruleName, {
   rejectedBeforeMultiLine: () => `Unexpected whitespace before "{" of a multi-line nesting block`,
 })
 
-/**
- * @param {"always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
-  return checkNestingBlockOpeningBraceBefore(checker)
+  return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+        "always-single-line",
+        "never-single-line",
+        "always-multi-line",
+        "never-multi-line",
+      ],
+    })
+
+    checkNestingBlockOpeningBraceBefore(checker, root, result)
+  }
 }

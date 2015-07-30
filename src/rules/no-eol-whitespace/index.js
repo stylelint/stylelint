@@ -1,7 +1,8 @@
 import {
   ruleMessages,
   styleSearch,
-  report
+  report,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "no-eol-whitespace"
@@ -12,8 +13,10 @@ export const messages = ruleMessages(ruleName, {
 
 const whitespacesToReject = [ " ", "\t" ]
 
-export default function () {
+export default function (o) {
   return (root, result) => {
+    validateOptions({ result, ruleName, actual: o })
+
     let lineCount = 0
     const rootString = root.source.input.css
     styleSearch({ source: rootString, target: [ "\n", "\r" ], checkComments: true }, match => {

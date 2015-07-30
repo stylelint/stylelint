@@ -1,7 +1,9 @@
+import { isString } from "lodash"
 import { vendor } from "postcss"
 import {
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "property-whitelist"
@@ -12,6 +14,10 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (whitelist) {
   return (root, result) => {
+    validateOptions({ ruleName, result,
+      actual: whitelist,
+      possible: [isString],
+    })
 
     root.eachDecl(decl => {
 

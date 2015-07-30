@@ -1,7 +1,8 @@
 import {
   cssStatementHasEmptyBlock,
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "block-no-empty"
@@ -10,8 +11,9 @@ export const messages = ruleMessages(ruleName, {
   rejected: `Unexpected empty block`,
 })
 
-export default function () {
+export default function (o) {
   return (root, result) => {
+    validateOptions({ result, ruleName, actual: o })
 
     // Check both kinds of statements: rules and at-rules
     root.eachRule(check)

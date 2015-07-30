@@ -4,6 +4,7 @@ import {
   cssStatementHasEmptyBlock,
   report,
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -18,16 +19,20 @@ export const messages = ruleMessages(ruleName, {
   rejectedBeforeMultiLine: () => `Unexpected whitespace before "}" of a multi-line block`,
 })
 
-/**
- * @param {
- *     "always"|"never"
- *     |"always-single-line"|"never-single-line"
- *     |"always-multi-line"|"never-multi-line"
- *   } expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+        "always-single-line",
+        "never-single-line",
+        "always-multi-line",
+        "never-multi-line",
+      ],
+    })
 
     // Check both kinds of statement: rules and at-rules
     root.eachRule(check)

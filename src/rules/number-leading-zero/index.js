@@ -1,6 +1,7 @@
 import {
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "number-leading-zero"
@@ -10,11 +11,16 @@ export const messages = ruleMessages(ruleName, {
   rejected: `Unexpected leading zero`,
 })
 
-/**
- * @param {"always"|"never"} expectation
- */
 export default function (expectation) {
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+      ],
+    })
+
     root.eachDecl(decl => {
       check(decl.value, decl)
     })

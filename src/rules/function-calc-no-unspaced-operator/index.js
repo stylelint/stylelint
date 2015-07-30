@@ -3,6 +3,7 @@ import {
   report,
   ruleMessages,
   styleSearch,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -14,10 +15,12 @@ export const messages = ruleMessages(ruleName, {
   expectedOperatorBeforeSign: o => `Expected an operator before sign "${o}"`,
 })
 
-export default function () {
+export default function (o) {
   const checker = whitespaceChecker("space", "always", messages)
 
   return (root, result) => {
+    validateOptions({ result, ruleName, actual: o })
+
     root.eachDecl(decl => {
       const value = decl.value
 

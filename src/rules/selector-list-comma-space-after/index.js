@@ -2,6 +2,7 @@ import {
   report,
   ruleMessages,
   styleSearch,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -14,32 +15,39 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfterSingleLine: () => `Unexpected whitespace after "," in a single-line list`,
 })
 
-/**
- * @param {"always"|"never"|"always-single-line"|"never-single-line"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
-  return selectorListCommaWhitespaceChecker(checker.after)
-}
-
-export function selectorListCommaWhitespaceChecker(checkLocation) {
   return (root, result) => {
-    root.eachRule(rule => {
-      const selector = rule.selector
-      styleSearch({ source: selector, target: "," }, match => {
-        checkDelimiter(selector, match.startIndex, rule)
-      })
+    validateOptions({ ruleName, result,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+        "always-single-line",
+        "never-single-line",
+      ],
     })
 
-    function checkDelimiter(source, index, node) {
-      checkLocation({ source, index, err: m =>
-        report({
-          message: m,
-          node: node,
-          result,
-          ruleName,
-        }),
-      })
-    }
+    selectorListCommaWhitespaceChecker(checker.after, root, result)
+  }
+}
+
+export function selectorListCommaWhitespaceChecker(checkLocation, root, result) {
+  root.eachRule(rule => {
+    const selector = rule.selector
+    styleSearch({ source: selector, target: "," }, match => {
+      checkDelimiter(selector, match.startIndex, rule)
+    })
+  })
+
+  function checkDelimiter(source, index, node) {
+    checkLocation({ source, index, err: m =>
+      report({
+        message: m,
+        node: node,
+        result,
+        ruleName,
+      }),
+    })
   }
 }
