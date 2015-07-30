@@ -11,9 +11,6 @@ export const messages = ruleMessages(ruleName, {
   rejected: `Custom property name does not match specified pattern`,
 })
 
-/**
- * @param {regexp} pattern
- */
 export default function (pattern) {
   return (root, result) => {
     validateOptions({ result, ruleName, actual: pattern, possible: isRegExp })

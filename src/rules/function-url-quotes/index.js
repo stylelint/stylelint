@@ -11,9 +11,6 @@ export const messages = ruleMessages(ruleName, {
   expected: (q, f="url") => `Expected ${q} around ${f} argument`,
 })
 
-/**
- * @param {"single"|"double"|"none"} expectation
- */
 export default function (expectation) {
 
   const quoteMsg = (function () {

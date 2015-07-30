@@ -12,9 +12,6 @@ export const messages = ruleMessages(ruleName, {
   rejected: `Unexpected trailing semicolon`,
 })
 
-/**
- * @param {"always"|"never"} expectation
- */
 export default function (expectation) {
   return (root, result) => {
     validateOptions({ ruleName, result,

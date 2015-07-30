@@ -14,12 +14,6 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected empty line before at-rule",
 })
 
-/**
- * @param {"always"|"never"} expectation
- * @param {object} options - Can contain the following:
- *   - except: ["blockless-group", "first-nested", "all-nested"]
- *   - ignore: ["all-nested"]
- */
 export default function (expectation, options) {
   return (root, result) => {
     validateOptions({ result, ruleName,

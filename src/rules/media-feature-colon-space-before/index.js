@@ -13,9 +13,6 @@ export const messages = ruleMessages(ruleName, {
   rejectedBefore: () => `Unexpected whitespace before ":"`,
 })
 
-/**
- * @param {"always"|"never"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {

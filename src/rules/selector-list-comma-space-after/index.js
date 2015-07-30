@@ -15,9 +15,6 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfterSingleLine: () => `Unexpected whitespace after "," in a single-line list`,
 })
 
-/**
- * @param {"always"|"never"|"always-single-line"|"never-single-line"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {

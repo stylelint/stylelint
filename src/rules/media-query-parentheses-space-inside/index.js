@@ -14,9 +14,6 @@ export const messages = ruleMessages(ruleName, {
   rejectedClosing: `Unexpected whitespace before ")"`,
 })
 
-/**
- * @param {"always"|"never"} expectation
- */
 export default function (expectation) {
   return (root, result) => {
     validateOptions({ result, ruleName,

@@ -15,9 +15,6 @@ export const messages = ruleMessages(ruleName, {
 
 const combinators = [ ">", "+", "~" ]
 
-/**
- * @param {"always"|"never"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {

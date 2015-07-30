@@ -13,9 +13,6 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfterMultiLine: () => `Unexpected whitespace after "," in a multi-line list`,
 })
 
-/**
- * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
 

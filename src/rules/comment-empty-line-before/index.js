@@ -11,9 +11,6 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected empty line before comment",
 })
 
-/**
- * @param {"always"|"never"|" expectation
- */
 export default function (expectation) {
   return (root, result) => {
     validateOptions({ result, ruleName,

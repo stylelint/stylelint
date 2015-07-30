@@ -14,9 +14,6 @@ export const messages = ruleMessages(ruleName, {
   rejectedBefore: () => `Unexpected whitespace before range operator`,
 })
 
-/**
- * @param {"always"|"never"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {

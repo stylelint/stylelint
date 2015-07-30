@@ -11,9 +11,6 @@ export const messages = ruleMessages(ruleName, {
   expected: (q) => `Expected ${q} colon pseudo-element notation`,
 })
 
-/**
- * @param {"single"|"double"} expectation
- */
 export default function (expectation) {
 
   return (root, result) => {

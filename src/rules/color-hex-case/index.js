@@ -11,9 +11,6 @@ export const messages = ruleMessages(ruleName, {
   expected: (h, v) => `Expected "${h}" to be "${v}"`,
 })
 
-/**
- * @param {"lower"|"upper"} expectation
- */
 export default function (expectation) {
   return (root, result) => {
     validateOptions({ result, ruleName,

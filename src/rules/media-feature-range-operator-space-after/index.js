@@ -14,9 +14,6 @@ export const messages = ruleMessages(ruleName, {
 
 const rangeOperatorRegex = /[^><](>=?|<=?|=)/g
 
-/**
- * @param {"always"|"never"} expectation
- */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {

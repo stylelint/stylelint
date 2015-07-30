@@ -14,11 +14,6 @@ export const messages = ruleMessages(ruleName, {
   rejected: `Unexpected empty line before non-nested rule`,
 })
 
-/**
- * @param {"always"|"never"|"always-multi-line"|"never-multi-line"} expectation
- * @param {object} [options] - Possibilities are:
- * @param {object} [options.ignore] - ["after-comment"]
- */
 export default function (expectation, options) {
   return (root, result) => {
     validateOptions({ ruleName, result,

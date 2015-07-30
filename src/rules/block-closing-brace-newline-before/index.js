@@ -16,9 +16,6 @@ export const messages = ruleMessages(ruleName, {
   rejectedBeforeMultiLine: () => `Unexpected whitespace before "}" of a multi-line block`,
 })
 
-/**
- * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
- */
 export default function (expectation) {
   return (root, result) => {
     validateOptions({ result, ruleName,
