@@ -2,7 +2,14 @@
 
 > Modern CSS linter.
 
-Supports the latest CSS syntax and features, including custom properties, range context for media features, calc() and nesting.
+## Features
+
+* _Over 85 rules_ - from stylistic rules, such as checking the spacing around the colon in every declaration, to rules that catch subtle coding mistakes, such as invalid hex colors or [overriding shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Tricky_edge_cases).
+* _Support for the latest CSS syntax and features_ - including custom properties, range context for media features, calc() and nesting.
+* _Completely unopinionated_ - only enable the rules you want and configure them with the options to tailor the linter.
+* _Sharable configs_ - if you don't want to craft your own config you can use a shareable config, for example one that checks against the [SuitCSS code style](https://github.com/suitcss/suit/blob/master/doc/STYLE.md).
+* _Support for plugins_ - it's easy to create your own rules and add them to the linter.
+* _Options validator_ - so you can be confident that config is valid and linter is working correctly.
 
 ## Installation
 
