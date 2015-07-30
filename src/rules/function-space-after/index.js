@@ -2,7 +2,8 @@ import {
   isWhitespace,
   report,
   ruleMessages,
-  styleSearch
+  styleSearch,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "function-space-after"
@@ -17,6 +18,14 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+      ],
+    })
+
     root.eachDecl(decl => {
       const value = decl.value
 

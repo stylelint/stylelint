@@ -1,5 +1,6 @@
 import {
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -18,5 +19,16 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
-  return selectorListCommaWhitespaceChecker(checker.beforeAllowingIndentation)
+  return (root, result) => {
+    validateOptions({ ruleName, result,
+      actual: expectation,
+      possible: [
+        "always",
+        "always-multi-line",
+        "never-multi-line",
+      ],
+    })
+
+    selectorListCommaWhitespaceChecker(checker.beforeAllowingIndentation, root, result)
+  }
 }

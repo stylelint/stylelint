@@ -1,6 +1,7 @@
 import {
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "root-no-standard-properties"
@@ -9,8 +10,10 @@ export const messages = ruleMessages(ruleName, {
   rejected: p => `Unexpected standard property "${p}" applied to ":root"`,
 })
 
-export default function () {
+export default function (o) {
   return (root, result) => {
+    validateOptions({ ruleName, result, actual: o })
+
     root.eachRule(rule => {
       if (rule.selector.indexOf(":root") === -1) { return }
 

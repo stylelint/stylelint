@@ -1,7 +1,8 @@
 import {
   report,
   ruleMessages,
-  styleSearch
+  styleSearch,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "color-hex-length"
@@ -15,6 +16,14 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "short",
+        "long",
+      ],
+    })
+
     root.eachDecl(decl => {
       const value = decl.value
 

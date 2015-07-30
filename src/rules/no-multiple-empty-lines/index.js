@@ -1,7 +1,8 @@
 import {
   report,
   ruleMessages,
-  styleSearch
+  styleSearch,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "no-multiple-empty-lines"
@@ -10,8 +11,10 @@ export const messages = ruleMessages(ruleName, {
   rejected: line => `Unexpected empty line at line ${line}`,
 })
 
-export default function () {
+export default function (o) {
   return (root, result) => {
+    validateOptions({ ruleName, result, actual: o })
+
     let lineCount = 0
     const rootString = root.source.input.css
     styleSearch({ source: rootString, target: "\n", checkComments: true }, match => {

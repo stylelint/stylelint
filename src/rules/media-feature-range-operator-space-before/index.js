@@ -1,6 +1,7 @@
 import {
   report,
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -19,6 +20,14 @@ export const messages = ruleMessages(ruleName, {
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+      ],
+    })
+
     root.eachAtRule(atRule => {
       findMediaOperator(atRule, checkBeforeOperator)
     })

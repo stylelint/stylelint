@@ -1,5 +1,6 @@
 import {
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 import { valueListCommaWhitespaceChecker } from "../value-list-comma-space-after"
@@ -18,5 +19,17 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
-  return valueListCommaWhitespaceChecker(checker.before)
+  return (root, result) => {
+    validateOptions({ ruleName, result,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+        "always-single-line",
+        "never-single-line",
+      ],
+    })
+
+    valueListCommaWhitespaceChecker(checker.before, root, result)
+  }
 }

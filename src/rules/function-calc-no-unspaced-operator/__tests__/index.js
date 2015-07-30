@@ -6,7 +6,7 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-testRule(null, tr => {
+testRule(undefined, tr => {
   warningFreeBasics(tr)
 
   tr.ok("a { padding: 0 /* calc(1px+2px) */ 0; }")

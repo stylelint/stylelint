@@ -5,7 +5,7 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-testRule(null, tr => {
+testRule(undefined, tr => {
   // Stand-in warning-free-basics
   tr.ok("")
   tr.ok("@import \"foo.css\";")

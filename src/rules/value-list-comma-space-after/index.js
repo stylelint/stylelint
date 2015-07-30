@@ -2,6 +2,7 @@ import {
   report,
   ruleMessages,
   styleSearch,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -19,28 +20,38 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
-  return valueListCommaWhitespaceChecker(checker.after)
-}
-
-export function valueListCommaWhitespaceChecker(checkLocation) {
   return (root, result) => {
-    root.eachDecl(decl => {
-      const value = decl.value
-
-      styleSearch({ source: value, target: ",", outsideFunctionalNotation: true }, match => {
-        checkComma(value, match.startIndex, decl)
-      })
+    validateOptions({ ruleName, result,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+        "always-single-line",
+        "never-single-line",
+      ],
     })
 
-    function checkComma(source, index, node) {
-      checkLocation({ source, index, err: m =>
-        report({
-          message: m,
-          node: node,
-          result,
-          ruleName,
-        }),
-      })
-    }
+    valueListCommaWhitespaceChecker(checker.after, root, result)
+  }
+}
+
+export function valueListCommaWhitespaceChecker(checkLocation, root, result) {
+  root.eachDecl(decl => {
+    const value = decl.value
+
+    styleSearch({ source: value, target: ",", outsideFunctionalNotation: true }, match => {
+      checkComma(value, match.startIndex, decl)
+    })
+  })
+
+  function checkComma(source, index, node) {
+    checkLocation({ source, index, err: m =>
+      report({
+        message: m,
+        node: node,
+        result,
+        ruleName,
+      }),
+    })
   }
 }

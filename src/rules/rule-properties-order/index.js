@@ -1,7 +1,9 @@
+import { isString } from "lodash"
 import { vendor } from "postcss"
 import {
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "rule-properties-order"
@@ -12,6 +14,13 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (expectation) {
   return (root, result) => {
+    validateOptions({ ruleName, result,
+      actual: expectation,
+      possible: [
+        "alphabetical",
+        isString,
+      ],
+    })
 
     // Shallow loop
     root.each(node => {

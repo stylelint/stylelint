@@ -1,10 +1,11 @@
-import { repeat } from "lodash"
+import { repeat, isNumber, isBoolean } from "lodash"
 import {
   optionsHaveException,
   report,
   ruleMessages,
   styleSearch,
-  cssStatementHasBlock
+  cssStatementHasBlock,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "indentation"
@@ -39,6 +40,18 @@ export default function (space, options) {
   const warningWord = (isTab) ? "tab" : "space"
 
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: space,
+      possible: [ isNumber, "tab" ],
+    })
+    validateOptions({ result, ruleName,
+      actual: options,
+      possible: {
+        except: [ "block", "value" ],
+        hierarchicalSelectors: [isBoolean],
+      },
+    })
+
     // Cycle through all nodes using eachInside.
     // This is done instead of using
     // eachRule, eachAtRule, and eachDecl,

@@ -2,7 +2,8 @@ import {
   report,
   ruleMessages,
   styleSearch,
-  isAutoprefixable
+  isAutoprefixable,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "selector-no-vendor-prefix"
@@ -11,8 +12,10 @@ export const messages = ruleMessages(ruleName, {
   rejected: p => `Unexpected vendor-prefixed selector "${p}"`,
 })
 
-export default function () {
+export default function (o) {
   return (root, result) => {
+    validateOptions({ ruleName, result, actual: o })
+
     root.eachRule(rule => {
       const selector = rule.selector
 

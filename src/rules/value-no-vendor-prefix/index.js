@@ -2,7 +2,8 @@ import {
   isAutoprefixable,
   report,
   ruleMessages,
-  styleSearch
+  styleSearch,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "value-no-vendor-prefix"
@@ -13,8 +14,10 @@ export const messages = ruleMessages(ruleName, {
 
 const valuePrefixes = [ "-webkit-", "-moz-", "-ms-", "-o-" ]
 
-export default function () {
+export default function (o) {
   return (root, result) => {
+    validateOptions({ ruleName, result, actual: o })
+
     root.eachDecl(decl => {
       const { prop, value } = decl
 

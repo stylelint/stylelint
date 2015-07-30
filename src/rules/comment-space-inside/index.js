@@ -1,6 +1,7 @@
 import {
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "comment-space-inside"
@@ -17,6 +18,14 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   return function (root, result) {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+      ],
+    })
+
     root.eachComment(function (comment) {
 
       const left = comment.left

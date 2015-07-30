@@ -1,5 +1,6 @@
 import {
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 import { mediaQueryListCommaWhitespaceChecker } from "../media-query-list-comma-space-after"
@@ -13,12 +14,23 @@ export const messages = ruleMessages(ruleName, {
 })
 
 /**
- * @param {"always"|"never"} expectation
+ * @param {"always"|"always-multi-line"|"never-multi-line"} expectation
  */
 export default function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
 
-  // Only check for the newline after the comma, while allowing
-  // arbitrary indentation after the newline
-  return mediaQueryListCommaWhitespaceChecker(checker.afterOneOnly)
+  return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "always-multi-line",
+        "never-multi-line",
+      ],
+    })
+
+    // Only check for the newline after the comma, while allowing
+    // arbitrary indentation after the newline
+    mediaQueryListCommaWhitespaceChecker(checker.afterOneOnly, root, result)
+  }
 }

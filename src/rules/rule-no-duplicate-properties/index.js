@@ -1,6 +1,7 @@
 import {
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "rule-no-duplicate-properties"
@@ -9,8 +10,10 @@ export const messages = ruleMessages(ruleName, {
   rejected: p => `Unexpected duplicate property "${p}"`,
 })
 
-export default function () {
+export default function (o) {
   return (root, result) => {
+    validateOptions({ ruleName, result, actual: o })
+
     // In order to accommodate nested blocks (postcss-nested),
     // we need to run a shallow loop (instead of eachDecl() or eachRule(),
     // which loop recursively) and allow each nested block to accumulate

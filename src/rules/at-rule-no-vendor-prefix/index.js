@@ -1,7 +1,8 @@
 import {
   isAutoprefixable,
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "at-rule-no-vendor-prefix"
@@ -10,8 +11,10 @@ export const messages = ruleMessages(ruleName, {
   rejected: p => `Unexpected vendor-prefixed at-rule "@${p}"`,
 })
 
-export default function () {
+export default function (o) {
   return function (root, result) {
+    validateOptions({ result, ruleName, actual: o })
+
     root.eachAtRule(function (atRule) {
       const name = atRule.name
 

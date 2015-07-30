@@ -6,7 +6,8 @@ import {
 import {
   report,
   ruleMessages,
-  styleSearch
+  styleSearch,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "number-zero-length-no-unit"
@@ -23,8 +24,10 @@ const lengthUnits = new Set([
   "vmin", "vmax",
 ])
 
-export default function () {
+export default function (o) {
   return (root, result) => {
+    validateOptions({ result, ruleName, actual: o })
+
     root.eachDecl(decl => {
       check(decl.value, decl)
     })

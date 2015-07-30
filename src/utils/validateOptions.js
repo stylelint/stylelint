@@ -1,13 +1,24 @@
-export default function ({ result, ruleName, possible, actual }) {
+export default function ({ result, ruleName, actual, possible }) {
 
+  if (typeof actual === "undefined" && (!possible || possible.length)) { return }
+
+  // If `possible` is an array instead of an object ...
   if (Array.isArray(possible)) {
-    if (isValid(possible, actual)) { return }
-    result.warn(`Invalid option value "${actual}" for rule "${ruleName}"`)
+    const check = a => {
+      if (isValid(possible, a)) { return }
+      result.warn(`Invalid option value "${a}" for rule "${ruleName}"`)
+    }
+    if (Array.isArray(actual)) {
+      actual.forEach(check)
+    } else {
+      check(actual)
+    }
     return
   }
 
   if (!actual) { return }
 
+  // If possible is an object ...
   Object.keys(actual).forEach(optionName => {
     if (!possible[optionName]) {
       result.warn(`Invalid option name "${optionName}" for rule "${ruleName}"`)
@@ -15,18 +26,16 @@ export default function ({ result, ruleName, possible, actual }) {
     }
 
     const actualOptionValue = actual[optionName]
-
-    if (Array.isArray(actualOptionValue)) {
-      actualOptionValue.forEach(singleValue => {
-        if (isValid(possible[optionName], singleValue)) { return }
-        result.warn(`Invalid value "${singleValue}" for option "${optionName}" of rule "${ruleName}"`)
-      })
-      return
+    const check = a => {
+      if (isValid(possible[optionName], a)) { return }
+      result.warn(`Invalid value "${a}" for option "${optionName}" of rule "${ruleName}"`)
     }
 
-    if (isValid(possible[optionName], actualOptionValue)) { return }
-
-    result.warn(`Invalid value "${actualOptionValue}" for option "${optionName}" of rule "${ruleName}"`)
+    if (Array.isArray(actualOptionValue)) {
+      actualOptionValue.forEach(check)
+    } else {
+      check(actualOptionValue)
+    }
   })
 }
 

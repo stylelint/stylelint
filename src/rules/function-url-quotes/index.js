@@ -1,7 +1,8 @@
 import {
   cssFunctionArguments,
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "function-url-quotes"
@@ -42,6 +43,15 @@ export default function (expectation) {
   }
 
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "single",
+        "double",
+        "none",
+      ],
+    })
+
     root.eachAtRule(check)
     root.eachRule(check)
 

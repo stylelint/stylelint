@@ -1,6 +1,8 @@
+import { isRegExp } from "lodash"
 import {
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "custom-property-pattern"
@@ -14,6 +16,8 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (pattern) {
   return (root, result) => {
+    validateOptions({ result, ruleName, actual: pattern, possible: isRegExp })
+
     root.eachDecl(decl => {
       const prop = decl.prop
       if (prop.slice(0, 2) !== "--") { return }

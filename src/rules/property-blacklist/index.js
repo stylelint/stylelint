@@ -1,7 +1,9 @@
 import { vendor } from "postcss"
+import { isString } from "lodash"
 import {
   report,
-  ruleMessages
+  ruleMessages,
+  validateOptions
 } from "../../utils"
 
 export const ruleName = "property-blacklist"
@@ -12,6 +14,10 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (blacklist) {
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: blacklist,
+      possible: [isString],
+    })
 
     root.eachDecl(decl => {
 

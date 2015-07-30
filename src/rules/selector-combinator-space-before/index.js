@@ -1,5 +1,6 @@
 import {
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -17,5 +18,15 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
-  return selectorCombinatorSpaceChecker(checker.before)
+  return (root, result) => {
+    validateOptions({ ruleName, result,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+      ],
+    })
+
+    selectorCombinatorSpaceChecker(checker.before, root, result)
+  }
 }

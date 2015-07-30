@@ -5,6 +5,7 @@ import {
   cssStatementStringBeforeBlock,
   report,
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -25,6 +26,16 @@ export default function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
 
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "always-single-line",
+        "never-single-line",
+        "always-multi-line",
+        "never-multi-line",
+      ],
+    })
 
     // Check both kinds of statement: rules and at-rules
     root.eachRule(check)

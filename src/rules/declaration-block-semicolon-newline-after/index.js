@@ -2,6 +2,7 @@ import {
   cssStatementBlockString,
   report,
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -19,6 +20,15 @@ export const messages = ruleMessages(ruleName, {
 export default function (expectation) {
   const check = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "always-multi-line",
+        "never-multi-line",
+      ],
+    })
+
     root.eachDecl(decl => {
       // Ignore last declaration if there's no trailing semicolon
       const parentRule = decl.parent

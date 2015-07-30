@@ -5,7 +5,7 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-testRule(null, tr => {
+testRule(undefined, tr => {
   tr.ok("\n")
   tr.ok("a { color: pink; }\n")
   tr.ok("a { color: pink; }\n\n\n")

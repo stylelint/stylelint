@@ -1,5 +1,6 @@
 import {
   ruleMessages,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 import { declarationColonSpaceChecker } from "../declaration-colon-space-after"
@@ -16,5 +17,15 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
-  return declarationColonSpaceChecker(checker.before)
+  return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+      ],
+    })
+
+    declarationColonSpaceChecker(checker.before, root, result)
+  }
 }

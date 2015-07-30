@@ -1,9 +1,10 @@
 import {
   cssStatementBlockString,
+  cssStatementHasBlock,
   report,
   ruleMessages,
-  whitespaceChecker,
-  cssStatementHasBlock
+  validateOptions,
+  whitespaceChecker
 } from "../../utils"
 
 export const ruleName = "block-closing-brace-newline-after"
@@ -22,6 +23,16 @@ export const messages = ruleMessages(ruleName, {
 export default function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "always-single-line",
+        "never-single-line",
+        "always-multi-line",
+        "never-multi-line",
+      ],
+    })
 
     // Check both kinds of statements: rules and at-rules
     root.eachRule(check)

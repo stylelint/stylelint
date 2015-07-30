@@ -2,6 +2,7 @@ import {
   report,
   ruleMessages,
   styleSearch,
+  validateOptions,
   whitespaceChecker
 } from "../../utils"
 
@@ -19,27 +20,36 @@ export const messages = ruleMessages(ruleName, {
  */
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
-  return mediaQueryListCommaWhitespaceChecker(checker.after)
+  return (root, result) => {
+    validateOptions({ result, ruleName,
+      actual: expectation,
+      possible: [
+        "always",
+        "never",
+        "always-single-line",
+        "never-single-line",
+      ],
+    })
+    mediaQueryListCommaWhitespaceChecker(checker.after, root, result)
+  }
 }
 
-export function mediaQueryListCommaWhitespaceChecker(checkLocation) {
-  return (root, result) => {
-    root.eachAtRule(atRule => {
-      const params = atRule.params
-      styleSearch({ source: params, target: "," }, match => {
-        checkComma(params, match.startIndex, atRule)
-      })
+export function mediaQueryListCommaWhitespaceChecker(checkLocation, root, result) {
+  root.eachAtRule(atRule => {
+    const params = atRule.params
+    styleSearch({ source: params, target: "," }, match => {
+      checkComma(params, match.startIndex, atRule)
     })
+  })
 
-    function checkComma(source, index, node) {
-      checkLocation({ source, index, err: m =>
-        report({
-          message: m,
-          node,
-          result,
-          ruleName,
-        }),
-      })
-    }
+  function checkComma(source, index, node) {
+    checkLocation({ source, index, err: m =>
+      report({
+        message: m,
+        node,
+        result,
+        ruleName,
+      }),
+    })
   }
 }
