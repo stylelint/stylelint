@@ -9,7 +9,7 @@
 * _Completely unopinionated_ - only enable the rules you want and configure them with options to tailor the linter to your needs.
 * _Shareable configs_ - if you don't want to craft your own config you can use a shareable config.
 * _Support for plugins_ - it's easy to create your own rules and add them to the linter.
-* _Options validator_ - so you can be confident that config is valid.
+* _Options validator_ - so you can be confident that your config is valid.
 
 ## Installation
 
