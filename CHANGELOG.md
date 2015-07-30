@@ -1,3 +1,7 @@
+# Head
+
+- Added: validation of all rule options.
+
 # 0.4.1
 
 - Removed: `ruleTester` from `stylelint.utils` because of the additional dependencies it forces.
