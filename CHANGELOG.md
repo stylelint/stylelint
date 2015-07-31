@@ -1,5 +1,6 @@
 # Head
 
+- Added: `validateOptions` to `stylelint.utils` for use by authors of custom rules.
 - Added: `custom-media-pattern` rule.
 - Added: `number-max-precision` rule.
 
