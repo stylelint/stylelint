@@ -48,6 +48,7 @@ import noEolWhitespace from "./no-eol-whitespace"
 import noMissingEofNewline from "./no-missing-eof-newline"
 import noMultipleEmptyLines from "./no-multiple-empty-lines"
 import numberLeadingZero from "./number-leading-zero"
+import numberMaxPrecision from "./number-max-precision"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
 import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyBlacklist from "./property-blacklist"
@@ -133,6 +134,7 @@ export default {
   "no-missing-eof-newline": noMissingEofNewline,
   "no-multiple-empty-lines": noMultipleEmptyLines,
   "number-leading-zero": numberLeadingZero,
+  "number-max-precision": numberMaxPrecision,
   "number-no-trailing-zeros": numberNoTrailingZeros,
   "number-zero-length-no-unit": numberZeroLengthNoUnit,
   "property-blacklist": propertyBlacklist,

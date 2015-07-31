@@ -1,3 +1,7 @@
+# Head
+
+- Added: `number-max-precision` rule.
+
 # 0.5.0
 
 - Added: validation of all rule options.
