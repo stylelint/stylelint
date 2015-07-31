@@ -9,7 +9,7 @@ import {
 export const ruleName = "number-max-precision"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (number, precision) => `Unexpected precision: ${number} should be ${number.toFixed(precision)}`,
+  expected: (number, precision) => `Expected "${number}" to be "${number.toFixed(precision)}"`,
 })
 
 export default function (precision) {
