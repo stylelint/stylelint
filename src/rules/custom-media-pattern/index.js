@@ -8,7 +8,7 @@ import {
 export const ruleName = "custom-media-pattern"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: `Custom media name does not match specified pattern`,
+  expected: `Expected custom media query name to match specified pattern`,
 })
 
 export default function (pattern) {
@@ -22,7 +22,7 @@ export default function (pattern) {
 
       if (!pattern.test(customMediaName)) {
         report({
-          message: messages.rejected,
+          message: messages.expected,
           node: atRule,
           result,
           ruleName,
