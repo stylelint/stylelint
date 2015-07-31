@@ -50,6 +50,7 @@
 * [`no-missing-eof-newline`](../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
 * [`no-multiple-empty-lines`](../src/rules/no-multiple-empty-lines/README.md): Disallow multiple empty lines.
 * [`number-leading-zero`](../src/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
+* [`number-max-precision`](../src/rules/number-max-precision/README.md): Limit the number of decimal places allowed in numbers.
 * [`number-no-trailing-zeros`](../src/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros within numbers.
 * [`number-zero-length-no-unit`](../src/rules/number-zero-length-no-unit/README.md): Disallow units for zero lengths.
 * [`property-blacklist`](../src/rules/property-blacklist/README.md): Specify a blacklist of disallowed properties.
