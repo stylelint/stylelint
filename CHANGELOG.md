@@ -1,4 +1,4 @@
-# Head
+# 0.6.0
 
 - Added: `validateOptions` to `stylelint.utils` for use by authors of custom rules.
 - Added: `custom-media-pattern` rule.
