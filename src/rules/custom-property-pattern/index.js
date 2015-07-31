@@ -8,7 +8,7 @@ import {
 export const ruleName = "custom-property-pattern"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: `Custom property name does not match specified pattern`,
+  expected: `Expected custom property name to match specified pattern`,
 })
 
 export default function (pattern) {
@@ -21,7 +21,7 @@ export default function (pattern) {
 
       if (!pattern.test(prop.slice(2))) {
         report({
-          message: messages.rejected,
+          message: messages.expected,
           node: decl,
           result,
           ruleName,
