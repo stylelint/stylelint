@@ -1,5 +1,6 @@
 # Head
 
+- Added: `custom-media-pattern` rule.
 - Added: `number-max-precision` rule.
 
 # 0.5.0

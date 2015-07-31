@@ -14,6 +14,7 @@ import colorHexLength from "./color-hex-length"
 import colorNoInvalidHex from "./color-no-invalid-hex"
 import commentEmptyLineBefore from "./comment-empty-line-before"
 import commentSpaceInside from "./comment-space-inside"
+import customMediaPattern from "./custom-media-pattern"
 import customPropertyNoOutsideRoot from "./custom-property-no-outside-root"
 import customPropertyPattern from "./custom-property-pattern"
 import declarationBangSpaceAfter from "./declaration-bang-space-after"
@@ -100,6 +101,7 @@ export default {
   "color-no-invalid-hex": colorNoInvalidHex,
   "comment-empty-line-before": commentEmptyLineBefore,
   "comment-space-inside": commentSpaceInside,
+  "custom-media-pattern": customMediaPattern,
   "custom-property-no-outside-root": customPropertyNoOutsideRoot,
   "custom-property-pattern": customPropertyPattern,
   "declaration-bang-space-after": declarationBangSpaceAfter,

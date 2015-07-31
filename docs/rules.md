@@ -15,6 +15,7 @@
 * [`color-hex-length`](../src/rules/color-hex-length/README.md): Specify short or long notation for hex colors.
 * [`color-no-invalid-hex`](../src/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
 * [`comment-empty-line-before`](../src/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments.
+* [`custom-media-pattern`](../src/rules/custom-media-pattern/README.md): Specify pattern of custom media query names.
 * [`comment-space-inside`](../src/rules/comment-space-inside/README.md): Require a single space or disallow whitespace on the inside of comment markers.
 * [`custom-property-no-outside-root`](../src/rules/custom-property-no-outside-root/README.md): Disallow custom properties outside of `:root` selectors.
 * [`custom-property-pattern`](../src/rules/custom-property-pattern/README.md): Specify pattern of custom properties.
