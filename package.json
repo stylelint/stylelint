@@ -21,10 +21,10 @@
   },
   "main": "dist/index.js",
   "files": [
-    "CHANGELOG.md",
-    "LICENSE",
     "dist",
-    "src"
+    "src",
+    "!**/__tests__",
+    "!**/testUtils"
   ],
   "dependencies": {
     "autoprefixer-core": "^5.2.1",
