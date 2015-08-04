@@ -21,10 +21,10 @@
   },
   "main": "dist/index.js",
   "files": [
-    "!**/__tests__",
-    "!**/testUtils",
     "dist",
-    "src"
+    "src",
+    "!**/__tests__",
+    "!**/testUtils"
   ],
   "dependencies": {
     "autoprefixer-core": "^5.2.1",
@@ -44,9 +44,9 @@
     "tape": "^4.0.1"
   },
   "scripts": {
+    "prepublish": "babel src --out-dir dist",
     "docs-build": "babel-node scripts/rules",
     "lint": "eslint . --ignore-path .gitignore",
-    "prepublish": "babel src --out-dir dist",
     "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
     "test": "npm run lint && npm run tape"
   }

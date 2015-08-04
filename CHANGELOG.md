@@ -1,7 +1,10 @@
+# Head
+
+- Fixed: npm package no longer includes test files (reducing package size by 500KB).
+
 # 0.6.1
 
 - Fixed: the `rule-properties-order` and `rule-no-duplicate-properties` rules now correctly check inside @rules.
-- Fixed: npm package no longer includes test files (reducing package size by 500KB).
 
 # 0.6.0
 
