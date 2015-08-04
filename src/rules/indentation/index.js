@@ -255,13 +255,13 @@ function hierarchicalSelectorsLevel(node, nodeLevel) {
         return false
       }
     })
+    const expectedLevel = (hierarchyMap.has(prevNode))
+      ? hierarchyMap.get(prevNode).level + 1
+      : nodeLevel + 1
     if (insubordinate) {
       addNodeToHierarchy(node, node.parent, expectedLevel)
       return nodeLevel
     }
-    const expectedLevel = (hierarchyMap.has(prevNode))
-      ? hierarchyMap.get(prevNode).level + 1
-      : nodeLevel + 1
     addNodeToHierarchy(node, prevNode, expectedLevel)
     return expectedLevel
   }

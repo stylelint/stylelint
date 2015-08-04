@@ -4,14 +4,14 @@
   "description": "Modern CSS linter",
   "keywords": [
     "css",
+    "csslint",
     "lint",
     "linter",
-    "csslint",
     "stylelint"
   ],
   "authors": [
-    "Maxime Thirouin",
     "David Clark",
+    "Maxime Thirouin",
     "Richard Hallows"
   ],
   "license": "MIT",
@@ -21,10 +21,10 @@
   },
   "main": "dist/index.js",
   "files": [
-    "dist",
-    "src",
     "!**/__tests__",
-    "!**/testUtils"
+    "!**/testUtils",
+    "dist",
+    "src"
   ],
   "dependencies": {
     "autoprefixer-core": "^5.2.1",
@@ -37,15 +37,16 @@
   "devDependencies": {
     "babel": "^5.6.3",
     "babel-tape-runner": "^1.1.0",
-    "eslint": "^0.24.0",
+    "eslint": "^1.0.0",
+    "eslint-config-stylelint": "^0.1.0",
     "sinon": "^1.15.3",
     "stylelint-rule-tester": "^0.1.0",
     "tape": "^4.0.1"
   },
   "scripts": {
-    "prepublish": "babel src --out-dir dist",
     "docs-build": "babel-node scripts/rules",
     "lint": "eslint . --ignore-path .gitignore",
+    "prepublish": "babel src --out-dir dist",
     "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
     "test": "npm run lint && npm run tape"
   }
