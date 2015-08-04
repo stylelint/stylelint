@@ -29,6 +29,11 @@ testRule(undefined, tr => {
     "nested"
   )
   tr.notOk(
+    "@media { color: orange; .foo { color: black; color: white; } }",
+    messages.rejected("color"),
+    "nested"
+  )
+  tr.notOk(
     "a { color: pink; @media { color: orange; &::before { color: black; color: white; } } }",
     messages.rejected("color"),
     "double nested"

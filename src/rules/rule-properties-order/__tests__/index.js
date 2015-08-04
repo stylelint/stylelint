@@ -44,6 +44,8 @@ testRule("alphabetical", tr => {
     messages.expected("color", "top"))
   tr.notOk("a { width: 0; @media print { top: 0; color: red; } }",
     messages.expected("color", "top"))
+  tr.notOk("@media print { top: 0; color: red; }",
+    messages.expected("color", "top"))
 })
 
 testRule([
