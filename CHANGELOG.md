@@ -1,4 +1,4 @@
-# Head
+# 0.6.2
 
 - Fixed: npm package no longer includes test files (reducing package size by 500KB).
 
