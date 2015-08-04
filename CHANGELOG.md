@@ -1,3 +1,8 @@
+# Head
+
+- Fixed: the `rule-properties-order` and `rule-no-duplicate-properties` rules now correctly check inside @rules.
+- Fixed: npm package no longer includes test files (reducing package size by 500KB).
+
 # 0.6.0
 
 - Added: `validateOptions` to `stylelint.utils` for use by authors of custom rules.
