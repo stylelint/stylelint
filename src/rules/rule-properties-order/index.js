@@ -24,7 +24,7 @@ export default function (expectation) {
 
     // Shallow loop
     root.each(node => {
-      if (node.type === "rule" || node.type === "at-rule") {
+      if (node.type === "rule" || node.type === "atrule") {
         checkInNode(node)
       }
     })
