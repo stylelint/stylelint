@@ -13,7 +13,8 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (o) {
   return (root, result) => {
-    validateOptions({ ruleName, result, actual: o })
+    const validOptions = validateOptions(result, ruleName, { actual: o })
+    if (!validOptions) { return }
 
     if (root.source.input.css.slice(-1) !== "\n") {
       report({

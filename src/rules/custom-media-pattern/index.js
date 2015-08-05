@@ -13,7 +13,8 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (pattern) {
   return (root, result) => {
-    validateOptions({ result, ruleName, actual: pattern, possible: isRegExp })
+    const validOptions = validateOptions(result, ruleName, { actual: pattern, possible: isRegExp })
+    if (!validOptions) { return }
 
     root.eachAtRule(atRule => {
       if (atRule.name !== "custom-media") { return }

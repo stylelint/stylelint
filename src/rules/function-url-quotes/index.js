@@ -40,7 +40,7 @@ export default function (expectation) {
   }
 
   return (root, result) => {
-    validateOptions({ result, ruleName,
+    const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
         "single",
@@ -48,6 +48,7 @@ export default function (expectation) {
         "none",
       ],
     })
+    if (!validOptions) { return }
 
     root.eachAtRule(check)
     root.eachRule(check)

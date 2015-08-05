@@ -15,7 +15,8 @@ const whitespacesToReject = [ " ", "\t" ]
 
 export default function (o) {
   return (root, result) => {
-    validateOptions({ result, ruleName, actual: o })
+    const validOptions = validateOptions(result, ruleName, { actual: o })
+    if (!validOptions) { return }
 
     let lineCount = 0
     const rootString = root.source.input.css

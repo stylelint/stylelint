@@ -14,13 +14,14 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (expectation) {
   return (root, result) => {
-    validateOptions({ ruleName, result,
+    const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
         "alphabetical",
         isString,
       ],
     })
+    if (!validOptions) { return }
 
     // Shallow loop
     root.each(node => {

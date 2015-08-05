@@ -17,13 +17,14 @@ export default function (expectation) {
   const erroneousQuote = (expectation === "single") ? "\"" : "'"
 
   return (root, result) => {
-    validateOptions({ ruleName, result,
+    const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
         "single",
         "double",
       ],
     })
+    if (!validOptions) { return }
 
     const cssString = root.source.input.css
     styleSearch({ source: cssString, target: erroneousQuote }, match => {

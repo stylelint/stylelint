@@ -18,7 +18,7 @@ export const messages = ruleMessages(ruleName, {
 export default function (expectation) {
   const check = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
-    validateOptions({ result, ruleName,
+    const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
         "always",
@@ -27,6 +27,7 @@ export default function (expectation) {
         "never-single-line",
       ],
     })
+    if (!validOptions) { return }
 
     root.eachDecl(decl => {
       // Ignore last declaration if there's no trailing semicolon

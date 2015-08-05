@@ -12,7 +12,8 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (o) {
   return (root, result) => {
-    validateOptions({ result, ruleName, actual: o })
+    const validOptions = validateOptions(result, ruleName, { actual: o })
+    if (!validOptions) { return }
 
     root.eachRule(rule => {
       // Ignore rules whose selector is just `:root`

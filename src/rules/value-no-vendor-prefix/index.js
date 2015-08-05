@@ -16,7 +16,8 @@ const valuePrefixes = [ "-webkit-", "-moz-", "-ms-", "-o-" ]
 
 export default function (o) {
   return (root, result) => {
-    validateOptions({ ruleName, result, actual: o })
+    const validOptions = validateOptions(result, ruleName, { actual: o })
+    if (!validOptions) { return }
 
     root.eachDecl(decl => {
       const { prop, value } = decl

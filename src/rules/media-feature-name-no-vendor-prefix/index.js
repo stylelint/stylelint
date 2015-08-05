@@ -13,7 +13,8 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (o) {
   return (root, result) => {
-    validateOptions({ result, ruleName, actual: o })
+    const validOptions = validateOptions(result, ruleName, { actual: o })
+    if (!validOptions) { return }
 
     root.eachAtRule(atRule => {
       const { params } = atRule
