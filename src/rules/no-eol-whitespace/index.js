@@ -15,7 +15,10 @@ const whitespacesToReject = [ " ", "\t" ]
 
 export default function (o) {
   return (root, result) => {
-    const validOptions = validateOptions(result, ruleName, { actual: o })
+    const validOptions = validateOptions(result, ruleName, {
+      actual: o,
+      possible: [],
+    })
     if (!validOptions) { return }
 
     let lineCount = 0
