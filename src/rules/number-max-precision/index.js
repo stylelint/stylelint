@@ -14,10 +14,11 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (precision) {
   return (root, result) => {
-    validateOptions({ result, ruleName,
+    const validOptions = validateOptions(result, ruleName, {
       actual: precision,
       possible: [isNumber],
     })
+    if (!validOptions) { return }
 
     root.eachDecl(decl => {
       // Don't bother with strings

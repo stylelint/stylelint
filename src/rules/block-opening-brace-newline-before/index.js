@@ -23,7 +23,7 @@ export default function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
 
   return (root, result) => {
-    validateOptions({ result, ruleName,
+    const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
         "always",
@@ -33,6 +33,7 @@ export default function (expectation) {
         "never-multi-line",
       ],
     })
+    if (!validOptions) { return }
 
     // Check both kinds of statement: rules and at-rules
     root.eachRule(check)

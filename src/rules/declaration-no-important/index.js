@@ -12,7 +12,11 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (o) {
   return (root, result) => {
-    validateOptions({ result, ruleName, actual: o })
+    const validOptions = validateOptions(result, ruleName, {
+      actual: o,
+      possible: [],
+    })
+    if (!validOptions) { return }
 
     root.eachDecl(decl => {
       if (!decl.important) { return }

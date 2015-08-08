@@ -17,7 +17,7 @@ export const messages = ruleMessages(ruleName, {
 export default function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
-    validateOptions({ ruleName, result,
+    const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
         "always",
@@ -25,6 +25,7 @@ export default function (expectation) {
         "never-multi-line",
       ],
     })
+    if (!validOptions) { return }
 
     root.eachRule(rule => {
       const selector = rule.selector

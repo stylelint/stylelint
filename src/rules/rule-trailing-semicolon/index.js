@@ -14,13 +14,14 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (expectation) {
   return (root, result) => {
-    validateOptions({ ruleName, result,
+    const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
         "always",
         "never",
       ],
     })
+    if (!validOptions) { return }
 
     root.eachRule(rule => {
       // Return early if an empty rule

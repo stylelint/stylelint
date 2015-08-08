@@ -14,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (expectation, options) {
   return (root, result) => {
-    validateOptions({ ruleName, result,
+    const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
         "always",
@@ -22,8 +22,7 @@ export default function (expectation, options) {
         "always-multi-line",
         "never-multi-line",
       ],
-    })
-    validateOptions({ ruleName, result,
+    }, {
       actual: options,
       possible: {
         ignore: [
@@ -35,6 +34,7 @@ export default function (expectation, options) {
         ],
       },
     })
+    if (!validOptions) { return }
 
     root.eachRule(rule => {
 

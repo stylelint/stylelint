@@ -16,17 +16,17 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (expectation, options) {
   return (root, result) => {
-    validateOptions({ result, ruleName,
+    const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [ "always", "never" ],
-    })
-    validateOptions({ result, ruleName,
+    }, {
       actual: options,
       possible: {
         except: [ "blockless-group", "first-nested", "all-nested" ],
         ignore: ["all-nested"],
       },
     })
+    if (!validOptions) { return }
 
     root.eachAtRule(atRule => {
 

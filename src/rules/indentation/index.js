@@ -40,17 +40,17 @@ export default function (space, options) {
   const warningWord = (isTab) ? "tab" : "space"
 
   return (root, result) => {
-    validateOptions({ result, ruleName,
+    const validOptions = validateOptions(result, ruleName, {
       actual: space,
       possible: [ isNumber, "tab" ],
-    })
-    validateOptions({ result, ruleName,
+    }, {
       actual: options,
       possible: {
         except: [ "block", "value" ],
         hierarchicalSelectors: [isBoolean],
       },
     })
+    if (!validOptions) { return }
 
     // Cycle through all nodes using eachInside.
     // This is done instead of using

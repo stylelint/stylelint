@@ -18,7 +18,7 @@ export const messages = ruleMessages(ruleName, {
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
-    validateOptions({ result, ruleName,
+    const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
         "always",
@@ -27,6 +27,7 @@ export default function (expectation) {
         "never-single-line",
       ],
     })
+    if (!validOptions) { return }
     mediaQueryListCommaWhitespaceChecker(checker.after, root, result)
   }
 }

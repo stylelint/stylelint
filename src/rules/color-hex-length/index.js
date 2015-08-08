@@ -13,13 +13,14 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (expectation) {
   return (root, result) => {
-    validateOptions({ result, ruleName,
+    const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
         "short",
         "long",
       ],
     })
+    if (!validOptions) { return }
 
     root.eachDecl(decl => {
       const value = decl.value

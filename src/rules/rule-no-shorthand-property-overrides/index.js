@@ -16,7 +16,11 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (o) {
   return (root, result) => {
-    validateOptions({ ruleName, result, actual: o })
+    const validOptions = validateOptions(result, ruleName, {
+      actual: o,
+      possible: [],
+    })
+    if (!validOptions) { return }
 
     root.eachRule(rule => {
       const ruleDeclarations = new Set()

@@ -16,13 +16,14 @@ export const messages = ruleMessages(ruleName, {
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
-    validateOptions({ ruleName, result,
+    const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
         "always",
         "never",
       ],
     })
+    if (!validOptions) { return }
 
     selectorCombinatorSpaceChecker(checker.before, root, result)
   }

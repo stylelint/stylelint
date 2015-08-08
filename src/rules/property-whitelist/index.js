@@ -14,10 +14,11 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (whitelist) {
   return (root, result) => {
-    validateOptions({ ruleName, result,
+    const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,
       possible: [isString],
     })
+    if (!validOptions) { return }
 
     root.eachDecl(decl => {
 

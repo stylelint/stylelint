@@ -12,7 +12,11 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (o) {
   return (root, result) => {
-    validateOptions({ ruleName, result, actual: o })
+    const validOptions = validateOptions(result, ruleName, {
+      actual: o,
+      possible: [],
+    })
+    if (!validOptions) { return }
 
     // In order to accommodate nested blocks (postcss-nested),
     // we need to run a shallow loop (instead of eachDecl() or eachRule(),

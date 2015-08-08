@@ -19,7 +19,11 @@ export default function (o) {
   const checker = whitespaceChecker("space", "always", messages)
 
   return (root, result) => {
-    validateOptions({ result, ruleName, actual: o })
+    const validOptions = validateOptions(result, ruleName, {
+      actual: o,
+      possible: [],
+    })
+    if (!validOptions) { return }
 
     root.eachDecl(decl => {
       const value = decl.value
