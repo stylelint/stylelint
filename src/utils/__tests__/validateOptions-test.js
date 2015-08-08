@@ -54,6 +54,14 @@ test("validateOptions for primary options", t => {
   t.ok(result.warn.calledWith("Invalid option value \"1\" for rule \"bar\""))
   result.warn.reset()
 
+  validateOptions(result, "foo", {
+    possible: [ true, false ],
+    actual: undefined,
+  })
+  t.ok(result.warn.calledOnce, "undefined `actual` with `possible` values and no `optional` option")
+  t.ok(result.warn.calledWith("Expected option value for rule \"foo\""))
+  result.warn.reset()
+
   t.end()
 })
 
@@ -96,6 +104,14 @@ test("validateOptions for secondary options objects", t => {
   t.ok(result.warn.calledWith("Invalid option name \"barr\" for rule \"bar\""))
   result.warn.reset()
 
+  validateOptions(result, "foo", {
+    possible: [ true, false ],
+    actual: undefined,
+    optional: true,
+  })
+  t.notOk(result.warn.calledOnce, "undefined `actual` with `possible` values and an `optional` option")
+  result.warn.reset()
+
   t.end()
 })
 
@@ -124,30 +140,33 @@ test("validateOptions for secondary options objects with subarrays", t => {
   t.end()
 })
 
-test("validateOptions for `*-no-*` rule with no options", t => {
+test("validateOptions for `*-no-*` rule with no valid options", t => {
   const result = mockResult()
 
   validateOptions(result, "no-dancing", {
-    possible: [],
     actual: undefined,
   })
-  t.notOk(result.warn.called)
+  t.notOk(result.warn.called, "with empty array as `possible`")
   result.warn.reset()
 
   validateOptions(result, "no-dancing", {
-    possible: [],
+    actual: undefined,
+  })
+  t.notOk(result.warn.called, "with `possible` left undefined")
+  result.warn.reset()
+
+  validateOptions(result, "no-dancing", {
     actual: "foo",
   })
   t.ok(result.warn.calledOnce)
-  t.ok(result.warn.calledWith("Invalid option value \"foo\" for rule \"no-dancing\""))
+  t.ok(result.warn.calledWith("Unexpected option value \"foo\" for rule \"no-dancing\""))
   result.warn.reset()
 
   validateOptions(result, "no-dancing", {
-    possible: [],
     actual: false,
   })
   t.ok(result.warn.calledOnce)
-  t.ok(result.warn.calledWith("Invalid option value \"false\" for rule \"no-dancing\""))
+  t.ok(result.warn.calledWith("Unexpected option value \"false\" for rule \"no-dancing\""))
   result.warn.reset()
 
   t.end()

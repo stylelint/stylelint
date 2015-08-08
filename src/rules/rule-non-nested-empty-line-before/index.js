@@ -29,6 +29,7 @@ export default function (expectation, options) {
       possible: {
         ignore: ["after-comment"],
       },
+      optional: true,
     })
     if (!validOptions) { return }
 

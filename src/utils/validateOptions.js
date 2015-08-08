@@ -5,15 +5,17 @@
  *
  * @param {Result} result - postcss result
  * @param {string} ruleName
- * @param {...object} ...optionDescriptions - Each optionDescription should
- *   have `possible` and `actual` properties. `actual` is just the actual
- *   passed options. `possible` is a schema representation of what values are
- *   valid for those options. `possible` should be an object if the
- *   options are an object, with corresponding keys; if the options are not an
- *   object, `possible` isn't, either. All `possible` value representations
- *   should be **arrays of either values or functions**. Values are === checked
- *   against `actual`. Functions are fed `actual` as an argument and their
- *   return value is interpreted: truthy = valid, falsy = invalid.
+ * @param {...object} ...optionDescriptions - Each optionDescription can
+ *   have the following properties:
+ *   	- `actual` (required): the actual passed option value or object.
+ *   	- `possible` (required): a schema representation of what values are
+ *      valid for those options. `possible` should be an object if the
+ *      options are an object, with corresponding keys; if the options are not an
+ *      object, `possible` isn't, either. All `possible` value representations
+ *      should be **arrays of either values or functions**. Values are === checked
+ *      against `actual`. Functions are fed `actual` as an argument and their
+ *      return value is interpreted: truthy = valid, falsy = invalid.
+ *    - `optional` (optional): If this is `true`, `actual` can be undefined.
  * @return {boolean} Whether or not the options are valid (true = valid)
  */
 export default function (result, ruleName, ...optionDescriptions) {
@@ -23,8 +25,18 @@ export default function (result, ruleName, ...optionDescriptions) {
 
   return noErrors
 
-  function validate({ possible, actual }) {
-    if (typeof actual === "undefined" && (!possible || possible.length)) { return }
+  function validate({ possible, actual, optional }) {
+    const nothingPossible = !possible || (Array.isArray(possible) && !possible.length)
+    if (actual == null) {
+      if (nothingPossible || optional) { return }
+      noErrors = false
+      result.warn(`Expected option value for rule "${ruleName}"`)
+      return
+    } else if (nothingPossible) {
+      noErrors = false
+      result.warn(`Unexpected option value "${actual}" for rule "${ruleName}"`)
+      return
+    }
 
     // If `possible` is an array instead of an object ...
     if (Array.isArray(possible)) {
@@ -40,8 +52,6 @@ export default function (result, ruleName, ...optionDescriptions) {
       }
       return
     }
-
-    if (!actual) { return }
 
     // If possible is an object ...
     Object.keys(actual).forEach(optionName => {
@@ -68,10 +78,6 @@ export default function (result, ruleName, ...optionDescriptions) {
 }
 
 function isValid(possible, actual) {
-  if (!possible.length) {
-    return actual === undefined
-  }
-
   for (let i = 0, l = possible.length; i < l; i++) {
     const possibility = possible[i]
     if (typeof possibility === "function" && possibility(actual)) { return true }

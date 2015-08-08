@@ -15,14 +15,11 @@ export const messages = ruleMessages(ruleName, {
   expectedOperatorBeforeSign: o => `Expected an operator before sign "${o}"`,
 })
 
-export default function (o) {
+export default function (actual) {
   const checker = whitespaceChecker("space", "always", messages)
 
   return (root, result) => {
-    const validOptions = validateOptions(result, ruleName, {
-      actual: o,
-      possible: [],
-    })
+    const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
     root.eachDecl(decl => {

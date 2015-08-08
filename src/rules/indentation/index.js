@@ -49,6 +49,7 @@ export default function (space, options) {
         except: [ "block", "value" ],
         hierarchicalSelectors: [isBoolean],
       },
+      optional: true,
     })
     if (!validOptions) { return }
 

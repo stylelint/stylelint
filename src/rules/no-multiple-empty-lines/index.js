@@ -11,12 +11,9 @@ export const messages = ruleMessages(ruleName, {
   rejected: line => `Unexpected empty line at line ${line}`,
 })
 
-export default function (o) {
+export default function (actual) {
   return (root, result) => {
-    const validOptions = validateOptions(result, ruleName, {
-      actual: o,
-      possible: [],
-    })
+    const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
     let lineCount = 0

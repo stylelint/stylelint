@@ -13,12 +13,9 @@ export const messages = ruleMessages(ruleName, {
 
 const whitespacesToReject = [ " ", "\t" ]
 
-export default function (o) {
+export default function (actual) {
   return (root, result) => {
-    const validOptions = validateOptions(result, ruleName, {
-      actual: o,
-      possible: [],
-    })
+    const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
     let lineCount = 0

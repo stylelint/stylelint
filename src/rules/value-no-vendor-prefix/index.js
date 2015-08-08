@@ -14,12 +14,9 @@ export const messages = ruleMessages(ruleName, {
 
 const valuePrefixes = [ "-webkit-", "-moz-", "-ms-", "-o-" ]
 
-export default function (o) {
+export default function (actual) {
   return (root, result) => {
-    const validOptions = validateOptions(result, ruleName, {
-      actual: o,
-      possible: [],
-    })
+    const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
     root.eachDecl(decl => {
