@@ -1,3 +1,8 @@
+# Head
+
+- Added: invalid options cause the rule to abort instead of performing meaningless checks.
+- Added: special warning for missing required options from `validateOptions()`.
+
 # 0.6.2
 
 - Fixed: npm package no longer includes test files (reducing package size by 500KB).

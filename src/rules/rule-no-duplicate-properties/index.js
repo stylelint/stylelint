@@ -10,12 +10,9 @@ export const messages = ruleMessages(ruleName, {
   rejected: p => `Unexpected duplicate property "${p}"`,
 })
 
-export default function (o) {
+export default function (actual) {
   return (root, result) => {
-    const validOptions = validateOptions(result, ruleName, {
-      actual: o,
-      possible: [],
-    })
+    const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
     // In order to accommodate nested blocks (postcss-nested),

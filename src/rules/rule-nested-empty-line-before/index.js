@@ -33,6 +33,7 @@ export default function (expectation, options) {
           "after-comment",
         ],
       },
+      optional: true,
     })
     if (!validOptions) { return }
 

@@ -25,6 +25,7 @@ export default function (expectation, options) {
         except: [ "blockless-group", "first-nested", "all-nested" ],
         ignore: ["all-nested"],
       },
+      optional: true,
     })
     if (!validOptions) { return }
 
