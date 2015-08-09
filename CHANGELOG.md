@@ -1,29 +1,29 @@
-# Head
+# 0.7.0
 
-- Added: invalid options cause the rule to abort instead of performing meaningless checks.
-- Added: special warning for missing required options from `validateOptions()`.
+* Added: invalid options cause the rule to abort instead of performing meaningless checks.
+* Added: special warning for missing required options from `validateOptions()`.
 
 # 0.6.2
 
-- Fixed: npm package no longer includes test files (reducing package size by 500KB).
+* Fixed: npm package no longer includes test files (reducing package size by 500KB).
 
 # 0.6.1
 
-- Fixed: the `rule-properties-order` and `rule-no-duplicate-properties` rules now correctly check inside @rules.
+* Fixed: the `rule-properties-order` and `rule-no-duplicate-properties` rules now correctly check inside @rules.
 
 # 0.6.0
 
-- Added: `validateOptions` to `stylelint.utils` for use by authors of custom rules.
-- Added: `custom-media-pattern` rule.
-- Added: `number-max-precision` rule.
+* Added: `validateOptions` to `stylelint.utils` for use by authors of custom rules.
+* Added: `custom-media-pattern` rule.
+* Added: `number-max-precision` rule.
 
 # 0.5.0
 
-- Added: validation of all rule options.
+* Added: validation of all rule options.
 
 # 0.4.1
 
-- Removed: `ruleTester` from `stylelint.utils` because of the additional dependencies it forces.
+* Removed: `ruleTester` from `stylelint.utils` because of the additional dependencies it forces.
 
 # 0.4.0
 
