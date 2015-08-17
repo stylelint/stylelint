@@ -14,6 +14,7 @@ testRule(undefined, tr => {
   tr.ok("a { transform: scale(1); }")
   tr.ok("a { box-sizing: border-box; }")
   tr.ok("a { -webkit-font-smoothing: antialiased; }", "non-standard prefixed property")
+  tr.ok("a { -webkit-touch-callout: none; }", "another non-standard prefixed property")
 
   tr.notOk("a { -webkit-transform: scale(1); }", messages.rejected("-webkit-transform"))
   tr.notOk("a { -webkit-transform: scale(1); transform: scale(1); }", messages.rejected("-webkit-transform"))
