@@ -192,15 +192,15 @@ var myConfig = {
 
 The linter works well with:
 
-### Other linters
-
-* [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter) - A BEM linter for CSS.
-* [stylehacks](https://github.com/ben-eb/stylehacks) - Detect/remove browser hacks from CSS files.
-
 ### Editor plugins
 
 * [linter-stylelint](https://github.com/1000ch/linter-stylelint) - An Atom Linter plugin for stylelint.
 * [SublimeLinter-contrib-stylelint](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint) - A Sublime Text plugin for stylelint.
+
+### Other linters
+
+* [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter) - A BEM linter for CSS.
+* [stylehacks](https://github.com/ben-eb/stylehacks) - Detect/remove browser hacks from CSS files.
 
 ## Requirements
 
