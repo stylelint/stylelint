@@ -11,6 +11,10 @@
 * _Support for plugins_ - it's easy to create your own rules and add them to the linter.
 * _Options validator_ - so you can be confident that your config is valid.
 
+## Example output using `postcss-reporter`
+
+![Example](example.png?raw=true)
+
 ## Installation
 
 ```console
