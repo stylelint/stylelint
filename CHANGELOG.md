@@ -1,3 +1,7 @@
+# Head
+
+* Added: `after-comment` `ignore` option to the `at-rule-empty-line-before` rule.
+
 # 0.7.0
 
 * Added: invalid options cause the rule to abort instead of performing meaningless checks.
