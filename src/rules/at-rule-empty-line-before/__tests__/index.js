@@ -42,6 +42,14 @@ testRule("always", { except: ["blockless-group"] }, tr => {
   tr.notOk("@import 'x.css';\n\n@import 'y.css'", messages.rejected)
 })
 
+testRule("always", { ignore: ["after-comment"] }, tr => {
+  tr.ok("/* foo */\n@media {}")
+  tr.ok("/* foo */\n\n@media{}")
+  tr.ok("/* foo */\r\n\r\n@media {}", "CRLF")
+
+  tr.notOk("a {} @media {}", messages.expected)
+})
+
 testRule("always", { except: ["all-nested"] }, tr => {
   sharedAlwaysTests(tr)
 
@@ -135,6 +143,15 @@ testRule("never", { except: ["first-nested"] }, tr => {
 
   tr.notOk("a {\n  color: pink;\n\n  @mixin foo;\n}", messages.rejected)
   tr.notOk("a {\n  @mixin foo;\n  color: pink;\n}", messages.expected)
+})
+
+testRule("never", { ignore: ["after-comment"] }, tr => {
+  tr.ok("/* foo */\n@media {}")
+  tr.ok("/* foo */\r\na@media {}", "CRLF")
+  tr.ok("/* foo */\n\n@media {}")
+
+  tr.notOk("b {}\n\n@media {}", messages.rejected)
+  tr.notOk("b {}\r\n\r\n@media {}", messages.rejected, "CRLF")
 })
 
 testRule("never", { ignore: ["all-nested"] }, tr => {

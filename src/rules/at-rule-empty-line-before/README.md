@@ -161,6 +161,23 @@ b {
 }
 ```
 
+### `ignore: ["after-comment"]`
+
+Ignore rules that come after a comment.
+
+The following patterns are *not* considered warnings:
+
+```css
+/* comment */
+@media {}
+```
+
+```css
+/* comment */
+
+@media {}
+```
+
 ### `ignore: ["all-nested"]`
 
 Ignore at-rules that are nested.

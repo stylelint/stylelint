@@ -23,7 +23,7 @@ export default function (expectation, options) {
       actual: options,
       possible: {
         except: [ "blockless-group", "first-nested", "all-nested" ],
-        ignore: ["all-nested"],
+        ignore: [ "after-comment", "all-nested" ],
       },
       optional: true,
     })
@@ -36,6 +36,10 @@ export default function (expectation, options) {
 
       const isNested = atRule.parent !== root
       if (optionsHaveIgnored(options, "all-nested") && isNested) { return }
+
+      // Optionally ignore the expectation if a comment precedes this node
+      if (optionsHaveIgnored(options, "after-comment")
+        && atRule.prev() && atRule.prev().type === "comment") { return }
 
       const emptyLineBefore = atRule.before.indexOf("\n\n") !== -1
         || atRule.before.indexOf("\r\n\r\n") !== -1
