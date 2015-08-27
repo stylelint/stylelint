@@ -11,13 +11,17 @@
 * _Support for plugins_ - it's easy to create your own rules and add them to the linter.
 * _Options validator_ - so you can be confident that your config is valid.
 
+## Example output
+
+![Example](example.png?raw=true)
+
 ## Installation
 
 ```console
 $ npm install stylelint
 ```
 
-Currently, reported line numbers are only _approximate_, marking the beginning of the CSS node to which the warning relates. _See issue [#133](https://github.com/stylelint/stylelint/issues/133) for more details._
+This plugin registers warnings via PostCSS. Therefore, you'll want to use it with a PostCSS runner that prints warnings (e.g. [`gulp-postcss`](https://github.com/postcss/gulp-postcss)) or another PostCSS plugin that prints warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
 
 ## Usage
 
@@ -71,6 +75,8 @@ var css = fs.readFileSync("input.css", "utf8")
   .then()
   .catch(err => console.error(err.stack))
 ```
+
+Currently, reported line numbers are only _approximate_, marking the beginning of the CSS node to which the warning relates. _See issue [#133](https://github.com/stylelint/stylelint/issues/133) for more details._
 
 ### With CSS processors
 
