@@ -10,6 +10,7 @@ import isWhitespace from "./isWhitespace"
 import lineCount from "./lineCount"
 import optionsHaveException from "./optionsHaveException"
 import optionsHaveIgnored from "./optionsHaveIgnored"
+import rawNodeString from "./rawNodeString"
 import report from "./report"
 import ruleMessages from "./ruleMessages"
 import styleSearch from "./styleSearch"
@@ -30,6 +31,7 @@ export default {
   optionsHaveException,
   optionsHaveIgnored,
   report,
+  rawNodeString,
   ruleMessages,
   styleSearch,
   validateOptions,

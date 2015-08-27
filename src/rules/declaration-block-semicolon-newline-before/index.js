@@ -29,7 +29,7 @@ export default function (expectation) {
 
     root.walkDecls(function (decl) {
       const parentRule = decl.parent
-      if (!parentRule.semicolon && parentRule.last === decl) { return }
+      if (!parentRule.raws.semicolon && parentRule.last === decl) { return }
 
       const declString = decl.toString()
 

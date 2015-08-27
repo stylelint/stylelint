@@ -30,8 +30,8 @@ export default function (expectation) {
       if (!rule.last || rule.last.type !== "decl") { return }
 
       // Check semi colon
-      if (expectation === "always" && rule.semicolon) { return }
-      if (expectation === "never" && !rule.semicolon) { return }
+      if (expectation === "always" && rule.raws.semicolon) { return }
+      if (expectation === "never" && !rule.raws.semicolon) { return }
 
       const message = (expectation === "always") ? messages.expected : messages.rejected
 

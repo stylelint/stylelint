@@ -27,7 +27,6 @@ export default function (actual) {
         const line = lineCount + 2
         report({
           message: messages.rejected(line),
-          node: root,
           line: line,
           result,
           ruleName,

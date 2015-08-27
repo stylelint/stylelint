@@ -31,7 +31,6 @@ export default function (expectation) {
       const line = lineCount(cssString.slice(0, match.startIndex))
       report({
         message: messages.expected(expectation, line),
-        node: root,
         line: line,
         result,
         ruleName,

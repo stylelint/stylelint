@@ -19,7 +19,6 @@ export default function (actual) {
     if (root.source.input.css.slice(-1) !== "\n") {
       report({
         message: messages.rejected,
-        node: root,
         line: lineCount(root.source.input.css),
         result,
         ruleName,

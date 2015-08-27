@@ -33,5 +33,6 @@ export default function ({ ruleName, result, message, line, node }) {
     }
   }
 
-  result.warn(message, { node: node })
+  const warningOpts = (node) ? { node } : {}
+  result.warn(message, warningOpts)
 }

@@ -25,7 +25,6 @@ export default function (actual) {
       if (whitespacesToReject.indexOf(rootString[match.startIndex - 1]) !== -1) {
         report({
           message: messages.rejected(lineCount),
-          node: root,
           line: lineCount,
           result,
           ruleName,
