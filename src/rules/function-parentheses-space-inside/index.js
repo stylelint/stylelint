@@ -26,7 +26,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
+    root.walkDecls(decl => {
       const value = decl.value
 
       styleSearch({ source: value, target: "(" }, match => {

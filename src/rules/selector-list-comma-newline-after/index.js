@@ -27,7 +27,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachRule(rule => {
+    root.walkRules(rule => {
       const selector = rule.selector
       styleSearch({ source: selector, target: "," }, match => {
         checker.afterOneOnly({

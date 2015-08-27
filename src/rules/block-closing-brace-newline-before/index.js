@@ -29,8 +29,8 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     // Check both kinds of statements: rules and at-rules
-    root.eachRule(check)
-    root.eachAtRule(check)
+    root.walkRules(check)
+    root.walkAtRules(check)
 
     function check(statement) {
 
@@ -44,7 +44,7 @@ export default function (expectation) {
       // the last declaration and the closing brace. We can
       // ignore any other whitespace between them, because that
       // will be checked by the indentation rule.
-      if (statement.after[0] !== "\n" && statement.after.substr(0, 2) !== "\r\n") {
+      if (statement.raws.after[0] !== "\n" && statement.raws.after.substr(0, 2) !== "\r\n") {
         if (expectation === "always") {
           report({
             message: messages.expectedBefore(),
@@ -61,7 +61,7 @@ export default function (expectation) {
           })
         }
       }
-      if (statement.after) {
+      if (statement.raws.after) {
         if (expectation === "never") {
           report({
             message: messages.rejectedBefore(),

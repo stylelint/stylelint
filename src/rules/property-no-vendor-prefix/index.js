@@ -16,7 +16,7 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
+    root.walkDecls(decl => {
       const prop = decl.prop
 
       // Make sure there's a vendor prefix,

@@ -29,11 +29,11 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
+    root.walkDecls(decl => {
       check(decl.value, decl)
     })
 
-    root.eachAtRule(atRule => {
+    root.walkAtRules(atRule => {
       check(atRule.params, atRule)
     })
 

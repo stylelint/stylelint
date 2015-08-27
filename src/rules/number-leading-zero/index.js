@@ -22,11 +22,11 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
+    root.walkDecls(decl => {
       check(decl.value, decl)
     })
 
-    root.eachAtRule(atRule => {
+    root.walkAtRules(atRule => {
       check(atRule.params, atRule)
     })
 

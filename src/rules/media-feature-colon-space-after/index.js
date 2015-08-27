@@ -30,7 +30,7 @@ export default function (expectation) {
 }
 
 export function mediaFeatureColonSpaceChecker(checkLocation, root, result) {
-  root.eachAtRule(atRule => {
+  root.walkAtRules(atRule => {
     const { name, params } = atRule
 
     // Only deal with @media at-rules

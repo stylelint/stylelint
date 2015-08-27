@@ -50,15 +50,15 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachAtRule(check)
-    root.eachRule(check)
+    root.walkAtRules(check)
+    root.walkRules(check)
 
     function check(statement) {
       if (statement.type === "atrule") {
         checkAtRuleParams(statement)
       }
 
-      statement.eachDecl(function (decl) {
+      statement.walkDecls(function (decl) {
         cssFunctionArguments(decl.value, "url", args => {
           if (strDefiesExpectation(args)) {
             report({

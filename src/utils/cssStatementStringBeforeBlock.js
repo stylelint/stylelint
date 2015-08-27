@@ -14,7 +14,7 @@ export default function (statement) {
   if (!cssStatementHasBlock(statement)) { return }
 
   return (statement.type === "rule")
-    ? statement.before + statement.selector + statement.between
-    : statement.before + "@" + statement.name + statement.afterName +
-      statement.params + statement.between
+    ? statement.raws.before + statement.selector + statement.raws.between
+    : statement.raws.before + "@" + statement.name + statement.raws.afterName +
+      statement.params + statement.raws.between
 }

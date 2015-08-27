@@ -25,7 +25,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachAtRule(atRule => {
+    root.walkAtRules(atRule => {
       if (atRule.name !== "media") { return }
 
       const params = atRule.params

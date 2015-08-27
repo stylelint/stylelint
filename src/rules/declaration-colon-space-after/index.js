@@ -29,7 +29,7 @@ export default function (expectation) {
 }
 
 export function declarationColonSpaceChecker(locationChecker, root, result) {
-  root.eachDecl(decl => {
+  root.walkDecls(decl => {
     const declString = decl.toString()
 
     for (let i = 0, l = declString.length; i < l; i++) {

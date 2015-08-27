@@ -16,7 +16,7 @@ export default function (pattern) {
     const validOptions = validateOptions(result, ruleName, { actual: pattern, possible: isRegExp })
     if (!validOptions) { return }
 
-    root.eachAtRule(atRule => {
+    root.walkAtRules(atRule => {
       if (atRule.name !== "custom-media") { return }
 
       const customMediaName = atRule.params.match(/^--(\S+)\b/)[1]

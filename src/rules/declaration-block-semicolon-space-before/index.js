@@ -29,7 +29,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
+    root.walkDecls(decl => {
       // Ignore last declaration if there's no trailing semicolon
       const parentRule = decl.parent
       if (!parentRule.semicolon && parentRule.last === decl) { return }

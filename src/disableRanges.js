@@ -10,7 +10,7 @@ export default function (root, result) {
 
   let withinDisabledRange = false
 
-  result.root.eachComment(comment => {
+  result.root.walkComments(comment => {
     const { text } = comment
 
     // Ignore comments that are not relevant commands

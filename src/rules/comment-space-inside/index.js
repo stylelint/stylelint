@@ -24,7 +24,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachComment(function (comment) {
+    root.walkComments(function (comment) {
 
       const left = comment.left
       const right = comment.right

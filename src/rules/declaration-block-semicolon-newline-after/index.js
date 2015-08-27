@@ -27,7 +27,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
+    root.walkDecls(decl => {
       // Ignore last declaration if there's no trailing semicolon
       const parentRule = decl.parent
       if (!parentRule.semicolon && parentRule.last === decl) { return }
@@ -36,7 +36,7 @@ export default function (expectation) {
       if (!nextNode) { return }
 
       // Allow end-of-line comments one space after the semicolon
-      let nodeToCheck = (nextNode.type === "comment" && nextNode.before === " ")
+      let nodeToCheck = (nextNode.type === "comment" && nextNode.raws.before === " ")
         ? nextNode.next()
         : nextNode
       if (!nodeToCheck) { return }

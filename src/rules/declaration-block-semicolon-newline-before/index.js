@@ -27,7 +27,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachDecl(function (decl) {
+    root.walkDecls(function (decl) {
       const parentRule = decl.parent
       if (!parentRule.semicolon && parentRule.last === decl) { return }
 

@@ -20,13 +20,13 @@ export default function (precision) {
     })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
+    root.walkDecls(decl => {
       // Don't bother with strings
       if (decl.prop === "content") { return }
       check(decl.value, decl)
     })
 
-    root.eachAtRule(atRule => {
+    root.walkAtRules(atRule => {
       check(atRule.params, atRule)
     })
 

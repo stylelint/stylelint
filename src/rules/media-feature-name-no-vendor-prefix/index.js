@@ -16,7 +16,7 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.eachAtRule(atRule => {
+    root.walkAtRules(atRule => {
       const { params } = atRule
       if (isAutoprefixable.mediaFeatureName(params)) {
         report({

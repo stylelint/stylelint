@@ -29,7 +29,7 @@ export default function (expectation) {
 }
 
 export function declarationBangSpaceChecker(locationChecker, root, result) {
-  root.eachDecl(function (decl) {
+  root.walkDecls(function (decl) {
     if (!decl.important) { return }
     const declString = decl.toString()
 

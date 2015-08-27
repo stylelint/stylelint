@@ -23,7 +23,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachRule(rule => {
+    root.walkRules(rule => {
       // Return early if an empty rule
       if (cssStatementHasEmptyBlock(rule)) { return }
 

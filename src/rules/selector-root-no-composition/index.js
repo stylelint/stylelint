@@ -15,7 +15,7 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.eachRule(rule => {
+    root.walkRules(rule => {
       if (rule.selector.indexOf(":root") === -1) { return }
 
       if (rule.selector.trim() === ":root") { return }

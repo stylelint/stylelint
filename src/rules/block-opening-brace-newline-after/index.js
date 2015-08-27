@@ -31,8 +31,8 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     // Check both kinds of statement: rules and at-rules
-    root.eachRule(check)
-    root.eachAtRule(check)
+    root.walkRules(check)
+    root.walkAtRules(check)
 
     function check(statement) {
 
@@ -41,13 +41,13 @@ export default function (expectation) {
 
       // Allow an end-of-line comment one space after the brace
       const firstNode = statement.first
-      const nodeToCheck = (firstNode.type === "comment" && firstNode.before === " ")
+      const nodeToCheck = (firstNode.type === "comment" && firstNode.raws.before === " ")
         ? firstNode.next()
         : firstNode
       if (!nodeToCheck) { return }
 
       checker.afterOneOnly({
-        source: nodeToCheck.toString(),
+        source: nodeToCheck.raws.before + nodeToCheck.toString(),
         index: -1,
         lineCheckStr: cssStatementBlockString(statement),
         err: m => {

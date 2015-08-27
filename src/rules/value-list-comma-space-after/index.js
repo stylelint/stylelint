@@ -34,7 +34,7 @@ export default function (expectation) {
 }
 
 export function valueListCommaWhitespaceChecker(checkLocation, root, result) {
-  root.eachDecl(decl => {
+  root.walkDecls(decl => {
     const value = decl.value
 
     styleSearch({ source: value, target: ",", outsideFunctionalNotation: true }, match => {

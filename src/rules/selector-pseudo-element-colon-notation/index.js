@@ -23,7 +23,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachRule(rule => {
+    root.walkRules(rule => {
       const selector = rule.selector
 
       // get out early if no pseudo elements or classes

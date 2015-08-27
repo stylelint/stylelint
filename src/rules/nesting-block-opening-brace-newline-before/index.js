@@ -38,7 +38,7 @@ export default function (expectation) {
 }
 
 export function checkNestingBlockOpeningBraceBefore(checker, root, result) {
-  root.eachRule(rule => {
+  root.walkRules(rule => {
     if (!cssStatementIsNestingBlock(rule) || cssStatementHasEmptyBlock(rule)) { return }
 
     // console.log(JSON.stringify(rule.toString()))
