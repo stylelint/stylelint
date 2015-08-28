@@ -13,9 +13,10 @@
  * @param {Result} violation.result - postcss Result object
  * @param {string} violation.message - Message to inform user of the violation
  * @param {Node} [violation.node] - postcss Node object
+ * @param {Node} [violation.index] - Index that should be passed to result.warn()
  * @param {number} [violation.line] - Line number of the violation
  */
-export default function ({ ruleName, result, message, line, node }) {
+export default function ({ ruleName, result, message, line, node, index }) {
 
   const startLine = (line)
     ? line
@@ -34,5 +35,8 @@ export default function ({ ruleName, result, message, line, node }) {
   }
 
   const warningOpts = (node) ? { node } : {}
+  if (index) {
+    warningOpts.index = index
+  }
   result.warn(message, warningOpts)
 }
