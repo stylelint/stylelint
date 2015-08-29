@@ -13,9 +13,29 @@ testRule(undefined, tr => {
   tr.ok(".bar {}")
   tr.ok("foo .bar {}")
 
-  tr.notOk("[foo] {}", messages.rejected)
-  tr.notOk("a[rel=\"external\"] {}", messages.rejected)
-  tr.notOk("a, .foo[type=\"text\"] {}", messages.rejected)
-  tr.notOk("a > [foo] {}", messages.rejected)
-  tr.notOk("a[rel='external'] {}", messages.rejected)
+  tr.notOk("[foo] {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  })
+  tr.notOk("a[rel=\"external\"] {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 2,
+  })
+  tr.notOk("a, .foo[type=\"text\"] {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 8,
+  })
+  tr.notOk("a > [foo] {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 5,
+  })
+  tr.notOk("a[rel='external'] {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 2,
+  })
 })
