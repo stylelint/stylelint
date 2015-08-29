@@ -33,6 +33,8 @@ export default function (expectation) {
 
       const declString = decl.toString()
 
+      console.log(JSON.stringify(decl.toString()))
+
       check.before({
         source: declString,
         index: declString.length,
@@ -41,6 +43,7 @@ export default function (expectation) {
           return report({
             message: m,
             node: decl,
+            index: decl.toString().length - 1,
             result,
             ruleName,
           })
