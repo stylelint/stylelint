@@ -27,12 +27,44 @@ testRule(undefined, tr => {
   tr.ok("a { transition-delay: 0s; }", "dimension unit is ok")
   tr.ok("@media (min-width: 0)", "media feature")
 
-  tr.notOk("a { top: 0px; }", messages.rejected)
-  tr.notOk("a { top: 0.000px; }", messages.rejected)
-  tr.notOk("a { padding: 0px 1px 2px 3px; }", messages.rejected)
-  tr.notOk("a { padding: 1px 0vmax 2px 3px; }", messages.rejected)
-  tr.notOk("a { padding: 1px 2px 0rem 3px; }", messages.rejected)
-  tr.notOk("a { padding: 1px 2px 3px 0em; }", messages.rejected)
-  tr.notOk("a { padding: calc(1in + 0in * 2)); }", messages.rejected)
-  tr.notOk("@media (min-width: 0px) {}", messages.rejected, "media feature")
+  tr.notOk("a { top: 0px; }", {
+    message: messages.rejected,
+    line: 1,
+    column: 11,
+  })
+  tr.notOk("a { top: 0.000px; }", {
+    message: messages.rejected,
+    line: 1,
+    column: 15,
+  })
+  tr.notOk("a { padding: 0px 1px 2px 3px; }", {
+    message: messages.rejected,
+    line: 1,
+    column: 15,
+  })
+  tr.notOk("a { padding: 1px 0vmax 2px 3px; }", {
+    message: messages.rejected,
+    line: 1,
+    column: 19,
+  })
+  tr.notOk("a { padding: 1px 2px 0rem 3px; }", {
+    message: messages.rejected,
+    line: 1,
+    column: 23,
+  })
+  tr.notOk("a { padding: 1px 2px 3px 0em; }", {
+    message: messages.rejected,
+    line: 1,
+    column: 27,
+  })
+  tr.notOk("a { padding: calc(1in + 0in * 2)); }", {
+    message: messages.rejected,
+    line: 1,
+    column: 26,
+  })
+  tr.notOk("@media (min-width: 0px) {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 21,
+  }, "media feature")
 })
