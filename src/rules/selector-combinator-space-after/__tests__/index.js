@@ -32,32 +32,56 @@ testRule("always", tr => {
   )
   tr.notOk(
     "a+\na {}",
-    messages.expectedAfter("+"),
+    {
+      message: messages.expectedAfter("+"),
+      line: 1,
+      column: 2,
+    },
     "newline after + combinator"
   )
   tr.notOk(
     "a+a {}",
-    messages.expectedAfter("+"),
+    {
+      message: messages.expectedAfter("+"),
+      line: 1,
+      column: 2,
+    },
     "no space after + combinator"
   )
   tr.notOk(
     "a>a {}",
-    messages.expectedAfter(">"),
+    {
+      message: messages.expectedAfter(">"),
+      line: 1,
+      column: 2,
+    },
     "no space after > combinator"
   )
   tr.notOk(
     "a~a {}",
-    messages.expectedAfter("~"),
+    {
+      message: messages.expectedAfter("~"),
+      line: 1,
+      column: 2,
+    },
     "no space after ~ combinator"
   )
   tr.notOk(
     "a + .foo.bar ~a {}",
-    messages.expectedAfter("~"),
+    {
+      message: messages.expectedAfter("~"),
+      line: 1,
+      column: 14,
+    },
     "multiple combinators: no space after ~ combinator"
   )
   tr.notOk(
     "#foo +.foo.bar ~ a {}",
-    messages.expectedAfter("+"),
+    {
+      message: messages.expectedAfter("+"),
+      line: 1,
+      column: 6,
+    },
     "multiple combinators: no space after + combinator"
   )
 })
@@ -83,52 +107,92 @@ testRule("never", tr => {
 
   tr.notOk(
     "a+ a {}",
-    messages.rejectedAfter("+"),
+    {
+      message: messages.rejectedAfter("+"),
+      line: 1,
+      column: 2,
+    },
     "space after + combinator"
   )
   tr.notOk(
     "a> a {}",
-    messages.rejectedAfter(">"),
+    {
+      message: messages.rejectedAfter(">"),
+      line: 1,
+      column: 2,
+    },
     "space after > combinator"
   )
   tr.notOk(
     "a~ a {}",
-    messages.rejectedAfter("~"),
+    {
+      message: messages.rejectedAfter("~"),
+      line: 1,
+      column: 2,
+    },
     "space after ~ combinator"
   )
   tr.notOk(
     "a+\na{}",
-    messages.rejectedAfter("+"),
+    {
+      message: messages.rejectedAfter("+"),
+      line: 1,
+      column: 2,
+    },
     "newline after + combinator"
   )
   tr.notOk(
     "a+\r\na{}",
-    messages.rejectedAfter("+"),
+    {
+      message: messages.rejectedAfter("+"),
+      line: 1,
+      column: 2,
+    },
     "CRLF after + combinator"
   )
   tr.notOk(
     "a>\na{}",
-    messages.rejectedAfter(">"),
+    {
+      message: messages.rejectedAfter(">"),
+      line: 1,
+      column: 2,
+    },
     "newline after > combinator"
   )
   tr.notOk(
     "a~\na{}",
-    messages.rejectedAfter("~"),
+    {
+      message: messages.rejectedAfter("~"),
+      line: 1,
+      column: 2,
+    },
     "newline after ~ combinator"
   )
   tr.notOk(
     "a~\r\na{}",
-    messages.rejectedAfter("~"),
+    {
+      message: messages.rejectedAfter("~"),
+      line: 1,
+      column: 2,
+    },
     "CRLF after ~ combinator"
   )
   tr.notOk(
     "a + .foo.bar ~a {}",
-    messages.rejectedAfter("+"),
+    {
+      message: messages.rejectedAfter("+"),
+      line: 1,
+      column: 3,
+    },
     "multiple combinators: space after + combinator"
   )
   tr.notOk(
     "#foo +.foo.bar ~ a {}",
-    messages.rejectedAfter("~"),
+    {
+      message: messages.rejectedAfter("~"),
+      line: 1,
+      column: 16,
+    },
     "multiple combinators: no space after ~ combinator"
   )
 })
