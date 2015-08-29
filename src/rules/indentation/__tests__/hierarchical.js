@@ -34,7 +34,11 @@ tr.notOk(
 `.foo {}
   .bar {}
 .baz {}`,
-messages.expected("0 spaces at line 2"))
+{
+  message: messages.expected("0 spaces at line 2"),
+  line: 2,
+  column: 3,
+})
 
 tr.ok(
 `.foo {}
@@ -57,14 +61,22 @@ tr.notOk(
     .foo-one {}
 .bar {}
   .bar-one {}`,
-messages.expected("2 spaces at line 2"))
+{
+  message: messages.expected("2 spaces at line 2"),
+  line: 2,
+  column: 5,
+})
 
 tr.notOk(
 `.foo {}
   .foo-one {}
 .bar {}
    .bar-one {}`,
-messages.expected("2 spaces at line 4"))
+{
+  message: messages.expected("2 spaces at line 4"),
+  line: 4,
+  column: 4,
+})
 
 tr.notOk(
 `.foo {}
@@ -73,14 +85,22 @@ tr.notOk(
   .bar-one {
   top: 0;
   }`,
-messages.expected("4 spaces at line 5"))
+{
+  message: messages.expected("4 spaces at line 5"),
+  line: 5,
+  column: 3,
+})
 
 tr.notOk(
 `.foo {}
   .foo-one {}
   .bar {}
   .bar-one {}`,
-messages.expected("0 spaces at line 3"))
+{
+  message: messages.expected("0 spaces at line 3"),
+  line: 3,
+  column: 3,
+})
 
 tr.notOk(
 `.foo {}
@@ -88,7 +108,11 @@ tr.notOk(
     color: pink;
      top: 0;
   }`,
-messages.expected("4 spaces at line 4"))
+{
+  message: messages.expected("4 spaces at line 4"),
+  line: 4,
+  column: 6,
+})
 
 tr.ok(
 `.foo {}
@@ -100,7 +124,11 @@ tr.notOk(
 `.foo {}
   .foo-one {}
   .foo-one-sub {}`,
-messages.expected("4 spaces at line 3"))
+{
+  message: messages.expected("4 spaces at line 3"),
+  line: 3,
+  column: 3,
+})
 
 tr.ok(
 `.foo {}
@@ -118,7 +146,11 @@ tr.notOk(
   .foo-two-sub {}
   .foo-three {}
 .bar {}`,
-messages.expected("4 spaces at line 4"))
+{
+  message: messages.expected("4 spaces at line 4"),
+  line: 4,
+  column: 3,
+})
 
 tr.notOk(
 `.foo {}
@@ -131,7 +163,11 @@ tr.notOk(
     }
   .foo-three {}
   .bar {}`,
-messages.expected("0 spaces at line 10"))
+{
+  message: messages.expected("0 spaces at line 10"),
+  line: 10,
+  column: 3,
+})
 
 tr.ok(
 `#foo {
@@ -159,7 +195,11 @@ tr.notOk(
   #foo div {}
     #foo div span {}
 #bar {}`,
-messages.expected("4 spaces at line 4"))
+{
+  message: messages.expected("4 spaces at line 4"),
+  line: 4,
+  column: 7,
+})
 
 tr.notOk(
 `#foo {}
@@ -170,7 +210,11 @@ tr.notOk(
   #foo div {}
     #foo div span {}
 #bar {}`,
-messages.expected("4 spaces at line 5"))
+{
+  message: messages.expected("4 spaces at line 5"),
+  line: 5,
+  column: 3,
+})
 
 tr.ok(
 `#bar {}
@@ -184,7 +228,11 @@ tr.notOk(
 #baz {}
   #bar a {}
 #baz b {}`,
-messages.expected("0 spaces at line 3"))
+{
+  message: messages.expected("0 spaces at line 3"),
+  line: 3,
+  column: 3,
+})
 
 tr.ok(
 `@media print {
@@ -213,7 +261,11 @@ tr.notOk(
     top: 1px;
   }
 }`,
-messages.expected("6 spaces at line 7"))
+{
+  message: messages.expected("6 spaces at line 7"),
+  line: 7,
+  column: 8,
+})
 
 tr.ok(
 `.foo {}
@@ -231,7 +283,11 @@ tr.notOk(
       color: pink;
     }
   }`,
-messages.expected("4 spaces at line 3"))
+{
+  message: messages.expected("4 spaces at line 3"),
+  line: 3,
+  column: 3,
+})
 
 tr.ok(
 `.foo {}
@@ -245,7 +301,11 @@ tr.notOk(
   @media print {
       .foo-one {}
   }`,
-messages.expected("4 spaces at line 3"))
+{
+  message: messages.expected("4 spaces at line 3"),
+  line: 3,
+  column: 7,
+})
 
 tr.ok(
 `:root {

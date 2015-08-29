@@ -16,7 +16,11 @@ tr.ok(
 
 tr.notOk(
 ` /* blergh */`,
-messages.expected("0 tabs at line 1"))
+{
+  message: messages.expected("0 tabs at line 1"),
+  line: 1,
+  column: 2,
+})
 
 tr.ok(
 `.foo {
@@ -30,7 +34,11 @@ tr.notOk(
 \t\t/* blergh */
 \ttop: 0;
 }`,
-messages.expected("1 tab at line 2"))
+{
+  message: messages.expected("1 tab at line 2"),
+  line: 2,
+  column: 3,
+})
 
 tr.ok(
 `@media print {
@@ -48,6 +56,10 @@ tr.notOk(
 \t\ttop: 0;
 \t}
 }`,
-messages.expected("2 tabs at line 3"))
+{
+  message: messages.expected("2 tabs at line 3"),
+  line: 3,
+  column: 2,
+})
 
 })

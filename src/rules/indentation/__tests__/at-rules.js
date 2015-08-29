@@ -36,35 +36,55 @@ tr.notOk(
   a {
     color: pink;
   }
-}`, messages.expected("0 spaces at line 2"))
+}`, {
+  message: messages.expected("0 spaces at line 2"),
+  line: 2,
+  column: 3,
+})
 
 tr.notOk(
 `@media print {
 a {
     color: pink;
   }
-}`, messages.expected("2 spaces at line 2"))
+}`, {
+  message: messages.expected("2 spaces at line 2"),
+  line: 2,
+  column: 1,
+})
 
 tr.notOk(
 `@media print {
   a {
   color: pink;
   }
-}`, messages.expected("4 spaces at line 3"))
+}`, {
+  message: messages.expected("4 spaces at line 3"),
+  line: 3,
+  column: 3,
+})
 
 tr.notOk(
 `@media print {
   a {
     color: pink;
 }
-}`, messages.expected("2 spaces at line 4"))
+}`, {
+  message: messages.expected("2 spaces at line 4"),
+  line: 4,
+  column: 1,
+})
 
 tr.notOk(
 `@media print {
   a {
     color: pink;
   }
-\t}`, messages.expected("0 spaces at line 5"))
+\t}`, {
+  message: messages.expected("0 spaces at line 5"),
+  line: 5,
+  column: 2,
+})
 
 })
 
@@ -88,7 +108,11 @@ tr.notOk(
 \tcolor: pink;
 }
 
-}`, messages.expected("0 tabs at line 3"))
+}`, {
+  message: messages.expected("0 tabs at line 3"),
+  line: 3,
+  column: 2,
+})
 
 tr.notOk(
 `@media print {
@@ -97,6 +121,10 @@ a {
 color: pink;
 }
 
-}`, messages.expected("1 tab at line 4"))
+}`, {
+  message: messages.expected("1 tab at line 4"),
+  line: 4,
+  column: 1,
+})
 
 })

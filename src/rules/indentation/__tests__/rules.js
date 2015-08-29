@@ -80,25 +80,41 @@ tr.notOk(
 `\ta {
   color: pink;
 }`,
-messages.expected("0 spaces at line 1"))
+{
+  message: messages.expected("0 spaces at line 1"),
+  line: 1,
+  column: 2,
+})
 
 tr.notOk(
 `a {
   color: pink;
   }`,
-messages.expected("0 spaces at line 3"))
+{
+  message: messages.expected("0 spaces at line 3"),
+  line: 3,
+  column: 3,
+})
 
 tr.notOk(
 `a,
 b {
   color: pink;
   }`,
-messages.expected("0 spaces at line 4"))
+{
+  message: messages.expected("0 spaces at line 4"),
+  line: 4,
+  column: 3,
+})
 
 tr.notOk(
 `a { color: pink;
   }`,
-messages.expected("0 spaces at line 2"))
+{
+  message: messages.expected("0 spaces at line 2"),
+  line: 2,
+  column: 3,
+})
 
 tr.notOk(
 `a {
@@ -107,7 +123,11 @@ tr.notOk(
  b {
   color: orange
 }`
-, messages.expected("0 spaces at line 4"))
+, {
+  message: messages.expected("0 spaces at line 4"),
+  line: 4,
+  column: 2,
+})
 
 tr.notOk(
 `a {
@@ -116,27 +136,43 @@ tr.notOk(
 b {
   color: orange
  }`,
-messages.expected("0 spaces at line 6"))
+{
+  message: messages.expected("0 spaces at line 6"),
+  line: 6,
+  column: 2,
+})
 
 // Declaration errors
 tr.notOk(
 `a {
 color: pink;
 }`,
-messages.expected("2 spaces at line 2"))
+{
+  message: messages.expected("2 spaces at line 2"),
+  line: 2,
+  column: 1,
+})
 
 tr.notOk(
 `a {
 \tcolor: pink;
 }`,
-messages.expected("2 spaces at line 2"))
+{
+  message: messages.expected("2 spaces at line 2"),
+  line: 2,
+  column: 2,
+})
 
 tr.notOk(
 `a {
   color: pink;
  background: orange;
 }`,
-messages.expected("2 spaces at line 3"))
+{
+  message: messages.expected("2 spaces at line 3"),
+  line: 3,
+  column: 2,
+})
 
 
 tr.notOk(
@@ -146,7 +182,11 @@ tr.notOk(
     bottom left;
   color: pink;
 }`,
-messages.expected("4 spaces at line 3"))
+{
+  message: messages.expected("4 spaces at line 3"),
+  line: 3,
+  column: 1,
+})
 
 tr.notOk(
 `a {
@@ -155,7 +195,11 @@ tr.notOk(
   bottom left;
   color: pink;
 }`,
-messages.expected("4 spaces at line 4"))
+{
+  message: messages.expected("4 spaces at line 4"),
+  line: 4,
+  column: 1,
+})
 
 // with * hack
 tr.ok(
@@ -212,13 +256,21 @@ tr.notOk(
 `\ta {
 \tcolor: pink;
 }`,
-messages.expected("0 tabs at line 1"))
+{
+  message: messages.expected("0 tabs at line 1"),
+  line: 1,
+  column: 2,
+})
 
 tr.notOk(
 `a {
 \tcolor: pink;
   }`,
-messages.expected("0 tabs at line 3"))
+{
+  message: messages.expected("0 tabs at line 3"),
+  line: 3,
+  column: 3,
+})
 
 tr.notOk(
 `a {
@@ -227,7 +279,11 @@ tr.notOk(
  b {
 \tcolor: orange
 }`
-, messages.expected("0 tabs at line 4"))
+, {
+  message: messages.expected("0 tabs at line 4"),
+  line: 4,
+  column: 2,
+})
 
 tr.notOk(
 `a {
@@ -236,33 +292,53 @@ tr.notOk(
 b {
 \tcolor: orange
  }`,
-messages.expected("0 tabs at line 6"))
+{
+  message: messages.expected("0 tabs at line 6"),
+  line: 6,
+  column: 2,
+})
 
 // Declaration errors
 tr.notOk(
 `a {
 color: pink;
 }`,
-messages.expected("1 tab at line 2"))
+{
+  message: messages.expected("1 tab at line 2"),
+  line: 2,
+  column: 1,
+})
 
 tr.notOk(
 `a {
   color: pink;
 }`,
-messages.expected("1 tab at line 2"))
+{
+  message: messages.expected("1 tab at line 2"),
+  line: 2,
+  column: 3,
+})
 
 tr.notOk(
 `a {
 \tcolor: pink;
  background: orange;
 }`,
-messages.expected("1 tab at line 3"))
+{
+  message: messages.expected("1 tab at line 3"),
+  line: 3,
+  column: 2,
+})
 
 tr.notOk(
 `a { color: pink;
 top: 0; background: orange;
 }`,
-messages.expected("1 tab at line 2"))
+{
+  message: messages.expected("1 tab at line 2"),
+  line: 2,
+  column: 1,
+})
 
 })
 
@@ -291,7 +367,11 @@ tr.notOk(
   bottom left;
   color: pink;
 }`,
-messages.expected("2 spaces at line 3"))
+{
+  message: messages.expected("2 spaces at line 3"),
+  line: 3,
+  column: 1,
+})
 
 tr.notOk(
 `a {
@@ -300,6 +380,10 @@ tr.notOk(
     bottom left;
   color: pink;
 }`,
-messages.expected("2 spaces at line 4"))
+{
+  message: messages.expected("2 spaces at line 4"),
+  line: 4,
+  column: 1,
+})
 
 })
