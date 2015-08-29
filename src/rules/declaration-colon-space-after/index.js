@@ -43,7 +43,8 @@ export function declarationColonSpaceChecker(locationChecker, root, result) {
     locationChecker({ source, index, err: m =>
       report({
         message: m,
-        node: node,
+        node,
+        index: node.prop.toString().length + 1,
         result,
         ruleName,
       }),
