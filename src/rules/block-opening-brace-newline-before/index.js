@@ -58,6 +58,7 @@ export default function (expectation) {
           report({
             message: m,
             node: statement,
+            index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length - 1,
             result,
             ruleName,
           })
