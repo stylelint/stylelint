@@ -44,6 +44,7 @@ export default function (expectation) {
           return report({
             message: m,
             node: decl,
+            index: decl.toString().length - 1,
             result,
             ruleName,
           })
