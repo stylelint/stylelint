@@ -16,7 +16,19 @@ testRule([
   tr.ok("a { background: red; }")
   tr.ok("a { top: 0; color: pink; }")
 
-  tr.notOk("a { transform: scale(1); }", messages.rejected("transform"))
-  tr.notOk("a { color: pink; background-size: cover; }", messages.rejected("background-size"))
-  tr.notOk("a { color: pink; -webkit-transform: scale(1); }", messages.rejected("-webkit-transform"))
+  tr.notOk("a { transform: scale(1); }", {
+    message: messages.rejected("transform"),
+    line: 1,
+    column: 5,
+  })
+  tr.notOk("a { color: pink; background-size: cover; }", {
+    message: messages.rejected("background-size"),
+    line: 1,
+    column: 18,
+  })
+  tr.notOk("a { color: pink; -webkit-transform: scale(1); }", {
+    message: messages.rejected("-webkit-transform"),
+    line: 1,
+    column: 18,
+  })
 })
