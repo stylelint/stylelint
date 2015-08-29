@@ -31,10 +31,10 @@ export default function (expectation) {
 
 export function functionCommaSpaceChecker(checkLocation, root, result) {
   root.walkDecls(decl => {
-    const value = decl.value
+    const declString = decl.toString()
 
-    styleSearch({ source: value, target: ",", withinFunctionalNotation: true }, match => {
-      checkComma(value, match.startIndex, decl)
+    styleSearch({ source: declString, target: ",", withinFunctionalNotation: true }, match => {
+      checkComma(declString, match.startIndex, decl)
     })
   })
 
@@ -42,7 +42,8 @@ export function functionCommaSpaceChecker(checkLocation, root, result) {
     checkLocation({ source, index, err: m =>
       report({
         message: m,
-        node: node,
+        node,
+        index,
         result,
         ruleName,
       }),
