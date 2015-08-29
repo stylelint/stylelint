@@ -45,6 +45,7 @@ export function mediaQueryListCommaWhitespaceChecker(checkLocation, root, result
       report({
         message: m,
         node,
+        index: index + 1 + node.name.length + node.raws.afterName.length,
         result,
         ruleName,
       }),
