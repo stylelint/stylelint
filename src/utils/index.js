@@ -1,3 +1,4 @@
+import blurComments from "./blurComments"
 import cssFunctionArguments from "./cssFunctionArguments"
 import cssStatementBlockString from "./cssStatementBlockString"
 import cssStatementHasBlock from "./cssStatementHasBlock"
@@ -18,6 +19,7 @@ import validateOptions from "./validateOptions"
 import whitespaceChecker from "./whitespaceChecker"
 
 export default {
+  blurComments,
   cssFunctionArguments,
   cssStatementBlockString,
   cssStatementHasBlock,

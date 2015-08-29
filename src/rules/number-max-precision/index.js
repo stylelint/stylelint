@@ -1,6 +1,7 @@
 import { isNumber } from "lodash"
 import execall from "execall"
 import {
+  blurComments,
   cssStatementHasBlock,
   cssStatementStringBeforeBlock,
   report,
@@ -38,7 +39,7 @@ export default function (precision) {
     function check(source, node) {
       // Negative
       const decimalNumberMatches = execall(/(\d*\.(\d+))/g, blurComments(source))
-      if (!decimalNumberMatches) { return }
+      if (!decimalNumberMatches.length) { return }
 
       decimalNumberMatches.forEach(match => {
         console.log(match)
@@ -53,8 +54,4 @@ export default function (precision) {
       })
     }
   }
-}
-
-function blurComments(str, blurChar="`") {
-  return str.replace(/\/\*.*\*\//g, blurChar)
 }
