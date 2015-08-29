@@ -29,15 +29,23 @@ export default function (expectation) {
 
       if (!rule.last || rule.last.type !== "decl") { return }
 
-      // Check semi colon
-      if (expectation === "always" && rule.raws.semicolon) { return }
-      if (expectation === "never" && !rule.raws.semicolon) { return }
-
-      const message = (expectation === "always") ? messages.expected : messages.rejected
+      let errorIndex
+      let message
+      if (expectation === "always") {
+        if (rule.raws.semicolon) { return }
+        errorIndex = rule.toString().length - rule.raws.after.length - 1
+        message = messages.expected
+      }
+      if (expectation === "never") {
+        if (!rule.raws.semicolon) { return }
+        errorIndex = rule.toString().length - rule.raws.after.length - 2
+        message = messages.rejected
+      }
 
       report({
-        message: message,
+        message,
         node: rule,
+        index: errorIndex,
         result,
         ruleName,
       })

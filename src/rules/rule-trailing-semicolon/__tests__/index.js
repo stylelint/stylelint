@@ -35,30 +35,50 @@ testRule("always", tr => {
 
   tr.notOk(
     "a { color: pink }",
-    messages.expected,
+    {
+      message: messages.expected,
+      line: 1,
+      column: 16,
+    },
     "single-line declaration block without trailing semicolon"
   )
   tr.notOk(
     "a { background: orange; color: pink }",
-    messages.expected,
+    {
+      message: messages.expected,
+      line: 1,
+      column: 36,
+    },
     "multi-line declaration block without trailing semicolon"
   )
 
   tr.notOk(
     "a {{ &:hover { color: pink }}}",
-    messages.expected,
+    {
+      message: messages.expected,
+      line: 1,
+      column: 27,
+    },
     "nesting without first-level decl"
   )
 
   tr.notOk(
     "a { color: red; { &:hover { color: pink }}}",
-    messages.expected,
+    {
+      message: messages.expected,
+      line: 1,
+      column: 40,
+    },
     "nesting with first-level decl"
   )
 
   tr.notOk(
     "a { &:hover { color: pink }}",
-    messages.expected,
+    {
+      message: messages.expected,
+      line: 1,
+      column: 26,
+    },
     "nested"
   )
 })
@@ -77,12 +97,20 @@ testRule("never", tr => {
 
   tr.notOk(
     "a { color: pink; }",
-    messages.rejected,
+    {
+      message: messages.rejected,
+      line: 1,
+      column: 16,
+    },
     "single-line declaration block with trailing semicolon"
   )
   tr.notOk(
     "a { background: orange; color: pink; }",
-    messages.rejected,
+    {
+      message: messages.rejected,
+      line: 1,
+      column: 36,
+    },
     "multi-line declaration block with trailing semicolon"
   )
 })
