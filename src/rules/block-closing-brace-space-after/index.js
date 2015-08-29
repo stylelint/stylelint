@@ -52,6 +52,7 @@ export default function (expectation) {
           report({
             message: msg,
             node: statement,
+            index: statement.toString().length,
             result,
             ruleName,
           })
