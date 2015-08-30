@@ -20,14 +20,18 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      const { prop, value } = decl
+      const declString = decl.toString()
+      const { prop } = decl
 
-      styleSearch({ source: value, target: valuePrefixes }, match => {
-        const fullIdentifier = /^(-[a-z-]+)\b/.exec(value.slice(match.startIndex))[1]
+      // Search the full declaration in order to get an accurate index
+      styleSearch({ source: declString, target: valuePrefixes }, match => {
+        if (match.startIndex <= prop.length) { return }
+        const fullIdentifier = /^(-[a-z-]+)\b/.exec(declString.slice(match.startIndex))[1]
         if (isAutoprefixable.propertyValue(prop, fullIdentifier)) {
           report({
             message: messages.rejected(fullIdentifier),
             node: decl,
+            index: match.startIndex,
             result,
             ruleName,
           })
