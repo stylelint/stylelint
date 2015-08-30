@@ -40,6 +40,7 @@ export default function (expectation) {
         report({
           message: messages.expected(expectation),
           node: rule,
+          index: match.startIndex,
           result,
           ruleName,
         })
