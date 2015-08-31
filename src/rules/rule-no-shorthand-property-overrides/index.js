@@ -9,8 +9,7 @@ export const ruleName = "rule-no-shorthand-property-overrides"
 
 export const messages = ruleMessages(ruleName, {
   rejected: (shorthand, original) => (
-    `Unexpected shorthand property override: ` +
-    `"${shorthand}" will override "${original}"`
+    `Unexpected shorthand "${shorthand}" after "${original}"`
   ),
 })
 
