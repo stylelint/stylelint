@@ -21,6 +21,7 @@ export default function (actual) {
       report({
         message: messages.rejected,
         node: decl,
+        word: "important",
         result,
         ruleName,
       })
