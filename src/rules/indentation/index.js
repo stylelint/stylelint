@@ -77,7 +77,7 @@ export default function (space, options) {
 
       const expectedWhitespace = repeat(indentChar, nodeLevel)
 
-      const { before, after } = node
+      let { before, after } = node
 
       // Only inspect the spaces before the node
       // if this is the first node in root
@@ -85,6 +85,11 @@ export default function (space, options) {
       // (If there is no newline before a node,
       // there is no "indentation" to check.)
       const inspectBefore = (root.first === node) || before.indexOf("\n") !== -1
+
+      // Cut out any * hacks from `before`
+      before = (before[before.length - 1] === "*")
+        ? before.slice(0, before.length - 1)
+        : before
 
       // Inspect whitespace in the `before` string that is
       // *after* the *last* newline character,

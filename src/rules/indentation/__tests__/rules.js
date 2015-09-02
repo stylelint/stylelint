@@ -157,6 +157,29 @@ tr.notOk(
 }`,
 messages.expected("4 spaces at line 4"))
 
+// with * hack
+tr.ok(
+`a {
+  *top: 1px;
+}`
+)
+
+tr.ok(
+`* { top: 0; }`
+)
+
+tr.ok(
+`@media print {
+  * { color: pink; }
+}`
+)
+
+tr.notOk(
+`@media print {
+   * { color: pink; }
+}`,
+messages.expected("2 spaces at line 2"))
+
 })
 
 // tab
