@@ -33,8 +33,6 @@ export default function (expectation) {
 
       const declString = decl.toString()
 
-      console.log(JSON.stringify(decl.toString()))
-
       check.before({
         source: declString,
         index: declString.length,

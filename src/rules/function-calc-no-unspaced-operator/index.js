@@ -54,9 +54,6 @@ export default function (actual) {
               return
             }
 
-            console.log(JSON.stringify(decl.toString()))
-            console.log(expressionIndex, index)
-
             checker.after({ index, source: expression, err: m =>
               report({
                 message: m,
