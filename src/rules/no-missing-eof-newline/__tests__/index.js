@@ -10,7 +10,19 @@ testRule(undefined, tr => {
   tr.ok("a { color: pink; }\n")
   tr.ok("a { color: pink; }\n\n\n")
 
-  tr.notOk("", messages.rejected)
-  tr.notOk("a { color: pink; }", messages.rejected)
-  tr.notOk("a { color: pink; }\n\n\nb{ color: orange; }", messages.rejected)
+  tr.notOk("", {
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  })
+  tr.notOk("a { color: pink; }", {
+    message: messages.rejected,
+    line: 1,
+    column: 18,
+  })
+  tr.notOk("a { color: pink; }\n\n\nb{ color: orange; }", {
+    message: messages.rejected,
+    line: 4,
+    column: 19,
+  })
 })
