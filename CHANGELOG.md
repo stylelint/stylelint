@@ -1,4 +1,4 @@
-# Head
+# 0.8.0
 
 * Added: `after-comment` `ignore` option to the `at-rule-empty-line-before` rule.
 * Fixed: the `indentation` rule now correctly handles `*` hacks on property names.
