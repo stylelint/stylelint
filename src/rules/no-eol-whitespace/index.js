@@ -18,10 +18,8 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    let lineCount = 0
     const rootString = root.source.input.css
     styleSearch({ source: rootString, target: [ "\n", "\r" ], checkComments: true }, match => {
-      lineCount++
       if (whitespacesToReject.indexOf(rootString[match.startIndex - 1]) !== -1) {
         report({
           message: messages.rejected,
