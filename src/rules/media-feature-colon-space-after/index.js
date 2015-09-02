@@ -31,7 +31,11 @@ export default function (expectation) {
 
 export function mediaFeatureColonSpaceChecker(checkLocation, root, result) {
   root.eachAtRule(atRule => {
-    const params = atRule.params
+    const { name, params } = atRule
+
+    // Only deal with @media at-rules
+    if (name !== "media") { return }
+
     styleSearch({ source: params, target: ":" }, match => {
       checkColon(params, match.startIndex, atRule)
     })
