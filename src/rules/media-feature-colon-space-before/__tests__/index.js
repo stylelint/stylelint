@@ -12,6 +12,7 @@ testRule("always", tr => {
   tr.ok("@media (max-width :600px) {}")
   tr.ok("@media (max-width : 600px) {}")
   tr.ok("@media (max-width :600px) and (min-width :3em) {}")
+  tr.ok("@custom-selector:--enter :hover;")
 
   tr.notOk("@media (max-width:600px) {}", messages.expectedBefore())
   tr.notOk("@media (max-width  :600px) {}", messages.expectedBefore())
@@ -28,6 +29,7 @@ testRule("never", tr => {
   tr.ok("@media (max-width:600px) {}")
   tr.ok("@media (max-width: 600px) {}")
   tr.ok("@media (max-width:600px) and (min-width:3em) {}")
+  tr.ok("@custom-selector :--enter :hover;")
 
   tr.notOk("@media (max-width :600px) {}", messages.rejectedBefore())
   tr.notOk("@media (max-width  :600px) {}", messages.rejectedBefore())
