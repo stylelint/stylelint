@@ -1,6 +1,9 @@
 # Head
 
 * Added: `after-comment` `ignore` option to the `at-rule-empty-line-before` rule.
+* Fixed: the `indentation` rule now correctly handles `*` hacks on property names.
+* Fixed: the `media-feature-colon-space-after` and `media-feature-colon-space-before` rules now only apply to `@media` statements.
+* Fixed: the `rule-no-shorthand-property-overrides` rule message is now consistent with the other messages.
 
 # 0.7.0
 
