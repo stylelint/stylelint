@@ -8,7 +8,7 @@ import {
 export const ruleName = "no-eol-whitespace"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: line => `Unexpected whitespace at end of line ${line}`,
+  rejected: "Unexpected whitespace at end of line",
 })
 
 const whitespacesToReject = [ " ", "\t" ]
@@ -24,8 +24,9 @@ export default function (actual) {
       lineCount++
       if (whitespacesToReject.indexOf(rootString[match.startIndex - 1]) !== -1) {
         report({
-          message: messages.rejected(lineCount),
-          line: lineCount,
+          message: messages.rejected,
+          node: root,
+          index: match.startIndex - 1,
           result,
           ruleName,
         })
