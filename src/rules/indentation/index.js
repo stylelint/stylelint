@@ -172,7 +172,7 @@ export default function (space, options) {
         ? declLevel
         : declLevel + 1
 
-      styleSearch({ source: declString, target: "\n" }, (match, newlineCount) => {
+      styleSearch({ source: declString, target: "\n" }, (match) => {
         // Starting at the index after the newline, we want to
         // check that the whitespace characters before the first
         // non-whitespace character equal the expected indentation
@@ -194,7 +194,7 @@ export default function (space, options) {
       const selector = rule.selector
       if (selector.indexOf("\n") === -1) { return }
 
-      styleSearch({ source: selector, target: "\n" }, (match, newlineCount) => {
+      styleSearch({ source: selector, target: "\n" }, (match) => {
         // Starting at the index after the newline, we want to
         // check that the whitespace characters before the first
         // non-whitespace character equal the expected indentation
@@ -213,7 +213,7 @@ export default function (space, options) {
     }
   }
 
-  function legibleExpectation(level, line) {
+  function legibleExpectation(level) {
     const count = (isTab) ? level : level * space
     const quantifiedWarningWord = (count === 1)
       ? warningWord
