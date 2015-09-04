@@ -35,7 +35,7 @@ tr.notOk(
   .bar {}
 .baz {}`,
 {
-  message: messages.expected("0 spaces at line 2"),
+  message: messages.expected("0 spaces"),
   line: 2,
   column: 3,
 })
@@ -62,7 +62,7 @@ tr.notOk(
 .bar {}
   .bar-one {}`,
 {
-  message: messages.expected("2 spaces at line 2"),
+  message: messages.expected("2 spaces"),
   line: 2,
   column: 5,
 })
@@ -73,7 +73,7 @@ tr.notOk(
 .bar {}
    .bar-one {}`,
 {
-  message: messages.expected("2 spaces at line 4"),
+  message: messages.expected("2 spaces"),
   line: 4,
   column: 4,
 })
@@ -86,7 +86,7 @@ tr.notOk(
   top: 0;
   }`,
 {
-  message: messages.expected("4 spaces at line 5"),
+  message: messages.expected("4 spaces"),
   line: 5,
   column: 3,
 })
@@ -97,7 +97,7 @@ tr.notOk(
   .bar {}
   .bar-one {}`,
 {
-  message: messages.expected("0 spaces at line 3"),
+  message: messages.expected("0 spaces"),
   line: 3,
   column: 3,
 })
@@ -109,7 +109,7 @@ tr.notOk(
      top: 0;
   }`,
 {
-  message: messages.expected("4 spaces at line 4"),
+  message: messages.expected("4 spaces"),
   line: 4,
   column: 6,
 })
@@ -125,7 +125,7 @@ tr.notOk(
   .foo-one {}
   .foo-one-sub {}`,
 {
-  message: messages.expected("4 spaces at line 3"),
+  message: messages.expected("4 spaces"),
   line: 3,
   column: 3,
 })
@@ -147,7 +147,7 @@ tr.notOk(
   .foo-three {}
 .bar {}`,
 {
-  message: messages.expected("4 spaces at line 4"),
+  message: messages.expected("4 spaces"),
   line: 4,
   column: 3,
 })
@@ -164,7 +164,7 @@ tr.notOk(
   .foo-three {}
   .bar {}`,
 {
-  message: messages.expected("0 spaces at line 10"),
+  message: messages.expected("0 spaces"),
   line: 10,
   column: 3,
 })
@@ -196,7 +196,7 @@ tr.notOk(
     #foo div span {}
 #bar {}`,
 {
-  message: messages.expected("4 spaces at line 4"),
+  message: messages.expected("4 spaces"),
   line: 4,
   column: 7,
 })
@@ -211,7 +211,7 @@ tr.notOk(
     #foo div span {}
 #bar {}`,
 {
-  message: messages.expected("4 spaces at line 5"),
+  message: messages.expected("4 spaces"),
   line: 5,
   column: 3,
 })
@@ -229,7 +229,7 @@ tr.notOk(
   #bar a {}
 #baz b {}`,
 {
-  message: messages.expected("0 spaces at line 3"),
+  message: messages.expected("0 spaces"),
   line: 3,
   column: 3,
 })
@@ -262,7 +262,7 @@ tr.notOk(
   }
 }`,
 {
-  message: messages.expected("6 spaces at line 7"),
+  message: messages.expected("6 spaces"),
   line: 7,
   column: 8,
 })
@@ -284,7 +284,7 @@ tr.notOk(
     }
   }`,
 {
-  message: messages.expected("4 spaces at line 3"),
+  message: messages.expected("4 spaces"),
   line: 3,
   column: 3,
 })
@@ -302,7 +302,7 @@ tr.notOk(
       .foo-one {}
   }`,
 {
-  message: messages.expected("4 spaces at line 3"),
+  message: messages.expected("4 spaces"),
   line: 3,
   column: 7,
 })

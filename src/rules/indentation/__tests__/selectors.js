@@ -37,7 +37,7 @@ tr.notOk(
   b { color: pink; }
 `,
 {
-  message: messages.expected("0 spaces at line 2"),
+  message: messages.expected("0 spaces"),
   line: 2,
   column: 1,
 })
@@ -48,7 +48,7 @@ b,
  c { color: pink; }
 `,
 {
-  message: messages.expected("0 spaces at line 3"),
+  message: messages.expected("0 spaces"),
   line: 3,
   column: 1,
 })
@@ -60,7 +60,7 @@ b { color: pink;}
 }
 `,
 {
-  message: messages.expected("2 spaces at line 3"),
+  message: messages.expected("2 spaces"),
   line: 3,
   column: 1,
 })
@@ -72,7 +72,7 @@ tr.notOk(
 }
 `,
 {
-  message: messages.expected("2 spaces at line 3"),
+  message: messages.expected("2 spaces"),
   line: 3,
   column: 1,
 })
@@ -84,7 +84,7 @@ tr.notOk(
 }
 `,
 {
-  message: messages.expected("2 spaces at line 2"),
+  message: messages.expected("2 spaces"),
   line: 2,
   column: 4,
 })
