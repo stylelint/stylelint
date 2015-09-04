@@ -1,7 +1,7 @@
+import selectorParser from "postcss-selector-parser"
 import {
   report,
   ruleMessages,
-  styleSearch,
   validateOptions
 } from "../../utils"
 
@@ -17,15 +17,18 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      styleSearch({ source: rule.selector, target: ["["] }, match => {
-        report({
-          message: messages.rejected,
-          node: rule,
-          index: match.startIndex,
-          ruleName,
-          result,
+      selectorParser(selectorAST => {
+        selectorAST.eachAttribute(attribute => {
+          report({
+            message: messages.rejected,
+            node: rule,
+            word: attribute.parent.toString().trim(),
+            ruleName,
+            result,
+          })
         })
       })
+        .process(rule.selector)
     })
   }
 }
