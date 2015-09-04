@@ -18,10 +18,11 @@ export default function (actual) {
 
     root.walkRules(rule => {
       selectorParser(selectorAST => {
-        selectorAST.eachCombinator(() => {
+        selectorAST.eachCombinator(combinator => {
           report({
             message: messages.rejected,
             node: rule,
+            word: combinator.parent.toString().trim(),
             ruleName,
             result,
           })

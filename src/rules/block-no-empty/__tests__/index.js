@@ -14,9 +14,29 @@ testRule(undefined, tr => {
   tr.ok("@media print { a { color: pink; } }")
   tr.ok("@import url(x.css)")
 
-  tr.notOk("a {}", messages.rejected)
-  tr.notOk("a { }", messages.rejected)
-  tr.notOk("a {\n}", messages.rejected)
-  tr.notOk("@media print {}", messages.rejected)
-  tr.notOk("@media print { a {} }", messages.rejected)
+  tr.notOk("a {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("a { }", {
+    message: messages.rejected,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("a {\n}", {
+    message: messages.rejected,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("@media print {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 14,
+  })
+  tr.notOk("@media print { a {} }", {
+    message: messages.rejected,
+    line: 1,
+    column: 18,
+  })
 })

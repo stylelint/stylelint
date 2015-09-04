@@ -11,11 +11,31 @@ testRule("always", tr => {
 
   tr.ok("a { background-size: 0 , 0; }")
   tr.ok("a { background-size: 0 ,0; }")
-  tr.notOk("a { background-size: 0, 0; }", messages.expectedBefore())
-  tr.notOk("a { background-size: 0  , 0; }", messages.expectedBefore())
-  tr.notOk("a { background-size: 0\n, 0; }", messages.expectedBefore())
-  tr.notOk("a { background-size: 0\r\n, 0; }", messages.expectedBefore(), "CRLF")
-  tr.notOk("a { background-size: 0\t, 0; }", messages.expectedBefore())
+  tr.notOk("a { background-size: 0, 0; }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 23,
+  })
+  tr.notOk("a { background-size: 0  , 0; }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 25,
+  })
+  tr.notOk("a { background-size: 0\n, 0; }", {
+    message: messages.expectedBefore(),
+    line: 2,
+    column: 1,
+  })
+  tr.notOk("a { background-size: 0\r\n, 0; }", {
+    message: messages.expectedBefore(),
+    line: 2,
+    column: 1,
+  }, "CRLF")
+  tr.notOk("a { background-size: 0\t, 0; }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 24,
+  })
 
   tr.ok("a::before { content: \"foo,bar,baz\"; }", "strings")
   tr.ok("a { transform: translate(1,1); }", "function arguments")
@@ -26,11 +46,31 @@ testRule("never", tr => {
 
   tr.ok("a { background-size: 0, 0; }")
   tr.ok("a { background-size: 0,0; }")
-  tr.notOk("a { background-size: 0 , 0; }", messages.rejectedBefore())
-  tr.notOk("a { background-size: 0  , 0; }", messages.rejectedBefore())
-  tr.notOk("a { background-size: 0\n, 0; }", messages.rejectedBefore())
-  tr.notOk("a { background-size: 0\r\n, 0; }", messages.rejectedBefore(), "CRLF")
-  tr.notOk("a { background-size: 0\t, 0; }", messages.rejectedBefore())
+  tr.notOk("a { background-size: 0 , 0; }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 24,
+  })
+  tr.notOk("a { background-size: 0  , 0; }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 25,
+  })
+  tr.notOk("a { background-size: 0\n, 0; }", {
+    message: messages.rejectedBefore(),
+    line: 2,
+    column: 1,
+  })
+  tr.notOk("a { background-size: 0\r\n, 0; }", {
+    message: messages.rejectedBefore(),
+    line: 2,
+    column: 1,
+  }, "CRLF")
+  tr.notOk("a { background-size: 0\t, 0; }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 24,
+  })
 
   tr.ok("a::before { content: \"foo ,bar ,baz\"; }", "strings")
   tr.ok("a { transform: translate(1 ,1); }", "function arguments")
@@ -46,11 +86,31 @@ testRule("always-single-line", tr => {
   tr.ok("a { background-size: 0,\n0; }", "ignores multi-line list")
   tr.ok("a { background-size: 0,\r\n0; }", "ignores multi-line list with CRLF")
 
-  tr.notOk("a { background-size: 0, 0; }", messages.expectedBeforeSingleLine())
-  tr.notOk("a { background-size: 0, 0;\n}", messages.expectedBeforeSingleLine())
-  tr.notOk("a { background-size: 0, 0;\r\n}", messages.expectedBeforeSingleLine(), "CRLF")
-  tr.notOk("a { background-size: 0  , 0; }", messages.expectedBeforeSingleLine())
-  tr.notOk("a { background-size: 0\t, 0; }", messages.expectedBeforeSingleLine())
+  tr.notOk("a { background-size: 0, 0; }", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 23,
+  })
+  tr.notOk("a { background-size: 0, 0;\n}", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 23,
+  })
+  tr.notOk("a { background-size: 0, 0;\r\n}", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 23,
+  }, "CRLF")
+  tr.notOk("a { background-size: 0  , 0; }", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 25,
+  })
+  tr.notOk("a { background-size: 0\t, 0; }", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 24,
+  })
 
   tr.ok("a::before { content: \"foo,bar,baz\"; }", "strings")
   tr.ok("a { transform: translate(1,1); }", "function arguments")
@@ -66,11 +126,31 @@ testRule("never-single-line", tr => {
   tr.ok("a { background-size: 0 ,\n0; }", "ignores multi-line list")
   tr.ok("a { background-size: 0 ,\r\n0; }", "ignores multi-line list with CRLF")
 
-  tr.notOk("a { background-size: 0 , 0; }", messages.rejectedBeforeSingleLine())
-  tr.notOk("a { background-size: 0 , 0;\n}", messages.rejectedBeforeSingleLine())
-  tr.notOk("a { background-size: 0 , 0;\r\n}", messages.rejectedBeforeSingleLine(), "CRLF")
-  tr.notOk("a { background-size: 0  , 0; }", messages.rejectedBeforeSingleLine())
-  tr.notOk("a { background-size: 0\t, 0; }", messages.rejectedBeforeSingleLine())
+  tr.notOk("a { background-size: 0 , 0; }", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 24,
+  })
+  tr.notOk("a { background-size: 0 , 0;\n}", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 24,
+  })
+  tr.notOk("a { background-size: 0 , 0;\r\n}", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 24,
+  }, "CRLF")
+  tr.notOk("a { background-size: 0  , 0; }", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 25,
+  })
+  tr.notOk("a { background-size: 0\t, 0; }", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 24,
+  })
 
   tr.ok("a::before { content: \"foo ,bar ,baz\"; }", "strings")
   tr.ok("a { transform: translate(1 ,1); }", "function arguments")

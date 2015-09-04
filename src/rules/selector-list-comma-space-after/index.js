@@ -45,7 +45,8 @@ export function selectorListCommaWhitespaceChecker(checkLocation, root, result) 
     checkLocation({ source, index, err: m =>
       report({
         message: m,
-        node: node,
+        node,
+        index,
         result,
         ruleName,
       }),

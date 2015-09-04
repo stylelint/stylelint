@@ -21,12 +21,36 @@ testRule("always", tr => {
   tr.ok("@media (min-width: 10px) {\r\n  a,\r\n  b {}\r\n}", "nested in at-rule and CRLF")
   tr.ok("\ta,\n\tb {}", "indented statement")
 
-  tr.notOk("a,b {}", messages.expectedAfter())
-  tr.notOk("a, b {}", messages.expectedAfter())
-  tr.notOk("a,  b {}", messages.expectedAfter())
-  tr.notOk("a,\tb {}", messages.expectedAfter())
-  tr.notOk("a,\nb,c {}", messages.expectedAfter())
-  tr.notOk("a,\r\nb,c {}", messages.expectedAfter(), "CRLF")
+  tr.notOk("a,b {}", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 2,
+  })
+  tr.notOk("a, b {}", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 2,
+  })
+  tr.notOk("a,  b {}", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 2,
+  })
+  tr.notOk("a,\tb {}", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 2,
+  })
+  tr.notOk("a,\nb,c {}", {
+    message: messages.expectedAfter(),
+    line: 2,
+    column: 2,
+  })
+  tr.notOk("a,\r\nb,c {}", {
+    message: messages.expectedAfter(),
+    line: 2,
+    column: 2,
+  }, "CRLF")
 })
 
 testRule("always-multi-line", tr => {
@@ -39,9 +63,21 @@ testRule("always-multi-line", tr => {
   tr.ok("a, b {\r\n}", "ignores single-line selector list, multi-line block with CRLF")
   tr.ok("\ta,\n\tb {\n}", "indented statement")
 
-  tr.notOk("a,\nb, c {}", messages.expectedAfterMultiLine())
-  tr.notOk("a,\nb, c {\n}", messages.expectedAfterMultiLine())
-  tr.notOk("a,\r\nb, c {\r\n}", messages.expectedAfterMultiLine(), "CRLF")
+  tr.notOk("a,\nb, c {}", {
+    message: messages.expectedAfterMultiLine(),
+    line: 2,
+    column: 2,
+  })
+  tr.notOk("a,\nb, c {\n}", {
+    message: messages.expectedAfterMultiLine(),
+    line: 2,
+    column: 2,
+  })
+  tr.notOk("a,\r\nb, c {\r\n}", {
+    message: messages.expectedAfterMultiLine(),
+    line: 2,
+    column: 2,
+  }, "CRLF")
 })
 
 testRule("never-multi-line", tr => {
@@ -51,7 +87,19 @@ testRule("never-multi-line", tr => {
   tr.ok("a ,b {}", "ignores single-line")
   tr.ok("a ,b {\n}", "ignores single-line selector list, multi-line block")
 
-  tr.notOk("a,\nb ,c {}", messages.rejectedAfterMultiLine())
-  tr.notOk("a,\r\nb ,c {}", messages.rejectedAfterMultiLine(), "CRLF")
-  tr.notOk("a,\nb ,c {\n}", messages.rejectedAfterMultiLine())
+  tr.notOk("a,\nb ,c {}", {
+    message: messages.rejectedAfterMultiLine(),
+    line: 1,
+    column: 2,
+  })
+  tr.notOk("a,\r\nb ,c {}", {
+    message: messages.rejectedAfterMultiLine(),
+    line: 1,
+    column: 2,
+  }, "CRLF")
+  tr.notOk("a,\nb ,c {\n}", {
+    message: messages.rejectedAfterMultiLine(),
+    line: 1,
+    column: 2,
+  })
 })

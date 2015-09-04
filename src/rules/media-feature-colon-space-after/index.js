@@ -45,7 +45,8 @@ export function mediaFeatureColonSpaceChecker(checkLocation, root, result) {
     checkLocation({ source, index, err: m =>
       report({
         message: m,
-        node: node,
+        node,
+        index: index + 1 + node.name.length + node.raws.afterName.length,
         result,
         ruleName,
       }),

@@ -25,6 +25,7 @@ export default function (pattern) {
         report({
           message: messages.expected,
           node: atRule,
+          index: 1 + atRule.name.length + atRule.raws.afterName.length,
           result,
           ruleName,
         })

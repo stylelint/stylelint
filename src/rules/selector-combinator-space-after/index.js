@@ -50,7 +50,8 @@ export function selectorCombinatorSpaceChecker(locationChecker, root, result) {
     locationChecker({ source, index, err: m =>
       report({
         message: m,
-        node: node,
+        node,
+        index,
         result,
         ruleName,
       }),

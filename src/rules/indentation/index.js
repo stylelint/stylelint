@@ -97,7 +97,7 @@ export default function (space, options) {
       // it is some other kind of separation, checked by some separate rule
       if (inspectBefore && before.slice(before.lastIndexOf("\n") + 1) !== expectedWhitespace) {
         report({
-          message: messages.expected(legibleExpectation(nodeLevel, node.source.start.line)),
+          message: messages.expected(legibleExpectation(nodeLevel)),
           node,
           result,
           ruleName,
@@ -110,7 +110,7 @@ export default function (space, options) {
       if (after && after.indexOf("\n") !== -1
         && after.slice(after.lastIndexOf("\n") + 1) !== expectedWhitespace) {
         report({
-          message: messages.expected(legibleExpectation(nodeLevel, node.source.end.line)),
+          message: messages.expected(legibleExpectation(nodeLevel)),
           node,
           index: node.toString().length - 1,
           result,
@@ -172,16 +172,15 @@ export default function (space, options) {
         ? declLevel
         : declLevel + 1
 
-      styleSearch({ source: declString, target: "\n" }, (match, newlineCount) => {
+      styleSearch({ source: declString, target: "\n" }, (match) => {
         // Starting at the index after the newline, we want to
         // check that the whitespace characters before the first
         // non-whitespace character equal the expected indentation
         const postNewlineActual = /^(\s*)\S/.exec(declString.slice(match.startIndex + 1))[1]
 
         if (postNewlineActual !== repeat(indentChar, valueLevel)) {
-          const line = decl.source.start.line + newlineCount
           report({
-            message: messages.expected(legibleExpectation(valueLevel, line)),
+            message: messages.expected(legibleExpectation(valueLevel)),
             node: decl,
             index: match.startIndex + 1,
             result,
@@ -195,16 +194,15 @@ export default function (space, options) {
       const selector = rule.selector
       if (selector.indexOf("\n") === -1) { return }
 
-      styleSearch({ source: selector, target: "\n" }, (match, newlineCount) => {
+      styleSearch({ source: selector, target: "\n" }, (match) => {
         // Starting at the index after the newline, we want to
         // check that the whitespace characters before the first
         // non-whitespace character equal the expected indentation
         const postNewlineActual = /^(\s*)\S/.exec(selector.slice(match.startIndex + 1))[1]
 
         if (postNewlineActual !== repeat(indentChar, ruleLevel)) {
-          const line = rule.source.start.line + newlineCount
           report({
-            message: messages.expected(legibleExpectation(ruleLevel, line)),
+            message: messages.expected(legibleExpectation(ruleLevel)),
             node: rule,
             index: match.startIndex + 1,
             result,
@@ -215,12 +213,12 @@ export default function (space, options) {
     }
   }
 
-  function legibleExpectation(level, line) {
+  function legibleExpectation(level) {
     const count = (isTab) ? level : level * space
     const quantifiedWarningWord = (count === 1)
       ? warningWord
       : warningWord + "s"
-    return `${count} ${quantifiedWarningWord} at line ${line}`
+    return `${count} ${quantifiedWarningWord}`
   }
 }
 

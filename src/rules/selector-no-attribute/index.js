@@ -18,10 +18,11 @@ export default function (actual) {
 
     root.walkRules(rule => {
       selectorParser(selectorAST => {
-        selectorAST.eachAttribute(() => {
+        selectorAST.eachAttribute(attribute => {
           report({
             message: messages.rejected,
             node: rule,
+            word: attribute.parent.toString().trim(),
             ruleName,
             result,
           })

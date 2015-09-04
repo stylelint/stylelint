@@ -31,7 +31,7 @@
     "balanced-match": "^0.2.0",
     "execall": "^1.0.0",
     "lodash": "^3.9.3",
-    "postcss": "^5.0.2",
+    "postcss": "^5.0.4",
     "postcss-selector-parser": "^1.0.1"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "eslint": "^1.0.0",
     "eslint-config-stylelint": "^0.1.0",
     "sinon": "^1.15.3",
-    "stylelint-rule-tester": "^0.1.0",
+    "stylelint-rule-tester": "^0.3.0",
     "tape": "^4.0.1"
   },
   "scripts": {

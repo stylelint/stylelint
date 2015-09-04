@@ -13,10 +13,44 @@ testRule(undefined, tr => {
   tr.ok(".foo, #bar {}")
   tr.ok("a.foo {}")
 
-  tr.notOk("a b {}", messages.rejected)
-  tr.notOk("a + a {}", messages.rejected)
-  tr.notOk("a > a {}", messages.rejected)
-  tr.notOk("a ~ a {}", messages.rejected)
-  tr.notOk("a b, .foo {}", messages.rejected)
-  tr.notOk("a#foo ~ b {}", messages.rejected)
+  tr.notOk("a b {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  })
+  tr.notOk("a + a {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  })
+  tr.notOk("a > a {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  })
+  tr.notOk("a ~ a {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  })
+  tr.notOk("a b, .foo {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  })
+  tr.notOk(".foo, a b {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 7,
+  })
+  tr.notOk("\t.foo,\n\ta b {}", {
+    message: messages.rejected,
+    line: 2,
+    column: 2,
+  })
+  tr.notOk("a#foo ~ b {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  })
 })

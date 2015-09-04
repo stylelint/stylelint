@@ -39,7 +39,8 @@ export default function (expectation) {
         err: m => {
           report({
             message: m,
-            node: node,
+            node,
+            index: match.index + node.name.length + node.raws.afterName.length + 1,
             result,
             ruleName,
           })

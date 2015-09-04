@@ -37,6 +37,7 @@ export default function (expectation) {
             report({
               message: m,
               node: rule,
+              index: match.startIndex,
               result,
               ruleName,
             }),

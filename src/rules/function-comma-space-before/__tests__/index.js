@@ -16,13 +16,41 @@ testRule("always", tr => {
   tr.ok("a { transform: translate(1 ,1); }")
   tr.ok("a { transform: color(rgb(0 , 0 ,0) lightness(50%)); }")
 
-  tr.notOk("a { transform: translate(1, 1); }", messages.expectedBefore())
-  tr.notOk("a { transform: translate(1  , 1); }", messages.expectedBefore())
-  tr.notOk("a { transform: translate(1\n, 1); }", messages.expectedBefore())
-  tr.notOk("a { transform: translate(1\r\n, 1); }", messages.expectedBefore(), "CRLF")
-  tr.notOk("a { transform: translate(1\t, 1); }", messages.expectedBefore())
-  tr.notOk("a { transform: color(rgb(0 , 0, 0) lightness(50%)); }", messages.expectedBefore())
-  tr.notOk("a { transform: color(lightness(50%) rgb(0 , 0, 0)); }", messages.expectedBefore())
+  tr.notOk("a { transform: translate(1, 1); }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 27,
+  })
+  tr.notOk("a { transform: translate(1  , 1); }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 29,
+  })
+  tr.notOk("a { transform: translate(1\n, 1); }", {
+    message: messages.expectedBefore(),
+    line: 2,
+    column: 1,
+  })
+  tr.notOk("a { transform: translate(1\r\n, 1); }", {
+    message: messages.expectedBefore(),
+    line: 2,
+    column: 1,
+  }, "CRLF")
+  tr.notOk("a { transform: translate(1\t, 1); }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 28,
+  })
+  tr.notOk("a { transform: color(rgb(0 , 0, 0) lightness(50%)); }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 31,
+  })
+  tr.notOk("a { transform: color(lightness(50%) rgb(0 , 0, 0)); }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 46,
+  })
 })
 
 testRule("never", tr => {
@@ -35,11 +63,39 @@ testRule("never", tr => {
   tr.ok("a { transform: translate(1,1); }")
   tr.ok("a { transform: color(rgb(0, 0,0) lightness(50%)); }")
 
-  tr.notOk("a { transform: translate(1 , 1); }", messages.rejectedBefore())
-  tr.notOk("a { transform: translate(1  , 1); }", messages.rejectedBefore())
-  tr.notOk("a { transform: translate(1\n, 1); }", messages.rejectedBefore())
-  tr.notOk("a { transform: translate(1\r\n, 1); }", messages.rejectedBefore(), "CRLF")
-  tr.notOk("a { transform: translate(1\t, 1); }", messages.rejectedBefore())
-  tr.notOk("a { transform: color(rgb(0, 0 , 0) lightness(50%)); }", messages.rejectedBefore())
-  tr.notOk("a { transform: color(lightness(50%) rgb(0, 0 , 0)); }", messages.rejectedBefore())
+  tr.notOk("a { transform: translate(1 , 1); }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 28,
+  })
+  tr.notOk("a { transform: translate(1  , 1); }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 29,
+  })
+  tr.notOk("a { transform: translate(1\n, 1); }", {
+    message: messages.rejectedBefore(),
+    line: 2,
+    column: 1,
+  })
+  tr.notOk("a { transform: translate(1\r\n, 1); }", {
+    message: messages.rejectedBefore(),
+    line: 2,
+    column: 1,
+  }, "CRLF")
+  tr.notOk("a { transform: translate(1\t, 1); }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 28,
+  })
+  tr.notOk("a { transform: color(rgb(0, 0 , 0) lightness(50%)); }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 31,
+  })
+  tr.notOk("a { transform: color(lightness(50%) rgb(0, 0 , 0)); }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 46,
+  })
 })

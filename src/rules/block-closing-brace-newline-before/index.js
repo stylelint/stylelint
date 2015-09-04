@@ -49,6 +49,7 @@ export default function (expectation) {
           report({
             message: messages.expectedBefore(),
             node: statement,
+            index: statement.toString().length - 2,
             result,
             ruleName,
           })
@@ -56,6 +57,7 @@ export default function (expectation) {
           report({
             message: messages.expectedBeforeMultiLine(),
             node: statement,
+            index: statement.toString().length - 2,
             result,
             ruleName,
           })
@@ -66,6 +68,7 @@ export default function (expectation) {
           report({
             message: messages.rejectedBefore(),
             node: statement,
+            index: statement.toString().length - 2,
             result,
             ruleName,
           })
@@ -73,6 +76,7 @@ export default function (expectation) {
           report({
             message: messages.rejectedBeforeMultiLine(),
             node: statement,
+            index: statement.toString().length - 2,
             result,
             ruleName,
           })

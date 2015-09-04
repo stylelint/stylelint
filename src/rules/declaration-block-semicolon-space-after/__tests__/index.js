@@ -15,11 +15,31 @@ testRule("always", tr => {
   tr.ok("a { color: pink; top: 0;}", "no space between trailing semicolon and closing brace")
   tr.ok("a { color: pink; top: 0}")
 
-  tr.notOk("a { color: pink;top: 0; }", messages.expectedAfter())
-  tr.notOk("a { color: pink;  top: 0; }", messages.expectedAfter())
-  tr.notOk("a { color: pink;\ntop: 0; }", messages.expectedAfter())
-  tr.notOk("a { color: pink;\r\ntop: 0; }", messages.expectedAfter(), "CRLF")
-  tr.notOk("a { color: pink;\ttop: 0; }", messages.expectedAfter())
+  tr.notOk("a { color: pink;top: 0; }", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 17,
+  })
+  tr.notOk("a { color: pink;  top: 0; }", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 17,
+  })
+  tr.notOk("a { color: pink;\ntop: 0; }", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 17,
+  })
+  tr.notOk("a { color: pink;\r\ntop: 0; }", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 17,
+  }, "CRLF")
+  tr.notOk("a { color: pink;\ttop: 0; }", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 17,
+  })
 })
 
 testRule("always-single-line", tr => {
@@ -35,11 +55,31 @@ testRule("always-single-line", tr => {
   tr.ok("a {\n  color: pink;\n  top: 0;\n}")
   tr.ok("a {\r\n  color: pink;\r\n  top: 0;\r\n}", "CRLF")
 
-  tr.notOk("a { color: pink;top: 0; }", messages.expectedAfterSingleLine())
-  tr.notOk("a,\nb { color: pink;top: 0; }", messages.expectedAfterSingleLine())
-  tr.notOk("a,\r\nb { color: pink;top: 0; }", messages.expectedAfterSingleLine(), "CRLF")
-  tr.notOk("a { color: pink;  top: 0; }", messages.expectedAfterSingleLine())
-  tr.notOk("a { color: pink;\ttop: 0; }", messages.expectedAfterSingleLine())
+  tr.notOk("a { color: pink;top: 0; }", {
+    message: messages.expectedAfterSingleLine(),
+    line: 1,
+    column: 17,
+  })
+  tr.notOk("a,\nb { color: pink;top: 0; }", {
+    message: messages.expectedAfterSingleLine(),
+    line: 2,
+    column: 17,
+  })
+  tr.notOk("a,\r\nb { color: pink;top: 0; }", {
+    message: messages.expectedAfterSingleLine(),
+    line: 2,
+    column: 17,
+  }, "CRLF")
+  tr.notOk("a { color: pink;  top: 0; }", {
+    message: messages.expectedAfterSingleLine(),
+    line: 1,
+    column: 17,
+  })
+  tr.notOk("a { color: pink;\ttop: 0; }", {
+    message: messages.expectedAfterSingleLine(),
+    line: 1,
+    column: 17,
+  })
 })
 
 testRule("never-single-line", tr => {
@@ -54,9 +94,29 @@ testRule("never-single-line", tr => {
   tr.ok("a {\n  color: pink; top: 0;\n}")
   tr.ok("a {\r\n  color: pink; top: 0;\r\n}", "CRLF")
 
-  tr.notOk("a { color: pink; top: 0; }", messages.rejectedAfterSingleLine())
-  tr.notOk("a,\nb { color: pink; top: 0; }", messages.rejectedAfterSingleLine())
-  tr.notOk("a,\r\nb { color: pink; top: 0; }", messages.rejectedAfterSingleLine(), "CRLF")
-  tr.notOk("a { color: pink;  top: 0; }", messages.rejectedAfterSingleLine())
-  tr.notOk("a { color: pink;\ttop: 0; }", messages.rejectedAfterSingleLine())
+  tr.notOk("a { color: pink; top: 0; }", {
+    message: messages.rejectedAfterSingleLine(),
+    line: 1,
+    column: 17,
+  })
+  tr.notOk("a,\nb { color: pink; top: 0; }", {
+    message: messages.rejectedAfterSingleLine(),
+    line: 2,
+    column: 17,
+  })
+  tr.notOk("a,\r\nb { color: pink; top: 0; }", {
+    message: messages.rejectedAfterSingleLine(),
+    line: 2,
+    column: 17,
+  }, "CRLF")
+  tr.notOk("a { color: pink;  top: 0; }", {
+    message: messages.rejectedAfterSingleLine(),
+    line: 1,
+    column: 17,
+  })
+  tr.notOk("a { color: pink;\ttop: 0; }", {
+    message: messages.rejectedAfterSingleLine(),
+    line: 1,
+    column: 17,
+  })
 })

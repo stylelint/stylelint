@@ -59,11 +59,12 @@ export default function (expectation) {
       }
 
       statement.walkDecls(function (decl) {
-        cssFunctionArguments(decl.value, "url", args => {
+        cssFunctionArguments(decl.toString(), "url", (args, index) => {
           if (strDefiesExpectation(args)) {
             report({
               message: messages.expected(quoteMsg),
               node: decl,
+              index,
               result,
               ruleName,
             })
@@ -73,31 +74,34 @@ export default function (expectation) {
     }
 
     function checkAtRuleParams(atRule) {
-      cssFunctionArguments(atRule.params, "url", args => {
+      cssFunctionArguments(atRule.params, "url", (args, index) => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg),
             node: atRule,
+            index: index + 1 + atRule.name.length + atRule.raws.afterName.length,
             result,
             ruleName,
           })
         }
       })
-      cssFunctionArguments(atRule.params, "url-prefix", args => {
+      cssFunctionArguments(atRule.params, "url-prefix", (args, index) => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg, "url-prefix"),
             node: atRule,
+            index: index + 1 + atRule.name.length + atRule.raws.afterName.length,
             result,
             ruleName,
           })
         }
       })
-      cssFunctionArguments(atRule.params, "domain", args => {
+      cssFunctionArguments(atRule.params, "domain", (args, index) => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg, "domain"),
             node: atRule,
+            index: index + 1 + atRule.name.length + atRule.raws.afterName.length,
             result,
             ruleName,
           })

@@ -16,27 +16,47 @@ testRule("always", tr => {
 
   tr.notOk(
     "a { color: pink; }",
-    messages.expectedBefore(),
+    {
+      message: messages.expectedBefore(),
+      line: 1,
+      column: 11,
+    },
     "no space before"
   )
   tr.notOk(
     "a { color  : pink; }",
-    messages.expectedBefore(),
+    {
+      message: messages.expectedBefore(),
+      line: 1,
+      column: 11,
+    },
     "two spaces before"
   )
   tr.notOk(
     "a { color\t: pink; }",
-    messages.expectedBefore(),
+    {
+      message: messages.expectedBefore(),
+      line: 1,
+      column: 11,
+    },
     "tab before"
   )
   tr.notOk(
     "a { color\n: pink; }",
-    messages.expectedBefore(),
+    {
+      message: messages.expectedBefore(),
+      line: 2,
+      column: 1,
+    },
     "newline before"
   )
   tr.notOk(
     "a { color\r\n: pink; }",
-    messages.expectedBefore(),
+    {
+      message: messages.expectedBefore(),
+      line: 1,
+      column: 11,
+    },
     "CRLF before"
   )
 })
@@ -51,27 +71,47 @@ testRule("never", tr => {
 
   tr.notOk(
     "a { color : pink; }",
-    messages.rejectedBefore(),
+    {
+      message: messages.rejectedBefore(),
+      line: 1,
+      column: 11,
+    },
     "space before"
   )
   tr.notOk(
     "a { color  : pink; }",
-    messages.rejectedBefore(),
+    {
+      message: messages.rejectedBefore(),
+      line: 1,
+      column: 11,
+    },
     "two spaces before"
   )
   tr.notOk(
     "a { color\t: pink; }",
-    messages.rejectedBefore(),
+    {
+      message: messages.rejectedBefore(),
+      line: 1,
+      column: 11,
+    },
     "tab before"
   )
   tr.notOk(
     "a { color\n: pink; }",
-    messages.rejectedBefore(),
+    {
+      message: messages.rejectedBefore(),
+      line: 2,
+      column: 1,
+    },
     "newline before"
   )
   tr.notOk(
     "a { color\r\n: pink; }",
-    messages.rejectedBefore(),
+    {
+      message: messages.rejectedBefore(),
+      line: 1,
+      column: 11,
+    },
     "CRLF before"
   )
 })

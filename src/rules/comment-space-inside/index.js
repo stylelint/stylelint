@@ -32,6 +32,7 @@ export default function (expectation) {
         report({
           message: messages.rejectedOpening,
           node: comment,
+          index: 2,
           result,
           ruleName,
         })
@@ -40,6 +41,7 @@ export default function (expectation) {
         report({
           message: messages.expectedOpening,
           node: comment,
+          index: 2,
           result,
           ruleName,
         })
@@ -49,6 +51,7 @@ export default function (expectation) {
         report({
           message: messages.rejectedClosing,
           node: comment,
+          index: comment.toString().length - 3,
           result,
           ruleName,
         })
@@ -57,6 +60,7 @@ export default function (expectation) {
         report({
           message: messages.expectedClosing,
           node: comment,
+          index: comment.toString().length - 3,
           result,
           ruleName,
         })

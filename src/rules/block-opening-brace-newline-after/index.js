@@ -2,6 +2,8 @@ import {
   cssStatementBlockString,
   cssStatementHasBlock,
   cssStatementHasEmptyBlock,
+  cssStatementStringBeforeBlock,
+  rawNodeString,
   report,
   ruleMessages,
   validateOptions,
@@ -47,13 +49,14 @@ export default function (expectation) {
       if (!nodeToCheck) { return }
 
       checker.afterOneOnly({
-        source: nodeToCheck.raws.before + nodeToCheck.toString(),
+        source: rawNodeString(nodeToCheck),
         index: -1,
         lineCheckStr: cssStatementBlockString(statement),
         err: m => {
           report({
             message: m,
-            node: nodeToCheck,
+            node: statement,
+            index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length + 1,
             result,
             ruleName,
           })

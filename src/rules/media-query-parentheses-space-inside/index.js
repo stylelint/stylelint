@@ -29,6 +29,7 @@ export default function (expectation) {
       if (atRule.name !== "media") { return }
 
       const params = atRule.params
+      const indexBoost = atRule.name.length + atRule.raws.afterName.length + 1
 
       styleSearch({ source: params, target: "(" }, match => {
         const nextCharIsSpace = params[match.startIndex + 1] === " "
@@ -36,6 +37,7 @@ export default function (expectation) {
           report({
             message: messages.rejectedOpening,
             node: atRule,
+            index: match.startIndex + 1 + indexBoost,
             result,
             ruleName,
           })
@@ -44,6 +46,7 @@ export default function (expectation) {
           report({
             message: messages.expectedOpening,
             node: atRule,
+            index: match.startIndex + 1 + indexBoost,
             result,
             ruleName,
           })
@@ -56,6 +59,7 @@ export default function (expectation) {
           report({
             message: messages.rejectedClosing,
             node: atRule,
+            index: match.startIndex - 1 + indexBoost,
             result,
             ruleName,
           })
@@ -64,6 +68,7 @@ export default function (expectation) {
           report({
             message: messages.expectedClosing,
             node: atRule,
+            index: match.startIndex - 1 + indexBoost,
             result,
             ruleName,
           })

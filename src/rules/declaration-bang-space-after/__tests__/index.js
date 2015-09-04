@@ -17,22 +17,38 @@ testRule("always", tr => {
 
   tr.notOk(
     "a { color: pink!important; }",
-    messages.expectedAfter(),
+    {
+      message: messages.expectedAfter(),
+      line: 1,
+      column: 16,
+    },
     "no space after"
   )
   tr.notOk(
     "a { color: pink!  important; }",
-    messages.expectedAfter(),
+    {
+      message: messages.expectedAfter(),
+      line: 1,
+      column: 16,
+    },
     "two spaces after"
   )
   tr.notOk(
     "a { color: pink!\nimportant; }",
-    messages.expectedAfter(),
+    {
+      message: messages.expectedAfter(),
+      line: 1,
+      column: 16,
+    },
     "newline after"
   )
   tr.notOk(
     "a { color: pink!\r\nimportant; }",
-    messages.expectedAfter(),
+    {
+      message: messages.expectedAfter(),
+      line: 1,
+      column: 16,
+    },
     "CRLF after"
   )
 
@@ -50,17 +66,29 @@ testRule("never", tr => {
 
   tr.notOk(
     "a { color: pink! important; }",
-    messages.rejectedAfter(),
+    {
+      message: messages.rejectedAfter(),
+      line: 1,
+      column: 16,
+    },
     "space after"
   )
   tr.notOk(
     "a { color: pink!\nimportant; }",
-    messages.rejectedAfter(),
+    {
+      message: messages.rejectedAfter(),
+      line: 1,
+      column: 16,
+    },
     "newline after"
   )
   tr.notOk(
     "a { color: pink!\r\nimportant; }",
-    messages.rejectedAfter(),
+    {
+      message: messages.rejectedAfter(),
+      line: 1,
+      column: 16,
+    },
     "CRLF after"
   )
 })

@@ -25,7 +25,16 @@ test("cssStatementStringBeforeBlock at-rules", t => {
   t.end()
 })
 
-function postcssCheck(cssString) {
+test("cssStatementStringBeforeBlock with noBefore", t => {
+  t.equal(postcssCheck({ noBefore: true }, "\na {}"), "a ")
+  t.equal(postcssCheck({ noBefore: true }, "\n@media print {}"), "@media print ")
+  t.end()
+})
+
+function postcssCheck(options={}, cssString) {
+  if (typeof options === "string") {
+    cssString = options
+  }
   const root = postcss.parse(cssString)
-  return cssStatementStringBeforeBlock(root.first)
+  return cssStatementStringBeforeBlock(root.first, options)
 }

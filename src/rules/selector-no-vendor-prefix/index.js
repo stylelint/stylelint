@@ -28,6 +28,7 @@ export default function (actual) {
           report({
             message: messages.rejected(pseudoSelector),
             node: rule,
+            index: match.startIndex,
             result,
             ruleName,
           })

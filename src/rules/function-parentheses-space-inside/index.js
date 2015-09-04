@@ -27,13 +27,13 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      const value = decl.value
+      const declString = decl.toString()
 
-      styleSearch({ source: value, target: "(" }, match => {
-        checkOpening(value, match.startIndex, decl)
+      styleSearch({ source: declString, target: "(" }, match => {
+        checkOpening(declString, match.startIndex, decl)
       })
-      styleSearch({ source: value, target: ")" }, match => {
-        checkClosing(value, match.startIndex, decl)
+      styleSearch({ source: declString, target: ")" }, match => {
+        checkClosing(declString, match.startIndex, decl)
       })
     })
 
@@ -43,7 +43,8 @@ export default function (expectation) {
         if (!nextCharIsSpace || isWhitespace(source[index + 2])) {
           report({
             message: messages.expectedOpening,
-            node: node,
+            node,
+            index: index + 1,
             result,
             ruleName,
           })
@@ -52,7 +53,8 @@ export default function (expectation) {
         if (nextCharIsSpace) {
           report({
             message: messages.rejectedOpening,
-            node: node,
+            node,
+            index: index + 1,
             result,
             ruleName,
           })
@@ -66,7 +68,8 @@ export default function (expectation) {
         if (!prevCharIsSpace || isWhitespace(source[index - 2])) {
           report({
             message: messages.expectedClosing,
-            node: node,
+            node,
+            index: index - 1,
             result,
             ruleName,
           })
@@ -75,7 +78,8 @@ export default function (expectation) {
         if (prevCharIsSpace) {
           report({
             message: messages.rejectedClosing,
-            node: node,
+            node,
+            index: index - 1,
             result,
             ruleName,
           })

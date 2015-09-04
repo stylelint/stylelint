@@ -16,10 +16,26 @@ testRule("single", tr => {
   tr.ok("a::before { content: 'foo'; }")
   tr.ok("a { background: url('foo'); }")
   tr.ok("a[id='foo'] {}")
-  tr.notOk("a::before { content: \"foo\"; }", messages.expected("single", 1))
-  tr.notOk("a::before\n{\n  content: \"foo\";\n}", messages.expected("single", 3))
-  tr.notOk("a[id=\"foo\"] {}", messages.expected("single", 1))
-  tr.notOk("a\n{ background: url(\"foo\"); }", messages.expected("single", 2))
+  tr.notOk("a::before { content: \"foo\"; }", {
+    message: messages.expected("single"),
+    line: 1,
+    column: 22,
+  })
+  tr.notOk("a::before\n{\n  content: \"foo\";\n}", {
+    message: messages.expected("single"),
+    line: 3,
+    column: 12,
+  })
+  tr.notOk("a[id=\"foo\"] {}", {
+    message: messages.expected("single"),
+    line: 1,
+    column: 6,
+  })
+  tr.notOk("a\n{ background: url(\"foo\"); }", {
+    message: messages.expected("single"),
+    line: 2,
+    column: 19,
+  })
 
   tr.ok("a::before { content: 'foo\"horse\"\'cow\''; }", "string in strings")
   tr.ok("a { /* \"horse\" */ }", "ignores comment")
@@ -35,10 +51,26 @@ testRule("double", tr => {
   tr.ok("a::before { content: \"foo\"; }")
   tr.ok("a { background: url(\"foo\"); }")
   tr.ok("a[id=\"foo\"] {}")
-  tr.notOk("a::before { content: 'foo'; }", messages.expected("double", 1))
-  tr.notOk("a::before\n{\n  content: 'foo';\n}", messages.expected("double", 3))
-  tr.notOk("a[id='foo'] {}", messages.expected("double", 1))
-  tr.notOk("a { background: url('foo'); }", messages.expected("double", 1))
+  tr.notOk("a::before { content: 'foo'; }", {
+    message: messages.expected("double"),
+    line: 1,
+    column: 22,
+  })
+  tr.notOk("a::before\n{\n  content: 'foo';\n}", {
+    message: messages.expected("double"),
+    line: 3,
+    column: 12,
+  })
+  tr.notOk("a[id='foo'] {}", {
+    message: messages.expected("double"),
+    line: 1,
+    column: 6,
+  })
+  tr.notOk("a { background: url('foo'); }", {
+    message: messages.expected("double"),
+    line: 1,
+    column: 21,
+  })
 
   tr.ok(`a::before { content: "foo\"horse\"'cow'"; }`, "string in strings")
   tr.ok("a { /* 'horse' */ }", "ignores comment")
