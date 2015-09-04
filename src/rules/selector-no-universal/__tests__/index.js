@@ -14,8 +14,24 @@ testRule(undefined, tr => {
   tr.ok(".foo {}")
   tr.ok("[foo] {}")
 
-  tr.notOk("* {}", messages.rejected)
-  tr.notOk(".bar * {}", messages.rejected)
-  tr.notOk("*.bar {}", messages.rejected)
-  tr.notOk(".foo, .bar, *.baz {}", messages.rejected)
+  tr.notOk("* {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  })
+  tr.notOk(".bar * {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  })
+  tr.notOk("*.bar {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  })
+  tr.notOk(".foo, .bar, *.baz {}", {
+    message: messages.rejected,
+    line: 1,
+    column: 13,
+  })
 })
