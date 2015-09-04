@@ -17,7 +17,7 @@ tr.ok(
 tr.notOk(
 ` /* blergh */`,
 {
-  message: messages.expected("0 tabs at line 1"),
+  message: messages.expected("0 tabs"),
   line: 1,
   column: 2,
 })
@@ -35,7 +35,7 @@ tr.notOk(
 \ttop: 0;
 }`,
 {
-  message: messages.expected("1 tab at line 2"),
+  message: messages.expected("1 tab"),
   line: 2,
   column: 3,
 })
@@ -57,7 +57,7 @@ tr.notOk(
 \t}
 }`,
 {
-  message: messages.expected("2 tabs at line 3"),
+  message: messages.expected("2 tabs"),
   line: 3,
   column: 2,
 })

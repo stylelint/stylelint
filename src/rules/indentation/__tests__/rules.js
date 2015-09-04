@@ -81,7 +81,7 @@ tr.notOk(
   color: pink;
 }`,
 {
-  message: messages.expected("0 spaces at line 1"),
+  message: messages.expected("0 spaces"),
   line: 1,
   column: 2,
 })
@@ -91,7 +91,7 @@ tr.notOk(
   color: pink;
   }`,
 {
-  message: messages.expected("0 spaces at line 3"),
+  message: messages.expected("0 spaces"),
   line: 3,
   column: 3,
 })
@@ -102,7 +102,7 @@ b {
   color: pink;
   }`,
 {
-  message: messages.expected("0 spaces at line 4"),
+  message: messages.expected("0 spaces"),
   line: 4,
   column: 3,
 })
@@ -111,7 +111,7 @@ tr.notOk(
 `a { color: pink;
   }`,
 {
-  message: messages.expected("0 spaces at line 2"),
+  message: messages.expected("0 spaces"),
   line: 2,
   column: 3,
 })
@@ -124,7 +124,7 @@ tr.notOk(
   color: orange
 }`
 , {
-  message: messages.expected("0 spaces at line 4"),
+  message: messages.expected("0 spaces"),
   line: 4,
   column: 2,
 })
@@ -137,7 +137,7 @@ b {
   color: orange
  }`,
 {
-  message: messages.expected("0 spaces at line 6"),
+  message: messages.expected("0 spaces"),
   line: 6,
   column: 2,
 })
@@ -148,7 +148,7 @@ tr.notOk(
 color: pink;
 }`,
 {
-  message: messages.expected("2 spaces at line 2"),
+  message: messages.expected("2 spaces"),
   line: 2,
   column: 1,
 })
@@ -158,7 +158,7 @@ tr.notOk(
 \tcolor: pink;
 }`,
 {
-  message: messages.expected("2 spaces at line 2"),
+  message: messages.expected("2 spaces"),
   line: 2,
   column: 2,
 })
@@ -169,7 +169,7 @@ tr.notOk(
  background: orange;
 }`,
 {
-  message: messages.expected("2 spaces at line 3"),
+  message: messages.expected("2 spaces"),
   line: 3,
   column: 2,
 })
@@ -183,7 +183,7 @@ tr.notOk(
   color: pink;
 }`,
 {
-  message: messages.expected("4 spaces at line 3"),
+  message: messages.expected("4 spaces"),
   line: 3,
   column: 1,
 })
@@ -196,7 +196,7 @@ tr.notOk(
   color: pink;
 }`,
 {
-  message: messages.expected("4 spaces at line 4"),
+  message: messages.expected("4 spaces"),
   line: 4,
   column: 1,
 })
@@ -222,7 +222,7 @@ tr.notOk(
 `@media print {
    * { color: pink; }
 }`,
-messages.expected("2 spaces at line 2"))
+messages.expected("2 spaces"))
 
 })
 
@@ -257,7 +257,7 @@ tr.notOk(
 \tcolor: pink;
 }`,
 {
-  message: messages.expected("0 tabs at line 1"),
+  message: messages.expected("0 tabs"),
   line: 1,
   column: 2,
 })
@@ -267,7 +267,7 @@ tr.notOk(
 \tcolor: pink;
   }`,
 {
-  message: messages.expected("0 tabs at line 3"),
+  message: messages.expected("0 tabs"),
   line: 3,
   column: 3,
 })
@@ -280,7 +280,7 @@ tr.notOk(
 \tcolor: orange
 }`
 , {
-  message: messages.expected("0 tabs at line 4"),
+  message: messages.expected("0 tabs"),
   line: 4,
   column: 2,
 })
@@ -293,7 +293,7 @@ b {
 \tcolor: orange
  }`,
 {
-  message: messages.expected("0 tabs at line 6"),
+  message: messages.expected("0 tabs"),
   line: 6,
   column: 2,
 })
@@ -304,7 +304,7 @@ tr.notOk(
 color: pink;
 }`,
 {
-  message: messages.expected("1 tab at line 2"),
+  message: messages.expected("1 tab"),
   line: 2,
   column: 1,
 })
@@ -314,7 +314,7 @@ tr.notOk(
   color: pink;
 }`,
 {
-  message: messages.expected("1 tab at line 2"),
+  message: messages.expected("1 tab"),
   line: 2,
   column: 3,
 })
@@ -325,7 +325,7 @@ tr.notOk(
  background: orange;
 }`,
 {
-  message: messages.expected("1 tab at line 3"),
+  message: messages.expected("1 tab"),
   line: 3,
   column: 2,
 })
@@ -335,7 +335,7 @@ tr.notOk(
 top: 0; background: orange;
 }`,
 {
-  message: messages.expected("1 tab at line 2"),
+  message: messages.expected("1 tab"),
   line: 2,
   column: 1,
 })
@@ -368,7 +368,7 @@ tr.notOk(
   color: pink;
 }`,
 {
-  message: messages.expected("2 spaces at line 3"),
+  message: messages.expected("2 spaces"),
   line: 3,
   column: 1,
 })
@@ -381,7 +381,7 @@ tr.notOk(
   color: pink;
 }`,
 {
-  message: messages.expected("2 spaces at line 4"),
+  message: messages.expected("2 spaces"),
   line: 4,
   column: 1,
 })
