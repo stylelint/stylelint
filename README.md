@@ -76,8 +76,6 @@ var css = fs.readFileSync("input.css", "utf8")
   .catch(err => console.error(err.stack))
 ```
 
-Currently, reported line numbers are only _approximate_, marking the beginning of the CSS node to which the warning relates. _See issue [#133](https://github.com/stylelint/stylelint/issues/133) for more details._
-
 ### With CSS processors
 
 The linter supports current and future CSS syntax. This includes all standard CSS but also special features that use standard CSS syntactic structures, e.g. special at-rules, special properties, and special functions. Some CSS-*like* language extensions -- features that use non-standard syntactic structures -- are, as such, supported; however, since there are infinite processing possibilities, the linter cannot support everything.
