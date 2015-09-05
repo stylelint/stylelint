@@ -21,7 +21,8 @@
 $ npm install stylelint
 ```
 
-This plugin registers warnings via PostCSS. Therefore, you'll want to use it with a PostCSS runner that prints warnings (e.g. [`gulp-postcss`](https://github.com/postcss/gulp-postcss)) or another PostCSS plugin that prints warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
+* _PostCSS `5.x` or `4.x` compatibility_ - versions `1.0.0+` of the linter are compatible with PostCSS `5.0.2+`. Whereas, versions `0.8.0 and below` are compatible with PostCSS `4.x`.
+* _Use a reporter_ - this plugin registers warnings via PostCSS. Therefore, you'll want to use it with a PostCSS runner that prints warnings (e.g. [`gulp-postcss`](https://github.com/postcss/gulp-postcss)) or another PostCSS plugin that prints warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
 
 ## Usage
 

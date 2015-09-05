@@ -1,3 +1,9 @@
+# Head
+
+* Removed: compatibility with PostCSS `4.x`.
+* Added: compatibility with PostCSS `5.0.2+`.
+* Fixed: the accuracy of reported line numbers and columns.
+
 # 0.8.0
 
 * Added: `after-comment` `ignore` option to the `at-rule-empty-line-before` rule.
