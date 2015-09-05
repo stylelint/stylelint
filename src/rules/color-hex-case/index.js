@@ -22,12 +22,11 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
-      const value = decl.value
+    root.walkDecls(decl => {
+      const declString = decl.toString()
+      styleSearch({ source: declString, target: "#" }, match => {
 
-      styleSearch({ source: value, target: "#" }, match => {
-
-        const hexValue = /^#[0-9A-Za-z]+/.exec(value.substr(match.startIndex))[0]
+        const hexValue = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))[0]
         const hexValueLower = hexValue.toLowerCase()
         const hexValueUpper = hexValue.toUpperCase()
 
@@ -40,6 +39,7 @@ export default function (expectation) {
         report({
           message: messages.expected(hexValue, variant),
           node: decl,
+          index: match.startIndex,
           result,
           ruleName,
         })

@@ -23,7 +23,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachRule(rule => {
+    root.walkRules(rule => {
       const selector = rule.selector
 
       // get out early if no pseudo elements or classes
@@ -40,6 +40,7 @@ export default function (expectation) {
         report({
           message: messages.expected(expectation),
           node: rule,
+          index: match.startIndex,
           result,
           ruleName,
         })

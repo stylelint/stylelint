@@ -22,12 +22,12 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
-      const value = decl.value
+    root.walkDecls(decl => {
+      const declString = decl.toString()
 
-      styleSearch({ source: value, target: "#" }, match => {
+      styleSearch({ source: declString, target: "#" }, match => {
 
-        const hexValue = /^#[0-9A-Za-z]+/.exec(value.substr(match.startIndex))[0]
+        const hexValue = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))[0]
 
         if (expectation === "long" && hexValue.length !== 4 && hexValue.length !== 5) { return }
 
@@ -38,6 +38,7 @@ export default function (expectation) {
         report({
           message: messages.expected(hexValue, variant(hexValue)),
           node: decl,
+          index: match.startIndex,
           result,
           ruleName,
         })

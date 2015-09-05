@@ -1,5 +1,6 @@
 import {
   cssStatementBlockString,
+  rawNodeString,
   report,
   ruleMessages,
   validateOptions,
@@ -29,22 +30,23 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachDecl(function (decl) {
+    root.walkDecls(function (decl) {
       // Ignore last declaration if there's no trailing semicolon
       const parentRule = decl.parent
-      if (!parentRule.semicolon && parentRule.last === decl) { return }
+      if (!parentRule.raws.semicolon && parentRule.last === decl) { return }
 
       const nextDecl = decl.next()
       if (!nextDecl) { return }
 
       check.after({
-        source: nextDecl.toString(),
+        source: rawNodeString(nextDecl),
         index: -1,
         lineCheckStr: cssStatementBlockString(parentRule),
         err: m => {
           return report({
             message: m,
             node: decl,
+            index: decl.toString().length + 1,
             result,
             ruleName,
           })

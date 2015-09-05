@@ -16,14 +16,18 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.eachAtRule(atRule => {
+    root.walkAtRules(atRule => {
       const { params } = atRule
       if (isAutoprefixable.mediaFeatureName(params)) {
-        report({
-          message: messages.rejected,
-          node: atRule,
-          result,
-          ruleName,
+        const matches = atRule.toString().match(/[a-z-]+device-pixel-ratio/g)
+        matches.forEach(match => {
+          report({
+            message: messages.rejected,
+            node: atRule,
+            word: match,
+            result,
+            ruleName,
+          })
         })
       }
     })

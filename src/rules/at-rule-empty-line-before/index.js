@@ -29,7 +29,7 @@ export default function (expectation, options) {
     })
     if (!validOptions) { return }
 
-    root.eachAtRule(atRule => {
+    root.walkAtRules(atRule => {
 
       // Ignore the first node
       if (atRule === root.first) { return }
@@ -41,8 +41,8 @@ export default function (expectation, options) {
       if (optionsHaveIgnored(options, "after-comment")
         && atRule.prev() && atRule.prev().type === "comment") { return }
 
-      const emptyLineBefore = atRule.before.indexOf("\n\n") !== -1
-        || atRule.before.indexOf("\r\n\r\n") !== -1
+      const emptyLineBefore = atRule.raws.before.indexOf("\n\n") !== -1
+        || atRule.raws.before.indexOf("\r\n\r\n") !== -1
 
       let expectEmptyLineBefore = (expectation === "always") ? true : false
 

@@ -28,42 +28,74 @@ testRule("always", tr => {
 
   tr.notOk(
     "a  +a {}",
-    messages.expectedBefore("+"),
+    {
+      message: messages.expectedBefore("+"),
+      line: 1,
+      column: 4,
+    },
     "two spaces before + combinator"
   )
   tr.notOk(
     "a\n+ a {}",
-    messages.expectedBefore("+"),
+    {
+      message: messages.expectedBefore("+"),
+      line: 2,
+      column: 1,
+    },
     "newline before + combinator"
   )
   tr.notOk(
     "a\r\n+ a {}",
-    messages.expectedBefore("+"),
+    {
+      message: messages.expectedBefore("+"),
+      line: 2,
+      column: 1,
+    },
     "CRLF before + combinator"
   )
   tr.notOk(
     "a+a {}",
-    messages.expectedBefore("+"),
+    {
+      message: messages.expectedBefore("+"),
+      line: 1,
+      column: 2,
+    },
     "no space before + combinator"
   )
   tr.notOk(
     "a>a {}",
-    messages.expectedBefore(">"),
+    {
+      message: messages.expectedBefore(">"),
+      line: 1,
+      column: 2,
+    },
     "no space before > combinator"
   )
   tr.notOk(
     "a~a {}",
-    messages.expectedBefore("~"),
+    {
+      message: messages.expectedBefore("~"),
+      line: 1,
+      column: 2,
+    },
     "no space before ~ combinator"
   )
   tr.notOk(
     "a + .foo.bar~ a {}",
-    messages.expectedBefore("~"),
+    {
+      message: messages.expectedBefore("~"),
+      line: 1,
+      column: 13,
+    },
     "multiple combinators: no space before ~ combinator"
   )
   tr.notOk(
     "#foo+ .foo.bar ~ a {}",
-    messages.expectedBefore("+"),
+    {
+      message: messages.expectedBefore("+"),
+      line: 1,
+      column: 5,
+    },
     "multiple combinators: no space before + combinator"
   )
 })
@@ -88,47 +120,83 @@ testRule("never", tr => {
 
   tr.notOk(
     "a +a {}",
-    messages.rejectedBefore("+"),
+    {
+      message: messages.rejectedBefore("+"),
+      line: 1,
+      column: 3,
+    },
     "space before + combinator"
   )
   tr.notOk(
     "a >a {}",
-    messages.rejectedBefore(">"),
+    {
+      message: messages.rejectedBefore(">"),
+      line: 1,
+      column: 3,
+    },
     "space before > combinator"
   )
   tr.notOk(
     "a ~a {}",
-    messages.rejectedBefore("~"),
+    {
+      message: messages.rejectedBefore("~"),
+      line: 1,
+      column: 3,
+    },
     "space before ~ combinator"
   )
   tr.notOk(
     "a\n+a {}",
-    messages.rejectedBefore("+"),
+    {
+      message: messages.rejectedBefore("+"),
+      line: 2,
+      column: 1,
+    },
     "newline before + combinator"
   )
   tr.notOk(
     "a\n>a {}",
-    messages.rejectedBefore(">"),
+    {
+      message: messages.rejectedBefore(">"),
+      line: 2,
+      column: 1,
+    },
     "newline before > combinator"
   )
   tr.notOk(
     "a\n~a {}",
-    messages.rejectedBefore("~"),
+    {
+      message: messages.rejectedBefore("~"),
+      line: 2,
+      column: 1,
+    },
     "newline before ~ combinator"
   )
   tr.notOk(
     "a\r\n~a {}",
-    messages.rejectedBefore("~"),
+    {
+      message: messages.rejectedBefore("~"),
+      line: 2,
+      column: 1,
+    },
     "CRLF before ~ combinator"
   )
   tr.notOk(
     "a + .foo.bar~ a {}",
-    messages.rejectedBefore("+"),
+    {
+      message: messages.rejectedBefore("+"),
+      line: 1,
+      column: 3,
+    },
     "multiple combinators: space before + combinator"
   )
   tr.notOk(
     "#foo+ .foo.bar ~ a {}",
-    messages.rejectedBefore("~"),
+    {
+      message: messages.rejectedBefore("~"),
+      line: 1,
+      column: 16,
+    },
     "multiple combinators: no space before ~ combinator"
   )
 })

@@ -10,7 +10,7 @@ const warnAboutFooMessages = stylelint.utils.ruleMessages("warn-about-foo", {
 function warnAboutFoo(expectation) {
   return (root, result) => {
     let foundFoo
-    root.eachRule(rule => {
+    root.walkRules(rule => {
       if (rule.selector === ".foo") {
         if (expectation === "always") {
           stylelint.utils.report({

@@ -1,3 +1,4 @@
+import rawNodeString from "./rawNodeString"
 import cssStatementHasBlock from "./cssStatementHasBlock"
 import cssStatementStringBeforeBlock from "./cssStatementStringBeforeBlock"
 
@@ -12,5 +13,5 @@ import cssStatementStringBeforeBlock from "./cssStatementStringBeforeBlock"
  */
 export default function (statement) {
   if (!cssStatementHasBlock(statement)) { return }
-  return statement.toString().slice(cssStatementStringBeforeBlock(statement).length)
+  return rawNodeString(statement).slice(cssStatementStringBeforeBlock(statement).length)
 }

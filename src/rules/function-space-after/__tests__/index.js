@@ -22,14 +22,46 @@ testRule("always", tr => {
   tr.ok("a { border-color: color(rgb(0,0,0) lightness(50%)) red pink orange; }",
     "function within a function as one of multiple space-separated values")
 
-  tr.notOk("a { transform: translate(1, 1)scale(3); }", messages.expected)
-  tr.notOk("a { transform: translate(1, 1)  scale(3); }", messages.expected)
-  tr.notOk("a { transform: translate(1, 1)\nscale(3); }", messages.expected)
-  tr.notOk("a { transform: translate(1, 1)\r\nscale(3); }", messages.expected, "CRLF")
-  tr.notOk("a { color: color(rgb(0,0,0)lightness(50%)) };", messages.expected)
-  tr.notOk("a { color: color(rgb(0,0,0)  lightness(50%)) };", messages.expected)
-  tr.notOk("a { color: color(rgb(0,0,0)\nlightness(50%)) };", messages.expected)
-  tr.notOk("a { color: color(rgb(0,0,0)\r\nlightness(50%)) };", messages.expected, "CRLF")
+  tr.notOk("a { transform: translate(1, 1)scale(3); }", {
+    message: messages.expected,
+    line: 1,
+    column: 31,
+  })
+  tr.notOk("a { transform: translate(1, 1)  scale(3); }", {
+    message: messages.expected,
+    line: 1,
+    column: 31,
+  })
+  tr.notOk("a { transform: translate(1, 1)\nscale(3); }", {
+    message: messages.expected,
+    line: 1,
+    column: 31,
+  })
+  tr.notOk("a { transform: translate(1, 1)\r\nscale(3); }", {
+    message: messages.expected,
+    line: 1,
+    column: 31,
+  }, "CRLF")
+  tr.notOk("a { color: color(rgb(0,0,0)lightness(50%)) };", {
+    message: messages.expected,
+    line: 1,
+    column: 28,
+  })
+  tr.notOk("a { color: color(rgb(0,0,0)  lightness(50%)) };", {
+    message: messages.expected,
+    line: 1,
+    column: 28,
+  })
+  tr.notOk("a { color: color(rgb(0,0,0)\nlightness(50%)) };", {
+    message: messages.expected,
+    line: 1,
+    column: 28,
+  })
+  tr.notOk("a { color: color(rgb(0,0,0)\r\nlightness(50%)) };", {
+    message: messages.expected,
+    line: 1,
+    column: 28,
+  }, "CRLF")
 })
 
 testRule("never", tr => {
@@ -44,11 +76,39 @@ testRule("never", tr => {
   tr.ok("a { transform: translate(1, 1)scale(3); }")
   tr.ok("a { color: color(rgb(0,0,0)lightness(50%)) };")
 
-  tr.notOk("a { transform: translate(1, 1) scale(3); }", messages.rejected)
-  tr.notOk("a { transform: translate(1, 1)  scale(3); }", messages.rejected)
-  tr.notOk("a { transform: translate(1, 1)\nscale(3); }", messages.rejected)
-  tr.notOk("a { transform: translate(1, 1)\r\nscale(3); }", messages.rejected, "CRLF")
-  tr.notOk("a { color: color(rgb(0,0,0) lightness(50%)) };", messages.rejected)
-  tr.notOk("a { color: color(rgb(0,0,0)  lightness(50%)) };", messages.rejected)
-  tr.notOk("a { color: color(rgb(0,0,0)\nlightness(50%)) };", messages.rejected)
+  tr.notOk("a { transform: translate(1, 1) scale(3); }", {
+    message: messages.rejected,
+    line: 1,
+    column: 31,
+  })
+  tr.notOk("a { transform: translate(1, 1)  scale(3); }", {
+    message: messages.rejected,
+    line: 1,
+    column: 31,
+  })
+  tr.notOk("a { transform: translate(1, 1)\nscale(3); }", {
+    message: messages.rejected,
+    line: 1,
+    column: 31,
+  })
+  tr.notOk("a { transform: translate(1, 1)\r\nscale(3); }", {
+    message: messages.rejected,
+    line: 1,
+    column: 31,
+  }, "CRLF")
+  tr.notOk("a { color: color(rgb(0,0,0) lightness(50%)) };", {
+    message: messages.rejected,
+    line: 1,
+    column: 28,
+  })
+  tr.notOk("a { color: color(rgb(0,0,0)  lightness(50%)) };", {
+    message: messages.rejected,
+    line: 1,
+    column: 28,
+  })
+  tr.notOk("a { color: color(rgb(0,0,0)\nlightness(50%)) };", {
+    message: messages.rejected,
+    line: 1,
+    column: 28,
+  })
 })

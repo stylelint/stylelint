@@ -50,20 +50,21 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachAtRule(check)
-    root.eachRule(check)
+    root.walkAtRules(check)
+    root.walkRules(check)
 
     function check(statement) {
       if (statement.type === "atrule") {
         checkAtRuleParams(statement)
       }
 
-      statement.eachDecl(function (decl) {
-        cssFunctionArguments(decl.value, "url", args => {
+      statement.walkDecls(function (decl) {
+        cssFunctionArguments(decl.toString(), "url", (args, index) => {
           if (strDefiesExpectation(args)) {
             report({
               message: messages.expected(quoteMsg),
               node: decl,
+              index,
               result,
               ruleName,
             })
@@ -73,31 +74,34 @@ export default function (expectation) {
     }
 
     function checkAtRuleParams(atRule) {
-      cssFunctionArguments(atRule.params, "url", args => {
+      cssFunctionArguments(atRule.params, "url", (args, index) => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg),
             node: atRule,
+            index: index + 1 + atRule.name.length + atRule.raws.afterName.length,
             result,
             ruleName,
           })
         }
       })
-      cssFunctionArguments(atRule.params, "url-prefix", args => {
+      cssFunctionArguments(atRule.params, "url-prefix", (args, index) => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg, "url-prefix"),
             node: atRule,
+            index: index + 1 + atRule.name.length + atRule.raws.afterName.length,
             result,
             ruleName,
           })
         }
       })
-      cssFunctionArguments(atRule.params, "domain", args => {
+      cssFunctionArguments(atRule.params, "domain", (args, index) => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg, "domain"),
             node: atRule,
+            index: index + 1 + atRule.name.length + atRule.raws.afterName.length,
             result,
             ruleName,
           })

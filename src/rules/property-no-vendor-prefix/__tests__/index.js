@@ -16,12 +16,41 @@ testRule(undefined, tr => {
   tr.ok("a { -webkit-font-smoothing: antialiased; }", "non-standard prefixed property")
   tr.ok("a { -webkit-touch-callout: none; }", "another non-standard prefixed property")
 
-  tr.notOk("a { -webkit-transform: scale(1); }", messages.rejected("-webkit-transform"))
-  tr.notOk("a { -webkit-transform: scale(1); transform: scale(1); }", messages.rejected("-webkit-transform"))
-  tr.notOk("a { transform: scale(1); -webkit-transform: scale(1); }", messages.rejected("-webkit-transform"))
-  tr.notOk("a { -moz-transition: all 3s; }", messages.rejected("-moz-transition"))
-  tr.notOk("a { -moz-columns: 2; }", messages.rejected("-moz-columns"))
+  tr.notOk("a { -webkit-transform: scale(1); }", {
+    message: messages.rejected("-webkit-transform"),
+    line: 1,
+    column: 5,
+  })
+  tr.notOk("a { -webkit-transform: scale(1); transform: scale(1); }", {
+    message: messages.rejected("-webkit-transform"),
+    line: 1,
+    column: 5,
+  })
+  tr.notOk("a { transform: scale(1); -webkit-transform: scale(1); }", {
+    message: messages.rejected("-webkit-transform"),
+    line: 1,
+    column: 26,
+  })
+  tr.notOk("a { -moz-transition: all 3s; }", {
+    message: messages.rejected("-moz-transition"),
+    line: 1,
+    column: 5,
+  })
+  tr.notOk("a { -moz-columns: 2; }", {
+    message: messages.rejected("-moz-columns"),
+    line: 1,
+    column: 5,
+  })
 
-  tr.notOk("a { -o-columns: 2; }", messages.rejected("-o-columns"), "mistaken prefix")
-  tr.notOk("a { -ms-interpolation-mode: nearest-neighbor; }", messages.rejected("-ms-interpolation-mode"), "\"hack\" prefix")
+  tr.notOk("a { -o-columns: 2; }", {
+    message: messages.rejected("-o-columns"),
+    line: 1,
+    column: 5,
+  }, "mistaken prefix")
+
+  tr.notOk("a { -ms-interpolation-mode: nearest-neighbor; }", {
+    message: messages.rejected("-ms-interpolation-mode"),
+    line: 1,
+    column: 5,
+  }, "\"hack\" prefix")
 })

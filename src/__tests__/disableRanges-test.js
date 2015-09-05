@@ -2,7 +2,7 @@ import test from "tape"
 import postcss from "postcss"
 import disableRanges from "../disableRanges"
 
-test("registers disable/enable commands without rules", t => {
+test("disableRanges registers disable/enable commands without rules", t => {
   t.plan(4)
 
   testDisableRanges("a {}", result => {
@@ -47,7 +47,7 @@ test("registers disable/enable commands without rules", t => {
   )
 })
 
-test("registers disable/enable commands with rules", t => {
+test("disableRanges registers disable/enable commands with rules", t => {
   t.plan(3)
 
   testDisableRanges("/* stylelint-disable foo-bar */\na {}", result => {

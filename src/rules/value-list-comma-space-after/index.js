@@ -34,22 +34,25 @@ export default function (expectation) {
 }
 
 export function valueListCommaWhitespaceChecker(checkLocation, root, result) {
-  root.eachDecl(decl => {
-    const value = decl.value
-
-    styleSearch({ source: value, target: ",", outsideFunctionalNotation: true }, match => {
-      checkComma(value, match.startIndex, decl)
+  root.walkDecls(decl => {
+    styleSearch({ source: decl.toString(), target: ",", outsideFunctionalNotation: true }, match => {
+      checkComma(decl.toString(), match.startIndex, decl)
     })
   })
 
   function checkComma(source, index, node) {
-    checkLocation({ source, index, err: m =>
-      report({
-        message: m,
-        node: node,
-        result,
-        ruleName,
-      }),
+    checkLocation({
+      source,
+      index,
+      err: m => {
+        report({
+          message: m,
+          node,
+          index,
+          result,
+          ruleName,
+        })
+      },
     })
   }
 }

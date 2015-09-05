@@ -24,11 +24,11 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
-      const value = decl.value
+    root.walkDecls(decl => {
+      const declString = decl.toString()
 
-      styleSearch({ source: value, target: ")" }, match => {
-        checkClosingParen(value, match.startIndex, decl)
+      styleSearch({ source: declString, target: ")" }, match => {
+        checkClosingParen(declString, match.startIndex, decl)
       })
     })
 
@@ -41,7 +41,8 @@ export default function (expectation) {
         if ([ ")", ",", undefined ].indexOf(nextChar) !== -1) { return }
         report({
           message: messages.expected,
-          node: node,
+          node,
+          index: index + 1,
           result,
           ruleName,
         })
@@ -49,7 +50,8 @@ export default function (expectation) {
         if (isWhitespace(nextChar)) {
           report({
             message: messages.rejected,
-            node: node,
+            node,
+            index: index + 1,
             result,
             ruleName,
           })

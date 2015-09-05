@@ -2,6 +2,7 @@ import {
   cssStatementBlockString,
   cssStatementHasBlock,
   report,
+  rawNodeString,
   ruleMessages,
   validateOptions,
   whitespaceChecker
@@ -35,8 +36,8 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     // Check both kinds of statements: rules and at-rules
-    root.eachRule(check)
-    root.eachAtRule(check)
+    root.walkRules(check)
+    root.walkAtRules(check)
 
     function check(statement) {
       const nextNode = statement.next()
@@ -44,13 +45,14 @@ export default function (expectation) {
       if (!cssStatementHasBlock(statement)) { return }
 
       checker.after({
-        source: nextNode.toString(),
+        source: rawNodeString(nextNode),
         index: -1,
         lineCheckStr: cssStatementBlockString(statement),
         err: msg => {
           report({
             message: msg,
             node: statement,
+            index: statement.toString().length,
             result,
             ruleName,
           })

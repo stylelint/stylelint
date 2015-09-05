@@ -33,7 +33,7 @@ export default function (expectation, options) {
     })
     if (!validOptions) { return }
 
-    root.eachRule(rule => {
+    root.walkRules(rule => {
 
       // Ignore nested rule sets
       if (rule.parent !== root) { return }
@@ -64,8 +64,8 @@ export function checkRuleEmptyLineBefore(rule, expectation, options, result, msg
     expectEmptyLineBefore = !expectEmptyLineBefore
   }
 
-  const emptyLineBefore = rule.before.indexOf("\n\n") !== -1
-    || rule.before.indexOf("\r\n\r\n") !== -1
+  const emptyLineBefore = rule.raws.before.indexOf("\n\n") !== -1
+    || rule.raws.before.indexOf("\r\n\r\n") !== -1
 
   // Return if the exceptation is met
   if (expectEmptyLineBefore === emptyLineBefore) { return }

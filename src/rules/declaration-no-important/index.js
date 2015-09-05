@@ -15,12 +15,13 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
+    root.walkDecls(decl => {
       if (!decl.important) { return }
 
       report({
         message: messages.rejected,
         node: decl,
+        word: "important",
         result,
         ruleName,
       })

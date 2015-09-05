@@ -1,4 +1,6 @@
 import {
+  cssStatementHasBlock,
+  cssStatementStringBeforeBlock,
   report,
   ruleMessages,
   validateOptions
@@ -22,27 +24,48 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
-      check(decl.value, decl)
+    root.walkDecls(decl => {
+      check(decl.toString(), decl)
     })
 
-    root.eachAtRule(atRule => {
-      check(atRule.params, atRule)
+    root.walkAtRules(atRule => {
+      const source = (cssStatementHasBlock(atRule))
+        ? cssStatementStringBeforeBlock(atRule, { noBefore: true })
+        : atRule.toString()
+      check(source, atRule)
     })
 
     function check(source, node) {
       // Get out quickly if there are no periods
       if (source.indexOf(".") === -1) { return }
 
-        // check leadingzero
-      if (expectation === "always" && !lacksLeadingZero(source)) { return }
-      if (expectation === "never" && !containsLeadingZero(source)) { return }
+      let errorIndex
+      let message
 
-      const message = (expectation === "always") ? messages.expected : messages.rejected
+        // check leadingzero
+      if (expectation === "always") {
+        const error = lacksLeadingZero(source)
+        if (error) {
+          errorIndex = error.index
+          message = messages.expected
+        } else {
+          return
+        }
+      }
+      if (expectation === "never") {
+        const error = containsLeadingZero(source)
+        if (error) {
+          errorIndex = error.index + 1
+          message = messages.rejected
+        } else {
+          return
+        }
+      }
 
       report({
-        message: message,
+        message,
         node,
+        index: errorIndex,
         result,
         ruleName,
       })
@@ -50,10 +73,10 @@ export default function (expectation) {
   }
 }
 
-function lacksLeadingZero(value) {
-  return /(?:\D|^)\.\d+/g.test(value)
+function lacksLeadingZero(source) {
+  return /(?:\D|^)(\.\d+)/g.exec(source)
 }
 
-function containsLeadingZero(value) {
-  return /(?:\D|^)0\.\d+/g.test(value)
+function containsLeadingZero(source) {
+  return /(?:\D|^)(0\.\d+)/g.exec(source)
 }

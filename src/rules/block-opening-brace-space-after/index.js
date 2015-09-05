@@ -2,6 +2,7 @@ import {
   cssStatementBlockString,
   cssStatementHasBlock,
   cssStatementHasEmptyBlock,
+  cssStatementStringBeforeBlock,
   report,
   ruleMessages,
   validateOptions,
@@ -36,8 +37,8 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     // Check both kinds of statements: rules and at-rules
-    root.eachRule(check)
-    root.eachAtRule(check)
+    root.walkRules(check)
+    root.walkAtRules(check)
 
     function check(statement) {
       // Return early if blockless or has empty block
@@ -50,6 +51,7 @@ export default function (expectation) {
           report({
             message: m,
             node: statement,
+            index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length + 1,
             result,
             ruleName,
           })

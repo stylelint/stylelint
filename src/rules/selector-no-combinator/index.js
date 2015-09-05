@@ -16,12 +16,13 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.eachRule(rule => {
+    root.walkRules(rule => {
       selectorParser(selectorAST => {
-        selectorAST.eachCombinator(() => {
+        selectorAST.eachCombinator(combinator => {
           report({
             message: messages.rejected,
             node: rule,
+            word: combinator.parent.toString().trim(),
             ruleName,
             result,
           })

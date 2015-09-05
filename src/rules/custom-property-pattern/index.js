@@ -16,7 +16,7 @@ export default function (pattern) {
     const validOptions = validateOptions(result, ruleName, { actual: pattern, possible: isRegExp })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
+    root.walkDecls(decl => {
       const prop = decl.prop
       if (prop.slice(0, 2) !== "--") { return }
 

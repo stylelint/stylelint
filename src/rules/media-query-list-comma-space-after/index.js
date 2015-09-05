@@ -33,7 +33,7 @@ export default function (expectation) {
 }
 
 export function mediaQueryListCommaWhitespaceChecker(checkLocation, root, result) {
-  root.eachAtRule(atRule => {
+  root.walkAtRules(atRule => {
     const params = atRule.params
     styleSearch({ source: params, target: "," }, match => {
       checkComma(params, match.startIndex, atRule)
@@ -45,6 +45,7 @@ export function mediaQueryListCommaWhitespaceChecker(checkLocation, root, result
       report({
         message: m,
         node,
+        index: index + 1 + node.name.length + node.raws.afterName.length,
         result,
         ruleName,
       }),

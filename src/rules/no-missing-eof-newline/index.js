@@ -1,5 +1,4 @@
 import {
-  lineCount,
   report,
   ruleMessages,
   validateOptions
@@ -20,7 +19,7 @@ export default function (actual) {
       report({
         message: messages.rejected,
         node: root,
-        line: lineCount(root.source.input.css),
+        index: root.toString().length - 1,
         result,
         ruleName,
       })

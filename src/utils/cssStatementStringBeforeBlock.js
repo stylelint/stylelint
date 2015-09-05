@@ -8,13 +8,22 @@ import cssStatementHasBlock from "./cssStatementHasBlock"
  * If there is no block, return undefined.
  *
  * @param {Rule|AtRule} statement - postcss rule or at-rule node
+ * @param {object} options
+ * @param {boolean} [options.noBefore] - Leave out the `before` string
  * @return {string|undefined}
  */
-export default function (statement) {
+export default function (statement, { noBefore }={}) {
   if (!cssStatementHasBlock(statement)) { return }
 
-  return (statement.type === "rule")
-    ? statement.before + statement.selector + statement.between
-    : statement.before + "@" + statement.name + statement.afterName +
-      statement.params + statement.between
+  let result = ""
+  if (!noBefore) {
+    result += statement.raws.before
+  }
+  if (statement.type === "rule") {
+    result += statement.selector
+  } else {
+    result += "@" + statement.name + statement.raws.afterName + statement.params
+  }
+  result += statement.raws.between
+  return result
 }

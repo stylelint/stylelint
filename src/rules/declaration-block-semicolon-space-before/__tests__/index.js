@@ -14,12 +14,36 @@ testRule("always", tr => {
   tr.ok("a { color: pink ; top: 0 ; }")
   tr.ok("a { color: pink ; top: 0}")
 
-  tr.notOk("a { color: pink; }", messages.expectedBefore())
-  tr.notOk("a { color: pink  ; }", messages.expectedBefore())
-  tr.notOk("a { color: pink\t; }", messages.expectedBefore())
-  tr.notOk("a { color: pink\n; }", messages.expectedBefore())
-  tr.notOk("a { color: pink\r\n; }", messages.expectedBefore(), "CRLF")
-  tr.notOk("a { color: pink ; top: 0; }", messages.expectedBefore())
+  tr.notOk("a { color: pink; }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 15,
+  })
+  tr.notOk("a { color: pink  ; }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 17,
+  })
+  tr.notOk("a { color: pink\t; }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 16,
+  })
+  tr.notOk("a { color: pink\n; }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 16,
+  })
+  tr.notOk("a { color: pink\r\n; }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 17,
+  }, "CRLF")
+  tr.notOk("a { color: pink ; top: 0; }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 24,
+  })
 })
 
 testRule("never", tr => {
@@ -29,12 +53,36 @@ testRule("never", tr => {
   tr.ok("a::before { content: \";a\"; }")
   tr.ok("a { color: pink; top: 0; }")
 
-  tr.notOk("a { color: pink ; }", messages.rejectedBefore())
-  tr.notOk("a { color: pink  ; }", messages.rejectedBefore())
-  tr.notOk("a { color: pink\t; }", messages.rejectedBefore())
-  tr.notOk("a { color: pink\n; }", messages.rejectedBefore())
-  tr.notOk("a { color: pink\r\n; }", messages.rejectedBefore(), "CRLF")
-  tr.notOk("a { color: pink; top: 0 ; }", messages.rejectedBefore())
+  tr.notOk("a { color: pink ; }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 16,
+  })
+  tr.notOk("a { color: pink  ; }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 17,
+  })
+  tr.notOk("a { color: pink\t; }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 16,
+  })
+  tr.notOk("a { color: pink\n; }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 16,
+  })
+  tr.notOk("a { color: pink\r\n; }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 17,
+  }, "CRLF")
+  tr.notOk("a { color: pink; top: 0 ; }", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 24,
+  })
 })
 
 testRule("always-single-line", tr => {
@@ -49,12 +97,36 @@ testRule("always-single-line", tr => {
   tr.ok("a {\n  color: pink;\n  top: 0;\n}")
   tr.ok("a {\r\n  color: pink;\r\n  top: 0;\r\n}", "CRLF")
 
-  tr.notOk("a { color: pink; }", messages.expectedBeforeSingleLine())
-  tr.notOk("a,\nb { color: pink; }", messages.expectedBeforeSingleLine())
-  tr.notOk("a,\r\nb { color: pink; }", messages.expectedBeforeSingleLine(), "CRLF")
-  tr.notOk("a { color: pink  ; }", messages.expectedBeforeSingleLine())
-  tr.notOk("a { color: pink\t; }", messages.expectedBeforeSingleLine())
-  tr.notOk("a { color: pink ; top: 0; }", messages.expectedBeforeSingleLine())
+  tr.notOk("a { color: pink; }", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 15,
+  })
+  tr.notOk("a,\nb { color: pink; }", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 2,
+    column: 15,
+  })
+  tr.notOk("a,\r\nb { color: pink; }", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 2,
+    column: 15,
+  }, "CRLF")
+  tr.notOk("a { color: pink  ; }", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 17,
+  })
+  tr.notOk("a { color: pink\t; }", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 16,
+  })
+  tr.notOk("a { color: pink ; top: 0; }", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 24,
+  })
 })
 
 testRule("never-single-line", tr => {
@@ -68,10 +140,34 @@ testRule("never-single-line", tr => {
   // Ignore multi-line
   tr.ok("a {\n  color: pink ;\n  top: 0 ;\n}")
 
-  tr.notOk("a { color: pink ; }", messages.rejectedBeforeSingleLine())
-  tr.notOk("a,\nb { color: pink ; }", messages.rejectedBeforeSingleLine())
-  tr.notOk("a,\r\nb { color: pink ; }", messages.rejectedBeforeSingleLine(), "CRLF")
-  tr.notOk("a { color: pink  ; }", messages.rejectedBeforeSingleLine())
-  tr.notOk("a { color: pink\t; }", messages.rejectedBeforeSingleLine())
-  tr.notOk("a { color: pink; top: 0 ; }", messages.rejectedBeforeSingleLine())
+  tr.notOk("a { color: pink ; }", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 16,
+  })
+  tr.notOk("a,\nb { color: pink ; }", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 2,
+    column: 16,
+  })
+  tr.notOk("a,\r\nb { color: pink ; }", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 2,
+    column: 16,
+  }, "CRLF")
+  tr.notOk("a { color: pink  ; }", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 17,
+  })
+  tr.notOk("a { color: pink\t; }", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 16,
+  })
+  tr.notOk("a { color: pink; top: 0 ; }", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 24,
+  })
 })

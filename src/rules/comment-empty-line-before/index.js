@@ -22,18 +22,18 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachComment(comment => {
+    root.walkComments(comment => {
 
       // Ignore the first node
       if (comment === root.first) { return }
 
       // Ignore inline comments
-      if (comment.before.indexOf("\n") === -1) { return }
+      if (comment.raws.before.indexOf("\n") === -1) { return }
 
       const expectEmptyLineBefore = (expectation === "always") ? true : false
 
-      const emptyLineBefore = comment.before.indexOf("\n\n") !== -1
-        || comment.before.indexOf("\r\n\r\n") !== -1
+      const emptyLineBefore = comment.raws.before.indexOf("\n\n") !== -1
+        || comment.raws.before.indexOf("\r\n\r\n") !== -1
 
       // Return if the exceptation is met
       if (expectEmptyLineBefore === emptyLineBefore) { return }

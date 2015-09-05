@@ -17,7 +17,7 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.eachRule(rule => {
+    root.walkRules(rule => {
       const selector = rule.selector
 
       // Check each pseudo-selector
@@ -28,6 +28,7 @@ export default function (actual) {
           report({
             message: messages.rejected(pseudoSelector),
             node: rule,
+            index: match.startIndex,
             result,
             ruleName,
           })

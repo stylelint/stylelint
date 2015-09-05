@@ -13,19 +13,31 @@ testRule(undefined, tr => {
 
   tr.notOk(
     "a { color: pink !important; }",
-    messages.rejected,
+    {
+      message: messages.rejected,
+      line: 1,
+      column: 18,
+    },
     "with !important"
   )
 
   tr.notOk(
     "a { color: pink ! important; }",
-    messages.rejected,
+    {
+      message: messages.rejected,
+      line: 1,
+      column: 19,
+    },
     "with ! important"
   )
 
   tr.notOk(
     "a { color: pink!important; }",
-    messages.rejected,
+    {
+      message: messages.rejected,
+      line: 1,
+      column: 17,
+    },
     "with value!important"
   )
 })

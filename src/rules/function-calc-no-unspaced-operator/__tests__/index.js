@@ -25,24 +25,88 @@ testRule(undefined, tr => {
   tr.ok("a { top: calc(    +1px)}", "multiple spaces before sign at start")
   tr.ok("a { top: calc(\t+1px)}", "tab before sign at start")
 
-  tr.notOk("a { top: calc(1px +\t-1px)}", messages.expectedAfter("+"),
+  tr.notOk("a { top: calc(1px +\t-1px)}", {
+    message: messages.expectedAfter("+"),
+    line: 1,
+    column: 19,
+  },
     "tab before sign after operator")
-  tr.notOk("a { top: calc(1px +  -1px)}", messages.expectedAfter("+"),
+  tr.notOk("a { top: calc(1px +  -1px)}", {
+    message: messages.expectedAfter("+"),
+    line: 1,
+    column: 19,
+  },
     "multiple spaces before sign after operator")
 
-  tr.notOk("a { top: calc(1px+ 2px); }", messages.expectedBefore("+"))
-  tr.notOk("a { top: calc(1px  + 2px); }", messages.expectedBefore("+"))
-  tr.notOk("a { top: calc(1px\t+ 2px); }", messages.expectedBefore("+"))
-  tr.notOk("a { top: calc(1px +  2px); }", messages.expectedAfter("+"))
-  tr.notOk("a { top: calc(1px +\t2px); }", messages.expectedAfter("+"))
-  tr.notOk("a { top: calc(1px- 2px); }", messages.expectedBefore("-"))
-  tr.notOk("a { top: calc(1px* 2); }", messages.expectedBefore("*"))
-  tr.notOk("a { top: calc(1px *2); }", messages.expectedAfter("*"))
-  tr.notOk("a { top: calc(1px/ 2); }", messages.expectedBefore("/"))
-  tr.notOk("a { top: calc(1px /2); }", messages.expectedAfter("/"))
-  tr.notOk("a { top: calc(calc(1px* 2px) + 3px); }", messages.expectedBefore("*"))
-  tr.notOk("a { top: calc(calc(1px + 2px)* 3px); }", messages.expectedBefore("*"))
+  tr.notOk("a { top: calc(1px+ 2px); }", {
+    message: messages.expectedBefore("+"),
+    line: 1,
+    column: 18,
+  })
+  tr.notOk("a { top: calc(1px  + 2px); }", {
+    message: messages.expectedBefore("+"),
+    line: 1,
+    column: 20,
+  })
+  tr.notOk("a { top: calc(1px\t+ 2px); }", {
+    message: messages.expectedBefore("+"),
+    line: 1,
+    column: 19,
+  })
+  tr.notOk("a { top: calc(1px +  2px); }", {
+    message: messages.expectedAfter("+"),
+    line: 1,
+    column: 19,
+  })
+  tr.notOk("a { top: calc(1px +\t2px); }", {
+    message: messages.expectedAfter("+"),
+    line: 1,
+    column: 19,
+  })
+  tr.notOk("a { top: calc(1px- 2px); }", {
+    message: messages.expectedBefore("-"),
+    line: 1,
+    column: 18,
+  })
+  tr.notOk("a { top: calc(1px* 2); }", {
+    message: messages.expectedBefore("*"),
+    line: 1,
+    column: 18,
+  })
+  tr.notOk("a { top: calc(1px *2); }", {
+    message: messages.expectedAfter("*"),
+    line: 1,
+    column: 19,
+  })
+  tr.notOk("a { top: calc(1px/ 2); }", {
+    message: messages.expectedBefore("/"),
+    line: 1,
+    column: 18,
+  })
+  tr.notOk("a { top: calc(1px /2); }", {
+    message: messages.expectedAfter("/"),
+    line: 1,
+    column: 19,
+  })
+  tr.notOk("a { top: calc(calc(1px* 2px) + 3px); }", {
+    message: messages.expectedBefore("*"),
+    line: 1,
+    column: 23,
+  })
+  tr.notOk("a { top: calc(calc(1px + 2px)* 3px); }", {
+    message: messages.expectedBefore("*"),
+    line: 1,
+    column: 30,
+  })
 
-  tr.notOk("a { top: calc(1px +2px); }", messages.expectedOperatorBeforeSign("+"))
-  tr.notOk("a { top: calc(1px -2px); }", messages.expectedOperatorBeforeSign("-"))
+  tr.notOk("a { top: calc(1px +2px); }", {
+    message: messages.expectedOperatorBeforeSign("+"),
+    line: 1,
+    column: 19,
+  })
+  tr.notOk("a { top: calc(1px -2px); }", {
+    message: messages.expectedOperatorBeforeSign("-"),
+    line: 1,
+    column: 19,
+  })
 })

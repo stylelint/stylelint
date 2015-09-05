@@ -35,34 +35,58 @@ tr.ok(
 tr.notOk(
 `a,
   b { color: pink; }
-`, messages.expected("0 spaces at line 2"))
+`,
+{
+  message: messages.expected("0 spaces"),
+  line: 2,
+  column: 1,
+})
 
 tr.notOk(
 `a,
 b,
  c { color: pink; }
-`, messages.expected("0 spaces at line 3"))
+`,
+{
+  message: messages.expected("0 spaces"),
+  line: 3,
+  column: 1,
+})
 
 tr.notOk(
 `@media print {
   a,
 b { color: pink;}
 }
-`, messages.expected("2 spaces at line 3"))
+`,
+{
+  message: messages.expected("2 spaces"),
+  line: 3,
+  column: 1,
+})
 
 tr.notOk(
 `@media print {
   a,
    b { color: pink;}
 }
-`, messages.expected("2 spaces at line 3"))
+`,
+{
+  message: messages.expected("2 spaces"),
+  line: 3,
+  column: 1,
+})
 
 tr.notOk(
 `@media print {
    a,
   b { color: pink;}
 }
-`, messages.expected("2 spaces at line 2"))
-
+`,
+{
+  message: messages.expected("2 spaces"),
+  line: 2,
+  column: 4,
+})
 
 })

@@ -36,8 +36,8 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     // Check both kinds of statement: rules and at-rules
-    root.eachRule(check)
-    root.eachAtRule(check)
+    root.walkRules(check)
+    root.walkAtRules(check)
 
     function check(statement) {
 
@@ -58,6 +58,7 @@ export default function (expectation) {
           report({
             message: m,
             node: statement,
+            index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length - 1,
             result,
             ruleName,
           })

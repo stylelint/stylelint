@@ -14,14 +14,46 @@ testRule("always", tr => {
   tr.ok("/* comment\ncomment */")
   tr.ok("/* comment\n\ncomment */")
 
-  tr.notOk("/*comment */", messages.expectedOpening)
-  tr.notOk("/* comment*/", messages.expectedClosing)
-  tr.notOk("/*  comment */", messages.expectedOpening)
-  tr.notOk("/* comment  */", messages.expectedClosing)
-  tr.notOk("/*comment comment */", messages.expectedOpening)
-  tr.notOk("/* comment comment*/", messages.expectedClosing)
-  tr.notOk("/*comment\n\ncomment */", messages.expectedOpening)
-  tr.notOk("/* comment\n\ncomment*/", messages.expectedClosing)
+  tr.notOk("/*comment */", {
+    message: messages.expectedOpening,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("/* comment*/", {
+    message: messages.expectedClosing,
+    line: 1,
+    column: 10,
+  })
+  tr.notOk("/*  comment */", {
+    message: messages.expectedOpening,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("/* comment  */", {
+    message: messages.expectedClosing,
+    line: 1,
+    column: 12,
+  })
+  tr.notOk("/*comment comment */", {
+    message: messages.expectedOpening,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("/* comment comment*/", {
+    message: messages.expectedClosing,
+    line: 1,
+    column: 18,
+  })
+  tr.notOk("/*comment\n\ncomment */", {
+    message: messages.expectedOpening,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("/* comment\n\ncomment*/", {
+    message: messages.expectedClosing,
+    line: 3,
+    column: 7,
+  })
 })
 
 testRule("never", tr => {
@@ -32,12 +64,44 @@ testRule("never", tr => {
   tr.ok("/*comment\ncomment*/")
   tr.ok("/*comment\n\ncomment*/")
 
-  tr.notOk("/* comment*/", messages.rejectedOpening)
-  tr.notOk("/*comment */", messages.rejectedClosing)
-  tr.notOk("/*  comment*/", messages.rejectedOpening)
-  tr.notOk("/*comment  */", messages.rejectedClosing)
-  tr.notOk("/* comment comment*/", messages.rejectedOpening)
-  tr.notOk("/*comment comment */", messages.rejectedClosing)
-  tr.notOk("/* comment\n\ncomment*/", messages.rejectedOpening)
-  tr.notOk("/*comment\n\ncomment */", messages.rejectedClosing)
+  tr.notOk("/* comment*/", {
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("/*comment */", {
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 10,
+  })
+  tr.notOk("/*  comment*/", {
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("/*comment  */", {
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 11,
+  })
+  tr.notOk("/* comment comment*/", {
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("/*comment comment */", {
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 18,
+  })
+  tr.notOk("/* comment\n\ncomment*/", {
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("/*comment\n\ncomment */", {
+    message: messages.rejectedClosing,
+    line: 3,
+    column: 8,
+  })
 })

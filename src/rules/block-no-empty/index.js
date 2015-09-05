@@ -1,5 +1,6 @@
 import {
   cssStatementHasEmptyBlock,
+  cssStatementStringBeforeBlock,
   report,
   ruleMessages,
   validateOptions
@@ -17,14 +18,15 @@ export default function (actual) {
     if (!validOptions) { return }
 
     // Check both kinds of statements: rules and at-rules
-    root.eachRule(check)
-    root.eachAtRule(check)
+    root.walkRules(check)
+    root.walkAtRules(check)
 
     function check(statement) {
       if (cssStatementHasEmptyBlock(statement)) {
         report({
           message: messages.rejected,
           node: statement,
+          index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length,
           result,
           ruleName,
         })

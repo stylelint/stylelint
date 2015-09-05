@@ -20,7 +20,7 @@ export default function (blacklist) {
     })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
+    root.walkDecls(decl => {
 
       const prop = decl.prop
 

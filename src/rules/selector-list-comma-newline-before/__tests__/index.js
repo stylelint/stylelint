@@ -21,12 +21,36 @@ testRule("always", tr => {
   tr.ok("a\n\t\t,b {}", "indentation after the newline before the comma")
   tr.ok("\ta\n\t, b {}", "indented statement")
 
-  tr.notOk("a,b {}", messages.expectedBefore())
-  tr.notOk("a ,b {}", messages.expectedBefore())
-  tr.notOk("a  ,b {}", messages.expectedBefore())
-  tr.notOk("a\t,b {}", messages.expectedBefore())
-  tr.notOk("a\n,b,c {}", messages.expectedBefore())
-  tr.notOk("a\r\n,b,c {}", messages.expectedBefore(), "CRLF")
+  tr.notOk("a,b {}", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 2,
+  })
+  tr.notOk("a ,b {}", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("a  ,b {}", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 4,
+  })
+  tr.notOk("a\t,b {}", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("a\n,b,c {}", {
+    message: messages.expectedBefore(),
+    line: 2,
+    column: 3,
+  })
+  tr.notOk("a\r\n,b,c {}", {
+    message: messages.expectedBefore(),
+    line: 2,
+    column: 3,
+  }, "CRLF")
 })
 
 testRule("always-multi-line", tr => {
@@ -38,9 +62,21 @@ testRule("always-multi-line", tr => {
   tr.ok("a, b {\n}", "ignores single-line selector list, multi-line block")
   tr.ok("\ta\n\t, b {\n}", "indented statement")
 
-  tr.notOk("a\n,b, c {}", messages.expectedBeforeMultiLine())
-  tr.notOk("a\r\n,b, c {}", messages.expectedBeforeMultiLine(), "CRLF")
-  tr.notOk("a\n,b, c {\n}", messages.expectedBeforeMultiLine())
+  tr.notOk("a\n,b, c {}", {
+    message: messages.expectedBeforeMultiLine(),
+    line: 2,
+    column: 3,
+  })
+  tr.notOk("a\r\n,b, c {}", {
+    message: messages.expectedBeforeMultiLine(),
+    line: 2,
+    column: 3,
+  }, "CRLF")
+  tr.notOk("a\n,b, c {\n}", {
+    message: messages.expectedBeforeMultiLine(),
+    line: 2,
+    column: 3,
+  })
 })
 
 testRule("never-multi-line", tr => {
@@ -51,7 +87,19 @@ testRule("never-multi-line", tr => {
   tr.ok("a ,b {\n}", "ignores single-line selector list, multi-line block")
   tr.ok("a ,b {\r\n}", "ignores single-line selector list, multi-line block with CRLF")
 
-  tr.notOk("a,\nb , c {}", messages.rejectedBeforeMultiLine())
-  tr.notOk("a,\nb , c {\n}", messages.rejectedBeforeMultiLine())
-  tr.notOk("a,\r\nb , c {\r\n}", messages.rejectedBeforeMultiLine(), "CRLF")
+  tr.notOk("a,\nb , c {}", {
+    message: messages.rejectedBeforeMultiLine(),
+    line: 2,
+    column: 3,
+  })
+  tr.notOk("a,\nb , c {\n}", {
+    message: messages.rejectedBeforeMultiLine(),
+    line: 2,
+    column: 3,
+  })
+  tr.notOk("a,\r\nb , c {\r\n}", {
+    message: messages.rejectedBeforeMultiLine(),
+    line: 2,
+    column: 3,
+  }, "CRLF")
 })

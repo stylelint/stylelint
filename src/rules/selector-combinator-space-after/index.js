@@ -32,7 +32,7 @@ export default function (expectation) {
 }
 
 export function selectorCombinatorSpaceChecker(locationChecker, root, result) {
-  root.eachRule(rule => {
+  root.walkRules(rule => {
     const selector = rule.selector
     styleSearch({
       source: selector,
@@ -50,7 +50,8 @@ export function selectorCombinatorSpaceChecker(locationChecker, root, result) {
     locationChecker({ source, index, err: m =>
       report({
         message: m,
-        node: node,
+        node,
+        index,
         result,
         ruleName,
       }),

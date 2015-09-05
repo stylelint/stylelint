@@ -26,18 +26,20 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachAtRule(atRule => {
+    root.walkAtRules(atRule => {
       findMediaOperator(atRule, checkAfterOperator)
     })
 
     function checkAfterOperator(match, params, node) {
+      const endIndex = match.index + match[1].length
       checker.after({
         source: params,
-        index: match.index + match[1].length,
+        index: endIndex,
         err: m => {
           report({
             message: m,
-            node: node,
+            node,
+            index: endIndex + node.name.length + node.raws.afterName.length + 2,
             result,
             ruleName,
           })

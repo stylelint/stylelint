@@ -38,35 +38,63 @@ testRule("always", tr => {
 
   tr.notOk(
     "a { line-height: .5; }",
-    messages.expected,
+    {
+      message: messages.expected,
+      line: 1,
+      column: 17,
+    },
     "unitless fractional value without leading zero"
   )
   tr.notOk(
     "a { line-height: -.5; }",
-    messages.expected,
+    {
+      message: messages.expected,
+      line: 1,
+      column: 18,
+    },
     "negative unitless fractional value without leading zero"
   )
   tr.notOk(
     "a { margin: .5px; }",
-    messages.expected,
+    {
+      message: messages.expected,
+      line: 1,
+      column: 12,
+    },
     "fractional value with units without leading zero"
   )
   tr.notOk(
     "a { margin: 1px .5px; }",
-    messages.expected,
+    {
+      message: messages.expected,
+      line: 1,
+      column: 16,
+    },
     "fractional value without leading zero in the middle of a list"
   )
   tr.notOk(
     "a { transform: translate(.4px, 2px); }",
-    messages.expected,
+    {
+      message: messages.expected,
+      line: 1,
+      column: 25,
+    },
     "fractional value without leading zero at the beginning  of a function"
   )
   tr.notOk(
     "a { transform: translate(2px, .4px); }",
-    messages.expected,
+    {
+      message: messages.expected,
+      line: 1,
+      column: 30,
+    },
     "fractional value without leading zero in the middle of a function"
   )
-  tr.notOk("@media (min-width: .01em)", messages.expected, "media feature")
+  tr.notOk("@media (min-width: .01em)", {
+    message: messages.expected,
+    line: 1,
+    column: 19,
+  }, "media feature")
 })
 
 testRule("never", tr => {
@@ -100,32 +128,56 @@ testRule("never", tr => {
 
   tr.notOk(
     "a { line-height: 0.5; }",
-    messages.rejected,
+    {
+      message: messages.rejected,
+      line: 1,
+      column: 18,
+    },
     "unitless fractional value with leading zero"
   )
   tr.notOk(
     "a { line-height: -0.5; }",
-    messages.rejected,
+    {
+      message: messages.rejected,
+      line: 1,
+      column: 19,
+    },
     "negative unitless fractional value with leading zero"
   )
   tr.notOk(
     "a { margin: 0.5px; }",
-    messages.rejected,
+    {
+      message: messages.rejected,
+      line: 1,
+      column: 13,
+    },
     "fractional value with units with leading zero"
   )
   tr.notOk(
     "a { margin: 1px 0.5px; }",
-    messages.rejected,
+    {
+      message: messages.rejected,
+      line: 1,
+      column: 17,
+    },
     "fractional value with leading zero in the middle of a list"
   )
   tr.notOk(
     "a { transform: translate(0.4px, 2px); }",
-    messages.rejected,
+    {
+      message: messages.rejected,
+      line: 1,
+      column: 26,
+    },
     "fractional value with leading zero at the beginning  of a function"
   )
   tr.notOk(
     "a { transform: translate(2px, 0.8px); }",
-    messages.rejected,
+    {
+      message: messages.rejected,
+      line: 1,
+      column: 31,
+    },
     "fractional value with leading zero in the middle of a function"
   )
 })

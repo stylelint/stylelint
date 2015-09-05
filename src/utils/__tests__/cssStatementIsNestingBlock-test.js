@@ -22,13 +22,13 @@ test("cssStatementIsNestingBlock", t => {
 function postcssCheck(cssString) {
   const root = postcss.parse(cssString)
   let isNestingBlock = false
-  root.eachRule(rule => {
+  root.walkRules(rule => {
     if (cssStatementIsNestingBlock(rule)) {
       isNestingBlock = true
       return false
     }
   })
-  root.eachAtRule(atRule => {
+  root.walkAtRules(atRule => {
     if (cssStatementIsNestingBlock(atRule)) {
       isNestingBlock = true
       return false

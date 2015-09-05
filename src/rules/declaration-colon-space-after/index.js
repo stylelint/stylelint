@@ -29,7 +29,7 @@ export default function (expectation) {
 }
 
 export function declarationColonSpaceChecker(locationChecker, root, result) {
-  root.eachDecl(decl => {
+  root.walkDecls(decl => {
     const declString = decl.toString()
 
     for (let i = 0, l = declString.length; i < l; i++) {
@@ -43,7 +43,8 @@ export function declarationColonSpaceChecker(locationChecker, root, result) {
     locationChecker({ source, index, err: m =>
       report({
         message: m,
-        node: node,
+        node,
+        index: node.prop.toString().length + 1,
         result,
         ruleName,
       }),

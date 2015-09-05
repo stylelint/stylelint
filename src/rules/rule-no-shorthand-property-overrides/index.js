@@ -18,7 +18,7 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.eachRule(rule => {
+    root.walkRules(rule => {
       const ruleDeclarations = new Set()
       // Shallow iteration so nesting doesn't produce
       // false positives

@@ -15,13 +15,41 @@ testRule("always", tr => {
   tr.ok("a ,\nb {}")
   tr.ok("a ,\r\nb {}", "CRLF")
 
-  tr.notOk("a,b {}", messages.expectedBefore())
-  tr.notOk("a  ,b {}", messages.expectedBefore())
-  tr.notOk("a\n,b {}", messages.expectedBefore())
-  tr.notOk("a\r\n,b {}", messages.expectedBefore(), "CRLF")
-  tr.notOk("a\t,b {}", messages.expectedBefore())
-  tr.notOk("a ,b,c {}", messages.expectedBefore())
-  tr.notOk("a ,b  ,c {}", messages.expectedBefore())
+  tr.notOk("a,b {}", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 2,
+  })
+  tr.notOk("a  ,b {}", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 4,
+  })
+  tr.notOk("a\n,b {}", {
+    message: messages.expectedBefore(),
+    line: 2,
+    column: 1,
+  })
+  tr.notOk("a\r\n,b {}", {
+    message: messages.expectedBefore(),
+    line: 2,
+    column: 1,
+  }, "CRLF")
+  tr.notOk("a\t,b {}", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("a ,b,c {}", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 5,
+  })
+  tr.notOk("a ,b  ,c {}", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 7,
+  })
 
   tr.ok("a ,b[data-foo=\"tr,tr\"] {}", "string")
 })
@@ -35,13 +63,41 @@ testRule("never", tr => {
   tr.ok("a,\nb {}")
   tr.ok("a,\r\nb {}", "CRLF")
 
-  tr.notOk("a ,b {}", messages.rejectedBefore())
-  tr.notOk("a  ,b {}", messages.rejectedBefore())
-  tr.notOk("a\n,b {}", messages.rejectedBefore())
-  tr.notOk("a\r\n,b {}", messages.rejectedBefore(), "CRLF")
-  tr.notOk("a\t,b {}", messages.rejectedBefore())
-  tr.notOk("a,b ,c {}", messages.rejectedBefore())
-  tr.notOk("a,b  ,c {}", messages.rejectedBefore())
+  tr.notOk("a ,b {}", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("a  ,b {}", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 4,
+  })
+  tr.notOk("a\n,b {}", {
+    message: messages.rejectedBefore(),
+    line: 2,
+    column: 1,
+  })
+  tr.notOk("a\r\n,b {}", {
+    message: messages.rejectedBefore(),
+    line: 2,
+    column: 1,
+  }, "CRLF")
+  tr.notOk("a\t,b {}", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("a,b ,c {}", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 5,
+  })
+  tr.notOk("a,b  ,c {}", {
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 6,
+  })
 
   tr.ok("a,b[data-foo=\"tr ,tr\"] {}", "string")
 })
@@ -53,9 +109,21 @@ testRule("always-single-line", tr => {
   tr.ok("a ,b {\n}", "single-line selector list, multi-line block")
   tr.ok("a ,b {\r\n}", "single-line selector list, multi-line block with CRLF")
 
-  tr.notOk("a,b {}", messages.expectedBeforeSingleLine())
-  tr.notOk("a,b {\n}", messages.expectedBeforeSingleLine())
-  tr.notOk("a,b {\r\n}", messages.expectedBeforeSingleLine(), "CRLF")
+  tr.notOk("a,b {}", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 2,
+  })
+  tr.notOk("a,b {\n}", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 2,
+  })
+  tr.notOk("a,b {\r\n}", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 2,
+  }, "CRLF")
 })
 
 testRule("never-single-line", tr => {
@@ -65,7 +133,19 @@ testRule("never-single-line", tr => {
   tr.ok("a,b {\n}", "single-line selector list, multi-line block")
   tr.ok("a,b {\r\n}", "single-line selector list, multi-line block with CRLF")
 
-  tr.notOk("a ,b {}", messages.rejectedBeforeSingleLine())
-  tr.notOk("a ,b {\n}", messages.rejectedBeforeSingleLine())
-  tr.notOk("a ,b {\r\n}", messages.rejectedBeforeSingleLine(), "CRLF")
+  tr.notOk("a ,b {}", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("a ,b {\n}", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("a ,b {\r\n}", {
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 3,
+  }, "CRLF")
 })

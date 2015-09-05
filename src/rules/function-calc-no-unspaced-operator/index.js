@@ -22,10 +22,8 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
-      const value = decl.value
-
-      cssFunctionArguments(value, "calc", expression => {
+    root.walkDecls(decl => {
+      cssFunctionArguments(decl.toString(), "calc", (expression, expressionIndex) => {
 
         checkSymbol("+")
         checkSymbol("-")
@@ -48,6 +46,7 @@ export default function (actual) {
               report({
                 message: messages.expectedOperatorBeforeSign(symbol),
                 node: decl,
+                index: expressionIndex + index,
                 result,
                 ruleName,
               })
@@ -59,6 +58,7 @@ export default function (actual) {
               report({
                 message: m,
                 node: decl,
+                index: expressionIndex + index,
                 result,
                 ruleName,
               }),
@@ -67,6 +67,7 @@ export default function (actual) {
               report({
                 message: m,
                 node: decl,
+                index: expressionIndex + index,
                 result,
                 ruleName,
               }),

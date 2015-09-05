@@ -37,7 +37,7 @@ export default function (expectation, options) {
     })
     if (!validOptions) { return }
 
-    root.eachRule(rule => {
+    root.walkRules(rule => {
 
       // Only attend to nested rule sets
       if (rule.parent === root) { return }

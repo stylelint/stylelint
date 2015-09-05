@@ -22,10 +22,26 @@ testRule("always", tr => {
     "indentation after the CRLF after the comma"
   )
 
-  tr.notOk("@media screen and (color),projection and (color)", messages.expectedAfter())
-  tr.notOk("@media screen and (color), projection and (color)", messages.expectedAfter())
-  tr.notOk("@media screen and (color),  projection and (color)", messages.expectedAfter())
-  tr.notOk("@media screen and (color),\tprojection and (color)", messages.expectedAfter())
+  tr.notOk("@media screen and (color),projection and (color)", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 26,
+  })
+  tr.notOk("@media screen and (color), projection and (color)", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 26,
+  })
+  tr.notOk("@media screen and (color),  projection and (color)", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 26,
+  })
+  tr.notOk("@media screen and (color),\tprojection and (color)", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 26,
+  })
 })
 
 testRule("always-multi-line", tr => {
@@ -38,11 +54,23 @@ testRule("always-multi-line", tr => {
   tr.ok("@media screen and (color),projection and (color) {\n}", "ignore single line list, multi-line block")
   tr.ok("@media screen and (color),projection and (color) {\r\n}", "ignore single line list, multi-line block and CRLF")
 
-  tr.notOk("@media screen and (color),projection and (color),\nprint {}", messages.expectedAfterMultiLine())
-  tr.notOk("@media screen and (color),projection and (color),\nprint {\n}", messages.expectedAfterMultiLine())
+  tr.notOk("@media screen and (color),projection and (color),\nprint {}", {
+    message: messages.expectedAfterMultiLine(),
+    line: 1,
+    column: 26,
+  })
+  tr.notOk("@media screen and (color),projection and (color),\nprint {\n}", {
+    message: messages.expectedAfterMultiLine(),
+    line: 1,
+    column: 26,
+  })
   tr.notOk(
     "@media screen and (color),projection and (color),\r\nprint {\r\n}",
-    messages.expectedAfterMultiLine(),
+    {
+      message: messages.expectedAfterMultiLine(),
+      line: 1,
+      column: 26,
+    },
     "CRLF"
   )
 })
@@ -57,11 +85,23 @@ testRule("never-multi-line", tr => {
   tr.ok("@media screen and (color), projection and (color) {}", "ignore single line list, single-lint block")
   tr.ok("@media screen and (color), projection and (color) {\n}", "ignore single line list, multi-line block")
 
-  tr.notOk("@media screen and (color) ,projection and (color),\nprint {}", messages.rejectedAfterMultiLine())
-  tr.notOk("@media screen and (color) ,projection and (color),\nprint {\n}", messages.rejectedAfterMultiLine())
+  tr.notOk("@media screen and (color) ,projection and (color),\nprint {}", {
+    message: messages.rejectedAfterMultiLine(),
+    line: 1,
+    column: 50,
+  })
+  tr.notOk("@media screen and (color) ,projection and (color),\nprint {\n}", {
+    message: messages.rejectedAfterMultiLine(),
+    line: 1,
+    column: 50,
+  })
   tr.notOk(
     "@media screen and (color) ,projection and (color),\r\nprint {\r\n}",
-    messages.rejectedAfterMultiLine(),
+    {
+      message: messages.rejectedAfterMultiLine(),
+      line: 1,
+      column: 50,
+    },
     "CRLF"
   )
 })

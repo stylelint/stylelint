@@ -1,6 +1,7 @@
 import {
   cssStatementBlockString,
   cssStatementHasBlock,
+  rawNodeString,
   report,
   ruleMessages,
   validateOptions,
@@ -33,8 +34,8 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     // Check both kinds of statements: rules and at-rules
-    root.eachRule(check)
-    root.eachAtRule(check)
+    root.walkRules(check)
+    root.walkAtRules(check)
 
     function check(statement) {
       const nextNode = statement.next()
@@ -44,13 +45,14 @@ export default function (expectation) {
       // Only check one after, because there might be other
       // spaces handled by the indentation rule
       checker.afterOneOnly({
-        source: nextNode.toString(),
+        source: rawNodeString(nextNode),
         index: -1,
         lineCheckStr: cssStatementBlockString(statement),
         err: msg => {
           report({
             message: msg,
             node: statement,
+            index: statement.toString().length,
             result,
             ruleName,
           })

@@ -15,11 +15,11 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.eachRule(rule => {
+    root.walkRules(rule => {
       // Ignore rules whose selector is just `:root`
       if (rule.selector.trim() === ":root") { return }
 
-      rule.eachDecl(decl => {
+      rule.walkDecls(decl => {
         if (decl.prop.substr(0, 2) === "--") {
           report({
             message: messages.rejected,

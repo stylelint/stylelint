@@ -24,15 +24,15 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.eachComment(function (comment) {
+    root.walkComments(function (comment) {
 
-      const left = comment.left
-      const right = comment.right
+      const { left, right } = comment.raws
 
       if (left !== "" && expectation === "never") {
         report({
           message: messages.rejectedOpening,
           node: comment,
+          index: 2,
           result,
           ruleName,
         })
@@ -41,6 +41,7 @@ export default function (expectation) {
         report({
           message: messages.expectedOpening,
           node: comment,
+          index: 2,
           result,
           ruleName,
         })
@@ -50,6 +51,7 @@ export default function (expectation) {
         report({
           message: messages.rejectedClosing,
           node: comment,
+          index: comment.toString().length - 3,
           result,
           ruleName,
         })
@@ -58,6 +60,7 @@ export default function (expectation) {
         report({
           message: messages.expectedClosing,
           node: comment,
+          index: comment.toString().length - 3,
           result,
           ruleName,
         })

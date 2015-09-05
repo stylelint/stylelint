@@ -4,6 +4,9 @@ import {
   range
 } from "lodash"
 import {
+  blurComments,
+  cssStatementHasBlock,
+  cssStatementStringBeforeBlock,
   report,
   ruleMessages,
   styleSearch,
@@ -29,12 +32,15 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.eachDecl(decl => {
-      check(decl.value, decl)
+    root.walkDecls(decl => {
+      check(blurComments(decl.toString()), decl)
     })
 
-    root.eachAtRule(atRule => {
-      check(atRule.params, atRule)
+    root.walkAtRules(atRule => {
+      const source = (cssStatementHasBlock(atRule))
+        ? cssStatementStringBeforeBlock(atRule, { noBefore: true })
+        : atRule.toString()
+      check(source, atRule)
     })
 
     function check(value, node) {
@@ -90,15 +96,19 @@ export default function (actual) {
 
         // If there is not a length unit at the end of this value, ignore.
         // (Length units are 2, 3, or 4 characters)
-        if (
-          !lengthUnits.has(valueWithZero.slice(-2))
-          && !lengthUnits.has(valueWithZero.slice(-3))
-          && !lengthUnits.has(valueWithZero.slice(-4))
-        ) { return }
+        const unitLength = (function () {
+          if (lengthUnits.has(valueWithZero.slice(-4))) { return 4 }
+          if (lengthUnits.has(valueWithZero.slice(-3))) { return 3 }
+          if (lengthUnits.has(valueWithZero.slice(-2))) { return 2 }
+          return 0
+        }())
+
+        if (!unitLength) { return }
 
         report({
           message: messages.rejected,
           node,
+          index: valueWithZeroEnd - unitLength,
           result,
           ruleName,
         })

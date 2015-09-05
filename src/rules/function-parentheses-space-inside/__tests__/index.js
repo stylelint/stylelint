@@ -14,18 +14,66 @@ testRule("always", tr => {
   tr.ok("a { transform: translate( 1, 1 ); }")
   tr.ok("a { color: color( rgb( 0, 0, 0 ) lightness( 50% ) ); }")
 
-  tr.notOk("a { transform: translate(1, 1 ); }", messages.expectedOpening)
-  tr.notOk("a { transform: translate( 1, 1); }", messages.expectedClosing)
-  tr.notOk("a { transform: translate(  1, 1 ); }", messages.expectedOpening)
-  tr.notOk("a { transform: translate( 1, 1  ); }", messages.expectedClosing)
-  tr.notOk("a { color: color(rgb( 0, 0, 0 ) lightness( 50% ) ); }", messages.expectedOpening)
-  tr.notOk("a { color: color( rgb(0, 0, 0 ) lightness( 50% ) ); }", messages.expectedOpening)
-  tr.notOk("a { color: color( rgb( 0, 0, 0) lightness( 50% ) ); }", messages.expectedClosing)
-  tr.notOk("a { color: color( rgb( 0, 0, 0 ) lightness(50% ) ); }", messages.expectedOpening)
-  tr.notOk("a { color: color( rgb( 0, 0, 0 ) lightness( 50%) ); }", messages.expectedClosing)
-  tr.notOk("a { color: color( rgb( 0, 0, 0 ) lightness( 50% )); }", messages.expectedClosing)
-  tr.notOk("a::before { content: attr(data-foo ); }", messages.expectedOpening)
-  tr.notOk("a::before { content: attr( data-foo); }", messages.expectedClosing)
+  tr.notOk("a { transform: translate(1, 1 ); }", {
+    message: messages.expectedOpening,
+    line: 1,
+    column: 26,
+  })
+  tr.notOk("a { transform: translate( 1, 1); }", {
+    message: messages.expectedClosing,
+    line: 1,
+    column: 30,
+  })
+  tr.notOk("a { transform: translate(  1, 1 ); }", {
+    message: messages.expectedOpening,
+    line: 1,
+    column: 26,
+  })
+  tr.notOk("a { transform: translate( 1, 1  ); }", {
+    message: messages.expectedClosing,
+    line: 1,
+    column: 32,
+  })
+  tr.notOk("a { color: color(rgb( 0, 0, 0 ) lightness( 50% ) ); }", {
+    message: messages.expectedOpening,
+    line: 1,
+    column: 18,
+  })
+  tr.notOk("a { color: color( rgb(0, 0, 0 ) lightness( 50% ) ); }", {
+    message: messages.expectedOpening,
+    line: 1,
+    column: 23,
+  })
+  tr.notOk("a { color: color( rgb( 0, 0, 0) lightness( 50% ) ); }", {
+    message: messages.expectedClosing,
+    line: 1,
+    column: 30,
+  })
+  tr.notOk("a { color: color( rgb( 0, 0, 0 ) lightness(50% ) ); }", {
+    message: messages.expectedOpening,
+    line: 1,
+    column: 44,
+  })
+  tr.notOk("a { color: color( rgb( 0, 0, 0 ) lightness( 50%) ); }", {
+    message: messages.expectedClosing,
+    line: 1,
+    column: 47,
+  })
+  tr.notOk("a { color: color( rgb( 0, 0, 0 ) lightness( 50% )); }", {
+    message: messages.expectedClosing,
+    line: 1,
+    column: 49,
+  })
+  tr.notOk("a::before { content: attr(data-foo ); }", {
+    message: messages.expectedOpening,
+    line: 1,
+    column: 27,
+  })
+  tr.notOk("a::before { content: attr( data-foo); }", {
+    message: messages.expectedClosing,
+    line: 1,
+    column: 35,
+  })
 })
 
 testRule("never", tr => {
@@ -37,16 +85,64 @@ testRule("never", tr => {
   tr.ok("a { transform: translate(1, 1); }")
   tr.ok("a { color: color(rgb(0, 0, 0) lightness(50%)); }")
 
-  tr.notOk("a { transform: translate( 1, 1); }", messages.rejectedOpening)
-  tr.notOk("a { transform: translate(  1, 1); }", messages.rejectedOpening)
-  tr.notOk("a { transform: translate(1, 1 ); }", messages.rejectedClosing)
-  tr.notOk("a { transform: translate(1, 1  ); }", messages.rejectedClosing)
-  tr.notOk("a { color: color( rgb(0, 0, 0) lightness(50%)); }", messages.rejectedOpening)
-  tr.notOk("a { color: color(rgb( 0, 0, 0) lightness(50%)); }", messages.rejectedOpening)
-  tr.notOk("a { color: color(rgb(0, 0, 0 ) lightness(50%)); }", messages.rejectedClosing)
-  tr.notOk("a { color: color(rgb(0, 0, 0) lightness( 50%)); }", messages.rejectedOpening)
-  tr.notOk("a { color: color(rgb(0, 0, 0) lightness(50% )); }", messages.rejectedClosing)
-  tr.notOk("a { color: color(rgb(0, 0, 0) lightness(50%) ); }", messages.rejectedClosing)
-  tr.notOk("a::before { content: attr(data-foo ); }", messages.rejectedClosing)
-  tr.notOk("a::before { content: attr( data-foo); }", messages.rejectedOpening)
+  tr.notOk("a { transform: translate( 1, 1); }", {
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 26,
+  })
+  tr.notOk("a { transform: translate(  1, 1); }", {
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 26,
+  })
+  tr.notOk("a { transform: translate(1, 1 ); }", {
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 30,
+  })
+  tr.notOk("a { transform: translate(1, 1  ); }", {
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 31,
+  })
+  tr.notOk("a { color: color( rgb(0, 0, 0) lightness(50%)); }", {
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 18,
+  })
+  tr.notOk("a { color: color(rgb( 0, 0, 0) lightness(50%)); }", {
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 22,
+  })
+  tr.notOk("a { color: color(rgb(0, 0, 0 ) lightness(50%)); }", {
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 29,
+  })
+  tr.notOk("a { color: color(rgb(0, 0, 0) lightness( 50%)); }", {
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 41,
+  })
+  tr.notOk("a { color: color(rgb(0, 0, 0) lightness(50% )); }", {
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 44,
+  })
+  tr.notOk("a { color: color(rgb(0, 0, 0) lightness(50%) ); }", {
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 45,
+  })
+  tr.notOk("a::before { content: attr(data-foo ); }", {
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 35,
+  })
+  tr.notOk("a::before { content: attr( data-foo); }", {
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 27,
+  })
 })

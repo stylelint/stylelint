@@ -57,7 +57,7 @@ export default function (space, options) {
     // This is done instead of using
     // eachRule, eachAtRule, and eachDecl,
     // so that any hierarchy can be accounted for *in order*.
-    root.eachInside(node => {
+    root.walk(node => {
 
       let nodeLevel = indentationLevel(node)
 
@@ -77,7 +77,7 @@ export default function (space, options) {
 
       const expectedWhitespace = repeat(indentChar, nodeLevel)
 
-      let { before, after } = node
+      let { before, after } = node.raws
 
       // Only inspect the spaces before the node
       // if this is the first node in root
@@ -97,9 +97,8 @@ export default function (space, options) {
       // it is some other kind of separation, checked by some separate rule
       if (inspectBefore && before.slice(before.lastIndexOf("\n") + 1) !== expectedWhitespace) {
         report({
-          message: messages.expected(legibleExpectation(nodeLevel, node.source.start.line)),
-          node: node,
-          line: node.source.start.line,
+          message: messages.expected(legibleExpectation(nodeLevel)),
+          node,
           result,
           ruleName,
         })
@@ -111,9 +110,9 @@ export default function (space, options) {
       if (after && after.indexOf("\n") !== -1
         && after.slice(after.lastIndexOf("\n") + 1) !== expectedWhitespace) {
         report({
-          message: messages.expected(legibleExpectation(nodeLevel, node.source.end.line)),
-          node: node,
-          line: node.source.end.line,
+          message: messages.expected(legibleExpectation(nodeLevel)),
+          node,
+          index: node.toString().length - 1,
           result,
           ruleName,
         })
@@ -165,26 +164,25 @@ export default function (space, options) {
       return calculatedLevel
     }
 
-    function checkValue(node, declLevel) {
-      const value = node.value
-      if (value.indexOf("\n") === -1) { return }
+    function checkValue(decl, declLevel) {
+      const declString = decl.toString()
+      if (decl.value.indexOf("\n") === -1) { return }
 
       const valueLevel = (optionsHaveException(options, "value"))
         ? declLevel
         : declLevel + 1
 
-      styleSearch({ source: value, target: "\n" }, (match, newlineCount) => {
+      styleSearch({ source: declString, target: "\n" }, (match) => {
         // Starting at the index after the newline, we want to
         // check that the whitespace characters before the first
         // non-whitespace character equal the expected indentation
-        const postNewlineActual = /^(\s*)\S/.exec(value.slice(match.startIndex + 1))[1]
+        const postNewlineActual = /^(\s*)\S/.exec(declString.slice(match.startIndex + 1))[1]
 
         if (postNewlineActual !== repeat(indentChar, valueLevel)) {
-          const line = node.source.start.line + newlineCount
           report({
-            message: messages.expected(legibleExpectation(valueLevel, line)),
-            node: node,
-            line: line,
+            message: messages.expected(legibleExpectation(valueLevel)),
+            node: decl,
+            index: match.startIndex + 1,
             result,
             ruleName,
           })
@@ -196,18 +194,17 @@ export default function (space, options) {
       const selector = rule.selector
       if (selector.indexOf("\n") === -1) { return }
 
-      styleSearch({ source: selector, target: "\n" }, (match, newlineCount) => {
+      styleSearch({ source: selector, target: "\n" }, (match) => {
         // Starting at the index after the newline, we want to
         // check that the whitespace characters before the first
         // non-whitespace character equal the expected indentation
         const postNewlineActual = /^(\s*)\S/.exec(selector.slice(match.startIndex + 1))[1]
 
         if (postNewlineActual !== repeat(indentChar, ruleLevel)) {
-          const line = rule.source.start.line + newlineCount
           report({
-            message: messages.expected(legibleExpectation(ruleLevel, line)),
+            message: messages.expected(legibleExpectation(ruleLevel)),
             node: rule,
-            line: line,
+            index: match.startIndex + 1,
             result,
             ruleName,
           })
@@ -216,12 +213,12 @@ export default function (space, options) {
     }
   }
 
-  function legibleExpectation(level, line) {
+  function legibleExpectation(level) {
     const count = (isTab) ? level : level * space
     const quantifiedWarningWord = (count === 1)
       ? warningWord
       : warningWord + "s"
-    return `${count} ${quantifiedWarningWord} at line ${line}`
+    return `${count} ${quantifiedWarningWord}`
   }
 }
 
@@ -255,7 +252,7 @@ function hierarchicalSelectorsLevel(node, nodeLevel) {
   // to the previous rule
   if (node.type === "atrule") {
     let insubordinate
-    node.eachRule(rule => {
+    node.walkRules(rule => {
       if (!isSubordinateTo(rule, prevNode)) {
         insubordinate = true
         return false
