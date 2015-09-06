@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: `postcss-selector-parser` updated to improve location accuracy for `selector-no-*` rules.
+
 # 1.0.0
 
 * Removed: compatibility with PostCSS `4.x`.

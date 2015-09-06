@@ -21,7 +21,7 @@ testRule(undefined, tr => {
   tr.notOk(".bar > #foo {}", {
     message: messages.rejected,
     line: 1,
-    column: 1,
+    column: 8,
   })
   tr.notOk("#foo.bar {}", {
     message: messages.rejected,

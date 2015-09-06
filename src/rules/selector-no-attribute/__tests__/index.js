@@ -21,21 +21,21 @@ testRule(undefined, tr => {
   tr.notOk("a[rel=\"external\"] {}", {
     message: messages.rejected,
     line: 1,
-    column: 1,
+    column: 2,
   })
   tr.notOk("a, .foo[type=\"text\"] {}", {
     message: messages.rejected,
     line: 1,
-    column: 4,
+    column: 8,
   })
   tr.notOk("a > [foo] {}", {
     message: messages.rejected,
     line: 1,
-    column: 1,
+    column: 5,
   })
   tr.notOk("a[rel='external'] {}", {
     message: messages.rejected,
     line: 1,
-    column: 1,
+    column: 2,
   })
 })

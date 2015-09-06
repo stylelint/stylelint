@@ -22,7 +22,7 @@ export default function (actual) {
           report({
             message: messages.rejected,
             node: rule,
-            word: combinator.parent.toString().trim(),
+            index: combinator.sourceIndex,
             ruleName,
             result,
           })
