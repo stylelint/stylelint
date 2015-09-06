@@ -22,7 +22,7 @@ testRule(undefined, tr => {
   tr.notOk(".bar * {}", {
     message: messages.rejected,
     line: 1,
-    column: 1,
+    column: 6,
   })
   tr.notOk("*.bar {}", {
     message: messages.rejected,

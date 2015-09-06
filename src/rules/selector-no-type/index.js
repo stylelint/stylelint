@@ -22,7 +22,7 @@ export default function (actual) {
           report({
             message: messages.rejected,
             node: rule,
-            word: tag.parent.toString().trim(),
+            index: tag.sourceIndex,
             ruleName,
             result,
           })
