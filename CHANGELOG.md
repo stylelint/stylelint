@@ -1,4 +1,4 @@
-# Head
+# 1.0.1
 
 * Fixed: `postcss-selector-parser` updated to improve location accuracy for `selector-no-*` rules.
 
