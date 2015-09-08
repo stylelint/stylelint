@@ -55,7 +55,7 @@ a {
 }
 ```
 
-### `["array", "of", "unprefixed", property", "names"]`
+### `["array", "of", "unprefixed", "property", "names"]`
 
 Properties *must always* be ordered to match that of the array.
 
