@@ -1,4 +1,6 @@
 import "./integration"
 import "./disableRanges-test"
 import "./disableRanges-integration-test"
-import "./plugins-test"
+import "./plugin-test"
+import "./lintStream-test"
+import "./standalone-test"

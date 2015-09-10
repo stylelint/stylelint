@@ -1,6 +1,7 @@
 import postcss from "postcss"
 import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
+import ruleSeverities from "./ruleSeverities"
 
 export default postcss.plugin("stylelint", settings => {
   return (root, result) => {
@@ -16,9 +17,7 @@ export default postcss.plugin("stylelint", settings => {
 
     Object.keys(settings.rules).forEach(ruleName => {
       if (!ruleDefinitions[ruleName]) {
-        throw new Error(
-          `Undefined rule ${ruleName}`
-        )
+        throw new Error(`Undefined rule ${ruleName}`)
       }
 
       // If severity is 0, run nothing
@@ -26,9 +25,14 @@ export default postcss.plugin("stylelint", settings => {
       const ruleSeverity = (Array.isArray(ruleSettings))
         ? ruleSettings[0]
         : ruleSettings
-      if (ruleSeverity === 0) { return }
+      if (ruleSeverity === 0) {
+        return
+      }
 
-      // Otherwise, run the rule with the primary and secondary options
+      // Log the rule's severity
+      ruleSeverities.set(ruleName, ruleSeverity)
+
+      // Run the rule with the primary and secondary options
       ruleDefinitions[ruleName](ruleSettings[1], ruleSettings[2])(root, result)
     })
   }

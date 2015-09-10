@@ -1,3 +1,5 @@
+import ruleSeverities from "../ruleSeverities"
+
 /**
  * Report a violation.
  *
@@ -43,4 +45,8 @@ export default function ({ ruleName, result, message, line, node, index, word })
     warningOpts.word = word
   }
   result.warn(message, warningOpts)
+
+  if (ruleSeverities.get(ruleName) === 2) {
+    result.stylelintError = true
+  }
 }

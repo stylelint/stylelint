@@ -30,9 +30,13 @@
     "autoprefixer": "^6.0.0",
     "balanced-match": "^0.2.0",
     "execall": "^1.0.0",
+    "glob-stream": "^5.0.0",
     "lodash": "^3.10.1",
+    "meow": "^3.3.0",
     "postcss": "^5.0.4",
-    "postcss-selector-parser": "^1.2.0"
+    "postcss-reporter": "^1.2.1",
+    "postcss-selector-parser": "^1.2.0",
+    "rc-loader": "^1.0.0"
   },
   "devDependencies": {
     "babel": "^5.8.23",
