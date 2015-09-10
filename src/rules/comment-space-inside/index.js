@@ -26,7 +26,8 @@ export default function (expectation) {
 
     root.walkComments(function (comment) {
 
-      const { left, right } = comment.raws
+      const left = comment.raw("left")
+      const right = comment.raw("right")
 
       if (left !== "" && expectation === "never") {
         report({

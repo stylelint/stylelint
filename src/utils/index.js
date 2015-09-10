@@ -9,6 +9,7 @@ import isAutoprefixable from "./isAutoprefixable"
 import isSingleLineString from "./isSingleLineString"
 import isWhitespace from "./isWhitespace"
 import lineCount from "./lineCount"
+import mediaQueryParamIndexOffset from "./mediaQueryParamIndexOffset"
 import optionsHaveException from "./optionsHaveException"
 import optionsHaveIgnored from "./optionsHaveIgnored"
 import rawNodeString from "./rawNodeString"
@@ -30,6 +31,7 @@ export default {
   isSingleLineString,
   isWhitespace,
   lineCount,
+  mediaQueryParamIndexOffset,
   optionsHaveException,
   optionsHaveIgnored,
   report,

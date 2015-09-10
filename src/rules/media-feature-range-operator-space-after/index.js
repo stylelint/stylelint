@@ -1,4 +1,5 @@
 import {
+  mediaQueryParamIndexOffset,
   report,
   ruleMessages,
   validateOptions,
@@ -32,6 +33,7 @@ export default function (expectation) {
 
     function checkAfterOperator(match, params, node) {
       const endIndex = match.index + match[1].length
+
       checker.after({
         source: params,
         index: endIndex,
@@ -39,7 +41,7 @@ export default function (expectation) {
           report({
             message: m,
             node,
-            index: endIndex + node.name.length + node.raws.afterName.length + 2,
+            index: endIndex + mediaQueryParamIndexOffset(node) + 1,
             result,
             ruleName,
           })

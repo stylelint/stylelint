@@ -1,4 +1,5 @@
 import {
+  mediaQueryParamIndexOffset,
   report,
   ruleMessages,
   styleSearch,
@@ -29,7 +30,7 @@ export default function (expectation) {
       if (atRule.name !== "media") { return }
 
       const params = atRule.params
-      const indexBoost = atRule.name.length + atRule.raws.afterName.length + 1
+      const indexBoost = mediaQueryParamIndexOffset(atRule)
 
       styleSearch({ source: params, target: "(" }, match => {
         const nextCharIsSpace = params[match.startIndex + 1] === " "

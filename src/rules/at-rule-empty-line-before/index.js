@@ -41,8 +41,11 @@ export default function (expectation, options) {
       if (optionsHaveIgnored(options, "after-comment")
         && atRule.prev() && atRule.prev().type === "comment") { return }
 
-      const emptyLineBefore = atRule.raws.before.indexOf("\n\n") !== -1
-        || atRule.raws.before.indexOf("\r\n\r\n") !== -1
+      const before = atRule.raw("before")
+      const emptyLineBefore = before && (
+        before.indexOf("\n\n") !== -1
+        || before.indexOf("\r\n\r\n") !== -1
+      )
 
       let expectEmptyLineBefore = (expectation === "always") ? true : false
 

@@ -43,7 +43,7 @@ export default function (expectation) {
 
       // Allow an end-of-line comment one space after the brace
       const firstNode = statement.first
-      const nodeToCheck = (firstNode.type === "comment" && firstNode.raws.before === " ")
+      const nodeToCheck = (firstNode.type === "comment" && firstNode.raw("before") === " ")
         ? firstNode.next()
         : firstNode
       if (!nodeToCheck) { return }

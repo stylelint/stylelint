@@ -77,7 +77,12 @@ export default function (space, options) {
 
       const expectedWhitespace = repeat(indentChar, nodeLevel)
 
-      let { before, after } = node.raws
+      let before = node.raw("before")
+      let after = node.raw("after")
+
+      console.log("NODE: " + JSON.stringify(node.toString()))
+      console.log("BEFORE: ", JSON.stringify(node.raws.before), JSON.stringify(node.raw("before")))
+      console.log("AFTER: ", JSON.stringify(node.raws.after), JSON.stringify(node.raw("after")))
 
       // Only inspect the spaces before the node
       // if this is the first node in root
