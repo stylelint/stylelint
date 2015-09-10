@@ -14,6 +14,9 @@ const minimistOptions = {
     f: "formatter",
   },
 }
+import standalone from "./standalone"
+
+const minimistOptions = {}
 
 const meowOptions = {
   help: [
