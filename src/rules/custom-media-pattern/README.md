@@ -10,7 +10,9 @@ Specify pattern of custom media query names.
 
 ## Options
 
-`regex`
+`regex` or `string`
+
+A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
 
 ### E.g. `/foo-.+/`
 
