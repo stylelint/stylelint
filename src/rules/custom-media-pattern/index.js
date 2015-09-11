@@ -1,4 +1,4 @@
-import { isRegExp } from "lodash"
+import { isRegExp, isString } from "lodash"
 import {
   mediaQueryParamIndexOffset,
   report,
@@ -14,15 +14,22 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (pattern) {
   return (root, result) => {
-    const validOptions = validateOptions(result, ruleName, { actual: pattern, possible: isRegExp })
+    const validOptions = validateOptions(result, ruleName, {
+      actual: pattern,
+      possible: [ isRegExp, isString ],
+    })
     if (!validOptions) { return }
+
+    const regexpPattern = (isString(pattern))
+      ? new RegExp(pattern)
+      : pattern
 
     root.walkAtRules(atRule => {
       if (atRule.name !== "custom-media") { return }
 
       const customMediaName = atRule.params.match(/^--(\S+)\b/)[1]
 
-      if (!pattern.test(customMediaName)) {
+      if (!regexpPattern.test(customMediaName)) {
         report({
           message: messages.expected,
           node: atRule,

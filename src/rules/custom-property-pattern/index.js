@@ -1,4 +1,4 @@
-import { isRegExp } from "lodash"
+import { isRegExp, isString } from "lodash"
 import {
   report,
   ruleMessages,
@@ -13,14 +13,21 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (pattern) {
   return (root, result) => {
-    const validOptions = validateOptions(result, ruleName, { actual: pattern, possible: isRegExp })
+    const validOptions = validateOptions(result, ruleName, {
+      actual: pattern,
+      possible: [ isRegExp, isString ],
+    })
     if (!validOptions) { return }
+
+    const regexpPattern = (isString(pattern))
+      ? new RegExp(pattern)
+      : pattern
 
     root.walkDecls(decl => {
       const prop = decl.prop
       if (prop.slice(0, 2) !== "--") { return }
 
-      if (!pattern.test(prop.slice(2))) {
+      if (!regexpPattern.test(prop.slice(2))) {
         report({
           message: messages.expected,
           node: decl,
