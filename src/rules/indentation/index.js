@@ -80,10 +80,6 @@ export default function (space, options) {
       let before = node.raw("before")
       let after = node.raw("after")
 
-      console.log("NODE: " + JSON.stringify(node.toString()))
-      console.log("BEFORE: ", JSON.stringify(node.raws.before), JSON.stringify(node.raw("before")))
-      console.log("AFTER: ", JSON.stringify(node.raws.after), JSON.stringify(node.raw("after")))
-
       // Only inspect the spaces before the node
       // if this is the first node in root
       // or there is a newline in the `before` string.
@@ -112,8 +108,12 @@ export default function (space, options) {
       // Only blocks have the `after` string to check.
       // Only inspect `after` strings that start with a newline;
       // otherwise there's no indentation involved.
-      if (after && after.indexOf("\n") !== -1
-        && after.slice(after.lastIndexOf("\n") + 1) !== expectedWhitespace) {
+      if (
+        cssStatementHasBlock(node)
+        && after
+        && after.indexOf("\n") !== -1
+        && after.slice(after.lastIndexOf("\n") + 1) !== expectedWhitespace
+      ) {
         report({
           message: messages.expected(legibleExpectation(nodeLevel)),
           node,

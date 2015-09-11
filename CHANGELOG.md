@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: Rules use `node.raw()` instead of `node.raws` to avoid expected errors.
+
 # 1.0.1
 
 * Fixed: `postcss-selector-parser` updated to improve location accuracy for `selector-no-*` rules.
