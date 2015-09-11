@@ -29,16 +29,22 @@ export default function (expectation) {
 
       if (!rule.last || rule.last.type !== "decl") { return }
 
+      let errorIndexOffset = rule.toString().length
+      let after = rule.raw("after")
+      if (after) {
+        errorIndexOffset -= after.length
+      }
+
       let errorIndex
       let message
       if (expectation === "always") {
         if (rule.raws.semicolon) { return }
-        errorIndex = rule.toString().length - rule.raws.after.length - 1
+        errorIndex = errorIndexOffset - 1
         message = messages.expected
       }
       if (expectation === "never") {
         if (!rule.raws.semicolon) { return }
-        errorIndex = rule.toString().length - rule.raws.after.length - 2
+        errorIndex = errorIndexOffset - 2
         message = messages.rejected
       }
 

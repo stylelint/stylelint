@@ -32,7 +32,7 @@ export default function (expectation) {
     root.walkDecls(decl => {
       // Ignore last declaration if there's no trailing semicolon
       const parentRule = decl.parent
-      if (!parentRule.raws.semicolon && parentRule.last === decl) { return }
+      if (!parentRule.raw("semicolon") && parentRule.last === decl) { return }
 
       const declString = decl.toString()
 

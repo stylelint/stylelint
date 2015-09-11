@@ -1,4 +1,5 @@
 import {
+  mediaQueryParamIndexOffset,
   report,
   ruleMessages,
   validateOptions,
@@ -40,7 +41,7 @@ export default function (expectation) {
           report({
             message: m,
             node,
-            index: match.index + node.name.length + node.raws.afterName.length + 1,
+            index: match.index + mediaQueryParamIndexOffset(node),
             result,
             ruleName,
           })

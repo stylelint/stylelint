@@ -17,13 +17,13 @@ export default function (statement, { noBefore }={}) {
 
   let result = ""
   if (!noBefore) {
-    result += statement.raws.before
+    result += statement.raw("before")
   }
   if (statement.type === "rule") {
     result += statement.selector
   } else {
-    result += "@" + statement.name + statement.raws.afterName + statement.params
+    result += "@" + statement.name + statement.raw("afterName") + statement.params
   }
-  result += statement.raws.between
+  result += statement.raw("between")
   return result
 }

@@ -77,7 +77,8 @@ export default function (space, options) {
 
       const expectedWhitespace = repeat(indentChar, nodeLevel)
 
-      let { before, after } = node.raws
+      let before = node.raw("before")
+      let after = node.raw("after")
 
       // Only inspect the spaces before the node
       // if this is the first node in root
@@ -107,8 +108,12 @@ export default function (space, options) {
       // Only blocks have the `after` string to check.
       // Only inspect `after` strings that start with a newline;
       // otherwise there's no indentation involved.
-      if (after && after.indexOf("\n") !== -1
-        && after.slice(after.lastIndexOf("\n") + 1) !== expectedWhitespace) {
+      if (
+        cssStatementHasBlock(node)
+        && after
+        && after.indexOf("\n") !== -1
+        && after.slice(after.lastIndexOf("\n") + 1) !== expectedWhitespace
+      ) {
         report({
           message: messages.expected(legibleExpectation(nodeLevel)),
           node,

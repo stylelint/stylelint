@@ -1,4 +1,5 @@
 import {
+  mediaQueryParamIndexOffset,
   report,
   ruleMessages,
   styleSearch,
@@ -46,7 +47,7 @@ export function mediaFeatureColonSpaceChecker(checkLocation, root, result) {
       report({
         message: m,
         node,
-        index: index + 1 + node.name.length + node.raws.afterName.length,
+        index: index + mediaQueryParamIndexOffset(node),
         result,
         ruleName,
       }),
