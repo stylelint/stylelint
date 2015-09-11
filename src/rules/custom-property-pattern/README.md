@@ -8,9 +8,9 @@ Specify pattern of custom properties.
  * The pattern of this */
 ```
 
-## Options
+`regex` or `string`
 
-`regex`
+A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
 
 ### E.g. `/foo-.+/`
 

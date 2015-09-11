@@ -26,6 +26,27 @@ testRule(/foo-.+/, tr => {
   })
 })
 
+// Same as above but with a string instead of a RegExp
+testRule("foo-.+", tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("@keyframes foofoo {}")
+
+  tr.ok("@custom-media --foo-bar (min-width: 0);")
+  tr.ok("@custom-media --foo-foofoo (min-width: 0);")
+
+  tr.notOk("@custom-media --foa-bar (min-width: 0);", {
+    message: messages.expected,
+    line: 1,
+    column: 15,
+  })
+  tr.notOk("@custom-media --foa (min-width: 0);", {
+    message: messages.expected,
+    line: 1,
+    column: 15,
+  })
+})
+
 testRule(/^[A-Z][a-z]+-[a-z][a-zA-Z]+$/, tr => {
   warningFreeBasics(tr)
 

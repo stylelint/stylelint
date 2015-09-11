@@ -1,5 +1,6 @@
 # Head
 
+* Added: support for strings (translated to RegExps) in `custom-property-pattern` and `custom-media-pattern`.
 * Fixed: Rules use `node.raw()` instead of `node.raws` to avoid expected errors.
 
 # 1.0.1
