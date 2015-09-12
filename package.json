@@ -20,6 +20,7 @@
     "url": "https://github.com/stylelint/stylelint.git"
   },
   "main": "dist/index.js",
+  "bin": "dist/cli.js",
   "files": [
     "dist",
     "src",

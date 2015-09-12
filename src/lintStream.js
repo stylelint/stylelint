@@ -1,16 +1,10 @@
 import postcss from "postcss"
 import fs from "fs"
 import gs from "glob-stream"
-import rcLoader from "rc-loader"
 import { Transform } from "stream"
 import plugin from "./plugin"
 
 export default function ({ files, config } = {}) {
-  const stylelintConfig = config || rcLoader("stylelint")
-  if (!stylelintConfig) {
-    throw new Error("No stylelint config found")
-  }
-
   const linter = new Transform({ objectMode: true })
 
   linter._transform = function (chunk, enc, callback) {
@@ -31,7 +25,7 @@ export default function ({ files, config } = {}) {
       processOptions.from = filepath
     }
     postcss()
-      .use(plugin(stylelintConfig))
+      .use(plugin(config))
       .process(css, processOptions)
       .then(result => {
         callback(null, result)

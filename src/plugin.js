@@ -1,27 +1,30 @@
 import postcss from "postcss"
+import rcLoader from "rc-loader"
 import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
 import ruleSeverities from "./ruleSeverities"
 
-export default postcss.plugin("stylelint", settings => {
-  return (root, result) => {
-    if (!settings) { return }
-    if (!settings.rules) { return }
+export default postcss.plugin("stylelint", explicitConfig => {
+  const config = explicitConfig || rcLoader("stylelint")
 
-    if (settings.plugins) {
-      addPluginsToDefinitions(settings.plugins, ruleDefinitions)
+  return (root, result) => {
+    if (!config) { return }
+    if (!config.rules) { return }
+
+    if (config.plugins) {
+      addPluginsToDefinitions(config.plugins, ruleDefinitions)
     }
 
     // First check for disabled ranges
     disableRanges(root, result)
 
-    Object.keys(settings.rules).forEach(ruleName => {
+    Object.keys(config.rules).forEach(ruleName => {
       if (!ruleDefinitions[ruleName]) {
         throw new Error(`Undefined rule ${ruleName}`)
       }
 
       // If severity is 0, run nothing
-      const ruleSettings = settings.rules[ruleName]
+      const ruleSettings = config.rules[ruleName]
       const ruleSeverity = (Array.isArray(ruleSettings))
         ? ruleSettings[0]
         : ruleSettings
