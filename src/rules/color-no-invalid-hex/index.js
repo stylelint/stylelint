@@ -21,7 +21,9 @@ export default function (actual) {
 
       styleSearch({ source: declString, target: "#" }, match => {
 
-        const hexValue = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))[0]
+        const hexMatch = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))
+        if (!hexMatch) { return }
+        const hexValue = hexMatch[0]
 
         if (!/^#(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(hexValue)) {
           report({

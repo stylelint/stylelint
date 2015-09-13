@@ -27,7 +27,9 @@ export default function (expectation) {
 
       styleSearch({ source: declString, target: "#" }, match => {
 
-        const hexValue = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))[0]
+        const hexMatch = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))
+        if (!hexMatch) { return }
+        const hexValue = hexMatch[0]
 
         if (expectation === "long" && hexValue.length !== 4 && hexValue.length !== 5) { return }
 

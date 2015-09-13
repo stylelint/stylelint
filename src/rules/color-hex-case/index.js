@@ -26,7 +26,9 @@ export default function (expectation) {
       const declString = decl.toString()
       styleSearch({ source: declString, target: "#" }, match => {
 
-        const hexValue = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))[0]
+        const hexMatch = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))
+        if (!hexMatch) { return }
+        const hexValue = hexMatch[0]
         const hexValueLower = hexValue.toLowerCase()
         const hexValueUpper = hexValue.toUpperCase()
 
