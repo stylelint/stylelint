@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "./config-block-no-empty",
+    "./config-color-no-invalid-hex",
+    "./config-block-empty-ok"
+  ]
+}

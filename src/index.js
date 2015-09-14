@@ -8,4 +8,3 @@ module.exports.utils = {
 }
 
 module.exports.lint = require("./standalone")
-module.exports.lintStream = require("./lintStream")

@@ -37,16 +37,18 @@ export default function ({ ruleName, result, message, line, node, index, word })
     }
   }
 
-  const warningOpts = (node) ? { node } : {}
-  if (index) {
-    warningOpts.index = index
-  }
-  if (word) {
-    warningOpts.word = word
-  }
-  result.warn(message, warningOpts)
-
-  if (ruleSeverities.get(ruleName) === 2) {
+  const severity = ruleSeverities.get(ruleName)
+  if (severity === 2) {
     result.stylelintError = true
   }
+
+  const warningProperties = {
+    severity,
+    rule: ruleName,
+  }
+  if (node) { warningProperties.node = node }
+  if (index) { warningProperties.index = index }
+  if (word) { warningProperties.word = word }
+
+  result.warn(message, warningProperties)
 }

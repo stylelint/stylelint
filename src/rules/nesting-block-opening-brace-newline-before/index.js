@@ -45,8 +45,6 @@ export function checkNestingBlockOpeningBraceBefore({ locationChecker, root, res
   root.walkRules(rule => {
     if (!cssStatementIsNestingBlock(rule) || cssStatementHasEmptyBlock(rule)) { return }
 
-    // console.log(JSON.stringify(rule.toString()))
-
     const beforeBrace = cssStatementStringBeforeBlock(rule)
     const lineCheckStr = rule.toString().slice(beforeBrace.length)
     locationChecker.beforeAllowingIndentation({

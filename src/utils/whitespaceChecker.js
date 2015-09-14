@@ -1,6 +1,7 @@
 import { assign } from "lodash"
 import isWhitespace from "./isWhitespace"
 import isSingleLineString from "./isSingleLineString"
+import configurationError from "./configurationError"
 
 /**
  * Create a whitespaceChecker, which exposes the following functions:
@@ -94,7 +95,7 @@ export default function (targetWhitespace, expectation, messages) {
         rejectBefore(messages.rejectedBeforeMultiLine)
         break
       default:
-        throw new Error(`Unknown expectation "${expectation}"`)
+        throw configurationError(`Unknown expectation "${expectation}"`)
     }
   }
 
@@ -130,7 +131,7 @@ export default function (targetWhitespace, expectation, messages) {
         rejectAfter(messages.rejectedAfterMultiLine)
         break
       default:
-        throw new Error(`Unknown expectation "${expectation}"`)
+        throw configurationError(`Unknown expectation "${expectation}"`)
     }
   }
 

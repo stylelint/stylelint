@@ -1,41 +1,69 @@
 #!/usr/bin/env node
 
 import meow from "meow"
+import path from "path"
+import { assign } from "lodash"
+import getStdin from "get-stdin"
 import standalone from "./standalone"
 
-const minimistOptions = {}
+const minimistOptions = {
+  default: {
+    f: "string",
+  },
+  alias: {
+    f: "formatter",
+  },
+}
 
 const meowOptions = {
   help: [
     "Usage",
     "  stylelint [input] [options]",
     "",
-    "By default, stylelint will look for a .stylelintrc file in JSON, YML, or CommonJS format,",
+    "By default, stylelint will look for a .stylelintrc file in JSON format,",
     "using rc to look in various places (cf. https://github.com/dominictarr/rc#standards).",
-    "Alternatley, you can specify a configuration file with options.",
+    "Alternately, you can specify a configuration file via --config.",
     "",
     "Input",
-    "  A file glob (passed to node-glob).",
+    "  File glob(s) (passed to node-glob).",
     "  You can also pass no input and use stdin.",
     "",
     "Options",
-    "  --config  Path to a configuration file in JSON, YML, or CommonJS format.",
+    "  --config            Path to a JSON configuration file.",
+    "  --version           Get the currently installed version of stylelint.",
+    "  -f, --formatter     Specify a formatter: \"json\" or \"string\". Default is \"string\".",
+    "  --custom-formatter  Path to a JS file exporting a custom formatting function",
   ],
   pkg: "../package.json",
 }
 
 const cli = meow(meowOptions, minimistOptions)
 
-const standaloneConfig = {}
-if (cli.input.length) {
-  standaloneConfig.files = cli.input
+const formatter = (cli.flags.customFormatter)
+  ? require(path.join(process.cwd(), cli.flags.customFormatter))
+  : cli.flags.formatter
+
+const configBase = {
+  formatter,
 }
 
-standalone(standaloneConfig)
-  .then(({ output, errored }) => {
-    process.stdout.write(output)
-    if (errored) { process.exit(2) }
-  })
-  .catch(err => {
-    console.error(err.stack)
-  })
+let configReady = (cli.input.length)
+  ? Promise.resolve(assign({}, configBase, {
+    files: cli.input,
+  }))
+  : getStdin().then(stdin => Promise.resolve(assign({}, configBase, {
+    css: stdin,
+  })))
+
+configReady.then(config => {
+  standalone(config)
+    .then(({ output, errored }) => {
+      if (!output) { return }
+      process.stdout.write(output)
+      if (errored) { process.exit(2) }
+    })
+    .catch(err => {
+      console.log(err.stack)
+      process.exit(err.code || 1)
+    })
+})

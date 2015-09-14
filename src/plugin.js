@@ -1,26 +1,41 @@
 import postcss from "postcss"
-import rcLoader from "rc-loader"
+import rc from "rc"
+import path from "path"
+import { merge, cloneDeep } from "lodash"
+import { configurationError } from "./utils"
 import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
 import ruleSeverities from "./ruleSeverities"
 
-export default postcss.plugin("stylelint", explicitConfig => {
-  const config = explicitConfig || rcLoader("stylelint")
-
+export default postcss.plugin("stylelint", opts => {
   return (root, result) => {
-    if (!config) { return }
-    if (!config.rules) { return }
-
-    if (config.plugins) {
-      addPluginsToDefinitions(config.plugins, ruleDefinitions)
+    let initialConfig = opts.hasOwnProperty("config") ? opts.config : opts
+    if (!initialConfig) {
+      initialConfig = rc("stylelint")
     }
 
-    // First check for disabled ranges
+    const configBasedir = opts.configBasedir || path.dirname(initialConfig.config)
+    const config = extendConfig(initialConfig, configBasedir)
+
+    if (!config) {
+      throw configurationError("No configuration provided")
+    }
+    if (!config.rules) {
+      throw configurationError("No rules found within configuration")
+    }
+
+    if (config.plugins) {
+      Object.keys(config.plugins).forEach(pluginName => {
+        ruleDefinitions[pluginName] = requirePlugin(config.plugins[pluginName], configBasedir)
+      })
+    }
+
+    // First check for disabled ranges, adding then to the result object
     disableRanges(root, result)
 
     Object.keys(config.rules).forEach(ruleName => {
       if (!ruleDefinitions[ruleName]) {
-        throw new Error(`Undefined rule ${ruleName}`)
+        throw configurationError(`Undefined rule ${ruleName}`)
       }
 
       // If severity is 0, run nothing
@@ -41,12 +56,50 @@ export default postcss.plugin("stylelint", explicitConfig => {
   }
 })
 
-function addPluginsToDefinitions(plugins, definitions) {
-  Object.keys(plugins).forEach(name => {
-    if (typeof plugins[name] !== "function") {
-      addPluginsToDefinitions(plugins[name], definitions)
-      return
+function extendConfig(config, configBasedir) {
+  if (!config.extends) { return config }
+
+  return [].concat(config.extends).reduce((mergedConfig, extendingConfigLookup) => {
+    let extendingConfig
+    let extendingConfigPath
+
+    if ([ ".", "/", "\\" ].indexOf(extendingConfigLookup[0]) === -1) {
+      // If the lookup *is not* a relative path, just require() it
+      // and require.resolve() to get its path
+      extendingConfigPath = require.resolve(extendingConfigLookup)
+      extendingConfig = tryRequiring(extendingConfigLookup)
+    } else {
+      // If the lookup *is* a relative path, find it relative to configBasedir
+      extendingConfigPath = path.resolve(configBasedir || process.cwd(), extendingConfigLookup)
+      extendingConfig = tryRequiring(extendingConfigPath)
     }
-    definitions[name] = plugins[name]
-  })
+
+    // Now we must recursively extend the extending config
+    extendingConfig = extendConfig(extendingConfig, path.dirname(extendingConfigPath))
+
+    merge(mergedConfig, extendingConfig)
+    return mergedConfig
+  }, cloneDeep(config))
+}
+
+function requirePlugin(lookup, configBasedir) {
+  if ([ ".", "/", "\\" ].indexOf(lookup[0]) === -1) {
+    // If the lookup *is not* a relative path, just require() it
+    return tryRequiring(lookup)
+  } else {
+    // If the lookup *is* a relative path, find it relative to configBasedir
+    const lookupPath = path.resolve(configBasedir || process.cwd(), lookup)
+    return tryRequiring(lookupPath)
+  }
+}
+
+function tryRequiring(lookup) {
+  try {
+    return require(lookup)
+  } catch(e) {
+    throw configurationError(
+      `Could not find "${lookup}". ` +
+      `Do you need a \`configBasedir\`?`
+    )
+  }
 }
