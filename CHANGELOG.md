@@ -1,7 +1,8 @@
 # Head
 
+* Added: protection against `#${sass-interpolation}` in rules checking for hex colors.
 * Added: support for strings (translated to RegExps) in `custom-property-pattern` and `custom-media-pattern`.
-* Fixed: Rules use `node.raw()` instead of `node.raws` to avoid expected errors.
+* Fixed: rules using `node.raw()` instead of `node.raws` to avoid expected errors.
 
 # 1.0.1
 
