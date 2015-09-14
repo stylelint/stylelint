@@ -6,8 +6,15 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-testRule("lower", tr => {
+function sharedTests(tr) {
   warningFreeBasics(tr)
+
+  tr.ok("a { border-#$side: 0; }", "ignore sass-like interpolation")
+  tr.ok("a { box-sizing: #$type-box; }", "ignore sass-like interpolation")
+}
+
+testRule("lower", tr => {
+  sharedTests(tr)
 
   tr.ok("a { color: pink; }")
   tr.ok("a { color: #000; }")
@@ -42,7 +49,7 @@ testRule("lower", tr => {
 })
 
 testRule("upper", tr => {
-  warningFreeBasics(tr)
+  sharedTests(tr)
 
   tr.ok("a { color: pink; }")
   tr.ok("a { color: #000; }")
