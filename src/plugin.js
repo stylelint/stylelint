@@ -96,7 +96,7 @@ function requirePlugin(lookup, configBasedir) {
 function tryRequiring(lookup) {
   try {
     return require(lookup)
-  } catch(e) {
+  } catch (e) {
     throw configurationError(
       `Could not find "${lookup}". ` +
       `Do you need a \`configBasedir\`?`
