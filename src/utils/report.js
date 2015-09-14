@@ -51,8 +51,4 @@ export default function ({ ruleName, result, message, line, node, index, word })
   if (word) { warningProperties.word = word }
 
   result.warn(message, warningProperties)
-
-  if (ruleSeverities.get(ruleName) === 2) {
-    result.stylelintError = true
-  }
 }
