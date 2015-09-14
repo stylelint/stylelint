@@ -18,6 +18,9 @@ testRule(undefined, tr => {
   tr.ok("a { padding: 000; }")
   tr.ok("a::before { content: \"#ababa\"; }")
 
+  tr.ok("a { border-#$side: 0; }", "ignore sass-like interpolation")
+  tr.ok("a { box-sizing: #$type-box; }", "ignore sass-like interpolation")
+
   tr.notOk("a { color: #ababa; }", {
     message: messages.rejected("#ababa"),
     line: 1,
