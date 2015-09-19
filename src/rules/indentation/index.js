@@ -5,6 +5,7 @@ import {
   ruleMessages,
   styleSearch,
   cssStatementHasBlock,
+  cssStatementStringBeforeBlock,
   validateOptions,
 } from "../../utils"
 
@@ -46,7 +47,7 @@ export default function (space, options) {
     }, {
       actual: options,
       possible: {
-        except: [ "block", "value" ],
+        except: [ "block", "value", "param" ],
         hierarchicalSelectors: [isBoolean],
       },
       optional: true,
@@ -132,6 +133,11 @@ export default function (space, options) {
       if (node.selector) {
         checkSelector(node, nodeLevel)
       }
+
+      // If this is an at rule, check the params
+      if (node.type === "atrule") {
+        checkAtRuleParams(node, nodeLevel)
+      }
     })
 
     function indentationLevel(node, level=0) {
@@ -177,38 +183,69 @@ export default function (space, options) {
         ? declLevel
         : declLevel + 1
 
-      styleSearch({ source: declString, target: "\n" }, (match) => {
-        // Starting at the index after the newline, we want to
-        // check that the whitespace characters before the first
-        // non-whitespace character equal the expected indentation
-        const postNewlineActual = /^(\s*)\S/.exec(declString.slice(match.startIndex + 1))[1]
+      checkMultilineBit(declString, valueLevel, decl)
 
-        if (postNewlineActual !== repeat(indentChar, valueLevel)) {
-          report({
-            message: messages.expected(legibleExpectation(valueLevel)),
-            node: decl,
-            index: match.startIndex + 1,
-            result,
-            ruleName,
-          })
-        }
-      })
+      // styleSearch({ source: declString, target: "\n" }, (match) => {
+      //   // Starting at the index after the newline, we want to
+      //   // check that the whitespace characters before the first
+      //   // non-whitespace character equal the expected indentation
+      //   const postNewlineActual = /^(\s*)\S/.exec(declString.slice(match.startIndex + 1))[1]
+      //
+      //   if (postNewlineActual !== repeat(indentChar, valueLevel)) {
+      //     report({
+      //       message: messages.expected(legibleExpectation(valueLevel)),
+      //       node: decl,
+      //       index: match.startIndex + 1,
+      //       result,
+      //       ruleName,
+      //     })
+      //   }
+      // })
     }
 
     function checkSelector(rule, ruleLevel) {
       const selector = rule.selector
-      if (selector.indexOf("\n") === -1) { return }
 
-      styleSearch({ source: selector, target: "\n" }, (match) => {
+      checkMultilineBit(selector, ruleLevel, rule)
+
+      // styleSearch({ source: selector, target: "\n" }, (match) => {
+      //   // Starting at the index after the newline, we want to
+      //   // check that the whitespace characters before the first
+      //   // non-whitespace character equal the expected indentation
+      //   const postNewlineActual = /^(\s*)\S/.exec(selector.slice(match.startIndex + 1))[1]
+      //
+      //   if (postNewlineActual !== repeat(indentChar, ruleLevel)) {
+      //     report({
+      //       message: messages.expected(legibleExpectation(ruleLevel)),
+      //       node: rule,
+      //       index: match.startIndex + 1,
+      //       result,
+      //       ruleName,
+      //     })
+      //   }
+      // })
+    }
+
+    function checkAtRuleParams(atRule, ruleLevel) {
+      const paramLevel = (optionsHaveException(options, "param"))
+        ? ruleLevel
+        : ruleLevel + 1
+
+      checkMultilineBit(cssStatementStringBeforeBlock(atRule).trim(), paramLevel, atRule)
+    }
+
+    function checkMultilineBit(source, newlineIndentLevel, node) {
+      if (source.indexOf("\n") === -1) { return }
+      styleSearch({ source, target: "\n" }, (match) => {
         // Starting at the index after the newline, we want to
         // check that the whitespace characters before the first
         // non-whitespace character equal the expected indentation
-        const postNewlineActual = /^(\s*)\S/.exec(selector.slice(match.startIndex + 1))[1]
+        const postNewlineActual = /^(\s*)\S/.exec(source.slice(match.startIndex + 1))[1]
 
-        if (postNewlineActual !== repeat(indentChar, ruleLevel)) {
+        if (postNewlineActual !== repeat(indentChar, newlineIndentLevel)) {
           report({
-            message: messages.expected(legibleExpectation(ruleLevel)),
-            node: rule,
+            message: messages.expected(legibleExpectation(newlineIndentLevel)),
+            node,
             index: match.startIndex + 1,
             result,
             ruleName,

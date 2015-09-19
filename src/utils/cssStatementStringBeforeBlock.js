@@ -1,5 +1,3 @@
-import cssStatementHasBlock from "./cssStatementHasBlock"
-
 /**
  * Given a CSS statement, return the string before the block.
  * For rules, this is the selector list (and surrounding whitespace).
@@ -13,7 +11,7 @@ import cssStatementHasBlock from "./cssStatementHasBlock"
  * @return {string|undefined}
  */
 export default function (statement, { noBefore }={}) {
-  if (!cssStatementHasBlock(statement)) { return }
+  if (statement.type !== "rule" && statement.type !== "atrule") { return }
 
   let result = ""
   if (!noBefore) {

@@ -68,6 +68,12 @@ a {
   /* blergh */
 ```
 
+```css
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -97,9 +103,15 @@ a {
 /* blergh */
 ```
 
+```css
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 120dpi) {}
+```
+
 ## Optional options
 
-### `except: ["block", "value"]`
+### `except: ["block", "value", "param"]`
 
 Do *not* indent for these things.
 
@@ -108,7 +120,10 @@ For example, with `2`:
 The following patterns are considered warnings:
 
 ```css
-@media print {
+```css
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 120dpi) {
   a {
     background-position: top left,
       top right;
@@ -119,7 +134,9 @@ The following patterns are considered warnings:
 The following patterns are *not* considered warnings:
 
 ```css
-@media print {
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {
 a {
 background-position: top left,
 top right;

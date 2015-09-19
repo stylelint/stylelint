@@ -127,4 +127,38 @@ color: pink;
   column: 1,
 })
 
+tr.ok(
+`@media print,
+\t(-webkit-min-device-pixel-ratio: 1.25),
+\t(min-resolution: 120dpi) {}`)
+
+tr.notOk(
+`@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+\t(min-resolution: 120dpi) {}`, {
+  message: messages.expected("1 tab"),
+  line: 2,
+  column: 1,
+}, "multi-line at-rule params")
+
+})
+
+// spaces except param
+testRule(4, { except: ["param"] }, tr => {
+warningFreeBasics(tr)
+
+tr.ok(
+`@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {}`)
+
+tr.notOk(
+`@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {}`, {
+  message: messages.expected("0 spaces"),
+  line: 2,
+  column: 1,
+})
+
 })
