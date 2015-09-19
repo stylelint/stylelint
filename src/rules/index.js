@@ -23,6 +23,7 @@ import declarationBlockSemicolonNewlineAfter from "./declaration-block-semicolon
 import declarationBlockSemicolonNewlineBefore from "./declaration-block-semicolon-newline-before"
 import declarationBlockSemicolonSpaceAfter from "./declaration-block-semicolon-space-after"
 import declarationBlockSemicolonSpaceBefore from "./declaration-block-semicolon-space-before"
+import declarationColonNewlineAfter from "./declaration-colon-newline-after"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
 import declarationNoImportant from "./declaration-no-important"
@@ -110,6 +111,7 @@ export default {
   "declaration-block-semicolon-newline-before": declarationBlockSemicolonNewlineBefore,
   "declaration-block-semicolon-space-after": declarationBlockSemicolonSpaceAfter,
   "declaration-block-semicolon-space-before": declarationBlockSemicolonSpaceBefore,
+  "declaration-colon-newline-after": declarationColonNewlineAfter,
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
   "declaration-no-important": declarationNoImportant,

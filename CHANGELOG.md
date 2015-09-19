@@ -1,5 +1,6 @@
 # Head
 
+* Added: `declaration-colon-newline-after` rule.
 * Fixed: bug preventing various rules from registering the correct rule names in their warnings, and therefore also preventing them from being disabled with comments.
 * Added: the `indentation` rule now checks indentation of multi-line at-rule params, unless there's the `except` option of `param`.
 * Fixed: the `color-no-invalid-hex` rule no longer flags hashes in `url()` arguments.

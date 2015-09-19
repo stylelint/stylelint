@@ -52,6 +52,7 @@
 
 * [`declaration-bang-space-after`](../src/rules/declaration-bang-space-after/README.md): Require a single space or disallow whitespace after the bang of declarations.
 * [`declaration-bang-space-before`](../src/rules/declaration-bang-space-before/README.md): Require a single space or disallow whitespace before the bang of declarations.
+* [`declaration-colon-newline-after`](../src/rules/declaration-colon-newline-after/README.md): Require a newline or disallow whitespace after the colon of declarations.
 * [`declaration-colon-space-after`](../src/rules/declaration-colon-space-after/README.md): Require a single space or disallow whitespace after the colon of declarations.
 * [`declaration-colon-space-before`](../src/rules/declaration-colon-space-before/README.md): Require a single space or disallow whitespace before the colon of declarations.
 * [`declaration-no-important`](../src/rules/declaration-no-important/README.md): Disallow `!important` within declarations.
@@ -128,7 +129,7 @@
 
 ## Media query
 
-* [`media-query-parentheses-space-inside`](../src/rules/media-query-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within media queries. 
+* [`media-query-parentheses-space-inside`](../src/rules/media-query-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within media queries.
 
 ## Media query list
 
