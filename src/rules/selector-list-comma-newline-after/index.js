@@ -3,7 +3,7 @@ import {
   styleSearch,
   report,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 
 export const ruleName = "selector-list-comma-newline-after"

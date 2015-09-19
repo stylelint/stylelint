@@ -1,7 +1,7 @@
 import {
   findIndex,
   findLastIndex,
-  range
+  range,
 } from "lodash"
 import {
   blurComments,
@@ -10,7 +10,7 @@ import {
   report,
   ruleMessages,
   styleSearch,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "number-zero-length-no-unit"

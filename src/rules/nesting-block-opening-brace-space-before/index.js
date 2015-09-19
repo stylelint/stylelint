@@ -1,7 +1,7 @@
 import {
   ruleMessages,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 import { checkNestingBlockOpeningBraceBefore } from "../nesting-block-opening-brace-newline-before"
 

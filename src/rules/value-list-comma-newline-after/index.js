@@ -1,7 +1,7 @@
 import {
   ruleMessages,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 import { valueListCommaWhitespaceChecker } from "../value-list-comma-space-after"
 

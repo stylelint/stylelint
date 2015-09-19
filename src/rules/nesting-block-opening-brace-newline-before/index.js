@@ -5,7 +5,7 @@ import {
   report,
   ruleMessages,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 
 export const ruleName = "nesting-block-opening-brace-newline-before"

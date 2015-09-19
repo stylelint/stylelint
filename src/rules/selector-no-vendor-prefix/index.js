@@ -3,7 +3,7 @@ import {
   ruleMessages,
   styleSearch,
   isAutoprefixable,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "selector-no-vendor-prefix"

@@ -1,7 +1,7 @@
 /* eslint-disable indent, no-multiple-empty-lines */
 
 import {
-  ruleTester
+  ruleTester,
 } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 

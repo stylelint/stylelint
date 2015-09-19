@@ -1,6 +1,6 @@
 import {
   ruleTester,
-  warningFreeBasics
+  warningFreeBasics,
 } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 

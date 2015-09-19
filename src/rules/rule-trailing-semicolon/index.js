@@ -2,7 +2,7 @@ import {
   report,
   ruleMessages,
   cssStatementHasEmptyBlock,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "rule-trailing-semicolon"

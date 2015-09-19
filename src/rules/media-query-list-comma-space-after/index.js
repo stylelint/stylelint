@@ -4,7 +4,7 @@ import {
   ruleMessages,
   styleSearch,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 
 export const ruleName = "media-query-list-comma-space-after"

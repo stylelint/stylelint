@@ -3,7 +3,7 @@ import {
   report,
   ruleMessages,
   styleSearch,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "function-space-after"

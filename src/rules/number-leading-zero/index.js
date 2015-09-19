@@ -3,7 +3,7 @@ import {
   cssStatementStringBeforeBlock,
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "number-leading-zero"

@@ -3,7 +3,7 @@ import {
   report,
   ruleMessages,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 
 import { findMediaOperator } from "../media-feature-range-operator-space-after"

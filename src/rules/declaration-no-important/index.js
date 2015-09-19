@@ -1,7 +1,7 @@
 import {
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "declaration-no-important"

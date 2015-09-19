@@ -1,7 +1,7 @@
 import {
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 import shorthands from "./shorthands"
 

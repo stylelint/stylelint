@@ -4,7 +4,7 @@ import {
   optionsHaveIgnored,
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "rule-non-nested-empty-line-before"

@@ -3,7 +3,7 @@ import { vendor } from "postcss"
 import {
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "rule-properties-order"

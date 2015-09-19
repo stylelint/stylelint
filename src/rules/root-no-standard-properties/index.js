@@ -1,7 +1,7 @@
 import {
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "root-no-standard-properties"

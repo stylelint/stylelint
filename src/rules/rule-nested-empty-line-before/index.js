@@ -1,6 +1,6 @@
 import {
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 import { checkRuleEmptyLineBefore } from "../rule-non-nested-empty-line-before"

@@ -4,7 +4,7 @@ import {
   ruleMessages,
   styleSearch,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 
 export const ruleName = "media-feature-colon-space-after"
