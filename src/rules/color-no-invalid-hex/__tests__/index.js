@@ -13,7 +13,7 @@ testRule(undefined, tr => {
   tr.ok("a { color: #000; }")
   tr.ok("a { something: #000, #fff, #ababab; }")
   tr.ok("a { color: #0000ffcc; }", "eight digits")
-  tr.ok("a { color: #00fc; }", "four digits")
+  tr.ok("a { color:#00fc; }", "four digits")
 
   tr.ok("a { padding: 000; }")
   tr.ok("a::before { content: \"#ababa\"; }")
@@ -36,9 +36,20 @@ testRule(undefined, tr => {
     line: 1,
     column: 22,
   })
-  tr.notOk("a { something: #000, #fff, #12345aa; }", {
+
+  // No supplementary spaces after colon or comma
+  tr.notOk("a { something:#000,#fff,#12345aa; }", {
     message: messages.rejected("#12345aa"),
     line: 1,
-    column: 28,
+    column: 25,
   })
+
+  tr.ok("@font-face {\n" +
+    "font-family: dashicons;\n" +
+    "src: url(data:application/font-woff;charset=utf-8;base64, ABCDEF==) format(\"woff\"),\n" +
+        "url(../fonts/dashicons.ttf) format(\"truetype\"),\n" +
+        "url(../fonts/dashicons.svg#dashicons) format(\"svg\");\n" +
+    "font-weight: normal;\n" +
+    "font-style: normal;\n" +
+  "}")
 })
