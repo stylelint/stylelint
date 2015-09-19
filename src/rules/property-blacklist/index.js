@@ -3,7 +3,7 @@ import { isString } from "lodash"
 import {
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "property-blacklist"

@@ -2,7 +2,7 @@ import selectorParser from "postcss-selector-parser"
 import {
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "selector-no-universal"

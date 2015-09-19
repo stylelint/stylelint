@@ -1,7 +1,7 @@
 import {
   ruleMessages,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 
 import { selectorCombinatorSpaceChecker } from "../selector-combinator-space-after"

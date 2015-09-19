@@ -6,7 +6,7 @@ import {
   report,
   ruleMessages,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 
 export const ruleName = "block-opening-brace-newline-before"

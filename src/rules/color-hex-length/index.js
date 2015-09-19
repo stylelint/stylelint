@@ -2,7 +2,7 @@ import {
   report,
   ruleMessages,
   styleSearch,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "color-hex-length"

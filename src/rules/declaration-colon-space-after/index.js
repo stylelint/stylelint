@@ -2,7 +2,7 @@ import {
   report,
   ruleMessages,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 
 export const ruleName = "declaration-colon-space-after"

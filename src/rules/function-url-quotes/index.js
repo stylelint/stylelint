@@ -3,7 +3,7 @@ import {
   mediaQueryParamIndexOffset,
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "function-url-quotes"

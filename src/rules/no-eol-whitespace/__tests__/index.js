@@ -1,5 +1,5 @@
 import {
-  ruleTester
+  ruleTester,
 } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 

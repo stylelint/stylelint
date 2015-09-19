@@ -5,7 +5,7 @@ import {
   ruleMessages,
   styleSearch,
   cssStatementHasBlock,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "indentation"

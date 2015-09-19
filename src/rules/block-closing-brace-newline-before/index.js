@@ -5,7 +5,7 @@ import {
   isSingleLineString,
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "block-closing-brace-newline-before"

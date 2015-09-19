@@ -2,7 +2,7 @@ import { isRegExp, isString } from "lodash"
 import {
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "custom-property-pattern"

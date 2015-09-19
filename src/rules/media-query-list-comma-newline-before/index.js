@@ -1,7 +1,7 @@
 import {
   ruleMessages,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 import { mediaQueryListCommaWhitespaceChecker } from "../media-query-list-comma-space-after"
 

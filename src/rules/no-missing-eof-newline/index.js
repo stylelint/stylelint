@@ -1,7 +1,7 @@
 import {
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "no-missing-eof-newline"

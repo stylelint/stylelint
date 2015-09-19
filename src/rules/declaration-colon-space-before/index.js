@@ -1,7 +1,7 @@
 import {
   ruleMessages,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 import { declarationColonSpaceChecker } from "../declaration-colon-space-after"
 

@@ -3,7 +3,7 @@ import {
   ruleMessages,
   styleSearch,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 
 export const ruleName = "function-comma-space-after"

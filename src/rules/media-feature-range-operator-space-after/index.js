@@ -3,7 +3,7 @@ import {
   report,
   ruleMessages,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 
 export const ruleName = "media-feature-range-operator-space-after"

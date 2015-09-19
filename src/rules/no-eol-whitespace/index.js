@@ -2,7 +2,7 @@ import {
   ruleMessages,
   styleSearch,
   report,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "no-eol-whitespace"

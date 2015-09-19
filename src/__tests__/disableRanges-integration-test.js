@@ -1,7 +1,7 @@
 import { ruleTester } from "../testUtils"
 import blockNoEmpty, {
   ruleName as blockNoEmptyName,
-  messages as blockNoEmptyMessages
+  messages as blockNoEmptyMessages,
 } from "../rules/block-no-empty"
 
 const testBlockNoEmpty = ruleTester(blockNoEmpty, blockNoEmptyName)

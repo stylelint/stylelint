@@ -4,7 +4,7 @@ import {
   rawNodeString,
   ruleMessages,
   validateOptions,
-  whitespaceChecker
+  whitespaceChecker,
 } from "../../utils"
 
 export const ruleName = "declaration-block-semicolon-newline-after"

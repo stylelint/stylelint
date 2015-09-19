@@ -2,7 +2,7 @@ import {
   isAutoprefixable,
   report,
   ruleMessages,
-  validateOptions
+  validateOptions,
 } from "../../utils"
 
 export const ruleName = "property-no-vendor-prefix"
