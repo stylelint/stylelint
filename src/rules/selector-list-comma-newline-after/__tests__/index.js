@@ -51,6 +51,20 @@ testRule("always", tr => {
     line: 2,
     column: 2,
   }, "CRLF")
+
+  tr.ok("a, /* comment */\nb {}", "with end-of-line comment with newline after")
+  tr.ok("a, /* comment\n       commentline2 */\nb {}",
+    "with end-of-line multi-line comment with newline after")
+  tr.notOk("a, /* comment */ b {}", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 2,
+  }, "with post-comma comment without newline after")
+  tr.notOk("a, /* comment\n       commentline2 */b {}", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 2,
+  }, "with post-comma multi-line comment without newline after")
 })
 
 testRule("always-multi-line", tr => {

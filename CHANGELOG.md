@@ -1,5 +1,6 @@
 # Head
 
+* Added: support for end-of-line comments in `selector-list-comma-newline-after`.
 * Added: protection against `#${sass-interpolation}` in rules checking for hex colors.
 * Added: support for strings (translated to RegExps) in `custom-property-pattern` and `custom-media-pattern`.
 * Fixed: rules using `node.raw()` instead of `node.raws` to avoid expected errors.

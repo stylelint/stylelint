@@ -9,6 +9,13 @@ Require a newline or disallow whitespace after the commas of selector lists.
  * The newline after this comma */
 ```
 
+End-of-line comments are allowed one space after the comma.
+
+```css
+a, /* comment */
+b { color: pink; }
+```
+
 ## Options
 
 `string`: `"always"|"always-multi-line"|"never-multi-line"`

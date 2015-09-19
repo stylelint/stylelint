@@ -28,11 +28,19 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      const selector = rule.selector
+      // Get raw selector so we can allow end-of-line comments, e.g.
+      // a, /* comment */
+      // b {}
+      const selector = (rule.raws.selector) ? rule.raws.selector.raw : rule.selector
       styleSearch({ source: selector, target: "," }, match => {
+        // If there is a space and then a comment begins, look for the newline
+        // after that comment
+        const indextoCheckAfter = (selector.substr(match.endIndex, 3) === " /*")
+          ? selector.indexOf("*/", match.endIndex) + 1
+          : match.startIndex
         checker.afterOneOnly({
           source: selector,
-          index: match.startIndex,
+          index: indextoCheckAfter,
           err: m =>
             report({
               message: m,
