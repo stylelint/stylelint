@@ -25,6 +25,11 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    selectorCombinatorSpaceChecker(checker.before, root, result)
+    selectorCombinatorSpaceChecker({
+      root,
+      result,
+      locationChecker: checker.before,
+      checkedRuleName: ruleName,
+    })
   }
 }

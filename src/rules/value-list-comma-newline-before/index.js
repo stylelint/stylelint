@@ -26,6 +26,11 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    valueListCommaWhitespaceChecker(checker.beforeAllowingIndentation, root, result)
+    valueListCommaWhitespaceChecker({
+      root,
+      result,
+      locationChecker: checker.beforeAllowingIndentation,
+      checkedRuleName: ruleName,
+    })
   }
 }

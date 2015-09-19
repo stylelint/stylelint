@@ -25,11 +25,16 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    functionCommaSpaceChecker(checker.after, root, result)
+    functionCommaSpaceChecker({
+      root,
+      result,
+      locationChecker: checker.after,
+      checkedRuleName: ruleName,
+    })
   }
 }
 
-export function functionCommaSpaceChecker(checkLocation, root, result) {
+export function functionCommaSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
     const declString = decl.toString()
 
@@ -39,13 +44,13 @@ export function functionCommaSpaceChecker(checkLocation, root, result) {
   })
 
   function checkComma(source, index, node) {
-    checkLocation({ source, index, err: m =>
+    locationChecker({ source, index, err: m =>
       report({
         message: m,
         node,
         index,
         result,
-        ruleName,
+        ruleName: checkedRuleName,
       }),
     })
   }

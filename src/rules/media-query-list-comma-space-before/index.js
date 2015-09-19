@@ -28,6 +28,11 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    mediaQueryListCommaWhitespaceChecker(checker.before, root, result)
+    mediaQueryListCommaWhitespaceChecker({
+      root,
+      result,
+      locationChecker: checker.before,
+      checkedRuleName: ruleName,
+    })
   }
 }

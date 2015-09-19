@@ -42,7 +42,7 @@ export default function (expectation, options) {
       // Only attend to nested rule sets
       if (rule.parent === root) { return }
 
-      checkRuleEmptyLineBefore(rule, expectation, options, result, messages)
+      checkRuleEmptyLineBefore({ rule, expectation, options, result, messages, checkedRuleName: ruleName })
     })
   }
 }

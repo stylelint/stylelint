@@ -19,7 +19,6 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function (expectation) {
-  const checker = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -33,11 +32,16 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    checkNestingBlockOpeningBraceBefore(checker, root, result)
+    checkNestingBlockOpeningBraceBefore({
+      root,
+      result,
+      locationChecker: whitespaceChecker("newline", expectation, messages),
+      checkedRuleName: ruleName,
+    })
   }
 }
 
-export function checkNestingBlockOpeningBraceBefore(checker, root, result) {
+export function checkNestingBlockOpeningBraceBefore({ locationChecker, root, result, checkedRuleName }) {
   root.walkRules(rule => {
     if (!cssStatementIsNestingBlock(rule) || cssStatementHasEmptyBlock(rule)) { return }
 
@@ -45,7 +49,7 @@ export function checkNestingBlockOpeningBraceBefore(checker, root, result) {
 
     const beforeBrace = cssStatementStringBeforeBlock(rule)
     const lineCheckStr = rule.toString().slice(beforeBrace.length)
-    checker.beforeAllowingIndentation({
+    locationChecker.beforeAllowingIndentation({
       lineCheckStr,
       source: beforeBrace,
       index: beforeBrace.length,
@@ -54,7 +58,7 @@ export function checkNestingBlockOpeningBraceBefore(checker, root, result) {
           message: m,
           node: rule,
           result,
-          ruleName,
+          ruleName: checkedRuleName,
         })
       },
     })

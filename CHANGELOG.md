@@ -1,5 +1,6 @@
 # Head
 
+* Fixed: bug preventing various rules from registering the correct rule names in their warnings, and therefore also preventing them from being disabled with comments.
 * Added: the `indentation` rule now checks indentation of multi-line at-rule params, unless there's the `except` option of `param`.
 * Fixed: the `color-no-invalid-hex` rule no longer flags hashes in `url()` arguments.
 * Added: support for end-of-line comments in `selector-list-comma-newline-after`.

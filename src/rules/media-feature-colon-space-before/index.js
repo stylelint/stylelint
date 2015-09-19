@@ -25,6 +25,11 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    mediaFeatureColonSpaceChecker(checker.before, root, result)
+    mediaFeatureColonSpaceChecker({
+      root,
+      result,
+      locationChecker: checker.before,
+      checkedRuleName: ruleName,
+    })
   }
 }

@@ -24,11 +24,16 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    declarationBangSpaceChecker(checker.after, root, result)
+    declarationBangSpaceChecker({
+      root,
+      result,
+      locationChecker: checker.after,
+      checkedRuleName: ruleName,
+    })
   }
 }
 
-export function declarationBangSpaceChecker(locationChecker, root, result) {
+export function declarationBangSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(function (decl) {
     if (!decl.important) { return }
     const declString = decl.toString()
@@ -49,7 +54,7 @@ export function declarationBangSpaceChecker(locationChecker, root, result) {
         node,
         index,
         result,
-        ruleName,
+        ruleName: checkedRuleName,
       }),
     })
   }

@@ -26,11 +26,16 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    mediaFeatureColonSpaceChecker(checker.after, root, result)
+    mediaFeatureColonSpaceChecker({
+      root,
+      result,
+      locationChecker: checker.after,
+      checkedRuleName: ruleName,
+    })
   }
 }
 
-export function mediaFeatureColonSpaceChecker(checkLocation, root, result) {
+export function mediaFeatureColonSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkAtRules(atRule => {
     const { name, params } = atRule
 
@@ -43,13 +48,13 @@ export function mediaFeatureColonSpaceChecker(checkLocation, root, result) {
   })
 
   function checkColon(source, index, node) {
-    checkLocation({ source, index, err: m =>
+    locationChecker({ source, index, err: m =>
       report({
         message: m,
         node,
         index: index + mediaQueryParamIndexOffset(node),
         result,
-        ruleName,
+        ruleName: checkedRuleName,
       }),
     })
   }

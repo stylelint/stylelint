@@ -29,11 +29,16 @@ export default function (expectation) {
       ],
     })
     if (!validOptions) { return }
-    mediaQueryListCommaWhitespaceChecker(checker.after, root, result)
+    mediaQueryListCommaWhitespaceChecker({
+      root,
+      result,
+      locationChecker: checker.after,
+      checkedRuleName: ruleName,
+    })
   }
 }
 
-export function mediaQueryListCommaWhitespaceChecker(checkLocation, root, result) {
+export function mediaQueryListCommaWhitespaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkAtRules(atRule => {
     const params = atRule.params
     styleSearch({ source: params, target: "," }, match => {
@@ -42,13 +47,13 @@ export function mediaQueryListCommaWhitespaceChecker(checkLocation, root, result
   })
 
   function checkComma(source, index, node) {
-    checkLocation({ source, index, err: m =>
+    locationChecker({ source, index, err: m =>
       report({
         message: m,
         node,
         index: index + mediaQueryParamIndexOffset(node),
         result,
-        ruleName,
+        ruleName: checkedRuleName,
       }),
     })
   }

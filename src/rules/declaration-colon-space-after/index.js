@@ -24,11 +24,16 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    declarationColonSpaceChecker(checker.after, root, result)
+    declarationColonSpaceChecker({
+      root,
+      result,
+      locationChecker: checker.after,
+      checkedRuleName: ruleName,
+    })
   }
 }
 
-export function declarationColonSpaceChecker(locationChecker, root, result) {
+export function declarationColonSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
     const declString = decl.toString()
 
@@ -46,7 +51,7 @@ export function declarationColonSpaceChecker(locationChecker, root, result) {
         node,
         index: node.prop.toString().length + 1,
         result,
-        ruleName,
+        ruleName: checkedRuleName,
       }),
     })
   }

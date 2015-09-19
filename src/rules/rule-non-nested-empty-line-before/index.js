@@ -41,12 +41,12 @@ export default function (expectation, options) {
       // Ignore the first node
       if (rule === root.first) { return }
 
-      checkRuleEmptyLineBefore(rule, expectation, options, result, messages)
+      checkRuleEmptyLineBefore({ rule, expectation, options, result, messages, checkedRuleName: ruleName })
     })
   }
 }
 
-export function checkRuleEmptyLineBefore(rule, expectation, options, result, msgs) {
+export function checkRuleEmptyLineBefore({ rule, expectation, options, result, messages, checkedRuleName }) {
 
   let expectEmptyLineBefore = (expectation.indexOf("always") !== -1) ? true : false
 
@@ -71,12 +71,12 @@ export function checkRuleEmptyLineBefore(rule, expectation, options, result, msg
   // Return if the exceptation is met
   if (expectEmptyLineBefore === emptyLineBefore) { return }
 
-  const message = expectEmptyLineBefore ? msgs.expected : msgs.rejected
+  const message = expectEmptyLineBefore ? messages.expected : messages.rejected
 
   report({
     message: message,
     node: rule,
     result,
-    ruleName,
+    ruleName: checkedRuleName,
   })
 }

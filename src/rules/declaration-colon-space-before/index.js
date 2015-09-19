@@ -24,6 +24,11 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    declarationColonSpaceChecker(checker.before, root, result)
+    declarationColonSpaceChecker({
+      root,
+      result,
+      locationChecker: checker.before,
+      checkedRuleName: ruleName,
+    })
   }
 }

@@ -29,6 +29,11 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    selectorListCommaWhitespaceChecker(checker.before, root, result)
+    selectorListCommaWhitespaceChecker({
+      root,
+      result,
+      locationChecker: checker.before,
+      checkedRuleName: ruleName,
+    })
   }
 }

@@ -29,11 +29,16 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    selectorListCommaWhitespaceChecker(checker.after, root, result)
+    selectorListCommaWhitespaceChecker({
+      root,
+      result,
+      locationChecker: checker.after,
+      checkedRuleName: ruleName,
+    })
   }
 }
 
-export function selectorListCommaWhitespaceChecker(checkLocation, root, result) {
+export function selectorListCommaWhitespaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkRules(rule => {
     const selector = rule.selector
     styleSearch({ source: selector, target: "," }, match => {
@@ -42,13 +47,13 @@ export function selectorListCommaWhitespaceChecker(checkLocation, root, result) 
   })
 
   function checkDelimiter(source, index, node) {
-    checkLocation({ source, index, err: m =>
+    locationChecker({ source, index, err: m =>
       report({
         message: m,
         node,
         index,
         result,
-        ruleName,
+        ruleName: checkedRuleName,
       }),
     })
   }

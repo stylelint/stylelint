@@ -29,11 +29,16 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    valueListCommaWhitespaceChecker(checker.after, root, result)
+    valueListCommaWhitespaceChecker({
+      root,
+      result,
+      locationChecker: checker.after,
+      checkedRuleName: ruleName,
+    })
   }
 }
 
-export function valueListCommaWhitespaceChecker(checkLocation, root, result) {
+export function valueListCommaWhitespaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
     styleSearch({ source: decl.toString(), target: ",", outsideFunctionalNotation: true }, match => {
       checkComma(decl.toString(), match.startIndex, decl)
@@ -41,7 +46,7 @@ export function valueListCommaWhitespaceChecker(checkLocation, root, result) {
   })
 
   function checkComma(source, index, node) {
-    checkLocation({
+    locationChecker({
       source,
       index,
       err: m => {
@@ -50,7 +55,7 @@ export function valueListCommaWhitespaceChecker(checkLocation, root, result) {
           node,
           index,
           result,
-          ruleName,
+          ruleName: checkedRuleName,
         })
       },
     })

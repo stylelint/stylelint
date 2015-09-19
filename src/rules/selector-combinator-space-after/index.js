@@ -27,11 +27,16 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    selectorCombinatorSpaceChecker(checker.after, root, result)
+    selectorCombinatorSpaceChecker({
+      root,
+      result,
+      locationChecker: checker.after,
+      checkedRuleName: ruleName,
+    })
   }
 }
 
-export function selectorCombinatorSpaceChecker(locationChecker, root, result) {
+export function selectorCombinatorSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkRules(rule => {
     const selector = rule.selector
     styleSearch({
@@ -53,7 +58,7 @@ export function selectorCombinatorSpaceChecker(locationChecker, root, result) {
         node,
         index,
         result,
-        ruleName,
+        ruleName: checkedRuleName,
       }),
     })
   }

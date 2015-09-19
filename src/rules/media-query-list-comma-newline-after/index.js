@@ -29,6 +29,11 @@ export default function (expectation) {
 
     // Only check for the newline after the comma, while allowing
     // arbitrary indentation after the newline
-    mediaQueryListCommaWhitespaceChecker(checker.afterOneOnly, root, result)
+    mediaQueryListCommaWhitespaceChecker({
+      root,
+      result,
+      locationChecker: checker.afterOneOnly,
+      checkedRuleName: ruleName,
+    })
   }
 }

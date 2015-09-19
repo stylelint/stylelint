@@ -25,6 +25,11 @@ export default function (expectation) {
       ],
     })
     if (!validOptions) { return }
-    mediaQueryListCommaWhitespaceChecker(checker.beforeAllowingIndentation, root, result)
+    mediaQueryListCommaWhitespaceChecker({
+      root,
+      result,
+      locationChecker: checker.beforeAllowingIndentation,
+      checkedRuleName: ruleName,
+    })
   }
 }

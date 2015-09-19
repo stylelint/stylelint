@@ -24,6 +24,11 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    functionCommaSpaceChecker(checker.before, root, result)
+    functionCommaSpaceChecker({
+      root,
+      result,
+      locationChecker: checker.before,
+      checkedRuleName: ruleName,
+    })
   }
 }

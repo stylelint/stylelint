@@ -48,13 +48,14 @@ test("disableRanges registers disable/enable commands without rules", t => {
 })
 
 test("disableRanges registers disable/enable commands with rules", t => {
-  t.plan(3)
+  let planCount = 0
 
   testDisableRanges("/* stylelint-disable foo-bar */\na {}", result => {
     t.deepEqual(result.disabledRanges, [
       { start: 1, rules: ["foo-bar"] },
     ])
   })
+  planCount += 1
 
   testDisableRanges(
     "a {}\n" +
@@ -73,6 +74,7 @@ test("disableRanges registers disable/enable commands with rules", t => {
       ])
     }
   )
+  planCount += 1
 
   testDisableRanges(
     "/* stylelint-disable foo-bar, hoo-hah,\n\tslime */\n" +
@@ -83,6 +85,20 @@ test("disableRanges registers disable/enable commands with rules", t => {
       ])
     }
   )
+  planCount += 1
+
+  testDisableRanges(
+    "/* stylelint-disable selector-combinator-space-before */\n" +
+    "a {}",
+    result => {
+      t.deepEqual(result.disabledRanges, [
+        { start: 1, rules: ["selector-combinator-space-before"] },
+      ])
+    }
+  )
+  planCount += 1
+
+  t.plan(planCount)
 })
 
 function testDisableRanges(source, cb) {

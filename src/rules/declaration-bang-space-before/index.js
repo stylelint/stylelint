@@ -24,6 +24,11 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    declarationBangSpaceChecker(checker.before, root, result)
+    declarationBangSpaceChecker({
+      root,
+      result,
+      locationChecker: checker.before,
+      checkedRuleName: ruleName,
+    })
   }
 }

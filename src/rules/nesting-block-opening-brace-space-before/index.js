@@ -17,7 +17,6 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function (expectation) {
-  const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -32,6 +31,11 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    checkNestingBlockOpeningBraceBefore(checker, root, result)
+    checkNestingBlockOpeningBraceBefore({
+      root,
+      result,
+      locationChecker: whitespaceChecker("space", expectation, messages),
+      checkedRuleName: ruleName,
+    })
   }
 }
