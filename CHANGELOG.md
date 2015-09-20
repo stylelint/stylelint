@@ -4,6 +4,7 @@
 * Fixed: `declaration-colon-newline-after` `"always-multi-line"` warning message.
 * Added: `"always-single-line"` option to `declaration-colon-space-after`.
 * Added: support for declarations directly on root (e.g. Sass variable declarations).
+* Added: `rule-properties-order` now looks for roots of hyphenated properties in custom arrays so each extension (e.g. `padding-top` as an extension of `padding`) does not need to be specified individually.
 
 # 1.1.0
 
