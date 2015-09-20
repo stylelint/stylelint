@@ -20,6 +20,10 @@
 export default function ({ ruleName, result, message, line, node, index, word }) {
   result.stylelint = result.stylelint || {}
 
+  if (result.stylelint.quiet && result.stylelint.ruleSeverities[ruleName] !== 2) {
+    return
+  }
+
   const startLine = (line)
     ? line
     : node.source && node.source.start.line
@@ -37,7 +41,7 @@ export default function ({ ruleName, result, message, line, node, index, word })
   }
 
   const severity = (result.stylelint.ruleSeverities) ? result.stylelint.ruleSeverities[ruleName] : 0
-  if (severity === 2) {
+  if (!result.stylelint.stylelintError && severity === 2) {
     result.stylelint.stylelintError = true
   }
 

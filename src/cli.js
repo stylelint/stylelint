@@ -9,9 +9,11 @@ import standalone from "./standalone"
 const minimistOptions = {
   default: {
     f: "string",
+    q: "false",
   },
   alias: {
     f: "formatter",
+    q: "quiet",
   },
 }
 
@@ -31,8 +33,9 @@ const meowOptions = {
     "Options",
     "  --config            Path to a JSON configuration file.",
     "  --version           Get the currently installed version of stylelint.",
-    "  -f, --formatter     Specify a formatter: \"json\" or \"string\". Default is \"string\".",
     "  --custom-formatter  Path to a JS file exporting a custom formatting function",
+    "  -f, --formatter     Specify a formatter: \"json\" or \"string\". Default is \"string\".",
+    "  -q, --quiet         Only register warnings for rules with a severity of 2 (ignore level 1)",
   ],
   pkg: "../package.json",
 }
@@ -45,6 +48,9 @@ const formatter = (cli.flags.customFormatter)
 
 const configBase = {
   formatter,
+  config: {
+    quiet: cli.flags.quiet,
+  },
 }
 
 let configReady = (cli.input.length)

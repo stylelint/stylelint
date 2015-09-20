@@ -149,3 +149,47 @@ test("with relevant rule-specific disabledRange, among others", t => {
   t.notOk(v.result.warn.called)
   t.end()
 })
+
+test("with quiet mode on and rule severity of 1", t => {
+  const v = {
+    ruleName: "foo",
+    result: {
+      warn: sinon.spy(),
+      stylelint: {
+        quiet: true,
+        ruleSeverities: {
+          foo: 1,
+        },
+      },
+    },
+    message: "bar",
+    node: {
+      source: { start: { line: 6 } },
+    },
+  }
+  report(v)
+  t.notOk(v.result.warn.called)
+  t.end()
+})
+
+test("with quiet mode on and rule severity of 2", t => {
+  const v = {
+    ruleName: "foo",
+    result: {
+      warn: sinon.spy(),
+      stylelint: {
+        quiet: true,
+        ruleSeverities: {
+          foo: 2,
+        },
+      },
+    },
+    message: "bar",
+    node: {
+      source: { start: { line: 6 } },
+    },
+  }
+  report(v)
+  t.ok(v.result.warn.called)
+  t.end()
+})

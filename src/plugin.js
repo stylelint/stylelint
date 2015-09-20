@@ -34,6 +34,9 @@ export default postcss.plugin("stylelint", opts => {
       })
     }
 
+    // Register details about the configuration
+    result.stylelint.quiet = config.quiet
+
     // First check for disabled ranges, adding them to the result object
     disableRanges(root, result)
 

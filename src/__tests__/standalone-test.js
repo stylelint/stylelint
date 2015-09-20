@@ -156,6 +156,26 @@ test("standalone with input css and alternate formatter function", t => {
   t.plan(planned)
 })
 
+test("standalone with input css and quiet mode", t => {
+  let planned = 0
+  const config = {
+    quiet: true,
+    rules: {
+      "block-no-empty": 1,
+    },
+  }
+
+  standalone({ css: "a {}", config })
+    .then(({ output }) => {
+      const parsedOutput = JSON.parse(output)
+      t.deepEqual(parsedOutput[0].warnings, [])
+    })
+    .catch(logError)
+  planned += 1
+
+  t.plan(planned)
+})
+
 function logError(err) {
   console.log(err.stack)
 }
