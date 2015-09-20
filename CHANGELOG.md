@@ -1,3 +1,7 @@
+# Head
+
+* Added: `rule-properties-order` now looks for roots of hyphenated properties in custom arrays so each extension (e.g. `padding-top` as an extension of `padding`) does not need to be specified individually.
+
 # 1.1.0
 
 * Added: `declaration-colon-newline-after` rule.

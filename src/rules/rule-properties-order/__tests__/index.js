@@ -52,6 +52,8 @@ testRule([
   "transform",
   "font-smoothing",
   "top",
+  "transition",
+  "border",
   "color",
 ], tr => {
   warningFreeBasics(tr)
@@ -81,4 +83,45 @@ testRule([
     messages.expected("color", "height"))
   tr.notOk("a { top: 0; height: 0; color: pink; width: 0 }",
     messages.expected("color", "height"))
+
+  // Longhand properties accounted for when shorthand is included
+  tr.ok("a { border: 1px solid; color: pink; }")
+  tr.ok("a { border-top: 1px solid; color: pink; }")
+  tr.ok("a { border-left: 1px solid; color: pink; }")
+  // Post-hyphen string doesn't affect order by default
+  tr.ok("a { border-left: 1px solid; border-right: 0; color: pink; }")
+  tr.ok("a { border-right: 1px solid; border-left: 0; color: pink; }")
+  tr.notOk("a { color: pink; border: 1px solid; }", messages.expected("border", "color"))
+  tr.notOk("a { color: pink; border-top: 1px solid; }", messages.expected("border-top", "color"))
+  tr.notOk("a { color: pink; border-bottom: 1px solid; }", messages.expected("border-bottom", "color"))
+  tr.notOk("a { border-right: 0; color: pink; border-bottom: 1px solid; }", messages.expected("border-bottom", "color"))
+
+  tr.ok("a { transition: none; border: 1px solid; }")
+  tr.ok("a { transition-name: 'foo'; border-top: 1px solid; }")
+  tr.notOk("a { border-top: 1px solid; transition-name: 'foo'; }",
+    messages.expected("transition-name", "border-top"))
+})
+
+// Longhand properties with specified order
+testRule([
+  "padding",
+  "padding-top",
+  "padding-right",
+  "padding-left",
+  "color",
+], tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a { padding: 1px; color: pink; }")
+  tr.ok("a { padding-top: 1px; color: pink; }")
+  tr.ok("a { padding-left: 1px; color: pink; }")
+  tr.ok("a { padding-top: 1px; padding-right: 0; color: pink; }")
+  // `padding-bottom` was not specified, so it will be expected where `padding` was expected
+  tr.ok("a { padding-bottom: 0; padding-top: 1px; padding-right: 0; padding-left: 0; color: pink; }")
+  tr.ok("a { padding: 1px; padding-bottom: 0; padding-left: 0; color: pink; }")
+
+  tr.notOk("a { color: pink; padding: 1px; }", messages.expected("padding", "color"))
+  tr.notOk("a { color: pink; padding-top: 1px; }", messages.expected("padding-top", "color"))
+  tr.notOk("a { padding-right: 1px; padding-top: 0; color: pink;  }",
+    messages.expected("padding-top", "padding-right"))
 })
