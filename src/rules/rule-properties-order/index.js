@@ -12,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   expected: (first, second) => `Expected property "${first}" to come before property "${second}"`,
 })
 
-export default function (expectation) {
+export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -20,6 +20,12 @@ export default function (expectation) {
         "alphabetical",
         isString,
       ],
+    }, {
+      actual: options,
+      possible: {
+        unspecified: [ "top", "bottom", "ignore" ],
+      },
+      optional: true,
     })
     if (!validOptions) { return }
 
@@ -31,9 +37,10 @@ export default function (expectation) {
     })
 
     function checkInNode(node) {
+      // By default, ignore unspecified properties altogether
+      const unspecified = (options && options.unspecified) ? options.unspecified : "ignore"
 
-      let previousProp = {}
-      let isFirstDecl = true
+      let previousProp
 
       node.each(child => {
 
@@ -49,8 +56,7 @@ export default function (expectation) {
         }
 
         // Skip first decl
-        if (isFirstDecl) {
-          isFirstDecl = false
+        if (!previousProp) {
           previousProp = prop
           return
         }
@@ -96,10 +102,41 @@ export default function (expectation) {
               return
             }
 
-            // Skip over unknown properties as any subsequent known properties will flag
-            if (propIndex === -1) {
-              previousProp = prop
-              return
+            // If this or the previous property was not found in the array ...
+            if (previousPropIndex === -1 || propIndex === -1) {
+              // If neither were found, let it be
+              if (previousPropIndex === -1 && propIndex === -1) { return }
+
+              // If we are meant to ignore unspecified properties, let it be
+              if (unspecified === "ignore") { return }
+
+              // If unspecified properties should be at the top,
+              // then the not-found-propery must be the previous one
+              if (unspecified === "top") {
+                if (previousPropIndex === -1) { return }
+                report({
+                  message: messages.expected(prop.name, previousProp.name),
+                  node: child,
+                  result,
+                  ruleName,
+                })
+                previousProp = prop
+                return
+              }
+
+              // If unspecified properties should be at the top,
+              // then the not-found-propery must be this one (not the previous one)
+              if (unspecified === "bottom") {
+                if (propIndex === -1) { return }
+                report({
+                  message: messages.expected(previousProp.name, prop.name),
+                  node: child,
+                  result,
+                  ruleName,
+                })
+                previousProp = prop
+                return
+              }
             }
           }
         }

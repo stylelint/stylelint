@@ -65,7 +65,6 @@ testRule([
   tr.ok("a { -webkit-font-smoothing: antialiased; top: 0; color: pink; }")
   tr.ok("a { top: 0; color: pink; width: 0; }")
   tr.ok("a { top: 0; color: pink; width: 0; height: 0; }")
-  tr.ok("a { top: 0; color: pink; width: 0; height: 0; display: none; }")
 
   tr.notOk("a { color: pink; top: 0;  }",
     messages.expected("top", "color"))
@@ -77,12 +76,6 @@ testRule([
     messages.expected("-moz-transform", "-webkit-transform"))
   tr.notOk("a { color: pink; -webkit-font-smoothing: antialiased; }",
     messages.expected("-webkit-font-smoothing", "color"))
-  tr.notOk("a { height: 0; color: pink; }",
-    messages.expected("color", "height"))
-  tr.notOk("a { top: 0; height: 0; color: pink; }",
-    messages.expected("color", "height"))
-  tr.notOk("a { top: 0; height: 0; color: pink; width: 0 }",
-    messages.expected("color", "height"))
 
   // Longhand properties accounted for when shorthand is included
   tr.ok("a { border: 1px solid; color: pink; }")
@@ -100,6 +93,11 @@ testRule([
   tr.ok("a { transition-name: 'foo'; border-top: 1px solid; }")
   tr.notOk("a { border-top: 1px solid; transition-name: 'foo'; }",
     messages.expected("transition-name", "border-top"))
+
+  // Position of unspecified `display` is arbitrary
+  tr.ok("a { top: 0; color: pink; width: 0; height: 0; display: none; }")
+  tr.ok("a { top: 0; color: pink; display: none; width: 0; height: 0; }")
+  tr.ok("a { display: none; top: 0; color: pink; width: 0; height: 0; }")
 })
 
 // Longhand properties with specified order
@@ -124,4 +122,30 @@ testRule([
   tr.notOk("a { color: pink; padding-top: 1px; }", messages.expected("padding-top", "color"))
   tr.notOk("a { padding-right: 1px; padding-top: 0; color: pink;  }",
     messages.expected("padding-top", "padding-right"))
+})
+
+// Forcing unspecified properties to the top
+testRule([
+  "height",
+  "color",
+], { unspecified: "top" }, tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a { top: 0; height: 1px; color: pink; }")
+  tr.ok("a { bottom: 0; top: 0; }")
+  tr.notOk("a { height: 1px; top: 0; }", messages.expected("top", "height"))
+  tr.notOk("a { color: 1px; top: 0; }", messages.expected("top", "color"))
+})
+
+// Forcing unspecified properties to the bottom
+testRule([
+  "height",
+  "color",
+], { unspecified: "bottom" }, tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a { height: 1px; color: pink; bottom: 0; }")
+  tr.ok("a { bottom: 0; top: 0; }")
+  tr.notOk("a { bottom: 0; height: 1px; }", messages.expected("bottom", "height"))
+  tr.notOk("a { bottom: 0; color: 1px; }", messages.expected("bottom", "color"))
 })
