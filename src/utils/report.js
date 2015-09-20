@@ -1,5 +1,3 @@
-import ruleSeverities from "../ruleSeverities"
-
 /**
  * Report a violation.
  *
@@ -20,13 +18,14 @@ import ruleSeverities from "../ruleSeverities"
  * @param {number} [violation.line] - Line number of the violation
  */
 export default function ({ ruleName, result, message, line, node, index, word }) {
+  result.stylelint = result.stylelint || {}
 
   const startLine = (line)
     ? line
     : node.source && node.source.start.line
 
-  if (result.disabledRanges) {
-    for (let range of result.disabledRanges) {
+  if (result.stylelint.disabledRanges) {
+    for (let range of result.stylelint.disabledRanges) {
       if (
         // If the violation is within a disabledRange,
         // and that disabledRange's rules include this one,
@@ -37,9 +36,9 @@ export default function ({ ruleName, result, message, line, node, index, word })
     }
   }
 
-  const severity = ruleSeverities.get(ruleName)
+  const severity = (result.stylelint.ruleSeverities) ? result.stylelint.ruleSeverities[ruleName] : 0
   if (severity === 2) {
-    result.stylelintError = true
+    result.stylelint.stylelintError = true
   }
 
   const warningProperties = {

@@ -71,10 +71,10 @@ export default function ({
             ? undefined
             : postcssResult.root.source.input.file || postcssResult.root.source.input.id
 
-          if (postcssResult.stylelintError) { errored = true }
+          if (postcssResult.stylelint.stylelintError) { errored = true }
           results.push({
             source,
-            errored: postcssResult.stylelintError,
+            errored: postcssResult.stylelint.stylelintError,
             warnings: postcssResult.messages.map(message => {
               return {
                 line: message.line,

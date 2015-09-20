@@ -5,10 +5,14 @@ import { merge, cloneDeep } from "lodash"
 import { configurationError } from "./utils"
 import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
-import ruleSeverities from "./ruleSeverities"
 
 export default postcss.plugin("stylelint", opts => {
   return (root, result) => {
+    // result.stylelint is the namespace for passing stylelint-related
+    // configuration and data across sub-plugins via the PostCSS Result
+    result.stylelint = result.stylelint || {}
+    result.stylelint.ruleSeverities = {}
+
     let initialConfig = opts.hasOwnProperty("config") ? opts.config : opts
     if (!initialConfig) {
       initialConfig = rc("stylelint")
@@ -30,7 +34,7 @@ export default postcss.plugin("stylelint", opts => {
       })
     }
 
-    // First check for disabled ranges, adding then to the result object
+    // First check for disabled ranges, adding them to the result object
     disableRanges(root, result)
 
     Object.keys(config.rules).forEach(ruleName => {
@@ -48,7 +52,7 @@ export default postcss.plugin("stylelint", opts => {
       }
 
       // Log the rule's severity
-      ruleSeverities.set(ruleName, ruleSeverity)
+      result.stylelint.ruleSeverities[ruleName] = ruleSeverity
 
       // Run the rule with the primary and secondary options
       ruleDefinitions[ruleName](ruleSettings[1], ruleSettings[2])(root, result)
