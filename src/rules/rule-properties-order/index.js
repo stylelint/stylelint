@@ -62,9 +62,8 @@ export default function (expectation) {
           return
         }
 
-        // Different unprefixed property names
+        // Different unprefixed property names ...
         if (prop.unprefixedName !== previousProp.unprefixedName) {
-
           // Alphabetical
           if (expectation === "alphabetical"
             && prop.unprefixedName >= previousProp.unprefixedName) {
@@ -75,8 +74,20 @@ export default function (expectation) {
           // Array of properties
           if (Array.isArray(expectation)) {
 
-            const propIndex = expectation.indexOf(prop.unprefixedName)
-            const previousPropIndex = expectation.indexOf(previousProp.unprefixedName)
+            let propIndex = expectation.indexOf(prop.unprefixedName)
+            let previousPropIndex = expectation.indexOf(previousProp.unprefixedName)
+
+            // If either this or prev prop was not found but they have a hyphen
+            // (e.g. `padding-top`), try looking for the segment preceding the hyphen
+            // and use that index
+            if (propIndex === -1 && prop.unprefixedName.indexOf("-") !== -1) {
+              const propPreHyphen = prop.unprefixedName.slice(0, prop.unprefixedName.indexOf("-"))
+              propIndex = expectation.indexOf(propPreHyphen)
+            }
+            if (previousPropIndex === -1 && previousProp.unprefixedName.indexOf("-") !== -1) {
+              const previousPropPreHyphen = previousProp.unprefixedName.slice(0, previousProp.unprefixedName.indexOf("-"))
+              previousPropIndex = expectation.indexOf(previousPropPreHyphen)
+            }
 
             // Check that two known properties are in order
             if (propIndex !== -1 && previousPropIndex !== -1
