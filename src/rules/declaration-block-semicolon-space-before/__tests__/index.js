@@ -9,6 +9,7 @@ const testRule = ruleTester(rule, ruleName)
 testRule("always", tr => {
   warningFreeBasics(tr)
 
+  tr.ok("color: pink ;", "declaration on root")
   tr.ok("a { color: pink ; }")
   tr.ok("a::before { content: \";a\" ; }")
   tr.ok("a { color: pink ; top: 0 ; }")
@@ -49,6 +50,7 @@ testRule("always", tr => {
 testRule("never", tr => {
   warningFreeBasics(tr)
 
+  tr.ok("color: pink;", "declaration on root")
   tr.ok("a { color: pink; }")
   tr.ok("a::before { content: \";a\"; }")
   tr.ok("a { color: pink; top: 0; }")
@@ -88,6 +90,7 @@ testRule("never", tr => {
 testRule("always-single-line", tr => {
   warningFreeBasics(tr)
 
+  tr.ok("color: pink ;", "declaration on root")
   tr.ok("a { color: pink ; }")
   tr.ok("a::before { content: \";a\" ; }")
   tr.ok("a { color: pink ; top: 0 ; }")
@@ -132,6 +135,7 @@ testRule("always-single-line", tr => {
 testRule("never-single-line", tr => {
   warningFreeBasics(tr)
 
+  tr.ok("color: pink;", "declaration on root")
   tr.ok("a { color: pink; }")
   tr.ok("a::before { content: \";a\"; }")
   tr.ok("a { color: pink; top: 0; }")

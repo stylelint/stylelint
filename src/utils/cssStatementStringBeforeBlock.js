@@ -11,9 +11,9 @@
  * @return {string|undefined}
  */
 export default function (statement, { noBefore }={}) {
-  if (statement.type !== "rule" && statement.type !== "atrule") { return }
-
   let result = ""
+  if (statement.type !== "rule" && statement.type !== "atrule") { return result }
+
   if (!noBefore) {
     result += statement.raw("before")
   }

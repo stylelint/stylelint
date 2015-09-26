@@ -1,3 +1,7 @@
+# Head
+
+* Added: support for declarations directly on root (e.g. Sass variable declarations).
+
 # 1.1.0
 
 * Added: `declaration-colon-newline-after` rule.

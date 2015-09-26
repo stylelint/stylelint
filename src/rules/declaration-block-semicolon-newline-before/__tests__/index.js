@@ -9,6 +9,7 @@ const testRule = ruleTester(rule, ruleName)
 testRule("always", tr => {
   warningFreeBasics(tr)
 
+  tr.ok("color: pink\n;", "declaration on root")
   tr.ok("a { color: pink\n; }")
   tr.ok("a::before { content: \";a\"\n; }")
   tr.ok("a { color: pink\n;top: 0 }")
@@ -41,6 +42,7 @@ testRule("always", tr => {
 testRule("always-multi-line", tr => {
   warningFreeBasics(tr)
 
+  tr.ok("color: pink\n;", "declaration on root")
   tr.ok("a {\ncolor: pink\n; }")
   tr.ok("a::before {\ncontent: \";a\"\n; }")
   tr.ok("a::before {\r\ncontent: \";a\"\r\n; }", "CRLF")
@@ -83,6 +85,7 @@ testRule("always-multi-line", tr => {
 testRule("never-multi-line", tr => {
   warningFreeBasics(tr)
 
+  tr.ok("color: pink;", "declaration on root")
   tr.ok("a {\ncolor: pink;\n}")
   tr.ok("a {\r\ncolor: pink;\r\n}", "CRLF")
   tr.ok("a::before {\ncontent: \";a\";\n}")

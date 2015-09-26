@@ -31,6 +31,11 @@ test("cssStatementStringBeforeBlock with noBefore", t => {
   t.end()
 })
 
+test("cssStatementStringBeforeBlock with declaration directly at root", t => {
+  t.equal(postcssCheck("foo: bar;"), "")
+  t.end()
+})
+
 function postcssCheck(options={}, cssString) {
   if (typeof options === "string") {
     cssString = options
