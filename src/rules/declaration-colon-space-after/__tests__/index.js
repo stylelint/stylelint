@@ -115,3 +115,59 @@ testRule("never", tr => {
     "CRLF after"
   )
 })
+
+testRule("always-single-line", tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a { color: pink }", "space only after single-line")
+  tr.ok("a { transition: color 1s,\n\twidth 2s; }", "space after mult-line")
+  tr.ok("a { transition:color 1s,\n\twidth 2s; }", "no space after mult-line")
+  tr.ok("a { transition:color 1s,\r\n\twidth 2s; }", "no space after mult-line CRLF")
+  tr.ok("a { transition:\tcolor 1s,\n\twidth 2s; }", "tab after mult-line")
+
+  tr.notOk(
+    "a { color :pink; }",
+    {
+      message: messages.expectedAfterSingleLine(),
+      line: 1,
+      column: 11,
+    },
+    "no space after single-line"
+  )
+  tr.notOk(
+    "a { color :  pink; }",
+    {
+      message: messages.expectedAfterSingleLine(),
+      line: 1,
+      column: 11,
+    },
+    "two spaces after single-line"
+  )
+  tr.notOk(
+    "a { color :\tpink; }",
+    {
+      message: messages.expectedAfterSingleLine(),
+      line: 1,
+      column: 11,
+    },
+    "tab after single-line"
+  )
+  tr.notOk(
+    "a { color :\npink; }",
+    {
+      message: messages.expectedAfterSingleLine(),
+      line: 1,
+      column: 11,
+    },
+    "newline after single-line"
+  )
+  tr.notOk(
+    "a { color :\r\npink; }",
+    {
+      message: messages.expectedAfterSingleLine(),
+      line: 1,
+      column: 11,
+    },
+    "CRLF after single-line"
+  )
+})

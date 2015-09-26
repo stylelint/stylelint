@@ -90,7 +90,7 @@ testRule("always-multi-line", tr => {
     "    0 0 2px 1px rgba(30, 140, 190, 0.8);\n" +
     "}",
     {
-      message: messages.expectedAfter(),
+      message: messages.expectedAfterMultiLine(),
       line: 2,
       column: 13,
     }
