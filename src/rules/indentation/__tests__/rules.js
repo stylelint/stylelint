@@ -387,3 +387,49 @@ tr.notOk(
 })
 
 })
+
+// 2 spaces ignore value
+testRule(2, { ignore: ["value"] }, tr => {
+warningFreeBasics(tr)
+
+tr.ok(
+`a {
+  background-position: top left, top right, bottom left;
+  color: pink;
+}`)
+
+tr.ok(
+`a {
+  background-position: top left,
+  top right,
+  bottom left;
+  color: pink;
+}`)
+
+tr.ok(
+`a {
+  background-position: top left,
+    top right,
+  bottom left;
+  color: pink;
+}`)
+
+tr.ok(
+`a {
+  background-position: top left,
+  top right,
+    bottom left;
+  color: pink;
+}`)
+
+tr.notOk(
+`\ta {
+  color: pink;
+}`,
+{
+  message: messages.expected("0 spaces"),
+  line: 1,
+  column: 2,
+})
+
+})
