@@ -30,6 +30,7 @@ import declarationNoImportant from "./declaration-no-important"
 import functionCalcNoUnspacedOperator from "./function-calc-no-unspaced-operator"
 import functionCommaSpaceAfter from "./function-comma-space-after"
 import functionCommaSpaceBefore from "./function-comma-space-before"
+import functionLinearGradientNoNonstandardDirection from "./function-linear-gradient-no-nonstandard-direction"
 import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
 import functionSpaceAfter from "./function-space-after"
 import functionUrlQuotes from "./function-url-quotes"
@@ -118,6 +119,7 @@ export default {
   "function-calc-no-unspaced-operator": functionCalcNoUnspacedOperator,
   "function-comma-space-after": functionCommaSpaceAfter,
   "function-comma-space-before": functionCommaSpaceBefore,
+  "function-linear-gradient-no-nonstandard-direction": functionLinearGradientNoNonstandardDirection,
   "function-parentheses-space-inside": functionParenthesesSpaceInside,
   "function-space-after": functionSpaceAfter,
   "function-url-quotes": functionUrlQuotes,

@@ -22,6 +22,8 @@
 * [`function-calc-no-unspaced-operator`](../src/rules/function-calc-no-unspaced-operator/README.md): Disallow an unspaced operator within `calc` functions.
 * [`function-comma-space-after`](../src/rules/function-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of functions.
 * [`function-comma-space-before`](../src/rules/function-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of functions.
+* [`function-linear-gradient-no-nonstandard-direction`](../src/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow direction values in `linear-gradient()` calls that are not valid according to the
+[standard syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#Syntax).
 * [`function-parentheses-space-inside`](../src/rules/function-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses of functions.
 * [`function-space-after`](../src/rules/function-space-after/README.md): Require a single space or disallow whitespace after functions.
 * [`function-url-quotes`](../src/rules/function-url-quotes/README.md): Specify single, double or no quotes for urls.
