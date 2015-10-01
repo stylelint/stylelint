@@ -1,5 +1,6 @@
 # Head
 
+* Added: `function-linear-gradient-no-nonstandard-direction` rule.
 * Fixed: `declaration-colon-newline-after` `"always-multi-line"` warning message.
 * Added: `"always-single-line"` option to `declaration-colon-space-after`.
 * Added: support for declarations directly on root (e.g. Sass variable declarations).
