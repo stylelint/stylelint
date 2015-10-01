@@ -1,6 +1,7 @@
 import { repeat, isNumber, isBoolean } from "lodash"
 import {
   optionsHaveException,
+  optionsHaveIgnored,
   report,
   ruleMessages,
   styleSearch,
@@ -48,6 +49,7 @@ export default function (space, options) {
       actual: options,
       possible: {
         except: [ "block", "value", "param" ],
+        ignore: [ "value", "param" ],
         hierarchicalSelectors: [isBoolean],
       },
       optional: true,
@@ -176,9 +178,10 @@ export default function (space, options) {
     }
 
     function checkValue(decl, declLevel) {
-      const declString = decl.toString()
       if (decl.value.indexOf("\n") === -1) { return }
+      if (optionsHaveIgnored(options, "value")) { return }
 
+      const declString = decl.toString()
       const valueLevel = (optionsHaveException(options, "value"))
         ? declLevel
         : declLevel + 1
@@ -227,6 +230,8 @@ export default function (space, options) {
     }
 
     function checkAtRuleParams(atRule, ruleLevel) {
+      if (optionsHaveIgnored(options, "param")) { return }
+
       const paramLevel = (optionsHaveException(options, "param"))
         ? ruleLevel
         : ruleLevel + 1

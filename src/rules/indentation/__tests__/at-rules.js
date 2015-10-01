@@ -162,3 +162,31 @@ tr.notOk(
 })
 
 })
+
+// spaces ignore param
+testRule(2, { ignore: ["param"] }, tr => {
+warningFreeBasics(tr)
+
+tr.ok(
+`@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {}`)
+
+tr.ok(
+`@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {}`)
+
+tr.notOk(
+`
+  @media print {
+  a {
+    color: pink;
+  }
+}`, {
+  message: messages.expected("0 spaces"),
+  line: 2,
+  column: 3,
+})
+
+})

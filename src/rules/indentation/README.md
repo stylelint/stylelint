@@ -120,7 +120,6 @@ For example, with `2`:
 The following patterns are considered warnings:
 
 ```css
-```css
 @media print,
   (-webkit-min-device-pixel-ratio: 1.25),
   (min-resolution: 120dpi) {
@@ -141,6 +140,38 @@ a {
 background-position: top left,
 top right;
 }
+}
+```
+
+### `ignore: ["value"]`
+
+Ignore the indentation of values.
+
+For example, with `2`:
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  background-position: top left,
+top right,
+  bottom left,
+    bottom right;
+}
+```
+
+### `ignore: ["param"]`
+
+Ignore the indentation of at-rule params.
+
+For example, with `2`:
+
+The following patterns are *not* considered warnings:
+
+```css
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+    (min-resolution: 120dpi) {
 }
 ```
 
