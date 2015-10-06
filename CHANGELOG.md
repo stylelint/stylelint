@@ -1,21 +1,21 @@
 # Head
 
 * Added: `function-linear-gradient-no-nonstandard-direction` rule.
-* Fixed: `declaration-colon-newline-after` `"always-multi-line"` warning message.
-* Added: `"always-single-line"` option to `declaration-colon-space-after`.
-* Added: support for declarations directly on root (e.g. Sass variable declarations).
 * Added: `rule-properties-order` now by default ignores the order of properties left out of your specified array; and the options `"top"`, `"bottom"`, and `"ignore"` are provided to change that behavior.
 * Added: `rule-properties-order` now looks for roots of hyphenated properties in custom arrays so each extension (e.g. `padding-top` as an extension of `padding`) does not need to be specified individually.
+* Added: `"always-single-line"` option to `declaration-colon-space-after`.
+* Added: support for declarations directly on root (e.g. Sass variable declarations).
+* Fixed: `declaration-colon-newline-after` `"always-multi-line"` warning message.
 
 # 1.1.0
 
 * Added: `declaration-colon-newline-after` rule.
-* Fixed: bug preventing various rules from registering the correct rule names in their warnings, and therefore also preventing them from being disabled with comments.
 * Added: the `indentation` rule now checks indentation of multi-line at-rule params, unless there's the `except` option of `param`.
-* Fixed: the `color-no-invalid-hex` rule no longer flags hashes in `url()` arguments.
 * Added: support for end-of-line comments in `selector-list-comma-newline-after`.
 * Added: protection against `#${sass-interpolation}` in rules checking for hex colors.
 * Added: support for strings (translated to RegExps) in `custom-property-pattern` and `custom-media-pattern`.
+* Fixed: bug preventing various rules from registering the correct rule names in their warnings, and therefore also preventing them from being disabled with comments.
+* Fixed: the `color-no-invalid-hex` rule no longer flags hashes in `url()` arguments.
 * Fixed: rules using `node.raw()` instead of `node.raws` to avoid expected errors.
 
 # 1.0.1
@@ -64,9 +64,9 @@
 
 # 0.4.0
 
+* Removed: `jsesc` devDependency.
 * Added: `rule-no-shorthand-property-overrides` rule.
 * Added: `ruleTester` to `stylelint.utils` for use by authors of custom rules.
-* Removed: `jsesc` devDependency.
 
 # 0.3.2
 
