@@ -1,4 +1,4 @@
-# Head
+# 1.2.0
 
 * Added: `function-linear-gradient-no-nonstandard-direction` rule.
 * Added: `rule-properties-order` now by default ignores the order of properties left out of your specified array; and the options `"top"`, `"bottom"`, and `"ignore"` are provided to change that behavior.
