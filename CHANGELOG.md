@@ -1,4 +1,4 @@
-# Head
+# 1.2.1
 
 * Fixed: the `media-query-list-comma-*` rules now only apply to `@media` statements.
 
