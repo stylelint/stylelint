@@ -13,6 +13,10 @@ testRule("always", tr => {
   tr.ok("/* comment comment */")
   tr.ok("/* comment\ncomment */")
   tr.ok("/* comment\n\ncomment */")
+  tr.ok("/*\ncomment */")
+  tr.ok("/* comment\n*/")
+  tr.ok("/*\ncomment\n*/")
+  tr.ok("/*\ncomment\n\ncomment\n*/")
 
   tr.notOk("/*comment */", {
     message: messages.expectedOpening,
@@ -52,6 +56,16 @@ testRule("always", tr => {
   tr.notOk("/* comment\n\ncomment*/", {
     message: messages.expectedClosing,
     line: 3,
+    column: 7,
+  })
+  tr.notOk("/*comment\n*/", {
+    message: messages.expectedOpening,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("/*\ncomment*/", {
+    message: messages.expectedClosing,
+    line: 2,
     column: 7,
   })
 })
@@ -103,5 +117,15 @@ testRule("never", tr => {
     message: messages.rejectedClosing,
     line: 3,
     column: 8,
+  })
+  tr.notOk("/*\ncomment*/", {
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("/*comment\n*/", {
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 10,
   })
 })
