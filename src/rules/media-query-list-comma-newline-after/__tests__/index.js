@@ -9,6 +9,7 @@ const testRule = ruleTester(rule, ruleName)
 testRule("always", tr => {
   warningFreeBasics(tr)
 
+  tr.ok("@import url(x.com?a=b,c=d)")
   tr.ok("@media (max-width: 600px) {}")
   tr.ok("@media screen and (color),\nprojection and (color) {}")
   tr.ok("@media screen and (color) ,\n  projection and (color) {}")
