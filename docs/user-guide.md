@@ -56,10 +56,10 @@ stylelint path/to/things/*.css --config path/to/.stylelintrc > myTestReport.txt
 
 The CLI can exit the process with the following exit codes:
 
-- 1: Something just went wrong, who knows
-- 2: At least one rule with a severity of 2 triggered at least one warning
-- 78: There was some problem with the configuration file
-- 80: A file glob was passed both it found no files
+- 1: Something just went wrong, who knows.
+- 2: At least one rule with a severity of 2 triggered at least one warning.
+- 78: There was some problem with the configuration file.
+- 80: A file glob was passed both it found no files.
 
 ### Standalone JS API
 
@@ -68,20 +68,20 @@ stylelint.lint(options)
 ```
 Options:
 
-- `files` (kind of optional): A file glob, ultimately passed to node-glob to figure out what files you're referencing
-- `css` (kind of optional): A CSS string to be linted
+- `files` (kind of optional): A file glob, ultimately passed to node-glob to figure out what files you're referencing.
+- `css` (kind of optional): A CSS string to be linted.
 - `formatter` (optional): Either `"json"`, `"string"`, or a function. Default is `"json"`.
-- `config` (optional): A stylelint configuration object
+- `config` (optional): A stylelint configuration object.
 - `configBasedir` (optional): If the `config` object passed wants to use `extends` or `plugins`, it is going to have to pass a `configBasedir`, which is an absolute path to the directory that these `extends` and `plugins` are *relative to*.
 
 _Note: Though both `files` and `css` are "optional," you *must* have one and *cannot* have both._
 
 Returns a Promise that resolves with an object containing the following properties:
 
-- `output`: String. A string displaying the formatted warnings (using the default formatter or whichever you passed)
-- `errored`: Boolean. If true, at least one rule with a severity of 2 registered a warning
-- `results`: An array containing all the stylelint result objects (the objects that formatters consume)
-- `postcssResults`: An array containing all the PostCSS LazyResults that were accumulated during processing
+- `output`: String. A string displaying the formatted warnings (using the default formatter or whichever you passed).
+- `errored`: Boolean. If true, at least one rule with a severity of 2 registered a warning.
+- `results`: An array containing all the stylelint result objects (the objects that formatters consume).
+- `postcssResults`: An array containing all the PostCSS LazyResults that were accumulated during processing.
 
 Some examples:
 
@@ -168,7 +168,7 @@ var css = fs.readFileSync("input.css", "utf8")
   .catch(err => console.error(err.stack))
 ```
 
-Your settings can be pass a single configuration object *or* you can pass an object like this:
+Your settings can be a single configuration object *or*, if you're exending or using plugins, an object like this:
 
 ```js
 {
@@ -499,8 +499,8 @@ An example of explicitly configuring the options for three rules:
 
 If you prefer to enforce a third-party styleguide (rather than craft your own config), you can use:
 
-* [SuitCSS shareable config](https://github.com/stylelint/stylelint-config-suitcss)
-* [Wordpress shareable config](https://github.com/stylelint/stylelint-config-wordpress)
+* [The SuitCSS shareable config](https://github.com/stylelint/stylelint-config-suitcss)
+* [The WordPress shareable config](https://github.com/stylelint/stylelint-config-wordpress)
 
 You can also extend a shareable config file, starting with what's there and making your own modifications and additions:
 
@@ -514,13 +514,11 @@ You can also extend a shareable config file, starting with what's there and maki
 }
 ```
 
-The value of `"extends"` is a "locator" that is ultimately `require()`d, so can fit whatever format works with Node's `require.resolve()` algorithm. That means the "locators" can be:
+The value of `"extends"` is a "locator" (or an array of "locators") that is ultimately `require()`d, so can fit whatever format works with Node's `require.resolve()` algorithm. That means the "locators" can be:
 
 - The names of modules in `node_modules` (e.g. `stylelint-config-wordpress`, if that module's `main` file is a valid JSON configuration)
 - An absolute path to a file (which makes sense if you're creating a JS object in a Node context and passing it in)
 - A relative path to a file, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
-
-A configuration's `extends` value can be a single locator or an array of locators.
 
 ### Plugin rules
 
