@@ -34,7 +34,7 @@ In all three instances you can either directly pass in a config or let the linte
     -q, --quiet         Only register warnings for rules with a severity of 2 (ignore level 1)
 ```
 
-And you use it just like that. It outputs formatted results into `process.stdout`, which you could just read or pipe elsewhere.
+It outputs formatted results into `process.stdout`, which you can just read or pipe elsewhere.
 
 The CLI accepts `stdin` or a file glob(s).
 
@@ -54,9 +54,7 @@ stylelint path/to/things/*.css --config path/to/.stylelintrc > myTestReport.txt
 
 #### Exit codes
 
-Only the CLI exits the process with exit codes. The standalone `stylelint.lint()` is a promise, so people can `.catch()` errors; and the plugin needs to be handled within the plugin context.
-
-The following exit codes might pop up:
+The CLI can exit the process with the following exit codes:
 
 - 1: Something just went wrong, who knows
 - 2: At least one rule with a severity of 2 triggered at least one warning
@@ -72,7 +70,7 @@ Options:
 
 - `files` (kind of optional): A file glob, ultimately passed to node-glob to figure out what files you're referencing
 - `css` (kind of optional): A CSS string to be linted
-- `formatter` (optional): Either `"json"`, `"string"`, or a function. Default for `stylelint.lint()` is `"json"`. See above.
+- `formatter` (optional): Either `"json"`, `"string"`, or a function. Default is `"json"`.
 - `config` (optional): A stylelint configuration object
 - `configBasedir` (optional): If the `config` object passed wants to use `extends` or `plugins`, it is going to have to pass a `configBasedir`, which is an absolute path to the directory that these `extends` and `plugins` are *relative to*.
 
@@ -123,8 +121,6 @@ stylelint.lint({
   formatter: function(stylelintResults) { .. }
 }).then(function() { .. });
 ```
-
-_Unlike the CLI, `stylelint.lint()`'s default formatter is `"json"`._
 
 ### As a PostCSS plugin
 
@@ -448,17 +444,17 @@ You can enforce that with:
 Each rule can be turned off or on:
 
 * `0` - turn the rule off.
-* `1` - turn the rule on as a warning (does not affect exit code).
-* `2` - turn the rule on as an error (exit code is 1 when triggered).
+* `1` - turn the rule on as a warning (does not affect CLI exit code).
+* `2` - turn the rule on as an error (CLI exit code is 1 when triggered).
 
-An example of turning one rules on and off:
+An example of turning rules on and off:
 
 ```js
 {
   "rules": {
     "rule-no-single-line": 0, // turn rule off
     "declaration-no-important": 2, // turn rule on
-    "indentation": [2, "tabs"] // turn rule with options on
+    "indentation": [2, "tabs"] // turn on a rule that has options
   }
 }
 ```
@@ -522,7 +518,7 @@ The value of `"extends"` is a "locator" that is ultimately `require()`d, so can 
 
 - The names of modules in `node_modules` (e.g. `stylelint-config-wordpress`, if that module's `main` file is a valid JSON configuration)
 - An absolute path to a file (which makes sense if you're creating a JS object in a Node context and passing it in)
-- A relative path to a file, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA) (which makes sense in JSON configs).
+- A relative path to a file, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
 A configuration's `extends` value can be a single locator or an array of locators.
 
