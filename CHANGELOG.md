@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: the `media-query-list-comma-*` rules now only apply to `@media` statements.
+
 # 1.2.0
 
 * Added: `function-linear-gradient-no-nonstandard-direction` rule.
