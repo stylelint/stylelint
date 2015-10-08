@@ -6,6 +6,8 @@ In this guide you'll find information on usage, configuration and complementary 
 
 There are three ways to use the linter: the CLI, the standalone JS API and as a [PostCSS plugin](https://github.com/postcss/postcss#usage).
 
+In all three instances you can either directly pass in a config or let the linter look for a `.stylelintrc` file in the _[standard RC](https://github.com/dominictarr/rc#standards)_ locations.
+
 ### The CLI
 
 `stylelint --help` should print the following:
