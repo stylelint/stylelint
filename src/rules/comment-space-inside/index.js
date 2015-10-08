@@ -7,11 +7,15 @@ import {
 export const ruleName = "comment-space-inside"
 
 export const messages = ruleMessages(ruleName, {
-  expectedOpening: `Expected single space after "/*"`,
+  expectedOpening: `Expected single space or newline after "/*"`,
   rejectedOpening: `Unexpected whitespace after "/*"`,
-  expectedClosing: `Expected single space before "*/"`,
+  expectedClosing: `Expected single space or newline before "*/"`,
   rejectedClosing: `Unexpected whitespace before "*/"`,
 })
+
+function isSpace(str) {
+  return str === " " || str === "\n" || str === "\r\n"
+}
 
 export default function (expectation) {
   return function (root, result) {
@@ -38,7 +42,7 @@ export default function (expectation) {
           ruleName,
         })
       }
-      if (left !== " " && expectation === "always") {
+      if (!isSpace(left) && expectation === "always") {
         report({
           message: messages.expectedOpening,
           node: comment,
@@ -57,7 +61,7 @@ export default function (expectation) {
           ruleName,
         })
       }
-      if (right !== " " && expectation === "always") {
+      if (!isSpace(right) && expectation === "always") {
         report({
           message: messages.expectedClosing,
           node: comment,

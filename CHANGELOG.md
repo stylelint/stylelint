@@ -1,3 +1,7 @@
+# HEAD
+
+* Fixed: `comment-space-inside` now recognizes newlines as a "space"
+
 # 1.2.0
 
 * Added: `function-linear-gradient-no-nonstandard-direction` rule.
