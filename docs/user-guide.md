@@ -293,9 +293,9 @@ Additionally, some whitespace rule make use of another set of keywords:
 
 1. `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` or `range-operator` are used if a specific piece of punctuation in the *thing* is being targetted.
 
-For example, specifying if a single space or no space must come before a comma in a function:
+For example, specifying if a single space or no space must come after a comma in a function:
 
-* `function-comma-space-before`: `string` - `"always"|"never"`
+* `function-comma-space-after`: `string` - `"always"|"never"`
 
 ```css
     a { transform: translate(1, 1) }
