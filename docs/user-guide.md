@@ -522,7 +522,7 @@ The value of `"extends"` is a "locator" (or an array of "locators") that is ulti
 
 ### Plugin rules
 
-[Plugins](docs/plugins.md) are userland rules that support _non-standard_ CSS features. To use one, add a `"plugins"` property to your config. The key is the rule's name; the value is the rule function itself. Then, within the `"rules"` object, your can add settings for your plugin rule just like any standard rule.
+[Plugins](docs/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` property to your config. The key is the rule's name; the value is the rule function itself. Then, within the `"rules"` object, your can add settings for your plugin rule just like any standard rule.
 
 ```js
 {
