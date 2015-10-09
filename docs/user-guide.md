@@ -92,7 +92,10 @@ stylelint.lint({
   config: myConfig
 }).then(function() {
   /* do things with data.output, data.errored, and data.results */
-});
+}).catch(function(err) {
+  /* do things with err e.g. */
+  console.error(err.stack);
+});;
 ```
 
 ```js
