@@ -39,7 +39,7 @@
     "postcss-reporter": "^1.2.1",
     "postcss-selector-parser": "^1.2.0",
     "queue-async": "^1.0.7",
-    "rc": "^1.1.1"
+    "rc-loader": "^1.0.0"
   },
   "devDependencies": {
     "babel": "^5.8.23",

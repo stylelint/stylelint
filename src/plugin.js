@@ -1,5 +1,5 @@
 import postcss from "postcss"
-import rc from "rc"
+import rc from "rc-loader"
 import path from "path"
 import { merge, cloneDeep, isEmpty } from "lodash"
 import { configurationError } from "./utils"
