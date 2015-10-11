@@ -1,38 +1,7 @@
 import postcss from "postcss"
 import test from "tape"
+import path from "path"
 import stylelint from ".."
-
-const warnAboutFooMessages = stylelint.utils.ruleMessages("warn-about-foo", {
-  found: "found .foo",
-  notFound: "never found .foo",
-})
-
-function warnAboutFoo(expectation) {
-  return (root, result) => {
-    let foundFoo
-    root.walkRules(rule => {
-      if (rule.selector === ".foo") {
-        if (expectation === "always") {
-          stylelint.utils.report({
-            result,
-            ruleName: "warn-about-foo",
-            message: warnAboutFooMessages.found,
-            node: rule,
-          })
-          foundFoo = true
-        }
-      }
-    })
-    if (!foundFoo) {
-      stylelint.utils.report({
-        result,
-        line: 1,
-        ruleName: "warn-about-foo",
-        message: warnAboutFooMessages.notFound,
-      })
-    }
-  }
-}
 
 const cssA = (
 `.foo {}`
@@ -42,9 +11,9 @@ const cssB = (
 `.bar {}`
 )
 
-const configA = {
+const configRelative = {
   plugins: {
-    "warn-about-foo": warnAboutFoo,
+    "warn-about-foo": "./fixtures/plugin-warn-about-foo",
   },
   rules: {
     "warn-about-foo": [ 2, "always" ],
@@ -52,48 +21,54 @@ const configA = {
   },
 }
 
+const configAbsolute = {
+  plugins: {
+    "warn-about-foo": path.join(__dirname, "./fixtures/plugin-warn-about-foo"),
+  },
+  rules: {
+    "warn-about-foo": [ 2, "always" ],
+    "block-no-empty": 2,
+  },
+}
+
+const processorRelative = postcss().use(stylelint({ config: configRelative, configBasedir: __dirname }))
+const processorAbsolute = postcss().use(stylelint({ config: configAbsolute }))
+
 test("plugin runs", t => {
-  t.plan(6)
+  let planned = 0
 
-  const processor = postcss().use(stylelint(configA))
-
-  processor.process(cssA)
+  processorRelative.process(cssA)
     .then(result => {
       t.equal(result.warnings().length, 2)
       t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
       t.ok(result.warnings()[0].node)
     })
-    .catch(e => console.log(e.stack))
+    .catch(err => console.log(err.stack))
+  planned += 3
 
-  processor.process(cssB)
+  processorRelative.process(cssB)
     .then(result => {
       t.equal(result.warnings().length, 2)
       t.equal(result.warnings()[0].text, "never found .foo (warn-about-foo)")
       t.notOk(result.warnings()[0].node)
     })
-    .catch(e => console.log(e.stack))
+    .catch(err => console.log(err.stack))
+  planned += 3
+
+  t.plan(planned)
 })
 
-const configB = {
-  plugins: {
-    linterSet: {
-      warnAboutFoo,
-    },
-  },
-  rules: {
-    warnAboutFoo: [ 2, "always" ],
-    "block-no-empty": 2,
-  },
-}
+test("plugin with absolute path and no configBasedir", t => {
+  let planned = 0
 
-test("plugin within set runs", t => {
-  t.plan(2)
-
-  const processor = postcss().use(stylelint(configB))
-
-  processor.process(cssA)
+  processorAbsolute.process(cssA)
     .then(result => {
       t.equal(result.warnings().length, 2)
       t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
+      t.ok(result.warnings()[0].node)
     })
+    .catch(err => console.log(err.stack))
+  planned += 3
+
+  t.plan(planned)
 })

@@ -18,13 +18,18 @@
  * @param {number} [violation.line] - Line number of the violation
  */
 export default function ({ ruleName, result, message, line, node, index, word }) {
+  result.stylelint = result.stylelint || {}
+
+  if (result.stylelint.quiet && result.stylelint.ruleSeverities[ruleName] !== 2) {
+    return
+  }
 
   const startLine = (line)
     ? line
     : node.source && node.source.start.line
 
-  if (result.disabledRanges) {
-    for (let range of result.disabledRanges) {
+  if (result.stylelint.disabledRanges) {
+    for (let range of result.stylelint.disabledRanges) {
       if (
         // If the violation is within a disabledRange,
         // and that disabledRange's rules include this one,
@@ -35,12 +40,18 @@ export default function ({ ruleName, result, message, line, node, index, word })
     }
   }
 
-  const warningOpts = (node) ? { node } : {}
-  if (index) {
-    warningOpts.index = index
+  const severity = (result.stylelint.ruleSeverities) ? result.stylelint.ruleSeverities[ruleName] : 0
+  if (!result.stylelint.stylelintError && severity === 2) {
+    result.stylelint.stylelintError = true
   }
-  if (word) {
-    warningOpts.word = word
+
+  const warningProperties = {
+    severity,
+    rule: ruleName,
   }
-  result.warn(message, warningOpts)
+  if (node) { warningProperties.node = node }
+  if (index) { warningProperties.index = index }
+  if (word) { warningProperties.word = word }
+
+  result.warn(message, warningProperties)
 }

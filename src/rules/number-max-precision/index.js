@@ -42,7 +42,6 @@ export default function (precision) {
       if (!decimalNumberMatches.length) { return }
 
       decimalNumberMatches.forEach(match => {
-        console.log(match)
         if (match.sub[1].length <= precision) { return }
         report({
           result,

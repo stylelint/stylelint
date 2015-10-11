@@ -6,11 +6,13 @@ const enableCommand = commandPrefix + "enable"
 
 // Run it like a plugin ...
 export default function (root, result) {
-  result.disabledRanges = []
+  result.stylelint = result.stylelint || {}
+
+  const disabledRanges = result.stylelint.disabledRanges = []
 
   let withinDisabledRange = false
 
-  result.root.walkComments(comment => {
+  root.walkComments(comment => {
     const { text } = comment
 
     // Ignore comments that are not relevant commands
@@ -47,11 +49,11 @@ export default function (root, result) {
       rangeObj.rules = rules
     }
 
-    result.disabledRanges.push(rangeObj)
+    disabledRanges.push(rangeObj)
   }
 
   function endDisabledRange(node) {
     // Add an `end` prop to the last range
-    result.disabledRanges[result.disabledRanges.length - 1].end = node.source.end.line
+    disabledRanges[disabledRanges.length - 1].end = node.source.end.line
   }
 }

@@ -1,10 +1,15 @@
 # Developer guide
 
-Have a look at the [user guide](/docs/user-guide.md) to familiarize yourself with things like the rule naming conventions.
+In this guide you'll find information on contributing rules to stylelint, writing your own plugins and formatters.
 
-## Rule and plugin rule guidelines
+## Writing rules
 
-Both the development of rules and plugin rules adhere to:
+Have a look at the [user guide](/docs/user-guide.md) to familiarize yourself the rule naming conventions.
+
+### Let everyone know
+
+1. First, open [an issue](https://github.com/stylelint/stylelint/issues/new) with the title "New rule: *rule-name*" and let everyone else know when you intend to start on the new rule.
+2. Once you have something to show, create a [pull request](https://github.com/stylelint/stylelint/compare).
 
 ### Options
 
@@ -21,34 +26,6 @@ Take the form of:
 * "Expected a ... something"
 * "Unexpected ... something" (for rejection e.g. when something is disallowed)
 
-### Tests
-
-Each rule must be accompanied by tests that contain:
-
-* All patterns that are considered warnings.
-* All patterns that should *not* be considered warnings.
-
-## Rule specific guidelines
-
-### Adding a new rule
-
-1. First, open [an issue](https://github.com/stylelint/stylelint/issues/new) with the title "New rule: *rule-name*" and let everyone else know when you intend to start on the new rule.
-2. Once you have something to show, create a [pull request](https://github.com/stylelint/stylelint/compare).
-
-### Running tests
-
-You can run the tests via:
-
-```console
-npm test
-```
-
-To run tests in a single file, instead of all the tests at once, you'll need to use `babel-tape-runner` (because the codebase is ES6). For example:
-
-```console
-babel-tape-runner src/rules/color-hex-case/__tests__/index.js
-```
-
 ### README.md
 
 Each rule must be accompanied by a README.md, which takes the form of:
@@ -62,7 +39,28 @@ Each rule must be accompanied by a README.md, which takes the form of:
 7. Example patterns that are *not* considered warnings (for each option value).
 5. Optional options (if applicable).
 
-## Plugin rule specific guidelines
+### Tests
+
+Each rule must be accompanied by tests that contain:
+
+* All patterns that are considered warnings.
+* All patterns that should *not* be considered warnings.
+
+#### Running tests
+
+You can run the tests via:
+
+```console
+npm test
+```
+
+To run tests in a single file, instead of all the tests at once, you'll need to use `babel-tape-runner` (because the codebase is ES6). For example:
+
+```console
+babel-tape-runner src/rules/color-hex-case/__tests__/index.js
+```
+
+## Writing plugins
 
 ```js
 // Abbreviated example:
@@ -93,3 +91,25 @@ your plugin will respect disabled ranges and other possible future features of s
 ### Testing plugins
 
 For testing your plugin, you might consider using the same rule-testing function that stylelint uses internally: https://github.com/stylelint/stylelint-rule-tester.
+
+## Writing formatters
+
+A formatter is a function that accepts *an array of these stylelint result objects* and outputs a string:
+
+```js
+// A stylelint result object
+{
+  source:  "path/to/file.css", // The filepath or PostCSS identifier like <input css 1>
+  errored: true, // This is `true` if at least one rule with a severity of 2 triggered a warning
+  warnings: [ // Array of warning objects, each like the following ...
+    {
+      line: 3,
+      column: 12,
+      rule: "block-no-empty",
+      severity: 2,
+      text: "You should not have an empty block (block-no-empty)"
+    },
+    ..
+  ]
+}
+```

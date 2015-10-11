@@ -23,9 +23,11 @@ test("with irrelevant general disabledRange", t => {
     ruleName: "foo",
     result: {
       warn: sinon.spy(),
-      disabledRanges: [
-        { start: 5, end: 8 },
-      ],
+      stylelint: {
+        disabledRanges: [
+          { start: 5, end: 8 },
+        ],
+      },
     },
     message: "bar",
     node: {
@@ -44,9 +46,11 @@ test("with relevant general disabledRange", t => {
     ruleName: "foo",
     result: {
       warn: sinon.spy(),
-      disabledRanges: [
-        { start: 5, end: 8 },
-      ],
+      stylelint: {
+        disabledRanges: [
+          { start: 5, end: 8 },
+        ],
+      },
     },
     message: "bar",
     node: {
@@ -63,9 +67,11 @@ test("with irrelevant rule-specific disabledRange", t => {
     ruleName: "foo",
     result: {
       warn: sinon.spy(),
-      disabledRanges: [
-        { start: 5, end: 8, rules: ["bar"] },
-      ],
+      stylelint: {
+        disabledRanges: [
+          { start: 5, end: 8, rules: ["bar"] },
+        ],
+      },
     },
     message: "bar",
     node: {
@@ -84,9 +90,11 @@ test("with relevant rule-specific disabledRange", t => {
     ruleName: "foo",
     result: {
       warn: sinon.spy(),
-      disabledRanges: [
-        { start: 5, end: 8, rules: ["foo"] },
-      ],
+      stylelint: {
+        disabledRanges: [
+          { start: 5, end: 8, rules: ["foo"] },
+        ],
+      },
     },
     message: "bar",
     node: {
@@ -103,10 +111,12 @@ test("with relevant general disabledRange, among others", t => {
     ruleName: "foo",
     result: {
       warn: sinon.spy(),
-      disabledRanges: [
-        { start: 1, end: 3 },
-        { start: 5, end: 8 },
-      ],
+      stylelint: {
+        disabledRanges: [
+          { start: 1, end: 3 },
+          { start: 5, end: 8 },
+        ],
+      },
     },
     message: "bar",
     node: {
@@ -123,10 +133,12 @@ test("with relevant rule-specific disabledRange, among others", t => {
     ruleName: "foo",
     result: {
       warn: sinon.spy(),
-      disabledRanges: [
-        { start: 1, end: 3, rules: ["foo"] },
-        { start: 5, end: 8, rules: ["foo"] },
-      ],
+      stylelint: {
+        disabledRanges: [
+          { start: 1, end: 3, rules: ["foo"] },
+          { start: 5, end: 8, rules: ["foo"] },
+        ],
+      },
     },
     message: "bar",
     node: {
@@ -135,5 +147,49 @@ test("with relevant rule-specific disabledRange, among others", t => {
   }
   report(v)
   t.notOk(v.result.warn.called)
+  t.end()
+})
+
+test("with quiet mode on and rule severity of 1", t => {
+  const v = {
+    ruleName: "foo",
+    result: {
+      warn: sinon.spy(),
+      stylelint: {
+        quiet: true,
+        ruleSeverities: {
+          foo: 1,
+        },
+      },
+    },
+    message: "bar",
+    node: {
+      source: { start: { line: 6 } },
+    },
+  }
+  report(v)
+  t.notOk(v.result.warn.called)
+  t.end()
+})
+
+test("with quiet mode on and rule severity of 2", t => {
+  const v = {
+    ruleName: "foo",
+    result: {
+      warn: sinon.spy(),
+      stylelint: {
+        quiet: true,
+        ruleSeverities: {
+          foo: 2,
+        },
+      },
+    },
+    message: "bar",
+    node: {
+      source: { start: { line: 6 } },
+    },
+  }
+  report(v)
+  t.ok(v.result.warn.called)
   t.end()
 })
