@@ -6,19 +6,19 @@ import { configurationError } from "./utils"
 import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
 
-export default postcss.plugin("stylelint", opts => {
+export default postcss.plugin("stylelint", (options = {}) => {
   return (root, result) => {
     // result.stylelint is the namespace for passing stylelint-related
     // configuration and data across sub-plugins via the PostCSS Result
     result.stylelint = result.stylelint || {}
     result.stylelint.ruleSeverities = {}
 
-    let initialConfig = opts.hasOwnProperty("config") ? opts.config : opts
+    let initialConfig = options.hasOwnProperty("config") ? options.config : options
     if (!initialConfig) {
       initialConfig = rc("stylelint")
     }
 
-    const configBasedir = opts.configBasedir || path.dirname(initialConfig.config)
+    const configBasedir = options.configBasedir || path.dirname(initialConfig.config)
     const config = extendConfig(initialConfig, configBasedir)
 
     if (!config) {
@@ -32,6 +32,10 @@ export default postcss.plugin("stylelint", opts => {
       Object.keys(config.plugins).forEach(pluginName => {
         ruleDefinitions[pluginName] = requirePlugin(config.plugins[pluginName], configBasedir)
       })
+    }
+
+    if (options.configOverrides) {
+      merge(config, options.configOverrides)
     }
 
     // Register details about the configuration

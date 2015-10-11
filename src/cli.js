@@ -9,7 +9,7 @@ import standalone from "./standalone"
 const minimistOptions = {
   default: {
     f: "string",
-    q: "false",
+    q: false,
   },
   alias: {
     f: "formatter",
@@ -46,23 +46,25 @@ const formatter = (cli.flags.customFormatter)
   ? require(path.join(process.cwd(), cli.flags.customFormatter))
   : cli.flags.formatter
 
-const configBase = {
+const optionsBase = {
   formatter,
-  config: {
-    quiet: cli.flags.quiet,
-  },
+  configOverrides: {},
 }
 
-let configReady = (cli.input.length)
-  ? Promise.resolve(assign({}, configBase, {
+if (cli.flags.quiet) {
+  optionsBase.configOverrides.quiet =  cli.flags.quiet
+}
+
+let optionsReady = (cli.input.length)
+  ? Promise.resolve(assign({}, optionsBase, {
     files: cli.input,
   }))
-  : getStdin().then(stdin => Promise.resolve(assign({}, configBase, {
+  : getStdin().then(stdin => Promise.resolve(assign({}, optionsBase, {
     css: stdin,
   })))
 
-configReady.then(config => {
-  standalone(config)
+optionsReady.then(options => {
+  standalone(options)
     .then(({ output, errored }) => {
       if (!output) { return }
       process.stdout.write(output)

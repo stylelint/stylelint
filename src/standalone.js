@@ -10,6 +10,7 @@ export default function ({
   css,
   config,
   configBasedir,
+  configOverrides,
   formatter = "json",
 } = {}) {
   if ((!files && !css) || (files && css)) {
@@ -64,7 +65,7 @@ export default function ({
         processOptions.from = filepath
       }
       postcss()
-        .use(plugin({ config, configBasedir }))
+        .use(plugin({ config, configBasedir, configOverrides }))
         .process(css, processOptions)
         .then(postcssResult => {
           const source = (!postcssResult.root.source)
