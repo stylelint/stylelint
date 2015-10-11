@@ -36,8 +36,15 @@ test("standalone with input file(s)", t => {
       t.equal(results.length, 2)
       t.equal(results[0].warnings.length, 1)
       t.equal(results[1].warnings.length, 1)
-      t.equal(results[0].warnings[0].rule, "block-no-empty")
-      t.equal(results[1].warnings[0].rule, "color-no-invalid-hex")
+      // Ordering of the files is non-deterministic, I believe
+      if (results[0].source.indexOf("empty-block") !== -1) {
+        console.log("GLSDJU")
+        t.equal(results[0].warnings[0].rule, "block-no-empty")
+        t.equal(results[1].warnings[0].rule, "color-no-invalid-hex")
+      } else {
+        t.equal(results[1].warnings[0].rule, "block-no-empty")
+        t.equal(results[0].warnings[0].rule, "color-no-invalid-hex")
+      }
     })
     .catch(logError)
   planned += 7

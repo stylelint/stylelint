@@ -1,7 +1,7 @@
 import postcss from "postcss"
 import rc from "rc"
 import path from "path"
-import { merge, cloneDeep } from "lodash"
+import { merge, cloneDeep, isEmpty } from "lodash"
 import { configurationError } from "./utils"
 import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
@@ -14,19 +14,12 @@ export default postcss.plugin("stylelint", (options = {}) => {
     result.stylelint.ruleSeverities = {}
 
     let initialConfig = options.hasOwnProperty("config") ? options.config : options
-    if (!initialConfig) {
+    if (isEmpty(initialConfig)) {
       initialConfig = rc("stylelint")
     }
 
     const configBasedir = options.configBasedir || path.dirname(initialConfig.config)
     const config = extendConfig(initialConfig, configBasedir)
-
-    if (!config) {
-      throw configurationError("No configuration provided")
-    }
-    if (!config.rules) {
-      throw configurationError("No rules found within configuration")
-    }
 
     if (config.plugins) {
       Object.keys(config.plugins).forEach(pluginName => {
@@ -36,6 +29,13 @@ export default postcss.plugin("stylelint", (options = {}) => {
 
     if (options.configOverrides) {
       merge(config, options.configOverrides)
+    }
+
+    if (!config) {
+      throw configurationError("No configuration provided")
+    }
+    if (!config.rules) {
+      throw configurationError("No rules found within configuration")
     }
 
     // Register details about the configuration
@@ -88,8 +88,7 @@ function extendConfig(config, configBasedir) {
     // Now we must recursively extend the extending config
     extendingConfig = extendConfig(extendingConfig, path.dirname(extendingConfigPath))
 
-    merge(mergedConfig, extendingConfig)
-    return mergedConfig
+    return merge({}, extendingConfig, mergedConfig)
   }, cloneDeep(config))
 }
 
