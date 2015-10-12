@@ -64,7 +64,7 @@ An example of explicitly configuring the options for three rules:
 
 ### Rules work together
 
-The `before` and `after` rules can be used together to enforce strict conventions.
+The `*-before` and `*-after` whitespace rules can be used together to enforce strict conventions.
 
 Say you want to enforce no space before and a single space after the colon in every declaration:
 
