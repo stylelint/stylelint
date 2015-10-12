@@ -1,4 +1,4 @@
-# The Stylelint Node API
+# The stylelint Node API
 
 The stylelint module includes a `lint()` function that provides the Node API.
 
@@ -66,7 +66,6 @@ An array containing all the stylelint result objects (the objects that formatter
 ### postcssResults
 
 An array containing all the [PostCSS LazyResults](https://github.com/postcss/postcss/blob/master/docs/api.md#lazyresult-class) that were accumulated during processing.
-
 
 ## Usage examples
 

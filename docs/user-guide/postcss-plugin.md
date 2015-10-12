@@ -1,16 +1,15 @@
-# The Stylelint PostCSS Plugin
+# The stylelint PostCSS Plugin
 
 As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a PostCSS runner -- such as [`gulp-postcss`](https://github.com/postcss/gulp-postcss), [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss) and [`postcss-loader`](https://github.com/postcss/postcss-loader) -- or with the PostCSS JS API directly.
 
 ## PostCSS version compatibility
 
-stylelint versions `1.0.0+` of the linter are compatible with PostCSS `5.0.2+`.
-
-Versions `0.8.0 and below` are compatible with PostCSS `4.x`.
+* Versions `1.0.0+` of the linter are compatible with PostCSS `5.0.2+`.
+* Versions `0.8.0 and below` of the linter are compatible with PostCSS `4.x`.
 
 ## Use a reporter
 
-_The stylelint plugin registers warnings via PostCSS_. Therefore, you'll want to use it with a PostCSS runner that prints warnings (e.g. [`gulp-postcss`](https://github.com/postcss/gulp-postcss)) or another PostCSS plugin whose purpose is to format and print swarnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
+_The stylelint plugin registers warnings via PostCSS_. Therefore, you'll want to use it with a PostCSS runner that prints warnings (e.g. [`gulp-postcss`](https://github.com/postcss/gulp-postcss)) or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
 
 ## Options
 

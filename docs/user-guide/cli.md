@@ -1,4 +1,4 @@
-# The Stylelint CLI
+# The stylelint CLI
 
 `stylelint --help` prints the following documentation:
 
@@ -56,7 +56,7 @@ stylelint foo/**/*.css bar/*.css -q -f json --config bar/mySpecialConfig.json > 
 
 The CLI can exit the process with the following exit codes:
 
-- 1: Something just went wrong, who knows.
+- 1: Something unknown went wrong.
 - 2: At least one rule with a severity of 2 triggered at least one warning.
 - 78: There was some problem with the configuration file.
 - 80: A file glob was passed both it found no files.

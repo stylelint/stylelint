@@ -1,10 +1,10 @@
 # Contributing
 
-We are just getting started and any help would be very welcome.
+Any help is welcome and appreciated.
 
 ## Ways to contribute
 
-* Adding [new rules](docs/developer-guide.md). There are [plenty](https://github.com/stylelint/stylelint/issues/1) to choose from!
+* Adding [new rules](docs/developer-guide.md). Whether it's one of the [few](https://github.com/stylelint/stylelint/issues/1) that we've still to do, or something that you need and we've not thought about.
 * Expanding the [documentation](docs).
 * Working on [open issues](https://github.com/stylelint/stylelint/issues).
 
