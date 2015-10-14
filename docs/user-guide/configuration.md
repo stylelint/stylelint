@@ -18,6 +18,18 @@ Rules determine what the linter looks for and complains about.
 Each rule configuration is either a single severity number (0-2) or an array with the following information:
 `[severity, primary option, secondary options]`.
 
+```json
+{
+  "rules": {
+    "color-no-invalid-hex": 2,
+    "declaration-colon-space-after": [1, "always"],
+    "indentation": [2, "tab", {
+      "except": ["value"]
+    }]
+  }
+}
+```
+
 [Read more about configuring rules](#configuring-rules).
 
 ### `extends`
@@ -68,13 +80,13 @@ As with `extends`, above, a "locater" can be either an npm module name, an absol
 
 Once the plugin is declared, within your `"rules"` object you can add settings for the plugin's rule just like any standard rule.
 
-```js
+```json
 {
   "plugins": {
-    "special-rule": "../special-rule.js"),
+    "special-rule": "../special-rule.js",
   },
   "rules": {
-    "special-rule": [ 2, "everything" ],
+    "special-rule": [2, "everything"],
   },
 }
 ```
