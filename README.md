@@ -27,7 +27,7 @@ With stylelint, it's easy to start linting your CSS to enforce your preferred co
 
 ## Guides
 
-You'll find more detailed information on using the linter and tailoring it to your needs in our two guides:
+You'll find more detailed information on using the linter and tailoring it to your needs in our guides:
 
 * [User guide](docs/user-guide.md) - Usage, configuration and complementary tools.
 * [Developer guide](docs/developer-guide.md) - Contributing to stylelint and writing your own plugins & formatters.
