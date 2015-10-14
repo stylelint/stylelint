@@ -15,47 +15,9 @@
 
 ![Example](example.png?raw=true)
 
-## Installation
+## Getting started
 
-```console
-$ npm install -g stylelint
-```
-
-## Usage
-
-If it's your first time using stylelint, you'll need to create a `.stylelintrc` file in your directory and add your configuration to it.
-
-After that, you can run stylelint on any CSS file:
-
-```console
-stylelint test.css test2.css
-```
-
-## Configuration
-
-You can either craft your own config or use a [pre-written one](#shareable-configs).
-
-A crafted config will look something like:
-
-```json
-{
-  "rules": {
-    "color-no-invalid-hex": 2,
-    "declaration-colon-space-before": [2, "never"],
-    "indentation": [2, "tab"]
-  }
-}
-```
-
-The names `"color-no-invalid-hex"`, `"declaration-colon-space-before"` and `"indentation"` are the names of [rules](docs/rules.md) in stylelint. The number is the error level of the rule and can be one of the three values:
-
-* `0` - turn the rule off
-* `1` - turn the rule on as a warning (doesn't affect CLI exit code)
-* `2` - turn the rule on as an error (the CLI exit code will be 1)
-
-## Guides
-
-You'll find more detailed information on tailoring stylelint to your needs in our guides:
+You'll find detailed information in our guides on using the linter and tailoring it to your needs:
 
 * [User guide](docs/user-guide.md) - Usage, configuration and complementary tools.
 * [Developer guide](docs/developer-guide.md) - Contributing to stylelint and writing your own plugins & formatters.
