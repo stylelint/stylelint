@@ -31,7 +31,7 @@ If you pass a function, it must fit the signature described in the Developer Gui
 
 ### config
 
-A stylelint configuration object. TODO: LINK.
+A [stylelint configuration object](/docs/user-guide/configuration.md).
 
 If no `config` is passed, stylelint will look for a `.stylelintrc` configuration file in [standard rc-file places](https://github.com/dominictarr/rc#standards).
 

@@ -5,118 +5,6 @@
   * None of the rules are turned on by default.
   * None of the rules have default values for options.
 
-## Rule names
-
-* Made of lowercase words separated by hyphens.
-* Split into two parts:
-  * The first describes what [*thing*](http://apps.workflower.fi/vocabs/css/en) the rule applies to.
-  * The second describes what the rule is checking.
-
-```
-"number-leading-zero"
-    ↑       ↑
-the thing   what the rule is checking
-```
-
-* Except when the rule applies to the whole stylesheet:
-
-```
-"no-eol-whitespace"
-"indentation"
-     ↑
-  what the rules are checking
-```
-
-### No rules
-
-Most rules allow you to choose whether you want to require *or* disallow something.
-
-For example, whether numbers *must* or *must not* have a leading zero:
-
-* `number-leading-zero`: `string - "always"|"never"`
-  * `"always"` - there *must always* be a leading zero.
-  * `"never"` - there *must never* be a leading zero.
-
-```css
-    a { line-height: 0.5; }
-/**                  ↑
- *   This leading zero */
-```
-
-However, some rules *just disallow* something. `*-no-*` is used to identify these rules.
-
-For example, whether empty blocks should be disallowed:
-
-* `block-no-empty` - blocks *must not* be empty.
-
-```css
-    a { }
-/**    ↑
- *  Blocks like this */
-```
-
-Notice how, for a rule like this, it does not make sense to have an option to enforce the opposite i.e. that every block *must* be empty.
-
-### Max rules
-
-`*-max-*` is used when a rule is *setting a limit* to something.
-
-For example, specifying the maximum number of digits after the "." in a number:
-
-* `number-max-precision`: `int`
-
-```css
-    a { font-size: 1.333em; }
-/**                 ↑
- * The maximum number of digits after this "." */
-```
-
-### Whitespace rules
-
-Whitespace rules allow you to specify whether an empty line, a single space, a newline or no space must be used in some specific part of the stylesheet.
-
-The whitespace rules combine two sets of keywords:
-
-1. `before`, `after` and `inside` are used to specify where the whitespace (if any) is expected.
-2. `empty-line`, `space` and `newline` are used to specify whether a single empty line, a single space, a single newline or no space is expected there.
-
-For example, specifying if a single empty line or no space must come before all the comments in a stylesheet:
-
-* `comment-empty-line-before`: `string` - `"always"|"never"`
-
-```css
-    a {}
-                  ←
-    /* comment */ ↑
-                  ↑
-/**               ↑
- *        This empty line  */
-```
-
-Additionally, some whitespace rule make use of another set of keywords:
-
-1. `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` or `range-operator` are used if a specific piece of punctuation in the *thing* is being targetted.
-
-For example, specifying if a single space or no space must come after a comma in a function:
-
-* `function-comma-space-after`: `string` - `"always"|"never"`
-
-```css
-    a { transform: translate(1, 1) }
-/**                           ↑
- *  The space after this commas */
-```
-
-The plural of the punctuation is used for `inside` rules. For example, specifying if a single space or no space must be inside the parentheses of a function:
-
-* `function-parentheses-space-inside`: `string` - `"always"|"never"`
-
-```css
-    a { transform: translate( 1, 1 ); }
-/**                         ↑      ↑
- * The space inside these two parentheses */
-```
-
 ## List of rules
 
 Here are all the rules within stylelint, grouped by the _thing_ they apply to.
@@ -277,3 +165,115 @@ Here are all the rules within stylelint, grouped by the _thing_ they apply to.
 * [`no-eol-whitespace`](../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
 * [`no-missing-eof-newline`](../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
 * [`no-multiple-empty-lines`](../src/rules/no-multiple-empty-lines/README.md): Disallow multiple empty lines.
+
+## About rule names
+
+* Made of lowercase words separated by hyphens.
+* Split into two parts:
+  * The first describes what [*thing*](http://apps.workflower.fi/vocabs/css/en) the rule applies to.
+  * The second describes what the rule is checking.
+
+```
+"number-leading-zero"
+    ↑       ↑
+the thing   what the rule is checking
+```
+
+* Except when the rule applies to the whole stylesheet:
+
+```
+"no-eol-whitespace"
+"indentation"
+     ↑
+  what the rules are checking
+```
+
+### No rules
+
+Most rules allow you to choose whether you want to require *or* disallow something.
+
+For example, whether numbers *must* or *must not* have a leading zero:
+
+* `number-leading-zero`: `string - "always"|"never"`
+  * `"always"` - there *must always* be a leading zero.
+  * `"never"` - there *must never* be a leading zero.
+
+```css
+    a { line-height: 0.5; }
+/**                  ↑
+ *   This leading zero */
+```
+
+However, some rules *just disallow* something. `*-no-*` is used to identify these rules.
+
+For example, whether empty blocks should be disallowed:
+
+* `block-no-empty` - blocks *must not* be empty.
+
+```css
+    a { }
+/**    ↑
+ *  Blocks like this */
+```
+
+Notice how, for a rule like this, it does not make sense to have an option to enforce the opposite i.e. that every block *must* be empty.
+
+### Max rules
+
+`*-max-*` is used when a rule is *setting a limit* to something.
+
+For example, specifying the maximum number of digits after the "." in a number:
+
+* `number-max-precision`: `int`
+
+```css
+    a { font-size: 1.333em; }
+/**                 ↑
+ * The maximum number of digits after this "." */
+```
+
+### Whitespace rules
+
+Whitespace rules allow you to specify whether an empty line, a single space, a newline or no space must be used in some specific part of the stylesheet.
+
+The whitespace rules combine two sets of keywords:
+
+1. `before`, `after` and `inside` are used to specify where the whitespace (if any) is expected.
+2. `empty-line`, `space` and `newline` are used to specify whether a single empty line, a single space, a single newline or no space is expected there.
+
+For example, specifying if a single empty line or no space must come before all the comments in a stylesheet:
+
+* `comment-empty-line-before`: `string` - `"always"|"never"`
+
+```css
+    a {}
+                  ←
+    /* comment */ ↑
+                  ↑
+/**               ↑
+ *        This empty line  */
+```
+
+Additionally, some whitespace rule make use of another set of keywords:
+
+1. `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` or `range-operator` are used if a specific piece of punctuation in the *thing* is being targetted.
+
+For example, specifying if a single space or no space must come after a comma in a function:
+
+* `function-comma-space-after`: `string` - `"always"|"never"`
+
+```css
+    a { transform: translate(1, 1) }
+/**                           ↑
+ *  The space after this commas */
+```
+
+The plural of the punctuation is used for `inside` rules. For example, specifying if a single space or no space must be inside the parentheses of a function:
+
+* `function-parentheses-space-inside`: `string` - `"always"|"never"`
+
+```css
+    a { transform: translate( 1, 1 ); }
+/**                         ↑      ↑
+ * The space inside these two parentheses */
+```

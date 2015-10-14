@@ -1,6 +1,83 @@
 # Configuration
 
-The linter _expects a config_. You can either craft your own config or use a [pre-written one](#shareable-configs).
+The linter _expects a configuration object_. You can either craft your own config or [extend an existing one](#extends).
+
+For the Node API and PostCSS plugin, you can either pass a configuration object directly or create a `.stylelintrc` JSON file.
+For the CLI, you must use a `.stylelintrc` file or point to some other JSON file.
+
+## The Configuration Object
+
+The configuration object can have the following properties. Only `rules` is required.
+
+### `rules`
+
+Rules determine what the linter looks for and complains about.
+*No rules are turned on by default*, so this is where you turn on everything you want to check.
+
+**The `rules` property is an object whose keys are rule names and values are rule configurations.**
+Each rule configuration is either a single severity number (0-2) or an array with the following information:
+`[severity, primary option, secondary options]`.
+
+[Read more about configuring rules](#configuring-rules).
+
+### `extends`
+
+Your configuration can *extend* an existing configuration (whether your own or a third-party config).
+When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
+
+You can extend an array of existing configurations, with each item in the array taking precedence over the following (so the first item overrides everything else, the second item overrides everything but the first, the last gets overridden by everything else, etc.).
+
+For example, extending the `stylelint-config-suitcss` and then changing indentation to tabs and turning off the number-leading-zero rule:
+
+```json
+{
+  "extends": "stylelint-config-suitcss",
+  "rules": {
+    "indentation": [2, "tab"],
+    "number-leading-zero": 0,
+  }
+}
+```
+
+Or starting with `stylelint-config-suitcss`, then extending layering `myExtendableConfig` on top of that, and then overriding the indentation rule:
+
+```json
+{
+  "extends": [
+    "./myExtendableConfig",
+    "stylelint-config-suitcss"  
+  ],
+  "rules": {
+    "indentation": [2, "tab"],
+  }
+}
+```
+
+**The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d, so can fit whatever format works with Node's `require.resolve()` algorithm.** That means the a "locater" can be:
+
+- The name of a module in `node_modules` (e.g. `stylelint-config-wordpress`; that module's `main` file must be a valid JSON configuration)
+- An absolute path to a file (which makes sense if you're creating a JS object in a Node context and passing it in)
+- A relative path to a file, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
+
+*Because of `extends`, you can create and use shareable stylelint configurations.*
+
+## `plugins`
+
+[Plugins](docs/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` object to your config. Each key is a new rule's name, and its value is a "locater" identifying the plugin.
+As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
+
+Once the plugin is declared, within your `"rules"` object you can add settings for the plugin's rule just like any standard rule.
+
+```js
+{
+  "plugins": {
+    "special-rule": "../special-rule.js"),
+  },
+  "rules": {
+    "special-rule": [ 2, "everything" ],
+  },
+}
+```
 
 ## Configuring rules
 
@@ -187,47 +264,3 @@ You can enforce that with:
 "value-list-comma-space-after": [2, "always-single-line"],
 "value-list-comma-space-before": [2, "always-single-line"],
 ```
-
-## Shareable configs
-
-If you prefer to enforce a third-party styleguide (rather than craft your own config), you can use:
-
-* [The SuitCSS shareable config](https://github.com/stylelint/stylelint-config-suitcss)
-* [The WordPress shareable config](https://github.com/stylelint/stylelint-config-wordpress)
-
-You can also extend a shareable config file, starting with what's there and making your own modifications and additions.
-
-For example, extending the `stylelint-config-suitcss` and then changing indentation to tabs and turn off the number-leading-zero rule:
-
-```json
-{
-  "extends": "stylelint-config-suitcss",
-  "rules": {
-    "indentation": [2, "tab"],
-    "number-leading-zero": 0,
-  }
-}
-```
-
-The value of `"extends"` is a "locator" (or an array of "locators") that is ultimately `require()`d, so can fit whatever format works with Node's `require.resolve()` algorithm. That means the "locators" can be:
-
-- The names of modules in `node_modules` (e.g. `stylelint-config-wordpress`, if that module's `main` file is a valid JSON configuration)
-- An absolute path to a file (which makes sense if you're creating a JS object in a Node context and passing it in)
-- A relative path to a file, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
-
-## Plugins
-
-[Plugins](docs/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` property to your config. The key is the rule's name; the value is the rule function itself. Then, within the `"rules"` object, your can add settings for your plugin rule just like any standard rule.
-
-```js
-{
-  "plugins": {
-    "special-rule": "../special-rule.js"),
-  },
-  "rules": {
-    "special-rule": [ 2, "everything" ],
-  },
-}
-```
-
-A configuration's `plugins` value is an object whose keys are rule names and values are locators for the actual plugin functions.

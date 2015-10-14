@@ -17,7 +17,7 @@ The plugin accepts an options object as argument, with the following properties:
 
 ### config
 
-A stylelint configuration object. TODO: LINK.
+A [stylelint configuration object](/docs/user-guide/configuration.md).
 
 If no `config` is passed, stylelint will look for a `.stylelintrc` configuration file in [standard rc-file places](https://github.com/dominictarr/rc#standards).
 
