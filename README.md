@@ -15,9 +15,19 @@
 
 ![Example](example.png?raw=true)
 
-## Getting started
+## Quick start
 
-You'll find detailed information in our guides on using the linter and tailoring it to your needs:
+With stylelint, it's easy to start linting your CSS to enforce your preferred conventions:
+
+1. Install stylelint: `npm install stylelint`.
+2. Learn about [some rules](/docs/user-guide/rules.md). No rules are turned on by default, so you only have to learn about the rules you want to enforce; and you can start small, growing your config over time as you have a chance to explore more of the rules.
+3. Create your [configuration](/docs/user-guide/configuration.md), probably as a `.stylelintrc` file.
+4. Decide whether to use the [CLI](/docs/user-guide/cli.md), [Node API](/docs/user-guide/node-api.md), or [PostCSS plugin](/docs/user-guide/postcss-plugin.md).
+5. Lint!
+
+## Guides
+
+You'll find more detailed information on using the linter and tailoring it to your needs in our two guides:
 
 * [User guide](docs/user-guide.md) - Usage, configuration and complementary tools.
 * [Developer guide](docs/developer-guide.md) - Contributing to stylelint and writing your own plugins & formatters.
