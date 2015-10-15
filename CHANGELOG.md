@@ -7,6 +7,7 @@
 * Added: `string` and `json` formatters.
 * Added: support for using `.stylelintrc` JSON file.
 * Added: support for extending existing configs using the `extends` property.
+* Added: support for SCSS syntax parsing to CLI and Node API.
 
 # 1.2.1
 
