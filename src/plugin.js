@@ -1,6 +1,7 @@
 import postcss from "postcss"
 import rc from "rc"
 import path from "path"
+import resolveFrom from "resolve-from"
 import { merge, cloneDeep, isEmpty } from "lodash"
 import { configurationError } from "./utils"
 import ruleDefinitions from "./rules"
@@ -23,7 +24,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
 
     if (config.plugins) {
       Object.keys(config.plugins).forEach(pluginName => {
-        ruleDefinitions[pluginName] = requirePlugin(config.plugins[pluginName], configBasedir)
+        ruleDefinitions[pluginName] = require(modulePath(config.plugins[pluginName], configBasedir))
       })
     }
 
@@ -71,41 +72,18 @@ function extendConfig(config, configBasedir) {
   if (!config.extends) { return config }
 
   return [].concat(config.extends).reduce((mergedConfig, extendingConfigLookup) => {
-    let extendingConfig
-    let extendingConfigPath
-
-    if ([ ".", "/", "\\" ].indexOf(extendingConfigLookup[0]) === -1) {
-      // If the lookup *is not* a relative path, just require() it
-      // and require.resolve() to get its path
-      extendingConfigPath = require.resolve(extendingConfigLookup)
-      extendingConfig = tryRequiring(extendingConfigLookup)
-    } else {
-      // If the lookup *is* a relative path, find it relative to configBasedir
-      extendingConfigPath = path.resolve(configBasedir || process.cwd(), extendingConfigLookup)
-      extendingConfig = tryRequiring(extendingConfigPath)
-    }
+    let extendingConfigPath = modulePath(extendingConfigLookup, configBasedir || process.cwd())
 
     // Now we must recursively extend the extending config
-    extendingConfig = extendConfig(extendingConfig, path.dirname(extendingConfigPath))
+    let extendingConfig = extendConfig(require(extendingConfigPath), path.dirname(extendingConfigPath))
 
     return merge({}, extendingConfig, mergedConfig)
   }, cloneDeep(config))
 }
 
-function requirePlugin(lookup, configBasedir) {
-  if ([ ".", "/", "\\" ].indexOf(lookup[0]) === -1) {
-    // If the lookup *is not* a relative path, just require() it
-    return tryRequiring(lookup)
-  } else {
-    // If the lookup *is* a relative path, find it relative to configBasedir
-    const lookupPath = path.resolve(configBasedir || process.cwd(), lookup)
-    return tryRequiring(lookupPath)
-  }
-}
-
-function tryRequiring(lookup) {
+function modulePath(lookup, basedir) {
   try {
-    return require(lookup)
+    return resolveFrom(basedir, lookup)
   } catch (e) {
     throw configurationError(
       `Could not find "${lookup}". ` +
