@@ -1,3 +1,13 @@
+# Head
+
+* Added: CLI.
+* Added: standalone Node API.
+* Added: quiet mode to CLI and Node API.
+* Added: support for formatters, including custom ones, to CLI and Node API.
+* Added: `string` and `json` formatters.
+* Added: support for using `.stylelintrc` JSON file.
+* Added: support for extending existing configs using the `extends` property.
+
 # 1.2.1
 
 * Fixed: the `media-query-list-comma-*` rules now only apply to `@media` statements.
