@@ -1,7 +1,7 @@
 # Head
 
 * Added: CLI.
-* Added: Quiet mode to CLI via `-q` option.
+* Added: quiet mode to CLI via `-q` option.
 * Added: standalone Node API.
 * Added: support for using `.stylelintrc` JSON file.
 * Added: support for extending existing configs using the `extends` property.
