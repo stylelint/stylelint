@@ -1,12 +1,12 @@
 # Head
 
 * Added: CLI.
-* Added: quiet mode to CLI via `-q` option.
 * Added: standalone Node API.
+* Added: quiet mode to CLI and Node API.
+* Added: support for formatters, including custom ones, to CLI and Node API.
+* Added: `string` and `json` formatters.
 * Added: support for using `.stylelintrc` JSON file.
 * Added: support for extending existing configs using the `extends` property.
-* Added: support for formatters, including custom formatters.
-* Added: `string` and `json` formatters.
 
 # 1.2.1
 
