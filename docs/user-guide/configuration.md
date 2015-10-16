@@ -37,7 +37,7 @@ When one configuration extends another, it starts with the other's properties th
 
 You can extend an array of existing configurations, with each item in the array taking precedence over the following (so the first item overrides everything else, the second item overrides everything but the first, the last gets overridden by everything else, etc.).
 
-For example, extending the `stylelint-config-suitcss` and then changing indentation to tabs and turning off the number-leading-zero rule:
+For example, extending the [`stylelint-config-suitcss`](https://github.com/stylelint/stylelint-config-suitcss) and then changing indentation to tabs and turning off the number-leading-zero rule:
 
 ```json
 {
