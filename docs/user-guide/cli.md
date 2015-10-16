@@ -2,7 +2,7 @@
 
 `stylelint --help` prints the following documentation:
 
-```
+```console
 Modern CSS linter
 
 Usage
