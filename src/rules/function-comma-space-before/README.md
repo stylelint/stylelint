@@ -10,7 +10,7 @@ Require a single space or disallow whitespace before the commas of functions.
 
 ## Options
 
-`string`: `"always"|"never"`
+`string`: `"always"|"never"|"always-single-line"|"never-single-line"`
 
 ### `"always"`
 
@@ -58,4 +58,66 @@ a { transform: translate(1,1) }
 
 ```css
 a { transform: translate(1, 1) }
+```
+
+### `"always-single-line"`
+
+There *must always* be a single space before the commas in single-line functions.
+
+The following patterns are considered warnings:
+
+```css
+a { transform: translate(1,1) }
+```
+
+```css
+a { transform: translate(1, 1) }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { transform: translate(1 ,1) }
+```
+
+```css
+a { transform: translate(1 , 1) }
+```
+
+```css
+a {
+  transform: translate(1,
+    1)
+}
+```
+
+### `"never-single-line"`
+
+There *must never* be whitepace before the commas in single-line functions.
+
+The following patterns are considered warnings:
+
+```css
+a { transform: translate(1 ,1) }
+```
+
+```css
+a { transform: translate(1 , 1) }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { transform: translate(1,1) }
+```
+
+```css
+a { transform: translate(1, 1) }
+```
+
+```css
+a {
+  transform: translate(1 ,
+    1)
+}
 ```

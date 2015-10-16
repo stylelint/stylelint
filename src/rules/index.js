@@ -28,6 +28,8 @@ import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
 import declarationNoImportant from "./declaration-no-important"
 import functionCalcNoUnspacedOperator from "./function-calc-no-unspaced-operator"
+import functionCommaNewlineAfter from "./function-comma-newline-after"
+import functionCommaNewlineBefore from "./function-comma-newline-before"
 import functionCommaSpaceAfter from "./function-comma-space-after"
 import functionCommaSpaceBefore from "./function-comma-space-before"
 import functionLinearGradientNoNonstandardDirection from "./function-linear-gradient-no-nonstandard-direction"
@@ -117,6 +119,8 @@ export default {
   "declaration-colon-space-before": declarationColonSpaceBefore,
   "declaration-no-important": declarationNoImportant,
   "function-calc-no-unspaced-operator": functionCalcNoUnspacedOperator,
+  "function-comma-newline-after": functionCommaNewlineAfter,
+  "function-comma-newline-before": functionCommaNewlineBefore,
   "function-comma-space-after": functionCommaSpaceAfter,
   "function-comma-space-before": functionCommaSpaceBefore,
   "function-linear-gradient-no-nonstandard-direction": functionLinearGradientNoNonstandardDirection,

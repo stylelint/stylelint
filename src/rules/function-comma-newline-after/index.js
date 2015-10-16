@@ -5,25 +5,23 @@ import {
 } from "../../utils"
 import { functionCommaSpaceChecker } from "../function-comma-space-after"
 
-export const ruleName = "function-comma-space-before"
+export const ruleName = "function-comma-newline-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected single space before ","`,
-  rejectedBefore: () => `Unexpected whitespace before ","`,
-  expectedBeforeSingleLine: () => `Expected single space before "," in a single-line list`,
-  rejectedBeforeSingleLine: () => `Unexpected whitespace before "," in a single-line list`,
+  expectedAfter: () => `Expected newline after ","`,
+  expectedAfterMultiLine: () => `Expected newline after "," in a multi-line list`,
+  rejectedAfterMultiLine: () => `Unexpected whitespace after "," in a multi-line list`,
 })
 
 export default function (expectation) {
-  const checker = whitespaceChecker("space", expectation, messages)
+  const checker = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
         "always",
-        "never",
-        "always-single-line",
-        "never-single-line",
+        "always-multi-line",
+        "never-multi-line",
       ],
     })
     if (!validOptions) { return }
@@ -31,7 +29,7 @@ export default function (expectation) {
     functionCommaSpaceChecker({
       root,
       result,
-      locationChecker: checker.before,
+      locationChecker: checker.afterOneOnly,
       checkedRuleName: ruleName,
     })
   }
