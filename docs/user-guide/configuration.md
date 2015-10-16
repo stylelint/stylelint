@@ -1,6 +1,6 @@
 # Configuration
 
-The linter _expects a configuration object_. You can either craft your own config or [extend an existing one](#extends).
+The linter _expects a configuration object_. You can either craft your own config or extend an existing one.
 
 For the Node API and PostCSS plugin, you can either pass a configuration object directly or create a `.stylelintrc` JSON file.
 For the CLI, you must use a `.stylelintrc` file or point to some other JSON file.
@@ -29,8 +29,6 @@ Each rule configuration is either a single severity number (0-2) or an array wit
   }
 }
 ```
-
-[Read more about configuring rules](#configuring-rules).
 
 ### `extends`
 
