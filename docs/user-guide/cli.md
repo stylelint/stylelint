@@ -3,25 +3,27 @@
 `stylelint --help` prints the following documentation:
 
 ```
-  Modern CSS linter
+Modern CSS linter
 
-  Usage
-    stylelint [input] [options]
+Usage
+  stylelint [input] [options]
 
-  By default, stylelint will look for a .stylelintrc file in JSON format,
-  using rc to look in various places (cf. https://github.com/dominictarr/rc#standards).
-  Alternately, you can specify a configuration file via --config.
+By default, stylelint will look for a .stylelintrc file in JSON format,
+using rc to look in various places (cf. https://github.com/dominictarr/rc#standards).
+Alternately, you can specify a configuration file via --config.
 
-  Input
-    File glob(s) (passed to node-glob).
-    You can also pass no input and use stdin.
+Input
+  File glob(s) (passed to node-glob).
+  You can also pass no input and use stdin.
 
-  Options
-    --config            Path to a JSON configuration file.
-    --version           Get the currently installed version of stylelint.
-    -f, --formatter     Specify a formatter: "json" or "string". Default is "string".
-    --custom-formatter  Path to a JS file exporting a custom formatting function
-    -q, --quiet         Only register warnings for rules with a severity of 2 (ignore level 1)
+Options
+  --config            Path to a JSON configuration file.
+  --version           Get the currently installed version of stylelint.
+  --custom-formatter  Path to a JS file exporting a custom formatting function
+  -f, --formatter     Specify a formatter: "json" or "string". Default is "string".
+  -q, --quiet         Only register warnings for rules with a severity of 2 (ignore level 1)
+  -s, --syntax        Specify a non-standard syntax that should be used to
+                      parse source stylesheets. Options: "scss"
 ```
 
 The CLI outputs formatted results into `process.stdout`, which you can read with your human eyes or pipe elsewhere (e.g. write the information to a file).

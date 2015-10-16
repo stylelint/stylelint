@@ -2,19 +2,21 @@ import postcss from "postcss"
 import globby from "globby"
 import fs from "fs"
 import queue from "queue-async"
+import scssSyntax from "postcss-scss"
 import plugin from "./plugin"
 import formatters from "./formatters"
 
 export default function ({
   files,
-  css,
+  code,
   config,
   configBasedir,
   configOverrides,
+  syntax,
   formatter = "json",
 } = {}) {
-  if ((!files && !css) || (files && css)) {
-    throw new Error("You must pass stylelint a `files` glob or a `css` string, though not both")
+  if ((!files && !code) || (files && code)) {
+    throw new Error("You must pass stylelint a `files` glob or a `code` string, though not both")
   }
 
   return new Promise((resolve, reject) => {
@@ -26,7 +28,7 @@ export default function ({
     const results = []
     let errored = false
 
-    const inputReady = (files) ? globby(files) : Promise.resolve(css)
+    const inputReady = (files) ? globby(files) : Promise.resolve(code)
     inputReady.then(input => {
       const q = queue()
 
@@ -53,20 +55,23 @@ export default function ({
     })
 
     function lintFile(filepath, cb) {
-      fs.readFile(filepath, "utf8", (err, css) => {
+      fs.readFile(filepath, "utf8", (err, code) => {
         if (err) { reject(err) }
-        lint(css, filepath, cb)
+        lint(code, filepath, cb)
       })
     }
 
-    function lint(css, filepath, cb) {
+    function lint(code, filepath, cb) {
       const processOptions = {}
       if (filepath) {
         processOptions.from = filepath
       }
+      if (syntax === "scss") {
+        processOptions.syntax = scssSyntax
+      }
       postcss()
         .use(plugin({ config, configBasedir, configOverrides }))
-        .process(css, processOptions)
+        .process(code, processOptions)
         .then(postcssResult => {
           const source = (!postcssResult.root.source)
             ? undefined

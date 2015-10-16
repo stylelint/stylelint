@@ -37,6 +37,7 @@
     "meow": "^3.3.0",
     "postcss": "^5.0.4",
     "postcss-reporter": "^1.3.0",
+    "postcss-scss": "^0.1.3",
     "postcss-selector-parser": "^1.2.0",
     "queue-async": "^1.0.7",
     "rc": "^1.1.1",
@@ -53,7 +54,8 @@
     "tape": "^4.2.0"
   },
   "scripts": {
-    "prepublish": "babel src --out-dir dist",
+    "build": "babel src --out-dir dist",
+    "prepublish": "npm run build",
     "lint": "eslint . --ignore-path .gitignore",
     "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
     "test": "npm run lint && npm run tape"

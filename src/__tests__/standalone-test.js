@@ -54,7 +54,7 @@ test("standalone with input file(s)", t => {
 test("standalone with input css", t => {
   let planned = 0
 
-  standalone({ css: "a {}", config: configBlockNoEmpty })
+  standalone({ code: "a {}", config: configBlockNoEmpty })
     .then(({ output, results }) => {
       t.equal(typeof output, "string")
       t.equal(results.length, 1)
@@ -71,7 +71,7 @@ test("standalone with extending configuration and configBasedir", t => {
   let planned = 0
 
   standalone({
-    css: "a {}",
+    code: "a {}",
     config: configExtendingOne,
     configBasedir: path.join(__dirname, "fixtures"),
   })
@@ -86,7 +86,7 @@ test("standalone with extending configuration and configBasedir", t => {
 
   // Recursive extending
   standalone({
-    css: "a {}",
+    code: "a {}",
     config: configExtendingAnotherExtend,
     configBasedir: path.join(__dirname, "fixtures"),
   })
@@ -101,7 +101,7 @@ test("standalone with extending configuration and configBasedir", t => {
 
   // Extending with overrides
   standalone({
-    css: "a {}",
+    code: "a {}",
     config: configExtendingThreeWithOverride,
     configBasedir: path.join(__dirname, "fixtures"),
   })
@@ -118,7 +118,7 @@ test("standalone with extending configuration and no configBasedir", t => {
   let planned = 0
 
   standalone({
-    css: "a {}",
+    code: "a {}",
     config: configExtendingOne,
   })
     .then(() => {})
@@ -133,7 +133,7 @@ test("standalone with extending configuration and no configBasedir", t => {
 test("standalone with input css and alternate formatter specified by keyword", t => {
   let planned = 0
 
-  standalone({ css: "a {}", config: configBlockNoEmpty, formatter: "string" })
+  standalone({ code: "a {}", config: configBlockNoEmpty, formatter: "string" })
     .then(({ output }) => {
       const strippedOutput = chalk.stripColor(output)
       t.equal(typeof output, "string")
@@ -149,7 +149,7 @@ test("standalone with input css and alternate formatter specified by keyword", t
 test("standalone with input css and alternate formatter function", t => {
   let planned = 0
 
-  standalone({ css: "a {}", config: configBlockNoEmpty, formatter: stringFormatter })
+  standalone({ code: "a {}", config: configBlockNoEmpty, formatter: stringFormatter })
     .then(({ output }) => {
       const strippedOutput = chalk.stripColor(output)
       t.equal(typeof output, "string")
@@ -171,13 +171,39 @@ test("standalone with input css and quiet mode", t => {
     },
   }
 
-  standalone({ css: "a {}", config })
+  standalone({ code: "a {}", config })
     .then(({ output }) => {
       const parsedOutput = JSON.parse(output)
       t.deepEqual(parsedOutput[0].warnings, [])
     })
     .catch(logError)
   planned += 1
+
+  t.plan(planned)
+})
+
+test("standalone with scss syntax", t => {
+  let planned = 0
+  const config = {
+    rules: {
+      "block-no-empty": 2,
+    },
+  }
+
+  standalone({
+    config,
+    code: "$foo: bar; // foo;\nb {}",
+    syntax: "scss",
+    formatter: stringFormatter,
+  })
+    .then(({ output }) => {
+      const strippedOutput = chalk.stripColor(output)
+      t.equal(typeof output, "string")
+      t.ok(strippedOutput.indexOf("2:3") !== -1)
+      t.ok(strippedOutput.indexOf("block-no-empty") !== -1)
+    })
+    .catch(logError)
+  planned += 3
 
   t.plan(planned)
 })

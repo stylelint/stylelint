@@ -15,19 +15,19 @@ _The stylelint plugin registers warnings via PostCSS_. Therefore, you'll want to
 
 The plugin accepts an options object as argument, with the following properties:
 
-### config
+### `config`
 
 A [stylelint configuration object](/docs/user-guide/configuration.md).
 
 If no `config` is passed, stylelint will look for a `.stylelintrc` configuration file in [standard rc-file places](https://github.com/dominictarr/rc#standards).
 
-### configBasedir
+### `configBasedir`
 
 An absolute path to the directory that relative paths defining `extends` and `plugins` are *relative to*.
 
 If the `config` object passed uses relative paths for `extends` or `plugins`, you are going to have to pass a `configBasedir`. If not, you do not need this.
 
-### configOverrides
+### `configOverrides`
 
 A partial stylelint configuration object whose properties will override the existing config object, whether that config was loaded via the `config` option or a `.stylelintrc` file.
 

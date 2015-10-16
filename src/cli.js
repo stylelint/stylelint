@@ -2,7 +2,7 @@
 
 import meow from "meow"
 import path from "path"
-import { assign } from "lodash"
+import { assign, includes } from "lodash"
 import getStdin from "get-stdin"
 import standalone from "./standalone"
 
@@ -16,6 +16,7 @@ const minimistOptions = {
     q: "quiet",
   },
 }
+const syntaxOptions = ["scss"]
 
 const meowOptions = {
   help: [
@@ -36,6 +37,8 @@ const meowOptions = {
     "  --custom-formatter  Path to a JS file exporting a custom formatting function",
     "  -f, --formatter     Specify a formatter: \"json\" or \"string\". Default is \"string\".",
     "  -q, --quiet         Only register warnings for rules with a severity of 2 (ignore level 1)",
+    "  -s, --syntax        Specify a non-standard syntax that should be used to ",
+    "                      parse source stylesheets. Options: \"scss\"",
   ],
   pkg: "../package.json",
 }
@@ -55,12 +58,16 @@ if (cli.flags.quiet) {
   optionsBase.configOverrides.quiet =  cli.flags.quiet
 }
 
+if (cli.flags.s && includes(syntaxOptions, cli.flags.s)) {
+  optionsBase.syntax = cli.flags.s
+}
+
 let optionsReady = (cli.input.length)
   ? Promise.resolve(assign({}, optionsBase, {
     files: cli.input,
   }))
   : getStdin().then(stdin => Promise.resolve(assign({}, optionsBase, {
-    css: stdin,
+    code: stdin,
   })))
 
 optionsReady.then(options => {
