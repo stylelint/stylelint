@@ -11,7 +11,7 @@ The configuration object can have the following properties. Only `rules` is requ
 
 ### `rules`
 
-Rules determine what the linter looks for and complains about.
+[Rules](/docs/user-guide/rules.md) determine what the linter looks for and complains about.
 *No rules are turned on by default*, so this is where you turn on everything you want to check.
 
 **The `rules` property is an object whose keys are rule names and values are rule configurations.**
@@ -75,7 +75,7 @@ Or starting with `stylelint-config-suitcss`, then extending layering `myExtendab
 
 ## `plugins`
 
-[Plugins](docs/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` object to your config. Each key is a new rule's name, and its value is a "locater" identifying the plugin.
+[Plugins](/docs/user-guide/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` object to your config. Each key is a new rule's name, and its value is a "locater" identifying the plugin.
 As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
 
 Once the plugin is declared, within your `"rules"` object you can add settings for the plugin's rule just like any standard rule.
@@ -93,7 +93,7 @@ Once the plugin is declared, within your `"rules"` object you can add settings f
 
 ## Configuring rules
 
-[Rules](docs/rules.md) are built into the linter and focus on _standard_ CSS. They are configured within the `rules` key of the config.
+[Rules](/docs/user-guide/rules.md) are built into the linter and focus on _standard_ CSS. They are configured within the `rules` key of the config.
 
 ### Turning rules on and off
 
