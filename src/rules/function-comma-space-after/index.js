@@ -11,6 +11,8 @@ export const ruleName = "function-comma-space-after"
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected single space after ","`,
   rejectedAfter: () => `Unexpected whitespace after ","`,
+  expectedAfterSingleLine: () => `Expected single space after "," in a single-line list`,
+  rejectedAfterSingleLine: () => `Unexpected whitespace after "," in a single-line list`,
 })
 
 export default function (expectation) {
@@ -21,6 +23,8 @@ export default function (expectation) {
       possible: [
         "always",
         "never",
+        "always-single-line",
+        "never-single-line",
       ],
     })
     if (!validOptions) { return }

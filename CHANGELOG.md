@@ -10,6 +10,7 @@
 * Added: support for SCSS syntax parsing to CLI and Node API.
 * Added: `function-comma-newline-after` rule.
 * Added: `function-comma-newline-before` rule.
+* Added: `"always-single-line"` and `"never-single-line"` options to `function-comma-space-after` rule.
 
 # 1.2.1
 
