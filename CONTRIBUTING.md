@@ -4,9 +4,9 @@ Any help is welcome and appreciated.
 
 ## Ways to contribute
 
-* Adding [new rules](docs/developer-guide.md). Whether it's one of the [few](https://github.com/stylelint/stylelint/issues/1) that we've still to do, or something that you need and we've not thought about.
+* Adding [new rules](docs/developer-guide.md). Whether it's one of the [few](https://github.com/stylelint/stylelint/issues?utf8=%E2%9C%93&q=%22New+rule%22+in%3Atitle+is%3Aopen) that we've still to do, or something that you need and we've not thought about.
 * Expanding the [documentation](docs).
-* Working on [open issues](https://github.com/stylelint/stylelint/issues).
+* Working on other [open issues](https://github.com/stylelint/stylelint/issues).
 
 ## Communication
 
