@@ -1,4 +1,4 @@
-# Head
+# 2.0.0
 
 * Added: CLI.
 * Added: standalone Node API.
