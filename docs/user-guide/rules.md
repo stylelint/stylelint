@@ -30,6 +30,7 @@ Here are all the rules within stylelint, grouped by the _thing_ they apply to.
 
 * [`function-calc-no-unspaced-operator`](../src/rules/function-calc-no-unspaced-operator/README.md): Disallow an unspaced operator within `calc` functions.
 * [`function-comma-newline-after`](../src/rules/function-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of functions.
+* [`function-comma-newline-before`](../src/rules/function-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of functions.
 * [`function-comma-space-after`](../src/rules/function-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of functions.
 * [`function-comma-space-before`](../src/rules/function-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of functions.
 * [`function-linear-gradient-no-nonstandard-direction`](../src/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow direction values in `linear-gradient()` calls that are not valid according to the

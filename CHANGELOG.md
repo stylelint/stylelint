@@ -9,6 +9,7 @@
 * Added: support for extending existing configs using the `extends` property.
 * Added: support for SCSS syntax parsing to CLI and Node API.
 * Added: `function-comma-newline-after` rule.
+* Added: `function-comma-newline-before` rule.
 
 # 1.2.1
 
