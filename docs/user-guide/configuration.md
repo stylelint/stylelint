@@ -141,7 +141,7 @@ An example of explicitly configuring the options for three rules:
 {
   "rules": {
     "indentation": [2, "tab", {
-      except: ["value"],
+      "except": ["value"],
     }],
     "declaration-colon-space-before": [2, "never"],
     "number-leading-zero": [2, "always"],
@@ -198,7 +198,7 @@ Say you only want to allow single-line value lists. And you want to enforce no s
 ```css
 a {
   font-family: sans, serif, monospace;
-  box-shadow: 1px 1px 1px #000, 2px 2px 1px 1px #ccc inset, 2px 2px 1px 2px #ccc inset;
+  box-shadow: 1px 1px 1px red, 2px 2px 1px 1px blue inset, 2px 2px 1px 2px blue inset;
 }
 ```
 
@@ -216,9 +216,9 @@ Say you want to allow both single-line and multi-line value lists. You want ther
 ```css
 a {
   font-family: sans, serif, monospace; /* single-line value list with space after, but no space before */
-  box-shadow: 1px 1px 1px #000, /* multi-line value list ... */
-    2px 2px 1px 1px #ccc inset, /* ... with newline after, ...  */
-    2px 2px 1px 2px #ccc inset; /* ... but no space before */
+  box-shadow: 1px 1px 1px red, /* multi-line value list ... */
+    2px 2px 1px 1px blue inset, /* ... with newline after, ...  */
+    2px 2px 1px 2px blue inset; /* ... but no space before */
 }
 ```
 
@@ -237,9 +237,9 @@ Say you want to allow both single-line and multi-line value lists. You want ther
 ```css
 a {
   font-family: sans, serif, monospace;
-  box-shadow: 1px 1px 1px #000
-    , 2px 2px 1px 1px #ccc inset
-    , 2px 2px 1px 2px #ccc inset;
+  box-shadow: 1px 1px 1px red
+    , 2px 2px 1px 1px blue inset
+    , 2px 2px 1px 2px blue inset;
 }
 ```
 
@@ -259,9 +259,9 @@ Lastly, the rules are flexible enough to enforce entirely different conventions 
 ```css
 a {
   font-family: sans , serif , monospace; /* single-line list with a single space before and after the comma */
-  box-shadow: 1px 1px 1px #000 /* multi-line list ... */
-    ,2px 2px 1px 1px #ccc inset /* ... with newline before, ...  */
-    ,2px 2px 1px 2px #ccc inset; /* ... but no space after the comma */
+  box-shadow: 1px 1px 1px red /* multi-line list ... */
+    ,2px 2px 1px 1px blue inset /* ... with newline before, ...  */
+    ,2px 2px 1px 2px blue inset; /* ... but no space after the comma */
 }
 ```
 
