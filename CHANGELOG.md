@@ -1,3 +1,7 @@
+# Head
+
+* Added: `rule-single-line-max-declarations` rule.
+
 # 2.0.0
 
 * Added: CLI.

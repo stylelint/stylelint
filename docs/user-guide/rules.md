@@ -119,6 +119,7 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`rule-no-single-line`](../../src/rules/rule-no-single-line/README.md): Disallow single-line rules.
 * [`rule-non-nested-empty-line-before`](../../src/rules/rule-non-nested-empty-line-before/README.md): Require or disallow an empty line before non-nested rules.
 * [`rule-properties-order`](../../src/rules/rule-properties-order/README.md): Specify the order of properties within rules.
+* [`rule-single-line-max-declarations`](../../src/rules/rule-single-line-max-declarations/README.md): Limit the number of declaration within a single line rule.
 * [`rule-trailing-semicolon`](../../src/rules/rule-trailing-semicolon/README.md): Require or disallow a trailing semicolon within rules.
 
 ### Root
