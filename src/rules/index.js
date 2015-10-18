@@ -66,6 +66,7 @@ import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
 import ruleNoShorthandPropertyOverrides from "./rule-no-shorthand-property-overrides"
 import ruleNoSingleLine from "./rule-no-single-line"
 import rulePropertiesOrder from "./rule-properties-order"
+import ruleSingleLineMaxDeclarations from "./rule-single-line-max-declarations"
 import ruleTrailingSemicolon from "./rule-trailing-semicolon"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
@@ -157,6 +158,7 @@ export default {
   "rule-no-single-line": ruleNoSingleLine,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
   "rule-properties-order": rulePropertiesOrder,
+  "rule-single-line-max-declarations": ruleSingleLineMaxDeclarations,
   "rule-trailing-semicolon": ruleTrailingSemicolon,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,
