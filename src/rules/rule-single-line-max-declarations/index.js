@@ -9,7 +9,7 @@ import {
 export const ruleName = "rule-no-single-line"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (quantity) => `Expected a maxiumn of ${quantity} declaration(s)`,
+  expected: (quantity) => `Expected a maximum of ${quantity} declaration(s)`,
 })
 
 export default function (quantity) {
