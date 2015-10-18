@@ -24,10 +24,8 @@ export default function (quantity) {
 
       if (!isSingleLineString(rule.toString())) { return }
 
-      const decls = []
-      rule.walkDecls(function (decl) {
-        decls.push(decl)
-      })
+      const decls = rule.nodes.filter(node => node.type === "decl")
+      
       if (decls.length <= quantity) { return }
 
       report({
