@@ -11,7 +11,7 @@ import {
 export const ruleName = "function-blacklist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (p) => `Unexpected function "${p}"`,
+  rejected: (name) => `Unexpected function "${name}"`,
 })
 
 export default function (blacklist) {
@@ -21,17 +21,13 @@ export default function (blacklist) {
       possible: [isString],
     })
     if (!validOptions) { return }
-
     root.walkDecls(decl => {
       const {value} = decl
       valueParser(value).walk(function (node) {
-
-        console.log(node)
-
         if (node.type === "function" && blacklist.indexOf(vendor.unprefixed(node.value)) !== -1) {
           report({
             message: messages.rejected(node.value),
-            node: value,
+            node: decl,
             result,
             ruleName,
           })
