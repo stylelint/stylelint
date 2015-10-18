@@ -26,10 +26,8 @@ Examples of unacceptable behavior by participants include:
 
 * The use of sexualized language or imagery
 * Personal attacks
-* Trolling or insulting/derogatory comments
-* Public or private harassment
 * Publishing other's private information, such as physical or electronic addresses, without explicit permission
-* Other unethical or unprofessional conduct.
+* Public or private harassment
 
 This code of conduct applies both within project spaces and in public spaces when an individual is representing the project or its community.
 
