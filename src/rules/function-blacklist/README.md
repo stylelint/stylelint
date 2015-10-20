@@ -3,9 +3,9 @@
 Specify a blacklist of disallowed functions.
 
 ```css
-    a { text-rendering: optimizeLegibility; }
-/**          ↑
- * These functions */
+    a { transform: scale(1); }
+/**                  ↑
+ *     These functions */
 ```
 
 ## Options
@@ -14,7 +14,7 @@ Specify a blacklist of disallowed functions.
 
 ### `["array", "of", "unprefixed", functions"]`
 
-Blacklisted functions *must never* be used.
+Blacklisted functions that *must never* be used.
 
 Given:
 
@@ -23,7 +23,6 @@ Given:
 ```
 
 The following patterns are considered warnings:
-
 
 ```css
 a { transform: scale(1); }
