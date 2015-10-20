@@ -44,14 +44,14 @@ testRule(undefined, tr => {
     column: 23,
   })
 
-  // 8 digits
+  // 4 digits
   tr.notOk("a { color: #ffff; }", {
     message: messages.rejected("#ffff"),
     line: 1,
     column: 12,
   })
 
-  // 4 digits
+  // 8 digits
   tr.notOk("a { color: #ffffffaa; }", {
     message: messages.rejected("#ffffffaa"),
     line: 1,
