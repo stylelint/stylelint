@@ -13,7 +13,9 @@ testRule([
 ], tr => {
   warningFreeBasics(tr)
   tr.ok("a { color: pink; }")
-
+  tr.ok("a { transform: rotate(7deg) }")
+  tr.ok("a { background: -webkit-radial-gradient(red, green, blue) } ;")
+  
   tr.notOk("a { transform: scale(1); }", {
     message: messages.rejected("scale"),
     line: 1,
