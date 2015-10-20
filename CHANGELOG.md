@@ -2,6 +2,7 @@
 
 * Added: `rule-single-line-max-declarations` rule.
 * Added: `color-no-hex` rule.
+* Added: `function-blacklist` rule.
 
 # 2.0.0
 

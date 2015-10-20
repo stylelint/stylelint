@@ -28,6 +28,7 @@ import declarationColonNewlineAfter from "./declaration-colon-newline-after"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
 import declarationNoImportant from "./declaration-no-important"
+import functionBlacklist from "./function-blacklist"
 import functionCalcNoUnspacedOperator from "./function-calc-no-unspaced-operator"
 import functionCommaNewlineAfter from "./function-comma-newline-after"
 import functionCommaNewlineBefore from "./function-comma-newline-before"
@@ -121,6 +122,7 @@ export default {
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
   "declaration-no-important": declarationNoImportant,
+  "function-blacklist": functionBlacklist,
   "function-calc-no-unspaced-operator": functionCalcNoUnspacedOperator,
   "function-comma-newline-after": functionCommaNewlineAfter,
   "function-comma-newline-before": functionCommaNewlineBefore,
