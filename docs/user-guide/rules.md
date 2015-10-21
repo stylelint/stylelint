@@ -26,6 +26,7 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 
 ### Function
 
+* [`function-blacklist`](../../src/rules/function-blacklist/README.md): Specify a blacklist of disallowed functions.
 * [`function-calc-no-unspaced-operator`](../../src/rules/function-calc-no-unspaced-operator/README.md): Disallow an unspaced operator within `calc` functions.
 * [`function-comma-newline-after`](../../src/rules/function-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of functions.
 * [`function-comma-newline-before`](../../src/rules/function-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of functions.
