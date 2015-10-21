@@ -33,6 +33,7 @@
     "execall": "^1.0.0",
     "get-stdin": "^5.0.0",
     "globby": "^3.0.1",
+    "is-css-color-name": "^0.1.1",
     "lodash": "^3.10.1",
     "meow": "^3.3.0",
     "postcss": "^5.0.4",
