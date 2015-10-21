@@ -14,6 +14,7 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 
 * [`color-hex-case`](../../src/rules/color-hex-case/README.md): Specify lowercase or uppercase for hex colors.
 * [`color-hex-length`](../../src/rules/color-hex-length/README.md): Specify short or long notation for hex colors.
+* [`color-no-hex`](../../src/rules/color-no-hex/README.md): Disallow hex colors.
 * [`color-no-invalid-hex`](../../src/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
 
 ### Number

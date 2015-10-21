@@ -11,8 +11,6 @@ testRule(undefined, tr => {
 
   tr.ok("a { color: pink; }")
   tr.ok("a { color: rgba(0, 0, 0, 0); }")
-  tr.ok("a { color: #12345; }")
-  tr.ok("a { color: #123456a; }")
   tr.ok("a { something: black, white, gray; }")
 
   tr.ok("a { padding: 000; }")
@@ -21,6 +19,16 @@ testRule(undefined, tr => {
   tr.ok("a { border-#$side: 0; }", "ignore sass-like interpolation")
   tr.ok("a { box-sizing: #$type-box; }", "ignore sass-like interpolation")
 
+  tr.notOk("a { color: #12345; }", {
+    message: messages.rejected("#12345"),
+    line: 1,
+    column: 12,
+  })
+  tr.notOk("a { color: #123456a; }", {
+    message: messages.rejected("#123456a"),
+    line: 1,
+    column: 12,
+  })
   tr.notOk("a { color: #cccccc; }", {
     message: messages.rejected("#cccccc"),
     line: 1,
@@ -31,17 +39,17 @@ testRule(undefined, tr => {
     line: 1,
     column: 16,
   })
-  tr.notOk("a { something: #00, #fff1a1, #abababababab; }", {
+  tr.notOk("a { something: black, #fff1a1, rgb(250, 250, 0); }", {
     message: messages.rejected("#fff1a1"),
     line: 1,
-    column: 21,
+    column: 23,
   })
 
   // No supplementary spaces after colon or comma
-  tr.notOk("a { something:#00,#ff,#12345a; }", {
+  tr.notOk("a { something:black,white,#12345a; }", {
     message: messages.rejected("#12345a"),
     line: 1,
-    column: 23,
+    column: 27,
   })
 
   // 4 digits

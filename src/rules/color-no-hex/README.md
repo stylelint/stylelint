@@ -22,8 +22,17 @@ a { color: #fff1aa; }
 a { color: #123456aa; }
 ```
 
-The following patterns are *not* considered warnings:
+The hex values that are not valid are also warning.
 
+```css
+a { color: #foobar; }
+```
+
+```css
+a { color: #0000000000000000; }
+```
+
+The following patterns are *not* considered warnings:
 
 ```css
 a { color: black; }

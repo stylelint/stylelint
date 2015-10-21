@@ -1,6 +1,7 @@
 # Head
 
 * Added: `rule-single-line-max-declarations` rule.
+* Added: `color-no-hex` rule.
 
 # 2.0.0
 
