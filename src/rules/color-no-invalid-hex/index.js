@@ -22,7 +22,7 @@ export default function (actual) {
       styleSearch({ source: declString, target: "#" }, match => {
         // If there's not a colon, comma, or whitespace character before, we'll assume this is
         // not intended to be a hex color, but is instead something like the
-        // has in a url() argument
+        // hash in a url() argument
         if (!/[:,\s]/.test(declString[match.startIndex - 1])) { return }
 
         const hexMatch = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))

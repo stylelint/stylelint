@@ -22,7 +22,7 @@ a { color: #fff1aa; }
 a { color: #123456aa; }
 ```
 
-The hex values that are not valid are also warning.
+Hex values that are not valid also cause warnings:
 
 ```css
 a { color: #foobar; }
