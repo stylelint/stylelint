@@ -39,6 +39,7 @@ import functionLinearGradientNoNonstandardDirection from "./function-linear-grad
 import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
 import functionSpaceAfter from "./function-space-after"
 import functionUrlQuotes from "./function-url-quotes"
+import functionWhitelist from "./function-whitelist"
 import indentation from "./indentation"
 import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
 import mediaFeatureColonSpaceBefore from "./media-feature-colon-space-before"
@@ -134,6 +135,7 @@ export default {
   "function-parentheses-space-inside": functionParenthesesSpaceInside,
   "function-space-after": functionSpaceAfter,
   "function-url-quotes": functionUrlQuotes,
+  "function-whitelist": functionWhitelist,
   "indentation": indentation,
   "media-feature-colon-space-after": mediaFeatureColonSpaceAfter,
   "media-feature-colon-space-before": mediaFeatureColonSpaceBefore,
