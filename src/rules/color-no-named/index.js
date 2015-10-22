@@ -2,6 +2,7 @@ import valueParser from "postcss-value-parser"
 import isCssColorName from "is-css-color-name"
 
 import {
+  declarationValueIndexOffset,
   report,
   ruleMessages,
   validateOptions,
@@ -22,14 +23,12 @@ export default function (actual) {
       const { value } = decl
 
       valueParser(value).walk(function (node) {
-        const charsBeforeColon = decl.toString().indexOf(":")
-        const charsAfterColon = decl.raw("between").length - decl.raw("between").indexOf(":")
 
         if (isCssColorName(node.value) && !node.quote) {
           report({
             message: messages.rejected(node.value),
             node: decl,
-            index: charsBeforeColon + charsAfterColon + node.sourceIndex,
+            index: declarationValueIndexOffset(decl) + node.sourceIndex,
             result,
             ruleName,
           })
