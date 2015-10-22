@@ -6,6 +6,7 @@ import cssStatementHasBlock from "./cssStatementHasBlock"
 import cssStatementHasEmptyBlock from "./cssStatementHasEmptyBlock"
 import cssStatementIsNestingBlock from "./cssStatementIsNestingBlock"
 import cssStatementStringBeforeBlock from "./cssStatementStringBeforeBlock"
+import declarationValueIndexOffset from "./declarationValueIndexOffset"
 import isAutoprefixable from "./isAutoprefixable"
 import isSingleLineString from "./isSingleLineString"
 import isWhitespace from "./isWhitespace"
@@ -29,6 +30,7 @@ export default {
   cssStatementHasEmptyBlock,
   cssStatementIsNestingBlock,
   cssStatementStringBeforeBlock,
+  declarationValueIndexOffset,
   isAutoprefixable,
   isSingleLineString,
   isWhitespace,
