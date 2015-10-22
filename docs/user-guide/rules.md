@@ -38,6 +38,7 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`function-parentheses-space-inside`](../../src/rules/function-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses of functions.
 * [`function-space-after`](../../src/rules/function-space-after/README.md): Require a single space or disallow whitespace after functions.
 * [`function-url-quotes`](../../src/rules/function-url-quotes/README.md): Specify single, double or no quotes for urls.
+* [`function-whitelist`](../../src/rules/function-whitelist/README.md): Specify a whitelist of only allowed functions.
 
 ### Value
 

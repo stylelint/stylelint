@@ -2,8 +2,9 @@
 
 * Added: `rule-single-line-max-declarations` rule.
 * Added: `color-no-hex` rule.
-* Added: `function-blacklist` rule.
 * Added: `color-no-named` rule.
+* Added: `function-blacklist` rule.
+* Added: `function-whitelist` rule.
 
 # 2.0.0
 
