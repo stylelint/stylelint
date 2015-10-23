@@ -5,6 +5,7 @@
 * Added: `color-no-named` rule.
 * Added: `function-blacklist` rule.
 * Added: `function-whitelist` rule.
+* Added: `unit-blacklist` rule.
 
 # 2.0.0
 
