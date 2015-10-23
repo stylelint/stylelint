@@ -11,7 +11,7 @@ import {
 export const ruleName = "unit-blacklist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (p) => `Unexpected unit "${p}"`,
+  rejected: (u) => `Unexpected unit "${u}"`,
 })
 
 export default function (blacklist) {

@@ -24,6 +24,11 @@ testRule([
   tr.ok("a { font-size: $fs10px; }", "ignore preprocessor variable includes unit")
   tr.ok("a { font-size: --some-fs-10px; }", "ignore css variable includes unit")
 
+  tr.ok("a { margin: 0 10em 5rem 2in; }", "ignore shorthand property")
+  tr.ok("a { background-position: top right, 1em 5vh; }", "ignore shorthand property of a value list")
+  tr.ok("a { top: calc(10em - 3em); }", "ignore shorthand property of a function")
+  tr.ok("a { background-image: linear-gradient(to right, white calc(100% - 50em), silver); }", "ignore shorthand property of a nested function")
+
   tr.notOk("a { font-size: 13px; }", {
     message: messages.rejected("px"),
     line: 1,
@@ -43,5 +48,26 @@ testRule([
     message: messages.rejected("px"),
     line: 1,
     column: 15,
+  })
+
+  tr.notOk("a { margin: 0 0 0 20px; }", {
+    message: messages.rejected("px"),
+    line: 1,
+    column: 19,
+  })
+  tr.notOk("a { background-position: top right, 1em 5px; }", {
+    message: messages.rejected("px"),
+    line: 1,
+    column: 41,
+  })
+  tr.notOk("a { top: calc(100px - 30vh); }", {
+    message: messages.rejected("px"),
+    line: 1,
+    column: 15,
+  })
+  tr.notOk("a { background-image: linear-gradient(to right, white calc(100vh - 5vmin), silver); }", {
+    message: messages.rejected("vmin"),
+    line: 1,
+    column: 68,
   })
 })
