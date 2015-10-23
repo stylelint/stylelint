@@ -27,7 +27,7 @@ A CSS string to be linted.
 
 Describes the formatter that you would like to use to format your results. `"json"` outputs JSON; `"string"` outputs a human-legible error report.
 
-If you pass a function, it must fit the signature described in the Developer Guide. TODO: LINK.
+If you pass a function, it must fit the signature described in the [Developer Guide](/docs/developer-guide/formatters.md).
 
 ### `config`
 
