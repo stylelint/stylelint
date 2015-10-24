@@ -51,6 +51,10 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`value-list-comma-space-after`](../../src/rules/value-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of value lists.
 * [`value-list-comma-space-before`](../../src/rules/value-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of value lists.
 
+### Unit
+
+* [`unit-blacklist`](../../src/unit-blacklist/README.md): Specify a blacklist of disallowed units.
+
 ### Property
 
 * [`property-blacklist`](../../src/rules/property-blacklist/README.md): Specify a blacklist of disallowed properties.

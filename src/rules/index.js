@@ -87,6 +87,7 @@ import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
 import selectorRootNoComposition from "./selector-root-no-composition"
 import stringQuotes from "./string-quotes"
+import unitBlacklist from "./unit-blacklist"
 import valueListCommaNewlineAfter from "./value-list-comma-newline-after"
 import valueListCommaNewlineBefore from "./value-list-comma-newline-before"
 import valueListCommaSpaceAfter from "./value-list-comma-space-after"
@@ -183,6 +184,7 @@ export default {
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
   "selector-root-no-composition": selectorRootNoComposition,
   "string-quotes": stringQuotes,
+  "unit-blacklist": unitBlacklist,
   "value-list-comma-newline-after": valueListCommaNewlineAfter,
   "value-list-comma-newline-before": valueListCommaNewlineBefore,
   "value-list-comma-space-after": valueListCommaSpaceAfter,
