@@ -17,17 +17,17 @@ testRule([
   tr.ok("a { top: 0; left: 0; }")
   tr.ok("a { font-size: 100%; }")
   tr.ok("a { line-height: 1.2rem; }")
+  tr.ok("a { margin: 0 10em 5rem 2in; }")
+  tr.ok("a { background-position: top right, 1em 5vh; }")
+  tr.ok("a { top: calc(10em - 3em); }")
+  tr.ok("a { background-image: linear-gradient(to right, white calc(100% - 50em), silver); }")
 
-  tr.ok("/* 100px */", "ignore unit within comments")
+  tr.ok("a { width: /* 100px */ 1em; }", "ignore unit within comments")
   tr.ok("a::before { content: \"10px\"}", "ignore unit within quotes")
 
   tr.ok("a { font-size: $fs10px; }", "ignore preprocessor variable includes unit")
   tr.ok("a { font-size: --some-fs-10px; }", "ignore css variable includes unit")
 
-  tr.ok("a { margin: 0 10em 5rem 2in; }", "ignore shorthand property")
-  tr.ok("a { background-position: top right, 1em 5vh; }", "ignore shorthand property of a value list")
-  tr.ok("a { top: calc(10em - 3em); }", "ignore shorthand property of a function")
-  tr.ok("a { background-image: linear-gradient(to right, white calc(100% - 50em), silver); }", "ignore shorthand property of a nested function")
 
   tr.notOk("a { font-size: 13px; }", {
     message: messages.rejected("px"),

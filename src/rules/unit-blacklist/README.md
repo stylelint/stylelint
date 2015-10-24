@@ -31,7 +31,7 @@ a { font-size: 10em; }
 The following patterns are *not* considered warnings:
 
 ```css
-a { width: 100%; }
+a { font-size: 1.2rem; }
 ```
 
 ```css
