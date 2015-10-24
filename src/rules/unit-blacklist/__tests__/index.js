@@ -28,7 +28,6 @@ testRule([
   tr.ok("a { font-size: $fs10px; }", "ignore preprocessor variable includes unit")
   tr.ok("a { font-size: --some-fs-10px; }", "ignore css variable includes unit")
 
-
   tr.notOk("a { font-size: 13px; }", {
     message: messages.rejected("px"),
     line: 1,
