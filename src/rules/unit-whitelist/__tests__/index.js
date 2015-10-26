@@ -1,6 +1,6 @@
 import {
   ruleTester,
-  warningFreeBasics
+  warningFreeBasics,
 } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
@@ -8,7 +8,7 @@ const testRule = ruleTester(rule, ruleName)
 
 testRule([
   "px",
-  "em"
+  "em",
 ], tr => {
   warningFreeBasics(tr)
 
