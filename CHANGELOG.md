@@ -6,6 +6,7 @@
 * Added: `function-blacklist` rule.
 * Added: `function-whitelist` rule.
 * Added: `unit-blacklist` rule.
+* Added: `unit-whitelist` rule.
 
 # 2.0.0
 
