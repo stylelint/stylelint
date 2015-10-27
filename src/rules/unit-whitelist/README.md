@@ -42,10 +42,10 @@ a { font-size: 1.2em; }
 a { line-height: 1.2; }
 ```
 
-```
+```css
 a { height: 100px; }
 ```
 
-```
+```css
 a { transform: rotate(30deg); }
 ```
