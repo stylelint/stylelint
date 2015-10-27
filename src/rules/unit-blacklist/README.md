@@ -15,7 +15,7 @@ Specify a blacklist of disallowed units.
 Given:
 
 ```js
-["px", "em"]
+["px", "em", "deg"]
 ```
 
 The following patterns are considered warnings:
@@ -28,6 +28,10 @@ a { width: 100px; }
 a { font-size: 10em; }
 ```
 
+```css
+a { transform: rotate(30deg); }
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -38,7 +42,10 @@ a { font-size: 1.2rem; }
 a { line-height: 1.2; }
 ```
 
-```
+```css
 a { height: 100vmin; }
 ```
 
+```css
+a { animation: animation-name 5s ease; }
+```
