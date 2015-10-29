@@ -7,6 +7,7 @@
 * Added: `function-whitelist` rule.
 * Added: `unit-blacklist` rule.
 * Added: `unit-whitelist` rule.
+* Added: `property-unit-blacklist` rule.
 
 # 2.0.0
 
