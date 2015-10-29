@@ -201,3 +201,35 @@ test("validateOptions for multiple actual/possible pairs, checking return value"
 
   t.end()
 })
+
+test("validateOptions with `possibleArray`", t => {
+  const result = mockResult()
+
+  const validOptions = validateOptions(result, "foo", {
+    possibleArray: [ "one", "two" ],
+    actual: [ "one", "one", "two" ],
+  })
+  t.equal(validOptions, true)
+  t.notOk(result.warn.called)
+  result.warn.reset()
+
+  const invalidOptions1 = validateOptions(result, "bar", {
+    possibleArray: [ "three", "four" ],
+    actual: "three",
+  })
+  t.equal(invalidOptions1, false)
+  t.ok(result.warn.calledOnce)
+  t.ok(result.warn.calledWith("Expected an array option value for rule \"bar\""))
+  result.warn.reset()
+
+  const invalidOptions2 = validateOptions(result, "bar", {
+    possibleArray: [ "three", "four" ],
+    actual: ["five"],
+  })
+  t.equal(invalidOptions2, false)
+  t.ok(result.warn.calledOnce)
+  t.ok(result.warn.calledWith("Invalid option value \"five\" for rule \"bar\""))
+  result.warn.reset()
+
+  t.end()
+})

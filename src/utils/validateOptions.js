@@ -1,3 +1,5 @@
+import { isEmpty } from "lodash"
+
 /**
  * Validate a rule's options.
  *
@@ -25,16 +27,34 @@ export default function (result, ruleName, ...optionDescriptions) {
 
   return noErrors
 
-  function validate({ possible, actual, optional }) {
-    const nothingPossible = !possible || (Array.isArray(possible) && !possible.length)
+  function complain(message) {
+    noErrors = false
+    result.warn(message)
+  }
+
+  function validate({ possible, possibleArray, actual, optional }) {
+    const nothingPossible = isEmpty(possible) && isEmpty(possibleArray)
+
     if (actual == null) {
       if (nothingPossible || optional) { return }
-      noErrors = false
-      result.warn(`Expected option value for rule "${ruleName}"`)
+      complain(`Expected option value for rule "${ruleName}"`)
       return
     } else if (nothingPossible) {
-      noErrors = false
-      result.warn(`Unexpected option value "${actual}" for rule "${ruleName}"`)
+      complain(`Unexpected option value "${actual}" for rule "${ruleName}"`)
+      return
+    }
+
+    // If using `possibleArray` ...
+    if (possibleArray) {
+      if (!Array.isArray(actual)) {
+        complain(`Expected an array option value for rule "${ruleName}"`)
+        return
+      }
+      actual.forEach(actualItem => {
+        if (isValid(possibleArray, actualItem)) { return }
+        complain(`Invalid option value "${actualItem}" for rule "${ruleName}"`)
+        return
+      })
       return
     }
 
@@ -42,8 +62,7 @@ export default function (result, ruleName, ...optionDescriptions) {
     if (Array.isArray(possible)) {
       const check = a => {
         if (isValid(possible, a)) { return }
-        noErrors = false
-        result.warn(`Invalid option value "${a}" for rule "${ruleName}"`)
+        complain(`Invalid option value "${a}" for rule "${ruleName}"`)
       }
       if (Array.isArray(actual)) {
         actual.forEach(check)
@@ -56,16 +75,14 @@ export default function (result, ruleName, ...optionDescriptions) {
     // If possible is an object ...
     Object.keys(actual).forEach(optionName => {
       if (!possible[optionName]) {
-        noErrors = false
-        result.warn(`Invalid option name "${optionName}" for rule "${ruleName}"`)
+        complain(`Invalid option name "${optionName}" for rule "${ruleName}"`)
         return
       }
 
       const actualOptionValue = actual[optionName]
       const check = a => {
         if (isValid(possible[optionName], a)) { return }
-        noErrors = false
-        result.warn(`Invalid value "${a}" for option "${optionName}" of rule "${ruleName}"`)
+        complain(`Invalid value "${a}" for option "${optionName}" of rule "${ruleName}"`)
       }
 
       if (Array.isArray(actualOptionValue)) {
