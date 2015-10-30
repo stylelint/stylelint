@@ -63,6 +63,7 @@ import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyBlacklist from "./property-blacklist"
 import propertyWhitelist from "./property-whitelist"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
+import propertyUnitBlacklist from "./property-unit-blacklist"
 import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
 import ruleNoDuplicateProperties from "./rule-no-duplicate-properties"
@@ -161,6 +162,7 @@ export default {
   "property-blacklist": propertyBlacklist,
   "property-whitelist": propertyWhitelist,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
+  "property-unit-blacklist": propertyUnitBlacklist,
   "root-no-standard-properties": rootNoStandardProperties,
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
   "rule-no-duplicate-properties": ruleNoDuplicateProperties,
