@@ -4,8 +4,8 @@ Specify a blacklist of disallowed units for specific properties.
 
 ```css
     a { width: 100px; }
-/**               ↑
- *      These units */
+/**       ↑      ↑
+ * These properties and these units */
 ```
 
 ## Options
@@ -26,10 +26,6 @@ Given:
 The following patterns are considered warnings:
 
 ```css
-a { width: 100px; }
-```
-
-```css
 a { font-size: 1em; }
 ```
 
@@ -44,7 +40,7 @@ a { font-size: 1.2rem; }
 ```
 
 ```css
-a { height: 100%; }
+a { height: 100px; }
 ```
 
 ```css
