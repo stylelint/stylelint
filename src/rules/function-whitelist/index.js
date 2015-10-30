@@ -19,7 +19,7 @@ export default function (whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,
-      possible: [isString],
+      possibleArray: [isString],
     })
     if (!validOptions) { return }
     root.walkDecls(decl => {
