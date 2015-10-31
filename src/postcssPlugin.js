@@ -22,8 +22,6 @@ export default postcss.plugin("stylelint", (options = {}) => {
     const configBasedir = options.configBasedir || path.dirname(initialConfig.config)
     const config = extendConfig(initialConfig, configBasedir)
 
-    console.log(config)
-
     if (config.plugins) {
       merge(ruleDefinitions, mapValues(config.plugins, plugin => require(plugin)))
     }
