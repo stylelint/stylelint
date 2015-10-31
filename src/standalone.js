@@ -3,7 +3,7 @@ import globby from "globby"
 import fs from "fs"
 import queue from "queue-async"
 import scssSyntax from "postcss-scss"
-import plugin from "./plugin"
+import stylelintPostcssPlugin from "./postcssPlugin"
 import formatters from "./formatters"
 
 export default function ({
@@ -70,7 +70,7 @@ export default function ({
         processOptions.syntax = scssSyntax
       }
       postcss()
-        .use(plugin({ config, configBasedir, configOverrides }))
+        .use(stylelintPostcssPlugin({ config, configBasedir, configOverrides }))
         .process(code, processOptions)
         .then(postcssResult => {
           const source = (!postcssResult.root.source)

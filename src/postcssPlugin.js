@@ -2,7 +2,7 @@ import postcss from "postcss"
 import rc from "rc"
 import path from "path"
 import resolveFrom from "resolve-from"
-import { merge, cloneDeep, isEmpty } from "lodash"
+import { assign, mapValues, merge, isEmpty } from "lodash"
 import { configurationError } from "./utils"
 import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
@@ -22,10 +22,10 @@ export default postcss.plugin("stylelint", (options = {}) => {
     const configBasedir = options.configBasedir || path.dirname(initialConfig.config)
     const config = extendConfig(initialConfig, configBasedir)
 
+    console.log(config)
+
     if (config.plugins) {
-      Object.keys(config.plugins).forEach(pluginName => {
-        ruleDefinitions[pluginName] = require(modulePath(config.plugins[pluginName], configBasedir))
-      })
+      merge(ruleDefinitions, mapValues(config.plugins, plugin => require(plugin)))
     }
 
     if (options.configOverrides) {
@@ -68,20 +68,32 @@ export default postcss.plugin("stylelint", (options = {}) => {
   }
 })
 
-function extendConfig(config, configBasedir) {
-  if (!config.extends) { return config }
+function extendConfig(config, basedir = process.cwd()) {
+  // Absolutize the plugins here, because here is the place
+  // where we know the basedir for this particular config
+  const configWithAbsolutePlugins = absolutizePlugins(config, basedir)
+  if (!config.extends) return configWithAbsolutePlugins
 
   return [].concat(config.extends).reduce((mergedConfig, extendingConfigLookup) => {
-    let extendingConfigPath = modulePath(extendingConfigLookup, configBasedir || process.cwd())
+    const extendingConfigPath = getModulePath(basedir, extendingConfigLookup)
+    const extendingConfigDir = path.dirname(extendingConfigPath)
 
     // Now we must recursively extend the extending config
-    let extendingConfig = extendConfig(require(extendingConfigPath), path.dirname(extendingConfigPath))
+    const extendingConfig = extendConfig(require(extendingConfigPath), extendingConfigDir)
 
     return merge({}, extendingConfig, mergedConfig)
-  }, cloneDeep(config))
+  }, configWithAbsolutePlugins)
 }
 
-function modulePath(lookup, basedir) {
+// Replace all plugin looksup with absolute paths
+function absolutizePlugins(config, basedir) {
+  if (!config.plugins) { return config }
+  return assign({}, config, {
+    plugins: mapValues(config.plugins, lookup => getModulePath(basedir, lookup)),
+  })
+}
+
+function getModulePath(basedir, lookup) {
   try {
     return resolveFrom(basedir, lookup)
   } catch (e) {
