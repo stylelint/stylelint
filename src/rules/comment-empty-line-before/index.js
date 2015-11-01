@@ -1,4 +1,5 @@
 import {
+  optionsHaveException,
   report,
   ruleMessages,
   validateOptions,
@@ -11,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected empty line before comment",
 })
 
-export default function (expectation) {
+export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -19,6 +20,12 @@ export default function (expectation) {
         "always",
         "never",
       ],
+    }, {
+      actual: options,
+      possible: {
+        except: ["first-nested"],
+      },
+      optional: true,
     })
     if (!validOptions) { return }
 
@@ -32,13 +39,20 @@ export default function (expectation) {
       // Ignore inline comments
       if (before.indexOf("\n") === -1) { return }
 
-      const expectEmptyLineBefore = (expectation === "always") ? true : false
+      const expectEmptyLineBefore = (() => {
+        if (
+          optionsHaveException(options, "first-nested")
+          && comment.parent !== root
+          && comment === comment.parent.first
+        ) { return false }
+        return expectation === "always"
+      })()
 
-      const emptyLineBefore = before.indexOf("\n\n") !== -1
+      const hasEmptyLineBefore = before.indexOf("\n\n") !== -1
         || before.indexOf("\r\n\r\n") !== -1
 
       // Return if the exceptation is met
-      if (expectEmptyLineBefore === emptyLineBefore) { return }
+      if (expectEmptyLineBefore === hasEmptyLineBefore) { return }
 
       const message = expectEmptyLineBefore ? messages.expected : messages.rejected
 

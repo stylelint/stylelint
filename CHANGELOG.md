@@ -13,6 +13,7 @@
 * Fixed: bug causing `function-comma-*` whitespace rules to improperly judge whether to enforce single- or multi-line options.
 * Fixed: indentation for function arguments, by ignoring them.
 * Fixed: `comment-space-inside` allows any number of asterisks at the beginning and end of comments.
+* Added: `first-nested` exception to `comment-empty-line-before`.
 
 # 2.0.0
 
