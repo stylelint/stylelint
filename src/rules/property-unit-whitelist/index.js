@@ -25,12 +25,14 @@ export default function (whitelist) {
     root.walkDecls(decl => {
 
       const { prop, value } = decl
-      const whitelistInProp = whitelist[prop]
+      const propWhitelist = whitelist[prop]
+
+      if (!propWhitelist) { return }
 
       valueParser(value).walk(function (node) {
         const unit = valueParser.unit(node.value).unit
 
-        if (whitelistInProp && unit && whitelistInProp.indexOf(unit) === -1 && node.type !== "string") {
+        if (unit && propWhitelist.indexOf(unit) === -1 && node.type !== "string") {
           report({
             message: messages.rejected(prop, unit),
             node: decl,

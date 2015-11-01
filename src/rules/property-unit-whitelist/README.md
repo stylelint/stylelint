@@ -1,6 +1,6 @@
 # property-unit-whitelist
 
-Specify a whitelist of disallowed units for specific properties.
+Specify a whitelist of allowed units for specific properties.
 
 ```css
     a { width: 100px; }
@@ -26,17 +26,17 @@ Given:
 The following patterns are considered warnings:
 
 ```css
-a { font-size: 1em; }
+a { font-size: 1.2rem; }
 ```
 
 ```css
-a { animation: animation-name 5s ease; }
+a { animation: animation-name 500ms ease; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a { font-size: 1.2rem; }
+a { font-size: 1em; }
 ```
 
 ```css
@@ -44,6 +44,6 @@ a { height: 100px; }
 ```
 
 ```css
-a { animation: animation-name 500ms ease; }
+a { animation: animation-name 5s ease; }
 ```
 

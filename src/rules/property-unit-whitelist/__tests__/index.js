@@ -22,6 +22,7 @@ testRule({
   tr.ok("a { background-position: top right, 0 50%; }")
   tr.ok("a { margin: calc(30em - 10em); }")
   tr.ok("a { animation: animation-name 1s ease; }")
+  tr.ok("a { -webkit-animation: animation-name 100ms ease; }")
 
   tr.ok("a { font-size: /* 1.2rem */ 12px; }", "ignore unit within comments")
   tr.ok("a::before { font-size: \"1.2rem\"}", "ignore unit within quotes")
@@ -62,4 +63,5 @@ testRule({
     message: messages.rejected("animation", "ms"),
     column: 31,
   })
+
 })
