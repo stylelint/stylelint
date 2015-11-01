@@ -154,4 +154,9 @@ testRule("never-single-line", tr => {
     line: 1,
     column: 43,
   })
+  tr.notOk("a { transform: lightness(50%)\ncolor(rgb(0 , 0 ,0) ); }", {
+    message: messages.rejectedAfterSingleLine(),
+    line: 2,
+    column: 13,
+  })
 })

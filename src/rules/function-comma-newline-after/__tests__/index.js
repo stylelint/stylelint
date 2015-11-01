@@ -62,6 +62,14 @@ testRule("always-multi-line", tr => {
   tr.ok("a { transform: translate(1,  1); }")
   tr.ok("a { transform: translate(1, 1); }")
   tr.ok("a { transform: translate(1,\t1); }")
+  tr.ok("a {\r\n  transform:\r\n    translate(1,1)\r\n  scale(3);\r\n}", "CRLF")
+  tr.ok(`
+    .foo {
+      box-shadow:
+        inset 0 8px 8px -8px rgba(0, 0, 0, 1)
+        inset 0 -10px 12px 0 #f00;
+    }
+  `)
 
   tr.notOk("a { transform: color(rgb(0 , 0 ,\n0) lightness(50%)); }", {
     message: messages.expectedAfterMultiLine(),
