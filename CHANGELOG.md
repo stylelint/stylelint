@@ -11,6 +11,7 @@
 * Added: support for arbitrary whitespace after function in `function-space-after`.
 * Fixed: bug when loading plugins from an extended config
 * Fixed: bug causing `function-comma-*` whitespace rules to improperly judge whether to enforce single- or multi-line options.
+* Fixed: indentation for function arguments, by ignoring them
 
 # 2.0.0
 
