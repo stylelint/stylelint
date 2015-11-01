@@ -172,6 +172,31 @@ test("count", t => {
   t.end()
 })
 
+test("finds parentheses", t => {
+  t.deepEqual(styleSearchResults({
+    source: "a { color: rgb(0,0,0); }",
+    target: "(",
+  }), [14])
+  t.deepEqual(styleSearchResults({
+    source: "a { color: rgb(0,0,0); }",
+    target: ")",
+  }), [20])
+  t.end()
+})
+
+test("finds function names on demand only", t => {
+  t.deepEqual(styleSearchResults({
+    source: "a { color: rgb(0,0,0); }",
+    target: "rgb",
+  }), [])
+  t.deepEqual(styleSearchResults({
+    source: "a { color: rgb(0,0,0); }",
+    target: "rgb",
+    checkFunctionNames: true,
+  }), [11])
+  t.end()
+})
+
 test("non-single-character target", t => {
   t.deepEqual(styleSearchResults({
     source: "abc cba",
@@ -229,6 +254,8 @@ test("match object", t => {
     t.equal(match.startIndex, 1)
     t.equal(match.endIndex, 3)
     t.equal(match.target, "bc")
+    t.equal(match.insideFunction, false)
+    t.equal(match.insideComment, false)
   })
 
   const twoMatches = []
@@ -240,9 +267,38 @@ test("match object", t => {
   t.equal(firstMatch.startIndex, 1)
   t.equal(firstMatch.endIndex, 4)
   t.equal(firstMatch.target, "bc ")
+  t.equal(firstMatch.insideFunction, false)
+  t.equal(firstMatch.insideComment, false)
   t.equal(secondMatch.startIndex, 5)
   t.equal(secondMatch.endIndex, 7)
   t.equal(secondMatch.target, "ca")
+  t.equal(secondMatch.insideFunction, false)
+  t.equal(secondMatch.insideComment, false)
+
+  t.test("match within a function", st => {
+    styleSearch({ source: "a { color: rgb(0, 0, 1); }", target: "1" }, match => {
+      st.equal(match.insideFunction, true)
+      st.equal(match.insideComment, false)
+      st.end()
+    })
+  })
+
+  t.test("match within a comment", st => {
+    styleSearch({ source: "a { color: /* 1 */ pink; }", target: "1", checkComments: true }, match => {
+      st.equal(match.insideFunction, false)
+      st.equal(match.insideComment, true)
+      st.end()
+    })
+  })
+
+  t.test("match within a comment within function", st => {
+    styleSearch({ source: "a { color: rgb(0, 0, 0 /* 1 */); }", target: "1", checkComments: true }, match => {
+      st.equal(match.insideFunction, true)
+      st.equal(match.insideComment, true)
+      st.end()
+    })
+  })
+
   t.end()
 })
 

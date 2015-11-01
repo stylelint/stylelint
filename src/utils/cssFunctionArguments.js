@@ -14,7 +14,7 @@ import styleSearch from "./styleSearch"
  *   and its starting index as the arguments
  */
 export default function (source, functionName, callback) {
-  styleSearch({ source, target: functionName }, match => {
+  styleSearch({ source, target: functionName, checkFunctionNames: true }, match => {
     if (source[match.endIndex] !== "(") { return }
     const parensMatch = balancedMatch("(", ")", source.substr(match.startIndex))
     callback(parensMatch.body, match.endIndex + 1)
