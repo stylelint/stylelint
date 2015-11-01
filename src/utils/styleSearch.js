@@ -5,9 +5,11 @@
  * - startIndex: where the match begins
  * - endIndex: where the match ends
  * - target: what got matched
+ * - insideFunction: whether the match is inside a function
+ * - insideComment: whether the match is inside a comment
  *
  * Always ignores CSS strings (e.g. `content` property values).
- * By default ignores comments.
+ * By default ignores comments and function names.
  * Optionally restricts the search to characters within or outside of functional notation.
  *
  * @param {object} options
@@ -23,6 +25,7 @@
  * @param {boolean} [options.outsideFunctionalNotation] - If `true`, only report
  *   matches found *outside* CSS functions
  * @param {boolean} [options.checkComments] - If `true`, comments will *not* be ignored
+ * @param {boolean} [options.checkFunctionNames] - If `true`, function names will *not* be ignored
  * @param {boolean} [options.onlyOne] - Stop looking after the first match is found
  * @param {function} callback - Is invoked for every match, receiving the `match` object
  *   and a count of how many matches have been found up to that point
@@ -32,6 +35,13 @@ export default function (options, callback) {
     source,
     target,
   } = options
+
+  let insideString = false
+  let insideComment = false
+  let insideFunction = false
+  let openingParenCount = 0
+  let matchCount = 0
+  let openingQuote
 
   const targetIsArray = Array.isArray(target)
 
@@ -67,50 +77,41 @@ export default function (options, callback) {
     }
 
     return {
+      insideFunction,
+      insideComment,
       startIndex: index,
       endIndex: index + targetStringLength,
       target: targetString,
     }
   }
 
-  let insideString = false
-  let insideComment = false
-  let insideFunction = false
-  let openingParenCount = 0
-  let matchCount = 0
-  let openingQuote
-
   for (let i = 0, l = source.length; i < l; i++) {
 
     const currentChar = source[i]
 
     // Register the beginning of a comment
-    if (!options.checkComments) {
-      if (
-        !insideComment
-        && currentChar === "/"
-        && source[i - 1] !== "\\" // escaping
-        && source[i + 1] === "*"
-      ) {
-        insideComment = true
-        continue
-      }
-
-      if (insideComment) {
-        // Register the end of a comment
-        if (
-          currentChar === "*"
-          && source[i - 1] !== "\\" // escaping
-          && source[i + 1] === "/"
-        ) {
-          insideComment = false
-          continue
-        }
-        // Or just keep going, because we're
-        // still inside a comment
-        continue
-      }
+    if (
+      !insideComment
+      && currentChar === "/"
+      && source[i - 1] !== "\\" // escaping
+      && source[i + 1] === "*"
+    ) {
+      insideComment = true
+      continue
     }
+
+    // Register the end of a comment
+    if (
+      insideComment
+      && currentChar === "*"
+      && source[i - 1] !== "\\" // escaping
+      && source[i + 1] === "/"
+    ) {
+      insideComment = false
+      continue
+    }
+
+    if (insideComment && !options.checkComments) { continue }
 
     // Register the beginning of a string
     if (!insideString && (currentChar === "\"" || currentChar === "'")) {
@@ -138,32 +139,30 @@ export default function (options, callback) {
       continue
     }
 
-    // If we are paying attention to functions ...
-    if (options.withinFunctionalNotation || options.outsideFunctionalNotation) {
+    // Register the beginning of a function
+    if (currentChar === "(") {
+      // Keep track of opening parentheses so that we
+      // know when the outermost function (possibly
+      // containing nested functions) is closing
+      openingParenCount++
+      insideFunction = true
+      if (target === "(") matchFound(checkAgainstTarget(i))
+      continue
+    }
 
-      // Register the beginning of a function
-      if (currentChar === "(") {
-        // Keep track of opening parentheses so that we
-        // know when the outermost function (possibly
-        // containing nested functions) is closing
-        openingParenCount++
-        insideFunction = true
-        continue
+    // Register the end of a function
+    if (currentChar === ")") {
+      openingParenCount--
+      if (openingParenCount === 0) {
+        insideFunction = false
       }
+      if (target === ")") matchFound(checkAgainstTarget(i))
+      continue
+    }
 
-      // Register the end of a function
-      if (currentChar === ")") {
-        openingParenCount--
-        if (openingParenCount === 0) {
-          insideFunction = false
-        }
-        continue
-      }
-
-      // If this char is part of a function name, ignore it
-      if (/^[a-zA-Z]*\(/.test(source.slice(i))) {
-        continue
-      }
+    // If this char is part of a function name, ignore it
+    if (!options.checkFunctionNames && /^[a-zA-Z]*\(/.test(source.slice(i))) {
+      continue
     }
 
     const match = checkAgainstTarget(i)
