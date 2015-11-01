@@ -8,6 +8,9 @@ Require a single space or disallow whitespace on the inside of comment markers.
  * The space inside these two markers */
 ```
 
+Any number of asterisks are allowed at the beginning or end of the comment.
+So `/** comment **/` is treated the same way as `/* comment */`.
+
 ## Options
 
 `string`: `"always"|"never"`
@@ -27,13 +30,17 @@ The following patterns are considered warnings:
 ```
 
 ```css
-/* comment*/
+/** comment**/
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
 /* comment */
+```
+
+```css
+/** comment **/
 ```
 
 ### `"never"`
@@ -51,11 +58,15 @@ The following patterns are considered warnings:
 ```
 
 ```css
-/* comment*/
+/** comment**/
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
 /*comment*/
+```
+
+```css
+/****comment****/
 ```
