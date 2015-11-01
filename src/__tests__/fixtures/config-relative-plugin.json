@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "warn-about-foo": "./plugin-warn-about-foo"
+  },
+  "rules": {
+    "warn-about-foo": [ 2, "always" ]
+  }
+}

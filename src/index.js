@@ -1,4 +1,4 @@
-module.exports = require("./plugin")
+module.exports = require("./postcssPlugin")
 
 module.exports.utils = {
   report: require("./utils/report"),
