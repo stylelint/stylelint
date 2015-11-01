@@ -9,6 +9,7 @@
 * Added: `unit-whitelist` rule.
 * Added: `property-unit-blacklist` rule.
 * Fixed: bug when loading plugins from an extended config
+* Fixed: indentation for function arguments, by ignoring them
 
 # 2.0.0
 
