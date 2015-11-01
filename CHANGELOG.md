@@ -8,6 +8,7 @@
 * Added: `unit-blacklist` rule.
 * Added: `unit-whitelist` rule.
 * Added: `property-unit-blacklist` rule.
+* Added: `property-unit-whitelist` rule.
 
 # 2.0.0
 
