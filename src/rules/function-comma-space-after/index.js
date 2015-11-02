@@ -1,4 +1,6 @@
+import valueParser from "postcss-value-parser"
 import {
+  declarationValueIndexOffset,
   report,
   ruleMessages,
   styleSearch,
@@ -40,22 +42,29 @@ export default function (expectation) {
 
 export function functionCommaSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
-    const declString = decl.toString()
+    const functionOffset = declarationValueIndexOffset(decl)
 
-    styleSearch({ source: declString, target: ",", withinFunctionalNotation: true }, match => {
-      checkComma(declString, match.startIndex, decl)
+    const cssFunctions = valueParser(decl.value)
+      .nodes
+      .filter(node => node.type === "function")
+
+    cssFunctions.forEach(cssFunction => {
+      const cssFunctionString = valueParser.stringify(cssFunction)
+      styleSearch({ source: cssFunctionString, target: "," }, match => {
+        locationChecker({
+          source: cssFunctionString,
+          index: match.startIndex,
+          err: message => {
+            report({
+              message,
+              node: decl,
+              index: functionOffset + cssFunction.sourceIndex + match.startIndex,
+              result,
+              ruleName: checkedRuleName,
+            })
+          },
+        })
+      })
     })
   })
-
-  function checkComma(source, index, node) {
-    locationChecker({ source, index, err: m =>
-      report({
-        message: m,
-        node,
-        index,
-        result,
-        ruleName: checkedRuleName,
-      }),
-    })
-  }
 }
