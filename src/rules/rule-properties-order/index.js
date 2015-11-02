@@ -1,4 +1,4 @@
-import { isString } from "lodash"
+import _ from "lodash"
 import { vendor } from "postcss"
 import {
   report,
@@ -10,6 +10,7 @@ export const ruleName = "rule-properties-order"
 
 export const messages = ruleMessages(ruleName, {
   expected: (first, second) => `Expected property "${first}" to come before property "${second}"`,
+  expectedEmptyLineBetween: (first, second) => `Expected an empty line between property "${first}" and property "${second}"`,
 })
 
 export default function (expectation, options) {
@@ -18,7 +19,8 @@ export default function (expectation, options) {
       actual: expectation,
       possible: [
         "alphabetical",
-        isString,
+        _.isString,
+        _.isPlainObject,
       ],
     }, {
       actual: options,
@@ -32,124 +34,155 @@ export default function (expectation, options) {
     // Shallow loop
     root.each(node => {
       if (node.type === "rule" || node.type === "atrule") {
-        checkInNode(node)
+        checkNode(node)
       }
     })
 
-    function checkInNode(node) {
-      // By default, ignore unspecified properties altogether
-      const unspecified = (options && options.unspecified) ? options.unspecified : "ignore"
-
-      let previousProp
+    function checkNode(node) {
+      const allPropData = []
+      let lastKnownLineSeparatedGroup = 1
 
       node.each(child => {
-
         if (child.nodes && child.nodes.length) {
-          checkInNode(child)
+          checkNode(child)
         }
 
         if (child.type !== "decl") { return }
 
-        const prop = {
+        const propData = {
           name: child.prop,
           unprefixedName: vendor.unprefixed(child.prop),
+          before: child.raw("before"),
+          index: allPropData.length,
         }
+
+        const previousPropData = _.last(allPropData)
+        allPropData.push(propData)
 
         // Skip first decl
-        if (!previousProp) {
-          previousProp = prop
-          return
-        }
+        if (!previousPropData) { return }
 
-        // Same unprefixed property name
-        if (prop.unprefixedName === previousProp.unprefixedName
-          && prop.name >= previousProp.name) {
-          previousProp = prop
-          return
-        }
+        const isCorrectOrder = (expectation === "alphabetical")
+          ? checkAlpabeticalOrder(previousPropData, propData)
+          : checkOrder(previousPropData, propData, lastKnownLineSeparatedGroup, child)
 
-        // Different unprefixed property names ...
-        if (prop.unprefixedName !== previousProp.unprefixedName) {
-          // Alphabetical
-          if (expectation === "alphabetical"
-            && prop.unprefixedName >= previousProp.unprefixedName) {
-            previousProp = prop
-            return
-          }
-
-          // Array of properties
-          if (Array.isArray(expectation)) {
-
-            let propIndex = expectation.indexOf(prop.unprefixedName)
-            let previousPropIndex = expectation.indexOf(previousProp.unprefixedName)
-
-            // If either this or prev prop was not found but they have a hyphen
-            // (e.g. `padding-top`), try looking for the segment preceding the hyphen
-            // and use that index
-            if (propIndex === -1 && prop.unprefixedName.indexOf("-") !== -1) {
-              const propPreHyphen = prop.unprefixedName.slice(0, prop.unprefixedName.indexOf("-"))
-              propIndex = expectation.indexOf(propPreHyphen)
-            }
-            if (previousPropIndex === -1 && previousProp.unprefixedName.indexOf("-") !== -1) {
-              const previousPropPreHyphen = previousProp.unprefixedName.slice(0, previousProp.unprefixedName.indexOf("-"))
-              previousPropIndex = expectation.indexOf(previousPropPreHyphen)
-            }
-
-            // Check that two known properties are in order
-            if (propIndex !== -1 && previousPropIndex !== -1
-              && propIndex >= previousPropIndex) {
-              previousProp = prop
-              return
-            }
-
-            // If this or the previous property was not found in the array ...
-            if (previousPropIndex === -1 || propIndex === -1) {
-              // If neither were found, let it be
-              if (previousPropIndex === -1 && propIndex === -1) { return }
-
-              // If we are meant to ignore unspecified properties, let it be
-              if (unspecified === "ignore") { return }
-
-              // If unspecified properties should be at the top,
-              // then the not-found-propery must be the previous one
-              if (unspecified === "top") {
-                if (previousPropIndex === -1) { return }
-                report({
-                  message: messages.expected(prop.name, previousProp.name),
-                  node: child,
-                  result,
-                  ruleName,
-                })
-                previousProp = prop
-                return
-              }
-
-              // If unspecified properties should be at the top,
-              // then the not-found-propery must be this one (not the previous one)
-              if (unspecified === "bottom") {
-                if (propIndex === -1) { return }
-                report({
-                  message: messages.expected(previousProp.name, prop.name),
-                  node: child,
-                  result,
-                  ruleName,
-                })
-                previousProp = prop
-                return
-              }
-            }
-          }
-        }
+        if (isCorrectOrder) { return }
 
         report({
-          message: messages.expected(prop.name, previousProp.name),
+          message: messages.expected(propData.name, previousPropData.name),
           node: child,
           result,
           ruleName,
         })
-
-        previousProp = prop
       })
     }
+
+    function checkAlpabeticalOrder(firstPropData, secondPropData) {
+      // If unprefixed prop names are the same, compare the prefixed versions
+      if (firstPropData.unprefixedName === secondPropData.unprefixedName) {
+        return firstPropData.name <= secondPropData.name
+      }
+
+      return firstPropData.unprefixedName < secondPropData.unprefixedName
+    }
+
+    function checkOrder(firstPropData, secondPropData, lastKnownLineSeparatedGroup, node) {
+      const expectedOrder = createExpectedOrder(expectation)
+
+      // If the unprefixed property names are the same, resort to alphabetical ordering
+      if (firstPropData.unprefixedName === secondPropData.unprefixedName) {
+        return firstPropData.name <= secondPropData.name
+      }
+
+      // By default, ignore unspecified properties
+      const unspecified = _.get(options, ["unspecified"], "ignore")
+
+      const firstPropOrderValue = getOrderValue(expectedOrder, firstPropData.unprefixedName)
+      const secondPropOrderValue = getOrderValue(expectedOrder, secondPropData.unprefixedName)
+      const firstPropIsUnspecified = !firstPropOrderValue
+      const secondPropIsUnspecified = !secondPropOrderValue
+
+      // Now check newlines between ...
+      const firstPropLineSeparatedGroup = (!firstPropIsUnspecified)
+        ? firstPropOrderValue.lineSeparatedGroup
+        : lastKnownLineSeparatedGroup
+      const secondPropLineSeparatedGroup = (!secondPropIsUnspecified)
+        ? secondPropOrderValue.lineSeparatedGroup
+        : lastKnownLineSeparatedGroup
+      if (firstPropLineSeparatedGroup !== secondPropLineSeparatedGroup) {
+        if (!/\r?\n\r?\n/.test(secondPropData.before)) {
+          report({
+            message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),
+            node,
+            result,
+            ruleName,
+          })
+        }
+      }
+      lastKnownLineSeparatedGroup = secondPropLineSeparatedGroup
+
+      // Now check actual known properties ...
+      if (!firstPropIsUnspecified && !secondPropIsUnspecified) {
+        return firstPropOrderValue.index <= secondPropOrderValue.index
+      }
+
+      // Now deal with unspecified props ...
+
+      if (firstPropIsUnspecified && secondPropIsUnspecified) { return true }
+
+      if (unspecified === "ignore" && (firstPropIsUnspecified || secondPropIsUnspecified)) { return  true }
+
+      if (unspecified === "top" && firstPropIsUnspecified) { return true }
+      if (unspecified === "top" && secondPropIsUnspecified) { return false }
+
+      if (unspecified === "bottom" && secondPropIsUnspecified) { return true }
+      if (unspecified === "bottom" && firstPropIsUnspecified) { return false }
+    }
   }
+}
+
+function createExpectedOrder(input) {
+  const expectedOrder = {}
+  let lineSeparatedGroup = 1
+  appendGroup(input, 1)
+
+  function appendGroup(items, startIndex) {
+    items.forEach((item, index) => {
+      appendItem(item, index + startIndex)
+    })
+  }
+
+  function appendItem(item, index) {
+    if (_.isString(item)) {
+      expectedOrder[item] = { index, lineSeparatedGroup }
+      return
+    }
+
+    if (item.emptyLineBefore) {
+      lineSeparatedGroup += 1
+    }
+
+    if (item.strict) {
+      appendGroup(item.properties, index)
+      return
+    }
+
+    item.properties.forEach(property => {
+      appendItem(property, index)
+    })
+  }
+
+  return expectedOrder
+}
+
+function getOrderValue(expectedOrder, propName) {
+  let orderValue = expectedOrder[propName]
+  // If prop was not specified but has a hyphen
+  // (e.g. `padding-top`), try looking for the segment preceding the hyphen
+  // and use that index
+  if (!orderValue && propName.indexOf("-") !== -1) {
+    const propNamePreHyphen = propName.slice(0, propName.indexOf("-"))
+    orderValue = expectedOrder[propNamePreHyphen]
+  }
+  return orderValue
 }
