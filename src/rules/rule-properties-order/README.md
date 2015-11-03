@@ -11,11 +11,11 @@ Specify the order of properties within rules.
  * These properties */
 ```
 
-Prefixed properties *must always* be alphabetically order and *must always* preceed the unprefixed property.
+Prefixed properties *must always* be alphabetically ordered and *must always* precede the unprefixed version.
 
 ## Options
 
-`string|array`: `"alphabetical"|["of", "unprefixed", "property", "names", "or", "objects"]`
+`string|array`: `"alphabetical"|["array", "of", "unprefixed", "property", "names", "or", "group", "objects"]`
 
 ### `"alphabetical"`
 
@@ -55,13 +55,15 @@ a {
 }
 ```
 
-### `["of", "unprefixed", "property", "names", "or", "objects"]`
+### `["array", "of", "unprefixed", "property", "names", "or", "group", "objects"]`
 
-Within a order array, you can include unprefixed property names or you can include objects with these properties:
+Within an order array, you can include
 
-* `order ("strict"|"flexible")`: If strict (the default), the properties in this group must come in the order specified. If flexible, the properties can be in any order as long as they are grouped correctly.
-* `emptyLineBefore (boolean)`: If true, this group must be separated from other properties by an empty newline. By default (or if emptyLineBefore is `false`), the rule doesn't care if there are empty newlines or not before properties.
-* `properties (array of strings)`: The properties in this group.
+* unprefixed property names
+* group objects with these properties:
+  * `order ("strict"|"flexible")`: If `"strict"` (the default), the properties in this group must come in the order specified. If `"flexible"`, the properties can be in any order as long as they are grouped correctly.
+  * `emptyLineBefore (boolean)`: If `true`, this group must be separated from other properties by an empty newline. By default (or if emptyLineBefore is `false`), the rule doesn't care if there are empty newlines or not before this group's properties.
+  * `properties (array of strings)`: The properties in this group.
 
 There are some important details to keep in mind:
 
