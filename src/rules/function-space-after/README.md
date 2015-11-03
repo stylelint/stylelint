@@ -8,7 +8,7 @@ Require or disallow whitespace after functions.
  *                       This space */
 ```
 
-Unlike other `*-space-*` rules, this one allow *any whitespace*, not just a single space.
+Unlike most other `*-space-*` rules, this one allow *any whitespace*, not just a single space.
 
 In a future release, this rule's name will be changed to `function-whitespace-after`.
 
