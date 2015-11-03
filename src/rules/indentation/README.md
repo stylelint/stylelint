@@ -251,3 +251,46 @@ The following patterns are *not* considered warnings:
   }
 .bar {}
 ```
+
+## Caveats
+
+Function arguments are simply ignored, to allow for arbitrary indentation.
+So any of the following are *not* considered warnings:
+
+```css
+.foo {
+  color: rgb(0, 0, 0);
+}
+```
+
+```css
+.foo {
+  color: rgb(
+    0,
+    0,
+    0
+  );
+}
+```
+
+```css
+.foo {
+  color: rgb(
+      0,
+      0,
+      0
+    );
+}
+```
+
+```css
+.foo {
+  color: bar(
+    rgb(
+    0,
+    0,
+    0
+    )
+  );
+}
+```

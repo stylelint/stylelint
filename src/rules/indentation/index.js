@@ -187,46 +187,12 @@ export default function (space, options) {
         : declLevel + 1
 
       checkMultilineBit(declString, valueLevel, decl)
-
-      // styleSearch({ source: declString, target: "\n" }, (match) => {
-      //   // Starting at the index after the newline, we want to
-      //   // check that the whitespace characters before the first
-      //   // non-whitespace character equal the expected indentation
-      //   const postNewlineActual = /^(\s*)\S/.exec(declString.slice(match.startIndex + 1))[1]
-      //
-      //   if (postNewlineActual !== repeat(indentChar, valueLevel)) {
-      //     report({
-      //       message: messages.expected(legibleExpectation(valueLevel)),
-      //       node: decl,
-      //       index: match.startIndex + 1,
-      //       result,
-      //       ruleName,
-      //     })
-      //   }
-      // })
     }
 
     function checkSelector(rule, ruleLevel) {
       const selector = rule.selector
 
       checkMultilineBit(selector, ruleLevel, rule)
-
-      // styleSearch({ source: selector, target: "\n" }, (match) => {
-      //   // Starting at the index after the newline, we want to
-      //   // check that the whitespace characters before the first
-      //   // non-whitespace character equal the expected indentation
-      //   const postNewlineActual = /^(\s*)\S/.exec(selector.slice(match.startIndex + 1))[1]
-      //
-      //   if (postNewlineActual !== repeat(indentChar, ruleLevel)) {
-      //     report({
-      //       message: messages.expected(legibleExpectation(ruleLevel)),
-      //       node: rule,
-      //       index: match.startIndex + 1,
-      //       result,
-      //       ruleName,
-      //     })
-      //   }
-      // })
     }
 
     function checkAtRuleParams(atRule, ruleLevel) {
@@ -246,6 +212,9 @@ export default function (space, options) {
         // check that the whitespace characters before the first
         // non-whitespace character equal the expected indentation
         const postNewlineActual = /^(\s*)\S/.exec(source.slice(match.startIndex + 1))[1]
+
+        // Function arguments are ignored to allow for arbitrary indentation
+        if (match.insideFunction) { return }
 
         if (postNewlineActual !== repeat(indentChar, newlineIndentLevel)) {
           report({

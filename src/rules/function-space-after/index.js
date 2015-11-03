@@ -9,7 +9,7 @@ import {
 export const ruleName = "function-space-after"
 
 export const messages = ruleMessages(ruleName, {
-  expected: `Expected single space after ")"`,
+  expected: `Expected whitespace after ")"`,
   rejected: `Unexpected whitespace after ")"`,
 })
 
@@ -37,7 +37,9 @@ export default function (expectation) {
       if (expectation === "always") {
         // Allow for the next character to be a single empty space,
         // another closing parenthesis, a comma, or the end of the value
-        if (nextChar === " " && !isWhitespace(source[index + 2])) { return }
+        if (nextChar === " ") { return }
+        if (nextChar === "\n") { return }
+        if (source.substr(index + 1, 2) === "\r\n") { return }
         if ([ ")", ",", undefined ].indexOf(nextChar) !== -1) { return }
         report({
           message: messages.expected,

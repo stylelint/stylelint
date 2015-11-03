@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "babel": "^5.8.23",
-    "babel-tape-runner": "^1.2.0",
+    "babel-tape-runner": "1.2.0",
     "chalk": "^1.1.1",
     "eslint": "^1.4.1",
     "eslint-config-stylelint": "^0.1.0",

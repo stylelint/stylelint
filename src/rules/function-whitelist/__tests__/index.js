@@ -67,3 +67,13 @@ testRule([
   })
 
 })
+
+// Simple test for non-array primary option
+testRule("translate", tr => {
+  tr.ok("a { transform: translate(1px); }")
+  tr.notOk("a { transform: scale(4); }", {
+    message: messages.rejected("scale"),
+    line: 1,
+    column: 16,
+  })
+})

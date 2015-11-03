@@ -1,5 +1,6 @@
 # Head
 
+* Added: `max-line-length` rule.
 * Added: `rule-single-line-max-declarations` rule.
 * Added: `color-no-hex` rule.
 * Added: `color-no-named` rule.
@@ -10,9 +11,17 @@
 * Added: `property-unit-blacklist` rule.
 * Fixed: bug when loading plugins from an extended config
 * Added: `property-unit-whitelist` rule.
+* Added: support for arbitrary whitespace after function in `function-space-after`.
+* Fixed: bug when loading plugins from an extended config.
+* Fixed: bug causing `function-comma-*` whitespace rules to improperly judge whether to enforce single- or multi-line options.
+* Fixed: indentation for function arguments, by ignoring them.
+* Fixed: `comment-space-inside` allows any number of asterisks at the beginning and end of comments.
+* Added: `first-nested` exception to `comment-empty-line-before`.
+* Added: support for arbitrary whitespace at the edge of comments in `comment-space-inside`.
 
 # 2.0.0
 
+* Changed: plugins are now included and configured via a "locator", rather than either being `required` or being inserted directly into the configuration object as a function.
 * Added: CLI.
 * Added: standalone Node API.
 * Added: quiet mode to CLI and Node API.

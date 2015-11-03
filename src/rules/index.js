@@ -41,6 +41,7 @@ import functionSpaceAfter from "./function-space-after"
 import functionUrlQuotes from "./function-url-quotes"
 import functionWhitelist from "./function-whitelist"
 import indentation from "./indentation"
+import maxLineLength from "./max-line-length"
 import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
 import mediaFeatureColonSpaceBefore from "./media-feature-colon-space-before"
 import mediaFeatureNameNoVendorPrefix from "./media-feature-name-no-vendor-prefix"
@@ -141,6 +142,7 @@ export default {
   "function-url-quotes": functionUrlQuotes,
   "function-whitelist": functionWhitelist,
   "indentation": indentation,
+  "max-line-length": maxLineLength,
   "media-feature-colon-space-after": mediaFeatureColonSpaceAfter,
   "media-feature-colon-space-before": mediaFeatureColonSpaceBefore,
   "media-feature-name-no-vendor-prefix": mediaFeatureNameNoVendorPrefix,

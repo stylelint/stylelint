@@ -6,7 +6,7 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-testRule("always", tr => {
+function alwaysTests(tr) {
   warningFreeBasics(tr)
 
   tr.ok("/** comment */", "first node ignored")
@@ -20,6 +20,42 @@ testRule("always", tr => {
   tr.notOk("/** comment */\r\n/** comment */", messages.expected, "CRLF")
   tr.notOk("a { color: pink;\n/** comment */\ntop: 0; }", messages.expected)
   tr.notOk("a { color: pink;\r\n/** comment */\r\ntop: 0; }", messages.expected, "CRLF")
+}
+
+testRule("always", tr => {
+  alwaysTests(tr)
+
+  tr.ok(
+    "a {\n\n  /* comment */\n  color: pink;\n}",
+    "first-nested with empty line before"
+  )
+  tr.notOk(
+    "a {\n  /* comment */\n  color: pink;\n}",
+    {
+      message: messages.expected,
+      line: 2,
+      column: 3,
+    },
+    "first-nested without empty line before"
+  )
+})
+
+testRule("always", { except: ["first-nested"] }, tr => {
+  alwaysTests(tr)
+
+  tr.ok(
+    "a {\n  /* comment */\n  color: pink;\n}",
+    "first-nested without empty line before"
+  )
+  tr.notOk(
+    "a {\n\n  /* comment */\n  color: pink;\n}",
+    {
+      message: messages.rejected,
+      line: 3,
+      column: 3,
+    },
+    "first-nested with empty line before"
+  )
 })
 
 testRule("never", tr => {

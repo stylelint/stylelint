@@ -1,12 +1,19 @@
 # comment-space-inside
 
-Require a single space or disallow whitespace on the inside of comment markers.
+Require or disallow whitespace on the inside of comment markers.
 
 ```css
     /* comment */
 /**  ↑         ↑
  * The space inside these two markers */
 ```
+
+Any number of asterisks are allowed at the beginning or end of the comment.
+So `/** comment **/` is treated the same way as `/* comment */`.
+
+Unlike most other `*-space-*` rules, this one allow *any whitespace*, not just a single space.
+
+In a future release, this rule's name will be changed to `comment-whitespace-inside`.
 
 ## Options
 
@@ -27,13 +34,28 @@ The following patterns are considered warnings:
 ```
 
 ```css
-/* comment*/
+/** comment**/
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
 /* comment */
+```
+
+```css
+/** comment **/
+```
+
+```css
+/**
+ * comment
+ */
+```
+
+```css
+/*     comment
+*/
 ```
 
 ### `"never"`
@@ -51,11 +73,15 @@ The following patterns are considered warnings:
 ```
 
 ```css
-/* comment*/
+/** comment**/
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
 /*comment*/
+```
+
+```css
+/****comment****/
 ```
