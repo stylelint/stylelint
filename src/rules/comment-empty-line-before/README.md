@@ -61,3 +61,30 @@ a {}
 ```css
 a {} /* comment */
 ```
+
+## Optional options
+
+### `except: ["first-nested"]`
+
+Reverse the primary option for comments that are nested and the first child of their parent node.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+a {
+
+  /* comment */
+  color: pink;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  /* comment */
+  color: pink;
+}
+```
