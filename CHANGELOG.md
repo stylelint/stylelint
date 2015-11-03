@@ -1,5 +1,6 @@
 # Head
 
+* Added: `max-line-length` rule.
 * Added: `rule-single-line-max-declarations` rule.
 * Added: `color-no-hex` rule.
 * Added: `color-no-named` rule.
