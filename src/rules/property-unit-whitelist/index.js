@@ -30,9 +30,11 @@ export default function (whitelist) {
       if (!propWhitelist) { return }
 
       valueParser(value).walk(function (node) {
+        if (node.type === "string") { return }
+
         const unit = valueParser.unit(node.value).unit
 
-        if (unit && propWhitelist.indexOf(unit) === -1 && node.type !== "string") {
+        if (unit && propWhitelist.indexOf(unit) === -1) {
           report({
             message: messages.rejected(prop, unit),
             node: decl,

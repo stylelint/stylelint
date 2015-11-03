@@ -11,6 +11,7 @@ testRule({
   "margin": ["em"],
   "background-position": ["%"],
   "animation": ["s"],
+  "line-height": [],
 }, tr => {
   warningFreeBasics(tr)
 
@@ -23,6 +24,7 @@ testRule({
   tr.ok("a { margin: calc(30em - 10em); }")
   tr.ok("a { animation: animation-name 1s ease; }")
   tr.ok("a { -webkit-animation: animation-name 100ms ease; }")
+  tr.ok("a { line-height: 1; }")
 
   tr.ok("a { font-size: /* 1.2rem */ 12px; }", "ignore unit within comments")
   tr.ok("a::before { font-size: \"1.2rem\"}", "ignore unit within quotes")
@@ -62,6 +64,11 @@ testRule({
   tr.notOk("a { animation: animation-name 300ms ease; }", {
     message: messages.rejected("animation", "ms"),
     column: 31,
+  })
+
+  tr.notOk("a { line-height: 1.2em; }", {
+    message: messages.rejected("line-height", "em"),
+    column: 18,
   })
 
 })

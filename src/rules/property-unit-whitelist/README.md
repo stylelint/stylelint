@@ -19,7 +19,8 @@ Given:
 ```js
 {
   "font-size": ["em", "px"],
-  "animation": ["s"]
+  "animation": ["s"],
+  "line-height": []
 }
 ```
 
@@ -31,6 +32,10 @@ a { font-size: 1.2rem; }
 
 ```css
 a { animation: animation-name 500ms ease; }
+```
+
+```css
+a { line-height: 13px; }
 ```
 
 The following patterns are *not* considered warnings:
@@ -47,3 +52,6 @@ a { height: 100px; }
 a { animation: animation-name 5s ease; }
 ```
 
+```css
+a { line-height: 1; }
+```
