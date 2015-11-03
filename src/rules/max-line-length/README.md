@@ -8,7 +8,7 @@ Limit the length of a line.
  *           The end */
 ```
 
-Lines that exceed the maximum length, but contain no whitespace (other than at the beginning of the line) are ignored.
+Lines that exceed the maximum length but contain no whitespace (other than at the beginning of the line) are ignored.
 
 ## Options
 
