@@ -164,6 +164,7 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 ### General / Sheet
 
 * [`indentation`](../../src/rules/indentation/README.md): Specify indentation.
+* [`max-line-length`](../../src/rules/max-line-length/README.md): Limit the length of a line.
 * [`no-eol-whitespace`](../../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
 * [`no-missing-eof-newline`](../../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
 * [`no-multiple-empty-lines`](../../src/rules/no-multiple-empty-lines/README.md): Disallow multiple empty lines.
