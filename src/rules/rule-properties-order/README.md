@@ -15,7 +15,7 @@ Prefixed properties *must always* be alphabetically order and *must always* prec
 
 ## Options
 
-`string|array`: `"alphabetical"|["array", "of", "unprefixed", "property", "names"]`
+`string|array`: `"alphabetical"|["of", "unprefixed", "property", "names", "or", "objects"]`
 
 ### `"alphabetical"`
 
@@ -55,9 +55,13 @@ a {
 }
 ```
 
-### `["array", "of", "unprefixed", "property", "names"]`
+### `["of", "unprefixed", "property", "names", "or", "objects"]`
 
-Properties *must always* be ordered to match that of the array.
+Within a order array, you can include unprefixed property names or you can include objects with these properties:
+
+* `order ("strict"|"flexible")`: If strict (the default), the properties in this group must come in the order specified. If flexible, the properties can be in any order as long as they are grouped correctly.
+* `emptyLineBefore (boolean)`: If true, this group must be separated from other properties by an empty newline. By default (or if emptyLineBefore is `false`), the rule doesn't care if there are empty newlines or not before properties.
+* `properties (array of strings)`: The properties in this group.
 
 There are some important details to keep in mind:
 
@@ -220,6 +224,136 @@ a {
   padding-right: 2em;
   padding-left: 2.5em;
   color: pink;
+}
+```
+
+Given:
+
+```js
+[
+  {
+    emptyLineBefore: true,
+    properties: [
+      "height",
+      "width",
+    ],
+  },
+  {
+    emptyLineBefore: true,
+    properties: [
+      "font-size",
+      "font-weight",
+    ],
+  },
+]
+```
+
+The following patterns are considered warnings:
+
+```css
+a {
+  height: 1px;
+  width: 2px;
+  font-size: 2px;
+  font-weight: bold;
+}
+```
+
+```css
+a {
+  height: 1px;
+  width: 2px;
+
+  font-weight: bold;
+  font-size: 2px;
+}
+```
+
+```css
+a {
+  width: 2px;
+
+  font-size: 2px;
+  font-weight: bold;
+  height: 1px;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  height: 1px;
+  width: 2px;
+
+  font-size: 2px;
+  font-weight: bold;
+}
+```
+
+Given:
+
+```js
+[
+  "height",
+  "width",
+  {
+    order: "flexible",
+    properties: [
+      "color",
+      "font-size",
+      "font-weight",
+    ],
+  },
+]
+```
+
+The following patterns are considered warnings:
+
+```css
+a {
+  height: 1px;
+  font-weight: bold;
+  width: 2px;
+}
+```
+
+```css
+a {
+  width: 2px;
+  height: 1px;
+  font-weight: bold;  
+}
+```
+
+```css
+a {
+  height: 1px;
+  color: pink;
+  width: 2px;
+  font-weight: bold;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  height: 1px;
+  width: 2px;
+  color: pink;
+  font-size: 2px;
+  font-weight: bold;
+}
+```
+
+```css
+a {
+  height: 1px;
+  width: 2px;
+  font-size: 2px;
+  color: pink;
+  font-weight: bold;
 }
 ```
 
