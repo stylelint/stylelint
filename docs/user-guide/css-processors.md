@@ -11,4 +11,8 @@ You can run the linter before or after your css processors. Depending on which p
 
 ## Parsing SCSS
 
-The linter can parse the SCSS custom syntax. Both the [CLI](/docs/user-guide/cli.md) and the [Node API](docs/user-guide/cli.md) expose a `syntax` option. If you're using the the linter as an [PostCSS Plugin](/docs/user-guide/postcss-plugin.md), you can use [postcss-scss](https://github.com/postcss/postcss-scss) directly.
+The linter can parse the SCSS! 
+
+Both the [CLI](/docs/user-guide/cli.md) and the [Node API](docs/user-guide/cli.md) expose a `syntax` option. Just pass `scss` as your `syntax`, e.g. `stylelint --syntax scss ..` or `stylelint.lint({ syntax: 'scss', .. })`.
+
+If you're using the the linter as a [PostCSS Plugin](/docs/user-guide/postcss-plugin.md), you should use [postcss-scss](https://github.com/postcss/postcss-scss) directly.
