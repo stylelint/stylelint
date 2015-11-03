@@ -17,6 +17,7 @@
 
 # 2.0.0
 
+* Changed: plugins are now included and configured via a "locator", rather than either being `required` or being inserted directly into the configuration object as a function.
 * Added: CLI.
 * Added: standalone Node API.
 * Added: quiet mode to CLI and Node API.
