@@ -9,9 +9,10 @@
 * Added: `unit-whitelist` rule.
 * Added: `property-unit-blacklist` rule.
 * Added: support for arbitrary whitespace after function in `function-space-after`.
-* Fixed: bug when loading plugins from an extended config
+* Fixed: bug when loading plugins from an extended config.
 * Fixed: bug causing `function-comma-*` whitespace rules to improperly judge whether to enforce single- or multi-line options.
-* Fixed: indentation for function arguments, by ignoring them
+* Fixed: indentation for function arguments, by ignoring them.
+* Fixed: `comment-space-inside` allows any number of asterisks at the beginning and end of comments.
 
 # 2.0.0
 

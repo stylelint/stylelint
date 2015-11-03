@@ -26,42 +26,47 @@ export default function (expectation) {
 
     root.walkComments(function (comment) {
 
-      const left = comment.raw("left")
-      const right = comment.raw("right")
+      const rawComment = comment.toString()
+      const leftMatches = rawComment.match(/(^\/\*+)(\s+)?\S/)
+      const rightMatches = rawComment.match(/\S(\s+)?(\*+\/)/)
+      const opener = leftMatches[1]
+      const leftSpace = leftMatches[2] || ""
+      const rightSpace = rightMatches[1] || ""
+      const closer = rightMatches[2]
 
-      if (left !== "" && expectation === "never") {
+      if (leftSpace !== "" && expectation === "never") {
         report({
           message: messages.rejectedOpening,
           node: comment,
-          index: 2,
+          index: opener.length,
           result,
           ruleName,
         })
       }
-      if (left !== " " && expectation === "always") {
+      if (leftSpace !== " " && expectation === "always") {
         report({
           message: messages.expectedOpening,
           node: comment,
-          index: 2,
+          index: opener.length,
           result,
           ruleName,
         })
       }
 
-      if (right !== "" && expectation === "never") {
+      if (rightSpace !== "" && expectation === "never") {
         report({
           message: messages.rejectedClosing,
           node: comment,
-          index: comment.toString().length - 3,
+          index: comment.toString().length - closer.length - 1,
           result,
           ruleName,
         })
       }
-      if (right !== " " && expectation === "always") {
+      if (rightSpace !== " " && expectation === "always") {
         report({
           message: messages.expectedClosing,
           node: comment,
-          index: comment.toString().length - 3,
+          index: comment.toString().length - closer.length - 1,
           result,
           ruleName,
         })
