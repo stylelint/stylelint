@@ -10,7 +10,7 @@ testRule([
   "height",
   "width",
   {
-    strict: true,
+    order: "strict",
     properties: [
       "color",
       "font-size",
@@ -46,7 +46,6 @@ testRule([
 
 testRule([
   {
-    strict: true,
     emptyLineBefore: true,
     properties: [
       "height",
@@ -54,7 +53,6 @@ testRule([
     ],
   },
   {
-    strict: true,
     emptyLineBefore: true,
     properties: [
       "font-size",

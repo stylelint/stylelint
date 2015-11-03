@@ -20,7 +20,12 @@ export default function (expectation, options) {
       possible: [
         "alphabetical",
         _.isString,
-        _.isPlainObject,
+        (group) => {
+          if (!group.properties) { return false }
+          if (group.emptyLineBefore && !_.isBoolean(group.emptyLineBefore)) { return false }
+          if (group.type && !_.includes([ "strict", "flexible" ], group.type)) { return false }
+          return true
+        },
       ],
     }, {
       actual: options,
@@ -162,14 +167,14 @@ function createExpectedOrder(input) {
       lineSeparatedGroup += 1
     }
 
-    if (item.strict) {
+    if (!item.order || item.order === "strict") {
       appendGroup(item.properties, index)
       return
+    } else if (item.order === "flexible") {
+      item.properties.forEach(property => {
+        appendItem(property, index)
+      })
     }
-
-    item.properties.forEach(property => {
-      appendItem(property, index)
-    })
   }
 
   return expectedOrder
