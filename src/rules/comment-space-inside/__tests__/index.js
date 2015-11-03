@@ -15,6 +15,8 @@ testRule("always", tr => {
   tr.ok("/* comment\n\ncomment */")
   tr.ok("/** comment */")
   tr.ok("/**** comment ***/")
+  tr.ok("/*\ncomment\n*/")
+  tr.ok("/*\tcomment   */")
 
   tr.notOk("/*comment */", {
     message: messages.expectedOpening,
@@ -30,16 +32,6 @@ testRule("always", tr => {
     message: messages.expectedClosing,
     line: 1,
     column: 10,
-  })
-  tr.notOk("/*  comment */", {
-    message: messages.expectedOpening,
-    line: 1,
-    column: 3,
-  })
-  tr.notOk("/* comment  */", {
-    message: messages.expectedClosing,
-    line: 1,
-    column: 12,
   })
   tr.notOk("/*comment comment */", {
     message: messages.expectedOpening,
@@ -97,6 +89,16 @@ testRule("never", tr => {
     message: messages.rejectedClosing,
     line: 1,
     column: 11,
+  })
+  tr.notOk("/*\ncomment*/", {
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 3,
+  })
+  tr.notOk("/*comment\n*/", {
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 10,
   })
   tr.notOk("/* comment comment*/", {
     message: messages.rejectedOpening,
