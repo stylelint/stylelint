@@ -25,12 +25,16 @@ export default function (blacklist) {
     root.walkDecls(decl => {
 
       const { prop, value } = decl
-      const blacklistInProp = blacklist[prop]
+      const propBlacklist = blacklist[prop]
+
+      if (!propBlacklist) { return }
 
       valueParser(value).walk(function (node) {
+        if (node.type === "string") { return }
+
         const unit = valueParser.unit(node.value).unit
 
-        if (blacklistInProp && blacklistInProp.indexOf(unit) !== -1 && node.type !== "string") {
+        if (propBlacklist.indexOf(unit) !== -1) {
           report({
             message: messages.rejected(prop, unit),
             node: decl,
