@@ -25,6 +25,9 @@ testRule(undefined, tr => {
   tr.ok("a { top: calc(    +1px)}", "multiple spaces before sign at start")
   tr.ok("a { top: calc(\t+1px)}", "tab before sign at start")
 
+  tr.ok("a { top: calc(-$x - 2rem); }", "postcss-simple-vars and SCSS variable syntax")
+  tr.ok("a { top: calc(-@x - 2rem); }", "Less variable syntax")
+
   tr.notOk("a { top: calc(1px +\t-1px)}", {
     message: messages.expectedAfter("+"),
     line: 1,
