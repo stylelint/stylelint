@@ -34,8 +34,10 @@ export default function (actual) {
           styleSearch({ source: expression, target: symbol, outsideFunctionalNotation: true }, match => {
             const index = match.startIndex
 
-            // Deal with signs
-            if ((symbol === "+" || symbol === "-") && /\d/.test(expression[index + 1])) {
+            // Deal with signs.
+            // (@ and $ are considered "digits" here to allow for variable syntaxes
+            // that permit signs in front of variables, e.g. `-$number`)
+            if ((symbol === "+" || symbol === "-") && /[\d@\$]/.test(expression[index + 1])) {
               const expressionBeforeSign = expression.substr(0, index)
               // Ignore signs at the beginning of the expression
               if (/^\s*$/.test(expressionBeforeSign)) { return }

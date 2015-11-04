@@ -18,6 +18,7 @@
 * Fixed: `comment-space-inside` allows any number of asterisks at the beginning and end of comments.
 * Added: `first-nested` exception to `comment-empty-line-before`.
 * Added: support for arbitrary whitespace at the edge of comments in `comment-space-inside`.
+* Added: support for mathematical signs in front of Sass and Less variables in `function-calc-no-unspaced-operator`.
 
 # 2.0.0
 
