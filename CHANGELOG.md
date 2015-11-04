@@ -1,4 +1,4 @@
-# Head
+# 2.1.0
 
 * Added: `color-no-hex` rule.
 * Added: `color-no-named` rule.
