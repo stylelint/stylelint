@@ -9,6 +9,8 @@
 * Added: `unit-blacklist` rule.
 * Added: `unit-whitelist` rule.
 * Added: `property-unit-blacklist` rule.
+* Fixed: bug when loading plugins from an extended config
+* Added: `property-unit-whitelist` rule.
 * Added: support for arbitrary whitespace after function in `function-space-after`.
 * Fixed: bug when loading plugins from an extended config.
 * Fixed: bug causing `function-comma-*` whitespace rules to improperly judge whether to enforce single- or multi-line options.
