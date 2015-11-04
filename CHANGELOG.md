@@ -1,7 +1,5 @@
 # Head
 
-* Added: `max-line-length` rule.
-* Added: `rule-single-line-max-declarations` rule.
 * Added: `color-no-hex` rule.
 * Added: `color-no-named` rule.
 * Added: `function-blacklist` rule.
@@ -9,16 +7,21 @@
 * Added: `unit-blacklist` rule.
 * Added: `unit-whitelist` rule.
 * Added: `property-unit-blacklist` rule.
-* Fixed: bug when loading plugins from an extended config
 * Added: `property-unit-whitelist` rule.
-* Added: support for arbitrary whitespace after function in `function-space-after`.
-* Fixed: bug when loading plugins from an extended config.
-* Fixed: bug causing `function-comma-*` whitespace rules to improperly judge whether to enforce single- or multi-line options.
-* Fixed: indentation for function arguments, by ignoring them.
-* Fixed: `comment-space-inside` allows any number of asterisks at the beginning and end of comments.
+* Added: `rule-single-line-max-declarations` rule.
+* Added: `max-line-length` rule.
 * Added: `first-nested` exception to `comment-empty-line-before`.
-* Added: support for arbitrary whitespace at the edge of comments in `comment-space-inside`.
+* Added: single value options to `*-blacklist` & `-*whitelist` rules e.g. `{ "function-blacklist": "calc"}`
+* Added: support for flexible groups to `rule-properties-order`.
+* Added: support for an optional empty line between each group to `rule-properties-order`.
 * Added: support for mathematical signs in front of Sass and Less variables in `function-calc-no-unspaced-operator`.
+* Added: support for arbitrary whitespace after function in `function-space-after`.
+* Added: support for arbitrary whitespace at the edge of comments in `comment-space-inside`.
+* Fixed: `comment-space-inside` allows any number of asterisks at the beginning and end of comments.
+* Fixed: bug causing `{ unspecified: "bottom }"` option not to be applied within `rule-properties-order`.
+* Fixed: bug causing `function-comma-*` whitespace rules to improperly judge whether to enforce single- or multi-line options.
+* Fixed: bug when loading plugins from an extended config
+* Fixed: indentation for function arguments, by ignoring them.
 
 # 2.0.0
 
