@@ -10,7 +10,7 @@ Require a single space or disallow whitespace on the inside of the parentheses o
 
 ## Options
 
-`string`: `"always"|"never"`
+`string`: `"always"|"never"|"always-single-line"|"never-single-line"`
 
 ### `"always"`
 
@@ -50,4 +50,72 @@ The following patterns are *not* considered warnings:
 
 ```css
 a { transform: translate(1, 1); }
+```
+
+### `"always-single-line"`
+
+There *must always* be a single space inside the parentheses of single-line functions.
+
+The following patterns are considered warnings:
+
+```css
+a { transform: translate(1, 1) }
+```
+
+```css
+a { transform: translate(1, 1 ) }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { transform: translate( 1, 1 ) }
+```
+
+```css
+a { transform: translate(1,
+  1) }
+```
+
+```css
+a {
+  transform: translate(
+    1,
+    1
+  )
+}
+```
+
+### `"never-single-line"`
+
+There *must nevers* be a whitespace inside the parentheses of single-line functions.
+
+The following patterns are considered warnings:
+
+```css
+a { transform: translate( 1, 1 ) }
+```
+
+```css
+a { transform: translate(1, 1 ) }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { transform: translate(1, 1) }
+```
+
+```css
+a { transform: translate( 1,
+  1) }
+```
+
+```css
+a {
+  transform: translate(
+    1,
+    1
+  )
+}
 ```

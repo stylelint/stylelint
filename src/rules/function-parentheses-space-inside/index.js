@@ -1,8 +1,9 @@
+import valueParser from "postcss-value-parser"
 import {
-  isWhitespace,
+  declarationValueIndexOffset,
+  isSingleLineString,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
 
@@ -13,6 +14,10 @@ export const messages = ruleMessages(ruleName, {
   rejectedOpening: `Unexpected whitespace after "("`,
   expectedClosing: `Expected single space before ")"`,
   rejectedClosing: `Unexpected whitespace before ")"`,
+  expectedOpeningSingleLine: `Expected single space after "(" in a single-line function`,
+  rejectedOpeningSingleLine: `Unexpected whitespace after "(" in a single-line function`,
+  expectedClosingSingleLine: `Expected single space before ")" in a single-line function`,
+  rejectedClosingSingleLine: `Unexpected whitespace before ")" in a single-line function`,
 })
 
 export default function (expectation) {
@@ -22,69 +27,71 @@ export default function (expectation) {
       possible: [
         "always",
         "never",
+        "always-single-line",
+        "never-single-line",
       ],
     })
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      const declString = decl.toString()
+      if (decl.value.indexOf("(") === -1) { return }
 
-      styleSearch({ source: declString, target: "(" }, match => {
-        checkOpening(declString, match.startIndex, decl)
+      valueParser(decl.value).walk(valueNode => {
+        if (valueNode.type !== "function") { return }
+
+        const functionString = valueParser.stringify(valueNode)
+        const isSingleLine = isSingleLineString(functionString)
+
+        // Check opening ...
+
+        const openingIndex = valueNode.sourceIndex + valueNode.value.length + 1
+
+        if (expectation === "always" && valueNode.before !== " ") {
+          complain(messages.expectedOpening, openingIndex)
+        }
+
+        if (expectation === "never" && valueNode.before !== "") {
+          complain(messages.rejectedOpening, openingIndex)
+        }
+
+        if (isSingleLine && expectation === "always-single-line" && valueNode.before !== " ") {
+          complain(messages.expectedOpeningSingleLine, openingIndex)
+        }
+
+        if (isSingleLine && expectation === "never-single-line" && valueNode.before !== "") {
+          complain(messages.rejectedOpeningSingleLine, openingIndex)
+        }
+
+        // Check closing ...
+
+        const closingIndex = valueNode.sourceIndex + functionString.length - 2
+
+        if (expectation === "always" && valueNode.after !== " ") {
+          complain(messages.expectedClosing, closingIndex)
+        }
+
+        if (expectation === "never" && valueNode.after !== "") {
+          complain(messages.rejectedClosing, closingIndex)
+        }
+
+        if (isSingleLine && expectation === "always-single-line" && valueNode.after !== " ") {
+          complain(messages.expectedClosingSingleLine, closingIndex)
+        }
+
+        if (isSingleLine && expectation === "never-single-line" && valueNode.after !== "") {
+          complain(messages.rejectedClosingSingleLine, closingIndex)
+        }
       })
-      styleSearch({ source: declString, target: ")" }, match => {
-        checkClosing(declString, match.startIndex, decl)
-      })
+
+      function complain(message, offset) {
+        report({
+          ruleName,
+          result,
+          message,
+          node: decl,
+          index: declarationValueIndexOffset(decl) + offset,
+        })
+      }
     })
-
-    function checkOpening(source, index, node) {
-      const nextCharIsSpace = source[index + 1] === " "
-      if (expectation === "always") {
-        if (!nextCharIsSpace || isWhitespace(source[index + 2])) {
-          report({
-            message: messages.expectedOpening,
-            node,
-            index: index + 1,
-            result,
-            ruleName,
-          })
-        }
-      } else if (expectation === "never") {
-        if (nextCharIsSpace) {
-          report({
-            message: messages.rejectedOpening,
-            node,
-            index: index + 1,
-            result,
-            ruleName,
-          })
-        }
-      }
-    }
-
-    function checkClosing(source, index, node) {
-      const prevCharIsSpace = source[index - 1] === " "
-      if (expectation === "always") {
-        if (!prevCharIsSpace || isWhitespace(source[index - 2])) {
-          report({
-            message: messages.expectedClosing,
-            node,
-            index: index - 1,
-            result,
-            ruleName,
-          })
-        }
-      } else if (expectation === "never") {
-        if (prevCharIsSpace) {
-          report({
-            message: messages.rejectedClosing,
-            node,
-            index: index - 1,
-            result,
-            ruleName,
-          })
-        }
-      }
-    }
   }
 }

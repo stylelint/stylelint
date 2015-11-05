@@ -1,3 +1,8 @@
+# Head
+
+* Added: `function-parentheses-newline-inside` rule.
+* Added: `"always-single-line"` and `"never-single-line"` options to `function-parentheses-space-inside`.
+
 # 2.1.0
 
 * Added: `color-no-hex` rule.
