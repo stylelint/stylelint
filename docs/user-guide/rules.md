@@ -53,8 +53,8 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 
 ### Unit
 
-* [`unit-blacklist`](../../src/unit-blacklist/README.md): Specify a blacklist of disallowed units.
-* [`unit-whitelist`](../../src/unit-whitelist/README.md): Specify a whitelist of allowed units.
+* [`unit-blacklist`](../../src/rules/unit-blacklist/README.md): Specify a blacklist of disallowed units.
+* [`unit-whitelist`](../../src/rules/unit-whitelist/README.md): Specify a whitelist of allowed units.
 
 ### Property
 
