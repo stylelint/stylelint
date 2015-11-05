@@ -37,7 +37,7 @@ export default function (expectation) {
         if (valueNode.type !== "function") { return }
 
         const functionString = valueParser.stringify(valueNode)
-        const isSingleLine = isSingleLineString(functionString)
+        const isMultiLine = !isSingleLineString(functionString)
         function containsNewline(str) {
           return str.indexOf("\n") !== -1
         }
@@ -50,11 +50,11 @@ export default function (expectation) {
           complain(messages.expectedOpening, openingIndex)
         }
 
-        if (isSingleLine && expectation === "always-multi-line" && !containsNewline(valueNode.before)) {
+        if (isMultiLine && expectation === "always-multi-line" && !containsNewline(valueNode.before)) {
           complain(messages.expectedOpeningMultiLine, openingIndex)
         }
 
-        if (isSingleLine && expectation === "never-multi-line" && valueNode.before !== "") {
+        if (isMultiLine && expectation === "never-multi-line" && valueNode.before !== "") {
           complain(messages.rejectedOpeningMultiLine, openingIndex)
         }
 
@@ -66,11 +66,11 @@ export default function (expectation) {
           complain(messages.expectedClosing, closingIndex)
         }
 
-        if (isSingleLine && expectation === "always-multi-line" && !containsNewline(valueNode.after)) {
+        if (isMultiLine && expectation === "always-multi-line" && !containsNewline(valueNode.after)) {
           complain(messages.expectedClosingMultiLine, closingIndex)
         }
 
-        if (isSingleLine && expectation === "never-multi-line" && valueNode.after !== "") {
+        if (isMultiLine && expectation === "never-multi-line" && valueNode.after !== "") {
           complain(messages.rejectedClosingMultiLine, closingIndex)
         }
       })
