@@ -14,27 +14,17 @@ export default postcss.plugin("stylelint", (options = {}) => {
     result.stylelint = result.stylelint || {}
     result.stylelint.ruleSeverities = {}
 
-    let initialConfig = options.hasOwnProperty("config") ? options.config : options
-    if (isEmpty(initialConfig)) {
-      initialConfig = rc("stylelint")
-    }
-
-    const configBasedir = options.configBasedir || path.dirname(initialConfig.config)
-    const config = extendConfig(initialConfig, configBasedir)
-
-    if (config.plugins) {
-      merge(ruleDefinitions, mapValues(config.plugins, plugin => require(plugin)))
-    }
-
-    if (options.configOverrides) {
-      merge(config, options.configOverrides)
-    }
+    const config = buildConfig(options)
 
     if (!config) {
       throw configurationError("No configuration provided")
     }
     if (!config.rules) {
       throw configurationError("No rules found within configuration")
+    }
+
+    if (config.plugins) {
+      merge(ruleDefinitions, mapValues(config.plugins, plugin => require(plugin)))
     }
 
     // Register details about the configuration
@@ -65,6 +55,41 @@ export default postcss.plugin("stylelint", (options = {}) => {
     })
   }
 })
+
+function buildConfig(options) {
+  let initialConfig
+  let configBasedir
+
+  if (options.hasOwnProperty("configFile")) {
+    const absoluteConfigPath = (path.isAbsolute(options.configFile))
+      ? options.configFile
+      : path.join(process.cwd(), options.configFile)
+    try {
+      initialConfig = require(absoluteConfigPath)
+      configBasedir = path.dirname(absoluteConfigPath)
+    } catch (e) {
+      throw configurationError(
+        `configFile path "${options.configFile}" corresponded to no file`
+      )
+    }
+  } else {
+    const passedConfig = options.hasOwnProperty("config")
+      ? options.config
+      : options
+    initialConfig = (isEmpty(passedConfig))
+      ?  rc("stylelint")
+      : passedConfig
+    configBasedir = options.configBasedir || path.dirname(initialConfig.config)
+  }
+
+  const config = extendConfig(initialConfig, configBasedir)
+
+  if (options.configOverrides) {
+    merge(config, options.configOverrides)
+  }
+
+  return config
+}
 
 function extendConfig(config, basedir = process.cwd()) {
   // Absolutize the plugins here, because here is the place

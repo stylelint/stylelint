@@ -21,9 +21,19 @@ A [stylelint configuration object](/docs/user-guide/configuration.md).
 
 If no `config` is passed, stylelint will look for a `.stylelintrc` configuration file in [standard rc-file places](https://github.com/dominictarr/rc#standards).
 
+### `configFile`
+
+The path to a JSON or JS file that contains your [stylelint configuration object](/docs/user-guide/configuration.md).
+
+It should be either absolute or relative to the directory that your process is running from.
+We'd recommend absolute.
+
 ### `configBasedir`
 
 An absolute path to the directory that relative paths defining `extends` and `plugins` are *relative to*.
+
+This is only necessary if you passed an object directly through the `config` property. If you used
+`configFile`, this option is not necessary.
 
 If the `config` object passed uses relative paths for `extends` or `plugins`, you are going to have to pass a `configBasedir`. If not, you do not need this.
 
