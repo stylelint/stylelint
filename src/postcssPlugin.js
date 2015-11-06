@@ -1,8 +1,11 @@
 import postcss from "postcss"
-import rc from "rc"
+import rc from "rc-loader"
 import path from "path"
 import resolveFrom from "resolve-from"
 import { assign, mapValues, merge, isEmpty } from "lodash"
+import yaml from "js-yaml"
+import stripJsonComments from "strip-json-comments"
+import fs from "fs"
 import { configurationError } from "./utils"
 import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
@@ -23,7 +26,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
     const config = extendConfig(initialConfig, configBasedir)
 
     if (config.plugins) {
-      merge(ruleDefinitions, mapValues(config.plugins, plugin => require(plugin)))
+      merge(ruleDefinitions, mapValues(config.plugins, plugin => requireConfig(plugin)))
     }
 
     if (options.configOverrides) {
@@ -77,7 +80,7 @@ function extendConfig(config, basedir = process.cwd()) {
     const extendingConfigDir = path.dirname(extendingConfigPath)
 
     // Now we must recursively extend the extending config
-    const extendingConfig = extendConfig(require(extendingConfigPath), extendingConfigDir)
+    const extendingConfig = extendConfig(requireConfig(extendingConfigPath), extendingConfigDir)
 
     return merge({}, extendingConfig, mergedConfig)
   }, configWithAbsolutePlugins)
@@ -99,5 +102,25 @@ function getModulePath(basedir, lookup) {
       `Could not find "${lookup}". ` +
       `Do you need a \`configBasedir\`?`
     )
+  }
+}
+
+function requireJsConfig(config) {
+  try {
+    return require(config)
+  } catch (e) {
+    return null
+  }
+}
+
+function requireConfig(config) {
+  try {
+    return yaml.safeLoad(stripJsonComments(fs.readFileSync(config, "utf-8")))
+  } catch (e) {
+    if (requireJsConfig(config)) {
+      return requireJsConfig(config)
+    }
+
+    throw configurationError(`Could not parse ${config}`)
   }
 }

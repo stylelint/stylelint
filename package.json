@@ -34,6 +34,7 @@
     "get-stdin": "^5.0.0",
     "globby": "^3.0.1",
     "is-css-color-name": "^0.1.1",
+    "js-yaml": "^3.4.3",
     "lodash": "^3.10.1",
     "meow": "^3.3.0",
     "postcss": "^5.0.4",
@@ -43,7 +44,9 @@
     "postcss-value-parser": "^3.1.1",
     "queue-async": "^1.0.7",
     "rc": "^1.1.1",
-    "resolve-from": "^1.0.1"
+    "rc-loader": "^1.0.0",
+    "resolve-from": "^1.0.1",
+    "strip-json-comments": "^1.0.4"
   },
   "devDependencies": {
     "babel": "^5.8.23",
