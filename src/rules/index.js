@@ -78,6 +78,7 @@ import ruleSingleLineMaxDeclarations from "./rule-single-line-max-declarations"
 import ruleTrailingSemicolon from "./rule-trailing-semicolon"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
+import selectorIdPattern from "./selector-id-pattern"
 import selectorListCommaNewlineAfter from "./selector-list-comma-newline-after"
 import selectorListCommaNewlineBefore from "./selector-list-comma-newline-before"
 import selectorListCommaSpaceAfter from "./selector-list-comma-space-after"
@@ -180,6 +181,7 @@ export default {
   "rule-trailing-semicolon": ruleTrailingSemicolon,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,
+  "selector-id-pattern": selectorIdPattern,
   "selector-list-comma-newline-after": selectorListCommaNewlineAfter,
   "selector-list-comma-newline-before": selectorListCommaNewlineBefore,
   "selector-list-comma-space-after": selectorListCommaSpaceAfter,

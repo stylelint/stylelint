@@ -1,3 +1,5 @@
+import { isPlainObject } from "lodash"
+
 /**
  * Validate a rule's options.
  *
@@ -29,21 +31,18 @@ export default function (result, ruleName, ...optionDescriptions) {
     const nothingPossible = !possible || (Array.isArray(possible) && !possible.length)
     if (actual == null) {
       if (nothingPossible || optional) { return }
-      noErrors = false
-      result.warn(`Expected option value for rule "${ruleName}"`)
+      complain(`Expected option value for rule "${ruleName}"`)
       return
     } else if (nothingPossible) {
-      noErrors = false
-      result.warn(`Unexpected option value "${actual}" for rule "${ruleName}"`)
+      complain(`Unexpected option value "${actual}" for rule "${ruleName}"`)
       return
     }
 
     // If `possible` is an array instead of an object ...
-    if (Array.isArray(possible)) {
+    if (!isPlainObject(possible)) {
       const check = a => {
         if (isValid(possible, a)) { return }
-        noErrors = false
-        result.warn(`Invalid option value "${a}" for rule "${ruleName}"`)
+        complain(`Invalid option value "${a}" for rule "${ruleName}"`)
       }
       if (Array.isArray(actual)) {
         actual.forEach(check)
@@ -56,16 +55,14 @@ export default function (result, ruleName, ...optionDescriptions) {
     // If possible is an object ...
     Object.keys(actual).forEach(optionName => {
       if (!possible[optionName]) {
-        noErrors = false
-        result.warn(`Invalid option name "${optionName}" for rule "${ruleName}"`)
+        complain(`Invalid option name "${optionName}" for rule "${ruleName}"`)
         return
       }
 
       const actualOptionValue = actual[optionName]
       const check = a => {
         if (isValid(possible[optionName], a)) { return }
-        noErrors = false
-        result.warn(`Invalid value "${a}" for option "${optionName}" of rule "${ruleName}"`)
+        complain(`Invalid value "${a}" for option "${optionName}" of rule "${ruleName}"`)
       }
 
       if (Array.isArray(actualOptionValue)) {
@@ -74,12 +71,18 @@ export default function (result, ruleName, ...optionDescriptions) {
         check(actualOptionValue)
       }
     })
+
+    function complain(message) {
+      noErrors = false
+      result.warn(message)
+    }
   }
 }
 
 function isValid(possible, actual) {
-  for (let i = 0, l = possible.length; i < l; i++) {
-    const possibility = possible[i]
+  const possibleList = [].concat(possible)
+  for (let i = 0, l = possibleList.length; i < l; i++) {
+    const possibility = possibleList[i]
     if (typeof possibility === "function" && possibility(actual)) { return true }
     if (actual === possibility) { return true }
   }
