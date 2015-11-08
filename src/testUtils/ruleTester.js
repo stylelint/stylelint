@@ -5,5 +5,5 @@ export default function (rule, ruleName, options) {
   options = options || {}
   options.preceedingPlugins = [disableRanges]
 
-  return ruleTester(rule, ruleName, options)
+  return ruleTester.printWarnings(rule, ruleName, options)
 }
