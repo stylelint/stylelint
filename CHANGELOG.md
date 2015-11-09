@@ -4,6 +4,7 @@
 * Added: `selector-id-pattern` rule.
 * Added: `function-parentheses-newline-inside` rule.
 * Added: `"always-single-line"` and `"never-single-line"` options to `function-parentheses-space-inside`.
+* Fixed: CLI `syntax` argument bug.
 
 # 2.1.0
 

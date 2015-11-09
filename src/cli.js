@@ -14,6 +14,7 @@ const minimistOptions = {
   alias: {
     f: "formatter",
     q: "quiet",
+    s: "syntax",
   },
 }
 const syntaxOptions = ["scss"]
