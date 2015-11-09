@@ -1,4 +1,4 @@
-# Head
+# 2.2.0
 
 * Added: `selector-class-pattern` rule.
 * Added: `selector-id-pattern` rule.
