@@ -70,6 +70,16 @@ testRule("always-multi-line", tr => {
         inset 0 -10px 12px 0 #f00;
     }
   `)
+  tr.ok(`
+    .foo {
+      background-image:
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          rgba(0, 0, 0, 1) 5px
+        );
+      }
+  `)
 
   tr.notOk("a { transform: color(rgb(0 , 0 ,\n0) lightness(50%)); }", {
     message: messages.expectedAfterMultiLine(),
@@ -80,6 +90,11 @@ testRule("always-multi-line", tr => {
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 4,
+  })
+  tr.notOk("a { background-image: repeating-linear-gradient(\n-45deg,\ntransparent, rgba(0, 0, 0, 1) 5px\n);}", {
+    message: messages.expectedAfterMultiLine(),
+    line: 3,
+    column: 12,
   })
 })
 
