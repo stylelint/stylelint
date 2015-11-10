@@ -42,23 +42,35 @@ export default function (expectation) {
 
 export function functionCommaSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
-    const functionOffset = declarationValueIndexOffset(decl)
+    valueParser(decl.value).walk(valueNode => {
+      if (valueNode.type !== "function") { return }
 
-    const cssFunctions = valueParser(decl.value)
-      .nodes
-      .filter(node => node.type === "function")
+      let functionArguments = (() => {
+        let result = valueParser.stringify(valueNode)
+        // Remove function name and opening paren
+        result = result.slice(valueNode.value.length + 1)
+        // Remove closing paren
+        result = result.slice(0, result.length - 1)
+        return result
+      })()
 
-    cssFunctions.forEach(cssFunction => {
-      const cssFunctionString = valueParser.stringify(cssFunction)
-      styleSearch({ source: cssFunctionString, target: "," }, match => {
+      styleSearch({
+        source: functionArguments,
+        target: ",",
+        outsideFunctionalNotation: true,
+      }, (match) => {
         locationChecker({
-          source: cssFunctionString,
+          source: functionArguments,
           index: match.startIndex,
-          err: message => {
+          err: (message) => {
+            const index = declarationValueIndexOffset(decl) +
+              valueNode.value.length + 1 +
+              valueNode.sourceIndex +
+              match.startIndex
             report({
+              index,
               message,
               node: decl,
-              index: functionOffset + cssFunction.sourceIndex + match.startIndex,
               result,
               ruleName: checkedRuleName,
             })
