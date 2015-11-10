@@ -10,8 +10,8 @@ export const ruleName = "function-comma-space-before"
 export const messages = ruleMessages(ruleName, {
   expectedBefore: () => `Expected single space before ","`,
   rejectedBefore: () => `Unexpected whitespace before ","`,
-  expectedBeforeSingleLine: () => `Expected single space before "," in a single-line list`,
-  rejectedBeforeSingleLine: () => `Unexpected whitespace before "," in a single-line list`,
+  expectedBeforeSingleLine: () => `Expected single space before "," in a single-line function`,
+  rejectedBeforeSingleLine: () => `Unexpected whitespace before "," in a single-line function`,
 })
 
 export default function (expectation) {

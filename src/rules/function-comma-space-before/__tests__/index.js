@@ -116,6 +116,8 @@ testRule("always-single-line", tr => {
   tr.ok("a { transform: translate(1\n, 1); }")
   tr.ok("a { transform: translate(1\n,\n1); }")
 
+  tr.ok("a { background: linear-gradient(45deg,\nrgba(0 , 0 , 0 ,1)\n,red); }")
+
   tr.notOk("a { transform: color(rgb(0 , 0, 0) lightness(50%)); }", {
     message: messages.expectedBeforeSingleLine(),
     line: 1,
@@ -125,6 +127,11 @@ testRule("always-single-line", tr => {
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 46,
+  })
+  tr.notOk("a { background: linear-gradient(45deg,\nrgba(0 , 0,0 ,1),red); }", {
+    message: messages.expectedBeforeSingleLine(),
+    line: 2,
+    column: 11,
   })
 })
 

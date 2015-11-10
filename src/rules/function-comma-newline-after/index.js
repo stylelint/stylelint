@@ -9,8 +9,8 @@ export const ruleName = "function-comma-newline-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => `Expected newline after ","`,
-  expectedAfterMultiLine: () => `Expected newline after "," in a multi-line list`,
-  rejectedAfterMultiLine: () => `Unexpected whitespace after "," in a multi-line list`,
+  expectedAfterMultiLine: () => `Expected newline after "," in a multi-line function`,
+  rejectedAfterMultiLine: () => `Unexpected whitespace after "," in a multi-line function`,
 })
 
 export default function (expectation) {

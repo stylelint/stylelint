@@ -116,6 +116,8 @@ testRule("always-single-line", tr => {
   tr.ok("a { color: rgba(0,0\n,0); }", "CRLF")
   tr.ok("a { color: rgba(0\n,0,0); }", "CRLF")
 
+  tr.ok("a { background: linear-gradient(45deg\n,rgba(0, 0, 0, 1)\n,red); }")
+
   tr.notOk("a { transform: color(rgb(0 , 0 ,0) lightness(50%)); }", {
     message: messages.expectedAfterSingleLine(),
     line: 1,
@@ -125,6 +127,11 @@ testRule("always-single-line", tr => {
     message: messages.expectedAfterSingleLine(),
     line: 1,
     column: 47,
+  })
+  tr.notOk("a { background: linear-gradient(45deg\n,rgba(0, 0,0, 1),red); }", {
+    message: messages.expectedAfterSingleLine(),
+    line: 2,
+    column: 11,
   })
 })
 

@@ -1,6 +1,7 @@
 # Head
 
 * Added: `configFile` option to PostCSS plugin.
+* Fixed: `function-parentheses-newline-inside` and `function-parentheses-space-inside` bug with nested functions.
 
 # 2.2.0
 
