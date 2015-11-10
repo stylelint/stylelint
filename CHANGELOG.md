@@ -1,3 +1,7 @@
+# Head
+
+* Added: `configFile` option to PostCSS plugin.
+
 # 2.2.0
 
 * Added: `selector-class-pattern` rule.
