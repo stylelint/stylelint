@@ -65,6 +65,8 @@ testRule("always-multi-line", tr => {
   tr.ok("a { transform: translate(1 , 1); }")
   tr.ok("a { transform: translate(1\t,1); }")
 
+  tr.ok("a { background: linear-gradient(45deg\n, rgba(0, 0, 0, 1)\n, red); }")
+
   tr.notOk("a { transform: color(rgb(0\n, 0, 0) lightness(50%)); }", {
     message: messages.expectedBeforeMultiLine(),
     line: 2,
@@ -74,6 +76,11 @@ testRule("always-multi-line", tr => {
     message: messages.expectedBeforeMultiLine(),
     line: 1,
     column: 42,
+  })
+  tr.notOk("a { background: linear-gradient(45deg\n, rgba(0\n, 0, 0\n, 1)\n, red); }", {
+    message: messages.expectedBeforeMultiLine(),
+    line: 3,
+    column: 4,
   })
 })
 
