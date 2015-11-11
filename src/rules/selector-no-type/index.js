@@ -19,6 +19,7 @@ export default function (actual) {
     root.walkRules(rule => {
       selectorParser(selectorAST => {
         selectorAST.eachTag(tag => {
+          if (tag.value === "&") { return }
           report({
             message: messages.rejected,
             node: rule,

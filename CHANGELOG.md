@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: `selector-no-type` no longer flags the _nesting selector_ (`&`).
+
 # 2.3.0
 
 * Added: `configFile` option to PostCSS plugin.
