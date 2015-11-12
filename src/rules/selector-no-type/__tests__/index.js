@@ -14,6 +14,12 @@ testRule(undefined, tr => {
   tr.ok(".foo {}")
   tr.ok("[foo] {}")
 
+  tr.ok(".foo { & {} }")
+  tr.ok(".foo { &.bar {} }")
+  tr.ok(".foo { [&] {} }")
+  tr.ok(".foo { & [class*=bar] {} }")
+  tr.ok(".foo { @nest & {} }")
+  
   tr.notOk("foo {}", {
     message: messages.rejected,
     line: 1,
