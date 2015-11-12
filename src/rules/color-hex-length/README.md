@@ -35,6 +35,10 @@ a { color: #fff; }
 a { color: #fffa; }
 ```
 
+```css
+a { color: #a4a4a4; }
+```
+
 ### `"long"`
 
 The following patterns are considered warnings:
