@@ -106,5 +106,5 @@ function testDisableRanges(source, cb) {
     .use(disableRanges)
     .process(source)
     .then(cb)
-    .catch(err => { throw err })
+    .catch(err => console.log(err.stack))
 }

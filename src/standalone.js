@@ -46,22 +46,25 @@ export default function ({
       }
 
       q.awaitAll(err => {
-        if (err) {
-          reject(err)
-        }
+        if (err) return reject(err)
         const output = chosenFormatter(results)
-        resolve({ output, results, postcssResults, errored })
+        resolve({
+          output,
+          results,
+          postcssResults,
+          errored,
+        })
       })
     })
 
-    function lintFile(filepath, cb) {
+    function lintFile(filepath, done) {
       fs.readFile(filepath, "utf8", (err, code) => {
         if (err) { reject(err) }
-        lint(code, filepath, cb)
+        lint(code, filepath, done)
       })
     }
 
-    function lint(code, filepath, cb) {
+    function lint(code, filepath, done) {
       const processOptions = {}
       if (filepath) {
         processOptions.from = filepath
@@ -70,30 +73,37 @@ export default function ({
         processOptions.syntax = scssSyntax
       }
       postcss()
-        .use(stylelintPostcssPlugin({ config, configBasedir, configOverrides }))
+        .use(stylelintPostcssPlugin({
+          config,
+          configBasedir,
+          configOverrides,
+        }))
         .process(code, processOptions)
-        .then(postcssResult => {
-          const source = (!postcssResult.root.source)
-            ? undefined
-            : postcssResult.root.source.input.file || postcssResult.root.source.input.id
+        .then(handleResult)
+        .catch(done)
 
-          if (postcssResult.stylelint.stylelintError) { errored = true }
-          results.push({
-            source,
-            errored: postcssResult.stylelint.stylelintError,
-            warnings: postcssResult.messages.map(message => {
-              return {
-                line: message.line,
-                column: message.column,
-                rule: message.rule,
-                severity: message.severity,
-                text: message.text,
-              }
-            }),
-          })
-          cb()
+      function handleResult(postcssResult) {
+        const source = (!postcssResult.root.source)
+          ? undefined
+          : postcssResult.root.source.input.file || postcssResult.root.source.input.id
+
+        if (postcssResult.stylelint.stylelintError) { errored = true }
+
+        results.push({
+          source,
+          errored: postcssResult.stylelint.stylelintError,
+          warnings: postcssResult.messages.map(message => {
+            return {
+              line: message.line,
+              column: message.column,
+              rule: message.rule,
+              severity: message.severity,
+              text: message.text,
+            }
+          }),
         })
-        .catch(cb)
+        done()
+      }
     }
   })
 }
