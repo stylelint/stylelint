@@ -32,7 +32,7 @@ postcss()
   .use(stylelint(config))
   .process(css)
   .then(checkResult)
-  .catch(e => console.log(e.stack))
+  .catch(err => console.log(err.stack))
 
 function checkResult(result) {
   const { messages } = result

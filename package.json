@@ -30,6 +30,7 @@
   "dependencies": {
     "autoprefixer": "^6.0.0",
     "balanced-match": "^0.2.0",
+    "cosmiconfig": "^0.3.0",
     "execall": "^1.0.0",
     "get-stdin": "^5.0.0",
     "globby": "^3.0.1",
@@ -42,7 +43,6 @@
     "postcss-selector-parser": "^1.2.0",
     "postcss-value-parser": "^3.1.1",
     "queue-async": "^1.0.7",
-    "rc": "^1.1.1",
     "resolve-from": "^1.0.1"
   },
   "devDependencies": {
