@@ -1,6 +1,8 @@
 # Head
 
 * Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
+* Added: cosmiconfig
+* Added: asynchronicity to the PostCSS plugin.
 
 # 2.3.1
 
