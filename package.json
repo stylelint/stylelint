@@ -30,7 +30,7 @@
   "dependencies": {
     "autoprefixer": "^6.0.0",
     "balanced-match": "^0.2.0",
-    "cosmiconfig": "^0.3.0",
+    "cosmiconfig": "^0.4.1",
     "execall": "^1.0.0",
     "get-stdin": "^5.0.0",
     "globby": "^3.0.1",
