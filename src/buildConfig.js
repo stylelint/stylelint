@@ -5,31 +5,27 @@ import { assign, mapValues, merge, omit } from "lodash"
 import { configurationError } from "./utils"
 
 export default function (options) {
-  return new Promise((resolve, reject) => {
-    const rawConfig = (() => {
-      if (options.config) return options.config
-      if (options.rules) return options
-      return false
-    })()
-    const configBasedir = options.configBasedir || process.cwd()
+  const rawConfig = (() => {
+    if (options.config) return options.config
+    if (options.rules) return options
+    return false
+  })()
+  const configBasedir = options.configBasedir || process.cwd()
 
-    if (rawConfig) {
-      augmentConfig(rawConfig, configBasedir).then(config => {
-        resolve(merge(config, options.configOverrides))
-      }).catch(reject)
-      return
-    }
+  if (rawConfig) {
+    return augmentConfig(rawConfig, configBasedir).then(config => {
+      return merge(config, options.configOverrides)
+    })
+  }
 
-    cosmiconfig("stylelint", {
-      configPath: options.configFile,
-    }).then(result => {
-      return augmentConfig(result.config, path.dirname(result.filepath))
-    }).then(augmentedConfig => {
-      const config = (options.configOverrides)
-        ? merge({}, augmentedConfig, options.configOverrides)
-        : augmentedConfig
-      resolve(config)
-    }).catch(reject)
+  return cosmiconfig("stylelint", {
+    configPath: options.configFile,
+  }).then(result => {
+    return augmentConfig(result.config, path.dirname(result.filepath))
+  }).then(augmentedConfig => {
+    return (options.configOverrides)
+      ? merge({}, augmentedConfig, options.configOverrides)
+      : augmentedConfig
   })
 }
 
