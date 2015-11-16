@@ -53,8 +53,6 @@ import mediaQueryListCommaNewlineBefore from "./media-query-list-comma-newline-b
 import mediaQueryListCommaSpaceAfter from "./media-query-list-comma-space-after"
 import mediaQueryListCommaSpaceBefore from "./media-query-list-comma-space-before"
 import mediaQueryParenthesesSpaceInside from "./media-query-parentheses-space-inside"
-import nestingBlockOpeningBraceNewlineBefore from "./nesting-block-opening-brace-newline-before"
-import nestingBlockOpeningBraceSpaceBefore from "./nesting-block-opening-brace-space-before"
 import noEolWhitespace from "./no-eol-whitespace"
 import noMissingEofNewline from "./no-missing-eof-newline"
 import noMultipleEmptyLines from "./no-multiple-empty-lines"
@@ -157,8 +155,6 @@ export default {
   "media-query-list-comma-space-after": mediaQueryListCommaSpaceAfter,
   "media-query-list-comma-space-before": mediaQueryListCommaSpaceBefore,
   "media-query-parentheses-space-inside": mediaQueryParenthesesSpaceInside,
-  "nesting-block-opening-brace-newline-before": nestingBlockOpeningBraceNewlineBefore,
-  "nesting-block-opening-brace-space-before": nestingBlockOpeningBraceSpaceBefore,
   "no-eol-whitespace": noEolWhitespace,
   "no-missing-eof-newline": noMissingEofNewline,
   "no-multiple-empty-lines": noMultipleEmptyLines,
