@@ -9,39 +9,35 @@ export default function (options) {
     const rawConfig = (() => {
       if (options.config) return options.config
       if (options.rules) return options
+      return false
     })()
-    const basedir = options.configBasedir || process.cwd()
+    const configBasedir = options.configBasedir || process.cwd()
 
     if (rawConfig) {
-      augmentConfig(rawConfig, basedir).then(config => {
-        if (options.configOverrides) {
-          merge(config, options.configOverrides)
-        }
-        resolve(config)
+      augmentConfig(rawConfig, configBasedir).then(config => {
+        resolve(merge(config, options.configOverrides))
       }).catch(reject)
       return
     }
 
     cosmiconfig("stylelint", {
       configPath: options.configFile,
-    })
-      .then(result => {
-        return augmentConfig(result.config, path.dirname(result.filepath))
-      })
-      .then(augmentedConfig => {
-        const config = (options.configOverrides)
-          ? merge({}, augmentedConfig, options.configOverrides)
-          : augmentedConfig
-        resolve(config)
-      })
-      .catch(reject)
+    }).then(result => {
+      return augmentConfig(result.config, path.dirname(result.filepath))
+    }).then(augmentedConfig => {
+      const config = (options.configOverrides)
+        ? merge({}, augmentedConfig, options.configOverrides)
+        : augmentedConfig
+      resolve(config)
+    }).catch(reject)
   })
 }
 
 function augmentConfig(originalConfig, originalConfigDir) {
+  // Returns a Promise ...
   return mergeExtends(originalConfig, originalConfigDir)
 
-  // Returns a Promise
+  // ... because this returns a Promise
   function mergeExtends(config, configDir) {
     // Absolutize the plugins here, because here is the place
     // where we know the basedir for this particular config
@@ -51,18 +47,18 @@ function augmentConfig(originalConfig, originalConfigDir) {
     }
 
     const extendLookups = [].concat(config.extends)
-    const resultPromise = extendLookups.reduce((mergedConfigPromise, extendLookup) => {
-      return mergedConfigPromise.then((priorMergedConfig) => {
-        return loadExtendConfig(priorMergedConfig, configDir, extendLookup)
-          .then((extendConfig) => {
-            return Promise.resolve(merge({}, priorMergedConfig, extendConfig))
-          })
+    const resultPromise = extendLookups.reduce((mergeConfigs, extendLookup) => {
+      return mergeConfigs.then((mergedConfig) => {
+        return loadExtendedConfig(mergedConfig, extendLookup).then((extendedConfig) => {
+          return merge({}, mergedConfig, extendedConfig)
+        })
       })
     }, Promise.resolve(omit(config, "extends")))
 
     return resultPromise
 
-    function loadExtendConfig(config, configDir, extendLookup) {
+    // Also returns a Promise ...
+    function loadExtendedConfig(config, extendLookup) {
       var extendPath = resolveFrom(configDir, extendLookup)
       var extendDir = path.dirname(extendPath)
 
