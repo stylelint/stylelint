@@ -1,3 +1,7 @@
+# Head
+
+* Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
+
 # 2.3.7
 
 * Fixed: `function-calc-no-unspaced-operator` ignores characters in `$sass` and `@less` variables.
