@@ -2,8 +2,21 @@
 
 The linter _expects a configuration object_. You can either craft your own config or extend an existing one.
 
-For the Node API and PostCSS plugin, you can either pass a configuration object directly or create a `.stylelintrc` JSON file.
-For the CLI, you must use a `.stylelintrc` file or point to some other JSON file.
+## Loading Configuration
+
+For the Node API and PostCSS plugin, you can pass a config directly or find and load it.
+For the CLI, you must find and load it.
+
+Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig).
+Starting from the current working directory, it will look for the following possible sources, in this order:
+
+- a `stylelint` property in `package.json`
+- a `.stylelintrc` file in JSON or YAML format
+- a `stylelint.config.js` file exporting a JS object
+
+Once one of these is found and parsed, the search will stop and that object will be used.
+
+The configuration search can be short-circuited by passing a `--config` CLI argument specifying the path to your configuration file.
 
 ## The Configuration Object
 
