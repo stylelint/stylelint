@@ -86,16 +86,16 @@ Or starting with `stylelint-config-suitcss`, then extending layering `myExtendab
 
 ## `plugins`
 
-[Plugins](/docs/user-guide/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` object to your config. Each key is a new rule's name, and its value is a "locater" identifying the plugin.
+[Plugins](/docs/user-guide/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use.
 As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
 
-Once the plugin is declared, within your `"rules"` object you can add settings for the plugin's rule just like any standard rule.
+Once the plugin is declared, within your `"rules"` object you can add settings for the plugin's rule just like any standard rule. You will have to look at the plugin's documentation to know what the rule name should be.
 
 ```json
 {
-  "plugins": {
-    "special-rule": "../special-rule.js",
-  },
+  "plugins": [
+    "../special-rule.js",
+  ],
   "rules": {
     "special-rule": [2, "everything"],
   },
