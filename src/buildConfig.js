@@ -1,7 +1,7 @@
 import path from "path"
 import cosmiconfig from "cosmiconfig"
 import resolveFrom from "resolve-from"
-import { assign, mapValues, merge, omit } from "lodash"
+import { assign, merge, omit } from "lodash"
 import { configurationError } from "./utils"
 
 export default function (options) {
@@ -66,7 +66,7 @@ function augmentConfig(config, configDir) {
 function absolutizePlugins(config, configDir) {
   if (!config.plugins) { return config }
   return assign({}, config, {
-    plugins: mapValues(config.plugins, lookup => getModulePath(configDir, lookup)),
+    plugins: config.plugins.map(lookup => getModulePath(configDir, lookup)),
   })
 }
 

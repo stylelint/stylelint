@@ -1,5 +1,6 @@
 # Head
 
+* Changed: `plugins` is now an array instead of an object. And plugins should be created with `stylelint.createPlugin()`.
 * Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
 * Added: cosmiconfig, which means the following:
   * support for YAML `.stylelintrc`

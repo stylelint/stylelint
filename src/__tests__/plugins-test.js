@@ -12,9 +12,9 @@ const cssB = (
 )
 
 const configRelative = {
-  plugins: {
-    "warn-about-foo": "./fixtures/plugin-warn-about-foo",
-  },
+  plugins: [
+    "./fixtures/plugin-warn-about-foo",
+  ],
   rules: {
     "warn-about-foo": [ 2, "always" ],
     "block-no-empty": 2,
@@ -22,9 +22,9 @@ const configRelative = {
 }
 
 const configAbsolute = {
-  plugins: {
-    "warn-about-foo": path.join(__dirname, "./fixtures/plugin-warn-about-foo"),
-  },
+  plugins: [
+    path.join(__dirname, "./fixtures/plugin-warn-about-foo"),
+  ],
   rules: {
     "warn-about-foo": [ 2, "always" ],
     "block-no-empty": 2,

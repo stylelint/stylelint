@@ -1,5 +1,4 @@
 import postcss from "postcss"
-import { merge, mapValues } from "lodash"
 import { configurationError } from "./utils"
 import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
@@ -20,7 +19,10 @@ export default postcss.plugin("stylelint", (options = {}) => {
         throw configurationError("No rules found within configuration")
       }
       if (config.plugins) {
-        merge(ruleDefinitions, mapValues(config.plugins, plugin => require(plugin)))
+        config.plugins.forEach(pluginPath => {
+          const plugin = require(pluginPath)
+          ruleDefinitions[plugin.ruleName] = plugin.rule
+        })
       }
 
       // Register details about the configuration
