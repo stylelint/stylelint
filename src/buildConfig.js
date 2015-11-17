@@ -39,8 +39,8 @@ function augmentConfig(config, configDir) {
 
   const extendLookups = [].concat(config.extends)
   const resultPromise = extendLookups.reduce((mergeConfigs, extendLookup) => {
-    return mergeConfigs.then((mergedConfig) => {
-      return loadExtendedConfig(mergedConfig, extendLookup).then((extendedConfig) => {
+    return mergeConfigs.then(mergedConfig => {
+      return loadExtendedConfig(mergedConfig, extendLookup).then(extendedConfig => {
         return merge({}, mergedConfig, extendedConfig)
       })
     })
@@ -56,7 +56,7 @@ function augmentConfig(config, configDir) {
       configPath: extendPath,
       // In case --config was used: do not pay attention to it again
       argv: false,
-    }).then((result) => {
+    }).then(result => {
       return augmentConfig(result.config, extendDir)
     })
   }
