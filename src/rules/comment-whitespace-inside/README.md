@@ -1,4 +1,4 @@
-# comment-space-inside
+# comment-whitespace-inside
 
 Require or disallow whitespace on the inside of comment markers.
 
@@ -11,17 +11,13 @@ Require or disallow whitespace on the inside of comment markers.
 Any number of asterisks are allowed at the beginning or end of the comment.
 So `/** comment **/` is treated the same way as `/* comment */`.
 
-Unlike most other `*-space-*` rules, this one allow *any whitespace*, not just a single space.
-
-In a future release, this rule's name will be changed to `comment-whitespace-inside`.
-
 ## Options
 
 `string`: `"always"|"never"`
 
 ### `"always"`
 
-There *must always* be a single space inside the markers.
+There *must always* be whitespace inside the markers.
 
 The following patterns are considered warnings:
 
