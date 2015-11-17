@@ -63,23 +63,22 @@ if (cli.flags.s && includes(syntaxOptions, cli.flags.s)) {
   optionsBase.syntax = cli.flags.s
 }
 
-let optionsReady = (cli.input.length)
-  ? Promise.resolve(assign({}, optionsBase, {
-    files: cli.input,
-  }))
-  : getStdin().then(stdin => Promise.resolve(assign({}, optionsBase, {
+Promise.resolve().then(() => {
+  if (cli.input.length) {
+    return assign({}, optionsBase, {
+      files: cli.input,
+    })
+  }
+  return getStdin().then(stdin => assign({}, optionsBase, {
     code: stdin,
-  })))
-
-optionsReady.then(options => {
-  standalone(options)
-    .then(({ output, errored }) => {
-      if (!output) { return }
-      process.stdout.write(output)
-      if (errored) { process.exit(2) }
-    })
-    .catch(err => {
-      console.log(err.stack)
-      process.exit(err.code || 1)
-    })
+  }))
+}).then(options => {
+  return standalone(options)
+}).then(({ output, errored }) => {
+  if (!output) { return }
+  process.stdout.write(output)
+  if (errored) { process.exit(2) }
+}).catch(err => {
+  console.log(err.stack)
+  process.exit(err.code || 1)
 })
