@@ -1,4 +1,4 @@
-# comment-white-inside
+# comment-whitespace-inside
 
 Require or disallow whitespace on the inside of comment markers.
 
