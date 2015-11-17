@@ -7,6 +7,7 @@
   * support for `stylelint` property in `package.json`
   * alternate config loading system, which stops at the first config found
 * Added: asynchronicity to the PostCSS plugin.
+* Added: `configFile` option to Node.js API.
 
 # 2.3.7
 
