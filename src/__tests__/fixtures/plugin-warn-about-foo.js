@@ -1,11 +1,13 @@
 import stylelint from "../../"
 
+const ruleName = "warn-about-foo"
+
 const warnAboutFooMessages = stylelint.utils.ruleMessages("warn-about-foo", {
   found: "found .foo",
   notFound: "never found .foo",
 })
 
-export default function (expectation) {
+export default stylelint.createPlugin(ruleName, function (expectation) {
   return (root, result) => {
     let foundFoo
     root.walkRules(rule => {
@@ -13,7 +15,7 @@ export default function (expectation) {
         if (expectation === "always") {
           stylelint.utils.report({
             result,
-            ruleName: "warn-about-foo",
+            ruleName,
             message: warnAboutFooMessages.found,
             node: rule,
           })
@@ -25,9 +27,9 @@ export default function (expectation) {
       stylelint.utils.report({
         result,
         line: 1,
-        ruleName: "warn-about-foo",
+        ruleName,
         message: warnAboutFooMessages.notFound,
       })
     }
   }
-}
+})

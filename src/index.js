@@ -8,3 +8,4 @@ module.exports.utils = {
 }
 
 module.exports.lint = require("./standalone")
+module.exports.createPlugin = require("./createPlugin")
