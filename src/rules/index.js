@@ -21,10 +21,12 @@ import customPropertyNoOutsideRoot from "./custom-property-no-outside-root"
 import customPropertyPattern from "./custom-property-pattern"
 import declarationBangSpaceAfter from "./declaration-bang-space-after"
 import declarationBangSpaceBefore from "./declaration-bang-space-before"
+import declarationBlockNoSingleLine from "./declaration-block-no-single-line"
 import declarationBlockSemicolonNewlineAfter from "./declaration-block-semicolon-newline-after"
 import declarationBlockSemicolonNewlineBefore from "./declaration-block-semicolon-newline-before"
 import declarationBlockSemicolonSpaceAfter from "./declaration-block-semicolon-space-after"
 import declarationBlockSemicolonSpaceBefore from "./declaration-block-semicolon-space-before"
+import declarationBlockSingleLineMaxDeclarations from "./declaration-block-single-line-max-declarations"
 import declarationColonNewlineAfter from "./declaration-colon-newline-after"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
@@ -61,18 +63,16 @@ import numberMaxPrecision from "./number-max-precision"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
 import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyBlacklist from "./property-blacklist"
-import propertyWhitelist from "./property-whitelist"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
 import propertyUnitBlacklist from "./property-unit-blacklist"
 import propertyUnitWhitelist from "./property-unit-whitelist"
+import propertyWhitelist from "./property-whitelist"
 import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
 import ruleNoDuplicateProperties from "./rule-no-duplicate-properties"
 import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
 import ruleNoShorthandPropertyOverrides from "./rule-no-shorthand-property-overrides"
-import ruleNoSingleLine from "./rule-no-single-line"
 import rulePropertiesOrder from "./rule-properties-order"
-import ruleSingleLineMaxDeclarations from "./rule-single-line-max-declarations"
 import ruleTrailingSemicolon from "./rule-trailing-semicolon"
 import selectorClassPattern from "./selector-class-pattern"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
@@ -123,10 +123,12 @@ export default {
   "custom-property-pattern": customPropertyPattern,
   "declaration-bang-space-after": declarationBangSpaceAfter,
   "declaration-bang-space-before": declarationBangSpaceBefore,
+  "declaration-block-no-single-line": declarationBlockNoSingleLine,
   "declaration-block-semicolon-newline-after": declarationBlockSemicolonNewlineAfter,
   "declaration-block-semicolon-newline-before": declarationBlockSemicolonNewlineBefore,
   "declaration-block-semicolon-space-after": declarationBlockSemicolonSpaceAfter,
   "declaration-block-semicolon-space-before": declarationBlockSemicolonSpaceBefore,
+  "declaration-block-single-line-max-declarations": declarationBlockSingleLineMaxDeclarations,
   "declaration-colon-newline-after": declarationColonNewlineAfter,
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
@@ -163,18 +165,16 @@ export default {
   "number-no-trailing-zeros": numberNoTrailingZeros,
   "number-zero-length-no-unit": numberZeroLengthNoUnit,
   "property-blacklist": propertyBlacklist,
-  "property-whitelist": propertyWhitelist,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
   "property-unit-blacklist": propertyUnitBlacklist,
   "property-unit-whitelist": propertyUnitWhitelist,
+  "property-whitelist": propertyWhitelist,
   "root-no-standard-properties": rootNoStandardProperties,
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
   "rule-no-duplicate-properties": ruleNoDuplicateProperties,
   "rule-no-shorthand-property-overrides": ruleNoShorthandPropertyOverrides,
-  "rule-no-single-line": ruleNoSingleLine,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
   "rule-properties-order": rulePropertiesOrder,
-  "rule-single-line-max-declarations": ruleSingleLineMaxDeclarations,
   "rule-trailing-semicolon": ruleTrailingSemicolon,
   "selector-class-pattern": selectorClassPattern,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,

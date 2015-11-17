@@ -1,5 +1,7 @@
 # Head
 
+* Changed: renamed `rule-single-line-max-declarations` to `declaration-block-single-line-max-declarations` and changed scope of the single-line to the declaration block.
+* Changed: renamed `rule-no-single-line` to `declaration-block-no-single-line` and changed scope of the single-line to the declaration block.
 * Changed: renamed the `function-space-after` rule to `function-whitespace-after`.
 * Changed: renamed the `comment-space-inside` rule to `comment-whitespace-inside`.
 * Changed: `plugins` is now an array instead of an object. And plugins should be created with `stylelint.createPlugin()`.

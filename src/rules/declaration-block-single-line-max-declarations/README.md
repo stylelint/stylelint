@@ -1,6 +1,6 @@
-# rule-single-line-max-declarations
+# declaration-block-single-line-max-declarations
 
-Limit the number of declaration within a single line rule.
+Limit the number of declaration within a single line declaration block.
 
 ## Options
 
@@ -14,10 +14,20 @@ The following patterns are considered warnings:
 a { color: pink; top: 3px; }
 ```
 
+```css
+a,
+b { color: pink; top: 3px; }
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
 a { color: pink; }
+```
+
+```css
+a,
+b { color: pink; }
 ```
 
 ```css
