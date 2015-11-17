@@ -6,7 +6,7 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "function-space-after"
+export const ruleName = "function-whitespace-after"
 
 export const messages = ruleMessages(ruleName, {
   expected: `Expected whitespace after ")"`,
