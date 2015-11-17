@@ -1,5 +1,7 @@
 # Head
 
+* Changed: renamed the `function-space-after` rule to `function-whitespace-after`.
+* Changed: renamed the `comment-space-inside` rule to `comment-whitespace-inside`.
 * Changed: `plugins` is now an array instead of an object. And plugins should be created with `stylelint.createPlugin()`.
 * Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
 * Added: cosmiconfig, which means the following:
