@@ -5,12 +5,12 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "comment-space-inside"
+export const ruleName = "comment-whitespace-inside"
 
 export const messages = ruleMessages(ruleName, {
-  expectedOpening: `Expected single space after "/*"`,
+  expectedOpening: `Expected whitespace after "/*"`,
   rejectedOpening: `Unexpected whitespace after "/*"`,
-  expectedClosing: `Expected single space before "*/"`,
+  expectedClosing: `Expected whitespace before "*/"`,
   rejectedClosing: `Unexpected whitespace before "*/"`,
 })
 
