@@ -26,6 +26,7 @@ import declarationBlockSemicolonNewlineAfter from "./declaration-block-semicolon
 import declarationBlockSemicolonNewlineBefore from "./declaration-block-semicolon-newline-before"
 import declarationBlockSemicolonSpaceAfter from "./declaration-block-semicolon-space-after"
 import declarationBlockSemicolonSpaceBefore from "./declaration-block-semicolon-space-before"
+import declarationBlockSingleLineMaxDeclarations from "./declaration-block-single-line-max-declarations"
 import declarationColonNewlineAfter from "./declaration-colon-newline-after"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
@@ -72,7 +73,6 @@ import ruleNoDuplicateProperties from "./rule-no-duplicate-properties"
 import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
 import ruleNoShorthandPropertyOverrides from "./rule-no-shorthand-property-overrides"
 import rulePropertiesOrder from "./rule-properties-order"
-import ruleSingleLineMaxDeclarations from "./rule-single-line-max-declarations"
 import ruleTrailingSemicolon from "./rule-trailing-semicolon"
 import selectorClassPattern from "./selector-class-pattern"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
@@ -128,6 +128,7 @@ export default {
   "declaration-block-semicolon-newline-before": declarationBlockSemicolonNewlineBefore,
   "declaration-block-semicolon-space-after": declarationBlockSemicolonSpaceAfter,
   "declaration-block-semicolon-space-before": declarationBlockSemicolonSpaceBefore,
+  "declaration-block-single-line-max-declarations": declarationBlockSingleLineMaxDeclarations,
   "declaration-colon-newline-after": declarationColonNewlineAfter,
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
@@ -174,7 +175,6 @@ export default {
   "rule-no-shorthand-property-overrides": ruleNoShorthandPropertyOverrides,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
   "rule-properties-order": rulePropertiesOrder,
-  "rule-single-line-max-declarations": ruleSingleLineMaxDeclarations,
   "rule-trailing-semicolon": ruleTrailingSemicolon,
   "selector-class-pattern": selectorClassPattern,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
