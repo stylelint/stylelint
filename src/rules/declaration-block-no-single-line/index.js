@@ -1,14 +1,16 @@
 import {
+  cssStatementBlockString,
+  cssStatementStringBeforeBlock,
   isSingleLineString,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "rule-no-single-line"
+export const ruleName = "declaration-block-no-single-line"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: `Unexpected single-line rule`,
+  rejected: `Unexpected single-line declaration block`,
 })
 
 export default function (actual) {
@@ -18,11 +20,12 @@ export default function (actual) {
 
     root.walkRules(rule => {
 
-      if (!isSingleLineString(rule.toString())) { return }
+      if (!isSingleLineString(cssStatementBlockString(rule))) { return }
 
       report({
         message: messages.rejected,
         node: rule,
+        index: cssStatementStringBeforeBlock(rule, { noBefore: true }).length,
         result,
         ruleName,
       })
