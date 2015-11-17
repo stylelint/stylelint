@@ -1,6 +1,13 @@
 # Head
 
 * Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
+* Added: cosmiconfig, which means the following:
+  * support for YAML `.stylelintrc`
+  * support for `stylelint.config.js`
+  * support for `stylelint` property in `package.json`
+  * alternate config loading system, which stops at the first config found
+* Added: asynchronicity to the PostCSS plugin.
+* Added: `configFile` option to Node.js API.
 
 # 2.3.1
 

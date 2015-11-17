@@ -13,7 +13,11 @@ const fixturesPath = path.join(__dirname, "fixtures")
 test("standalone with input file(s)", t => {
   let planned = 0
 
-  standalone({ files: `${fixturesPath}/empty-block.css`, config: configBlockNoEmpty })
+  standalone({
+    files: `${fixturesPath}/empty-block.css`,
+    // Path to config file
+    configFile: path.join(__dirname, "fixtures/config-block-no-empty.json"),
+  })
     .then(({ output, results }) => {
       t.ok(output.indexOf("block-no-empty") !== -1)
       t.equal(results.length, 1)
@@ -121,9 +125,8 @@ test("standalone with extending configuration and no configBasedir", t => {
     code: "a {}",
     config: configExtendingOne,
   })
-    .then(() => {})
     .catch(err => {
-      t.equal(err.message.indexOf("Could not find "), 0)
+      t.equal(err.code, "MODULE_NOT_FOUND")
     })
   planned += 1
 
