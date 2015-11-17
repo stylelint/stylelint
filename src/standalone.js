@@ -9,6 +9,7 @@ export default function ({
   files,
   code,
   config,
+  configFile,
   configBasedir,
   configOverrides,
   syntax,
@@ -74,6 +75,7 @@ export default function ({
     return postcss()
       .use(stylelintPostcssPlugin({
         config,
+        configFile,
         configBasedir,
         configOverrides,
       }))

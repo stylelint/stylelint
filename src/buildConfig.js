@@ -19,7 +19,7 @@ export default function (options) {
   }
 
   return cosmiconfig("stylelint", {
-    configPath: options.configFile,
+    configPath: path.resolve(process.cwd(), options.configFile),
   }).then(result => {
     return augmentConfig(result.config, path.dirname(result.filepath))
   }).then(augmentedConfig => {
