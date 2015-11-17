@@ -1,3 +1,7 @@
+# Head
+
+* Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
+
 # 2.3.1
 
 * Fixed: `selector-no-type` no longer flags the _nesting selector_ (`&`).
