@@ -1,3 +1,17 @@
+# Head
+
+* Changed: renamed the `function-space-after` rule to `function-whitespace-after`.
+* Changed: renamed the `comment-space-inside` rule to `comment-whitespace-inside`.
+* Changed: `plugins` is now an array instead of an object. And plugins should be created with `stylelint.createPlugin()`.
+* Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
+* Added: cosmiconfig, which means the following:
+  * support for YAML `.stylelintrc`
+  * support for `stylelint.config.js`
+  * support for `stylelint` property in `package.json`
+  * alternate config loading system, which stops at the first config found
+* Added: asynchronicity to the PostCSS plugin.
+* Added: `configFile` option to Node.js API.
+
 # 2.3.1
 
 * Fixed: `selector-no-type` no longer flags the _nesting selector_ (`&`).

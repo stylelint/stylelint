@@ -15,7 +15,7 @@ import colorNoHex from "./color-no-hex"
 import colorNoInvalidHex from "./color-no-invalid-hex"
 import colorNoNamed from "./color-no-named"
 import commentEmptyLineBefore from "./comment-empty-line-before"
-import commentSpaceInside from "./comment-space-inside"
+import commentWhitespaceInside from "./comment-whitespace-inside"
 import customMediaPattern from "./custom-media-pattern"
 import customPropertyNoOutsideRoot from "./custom-property-no-outside-root"
 import customPropertyPattern from "./custom-property-pattern"
@@ -38,9 +38,9 @@ import functionCommaSpaceBefore from "./function-comma-space-before"
 import functionLinearGradientNoNonstandardDirection from "./function-linear-gradient-no-nonstandard-direction"
 import functionParenthesesNewlineInside from "./function-parentheses-newline-inside"
 import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
-import functionSpaceAfter from "./function-space-after"
 import functionUrlQuotes from "./function-url-quotes"
 import functionWhitelist from "./function-whitelist"
+import functionWhitespaceAfter from "./function-whitespace-after"
 import indentation from "./indentation"
 import maxLineLength from "./max-line-length"
 import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
@@ -53,8 +53,6 @@ import mediaQueryListCommaNewlineBefore from "./media-query-list-comma-newline-b
 import mediaQueryListCommaSpaceAfter from "./media-query-list-comma-space-after"
 import mediaQueryListCommaSpaceBefore from "./media-query-list-comma-space-before"
 import mediaQueryParenthesesSpaceInside from "./media-query-parentheses-space-inside"
-import nestingBlockOpeningBraceNewlineBefore from "./nesting-block-opening-brace-newline-before"
-import nestingBlockOpeningBraceSpaceBefore from "./nesting-block-opening-brace-space-before"
 import noEolWhitespace from "./no-eol-whitespace"
 import noMissingEofNewline from "./no-missing-eof-newline"
 import noMultipleEmptyLines from "./no-multiple-empty-lines"
@@ -119,7 +117,7 @@ export default {
   "color-no-invalid-hex": colorNoInvalidHex,
   "color-no-named": colorNoNamed,
   "comment-empty-line-before": commentEmptyLineBefore,
-  "comment-space-inside": commentSpaceInside,
+  "comment-whitespace-inside": commentWhitespaceInside,
   "custom-media-pattern": customMediaPattern,
   "custom-property-no-outside-root": customPropertyNoOutsideRoot,
   "custom-property-pattern": customPropertyPattern,
@@ -142,9 +140,9 @@ export default {
   "function-linear-gradient-no-nonstandard-direction": functionLinearGradientNoNonstandardDirection,
   "function-parentheses-newline-inside": functionParenthesesNewlineInside,
   "function-parentheses-space-inside": functionParenthesesSpaceInside,
-  "function-space-after": functionSpaceAfter,
   "function-url-quotes": functionUrlQuotes,
   "function-whitelist": functionWhitelist,
+  "function-whitespace-after": functionWhitespaceAfter,
   "indentation": indentation,
   "max-line-length": maxLineLength,
   "media-feature-colon-space-after": mediaFeatureColonSpaceAfter,
@@ -157,8 +155,6 @@ export default {
   "media-query-list-comma-space-after": mediaQueryListCommaSpaceAfter,
   "media-query-list-comma-space-before": mediaQueryListCommaSpaceBefore,
   "media-query-parentheses-space-inside": mediaQueryParenthesesSpaceInside,
-  "nesting-block-opening-brace-newline-before": nestingBlockOpeningBraceNewlineBefore,
-  "nesting-block-opening-brace-space-before": nestingBlockOpeningBraceSpaceBefore,
   "no-eol-whitespace": noEolWhitespace,
   "no-missing-eof-newline": noMissingEofNewline,
   "no-multiple-empty-lines": noMultipleEmptyLines,

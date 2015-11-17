@@ -2,8 +2,21 @@
 
 The linter _expects a configuration object_. You can either craft your own config or extend an existing one.
 
-For the Node API and PostCSS plugin, you can either pass a configuration object directly or create a `.stylelintrc` JSON file.
-For the CLI, you must use a `.stylelintrc` file or point to some other JSON file.
+## Loading Configuration
+
+For the Node API and PostCSS plugin, you can pass a config directly or find and load it.
+For the CLI, you must find and load it.
+
+Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig).
+Starting from the current working directory, it will look for the following possible sources, in this order:
+
+- a `stylelint` property in `package.json`
+- a `.stylelintrc` file in JSON or YAML format
+- a `stylelint.config.js` file exporting a JS object
+
+Once one of these is found and parsed, the search will stop and that object will be used.
+
+The configuration search can be short-circuited by passing a `--config` CLI argument specifying the path to your configuration file.
 
 ## The Configuration Object
 
@@ -73,16 +86,16 @@ Or starting with `stylelint-config-suitcss`, then extending layering `myExtendab
 
 ## `plugins`
 
-[Plugins](/docs/user-guide/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` object to your config. Each key is a new rule's name, and its value is a "locater" identifying the plugin.
+[Plugins](/docs/user-guide/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use.
 As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
 
-Once the plugin is declared, within your `"rules"` object you can add settings for the plugin's rule just like any standard rule.
+Once the plugin is declared, within your `"rules"` object you can add settings for the plugin's rule just like any standard rule. You will have to look at the plugin's documentation to know what the rule name should be.
 
 ```json
 {
-  "plugins": {
-    "special-rule": "../special-rule.js",
-  },
+  "plugins": [
+    "../special-rule.js",
+  ],
   "rules": {
     "special-rule": [2, "everything"],
   },
