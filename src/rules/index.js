@@ -38,9 +38,9 @@ import functionCommaSpaceBefore from "./function-comma-space-before"
 import functionLinearGradientNoNonstandardDirection from "./function-linear-gradient-no-nonstandard-direction"
 import functionParenthesesNewlineInside from "./function-parentheses-newline-inside"
 import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
-import functionSpaceAfter from "./function-space-after"
 import functionUrlQuotes from "./function-url-quotes"
 import functionWhitelist from "./function-whitelist"
+import functionWhitespaceAfter from "./function-whitespace-after"
 import indentation from "./indentation"
 import maxLineLength from "./max-line-length"
 import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
@@ -140,9 +140,9 @@ export default {
   "function-linear-gradient-no-nonstandard-direction": functionLinearGradientNoNonstandardDirection,
   "function-parentheses-newline-inside": functionParenthesesNewlineInside,
   "function-parentheses-space-inside": functionParenthesesSpaceInside,
-  "function-space-after": functionSpaceAfter,
   "function-url-quotes": functionUrlQuotes,
   "function-whitelist": functionWhitelist,
+  "function-whitespace-after": functionWhitespaceAfter,
   "indentation": indentation,
   "max-line-length": maxLineLength,
   "media-feature-colon-space-after": mediaFeatureColonSpaceAfter,
