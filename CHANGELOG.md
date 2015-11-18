@@ -1,4 +1,4 @@
-# Head
+# 2.3.2
 
 * Fixed: `number-no-trailing-zeros` no longer flags at-import at-rules.
 
