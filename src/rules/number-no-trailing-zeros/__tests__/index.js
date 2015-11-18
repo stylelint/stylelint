@@ -16,6 +16,8 @@ testRule(undefined, tr => {
   tr.ok("a { padding: 0.01px; }")
   tr.ok("a { padding: .01px; }")
   tr.ok("@media (min-width: 100px) {}")
+  tr.ok("@import \"0.10.css\";")
+  tr.ok("@import url(0.10.css);")
 
   tr.notOk("a { padding: 1.0px; }", {
     message: messages.rejected,
