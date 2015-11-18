@@ -20,7 +20,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
       }
       if (config.plugins) {
         config.plugins.forEach(pluginPath => {
-          const plugin = require(pluginPath)
+          const plugin = require(pluginPath).default
           ruleDefinitions[plugin.ruleName] = plugin.rule
         })
       }
