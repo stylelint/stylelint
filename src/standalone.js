@@ -1,9 +1,9 @@
 import postcss from "postcss"
 import globby from "globby"
-import fs from "fs"
+import { readFile } from "fs"
 import scssSyntax from "postcss-scss"
 import stylelintPostcssPlugin from "./postcssPlugin"
-import formatters from "./formatters"
+import * as formatters from "./formatters"
 
 export default function ({
   files,
@@ -56,7 +56,7 @@ export default function ({
 
   function lintFile(filepath) {
     return new Promise((resolve, reject) => {
-      fs.readFile(filepath, "utf8", (err, code) => {
+      readFile(filepath, "utf8", (err, code) => {
         if (err) { return reject(err) }
         resolve(code)
       })

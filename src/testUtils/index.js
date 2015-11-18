@@ -1,4 +1,2 @@
-export default {
-  "ruleTester": require("./ruleTester"),
-  "warningFreeBasics": require("./warningFreeBasics"),
-}
+export { default as ruleTester } from "./ruleTester"
+export { default as warningFreeBasics } from "./warningFreeBasics"
