@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: `number-no-trailing-zeros` no longer flags at-import at-rules.
+
 # 2.3.1
 
 * Fixed: `selector-no-type` no longer flags the _nesting selector_ (`&`).
