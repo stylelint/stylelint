@@ -10,7 +10,6 @@ import declarationValueIndexOffset from "./declarationValueIndexOffset"
 import isAutoprefixable from "./isAutoprefixable"
 import isSingleLineString from "./isSingleLineString"
 import isWhitespace from "./isWhitespace"
-import lineCount from "./lineCount"
 import mediaQueryParamIndexOffset from "./mediaQueryParamIndexOffset"
 import optionsHaveException from "./optionsHaveException"
 import optionsHaveIgnored from "./optionsHaveIgnored"
@@ -34,7 +33,6 @@ export default {
   isAutoprefixable,
   isSingleLineString,
   isWhitespace,
-  lineCount,
   mediaQueryParamIndexOffset,
   optionsHaveException,
   optionsHaveIgnored,
