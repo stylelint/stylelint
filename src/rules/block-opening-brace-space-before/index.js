@@ -2,7 +2,6 @@ import {
   cssStatementBlockString,
   cssStatementHasBlock,
   cssStatementHasEmptyBlock,
-  cssStatementIsNestingBlock,
   cssStatementStringBeforeBlock,
   report,
   ruleMessages,
@@ -43,7 +42,7 @@ export default function (expectation) {
 
     function check(statement) {
       // Return early if blockless, has empty block or is a nesting block
-      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement) || cssStatementIsNestingBlock(statement)) { return }
+      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
       const source = cssStatementStringBeforeBlock(statement)
 

@@ -27,8 +27,8 @@ testRule("always", tr => {
     "3 level deep indentation after the newline before the opening braces and CRLF"
   )
 
-  tr.ok("a\n{{ &:hover\n{ color: pink; }}}")
-  tr.ok("a\n{ color: red; { &:hover\n{ color: pink; }}}")
+  tr.ok("a\n{ &:hover\n{ color: pink; }}")
+  tr.ok("a\n{ color: red; &:hover\n{ color: pink; }}")
 
   tr.notOk("a { color: pink; }", {
     message: messages.expectedBefore(),
