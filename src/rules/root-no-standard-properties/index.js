@@ -4,6 +4,8 @@ import {
   validateOptions,
 } from "../../utils"
 
+const RE_VALID_CSS_PROPERTY = /^[a-z-]+$/
+
 export const ruleName = "root-no-standard-properties"
 
 export const messages = ruleMessages(ruleName, {
@@ -21,7 +23,7 @@ export default function (actual) {
       rule.walkDecls(function (decl) {
         const prop = decl.prop
 
-        if (prop[0] === "$" || prop[0] === "@") { return }
+        if (!RE_VALID_CSS_PROPERTY.test(prop)) { return }
 
         if (prop.indexOf("--") !== 0) {
           report({

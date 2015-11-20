@@ -4,6 +4,8 @@ import {
   validateOptions,
 } from "../../utils"
 
+const RE_VALID_CSS_PROPERTY = /^[a-z-]+$/
+
 export const ruleName = "rule-no-duplicate-properties"
 
 export const messages = ruleMessages(ruleName, {
@@ -35,7 +37,7 @@ export default function (actual) {
         if (child.type !== "decl") { return }
         const prop = child.prop
 
-        if (prop[0] === "$" || prop[0] === "@") { return }
+        if (!RE_VALID_CSS_PROPERTY.test(prop)) { return }
 
         if (decls.indexOf(prop) !== -1) {
           report({

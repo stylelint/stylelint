@@ -6,6 +6,8 @@ import {
   validateOptions,
 } from "../../utils"
 
+const RE_VALID_CSS_PROPERTY = /^[a-z-]+$/
+
 export const ruleName = "property-whitelist"
 
 export const messages = ruleMessages(ruleName, {
@@ -25,7 +27,7 @@ export default function (whitelistInput) {
 
       const prop = decl.prop
 
-      if (prop[0] === "$" || prop[0] === "@") { return }
+      if (!RE_VALID_CSS_PROPERTY.test(prop)) { return }
 
       if (whitelist.indexOf(vendor.unprefixed(prop)) === -1) {
         report({
