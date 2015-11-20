@@ -34,6 +34,9 @@ export default function (actual) {
         }
         if (child.type !== "decl") { return }
         const prop = child.prop
+
+        if (prop[0] === "$" || prop[0] === "@") { return }
+
         if (decls.indexOf(prop) !== -1) {
           report({
             message: messages.rejected(prop),

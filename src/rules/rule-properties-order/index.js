@@ -54,6 +54,8 @@ export default function (expectation, options) {
 
         if (child.type !== "decl") { return }
 
+        if (child.prop[0] === "$" || child.prop[0] === "@") { return }
+
         const propData = {
           name: child.prop,
           unprefixedName: vendor.unprefixed(child.prop),

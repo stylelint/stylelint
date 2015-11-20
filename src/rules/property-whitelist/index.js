@@ -25,6 +25,8 @@ export default function (whitelistInput) {
 
       const prop = decl.prop
 
+      if (prop[0] === "$" || prop[0] === "@") { return }
+
       if (whitelist.indexOf(vendor.unprefixed(prop)) === -1) {
         report({
           message: messages.rejected(prop),

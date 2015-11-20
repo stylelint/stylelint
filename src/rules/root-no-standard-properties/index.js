@@ -21,6 +21,8 @@ export default function (actual) {
       rule.walkDecls(function (decl) {
         const prop = decl.prop
 
+        if (prop[0] === "$" || prop[0] === "@") { return }
+
         if (prop.indexOf("--") !== 0) {
           report({
             message: messages.rejected(prop),
