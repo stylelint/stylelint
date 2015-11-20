@@ -6,6 +6,8 @@ import {
   validateOptions,
 } from "../../utils"
 
+const RE_VALID_CSS_PROPERTY = /^[a-z-]+$/
+
 export const ruleName = "rule-properties-order"
 
 export const messages = ruleMessages(ruleName, {
@@ -54,7 +56,7 @@ export default function (expectation, options) {
 
         if (child.type !== "decl") { return }
 
-        if (child.prop[0] === "$" || child.prop[0] === "@") { return }
+        if (!RE_VALID_CSS_PROPERTY.test(child.prop)) { return }
 
         const propData = {
           name: child.prop,
