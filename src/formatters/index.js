@@ -1,7 +1,2 @@
-import jsonFormatter from "./jsonFormatter"
-import stringFormatter from "./stringFormatter"
-
-export default {
-  json: jsonFormatter,
-  string: stringFormatter,
-}
+export { default as json } from "./jsonFormatter"
+export { default as string } from "./stringFormatter"

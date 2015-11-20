@@ -4,8 +4,6 @@
  *
  * This should not be used by rules that intentionally
  * warn for these cases.
- *
- * @param {ruleTesterTestObject} tr
  */
 export default function (tr) {
   tr.ok("", "empty stylesheet")

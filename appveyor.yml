@@ -9,7 +9,8 @@ environment:
 version: "{build}"
 build: off
 deploy: off
-cache: [node_modules]
+cache:
+  - node_modules -> package.json
 
 install:
   - ps: Install-Product node $env:nodejs_version

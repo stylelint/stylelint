@@ -1,11 +1,23 @@
-module.exports = require("./postcssPlugin")
+import postcssPlugin from "./postcssPlugin"
+import standalone from "./standalone"
+import createPlugin from "./createPlugin"
+import {
+  report,
+  ruleMessages,
+  styleSearch,
+  validateOptions,
+} from "./utils"
 
-module.exports.utils = {
-  report: require("./utils/report"),
-  ruleMessages: require("./utils/ruleMessages"),
-  styleSearch: require("./utils/styleSearch"),
-  validateOptions: require("./utils/validateOptions"),
+const stylelint = postcssPlugin
+
+stylelint.utils = {
+  report,
+  ruleMessages,
+  styleSearch,
+  validateOptions,
 }
 
-module.exports.lint = require("./standalone")
-module.exports.createPlugin = require("./createPlugin")
+stylelint.lint = standalone
+stylelint.createPlugin = createPlugin
+
+module.exports = stylelint
