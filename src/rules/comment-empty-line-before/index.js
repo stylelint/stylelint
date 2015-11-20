@@ -34,6 +34,8 @@ export default function (expectation, options) {
       // Ignore the first node
       if (comment === root.first) { return }
 
+      if (comment.raws.inline) { return }
+
       const before = comment.raw("before")
 
       // Ignore inline comments

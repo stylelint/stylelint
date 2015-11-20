@@ -27,6 +27,8 @@ export default function (expectation) {
 
     root.walkComments(function (comment) {
 
+      if (comment.raws.inline) { return }
+
       const rawComment = comment.toString()
       const leftMatches = rawComment.match(/(^\/\*+)(\s)?/)
       const rightMatches = rawComment.match(/(\s)?(\*+\/)$/)

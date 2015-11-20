@@ -3,6 +3,7 @@ import {
   warningFreeBasics,
 } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
+import scss from "postcss-scss"
 
 const testRule = ruleTester(rule, ruleName)
 
@@ -17,6 +18,7 @@ testRule("always", tr => {
   tr.ok("/**** comment ***/")
   tr.ok("/*\ncomment\n*/")
   tr.ok("/*\tcomment   */")
+  tr.ok("//comment", "line comment ignored", { syntax: scss })
 
   tr.notOk("/*comment */", {
     message: messages.expectedOpening,
@@ -64,6 +66,7 @@ testRule("never", tr => {
   tr.ok("/*comment\n\ncomment*/")
   tr.ok("/**comment*/")
   tr.ok("/****comment***/")
+  tr.ok("// comment", "line comment ignored", { syntax: scss })
 
   tr.notOk("/* comment*/", {
     message: messages.rejectedOpening,
