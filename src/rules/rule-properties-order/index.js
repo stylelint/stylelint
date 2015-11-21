@@ -3,10 +3,9 @@ import { vendor } from "postcss"
 import {
   report,
   ruleMessages,
+  validateCssProperty,
   validateOptions,
 } from "../../utils"
-
-const RE_VALID_CSS_PROPERTY = /^[a-z-]+$/
 
 export const ruleName = "rule-properties-order"
 
@@ -56,7 +55,7 @@ export default function (expectation, options) {
 
         if (child.type !== "decl") { return }
 
-        if (!RE_VALID_CSS_PROPERTY.test(child.prop)) { return }
+        if (!validateCssProperty(child.prop)) { return }
 
         const propData = {
           name: child.prop,

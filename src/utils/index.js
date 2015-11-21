@@ -18,6 +18,7 @@ import rawNodeString from "./rawNodeString"
 import report from "./report"
 import ruleMessages from "./ruleMessages"
 import styleSearch from "./styleSearch"
+import validateCssProperty from "./validateCssProperty"
 import validateOptions from "./validateOptions"
 import whitespaceChecker from "./whitespaceChecker"
 
@@ -43,5 +44,6 @@ export default {
   ruleMessages,
   styleSearch,
   validateOptions,
+  validateCssProperty,
   whitespaceChecker,
 }
