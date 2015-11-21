@@ -1,10 +1,9 @@
 import {
   report,
   ruleMessages,
+  validateCssProperty,
   validateOptions,
 } from "../../utils"
-
-const RE_VALID_CSS_PROPERTY = /^[a-z-]+$/
 
 export const ruleName = "root-no-standard-properties"
 
@@ -23,7 +22,7 @@ export default function (actual) {
       rule.walkDecls(function (decl) {
         const prop = decl.prop
 
-        if (!RE_VALID_CSS_PROPERTY.test(prop)) { return }
+        if (!validateCssProperty(prop)) { return }
 
         if (prop.indexOf("--") !== 0) {
           report({

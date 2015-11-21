@@ -1,10 +1,9 @@
 import {
   report,
   ruleMessages,
+  validateCssProperty,
   validateOptions,
 } from "../../utils"
-
-const RE_VALID_CSS_PROPERTY = /^[a-z-]+$/
 
 export const ruleName = "rule-no-duplicate-properties"
 
@@ -37,7 +36,7 @@ export default function (actual) {
         if (child.type !== "decl") { return }
         const prop = child.prop
 
-        if (!RE_VALID_CSS_PROPERTY.test(prop)) { return }
+        if (!validateCssProperty(prop)) { return }
 
         if (decls.indexOf(prop) !== -1) {
           report({
