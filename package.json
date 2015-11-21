@@ -52,7 +52,7 @@
     "eslint": "^1.4.1",
     "eslint-config-stylelint": "^0.1.0",
     "sinon": "^1.16.1",
-    "stylelint-rule-tester": "git@github.com:borodean/stylelint-rule-tester.git#postcss-options",
+    "stylelint-rule-tester": "^0.6.0",
     "tape": "^4.2.0"
   },
   "scripts": {

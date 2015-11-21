@@ -3,7 +3,7 @@ import {
   warningFreeBasics,
 } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
-import scss from "postcss-scss"
+import scssSyntax from "postcss-scss"
 
 const testRule = ruleTester(rule, ruleName)
 
@@ -16,7 +16,6 @@ function alwaysTests(tr) {
   tr.ok("a {}\n\n/** comment */")
   tr.ok("a {}\r\n\r\n/** comment */", "CRLF")
   tr.ok("a { color: pink;\n\n/** comment */\ntop: 0; }")
-  tr.ok("a { color: pink;\n// comment\ntop: 0; }", "line comment ignored", { syntax: scss })
 
   tr.notOk("/** comment */\n/** comment */", messages.expected)
   tr.notOk("/** comment */\r\n/** comment */", messages.expected, "CRLF")
@@ -69,10 +68,23 @@ testRule("never", tr => {
   tr.ok("a {} /** comment */")
   tr.ok("a { color: pink;\n/** comment */\n\ntop: 0; }")
   tr.ok("a { color: pink;\r\n/** comment */\r\n\r\ntop: 0; }", "CRLF")
-  tr.ok("a { color: pink;\n\n// comment\ntop: 0; }", "line comment ignored", { syntax: scss })
 
   tr.notOk("/** comment */\n\n/** comment */", messages.rejected)
   tr.notOk("a {}\n\n\n/** comment */", messages.rejected)
   tr.notOk("a {}\r\n\r\n\r\n/** comment */", messages.rejected, "CRLF")
   tr.notOk("a { color: pink;\n\n/** comment */\ntop: 0; }", messages.rejected)
+})
+
+const testRuleScss = ruleTester(rule, ruleName, {
+  postcssOptions: {
+    syntax: scssSyntax,
+  },
+})
+
+testRuleScss("always", tr => {
+  tr.ok("a { color: pink;\n// comment\ntop: 0; }", "line comment ignored")
+})
+
+testRuleScss("never", tr => {
+  tr.ok("a { color: pink;\n\n// comment\ntop: 0; }", "line comment ignored")
 })
