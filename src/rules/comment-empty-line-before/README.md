@@ -12,6 +12,8 @@ Require or disallow an empty line before comments.
 
 If the comment is the very first node in a stylesheet then it is ignored. Inline comments are also ignored.
 
+If you're using a custom syntax which support single-line comments with `//`, those are ignored as well.
+
 ## Options
 
 `string`: `"always"|"never"`

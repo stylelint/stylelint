@@ -13,6 +13,8 @@ So `/** comment **/` is treated the same way as `/* comment */`.
 
 Unlike most other `*-space-*` rules, this one allow *any whitespace*, not just a single space.
 
+If you're using a custom syntax which support single-line comments with `//`, those are ignored.
+
 In a future release, this rule's name will be changed to `comment-whitespace-inside`.
 
 ## Options
