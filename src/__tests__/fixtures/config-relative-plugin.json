@@ -3,6 +3,6 @@
     "./plugin-warn-about-foo"
   ],
   "rules": {
-    "warn-about-foo": [ 2, "always" ]
+    "warn-about-foo": "always"
   }
 }

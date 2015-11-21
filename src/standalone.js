@@ -1,5 +1,6 @@
 import postcss from "postcss"
 import globby from "globby"
+import { remove } from "lodash"
 import { readFile } from "fs"
 import scssSyntax from "postcss-scss"
 import stylelintPostcssPlugin from "./postcssPlugin"
@@ -89,8 +90,17 @@ export default function ({
 
       if (postcssResult.stylelint.stylelintError) { errored = true }
 
+      // Strip out deprecation warnings from the messages
+      const deprecations = remove(postcssResult.messages, { stylelintType: "deprecation" }).map(d => {
+        return {
+          text: d.text,
+          reference: d.stylelintReference,
+        }
+      })
+
       return {
         source,
+        deprecations,
         errored: postcssResult.stylelint.stylelintError,
         warnings: postcssResult.messages.map(message => ({
           line: message.line,

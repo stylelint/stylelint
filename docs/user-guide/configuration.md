@@ -28,15 +28,15 @@ The configuration object can have the following properties. Only `rules` is requ
 *No rules are turned on by default*, so this is where you turn on everything you want to check.
 
 **The `rules` property is an object whose keys are rule names and values are rule configurations.**
-Each rule configuration is either a single severity number (0-2) or an array with the following information:
-`[severity, primary option, secondary options]`.
+Each rule configuration is either a boolean or an array with the following information:
+`[primary option, secondary options]`.
 
 ```json
 {
   "rules": {
-    "color-no-invalid-hex": 2,
-    "declaration-colon-space-after": [1, "always"],
-    "indentation": [2, "tab", {
+    "color-no-invalid-hex": true,
+    "declaration-colon-space-after": "always",
+    "indentation": ["tab", {
       "except": ["value"]
     }]
   }
@@ -56,8 +56,8 @@ For example, extending the [`stylelint-config-suitcss`](https://github.com/style
 {
   "extends": "stylelint-config-suitcss",
   "rules": {
-    "indentation": [2, "tab"],
-    "number-leading-zero": 0,
+    "indentation": "tab",
+    "number-leading-zero": null,
   }
 }
 ```
@@ -71,7 +71,7 @@ Or starting with `stylelint-config-suitcss`, then extending layering `myExtendab
     "stylelint-config-suitcss"  
   ],
   "rules": {
-    "indentation": [2, "tab"],
+    "indentation": "tab",
   }
 }
 ```
@@ -97,7 +97,7 @@ Once the plugin is declared, within your `"rules"` object you can add settings f
     "../special-rule.js",
   ],
   "rules": {
-    "special-rule": [2, "everything"],
+    "special-rule": "everything",
   },
 }
 ```
@@ -110,18 +110,20 @@ Once the plugin is declared, within your `"rules"` object you can add settings f
 
 Each rule can be turned off or on:
 
-* `0` - turn the rule off.
-* `1` - turn the rule on as a warning (does not affect CLI exit code).
-* `2` - turn the rule on as an error (CLI exit code is 1 when triggered).
+* `null` - turn the rule off.
+* `true|options` - turn the rule on.
+
+All turned-on rules error by default. You can reduce the severity of a rule, to a warning, by adding `"warn": true` to its secondary options.
 
 An example of turning rules on and off:
 
 ```js
 {
   "rules": {
-    "rule-no-single-line": 0, // turn rule off
-    "declaration-no-important": 2, // turn rule on
-    "indentation": [2, "tabs"] // turn on a rule that has options
+    "rule-no-single-line": null, // turn rule off
+    "declaration-no-important": true, // turn rule on
+    "block-no-empty": [ true, { "warn": true } ], // turn rule on as warning
+    "indentation": "tabs" // turn on a rule that has options
   }
 }
 ```
@@ -153,11 +155,11 @@ An example of explicitly configuring the options for three rules:
 ```js
 {
   "rules": {
-    "indentation": [2, "tab", {
+    "indentation": "tab", {
       "except": ["value"],
     }],
-    "declaration-colon-space-before": [2, "never"],
-    "number-leading-zero": [2, "always"],
+    "declaration-colon-space-before": "never",
+    "number-leading-zero": "always",
   }
 }
 ```
@@ -177,8 +179,8 @@ Say you want to enforce no space before and a single space after the colon in ev
 You can enforce that with:
 
 ```js
-"declaration-colon-space-after": [2, "always"],
-"declaration-colon-space-before": [2, "never"],
+"declaration-colon-space-after": "always",
+"declaration-colon-space-before": "never",
 ```
 
 Some *things* (e.g. declaration blocks and value lists) can span more than one line. In these cases `newline` rules and extra options can be used to provide flexibility.
@@ -218,8 +220,8 @@ a {
 You can enforce that with:
 
 ```js
-"value-list-comma-space-after": [2, "always"],
-"value-list-comma-space-before": [2, "never"],
+"value-list-comma-space-after": "always",
+"value-list-comma-space-before": "never",
 ```
 
 #### Example B
@@ -238,9 +240,9 @@ a {
 You can enforce that with:
 
 ```js
-"value-list-comma-newline-after": [2, "always-multi-line"],
-"value-list-comma-space-after": [2, "always-single-line"],
-"value-list-comma-space-before": [2, "never"],
+"value-list-comma-newline-after": "always-multi-line",
+"value-list-comma-space-after": "always-single-line",
+"value-list-comma-space-before": "never",
 ```
 
 #### Example C
@@ -259,9 +261,9 @@ a {
 You can enforce that with:
 
 ```js
-"value-list-comma-newline-before": [2, "always-multi-line"],
-"value-list-comma-space-after": [2, "always"],
-"value-list-comma-space-before": [2, "never-single-line"],
+"value-list-comma-newline-before": "always-multi-line",
+"value-list-comma-space-after": "always",
+"value-list-comma-space-before": "never-single-line",
 ```
 
 #### Example D
@@ -282,8 +284,8 @@ You can enforce that with:
 
 
 ```js
-"value-list-comma-newline-after": [2, "never-multi-line"],
-"value-list-comma-newline-before": [2, "always-multi-line"],
-"value-list-comma-space-after": [2, "always-single-line"],
-"value-list-comma-space-before": [2, "always-single-line"],
+"value-list-comma-newline-after": "never-multi-line",
+"value-list-comma-newline-before": "always-multi-line",
+"value-list-comma-space-after": "always-single-line",
+"value-list-comma-space-before": "always-single-line",
 ```

@@ -33,7 +33,7 @@ export default function ({
   result.stylelint = result.stylelint || {}
 
   // In quiet mode, mere warnings are ignored
-  if (result.stylelint.quiet && result.stylelint.ruleSeverities[ruleName] !== 2) {
+  if (result.stylelint.quiet && result.stylelint.ruleSeverities[ruleName] !== "error") {
     return
   }
 
@@ -52,7 +52,9 @@ export default function ({
     }
   }
 
-  const severity = get(result.stylelint.ruleSeverities, ruleName)
+  const severity = (result.stylelint.ruleSeverities)
+    ? result.stylelint.ruleSeverities[ruleName]
+    : "ignore"
 
   if (typeof severity === "undefined") {
     throw new Error(
@@ -62,7 +64,7 @@ export default function ({
     )
   }
 
-  if (!result.stylelint.stylelintError && severity === 2) {
+  if (!result.stylelint.stylelintError && severity === "error") {
     result.stylelint.stylelintError = true
   }
 

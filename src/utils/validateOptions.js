@@ -29,6 +29,9 @@ export default function (result, ruleName, ...optionDescriptions) {
 
   function validate({ possible, actual, optional }) {
     const nothingPossible = !possible || (Array.isArray(possible) && !possible.length)
+
+    if (nothingPossible && actual === true) { return }
+
     if (actual == null) {
       if (nothingPossible || optional) { return }
       complain(`Expected option value for rule "${ruleName}"`)

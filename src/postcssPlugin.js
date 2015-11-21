@@ -4,6 +4,11 @@ import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
 import buildConfig from "./buildConfig"
 
+const numberedSeveritiesMap = new Map()
+numberedSeveritiesMap.set(0, "ignore")
+numberedSeveritiesMap.set(1, "warning")
+numberedSeveritiesMap.set(2, "error")
+
 export default postcss.plugin("stylelint", (options = {}) => {
   return (root, result) => {
     // result.stylelint is the namespace for passing stylelint-related
@@ -15,9 +20,15 @@ export default postcss.plugin("stylelint", (options = {}) => {
       if (!config) {
         throw configurationError("No configuration provided")
       }
+
       if (!config.rules) {
         throw configurationError("No rules found within configuration")
       }
+
+      if (config.numberedSeverities) {
+        warnForNumberedSeverities(result)
+      }
+
       if (config.plugins) {
         config.plugins.forEach(pluginPath => {
           const plugin = require(pluginPath).default
@@ -36,16 +47,12 @@ export default postcss.plugin("stylelint", (options = {}) => {
           throw configurationError(`Undefined rule "${ruleName}"`)
         }
 
-        // If severity is 0, run nothing
-        const ruleSettings = config.rules[ruleName]
-        const ruleSeverity = (Array.isArray(ruleSettings))
-          ? ruleSettings[0]
-          : ruleSettings
-        if (ruleSeverity === 0) {
-          return
-        }
+        const ruleSettings = [].concat(config.rules[ruleName])
+        const ruleSeverity = numberedSeveritiesMap.get(ruleSettings[0])
 
-        // Log the rule's severity
+        if (ruleSeverity === "ignore") { return }
+
+        // Log the rule's severity in the PostCSS result
         result.stylelint.ruleSeverities[ruleName] = ruleSeverity
 
         // Run the rule with the primary and secondary options
@@ -54,3 +61,16 @@ export default postcss.plugin("stylelint", (options = {}) => {
     })
   }
 })
+
+let wasWarned = false
+function warnForNumberedSeverities(result) {
+  if (wasWarned) { return }
+  wasWarned = true
+  result.warn((
+    "Numbered severities (0, 1, 2) have been deprecated, " +
+    "and in 4.0 they will be disabled. "
+  ), {
+    stylelintType: "deprecation",
+    stylelintReference: "http://stylelint.io/?/docs/user-guide/configuration.md",
+  })
+}
