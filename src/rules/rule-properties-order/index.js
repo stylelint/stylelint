@@ -3,6 +3,7 @@ import { vendor } from "postcss"
 import {
   report,
   ruleMessages,
+  validateCssProperty,
   validateOptions,
 } from "../../utils"
 
@@ -53,6 +54,8 @@ export default function (expectation, options) {
         }
 
         if (child.type !== "decl") { return }
+
+        if (!validateCssProperty(child.prop)) { return }
 
         const propData = {
           name: child.prop,

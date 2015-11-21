@@ -12,6 +12,8 @@ testRule(undefined, tr => {
   tr.ok(":root { --foo: 0; }")
   tr.ok("a, :root { --foo: 0; }")
   tr.ok("a { color: pink; } :root { --foo: 0; }")
+  tr.ok(":root { $scss: 0; }")
+  tr.ok(":root { @less: 0; }")
 
   tr.notOk(":root { top: 0; }", {
     message: messages.rejected("top"),

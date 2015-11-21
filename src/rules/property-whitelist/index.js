@@ -3,6 +3,7 @@ import { vendor } from "postcss"
 import {
   report,
   ruleMessages,
+  validateCssProperty,
   validateOptions,
 } from "../../utils"
 
@@ -24,6 +25,8 @@ export default function (whitelistInput) {
     root.walkDecls(decl => {
 
       const prop = decl.prop
+
+      if (!validateCssProperty(prop)) { return }
 
       if (whitelist.indexOf(vendor.unprefixed(prop)) === -1) {
         report({
