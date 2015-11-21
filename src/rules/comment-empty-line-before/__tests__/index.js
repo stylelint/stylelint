@@ -82,10 +82,10 @@ const testRuleScss = ruleTester(rule, ruleName, {
 })
 
 testRuleScss("always", tr => {
-  tr.ok("a { color: pink;\n// comment\ntop: 0; }", "line comment ignored")
-  tr.ok("// first line\n// second line\na { color: pink; }", "subsequent line comments ingnored")
+  tr.ok("a { color: pink;\n// comment\ntop: 0; }", "single-line comment ignored")
+  tr.ok("// first line\n// second line\na { color: pink; }", "subsequent single-line comments ingnored")
 })
 
 testRuleScss("never", tr => {
-  tr.ok("a { color: pink;\n\n// comment\ntop: 0; }", "line comment ignored")
+  tr.ok("a { color: pink;\n\n// comment\ntop: 0; }", "single-line comment ignored")
 })

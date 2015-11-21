@@ -130,9 +130,9 @@ const testRuleScss = ruleTester(rule, ruleName, {
 })
 
 testRuleScss("always", tr => {
-  tr.ok("//comment", "line comment ignored")
+  tr.ok("//comment", "single-line comment ignored")
 })
 
 testRuleScss("never", tr => {
-  tr.ok("// comment", "line comment ignored")
+  tr.ok("// comment", "single-line comment ignored")
 })
