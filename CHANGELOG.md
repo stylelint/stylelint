@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: `comment-empty-line-before` and `comment-space-inside` no longer complain about `//` comments.
+
 # 2.3.2
 
 * Fixed: `number-no-trailing-zeros` no longer flags at-import at-rules.
