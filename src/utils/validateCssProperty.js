@@ -5,8 +5,8 @@
  * @return {boolean} Whether or not the property is valid (true = valid)
  */
 
-const RE_VALID_CSS_PROPERTY = /^[a-z-]+$/
-
 export default function (prop) {
-  return RE_VALID_CSS_PROPERTY.test(prop)
+  // The validation is done by checking if the property
+  // is not a SCSS/LESS variable
+  return prop[0] !== "$" && prop[0] !== "@"
 }
