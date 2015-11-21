@@ -3,11 +3,11 @@ import test from "tape"
 import path from "path"
 import stylelint from ".."
 
-const cssA = (
+const cssWithFoo = (
 `.foo {}`
 )
 
-const cssB = (
+const cssWithoutFoo = (
 `.bar {}`
 )
 
@@ -16,8 +16,8 @@ const configRelative = {
     "./fixtures/plugin-warn-about-foo",
   ],
   rules: {
-    "warn-about-foo": [ 2, "always" ],
-    "block-no-empty": 2,
+    "warn-about-foo": "always",
+    "block-no-empty": true,
   },
 }
 
@@ -26,8 +26,8 @@ const configAbsolute = {
     path.join(__dirname, "./fixtures/plugin-warn-about-foo"),
   ],
   rules: {
-    "warn-about-foo": [ 2, "always" ],
-    "block-no-empty": 2,
+    "warn-about-foo": "always",
+    "block-no-empty": true,
   },
 }
 
@@ -44,7 +44,7 @@ const processorExtendRelative = postcss().use(stylelint({ config: configExtendRe
 test("plugin runs", t => {
   let planned = 0
 
-  processorRelative.process(cssA)
+  processorRelative.process(cssWithFoo)
     .then(result => {
       t.equal(result.warnings().length, 2)
       t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
@@ -53,7 +53,7 @@ test("plugin runs", t => {
     .catch(err => console.log(err.stack))
   planned += 3
 
-  processorRelative.process(cssB)
+  processorRelative.process(cssWithoutFoo)
     .then(result => {
       t.equal(result.warnings().length, 2)
       t.equal(result.warnings()[0].text, "never found .foo (warn-about-foo)")
@@ -68,7 +68,7 @@ test("plugin runs", t => {
 test("plugin with absolute path and no configBasedir", t => {
   let planned = 0
 
-  processorAbsolute.process(cssA)
+  processorAbsolute.process(cssWithFoo)
     .then(result => {
       t.equal(result.warnings().length, 2)
       t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
@@ -83,7 +83,7 @@ test("plugin with absolute path and no configBasedir", t => {
 test("config extending another config that invokes a plugin with a relative path", t => {
   let planned = 0
 
-  processorExtendRelative.process(cssA)
+  processorExtendRelative.process(cssWithFoo)
     .then(result => {
       t.equal(result.warnings().length, 1)
       t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
