@@ -1,7 +1,7 @@
 import {
   report,
   ruleMessages,
-  validateCssProperty,
+  cssPropertyIsVariable,
   validateOptions,
 } from "../../utils"
 
@@ -36,7 +36,7 @@ export default function (actual) {
         if (child.type !== "decl") { return }
         const prop = child.prop
 
-        if (!validateCssProperty(prop)) { return }
+        if (cssPropertyIsVariable(prop)) { return }
 
         if (decls.indexOf(prop) !== -1) {
           report({

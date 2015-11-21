@@ -16,6 +16,7 @@ testRule(undefined, tr => {
   tr.ok("a { color: pink; @media { color: orange; &::before { color: black; } } }", "double nested")
   tr.ok("a { $scss: 0; $scss: $scss + 1; }")
   tr.ok("a { @less: 0; @less: @less + 1; }")
+  tr.ok("a { --custom-property: 0; --custom-property: 1; }")
 
   tr.notOk("a { color: pink; color: orange }", messages.rejected("color"))
   tr.notOk("a { color: pink; background: orange; color: orange }", messages.rejected("color"))

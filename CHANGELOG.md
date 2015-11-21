@@ -1,5 +1,7 @@
 # Head
 
+* Fixed: `property-whitelist`, `rule-no-duplicate-properties`, and `rule-properties-order` ignore variables (`$sass`, `@less`, and `--custom-property`).
+* Fixed: `root-no-standard-properties` ignores `$sass` and `@less` variables.
 * Fixed: `comment-empty-line-before` and `comment-space-inside` no longer complain about `//` comments.
 
 # 2.3.2

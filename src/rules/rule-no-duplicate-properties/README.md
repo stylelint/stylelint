@@ -8,6 +8,8 @@ Disallow duplicate properties within rules.
  *  These duplicated properties */
 ```
 
+The rule ignores variables (`$sass`, `@less`, `--custom-property`).
+
 The following patterns are considered warnings:
 
 ```css

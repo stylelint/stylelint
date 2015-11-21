@@ -8,6 +8,8 @@ Specify a whitelist of allowed properties.
  * These properties */
 ```
 
+The rule ignores variables (`$sass`, `@less`, `--custom-property`).
+
 ## Options
 
 `array`: `"["array", "of", "unprefixed", "properties"]`

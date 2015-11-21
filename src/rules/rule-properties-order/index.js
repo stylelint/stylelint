@@ -3,7 +3,7 @@ import { vendor } from "postcss"
 import {
   report,
   ruleMessages,
-  validateCssProperty,
+  cssPropertyIsVariable,
   validateOptions,
 } from "../../utils"
 
@@ -55,7 +55,7 @@ export default function (expectation, options) {
 
         if (child.type !== "decl") { return }
 
-        if (!validateCssProperty(child.prop)) { return }
+        if (cssPropertyIsVariable(child.prop)) { return }
 
         const propData = {
           name: child.prop,

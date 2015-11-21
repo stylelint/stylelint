@@ -23,8 +23,9 @@ testRule("alphabetical", tr => {
   tr.ok("a { color: red; width: 0; { &:hover { color: red; top: 0; } } }")
   tr.ok("a { color: red; width: 0; &:hover { color: red; top: 0; } }")
   tr.ok("a { color: red; width: 0; @media print { color: red; top: 0; } }")
-  tr.ok("a { $scss: 0; $a: 0; }")
-  tr.ok("a { @less: 0; @a: 0; }")
+  tr.ok("a { $scss: 0; $a: 0; alpha: 0; }")
+  tr.ok("a { @less: 0; @a: 0; alpha: 0; }")
+  tr.ok("a { --custom-property: 0; --another: 0; alpha: 0; }")
 
   tr.notOk("a { top: 0; color: pink; }",
     messages.expected("color", "top"))

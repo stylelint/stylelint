@@ -1,9 +1,9 @@
 import { isString } from "lodash"
 import { vendor } from "postcss"
 import {
+  cssPropertyIsVariable,
   report,
   ruleMessages,
-  validateCssProperty,
   validateOptions,
 } from "../../utils"
 
@@ -26,7 +26,7 @@ export default function (whitelistInput) {
 
       const prop = decl.prop
 
-      if (!validateCssProperty(prop)) { return }
+      if (cssPropertyIsVariable(prop)) { return }
 
       if (whitelist.indexOf(vendor.unprefixed(prop)) === -1) {
         report({

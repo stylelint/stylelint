@@ -13,6 +13,8 @@ Specify the order of properties within rules.
 
 Prefixed properties *must always* be alphabetically ordered and *must always* precede the unprefixed version.
 
+The rule ignores variables (`$sass`, `@less`, `--custom-property`).
+
 ## Options
 
 `string|array`: `"alphabetical"|["array", "of", "unprefixed", "property", "names", "or", "group", "objects"]`

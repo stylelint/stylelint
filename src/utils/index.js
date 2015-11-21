@@ -1,6 +1,7 @@
 import blurComments from "./blurComments"
 import configurationError from "./configurationError"
 import cssFunctionArguments from "./cssFunctionArguments"
+import cssPropertyIsVariable from "./cssPropertyIsVariable"
 import cssStatementBlockString from "./cssStatementBlockString"
 import cssStatementHasBlock from "./cssStatementHasBlock"
 import cssStatementHasEmptyBlock from "./cssStatementHasEmptyBlock"
@@ -18,7 +19,6 @@ import rawNodeString from "./rawNodeString"
 import report from "./report"
 import ruleMessages from "./ruleMessages"
 import styleSearch from "./styleSearch"
-import validateCssProperty from "./validateCssProperty"
 import validateOptions from "./validateOptions"
 import whitespaceChecker from "./whitespaceChecker"
 
@@ -26,6 +26,7 @@ export default {
   blurComments,
   configurationError,
   cssFunctionArguments,
+  cssPropertyIsVariable,
   cssStatementBlockString,
   cssStatementHasBlock,
   cssStatementHasEmptyBlock,
@@ -39,11 +40,10 @@ export default {
   mediaQueryParamIndexOffset,
   optionsHaveException,
   optionsHaveIgnored,
-  report,
   rawNodeString,
+  report,
   ruleMessages,
   styleSearch,
   validateOptions,
-  validateCssProperty,
   whitespaceChecker,
 }

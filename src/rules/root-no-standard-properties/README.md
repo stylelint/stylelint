@@ -8,6 +8,8 @@ Disallow standard properties inside `:root` selectors.
  * This selector and these types of standard properties */
 ```
 
+The rule ignores `$sass` and `@less` variables.
+
 The following patterns are considered warnings:
 
 ```css

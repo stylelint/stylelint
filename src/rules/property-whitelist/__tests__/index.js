@@ -19,6 +19,7 @@ testRule([
   tr.ok("a { transform: scale(1); -webkit-transform: scale(1); background-size: cover; }")
   tr.ok("a { $scss: 0; }")
   tr.ok("a { @less: 0; }")
+  tr.ok("a { --custom-property: 0; }")
 
   tr.notOk("a { color: pink; }", {
     message: messages.rejected("color"),
