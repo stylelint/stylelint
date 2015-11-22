@@ -1,3 +1,7 @@
+# 2.3.4
+
+* Fixed: `dist/` build.
+
 # 2.3.3
 
 * Fixed: `property-whitelist`, `rule-no-duplicate-properties`, and `rule-properties-order` ignore variables (`$sass`, `@less`, and `--custom-property`).
