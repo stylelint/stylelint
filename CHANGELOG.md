@@ -1,4 +1,4 @@
-# Head
+# 2.3.3
 
 * Fixed: `property-whitelist`, `rule-no-duplicate-properties`, and `rule-properties-order` ignore variables (`$sass`, `@less`, and `--custom-property`).
 * Fixed: `root-no-standard-properties` ignores `$sass` and `@less` variables.
