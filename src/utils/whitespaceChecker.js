@@ -39,23 +39,22 @@ export default function (targetWhitespace, expectation, messages) {
   let activeArgs
 
   /**
-   * Check for whitespace before a character.
+   * Check for whitespace *before* a character.
    *
    * @param {object} args - Named arguments object
-   * @param {string} args.source
+   * @param {string} args.source - The source string
    * @param {number} args.index - The index of the character to check before
    * @param {function} args.err - If a violation is found, this callback
    *   will be invoked with the relevant warning message.
-   *   Typically this callback will register the message
-   *   as a warning on the postcss result that the rule is dealing with.
+   *   Typically this callback will report() the violation.
    * @param {string} [args.lineCheckStr] - Single- and multi-line checkers
    *   will use this string to determine whether they should proceed,
    *   i.e. if this string is one line only, single-line checkers will check,
-   *   multi-line checkers will pass.
+   *   multi-line checkers will ignore.
    *   If none is passed, they will use `source`.
    * @param {boolean} [args.onlyOneChar=false] - Only check *one* character before.
    *   By default, "always-*" checks will look for the `targetWhitespace` one
-   *   before and then ensure there is no whitespace two before; this option
+   *   before and then ensure there is no whitespace two before. This option
    *   bypasses that second check.
    * @param {boolean} [args.allowIndentation=false] - Allow arbitrary indentation
    *   between the `targetWhitespace` (almost definitely a newline) and the `index`.
@@ -100,7 +99,7 @@ export default function (targetWhitespace, expectation, messages) {
   }
 
   /**
-   * Check for whitespace after a character.
+   * Check for whitespace *after* a character.
    *
    * Parameters are pretty much the same as for `before()`, above, just substitute
    * the word "after" for "before".

@@ -48,7 +48,6 @@ function augmentConfig(config, configDir) {
 
   return resultPromise
 
-  // Also returns a Promise ...
   function loadExtendedConfig(config, extendLookup) {
     var extendPath = resolveFrom(configDir, extendLookup)
     var extendDir = path.dirname(extendPath)
@@ -62,7 +61,7 @@ function augmentConfig(config, configDir) {
   }
 }
 
-// Replace all plugin looksup with absolute paths
+// Replace all plugin lookups with absolute paths
 function absolutizePlugins(config, configDir) {
   if (!config.plugins) { return config }
   return assign({}, config, {

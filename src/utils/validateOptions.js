@@ -40,15 +40,10 @@ export default function (result, ruleName, ...optionDescriptions) {
 
     // If `possible` is an array instead of an object ...
     if (!isPlainObject(possible)) {
-      const check = a => {
+      [].concat(actual).forEach(a => {
         if (isValid(possible, a)) { return }
         complain(`Invalid option value "${a}" for rule "${ruleName}"`)
-      }
-      if (Array.isArray(actual)) {
-        actual.forEach(check)
-      } else {
-        check(actual)
-      }
+      })
       return
     }
 
@@ -60,16 +55,11 @@ export default function (result, ruleName, ...optionDescriptions) {
       }
 
       const actualOptionValue = actual[optionName]
-      const check = a => {
+
+      ;[].concat(actualOptionValue).forEach(a => {
         if (isValid(possible[optionName], a)) { return }
         complain(`Invalid value "${a}" for option "${optionName}" of rule "${ruleName}"`)
-      }
-
-      if (Array.isArray(actualOptionValue)) {
-        actualOptionValue.forEach(check)
-      } else {
-        check(actualOptionValue)
-      }
+      })
     })
 
     function complain(message) {

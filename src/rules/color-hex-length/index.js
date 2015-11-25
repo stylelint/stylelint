@@ -29,6 +29,7 @@ export default function (expectation) {
 
         const hexMatch = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))
         if (!hexMatch) { return }
+
         const hexValue = hexMatch[0]
 
         if (expectation === "long" && hexValue.length !== 4 && hexValue.length !== 5) { return }
@@ -53,10 +54,10 @@ function canShrink(hex) {
   hex = hex.toLowerCase()
 
   return (
-    hex[1] === hex[2] &&
-    hex[3] === hex[4] &&
-    hex[5] === hex[6] &&
-    (hex.length === 7 || (hex.length === 9 && hex[7] === hex[8])))
+    hex[1] === hex[2]
+    && hex[3] === hex[4]
+    && hex[5] === hex[6]
+    && (hex.length === 7 || (hex.length === 9 && hex[7] === hex[8])))
 }
 
 function shorter(hex) {

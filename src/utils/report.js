@@ -1,3 +1,5 @@
+import { get } from "lodash"
+
 /**
  * Report a violation.
  *
@@ -6,9 +8,11 @@
  * it is ignored. Otherwise, it is attached to the result as a
  * postcss warning.
  *
+ * It also accounts for the rule's severity.
+ *
  * You *must* pass *either* a node or a line number.
  *
- * @param {object} violation - Violation details object
+ * @param {object} violation - Details about the violation
  * @param {string} violation.ruleName - The name of the rule
  * @param {Result} violation.result - postcss Result object
  * @param {string} violation.message - Message to inform user of the violation
@@ -17,16 +21,23 @@
  * @param {Node} [violation.word] - Word that should be passed to result.warn()
  * @param {number} [violation.line] - Line number of the violation
  */
-export default function ({ ruleName, result, message, line, node, index, word }) {
+export default function ({
+  ruleName,
+  result,
+  message,
+  line,
+  node,
+  index,
+  word,
+}) {
   result.stylelint = result.stylelint || {}
 
+  // In quiet mode, mere warnings are ignored
   if (result.stylelint.quiet && result.stylelint.ruleSeverities[ruleName] !== 2) {
     return
   }
 
-  const startLine = (line)
-    ? line
-    : node.source && node.source.start.line
+  const startLine = line || get(node, "source.start.line")
 
   if (result.stylelint.disabledRanges) {
     for (let range of result.stylelint.disabledRanges) {
@@ -34,13 +45,14 @@ export default function ({ ruleName, result, message, line, node, index, word })
         // If the violation is within a disabledRange,
         // and that disabledRange's rules include this one,
         // do not register a warning
-        range.start <= startLine && (range.end >= startLine || range.end === undefined)
+        range.start <= startLine
+        && (range.end >= startLine || range.end === undefined)
         && (!range.rules || range.rules.indexOf(ruleName) !== -1)
       ) { return }
     }
   }
 
-  const severity = (result.stylelint.ruleSeverities) ? result.stylelint.ruleSeverities[ruleName] : 0
+  const severity = get(result.stylelint.ruleSeverities, ruleName, 0)
   if (!result.stylelint.stylelintError && severity === 2) {
     result.stylelint.stylelintError = true
   }

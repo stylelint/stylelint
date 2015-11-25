@@ -16,8 +16,8 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.walkAtRules(function (atRule) {
-      const name = atRule.name
+    root.walkAtRules(atRule => {
+      const { name } = atRule
 
       if (name[0] !== "-") { return }
 

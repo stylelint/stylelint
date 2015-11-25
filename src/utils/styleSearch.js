@@ -15,8 +15,8 @@
  * @param {object} options
  * @param {string} options.source - The source string to search through
  * @param {string|string[]} options.target - The target of the search. Can be
- *   - a single character,
- *   - a string with some length,
+ *   - a single character
+ *   - a string with some length
  *   - an array of strings, all of which count as matches
  *     (the `match` object passed to the `callback` will differentiate which string of
  *     the array got matched via its `target` property)
@@ -27,7 +27,7 @@
  * @param {boolean} [options.checkComments] - If `true`, comments will *not* be ignored
  * @param {boolean} [options.checkFunctionNames] - If `true`, function names will *not* be ignored
  * @param {boolean} [options.onlyOne] - Stop looking after the first match is found
- * @param {function} callback - Is invoked for every match, receiving the `match` object
+ * @param {function} callback - Invoked for every match, receiving the `match` object
  *   and a count of how many matches have been found up to that point
  */
 export default function (options, callback) {

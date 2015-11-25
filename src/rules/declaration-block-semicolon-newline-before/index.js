@@ -15,7 +15,9 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function (expectation) {
-  const check = whitespaceChecker("newline", expectation, messages)
+
+  const checker = whitespaceChecker("newline", expectation, messages)
+
   return function (root, result) {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -33,12 +35,12 @@ export default function (expectation) {
 
       const declString = decl.toString()
 
-      check.before({
+      checker.before({
         source: declString,
         index: declString.length,
         lineCheckStr: cssStatementBlockString(parentRule),
         err: m => {
-          return report({
+          report({
             message: m,
             node: decl,
             index: decl.toString().length - 1,
