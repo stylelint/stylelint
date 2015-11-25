@@ -1,7 +1,7 @@
 /**
  * Given an object of violation messages, return another
- * that provides the same messages but also indicating
- * which rule is being violated.
+ * that provides the same messages postfixed with the rule
+ * that has been violated.
  *
  * @param {string} ruleName
  * @param {object} messages - Object whose keys are message identifiers

@@ -26,7 +26,7 @@ export default function ({
   let errored = false
 
   if (!files) {
-    return lint(code).then(result => {
+    return lintString(code).then(result => {
       const results = [result]
       const output = chosenFormatter(results)
       return {
@@ -60,16 +60,16 @@ export default function ({
         if (err) { return reject(err) }
         resolve(code)
       })
-    }).then(code => lint(code, filepath))
+    }).then(code => lintString(code, filepath))
   }
 
-  function lint(code, filepath) {
-    const processOptions = {}
+  function lintString(code, filepath) {
+    const postcssProcessOptions = {}
     if (filepath) {
-      processOptions.from = filepath
+      postcssProcessOptions.from = filepath
     }
     if (syntax === "scss") {
-      processOptions.syntax = scssSyntax
+      postcssProcessOptions.syntax = scssSyntax
     }
 
     return postcss()
@@ -79,7 +79,7 @@ export default function ({
         configBasedir,
         configOverrides,
       }))
-      .process(code, processOptions)
+      .process(code, postcssProcessOptions)
       .then(handleResult)
 
     function handleResult(postcssResult) {

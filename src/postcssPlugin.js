@@ -33,7 +33,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
 
       Object.keys(config.rules).forEach(ruleName => {
         if (!ruleDefinitions[ruleName]) {
-          throw configurationError(`Undefined rule ${ruleName}`)
+          throw configurationError(`Undefined rule "${ruleName}"`)
         }
 
         // If severity is 0, run nothing

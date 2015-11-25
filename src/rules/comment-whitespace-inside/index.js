@@ -38,40 +38,26 @@ export default function (expectation) {
       const closer = rightMatches[2]
 
       if (expectation === "never" && leftSpace !== "") {
-        report({
-          message: messages.rejectedOpening,
-          node: comment,
-          index: opener.length,
-          result,
-          ruleName,
-        })
+        complain(messages.rejectedOpening, opener.length)
       }
       if (expectation === "always" && !isWhitespace(leftSpace)) {
-        report({
-          message: messages.expectedOpening,
-          node: comment,
-          index: opener.length,
-          result,
-          ruleName,
-        })
+        complain(messages.expectedOpening, opener.length)
       }
 
       if (expectation === "never" && rightSpace !== "") {
-        report({
-          message: messages.rejectedClosing,
-          node: comment,
-          index: comment.toString().length - closer.length - 1,
-          result,
-          ruleName,
-        })
+        complain(messages.rejectedClosing, comment.toString().length - closer.length - 1)
       }
       if (expectation === "always" && !isWhitespace(rightSpace)) {
+        complain(messages.expectedClosing, comment.toString().length - closer.length - 1)
+      }
+
+      function complain(message, index) {
         report({
-          message: messages.expectedClosing,
-          node: comment,
-          index: comment.toString().length - closer.length - 1,
+          message,
+          index,
           result,
           ruleName,
+          node: comment,
         })
       }
     })
