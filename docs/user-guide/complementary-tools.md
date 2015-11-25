@@ -6,6 +6,7 @@ The linter works well with:
 
 * [linter-stylelint](https://github.com/1000ch/linter-stylelint) - An Atom Linter plugin for stylelint.
 * [SublimeLinter-contrib-stylelint](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint) - A Sublime Text plugin for stylelint.
+* [vscode-stylelint](https://github.com/shinnn/vscode-stylelint) - A Visual Studio Code extension for stylelint.
 
 ## Other linters & formatters
 
