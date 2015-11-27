@@ -7,13 +7,16 @@ Modern CSS linter
 
 Usage
   stylelint [input] [options]
+  
+Example
+  stylelint 'css/**/*.css' 'styles/*.css' --quiet
 
 By default, stylelint will look for a .stylelintrc file in JSON format,
 using rc to look in various places (cf. https://github.com/dominictarr/rc#standards).
 Alternately, you can specify a configuration file via --config.
 
 Input
-  Files
+  File glob(s) (passed to node-glob).
   You can also pass no input and use stdin.
 
 Options
