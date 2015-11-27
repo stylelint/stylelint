@@ -13,7 +13,7 @@ using rc to look in various places (cf. https://github.com/dominictarr/rc#standa
 Alternately, you can specify a configuration file via --config.
 
 Input
-  File glob(s) (passed to node-glob).
+  Files
   You can also pass no input and use stdin.
 
 Options
