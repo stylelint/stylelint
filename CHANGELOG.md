@@ -1,4 +1,4 @@
-# Head
+# 2.3.5
 
 * Added: error about undefined severities blaming stylelint for the bug.
 * Fixed: `selector-pseudo-element-colon-notation` typo in rule name resulting in undefined severity.
