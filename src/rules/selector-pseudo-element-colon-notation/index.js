@@ -5,7 +5,7 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "selector-psuedo-element-colon-notation"
+export const ruleName = "selector-pseudo-element-colon-notation"
 
 export const messages = ruleMessages(ruleName, {
   expected: (q) => `Expected ${q} colon pseudo-element notation`,

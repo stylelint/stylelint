@@ -41,6 +41,13 @@ export default function ({ ruleName, result, message, line, node, index, word })
   }
 
   const severity = (result.stylelint.ruleSeverities) ? result.stylelint.ruleSeverities[ruleName] : 0
+  if (typeof severity === "undefined") {
+    throw new Error(
+      `The rule name "${ruleName}" has no corresponding registered severity.\n\n` +
+      `This is most likely a bug in stylelint: please file an issue with this stack trace ` +
+      `at\nhttps://github.com/stylelint/stylelint/issues`
+    )
+  }
   if (!result.stylelint.stylelintError && severity === 2) {
     result.stylelint.stylelintError = true
   }
