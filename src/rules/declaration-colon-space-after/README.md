@@ -68,11 +68,17 @@ The following patterns are considered warnings:
 
 ```css
 a {
-  box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
+  box-shadow:0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
 }
 ```
 
 The following patterns are *not* considered warnings:
+
+```css
+a {
+  box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
+}
+```
 
 ```css
 a {
