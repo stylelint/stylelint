@@ -10,7 +10,7 @@ Require a single space or disallow whitespace after the colon of declarations.
 
 ## Options
 
-`string`: `"always"|"never"`
+`string`: `"always"|"never"|"always-single-line"`
 
 ### `"always"`
 
