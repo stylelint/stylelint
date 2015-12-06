@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: `rule-properties-order` now accounts for property names containing multiple hyphens.
+
 # 2.3.5
 
 * Added: error about undefined severities blaming stylelint for the bug.
