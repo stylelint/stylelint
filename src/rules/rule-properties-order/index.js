@@ -131,7 +131,7 @@ export default function (expectation, options) {
 
       // Now check actual known properties ...
       if (!firstPropIsUnspecified && !secondPropIsUnspecified) {
-        return firstPropOrderValue.index <= secondPropOrderValue.index
+        return firstPropOrderValue.expectedPosition <= secondPropOrderValue.expectedPosition
       }
 
       // Now deal with unspecified props ...
@@ -151,35 +151,42 @@ export default function (expectation, options) {
 
 function createExpectedOrder(input) {
   const expectedOrder = {}
+
   let lineSeparatedGroup = 1
+  let expectedPosition = 0
+
   appendGroup(input, 1)
 
-  function appendGroup(items, startIndex) {
-    items.forEach((item, index) => {
-      appendItem(item, index + startIndex)
-    })
+  function appendGroup(items) {
+    items.forEach(item => appendItem(item, false))
   }
 
-  function appendItem(item, index) {
+  function appendItem(item, inFlexibleGroup) {
     if (_.isString(item)) {
-      expectedOrder[item] = { index, lineSeparatedGroup }
+      // In flexible groups, the expectedPosition does not ascend
+      // to make that flexibility work;
+      // otherwise, it will always ascend
+      if (!inFlexibleGroup) { expectedPosition += 1 }
+      expectedOrder[item] = { lineSeparatedGroup, expectedPosition }
       return
     }
+
+    // If item is not a string, it's a group ...
 
     if (item.emptyLineBefore) {
       lineSeparatedGroup += 1
     }
 
     if (!item.order || item.order === "strict") {
-      appendGroup(item.properties, index)
+      appendGroup(item.properties)
       return
     } else if (item.order === "flexible") {
+      expectedPosition += 1
       item.properties.forEach(property => {
-        appendItem(property, index)
+        appendItem(property, true)
       })
     }
   }
-
   return expectedOrder
 }
 

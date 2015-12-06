@@ -1,6 +1,7 @@
 # Head
 
 * Fixed: `rule-properties-order` now accounts for property names containing multiple hyphens.
+* Fixed: `rule-properties-order` bug.
 
 # 2.3.5
 

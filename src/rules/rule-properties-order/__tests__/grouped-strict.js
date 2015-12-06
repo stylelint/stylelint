@@ -82,3 +82,20 @@ testRule([
     }
   )
 })
+
+testRule([
+  {
+    properties: [
+      "margin-top",
+      "margin-right",
+      "margin-bottom",
+    ],
+  },
+  {
+    properties: [
+      "font-size",
+    ],
+  },
+], tr => {
+  tr.ok(".foo { margin-bottom: 20px; font-size: 26px; }")
+})
