@@ -64,6 +64,9 @@ testRule([
   "padding-top",
   "padding-right",
   "padding-left",
+  "border",
+  "border-top",
+  "border-right",
   "color",
 ], tr => {
   warningFreeBasics(tr)
@@ -75,6 +78,8 @@ testRule([
   // `padding-bottom` was not specified, so it will be expected where `padding` was expected
   tr.ok("a { padding-bottom: 0; padding-top: 1px; padding-right: 0; padding-left: 0; color: pink; }")
   tr.ok("a { padding: 1px; padding-bottom: 0; padding-left: 0; color: pink; }")
+  tr.ok("a { border: 1px solid #fff; border-right: 2px solid #fff; border-right-color: #000; }")
+  tr.ok("a { border: 1px solid #fff; border-top: none; border-right-color: #000; }")
 
   tr.notOk("a { color: pink; padding: 1px; }", messages.expected("padding", "color"))
   tr.notOk("a { color: pink; padding-top: 1px; }", messages.expected("padding-top", "color"))
