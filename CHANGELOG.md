@@ -1,5 +1,6 @@
 # 2.3.6
 
+* Fixed: Improved documentation of CLI globbing possibilities.
 * Fixed: `rule-properties-order` now accounts for property names containing multiple hyphens.
 * Fixed: `rule-properties-order` grouping bug.
 
