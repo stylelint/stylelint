@@ -13,6 +13,7 @@
   * alternate config loading system, which stops at the first config found
 * Added: asynchronicity to the PostCSS plugin.
 * Added: `configFile` option to Node.js API.
+* Fixed: `comment-whitespace-inside` now ignores ignores copyright (`/*! `) and sourcemap (`/*# `) comments.
 
 # 2.3.7
 

@@ -30,6 +30,11 @@ export default function (expectation) {
       if (comment.raws.inline) { return }
 
       const rawComment = comment.toString()
+      const firstFourChars = rawComment.slice(0, 4)
+
+      // Return early if sourcemap or copyright comment
+      if (firstFourChars === "/*# " || firstFourChars === "/*! ") { return }
+      
       const leftMatches = rawComment.match(/(^\/\*+)(\s)?/)
       const rightMatches = rawComment.match(/(\s)?(\*+\/)$/)
       const opener = leftMatches[1]
