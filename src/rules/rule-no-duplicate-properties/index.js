@@ -38,7 +38,10 @@ export default function (actual) {
 
         if (cssPropertyIsVariable(prop)) { return }
 
-        if (prop !== "src" && decls.indexOf(prop) !== -1) {
+        // Ignore the src property as commonly duplicated in at-fontface
+        if (prop === "src") { return }
+
+        if (decls.indexOf(prop) !== -1) {
           report({
             message: messages.rejected(prop),
             node: child,
