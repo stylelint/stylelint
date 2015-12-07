@@ -34,7 +34,7 @@ export default function (actual) {
         }
         if (child.type !== "decl") { return }
         const prop = child.prop
-        if (decls.indexOf(prop) !== -1) {
+        if (prop !== "src" && decls.indexOf(prop) !== -1) {
           report({
             message: messages.rejected(prop),
             node: child,
