@@ -150,7 +150,7 @@ test("with relevant rule-specific disabledRange, among others", t => {
   t.end()
 })
 
-test("with quiet mode on and rule severity of 1", t => {
+test("with quiet mode on and rule severity of 'warning'", t => {
   const v = {
     ruleName: "foo",
     result: {
@@ -158,7 +158,7 @@ test("with quiet mode on and rule severity of 1", t => {
       stylelint: {
         quiet: true,
         ruleSeverities: {
-          foo: 1,
+          foo: "warning",
         },
       },
     },
@@ -172,7 +172,7 @@ test("with quiet mode on and rule severity of 1", t => {
   t.end()
 })
 
-test("with quiet mode on and rule severity of 2", t => {
+test("with quiet mode on and rule severity of 'error'", t => {
   const v = {
     ruleName: "foo",
     result: {
@@ -180,7 +180,7 @@ test("with quiet mode on and rule severity of 2", t => {
       stylelint: {
         quiet: true,
         ruleSeverities: {
-          foo: 2,
+          foo: "error",
         },
       },
     },

@@ -1,7 +1,7 @@
 import path from "path"
 import cosmiconfig from "cosmiconfig"
 import resolveFrom from "resolve-from"
-import { assign, merge, omit } from "lodash"
+import { assign, merge, omit, values, mapValues } from "lodash"
 import { configurationError } from "./utils"
 
 export default function (options) {
@@ -19,7 +19,7 @@ export default function (options) {
   }
 
   return cosmiconfig("stylelint", {
-    configPath: path.resolve(process.cwd(), options.configFile),
+    configPath: path.resolve(process.cwd(), options.configFile || ""),
   }).then(result => {
     return augmentConfig(result.config, path.dirname(result.filepath))
   }).then(augmentedConfig => {
@@ -29,7 +29,8 @@ export default function (options) {
   })
 }
 
-function augmentConfig(config, configDir) {
+function augmentConfig(nonnormalizedConfig, configDir) {
+  const config = normalizeSeverities(nonnormalizedConfig)
   // Absolutize the plugins here, because here is the place
   // where we know the basedir for this particular config
   const configWithAbsolutePlugins = absolutizePlugins(config, configDir)
@@ -78,4 +79,35 @@ function getModulePath(basedir, lookup) {
       `Do you need a \`configBasedir\`?`
     )
   }
+}
+
+// Temporary measure while there are 2 severity syntaxes ...
+// This makes all severities numbered (the old syntax).
+function normalizeSeverities(config) {
+  if (!config.rules) { return config }
+
+  // We'll have to assume that if all the rule settings start with a number,
+  // then the config is using numbered severities
+  const configHasNumberedSeverities = values(config.rules).every(ruleSettings => {
+    return typeof [].concat(ruleSettings)[0] === "number"
+  })
+
+  if (configHasNumberedSeverities) {
+    return assign({}, config, {
+      numberedSeverities: true,
+    })
+  }
+
+  return assign({}, config, {
+    rules: mapValues(config.rules, ruleSettings => {
+      if (ruleSettings === null) { return 0 }
+      if (ruleSettings === true) { return 2 }
+
+      if (ruleSettings[1] && ruleSettings[1].warn) {
+        return [1].concat(ruleSettings)
+      }
+
+      return [2].concat(ruleSettings)
+    }),
+  })
 }
