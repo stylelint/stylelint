@@ -17,6 +17,8 @@ testRule("always", tr => {
   tr.ok("/**** comment ***/")
   tr.ok("/*\ncomment\n*/")
   tr.ok("/*\tcomment   */")
+  tr.ok("/*! copyright */")
+  tr.ok("/*# sourcemap */")
 
   tr.notOk("/*comment */", {
     message: messages.expectedOpening,
@@ -53,6 +55,11 @@ testRule("always", tr => {
     line: 3,
     column: 7,
   })
+  tr.notOk("/*!copyright */", {
+    message: messages.expectedOpening,
+    line: 1,
+    column: 3,
+  })
 })
 
 testRule("never", tr => {
@@ -64,6 +71,8 @@ testRule("never", tr => {
   tr.ok("/*comment\n\ncomment*/")
   tr.ok("/**comment*/")
   tr.ok("/****comment***/")
+  tr.ok("/*! copyright */")
+  tr.ok("/*# sourcemap */")
 
   tr.notOk("/* comment*/", {
     message: messages.rejectedOpening,
