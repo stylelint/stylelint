@@ -38,7 +38,7 @@ export default function (actual) {
 
         if (cssPropertyIsVariable(prop)) { return }
 
-        if (decls.indexOf(prop) !== -1) {
+        if (prop !== "src" && decls.indexOf(prop) !== -1) {
           report({
             message: messages.rejected(prop),
             node: child,

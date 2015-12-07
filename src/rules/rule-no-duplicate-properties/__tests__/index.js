@@ -17,6 +17,7 @@ testRule(undefined, tr => {
   tr.ok("a { $scss: 0; $scss: $scss + 1; }")
   tr.ok("a { @less: 0; @less: @less + 1; }")
   tr.ok("a { --custom-property: 0; --custom-property: 1; }")
+  tr.ok("@fontface { src: url(font.eof); src: url(font.woff) }")
 
   tr.notOk("a { color: pink; color: orange }", messages.rejected("color"))
   tr.notOk("a { color: pink; background: orange; color: orange }", messages.rejected("color"))
