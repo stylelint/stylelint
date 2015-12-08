@@ -12,6 +12,7 @@
   * support for `stylelint` property in `package.json`
   * alternate config loading system, which stops at the first config found
 * Added: asynchronicity to the PostCSS plugin.
+* Added: `ignoreFiles` option to config.
 * Added: `configFile` option to Node.js API.
 * Fixed: `comment-whitespace-inside` now ignores ignores copyright (`/*! `) and sourcemap (`/*# `) comments.
 * Fixed: `rule-no-duplicate-properties` now ignores the `src` property.

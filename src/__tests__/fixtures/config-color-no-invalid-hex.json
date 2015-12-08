@@ -1,5 +1,5 @@
 {
   "rules": {
-    "color-no-invalid-hex": 2
+    "color-no-invalid-hex": true
   }
 }
