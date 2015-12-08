@@ -1,7 +1,13 @@
 import path from "path"
 import cosmiconfig from "cosmiconfig"
 import resolveFrom from "resolve-from"
-import { assign, merge, omit, values, mapValues } from "lodash"
+import {
+  assign,
+  merge,
+  omit,
+  values,
+  mapValues,
+} from "lodash"
 import { configurationError } from "./utils"
 
 export default function (options) {
@@ -14,18 +20,27 @@ export default function (options) {
 
   if (rawConfig) {
     return augmentConfig(rawConfig, configBasedir).then(config => {
-      return merge(config, options.configOverrides)
+      return {
+        config: merge(config, options.configOverrides),
+        configDir: process.cwd(),
+      }
     })
   }
 
+  let rootConfigDir
   return cosmiconfig("stylelint", {
     configPath: path.resolve(process.cwd(), options.configFile || ""),
   }).then(result => {
-    return augmentConfig(result.config, path.dirname(result.filepath))
+    rootConfigDir = path.dirname(result.filepath)
+    return augmentConfig(result.config, rootConfigDir)
   }).then(augmentedConfig => {
-    return (options.configOverrides)
+    const finalConfig = (options.configOverrides)
       ? merge({}, augmentedConfig, options.configOverrides)
       : augmentedConfig
+    return {
+      config: finalConfig,
+      configDir: rootConfigDir,
+    }
   })
 }
 
@@ -57,7 +72,7 @@ function augmentConfig(nonnormalizedConfig, configDir) {
       // In case --config was used: do not pay attention to it again
       argv: false,
     }).then(result => {
-      return augmentConfig(result.config, extendDir)
+      return augmentConfig(stripIgnoreFiles(result.config), extendDir)
     })
   }
 }
@@ -110,4 +125,11 @@ function normalizeSeverities(config) {
       return [2].concat(ruleSettings)
     }),
   })
+}
+
+// The `ignoreFiles` option only works with the
+// config that is being directly invoked, not any
+// extended configs
+function stripIgnoreFiles(config) {
+  return omit(config, "ignoreFiles")
 }

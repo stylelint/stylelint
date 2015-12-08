@@ -1,4 +1,7 @@
 import postcss from "postcss"
+import multimatch from "multimatch"
+import { get } from "lodash"
+import path from "path"
 import { configurationError } from "./utils"
 import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
@@ -18,13 +21,18 @@ export default postcss.plugin("stylelint", (options = {}) => {
     result.stylelint = result.stylelint || {}
     result.stylelint.ruleSeverities = {}
 
-    return configPromise.then(config => {
+    return configPromise.then(({ config, configDir }) => {
       if (!config) {
         throw configurationError("No configuration provided")
       }
 
       if (!config.rules) {
         throw configurationError("No rules found within configuration")
+      }
+
+      if (config.ignoreFiles) {
+        const pathFromConfigToSource = path.relative(configDir, get(root, "source.input.file", ""))
+        if (multimatch(pathFromConfigToSource, config.ignoreFiles).length) { return }
       }
 
       if (config.numberedSeverities) {

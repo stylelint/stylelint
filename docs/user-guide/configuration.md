@@ -84,7 +84,7 @@ Or starting with `stylelint-config-suitcss`, then extending layering `myExtendab
 
 *Because of `extends`, you can create and use shareable stylelint configurations.*
 
-## `plugins`
+### `plugins`
 
 [Plugins](/docs/user-guide/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use.
 As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
@@ -101,6 +101,17 @@ Once the plugin is declared, within your `"rules"` object you can add settings f
   },
 }
 ```
+
+### `ignoreFiles`
+
+Provide a glob or array of globs to ignore specific files.
+
+These globs are analyzed relative to
+
+- the config's filepath, if the config is a file,
+- or `process.cwd()`
+
+The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
 
 ## Configuring rules
 
