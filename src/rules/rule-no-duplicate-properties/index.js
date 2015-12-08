@@ -34,7 +34,9 @@ export default function (actual) {
         }
         if (child.type !== "decl") { return }
         const prop = child.prop
-        if (decls.indexOf(prop) !== -1) {
+
+        // Ignore the src property as commonly duplicated in at-fontface
+        if (prop !== "src" && decls.indexOf(prop) !== -1) {
           report({
             message: messages.rejected(prop),
             node: child,

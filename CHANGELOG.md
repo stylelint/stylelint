@@ -14,6 +14,7 @@
 * Added: asynchronicity to the PostCSS plugin.
 * Added: `configFile` option to Node.js API.
 * Fixed: `comment-whitespace-inside` now ignores ignores copyright (`/*! `) and sourcemap (`/*# `) comments.
+* Fixed: `rule-no-duplicate-properties` now ignores the `src` property.
 
 # 2.3.1
 
