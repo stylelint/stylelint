@@ -10,13 +10,15 @@ numberedSeveritiesMap.set(1, "warning")
 numberedSeveritiesMap.set(2, "error")
 
 export default postcss.plugin("stylelint", (options = {}) => {
+  const configPromise = buildConfig(options)
+
   return (root, result) => {
     // result.stylelint is the namespace for passing stylelint-related
     // configuration and data across sub-plugins via the PostCSS Result
     result.stylelint = result.stylelint || {}
     result.stylelint.ruleSeverities = {}
 
-    return buildConfig(options).then(config => {
+    return configPromise.then(config => {
       if (!config) {
         throw configurationError("No configuration provided")
       }
