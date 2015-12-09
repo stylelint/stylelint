@@ -23,7 +23,8 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      cssFunctionArguments(decl.toString(), "calc", (expression, expressionIndex) => {
+      cssFunctionArguments(decl.toString(), "calc", (rawExpression, expressionIndex) => {
+        const expression = blurVariables(rawExpression)
 
         checkSymbol("+")
         checkSymbol("-")
@@ -79,4 +80,8 @@ export default function (actual) {
       })
     })
   }
+}
+
+function blurVariables(source) {
+  return source.replace(/[\$@][^\)\s]+/g, "0")
 }

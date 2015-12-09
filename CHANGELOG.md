@@ -1,5 +1,6 @@
 # Head
 
+* Fixed: `function-calc-no-unspaced-operator` ignores characters in `$sass` and `@less` variables.
 * Fixed: `styleSearch()` and the rules it powers will not trip up on single-line (`//`) comments.
 * Fixed: `selector-combinator-space-before` now better handles nested selectors starting with combinators.
 * Fixed: `rule-properties-order` now deals property with `-moz-osx-font-smoothing`.
