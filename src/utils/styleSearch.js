@@ -38,6 +38,7 @@ export default function (options, callback) {
 
   let insideString = false
   let insideComment = false
+  let insideSingleLineComment = false
   let insideFunction = false
   let openingParenCount = 0
   let matchCount = 0
@@ -94,21 +95,37 @@ export default function (options, callback) {
       !insideComment
       && currentChar === "/"
       && source[i - 1] !== "\\" // escaping
-      && source[i + 1] === "*"
     ) {
-      insideComment = true
-      continue
+      if (source[i + 1] === "*") {
+        insideComment = true
+        continue
+      }
+      // single-line
+      if (source[i + 1] === "/") {
+        insideComment = true
+        insideSingleLineComment = true
+        continue
+      }
     }
 
-    // Register the end of a comment
+    // Register the end of a (standard) comment
     if (
-      insideComment
+      insideComment && !insideSingleLineComment
       && currentChar === "*"
       && source[i - 1] !== "\\" // escaping
       && source[i + 1] === "/"
     ) {
       insideComment = false
       continue
+    }
+
+    // Register the end of a single-line comment
+    if (
+      insideComment && insideSingleLineComment
+      && currentChar === "\n"
+    ) {
+      insideComment = false
+      insideSingleLineComment = false
     }
 
     if (insideComment && !options.checkComments) { continue }

@@ -1,6 +1,7 @@
 import {
   ruleTester,
 } from "../../../testUtils"
+import scss from "postcss-scss"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
@@ -74,4 +75,17 @@ testRule("double", tr => {
 
   tr.ok(`a::before { content: "foo\"horse\"'cow'"; }`, "string in strings")
   tr.ok("a { /* 'horse' */ }", "ignores comment")
+})
+
+const scssTestRule = ruleTester(rule, ruleName, {
+  postcssOptions: { syntax: scss },
+})
+
+scssTestRule("double", tr => {
+  tr.ok("a {\n  // 'horse'\n}", "ignores single-line SCSS comment")
+  tr.notOk("a::before {\n  // 'horse'\n  content: 'thing'; }", {
+    message: messages.expected("double"),
+    line: 3,
+    column: 10,
+  }, "pays attention when single-line SCSS comment ends")
 })
