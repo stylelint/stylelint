@@ -25,6 +25,7 @@ testRule("always", tr => {
   tr.ok(".foo:nth-child(2n+1) {}", "unspaced + in nth-child argument")
   tr.ok(".foo:nth-child(2n-1) {}", "unspaced - in nth-child argument")
   tr.ok("a[rel~='copyright'] {}", "attribute selector with ~=")
+  tr.ok(".foo {\n\t> span,\n\t> b { color:pink; } }", "nested selectors starting with combinator")
 
   tr.notOk(
     "a  +a {}",

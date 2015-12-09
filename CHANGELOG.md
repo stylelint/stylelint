@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: `selector-combinator-space-before` now better handles nested selectors starting with combinators.
+
 # 2.3.6
 
 * Fixed: Improved documentation of CLI globbing possibilities.

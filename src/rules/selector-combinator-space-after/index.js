@@ -38,16 +38,19 @@ export default function (expectation) {
 
 export function selectorCombinatorSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkRules(rule => {
-    const selector = rule.selector
-    styleSearch({
-      source: selector,
-      target: combinators,
-      outsideFunctionalNotation: true,
-    }, match => {
-      // Catch ~= in attribute selectors
-      if (match.target === "~" && selector[match.endIndex] === "=") { return }
+    // Check each selector individually, instead of all as one string,
+    // in case some that aren't the first begin with combinators (nesting syntax)
+    rule.selectors.forEach(selector => {
+      styleSearch({
+        source: selector,
+        target: combinators,
+        outsideFunctionalNotation: true,
+      }, match => {
+        // Catch ~= in attribute selectors
+        if (match.target === "~" && selector[match.endIndex] === "=") { return }
 
-      check(selector, match.startIndex, rule)
+        check(selector, match.startIndex, rule)
+      })
     })
   })
 
