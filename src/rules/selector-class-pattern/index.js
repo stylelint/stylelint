@@ -9,7 +9,7 @@ import {
 export const ruleName = "selector-class-pattern"
 
 export const messages = ruleMessages(ruleName, {
-  expected: selectorValue => `Expected class selector "#${selectorValue}" to match specified pattern`,
+  expected: selectorValue => `Expected class selector ".${selectorValue}" to match specified pattern`,
 })
 
 export default function (pattern) {
