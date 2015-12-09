@@ -26,6 +26,7 @@ testRule("alphabetical", tr => {
   tr.ok("a { $scss: 0; $a: 0; alpha: 0; }")
   tr.ok("a { @less: 0; @a: 0; alpha: 0; }")
   tr.ok("a { --custom-property: 0; --another: 0; alpha: 0; }")
+  tr.ok("a { font-size: 1px; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialised; font-weight: bold; }")
 
   tr.notOk("a { top: 0; color: pink; }",
     messages.expected("color", "top"))

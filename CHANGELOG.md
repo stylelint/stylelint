@@ -1,6 +1,7 @@
 # Head
 
 * Fixed: `selector-combinator-space-before` now better handles nested selectors starting with combinators.
+* Fixed: `rule-properties-order` now deals property with `-moz-osx-font-smoothing`.
 
 # 2.3.6
 

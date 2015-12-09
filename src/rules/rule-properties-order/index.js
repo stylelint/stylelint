@@ -57,9 +57,17 @@ export default function (expectation, options) {
 
         if (cssPropertyIsVariable(child.prop)) { return }
 
+        let unprefixedPropName = vendor.unprefixed(child.prop)
+
+        // Hack to allow -moz-osx-font-smoothing to be understood
+        // just like -webkit-font-smoothing
+        if (unprefixedPropName.indexOf("osx-") === 0) {
+          unprefixedPropName = unprefixedPropName.slice(4)
+        }
+
         const propData = {
           name: child.prop,
-          unprefixedName: vendor.unprefixed(child.prop),
+          unprefixedName: unprefixedPropName,
           before: child.raw("before"),
           index: allPropData.length,
         }
