@@ -27,6 +27,8 @@ testRule(undefined, tr => {
 
   tr.ok("a { top: calc(-$x - 2rem); }", "postcss-simple-vars and SCSS variable syntax")
   tr.ok("a { top: calc(-@x - 2rem); }", "Less variable syntax")
+  tr.ok("a { top: calc($x-y-z - 2rem); }", "postcss-simple-vars and SCSS variable with hyphens")
+  tr.ok("a { top: calc(2rem + @fh+d*sf-as); }", "Less variable with symbols")
 
   tr.notOk("a { top: calc(1px +\t-1px)}", {
     message: messages.expectedAfter("+"),
