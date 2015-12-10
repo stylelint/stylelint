@@ -65,6 +65,7 @@ testRule([
   tr.ok("a {\n  height: 1px;\n\n font-size: 2px;\n  color: pink;\n  font-weight: bold;\n}")
   tr.ok("a {\n  height: 1px;\n\n  font-size: 2px;\n  font-weight: bold;\n  color: pink;\n}")
   tr.ok("a {\n  height: 1px;\n\n  font-weight: bold;\n  font-size: 2px;\n  color: pink;\n}")
+  tr.ok("a {\n  height: 1px;\n\n  /* something */\n  font-weight: bold;\n}", "comment before line break")
 
   tr.notOk(
     "a {\n  height: 1px;\n  color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}",
@@ -112,6 +113,14 @@ testRule([
       message: messages.expectedEmptyLineBetween("font-weight", "border"),
       line: 5,
       column: 3,
+    }
+  )
+  tr.notOk(
+    "a {\n  height: 1px;\n  /* something */\n  font-weight: bold;\n}",
+    {
+      message: messages.expectedEmptyLineBetween("font-weight", "height"),
+      line: 4,
+      column: 2,
     }
   )
 })

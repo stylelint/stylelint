@@ -70,6 +70,7 @@ export default function (expectation, options) {
           unprefixedName: unprefixedPropName,
           before: child.raw("before"),
           index: allPropData.length,
+          node: child,
         }
 
         const previousPropData = _.last(allPropData)
@@ -126,7 +127,7 @@ export default function (expectation, options) {
         ? secondPropOrderValue.lineSeparatedGroup
         : lastKnownLineSeparatedGroup
       if (firstPropLineSeparatedGroup !== secondPropLineSeparatedGroup) {
-        if (!/\r?\n\r?\n/.test(secondPropData.before)) {
+        if (!hasEmptyLineBefore(secondPropData.node)) {
           report({
             message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),
             node,
@@ -208,4 +209,13 @@ function getOrderValue(expectedOrder, propName) {
     orderValue = getOrderValue(expectedOrder, propNamePreHyphen)
   }
   return orderValue
+}
+
+function hasEmptyLineBefore(decl) {
+  if (/\r?\n\r?\n/.test(decl.raw("before"))) { return true }
+  const prevNode = decl.prev()
+  if (!prevNode) { return false }
+  if (prevNode.type !== "comment") { return false }
+  if (/\r?\n\r?\n/.test(prevNode.raw("before"))) { return true }
+  return false
 }
