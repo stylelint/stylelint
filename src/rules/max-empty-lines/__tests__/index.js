@@ -6,7 +6,7 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-testRule(undefined, tr => {
+testRule(1, tr => {
   warningFreeBasics(tr)
 
   tr.ok("a {}\nb {}")
@@ -44,6 +44,48 @@ testRule(undefined, tr => {
     column: 9,
   })
   tr.notOk("/* horse\r\n\r\n\r\n */\r\na{}", {
+    message: messages.rejected,
+    line: 1,
+    column: 10,
+  })
+})
+
+testRule(2, tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a {}\nb {}")
+  tr.ok("a {}\n\nb {}")
+  tr.ok("a {}\n\n\nb {}")
+  tr.ok("a {}\r\n\r\n\r\nb{}")
+  tr.ok("a{}\n\n\n/** horse */\n\n\nb{}")
+  tr.ok("a{}\r\n\r\n\r\n/** horse */\r\n\r\n\r\nb{}")
+
+  tr.notOk("a {}\n\n\n\nb{}", {
+    message: messages.rejected,
+    line: 1,
+    column: 5,
+  })
+  tr.notOk("a {}\r\n\r\n\r\n\r\nb{}", {
+    message: messages.rejected,
+    line: 1,
+    column: 6,
+  })
+  tr.notOk("a {}\n\n/** horse */\n\n\n\nb{}", {
+    message: messages.rejected,
+    line: 3,
+    column: 13,
+  })
+  tr.notOk("a {}\r\n\r\n/** horse */\r\n\r\n\r\n\r\nb{}", {
+    message: messages.rejected,
+    line: 3,
+    column: 14,
+  })
+  tr.notOk("/* horse\n\n\n\n */\na{}", {
+    message: messages.rejected,
+    line: 1,
+    column: 9,
+  })
+  tr.notOk("/* horse\r\n\r\n\r\n\r\n */\r\na{}", {
     message: messages.rejected,
     line: 1,
     column: 10,

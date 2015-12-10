@@ -1,11 +1,18 @@
-# no-multiple-empty-lines
+# max-empty-lines
 
-Disallow multiple empty lines.
+Disallow more than a specified number of adjacent empty lines.
+
+## Options
+
+`int`: Maximum number of characters allowed.
+
+For example, with `2`:
 
 The following patterns are considered warnings:
 
 ```css
 a {}
+
 
 
 b {}
@@ -18,6 +25,7 @@ Comment strings are also checked -- so the following is a warning:
  * Call me Ishmael.
  *
  *
+ *
  * Some years ago -- never mind how log precisely -- ...
  */
 ```
@@ -26,23 +34,18 @@ The following patterns are *not* considered warnings:
 
 ```css
 a {}
+b {}
+```
+
+```css
+a {}
 
 b {}
 ```
 
 ```css
 a {}
+
+
 b {}
-```
-
-```css
-a {} b {}
-```
-
-```css
-/**
- * Call me Ishmael.
- *
- * Some years ago -- never mind how long precisely -- ...
- */
 ```
