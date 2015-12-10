@@ -44,6 +44,7 @@ import functionUrlQuotes from "./function-url-quotes"
 import functionWhitelist from "./function-whitelist"
 import functionWhitespaceAfter from "./function-whitespace-after"
 import indentation from "./indentation"
+import maxEmptyLines from "./max-empty-lines"
 import maxLineLength from "./max-line-length"
 import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
 import mediaFeatureColonSpaceBefore from "./media-feature-colon-space-before"
@@ -57,7 +58,6 @@ import mediaQueryListCommaSpaceBefore from "./media-query-list-comma-space-befor
 import mediaQueryParenthesesSpaceInside from "./media-query-parentheses-space-inside"
 import noEolWhitespace from "./no-eol-whitespace"
 import noMissingEofNewline from "./no-missing-eof-newline"
-import noMultipleEmptyLines from "./no-multiple-empty-lines"
 import numberLeadingZero from "./number-leading-zero"
 import numberMaxPrecision from "./number-max-precision"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
@@ -146,6 +146,7 @@ export default {
   "function-whitelist": functionWhitelist,
   "function-whitespace-after": functionWhitespaceAfter,
   "indentation": indentation,
+  "max-empty-lines": maxEmptyLines,
   "max-line-length": maxLineLength,
   "media-feature-colon-space-after": mediaFeatureColonSpaceAfter,
   "media-feature-colon-space-before": mediaFeatureColonSpaceBefore,
@@ -159,7 +160,6 @@ export default {
   "media-query-parentheses-space-inside": mediaQueryParenthesesSpaceInside,
   "no-eol-whitespace": noEolWhitespace,
   "no-missing-eof-newline": noMissingEofNewline,
-  "no-multiple-empty-lines": noMultipleEmptyLines,
   "number-leading-zero": numberLeadingZero,
   "number-max-precision": numberMaxPrecision,
   "number-no-trailing-zeros": numberNoTrailingZeros,
