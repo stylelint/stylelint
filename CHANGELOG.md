@@ -1,11 +1,13 @@
 # Head
 
+* Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
+* Deprecated: numbered severities (0, 1, 2) and will be disabled in `4.0`.
 * Changed: renamed `rule-single-line-max-declarations` to `declaration-block-single-line-max-declarations` and changed scope of the single-line to the declaration block.
 * Changed: renamed `rule-no-single-line` to `declaration-block-no-single-line` and changed scope of the single-line to the declaration block.
 * Changed: renamed the `function-space-after` rule to `function-whitespace-after`.
 * Changed: renamed the `comment-space-inside` rule to `comment-whitespace-inside`.
+* Changed: renamed the `no-multiple-empty-lines` rule to `max-empty-lines` (takes an `int` as option).
 * Changed: `plugins` is now an array instead of an object. And plugins should be created with `stylelint.createPlugin()`.
-* Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
 * Added: cosmiconfig, which means the following:
   * support for YAML `.stylelintrc`
   * support for `stylelint.config.js`
