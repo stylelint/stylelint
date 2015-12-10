@@ -1,8 +1,7 @@
-# Head
+# 2.3.7
 
 * Fixed: `function-calc-no-unspaced-operator` ignores characters in `$sass` and `@less` variables.
 * Fixed: `rule-properties-order` allows comments at the top of groups that expect newlines before them.
->>>>>>> Allow comments beginning new-line separated property groups; fixes #554
 * Fixed: `styleSearch()` and the rules it powers will not trip up on single-line (`//`) comments.
 * Fixed: `selector-combinator-space-before` now better handles nested selectors starting with combinators.
 * Fixed: `rule-properties-order` now deals property with `-moz-osx-font-smoothing`.
