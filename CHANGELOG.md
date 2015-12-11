@@ -1,4 +1,4 @@
-# 3.0.0, 3.0.1
+# 3.0.0-3.0.2
 
 * Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
 * Deprecated: numbered severities (0, 1, 2) and will be disabled in `4.0`.
