@@ -14,7 +14,7 @@ testRule("always", tr => {
   tr.ok("@media print { a { color: pink; } }")
 
   tr.ok("a {{ &:hover { color: pink; }}}")
-  tr.ok("a {\n{ &:hover { color: pink; }}}")
+  tr.ok("a {\n&:hover { color: pink; }}")
 
   tr.notOk("a{ color: pink; }", {
     message: messages.expectedBefore(),

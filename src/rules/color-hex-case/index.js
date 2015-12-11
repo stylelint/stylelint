@@ -28,18 +28,16 @@ export default function (expectation) {
 
         const hexMatch = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))
         if (!hexMatch) { return }
+
         const hexValue = hexMatch[0]
         const hexValueLower = hexValue.toLowerCase()
         const hexValueUpper = hexValue.toUpperCase()
+        const expectedHex = expectation === "lower" ? hexValueLower : hexValueUpper
 
-        if (expectation === "lower" && hexValue === hexValueLower) { return }
-
-        if (expectation === "upper" && hexValue === hexValueUpper) { return }
-
-        const variant = expectation === "lower" ? hexValueLower : hexValueUpper
+        if (hexValue === expectedHex) { return }
 
         report({
-          message: messages.expected(hexValue, variant),
+          message: messages.expected(hexValue, expectedHex),
           node: decl,
           index: match.startIndex,
           result,

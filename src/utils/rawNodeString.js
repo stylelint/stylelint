@@ -1,3 +1,9 @@
+/**
+ * Stringify PostCSS node including its raw "before" string.
+ *
+ * @param {Node} node - Any PostCSS node
+ * @return {string}
+ */
 export default function (node) {
   var result = ""
   if (node.raw("before")) {

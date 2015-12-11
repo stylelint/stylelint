@@ -5,12 +5,12 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "comment-space-inside"
+export const ruleName = "comment-whitespace-inside"
 
 export const messages = ruleMessages(ruleName, {
-  expectedOpening: `Expected single space after "/*"`,
+  expectedOpening: `Expected whitespace after "/*"`,
   rejectedOpening: `Unexpected whitespace after "/*"`,
-  expectedClosing: `Expected single space before "*/"`,
+  expectedClosing: `Expected whitespace before "*/"`,
   rejectedClosing: `Unexpected whitespace before "*/"`,
 })
 
@@ -30,6 +30,11 @@ export default function (expectation) {
       if (comment.raws.inline) { return }
 
       const rawComment = comment.toString()
+      const firstFourChars = rawComment.substr(0, 4)
+
+      // Return early if sourcemap or copyright comment
+      if (firstFourChars === "/*# " || firstFourChars === "/*! ") { return }
+
       const leftMatches = rawComment.match(/(^\/\*+)(\s)?/)
       const rightMatches = rawComment.match(/(\s)?(\*+\/)$/)
       const opener = leftMatches[1]
@@ -38,40 +43,26 @@ export default function (expectation) {
       const closer = rightMatches[2]
 
       if (expectation === "never" && leftSpace !== "") {
-        report({
-          message: messages.rejectedOpening,
-          node: comment,
-          index: opener.length,
-          result,
-          ruleName,
-        })
+        complain(messages.rejectedOpening, opener.length)
       }
       if (expectation === "always" && !isWhitespace(leftSpace)) {
-        report({
-          message: messages.expectedOpening,
-          node: comment,
-          index: opener.length,
-          result,
-          ruleName,
-        })
+        complain(messages.expectedOpening, opener.length)
       }
 
       if (expectation === "never" && rightSpace !== "") {
-        report({
-          message: messages.rejectedClosing,
-          node: comment,
-          index: comment.toString().length - closer.length - 1,
-          result,
-          ruleName,
-        })
+        complain(messages.rejectedClosing, comment.toString().length - closer.length - 1)
       }
       if (expectation === "always" && !isWhitespace(rightSpace)) {
+        complain(messages.expectedClosing, comment.toString().length - closer.length - 1)
+      }
+
+      function complain(message, index) {
         report({
-          message: messages.expectedClosing,
-          node: comment,
-          index: comment.toString().length - closer.length - 1,
+          message,
+          index,
           result,
           ruleName,
+          node: comment,
         })
       }
     })

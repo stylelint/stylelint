@@ -86,11 +86,6 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`declaration-block-semicolon-space-after`](../../src/rules/declaration-block-semicolon-space-after/README.md): Require a single space or disallow whitespace after the semicolons of declaration blocks.
 * [`declaration-block-semicolon-space-before`](../../src/rules/declaration-block-semicolon-space-before/README.md): Require a single space or disallow whitespace before the semicolons of declaration blocks.
 
-### Nesting block
-
-* [`nesting-block-opening-brace-newline-before`](../../src/rules/nesting-block-opening-brace-newline-before/README.md): Require a newline or disallow whitespace before the opening brace of nesting blocks.
-* [`nesting-block-opening-brace-space-before`](../../src/rules/nesting-block-opening-brace-space-before/README.md): Require a single space or disallow whitespace before the opening brace of nesting blocks.
-
 ### Block
 
 * [`block-closing-brace-newline-after`](../../src/rules/block-closing-brace-newline-after/README.md): Require a newline or disallow whitespace after the closing brace of blocks.
@@ -177,9 +172,9 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 
 * [`indentation`](../../src/rules/indentation/README.md): Specify indentation.
 * [`max-line-length`](../../src/rules/max-line-length/README.md): Limit the length of a line.
+* [`max-empty-lines`](../../src/rules/max-empty-lines/README.md): Disallow more than a specified number of adjacent empty lines.
 * [`no-eol-whitespace`](../../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
 * [`no-missing-eof-newline`](../../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
-* [`no-multiple-empty-lines`](../../src/rules/no-multiple-empty-lines/README.md): Disallow multiple empty lines.
 
 ## About rule names
 

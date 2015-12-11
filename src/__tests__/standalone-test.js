@@ -13,7 +13,11 @@ const fixturesPath = path.join(__dirname, "fixtures")
 test("standalone with input file(s)", t => {
   let planned = 0
 
-  standalone({ files: `${fixturesPath}/empty-block.css`, config: configBlockNoEmpty })
+  standalone({
+    files: `${fixturesPath}/empty-block.css`,
+    // Path to config file
+    configFile: path.join(__dirname, "fixtures/config-block-no-empty.json"),
+  })
     .then(({ output, results }) => {
       t.ok(output.indexOf("block-no-empty") !== -1)
       t.equal(results.length, 1)
@@ -121,9 +125,8 @@ test("standalone with extending configuration and no configBasedir", t => {
     code: "a {}",
     config: configExtendingOne,
   })
-    .then(() => {})
     .catch(err => {
-      t.equal(err.message.indexOf("Could not find "), 0)
+      t.equal(err.code, 78)
     })
   planned += 1
 
@@ -211,3 +214,80 @@ test("standalone with scss syntax", t => {
 function logError(err) {
   console.log(err.stack)
 }
+
+test("standalone with extending config and ignoreFiles glob ignoring single glob", t => {
+  let planned = 0
+  standalone({
+    files: [`${fixturesPath}/*.css`],
+    config: {
+      ignoreFiles: "**/invalid-hex.css",
+      extends: [
+        "./config-block-no-empty",
+        "./config-color-no-invalid-hex",
+      ],
+    },
+    configBasedir: path.join(__dirname, "fixtures"),
+  })
+    .then(({ output }) => {
+      const parsedOutput = JSON.parse(output)
+      t.equal(parsedOutput.length, 2)
+      t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1)
+      t.equal(parsedOutput[0].warnings.length, 1)
+      t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
+      t.equal(parsedOutput[1].warnings.length, 0)
+    })
+  planned += 5
+  t.plan(planned)
+})
+
+test("standalone with extending config with ignoreFiles glob ignoring one by negation", t => {
+  let planned = 0
+  standalone({
+    files: [`${fixturesPath}/*.css`],
+    config: {
+      ignoreFiles: [
+        "**/*.css",
+        "!**/invalid-hex.css",
+      ],
+      extends: [
+        `${fixturesPath}/config-block-no-empty`,
+        `${fixturesPath}/config-color-no-invalid-hex`,
+      ],
+    },
+    configBasedir: path.join(__dirname, "fixtures"),
+  })
+    .then(({ output }) => {
+      const parsedOutput = JSON.parse(output)
+      t.equal(parsedOutput.length, 2)
+      t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1)
+      t.equal(parsedOutput[0].warnings.length, 0)
+      t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
+      t.equal(parsedOutput[1].warnings.length, 1)
+    })
+  planned += 5
+  t.plan(planned)
+})
+
+test("standalone extending a config that ignores files", t => {
+  let planned = 0
+  standalone({
+    files: [`${fixturesPath}/*.css`],
+    config: {
+      extends: [
+        `${fixturesPath}/config-extending-and-ignoring`,
+      ],
+    },
+    configBasedir: path.join(__dirname, "fixtures"),
+  })
+    .then(({ output }) => {
+      const parsedOutput = JSON.parse(output)
+      t.equal(parsedOutput.length, 2)
+      t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1,
+        "ignoreFiles in extended config has no effect")
+      t.equal(parsedOutput[0].warnings.length, 1)
+      t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
+      t.equal(parsedOutput[1].warnings.length, 0)
+    })
+  planned += 5
+  t.plan(planned)
+})

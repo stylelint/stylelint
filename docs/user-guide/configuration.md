@@ -2,8 +2,21 @@
 
 The linter _expects a configuration object_. You can either craft your own config or extend an existing one.
 
-For the Node API and PostCSS plugin, you can either pass a configuration object directly or create a `.stylelintrc` JSON file.
-For the CLI, you must use a `.stylelintrc` file or point to some other JSON file.
+## Loading Configuration
+
+For the Node API and PostCSS plugin, you can pass a config directly or find and load it.
+For the CLI, you must find and load it.
+
+Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig).
+Starting from the current working directory, it will look for the following possible sources, in this order:
+
+- a `stylelint` property in `package.json`
+- a `.stylelintrc` file in JSON or YAML format
+- a `stylelint.config.js` file exporting a JS object
+
+Once one of these is found and parsed, the search will stop and that object will be used.
+
+The configuration search can be short-circuited by passing a `--config` CLI argument specifying the path to your configuration file.
 
 ## The Configuration Object
 
@@ -15,15 +28,15 @@ The configuration object can have the following properties. Only `rules` is requ
 *No rules are turned on by default*, so this is where you turn on everything you want to check.
 
 **The `rules` property is an object whose keys are rule names and values are rule configurations.**
-Each rule configuration is either a single severity number (0-2) or an array with the following information:
-`[severity, primary option, secondary options]`.
+Each rule configuration is either a boolean or an array with the following information:
+`[primary option, secondary options]`.
 
 ```json
 {
   "rules": {
-    "color-no-invalid-hex": 2,
-    "declaration-colon-space-after": [1, "always"],
-    "indentation": [2, "tab", {
+    "color-no-invalid-hex": true,
+    "declaration-colon-space-after": "always",
+    "indentation": ["tab", {
       "except": ["value"]
     }]
   }
@@ -43,8 +56,8 @@ For example, extending the [`stylelint-config-suitcss`](https://github.com/style
 {
   "extends": "stylelint-config-suitcss",
   "rules": {
-    "indentation": [2, "tab"],
-    "number-leading-zero": 0,
+    "indentation": "tab",
+    "number-leading-zero": null,
   }
 }
 ```
@@ -58,7 +71,7 @@ Or starting with `stylelint-config-suitcss`, then extending layering `myExtendab
     "stylelint-config-suitcss"  
   ],
   "rules": {
-    "indentation": [2, "tab"],
+    "indentation": "tab",
   }
 }
 ```
@@ -71,23 +84,34 @@ Or starting with `stylelint-config-suitcss`, then extending layering `myExtendab
 
 *Because of `extends`, you can create and use shareable stylelint configurations.*
 
-## `plugins`
+### `plugins`
 
-[Plugins](/docs/user-guide/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` object to your config. Each key is a new rule's name, and its value is a "locater" identifying the plugin.
+[Plugins](/docs/user-guide/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use.
 As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
 
-Once the plugin is declared, within your `"rules"` object you can add settings for the plugin's rule just like any standard rule.
+Once the plugin is declared, within your `"rules"` object you can add settings for the plugin's rule just like any standard rule. You will have to look at the plugin's documentation to know what the rule name should be.
 
 ```json
 {
-  "plugins": {
-    "special-rule": "../special-rule.js",
-  },
+  "plugins": [
+    "../special-rule.js",
+  ],
   "rules": {
-    "special-rule": [2, "everything"],
+    "special-rule": "everything",
   },
 }
 ```
+
+### `ignoreFiles`
+
+Provide a glob or array of globs to ignore specific files.
+
+These globs are analyzed relative to
+
+- the config's filepath, if the config is a file,
+- or `process.cwd()`
+
+The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
 
 ## Configuring rules
 
@@ -97,18 +121,20 @@ Once the plugin is declared, within your `"rules"` object you can add settings f
 
 Each rule can be turned off or on:
 
-* `0` - turn the rule off.
-* `1` - turn the rule on as a warning (does not affect CLI exit code).
-* `2` - turn the rule on as an error (CLI exit code is 1 when triggered).
+* `null` - turn the rule off.
+* `true|options` - turn the rule on.
+
+All turned-on rules error by default. You can reduce the severity of a rule, to a warning, by adding `"warn": true` to its secondary options.
 
 An example of turning rules on and off:
 
 ```js
 {
   "rules": {
-    "rule-no-single-line": 0, // turn rule off
-    "declaration-no-important": 2, // turn rule on
-    "indentation": [2, "tabs"] // turn on a rule that has options
+    "rule-no-single-line": null, // turn rule off
+    "declaration-no-important": true, // turn rule on
+    "block-no-empty": [ true, { "warn": true } ], // turn rule on as warning
+    "indentation": "tabs" // turn on a rule that has options
   }
 }
 ```
@@ -140,11 +166,11 @@ An example of explicitly configuring the options for three rules:
 ```js
 {
   "rules": {
-    "indentation": [2, "tab", {
+    "indentation": "tab", {
       "except": ["value"],
     }],
-    "declaration-colon-space-before": [2, "never"],
-    "number-leading-zero": [2, "always"],
+    "declaration-colon-space-before": "never",
+    "number-leading-zero": "always",
   }
 }
 ```
@@ -164,8 +190,8 @@ Say you want to enforce no space before and a single space after the colon in ev
 You can enforce that with:
 
 ```js
-"declaration-colon-space-after": [2, "always"],
-"declaration-colon-space-before": [2, "never"],
+"declaration-colon-space-after": "always",
+"declaration-colon-space-before": "never",
 ```
 
 Some *things* (e.g. declaration blocks and value lists) can span more than one line. In these cases `newline` rules and extra options can be used to provide flexibility.
@@ -205,8 +231,8 @@ a {
 You can enforce that with:
 
 ```js
-"value-list-comma-space-after": [2, "always"],
-"value-list-comma-space-before": [2, "never"],
+"value-list-comma-space-after": "always",
+"value-list-comma-space-before": "never",
 ```
 
 #### Example B
@@ -225,9 +251,9 @@ a {
 You can enforce that with:
 
 ```js
-"value-list-comma-newline-after": [2, "always-multi-line"],
-"value-list-comma-space-after": [2, "always-single-line"],
-"value-list-comma-space-before": [2, "never"],
+"value-list-comma-newline-after": "always-multi-line",
+"value-list-comma-space-after": "always-single-line",
+"value-list-comma-space-before": "never",
 ```
 
 #### Example C
@@ -246,9 +272,9 @@ a {
 You can enforce that with:
 
 ```js
-"value-list-comma-newline-before": [2, "always-multi-line"],
-"value-list-comma-space-after": [2, "always"],
-"value-list-comma-space-before": [2, "never-single-line"],
+"value-list-comma-newline-before": "always-multi-line",
+"value-list-comma-space-after": "always",
+"value-list-comma-space-before": "never-single-line",
 ```
 
 #### Example D
@@ -269,8 +295,8 @@ You can enforce that with:
 
 
 ```js
-"value-list-comma-newline-after": [2, "never-multi-line"],
-"value-list-comma-newline-before": [2, "always-multi-line"],
-"value-list-comma-space-after": [2, "always-single-line"],
-"value-list-comma-space-before": [2, "always-single-line"],
+"value-list-comma-newline-after": "never-multi-line",
+"value-list-comma-newline-before": "always-multi-line",
+"value-list-comma-space-after": "always-single-line",
+"value-list-comma-space-before": "always-single-line",
 ```

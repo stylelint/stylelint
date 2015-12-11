@@ -24,13 +24,18 @@ const meowOptions = {
     "Usage",
     "  stylelint [input] [options]",
     "",
-    "By default, stylelint will look for a .stylelintrc file in JSON format,",
-    "using rc to look in various places (cf. https://github.com/dominictarr/rc#standards).",
-    "Alternately, you can specify a configuration file via --config.",
+    "By default, finding and loading of your configuration object is done with",
+    "cosmiconfig (https://github.com/davidtheclark/cosmiconfig)",
+    "Starting from the current working directory, it will look for the ",
+    "following possible sources, in this order:",
+    "- a stylelint property in package.json",
+    "- a .stylelintrc file in JSON or YAML format",
+    "- a stylelint.config.js file exporting a JS object",
+    "Alternately, you can specify the path to a configuration file with --config.",
     "",
     "Input",
     "  File glob(s) (passed to node-glob).",
-    "  You can also pass no input and use stdin.",
+    "  You can also pass no input and use stdin, instead.",
     "",
     "Options",
     "  --config            Path to a JSON configuration file.",
@@ -59,27 +64,27 @@ if (cli.flags.quiet) {
   optionsBase.configOverrides.quiet =  cli.flags.quiet
 }
 
-if (cli.flags.s && includes(syntaxOptions, cli.flags.s)) {
-  optionsBase.syntax = cli.flags.s
+if (cli.flags.syntax && includes(syntaxOptions, cli.flags.syntax)) {
+  optionsBase.syntax = cli.flags.syntax
 }
 
-let optionsReady = (cli.input.length)
-  ? Promise.resolve(assign({}, optionsBase, {
-    files: cli.input,
-  }))
-  : getStdin().then(stdin => Promise.resolve(assign({}, optionsBase, {
+Promise.resolve().then(() => {
+  // Add input/code into options
+  if (cli.input.length) {
+    return assign({}, optionsBase, {
+      files: cli.input,
+    })
+  }
+  return getStdin().then(stdin => assign({}, optionsBase, {
     code: stdin,
-  })))
-
-optionsReady.then(options => {
-  standalone(options)
-    .then(({ output, errored }) => {
-      if (!output) { return }
-      process.stdout.write(output)
-      if (errored) { process.exit(2) }
-    })
-    .catch(err => {
-      console.log(err.stack)
-      process.exit(err.code || 1)
-    })
+  }))
+}).then(options => {
+  return standalone(options)
+}).then(({ output, errored }) => {
+  if (!output) { return }
+  process.stdout.write(output)
+  if (errored) { process.exit(2) }
+}).catch(err => {
+  console.log(err.stack)
+  process.exit(err.code || 1)
 })

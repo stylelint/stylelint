@@ -38,7 +38,7 @@ export default function (expectation) {
 
     function check(statement) {
 
-      // Return early if blockless or has empty block
+      // Return early if blockless or has an empty block
       if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
       // Allow an end-of-line comment one space after the brace

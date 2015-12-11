@@ -1,3 +1,24 @@
+# 3.0.0
+
+* Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
+* Deprecated: numbered severities (0, 1, 2) and will be disabled in `4.0`.
+* Changed: renamed `rule-single-line-max-declarations` to `declaration-block-single-line-max-declarations` and changed scope of the single-line to the declaration block.
+* Changed: renamed `rule-no-single-line` to `declaration-block-no-single-line` and changed scope of the single-line to the declaration block.
+* Changed: renamed the `function-space-after` rule to `function-whitespace-after`.
+* Changed: renamed the `comment-space-inside` rule to `comment-whitespace-inside`.
+* Changed: renamed the `no-multiple-empty-lines` rule to `max-empty-lines` (takes an `int` as option).
+* Changed: `plugins` is now an array instead of an object. And plugins should be created with `stylelint.createPlugin()`.
+* Added: cosmiconfig, which means the following:
+  * support for YAML `.stylelintrc`
+  * support for `stylelint.config.js`
+  * support for `stylelint` property in `package.json`
+  * alternate config loading system, which stops at the first config found
+* Added: asynchronicity to the PostCSS plugin.
+* Added: `ignoreFiles` option to config.
+* Added: `configFile` option to Node.js API.
+* Fixed: `comment-whitespace-inside` now ignores ignores copyright (`/*! `) and sourcemap (`/*# `) comments.
+* Fixed: `rule-no-duplicate-properties` now ignores the `src` property.
+
 # 2.3.7
 
 * Fixed: `function-calc-no-unspaced-operator` ignores characters in `$sass` and `@less` variables.

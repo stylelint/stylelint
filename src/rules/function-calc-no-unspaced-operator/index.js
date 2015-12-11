@@ -57,23 +57,31 @@ export default function (actual) {
               return
             }
 
-            checker.after({ index, source: expression, err: m =>
-              report({
-                message: m,
-                node: decl,
-                index: expressionIndex + index,
-                result,
-                ruleName,
-              }),
+            checker.after({
+              index,
+              source: expression,
+              err: m => {
+                report({
+                  message: m,
+                  node: decl,
+                  index: expressionIndex + index,
+                  result,
+                  ruleName,
+                })
+              },
             })
-            checker.before({ index, source: expression, err: m =>
-              report({
-                message: m,
-                node: decl,
-                index: expressionIndex + index,
-                result,
-                ruleName,
-              }),
+            checker.before({
+              index,
+              source: expression,
+              err: m => {
+                report({
+                  message: m,
+                  node: decl,
+                  index: expressionIndex + index,
+                  result,
+                  ruleName,
+                })
+              },
             })
           })
         }

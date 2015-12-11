@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "2.3.7",
+  "version": "3.0.0",
   "description": "Modern CSS linter",
   "keywords": [
     "css",
@@ -29,26 +29,27 @@
   ],
   "dependencies": {
     "autoprefixer": "^6.0.0",
-    "balanced-match": "^0.2.0",
+    "balanced-match": "^0.3.0",
+    "chalk": "^1.1.1",
+    "cosmiconfig": "^1.0.0",
     "execall": "^1.0.0",
     "get-stdin": "^5.0.0",
-    "globby": "^3.0.1",
+    "globby": "^4.0.0",
     "is-css-color-name": "^0.1.1",
     "lodash": "^3.10.1",
     "meow": "^3.3.0",
+    "multimatch": "^2.1.0",
     "postcss": "^5.0.4",
     "postcss-reporter": "^1.3.0",
     "postcss-scss": "^0.1.3",
     "postcss-selector-parser": "^1.2.0",
     "postcss-value-parser": "^3.1.1",
-    "queue-async": "^1.0.7",
-    "rc": "^1.1.1",
-    "resolve-from": "^1.0.1"
+    "resolve-from": "^2.0.0"
   },
   "devDependencies": {
-    "babel": "^5.8.23",
-    "babel-tape-runner": "1.2.0",
-    "chalk": "^1.1.1",
+    "babel-cli": "^6.1.18",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-tape-runner": "^1.3.0",
     "eslint": "^1.4.1",
     "eslint-config-stylelint": "^0.1.0",
     "sinon": "^1.16.1",

@@ -15,16 +15,18 @@ import colorNoHex from "./color-no-hex"
 import colorNoInvalidHex from "./color-no-invalid-hex"
 import colorNoNamed from "./color-no-named"
 import commentEmptyLineBefore from "./comment-empty-line-before"
-import commentSpaceInside from "./comment-space-inside"
+import commentWhitespaceInside from "./comment-whitespace-inside"
 import customMediaPattern from "./custom-media-pattern"
 import customPropertyNoOutsideRoot from "./custom-property-no-outside-root"
 import customPropertyPattern from "./custom-property-pattern"
 import declarationBangSpaceAfter from "./declaration-bang-space-after"
 import declarationBangSpaceBefore from "./declaration-bang-space-before"
+import declarationBlockNoSingleLine from "./declaration-block-no-single-line"
 import declarationBlockSemicolonNewlineAfter from "./declaration-block-semicolon-newline-after"
 import declarationBlockSemicolonNewlineBefore from "./declaration-block-semicolon-newline-before"
 import declarationBlockSemicolonSpaceAfter from "./declaration-block-semicolon-space-after"
 import declarationBlockSemicolonSpaceBefore from "./declaration-block-semicolon-space-before"
+import declarationBlockSingleLineMaxDeclarations from "./declaration-block-single-line-max-declarations"
 import declarationColonNewlineAfter from "./declaration-colon-newline-after"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
@@ -38,10 +40,11 @@ import functionCommaSpaceBefore from "./function-comma-space-before"
 import functionLinearGradientNoNonstandardDirection from "./function-linear-gradient-no-nonstandard-direction"
 import functionParenthesesNewlineInside from "./function-parentheses-newline-inside"
 import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
-import functionSpaceAfter from "./function-space-after"
 import functionUrlQuotes from "./function-url-quotes"
 import functionWhitelist from "./function-whitelist"
+import functionWhitespaceAfter from "./function-whitespace-after"
 import indentation from "./indentation"
+import maxEmptyLines from "./max-empty-lines"
 import maxLineLength from "./max-line-length"
 import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
 import mediaFeatureColonSpaceBefore from "./media-feature-colon-space-before"
@@ -53,28 +56,23 @@ import mediaQueryListCommaNewlineBefore from "./media-query-list-comma-newline-b
 import mediaQueryListCommaSpaceAfter from "./media-query-list-comma-space-after"
 import mediaQueryListCommaSpaceBefore from "./media-query-list-comma-space-before"
 import mediaQueryParenthesesSpaceInside from "./media-query-parentheses-space-inside"
-import nestingBlockOpeningBraceNewlineBefore from "./nesting-block-opening-brace-newline-before"
-import nestingBlockOpeningBraceSpaceBefore from "./nesting-block-opening-brace-space-before"
 import noEolWhitespace from "./no-eol-whitespace"
 import noMissingEofNewline from "./no-missing-eof-newline"
-import noMultipleEmptyLines from "./no-multiple-empty-lines"
 import numberLeadingZero from "./number-leading-zero"
 import numberMaxPrecision from "./number-max-precision"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
 import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyBlacklist from "./property-blacklist"
-import propertyWhitelist from "./property-whitelist"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
 import propertyUnitBlacklist from "./property-unit-blacklist"
 import propertyUnitWhitelist from "./property-unit-whitelist"
+import propertyWhitelist from "./property-whitelist"
 import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
 import ruleNoDuplicateProperties from "./rule-no-duplicate-properties"
 import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
 import ruleNoShorthandPropertyOverrides from "./rule-no-shorthand-property-overrides"
-import ruleNoSingleLine from "./rule-no-single-line"
 import rulePropertiesOrder from "./rule-properties-order"
-import ruleSingleLineMaxDeclarations from "./rule-single-line-max-declarations"
 import ruleTrailingSemicolon from "./rule-trailing-semicolon"
 import selectorClassPattern from "./selector-class-pattern"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
@@ -119,16 +117,18 @@ export default {
   "color-no-invalid-hex": colorNoInvalidHex,
   "color-no-named": colorNoNamed,
   "comment-empty-line-before": commentEmptyLineBefore,
-  "comment-space-inside": commentSpaceInside,
+  "comment-whitespace-inside": commentWhitespaceInside,
   "custom-media-pattern": customMediaPattern,
   "custom-property-no-outside-root": customPropertyNoOutsideRoot,
   "custom-property-pattern": customPropertyPattern,
   "declaration-bang-space-after": declarationBangSpaceAfter,
   "declaration-bang-space-before": declarationBangSpaceBefore,
+  "declaration-block-no-single-line": declarationBlockNoSingleLine,
   "declaration-block-semicolon-newline-after": declarationBlockSemicolonNewlineAfter,
   "declaration-block-semicolon-newline-before": declarationBlockSemicolonNewlineBefore,
   "declaration-block-semicolon-space-after": declarationBlockSemicolonSpaceAfter,
   "declaration-block-semicolon-space-before": declarationBlockSemicolonSpaceBefore,
+  "declaration-block-single-line-max-declarations": declarationBlockSingleLineMaxDeclarations,
   "declaration-colon-newline-after": declarationColonNewlineAfter,
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
@@ -142,10 +142,11 @@ export default {
   "function-linear-gradient-no-nonstandard-direction": functionLinearGradientNoNonstandardDirection,
   "function-parentheses-newline-inside": functionParenthesesNewlineInside,
   "function-parentheses-space-inside": functionParenthesesSpaceInside,
-  "function-space-after": functionSpaceAfter,
   "function-url-quotes": functionUrlQuotes,
   "function-whitelist": functionWhitelist,
+  "function-whitespace-after": functionWhitespaceAfter,
   "indentation": indentation,
+  "max-empty-lines": maxEmptyLines,
   "max-line-length": maxLineLength,
   "media-feature-colon-space-after": mediaFeatureColonSpaceAfter,
   "media-feature-colon-space-before": mediaFeatureColonSpaceBefore,
@@ -157,28 +158,23 @@ export default {
   "media-query-list-comma-space-after": mediaQueryListCommaSpaceAfter,
   "media-query-list-comma-space-before": mediaQueryListCommaSpaceBefore,
   "media-query-parentheses-space-inside": mediaQueryParenthesesSpaceInside,
-  "nesting-block-opening-brace-newline-before": nestingBlockOpeningBraceNewlineBefore,
-  "nesting-block-opening-brace-space-before": nestingBlockOpeningBraceSpaceBefore,
   "no-eol-whitespace": noEolWhitespace,
   "no-missing-eof-newline": noMissingEofNewline,
-  "no-multiple-empty-lines": noMultipleEmptyLines,
   "number-leading-zero": numberLeadingZero,
   "number-max-precision": numberMaxPrecision,
   "number-no-trailing-zeros": numberNoTrailingZeros,
   "number-zero-length-no-unit": numberZeroLengthNoUnit,
   "property-blacklist": propertyBlacklist,
-  "property-whitelist": propertyWhitelist,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
   "property-unit-blacklist": propertyUnitBlacklist,
   "property-unit-whitelist": propertyUnitWhitelist,
+  "property-whitelist": propertyWhitelist,
   "root-no-standard-properties": rootNoStandardProperties,
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
   "rule-no-duplicate-properties": ruleNoDuplicateProperties,
   "rule-no-shorthand-property-overrides": ruleNoShorthandPropertyOverrides,
-  "rule-no-single-line": ruleNoSingleLine,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
   "rule-properties-order": rulePropertiesOrder,
-  "rule-single-line-max-declarations": ruleSingleLineMaxDeclarations,
   "rule-trailing-semicolon": ruleTrailingSemicolon,
   "selector-class-pattern": selectorClassPattern,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,

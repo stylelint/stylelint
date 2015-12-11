@@ -1,7 +1,7 @@
 import {
   cssStatementHasBlock,
   cssStatementHasEmptyBlock,
-  cssStatementIsNestingBlock,
+  cssStatementBlockString,
   cssStatementStringBeforeBlock,
   report,
   ruleMessages,
@@ -41,17 +41,13 @@ export default function (expectation) {
 
     function check(statement) {
 
-      // Return early if blockless or has empty block
-      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement) || cssStatementIsNestingBlock(statement)) { return }
+      // Return early if blockless or has an empty block
+      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
       const beforeBrace = cssStatementStringBeforeBlock(statement)
 
-      // The string to check for multi-line vs single-line is the block:
-      // the curly braces and everything between them
-      const lineCheckStr = statement.toString().slice(beforeBrace.length)
-
       checker.beforeAllowingIndentation({
-        lineCheckStr,
+        lineCheckStr: cssStatementBlockString(statement),
         source: beforeBrace,
         index: beforeBrace.length,
         err: m => {

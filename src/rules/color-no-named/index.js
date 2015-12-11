@@ -20,10 +20,7 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      const { value } = decl
-
-      valueParser(value).walk(function (node) {
-
+      valueParser(decl.value).walk(node => {
         if (isCssColorName(node.value) && !node.quote) {
           report({
             message: messages.rejected(node.value),

@@ -1,15 +1,23 @@
-# stylelint [![NPM version](http://img.shields.io/npm/v/stylelint.svg)](https://www.npmjs.org/package/stylelint) [![Travis Build Status](https://img.shields.io/travis/stylelint/stylelint/master.svg?label=unix%20build)](https://travis-ci.org/stylelint/stylelint) [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/stylelint/stylelint/master.svg?label=windows%20build)](https://ci.appveyor.com/project/stylelint/stylelint) [![Join the chat at https://gitter.im/stylelint/stylelint](https://img.shields.io/badge/gitter%20-join%20chat%20%E2%9E%9E-1dce73.svg)](https://gitter.im/stylelint/stylelint)
+# stylelint
 
-> Modern CSS linter.
+[![NPM version](http://img.shields.io/npm/v/stylelint.svg)](https://www.npmjs.org/package/stylelint) [![Travis Build Status](https://img.shields.io/travis/stylelint/stylelint/master.svg?label=unix%20build)](https://travis-ci.org/stylelint/stylelint) [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/stylelint/stylelint/master.svg?label=windows%20build)](https://ci.appveyor.com/project/stylelint/stylelint) [![Join the chat at https://gitter.im/stylelint/stylelint](https://img.shields.io/badge/gitter%20-join%20chat%20%E2%9E%9E-1dce73.svg)](https://gitter.im/stylelint/stylelint)
+
+A mighty, modern CSS linter that helps you enforce consistent conventions and avoid errors in your stylesheets.
+
+stylelint is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS
+can parse, including SCSS.
+
+> **Upgrading from v2 to v3?** The configuration syntax was improved, as was the method of finding configuration files; some rules were renamed, others were removed; and some great features were added. Please read the entry in the [CHANGELOG](CHANGELOG.md) to learn about the changes,
+and when necessary have a look through the updated documentation.
 
 ## Features
 
-* _Nearly a hundred rules_ - from stylistic rules, such as checking the spacing around the colon in declarations, to rules that catch subtle coding mistakes, such as invalid hex colors or [overriding shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Tricky_edge_cases).
-* _Support for the latest CSS syntax_ - including custom properties, range context for media features, calc() and nesting.
-* _Completely unopinionated_ - only enable the rules you want and configure them with options to tailor the linter to your needs.
-* _Shareable configs_ - if you don't want to craft your own config you can use a shareable config.
-* _Support for plugins_ - it's easy to create your own rules and add them to the linter.
-* _Options validator_ - so you can be confident that your config is valid.
+* **Nearly a hundred rules:** From stylistic rules (e.g. checking the spacing around the colon in declarations) to rules that catch subtle coding mistakes (e.g. invalid hex colors or [overriding shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Tricky_edge_cases)).
+* **Support for the latest CSS syntax:** Including custom properties, range context for media features, calc() and nesting.
+* **Completely unopinionated:** Only enable the rules you want, and configure them with options that tailor the linter to your needs.
+* **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config.
+* **Support for plugins:** It's easy to create your own rules and add them to the linter.
+* **Options validator:** So that you can be confident that your config is valid.
 
 ## Example output
 
@@ -34,8 +42,8 @@ You'll find more detailed information on using the linter and tailoring it to yo
 * [User guide](docs/user-guide.md) - Usage, configuration and complementary tools.
 * [Developer guide](docs/developer-guide.md) - Contributing to stylelint and writing your own plugins & formatters.
 
-## [Changelog](CHANGELOG.md)
+## Important Documents
 
-## [Contributing](CONTRIBUTING.md)
-
-## [License](LICENSE)
+- [Changelog](CHANGELOG.md)
+- [Contributing Guidelines](CONTRIBUTING.md)
+- [License](LICENSE)
