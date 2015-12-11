@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: List of rules within documentation.
+
 # 3.0.0-3.0.2
 
 * Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
