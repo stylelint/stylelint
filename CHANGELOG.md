@@ -1,4 +1,4 @@
-# Head
+# 3.0.3
 
 * Fixed: List of rules within documentation.
 
