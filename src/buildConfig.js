@@ -27,10 +27,14 @@ export default function (options) {
     })
   }
 
+  const cosmiconfigOptions = {}
+  if (options.configFile) {
+    cosmiconfigOptions.configPath = path.resolve(process.cwd(), options.configFile)
+  }
+
   let rootConfigDir
-  return cosmiconfig("stylelint", {
-    configPath: path.resolve(process.cwd(), options.configFile || ""),
-  }).then(result => {
+
+  return cosmiconfig("stylelint", cosmiconfigOptions).then(result => {
     rootConfigDir = path.dirname(result.filepath)
     return augmentConfig(result.config, rootConfigDir)
   }).then(augmentedConfig => {
