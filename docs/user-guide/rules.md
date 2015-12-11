@@ -33,13 +33,12 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`function-comma-newline-before`](../../src/rules/function-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of functions.
 * [`function-comma-space-after`](../../src/rules/function-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of functions.
 * [`function-comma-space-before`](../../src/rules/function-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of functions.
-* [`function-linear-gradient-no-nonstandard-direction`](../../src/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow direction values in `linear-gradient()` calls that are not valid according to the
-[standard syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#Syntax).
+* [`function-linear-gradient-no-nonstandard-direction`](../../src/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow direction values in `linear-gradient()` calls that are not valid according to the [standard syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#Syntax).
 * [`function-parentheses-newline-inside`](../../src/rules/function-parentheses-newline-inside/README.md): Require a newline or disallow whitespace on the inside of the parentheses of functions.
 * [`function-parentheses-space-inside`](../../src/rules/function-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses of functions.
-* [`function-space-after`](../../src/rules/function-space-after/README.md): Require a single space or disallow whitespace after functions.
 * [`function-url-quotes`](../../src/rules/function-url-quotes/README.md): Specify single, double or no quotes for urls.
 * [`function-whitelist`](../../src/rules/function-whitelist/README.md): Specify a whitelist of only allowed functions.
+* [`function-whitespace-after`](../../src/rules/function-whitespace-after/README.md): Require a single space or disallow whitespace after functions.
 
 ### Value
 
@@ -81,10 +80,12 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 
 ### Declaration block
 
+* [`declaration-block-no-single-line`](../../src/rules/declaration-block-no-single-line/README.md): Disallow single-line declaration blocks.
 * [`declaration-block-semicolon-newline-after`](../../src/rules/declaration-block-semicolon-newline-after/README.md): Require a newline or disallow whitespace after the semicolons of declaration blocks.
 * [`declaration-block-semicolon-newline-before`](../../src/rules/declaration-block-semicolon-newline-before/README.md): Require a newline or disallow whitespace before the semicolons of declaration blocks.
 * [`declaration-block-semicolon-space-after`](../../src/rules/declaration-block-semicolon-space-after/README.md): Require a single space or disallow whitespace after the semicolons of declaration blocks.
 * [`declaration-block-semicolon-space-before`](../../src/rules/declaration-block-semicolon-space-before/README.md): Require a single space or disallow whitespace before the semicolons of declaration blocks.
+* [`declaration-block-single-line-max-declarations`](../../src/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declaration within single line declaration blocks.
 
 ### Block
 
@@ -125,10 +126,9 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`rule-nested-empty-line-before`](../../src/rules/rule-nested-empty-line-before/README.md): Require or disallow an empty line before nested rules.
 * [`rule-no-duplicate-properties`](../../src/rules/rule-no-duplicate-properties/README.md): Disallow duplicate properties within rules.
 * [`rule-no-shorthand-property-overrides`](../../src/rules/rule-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
-* [`rule-no-single-line`](../../src/rules/rule-no-single-line/README.md): Disallow single-line rules.
+
 * [`rule-non-nested-empty-line-before`](../../src/rules/rule-non-nested-empty-line-before/README.md): Require or disallow an empty line before non-nested rules.
 * [`rule-properties-order`](../../src/rules/rule-properties-order/README.md): Specify the order of properties within rules.
-* [`rule-single-line-max-declarations`](../../src/rules/rule-single-line-max-declarations/README.md): Limit the number of declaration within a single line rule.
 * [`rule-trailing-semicolon`](../../src/rules/rule-trailing-semicolon/README.md): Require or disallow a trailing semicolon within rules.
 
 ### Root
@@ -166,7 +166,7 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 ### Comment
 
 * [`comment-empty-line-before`](../../src/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments.
-* [`comment-space-inside`](../../src/rules/comment-space-inside/README.md): Require a single space or disallow whitespace on the inside of comment markers.
+* [`comment-whitespace-inside`](../../src/rules/comment-whitespace-inside/README.md): Require a single space or disallow whitespace on the inside of comment markers.
 
 ### General / Sheet
 
