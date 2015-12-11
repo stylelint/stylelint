@@ -126,7 +126,7 @@ test("standalone with extending configuration and no configBasedir", t => {
     config: configExtendingOne,
   })
     .catch(err => {
-      t.equal(err.code, "MODULE_NOT_FOUND")
+      t.equal(err.code, 78)
     })
   planned += 1
 

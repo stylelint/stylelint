@@ -65,7 +65,7 @@ function augmentConfig(nonnormalizedConfig, configDir) {
   return resultPromise
 
   function loadExtendedConfig(config, extendLookup) {
-    var extendPath = resolveFrom(configDir, extendLookup)
+    var extendPath = getModulePath(configDir, extendLookup)
     var extendDir = path.dirname(extendPath)
     return cosmiconfig(null, {
       configPath: extendPath,
@@ -86,14 +86,12 @@ function absolutizePlugins(config, configDir) {
 }
 
 function getModulePath(basedir, lookup) {
-  try {
-    return resolveFrom(basedir, lookup)
-  } catch (e) {
-    throw configurationError(
-      `Could not find "${lookup}". ` +
-      `Do you need a \`configBasedir\`?`
-    )
-  }
+  const path = resolveFrom(basedir, lookup)
+  if (path) return path
+  throw configurationError(
+    `Could not find "${lookup}". ` +
+    `Do you need a \`configBasedir\`?`
+  )
 }
 
 // Temporary measure while there are 2 severity syntaxes ...
