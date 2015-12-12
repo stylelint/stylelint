@@ -15,7 +15,9 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    if (root.source.input.css.slice(-1) !== "\n") {
+    const sourceCss = root.source.input.css
+    if (sourceCss === "") { return }
+    if (sourceCss.slice(-1) !== "\n") {
       report({
         message: messages.rejected,
         node: root,

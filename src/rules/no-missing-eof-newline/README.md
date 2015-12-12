@@ -1,6 +1,6 @@
 # no-missing-eof-newline
 
-Disallow missing end-of-file newline.
+Disallow missing end-of-file newlines in non-empty files.
 
 ```css
     a { color: pink; }
@@ -21,3 +21,5 @@ The following patterns are *not* considered warnings:
 a { color: pink; }
 \n
 ```
+
+Completely empty files are not considered warnings.
