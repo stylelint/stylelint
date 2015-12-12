@@ -1,4 +1,4 @@
-# Head
+# 3.1.0
 
 * Added: `stylelint-commands` `ignore` option to `comment-empty-line-before`.
 * Fixed: v3 regression causing bug in `rule-properties-order` and potentially other rules that accept arrays as primary options.
