@@ -98,8 +98,7 @@ function getModulePath(basedir, lookup) {
   )
 }
 
-// Temporary measure while there are 2 severity syntaxes ...
-// This makes all severities numbered (the old syntax).
+// Convert legacy numbered severities to the new configuration syntax
 function normalizeSeverities(config) {
   if (!config.rules) { return config }
 
@@ -109,22 +108,26 @@ function normalizeSeverities(config) {
     return typeof [].concat(ruleSettings)[0] === "number"
   })
 
-  if (configHasNumberedSeverities) {
-    return assign({}, config, {
-      numberedSeverities: true,
-    })
-  }
+  if (!configHasNumberedSeverities) { return config }
 
   return assign({}, config, {
-    rules: mapValues(config.rules, ruleSettings => {
-      if (ruleSettings === null) { return 0 }
-      if (ruleSettings === true) { return 2 }
-
-      if (ruleSettings[1] && ruleSettings[1].warn) {
-        return [1].concat(ruleSettings)
+    numberedSeverities: true,
+    rules: mapValues(config.rules, function transformRuleSettings(ruleSettings) {
+      if (ruleSettings === 0) { return null }
+      if (ruleSettings === 2) { return true }
+      if (ruleSettings === 1) {
+        return [ true, { warn: true } ]
       }
 
-      return [2].concat(ruleSettings)
+      if (ruleSettings.length === 1) {
+        return transformRuleSettings(ruleSettings)
+      }
+
+      const secondaryOptions = assign({}, ruleSettings[2], {
+        warn: ruleSettings[0] === 1,
+      })
+
+      return [ ruleSettings[1], secondaryOptions ]
     }),
   })
 }

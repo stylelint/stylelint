@@ -7,11 +7,6 @@ import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
 import buildConfig from "./buildConfig"
 
-const numberedSeveritiesMap = new Map()
-numberedSeveritiesMap.set(0, "ignore")
-numberedSeveritiesMap.set(1, "warning")
-numberedSeveritiesMap.set(2, "error")
-
 export default postcss.plugin("stylelint", (options = {}) => {
   const configPromise = buildConfig(options)
 
@@ -67,15 +62,17 @@ export default postcss.plugin("stylelint", (options = {}) => {
         }
 
         const ruleSettings = [].concat(config.rules[ruleName])
-        const ruleSeverity = numberedSeveritiesMap.get(ruleSettings[0])
 
-        if (ruleSeverity === "ignore") { return }
+        // Ignore the rule
+        if (ruleSettings[0] === null) { return }
+
+        const ruleSeverity = (ruleSettings[1] && ruleSettings[1].warn) ? "warning" : "error"
 
         // Log the rule's severity in the PostCSS result
         result.stylelint.ruleSeverities[ruleName] = ruleSeverity
 
         // Run the rule with the primary and secondary options
-        ruleDefinitions[ruleName](ruleSettings[1], ruleSettings[2])(root, result)
+        ruleDefinitions[ruleName](ruleSettings[0], ruleSettings[1])(root, result)
       })
     })
   }
