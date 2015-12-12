@@ -1,5 +1,6 @@
 import {
   optionsHaveException,
+  optionsHaveIgnored,
   report,
   ruleMessages,
   validateOptions,
@@ -11,6 +12,8 @@ export const messages = ruleMessages(ruleName, {
   expected: "Expected empty line before comment",
   rejected: "Unexpected empty line before comment",
 })
+
+const stylelintCommandPrefix = "stylelint-"
 
 export default function (expectation, options) {
   return (root, result) => {
@@ -24,6 +27,7 @@ export default function (expectation, options) {
       actual: options,
       possible: {
         except: ["first-nested"],
+        ignore: ["stylelint-commands"],
       },
       optional: true,
     })
@@ -33,6 +37,12 @@ export default function (expectation, options) {
 
       // Ignore the first node
       if (comment === root.first) { return }
+
+      // Optionally ignore stylelint commands
+      if (
+        comment.text.indexOf(stylelintCommandPrefix) === 0
+        && optionsHaveIgnored(options, "stylelint-commands")
+      ) { return }
 
       if (comment.raws.inline) { return }
 

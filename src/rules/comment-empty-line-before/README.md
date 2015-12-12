@@ -90,3 +90,29 @@ a {
   color: pink;
 }
 ```
+
+### `ignore: ["stylelint-commands"]`
+
+Ignore comments that deliver commands to stylelint, e.g. `/* stylelint-disable color-no-hex */`.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+a {
+  background: pink;
+  /* not a stylelint command */
+  color: #eee;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  background: pink;
+  /* stylelint-disable color-no-hex */
+  color: pink;
+}
+```

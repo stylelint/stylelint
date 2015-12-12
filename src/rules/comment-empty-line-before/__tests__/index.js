@@ -59,6 +59,14 @@ testRule("always", { except: ["first-nested"] }, tr => {
   )
 })
 
+testRule("always", { ignore: ["stylelint-commands"] }, tr => {
+  alwaysTests(tr)
+  tr.ok(
+    "a {\ncolor: pink;\n/* stylelint-disable something */\ntop: 0;\n}",
+    "no newline before a stylelint command comment"
+  )
+})
+
 testRule("never", tr => {
   warningFreeBasics(tr)
 

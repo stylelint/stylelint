@@ -1,5 +1,6 @@
 # Head
 
+* Added: `stylelint-commands` `ignore` option to `comment-empty-line-before`.
 * Fixed: v3 regression causing bug in `rule-properties-order` and potentially other rules that accept arrays as primary options.
 * Fixed: `no-missing-eof-newline` no longer complains about completely empty files.
 
