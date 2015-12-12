@@ -1,6 +1,6 @@
 import postcss from "postcss"
 import multimatch from "multimatch"
-import { get } from "lodash"
+import { get, isPlainObject } from "lodash"
 import path from "path"
 import { configurationError } from "./utils"
 import ruleDefinitions from "./rules"
@@ -61,18 +61,19 @@ export default postcss.plugin("stylelint", (options = {}) => {
           throw configurationError(`Undefined rule "${ruleName}"`)
         }
 
-        const ruleSettings = [].concat(config.rules[ruleName])
+        const rawSettings = config.rules[ruleName]
+        const normalizedSettings = normalizeSettings(rawSettings, ruleName)
 
         // Ignore the rule
-        if (ruleSettings[0] === null) { return }
+        if (normalizedSettings[0] === null) { return }
 
-        const ruleSeverity = (ruleSettings[1] && ruleSettings[1].warn) ? "warning" : "error"
+        const ruleSeverity = (normalizedSettings[1] && normalizedSettings[1].warn) ? "warning" : "error"
 
         // Log the rule's severity in the PostCSS result
         result.stylelint.ruleSeverities[ruleName] = ruleSeverity
 
         // Run the rule with the primary and secondary options
-        ruleDefinitions[ruleName](ruleSettings[0], ruleSettings[1])(root, result)
+        ruleDefinitions[ruleName](normalizedSettings[0], normalizedSettings[1])(root, result)
       })
     })
   }
@@ -89,4 +90,31 @@ function warnForNumberedSeverities(result) {
     stylelintType: "deprecation",
     stylelintReference: "http://stylelint.io/?/docs/user-guide/configuration.md",
   })
+}
+
+const rulesWithPrimaryOptionArray = new Set()
+rulesWithPrimaryOptionArray.add("rule-properties-order")
+rulesWithPrimaryOptionArray.add("function-whitelist")
+rulesWithPrimaryOptionArray.add("function-blacklist")
+rulesWithPrimaryOptionArray.add("property-whitelist")
+rulesWithPrimaryOptionArray.add("property-blacklist")
+rulesWithPrimaryOptionArray.add("unit-whitelist")
+rulesWithPrimaryOptionArray.add("unit-blacklist")
+
+function normalizeSettings(rawSettings, ruleName) {
+  // Settings can be
+  // a. A solitary primitive value or object, in which case put it in an array
+  // b. An array with a primary option and a secondary options object, in which case use that array
+  // c. A solitary array ... in which case we have trouble and need to special-case it
+  //    ... hence the list above
+
+  if (rulesWithPrimaryOptionArray.has(ruleName)) {
+    if (rawSettings.length === 2 && Array.isArray(rawSettings[0]) && isPlainObject(rawSettings[1])) {
+      return rawSettings
+    }
+    return [rawSettings]
+  }
+
+  if (Array.isArray(rawSettings)) { return rawSettings }
+  return [rawSettings]
 }

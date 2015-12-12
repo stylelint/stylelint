@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: v3 regression causing bug in `rule-properties-order` and potentially other rules that accept arrays as primary options.
+
 # 3.0.3
 
 * Fixed: List of rules within documentation.

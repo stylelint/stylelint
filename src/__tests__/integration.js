@@ -13,6 +13,8 @@ const configNotNumberedSeverity = {
   rules: {
     "block-opening-brace-newline-after": "always",
     "color-no-invalid-hex": [ true, { "warn": true } ],
+    "function-blacklist": ["calc"],
+    "rule-properties-order": [ [ "margin", "padding" ], { unspecified: "top" } ],
   },
 }
 
