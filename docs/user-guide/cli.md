@@ -27,7 +27,8 @@ Options
   --version           Get the currently installed version of stylelint.
   --custom-formatter  Path to a JS file exporting a custom formatting function
   -f, --formatter     Specify a formatter: "json" or "string". Default is "string".
-  -q, --quiet         Only register warnings for rules with a severity of 2 (ignore level 1)
+  -q, --quiet         Only register warnings for rules with an \"error\"-level severity
+                      (ignore \"warning\"-level)  
   -s, --syntax        Specify a non-standard syntax that should be used to
                       parse source stylesheets. Options: "scss"
 ```
@@ -65,6 +66,6 @@ stylelint foo/**/*.css bar/*.css -q -f json --config bar/mySpecialConfig.json > 
 The CLI can exit the process with the following exit codes:
 
 - 1: Something unknown went wrong.
-- 2: At least one rule with a severity of 2 triggered at least one warning.
+- 2: At least one rule with an "error"-level severity triggered at least one warning.
 - 78: There was some problem with the configuration file.
 - 80: A file glob was passed both it found no files.

@@ -70,7 +70,7 @@ A string displaying the formatted warnings (using the default formatter or which
 
 ### `errored`
 
-Boolean. If `true`, at least one rule with a severity of 2 registered a warning.
+Boolean. If `true`, at least one rule with an "error"-level severity registered a warning.
 
 ### `results`
 

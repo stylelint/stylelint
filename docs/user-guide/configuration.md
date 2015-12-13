@@ -28,20 +28,45 @@ The configuration object can have the following properties. Only `rules` is requ
 *No rules are turned on by default*, so this is where you turn on everything you want to check.
 
 **The `rules` property is an object whose keys are rule names and values are rule configurations.**
-Each rule configuration is either a boolean or an array with the following information:
-`[primary option, secondary options]`.
+Each rule configuration fits one of the following formats:
+
+- a single value (the primary option)
+- an array with two values (`[primary option, secondary options]`)
+- `null` (to turn the rule off)
 
 ```json
 {
   "rules": {
     "color-no-invalid-hex": true,
     "declaration-colon-space-after": "always",
+    "max-empty-lines": 2,
     "indentation": ["tab", {
       "except": ["value"]
     }]
   }
 }
 ```
+
+#### Severities: error & warning
+
+By default, all rules have an "error"-level severity. To downgrade any rule to "warning"-level severity,
+pass a secondary option `"warn": true`.
+
+```js
+// error-level severity examples
+{ "indentation": 2 }
+{ "indentation": [2] }
+
+// warning-level severity examples
+{ "indentation": [2, { "warn": true } ] }
+{ "indentation": [2, {
+    "except": ["value"],
+    "warn": true
+  }]
+}
+```
+
+Different reporters may use these severity levels in different way, e.g. display them differently, or exit the process differently.
 
 ### `extends`
 
@@ -174,6 +199,8 @@ An example of explicitly configuring the options for three rules:
   }
 }
 ```
+
+Remember that any rule can be downgraded to "warning"-level severity by adding `"warn": true` as a secondary option.
 
 ### Rules work together
 
