@@ -93,16 +93,17 @@ function warnForNumberedSeverities(result) {
 }
 
 // These are rules that accept an array as the primary option
-const rulesWithPrimaryOptionArray = new Set()
-rulesWithPrimaryOptionArray.add("rule-properties-order")
-rulesWithPrimaryOptionArray.add("function-whitelist")
-rulesWithPrimaryOptionArray.add("function-blacklist")
-rulesWithPrimaryOptionArray.add("property-whitelist")
-rulesWithPrimaryOptionArray.add("property-blacklist")
-rulesWithPrimaryOptionArray.add("property-unit-whitelist")
-rulesWithPrimaryOptionArray.add("property-unit-blacklist")
-rulesWithPrimaryOptionArray.add("unit-whitelist")
-rulesWithPrimaryOptionArray.add("unit-blacklist")
+const rulesWithPrimaryOptionArray = new Set([
+  "rule-properties-order",
+  "function-whitelist",
+  "function-blacklist",
+  "property-whitelist",
+  "property-blacklist",
+  "property-unit-whitelist",
+  "property-unit-blacklist",
+  "unit-whitelist",
+  "unit-blacklist",
+])
 
 function normalizeSettings(rawSettings, ruleName) {
   // Settings can be
