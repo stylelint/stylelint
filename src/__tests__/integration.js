@@ -15,6 +15,7 @@ const configNotNumberedSeverity = {
     "color-no-invalid-hex": [ true, { "warn": true } ],
     "function-blacklist": ["calc"],
     "rule-properties-order": [ [ "margin", "padding" ], { unspecified: "top" } ],
+    "function-whitelist": null,
   },
 }
 

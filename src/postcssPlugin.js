@@ -113,7 +113,12 @@ function normalizeSettings(rawSettings, ruleName) {
   //    ... hence the list above
 
   if (rulesWithPrimaryOptionArray.has(ruleName)) {
-    if (rawSettings.length === 2 && Array.isArray(rawSettings[0]) && isPlainObject(rawSettings[1])) {
+    if (
+      rawSettings !== null
+      && rawSettings.length === 2
+      && Array.isArray(rawSettings[0])
+      && isPlainObject(rawSettings[1])
+    ) {
       return rawSettings
     }
     return [rawSettings]

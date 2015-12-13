@@ -1,3 +1,7 @@
+# 3.1.2
+
+* Fixed: Bug causing an error when `null` was used on rules whose primary options are arrays.
+
 # 3.1.1
 
 * Documentation improvements.
