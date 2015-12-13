@@ -1,3 +1,7 @@
+# 3.1.1
+
+* Documentation improvements.
+
 # 3.1.0
 
 * Added: `stylelint-commands` `ignore` option to `comment-empty-line-before`.
