@@ -376,7 +376,7 @@ With `"bottom"`, unspecified properties are expected *after* any specified prope
 Given this configuration:
 
 ```js
-[2, ["color", "background"], { unspecified: "ignore" }]
+[["color", "background"], { unspecified: "ignore" }]
 ```
 
 The following patterns are *not* considered warnings:
@@ -408,7 +408,7 @@ a {
 Given this configuration:
 
 ```js
-[2, ["color", "background"], { unspecified: "top" }]
+[["color", "background"], { unspecified: "top" }]
 ```
 
 The following patterns are considered warnings:
@@ -429,7 +429,6 @@ a {
   background: orange;
 }
 ```
-
 
 The following patterns are *not* considered warnings:
 
@@ -444,7 +443,7 @@ a {
 Given this configuration:
 
 ```js
-[2, ["color", "background"], { unspecified: "bottom" }]
+[["color", "background"], { unspecified: "bottom" }]
 ```
 
 The following patterns are considered warnings:
@@ -465,7 +464,6 @@ a {
   background: orange;
 }
 ```
-
 
 The following patterns are *not* considered warnings:
 
