@@ -112,3 +112,12 @@ testRule([
   tr.notOk("a { bottom: 0; height: 1px; }", messages.expected("height", "bottom"))
   tr.notOk("a { bottom: 0; color: 1px; }", messages.expected("color", "bottom"))
 })
+
+// With unspecified properties between specified properties
+testRule([
+  "left",
+  "margin",
+], tr => {
+  tr.ok(".foo { left: 0; color: pink; margin: 0; }")
+  tr.notOk(".foo { margin: 0; color: pink; left: 0; }", messages.expected("left", "margin"))
+})

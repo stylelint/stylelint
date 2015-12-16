@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: Bug causing `rule-properties-order` to get confused by properties with an unspecified order.
+
 # 3.1.2
 
 * Fixed: Bug causing an error when `null` was used on rules whose primary options are arrays.
