@@ -37,6 +37,13 @@ export default function (expectation, options) {
     })
     if (!validOptions) { return }
 
+    const alphabetical = expectation === "alphabetical"
+    const expectedOrder = (alphabetical) ? null : createExpectedOrder(expectation)
+    // By default, ignore unspecified properties
+    const unspecified = _.get(options, ["unspecified"], "ignore")
+    let allPropData = []
+    let lastKnownLineSeparatedGroup = 1
+
     // Shallow loop
     root.each(node => {
       if (node.type === "rule" || node.type === "atrule") {
@@ -45,8 +52,8 @@ export default function (expectation, options) {
     })
 
     function checkNode(node) {
-      const allPropData = []
-      let lastKnownLineSeparatedGroup = 1
+      allPropData = []
+      lastKnownLineSeparatedGroup = 1
 
       node.each(child => {
         if (child.nodes && child.nodes.length) {
@@ -68,6 +75,7 @@ export default function (expectation, options) {
         const propData = {
           name: child.prop,
           unprefixedName: unprefixedPropName,
+          orderData: (alphabetical) ? null : getOrderData(expectedOrder, unprefixedPropName),
           before: child.raw("before"),
           index: allPropData.length,
           node: child,
@@ -79,9 +87,9 @@ export default function (expectation, options) {
         // Skip first decl
         if (!previousPropData) { return }
 
-        const isCorrectOrder = (expectation === "alphabetical")
+        const isCorrectOrder = (alphabetical)
           ? checkAlpabeticalOrder(previousPropData, propData)
-          : checkOrder(previousPropData, propData, lastKnownLineSeparatedGroup, child)
+          : checkOrder(previousPropData, propData)
 
         if (isCorrectOrder) { return }
 
@@ -94,43 +102,27 @@ export default function (expectation, options) {
       })
     }
 
-    function checkAlpabeticalOrder(firstPropData, secondPropData) {
-      // If unprefixed prop names are the same, compare the prefixed versions
-      if (firstPropData.unprefixedName === secondPropData.unprefixedName) {
-        return firstPropData.name <= secondPropData.name
-      }
-
-      return firstPropData.unprefixedName < secondPropData.unprefixedName
-    }
-
-    function checkOrder(firstPropData, secondPropData, lastKnownLineSeparatedGroup, node) {
-      const expectedOrder = createExpectedOrder(expectation)
-
+    function checkOrder(firstPropData, secondPropData) {
       // If the unprefixed property names are the same, resort to alphabetical ordering
       if (firstPropData.unprefixedName === secondPropData.unprefixedName) {
         return firstPropData.name <= secondPropData.name
       }
 
-      // By default, ignore unspecified properties
-      const unspecified = _.get(options, ["unspecified"], "ignore")
-
-      const firstPropOrderValue = getOrderValue(expectedOrder, firstPropData.unprefixedName)
-      const secondPropOrderValue = getOrderValue(expectedOrder, secondPropData.unprefixedName)
-      const firstPropIsUnspecified = !firstPropOrderValue
-      const secondPropIsUnspecified = !secondPropOrderValue
+      const firstPropIsUnspecified = !firstPropData.orderData
+      const secondPropIsUnspecified = !secondPropData.orderData
 
       // Now check newlines between ...
       const firstPropLineSeparatedGroup = (!firstPropIsUnspecified)
-        ? firstPropOrderValue.lineSeparatedGroup
+        ? firstPropData.orderData.lineSeparatedGroup
         : lastKnownLineSeparatedGroup
       const secondPropLineSeparatedGroup = (!secondPropIsUnspecified)
-        ? secondPropOrderValue.lineSeparatedGroup
+        ? secondPropData.orderData.lineSeparatedGroup
         : lastKnownLineSeparatedGroup
       if (firstPropLineSeparatedGroup !== secondPropLineSeparatedGroup) {
         if (!hasEmptyLineBefore(secondPropData.node)) {
           report({
             message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),
-            node,
+            node: secondPropData.node,
             result,
             ruleName,
           })
@@ -140,7 +132,25 @@ export default function (expectation, options) {
 
       // Now check actual known properties ...
       if (!firstPropIsUnspecified && !secondPropIsUnspecified) {
-        return firstPropOrderValue.expectedPosition <= secondPropOrderValue.expectedPosition
+        return firstPropData.orderData.expectedPosition <= secondPropData.orderData.expectedPosition
+      }
+
+      if (firstPropIsUnspecified && !secondPropIsUnspecified) {
+        // If first prop is unspecified, look for a specified prop before it to
+        // compare to the current prop
+        const priorSpecifiedPropData = _.findLast(allPropData.slice(0, -1), d => !!d.orderData)
+        if (
+          priorSpecifiedPropData && priorSpecifiedPropData.orderData
+          && priorSpecifiedPropData.orderData.expectedPosition > secondPropData.orderData.expectedPosition
+        ) {
+          report({
+            message: messages.expected(secondPropData.name, priorSpecifiedPropData.name),
+            node: secondPropData.node,
+            result,
+            ruleName,
+          })
+          return true // avoid logging another warning
+        }
       }
 
       // Now deal with unspecified props ...
@@ -159,8 +169,7 @@ export default function (expectation, options) {
 }
 
 function createExpectedOrder(input) {
-  const expectedOrder = {}
-
+  const order = {}
   let lineSeparatedGroup = 1
   let expectedPosition = 0
 
@@ -176,7 +185,7 @@ function createExpectedOrder(input) {
       // to make that flexibility work;
       // otherwise, it will always ascend
       if (!inFlexibleGroup) { expectedPosition += 1 }
-      expectedOrder[item] = { lineSeparatedGroup, expectedPosition }
+      order[item] = { lineSeparatedGroup, expectedPosition }
       return
     }
 
@@ -196,19 +205,19 @@ function createExpectedOrder(input) {
       })
     }
   }
-  return expectedOrder
+  return order
 }
 
-function getOrderValue(expectedOrder, propName) {
-  let orderValue = expectedOrder[propName]
+function getOrderData(expectedOrder, propName) {
+  let orderData = expectedOrder[propName]
   // If prop was not specified but has a hyphen
   // (e.g. `padding-top`), try looking for the segment preceding the hyphen
   // and use that index
-  if (!orderValue && propName.lastIndexOf("-") !== -1) {
+  if (!orderData && propName.lastIndexOf("-") !== -1) {
     const propNamePreHyphen = propName.slice(0, propName.lastIndexOf("-"))
-    orderValue = getOrderValue(expectedOrder, propNamePreHyphen)
+    orderData = getOrderData(expectedOrder, propNamePreHyphen)
   }
-  return orderValue
+  return orderData
 }
 
 function hasEmptyLineBefore(decl) {
@@ -218,4 +227,13 @@ function hasEmptyLineBefore(decl) {
   if (prevNode.type !== "comment") { return false }
   if (/\r?\n\r?\n/.test(prevNode.raw("before"))) { return true }
   return false
+}
+
+function checkAlpabeticalOrder(firstPropData, secondPropData) {
+  // If unprefixed prop names are the same, compare the prefixed versions
+  if (firstPropData.unprefixedName === secondPropData.unprefixedName) {
+    return firstPropData.name <= secondPropData.name
+  }
+
+  return firstPropData.unprefixedName < secondPropData.unprefixedName
 }
