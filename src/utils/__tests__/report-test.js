@@ -9,7 +9,9 @@ test("without disabledRanges", t => {
       warn: sinon.spy(),
     },
     message: "bar",
-    node: {},
+    node: {
+      positionBy: () => ({ line: 2 }),
+    },
   }
   report(v)
   const spyArgs = v.result.warn.args[0]
@@ -31,7 +33,7 @@ test("with irrelevant general disabledRange", t => {
     },
     message: "bar",
     node: {
-      source: { start: { line: 2 } },
+      positionBy: () => ({ line: 2 }),
     },
   }
   report(v)
@@ -54,7 +56,7 @@ test("with relevant general disabledRange", t => {
     },
     message: "bar",
     node: {
-      source: { start: { line: 6 } },
+      positionBy: () => ({ line: 6 }),
     },
   }
   report(v)
@@ -75,7 +77,7 @@ test("with irrelevant rule-specific disabledRange", t => {
     },
     message: "bar",
     node: {
-      source: { start: { line: 6 } },
+      positionBy: () => ({ line: 6 }),
     },
   }
   report(v)
@@ -98,7 +100,7 @@ test("with relevant rule-specific disabledRange", t => {
     },
     message: "bar",
     node: {
-      source: { start: { line: 6 } },
+      positionBy: () => ({ line: 6 }),
     },
   }
   report(v)
@@ -120,7 +122,7 @@ test("with relevant general disabledRange, among others", t => {
     },
     message: "bar",
     node: {
-      source: { start: { line: 6 } },
+      positionBy: () => ({ line: 6 }),
     },
   }
   report(v)
@@ -142,7 +144,7 @@ test("with relevant rule-specific disabledRange, among others", t => {
     },
     message: "bar",
     node: {
-      source: { start: { line: 6 } },
+      positionBy: () => ({ line: 6 }),
     },
   }
   report(v)
@@ -164,7 +166,7 @@ test("with quiet mode on and rule severity of 'warning'", t => {
     },
     message: "bar",
     node: {
-      source: { start: { line: 6 } },
+      positionBy: () => ({ line: 6 }),
     },
   }
   report(v)
@@ -186,7 +188,7 @@ test("with quiet mode on and rule severity of 'error'", t => {
     },
     message: "bar",
     node: {
-      source: { start: { line: 6 } },
+      positionBy: () => ({ line: 6 }),
     },
   }
   report(v)

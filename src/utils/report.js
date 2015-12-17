@@ -1,5 +1,3 @@
-import { get } from "lodash"
-
 /**
  * Report a violation.
  *
@@ -37,7 +35,9 @@ export default function ({
     return
   }
 
-  const startLine = line || get(node, "source.start.line")
+  // If a line is not passed, use the node.positionBy method to get the
+  // line number that the complaint pertains to
+  const startLine = line || node.positionBy({ index }).line
 
   if (result.stylelint.disabledRanges) {
     for (let range of result.stylelint.disabledRanges) {

@@ -7,9 +7,19 @@ import selectorCombinatorSpaceBefore, {
   ruleName as selectorCombinatorSpaceBeforeName,
   messages as selectorCombinatorSpaceBeforeMessages,
 } from "../rules/selector-combinator-space-before"
+import maxLineLength, {
+  ruleName as maxLineLengthName,
+  messages as maxLineLengthMessages,
+} from "../rules/max-line-length"
+import stringQuotes, {
+  ruleName as stringQuotesName,
+  messages as stringQuotesMessages,
+} from "../rules/string-quotes"
 
 const testBlockNoEmpty = ruleTester(blockNoEmpty, blockNoEmptyName)
 const testSelectorCombinatorSpaceBefore = ruleTester(selectorCombinatorSpaceBefore, selectorCombinatorSpaceBeforeName)
+const testMaxLineLength = ruleTester(maxLineLength, maxLineLengthName)
+const testStringQuotes = ruleTester(stringQuotes, stringQuotesName)
 
 // disabling all rules
 testBlockNoEmpty(undefined, tr => {
@@ -40,19 +50,69 @@ testSelectorCombinatorSpaceBefore("always", tr => {
 
 // multiple disabled ranges
 testBlockNoEmpty(undefined, tr => {
-  tr.ok(
-    "/* stylelint-disable */\n" +
-    "a {}\n" +
-    "/* stylelint-enable */\n" +
-    "/* stylelint-disable */\n" +
-    "a {}\n"
-  )
+  tr.ok(`
+    /* stylelint-disable */
+    a {}
+    /* stylelint-enable */
+    /* stylelint-disable */
+    a {}
+  `)
 
-  tr.notOk(
-    "/* stylelint-disable */\n" +
-    "a {}\n" +
-    "/* stylelint-enable */\n" +
-    "a {}\n",
-    blockNoEmptyMessages.rejected
-  )
+  tr.notOk(`
+    /* stylelint-disable */
+    a {}
+    /* stylelint-enable */
+    a {}
+  `, blockNoEmptyMessages.rejected)
+})
+
+// max-line-length is important to test because the node it attaches its warning
+// to is the root
+testMaxLineLength(80, tr => {
+  tr.ok(`
+    /* stylelint-disable */
+    .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
+    /* stylelint-enable */
+  `)
+  tr.ok(`
+    /* stylelint-disable max-line-length */
+    .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
+    /* stylelint-enable max-line-length */
+  `)
+  tr.notOk(`
+    /* stylelint-disable block-no-empty */
+    .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
+    /* stylelint-enable block-no-empty */
+  `, maxLineLengthMessages.expected(80))
+  tr.notOk(`
+    /* stylelint-disable max-line-length */
+    .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
+    /* stylelint-enable max-line-length */
+    .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
+  `, maxLineLengthMessages.expected(80))
+})
+
+// Same goes for string-quotes
+testStringQuotes("single", tr => {
+  tr.ok(`
+    /* stylelint-disable */
+    .foo { content: "horse"; }
+    /* stylelint-enable */
+  `)
+  tr.ok(`
+    /* stylelint-disable string-quotes */
+    .foo { content: "horse"; }
+    /* stylelint-enable string-quotes */
+  `)
+  tr.notOk(`
+    /* stylelint-disable block-no-empty */
+    .foo { content: "horse"; }
+    /* stylelint-enable block-no-empty */
+  `, stringQuotesMessages.expected("single"))
+  tr.notOk(`
+    /* stylelint-disable string-quotes */
+    .foo { content: "horse"; }
+    /* stylelint-enable string-quotes */
+    .foo { content: "horse"; }
+  `, stringQuotesMessages.expected("single"))
 })
