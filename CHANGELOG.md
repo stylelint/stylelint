@@ -1,6 +1,6 @@
 # 3.1.3
 
-* Fixed: Bug causing preventing the disabling of rules analyzing the `root` node, including: `max-line-length`, `max-empty-lines`, `no-eol-whitespace`, `no-missing-eof-newline`, and `string-quotes`.
+* Fixed: Bug preventing the disabling of rules analyzing the `root` node, including: `max-line-length`, `max-empty-lines`, `no-eol-whitespace`, `no-missing-eof-newline`, and `string-quotes`.
 * Fixed: Bug causing `rule-properties-order` to get confused by properties with an unspecified order.
 
 # 3.1.2
