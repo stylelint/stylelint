@@ -27,7 +27,10 @@ export default function (options) {
     })
   }
 
-  const cosmiconfigOptions = {}
+  const cosmiconfigOptions = {
+    argv: null
+  }
+
   if (options.configFile) {
     cosmiconfigOptions.configPath = path.resolve(process.cwd(), options.configFile)
   }
