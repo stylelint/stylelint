@@ -8,6 +8,7 @@ import * as formatters from "./formatters"
 
 export default function ({
   files,
+  cli,
   code,
   config,
   configFile,
@@ -75,6 +76,7 @@ export default function ({
 
     return postcss()
       .use(stylelintPostcssPlugin({
+        cli,
         config,
         configFile,
         configBasedir,

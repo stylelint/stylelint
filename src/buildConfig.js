@@ -28,7 +28,7 @@ export default function (options) {
   }
 
   const cosmiconfigOptions = {
-    argv: null,
+    argv: options.cli ? "config" : null,
   }
 
   if (options.configFile) {

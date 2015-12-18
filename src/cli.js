@@ -80,7 +80,9 @@ Promise.resolve().then(() => {
     code: stdin,
   }))
 }).then(options => {
-  return standalone(options)
+  return standalone(assign({}, options, {
+    cli: true,
+  }))
 }).then(({ output, errored }) => {
   if (!output) { return }
   process.stdout.write(output)
