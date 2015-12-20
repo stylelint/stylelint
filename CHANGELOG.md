@@ -1,4 +1,4 @@
-# Head
+# 3.1.4
 
 * Fixed: stopped hijacking `--config` property in PostCSS and Node.js APIs. Still using it in the CLI.
 
