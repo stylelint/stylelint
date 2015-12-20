@@ -1,11 +1,15 @@
+# Head
+
+* Fixed: stopped hijacking `--config` property in PostCSS and Node.js APIs. Still using it in the CLI.
+
 # 3.1.3
 
-* Fixed: Bug preventing the disabling of rules analyzing the `root` node, including: `max-line-length`, `max-empty-lines`, `no-eol-whitespace`, `no-missing-eof-newline`, and `string-quotes`.
-* Fixed: Bug causing `rule-properties-order` to get confused by properties with an unspecified order.
+* Fixed: bug preventing the disabling of rules analyzing the `root` node, including: `max-line-length`, `max-empty-lines`, `no-eol-whitespace`, `no-missing-eof-newline`, and `string-quotes`.
+* Fixed: bug causing `rule-properties-order` to get confused by properties with an unspecified order.
 
 # 3.1.2
 
-* Fixed: Bug causing an error when `null` was used on rules whose primary options are arrays.
+* Fixed: bug causing an error when `null` was used on rules whose primary options are arrays.
 
 # 3.1.1
 

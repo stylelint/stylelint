@@ -27,8 +27,11 @@ export default function (options) {
     })
   }
 
+  // Turn off argv option to avoid hijacking the all-too-common
+  // --config argument, when this is used in conjunction with other CLI's
+  // (e.g. webpack)
   const cosmiconfigOptions = {
-    argv: options.cli ? "config" : null,
+    argv: false,
   }
 
   if (options.configFile) {
@@ -38,6 +41,7 @@ export default function (options) {
   let rootConfigDir
 
   return cosmiconfig("stylelint", cosmiconfigOptions).then(result => {
+    if (!result) throw configurationError("No configuration found")
     rootConfigDir = path.dirname(result.filepath)
     return augmentConfig(result.config, rootConfigDir)
   }).then(augmentedConfig => {

@@ -8,9 +8,9 @@ import disableRanges from "./disableRanges"
 import buildConfig from "./buildConfig"
 
 export default postcss.plugin("stylelint", (options = {}) => {
-  const configPromise = buildConfig(options)
-
   return (root, result) => {
+    const configPromise = buildConfig(options)
+
     // result.stylelint is the namespace for passing stylelint-related
     // configuration and data across sub-plugins via the PostCSS Result
     result.stylelint = result.stylelint || {}

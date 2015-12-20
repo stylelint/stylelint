@@ -10,6 +10,7 @@ const minimistOptions = {
   default: {
     f: "string",
     q: false,
+    config: false,
   },
   alias: {
     f: "formatter",
@@ -42,7 +43,7 @@ const meowOptions = {
     "  --version           Get the currently installed version of stylelint.",
     "  --custom-formatter  Path to a JS file exporting a custom formatting function",
     "  -f, --formatter     Specify a formatter: \"json\" or \"string\". Default is \"string\".",
-    "-q, --quiet           Only register warnings for rules with an \"error\"-level severity",
+    "  -q, --quiet         Only register warnings for rules with an \"error\"-level severity",
     "                      (ignore \"warning\"-level)",
     "  -s, --syntax        Specify a non-standard syntax that should be used to ",
     "                      parse source stylesheets. Options: \"scss\"",
@@ -69,6 +70,10 @@ if (cli.flags.syntax && includes(syntaxOptions, cli.flags.syntax)) {
   optionsBase.syntax = cli.flags.syntax
 }
 
+if (cli.flags.config) {
+  optionsBase.configFile = path.join(process.cwd(), cli.flags.config)
+}
+
 Promise.resolve().then(() => {
   // Add input/code into options
   if (cli.input.length) {
@@ -80,9 +85,7 @@ Promise.resolve().then(() => {
     code: stdin,
   }))
 }).then(options => {
-  return standalone(assign({}, options, {
-    cli: true,
-  }))
+  return standalone(options)
 }).then(({ output, errored }) => {
   if (!output) { return }
   process.stdout.write(output)
