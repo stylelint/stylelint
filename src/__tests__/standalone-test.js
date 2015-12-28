@@ -294,12 +294,12 @@ test("standalone extending a config that ignores files", t => {
 
 test("standalone extending a config that is overridden", t => {
   standalone({
-    code: "a {}",
+    code: "a { b: \"c\" }",
     config: {
       extends: [
-        `${fixturesPath}/config-block-no-empty`,
+        `${fixturesPath}/config-extending-override`,
       ],
-      rules: { "block-no-empty": false },
+      rules: { "string-quotes": "double" },
     },
   })
     .then(({ output }) => {
