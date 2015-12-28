@@ -291,3 +291,20 @@ test("standalone extending a config that ignores files", t => {
   planned += 5
   t.plan(planned)
 })
+
+test("standalone extending a config that is overridden", t => {
+  standalone({
+    code: "a {}",
+    config: {
+      extends: [
+        `${fixturesPath}/config-block-no-empty`,
+      ],
+      rules: { "block-no-empty": false },
+    },
+  })
+    .then(({ output }) => {
+      const parsedOutput = JSON.parse(output)
+      t.equal(parsedOutput[0].warnings.length, 0)
+    })
+  t.plan(1)
+})
