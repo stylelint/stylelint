@@ -74,9 +74,8 @@ function augmentConfig(nonnormalizedConfig, configDir) {
     })
   }, Promise.resolve(origConfig))
 
-  return resultPromise.then(newConfig => {
-    let finalConfig = merge({}, newConfig, origConfig)
-    return finalConfig
+  return resultPromise.then(mergedConfig => {
+    return merge({}, mergedConfig, origConfig)
   })
 
   function loadExtendedConfig(config, extendLookup) {
