@@ -19,6 +19,20 @@ const configNotNumberedSeverity = {
   },
 }
 
+const configExplicitNumberedSeverity = {
+  legacyNumberedSeverities: true,
+  rules: {
+    indentation: [ 2, 2 ],
+  },
+}
+
+const configExplicitStandardSeverity = {
+  legacyNumberedSeverities: false,
+  rules: {
+    indentation: [2],
+  },
+}
+
 const css = (
 `a {
   color: #zzz;
@@ -81,5 +95,44 @@ test("expected warnings with standard severities", t => {
     t.equal(messages[1].severity, "warning")
     t.equal(messages[2].text, "Unexpected invalid hex color \"#mmm\" (color-no-invalid-hex)")
     t.equal(messages[2].severity, "warning")
+  }
+})
+
+test("expected warnings with explicitly numbered severities", t => {
+  t.plan(6)
+
+  postcss()
+    .use(stylelint(configExplicitNumberedSeverity))
+    .process("a {\n\tcolor: pink;\n}")
+    .then(checkResult)
+    .catch(err => console.log(err.stack))
+
+  function checkResult(result) {
+    const { messages } = result
+    t.equal(messages.length, 2)
+    t.ok(messages.every(m => m.type === "warning"))
+    t.ok(messages.every(m => m.plugin === "stylelint"))
+    t.equal(messages[0].stylelintType, "deprecation")
+    t.equal(messages[1].text, "Expected indentation of 2 spaces (indentation)")
+    t.equal(messages[1].severity, "error")
+  }
+})
+
+test("expected warnings with explicitly standard severities", t => {
+  t.plan(5)
+
+  postcss()
+    .use(stylelint(configExplicitStandardSeverity))
+    .process("a {\n\tcolor: pink;\n}")
+    .then(checkResult)
+    .catch(err => console.log(err.stack))
+
+  function checkResult(result) {
+    const { messages } = result
+    t.equal(messages.length, 1)
+    t.ok(messages.every(m => m.type === "warning"))
+    t.ok(messages.every(m => m.plugin === "stylelint"))
+    t.equal(messages[0].text, "Expected indentation of 2 spaces (indentation)")
+    t.equal(messages[0].severity, "error")
   }
 })

@@ -111,14 +111,16 @@ function normalizeSeverities(config) {
 
   // We'll have to assume that if all the rule settings start with a number,
   // then the config is using numbered severities
-  const configHasNumberedSeverities = values(config.rules).every(ruleSettings => {
-    return typeof [].concat(ruleSettings)[0] === "number"
-  })
+  const configHasNumberedSeverities = (config.legacyNumberedSeverities !== undefined)
+    ? config.legacyNumberedSeverities
+    : values(config.rules).every(ruleSettings => {
+      return typeof [].concat(ruleSettings)[0] === "number"
+    })
 
   if (!configHasNumberedSeverities) { return config }
 
   return assign({}, config, {
-    numberedSeverities: true,
+    legacyNumberedSeverities: true,
     rules: mapValues(config.rules, function transformRuleSettings(ruleSettings) {
       if (ruleSettings === 0) { return null }
       if (ruleSettings === 2) { return true }

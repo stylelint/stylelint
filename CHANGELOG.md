@@ -1,3 +1,7 @@
+# Head
+
+* Added: `legacyNumberedSeverities` config property to force the legacy severity system.
+
 # 3.1.4
 
 * Fixed: stopped hijacking `--config` property in PostCSS and Node.js APIs. Still using it in the CLI.
