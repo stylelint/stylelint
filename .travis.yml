@@ -2,9 +2,9 @@ sudo: false
 
 language: node_js
 node_js:
-  - 0.12
-  - 4
-  - stable
+  - '5'
+  - '4'
+  - '0.12'
 
 notifications:
   webhooks:
