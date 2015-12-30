@@ -19,6 +19,7 @@ export default function (actual) {
     root.walkRules(rule => {
       selectorParser(selectorAST => {
         selectorAST.eachId(id => {
+          if (/#{.+}/.test(id)) { return }
           report({
             message: messages.rejected,
             node: rule,
