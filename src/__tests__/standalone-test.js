@@ -297,7 +297,7 @@ test("standalone extending a config that is overridden", t => {
     code: "a { b: \"c\" }",
     config: {
       extends: [
-        `${fixturesPath}/config-extending-override`,
+        `${fixturesPath}/config-string-quotes-single`,
       ],
       rules: { "string-quotes": "double" },
     },
