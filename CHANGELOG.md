@@ -1,10 +1,11 @@
 # Head
 
 * Added: `legacyNumberedSeverities` config property to force the legacy severity system.
+* Added: `selector-no-id` ignores Sass-style interpolation.
+* Fixed: bug causing extended config to override the config that extends it.
 
 # 3.1.4
 
-* Fixed: bug causing extended config to override the config that extends it.
 * Fixed: stopped hijacking `--config` property in PostCSS and Node.js APIs. Still using it in the CLI.
 
 # 3.1.3
