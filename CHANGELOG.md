@@ -1,4 +1,4 @@
-# Head
+# 3.2.0
 
 * Added: `legacyNumberedSeverities` config property to force the legacy severity system.
 * Added: `selector-no-id` ignores Sass-style interpolation.
