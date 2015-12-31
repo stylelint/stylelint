@@ -1,5 +1,6 @@
 # 3.1.4
 
+* Fixed: bug causing extended config to override the config that extends it.
 * Fixed: stopped hijacking `--config` property in PostCSS and Node.js APIs. Still using it in the CLI.
 
 # 3.1.3
