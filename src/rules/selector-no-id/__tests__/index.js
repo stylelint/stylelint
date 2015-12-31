@@ -2,6 +2,7 @@ import {
   ruleTester,
   warningFreeBasics,
 } from "../../../testUtils"
+import scss from "postcss-scss"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
@@ -33,4 +34,14 @@ testRule(undefined, tr => {
     line: 1,
     column: 13,
   })
+})
+
+const scssTestRule = ruleTester(rule, ruleName, {
+  postcssOptions: { syntax: scss },
+})
+
+scssTestRule(undefined, tr => {
+  tr.ok("@for $n from 1 through 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore sass interpolation inside @for")
+  tr.ok("@each $n in $vals { .n-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore sass interpolation inside @each")
+  tr.ok("@while $n < 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore sass interpolation inside @while")
 })
