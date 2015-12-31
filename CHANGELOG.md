@@ -1,3 +1,7 @@
+# Head
+
+* Added: `legacyNumberedSeverities` config property to force the legacy severity system.
+
 # 3.1.4
 
 * Fixed: bug causing extended config to override the config that extends it.

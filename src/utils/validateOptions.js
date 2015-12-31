@@ -52,6 +52,8 @@ export default function (result, ruleName, ...optionDescriptions) {
 
     // If possible is an object ...
     Object.keys(actual).forEach(optionName => {
+      if (optionName === "warn") { return }
+
       if (!possible[optionName]) {
         complain(`Invalid option name "${optionName}" for rule "${ruleName}"`)
         return

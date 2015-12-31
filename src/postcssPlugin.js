@@ -8,6 +8,19 @@ import disableRanges from "./disableRanges"
 import buildConfig from "./buildConfig"
 
 export default postcss.plugin("stylelint", (options = {}) => {
+  let wasWarned = false
+  function warnForNumberedSeverities(result) {
+    if (wasWarned) { return }
+    wasWarned = true
+    result.warn((
+      "Numbered severities (0, 1, 2) have been deprecated, " +
+      "and in 4.0 they will be disabled. "
+    ), {
+      stylelintType: "deprecation",
+      stylelintReference: "http://stylelint.io/?/docs/user-guide/configuration.md",
+    })
+  }
+
   return (root, result) => {
     const configPromise = buildConfig(options)
 
@@ -30,7 +43,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
         if (multimatch(pathFromConfigToSource, config.ignoreFiles).length) { return }
       }
 
-      if (config.numberedSeverities) {
+      if (config.legacyNumberedSeverities) {
         warnForNumberedSeverities(result)
       }
 
@@ -78,19 +91,6 @@ export default postcss.plugin("stylelint", (options = {}) => {
     })
   }
 })
-
-let wasWarned = false
-function warnForNumberedSeverities(result) {
-  if (wasWarned) { return }
-  wasWarned = true
-  result.warn((
-    "Numbered severities (0, 1, 2) have been deprecated, " +
-    "and in 4.0 they will be disabled. "
-  ), {
-    stylelintType: "deprecation",
-    stylelintReference: "http://stylelint.io/?/docs/user-guide/configuration.md",
-  })
-}
 
 // These are rules that accept an array as the primary option
 const rulesWithPrimaryOptionArray = new Set([

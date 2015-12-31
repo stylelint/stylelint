@@ -68,6 +68,20 @@ pass a secondary option `"warn": true`.
 
 Different reporters may use these severity levels in different way, e.g. display them differently, or exit the process differently.
 
+##### Legacy Numbered Severities
+
+Before v3, configuration involved a system of numbered severities, like ESLint's.
+Numbered severities have been deprecated (and will be removed in v4), but can still be used for the time being —
+just expect a deprecation warning whenever stylelint runs.
+
+stylelint should be able to figure out whether you're using legacy numbered severities as opposed to the
+more recent standard. But there is one situation in which auto-detection won't work:
+if your config *only contains rules with integers as their primary option*
+(e.g. `indentation` and `max-empty-lines`), auto-detection will assume you're using numbered
+severities, even if you're not.
+**If this exception applies to you, you can explicitly force standard (non-numbered) severities by adding
+`legacyNumberedSeverities: false` to your config.**
+
 ### `extends`
 
 Your configuration can *extend* an existing configuration (whether your own or a third-party config).
