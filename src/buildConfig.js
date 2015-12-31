@@ -65,15 +65,18 @@ function augmentConfig(nonnormalizedConfig, configDir) {
   }
 
   const extendLookups = [].concat(config.extends)
+  const origConfig = omit(config, "extends")
   const resultPromise = extendLookups.reduce((mergeConfigs, extendLookup) => {
     return mergeConfigs.then(mergedConfig => {
       return loadExtendedConfig(mergedConfig, extendLookup).then(extendedConfig => {
         return merge({}, mergedConfig, extendedConfig)
       })
     })
-  }, Promise.resolve(omit(config, "extends")))
+  }, Promise.resolve(origConfig))
 
-  return resultPromise
+  return resultPromise.then(mergedConfig => {
+    return merge({}, mergedConfig, origConfig)
+  })
 
   function loadExtendedConfig(config, extendLookup) {
     var extendPath = getModulePath(configDir, extendLookup)
