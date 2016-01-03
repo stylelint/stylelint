@@ -9,6 +9,15 @@ Require a newline after the opening brace of blocks.
  * The newline after this brace */
 ```
 
+This rule allows an end-of-line comment separated from the opening brace by spaces,
+as long as the comment contains no newlines. For example,
+
+```css
+a { /* end-of-line comment */
+  color: pink;
+}
+```
+
 ## Options
 
 `string`: `"always"|"always-multi-line"|"never-multi-line`
@@ -28,6 +37,13 @@ a{ color: pink;
 }
 ```
 
+```css
+a{ /* end-of-line comment
+  with a newline */
+  color: pink;
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -39,6 +55,12 @@ color: pink; }
 a
 {
 color: pink; }
+```
+
+```css
+a { /* end-of-line comment */
+  color: pink;
+}
 ```
 
 ### `"always-multi-line"`
@@ -84,4 +106,3 @@ a { color: pink; }
 a {color: pink;
 }
 ```
-

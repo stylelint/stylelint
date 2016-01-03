@@ -21,6 +21,7 @@ testRule("always", tr => {
   tr.ok("@media print{\r\na{\r\ncolor: pink; } }", "CRLF")
   tr.ok("@media print{\n\ta{\n  color: pink; } }")
   tr.ok("a { /* 1 */\n  color: pink;\n}", "end-of-line comment")
+  tr.ok("a {    /* 1 */\n  color: pink;\n}", "end-of-line comment with multiple spaces before")
   tr.ok("a {\n  /* 1 */\n  color: pink;\n}", "next-line comment")
   tr.ok("a {\r\n  /* 1 */\r\n  color: pink;\r\n}", "next-line comment and CRLF")
 
@@ -60,24 +61,6 @@ testRule("always", tr => {
     column: 4,
   }, "CRLF")
   tr.notOk(
-    "a {  /* 1 */\n  color: pink;\n}",
-    {
-      message: messages.expectedAfter(),
-      line: 1,
-      column: 4,
-    },
-    "end-of-line comment with two spaces before"
-  )
-  tr.notOk(
-    "a {  /* 1 */\r\n  color: pink;\r\n}",
-    {
-      message: messages.expectedAfter(),
-      line: 1,
-      column: 4,
-    },
-    "end-of-line comment with two spaces before and CRLF"
-  )
-  tr.notOk(
     "a { /* 1 */ color: pink; }",
     {
       message: messages.expectedAfter(),
@@ -85,6 +68,24 @@ testRule("always", tr => {
       column: 4,
     },
     "next node is comment without newline after"
+  )
+  tr.notOk(
+    "a {\t/* 1 */ color: pink; }",
+    {
+      message: messages.expectedAfter(),
+      line: 1,
+      column: 4,
+    },
+    "next node is comment with tab before"
+  )
+  tr.notOk(
+    "a { /* 1\n2 */ color: pink; }",
+    {
+      message: messages.expectedAfter(),
+      line: 1,
+      column: 4,
+    },
+    "next node is end-of-line comment containing newlines"
   )
 })
 

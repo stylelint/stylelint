@@ -11,11 +11,12 @@ Require a newline or disallow whitespace after the semicolons of declaration blo
  * The newline after this semicolon */
 ```
 
-End-of-line comments are allowed one space after the semicolon.
+This rule allows an end-of-line comment separated from the semicolon by spaces,
+as long as the comment contains no newlines. For example,
 
 ```css
 a {
-  color: pink; /* something to say */
+  color: pink; /* end-of-line comment */
   top: 0;
 }
 ```
@@ -34,11 +35,26 @@ The following patterns are considered warnings:
 a { color: pink; top: 0; }
 ```
 
+```css
+a {
+  color: pink; /* end-of-line comment
+    containing a newline */
+  top: 0;
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
 a {
   color: pink;
+  top: 0;
+}
+```
+
+```css
+a {
+  color: pink; /* end-of-line comment */
   top: 0;
 }
 ```
