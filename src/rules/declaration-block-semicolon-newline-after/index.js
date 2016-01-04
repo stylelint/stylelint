@@ -38,8 +38,13 @@ export default function (expectation) {
       const nextNode = decl.next()
       if (!nextNode) { return }
 
-      // Allow end-of-line comments one space after the semicolon
-      let nodeToCheck = (nextNode.type === "comment" && nextNode.raw("before") === " ")
+      // Allow an end-of-line comment x spaces after the semicolon
+      const nextNodeIsAcceptableComment = (
+        nextNode.type === "comment"
+        && !/[^ ]/.test(nextNode.raw("before"))
+        && nextNode.toString().indexOf("\n") === -1
+      )
+      const nodeToCheck = (nextNodeIsAcceptableComment)
         ? nextNode.next()
         : nextNode
       if (!nodeToCheck) { return }

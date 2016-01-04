@@ -21,6 +21,7 @@ testRule("always", tr => {
   tr.ok("a { color: pink;\r\ntop: 0;}", "no space between trailing semicolon and closing brace and CRLF")
   tr.ok("a { color: pink;\ntop: 0}")
   tr.ok("a {\n  color: pink; /* 1 */\n  top: 0\n}", "end-of-line comment")
+  tr.ok("a {\n  color: pink;    /* 1 */\n  top: 0\n}", "end-of-line comment a few spaces after")
   tr.ok("a {\r\n  color: pink; /* 1 */\r\n  top: 0\r\n}", "end-of-line comment and CRLF")
   tr.ok("a {\n  color: pink;\n  /* 1 */\n  top: 0\n}", "next-line comment")
   tr.ok("a,\nb { color: pink;\ntop: 0}", "multi-line rule, multi-line declaration-block")
@@ -47,15 +48,6 @@ testRule("always", tr => {
     column: 17,
   })
   tr.notOk(
-    "a {\n  color: pink;  /* 1 */\n  top: 0\n}",
-    {
-      message: messages.expectedAfter(),
-      line: 2,
-      column: 15,
-    },
-    "end-of-line comment with two spaces before"
-  )
-  tr.notOk(
     "a {\n  color: pink; /* 1 */ top: 0\n}",
     {
       message: messages.expectedAfter(),
@@ -72,6 +64,24 @@ testRule("always", tr => {
       column: 15,
     },
     "CRLF and next node is comment without newline after"
+  )
+  tr.notOk(
+    "a {\n  color: pink;\t/* 1 */\n  top: 0\n}",
+    {
+      message: messages.expectedAfter(),
+      line: 2,
+      column: 15,
+    },
+    "next node is comment with tab before"
+  )
+  tr.notOk(
+    "a {\n  color: pink; /* 1\n2 */\n  top: 0\n}",
+    {
+      message: messages.expectedAfter(),
+      line: 2,
+      column: 15,
+    },
+    "next node is end-of-line comment containing newline"
   )
 })
 

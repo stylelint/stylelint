@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: `block-opening-brace-newline-after` and `declaration-block-semicolon-newline-after` handle end-of-line comments better.
+
 # 3.2.0
 
 * Added: `legacyNumberedSeverities` config property to force the legacy severity system.
