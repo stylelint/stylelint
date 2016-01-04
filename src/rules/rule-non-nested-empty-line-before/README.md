@@ -117,16 +117,18 @@ Ignore rules that come after a comment.
 The following patterns are *not* considered warnings:
 
 ```css
-@media {
-  /* comment */
-  a {}
-}
+a
+{}
+/* comment */
+b
+{}
 ```
 
 ```css
-@media {
-  /* comment */
+a
+{}
+/* comment */
 
-  a {}
-}
+b
+{}
 ```
