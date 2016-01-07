@@ -14,6 +14,7 @@ testRule("20", tr => {
   tr.ok("a { color: 0;\n  top: 0; }")
   tr.ok("@media print {\n  a {\n    color: pink;\n }\n}")
 
+  tr.ok("a {\n background: url(somethingsomethingsomethingsomething);\n}")
   tr.ok("a {\n  background: url(\n  somethingsomethingsomethingsomething\n  );\n}")
 
   tr.notOk("a {   color   : 0  ;}", {
@@ -45,11 +46,6 @@ testRule("20", tr => {
     message: messages.expected(20),
     line: 1,
     column: 38,
-  })
-  tr.notOk("a {\n  background: url(somethingsomethingsomethingsomething);\n}", {
-    message: messages.expected(20),
-    line: 2,
-    column: 56,
   })
 })
 

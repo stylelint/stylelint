@@ -19,7 +19,8 @@ export default function (length) {
     })
     if (!validOptions) { return }
 
-    const rootString = root.source.input.css
+    // Collapse all urls into something nice and short
+    const rootString = root.source.input.css.replace(/url\(.*\)/g, "url()")
 
     // Check first line
     checkNewline({ endIndex: 0 })
@@ -36,7 +37,8 @@ export default function (length) {
       if (nextNewlineIndex - match.endIndex <= length) { return }
 
       // If there are no spaces besides initial (indent) spaces, ignore
-      if (rootString.slice(match.endIndex, nextNewlineIndex).replace(/^\s+/, "").indexOf(" ") === -1) {
+      const lineString = rootString.slice(match.endIndex, nextNewlineIndex)
+      if (lineString.replace(/^\s+/, "").indexOf(" ") === -1) {
         return
       }
 

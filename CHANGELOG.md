@@ -1,5 +1,6 @@
 # Head
 
+* Fixed: `max-line-length` handles `url()` functions better.
 * Fixed: `block-opening-brace-newline-after` and `declaration-block-semicolon-newline-after` handle end-of-line comments better.
 
 # 3.2.0
