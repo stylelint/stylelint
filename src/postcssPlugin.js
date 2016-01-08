@@ -35,7 +35,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
       }
 
       if (!config.rules) {
-        throw configurationError("No rules found within configuration")
+        throw configurationError("No rules found within configuration. Have you used the \"rules\" key?")
       }
 
       if (config.ignoreFiles) {
