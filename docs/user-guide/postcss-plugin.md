@@ -48,12 +48,11 @@ The difference between the `configOverrides` and `config` options is this: If an
 Using the plugin with [`gulp-postcss`](https://github.com/postcss/gulp-postcss):
 
 ```js
+var postcss = require("gulp-postcss")
+var reporter = require("postcss-reporter")
+var stylelint = require("stylelint")
+
 gulp.task("css", function () {
-
-  var postcss = require("gulp-postcss")
-  var stylelint = require("stylelint")
-  var reporter = require("postcss-reporter")
-
   return gulp.src("src/**/*.css")
     .pipe(postcss([
       stylelint({ /* your options */ }),
@@ -62,13 +61,34 @@ gulp.task("css", function () {
 })
 ```
 
+Using the plugin with [`gulp-postcss`](https://github.com/postcss/gulp-postcss) and [`postcss-scss`](https://github.com/postcss/postcss-scss) to lint SCSS:
+
+```js
+var postcss = require("gulp-postcss")
+var reporter = require("postcss-reporter")
+var scss = require("postcss-scss")
+var stylelint = require("stylelint")
+
+gulp.task("scss", function () {
+  return gulp.src("src/**/*.scss")
+    .pipe(postcss([
+      stylelint({ /* your options */ }),
+      reporter({ clearMessages: true }),
+    ], {
+      syntax: scss
+    }))
+})
+```
+
+_Note: the stylelint PostCSS plugin, unlike the stylelint CLI and node API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline._
+
 Using the plugin with the PostCSS JS API:
 
 ```js
 var fs = require("fs")
 var postcss = require("postcss")
-var stylelint = require("stylelint")
 var reporter = require("postcss-reporter")
+var stylelint = require("stylelint")
 
 // CSS to be processed
 var css = fs.readFileSync("input.css", "utf8")
