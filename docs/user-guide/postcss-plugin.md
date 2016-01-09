@@ -65,14 +65,14 @@ gulp.task("css", function () {
 Using the plugin with [`gulp-postcss`](https://github.com/postcss/gulp-postcss) and [`postcss-scss`](https://github.com/postcss/postcss-scss) to lint SCSS:
 
 ```js
-gulp.task("css", function () {
+gulp.task("scss", function () {
 
   var postcss = require("gulp-postcss")
   var reporter = require("postcss-reporter")
   var scss = require('postcss-scss')
   var stylelint = require("stylelint")
 
-  return gulp.src("src/**/*.css")
+  return gulp.src("src/**/*.scss")
     .pipe(postcss([
       stylelint({ /* your options */ }),
       reporter({ clearMessages: true }),
