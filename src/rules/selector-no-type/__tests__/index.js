@@ -19,7 +19,11 @@ testRule(undefined, tr => {
   tr.ok(".foo { [&] {} }")
   tr.ok(".foo { & [class*=bar] {} }")
   tr.ok(".foo { @nest & {} }")
-  
+  tr.ok(".foo:nth-child(3n + 1) {}")
+  tr.ok(".foo { &:nth-child(3n + 1) {} }")
+  tr.ok("@keyframes spin { 0% {} }")
+  tr.ok("@keyframes spin { to {} from {} }")
+
   tr.notOk("foo {}", {
     message: messages.rejected,
     line: 1,
