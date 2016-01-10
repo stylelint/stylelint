@@ -15,18 +15,26 @@ export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
-    // 1st for nesting, 2nd to 4th for nth-child, and last two for keyframes
-    const exclusions = ["&", "n", "even", "odd", "to", "from"]
+
     root.walkRules(rule => {
+      // Ignore keyframe selectors
+      if (rule.parent.type === "atrule" && rule.parent.name === "keyframes") {
+        return
+      }
+
       selectorParser(selectorAST => {
         selectorAST.eachTag(tag => {
-          const firstChar = tag.value.charAt(0)
-          // Check if in exclusions
-          if (exclusions.indexOf(tag.value) !== -1) { return }
-          // Also check if starts with a digit, for nth-child(3n) and %s in keyframes
-          if (!isNaN(firstChar)) { return }
-          // Lastly check for "-", for nth-child(-n)
-          if (firstChar === "-") { return }
+          // postcss-selector-parser includes the arguments to nth-child() functions
+          // as "tags", so we need to ignore them ourselves.
+          // The fake-tag's "parent" is actually a selector node, whose parent
+          // should be the :nth-child pseudo node.
+          if (tag.parent.parent.type === "pseudo" && tag.parent.parent.value === ":nth-child") {
+            return
+          }
+
+          // & is not a type selector: it's used for nesting
+          if (tag.value === "&") { return }
+
           report({
             message: messages.rejected,
             node: rule,
