@@ -1,4 +1,4 @@
-# Head
+# 3.2.2
 
 * Fixed: `selector-no-type` ignores `nth-child` pseudo-classes and `@keyframes` selectors.
 
