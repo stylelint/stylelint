@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: `selector-no-type` ignores `nth-child` pseudo-classes and `@keyframes` selectors.
+
 # 3.2.1
 
 * Fixed: `max-line-length` handles `url()` functions better.
