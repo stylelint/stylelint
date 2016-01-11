@@ -52,14 +52,17 @@
     "babel-tape-runner": "^2.0.0",
     "eslint": "^1.4.1",
     "eslint-config-stylelint": "^0.1.0",
+    "github-release-from-changelog": "^1.1.1",
+    "npmpub": "^2.0.0",
     "sinon": "^1.16.1",
     "stylelint-rule-tester": "^0.6.1",
     "tape": "^4.2.0"
   },
   "scripts": {
     "build": "babel src --out-dir dist",
-    "prepublish": "npm run build",
     "lint": "eslint . --ignore-path .gitignore",
+    "prepublish": "npm run build",
+    "release": "npmpublish && github-release-from-changelog",
     "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
     "test": "npm run lint && npm run tape"
   }
