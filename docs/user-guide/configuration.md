@@ -89,11 +89,11 @@ When one configuration extends another, it starts with the other's properties th
 
 You can extend an array of existing configurations, with each item in the array taking precedence over the following (so the first item overrides everything else, the second item overrides everything but the first, the last gets overridden by everything else, etc.).
 
-For example, extending the [`stylelint-config-suitcss`](https://github.com/stylelint/stylelint-config-suitcss) and then changing indentation to tabs and turning off the number-leading-zero rule:
+For example, extending the [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) and then changing indentation to tabs and turning off the number-leading-zero rule:
 
 ```json
 {
-  "extends": "stylelint-config-suitcss",
+  "extends": "stylelint-config-standard",
   "rules": {
     "indentation": "tab",
     "number-leading-zero": null,
@@ -101,13 +101,13 @@ For example, extending the [`stylelint-config-suitcss`](https://github.com/style
 }
 ```
 
-Or starting with `stylelint-config-suitcss`, then extending layering `myExtendableConfig` on top of that, and then overriding the indentation rule:
+Or starting with `stylelint-config-standard`, then extending layering `myExtendableConfig` on top of that, and then overriding the indentation rule:
 
 ```json
 {
   "extends": [
     "./myExtendableConfig",
-    "stylelint-config-suitcss"  
+    "stylelint-config-standard"  
   ],
   "rules": {
     "indentation": "tab",
@@ -117,7 +117,7 @@ Or starting with `stylelint-config-suitcss`, then extending layering `myExtendab
 
 **The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d, so can fit whatever format works with Node's `require.resolve()` algorithm.** That means the a "locater" can be:
 
-- The name of a module in `node_modules` (e.g. `stylelint-config-wordpress`; that module's `main` file must be a valid JSON configuration)
+- The name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
 - An absolute path to a file (which makes sense if you're creating a JS object in a Node context and passing it in) with a `.js` or `.json` extension.
 - A relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
