@@ -33,4 +33,4 @@ your plugin will respect disabled ranges and other possible future features of s
 
 ## Testing plugins
 
-For testing your plugin, you might consider using the same rule-testing function that stylelint uses internally: https://github.com/stylelint/stylelint-rule-tester.
+For testing your plugin, you might consider using the same rule-testing function that stylelint uses internally: [`stylelint-rule-tester`](https://github.com/stylelint/stylelint-rule-tester).
