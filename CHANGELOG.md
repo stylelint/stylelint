@@ -1,4 +1,4 @@
-# Head
+# 3.2.3
 
 * Fixed: `selector-no-vendor-prefix` now handles custom-property-sets.
 
