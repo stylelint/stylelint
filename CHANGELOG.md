@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: `selector-no-vendor-prefix` now handles custom-property-sets.
+
 # 3.2.2
 
 * Fixed: `selector-no-type` ignores `nth-child` pseudo-classes and `@keyframes` selectors.
