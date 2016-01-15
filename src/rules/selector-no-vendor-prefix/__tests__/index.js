@@ -10,6 +10,7 @@ testRule(undefined, tr => {
   warningFreeBasics(tr)
 
   tr.ok(":fullscreen a {}")
+  tr.ok(":root { --custom-property: {} }")
   tr.notOk(":-webkit-full-screen a {}", {
     message: messages.rejected(":-webkit-full-screen"),
     line: 1,

@@ -22,11 +22,11 @@ export default function (actual) {
 
       // Check each pseudo-selector
       styleSearch({ source: selector, target: ":" }, match => {
-        const pseudoSelector = /:{1,2}[a-z-]+\b/.exec(selector.slice(match.startIndex))[0]
-
-        if (isAutoprefixable.selector(pseudoSelector)) {
+        const pseudoSelector = /:{1,2}[a-z-]+\b/.exec(selector.slice(match.startIndex))
+        if (pseudoSelector === null) { return }
+        if (isAutoprefixable.selector(pseudoSelector[0])) {
           report({
-            message: messages.rejected(pseudoSelector),
+            message: messages.rejected(pseudoSelector[0]),
             node: rule,
             index: match.startIndex,
             result,
