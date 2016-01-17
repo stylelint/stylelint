@@ -45,3 +45,30 @@ a {
 a {
   background: url(a-url-that-is-over-20-characters-long);
 }
+
+## Optional options
+
+### `ignore: ["non-comments"]`
+
+Only enforce the line-length limit for lines within comments.
+
+This does not apply to comments that are stuck in between other stuff,
+only to lines that begin at the beginning or in the middle of a comment.
+
+For example, with a maximum length of `30`, the following each have only one warning:
+
+```css
+/* This line is too long for my rule */
+a { color: pink; background: orange; }
+a { color: pink; /* this comment is also long but not on its own line */ }
+```
+
+```css
+a { color: pink; background: orange; }
+/**
+ * This line is short,
+ * but this line is too long for my liking,
+ * though this one is fine
+ */
+a { color: pink; /* this comment is also long but not on its own line */ }
+```

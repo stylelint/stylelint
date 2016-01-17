@@ -1,5 +1,6 @@
 import { isNumber } from "lodash"
 import {
+  optionsHaveIgnored,
   ruleMessages,
   styleSearch,
   report,
@@ -12,14 +13,21 @@ export const messages = ruleMessages(ruleName, {
   expected: l => `Expected line length equal to or less than ${l} characters`,
 })
 
-export default function (length) {
+export default function (maxLength, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
-      length: isNumber,
+      maxLength: isNumber,
+    }, {
+      actual: options,
+      possible: {
+        ignore: ["non-comments"],
+      },
+      optional: true,
     })
     if (!validOptions) { return }
 
-    // Collapse all urls into something nice and short
+    // Collapse all urls into something nice and short,
+    // so they do not throw the game
     const rootString = root.source.input.css.replace(/url\(.*\)/g, "url()")
 
     // Check first line
@@ -32,18 +40,33 @@ export default function (length) {
       let nextNewlineIndex = rootString.indexOf("\n", match.endIndex)
 
       // Accommodate last line
-      if (nextNewlineIndex === -1) nextNewlineIndex = rootString.length
+      if (nextNewlineIndex === -1) {
+        nextNewlineIndex = rootString.length
+      }
 
-      if (nextNewlineIndex - match.endIndex <= length) { return }
+      // If the line's length is less than or equal to the specified
+      // max, ignore it
+      if (nextNewlineIndex - match.endIndex <= maxLength) { return }
 
-      // If there are no spaces besides initial (indent) spaces, ignore
+      // If there are no spaces besides initial (indent) spaces, ignore it
       const lineString = rootString.slice(match.endIndex, nextNewlineIndex)
       if (lineString.replace(/^\s+/, "").indexOf(" ") === -1) {
         return
       }
 
+      if (optionsHaveIgnored(options, "non-comments")) {
+        // This trimming business is to notice when the line starts a
+        // comment but that comment is indented, e.g.
+        //       /* something here */
+        const nextTwoChars = rootString.slice(match.endIndex).trim().slice(0, 2)
+        if (
+          !match.insideComment
+          && (nextTwoChars !== "/*" && nextTwoChars !== "//")
+        ) { return }
+      }
+
       report({
-        message: messages.expected(length),
+        message: messages.expected(maxLength),
         node: root,
         index: nextNewlineIndex - 1,
         result,

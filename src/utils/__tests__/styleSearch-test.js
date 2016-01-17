@@ -303,6 +303,14 @@ test("match object", t => {
     })
   })
 
+  t.test("match within a block comment", st => {
+    styleSearch({ source: "a { color:\n/**\n * 0\n * 1\n */\npink; }", target: "1", checkComments: true }, match => {
+      st.equal(match.insideFunction, false)
+      st.equal(match.insideComment, true)
+      st.end()
+    })
+  })
+
   t.test("match within a comment within function", st => {
     styleSearch({ source: "a { color: rgb(0, 0, 0 /* 1 */); }", target: "1", checkComments: true }, match => {
       st.equal(match.insideFunction, true)
