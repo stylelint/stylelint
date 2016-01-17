@@ -27,11 +27,13 @@ export default function (options) {
     })
   }
 
-  // Turn off argv option to avoid hijacking the all-too-common
-  // --config argument, when this is used in conjunction with other CLI's
-  // (e.g. webpack)
   const cosmiconfigOptions = {
+    // Turn off argv option to avoid hijacking the all-too-common
+    // --config argument, when this is used in conjunction with other CLI's
+    // (e.g. webpack)
     argv: false,
+    // Allow extensions on rc filenames
+    rcExtensions: true,
   }
 
   if (options.configFile) {
