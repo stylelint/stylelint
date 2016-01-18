@@ -59,3 +59,40 @@ testRule("30", tr => {
     column: 47,
   })
 })
+
+testRule("20", { ignore: "non-comments" }, tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a { color: 0; top: 0; bottom: 0; }")
+  tr.ok("a { color: 0; top: 0; /* too long comment here */ bottom: 0; }")
+  tr.ok("/* short nuff */")
+  tr.ok("/* short\nnuff */")
+  tr.ok("/**\n * each line\n * short nuff\n */")
+  tr.ok("a { color: 0; }\n/* short nuff */\nb {}")
+  tr.ok("a {}\n/**\n * each line\n * short nuff\n */\nb {}")
+
+  // Currently this only catches problems if the comment
+  // starts at the beginning of a line
+  tr.ok("a { /* this comment is too long for the max length */ }")
+
+  tr.notOk("/* comment that is too long */", {
+    message: messages.expected(20),
+    line: 1,
+    column: 30,
+  })
+  tr.notOk("a {}\n  /* comment that is too long */\nb {}", {
+    message: messages.expected(20),
+    line: 2,
+    column: 30,
+  })
+  tr.notOk("/* this comment is too long for the max length */", {
+    message: messages.expected(20),
+    line: 1,
+    column: 49,
+  })
+  tr.notOk("a {}\n/**\n * each line\n * short nuff\n * except this one which is too long\n */\nb {}", {
+    message: messages.expected(20),
+    line: 5,
+    column: 36,
+  })
+})

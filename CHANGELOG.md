@@ -1,6 +1,7 @@
 # Head
 
 * Added: support for extensions on `.stylelintrc` files (by upgrading cosmiconfig).
+* Added: `ignore: "non-comments"` option to `max-line-length`.
 
 # 3.2.3
 
