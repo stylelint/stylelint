@@ -31,7 +31,7 @@
     "autoprefixer": "^6.0.0",
     "balanced-match": "^0.3.0",
     "chalk": "^1.1.1",
-    "cosmiconfig": "^1.0.0",
+    "cosmiconfig": "^1.1.0",
     "execall": "^1.0.0",
     "get-stdin": "^5.0.0",
     "globby": "^4.0.0",
