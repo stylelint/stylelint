@@ -7,9 +7,6 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
 stylelint is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS
 can parse, including SCSS.
 
-> **Upgrading from v2 to v3?** The configuration syntax was improved, as was the method of finding configuration files; some rules were renamed, others were removed; and some great features were added. Please read the entry in the [CHANGELOG](CHANGELOG.md) to learn about the changes,
-and when necessary have a look through the updated documentation.
-
 ## Features
 
 * **Nearly a hundred rules:** From stylistic rules (e.g. checking the spacing around the colon in declarations) to rules that catch subtle coding mistakes (e.g. invalid hex colors or [overriding shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Tricky_edge_cases)).
