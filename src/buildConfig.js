@@ -5,8 +5,6 @@ import {
   assign,
   merge,
   omit,
-  values,
-  mapValues,
 } from "lodash"
 import { configurationError } from "./utils"
 
@@ -57,8 +55,7 @@ export default function (options) {
   })
 }
 
-function augmentConfig(nonnormalizedConfig, configDir) {
-  const config = normalizeSeverities(nonnormalizedConfig)
+function augmentConfig(config, configDir) {
   // Absolutize the plugins here, because here is the place
   // where we know the basedir for this particular config
   const configWithAbsolutePlugins = absolutizePlugins(config, configDir)
@@ -108,42 +105,6 @@ function getModulePath(basedir, lookup) {
     `Could not find "${lookup}". ` +
     `Do you need a \`configBasedir\`?`
   )
-}
-
-// Convert legacy numbered severities to the new configuration syntax
-function normalizeSeverities(config) {
-  if (!config.rules) { return config }
-
-  // We'll have to assume that if all the rule settings start with a number,
-  // then the config is using numbered severities
-  const configHasNumberedSeverities = (config.legacyNumberedSeverities !== undefined)
-    ? config.legacyNumberedSeverities
-    : values(config.rules).every(ruleSettings => {
-      return typeof [].concat(ruleSettings)[0] === "number"
-    })
-
-  if (!configHasNumberedSeverities) { return config }
-
-  return assign({}, config, {
-    legacyNumberedSeverities: true,
-    rules: mapValues(config.rules, function transformRuleSettings(ruleSettings) {
-      if (ruleSettings === 0) { return null }
-      if (ruleSettings === 2) { return true }
-      if (ruleSettings === 1) {
-        return [ true, { warn: true } ]
-      }
-
-      if (ruleSettings.length === 1) {
-        return transformRuleSettings(ruleSettings)
-      }
-
-      const secondaryOptions = assign({}, ruleSettings[2], {
-        warn: ruleSettings[0] === 1,
-      })
-
-      return [ ruleSettings[1], secondaryOptions ]
-    }),
-  })
 }
 
 // The `ignoreFiles` option only works with the

@@ -76,17 +76,7 @@ Different reporters may use these severity levels in different way, e.g. display
 
 ##### Legacy Numbered Severities
 
-Before v3, configuration involved a system of numbered severities, like ESLint's.
-Numbered severities have been deprecated (and will be removed in v4), but can still be used for the time being —
-just expect a deprecation warning whenever stylelint runs.
-
-stylelint should be able to figure out whether you're using legacy numbered severities as opposed to the
-more recent standard. But there is one situation in which auto-detection won't work:
-if your config *only contains rules with integers as their primary option*
-(e.g. `indentation` and `max-empty-lines`), auto-detection will assume you're using numbered
-severities, even if you're not.
-**If this exception applies to you, you can explicitly force standard (non-numbered) severities by adding
-`legacyNumberedSeverities: false` to your config.**
+As of v4, the legacy numbered severities system is no longer supported. Please upgrade your config to use the syntax documented here.
 
 ### `extends`
 

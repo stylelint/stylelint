@@ -31,7 +31,7 @@ test("standalone with input file(s)", t => {
   standalone({
     files: twoCsses,
     config: {
-      rules: { "block-no-empty": 2, "color-no-invalid-hex": 2 },
+      rules: { "block-no-empty": true, "color-no-invalid-hex": true },
     },
   })
     .then(({ output, results }) => {
@@ -170,7 +170,7 @@ test("standalone with input css and quiet mode", t => {
   const config = {
     quiet: true,
     rules: {
-      "block-no-empty": 1,
+      "block-no-empty": [ true, { warn: true } ],
     },
   }
 
@@ -189,7 +189,7 @@ test("standalone with scss syntax", t => {
   let planned = 0
   const config = {
     rules: {
-      "block-no-empty": 2,
+      "block-no-empty": true,
     },
   }
 
