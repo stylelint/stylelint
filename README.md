@@ -9,7 +9,7 @@ can parse, including SCSS.
 
 ## Features
 
-* **Nearly a hundred rules:** From stylistic rules (e.g. checking the spacing around the colon in declarations) to rules that catch subtle coding mistakes (e.g. invalid hex colors or [overriding shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Tricky_edge_cases)).
+* **A hundred rules:** From stylistic rules (e.g. checking the spacing around the colon in declarations) to rules that catch subtle coding mistakes (e.g. invalid hex colors or [overriding shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Tricky_edge_cases)).
 * **Support for the latest CSS syntax:** Including custom properties, range context for media features, calc() and nesting.
 * **Completely unopinionated:** Only enable the rules you want, and configure them with options that tailor the linter to your needs.
 * **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config.
