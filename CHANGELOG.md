@@ -3,6 +3,7 @@
 * Removed: support for legacy numbered severities.
 * Added: support for extensions on `.stylelintrc` files (by upgrading cosmiconfig).
 * Added: `ignore: "non-comments"` option to `max-line-length`.
+* Fixed: `function-whitespace-after` does not expect space between `)` and `}`, so it handles Sass interpolation better.
 
 # 3.2.3
 

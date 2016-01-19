@@ -40,7 +40,7 @@ export default function (expectation) {
         if (nextChar === " ") { return }
         if (nextChar === "\n") { return }
         if (source.substr(index + 1, 2) === "\r\n") { return }
-        if ([ ")", ",", undefined ].indexOf(nextChar) !== -1) { return }
+        if ([ ")", ",", "}", undefined ].indexOf(nextChar) !== -1) { return }
         report({
           message: messages.expected,
           node,

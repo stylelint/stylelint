@@ -3,6 +3,7 @@ import {
   warningFreeBasics,
 } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
+import scssSyntax from "postcss-scss"
 
 const testRule = ruleTester(rule, ruleName)
 
@@ -88,4 +89,15 @@ testRule("never", tr => {
     line: 1,
     column: 28,
   })
+})
+
+const testRuleScss = ruleTester(rule, ruleName, {
+  postcssOptions: {
+    syntax: scssSyntax,
+  },
+})
+
+testRuleScss("always", tr => {
+  tr.ok("h1 { max-height: #{($line-height) * ($lines-to-show)}em; }",
+    "Sass-style interpolation with curly braces")
 })
