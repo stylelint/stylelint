@@ -8,19 +8,6 @@ import disableRanges from "./disableRanges"
 import buildConfig from "./buildConfig"
 
 export default postcss.plugin("stylelint", (options = {}) => {
-  let wasWarned = false
-  function warnForNumberedSeverities(result) {
-    if (wasWarned) { return }
-    wasWarned = true
-    result.warn((
-      "Numbered severities (0, 1, 2) have been deprecated, " +
-      "and in 4.0 they will be disabled. "
-    ), {
-      stylelintType: "deprecation",
-      stylelintReference: "http://stylelint.io/?/docs/user-guide/configuration.md",
-    })
-  }
-
   return (root, result) => {
     const configPromise = buildConfig(options)
 
@@ -35,16 +22,12 @@ export default postcss.plugin("stylelint", (options = {}) => {
       }
 
       if (!config.rules) {
-        throw configurationError("No rules found within configuration. Have you used the \"rules\" key?")
+        throw configurationError("No rules found within configuration. Have you provided a \"rules\" property?")
       }
 
       if (config.ignoreFiles) {
         const pathFromConfigToSource = path.relative(configDir, get(root, "source.input.file", ""))
         if (multimatch(pathFromConfigToSource, config.ignoreFiles).length) { return }
-      }
-
-      if (config.legacyNumberedSeverities) {
-        warnForNumberedSeverities(result)
       }
 
       if (config.plugins) {
@@ -56,7 +39,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
             throw configurationError(
               `stylelint v3+ requires plugins to expose a ruleName. ` +
               `The plugin "${pluginPath}" is not doing this, so will not work ` +
-              `with stylelint v3+. Please file an issue with the plugin to upgrade.`
+              `with stylelint v3+. Please file an issue with the plugin.`
             )
           }
           ruleDefinitions[plugin.ruleName] = plugin.rule
@@ -80,7 +63,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
         // Ignore the rule
         if (normalizedSettings[0] === null) { return }
 
-        const ruleSeverity = (normalizedSettings[1] && normalizedSettings[1].warn) ? "warning" : "error"
+        const ruleSeverity = get(normalizedSettings, "[1].warn") ? "warning" : "error"
 
         // Log the rule's severity in the PostCSS result
         result.stylelint.ruleSeverities[ruleName] = ruleSeverity

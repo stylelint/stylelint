@@ -1,5 +1,6 @@
 # Head
 
+* Removed: support for legacy numbered severities.
 * Added: support for extensions on `.stylelintrc` files (by upgrading cosmiconfig).
 * Added: `ignore: "non-comments"` option to `max-line-length`.
 
