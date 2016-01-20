@@ -42,6 +42,19 @@ const scssTestRule = ruleTester(rule, ruleName, {
 
 scssTestRule(undefined, tr => {
   tr.ok("@for $n from 1 through 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore sass interpolation inside @for")
+  tr.ok("@for $n from 1 through 10 { .n#{$n}-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore multiple sass interpolations in a selector inside @for")
+  tr.ok("@for $n from 1 through 10 { .n#{$n}n#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore multiple sass interpolations in a selector inside @for")
   tr.ok("@each $n in $vals { .n-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore sass interpolation inside @each")
   tr.ok("@while $n < 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore sass interpolation inside @while")
+
+  tr.notOk("@for $n from 1 through 10 { .n-#{$n} #foo { } }", {
+    message: messages.rejected,
+    line: 1,
+    column: 38,
+  }, "report sass interpolation + id inside @for")
+  tr.notOk("@for $n from 1 through 10 { .n#{$n}-#{$n} #foo { } }", {
+    message: messages.rejected,
+    line: 1,
+    column: 43,
+  }, "report sass interpolation + id inside @for")
 })
