@@ -1,4 +1,4 @@
-# Head
+# 4.0.0
 
 * Removed: support for legacy numbered severities.
 * Added: support for extensions on `.stylelintrc` files (by upgrading cosmiconfig).
