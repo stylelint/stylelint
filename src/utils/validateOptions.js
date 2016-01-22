@@ -51,6 +51,14 @@ export default function (result, ruleName, ...optionDescriptions) {
     }
 
     // If possible is an object ...
+    if (!isPlainObject(actual)) {
+      complain(
+        `Invalid option value ${JSON.stringify(actual)} for rule "${ruleName}": ` +
+        `should be an object`
+      )
+      return
+    }
+
     Object.keys(actual).forEach(optionName => {
       if (optionName === "warn") { return }
 

@@ -95,16 +95,14 @@ function normalizeSettings(rawSettings, ruleName) {
   // c. A solitary array ... in which case we have trouble and need to special-case it
   //    ... hence the list above
 
-  if (rulesWithPrimaryOptionArray.has(ruleName)) {
-    if (
-      rawSettings !== null
-      && rawSettings.length === 2
-      && Array.isArray(rawSettings[0])
-      && isPlainObject(rawSettings[1])
-    ) {
-      return rawSettings
-    }
-    return [rawSettings]
+  if (
+    rulesWithPrimaryOptionArray.has(ruleName)
+    && rawSettings !== null
+    && rawSettings.length === 2
+    && Array.isArray(rawSettings[0])
+    && isPlainObject(rawSettings[1])
+  ) {
+    return rawSettings
   }
 
   if (Array.isArray(rawSettings)) { return rawSettings }
