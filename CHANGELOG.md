@@ -1,3 +1,7 @@
+# Head
+
+* Added: Helpful option validation message when object is expected but non-object provided.
+
 # 4.0.0
 
 * Removed: support for legacy numbered severities.

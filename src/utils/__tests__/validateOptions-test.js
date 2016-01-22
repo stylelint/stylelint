@@ -112,6 +112,14 @@ test("validateOptions for secondary options objects", t => {
   t.notOk(result.warn.calledOnce, "undefined `actual` with `possible` values and an `optional` option")
   result.warn.reset()
 
+  validateOptions(result, "foo", {
+    possible: schema,
+    actual: 2,
+  })
+  t.ok(result.warn.calledOnce, "possible is actual but actual is non-object")
+  t.ok(result.warn.calledWith("Invalid option value 2 for rule \"foo\": should be an object"))
+  result.warn.reset()
+
   t.end()
 })
 
