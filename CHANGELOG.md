@@ -1,4 +1,4 @@
-# Head
+# 4.1.0
 
 * Added: helpful option validation message when object is expected but non-object provided.
 * Fixed: `selector-no-id` no longer warns about Sass interpolation when multiple interpolations are used in a selector.
