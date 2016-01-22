@@ -1,6 +1,7 @@
 # Head
 
-* Added: Helpful option validation message when object is expected but non-object provided.
+* Added: helpful option validation message when object is expected but non-object provided.
+* Fixed: `selector-no-id` no longer warns about Sass interpolation when multiple interpolations are used in a selector.
 
 # 4.0.0
 
@@ -43,7 +44,7 @@
 
 # 3.1.1
 
-* Documentation improvements.
+* Fixed: Documentation improvements.
 
 # 3.1.0
 
@@ -53,7 +54,7 @@
 
 # 3.0.3
 
-* Fixed: List of rules within documentation.
+* Fixed: list of rules within documentation.
 
 # 3.0.0-3.0.2
 
@@ -86,7 +87,7 @@
 
 # 2.3.6
 
-* Fixed: Improved documentation of CLI globbing possibilities.
+* Fixed: improved documentation of CLI globbing possibilities.
 * Fixed: `rule-properties-order` now accounts for property names containing multiple hyphens.
 * Fixed: `rule-properties-order` grouping bug.
 
