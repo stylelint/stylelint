@@ -1,4 +1,4 @@
-# 4.0.1
+# Head
 
 - Fixed: bug causing `indentation` to stumble over declarations with semicolons on their own lines.
 
