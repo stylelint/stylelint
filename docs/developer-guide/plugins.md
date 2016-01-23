@@ -17,7 +17,7 @@ var myPluginRule = stylelint.createPlugin(myPluginRuleName, function(expectation
 `stylelint.createPlugin(ruleName, ruleFunction)` ensures that your plugin will be setup properly alongside other rules.
 *Make sure you document your plugin's rule name for users, because they will need to use it in their config.*
 
-In order for your plugin rule to work with the standard configuration format, (e.g. `[2, "tab", { hierarchicalSelectors: true }]`), `ruleFunction` should accept 2 arguments: the expectation keyword (e.g. `"tab"`) and, optionally, an options object (e.g. `{ hierarchicalSelectors: true }`).
+In order for your plugin rule to work with the standard configuration format, (e.g. `["tab", { hierarchicalSelectors: true }]`), `ruleFunction` should accept 2 arguments: the expectation keyword (e.g. `"tab"`) and, optionally, an options object (e.g. `{ hierarchicalSelectors: true }`).
 
 `ruleFunction` should return a function that is essentially a little PostCSS plugin: it takes 2 arguments: the PostCSS Root (the parsed AST), and the PostCSS LazyResult.
 You'll have to [learn about the PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md).
