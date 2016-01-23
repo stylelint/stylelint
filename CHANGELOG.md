@@ -1,3 +1,7 @@
+# 4.0.1
+
+- Fixed: bug causing `indentation` to stumble over declarations with semicolons on their own lines.
+
 # 4.1.0
 
 * Added: helpful option validation message when object is expected but non-object provided.

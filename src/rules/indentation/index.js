@@ -208,15 +208,17 @@ export default function (space, options) {
     function checkMultilineBit(source, newlineIndentLevel, node) {
       if (source.indexOf("\n") === -1) { return }
       styleSearch({ source, target: "\n" }, (match) => {
-        // Starting at the index after the newline, we want to
-        // check that the whitespace characters before the first
-        // non-whitespace character equal the expected indentation
-        const postNewlineActual = /^(\s*)\S/.exec(source.slice(match.startIndex + 1))[1]
-
         // Function arguments are ignored to allow for arbitrary indentation
         if (match.insideFunction) { return }
 
-        if (postNewlineActual !== repeat(indentChar, newlineIndentLevel)) {
+        // Starting at the index after the newline, we want to
+        // check that the whitespace characters before the first
+        // non-whitespace character equal the expected indentation
+        const afterNewlineSpaceMatches = /^(\s*)\S/.exec(source.slice(match.startIndex + 1))
+        if (!afterNewlineSpaceMatches) { return }
+        const afterNewlineSpace = afterNewlineSpaceMatches[1]
+
+        if (afterNewlineSpace !== repeat(indentChar, newlineIndentLevel)) {
           report({
             message: messages.expected(legibleExpectation(newlineIndentLevel)),
             node,
