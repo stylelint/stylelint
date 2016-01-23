@@ -75,6 +75,14 @@ tr.ok(
   color: pink;
 }`)
 
+tr.ok(
+`a {
+  background-position: top left,
+    top right,
+    bottom left
+  ;
+}`)
+
 // Rule start/end errors
 tr.notOk(
 `\ta {
