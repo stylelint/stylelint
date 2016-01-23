@@ -4,7 +4,7 @@ Have a look at the [rules guide](/docs/user-guide/rules.md) to familiarize yours
 
 ## Let everyone know
 
-1. First, open [an issue](https://github.com/stylelint/stylelint/issues/new) with the title "New rule: *rule-name*" and let everyone else know when you intend to start on the new rule.
+1. First, open [an issue](https://github.com/stylelint/stylelint/issues/new) and let everyone else know when you intend to start on the new rule.
 2. Once you have something to show, create a [pull request](https://github.com/stylelint/stylelint/compare).
 
 ## Options
