@@ -58,7 +58,7 @@ a { padding: calc(1 * 2px), calc(2 * 5px); }
 h1 {
   max-height: #{($line-height) * ($lines-to-show)}em;
 }
-```scss
+```
 
 ### `"never"`
 
