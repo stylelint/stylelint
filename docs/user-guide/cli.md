@@ -30,6 +30,12 @@ Using `bar/mySpecialConfig.json` as config, with quiet mode on, to lint all `.cs
 stylelint foo/**/*.css bar/*.css -q -f json --config bar/mySpecialConfig.json > myJsonReport.json
 ```
 
+The linter can parse the SCSS!
+
+```bash
+stylelint foo/**/*.scss --syntax scss
+```
+
 ## Exit codes
 
 The CLI can exit the process with the following exit codes:
