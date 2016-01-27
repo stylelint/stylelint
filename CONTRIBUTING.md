@@ -4,7 +4,7 @@ Any help is welcome and appreciated.
 
 ## Ways to contribute
 
-* Adding [new rules](docs/developer-guide.md). Whether it's one of the [few](https://github.com/stylelint/stylelint/issues?utf8=%E2%9C%93&q=%22New+rule%22+in%3Atitle+is%3Aopen) that we've still to do, or something that you need and we've not thought about.
+* Adding [new rules](docs/developer-guide.md). Whether it's one of the [few](https://github.com/stylelint/stylelint/labels/type%3A%20rule) that we've still to do, or something that you need and we've not thought about.
 * Expanding the [documentation](docs).
 * Working on other [open issues](https://github.com/stylelint/stylelint/issues).
 
