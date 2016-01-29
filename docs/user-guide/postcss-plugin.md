@@ -36,7 +36,7 @@ The difference between the `configOverrides` and `config` options is this: If an
 
 ## Usage examples
 
-We recommend you lint your CSS before applying any transformations. You can do this by either placing stylelint at the beginning of your plugin pipeline or by creating a separate linting process that is independent of your build one.
+We recommend you lint your CSS before applying any transformations. You can do this by either placing stylelint at the beginning of your plugin pipeline, using a plugin like [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) to lint the your files before any transformations, or by creating a separate lint process that is independent of your build one.
 
 You'll also need to use a reporter. _The stylelint plugin registers warnings via PostCSS_. Therefore, you'll want to use it with a PostCSS runner that prints warnings (e.g. [`gulp-postcss`](https://github.com/postcss/gulp-postcss)) or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
 
@@ -56,7 +56,31 @@ gulp.task("lint:css", function () {
 })
 ```
 
+Using the plugin within [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import), as part of the build task:
+
+```js
+var easyImport = require("postcss-easy-import")
+var postcss = require("gulp-postcss")
+var reporter = require("postcss-reporter")
+var stylelint = require("stylelint")
+
+gulp.task("build:css", function () {
+  return gulp.src("src/**/*.css")
+    .pipe(postcss([
+      easyImport({
+        plugins: [
+          stylelint({ /* your options */ })
+        ]
+      })
+      /* other plugins... */
+      reporter({ clearMessages: true })
+    ]))
+})
+```
+
 Using the plugin with [`gulp-postcss`](https://github.com/postcss/gulp-postcss) and [`postcss-scss`](https://github.com/postcss/postcss-scss) to lint SCSS, and as part of the build task:
+
+_Note: the stylelint PostCSS plugin, unlike the stylelint CLI and node API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline._
 
 ```js
 var postcss = require("gulp-postcss")
@@ -68,15 +92,13 @@ gulp.task("build:scss", function () {
   return gulp.src("src/**/*.scss")
     .pipe(postcss([
       stylelint({ /* your options */ }),
-      /* other plugins e.g. postcss-cssnext */
+      /* other plugins... */
       reporter({ clearMessages: true }),
     ], {
       syntax: scss
     }))
 })
 ```
-
-_Note: the stylelint PostCSS plugin, unlike the stylelint CLI and node API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline._
 
 Using the plugin with the PostCSS JS API:
 
