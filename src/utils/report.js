@@ -53,9 +53,9 @@ export default function ({
     }
   }
 
-  const actualSeverity = (result.stylelint.ruleSeverities)
+  const actualSeverity = severity || (result.stylelint.ruleSeverities
     ? result.stylelint.ruleSeverities[ruleName]
-    : "ignore"
+    : "ignore");
 
   if (typeof actualSeverity === "undefined") {
     throw new Error(
