@@ -27,7 +27,7 @@ export default function ({
   node,
   index,
   word,
-  severity
+  severity,
 }) {
   result.stylelint = result.stylelint || {}
 
