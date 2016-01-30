@@ -27,6 +27,7 @@ export default function ({
   node,
   index,
   word,
+  severity,
 }) {
   result.stylelint = result.stylelint || {}
 
@@ -52,11 +53,11 @@ export default function ({
     }
   }
 
-  const severity = (result.stylelint.ruleSeverities)
+  const actualSeverity = severity || (result.stylelint.ruleSeverities
     ? result.stylelint.ruleSeverities[ruleName]
-    : "ignore"
+    : "ignore")
 
-  if (typeof severity === "undefined") {
+  if (typeof actualSeverity === "undefined") {
     throw new Error(
       `The rule name "${ruleName}" has no corresponding registered severity.\n\n` +
       `This is most likely a bug in stylelint: please file an issue with this stack trace ` +
@@ -64,12 +65,12 @@ export default function ({
     )
   }
 
-  if (!result.stylelint.stylelintError && severity === "error") {
+  if (!result.stylelint.stylelintError && actualSeverity === "error") {
     result.stylelint.stylelintError = true
   }
 
   const warningProperties = {
-    severity,
+    severity: actualSeverity,
     rule: ruleName,
   }
   if (node) { warningProperties.node = node }
