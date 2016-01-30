@@ -65,8 +65,9 @@ var reporter = require("postcss-reporter")
 var stylelint = require("stylelint")
 
 gulp.task("build:css", function () {
-  return gulp.src("src/**/*.css")
+  return gulp.src("src/main.css")
     .pipe(postcss([
+      stylelint({ /* your options */ })
       easyImport({
         plugins: [
           stylelint({ /* your options */ })
