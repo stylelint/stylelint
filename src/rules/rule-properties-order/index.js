@@ -18,16 +18,7 @@ export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "alphabetical",
-        _.isString,
-        (group) => {
-          if (!group.properties) { return false }
-          if (group.emptyLineBefore && !_.isBoolean(group.emptyLineBefore)) { return false }
-          if (group.type && !_.includes([ "strict", "flexible" ], group.type)) { return false }
-          return true
-        },
-      ],
+      possible: validatePrimaryOption,
     }, {
       actual: options,
       possible: {
@@ -236,4 +227,33 @@ function checkAlpabeticalOrder(firstPropData, secondPropData) {
   }
 
   return firstPropData.unprefixedName < secondPropData.unprefixedName
+}
+
+function validatePrimaryOption(actualOptions) {
+  if (actualOptions === "alphabetical") { return true }
+
+  if (!Array.isArray(actualOptions)) { return false }
+
+  // Every item in the array must be a string or an object
+  // with a "properties" property
+  if (actualOptions.every(item => {
+    if (_.isString(item)) { return true }
+    return _.isPlainObject(item) && !_.isUndefined(item.properties)
+  })) { return true }
+
+  const objectItems = actualOptions.filter(_.isPlainObject)
+
+  // Every object-item's "emptyLineBefore" property must be a boolean
+  if (objectItems.every(item => {
+    if (_.isUndefined(item.emptyLineBefore)) { return true }
+    return _.isBoolean(item.emptyLineBefore)
+  })) { return true }
+
+  // Every object-item's "type" property must be "strict" or "flexible"
+  if (objectItems.every(item => {
+    if (_.isUndefined(item.type)) { return true }
+    return _.includes([ "string", "flexible" ], item.type)
+  })) { return true }
+
+  return false
 }

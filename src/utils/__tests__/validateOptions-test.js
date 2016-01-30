@@ -194,17 +194,77 @@ test("validateOptions for multiple actual/possible pairs, checking return value"
   t.notOk(result.warn.called)
   result.warn.reset()
 
-  const validOptions2 = validateOptions(result, "foo", {
+  const invalidOptions = validateOptions(result, "foo", {
     possible: [ "one", "two" ],
     actual: "onne",
   }, {
     possible: [ "three", "four" ],
     actual: "threee",
   })
-  t.equal(validOptions2, false)
+  t.equal(invalidOptions, false)
   t.ok(result.warn.calledTwice)
   t.ok(result.warn.calledWith("Invalid option value \"onne\" for rule \"foo\""))
   t.ok(result.warn.calledWith("Invalid option value \"threee\" for rule \"foo\""))
+  result.warn.reset()
+
+  t.end()
+})
+
+test("validateOptions with a function for 'possible'", t => {
+  const result = mockResult()
+  const schema = x => {
+    if (x === "bar") { return true }
+    if (!Array.isArray(x)) { return false }
+    if (x.every(item => typeof item === "string" || !!item.properties)) { return true }
+    return false
+  }
+
+  const validExplicitlyNamedString = validateOptions(result, "foo", {
+    possible: schema,
+    actual: "bar",
+  })
+  t.equal(validExplicitlyNamedString, true, "explicitly named string passes")
+  t.notOk(result.warn.called)
+  result.warn.reset()
+
+  const validArrayOfStrings = validateOptions(result, "foo", {
+    possible: schema,
+    actual: [ "one", "two", "three" ],
+  })
+  t.equal(validArrayOfStrings, true, "array of strings passes")
+  t.notOk(result.warn.called)
+  result.warn.reset()
+
+  const validArrayOfObjects = validateOptions(result, "foo", {
+    possible: schema,
+    actual: [
+      { properties: ["one"] },
+      { properties: [ "two", "three" ] },
+    ],
+  })
+  t.equal(validArrayOfObjects, true, "array of objects passes")
+  t.notOk(result.warn.called)
+  result.warn.reset()
+
+  const validArrayOfObjectsAndStrings = validateOptions(result, "foo", {
+    possible: schema,
+    actual: [
+      { properties: ["one"] },
+      { properties: [ "two", "three" ] },
+      "four",
+    ],
+  })
+  t.equal(validArrayOfObjectsAndStrings, true, "array of mixed objects and strings passes")
+  t.notOk(result.warn.called)
+  result.warn.reset()
+
+  const invalidObject = validateOptions(result, "foo", {
+    possible: schema,
+    actual: { properties: ["one"] },
+  })
+  t.equal(invalidObject, false, "invalid object fails")
+  t.ok(result.warn.calledOnce)
+  t.equal(result.warn.args[0][0], "Invalid option \"{\"properties\":[\"one\"]}\" for rule foo")
   result.warn.reset()
 
   t.end()

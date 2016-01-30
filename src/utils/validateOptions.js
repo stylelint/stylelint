@@ -1,4 +1,4 @@
-import { isPlainObject } from "lodash"
+import { isPlainObject, isFunction } from "lodash"
 
 /**
  * Validate a rule's options.
@@ -38,6 +38,14 @@ export default function (result, ruleName, ...optionDescriptions) {
       return
     } else if (nothingPossible) {
       complain(`Unexpected option value "${actual}" for rule "${ruleName}"`)
+      return
+    }
+
+    // If `possible` is a function ...
+    if (isFunction(possible)) {
+      if (!possible(actual)) {
+        complain(`Invalid option "${JSON.stringify(actual)}" for rule ${ruleName}`)
+      }
       return
     }
 
