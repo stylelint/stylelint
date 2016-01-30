@@ -23,7 +23,8 @@ testRule([
   tr.ok("a { -webkit-font-smoothing: antialiased; top: 0; color: pink; }")
   tr.ok("a { top: 0; color: pink; width: 0; }")
   tr.ok("a { top: 0; color: pink; width: 0; height: 0; }")
-
+  tr.ok("a { @media (min-width: 10px) { color: pink; } top: 0; }",
+    "media query nested in rule has its own ordering")
   tr.notOk("a { color: pink; top: 0;  }",
     messages.expected("top", "color"))
   tr.notOk("a { top: 0; transform: scale(1); color: pink; }",
@@ -56,6 +57,9 @@ testRule([
   tr.ok("a { top: 0; color: pink; width: 0; height: 0; display: none; }")
   tr.ok("a { top: 0; color: pink; display: none; width: 0; height: 0; }")
   tr.ok("a { display: none; top: 0; color: pink; width: 0; height: 0; }")
+
+  tr.notOk("a { @media (min-width: 10px) { color: pink; top: 0; } transform: scale(1); }", messages.expected("top", "color"),
+    "media query nested in rule can violates its own ordering")
 })
 
 // Longhand properties with specified order

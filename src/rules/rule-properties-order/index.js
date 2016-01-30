@@ -32,8 +32,6 @@ export default function (expectation, options) {
     const expectedOrder = (alphabetical) ? null : createExpectedOrder(expectation)
     // By default, ignore unspecified properties
     const unspecified = _.get(options, ["unspecified"], "ignore")
-    let allPropData = []
-    let lastKnownLineSeparatedGroup = 1
 
     // Shallow loop
     root.each(node => {
@@ -43,10 +41,13 @@ export default function (expectation, options) {
     })
 
     function checkNode(node) {
-      allPropData = []
-      lastKnownLineSeparatedGroup = 1
+      const allPropData = []
+      let lastKnownLineSeparatedGroup = 1
 
       node.each(child => {
+        // If the child has nested nodes with child
+        // (e.g. a rule nested within a rule), make
+        // sure to check the children
         if (child.nodes && child.nodes.length) {
           checkNode(child)
         }
@@ -91,70 +92,70 @@ export default function (expectation, options) {
           ruleName,
         })
       })
-    }
 
-    function checkOrder(firstPropData, secondPropData) {
-      // If the unprefixed property names are the same, resort to alphabetical ordering
-      if (firstPropData.unprefixedName === secondPropData.unprefixedName) {
-        return firstPropData.name <= secondPropData.name
-      }
-
-      const firstPropIsUnspecified = !firstPropData.orderData
-      const secondPropIsUnspecified = !secondPropData.orderData
-
-      // Now check newlines between ...
-      const firstPropLineSeparatedGroup = (!firstPropIsUnspecified)
-        ? firstPropData.orderData.lineSeparatedGroup
-        : lastKnownLineSeparatedGroup
-      const secondPropLineSeparatedGroup = (!secondPropIsUnspecified)
-        ? secondPropData.orderData.lineSeparatedGroup
-        : lastKnownLineSeparatedGroup
-      if (firstPropLineSeparatedGroup !== secondPropLineSeparatedGroup) {
-        if (!hasEmptyLineBefore(secondPropData.node)) {
-          report({
-            message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),
-            node: secondPropData.node,
-            result,
-            ruleName,
-          })
+      function checkOrder(firstPropData, secondPropData) {
+        // If the unprefixed property names are the same, resort to alphabetical ordering
+        if (firstPropData.unprefixedName === secondPropData.unprefixedName) {
+          return firstPropData.name <= secondPropData.name
         }
-      }
-      lastKnownLineSeparatedGroup = secondPropLineSeparatedGroup
 
-      // Now check actual known properties ...
-      if (!firstPropIsUnspecified && !secondPropIsUnspecified) {
-        return firstPropData.orderData.expectedPosition <= secondPropData.orderData.expectedPosition
-      }
+        const firstPropIsUnspecified = !firstPropData.orderData
+        const secondPropIsUnspecified = !secondPropData.orderData
 
-      if (firstPropIsUnspecified && !secondPropIsUnspecified) {
-        // If first prop is unspecified, look for a specified prop before it to
-        // compare to the current prop
-        const priorSpecifiedPropData = _.findLast(allPropData.slice(0, -1), d => !!d.orderData)
-        if (
-          priorSpecifiedPropData && priorSpecifiedPropData.orderData
-          && priorSpecifiedPropData.orderData.expectedPosition > secondPropData.orderData.expectedPosition
-        ) {
-          report({
-            message: messages.expected(secondPropData.name, priorSpecifiedPropData.name),
-            node: secondPropData.node,
-            result,
-            ruleName,
-          })
-          return true // avoid logging another warning
+        // Now check newlines between ...
+        const firstPropLineSeparatedGroup = (!firstPropIsUnspecified)
+          ? firstPropData.orderData.lineSeparatedGroup
+          : lastKnownLineSeparatedGroup
+        const secondPropLineSeparatedGroup = (!secondPropIsUnspecified)
+          ? secondPropData.orderData.lineSeparatedGroup
+          : lastKnownLineSeparatedGroup
+        if (firstPropLineSeparatedGroup !== secondPropLineSeparatedGroup) {
+          if (!hasEmptyLineBefore(secondPropData.node)) {
+            report({
+              message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),
+              node: secondPropData.node,
+              result,
+              ruleName,
+            })
+          }
         }
+        lastKnownLineSeparatedGroup = secondPropLineSeparatedGroup
+
+        // Now check actual known properties ...
+        if (!firstPropIsUnspecified && !secondPropIsUnspecified) {
+          return firstPropData.orderData.expectedPosition <= secondPropData.orderData.expectedPosition
+        }
+
+        if (firstPropIsUnspecified && !secondPropIsUnspecified) {
+          // If first prop is unspecified, look for a specified prop before it to
+          // compare to the current prop
+          const priorSpecifiedPropData = _.findLast(allPropData.slice(0, -1), d => !!d.orderData)
+          if (
+            priorSpecifiedPropData && priorSpecifiedPropData.orderData
+            && priorSpecifiedPropData.orderData.expectedPosition > secondPropData.orderData.expectedPosition
+          ) {
+            report({
+              message: messages.expected(secondPropData.name, priorSpecifiedPropData.name),
+              node: secondPropData.node,
+              result,
+              ruleName,
+            })
+            return true // avoid logging another warning
+          }
+        }
+
+        // Now deal with unspecified props ...
+
+        if (firstPropIsUnspecified && secondPropIsUnspecified) { return true }
+
+        if (unspecified === "ignore" && (firstPropIsUnspecified || secondPropIsUnspecified)) { return  true }
+
+        if (unspecified === "top" && firstPropIsUnspecified) { return true }
+        if (unspecified === "top" && secondPropIsUnspecified) { return false }
+
+        if (unspecified === "bottom" && secondPropIsUnspecified) { return true }
+        if (unspecified === "bottom" && firstPropIsUnspecified) { return false }
       }
-
-      // Now deal with unspecified props ...
-
-      if (firstPropIsUnspecified && secondPropIsUnspecified) { return true }
-
-      if (unspecified === "ignore" && (firstPropIsUnspecified || secondPropIsUnspecified)) { return  true }
-
-      if (unspecified === "top" && firstPropIsUnspecified) { return true }
-      if (unspecified === "top" && secondPropIsUnspecified) { return false }
-
-      if (unspecified === "bottom" && secondPropIsUnspecified) { return true }
-      if (unspecified === "bottom" && firstPropIsUnspecified) { return false }
     }
   }
 }
