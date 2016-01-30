@@ -1,11 +1,12 @@
 import postcss from "postcss"
 import multimatch from "multimatch"
-import { get, isPlainObject } from "lodash"
+import { get } from "lodash"
 import path from "path"
 import { configurationError } from "./utils"
 import ruleDefinitions from "./rules"
 import disableRanges from "./disableRanges"
 import buildConfig from "./buildConfig"
+import normalizeRuleSettings from "./normalizeRuleSettings"
 
 export default postcss.plugin("stylelint", (options = {}) => {
   return (root, result) => {
@@ -57,54 +58,20 @@ export default postcss.plugin("stylelint", (options = {}) => {
           throw configurationError(`Undefined rule "${ruleName}"`)
         }
 
-        const rawSettings = config.rules[ruleName]
-        const normalizedSettings = normalizeSettings(rawSettings, ruleName)
+        const rawRuleSettings = config.rules[ruleName]
+        const ruleSettings = normalizeRuleSettings(rawRuleSettings, ruleName)
 
         // Ignore the rule
-        if (normalizedSettings[0] === null) { return }
+        if (ruleSettings[0] === null) { return }
 
-        const ruleSeverity = get(normalizedSettings, "[1].warn") ? "warning" : "error"
+        const ruleSeverity = get(ruleSettings, "[1].warn") ? "warning" : "error"
 
         // Log the rule's severity in the PostCSS result
         result.stylelint.ruleSeverities[ruleName] = ruleSeverity
 
         // Run the rule with the primary and secondary options
-        ruleDefinitions[ruleName](normalizedSettings[0], normalizedSettings[1])(root, result)
+        ruleDefinitions[ruleName](ruleSettings[0], ruleSettings[1])(root, result)
       })
     })
   }
 })
-
-// These are rules that accept an array as the primary option
-const rulesWithPrimaryOptionArray = new Set([
-  "rule-properties-order",
-  "function-whitelist",
-  "function-blacklist",
-  "property-whitelist",
-  "property-blacklist",
-  "property-unit-whitelist",
-  "property-unit-blacklist",
-  "unit-whitelist",
-  "unit-blacklist",
-])
-
-function normalizeSettings(rawSettings, ruleName) {
-  // Settings can be
-  // a. A solitary primitive value or object, in which case put it in an array
-  // b. An array with a primary option and a secondary options object, in which case use that array
-  // c. A solitary array ... in which case we have trouble and need to special-case it
-  //    ... hence the list above
-
-  if (
-    rulesWithPrimaryOptionArray.has(ruleName)
-    && rawSettings !== null
-    && rawSettings.length === 2
-    && Array.isArray(rawSettings[0])
-    && isPlainObject(rawSettings[1])
-  ) {
-    return rawSettings
-  }
-
-  if (Array.isArray(rawSettings)) { return rawSettings }
-  return [rawSettings]
-}
