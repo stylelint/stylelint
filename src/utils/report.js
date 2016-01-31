@@ -1,3 +1,5 @@
+import { get } from "lodash"
+
 /**
  * Report a violation.
  *
@@ -52,9 +54,7 @@ export default function ({
     }
   }
 
-  const severity = (result.stylelint.ruleSeverities)
-    ? result.stylelint.ruleSeverities[ruleName]
-    : "ignore"
+  const severity = get(result.stylelint, [ "ruleSeverities", ruleName ], "ignore")
 
   if (typeof severity === "undefined") {
     throw new Error(
@@ -76,5 +76,6 @@ export default function ({
   if (index) { warningProperties.index = index }
   if (word) { warningProperties.word = word }
 
-  result.warn(message, warningProperties)
+  const warningMessage = get(result.stylelint, [ "customMessages", ruleName ], message)
+  result.warn(warningMessage, warningProperties)
 }

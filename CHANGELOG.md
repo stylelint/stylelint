@@ -1,5 +1,6 @@
 # Head
 
+- Added: support for custom messages with a `message` secondary property on any rule.
 - Fixed: CLI always ignores contents of `node_modules` and `bower_components` directories.
 - Fixed: bug preventing CLI from understanding absolute paths in `--config` argument.
 - Fixed: bug causing `indentation` to stumble over declarations with semicolons on their own lines.

@@ -78,6 +78,28 @@ Different reporters may use these severity levels in different way, e.g. display
 
 As of v4, the legacy numbered severities system is no longer supported. Please upgrade your config to use the syntax documented here.
 
+#### Custom Messages
+
+If you want to deliver a custom message when a rule is violated, you can do so in two ways:
+provide a `message` option for the rule, or write a custom formatter.
+
+All rules accept a `message` secondary option that, if provided, will be substituted
+for whatever standard message would be provided. For example, the following rule
+configuration would substitute in a couple of custom message:
+
+```json
+"color-hex-case": [ "lower", {
+  "message": "Lowercase letters are easier to distinguish from numbers"
+} ],
+"indentation": [ 2, {
+  "warn": true,
+  "except": ["param"],
+  "message": "Please use 2 spaces for indentation. Tabs make The Architect grumpy."
+} ]
+```
+
+Writing a [custom formatter](/docs/developer-guide/formatters.md) gives you maximum control if you need serious customization.
+
 ### `extends`
 
 Your configuration can *extend* an existing configuration (whether your own or a third-party config).

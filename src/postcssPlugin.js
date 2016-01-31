@@ -16,6 +16,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
     // configuration and data across sub-plugins via the PostCSS Result
     result.stylelint = result.stylelint || {}
     result.stylelint.ruleSeverities = {}
+    result.stylelint.customMessages = {}
 
     return configPromise.then(({ config, configDir }) => {
       if (!config) {
@@ -60,17 +61,20 @@ export default postcss.plugin("stylelint", (options = {}) => {
 
         const rawRuleSettings = config.rules[ruleName]
         const ruleSettings = normalizeRuleSettings(rawRuleSettings, ruleName)
+        const primaryOption = ruleSettings[0]
+        const secondaryOptions = ruleSettings[1]
 
         // Ignore the rule
-        if (ruleSettings[0] === null) { return }
+        if (primaryOption === null) { return }
 
-        const ruleSeverity = get(ruleSettings, "[1].warn") ? "warning" : "error"
+        const ruleSeverity = (secondaryOptions && secondaryOptions.warn) ? "warning" : "error"
 
         // Log the rule's severity in the PostCSS result
         result.stylelint.ruleSeverities[ruleName] = ruleSeverity
+        result.stylelint.customMessages[ruleName] = secondaryOptions && secondaryOptions.message
 
         // Run the rule with the primary and secondary options
-        ruleDefinitions[ruleName](ruleSettings[0], ruleSettings[1])(root, result)
+        ruleDefinitions[ruleName](primaryOption, secondaryOptions)(root, result)
       })
     })
   }

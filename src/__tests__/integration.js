@@ -5,7 +5,10 @@ import stylelint from "../"
 const config = {
   rules: {
     "block-opening-brace-newline-after": "always",
-    "color-no-invalid-hex": [ true, { "warn": true } ],
+    "color-no-invalid-hex": [ true, {
+      warn: true,
+      message: "You made a mistake",
+    } ],
     "function-blacklist": ["calc"],
     "rule-properties-order": [ [ "margin", "padding" ], { unspecified: "top" } ],
     "function-whitelist": null,
@@ -46,9 +49,9 @@ test("expected warnings", t => {
     t.ok(messages.every(m => m.plugin === "stylelint"))
     t.equal(messages[0].text, "Expected newline after \"{\" (block-opening-brace-newline-after)")
     t.equal(messages[0].severity, "error")
-    t.equal(messages[1].text, "Unexpected invalid hex color \"#zzz\" (color-no-invalid-hex)")
+    t.equal(messages[1].text, "You made a mistake")
     t.equal(messages[1].severity, "warning")
-    t.equal(messages[2].text, "Unexpected invalid hex color \"#mmm\" (color-no-invalid-hex)")
+    t.equal(messages[2].text, "You made a mistake")
     t.equal(messages[2].severity, "warning")
   }
 })
