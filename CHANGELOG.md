@@ -1,5 +1,6 @@
 # Head
 
+- Fixed: bug preventing CLI from understanding absolute paths in `--config` argument.
 - Fixed: bug causing `indentation` to stumble over declarations with semicolons on their own lines.
 
 # 4.1.0

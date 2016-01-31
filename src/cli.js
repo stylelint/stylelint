@@ -72,7 +72,9 @@ if (cli.flags.syntax && includes(syntaxOptions, cli.flags.syntax)) {
 }
 
 if (cli.flags.config) {
-  optionsBase.configFile = path.join(process.cwd(), cli.flags.config)
+  optionsBase.configFile = (path.isAbsolute(cli.flags.config))
+    ? cli.flags.config
+    : path.join(process.cwd(), cli.flags.config)
 }
 
 Promise.resolve().then(() => {
