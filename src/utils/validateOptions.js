@@ -1,5 +1,10 @@
 import { isPlainObject, isFunction } from "lodash"
 
+const ignoredOptions = [
+  "warn",
+  "message",
+]
+
 /**
  * Validate a rule's options.
  *
@@ -68,7 +73,7 @@ export default function (result, ruleName, ...optionDescriptions) {
     }
 
     Object.keys(actual).forEach(optionName => {
-      if (optionName === "warn") { return }
+      if (ignoredOptions.indexOf(optionName) !== -1) { return }
 
       if (!possible[optionName]) {
         complain(`Invalid option name "${optionName}" for rule "${ruleName}"`)
