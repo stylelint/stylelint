@@ -17,6 +17,8 @@ Though both `files` and `css` are "optional," you *must* have one and *cannot* h
 
 A file glob, or array of file globs. Ultimately passed to [node-glob](https://github.com/isaacs/node-glob) to figure out what files you want to lint.
 
+`node_modules` and `bower_components` are always ignored.
+
 ### `code`
 
 A CSS string to be linted.

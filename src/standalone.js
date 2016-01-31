@@ -6,6 +6,11 @@ import scssSyntax from "postcss-scss"
 import stylelintPostcssPlugin from "./postcssPlugin"
 import * as formatters from "./formatters"
 
+const ignoredGlobs = [
+  "!**/node_modules/**",
+  "!**/bower_components/**",
+]
+
 export default function ({
   files,
   code,
@@ -38,7 +43,7 @@ export default function ({
     })
   }
 
-  return globby(files).then(input => {
+  return globby([].concat(files, ignoredGlobs)).then(input => {
     if (!input.length) {
       const err = new Error("Files glob patterns specified did not match any files")
       err.code = 80
