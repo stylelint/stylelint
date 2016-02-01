@@ -1,4 +1,4 @@
-# Head
+# 4.2.0
 
 - Added: support for custom messages with a `message` secondary property on any rule.
 - Fixed: CLI always ignores contents of `node_modules` and `bower_components` directories.
