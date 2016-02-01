@@ -308,3 +308,16 @@ test("standalone extending a config that is overridden", t => {
     })
   t.plan(1)
 })
+
+test("standalone loading YAML with custom message", t => {
+  standalone({
+    code: "a { color: pink; }",
+    configFile: path.join(__dirname, "fixtures/config-color-no-named-custom-message.yaml"),
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)[0]
+    t.equal(parsedOutput.warnings.length, 1)
+    t.equal(parsedOutput.warnings[0].text, "Unacceptable")
+  })
+
+  t.plan(2)
+})
