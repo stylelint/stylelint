@@ -4,7 +4,7 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "no-double-slash-css-comments"
+export const ruleName = "no-invalid-double-slash-comments"
 
 export const messages = ruleMessages(ruleName, {
   rejected: `Unexpected double-slash CSS comment`,
