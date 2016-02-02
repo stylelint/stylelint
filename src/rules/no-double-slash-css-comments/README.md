@@ -1,6 +1,6 @@
 # no-double-slash-css-comments
 
-Disallow double-slash comments (`//...`) which are not supported by CSS and could lead to unexpected results.
+Disallow double-slash comments (`//...`) which are not supported by CSS and could lead to unexpected results. See more at http://stackoverflow.com/a/20192639/130652
 
 ```css
     a { // color: pink; }···
