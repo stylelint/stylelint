@@ -42,5 +42,15 @@ testRule(undefined, tr => {
     },
     "between rules"
   )
+
+  tr.notOk(
+    "// @media { }",
+    {
+      message: messages.rejected,
+      line: 1,
+      column: 19,
+    },
+    "before media rule"
+  )
 })
 
