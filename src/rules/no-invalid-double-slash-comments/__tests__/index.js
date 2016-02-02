@@ -4,6 +4,8 @@ import {
 } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
+import scssSyntax from "postcss-scss"
+
 const testRule = ruleTester(rule, ruleName)
 
 testRule(undefined, tr => {
@@ -54,3 +56,16 @@ testRule(undefined, tr => {
   )
 })
 
+const testRuleScss = ruleTester(rule, ruleName, {
+  postcssOptions: {
+    syntax: scssSyntax,
+  },
+})
+
+testRuleScss(undefined, tr => {
+  tr.ok("// a { color: pink }", "single-line comment ignored")
+})
+
+testRuleScss(undefined, tr => {
+  tr.ok("a { \n// color: pink;\n }", "single-line comment ignored")
+})
