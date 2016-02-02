@@ -16,7 +16,7 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      if (decl.prop.indexOf('//') === 0) {
+      if (decl.prop.indexOf("//") === 0) {
         report({
           message: messages.rejected,
           node: decl,
@@ -27,7 +27,7 @@ export default function (actual) {
     })
     root.walkRules(rule => {
       rule.selectors.forEach(selector => {
-        if (selector.indexOf('//') === 0) {
+        if (selector.indexOf("//") === 0) {
           report({
             message: messages.rejected,
             node: rule,
