@@ -67,6 +67,15 @@ testRule("always", { ignore: ["stylelint-commands"] }, tr => {
   )
 })
 
+testRule("always", { ignore: ["between-comments"] }, tr => {
+  tr.ok(
+    "/* a */\n/* b */\n/* c */\nbody {\n}",
+    "no newline between comments"
+  )
+  tr.ok("a { color: pink;\n\n/** comment */\n/** comment */\ntop: 0; }", "no newline between comments")
+  tr.notOk("a { color: pink;\n/** comment */\n/** comment */\ntop: 0; }", messages.expected)
+})
+
 testRule("never", tr => {
   warningFreeBasics(tr)
 

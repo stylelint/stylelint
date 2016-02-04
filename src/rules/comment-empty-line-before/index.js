@@ -27,7 +27,10 @@ export default function (expectation, options) {
       actual: options,
       possible: {
         except: ["first-nested"],
-        ignore: ["stylelint-commands"],
+        ignore: [
+          "stylelint-commands",
+          "between-comments",
+        ],
       },
       optional: true,
     })
@@ -42,6 +45,13 @@ export default function (expectation, options) {
       if (
         comment.text.indexOf(stylelintCommandPrefix) === 0
         && optionsHaveIgnored(options, "stylelint-commands")
+      ) { return }
+
+      // Optionally ignore newlines between comments
+      const prev = comment.prev()
+      if (
+        prev && prev.type === "comment"
+        && optionsHaveIgnored(options, "between-comments")
       ) { return }
 
       if (comment.raws.inline) { return }
