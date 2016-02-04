@@ -184,7 +184,7 @@ Ignore at-rules that are nested.
 
 For example, with `"always"`:
 
-The following patterns are considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 a {
