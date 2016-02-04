@@ -10,7 +10,7 @@ Specify a whitelist of only allowed functions.
 
 ## Options
 
-`array`: `"["array", "of", "unprefixed", "functions"]`
+`array`: `["array", "of", "unprefixed", "functions"]`
 
 ### `["array", "of", "unprefixed", functions"]`
 
