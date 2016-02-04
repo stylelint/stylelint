@@ -123,17 +123,6 @@ Don't require an empty line between comments.
 
 For example, with `"always"`:
 
-The following patterns are considered warnings:
-
-```css
-a {
-  background: pink;
-  /* comment */
-  /* comment */
-  color: #eee;
-}
-```
-
 The following patterns are *not* considered warnings:
 
 ```css
@@ -141,6 +130,17 @@ a {
   background: pink;
 
   /* comment */
+  /* comment */
+  color: #eee;
+}
+```
+
+```css
+a {
+  background: pink;
+
+  /* comment */
+
   /* comment */
   color: #eee;
 }
