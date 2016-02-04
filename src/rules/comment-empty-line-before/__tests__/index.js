@@ -7,7 +7,7 @@ import scssSyntax from "postcss-scss"
 
 const testRule = ruleTester(rule, ruleName)
 
-function alwaysTestsCommon(tr) {
+function alwaysTests(tr) {
   warningFreeBasics(tr)
 
   tr.ok("/** comment */", "first node ignored")
@@ -17,14 +17,10 @@ function alwaysTestsCommon(tr) {
   tr.ok("a {}\r\n\r\n/** comment */", "CRLF")
   tr.ok("a { color: pink;\n\n/** comment */\ntop: 0; }")
 
-  tr.notOk("a { color: pink;\n/** comment */\ntop: 0; }", messages.expected)
-  tr.notOk("a { color: pink;\r\n/** comment */\r\ntop: 0; }", messages.expected, "CRLF")
-}
-
-function alwaysTests(tr) {
-  alwaysTestsCommon(tr)
   tr.notOk("/** comment */\n/** comment */", messages.expected)
   tr.notOk("/** comment */\r\n/** comment */", messages.expected, "CRLF")
+  tr.notOk("a { color: pink;\n/** comment */\ntop: 0; }", messages.expected)
+  tr.notOk("a { color: pink;\r\n/** comment */\r\ntop: 0; }", messages.expected, "CRLF")
 }
 
 testRule("always", tr => {
@@ -72,7 +68,6 @@ testRule("always", { ignore: ["stylelint-commands"] }, tr => {
 })
 
 testRule("always", { ignore: ["between-comments"] }, tr => {
-  alwaysTestsCommon(tr)
   tr.ok(
     "/* a */\n/* b */\n/* c */\nbody {\n}",
     "no newline between comments"
