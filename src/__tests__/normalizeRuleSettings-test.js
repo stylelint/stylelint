@@ -34,7 +34,7 @@ test("rules whose primary option IS NOT an array", t => {
   t.end()
 })
 
-test("rules whose primary option IS an array", t => {
+test("rules whose primary option CAN BE an array", t => {
   t.deepEqual(
     normalizeRuleSettings([ "calc", "rgba" ], "function-whitelist"),
     [[ "calc", "rgba" ]],
@@ -44,6 +44,11 @@ test("rules whose primary option IS an array", t => {
     normalizeRuleSettings([ [ "calc", "rgba" ], { warn: true } ], "function-whitelist"),
     [ [ "calc", "rgba" ], { warn: true } ],
     "nested primary option array returns same"
+  )
+  t.deepEqual(
+    normalizeRuleSettings([ "alphabetical", { warn: true } ], "rule-properties-order"),
+    [ "alphabetical", { warn: true } ],
+    "string as first primary option returns same"
   )
   t.end()
 })

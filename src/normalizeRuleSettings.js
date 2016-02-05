@@ -24,11 +24,12 @@ export default function (rawSettings, ruleName) {
   // Everything below is an array ...
 
   if (!rulesWithPrimaryOptionArray.has(ruleName)) { return rawSettings }
-  // Everything below is a rule that has an array for a primary option ...
+  // Everything below is a rule that CAN have an array for a primary option ...
+  // (they might also have something else, e.g. rule-properties-order can
+  // have the string "alphabetical")
 
   if (
     rawSettings.length === 2
-    && Array.isArray(rawSettings[0])
     && isPlainObject(rawSettings[1])
   ) { return rawSettings }
 

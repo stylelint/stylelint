@@ -1,3 +1,8 @@
+# Head
+
+- Fixed: option parsing bug that caused problems when using the `"alphabetical"` primary option
+  with `rule-properties-order`.
+
 # 4.2.0
 
 - Added: support for custom messages with a `message` secondary property on any rule.
