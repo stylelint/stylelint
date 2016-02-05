@@ -28,7 +28,7 @@ export default function (expectation, options) {
     })
     if (!validOptions) { return }
 
-    const alphabetical = expectation === "alphabetical"
+    const alphabetical = expectation === "alphabetical" || expectation[0] === "alphabetical"
     const expectedOrder = (alphabetical) ? null : createExpectedOrder(expectation)
     // By default, ignore unspecified properties
     const unspecified = _.get(options, ["unspecified"], "ignore")
