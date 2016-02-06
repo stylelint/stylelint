@@ -64,6 +64,7 @@ testRule([
 
   tr.ok("a {\r\n  height: 1px;\r\n  width: 2px;\r\n\r\n  font-size: 2px;\r\n  font-weight: bold;\r\n}")
   tr.ok("a {\r\n  height: 1px;\r\n\r\n  font-weight: bold;\r\n}")
+  tr.ok("a {\r\n  height: 1px;\r\n  \r\n  font-weight: bold;\r\n}")
 
   tr.notOk(
     "a {\r\n  height: 1px;\r\n  width: 2px;\r\n  font-size: 2px;\r\n  font-weight: bold;\r\n}",
