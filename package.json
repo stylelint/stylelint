@@ -53,6 +53,7 @@
     "eslint": "^1.4.1",
     "eslint-config-stylelint": "^0.1.0",
     "npmpub": "^3.0.1",
+    "postcss-import": "^8.0.2",
     "sinon": "^1.16.1",
     "stylelint-rule-tester": "^0.6.2",
     "tape": "^4.2.0"
