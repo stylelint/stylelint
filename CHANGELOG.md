@@ -2,6 +2,7 @@
 
 - Added: `font-weight-notation` rule.
 - Added: `no-duplicate-selectors` rule.
+- Added: `no-unknown-animations` rule.
 - Fixed: bug in `rule-properties-order` empty line detection when the two newlines were separated
   by some other whitespace.
 - Fixed: option parsing bug that caused problems when using the `"alphabetical"` primary option
