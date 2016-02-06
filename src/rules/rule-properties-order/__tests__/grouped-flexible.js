@@ -120,7 +120,7 @@ testRule([
     {
       message: messages.expectedEmptyLineBetween("font-weight", "height"),
       line: 4,
-      column: 2,
+      column: 3,
     }
   )
 })

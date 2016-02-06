@@ -83,7 +83,7 @@ testRule("20", { ignore: "non-comments" }, tr => {
   tr.notOk("a {}\n  /* comment that is too long */\nb {}", {
     message: messages.expected(20),
     line: 2,
-    column: 30,
+    column: 32,
   })
   tr.notOk("/* this comment is too long for the max length */", {
     message: messages.expected(20),

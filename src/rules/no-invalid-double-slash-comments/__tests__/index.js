@@ -20,7 +20,7 @@ testRule(undefined, tr => {
     {
       message: messages.rejected,
       line: 1,
-      column: 8,
+      column: 5,
     },
     "before declaration"
   )
@@ -30,7 +30,7 @@ testRule(undefined, tr => {
     {
       message: messages.rejected,
       line: 1,
-      column: 19,
+      column: 1,
     },
     "before rule"
   )
@@ -40,7 +40,7 @@ testRule(undefined, tr => {
     {
       message: messages.rejected,
       line: 1,
-      column: 19,
+      column: 1,
     },
     "between rules"
   )
@@ -50,7 +50,7 @@ testRule(undefined, tr => {
     {
       message: messages.rejected,
       line: 1,
-      column: 19,
+      column: 1,
     },
     "before media rule"
   )
