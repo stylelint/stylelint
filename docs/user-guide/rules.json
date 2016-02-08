@@ -94,6 +94,7 @@
     "selector-pseudo-element-colon-notation": true,
     "selector-root-no-composition": true,
     "string-quotes": true,
+    "time-no-imperceptible": true,
     "unit-blacklist": string|[],
     "unit-whitelist": string|[],
     "value-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
