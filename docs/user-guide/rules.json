@@ -33,6 +33,7 @@
     "declaration-colon-space-after": "always"|"never"|"always-single-line",
     "declaration-colon-space-before": "always"|"never",
     "declaration-no-important": true,
+    "font-weight-notation": "numeric"|"named",
     "function-blacklist": string|[],
     "function-calc-no-unspaced-operator": true,
     "function-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",

@@ -18,6 +18,10 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`color-no-invalid-hex`](../../src/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
 * [`color-no-named`](../../src/rules/color-no-named/README.md): Disallow named colors.
 
+### Font weight
+
+* [`font-weight-notation`](../../src/rules/font-weight-notation/README.md): Require consistent numeric or named `font-weight` values.
+
 ### Number
 
 * [`number-leading-zero`](../../src/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
@@ -40,6 +44,11 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`function-whitelist`](../../src/rules/function-whitelist/README.md): Specify a whitelist of only allowed functions.
 * [`function-whitespace-after`](../../src/rules/function-whitespace-after/README.md): Require a single space or disallow whitespace after functions.
 
+### Unit
+
+* [`unit-blacklist`](../../src/rules/unit-blacklist/README.md): Specify a blacklist of disallowed units.
+* [`unit-whitelist`](../../src/rules/unit-whitelist/README.md): Specify a whitelist of allowed units.
+
 ### Value
 
 * [`value-no-vendor-prefix`](../../src/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values.
@@ -50,11 +59,6 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`value-list-comma-newline-before`](../../src/rules/value-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of value lists.
 * [`value-list-comma-space-after`](../../src/rules/value-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of value lists.
 * [`value-list-comma-space-before`](../../src/rules/value-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of value lists.
-
-### Unit
-
-* [`unit-blacklist`](../../src/rules/unit-blacklist/README.md): Specify a blacklist of disallowed units.
-* [`unit-whitelist`](../../src/rules/unit-whitelist/README.md): Specify a whitelist of allowed units.
 
 ### Property
 
@@ -99,6 +103,10 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`block-opening-brace-space-after`](../../src/rules/block-opening-brace-space-after/README.md): Require a single space or disallow whitespace after the opening brace of blocks.
 * [`block-opening-brace-space-before`](../../src/rules/block-opening-brace-space-before/README.md): Require a single space or disallow whitespace before the opening brace of blocks.
 
+### Root
+
+* [`root-no-standard-properties`](../../src/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` selectors.
+
 ### Selector
 
 * [`selector-class-pattern`](../../src/rules/selector-class-pattern/README.md): Specify a pattern for class selectors.
@@ -130,10 +138,6 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`rule-non-nested-empty-line-before`](../../src/rules/rule-non-nested-empty-line-before/README.md): Require or disallow an empty line before non-nested rules.
 * [`rule-properties-order`](../../src/rules/rule-properties-order/README.md): Specify the order of properties within rules.
 * [`rule-trailing-semicolon`](../../src/rules/rule-trailing-semicolon/README.md): Require or disallow a trailing semicolon within rules.
-
-### Root
-
-* [`root-no-standard-properties`](../../src/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` selectors.
 
 ### Media feature
 
