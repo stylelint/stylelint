@@ -21,6 +21,7 @@ testRule(true, tr => {
   tr.ok("@media (10px<= width < 20em) {}")
   tr.ok("@media (10px<= width <20em) {}")
   tr.ok("@media only screen and (min-width: 300px) and (max-width: 600px) {}")
+  tr.ok("@media (color) {}")
 
   tr.notOk("@media (min-width 300px) {}", {
     message: messages.rejected,
@@ -31,6 +32,11 @@ testRule(true, tr => {
   tr.notOk("@media (10px width <= 20em)", messages.rejected)
   tr.notOk("@media (10px <= width 20em  )", messages.rejected)
   tr.notOk("@media only screen\n  and (min-width: 300px)\n  and (max-width 600px) {}", {
+    message: messages.rejected,
+    line: 3,
+    column: 7,
+  })
+  tr.notOk("@media (color),\n  (min-width: 300px)\n  and (max-width 600px) {}", {
     message: messages.rejected,
     line: 3,
     column: 7,
