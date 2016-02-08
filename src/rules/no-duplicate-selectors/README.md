@@ -4,8 +4,8 @@ Disallow duplicate selectors within a stylesheet.
 
 ```css
       .foo {} .bar {} .foo {}
-/**     ↑               ↑
- * These duplicates        */
+/**     ↑              ↑
+ *      These duplicates */
 ```
 
 This rule checks each compound selector within a complex selector,

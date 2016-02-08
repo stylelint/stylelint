@@ -6,10 +6,6 @@ Every rule is standalone and turned off by default. None of the rules have defau
 
 Here are all the rules within stylelint, grouped by the [_thing_](http://apps.workflower.fi/vocabs/css/en) they apply to.
 
-### String
-
-* [`string-quotes`](../../src/rules/string-quotes/README.md): Specify single or double quotes around strings.
-
 ### Color
 
 * [`color-hex-case`](../../src/rules/color-hex-case/README.md): Specify lowercase or uppercase for hex colors.
@@ -21,13 +17,6 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 ### Font weight
 
 * [`font-weight-notation`](../../src/rules/font-weight-notation/README.md): Require consistent numeric or named `font-weight` values.
-
-### Number
-
-* [`number-leading-zero`](../../src/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
-* [`number-max-precision`](../../src/rules/number-max-precision/README.md): Limit the number of decimal places allowed in numbers.
-* [`number-no-trailing-zeros`](../../src/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros within numbers.
-* [`number-zero-length-no-unit`](../../src/rules/number-zero-length-no-unit/README.md): Disallow units for zero lengths.
 
 ### Function
 
@@ -43,6 +32,17 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`function-url-quotes`](../../src/rules/function-url-quotes/README.md): Specify single, double or no quotes for urls.
 * [`function-whitelist`](../../src/rules/function-whitelist/README.md): Specify a whitelist of only allowed functions.
 * [`function-whitespace-after`](../../src/rules/function-whitespace-after/README.md): Require a single space or disallow whitespace after functions.
+
+### Number
+
+* [`number-leading-zero`](../../src/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
+* [`number-max-precision`](../../src/rules/number-max-precision/README.md): Limit the number of decimal places allowed in numbers.
+* [`number-no-trailing-zeros`](../../src/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros within numbers.
+* [`number-zero-length-no-unit`](../../src/rules/number-zero-length-no-unit/README.md): Disallow units for zero lengths.
+
+### String
+
+* [`string-quotes`](../../src/rules/string-quotes/README.md): Specify single or double quotes around strings.
 
 ### Time
 
@@ -64,6 +64,11 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`value-list-comma-space-after`](../../src/rules/value-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of value lists.
 * [`value-list-comma-space-before`](../../src/rules/value-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of value lists.
 
+### Custom property
+
+* [`custom-property-no-outside-root`](../../src/rules/custom-property-no-outside-root/README.md): Disallow custom properties outside of `:root` selectors.
+* [`custom-property-pattern`](../../src/rules/custom-property-pattern/README.md): Specify pattern of custom properties.
+
 ### Property
 
 * [`property-blacklist`](../../src/rules/property-blacklist/README.md): Specify a blacklist of disallowed properties.
@@ -71,11 +76,6 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`property-unit-blacklist`](../../src/rules/property-unit-blacklist/README.md): Specify a blacklist of disallowed units for specfic properties.
 * [`property-unit-whitelist`](../../src/rules/property-unit-whitelist/README.md): Specify a whitelist of disallowed units for specfic properties.
 * [`property-whitelist`](../../src/rules/property-whitelist/README.md): Specify a whitelist of allowed properties.
-
-### Custom property
-
-* [`custom-property-no-outside-root`](../../src/rules/custom-property-no-outside-root/README.md): Disallow custom properties outside of `:root` selectors.
-* [`custom-property-pattern`](../../src/rules/custom-property-pattern/README.md): Specify pattern of custom properties.
 
 ### Declaration
 
@@ -107,7 +107,7 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`block-opening-brace-space-after`](../../src/rules/block-opening-brace-space-after/README.md): Require a single space or disallow whitespace after the opening brace of blocks.
 * [`block-opening-brace-space-before`](../../src/rules/block-opening-brace-space-before/README.md): Require a single space or disallow whitespace before the opening brace of blocks.
 
-### Root
+### Root selector
 
 * [`root-no-standard-properties`](../../src/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` selectors.
 
@@ -180,8 +180,8 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 ### General / Sheet
 
 * [`indentation`](../../src/rules/indentation/README.md): Specify indentation.
-* [`max-line-length`](../../src/rules/max-line-length/README.md): Limit the length of a line.
 * [`max-empty-lines`](../../src/rules/max-empty-lines/README.md): Disallow more than a specified number of adjacent empty lines.
+* [`max-line-length`](../../src/rules/max-line-length/README.md): Limit the length of a line.
 * [`no-duplicate-selectors`](../../src/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 * [`no-eol-whitespace`](../../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
 * [`no-missing-eof-newline`](../../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
