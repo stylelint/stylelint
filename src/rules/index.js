@@ -31,6 +31,7 @@ import declarationColonNewlineAfter from "./declaration-colon-newline-after"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
 import declarationNoImportant from "./declaration-no-important"
+import fontWeightNotation from "./font-weight-notation"
 import functionBlacklist from "./function-blacklist"
 import functionCalcNoUnspacedOperator from "./function-calc-no-unspaced-operator"
 import functionCommaNewlineAfter from "./function-comma-newline-after"
@@ -49,6 +50,7 @@ import maxLineLength from "./max-line-length"
 import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
 import mediaFeatureColonSpaceBefore from "./media-feature-colon-space-before"
 import mediaFeatureNameNoVendorPrefix from "./media-feature-name-no-vendor-prefix"
+import mediaFeatureNoMissingPunctuation from "./media-feature-no-missing-punctuation"
 import mediaFeatureRangeOperatorSpaceAfter from "./media-feature-range-operator-space-after"
 import mediaFeatureRangeOperatorSpaceBefore from "./media-feature-range-operator-space-before"
 import mediaQueryListCommaNewlineAfter from "./media-query-list-comma-newline-after"
@@ -56,8 +58,11 @@ import mediaQueryListCommaNewlineBefore from "./media-query-list-comma-newline-b
 import mediaQueryListCommaSpaceAfter from "./media-query-list-comma-space-after"
 import mediaQueryListCommaSpaceBefore from "./media-query-list-comma-space-before"
 import mediaQueryParenthesesSpaceInside from "./media-query-parentheses-space-inside"
+import noDuplicateSelectors from "./no-duplicate-selectors"
 import noEolWhitespace from "./no-eol-whitespace"
+import noInvalidDoubleSlashComments from "./no-invalid-double-slash-comments"
 import noMissingEofNewline from "./no-missing-eof-newline"
+import noUnknownAnimations from "./no-unknown-animations"
 import numberLeadingZero from "./number-leading-zero"
 import numberMaxPrecision from "./number-max-precision"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
@@ -91,6 +96,7 @@ import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
 import selectorRootNoComposition from "./selector-root-no-composition"
 import stringQuotes from "./string-quotes"
+import timeNoImperceptible from "./time-no-imperceptible"
 import unitBlacklist from "./unit-blacklist"
 import unitWhitelist from "./unit-whitelist"
 import valueListCommaNewlineAfter from "./value-list-comma-newline-after"
@@ -133,6 +139,7 @@ export default {
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
   "declaration-no-important": declarationNoImportant,
+  "font-weight-notation": fontWeightNotation,
   "function-blacklist": functionBlacklist,
   "function-calc-no-unspaced-operator": functionCalcNoUnspacedOperator,
   "function-comma-newline-after": functionCommaNewlineAfter,
@@ -151,6 +158,7 @@ export default {
   "media-feature-colon-space-after": mediaFeatureColonSpaceAfter,
   "media-feature-colon-space-before": mediaFeatureColonSpaceBefore,
   "media-feature-name-no-vendor-prefix": mediaFeatureNameNoVendorPrefix,
+  "media-feature-no-missing-punctuation": mediaFeatureNoMissingPunctuation,
   "media-feature-range-operator-space-after": mediaFeatureRangeOperatorSpaceAfter,
   "media-feature-range-operator-space-before": mediaFeatureRangeOperatorSpaceBefore,
   "media-query-list-comma-newline-after": mediaQueryListCommaNewlineAfter,
@@ -158,8 +166,11 @@ export default {
   "media-query-list-comma-space-after": mediaQueryListCommaSpaceAfter,
   "media-query-list-comma-space-before": mediaQueryListCommaSpaceBefore,
   "media-query-parentheses-space-inside": mediaQueryParenthesesSpaceInside,
+  "no-duplicate-selectors": noDuplicateSelectors,
   "no-eol-whitespace": noEolWhitespace,
+  "no-invalid-double-slash-comments": noInvalidDoubleSlashComments,
   "no-missing-eof-newline": noMissingEofNewline,
+  "no-unknown-animations": no-unknown-animations,
   "number-leading-zero": numberLeadingZero,
   "number-max-precision": numberMaxPrecision,
   "number-no-trailing-zeros": numberNoTrailingZeros,
@@ -193,6 +204,7 @@ export default {
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
   "selector-root-no-composition": selectorRootNoComposition,
   "string-quotes": stringQuotes,
+  "time-no-imperceptible": timeNoImperceptible,
   "unit-blacklist": unitBlacklist,
   "unit-whitelist": unitWhitelist,
   "value-list-comma-newline-after": valueListCommaNewlineAfter,
