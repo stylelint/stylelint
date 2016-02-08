@@ -6,11 +6,11 @@ Also, when named values are expected, require only valid names.
 ```css
 a { font-weight: bold }
 /**               ↑
- * This notation    */
+ *    This notation */
 
 a { font: italic small-caps 600 16px/3 cursive; }
 /**                          ↑
-* And this notation, too       */
+*       And this notation, too */
 ```
 
 Valid font-weight names are `normal`, `bold`, `bolder`, and `lighter`.
@@ -45,7 +45,7 @@ a { font: italic 900 20px; }
 
 ### `"named"`
 
-`font-weight` values` *must always* be keyword names.
+`font-weight` values *must always* be keyword names.
 
 The following patterns are considered warnings:
 
