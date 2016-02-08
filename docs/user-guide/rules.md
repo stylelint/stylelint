@@ -180,6 +180,7 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`no-duplicate-selectors`](../../src/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 * [`no-eol-whitespace`](../../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
 * [`no-missing-eof-newline`](../../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
+* [`no-unknown-animations`](../../src/rules/no-unknown-animations/README.md): Disallow animation names that do not correspond to a `@keyframes` declaration.
 
 ## About rule names
 
