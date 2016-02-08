@@ -43,3 +43,33 @@ The following patterns are *not* considered warnings:
 ```css
 #foo.bar {}
 ```
+
+## Optional options
+
+### `ignore: [ "descendant" ]`
+
+Allow descendant type selectors.
+
+For example, the following would *not* be considered warnings:
+
+```css
+.foo ul {}
+```
+
+```css
+#bar ul.foo {}
+```
+
+### `ignore: [ "compounded" ]`
+
+Allow compounded type selectors -- i.e. type selectors chained with other selectors.
+
+For example, the following would *not* be considered warnings:
+
+```css
+ul.foo {}
+```
+
+```css
+ul#bar {}
+```
