@@ -15,6 +15,8 @@ testRule("numeric", tr => {
   tr.ok("a { font-weight: 900; }")
   tr.ok("a { font: italic small-caps 400 16px/3 cursive; }")
   tr.ok("a { font: italic small-caps 400 16px/500 cursive; }")
+  tr.ok("a { font: italic small-caps 400 16px/500 \"bold font name\"; }")
+  tr.ok("a { font: italic small-caps 400 16px/500 boldfontname; }")
 
   tr.notOk("a { font-weight: normal; }", {
     message: messages.expected("numeric"),
@@ -36,6 +38,8 @@ testRule("named", tr => {
   tr.ok("a { font-weight: normal; }")
   tr.ok("a { font-weight: lighter; }")
   tr.ok("a { font: italic small-caps bold 16px/500 cursive; }")
+  tr.ok("a { font: italic small-caps bold 16px/500 \"cursive 100 font\"; }")
+  tr.ok("a { font: italic small-caps bold 16px/500 100cursivefont; }")
 
   tr.notOk("a { font-weight: 400; }", {
     message: messages.expected("named"),
