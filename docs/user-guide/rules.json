@@ -52,6 +52,7 @@
     "media-feature-colon-space-after": "always"|"never",
     "media-feature-colon-space-before": "always"|"never",
     "media-feature-name-no-vendor-prefix": true,
+    "media-feature-no-missing-punctuation": true,
     "media-feature-range-operator-space-after": "always"|"never",
     "media-feature-range-operator-space-before": "always"|"never",
     "media-query-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
