@@ -170,7 +170,7 @@ export default {
   "no-eol-whitespace": noEolWhitespace,
   "no-invalid-double-slash-comments": noInvalidDoubleSlashComments,
   "no-missing-eof-newline": noMissingEofNewline,
-  "no-unknown-animations": no-unknown-animations,
+  "no-unknown-animations": noUnknownAnimations,
   "number-leading-zero": numberLeadingZero,
   "number-max-precision": numberMaxPrecision,
   "number-no-trailing-zeros": numberNoTrailingZeros,
