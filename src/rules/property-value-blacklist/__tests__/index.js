@@ -30,39 +30,39 @@ testRule({
   tr.notOk("a { color: red; }", {
     message: messages.rejected("color", "red"),
     line: 1,
-    column: 16,
+    column: 5,
   })
 
   tr.notOk("a { color: green }", {
     message: messages.rejected("color", "green"),
     line: 1,
-    column: 20,
+    column: 5,
   })
 
   tr.notOk("a { text-transform: uppercase; }", {
     message: messages.rejected("text-transform", "uppercase"),
     line: 1,
-    column: 28,
+    column: 5,
   })
 
   tr.notOk("a { transform: scale3d(1, 2, 3) }", {
     message: messages.rejected("transform", "scale3d(1, 2, 3)"),
     line: 1,
-    column: 39,
+    column: 5,
   })
 
   tr.notOk("a { -webkit-transform: scale3d(1, 2, 3) }", {
     message: messages.rejected("-webkit-transform", "scale3d(1, 2, 3)"),
-    column: 25,
+    column: 5,
   })
 
   tr.ok("a { color: darkseagreen }", {
     message: messages.rejected("color", "darkseagreen"),
-    column: 25,
+    column: 5,
   })
   tr.notOk("a { color: seagreen }", {
     message: messages.rejected("color", "seagreen"),
-    column: 25,
+    column: 5,
   })
 
 })
