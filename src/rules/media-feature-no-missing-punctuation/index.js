@@ -9,7 +9,7 @@ import {
 export const ruleName = "media-feature-no-missing-punctuation"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected non-boolean media feature missing punctuation",
+  rejected: "Unexpected missing punctuation within non-boolean media feature",
 })
 
 const PUNCTUATION = [ ":", "=", ">", ">=", "<", "<=" ]
