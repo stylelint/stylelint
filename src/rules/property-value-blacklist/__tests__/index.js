@@ -8,11 +8,11 @@ const testRule = ruleTester(rule, ruleName)
 
 testRule({
   // regular string
-  "text-transform": [ "uppercase" ],
+  "text-transform": ["uppercase"],
   // regexes
-  "transform": ["/scale3d/", "/rotate3d/", "/translate3d/"],
+  "transform": [ "/scale3d/", "/rotate3d/", "/translate3d/" ],
   // mixed string and regex
-  "color": ["red", "green", "blue", "/^sea/"]
+  "color": [ "red", "green", "blue", "/^sea/" ],
 }, tr => {
   warningFreeBasics(tr)
 

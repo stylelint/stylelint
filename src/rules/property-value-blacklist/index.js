@@ -1,9 +1,7 @@
 import { vendor } from "postcss"
 import { isObject } from "lodash"
-import valueParser from "postcss-value-parser"
 
 import {
-  declarationValueIndexOffset,
   report,
   ruleMessages,
   validateOptions,
@@ -30,8 +28,8 @@ export default function (blacklist) {
 
       const isMatching = propBlacklist.some(blacklistedProp => {
 
-        const isRegex = blacklistedProp[0] === '/' &&
-                        blacklistedProp[blacklistedProp.length - 1] === '/'
+        const isRegex = blacklistedProp[0] === "/" &&
+                        blacklistedProp[blacklistedProp.length - 1] === "/"
 
         return isRegex
           ? value.match(blacklistedProp.slice(1, -1))
