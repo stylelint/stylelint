@@ -125,7 +125,7 @@ Maybe I want to use my own custom formatter function and parse `.scss` source fi
 
 ```js
 stylelint.lint({
-  code: "a { color: pink; }",
+  files: "all/my/stylesheets/*.scss",
   config: myConfig,
   syntax: "scss",
   formatter: function(stylelintResults) { .. }
