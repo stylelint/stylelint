@@ -1,23 +1,24 @@
 # Head
 
-- Added: `font-weight-notation` rule.
-- Added: `no-duplicate-selectors` rule.
-- Added: `no-unknown-animations` rule.
-- Added: `ignore: "descendant"` and `ignore: "compounded"` options for `selector-no-type`.
-- Added: support for using names of modules for the CLI's `--config` argument, not just paths.
-- Added `time-no-imperceptible` rule.
-- Added: `media-feature-no-missing-punctuation` rule.
-- Fixed: bug in `rule-properties-order` empty line detection when the two newlines were separated
+* Added: `font-weight-notation` rule.
+* Added: `media-feature-no-missing-punctuation` rule.
+* Added: `no-duplicate-selectors` rule.
+* Added: `no-unknown-animations` rule.
+* Added: `property-value-blacklist` rule.
+* Added: `time-no-imperceptible` rule.
+* Added: `ignore: "descendant"` and `ignore: "compounded"` options for `selector-no-type`.
+* Added: support for using names of modules for the CLI's `--config` argument, not just paths.
+* Fixed: bug in `rule-properties-order` empty line detection when the two newlines were separated
   by some other whitespace.
-- Fixed: option parsing bug that caused problems when using the `"alphabetical"` primary option
+* Fixed: option parsing bug that caused problems when using the `"alphabetical"` primary option
   with `rule-properties-order`.
 
 # 4.2.0
 
-- Added: support for custom messages with a `message` secondary property on any rule.
-- Fixed: CLI always ignores contents of `node_modules` and `bower_components` directories.
-- Fixed: bug preventing CLI from understanding absolute paths in `--config` argument.
-- Fixed: bug causing `indentation` to stumble over declarations with semicolons on their own lines.
+* Added: support for custom messages with a `message` secondary property on any rule.
+* Fixed: CLI always ignores contents of `node_modules` and `bower_components` directories.
+* Fixed: bug preventing CLI from understanding absolute paths in `--config` argument.
+* Fixed: bug causing `indentation` to stumble over declarations with semicolons on their own lines.
 
 # 4.1.0
 
