@@ -71,6 +71,7 @@ import propertyBlacklist from "./property-blacklist"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
 import propertyUnitBlacklist from "./property-unit-blacklist"
 import propertyUnitWhitelist from "./property-unit-whitelist"
+import propertyValueBlacklist from "./property-value-blacklist"
 import propertyWhitelist from "./property-whitelist"
 import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
@@ -179,6 +180,7 @@ export default {
   "property-no-vendor-prefix": propertyNoVendorPrefix,
   "property-unit-blacklist": propertyUnitBlacklist,
   "property-unit-whitelist": propertyUnitWhitelist,
+  "property-value-blacklist": propertyValueBlacklist,
   "property-whitelist": propertyWhitelist,
   "root-no-standard-properties": rootNoStandardProperties,
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
