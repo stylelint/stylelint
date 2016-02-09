@@ -73,8 +73,9 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 
 * [`property-blacklist`](../../src/rules/property-blacklist/README.md): Specify a blacklist of disallowed properties.
 * [`property-no-vendor-prefix`](../../src/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties.
-* [`property-unit-blacklist`](../../src/rules/property-unit-blacklist/README.md): Specify a blacklist of disallowed units for specfic properties.
-* [`property-unit-whitelist`](../../src/rules/property-unit-whitelist/README.md): Specify a whitelist of disallowed units for specfic properties.
+* [`property-unit-blacklist`](../../src/rules/property-unit-blacklist/README.md): Specify a blacklist of disallowed units for specific properties.
+* [`property-unit-whitelist`](../../src/rules/property-unit-whitelist/README.md): Specify a whitelist of disallowed units for specific properties.
+* [`property-value-blacklist`](../../src/rules/property-value-blacklist/README.md): Specify a blacklist of disallowed property-value pairs.
 * [`property-whitelist`](../../src/rules/property-whitelist/README.md): Specify a whitelist of allowed properties.
 
 ### Declaration
