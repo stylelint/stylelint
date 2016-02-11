@@ -88,14 +88,16 @@ for whatever standard message would be provided. For example, the following rule
 configuration would substitute in a couple of custom message:
 
 ```json
-"color-hex-case": [ "lower", {
-  "message": "Lowercase letters are easier to distinguish from numbers"
-} ],
-"indentation": [ 2, {
-  "warn": true,
-  "except": ["param"],
-  "message": "Please use 2 spaces for indentation. Tabs make The Architect grumpy."
-} ]
+{
+  "color-hex-case": [ "lower", {
+    "message": "Lowercase letters are easier to distinguish from numbers"
+  } ],
+  "indentation": [ 2, {
+    "warn": true,
+    "except": ["param"],
+    "message": "Please use 2 spaces for indentation. Tabs make The Architect grumpy."
+  } ]
+}
 ```
 
 Writing a [custom formatter](/docs/developer-guide/formatters.md) gives you maximum control if you need serious customization.
