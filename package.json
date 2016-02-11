@@ -24,6 +24,7 @@
   "files": [
     "dist",
     "src",
+    "docs",
     "!**/__tests__",
     "!**/testUtils"
   ],
