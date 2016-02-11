@@ -23,6 +23,14 @@ A file glob, or array of file globs. Ultimately passed to [node-glob](https://gi
 
 A CSS string to be linted.
 
+### `codeFilename`
+
+If using `code` to pass a source string directly, you can use `codeFilename` to associate
+that code with a particular filename.
+
+This can be useful, for example, when making a text editor plugin that passes in code directly
+but needs to still use the configuration's `ignoreFiles` functionality to possibly ignore that code.
+
 ### `formatter`
 
 `"json"`, `"string"`, or a function. Default is `"json"`.

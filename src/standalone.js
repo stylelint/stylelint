@@ -14,6 +14,7 @@ const ignoredGlobs = [
 export default function ({
   files,
   code,
+  codeFilename,
   config,
   configFile,
   configBasedir,
@@ -32,7 +33,7 @@ export default function ({
   let errored = false
 
   if (!files) {
-    return lintString(code).then(result => {
+    return lintString(code, codeFilename).then(result => {
       const results = [result]
       const output = chosenFormatter(results)
       return {

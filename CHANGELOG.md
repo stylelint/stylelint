@@ -1,5 +1,5 @@
 # Head
-
+* Added: `codeFilename` option to Node API.
 * Added: `font-weight-notation` rule.
 * Added: `media-feature-no-missing-punctuation` rule.
 * Added: `no-duplicate-selectors` rule.

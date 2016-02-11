@@ -321,3 +321,19 @@ test("standalone loading YAML with custom message", t => {
 
   t.plan(2)
 })
+
+test("standalone using codeFilename and ignoreFiles together", t => {
+  standalone({
+    code: "a {}",
+    codeFilename: path.join(__dirname, "foo.css"),
+    config: {
+      ignoreFiles: ["**/foo.css"],
+      rules: { "block-no-empty": true },
+    },
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)[0]
+    t.equal(parsedOutput.warnings.length, 0, "no warnings")
+  })
+
+  t.plan(1)
+})
