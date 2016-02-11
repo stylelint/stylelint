@@ -22,6 +22,8 @@ In order for your plugin rule to work with the standard configuration format, (e
 `ruleFunction` should return a function that is essentially a little PostCSS plugin: it takes 2 arguments: the PostCSS Root (the parsed AST), and the PostCSS LazyResult.
 You'll have to [learn about the PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md).
 
+## `stylelint.utils`
+
 A few of stylelint's internal utilities are exposed publicly in `stylelint.utils`, to help you write plugin rules.
 For details about the APIs of these functions, please look at comments in the source code and examples in the standard rules.
 
@@ -30,6 +32,22 @@ your plugin will respect disabled ranges and other possible future features of s
 - `ruleMessages`: Tailor your messages to look like the messages of other stylelint rules. Currently, this means that the name of the rule is appended, in parentheses, to the end of the message.
 - `styleSearch`: Search within CSS strings, and for every match found invoke a callback, passing a match object with details about the match. `styleSearch` ignores CSS strings (e.g. `content: "foo";`) and by default ignores comments. It can also be restricted to substrings within or outside of CSS functional notation.
 - `validateOptions`: Help your user's out by checking that the options they've submitted are valid.
+
+## `stylelint.rules`
+
+All of the rule functions are available at `stylelint.rules`. This allows you to build on top of existing rules for your particular needs.
+
+For example, maybe your codebase uses special comment directives to customize rule options for specific stylesheets. You could build a plugin that checks those directives and then runs the appropriate rules with the right options (or doesn't run them at all).
+
+All rules share a common signature. They are a function that accepts two arguments: a primary option and a secondary options object. And that functions returns a function that has the signature of a PostCSS plugin, expecting a PostCSS root and result as its arguments.
+
+```js
+// Simple illustration of the rule signature
+var colorHexCaseRule = stylelint.rules["color-hex-case"]
+var runColorHexCase = colorHexCaseRule(primaryOption, secondaryOptions)
+runColorHexCase(postcssRoot, postcssResult)
+```
+
 
 ## Testing plugins
 
