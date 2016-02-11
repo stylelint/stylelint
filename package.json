@@ -22,6 +22,7 @@
   "main": "dist/index.js",
   "bin": "dist/cli.js",
   "files": [
+    "CONTRIBUTING.md",
     "dist",
     "src",
     "docs",
