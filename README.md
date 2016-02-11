@@ -16,7 +16,7 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
 
 ## Example output
 
-![Example](example.png?raw=true)
+![Example](https://github.com/stylelint/stylelint/raw/master/example.png?raw=true)
 
 ## Quick start
 
