@@ -330,6 +330,23 @@ test("standalone using codeFilename and ignoreFiles together", t => {
   t.plan(1)
 })
 
+test("standalone using codeFilename and ignoreFiles with configBasedir", t => {
+  standalone({
+    code: "a {}",
+    codeFilename: path.join(__dirname, "foo.css"),
+    config: {
+      ignoreFiles: ["foo.css"],
+      rules: { "block-no-empty": true },
+    },
+    configBasedir: __dirname,
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)[0]
+    t.equal(parsedOutput.warnings.length, 0, "no warnings")
+  }).catch(logError)
+
+  t.plan(1)
+})
+
 function logError(err) {
   console.log(err.stack)
 }
