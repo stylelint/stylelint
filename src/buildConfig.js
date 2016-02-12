@@ -20,7 +20,7 @@ export default function (options) {
     return augmentConfig(rawConfig, configBasedir).then(config => {
       return {
         config: merge(config, options.configOverrides),
-        configDir: process.cwd(),
+        configDir: configBasedir,
       }
     })
   }

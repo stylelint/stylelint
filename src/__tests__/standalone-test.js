@@ -17,14 +17,12 @@ test("standalone with input file(s)", t => {
     files: `${fixturesPath}/empty-block.css`,
     // Path to config file
     configFile: path.join(__dirname, "fixtures/config-block-no-empty.json"),
-  })
-    .then(({ output, results }) => {
-      t.ok(output.indexOf("block-no-empty") !== -1)
-      t.equal(results.length, 1)
-      t.equal(results[0].warnings.length, 1)
-      t.equal(results[0].warnings[0].rule, "block-no-empty")
-    })
-    .catch(logError)
+  }).then(({ output, results }) => {
+    t.ok(output.indexOf("block-no-empty") !== -1)
+    t.equal(results.length, 1)
+    t.equal(results[0].warnings.length, 1)
+    t.equal(results[0].warnings[0].rule, "block-no-empty")
+  }).catch(logError)
   planned += 4
 
   const twoCsses = [ `${fixturesPath}/e*y-block.*`, `${fixturesPath}/invalid-h*.css` ]
@@ -33,23 +31,21 @@ test("standalone with input file(s)", t => {
     config: {
       rules: { "block-no-empty": true, "color-no-invalid-hex": true },
     },
-  })
-    .then(({ output, results }) => {
-      t.ok(output.indexOf("block-no-empty") !== -1)
-      t.ok(output.indexOf("color-no-invalid-hex") !== -1)
-      t.equal(results.length, 2)
-      t.equal(results[0].warnings.length, 1)
-      t.equal(results[1].warnings.length, 1)
-      // Ordering of the files is non-deterministic, I believe
-      if (results[0].source.indexOf("empty-block") !== -1) {
-        t.equal(results[0].warnings[0].rule, "block-no-empty")
-        t.equal(results[1].warnings[0].rule, "color-no-invalid-hex")
-      } else {
-        t.equal(results[1].warnings[0].rule, "block-no-empty")
-        t.equal(results[0].warnings[0].rule, "color-no-invalid-hex")
-      }
-    })
-    .catch(logError)
+  }).then(({ output, results }) => {
+    t.ok(output.indexOf("block-no-empty") !== -1)
+    t.ok(output.indexOf("color-no-invalid-hex") !== -1)
+    t.equal(results.length, 2)
+    t.equal(results[0].warnings.length, 1)
+    t.equal(results[1].warnings.length, 1)
+    // Ordering of the files is non-deterministic, I believe
+    if (results[0].source.indexOf("empty-block") !== -1) {
+      t.equal(results[0].warnings[0].rule, "block-no-empty")
+      t.equal(results[1].warnings[0].rule, "color-no-invalid-hex")
+    } else {
+      t.equal(results[1].warnings[0].rule, "block-no-empty")
+      t.equal(results[0].warnings[0].rule, "color-no-invalid-hex")
+    }
+  }).catch(logError)
   planned += 7
 
   t.plan(planned)
@@ -58,14 +54,12 @@ test("standalone with input file(s)", t => {
 test("standalone with input css", t => {
   let planned = 0
 
-  standalone({ code: "a {}", config: configBlockNoEmpty })
-    .then(({ output, results }) => {
-      t.equal(typeof output, "string")
-      t.equal(results.length, 1)
-      t.equal(results[0].warnings.length, 1)
-      t.equal(results[0].warnings[0].rule, "block-no-empty")
-    })
-    .catch(logError)
+  standalone({ code: "a {}", config: configBlockNoEmpty }).then(({ output, results }) => {
+    t.equal(typeof output, "string")
+    t.equal(results.length, 1)
+    t.equal(results[0].warnings.length, 1)
+    t.equal(results[0].warnings[0].rule, "block-no-empty")
+  }).catch(logError)
   planned += 4
 
   t.plan(planned)
@@ -78,14 +72,12 @@ test("standalone with extending configuration and configBasedir", t => {
     code: "a {}",
     config: configExtendingOne,
     configBasedir: path.join(__dirname, "fixtures"),
-  })
-    .then(({ output, results }) => {
-      t.equal(typeof output, "string")
-      t.equal(results.length, 1)
-      t.equal(results[0].warnings.length, 1)
-      t.equal(results[0].warnings[0].rule, "block-no-empty")
-    })
-    .catch(logError)
+  }).then(({ output, results }) => {
+    t.equal(typeof output, "string")
+    t.equal(results.length, 1)
+    t.equal(results[0].warnings.length, 1)
+    t.equal(results[0].warnings[0].rule, "block-no-empty")
+  }).catch(logError)
   planned += 4
 
   // Recursive extending
@@ -93,14 +85,12 @@ test("standalone with extending configuration and configBasedir", t => {
     code: "a {}",
     config: configExtendingAnotherExtend,
     configBasedir: path.join(__dirname, "fixtures"),
-  })
-    .then(({ output, results }) => {
-      t.equal(typeof output, "string")
-      t.equal(results.length, 1)
-      t.equal(results[0].warnings.length, 1)
-      t.equal(results[0].warnings[0].rule, "block-no-empty")
-    })
-    .catch(logError)
+  }).then(({ output, results }) => {
+    t.equal(typeof output, "string")
+    t.equal(results.length, 1)
+    t.equal(results[0].warnings.length, 1)
+    t.equal(results[0].warnings[0].rule, "block-no-empty")
+  }).catch(logError)
   planned += 4
 
   // Extending with overrides
@@ -108,11 +98,9 @@ test("standalone with extending configuration and configBasedir", t => {
     code: "a {}",
     config: configExtendingThreeWithOverride,
     configBasedir: path.join(__dirname, "fixtures"),
-  })
-    .then(({ results }) => {
-      t.equal(results[0].warnings.length, 0)
-    })
-    .catch(logError)
+  }).then(({ results }) => {
+    t.equal(results[0].warnings.length, 0)
+  }).catch(logError)
   planned += 1
 
   t.plan(planned)
@@ -124,10 +112,9 @@ test("standalone with extending configuration and no configBasedir", t => {
   standalone({
     code: "a {}",
     config: configExtendingOne,
+  }).catch(err => {
+    t.equal(err.code, 78)
   })
-    .catch(err => {
-      t.equal(err.code, 78)
-    })
   planned += 1
 
   t.plan(planned)
@@ -136,14 +123,12 @@ test("standalone with extending configuration and no configBasedir", t => {
 test("standalone with input css and alternate formatter specified by keyword", t => {
   let planned = 0
 
-  standalone({ code: "a {}", config: configBlockNoEmpty, formatter: "string" })
-    .then(({ output }) => {
-      const strippedOutput = chalk.stripColor(output)
-      t.equal(typeof output, "string")
-      t.ok(strippedOutput.indexOf("1:3") !== -1)
-      t.ok(strippedOutput.indexOf("block-no-empty") !== -1)
-    })
-    .catch(logError)
+  standalone({ code: "a {}", config: configBlockNoEmpty, formatter: "string" }).then(({ output }) => {
+    const strippedOutput = chalk.stripColor(output)
+    t.equal(typeof output, "string")
+    t.ok(strippedOutput.indexOf("1:3") !== -1)
+    t.ok(strippedOutput.indexOf("block-no-empty") !== -1)
+  }).catch(logError)
   planned += 3
 
   t.plan(planned)
@@ -152,14 +137,12 @@ test("standalone with input css and alternate formatter specified by keyword", t
 test("standalone with input css and alternate formatter function", t => {
   let planned = 0
 
-  standalone({ code: "a {}", config: configBlockNoEmpty, formatter: stringFormatter })
-    .then(({ output }) => {
-      const strippedOutput = chalk.stripColor(output)
-      t.equal(typeof output, "string")
-      t.ok(strippedOutput.indexOf("1:3") !== -1)
-      t.ok(strippedOutput.indexOf("block-no-empty") !== -1)
-    })
-    .catch(logError)
+  standalone({ code: "a {}", config: configBlockNoEmpty, formatter: stringFormatter }).then(({ output }) => {
+    const strippedOutput = chalk.stripColor(output)
+    t.equal(typeof output, "string")
+    t.ok(strippedOutput.indexOf("1:3") !== -1)
+    t.ok(strippedOutput.indexOf("block-no-empty") !== -1)
+  }).catch(logError)
   planned += 3
 
   t.plan(planned)
@@ -174,12 +157,10 @@ test("standalone with input css and quiet mode", t => {
     },
   }
 
-  standalone({ code: "a {}", config })
-    .then(({ output }) => {
-      const parsedOutput = JSON.parse(output)
-      t.deepEqual(parsedOutput[0].warnings, [])
-    })
-    .catch(logError)
+  standalone({ code: "a {}", config }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)
+    t.deepEqual(parsedOutput[0].warnings, [])
+  }).catch(logError)
   planned += 1
 
   t.plan(planned)
@@ -198,22 +179,16 @@ test("standalone with scss syntax", t => {
     code: "$foo: bar; // foo;\nb {}",
     syntax: "scss",
     formatter: stringFormatter,
-  })
-    .then(({ output }) => {
-      const strippedOutput = chalk.stripColor(output)
-      t.equal(typeof output, "string")
-      t.ok(strippedOutput.indexOf("2:3") !== -1)
-      t.ok(strippedOutput.indexOf("block-no-empty") !== -1)
-    })
-    .catch(logError)
+  }).then(({ output }) => {
+    const strippedOutput = chalk.stripColor(output)
+    t.equal(typeof output, "string")
+    t.ok(strippedOutput.indexOf("2:3") !== -1)
+    t.ok(strippedOutput.indexOf("block-no-empty") !== -1)
+  }).catch(logError)
   planned += 3
 
   t.plan(planned)
 })
-
-function logError(err) {
-  console.log(err.stack)
-}
 
 test("standalone with extending config and ignoreFiles glob ignoring single glob", t => {
   let planned = 0
@@ -227,16 +202,36 @@ test("standalone with extending config and ignoreFiles glob ignoring single glob
       ],
     },
     configBasedir: path.join(__dirname, "fixtures"),
-  })
-    .then(({ output }) => {
-      const parsedOutput = JSON.parse(output)
-      t.equal(parsedOutput.length, 2)
-      t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1)
-      t.equal(parsedOutput[0].warnings.length, 1)
-      t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
-      t.equal(parsedOutput[1].warnings.length, 0)
-    })
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)
+    t.equal(parsedOutput.length, 2)
+    t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1)
+    t.equal(parsedOutput[0].warnings.length, 1)
+    t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
+    t.equal(parsedOutput[1].warnings.length, 0)
+  }).catch(logError)
   planned += 5
+  t.plan(planned)
+})
+
+test("standalone with absolute ignoreFiles glob path", t => {
+  let planned = 0
+  standalone({
+    files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
+    config: {
+      ignoreFiles: [`${fixturesPath}/empty-b*.css`],
+      rules: {
+        "block-no-empty": true,
+      },
+    },
+    configBasedir: path.join(__dirname, "fixtures"),
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)
+    t.equal(parsedOutput.length, 2)
+    t.equal(parsedOutput[0].warnings.length, 0)
+    t.equal(parsedOutput[1].warnings.length, 0)
+  }).catch(logError)
+  planned += 3
   t.plan(planned)
 })
 
@@ -255,15 +250,14 @@ test("standalone with extending config with ignoreFiles glob ignoring one by neg
       ],
     },
     configBasedir: path.join(__dirname, "fixtures"),
-  })
-    .then(({ output }) => {
-      const parsedOutput = JSON.parse(output)
-      t.equal(parsedOutput.length, 2)
-      t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1)
-      t.equal(parsedOutput[0].warnings.length, 0)
-      t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
-      t.equal(parsedOutput[1].warnings.length, 1)
-    })
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)
+    t.equal(parsedOutput.length, 2)
+    t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1)
+    t.equal(parsedOutput[0].warnings.length, 0)
+    t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
+    t.equal(parsedOutput[1].warnings.length, 1)
+  }).catch(logError)
   planned += 5
   t.plan(planned)
 })
@@ -278,16 +272,15 @@ test("standalone extending a config that ignores files", t => {
       ],
     },
     configBasedir: path.join(__dirname, "fixtures"),
-  })
-    .then(({ output }) => {
-      const parsedOutput = JSON.parse(output)
-      t.equal(parsedOutput.length, 2)
-      t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1,
-        "ignoreFiles in extended config has no effect")
-      t.equal(parsedOutput[0].warnings.length, 1)
-      t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
-      t.equal(parsedOutput[1].warnings.length, 0)
-    })
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)
+    t.equal(parsedOutput.length, 2)
+    t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1,
+      "ignoreFiles in extended config has no effect")
+    t.equal(parsedOutput[0].warnings.length, 1)
+    t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
+    t.equal(parsedOutput[1].warnings.length, 0)
+  }).catch(logError)
   planned += 5
   t.plan(planned)
 })
@@ -301,11 +294,10 @@ test("standalone extending a config that is overridden", t => {
       ],
       rules: { "string-quotes": "double" },
     },
-  })
-    .then(({ output }) => {
-      const parsedOutput = JSON.parse(output)
-      t.equal(parsedOutput[0].warnings.length, 0)
-    })
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)
+    t.equal(parsedOutput[0].warnings.length, 0)
+  }).catch(logError)
   t.plan(1)
 })
 
@@ -317,7 +309,44 @@ test("standalone loading YAML with custom message", t => {
     const parsedOutput = JSON.parse(output)[0]
     t.equal(parsedOutput.warnings.length, 1)
     t.equal(parsedOutput.warnings[0].text, "Unacceptable")
-  })
+  }).catch(logError)
 
   t.plan(2)
 })
+
+test("standalone using codeFilename and ignoreFiles together", t => {
+  standalone({
+    code: "a {}",
+    codeFilename: path.join(__dirname, "foo.css"),
+    config: {
+      ignoreFiles: ["**/foo.css"],
+      rules: { "block-no-empty": true },
+    },
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)[0]
+    t.equal(parsedOutput.warnings.length, 0, "no warnings")
+  }).catch(logError)
+
+  t.plan(1)
+})
+
+test("standalone using codeFilename and ignoreFiles with configBasedir", t => {
+  standalone({
+    code: "a {}",
+    codeFilename: path.join(__dirname, "foo.css"),
+    config: {
+      ignoreFiles: ["foo.css"],
+      rules: { "block-no-empty": true },
+    },
+    configBasedir: __dirname,
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)[0]
+    t.equal(parsedOutput.warnings.length, 0, "no warnings")
+  }).catch(logError)
+
+  t.plan(1)
+})
+
+function logError(err) {
+  console.log(err.stack)
+}
