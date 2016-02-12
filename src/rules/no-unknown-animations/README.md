@@ -5,7 +5,7 @@ Disallow animation names that do not correspond to a `@keyframes` declaration.
 ```css
 .foo { animation-name: fancy-slide; }
 /**                        ↑
- *  This animation name      */
+ *       This animation name */
 ```
 
 The following patterns are considered warnings:
