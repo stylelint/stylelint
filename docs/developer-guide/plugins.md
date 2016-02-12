@@ -37,17 +37,20 @@ your plugin will respect disabled ranges and other possible future features of s
 
 All of the rule functions are available at `stylelint.rules`. This allows you to build on top of existing rules for your particular needs.
 
-For example, maybe your codebase uses special comment directives to customize rule options for specific stylesheets. You could build a plugin that checks those directives and then runs the appropriate rules with the right options (or doesn't run them at all).
+A typical use-case is to build in more complex conditionals that the rule's options allow for. For example, maybe your codebase uses special comment directives to customize rule options for specific stylesheets. You could build a plugin that checks those directives and then runs the appropriate rules with the right options (or doesn't run them at all).
 
 All rules share a common signature. They are a function that accepts two arguments: a primary option and a secondary options object. And that functions returns a function that has the signature of a PostCSS plugin, expecting a PostCSS root and result as its arguments.
 
-```js
-// Simple illustration of the rule signature
-var colorHexCaseRule = stylelint.rules["color-hex-case"]
-var runColorHexCase = colorHexCaseRule(primaryOption, secondaryOptions)
-runColorHexCase(postcssRoot, postcssResult)
-```
+Here's a simple example of a plugin that runs `color-hex-case` only if there is a special directive `@@check-color-hex-case` somewhere in the stylesheet:
 
+```js
+export default stylelint.createPlugin(ruleName, function (expectation) {
+  const runColorHexCase = stylelint.rules["color-hex-case"](expectation)
+  return (root, result) => {
+    if (root.toString().indexOf("@@check-color-hex-case") === -1) return
+    runColorHexCase(root, result)
+  }
+})
 
 ## Testing plugins
 
