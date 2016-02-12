@@ -8,6 +8,7 @@
 * Added: `time-no-imperceptible` rule.
 * Added: `ignore: "descendant"` and `ignore: "compounded"` options for `selector-no-type`.
 * Added: support for using names of modules for the CLI's `--config` argument, not just paths.
+* Fixed: `ignoreFiles` handling of absolute paths.
 * Fixed: bug in `rule-properties-order` empty line detection when the two newlines were separated
   by some other whitespace.
 * Fixed: option parsing bug that caused problems when using the `"alphabetical"` primary option
