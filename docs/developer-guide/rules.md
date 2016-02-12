@@ -22,9 +22,9 @@ Take the form of:
 * "Expected a ... something"
 * "Unexpected ... something" (for rejection e.g. when something is disallowed)
 
-## README.md
+## README
 
-Each rule must be accompanied by a README.md, which takes the form of:
+Each rule must be accompanied by a README, which takes the form of:
 
 1. Rule name.
 2. Single line description.
