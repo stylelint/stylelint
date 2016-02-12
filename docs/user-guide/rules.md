@@ -139,7 +139,6 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`rule-nested-empty-line-before`](../../src/rules/rule-nested-empty-line-before/README.md): Require or disallow an empty line before nested rules.
 * [`rule-no-duplicate-properties`](../../src/rules/rule-no-duplicate-properties/README.md): Disallow duplicate properties within rules.
 * [`rule-no-shorthand-property-overrides`](../../src/rules/rule-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
-
 * [`rule-non-nested-empty-line-before`](../../src/rules/rule-non-nested-empty-line-before/README.md): Require or disallow an empty line before non-nested rules.
 * [`rule-properties-order`](../../src/rules/rule-properties-order/README.md): Specify the order of properties within rules.
 * [`rule-trailing-semicolon`](../../src/rules/rule-trailing-semicolon/README.md): Require or disallow a trailing semicolon within rules.
