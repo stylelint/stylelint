@@ -41,4 +41,4 @@ You'll find more detailed information on using the linter and tailoring it to yo
 
 - [Changelog](CHANGELOG.md)
 - [Contributing Guidelines](CONTRIBUTING.md)
-- [License](LICENSE)
+- [License](https://raw.githubusercontent.com/stylelint/stylelint/master/LICENSE)
