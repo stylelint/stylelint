@@ -51,6 +51,7 @@ export default stylelint.createPlugin(ruleName, function (expectation) {
     runColorHexCase(root, result)
   }
 })
+```
 
 ## Testing plugins
 
