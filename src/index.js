@@ -1,6 +1,7 @@
 import postcssPlugin from "./postcssPlugin"
 import standalone from "./standalone"
 import createPlugin from "./createPlugin"
+import rules from "./rules"
 import {
   report,
   ruleMessages,
@@ -18,6 +19,7 @@ stylelint.utils = {
 }
 
 stylelint.lint = standalone
+stylelint.rules = rules
 stylelint.createPlugin = createPlugin
 
 module.exports = stylelint
