@@ -14,6 +14,7 @@
   by some other whitespace.
 * Fixed: option parsing bug that caused problems when using the `"alphabetical"` primary option
   with `rule-properties-order`.
+* Fixed: regard an empty string as a valid CSS code
 
 # 4.2.0
 
