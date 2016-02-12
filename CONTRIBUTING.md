@@ -10,7 +10,7 @@ Any help is welcome and appreciated.
 
 ## Communication
 
-We communicate via [issues](https://github.com/stylelint/stylelint/issues) and [pull requests](https://github.com/stylelint/stylelint/pulls).
+We mostly communicate via [issues](https://github.com/stylelint/stylelint/issues) and [pull requests](https://github.com/stylelint/stylelint/pulls). There is also [stackoverflow](http://stackoverflow.com/questions/tagged/stylelint), which is our preferred QA forum.
 
 ### Conduct
 
