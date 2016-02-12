@@ -1,6 +1,6 @@
 # stylelint
 
-[![NPM version](http://img.shields.io/npm/v/stylelint.svg)](https://www.npmjs.org/package/stylelint) [![Travis Build Status](https://img.shields.io/travis/stylelint/stylelint/master.svg?label=unix%20build)](https://travis-ci.org/stylelint/stylelint) [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/stylelint/stylelint/master.svg?label=windows%20build)](https://ci.appveyor.com/project/stylelint/stylelint) [![Join the chat at https://gitter.im/stylelint/stylelint](https://img.shields.io/badge/gitter%20-join%20chat%20%E2%9E%9E-1dce73.svg)](https://gitter.im/stylelint/stylelint)
+[![NPM version](http://img.shields.io/npm/v/stylelint.svg)](https://www.npmjs.org/package/stylelint) [![Travis Build Status](https://img.shields.io/travis/stylelint/stylelint/master.svg?label=unix%20build)](https://travis-ci.org/stylelint/stylelint) [![AppVeyor Build Status](https://img.shields.io/appveyor/ci/stylelint/stylelint/master.svg?label=windows%20build)](https://ci.appveyor.com/project/stylelint/stylelint)
 
 A mighty, modern CSS linter that helps you enforce consistent conventions and avoid errors in your stylesheets.
 
