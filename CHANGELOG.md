@@ -1,4 +1,5 @@
 # Head
+* Added: brought `stylelint-rule-tester` into this repo, and exposed it at `stylelint.utils.ruleTester`.
 * Added: `codeFilename` option to Node API.
 * Added: `font-weight-notation` rule.
 * Added: `media-feature-no-missing-punctuation` rule.
