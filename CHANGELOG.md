@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: include `testUtils` in npm package whitelist.
+
 # 4.3.0
 
 * Added: `font-family-name-quotes` rule.
