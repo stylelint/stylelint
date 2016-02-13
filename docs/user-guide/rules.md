@@ -194,7 +194,7 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
   * The first describes what [_thing_](http://apps.workflower.fi/vocabs/css/en) the rule applies to.
   * The second describes what the rule is checking.
 
-```
+```shell
 "number-leading-zero"
     ↑       ↑
 the thing   what the rule is checking
@@ -202,7 +202,7 @@ the thing   what the rule is checking
 
 * Except when the rule applies to the whole stylesheet:
 
-```
+```shell
 "no-eol-whitespace"
 "indentation"
      ↑
