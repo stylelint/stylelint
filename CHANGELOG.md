@@ -8,6 +8,7 @@
 * Added: `no-duplicate-selectors` rule.
 * Added: `no-unknown-animations` rule.
 * Added: `property-value-blacklist` rule.
+* Added: `property-value-whitelist` rule.
 * Added: `time-no-imperceptible` rule.
 * Added: `ignore: "descendant"` and `ignore: "compounded"` options for `selector-no-type`.
 * Added: support for using names of modules for the CLI's `--config` argument, not just paths.
