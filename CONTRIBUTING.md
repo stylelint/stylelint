@@ -4,8 +4,8 @@ Any help is welcome and appreciated.
 
 ## Ways to contribute
 
-* Adding [new rules](docs/developer-guide.md). Whether it's one of the [few](https://github.com/stylelint/stylelint/labels/type%3A%20rule) that we've still to do, or something that you need and we've not thought about.
-* Expanding the [documentation](docs).
+* Adding new rules. Whether it's one of the [few](https://github.com/stylelint/stylelint/labels/type%3A%20rule) that we've still to do, or something that you need and we've not thought of yet.
+* Expanding the [documentation](https://github.com/stylelint/stylelint/tree/master/docs).
 * Working on other [open issues](https://github.com/stylelint/stylelint/issues).
 
 ## Communication
