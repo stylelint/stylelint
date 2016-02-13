@@ -21,6 +21,11 @@ testRule([
   tr.ok("a { @less: 0; }")
   tr.ok("a { --custom-property: 0; }")
 
+  tr.notOk("a { background: pink; }", {
+    message: messages.rejected("background"),
+    line: 1,
+    column: 5,
+  })
   tr.notOk("a { color: pink; }", {
     message: messages.rejected("color"),
     line: 1,
@@ -36,5 +41,18 @@ testRule([
     line: 1,
     column: 5,
   })
+})
 
+testRule([
+  "/^background/",
+], tr => {
+  warningFreeBasics(tr)
+  tr.ok("a { background: pink; }")
+  tr.ok("a { background-color: pink; }")
+  tr.ok("a { background-image: none; }")
+  tr.notOk("a { color: pink; }", {
+    message: messages.rejected("color"),
+    line: 1,
+    column: 5,
+  })
 })

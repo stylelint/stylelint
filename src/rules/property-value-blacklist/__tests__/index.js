@@ -20,6 +20,7 @@ testRule({
   tr.ok("a { color: lightgreen; }")
   tr.ok("a { text-transform: lowercase; }")
   tr.ok("a { transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0) translate(12px, 50%); }")
+  tr.ok("a { -webkit-transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0) translate(12px, 50%); }")
 
   tr.ok("a { color: /* red */ pink; }", "ignore value within comments")
   tr.ok("a::before { color: \"red\"}", "ignore value within quotes")
@@ -65,4 +66,22 @@ testRule({
     column: 5,
   })
 
+})
+
+testRule({
+  "/^animation/": ["/ease/"],
+}, tr => {
+  tr.ok("a { animation: foo 1s linear; }")
+  tr.ok("a { -webkit-animation: foo 1s linear; }")
+  tr.ok("a { animation-timing-function: linear; }")
+  tr.ok("a { -webkit-animation-timing-function: linear; }")
+
+  tr.notOk("a { animation: foo 1s ease-in-out; }",
+    messages.rejected("animation", "foo 1s ease-in-out"))
+  tr.notOk("a { -webkit-animation: foo 1s ease-in-out; }",
+    messages.rejected("-webkit-animation", "foo 1s ease-in-out"))
+  tr.notOk("a { animation-timing-function: ease-in-out; }",
+    messages.rejected("animation-timing-function", "ease-in-out"))
+  tr.notOk("a { -webkit-animation-timing-function: ease-in-out; }",
+    messages.rejected("-webkit-animation-timing-function", "ease-in-out"))
 })

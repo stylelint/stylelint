@@ -76,6 +76,7 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`property-unit-blacklist`](../../src/rules/property-unit-blacklist/README.md): Specify a blacklist of disallowed units for specific properties.
 * [`property-unit-whitelist`](../../src/rules/property-unit-whitelist/README.md): Specify a whitelist of disallowed units for specific properties.
 * [`property-value-blacklist`](../../src/rules/property-value-blacklist/README.md): Specify a blacklist of disallowed property-value pairs.
+* [`property-value-whitelist`](../../src/rules/property-value-blacklist/README.md): Specify a whitelist of allowed property-value pairs.
 * [`property-whitelist`](../../src/rules/property-whitelist/README.md): Specify a whitelist of allowed properties.
 
 ### Declaration

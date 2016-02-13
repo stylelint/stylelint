@@ -7,16 +7,16 @@ import {
   matchesStringOrRegExp,
 } from "../../utils"
 
-export const ruleName = "property-value-blacklist"
+export const ruleName = "property-value-whitelist"
 
 export const messages = ruleMessages(ruleName, {
   rejected: (p, u) => `Unexpected value "${u}" for property "${p}"`,
 })
 
-export default function (blacklist) {
+export default function (whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
-      actual: blacklist,
+      actual: whitelist,
       possible: [isObject],
     })
     if (!validOptions) { return }
@@ -25,9 +25,9 @@ export default function (blacklist) {
 
       const { prop, value } = decl
       const unprefixedProp = vendor.unprefixed(prop)
-      const propBlacklist = find(blacklist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
+      const propWhitelist = find(whitelist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
 
-      if (matchesStringOrRegExp(value, propBlacklist)) {
+      if (!matchesStringOrRegExp(value, propWhitelist)) {
         report({
           message: messages.rejected(prop, value),
           node: decl,

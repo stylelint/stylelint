@@ -1,6 +1,6 @@
-# property-value-blacklist
+# property-value-whitelist
 
-Specify a blacklist of disallowed property-value pairs.
+Specify a whitelist of allowed property-value pairs.
 
 ```css
     a { text-transform: uppercase; }
@@ -14,6 +14,10 @@ Specify a blacklist of disallowed property-value pairs.
   "unprefixed-property-name": ["array", "of", "values"],
   "unprefixed-property-name": ["/regex/", "non-regex"]
 }`
+
+If a property name is found in the object, only its whitelisted property values are allowed.
+The rule complains about all non-matching values. (If the property name is not included in
+the object, anything goes.)
 
 If a property name is surrounded with `"/"` (e.g. `"/^animation/"`),
 it is interpreted as a regular expression. This allows, for example,
@@ -33,25 +37,50 @@ Given:
 
 ```js
 {
-  "transform": ["/scale3d/", "/rotate3d/", "/translate3d/"],
-  "position": ["fixed"],
-  "color": ["/^green/"]
-  "/^animation/": ["/ease/"]
+  "transform": ["/scale/"],
+  "whitespace": ["nowrap"],
+  "/color/": ["/^green/"]
 }
 ```
 
 The following patterns are considered warnings:
 
 ```css
-div { position: fixed; }
+div { whitespace: pre; }
 ```
 
 ```css
-a { transform: scale3d(1, 2, 3); }
+a { transform: translate(1, 1); }
 ```
 
 ```css
-a { -webkit-transform: scale3d(1, 2, 3); }
+a { -webkit-transform: translate(1, 1); }
+```
+
+```css
+a { color: pink; }
+```
+
+```css
+a { background-color: pink; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { color: pink; }
+```
+
+```css
+div { whitespace: nowrap; }
+```
+
+```css
+a { transform: scale(1, 1); }
+```
+
+```css
+a { -webkit-transform: scale(1, 1); }
 ```
 
 ```css
@@ -59,44 +88,9 @@ a { color: green; }
 ```
 
 ```css
-a { animation: foo 2s ease-in-out; }
+a { background-color: green; }
 ```
 
 ```css
-a { animation-timing-function: ease-in-out; }
-```
-
-```css
-a { -webkit-animation-timing-function: ease-in-out; }
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-div { position: relative; }
-```
-
-```css
-a { transform: scale(2); }
-```
-
-```css
-a { -webkit-transform: scale(2); }
-```
-
-```css
-a { color: lightgreen; }
-```
-
-
-```css
-a { animation: foo 2s linear; }
-```
-
-```css
-a { animation-timing-function: linear; }
-```
-
-```css
-a { -webkit-animation-timing-function: linear; }
+a { background: pink; }
 ```

@@ -1,4 +1,5 @@
 export { default as blurComments } from "./blurComments"
+export { default as matchesStringOrRegExp } from "./matchesStringOrRegExp"
 export { default as configurationError } from "./configurationError"
 export { default as cssFunctionArguments } from "./cssFunctionArguments"
 export { default as cssPropertyIsVariable } from "./cssPropertyIsVariable"
