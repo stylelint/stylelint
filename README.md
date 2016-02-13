@@ -42,3 +42,7 @@ You'll find more detailed information on using the linter and tailoring it to yo
 - [Changelog](CHANGELOG.md)
 - [Contributing Guidelines](CONTRIBUTING.md)
 - [License](https://raw.githubusercontent.com/stylelint/stylelint/master/LICENSE)
+
+## Caveats
+
+- stylelint works very well via the CLI, but editor support is fairly shaky right now. Be sure to try out stylelint with your preferred editor(s) to see if it works for you.
