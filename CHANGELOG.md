@@ -1,4 +1,4 @@
-# Head
+# 4.3.2
 
 * Fixed: move `tape` to dependencies to support `testUtils`.
 
