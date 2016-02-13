@@ -32,3 +32,26 @@ testRule([
     column: 18,
   })
 })
+
+testRule([
+  "/^background/",
+], tr => {
+  warningFreeBasics(tr)
+  tr.ok("a { color: pink; }")
+  tr.ok("a { no-background: sure; }")
+  tr.notOk("a { background: pink; }", {
+    message: messages.rejected("background"),
+    line: 1,
+    column: 5,
+  })
+  tr.notOk("a { background-size: cover; }", {
+    message: messages.rejected("background-size"),
+    line: 1,
+    column: 5,
+  })
+  tr.notOk("a { background-image: none; }", {
+    message: messages.rejected("background-image"),
+    line: 1,
+    column: 5,
+  })
+})

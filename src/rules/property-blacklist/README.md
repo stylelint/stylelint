@@ -16,10 +16,15 @@ Specify a blacklist of disallowed properties.
 
 Blacklisted properties *must never* be used.
 
+If a string in the array is surrounded with `"/"` (e.g. `"/^background/"`),
+it is interpreted as a regular expression. This allows, for example,
+easy targeting of shorthands: `/^background/` will match `background`,
+`background-size`, `background-color`, etc.
+
 Given:
 
 ```js
-["text-rendering", "animation"]
+[ "text-rendering", "animation", "/^background/" ]
 ```
 
 The following patterns are considered warnings:
@@ -40,8 +45,20 @@ a {
 a { -webkit-animation: my-animation 2s; }
 ```
 
+```css
+a { background: pink; }
+```
+
+```css
+a { background-size: cover; }
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
-a { background: pink; }
+a { color: pink; }
+```
+
+```css
+a { no-background: sure; }
 ```

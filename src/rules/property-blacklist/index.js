@@ -4,6 +4,7 @@ import {
   report,
   ruleMessages,
   validateOptions,
+  matchesStringOrRegExp,
 } from "../../utils"
 
 export const ruleName = "property-blacklist"
@@ -25,7 +26,7 @@ export default function (blacklistInput) {
 
       const prop = decl.prop
 
-      if (blacklist.indexOf(vendor.unprefixed(prop)) !== -1) {
+      if (matchesStringOrRegExp(vendor.unprefixed(prop), blacklist)) {
         report({
           message: messages.rejected(prop),
           node: decl,
