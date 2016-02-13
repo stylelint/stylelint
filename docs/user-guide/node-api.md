@@ -23,6 +23,14 @@ A file glob, or array of file globs. Ultimately passed to [node-glob](https://gi
 
 A CSS string to be linted.
 
+### `codeFilename`
+
+If using `code` to pass a source string directly, you can use `codeFilename` to associate
+that code with a particular filename.
+
+This can be useful, for example, when making a text editor plugin that passes in code directly
+but needs to still use the configuration's `ignoreFiles` functionality to possibly ignore that code.
+
 ### `formatter`
 
 `"json"`, `"string"`, or a function. Default is `"json"`.
@@ -125,7 +133,7 @@ Maybe I want to use my own custom formatter function and parse `.scss` source fi
 
 ```js
 stylelint.lint({
-  code: "a { color: pink; }",
+  files: "all/my/stylesheets/*.scss",
   config: myConfig,
   syntax: "scss",
   formatter: function(stylelintResults) { .. }

@@ -1,3 +1,8 @@
+# Example config
+
+This example config lists all of stylelint's rules and their primary options. You can remove (or turn off) the rules you don't want and edit the primary option of each rule to your liking.
+
+```json
 {
   "rules": {
     "at-rule-empty-line-before": "always"|"never",
@@ -33,6 +38,7 @@
     "declaration-colon-space-after": "always"|"never"|"always-single-line",
     "declaration-colon-space-before": "always"|"never",
     "declaration-no-important": true,
+    "font-weight-notation": "numeric"|"named",
     "function-blacklist": string|[],
     "function-calc-no-unspaced-operator": true,
     "function-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
@@ -51,6 +57,7 @@
     "media-feature-colon-space-after": "always"|"never",
     "media-feature-colon-space-before": "always"|"never",
     "media-feature-name-no-vendor-prefix": true,
+    "media-feature-no-missing-punctuation": true,
     "media-feature-range-operator-space-after": "always"|"never",
     "media-feature-range-operator-space-before": "always"|"never",
     "media-query-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
@@ -58,16 +65,20 @@
     "media-query-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
     "media-query-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
     "media-query-parentheses-space-inside": "always"|"never",
+    "no-duplicate-selectors": true,
     "no-eol-whitespace": true,
+    "no-invalid-double-slash-comments": true,
     "no-missing-eof-newline": true,
+    "no-unknown-animations": true,
     "number-leading-zero": "always"|"never",
     "number-max-precision": int,
     "number-no-trailing-zeros": true,
     "number-zero-length-no-unit": true,
     "property-blacklist": string|[],
     "property-no-vendor-prefix": true,
-    "property-unit-blacklist": string|[],
-    "property-unit-whitelist": string|[],
+    "property-unit-blacklist": {},
+    "property-unit-whitelist": {},
+    "property-value-blacklist": {},
     "property-whitelist": string|[],
     "root-no-standard-properties": true,
     "rule-nested-empty-line-before": "always"|"never",
@@ -93,6 +104,7 @@
     "selector-pseudo-element-colon-notation": true,
     "selector-root-no-composition": true,
     "string-quotes": true,
+    "time-no-imperceptible": true,
     "unit-blacklist": string|[],
     "unit-whitelist": string|[],
     "value-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
@@ -102,3 +114,4 @@
     "value-no-vendor-prefix": true
   }
 }
+```

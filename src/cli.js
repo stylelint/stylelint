@@ -4,6 +4,7 @@ import meow from "meow"
 import path from "path"
 import { assign, includes } from "lodash"
 import getStdin from "get-stdin"
+import resolveFrom from "resolve-from"
 import standalone from "./standalone"
 
 const minimistOptions = {
@@ -33,7 +34,8 @@ const meowOptions = {
     "  You can also pass no input and use stdin, instead.",
     "",
     "Options",
-    "  --config            Path to a specific configuration file (JSON, YAML, or CommonJS).",
+    "  --config            Path to a specific configuration file (JSON, YAML, or CommonJS),",
+    "                      or the name of a module in `node_modules` that points to one.",
     "                      If no `--config` argument is provided, stylelint will search for",
     "                      configuration  files in the following places, in this order:",
     "                        - a `stylelint` property in `package.json`",
@@ -73,9 +75,7 @@ if (cli.flags.syntax && includes(syntaxOptions, cli.flags.syntax)) {
 }
 
 if (cli.flags.config) {
-  optionsBase.configFile = (path.isAbsolute(cli.flags.config))
-    ? cli.flags.config
-    : path.join(process.cwd(), cli.flags.config)
+  optionsBase.configFile = resolveFrom(process.cwd(), cli.flags.config)
 }
 
 Promise.resolve().then(() => {

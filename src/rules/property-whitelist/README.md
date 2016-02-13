@@ -18,10 +18,15 @@ The rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 Whitelisted properties are the only *allowed* properties.
 
+If a string in the array is surrounded with `"/"` (e.g. `"/^background/"`),
+it is interpreted as a regular expression. This allows, for example,
+easy targeting of shorthands: `/^background/` will match `background`,
+`background-size`, `background-color`, etc.
+
 Given:
 
 ```js
-["display", "animation"]
+["display", "animation", "/^background/"]
 ```
 
 The following patterns are considered warnings:
@@ -36,6 +41,10 @@ a {
   animation: my-animation 2s;
   color: pink;
 }
+```
+
+```css
+a { borkgrund: orange; }
 ```
 
 The following patterns are *not* considered warnings:
@@ -54,4 +63,12 @@ a {
   -webkit-animation: my-animation 2s;
   display: block;
 }
+```
+
+```css
+a { background: pink; }
+```
+
+```css
+a { background-color: pink; }
 ```

@@ -1,5 +1,6 @@
 import postcss from "postcss"
 import multimatch from "multimatch"
+import globjoin from "globjoin"
 import { get } from "lodash"
 import path from "path"
 import { configurationError } from "./utils"
@@ -28,8 +29,12 @@ export default postcss.plugin("stylelint", (options = {}) => {
       }
 
       if (config.ignoreFiles) {
-        const pathFromConfigToSource = path.relative(configDir, get(root, "source.input.file", ""))
-        if (multimatch(pathFromConfigToSource, config.ignoreFiles).length) { return }
+        const absoluteIgnoreFiles = [].concat(config.ignoreFiles).map(glob => {
+          if (path.isAbsolute(glob)) return glob
+          return globjoin(configDir, glob)
+        })
+        const sourcePath = get(root, "source.input.file", "")
+        if (multimatch(sourcePath, absoluteIgnoreFiles).length) { return }
       }
 
       if (config.plugins) {

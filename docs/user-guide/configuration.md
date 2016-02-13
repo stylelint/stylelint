@@ -88,14 +88,16 @@ for whatever standard message would be provided. For example, the following rule
 configuration would substitute in a couple of custom message:
 
 ```json
-"color-hex-case": [ "lower", {
-  "message": "Lowercase letters are easier to distinguish from numbers"
-} ],
-"indentation": [ 2, {
-  "warn": true,
-  "except": ["param"],
-  "message": "Please use 2 spaces for indentation. Tabs make The Architect grumpy."
-} ]
+{
+  "color-hex-case": [ "lower", {
+    "message": "Lowercase letters are easier to distinguish from numbers"
+  } ],
+  "indentation": [ 2, {
+    "warn": true,
+    "except": ["param"],
+    "message": "Please use 2 spaces for indentation. Tabs make The Architect grumpy."
+  } ]
+}
 ```
 
 Writing a [custom formatter](/docs/developer-guide/formatters.md) gives you maximum control if you need serious customization.
@@ -163,10 +165,12 @@ Once the plugin is declared, within your `"rules"` object you can add settings f
 
 Provide a glob or array of globs to ignore specific files.
 
-These globs are analyzed relative to
+If the globs are absolute paths, they are used as is.
+If they are relative, they are analyzed relative to
 
-- the config's filepath, if the config is a file,
-- or `process.cwd()`
+- `configBasedir`, if it's provided;
+- the config's filepath, if the config is a file that stylelint found a loaded;
+- or `process.cwd()`.
 
 The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
 

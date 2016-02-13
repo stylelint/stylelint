@@ -14,6 +14,7 @@ const ignoredGlobs = [
 export default function ({
   files,
   code,
+  codeFilename,
   config,
   configFile,
   configBasedir,
@@ -21,7 +22,8 @@ export default function ({
   syntax,
   formatter = "json",
 } = {}) {
-  if (!files && !code || files && code) {
+  const isValidCode = typeof code === "string"
+  if (!files && !isValidCode || files && (code || isValidCode)) {
     throw new Error("You must pass stylelint a `files` glob or a `code` string, though not both")
   }
 
@@ -32,7 +34,7 @@ export default function ({
   let errored = false
 
   if (!files) {
-    return lintString(code).then(result => {
+    return lintString(code, codeFilename).then(result => {
       const results = [result]
       const output = chosenFormatter(results)
       return {

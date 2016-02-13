@@ -6,10 +6,6 @@ Every rule is standalone and turned off by default. None of the rules have defau
 
 Here are all the rules within stylelint, grouped by the [_thing_](http://apps.workflower.fi/vocabs/css/en) they apply to.
 
-### String
-
-* [`string-quotes`](../../src/rules/string-quotes/README.md): Specify single or double quotes around strings.
-
 ### Color
 
 * [`color-hex-case`](../../src/rules/color-hex-case/README.md): Specify lowercase or uppercase for hex colors.
@@ -18,12 +14,9 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`color-no-invalid-hex`](../../src/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
 * [`color-no-named`](../../src/rules/color-no-named/README.md): Disallow named colors.
 
-### Number
+### Font weight
 
-* [`number-leading-zero`](../../src/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
-* [`number-max-precision`](../../src/rules/number-max-precision/README.md): Limit the number of decimal places allowed in numbers.
-* [`number-no-trailing-zeros`](../../src/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros within numbers.
-* [`number-zero-length-no-unit`](../../src/rules/number-zero-length-no-unit/README.md): Disallow units for zero lengths.
+* [`font-weight-notation`](../../src/rules/font-weight-notation/README.md): Require consistent numeric or named `font-weight` values.
 
 ### Function
 
@@ -40,6 +33,26 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`function-whitelist`](../../src/rules/function-whitelist/README.md): Specify a whitelist of only allowed functions.
 * [`function-whitespace-after`](../../src/rules/function-whitespace-after/README.md): Require a single space or disallow whitespace after functions.
 
+### Number
+
+* [`number-leading-zero`](../../src/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
+* [`number-max-precision`](../../src/rules/number-max-precision/README.md): Limit the number of decimal places allowed in numbers.
+* [`number-no-trailing-zeros`](../../src/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros within numbers.
+* [`number-zero-length-no-unit`](../../src/rules/number-zero-length-no-unit/README.md): Disallow units for zero lengths.
+
+### String
+
+* [`string-quotes`](../../src/rules/string-quotes/README.md): Specify single or double quotes around strings.
+
+### Time
+
+* [`time-no-imperceptible`](../../src/rules/time-no-imperceptible/README.md): Disallow `animation` and `transition` times under 100ms.
+
+### Unit
+
+* [`unit-blacklist`](../../src/rules/unit-blacklist/README.md): Specify a blacklist of disallowed units.
+* [`unit-whitelist`](../../src/rules/unit-whitelist/README.md): Specify a whitelist of allowed units.
+
 ### Value
 
 * [`value-no-vendor-prefix`](../../src/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values.
@@ -51,23 +64,20 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`value-list-comma-space-after`](../../src/rules/value-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of value lists.
 * [`value-list-comma-space-before`](../../src/rules/value-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of value lists.
 
-### Unit
+### Custom property
 
-* [`unit-blacklist`](../../src/rules/unit-blacklist/README.md): Specify a blacklist of disallowed units.
-* [`unit-whitelist`](../../src/rules/unit-whitelist/README.md): Specify a whitelist of allowed units.
+* [`custom-property-no-outside-root`](../../src/rules/custom-property-no-outside-root/README.md): Disallow custom properties outside of `:root` selectors.
+* [`custom-property-pattern`](../../src/rules/custom-property-pattern/README.md): Specify pattern of custom properties.
 
 ### Property
 
 * [`property-blacklist`](../../src/rules/property-blacklist/README.md): Specify a blacklist of disallowed properties.
 * [`property-no-vendor-prefix`](../../src/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties.
-* [`property-unit-blacklist`](../../src/rules/property-unit-blacklist/README.md): Specify a blacklist of disallowed units for specfic properties.
-* [`property-unit-whitelist`](../../src/rules/property-unit-whitelist/README.md): Specify a whitelist of disallowed units for specfic properties.
+* [`property-unit-blacklist`](../../src/rules/property-unit-blacklist/README.md): Specify a blacklist of disallowed units for specific properties.
+* [`property-unit-whitelist`](../../src/rules/property-unit-whitelist/README.md): Specify a whitelist of disallowed units for specific properties.
+* [`property-value-blacklist`](../../src/rules/property-value-blacklist/README.md): Specify a blacklist of disallowed property-value pairs.
+* [`property-value-whitelist`](../../src/rules/property-value-blacklist/README.md): Specify a whitelist of allowed property-value pairs.
 * [`property-whitelist`](../../src/rules/property-whitelist/README.md): Specify a whitelist of allowed properties.
-
-### Custom property
-
-* [`custom-property-no-outside-root`](../../src/rules/custom-property-no-outside-root/README.md): Disallow custom properties outside of `:root` selectors.
-* [`custom-property-pattern`](../../src/rules/custom-property-pattern/README.md): Specify pattern of custom properties.
 
 ### Declaration
 
@@ -99,6 +109,10 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`block-opening-brace-space-after`](../../src/rules/block-opening-brace-space-after/README.md): Require a single space or disallow whitespace after the opening brace of blocks.
 * [`block-opening-brace-space-before`](../../src/rules/block-opening-brace-space-before/README.md): Require a single space or disallow whitespace before the opening brace of blocks.
 
+### Root selector
+
+* [`root-no-standard-properties`](../../src/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` selectors.
+
 ### Selector
 
 * [`selector-class-pattern`](../../src/rules/selector-class-pattern/README.md): Specify a pattern for class selectors.
@@ -126,20 +140,16 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`rule-nested-empty-line-before`](../../src/rules/rule-nested-empty-line-before/README.md): Require or disallow an empty line before nested rules.
 * [`rule-no-duplicate-properties`](../../src/rules/rule-no-duplicate-properties/README.md): Disallow duplicate properties within rules.
 * [`rule-no-shorthand-property-overrides`](../../src/rules/rule-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
-
 * [`rule-non-nested-empty-line-before`](../../src/rules/rule-non-nested-empty-line-before/README.md): Require or disallow an empty line before non-nested rules.
 * [`rule-properties-order`](../../src/rules/rule-properties-order/README.md): Specify the order of properties within rules.
 * [`rule-trailing-semicolon`](../../src/rules/rule-trailing-semicolon/README.md): Require or disallow a trailing semicolon within rules.
-
-### Root
-
-* [`root-no-standard-properties`](../../src/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` selectors.
 
 ### Media feature
 
 * [`media-feature-colon-space-after`](../../src/rules/media-feature-colon-space-after/README.md): Require a single space or disallow whitespace after the colon in media features.
 * [`media-feature-colon-space-before`](../../src/rules/media-feature-colon-space-before/README.md): Require a single space or disallow whitespace before the colon in media features.
 * [`media-feature-name-no-vendor-prefix`](../../src/rules/media-feature-name-no-vendor-prefix/README.md): Disallow vendor prefixes for media feature names.
+* [`media-feature-no-missing-punctuation`](../../src/rules/media-feature-no-missing-punctuation/README.md): Ensure that non-boolean media features have the punctuation they need: either a colon or a range-operator.
 * [`media-feature-range-operator-space-after`](../../src/rules/media-feature-range-operator-space-after/README.md): Require a single space or disallow whitespace after the range operator in media features.
 * [`media-feature-range-operator-space-before`](../../src/rules/media-feature-range-operator-space-before/README.md): Require a single space or disallow whitespace before the range operator in media features.
 
@@ -171,10 +181,12 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 ### General / Sheet
 
 * [`indentation`](../../src/rules/indentation/README.md): Specify indentation.
-* [`max-line-length`](../../src/rules/max-line-length/README.md): Limit the length of a line.
 * [`max-empty-lines`](../../src/rules/max-empty-lines/README.md): Disallow more than a specified number of adjacent empty lines.
+* [`max-line-length`](../../src/rules/max-line-length/README.md): Limit the length of a line.
+* [`no-duplicate-selectors`](../../src/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 * [`no-eol-whitespace`](../../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
 * [`no-missing-eof-newline`](../../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
+* [`no-unknown-animations`](../../src/rules/no-unknown-animations/README.md): Disallow animation names that do not correspond to a `@keyframes` declaration.
 
 ## About rule names
 
@@ -183,7 +195,7 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
   * The first describes what [_thing_](http://apps.workflower.fi/vocabs/css/en) the rule applies to.
   * The second describes what the rule is checking.
 
-```
+```shell
 "number-leading-zero"
     ↑       ↑
 the thing   what the rule is checking
@@ -191,7 +203,7 @@ the thing   what the rule is checking
 
 * Except when the rule applies to the whole stylesheet:
 
-```
+```shell
 "no-eol-whitespace"
 "indentation"
      ↑

@@ -5,7 +5,7 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-testRule(undefined, tr => {
+testRule(true, tr => {
   // Stand-in warning-free-basics
   tr.ok("")
   tr.ok("@import \"foo.css\";")
@@ -48,4 +48,26 @@ testRule(undefined, tr => {
     line: 1,
     column: 13,
   })
+})
+
+testRule(true, { ignore: ["descendant"] }, tr => {
+  tr.ok(".foo div {}")
+  tr.ok(".foo > div {}")
+  tr.ok(".foo + div {}")
+  tr.ok("#bar div.foo {}", "descendant and compounded")
+
+  tr.notOk("div {}", messages.rejected)
+  tr.notOk(".foo, div {}", messages.rejected)
+  tr.notOk("div.foo {}", messages.rejected)
+})
+
+testRule(true, { ignore: ["compounded"] }, tr => {
+  tr.ok("div.foo {}")
+  tr.ok("div#foo {}")
+  tr.ok("div[something] {}")
+
+  tr.notOk("div {}", messages.rejected)
+  tr.notOk(".foo, div {}", messages.rejected)
+  tr.notOk(".foo div {}", messages.rejected)
+  tr.notOk("#bar div.foo {}", messages.rejected, "compounded and descendant")
 })
