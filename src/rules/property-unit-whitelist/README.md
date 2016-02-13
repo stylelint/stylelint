@@ -11,15 +11,20 @@ Specify a whitelist of allowed units for specific properties.
 ## Options
 
 `object`: `{
-  "property": ["array", "of", "units"]
+  "unprefixed-property-name": ["array", "of", "units"]
 }`
+
+If a property name or is surrounded with `"/"` (e.g. `"/^animation/"`),
+it is interpreted as a regular expression. This allows, for example,
+easy targeting of shorthands: `/^animation/` will match `animation`,
+`animation-duration`, `animation-timing-function`, etc.
 
 Given:
 
 ```js
 {
   "font-size": ["em", "px"],
-  "animation": ["s"],
+  "/^animation/": ["s"],
   "line-height": []
 }
 ```
@@ -32,6 +37,14 @@ a { font-size: 1.2rem; }
 
 ```css
 a { animation: animation-name 500ms ease; }
+```
+
+```css
+a { -webkit-animation: animation-name 500ms ease; }
+```
+
+```css
+a { animation-duration: 500ms; }
 ```
 
 ```css
@@ -50,6 +63,15 @@ a { height: 100px; }
 
 ```css
 a { animation: animation-name 5s ease; }
+```
+
+
+```css
+a { -webkit-animation: animation-name 5s ease; }
+```
+
+```css
+a { animation-duration: 5s; }
 ```
 
 ```css

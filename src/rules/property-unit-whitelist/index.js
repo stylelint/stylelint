@@ -1,4 +1,5 @@
-import { isObject } from "lodash"
+import { vendor } from "postcss"
+import { isObject, find } from "lodash"
 import valueParser from "postcss-value-parser"
 
 import {
@@ -6,6 +7,7 @@ import {
   report,
   ruleMessages,
   validateOptions,
+  matchesStringOrRegExp,
 } from "../../utils"
 
 export const ruleName = "property-unit-whitelist"
@@ -25,9 +27,13 @@ export default function (whitelist) {
     root.walkDecls(decl => {
 
       const { prop, value } = decl
-      const propWhitelist = whitelist[prop]
+      const unprefixedProp = vendor.unprefixed(prop)
+
+      const propWhitelist = find(whitelist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
 
       if (!propWhitelist) { return }
+
+      console.log(propWhitelist)
 
       valueParser(value).walk(function (node) {
         if (node.type === "string") { return }
