@@ -1,3 +1,8 @@
+# Example config
+
+This example config lists all of stylelint's rules and their primary options. You can remove (or turn off) the rules you don't want and edit the primary option of each rule to your liking.
+
+```json
 {
   "rules": {
     "at-rule-empty-line-before": "always"|"never",
@@ -109,3 +114,4 @@
     "value-no-vendor-prefix": true
   }
 }
+```

@@ -8,31 +8,31 @@ The CLI outputs formatted results into `process.stdout`, which you can read with
 
 Looking for `.stylelintrc` and linting all `.css` files in the `foo` directory:  
 
-```bash
+```shell
 stylelint foo/*.css
 ```
 
 Looking for `.stylelintrc` and linting `stdin`:
 
-```bash
+```shell
 echo "a { color: pink; }" | stylelint
 ```
 
 Using `bar/mySpecialConfig.json` as config to lint all `.css` files in the `foo` directory, then writing the output to `myTestReport.txt`:
 
-```bash
+```shell
 stylelint foo/*.css --config bar/mySpecialConfig.json > myTestReport.txt
 ```
 
 Using `bar/mySpecialConfig.json` as config, with quiet mode on, to lint all `.css` files in the `foo` directory and any of its subdirectories and also all `.css` files in the `bar directory`, then writing the JSON-formatted output to `myJsonReport.json`:
 
-```bash
+```shell
 stylelint foo/**/*.css bar/*.css -q -f json --config bar/mySpecialConfig.json > myJsonReport.json
 ```
 
 The linter can parse the SCSS!
 
-```bash
+```shell
 stylelint foo/**/*.scss --syntax scss
 ```
 
