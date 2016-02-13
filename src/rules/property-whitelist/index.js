@@ -1,10 +1,11 @@
-import { isString } from "lodash"
 import { vendor } from "postcss"
+import { isString } from "lodash"
 import {
   cssPropertyIsVariable,
   report,
   ruleMessages,
   validateOptions,
+  matchesStringOrRegExp,
 } from "../../utils"
 
 export const ruleName = "property-whitelist"
@@ -28,7 +29,7 @@ export default function (whitelistInput) {
 
       if (cssPropertyIsVariable(prop)) { return }
 
-      if (whitelist.indexOf(vendor.unprefixed(prop)) === -1) {
+      if (!matchesStringOrRegExp(vendor.unprefixed(prop), whitelist)) {
         report({
           message: messages.rejected(prop),
           node: decl,

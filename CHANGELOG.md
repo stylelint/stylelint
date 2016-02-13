@@ -1,6 +1,6 @@
 # Head
 * Added: better handling of vendor prefixes in `property-unit-blacklist` and `property-unit-whitelist`, e.g. if you enter `animation` it now also checks `-webkit-animation`.
-* Added: support for regular expression property identification in `property-blacklist`, `property-unit-blacklist`, `property-unit-whitelist`, `property-value-blacklist`.
+* Added: support for regular expression property identification in `property-blacklist`, `property-unit-blacklist`, `property-unit-whitelist`, `property-value-blacklist`, and `property-whitelist`.
 * Added: `codeFilename` option to Node API.
 * Added: `font-weight-notation` rule.
 * Added: `media-feature-no-missing-punctuation` rule.
