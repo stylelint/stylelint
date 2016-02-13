@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: move `tape` to dependencies to support `testUtils`.
+
 # 4.3.1
 
 * Fixed: include `testUtils` in npm package whitelist.
