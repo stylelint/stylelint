@@ -22,6 +22,9 @@ testRule({
   tr.ok("a { background-position: top right, 1em 5vh; }")
   tr.ok("a { margin: calc(30vh - 10vh); }")
   tr.ok("a { animation: animation-name 300ms ease; }")
+  tr.ok("a { -webkit-animation: animation-name 300ms ease; }")
+  tr.ok("a { animation-duration: 3s; }")
+  tr.ok("a { -webkit-animation-duration: 3s; }")
 
   tr.ok("a { font-size: /* 100px */ 1.2rem; }", "ignore unit within comments")
   tr.ok("a::before { font-size: \"10px\"}", "ignore unit within quotes")
@@ -57,4 +60,21 @@ testRule({
     message: messages.rejected("margin", "em"),
     column: 25,
   })
+
+  tr.notOk("a { animation: foo 3s; }", messages.rejected("animation", "s"))
+  tr.notOk("a { -webkit-animation: foo 3s; }", messages.rejected("-webkit-animation", "s"))
+})
+
+testRule({
+  "/^animation/": ["s"],
+}, tr => {
+  tr.ok("a { animation: animation-name 300ms ease; }")
+  tr.ok("a { -webkit-animation: animation-name 300ms ease; }")
+  tr.ok("a { animation-duration: 300ms; }")
+  tr.ok("a { -webkit-animation-duration: 300ms; }")
+
+  tr.notOk("a { animation: animation-name 3s ease; }", messages.rejected("animation", "s"))
+  tr.notOk("a { -webkit-animation: animation-name 3s ease; }", messages.rejected("-webkit-animation", "s"))
+  tr.notOk("a { animation-duration: 3s; }", messages.rejected("animation-duration", "s"))
+  tr.notOk("a { -webkit-animation-duration: 3s; }", messages.rejected("-webkit-animation-duration", "s"))
 })
