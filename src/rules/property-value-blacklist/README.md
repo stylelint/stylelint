@@ -9,7 +9,7 @@ Specify a blacklist of disallowed property-value pairs.
 ```
 
 Note that values could be specified as regex by surrounding string value with slashes.
-In that case they will be treated as regex instead of a plain string. Regex is matched against entire value. For example, a value like "10px solid rgba( 255 , 0 , 0 , 0.5 )" will not match "/^solid/" (notice beginning of the line boundary) but will match "/\\s+solid\\s+/" or "/\\bsolid\\b/". Be careful with regex matching not to accidentally consider quoted string values. For example, "/red/" will match value such as "1px dotted red" as well as "white url(/mysite.com/red.png)".
+In that case they will be treated as regex instead of a plain string. Regex is matched against entire value. For example, a value like `"10px solid rgba( 255 , 0 , 0 , 0.5 )"` will not match `"/^solid/"` (notice beginning of the line boundary) but will match `"/\\s+solid\\s+/"` or `"/\\bsolid\\b/"`. Be careful with regex matching not to accidentally consider quoted string values. For example, `"/red/"` will match value such as `"1px dotted red"` as well as `"white url(/mysite.com/red.png)"`.
 
 ## Options
 
