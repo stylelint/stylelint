@@ -14,7 +14,7 @@ Specify a whitelist of allowed units for specific properties.
   "unprefixed-property-name": ["array", "of", "units"]
 }`
 
-If a property name or is surrounded with `"/"` (e.g. `"/^animation/"`),
+If a property name is surrounded with `"/"` (e.g. `"/^animation/"`),
 it is interpreted as a regular expression. This allows, for example,
 easy targeting of shorthands: `/^animation/` will match `animation`,
 `animation-duration`, `animation-timing-function`, etc.

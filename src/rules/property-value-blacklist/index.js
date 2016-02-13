@@ -1,6 +1,5 @@
 import { vendor } from "postcss"
-import { isObject } from "lodash"
-
+import { isObject, find } from "lodash"
 import {
   report,
   ruleMessages,
@@ -25,7 +24,8 @@ export default function (blacklist) {
     root.walkDecls(decl => {
 
       const { prop, value } = decl
-      const propBlacklist = blacklist[vendor.unprefixed(prop)]
+      const unprefixedProp = vendor.unprefixed(prop)
+      const propBlacklist = find(blacklist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
 
       if (matchesStringOrRegExp(value, propBlacklist)) {
         report({
