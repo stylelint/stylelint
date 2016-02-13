@@ -1,4 +1,4 @@
-# Head
+# 4.3.0
 
 * Added: `font-family-name-quotes` rule.
 * Added: `font-weight-notation` rule.
