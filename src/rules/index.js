@@ -31,6 +31,7 @@ import declarationColonNewlineAfter from "./declaration-colon-newline-after"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
 import declarationNoImportant from "./declaration-no-important"
+import fontFamilyNameQuotes from "./font-family-name-quotes"
 import fontWeightNotation from "./font-weight-notation"
 import functionBlacklist from "./function-blacklist"
 import functionCalcNoUnspacedOperator from "./function-calc-no-unspaced-operator"
@@ -141,6 +142,7 @@ export default {
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
   "declaration-no-important": declarationNoImportant,
+  "font-family-name-quotes": fontFamilyNameQuotes,
   "font-weight-notation": fontWeightNotation,
   "function-blacklist": functionBlacklist,
   "function-calc-no-unspaced-operator": functionCalcNoUnspacedOperator,

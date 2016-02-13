@@ -38,6 +38,7 @@ This example config lists all of stylelint's rules and their primary options. Yo
     "declaration-colon-space-after": "always"|"never"|"always-single-line",
     "declaration-colon-space-before": "always"|"never",
     "declaration-no-important": true,
+    "font-family-name-quotes": "single-where-required"|"single-where-recommended"|"single-unless-keyword"|"double-where-required"|"double-where-recommended"|"double-unless-keyword",
     "font-weight-notation": "numeric"|"named",
     "function-blacklist": string|[],
     "function-calc-no-unspaced-operator": true,

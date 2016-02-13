@@ -14,6 +14,10 @@ Here are all the rules within stylelint, grouped by the [_thing_](http://apps.wo
 * [`color-no-invalid-hex`](../../src/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
 * [`color-no-named`](../../src/rules/color-no-named/README.md): Disallow named colors.
 
+### Font family
+
+* [`font-family-name-quotes`](../../src/rules/font-family-name-quotes/README.md): Specify whether or not quotation marks should be used around font family names, and whether single or double.
+
 ### Font weight
 
 * [`font-weight-notation`](../../src/rules/font-weight-notation/README.md): Require consistent numeric or named `font-weight` values.
