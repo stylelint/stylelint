@@ -32,7 +32,6 @@ your plugin will respect disabled ranges and other possible future features of s
 - `ruleMessages`: Tailor your messages to look like the messages of other stylelint rules. Currently, this means that the name of the rule is appended, in parentheses, to the end of the message.
 - `styleSearch`: Search within CSS strings, and for every match found invoke a callback, passing a match object with details about the match. `styleSearch` ignores CSS strings (e.g. `content: "foo";`) and by default ignores comments. It can also be restricted to substrings within or outside of CSS functional notation.
 - `validateOptions`: Help your user's out by checking that the options they've submitted are valid.
-- `ruleTester`: Test your rules with the same concise testing syntax that stylelint uses. Linter rules require lots of tests, so the easier it is for you to create those tests, the better.
 
 ## `stylelint.rules`
 
