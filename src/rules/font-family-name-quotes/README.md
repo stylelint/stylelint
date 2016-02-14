@@ -4,9 +4,9 @@ Specify whether or not quotation marks should be used around font family names,
 and whether single or double.
 
 ```css
-font-family: "Times New Roman", 'Ancient Runes', serif;
-/**          ↑               ↑  ↑             ↑
- *           These quotation marks              */
+a { font-family: "Times New Roman", 'Ancient Runes', serif; }
+/**              ↑               ↑  ↑             ↑
+ *               These quotation marks and this one */
 ```
 
 ## Options
