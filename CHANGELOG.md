@@ -1,6 +1,6 @@
-# Head
+# 4.3.3
 
-* Fixed: again removed `stylelint.utils.ruleTester`.
+* Fixed: again removed `stylelint.utils.ruleTester` because its dependencies broke things.
 
 # 4.3.2
 
