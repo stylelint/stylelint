@@ -3,8 +3,8 @@
 Require a single space or disallow whitespace after the bang of declarations.
 
 ```css
-    a { color: pink !important; }
-/**                 ↑
+a { color: pink !important; }
+/**             ↑
  * The space after this exclamation mark */
 ```
 

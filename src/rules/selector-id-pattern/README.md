@@ -3,10 +3,12 @@
 Specify a pattern for id selectors.
 
 ```css
-    .foo, #bar.baz span, #hoo[disabled] { color: pink; }
-/**         ↑              ↑
- * These id selectors        */
+.foo, #bar.baz a, #hoo[disabled] { color: pink; }
+/**   ↑           ↑
+ * These id selectors */
 ```
+
+## Options
 
 `regex` or `string`
 

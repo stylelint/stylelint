@@ -3,9 +3,9 @@
 Disallow `!important` within declarations.
 
 ```css
-    a { color: pink !important; }
-/**                      ↑
- *         This !important */
+a { color: pink !important; }
+/**             ↑
+ * This !important */
 ```
 
 The following patterns are considered warnings:

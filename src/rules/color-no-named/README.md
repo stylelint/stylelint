@@ -3,8 +3,8 @@
 Disallow named colors.
 
 ```css
-    a { color: black }
-/**              ↑
+a { color: black }
+/**        ↑
  * These named colors */
 ```
 

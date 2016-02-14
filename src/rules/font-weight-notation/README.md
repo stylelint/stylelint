@@ -5,12 +5,12 @@ Also, when named values are expected, require only valid names.
 
 ```css
 a { font-weight: bold }
-/**               ↑
- *    This notation */
+/**              ↑
+ *   This notation */
 
 a { font: italic small-caps 600 16px/3 cursive; }
-/**                          ↑
-*       And this notation, too */
+/**                         ↑
+*      And this notation, too */
 ```
 
 Valid font-weight names are `normal`, `bold`, `bolder`, and `lighter`.

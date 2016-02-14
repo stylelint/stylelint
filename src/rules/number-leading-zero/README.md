@@ -3,9 +3,9 @@
 Require or disallow a leading zero for fractional numbers less than 1.
 
 ```css
-    a { line-height: 0.5; }
-/**                  ↑
- *   This leading zero */
+a { line-height: 0.5; }
+/**              ↑
+ * This leading zero */
 ```
 
 ## Options

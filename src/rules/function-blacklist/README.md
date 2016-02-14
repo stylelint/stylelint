@@ -3,9 +3,9 @@
 Specify a blacklist of disallowed functions.
 
 ```css
-    a { transform: scale(1); }
-/**                  ↑
- *     These functions */
+a { transform: scale(1); }
+/**            ↑
+ * These functions */
 ```
 
 ## Options

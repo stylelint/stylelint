@@ -4,9 +4,11 @@ Specify a pattern for class selectors.
 
 ```css
     .foo, #bar.baz span, #hoo[disabled] { color: pink; }
-/**   ↑         ↑
+/** ↑         ↑
  * These class selectors */
 ```
+
+## Options
 
 `regex` or `string`
 

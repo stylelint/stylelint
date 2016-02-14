@@ -3,8 +3,8 @@
 Require a single space or disallow whitespace after the closing brace of blocks.
 
 ```css
-    a { color: pink; }
-/**                  ↑
+a { color: pink; }
+/**              ↑
  * The space after this brace */
 ```
 

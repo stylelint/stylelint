@@ -3,9 +3,9 @@
 Disallow end-of-line whitespace.
 
 ```css
-    a { color: pink; }···
-/**                    ↑
- *       This whitespace */
+a { color: pink; }···
+/**               ↑
+ *  This whitespace */
 ```
 
 The following patterns are considered warnings:

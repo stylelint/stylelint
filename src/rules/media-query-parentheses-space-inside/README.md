@@ -3,8 +3,8 @@
 Require a single space or disallow whitespace on the inside of the parentheses within media queries.
 
 ```css
-    @media ( max-width: 300px ) {}
-/**        ↑                  ↑
+@media ( max-width: 300px ) {}
+/**    ↑                  ↑
  * The space inside these two parentheses */
 ```
 

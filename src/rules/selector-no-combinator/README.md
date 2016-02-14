@@ -3,8 +3,8 @@
 Disallow combinators in selectors.
 
 ```css
-    a > b + c ~ d e { color: pink; }
-/**   ↑   ↑   ↑  ↑
+  a > b + c ~ d e { color: pink; }
+/** ↑   ↑   ↑  ↑
  * These are combinators */
 ```
 

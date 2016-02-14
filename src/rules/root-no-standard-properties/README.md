@@ -4,7 +4,7 @@ Disallow standard properties inside `:root` selectors.
 
 ```css
     :root { color: #333 }
-/**   ↑       ↑
+/** ↑       ↑
  * This selector and these types of standard properties */
 ```
 

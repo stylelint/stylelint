@@ -3,8 +3,8 @@
 Require a single space or disallow whitespace before the semicolons of declaration blocks.
 
 ```css
-    a { color: pink; }
-/**                ↑
+a { color: pink; }
+/**            ↑
  * The space before this semicolon */
 ```
 

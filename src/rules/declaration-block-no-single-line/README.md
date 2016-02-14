@@ -2,6 +2,12 @@
 
 Disallow single-line declaration blocks.
 
+```css
+  a { color: pink; top: 0; }
+/** ↑                      ↑
+ * Declaration blocks like this */
+```
+
 The following patterns are considered warnings:
 
 ```css

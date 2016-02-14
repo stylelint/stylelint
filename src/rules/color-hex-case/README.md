@@ -3,8 +3,8 @@
 Specify lowercase or uppercase for hex colors.
 
 ```css
-    a { color: #fff }
-/**              ↑
+a { color: #fff }
+/**        ↑
  * These hex colors */
 ```
 
@@ -49,4 +49,3 @@ a { color: #000; }
 ```css
 a { color: #FFF; }
 ```
-

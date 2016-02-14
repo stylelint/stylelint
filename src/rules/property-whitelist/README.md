@@ -3,8 +3,8 @@
 Specify a whitelist of allowed properties.
 
 ```css
-    a { display: block; }
-/**          ↑
+a { display: block; }
+/** ↑
  * These properties */
 ```
 

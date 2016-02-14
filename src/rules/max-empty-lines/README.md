@@ -2,6 +2,15 @@
 
 Disallow more than a specified number of adjacent empty lines.
 
+```css
+a {}
+     /* ← */
+     /* ← */
+a {} /* ↑ */
+/**     ↑
+ * These lines */
+```
+
 ## Options
 
 `int`: Maximum number of characters allowed.

@@ -2,6 +2,12 @@
 
 Limit the number of declaration within a single line declaration block.
 
+```css
+a { color: pink; top: 0; }
+/** ↑            ↑
+ * The number of these declarations */
+```
+
 ## Options
 
 `int`: Maximum number of declarations allowed.

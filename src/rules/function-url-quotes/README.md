@@ -3,9 +3,9 @@
 Specify single, double or no quotes for urls.
 
 ```css
-    a { background: url("x.jpg") }
-/**                     ↑     ↑
- *                 These quotes */
+a { background: url("x.jpg") }
+/**                 ↑     ↑
+ *             These quotes */
 ```
 
 ## Options

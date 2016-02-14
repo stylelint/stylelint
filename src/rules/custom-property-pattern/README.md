@@ -3,10 +3,12 @@
 Specify pattern of custom properties.
 
 ```css
-    a { --foo-bar: 1px; }
-/**        ↑
+a { --foo-bar: 1px; }
+/**   ↑
  * The pattern of this */
 ```
+
+## Options
 
 `regex` or `string`
 

@@ -3,9 +3,9 @@
 Require or disallow a trailing semicolon within rules.
 
 ```css
-    a { background: orange; color: pink; }
-/**                                    ↑
- *                        This semicolon */
+a { background: orange; color: pink; }
+/**                                ↑
+ *                    This semicolon */
 ```
 
 The trailing semicolon is the *last* semicolon in a rule and it is optional.

@@ -3,11 +3,11 @@
 Specify the order of properties within rules.
 
 ```css
-    a {
-      color: pink;
-      top: 0;
-    }
-/**    ↑
+  a {
+    color: pink;
+    top: 0;
+  }
+/** ↑
  * These properties */
 ```
 

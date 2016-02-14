@@ -3,9 +3,9 @@
 Limit the number of decimal places allowed in numbers.
 
 ```css
-    .foo { top: 3.245634px; }
-/**                  ↑
- *   These decimal places */
+.foo { top: 3.245634px; }
+/**           ↑
+ * These decimal places */
 ```
 
 ## Options

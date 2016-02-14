@@ -3,8 +3,8 @@
 Specify short or long notation for hex colors.
 
 ```css
-    a { color: #fff }
-/**              ↑
+a { color: #fff }
+/**        ↑
  * These hex colors */
 ```
 

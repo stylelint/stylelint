@@ -4,7 +4,7 @@ Disallow id selectors.
 
 ```css
     #foo {}
-/**   ↑
+/** ↑
  * This type of selector */
 ```
 

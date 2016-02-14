@@ -3,8 +3,8 @@
 Specify a blacklist of disallowed units for specific properties.
 
 ```css
-    a { width: 100px; }
-/**       ↑      ↑
+a { width: 100px; }
+/** ↑         ↑
  * These properties and these units */
 ```
 

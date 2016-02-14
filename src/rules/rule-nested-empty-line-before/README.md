@@ -3,12 +3,12 @@
 Require or disallow an empty line before nested rules.
 
 ```css
-    @media {
-           /* ← */
-      a {} /* ↑ */
-    }      /* ↑ */
-/**           ↑
- *    This line */
+@media {
+       /* ← */
+  a {} /* ↑ */
+}      /* ↑ */
+/**       ↑
+ * This line */
 ```
 
 ## Options

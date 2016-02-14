@@ -3,9 +3,9 @@
 Disallow duplicate properties within rules.
 
 ```css
-    a { color: pink; color: orange; }
-/**       ↑            ↑
- *  These duplicated properties */
+a { color: pink; color: orange; }
+/** ↑            ↑
+ * These duplicated properties */
 ```
 
 The rule ignores variables (`$sass`, `@less`, `--custom-property`).

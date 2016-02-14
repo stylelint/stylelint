@@ -3,11 +3,11 @@
 Require or disallow an empty line before non-nested rules.
 
 ```css
-    a {}
-          /* ← */
-    b {}  /* ↑ */
-/**          ↑
- *   This line */
+a {}
+      /* ← */
+b {}  /* ↑ */
+/**      ↑
+ * This line */
 ```
 
 If the rule is the very first node in a stylesheet then it is ignored.

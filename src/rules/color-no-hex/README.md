@@ -3,8 +3,8 @@
 Disallow hex colors.
 
 ```css
-    a { color: #333 }
-/**              ↑
+a { color: #333 }
+/**        ↑
  * These hex colors */
 ```
 

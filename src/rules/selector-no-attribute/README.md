@@ -3,8 +3,8 @@
 Disallow attribute selectors.
 
 ```css
-    a[rel="external"] {}
-/**  ↑
+   a[rel="external"] {}
+/** ↑
  * This type of selector */
 ```
 

@@ -3,8 +3,13 @@
 Require a newline or disallow whitespace on the inside of the parentheses of functions.
 
 ```css
-    a { transform: translate( 1, 1 ); }
-/**                         ↑      ↑
+  a {
+    transform: translate(
+      1,             /* ↑ */
+      1              /* ↑ */
+    );               /* ↑ */
+  }                  /* ↑ */
+/** ↑                   ↑
  * The newline inside these two parentheses */
 ```
 

@@ -3,8 +3,8 @@
 Require a single space or disallow whitespace after the commas of selector lists.
 
 ```css
-    a, b { color: pink; }
-/**  ↑
+   a, b { color: pink; }
+/** ↑
  * The space after this comma */
 ```
 

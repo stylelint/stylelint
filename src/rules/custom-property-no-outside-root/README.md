@@ -4,7 +4,7 @@ Disallow custom properties outside of `:root` selectors.
 
 ```css
     a { --foo-bar: 1px; }
-/** ↑       ↑
+/** ↑   ↑
  * These selectors and these types of custom properties */
 ```
 

@@ -3,9 +3,9 @@
 Disallow empty blocks.
 
 ```css
-    a { }
-/**    ↑
- *  Blocks like this */
+ a { }
+/** ↑
+ * Blocks like this */
 ```
 
 The following patterns are considered warnings:

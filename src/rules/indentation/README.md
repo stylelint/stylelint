@@ -9,7 +9,7 @@ Specify indentation.
    | ↑ ↑  top right;
    | ↑}↑ ↑
    |}↑ ↑ ↑
-/**  ↑   ↑
+/**  ↑ ↑ ↑
  * The indentation at these three points */
 ```
 

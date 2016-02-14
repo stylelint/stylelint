@@ -3,11 +3,11 @@
 Require or disallow an empty line before @rules.
 
 ```css
-    a {}
-              /* ← */
-    @media {} /* ↑ */
-/**              ↑
- *       This line */
+a {}
+          /* ← */
+@media {} /* ↑ */
+/**          ↑
+ *   This line */
 ```
 
 If the at-rule is the very first node in a stylesheet then it is ignored.

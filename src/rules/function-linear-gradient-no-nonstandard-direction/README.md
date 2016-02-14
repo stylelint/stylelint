@@ -5,7 +5,7 @@ Disallow direction values in `linear-gradient()` calls that are not valid accord
 
 ```css
 .foo { background: linear-gradient(to top, #fff, #000); }
-/**                                  ↑
+/**                                ↑
  * This (optional) first argument is the "direction" */
 ```
 

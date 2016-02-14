@@ -3,8 +3,8 @@
 Disallow vendor prefixes for properties.
 
 ```css
-    a { -webkit-transform: scale(1); }
-/**         ↑
+a { -webkit-transform: scale(1); }
+/**  ↑
  * These prefixes */
 ```
 
