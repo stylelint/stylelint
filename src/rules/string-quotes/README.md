@@ -3,8 +3,8 @@
 Specify single or double quotes around strings.
 
 ```css
-    a[id="foo"] { content: "x"; }
-/**      ↑   ↑             ↑ ↑
+a[id="foo"] { content: "x"; }
+/**  ↑   ↑             ↑ ↑
  * These quotes and these quotes */
 ```
 

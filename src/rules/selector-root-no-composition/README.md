@@ -4,7 +4,7 @@ Disallow the composition of`:root` selectors.
 
 ```css
     a, :root {}
-/** ↑    ↑
+/** ↑  ↑
  * This type of composite selector */
 ```
 

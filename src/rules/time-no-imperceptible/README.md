@@ -4,8 +4,8 @@ Disallow `animation` and `transition` times under 100ms.
 
 ```css
 .foo { animation: slip-n-slide 150ms linear; }
-/**                              ↑
- *                       This time */
+/**                            ↑
+ *                     This time */
 ```
 
 The rule checks `transition-duration`, `transition-delay`, `animation-duration`, `animation-delay`,

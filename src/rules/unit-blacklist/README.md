@@ -3,9 +3,9 @@
 Specify a blacklist of disallowed units.
 
 ```css
-    a { width: 100px; }
-/**               ↑
- *      These units */
+a { width: 100px; }
+/**           ↑
+ *  These units */
 ```
 
 ## Options
