@@ -137,7 +137,7 @@ Or starting with `stylelint-config-standard`, then extending layering `myExtenda
 
 **The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d, so can fit whatever format works with Node's `require.resolve()` algorithm.** That means the a "locater" can be:
 
-- The name of a module in `node*modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
+- The name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
 - An absolute path to a file (which makes sense if you're creating a JS object in a Node context and passing it in) with a `.js` or `.json` extension.
 - A relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
