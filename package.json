@@ -32,7 +32,8 @@
     "execall": "^1.0.0",
     "lodash": "^3.9.3",
     "postcss": "^4.1.12",
-    "postcss-selector-parser": "^1.0.1"
+    "postcss-selector-parser": "^1.0.1",
+    "specificity": "0.1.5"
   },
   "devDependencies": {
     "babel": "^5.6.3",
