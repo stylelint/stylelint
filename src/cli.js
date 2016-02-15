@@ -75,7 +75,14 @@ if (cli.flags.syntax && includes(syntaxOptions, cli.flags.syntax)) {
 }
 
 if (cli.flags.config) {
+  // Should check these possibilities:
+  //   a. name of a node_module
+  //   b. absolute path
+  //   c. relative path relative to `process.cwd()`.
+  // If none of the above work, we'll try a relative path starting
+  // in `process.cwd()`.
   optionsBase.configFile = resolveFrom(process.cwd(), cli.flags.config)
+    || path.join(process.cwd(), cli.flags.config)
 }
 
 Promise.resolve().then(() => {

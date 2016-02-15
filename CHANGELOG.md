@@ -6,6 +6,7 @@
 - Fixed: clarified error message in `time-no-imperceptible`.
 - Fixed: `font-family-name-quotes` and `font-weight-notation` ignore variables.
 - Fixed: `media-feature-no-missing-punctuation` handles space-padded media features.
+- Fixed: regression causing CLI `--config` relatives paths that don't start with `./` to be rejected.
 
 # 4.3.3
 
