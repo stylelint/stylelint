@@ -15,6 +15,8 @@ a { font: italic small-caps 600 16px/3 cursive; }
 
 Valid font-weight names are `normal`, `bold`, `bolder`, and `lighter`.
 
+This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.
+
 ## Options
 
 `string`: `"numeric"|"named"`

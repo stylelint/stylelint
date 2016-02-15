@@ -9,6 +9,10 @@ const testRule = ruleTester(rule, ruleName)
 testRule("numeric", tr => {
   warningFreeBasics(tr)
 
+  tr.ok("a { font-weight: $sassy-font-weight; }", "ignores sass variables")
+  tr.ok("a { font: italic @less-666 20px; }", "ignores less variables")
+  tr.ok("a { font-weight: var(--ff1); }", "ignores custom properties")
+
   tr.ok("a { font-weight: 100; }")
   tr.ok("a { font-weight: 700; }")
   tr.ok("a { font-weight: 850; }")
@@ -32,6 +36,10 @@ testRule("numeric", tr => {
 
 testRule("named", tr => {
   warningFreeBasics(tr)
+
+  tr.ok("a { font-weight: $sassy-font-weight; }", "ignores sass variables")
+  tr.ok("a { font: italic @less-666 20px; }", "ignores less variables")
+  tr.ok("a { font-weight: var(--ff1); }", "ignores custom properties")
 
   tr.ok("a { font-weight: bold; }")
   tr.ok("a { font-weight: bolder; }")

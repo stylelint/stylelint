@@ -1,5 +1,6 @@
 import postcss from "postcss"
 import {
+  cssWordIsVariable,
   declarationValueIndexOffset,
   report,
   ruleMessages,
@@ -49,6 +50,8 @@ export default function (expectation) {
     }
 
     function checkWeight(weightValue, decl) {
+      if (cssWordIsVariable(weightValue)) { return }
+
       const weightValueOffset = decl.value.indexOf(weightValue)
 
       if (expectation === "numeric") {
