@@ -1,5 +1,6 @@
 # Head
 
+* Fixed: clarified error message in `time-no-imperceptible`.
 * Fixed: `font-family-name-quotes` and `font-weight-notation` ignore variables (`$sass`, `@less`, and `var(--custom-property)`).
 * Fixed: `media-feature-no-missing-punctuation` handles space-padded media features.
 

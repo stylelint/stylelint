@@ -10,7 +10,7 @@ import {
 export const ruleName = "time-no-imperceptible"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: time => `Unexpected time value "${time}" less than 100ms`,
+  rejected: time => `Unexpected time value "${time}" less than or equal to 100ms`,
 })
 
 const LONGHAND_PROPERTIES_TO_CHECK = [
