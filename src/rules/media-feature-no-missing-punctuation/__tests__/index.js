@@ -12,7 +12,9 @@ testRule(true, tr => {
   tr.ok("@nonsense (min-width max-width no-width) {}")
 
   tr.ok("@media (min-width: 300px) {}")
+  tr.ok("@media ( min-width: 300px ) {}")
   tr.ok("@media (min-width   :\t300px) {}")
+  tr.ok("@media ( min-width   :\t300px ) {}")
   tr.ok("@media (width > 20em) {}")
   tr.ok("@media (width> 20em) {}")
   tr.ok("@media (width >20em) {}")
@@ -21,6 +23,7 @@ testRule(true, tr => {
   tr.ok("@media (10px<= width < 20em) {}")
   tr.ok("@media (10px<= width <20em) {}")
   tr.ok("@media only screen and (min-width: 300px) and (max-width: 600px) {}")
+  tr.ok("@media only screen and ( min-width: 300px ) and ( max-width: 600px ) {}")
   tr.ok("@media (color) {}")
 
   tr.notOk("@media (min-width 300px) {}", {
