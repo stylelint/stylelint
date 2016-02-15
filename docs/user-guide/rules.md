@@ -185,7 +185,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 ### General / Sheet
 
 - [`indentation`](../../src/rules/indentation/README.md): Specify indentation.
-- [`max-empty-lines`](../../src/rules/max-empty-lines/README.md): Disallow more than a specified number of adjacent empty lines.
+- [`max-empty-lines`](../../src/rules/max-empty-lines/README.md): Limit the number of adjacent empty lines.
 - [`max-line-length`](../../src/rules/max-line-length/README.md): Limit the length of a line.
 - [`no-duplicate-selectors`](../../src/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 - [`no-eol-whitespace`](../../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
