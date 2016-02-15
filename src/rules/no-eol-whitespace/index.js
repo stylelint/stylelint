@@ -18,7 +18,7 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    const rootString = root.source.input.css
+    const rootString = root.toString()
     styleSearch({ source: rootString, target: [ "\n", "\r" ], checkComments: true }, match => {
       if (whitespacesToReject.indexOf(rootString[match.startIndex - 1]) !== -1) {
         report({

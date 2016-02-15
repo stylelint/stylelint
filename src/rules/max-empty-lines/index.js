@@ -22,7 +22,7 @@ export default function (max) {
     })
     if (!validOptions) { return }
 
-    const rootString = root.source.input.css
+    const rootString = root.toString()
     styleSearch({ source: rootString, target: "\n", checkComments: true }, match => {
       if (
         rootString.substr(match.startIndex + 1, maxAdjacentNewlines) === repeat("\n", maxAdjacentNewlines)

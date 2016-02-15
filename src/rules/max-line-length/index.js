@@ -28,7 +28,7 @@ export default function (maxLength, options) {
 
     // Collapse all urls into something nice and short,
     // so they do not throw the game
-    const rootString = root.source.input.css.replace(/url\(.*\)/g, "url()")
+    const rootString = root.toString().replace(/url\(.*\)/g, "url()")
 
     // Check first line
     checkNewline({ endIndex: 0 })

@@ -1,7 +1,8 @@
 # Head
 
-* Fixed `no-unknown-animations` ignores variables.
-* Fixed `no-unknown-animations` does not erroneously flag functions like `steps()` and `cubic-bezier()`.
+* Fixed: accuracy of warning positions are `//` comments when using SCSS parser.
+* Fixed: `no-unknown-animations` ignores variables.
+* Fixed: `no-unknown-animations` does not erroneously flag functions like `steps()` and `cubic-bezier()`.
 * Fixed: clarified error message in `time-no-imperceptible`.
 * Fixed: `font-family-name-quotes` and `font-weight-notation` ignore variables.
 * Fixed: `media-feature-no-missing-punctuation` handles space-padded media features.
