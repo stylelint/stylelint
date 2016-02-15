@@ -7,5 +7,7 @@ test("cssWordIsVariable", t => {
   t.ok(cssWordIsVariable("--custom-property"))
   t.ok(cssWordIsVariable("$sass-variable"))
   t.ok(cssWordIsVariable("@less-variable"))
+  t.ok(cssWordIsVariable("var(--something)"))
+  t.ok(cssWordIsVariable("var(  --something  )"))
   t.end()
 })

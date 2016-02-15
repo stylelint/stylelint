@@ -1,5 +1,6 @@
 # Head
 
+* Fixed: `font-family-name-quotes` ignores variables (`$sass`, `@less`, and `var(--custom-property)`).
 * Fixed: `media-feature-no-missing-punctuation` handles space-padded media features.
 
 # 4.3.3

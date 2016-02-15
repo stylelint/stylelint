@@ -9,6 +9,8 @@ a { font-family: "Times New Roman", 'Ancient Runes', serif; }
  *               These quotation marks and this one */
 ```
 
+This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.
+
 ## Options
 
 `string`: `"single-where-required"|"single-where-recommended"|"single-unless-keyword"|"double-where-required"|"double-where-recommended|"double-unless-keyword"`
