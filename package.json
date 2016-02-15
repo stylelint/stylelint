@@ -82,14 +82,11 @@
   "remarkConfig": {
     "plugins": {
       "lint": {
-        "emphasis-marker": "*",
         "list-item-indent": "space",
         "list-item-spacing": false,
         "maximum-heading-length": false,
         "maximum-line-length": false,
-        "no-multiple-toplevel-headings": false,
-        "strong-marker": "*",
-        "unordered-list-marker-style": "-"
+        "no-multiple-toplevel-headings": false
       }
     }
   }
