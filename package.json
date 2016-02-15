@@ -56,17 +56,20 @@
     "eslint-config-stylelint": "^0.1.0",
     "npmpub": "^3.0.1",
     "postcss-import": "^8.0.2",
+    "remark": "^4.0.0",
+    "remark-lint": "^3.0.0",
     "sinon": "^1.16.1",
     "stylelint-rule-tester": "^0.6.2",
     "tape": "^4.2.0"
   },
   "scripts": {
-    "build": "babel src --out-dir dist",
-    "lint": "eslint . --ignore-path .gitignore",
-    "prepublish": "npm run build",
-    "release": "npmpub",
+    "lint": "eslint . --ignore-path .gitignore && remark . --quiet --frail",
     "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
-    "test": "npm run lint && npm run tape"
+    "pretest": "npm run lint",
+    "test": "npm run tape",
+    "build": "babel src --out-dir dist",
+    "prepublish": "npm run build",
+    "release": "npmpub"
   },
   "babel": {
     "presets": [
@@ -75,5 +78,19 @@
   },
   "eslintConfig": {
     "extends": "stylelint"
+  },
+  "remarkConfig": {
+    "plugins": {
+      "lint": {
+        "emphasis-marker": "*",
+        "list-item-indent": "space",
+        "list-item-spacing": false,
+        "maximum-heading-length": false,
+        "maximum-line-length": false,
+        "no-multiple-toplevel-headings": false,
+        "strong-marker": "*",
+        "unordered-list-marker-style": "-"
+      }
+    }
   }
 }
