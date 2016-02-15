@@ -14,6 +14,17 @@ testRule(undefined, tr => {
   tr.ok("@keyframes foo {} a { animation: foo 2s linear; }", "animation shorthand")
   tr.ok("@keyframes foo {} a { animation: linear foo 2s backwards; }", "animation shorthand variant")
 
+  tr.ok("@keyframes foo {} a { animation: $sassy-variable 2s linear; }",
+    "ignores sass variable in shorthand")
+  tr.ok("@keyframes foo {} a { animation: var(--custom-property) 2s linear; }",
+    "ignores custom property in shorthand")
+  tr.ok("@keyframes foo {} a { animation: linear 2s @lessy-lessy; }",
+    "ignores less variable in shorthand")
+  tr.ok("@keyframes foo {} a { animation: steps(12, end) 2s foo; }",
+    "ignores steps() function")
+  tr.ok("@keyframes foo {} a { animation: foo 100ms cubic-bezier(0.1, 0.7, 1.0, 0.1); }",
+    "ignores cubic-bezier() function")
+
   tr.notOk("a { animation-name: foo; }", {
     message: messages.rejected("foo"),
     line: 1,
