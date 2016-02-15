@@ -3,7 +3,7 @@ import { vendor } from "postcss"
 import {
   report,
   ruleMessages,
-  cssPropertyIsVariable,
+  cssWordIsVariable,
   validateOptions,
 } from "../../utils"
 
@@ -54,7 +54,7 @@ export default function (expectation, options) {
 
         if (child.type !== "decl") { return }
 
-        if (cssPropertyIsVariable(child.prop)) { return }
+        if (cssWordIsVariable(child.prop)) { return }
 
         let unprefixedPropName = vendor.unprefixed(child.prop)
 

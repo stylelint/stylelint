@@ -1,7 +1,7 @@
 import {
   report,
   ruleMessages,
-  cssPropertyIsVariable,
+  cssWordIsVariable,
   validateOptions,
 } from "../../utils"
 
@@ -36,7 +36,7 @@ export default function (actual) {
         if (child.type !== "decl") { return }
         const prop = child.prop
 
-        if (cssPropertyIsVariable(prop)) { return }
+        if (cssWordIsVariable(prop)) { return }
 
         // Ignore the src property as commonly duplicated in at-fontface
         if (prop === "src") { return }
