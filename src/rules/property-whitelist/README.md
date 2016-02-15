@@ -31,7 +31,6 @@ Given:
 
 The following patterns are considered warnings:
 
-
 ```css
 a { color: pink; }
 ```

@@ -2,9 +2,7 @@
 
 ## stylelint-icon
 
-By [Kenneth Von Alt](https://thenounproject.com/KenVonAlt)
-
-https://thenounproject.com/term/tuxedo/2104/
+[Tuxedo](https://thenounproject.com/term/tuxedo/2104/) by [Kenneth Von Alt](https://thenounproject.com/KenVonAlt)
 
 ## stylelint-text
 

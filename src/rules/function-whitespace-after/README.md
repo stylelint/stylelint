@@ -8,8 +8,7 @@ a { transform: translate(1, 1) scale(3); }
  *                   This space */
 ```
 
-The rule does not check for space immediately after `)` if the very next character
-is `,`, `)`, or `}`, allowing some of the patterns exemplified below.
+The rule does not check for space immediately after `)` if the very next character is `,`, `)`, or `}`, allowing some of the patterns exemplified below.
 
 ## Options
 

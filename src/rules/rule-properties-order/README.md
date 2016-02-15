@@ -61,35 +61,24 @@ a {
 
 Within an order array, you can include
 
-* unprefixed property names
-* group objects with these properties:
-  * `order ("strict"|"flexible")`: If `"strict"` (the default), the properties in this group must come in the order specified. If `"flexible"`, the properties can be in any order as long as they are grouped correctly.
-  * `emptyLineBefore (boolean)`: If `true`, this group must be separated from other properties by an empty newline. By default (or if emptyLineBefore is `false`), the rule doesn't care if there are empty newlines or not before this group's properties.
-  * `properties (array of strings)`: The properties in this group.
+- unprefixed property names
+- group objects with these properties:
+
+  - `order ("strict"|"flexible")`: If `"strict"` (the default), the properties in this group must come in the order specified. If `"flexible"`, the properties can be in any order as long as they are grouped correctly.
+  - `emptyLineBefore (boolean)`: If `true`, this group must be separated from other properties by an empty newline. By default (or if emptyLineBefore is `false`), the rule doesn't care if there are empty newlines or not before this group's properties.
+  - `properties (array of strings)`: The properties in this group.
 
 There are some important details to keep in mind:
 
-**By default, unlisted properties will be ignored.** So if you specify an array
-and do not include `display`, that means that the `display` property can be
-included before or after any other property. *This can be changed with the
-`unspecified` option* (see below).
+**By default, unlisted properties will be ignored.** So if you specify an array and do not include `display`, that means that the `display` property can be included before or after any other property. *This can be changed with the `unspecified` option* (see below).
 
-**If an (unprefixed) property name is not included in your array
-and it contains a hyphen (e.g. `padding-left`), the rule will look for the string
-before that first hyphen in your array (e.g. `padding`) and use that
-position.** This means that you do not have to specify each extension of the root property;
-you can just specify the root property and the extensions will be accounted for.
+**If an (unprefixed) property name is not included in your array and it contains a hyphen (e.g. `padding-left`), the rule will look for the string before that first hyphen in your array (e.g. `padding`) and use that position.** This means that you do not have to specify each extension of the root property; you can just specify the root property and the extensions will be accounted for.
 
-For example, if you have included `border` in your array but not
-`border-top`, the rule will expect `border-top` to appear in the same relative
-position as `border`.
+For example, if you have included `border` in your array but not `border-top`, the rule will expect `border-top` to appear in the same relative position as `border`.
 
 Other relevant rules include `margin`, `border`, `animation`, `transition`, etc.
 
-Using this fallback, the order of these hyphenated relative to their peer extensions
-(e.g. `border-top` to `border-bottom`) will be *arbitrary*. If you would like to
-enforce a specific ordering (e.g. always put `border-right` before `border-left`), you
-should specify those particular names in your array.
+Using this fallback, the order of these hyphenated relative to their peer extensions (e.g. `border-top` to `border-bottom`) will be *arbitrary*. If you would like to enforce a specific ordering (e.g. always put `border-right` before `border-left`), you should specify those particular names in your array.
 
 Given:
 
@@ -367,11 +356,9 @@ a {
 
 These options only apply if you've defined your own array of properties.
 
-Default behavior is the same as `"ignore"`: an unspecified property can appear before or after
-any other property.
+Default behavior is the same as `"ignore"`: an unspecified property can appear before or after  any other property.
 
-With `"top"`, unspecified properties are expected *before* any specified properties.
-With `"bottom"`, unspecified properties are expected *after* any specified properties.
+With `"top"`, unspecified properties are expected *before* any specified properties. With `"bottom"`, unspecified properties are expected *after* any specified properties.
 
 Given this configuration:
 
@@ -413,7 +400,6 @@ Given this configuration:
 
 The following patterns are considered warnings:
 
-
 ```css
 a {
   color: pink;
@@ -447,7 +433,6 @@ Given this configuration:
 ```
 
 The following patterns are considered warnings:
-
 
 ```css
 a {

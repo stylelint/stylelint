@@ -32,13 +32,13 @@ If the `config` object passed uses relative paths for `extends` or `plugins`, yo
 
 A partial stylelint configuration object whose properties will override the existing config object, whether that config was loaded via the `config` option or a `.stylelintrc` file.
 
-The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to _both_ load a `.stylelintrc` file _and_ override specific parts of it, `configOverrides` does just that.
+The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to *both* load a `.stylelintrc` file *and* override specific parts of it, `configOverrides` does just that.
 
 ## Usage examples
 
 We recommend you lint your CSS before applying any transformations. You can do this by either placing stylelint at the beginning of your plugin pipeline, using a plugin like [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) to lint the your files before any transformations, or by creating a separate lint process that is independent of your build one.
 
-You'll also need to use a reporter. _The stylelint plugin registers warnings via PostCSS_. Therefore, you'll want to use it with a PostCSS runner that prints warnings (e.g. [`gulp-postcss`](https://github.com/postcss/gulp-postcss)) or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
+You'll also need to use a reporter. *The stylelint plugin registers warnings via PostCSS*. Therefore, you'll want to use it with a PostCSS runner that prints warnings (e.g. [`gulp-postcss`](https://github.com/postcss/gulp-postcss)) or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
 
 Using the plugin with [`gulp-postcss`](https://github.com/postcss/gulp-postcss), and as a separate lint task:
 
@@ -81,7 +81,7 @@ gulp.task("build:css", function () {
 
 Using the plugin with [`gulp-postcss`](https://github.com/postcss/gulp-postcss) and [`postcss-scss`](https://github.com/postcss/postcss-scss) to lint SCSS, and as part of the build task:
 
-_Note: the stylelint PostCSS plugin, unlike the stylelint CLI and node API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline._
+*Note: the stylelint PostCSS plugin, unlike the stylelint CLI and node API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.*
 
 ```js
 var postcss = require("gulp-postcss")
@@ -123,5 +123,5 @@ postcss([
 
 ## PostCSS version compatibility
 
-* Versions `1.0.0+` of the linter are compatible with PostCSS `5.0.2+`.
-* Versions `0.8.0 and below` of the linter are compatible with PostCSS `4.x`.
+- Versions `1.0.0+` of the linter are compatible with PostCSS `5.0.2+`.
+- Versions `0.8.0 and below` of the linter are compatible with PostCSS `4.x`.

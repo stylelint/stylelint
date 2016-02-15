@@ -12,7 +12,6 @@ Require a single space or disallow whitespace after the commas of selector lists
 
 `string`: `"always"|"never"|"always-single-line"|"never-single-line"`
 
-
 ### `"always"`
 
 There *must always* be a single space after the commas.

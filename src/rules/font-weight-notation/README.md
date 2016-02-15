@@ -1,7 +1,6 @@
 # font-weight-notation
 
-Require consistent numeric or named `font-weight` values.
-Also, when named values are expected, require only valid names.
+Require consistent numeric or named `font-weight` values. Also, when named values are expected, require only valid names.
 
 ```css
 a { font-weight: bold }

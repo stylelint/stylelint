@@ -11,7 +11,7 @@ Have a look at the [rules guide](/docs/user-guide/rules.md) to familiarize yours
 
 Use explicit, rather than implicit, options. For example:
 
-* `color-hex-case: "upper"|"lower"` rather than `color-hex-uppercase: "always"|"never"`
+- `color-hex-case: "upper"|"lower"` rather than `color-hex-uppercase: "always"|"never"`
 
 As `color-hex-uppercase: "never"` *implies* always lowercase.
 
@@ -19,8 +19,8 @@ As `color-hex-uppercase: "never"` *implies* always lowercase.
 
 Take the form of:
 
-* "Expected a ... something"
-* "Unexpected ... something" (for rejection e.g. when something is disallowed)
+- "Expected a ... something"
+- "Unexpected ... something" (for rejection e.g. when something is disallowed)
 
 ## README
 
@@ -33,14 +33,14 @@ Each rule must be accompanied by a README, which takes the form of:
 5. Options (if applicable).
 6. Example patterns that are considered warnings (for each option value).
 7. Example patterns that are *not* considered warnings (for each option value).
-5. Optional options (if applicable).
+8. Optional options (if applicable).
 
 ## Tests
 
 Each rule must be accompanied by tests that contain:
 
-* All patterns that are considered warnings.
-* All patterns that should *not* be considered warnings.
+- All patterns that are considered warnings.
+- All patterns that should *not* be considered warnings.
 
 ### Running tests
 

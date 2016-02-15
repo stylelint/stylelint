@@ -50,7 +50,6 @@ a { line-height: 0.5; }
 a { transform: translate(2px, 0.4px); }
 ```
 
-
 The following patterns are *not* considered warnings:
 
 ```css

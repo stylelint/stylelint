@@ -1,6 +1,6 @@
 # Configuration
 
-The linter _expects a configuration object_. You can either craft your own config or extend an existing one.
+The linter *expects a configuration object*. You can either craft your own config or extend an existing one.
 
 ## Loading Configuration
 
@@ -137,7 +137,7 @@ Or starting with `stylelint-config-standard`, then extending layering `myExtenda
 
 **The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d, so can fit whatever format works with Node's `require.resolve()` algorithm.** That means the a "locater" can be:
 
-- The name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
+- The name of a module in `node*modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
 - An absolute path to a file (which makes sense if you're creating a JS object in a Node context and passing it in) with a `.js` or `.json` extension.
 - A relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
@@ -145,7 +145,7 @@ Or starting with `stylelint-config-standard`, then extending layering `myExtenda
 
 ### `plugins`
 
-[Plugins](/docs/user-guide/plugins.md) are userland rules that support _non-standard_ CSS features, or very specific use cases. To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use.
+[Plugins](/docs/user-guide/plugins.md) are userland rules that support *non-standard* CSS features, or very specific use cases. To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use.
 As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
 
 Once the plugin is declared, within your `"rules"` object you can add settings for the plugin's rule just like any standard rule. You will have to look at the plugin's documentation to know what the rule name should be.
@@ -176,14 +176,14 @@ The `ignoreFiles` property is stripped from extended configs: only the root-leve
 
 ## Configuring rules
 
-[Rules](/docs/user-guide/rules.md) are built into the linter and focus on _standard_ CSS. They are configured within the `rules` key of the config.
+[Rules](/docs/user-guide/rules.md) are built into the linter and focus on *standard* CSS. They are configured within the `rules` key of the config.
 
 ### Turning rules on and off
 
 Each rule can be turned off or on:
 
-* `null` - turn the rule off.
-* `true|options` - turn the rule on.
+- `null` - turn the rule off.
+- `true|options` - turn the rule on.
 
 All turned-on rules error by default. You can reduce the severity of a rule, to a warning, by adding `"warn": true` to its secondary options.
 
@@ -220,7 +220,7 @@ Or you can turn off individual rules:
 
 ### Configuring options
 
-Only the `*-no-*` rules don't expect options. All the other rules must be explicitly configured as _there are no default values_.
+Only the `*-no-*` rules don't expect options. All the other rules must be explicitly configured as *there are no default values*.
 
 An example of explicitly configuring the options for three rules:
 
@@ -261,10 +261,10 @@ Some *things* (e.g. declaration blocks and value lists) can span more than one l
 
 For example, this is the complete set of `value-list-comma-*` rules and their options:
 
-* `value-list-comma-space-after`: `"always"|"never"|"always-single-line"|"never-single-line"`
-* `value-list-comma-space-before`: `"always"|"never"|"always-single-line"|"never-single-line"`
-* `value-list-comma-newline-after`: `"always"|"always-multi-line|"never-multi-line"`
-* `value-list-comma-newline-before`: `"always"|"always-multi-line"|"never-multi-line"`
+- `value-list-comma-space-after`: `"always"|"never"|"always-single-line"|"never-single-line"`
+- `value-list-comma-space-before`: `"always"|"never"|"always-single-line"|"never-single-line"`
+- `value-list-comma-newline-after`: `"always"|"always-multi-line|"never-multi-line"`
+- `value-list-comma-newline-before`: `"always"|"always-multi-line"|"never-multi-line"`
 
 Where `*-multi-line` and `*-single-line` are in reference to the value list (the *thing*). For example, given:
 
@@ -344,7 +344,6 @@ You can enforce that with:
 
 Lastly, the rules are flexible enough to enforce entirely different conventions for single-line and multi-line lists. Say you want to allow both single-line and multi-line value lists. You want the single-line lists to have a single space before and after the colons. Whereas you want the multi-line lists to have a single newline before the commas, but no space after:
 
-
 ```css
 a {
   font-family: sans , serif , monospace; /* single-line list with a single space before and after the comma */
@@ -355,7 +354,6 @@ a {
 ```
 
 You can enforce that with:
-
 
 ```js
 "value-list-comma-newline-after": "never-multi-line",
