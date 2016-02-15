@@ -8,8 +8,7 @@ Disallow `animation` and `transition` times under 100ms.
  *                     This time */
 ```
 
-The rule checks `transition-duration`, `transition-delay`, `animation-duration`, `animation-delay`,
-and those times as they manifest in the `transition` and `animation` shorthands.
+The rule checks `transition-duration`, `transition-delay`, `animation-duration`, `animation-delay`, and those times as they manifest in the `transition` and `animation` shorthands.
 
 The following patterns are considered warnings:
 

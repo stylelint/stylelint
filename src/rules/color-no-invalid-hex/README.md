@@ -26,7 +26,6 @@ a { color: #12345aa; }
 
 The following patterns are *not* considered warnings:
 
-
 ```css
 a { color: #000; }
 ```

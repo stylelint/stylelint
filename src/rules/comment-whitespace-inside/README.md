@@ -8,8 +8,7 @@ Require or disallow whitespace on the inside of comment markers.
  * The space inside these two markers */
 ```
 
-Any number of asterisks are allowed at the beginning or end of the comment.
-So `/** comment **/` is treated the same way as `/* comment */`.
+Any number of asterisks are allowed at the beginning or end of the comment. So `/** comment **/` is treated the same way as `/* comment */`.
 
 ## Options
 

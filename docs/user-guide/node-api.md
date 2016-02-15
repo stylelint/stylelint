@@ -62,7 +62,7 @@ If the `config` object passed uses relative paths for `extends` or `plugins`, yo
 
 A partial stylelint configuration object whose properties will override the existing config object, whether that config was loaded via the `config` option or a `.stylelintrc` file.
 
-The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to _both_ load a `.stylelintrc` file _and_ override specific parts of it, `configOverrides` does just that.
+The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to *both* load a `.stylelintrc` file *and* override specific parts of it, `configOverrides` does just that.
 
 ### `syntax`
 
@@ -109,7 +109,7 @@ stylelint.lint({
   });;
 ```
 
-If `myConfig` _does_ contain relative paths for `extends` or `plugins`, I _do_ have to use `configBasedir`:
+If `myConfig` *does* contain relative paths for `extends` or `plugins`, I *do* have to use `configBasedir`:
 
 ```js
 stylelint.lint({

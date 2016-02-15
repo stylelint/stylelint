@@ -22,7 +22,6 @@ a { color: #FFF; }
 
 The following patterns are *not* considered warnings:
 
-
 ```css
 a { color: #000; }
 ```
@@ -40,7 +39,6 @@ a { color: #fff; }
 ```
 
 The following patterns are *not* considered warnings:
-
 
 ```css
 a { color: #000; }
