@@ -1,3 +1,7 @@
+# Head
+
+* Fixed: `media-feature-no-missing-punctuation` handles space-padded media features.
+
 # 4.3.3
 
 * Fixed: again removed `stylelint.utils.ruleTester` because its dependencies broke things.

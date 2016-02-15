@@ -10,6 +10,8 @@ testRule(true, tr => {
   warningFreeBasics(tr)
 
   tr.ok("@nonsense (min-width max-width no-width) {}")
+  tr.ok("@import 'foo.css';")
+  tr.ok("@if {} @else {}")
 
   tr.ok("@media (min-width: 300px) {}")
   tr.ok("@media ( min-width: 300px ) {}")

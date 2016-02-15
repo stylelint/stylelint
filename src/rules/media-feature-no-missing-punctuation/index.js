@@ -32,8 +32,8 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkAtRules("media", atRule => {
-      execall(/\(.*?\)/g, atRule.params).forEach(mediaFeatureMatch => {
-        const splitMediaFeature = mediaFeatureMatch.match.trim().split(/\s+/)
+      execall(/\((.*?)\)/g, atRule.params).forEach(mediaFeatureMatch => {
+        const splitMediaFeature = mediaFeatureMatch.sub[0].trim().split(/\s+/)
         if (splitMediaFeature.length === 1) { return }
 
         // Ignore the last one
