@@ -25,11 +25,9 @@ A CSS string to be linted.
 
 ### `codeFilename`
 
-If using `code` to pass a source string directly, you can use `codeFilename` to associate
-that code with a particular filename.
+If using `code` to pass a source string directly, you can use `codeFilename` to associate that code with a particular filename.
 
-This can be useful, for example, when making a text editor plugin that passes in code directly
-but needs to still use the configuration's `ignoreFiles` functionality to possibly ignore that code.
+This can be useful, for example, when making a text editor plugin that passes in code directly but needs to still use the configuration's `ignoreFiles` functionality to possibly ignore that code.
 
 ### `formatter`
 
@@ -49,8 +47,7 @@ If no `config` is passed, stylelint will look for a `.stylelintrc` configuration
 
 The path to a JSON, YAML, or JS file  that contains your [stylelint configuration object](/docs/user-guide/configuration.md).
 
-It should be either absolute or relative to the directory that your process is running from (`process.cwd()`).
-We'd recommend absolute.
+It should be either absolute or relative to the directory that your process is running from (`process.cwd()`). We'd recommend absolute.
 
 ### `configBasedir`
 

@@ -4,21 +4,15 @@ The linter *expects a configuration object*. You can either craft your own confi
 
 ## Loading Configuration
 
-For the Node API and PostCSS plugin, you can pass a config directly or find and load it.
-For the CLI, you must find and load it.
+For the Node API and PostCSS plugin, you can pass a config directly or find and load it. For the CLI, you must find and load it.
 
-Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig).
-Starting from the current working directory, it will look for the following possible sources, in this order:
+Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig). Starting from the current working directory, it will look for the following possible sources, in this order:
 
 - a `stylelint` property in `package.json`
 - a `.stylelintrc` file
 - a `stylelint.config.js` file exporting a JS object
 
-The `.stylelintrc` file (without extension) can be in JSON or YAML format.
-Alternately, you can add a filename extension to designate JSON, YAML, or JS format:
-`.stylelintrc.json`, `.stylelintrc.yaml`, `.stylelintrc.js`.
-You may want to use an extension so that your text editor can better interpret
-the file, and help with syntax checking and highlighting.
+The `.stylelintrc` file (without extension) can be in JSON or YAML format. Alternately, you can add a filename extension to designate JSON, YAML, or JS format: `.stylelintrc.json`, `.stylelintrc.yaml`, `.stylelintrc.js`. You may want to use an extension so that your text editor can better interpret the file, and help with syntax checking and highlighting.
 
 Once one of these is found and parsed, the search will stop and that object will be used.
 
@@ -30,11 +24,9 @@ The configuration object can have the following properties. Only `rules` is requ
 
 ### `rules`
 
-[Rules](/docs/user-guide/rules.md) determine what the linter looks for and complains about.
-*No rules are turned on by default*, so this is where you turn on everything you want to check.
+[Rules](/docs/user-guide/rules.md) determine what the linter looks for and complains about. *No rules are turned on by default*, so this is where you turn on everything you want to check.
 
-**The `rules` property is an object whose keys are rule names and values are rule configurations.**
-Each rule configuration fits one of the following formats:
+**The `rules` property is an object whose keys are rule names and values are rule configurations.** Each rule configuration fits one of the following formats:
 
 - a single value (the primary option)
 - an array with two values (`[primary option, secondary options]`)
@@ -55,8 +47,7 @@ Each rule configuration fits one of the following formats:
 
 #### Severities: error & warning
 
-By default, all rules have an "error"-level severity. To downgrade any rule to "warning"-level severity,
-pass a secondary option `"warn": true`.
+By default, all rules have an "error"-level severity. To downgrade any rule to "warning"-level severity, pass a secondary option `"warn": true`.
 
 ```js
 // error-level severity examples
@@ -80,12 +71,9 @@ As of v4, the legacy numbered severities system is no longer supported. Please u
 
 #### Custom Messages
 
-If you want to deliver a custom message when a rule is violated, you can do so in two ways:
-provide a `message` option for the rule, or write a custom formatter.
+If you want to deliver a custom message when a rule is violated, you can do so in two ways: provide a `message` option for the rule, or write a custom formatter.
 
-All rules accept a `message` secondary option that, if provided, will be substituted
-for whatever standard message would be provided. For example, the following rule
-configuration would substitute in a couple of custom message:
+All rules accept a `message` secondary option that, if provided, will be substituted for whatever standard message would be provided. For example, the following rule configuration would substitute in a couple of custom message:
 
 ```json
 {
@@ -104,8 +92,7 @@ Writing a [custom formatter](/docs/developer-guide/formatters.md) gives you maxi
 
 ### `extends`
 
-Your configuration can *extend* an existing configuration (whether your own or a third-party config).
-When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
+Your configuration can *extend* an existing configuration (whether your own or a third-party config). When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
 
 You can extend an array of existing configurations, with each item in the array taking precedence over the following (so the first item overrides everything else, the second item overrides everything but the first, the last gets overridden by everything else, etc.).
 
@@ -145,8 +132,7 @@ Or starting with `stylelint-config-standard`, then extending layering `myExtenda
 
 ### `plugins`
 
-[Plugins](/docs/user-guide/plugins.md) are userland rules that support *non-standard* CSS features, or very specific use cases. To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use.
-As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
+[Plugins](/docs/user-guide/plugins.md) are userland rules that support *non-standard* CSS features, or very specific use cases. To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
 
 Once the plugin is declared, within your `"rules"` object you can add settings for the plugin's rule just like any standard rule. You will have to look at the plugin's documentation to know what the rule name should be.
 
@@ -165,8 +151,7 @@ Once the plugin is declared, within your `"rules"` object you can add settings f
 
 Provide a glob or array of globs to ignore specific files.
 
-If the globs are absolute paths, they are used as is.
-If they are relative, they are analyzed relative to
+If the globs are absolute paths, they are used as is. If they are relative, they are analyzed relative to
 
 - `configBasedir`, if it's provided;
 - the config's filepath, if the config is a file that stylelint found a loaded;

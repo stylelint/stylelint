@@ -16,8 +16,7 @@ If no `config` is passed, stylelint will look for a `.stylelintrc` configuration
 
 The path to a JSON, YAML, or JS file  that contains your [stylelint configuration object](/docs/user-guide/configuration.md).
 
-It should be either absolute or relative to the directory that your process is running from (`process.cwd()`).
-We'd recommend absolute.
+It should be either absolute or relative to the directory that your process is running from (`process.cwd()`). We'd recommend absolute.
 
 ### `configBasedir`
 
