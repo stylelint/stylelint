@@ -30,7 +30,7 @@ Using `bar/mySpecialConfig.json` as config, with quiet mode on, to lint all `.cs
 stylelint foo/**/*.css bar/*.css -q -f json --config bar/mySpecialConfig.json > myJsonReport.json
 ```
 
-The linter can parse the SCSS!
+Linting all the `.scss` files in the `foo` directory, using the `syntax` option:
 
 ```shell
 stylelint foo/**/*.scss --syntax scss
