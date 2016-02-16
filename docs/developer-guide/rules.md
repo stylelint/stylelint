@@ -19,8 +19,8 @@ As `color-hex-uppercase: "never"` *implies* always lowercase.
 
 Take the form of:
 
-- "Expected a ... something"
-- "Unexpected ... something" (for rejection e.g. when something is disallowed)
+- "Expected a ... something".
+- "Unexpected ... something" (for rejection e.g. when something is disallowed).
 
 ## README
 
@@ -34,6 +34,15 @@ Each rule must be accompanied by a README, which takes the form of:
 6. Example patterns that are considered warnings (for each option value).
 7. Example patterns that are *not* considered warnings (for each option value).
 8. Optional options (if applicable).
+
+## Single line descriptions
+
+Take the form of:
+
+- "Disallow ..." (for `no` rules).
+- "Limit ..." (for `max` rules).
+- "Require ..." (for `after`, `before` and `inside` rules)
+- "Specify ..." (for everything else)
 
 ## Tests
 
@@ -53,5 +62,5 @@ npm test
 To run tests in a single file, instead of all the tests at once, you'll need to use `babel-tape-runner` (because the codebase is ES6). For example, to run the test for the `color-hex-case` rule:
 
 ```console
-babel-tape-runner src/rules/color-hex-case/__tests__/index.js
+./node_modules/.bin/babel-tape-runner src/rules/color-hex-case/__tests__/index.js
 ```
