@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: removed `console.log()`s in `rule-properties-order`.
+
 # 4.3.4
 
 - Fixed: option normalization for rules with primary options that are arrays of objects, like `rule-properties-order`.
