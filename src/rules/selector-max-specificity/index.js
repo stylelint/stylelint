@@ -19,9 +19,7 @@ export default function (max) {
       possible: [function (max) {
         // Check that the pattern matches
         var pattern = new RegExp("^[0-9]+\,[0-9]+\,[0-9]+$")
-        if (pattern.test(max)) {
-          return true
-        }
+        return pattern.test(max)
       }],
     })
     if (!validOptions) { return }
@@ -35,7 +33,7 @@ export default function (max) {
         const computedSpecificity = calculate(selector)[0].specificity.substring(2)
         // Check if the selector specificity exceeds the allowed maximum
         if (parseFloat(computedSpecificity.replace(/,/g, "")) > parseFloat(max.replace(/,/g, ""))) {
-          report({ 
+          report({
             ruleName: ruleName,
             result: result,
             node: rule,

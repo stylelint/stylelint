@@ -1,29 +1,45 @@
 # selector-max-specificity
 
-Control the specificity of selectors.
-
-First define the maximum allowable selector specificity as computed by the [W3C specificity calculator](https://www.w3.org/TR/selectors/#specificity):
-
-For example:
-
-| inline | ID | Class | type
-|---------|----|---------|-------
-| 0 | 0 | 2 | 0
-
-Set this as a 4 digit value in your Stylelint configuration:
+Limit the specificity of selectors.
 
 ````
-"max-selector-specificity": 0020
+.foo, #bar.baz span, #hoo { color: pink; }
+/** ↑         ↑        ↑
+ * These selectors */
 ````
 
-Then any selectors that exceed that specificity e.g.
+# Options
+
+`string`: Level of specificity allowed
+
+Format is id,class,type as computed by the [W3C specificity calculator](https://www.w3.org/TR/selectors/#specificity)
+
+For a visual representation of selector specificity, visit: [https://specificity.keegan.st](https://specificity.keegan.st)
+
+For example, with "0,2,0":
+
+The following patterns are considered warnings:
 
 ````
-.thing .thing .thing {
-    width: 100%;
+.thing .thing2 .thing3 {}
+````
+
+````
+.thing .thing2 {
+  .thing3 & {}
 }
 ````
 
-Would fail with the message:
+The following are __not__ considered warnings:
 
-`"Expected ".thing .thing .thing" to have a specificity equal to or less than "0020""`
+````
+.thing div {}
+````
+
+````
+.thing div {
+  a {}
+}
+````
+
+**Note**: currently [direct nesting](http://tabatkins.github.io/specs/css-nesting/#direct) is supported but the [@nest](http://tabatkins.github.io/specs/css-nesting/#at-nest) at-rule is not.
