@@ -1,4 +1,4 @@
-# Head
+# 4.3.4
 
 - Fixed: option normalization for rules with primary options that are arrays of objects, like `rule-properties-order`.
 - Fixed: accuracy of warning positions are `//` comments when using SCSS parser.
