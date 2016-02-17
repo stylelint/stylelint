@@ -6,9 +6,8 @@ import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-testRule(30, tr => {
+testRule("0,3,0", tr => {
   warningFreeBasics(tr)
-
   tr.ok(".ab {}")
   tr.ok(".ab .cd {}")
   tr.ok(".ab .cd span {}")
@@ -18,18 +17,27 @@ testRule(30, tr => {
   tr.ok(".cd .de, .cd .ef > b {}")
 
   tr.notOk("#jubjub {}", {
-    message: messages.expected("#jubjub", 30),
+    message: messages.expected("#jubjub", "0,3,0"),
     line: 1,
     column: 1,
   })
   tr.notOk(".thing div .thing .sausages {}", {
-    message: messages.expected(".thing div .thing .sausages", 30),
+    message: messages.expected(".thing div .thing .sausages", "0,3,0"),
     line: 1,
     column: 1,
   })
   tr.notOk(".thing div .thing, .sausages .burgers .bacon a {}", {
-    message: messages.expected(".sausages .burgers .bacon a", 30),
+    message: messages.expected(".sausages .burgers .bacon a", "0,3,0"),
     line: 1,
     column: 20,
+  })
+})
+
+testRule("0,2,1", tr => {
+  warningFreeBasics(tr)
+  tr.notOk(".thing div .thing,\n.sausages .burgers .bacon a {}", {
+    message: messages.expected(".sausages .burgers .bacon a", "0,2,1"),
+    line: 2,
+    column: 1,
   })
 })
