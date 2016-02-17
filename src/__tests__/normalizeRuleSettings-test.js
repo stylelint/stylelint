@@ -50,5 +50,15 @@ test("rules whose primary option CAN BE an array", t => {
     [ "alphabetical", { warn: true } ],
     "string as first primary option returns same"
   )
+  t.deepEqual(
+    normalizeRuleSettings([ { foo: 1 }, { foo: 2 } ], "rule-properties-order"),
+    [[ { foo: 1 }, { foo: 2 } ]],
+    "primary option array with length of 2"
+  )
+  t.deepEqual(
+    normalizeRuleSettings([ [ { foo: 1 }, { foo: 2 } ], { warn: true } ], "rule-properties-order"),
+    [ [ { foo: 1 }, { foo: 2 } ], { warn: true } ],
+    "primary option array with length of 2 and secondary options"
+  )
   t.end()
 })

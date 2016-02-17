@@ -30,6 +30,7 @@ export default function (rawSettings, ruleName) {
 
   if (
     rawSettings.length === 2
+    && !isPlainObject(rawSettings[0])
     && isPlainObject(rawSettings[1])
   ) { return rawSettings }
 

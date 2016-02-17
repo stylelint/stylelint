@@ -1,5 +1,6 @@
 # Head
 
+- Fixed: option normalization for rules with primary options that are arrays of objects, like `rule-properties-order`.
 - Fixed: accuracy of warning positions are `//` comments when using SCSS parser.
 - Fixed: `no-unknown-animations` ignores variables.
 - Fixed: `no-unknown-animations` does not erroneously flag functions like `steps()` and `cubic-bezier()`.

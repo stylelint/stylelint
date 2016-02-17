@@ -86,6 +86,7 @@ testRule([
 
 testRule([
   {
+    emptyLineBefore: true,
     properties: [
       "margin-top",
       "margin-right",
@@ -93,10 +94,13 @@ testRule([
     ],
   },
   {
+    emptyLineBefore: true,
     properties: [
       "font-size",
     ],
   },
 ], tr => {
-  tr.ok(".foo { margin-bottom: 20px; font-size: 26px; }")
+  tr.ok(".foo { margin-bottom: 20px;\n\nfont-size: 26px; }")
+  tr.notOk(".foo { margin-bottom: 20px; font-size: 26px; }",
+    messages.expectedEmptyLineBetween("font-size", "margin-bottom"))
 })

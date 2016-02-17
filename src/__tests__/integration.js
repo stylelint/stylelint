@@ -10,8 +10,26 @@ const config = {
       message: "You made a mistake",
     } ],
     "function-blacklist": ["calc"],
-    "rule-properties-order": [ [ "margin", "padding" ], { unspecified: "top" } ],
     "function-whitelist": null,
+    "rule-properties-order": [
+      {
+        emptyLineBefore: true,
+        properties: [
+          "content",
+        ],
+      },
+      {
+        emptyLineBefore: true,
+        properties: [
+          "position",
+          "top",
+          "right",
+          "bottom",
+          "left",
+          "z-index",
+        ],
+      },
+    ],
   },
 }
 
