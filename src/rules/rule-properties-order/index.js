@@ -231,12 +231,10 @@ function checkAlpabeticalOrder(firstPropData, secondPropData) {
 }
 
 function validatePrimaryOption(actualOptions) {
-  console.log(actualOptions)
+
   if (actualOptions === "alphabetical") { return true }
 
   if (!Array.isArray(actualOptions)) { return false }
-
-  console.log(actualOptions)
 
   // Every item in the array must be a string or an object
   // with a "properties" property
