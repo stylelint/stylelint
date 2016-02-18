@@ -1,10 +1,10 @@
-> Describe the issue. Is it a bug, a rule enhancement, or a new rule?
+> Describe the issue. Is it a bug or a feature request (new rule, new option, etc.)?
 
 e.g. "A bug where..."
 
 > Which rule, if any, is this issue related to?
 
-`insert-rule-name-here`
+e.g. `number-leading-zero`
 
 > What CSS is needed to reproduce this issue?
 
@@ -16,7 +16,7 @@ e.g.
 }
 ```
 
-> What stylelint configuration is need to reproduce this issue?
+> What stylelint configuration is needed to reproduce this issue?
 
 e.g.
 
@@ -30,9 +30,21 @@ e.g.
 }
 ```
 
+> Which version of stylelint are you using?
+
+e.g. `4.3.2`
+
+> How are you running stylelint: CLI, PostCSS plugin, Node API?
+
+e.g. "CLI with `stylelint --config myconfig *.css`"
+
+> Does your issue relate to non-standard syntax (e.g. SCSS, nesting, etc.)?
+
+e.g. "Yes, it's related to SCSS maps."
+
 > What did you expect to happen?
 
-e.g. "No warnings to be flagged"
+e.g. "No warnings to be flagged."
 
 > What actually happened (e.g. what warnings or errors you are getting)?
 
