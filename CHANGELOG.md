@@ -1,4 +1,4 @@
-# 3.3.6
+# 4.3.6
 
 - Fixed: removed `console.log()`s in `property-unit-whitelist`.
 
