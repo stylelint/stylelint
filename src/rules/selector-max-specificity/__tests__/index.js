@@ -43,27 +43,21 @@ testRule("0,2,1", tr => {
   })
 })
 
-// Some nesting examples
-testRule("0,4,1", tr => {
+// With nesting
+testRule("0,2,1", tr => {
   warningFreeBasics(tr)
-  // A pointless nest that includes a parent selector when it isn't needed
-  tr.ok(".cd .de {& .fg {}}")
-  // A nested combinator test
-  tr.notOk(".thing .thing2 {&.nested {#pop {}}}", {
-    message: messages.expected("#pop", "0,4,1"),
-    line: 1,
-    column: 27,
-  })
-  // A nested override of the key selector
-  tr.notOk(".thing .thing2 {#here & {}}", {
-    message: messages.expected("#here &", "0,4,1"),
-    line: 1,
-    column: 17,
-  })
-  // A nested override of the key selector which requires the nested selector to exceed the max
-  tr.notOk(".thing .thing2 .thing3 .thing4 {a.here & {}}", {
-    message: messages.expected("a.here &", "0,4,1"),
-    line: 1,
-    column: 32,
-  })
+
+  tr.ok(".cd { .de {} }", "standard nesting")
+  tr.ok("div:hover { .de {} }", "element, pseudo-class, nested class")
+  tr.ok(".ab, .cd { & > .de {} }", "initial (unnecessary) parent selector")
+  tr.ok(".cd { .de > & {} }", "necessary parent selector")
+  tr.ok(".cd { @media print { .de {} } }", "nested rule within nested media query")
+  tr.ok("@media print { .cd { .de {} } }", "media query > rule > rule")
+
+  tr.notOk(".cd { .de { .fg {} } }", messages.expected(".cd .de .fg", "0,2,1"))
+  tr.notOk(".cd { .de { & > .fg {} } }", messages.expected(".cd .de > .fg", "0,2,1"))
+  tr.notOk(".cd { .de { &:hover > .fg {} } }", messages.expected(".cd .de:hover > .fg", "0,2,1"))
+  tr.notOk(".cd { .de { .fg > & {} } }", messages.expected(".fg > .cd .de", "0,2,1"))
+  tr.notOk(".cd { @media print { .de { & + .fg {} } } }", messages.expected(".cd .de + .fg", "0,2,1"))
+  tr.notOk("@media print { li { & + .ab, .ef.ef { .cd {} } } }", messages.expected("li .ef.ef .cd", "0,2,1"))
 })
