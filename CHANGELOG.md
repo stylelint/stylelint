@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: removed `console.log()`s in `property-unit-whitelist`.
+
 # 4.3.5
 
 - Fixed: removed `console.log()`s in `rule-properties-order`.
