@@ -16,7 +16,6 @@ e.g.
 }
 ```
 
-
 > What stylelint configuration is need to reproduce this issue?
 
 e.g.
@@ -34,7 +33,6 @@ e.g.
 > What did you expect to happen?
 
 e.g. "No warnings to be flagged"
-
 
 > What actually happened (e.g. what warnings or errors you are getting)?
 
