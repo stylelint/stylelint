@@ -13,6 +13,10 @@ testRule("always", tr => {
   tr.ok("a { color : pink }", "space before and after")
   tr.ok("a { color :\npink }", "space before and newline after")
   tr.ok("a { color :\r\npink }", "space before and CRLF after")
+  tr.ok(
+    "$map:(key:value)",
+    "SCSS map with no newlines"
+  )
 
   tr.notOk(
     "a { color: pink; }",
@@ -68,6 +72,10 @@ testRule("never", tr => {
   tr.ok("a { color: pink }", "no space before and space after")
   tr.ok("a { color:\npink }", "no space before and newline after")
   tr.ok("a { color:\r\npink }", "no space before and CRLF after")
+  tr.ok(
+    "$map :(key :value)",
+    "SCSS map with no newlines"
+  )
 
   tr.notOk(
     "a { color : pink; }",

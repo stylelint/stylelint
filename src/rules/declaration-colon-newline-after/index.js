@@ -1,4 +1,5 @@
 import {
+  cssDeclarationIsMap,
   report,
   ruleMessages,
   validateOptions,
@@ -26,6 +27,9 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
+
+      if (cssDeclarationIsMap(decl)) { return }
+
       const declString = decl.toString()
 
       for (let i = 0, l = declString.length; i < l; i++) {

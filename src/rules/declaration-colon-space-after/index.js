@@ -1,4 +1,5 @@
 import {
+  cssDeclarationIsMap,
   report,
   ruleMessages,
   validateOptions,
@@ -37,6 +38,9 @@ export default function (expectation) {
 
 export function declarationColonSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
+
+    if (cssDeclarationIsMap(decl)) { return }
+    
     const declString = decl.toString()
 
     for (let i = 0, l = declString.length; i < l; i++) {
