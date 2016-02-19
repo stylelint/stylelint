@@ -34,6 +34,21 @@ testRule("numeric", tr => {
   })
 })
 
+testRule("numeric", { ignore: ["relative"] }, tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a { font-weight: 700; }")
+  tr.ok("a { font-weight: bolder; }")
+  tr.ok("a { font-weight: lighter; }")
+  tr.ok("a { font: italic small-caps lighter 16px/3 cursive; }")
+
+  tr.notOk("a { font-weight: normal; }", {
+    message: messages.expected("numeric"),
+    line: 1,
+    column: 18,
+  })
+})
+
 testRule("named", tr => {
   warningFreeBasics(tr)
 
@@ -50,6 +65,11 @@ testRule("named", tr => {
   tr.ok("a { font: italic small-caps bold 16px/500 100cursivefont; }")
 
   tr.notOk("a { font-weight: 400; }", {
+    message: messages.expected("named"),
+    line: 1,
+    column: 18,
+  })
+  tr.notOk("a { font-weight: 300; }", {
     message: messages.expected("named"),
     line: 1,
     column: 18,

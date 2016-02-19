@@ -67,3 +67,16 @@ a { font-weight: bold; }
 ```css
 a { font: italic normal 20px; }
 ```
+
+## Optional options
+
+### `ignore: ["relative"]`
+
+Ignore the [*relative*](https://drafts.csswg.org/css-fonts/#font-weight-prop) keyword names of `bolder` and `lighter`.
+
+The following patterns are *not* considered warnings:
+
+```css
+a { font-weight: 400; }
+a b { font-weight: lighter; }
+```
