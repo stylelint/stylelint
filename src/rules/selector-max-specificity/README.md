@@ -41,5 +41,3 @@ The following are __not__ considered warnings:
   a {}
 }
 ````
-
-**Note**: currently [direct nesting](http://tabatkins.github.io/specs/css-nesting/#direct) is supported but the [@nest](http://tabatkins.github.io/specs/css-nesting/#at-nest) at-rule is not.

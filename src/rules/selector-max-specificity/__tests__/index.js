@@ -50,20 +50,21 @@ testRule("0,4,1", tr => {
   tr.ok(".cd .de {& .fg {}}")
   // A nested combinator test
   tr.notOk(".thing .thing2 {&.nested {#pop {}}}", {
-    message: messages.expected("#pop", "0,4,1"),
+    message: messages.expected(".thing .thing2.nested #pop", "0,4,1"),
     line: 1,
     column: 27,
   })
   // A nested override of the key selector
   tr.notOk(".thing .thing2 {#here & {}}", {
-    message: messages.expected("#here &", "0,4,1"),
+    message: messages.expected("#here .thing .thing2", "0,4,1"),
     line: 1,
     column: 17,
   })
   // A nested override of the key selector which requires the nested selector to exceed the max
   tr.notOk(".thing .thing2 .thing3 .thing4 {a.here & {}}", {
-    message: messages.expected("a.here &", "0,4,1"),
+    message: messages.expected("a.here .thing .thing2 .thing3 .thing4", "0,4,1"),
     line: 1,
-    column: 32,
+    column: 33,
   })
 })
+

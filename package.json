@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "0.7.0",
+  "version": "4.2.0",
   "description": "Modern CSS linter",
   "keywords": [
     "css",
@@ -20,34 +20,54 @@
     "url": "https://github.com/stylelint/stylelint.git"
   },
   "main": "dist/index.js",
+  "bin": "dist/cli.js",
   "files": [
+    "CONTRIBUTING.md",
     "dist",
     "src",
+    "docs",
     "!**/__tests__",
     "!**/testUtils"
   ],
   "dependencies": {
-    "autoprefixer-core": "^5.2.1",
-    "balanced-match": "^0.2.0",
+    "autoprefixer": "^6.0.0",
+    "balanced-match": "^0.3.0",
+    "chalk": "^1.1.1",
+    "cosmiconfig": "^1.1.0",
     "execall": "^1.0.0",
-    "lodash": "^3.9.3",
-    "postcss": "^4.1.12",
-    "postcss-selector-parser": "^1.0.1",
+    "get-stdin": "^5.0.0",
+    "globby": "^4.0.0",
+    "globjoin": "^0.1.2",
+    "is-css-color-name": "^0.1.1",
+    "lodash": "^4.0.0",
+    "meow": "^3.3.0",
+    "multimatch": "^2.1.0",
+    "postcss": "^5.0.4",
+    "postcss-reporter": "^1.3.0",
+    "postcss-scss": "^0.1.3",
+    "postcss-selector-parser": "^1.2.0",
+    "postcss-value-parser": "^3.1.1",
+    "resolve-from": "^2.0.0",
     "specificity": "0.1.5"
   },
   "devDependencies": {
-    "babel": "^5.6.3",
-    "babel-tape-runner": "^1.1.0",
-    "eslint": "^1.0.0",
+    "babel-cli": "^6.1.18",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-tape-runner": "^2.0.0",
+    "eslint": "^1.4.1",
     "eslint-config-stylelint": "^0.1.0",
-    "sinon": "^1.15.3",
-    "stylelint-rule-tester": "^0.1.0",
-    "tape": "^4.0.1"
+    "npmpub": "^3.0.1",
+    "postcss-import": "^8.0.2",
+    "postcss-resolve-nested-selector": "^0.1.1",
+    "sinon": "^1.16.1",
+    "stylelint-rule-tester": "^0.6.2",
+    "tape": "^4.2.0"
   },
   "scripts": {
-    "prepublish": "babel src --out-dir dist",
-    "docs-build": "babel-node scripts/rules",
+    "build": "babel src --out-dir dist",
     "lint": "eslint . --ignore-path .gitignore",
+    "prepublish": "npm run build",
+    "release": "npmpub",
     "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
     "test": "npm run lint && npm run tape"
   }
