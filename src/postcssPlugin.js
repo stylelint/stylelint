@@ -79,7 +79,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
           } else if (secondaryOptions.advice) {
             ruleSeverity = "advice"
           } else if (secondaryOptions.warn) {
-            ruleSeverity = "warn"
+            ruleSeverity = "warning"
           }
         }
 
