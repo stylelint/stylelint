@@ -1,3 +1,7 @@
+# Head
+
+- Added: `ignore: "relative"` option for `font-weight-notation`.
+
 # 4.3.6
 
 - Fixed: removed `console.log()`s in `property-unit-whitelist`.

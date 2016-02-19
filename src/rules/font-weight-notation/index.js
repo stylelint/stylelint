@@ -2,6 +2,7 @@ import postcss from "postcss"
 import {
   cssWordIsVariable,
   declarationValueIndexOffset,
+  optionsHaveIgnored,
   report,
   ruleMessages,
   validateOptions,
@@ -15,15 +16,22 @@ export const messages = ruleMessages(ruleName, {
 })
 
 const NAMED_WEIGHTS = [ "normal", "bold", "bolder", "lighter" ]
+const RELATIVE_NAMED_WEIGHTS = [ "bolder", "lighter" ]
 function isNumbery(x) {
   return Number(x) == x
 }
 
-export default function (expectation) {
+export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [ "numeric", "named" ],
+    } , {
+      actual: options,
+      possible: {
+        ignore: ["relative"],
+      },
+      optional: true,
     })
     if (!validOptions) { return }
 
@@ -51,6 +59,8 @@ export default function (expectation) {
 
     function checkWeight(weightValue, decl) {
       if (cssWordIsVariable(weightValue)) { return }
+      if (optionsHaveIgnored(options, "relative") &&
+        RELATIVE_NAMED_WEIGHTS.indexOf(weightValue) !== -1) { return }
 
       const weightValueOffset = decl.value.indexOf(weightValue)
 
