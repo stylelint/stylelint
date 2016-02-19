@@ -19,7 +19,7 @@ export default function (max) {
       actual: max,
       possible: [function (max) {
         // Check that the pattern matches
-        var pattern = new RegExp("^[0-9]+\,[0-9]+\,[0-9]+$")
+        var pattern = new RegExp("^\\d+,\\d+,\\d+$")
         return pattern.test(max)
       }],
     })
@@ -29,20 +29,17 @@ export default function (max) {
 
     function checkSpecificity(rule) {
       // using rule.selectors gets us each selector in the eventuality we have a comma separated set
-      rule.selectors.forEach(function (selector) {
-        // Resolve any nested selectors
-        const resolved = resolvedNestedSelector(selector, rule)
-        resolved.forEach(function (selector) {
-
+      rule.selectors.forEach(selector => {
+        resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {
           // calculate() returns a four section string — we only need 3 so strip the first two characters:
-          const computedSpecificity = calculate(selector)[0].specificity.substring(2)
+          const computedSpecificity = calculate(resolvedSelector)[0].specificity.substring(2)
           // Check if the selector specificity exceeds the allowed maximum
           if (parseFloat(computedSpecificity.replace(/,/g, "")) > parseFloat(max.replace(/,/g, ""))) {
             report({
               ruleName: ruleName,
               result: result,
               node: rule,
-              message: messages.expected(selector, max),
+              message: messages.expected(resolvedSelector, max),
               word: selector,
             })
             return

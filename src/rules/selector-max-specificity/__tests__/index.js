@@ -41,6 +41,19 @@ testRule("0,2,1", tr => {
     line: 2,
     column: 1,
   })
+  tr.ok(".cd { .de {} }", "standard nesting")
+  tr.ok("div:hover { .de {} }", "element, pseudo-class, nested class")
+  tr.ok(".ab, .cd { & > .de {} }", "initial (unnecessary) parent selector")
+  tr.ok(".cd { .de > & {} }", "necessary parent selector")
+  tr.ok(".cd { @media print { .de {} } }", "nested rule within nested media query")
+  tr.ok("@media print { .cd { .de {} } }", "media query > rule > rule")
+
+  tr.notOk(".cd { .de { .fg {} } }", messages.expected(".cd .de .fg", "0,2,1"))
+  tr.notOk(".cd { .de { & > .fg {} } }", messages.expected(".cd .de > .fg", "0,2,1"))
+  tr.notOk(".cd { .de { &:hover > .fg {} } }", messages.expected(".cd .de:hover > .fg", "0,2,1"))
+  tr.notOk(".cd { .de { .fg > & {} } }", messages.expected(".fg > .cd .de", "0,2,1"))
+  tr.notOk(".cd { @media print { .de { & + .fg {} } } }", messages.expected(".cd .de + .fg", "0,2,1"))
+  tr.notOk("@media print { li { & + .ab, .ef.ef { .cd {} } } }", messages.expected("li .ef.ef .cd", "0,2,1"))
 })
 
 // Some nesting examples
