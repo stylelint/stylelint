@@ -9,7 +9,7 @@ a {
     0 0 2px 1px rgba(30, 140, 190, 0.8);
 }        /* ↑ */
 /**         ↑
- * The space after this colon */
+ * The newline after this colon */
 ```
 
 ## Options
