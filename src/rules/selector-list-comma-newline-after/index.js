@@ -33,9 +33,15 @@ export default function (expectation) {
       // b {}
       const selector = (rule.raws.selector) ? rule.raws.selector.raw : rule.selector
       styleSearch({ source: selector, target: "," }, match => {
+        const nextThreeChars = selector.substr(match.endIndex, 3)
+
+        // If there's a // comment, that means there has to be a newline
+        // ending the comment so we're fine
+        if (nextThreeChars === " //") { return }
+
         // If there is a space and then a comment begins, look for the newline
         // after that comment
-        const indextoCheckAfter = (selector.substr(match.endIndex, 3) === " /*")
+        const indextoCheckAfter = (nextThreeChars === " /*")
           ? selector.indexOf("*/", match.endIndex) + 1
           : match.startIndex
         checker.afterOneOnly({
