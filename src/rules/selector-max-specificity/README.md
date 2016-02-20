@@ -25,8 +25,21 @@ The following patterns are considered warnings:
 ````
 
 ````
+#hi {}
+````
+
+````
 .thing .thing2 {
   .thing3 & {}
+}
+````
+
+````
+.thing {
+  color: red;
+  @nest .parent .thing2 & {
+    color: blue;
+  }
 }
 ````
 
@@ -39,5 +52,20 @@ The following are __not__ considered warnings:
 ````
 .thing div {
   a {}
+}
+````
+
+````
+.thing {
+  .override & {}
+}
+````
+
+````
+.foo {
+  color: red;
+  @nest .parent & {
+    color: blue;
+  }
 }
 ````
