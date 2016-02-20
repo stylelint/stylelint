@@ -2,7 +2,7 @@
 
 - Added: `ignore: "relative"` option for `font-weight-notation`.
 - Fixed: `declaration-colon-space/newline-before/after` rules now ignore scss maps.
-- Fixed `selector-list-comma-newline-after` allows `//` comments after the comma.
+- Fixed: `selector-list-comma-newline-after` allows `//` comments after the comma.
 
 # 4.3.6
 
