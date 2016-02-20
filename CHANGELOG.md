@@ -1,4 +1,4 @@
-# Head
+# 4.4.0
 
 - Added: `ignore: "relative"` option for `font-weight-notation`.
 - Fixed: `declaration-colon-space/newline-before/after` rules now ignore scss maps.
