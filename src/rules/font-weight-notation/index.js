@@ -53,10 +53,8 @@ export default function (expectation, options) {
       // numbers from unitless line-heights because line-heights in
       // `font` values need to be part of a font-size/line-height pair
       const hasNumericFontWeight = valueList.some(isNumbery)
-      console.log(JSON.stringify(hasNumericFontWeight))
 
       for (let value of postcss.list.space(decl.value)) {
-        console.log(JSON.stringify(value))
         if (
           (value === NORMAL_KEYWORD && !hasNumericFontWeight)
           || isNumbery(value)
