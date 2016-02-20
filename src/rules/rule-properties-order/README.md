@@ -352,13 +352,13 @@ a {
 
 ## Optional options
 
-### `unspecified: "top"|"bottom"|"ignore"`
+### `unspecified: "top"|"bottom"|"bottomAlphabetical"|"ignore"`
 
 These options only apply if you've defined your own array of properties.
 
 Default behavior is the same as `"ignore"`: an unspecified property can appear before or after  any other property.
 
-With `"top"`, unspecified properties are expected *before* any specified properties. With `"bottom"`, unspecified properties are expected *after* any specified properties.
+With `"top"`, unspecified properties are expected *before* any specified properties. With `"bottom"`, unspecified properties are expected *after* any specified properties. With `"bottomAlphabetical"`, unspecified properties are expected *after* any specified properties, and the unspecified properties are expected to be in alphabetical order.
 
 Given this configuration:
 
@@ -456,6 +456,52 @@ The following patterns are *not* considered warnings:
 a {
   color: pink;
   background: orange;
+  left: 0;
+}
+```
+
+Given this configuration:
+
+```js
+[["all", "compose"], { unspecified: "bottomAlphabetical" }]
+```
+
+The following patterns are considered warnings:
+
+```css
+a {
+  align-items: flex-end;
+  all: initial;
+  compose: b;
+  left: 0;
+}
+```
+
+```css
+a {
+  all: initial;
+  align-items: flex-end;
+  compose: b;
+  left: 0;
+}
+```
+
+```css
+a {
+  all: initial;
+  compose: b;
+  left: 0;
+  align-items: flex-end;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  all: initial;
+  compose: b;
+  align-items: flex-end;
   left: 0;
 }
 ```
