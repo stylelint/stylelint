@@ -72,7 +72,16 @@ export default postcss.plugin("stylelint", (options = {}) => {
         // Ignore the rule
         if (primaryOption === null) { return }
 
-        const ruleSeverity = (secondaryOptions && secondaryOptions.warn) ? "warning" : "error"
+        let ruleSeverity = "error"
+        if (secondaryOptions) {
+          if (secondaryOptions.advice && secondaryOptions.warn) {
+            throw configurationError(`${ruleName} cannot have both advice and warning severity`)
+          } else if (secondaryOptions.advice) {
+            ruleSeverity = "advice"
+          } else if (secondaryOptions.warn) {
+            ruleSeverity = "warning"
+          }
+        }
 
         // Log the rule's severity in the PostCSS result
         result.stylelint.ruleSeverities[ruleName] = ruleSeverity

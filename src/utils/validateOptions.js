@@ -1,6 +1,7 @@
 import { isPlainObject, isFunction } from "lodash"
 
 const ignoredOptions = [
+  "advice",
   "warn",
   "message",
 ]
