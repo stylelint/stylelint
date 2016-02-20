@@ -1,6 +1,8 @@
 # Plugins
 
-Plugins share all the same traits and conventions as [rules](/docs/user-guide/rules.md), except they are prefixed by "stylelint".
+Plugins are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases.
+
+Plugins share all the same traits and conventions as [rules](/docs/user-guide/rules.md), except their names are prefixed within "stylelint".
 
 ## Selector
 
