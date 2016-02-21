@@ -203,6 +203,14 @@ Or you can turn off individual rules:
 /* stylelint-enable */
 ```
 
+And you can turn off rules for individual lines only, after which you do not need to explicitly re-enable them:
+
+```css
+#id { /* stylelint-disable-line */
+  color: pink !important; /* stylelint-disable-line declaration-no-important */
+}
+```
+
 ### Configuring options
 
 Only the `*-no-*` rules don't expect options. All the other rules must be explicitly configured as *there are no default values*.

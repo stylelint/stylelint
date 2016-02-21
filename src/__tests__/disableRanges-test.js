@@ -1,5 +1,6 @@
 import test from "tape"
 import postcss from "postcss"
+import scss from "postcss-scss"
 import disableRanges from "../disableRanges"
 
 test("disableRanges registers disable/enable commands without rules", t => {
@@ -96,6 +97,56 @@ test("disableRanges registers disable/enable commands with rules", t => {
       ])
     }
   )
+  planCount += 1
+
+  t.plan(planCount)
+})
+
+test("disableRanges disabling single lines", t => {
+  let planCount = 0
+
+  testDisableRanges("a {} /* stylelint-disable-line */", result => {
+    t.deepEqual(result.stylelint.disabledRanges, [{
+      start: 1,
+      end: 1,
+    }], "disabling all rules")
+  })
+  planCount += 1
+
+  testDisableRanges("a {} /* stylelint-disable-line block-no-empty */", result => {
+    t.deepEqual(result.stylelint.disabledRanges, [{
+      start: 1,
+      end: 1,
+      rules: ["block-no-empty"],
+    }], "disabling a single rule")
+  })
+  planCount += 1
+
+  testDisableRanges("b {}\n\na {} /* stylelint-disable-line block-no-empty, blergh */", result => {
+    t.deepEqual(result.stylelint.disabledRanges, [{
+      start: 3,
+      end: 3,
+      rules: [ "block-no-empty", "blergh" ],
+    }], "disabling multiple specific rules")
+  })
+  planCount += 1
+
+  t.plan(planCount)
+})
+
+test("SCSS // line-disabling comment", t => {
+  let planCount = 0
+
+  const scssSource = `a {
+    color: pink !important; // stylelint-disable-line declaration-no-important
+  }`
+  postcss().use(disableRanges).process(scssSource, { syntax: scss }).then(result => {
+    t.deepEqual(result.stylelint.disabledRanges, [{
+      start: 2,
+      end: 2,
+      rules: ["declaration-no-important"],
+    }])
+  }).catch(err => console.log(err.stack))
   planCount += 1
 
   t.plan(planCount)

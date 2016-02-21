@@ -1,8 +1,9 @@
 import { compact } from "lodash"
 
-const commandPrefix = "stylelint-"
-const disableCommand = commandPrefix + "disable"
-const enableCommand = commandPrefix + "enable"
+const COMMAND_PREFIX = "stylelint-"
+const disableCommand = COMMAND_PREFIX + "disable"
+const enableCommand = COMMAND_PREFIX + "enable"
+const disableLineCommand = COMMAND_PREFIX + "disable-line"
 
 // Run it like a plugin ...
 export default function (root, result) {
@@ -16,7 +17,13 @@ export default function (root, result) {
     const { text } = comment
 
     // Ignore comments that are not relevant commands
-    if (text.indexOf(commandPrefix) !== 0) { return result }
+    if (text.indexOf(COMMAND_PREFIX) !== 0) { return result }
+
+    if (text.indexOf(disableLineCommand) === 0) {
+      startDisabledRange(comment, getCommandRules(disableLineCommand, text))
+      endDisabledRange(comment)
+      return
+    }
 
     if (text.indexOf(disableCommand) === 0) {
       if (withinDisabledRange) {
@@ -24,10 +31,9 @@ export default function (root, result) {
         return result
       }
       withinDisabledRange = true
-      const rules = compact(text.slice(disableCommand.length).split(","))
-        .map(r => r.trim())
-      startDisabledRange(comment, rules)
+      startDisabledRange(comment, getCommandRules(disableCommand, text))
     }
+
     if (text.indexOf(enableCommand) === 0) {
       if (!withinDisabledRange) {
         comment.error("A disabled range cannot end unless it has begun")
@@ -56,4 +62,8 @@ export default function (root, result) {
     // Add an `end` prop to the last range
     disabledRanges[disabledRanges.length - 1].end = node.source.end.line
   }
+}
+
+function getCommandRules(command, fullText) {
+  return compact(fullText.slice(command.length).split(",")).map(r => r.trim())
 }

@@ -26,9 +26,13 @@ testBlockNoEmpty(undefined, tr => {
   tr.notOk("a {}", blockNoEmptyMessages.rejected)
 
   tr.ok("/* stylelint-disable */\na {}")
+  tr.ok("/* stylelint-disable-line */ a {}")
+  tr.ok("a {} /* stylelint-disable-line */ ")
+  tr.ok("b { color: pink;}\n/* stylelint-disable */\na {}")
 
   tr.notOk("a {}\n/* stylelint-disable */", blockNoEmptyMessages.rejected)
-  tr.ok("b { color: pink;}\n/* stylelint-disable */\na {}")
+  tr.notOk("a {}\n/* stylelint-disable-line */", blockNoEmptyMessages.rejected)
+  tr.notOk("/* stylelint-disable-line */\na {}", blockNoEmptyMessages.rejected)
 })
 
 testSelectorCombinatorSpaceBefore("always", tr => {
@@ -38,13 +42,26 @@ testSelectorCombinatorSpaceBefore("always", tr => {
 // disabling specific rules
 testBlockNoEmpty(undefined, tr => {
   tr.ok(`/* stylelint-disable ${blockNoEmptyName} */\na {}`)
+  tr.ok(`/* stylelint-disable-line ${blockNoEmptyName} */ a {}`)
+  tr.ok(`a {} /* stylelint-disable-line ${blockNoEmptyName} */ `)
   tr.notOk("/* stylelint-disable declaration-no-important */\na {}",
     blockNoEmptyMessages.rejected)
+  tr.notOk("/* stylelint-disable-line declaration-no-important */\na {}",
+    blockNoEmptyMessages.rejected)
+  tr.notOk(`/* stylelint-disable-line ${blockNoEmptyName} */ a {}\nb {}`, {
+    message: blockNoEmptyMessages.rejected,
+    line: 2,
+    column: 3,
+  })
 })
 
 testSelectorCombinatorSpaceBefore("always", tr => {
   tr.ok(`/* stylelint-disable declaration-no-important, selector-combinator-space-before */ a> b {}`)
+  tr.ok(`/* stylelint-disable-line declaration-no-important, selector-combinator-space-before */ a> b {}`)
+  tr.ok(`a> b {} /* stylelint-disable-line declaration-no-important, selector-combinator-space-before */`)
   tr.notOk(`/* stylelint-disable declaration-no-important */ a> b {}`,
+    selectorCombinatorSpaceBeforeMessages.expectedBefore(">"))
+  tr.notOk(`/* stylelint-disable-line declaration-no-important */\na> b {}`,
     selectorCombinatorSpaceBeforeMessages.expectedBefore(">"))
 })
 
@@ -75,14 +92,28 @@ testMaxLineLength(80, tr => {
     /* stylelint-enable */
   `)
   tr.ok(`
+    /* stylelint-disable-line */ .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
+  `)
+  tr.ok(`
     /* stylelint-disable max-line-length */
     .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
     /* stylelint-enable max-line-length */
+  `)
+  tr.ok(`
+    .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); } /* stylelint-disable-line max-line-length */
   `)
   tr.notOk(`
     /* stylelint-disable block-no-empty */
     .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
     /* stylelint-enable block-no-empty */
+  `, maxLineLengthMessages.expected(80))
+  tr.notOk(`
+    /* stylelint-disable-line */
+    .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
+  `, maxLineLengthMessages.expected(80))
+  tr.notOk(`
+    .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
+    /* stylelint-disable-line */
   `, maxLineLengthMessages.expected(80))
   tr.notOk(`
     /* stylelint-disable max-line-length */
