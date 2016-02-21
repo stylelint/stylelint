@@ -21,6 +21,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "color-hex-case": "lower"|"upper",
     "color-hex-length": "short"|"long",
     "color-no-hex": true,
+    "color-no-indistinguishable": true,
     "color-no-invalid-hex": true,
     "color-no-named": true,
     "comment-empty-line-before": "always"|"never",
