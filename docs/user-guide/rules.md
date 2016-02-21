@@ -8,6 +8,8 @@ Every rule and plugin is standalone and turned off by default. None of the rules
 
 Here are all the rules within stylelint, grouped by the [*thing*](http://apps.workflower.fi/vocabs/css/en) they apply to.
 
+Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for more ways to lint.
+
 ### Color
 
 - [`color-hex-case`](../../src/rules/color-hex-case/README.md): Specify lowercase or uppercase for hex colors.
