@@ -1,6 +1,8 @@
 # Example config
 
-This example config lists all of stylelint's rules and their primary options. You can remove (or turn off) the rules you don't want and edit the primary option of each rule to your liking.
+This example config lists all of the [rules](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/rules.md) and their primary options. You can remove ([or turn off](http://stylelint.io/user-guide/configuration/#configuring-rules)) the rules you don't want and edit the primary option of each rule to your liking.
+
+You might want to learn a little about [the conventions](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/rules.md#about-rule-names) the rule names follow, to get a better idea of what each rule does.
 
 ```json
 {
