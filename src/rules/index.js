@@ -12,6 +12,7 @@ import blockOpeningBraceSpaceBefore from "./block-opening-brace-space-before"
 import colorHexCase from "./color-hex-case"
 import colorHexLength from "./color-hex-length"
 import colorNoHex from "./color-no-hex"
+import colorNoIndistinguisable from "./color-no-indistinguishable"
 import colorNoInvalidHex from "./color-no-invalid-hex"
 import colorNoNamed from "./color-no-named"
 import commentEmptyLineBefore from "./comment-empty-line-before"
@@ -124,6 +125,7 @@ export default {
   "color-hex-case": colorHexCase,
   "color-hex-length": colorHexLength,
   "color-no-hex": colorNoHex,
+  "color-no-indistinguishable": colorNoIndistinguisable,
   "color-no-invalid-hex": colorNoInvalidHex,
   "color-no-named": colorNoNamed,
   "comment-empty-line-before": commentEmptyLineBefore,
