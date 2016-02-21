@@ -117,6 +117,20 @@ testRule([
   tr.notOk("a { bottom: 0; color: 1px; }", messages.expected("color", "bottom"))
 })
 
+// Forcing unspecified properties to the bottom and ordering them alphabetically
+testRule([
+  "all",
+  "compose",
+], { unspecified: "bottomAlphabetical" }, tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a { all: initial; compose: b; }")
+  tr.ok("a { bottom: 0; top: 0; }")
+  tr.ok("a { all: initial; compose: b; bottom: 0; top: 0; }")
+  tr.notOk("a { align-items: flex-end; all: initial; }", messages.expected("all", "align-items"))
+  tr.notOk("a { compose: b; top: 0; bottom: 0; }", messages.expected("bottom", "top"))
+})
+
 // With unspecified properties between specified properties
 testRule([
   "left",

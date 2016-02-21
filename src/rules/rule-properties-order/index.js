@@ -22,7 +22,7 @@ export default function (expectation, options) {
     }, {
       actual: options,
       possible: {
-        unspecified: [ "top", "bottom", "ignore" ],
+        unspecified: [ "top", "bottom", "ignore", "bottomAlphabetical" ],
       },
       optional: true,
     })
@@ -145,6 +145,18 @@ export default function (expectation, options) {
         }
 
         // Now deal with unspecified props ...
+        // Starting with bottomAlphabetical as it requires more specific conditionals
+        if (unspecified === "bottomAlphabetical" &&
+          !firstPropIsUnspecified &&
+          secondPropIsUnspecified) { return true }
+
+        if (unspecified === "bottomAlphabetical" &&
+          secondPropIsUnspecified &&
+          firstPropIsUnspecified) {
+          if (checkAlpabeticalOrder(firstPropData, secondPropData)) { return true }
+          else { return false }
+        }
+        if (unspecified === "bottomAlphabetical" && firstPropIsUnspecified) { return false }
 
         if (firstPropIsUnspecified && secondPropIsUnspecified) { return true }
 
