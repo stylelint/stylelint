@@ -207,7 +207,7 @@ And you can turn off rules for individual lines only, after which you do not nee
 
 ```css
 #id { /* stylelint-disable-line */
-  color: pink !important; /* declaration-no-important */
+  color: pink !important; /* stylelint-disable-line declaration-no-important */
 }
 ```
 
