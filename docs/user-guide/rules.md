@@ -1,10 +1,14 @@
 # Rules
 
-Every rule is standalone and turned off by default. None of the rules have default values for their options.
+There are over a hundred rules built into stylelint. They all focus on *standard css* and aim to be valuable to the majority of users. In addition to these rules there are [plugins](/docs/user-guide/plugins.md), which are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases.
+
+Every rule and plugin is standalone and turned off by default. None of the rules or plugins have default values for their options.
 
 ## List of rules
 
 Here are all the rules within stylelint, grouped by the [*thing*](http://apps.workflower.fi/vocabs/css/en) they apply to.
+
+Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for more ways to lint.
 
 ### Color
 
