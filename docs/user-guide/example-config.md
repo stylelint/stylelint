@@ -106,6 +106,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "selector-no-vendor-prefix": true,
     "selector-pseudo-element-colon-notation": true,
     "selector-root-no-composition": true,
+    "string-no-newline": true,
     "string-quotes": true,
     "time-no-imperceptible": true,
     "unit-blacklist": string|[],
