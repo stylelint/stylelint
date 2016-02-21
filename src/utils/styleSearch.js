@@ -7,9 +7,9 @@
  * - target: what got matched
  * - insideFunction: whether the match is inside a function
  * - insideComment: whether the match is inside a comment
+ * - insideString: whether the match is inside a string
  *
- * Always ignores CSS strings (e.g. `content` property values).
- * By default ignores comments and function names.
+ * By default ignores strings, comments, and function names.
  * Optionally restricts the search to characters within or outside of functional notation.
  *
  * @param {object} options
@@ -24,7 +24,12 @@
  *   matches found *inside* CSS functions
  * @param {boolean} [options.outsideFunctionalNotation] - If `true`, only report
  *   matches found *outside* CSS functions
+ * @param {boolean} [options.withinStrings] - If `true`, only report
+ *   matches found *inside* CSS strings
+ * @param {boolean} [options.withinComments] - If `true`, only report
+ *   matches found *inside* CSS comments
  * @param {boolean} [options.checkComments] - If `true`, comments will *not* be ignored
+ * @param {boolean} [options.checkStrings] - If `true`, strings will *not* be ignored
  * @param {boolean} [options.checkFunctionNames] - If `true`, function names will *not* be ignored
  * @param {boolean} [options.onlyOne] - Stop looking after the first match is found
  * @param {function} callback - Invoked for every match, receiving the `match` object
@@ -43,6 +48,9 @@ export default function (options, callback) {
   let openingParenCount = 0
   let matchCount = 0
   let openingQuote
+
+  const ignoreStrings = !options.checkStrings && !options.withinStrings
+  const ignoreComments = !options.checkComments && !options.withinComments
 
   const targetIsArray = Array.isArray(target)
 
@@ -80,6 +88,7 @@ export default function (options, callback) {
     return {
       insideFunction,
       insideComment,
+      insideString,
       startIndex: index,
       endIndex: index + targetStringLength,
       target: targetString,
@@ -128,7 +137,7 @@ export default function (options, callback) {
       insideSingleLineComment = false
     }
 
-    if (insideComment && !options.checkComments) { continue }
+    if (insideComment && ignoreComments) { continue }
 
     // Register the beginning of a string
     if (!insideString && (currentChar === "\"" || currentChar === "'")) {
@@ -138,9 +147,7 @@ export default function (options, callback) {
       insideString = true
 
       // For string-quotes rule
-      if (target === currentChar) {
-        matchFound(checkAgainstTarget(i))
-      }
+      if (target === currentChar) { matchFound(checkAgainstTarget(i)) }
       continue
     }
 
@@ -151,10 +158,9 @@ export default function (options, callback) {
         insideString = false
         continue
       }
-      // If we are inside a string and it is not ending,
-      // we should ignore the current char
-      continue
     }
+
+    if (insideString && ignoreStrings) { continue }
 
     // Register the beginning of a function
     if (currentChar === "(") {
@@ -163,7 +169,7 @@ export default function (options, callback) {
       // containing nested functions) is closing
       openingParenCount++
       insideFunction = true
-      if (target === "(") matchFound(checkAgainstTarget(i))
+      if (target === "(") { matchFound(checkAgainstTarget(i)) }
       continue
     }
 
@@ -173,7 +179,7 @@ export default function (options, callback) {
       if (openingParenCount === 0) {
         insideFunction = false
       }
-      if (target === ")") matchFound(checkAgainstTarget(i))
+      if (target === ")") { matchFound(checkAgainstTarget(i)) }
       continue
     }
 
@@ -186,11 +192,10 @@ export default function (options, callback) {
 
     if (!match) { continue }
 
-    // If we have a match,
-    // and it is inside or outside of a function, as requested in options,
-    // send it to the callback
     if (options.withinFunctionalNotation && !insideFunction) { continue }
     if (options.outsideFunctionalNotation && insideFunction) { continue }
+    if (options.withinStrings && !insideString) { continue }
+    if (options.withinComments && !insideComment) { continue }
     matchFound(match)
     if (options.onlyOne) { return }
   }

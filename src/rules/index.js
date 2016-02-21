@@ -98,6 +98,7 @@ import selectorNoUniversal from "./selector-no-universal"
 import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
 import selectorRootNoComposition from "./selector-root-no-composition"
+import stringNoNewline from "./string-no-newline"
 import stringQuotes from "./string-quotes"
 import timeNoImperceptible from "./time-no-imperceptible"
 import unitBlacklist from "./unit-blacklist"
@@ -209,6 +210,7 @@ export default {
   "selector-no-vendor-prefix": selectorNoVendorPrefix,
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
   "selector-root-no-composition": selectorRootNoComposition,
+  "string-no-newline": stringNoNewline,
   "string-quotes": stringQuotes,
   "time-no-imperceptible": timeNoImperceptible,
   "unit-blacklist": unitBlacklist,

@@ -50,6 +50,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 
 ### String
 
+- [`string-no-newline`](../../src/rules/string-no-newline/README.md): Disallow (unescaped) newlines in strings.
 - [`string-quotes`](../../src/rules/string-quotes/README.md): Specify single or double quotes around strings.
 
 ### Time
