@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `font-weight-notation` does not throw false warnings when `normal` is used in certain ways.
+
 # 4.4.0
 
 - Added: `ignore: "relative"` option for `font-weight-notation`.
