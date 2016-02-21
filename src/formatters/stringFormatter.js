@@ -1,4 +1,5 @@
 import chalk from "chalk"
+import _ from "lodash"
 import formatter from "postcss-reporter/lib/formatter"
 
 const minimalFormatter = formatter({
@@ -7,6 +8,8 @@ const minimalFormatter = formatter({
 })
 
 export default function (results) {
+  let output = invalidOptionsFormatter(results)
+
   return results.reduce((output, result) => {
     output += deprecationsFormatter(result.deprecations)
     output += minimalFormatter({
@@ -14,7 +17,7 @@ export default function (results) {
       source: result.source,
     })
     return output
-  }, "")
+  }, output)
 }
 
 function deprecationsFormatter(warnings) {
@@ -27,6 +30,17 @@ function deprecationsFormatter(warnings) {
       output += chalk.yellow(" See: ")
       output += chalk.green.underline(warning.reference)
     }
+    return output + "\n"
+  }, "\n")
+}
+
+function invalidOptionsFormatter(results) {
+  const allInvalidOptionWarnings = _.flatMap(results, r => r.invalidOptionWarnings.map(w => w.text))
+  const uniqueInvalidOptionWarnings = _.uniq(allInvalidOptionWarnings)
+
+  return uniqueInvalidOptionWarnings.reduce((output, warning) => {
+    output += chalk.red.bold(">> Invalid Option: ")
+    output += warning
     return output + "\n"
   }, "\n")
 }

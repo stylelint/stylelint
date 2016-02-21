@@ -12,11 +12,13 @@ const minimistOptions = {
     f: "string",
     q: false,
     config: false,
+    v: false,
   },
   alias: {
     f: "formatter",
     q: "quiet",
     s: "syntax",
+    v: "verbose",
   },
 }
 const syntaxOptions = ["scss"]
@@ -51,15 +53,19 @@ const meowOptions = {
     "                      (ignore \"warning\"-level)",
     "  -s, --syntax        Specify a non-standard syntax that should be used to ",
     "                      parse source stylesheets. Options: \"scss\"",
+    "  -v, --verbose       Get more stats",
   ],
   pkg: "../package.json",
 }
 
 const cli = meow(meowOptions, minimistOptions)
 
-const formatter = (cli.flags.customFormatter)
-  ? require(path.join(process.cwd(), cli.flags.customFormatter))
-  : cli.flags.formatter
+let formatter = cli.flags.formatter
+if (cli.flags.customFormatter) {
+  formatter = require(path.join(process.cwd(), cli.flags.customFormatter))
+} else if (cli.flags.verbose) {
+  formatter = "verbose"
+}
 
 const optionsBase = {
   formatter,
