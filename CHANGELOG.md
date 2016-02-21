@@ -1,6 +1,7 @@
 # Head
 
 - Added: `unspecified: "bottomAlphabetical"` option for `rule-properties-order`.
+- Added: `stylelint-disable-line` feature.
 - Fixed: `font-weight-notation` does not throw false warnings when `normal` is used in certain ways.
 
 # 4.4.0

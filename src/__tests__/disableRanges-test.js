@@ -101,6 +101,38 @@ test("disableRanges registers disable/enable commands with rules", t => {
   t.plan(planCount)
 })
 
+test("disableRanges disabling single lines", t => {
+  let planCount = 0
+
+  testDisableRanges("a {} /* stylelint-disable-line */", result => {
+    t.deepEqual(result.stylelint.disabledRanges, [{
+      start: 1,
+      end: 1,
+    }], "disabling all rules")
+  })
+  planCount += 1
+
+  testDisableRanges("a {} /* stylelint-disable-line block-no-empty */", result => {
+    t.deepEqual(result.stylelint.disabledRanges, [{
+      start: 1,
+      end: 1,
+      rules: ["block-no-empty"],
+    }], "disabling a single rule")
+  })
+  planCount += 1
+
+  testDisableRanges("b {}\n\na {} /* stylelint-disable-line block-no-empty, blergh */", result => {
+    t.deepEqual(result.stylelint.disabledRanges, [{
+      start: 3,
+      end: 3,
+      rules: [ "block-no-empty", "blergh" ],
+    }], "disabling multiple specific rules")
+  })
+  planCount += 1
+
+  t.plan(planCount)
+})
+
 function testDisableRanges(source, cb) {
   postcss()
     .use(disableRanges)
