@@ -1,6 +1,6 @@
 import colorguard from "colorguard"
 import { isArray, isNumber } from "lodash"
-import Result from "postcss/lib/Result"
+import Result from "postcss/lib/result"
 import {
   isValidHex,
   report,
