@@ -1,4 +1,5 @@
 import {
+  isValidHex,
   report,
   ruleMessages,
   styleSearch,
@@ -29,7 +30,7 @@ export default function (actual) {
         if (!hexMatch) { return }
         const hexValue = hexMatch[0]
 
-        if (!/^#(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(hexValue)) {
+        if (!isValidHex(hexValue)) {
           report({
             message: messages.rejected(hexValue),
             node: decl,
