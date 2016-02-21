@@ -9,9 +9,9 @@ const minimalFormatter = formatter({
 
 export default function (results) {
   let output = invalidOptionsFormatter(results)
+  output += deprecationsFormatter(results)
 
   return results.reduce((output, result) => {
-    output += deprecationsFormatter(result.deprecations)
     output += minimalFormatter({
       messages: result.warnings,
       source: result.source,
@@ -20,12 +20,15 @@ export default function (results) {
   }, output)
 }
 
-function deprecationsFormatter(warnings) {
-  if (!warnings || !warnings.length) { return "" }
+function deprecationsFormatter(results) {
+  const allDeprecationWarnings = _.flatMap(results, "deprecations")
+  const uniqueDeprecationWarnings = _.uniqBy(allDeprecationWarnings, "text")
 
-  return warnings.reduce((output, warning) => {
+  if (!uniqueDeprecationWarnings || !uniqueDeprecationWarnings.length) { return "" }
+
+  return uniqueDeprecationWarnings.reduce((output, warning) => {
     output += chalk.yellow.bold(">> Deprecation Warning: ")
-    output += chalk.yellow(warning.text)
+    output += warning.text
     if (warning.reference) {
       output += chalk.yellow(" See: ")
       output += chalk.green.underline(warning.reference)

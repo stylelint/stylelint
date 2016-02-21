@@ -19,7 +19,7 @@ export default function (results) {
 
   const warnings = _.flatten(results.map(r => r.warnings))
   const warningsBySeverity = _.groupBy(warnings, "severity")
-  const problemWord = (warnings.length > 1) ? "problems" : "problem"
+  const problemWord = (warnings.length === 1) ? "problem" : "problems"
 
   output += chalk.bold.underline.cyan(`\n${warnings.length} ${problemWord} found\n`)
 
