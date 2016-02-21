@@ -22,6 +22,11 @@ A formatter is a function that accepts *an array of these stylelint result objec
       text: "Feature X has been deprecated and will be removed in the next major version.",
       reference: "http://stylelint.io/docs/feature-x.md"
     }
+  ],
+  invalidOptionWarnings: [ // Array of invalid option warning objects, each like the following ...
+    {
+      text: "Invalid option X for rule Y",
+    }
   ]
 }
 ```

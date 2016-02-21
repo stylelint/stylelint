@@ -90,7 +90,9 @@ export default function (result, ruleName, ...optionDescriptions) {
 
     function complain(message) {
       noErrors = false
-      result.warn(message)
+      result.warn(message, {
+        stylelintType: "invalidOption",
+      })
     }
   }
 }
