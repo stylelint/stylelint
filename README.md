@@ -28,7 +28,7 @@ With stylelint, it's easy to start linting your CSS:
    - If you want to use a pre-written config, just find one and extend it. We recommend trying [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard), which includes around 60 of stylelint's rules with sensible defaults. (You can always override specific rules after extending a config.)
    - To craft your own from the ground up, just learn about [some rules](/docs/user-guide/rules.md). *All of the rules are off by default*, so you only have to learn about the rules you want to turn on and enforce. That way you can start small, growing your config over time as you have a chance to explore more of the rules. Alternately, copy-paste [this example configuration](/docs/user-guide/example-config.md), which lists all of stylelint's rules and their primary options, then remove (or turn off) the rules you don't want and edit the primary option of each rule to your liking.
 3. Create your [configuration](/docs/user-guide/configuration.md), probably as a `.stylelintrc` file.
-4. Decide whether to use the [CLI](/docs/user-guide/cli.md), [Node API](/docs/user-guide/node-api.md), or [PostCSS plugin](/docs/user-guide/postcss-plugin.md).
+4. Decide whether to use the [CLI](/docs/user-guide/cli.md), [Node API](/docs/user-guide/node-api.md), or [PostCSS plugin](/docs/user-guide/postcss-plugin.md). Be sure to [specify the syntax](/docs/user-guide/css-processors.md#parsing-scss) if you're using SCSS.
 5. Lint!
 
 ## Guides
