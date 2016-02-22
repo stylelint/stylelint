@@ -5,7 +5,7 @@ Disallow browser hacks that are irrelevant to the browsers you support.
 ```css
 h1 { _color: white; }
 /**  ↑                 
- *  Hacks like this */
+ * Hacks like this */
 ```
 
 If you are uncertain what "browser hacks" are, ["An Introduction to Browser-Specific Hacks"](http://www.sitepoint.com/browser-specific-css-hacks/) explains it well.
