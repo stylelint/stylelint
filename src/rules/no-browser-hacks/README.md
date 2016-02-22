@@ -14,9 +14,9 @@ This rule uses [stylehacks](https://github.com/ben-eb/stylehacks) to detect the 
 
 ## Optional Options
 
-### `browsers: ["browserslist", "array", "of", "strings"]`
+### `browsers: "browserslist string"`
 
-An array of strings interpreted by [browserslist](https://github.com/ai/browserslist) that designates precisely which browsers you wish to support. For details about the syntax (which is the same as when using Autoprefixer, by the way), please read [the browserslist documentation](https://github.com/ai/browserslist).
+A string interpreted by [browserslist](https://github.com/ai/browserslist) that designates precisely which browsers you wish to support. Something like `"> 1%, last 2 versions, ie >= 8"`. For details about the syntax (which is the same as when using Autoprefixer, by the way), please read [the browserslist documentation](https://github.com/ai/browserslist).
 
 Defaults to the browserslist default, which targets modern browsers.
 

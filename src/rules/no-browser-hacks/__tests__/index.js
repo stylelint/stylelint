@@ -35,7 +35,7 @@ testRule(true, tr => {
   }, "html combinator comment body hack")
 })
 
-testRule(true, { browsers: [ "last 2 versions", "ie >= 5" ] }, tr => {
+testRule(true, { browsers: "last 2 versions, ie >= 5" }, tr => {
   warningFreeBasics(tr)
 
   tr.ok("h1 { _color: red }", "ie 6 underscore hack")

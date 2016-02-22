@@ -1,6 +1,6 @@
 import stylehacks from "stylehacks"
 import Result from "postcss/lib/result"
-import { isString, assign } from "lodash"
+import { isString } from "lodash"
 import {
   report,
   ruleMessages,
@@ -24,7 +24,10 @@ export default function (on, options) {
     })
     if (!validOptions) { return }
 
-    const stylehacksOptions = assign({ lint: true }, options)
+    const stylehacksOptions = { lint: true }
+    if (options && options.browsers) {
+      stylehacksOptions.browsers = options.browsers
+    }
 
     const stylehacksResult = new Result()
     stylehacks(stylehacksOptions)(root, stylehacksResult)
