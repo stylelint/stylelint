@@ -193,6 +193,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`indentation`](../../src/rules/indentation/README.md): Specify indentation.
 - [`max-empty-lines`](../../src/rules/max-empty-lines/README.md): Limit the number of adjacent empty lines.
 - [`max-line-length`](../../src/rules/max-line-length/README.md): Limit the length of a line.
+- [`no-browser-hacks`](../../src/rules/no-browser-hacks/README.md): Disallow browser hacks that are irrelevant to the browsers you support.
 - [`no-duplicate-selectors`](../../src/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 - [`no-eol-whitespace`](../../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
 - [`no-invalid-double-slash-comments`](../../src/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
