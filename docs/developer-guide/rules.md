@@ -64,3 +64,12 @@ To run tests in a single file, instead of all the tests at once, you'll need to 
 ```console
 ./node_modules/.bin/babel-tape-runner src/rules/color-hex-case/__tests__/index.js
 ```
+
+## Wiring up the rule up
+
+The final step is to refer to the new rule in the following places:
+
+- [The rules `index.js` file](https://github.com/stylelint/stylelint/blob/master/src/rules/index.js)
+- [The CHANGELOG](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md)
+- [The list of rules](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/rules.md)
+- [The example config](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/example-config.md)
