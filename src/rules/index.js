@@ -60,6 +60,7 @@ import mediaQueryListCommaNewlineBefore from "./media-query-list-comma-newline-b
 import mediaQueryListCommaSpaceAfter from "./media-query-list-comma-space-after"
 import mediaQueryListCommaSpaceBefore from "./media-query-list-comma-space-before"
 import mediaQueryParenthesesSpaceInside from "./media-query-parentheses-space-inside"
+import noBrowserHacks from "./no-browser-hacks"
 import noDuplicateSelectors from "./no-duplicate-selectors"
 import noEolWhitespace from "./no-eol-whitespace"
 import noInvalidDoubleSlashComments from "./no-invalid-double-slash-comments"
@@ -173,6 +174,7 @@ export default {
   "media-query-list-comma-space-after": mediaQueryListCommaSpaceAfter,
   "media-query-list-comma-space-before": mediaQueryListCommaSpaceBefore,
   "media-query-parentheses-space-inside": mediaQueryParenthesesSpaceInside,
+  "no-browser-hacks": noBrowserHacks,
   "no-duplicate-selectors": noDuplicateSelectors,
   "no-eol-whitespace": noEolWhitespace,
   "no-invalid-double-slash-comments": noInvalidDoubleSlashComments,
