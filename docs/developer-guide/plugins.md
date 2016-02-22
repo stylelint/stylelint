@@ -52,3 +52,7 @@ export default stylelint.createPlugin(ruleName, function (expectation) {
 ## Testing plugins
 
 For testing your plugin, you might consider using the same rule-testing function that stylelint uses internally: [`stylelint-rule-tester`](https://github.com/stylelint/stylelint-rule-tester).
+
+## Adding plugins to the list
+
+Once your plugin is published, please send us a Pull Request to add your plugin to [the list](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/plugins.md).
