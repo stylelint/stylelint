@@ -39,6 +39,8 @@ We recommend you lint your CSS before applying any transformations. You can do t
 
 You'll also need to use a reporter. *The stylelint plugin registers warnings via PostCSS*. Therefore, you'll want to use it with a PostCSS runner that prints warnings (e.g. [`gulp-postcss`](https://github.com/postcss/gulp-postcss)) or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
 
+### Example A
+
 Using the plugin with [`gulp-postcss`](https://github.com/postcss/gulp-postcss), and as a separate lint task:
 
 ```js
@@ -54,6 +56,8 @@ gulp.task("lint:css", function () {
     ]))
 })
 ```
+
+### Example B
 
 Using the plugin within [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import), as part of the build task:
 
@@ -78,6 +82,8 @@ gulp.task("build:css", function () {
 })
 ```
 
+### Example C
+
 Using the plugin with [`gulp-postcss`](https://github.com/postcss/gulp-postcss) and [`postcss-scss`](https://github.com/postcss/postcss-scss) to lint SCSS, and as part of the build task:
 
 *Note: the stylelint PostCSS plugin, unlike the stylelint CLI and node API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.*
@@ -99,6 +105,8 @@ gulp.task("build:scss", function () {
     }))
 })
 ```
+
+### Example D
 
 Using the plugin with the PostCSS JS API:
 
