@@ -1,5 +1,6 @@
 # Head
 
+- Added: `no-browser-hacks` rule.
 - Added: `string-no-newline` rule.
 - Added: `unspecified: "bottomAlphabetical"` option for `rule-properties-order`.
 - Added: `stylelint-disable-line` feature.

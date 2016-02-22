@@ -69,6 +69,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "media-query-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
     "media-query-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
     "media-query-parentheses-space-inside": "always"|"never",
+    "no-browser-hacks": true,
     "no-duplicate-selectors": true,
     "no-eol-whitespace": true,
     "no-invalid-double-slash-comments": true,
