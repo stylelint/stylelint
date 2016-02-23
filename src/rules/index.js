@@ -11,6 +11,7 @@ import blockOpeningBraceSpaceAfter from "./block-opening-brace-space-after"
 import blockOpeningBraceSpaceBefore from "./block-opening-brace-space-before"
 import colorHexCase from "./color-hex-case"
 import colorHexLength from "./color-hex-length"
+import colorNamed from "./color-named"
 import colorNoHex from "./color-no-hex"
 import colorNoIndistinguisable from "./color-no-indistinguishable"
 import colorNoInvalidHex from "./color-no-invalid-hex"
@@ -125,6 +126,7 @@ export default {
   "block-opening-brace-space-before": blockOpeningBraceSpaceBefore,
   "color-hex-case": colorHexCase,
   "color-hex-length": colorHexLength,
+  "color-named": colorNamed,
   "color-no-hex": colorNoHex,
   "color-no-indistinguishable": colorNoIndistinguisable,
   "color-no-invalid-hex": colorNoInvalidHex,

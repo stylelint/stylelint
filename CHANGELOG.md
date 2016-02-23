@@ -2,6 +2,7 @@
 
 - Added: `no-browser-hacks` rule.
 - Added: `string-no-newline` rule.
+- Added: `color-named` rule.
 - Added: `unspecified: "bottomAlphabetical"` option for `rule-properties-order`.
 - Added: `stylelint-disable-line` feature.
 - Added: `withinComments`, `withinStrings`, and `checkStrings` options to `styleSearch`, and `insideString` property to the `styleSearch` match object.

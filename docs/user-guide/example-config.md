@@ -20,6 +20,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "block-opening-brace-space-before": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
     "color-hex-case": "lower"|"upper",
     "color-hex-length": "short"|"long",
+    "color-named": "always-where-possible"|"never",
     "color-no-hex": true,
     "color-no-indistinguishable": true,
     "color-no-invalid-hex": true,
