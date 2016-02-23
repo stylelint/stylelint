@@ -24,7 +24,6 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "color-no-hex": true,
     "color-no-indistinguishable": true,
     "color-no-invalid-hex": true,
-    "color-no-named": true,
     "comment-empty-line-before": "always"|"never",
     "comment-whitespace-inside": "always"|"never",
     "custom-media-pattern": string,
