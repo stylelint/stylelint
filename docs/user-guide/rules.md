@@ -18,7 +18,6 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`color-no-hex`](../../src/rules/color-no-hex/README.md): Disallow hex colors.
 - [`color-no-indistinguishable`](../../src/rules/color-no-indistinguishable/README.md): Disallow colors that are suspiciously close to being identical.
 - [`color-no-invalid-hex`](../../src/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
-- [`color-no-named`](../../src/rules/color-no-named/README.md): Disallow named colors.
 
 ### Font family
 

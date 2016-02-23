@@ -1,5 +1,7 @@
 # color-no-named
 
+**Deprecated: use `color-named: "never"` instead.**
+
 Disallow named colors.
 
 ```css

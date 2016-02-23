@@ -1,5 +1,6 @@
 # Head
 
+- Deprecated: `color-no-named` rule. Use the new `color-named` rule, with the `"never"` option.
 - Added: `no-browser-hacks` rule.
 - Added: `string-no-newline` rule.
 - Added: `color-named` rule.

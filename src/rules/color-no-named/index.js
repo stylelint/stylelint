@@ -16,6 +16,16 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (actual) {
   return (root, result) => {
+
+    result.warn((
+      "'color-no-named' has been deprecated, " +
+      "and in 5.0 it will be removed. " +
+      "Use 'color-named: \"never\"' instead."
+    ), {
+      stylelintType: "deprecation",
+      stylelintReference: "http://stylelint.io/user-guide/rules/color-named/",
+    })
+
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
