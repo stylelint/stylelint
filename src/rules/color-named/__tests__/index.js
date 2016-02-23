@@ -58,3 +58,147 @@ testRule("never", tr => {
     column: 23,
   })
 })
+
+testRule("always-where-possible", tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a { color: black; }")
+  tr.ok("a { color: rgb(0,0,1); }")
+  tr.ok("a { color: rgba(0,0,0,0.5); }")
+  tr.ok("a { color: rgb(0,0,0,50%); }")
+
+  tr.ok("a { color: color(black, a(50%)) }")
+  tr.ok("a { color: rgb(0, calc(0 + 0), 0, 0) }")
+
+  tr.ok("/** color: #000; */", "ignore representations within comments")
+  tr.ok("a::before { content: \"#000\" }", "ignore representations within doubl quotes")
+  tr.ok("a::before { content: '#000' }", "ignore representations within single quotes")
+  tr.ok("a { background-image: url(./thing.png#000); }", "ignore representations within urls")
+
+  tr.notOk("a { color: #000 }", {
+    message: messages.expected("black", "#000"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { background: #f000 }", {
+    message: messages.expected("black", "#f000"),
+    line: 1,
+    column: 17,
+  })
+
+  tr.notOk("a { color: #ff000000 }", {
+    message: messages.expected("black", "#ff000000"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: rgb(0, 0, 0) }", {
+    message: messages.expected("black", "rgb(0,0,0)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: rgba(0, 0, 0, 1) }", {
+    message: messages.expected("black", "rgba(0,0,0,1)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: rgba(0, 0, 0, 100%) }", {
+    message: messages.expected("black", "rgba(0,0,0,100%)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: rgb(0%,0%, 0%) }", {
+    message: messages.expected("black", "rgb(0%,0%,0%)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: rgba(0%,0%, 0%  ,1) }", {
+    message: messages.expected("black", "rgba(0%,0%,0%,1)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: rgba(0%,0%, 0%\n,100%) }", {
+    message: messages.expected("black", "rgba(0%,0%,0%,100%)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: hsl(0,0%, 0%) }", {
+    message: messages.expected("black", "hsl(0,0%,0%)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: hsla(0,0%, 0%  ,1) }", {
+    message: messages.expected("black", "hsla(0,0%,0%,1)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: hsla(0,0%, 0%\n,100%) }", {
+    message: messages.expected("black", "hsla(0,0%,0%,100%)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: hwb(0,0%, 0%) }", {
+    message: messages.expected("red", "hwb(0,0%,0%)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: hwb(0,0%, 0%  ,1) }", {
+    message: messages.expected("red", "hwb(0,0%,0%,1)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: hwb(0,0%, 0%\n,100%) }", {
+    message: messages.expected("red", "hwb(0,0%,0%,100%)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: gray(0) }", {
+    message: messages.expected("black", "gray(0)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: gray(0%) }", {
+    message: messages.expected("black", "gray(0%)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: gray(0, 1) }", {
+    message: messages.expected("black", "gray(0,1)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: gray(0, 100%) }", {
+    message: messages.expected("black", "gray(0,100%)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { color: rgb(\n0 ,\n 0 ,\r\n 0) }", {
+    message: messages.expected("black", "rgb(0,0,0)"),
+    line: 1,
+    column: 12,
+  })
+
+  tr.notOk("a { something: #302, rgb(\n0 ,\n 0 ,\r\n 0) }", {
+    message: messages.expected("black", "rgb(0,0,0)"),
+    line: 1,
+    column: 22,
+  })
+
+})
