@@ -1,6 +1,6 @@
 # color-no-named
 
-**Deprecated: use `color-named: "never"` instead.**
+**Deprecated: use the [`color-named`](../color-named/README.md) rule with the [`"never"`](../color-named/README.md#never) option instead.**
 
 Disallow named colors.
 
