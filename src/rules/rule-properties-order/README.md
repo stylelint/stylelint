@@ -65,7 +65,7 @@ Within an order array, you can include
 - group objects with these properties:
 
   - `order ("strict"|"flexible")`: If `"strict"` (the default), the properties in this group must come in the order specified. If `"flexible"`, the properties can be in any order as long as they are grouped correctly.
-  - `emptyLineBefore (boolean)`: If `true`, this group must be separated from other properties by an empty newline. By default (or if emptyLineBefore is `false`), the rule doesn't care if there are empty newlines or not before this group's properties.
+  - `emptyLineBefore ("always|"never")`: If `always`, this group must be separated from other properties by an empty newline. By default (or if emptyLineBefore is `never`), the group must have no empty lines separating it from other properties. 
   - `properties (array of strings)`: The properties in this group.
 
 There are some important details to keep in mind:
@@ -225,14 +225,14 @@ Given:
 ```js
 [
   {
-    emptyLineBefore: true,
+    emptyLineBefore: "always",
     properties: [
       "height",
       "width",
     ],
   },
   {
-    emptyLineBefore: true,
+    emptyLineBefore: "always",
     properties: [
       "font-size",
       "font-weight",
@@ -279,6 +279,70 @@ a {
   height: 1px;
   width: 2px;
 
+  font-size: 2px;
+  font-weight: bold;
+}
+```
+
+Given:
+
+```js
+[
+  {
+    emptyLineBefore: "false",
+    properties: [
+      "height",
+      "width",
+    ],
+  },
+  {
+    emptyLineBefore: "false",
+    properties: [
+      "font-size",
+      "font-weight",
+    ],
+  },
+]
+```
+
+The following patterns are considered warnings:
+
+```css
+a {
+  height: 1px;
+  width: 2px;
+  
+  font-size: 2px;
+  font-weight: bold;
+}
+```
+
+```css
+a {
+  height: 1px;
+  width: 2px;
+
+  font-weight: bold;
+  font-size: 2px;
+}
+```
+
+```css
+a {
+  width: 2px;
+
+  font-size: 2px;
+  font-weight: bold;
+  height: 1px;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  height: 1px;
+  width: 2px;
   font-size: 2px;
   font-weight: bold;
 }
