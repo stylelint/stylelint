@@ -127,15 +127,20 @@ a { color: pink;
 
 ### `ignoreAtRules: ["/regex/", "non-regex"]`
 
-Given `["/i/"]` or `["if"]`:
+Given `["if", "else"]`:
 
 The following patterns are *not* considered warnings:
 
 ```css
-@if (...) {} @else {...}
+@if ... {
+  color: pink;
+} @else if ... {
+  color: red;
+} @else {
+  color: blue;
+}
 ```
 
 ```css
-@if (...) {
-} @else {...}
+@if ... { color: pink; } @else { color: blue; }
 ```
