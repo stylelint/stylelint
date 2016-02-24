@@ -1,6 +1,7 @@
 import selectorParser from "postcss-selector-parser"
 import { isRegExp, isString } from "lodash"
 import {
+  cssRuleHasSelectorEndingWithColon,
   report,
   ruleMessages,
   validateOptions,
@@ -23,6 +24,7 @@ export default function (pattern) {
     const normalizedPattern = isString(pattern) ? new RegExp(pattern) : pattern
 
     root.walkRules(rule => {
+      if (cssRuleHasSelectorEndingWithColon(rule)) { return }
       selectorParser(checkSelector).process(rule.selector)
 
       function checkSelector(fullSelector) {

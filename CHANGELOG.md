@@ -9,6 +9,7 @@
 - Added: `stylelint-disable-line` feature.
 - Added: `withinComments`, `withinStrings`, and `checkStrings` options to `styleSearch`, and `insideString` property to the `styleSearch` match object.
 - Fixed: `font-weight-notation` does not throw false warnings when `normal` is used in certain ways.
+- Fixed: `selector-no-*` and `selector-*-pattern` rules now ignore custom property sets.
 
 # 4.4.0
 

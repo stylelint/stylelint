@@ -1,5 +1,6 @@
 import selectorParser from "postcss-selector-parser"
 import {
+  cssRuleHasSelectorEndingWithColon,
   report,
   ruleMessages,
   validateOptions,
@@ -17,6 +18,7 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
+      if (cssRuleHasSelectorEndingWithColon(rule)) { return }
       selectorParser(selectorAST => {
         selectorAST.eachId(id => {
           if (/#{.+}/.test(id)) { return }
