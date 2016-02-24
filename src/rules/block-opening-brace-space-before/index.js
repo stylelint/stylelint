@@ -81,6 +81,6 @@ export function cssStatementIsIgnoredAtRule(statement, options) {
     options &&
     options.ignoreAtRules &&
     statement.type === "atrule" &&
-    matchesStringOrRegExp(statement.name, [].concat(options.ignoreAtRules))
+    matchesStringOrRegExp(statement.name, options.ignoreAtRules)
   )
 }
