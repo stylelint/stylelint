@@ -100,6 +100,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "selector-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
     "selector-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
     "selector-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
+    "selector-max-specificity": string,
     "selector-no-attribute": true,
     "selector-no-combinator": true,
     "selector-no-id": true,
