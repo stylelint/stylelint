@@ -87,8 +87,7 @@ const scssTestRule = ruleTester(rule, ruleName, {
 })
 
 // Interpolation to check we will skip
-scssTestRule("1,1,1", tr => {
+scssTestRule("0,1,1", tr => {
   warningFreeBasics(tr)
   tr.ok("#hello #{$test} {}", "ignore rules with variable interpolation")
 })
-
