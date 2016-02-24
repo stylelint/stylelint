@@ -3,6 +3,7 @@ import {
   warningFreeBasics,
 } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
+import scss from "postcss-scss"
 
 const testRule = ruleTester(rule, ruleName)
 
@@ -79,5 +80,15 @@ testRule("0,4,1", tr => {
     line: 1,
     column: 33,
   })
+})
+
+const scssTestRule = ruleTester(rule, ruleName, {
+  postcssOptions: { syntax: scss },
+})
+
+// Interpolation to check we will skip
+scssTestRule("1,1,1", tr => {
+  warningFreeBasics(tr)
+  tr.ok("#hello #{$test} {}", "ignore rules with variable interpolation")
 })
 

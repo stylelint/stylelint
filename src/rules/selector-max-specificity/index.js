@@ -30,6 +30,10 @@ export default function (max) {
     function checkSpecificity(rule) {
       // using rule.selectors gets us each selector in the eventuality we have a comma separated set
       rule.selectors.forEach(selector => {
+        // If we hit interpolation on the rule we run away
+        if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(selector)) {
+          return
+        }
         resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {
           // calculate() returns a four section string — we only need 3 so strip the first two characters:
           const computedSpecificity = calculate(resolvedSelector)[0].specificity.substring(2)
