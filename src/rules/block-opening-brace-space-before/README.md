@@ -149,3 +149,20 @@ a { color: pink; }
 a{
 color: pink;}
 ```
+
+## Optional options
+
+### `ignoreAtRules: ["/regex/", "non-regex"]`
+
+Given `["/fo/"]` or `["for"]`:
+
+The following patterns are *not* considered warnings:
+
+```css
+@for ...
+{}
+```
+
+```css
+@for ...{}
+```

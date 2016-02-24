@@ -4,7 +4,8 @@
 - Added: `no-browser-hacks` rule.
 - Added: `string-no-newline` rule.
 - Added: `color-named` rule.
-- Added: `unspecified: "bottomAlphabetical"` option for `rule-properties-order`.
+- Added: `unspecified: "bottomAlphabetical"` option to the `rule-properties-order` rule.
+- Added: `ignoreAtRules: []` option to the `block-opening-brace-space-before` and `block-closing-brace-newline-after` rules.
 - Added: `stylelint-disable-line` feature.
 - Added: `withinComments`, `withinStrings`, and `checkStrings` options to `styleSearch`, and `insideString` property to the `styleSearch` match object.
 - Fixed: `font-weight-notation` does not throw false warnings when `normal` is used in certain ways.

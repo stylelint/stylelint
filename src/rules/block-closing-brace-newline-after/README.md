@@ -122,3 +122,25 @@ a { color: pink; } b { color: red; }
 a { color: pink;
 }b { color: red; }
 ```
+
+## Optional options
+
+### `ignoreAtRules: ["/regex/", "non-regex"]`
+
+Given `["if", "else"]`:
+
+The following patterns are *not* considered warnings:
+
+```css
+@if ... {
+  color: pink;
+} @else if ... {
+  color: red;
+} @else {
+  color: blue;
+}
+```
+
+```css
+@if ... { color: pink; } @else { color: blue; }
+```
