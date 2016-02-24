@@ -13,6 +13,7 @@ testRule(undefined, tr => {
   tr.ok("#foo {}")
   tr.ok(".foo {}")
   tr.ok("[foo] {}")
+  tr.ok(":root { --custom-property-set: {} }")
 
   tr.notOk("* {}", {
     message: messages.rejected,

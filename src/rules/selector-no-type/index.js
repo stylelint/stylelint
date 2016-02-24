@@ -1,6 +1,7 @@
 import selectorParser from "postcss-selector-parser"
 import { get } from "lodash"
 import {
+  cssRuleHasSelectorEndingWithColon,
   optionsHaveIgnored,
   report,
   ruleMessages,
@@ -29,6 +30,8 @@ export default function (on, options) {
       if (rule.parent.type === "atrule" && rule.parent.name === "keyframes") {
         return
       }
+
+      if (cssRuleHasSelectorEndingWithColon(rule)) { return }
 
       selectorParser(selectorAST => {
         selectorAST.eachTag(tag => {
