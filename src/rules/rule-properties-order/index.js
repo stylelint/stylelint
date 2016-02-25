@@ -118,7 +118,16 @@ export default function (expectation, options) {
           // secondProp seperatedGroups start at 2 so we minus 2 to get the 1st item
           // from our expectationGroups array
           const shouldBeSeperatedByNewLine = _.get(expectationGroups[secondPropData.orderData.separatedGroup - 2], "emptyLineBefore")
-          if (!hasEmptyLineBefore(secondPropData.node) && shouldBeSeperatedByNewLine === "always") {
+          if (!hasEmptyLineBefore(secondPropData.node) && shouldBeSeperatedByNewLine === true) {
+            result.warn((
+              "The value 'true' for 'emptyLineBefore has been deprecated, " +
+              "and in 5.0 it will be removed. " +
+              "Please use 'always' or 'never' instead."
+            ), {
+              stylelintType: "deprecation",
+              stylelintReference: "http://stylelint.io/user-guide/rules/font-weight-notation/",
+            })
+          } else if (!hasEmptyLineBefore(secondPropData.node) && shouldBeSeperatedByNewLine === "always") {
             report({
               message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),
               node: secondPropData.node,
