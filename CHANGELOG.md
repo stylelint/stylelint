@@ -1,13 +1,15 @@
 # Head
 
-- Deprecated: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option, instead.
-- Deprecated: `color-no-named` rule. Use the new `color-named` rule, with the `"never"` option.
 - Deprecated: `"warn": true` secondary option. Use `"severity": "warning"`, instead.
-- Added: `named-where-possible` option to `font-weight-notation`.
-- Added: `selector-max-specificity` rule.
-- Added: `no-browser-hacks` rule.
-- Added: `string-no-newline` rule.
+- Deprecated: `color-no-named` rule. Use the new `color-named` rule, with the `"never"` option instead.
+- Deprecated: `rule-trailing-semicolon` rule. Use the new `declaration-block-trailing-semicolon` rule instead.
+- Deprecated: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option, instead.
 - Added: `color-named` rule.
+- Added: `declaration-block-trailing-semicolon` rule.
+- Added: `no-browser-hacks` rule.
+- Added: `selector-max-specificity` rule.
+- Added: `string-no-newline` rule.
+- Added: `named-where-possible` option to `font-weight-notation`.
 - Added: `unspecified: "bottomAlphabetical"` option to the `rule-properties-order` rule.
 - Added: `ignoreAtRules: []` option to the `block-opening-brace-space-before` and `block-closing-brace-newline-after` rules.
 - Added: `stylelint-disable-line` feature.
