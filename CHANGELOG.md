@@ -6,6 +6,7 @@
 - Deprecated: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option, instead.
 - Added: `color-named` rule.
 - Added: `declaration-block-trailing-semicolon` rule.
+- Added: `selector-max-specificity` rule.
 - Added: `no-browser-hacks` rule.
 - Added: `selector-max-specificity` rule.
 - Added: `string-no-newline` rule.
