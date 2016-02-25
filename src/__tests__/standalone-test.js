@@ -153,7 +153,7 @@ test("standalone with input css and quiet mode", t => {
   const config = {
     quiet: true,
     rules: {
-      "block-no-empty": [ true, { warn: true } ],
+      "block-no-empty": [ true, { "severity": "warning" } ],
     },
   }
 

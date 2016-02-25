@@ -47,7 +47,12 @@ The configuration object can have the following properties. Only `rules` is requ
 
 #### Severities: error & warning
 
-By default, all rules have an "error"-level severity. To downgrade any rule to "warning"-level severity, pass a secondary option `"warn": true`.
+By default, all rules have an "error"-level severity.
+
+To downgrade any rule use the secondary option `severity`. The available values for `severity` are:
+
+- `"warning"`
+- `"error"`
 
 ```js
 // error-level severity examples
@@ -55,10 +60,10 @@ By default, all rules have an "error"-level severity. To downgrade any rule to "
 { "indentation": [2] }
 
 // warning-level severity examples
-{ "indentation": [2, { "warn": true } ] }
+{ "indentation": [2, { "severity": "warning" } ] }
 { "indentation": [2, {
     "except": ["value"],
-    "warn": true
+    "severity": "warning"
   }]
 }
 ```
@@ -81,7 +86,7 @@ All rules accept a `message` secondary option that, if provided, will be substit
     "message": "Lowercase letters are easier to distinguish from numbers"
   } ],
   "indentation": [ 2, {
-    "warn": true,
+    "severity": "warning",
     "except": ["param"],
     "message": "Please use 2 spaces for indentation. Tabs make The Architect grumpy."
   } ]
@@ -170,7 +175,7 @@ Each rule can be turned off or on:
 - `null` - turn the rule off.
 - `true|options` - turn the rule on.
 
-All turned-on rules error by default. You can reduce the severity of a rule, to a warning, by adding `"warn": true` to its secondary options.
+All turned-on rules error by default. You can reduce the severity of a rule, to a warning, by adding `"severity": "warning"` to its secondary options.
 
 An example of turning rules on and off:
 
@@ -179,7 +184,7 @@ An example of turning rules on and off:
   "rules": {
     "rule-no-single-line": null, // turn rule off
     "declaration-no-important": true, // turn rule on
-    "block-no-empty": [ true, { "warn": true } ], // turn rule on as warning
+    "block-no-empty": [ true, { "severity": "warning" } ], // turn rule on as warning
     "indentation": "tabs" // turn on a rule that has options
   }
 }
@@ -229,7 +234,7 @@ An example of explicitly configuring the options for three rules:
 }
 ```
 
-Remember that any rule can be downgraded to "warning"-level severity by adding `"warn": true` as a secondary option.
+Remember that any rule can be downgraded to "warning"-level severity by adding `"severity": "warning"` as a secondary option.
 
 ### Rules work together
 
