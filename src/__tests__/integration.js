@@ -6,7 +6,7 @@ const config = {
   rules: {
     "block-opening-brace-newline-after": "always",
     "color-no-invalid-hex": [ true, {
-      warn: true,
+      severity: "warning",
       message: "You made a mistake",
     } ],
     "function-blacklist": ["calc"],
@@ -51,7 +51,7 @@ b { background: pink; }
 }
 `)
 
-test("expected warnings", t => {
+test("ingration test expecting warnings", t => {
   t.plan(9)
 
   postcss()

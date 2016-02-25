@@ -72,7 +72,19 @@ export default postcss.plugin("stylelint", (options = {}) => {
         // Ignore the rule
         if (primaryOption === null) { return }
 
-        const ruleSeverity = (secondaryOptions && secondaryOptions.warn) ? "warning" : "error"
+        let ruleSeverity
+        if (get(secondaryOptions, "warn")) {
+          result.warn((
+            "'warn: true' has been deprecated and in 5.0 it will be removed. " +
+            "Use 'severity: \"warning\"' instead."
+          ), {
+            stylelintType: "deprecation",
+            stylelintReference: "http://stylelint.io/user-guide/configuration/",
+          })
+          ruleSeverity = "warning"
+        } else {
+          ruleSeverity = get(secondaryOptions, "severity", "error")
+        }
 
         // Log the rule's severity in the PostCSS result
         result.stylelint.ruleSeverities[ruleName] = ruleSeverity
