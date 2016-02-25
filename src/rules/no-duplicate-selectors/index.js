@@ -1,3 +1,4 @@
+import { includes } from "lodash"
 import {
   ruleMessages,
   report,
@@ -32,20 +33,40 @@ export default function (actual) {
       }
       const parentSelectorSet = selectorContextMap.get(ruleSource).get(ruleParent)
 
-      for (let selector of rule.selectors) {
-        if (parentSelectorSet.has(selector)) {
-          return report({
+      const normalizedSelectorList = rule.selectors.map(normalizeSelector)
+
+      // Complain if the same selector list occurs twice
+
+      // Sort the selectors list so that the order of the constituents
+      // doesn't matter
+      const sortedSelectorList = normalizedSelectorList.slice().sort().join(",")
+      if (parentSelectorSet.has(sortedSelectorList)) {
+        return report({
+          result,
+          ruleName,
+          node: rule,
+          message: messages.rejected(rule.selector),
+        })
+      }
+
+      parentSelectorSet.add(sortedSelectorList)
+
+      // Or complain if one selector list contains the same selector more than one
+
+      rule.selectors.forEach((selector, i) => {
+        if (includes(normalizedSelectorList.slice(0, i), normalizeSelector(selector))) {
+          report({
             result,
             ruleName,
-            message: messages.rejected(selector),
             node: rule,
-            // This means that the first occurence of the violator will be flagged,
-            // which is fine (given `a, a {}`, the first `a` selector is flagged)
-            index: rule.toString().indexOf(selector),
+            message: messages.rejected(selector),
           })
         }
-        parentSelectorSet.add(selector)
-      }
+      })
     })
   }
+}
+
+function normalizeSelector(selector) {
+  return selector.replace(/\s/g, "")
 }
