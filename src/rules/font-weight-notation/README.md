@@ -18,7 +18,7 @@ This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntax
 
 ## Options
 
-`string`: `"numeric"|"named"`
+`string`: `"numeric"|"named-where-possible"`
 
 ### `"numeric"`
 
@@ -44,9 +44,11 @@ a { font-weight: 700; }
 a { font: italic 900 20px; }
 ```
 
-### `"named"`
+### `"named-where-possible"`
 
-`font-weight` values *must always* be keyword names.
+`font-weight` values *must always* be keywords when an appropriate keyword is available.
+
+This means that only `400` and `700` will be rejected, because those are the only numbers with keyword equivalents (`normal` and `bold`).
 
 The following patterns are considered warnings:
 
@@ -55,7 +57,7 @@ a { font-weight: 700; }
 ```
 
 ```css
-a { font: italic 900 20px; }
+a { font: italic 400 20px; }
 ```
 
 The following patterns are *not* considered warnings:
