@@ -117,6 +117,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`block-closing-brace-space-after`](../../src/rules/block-closing-brace-space-after/README.md): Require a single space or disallow whitespace after the closing brace of blocks.
 - [`block-closing-brace-space-before`](../../src/rules/block-closing-brace-space-before/README.md): Require a single space or disallow whitespace before the closing brace of blocks.
 - [`block-no-empty`](../../src/rules/block-no-empty/README.md): Disallow empty blocks.
+- [`block-no-single-line`](../../src/rules/block-no-single-line/README.md): Disallow single-line blocks.
 - [`block-opening-brace-newline-after`](../../src/rules/block-opening-brace-newline-after/README.md): Require a newline after the opening brace of blocks.
 - [`block-opening-brace-newline-before`](../../src/rules/block-opening-brace-newline-before/README.md): Require a newline or disallow whitespace before the opening brace of blocks.
 - [`block-opening-brace-space-after`](../../src/rules/block-opening-brace-space-after/README.md): Require a single space or disallow whitespace after the opening brace of blocks.

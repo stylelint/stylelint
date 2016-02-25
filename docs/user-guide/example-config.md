@@ -14,6 +14,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "block-closing-brace-space-after": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
     "block-closing-brace-space-before": "always"|"never"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
     "block-no-empty": true,
+    "block-no-single-line": true,
     "block-opening-brace-newline-after": "always"|"always-multi-line"|"never-multi-line",
     "block-opening-brace-newline-before": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
     "block-opening-brace-space-after": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",

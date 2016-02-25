@@ -1,8 +1,6 @@
-# declaration-block-no-single-line
+# block-no-single-line
 
-**Deprecated: use the [`block-no-single-line`](../block-no-single-line/README.md) instead.**
-
-Disallow single-line declaration blocks.
+Disallow single-line blocks.
 
 ```css
   a { color: pink; top: 0; }
@@ -26,8 +24,19 @@ a { color: pink; top: 1px; }
 ```
 
 ```css
+@media print { a { color: pink; } }
+```
+
+```css
 @media print {
- a { color: pink; }
+  a { color: pink; }
+}
+```
+
+```css
+a {
+  color: red;
+  @media print { color: pink; }
 }
 ```
 
@@ -50,5 +59,14 @@ a, b {
  a {
    color: pink;
  }
+}
+```
+
+```css
+a {
+  color: red;
+  @media print {
+    color: pink;
+  }
 }
 ```

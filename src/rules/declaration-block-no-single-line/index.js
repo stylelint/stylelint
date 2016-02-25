@@ -15,6 +15,16 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (actual) {
   return (root, result) => {
+
+    result.warn((
+      "'declaration-block-no-single-line' has been deprecated " +
+      "and in 5.0 it will be removed. " +
+      "Use 'block-no-single-line' instead."
+    ), {
+      stylelintType: "deprecation",
+      stylelintReference: "http://stylelint.io/user-guide/rules/block-no-single-line/",
+    })
+
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
