@@ -1,6 +1,8 @@
 # Head
 
-- Deprecated: `color-no-named` rule. Use the new `color-named` rule, with the `"never"` option.
+- Deprecated: `color-no-named` rule. Use the new `color-named` rule, with the `"never"` option instead.
+- Deprecated: `rule-trailing-semicolon` rule. Use the new `declaration-block-trailing-semicolon` rule instead.
+- Added: `declaration-block-trailing-semicolon` rule.
 - Added: `selector-max-specificity` rule.
 - Added: `no-browser-hacks` rule.
 - Added: `string-no-newline` rule.
