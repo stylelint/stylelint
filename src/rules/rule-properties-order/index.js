@@ -120,7 +120,7 @@ export default function (expectation, options) {
           const shouldBeSeperatedByNewLine = _.get(expectationGroups[secondPropData.orderData.separatedGroup - 2], "emptyLineBefore")
           if (!hasEmptyLineBefore(secondPropData.node) && shouldBeSeperatedByNewLine === true) {
             result.warn((
-              "The value 'true' for 'emptyLineBefore has been deprecated, " +
+              "The value 'true' for 'emptyLineBefore' has been deprecated, " +
               "and in 5.0 it will be removed. " +
               "Please use 'always' or 'never' instead."
             ), {
