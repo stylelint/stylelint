@@ -1,7 +1,9 @@
 # Head
 
+- Deprecated: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option, instead.
 - Deprecated: `color-no-named` rule. Use the new `color-named` rule, with the `"never"` option.
 - Deprecated: `"warn": true` secondary option. Use `"severity": "warning"`, instead.
+- Added: `named-where-possible` option to `font-weight-notation`.
 - Added: `selector-max-specificity` rule.
 - Added: `no-browser-hacks` rule.
 - Added: `string-no-newline` rule.
@@ -11,6 +13,7 @@
 - Added: `stylelint-disable-line` feature.
 - Added: `withinComments`, `withinStrings`, and `checkStrings` options to `styleSearch`, and `insideString` property to the `styleSearch` match object.
 - Added: universal `severity` secondary option as a replacement for `"warn": true` to alter a rule's severity.
+- Fixed: `no-duplicate-selectors` rule is more intelligent.
 - Fixed: `font-weight-notation` does not throw false warnings when `normal` is used in certain ways.
 - Fixed: `selector-no-*` and `selector-*-pattern` rules now ignore custom property sets.
 

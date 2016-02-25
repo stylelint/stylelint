@@ -19,6 +19,8 @@ export const messages = ruleMessages(ruleName, {
 const WEIGHT_SPECIFIC_KEYWORDS = [ "bold", "bolder", "lighter" ]
 const NORMAL_KEYWORD = "normal"
 const RELATIVE_NAMED_WEIGHTS = [ "bolder", "lighter" ]
+const WEIGHTS_WITH_KEYWORD_EQUIVALENTS = [ "400", "700" ]
+
 function isNumbery(x) {
   return Number(x) == x
 }
@@ -27,7 +29,7 @@ export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [ "numeric", "named" ],
+      possible: [ "numeric", "named", "named-where-possible" ],
     } , {
       actual: options,
       possible: {
@@ -36,6 +38,17 @@ export default function (expectation, options) {
       optional: true,
     })
     if (!validOptions) { return }
+
+    if (expectation === "named") {
+      result.warn((
+        "The value 'named' for 'font-weight-notation' has been deprecated, " +
+        "and in 5.0 it will be removed. " +
+        "Use 'named-where-possible' instead."
+      ), {
+        stylelintType: "deprecation",
+        stylelintReference: "http://stylelint.io/user-guide/rules/font-weight-notation/",
+      })
+    }
 
     root.walkDecls(decl => {
       if (decl.prop === "font-weight") {
@@ -82,6 +95,19 @@ export default function (expectation, options) {
       if (expectation === "named") {
         if (isNumbery(weightValue)) {
           return complain(messages.expected("named"))
+        }
+        if (!includes(WEIGHT_SPECIFIC_KEYWORDS, weightValue) && weightValue !== NORMAL_KEYWORD) {
+          return complain(messages.invalidNamed(weightValue))
+        }
+        return
+      }
+
+      if (expectation === "named-where-possible") {
+        if (isNumbery(weightValue)) {
+          if (includes(WEIGHTS_WITH_KEYWORD_EQUIVALENTS, weightValue)) {
+            complain(messages.expected("named"))
+          }
+          return
         }
         if (!includes(WEIGHT_SPECIFIC_KEYWORDS, weightValue) && weightValue !== NORMAL_KEYWORD) {
           return complain(messages.invalidNamed(weightValue))

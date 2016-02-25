@@ -18,7 +18,7 @@ export default function (actual) {
   return (root, result) => {
 
     result.warn((
-      "'color-no-named' has been deprecated, " +
+      "'color-no-named' has been deprecated " +
       "and in 5.0 it will be removed. " +
       "Use 'color-named: \"never\"' instead."
     ), {

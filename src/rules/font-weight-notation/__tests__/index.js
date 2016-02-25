@@ -67,7 +67,7 @@ testRule("numeric", { ignore: ["relative"] }, tr => {
   })
 })
 
-testRule("named", tr => {
+testRule("named-where-possible", tr => {
   warningFreeBasics(tr)
 
   tr.ok("a { font-weight: $sassy-font-weight; }", "ignores sass variables")
@@ -85,12 +85,10 @@ testRule("named", tr => {
   tr.ok("a { font: normal normal 16px/3 cursive; }", "two normals and no numbered weight")
   tr.ok("a { font: normal normal normal 16px/3 cursive; }", "three normals and no numbered weight")
 
+  tr.ok("a { font-weight: 300; }", "number without keyword equivalent")
+  tr.ok("a { font: italic small-caps 600 16px/3 cursive; }", "another number without keyword equivalent")
+
   tr.notOk("a { font-weight: 400; }", {
-    message: messages.expected("named"),
-    line: 1,
-    column: 18,
-  })
-  tr.notOk("a { font-weight: 300; }", {
     message: messages.expected("named"),
     line: 1,
     column: 18,
