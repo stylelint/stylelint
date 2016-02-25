@@ -1,6 +1,8 @@
 # Head
 
+- Deprecated: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option, instead.
 - Deprecated: `color-no-named` rule. Use the new `color-named` rule, with the `"never"` option.
+- Added: `named-where-possible` option to `font-weight-notation`.
 - Added: `selector-max-specificity` rule.
 - Added: `no-browser-hacks` rule.
 - Added: `string-no-newline` rule.
