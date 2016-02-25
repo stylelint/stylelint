@@ -29,6 +29,7 @@ import declarationBlockSemicolonNewlineBefore from "./declaration-block-semicolo
 import declarationBlockSemicolonSpaceAfter from "./declaration-block-semicolon-space-after"
 import declarationBlockSemicolonSpaceBefore from "./declaration-block-semicolon-space-before"
 import declarationBlockSingleLineMaxDeclarations from "./declaration-block-single-line-max-declarations"
+import declarationBlockTrailingSemicolon from "./declaration-block-trailing-semicolon"
 import declarationColonNewlineAfter from "./declaration-colon-newline-after"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
@@ -145,6 +146,7 @@ export default {
   "declaration-block-semicolon-space-after": declarationBlockSemicolonSpaceAfter,
   "declaration-block-semicolon-space-before": declarationBlockSemicolonSpaceBefore,
   "declaration-block-single-line-max-declarations": declarationBlockSingleLineMaxDeclarations,
+  "declaration-block-trailing-semicolon": declarationBlockTrailingSemicolon,
   "declaration-colon-newline-after": declarationColonNewlineAfter,
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
