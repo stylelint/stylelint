@@ -16,7 +16,7 @@ export default function (expectation) {
   return (root, result) => {
 
     result.warn((
-      "'rule-trailing-semicolon' has been deprecated, " +
+      "'rule-trailing-semicolon' has been deprecated " +
       "and in 5.0 it will be removed. " +
       "Use 'declaration-block-trailing-semicolon' instead."
     ), {
