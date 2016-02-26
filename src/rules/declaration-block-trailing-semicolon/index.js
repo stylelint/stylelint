@@ -5,7 +5,7 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "rule-trailing-semicolon"
+export const ruleName = "declaration-block-trailing-semicolon"
 
 export const messages = ruleMessages(ruleName, {
   expected: `Expected a trailing semicolon`,
@@ -14,16 +14,6 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (expectation) {
   return (root, result) => {
-
-    result.warn((
-      "'rule-trailing-semicolon' has been deprecated " +
-      "and in 5.0 it will be removed. " +
-      "Use 'declaration-block-trailing-semicolon' instead."
-    ), {
-      stylelintType: "deprecation",
-      stylelintReference: "http://stylelint.io/user-guide/rules/declaration-block-trailing-semicolon/",
-    })
-
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [

@@ -106,6 +106,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`declaration-block-semicolon-space-after`](../../src/rules/declaration-block-semicolon-space-after/README.md): Require a single space or disallow whitespace after the semicolons of declaration blocks.
 - [`declaration-block-semicolon-space-before`](../../src/rules/declaration-block-semicolon-space-before/README.md): Require a single space or disallow whitespace before the semicolons of declaration blocks.
 - [`declaration-block-single-line-max-declarations`](../../src/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declaration within single line declaration blocks.
+- [`declaration-block-trailing-semicolon`](../../src/rules/declaration-block-trailing-semicolon/README.md): Require or disallow a trailing semicolon within declaration blocks.
 
 ### Block
 
@@ -153,7 +154,6 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`rule-no-shorthand-property-overrides`](../../src/rules/rule-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
 - [`rule-non-nested-empty-line-before`](../../src/rules/rule-non-nested-empty-line-before/README.md): Require or disallow an empty line before non-nested rules.
 - [`rule-properties-order`](../../src/rules/rule-properties-order/README.md): Specify the order of properties within rules.
-- [`rule-trailing-semicolon`](../../src/rules/rule-trailing-semicolon/README.md): Require or disallow a trailing semicolon within rules.
 
 ### Media feature
 
