@@ -8,7 +8,7 @@ Limit the specificity of selectors.
  * Each of these selectors */
 ```
 
-The rule ignores selectors with variable interpolation (`#{$var} {}`).
+The rule ignores selectors with variable interpolation (`#{$var}`, `@{var}`, `$(var)`).
 
 Visit the [Specificity Calculator](https://specificity.keegan.st) for visual representation of selector specificity.
 
