@@ -100,6 +100,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 
 ### Declaration block
 
+- [`declaration-block-no-shorthand-property-overrides`](../../src/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
 - [`declaration-block-no-single-line`](../../src/rules/declaration-block-no-single-line/README.md): Disallow single-line declaration blocks.
 - [`declaration-block-semicolon-newline-after`](../../src/rules/declaration-block-semicolon-newline-after/README.md): Require a newline or disallow whitespace after the semicolons of declaration blocks.
 - [`declaration-block-semicolon-newline-before`](../../src/rules/declaration-block-semicolon-newline-before/README.md): Require a newline or disallow whitespace before the semicolons of declaration blocks.
@@ -151,7 +152,6 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 
 - [`rule-nested-empty-line-before`](../../src/rules/rule-nested-empty-line-before/README.md): Require or disallow an empty line before nested rules.
 - [`rule-no-duplicate-properties`](../../src/rules/rule-no-duplicate-properties/README.md): Disallow duplicate properties within rules.
-- [`rule-no-shorthand-property-overrides`](../../src/rules/rule-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
 - [`rule-non-nested-empty-line-before`](../../src/rules/rule-non-nested-empty-line-before/README.md): Require or disallow an empty line before non-nested rules.
 - [`rule-properties-order`](../../src/rules/rule-properties-order/README.md): Specify the order of properties within rules.
 

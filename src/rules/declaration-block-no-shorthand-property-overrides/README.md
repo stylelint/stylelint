@@ -1,6 +1,4 @@
-# rule-no-shorthand-property-overrides
-
-**Deprecated: use the [`declaration-block-no-shorthand-property-overrides`](../declaration-block-no-shorthand-property-overrides/README.md) rule instead.**
+# declaration-block-no-shorthand-property-overrides
 
 Disallow shorthand properties that override related longhand properties.
 
