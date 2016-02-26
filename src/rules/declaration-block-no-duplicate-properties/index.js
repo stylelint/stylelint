@@ -5,7 +5,7 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "rule-no-duplicate-properties"
+export const ruleName = "declaration-block-no-duplicate-properties"
 
 export const messages = ruleMessages(ruleName, {
   rejected: p => `Unexpected duplicate property "${p}"`,
@@ -13,16 +13,6 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (actual) {
   return (root, result) => {
-
-    result.warn((
-      "'rule-no-duplicate-properties' has been deprecated " +
-      "and in 5.0 it will be removed. " +
-      "Use 'declaration-block-no-duplicate-properties' instead."
-    ), {
-      stylelintType: "deprecation",
-      stylelintReference: "http://stylelint.io/user-guide/rules/declaration-block-no-duplicate-properties/",
-    })
-
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
