@@ -1,5 +1,7 @@
 # rule-trailing-semicolon
 
+**Deprecated: use the [`declaration-block-trailing-semicolon`](../declaration-block-trailing-semicolon/README.md) rule instead.**
+
 Require or disallow a trailing semicolon within rules.
 
 ```css
