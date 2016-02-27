@@ -5,6 +5,7 @@ import blockClosingBraceNewlineBefore from "./block-closing-brace-newline-before
 import blockClosingBraceSpaceAfter from "./block-closing-brace-space-after"
 import blockClosingBraceSpaceBefore from "./block-closing-brace-space-before"
 import blockNoEmpty from "./block-no-empty"
+import blockNoSingleLine from "./block-no-single-line"
 import blockOpeningBraceNewlineAfter from "./block-opening-brace-newline-after"
 import blockOpeningBraceNewlineBefore from "./block-opening-brace-newline-before"
 import blockOpeningBraceSpaceAfter from "./block-opening-brace-space-after"
@@ -124,6 +125,7 @@ export default {
   "block-closing-brace-space-after": blockClosingBraceSpaceAfter,
   "block-closing-brace-space-before": blockClosingBraceSpaceBefore,
   "block-no-empty": blockNoEmpty,
+  "block-no-single-line": blockNoSingleLine,
   "block-opening-brace-newline-after": blockOpeningBraceNewlineAfter,
   "block-opening-brace-newline-before": blockOpeningBraceNewlineBefore,
   "block-opening-brace-space-after": blockOpeningBraceSpaceAfter,
