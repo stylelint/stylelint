@@ -1,8 +1,6 @@
-# rule-no-duplicate-properties
+# declaration-block-no-duplicate-properties
 
-**Deprecated: use the [`declaration-block-no-duplicate-properties`](../declaration-block-no-duplicate-properties/README.md) rule instead.**
-
-Disallow duplicate properties within rules.
+Disallow duplicate properties within declaration blocks.
 
 ```css
 a { color: pink; color: orange; }
