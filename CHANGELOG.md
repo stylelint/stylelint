@@ -2,11 +2,16 @@
 
 - Deprecated: `"warn": true` secondary option. Use `"severity": "warning"`, instead.
 - Deprecated: `color-no-named` rule. Use the new `color-named` rule, with the `"never"` option instead.
+- Deprecated: `declaration-block-no-single-line` rule. Use the new `block-no-single-line` rule instead.
+- Deprecated: `rule-no-duplicate-properties` rule. Use the new `declaration-block-no-duplicate-properties` rule instead.
+- Deprecated: `rule-no-shorthand-property-overrides` rule. Use the new `declaration-block-no-shorthand-property-overrides` rule instead.
 - Deprecated: `rule-trailing-semicolon` rule. Use the new `declaration-block-trailing-semicolon` rule instead.
 - Deprecated: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option, instead.
+- Added: `block-no-single-line` rule.
 - Added: `color-named` rule.
+- Added: `declaration-block-no-duplicate-properties` rule.
+- Added: `declaration-block-no-shorthand-property-overrides` rule.
 - Added: `declaration-block-trailing-semicolon` rule.
-- Added: `selector-max-specificity` rule.
 - Added: `no-browser-hacks` rule.
 - Added: `selector-max-specificity` rule.
 - Added: `string-no-newline` rule.
