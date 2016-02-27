@@ -9,10 +9,10 @@ import { selectorListCommaWhitespaceChecker } from "../selector-list-comma-space
 export const ruleName = "selector-list-comma-space-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected single space before ","`,
-  rejectedBefore: () => `Unexpected whitespace before ","`,
-  expectedBeforeSingleLine: () => `Expected single space before "," in a single-line list`,
-  rejectedBeforeSingleLine: () => `Unexpected whitespace before "," in a single-line list`,
+  expectedBefore: () => "Expected single space before \",\"",
+  rejectedBefore: () => "Unexpected whitespace before \",\"",
+  expectedBeforeSingleLine: () => "Expected single space before \",\" in a single-line list",
+  rejectedBeforeSingleLine: () => "Unexpected whitespace before \",\" in a single-line list",
 })
 
 export default function (expectation) {

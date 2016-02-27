@@ -11,7 +11,7 @@ import {
 export const ruleName = "block-no-single-line"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: `Unexpected single-line block`,
+  rejected: "Unexpected single-line block",
 })
 
 export default function (actual) {

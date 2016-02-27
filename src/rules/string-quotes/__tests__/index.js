@@ -73,7 +73,7 @@ testRule("double", tr => {
     column: 21,
   })
 
-  tr.ok(`a::before { content: "foo\"horse\"'cow'"; }`, "string in strings")
+  tr.ok("a::before { content: \"foo\"horse\"'cow'\"; }", "string in strings")
   tr.ok("a { /* 'horse' */ }", "ignores comment")
 })
 

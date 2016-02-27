@@ -7,7 +7,7 @@ import {
 export const ruleName = "no-invalid-double-slash-comments"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: `Unexpected double-slash CSS comment`,
+  rejected: "Unexpected double-slash CSS comment",
 })
 
 export default function (actual) {

@@ -9,7 +9,7 @@ import {
 export const ruleName = "custom-media-pattern"
 
 export const messages = ruleMessages(ruleName, {
-  expected: `Expected custom media query name to match specified pattern`,
+  expected: "Expected custom media query name to match specified pattern",
 })
 
 export default function (pattern) {

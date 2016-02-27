@@ -8,8 +8,8 @@ import { declarationColonSpaceChecker } from "../declaration-colon-space-after"
 export const ruleName = "declaration-colon-space-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected single space before ":"`,
-  rejectedBefore: () => `Unexpected whitespace before ":"`,
+  expectedBefore: () => "Expected single space before \":\"",
+  rejectedBefore: () => "Unexpected whitespace before \":\"",
 })
 
 export default function (expectation) {

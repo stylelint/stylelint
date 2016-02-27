@@ -68,7 +68,7 @@ export default function (result, ruleName, ...optionDescriptions) {
     if (!isPlainObject(actual)) {
       complain(
         `Invalid option value ${JSON.stringify(actual)} for rule "${ruleName}": ` +
-        `should be an object`
+        "should be an object"
       )
       return
     }

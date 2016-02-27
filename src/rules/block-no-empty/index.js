@@ -9,7 +9,7 @@ import {
 export const ruleName = "block-no-empty"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: `Unexpected empty block`,
+  rejected: "Unexpected empty block",
 })
 
 export default function (actual) {

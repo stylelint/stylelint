@@ -10,7 +10,7 @@ import {
 export const ruleName = "declaration-block-no-single-line"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: `Unexpected single-line declaration block`,
+  rejected: "Unexpected single-line declaration block",
 })
 
 export default function (actual) {

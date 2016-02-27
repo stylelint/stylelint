@@ -59,7 +59,7 @@ export default function ({
   if (typeof severity === "undefined") {
     throw new Error(
       `The rule name "${ruleName}" has no corresponding registered severity.\n\n` +
-      `This is most likely a bug in stylelint: please file an issue with this stack trace ` +
+      "This is most likely a bug in stylelint: please file an issue with this stack trace " +
       `at\nhttps://github.com/stylelint/stylelint/issues`
     )
   }

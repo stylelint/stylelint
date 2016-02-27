@@ -108,6 +108,6 @@ Promise.resolve().then(() => {
   process.stdout.write(output)
   if (errored) { process.exit(2) }
 }).catch(err => {
-  console.log(err.stack)
+  console.log(err.stack) // eslint-disable-line no-console
   process.exit(err.code || 1)
 })

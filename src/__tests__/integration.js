@@ -58,7 +58,7 @@ test("ingration test expecting warnings", t => {
     .use(stylelint(config))
     .process(css)
     .then(checkResult)
-    .catch(err => console.log(err.stack))
+    .catch(logError)
 
   function checkResult(result) {
     const { messages } = result
@@ -73,3 +73,7 @@ test("ingration test expecting warnings", t => {
     t.equal(messages[2].severity, "warning")
   }
 })
+
+function logError(err) {
+  console.log(err.stack) // eslint-disable-line no-console
+}

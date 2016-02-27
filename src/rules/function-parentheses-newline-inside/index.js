@@ -10,12 +10,12 @@ import {
 export const ruleName = "function-parentheses-newline-inside"
 
 export const messages = ruleMessages(ruleName, {
-  expectedOpening: `Expected newline after "("`,
-  expectedClosing: `Expected newline before ")"`,
-  expectedOpeningMultiLine: `Expected newline after "(" in a multi-line function`,
-  rejectedOpeningMultiLine: `Unexpected whitespace after "(" in a multi-line function`,
-  expectedClosingMultiLine: `Expected newline before ")" in a multi-line function`,
-  rejectedClosingMultiLine: `Unexpected whitespace before ")" in a multi-line function`,
+  expectedOpening: "Expected newline after \"(\"",
+  expectedClosing: "Expected newline before \")\"",
+  expectedOpeningMultiLine: "Expected newline after \"(\" in a multi-line function",
+  rejectedOpeningMultiLine: "Unexpected whitespace after \"(\" in a multi-line function",
+  expectedClosingMultiLine: "Expected newline before \")\" in a multi-line function",
+  rejectedClosingMultiLine: "Unexpected whitespace before \")\" in a multi-line function",
 })
 
 export default function (expectation) {

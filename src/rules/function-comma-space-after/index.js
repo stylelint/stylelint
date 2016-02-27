@@ -11,10 +11,10 @@ import {
 export const ruleName = "function-comma-space-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => `Expected single space after ","`,
-  rejectedAfter: () => `Unexpected whitespace after ","`,
-  expectedAfterSingleLine: () => `Expected single space after "," in a single-line function`,
-  rejectedAfterSingleLine: () => `Unexpected whitespace after "," in a single-line function`,
+  expectedAfter: () => "Expected single space after \",\"",
+  rejectedAfter: () => "Unexpected whitespace after \",\"",
+  expectedAfterSingleLine: () => "Expected single space after \",\" in a single-line function",
+  rejectedAfterSingleLine: () => "Unexpected whitespace after \",\" in a single-line function",
 })
 
 export default function (expectation) {

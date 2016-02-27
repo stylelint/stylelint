@@ -20,7 +20,7 @@ tr.ok(
 
 // No enforcement if no newline
 tr.ok(
-`a { top: 0; } b { top: 1px; }`)
+"a { top: 0; } b { top: 1px; }")
 tr.ok(
 `a {
   top: 0;
@@ -217,7 +217,7 @@ tr.ok(
 )
 
 tr.ok(
-`* { top: 0; }`
+"* { top: 0; }"
 )
 
 tr.ok(

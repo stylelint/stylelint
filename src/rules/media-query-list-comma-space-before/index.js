@@ -8,10 +8,10 @@ import { mediaQueryListCommaWhitespaceChecker } from "../media-query-list-comma-
 export const ruleName = "media-query-list-comma-space-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected single space before ","`,
-  rejectedBefore: () => `Unexpected whitespace before ","`,
-  expectedBeforeSingleLine: () => `Expected single space before "," in a single-line list`,
-  rejectedBeforeSingleLine: () => `Unexpected whitespace before "," in a single-line list`,
+  expectedBefore: () => "Expected single space before \",\"",
+  rejectedBefore: () => "Unexpected whitespace before \",\"",
+  expectedBeforeSingleLine: () => "Expected single space before \",\" in a single-line list",
+  rejectedBeforeSingleLine: () => "Unexpected whitespace before \",\" in a single-line list",
 })
 
 export default function (expectation) {

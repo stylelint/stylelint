@@ -9,8 +9,8 @@ import { mediaFeatureColonSpaceChecker } from "../media-feature-colon-space-afte
 export const ruleName = "media-feature-colon-space-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected single space before ":"`,
-  rejectedBefore: () => `Unexpected whitespace before ":"`,
+  expectedBefore: () => "Expected single space before \":\"",
+  rejectedBefore: () => "Unexpected whitespace before \":\"",
 })
 
 export default function (expectation) {
