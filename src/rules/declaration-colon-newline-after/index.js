@@ -9,9 +9,9 @@ import {
 export const ruleName = "declaration-colon-newline-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => `Expected newline after ":"`,
-  rejectedAfter: () => `Unexpected whitespace after ":"`,
-  expectedAfterMultiLine: () => `Unexpected whitespace after ":" with a multi-line value`,
+  expectedAfter: () => "Expected newline after \":\"",
+  rejectedAfter: () => "Unexpected whitespace after \":\"",
+  expectedAfterMultiLine: () => "Unexpected whitespace after \":\" with a multi-line value",
 })
 
 export default function (expectation) {

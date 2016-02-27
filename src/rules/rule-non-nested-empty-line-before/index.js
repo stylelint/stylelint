@@ -10,8 +10,8 @@ import {
 export const ruleName = "rule-non-nested-empty-line-before"
 
 export const messages = ruleMessages(ruleName, {
-  expected: `Expected empty line before non-nested rule`,
-  rejected: `Unexpected empty line before non-nested rule`,
+  expected: "Expected empty line before non-nested rule",
+  rejected: "Unexpected empty line before non-nested rule",
 })
 
 export default function (expectation, options) {

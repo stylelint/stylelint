@@ -56,12 +56,12 @@ testBlockNoEmpty(undefined, tr => {
 })
 
 testSelectorCombinatorSpaceBefore("always", tr => {
-  tr.ok(`/* stylelint-disable declaration-no-important, selector-combinator-space-before */ a> b {}`)
-  tr.ok(`/* stylelint-disable-line declaration-no-important, selector-combinator-space-before */ a> b {}`)
-  tr.ok(`a> b {} /* stylelint-disable-line declaration-no-important, selector-combinator-space-before */`)
-  tr.notOk(`/* stylelint-disable declaration-no-important */ a> b {}`,
+  tr.ok("/* stylelint-disable declaration-no-important, selector-combinator-space-before */ a> b {}")
+  tr.ok("/* stylelint-disable-line declaration-no-important, selector-combinator-space-before */ a> b {}")
+  tr.ok("a> b {} /* stylelint-disable-line declaration-no-important, selector-combinator-space-before */")
+  tr.notOk("/* stylelint-disable declaration-no-important */ a> b {}",
     selectorCombinatorSpaceBeforeMessages.expectedBefore(">"))
-  tr.notOk(`/* stylelint-disable-line declaration-no-important */\na> b {}`,
+  tr.notOk("/* stylelint-disable-line declaration-no-important */\na> b {}",
     selectorCombinatorSpaceBeforeMessages.expectedBefore(">"))
 })
 

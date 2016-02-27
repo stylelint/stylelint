@@ -102,8 +102,7 @@ function getModulePath(basedir, lookup) {
   const path = resolveFrom(basedir, lookup)
   if (path) return path
   throw configurationError(
-    `Could not find "${lookup}". ` +
-    `Do you need a \`configBasedir\`?`
+    `Could not find "${lookup}". Do you need a \`configBasedir\`?`
   )
 }
 

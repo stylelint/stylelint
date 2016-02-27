@@ -146,7 +146,7 @@ test("SCSS // line-disabling comment", t => {
       end: 2,
       rules: ["declaration-no-important"],
     }])
-  }).catch(err => console.log(err.stack))
+  }).catch(logError)
   planCount += 1
 
   t.plan(planCount)
@@ -157,5 +157,9 @@ function testDisableRanges(source, cb) {
     .use(disableRanges)
     .process(source)
     .then(cb)
-    .catch(err => console.log(err.stack))
+    .catch(logError)
+}
+
+function logError(err) {
+  console.log(err.stack) // eslint-disable-line no-console
 }

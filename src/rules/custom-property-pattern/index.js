@@ -8,7 +8,7 @@ import {
 export const ruleName = "custom-property-pattern"
 
 export const messages = ruleMessages(ruleName, {
-  expected: `Expected custom property name to match specified pattern`,
+  expected: "Expected custom property name to match specified pattern",
 })
 
 export default function (pattern) {

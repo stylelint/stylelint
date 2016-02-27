@@ -8,9 +8,9 @@ import { valueListCommaWhitespaceChecker } from "../value-list-comma-space-after
 export const ruleName = "value-list-comma-newline-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected newline before ","`,
-  expectedBeforeMultiLine: () => `Expected newline before "," in a multi-line list`,
-  rejectedBeforeMultiLine: () => `Unexpected whitespace before "," in a multi-line list`,
+  expectedBefore: () => "Expected newline before \",\"",
+  expectedBeforeMultiLine: () => "Expected newline before \",\" in a multi-line list",
+  rejectedBeforeMultiLine: () => "Unexpected whitespace before \",\" in a multi-line list",
 })
 
 export default function (expectation) {

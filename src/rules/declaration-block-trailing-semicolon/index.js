@@ -8,8 +8,8 @@ import {
 export const ruleName = "declaration-block-trailing-semicolon"
 
 export const messages = ruleMessages(ruleName, {
-  expected: `Expected a trailing semicolon`,
-  rejected: `Unexpected trailing semicolon`,
+  expected: "Expected a trailing semicolon",
+  rejected: "Unexpected trailing semicolon",
 })
 
 export default function (expectation) {

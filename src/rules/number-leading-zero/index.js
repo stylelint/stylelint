@@ -9,8 +9,8 @@ import {
 export const ruleName = "number-leading-zero"
 
 export const messages = ruleMessages(ruleName, {
-  expected: `Expected a leading zero`,
-  rejected: `Unexpected leading zero`,
+  expected: "Expected a leading zero",
+  rejected: "Unexpected leading zero",
 })
 
 export default function (expectation) {

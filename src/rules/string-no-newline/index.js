@@ -8,7 +8,7 @@ import {
 export const ruleName = "string-no-newline"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: `Unexpected newline in string`,
+  rejected: "Unexpected newline in string",
 })
 
 export default function (actual) {

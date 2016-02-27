@@ -8,10 +8,10 @@ import {
 export const ruleName = "comment-whitespace-inside"
 
 export const messages = ruleMessages(ruleName, {
-  expectedOpening: `Expected whitespace after "/*"`,
-  rejectedOpening: `Unexpected whitespace after "/*"`,
-  expectedClosing: `Expected whitespace before "*/"`,
-  rejectedClosing: `Unexpected whitespace before "*/"`,
+  expectedOpening: "Expected whitespace after \"/*\"",
+  rejectedOpening: "Unexpected whitespace after \"/*\"",
+  expectedClosing: "Expected whitespace before \"*/\"",
+  rejectedClosing: "Unexpected whitespace before \"*/\"",
 })
 
 export default function (expectation) {

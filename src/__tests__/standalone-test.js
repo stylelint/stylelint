@@ -348,5 +348,5 @@ test("standalone using codeFilename and ignoreFiles with configBasedir", t => {
 })
 
 function logError(err) {
-  console.log(err.stack)
+  console.log(err.stack) // eslint-disable-line no-console
 }

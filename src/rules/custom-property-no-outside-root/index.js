@@ -7,7 +7,7 @@ import {
 export const ruleName = "custom-property-no-outside-root"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: `Unexpected custom property outside root`,
+  rejected: "Unexpected custom property outside root",
 })
 
 export default function (actual) {

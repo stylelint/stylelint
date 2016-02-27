@@ -9,10 +9,10 @@ import {
 export const ruleName = "media-query-parentheses-space-inside"
 
 export const messages = ruleMessages(ruleName, {
-  expectedOpening: `Expected single space after "("`,
-  rejectedOpening: `Unexpected whitespace after "("`,
-  expectedClosing: `Expected single space before ")"`,
-  rejectedClosing: `Unexpected whitespace before ")"`,
+  expectedOpening: "Expected single space after \"(\"",
+  rejectedOpening: "Unexpected whitespace after \"(\"",
+  expectedClosing: "Expected single space before \")\"",
+  rejectedClosing: "Unexpected whitespace before \")\"",
 })
 
 export default function (expectation) {
