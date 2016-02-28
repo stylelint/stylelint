@@ -60,6 +60,13 @@ a
   .foo {}
 ```
 
+```css
+a b {}
+a {
+  b {}
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -80,4 +87,11 @@ The following patterns are *not* considered warnings:
 .bar {}
 .foo .bar {}
 .bar .foo {}
+```
+
+```css
+a b {}
+a {
+  b, c {}
+}
 ```
