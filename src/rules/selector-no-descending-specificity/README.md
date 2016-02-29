@@ -12,7 +12,7 @@ Source order is important in CSS, and when two selectors have the *same* specifi
 
 The clashes of these two mechanisms for prioritization, source order and specificity, can cause some confusion when reading stylesheets. If a selector with higher specificity comes *before* the selector it overrides, we have to think harder to understand it, because it violates the source order expectation. **Stylesheets are most legible when overriding selectors always come *after* the selectors they override.** That way both mechanisms, source order and specificity, work together nicely.
 
-This rule enforces that practice.
+This rule enforces that practice *as best it can*. (It cannot catch every actual overriding selector (because it does not know the DOM structure, for one), but it can catch certain common mistakes.)
 
 Here's how it works: The rule looks at the last *compound selector* in every full selector, and then compares it with other selectors in the stylesheet that end in the same way.
 
