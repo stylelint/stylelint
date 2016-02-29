@@ -46,14 +46,14 @@ testRule([
 
 testRule([
   {
-    emptyLineBefore: true,
+    emptyLineBefore: "always",
     properties: [
       "height",
       "width",
     ],
   },
   {
-    emptyLineBefore: true,
+    emptyLineBefore: "always",
     properties: [
       "font-size",
       "font-weight",
@@ -86,7 +86,47 @@ testRule([
 
 testRule([
   {
-    emptyLineBefore: true,
+    emptyLineBefore: "never",
+    properties: [
+      "height",
+      "width",
+    ],
+  },
+  {
+    emptyLineBefore: "never",
+    properties: [
+      "font-size",
+      "font-weight",
+    ],
+  },
+], tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a {\r\n  height: 1px;\r\n  width: 2px;\r\n  font-size: 2px;\r\n  font-weight: bold;\r\n}")
+  tr.ok("a {\r\n  height: 1px;\r\n  font-weight: bold;\r\n}")
+  tr.ok("a {\r\n  height: 1px;  \r\n  font-weight: bold;\r\n}")
+
+  tr.notOk(
+    "a {\r\n  height: 1px;\r\n  width: 2px;\r\n\r\n  font-size: 2px;\r\n  font-weight: bold;\r\n}",
+    {
+      message: messages.unexpectedEmptyLineBetween("font-size", "width"),
+      line: 5,
+      column: 3,
+    }
+  )
+  tr.notOk(
+    "a {\r\n  height: 1px;\r\n\r\n  font-weight: bold;\r\n}",
+    {
+      message: messages.unexpectedEmptyLineBetween("font-weight", "height"),
+      line: 4,
+      column: 3,
+    }
+  )
+})
+
+testRule([
+  {
+    emptyLineBefore: "always",
     properties: [
       "margin-top",
       "margin-right",
@@ -94,7 +134,7 @@ testRule([
     ],
   },
   {
-    emptyLineBefore: true,
+    emptyLineBefore: "always",
     properties: [
       "font-size",
     ],
@@ -103,4 +143,25 @@ testRule([
   tr.ok(".foo { margin-bottom: 20px;\n\nfont-size: 26px; }")
   tr.notOk(".foo { margin-bottom: 20px; font-size: 26px; }",
     messages.expectedEmptyLineBetween("font-size", "margin-bottom"))
+})
+
+testRule([
+  {
+    emptyLineBefore: "never",
+    properties: [
+      "margin-top",
+      "margin-right",
+      "margin-bottom",
+    ],
+  },
+  {
+    emptyLineBefore: "never",
+    properties: [
+      "font-size",
+    ],
+  },
+], tr => {
+  tr.ok(".foo { margin-bottom: 20px; font-size: 26px; }")
+  tr.notOk(".foo { margin-bottom: 20px;\n\n font-size: 26px; }",
+    messages.unexpectedEmptyLineBetween("font-size", "margin-bottom"))
 })

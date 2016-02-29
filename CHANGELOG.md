@@ -12,6 +12,8 @@
 - Added: `declaration-block-no-duplicate-properties` rule.
 - Added: `declaration-block-no-shorthand-property-overrides` rule.
 - Added: `declaration-block-trailing-semicolon` rule.
+- Deprecated `"boolean"` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` option, instead.
+- Added: `"always"` and `"never"` option to `rule-properties-order` `emptyLineBefore` when using property groups
 - Added: `no-browser-hacks` rule.
 - Added: `selector-max-specificity` rule.
 - Added: `string-no-newline` rule.

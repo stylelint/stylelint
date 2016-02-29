@@ -12,6 +12,7 @@ export const ruleName = "rule-properties-order"
 export const messages = ruleMessages(ruleName, {
   expected: (first, second) => `Expected property "${first}" to come before property "${second}"`,
   expectedEmptyLineBetween: (first, second) => `Expected an empty line between property "${first}" and property "${second}"`,
+  unexpectedEmptyLineBetween: (first, second) => `Unexpected empty line between property "${first} and property "${second}"`,
 })
 
 export default function (expectation, options) {
@@ -42,7 +43,7 @@ export default function (expectation, options) {
 
     function checkNode(node) {
       const allPropData = []
-      let lastKnownLineSeparatedGroup = 1
+      let lastKnownSeparatedGroup = 1
 
       node.each(child => {
         // If the child has nested nodes with child
@@ -103,23 +104,46 @@ export default function (expectation, options) {
         const secondPropIsUnspecified = !secondPropData.orderData
 
         // Now check newlines between ...
-        const firstPropLineSeparatedGroup = (!firstPropIsUnspecified)
-          ? firstPropData.orderData.lineSeparatedGroup
-          : lastKnownLineSeparatedGroup
-        const secondPropLineSeparatedGroup = (!secondPropIsUnspecified)
-          ? secondPropData.orderData.lineSeparatedGroup
-          : lastKnownLineSeparatedGroup
-        if (firstPropLineSeparatedGroup !== secondPropLineSeparatedGroup) {
-          if (!hasEmptyLineBefore(secondPropData.node)) {
+        const firstPropSeparatedGroup = (!firstPropIsUnspecified)
+          ? firstPropData.orderData.separatedGroup
+          : lastKnownSeparatedGroup
+        const secondPropSeparatedGroup = (!secondPropIsUnspecified)
+          ? secondPropData.orderData.separatedGroup
+          : lastKnownSeparatedGroup
+
+        if (firstPropSeparatedGroup !== secondPropSeparatedGroup) {
+          // Get an array of just the property groups, remove any solo properties
+          const expectationGroups = expectation.filter(item => typeof item !== "string")
+
+          // secondProp seperatedGroups start at 2 so we minus 2 to get the 1st item
+          // from our expectationGroups array
+          const shouldBeSeperatedByNewLine = _.get(expectationGroups[secondPropData.orderData.separatedGroup - 2], "emptyLineBefore")
+          if (!hasEmptyLineBefore(secondPropData.node) && shouldBeSeperatedByNewLine === true) {
+            result.warn((
+              "The value 'true' for 'emptyLineBefore' has been deprecated, " +
+              "and in 5.0 it will be removed. " +
+              "Please use 'always' or 'never' instead."
+            ), {
+              stylelintType: "deprecation",
+              stylelintReference: "http://stylelint.io/user-guide/rules/font-weight-notation/",
+            })
+          } else if (!hasEmptyLineBefore(secondPropData.node) && shouldBeSeperatedByNewLine === "always") {
             report({
               message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),
               node: secondPropData.node,
               result,
               ruleName,
             })
+          } else if (hasEmptyLineBefore(secondPropData.node) && shouldBeSeperatedByNewLine === "never") {
+            report({
+              message: messages.unexpectedEmptyLineBetween(secondPropData.name, firstPropData.name),
+              node: secondPropData.node,
+              result,
+              ruleName,
+            })
           }
         }
-        lastKnownLineSeparatedGroup = secondPropLineSeparatedGroup
+        lastKnownSeparatedGroup = secondPropSeparatedGroup
 
         // Now check actual known properties ...
         if (!firstPropIsUnspecified && !secondPropIsUnspecified) {
@@ -146,8 +170,7 @@ export default function (expectation, options) {
 
         // Now deal with unspecified props ...
         // Starting with bottomAlphabetical as it requires more specific conditionals
-        if (unspecified === "bottomAlphabetical" &&
-          !firstPropIsUnspecified &&
+        if (unspecified === "bottomAlphabetical" && !firstPropIsUnspecified &&
           secondPropIsUnspecified) { return true }
 
         if (unspecified === "bottomAlphabetical" &&
@@ -160,7 +183,7 @@ export default function (expectation, options) {
 
         if (firstPropIsUnspecified && secondPropIsUnspecified) { return true }
 
-        if (unspecified === "ignore" && (firstPropIsUnspecified || secondPropIsUnspecified)) { return  true }
+        if (unspecified === "ignore" && (firstPropIsUnspecified || secondPropIsUnspecified)) { return true }
 
         if (unspecified === "top" && firstPropIsUnspecified) { return true }
         if (unspecified === "top" && secondPropIsUnspecified) { return false }
@@ -174,7 +197,7 @@ export default function (expectation, options) {
 
 function createExpectedOrder(input) {
   const order = {}
-  let lineSeparatedGroup = 1
+  let separatedGroup = 1
   let expectedPosition = 0
 
   appendGroup(input, 1)
@@ -189,14 +212,13 @@ function createExpectedOrder(input) {
       // to make that flexibility work;
       // otherwise, it will always ascend
       if (!inFlexibleGroup) { expectedPosition += 1 }
-      order[item] = { lineSeparatedGroup, expectedPosition }
+      order[item] = { separatedGroup, expectedPosition }
       return
     }
 
     // If item is not a string, it's a group ...
-
     if (item.emptyLineBefore) {
-      lineSeparatedGroup += 1
+      separatedGroup += 1
     }
 
     if (!item.order || item.order === "strict") {
@@ -209,6 +231,7 @@ function createExpectedOrder(input) {
       })
     }
   }
+
   return order
 }
 
@@ -257,10 +280,10 @@ function validatePrimaryOption(actualOptions) {
 
   const objectItems = actualOptions.filter(_.isPlainObject)
 
-  // Every object-item's "emptyLineBefore" property must be a boolean
+  // Every object-item's "emptyLineBefore" must be "always" or "never"
   if (objectItems.every(item => {
     if (_.isUndefined(item.emptyLineBefore)) { return true }
-    return _.isBoolean(item.emptyLineBefore)
+    return _.includes([ "always", "never" ], item.emptyLineBefore)
   })) { return true }
 
   // Every object-item's "type" property must be "strict" or "flexible"

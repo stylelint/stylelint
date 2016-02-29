@@ -51,7 +51,7 @@ testRule([
   "height",
   {
     order: "flexible",
-    emptyLineBefore: true,
+    emptyLineBefore: "always",
     properties: [
       "color",
       "font-size",
@@ -120,6 +120,84 @@ testRule([
     {
       message: messages.expectedEmptyLineBetween("font-weight", "height"),
       line: 4,
+      column: 3,
+    }
+  )
+})
+
+testRule([
+  "height",
+  {
+    order: "flexible",
+    emptyLineBefore: "never",
+    properties: [
+      "color",
+      "font-size",
+      "font-weight",
+    ],
+  },
+], tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a {\n  height: 1px; color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}")
+  tr.ok("a {\n  height: 1px; font-size: 2px;\n  color: pink;\n  font-weight: bold;\n}")
+  tr.ok("a {\n  height: 1px; font-size: 2px;\n  font-weight: bold;\n  color: pink;\n}")
+  tr.ok("a {\n  height: 1px; font-weight: bold;\n  font-size: 2px;\n  color: pink;\n}")
+  tr.ok("a {\n  height: 1px; /* something */\n  font-weight: bold;\n}", "comment before line break")
+
+  tr.notOk(
+    "a {\n  height: 1px;\n\n  color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}",
+    {
+      message: messages.unexpectedEmptyLineBetween("color", "height"),
+      line: 4,
+      column: 3,
+    }
+  )
+  tr.notOk(
+    "a {\n  height: 1px;\n\n  font-size: 2px;\n  color: pink;\n  font-weight: bold;\n}",
+    {
+      message: messages.unexpectedEmptyLineBetween("font-size", "height"),
+      line: 4,
+      column: 3,
+    }
+  )
+  tr.notOk(
+    "a {\n  height: 1px;\n\n  font-weight: bold;\n  font-size: 2px;\n  color: pink;\n}",
+    {
+      message: messages.unexpectedEmptyLineBetween("font-weight", "height"),
+      line: 4,
+      column: 3,
+    }
+  )
+  tr.notOk(
+    "a {\n  height: 1px;\n\n  font-size: 2px;\n  color: pink;\n}",
+    {
+      message: messages.unexpectedEmptyLineBetween("font-size", "height"),
+      line: 4,
+      column: 3,
+    }
+  )
+  tr.notOk(
+    "a {\n  height: 1px;\n  width: 2px;\n\n  color: pink;\n}",
+    {
+      message: messages.unexpectedEmptyLineBetween("color", "width"),
+      line: 5,
+      column: 3,
+    }
+  )
+  tr.notOk(
+    "a {\n  height: 1px;\n  width: 2px;\n  border: 1px solid;\n\n  font-weight: pink;\n}",
+    {
+      message: messages.unexpectedEmptyLineBetween("font-weight", "border"),
+      line: 6,
+      column: 3,
+    }
+  )
+  tr.notOk(
+    "a {\n  height: 1px;\n\n  /* something */\n  font-weight: bold;\n}",
+    {
+      message: messages.unexpectedEmptyLineBetween("font-weight", "height"),
+      line: 5,
       column: 3,
     }
   )
