@@ -25,7 +25,9 @@ export default function (on, options) {
     })
     if (!validOptions) { return }
 
-    const doiuseOptions = { lint: true }
+    const doiuseOptions = {
+      ignore: options.ignore,
+    }
     if (options && options.browsers) {
       doiuseOptions.browsers = options.browsers
     }

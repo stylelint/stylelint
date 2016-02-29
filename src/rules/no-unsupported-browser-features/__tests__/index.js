@@ -32,6 +32,17 @@ testRule(true, { browsers: "ie >= 7, safari >= 6" }, tr => {
   }, "outline")
 })
 
+testRule(true, { browsers: "ie >= 7, safari >= 6", ignore: "outline" }, tr => {
+  warningFreeBasics(tr)
+  tr.ok("a { outline: none; }")
+
+  tr.notOk("a { opacity: 1; }", {
+    message: messages.rejected("CSS3 Opacity not supported by: IE (7,8)"),
+    line: 1,
+    column: 5,
+  }, "opacity")
+})
+
 testRule(true, { browsers: "ie >= 9" }, tr => {
   warningFreeBasics(tr)
   tr.ok("a { opacity: 1; }")

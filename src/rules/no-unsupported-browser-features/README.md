@@ -14,6 +14,8 @@ This rule uses [doiuse](https://github.com/anandthakker/doiuse) to detect browse
 
 ## Optional Options
 
+These options are passed directly to doiuse.
+
 ### `browsers: "browserslist string"`
 
 A string interpreted by [browserslist](https://github.com/ai/browserslist) that designates precisely which browsers you wish to support. Something like `"> 1%, last 2 versions, ie >= 8"`. For details about the syntax (which is the same as when using Autoprefixer, by the way), please read [the browserslist documentation](https://github.com/ai/browserslist).
@@ -27,3 +29,7 @@ For example, with the default settings, the following is considered a warning, b
 ```
 
 But if you set `browsers: "last 2 versions, ie >=9"` the declaration above is allowed.
+
+### `ignore: [ "array", "of", "features", "to", "ignore" ]`
+
+If you no longer want to be warned about, say, your use of `rem`, you can use `ignore: ["rem"]`.
