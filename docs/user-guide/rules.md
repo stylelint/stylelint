@@ -201,6 +201,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`no-invalid-double-slash-comments`](../../src/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
 - [`no-missing-eof-newline`](../../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
 - [`no-unknown-animations`](../../src/rules/no-unknown-animations/README.md): Disallow animation names that do not correspond to a `@keyframes` declaration.
+- [`no-unsupported-browser-features`](../../src/rules/no-unsupported-browser-features/README.md): Disallow features that are unsupported by the browsers that you are targeting.
 
 ## About rule names
 

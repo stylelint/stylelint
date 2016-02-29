@@ -15,6 +15,7 @@
 - Deprecated `"boolean"` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` option, instead.
 - Added: `"always"` and `"never"` option to `rule-properties-order` `emptyLineBefore` when using property groups
 - Added: `no-browser-hacks` rule.
+- Added: `no-unsupported-browser-features` rule.
 - Added: `selector-max-specificity` rule.
 - Added: `string-no-newline` rule.
 - Added: `named-where-possible` option to `font-weight-notation`.

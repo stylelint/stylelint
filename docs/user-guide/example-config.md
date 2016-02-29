@@ -79,6 +79,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "no-invalid-double-slash-comments": true,
     "no-missing-eof-newline": true,
     "no-unknown-animations": true,
+    "no-unsupported-browser-features": true,
     "number-leading-zero": "always"|"never",
     "number-max-precision": int,
     "number-no-trailing-zeros": true,

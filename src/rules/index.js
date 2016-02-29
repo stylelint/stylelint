@@ -71,6 +71,7 @@ import noEolWhitespace from "./no-eol-whitespace"
 import noInvalidDoubleSlashComments from "./no-invalid-double-slash-comments"
 import noMissingEofNewline from "./no-missing-eof-newline"
 import noUnknownAnimations from "./no-unknown-animations"
+import noSupportedBrowserFeatures from "./no-unsupported-browser-features"
 import numberLeadingZero from "./number-leading-zero"
 import numberMaxPrecision from "./number-max-precision"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
@@ -191,6 +192,7 @@ export default {
   "no-invalid-double-slash-comments": noInvalidDoubleSlashComments,
   "no-missing-eof-newline": noMissingEofNewline,
   "no-unknown-animations": noUnknownAnimations,
+  "no-unsupported-browser-features": noSupportedBrowserFeatures,
   "number-leading-zero": numberLeadingZero,
   "number-max-precision": numberMaxPrecision,
   "number-no-trailing-zeros": numberNoTrailingZeros,
