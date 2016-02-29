@@ -34,6 +34,7 @@
     "chalk": "^1.1.1",
     "colorguard": "^1.0.1",
     "cosmiconfig": "^1.1.0",
+    "doiuse": "^2.3.0",
     "execall": "^1.0.0",
     "get-stdin": "^5.0.0",
     "globby": "^4.0.0",
