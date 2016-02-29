@@ -29,6 +29,20 @@ export default function (expectation, options) {
     })
     if (!validOptions) { return }
 
+    const someEmptyLineBeforeIsBoolean = _.some(expectation, group => {
+      return _.isBoolean(_.get(group, "emptyLineBefore"))
+    })
+    if (someEmptyLineBeforeIsBoolean) {
+      result.warn((
+        "The value 'true' for 'emptyLineBefore' has been deprecated, " +
+        "and in 5.0 it will be removed. " +
+        "Please use 'always' or 'never' instead."
+      ), {
+        stylelintType: "deprecation",
+        stylelintReference: "http://stylelint.io/user-guide/rules/font-weight-notation/",
+      })
+    }
+
     const alphabetical = expectation === "alphabetical"
     const expectedOrder = (alphabetical) ? null : createExpectedOrder(expectation)
     // By default, ignore unspecified properties
@@ -86,11 +100,9 @@ export default function (expectation, options) {
 
         if (isCorrectOrder) { return }
 
-        report({
+        complain({
           message: messages.expected(propData.name, previousPropData.name),
           node: child,
-          result,
-          ruleName,
         })
       })
 
@@ -113,33 +125,20 @@ export default function (expectation, options) {
 
         if (firstPropSeparatedGroup !== secondPropSeparatedGroup) {
           // Get an array of just the property groups, remove any solo properties
-          const expectationGroups = expectation.filter(item => typeof item !== "string")
+          const groups = _.reject(expectation, _.isString)
 
           // secondProp seperatedGroups start at 2 so we minus 2 to get the 1st item
-          // from our expectationGroups array
-          const shouldBeSeperatedByNewLine = _.get(expectationGroups[secondPropData.orderData.separatedGroup - 2], "emptyLineBefore")
-          if (!hasEmptyLineBefore(secondPropData.node) && shouldBeSeperatedByNewLine === true) {
-            result.warn((
-              "The value 'true' for 'emptyLineBefore' has been deprecated, " +
-              "and in 5.0 it will be removed. " +
-              "Please use 'always' or 'never' instead."
-            ), {
-              stylelintType: "deprecation",
-              stylelintReference: "http://stylelint.io/user-guide/rules/font-weight-notation/",
-            })
-          } else if (!hasEmptyLineBefore(secondPropData.node) && shouldBeSeperatedByNewLine === "always") {
-            report({
+          // from our groups array
+          const emptyLineBefore = _.get(groups[secondPropData.orderData.separatedGroup - 2], "emptyLineBefore")
+          if (!hasEmptyLineBefore(secondPropData.node) && (emptyLineBefore === "always" || emptyLineBefore === true)) {
+            complain({
               message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),
               node: secondPropData.node,
-              result,
-              ruleName,
             })
-          } else if (hasEmptyLineBefore(secondPropData.node) && shouldBeSeperatedByNewLine === "never") {
-            report({
+          } else if (hasEmptyLineBefore(secondPropData.node) && emptyLineBefore === "never") {
+            complain({
               message: messages.unexpectedEmptyLineBetween(secondPropData.name, firstPropData.name),
               node: secondPropData.node,
-              result,
-              ruleName,
             })
           }
         }
@@ -158,11 +157,9 @@ export default function (expectation, options) {
             priorSpecifiedPropData && priorSpecifiedPropData.orderData
             && priorSpecifiedPropData.orderData.expectedPosition > secondPropData.orderData.expectedPosition
           ) {
-            report({
+            complain({
               message: messages.expected(secondPropData.name, priorSpecifiedPropData.name),
               node: secondPropData.node,
-              result,
-              ruleName,
             })
             return true // avoid logging another warning
           }
@@ -191,6 +188,15 @@ export default function (expectation, options) {
         if (unspecified === "bottom" && secondPropIsUnspecified) { return true }
         if (unspecified === "bottom" && firstPropIsUnspecified) { return false }
       }
+    }
+
+    function complain({ message, node }) {
+      report({
+        message,
+        node,
+        result,
+        ruleName,
+      })
     }
   }
 }
