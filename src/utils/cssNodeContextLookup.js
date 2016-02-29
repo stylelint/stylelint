@@ -1,3 +1,13 @@
+/**
+ * Create a collection of Maps that serve to contextualize a given node.
+ * This is useful to ensure that you only compare nodes that share a certain
+ * context.
+ *
+ * All nodes are initially contextualized by their input source.
+ * From there, you can contextualize them however you want.
+ *
+ * For a usage example, see `selector-no-descending-specificity`.
+ */
 export default function () {
   const contextMap = new Map()
 

@@ -11,7 +11,7 @@ export { default as cssStatementStringBeforeBlock } from "./cssStatementStringBe
 export { default as cssWordIsVariable } from "./cssWordIsVariable"
 export { default as declarationValueIndexOffset } from "./declarationValueIndexOffset"
 export { default as findMediaContext } from "./findMediaContext"
-export { default as hasLowerSpecificity } from "./hasLowerSpecificity"
+export { default as isLowerSpecificity } from "./isLowerSpecificity"
 export { default as isAutoprefixable } from "./isAutoprefixable"
 export { default as isSingleLineString } from "./isSingleLineString"
 export { default as isValidHex } from "./isValidHex"

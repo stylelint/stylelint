@@ -6,7 +6,7 @@ import resolvedNestedSelector from "postcss-resolve-nested-selector"
 import {
   cssNodeContextLookup,
   findMediaContext,
-  hasLowerSpecificity,
+  isLowerSpecificity,
   report,
   ruleMessages,
   validateOptions,
@@ -52,7 +52,7 @@ export default function (actual) {
       const priorComparableSelectors = comparisonContext.get(lastCompoundSelector)
 
       priorComparableSelectors.forEach(priorEntry => {
-        if (hasLowerSpecificity(selectorSpecificity, priorEntry.specificity)) {
+        if (isLowerSpecificity(selectorSpecificity, priorEntry.specificity)) {
           report({
             ruleName,
             result,
