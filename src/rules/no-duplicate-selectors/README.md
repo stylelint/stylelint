@@ -19,7 +19,7 @@ The same selector *is* allowed to repeat in the following circumstances:
 - The duplicates are determined to originate in different stylesheets, e.g. you have concatenated or compiled files in a way that produces sourcemaps for PostCSS to read, e.g. postcss-import).
 - The duplicates are in rules with different parent nodes, e.g. inside and outside of a media query.
 
-**If you are using a processor that modifies selectors, read this:** This rule will only compare the selectors that it sees; so as far as it's concerned, in `a { b {} & b {} }` there are no duplicate selectors. If you're using SCSS, though, you *do* have duplicates in the output: `a b {} a b {}`. If you want this rule to analyze the selectors in *your output*, make sure it runs *after* you have compiled your stylesheets.
+Note that this rule does resolve nested selectors. So `a b {} a { & b {} }` counts as a warning, because the resolved selectors end up with a duplicate.
 
 The following patterns are considered warnings:
 
@@ -63,7 +63,7 @@ a
 ```css
 a b {}
 a {
-  b {}
+  & b {}
 }
 ```
 
@@ -92,6 +92,7 @@ The following patterns are *not* considered warnings:
 ```css
 a b {}
 a {
-  b, c {}
+  & b,
+  & c {}
 }
 ```
