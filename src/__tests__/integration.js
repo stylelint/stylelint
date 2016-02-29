@@ -13,13 +13,13 @@ const config = {
     "function-whitelist": null,
     "rule-properties-order": [
       {
-        emptyLineBefore: true,
+        emptyLineBefore: "always",
         properties: [
           "content",
         ],
       },
       {
-        emptyLineBefore: true,
+        emptyLineBefore: "always",
         properties: [
           "position",
           "top",
@@ -51,7 +51,7 @@ b { background: pink; }
 }
 `)
 
-test("ingration test expecting warnings", t => {
+test("integration test expecting warnings", t => {
   t.plan(9)
 
   postcss()
