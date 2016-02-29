@@ -105,6 +105,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "selector-max-specificity": string,
     "selector-no-attribute": true,
     "selector-no-combinator": true,
+    "selector-no-descending-specificity": true,
     "selector-no-id": true,
     "selector-no-type": true,
     "selector-no-universal": true,

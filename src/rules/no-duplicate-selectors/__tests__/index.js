@@ -18,6 +18,7 @@ testRule(null, tr => {
   tr.ok("a { a { a {} } }", "duplicates inside nested rules")
   tr.ok(".foo .bar {}\n .foo {}\n.bar {}\n.bar .foo {}", "selectors using parts of other selectors")
   tr.ok("a {} a, b {}", "selectors reused in other non-equivalent selector lists")
+  tr.ok("a b { top: 0; } a { b, c { color: pink; } }", "nested resolution")
 
   tr.notOk("a, a {}", {
     message: messages.rejected("a"),
@@ -49,6 +50,11 @@ testRule(null, tr => {
     line: 2,
     column: 21,
   }, "duplicate within a media query, in different rules")
+  tr.notOk("a b {} a { b {} }", {
+    message: messages.rejected("a b"),
+    line: 1,
+    column: 12,
+  }, "duplicate caused by nesting")
 })
 
 test("with postcss-import and duplicates within a file", t => {

@@ -101,6 +101,7 @@ import selectorListCommaSpaceBefore from "./selector-list-comma-space-before"
 import selectorMaxSpecificity from "./selector-max-specificity"
 import selectorNoAttribute from "./selector-no-attribute"
 import selectorNoCombinator from "./selector-no-combinator"
+import selectorNoDescendingSpecificity from "./selector-no-descending-specificity"
 import selectorNoId from "./selector-no-id"
 import selectorNoType from "./selector-no-type"
 import selectorNoUniversal from "./selector-no-universal"
@@ -222,6 +223,7 @@ export default {
   "selector-max-specificity": selectorMaxSpecificity,
   "selector-no-attribute": selectorNoAttribute,
   "selector-no-combinator": selectorNoCombinator,
+  "selector-no-descending-specificity": selectorNoDescendingSpecificity,
   "selector-no-id": selectorNoId,
   "selector-no-type": selectorNoType,
   "selector-no-universal": selectorNoUniversal,

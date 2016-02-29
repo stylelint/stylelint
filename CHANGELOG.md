@@ -7,6 +7,7 @@
 - Deprecated: `rule-no-shorthand-property-overrides` rule. Use the new `declaration-block-no-shorthand-property-overrides` rule instead.
 - Deprecated: `rule-trailing-semicolon` rule. Use the new `declaration-block-trailing-semicolon` rule instead.
 - Deprecated: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option, instead.
+- Added: `selector-no-descending-specificity` rule.
 - Added: `block-no-single-line` rule.
 - Added: `color-named` rule.
 - Added: `declaration-block-no-duplicate-properties` rule.
@@ -27,6 +28,7 @@
 - Fixed: `no-duplicate-selectors` rule is more intelligent.
 - Fixed: `font-weight-notation` does not throw false warnings when `normal` is used in certain ways.
 - Fixed: `selector-no-*` and `selector-*-pattern` rules now ignore custom property sets.
+- Fixed: nested selector handling for `no-duplicate-selectors`.
 
 # 4.4.0
 
