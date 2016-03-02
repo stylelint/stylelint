@@ -29,6 +29,7 @@
 - Fixed: `font-weight-notation` does not throw false warnings when `normal` is used in certain ways.
 - Fixed: `selector-no-*` and `selector-*-pattern` rules now ignore custom property sets.
 - Fixed: nested selector handling for `no-duplicate-selectors`.
+- Fixed: `selector-no-id` does not warn about Sass interpolation inside an `:nth-child()` argument.
 
 # 4.4.0
 
