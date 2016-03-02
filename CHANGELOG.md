@@ -5,26 +5,27 @@
 - Deprecated: `declaration-block-no-single-line` rule. Use the new `block-no-single-line` rule instead.
 - Deprecated: `rule-no-duplicate-properties` rule. Use the new `declaration-block-no-duplicate-properties` rule instead.
 - Deprecated: `rule-no-shorthand-property-overrides` rule. Use the new `declaration-block-no-shorthand-property-overrides` rule instead.
+- Deprecated: `rule-properties-order` rule. Use the new `declaration-block-properties-order` rule instead.
 - Deprecated: `rule-trailing-semicolon` rule. Use the new `declaration-block-trailing-semicolon` rule instead.
-- Deprecated: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option, instead.
-- Added: `selector-no-descending-specificity` rule.
+- Deprecated `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` option instead.
+- Deprecated: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option instead.
+- Added: universal `severity` secondary option as a replacement for `"warn": true` to alter a rule's severity.
 - Added: `block-no-single-line` rule.
 - Added: `color-named` rule.
 - Added: `declaration-block-no-duplicate-properties` rule.
 - Added: `declaration-block-no-shorthand-property-overrides` rule.
 - Added: `declaration-block-trailing-semicolon` rule.
-- Deprecated `"boolean"` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` option, instead.
-- Added: `"always"` and `"never"` option to `rule-properties-order` `emptyLineBefore` when using property groups
 - Added: `no-browser-hacks` rule.
 - Added: `no-unsupported-browser-features` rule.
 - Added: `selector-max-specificity` rule.
+- Added: `selector-no-descending-specificity` rule.
 - Added: `string-no-newline` rule.
+- Added: `"always"` and `"never"` option to `rule-properties-order` `emptyLineBefore` when using property groups
 - Added: `named-where-possible` option to `font-weight-notation`.
 - Added: `unspecified: "bottomAlphabetical"` option to the `rule-properties-order` rule.
 - Added: `ignoreAtRules: []` option to the `block-opening-brace-space-before` and `block-closing-brace-newline-after` rules.
 - Added: `stylelint-disable-line` feature.
 - Added: `withinComments`, `withinStrings`, and `checkStrings` options to `styleSearch`, and `insideString` property to the `styleSearch` match object.
-- Added: universal `severity` secondary option as a replacement for `"warn": true` to alter a rule's severity.
 - Fixed: `selector-no-vendor-prefix` no longer delivers two warnings on vendor-prefixed pseudo-elements with two colons, e.g. `::-moz-placeholder`.
 - Fixed: `no-duplicate-selectors` rule is more intelligent.
 - Fixed: `font-weight-notation` does not throw false warnings when `normal` is used in certain ways.

@@ -1,8 +1,6 @@
-# rule-properties-order
+# declaration-block-properties-order
 
-**Deprecated: use the [`declaration-block-properties-order`](../declaration-block-properties-order/README.md) rule instead.**
-
-Specify the order of properties within rules.
+Specify the order of properties within declaration blocks.
 
 ```css
   a {

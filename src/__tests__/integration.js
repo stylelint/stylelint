@@ -5,13 +5,7 @@ import stylelint from "../"
 const config = {
   rules: {
     "block-opening-brace-newline-after": "always",
-    "color-no-invalid-hex": [ true, {
-      severity: "warning",
-      message: "You made a mistake",
-    } ],
-    "function-blacklist": ["calc"],
-    "function-whitelist": null,
-    "rule-properties-order": [
+    "declaration-block-properties-order": [
       {
         emptyLineBefore: "always",
         properties: [
@@ -30,6 +24,12 @@ const config = {
         ],
       },
     ],
+    "color-no-invalid-hex": [ true, {
+      severity: "warning",
+      message: "You made a mistake",
+    } ],
+    "function-blacklist": ["calc"],
+    "function-whitelist": null,
   },
 }
 
