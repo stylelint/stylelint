@@ -32,8 +32,7 @@ export default function (on, options) {
     const stylehacksResult = new Result()
     stylehacks(stylehacksOptions)(root, stylehacksResult)
     stylehacksResult.warnings().forEach(stylehacksWarning => {
-      const parsedWarning = parseStylehacksWarning(stylehacksWarning.text)
-      const message = messages.rejected(parsedWarning[0], parsedWarning[1])
+      const message = messages.rejected(stylehacksWarning.identifier, stylehacksWarning.hack)
       report({
         ruleName,
         result,
@@ -44,8 +43,4 @@ export default function (on, options) {
       })
     })
   }
-}
-
-function parseStylehacksWarning(warningText) {
-  return warningText.match(/^Bad (.+?): (.+)$/).slice(1)
 }
