@@ -2,15 +2,16 @@ import { isPlainObject } from "lodash"
 
 // These are rules that accept an array as the primary option
 const rulesWithPrimaryOptionArray = new Set([
-  "rule-properties-order",
-  "function-whitelist",
+  "declaration-block-properties-order",
   "function-blacklist",
-  "property-whitelist",
+  "function-whitelist",
   "property-blacklist",
-  "property-unit-whitelist",
   "property-unit-blacklist",
-  "unit-whitelist",
+  "property-unit-whitelist",
+  "property-whitelist",
+  "rule-properties-order",
   "unit-blacklist",
+  "unit-whitelist",
 ])
 
 export default function (rawSettings, ruleName) {

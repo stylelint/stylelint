@@ -46,17 +46,17 @@ test("rules whose primary option CAN BE an array", t => {
     "nested primary option array returns same"
   )
   t.deepEqual(
-    normalizeRuleSettings([ "alphabetical", { "severity": "warning" } ], "rule-properties-order"),
+    normalizeRuleSettings([ "alphabetical", { "severity": "warning" } ], "declaration-block-properties-order"),
     [ "alphabetical", { "severity": "warning" } ],
     "string as first primary option returns same"
   )
   t.deepEqual(
-    normalizeRuleSettings([ { foo: 1 }, { foo: 2 } ], "rule-properties-order"),
+    normalizeRuleSettings([ { foo: 1 }, { foo: 2 } ], "declaration-block-properties-order"),
     [[ { foo: 1 }, { foo: 2 } ]],
     "primary option array with length of 2"
   )
   t.deepEqual(
-    normalizeRuleSettings([ [ { foo: 1 }, { foo: 2 } ], { "severity": "warning" } ], "rule-properties-order"),
+    normalizeRuleSettings([ [ { foo: 1 }, { foo: 2 } ], { "severity": "warning" } ], "declaration-block-properties-order"),
     [ [ { foo: 1 }, { foo: 2 } ], { "severity": "warning" } ],
     "primary option array with length of 2 and secondary options"
   )

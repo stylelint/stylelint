@@ -7,26 +7,16 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "rule-properties-order"
+export const ruleName = "declaration-block-properties-order"
 
 export const messages = ruleMessages(ruleName, {
   expected: (first, second) => `Expected property "${first}" to come before property "${second}"`,
   expectedEmptyLineBetween: (first, second) => `Expected an empty line between property "${first}" and property "${second}"`,
-  unexpectedEmptyLineBetween: (first, second) => `Unexpected empty line between property "${first} and property "${second}"`,
+  rejectedEmptyLineBetween: (first, second) => `Unexpected empty line between property "${first} and property "${second}"`,
 })
 
 export default function (expectation, options) {
   return (root, result) => {
-
-    result.warn((
-      "'rule-properties-order' has been deprecated " +
-      "and in 5.0 it will be removed. " +
-      "Use 'declaration-block-properties-order' instead."
-    ), {
-      stylelintType: "deprecation",
-      stylelintReference: "http://stylelint.io/user-guide/rules/declaration-block-properties-order/",
-    })
-
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: validatePrimaryOption,
@@ -44,12 +34,12 @@ export default function (expectation, options) {
     })
     if (someEmptyLineBeforeIsBoolean) {
       result.warn((
-        "In 'rule-properties-order', the value 'true' for 'emptyLineBefore' has been deprecated " +
-        "and in 5.0 it will be removed. " +
+        "In 'declaration-block-properties-order', the value 'true' for 'emptyLineBefore' " +
+        "has been deprecated and in 5.0 it will be removed. " +
         "Use 'always' or 'never' instead."
       ), {
         stylelintType: "deprecation",
-        stylelintReference: "http://stylelint.io/user-guide/rules/rule-properties-order/",
+        stylelintReference: "http://stylelint.io/user-guide/rules/declaration-block-properties-order/",
       })
     }
 
@@ -147,7 +137,7 @@ export default function (expectation, options) {
             })
           } else if (hasEmptyLineBefore(secondPropData.node) && emptyLineBefore === "never") {
             complain({
-              message: messages.unexpectedEmptyLineBetween(secondPropData.name, firstPropData.name),
+              message: messages.rejectedEmptyLineBetween(secondPropData.name, firstPropData.name),
               node: secondPropData.node,
             })
           }

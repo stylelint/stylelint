@@ -27,6 +27,7 @@ import declarationBangSpaceBefore from "./declaration-bang-space-before"
 import declarationBlockNoDuplicateProperties from "./declaration-block-no-duplicate-properties"
 import declarationBlockNoShorthandPropertyOverrides from "./declaration-block-no-shorthand-property-overrides"
 import declarationBlockNoSingleLine from "./declaration-block-no-single-line"
+import declarationBlockPropertiesOrder from "./declaration-block-properties-order"
 import declarationBlockSemicolonNewlineAfter from "./declaration-block-semicolon-newline-after"
 import declarationBlockSemicolonNewlineBefore from "./declaration-block-semicolon-newline-before"
 import declarationBlockSemicolonSpaceAfter from "./declaration-block-semicolon-space-after"
@@ -146,9 +147,10 @@ export default {
   "custom-property-pattern": customPropertyPattern,
   "declaration-bang-space-after": declarationBangSpaceAfter,
   "declaration-bang-space-before": declarationBangSpaceBefore,
-  "declaration-block-no-shorthand-property-overrides": declarationBlockNoShorthandPropertyOverrides,
   "declaration-block-no-duplicate-properties": declarationBlockNoDuplicateProperties,
+  "declaration-block-no-shorthand-property-overrides": declarationBlockNoShorthandPropertyOverrides,
   "declaration-block-no-single-line": declarationBlockNoSingleLine,
+  "declaration-block-properties-order": declarationBlockPropertiesOrder,
   "declaration-block-semicolon-newline-after": declarationBlockSemicolonNewlineAfter,
   "declaration-block-semicolon-newline-before": declarationBlockSemicolonNewlineBefore,
   "declaration-block-semicolon-space-after": declarationBlockSemicolonSpaceAfter,
