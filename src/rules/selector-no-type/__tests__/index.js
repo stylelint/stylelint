@@ -16,6 +16,8 @@ testRule(true, tr => {
 
   tr.ok(".foo { & {} }")
   tr.ok(".foo { &.bar {} }")
+  tr.ok(".foo { &-bar {} }")
+  tr.ok(".foo { &__bar {} }")
   tr.ok(".foo { [&] {} }")
   tr.ok(".foo { & [class*=bar] {} }")
   tr.ok(".foo { @nest & {} }")

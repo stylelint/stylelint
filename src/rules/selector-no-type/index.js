@@ -43,8 +43,8 @@ export default function (on, options) {
             return
           }
 
-          // & is not a type selector: it's used for nesting
-          if (tag.value === "&") { return }
+          // & is not a type selector: it's used for nesting 
+          if (tag.value[0] === "&") { return }
 
           if (optionsHaveIgnored(options, "descendant")  && isCombinator(tag.prev())) {
             return
