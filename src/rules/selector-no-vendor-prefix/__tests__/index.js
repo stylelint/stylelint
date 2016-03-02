@@ -23,14 +23,18 @@ testRule(undefined, tr => {
   })
 
   tr.ok("input::placeholder { color: pink; }")
-  tr.notOk(
-    "input:-moz-placeholder, input::placeholder { color: pink; }",
-    {
-      message: messages.rejected(":-moz-placeholder"),
-      line: 1,
-      column: 6,
-    }
-  )
+  tr.notOk("input:-moz-placeholder, input::placeholder { color: pink; }", {
+    message: messages.rejected(":-moz-placeholder"),
+    line: 1,
+    column: 6,
+  })
+  tr.notOk("input::-moz-placeholder { color: pink; }", {
+    message: messages.rejected("::-moz-placeholder"),
+    line: 1,
+    column: 6,
+  })
+  tr.notOk("input::-webkit-input-placeholder { color: pink; }",
+    messages.rejected("::-webkit-input-placeholder"))
 
   tr.ok("a::before {}", "handles pseudo-element")
   tr.ok("a:hover {}", "handles pseudo-class")

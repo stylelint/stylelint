@@ -1,7 +1,8 @@
+import selectorParser from "postcss-selector-parser"
 import {
+  cssRuleHasSelectorEndingWithColon,
   report,
   ruleMessages,
-  styleSearch,
   isAutoprefixable,
   validateOptions,
 } from "../../utils"
@@ -18,22 +19,20 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      const selector = rule.selector
-
-      // Check each pseudo-selector
-      styleSearch({ source: selector, target: ":" }, match => {
-        const pseudoSelector = /:{1,2}[a-z-]+\b/.exec(selector.slice(match.startIndex))
-        if (pseudoSelector === null) { return }
-        if (isAutoprefixable.selector(pseudoSelector[0])) {
-          report({
-            message: messages.rejected(pseudoSelector[0]),
-            node: rule,
-            index: match.startIndex,
-            result,
-            ruleName,
-          })
-        }
-      })
+      if (cssRuleHasSelectorEndingWithColon(rule)) { return }
+      selectorParser(selectorTree => {
+        selectorTree.eachPseudo(pseudoNode => {
+          if (isAutoprefixable.selector(pseudoNode.value)) {
+            report({
+              result,
+              ruleName,
+              message: messages.rejected(pseudoNode.value),
+              node: rule,
+              index: rule.raws.before.length + pseudoNode.sourceIndex,
+            })
+          }
+        })
+      }).process(rule.selector)
     })
   }
 }
