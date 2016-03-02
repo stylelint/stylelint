@@ -24,6 +24,7 @@
 - Added: `named-where-possible` option to `font-weight-notation`.
 - Added: `unspecified: "bottomAlphabetical"` option to the `rule-properties-order` rule.
 - Added: `ignoreAtRules: []` option to the `block-opening-brace-space-before` and `block-closing-brace-newline-after` rules.
+- Added: support for using the nesting selector (`&`) as a prefix in `selector-no-type`.
 - Added: `stylelint-disable-line` feature.
 - Added: `withinComments`, `withinStrings`, and `checkStrings` options to `styleSearch`, and `insideString` property to the `styleSearch` match object.
 - Fixed: `selector-no-vendor-prefix` no longer delivers two warnings on vendor-prefixed pseudo-elements with two colons, e.g. `::-moz-placeholder`.
