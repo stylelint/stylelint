@@ -1,4 +1,4 @@
-# selector-no-descending-specificity
+# no-descending-specificity
 
 Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 

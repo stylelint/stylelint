@@ -12,7 +12,7 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "selector-no-descending-specificity"
+export const ruleName = "no-descending-specificity"
 
 export const messages = ruleMessages(ruleName, {
   rejected: (a, b) => `Expected selector "${b}" to come before selector "${a}"`,

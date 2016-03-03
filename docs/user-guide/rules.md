@@ -137,7 +137,6 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`selector-max-specificity`](../../src/rules/selector-max-specificity/README.md): Limit the specificity of selectors.
 - [`selector-no-attribute`](../../src/rules/selector-no-attribute/README.md): Disallow attribute selectors.
 - [`selector-no-combinator`](../../src/rules/selector-no-combinator/README.md): Disallow combinators in selectors.
-- [`selector-no-descending-specificity`](../../src/rules/selector-no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 - [`selector-no-id`](../../src/rules/selector-no-id/README.md): Disallow id selectors.
 - [`selector-no-type`](../../src/rules/selector-no-type/README.md): Disallow type selectors.
 - [`selector-no-universal`](../../src/rules/selector-no-universal/README.md): Disallow universal selectors.
@@ -197,6 +196,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`max-empty-lines`](../../src/rules/max-empty-lines/README.md): Limit the number of adjacent empty lines.
 - [`max-line-length`](../../src/rules/max-line-length/README.md): Limit the length of a line.
 - [`no-browser-hacks`](../../src/rules/no-browser-hacks/README.md): Disallow browser hacks that are irrelevant to the browsers you support.
+- [`no-descending-specificity`](../../src/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 - [`no-duplicate-selectors`](../../src/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 - [`no-eol-whitespace`](../../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
 - [`no-invalid-double-slash-comments`](../../src/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
