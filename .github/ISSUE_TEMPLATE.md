@@ -55,6 +55,4 @@ test.css
 1:21    Expected 2 spaces (indentation)
 ```
 
----
-
-Note: stackoverflow is our preferred QA forum - http://stackoverflow.com/questions/tagged/stylelint
+<!--- Note: stackoverflow is our preferred QA forum - http://stackoverflow.com/questions/tagged/stylelint -->
