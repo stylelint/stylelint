@@ -31,3 +31,45 @@ function basicAZTests(tr) {
 
 testRule(/^[A-Z]+$/, basicAZTests)
 testRule("^[A-Z]+$", basicAZTests)
+
+function nestedAZTestsDefault(tr) {
+  warningFreeBasics(tr)
+
+  tr.ok(".AB { }")
+
+  tr.ok(".A { &__B { }}")
+}
+
+testRule(/^[A-Z]+$/, nestedAZTestsDefault)
+testRule("^[A-Z]+$", nestedAZTestsDefault)
+
+function nestedAZTests(tr) {
+  warningFreeBasics(tr)
+
+  tr.ok(".AB { }")
+
+  tr.ok(".A { &B {}}")
+
+  tr.ok(".A { &B {}, .C {}, &D {} }")
+
+  tr.ok(".A, .B { &C {} &D, &E {} }")
+
+  tr.notOk(".A { &__B { }}", {
+    message: messages.expected("A__B"),
+    line: 0,
+    column: 6,
+  })
+}
+
+testRule(/^[A-Z]+$/, { resolveNestedSelectors: true }, nestedAZTests)
+testRule("^[A-Z]+$", { resolveNestedSelectors: true }, nestedAZTests)
+
+function nestedDoubleCheckTest(tr) {
+  tr.notOk(".A { .B { } }", {
+    message: messages.expected("A"),
+    line:0,
+    column:0,
+  })
+}
+
+testRule(/^B+$/, { resolveNestedSelectors: true }, nestedDoubleCheckTest)
