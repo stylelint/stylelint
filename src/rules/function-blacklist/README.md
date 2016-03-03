@@ -12,10 +12,6 @@ a { transform: scale(1); }
 
 `array`: `"["array", "of", "unprefixed", "functions"]`
 
-### `["array", "of", "unprefixed", functions"]`
-
-Blacklisted functions that *must never* be used.
-
 Given:
 
 ```js

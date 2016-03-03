@@ -1,6 +1,6 @@
 # custom-property-pattern
 
-Specify pattern of custom properties.
+Specify a pattern for custom properties.
 
 ```css
 a { --foo-bar: 1px; }

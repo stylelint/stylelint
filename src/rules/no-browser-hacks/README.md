@@ -1,6 +1,6 @@
 # no-browser-hacks
 
-Disallow browser hacks that are irrelevant to the browsers you support.
+Disallow browser hacks that are irrelevant to the browsers you are targeting.
 
 ```css
 h1 { _color: white; }

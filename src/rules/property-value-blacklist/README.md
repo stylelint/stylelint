@@ -1,6 +1,6 @@
 # property-value-blacklist
 
-Specify a blacklist of disallowed property-value pairs.
+Specify a blacklist of disallowed values for specific properties.
 
 ```css
 a { text-transform: uppercase; }

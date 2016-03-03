@@ -1,6 +1,6 @@
 # root-no-standard-properties
 
-Disallow standard properties inside `:root` selectors.
+Disallow standard properties inside `:root` rules.
 
 ```css
     :root { color: #333 }

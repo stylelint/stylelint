@@ -14,7 +14,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 
 - [`color-hex-case`](../../src/rules/color-hex-case/README.md): Specify lowercase or uppercase for hex colors.
 - [`color-hex-length`](../../src/rules/color-hex-length/README.md): Specify short or long notation for hex colors.
-- [`color-named`](../../src/rules/color-named/README.md): Require, where possible, or disallow named colors.
+- [`color-named`](../../src/rules/color-named/README.md): Require (where possible) or disallow named colors.
 - [`color-no-hex`](../../src/rules/color-no-hex/README.md): Disallow hex colors.
 - [`color-no-indistinguishable`](../../src/rules/color-no-indistinguishable/README.md): Disallow colors that are suspiciously close to being identical.
 - [`color-no-invalid-hex`](../../src/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
@@ -25,7 +25,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 
 ### Font weight
 
-- [`font-weight-notation`](../../src/rules/font-weight-notation/README.md): Require consistent numeric or named `font-weight` values.
+- [`font-weight-notation`](../../src/rules/font-weight-notation/README.md): Require numeric or named (where possible) `font-weight` values.
 
 ### Function
 
@@ -39,14 +39,14 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`function-parentheses-newline-inside`](../../src/rules/function-parentheses-newline-inside/README.md): Require a newline or disallow whitespace on the inside of the parentheses of functions.
 - [`function-parentheses-space-inside`](../../src/rules/function-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses of functions.
 - [`function-url-quotes`](../../src/rules/function-url-quotes/README.md): Specify single, double or no quotes for urls.
-- [`function-whitelist`](../../src/rules/function-whitelist/README.md): Specify a whitelist of only allowed functions.
-- [`function-whitespace-after`](../../src/rules/function-whitespace-after/README.md): Require a single space or disallow whitespace after functions.
+- [`function-whitelist`](../../src/rules/function-whitelist/README.md): Specify a whitelist of allowed functions.
+- [`function-whitespace-after`](../../src/rules/function-whitespace-after/README.md): Require or disallow whitespace after functions.
 
 ### Number
 
 - [`number-leading-zero`](../../src/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
 - [`number-max-precision`](../../src/rules/number-max-precision/README.md): Limit the number of decimal places allowed in numbers.
-- [`number-no-trailing-zeros`](../../src/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros within numbers.
+- [`number-no-trailing-zeros`](../../src/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros in numbers.
 - [`number-zero-length-no-unit`](../../src/rules/number-zero-length-no-unit/README.md): Disallow units for zero lengths.
 
 ### String
@@ -76,17 +76,17 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 
 ### Custom property
 
-- [`custom-property-no-outside-root`](../../src/rules/custom-property-no-outside-root/README.md): Disallow custom properties outside of `:root` selectors.
-- [`custom-property-pattern`](../../src/rules/custom-property-pattern/README.md): Specify pattern of custom properties.
+- [`custom-property-no-outside-root`](../../src/rules/custom-property-no-outside-root/README.md): Disallow custom properties outside of `:root` rules.
+- [`custom-property-pattern`](../../src/rules/custom-property-pattern/README.md): Specify a pattern for custom properties.
 
 ### Property
 
 - [`property-blacklist`](../../src/rules/property-blacklist/README.md): Specify a blacklist of disallowed properties.
 - [`property-no-vendor-prefix`](../../src/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties.
 - [`property-unit-blacklist`](../../src/rules/property-unit-blacklist/README.md): Specify a blacklist of disallowed units for specific properties.
-- [`property-unit-whitelist`](../../src/rules/property-unit-whitelist/README.md): Specify a whitelist of disallowed units for specific properties.
-- [`property-value-blacklist`](../../src/rules/property-value-blacklist/README.md): Specify a blacklist of disallowed property-value pairs.
-- [`property-value-whitelist`](../../src/rules/property-value-blacklist/README.md): Specify a whitelist of allowed property-value pairs.
+- [`property-unit-whitelist`](../../src/rules/property-unit-whitelist/README.md): Specify a whitelist of allowed units for specific properties.
+- [`property-value-blacklist`](../../src/rules/property-value-blacklist/README.md): Specify a blacklist of disallowed values for specific properties.
+- [`property-value-whitelist`](../../src/rules/property-value-blacklist/README.md): Specify a whitelist of allowed values for specific properties.
 - [`property-whitelist`](../../src/rules/property-whitelist/README.md): Specify a whitelist of allowed properties.
 
 ### Declaration
@@ -102,7 +102,6 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 
 - [`declaration-block-no-duplicate-properties`](../../src/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks.
 - [`declaration-block-no-shorthand-property-overrides`](../../src/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties within declaration blocks.
-- [`declaration-block-no-single-line`](../../src/rules/declaration-block-no-single-line/README.md): Disallow single-line declaration blocks.
 - [`declaration-block-properties-order`](../../src/rules/declaration-block-properties-order/README.md): Specify the order of properties within declaration blocks.
 - [`declaration-block-semicolon-newline-after`](../../src/rules/declaration-block-semicolon-newline-after/README.md): Require a newline or disallow whitespace after the semicolons of declaration blocks.
 - [`declaration-block-semicolon-newline-before`](../../src/rules/declaration-block-semicolon-newline-before/README.md): Require a newline or disallow whitespace before the semicolons of declaration blocks.
@@ -124,10 +123,6 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`block-opening-brace-space-after`](../../src/rules/block-opening-brace-space-after/README.md): Require a single space or disallow whitespace after the opening brace of blocks.
 - [`block-opening-brace-space-before`](../../src/rules/block-opening-brace-space-before/README.md): Require a single space or disallow whitespace before the opening brace of blocks.
 
-### Root selector
-
-- [`root-no-standard-properties`](../../src/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` selectors.
-
 ### Selector
 
 - [`selector-class-pattern`](../../src/rules/selector-class-pattern/README.md): Specify a pattern for class selectors.
@@ -140,10 +135,10 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`selector-no-descending-specificity`](../../src/rules/selector-no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 - [`selector-no-id`](../../src/rules/selector-no-id/README.md): Disallow id selectors.
 - [`selector-no-type`](../../src/rules/selector-no-type/README.md): Disallow type selectors.
-- [`selector-no-universal`](../../src/rules/selector-no-universal/README.md): Disallow universal selectors.
+- [`selector-no-universal`](../../src/rules/selector-no-universal/README.md): Disallow the universal selector.
 - [`selector-no-vendor-prefix`](../../src/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors.
 - [`selector-pseudo-element-colon-notation`](../../src/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
-- [`selector-root-no-composition`](../../src/rules/selector-root-no-composition/README.md): Disallow the composition of`:root` selectors.
+- [`selector-root-no-composition`](../../src/rules/selector-root-no-composition/README.md): Disallow the composition of `:root` in selectors.
 
 ### Selector list
 
@@ -151,6 +146,10 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`selector-list-comma-newline-before`](../../src/rules/selector-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of selector lists.
 - [`selector-list-comma-space-after`](../../src/rules/selector-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of selector lists.
 - [`selector-list-comma-space-before`](../../src/rules/selector-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of selector lists.
+
+### Root rule
+
+- [`root-no-standard-properties`](../../src/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` rules.
 
 ### Rule
 
@@ -162,13 +161,13 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`media-feature-colon-space-after`](../../src/rules/media-feature-colon-space-after/README.md): Require a single space or disallow whitespace after the colon in media features.
 - [`media-feature-colon-space-before`](../../src/rules/media-feature-colon-space-before/README.md): Require a single space or disallow whitespace before the colon in media features.
 - [`media-feature-name-no-vendor-prefix`](../../src/rules/media-feature-name-no-vendor-prefix/README.md): Disallow vendor prefixes for media feature names.
-- [`media-feature-no-missing-punctuation`](../../src/rules/media-feature-no-missing-punctuation/README.md): Ensure that non-boolean media features have the punctuation they need: either a colon or a range-operator.
+- [`media-feature-no-missing-punctuation`](../../src/rules/media-feature-no-missing-punctuation/README.md): Disallow missing punctuation for non-boolean media features.
 - [`media-feature-range-operator-space-after`](../../src/rules/media-feature-range-operator-space-after/README.md): Require a single space or disallow whitespace after the range operator in media features.
 - [`media-feature-range-operator-space-before`](../../src/rules/media-feature-range-operator-space-before/README.md): Require a single space or disallow whitespace before the range operator in media features.
 
 ### Custom media
 
-- [`custom-media-pattern`](../../src/rules/custom-media-pattern/README.md): Specify pattern of custom media query names.
+- [`custom-media-pattern`](../../src/rules/custom-media-pattern/README.md): Specify a pattern for custom media query names.
 
 ### Media query
 
@@ -189,14 +188,14 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 ### Comment
 
 - [`comment-empty-line-before`](../../src/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments.
-- [`comment-whitespace-inside`](../../src/rules/comment-whitespace-inside/README.md): Require a single space or disallow whitespace on the inside of comment markers.
+- [`comment-whitespace-inside`](../../src/rules/comment-whitespace-inside/README.md): Require or disallow whitespace on the inside of comment markers.
 
 ### General / Sheet
 
 - [`indentation`](../../src/rules/indentation/README.md): Specify indentation.
 - [`max-empty-lines`](../../src/rules/max-empty-lines/README.md): Limit the number of adjacent empty lines.
 - [`max-line-length`](../../src/rules/max-line-length/README.md): Limit the length of a line.
-- [`no-browser-hacks`](../../src/rules/no-browser-hacks/README.md): Disallow browser hacks that are irrelevant to the browsers you support.
+- [`no-browser-hacks`](../../src/rules/no-browser-hacks/README.md): Disallow browser hacks that are irrelevant to the browsers you are targeting.
 - [`no-duplicate-selectors`](../../src/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 - [`no-eol-whitespace`](../../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
 - [`no-invalid-double-slash-comments`](../../src/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.

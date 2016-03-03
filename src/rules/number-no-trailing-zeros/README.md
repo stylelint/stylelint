@@ -1,6 +1,6 @@
 # number-no-trailing-zeros
 
-Disallow trailing zeros within numbers.
+Disallow trailing zeros in numbers.
 
 ```css
 a { top: 0.5000px; bottom: 1.0px; }

@@ -1,6 +1,6 @@
 # property-value-whitelist
 
-Specify a whitelist of allowed property-value pairs.
+Specify a whitelist of allowed values for specific properties.
 
 ```css
 a { text-transform: uppercase; }

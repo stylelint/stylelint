@@ -1,6 +1,6 @@
 # function-whitelist
 
-Specify a whitelist of only allowed functions.
+Specify a whitelist of allowed functions
 
 ```css
 a { transform: scale(1); }
@@ -11,10 +11,6 @@ a { transform: scale(1); }
 ## Options
 
 `array`: `["array", "of", "unprefixed", "functions"]`
-
-### `["array", "of", "unprefixed", functions"]`
-
-Whitelisted functions are the only *allowed* functions.
 
 Given:
 

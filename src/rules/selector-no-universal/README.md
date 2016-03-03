@@ -1,6 +1,6 @@
 # selector-no-universal
 
-Disallow universal selectors.
+Disallow the universal selector.
 
 ```css
     * {}
