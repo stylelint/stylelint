@@ -8,7 +8,7 @@ a { display: block; }
  * These properties */
 ```
 
-The rule ignores variables (`$sass`, `@less`, `--custom-property`).
+This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 ## Options
 
