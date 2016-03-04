@@ -1,11 +1,11 @@
-# color-no-indistinguishable
+# no-indistinguishable-colors
 
 Disallow colors that are suspiciously close to being identical.
 
 ```css
-h1 { color: black; background: #010101; }
-/**         ↑                  ↑
- *          Colors like these two */
+a { color: black; background: #010101; }
+/**        ↑                  ↑
+ *         Colors like these two */
 ```
 
 This rule uses [css-colorguard](https://github.com/SlexAxton/css-colorguard), which itself uses [the CIEDE2000 algorithm](http://en.wikipedia.org/wiki/Color_difference#CIEDE2000) behind-the-scenes, to determine when colors are so close that they probably *should* be the same.
@@ -27,13 +27,13 @@ The lower the threshold, the more similar colors have to be to trigger a warning
 For example, with `ignore: ["black"]`, the following is no longer a warning:
 
 ```css
-h1 { color: black; background: #010101; }
+a { color: black; background: #010101; }
 ```
 
 But the following is still a warning:
 
 ```css
-h1 { color: #020202; background: #010101; }
+a { color: #020202; background: #010101; }
 ```
 
 ### `whitelist: [ [ "#colorA", "#colorB" ], [ "#colorA", "#colorB" ] ]`
@@ -43,15 +43,15 @@ An array of color pairs to ignore. Each pair is an array with two items.
 For example, with `whitelist: [ [ "black", "#010101" ] ]`, the following is no longer a warning:
 
 ```css
-h1 { color: black; background: #010101; }
+a { color: black; background: #010101; }
 ```
 
 But the following are still warnings:
 
 ```css
-h1 { color: #020202; background: #010101; }
+a { color: #020202; background: #010101; }
 ```
 
 ```css
-h1 { color: black; background: #020202; }
+a { color: black; background: #020202; }
 ```
