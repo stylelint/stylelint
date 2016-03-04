@@ -16,6 +16,9 @@ testRule(true, tr => {
   tr.ok("a[foo] {} a {}", "only checks matching last compound selectors")
   tr.ok("a { b {} } c + b {}")
   tr.ok("b a {} @media print { a {} }")
+  tr.ok(".a:hover {} a::after {}") // fail
+  tr.ok(".m:hover {} .b {}") // pass
+  tr.ok(".menu:hover {} .burger {}") // fail?!
 
   tr.notOk("b a {} a {}", {
     message: messages.rejected("a", "b a"),
