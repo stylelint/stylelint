@@ -27,6 +27,7 @@
 - Added: support for using the nesting selector (`&`) as a prefix in `selector-no-type`.
 - Added: `stylelint-disable-line` feature.
 - Added: `withinComments`, `withinStrings`, and `checkStrings` options to `styleSearch`, and `insideString` property to the `styleSearch` match object.
+- Added: `resolveNestedSelectors` option to the `selector-class-pattern` rule.
 - Fixed: `selector-no-vendor-prefix` no longer delivers two warnings on vendor-prefixed pseudo-elements with two colons, e.g. `::-moz-placeholder`.
 - Fixed: `no-duplicate-selectors` rule is more intelligent.
 - Fixed: `font-weight-notation` does not throw false warnings when `normal` is used in certain ways.

@@ -34,3 +34,30 @@ div > #zing + .foo-bar {}
 #foop {}
 [foo='bar'] {}
 ```
+## Optional options
+
+### `resolveNestedSelectors: true | false` (default: `false`)
+
+This option will resolve nested selectors and interpolation.
+
+### E.g. `/^[A-Z]+$/`
+
+The following patterns are considered warnings:
+
+```css
+.A {
+  &__B {}
+}
+```
+
+As it will be resolved to ".A__B"
+
+The following patterns are *not* considered warnings:
+
+```css
+.A {
+  &B {}
+}
+```
+
+As it will be resolved to ".AB"

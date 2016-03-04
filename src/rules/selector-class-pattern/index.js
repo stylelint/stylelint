@@ -50,6 +50,9 @@ export default function (pattern, options) {
         fullSelector.eachInside(selectorNode => {
           if (selectorNode.type !== "class") { return }
 
+          // we take the "selectorNode" and remove all functions from it
+          // and remove the "parent" key, by doing this we make the selectors
+          // comparable to one another, if the refer to the same selector in the source.
           var compareableSelector = omitBy(omit(selectorNode, ["parent"]), isFunction)
           if (alreadyChecked(compareableSelector)) { return }
           checked.push(compareableSelector)
