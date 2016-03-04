@@ -12,7 +12,7 @@ Visit the [Specificity Calculator](https://specificity.keegan.st) for visual rep
 
 This rule ignores selectors with variable interpolation (`#{$var}`, `@{var}`, `$(var)`).
 
-This rule resolves nested selectors before before calculating the specificity of a selector.
+This rule resolves nested selectors before calculating the specificity of a selector.
 
 ## Options
 
