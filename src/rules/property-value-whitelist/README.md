@@ -15,7 +15,7 @@ a { text-transform: uppercase; }
   "unprefixed-property-name": ["/regex/", "non-regex"]
 }`
 
-If a property name is found in the object, only its whitelisted property values are allowed. The rule complains about all non-matching values. (If the property name is not included in the object, anything goes.)
+If a property name is found in the object, only its whitelisted property values are allowed. This rule complains about all non-matching values. (If the property name is not included in the object, anything goes.)
 
 If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
 
