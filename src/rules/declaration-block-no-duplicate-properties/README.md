@@ -8,7 +8,7 @@ a { color: pink; color: orange; }
  * These duplicated properties */
 ```
 
-The rule ignores variables (`$sass`, `@less`, `--custom-property`).
+This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 The following patterns are considered warnings:
 

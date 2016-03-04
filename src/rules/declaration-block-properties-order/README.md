@@ -13,7 +13,7 @@ Specify the order of properties within declaration blocks.
 
 Prefixed properties *must always* be alphabetically ordered and *must always* precede the unprefixed version.
 
-The rule ignores variables (`$sass`, `@less`, `--custom-property`).
+This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 ## Options
 
@@ -72,7 +72,7 @@ There are some important details to keep in mind:
 
 **By default, unlisted properties will be ignored.** So if you specify an array and do not include `display`, that means that the `display` property can be included before or after any other property. *This can be changed with the `unspecified` option* (see below).
 
-**If an (unprefixed) property name is not included in your array and it contains a hyphen (e.g. `padding-left`), the rule will look for the string before that first hyphen in your array (e.g. `padding`) and use that position.** This means that you do not have to specify each extension of the root property; you can just specify the root property and the extensions will be accounted for.
+**If an (unprefixed) property name is not included in your array and it contains a hyphen (e.g. `padding-left`), this rule will look for the string before that first hyphen in your array (e.g. `padding`) and use that position.** This means that you do not have to specify each extension of the root property; you can just specify the root property and the extensions will be accounted for.
 
 For example, if you have included `border` in your array but not `border-top`, the rule will expect `border-top` to appear in the same relative position as `border`.
 
