@@ -35,6 +35,7 @@
 - Fixed: `selector-no-*` and `selector-*-pattern` rules now ignore custom property sets.
 - Fixed: nested selector handling for `no-duplicate-selectors`.
 - Fixed: `selector-no-id` does not warn about Sass interpolation inside an `:nth-child()` argument.
+- Fixed: handling of mixed line endings in `rule-nested-empty-line-before`, `rule-non-nested-empty-line-before`, `comment-empty-line-before` and `at-rule-empty-line-before`.
 
 # 4.4.0
 
