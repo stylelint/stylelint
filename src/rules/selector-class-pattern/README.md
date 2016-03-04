@@ -34,6 +34,7 @@ div > #zing + .foo-bar {}
 #foop {}
 [foo='bar'] {}
 ```
+
 ## Optional options
 
 ### `resolveNestedSelectors: true | false` (default: `false`)

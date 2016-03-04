@@ -53,7 +53,7 @@ export default function (pattern, options) {
           // we take the "selectorNode" and remove all functions from it
           // and remove the "parent" key, by doing this we make the selectors
           // comparable to one another, if the refer to the same selector in the source.
-          var compareableSelector = omitBy(omit(selectorNode, ["parent"]), isFunction)
+          const compareableSelector = omitBy(omit(selectorNode, ["parent"]), isFunction)
           if (alreadyChecked(compareableSelector)) { return }
           checked.push(compareableSelector)
 
@@ -73,7 +73,7 @@ export default function (pattern, options) {
     })
 
     function alreadyChecked(selector) {
-      var i = checked.length
+      let i = checked.length
       while (i--) {
         if (isEqual(checked[i], selector)) {
           return true
