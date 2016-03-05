@@ -67,6 +67,7 @@ export function checkRuleEmptyLineBefore({ rule, expectation, options, result, m
   const before = rule.raw("before")
   const emptyLineBefore = before && before.indexOf("\n\n") !== -1
     || before.indexOf("\r\n\r\n") !== -1
+    || before.indexOf("\n\r\n") !== -1
 
   // Return if the exceptation is met
   if (expectEmptyLineBefore === emptyLineBefore) { return }
