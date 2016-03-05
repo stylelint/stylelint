@@ -152,6 +152,28 @@ test("SCSS // line-disabling comment", t => {
   t.plan(planCount)
 })
 
+test("Trying to nest disabled ranges", t => {
+  let planCount = 0
+  const css = "/* stylelint-disable foo */ a {} /* stylelint-disable bar */"
+  postcss().use(disableRanges).process(css).catch(err => {
+    t.ok(err)
+    t.notEqual(err.text.indexOf("A new disabled range cannot begin until the previous one has ended"), -1)
+  })
+  planCount += 1
+  t.plan(planCount)
+})
+
+test("Trying to end a disabled range that never started", t => {
+  let planCount = 0
+  const css = "/* stylelint-enable */"
+  postcss().use(disableRanges).process(css).catch(err => {
+    t.ok(err)
+    t.notEqual(err.text.indexOf("A disabled range cannot end unless it has begun"), -1)
+  })
+  planCount += 1
+  t.plan(planCount)
+})
+
 function testDisableRanges(source, cb) {
   postcss()
     .use(disableRanges)

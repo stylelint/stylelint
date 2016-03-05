@@ -27,8 +27,10 @@ export default function (root, result) {
 
     if (text.indexOf(disableCommand) === 0) {
       if (withinDisabledRange) {
-        comment.error("A new disabled range cannot begin until the previous one has ended")
-        return result
+        throw comment.error(
+          "A new disabled range cannot begin until the previous one has ended",
+          { plugin: "stylelint" }
+        )
       }
       withinDisabledRange = true
       startDisabledRange(comment, getCommandRules(disableCommand, text))
@@ -36,8 +38,10 @@ export default function (root, result) {
 
     if (text.indexOf(enableCommand) === 0) {
       if (!withinDisabledRange) {
-        comment.error("A disabled range cannot end unless it has begun")
-        return result
+        throw comment.error(
+          "A disabled range cannot end unless it has begun",
+          { plugin: "stylelint" }
+        )
       }
       withinDisabledRange = false
       endDisabledRange(comment)
