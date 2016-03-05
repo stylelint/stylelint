@@ -38,7 +38,7 @@ export default function (pattern, options) {
     root.walkRules(rule => {
       if (cssRuleHasSelectorEndingWithColon(rule)) { return }
 
-      if (options && options.resolveNestedSelectors) {
+      if (options && options.resolveNestedSelectors && rule.selector.indexOf("&") > -1) {
         resolveNestedSelector(rule.selector, rule).forEach(selector => {
           selectorParser(checkSelector).process(selector)
         })
