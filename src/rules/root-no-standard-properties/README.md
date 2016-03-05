@@ -1,6 +1,6 @@
 # root-no-standard-properties
 
-Disallow standard properties inside `:root` selectors.
+Disallow standard properties inside `:root` rules.
 
 ```css
     :root { color: #333 }
@@ -8,7 +8,7 @@ Disallow standard properties inside `:root` selectors.
  * This selector and these types of standard properties */
 ```
 
-The rule ignores `$sass` and `@less` variables.
+This rule ignores `$sass` and `@less` variables.
 
 The following patterns are considered warnings:
 

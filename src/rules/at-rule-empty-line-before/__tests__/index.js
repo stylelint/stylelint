@@ -14,6 +14,7 @@ function sharedAlwaysTests(tr) {
   tr.ok("a {}\n\n@media {}")
   tr.ok("@keyframes foo {}\n\n@media {}")
   tr.ok("a {}\r\n\r\n@media {}", "windows")
+  tr.ok("a {}\n\r\n@media {}", "mixed")
 
   tr.notOk("a {} @media {}", messages.expected)
   tr.notOk("@keyframes foo {} @media {}", messages.expected)

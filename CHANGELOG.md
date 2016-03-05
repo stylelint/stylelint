@@ -14,11 +14,13 @@
 - Added: `color-named` rule.
 - Added: `declaration-block-no-duplicate-properties` rule.
 - Added: `declaration-block-no-shorthand-property-overrides` rule.
+- Added: `declaration-block-properties-order` rule.
 - Added: `declaration-block-trailing-semicolon` rule.
 - Added: `no-browser-hacks` rule.
+- Added: `no-descending-specificity` rule.
+- Added: `no-indistinguishable-colors` rule.
 - Added: `no-unsupported-browser-features` rule.
 - Added: `selector-max-specificity` rule.
-- Added: `selector-no-descending-specificity` rule.
 - Added: `string-no-newline` rule.
 - Added: `"always"` and `"never"` option to `rule-properties-order` `emptyLineBefore` when using property groups
 - Added: `named-where-possible` option to `font-weight-notation`.
@@ -28,12 +30,14 @@
 - Added: `stylelint-disable-line` feature.
 - Added: `withinComments`, `withinStrings`, and `checkStrings` options to `styleSearch`, and `insideString` property to the `styleSearch` match object.
 - Added: `resolveNestedSelectors` option to the `selector-class-pattern` rule.
+- Fixed: informative errors are thrown when `stylelint-disable` is misused.
 - Fixed: `selector-no-vendor-prefix` no longer delivers two warnings on vendor-prefixed pseudo-elements with two colons, e.g. `::-moz-placeholder`.
 - Fixed: `no-duplicate-selectors` rule is more intelligent.
 - Fixed: `font-weight-notation` does not throw false warnings when `normal` is used in certain ways.
 - Fixed: `selector-no-*` and `selector-*-pattern` rules now ignore custom property sets.
 - Fixed: nested selector handling for `no-duplicate-selectors`.
 - Fixed: `selector-no-id` does not warn about Sass interpolation inside an `:nth-child()` argument.
+- Fixed: handling of mixed line endings in `rule-nested-empty-line-before`, `rule-non-nested-empty-line-before`, `comment-empty-line-before` and `at-rule-empty-line-before`.
 
 # 4.4.0
 

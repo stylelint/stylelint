@@ -8,7 +8,7 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "color-no-almost-identical"
+export const ruleName = "no-indistinguishable-colors"
 
 export const messages = ruleMessages(ruleName, {
   rejected: (a, b) => `Unexpected almost identical colors: "${a}" and "${b}"`,

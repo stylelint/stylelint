@@ -1,13 +1,14 @@
 # media-feature-no-missing-punctuation
 
-Ensure that non-boolean media features have the punctuation they need:
-either a colon or a range-operator.
+Disallow missing punctuation for non-boolean media features.
 
 ```css
 @media (max-width: 600px) {}
 /**              ↑
  * This punctuation */
 ```
+
+This rule ensures that there is either a colon or a range operator in non-boolean media features.
 
 The following patterns are considered warnings:
 

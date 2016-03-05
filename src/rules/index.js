@@ -14,7 +14,6 @@ import colorHexCase from "./color-hex-case"
 import colorHexLength from "./color-hex-length"
 import colorNamed from "./color-named"
 import colorNoHex from "./color-no-hex"
-import colorNoIndistinguisable from "./color-no-indistinguishable"
 import colorNoInvalidHex from "./color-no-invalid-hex"
 import colorNoNamed from "./color-no-named"
 import commentEmptyLineBefore from "./comment-empty-line-before"
@@ -67,12 +66,14 @@ import mediaQueryListCommaSpaceAfter from "./media-query-list-comma-space-after"
 import mediaQueryListCommaSpaceBefore from "./media-query-list-comma-space-before"
 import mediaQueryParenthesesSpaceInside from "./media-query-parentheses-space-inside"
 import noBrowserHacks from "./no-browser-hacks"
+import noDescendingSpecificity from "./no-descending-specificity"
 import noDuplicateSelectors from "./no-duplicate-selectors"
 import noEolWhitespace from "./no-eol-whitespace"
+import noIndistinguisableColors from "./no-indistinguishable-colors"
 import noInvalidDoubleSlashComments from "./no-invalid-double-slash-comments"
 import noMissingEofNewline from "./no-missing-eof-newline"
-import noUnknownAnimations from "./no-unknown-animations"
 import noSupportedBrowserFeatures from "./no-unsupported-browser-features"
+import noUnknownAnimations from "./no-unknown-animations"
 import numberLeadingZero from "./number-leading-zero"
 import numberMaxPrecision from "./number-max-precision"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
@@ -102,7 +103,6 @@ import selectorListCommaSpaceBefore from "./selector-list-comma-space-before"
 import selectorMaxSpecificity from "./selector-max-specificity"
 import selectorNoAttribute from "./selector-no-attribute"
 import selectorNoCombinator from "./selector-no-combinator"
-import selectorNoDescendingSpecificity from "./selector-no-descending-specificity"
 import selectorNoId from "./selector-no-id"
 import selectorNoType from "./selector-no-type"
 import selectorNoUniversal from "./selector-no-universal"
@@ -137,7 +137,6 @@ export default {
   "color-hex-length": colorHexLength,
   "color-named": colorNamed,
   "color-no-hex": colorNoHex,
-  "color-no-indistinguishable": colorNoIndistinguisable,
   "color-no-invalid-hex": colorNoInvalidHex,
   "color-no-named": colorNoNamed,
   "comment-empty-line-before": commentEmptyLineBefore,
@@ -190,8 +189,10 @@ export default {
   "media-query-list-comma-space-before": mediaQueryListCommaSpaceBefore,
   "media-query-parentheses-space-inside": mediaQueryParenthesesSpaceInside,
   "no-browser-hacks": noBrowserHacks,
+  "no-descending-specificity": noDescendingSpecificity,
   "no-duplicate-selectors": noDuplicateSelectors,
   "no-eol-whitespace": noEolWhitespace,
+  "no-indistinguishable-colors": noIndistinguisableColors,
   "no-invalid-double-slash-comments": noInvalidDoubleSlashComments,
   "no-missing-eof-newline": noMissingEofNewline,
   "no-unknown-animations": noUnknownAnimations,
@@ -225,7 +226,6 @@ export default {
   "selector-max-specificity": selectorMaxSpecificity,
   "selector-no-attribute": selectorNoAttribute,
   "selector-no-combinator": selectorNoCombinator,
-  "selector-no-descending-specificity": selectorNoDescendingSpecificity,
   "selector-no-id": selectorNoId,
   "selector-no-type": selectorNoType,
   "selector-no-universal": selectorNoUniversal,

@@ -45,6 +45,7 @@ export default function (expectation, options) {
       const emptyLineBefore = before && (
         before.indexOf("\n\n") !== -1
         || before.indexOf("\r\n\r\n") !== -1
+        || before.indexOf("\n\r\n") !== -1
       )
 
       let expectEmptyLineBefore = (expectation === "always") ? true : false

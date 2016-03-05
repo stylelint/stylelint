@@ -1,4 +1,4 @@
-# selector-no-descending-specificity
+# no-descending-specificity
 
 Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 
@@ -14,13 +14,15 @@ The clashes of these two mechanisms for prioritization, source order and specifi
 
 This rule enforces that practice *as best it can*. (It cannot catch every actual overriding selector (because it does not know the DOM structure, for one), but it can catch certain common mistakes.)
 
-Here's how it works: The rule looks at the last *compound selector* in every full selector, and then compares it with other selectors in the stylesheet that end in the same way.
+Here's how it works: This rule looks at the last *compound selector* in every full selector, and then compares it with other selectors in the stylesheet that end in the same way.
 
 So `.foo .bar` (whose last compound selector is `.bar`) will be compared to `.bar` and `#baz .bar`, but not to `#baz .foo` or `.bar .foo`.
 
 And `a > li#wag.pit` (whose last compound selector is `li#wag.pit`) will be compared to `div li#wag.pit` and `a > b > li + li#wag.pit`, but not to `li`, or `li #wag`, etc.
 
-The rule only compares rules that are within the same media context. So `a {} @media print { #baz a {} }` is fine.
+This rule only compares rules that are within the same media context. So `a {} @media print { #baz a {} }` is fine.
+
+This rule resolves nested selectors before calculating the specificity of the selectors.
 
 The following patterns are considered warnings:
 

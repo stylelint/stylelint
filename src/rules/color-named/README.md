@@ -1,6 +1,6 @@
 # color-named
 
-Require, where possible, or disallow named colors.
+Require (where possible) or disallow named colors.
 
 ```css
 a { color: black }

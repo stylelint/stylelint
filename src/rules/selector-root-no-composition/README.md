@@ -1,6 +1,6 @@
 # selector-root-no-composition
 
-Disallow the composition of`:root` selectors.
+Disallow the composition of `:root` in selectors.
 
 ```css
     a, :root {}

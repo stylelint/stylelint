@@ -16,6 +16,11 @@ testRule(true, tr => {
   tr.ok("a[foo] {} a {}", "only checks matching last compound selectors")
   tr.ok("a { b {} } c + b {}")
   tr.ok("b a {} @media print { a {} }")
+  tr.ok("a {} a::after {}", "pseudo-element last")
+  tr.ok("a {} a:hover {}", "pseudo-class last")
+  tr.ok("a:hover {} a:hover::before {}")
+  tr.ok(".m:hover {} .b {}")
+  tr.ok(".menu:hover {} .burger {}")
 
   tr.notOk("b a {} a {}", {
     message: messages.rejected("a", "b a"),
@@ -51,5 +56,20 @@ testRule(true, tr => {
     message: messages.rejected("a", "#c a"),
     line: 1,
     column: 31,
+  })
+  tr.notOk("a::before {} a {} ", {
+    message: messages.rejected("a", "a::before"),
+    line: 1,
+    column: 14,
+  }, "pseudo-element first")
+  tr.notOk("a:hover {} a {} ", {
+    message: messages.rejected("a", "a:hover"),
+    line: 1,
+    column: 12,
+  }, "pseudo-class first")
+  tr.notOk("a:hover::before {} a:hover {} ", {
+    message: messages.rejected("a:hover", "a:hover::before"),
+    line: 1,
+    column: 20,
   })
 })
