@@ -54,6 +54,7 @@ import functionWhitespaceAfter from "./function-whitespace-after"
 import indentation from "./indentation"
 import maxEmptyLines from "./max-empty-lines"
 import maxLineLength from "./max-line-length"
+import maxNestingDepth from "./max-nesting-depth"
 import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
 import mediaFeatureColonSpaceBefore from "./media-feature-colon-space-before"
 import mediaFeatureNameNoVendorPrefix from "./media-feature-name-no-vendor-prefix"
@@ -177,6 +178,7 @@ export default {
   "indentation": indentation,
   "max-empty-lines": maxEmptyLines,
   "max-line-length": maxLineLength,
+  "max-nesting-depth": maxNestingDepth,
   "media-feature-colon-space-after": mediaFeatureColonSpaceAfter,
   "media-feature-colon-space-before": mediaFeatureColonSpaceBefore,
   "media-feature-name-no-vendor-prefix": mediaFeatureNameNoVendorPrefix,

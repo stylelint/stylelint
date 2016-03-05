@@ -62,6 +62,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "indentation": int|"tab",
     "max-empty-lines": int,
     "max-line-length": int,
+    "max-nesting-depth": int,
     "media-feature-colon-space-after": "always"|"never",
     "media-feature-colon-space-before": "always"|"never",
     "media-feature-name-no-vendor-prefix": true,
