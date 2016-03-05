@@ -8,6 +8,8 @@ import {
   validateOptions,
 } from "../../utils"
 
+export const withParentSelector = /(?:[^\s]|^)&(?:[^\s]+|$)|\s&[^\s]+|[^\s]&\s/
+
 export const ruleName = "selector-class-pattern"
 
 export const messages = ruleMessages(ruleName, {
@@ -38,7 +40,7 @@ export default function (pattern, options) {
     root.walkRules(rule => {
       if (cssRuleHasSelectorEndingWithColon(rule)) { return }
 
-      if (options && options.resolveNestedSelectors && rule.selector.indexOf("&") > -1) {
+      if (options && options.resolveNestedSelectors && rule.selector.match(withParentSelector)) {
         resolveNestedSelector(rule.selector, rule).forEach(selector => {
           selectorParser(checkSelector).process(selector)
         })
