@@ -15,6 +15,7 @@ function alwaysTests(tr) {
   tr.ok("a {} /** comment */", "inline comment ignored")
   tr.ok("a {}\n\n/** comment */")
   tr.ok("a {}\r\n\r\n/** comment */", "CRLF")
+  tr.ok("a {}\n\r\n/** comment */", "Mixed")
   tr.ok("a { color: pink;\n\n/** comment */\ntop: 0; }")
 
   tr.notOk("/** comment */\n/** comment */", messages.expected)

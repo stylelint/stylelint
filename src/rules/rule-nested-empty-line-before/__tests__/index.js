@@ -14,6 +14,7 @@ testRule("always", tr => {
   tr.ok("a {}\r\nb {}", "non-nested node ignored and CRLF")
   tr.ok("@media {\n\n  a {}\n\n}")
   tr.ok("@media {\r\n\r\n  a {}\r\n\r\n}", "CRLF")
+  tr.ok("@media {\n\r\n  a {}\n\r\n}", "Mixed")
   tr.ok("@media {\n\n  a {}\n\n  b{}\n\n}")
   tr.ok("@media {\n\n\ta {}\n\n\tb{}\n}")
   tr.ok("@media {\r\n\r\n\ta {}\r\n\r\n\tb{}\r\n}", "CRLF")

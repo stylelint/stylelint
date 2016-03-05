@@ -13,6 +13,7 @@ testRule("always", tr => {
   tr.ok("@media { a {} }", "nested node ignored")
   tr.ok("b {}\n\na {}")
   tr.ok("b {}\r\n\r\na {}", "CRLF")
+  tr.ok("b {}\n\r\na {}", "Mixed")
   tr.ok("b {}\n  \t\n\na {}")
   tr.ok("b {}\n\n\ta {}")
   tr.ok("b {}\r\n\r\n\ta {}", "CRLF")
