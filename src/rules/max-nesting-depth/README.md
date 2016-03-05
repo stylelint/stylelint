@@ -42,7 +42,7 @@ a {
 }
 ```
 
-### Options
+## Options
 
 `int`: Maximum nesting depth allowed.
 
@@ -94,7 +94,7 @@ a .foo__foo .bar .baz {}
 
 ## Optional Options
 
-#### `ignore: ["at-rules-without-declaration-blocks"]`
+### `ignore: ["at-rules-without-declaration-blocks"]`
 
 Ignore at-rules that only wrap other rules, and do not themselves have declaration blocks.
 
@@ -127,7 +127,7 @@ But the following *would* contain a nesting depth greater than 1 because the at-
 ```css
 a {
   &:hover { /* 1 */
-    @media { color: pink; } /* 2 */      
+    @media (min-width: 500px) { color: pink; } /* 2 */      
   }
 }
 ```
