@@ -40,19 +40,16 @@ export default function (actual) {
 
     function checkSelector(selectorNode, rule, sourceIndex, comparisonContext) {
       const selector = selectorNode.toString()
-      const lastSelectorNode = _.last(selectorNode.nodes[0].nodes)
-      const lastCompoundSelector = (lastSelectorNode.type === "pseudo")
-        ? lastSelectorNode.prev().toString()
-        : lastSelectorNode.toString()
+      const lastNonPseudoSelectorNode = getLastNonPseudoSelectorNode(selectorNode)
       const selectorSpecificity = calculate(selector)[0].specificity.split(",")
       const entry = { selector, specificity: selectorSpecificity }
 
-      if (!comparisonContext.has(lastCompoundSelector)) {
-        comparisonContext.set(lastCompoundSelector, [entry])
+      if (!comparisonContext.has(lastNonPseudoSelectorNode)) {
+        comparisonContext.set(lastNonPseudoSelectorNode, [entry])
         return
       }
 
-      const priorComparableSelectors = comparisonContext.get(lastCompoundSelector)
+      const priorComparableSelectors = comparisonContext.get(lastNonPseudoSelectorNode)
 
       priorComparableSelectors.forEach(priorEntry => {
         if (isLowerSpecificity(selectorSpecificity, priorEntry.specificity)) {
@@ -69,4 +66,12 @@ export default function (actual) {
       priorComparableSelectors.push(entry)
     }
   }
+}
+
+function getLastNonPseudoSelectorNode(selectorNode) {
+  let s = _.last(selectorNode.nodes[0].nodes)
+  while (s.type === "pseudo") {
+    s = s.prev()
+  }
+  return s.toString()
 }

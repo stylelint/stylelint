@@ -18,6 +18,7 @@ testRule(true, tr => {
   tr.ok("b a {} @media print { a {} }")
   tr.ok("a {} a::after {}", "pseudo-element last")
   tr.ok("a {} a:hover {}", "pseudo-class last")
+  tr.ok("a:hover {} a:hover::before {}")
   tr.ok(".m:hover {} .b {}")
   tr.ok(".menu:hover {} .burger {}")
 
@@ -66,4 +67,9 @@ testRule(true, tr => {
     line: 1,
     column: 12,
   }, "pseudo-class first")
+  tr.notOk("a:hover::before {} a:hover {} ", {
+    message: messages.rejected("a:hover", "a:hover::before"),
+    line: 1,
+    column: 20,
+  })
 })
