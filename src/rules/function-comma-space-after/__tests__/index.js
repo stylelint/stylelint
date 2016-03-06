@@ -15,6 +15,8 @@ testRule("always", tr => {
   tr.ok("a { transform: translate(1 , 1); }")
   tr.ok("a { transform: translate(1, 1); }")
   tr.ok("a { transform: color(rgb(0 , 0, 0) lightness(50%)); }")
+  tr.ok("a { background: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns); }",
+    "data URI with spaceless comma")
 
   tr.notOk("a { transform: translate(1,1); }", {
     message: messages.expectedAfter(),
