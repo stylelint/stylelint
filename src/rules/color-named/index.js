@@ -61,7 +61,7 @@ export default function (expectation) {
             type === "function" &&
             FUNC_REPRESENTATION.indexOf(value) !== -1
           ) {
-            let cssString = valueParser.stringify(node).replace(/\s+/g, "")
+            const cssString = valueParser.stringify(node).replace(/\s+/g, "")
             namedColors.forEach(namedColor => {
               if (representations[namedColor].func.indexOf(cssString) !== -1) {
                 complain(

@@ -18,7 +18,7 @@ export const messages = ruleMessages(ruleName, {
 // Each source maps to another map, which maps rule parents to a set of selectors.
 // This ensures that selectors are only checked against selectors
 // from other rules that share the same parent and the same source.
-var selectorContextLookup = cssNodeContextLookup()
+const selectorContextLookup = cssNodeContextLookup()
 
 export default function (actual) {
   return (root, result) => {

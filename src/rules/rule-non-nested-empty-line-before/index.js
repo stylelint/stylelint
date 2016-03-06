@@ -75,7 +75,7 @@ export function checkRuleEmptyLineBefore({ rule, expectation, options, result, m
   const message = expectEmptyLineBefore ? messages.expected : messages.rejected
 
   report({
-    message: message,
+    message,
     node: rule,
     result,
     ruleName: checkedRuleName,

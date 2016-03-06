@@ -40,7 +40,7 @@ export default function (expectation) {
       if (!rule.last || rule.last.type !== "decl") { return }
 
       let errorIndexOffset = rule.toString().length
-      let after = rule.raw("after")
+      const after = rule.raw("after")
       if (after) {
         errorIndexOffset -= after.length
       }

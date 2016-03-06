@@ -38,7 +38,7 @@ export default function (actual) {
     })
 
     function checkRulesInNode(node) {
-      let decls = []
+      const decls = []
       node.each(child => {
         if (child.nodes && child.nodes.length) {
           checkRulesInNode(child)

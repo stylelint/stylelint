@@ -48,7 +48,7 @@ export function functionCommaSpaceChecker({ locationChecker, root, result, check
       // Ignore `url()` arguments, which may contain data URIs or other funky stuff
       if (valueNode.value === "url") { return }
 
-      let functionArguments = (() => {
+      const functionArguments = (() => {
         let result = valueParser.stringify(valueNode)
         // Remove function name and opening paren
         result = result.slice(valueNode.value.length + 1)
