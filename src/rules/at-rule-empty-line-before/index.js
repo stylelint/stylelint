@@ -67,7 +67,7 @@ export default function (expectation, options) {
       const message = expectEmptyLineBefore ? messages.expected : messages.rejected
 
       report({
-        message: message,
+        message,
         node: atRule,
         result,
         ruleName,

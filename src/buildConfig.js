@@ -78,8 +78,8 @@ function augmentConfig(config, configDir) {
   })
 
   function loadExtendedConfig(config, extendLookup) {
-    var extendPath = getModulePath(configDir, extendLookup)
-    var extendDir = path.dirname(extendPath)
+    const extendPath = getModulePath(configDir, extendLookup)
+    const extendDir = path.dirname(extendPath)
     return cosmiconfig(null, {
       configPath: extendPath,
       // In case --config was used: do not pay attention to it again

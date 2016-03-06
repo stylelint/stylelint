@@ -82,7 +82,14 @@
     ]
   },
   "eslintConfig": {
-    "extends": "stylelint"
+    "extends": "stylelint",
+    "rules": {
+      "arrow-spacing": 2,
+      "no-var": 2,
+      "object-shorthand": 2,
+      "prefer-const": 2,
+      "template-curly-spacing": 2
+    }
   },
   "remarkConfig": {
     "plugins": {

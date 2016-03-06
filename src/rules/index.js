@@ -175,7 +175,7 @@ export default {
   "function-url-quotes": functionUrlQuotes,
   "function-whitelist": functionWhitelist,
   "function-whitespace-after": functionWhitespaceAfter,
-  "indentation": indentation,
+  "indentation": indentation, // eslint-disable-line object-shorthand
   "max-empty-lines": maxEmptyLines,
   "max-line-length": maxLineLength,
   "max-nesting-depth": maxNestingDepth,
