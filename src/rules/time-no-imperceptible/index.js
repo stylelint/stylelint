@@ -36,7 +36,7 @@ export default function (actual) {
 
       if (SHORTHAND_PROPERTIES_TO_CHECK.indexOf(decl.prop) !== -1) {
         const valueList = postcss.list.space(decl.value)
-        for (let value of valueList) { // eslint-disable-line prefer-const
+        for (const value of valueList) {
           if (isImperceptibleTime(value)) {
             complain(messages.rejected(value), decl, decl.value.indexOf(value))
           }

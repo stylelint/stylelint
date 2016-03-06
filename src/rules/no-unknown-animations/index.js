@@ -38,7 +38,7 @@ export default function (actual) {
 
       if (decl.prop === "animation") {
         const valueList = postcss.list.space(decl.value)
-        for (let value of valueList) { // eslint-disable-line prefer-const
+        for (const value of valueList) {
           // Ignore numbers with units
           if (postcssValueParser.unit(value)) { continue }
           // Ignore keywords for other animation parts

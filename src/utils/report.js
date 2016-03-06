@@ -42,7 +42,7 @@ export default function ({
   const startLine = line || node.positionBy({ index }).line
 
   if (result.stylelint.disabledRanges) {
-    for (let range of result.stylelint.disabledRanges) { // eslint-disable-line prefer-const
+    for (const range of result.stylelint.disabledRanges) {
       if (
         // If the violation is within a disabledRange,
         // and that disabledRange's rules include this one,
