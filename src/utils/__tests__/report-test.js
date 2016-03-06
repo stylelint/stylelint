@@ -26,9 +26,9 @@ test("with irrelevant general disabledRange", t => {
     result: {
       warn: sinon.spy(),
       stylelint: {
-        disabledRanges: [
-          { start: 5, end: 8 },
-        ],
+        disabledRanges: {
+          all: [{ start: 5, end: 8 }],
+        },
       },
     },
     message: "bar",
@@ -49,9 +49,9 @@ test("with relevant general disabledRange", t => {
     result: {
       warn: sinon.spy(),
       stylelint: {
-        disabledRanges: [
-          { start: 5, end: 8 },
-        ],
+        disabledRanges: {
+          all: [{ start: 5, end: 8 }],
+        },
       },
     },
     message: "bar",
@@ -70,9 +70,10 @@ test("with irrelevant rule-specific disabledRange", t => {
     result: {
       warn: sinon.spy(),
       stylelint: {
-        disabledRanges: [
-          { start: 5, end: 8, rules: ["bar"] },
-        ],
+        disabledRanges: {
+          all: [],
+          bar: [{ start: 5, end: 8 }],
+        },
       },
     },
     message: "bar",
@@ -93,9 +94,10 @@ test("with relevant rule-specific disabledRange", t => {
     result: {
       warn: sinon.spy(),
       stylelint: {
-        disabledRanges: [
-          { start: 5, end: 8, rules: ["foo"] },
-        ],
+        disabledRanges: {
+          all: [],
+          foo: [{ start: 5, end: 8 }],
+        },
       },
     },
     message: "bar",
@@ -114,10 +116,12 @@ test("with relevant general disabledRange, among others", t => {
     result: {
       warn: sinon.spy(),
       stylelint: {
-        disabledRanges: [
-          { start: 1, end: 3 },
-          { start: 5, end: 8 },
-        ],
+        disabledRanges: {
+          all: [
+            { start: 1, end: 3 },
+            { start: 5, end: 8 },
+          ],
+        },
       },
     },
     message: "bar",
@@ -136,10 +140,13 @@ test("with relevant rule-specific disabledRange, among others", t => {
     result: {
       warn: sinon.spy(),
       stylelint: {
-        disabledRanges: [
-          { start: 1, end: 3, rules: ["foo"] },
-          { start: 5, end: 8, rules: ["foo"] },
-        ],
+        disabledRanges: {
+          all: [],
+          foo: [
+            { start: 1, end: 3, rules: ["foo"] },
+            { start: 5, end: 8, rules: ["foo"] },
+          ],
+        },
       },
     },
     message: "bar",

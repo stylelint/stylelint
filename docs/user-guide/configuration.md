@@ -216,6 +216,19 @@ And you can turn off rules for individual lines only, after which you do not nee
 }
 ```
 
+Complex, overlapping disabling & enabling patterns are supported:
+
+```css
+/* stylelint-disable */
+/* stylelint-enable foo */
+/* stylelint-disable foo */
+/* stylelint-enable */
+/* stylelint-disable foo, bar */
+/* stylelint-disable baz */
+/* stylelint-enable baz, bar */
+/* stylelint-enable foo */
+```
+
 ### Configuring options
 
 Only the `*-no-*` rules don't expect options. All the other rules must be explicitly configured as *there are no default values*.
