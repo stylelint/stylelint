@@ -39,7 +39,7 @@ div > #zing + .foo-bar {}
 
 ### `resolveNestedSelectors: true | false` (default: `false`)
 
-This option will resolve nested selectors and interpolation.
+This option will resolve nested selectors with `&` interpolation.
 
 ### E.g. `/^[A-Z]+$/`
 
@@ -47,18 +47,14 @@ The following patterns are considered warnings:
 
 ```css
 .A {
-  &__B {}
+  &__B {} /* resolved to ".A__B" */
 }
 ```
-
-As it will be resolved to ".A__B"
 
 The following patterns are *not* considered warnings:
 
 ```css
 .A {
-  &B {}
+  &B {} /* resolved to ".AB" */
 }
 ```
-
-As it will be resolved to ".AB"
