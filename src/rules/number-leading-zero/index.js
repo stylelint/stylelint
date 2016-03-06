@@ -1,4 +1,7 @@
+import execall from "execall"
+import _ from "lodash"
 import {
+  blurFunctionArguments,
   cssStatementHasBlock,
   cssStatementStringBeforeBlock,
   report,
@@ -39,44 +42,41 @@ export default function (expectation) {
       // Get out quickly if there are no periods
       if (source.indexOf(".") === -1) { return }
 
-      let errorIndex
-      let message
-
-        // check leadingzero
+      // Check leading zero
       if (expectation === "always") {
-        const error = lacksLeadingZero(source)
-        if (error) {
-          errorIndex = error.index
-          message = messages.expected
-        } else {
-          return
+        const errors = matchesLackingLeadingZero(source)
+        if (!_.isEmpty(errors)) {
+          errors.forEach(error => {
+            complain(messages.expected, node, error.index)
+          })
         }
       }
       if (expectation === "never") {
-        const error = containsLeadingZero(source)
-        if (error) {
-          errorIndex = error.index + 1
-          message = messages.rejected
-        } else {
-          return
+        const errors = matchesContainingLeadingZero(source)
+        if (!_.isEmpty(errors)) {
+          errors.forEach(error => {
+            complain(messages.rejected, node, error.index + 1)
+          })
         }
       }
+    }
 
+    function complain(message, node, index) {
       report({
-        message,
-        node,
-        index: errorIndex,
         result,
         ruleName,
+        message,
+        node,
+        index,
       })
     }
   }
 }
 
-function lacksLeadingZero(source) {
-  return /(?:\D|^)(\.\d+)/g.exec(source)
+function matchesLackingLeadingZero(source) {
+  return execall(/(?:\D|^)(\.\d+)/g, blurFunctionArguments(source, "url"))
 }
 
-function containsLeadingZero(source) {
-  return /(?:\D|^)(0\.\d+)/g.exec(source)
+function matchesContainingLeadingZero(source) {
+  return execall(/(?:\D|^)(0\.\d+)/g, blurFunctionArguments(source, "url"))
 }
