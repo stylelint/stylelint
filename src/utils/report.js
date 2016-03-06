@@ -1,4 +1,4 @@
-import { get } from "lodash"
+import _ from "lodash"
 
 /**
  * Report a violation.
@@ -20,16 +20,12 @@ import { get } from "lodash"
  * @param {Node} [violation.index] - Index that should be passed to result.warn()
  * @param {Node} [violation.word] - Word that should be passed to result.warn()
  * @param {number} [violation.line] - Line number of the violation
+ * @param {string} [violation.sourceCode] - The source code of the violation
+ * @param {any} [violation.primaryOption] - The rule's primary option
+ * @param {object} [violation.secondaryOptions] - The rule's secondary options
  */
-export default function ({
-  ruleName,
-  result,
-  message,
-  line,
-  node,
-  index,
-  word,
-}) {
+export default function (violation) {
+  const { result, ruleName } = violation
   result.stylelint = result.stylelint || {}
 
   // In quiet mode, mere warnings are ignored
@@ -39,7 +35,8 @@ export default function ({
 
   // If a line is not passed, use the node.positionBy method to get the
   // line number that the complaint pertains to
-  const startLine = line || node.positionBy({ index }).line
+  const startLine = violation.line
+    || violation.node.positionBy({ index: violation.index }).line
 
   if (result.stylelint.disabledRanges) {
     for (const range of result.stylelint.disabledRanges) {
@@ -54,7 +51,7 @@ export default function ({
     }
   }
 
-  const severity = get(result.stylelint, [ "ruleSeverities", ruleName ], "ignore")
+  const severity = _.get(result.stylelint, [ "ruleSeverities", ruleName ], "ignore")
 
   if (typeof severity === "undefined") {
     throw new Error(
@@ -68,14 +65,19 @@ export default function ({
     result.stylelint.stylelintError = true
   }
 
-  const warningProperties = {
-    severity,
-    rule: ruleName,
-  }
-  if (node) { warningProperties.node = node }
-  if (index) { warningProperties.index = index }
-  if (word) { warningProperties.word = word }
+  const warningProperties = _.assign({ severity, rule: ruleName }, _.pick(violation, [
+    "node",
+    "index",
+    "word",
+    "sourceCode",
+    "primaryOptions",
+    "secondaryOptions",
+  ]))
 
-  const warningMessage = get(result.stylelint, [ "customMessages", ruleName ], message)
+  let warningMessage = violation.message
+  const customMessage = _.get(result.stylelint, [ "customMessages", ruleName ])
+  if (customMessage) {
+    warningMessage = _.template(customMessage)(warningProperties)
+  }
   result.warn(warningMessage, warningProperties)
 }

@@ -308,7 +308,7 @@ test("standalone loading YAML with custom message", t => {
   }).then(({ output }) => {
     const parsedOutput = JSON.parse(output)[0]
     t.equal(parsedOutput.warnings.length, 1)
-    t.equal(parsedOutput.warnings[0].text, "Unacceptable")
+    t.equal(parsedOutput.warnings[0].text, "Unacceptable! No \"pink\" allowed.")
   }).catch(logError)
 
   t.plan(2)

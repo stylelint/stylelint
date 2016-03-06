@@ -86,9 +86,10 @@ export default postcss.plugin("stylelint", (options = {}) => {
           ruleSeverity = get(secondaryOptions, "severity", "error")
         }
 
-        // Log the rule's severity in the PostCSS result
+        // Log the rule's severity and custom message in the PostCSS result
         result.stylelint.ruleSeverities[ruleName] = ruleSeverity
-        result.stylelint.customMessages[ruleName] = secondaryOptions && secondaryOptions.message
+        result.stylelint.customMessages[ruleName] = get(secondaryOptions, "message")
+          || get(options, [ "customMessages", ruleName ])
 
         // Run the rule with the primary and secondary options
         ruleDefinitions[ruleName](primaryOption, secondaryOptions)(root, result)
