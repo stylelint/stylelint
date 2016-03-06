@@ -10,4 +10,4 @@ Plugins share all the same traits and conventions as [rules](/docs/user-guide/ru
 
 ## Statement
 
-- [`stylelint-statement-max-nesting-depth`](https://github.com/davidtheclark/stylelint-statement-max-nesting-depth): Specify the maximum nested depth of statements.
+([`stylelint-statement-max-nesting-depth`](https://github.com/davidtheclark/stylelint-statement-max-nesting-depth)) was integrated into stylelint v4.5.0 as [`max-nesting-depth`](../../src/rules/max-nesting-depth/README.md).)

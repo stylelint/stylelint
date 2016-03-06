@@ -16,6 +16,7 @@
 - Added: `declaration-block-no-shorthand-property-overrides` rule.
 - Added: `declaration-block-properties-order` rule.
 - Added: `declaration-block-trailing-semicolon` rule.
+- Added: `max-nesting-depth` rule.
 - Added: `no-browser-hacks` rule.
 - Added: `no-descending-specificity` rule.
 - Added: `no-indistinguishable-colors` rule.
