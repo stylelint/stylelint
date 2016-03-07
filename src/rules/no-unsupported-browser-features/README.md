@@ -12,6 +12,8 @@ This rule uses [doiuse](https://github.com/anandthakker/doiuse) to detect browse
 
 **This is a good rule to use with "warning"-level severity**, because its primary purpose is to warn you that you are using features not all browsers support *and therefore ought to provide fallbacks*. But the warning will continue even if you have a fallback in place (it doesn't know); so you probably do not want this rule to break your build. Instead, consider it a friendly reminder to double-check certain spots for fallbacks.
 
+Bugs and feature requests should be reported on the [doiuse issue tracker](https://github.com/anandthakker/doiuse/issues).
+
 ## Optional Options
 
 These options are passed directly to doiuse.
