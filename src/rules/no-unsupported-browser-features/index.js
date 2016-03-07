@@ -25,11 +25,14 @@ export default function (on, options) {
     })
     if (!validOptions) { return }
 
-    const doiuseOptions = {
-      ignore: options.ignore,
-    }
+    const doiuseOptions = {}
+
     if (options && options.browsers) {
       doiuseOptions.browsers = options.browsers
+    }
+
+    if (options && options.ignore) {
+      doiuseOptions.ignore = options.ignore
     }
 
     const doiuseResult = new Result()
