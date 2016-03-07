@@ -1,4 +1,4 @@
-# Head
+# 4.5.0
 
 - Deprecated: `"warn": true` secondary option. Use `"severity": "warning"`, instead.
 - Deprecated: `color-no-named` rule. Use the new `color-named` rule, with the `"never"` option instead.
