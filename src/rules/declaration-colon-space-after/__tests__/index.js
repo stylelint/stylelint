@@ -17,6 +17,10 @@ testRule("always", tr => {
     "$map:(key:value)",
     "SCSS map with no newlines"
   )
+  tr.ok(
+    "a { background: url(data:application/font-woff;...); }",
+    "data URI"
+  )
 
   tr.notOk(
     "a { color :pink; }",

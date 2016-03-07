@@ -39,7 +39,7 @@
 - Fixed: nested selector handling for `no-duplicate-selectors`.
 - Fixed: `selector-no-id` does not warn about Sass interpolation inside an `:nth-child()` argument.
 - Fixed: handling of mixed line endings in `rule-nested-empty-line-before`, `rule-non-nested-empty-line-before`, `comment-empty-line-before` and `at-rule-empty-line-before`.
-- Fixed: `number-leading-zero` and `function-comma-space-*` do not throw false positives in `url()` arguments.
+- Fixed: `number-leading-zero`, `function-comma-space-*`, and `declaration-colon-*` do not throw false positives in `url()` arguments.
 
 # 4.4.0
 

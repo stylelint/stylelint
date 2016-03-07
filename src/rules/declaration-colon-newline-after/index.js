@@ -1,5 +1,6 @@
 import {
   cssDeclarationIsMap,
+  declarationValueIndexOffset,
   report,
   ruleMessages,
   validateOptions,
@@ -30,7 +31,9 @@ export default function (expectation) {
 
       if (cssDeclarationIsMap(decl)) { return }
 
-      const declString = decl.toString()
+      // Get the raw prop, and only the prop
+      const endOfPropIndex = declarationValueIndexOffset(decl) + decl.between.length - 1
+      const declString = decl.toString().slice(0, endOfPropIndex)
 
       for (let i = 0, l = declString.length; i < l; i++) {
         if (declString[i] !== ":") { continue }
