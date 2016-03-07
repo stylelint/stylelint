@@ -18,6 +18,8 @@ testRule(true, tr => {
   tr.ok("b a {} @media print { a {} }")
   tr.ok("a {} a::after {}", "pseudo-element last")
   tr.ok("a {} a:hover {}", "pseudo-class last")
+  tr.ok("a:hover {} a::after {}", "pseudo-class and pseudo-element")
+  tr.ok("a::after {} a:hover {}", "pseudo-class and pseudo-element")
   tr.ok("a:hover {} a:hover::before {}")
   tr.ok(".m:hover {} .b {}")
   tr.ok(".menu:hover {} .burger {}")
