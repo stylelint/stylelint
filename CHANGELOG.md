@@ -33,7 +33,7 @@
 - Added: `resolveNestedSelectors` option to the `selector-class-pattern` rule.
 - Fixed: informative errors are thrown when `stylelint-disable` is misused.
 - Fixed: `selector-no-vendor-prefix` no longer delivers two warnings on vendor-prefixed pseudo-elements with two colons, e.g. `::-moz-placeholder`.
-- Fixed: `no-duplicate-selectors` rule is more intelligent.
+- Fixed: `no-duplicate-selectors` rule now resolves nested selectors.
 - Fixed: `font-weight-notation` does not throw false warnings when `normal` is used in certain ways.
 - Fixed: `selector-no-*` and `selector-*-pattern` rules now ignore custom property sets.
 - Fixed: nested selector handling for `no-duplicate-selectors`.
