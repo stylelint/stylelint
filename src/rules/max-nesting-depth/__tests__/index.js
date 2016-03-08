@@ -21,6 +21,8 @@ testRule(1, tr => {
 
   tr.ok("a { @nest b { top: 0; }}")
   tr.notOk("a { @nest b { c { top: 0; }}}", messages.rejected(1))
+
+  tr.ok("a { b { @include foo; } }", "at-rule without block")
 })
 
 testRule(3, tr => {

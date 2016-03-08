@@ -1,5 +1,6 @@
 import _ from "lodash"
 import {
+  cssStatementHasBlock,
   optionsHaveIgnored,
   ruleMessages,
   report,
@@ -31,6 +32,7 @@ export default function (max, options) {
     root.walkAtRules(checkStatement)
 
     function checkStatement(statement) {
+      if (!cssStatementHasBlock(statement)) { return }
       const depth = nestingDepth(statement)
       if (depth > max) {
         report({

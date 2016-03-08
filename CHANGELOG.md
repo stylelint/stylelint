@@ -1,6 +1,7 @@
 # Head
 
 - Added: support for overlapping `stylelint-disable` commands.
+- Fixed: `max-nesting-depth` does not warn about blockless at-rules.
 
 # 4.5.1
 
