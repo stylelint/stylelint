@@ -15,6 +15,7 @@ testRule(null, tr => {
 
   tr.ok("a {} b {} c {} d, e, f {}", "no duplicates")
   tr.ok("a {}\n@media print { a {} }", "duplicate inside media query")
+  tr.ok("@keyframes a { 0% {} } @keyframes b { 0% {} }", "duplicate inside keyframes")
   tr.ok("a { a { a {} } }", "duplicates inside nested rules")
   tr.ok(".foo .bar {}\n .foo {}\n.bar {}\n.bar .foo {}", "selectors using parts of other selectors")
   tr.ok("a {} a, b {}", "selectors reused in other non-equivalent selector lists")
