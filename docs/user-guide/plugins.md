@@ -7,7 +7,3 @@ Plugins share all the same traits and conventions as [rules](/docs/user-guide/ru
 ## Selector
 
 - [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors (incorporates [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter).)
-
-## Statement
-
-([`stylelint-statement-max-nesting-depth`](https://github.com/davidtheclark/stylelint-statement-max-nesting-depth)) was integrated into stylelint v4.5.0 as [`max-nesting-depth`](../../src/rules/max-nesting-depth/README.md).)

@@ -71,6 +71,8 @@ export default function (actual) {
 function getLastNonPseudoSelectorNode(selectorNode) {
   let s = _.last(selectorNode.nodes[0].nodes)
   while (s.type === "pseudo") {
+    const prev = s.prev()
+    if (!prev) { return s.toString() }
     s = s.prev()
   }
   return s.toString()

@@ -67,7 +67,7 @@ export default function (expectation, options) {
       // `font` values need to be part of a font-size/line-height pair
       const hasNumericFontWeight = valueList.some(isNumbery)
 
-      for (let value of postcss.list.space(decl.value)) {
+      for (const value of postcss.list.space(decl.value)) {
         if (
           (value === NORMAL_KEYWORD && !hasNumericFontWeight)
           || isNumbery(value)

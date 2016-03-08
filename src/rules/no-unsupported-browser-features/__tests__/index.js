@@ -9,6 +9,11 @@ const testRule = ruleTester(rule, ruleName)
 // These are just enough to ensure that the integration with doiuse
 // is working as expected: but that tool has its own tests.
 // The tests below are mostly copied from doiuse.
+//
+testRule(true,tr => {
+  warningFreeBasics(tr)
+  tr.ok("a { opacity: 1; }")
+})
 
 testRule(true, { browsers: "last 2 versions" },tr => {
   warningFreeBasics(tr)

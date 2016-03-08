@@ -1,4 +1,9 @@
-# Head
+# 4.5.1
+
+- Fixed: `no-unsupported-browser-features` options now optional.
+- Fixed: `no-duplicate-selectors` now ignores keyframe selectors.
+
+# 4.5.0
 
 - Deprecated: `"warn": true` secondary option. Use `"severity": "warning"`, instead.
 - Deprecated: `color-no-named` rule. Use the new `color-named` rule, with the `"never"` option instead.
@@ -34,13 +39,13 @@
 - Added: `resolveNestedSelectors` option to the `selector-class-pattern` rule.
 - Fixed: informative errors are thrown when `stylelint-disable` is misused.
 - Fixed: `selector-no-vendor-prefix` no longer delivers two warnings on vendor-prefixed pseudo-elements with two colons, e.g. `::-moz-placeholder`.
-- Fixed: `no-duplicate-selectors` rule is more intelligent.
+- Fixed: `no-duplicate-selectors` rule now resolves nested selectors.
 - Fixed: `font-weight-notation` does not throw false warnings when `normal` is used in certain ways.
 - Fixed: `selector-no-*` and `selector-*-pattern` rules now ignore custom property sets.
 - Fixed: nested selector handling for `no-duplicate-selectors`.
 - Fixed: `selector-no-id` does not warn about Sass interpolation inside an `:nth-child()` argument.
 - Fixed: handling of mixed line endings in `rule-nested-empty-line-before`, `rule-non-nested-empty-line-before`, `comment-empty-line-before` and `at-rule-empty-line-before`.
-- Fixed: `number-leading-zero` and `function-comma-space-*` do not throw false positives in `url()` arguments.
+- Fixed: `number-leading-zero`, `function-comma-space-*`, and `declaration-colon-*` do not throw false positives in `url()` arguments.
 
 # 4.4.0
 

@@ -19,7 +19,7 @@ export default function (max) {
       actual: max,
       possible: [function (max) {
         // Check that the max specificity is in the form "a,b,c"
-        var pattern = new RegExp("^\\d+,\\d+,\\d+$")
+        const pattern = new RegExp("^\\d+,\\d+,\\d+$")
         return pattern.test(max)
       }],
     })

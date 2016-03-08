@@ -214,7 +214,7 @@ test("handles escaped double-quotes in single-quote strings", t => {
 })
 
 test("count", t => {
-  let endCounts = []
+  const endCounts = []
   styleSearch({ source: "123 123 123", target: "1" }, (index, count) => {
     endCounts.push(count)
   })

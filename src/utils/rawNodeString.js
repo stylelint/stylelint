@@ -5,7 +5,7 @@
  * @return {string}
  */
 export default function (node) {
-  var result = ""
+  let result = ""
   if (node.raw("before")) {
     result += node.raw("before")
   }
