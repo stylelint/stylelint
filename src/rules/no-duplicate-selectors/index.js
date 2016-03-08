@@ -26,6 +26,10 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
+
+      // Return early if the rule contains a keyframe selector
+      if (rule.parent.type === "atrule" && rule.parent.name === "keyframes") { return }
+
       const contextSelectorSet = selectorContextLookup.getContext(rule, findMediaContext(rule))
       const resolvedSelectors = rule.selectors.reduce((result, selector) => {
         return union(result, resolvedNestedSelector(selector, rule))

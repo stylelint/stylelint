@@ -1,6 +1,7 @@
 # Head
 
 - Fixed: `no-unsupported-browser-features` options now optional.
+- Fixed: `no-duplicate-selectors` now ignores keyframe selectors.
 
 # 4.5.0
 
