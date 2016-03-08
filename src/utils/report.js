@@ -43,7 +43,7 @@ export default function ({
 
   if (result.stylelint.disabledRanges) {
     const ranges = result.stylelint.disabledRanges[ruleName] || result.stylelint.disabledRanges.all
-    for (let range of ranges) {
+    for (const range of ranges) {
       if (
         // If the violation is within a disabledRange,
         // and that disabledRange's rules include this one,
