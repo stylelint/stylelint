@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `no-unsupported-browser-features` options now optional.
+
 # 4.5.0
 
 - Deprecated: `"warn": true` secondary option. Use `"severity": "warning"`, instead.
