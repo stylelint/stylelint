@@ -44,5 +44,5 @@ export default function (on, options) {
 }
 
 function parseColorguardWarning(warning) {
-  return warning.match(/^(\S+) collides with (\S+)/).slice(1)
+  return warning.match(/^(.*) collides with (.*) \(/).slice(1)
 }
