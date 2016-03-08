@@ -1,3 +1,7 @@
+# Head
+
+- Added: support for overlapping `stylelint-disable` commands.
+
 # 4.5.1
 
 - Fixed: `no-unsupported-browser-features` options now optional.
@@ -14,7 +18,6 @@
 - Deprecated: `rule-trailing-semicolon` rule. Use the new `declaration-block-trailing-semicolon` rule instead.
 - Deprecated `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` option instead.
 - Deprecated: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option instead.
-- Added: support for overlapping `stylelint-disable` commands.
 - Added: universal `severity` secondary option as a replacement for `"warn": true` to alter a rule's severity.
 - Added: `block-no-single-line` rule.
 - Added: `color-named` rule.
