@@ -85,7 +85,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`property-unit-blacklist`](../../src/rules/property-unit-blacklist/README.md): Specify a blacklist of disallowed units for specific properties.
 - [`property-unit-whitelist`](../../src/rules/property-unit-whitelist/README.md): Specify a whitelist of allowed units for specific properties.
 - [`property-value-blacklist`](../../src/rules/property-value-blacklist/README.md): Specify a blacklist of disallowed values for specific properties.
-- [`property-value-whitelist`](../../src/rules/property-value-blacklist/README.md): Specify a whitelist of allowed values for specific properties.
+- [`property-value-whitelist`](../../src/rules/property-value-whitelist/README.md): Specify a whitelist of allowed values for specific properties.
 - [`property-whitelist`](../../src/rules/property-whitelist/README.md): Specify a whitelist of allowed properties.
 
 ### Declaration
