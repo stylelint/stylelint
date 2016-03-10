@@ -1,9 +1,10 @@
 # Head
 
+- Removed: `no-indistinguishable-colors` because its dependencies were unusable in Atom. (To be re-evaluated and re-added later.)
 - Added: support for overlapping `stylelint-disable` commands.
 - Fixed: `max-nesting-depth` does not warn about blockless at-rules.
-- Fixed: `no-indistinguishable-colors` no longer errors on color functions containing spaces e.g. `rgb(0, 0, 0)`.
 - Fixed: `function-comma-newline-after` and related rules consider input to be multi-line (applying to "always-multi-line", etc.) when the newlines are at the beginning or end of the input.
+- Fixed: `no-indistinguishable-colors` no longer errors on color functions containing spaces e.g. `rgb(0, 0, 0)` -- but also removed the rule (see above).
 
 # 4.5.1
 
