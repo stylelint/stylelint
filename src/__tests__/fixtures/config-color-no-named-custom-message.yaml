@@ -1,4 +1,4 @@
 rules:
   color-no-named:
     - true
-    - message: "Unacceptable"
+    - message: "Unacceptable! No \"<%= sourceCode %>\" allowed."

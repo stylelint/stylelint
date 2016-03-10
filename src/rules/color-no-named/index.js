@@ -33,11 +33,13 @@ export default function (actual) {
       valueParser(decl.value).walk(node => {
         if (isCssColorName(node.value) && !node.quote) {
           report({
+            result,
+            ruleName,
             message: messages.rejected(node.value),
             node: decl,
             index: declarationValueIndexOffset(decl) + node.sourceIndex,
-            result,
-            ruleName,
+            sourceCode: node.value,
+            primaryOption: actual,
           })
         }
       })
