@@ -10,9 +10,8 @@ const testRule = ruleTester(rule, ruleName)
 // is working as expected: but that tool has its own tests.
 // The tests below are mostly copied from doiuse.
 //
-testRule(true,tr => {
+testRule(true, tr => {
   warningFreeBasics(tr)
-  tr.ok("a { opacity: 1; }")
 })
 
 testRule(true, { browsers: "last 2 versions" },tr => {

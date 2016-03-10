@@ -13,6 +13,7 @@ testRule("always", tr => {
   tr.ok("a::before { background: url('func(foo,bar,baz)'); }")
   tr.ok("a { background-size: 0,\n  0,\n  0; }")
   tr.ok("a { transform: translate(1 ,\n1); }")
+  tr.ok("a { transform: translate(\n  1,\n  1\n); }")
   tr.ok("a { transform: translate(1,\r\n1); }", "CRLF")
   tr.ok("a { transform: color(rgb(0 ,\n\t0,\n\t0) lightness(50%)); }")
   tr.ok("a { background: linear-gradient(45deg,\n rgba(0,\n 0,\n 0,\n 1),\n red); }")
@@ -51,6 +52,11 @@ testRule("always", tr => {
     message: messages.expectedAfter(),
     line: 3,
     column: 3,
+  })
+  tr.notOk("a { transform: translate(\n  1,1\n); }", {
+    message: messages.expectedAfter(),
+    line: 2,
+    column: 4,
   })
 })
 
@@ -106,6 +112,11 @@ testRule("always-multi-line", tr => {
     message: messages.expectedAfterMultiLine(),
     line: 1,
     column: 38,
+  })
+  tr.notOk("a { transform: translate(\n  1,1\n); }", {
+    message: messages.expectedAfterMultiLine(),
+    line: 2,
+    column: 4,
   })
 })
 
