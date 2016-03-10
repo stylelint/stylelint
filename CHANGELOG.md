@@ -1,6 +1,7 @@
 # Head
 
 - Added: support for overlapping `stylelint-disable` commands.
+- Fixed: `no-indistinguishable-colors` no longer errors on color functions containing spaces e.g. `rgb(0, 0, 0)`.
 
 # 4.5.1
 
