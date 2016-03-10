@@ -29,20 +29,6 @@ export default function (expectation, options) {
     })
     if (!validOptions) { return }
 
-    const someEmptyLineBeforeIsBoolean = _.some(expectation, group => {
-      return _.isBoolean(_.get(group, "emptyLineBefore"))
-    })
-    if (someEmptyLineBeforeIsBoolean) {
-      result.warn((
-        "In 'declaration-block-properties-order', the value 'true' for 'emptyLineBefore' " +
-        "has been deprecated and in 5.0 it will be removed. " +
-        "Use 'always' or 'never' instead."
-      ), {
-        stylelintType: "deprecation",
-        stylelintReference: "http://stylelint.io/user-guide/rules/declaration-block-properties-order/",
-      })
-    }
-
     const alphabetical = expectation === "alphabetical"
     const expectedOrder = (alphabetical) ? null : createExpectedOrder(expectation)
     // By default, ignore unspecified properties
@@ -130,7 +116,7 @@ export default function (expectation, options) {
           // secondProp seperatedGroups start at 2 so we minus 2 to get the 1st item
           // from our groups array
           const emptyLineBefore = _.get(groups[secondPropData.orderData.separatedGroup - 2], "emptyLineBefore")
-          if (!hasEmptyLineBefore(secondPropData.node) && (emptyLineBefore === "always" || emptyLineBefore === true)) {
+          if (!hasEmptyLineBefore(secondPropData.node) && emptyLineBefore === "always") {
             complain({
               message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),
               node: secondPropData.node,

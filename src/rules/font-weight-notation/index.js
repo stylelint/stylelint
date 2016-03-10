@@ -29,7 +29,7 @@ export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [ "numeric", "named", "named-where-possible" ],
+      possible: [ "numeric", "named-where-possible" ],
     } , {
       actual: options,
       possible: {
@@ -38,17 +38,6 @@ export default function (expectation, options) {
       optional: true,
     })
     if (!validOptions) { return }
-
-    if (expectation === "named") {
-      result.warn((
-        "The value 'named' for 'font-weight-notation' has been deprecated, " +
-        "and in 5.0 it will be removed. " +
-        "Use 'named-where-possible' instead."
-      ), {
-        stylelintType: "deprecation",
-        stylelintReference: "http://stylelint.io/user-guide/rules/font-weight-notation/",
-      })
-    }
 
     root.walkDecls(decl => {
       if (decl.prop === "font-weight") {
@@ -90,16 +79,6 @@ export default function (expectation, options) {
         if (!isNumbery(weightValue)) {
           return complain(messages.expected("numeric"))
         }
-      }
-
-      if (expectation === "named") {
-        if (isNumbery(weightValue)) {
-          return complain(messages.expected("named"))
-        }
-        if (!includes(WEIGHT_SPECIFIC_KEYWORDS, weightValue) && weightValue !== NORMAL_KEYWORD) {
-          return complain(messages.invalidNamed(weightValue))
-        }
-        return
       }
 
       if (expectation === "named-where-possible") {

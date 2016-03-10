@@ -1,6 +1,15 @@
 # Head
 
 - Removed: `no-indistinguishable-colors` because its dependencies were unusable in Atom. (To be re-evaluated and re-added later.)
+- Removed: `"warn": true` secondary option.
+- Removed: `color-no-named` rule.
+- Removed: `declaration-block-no-single-line` rule.
+- Removed: `rule-no-duplicate-properties` rule.
+- Removed: `rule-no-shorthand-property-overrides` rule.
+- Removed: `rule-properties-order` rule.
+- Removed: `rule-trailing-semicolon` rule.
+- Removed `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`.
+- Removed: `"always"` option for `font-weight-notation`.
 - Added: support for overlapping `stylelint-disable` commands.
 - Fixed: `max-nesting-depth` does not warn about blockless at-rules.
 - Fixed: `function-comma-newline-after` and related rules consider input to be multi-line (applying to "always-multi-line", etc.) when the newlines are at the beginning or end of the input.

@@ -15,7 +15,6 @@ import colorHexLength from "./color-hex-length"
 import colorNamed from "./color-named"
 import colorNoHex from "./color-no-hex"
 import colorNoInvalidHex from "./color-no-invalid-hex"
-import colorNoNamed from "./color-no-named"
 import commentEmptyLineBefore from "./comment-empty-line-before"
 import commentWhitespaceInside from "./comment-whitespace-inside"
 import customMediaPattern from "./custom-media-pattern"
@@ -25,7 +24,6 @@ import declarationBangSpaceAfter from "./declaration-bang-space-after"
 import declarationBangSpaceBefore from "./declaration-bang-space-before"
 import declarationBlockNoDuplicateProperties from "./declaration-block-no-duplicate-properties"
 import declarationBlockNoShorthandPropertyOverrides from "./declaration-block-no-shorthand-property-overrides"
-import declarationBlockNoSingleLine from "./declaration-block-no-single-line"
 import declarationBlockPropertiesOrder from "./declaration-block-properties-order"
 import declarationBlockSemicolonNewlineAfter from "./declaration-block-semicolon-newline-after"
 import declarationBlockSemicolonNewlineBefore from "./declaration-block-semicolon-newline-before"
@@ -88,11 +86,7 @@ import propertyValueWhitelist from "./property-value-whitelist"
 import propertyWhitelist from "./property-whitelist"
 import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
-import ruleNoDuplicateProperties from "./rule-no-duplicate-properties"
 import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
-import ruleNoShorthandPropertyOverrides from "./rule-no-shorthand-property-overrides"
-import rulePropertiesOrder from "./rule-properties-order"
-import ruleTrailingSemicolon from "./rule-trailing-semicolon"
 import selectorClassPattern from "./selector-class-pattern"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
@@ -139,7 +133,6 @@ export default {
   "color-named": colorNamed,
   "color-no-hex": colorNoHex,
   "color-no-invalid-hex": colorNoInvalidHex,
-  "color-no-named": colorNoNamed,
   "comment-empty-line-before": commentEmptyLineBefore,
   "comment-whitespace-inside": commentWhitespaceInside,
   "custom-media-pattern": customMediaPattern,
@@ -149,7 +142,6 @@ export default {
   "declaration-bang-space-before": declarationBangSpaceBefore,
   "declaration-block-no-duplicate-properties": declarationBlockNoDuplicateProperties,
   "declaration-block-no-shorthand-property-overrides": declarationBlockNoShorthandPropertyOverrides,
-  "declaration-block-no-single-line": declarationBlockNoSingleLine,
   "declaration-block-properties-order": declarationBlockPropertiesOrder,
   "declaration-block-semicolon-newline-after": declarationBlockSemicolonNewlineAfter,
   "declaration-block-semicolon-newline-before": declarationBlockSemicolonNewlineBefore,
@@ -212,11 +204,7 @@ export default {
   "property-whitelist": propertyWhitelist,
   "root-no-standard-properties": rootNoStandardProperties,
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
-  "rule-no-duplicate-properties": ruleNoDuplicateProperties,
-  "rule-no-shorthand-property-overrides": ruleNoShorthandPropertyOverrides,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
-  "rule-properties-order": rulePropertiesOrder,
-  "rule-trailing-semicolon": ruleTrailingSemicolon,
   "selector-class-pattern": selectorClassPattern,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,
