@@ -22,6 +22,18 @@ testRule(true, tr => {
     column: 10,
   })
 
+  tr.notOk("h1 {\n  color: rgb(0, 0, 0);\n  color: #010101;\n}", {
+    message: messages.rejected("#010101", "rgb(0, 0, 0)"),
+    line: 3,
+    column: 10,
+  })
+
+  tr.notOk("h1 {\n  color: black;\n  color: rgb(0, 0, 0);\n}", {
+    message: messages.rejected("rgb(0, 0, 0)", "black"),
+    line: 3,
+    column: 10,
+  })
+
   tr.notOk(`@-webkit-keyframes spin {
     /* This comment used to break things */
     0% {
