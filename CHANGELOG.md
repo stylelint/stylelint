@@ -1,4 +1,4 @@
-# Head
+# 5.0.0
 
 - Removed: `no-indistinguishable-colors` because its dependencies were unusable in Atom. (To be re-evaluated and re-added later.)
 - Removed: `"warn": true` secondary option. Use `"severity": "warning"`, instead.
