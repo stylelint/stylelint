@@ -67,6 +67,15 @@ testRule("always", tr => {
     },
     "CRLF after"
   )
+  tr.notOk(
+    "a { color:pink; }",
+    {
+      message: messages.expectedAfter(),
+      line: 1,
+      column: 11,
+    },
+    "no space after"
+  )
 })
 
 testRule("never", tr => {
@@ -181,5 +190,14 @@ testRule("always-single-line", tr => {
       column: 11,
     },
     "CRLF after single-line"
+  )
+  tr.notOk(
+    "a { color:pink; }",
+    {
+      message: messages.expectedAfterSingleLine(),
+      line: 1,
+      column: 11,
+    },
+    "no space after"
   )
 })

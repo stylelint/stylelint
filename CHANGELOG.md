@@ -16,6 +16,7 @@
 - Fixed: `no-indistinguishable-colors` no longer errors on color functions containing spaces e.g. `rgb(0, 0, 0)` -- but also removed the rule (see above).
 - Fixed: `declaration-block-properties-order` no longer fails when an unspecified property comes before or after a specified property in a group with `emptyLineBefore: true`.
 - Fixed: `indentation` no longer has false positives when there are empty lines within multi-line values.
+- Fixed: `declaration-color-*-after` no longer fail to do their job when you want a space or newline after the colon and instead there is no space at all.
 
 # 4.5.1
 

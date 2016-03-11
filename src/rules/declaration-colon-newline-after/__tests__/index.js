@@ -109,6 +109,18 @@ testRule("always-multi-line", tr => {
     }
   )
 
+  tr.notOk(
+    "a {\n" +
+    "  box-shadow:0 0 0 1px #5b9dd9\n" +
+    "    0 0 2px 1px rgba(30, 140, 190, 0.8);\n" +
+    "}",
+    {
+      message: messages.expectedAfterMultiLine(),
+      line: 2,
+      column: 13,
+    }
+  )
+
   tr.ok("a { color:pink }")
   tr.ok("a { color :\tpink }")
   tr.ok("a { color\n: pink }")
