@@ -16,6 +16,9 @@ testRule(undefined, tr => {
     content: 'one\
     two';
   }`, "with escaped slash at end of real line")
+  tr.ok(`p[href^=\"https://\"]:before {
+    top: 0;
+  }`, "attribute containing double-slash")
 
   tr.notOk("a::before { content: 'one\ntwo'; }", {
     message: messages.rejected,
