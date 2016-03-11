@@ -83,6 +83,15 @@ tr.ok(
   ;
 }`)
 
+tr.ok(
+`a {
+  background-position: top left,
+    top right,
+
+    bottom left
+  ;
+}`, "weird empty line")
+
 // Rule start/end errors
 tr.notOk(
 `\ta {

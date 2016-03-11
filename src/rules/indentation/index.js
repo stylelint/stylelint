@@ -212,9 +212,9 @@ export default function (space, options) {
         if (match.insideFunction) { return }
 
         // Starting at the index after the newline, we want to
-        // check that the whitespace characters before the first
+        // check that the whitespace characters (excluding newlines) before the first
         // non-whitespace character equal the expected indentation
-        const afterNewlineSpaceMatches = /^(\s*)\S/.exec(source.slice(match.startIndex + 1))
+        const afterNewlineSpaceMatches = /^([ \t]*)\S/.exec(source.slice(match.startIndex + 1))
         if (!afterNewlineSpaceMatches) { return }
         const afterNewlineSpace = afterNewlineSpaceMatches[1]
 
