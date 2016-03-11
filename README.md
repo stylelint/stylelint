@@ -4,6 +4,8 @@
 
 A mighty, modern CSS linter that helps you enforce consistent conventions and avoid errors in your stylesheets.
 
+**Upgrading? Please read our [CHANGELOG](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md) to learn what changes to expect in the latest version, whether that's new features, bug fixes, renamed rules, or whatever else.**
+
 ## Features
 
 - **Over a hundred rules:** From stylistic rules (e.g. checking the spacing around the colon in declarations) to rules that catch subtle coding mistakes (e.g. invalid hex colors or [overriding shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Tricky_edge_cases)).
