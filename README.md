@@ -4,7 +4,7 @@
 
 A mighty, modern CSS linter that helps you enforce consistent conventions and avoid errors in your stylesheets.
 
-**Upgrading? Please read our [CHANGELOG](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md) to learn what changes to expect in the latest version, whether that's new features, bug fixes, renamed rules, or whatever else.**
+**Upgrading? Please read our [CHANGELOG](CHANGELOG.md) to learn what changes to expect in the latest version, whether that's new features, bug fixes, renamed rules, or whatever else.**
 
 ## Features
 
