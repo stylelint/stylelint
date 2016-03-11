@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `string-no-newline` no longer stumbles when there are comment-starting characters inside strings.
+
 # 5.0.0
 
 - Removed: `no-indistinguishable-colors` because its dependencies were unusable in Atom. (To be re-evaluated and re-added later.)

@@ -131,6 +131,12 @@ test("`checkStrings` option", t => {
     target: "b",
     checkStrings: true,
   }), [ 1, 6 ])
+
+  t.deepEqual(styleSearchResults({
+    source: "abc /* 'abc' */",
+    target: "b",
+    checkStrings: true,
+  }), [1], "no strings within comments")
   t.end()
 })
 
@@ -141,7 +147,14 @@ test("`withinStrings` option", t => {
     target: "b",
     withinStrings: true,
   }), [6])
+
+  t.deepEqual(styleSearchResults({
+    source: "p[href^='https://']:before { content: \"\/*\"; \n  top: 0;\n}",
+    target: "\n",
+    withinStrings: true,
+  }), [], "comments do not start inside strings")
   /* eslint-enable quotes */
+
   t.end()
 })
 
@@ -172,6 +185,12 @@ test("`withinComments` option", t => {
     target: "b",
     withinComments: true,
   }), [6])
+
+  t.deepEqual(styleSearchResults({
+    source: "ab'c/*abc*/c'",
+    target: "b",
+    withinComments: true,
+  }), [], "no comments within strings")
   t.end()
 })
 

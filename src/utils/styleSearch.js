@@ -101,7 +101,7 @@ export default function (options, callback) {
 
     // Register the beginning of a comment
     if (
-      !insideComment
+      !insideString && !insideComment
       && currentChar === "/"
       && source[i - 1] !== "\\" // escaping
     ) {
@@ -140,7 +140,7 @@ export default function (options, callback) {
     if (insideComment && ignoreComments) { continue }
 
     // Register the beginning of a string
-    if (!insideString && (currentChar === "\"" || currentChar === "'")) {
+    if (!insideComment && !insideString && (currentChar === "\"" || currentChar === "'")) {
       if (source[i - 1] === "\\") { continue } // escaping
 
       openingQuote = currentChar
