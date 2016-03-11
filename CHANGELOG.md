@@ -1,15 +1,15 @@
 # Head
 
 - Removed: `no-indistinguishable-colors` because its dependencies were unusable in Atom. (To be re-evaluated and re-added later.)
-- Removed: `"warn": true` secondary option.
-- Removed: `color-no-named` rule.
-- Removed: `declaration-block-no-single-line` rule.
-- Removed: `rule-no-duplicate-properties` rule.
-- Removed: `rule-no-shorthand-property-overrides` rule.
-- Removed: `rule-properties-order` rule.
-- Removed: `rule-trailing-semicolon` rule.
-- Removed `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`.
-- Removed: `"always"` option for `font-weight-notation`.
+- Removed: `"warn": true` secondary option. Use `"severity": "warning"`, instead.
+- Removed: `color-no-named` rule. Use the new `color-named` rule, with the `"never"` option instead.
+- Removed: `declaration-block-no-single-line` rule. Use the new `block-no-single-line` rule instead.
+- Removed: `rule-no-duplicate-properties` rule. Use the new `declaration-block-no-duplicate-properties` rule instead.
+- Removed: `rule-no-shorthand-property-overrides` rule. Use the new `declaration-block-no-shorthand-property-overrides` rule instead.
+- Removed: `rule-properties-order` rule. Use the new `declaration-block-properties-order` rule instead.
+- Removed: `rule-trailing-semicolon` rule. Use the new `declaration-block-trailing-semicolon` rule instead.
+- Removed `true` option for `emptyLineBefore` when using property groups in `rule-properties-order`. Use the new `"always"` or `"never"` option instead.
+- Removed: `"always"` option for `font-weight-notation`. Use the new `always-where-possible` option instead.
 - Added: support for overlapping `stylelint-disable` commands.
 - Fixed: `max-nesting-depth` does not warn about blockless at-rules.
 - Fixed: `function-comma-newline-after` and related rules consider input to be multi-line (applying to "always-multi-line", etc.) when the newlines are at the beginning or end of the input.
