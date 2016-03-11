@@ -47,27 +47,6 @@ testRule([
   })
 })
 
-// Deprecated `emptyLineBefore: true`
-testRule([
-  "height",
-  {
-    order: "flexible",
-    emptyLineBefore: true,
-    properties: [
-      "color",
-      "font-size",
-      "font-weight",
-    ],
-  },
-], tr => {
-  const deprecationTest = "In 'declaration-block-properties-order', the value 'true' for 'emptyLineBefore' has been deprecated and in 5.0 it will be removed. Use 'always' or 'never' instead."
-  tr.notOk("a {\n  height: 1px;\n\n  color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}", deprecationTest)
-  tr.notOk("a {\n  height: 1px;\n\n font-size: 2px;\n  color: pink;\n  font-weight: bold;\n}", deprecationTest)
-  tr.notOk("a {\n  height: 1px;\n\n  font-size: 2px;\n  font-weight: bold;\n  color: pink;\n}", deprecationTest)
-  tr.notOk("a {\n  height: 1px;\n\n  font-weight: bold;\n  font-size: 2px;\n  color: pink;\n}", deprecationTest)
-  tr.notOk("a {\n  height: 1px;\n\n  /* something */\n  font-weight: bold;\n}", deprecationTest)
-})
-
 testRule([
   "height",
   {

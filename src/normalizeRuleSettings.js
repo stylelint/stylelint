@@ -9,7 +9,6 @@ const rulesWithPrimaryOptionArray = new Set([
   "property-unit-blacklist",
   "property-unit-whitelist",
   "property-whitelist",
-  "rule-properties-order",
   "unit-blacklist",
   "unit-whitelist",
 ])
