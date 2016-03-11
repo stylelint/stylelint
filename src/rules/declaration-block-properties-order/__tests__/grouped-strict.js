@@ -22,6 +22,11 @@ testRule([
 
   tr.ok("a { height: 1px; width: 2px; color: pink; font-size: 2px; font-weight: bold; }")
 
+  tr.ok("a { height: 10px; background: orange; }", "unspecified after groupless specified")
+  tr.ok("a { font-weight: bold; background: orange; }", "unspecified after grouped specified")
+  tr.ok("a { background: orange; height: 10px; }", "unspecified before groupless specified")
+  tr.ok("a { background: orange; font-weight: bold; }", "unspecified before grouped specified")
+
   tr.notOk(
     "a { width: 2px; color: pink; font-size: 2px; font-weight: bold; height: 1px; }",
     messages.expected("height", "font-weight")
@@ -65,6 +70,9 @@ testRule([
   tr.ok("a {\r\n  height: 1px;\r\n  width: 2px;\r\n\r\n  font-size: 2px;\r\n  font-weight: bold;\r\n}")
   tr.ok("a {\r\n  height: 1px;\r\n\r\n  font-weight: bold;\r\n}")
   tr.ok("a {\r\n  height: 1px;\r\n  \r\n  font-weight: bold;\r\n}")
+
+  tr.ok("a {\n height: 10px;\n background: orange;\n}", "unspecified after specified")
+  tr.ok("a {\n color: blue;\n\n font-weight: bold;\n}", "unspecified before specified")
 
   tr.notOk(
     "a {\r\n  height: 1px;\r\n  width: 2px;\r\n  font-size: 2px;\r\n  font-weight: bold;\r\n}",

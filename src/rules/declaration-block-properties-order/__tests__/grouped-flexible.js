@@ -25,6 +25,11 @@ testRule([
   tr.ok("a { height: 1px; width: 2px; font-size: 2px; font-weight: bold; color: pink; }")
   tr.ok("a { height: 1px; width: 2px; font-weight: bold; font-size: 2px; color: pink; }")
 
+  tr.ok("a { height: 10px; background: orange; }", "unspecified after groupless specified")
+  tr.ok("a { font-weight: bold; background: orange; }", "unspecified after grouped specified")
+  tr.ok("a { background: orange; height: 10px; }", "unspecified before groupless specified")
+  tr.ok("a { background: orange; font-weight: bold; }", "unspecified before grouped specified")
+
   tr.notOk("a { height: 1px; font-weight: bold; width: 2px; }", {
     message: messages.expected("width", "font-weight"),
     line: 1,
@@ -66,6 +71,11 @@ testRule([
   tr.ok("a {\n  height: 1px;\n\n  font-size: 2px;\n  font-weight: bold;\n  color: pink;\n}")
   tr.ok("a {\n  height: 1px;\n\n  font-weight: bold;\n  font-size: 2px;\n  color: pink;\n}")
   tr.ok("a {\n  height: 1px;\n\n  /* something */\n  font-weight: bold;\n}", "comment before line break")
+
+  tr.ok("a { height: 10px; background: orange; }", "unspecified after groupless specified")
+  tr.ok("a { font-weight: bold; background: orange; }", "unspecified after grouped specified")
+  tr.ok("a { background: orange; height: 10px; }", "unspecified before groupless specified")
+  tr.ok("a {\n  background: orange;\n\n  font-weight: bold;\n}", "unspecified before grouped specified")
 
   tr.notOk(
     "a {\n  height: 1px;\n  color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}",

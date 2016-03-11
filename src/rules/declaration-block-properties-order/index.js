@@ -109,13 +109,13 @@ export default function (expectation, options) {
           ? secondPropData.orderData.separatedGroup
           : lastKnownSeparatedGroup
 
-        if (firstPropSeparatedGroup !== secondPropSeparatedGroup) {
+        if (firstPropSeparatedGroup !== secondPropSeparatedGroup && !secondPropIsUnspecified) {
           // Get an array of just the property groups, remove any solo properties
           const groups = _.reject(expectation, _.isString)
 
           // secondProp seperatedGroups start at 2 so we minus 2 to get the 1st item
           // from our groups array
-          const emptyLineBefore = _.get(groups[secondPropData.orderData.separatedGroup - 2], "emptyLineBefore")
+          const emptyLineBefore = _.get(groups[secondPropSeparatedGroup - 2], "emptyLineBefore")
           if (!hasEmptyLineBefore(secondPropData.node) && emptyLineBefore === "always") {
             complain({
               message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),

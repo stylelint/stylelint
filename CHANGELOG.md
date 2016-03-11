@@ -14,6 +14,7 @@
 - Fixed: `max-nesting-depth` does not warn about blockless at-rules.
 - Fixed: `function-comma-newline-after` and related rules consider input to be multi-line (applying to "always-multi-line", etc.) when the newlines are at the beginning or end of the input.
 - Fixed: `no-indistinguishable-colors` no longer errors on color functions containing spaces e.g. `rgb(0, 0, 0)` -- but also removed the rule (see above).
+- Fixed: `declaration-block-properties-order` no longer fails when an unspecified property comes before or after a specified property in a group with `emptyLineBefore: true`.
 
 # 4.5.1
 
