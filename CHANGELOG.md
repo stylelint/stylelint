@@ -1,4 +1,4 @@
-# Head
+# 5.0.1
 
 - Fixed: `string-no-newline` no longer stumbles when there are comment-starting characters inside strings.
 
