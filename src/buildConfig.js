@@ -63,8 +63,8 @@ function augmentConfig(config, configDir) {
     return Promise.resolve(configWithAbsolutePlugins)
   }
 
-  const extendLookups = [].concat(config.extends)
-  const origConfig = omit(config, "extends")
+  const extendLookups = [].concat(configWithAbsolutePlugins.extends)
+  const origConfig = omit(configWithAbsolutePlugins, "extends")
   const resultPromise = extendLookups.reduce((mergeConfigs, extendLookup) => {
     return mergeConfigs.then(mergedConfig => {
       return loadExtendedConfig(mergedConfig, extendLookup).then(extendedConfig => {
