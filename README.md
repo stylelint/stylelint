@@ -33,6 +33,20 @@ With stylelint, it's easy to start linting your CSS:
 4. Decide whether to use the [CLI](/docs/user-guide/cli.md), [Node API](/docs/user-guide/node-api.md), or [PostCSS plugin](/docs/user-guide/postcss-plugin.md). Be sure to [specify the syntax](/docs/user-guide/css-processors.md#parsing-scss) if you're using SCSS.
 5. Lint!
 
+## Help out
+
+There is always a lot of work to do, and already well over 100 rules to maintain. So please help out in any way that you can!
+
+You can help stylelint grow in a number of ways:
+
+- Create, enhance, and debug rules (see our guide to ["Working on rules"](docs/developer-guide/rules.md)).
+- Improve documentation.
+- Chime in on any open issue or pull request.
+- Open new issues about your ideas for making stylelint better.
+- Add new tests to *absolutely anything*.
+- Create or contribute to ecosystem tools like the plugins for Atom, Sublime Text, gulp, and Grunt.
+- Spread the word.
+
 ## Guides
 
 You'll find more detailed information on using the linter and tailoring it to your needs in our guides:
@@ -40,7 +54,7 @@ You'll find more detailed information on using the linter and tailoring it to yo
 - [User guide](docs/user-guide.md) - Usage, configuration and complementary tools.
 - [Developer guide](docs/developer-guide.md) - Contributing to stylelint and writing your own plugins & formatters.
 
-## Important Documents
+## Important documents
 
 - [Changelog](CHANGELOG.md)
 - [Contributing Guidelines](CONTRIBUTING.md)
