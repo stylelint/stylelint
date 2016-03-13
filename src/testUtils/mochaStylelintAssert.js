@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import createStylelintAssert from "./createStylelintAssert"
 import assert from "assert"
 
