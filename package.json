@@ -58,6 +58,7 @@
     "blue-tape": "^0.2.0",
     "eslint": "^1.10.3",
     "eslint-config-stylelint": "^0.1.0",
+    "jscodeshift": "^0.3.14",
     "mocha": "^2.4.5",
     "npmpub": "^3.0.1",
     "postcss-import": "^8.0.2",
@@ -74,7 +75,8 @@
     "test": "npm run lint && npm run tape",
     "mocha-test": "mocha --compilers js:babel-core/register src/rules/block-no-empty/__tests__/test-with-mocha.js",
     "ava-test": "ava src/rules/block-no-empty/__tests__/test-with-ava.js",
-    "blue-tape-test": "babel-tape-runner src/rules/block-no-empty/__tests__/test-with-blue-tape.js"
+    "blue-tape-test": "babel-tape-runner src/rules/block-no-empty/__tests__/test-with-blue-tape.js",
+    "shift-tests": "jscodeshift -t ./shift-tests.js ./src/rules/comment-empty-line-before/__tests__/index.js"
   },
   "babel": {
     "presets": [
