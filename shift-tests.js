@@ -18,6 +18,7 @@ export default function (fileInfo, api) {
     if (!youveBeenWarned) {
       /* eslint-disable no-console */
       console.log(`>> check file "${fileInfo.path}"`)
+      abnormalInfoText += "// Original file:\n" + source
       /* eslint-disable no-console */
       youveBeenWarned = true
     }
@@ -26,6 +27,8 @@ export default function (fileInfo, api) {
   j(source).find(j.Function).forEach(path => {
     const node = path.node
     if (!_.get(node, "id.name") || !_.get(node, "params[0].name") === "tr") { return }
+
+    warn()
 
     const abnormalTestGroupDescription = j.objectExpression([])
     const testCases = extractTestCases(node)
@@ -58,7 +61,6 @@ export default function (fileInfo, api) {
 
       if (!usesWarningFreeBasics && node.callee.name === "warningFreeBasics") {
         usesWarningFreeBasics = true
-        abnormalInfoText += "// Original file:\n" + source
         return
       }
 
@@ -93,7 +95,6 @@ export default function (fileInfo, api) {
     const node = path.node
 
     if (!_.includes([ "testRule", "testRuleScss" ], node.callee.name)) {
-      warn()
       return
     }
 
