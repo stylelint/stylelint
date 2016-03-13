@@ -1,4 +1,5 @@
 import postcss from "postcss"
+import scssSyntax from "postcss-scss"
 import _ from "lodash"
 import normalizeRuleSettings from "../normalizeRuleSettings"
 import disableRanges from "../disableRanges"
@@ -41,7 +42,11 @@ export default function (equalityCheck) {
     // Process the code through the rule and return
     // the PostCSS LazyResult promise
     function postcssProcess(code) {
-      var processor = postcss()
+      const postcssProcessOptions = {}
+      if (schema.syntax === "scss") {
+        postcssProcessOptions.syntax = scssSyntax
+      }
+      const processor = postcss()
       processor.use(disableRanges)
 
       if (schema.preceedingPlugins) {
@@ -50,7 +55,7 @@ export default function (equalityCheck) {
 
       return processor
         .use(rule(rulePrimaryOptions, ruleSecondaryOptions))
-        .process(code, schema.postcssOptions)
+        .process(code, postcssProcessOptions)
     }
 
     // Apply the basic positive checks unless
