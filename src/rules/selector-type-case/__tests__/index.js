@@ -1,21 +1,12 @@
 import {
   ruleTester,
-  warningFreeBasics,
 } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
 
-function sharedTests(tr) {
-  warningFreeBasics(tr)
-
-  tr.ok("a { border-#$side: 0; }", "ignore sass-like interpolation")
-  tr.ok("a { box-sizing: #$type-box; }", "ignore sass-like interpolation")
-}
-
 testRule("lower", tr => {
-  sharedTests(tr)
-
+    
   tr.ok("a { display: inline-block; }")
   tr.ok("div { display: inline-block; }")
   tr.ok("body { display: inline-block; }")
@@ -41,7 +32,6 @@ testRule("lower", tr => {
 })
 
 testRule("upper", tr => {
-  sharedTests(tr)
 
   tr.ok("A { display: inline-block; }")
   tr.ok("DIV { display: inline-block; }")

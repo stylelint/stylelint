@@ -14,14 +14,14 @@ export const messages = ruleMessages(ruleName, {
   expected: (h, v) => `Expected "${h}" to be "${v}"`,
 })
 
-export default function (on, options) {
+export default function(expectation) {
   return (root, result) => {
-    const validOptions = validateOptions(result, ruleName, { actual: on }, {
-      actual: options,
-      possible: {
-        ignore: [ "descendant", "compounded" ],
-      },
-      optional: true,
+    const validOptions = validateOptions(result, ruleName, {
+      actual: expectation,
+      possible: [
+        "lower",
+        "upper",
+      ],
     })
     if (!validOptions) { return }
 
@@ -46,21 +46,15 @@ export default function (on, options) {
           // & is not a type selector: it's used for nesting 
           if (tag.value[0] === "&") { return }
 
-          if (optionsHaveIgnored(options, "descendant")  && isCombinator(tag.prev())) {
-            return
-          }
+          const typeValue = tag.value
+          const typeValueLower = typeValue.toLowerCase()
+          const typeValueUpper = typeValue.toUpperCase()
+          const expectedValue = expectation === "lower" ? typeValueLower : typeValueUpper
 
-          if (
-            optionsHaveIgnored(options, "compounded")
-            && get(tag, "parent.nodes.length") > 1
-            && !isCombinator(tag.prev())
-            && !isCombinator(tag.next())
-          ) {
-            return
-          }
+          if (typeValue === expectedValue) { return }
 
           report({
-            message: messages.rejected,
+            message: messages.expected(typeValue, expectedValue),
             node: rule,
             index: tag.sourceIndex,
             ruleName,
@@ -71,8 +65,4 @@ export default function (on, options) {
         .process(rule.selector)
     })
   }
-}
-
-function isCombinator(node) {
-  return get(node, "type") === "combinator"
 }
