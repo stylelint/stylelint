@@ -1,4 +1,6 @@
 import _ from "lodash"
+import fs from "fs"
+import path from "path"
 
 const toSourceOptions = {
   trailingComma: true,
@@ -9,26 +11,54 @@ export default function (fileInfo, api) {
   const j = api.jscodeshift
   const source = fileInfo.source
   const result = j.program([])
+  let abnormalInfoText = ""
 
-  j(source).find(j.CallExpression).forEach(path => {
-    const node = path.node
+  let youveBeenWarned = false
+  function warn() {
+    if (!youveBeenWarned) {
+      /* eslint-disable no-console */
+      console.log(`>> check file "${fileInfo.path}"`)
+      /* eslint-disable no-console */
+      youveBeenWarned = true
+    }
+  }
 
-    if (!_.includes([ "testRule", "testRuleScss" ], node.callee.name)) { return }
+  j(source).find(j.Function).forEach(path => {
+    var node = path.node
+    if (!_.get(node, "id.name") || !_.get(node, "params[0].name") === "tr") { return }
 
-    const usesScss = node.callee.name === "testRuleScss"
+    const abnormalTestGroupDescription = j.objectExpression([])
+    const testCases = extractTestCases(node)
 
-    const testFuncNode = node.arguments.slice(-1)
-    const configNodes = j.arrayExpression(node.arguments.slice(0, -1))
+    // Log non-standard test invocations within a comment
+    if (testCases.positiveTests.elements.length) {
+      abnormalTestGroupDescription.properties.push(j.property("init",
+        j.identifier("accept"),
+        testCases.positiveTests
+      ))
+    }
+    if (testCases.negativeTests.elements.length) {
+      abnormalTestGroupDescription.properties.push(j.property("init",
+        j.identifier("reject"),
+        testCases.negativeTests
+      ))
+    }
+    const groupString = j(abnormalTestGroupDescription).toSource(toSourceOptions)
+    let abnormalTestGroupCode = `// Schematization of "${node.id.name}":\n`
+    abnormalTestGroupCode += `const schematized${node.id.name[0].toUpperCase() + node.id.name.slice(1)} = ${groupString}`
+    abnormalInfoText += "\n\n" + abnormalTestGroupCode
+  })
 
+  let usesWarningFreeBasics = false
+  function extractTestCases(sourceNode) {
     const positiveTests = j.arrayExpression([])
     const negativeTests = j.arrayExpression([])
-
-    let usesWarningFreeBasics = false
-    j(testFuncNode).find(j.CallExpression).forEach(path => {
+    j(sourceNode).find(j.CallExpression).forEach(path => {
       const node = path.node
 
       if (!usesWarningFreeBasics && node.callee.name === "warningFreeBasics") {
         usesWarningFreeBasics = true
+        abnormalInfoText += "// Original file:\n" + source
         return
       }
 
@@ -52,8 +82,30 @@ export default function (fileInfo, api) {
         return
       }
     })
+    return {
+      positiveTests,
+      negativeTests,
+      usesWarningFreeBasics,
+    }
+  }
+
+  j(source).find(j.CallExpression).forEach(path => {
+    const node = path.node
+
+    if (!_.includes([ "testRule", "testRuleScss" ], node.callee.name)) {
+      warn()
+      return
+    }
+
+    const usesScss = node.callee.name === "testRuleScss"
+
+    const testFuncNode = node.arguments.slice(-1)
+    const configNodes = j.arrayExpression(node.arguments.slice(0, -1))
+
+    const testCases = extractTestCases(testFuncNode)
 
     const testGroupDescription = j.objectExpression([])
+
     testGroupDescription.properties.push(j.property("init",
       j.identifier("ruleName"),
       j.identifier("ruleName")
@@ -62,7 +114,7 @@ export default function (fileInfo, api) {
       j.identifier("config"),
       configNodes
     ))
-    if (!usesWarningFreeBasics) {
+    if (!testCases.usesWarningFreeBasics) {
       testGroupDescription.properties.push(j.property("init",
         j.identifier("skipBasicChecks"),
         j.literal(true)
@@ -74,16 +126,16 @@ export default function (fileInfo, api) {
         j.literal("scss")
       ))
     }
-    if (positiveTests.elements.length) {
+    if (testCases.positiveTests.elements.length) {
       testGroupDescription.properties.push(j.property("init",
         j.identifier("accept"),
-        positiveTests
+        testCases.positiveTests
       ))
     }
-    if (negativeTests.elements.length) {
+    if (testCases.negativeTests.elements.length) {
       testGroupDescription.properties.push(j.property("init",
         j.identifier("reject"),
-        negativeTests
+        testCases.negativeTests
       ))
     }
 
@@ -100,9 +152,17 @@ export default function (fileInfo, api) {
   newFileContents += "import rule, { ruleName, messages } from \"..\"\n\n"
   newFileContents += j(result).toSource(toSourceOptions)
 
-  let newFileContentsStylized = newFileContents.replace(/}\);/g, "})")
+  // Remove semicolons
+  newFileContents = newFileContents.replace(/}\);/g, "})")
 
-  return newFileContentsStylized
+  // If we noticed that something abnormal is going on,
+  // write that file for review
+  if (abnormalInfoText) {
+    const infoFilePath = path.join(__dirname, fileInfo.path.replace(/\.js$/, "-codeshiftInfo.js"))
+    fs.writeFileSync(infoFilePath, abnormalInfoText, "utf8")
+  }
+
+  return newFileContents
 
   function addPositiveTestCase(testCaseNode, expressionNode, positiveTestsNode) {
     if (expressionNode.arguments[1]) {

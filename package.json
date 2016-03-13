@@ -77,7 +77,8 @@
     "ava-test": "ava src/rules/block-no-empty/__tests__/test-with-ava.js",
     "blue-tape-test": "babel-tape-runner src/rules/block-no-empty/__tests__/test-with-blue-tape.js",
     "shift-tests-standard": "jscodeshift -t ./shift-tests.js ./src/rules/rule-trailing-semicolon/__tests__/index.js && babel-tape-runner src/rules/rule-trailing-semicolon/__tests__/index.js",
-    "shift-tests-scss": "jscodeshift -t ./shift-tests.js ./src/rules/comment-whitespace-inside/__tests__/index.js && babel-tape-runner src/rules/comment-whitespace-inside/__tests__/index.js"
+    "shift-tests-scss": "jscodeshift -t ./shift-tests.js ./src/rules/comment-whitespace-inside/__tests__/index.js && babel-tape-runner src/rules/comment-whitespace-inside/__tests__/index.js",
+    "shift-tests-abnormal": "jscodeshift -t ./shift-tests.js ./src/rules/at-rule-empty-line-before/__tests__/index.js && babel-tape-runner src/rules/at-rule-empty-line-before/__tests__/index.js"
   },
   "babel": {
     "presets": [
