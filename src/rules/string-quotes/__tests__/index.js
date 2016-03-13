@@ -77,11 +77,11 @@ testRule("double", tr => {
   tr.ok("a { /* 'horse' */ }", "ignores comment")
 })
 
-const scssTestRule = ruleTester(rule, ruleName, {
+const testRuleScss = ruleTester(rule, ruleName, {
   postcssOptions: { syntax: scss },
 })
 
-scssTestRule("double", tr => {
+testRuleScss("double", tr => {
   tr.ok("a {\n  // 'horse'\n}", "ignores single-line SCSS comment")
   tr.notOk("a::before {\n  // 'horse'\n  content: 'thing'; }", {
     message: messages.expected("double"),

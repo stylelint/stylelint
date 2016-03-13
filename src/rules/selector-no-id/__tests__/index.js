@@ -36,11 +36,11 @@ testRule(undefined, tr => {
   })
 })
 
-const scssTestRule = ruleTester(rule, ruleName, {
+const testRuleScss = ruleTester(rule, ruleName, {
   postcssOptions: { syntax: scss },
 })
 
-scssTestRule(undefined, tr => {
+testRuleScss(undefined, tr => {
   tr.ok("@for $n from 1 through 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore sass interpolation inside @for")
   tr.ok("@for $n from 1 through 10 { .n#{$n}-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore multiple sass interpolations in a selector inside @for")
   tr.ok("@for $n from 1 through 10 { .n#{$n}n#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore multiple sass interpolations in a selector inside @for")

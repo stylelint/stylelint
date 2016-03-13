@@ -13,7 +13,9 @@ export default function (fileInfo, api) {
   j(source).find(j.CallExpression).forEach(path => {
     const node = path.node
 
-    if (node.callee.name !== "testRule") { return }
+    if (!_.includes([ "testRule", "testRuleScss" ], node.callee.name)) { return }
+
+    const usesScss = node.callee.name === "testRuleScss"
 
     const testFuncNode = node.arguments.slice(-1)
     const configNodes = j.arrayExpression(node.arguments.slice(0, -1))
@@ -64,6 +66,12 @@ export default function (fileInfo, api) {
       testGroupDescription.properties.push(j.property("init",
         j.identifier("skipBasicChecks"),
         j.literal(true)
+      ))
+    }
+    if (usesScss) {
+      testGroupDescription.properties.push(j.property("init",
+        j.identifier("syntax"),
+        j.literal("scss")
       ))
     }
     if (positiveTests.elements.length) {
