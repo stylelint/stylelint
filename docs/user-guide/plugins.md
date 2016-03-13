@@ -10,4 +10,4 @@ Plugins share all the same traits and conventions as [rules](/docs/user-guide/ru
 
 ## Declaration
 
-* [`stylelint-declaration-use-variable`](https://github.com/sh-waqar/stylelint-declaration-use-variable): Specify a property for which you want scss variable to be used.
+- [`stylelint-declaration-use-variable`](https://github.com/sh-waqar/stylelint-declaration-use-variable): Specify a property for which you want scss variable to be used.
