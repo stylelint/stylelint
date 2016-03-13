@@ -72,6 +72,7 @@ export default function (expectation, options) {
 
       const hasEmptyLineBefore = before.indexOf("\n\n") !== -1
         || before.indexOf("\r\n\r\n") !== -1
+        || before.indexOf("\n\r\n") !== -1
 
       // Return if the exceptation is met
       if (expectEmptyLineBefore === hasEmptyLineBefore) { return }
@@ -79,7 +80,7 @@ export default function (expectation, options) {
       const message = expectEmptyLineBefore ? messages.expected : messages.rejected
 
       report({
-        message: message,
+        message,
         node: comment,
         result,
         ruleName,

@@ -1,11 +1,11 @@
 # number-no-trailing-zeros
 
-Disallow trailing zeros within numbers.
+Disallow trailing zeros in numbers.
 
 ```css
-    a { top: 0.5000px; bottom: 1.0px; }
-/**              ↑               ↑
- *            These trailing zeros */
+a { top: 0.5000px; bottom: 1.0px; }
+/**         ↑                ↑
+ *        These trailing zeros */
 ```
 
 The following patterns are considered warnings:

@@ -5,12 +5,30 @@ import stylelint from "../"
 const config = {
   rules: {
     "block-opening-brace-newline-after": "always",
+    "declaration-block-properties-order": [
+      {
+        emptyLineBefore: "always",
+        properties: [
+          "content",
+        ],
+      },
+      {
+        emptyLineBefore: "always",
+        properties: [
+          "position",
+          "top",
+          "right",
+          "bottom",
+          "left",
+          "z-index",
+        ],
+      },
+    ],
     "color-no-invalid-hex": [ true, {
-      warn: true,
+      severity: "warning",
       message: "You made a mistake",
     } ],
     "function-blacklist": ["calc"],
-    "rule-properties-order": [ [ "margin", "padding" ], { unspecified: "top" } ],
     "function-whitelist": null,
   },
 }
@@ -33,14 +51,14 @@ b { background: pink; }
 }
 `)
 
-test("expected warnings", t => {
+test("integration test expecting warnings", t => {
   t.plan(9)
 
   postcss()
     .use(stylelint(config))
     .process(css)
     .then(checkResult)
-    .catch(err => console.log(err.stack))
+    .catch(logError)
 
   function checkResult(result) {
     const { messages } = result
@@ -55,3 +73,7 @@ test("expected warnings", t => {
     t.equal(messages[2].severity, "warning")
   }
 })
+
+function logError(err) {
+  console.log(err.stack) // eslint-disable-line no-console
+}

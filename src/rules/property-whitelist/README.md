@@ -3,12 +3,12 @@
 Specify a whitelist of allowed properties.
 
 ```css
-    a { display: block; }
-/**          ↑
+a { display: block; }
+/** ↑
  * These properties */
 ```
 
-The rule ignores variables (`$sass`, `@less`, `--custom-property`).
+This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 ## Options
 
@@ -30,7 +30,6 @@ Given:
 ```
 
 The following patterns are considered warnings:
-
 
 ```css
 a { color: pink; }

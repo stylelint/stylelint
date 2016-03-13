@@ -53,6 +53,34 @@ testRule("always", tr => {
   })
 })
 
+testRule("always", { ignoreAtRules: ["for"] }, tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a { color: pink; }")
+  tr.ok("@for ...\n{ color: pink; }")
+  tr.ok("@for ...\r\n{ color: pink; }")
+
+  tr.notOk("a{ color: pink; }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 1,
+  })
+})
+
+testRule("always", { ignoreAtRules: "/fo/" }, tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a { color: pink; }")
+  tr.ok("@for ...\n{ color: pink; }")
+  tr.ok("@for ...\r\n{ color: pink; }")
+
+  tr.notOk("a{ color: pink; }", {
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 1,
+  })
+})
+
 testRule("never", tr => {
   warningFreeBasics(tr)
 

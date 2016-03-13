@@ -3,9 +3,9 @@
 Disallow vendor prefixes for values.
 
 ```css
-    .foo { display: -webkit-flex; }
-/**                     ↑
- *         These prefixes */
+.foo { display: -webkit-flex; }
+/**              ↑
+ *  These prefixes */
 ```
 
 The following patterns are considered warnings:

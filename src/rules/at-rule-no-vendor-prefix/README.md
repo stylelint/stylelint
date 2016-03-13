@@ -4,8 +4,8 @@ Disallow vendor prefixes for @rules.
 
 ```css
     @-webkit-keyframes { 0% { top: 0; } }
-/**     ↑
- *  These prefixes */
+/**  ↑
+ * These prefixes */
 ```
 
 The following patterns are considered warnings:

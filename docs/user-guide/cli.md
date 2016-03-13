@@ -9,7 +9,7 @@ The CLI outputs formatted results into `process.stdout`, which you can read with
 Looking for `.stylelintrc` and linting all `.css` files in the `foo` directory:  
 
 ```shell
-stylelint foo/*.css
+stylelint "foo/*.css"
 ```
 
 Looking for `.stylelintrc` and linting `stdin`:
@@ -21,19 +21,19 @@ echo "a { color: pink; }" | stylelint
 Using `bar/mySpecialConfig.json` as config to lint all `.css` files in the `foo` directory, then writing the output to `myTestReport.txt`:
 
 ```shell
-stylelint foo/*.css --config bar/mySpecialConfig.json > myTestReport.txt
+stylelint "foo/*.css" --config bar/mySpecialConfig.json > myTestReport.txt
 ```
 
 Using `bar/mySpecialConfig.json` as config, with quiet mode on, to lint all `.css` files in the `foo` directory and any of its subdirectories and also all `.css` files in the `bar directory`, then writing the JSON-formatted output to `myJsonReport.json`:
 
 ```shell
-stylelint foo/**/*.css bar/*.css -q -f json --config bar/mySpecialConfig.json > myJsonReport.json
+stylelint "foo/**/*.css bar/*.css" -q -f json --config bar/mySpecialConfig.json > myJsonReport.json
 ```
 
-The linter can parse the SCSS!
+Linting all the `.scss` files in the `foo` directory, using the `syntax` option:
 
 ```shell
-stylelint foo/**/*.scss --syntax scss
+stylelint "foo/**/*.scss" --syntax scss
 ```
 
 ## Exit codes

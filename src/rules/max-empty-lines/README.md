@@ -1,6 +1,15 @@
 # max-empty-lines
 
-Disallow more than a specified number of adjacent empty lines.
+Limit the number of adjacent empty lines.
+
+```css
+a {}
+     /* ← */
+     /* ← */
+a {} /* ↑ */
+/**     ↑
+ * These lines */
+```
 
 ## Options
 

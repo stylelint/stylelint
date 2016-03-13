@@ -153,7 +153,7 @@ test("standalone with input css and quiet mode", t => {
   const config = {
     quiet: true,
     rules: {
-      "block-no-empty": [ true, { warn: true } ],
+      "block-no-empty": [ true, { "severity": "warning" } ],
     },
   }
 
@@ -304,7 +304,7 @@ test("standalone extending a config that is overridden", t => {
 test("standalone loading YAML with custom message", t => {
   standalone({
     code: "a { color: pink; }",
-    configFile: path.join(__dirname, "fixtures/config-color-no-named-custom-message.yaml"),
+    configFile: path.join(__dirname, "fixtures/config-color-named-custom-message.yaml"),
   }).then(({ output }) => {
     const parsedOutput = JSON.parse(output)[0]
     t.equal(parsedOutput.warnings.length, 1)
@@ -348,5 +348,5 @@ test("standalone using codeFilename and ignoreFiles with configBasedir", t => {
 })
 
 function logError(err) {
-  console.log(err.stack)
+  console.log(err.stack) // eslint-disable-line no-console
 }

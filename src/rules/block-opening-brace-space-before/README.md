@@ -3,8 +3,8 @@
 Require a single space or disallow whitespace before the opening brace of blocks.
 
 ```css
-    a { color: pink; }
-/**   ↑
+  a { color: pink; }
+/** ↑
  * The space before this brace */
 ```
 
@@ -148,4 +148,21 @@ a { color: pink; }
 ```css
 a{
 color: pink;}
+```
+
+## Optional options
+
+### `ignoreAtRules: ["/regex/", "non-regex"]`
+
+Given `["/fo/"]` or `["for"]`:
+
+The following patterns are *not* considered warnings:
+
+```css
+@for ...
+{}
+```
+
+```css
+@for ...{}
 ```

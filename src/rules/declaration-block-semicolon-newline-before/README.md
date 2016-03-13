@@ -3,11 +3,11 @@
 Require a newline or disallow whitespace before the semicolons of declaration blocks.
 
 ```css
-    a {
-      color: pink
-      ; top: 0;
-    } ↑
-/**   ↑
+  a {
+    color: pink
+    ; top: 0;
+  } ↑
+/** ↑
  * The newline before this semicolon */
 ```
 

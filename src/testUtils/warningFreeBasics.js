@@ -8,5 +8,6 @@
 export default function (tr) {
   tr.ok("", "empty stylesheet")
   tr.ok("a {}", "empty rule set")
+  tr.ok (":global {}", "CSS Modules global empty rule set")
   tr.ok("@import \"foo.css\";", "blockless statement")
 }

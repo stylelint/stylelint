@@ -3,9 +3,9 @@
 Require a newline or disallow whitespace before the opening brace of blocks.
 
 ```css
-    a
-      { color: pink; }
-/**   ↑
+  a
+    { color: pink; }
+/** ↑
  * The newline before this brace */
 ```
 

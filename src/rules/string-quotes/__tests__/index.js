@@ -73,7 +73,7 @@ testRule("double", tr => {
     column: 21,
   })
 
-  tr.ok(`a::before { content: "foo\"horse\"'cow'"; }`, "string in strings")
+  tr.ok("a::before { content: \"foo\"horse\"'cow'\"; }", "string in strings")
   tr.ok("a { /* 'horse' */ }", "ignores comment")
 })
 
@@ -83,9 +83,16 @@ const testRuleScss = ruleTester(rule, ruleName, {
 
 testRuleScss("double", tr => {
   tr.ok("a {\n  // 'horse'\n}", "ignores single-line SCSS comment")
+
   tr.notOk("a::before {\n  // 'horse'\n  content: 'thing'; }", {
     message: messages.expected("double"),
     line: 3,
-    column: 10,
+    column: 12,
   }, "pays attention when single-line SCSS comment ends")
+
+  tr.notOk("a::before {\n// one\n// two\n// three\n  content: 'thing'; }", {
+    message: messages.expected("double"),
+    line: 5,
+    column: 12,
+  }, "accurate position after // comments")
 })

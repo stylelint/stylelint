@@ -1,0 +1,4 @@
+rules:
+  color-named:
+    - "never"
+    - message: "Unacceptable"

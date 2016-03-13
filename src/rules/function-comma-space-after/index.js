@@ -11,10 +11,10 @@ import {
 export const ruleName = "function-comma-space-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => `Expected single space after ","`,
-  rejectedAfter: () => `Unexpected whitespace after ","`,
-  expectedAfterSingleLine: () => `Expected single space after "," in a single-line function`,
-  rejectedAfterSingleLine: () => `Unexpected whitespace after "," in a single-line function`,
+  expectedAfter: () => "Expected single space after \",\"",
+  rejectedAfter: () => "Unexpected whitespace after \",\"",
+  expectedAfterSingleLine: () => "Expected single space after \",\" in a single-line function",
+  rejectedAfterSingleLine: () => "Unexpected whitespace after \",\" in a single-line function",
 })
 
 export default function (expectation) {
@@ -45,7 +45,10 @@ export function functionCommaSpaceChecker({ locationChecker, root, result, check
     valueParser(decl.value).walk(valueNode => {
       if (valueNode.type !== "function") { return }
 
-      let functionArguments = (() => {
+      // Ignore `url()` arguments, which may contain data URIs or other funky stuff
+      if (valueNode.value === "url") { return }
+
+      const functionArguments = (() => {
         let result = valueParser.stringify(valueNode)
         // Remove function name and opening paren
         result = result.slice(valueNode.value.length + 1)

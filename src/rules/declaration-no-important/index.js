@@ -7,7 +7,7 @@ import {
 export const ruleName = "declaration-no-important"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: `Unexpected !important`,
+  rejected: "Unexpected !important",
 })
 
 export default function (actual) {

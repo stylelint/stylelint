@@ -1,4 +1,6 @@
 import {
+  cssDeclarationIsMap,
+  declarationValueIndexOffset,
   report,
   ruleMessages,
   validateOptions,
@@ -8,9 +10,9 @@ import {
 export const ruleName = "declaration-colon-newline-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => `Expected newline after ":"`,
-  rejectedAfter: () => `Unexpected whitespace after ":"`,
-  expectedAfterMultiLine: () => `Unexpected whitespace after ":" with a multi-line value`,
+  expectedAfter: () => "Expected newline after \":\"",
+  rejectedAfter: () => "Unexpected whitespace after \":\"",
+  expectedAfterMultiLine: () => "Expected newline after \":\" with a multi-line value",
 })
 
 export default function (expectation) {
@@ -26,15 +28,24 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      const declString = decl.toString()
 
-      for (let i = 0, l = declString.length; i < l; i++) {
-        if (declString[i] !== ":") { continue }
-        const indexToCheck = (declString.substr(declString[i], 3) === "/*")
-          ? declString.indexOf("*/", i) + 1
+      if (cssDeclarationIsMap(decl)) { return }
+
+      // Get the raw prop, and only the prop
+      const endOfPropIndex = declarationValueIndexOffset(decl) + decl.raw("between").length - 1
+
+      // The extra characters tacked onto the end ensure that there is a character to check
+      // after the colon. Otherwise, with `background:pink` the character after the
+      const propPlusColon = decl.toString().slice(0, endOfPropIndex) + "xxx"
+
+      for (let i = 0, l = propPlusColon.length; i < l; i++) {
+        if (propPlusColon[i] !== ":") { continue }
+        const indexToCheck = (propPlusColon.substr(propPlusColon[i], 3) === "/*")
+          ? propPlusColon.indexOf("*/", i) + 1
           : i
+
         checker.afterOneOnly({
-          source: declString,
+          source: propPlusColon,
           index: indexToCheck,
           lineCheckStr: decl.value,
           err: m => {

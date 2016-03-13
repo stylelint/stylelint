@@ -1,11 +1,13 @@
 # Plugins
 
-Plugins share all the same traits and conventions as [rules](/docs/user-guide/rules.md), except they are prefixed by "stylelint".
+Plugins are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases.
+
+Plugins share all the same traits and conventions as [rules](/docs/user-guide/rules.md), except their names are prefixed within "stylelint".
 
 ## Selector
 
-* [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors (incorporates [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter).)
+- [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors (incorporates [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter).)
 
-## Statement
+## Declaration
 
-* [`stylelint-statement-max-nesting-depth`](https://github.com/davidtheclark/stylelint-statement-max-nesting-depth): Specify the maximum nested depth of statements.
+- [`stylelint-declaration-use-variable`](https://github.com/sh-waqar/stylelint-declaration-use-variable): Specify a property for which you want scss variable to be used.

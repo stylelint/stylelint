@@ -3,8 +3,8 @@
 Disallow units for zero lengths.
 
 ```css
-    a { top: 0px; }
-/**          ↑ ↑
+a { top: 0px; }
+/**      ↑↑
  * This zero and this type of length unit */
 ```
 

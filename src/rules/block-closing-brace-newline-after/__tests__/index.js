@@ -53,6 +53,34 @@ testRule("always", tr => {
   })
 })
 
+testRule("always", { ignoreAtRules: [ "if", "else" ] }, tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a { color: pink; }\nb {}")
+  tr.ok("@if ... { color: pink; } @else {}")
+  tr.ok("@if ... { color: pink; } @else if {} else {}")
+  tr.ok("@if ... {\r\n  color: pink; \n} @else if {\n  color: pink;\n} else {}")
+
+  tr.notOk("a { color: pink; }b{}", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 19,
+  })
+})
+
+testRule("always", { ignoreAtRules: "/if/" }, tr => {
+  warningFreeBasics(tr)
+
+  tr.ok("a { color: pink; }\nb {}")
+  tr.ok("@if ... { color: pink; } @else {}")
+
+  tr.notOk("a { color: pink; }b{}", {
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 19,
+  })
+})
+
 testRule("always-single-line", tr => {
   warningFreeBasics(tr)
 

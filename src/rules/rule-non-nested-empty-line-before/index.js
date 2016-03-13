@@ -10,8 +10,8 @@ import {
 export const ruleName = "rule-non-nested-empty-line-before"
 
 export const messages = ruleMessages(ruleName, {
-  expected: `Expected empty line before non-nested rule`,
-  rejected: `Unexpected empty line before non-nested rule`,
+  expected: "Expected empty line before non-nested rule",
+  rejected: "Unexpected empty line before non-nested rule",
 })
 
 export default function (expectation, options) {
@@ -67,6 +67,7 @@ export function checkRuleEmptyLineBefore({ rule, expectation, options, result, m
   const before = rule.raw("before")
   const emptyLineBefore = before && before.indexOf("\n\n") !== -1
     || before.indexOf("\r\n\r\n") !== -1
+    || before.indexOf("\n\r\n") !== -1
 
   // Return if the exceptation is met
   if (expectEmptyLineBefore === emptyLineBefore) { return }
@@ -74,7 +75,7 @@ export function checkRuleEmptyLineBefore({ rule, expectation, options, result, m
   const message = expectEmptyLineBefore ? messages.expected : messages.rejected
 
   report({
-    message: message,
+    message,
     node: rule,
     result,
     ruleName: checkedRuleName,

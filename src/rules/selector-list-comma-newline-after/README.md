@@ -3,9 +3,9 @@
 Require a newline or disallow whitespace after the commas of selector lists.
 
 ```css
-    a,
-    b↑{ color: pink; }
-/**  ↑
+   a,
+   b↑{ color: pink; }
+/** ↑
  * The newline after this comma */
 ```
 

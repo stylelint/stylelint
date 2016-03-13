@@ -3,14 +3,13 @@
 Require a newline after the opening brace of blocks.
 
 ```css
-    a {
-      ↑ color: pink; }
-/**   ↑
+  a {
+    ↑ color: pink; }
+/** ↑
  * The newline after this brace */
 ```
 
-This rule allows an end-of-line comment separated from the opening brace by spaces,
-as long as the comment contains no newlines. For example,
+This rule allows an end-of-line comment separated from the opening brace by spaces, as long as the comment contains no newlines. For example,
 
 ```css
 a { /* end-of-line comment */

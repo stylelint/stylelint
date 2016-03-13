@@ -1,23 +1,24 @@
 # font-weight-notation
 
-Require consistent numeric or named `font-weight` values.
-Also, when named values are expected, require only valid names.
+Require numeric or named (where possible) `font-weight` values. Also, when named values are expected, require only valid names.
 
 ```css
 a { font-weight: bold }
-/**               ↑
- *    This notation */
+/**              ↑
+ *   This notation */
 
 a { font: italic small-caps 600 16px/3 cursive; }
-/**                          ↑
-*       And this notation, too */
+/**                         ↑
+*      And this notation, too */
 ```
 
 Valid font-weight names are `normal`, `bold`, `bolder`, and `lighter`.
 
+This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.
+
 ## Options
 
-`string`: `"numeric"|"named"`
+`string`: `"numeric"|"named-where-possible"`
 
 ### `"numeric"`
 
@@ -43,9 +44,11 @@ a { font-weight: 700; }
 a { font: italic 900 20px; }
 ```
 
-### `"named"`
+### `"named-where-possible"`
 
-`font-weight` values *must always* be keyword names.
+`font-weight` values *must always* be keywords when an appropriate keyword is available.
+
+This means that only `400` and `700` will be rejected, because those are the only numbers with keyword equivalents (`normal` and `bold`).
 
 The following patterns are considered warnings:
 
@@ -54,7 +57,7 @@ a { font-weight: 700; }
 ```
 
 ```css
-a { font: italic 900 20px; }
+a { font: italic 400 20px; }
 ```
 
 The following patterns are *not* considered warnings:
@@ -65,4 +68,17 @@ a { font-weight: bold; }
 
 ```css
 a { font: italic normal 20px; }
+```
+
+## Optional options
+
+### `ignore: ["relative"]`
+
+Ignore the [*relative*](https://drafts.csswg.org/css-fonts/#font-weight-prop) keyword names of `bolder` and `lighter`.
+
+The following patterns are *not* considered warnings:
+
+```css
+a { font-weight: 400; }
+a b { font-weight: lighter; }
 ```

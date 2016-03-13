@@ -3,8 +3,8 @@
 Specify short or long notation for hex colors.
 
 ```css
-    a { color: #fff }
-/**              ↑
+a { color: #fff }
+/**        ↑
  * These hex colors */
 ```
 
@@ -25,7 +25,6 @@ a { color: #fffffaa; }
 ```
 
 The following patterns are *not* considered warnings:
-
 
 ```css
 a { color: #fff; }
@@ -52,7 +51,6 @@ a { color: #fffa; }
 ```
 
 The following patterns are *not* considered warnings:
-
 
 ```css
 a { color: #ffffff; }

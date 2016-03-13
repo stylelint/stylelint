@@ -3,8 +3,8 @@
 Require a single space or disallow whitespace after the colon of declarations.
 
 ```css
-    a { color: pink }
-/**          ↑
+a { color: pink }
+/**      ↑
  * The space after this colon */
 ```
 

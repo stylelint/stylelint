@@ -100,4 +100,10 @@ const testRuleScss = ruleTester(rule, ruleName, {
 testRuleScss("always", tr => {
   tr.ok("h1 { max-height: #{($line-height) * ($lines-to-show)}em; }",
     "Sass-style interpolation with curly braces")
+
+  tr.notOk("a { padding:\n  10px\n  // comment one\n  // comment two\n  var(--boo)orange}", {
+    message: messages.expected,
+    line: 5,
+    column: 13,
+  })
 })

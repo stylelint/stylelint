@@ -1,7 +1,7 @@
 import { isPlainObject, isFunction } from "lodash"
 
 const ignoredOptions = [
-  "warn",
+  "severity",
   "message",
 ]
 
@@ -67,7 +67,7 @@ export default function (result, ruleName, ...optionDescriptions) {
     if (!isPlainObject(actual)) {
       complain(
         `Invalid option value ${JSON.stringify(actual)} for rule "${ruleName}": ` +
-        `should be an object`
+        "should be an object"
       )
       return
     }
@@ -90,7 +90,9 @@ export default function (result, ruleName, ...optionDescriptions) {
 
     function complain(message) {
       noErrors = false
-      result.warn(message)
+      result.warn(message, {
+        stylelintType: "invalidOption",
+      })
     }
   }
 }

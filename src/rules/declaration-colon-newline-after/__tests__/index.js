@@ -28,6 +28,14 @@ testRule("always", tr => {
     "a { color\r\n:\r\npink }",
     "CRLF before and after"
   )
+  tr.ok(
+    "$map: (key: value)",
+    "SCSS map with no newlines"
+  )
+  tr.ok(
+    "a { background:\n  url(data:application/font-woff;...); }",
+    "data URI"
+  )
 
   tr.notOk(
     "a { color :pink; }",
@@ -84,9 +92,26 @@ testRule("always-multi-line", tr => {
     "}"
   )
 
+  tr.ok(
+    "$map\n: (\nkey: value,\nkey2 :value2)",
+    "SCSS map with newlines"
+  )
+
   tr.notOk(
     "a {\n" +
     "  box-shadow: 0 0 0 1px #5b9dd9\n" +
+    "    0 0 2px 1px rgba(30, 140, 190, 0.8);\n" +
+    "}",
+    {
+      message: messages.expectedAfterMultiLine(),
+      line: 2,
+      column: 13,
+    }
+  )
+
+  tr.notOk(
+    "a {\n" +
+    "  box-shadow:0 0 0 1px #5b9dd9\n" +
     "    0 0 2px 1px rgba(30, 140, 190, 0.8);\n" +
     "}",
     {

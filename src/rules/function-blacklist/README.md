@@ -3,18 +3,14 @@
 Specify a blacklist of disallowed functions.
 
 ```css
-    a { transform: scale(1); }
-/**                  ↑
- *     These functions */
+a { transform: scale(1); }
+/**            ↑
+ * These functions */
 ```
 
 ## Options
 
 `array`: `"["array", "of", "unprefixed", "functions"]`
-
-### `["array", "of", "unprefixed", functions"]`
-
-Blacklisted functions that *must never* be used.
 
 Given:
 

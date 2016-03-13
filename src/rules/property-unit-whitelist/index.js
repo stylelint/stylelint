@@ -33,8 +33,6 @@ export default function (whitelist) {
 
       if (!propWhitelist) { return }
 
-      console.log(propWhitelist)
-
       valueParser(value).walk(function (node) {
         if (node.type === "string") { return }
 

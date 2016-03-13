@@ -9,7 +9,7 @@ Specify indentation.
    | ↑ ↑  top right;
    | ↑}↑ ↑
    |}↑ ↑ ↑
-/**  ↑   ↑
+/**  ↑ ↑ ↑
  * The indentation at these three points */
 ```
 
@@ -179,13 +179,9 @@ The following patterns are *not* considered warnings:
 
 Add additional indentation levels for hierarchical relationships between selectors.
 
-The basic rule is this: If selectors are grouped in such a way that Rule A should be
-followed by other rules whose selectors *start* with the same characters as Rule A's
-(complete) selector, then Rule A is superordinate to those rules. This hierarchy can
-nest indefinitely.
+The basic rule is this: If selectors are grouped in such a way that Rule A should be followed by other rules whose selectors *start* with the same characters as Rule A's (complete) selector, then Rule A is superordinate to those rules. This hierarchy can nest indefinitely.
 
-If a `@media` statement only contains rules that are subordinate to the rule *before*
-the `@media` statement, it is considered subordinate to that rule (see example below).
+If a `@media` statement only contains rules that are subordinate to the rule *before* the `@media` statement, it is considered subordinate to that rule (see example below).
 
 Such a pattern can apply to combinators or BEM-style naming.
 
@@ -254,8 +250,7 @@ The following patterns are *not* considered warnings:
 
 ## Caveats
 
-Function arguments are simply ignored, to allow for arbitrary indentation.
-So any of the following are *not* considered warnings:
+Function arguments are simply ignored, to allow for arbitrary indentation. So any of the following are *not* considered warnings:
 
 ```css
 .foo {

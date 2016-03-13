@@ -42,7 +42,8 @@ export default function ({
   const startLine = line || node.positionBy({ index }).line
 
   if (result.stylelint.disabledRanges) {
-    for (let range of result.stylelint.disabledRanges) {
+    const ranges = result.stylelint.disabledRanges[ruleName] || result.stylelint.disabledRanges.all
+    for (const range of ranges) {
       if (
         // If the violation is within a disabledRange,
         // and that disabledRange's rules include this one,
@@ -59,7 +60,7 @@ export default function ({
   if (typeof severity === "undefined") {
     throw new Error(
       `The rule name "${ruleName}" has no corresponding registered severity.\n\n` +
-      `This is most likely a bug in stylelint: please file an issue with this stack trace ` +
+      "This is most likely a bug in stylelint: please file an issue with this stack trace " +
       `at\nhttps://github.com/stylelint/stylelint/issues`
     )
   }

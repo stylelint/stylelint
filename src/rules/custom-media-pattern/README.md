@@ -1,10 +1,10 @@
 # custom-media-pattern
 
-Specify pattern of custom media query names.
+Specify a pattern for custom media query names.
 
 ```css
 @custom-media --narrow-window (max-width: 30em);
-/**                 ↑
+/**             ↑
  * The pattern of this */
 ```
 

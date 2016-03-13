@@ -3,9 +3,10 @@
 Require a newline or disallow whitespace before the commas of functions.
 
 ```css
-    a { transform: translate(1, 1) }
-/**                           ↑
- *                 These commas */
+  a { transform: translate(1
+    , 1) }
+/** ↑
+ * These commas */
 ```
 
 ## Options

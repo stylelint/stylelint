@@ -12,10 +12,10 @@ testRule("tab", tr => {
 warningFreeBasics(tr)
 
 tr.ok(
-`/* blergh */`)
+"/* blergh */")
 
 tr.notOk(
-` /* blergh */`,
+" /* blergh */",
 {
   message: messages.expected("0 tabs"),
   line: 1,

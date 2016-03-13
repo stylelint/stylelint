@@ -3,9 +3,9 @@
 Require a newline or disallow whitespace before the commas of value lists.
 
 ```css
-    a { background-size: 0
-      , 0; }
-/**   ↑
+  a { background-size: 0
+    , 0; }
+/** ↑
  * The newline before these commas */
 ```
 

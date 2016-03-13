@@ -9,8 +9,8 @@ import {
 export const ruleName = "function-whitespace-after"
 
 export const messages = ruleMessages(ruleName, {
-  expected: `Expected whitespace after ")"`,
-  rejected: `Unexpected whitespace after ")"`,
+  expected: "Expected whitespace after \")\"",
+  rejected: "Unexpected whitespace after \")\"",
 })
 
 export default function (expectation) {

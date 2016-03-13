@@ -1,10 +1,10 @@
 # custom-property-no-outside-root
 
-Disallow custom properties outside of `:root` selectors.
+Disallow custom properties outside of `:root` rules.
 
 ```css
     a { --foo-bar: 1px; }
-/** ↑       ↑
+/** ↑   ↑
  * These selectors and these types of custom properties */
 ```
 

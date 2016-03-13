@@ -5,15 +5,16 @@ import blockClosingBraceNewlineBefore from "./block-closing-brace-newline-before
 import blockClosingBraceSpaceAfter from "./block-closing-brace-space-after"
 import blockClosingBraceSpaceBefore from "./block-closing-brace-space-before"
 import blockNoEmpty from "./block-no-empty"
+import blockNoSingleLine from "./block-no-single-line"
 import blockOpeningBraceNewlineAfter from "./block-opening-brace-newline-after"
 import blockOpeningBraceNewlineBefore from "./block-opening-brace-newline-before"
 import blockOpeningBraceSpaceAfter from "./block-opening-brace-space-after"
 import blockOpeningBraceSpaceBefore from "./block-opening-brace-space-before"
 import colorHexCase from "./color-hex-case"
 import colorHexLength from "./color-hex-length"
+import colorNamed from "./color-named"
 import colorNoHex from "./color-no-hex"
 import colorNoInvalidHex from "./color-no-invalid-hex"
-import colorNoNamed from "./color-no-named"
 import commentEmptyLineBefore from "./comment-empty-line-before"
 import commentWhitespaceInside from "./comment-whitespace-inside"
 import customMediaPattern from "./custom-media-pattern"
@@ -21,12 +22,15 @@ import customPropertyNoOutsideRoot from "./custom-property-no-outside-root"
 import customPropertyPattern from "./custom-property-pattern"
 import declarationBangSpaceAfter from "./declaration-bang-space-after"
 import declarationBangSpaceBefore from "./declaration-bang-space-before"
-import declarationBlockNoSingleLine from "./declaration-block-no-single-line"
+import declarationBlockNoDuplicateProperties from "./declaration-block-no-duplicate-properties"
+import declarationBlockNoShorthandPropertyOverrides from "./declaration-block-no-shorthand-property-overrides"
+import declarationBlockPropertiesOrder from "./declaration-block-properties-order"
 import declarationBlockSemicolonNewlineAfter from "./declaration-block-semicolon-newline-after"
 import declarationBlockSemicolonNewlineBefore from "./declaration-block-semicolon-newline-before"
 import declarationBlockSemicolonSpaceAfter from "./declaration-block-semicolon-space-after"
 import declarationBlockSemicolonSpaceBefore from "./declaration-block-semicolon-space-before"
 import declarationBlockSingleLineMaxDeclarations from "./declaration-block-single-line-max-declarations"
+import declarationBlockTrailingSemicolon from "./declaration-block-trailing-semicolon"
 import declarationColonNewlineAfter from "./declaration-colon-newline-after"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
@@ -48,6 +52,7 @@ import functionWhitespaceAfter from "./function-whitespace-after"
 import indentation from "./indentation"
 import maxEmptyLines from "./max-empty-lines"
 import maxLineLength from "./max-line-length"
+import maxNestingDepth from "./max-nesting-depth"
 import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
 import mediaFeatureColonSpaceBefore from "./media-feature-colon-space-before"
 import mediaFeatureNameNoVendorPrefix from "./media-feature-name-no-vendor-prefix"
@@ -59,10 +64,14 @@ import mediaQueryListCommaNewlineBefore from "./media-query-list-comma-newline-b
 import mediaQueryListCommaSpaceAfter from "./media-query-list-comma-space-after"
 import mediaQueryListCommaSpaceBefore from "./media-query-list-comma-space-before"
 import mediaQueryParenthesesSpaceInside from "./media-query-parentheses-space-inside"
+import noBrowserHacks from "./no-browser-hacks"
+import noDescendingSpecificity from "./no-descending-specificity"
 import noDuplicateSelectors from "./no-duplicate-selectors"
 import noEolWhitespace from "./no-eol-whitespace"
+// import noIndistinguisableColors from "./no-indistinguishable-colors"
 import noInvalidDoubleSlashComments from "./no-invalid-double-slash-comments"
 import noMissingEofNewline from "./no-missing-eof-newline"
+import noSupportedBrowserFeatures from "./no-unsupported-browser-features"
 import noUnknownAnimations from "./no-unknown-animations"
 import numberLeadingZero from "./number-leading-zero"
 import numberMaxPrecision from "./number-max-precision"
@@ -77,11 +86,7 @@ import propertyValueWhitelist from "./property-value-whitelist"
 import propertyWhitelist from "./property-whitelist"
 import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
-import ruleNoDuplicateProperties from "./rule-no-duplicate-properties"
 import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
-import ruleNoShorthandPropertyOverrides from "./rule-no-shorthand-property-overrides"
-import rulePropertiesOrder from "./rule-properties-order"
-import ruleTrailingSemicolon from "./rule-trailing-semicolon"
 import selectorClassPattern from "./selector-class-pattern"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
@@ -90,6 +95,7 @@ import selectorListCommaNewlineAfter from "./selector-list-comma-newline-after"
 import selectorListCommaNewlineBefore from "./selector-list-comma-newline-before"
 import selectorListCommaSpaceAfter from "./selector-list-comma-space-after"
 import selectorListCommaSpaceBefore from "./selector-list-comma-space-before"
+import selectorMaxSpecificity from "./selector-max-specificity"
 import selectorNoAttribute from "./selector-no-attribute"
 import selectorNoCombinator from "./selector-no-combinator"
 import selectorNoId from "./selector-no-id"
@@ -98,6 +104,7 @@ import selectorNoUniversal from "./selector-no-universal"
 import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
 import selectorRootNoComposition from "./selector-root-no-composition"
+import stringNoNewline from "./string-no-newline"
 import stringQuotes from "./string-quotes"
 import timeNoImperceptible from "./time-no-imperceptible"
 import unitBlacklist from "./unit-blacklist"
@@ -116,15 +123,16 @@ export default {
   "block-closing-brace-space-after": blockClosingBraceSpaceAfter,
   "block-closing-brace-space-before": blockClosingBraceSpaceBefore,
   "block-no-empty": blockNoEmpty,
+  "block-no-single-line": blockNoSingleLine,
   "block-opening-brace-newline-after": blockOpeningBraceNewlineAfter,
   "block-opening-brace-newline-before": blockOpeningBraceNewlineBefore,
   "block-opening-brace-space-after": blockOpeningBraceSpaceAfter,
   "block-opening-brace-space-before": blockOpeningBraceSpaceBefore,
   "color-hex-case": colorHexCase,
   "color-hex-length": colorHexLength,
+  "color-named": colorNamed,
   "color-no-hex": colorNoHex,
   "color-no-invalid-hex": colorNoInvalidHex,
-  "color-no-named": colorNoNamed,
   "comment-empty-line-before": commentEmptyLineBefore,
   "comment-whitespace-inside": commentWhitespaceInside,
   "custom-media-pattern": customMediaPattern,
@@ -132,12 +140,15 @@ export default {
   "custom-property-pattern": customPropertyPattern,
   "declaration-bang-space-after": declarationBangSpaceAfter,
   "declaration-bang-space-before": declarationBangSpaceBefore,
-  "declaration-block-no-single-line": declarationBlockNoSingleLine,
+  "declaration-block-no-duplicate-properties": declarationBlockNoDuplicateProperties,
+  "declaration-block-no-shorthand-property-overrides": declarationBlockNoShorthandPropertyOverrides,
+  "declaration-block-properties-order": declarationBlockPropertiesOrder,
   "declaration-block-semicolon-newline-after": declarationBlockSemicolonNewlineAfter,
   "declaration-block-semicolon-newline-before": declarationBlockSemicolonNewlineBefore,
   "declaration-block-semicolon-space-after": declarationBlockSemicolonSpaceAfter,
   "declaration-block-semicolon-space-before": declarationBlockSemicolonSpaceBefore,
   "declaration-block-single-line-max-declarations": declarationBlockSingleLineMaxDeclarations,
+  "declaration-block-trailing-semicolon": declarationBlockTrailingSemicolon,
   "declaration-colon-newline-after": declarationColonNewlineAfter,
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
@@ -156,9 +167,10 @@ export default {
   "function-url-quotes": functionUrlQuotes,
   "function-whitelist": functionWhitelist,
   "function-whitespace-after": functionWhitespaceAfter,
-  "indentation": indentation,
+  "indentation": indentation, // eslint-disable-line object-shorthand
   "max-empty-lines": maxEmptyLines,
   "max-line-length": maxLineLength,
+  "max-nesting-depth": maxNestingDepth,
   "media-feature-colon-space-after": mediaFeatureColonSpaceAfter,
   "media-feature-colon-space-before": mediaFeatureColonSpaceBefore,
   "media-feature-name-no-vendor-prefix": mediaFeatureNameNoVendorPrefix,
@@ -170,11 +182,15 @@ export default {
   "media-query-list-comma-space-after": mediaQueryListCommaSpaceAfter,
   "media-query-list-comma-space-before": mediaQueryListCommaSpaceBefore,
   "media-query-parentheses-space-inside": mediaQueryParenthesesSpaceInside,
+  "no-browser-hacks": noBrowserHacks,
+  "no-descending-specificity": noDescendingSpecificity,
   "no-duplicate-selectors": noDuplicateSelectors,
   "no-eol-whitespace": noEolWhitespace,
+  // "no-indistinguishable-colors": noIndistinguisableColors,
   "no-invalid-double-slash-comments": noInvalidDoubleSlashComments,
   "no-missing-eof-newline": noMissingEofNewline,
   "no-unknown-animations": noUnknownAnimations,
+  "no-unsupported-browser-features": noSupportedBrowserFeatures,
   "number-leading-zero": numberLeadingZero,
   "number-max-precision": numberMaxPrecision,
   "number-no-trailing-zeros": numberNoTrailingZeros,
@@ -188,11 +204,7 @@ export default {
   "property-whitelist": propertyWhitelist,
   "root-no-standard-properties": rootNoStandardProperties,
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
-  "rule-no-duplicate-properties": ruleNoDuplicateProperties,
-  "rule-no-shorthand-property-overrides": ruleNoShorthandPropertyOverrides,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
-  "rule-properties-order": rulePropertiesOrder,
-  "rule-trailing-semicolon": ruleTrailingSemicolon,
   "selector-class-pattern": selectorClassPattern,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,
@@ -201,6 +213,7 @@ export default {
   "selector-list-comma-newline-before": selectorListCommaNewlineBefore,
   "selector-list-comma-space-after": selectorListCommaSpaceAfter,
   "selector-list-comma-space-before": selectorListCommaSpaceBefore,
+  "selector-max-specificity": selectorMaxSpecificity,
   "selector-no-attribute": selectorNoAttribute,
   "selector-no-combinator": selectorNoCombinator,
   "selector-no-id": selectorNoId,
@@ -209,6 +222,7 @@ export default {
   "selector-no-vendor-prefix": selectorNoVendorPrefix,
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
   "selector-root-no-composition": selectorRootNoComposition,
+  "string-no-newline": stringNoNewline,
   "string-quotes": stringQuotes,
   "time-no-imperceptible": timeNoImperceptible,
   "unit-blacklist": unitBlacklist,

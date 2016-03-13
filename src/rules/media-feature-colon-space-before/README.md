@@ -3,8 +3,8 @@
 Require a single space or disallow whitespace before the colon in media features.
 
 ```css
-    @media (max-width :600px) {}
-/**                   ↑
+@media (max-width :600px) {}
+/**               ↑
  * The space before this colon */
 ```
 

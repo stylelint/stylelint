@@ -10,7 +10,7 @@ import {
 export const ruleName = "time-no-imperceptible"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: time => `Unexpected time value "${time}" less than 100ms`,
+  rejected: time => `Unexpected time value "${time}" less than or equal to 100ms`,
 })
 
 const LONGHAND_PROPERTIES_TO_CHECK = [
@@ -36,7 +36,7 @@ export default function (actual) {
 
       if (SHORTHAND_PROPERTIES_TO_CHECK.indexOf(decl.prop) !== -1) {
         const valueList = postcss.list.space(decl.value)
-        for (let value of valueList) {
+        for (const value of valueList) {
           if (isImperceptibleTime(value)) {
             complain(messages.rejected(value), decl, decl.value.indexOf(value))
           }

@@ -4,9 +4,9 @@ Disallow missing end-of-file newlines in non-empty files.
 
 ```css
     a { color: pink; }
-\n
+    \n
 /** ↑
- *  This newline */
+ * This newline */
 ```
 
 The following patterns are considered warnings:

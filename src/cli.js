@@ -12,11 +12,13 @@ const minimistOptions = {
     f: "string",
     q: false,
     config: false,
+    v: false,
   },
   alias: {
     f: "formatter",
     q: "quiet",
     s: "syntax",
+    v: "verbose",
   },
 }
 const syntaxOptions = ["scss"]
@@ -51,15 +53,19 @@ const meowOptions = {
     "                      (ignore \"warning\"-level)",
     "  -s, --syntax        Specify a non-standard syntax that should be used to ",
     "                      parse source stylesheets. Options: \"scss\"",
+    "  -v, --verbose       Get more stats",
   ],
   pkg: "../package.json",
 }
 
 const cli = meow(meowOptions, minimistOptions)
 
-const formatter = (cli.flags.customFormatter)
-  ? require(path.join(process.cwd(), cli.flags.customFormatter))
-  : cli.flags.formatter
+let formatter = cli.flags.formatter
+if (cli.flags.customFormatter) {
+  formatter = require(path.join(process.cwd(), cli.flags.customFormatter))
+} else if (cli.flags.verbose) {
+  formatter = "verbose"
+}
 
 const optionsBase = {
   formatter,
@@ -75,7 +81,14 @@ if (cli.flags.syntax && includes(syntaxOptions, cli.flags.syntax)) {
 }
 
 if (cli.flags.config) {
+  // Should check these possibilities:
+  //   a. name of a node_module
+  //   b. absolute path
+  //   c. relative path relative to `process.cwd()`.
+  // If none of the above work, we'll try a relative path starting
+  // in `process.cwd()`.
   optionsBase.configFile = resolveFrom(process.cwd(), cli.flags.config)
+    || path.join(process.cwd(), cli.flags.config)
 }
 
 Promise.resolve().then(() => {
@@ -95,6 +108,6 @@ Promise.resolve().then(() => {
   process.stdout.write(output)
   if (errored) { process.exit(2) }
 }).catch(err => {
-  console.log(err.stack)
+  console.log(err.stack) // eslint-disable-line no-console
   process.exit(err.code || 1)
 })

@@ -3,8 +3,8 @@
 Specify lowercase or uppercase for hex colors.
 
 ```css
-    a { color: #fff }
-/**              ↑
+a { color: #fff }
+/**        ↑
  * These hex colors */
 ```
 
@@ -21,7 +21,6 @@ a { color: #FFF; }
 ```
 
 The following patterns are *not* considered warnings:
-
 
 ```css
 a { color: #000; }
@@ -41,7 +40,6 @@ a { color: #fff; }
 
 The following patterns are *not* considered warnings:
 
-
 ```css
 a { color: #000; }
 ```
@@ -49,4 +47,3 @@ a { color: #000; }
 ```css
 a { color: #FFF; }
 ```
-

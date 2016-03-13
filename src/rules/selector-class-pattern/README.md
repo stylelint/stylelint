@@ -4,9 +4,11 @@ Specify a pattern for class selectors.
 
 ```css
     .foo, #bar.baz span, #hoo[disabled] { color: pink; }
-/**   ↑         ↑
+/** ↑         ↑
  * These class selectors */
 ```
+
+## Options
 
 `regex` or `string`
 
@@ -31,4 +33,28 @@ The following patterns are *not* considered warnings:
 div > #zing + .foo-bar {}
 #foop {}
 [foo='bar'] {}
+```
+
+## Optional options
+
+### `resolveNestedSelectors: true | false` (default: `false`)
+
+This option will resolve nested selectors with `&` interpolation.
+
+### E.g. `/^[A-Z]+$/`
+
+The following patterns are considered warnings:
+
+```css
+.A {
+  &__B {} /* resolved to ".A__B" */
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+.A {
+  &B {} /* resolved to ".AB" */
+}
 ```

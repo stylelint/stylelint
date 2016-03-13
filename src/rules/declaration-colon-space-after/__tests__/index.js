@@ -13,6 +13,14 @@ testRule("always", tr => {
   tr.ok("a { color : pink }", "space before and after")
   tr.ok("a { color\n: pink }", "newline before and space after")
   tr.ok("a { color\r\n: pink }", "CRLF before and space after")
+  tr.ok(
+    "$map:(key:value)",
+    "SCSS map with no newlines"
+  )
+  tr.ok(
+    "a { background: url(data:application/font-woff;...); }",
+    "data URI"
+  )
 
   tr.notOk(
     "a { color :pink; }",
@@ -59,6 +67,15 @@ testRule("always", tr => {
     },
     "CRLF after"
   )
+  tr.notOk(
+    "a { color:pink; }",
+    {
+      message: messages.expectedAfter(),
+      line: 1,
+      column: 11,
+    },
+    "no space after"
+  )
 })
 
 testRule("never", tr => {
@@ -68,6 +85,10 @@ testRule("never", tr => {
   tr.ok("a { color :pink }", "space before and no space after")
   tr.ok("a { color\n:pink }", "newline before and no space after")
   tr.ok("a { color\r\n:pink }", "CRLF before and no space after")
+  tr.ok(
+    "$map: (key: value)",
+    "SCSS map with no newlines"
+  )
 
   tr.notOk(
     "a { color : pink; }",
@@ -169,5 +190,14 @@ testRule("always-single-line", tr => {
       column: 11,
     },
     "CRLF after single-line"
+  )
+  tr.notOk(
+    "a { color:pink; }",
+    {
+      message: messages.expectedAfterSingleLine(),
+      line: 1,
+      column: 11,
+    },
+    "no space after"
   )
 })

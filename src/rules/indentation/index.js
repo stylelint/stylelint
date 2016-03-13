@@ -81,7 +81,7 @@ export default function (space, options) {
       const expectedWhitespace = repeat(indentChar, nodeLevel)
 
       let before = node.raw("before")
-      let after = node.raw("after")
+      const after = node.raw("after")
 
       // Only inspect the spaces before the node
       // if this is the first node in root
@@ -212,9 +212,9 @@ export default function (space, options) {
         if (match.insideFunction) { return }
 
         // Starting at the index after the newline, we want to
-        // check that the whitespace characters before the first
+        // check that the whitespace characters (excluding newlines) before the first
         // non-whitespace character equal the expected indentation
-        const afterNewlineSpaceMatches = /^(\s*)\S/.exec(source.slice(match.startIndex + 1))
+        const afterNewlineSpaceMatches = /^([ \t]*)\S/.exec(source.slice(match.startIndex + 1))
         if (!afterNewlineSpaceMatches) { return }
         const afterNewlineSpace = afterNewlineSpaceMatches[1]
 

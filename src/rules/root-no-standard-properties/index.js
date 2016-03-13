@@ -1,7 +1,7 @@
 import {
   report,
   ruleMessages,
-  cssPropertyIsVariable,
+  cssWordIsVariable,
   validateOptions,
 } from "../../utils"
 
@@ -22,7 +22,7 @@ export default function (actual) {
       rule.walkDecls(function (decl) {
         const prop = decl.prop
 
-        if (cssPropertyIsVariable(prop)) { return }
+        if (cssWordIsVariable(prop)) { return }
 
         if (prop.indexOf("--") !== 0) {
           report({

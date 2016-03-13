@@ -16,6 +16,8 @@ testRule(true, tr => {
 
   tr.ok(".foo { & {} }")
   tr.ok(".foo { &.bar {} }")
+  tr.ok(".foo { &-bar {} }")
+  tr.ok(".foo { &__bar {} }")
   tr.ok(".foo { [&] {} }")
   tr.ok(".foo { & [class*=bar] {} }")
   tr.ok(".foo { @nest & {} }")
@@ -27,6 +29,7 @@ testRule(true, tr => {
   tr.ok(".foo { &:nth-child(3n + 1) {} }")
   tr.ok("@keyframes spin { 0% {} }")
   tr.ok("@keyframes spin { to {} from {} }")
+  tr.ok(":root { --custom-property-set: {} }")
 
   tr.notOk("foo {}", {
     message: messages.rejected,

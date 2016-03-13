@@ -4,9 +4,9 @@ Any help is welcome and appreciated.
 
 ## Ways to contribute
 
-* Adding new rules. Whether it's one of the [few](https://github.com/stylelint/stylelint/labels/type%3A%20rule) that we've still to do, or something that you need and we've not thought of yet.
-* Expanding the [documentation](https://github.com/stylelint/stylelint/tree/master/docs).
-* Working on other [open issues](https://github.com/stylelint/stylelint/issues).
+- Adding new rules. Whether it's one of the [few](https://github.com/stylelint/stylelint/labels/type%3A%20rule) that we've still to do, or something that you need and we've not thought of yet.
+- Expanding the [documentation](https://github.com/stylelint/stylelint/tree/master/docs).
+- Working on other [open issues](https://github.com/stylelint/stylelint/issues).
 
 ## Communication
 
@@ -24,10 +24,10 @@ We are committed to making participation in this project a harassment-free exper
 
 Examples of unacceptable behavior by participants include:
 
-* The use of sexualized language or imagery
-* Personal attacks
-* Publishing other's private information, such as physical or electronic addresses, without explicit permission
-* Public or private harassment
+- The use of sexualized language or imagery
+- Personal attacks
+- Publishing other's private information, such as physical or electronic addresses, without explicit permission
+- Public or private harassment
 
 This code of conduct applies both within project spaces and in public spaces when an individual is representing the project or its community.
 

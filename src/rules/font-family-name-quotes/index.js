@@ -1,5 +1,6 @@
 import postcss from "postcss"
 import {
+  cssWordIsVariable,
   report,
   ruleMessages,
   validateOptions,
@@ -59,6 +60,8 @@ export default function (expectation) {
     })
 
     function checkFamilyName(rawFamily, decl) {
+      if (cssWordIsVariable(rawFamily)) { return }
+
       const quoteType = getQuoteType(rawFamily)
       // Clean the family of its quotes
       const family = rawFamily.replace(/^['"]|['"]$/g, "")

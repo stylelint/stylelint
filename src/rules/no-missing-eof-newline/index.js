@@ -15,7 +15,7 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    const sourceCss = root.source.input.css
+    const sourceCss = root.toString()
     if (sourceCss === "") { return }
     if (sourceCss.slice(-1) !== "\n") {
       report({

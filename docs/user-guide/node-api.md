@@ -25,11 +25,9 @@ A CSS string to be linted.
 
 ### `codeFilename`
 
-If using `code` to pass a source string directly, you can use `codeFilename` to associate
-that code with a particular filename.
+If using `code` to pass a source string directly, you can use `codeFilename` to associate that code with a particular filename.
 
-This can be useful, for example, when making a text editor plugin that passes in code directly
-but needs to still use the configuration's `ignoreFiles` functionality to possibly ignore that code.
+This can be useful, for example, when making a text editor plugin that passes in code directly but needs to still use the configuration's `ignoreFiles` functionality to possibly ignore that code.
 
 ### `formatter`
 
@@ -49,8 +47,7 @@ If no `config` is passed, stylelint will look for a `.stylelintrc` configuration
 
 The path to a JSON, YAML, or JS file  that contains your [stylelint configuration object](/docs/user-guide/configuration.md).
 
-It should be either absolute or relative to the directory that your process is running from (`process.cwd()`).
-We'd recommend absolute.
+It should be either absolute or relative to the directory that your process is running from (`process.cwd()`). We'd recommend absolute.
 
 ### `configBasedir`
 
@@ -62,7 +59,7 @@ If the `config` object passed uses relative paths for `extends` or `plugins`, yo
 
 A partial stylelint configuration object whose properties will override the existing config object, whether that config was loaded via the `config` option or a `.stylelintrc` file.
 
-The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to _both_ load a `.stylelintrc` file _and_ override specific parts of it, `configOverrides` does just that.
+The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to *both* load a `.stylelintrc` file *and* override specific parts of it, `configOverrides` does just that.
 
 ### `syntax`
 
@@ -109,7 +106,7 @@ stylelint.lint({
   });;
 ```
 
-If `myConfig` _does_ contain relative paths for `extends` or `plugins`, I _do_ have to use `configBasedir`:
+If `myConfig` *does* contain relative paths for `extends` or `plugins`, I *do* have to use `configBasedir`:
 
 ```js
 stylelint.lint({

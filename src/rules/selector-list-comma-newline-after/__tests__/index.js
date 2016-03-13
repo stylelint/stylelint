@@ -2,6 +2,7 @@ import {
   ruleTester,
   warningFreeBasics,
 } from "../../../testUtils"
+import scss from "postcss-scss"
 import rule, { ruleName, messages } from ".."
 
 const testRule = ruleTester(rule, ruleName)
@@ -116,4 +117,12 @@ testRule("never-multi-line", tr => {
     line: 1,
     column: 2,
   })
+})
+
+const scssTestRule = ruleTester(rule, ruleName, {
+  postcssOptions: { syntax: scss },
+})
+
+scssTestRule("always", tr => {
+  tr.ok("a, // comment\nb {}", "with end-of-line // comment with newline after")
 })

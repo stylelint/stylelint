@@ -13,9 +13,9 @@ import {
 export const ruleName = "block-opening-brace-newline-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => `Expected newline after "{"`,
-  expectedAfterMultiLine: () => `Expected newline after "{" of a multi-line block`,
-  rejectedAfterMultiLine: () => `Unexpected whitespace after "{" of a multi-line block`,
+  expectedAfter: () => "Expected newline after \"{\"",
+  expectedAfterMultiLine: () => "Expected newline after \"{\" of a multi-line block",
+  rejectedAfterMultiLine: () => "Unexpected whitespace after \"{\" of a multi-line block",
 })
 
 export default function (expectation) {

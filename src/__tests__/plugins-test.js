@@ -4,11 +4,11 @@ import path from "path"
 import stylelint from ".."
 
 const cssWithFoo = (
-`.foo {}`
+".foo {}"
 )
 
 const cssWithoutFoo = (
-`.bar {}`
+".bar {}"
 )
 
 const configRelative = {
@@ -50,7 +50,7 @@ test("plugin runs", t => {
       t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
       t.ok(result.warnings()[0].node)
     })
-    .catch(err => console.log(err.stack))
+    .catch(logError)
   planned += 3
 
   processorRelative.process(cssWithoutFoo)
@@ -59,7 +59,7 @@ test("plugin runs", t => {
       t.equal(result.warnings()[0].text, "never found .foo (warn-about-foo)")
       t.notOk(result.warnings()[0].node)
     })
-    .catch(err => console.log(err.stack))
+    .catch(logError)
   planned += 3
 
   t.plan(planned)
@@ -74,7 +74,7 @@ test("plugin with absolute path and no configBasedir", t => {
       t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
       t.ok(result.warnings()[0].node)
     })
-    .catch(err => console.log(err.stack))
+    .catch(logError)
   planned += 3
 
   t.plan(planned)
@@ -89,7 +89,7 @@ test("config extending another config that invokes a plugin with a relative path
       t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
       t.ok(result.warnings()[0].node)
     })
-    .catch(err => console.log(err.stack))
+    .catch(logError)
   planned += 3
 
   t.plan(planned)
@@ -113,35 +113,39 @@ test("plugin using exposed rules via stylelint.rules", t => {
 
   postcss().use(stylelint(config("upper"))).process(cssWithDirectiveLower).then(result => {
     t.equal(result.warnings().length, 1)
-    t.equal(result.warnings()[0].text, `Expected "#eee" to be "#EEE" (color-hex-case)`)
-  }).catch(err => console.log(err.stack))
+    t.equal(result.warnings()[0].text, "Expected \"#eee\" to be \"#EEE\" (color-hex-case)")
+  }).catch(logError)
   planned += 2
 
   postcss().use(stylelint(config("upper"))).process(cssWithDirectiveUpper).then(result => {
     t.equal(result.warnings().length, 0)
-  }).catch(err => console.log(err.stack))
+  }).catch(logError)
   planned += 1
 
   postcss().use(stylelint(config("lower"))).process(cssWithDirectiveUpper).then(result => {
     t.equal(result.warnings().length, 1)
-    t.equal(result.warnings()[0].text, `Expected "#EEE" to be "#eee" (color-hex-case)`)
-  }).catch(err => console.log(err.stack))
+    t.equal(result.warnings()[0].text, "Expected \"#EEE\" to be \"#eee\" (color-hex-case)")
+  }).catch(logError)
   planned += 2
 
   postcss().use(stylelint(config("lower"))).process(cssWithDirectiveLower).then(result => {
     t.equal(result.warnings().length, 0)
-  }).catch(err => console.log(err.stack))
+  }).catch(logError)
   planned += 1
 
   postcss().use(stylelint(config("upper"))).process(cssWithoutDirectiveLower).then(result => {
     t.equal(result.warnings().length, 0)
-  }).catch(err => console.log(err.stack))
+  }).catch(logError)
   planned += 1
 
   postcss().use(stylelint(config("lower"))).process(cssWithoutDirectiveUpper).then(result => {
     t.equal(result.warnings().length, 0)
-  }).catch(err => console.log(err.stack))
+  }).catch(logError)
   planned += 1
 
   t.plan(planned)
 })
+
+function logError(err) {
+  console.log(err.stack) // eslint-disable-line no-console
+}

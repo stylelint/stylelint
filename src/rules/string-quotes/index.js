@@ -25,7 +25,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    const cssString = root.source.input.css
+    const cssString = root.toString()
     styleSearch({ source: cssString, target: erroneousQuote }, match => {
       report({
         message: messages.expected(expectation),

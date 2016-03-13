@@ -3,8 +3,8 @@
 Specify a blacklist of disallowed properties.
 
 ```css
-    a { text-rendering: optimizeLegibility; }
-/**          ↑
+a { text-rendering: optimizeLegibility; }
+/** ↑
  * These properties */
 ```
 
@@ -16,10 +16,7 @@ Specify a blacklist of disallowed properties.
 
 Blacklisted properties *must never* be used.
 
-If a string in the array is surrounded with `"/"` (e.g. `"/^background/"`),
-it is interpreted as a regular expression. This allows, for example,
-easy targeting of shorthands: `/^background/` will match `background`,
-`background-size`, `background-color`, etc.
+If a string in the array is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^background/` will match `background`, `background-size`, `background-color`, etc.
 
 Given:
 
@@ -28,7 +25,6 @@ Given:
 ```
 
 The following patterns are considered warnings:
-
 
 ```css
 a { text-rendering: optimizeLegibility; }

@@ -35,6 +35,8 @@ testRule("always", tr => {
     "multiple fractional values with leading zeros in a function"
   )
   tr.ok("@media (min-width: 0.01em)", "media feature")
+  tr.ok("a { background: url(data:image/svg+xml;...0.5); }",
+    "data URI containing leading zero")
 
   tr.notOk(
     "a { line-height: .5; }",

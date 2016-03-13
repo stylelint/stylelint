@@ -3,12 +3,12 @@
  * For rules, this is the selector list (and surrounding whitespace).
  * For at-rules, this is the name and params (and surrounding whitespace).
  *
- * If there is no block, return undefined.
+ * If there is no block, return empty string.
  *
  * @param {Rule|AtRule} statement - postcss rule or at-rule node
  * @param {object} options
  * @param {boolean} [options.noBefore] - Leave out the `before` string
- * @return {string|undefined}
+ * @return {string}
  */
 export default function (statement, { noBefore }={}) {
   let result = ""

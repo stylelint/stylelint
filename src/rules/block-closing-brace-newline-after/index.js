@@ -1,3 +1,5 @@
+import { isString } from "lodash"
+
 import {
   cssStatementBlockString,
   cssStatementHasBlock,
@@ -7,18 +9,19 @@ import {
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import { cssStatementIsIgnoredAtRule } from "../block-opening-brace-space-before"
 
 export const ruleName = "block-closing-brace-newline-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => `Expected newline after "}"`,
-  expectedAfterSingleLine: () => `Expected single space after "}" of a single-line block`,
-  rejectedAfterSingleLine: () => `Unexpected whitespace after "}" of a single-line block`,
-  expectedAfterMultiLine: () => `Expected single space after "}" of a multi-line block`,
-  rejectedAfterMultiLine: () => `Unexpected whitespace after "}" of a multi-line block`,
+  expectedAfter: () => "Expected newline after \"}\"",
+  expectedAfterSingleLine: () => "Expected single space after \"}\" of a single-line block",
+  rejectedAfterSingleLine: () => "Unexpected whitespace after \"}\" of a single-line block",
+  expectedAfterMultiLine: () => "Expected single space after \"}\" of a multi-line block",
+  rejectedAfterMultiLine: () => "Unexpected whitespace after \"}\" of a multi-line block",
 })
 
-export default function (expectation) {
+export default function (expectation, options) {
   const checker = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -30,6 +33,12 @@ export default function (expectation) {
         "always-multi-line",
         "never-multi-line",
       ],
+    }, {
+      actual: options,
+      possible: {
+        ignoreAtRules: [isString],
+      },
+      optional: true,
     })
     if (!validOptions) { return }
 
@@ -41,6 +50,7 @@ export default function (expectation) {
       const nextNode = statement.next()
       if (!nextNode) { return }
       if (!cssStatementHasBlock(statement)) { return }
+      if (cssStatementIsIgnoredAtRule(statement, options)) { return }
 
       // Only check one after, because there might be other
       // spaces handled by the indentation rule

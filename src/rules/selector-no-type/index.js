@@ -1,6 +1,7 @@
 import selectorParser from "postcss-selector-parser"
 import { get } from "lodash"
 import {
+  cssRuleHasSelectorEndingWithColon,
   optionsHaveIgnored,
   report,
   ruleMessages,
@@ -30,6 +31,8 @@ export default function (on, options) {
         return
       }
 
+      if (cssRuleHasSelectorEndingWithColon(rule)) { return }
+
       selectorParser(selectorAST => {
         selectorAST.eachTag(tag => {
           // postcss-selector-parser includes the arguments to nth-child() functions
@@ -40,8 +43,8 @@ export default function (on, options) {
             return
           }
 
-          // & is not a type selector: it's used for nesting
-          if (tag.value === "&") { return }
+          // & is not a type selector: it's used for nesting 
+          if (tag.value[0] === "&") { return }
 
           if (optionsHaveIgnored(options, "descendant")  && isCombinator(tag.prev())) {
             return

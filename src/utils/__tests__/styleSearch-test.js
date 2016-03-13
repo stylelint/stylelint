@@ -125,6 +125,39 @@ test("ignores matches within double-quote strings", t => {
   /* eslint-enable quotes */
 })
 
+test("`checkStrings` option", t => {
+  t.deepEqual(styleSearchResults({
+    source: "abc 'abc'",
+    target: "b",
+    checkStrings: true,
+  }), [ 1, 6 ])
+
+  t.deepEqual(styleSearchResults({
+    source: "abc /* 'abc' */",
+    target: "b",
+    checkStrings: true,
+  }), [1], "no strings within comments")
+  t.end()
+})
+
+test("`withinStrings` option", t => {
+  /* eslint-disable quotes */
+  t.deepEqual(styleSearchResults({
+    source: 'abc "abc"',
+    target: "b",
+    withinStrings: true,
+  }), [6])
+
+  t.deepEqual(styleSearchResults({
+    source: "p[href^='https://']:before { content: \"\/*\"; \n  top: 0;\n}",
+    target: "\n",
+    withinStrings: true,
+  }), [], "comments do not start inside strings")
+  /* eslint-enable quotes */
+
+  t.end()
+})
+
 test("ignores matches within comments", t => {
   t.deepEqual(styleSearchResults({
     source: "abc/*comment*/",
@@ -134,6 +167,30 @@ test("ignores matches within comments", t => {
     source: "abc/*command*/",
     target: "a",
   }), [0])
+  t.end()
+})
+
+test("`checkComments` option", t => {
+  t.deepEqual(styleSearchResults({
+    source: "abc/*abc*/",
+    target: "b",
+    checkComments: true,
+  }), [ 1, 6 ])
+  t.end()
+})
+
+test("`withinComments` option", t => {
+  t.deepEqual(styleSearchResults({
+    source: "abc/*abc*/",
+    target: "b",
+    withinComments: true,
+  }), [6])
+
+  t.deepEqual(styleSearchResults({
+    source: "ab'c/*abc*/c'",
+    target: "b",
+    withinComments: true,
+  }), [], "no comments within strings")
   t.end()
 })
 
@@ -176,7 +233,7 @@ test("handles escaped double-quotes in single-quote strings", t => {
 })
 
 test("count", t => {
-  let endCounts = []
+  const endCounts = []
   styleSearch({ source: "123 123 123", target: "1" }, (index, count) => {
     endCounts.push(count)
   })

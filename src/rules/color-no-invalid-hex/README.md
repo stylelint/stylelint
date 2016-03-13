@@ -3,8 +3,8 @@
 Disallow invalid hex colors.
 
 ```css
-    a { color: #333 }
-/**              ↑
+a { color: #y3 }
+/**        ↑
  * These hex colors */
 ```
 
@@ -25,7 +25,6 @@ a { color: #12345aa; }
 ```
 
 The following patterns are *not* considered warnings:
-
 
 ```css
 a { color: #000; }

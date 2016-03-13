@@ -3,16 +3,15 @@
 Require a newline or disallow whitespace after the semicolons of declaration blocks.
 
 ```css
-    a {
-      color: pink;
-      top: 0;    ↑
-    }            ↑
-/**              ↑
+a {
+  color: pink;
+  top: 0;    ↑
+}            ↑
+/**          ↑
  * The newline after this semicolon */
 ```
 
-This rule allows an end-of-line comment separated from the semicolon by spaces,
-as long as the comment contains no newlines. For example,
+This rule allows an end-of-line comment separated from the semicolon by spaces, as long as the comment contains no newlines. For example,
 
 ```css
 a {

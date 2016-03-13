@@ -8,8 +8,8 @@ import {
 export const ruleName = "declaration-bang-space-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => `Expected single space after "!"`,
-  rejectedAfter: () => `Unexpected whitespace after "!"`,
+  expectedAfter: () => "Expected single space after \"!\"",
+  rejectedAfter: () => "Unexpected whitespace after \"!\"",
 })
 
 export default function (expectation) {

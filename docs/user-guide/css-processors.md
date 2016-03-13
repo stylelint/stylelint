@@ -4,15 +4,33 @@ The linter supports current and future CSS syntax. This includes all standard CS
 
 You can run the linter before or after your css processors. Depending on which processors you use, each approach has caveats:
 
-1. *Before*: Some plugins/procssors might enable a syntax that isn't compatible with the linter.
+1. *Before*: Some plugins/processors might enable a syntax that isn't compatible with the linter.
 2. *After*: Some plugins/processors might generate CSS that is invalid against your linter config, causing warnings that do not correspond to your original stylesheets.
 
 *In both cases you can either turn off the incompatible linter rule, or stop using the incompatible plugin/processor.* You could also approach plugin/processor authors and request alternate formatting options that will make their plugin/processor compatible with stylelint.
 
 ## Parsing SCSS
 
-The linter can parse the SCSS! 
+The linter can *parse* SCSS syntax.
 
-Both the [CLI](/docs/user-guide/cli.md) and the [Node API](docs/user-guide/cli.md) expose a `syntax` option. Just pass `scss` as your `syntax`, e.g. `stylelint --syntax scss ..` or `stylelint.lint({ syntax: 'scss', .. })`.
+Both the [CLI](/docs/user-guide/cli.md) and the [Node API](docs/user-guide/cli.md) expose a `syntax` option.
 
-If you're using the the linter as a [PostCSS Plugin](/docs/user-guide/postcss-plugin.md), you should use [postcss-scss](https://github.com/postcss/postcss-scss) directly.
+- If you're using the CLI, use the `syntax` flag like so:  `stylelint --syntax scss ...`
+- If you're using the Node API, pass in the `syntax` option like so: `stylelint.lint({ syntax: "scss", ... })`.
+
+If you're using the linter as a [PostCSS Plugin](/docs/user-guide/postcss-plugin.md), you'll need to use [postcss-scss](https://github.com/postcss/postcss-scss) directly with PostCSS's `syntax` option like so:
+
+```js
+var postcss = require("postcss")
+var scss = require("postcss-scss")
+
+postcss([
+  require("stylelint"),
+  require("reporter")
+])
+  .process(css, {
+    from: "src/app.css",
+    syntax: scss
+  })
+})
+```

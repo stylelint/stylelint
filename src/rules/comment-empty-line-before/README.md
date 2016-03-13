@@ -3,11 +3,11 @@
 Require or disallow an empty line before comments.
 
 ```css
-    a {}
-                  /* ← */
-    /* comment */ /* ↑ */
-/**                  ↑
- *           This line */
+a {}
+              /* ← */
+/* comment */ /* ↑ */
+/**              ↑
+*        This line */
 ```
 
 If the comment is the very first node in a stylesheet then it is ignored. Inline comments are also ignored.

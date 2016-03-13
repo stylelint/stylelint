@@ -10,14 +10,14 @@ import {
 export const ruleName = "function-parentheses-space-inside"
 
 export const messages = ruleMessages(ruleName, {
-  expectedOpening: `Expected single space after "("`,
-  rejectedOpening: `Unexpected whitespace after "("`,
-  expectedClosing: `Expected single space before ")"`,
-  rejectedClosing: `Unexpected whitespace before ")"`,
-  expectedOpeningSingleLine: `Expected single space after "(" in a single-line function`,
-  rejectedOpeningSingleLine: `Unexpected whitespace after "(" in a single-line function`,
-  expectedClosingSingleLine: `Expected single space before ")" in a single-line function`,
-  rejectedClosingSingleLine: `Unexpected whitespace before ")" in a single-line function`,
+  expectedOpening: "Expected single space after \"(\"",
+  rejectedOpening: "Unexpected whitespace after \"(\"",
+  expectedClosing: "Expected single space before \")\"",
+  rejectedClosing: "Unexpected whitespace before \")\"",
+  expectedOpeningSingleLine: "Expected single space after \"(\" in a single-line function",
+  rejectedOpeningSingleLine: "Unexpected whitespace after \"(\" in a single-line function",
+  expectedClosingSingleLine: "Expected single space before \")\" in a single-line function",
+  rejectedClosingSingleLine: "Unexpected whitespace before \")\" in a single-line function",
 })
 
 export default function (expectation) {

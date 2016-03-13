@@ -12,11 +12,11 @@ import {
 export const ruleName = "block-opening-brace-newline-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: () => `Expected newline before "{"`,
-  expectedBeforeSingleLine: () => `Expected newline before "{" of a single-line block`,
-  rejectedBeforeSingleLine: () => `Unexpected whitespace before "{" of a single-line block`,
-  expectedBeforeMultiLine: () => `Expected newline before "{" of a multi-line block`,
-  rejectedBeforeMultiLine: () => `Unexpected whitespace before "{" of a multi-line block`,
+  expectedBefore: () => "Expected newline before \"{\"",
+  expectedBeforeSingleLine: () => "Expected newline before \"{\" of a single-line block",
+  rejectedBeforeSingleLine: () => "Unexpected whitespace before \"{\" of a single-line block",
+  expectedBeforeMultiLine: () => "Expected newline before \"{\" of a multi-line block",
+  rejectedBeforeMultiLine: () => "Unexpected whitespace before \"{\" of a multi-line block",
 })
 
 export default function (expectation) {

@@ -5,11 +5,12 @@ Disallow direction values in `linear-gradient()` calls that are not valid accord
 
 ```css
 .foo { background: linear-gradient(to top, #fff, #000); }
-/**                                  ↑
+/**                                ↑
  * This (optional) first argument is the "direction" */
 ```
 
 A valid and standard direction value is one of the following:
+
 - an angle
 - `to ` plus a side-or-corner (`to top`, `to bottom`, `to left`, `to right`; `to top right`, `to right top`, `to bottom left`, etc.)
 

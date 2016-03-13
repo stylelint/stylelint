@@ -44,9 +44,9 @@ export default postcss.plugin("stylelint", (options = {}) => {
           const plugin = pluginImport.default || pluginImport
           if (!plugin.ruleName) {
             throw configurationError(
-              `stylelint v3+ requires plugins to expose a ruleName. ` +
+              "stylelint v3+ requires plugins to expose a ruleName. " +
               `The plugin "${pluginPath}" is not doing this, so will not work ` +
-              `with stylelint v3+. Please file an issue with the plugin.`
+              "with stylelint v3+. Please file an issue with the plugin."
             )
           }
           ruleDefinitions[plugin.ruleName] = plugin.rule
@@ -72,10 +72,8 @@ export default postcss.plugin("stylelint", (options = {}) => {
         // Ignore the rule
         if (primaryOption === null) { return }
 
-        const ruleSeverity = (secondaryOptions && secondaryOptions.warn) ? "warning" : "error"
-
         // Log the rule's severity in the PostCSS result
-        result.stylelint.ruleSeverities[ruleName] = ruleSeverity
+        result.stylelint.ruleSeverities[ruleName] = get(secondaryOptions, "severity", "error")
         result.stylelint.customMessages[ruleName] = secondaryOptions && secondaryOptions.message
 
         // Run the rule with the primary and secondary options

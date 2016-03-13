@@ -4,7 +4,7 @@ Disallow id selectors.
 
 ```css
     #foo {}
-/**   ↑
+/** ↑
  * This type of selector */
 ```
 
@@ -23,7 +23,6 @@ The following patterns are considered warnings:
 ```
 
 The following patterns are *not* considered warnings:
-
 
 ```css
 a {}

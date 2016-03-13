@@ -63,8 +63,8 @@ function augmentConfig(config, configDir) {
     return Promise.resolve(configWithAbsolutePlugins)
   }
 
-  const extendLookups = [].concat(config.extends)
-  const origConfig = omit(config, "extends")
+  const extendLookups = [].concat(configWithAbsolutePlugins.extends)
+  const origConfig = omit(configWithAbsolutePlugins, "extends")
   const resultPromise = extendLookups.reduce((mergeConfigs, extendLookup) => {
     return mergeConfigs.then(mergedConfig => {
       return loadExtendedConfig(mergedConfig, extendLookup).then(extendedConfig => {
@@ -78,8 +78,8 @@ function augmentConfig(config, configDir) {
   })
 
   function loadExtendedConfig(config, extendLookup) {
-    var extendPath = getModulePath(configDir, extendLookup)
-    var extendDir = path.dirname(extendPath)
+    const extendPath = getModulePath(configDir, extendLookup)
+    const extendDir = path.dirname(extendPath)
     return cosmiconfig(null, {
       configPath: extendPath,
       // In case --config was used: do not pay attention to it again
@@ -102,8 +102,7 @@ function getModulePath(basedir, lookup) {
   const path = resolveFrom(basedir, lookup)
   if (path) return path
   throw configurationError(
-    `Could not find "${lookup}". ` +
-    `Do you need a \`configBasedir\`?`
+    `Could not find "${lookup}". Do you need a \`configBasedir\`?`
   )
 }
 

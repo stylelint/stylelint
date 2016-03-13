@@ -15,6 +15,7 @@ function basicAZTests(tr) {
   tr.ok("#FOO {}")
   tr.ok("a .foo > [foo='bar'], #FOO {}")
   tr.ok("a /* #foo */ {}")
+  tr.ok(":root { --custom-property-set: {} }")
 
   tr.notOk("a #foo {}", {
     message: messages.expected("foo"),

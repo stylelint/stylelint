@@ -20,7 +20,7 @@ tr.ok(
 
 // No enforcement if no newline
 tr.ok(
-`a { top: 0; } b { top: 1px; }`)
+"a { top: 0; } b { top: 1px; }")
 tr.ok(
 `a {
   top: 0;
@@ -82,6 +82,15 @@ tr.ok(
     bottom left
   ;
 }`)
+
+tr.ok(
+`a {
+  background-position: top left,
+    top right,
+
+    bottom left
+  ;
+}`, "weird empty line")
 
 // Rule start/end errors
 tr.notOk(
@@ -217,7 +226,7 @@ tr.ok(
 )
 
 tr.ok(
-`* { top: 0; }`
+"* { top: 0; }"
 )
 
 tr.ok(

@@ -13,6 +13,7 @@ testRule(undefined, tr => {
   tr.ok("foo {}")
   tr.ok(".foo {}")
   tr.ok("[foo] {}")
+  tr.ok(":root { --custom-property-set: {} }")
 
   tr.notOk("#foo {}", {
     message: messages.rejected,
@@ -46,6 +47,7 @@ testRuleScss(undefined, tr => {
   tr.ok("@for $n from 1 through 10 { .n#{$n}n#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore multiple sass interpolations in a selector inside @for")
   tr.ok("@each $n in $vals { .n-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore sass interpolation inside @each")
   tr.ok("@while $n < 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore sass interpolation inside @while")
+  tr.ok("div:nth-child(#{map-get($foo, bar)}) {}", "ignore sass map-get interpolation")
 
   tr.notOk("@for $n from 1 through 10 { .n-#{$n} #foo { } }", {
     message: messages.rejected,
