@@ -2,7 +2,7 @@
 
 **Please help us create, enhance, and debug stylelint rules!**
 
-There are well over a hundred rules already, so stylelint *needs* community contributions to continue its growth.
+There are well over a hundred rules already, so stylelint *needs* community contributions to continue to improve.
 
 If you like stylelint and open source software (since you're reading this, you almost certainly do), please consider taking some time to pitch in. Not only will you help stylelint thrive, you will also learn a thing or two — about CSS, PostCSS, Node, ES2015, unit testing, open source software, and more.
 
@@ -16,13 +16,15 @@ Also: we hope that your participation in the project isn't a one-off. *We'd love
 
 First, open [an issue](https://github.com/stylelint/stylelint/issues/new) and let everyone else know that you intend to create a new rule.
 
-Usually we have some discussion about the rule's purpose, name, and options before it's ready for serious development.
+Usually we have some discussion about the rule's purpose, name, and options before it's ready for development.
 
 Once you have something to show, you'll create a [pull request](https://github.com/stylelint/stylelint/compare) to continue the conversation.
 
 ### Come up with a name
 
-Have a look at the [rules guide](/docs/user-guide/rules.md) to familiarize yourself the rule naming conventions.
+Have a look at the [rules guide](/docs/user-guide/rules.md) to familiarize yourself the rule naming conventions. In particular, the section [about rule names](https://github.com/stylelint/stylelint/blob/contribution-docs/docs/user-guide/rules.md#about-rule-names).
+
+We take care to ensure that all the rules are named accurately and consistently. Our goals in that effort are to ensure that rules are easy to find and understand, and to prevent us from wanting to change the name later.
 
 ### Determine options
 
@@ -53,9 +55,11 @@ Look at the messages of other rules to glean more conventions and patterns.
 
 You will use the simple [PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md) to navigate and analyze the CSS syntax tree.
 
-Depending on the rule, you may also want ot use [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and/or [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser), which are easier and more accurate than most people's guesses at regular expressions.
+Depending on the rule, you may also want to use [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and/or [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser), which are easier and more accurate than most people's guesses at regular expressions.
 
 stylelint has a number of [utility functions](https://github.com/stylelint/stylelint/tree/master/src/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!)
+
+In particular, you will definitely want to use `validateOptions()` so that users are warned about invalid options. (Looking at other rules for examples of options validation will help a lot.)
 
 ### Write tests
 
@@ -73,6 +77,8 @@ And please *consider edge-cases.* These are where the bugs and shortcomings of r
 - How does your rule handle variables (`$sass`, `@less`, or `var(--custom-property)`)?
 - How does your rule handle CSS strings (e.g. `content: "anything goes";`)?
 - How does your rule handle CSS comments?
+- How does your rule handle whitespace and punctuation (e.g. normalising strings before comparison)?
+- How does your rule handle `url()` functions, including data URIs?
 - How does your rule handle nesting?
 
 #### Running tests

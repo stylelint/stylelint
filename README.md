@@ -37,14 +37,14 @@ With stylelint, it's easy to start linting your CSS:
 
 There is always a lot of work to do, and already well over 100 rules to maintain. So please help out in any way that you can!
 
-You can help stylelint grow in a number of ways:
+You can help in a number of ways:
 
 - Create, enhance, and debug rules (see our guide to ["Working on rules"](docs/developer-guide/rules.md)).
 - Improve documentation.
 - Chime in on any open issue or pull request.
-- Open new issues about your ideas for making stylelint better.
+- Open new issues about your ideas for making stylelint better, and pull requests to show us how your idea works.
 - Add new tests to *absolutely anything*.
-- Create or contribute to ecosystem tools like the plugins for Atom, Sublime Text, gulp, and Grunt.
+- Create or contribute to ecosystem tools, like the plugins for Atom and Sublime Text.
 - Spread the word.
 
 ## Guides
