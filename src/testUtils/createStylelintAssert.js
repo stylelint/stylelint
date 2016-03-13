@@ -5,7 +5,7 @@ import normalizeRuleSettings from "../normalizeRuleSettings"
 import disableRanges from "../disableRanges"
 
 // These should pass for *almost* every rule
-var basicChecks = [
+const basicChecks = [
   {
     code: "",
     description: "empty stylesheet",
@@ -125,8 +125,8 @@ export default function (equalityCheck) {
         })
 
         equalityCheck(resultPromise, {
+          completeAssertionDescription,
           caseDescription: createCaseDescription(rejectable.code),
-          completeAssertionDescription: completeAssertionDescription,
         })
       })
     }

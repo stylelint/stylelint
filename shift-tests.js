@@ -24,7 +24,7 @@ export default function (fileInfo, api) {
   }
 
   j(source).find(j.Function).forEach(path => {
-    var node = path.node
+    const node = path.node
     if (!_.get(node, "id.name") || !_.get(node, "params[0].name") === "tr") { return }
 
     const abnormalTestGroupDescription = j.objectExpression([])
@@ -139,7 +139,7 @@ export default function (fileInfo, api) {
       ))
     }
 
-    var testGroup = j.expressionStatement(j.callExpression(
+    const testGroup = j.expressionStatement(j.callExpression(
       j.identifier("testRule"),
       [ j.identifier("rule"), testGroupDescription ]
     ))
@@ -158,7 +158,7 @@ export default function (fileInfo, api) {
   // If we noticed that something abnormal is going on,
   // write that file for review
   if (abnormalInfoText) {
-    const infoFilePath = path.join(__dirname, fileInfo.path.replace(/\.js$/, "-codeshiftInfo.js"))
+    const infoFilePath = path.join(__dirname, fileInfo.path.replace(/__tests__\/(.*?)\.js$/, "$1-codeshiftInfo.js"))
     fs.writeFileSync(infoFilePath, abnormalInfoText, "utf8")
   }
 

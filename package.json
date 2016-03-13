@@ -73,21 +73,13 @@
     "tape": "^4.2.0"
   },
   "scripts": {
-    "lint": "eslint . --ignore-path .gitignore && remark . --quiet --frail",
-    "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
-    "pretest": "npm run lint",
-    "test": "npm run tape",
     "build": "babel src --out-dir dist",
     "prepublish": "npm run build",
     "release": "npmpub",
+    "lint": "eslint . --ignore-path .gitignore && remark . --quiet --frail",
     "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
     "test": "npm run lint && npm run tape",
-    "mocha-test": "mocha --compilers js:babel-core/register src/rules/block-no-empty/__tests__/test-with-mocha.js",
-    "ava-test": "ava src/rules/block-no-empty/__tests__/test-with-ava.js",
-    "blue-tape-test": "babel-tape-runner src/rules/block-no-empty/__tests__/test-with-blue-tape.js",
-    "shift-tests-standard": "jscodeshift -t ./shift-tests.js ./src/rules/rule-trailing-semicolon/__tests__/index.js && babel-tape-runner src/rules/rule-trailing-semicolon/__tests__/index.js",
-    "shift-tests-scss": "jscodeshift -t ./shift-tests.js ./src/rules/comment-whitespace-inside/__tests__/index.js && babel-tape-runner src/rules/comment-whitespace-inside/__tests__/index.js",
-    "shift-tests-abnormal": "jscodeshift -t ./shift-tests.js ./src/rules/at-rule-empty-line-before/__tests__/index.js && babel-tape-runner src/rules/at-rule-empty-line-before/__tests__/index.js"
+    "shift-tests": "jscodeshift -t ./shift-tests.js src/rules/**/__tests__/*.js"
   },
   "babel": {
     "presets": [
