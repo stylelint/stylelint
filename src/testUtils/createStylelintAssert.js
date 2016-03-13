@@ -3,6 +3,22 @@ import _ from "lodash"
 import normalizeRuleSettings from "../normalizeRuleSettings"
 import disableRanges from "../disableRanges"
 
+// These should pass for *almost* every rule
+var basicChecks = [
+  {
+    code: "",
+    description: "empty stylesheet",
+  },
+  {
+    code: "a {}",
+    description: "empty rule",
+  },
+  {
+    code: "@import \"foo.css\";",
+    description: "blockless statement",
+  },
+]
+
 export default function (equalityCheck) {
   return function (rule, schema) {
     const { ruleName } = schema
@@ -22,6 +38,8 @@ export default function (equalityCheck) {
       return text
     }
 
+    // Process the code through the rule and return
+    // the PostCSS LazyResult promise
     function postcssProcess(code) {
       var processor = postcss()
       processor.use(disableRanges)
@@ -35,8 +53,14 @@ export default function (equalityCheck) {
         .process(code, schema.postcssOptions)
     }
 
-    if (schema.accept) {
-      schema.accept.forEach(acceptedCase => {
+    // Apply the basic positive checks unless
+    // explicitly told not to
+    const passingTestCases = (schema.skipBasicChecks)
+      ? schema.accept
+      : basicChecks.concat(schema.accept)
+
+    if (passingTestCases.length) {
+      passingTestCases.forEach(acceptedCase => {
         const assertionDescription = spaceJoin(acceptedCase.description, "should be accepted")
         const resultPromise = postcssProcess(acceptedCase.code).then(postcssResult => {
           const warnings = postcssResult.warnings()

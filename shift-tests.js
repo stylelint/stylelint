@@ -12,6 +12,7 @@ export default function (fileInfo, api) {
 
   j(source).find(j.CallExpression).forEach(path => {
     const node = path.node
+
     if (node.callee.name !== "testRule") { return }
 
     const testFuncNode = node.arguments.slice(-1)
@@ -20,8 +21,15 @@ export default function (fileInfo, api) {
     const positiveTests = j.arrayExpression([])
     const negativeTests = j.arrayExpression([])
 
+    let usesWarningFreeBasics = false
     j(testFuncNode).find(j.CallExpression).forEach(path => {
       const node = path.node
+
+      if (!usesWarningFreeBasics && node.callee.name === "warningFreeBasics") {
+        usesWarningFreeBasics = true
+        return
+      }
+
       if (_.get(node, "callee.object.name") !== "tr") { return }
       if (!_.get(node, "callee.property.name")) { return }
 
@@ -52,6 +60,12 @@ export default function (fileInfo, api) {
       j.identifier("config"),
       configNodes
     ))
+    if (!usesWarningFreeBasics) {
+      testGroupDescription.properties.push(j.property("init",
+        j.identifier("skipBasicChecks"),
+        j.literal(true)
+      ))
+    }
     if (positiveTests.elements.length) {
       testGroupDescription.properties.push(j.property("init",
         j.identifier("accept"),
@@ -85,7 +99,7 @@ export default function (fileInfo, api) {
   function addPositiveTestCase(testCaseNode, expressionNode, positiveTestsNode) {
     if (expressionNode.arguments[1]) {
       testCaseNode.properties.push(j.property("init",
-        j.literal("description"),
+        j.identifier("description"),
         expressionNode.arguments[1]
       ))
     }
