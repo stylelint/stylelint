@@ -70,7 +70,8 @@
     "remark-lint": "^3.0.0",
     "sinon": "^1.16.1",
     "stylelint-rule-tester": "^0.6.2",
-    "tape": "^4.2.0"
+    "tape": "^4.2.0",
+    "trash": "^3.4.1"
   },
   "scripts": {
     "build": "babel src --out-dir dist",
@@ -79,7 +80,8 @@
     "lint": "eslint . --ignore-path .gitignore && remark . --quiet --frail",
     "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
     "test": "npm run lint && npm run tape",
-    "shift-tests": "jscodeshift -t ./shift-tests.js src/rules/**/__tests__/*.js"
+    "shift-tests": "jscodeshift -t ./shift-tests.js src/rules/**/__tests__/*.js",
+    "reset-tests": "trash src/**/*-codeshiftInfo.js && git checkout -- src/rules"
   },
   "babel": {
     "presets": [
