@@ -64,7 +64,7 @@ export default function (equalityCheck) {
       ? schema.accept
       : basicChecks.concat(schema.accept)
 
-    if (passingTestCases.length) {
+    if (passingTestCases && passingTestCases.length) {
       passingTestCases.forEach(acceptedCase => {
         const assertionDescription = spaceJoin(acceptedCase.description, "should be accepted")
         const resultPromise = postcssProcess(acceptedCase.code).then(postcssResult => {
