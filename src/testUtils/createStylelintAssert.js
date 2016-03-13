@@ -18,6 +18,10 @@ const basicChecks = [
     code: "@import \"foo.css\";",
     description: "blockless statement",
   },
+  {
+    code: ":global {}",
+    description: "CSS Modules global empty rule set",
+  },
 ]
 
 export default function (equalityCheck) {

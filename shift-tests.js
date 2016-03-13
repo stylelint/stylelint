@@ -94,6 +94,11 @@ export default function (fileInfo, api) {
   j(source).find(j.CallExpression).forEach(path => {
     const node = path.node
 
+    if (node.callee.name === "test") {
+      warn()
+      return
+    }
+
     if (!_.includes([ "testRule", "testRuleScss" ], node.callee.name)) {
       return
     }
