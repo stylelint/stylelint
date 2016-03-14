@@ -1,6 +1,6 @@
-# selector-no-type
+# selector-type-case
 
-Disallow type selectors.
+Specify lowercase or uppercase for html selector.
 
 ```css
     a {}
@@ -8,68 +8,51 @@ Disallow type selectors.
  * This type of selector */
 ```
 
+## Options
+
+`string`: `"lower"|"upper"`
+
+### `"lower"`
+
 The following patterns are considered warnings:
 
 ```css
-a {}
+A { color: #fff; }
 ```
 
 ```css
-a, .foo {}
-```
-
-```css
-a > [foo] {}
+LI { display: inline-block; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-.foo {}
+a { color: #000; }
 ```
 
 ```css
-[foo] {}
+li { display: inline-block; }
+```
+
+### `"upper"`
+
+The following patterns are considered warnings:
+
+```css
+a { color: #000; }
 ```
 
 ```css
-#foo {}
+li { display: inline-block; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+A { color: #fff; }
 ```
 
 ```css
-.bar > #foo {}
+LI { display: inline-block; }
 ```
 
-```css
-#foo.bar {}
-```
-
-## Optional options
-
-### `ignore: [ "descendant" ]`
-
-Allow descendant type selectors.
-
-For example, the following would *not* be considered warnings:
-
-```css
-.foo ul {}
-```
-
-```css
-#bar ul.foo {}
-```
-
-### `ignore: [ "compounded" ]`
-
-Allow compounded type selectors -- i.e. type selectors chained with other selectors.
-
-For example, the following would *not* be considered warnings:
-
-```css
-ul.foo {}
-```
-
-```css
-ul#bar {}
-```
