@@ -70,6 +70,7 @@ export default function (equalityCheck) {
 
     if (passingTestCases && passingTestCases.length) {
       passingTestCases.forEach(acceptedCase => {
+        if (!acceptedCase) { return }
         const assertionDescription = spaceJoin(acceptedCase.description, "should be accepted")
         const resultPromise = postcssProcess(acceptedCase.code).then(postcssResult => {
           const warnings = postcssResult.warnings()
