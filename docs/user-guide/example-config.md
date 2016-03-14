@@ -33,7 +33,6 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "declaration-bang-space-before": "always"|"never",
     "declaration-block-no-duplicate-properties": true,
     "declaration-block-no-shorthand-property-overrides": true,
-    "declaration-block-no-single-line": true,
     "declaration-block-properties-order": "alphabetical"|[],
     "declaration-block-semicolon-newline-after": "always"|"always-multi-line"|"never-multi-line",
     "declaration-block-semicolon-newline-before": "always"|"always-multi-line"|"never-multi-line",
