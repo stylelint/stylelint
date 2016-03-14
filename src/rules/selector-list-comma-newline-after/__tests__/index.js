@@ -119,10 +119,10 @@ testRule("never-multi-line", tr => {
   })
 })
 
-const scssTestRule = ruleTester(rule, ruleName, {
+const testRuleScss = ruleTester(rule, ruleName, {
   postcssOptions: { syntax: scss },
 })
 
-scssTestRule("always", tr => {
+testRuleScss("always", tr => {
   tr.ok("a, // comment\nb {}", "with end-of-line // comment with newline after")
 })
