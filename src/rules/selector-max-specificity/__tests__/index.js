@@ -82,12 +82,12 @@ testRule("0,4,1", tr => {
   })
 })
 
-const scssTestRule = ruleTester(rule, ruleName, {
+const testRuleScss = ruleTester(rule, ruleName, {
   postcssOptions: { syntax: scss },
 })
 
 // Interpolation to check we will skip
-scssTestRule("0,1,1", tr => {
+testRuleScss("0,1,1", tr => {
   warningFreeBasics(tr)
   tr.ok("#hello #{$test} {}", "ignore rules with variable interpolation")
 })

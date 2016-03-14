@@ -164,8 +164,11 @@ export default function (fileInfo, api) {
   // If we noticed that something abnormal is going on,
   // write that file for review
   if (abnormalInfoText) {
-    const infoFilePath = path.join(__dirname, fileInfo.path.replace(/__tests__\/(.*?)\.js$/, "$1-codeshiftInfo.js"))
-    fs.writeFileSync(infoFilePath, abnormalInfoText, "utf8")
+    const infoPath = fileInfo.path.replace(/__tests__\/(.*?)\.js$/, "$1-codeshiftInfo.js")
+    const absoluteInfoPath = (path.isAbsolute(infoPath))
+      ? infoPath
+      : path.join(__dirname, infoPath)
+    fs.writeFileSync(absoluteInfoPath, abnormalInfoText, "utf8")
   }
 
   return newFileContents
