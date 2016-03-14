@@ -7,6 +7,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
 ```json
 {
   "rules": {
+    "at-rule-blockless-newline-after": "always",
     "at-rule-empty-line-before": "always"|"never",
     "at-rule-no-vendor-prefix": true,
     "block-closing-brace-newline-after": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
