@@ -52,10 +52,10 @@ export default function (fileInfo, api) {
     abnormalInfoText += "\n\n" + abnormalTestGroupCode
   })
 
-  let usesWarningFreeBasics = false
   function extractTestCases(sourceNode) {
     const positiveTests = j.arrayExpression([])
     const negativeTests = j.arrayExpression([])
+    let usesWarningFreeBasics = false
     j(sourceNode).find(j.CallExpression).forEach(path => {
       const node = path.node
 

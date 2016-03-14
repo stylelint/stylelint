@@ -1,5 +1,5 @@
 import disableRanges from "../disableRanges"
-import ruleTester from "stylelint-rule-tester"
+import ruleTester from "./modifiedLegacyRuleTester"
 
 export default function (rule, ruleName, options) {
   options = options || {}

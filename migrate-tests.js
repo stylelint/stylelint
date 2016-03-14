@@ -2,6 +2,7 @@
 var execSync = require("child_process").execSync
 var path = require("path")
 var globby = require("globby")
+var _ = require("lodash")
 
 var ruleName = process.argv[2];
 
@@ -16,28 +17,28 @@ globby(path.join(__dirname, "src/rules", ruleName, "__tests__/*.js")).then(funct
   filepaths.forEach(function(filepath) {
     var friendlyFilepath = path.relative(path.join(__dirname, "src/rules"), filepath)
     console.log("processing " + friendlyFilepath)
-    var fileProcessingInfo = { file: friendlyFilepath }
+    var fileData = { file: friendlyFilepath }
 
-    var filePromise = testFile(filepath)
+    var filePromise = Promise.resolve().then(() => testFile(filepath, fileData))
       .then(codeshiftFile)
-      .then(testFile)
+      .then(() => testFile(filepath, fileData))
       .then(function() {
-        allInfo.push(fileProcessingInfo)
+        allInfo.push(fileData)
       })
       .catch(function(err) { console.log(err.stack) })
     promiseQueue.push(filePromise)
 
-    function testFile(filepath) {
+    function testFile(filepath, data) {
       return new Promise(function(resolve, reject) {
         var stdout = execSync(path.join(__dirname, "node_modules/.bin/babel-tape-runner " + filepath), { encoding: "utf8" })
         var testCount = _.get(stdout.match(/^# tests\s+(\d+)/m), '[0]')
         if (!testCount) {
           console.log("TESTS FAILED FOR " + friendlyFilepath)
         }
-        if (fileProcessingInfo.originalTestCount) {
-          fileProcessingInfo.shiftedTestCount = testCount
+        if (data.originalTestCount) {
+          data.shiftedTestCount = testCount
         } else {
-          fileProcessingInfo.originalTestCount = testCount
+          data.originalTestCount = testCount
         }
         resolve(filepath)
       })
