@@ -1,8 +1,6 @@
 import selectorParser from "postcss-selector-parser"
-import { get } from "lodash"
 import {
   cssRuleHasSelectorEndingWithColon,
-  optionsHaveIgnored,
   report,
   ruleMessages,
   validateOptions,
@@ -14,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   expected: (h, v) => `Expected "${h}" to be "${v}"`,
 })
 
-export default function(expectation) {
+export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
