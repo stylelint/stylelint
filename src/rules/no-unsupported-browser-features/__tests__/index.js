@@ -1,60 +1,76 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
-
-// These are just enough to ensure that the integration with doiuse
-// is working as expected: but that tool has its own tests.
-// The tests below are mostly copied from doiuse.
-//
-testRule(true, tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [true],
 })
 
-testRule(true, { browsers: "last 2 versions" },tr => {
-  warningFreeBasics(tr)
-  tr.ok("a { opacity: 1; }")
-  tr.ok("a { outline: none; }")
-  tr.ok("a { background: linear-gradient(black, white); }")
+testRule(rule, {
+  ruleName: ruleName,
+  config: [true, { browsers: "last 2 versions" }],
+
+  accept: [{
+    code: "a { opacity: 1; }",
+  }, {
+    code: "a { outline: none; }",
+  }, {
+    code: "a { background: linear-gradient(black, white); }",
+  }],
 })
 
-testRule(true, { browsers: "ie >= 7, safari >= 6" }, tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [true, { browsers: "ie >= 7, safari >= 6" }],
 
-  tr.notOk("a { opacity: 1; }", {
+  reject: [{
+    code: "a { opacity: 1; }",
+    description: "opacity",
     message: messages.rejected("CSS3 Opacity not supported by: IE (7,8)"),
     line: 1,
     column: 5,
-  }, "opacity")
-  tr.notOk("a { outline: none; }", {
+  }, {
+    code: "a { outline: none; }",
+    description: "outline",
     message: messages.rejected("CSS outline not supported by: IE (7)"),
     line: 1,
     column: 5,
-  }, "outline")
+  }],
 })
 
-testRule(true, { browsers: "ie >= 7, safari >= 6", ignore: "outline" }, tr => {
-  warningFreeBasics(tr)
-  tr.ok("a { outline: none; }")
+testRule(rule, {
+  ruleName: ruleName,
+  config: [true, { browsers: "ie >= 7, safari >= 6", ignore: "outline" }],
 
-  tr.notOk("a { opacity: 1; }", {
+  accept: [{
+    code: "a { outline: none; }",
+  }],
+
+  reject: [{
+    code: "a { opacity: 1; }",
+    description: "opacity",
     message: messages.rejected("CSS3 Opacity not supported by: IE (7,8)"),
     line: 1,
     column: 5,
-  }, "opacity")
+  }],
 })
 
-testRule(true, { browsers: "ie >= 9" }, tr => {
-  warningFreeBasics(tr)
-  tr.ok("a { opacity: 1; }")
-  tr.ok("a { outline: none; }")
+testRule(rule, {
+  ruleName: ruleName,
+  config: [true, { browsers: "ie >= 9" }],
 
-  tr.notOk("a { background: linear-gradient(black, white); }", {
+  accept: [{
+    code: "a { opacity: 1; }",
+  }, {
+    code: "a { outline: none; }",
+  }],
+
+  reject: [{
+    code: "a { background: linear-gradient(black, white); }",
+    description: "gradient",
     message: messages.rejected("CSS Gradients not supported by: IE (9)"),
     line: 1,
     column: 5,
-  }, "gradient")
+  }],
 })

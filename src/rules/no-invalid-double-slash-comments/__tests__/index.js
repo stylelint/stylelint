@@ -1,71 +1,69 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-import scssSyntax from "postcss-scss"
+testRule(rule, {
+  ruleName: ruleName,
+  config: [undefined],
 
-const testRule = ruleTester(rule, ruleName)
+  accept: [{
+    code: "a { /* color: pink; */ }",
+    description: "regular comment around declaration",
+  }, {
+    code: "/* a { color: pink; } */",
+    description: "regular comment around rule",
+  }, {
+    code: "a { background: url(//foo.com/bar.png) }",
+    description: "url with double slash",
+  }],
 
-testRule(undefined, tr => {
-  warningFreeBasics(tr)
-
-  tr.ok("a { /* color: pink; */ }", "regular comment around declaration")
-  tr.ok("/* a { color: pink; } */", "regular comment around rule")
-  tr.ok("a { background: url(//foo.com/bar.png) }", "url with double slash")
-
-  tr.notOk(
-    "a { // color: pink; }",
-    {
-      message: messages.rejected,
-      line: 1,
-      column: 5,
-    },
-    "before declaration"
-  )
-
-  tr.notOk(
-    "// a { color: pink; }",
-    {
-      message: messages.rejected,
-      line: 1,
-      column: 1,
-    },
-    "before rule"
-  )
-
-  tr.notOk(
-    "a, // div { color: pink; }",
-    {
-      message: messages.rejected,
-      line: 1,
-      column: 1,
-    },
-    "between rules"
-  )
-
-  tr.notOk(
-    "// @media { }",
-    {
-      message: messages.rejected,
-      line: 1,
-      column: 1,
-    },
-    "before media rule"
-  )
+  reject: [{
+    code: "a { // color: pink; }",
+    description: "before declaration",
+    message: messages.rejected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "// a { color: pink; }",
+    description: "before rule",
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  }, {
+    code: "a, // div { color: pink; }",
+    description: "between rules",
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  }, {
+    code: "// @media { }",
+    description: "before media rule",
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  }],
 })
 
-const testRuleScss = ruleTester(rule, ruleName, {
-  postcssOptions: {
-    syntax: scssSyntax,
-  },
+testRule(rule, {
+  ruleName: ruleName,
+  config: [undefined],
+  skipBasicChecks: true,
+  syntax: "scss",
+
+  accept: [{
+    code: "// a { color: pink }",
+    description: "single-line comment ignored",
+  }],
 })
 
-testRuleScss(undefined, tr => {
-  tr.ok("// a { color: pink }", "single-line comment ignored")
-})
+testRule(rule, {
+  ruleName: ruleName,
+  config: [undefined],
+  skipBasicChecks: true,
+  syntax: "scss",
 
-testRuleScss(undefined, tr => {
-  tr.ok("a { \n// color: pink;\n }", "single-line comment ignored")
+  accept: [{
+    code: "a { \n// color: pink;\n }",
+    description: "single-line comment ignored",
+  }],
 })
