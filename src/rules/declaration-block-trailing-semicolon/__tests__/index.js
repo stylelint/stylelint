@@ -1,116 +1,84 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "a { color: pink; }",
+    description: "single-line declaration block with trailing semicolon",
+  }, {
+    code: "a { background: orange; color: pink; }",
+    description: "multi-line declaration block with trailing semicolon",
+  }, {
+    code: "a {{ &:hover { color: pink; }}}",
+    description: "nesting without first-level decl",
+  }, {
+    code: "a { color: red; { &:hover { color: pink; }}}",
+    description: "nesting with first-level decl",
+  }, {
+    code: "a { &:hover { color: pink; }}",
+    description: "nested",
+  }],
 
-  tr.ok(
-    "a { color: pink; }",
-    "single-line declaration block with trailing semicolon"
-  )
-  tr.ok(
-    "a { background: orange; color: pink; }",
-    "multi-line declaration block with trailing semicolon"
-  )
-
-  tr.ok(
-    "a {{ &:hover { color: pink; }}}",
-    "nesting without first-level decl"
-  )
-
-  tr.ok(
-    "a { color: red; { &:hover { color: pink; }}}",
-    "nesting with first-level decl"
-  )
-
-  tr.ok(
-    "a { &:hover { color: pink; }}",
-    "nested"
-  )
-
-  tr.notOk(
-    "a { color: pink }",
-    {
-      message: messages.expected,
-      line: 1,
-      column: 16,
-    },
-    "single-line declaration block without trailing semicolon"
-  )
-  tr.notOk(
-    "a { background: orange; color: pink }",
-    {
-      message: messages.expected,
-      line: 1,
-      column: 36,
-    },
-    "multi-line declaration block without trailing semicolon"
-  )
-
-  tr.notOk(
-    "a {{ &:hover { color: pink }}}",
-    {
-      message: messages.expected,
-      line: 1,
-      column: 27,
-    },
-    "nesting without first-level decl"
-  )
-
-  tr.notOk(
-    "a { color: red; { &:hover { color: pink }}}",
-    {
-      message: messages.expected,
-      line: 1,
-      column: 40,
-    },
-    "nesting with first-level decl"
-  )
-
-  tr.notOk(
-    "a { &:hover { color: pink }}",
-    {
-      message: messages.expected,
-      line: 1,
-      column: 26,
-    },
-    "nested"
-  )
+  reject: [{
+    code: "a { color: pink }",
+    description: "single-line declaration block without trailing semicolon",
+    message: messages.expected,
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { background: orange; color: pink }",
+    description: "multi-line declaration block without trailing semicolon",
+    message: messages.expected,
+    line: 1,
+    column: 36,
+  }, {
+    code: "a {{ &:hover { color: pink }}}",
+    description: "nesting without first-level decl",
+    message: messages.expected,
+    line: 1,
+    column: 27,
+  }, {
+    code: "a { color: red; { &:hover { color: pink }}}",
+    description: "nesting with first-level decl",
+    message: messages.expected,
+    line: 1,
+    column: 40,
+  }, {
+    code: "a { &:hover { color: pink }}",
+    description: "nested",
+    message: messages.expected,
+    line: 1,
+    column: 26,
+  }],
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never"],
 
-  tr.ok(
-    "a { color: pink }",
-    "single-line declaration block without trailing semicolon"
-  )
-  tr.ok(
-    "a { background: orange; color: pink }",
-    "multi-line declaration block without trailing semicolon"
-  )
+  accept: [{
+    code: "a { color: pink }",
+    description: "single-line declaration block without trailing semicolon",
+  }, {
+    code: "a { background: orange; color: pink }",
+    description: "multi-line declaration block without trailing semicolon",
+  }],
 
-  tr.notOk(
-    "a { color: pink; }",
-    {
-      message: messages.rejected,
-      line: 1,
-      column: 16,
-    },
-    "single-line declaration block with trailing semicolon"
-  )
-  tr.notOk(
-    "a { background: orange; color: pink; }",
-    {
-      message: messages.rejected,
-      line: 1,
-      column: 36,
-    },
-    "multi-line declaration block with trailing semicolon"
-  )
+  reject: [{
+    code: "a { color: pink; }",
+    description: "single-line declaration block with trailing semicolon",
+    message: messages.rejected,
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { background: orange; color: pink; }",
+    description: "multi-line declaration block with trailing semicolon",
+    message: messages.rejected,
+    line: 1,
+    column: 36,
+  }],
 })
