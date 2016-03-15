@@ -109,7 +109,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "selector-no-type": true,
     "selector-no-universal": true,
     "selector-no-vendor-prefix": true,
-    "selector-pseudo-element-colon-notation": true,
+    "selector-pseudo-element-colon-notation": "single"|"double",
     "selector-root-no-composition": true,
     "string-no-newline": true,
     "string-quotes": true,
