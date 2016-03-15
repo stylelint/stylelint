@@ -1,5 +1,5 @@
 /* eslint-disable comma-dangle,array-bracket-spacing */
-import testRule from "../../../testUtils/blueTapeStylelintAssert"
+import testRule from "../../../testUtils/mochaStylelintAssert"
 import postcss from "postcss"
 import postcssImport from "postcss-import"
 import path from "path"
