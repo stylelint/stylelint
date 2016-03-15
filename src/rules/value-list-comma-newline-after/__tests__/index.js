@@ -1,96 +1,130 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "a { background-size: 0,\n0; }",
+  }, {
+    code: "a { background-size: 0 ,\n  0; }",
+  }, {
+    code: "a { background-size: 0 ,\r\n  0; }",
+    description: "CRLF",
+  }, {
+    code: "a::before { content: \"foo,bar,baz\"; }",
+    description: "string",
+  }, {
+    code: "a { transform: translate(1,1); }",
+    description: "ignores function",
+  }],
 
-  tr.ok("a { background-size: 0,\n0; }")
-  tr.ok("a { background-size: 0 ,\n  0; }")
-  tr.ok("a { background-size: 0 ,\r\n  0; }", "CRLF")
-  tr.notOk("a { background-size: 0, 0; }", {
+  reject: [{
+    code: "a { background-size: 0, 0; }",
     message: messages.expectedAfter(),
     line: 1,
     column: 23,
-  })
-  tr.notOk("a { background-size: 0,  0; }", {
+  }, {
+    code: "a { background-size: 0,  0; }",
     message: messages.expectedAfter(),
     line: 1,
     column: 23,
-  })
-  tr.notOk("a { background-size: 0,\t0; }", {
+  }, {
+    code: "a { background-size: 0,\t0; }",
     message: messages.expectedAfter(),
     line: 1,
     column: 23,
-  })
-
-  tr.ok("a::before { content: \"foo,bar,baz\"; }", "string")
-  tr.ok("a { transform: translate(1,1); }", "ignores function")
+  }],
 })
 
-testRule("always-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always-multi-line"],
 
-  tr.ok("a { background-size: 0,\n0,\n0; }")
-  tr.ok("a { background-size: 0 ,\n  0,\n0; }")
-  tr.ok("a { background-size: 0 ,\r\n  0,\r\n0; }", "CRLF")
-  tr.notOk("a { background-size: 0,\n0, 0; }", {
-    message: messages.expectedAfterMultiLine(),
-    line: 2,
-    column: 2,
-  })
-  tr.notOk("a { background-size: 0,\n0,  0; }", {
-    message: messages.expectedAfterMultiLine(),
-    line: 2,
-    column: 2,
-  })
-  tr.notOk("a { background-size: 0,\n0,\t0; }", {
-    message: messages.expectedAfterMultiLine(),
-    line: 2,
-    column: 2,
-  })
-  tr.notOk("a { background-size: 0,\r\n0,\t0; }", {
-    message: messages.expectedAfterMultiLine(),
-    line: 2,
-    column: 2,
-  }, "CRLF")
+  accept: [{
+    code: "a { background-size: 0,\n0,\n0; }",
+  }, {
+    code: "a { background-size: 0 ,\n  0,\n0; }",
+  }, {
+    code: "a { background-size: 0 ,\r\n  0,\r\n0; }",
+    description: "CRLF",
+  }, {
+    code: "a { background-size: 0, 0; }",
+    description: "ignores single-line",
+  }, {
+    code: "a { background-size: 0, 0;\n}",
+    description: "ignores single-line list, multi-line block",
+  }, {
+    code: "a { background-size: 0, 0;\r\n}",
+    description: "ignores single-line list, multi-line block with CRLF",
+  }],
 
-  tr.ok("a { background-size: 0, 0; }", "ignores single-line")
-  tr.ok("a { background-size: 0, 0;\n}", "ignores single-line list, multi-line block")
-  tr.ok("a { background-size: 0, 0;\r\n}", "ignores single-line list, multi-line block with CRLF")
+  reject: [{
+    code: "a { background-size: 0,\n0, 0; }",
+    message: messages.expectedAfterMultiLine(),
+    line: 2,
+    column: 2,
+  }, {
+    code: "a { background-size: 0,\n0,  0; }",
+    message: messages.expectedAfterMultiLine(),
+    line: 2,
+    column: 2,
+  }, {
+    code: "a { background-size: 0,\n0,\t0; }",
+    message: messages.expectedAfterMultiLine(),
+    line: 2,
+    column: 2,
+  }, {
+    code: "a { background-size: 0,\r\n0,\t0; }",
+    description: "CRLF",
+    message: messages.expectedAfterMultiLine(),
+    line: 2,
+    column: 2,
+  }],
 })
 
-testRule("never-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never-multi-line"],
 
-  tr.ok("a { background-size: 0\n,0\n,0; }")
-  tr.ok("a { background-size: 0\r\n,0\r\n,0; }", "CRLF")
-  tr.notOk("a { background-size: 0\n,0\n, 0; }", {
-    message: messages.rejectedAfterMultiLine(),
-    line: 3,
-    column: 1,
-  })
-  tr.notOk("a { background-size: 0\n,0\n,  0; }", {
-    message: messages.rejectedAfterMultiLine(),
-    line: 3,
-    column: 1,
-  })
-  tr.notOk("a { background-size: 0\r\n,0\r\n,  0; }", {
-    message: messages.rejectedAfterMultiLine(),
-    line: 3,
-    column: 1,
-  }, "CRLF")
-  tr.notOk("a { background-size: 0\n,0\n,\t0; }", {
-    message: messages.rejectedAfterMultiLine(),
-    line: 3,
-    column: 1,
-  })
+  accept: [{
+    code: "a { background-size: 0\n,0\n,0; }",
+  }, {
+    code: "a { background-size: 0\r\n,0\r\n,0; }",
+    description: "CRLF",
+  }, {
+    code: "a { background-size: 0, 0; }",
+    description: "ignores single-line",
+  }, {
+    code: "a { background-size: 0, 0;\n}",
+    description: "ignores single-line list, multi-line block",
+  }, {
+    code: "a { background-size: 0, 0;\r\n}",
+    description: "ignores single-line list, multi-line block with CRLF",
+  }],
 
-  tr.ok("a { background-size: 0, 0; }", "ignores single-line")
-  tr.ok("a { background-size: 0, 0;\n}", "ignores single-line list, multi-line block")
-  tr.ok("a { background-size: 0, 0;\r\n}", "ignores single-line list, multi-line block with CRLF")
+  reject: [{
+    code: "a { background-size: 0\n,0\n, 0; }",
+    message: messages.rejectedAfterMultiLine(),
+    line: 3,
+    column: 1,
+  }, {
+    code: "a { background-size: 0\n,0\n,  0; }",
+    message: messages.rejectedAfterMultiLine(),
+    line: 3,
+    column: 1,
+  }, {
+    code: "a { background-size: 0\r\n,0\r\n,  0; }",
+    description: "CRLF",
+    message: messages.rejectedAfterMultiLine(),
+    line: 3,
+    column: 1,
+  }, {
+    code: "a { background-size: 0\n,0\n,\t0; }",
+    message: messages.rejectedAfterMultiLine(),
+    line: 3,
+    column: 1,
+  }],
 })
