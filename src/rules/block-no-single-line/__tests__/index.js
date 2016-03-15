@@ -1,94 +1,82 @@
-import {
-  ruleTester,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [undefined],
+  skipBasicChecks: true,
 
-testRule(undefined, tr => {
-  tr.ok("")
-  tr.ok("@import \"foo.css\";")
+  accept: [{
+    code: "",
+  }, {
+    code: "@import \"foo.css\";",
+  }, {
+    code: "a {\ncolor: pink; }",
+    description: "multi-line declaration block with newline at start",
+  }, {
+    code: "a {\r\ncolor: pink; }",
+    description: "multi-line declaration block with CRLF at start",
+  }, {
+    code: "a { color: pink;\n}",
+    description: "multi-line declaration block with newline at end",
+  }, {
+    code: "a { color: pink;\r\n}",
+    description: "multi-line declaration block with CRLF at end",
+  }, {
+    code: "a { color: pink;\nbackground: orange; }",
+    description: "multi-line declaration block with newline in middle",
+  }, {
+    code: "a { color: pink;\r\nbackground: orange; }",
+    description: "multi-line declaration block with CRLF in middle",
+  }, {
+    code: "@media (color) {\na { color: pink;\r\nbackground: orange; }\n}",
+    description: "multi-line blocks",
+  }, {
+    code: "a {\n@media (color) { color: pink;\r\nbackground: orange; }\n}",
+    description: "multi-line blocks with the at-rule nested",
+  }],
 
-  tr.ok(
-    "a {\ncolor: pink; }",
-    "multi-line declaration block with newline at start"
-  )
-  tr.ok(
-    "a {\r\ncolor: pink; }",
-    "multi-line declaration block with CRLF at start"
-  )
-  tr.ok(
-    "a { color: pink;\n}",
-    "multi-line declaration block with newline at end"
-  )
-  tr.ok(
-    "a { color: pink;\r\n}",
-    "multi-line declaration block with CRLF at end"
-  )
-  tr.ok(
-    "a { color: pink;\nbackground: orange; }",
-    "multi-line declaration block with newline in middle"
-  )
-  tr.ok(
-    "a { color: pink;\r\nbackground: orange; }",
-    "multi-line declaration block with CRLF in middle"
-  )
-  tr.ok(
-    "@media (color) {\na { color: pink;\r\nbackground: orange; }\n}",
-    "multi-line blocks"
-  )
-  tr.ok(
-    "a {\n@media (color) { color: pink;\r\nbackground: orange; }\n}",
-    "multi-line blocks with the at-rule nested"
-  )
-
-  tr.notOk(
-    "a { color: pink; }", {
-      message: messages.rejected,
-      line: 1,
-      column: 3,
-    }
-  )
-  tr.notOk(
-    "a { color: pink; top: 1px; }", {
-      message: messages.rejected,
-      line: 1,
-      column: 3,
-    }, "single-line rule with two declarations"
-  )
-  tr.notOk(
-    "a,\nb { color: pink; }", {
-      message: messages.rejected,
-      line: 2,
-      column: 3,
-    }, "multi-line rule with single-line declaration block"
-  )
-  tr.notOk(
-    "@media print {\na { color: pink; }}", {
-      message: messages.rejected,
-      line: 2,
-      column: 3,
-    }, "single-line rule within multi-line at-rule"
-  )
-  tr.notOk(
-    "@media print {\r\na { color: pink; }}", {
-      message: messages.rejected,
-      line: 2,
-      column: 3,
-    }, "single-line rule within multi-line at-rule and CRLF"
-  )
-  tr.notOk(
-    "a {\r\n@media print { color: pink; }}", {
-      message: messages.rejected,
-      line: 2,
-      column: 14,
-    }, "single-line at-rule within multi-line rule and CRLF"
-  )
-  tr.notOk(
-    "@rule { a:b }", {
-      message: messages.rejected,
-      line: 1,
-      column: 7,
-    }, "single-line @rule"
-  )
+  reject: [{
+    code: "a { color: pink; }",
+    message: messages.rejected,
+    line: 1,
+    column: 3,
+  }, {
+    code: "a { color: pink; top: 1px; }",
+    description: "single-line rule with two declarations",
+    message: messages.rejected,
+    line: 1,
+    column: 3,
+  }, {
+    code: "a,\nb { color: pink; }",
+    description: "multi-line rule with single-line declaration block",
+    message: messages.rejected,
+    line: 2,
+    column: 3,
+  }, {
+    code: "@media print {\na { color: pink; }}",
+    description: "single-line rule within multi-line at-rule",
+    message: messages.rejected,
+    line: 2,
+    column: 3,
+  }, {
+    code: "@media print {\r\na { color: pink; }}",
+    description: "single-line rule within multi-line at-rule and CRLF",
+    message: messages.rejected,
+    line: 2,
+    column: 3,
+  }, {
+    code: "a {\r\n@media print { color: pink; }}",
+    description: "single-line at-rule within multi-line rule and CRLF",
+    message: messages.rejected,
+    line: 2,
+    column: 14,
+  }, {
+    code: "@rule { a:b }",
+    description: "single-line @rule",
+    message: messages.rejected,
+    line: 1,
+    column: 7,
+  }],
 })
