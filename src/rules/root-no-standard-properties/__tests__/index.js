@@ -1,38 +1,42 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [undefined],
 
-testRule(undefined, tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: ":root { --foo: 0; }",
+  }, {
+    code: "a, :root { --foo: 0; }",
+  }, {
+    code: "a { color: pink; } :root { --foo: 0; }",
+  }, {
+    code: ":root { $scss: 0; }",
+  }, {
+    code: ":root { @less: 0; }",
+  }],
 
-  tr.ok(":root { --foo: 0; }")
-  tr.ok("a, :root { --foo: 0; }")
-  tr.ok("a { color: pink; } :root { --foo: 0; }")
-  tr.ok(":root { $scss: 0; }")
-  tr.ok(":root { @less: 0; }")
-
-  tr.notOk(":root { top: 0; }", {
+  reject: [{
+    code: ":root { top: 0; }",
     message: messages.rejected("top"),
     line: 1,
     column: 9,
-  })
-  tr.notOk(":root { -webkit-transform: scale(0); }", {
+  }, {
+    code: ":root { -webkit-transform: scale(0); }",
     message: messages.rejected("-webkit-transform"),
     line: 1,
     column: 9,
-  })
-  tr.notOk("a, :root { color: pink; }", {
+  }, {
+    code: "a, :root { color: pink; }",
     message: messages.rejected("color"),
     line: 1,
     column: 12,
-  })
-  tr.notOk("a { color: pink; } :root { margin: 0; }", {
+  }, {
+    code: "a { color: pink; } :root { margin: 0; }",
     message: messages.rejected("margin"),
     line: 1,
     column: 28,
-  })
+  }],
 })
