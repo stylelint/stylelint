@@ -79,6 +79,7 @@
     "release": "npmpub",
     "lint": "eslint . --ignore-path .gitignore && remark . --quiet --frail",
     "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
+    "test-rules": "mocha --compilers js:babel-register src/rules/**/__tests__/*.js",
     "test": "npm run lint && npm run tape",
     "shift-tests": "jscodeshift -t ./shift-tests.js src/rules/**/__tests__/*.js",
     "reset-tests": "trash src/**/*-codeshiftInfo.js && git checkout -- src/rules"
