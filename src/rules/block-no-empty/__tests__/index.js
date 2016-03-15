@@ -1,42 +1,48 @@
-import {
-  ruleTester,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [undefined],
+  skipBasicChecks: true,
 
-testRule(undefined, tr => {
-  // Stand-in warning-free-basics
-  tr.ok("")
-  tr.ok("@import \"foo.css\";")
+  accept: [{
+    code: "",
+  }, {
+    code: "@import \"foo.css\";",
+  }, {
+    code: "a { color: pink; }",
+  }, {
+    code: "@media print { a { color: pink; } }",
+  }, {
+    code: "@import url(x.css)",
+  }],
 
-  tr.ok("a { color: pink; }")
-  tr.ok("@media print { a { color: pink; } }")
-  tr.ok("@import url(x.css)")
-
-  tr.notOk("a {}", {
+  reject: [{
+    code: "a {}",
     message: messages.rejected,
     line: 1,
     column: 3,
-  })
-  tr.notOk("a { }", {
+  }, {
+    code: "a { }",
     message: messages.rejected,
     line: 1,
     column: 3,
-  })
-  tr.notOk("a {\n}", {
+  }, {
+    code: "a {\n}",
     message: messages.rejected,
     line: 1,
     column: 3,
-  })
-  tr.notOk("@media print {}", {
+  }, {
+    code: "@media print {}",
     message: messages.rejected,
     line: 1,
     column: 14,
-  })
-  tr.notOk("@media print { a {} }", {
+  }, {
+    code: "@media print { a {} }",
     message: messages.rejected,
     line: 1,
     column: 18,
-  })
+  }],
 })
