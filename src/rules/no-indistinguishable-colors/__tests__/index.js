@@ -3,7 +3,7 @@
 // import rule, { ruleName, messages } from ".."
 //
 // testRule(rule, {
-//   ruleName: ruleName,
+//   ruleName,
 //   config: [true],
 //
 //   accept: [{
@@ -46,7 +46,7 @@
 // })
 //
 // testRule(rule, {
-//   ruleName: ruleName,
+//   ruleName,
 //   config: [true, { whitelist: [[ "#000000", "#020202" ]] }],
 //   skipBasicChecks: true,
 //
@@ -59,7 +59,7 @@
 // })
 //
 // testRule(rule, {
-//   ruleName: ruleName,
+//   ruleName,
 //   config: [true, { ignore: ["#000000"] }],
 //   skipBasicChecks: true,
 //
@@ -69,7 +69,7 @@
 // })
 //
 // testRule(rule, {
-//   ruleName: ruleName,
+//   ruleName,
 //   config: [true, { threshold: 0 }],
 //   skipBasicChecks: true,
 //

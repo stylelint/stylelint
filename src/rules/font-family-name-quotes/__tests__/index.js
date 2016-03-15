@@ -3,7 +3,7 @@ import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["single-where-required"],
 
   accept: [{
@@ -57,7 +57,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["double-where-required"],
 
   accept: [{
@@ -111,7 +111,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["single-where-recommended"],
 
   accept: [{
@@ -189,7 +189,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["double-where-recommended"],
 
   accept: [{
@@ -267,7 +267,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["single-unless-keyword"],
 
   accept: [{
@@ -309,7 +309,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["double-unless-keyword"],
 
   accept: [{

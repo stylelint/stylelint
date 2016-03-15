@@ -43,7 +43,7 @@ const alwaysTests = {
 }
 
 testRule(rule, mergeTestDescriptions(alwaysTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["always"],
 
   accept: [{
@@ -61,7 +61,7 @@ testRule(rule, mergeTestDescriptions(alwaysTests, {
 }))
 
 testRule(rule, mergeTestDescriptions(alwaysTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["always", { except: ["first-nested"] }],
 
   accept: [{
@@ -79,7 +79,7 @@ testRule(rule, mergeTestDescriptions(alwaysTests, {
 }))
 
 testRule(rule, mergeTestDescriptions(alwaysTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["always", { ignore: ["stylelint-commands"] }],
 
   accept: [{
@@ -89,7 +89,7 @@ testRule(rule, mergeTestDescriptions(alwaysTests, {
 }))
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["always", { ignore: ["between-comments"] }],
 
   accept: [{
@@ -107,7 +107,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["never"],
 
   accept: [{
@@ -145,7 +145,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["always"],
   syntax: "scss",
 
@@ -159,7 +159,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["never"],
   syntax: "scss",
 

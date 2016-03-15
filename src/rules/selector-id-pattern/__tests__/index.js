@@ -34,11 +34,11 @@ const basicAZTests = {
 }
 
 testRule(rule, mergeTestDescriptions(basicAZTests, {
-  ruleName: ruleName,
+  ruleName,
   config: [/^[A-Z]+$/],
 }))
 
 testRule(rule, mergeTestDescriptions(basicAZTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["^[A-Z]+$"],
 }))

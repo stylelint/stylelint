@@ -14,7 +14,7 @@ const sharedTests = {
 }
 
 testRule(rule, mergeTestDescriptions(sharedTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["lower"],
 
   accept: [{
@@ -61,7 +61,7 @@ testRule(rule, mergeTestDescriptions(sharedTests, {
 }))
 
 testRule(rule, mergeTestDescriptions(sharedTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["upper"],
 
   accept: [{

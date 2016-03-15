@@ -63,37 +63,37 @@ const nestedAZTests = {
 }
 
 testRule(rule, mergeTestDescriptions(basicAZTests, {
-  ruleName: ruleName,
+  ruleName,
   config: [/^[A-Z]+$/],
 }))
 
 testRule(rule, mergeTestDescriptions(basicAZTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["^[A-Z]+$"],
 }))
 
 testRule(rule, mergeTestDescriptions(nestedAZTestsDefault, {
-  ruleName: ruleName,
+  ruleName,
   config: [/^[A-Z]+$/],
 }))
 
 testRule(rule, mergeTestDescriptions(nestedAZTestsDefault, {
-  ruleName: ruleName,
+  ruleName,
   config: ["^[A-Z]+$"],
 }))
 
 testRule(rule, mergeTestDescriptions(nestedAZTests, {
-  ruleName: ruleName,
+  ruleName,
   config: [/^[A-Z]+$/, { resolveNestedSelectors: true }],
 }))
 
 testRule(rule, mergeTestDescriptions(nestedAZTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["^[A-Z]+$", { resolveNestedSelectors: true }],
 }))
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [/^B+$/, { resolveNestedSelectors: true }],
 
   reject: [{
