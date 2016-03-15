@@ -1,6 +1,6 @@
 /* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/blueTapeStylelintAssert"
-import _ from "lodash"
+import { mergeTestDescriptions } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const sharedAlwaysTests = {
@@ -69,16 +69,16 @@ const sharedNeverTests = {
   }],
 }
 
-testRule(rule, _.mergeWith({
+testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   ruleName: ruleName,
   config: ["always"],
 
   accept: [{
     code: "a {\n\n  @mixin foo;\n}",
   }],
-}, sharedAlwaysTests, mergeCustomizer))
+}))
 
-testRule(rule, _.mergeWith({
+testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   ruleName: ruleName,
   config: ["always", { except: ["blockless-group"] }],
 
@@ -102,7 +102,7 @@ testRule(rule, _.mergeWith({
     code: "@import 'x.css';\n\n@import 'y.css'",
     message: messages.rejected,
   }],
-}, sharedAlwaysTests, mergeCustomizer))
+}))
 
 testRule(rule, {
   ruleName: ruleName,
@@ -123,7 +123,7 @@ testRule(rule, {
   }],
 })
 
-testRule(rule, _.mergeWith({
+testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   ruleName: ruleName,
   config: ["always", { except: ["all-nested"] }],
 
@@ -140,9 +140,9 @@ testRule(rule, _.mergeWith({
     code: "a {\n\n  color: pink;\n\n  @mixin foo;\n}",
     message: messages.rejected,
   }],
-}, sharedAlwaysTests, mergeCustomizer))
+}))
 
-testRule(rule, _.mergeWith({
+testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   ruleName: ruleName,
   config: ["always", { except: ["first-nested"] }],
 
@@ -157,9 +157,9 @@ testRule(rule, _.mergeWith({
     code: "a {\n\n  @mixin foo;\n  color: pink;\n}",
     message: messages.rejected,
   }],
-}, sharedAlwaysTests, mergeCustomizer))
+}))
 
-testRule(rule, _.mergeWith({
+testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   ruleName: ruleName,
   config: ["always", { ignore: ["all-nested"] }],
 
@@ -172,9 +172,9 @@ testRule(rule, _.mergeWith({
   }, {
     code: "a {\n\n  color: pink;\n\n  @mixin foo;\n}",
   }],
-}, sharedAlwaysTests, mergeCustomizer))
+}))
 
-testRule(rule, _.mergeWith({
+testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   ruleName: ruleName,
   config: ["always", { except: [ "blockless-group", "all-nested" ] }],
 
@@ -208,18 +208,18 @@ testRule(rule, _.mergeWith({
     code: "a {\n\n  color: pink;\n\n  @mixin foo;\n}",
     message: messages.rejected,
   }],
-}, sharedAlwaysTests, mergeCustomizer))
+}))
 
-testRule(rule, _.mergeWith({
+testRule(rule, mergeTestDescriptions(sharedNeverTests, {
   ruleName: ruleName,
   config: ["never"],
 
   accept: [{
     code: "a {\n  @mixin foo;\n}",
   }],
-}, sharedNeverTests, mergeCustomizer))
+}))
 
-testRule(rule, _.mergeWith({
+testRule(rule, mergeTestDescriptions(sharedNeverTests, {
   ruleName: ruleName,
   config: ["never", { except: ["blockless-group"] }],
 
@@ -243,9 +243,9 @@ testRule(rule, _.mergeWith({
     code: "@import 'x.css';\n@import 'y.css'",
     message: messages.expected,
   }],
-}, sharedNeverTests, mergeCustomizer))
+}))
 
-testRule(rule, _.mergeWith({
+testRule(rule, mergeTestDescriptions(sharedNeverTests, {
   ruleName: ruleName,
   config: ["never", { except: ["all-nested"] }],
 
@@ -262,9 +262,9 @@ testRule(rule, _.mergeWith({
     code: "a {\n\n  color: pink;\n  @mixin foo;\n}",
     message: messages.expected,
   }],
-}, sharedNeverTests, mergeCustomizer))
+}))
 
-testRule(rule, _.mergeWith({
+testRule(rule, mergeTestDescriptions(sharedNeverTests, {
   ruleName: ruleName,
   config: ["never", { except: ["first-nested"] }],
 
@@ -279,7 +279,7 @@ testRule(rule, _.mergeWith({
     code: "a {\n  @mixin foo;\n  color: pink;\n}",
     message: messages.expected,
   }],
-}, sharedNeverTests, mergeCustomizer))
+}))
 
 testRule(rule, {
   ruleName: ruleName,
@@ -304,7 +304,7 @@ testRule(rule, {
   }],
 })
 
-testRule(rule, _.mergeWith({
+testRule(rule, mergeTestDescriptions(sharedNeverTests, {
   ruleName: ruleName,
   config: ["never", { ignore: ["all-nested"] }],
 
@@ -317,10 +317,4 @@ testRule(rule, _.mergeWith({
   }, {
     code: "a {\n\n  color: pink;\n\n  @mixin foo;\n}",
   }],
-}, sharedNeverTests, mergeCustomizer))
-
-function mergeCustomizer(objValue, srcValue) {
-  if (_.isArray(objValue, mergeCustomizer)) {
-    return objValue.concat(srcValue)
-  }
-}
+}))
