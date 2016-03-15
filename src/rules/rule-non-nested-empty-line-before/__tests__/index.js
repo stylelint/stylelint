@@ -1,95 +1,218 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "a {}",
+    description: "first node ignored",
+  }, {
+    code: "@media { a {} }",
+    description: "nested node ignored",
+  }, {
+    code: "b {}\n\na {}",
+  }, {
+    code: "b {}\r\n\r\na {}",
+    description: "CRLF",
+  }, {
+    code: "b {}\n\r\na {}",
+    description: "Mixed",
+  }, {
+    code: "b {}\n  \t\n\na {}",
+  }, {
+    code: "b {}\n\n\ta {}",
+  }, {
+    code: "b {}\r\n\r\n\ta {}",
+    description: "CRLF",
+  }],
 
-  tr.ok("a {}", "first node ignored")
-  tr.ok("@media { a {} }", "nested node ignored")
-  tr.ok("b {}\n\na {}")
-  tr.ok("b {}\r\n\r\na {}", "CRLF")
-  tr.ok("b {}\n\r\na {}", "Mixed")
-  tr.ok("b {}\n  \t\n\na {}")
-  tr.ok("b {}\n\n\ta {}")
-  tr.ok("b {}\r\n\r\n\ta {}", "CRLF")
-
-  tr.notOk("b {} a {}", messages.expected)
-  tr.notOk("b {}\na {}", messages.expected)
-  tr.notOk("b {}\n\n/* comment here*/\na {}", messages.expected)
-  tr.notOk("b {}\r\n\r\n/* comment here*/\r\na {}", messages.expected, "CRLF")
+  reject: [{
+    code: "b {} a {}",
+    message: messages.expected,
+  }, {
+    code: "b {}\na {}",
+    message: messages.expected,
+  }, {
+    code: "b {}\n\n/* comment here*/\na {}",
+    message: messages.expected,
+  }, {
+    code: "b {}\r\n\r\n/* comment here*/\r\na {}",
+    description: "CRLF",
+    message: messages.expected,
+  }],
 })
 
-testRule("always", { ignore: ["after-comment"] }, tr => {
-  tr.ok("/* foo */\na {}")
-  tr.ok("/* foo */\n\na {}")
-  tr.ok("/* foo */\r\n\r\na {}", "CRLF")
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always", { ignore: ["after-comment"] }],
+  skipBasicChecks: true,
 
-  tr.notOk("b {} a {}", messages.expected)
+  accept: [{
+    code: "/* foo */\na {}",
+  }, {
+    code: "/* foo */\n\na {}",
+  }, {
+    code: "/* foo */\r\n\r\na {}",
+    description: "CRLF",
+  }],
+
+  reject: [{
+    code: "b {} a {}",
+    message: messages.expected,
+  }],
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never"],
 
-  tr.ok("\n\na {}", "first node ignored")
-  tr.ok("\r\n\r\na {}", "first node ignored and CRLF")
-  tr.ok("@media {\n\na {} }", "nested node ignored")
-  tr.ok("b {}\na {}")
-  tr.ok("b {}\n  \t\na {}")
-  tr.ok("b {}\r\n  \t\r\na {}", "CRLF")
-  tr.ok("b {}\ta {}")
+  accept: [{
+    code: "\n\na {}",
+    description: "first node ignored",
+  }, {
+    code: "\r\n\r\na {}",
+    description: "first node ignored and CRLF",
+  }, {
+    code: "@media {\n\na {} }",
+    description: "nested node ignored",
+  }, {
+    code: "b {}\na {}",
+  }, {
+    code: "b {}\n  \t\na {}",
+  }, {
+    code: "b {}\r\n  \t\r\na {}",
+    description: "CRLF",
+  }, {
+    code: "b {}\ta {}",
+  }],
 
-  tr.notOk("b {}\n\na {}", messages.rejected)
-  tr.notOk("b {}\t\n\n\ta {}", messages.rejected)
-  tr.notOk("b {}\t\r\n\r\n\ta {}", messages.rejected, "CRLF")
-  tr.notOk("b {}\n\n/* comment here*/\n\na {}", messages.rejected)
+  reject: [{
+    code: "b {}\n\na {}",
+    message: messages.rejected,
+  }, {
+    code: "b {}\t\n\n\ta {}",
+    message: messages.rejected,
+  }, {
+    code: "b {}\t\r\n\r\n\ta {}",
+    description: "CRLF",
+    message: messages.rejected,
+  }, {
+    code: "b {}\n\n/* comment here*/\n\na {}",
+    message: messages.rejected,
+  }],
 })
 
-testRule("never", { ignore: ["after-comment"] }, tr => {
-  tr.ok("/* foo */\na {}")
-  tr.ok("/* foo */\r\na {}", "CRLF")
-  tr.ok("/* foo */\n\na {}")
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never", { ignore: ["after-comment"] }],
+  skipBasicChecks: true,
 
-  tr.notOk("b {}\n\na {}", messages.rejected)
-  tr.notOk("b {}\r\n\r\na {}", messages.rejected, "CRLF")
+  accept: [{
+    code: "/* foo */\na {}",
+  }, {
+    code: "/* foo */\r\na {}",
+    description: "CRLF",
+  }, {
+    code: "/* foo */\n\na {}",
+  }],
+
+  reject: [{
+    code: "b {}\n\na {}",
+    message: messages.rejected,
+  }, {
+    code: "b {}\r\n\r\na {}",
+    description: "CRLF",
+    message: messages.rejected,
+  }],
 })
 
-testRule("always-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always-multi-line"],
 
-  tr.ok("a {}", "first node ignored")
-  tr.ok("@media { a\n{} }", "nested node ignored")
-  tr.ok("b {}\na {}", "single-line ignored")
-  tr.ok("b\n{}\n\na\n{}")
-  tr.ok("b\r\n{}\r\n\r\na\r\n{}", "CRLF")
-  tr.ok("b\n{}\n  \t\n\na\n{}")
-  tr.ok("b {}\n\n\ta\n{}")
-  tr.ok("b {}\r\n\r\n\ta\r\n{}", "CRLF")
+  accept: [{
+    code: "a {}",
+    description: "first node ignored",
+  }, {
+    code: "@media { a\n{} }",
+    description: "nested node ignored",
+  }, {
+    code: "b {}\na {}",
+    description: "single-line ignored",
+  }, {
+    code: "b\n{}\n\na\n{}",
+  }, {
+    code: "b\r\n{}\r\n\r\na\r\n{}",
+    description: "CRLF",
+  }, {
+    code: "b\n{}\n  \t\n\na\n{}",
+  }, {
+    code: "b {}\n\n\ta\n{}",
+  }, {
+    code: "b {}\r\n\r\n\ta\r\n{}",
+    description: "CRLF",
+  }],
 
-  tr.notOk("b {} a\n{}", messages.expected)
-  tr.notOk("b\n{}\na\n{}", messages.expected)
-  tr.notOk("b\r\n{}\r\na\r\n{}", messages.expected, "CRLF")
-  tr.notOk("b {}\n\n/* comment here*/\na\n{}", messages.expected)
+  reject: [{
+    code: "b {} a\n{}",
+    message: messages.expected,
+  }, {
+    code: "b\n{}\na\n{}",
+    message: messages.expected,
+  }, {
+    code: "b\r\n{}\r\na\r\n{}",
+    description: "CRLF",
+    message: messages.expected,
+  }, {
+    code: "b {}\n\n/* comment here*/\na\n{}",
+    message: messages.expected,
+  }],
 })
 
-testRule("never-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never-multi-line"],
 
-  tr.ok("\n\na\n{}", "first node ignored")
-  tr.ok("@media\n{\n\na\n{} }", "nested node ignored")
-  tr.ok("@media\r\n{\r\n\r\na\r\n{} }", "nested node ignored and CRLF")
-  tr.ok("b {}\n\na {}", "single-line ignored")
-  tr.ok("b\n{}\n  \t\na\n{}")
-  tr.ok("b\r\n{}\r\n  \t\r\na\r\n{}", "CRLF")
-  tr.ok("b {}\ta\n{}")
+  accept: [{
+    code: "\n\na\n{}",
+    description: "first node ignored",
+  }, {
+    code: "@media\n{\n\na\n{} }",
+    description: "nested node ignored",
+  }, {
+    code: "@media\r\n{\r\n\r\na\r\n{} }",
+    description: "nested node ignored and CRLF",
+  }, {
+    code: "b {}\n\na {}",
+    description: "single-line ignored",
+  }, {
+    code: "b\n{}\n  \t\na\n{}",
+  }, {
+    code: "b\r\n{}\r\n  \t\r\na\r\n{}",
+    description: "CRLF",
+  }, {
+    code: "b {}\ta\n{}",
+  }],
 
-  tr.notOk("b {}\n\na\n{}", messages.rejected)
-  tr.notOk("b {}\t\n\n\ta\n{}", messages.rejected)
-  tr.notOk("b {}\t\r\n\r\n\ta\r\n{}", messages.rejected, "CRLF")
-  tr.notOk("b {}\n\n/* comment here*/\n\na\n{}", messages.rejected)
-  tr.notOk("b {}\r\n\r\n/* comment here*/\r\n\r\na\r\n{}", messages.rejected, "CRLF")
+  reject: [{
+    code: "b {}\n\na\n{}",
+    message: messages.rejected,
+  }, {
+    code: "b {}\t\n\n\ta\n{}",
+    message: messages.rejected,
+  }, {
+    code: "b {}\t\r\n\r\n\ta\r\n{}",
+    description: "CRLF",
+    message: messages.rejected,
+  }, {
+    code: "b {}\n\n/* comment here*/\n\na\n{}",
+    message: messages.rejected,
+  }, {
+    code: "b {}\r\n\r\n/* comment here*/\r\n\r\na\r\n{}",
+    description: "CRLF",
+    message: messages.rejected,
+  }],
 })
