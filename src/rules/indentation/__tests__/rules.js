@@ -3,7 +3,7 @@ import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [2],
 
   accept: [{
@@ -196,7 +196,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["tab"],
 
   accept: [{
@@ -295,7 +295,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [2, { except: ["value"] }],
 
   accept: [{
@@ -338,7 +338,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [2, { ignore: ["value"] }],
 
   accept: [{

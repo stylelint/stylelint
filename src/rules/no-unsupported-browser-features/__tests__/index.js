@@ -3,12 +3,12 @@ import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [true],
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [true, { browsers: "last 2 versions" }],
 
   accept: [{
@@ -21,7 +21,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [true, { browsers: "ie >= 7, safari >= 6" }],
 
   reject: [{
@@ -40,7 +40,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [true, { browsers: "ie >= 7, safari >= 6", ignore: "outline" }],
 
   accept: [{
@@ -57,7 +57,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [true, { browsers: "ie >= 9" }],
 
   accept: [{

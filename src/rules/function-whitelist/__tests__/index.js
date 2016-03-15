@@ -3,7 +3,7 @@ import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
 
   config: [[
     "rotate",
@@ -74,7 +74,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["translate"],
   skipBasicChecks: true,
 

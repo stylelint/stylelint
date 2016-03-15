@@ -3,7 +3,7 @@ import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["numeric"],
 
   accept: [{
@@ -74,7 +74,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["numeric", { ignore: ["relative"] }],
 
   accept: [{
@@ -96,7 +96,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["named-where-possible"],
 
   accept: [{

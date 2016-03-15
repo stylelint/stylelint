@@ -14,7 +14,7 @@ const sharedTests = {
 }
 
 testRule(rule, mergeTestDescriptions(sharedTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["short"],
 
   accept: [{
@@ -71,7 +71,7 @@ testRule(rule, mergeTestDescriptions(sharedTests, {
 }))
 
 testRule(rule, mergeTestDescriptions(sharedTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["long"],
 
   accept: [{

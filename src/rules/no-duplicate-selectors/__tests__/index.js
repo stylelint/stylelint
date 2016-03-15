@@ -7,7 +7,7 @@ import test from "blue-tape"
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [null],
 
   accept: [{

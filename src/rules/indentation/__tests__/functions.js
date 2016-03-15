@@ -3,7 +3,7 @@ import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName } from ".."
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [2],
   skipBasicChecks: true,
 

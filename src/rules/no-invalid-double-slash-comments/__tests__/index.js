@@ -3,7 +3,7 @@ import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [undefined],
 
   accept: [{
@@ -45,7 +45,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [undefined],
   skipBasicChecks: true,
   syntax: "scss",
@@ -57,7 +57,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [undefined],
   skipBasicChecks: true,
   syntax: "scss",

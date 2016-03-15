@@ -3,7 +3,7 @@ import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [true],
   skipBasicChecks: true,
 
@@ -75,7 +75,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [true, { ignore: ["descendant"] }],
   skipBasicChecks: true,
 
@@ -103,7 +103,7 @@ testRule(rule, {
 })
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: [true, { ignore: ["compounded"] }],
   skipBasicChecks: true,
 

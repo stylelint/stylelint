@@ -70,7 +70,7 @@ const sharedNeverTests = {
 }
 
 testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["always"],
 
   accept: [{
@@ -79,7 +79,7 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
 }))
 
 testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["always", { except: ["blockless-group"] }],
 
   accept: [{
@@ -105,7 +105,7 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
 }))
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["always", { ignore: ["after-comment"] }],
 
   accept: [{
@@ -124,7 +124,7 @@ testRule(rule, {
 })
 
 testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["always", { except: ["all-nested"] }],
 
   accept: [{
@@ -143,7 +143,7 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
 }))
 
 testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["always", { except: ["first-nested"] }],
 
   accept: [{
@@ -160,7 +160,7 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
 }))
 
 testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["always", { ignore: ["all-nested"] }],
 
   accept: [{
@@ -175,7 +175,7 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
 }))
 
 testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["always", { except: [ "blockless-group", "all-nested" ] }],
 
   accept: [{
@@ -211,7 +211,7 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
 }))
 
 testRule(rule, mergeTestDescriptions(sharedNeverTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["never"],
 
   accept: [{
@@ -220,7 +220,7 @@ testRule(rule, mergeTestDescriptions(sharedNeverTests, {
 }))
 
 testRule(rule, mergeTestDescriptions(sharedNeverTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["never", { except: ["blockless-group"] }],
 
   accept: [{
@@ -246,7 +246,7 @@ testRule(rule, mergeTestDescriptions(sharedNeverTests, {
 }))
 
 testRule(rule, mergeTestDescriptions(sharedNeverTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["never", { except: ["all-nested"] }],
 
   accept: [{
@@ -265,7 +265,7 @@ testRule(rule, mergeTestDescriptions(sharedNeverTests, {
 }))
 
 testRule(rule, mergeTestDescriptions(sharedNeverTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["never", { except: ["first-nested"] }],
 
   accept: [{
@@ -282,7 +282,7 @@ testRule(rule, mergeTestDescriptions(sharedNeverTests, {
 }))
 
 testRule(rule, {
-  ruleName: ruleName,
+  ruleName,
   config: ["never", { ignore: ["after-comment"] }],
 
   accept: [{
@@ -305,7 +305,7 @@ testRule(rule, {
 })
 
 testRule(rule, mergeTestDescriptions(sharedNeverTests, {
-  ruleName: ruleName,
+  ruleName,
   config: ["never", { ignore: ["all-nested"] }],
 
   accept: [{
