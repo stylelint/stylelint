@@ -1,198 +1,211 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "a + a {}",
+    description: "space before and after + combinator",
+  }, {
+    code: "a > a {}",
+    description: "space before and after > combinator",
+  }, {
+    code: "a ~ a {}",
+    description: "space before and after ~ combinator",
+  }, {
+    code: ".foo ~ a + bar {}",
+    description: "multiple spaced combinators",
+  }, {
+    code: "a+ a {}",
+    description: "no before and one after + combinator",
+  }, {
+    code: "a> a {}",
+    description: "no before and one after > combinator",
+  }, {
+    code: "a~ a {}",
+    description: "no before and one after ~ combinator",
+  }, {
+    code: "a\n+ a {}",
+    description: "newline before space after + combinator",
+  }, {
+    code: "a\n> a {}",
+    description: "newline before space after > combinator",
+  }, {
+    code: "a\r\n> a {}",
+    description: "CRLF before space after > combinator",
+  }, {
+    code: "a\n~ a {}",
+    description: "newline before space after ~ combinator",
+  }, {
+    code: ".foo~ a+ bar {}",
+    description: "multiple combinators with no space before and one after",
+  }, {
+    code: ".foo:nth-child(2n+1) {}",
+    description: "unspaced + in nth-child argument",
+  }, {
+    code: ".foo:nth-child(2n-1) {}",
+    description: "unspaced - in nth-child argument",
+  }, {
+    code: "a[rel~='copyright'] {}",
+    description: "attribute selector with ~=",
+  }],
 
-  tr.ok("a + a {}", "space before and after + combinator")
-  tr.ok("a > a {}", "space before and after > combinator")
-  tr.ok("a ~ a {}", "space before and after ~ combinator")
-  tr.ok(".foo ~ a + bar {}", "multiple spaced combinators")
-  tr.ok("a+ a {}", "no before and one after + combinator")
-  tr.ok("a> a {}", "no before and one after > combinator")
-  tr.ok("a~ a {}", "no before and one after ~ combinator")
-  tr.ok("a\n+ a {}", "newline before space after + combinator")
-  tr.ok("a\n> a {}", "newline before space after > combinator")
-  tr.ok("a\r\n> a {}", "CRLF before space after > combinator")
-  tr.ok("a\n~ a {}", "newline before space after ~ combinator")
-  tr.ok(".foo~ a+ bar {}", "multiple combinators with no space before and one after")
-  tr.ok(".foo:nth-child(2n+1) {}", "unspaced + in nth-child argument")
-  tr.ok(".foo:nth-child(2n-1) {}", "unspaced - in nth-child argument")
-  tr.ok("a[rel~='copyright'] {}", "attribute selector with ~=")
-
-  tr.notOk(
-    "a+  a {}",
-    messages.expectedAfter("+"),
-    "two spaces after + combinator"
-  )
-  tr.notOk(
-    "a+\na {}",
-    {
-      message: messages.expectedAfter("+"),
-      line: 1,
-      column: 2,
-    },
-    "newline after + combinator"
-  )
-  tr.notOk(
-    "a+a {}",
-    {
-      message: messages.expectedAfter("+"),
-      line: 1,
-      column: 2,
-    },
-    "no space after + combinator"
-  )
-  tr.notOk(
-    "a>a {}",
-    {
-      message: messages.expectedAfter(">"),
-      line: 1,
-      column: 2,
-    },
-    "no space after > combinator"
-  )
-  tr.notOk(
-    "a~a {}",
-    {
-      message: messages.expectedAfter("~"),
-      line: 1,
-      column: 2,
-    },
-    "no space after ~ combinator"
-  )
-  tr.notOk(
-    "a + .foo.bar ~a {}",
-    {
-      message: messages.expectedAfter("~"),
-      line: 1,
-      column: 14,
-    },
-    "multiple combinators: no space after ~ combinator"
-  )
-  tr.notOk(
-    "#foo +.foo.bar ~ a {}",
-    {
-      message: messages.expectedAfter("+"),
-      line: 1,
-      column: 6,
-    },
-    "multiple combinators: no space after + combinator"
-  )
+  reject: [{
+    code: "a+  a {}",
+    description: "two spaces after + combinator",
+    message: messages.expectedAfter("+"),
+  }, {
+    code: "a+\na {}",
+    description: "newline after + combinator",
+    message: messages.expectedAfter("+"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a+a {}",
+    description: "no space after + combinator",
+    message: messages.expectedAfter("+"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a>a {}",
+    description: "no space after > combinator",
+    message: messages.expectedAfter(">"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a~a {}",
+    description: "no space after ~ combinator",
+    message: messages.expectedAfter("~"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a + .foo.bar ~a {}",
+    description: "multiple combinators: no space after ~ combinator",
+    message: messages.expectedAfter("~"),
+    line: 1,
+    column: 14,
+  }, {
+    code: "#foo +.foo.bar ~ a {}",
+    description: "multiple combinators: no space after + combinator",
+    message: messages.expectedAfter("+"),
+    line: 1,
+    column: 6,
+  }],
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never"],
 
-  tr.ok("a +a {}", "space before none after + combinator")
-  tr.ok("a >a {}", "space before none after > combinator")
-  tr.ok("a ~a {}", "space before none after ~ combinator")
-  tr.ok(".foo ~a +bar {}", "multiple combinators with no space after")
-  tr.ok("a+a {}", "no space before or after + combinator")
-  tr.ok("a>a {}", "no space before or after > combinator")
-  tr.ok("a~a {}", "no space before or after ~ combinator")
-  tr.ok("a\n+a {}", "newline before and no space after + combinator")
-  tr.ok("a\r\n+a {}", "CRLF before and no space after + combinator")
-  tr.ok("a\n>a {}", "newline before and no space after > combinator")
-  tr.ok("a\n~a {}", "newline before and no space after ~ combinator")
-  tr.ok("a\r\n~a {}", "CRLF before and no space after ~ combinator")
-  tr.ok(".foo:nth-child(2n + 1) {}", "spaced + in nth-child argument")
-  tr.ok(".foo:nth-child(2n - 1) {}", "spaced - in nth-child argument")
-  tr.ok("a[rel~='copyright'] {}", "attribute selector with ~=")
+  accept: [{
+    code: "a +a {}",
+    description: "space before none after + combinator",
+  }, {
+    code: "a >a {}",
+    description: "space before none after > combinator",
+  }, {
+    code: "a ~a {}",
+    description: "space before none after ~ combinator",
+  }, {
+    code: ".foo ~a +bar {}",
+    description: "multiple combinators with no space after",
+  }, {
+    code: "a+a {}",
+    description: "no space before or after + combinator",
+  }, {
+    code: "a>a {}",
+    description: "no space before or after > combinator",
+  }, {
+    code: "a~a {}",
+    description: "no space before or after ~ combinator",
+  }, {
+    code: "a\n+a {}",
+    description: "newline before and no space after + combinator",
+  }, {
+    code: "a\r\n+a {}",
+    description: "CRLF before and no space after + combinator",
+  }, {
+    code: "a\n>a {}",
+    description: "newline before and no space after > combinator",
+  }, {
+    code: "a\n~a {}",
+    description: "newline before and no space after ~ combinator",
+  }, {
+    code: "a\r\n~a {}",
+    description: "CRLF before and no space after ~ combinator",
+  }, {
+    code: ".foo:nth-child(2n + 1) {}",
+    description: "spaced + in nth-child argument",
+  }, {
+    code: ".foo:nth-child(2n - 1) {}",
+    description: "spaced - in nth-child argument",
+  }, {
+    code: "a[rel~='copyright'] {}",
+    description: "attribute selector with ~=",
+  }],
 
-  tr.notOk(
-    "a+ a {}",
-    {
-      message: messages.rejectedAfter("+"),
-      line: 1,
-      column: 2,
-    },
-    "space after + combinator"
-  )
-  tr.notOk(
-    "a> a {}",
-    {
-      message: messages.rejectedAfter(">"),
-      line: 1,
-      column: 2,
-    },
-    "space after > combinator"
-  )
-  tr.notOk(
-    "a~ a {}",
-    {
-      message: messages.rejectedAfter("~"),
-      line: 1,
-      column: 2,
-    },
-    "space after ~ combinator"
-  )
-  tr.notOk(
-    "a+\na{}",
-    {
-      message: messages.rejectedAfter("+"),
-      line: 1,
-      column: 2,
-    },
-    "newline after + combinator"
-  )
-  tr.notOk(
-    "a+\r\na{}",
-    {
-      message: messages.rejectedAfter("+"),
-      line: 1,
-      column: 2,
-    },
-    "CRLF after + combinator"
-  )
-  tr.notOk(
-    "a>\na{}",
-    {
-      message: messages.rejectedAfter(">"),
-      line: 1,
-      column: 2,
-    },
-    "newline after > combinator"
-  )
-  tr.notOk(
-    "a~\na{}",
-    {
-      message: messages.rejectedAfter("~"),
-      line: 1,
-      column: 2,
-    },
-    "newline after ~ combinator"
-  )
-  tr.notOk(
-    "a~\r\na{}",
-    {
-      message: messages.rejectedAfter("~"),
-      line: 1,
-      column: 2,
-    },
-    "CRLF after ~ combinator"
-  )
-  tr.notOk(
-    "a + .foo.bar ~a {}",
-    {
-      message: messages.rejectedAfter("+"),
-      line: 1,
-      column: 3,
-    },
-    "multiple combinators: space after + combinator"
-  )
-  tr.notOk(
-    "#foo +.foo.bar ~ a {}",
-    {
-      message: messages.rejectedAfter("~"),
-      line: 1,
-      column: 16,
-    },
-    "multiple combinators: no space after ~ combinator"
-  )
+  reject: [{
+    code: "a+ a {}",
+    description: "space after + combinator",
+    message: messages.rejectedAfter("+"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a> a {}",
+    description: "space after > combinator",
+    message: messages.rejectedAfter(">"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a~ a {}",
+    description: "space after ~ combinator",
+    message: messages.rejectedAfter("~"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a+\na{}",
+    description: "newline after + combinator",
+    message: messages.rejectedAfter("+"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a+\r\na{}",
+    description: "CRLF after + combinator",
+    message: messages.rejectedAfter("+"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a>\na{}",
+    description: "newline after > combinator",
+    message: messages.rejectedAfter(">"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a~\na{}",
+    description: "newline after ~ combinator",
+    message: messages.rejectedAfter("~"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a~\r\na{}",
+    description: "CRLF after ~ combinator",
+    message: messages.rejectedAfter("~"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a + .foo.bar ~a {}",
+    description: "multiple combinators: space after + combinator",
+    message: messages.rejectedAfter("+"),
+    line: 1,
+    column: 3,
+  }, {
+    code: "#foo +.foo.bar ~ a {}",
+    description: "multiple combinators: no space after ~ combinator",
+    message: messages.rejectedAfter("~"),
+    line: 1,
+    column: 16,
+  }],
 })

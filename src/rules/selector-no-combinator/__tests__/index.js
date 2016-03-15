@@ -1,57 +1,60 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [undefined],
 
-testRule(undefined, tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "a {}",
+  }, {
+    code: ".foo, #bar {}",
+  }, {
+    code: "a.foo {}",
+  }, {
+    code: ":root { --custom-property-set: {} }",
+  }],
 
-  tr.ok("a {}")
-  tr.ok(".foo, #bar {}")
-  tr.ok("a.foo {}")
-  tr.ok(":root { --custom-property-set: {} }")
-
-  tr.notOk("a b {}", {
+  reject: [{
+    code: "a b {}",
     message: messages.rejected,
     line: 1,
     column: 2,
-  })
-  tr.notOk("a + a {}", {
+  }, {
+    code: "a + a {}",
     message: messages.rejected,
     line: 1,
     column: 3,
-  })
-  tr.notOk("a > a {}", {
+  }, {
+    code: "a > a {}",
     message: messages.rejected,
     line: 1,
     column: 3,
-  })
-  tr.notOk("a ~ a {}", {
+  }, {
+    code: "a ~ a {}",
     message: messages.rejected,
     line: 1,
     column: 3,
-  })
-  tr.notOk("a b, .foo {}", {
+  }, {
+    code: "a b, .foo {}",
     message: messages.rejected,
     line: 1,
     column: 2,
-  })
-  tr.notOk(".foo, a b {}", {
+  }, {
+    code: ".foo, a b {}",
     message: messages.rejected,
     line: 1,
     column: 8,
-  })
-  tr.notOk("\t.foo,\n\ta b {}", {
+  }, {
+    code: "\t.foo,\n\ta b {}",
     message: messages.rejected,
     line: 2,
     column: 3,
-  })
-  tr.notOk("a#foo ~ b {}", {
+  }, {
+    code: "a#foo ~ b {}",
     message: messages.rejected,
     line: 1,
     column: 7,
-  })
+  }],
 })

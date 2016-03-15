@@ -1,38 +1,42 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [undefined],
 
-testRule(undefined, tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "foo {}",
+  }, {
+    code: "#foo {}",
+  }, {
+    code: ".foo {}",
+  }, {
+    code: "[foo] {}",
+  }, {
+    code: ":root { --custom-property-set: {} }",
+  }],
 
-  tr.ok("foo {}")
-  tr.ok("#foo {}")
-  tr.ok(".foo {}")
-  tr.ok("[foo] {}")
-  tr.ok(":root { --custom-property-set: {} }")
-
-  tr.notOk("* {}", {
+  reject: [{
+    code: "* {}",
     message: messages.rejected,
     line: 1,
     column: 1,
-  })
-  tr.notOk(".bar * {}", {
+  }, {
+    code: ".bar * {}",
     message: messages.rejected,
     line: 1,
     column: 6,
-  })
-  tr.notOk("*.bar {}", {
+  }, {
+    code: "*.bar {}",
     message: messages.rejected,
     line: 1,
     column: 1,
-  })
-  tr.notOk(".foo, .bar, *.baz {}", {
+  }, {
+    code: ".foo, .bar, *.baz {}",
     message: messages.rejected,
     line: 1,
     column: 13,
-  })
+  }],
 })
