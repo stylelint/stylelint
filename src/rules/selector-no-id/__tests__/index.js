@@ -1,62 +1,81 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
-import scss from "postcss-scss"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [undefined],
 
-testRule(undefined, tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "foo {}",
+  }, {
+    code: ".foo {}",
+  }, {
+    code: "[foo] {}",
+  }, {
+    code: ":root { --custom-property-set: {} }",
+  }],
 
-  tr.ok("foo {}")
-  tr.ok(".foo {}")
-  tr.ok("[foo] {}")
-  tr.ok(":root { --custom-property-set: {} }")
-
-  tr.notOk("#foo {}", {
+  reject: [{
+    code: "#foo {}",
     message: messages.rejected,
     line: 1,
     column: 1,
-  })
-  tr.notOk(".bar > #foo {}", {
+  }, {
+    code: ".bar > #foo {}",
     message: messages.rejected,
     line: 1,
     column: 8,
-  })
-  tr.notOk("#foo.bar {}", {
+  }, {
+    code: "#foo.bar {}",
     message: messages.rejected,
     line: 1,
     column: 1,
-  })
-  tr.notOk(".foo, .bar, #foo.baz {}", {
+  }, {
+    code: ".foo, .bar, #foo.baz {}",
     message: messages.rejected,
     line: 1,
     column: 13,
-  })
+  }],
 })
 
-const testRuleScss = ruleTester(rule, ruleName, {
-  postcssOptions: { syntax: scss },
-})
+testRule(rule, {
+  ruleName: ruleName,
+  config: [undefined],
+  skipBasicChecks: true,
+  syntax: "scss",
 
-testRuleScss(undefined, tr => {
-  tr.ok("@for $n from 1 through 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore sass interpolation inside @for")
-  tr.ok("@for $n from 1 through 10 { .n#{$n}-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore multiple sass interpolations in a selector inside @for")
-  tr.ok("@for $n from 1 through 10 { .n#{$n}n#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore multiple sass interpolations in a selector inside @for")
-  tr.ok("@each $n in $vals { .n-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore sass interpolation inside @each")
-  tr.ok("@while $n < 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }", "ignore sass interpolation inside @while")
-  tr.ok("div:nth-child(#{map-get($foo, bar)}) {}", "ignore sass map-get interpolation")
+  accept: [{
+    code: "@for $n from 1 through 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }",
+    description: "ignore sass interpolation inside @for",
+  }, {
+    code: "@for $n from 1 through 10 { .n#{$n}-#{$n} { content: \"n: #{1 + 1}\"; } }",
+    description: "ignore multiple sass interpolations in a selector inside @for",
+  }, {
+    code: "@for $n from 1 through 10 { .n#{$n}n#{$n} { content: \"n: #{1 + 1}\"; } }",
+    description: "ignore multiple sass interpolations in a selector inside @for",
+  }, {
+    code: "@each $n in $vals { .n-#{$n} { content: \"n: #{1 + 1}\"; } }",
+    description: "ignore sass interpolation inside @each",
+  }, {
+    code: "@while $n < 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }",
+    description: "ignore sass interpolation inside @while",
+  }, {
+    code: "div:nth-child(#{map-get($foo, bar)}) {}",
+    description: "ignore sass map-get interpolation",
+  }],
 
-  tr.notOk("@for $n from 1 through 10 { .n-#{$n} #foo { } }", {
+  reject: [{
+    code: "@for $n from 1 through 10 { .n-#{$n} #foo { } }",
+    description: "report sass interpolation + id inside @for",
     message: messages.rejected,
     line: 1,
     column: 38,
-  }, "report sass interpolation + id inside @for")
-  tr.notOk("@for $n from 1 through 10 { .n#{$n}-#{$n} #foo { } }", {
+  }, {
+    code: "@for $n from 1 through 10 { .n#{$n}-#{$n} #foo { } }",
+    description: "report sass interpolation + id inside @for",
     message: messages.rejected,
     line: 1,
     column: 43,
-  }, "report sass interpolation + id inside @for")
+  }],
 })
