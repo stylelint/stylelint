@@ -1,93 +1,109 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [1],
 
-testRule(1, tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "a {}\nb {}",
+  }, {
+    code: "a {}\r\nb {}",
+  }, {
+    code: "a {}\n\nb{}",
+  }, {
+    code: "a {}\r\n\r\nb{}",
+  }, {
+    code: "/** horse */\n\nb{}",
+  }, {
+    code: "/** horse */\r\n\r\nb{}",
+  }, {
+    code: "a{}\n\n/** horse */\n\nb{}",
+  }, {
+    code: "a{}\r\n\r\n/** horse */\r\n\r\nb{}",
+  }],
 
-  tr.ok("a {}\nb {}")
-  tr.ok("a {}\r\nb {}")
-  tr.ok("a {}\n\nb{}")
-  tr.ok("a {}\r\n\r\nb{}")
-  tr.ok("/** horse */\n\nb{}")
-  tr.ok("/** horse */\r\n\r\nb{}")
-  tr.ok("a{}\n\n/** horse */\n\nb{}")
-  tr.ok("a{}\r\n\r\n/** horse */\r\n\r\nb{}")
-
-  tr.notOk("a {}\n\n\nb{}", {
+  reject: [{
+    code: "a {}\n\n\nb{}",
     message: messages.rejected,
     line: 1,
     column: 5,
-  })
-  tr.notOk("a {}\r\n\r\n\r\nb{}", {
+  }, {
+    code: "a {}\r\n\r\n\r\nb{}",
     message: messages.rejected,
     line: 1,
     column: 6,
-  })
-  tr.notOk("a {}\n\n/** horse */\n\n\nb{}", {
+  }, {
+    code: "a {}\n\n/** horse */\n\n\nb{}",
     message: messages.rejected,
     line: 3,
     column: 13,
-  })
-  tr.notOk("a {}\r\n\r\n/** horse */\r\n\r\n\r\nb{}", {
+  }, {
+    code: "a {}\r\n\r\n/** horse */\r\n\r\n\r\nb{}",
     message: messages.rejected,
     line: 3,
     column: 14,
-  })
-  tr.notOk("/* horse\n\n\n */\na{}", {
+  }, {
+    code: "/* horse\n\n\n */\na{}",
     message: messages.rejected,
     line: 1,
     column: 9,
-  })
-  tr.notOk("/* horse\r\n\r\n\r\n */\r\na{}", {
+  }, {
+    code: "/* horse\r\n\r\n\r\n */\r\na{}",
     message: messages.rejected,
     line: 1,
     column: 10,
-  })
+  }],
 })
 
-testRule(2, tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [2],
 
-  tr.ok("a {}\nb {}")
-  tr.ok("a {}\n\nb {}")
-  tr.ok("a {}\n\n\nb {}")
-  tr.ok("a {}\r\n\r\n\r\nb{}")
-  tr.ok("a{}\n\n\n/** horse */\n\n\nb{}")
-  tr.ok("a{}\r\n\r\n\r\n/** horse */\r\n\r\n\r\nb{}")
+  accept: [{
+    code: "a {}\nb {}",
+  }, {
+    code: "a {}\n\nb {}",
+  }, {
+    code: "a {}\n\n\nb {}",
+  }, {
+    code: "a {}\r\n\r\n\r\nb{}",
+  }, {
+    code: "a{}\n\n\n/** horse */\n\n\nb{}",
+  }, {
+    code: "a{}\r\n\r\n\r\n/** horse */\r\n\r\n\r\nb{}",
+  }],
 
-  tr.notOk("a {}\n\n\n\nb{}", {
+  reject: [{
+    code: "a {}\n\n\n\nb{}",
     message: messages.rejected,
     line: 1,
     column: 5,
-  })
-  tr.notOk("a {}\r\n\r\n\r\n\r\nb{}", {
+  }, {
+    code: "a {}\r\n\r\n\r\n\r\nb{}",
     message: messages.rejected,
     line: 1,
     column: 6,
-  })
-  tr.notOk("a {}\n\n/** horse */\n\n\n\nb{}", {
+  }, {
+    code: "a {}\n\n/** horse */\n\n\n\nb{}",
     message: messages.rejected,
     line: 3,
     column: 13,
-  })
-  tr.notOk("a {}\r\n\r\n/** horse */\r\n\r\n\r\n\r\nb{}", {
+  }, {
+    code: "a {}\r\n\r\n/** horse */\r\n\r\n\r\n\r\nb{}",
     message: messages.rejected,
     line: 3,
     column: 14,
-  })
-  tr.notOk("/* horse\n\n\n\n */\na{}", {
+  }, {
+    code: "/* horse\n\n\n\n */\na{}",
     message: messages.rejected,
     line: 1,
     column: 9,
-  })
-  tr.notOk("/* horse\r\n\r\n\r\n\r\n */\r\na{}", {
+  }, {
+    code: "/* horse\r\n\r\n\r\n\r\n */\r\na{}",
     message: messages.rejected,
     line: 1,
     column: 10,
-  })
+  }],
 })

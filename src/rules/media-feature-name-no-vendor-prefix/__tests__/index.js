@@ -1,32 +1,29 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [undefined],
 
-testRule(undefined, tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "@media (min-resolution: 96dpi) {}",
+  }],
 
-  // Right now we're under the impression that the only
-  // media feature name we have to catch is any of the prefixed
-  // `device-pixel-ratio` ones
-  tr.ok("@media (min-resolution: 96dpi) {}")
-
-  tr.notOk("@media (-webkit-min-device-pixel-ratio: 1) {}", {
+  reject: [{
+    code: "@media (-webkit-min-device-pixel-ratio: 1) {}",
     message: messages.rejected,
     line: 1,
     column: 9,
-  })
-  tr.notOk("@media\n\t(min--moz-device-pixel-ratio: 1) {}", {
+  }, {
+    code: "@media\n\t(min--moz-device-pixel-ratio: 1) {}",
     message: messages.rejected,
     line: 2,
     column: 3,
-  })
-  tr.notOk("@media   (-o-max-device-pixel-ratio: 1/1) {}", {
+  }, {
+    code: "@media   (-o-max-device-pixel-ratio: 1/1) {}",
     message: messages.rejected,
     line: 1,
     column: 11,
-  })
+  }],
 })

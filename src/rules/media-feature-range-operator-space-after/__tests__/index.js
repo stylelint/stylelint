@@ -1,95 +1,105 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "@media (max-width= 600px) {}",
+  }, {
+    code: "@media (max-width > 600px) {}",
+  }, {
+    code: "@media (max-width>= 600px) and (min-width<= 3em) {}",
+  }],
 
-  tr.ok("@media (max-width= 600px) {}")
-  tr.ok("@media (max-width > 600px) {}")
-  tr.ok("@media (max-width>= 600px) and (min-width<= 3em) {}")
-
-  tr.notOk("@media (max-width<600px) {}", {
+  reject: [{
+    code: "@media (max-width<600px) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 19,
-  })
-  tr.notOk("@media (max-width<=  600px) {}", {
+  }, {
+    code: "@media (max-width<=  600px) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 20,
-  })
-  tr.notOk("@media (max-width=\t600px) {}", {
+  }, {
+    code: "@media (max-width=\t600px) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 19,
-  })
-  tr.notOk("@media (max-width>\n600px) {}", {
+  }, {
+    code: "@media (max-width>\n600px) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 19,
-  })
-  tr.notOk("@media (max-width>\r\n600px) {}", {
+  }, {
+    code: "@media (max-width>\r\n600px) {}",
+    description: "CRLF",
     message: messages.expectedAfter(),
     line: 1,
     column: 19,
-  }, "CRLF")
-  tr.notOk("@media (max-width>=600px) and (min-width< 3em) {}", {
+  }, {
+    code: "@media (max-width>=600px) and (min-width< 3em) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 20,
-  })
-  tr.notOk("@media (max-width> 600px) and (min-width=3em) {}", {
+  }, {
+    code: "@media (max-width> 600px) and (min-width=3em) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 42,
-  })
+  }],
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never"],
 
-  tr.ok("@media (max-width =600px) {}")
-  tr.ok("@media (max-width>600px) {}")
-  tr.ok("@media (max-width >=600px) and (min-width <=3em) {}")
+  accept: [{
+    code: "@media (max-width =600px) {}",
+  }, {
+    code: "@media (max-width>600px) {}",
+  }, {
+    code: "@media (max-width >=600px) and (min-width <=3em) {}",
+  }],
 
-  tr.notOk("@media (max-width < 600px) {}", {
+  reject: [{
+    code: "@media (max-width < 600px) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 20,
-  })
-  tr.notOk("@media (max-width <=  600px) {}", {
+  }, {
+    code: "@media (max-width <=  600px) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 21,
-  })
-  tr.notOk("@media (max-width =\t600px) {}", {
+  }, {
+    code: "@media (max-width =\t600px) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 20,
-  })
-  tr.notOk("@media (max-width >\n600px) {}", {
+  }, {
+    code: "@media (max-width >\n600px) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 20,
-  })
-  tr.notOk("@media (max-width >\r\n600px) {}", {
+  }, {
+    code: "@media (max-width >\r\n600px) {}",
+    description: "CRLF",
     message: messages.rejectedAfter(),
     line: 1,
     column: 20,
-  }, "CRLF")
-  tr.notOk("@media (max-width >= 600px) and (min-width <3em) {}", {
+  }, {
+    code: "@media (max-width >= 600px) and (min-width <3em) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 21,
-  })
-  tr.notOk("@media (max-width >600px) and (min-width = 3em) {}", {
+  }, {
+    code: "@media (max-width >600px) and (min-width = 3em) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 43,
-  })
+  }],
 })
