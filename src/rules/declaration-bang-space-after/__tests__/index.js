@@ -1,94 +1,96 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "a { color: pink; }",
+    description: "no !important",
+  }, {
+    code: "a { color: pink! important; }",
+    description: "space only after",
+  }, {
+    code: "a { color: pink ! important; }",
+    description: "space before and after",
+  }, {
+    code: "a { color: pink\n! important; }",
+    description: "newline before and space after",
+  }, {
+    code: "a { color: pink\r\n! important; }",
+    description: "CRLF before and space after",
+  }, {
+    code: "a::before { content: \"!!!\" ! important; }",
+    description: "ignores string",
+  }],
 
-  tr.ok("a { color: pink; }", "no !important")
-  tr.ok("a { color: pink! important; }", "space only after")
-  tr.ok("a { color: pink ! important; }", "space before and after")
-  tr.ok("a { color: pink\n! important; }", "newline before and space after")
-  tr.ok("a { color: pink\r\n! important; }", "CRLF before and space after")
-
-  tr.notOk(
-    "a { color: pink!important; }",
-    {
-      message: messages.expectedAfter(),
-      line: 1,
-      column: 16,
-    },
-    "no space after"
-  )
-  tr.notOk(
-    "a { color: pink!  important; }",
-    {
-      message: messages.expectedAfter(),
-      line: 1,
-      column: 16,
-    },
-    "two spaces after"
-  )
-  tr.notOk(
-    "a { color: pink!\nimportant; }",
-    {
-      message: messages.expectedAfter(),
-      line: 1,
-      column: 16,
-    },
-    "newline after"
-  )
-  tr.notOk(
-    "a { color: pink!\r\nimportant; }",
-    {
-      message: messages.expectedAfter(),
-      line: 1,
-      column: 16,
-    },
-    "CRLF after"
-  )
-
-  tr.ok("a::before { content: \"!!!\" ! important; }", "ignores string")
+  reject: [{
+    code: "a { color: pink!important; }",
+    description: "no space after",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { color: pink!  important; }",
+    description: "two spaces after",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { color: pink!\nimportant; }",
+    description: "newline after",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { color: pink!\r\nimportant; }",
+    description: "CRLF after",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 16,
+  }],
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never"],
 
-  tr.ok("a { color: pink; }", "no !important")
-  tr.ok("a { color: pink!important; }", "no space before or after")
-  tr.ok("a { color: pink !important; }", "space before and none after")
-  tr.ok("a { color: pink\n!important; }", "newline before and none after")
-  tr.ok("a { color: pink\r\n!important; }", "CRLF before and none after")
+  accept: [{
+    code: "a { color: pink; }",
+    description: "no !important",
+  }, {
+    code: "a { color: pink!important; }",
+    description: "no space before or after",
+  }, {
+    code: "a { color: pink !important; }",
+    description: "space before and none after",
+  }, {
+    code: "a { color: pink\n!important; }",
+    description: "newline before and none after",
+  }, {
+    code: "a { color: pink\r\n!important; }",
+    description: "CRLF before and none after",
+  }],
 
-  tr.notOk(
-    "a { color: pink! important; }",
-    {
-      message: messages.rejectedAfter(),
-      line: 1,
-      column: 16,
-    },
-    "space after"
-  )
-  tr.notOk(
-    "a { color: pink!\nimportant; }",
-    {
-      message: messages.rejectedAfter(),
-      line: 1,
-      column: 16,
-    },
-    "newline after"
-  )
-  tr.notOk(
-    "a { color: pink!\r\nimportant; }",
-    {
-      message: messages.rejectedAfter(),
-      line: 1,
-      column: 16,
-    },
-    "CRLF after"
-  )
+  reject: [{
+    code: "a { color: pink! important; }",
+    description: "space after",
+    message: messages.rejectedAfter(),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { color: pink!\nimportant; }",
+    description: "newline after",
+    message: messages.rejectedAfter(),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { color: pink!\r\nimportant; }",
+    description: "CRLF after",
+    message: messages.rejectedAfter(),
+    line: 1,
+    column: 16,
+  }],
 })

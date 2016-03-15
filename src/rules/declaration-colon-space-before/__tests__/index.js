@@ -1,129 +1,114 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "a { color :pink }",
+    description: "space only before",
+  }, {
+    code: "a { color : pink }",
+    description: "space before and after",
+  }, {
+    code: "a { color :\npink }",
+    description: "space before and newline after",
+  }, {
+    code: "a { color :\r\npink }",
+    description: "space before and CRLF after",
+  }, {
+    code: "$map:(key:value)",
+    description: "SCSS map with no newlines",
+  }, {
+    code: "a { background : url(data:application/font-woff;...); }",
+    description: "data URI",
+  }],
 
-  tr.ok("a { color :pink }", "space only before")
-  tr.ok("a { color : pink }", "space before and after")
-  tr.ok("a { color :\npink }", "space before and newline after")
-  tr.ok("a { color :\r\npink }", "space before and CRLF after")
-  tr.ok(
-    "$map:(key:value)",
-    "SCSS map with no newlines"
-  )
-  tr.ok(
-    "a { background : url(data:application/font-woff;...); }",
-    "data URI"
-  )
-
-  tr.notOk(
-    "a { color: pink; }",
-    {
-      message: messages.expectedBefore(),
-      line: 1,
-      column: 11,
-    },
-    "no space before"
-  )
-  tr.notOk(
-    "a { color  : pink; }",
-    {
-      message: messages.expectedBefore(),
-      line: 1,
-      column: 11,
-    },
-    "two spaces before"
-  )
-  tr.notOk(
-    "a { color\t: pink; }",
-    {
-      message: messages.expectedBefore(),
-      line: 1,
-      column: 11,
-    },
-    "tab before"
-  )
-  tr.notOk(
-    "a { color\n: pink; }",
-    {
-      message: messages.expectedBefore(),
-      line: 2,
-      column: 1,
-    },
-    "newline before"
-  )
-  tr.notOk(
-    "a { color\r\n: pink; }",
-    {
-      message: messages.expectedBefore(),
-      line: 1,
-      column: 11,
-    },
-    "CRLF before"
-  )
+  reject: [{
+    code: "a { color: pink; }",
+    description: "no space before",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { color  : pink; }",
+    description: "two spaces before",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { color\t: pink; }",
+    description: "tab before",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { color\n: pink; }",
+    description: "newline before",
+    message: messages.expectedBefore(),
+    line: 2,
+    column: 1,
+  }, {
+    code: "a { color\r\n: pink; }",
+    description: "CRLF before",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 11,
+  }],
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never"],
 
-  tr.ok("a { color:pink }", "no space before and after")
-  tr.ok("a { color: pink }", "no space before and space after")
-  tr.ok("a { color:\npink }", "no space before and newline after")
-  tr.ok("a { color:\r\npink }", "no space before and CRLF after")
-  tr.ok(
-    "$map :(key :value)",
-    "SCSS map with no newlines"
-  )
+  accept: [{
+    code: "a { color:pink }",
+    description: "no space before and after",
+  }, {
+    code: "a { color: pink }",
+    description: "no space before and space after",
+  }, {
+    code: "a { color:\npink }",
+    description: "no space before and newline after",
+  }, {
+    code: "a { color:\r\npink }",
+    description: "no space before and CRLF after",
+  }, {
+    code: "$map :(key :value)",
+    description: "SCSS map with no newlines",
+  }],
 
-  tr.notOk(
-    "a { color : pink; }",
-    {
-      message: messages.rejectedBefore(),
-      line: 1,
-      column: 11,
-    },
-    "space before"
-  )
-  tr.notOk(
-    "a { color  : pink; }",
-    {
-      message: messages.rejectedBefore(),
-      line: 1,
-      column: 11,
-    },
-    "two spaces before"
-  )
-  tr.notOk(
-    "a { color\t: pink; }",
-    {
-      message: messages.rejectedBefore(),
-      line: 1,
-      column: 11,
-    },
-    "tab before"
-  )
-  tr.notOk(
-    "a { color\n: pink; }",
-    {
-      message: messages.rejectedBefore(),
-      line: 2,
-      column: 1,
-    },
-    "newline before"
-  )
-  tr.notOk(
-    "a { color\r\n: pink; }",
-    {
-      message: messages.rejectedBefore(),
-      line: 1,
-      column: 11,
-    },
-    "CRLF before"
-  )
+  reject: [{
+    code: "a { color : pink; }",
+    description: "space before",
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { color  : pink; }",
+    description: "two spaces before",
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { color\t: pink; }",
+    description: "tab before",
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { color\n: pink; }",
+    description: "newline before",
+    message: messages.rejectedBefore(),
+    line: 2,
+    column: 1,
+  }, {
+    code: "a { color\r\n: pink; }",
+    description: "CRLF before",
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 11,
+  }],
 })

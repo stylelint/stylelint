@@ -1,94 +1,96 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "a { color: pink; }",
+    description: "no !important",
+  }, {
+    code: "a { color: pink !important; }",
+    description: "space only before",
+  }, {
+    code: "a { color: pink ! important; }",
+    description: "space before and after",
+  }, {
+    code: "a { color: pink !\nimportant; }",
+    description: "space before and newline after",
+  }, {
+    code: "a { color: pink !\r\nimportant; }",
+    description: "space before and CRLF after",
+  }, {
+    code: "a::before { content: \"!!!\" !important; }",
+    description: "ignores string",
+  }],
 
-  tr.ok("a { color: pink; }", "no !important")
-  tr.ok("a { color: pink !important; }", "space only before")
-  tr.ok("a { color: pink ! important; }", "space before and after")
-  tr.ok("a { color: pink !\nimportant; }", "space before and newline after")
-  tr.ok("a { color: pink !\r\nimportant; }", "space before and CRLF after")
-
-  tr.notOk(
-    "a { color: pink  !important; }",
-    {
-      message: messages.expectedBefore(),
-      line: 1,
-      column: 18,
-    },
-    "two spaces before"
-  )
-  tr.notOk(
-    "a { color: pink!important; }",
-    {
-      message: messages.expectedBefore(),
-      line: 1,
-      column: 16,
-    },
-    "no space before"
-  )
-  tr.notOk(
-    "a { color: pink\n!important; }",
-    {
-      message: messages.expectedBefore(),
-      line: 2,
-      column: 1,
-    },
-    "newline before"
-  )
-  tr.notOk(
-    "a { color: pink\r\n!important; }",
-    {
-      message: messages.expectedBefore(),
-      line: 2,
-      column: 1,
-    },
-    "CRLF before"
-  )
-
-  tr.ok("a::before { content: \"!!!\" !important; }", "ignores string")
+  reject: [{
+    code: "a { color: pink  !important; }",
+    description: "two spaces before",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { color: pink!important; }",
+    description: "no space before",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { color: pink\n!important; }",
+    description: "newline before",
+    message: messages.expectedBefore(),
+    line: 2,
+    column: 1,
+  }, {
+    code: "a { color: pink\r\n!important; }",
+    description: "CRLF before",
+    message: messages.expectedBefore(),
+    line: 2,
+    column: 1,
+  }],
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never"],
 
-  tr.ok("a { color: pink; }", "no !important")
-  tr.ok("a { color: pink!important; }", "no spaces")
-  tr.ok("a { color: pink! important; }", "no space before and after")
-  tr.ok("a { color: pink!\nimportant; }", "no space before and newline after")
-  tr.ok("a { color: pink!\r\nimportant; }", "no space before and CRLF after")
+  accept: [{
+    code: "a { color: pink; }",
+    description: "no !important",
+  }, {
+    code: "a { color: pink!important; }",
+    description: "no spaces",
+  }, {
+    code: "a { color: pink! important; }",
+    description: "no space before and after",
+  }, {
+    code: "a { color: pink!\nimportant; }",
+    description: "no space before and newline after",
+  }, {
+    code: "a { color: pink!\r\nimportant; }",
+    description: "no space before and CRLF after",
+  }],
 
-  tr.notOk(
-    "a { color: pink !important; }",
-    {
-      message: messages.rejectedBefore(),
-      line: 1,
-      column: 17,
-    },
-    "space before"
-  )
-  tr.notOk(
-    "a { color: pink\n!important; }",
-    {
-      message: messages.rejectedBefore(),
-      line: 2,
-      column: 1,
-    },
-    "newline before"
-  )
-  tr.notOk(
-    "a { color: pink\r\n!important; }",
-    {
-      message: messages.rejectedBefore(),
-      line: 2,
-      column: 1,
-    },
-    "CRLF before"
-  )
+  reject: [{
+    code: "a { color: pink !important; }",
+    description: "space before",
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { color: pink\n!important; }",
+    description: "newline before",
+    message: messages.rejectedBefore(),
+    line: 2,
+    column: 1,
+  }, {
+    code: "a { color: pink\r\n!important; }",
+    description: "CRLF before",
+    message: messages.rejectedBefore(),
+    line: 2,
+    column: 1,
+  }],
 })
