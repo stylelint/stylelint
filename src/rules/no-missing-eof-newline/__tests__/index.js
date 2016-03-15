@@ -1,24 +1,31 @@
-import {
-  ruleTester,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [undefined],
+  skipBasicChecks: true,
 
-testRule(undefined, tr => {
-  tr.ok("")
-  tr.ok("\n")
-  tr.ok("a { color: pink; }\n")
-  tr.ok("a { color: pink; }\n\n\n")
+  accept: [{
+    code: "",
+  }, {
+    code: "\n",
+  }, {
+    code: "a { color: pink; }\n",
+  }, {
+    code: "a { color: pink; }\n\n\n",
+  }],
 
-  tr.notOk("a { color: pink; }", {
+  reject: [{
+    code: "a { color: pink; }",
     message: messages.rejected,
     line: 1,
     column: 18,
-  })
-  tr.notOk("a { color: pink; }\n\n\nb{ color: orange; }", {
+  }, {
+    code: "a { color: pink; }\n\n\nb{ color: orange; }",
     message: messages.rejected,
     line: 4,
     column: 19,
-  })
+  }],
 })
