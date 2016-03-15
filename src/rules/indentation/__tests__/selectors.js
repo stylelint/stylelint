@@ -1,92 +1,69 @@
-/* eslint-disable indent, no-multiple-empty-lines */
-
-import {
-  ruleTester,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [2],
+  skipBasicChecks: true,
 
-// 2 spaces
-testRule(2, tr => {
+  accept: [{
+    code: "a { color: pink; }",
+  }, {
+    code: "a,\n" +
+    "b { color: pink; }",
+  }, {
+    code: "a,\n" +
+    "b,\n" +
+    "c { color: pink; }",
+  }, {
+    code: "@media print {\n" +
+    "  a,\n" +
+    "  b { color: pink;}\n" +
+    "}",
+  }],
 
-tr.ok(
-`a { color: pink; }
-`)
+  reject: [{
+    code: "a,\n" +
+    "  b { color: pink; }",
 
-tr.ok(
-`a,
-b { color: pink; }
-`)
+    message: messages.expected("0 spaces"),
+    line: 2,
+    column: 1,
+  }, {
+    code: "a,\n" +
+    "b,\n" +
+    " c { color: pink; }",
 
-tr.ok(
-`a,
-b,
-c { color: pink; }
-`)
+    message: messages.expected("0 spaces"),
+    line: 3,
+    column: 1,
+  }, {
+    code: "@media print {\n" +
+    "  a,\n" +
+    "b { color: pink;}\n" +
+    "}",
 
-tr.ok(
-`@media print {
-  a,
-  b { color: pink;}
-}
-`)
+    message: messages.expected("2 spaces"),
+    line: 3,
+    column: 1,
+  }, {
+    code: "@media print {\n" +
+    "  a,\n" +
+    "   b { color: pink;}\n" +
+    "}",
 
-tr.notOk(
-`a,
-  b { color: pink; }
-`,
-{
-  message: messages.expected("0 spaces"),
-  line: 2,
-  column: 1,
-})
+    message: messages.expected("2 spaces"),
+    line: 3,
+    column: 1,
+  }, {
+    code: "@media print {\n" +
+    "   a,\n" +
+    "  b { color: pink;}\n" +
+    "}",
 
-tr.notOk(
-`a,
-b,
- c { color: pink; }
-`,
-{
-  message: messages.expected("0 spaces"),
-  line: 3,
-  column: 1,
-})
-
-tr.notOk(
-`@media print {
-  a,
-b { color: pink;}
-}
-`,
-{
-  message: messages.expected("2 spaces"),
-  line: 3,
-  column: 1,
-})
-
-tr.notOk(
-`@media print {
-  a,
-   b { color: pink;}
-}
-`,
-{
-  message: messages.expected("2 spaces"),
-  line: 3,
-  column: 1,
-})
-
-tr.notOk(
-`@media print {
-   a,
-  b { color: pink;}
-}
-`,
-{
-  message: messages.expected("2 spaces"),
-  line: 2,
-  column: 4,
-})
-
+    message: messages.expected("2 spaces"),
+    line: 2,
+    column: 4,
+  }],
 })

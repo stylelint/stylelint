@@ -1,324 +1,266 @@
-/* eslint-disable indent, no-multiple-empty-lines */
-
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [2, { hierarchicalSelectors: true }],
 
-testRule(2, { hierarchicalSelectors: true }, tr => {
-warningFreeBasics(tr)
+  accept: [{
+    code: ".foo {}\n" +
+    ".foo {}",
+  }, {
+    code: "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "  }\n" +
+    "}",
+  }, {
+    code: ".foo {}\n" +
+    ".bar {}\n" +
+    ".baz {}",
+  }, {
+    code: ".foo {}\n" +
+    "  .foo-one {}\n" +
+    ".bar {}\n" +
+    "  .bar-one {}",
+  }, {
+    code: ".foo {\n" +
+    "  top: 0;\n" +
+    "}\n" +
+    "  .foo-one {\n" +
+    "    top: 1px;\n" +
+    "  }",
+  }, {
+    code: ".foo {}\n" +
+    "  .foo-one {}\n" +
+    "    .foo-one-sub {}",
+  }, {
+    code: ".foo {}\n" +
+    "  .foo-one {}\n" +
+    "  .foo-two {}\n" +
+    "    .foo-two-sub {}\n" +
+    "  .foo-three {}\n" +
+    ".bar {}",
+  }, {
+    code: "#foo {\n" +
+    "  top: 3px;\n" +
+    "}\n" +
+    "  #foo ul {}\n" +
+    "    #foo ul > li {}\n" +
+    "      #foo ul > li span {\n" +
+    "        top: 4px;\n" +
+    "      }\n" +
+    "    #foo ul a {}\n" +
+    "  #foo div {\n" +
+    "    top: 6px;\n" +
+    "  }\n" +
+    "    #foo div span {}\n" +
+    "#bar {}",
+  }, {
+    code: "#bar {}\n" +
+    "#baz {}\n" +
+    "#bar a {}\n" +
+    "#baz b {}",
+  }, {
+    code: "@media print {\n" +
+    "  .foo {\n" +
+    "    top: 0;\n" +
+    "  }\n" +
+    "    .foo-bar {\n" +
+    "      top: 10px;\n" +
+    "    }\n" +
+    "  .bar {\n" +
+    "    top: 1px;\n" +
+    "  }\n" +
+    "}",
+  }, {
+    code: ".foo {}\n" +
+    "  @media print {\n" +
+    "    .foo-one {\n" +
+    "      color: pink;\n" +
+    "    }\n" +
+    "  }",
+  }, {
+    code: ".foo {}\n" +
+    "  @media print {\n" +
+    "    .foo-one {}\n" +
+    "  }",
+  }, {
+    code: ":root {\n" +
+    "  --Grid: #fff;\n" +
+    "}\n" +
+    "\n" +
+    ".r-Grid {\n" +
+    "  color: red;\n" +
+    "}\n" +
+    "\n" +
+    "  .r-Grid-cell {\n" +
+    "    text-align: center;\n" +
+    "  }",
+  }],
 
-tr.ok(
-`.foo {}
-.foo {}`
-)
+  reject: [{
+    code: ".foo {}\n" +
+    "  .bar {}\n" +
+    ".baz {}",
 
-tr.ok(
-`@media print {
-  a {
-    color: pink;
-  }
-}`
-)
+    message: messages.expected("0 spaces"),
+    line: 2,
+    column: 3,
+  }, {
+    code: ".foo {}\n" +
+    "    .foo-one {}\n" +
+    ".bar {}\n" +
+    "  .bar-one {}",
 
-tr.ok(
-`.foo {}
-.bar {}
-.baz {}`
-)
+    message: messages.expected("2 spaces"),
+    line: 2,
+    column: 5,
+  }, {
+    code: ".foo {}\n" +
+    "  .foo-one {}\n" +
+    ".bar {}\n" +
+    "   .bar-one {}",
 
-tr.notOk(
-`.foo {}
-  .bar {}
-.baz {}`,
-{
-  message: messages.expected("0 spaces"),
-  line: 2,
-  column: 3,
-})
+    message: messages.expected("2 spaces"),
+    line: 4,
+    column: 4,
+  }, {
+    code: ".foo {}\n" +
+    "  .foo-one {}\n" +
+    ".bar {}\n" +
+    "  .bar-one {\n" +
+    "  top: 0;\n" +
+    "  }",
 
-tr.ok(
-`.foo {}
-  .foo-one {}
-.bar {}
-  .bar-one {}`
-)
+    message: messages.expected("4 spaces"),
+    line: 5,
+    column: 3,
+  }, {
+    code: ".foo {}\n" +
+    "  .foo-one {}\n" +
+    "  .bar {}\n" +
+    "  .bar-one {}",
 
-tr.ok(
-`.foo {
-  top: 0;
-}
-  .foo-one {
-    top: 1px;
-  }`
-)
+    message: messages.expected("0 spaces"),
+    line: 3,
+    column: 3,
+  }, {
+    code: ".foo {}\n" +
+    "  .foo-one {\n" +
+    "    color: pink;\n" +
+    "     top: 0;\n" +
+    "  }",
 
-tr.notOk(
-`.foo {}
-    .foo-one {}
-.bar {}
-  .bar-one {}`,
-{
-  message: messages.expected("2 spaces"),
-  line: 2,
-  column: 5,
-})
+    message: messages.expected("4 spaces"),
+    line: 4,
+    column: 6,
+  }, {
+    code: ".foo {}\n" +
+    "  .foo-one {}\n" +
+    "  .foo-one-sub {}",
 
-tr.notOk(
-`.foo {}
-  .foo-one {}
-.bar {}
-   .bar-one {}`,
-{
-  message: messages.expected("2 spaces"),
-  line: 4,
-  column: 4,
-})
+    message: messages.expected("4 spaces"),
+    line: 3,
+    column: 3,
+  }, {
+    code: ".foo {}\n" +
+    "  .foo-one {}\n" +
+    "  .foo-two {}\n" +
+    "  .foo-two-sub {}\n" +
+    "  .foo-three {}\n" +
+    ".bar {}",
 
-tr.notOk(
-`.foo {}
-  .foo-one {}
-.bar {}
-  .bar-one {
-  top: 0;
-  }`,
-{
-  message: messages.expected("4 spaces"),
-  line: 5,
-  column: 3,
-})
+    message: messages.expected("4 spaces"),
+    line: 4,
+    column: 3,
+  }, {
+    code: ".foo {}\n" +
+    "  .foo-one {\n" +
+    "    top: 0;\n" +
+    "  }\n" +
+    "  .foo-two {}\n" +
+    "    .foo-two-sub {\n" +
+    "      top: 10px;\n" +
+    "    }\n" +
+    "  .foo-three {}\n" +
+    "  .bar {}",
 
-tr.notOk(
-`.foo {}
-  .foo-one {}
-  .bar {}
-  .bar-one {}`,
-{
-  message: messages.expected("0 spaces"),
-  line: 3,
-  column: 3,
-})
+    message: messages.expected("0 spaces"),
+    line: 10,
+    column: 3,
+  }, {
+    code: "#foo {}\n" +
+    "  #foo ul {}\n" +
+    "    #foo ul > li {}\n" +
+    "      #foo ul li span {}\n" +
+    "    #foo ul a {}\n" +
+    "  #foo div {}\n" +
+    "    #foo div span {}\n" +
+    "#bar {}",
 
-tr.notOk(
-`.foo {}
-  .foo-one {
-    color: pink;
-     top: 0;
-  }`,
-{
-  message: messages.expected("4 spaces"),
-  line: 4,
-  column: 6,
-})
+    message: messages.expected("4 spaces"),
+    line: 4,
+    column: 7,
+  }, {
+    code: "#foo {}\n" +
+    "  #foo ul {}\n" +
+    "    #foo ul > li {}\n" +
+    "      #foo ul > li span {}\n" +
+    "  #foo ul a {}\n" +
+    "  #foo div {}\n" +
+    "    #foo div span {}\n" +
+    "#bar {}",
 
-tr.ok(
-`.foo {}
-  .foo-one {}
-    .foo-one-sub {}`
-)
+    message: messages.expected("4 spaces"),
+    line: 5,
+    column: 3,
+  }, {
+    code: "#bar {}\n" +
+    "#baz {}\n" +
+    "  #bar a {}\n" +
+    "#baz b {}",
 
-tr.notOk(
-`.foo {}
-  .foo-one {}
-  .foo-one-sub {}`,
-{
-  message: messages.expected("4 spaces"),
-  line: 3,
-  column: 3,
-})
+    message: messages.expected("0 spaces"),
+    line: 3,
+    column: 3,
+  }, {
+    code: "@media print {\n" +
+    "  .foo {\n" +
+    "    top: 0;\n" +
+    "  }\n" +
+    "    .foo-bar {\n" +
+    "      top: 10px;\n" +
+    "       bottom: 0;\n" +
+    "    }\n" +
+    "  .bar {\n" +
+    "    top: 1px;\n" +
+    "  }\n" +
+    "}",
 
-tr.ok(
-`.foo {}
-  .foo-one {}
-  .foo-two {}
-    .foo-two-sub {}
-  .foo-three {}
-.bar {}`
-)
+    message: messages.expected("6 spaces"),
+    line: 7,
+    column: 8,
+  }, {
+    code: ".foo {}\n" +
+    "  @media print {\n" +
+    "  .foo-one {\n" +
+    "      color: pink;\n" +
+    "    }\n" +
+    "  }",
 
-tr.notOk(
-`.foo {}
-  .foo-one {}
-  .foo-two {}
-  .foo-two-sub {}
-  .foo-three {}
-.bar {}`,
-{
-  message: messages.expected("4 spaces"),
-  line: 4,
-  column: 3,
-})
+    message: messages.expected("4 spaces"),
+    line: 3,
+    column: 3,
+  }, {
+    code: ".foo {}\n" +
+    "  @media print {\n" +
+    "      .foo-one {}\n" +
+    "  }",
 
-tr.notOk(
-`.foo {}
-  .foo-one {
-    top: 0;
-  }
-  .foo-two {}
-    .foo-two-sub {
-      top: 10px;
-    }
-  .foo-three {}
-  .bar {}`,
-{
-  message: messages.expected("0 spaces"),
-  line: 10,
-  column: 3,
-})
-
-tr.ok(
-`#foo {
-  top: 3px;
-}
-  #foo ul {}
-    #foo ul > li {}
-      #foo ul > li span {
-        top: 4px;
-      }
-    #foo ul a {}
-  #foo div {
-    top: 6px;
-  }
-    #foo div span {}
-#bar {}`
-)
-
-tr.notOk(
-`#foo {}
-  #foo ul {}
-    #foo ul > li {}
-      #foo ul li span {}
-    #foo ul a {}
-  #foo div {}
-    #foo div span {}
-#bar {}`,
-{
-  message: messages.expected("4 spaces"),
-  line: 4,
-  column: 7,
-})
-
-tr.notOk(
-`#foo {}
-  #foo ul {}
-    #foo ul > li {}
-      #foo ul > li span {}
-  #foo ul a {}
-  #foo div {}
-    #foo div span {}
-#bar {}`,
-{
-  message: messages.expected("4 spaces"),
-  line: 5,
-  column: 3,
-})
-
-tr.ok(
-`#bar {}
-#baz {}
-#bar a {}
-#baz b {}`
-)
-
-tr.notOk(
-`#bar {}
-#baz {}
-  #bar a {}
-#baz b {}`,
-{
-  message: messages.expected("0 spaces"),
-  line: 3,
-  column: 3,
-})
-
-tr.ok(
-`@media print {
-  .foo {
-    top: 0;
-  }
-    .foo-bar {
-      top: 10px;
-    }
-  .bar {
-    top: 1px;
-  }
-}`
-)
-
-tr.notOk(
-`@media print {
-  .foo {
-    top: 0;
-  }
-    .foo-bar {
-      top: 10px;
-       bottom: 0;
-    }
-  .bar {
-    top: 1px;
-  }
-}`,
-{
-  message: messages.expected("6 spaces"),
-  line: 7,
-  column: 8,
-})
-
-tr.ok(
-`.foo {}
-  @media print {
-    .foo-one {
-      color: pink;
-    }
-  }`
-)
-
-tr.notOk(
-`.foo {}
-  @media print {
-  .foo-one {
-      color: pink;
-    }
-  }`,
-{
-  message: messages.expected("4 spaces"),
-  line: 3,
-  column: 3,
-})
-
-tr.ok(
-`.foo {}
-  @media print {
-    .foo-one {}
-  }`
-)
-
-tr.notOk(
-`.foo {}
-  @media print {
-      .foo-one {}
-  }`,
-{
-  message: messages.expected("4 spaces"),
-  line: 3,
-  column: 7,
-})
-
-tr.ok(
-`:root {
-  --Grid: #fff;
-}
-
-.r-Grid {
-  color: red;
-}
-
-  .r-Grid-cell {
-    text-align: center;
-  }`
-)
-
+    message: messages.expected("4 spaces"),
+    line: 3,
+    column: 7,
+  }],
 })
