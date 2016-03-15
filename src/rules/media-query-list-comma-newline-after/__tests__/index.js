@@ -1,108 +1,135 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "@import url(x.com?a=b,c=d)",
+  }, {
+    code: "@media (max-width: 600px) {}",
+  }, {
+    code: "@media screen and (color),\nprojection and (color) {}",
+  }, {
+    code: "@media screen and (color) ,\n  projection and (color) {}",
+  }, {
+    code: "@media screen and (color) ,\r\n  projection and (color) {}",
+    description: "CRLF",
+  }, {
+    code: "@media screen and (color)\n,\n\t\t\tprojection and (color) {}",
+    description: "indentation after the newline after the comma",
+  }, {
+    code: "@media screen and (color)\r\n,\r\n\t\t\tprojection and (color) {}",
+    description: "indentation after the CRLF after the comma",
+  }],
 
-  tr.ok("@import url(x.com?a=b,c=d)")
-  tr.ok("@media (max-width: 600px) {}")
-  tr.ok("@media screen and (color),\nprojection and (color) {}")
-  tr.ok("@media screen and (color) ,\n  projection and (color) {}")
-  tr.ok("@media screen and (color) ,\r\n  projection and (color) {}", "CRLF")
-  tr.ok(
-    "@media screen and (color)\n,\n\t\t\tprojection and (color) {}",
-    "indentation after the newline after the comma"
-  )
-  tr.ok(
-    "@media screen and (color)\r\n,\r\n\t\t\tprojection and (color) {}",
-    "indentation after the CRLF after the comma"
-  )
-
-  tr.notOk("@media screen and (color),projection and (color)", {
+  reject: [{
+    code: "@media screen and (color),projection and (color)",
     message: messages.expectedAfter(),
     line: 1,
     column: 26,
-  })
-  tr.notOk("@media screen and (color), projection and (color)", {
+  }, {
+    code: "@media screen and (color), projection and (color)",
     message: messages.expectedAfter(),
     line: 1,
     column: 26,
-  })
-  tr.notOk("@media screen and (color),  projection and (color)", {
+  }, {
+    code: "@media screen and (color),  projection and (color)",
     message: messages.expectedAfter(),
     line: 1,
     column: 26,
-  })
-  tr.notOk("@media screen and (color),\tprojection and (color)", {
+  }, {
+    code: "@media screen and (color),\tprojection and (color)",
     message: messages.expectedAfter(),
     line: 1,
     column: 26,
-  })
+  }],
 })
 
-testRule("always-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always-multi-line"],
 
-  tr.ok("@media screen and (color),\nprojection and (color) {}", "multi-line list, single-line block")
-  tr.ok("@media screen and (color),\r\nprojection and (color) {}", "multi-line list, single-line block and CRLF")
-  tr.ok("@media screen and (color),\nprojection and (color) {\n}", "multi-line list, multi-line block")
-  tr.ok("@media screen and (color),projection and (color) {}", "ignore single line list, single-lint block")
-  tr.ok("@media screen and (color),projection and (color) {\n}", "ignore single line list, multi-line block")
-  tr.ok("@media screen and (color),projection and (color) {\r\n}", "ignore single line list, multi-line block and CRLF")
+  accept: [{
+    code: "@media screen and (color),\nprojection and (color) {}",
+    description: "multi-line list, single-line block",
+  }, {
+    code: "@media screen and (color),\r\nprojection and (color) {}",
+    description: "multi-line list, single-line block and CRLF",
+  }, {
+    code: "@media screen and (color),\nprojection and (color) {\n}",
+    description: "multi-line list, multi-line block",
+  }, {
+    code: "@media screen and (color),projection and (color) {}",
+    description: "ignore single line list, single-lint block",
+  }, {
+    code: "@media screen and (color),projection and (color) {\n}",
+    description: "ignore single line list, multi-line block",
+  }, {
+    code: "@media screen and (color),projection and (color) {\r\n}",
+    description: "ignore single line list, multi-line block and CRLF",
+  }],
 
-  tr.notOk("@media screen and (color),projection and (color),\nprint {}", {
+  reject: [{
+    code: "@media screen and (color),projection and (color),\nprint {}",
     message: messages.expectedAfterMultiLine(),
     line: 1,
     column: 26,
-  })
-  tr.notOk("@media screen and (color),projection and (color),\nprint {\n}", {
+  }, {
+    code: "@media screen and (color),projection and (color),\nprint {\n}",
     message: messages.expectedAfterMultiLine(),
     line: 1,
     column: 26,
-  })
-  tr.notOk(
-    "@media screen and (color),projection and (color),\r\nprint {\r\n}",
-    {
-      message: messages.expectedAfterMultiLine(),
-      line: 1,
-      column: 26,
-    },
-    "CRLF"
-  )
+  }, {
+    code: "@media screen and (color),projection and (color),\r\nprint {\r\n}",
+    description: "CRLF",
+    message: messages.expectedAfterMultiLine(),
+    line: 1,
+    column: 26,
+  }],
 })
 
-testRule("never-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never-multi-line"],
 
-  tr.ok("@media screen and (color)\n,projection and (color) {}", "multi-line list, single-line block")
-  tr.ok("@media screen and (color)\r\n,projection and (color) {}", "multi-line list, single-line block and CRLF")
-  tr.ok("@media screen and (color)\n,projection and (color) {\n}", "multi-line list, multi-line block")
-  tr.ok("@media screen and (color)\r\n,projection and (color) {\r\n}", "multi-line list, multi-line block and CRLF")
-  tr.ok("@media screen and (color), projection and (color) {}", "ignore single line list, single-lint block")
-  tr.ok("@media screen and (color), projection and (color) {\n}", "ignore single line list, multi-line block")
+  accept: [{
+    code: "@media screen and (color)\n,projection and (color) {}",
+    description: "multi-line list, single-line block",
+  }, {
+    code: "@media screen and (color)\r\n,projection and (color) {}",
+    description: "multi-line list, single-line block and CRLF",
+  }, {
+    code: "@media screen and (color)\n,projection and (color) {\n}",
+    description: "multi-line list, multi-line block",
+  }, {
+    code: "@media screen and (color)\r\n,projection and (color) {\r\n}",
+    description: "multi-line list, multi-line block and CRLF",
+  }, {
+    code: "@media screen and (color), projection and (color) {}",
+    description: "ignore single line list, single-lint block",
+  }, {
+    code: "@media screen and (color), projection and (color) {\n}",
+    description: "ignore single line list, multi-line block",
+  }],
 
-  tr.notOk("@media screen and (color) ,projection and (color),\nprint {}", {
+  reject: [{
+    code: "@media screen and (color) ,projection and (color),\nprint {}",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 50,
-  })
-  tr.notOk("@media screen and (color) ,projection and (color),\nprint {\n}", {
+  }, {
+    code: "@media screen and (color) ,projection and (color),\nprint {\n}",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 50,
-  })
-  tr.notOk(
-    "@media screen and (color) ,projection and (color),\r\nprint {\r\n}",
-    {
-      message: messages.rejectedAfterMultiLine(),
-      line: 1,
-      column: 50,
-    },
-    "CRLF"
-  )
+  }, {
+    code: "@media screen and (color) ,projection and (color),\r\nprint {\r\n}",
+    description: "CRLF",
+    message: messages.rejectedAfterMultiLine(),
+    line: 1,
+    column: 50,
+  }],
 })
