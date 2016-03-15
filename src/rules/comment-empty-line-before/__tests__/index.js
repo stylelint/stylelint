@@ -1,109 +1,170 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
+import { mergeTestDescriptions } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
-import scssSyntax from "postcss-scss"
 
-const testRule = ruleTester(rule, ruleName)
+const alwaysTests = {
+  accept: [{
+    code: "/** comment */",
+    description: "first node ignored",
+  }, {
+    code: "a { color: pink; /** comment */\ntop: 0; }",
+    description: "inline comment ignored",
+  }, {
+    code: "a {} /** comment */",
+    description: "inline comment ignored",
+  }, {
+    code: "a {}\n\n/** comment */",
+  }, {
+    code: "a {}\r\n\r\n/** comment */",
+    description: "CRLF",
+  }, {
+    code: "a {}\n\r\n/** comment */",
+    description: "Mixed",
+  }, {
+    code: "a { color: pink;\n\n/** comment */\ntop: 0; }",
+  }],
 
-function alwaysTests(tr) {
-  warningFreeBasics(tr)
-
-  tr.ok("/** comment */", "first node ignored")
-  tr.ok("a { color: pink; /** comment */\ntop: 0; }", "inline comment ignored")
-  tr.ok("a {} /** comment */", "inline comment ignored")
-  tr.ok("a {}\n\n/** comment */")
-  tr.ok("a {}\r\n\r\n/** comment */", "CRLF")
-  tr.ok("a {}\n\r\n/** comment */", "Mixed")
-  tr.ok("a { color: pink;\n\n/** comment */\ntop: 0; }")
-
-  tr.notOk("/** comment */\n/** comment */", messages.expected)
-  tr.notOk("/** comment */\r\n/** comment */", messages.expected, "CRLF")
-  tr.notOk("a { color: pink;\n/** comment */\ntop: 0; }", messages.expected)
-  tr.notOk("a { color: pink;\r\n/** comment */\r\ntop: 0; }", messages.expected, "CRLF")
+  reject: [{
+    code: "/** comment */\n/** comment */",
+    message: messages.expected,
+  }, {
+    code: "/** comment */\r\n/** comment */",
+    description: "CRLF",
+    message: messages.expected,
+  }, {
+    code: "a { color: pink;\n/** comment */\ntop: 0; }",
+    message: messages.expected,
+  }, {
+    code: "a { color: pink;\r\n/** comment */\r\ntop: 0; }",
+    description: "CRLF",
+    message: messages.expected,
+  }],
 }
 
-testRule("always", tr => {
-  alwaysTests(tr)
+testRule(rule, mergeTestDescriptions(alwaysTests, {
+  ruleName: ruleName,
+  config: ["always"],
 
-  tr.ok(
-    "a {\n\n  /* comment */\n  color: pink;\n}",
-    "first-nested with empty line before"
-  )
-  tr.notOk(
-    "a {\n  /* comment */\n  color: pink;\n}",
-    {
-      message: messages.expected,
-      line: 2,
-      column: 3,
-    },
-    "first-nested without empty line before"
-  )
+  accept: [{
+    code: "a {\n\n  /* comment */\n  color: pink;\n}",
+    description: "first-nested with empty line before",
+  }],
+
+  reject: [{
+    code: "a {\n  /* comment */\n  color: pink;\n}",
+    description: "first-nested without empty line before",
+    message: messages.expected,
+    line: 2,
+    column: 3,
+  }],
+}))
+
+testRule(rule, mergeTestDescriptions(alwaysTests, {
+  ruleName: ruleName,
+  config: ["always", { except: ["first-nested"] }],
+
+  accept: [{
+    code: "a {\n  /* comment */\n  color: pink;\n}",
+    description: "first-nested without empty line before",
+  }],
+
+  reject: [{
+    code: "a {\n\n  /* comment */\n  color: pink;\n}",
+    description: "first-nested with empty line before",
+    message: messages.rejected,
+    line: 3,
+    column: 3,
+  }],
+}))
+
+testRule(rule, mergeTestDescriptions(alwaysTests, {
+  ruleName: ruleName,
+  config: ["always", { ignore: ["stylelint-commands"] }],
+
+  accept: [{
+    code: "a {\ncolor: pink;\n/* stylelint-disable something */\ntop: 0;\n}",
+    description: "no newline before a stylelint command comment",
+  }],
+}))
+
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always", { ignore: ["between-comments"] }],
+
+  accept: [{
+    code: "/* a */\n/* b */\n/* c */\nbody {\n}",
+    description: "no newline between comments",
+  }, {
+    code: "a { color: pink;\n\n/** comment */\n/** comment */\ntop: 0; }",
+    description: "no newline between comments",
+  }],
+
+  reject: [{
+    code: "a { color: pink;\n/** comment */\n/** comment */\ntop: 0; }",
+    message: messages.expected,
+  }],
 })
 
-testRule("always", { except: ["first-nested"] }, tr => {
-  alwaysTests(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never"],
 
-  tr.ok(
-    "a {\n  /* comment */\n  color: pink;\n}",
-    "first-nested without empty line before"
-  )
-  tr.notOk(
-    "a {\n\n  /* comment */\n  color: pink;\n}",
-    {
-      message: messages.rejected,
-      line: 3,
-      column: 3,
-    },
-    "first-nested with empty line before"
-  )
+  accept: [{
+    code: "\n\n/** comment */",
+    description: "first node ignored",
+  }, {
+    code: "\r\n\r\n/** comment */",
+    description: "first node ignored and CRLF",
+  }, {
+    code: "a { color: pink; /** comment */\ntop: 0; }",
+    description: "inline comment ignored",
+  }, {
+    code: "a {} /** comment */",
+  }, {
+    code: "a { color: pink;\n/** comment */\n\ntop: 0; }",
+  }, {
+    code: "a { color: pink;\r\n/** comment */\r\n\r\ntop: 0; }",
+    description: "CRLF",
+  }],
+
+  reject: [{
+    code: "/** comment */\n\n/** comment */",
+    message: messages.rejected,
+  }, {
+    code: "a {}\n\n\n/** comment */",
+    message: messages.rejected,
+  }, {
+    code: "a {}\r\n\r\n\r\n/** comment */",
+    description: "CRLF",
+    message: messages.rejected,
+  }, {
+    code: "a { color: pink;\n\n/** comment */\ntop: 0; }",
+    message: messages.rejected,
+  }],
 })
 
-testRule("always", { ignore: ["stylelint-commands"] }, tr => {
-  alwaysTests(tr)
-  tr.ok(
-    "a {\ncolor: pink;\n/* stylelint-disable something */\ntop: 0;\n}",
-    "no newline before a stylelint command comment"
-  )
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["always"],
+  syntax: "scss",
+
+  accept: [{
+    code: "a { color: pink;\n// comment\ntop: 0; }",
+    description: "single-line comment ignored",
+  }, {
+    code: "// first line\n// second line\na { color: pink; }",
+    description: "subsequent single-line comments ingnored",
+  }],
 })
 
-testRule("always", { ignore: ["between-comments"] }, tr => {
-  tr.ok(
-    "/* a */\n/* b */\n/* c */\nbody {\n}",
-    "no newline between comments"
-  )
-  tr.ok("a { color: pink;\n\n/** comment */\n/** comment */\ntop: 0; }", "no newline between comments")
-  tr.notOk("a { color: pink;\n/** comment */\n/** comment */\ntop: 0; }", messages.expected)
-})
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["never"],
+  syntax: "scss",
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
-
-  tr.ok("\n\n/** comment */", "first node ignored")
-  tr.ok("\r\n\r\n/** comment */", "first node ignored and CRLF")
-  tr.ok("a { color: pink; /** comment */\ntop: 0; }", "inline comment ignored")
-  tr.ok("a {} /** comment */")
-  tr.ok("a { color: pink;\n/** comment */\n\ntop: 0; }")
-  tr.ok("a { color: pink;\r\n/** comment */\r\n\r\ntop: 0; }", "CRLF")
-
-  tr.notOk("/** comment */\n\n/** comment */", messages.rejected)
-  tr.notOk("a {}\n\n\n/** comment */", messages.rejected)
-  tr.notOk("a {}\r\n\r\n\r\n/** comment */", messages.rejected, "CRLF")
-  tr.notOk("a { color: pink;\n\n/** comment */\ntop: 0; }", messages.rejected)
-})
-
-const testRuleScss = ruleTester(rule, ruleName, {
-  postcssOptions: {
-    syntax: scssSyntax,
-  },
-})
-
-testRuleScss("always", tr => {
-  tr.ok("a { color: pink;\n// comment\ntop: 0; }", "single-line comment ignored")
-  tr.ok("// first line\n// second line\na { color: pink; }", "subsequent single-line comments ingnored")
-})
-
-testRuleScss("never", tr => {
-  tr.ok("a { color: pink;\n\n// comment\ntop: 0; }", "single-line comment ignored")
+  accept: [{
+    code: "a { color: pink;\n\n// comment\ntop: 0; }",
+    description: "single-line comment ignored",
+  }],
 })
