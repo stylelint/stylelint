@@ -1,87 +1,111 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
 
-testRule({
-  // regular string
-  "text-transform": ["uppercase"],
-  // regexes
-  "transform": [ "/scale3d/", "/rotate3d/", "/translate3d/" ],
-  // mixed string and regex
-  "color": [ "red", "green", "blue", "/^sea/" ],
-}, tr => {
-  warningFreeBasics(tr)
+  config: [{
+    // regular string
+    "text-transform": ["uppercase"],
+    // regexes
+    "transform": [ "/scale3d/", "/rotate3d/", "/translate3d/" ],
+    // mixed string and regex
+    "color": [ "red", "green", "blue", "/^sea/" ],
+  }],
 
-  tr.ok("a { color: pink; }")
-  tr.ok("a { color: lightgreen; }")
-  tr.ok("a { text-transform: lowercase; }")
-  tr.ok("a { transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0) translate(12px, 50%); }")
-  tr.ok("a { -webkit-transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0) translate(12px, 50%); }")
+  accept: [{
+    code: "a { color: pink; }",
+  }, {
+    code: "a { color: lightgreen; }",
+  }, {
+    code: "a { text-transform: lowercase; }",
+  }, {
+    code: "a { transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0) translate(12px, 50%); }",
+  }, {
+    code: "a { -webkit-transform: matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0) translate(12px, 50%); }",
+  }, {
+    code: "a { color: /* red */ pink; }",
+    description: "ignore value within comments",
+  }, {
+    code: "a::before { color: \"red\"}",
+    description: "ignore value within quotes",
+  }, {
+    code: "a { color: $red; }",
+    description: "ignore preprocessor variable includes value",
+  }, {
+    code: "a { color: --some-red; }",
+    description: "ignore css variable includes value",
+  }, {
+    code: "a { color: darkseagreen }",
 
-  tr.ok("a { color: /* red */ pink; }", "ignore value within comments")
-  tr.ok("a::before { color: \"red\"}", "ignore value within quotes")
+    description: {
+      message: messages.rejected("color", "darkseagreen"),
+      column: 5,
+    },
+  }],
 
-  tr.ok("a { color: $red; }", "ignore preprocessor variable includes value")
-  tr.ok("a { color: --some-red; }", "ignore css variable includes value")
-
-  tr.notOk("a { color: red; }", {
+  reject: [{
+    code: "a { color: red; }",
     message: messages.rejected("color", "red"),
     line: 1,
     column: 5,
-  })
-
-  tr.notOk("a { color: green }", {
+  }, {
+    code: "a { color: green }",
     message: messages.rejected("color", "green"),
     line: 1,
     column: 5,
-  })
-
-  tr.notOk("a { text-transform: uppercase; }", {
+  }, {
+    code: "a { text-transform: uppercase; }",
     message: messages.rejected("text-transform", "uppercase"),
     line: 1,
     column: 5,
-  })
-
-  tr.notOk("a { transform: scale3d(1, 2, 3) }", {
+  }, {
+    code: "a { transform: scale3d(1, 2, 3) }",
     message: messages.rejected("transform", "scale3d(1, 2, 3)"),
     line: 1,
     column: 5,
-  })
-
-  tr.notOk("a { -webkit-transform: scale3d(1, 2, 3) }", {
+  }, {
+    code: "a { -webkit-transform: scale3d(1, 2, 3) }",
     message: messages.rejected("-webkit-transform", "scale3d(1, 2, 3)"),
     column: 5,
-  })
-
-  tr.ok("a { color: darkseagreen }", {
-    message: messages.rejected("color", "darkseagreen"),
-    column: 5,
-  })
-  tr.notOk("a { color: seagreen }", {
+  }, {
+    code: "a { color: seagreen }",
     message: messages.rejected("color", "seagreen"),
     column: 5,
-  })
-
+  }],
 })
 
-testRule({
-  "/^animation/": ["/ease/"],
-}, tr => {
-  tr.ok("a { animation: foo 1s linear; }")
-  tr.ok("a { -webkit-animation: foo 1s linear; }")
-  tr.ok("a { animation-timing-function: linear; }")
-  tr.ok("a { -webkit-animation-timing-function: linear; }")
+testRule(rule, {
+  ruleName: ruleName,
 
-  tr.notOk("a { animation: foo 1s ease-in-out; }",
-    messages.rejected("animation", "foo 1s ease-in-out"))
-  tr.notOk("a { -webkit-animation: foo 1s ease-in-out; }",
-    messages.rejected("-webkit-animation", "foo 1s ease-in-out"))
-  tr.notOk("a { animation-timing-function: ease-in-out; }",
-    messages.rejected("animation-timing-function", "ease-in-out"))
-  tr.notOk("a { -webkit-animation-timing-function: ease-in-out; }",
-    messages.rejected("-webkit-animation-timing-function", "ease-in-out"))
+  config: [{
+    "/^animation/": ["/ease/"],
+  }],
+
+  skipBasicChecks: true,
+
+  accept: [{
+    code: "a { animation: foo 1s linear; }",
+  }, {
+    code: "a { -webkit-animation: foo 1s linear; }",
+  }, {
+    code: "a { animation-timing-function: linear; }",
+  }, {
+    code: "a { -webkit-animation-timing-function: linear; }",
+  }],
+
+  reject: [{
+    code: "a { animation: foo 1s ease-in-out; }",
+    message: messages.rejected("animation", "foo 1s ease-in-out"),
+  }, {
+    code: "a { -webkit-animation: foo 1s ease-in-out; }",
+    message: messages.rejected("-webkit-animation", "foo 1s ease-in-out"),
+  }, {
+    code: "a { animation-timing-function: ease-in-out; }",
+    message: messages.rejected("animation-timing-function", "ease-in-out"),
+  }, {
+    code: "a { -webkit-animation-timing-function: ease-in-out; }",
+    message: messages.rejected("-webkit-animation-timing-function", "ease-in-out"),
+  }],
 })
