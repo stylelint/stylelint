@@ -1,66 +1,76 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+/* eslint-disable comma-dangle,array-bracket-spacing */
+import testRule from "../../../testUtils/blueTapeStylelintAssert"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [/foo-.+/],
 
-testRule(/foo-.+/, tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "@keyframes foofoo {}",
+  }, {
+    code: "@custom-media --foo-bar (min-width: 0);",
+  }, {
+    code: "@custom-media --foo-foofoo (min-width: 0);",
+  }],
 
-  tr.ok("@keyframes foofoo {}")
-
-  tr.ok("@custom-media --foo-bar (min-width: 0);")
-  tr.ok("@custom-media --foo-foofoo (min-width: 0);")
-
-  tr.notOk("@custom-media --foa-bar (min-width: 0);", {
+  reject: [{
+    code: "@custom-media --foa-bar (min-width: 0);",
     message: messages.expected,
     line: 1,
     column: 15,
-  })
-  tr.notOk("@custom-media --foa (min-width: 0);", {
+  }, {
+    code: "@custom-media --foa (min-width: 0);",
     message: messages.expected,
     line: 1,
     column: 15,
-  })
+  }],
 })
 
-// Same as above but with a string instead of a RegExp
-testRule("foo-.+", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: ["foo-.+"],
 
-  tr.ok("@keyframes foofoo {}")
+  accept: [{
+    code: "@keyframes foofoo {}",
+  }, {
+    code: "@custom-media --foo-bar (min-width: 0);",
+  }, {
+    code: "@custom-media --foo-foofoo (min-width: 0);",
+  }],
 
-  tr.ok("@custom-media --foo-bar (min-width: 0);")
-  tr.ok("@custom-media --foo-foofoo (min-width: 0);")
-
-  tr.notOk("@custom-media --foa-bar (min-width: 0);", {
+  reject: [{
+    code: "@custom-media --foa-bar (min-width: 0);",
     message: messages.expected,
     line: 1,
     column: 15,
-  })
-  tr.notOk("@custom-media --foa (min-width: 0);", {
+  }, {
+    code: "@custom-media --foa (min-width: 0);",
     message: messages.expected,
     line: 1,
     column: 15,
-  })
+  }],
 })
 
-testRule(/^[A-Z][a-z]+-[a-z][a-zA-Z]+$/, tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName: ruleName,
+  config: [/^[A-Z][a-z]+-[a-z][a-zA-Z]+$/],
 
-  tr.ok("@custom-media --Ape-ageLess")
-  tr.ok("@custom-media --Purr-piratePlant")
+  accept: [{
+    code: "@custom-media --Ape-ageLess",
+  }, {
+    code: "@custom-media --Purr-piratePlant",
+  }],
 
-  tr.notOk("@custom-media --ape-ageLess", {
+  reject: [{
+    code: "@custom-media --ape-ageLess",
     message: messages.expected,
     line: 1,
     column: 15,
-  })
-  tr.notOk("@custom-media --Ape-AgeLess", {
+  }, {
+    code: "@custom-media --Ape-AgeLess",
     message: messages.expected,
     line: 1,
     column: 15,
-  })
+  }],
 })
