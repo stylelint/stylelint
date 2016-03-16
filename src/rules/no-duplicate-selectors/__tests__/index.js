@@ -1,9 +1,9 @@
 /* eslint-disable comma-dangle,array-bracket-spacing */
-import testRule from "../../../testUtils/mochaStylelintAssert"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import postcss from "postcss"
 import postcssImport from "postcss-import"
 import path from "path"
-import test from "blue-tape"
+import test from "tape"
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {

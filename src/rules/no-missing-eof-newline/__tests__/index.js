@@ -1,5 +1,5 @@
 /* eslint-disable comma-dangle,array-bracket-spacing */
-import testRule from "../../../testUtils/mochaStylelintAssert"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {

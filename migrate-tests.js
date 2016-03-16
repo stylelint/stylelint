@@ -4,13 +4,13 @@ var path = require("path")
 var globby = require("globby")
 var _ = require("lodash")
 
-var ruleName = process.argv[2];
+var glob = process.argv[2];
 
-if (!ruleName) {
-  throw new Error("No rule name provided")
+if (!glob) {
+  throw new Error("No glob provided")
 }
 
-globby(path.join(__dirname, "src/rules", ruleName, "__tests__/*.js")).then(function(filepaths) {
+globby(path.join(__dirname, glob)).then(function(filepaths) {
   var allInfo = []
   var promiseQueue = []
 
@@ -19,9 +19,10 @@ globby(path.join(__dirname, "src/rules", ruleName, "__tests__/*.js")).then(funct
     console.log("processing " + friendlyFilepath)
     var fileData = { file: friendlyFilepath }
 
-    var filePromise = Promise.resolve().then(() => testFile(filepath, fileData))
+    var filePromise = Promise.resolve(filepath)
+      // .then(() => testFile(filepath, fileData))
       .then(codeshiftFile)
-      .then(() => testFile(filepath, fileData))
+      // .then(() => testFile(filepath, fileData))
       .then(function() {
         allInfo.push(fileData)
       })
