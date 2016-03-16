@@ -9,7 +9,7 @@ import {
 export const ruleName = "selector-type-case"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (h, v) => `Expected "${h}" to be "${v}"`,
+  expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
 export default function (expectation) {

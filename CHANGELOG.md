@@ -1,6 +1,7 @@
 # Head
 
 - Fixed: no more subtle configuration bug when using extends and plugins together in tangled ways.
+- Added: `selector-type-case` rule.
 
 # 5.0.1
 

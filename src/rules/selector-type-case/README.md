@@ -1,6 +1,6 @@
 # selector-type-case
 
-Specify lowercase or uppercase for html selector.
+Specify lowercase or uppercase for type selector.
 
 ```css
     a {}
@@ -17,21 +17,21 @@ Specify lowercase or uppercase for html selector.
 The following patterns are considered warnings:
 
 ```css
-A { color: #fff; }
+A {}
 ```
 
 ```css
-LI { display: inline-block; }
+LI {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a { color: #000; }
+a {}
 ```
 
 ```css
-li { display: inline-block; }
+li {}
 ```
 
 ### `"upper"`
@@ -39,20 +39,20 @@ li { display: inline-block; }
 The following patterns are considered warnings:
 
 ```css
-a { color: #000; }
+a {}
 ```
 
 ```css
-li { display: inline-block; }
+li {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-A { color: #fff; }
+A {}
 ```
 
 ```css
-LI { display: inline-block; }
+LI {}
 ```
 

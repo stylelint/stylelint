@@ -112,6 +112,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "selector-no-vendor-prefix": true,
     "selector-pseudo-element-colon-notation": true,
     "selector-root-no-composition": true,
+    "selector-type-case": "lower"|"upper",
     "string-no-newline": true,
     "string-quotes": true,
     "time-no-imperceptible": true,
