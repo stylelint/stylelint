@@ -33,28 +33,28 @@ export default function (expectation) {
 
       selectorParser(selectorAST => {
         selectorAST.eachTag(tag => {
+          // Destructring the tag object
+          const { parent, sourceIndex, value } = tag
+             
           // postcss-selector-parser includes the arguments to nth-child() functions
           // as "tags", so we need to ignore them ourselves.
           // The fake-tag's "parent" is actually a selector node, whose parent
           // should be the :nth-child pseudo node.
-          if (tag.parent.parent.type === "pseudo" && tag.parent.parent.value === ":nth-child") {
+          if (parent.parent.type === "pseudo" && parent.parent.value === ":nth-child") {
             return
           }
 
           // & is not a type selector: it's used for nesting 
-          if (tag.value[0] === "&") { return }
+          if (value[0] === "&") { return }
 
-          const typeValue = tag.value
-          const typeValueLower = typeValue.toLowerCase()
-          const typeValueUpper = typeValue.toUpperCase()
-          const expectedValue = expectation === "lower" ? typeValueLower : typeValueUpper
+          const expectedValue = expectation === "lower" ? value.toLowerCase() : value.toUpperCase()
 
-          if (typeValue === expectedValue) { return }
+          if (value === expectedValue) { return }
 
           report({
-            message: messages.expected(typeValue, expectedValue),
+            message: messages.expected(value, expectedValue),
             node: rule,
-            index: tag.sourceIndex,
+            index: sourceIndex,
             ruleName,
             result,
           })
