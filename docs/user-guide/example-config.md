@@ -112,7 +112,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "selector-pseudo-element-colon-notation": "single"|"double",
     "selector-root-no-composition": true,
     "string-no-newline": true,
-    "string-quotes": true,
+    "string-quotes": "single"|"double",
     "time-no-imperceptible": true,
     "unit-blacklist": string|[],
     "unit-whitelist": string|[],
