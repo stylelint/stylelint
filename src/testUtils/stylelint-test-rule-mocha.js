@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
-import createStylelintAssert from "./createStylelintAssert"
+import createStylelintRuleTester from "./createStylelintRuleTester"
 import assert from "assert"
 
-function assertEquality(resultPromise, context) {
+function assertEquality(processCss, context) {
   describe(context.caseDescription, () => {
     it(context.completeAssertionDescription, done => {
-      resultPromise.then((comparisons) => {
+      processCss.then((comparisons) => {
         comparisons.forEach(({ actual, expected, description }) => {
           assert.equal(actual, expected, description)
         })
@@ -15,4 +15,4 @@ function assertEquality(resultPromise, context) {
   })
 }
 
-export default createStylelintAssert(assertEquality)
+export default createStylelintRuleTester(assertEquality)

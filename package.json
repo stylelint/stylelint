@@ -55,21 +55,17 @@
     "stylehacks": "^2.3.0"
   },
   "devDependencies": {
-    "ava": "^0.12.0",
     "babel-cli": "^6.1.18",
     "babel-preset-es2015": "^6.1.18",
     "babel-tape-runner": "^2.0.0",
-    "blue-tape": "^0.2.0",
     "eslint": "^2.4.0",
     "eslint-config-stylelint": "^1.0.0",
     "jscodeshift": "^0.3.14",
-    "mocha": "^2.4.5",
     "npmpub": "^3.0.1",
     "postcss-import": "^8.0.2",
     "remark": "^4.0.0",
     "remark-lint": "^3.0.0",
     "sinon": "^1.16.1",
-    "stylelint-rule-tester": "^0.6.2",
     "tape": "^4.2.0",
     "trash": "^3.4.1"
   },
@@ -79,7 +75,7 @@
     "release": "npmpub",
     "lint": "eslint . --ignore-path .gitignore && remark . --quiet --frail",
     "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
-    "test-rules": "mocha --compilers js:babel-register src/rules/**/__tests__/*.js",
+    "test-rules": "babel-tape-runner src/rules/**/__tests__/*.js",
     "test": "npm run lint && npm run tape",
     "shift-tests": "jscodeshift -t ./shift-tests.js src/rules/**/__tests__/*.js",
     "reset-tests": "trash src/**/*-codeshiftInfo.js && git checkout -- src/rules"
