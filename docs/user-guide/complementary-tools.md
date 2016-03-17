@@ -10,6 +10,7 @@
 
 - [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) - A gulp plugin for stylelint.
 - [stylelint-loader](https://github.com/adrianhall/stylelint-loader) - A webpack loader for stylelint.
+- [stylelint-webpack-plugin](https://github.com/vieron/stylelint-webpack-plugin) - A webpack plugin for stylelint.
 
 ## Other linters & formatters
 
