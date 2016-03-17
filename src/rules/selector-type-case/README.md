@@ -1,11 +1,11 @@
 # selector-type-case
 
-Specify lowercase or uppercase for type selector.
+Specify lowercase or uppercase for type selectors.
 
 ```css
     a {}
 /** ↑
- * This type of selector */
+ * This is type selector */
 ```
 
 ## Options
