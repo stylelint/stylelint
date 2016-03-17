@@ -111,6 +111,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "selector-no-vendor-prefix": true,
     "selector-pseudo-element-colon-notation": "single"|"double",
     "selector-root-no-composition": true,
+    "selector-type-case": "lower"|"upper",
     "string-no-newline": true,
     "string-quotes": "single"|"double",
     "time-no-imperceptible": true,

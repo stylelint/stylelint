@@ -137,6 +137,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`selector-no-vendor-prefix`](../../src/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors.
 - [`selector-pseudo-element-colon-notation`](../../src/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
 - [`selector-root-no-composition`](../../src/rules/selector-root-no-composition/README.md): Disallow the composition of `:root` in selectors.
+- [`selector-type-case`](../../src/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selector.
 
 ### Selector list
 
