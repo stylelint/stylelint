@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `font-weight-notation` now ignore `inherit` value.
+
 # 5.1.0
 
 - Added: `selector-type-case` rule.
