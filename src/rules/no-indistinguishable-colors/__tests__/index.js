@@ -40,7 +40,7 @@ testRule(rule, {
 
     message: messages.rejected("#000000", "#010101"),
     line: 10,
-    column: 19,
+    column: 21,
   } ],
 })
 
