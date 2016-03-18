@@ -1,6 +1,7 @@
 # HEAD
 
 - Added: `no-indistinguishable-colors` rule.
+- Added: `at-rule-blockless-newline-after` rule.
 
 # 5.1.0
 

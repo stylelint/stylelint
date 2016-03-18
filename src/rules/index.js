@@ -1,3 +1,4 @@
+import atRuleBlocklessNewlineAfter from "./at-rule-blockless-newline-after"
 import atRuleEmptyLineBefore from "./at-rule-empty-line-before"
 import atRuleNoVendorPrefix from "./at-rule-no-vendor-prefix"
 import blockClosingBraceNewlineAfter from "./block-closing-brace-newline-after"
@@ -117,6 +118,7 @@ import valueListCommaSpaceBefore from "./value-list-comma-space-before"
 import valueNoVendorPrefix from "./value-no-vendor-prefix"
 
 export default {
+  "at-rule-blockless-newline-after": atRuleBlocklessNewlineAfter,
   "at-rule-empty-line-before": atRuleEmptyLineBefore,
   "at-rule-no-vendor-prefix": atRuleNoVendorPrefix,
   "block-closing-brace-newline-after": blockClosingBraceNewlineAfter,
