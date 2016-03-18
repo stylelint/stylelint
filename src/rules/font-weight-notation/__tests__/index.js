@@ -39,6 +39,9 @@ testRule(rule, {
   }, {
     code: "a { font: 400 16px serif; }",
     description: "no normals and a numbered weight",
+  }, {
+    code: "a { font-weight: inherit; }",
+    description: "ignore inherit value",
   } ],
 
   reject: [ {
@@ -136,6 +139,9 @@ testRule(rule, {
   }, {
     code: "a { font: italic small-caps 600 16px/3 cursive; }",
     description: "another number without keyword equivalent",
+  }, {
+    code: "a { font-weight: inherit; }",
+    description: "ignore inherit value",
   } ],
 
   reject: [ {

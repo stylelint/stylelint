@@ -17,6 +17,7 @@ export const messages = ruleMessages(ruleName, {
 })
 
 const WEIGHT_SPECIFIC_KEYWORDS = [ "bold", "bolder", "lighter" ]
+const INHERIT_KEYWORD = "inherit"
 const NORMAL_KEYWORD = "normal"
 const RELATIVE_NAMED_WEIGHTS = [ "bolder", "lighter" ]
 const WEIGHTS_WITH_KEYWORD_EQUIVALENTS = [ "400", "700" ]
@@ -76,7 +77,7 @@ export default function (expectation, options) {
       const weightValueOffset = decl.value.indexOf(weightValue)
 
       if (expectation === "numeric") {
-        if (!isNumbery(weightValue)) {
+        if (!isNumbery(weightValue) && weightValue !== INHERIT_KEYWORD) {
           return complain(messages.expected("numeric"))
         }
       }
@@ -88,7 +89,10 @@ export default function (expectation, options) {
           }
           return
         }
-        if (!includes(WEIGHT_SPECIFIC_KEYWORDS, weightValue) && weightValue !== NORMAL_KEYWORD) {
+        if (!includes(WEIGHT_SPECIFIC_KEYWORDS, weightValue)
+          && weightValue !== NORMAL_KEYWORD
+          && weightValue !== INHERIT_KEYWORD
+        ) {
           return complain(messages.invalidNamed(weightValue))
         }
         return
