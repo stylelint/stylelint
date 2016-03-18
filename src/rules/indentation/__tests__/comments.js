@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["tab"],
 
-  accept: [{
+  accept: [ {
     code: "/* blergh */",
   }, {
     code: ".foo {\n" +
@@ -20,9 +19,9 @@ testRule(rule, {
     "\t\ttop: 0;\n" +
     "\t}\n" +
     "}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: " /* blergh */",
     message: messages.expected("0 tabs"),
     line: 1,
@@ -47,5 +46,5 @@ testRule(rule, {
     message: messages.expected("2 tabs"),
     line: 3,
     column: 2,
-  }],
+  } ],
 })

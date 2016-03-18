@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: "a { padding: 10px; }",
   }, {
     code: "a { padding: 10px; padding-left: 20px; }",
@@ -23,9 +22,9 @@ testRule(rule, {
     code: "a { transition-property: opacity; } a { transition: opacity 1s linear; }",
   }, {
     code: "a { transition-property: opacity; -webkit-transition: opacity 1s linear; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { padding-left: 10px; padding: 20px; }",
     message: messages.rejected("padding", "padding-left"),
   }, {
@@ -47,5 +46,5 @@ testRule(rule, {
   }, {
     code: "a { @media (color) { background-repeat: no-repeat; background: url(lion.png); }}",
     message: messages.rejected("background", "background-repeat"),
-  }],
+  } ],
 })

@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -14,7 +13,7 @@ testRule(rule, {
     "color",
   ]],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a { color: pink; color: red; }",
@@ -51,9 +50,9 @@ testRule(rule, {
     code: "a { top: 0; color: pink; display: none; width: 0; height: 0; }",
   }, {
     code: "a { display: none; top: 0; color: pink; width: 0; height: 0; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; top: 0;  }",
     message: messages.expected("top", "color"),
   }, {
@@ -87,7 +86,7 @@ testRule(rule, {
     code: "a { @media (min-width: 10px) { color: pink; top: 0; } transform: scale(1); }",
     description: "media query nested in rule can violates its own ordering",
     message: messages.expected("top", "color"),
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -104,7 +103,7 @@ testRule(rule, {
     "color",
   ]],
 
-  accept: [{
+  accept: [ {
     code: "a { padding: 1px; color: pink; }",
   }, {
     code: "a { padding-top: 1px; color: pink; }",
@@ -120,9 +119,9 @@ testRule(rule, {
     code: "a { border: 1px solid #fff; border-right: 2px solid #fff; border-right-color: #000; }",
   }, {
     code: "a { border: 1px solid #fff; border-top: none; border-right-color: #000; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; padding: 1px; }",
     message: messages.expected("padding", "color"),
   }, {
@@ -131,78 +130,78 @@ testRule(rule, {
   }, {
     code: "a { padding-right: 1px; padding-top: 0; color: pink;  }",
     message: messages.expected("padding-top", "padding-right"),
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
 
-  config: [[
+  config: [ [
     "height",
     "color",
-  ], { unspecified: "top" }],
+  ], { unspecified: "top" } ],
 
-  accept: [{
+  accept: [ {
     code: "a { top: 0; height: 1px; color: pink; }",
   }, {
     code: "a { bottom: 0; top: 0; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { height: 1px; top: 0; }",
     message: messages.expected("top", "height"),
   }, {
     code: "a { color: 1px; top: 0; }",
     message: messages.expected("top", "color"),
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
 
-  config: [[
+  config: [ [
     "height",
     "color",
-  ], { unspecified: "bottom" }],
+  ], { unspecified: "bottom" } ],
 
-  accept: [{
+  accept: [ {
     code: "a { height: 1px; color: pink; bottom: 0; }",
   }, {
     code: "a { bottom: 0; top: 0; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { bottom: 0; height: 1px; }",
     message: messages.expected("height", "bottom"),
   }, {
     code: "a { bottom: 0; color: 1px; }",
     message: messages.expected("color", "bottom"),
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
 
-  config: [[
+  config: [ [
     "all",
     "compose",
-  ], { unspecified: "bottomAlphabetical" }],
+  ], { unspecified: "bottomAlphabetical" } ],
 
-  accept: [{
+  accept: [ {
     code: "a { all: initial; compose: b; }",
   }, {
     code: "a { bottom: 0; top: 0; }",
   }, {
     code: "a { all: initial; compose: b; bottom: 0; top: 0; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { align-items: flex-end; all: initial; }",
     message: messages.expected("all", "align-items"),
   }, {
     code: "a { compose: b; top: 0; bottom: 0; }",
     message: messages.expected("bottom", "top"),
-  }],
+  } ],
 })
 
 testRule(rule, {

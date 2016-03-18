@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a + a {}",
     description: "space before and after + combinator",
   }, {
@@ -57,9 +56,9 @@ testRule(rule, {
   }, {
     code: ".foo {\n\t> span,\n\t> b { color:pink; } }",
     description: "nested selectors starting with combinator",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a  +a {}",
     description: "two spaces before + combinator",
     message: messages.expectedBefore("+"),
@@ -107,14 +106,14 @@ testRule(rule, {
     message: messages.expectedBefore("+"),
     line: 1,
     column: 5,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a+ a {}",
     description: "no space before one after + combinator",
   }, {
@@ -156,9 +155,9 @@ testRule(rule, {
   }, {
     code: "a[rel~='copyright'] {}",
     description: "attribute selector with ~=",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a +a {}",
     description: "space before + combinator",
     message: messages.rejectedBefore("+"),
@@ -212,5 +211,5 @@ testRule(rule, {
     message: messages.rejectedBefore("~"),
     line: 1,
     column: 16,
-  }],
+  } ],
 })

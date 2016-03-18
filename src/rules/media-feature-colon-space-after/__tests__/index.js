@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "@media (max-width: 600px) {}",
   }, {
     code: "@media (max-width : 600px) {}",
@@ -14,9 +13,9 @@ testRule(rule, {
     code: "@media (max-width: 600px) and (min-width: 3em) {}",
   }, {
     code: "@custom-selector :--enter :hover;",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media (max-width:600px) {}",
     message: messages.expectedAfter(),
     line: 1,
@@ -52,22 +51,22 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 41,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "@media (max-width:600px) {}",
   }, {
     code: "@media (max-width:600px) and (min-width:3em) {}",
   }, {
     code: "@custom-selector : --enter :hover;",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media (max-width: 600px) {}",
     message: messages.rejectedAfter(),
     line: 1,
@@ -103,5 +102,5 @@ testRule(rule, {
     message: messages.rejectedAfter(),
     line: 1,
     column: 18,
-  }],
+  } ],
 })

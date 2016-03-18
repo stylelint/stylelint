@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -10,7 +9,7 @@ testRule(rule, {
     code: "@media (min-resolution: 96dpi) {}",
   }],
 
-  reject: [{
+  reject: [ {
     code: "@media (-webkit-min-device-pixel-ratio: 1) {}",
     message: messages.rejected,
     line: 1,
@@ -25,5 +24,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 11,
-  }],
+  } ],
 })

@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["single"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a:before { color: pink; }",
@@ -28,9 +27,9 @@ testRule(rule, {
     code: "li::marker { font-variant-numeric: tabular-nums; }",
   }, {
     code: "input::placeholder { color: pink; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a::before { color: pink; }",
     message: messages.expected("single"),
     line: 1,
@@ -50,14 +49,14 @@ testRule(rule, {
     message: messages.expected("single"),
     line: 1,
     column: 3,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["double"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a::before { color: pink; }",
@@ -79,9 +78,9 @@ testRule(rule, {
     code: "li::marker { font-variant-numeric: tabular-nums; }",
   }, {
     code: "input::placeholder { color: pink; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a:before { color: pink; }",
     message: messages.expected("double"),
     line: 1,
@@ -101,5 +100,5 @@ testRule(rule, {
     message: messages.expected("double"),
     line: 1,
     column: 2,
-  }],
+  } ],
 })

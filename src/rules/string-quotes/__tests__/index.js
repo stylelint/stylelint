@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -7,7 +6,7 @@ testRule(rule, {
   config: ["single"],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "",
   }, {
     code: "a {}",
@@ -27,9 +26,9 @@ testRule(rule, {
   }, {
     code: "a { /* \"horse\" */ }",
     description: "ignores comment",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a::before { content: \"foo\"; }",
     message: messages.expected("single"),
     line: 1,
@@ -49,7 +48,7 @@ testRule(rule, {
     message: messages.expected("single"),
     line: 2,
     column: 19,
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -57,7 +56,7 @@ testRule(rule, {
   config: ["double"],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "",
   }, {
     code: "a {}",
@@ -77,9 +76,9 @@ testRule(rule, {
   }, {
     code: "a { /* 'horse' */ }",
     description: "ignores comment",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a::before { content: 'foo'; }",
     message: messages.expected("double"),
     line: 1,
@@ -99,7 +98,7 @@ testRule(rule, {
     message: messages.expected("double"),
     line: 1,
     column: 21,
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -113,7 +112,7 @@ testRule(rule, {
     description: "ignores single-line SCSS comment",
   }],
 
-  reject: [{
+  reject: [ {
     code: "a::before {\n  // 'horse'\n  content: 'thing'; }",
     description: "pays attention when single-line SCSS comment ends",
     message: messages.expected("double"),
@@ -125,5 +124,5 @@ testRule(rule, {
     message: messages.expected("double"),
     line: 5,
     column: 12,
-  }],
+  } ],
 })

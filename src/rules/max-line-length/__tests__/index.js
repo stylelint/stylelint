@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["20"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: 0; }",
   }, {
     code: "a {  color   : 0 ; }",
@@ -18,9 +17,9 @@ testRule(rule, {
     code: "a {\n background: url(somethingsomethingsomethingsomething);\n}",
   }, {
     code: "a {\n  background: url(\n  somethingsomethingsomethingsomething\n  );\n}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {   color   : 0  ;}",
     message: messages.expected(20),
     line: 1,
@@ -50,7 +49,7 @@ testRule(rule, {
     message: messages.expected(20),
     line: 1,
     column: 38,
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -71,9 +70,9 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: ["20", { ignore: "non-comments" }],
+  config: [ "20", { ignore: "non-comments" } ],
 
-  accept: [{
+  accept: [ {
     code: "a { color: 0; top: 0; bottom: 0; }",
   }, {
     code: "a { color: 0; top: 0; /* too long comment here */ bottom: 0; }",
@@ -89,9 +88,9 @@ testRule(rule, {
     code: "a {}\n/**\n * each line\n * short nuff\n */\nb {}",
   }, {
     code: "a { /* this comment is too long for the max length */ }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "/* comment that is too long */",
     message: messages.expected(20),
     line: 1,
@@ -111,5 +110,5 @@ testRule(rule, {
     message: messages.expected(20),
     line: 5,
     column: 36,
-  }],
+  } ],
 })

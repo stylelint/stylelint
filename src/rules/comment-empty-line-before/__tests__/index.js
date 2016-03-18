@@ -1,10 +1,9 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import { mergeTestDescriptions } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const alwaysTests = {
-  accept: [{
+  accept: [ {
     code: "/** comment */",
     description: "first node ignored",
   }, {
@@ -23,9 +22,9 @@ const alwaysTests = {
     description: "Mixed",
   }, {
     code: "a { color: pink;\n\n/** comment */\ntop: 0; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "/** comment */\n/** comment */",
     message: messages.expected,
   }, {
@@ -39,7 +38,7 @@ const alwaysTests = {
     code: "a { color: pink;\r\n/** comment */\r\ntop: 0; }",
     description: "CRLF",
     message: messages.expected,
-  }],
+  } ],
 }
 
 testRule(rule, mergeTestDescriptions(alwaysTests, {
@@ -62,7 +61,7 @@ testRule(rule, mergeTestDescriptions(alwaysTests, {
 
 testRule(rule, mergeTestDescriptions(alwaysTests, {
   ruleName,
-  config: ["always", { except: ["first-nested"] }],
+  config: [ "always", { except: ["first-nested"] } ],
 
   accept: [{
     code: "a {\n  /* comment */\n  color: pink;\n}",
@@ -80,7 +79,7 @@ testRule(rule, mergeTestDescriptions(alwaysTests, {
 
 testRule(rule, mergeTestDescriptions(alwaysTests, {
   ruleName,
-  config: ["always", { ignore: ["stylelint-commands"] }],
+  config: [ "always", { ignore: ["stylelint-commands"] } ],
 
   accept: [{
     code: "a {\ncolor: pink;\n/* stylelint-disable something */\ntop: 0;\n}",
@@ -90,15 +89,15 @@ testRule(rule, mergeTestDescriptions(alwaysTests, {
 
 testRule(rule, {
   ruleName,
-  config: ["always", { ignore: ["between-comments"] }],
+  config: [ "always", { ignore: ["between-comments"] } ],
 
-  accept: [{
+  accept: [ {
     code: "/* a */\n/* b */\n/* c */\nbody {\n}",
     description: "no newline between comments",
   }, {
     code: "a { color: pink;\n\n/** comment */\n/** comment */\ntop: 0; }",
     description: "no newline between comments",
-  }],
+  } ],
 
   reject: [{
     code: "a { color: pink;\n/** comment */\n/** comment */\ntop: 0; }",
@@ -110,7 +109,7 @@ testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "\n\n/** comment */",
     description: "first node ignored",
   }, {
@@ -126,9 +125,9 @@ testRule(rule, {
   }, {
     code: "a { color: pink;\r\n/** comment */\r\n\r\ntop: 0; }",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "/** comment */\n\n/** comment */",
     message: messages.rejected,
   }, {
@@ -141,7 +140,7 @@ testRule(rule, {
   }, {
     code: "a { color: pink;\n\n/** comment */\ntop: 0; }",
     message: messages.rejected,
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -149,13 +148,13 @@ testRule(rule, {
   config: ["always"],
   syntax: "scss",
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink;\n// comment\ntop: 0; }",
     description: "single-line comment ignored",
   }, {
     code: "// first line\n// second line\na { color: pink; }",
     description: "subsequent single-line comments ingnored",
-  }],
+  } ],
 })
 
 testRule(rule, {

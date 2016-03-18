@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a,\nb {}",
   }, {
     code: "a,\r\nb {}",
@@ -40,9 +39,9 @@ testRule(rule, {
   }, {
     code: "a, /* comment\n       commentline2 */\nb {}",
     description: "with end-of-line multi-line comment with newline after",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a,b {}",
     message: messages.expectedAfter(),
     line: 1,
@@ -85,14 +84,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 2,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a,\nb {}",
   }, {
     code: "a,\r\nb {}",
@@ -109,9 +108,9 @@ testRule(rule, {
   }, {
     code: "\ta,\n\tb {\n}",
     description: "indented statement",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a,\nb, c {}",
     message: messages.expectedAfterMultiLine(),
     line: 2,
@@ -127,14 +126,14 @@ testRule(rule, {
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 2,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a\n,b {}",
   }, {
     code: "a ,b {}",
@@ -142,9 +141,9 @@ testRule(rule, {
   }, {
     code: "a ,b {\n}",
     description: "ignores single-line selector list, multi-line block",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a,\nb ,c {}",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
@@ -160,7 +159,7 @@ testRule(rule, {
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 2,
-  }],
+  } ],
 })
 
 testRule(rule, {

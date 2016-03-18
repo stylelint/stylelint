@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -11,7 +10,7 @@ testRule(rule, {
     description: "without !important",
   }],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink !important; }",
     description: "with !important",
     message: messages.rejected,
@@ -29,5 +28,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 17,
-  }],
+  } ],
 })

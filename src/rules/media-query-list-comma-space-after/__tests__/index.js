@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "@import url(x.com?a=b,c=d)",
   }, {
     code: "@media (max-width: 600px) {}",
@@ -19,9 +18,9 @@ testRule(rule, {
   }, {
     code: "@media screen and (color)\r\n, projection and (color) {}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media screen and (color),projection and (color)",
     message: messages.expectedAfter(),
     line: 1,
@@ -47,14 +46,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 26,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "@import url(x.com?a=b, c=d)",
   }, {
     code: "@media (max-width: 600px) {}",
@@ -67,9 +66,9 @@ testRule(rule, {
   }, {
     code: "@media screen and (color)\r\n,projection and (color) {}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media screen and (color), projection and (color)",
     message: messages.rejectedAfter(),
     line: 1,
@@ -95,14 +94,14 @@ testRule(rule, {
     message: messages.rejectedAfter(),
     line: 1,
     column: 26,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "@media screen and (color), projection and (color) {}",
   }, {
     code: "@media screen and (color), projection and (color) {\n}",
@@ -116,9 +115,9 @@ testRule(rule, {
   }, {
     code: "@media screen and (color)\r\n,projection and (color) {}",
     description: "ignore multi-line and CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media screen and (color) ,projection and (color) {}",
     message: messages.expectedAfterSingleLine(),
     line: 1,
@@ -135,14 +134,14 @@ testRule(rule, {
     message: messages.expectedAfterSingleLine(),
     line: 1,
     column: 27,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "@media screen and (color) ,projection and (color) {}",
   }, {
     code: "@media screen and (color) ,projection and (color) {\n}",
@@ -156,9 +155,9 @@ testRule(rule, {
   }, {
     code: "@media screen and (color),\r\nprojection and (color) {}",
     description: "ignore multi-line and CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media screen and (color), projection and (color) {}",
     message: messages.rejectedAfterSingleLine(),
     line: 1,
@@ -175,5 +174,5 @@ testRule(rule, {
     message: messages.rejectedAfterSingleLine(),
     line: 1,
     column: 26,
-  }],
+  } ],
 })

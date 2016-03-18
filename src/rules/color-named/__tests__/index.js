@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: #000; }",
   }, {
     code: "a { color: #ababab; }",
@@ -39,9 +38,9 @@ testRule(rule, {
   }, {
     code: "a { animation: spin-blue 2s linear; }",
     description: "ignore keyframe animation name that includes colors",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: red; }",
     message: messages.rejected("red"),
     line: 1,
@@ -66,14 +65,14 @@ testRule(rule, {
     message: messages.rejected("white"),
     line: 1,
     column: 23,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-where-possible"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: black; }",
   }, {
     code: "a { color: rgb(0,0,1); }",
@@ -97,9 +96,9 @@ testRule(rule, {
   }, {
     code: "a { background-image: url(./thing.png#000); }",
     description: "ignore representations within urls",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: #000 }",
     message: messages.expected("black", "#000"),
     line: 1,
@@ -204,5 +203,5 @@ testRule(rule, {
     message: messages.expected("black", "rgb(0,0,0)"),
     line: 1,
     column: 22,
-  }],
+  } ],
 })

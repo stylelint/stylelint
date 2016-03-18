@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: "a { top: 0; }",
     description: "unitless zero",
   }, {
@@ -56,9 +55,9 @@ testRule(rule, {
   }, {
     code: "@media (min-width: 0)",
     description: "media feature",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { top: 0px; }",
     message: messages.rejected,
     line: 1,
@@ -99,5 +98,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 21,
-  }],
+  } ],
 })

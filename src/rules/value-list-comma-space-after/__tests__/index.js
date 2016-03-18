@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a { background-size: 0 , 0; }",
   }, {
     code: "a { background-size: 0, 0; }",
@@ -16,9 +15,9 @@ testRule(rule, {
   }, {
     code: "a { transform: translate(1,1); }",
     description: "function arguments",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { background-size: 0,0; }",
     message: messages.expectedAfter(),
     line: 1,
@@ -44,14 +43,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 23,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a { background-size: 0 ,0; }",
   }, {
     code: "a { background-size: 0,0; }",
@@ -61,9 +60,9 @@ testRule(rule, {
   }, {
     code: "a { transform: translate(1, 1); }",
     description: "function arguments",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { background-size: 0, 0; }",
     message: messages.rejectedAfter(),
     line: 1,
@@ -89,14 +88,14 @@ testRule(rule, {
     message: messages.rejectedAfter(),
     line: 1,
     column: 23,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { background-size: 0 , 0; }",
   }, {
     code: "a { background-size: 0, 0; }",
@@ -118,9 +117,9 @@ testRule(rule, {
   }, {
     code: "a { transform: translate(1,1); }",
     description: "function arguments",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { background-size: 0,0; }",
     message: messages.expectedAfterSingleLine(),
     line: 1,
@@ -146,14 +145,14 @@ testRule(rule, {
     message: messages.expectedAfterSingleLine(),
     line: 1,
     column: 23,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { background-size: 0 ,0; }",
   }, {
     code: "a { background-size: 0,0; }",
@@ -175,9 +174,9 @@ testRule(rule, {
   }, {
     code: "a { transform: translate(1, 1); }",
     description: "function arguments",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { background-size: 0, 0; }",
     message: messages.rejectedAfterSingleLine(),
     line: 1,
@@ -203,5 +202,5 @@ testRule(rule, {
     message: messages.rejectedAfterSingleLine(),
     line: 1,
     column: 23,
-  }],
+  } ],
 })

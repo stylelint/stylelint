@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo,bar,baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo,bar,baz)'); }",
@@ -21,9 +20,9 @@ testRule(rule, {
   }, {
     code: "a { background: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns); }",
     description: "data URI with spaceless comma",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate(1,1); }",
     message: messages.expectedAfter(),
     line: 1,
@@ -59,14 +58,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 47,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo, bar, baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo, bar, baz)'); }",
@@ -78,9 +77,9 @@ testRule(rule, {
     code: "a { transform: translate(1,1); }",
   }, {
     code: "a { transform: color(rgb(0 ,0,0) lightness(50%)); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate(1, 1); }",
     message: messages.rejectedAfter(),
     line: 1,
@@ -116,14 +115,14 @@ testRule(rule, {
     message: messages.rejectedAfter(),
     line: 1,
     column: 43,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo,bar,baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo,bar,baz)'); }",
@@ -150,9 +149,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "a { background: linear-gradient(45deg\n,rgba(0, 0, 0, 1)\n,red); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: color(rgb(0 , 0 ,0) lightness(50%)); }",
     message: messages.expectedAfterSingleLine(),
     line: 1,
@@ -167,14 +166,14 @@ testRule(rule, {
     message: messages.expectedAfterSingleLine(),
     line: 2,
     column: 11,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo, bar, baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo, bar, baz)'); }",
@@ -199,9 +198,9 @@ testRule(rule, {
   }, {
     code: "a { color: rgba(0\n, 0, 0); }",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: color(rgb(0 , 0 ,0) lightness(50%)); }",
     message: messages.rejectedAfterSingleLine(),
     line: 1,
@@ -216,5 +215,5 @@ testRule(rule, {
     message: messages.rejectedAfterSingleLine(),
     line: 2,
     column: 13,
-  }],
+  } ],
 })

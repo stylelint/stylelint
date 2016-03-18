@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["numeric"],
 
-  accept: [{
+  accept: [ {
     code: "a { font-weight: $sassy-font-weight; }",
     description: "ignores sass variables",
   }, {
@@ -40,9 +39,9 @@ testRule(rule, {
   }, {
     code: "a { font: 400 16px serif; }",
     description: "no normals and a numbered weight",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { font-weight: normal; }",
     message: messages.expected("numeric"),
     line: 1,
@@ -70,14 +69,14 @@ testRule(rule, {
     message: messages.expected("numeric"),
     line: 1,
     column: 11,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: ["numeric", { ignore: ["relative"] }],
+  config: [ "numeric", { ignore: ["relative"] } ],
 
-  accept: [{
+  accept: [ {
     code: "a { font-weight: 700; }",
   }, {
     code: "a { font-weight: bolder; }",
@@ -85,7 +84,7 @@ testRule(rule, {
     code: "a { font-weight: lighter; }",
   }, {
     code: "a { font: italic small-caps lighter 16px/3 cursive; }",
-  }],
+  } ],
 
   reject: [{
     code: "a { font-weight: normal; }",
@@ -99,7 +98,7 @@ testRule(rule, {
   ruleName,
   config: ["named-where-possible"],
 
-  accept: [{
+  accept: [ {
     code: "a { font-weight: $sassy-font-weight; }",
     description: "ignores sass variables",
   }, {
@@ -137,9 +136,9 @@ testRule(rule, {
   }, {
     code: "a { font: italic small-caps 600 16px/3 cursive; }",
     description: "another number without keyword equivalent",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { font-weight: 400; }",
     message: messages.expected("named"),
     line: 1,
@@ -167,5 +166,5 @@ testRule(rule, {
     message: messages.expected("named"),
     line: 1,
     column: 11,
-  }],
+  } ],
 })

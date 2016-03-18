@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo ,bar ,baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo,bar,baz)'); }",
@@ -21,9 +20,9 @@ testRule(rule, {
     code: "a { transform: color(rgb(0\n\t, 0\n\t,0) lightness(50%)); }",
   }, {
     code: "a { transform: color(rgb(0\n  , 0\n  ,0) lightness(50%)); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate(1,1); }",
     message: messages.expectedBefore(),
     line: 1,
@@ -53,14 +52,14 @@ testRule(rule, {
     message: messages.expectedBefore(),
     line: 2,
     column: 4,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo ,bar ,baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo,bar,baz)'); }",
@@ -85,9 +84,9 @@ testRule(rule, {
     code: "a { transform: translate(1\t,1); }",
   }, {
     code: "a { background: linear-gradient(45deg\n, rgba(0, 0, 0, 1)\n, red); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: color(rgb(0\n, 0, 0) lightness(50%)); }",
     message: messages.expectedBeforeMultiLine(),
     line: 2,
@@ -102,14 +101,14 @@ testRule(rule, {
     message: messages.expectedBeforeMultiLine(),
     line: 3,
     column: 4,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo\n,bar\n,baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo\n,bar,baz)'); }",
@@ -121,9 +120,9 @@ testRule(rule, {
     code: "a { transform: translate(1 , 1); }",
   }, {
     code: "a { transform: translate(1\t,1); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: color(rgb(0,0\n,0) lightness(50%)); }",
     message: messages.rejectedBeforeMultiLine(),
     line: 2,
@@ -143,5 +142,5 @@ testRule(rule, {
     message: messages.rejectedBeforeMultiLine(),
     line: 3,
     column: 1,
-  }],
+  } ],
 })

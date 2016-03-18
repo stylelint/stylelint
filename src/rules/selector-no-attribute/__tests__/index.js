@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: "foo {}",
   }, {
     code: ".bar {}",
@@ -14,9 +13,9 @@ testRule(rule, {
     code: "foo .bar {}",
   }, {
     code: ":root { --custom-property-set: {} }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "[foo] {}",
     message: messages.rejected,
     line: 1,
@@ -41,5 +40,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 2,
-  }],
+  } ],
 })

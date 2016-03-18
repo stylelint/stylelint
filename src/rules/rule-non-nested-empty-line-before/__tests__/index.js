@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a {}",
     description: "first node ignored",
   }, {
@@ -27,9 +26,9 @@ testRule(rule, {
   }, {
     code: "b {}\r\n\r\n\ta {}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "b {} a {}",
     message: messages.expected,
   }, {
@@ -42,22 +41,22 @@ testRule(rule, {
     code: "b {}\r\n\r\n/* comment here*/\r\na {}",
     description: "CRLF",
     message: messages.expected,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: ["always", { ignore: ["after-comment"] }],
+  config: [ "always", { ignore: ["after-comment"] } ],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "/* foo */\na {}",
   }, {
     code: "/* foo */\n\na {}",
   }, {
     code: "/* foo */\r\n\r\na {}",
     description: "CRLF",
-  }],
+  } ],
 
   reject: [{
     code: "b {} a {}",
@@ -69,7 +68,7 @@ testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "\n\na {}",
     description: "first node ignored",
   }, {
@@ -87,9 +86,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "b {}\ta {}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "b {}\n\na {}",
     message: messages.rejected,
   }, {
@@ -102,38 +101,38 @@ testRule(rule, {
   }, {
     code: "b {}\n\n/* comment here*/\n\na {}",
     message: messages.rejected,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: ["never", { ignore: ["after-comment"] }],
+  config: [ "never", { ignore: ["after-comment"] } ],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "/* foo */\na {}",
   }, {
     code: "/* foo */\r\na {}",
     description: "CRLF",
   }, {
     code: "/* foo */\n\na {}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "b {}\n\na {}",
     message: messages.rejected,
   }, {
     code: "b {}\r\n\r\na {}",
     description: "CRLF",
     message: messages.rejected,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a {}",
     description: "first node ignored",
   }, {
@@ -154,9 +153,9 @@ testRule(rule, {
   }, {
     code: "b {}\r\n\r\n\ta\r\n{}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "b {} a\n{}",
     message: messages.expected,
   }, {
@@ -169,14 +168,14 @@ testRule(rule, {
   }, {
     code: "b {}\n\n/* comment here*/\na\n{}",
     message: messages.expected,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "\n\na\n{}",
     description: "first node ignored",
   }, {
@@ -195,9 +194,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "b {}\ta\n{}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "b {}\n\na\n{}",
     message: messages.rejected,
   }, {
@@ -214,5 +213,5 @@ testRule(rule, {
     code: "b {}\r\n\r\n/* comment here*/\r\n\r\na\r\n{}",
     description: "CRLF",
     message: messages.rejected,
-  }],
+  } ],
 })

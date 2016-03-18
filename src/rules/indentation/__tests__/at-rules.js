@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [2],
 
-  accept: [{
+  accept: [ {
     code: "@media print {\n" +
     "  a {\n" +
     "    color: pink;\n" +
@@ -22,9 +21,9 @@ testRule(rule, {
     "@media screen {\n" +
     "  b { color: orange; }\n" +
     "}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "\n" +
     "  @media print {\n" +
     "  a {\n" +
@@ -75,14 +74,14 @@ testRule(rule, {
     message: messages.expected("0 spaces"),
     line: 5,
     column: 2,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: ["tab", { except: ["block"] }],
+  config: [ "tab", { except: ["block"] } ],
 
-  accept: [{
+  accept: [ {
     code: "@media print {\n" +
     "\n" +
     "a {\n" +
@@ -94,9 +93,9 @@ testRule(rule, {
     code: "@media print,\n" +
     "\t(-webkit-min-device-pixel-ratio: 1.25),\n" +
     "\t(min-resolution: 120dpi) {}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media print {\n" +
     "\n" +
     "\ta {\n" +
@@ -129,12 +128,12 @@ testRule(rule, {
     message: messages.expected("1 tab"),
     line: 2,
     column: 1,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: [4, { except: ["param"] }],
+  config: [ 4, { except: ["param"] } ],
 
   accept: [{
     code: "@media print,\n" +
@@ -155,9 +154,9 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [2, { ignore: ["param"] }],
+  config: [ 2, { ignore: ["param"] } ],
 
-  accept: [{
+  accept: [ {
     code: "@media print,\n" +
     "(-webkit-min-device-pixel-ratio: 1.25),\n" +
     "(min-resolution: 120dpi) {}",
@@ -165,7 +164,7 @@ testRule(rule, {
     code: "@media print,\n" +
     "  (-webkit-min-device-pixel-ratio: 1.25),\n" +
     "(min-resolution: 120dpi) {}",
-  }],
+  } ],
 
   reject: [{
     code: "\n" +

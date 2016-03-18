@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -13,7 +12,7 @@ testRule(rule, {
     "line-height": [],
   }],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a { top: 0; }",
@@ -45,9 +44,9 @@ testRule(rule, {
   }, {
     code: "a { font-size: --some-fs-1rem; }",
     description: "ignore css variable includes unit",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { font-size: 1.2rem; }",
     message: messages.rejected("font-size", "rem"),
     line: 1,
@@ -83,7 +82,7 @@ testRule(rule, {
     code: "a { line-height: 1.2em; }",
     message: messages.rejected("line-height", "em"),
     column: 18,
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -95,7 +94,7 @@ testRule(rule, {
 
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "a { animation: animation-name 300ms ease; }",
   }, {
     code: "a { -webkit-animation: animation-name 300ms ease; }",
@@ -103,9 +102,9 @@ testRule(rule, {
     code: "a { animation-duration: 300ms; }",
   }, {
     code: "a { -webkit-animation-duration: 300ms; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { animation: animation-name 3s ease; }",
     message: messages.rejected("animation", "s"),
   }, {
@@ -117,5 +116,5 @@ testRule(rule, {
   }, {
     code: "a { -webkit-animation-duration: 3s; }",
     message: messages.rejected("-webkit-animation-duration", "s"),
-  }],
+  } ],
 })

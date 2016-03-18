@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"var(--hoot)color(blue)\"; }",
   }, {
     code: "a::before { background: url('var(--hoot)color(blue)'); }",
@@ -40,9 +39,9 @@ testRule(rule, {
     code: "a { color: color(rgb(0,0,0)\nlightness(50%)) };",
   }, {
     code: "a { color: color(rgb(0,0,0)\r\nlightness(50%)) };",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate(1, 1)scale(3); }",
     message: messages.expected,
     line: 1,
@@ -52,14 +51,14 @@ testRule(rule, {
     message: messages.expected,
     line: 1,
     column: 28,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"var(--hoot) color(blue)\"; }",
   }, {
     code: "a::before { background: url('var(--hoot) color(blue)'); }",
@@ -75,9 +74,9 @@ testRule(rule, {
     code: "a { transform: translate(1, 1)scale(3); }",
   }, {
     code: "a { color: color(rgb(0,0,0)lightness(50%)) };",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate(1, 1) scale(3); }",
     message: messages.rejected,
     line: 1,
@@ -113,7 +112,7 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 28,
-  }],
+  } ],
 })
 
 testRule(rule, {

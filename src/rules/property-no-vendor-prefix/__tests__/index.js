@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: ":root { --foo-bar: 1px; }",
   }, {
     code: "a { color: pink; --webkit-transform: 1px; }",
@@ -20,9 +19,9 @@ testRule(rule, {
   }, {
     code: "a { -webkit-touch-callout: none; }",
     description: "another non-standard prefixed property",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { -webkit-transform: scale(1); }",
     message: messages.rejected("-webkit-transform"),
     line: 1,
@@ -59,5 +58,5 @@ testRule(rule, {
     message: messages.rejected("-ms-interpolation-mode"),
     line: 1,
     column: 5,
-  }],
+  } ],
 })

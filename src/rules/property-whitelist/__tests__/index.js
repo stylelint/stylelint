@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -10,7 +9,7 @@ testRule(rule, {
     "background-size",
   ]],
 
-  accept: [{
+  accept: [ {
     code: "a { background-size: cover; }",
   }, {
     code: "a { transform: scale(1); }",
@@ -26,9 +25,9 @@ testRule(rule, {
     code: "a { @less: 0; }",
   }, {
     code: "a { --custom-property: 0; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { background: pink; }",
     message: messages.rejected("background"),
     line: 1,
@@ -48,7 +47,7 @@ testRule(rule, {
     message: messages.rejected("color"),
     line: 1,
     column: 5,
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -58,13 +57,13 @@ testRule(rule, {
     "/^background/",
   ]],
 
-  accept: [{
+  accept: [ {
     code: "a { background: pink; }",
   }, {
     code: "a { background-color: pink; }",
   }, {
     code: "a { background-image: none; }",
-  }],
+  } ],
 
   reject: [{
     code: "a { color: pink; }",

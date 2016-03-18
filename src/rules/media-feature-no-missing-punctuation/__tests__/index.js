@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [true],
 
-  accept: [{
+  accept: [ {
     code: "@nonsense (min-width max-width no-width) {}",
   }, {
     code: "@import 'foo.css';",
@@ -40,9 +39,9 @@ testRule(rule, {
     code: "@media only screen and ( min-width: 300px ) and ( max-width: 600px ) {}",
   }, {
     code: "@media (color) {}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media (min-width 300px) {}",
     message: messages.rejected,
     line: 1,
@@ -66,5 +65,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 3,
     column: 7,
-  }],
+  } ],
 })

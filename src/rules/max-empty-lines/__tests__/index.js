@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [1],
 
-  accept: [{
+  accept: [ {
     code: "a {}\nb {}",
   }, {
     code: "a {}\r\nb {}",
@@ -22,9 +21,9 @@ testRule(rule, {
     code: "a{}\n\n/** horse */\n\nb{}",
   }, {
     code: "a{}\r\n\r\n/** horse */\r\n\r\nb{}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {}\n\n\nb{}",
     message: messages.rejected,
     line: 1,
@@ -54,14 +53,14 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 10,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: [2],
 
-  accept: [{
+  accept: [ {
     code: "a {}\nb {}",
   }, {
     code: "a {}\n\nb {}",
@@ -73,9 +72,9 @@ testRule(rule, {
     code: "a{}\n\n\n/** horse */\n\n\nb{}",
   }, {
     code: "a{}\r\n\r\n\r\n/** horse */\r\n\r\n\r\nb{}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {}\n\n\n\nb{}",
     message: messages.rejected,
     line: 1,
@@ -105,5 +104,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 10,
-  }],
+  } ],
 })

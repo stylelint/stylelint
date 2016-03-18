@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -18,7 +17,7 @@ testRule(rule, {
     },
   ]],
 
-  accept: [{
+  accept: [ {
     code: "a { height: 1px; width: 2px; color: pink; font-size: 2px; font-weight: bold; }",
   }, {
     code: "a { height: 1px; width: 2px; font-size: 2px; color: pink; font-weight: bold; }",
@@ -38,9 +37,9 @@ testRule(rule, {
   }, {
     code: "a { background: orange; font-weight: bold; }",
     description: "unspecified before grouped specified",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { height: 1px; font-weight: bold; width: 2px; }",
     message: messages.expected("width", "font-weight"),
     line: 1,
@@ -60,7 +59,7 @@ testRule(rule, {
     message: messages.expected("width", "color"),
     line: 1,
     column: 31,
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -79,7 +78,7 @@ testRule(rule, {
     },
   ]],
 
-  accept: [{
+  accept: [ {
     code: "a {\n  height: 1px;\n\n  color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}",
   }, {
     code: "a {\n  height: 1px;\n\n font-size: 2px;\n  color: pink;\n  font-weight: bold;\n}",
@@ -102,9 +101,9 @@ testRule(rule, {
   }, {
     code: "a {\n  background: orange;\n\n  font-weight: bold;\n}",
     description: "unspecified before grouped specified",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {\n  height: 1px;\n  color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}",
     message: messages.expectedEmptyLineBetween("color", "height"),
     line: 3,
@@ -139,7 +138,7 @@ testRule(rule, {
     message: messages.expectedEmptyLineBetween("font-weight", "height"),
     line: 4,
     column: 3,
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -158,7 +157,7 @@ testRule(rule, {
     },
   ]],
 
-  accept: [{
+  accept: [ {
     code: "a {\n  height: 1px; color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}",
   }, {
     code: "a {\n  height: 1px; font-size: 2px;\n  color: pink;\n  font-weight: bold;\n}",
@@ -169,9 +168,9 @@ testRule(rule, {
   }, {
     code: "a {\n  height: 1px; /* something */\n  font-weight: bold;\n}",
     description: "comment before line break",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {\n  height: 1px;\n\n  color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}",
     message: messages.rejectedEmptyLineBetween("color", "height"),
     line: 4,
@@ -206,5 +205,5 @@ testRule(rule, {
     message: messages.rejectedEmptyLineBetween("font-weight", "height"),
     line: 5,
     column: 3,
-  }],
+  } ],
 })

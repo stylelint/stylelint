@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -9,22 +8,22 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [true, { browsers: "last 2 versions" }],
+  config: [ true, { browsers: "last 2 versions" } ],
 
-  accept: [{
+  accept: [ {
     code: "a { opacity: 1; }",
   }, {
     code: "a { outline: none; }",
   }, {
     code: "a { background: linear-gradient(black, white); }",
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: [true, { browsers: "ie >= 7, safari >= 6" }],
+  config: [ true, { browsers: "ie >= 7, safari >= 6" } ],
 
-  reject: [{
+  reject: [ {
     code: "a { opacity: 1; }",
     description: "opacity",
     message: messages.rejected("CSS3 Opacity not supported by: IE (7,8)"),
@@ -36,12 +35,12 @@ testRule(rule, {
     message: messages.rejected("CSS outline not supported by: IE (7)"),
     line: 1,
     column: 5,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: [true, { browsers: "ie >= 7, safari >= 6", ignore: "outline" }],
+  config: [ true, { browsers: "ie >= 7, safari >= 6", ignore: "outline" } ],
 
   accept: [{
     code: "a { outline: none; }",
@@ -58,13 +57,13 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [true, { browsers: "ie >= 9" }],
+  config: [ true, { browsers: "ie >= 9" } ],
 
-  accept: [{
+  accept: [ {
     code: "a { opacity: 1; }",
   }, {
     code: "a { outline: none; }",
-  }],
+  } ],
 
   reject: [{
     code: "a { background: linear-gradient(black, white); }",

@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "@import url(x.css)",
   }, {
     code: "a {\ncolor: pink; }",
@@ -43,9 +42,9 @@ testRule(rule, {
   }, {
     code: "a {\r\n  /* 1 */\r\n  color: pink;\r\n}",
     description: "next-line comment and CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; }",
     message: messages.expectedAfter(),
     line: 1,
@@ -99,14 +98,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 4,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a {\ncolor: pink; }",
   }, {
     code: "a {\n  color: pink;\n  background: orange; }",
@@ -139,9 +138,9 @@ testRule(rule, {
     code: "a {  color: pink;  background: orange; }",
   }, {
     code: "a { /* 1 */ color: pink; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink;\nbackground: orange; }",
     message: messages.expectedAfterMultiLine(),
     line: 1,
@@ -183,14 +182,14 @@ testRule(rule, {
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 4,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a {color: pink;\nbackground: orange; }",
   }, {
     code: "a {color: pink;\r\nbackground: orange; }",
@@ -211,9 +210,9 @@ testRule(rule, {
     code: "@media print { a { color: pink; } }",
   }, {
     code: "@media print {\ta {\tcolor: pink; } }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink;\nbackground: orange; }",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
@@ -249,5 +248,5 @@ testRule(rule, {
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 18,
-  }],
+  } ],
 })

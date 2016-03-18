@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,15 +5,15 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "@media ( max-width: 300px ) {}",
   }, {
     code: "@media screen and ( color ), projection and ( color ) {}",
   }, {
     code: "@media ( grid ) and ( max-width: 15em ) {}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media (max-width: 300px ) {}",
     message: messages.expectedOpening,
     line: 1,
@@ -49,22 +48,22 @@ testRule(rule, {
     message: messages.expectedOpening,
     line: 1,
     column: 22,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "@media (max-width: 300px) {}",
   }, {
     code: "@media screen and (color), projection and (color) {}",
   }, {
     code: "@media (grid) and (max-width: 15em) {}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media (max-width: 300px ) {}",
     message: messages.rejectedClosing,
     line: 1,
@@ -99,5 +98,5 @@ testRule(rule, {
     message: messages.rejectedClosing,
     line: 1,
     column: 35,
-  }],
+  } ],
 })

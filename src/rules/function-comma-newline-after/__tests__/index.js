@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo, bar, baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo,bar,baz)'); }",
@@ -23,9 +22,9 @@ testRule(rule, {
     code: "a { transform: color(rgb(0 ,\n\t0,\n\t0) lightness(50%)); }",
   }, {
     code: "a { background: linear-gradient(45deg,\n rgba(0,\n 0,\n 0,\n 1),\n red); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate(1,1); }",
     message: messages.expectedAfter(),
     line: 1,
@@ -65,14 +64,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 2,
     column: 4,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo, bar, baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo,bar,baz)'); }",
@@ -115,9 +114,9 @@ testRule(rule, {
           );
         }
     `,
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: color(rgb(0 , 0 ,\n0) lightness(50%)); }",
     message: messages.expectedAfterMultiLine(),
     line: 1,
@@ -142,14 +141,14 @@ testRule(rule, {
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 4,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo,\n bar,\n baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo,\nbar,\nbaz)'); }",
@@ -170,9 +169,9 @@ testRule(rule, {
     code: "a { transform: translate(1,\t1); }",
   }, {
     code: "a { background: linear-gradient(45deg\n,rgba(0, 0, 0, 1),red); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: color(rgb(0 ,0 ,\n0) lightness(50%)); }",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
@@ -197,5 +196,5 @@ testRule(rule, {
     message: messages.rejectedAfterMultiLine(),
     line: 2,
     column: 18,
-  }],
+  } ],
 })

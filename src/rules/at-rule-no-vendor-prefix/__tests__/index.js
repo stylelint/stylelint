@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,13 +5,13 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: "@keyframes { 0% { top: 0; } }",
   }, {
     code: "@viewport { orientation: landscape; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@-webkit-keyframes { 0% { top: 0; } }",
     message: messages.rejected("-webkit-keyframes"),
   }, {
@@ -21,5 +20,5 @@ testRule(rule, {
   }, {
     code: "@-ms-viewport { orientation: landscape; }",
     message: messages.rejected("-ms-viewport"),
-  }],
+  } ],
 })

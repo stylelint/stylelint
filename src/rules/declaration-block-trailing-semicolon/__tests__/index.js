@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
     description: "single-line declaration block with trailing semicolon",
   }, {
@@ -21,9 +20,9 @@ testRule(rule, {
   }, {
     code: "a { &:hover { color: pink; }}",
     description: "nested",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink }",
     description: "single-line declaration block without trailing semicolon",
     message: messages.expected,
@@ -53,22 +52,22 @@ testRule(rule, {
     message: messages.expected,
     line: 1,
     column: 26,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink }",
     description: "single-line declaration block without trailing semicolon",
   }, {
     code: "a { background: orange; color: pink }",
     description: "multi-line declaration block without trailing semicolon",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; }",
     description: "single-line declaration block with trailing semicolon",
     message: messages.rejected,
@@ -80,5 +79,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 36,
-  }],
+  } ],
 })

@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: ":fullscreen a {}",
   }, {
     code: ":root { --custom-property: {} }",
@@ -21,9 +20,9 @@ testRule(rule, {
   }, {
     code: "a[data-foo=\":-webkit-full-screen\"] {}",
     description: "string",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: ":-webkit-full-screen a {}",
     message: messages.rejected(":-webkit-full-screen"),
     line: 1,
@@ -46,5 +45,5 @@ testRule(rule, {
   }, {
     code: "input::-webkit-input-placeholder { color: pink; }",
     message: messages.rejected("::-webkit-input-placeholder"),
-  }],
+  } ],
 })

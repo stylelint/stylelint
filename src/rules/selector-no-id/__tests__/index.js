@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: "foo {}",
   }, {
     code: ".foo {}",
@@ -14,9 +13,9 @@ testRule(rule, {
     code: "[foo] {}",
   }, {
     code: ":root { --custom-property-set: {} }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "#foo {}",
     message: messages.rejected,
     line: 1,
@@ -36,7 +35,7 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 13,
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -45,7 +44,7 @@ testRule(rule, {
   skipBasicChecks: true,
   syntax: "scss",
 
-  accept: [{
+  accept: [ {
     code: "@for $n from 1 through 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }",
     description: "ignore sass interpolation inside @for",
   }, {
@@ -63,9 +62,9 @@ testRule(rule, {
   }, {
     code: "div:nth-child(#{map-get($foo, bar)}) {}",
     description: "ignore sass map-get interpolation",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@for $n from 1 through 10 { .n-#{$n} #foo { } }",
     description: "report sass interpolation + id inside @for",
     message: messages.rejected,
@@ -77,5 +76,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 43,
-  }],
+  } ],
 })

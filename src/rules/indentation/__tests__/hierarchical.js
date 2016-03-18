@@ -1,12 +1,11 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
   ruleName,
-  config: [2, { hierarchicalSelectors: true }],
+  config: [ 2, { hierarchicalSelectors: true } ],
 
-  accept: [{
+  accept: [ {
     code: ".foo {}\n" +
     ".foo {}",
   }, {
@@ -98,9 +97,9 @@ testRule(rule, {
     "  .r-Grid-cell {\n" +
     "    text-align: center;\n" +
     "  }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: ".foo {}\n" +
     "  .bar {}\n" +
     ".baz {}",
@@ -262,5 +261,5 @@ testRule(rule, {
     message: messages.expected("4 spaces"),
     line: 3,
     column: 7,
-  }],
+  } ],
 })

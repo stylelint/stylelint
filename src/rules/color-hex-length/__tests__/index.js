@@ -1,23 +1,22 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import { mergeTestDescriptions } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const sharedTests = {
-  accept: [{
+  accept: [ {
     code: "a { border-#$side: 0; }",
     description: "ignore sass-like interpolation",
   }, {
     code: "a { box-sizing: #$type-box; }",
     description: "ignore sass-like interpolation",
-  }],
+  } ],
 }
 
 testRule(rule, mergeTestDescriptions(sharedTests, {
   ruleName,
   config: ["short"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a { color: #000; }",
@@ -45,9 +44,9 @@ testRule(rule, mergeTestDescriptions(sharedTests, {
     code: "a::before { content: \"#ABABAB\"; }",
   }, {
     code: "a { color: white /* #FFFFFF */; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: #FFFFFF; }",
     message: messages.expected("#FFFFFF", "#FFF"),
     line: 1,
@@ -67,14 +66,14 @@ testRule(rule, mergeTestDescriptions(sharedTests, {
     message: messages.expected("#00ffAAaa", "#0fAa"),
     line: 1,
     column: 28,
-  }],
+  } ],
 }))
 
 testRule(rule, mergeTestDescriptions(sharedTests, {
   ruleName,
   config: ["long"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a { color: #000000; }",
@@ -102,9 +101,9 @@ testRule(rule, mergeTestDescriptions(sharedTests, {
     code: "a::before { content: \"#ABA\"; }",
   }, {
     code: "a { color: white /* #FFF */; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: #FFF; }",
     message: messages.expected("#FFF", "#FFFFFF"),
     line: 1,
@@ -124,5 +123,5 @@ testRule(rule, mergeTestDescriptions(sharedTests, {
     message: messages.expected("#0fAa", "#00ffAAaa"),
     line: 1,
     clumn: 34,
-  }],
+  } ],
 }))

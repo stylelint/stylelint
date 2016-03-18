@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "color: pink ;",
     description: "declaration on root",
   }, {
@@ -17,9 +16,9 @@ testRule(rule, {
     code: "a { color: pink ; top: 0 ; }",
   }, {
     code: "a { color: pink ; top: 0}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; }",
     message: messages.expectedBefore(),
     line: 1,
@@ -50,14 +49,14 @@ testRule(rule, {
     message: messages.expectedBefore(),
     line: 1,
     column: 24,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "color: pink;",
     description: "declaration on root",
   }, {
@@ -66,9 +65,9 @@ testRule(rule, {
     code: "a::before { content: \";a\"; }",
   }, {
     code: "a { color: pink; top: 0; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink ; }",
     message: messages.rejectedBefore(),
     line: 1,
@@ -99,14 +98,14 @@ testRule(rule, {
     message: messages.rejectedBefore(),
     line: 1,
     column: 24,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "color: pink ;",
     description: "declaration on root",
   }, {
@@ -123,9 +122,9 @@ testRule(rule, {
   }, {
     code: "a {\r\n  color: pink;\r\n  top: 0;\r\n}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; }",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
@@ -156,14 +155,14 @@ testRule(rule, {
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 24,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "color: pink;",
     description: "declaration on root",
   }, {
@@ -177,9 +176,9 @@ testRule(rule, {
     description: "multi-line rule, single-line declaration-block",
   }, {
     code: "a {\n  color: pink ;\n  top: 0 ;\n}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink ; }",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
@@ -210,5 +209,5 @@ testRule(rule, {
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 24,
-  }],
+  } ],
 })

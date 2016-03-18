@@ -1,10 +1,9 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import { mergeTestDescriptions } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const basicAZTests = {
-  accept: [{
+  accept: [ {
     code: "a {}",
   }, {
     code: "#foo {}",
@@ -18,9 +17,9 @@ const basicAZTests = {
     code: "a /* .foo */ {}",
   }, {
     code: ":root { --custom-property-set: {} }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a .foo {}",
     message: messages.expected("foo"),
     line: 1,
@@ -30,19 +29,19 @@ const basicAZTests = {
     message: messages.expected("bar"),
     line: 1,
     column: 10,
-  }],
+  } ],
 }
 
 const nestedAZTestsDefault = {
-  accept: [{
+  accept: [ {
     code: ".AB { }",
   }, {
     code: ".A { &__B { }}",
-  }],
+  } ],
 }
 
 const nestedAZTests = {
-  accept: [{
+  accept: [ {
     code: ".AB { }",
   }, {
     code: ".A { &B {}}",
@@ -52,7 +51,7 @@ const nestedAZTests = {
     code: ".A { &B {}, .C {}, &D {} }",
   }, {
     code: ".A, .B { &C {} &D, &E {} }",
-  }],
+  } ],
 
   reject: [{
     code: ".A { &__B { }}",
@@ -84,19 +83,19 @@ testRule(rule, mergeTestDescriptions(nestedAZTestsDefault, {
 
 testRule(rule, mergeTestDescriptions(nestedAZTests, {
   ruleName,
-  config: [/^[A-Z]+$/, { resolveNestedSelectors: true }],
+  config: [ /^[A-Z]+$/, { resolveNestedSelectors: true } ],
 }))
 
 testRule(rule, mergeTestDescriptions(nestedAZTests, {
   ruleName,
-  config: ["^[A-Z]+$", { resolveNestedSelectors: true }],
+  config: [ "^[A-Z]+$", { resolveNestedSelectors: true } ],
 }))
 
 testRule(rule, {
   ruleName,
-  config: [/^B+$/, { resolveNestedSelectors: true }],
+  config: [ /^B+$/, { resolveNestedSelectors: true } ],
 
-  reject: [{
+  reject: [ {
     code: ".A { .B { } }",
     message: messages.expected("A"),
   }, {
@@ -105,5 +104,5 @@ testRule(rule, {
   }, {
     code: ".A { &>.B { } }",
     message: messages.expected("A"),
-  }],
+  } ],
 })

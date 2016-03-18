@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: "@keyframes foo {} a { animation-name: foo; }",
     description: "keyframes before usage",
   }, {
@@ -33,9 +32,9 @@ testRule(rule, {
   }, {
     code: "@keyframes foo {} a { animation: foo 100ms cubic-bezier(0.1, 0.7, 1.0, 0.1); }",
     description: "ignores cubic-bezier() function",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { animation-name: foo; }",
     description: "no declaration",
     message: messages.rejected("foo"),
@@ -53,5 +52,5 @@ testRule(rule, {
     message: messages.rejected("baz"),
     line: 1,
     column: 16,
-  }],
+  } ],
 })

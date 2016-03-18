@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a { color :pink }",
     description: "space only before",
   }, {
@@ -24,9 +23,9 @@ testRule(rule, {
   }, {
     code: "a { background : url(data:application/font-woff;...); }",
     description: "data URI",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; }",
     description: "no space before",
     message: messages.expectedBefore(),
@@ -56,14 +55,14 @@ testRule(rule, {
     message: messages.expectedBefore(),
     line: 1,
     column: 11,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a { color:pink }",
     description: "no space before and after",
   }, {
@@ -78,9 +77,9 @@ testRule(rule, {
   }, {
     code: "$map :(key :value)",
     description: "SCSS map with no newlines",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color : pink; }",
     description: "space before",
     message: messages.rejectedBefore(),
@@ -110,5 +109,5 @@ testRule(rule, {
     message: messages.rejectedBefore(),
     line: 1,
     column: 11,
-  }],
+  } ],
 })

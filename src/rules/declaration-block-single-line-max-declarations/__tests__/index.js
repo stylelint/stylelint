@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [1],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a,\nb { color: pink; }",
@@ -24,9 +23,9 @@ testRule(rule, {
     code: "a {\r\n color: pink; top: 3px; }",
   }, {
     code: "a { color: pink;\r\n top: 3px; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; top: 3px; }",
     description: "single-line rule with 2 declarations",
     message: messages.expected(1),
@@ -44,18 +43,18 @@ testRule(rule, {
     message: messages.expected(1),
     line: 2,
     column: 3,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: [2],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a { color: pink; top: 1px; }",
-  }],
+  } ],
 
   reject: [{
     code: "a { color: pink; top: 3px; right: 2px; }",

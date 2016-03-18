@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo,bar,baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo,bar,baz)'); }",
@@ -21,9 +20,9 @@ testRule(rule, {
   }, {
     code: "a { background: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns); }",
     description: "data URI with spaceless comma",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate(1, 1); }",
     message: messages.expectedBefore(),
     line: 1,
@@ -59,14 +58,14 @@ testRule(rule, {
     message: messages.expectedBefore(),
     line: 1,
     column: 46,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo ,bar ,baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo ,bar ,baz)'); }",
@@ -78,9 +77,9 @@ testRule(rule, {
     code: "a { transform: translate(1,1); }",
   }, {
     code: "a { transform: color(rgb(0, 0,0) lightness(50%)); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate(1 , 1); }",
     message: messages.rejectedBefore(),
     line: 1,
@@ -116,14 +115,14 @@ testRule(rule, {
     message: messages.rejectedBefore(),
     line: 1,
     column: 46,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo,bar,baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo,bar,baz)'); }",
@@ -148,9 +147,9 @@ testRule(rule, {
     code: "a { transform: translate(1\n,\n1); }",
   }, {
     code: "a { background: linear-gradient(45deg,\nrgba(0 , 0 , 0 ,1)\n,red); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: color(rgb(0 , 0, 0) lightness(50%)); }",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
@@ -165,14 +164,14 @@ testRule(rule, {
     message: messages.expectedBeforeSingleLine(),
     line: 2,
     column: 11,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"func(foo ,bar ,baz)\"; }",
   }, {
     code: "a::before { background: url('func(foo ,bar ,baz)'); }",
@@ -195,9 +194,9 @@ testRule(rule, {
     code: "a { transform: translate(1\n, 1); }",
   }, {
     code: "a { transform: translate(1\n,\n1); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: color(rgb(0, 0 , 0) lightness(50%)); }",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
@@ -207,5 +206,5 @@ testRule(rule, {
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 46,
-  }],
+  } ],
 })

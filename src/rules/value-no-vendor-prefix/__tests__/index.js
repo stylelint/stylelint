@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: ".foo { display: flex; }",
   }, {
     code: ".foo { background: linear-gradient(to top, #000, #fff); }",
@@ -15,9 +14,9 @@ testRule(rule, {
   }, {
     code: ".foo { -webkit-transform: translate(0, 0); }",
     description: "ignores property vendor prefixes",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: ".foo { display: -webkit-flex; }",
     message: messages.rejected("-webkit-flex"),
     line: 1,
@@ -42,5 +41,5 @@ testRule(rule, {
     message: messages.rejected("-moz-max-content"),
     line: 1,
     column: 19,
-  }],
+  } ],
 })

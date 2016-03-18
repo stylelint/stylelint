@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: "a { padding: 0 /* calc(1px+2px) */ 0; }",
   }, {
     code: "a { color: color(red s(-10%)); }",
@@ -49,9 +48,9 @@ testRule(rule, {
   }, {
     code: "a { top: calc(2rem + @fh+d*sf-as); }",
     description: "Less variable with symbols",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { top: calc(1px +\t-1px)}",
     description: "tab before sign after operator",
     message: messages.expectedAfter("+"),
@@ -133,5 +132,5 @@ testRule(rule, {
     message: messages.expectedOperatorBeforeSign("-"),
     line: 1,
     column: 19,
-  }],
+  } ],
 })

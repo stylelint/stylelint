@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a { color: pink; } b { color: red; }",
@@ -23,9 +22,9 @@ testRule(rule, {
     code: "@media print { a { color: pink; } b { color: red; }}",
   }, {
     code: "@media print { a { color: pink; }} @media screen { b { color: red; }}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; }b { color: red; }",
     message: messages.expectedAfter(),
     line: 1,
@@ -61,14 +60,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 35,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a { color: pink; }b { color: red; }",
@@ -78,9 +77,9 @@ testRule(rule, {
     code: "@media print { a { color: pink; }b { color: red; } }",
   }, {
     code: "@media print { a { color: pink; } }@media screen { b { color: red; } }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; } b { color: red; }",
     message: messages.rejectedAfter(),
     line: 1,
@@ -116,14 +115,14 @@ testRule(rule, {
     message: messages.rejectedAfter(),
     line: 1,
     column: 35,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; background: orange; }",
   }, {
     code: "a { color: pink; background: orange; } b { color: red; }",
@@ -145,9 +144,9 @@ testRule(rule, {
   }, {
     code: "@media print { a {\r\ncolor: pink; }} @media screen { b { color: red;}}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; background: orange;}b { color: red; }",
     message: messages.expectedAfterSingleLine(),
     line: 1,
@@ -172,14 +171,14 @@ testRule(rule, {
     message: messages.expectedAfterSingleLine(),
     line: 1,
     column: 35,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; background: orange; }",
   }, {
     code: "a { color: pink; background: orange; }b { color: red; }",
@@ -201,9 +200,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "@media print { a {\ncolor: pink;} } @media screen { b { color: red;} }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; background: orange;} b { color: red; }",
     message: messages.rejectedAfterSingleLine(),
     line: 1,
@@ -228,14 +227,14 @@ testRule(rule, {
     message: messages.rejectedAfterSingleLine(),
     line: 1,
     column: 35,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink;\nbackground: orange; }",
   }, {
     code: "a { color: pink;\r\nbackground: orange; }",
@@ -257,9 +256,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "@media print { a {\ncolor: pink; }} @media screen { b { color: red; }}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink;\nbackground: orange;}b { color: red; }",
     message: messages.expectedAfterMultiLine(),
     line: 2,
@@ -295,14 +294,14 @@ testRule(rule, {
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 16,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink;\nbackground: orange; }",
   }, {
     code: "a { color: pink;\r\nbackground: orange; }",
@@ -324,9 +323,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "@media print { a {\ncolor: pink; }}@media screen { b { color: red; } }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink;\nbackground: orange;} b { color: red; }",
     message: messages.rejectedAfterMultiLine(),
     line: 2,
@@ -362,5 +361,5 @@ testRule(rule, {
     message: messages.rejectedAfterMultiLine(),
     line: 2,
     column: 16,
-  }],
+  } ],
 })

@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink }",
     description: "space only after",
   }, {
@@ -24,9 +23,9 @@ testRule(rule, {
   }, {
     code: "a { background: url(data:application/font-woff;...); }",
     description: "data URI",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color :pink; }",
     description: "no space after",
     message: messages.expectedAfter(),
@@ -62,14 +61,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 11,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a { color:pink }",
     description: "no space before and after",
   }, {
@@ -84,9 +83,9 @@ testRule(rule, {
   }, {
     code: "$map: (key: value)",
     description: "SCSS map with no newlines",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color : pink; }",
     description: "space after",
     message: messages.rejectedAfter(),
@@ -116,14 +115,14 @@ testRule(rule, {
     message: messages.rejectedAfter(),
     line: 1,
     column: 11,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink }",
     description: "space only after single-line",
   }, {
@@ -138,9 +137,9 @@ testRule(rule, {
   }, {
     code: "a { transition:\tcolor 1s,\n\twidth 2s; }",
     description: "tab after mult-line",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color :pink; }",
     description: "no space after single-line",
     message: messages.expectedAfterSingleLine(),
@@ -176,5 +175,5 @@ testRule(rule, {
     message: messages.expectedAfterSingleLine(),
     line: 1,
     column: 11,
-  }],
+  } ],
 })

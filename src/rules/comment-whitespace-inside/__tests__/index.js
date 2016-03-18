@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "/* comment */",
   }, {
     code: "/* comment comment */",
@@ -26,9 +25,9 @@ testRule(rule, {
     code: "/*! copyright */",
   }, {
     code: "/*# sourcemap */",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "/*comment */",
     message: messages.expectedOpening,
     line: 1,
@@ -68,14 +67,14 @@ testRule(rule, {
     message: messages.expectedOpening,
     line: 1,
     column: 3,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "/*comment*/",
   }, {
     code: "/*comment comment*/",
@@ -91,9 +90,9 @@ testRule(rule, {
     code: "/*! copyright */",
   }, {
     code: "/*# sourcemap */",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "/* comment*/",
     message: messages.rejectedOpening,
     line: 1,
@@ -148,7 +147,7 @@ testRule(rule, {
     message: messages.rejectedClosing,
     line: 3,
     column: 8,
-  }],
+  } ],
 })
 
 testRule(rule, {
