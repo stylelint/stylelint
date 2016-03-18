@@ -203,6 +203,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`no-missing-eof-newline`](../../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
 - [`no-unknown-animations`](../../src/rules/no-unknown-animations/README.md): Disallow animation names that do not correspond to a `@keyframes` declaration.
 - [`no-unsupported-browser-features`](../../src/rules/no-unsupported-browser-features/README.md): Disallow features that are unsupported by the browsers that you are targeting.
+- [`stylelint-disable-reason`](../../src/rules/stylelint-disable-reason/README.md): Require reason comment if you use stylelint-disable comment.
 
 ## About rule names
 

@@ -1,3 +1,7 @@
+# Head
+
+- Added: `stylelint-disable-reason` rule.
+
 # 5.1.0
 
 - Added: `selector-type-case` rule.
