@@ -30,19 +30,14 @@ export default function (on, options) {
     const colorguardResult = new Result()
     colorguard(options)(root, colorguardResult)
     colorguardResult.warnings().forEach(colorguardWarning => {
-      const parsedWarning = parseColorguardWarning(colorguardWarning.text)
-      const message = messages.rejected(parsedWarning[0], parsedWarning[1])
+      const message = messages.rejected(colorguardWarning.secondColor, colorguardWarning.firstColor)
       report({
         ruleName,
         result,
         message,
         node: colorguardWarning.node,
-        index: colorguardWarning.node.toString().indexOf(parsedWarning[0]),
+        index: colorguardWarning.node.toString().indexOf(colorguardWarning.secondColor),
       })
     })
   }
-}
-
-function parseColorguardWarning(warning) {
-  return warning.match(/^(.*) collides with (.*) \(/).slice(1)
 }
