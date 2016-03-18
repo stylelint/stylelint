@@ -2,6 +2,7 @@
 
 - Added: `no-indistinguishable-colors` rule.
 - Added: `at-rule-blockless-newline-after` rule.
+- Added: `stylelint-disable-reason` rule.
 - Fixed: `no-duplicate-selectors` contextualizes selectors by all at-rules, not just media queries.
 - Fixed: `declaration-bang-space-*` understands arbitrary bang declarations (e.g. `!default`).
 - Fixed: `font-weight-notation` now ignore `inherit` value.
