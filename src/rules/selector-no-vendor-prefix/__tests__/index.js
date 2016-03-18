@@ -1,42 +1,49 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: [undefined],
 
-testRule(undefined, tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: ":fullscreen a {}",
+  }, {
+    code: ":root { --custom-property: {} }",
+  }, {
+    code: "input::placeholder { color: pink; }",
+  }, {
+    code: "a::before {}",
+    description: "handles pseudo-element",
+  }, {
+    code: "a:hover {}",
+    description: "handles pseudo-class",
+  }, {
+    code: "a[data-foo=\":-webkit-full-screen\"] {}",
+    description: "string",
+  } ],
 
-  tr.ok(":fullscreen a {}")
-  tr.ok(":root { --custom-property: {} }")
-  tr.notOk(":-webkit-full-screen a {}", {
+  reject: [ {
+    code: ":-webkit-full-screen a {}",
     message: messages.rejected(":-webkit-full-screen"),
     line: 1,
     column: 1,
-  })
-  tr.notOk("body, :-ms-fullscreen a {}", {
+  }, {
+    code: "body, :-ms-fullscreen a {}",
     message: messages.rejected(":-ms-fullscreen"),
     line: 1,
     column: 7,
-  })
-
-  tr.ok("input::placeholder { color: pink; }")
-  tr.notOk("input:-moz-placeholder, input::placeholder { color: pink; }", {
+  }, {
+    code: "input:-moz-placeholder, input::placeholder { color: pink; }",
     message: messages.rejected(":-moz-placeholder"),
     line: 1,
     column: 6,
-  })
-  tr.notOk("input::-moz-placeholder { color: pink; }", {
+  }, {
+    code: "input::-moz-placeholder { color: pink; }",
     message: messages.rejected("::-moz-placeholder"),
     line: 1,
     column: 6,
-  })
-  tr.notOk("input::-webkit-input-placeholder { color: pink; }",
-    messages.rejected("::-webkit-input-placeholder"))
-
-  tr.ok("a::before {}", "handles pseudo-element")
-  tr.ok("a:hover {}", "handles pseudo-class")
-  tr.ok("a[data-foo=\":-webkit-full-screen\"] {}", "string")
+  }, {
+    code: "input::-webkit-input-placeholder { color: pink; }",
+    message: messages.rejected("::-webkit-input-placeholder"),
+  } ],
 })

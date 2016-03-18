@@ -1,97 +1,108 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: "@media (max-width :600px) {}",
+  }, {
+    code: "@media (max-width : 600px) {}",
+  }, {
+    code: "@media (max-width :600px) and (min-width :3em) {}",
+  }, {
+    code: "@custom-selector:--enter :hover;",
+  } ],
 
-  tr.ok("@media (max-width :600px) {}")
-  tr.ok("@media (max-width : 600px) {}")
-  tr.ok("@media (max-width :600px) and (min-width :3em) {}")
-  tr.ok("@custom-selector:--enter :hover;")
-
-  tr.notOk("@media (max-width:600px) {}", {
+  reject: [ {
+    code: "@media (max-width:600px) {}",
     message: messages.expectedBefore(),
     line: 1,
     column: 18,
-  })
-  tr.notOk("@media (max-width  :600px) {}", {
+  }, {
+    code: "@media (max-width  :600px) {}",
     message: messages.expectedBefore(),
     line: 1,
     column: 20,
-  })
-  tr.notOk("@media (max-width\t:600px) {}", {
+  }, {
+    code: "@media (max-width\t:600px) {}",
     message: messages.expectedBefore(),
     line: 1,
     column: 19,
-  })
-  tr.notOk("@media (max-width\n:600px) {}", {
+  }, {
+    code: "@media (max-width\n:600px) {}",
     message: messages.expectedBefore(),
     line: 2,
     column: 1,
-  })
-  tr.notOk("@media (max-width\r\n:600px) {}", {
+  }, {
+    code: "@media (max-width\r\n:600px) {}",
+    description: "CRLF",
     message: messages.expectedBefore(),
     line: 2,
     column: 1,
-  }, "CRLF")
-  tr.notOk("@media (max-width:600px) and (min-width :3em) {}", {
+  }, {
+    code: "@media (max-width:600px) and (min-width :3em) {}",
     message: messages.expectedBefore(),
     line: 1,
     column: 18,
-  })
-  tr.notOk("@media (max-width :600px) and (min-width:3em) {}", {
+  }, {
+    code: "@media (max-width :600px) and (min-width:3em) {}",
     message: messages.expectedBefore(),
     line: 1,
     column: 41,
-  })
+  } ],
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["never"],
 
-  tr.ok("@media (max-width:600px) {}")
-  tr.ok("@media (max-width: 600px) {}")
-  tr.ok("@media (max-width:600px) and (min-width:3em) {}")
-  tr.ok("@custom-selector :--enter :hover;")
+  accept: [ {
+    code: "@media (max-width:600px) {}",
+  }, {
+    code: "@media (max-width: 600px) {}",
+  }, {
+    code: "@media (max-width:600px) and (min-width:3em) {}",
+  }, {
+    code: "@custom-selector :--enter :hover;",
+  } ],
 
-  tr.notOk("@media (max-width :600px) {}", {
+  reject: [ {
+    code: "@media (max-width :600px) {}",
     message: messages.rejectedBefore(),
     line: 1,
     column: 19,
-  })
-  tr.notOk("@media (max-width  :600px) {}", {
+  }, {
+    code: "@media (max-width  :600px) {}",
     message: messages.rejectedBefore(),
     line: 1,
     column: 20,
-  })
-  tr.notOk("@media (max-width\t:600px) {}", {
+  }, {
+    code: "@media (max-width\t:600px) {}",
     message: messages.rejectedBefore(),
     line: 1,
     column: 19,
-  })
-  tr.notOk("@media (max-width\n:600px) {}", {
+  }, {
+    code: "@media (max-width\n:600px) {}",
     message: messages.rejectedBefore(),
     line: 2,
     column: 1,
-  })
-  tr.notOk("@media (max-width\r\n:600px) {}", {
+  }, {
+    code: "@media (max-width\r\n:600px) {}",
+    description: "CRLF",
     message: messages.rejectedBefore(),
     line: 2,
     column: 1,
-  }, "CRLF")
-  tr.notOk("@media (max-width:600px) and (min-width :3em) {}", {
+  }, {
+    code: "@media (max-width:600px) and (min-width :3em) {}",
     message: messages.rejectedBefore(),
     line: 1,
     column: 41,
-  })
-  tr.notOk("@media (max-width :600px) and (min-width:3em) {}", {
+  }, {
+    code: "@media (max-width :600px) and (min-width:3em) {}",
     message: messages.rejectedBefore(),
     line: 1,
     column: 19,
-  })
+  } ],
 })

@@ -1,192 +1,181 @@
-/* eslint-disable indent, no-multiple-empty-lines */
-
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: [2],
 
-// 2 spaces
-testRule(2, tr => {
-warningFreeBasics(tr)
+  accept: [ {
+    code: "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "  }\n" +
+    "}",
+  }, {
+    code: "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "  }\n" +
+    "}\n" +
+    "\n" +
+    "@media screen {\n" +
+    "  b { color: orange; }\n" +
+    "}",
+  } ],
 
-tr.ok(
-`@media print {
-  a {
-    color: pink;
-  }
-}`)
+  reject: [ {
+    code: "\n" +
+    "  @media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "  }\n" +
+    "}",
 
-tr.ok(
-`@media print {
-  a {
-    color: pink;
-  }
-}
+    message: messages.expected("0 spaces"),
+    line: 2,
+    column: 3,
+  }, {
+    code: "@media print {\n" +
+    "a {\n" +
+    "    color: pink;\n" +
+    "  }\n" +
+    "}",
 
-@media screen {
-  b { color: orange; }
-}`)
+    message: messages.expected("2 spaces"),
+    line: 2,
+    column: 1,
+  }, {
+    code: "@media print {\n" +
+    "  a {\n" +
+    "  color: pink;\n" +
+    "  }\n" +
+    "}",
 
-tr.notOk(
-`
-  @media print {
-  a {
-    color: pink;
-  }
-}`, {
-  message: messages.expected("0 spaces"),
-  line: 2,
-  column: 3,
+    message: messages.expected("4 spaces"),
+    line: 3,
+    column: 3,
+  }, {
+    code: "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "}\n" +
+    "}",
+
+    message: messages.expected("2 spaces"),
+    line: 4,
+    column: 1,
+  }, {
+    code: "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "  }\n" +
+    "\t}",
+
+    message: messages.expected("0 spaces"),
+    line: 5,
+    column: 2,
+  } ],
 })
 
-tr.notOk(
-`@media print {
-a {
-    color: pink;
-  }
-}`, {
-  message: messages.expected("2 spaces"),
-  line: 2,
-  column: 1,
+testRule(rule, {
+  ruleName,
+  config: [ "tab", { except: ["block"] } ],
+
+  accept: [ {
+    code: "@media print {\n" +
+    "\n" +
+    "a {\n" +
+    "\tcolor: pink;\n" +
+    "}\n" +
+    "\n" +
+    "}",
+  }, {
+    code: "@media print,\n" +
+    "\t(-webkit-min-device-pixel-ratio: 1.25),\n" +
+    "\t(min-resolution: 120dpi) {}",
+  } ],
+
+  reject: [ {
+    code: "@media print {\n" +
+    "\n" +
+    "\ta {\n" +
+    "\tcolor: pink;\n" +
+    "}\n" +
+    "\n" +
+    "}",
+
+    message: messages.expected("0 tabs"),
+    line: 3,
+    column: 2,
+  }, {
+    code: "@media print {\n" +
+    "\n" +
+    "a {\n" +
+    "color: pink;\n" +
+    "}\n" +
+    "\n" +
+    "}",
+
+    message: messages.expected("1 tab"),
+    line: 4,
+    column: 1,
+  }, {
+    code: "@media print,\n" +
+    "  (-webkit-min-device-pixel-ratio: 1.25),\n" +
+    "\t(min-resolution: 120dpi) {}",
+
+    description: "multi-line at-rule params",
+    message: messages.expected("1 tab"),
+    line: 2,
+    column: 1,
+  } ],
 })
 
-tr.notOk(
-`@media print {
-  a {
-  color: pink;
-  }
-}`, {
-  message: messages.expected("4 spaces"),
-  line: 3,
-  column: 3,
+testRule(rule, {
+  ruleName,
+  config: [ 4, { except: ["param"] } ],
+
+  accept: [{
+    code: "@media print,\n" +
+    "(-webkit-min-device-pixel-ratio: 1.25),\n" +
+    "(min-resolution: 120dpi) {}",
+  }],
+
+  reject: [{
+    code: "@media print,\n" +
+    "  (-webkit-min-device-pixel-ratio: 1.25),\n" +
+    "(min-resolution: 120dpi) {}",
+
+    message: messages.expected("0 spaces"),
+    line: 2,
+    column: 1,
+  }],
 })
 
-tr.notOk(
-`@media print {
-  a {
-    color: pink;
-}
-}`, {
-  message: messages.expected("2 spaces"),
-  line: 4,
-  column: 1,
-})
+testRule(rule, {
+  ruleName,
+  config: [ 2, { ignore: ["param"] } ],
 
-tr.notOk(
-`@media print {
-  a {
-    color: pink;
-  }
-\t}`, {
-  message: messages.expected("0 spaces"),
-  line: 5,
-  column: 2,
-})
+  accept: [ {
+    code: "@media print,\n" +
+    "(-webkit-min-device-pixel-ratio: 1.25),\n" +
+    "(min-resolution: 120dpi) {}",
+  }, {
+    code: "@media print,\n" +
+    "  (-webkit-min-device-pixel-ratio: 1.25),\n" +
+    "(min-resolution: 120dpi) {}",
+  } ],
 
-})
+  reject: [{
+    code: "\n" +
+    "  @media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "  }\n" +
+    "}",
 
-// tab except block
-testRule("tab", { except: ["block"] }, tr => {
-warningFreeBasics(tr)
-
-tr.ok(
-`@media print {
-
-a {
-\tcolor: pink;
-}
-
-}`)
-
-tr.notOk(
-`@media print {
-
-\ta {
-\tcolor: pink;
-}
-
-}`, {
-  message: messages.expected("0 tabs"),
-  line: 3,
-  column: 2,
-})
-
-tr.notOk(
-`@media print {
-
-a {
-color: pink;
-}
-
-}`, {
-  message: messages.expected("1 tab"),
-  line: 4,
-  column: 1,
-})
-
-tr.ok(
-`@media print,
-\t(-webkit-min-device-pixel-ratio: 1.25),
-\t(min-resolution: 120dpi) {}`)
-
-tr.notOk(
-`@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-\t(min-resolution: 120dpi) {}`, {
-  message: messages.expected("1 tab"),
-  line: 2,
-  column: 1,
-}, "multi-line at-rule params")
-
-})
-
-// spaces except param
-testRule(4, { except: ["param"] }, tr => {
-warningFreeBasics(tr)
-
-tr.ok(
-`@media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 120dpi) {}`)
-
-tr.notOk(
-`@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 120dpi) {}`, {
-  message: messages.expected("0 spaces"),
-  line: 2,
-  column: 1,
-})
-
-})
-
-// spaces ignore param
-testRule(2, { ignore: ["param"] }, tr => {
-warningFreeBasics(tr)
-
-tr.ok(
-`@media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 120dpi) {}`)
-
-tr.ok(
-`@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 120dpi) {}`)
-
-tr.notOk(
-`
-  @media print {
-  a {
-    color: pink;
-  }
-}`, {
-  message: messages.expected("0 spaces"),
-  line: 2,
-  column: 3,
-})
-
+    message: messages.expected("0 spaces"),
+    line: 2,
+    column: 3,
+  }],
 })

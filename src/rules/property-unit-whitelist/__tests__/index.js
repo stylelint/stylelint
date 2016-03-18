@@ -1,93 +1,120 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
 
-testRule({
-  "font-size": [ "px", "em" ],
-  "margin": ["em"],
-  "background-position": ["%"],
-  "animation": ["s"],
-  "line-height": [],
-}, tr => {
-  warningFreeBasics(tr)
+  config: [{
+    "font-size": [ "px", "em" ],
+    "margin": ["em"],
+    "background-position": ["%"],
+    "animation": ["s"],
+    "line-height": [],
+  }],
 
-  tr.ok("a { color: pink; }")
-  tr.ok("a { top: 0; }")
-  tr.ok("a { color: #000; }")
-  tr.ok("a { margin: 0 0 0 0; }")
-  tr.ok("a { margin: 0 10em; }")
-  tr.ok("a { background-position: top right, 0 50%; }")
-  tr.ok("a { margin: calc(30em - 10em); }")
-  tr.ok("a { animation: animation-name 1s ease; }")
-  tr.ok("a { -webkit-animation: animation-name 1s ease; }")
-  tr.ok("a { line-height: 1; }")
+  accept: [ {
+    code: "a { color: pink; }",
+  }, {
+    code: "a { top: 0; }",
+  }, {
+    code: "a { color: #000; }",
+  }, {
+    code: "a { margin: 0 0 0 0; }",
+  }, {
+    code: "a { margin: 0 10em; }",
+  }, {
+    code: "a { background-position: top right, 0 50%; }",
+  }, {
+    code: "a { margin: calc(30em - 10em); }",
+  }, {
+    code: "a { animation: animation-name 1s ease; }",
+  }, {
+    code: "a { -webkit-animation: animation-name 1s ease; }",
+  }, {
+    code: "a { line-height: 1; }",
+  }, {
+    code: "a { font-size: /* 1.2rem */ 12px; }",
+    description: "ignore unit within comments",
+  }, {
+    code: "a::before { font-size: \"1.2rem\"}",
+    description: "ignore unit within quotes",
+  }, {
+    code: "a { font-size: $fs1rem; }",
+    description: "ignore preprocessor variable includes unit",
+  }, {
+    code: "a { font-size: --some-fs-1rem; }",
+    description: "ignore css variable includes unit",
+  } ],
 
-  tr.ok("a { font-size: /* 1.2rem */ 12px; }", "ignore unit within comments")
-  tr.ok("a::before { font-size: \"1.2rem\"}", "ignore unit within quotes")
-
-  tr.ok("a { font-size: $fs1rem; }", "ignore preprocessor variable includes unit")
-  tr.ok("a { font-size: --some-fs-1rem; }", "ignore css variable includes unit")
-
-  tr.notOk("a { font-size: 1.2rem; }", {
+  reject: [ {
+    code: "a { font-size: 1.2rem; }",
     message: messages.rejected("font-size", "rem"),
     line: 1,
     column: 16,
-  })
-
-  tr.notOk("a { margin: 10em 0 1rem; }", {
+  }, {
+    code: "a { margin: 10em 0 1rem; }",
     message: messages.rejected("margin", "rem"),
     line: 1,
     column: 20,
-  })
-
-  tr.notOk("a { background-position: 0 10px; }", {
+  }, {
+    code: "a { background-position: 0 10px; }",
     message: messages.rejected("background-position", "px"),
     line: 1,
     column: 28,
-  })
-
-  tr.notOk("a { background-position: top right, 0 10px; }", {
+  }, {
+    code: "a { background-position: top right, 0 10px; }",
     message: messages.rejected("background-position", "px"),
     line: 1,
     column: 39,
-  })
-
-  tr.notOk("a { margin: calc(10em - 10px); }", {
+  }, {
+    code: "a { margin: calc(10em - 10px); }",
     message: messages.rejected("margin", "px"),
     column: 25,
-  })
-
-  tr.notOk("a { animation: animation-name 300ms ease; }", {
+  }, {
+    code: "a { animation: animation-name 300ms ease; }",
     message: messages.rejected("animation", "ms"),
     column: 31,
-  })
-
-  tr.notOk("a { -webkit-animation: animation-name 300ms ease; }", {
+  }, {
+    code: "a { -webkit-animation: animation-name 300ms ease; }",
     message: messages.rejected("-webkit-animation", "ms"),
     column: 39,
-  })
-
-  tr.notOk("a { line-height: 1.2em; }", {
+  }, {
+    code: "a { line-height: 1.2em; }",
     message: messages.rejected("line-height", "em"),
     column: 18,
-  })
-
+  } ],
 })
 
-testRule({
-  "/^animation/": ["ms"],
-}, tr => {
-  tr.ok("a { animation: animation-name 300ms ease; }")
-  tr.ok("a { -webkit-animation: animation-name 300ms ease; }")
-  tr.ok("a { animation-duration: 300ms; }")
-  tr.ok("a { -webkit-animation-duration: 300ms; }")
+testRule(rule, {
+  ruleName,
 
-  tr.notOk("a { animation: animation-name 3s ease; }", messages.rejected("animation", "s"))
-  tr.notOk("a { -webkit-animation: animation-name 3s ease; }", messages.rejected("-webkit-animation", "s"))
-  tr.notOk("a { animation-duration: 3s; }", messages.rejected("animation-duration", "s"))
-  tr.notOk("a { -webkit-animation-duration: 3s; }", messages.rejected("-webkit-animation-duration", "s"))
+  config: [{
+    "/^animation/": ["ms"],
+  }],
+
+  skipBasicChecks: true,
+
+  accept: [ {
+    code: "a { animation: animation-name 300ms ease; }",
+  }, {
+    code: "a { -webkit-animation: animation-name 300ms ease; }",
+  }, {
+    code: "a { animation-duration: 300ms; }",
+  }, {
+    code: "a { -webkit-animation-duration: 300ms; }",
+  } ],
+
+  reject: [ {
+    code: "a { animation: animation-name 3s ease; }",
+    message: messages.rejected("animation", "s"),
+  }, {
+    code: "a { -webkit-animation: animation-name 3s ease; }",
+    message: messages.rejected("-webkit-animation", "s"),
+  }, {
+    code: "a { animation-duration: 3s; }",
+    message: messages.rejected("animation-duration", "s"),
+  }, {
+    code: "a { -webkit-animation-duration: 3s; }",
+    message: messages.rejected("-webkit-animation-duration", "s"),
+  } ],
 })

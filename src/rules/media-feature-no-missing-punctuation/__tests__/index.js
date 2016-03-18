@@ -1,49 +1,69 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: [true],
 
-testRule(true, tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: "@nonsense (min-width max-width no-width) {}",
+  }, {
+    code: "@import 'foo.css';",
+  }, {
+    code: "@if {} @else {}",
+  }, {
+    code: "@media (min-width: 300px) {}",
+  }, {
+    code: "@media ( min-width: 300px ) {}",
+  }, {
+    code: "@media (min-width   :\t300px) {}",
+  }, {
+    code: "@media ( min-width   :\t300px ) {}",
+  }, {
+    code: "@media (width > 20em) {}",
+  }, {
+    code: "@media (width> 20em) {}",
+  }, {
+    code: "@media (width >20em) {}",
+  }, {
+    code: "@media (width>20em) {}",
+  }, {
+    code: "@media (10px <= width < 20em) {}",
+  }, {
+    code: "@media (10px<= width < 20em) {}",
+  }, {
+    code: "@media (10px<= width <20em) {}",
+  }, {
+    code: "@media only screen and (min-width: 300px) and (max-width: 600px) {}",
+  }, {
+    code: "@media only screen and ( min-width: 300px ) and ( max-width: 600px ) {}",
+  }, {
+    code: "@media (color) {}",
+  } ],
 
-  tr.ok("@nonsense (min-width max-width no-width) {}")
-  tr.ok("@import 'foo.css';")
-  tr.ok("@if {} @else {}")
-
-  tr.ok("@media (min-width: 300px) {}")
-  tr.ok("@media ( min-width: 300px ) {}")
-  tr.ok("@media (min-width   :\t300px) {}")
-  tr.ok("@media ( min-width   :\t300px ) {}")
-  tr.ok("@media (width > 20em) {}")
-  tr.ok("@media (width> 20em) {}")
-  tr.ok("@media (width >20em) {}")
-  tr.ok("@media (width>20em) {}")
-  tr.ok("@media (10px <= width < 20em) {}")
-  tr.ok("@media (10px<= width < 20em) {}")
-  tr.ok("@media (10px<= width <20em) {}")
-  tr.ok("@media only screen and (min-width: 300px) and (max-width: 600px) {}")
-  tr.ok("@media only screen and ( min-width: 300px ) and ( max-width: 600px ) {}")
-  tr.ok("@media (color) {}")
-
-  tr.notOk("@media (min-width 300px) {}", {
+  reject: [ {
+    code: "@media (min-width 300px) {}",
     message: messages.rejected,
     line: 1,
     column: 8,
-  })
-  tr.notOk("@media (min-width   \t300px)", messages.rejected)
-  tr.notOk("@media (10px width <= 20em)", messages.rejected)
-  tr.notOk("@media (10px <= width 20em  )", messages.rejected)
-  tr.notOk("@media only screen\n  and (min-width: 300px)\n  and (max-width 600px) {}", {
+  }, {
+    code: "@media (min-width   \t300px)",
+    message: messages.rejected,
+  }, {
+    code: "@media (10px width <= 20em)",
+    message: messages.rejected,
+  }, {
+    code: "@media (10px <= width 20em  )",
+    message: messages.rejected,
+  }, {
+    code: "@media only screen\n  and (min-width: 300px)\n  and (max-width 600px) {}",
     message: messages.rejected,
     line: 3,
     column: 7,
-  })
-  tr.notOk("@media (color),\n  (min-width: 300px)\n  and (max-width 600px) {}", {
+  }, {
+    code: "@media (color),\n  (min-width: 300px)\n  and (max-width 600px) {}",
     message: messages.rejected,
     line: 3,
     column: 7,
-  })
+  } ],
 })

@@ -1,116 +1,170 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: ["numeric"],
 
-testRule("numeric", tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: "a { font-weight: $sassy-font-weight; }",
+    description: "ignores sass variables",
+  }, {
+    code: "a { font: italic @less-666 20px; }",
+    description: "ignores less variables",
+  }, {
+    code: "a { font-weight: var(--ff1); }",
+    description: "ignores custom properties",
+  }, {
+    code: "a { font-weight: 100; }",
+  }, {
+    code: "a { font-weight: 700; }",
+  }, {
+    code: "a { font-weight: 850; }",
+  }, {
+    code: "a { font-weight: 900; }",
+  }, {
+    code: "a { font: italic small-caps 400 16px/3 cursive; }",
+  }, {
+    code: "a { font: italic small-caps 400 16px/500 cursive; }",
+  }, {
+    code: "a { font: italic small-caps 400 16px/500 \"bold font name\"; }",
+  }, {
+    code: "a { font: italic small-caps 400 16px/500 boldfontname; }",
+  }, {
+    code: "a { font: normal 400 normal 16px serif; }",
+    description: "two normals and a numbered weight",
+  }, {
+    code: "a { font: 400 normal 16px serif; }",
+    description: "one normal and a numbered weight",
+  }, {
+    code: "a { font: 400 16px serif; }",
+    description: "no normals and a numbered weight",
+  } ],
 
-  tr.ok("a { font-weight: $sassy-font-weight; }", "ignores sass variables")
-  tr.ok("a { font: italic @less-666 20px; }", "ignores less variables")
-  tr.ok("a { font-weight: var(--ff1); }", "ignores custom properties")
-
-  tr.ok("a { font-weight: 100; }")
-  tr.ok("a { font-weight: 700; }")
-  tr.ok("a { font-weight: 850; }")
-  tr.ok("a { font-weight: 900; }")
-  tr.ok("a { font: italic small-caps 400 16px/3 cursive; }")
-  tr.ok("a { font: italic small-caps 400 16px/500 cursive; }")
-  tr.ok("a { font: italic small-caps 400 16px/500 \"bold font name\"; }")
-  tr.ok("a { font: italic small-caps 400 16px/500 boldfontname; }")
-  tr.ok("a { font: normal 400 normal 16px serif; }", "two normals and a numbered weight")
-  tr.ok("a { font: 400 normal 16px serif; }", "one normal and a numbered weight")
-  tr.ok("a { font: 400 16px serif; }", "no normals and a numbered weight")
-
-  tr.notOk("a { font-weight: normal; }", {
+  reject: [ {
+    code: "a { font-weight: normal; }",
     message: messages.expected("numeric"),
     line: 1,
     column: 18,
-  })
-  tr.notOk("a { font: italic small-caps bolder 16px/3 cursive; }", {
+  }, {
+    code: "a { font: italic small-caps bolder 16px/3 cursive; }",
     message: messages.expected("numeric"),
     line: 1,
     column: 29,
-  })
-  tr.notOk("a { font: normal 16px/3 cursive; }", {
+  }, {
+    code: "a { font: normal 16px/3 cursive; }",
+    description: "one normal and no numbered weight",
     message: messages.expected("numeric"),
     line: 1,
     column: 11,
-  }, "one normal and no numbered weight")
-  tr.notOk("a { font: normal normal 16px/3 cursive; }", {
+  }, {
+    code: "a { font: normal normal 16px/3 cursive; }",
+    description: "two normals and no numbered weight",
     message: messages.expected("numeric"),
     line: 1,
     column: 11,
-  }, "two normals and no numbered weight")
-  tr.notOk("a { font: normal normal normal 16px/3 cursive; }", {
+  }, {
+    code: "a { font: normal normal normal 16px/3 cursive; }",
+    description: "three normals and no numbered weight",
     message: messages.expected("numeric"),
     line: 1,
     column: 11,
-  }, "three normals and no numbered weight")
+  } ],
 })
 
-testRule("numeric", { ignore: ["relative"] }, tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: [ "numeric", { ignore: ["relative"] } ],
 
-  tr.ok("a { font-weight: 700; }")
-  tr.ok("a { font-weight: bolder; }")
-  tr.ok("a { font-weight: lighter; }")
-  tr.ok("a { font: italic small-caps lighter 16px/3 cursive; }")
+  accept: [ {
+    code: "a { font-weight: 700; }",
+  }, {
+    code: "a { font-weight: bolder; }",
+  }, {
+    code: "a { font-weight: lighter; }",
+  }, {
+    code: "a { font: italic small-caps lighter 16px/3 cursive; }",
+  } ],
 
-  tr.notOk("a { font-weight: normal; }", {
+  reject: [{
+    code: "a { font-weight: normal; }",
     message: messages.expected("numeric"),
     line: 1,
     column: 18,
-  })
+  }],
 })
 
-testRule("named-where-possible", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["named-where-possible"],
 
-  tr.ok("a { font-weight: $sassy-font-weight; }", "ignores sass variables")
-  tr.ok("a { font: italic @less-666 20px; }", "ignores less variables")
-  tr.ok("a { font-weight: var(--ff1); }", "ignores custom properties")
+  accept: [ {
+    code: "a { font-weight: $sassy-font-weight; }",
+    description: "ignores sass variables",
+  }, {
+    code: "a { font: italic @less-666 20px; }",
+    description: "ignores less variables",
+  }, {
+    code: "a { font-weight: var(--ff1); }",
+    description: "ignores custom properties",
+  }, {
+    code: "a { font-weight: bold; }",
+  }, {
+    code: "a { font-weight: bolder; }",
+  }, {
+    code: "a { font-weight: normal; }",
+  }, {
+    code: "a { font-weight: lighter; }",
+  }, {
+    code: "a { font: italic small-caps bold 16px/500 cursive; }",
+  }, {
+    code: "a { font: italic small-caps bold 16px/500 \"cursive 100 font\"; }",
+  }, {
+    code: "a { font: italic small-caps bold 16px/500 100cursivefont; }",
+  }, {
+    code: "a { font: normal 16px/3 cursive; }",
+    description: "one normal and no numbered weight",
+  }, {
+    code: "a { font: normal normal 16px/3 cursive; }",
+    description: "two normals and no numbered weight",
+  }, {
+    code: "a { font: normal normal normal 16px/3 cursive; }",
+    description: "three normals and no numbered weight",
+  }, {
+    code: "a { font-weight: 300; }",
+    description: "number without keyword equivalent",
+  }, {
+    code: "a { font: italic small-caps 600 16px/3 cursive; }",
+    description: "another number without keyword equivalent",
+  } ],
 
-  tr.ok("a { font-weight: bold; }")
-  tr.ok("a { font-weight: bolder; }")
-  tr.ok("a { font-weight: normal; }")
-  tr.ok("a { font-weight: lighter; }")
-  tr.ok("a { font: italic small-caps bold 16px/500 cursive; }")
-  tr.ok("a { font: italic small-caps bold 16px/500 \"cursive 100 font\"; }")
-  tr.ok("a { font: italic small-caps bold 16px/500 100cursivefont; }")
-  tr.ok("a { font: normal 16px/3 cursive; }", "one normal and no numbered weight")
-  tr.ok("a { font: normal normal 16px/3 cursive; }", "two normals and no numbered weight")
-  tr.ok("a { font: normal normal normal 16px/3 cursive; }", "three normals and no numbered weight")
-
-  tr.ok("a { font-weight: 300; }", "number without keyword equivalent")
-  tr.ok("a { font: italic small-caps 600 16px/3 cursive; }", "another number without keyword equivalent")
-
-  tr.notOk("a { font-weight: 400; }", {
+  reject: [ {
+    code: "a { font-weight: 400; }",
     message: messages.expected("named"),
     line: 1,
     column: 18,
-  })
-  tr.notOk("a { font: italic small-caps 700 16px/3 cursive; }", {
+  }, {
+    code: "a { font: italic small-caps 700 16px/3 cursive; }",
     message: messages.expected("named"),
     line: 1,
     column: 29,
-  })
-  tr.notOk("a { font: normal 400 normal 16px serif; }", {
+  }, {
+    code: "a { font: normal 400 normal 16px serif; }",
+    description: "two normals and a numbered weight",
     message: messages.expected("named"),
     line: 1,
     column: 18,
-  }, "two normals and a numbered weight")
-  tr.notOk("a { font: 400 normal 16px serif; }", {
+  }, {
+    code: "a { font: 400 normal 16px serif; }",
+    description: "one normal and a numbered weight",
     message: messages.expected("named"),
     line: 1,
     column: 11,
-  }, "one normal and a numbered weight")
-  tr.notOk("a { font: 400 16px serif; }", {
+  }, {
+    code: "a { font: 400 16px serif; }",
+    description: "no normals and a numbered weight",
     message: messages.expected("named"),
     line: 1,
     column: 11,
-  }, "no normals and a numbered weight")
+  } ],
 })

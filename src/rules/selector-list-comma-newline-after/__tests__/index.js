@@ -1,128 +1,175 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
-import scss from "postcss-scss"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: "a,\nb {}",
+  }, {
+    code: "a,\r\nb {}",
+    description: "CRLF",
+  }, {
+    code: "a,\nb,\nc {}",
+  }, {
+    code: "a ,\nb {}",
+  }, {
+    code: "a\n,\nb {}",
+  }, {
+    code: "a\r\n,\r\nb {}",
+    description: "CRLF",
+  }, {
+    code: "a,\nb[data-foo=\"tr,tr\"] {}",
+  }, {
+    code: "a {\n  &:hover,\n  &:focus {\n    color: pink; }\n}",
+    description: "nested in rule set",
+  }, {
+    code: "@media (min-width: 10px) {\n  a,\n  b {}\n}",
+    description: "nested in at-rule",
+  }, {
+    code: "@media (min-width: 10px) {\r\n  a,\r\n  b {}\r\n}",
+    description: "nested in at-rule and CRLF",
+  }, {
+    code: "\ta,\n\tb {}",
+    description: "indented statement",
+  }, {
+    code: "a, /* comment */\nb {}",
+    description: "with end-of-line comment with newline after",
+  }, {
+    code: "a, /* comment\n       commentline2 */\nb {}",
+    description: "with end-of-line multi-line comment with newline after",
+  } ],
 
-  tr.ok("a,\nb {}")
-  tr.ok("a,\r\nb {}", "CRLF")
-  tr.ok("a,\nb,\nc {}")
-  tr.ok("a ,\nb {}")
-  tr.ok("a\n,\nb {}")
-  tr.ok("a\r\n,\r\nb {}", "CRLF")
-  tr.ok("a,\nb[data-foo=\"tr,tr\"] {}")
-  tr.ok("a {\n  &:hover,\n  &:focus {\n    color: pink; }\n}", "nested in rule set")
-  tr.ok("@media (min-width: 10px) {\n  a,\n  b {}\n}", "nested in at-rule")
-  tr.ok("@media (min-width: 10px) {\r\n  a,\r\n  b {}\r\n}", "nested in at-rule and CRLF")
-  tr.ok("\ta,\n\tb {}", "indented statement")
-
-  tr.notOk("a,b {}", {
+  reject: [ {
+    code: "a,b {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a, b {}", {
+  }, {
+    code: "a, b {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a,  b {}", {
+  }, {
+    code: "a,  b {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a,\tb {}", {
+  }, {
+    code: "a,\tb {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a,\nb,c {}", {
+  }, {
+    code: "a,\nb,c {}",
     message: messages.expectedAfter(),
     line: 2,
     column: 2,
-  })
-  tr.notOk("a,\r\nb,c {}", {
+  }, {
+    code: "a,\r\nb,c {}",
+    description: "CRLF",
     message: messages.expectedAfter(),
     line: 2,
     column: 2,
-  }, "CRLF")
-
-  tr.ok("a, /* comment */\nb {}", "with end-of-line comment with newline after")
-  tr.ok("a, /* comment\n       commentline2 */\nb {}",
-    "with end-of-line multi-line comment with newline after")
-  tr.notOk("a, /* comment */ b {}", {
+  }, {
+    code: "a, /* comment */ b {}",
+    description: "with post-comma comment without newline after",
     message: messages.expectedAfter(),
     line: 1,
     column: 2,
-  }, "with post-comma comment without newline after")
-  tr.notOk("a, /* comment\n       commentline2 */b {}", {
+  }, {
+    code: "a, /* comment\n       commentline2 */b {}",
+    description: "with post-comma multi-line comment without newline after",
     message: messages.expectedAfter(),
     line: 1,
     column: 2,
-  }, "with post-comma multi-line comment without newline after")
+  } ],
 })
 
-testRule("always-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["always-multi-line"],
 
-  tr.ok("a,\nb {}")
-  tr.ok("a,\r\nb {}", "CRLF")
-  tr.ok("a, b {}", "ignores single-line")
-  tr.ok("a, b {\n}", "ignores single-line selector list, multi-line block")
-  tr.ok("a, b {\r\n}", "ignores single-line selector list, multi-line block with CRLF")
-  tr.ok("\ta,\n\tb {\n}", "indented statement")
+  accept: [ {
+    code: "a,\nb {}",
+  }, {
+    code: "a,\r\nb {}",
+    description: "CRLF",
+  }, {
+    code: "a, b {}",
+    description: "ignores single-line",
+  }, {
+    code: "a, b {\n}",
+    description: "ignores single-line selector list, multi-line block",
+  }, {
+    code: "a, b {\r\n}",
+    description: "ignores single-line selector list, multi-line block with CRLF",
+  }, {
+    code: "\ta,\n\tb {\n}",
+    description: "indented statement",
+  } ],
 
-  tr.notOk("a,\nb, c {}", {
+  reject: [ {
+    code: "a,\nb, c {}",
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 2,
-  })
-  tr.notOk("a,\nb, c {\n}", {
+  }, {
+    code: "a,\nb, c {\n}",
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 2,
-  })
-  tr.notOk("a,\r\nb, c {\r\n}", {
+  }, {
+    code: "a,\r\nb, c {\r\n}",
+    description: "CRLF",
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 2,
-  }, "CRLF")
+  } ],
 })
 
-testRule("never-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["never-multi-line"],
 
-  tr.ok("a\n,b {}")
-  tr.ok("a ,b {}", "ignores single-line")
-  tr.ok("a ,b {\n}", "ignores single-line selector list, multi-line block")
+  accept: [ {
+    code: "a\n,b {}",
+  }, {
+    code: "a ,b {}",
+    description: "ignores single-line",
+  }, {
+    code: "a ,b {\n}",
+    description: "ignores single-line selector list, multi-line block",
+  } ],
 
-  tr.notOk("a,\nb ,c {}", {
+  reject: [ {
+    code: "a,\nb ,c {}",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a,\r\nb ,c {}", {
+  }, {
+    code: "a,\r\nb ,c {}",
+    description: "CRLF",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 2,
-  }, "CRLF")
-  tr.notOk("a,\nb ,c {\n}", {
+  }, {
+    code: "a,\nb ,c {\n}",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 2,
-  })
+  } ],
 })
 
-const scssTestRule = ruleTester(rule, ruleName, {
-  postcssOptions: { syntax: scss },
-})
+testRule(rule, {
+  ruleName,
+  config: ["always"],
+  skipBasicChecks: true,
+  syntax: "scss",
 
-scssTestRule("always", tr => {
-  tr.ok("a, // comment\nb {}", "with end-of-line // comment with newline after")
+  accept: [{
+    code: "a, // comment\nb {}",
+    description: "with end-of-line // comment with newline after",
+  }],
 })

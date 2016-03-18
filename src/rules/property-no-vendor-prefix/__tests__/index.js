@@ -1,56 +1,62 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: [undefined],
 
-testRule(undefined, tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: ":root { --foo-bar: 1px; }",
+  }, {
+    code: "a { color: pink; --webkit-transform: 1px; }",
+  }, {
+    code: "a { transform: scale(1); }",
+  }, {
+    code: "a { box-sizing: border-box; }",
+  }, {
+    code: "a { -webkit-font-smoothing: antialiased; }",
+    description: "non-standard prefixed property",
+  }, {
+    code: "a { -webkit-touch-callout: none; }",
+    description: "another non-standard prefixed property",
+  } ],
 
-  tr.ok(":root { --foo-bar: 1px; }")
-  tr.ok("a { color: pink; --webkit-transform: 1px; }")
-  tr.ok("a { transform: scale(1); }")
-  tr.ok("a { box-sizing: border-box; }")
-  tr.ok("a { -webkit-font-smoothing: antialiased; }", "non-standard prefixed property")
-  tr.ok("a { -webkit-touch-callout: none; }", "another non-standard prefixed property")
-
-  tr.notOk("a { -webkit-transform: scale(1); }", {
+  reject: [ {
+    code: "a { -webkit-transform: scale(1); }",
     message: messages.rejected("-webkit-transform"),
     line: 1,
     column: 5,
-  })
-  tr.notOk("a { -webkit-transform: scale(1); transform: scale(1); }", {
+  }, {
+    code: "a { -webkit-transform: scale(1); transform: scale(1); }",
     message: messages.rejected("-webkit-transform"),
     line: 1,
     column: 5,
-  })
-  tr.notOk("a { transform: scale(1); -webkit-transform: scale(1); }", {
+  }, {
+    code: "a { transform: scale(1); -webkit-transform: scale(1); }",
     message: messages.rejected("-webkit-transform"),
     line: 1,
     column: 26,
-  })
-  tr.notOk("a { -moz-transition: all 3s; }", {
+  }, {
+    code: "a { -moz-transition: all 3s; }",
     message: messages.rejected("-moz-transition"),
     line: 1,
     column: 5,
-  })
-  tr.notOk("a { -moz-columns: 2; }", {
+  }, {
+    code: "a { -moz-columns: 2; }",
     message: messages.rejected("-moz-columns"),
     line: 1,
     column: 5,
-  })
-
-  tr.notOk("a { -o-columns: 2; }", {
+  }, {
+    code: "a { -o-columns: 2; }",
+    description: "mistaken prefix",
     message: messages.rejected("-o-columns"),
     line: 1,
     column: 5,
-  }, "mistaken prefix")
-
-  tr.notOk("a { -ms-interpolation-mode: nearest-neighbor; }", {
+  }, {
+    code: "a { -ms-interpolation-mode: nearest-neighbor; }",
+    description: "\"hack\" prefix",
     message: messages.rejected("-ms-interpolation-mode"),
     line: 1,
     column: 5,
-  }, "\"hack\" prefix")
+  } ],
 })

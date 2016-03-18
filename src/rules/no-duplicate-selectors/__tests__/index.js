@@ -1,61 +1,80 @@
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import postcss from "postcss"
 import postcssImport from "postcss-import"
 import path from "path"
 import test from "tape"
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: [null],
 
-testRule(null, tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: "a {} b {} c {} d, e, f {}",
+    description: "no duplicates",
+  }, {
+    code: "a {}\n@media print { a {} }",
+    description: "duplicate inside media query",
+  }, {
+    code: "@keyframes a { 0% {} } @keyframes b { 0% {} }",
+    description: "duplicate inside keyframes",
+  }, {
+    code: "a { a { a {} } }",
+    description: "duplicates inside nested rules",
+  }, {
+    code: ".foo .bar {}\n .foo {}\n.bar {}\n.bar .foo {}",
+    description: "selectors using parts of other selectors",
+  }, {
+    code: "a {} a, b {}",
+    description: "selectors reused in other non-equivalent selector lists",
+  }, {
+    code: "a b { top: 0; } a { b, c { color: pink; } }",
+    description: "nested resolution",
+  } ],
 
-  tr.ok("a {} b {} c {} d, e, f {}", "no duplicates")
-  tr.ok("a {}\n@media print { a {} }", "duplicate inside media query")
-  tr.ok("@keyframes a { 0% {} } @keyframes b { 0% {} }", "duplicate inside keyframes")
-  tr.ok("a { a { a {} } }", "duplicates inside nested rules")
-  tr.ok(".foo .bar {}\n .foo {}\n.bar {}\n.bar .foo {}", "selectors using parts of other selectors")
-  tr.ok("a {} a, b {}", "selectors reused in other non-equivalent selector lists")
-  tr.ok("a b { top: 0; } a { b, c { color: pink; } }", "nested resolution")
-
-  tr.notOk("a, a {}", {
+  reject: [ {
+    code: "a, a {}",
+    description: "duplicate within one rule's selector list",
     message: messages.rejected("a"),
     line: 1,
     column: 1,
-  }, "duplicate within one rule's selector list")
-  tr.notOk("a {} b {} a {}", {
+  }, {
+    code: "a {} b {} a {}",
+    description: "duplicate simple selectors with another rule between",
     message: messages.rejected("a"),
     line: 1,
     column: 11,
-  }, "duplicate simple selectors with another rule between")
-  tr.notOk("a, b {} b, a {}", {
+  }, {
+    code: "a, b {} b, a {}",
+    description: "essentially duplicate selector lists",
     message: messages.rejected("b, a"),
     line: 1,
     column: 9,
-  }, "essentially duplicate selector lists")
-  tr.notOk(".foo   a, b\t> .bar,\n#baz {}\n  #baz,\n\n  .foo     a,b>.bar {}", {
+  }, {
+    code: ".foo   a, b\t> .bar,\n#baz {}\n  #baz,\n\n  .foo     a,b>.bar {}",
+    description: "essentially duplicate selector lists with varied spacing",
     message: messages.rejected("#baz,\n\n  .foo     a,b>.bar"),
     line: 3,
     column: 3,
-  }, "essentially duplicate selector lists with varied spacing")
-  tr.notOk("a {}\n@media print { a, a {} }", {
+  }, {
+    code: "a {}\n@media print { a, a {} }",
+    description: "duplicate within a media query, in the same rule",
     message: messages.rejected("a"),
     line: 2,
     column: 16,
-  }, "duplicate within a media query, in the same rule")
-  tr.notOk("a {}\n@media print { a {} a {} }", {
+  }, {
+    code: "a {}\n@media print { a {} a {} }",
+    description: "duplicate within a media query, in different rules",
     message: messages.rejected("a"),
     line: 2,
     column: 21,
-  }, "duplicate within a media query, in different rules")
-  tr.notOk("a b {} a { b {} }", {
+  }, {
+    code: "a b {} a { b {} }",
+    description: "duplicate caused by nesting",
     message: messages.rejected("a b"),
     line: 1,
     column: 12,
-  }, "duplicate caused by nesting")
+  } ],
 })
 
 test("with postcss-import and duplicates within a file", t => {

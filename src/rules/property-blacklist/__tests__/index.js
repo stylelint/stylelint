@@ -1,57 +1,67 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
 
-testRule([
-  "transform",
-  "background-size",
-], tr => {
-  warningFreeBasics(tr)
+  config: [[
+    "transform",
+    "background-size",
+  ]],
 
-  tr.ok("a { color: pink; }")
-  tr.ok("a { background: red; }")
-  tr.ok("a { top: 0; color: pink; }")
+  accept: [ {
+    code: "a { color: pink; }",
+  }, {
+    code: "a { background: red; }",
+  }, {
+    code: "a { top: 0; color: pink; }",
+  } ],
 
-  tr.notOk("a { transform: scale(1); }", {
+  reject: [ {
+    code: "a { transform: scale(1); }",
     message: messages.rejected("transform"),
     line: 1,
     column: 5,
-  })
-  tr.notOk("a { color: pink; background-size: cover; }", {
+  }, {
+    code: "a { color: pink; background-size: cover; }",
     message: messages.rejected("background-size"),
     line: 1,
     column: 18,
-  })
-  tr.notOk("a { color: pink; -webkit-transform: scale(1); }", {
+  }, {
+    code: "a { color: pink; -webkit-transform: scale(1); }",
     message: messages.rejected("-webkit-transform"),
     line: 1,
     column: 18,
-  })
+  } ],
 })
 
-testRule([
-  "/^background/",
-], tr => {
-  warningFreeBasics(tr)
-  tr.ok("a { color: pink; }")
-  tr.ok("a { no-background: sure; }")
-  tr.notOk("a { background: pink; }", {
+testRule(rule, {
+  ruleName,
+
+  config: [[
+    "/^background/",
+  ]],
+
+  accept: [ {
+    code: "a { color: pink; }",
+  }, {
+    code: "a { no-background: sure; }",
+  } ],
+
+  reject: [ {
+    code: "a { background: pink; }",
     message: messages.rejected("background"),
     line: 1,
     column: 5,
-  })
-  tr.notOk("a { background-size: cover; }", {
+  }, {
+    code: "a { background-size: cover; }",
     message: messages.rejected("background-size"),
     line: 1,
     column: 5,
-  })
-  tr.notOk("a { background-image: none; }", {
+  }, {
+    code: "a { background-image: none; }",
     message: messages.rejected("background-image"),
     line: 1,
     column: 5,
-  })
+  } ],
 })

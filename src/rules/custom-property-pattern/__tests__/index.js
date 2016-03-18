@@ -1,36 +1,62 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: [/foo-.+/],
 
-testRule(/foo-.+/, tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: ":root { --foo-bar: 0; }",
+  }, {
+    code: ":root { --boo-foo-bar: 0; }",
+  } ],
 
-  tr.ok(":root { --foo-bar: 0; }")
-  tr.ok(":root { --boo-foo-bar: 0; }")
-  tr.notOk(":root { --boo-bar: 0; }", messages.expected)
-  tr.notOk(":root { --foo-: 0; }", messages.expected)
+  reject: [ {
+    code: ":root { --boo-bar: 0; }",
+    message: messages.expected,
+  }, {
+    code: ":root { --foo-: 0; }",
+    message: messages.expected,
+  } ],
 })
 
-// Same as above but with a string instead of a RegExp
-testRule("foo-.+", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["foo-.+"],
 
-  tr.ok(":root { --foo-bar: 0; }")
-  tr.ok(":root { --boo-foo-bar: 0; }")
-  tr.notOk(":root { --boo-bar: 0; }", messages.expected)
-  tr.notOk(":root { --foo-: 0; }", messages.expected)
+  accept: [ {
+    code: ":root { --foo-bar: 0; }",
+  }, {
+    code: ":root { --boo-foo-bar: 0; }",
+  } ],
+
+  reject: [ {
+    code: ":root { --boo-bar: 0; }",
+    message: messages.expected,
+  }, {
+    code: ":root { --foo-: 0; }",
+    message: messages.expected,
+  } ],
 })
 
-testRule(/^[A-Z][a-z]+-[a-z][a-zA-Z]+$/, tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: [/^[A-Z][a-z]+-[a-z][a-zA-Z]+$/],
 
-  tr.ok(":root { --Foo-bar: 0; }")
-  tr.ok(":root { --Foo-barBaz: 0; }")
-  tr.notOk(":root { --boo-Foo-bar: 0; }", messages.expected)
-  tr.notOk(":root { --foo-bar: 0; }", messages.expected)
-  tr.notOk(":root { --Foo-Bar: 0; }", messages.expected)
+  accept: [ {
+    code: ":root { --Foo-bar: 0; }",
+  }, {
+    code: ":root { --Foo-barBaz: 0; }",
+  } ],
+
+  reject: [ {
+    code: ":root { --boo-Foo-bar: 0; }",
+    message: messages.expected,
+  }, {
+    code: ":root { --foo-bar: 0; }",
+    message: messages.expected,
+  }, {
+    code: ":root { --Foo-Bar: 0; }",
+    message: messages.expected,
+  } ],
 })

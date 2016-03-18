@@ -1,18 +1,24 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: [undefined],
 
-testRule(undefined, tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: "@keyframes { 0% { top: 0; } }",
+  }, {
+    code: "@viewport { orientation: landscape; }",
+  } ],
 
-  tr.ok("@keyframes { 0% { top: 0; } }")
-  tr.notOk("@-webkit-keyframes { 0% { top: 0; } }", messages.rejected("-webkit-keyframes"))
-  tr.notOk("@-moz-keyframes { 0% { top: 0; } }", messages.rejected("-moz-keyframes"))
-
-  tr.ok("@viewport { orientation: landscape; }")
-  tr.notOk("@-ms-viewport { orientation: landscape; }", messages.rejected("-ms-viewport"))
+  reject: [ {
+    code: "@-webkit-keyframes { 0% { top: 0; } }",
+    message: messages.rejected("-webkit-keyframes"),
+  }, {
+    code: "@-moz-keyframes { 0% { top: 0; } }",
+    message: messages.rejected("-moz-keyframes"),
+  }, {
+    code: "@-ms-viewport { orientation: landscape; }",
+    message: messages.rejected("-ms-viewport"),
+  } ],
 })

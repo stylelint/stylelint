@@ -1,43 +1,32 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: [undefined],
 
-testRule(undefined, tr => {
-  warningFreeBasics(tr)
+  accept: [{
+    code: "a { color: pink; }",
+    description: "without !important",
+  }],
 
-  tr.ok("a { color: pink; }", "without !important")
-
-  tr.notOk(
-    "a { color: pink !important; }",
-    {
-      message: messages.rejected,
-      line: 1,
-      column: 18,
-    },
-    "with !important"
-  )
-
-  tr.notOk(
-    "a { color: pink ! important; }",
-    {
-      message: messages.rejected,
-      line: 1,
-      column: 19,
-    },
-    "with ! important"
-  )
-
-  tr.notOk(
-    "a { color: pink!important; }",
-    {
-      message: messages.rejected,
-      line: 1,
-      column: 17,
-    },
-    "with value!important"
-  )
+  reject: [ {
+    code: "a { color: pink !important; }",
+    description: "with !important",
+    message: messages.rejected,
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { color: pink ! important; }",
+    description: "with ! important",
+    message: messages.rejected,
+    line: 1,
+    column: 19,
+  }, {
+    code: "a { color: pink!important; }",
+    description: "with value!important",
+    message: messages.rejected,
+    line: 1,
+    column: 17,
+  } ],
 })

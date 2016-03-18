@@ -1,76 +1,131 @@
-import {
-  ruleTester,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: [true],
+  skipBasicChecks: true,
 
-testRule(true, tr => {
-  // Stand-in warning-free-basics
-  tr.ok("")
-  tr.ok("@import \"foo.css\";")
+  accept: [ {
+    code: "",
+  }, {
+    code: "@import \"foo.css\";",
+  }, {
+    code: "#foo {}",
+  }, {
+    code: ".foo {}",
+  }, {
+    code: "[foo] {}",
+  }, {
+    code: ".foo { & {} }",
+  }, {
+    code: ".foo { &.bar {} }",
+  }, {
+    code: ".foo { &-bar {} }",
+  }, {
+    code: ".foo { &__bar {} }",
+  }, {
+    code: ".foo { [&] {} }",
+  }, {
+    code: ".foo { & [class*=bar] {} }",
+  }, {
+    code: ".foo { @nest & {} }",
+  }, {
+    code: ".foo:nth-child(3n + 1) {}",
+  }, {
+    code: ".foo:nth-child(n) {}",
+  }, {
+    code: ".foo:nth-child(odd) {}",
+  }, {
+    code: ".foo:nth-child(even) {}",
+  }, {
+    code: ".foo:nth-child(-n) {}",
+  }, {
+    code: ".foo { &:nth-child(3n + 1) {} }",
+  }, {
+    code: "@keyframes spin { 0% {} }",
+  }, {
+    code: "@keyframes spin { to {} from {} }",
+  }, {
+    code: ":root { --custom-property-set: {} }",
+  } ],
 
-  tr.ok("#foo {}")
-  tr.ok(".foo {}")
-  tr.ok("[foo] {}")
-
-  tr.ok(".foo { & {} }")
-  tr.ok(".foo { &.bar {} }")
-  tr.ok(".foo { &-bar {} }")
-  tr.ok(".foo { &__bar {} }")
-  tr.ok(".foo { [&] {} }")
-  tr.ok(".foo { & [class*=bar] {} }")
-  tr.ok(".foo { @nest & {} }")
-  tr.ok(".foo:nth-child(3n + 1) {}")
-  tr.ok(".foo:nth-child(n) {}")
-  tr.ok(".foo:nth-child(odd) {}")
-  tr.ok(".foo:nth-child(even) {}")
-  tr.ok(".foo:nth-child(-n) {}")
-  tr.ok(".foo { &:nth-child(3n + 1) {} }")
-  tr.ok("@keyframes spin { 0% {} }")
-  tr.ok("@keyframes spin { to {} from {} }")
-  tr.ok(":root { --custom-property-set: {} }")
-
-  tr.notOk("foo {}", {
+  reject: [ {
+    code: "foo {}",
     message: messages.rejected,
     line: 1,
     column: 1,
-  })
-  tr.notOk(".bar > foo {}", {
+  }, {
+    code: ".bar > foo {}",
     message: messages.rejected,
     line: 1,
     column: 8,
-  })
-  tr.notOk("foo.bar {}", {
+  }, {
+    code: "foo.bar {}",
     message: messages.rejected,
     line: 1,
     column: 1,
-  })
-  tr.notOk(".foo, .bar, foo.baz {}", {
+  }, {
+    code: ".foo, .bar, foo.baz {}",
     message: messages.rejected,
     line: 1,
     column: 13,
-  })
+  } ],
 })
 
-testRule(true, { ignore: ["descendant"] }, tr => {
-  tr.ok(".foo div {}")
-  tr.ok(".foo > div {}")
-  tr.ok(".foo + div {}")
-  tr.ok("#bar div.foo {}", "descendant and compounded")
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignore: ["descendant"] } ],
+  skipBasicChecks: true,
 
-  tr.notOk("div {}", messages.rejected)
-  tr.notOk(".foo, div {}", messages.rejected)
-  tr.notOk("div.foo {}", messages.rejected)
+  accept: [ {
+    code: ".foo div {}",
+  }, {
+    code: ".foo > div {}",
+  }, {
+    code: ".foo + div {}",
+  }, {
+    code: "#bar div.foo {}",
+    description: "descendant and compounded",
+  } ],
+
+  reject: [ {
+    code: "div {}",
+    message: messages.rejected,
+  }, {
+    code: ".foo, div {}",
+    message: messages.rejected,
+  }, {
+    code: "div.foo {}",
+    message: messages.rejected,
+  } ],
 })
 
-testRule(true, { ignore: ["compounded"] }, tr => {
-  tr.ok("div.foo {}")
-  tr.ok("div#foo {}")
-  tr.ok("div[something] {}")
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignore: ["compounded"] } ],
+  skipBasicChecks: true,
 
-  tr.notOk("div {}", messages.rejected)
-  tr.notOk(".foo, div {}", messages.rejected)
-  tr.notOk(".foo div {}", messages.rejected)
-  tr.notOk("#bar div.foo {}", messages.rejected, "compounded and descendant")
+  accept: [ {
+    code: "div.foo {}",
+  }, {
+    code: "div#foo {}",
+  }, {
+    code: "div[something] {}",
+  } ],
+
+  reject: [ {
+    code: "div {}",
+    message: messages.rejected,
+  }, {
+    code: ".foo, div {}",
+    message: messages.rejected,
+  }, {
+    code: ".foo div {}",
+    message: messages.rejected,
+  }, {
+    code: "#bar div.foo {}",
+    description: "compounded and descendant",
+    message: messages.rejected,
+  } ],
 })

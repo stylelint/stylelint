@@ -1,177 +1,226 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: "a { color: pink;\n}",
+  }, {
+    code: "a { color: pink;\r\n}",
+    description: "CRLF",
+  }, {
+    code: "a::before { content: \";a\";\n}",
+  }, {
+    code: "a {\ncolor: pink;\n top:0;\n}",
+  }, {
+    code: "a {\ncolor: pink;\n  top:0;\n}",
+  }, {
+    code: "a {\ncolor: pink;\n\ttop:0;\n}",
+  }, {
+    code: "a {\r\ncolor: pink;\r\n\ttop:0;\r\n}",
+    description: "CRLF",
+  }, {
+    code: "a { color: pink;\ntop: 0; }",
+    description: "space between trailing semicolon and closing brace",
+  }, {
+    code: "a { color: pink;\ntop: 0;}",
+    description: "no space between trailing semicolon and closing brace",
+  }, {
+    code: "a { color: pink;\r\ntop: 0;}",
+    description: "no space between trailing semicolon and closing brace and CRLF",
+  }, {
+    code: "a { color: pink;\ntop: 0}",
+  }, {
+    code: "a {\n  color: pink; /* 1 */\n  top: 0\n}",
+    description: "end-of-line comment",
+  }, {
+    code: "a {\n  color: pink;    /* 1 */\n  top: 0\n}",
+    description: "end-of-line comment a few spaces after",
+  }, {
+    code: "a {\r\n  color: pink; /* 1 */\r\n  top: 0\r\n}",
+    description: "end-of-line comment and CRLF",
+  }, {
+    code: "a {\n  color: pink;\n  /* 1 */\n  top: 0\n}",
+    description: "next-line comment",
+  }, {
+    code: "a,\nb { color: pink;\ntop: 0}",
+    description: "multi-line rule, multi-line declaration-block",
+  }, {
+    code: "a,\r\nb { color: pink;\r\ntop: 0}",
+    description: "multi-line rule, multi-line declaration-block and CRLF",
+  } ],
 
-  tr.ok("a { color: pink;\n}")
-  tr.ok("a { color: pink;\r\n}", "CRLF")
-  tr.ok("a::before { content: \";a\";\n}")
-  tr.ok("a {\ncolor: pink;\n top:0;\n}")
-  tr.ok("a {\ncolor: pink;\n  top:0;\n}")
-  tr.ok("a {\ncolor: pink;\n\ttop:0;\n}")
-  tr.ok("a {\r\ncolor: pink;\r\n\ttop:0;\r\n}", "CRLF")
-  tr.ok("a { color: pink;\ntop: 0; }", "space between trailing semicolon and closing brace")
-  tr.ok("a { color: pink;\ntop: 0;}", "no space between trailing semicolon and closing brace")
-  tr.ok("a { color: pink;\r\ntop: 0;}", "no space between trailing semicolon and closing brace and CRLF")
-  tr.ok("a { color: pink;\ntop: 0}")
-  tr.ok("a {\n  color: pink; /* 1 */\n  top: 0\n}", "end-of-line comment")
-  tr.ok("a {\n  color: pink;    /* 1 */\n  top: 0\n}", "end-of-line comment a few spaces after")
-  tr.ok("a {\r\n  color: pink; /* 1 */\r\n  top: 0\r\n}", "end-of-line comment and CRLF")
-  tr.ok("a {\n  color: pink;\n  /* 1 */\n  top: 0\n}", "next-line comment")
-  tr.ok("a,\nb { color: pink;\ntop: 0}", "multi-line rule, multi-line declaration-block")
-  tr.ok("a,\r\nb { color: pink;\r\ntop: 0}", "multi-line rule, multi-line declaration-block and CRLF")
-
-  tr.notOk("a { color: pink;top: 0; }", {
+  reject: [ {
+    code: "a { color: pink;top: 0; }",
     message: messages.expectedAfter(),
     line: 1,
     column: 17,
-  })
-  tr.notOk("a { color: pink; top: 0; }", {
+  }, {
+    code: "a { color: pink; top: 0; }",
     message: messages.expectedAfter(),
     line: 1,
     column: 17,
-  })
-  tr.notOk("a { color: pink; top: 0; }", {
+  }, {
+    code: "a { color: pink; top: 0; }",
     message: messages.expectedAfter(),
     line: 1,
     column: 17,
-  })
-  tr.notOk("a { color: pink;\ttop: 0; }", {
+  }, {
+    code: "a { color: pink;\ttop: 0; }",
     message: messages.expectedAfter(),
     line: 1,
     column: 17,
-  })
-  tr.notOk(
-    "a {\n  color: pink; /* 1 */ top: 0\n}",
-    {
-      message: messages.expectedAfter(),
-      line: 2,
-      column: 15,
-    },
-    "next node is comment without newline after"
-  )
-  tr.notOk(
-    "a {\r\n  color: pink; /* 1 */ top: 0\r\n}",
-    {
-      message: messages.expectedAfter(),
-      line: 2,
-      column: 15,
-    },
-    "CRLF and next node is comment without newline after"
-  )
-  tr.notOk(
-    "a {\n  color: pink;\t/* 1 */\n  top: 0\n}",
-    {
-      message: messages.expectedAfter(),
-      line: 2,
-      column: 15,
-    },
-    "next node is comment with tab before"
-  )
-  tr.notOk(
-    "a {\n  color: pink; /* 1\n2 */\n  top: 0\n}",
-    {
-      message: messages.expectedAfter(),
-      line: 2,
-      column: 15,
-    },
-    "next node is end-of-line comment containing newline"
-  )
+  }, {
+    code: "a {\n  color: pink; /* 1 */ top: 0\n}",
+    description: "next node is comment without newline after",
+    message: messages.expectedAfter(),
+    line: 2,
+    column: 15,
+  }, {
+    code: "a {\r\n  color: pink; /* 1 */ top: 0\r\n}",
+    description: "CRLF and next node is comment without newline after",
+    message: messages.expectedAfter(),
+    line: 2,
+    column: 15,
+  }, {
+    code: "a {\n  color: pink;\t/* 1 */\n  top: 0\n}",
+    description: "next node is comment with tab before",
+    message: messages.expectedAfter(),
+    line: 2,
+    column: 15,
+  }, {
+    code: "a {\n  color: pink; /* 1\n2 */\n  top: 0\n}",
+    description: "next node is end-of-line comment containing newline",
+    message: messages.expectedAfter(),
+    line: 2,
+    column: 15,
+  } ],
 })
 
-testRule("always-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["always-multi-line"],
 
-  tr.ok("a {\ncolor: pink;\n}")
-  tr.ok("a::before {\ncontent: \";a\";\n}")
-  tr.ok("a::before {\r\ncontent: \";a\";\r\n}", "CRLF")
-  tr.ok("a {\ncolor: pink;\n top:0;\n}")
-  tr.ok("a {\ncolor: pink;\n  top:0;\n}")
-  tr.ok("a {\r\ncolor: pink;\r\n  top:0;\r\n}", "CRLF")
-  tr.ok("a {\ncolor: pink;\n\ttop:0;\n}")
-  tr.ok("a {\ncolor: pink;\ntop: 0; }", "space between trailing semicolon and closing brace")
-  tr.ok("a {\ncolor: pink;\ntop: 0;}", "no space between trailing semicolon and closing brace")
+  accept: [ {
+    code: "a {\ncolor: pink;\n}",
+  }, {
+    code: "a::before {\ncontent: \";a\";\n}",
+  }, {
+    code: "a::before {\r\ncontent: \";a\";\r\n}",
+    description: "CRLF",
+  }, {
+    code: "a {\ncolor: pink;\n top:0;\n}",
+  }, {
+    code: "a {\ncolor: pink;\n  top:0;\n}",
+  }, {
+    code: "a {\r\ncolor: pink;\r\n  top:0;\r\n}",
+    description: "CRLF",
+  }, {
+    code: "a {\ncolor: pink;\n\ttop:0;\n}",
+  }, {
+    code: "a {\ncolor: pink;\ntop: 0; }",
+    description: "space between trailing semicolon and closing brace",
+  }, {
+    code: "a {\ncolor: pink;\ntop: 0;}",
+    description: "no space between trailing semicolon and closing brace",
+  }, {
+    code: "a { color: pink; top: 0; }",
+  }, {
+    code: "a { color: pink; /* 1 */ top: 0; }",
+  }, {
+    code: "a,\nb { color: pink; top: 0}",
+    description: "multi-line rule, single-line declaration-block",
+  }, {
+    code: "a,\r\nb { color: pink; top: 0}",
+    description: "multi-line rule, single-line declaration-block and CRLF",
+  } ],
 
-  // Ignore single-line
-  tr.ok("a { color: pink; top: 0; }")
-  tr.ok("a { color: pink; /* 1 */ top: 0; }")
-  tr.ok("a,\nb { color: pink; top: 0}", "multi-line rule, single-line declaration-block")
-  tr.ok("a,\r\nb { color: pink; top: 0}", "multi-line rule, single-line declaration-block and CRLF")
-
-  tr.notOk("a {\ncolor: pink;top: 0;\n}", {
+  reject: [ {
+    code: "a {\ncolor: pink;top: 0;\n}",
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 13,
-  })
-  tr.notOk("a {\ncolor: pink; top: 0;\n}", {
+  }, {
+    code: "a {\ncolor: pink; top: 0;\n}",
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 13,
-  })
-  tr.notOk("a {\r\ncolor: pink; top: 0;\r\n}", {
+  }, {
+    code: "a {\r\ncolor: pink; top: 0;\r\n}",
+    description: "CRLF",
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 13,
-  }, "CRLF")
-  tr.notOk("a {\ncolor: pink; top: 0;\n}", {
+  }, {
+    code: "a {\ncolor: pink; top: 0;\n}",
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 13,
-  })
-  tr.notOk("a {\ncolor: pink;\ttop: 0;\n}", {
+  }, {
+    code: "a {\ncolor: pink;\ttop: 0;\n}",
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 13,
-  })
-  tr.notOk("a {\r\ncolor: pink;\ttop: 0;\r\n}", {
+  }, {
+    code: "a {\r\ncolor: pink;\ttop: 0;\r\n}",
+    description: "CRLF",
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 13,
-  }, "CRLF")
+  } ],
 })
 
-testRule("never-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["never-multi-line"],
 
-  tr.ok("a {\ncolor: pink;\n}")
-  tr.ok("a {\r\ncolor: pink;\r\n}", "CRLF")
-  tr.ok("a::before {\ncontent: \";\na\";\n}")
-  tr.ok("a {\ncolor: pink;top: 0; }", "space between trailing semicolon and closing brace")
-  tr.ok("a {\ncolor: pink;top: 0;}", "no space between trailing semicolon and closing brace")
+  accept: [ {
+    code: "a {\ncolor: pink;\n}",
+  }, {
+    code: "a {\r\ncolor: pink;\r\n}",
+    description: "CRLF",
+  }, {
+    code: "a::before {\ncontent: \";\na\";\n}",
+  }, {
+    code: "a {\ncolor: pink;top: 0; }",
+    description: "space between trailing semicolon and closing brace",
+  }, {
+    code: "a {\ncolor: pink;top: 0;}",
+    description: "no space between trailing semicolon and closing brace",
+  }, {
+    code: "a { color: pink; top: 0; }",
+  }, {
+    code: "a,\nb { color: pink; top: 0}",
+    description: "multi-line rule, single-line declaration-block",
+  } ],
 
-  // Ignore single-line
-  tr.ok("a { color: pink; top: 0; }")
-  tr.ok("a,\nb { color: pink; top: 0}", "multi-line rule, single-line declaration-block")
-
-  tr.notOk("a {\ncolor: pink; top: 0;\n}", {
+  reject: [ {
+    code: "a {\ncolor: pink; top: 0;\n}",
     message: messages.rejectedAfterMultiLine(),
     line: 2,
     column: 13,
-  })
-  tr.notOk("a {\ncolor: pink;  top: 0;\n}", {
+  }, {
+    code: "a {\ncolor: pink;  top: 0;\n}",
     message: messages.rejectedAfterMultiLine(),
     line: 2,
     column: 13,
-  })
-  tr.notOk("a {\ncolor: pink;\ntop: 0;\n}", {
+  }, {
+    code: "a {\ncolor: pink;\ntop: 0;\n}",
     message: messages.rejectedAfterMultiLine(),
     line: 2,
     column: 13,
-  })
-  tr.notOk("a {\r\ncolor: pink;\r\ntop: 0;\r\n}", {
+  }, {
+    code: "a {\r\ncolor: pink;\r\ntop: 0;\r\n}",
+    description: "CRLF",
     message: messages.rejectedAfterMultiLine(),
     line: 2,
     column: 13,
-  }, "CRLF")
-  tr.notOk("a {\ncolor: pink;\ttop: 0;\n}", {
+  }, {
+    code: "a {\ncolor: pink;\ttop: 0;\n}",
     message: messages.rejectedAfterMultiLine(),
     line: 2,
     column: 13,
-  })
+  } ],
 })

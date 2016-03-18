@@ -1,98 +1,128 @@
-import {
-  ruleTester,
-} from "../../../testUtils"
-import scss from "postcss-scss"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: ["single"],
+  skipBasicChecks: true,
 
-// warningFreeBasics won't work because it includes a string
-testRule("single", tr => {
-  // special-warning-free-basics
-  tr.ok("")
-  tr.ok("a {}")
-  tr.ok("@import url(foo.css);")
-  tr.ok("a { color: pink; }")
+  accept: [ {
+    code: "",
+  }, {
+    code: "a {}",
+  }, {
+    code: "@import url(foo.css);",
+  }, {
+    code: "a { color: pink; }",
+  }, {
+    code: "a::before { content: 'foo'; }",
+  }, {
+    code: "a { background: url('foo'); }",
+  }, {
+    code: "a[id='foo'] {}",
+  }, {
+    code: "a::before { content: 'foo\"horse\"\'cow\''; }",
+    description: "string in strings",
+  }, {
+    code: "a { /* \"horse\" */ }",
+    description: "ignores comment",
+  } ],
 
-  tr.ok("a::before { content: 'foo'; }")
-  tr.ok("a { background: url('foo'); }")
-  tr.ok("a[id='foo'] {}")
-  tr.notOk("a::before { content: \"foo\"; }", {
+  reject: [ {
+    code: "a::before { content: \"foo\"; }",
     message: messages.expected("single"),
     line: 1,
     column: 22,
-  })
-  tr.notOk("a::before\n{\n  content: \"foo\";\n}", {
+  }, {
+    code: "a::before\n{\n  content: \"foo\";\n}",
     message: messages.expected("single"),
     line: 3,
     column: 12,
-  })
-  tr.notOk("a[id=\"foo\"] {}", {
+  }, {
+    code: "a[id=\"foo\"] {}",
     message: messages.expected("single"),
     line: 1,
     column: 6,
-  })
-  tr.notOk("a\n{ background: url(\"foo\"); }", {
+  }, {
+    code: "a\n{ background: url(\"foo\"); }",
     message: messages.expected("single"),
     line: 2,
     column: 19,
-  })
-
-  tr.ok("a::before { content: 'foo\"horse\"\'cow\''; }", "string in strings")
-  tr.ok("a { /* \"horse\" */ }", "ignores comment")
+  } ],
 })
 
-testRule("double", tr => {
-  // special-warning-free-basics
-  tr.ok("")
-  tr.ok("a {}")
-  tr.ok("@import url(foo.css);")
-  tr.ok("a { color: pink; }")
+testRule(rule, {
+  ruleName,
+  config: ["double"],
+  skipBasicChecks: true,
 
-  tr.ok("a::before { content: \"foo\"; }")
-  tr.ok("a { background: url(\"foo\"); }")
-  tr.ok("a[id=\"foo\"] {}")
-  tr.notOk("a::before { content: 'foo'; }", {
+  accept: [ {
+    code: "",
+  }, {
+    code: "a {}",
+  }, {
+    code: "@import url(foo.css);",
+  }, {
+    code: "a { color: pink; }",
+  }, {
+    code: "a::before { content: \"foo\"; }",
+  }, {
+    code: "a { background: url(\"foo\"); }",
+  }, {
+    code: "a[id=\"foo\"] {}",
+  }, {
+    code: "a::before { content: \"foo\"horse\"'cow'\"; }",
+    description: "string in strings",
+  }, {
+    code: "a { /* 'horse' */ }",
+    description: "ignores comment",
+  } ],
+
+  reject: [ {
+    code: "a::before { content: 'foo'; }",
     message: messages.expected("double"),
     line: 1,
     column: 22,
-  })
-  tr.notOk("a::before\n{\n  content: 'foo';\n}", {
+  }, {
+    code: "a::before\n{\n  content: 'foo';\n}",
     message: messages.expected("double"),
     line: 3,
     column: 12,
-  })
-  tr.notOk("a[id='foo'] {}", {
+  }, {
+    code: "a[id='foo'] {}",
     message: messages.expected("double"),
     line: 1,
     column: 6,
-  })
-  tr.notOk("a { background: url('foo'); }", {
+  }, {
+    code: "a { background: url('foo'); }",
     message: messages.expected("double"),
     line: 1,
     column: 21,
-  })
-
-  tr.ok("a::before { content: \"foo\"horse\"'cow'\"; }", "string in strings")
-  tr.ok("a { /* 'horse' */ }", "ignores comment")
+  } ],
 })
 
-const scssTestRule = ruleTester(rule, ruleName, {
-  postcssOptions: { syntax: scss },
-})
+testRule(rule, {
+  ruleName,
+  config: ["double"],
+  skipBasicChecks: true,
+  syntax: "scss",
 
-scssTestRule("double", tr => {
-  tr.ok("a {\n  // 'horse'\n}", "ignores single-line SCSS comment")
+  accept: [{
+    code: "a {\n  // 'horse'\n}",
+    description: "ignores single-line SCSS comment",
+  }],
 
-  tr.notOk("a::before {\n  // 'horse'\n  content: 'thing'; }", {
+  reject: [ {
+    code: "a::before {\n  // 'horse'\n  content: 'thing'; }",
+    description: "pays attention when single-line SCSS comment ends",
     message: messages.expected("double"),
     line: 3,
     column: 12,
-  }, "pays attention when single-line SCSS comment ends")
-
-  tr.notOk("a::before {\n// one\n// two\n// three\n  content: 'thing'; }", {
+  }, {
+    code: "a::before {\n// one\n// two\n// three\n  content: 'thing'; }",
+    description: "accurate position after // comments",
     message: messages.expected("double"),
     line: 5,
     column: 12,
-  }, "accurate position after // comments")
+  } ],
 })

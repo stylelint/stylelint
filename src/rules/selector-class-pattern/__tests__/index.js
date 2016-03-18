@@ -1,71 +1,108 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
+import { mergeTestDescriptions } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+const basicAZTests = {
+  accept: [ {
+    code: "a {}",
+  }, {
+    code: "#foo {}",
+  }, {
+    code: "[foo='bar'] {}",
+  }, {
+    code: ".FOO {}",
+  }, {
+    code: "a #foo > [foo='bar'], .FOO {}",
+  }, {
+    code: "a /* .foo */ {}",
+  }, {
+    code: ":root { --custom-property-set: {} }",
+  } ],
 
-function basicAZTests(tr) {
-  warningFreeBasics(tr)
-
-  tr.ok("a {}")
-  tr.ok("#foo {}")
-  tr.ok("[foo='bar'] {}")
-  tr.ok(".FOO {}")
-  tr.ok("a #foo > [foo='bar'], .FOO {}")
-  tr.ok("a /* .foo */ {}")
-  tr.ok(":root { --custom-property-set: {} }")
-
-  tr.notOk("a .foo {}", {
+  reject: [ {
+    code: "a .foo {}",
     message: messages.expected("foo"),
     line: 1,
     column: 3,
-  })
-  tr.notOk(".ABABA > .bar {}", {
+  }, {
+    code: ".ABABA > .bar {}",
     message: messages.expected("bar"),
     line: 1,
     column: 10,
-  })
+  } ],
 }
 
-testRule(/^[A-Z]+$/, basicAZTests)
-testRule("^[A-Z]+$", basicAZTests)
-
-function nestedAZTestsDefault(tr) {
-  warningFreeBasics(tr)
-
-  tr.ok(".AB { }")
-
-  tr.ok(".A { &__B { }}")
+const nestedAZTestsDefault = {
+  accept: [ {
+    code: ".AB { }",
+  }, {
+    code: ".A { &__B { }}",
+  } ],
 }
 
-testRule(/^[A-Z]+$/, nestedAZTestsDefault)
-testRule("^[A-Z]+$", nestedAZTestsDefault)
+const nestedAZTests = {
+  accept: [ {
+    code: ".AB { }",
+  }, {
+    code: ".A { &B {}}",
+  }, {
+    code: ".A { & > B {}}",
+  }, {
+    code: ".A { &B {}, .C {}, &D {} }",
+  }, {
+    code: ".A, .B { &C {} &D, &E {} }",
+  } ],
 
-function nestedAZTests(tr) {
-  warningFreeBasics(tr)
-
-  tr.ok(".AB { }")
-  tr.ok(".A { &B {}}")
-  tr.ok(".A { & > B {}}")
-  tr.ok(".A { &B {}, .C {}, &D {} }")
-  tr.ok(".A, .B { &C {} &D, &E {} }")
-
-  tr.notOk(".A { &__B { }}", {
+  reject: [{
+    code: ".A { &__B { }}",
     message: messages.expected("A__B"),
     line: 0,
     column: 6,
-  })
+  }],
 }
 
-testRule(/^[A-Z]+$/, { resolveNestedSelectors: true }, nestedAZTests)
-testRule("^[A-Z]+$", { resolveNestedSelectors: true }, nestedAZTests)
+testRule(rule, mergeTestDescriptions(basicAZTests, {
+  ruleName,
+  config: [/^[A-Z]+$/],
+}))
 
-testRule(/^B+$/, { resolveNestedSelectors: true }, tr => {
-  // Ensure that the .A class is not checked twice
-  // when there is a nested selector in its rule
-  tr.notOk(".A { .B { } }", messages.expected("A"))
-  tr.notOk(".A { & .B { } }", messages.expected("A"))
-  tr.notOk(".A { &>.B { } }", messages.expected("A"))
+testRule(rule, mergeTestDescriptions(basicAZTests, {
+  ruleName,
+  config: ["^[A-Z]+$"],
+}))
+
+testRule(rule, mergeTestDescriptions(nestedAZTestsDefault, {
+  ruleName,
+  config: [/^[A-Z]+$/],
+}))
+
+testRule(rule, mergeTestDescriptions(nestedAZTestsDefault, {
+  ruleName,
+  config: ["^[A-Z]+$"],
+}))
+
+testRule(rule, mergeTestDescriptions(nestedAZTests, {
+  ruleName,
+  config: [ /^[A-Z]+$/, { resolveNestedSelectors: true } ],
+}))
+
+testRule(rule, mergeTestDescriptions(nestedAZTests, {
+  ruleName,
+  config: [ "^[A-Z]+$", { resolveNestedSelectors: true } ],
+}))
+
+testRule(rule, {
+  ruleName,
+  config: [ /^B+$/, { resolveNestedSelectors: true } ],
+
+  reject: [ {
+    code: ".A { .B { } }",
+    message: messages.expected("A"),
+  }, {
+    code: ".A { & .B { } }",
+    message: messages.expected("A"),
+  }, {
+    code: ".A { &>.B { } }",
+    message: messages.expected("A"),
+  } ],
 })

@@ -1,207 +1,252 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: "@import url(x.css)",
+  }, {
+    code: "a {\ncolor: pink; }",
+  }, {
+    code: "a {\r\ncolor: pink; }",
+    description: "CRLF",
+  }, {
+    code: "a{\ncolor: pink; }",
+  }, {
+    code: "a{\n\tcolor: pink; }",
+  }, {
+    code: "a{\n  color: pink; }",
+  }, {
+    code: "a{\r\n  color: pink; }",
+    description: "CRLF",
+  }, {
+    code: "@media print {\na {\ncolor: pink; } }",
+  }, {
+    code: "@media print{\na{\ncolor: pink; } }",
+  }, {
+    code: "@media print{\r\na{\r\ncolor: pink; } }",
+    description: "CRLF",
+  }, {
+    code: "@media print{\n\ta{\n  color: pink; } }",
+  }, {
+    code: "a { /* 1 */\n  color: pink;\n}",
+    description: "end-of-line comment",
+  }, {
+    code: "a {    /* 1 */\n  color: pink;\n}",
+    description: "end-of-line comment with multiple spaces before",
+  }, {
+    code: "a {\n  /* 1 */\n  color: pink;\n}",
+    description: "next-line comment",
+  }, {
+    code: "a {\r\n  /* 1 */\r\n  color: pink;\r\n}",
+    description: "next-line comment and CRLF",
+  } ],
 
-  tr.ok("@import url(x.css)")
-  tr.ok("a {\ncolor: pink; }")
-  tr.ok("a {\r\ncolor: pink; }", "CRLF")
-  tr.ok("a{\ncolor: pink; }")
-  tr.ok("a{\n\tcolor: pink; }")
-  tr.ok("a{\n  color: pink; }")
-  tr.ok("a{\r\n  color: pink; }", "CRLF")
-  tr.ok("@media print {\na {\ncolor: pink; } }")
-  tr.ok("@media print{\na{\ncolor: pink; } }")
-  tr.ok("@media print{\r\na{\r\ncolor: pink; } }", "CRLF")
-  tr.ok("@media print{\n\ta{\n  color: pink; } }")
-  tr.ok("a { /* 1 */\n  color: pink;\n}", "end-of-line comment")
-  tr.ok("a {    /* 1 */\n  color: pink;\n}", "end-of-line comment with multiple spaces before")
-  tr.ok("a {\n  /* 1 */\n  color: pink;\n}", "next-line comment")
-  tr.ok("a {\r\n  /* 1 */\r\n  color: pink;\r\n}", "next-line comment and CRLF")
-
-  tr.notOk("a { color: pink; }", {
+  reject: [ {
+    code: "a { color: pink; }",
     message: messages.expectedAfter(),
     line: 1,
     column: 4,
-  })
-  tr.notOk("a {color: pink; }", {
+  }, {
+    code: "a {color: pink; }",
     message: messages.expectedAfter(),
     line: 1,
     column: 4,
-  })
-  tr.notOk("a {  color: pink; }", {
+  }, {
+    code: "a {  color: pink; }",
     message: messages.expectedAfter(),
     line: 1,
     column: 4,
-  })
-  tr.notOk("a {\tcolor: pink; }", {
+  }, {
+    code: "a {\tcolor: pink; }",
     message: messages.expectedAfter(),
     line: 1,
     column: 4,
-  })
-  tr.notOk("@media print { a {\ncolor: pink; } }", {
+  }, {
+    code: "@media print { a {\ncolor: pink; } }",
     message: messages.expectedAfter(),
     line: 1,
     column: 15,
-  })
-  tr.notOk("@media print {\na { color: pink; } }", {
+  }, {
+    code: "@media print {\na { color: pink; } }",
     message: messages.expectedAfter(),
     line: 2,
     column: 4,
-  })
-  tr.notOk("@media print {\r\na { color: pink; } }", {
+  }, {
+    code: "@media print {\r\na { color: pink; } }",
+    description: "CRLF",
     message: messages.expectedAfter(),
     line: 2,
     column: 4,
-  }, "CRLF")
-  tr.notOk(
-    "a { /* 1 */ color: pink; }",
-    {
-      message: messages.expectedAfter(),
-      line: 1,
-      column: 4,
-    },
-    "next node is comment without newline after"
-  )
-  tr.notOk(
-    "a {\t/* 1 */ color: pink; }",
-    {
-      message: messages.expectedAfter(),
-      line: 1,
-      column: 4,
-    },
-    "next node is comment with tab before"
-  )
-  tr.notOk(
-    "a { /* 1\n2 */ color: pink; }",
-    {
-      message: messages.expectedAfter(),
-      line: 1,
-      column: 4,
-    },
-    "next node is end-of-line comment containing newlines"
-  )
+  }, {
+    code: "a { /* 1 */ color: pink; }",
+    description: "next node is comment without newline after",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 4,
+  }, {
+    code: "a {\t/* 1 */ color: pink; }",
+    description: "next node is comment with tab before",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 4,
+  }, {
+    code: "a { /* 1\n2 */ color: pink; }",
+    description: "next node is end-of-line comment containing newlines",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 4,
+  } ],
 })
 
-testRule("always-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["always-multi-line"],
 
-  // Regular "always" tests
-  tr.ok("a {\ncolor: pink; }")
-  tr.ok("a {\n  color: pink;\n  background: orange; }")
-  tr.ok("a {\r\n  color: pink;\r\n  background: orange; }", "CRLF")
-  tr.ok("a{\ncolor: pink; }")
-  tr.ok("a{\n\tcolor: pink; }")
-  tr.ok("a{\n  color: pink; }")
-  tr.ok("@media print {\na {\ncolor: pink; } }")
-  tr.ok("@media print {\r\na {\r\ncolor: pink; } }", "CRLF")
-  tr.ok("@media print{\na{\ncolor: pink; } }")
-  tr.ok("@media print{\n\ta{\n  color: pink; } }")
-  tr.ok("@media print{\r\n\ta{\r\n  color: pink; } }", "CRLF")
+  accept: [ {
+    code: "a {\ncolor: pink; }",
+  }, {
+    code: "a {\n  color: pink;\n  background: orange; }",
+  }, {
+    code: "a {\r\n  color: pink;\r\n  background: orange; }",
+    description: "CRLF",
+  }, {
+    code: "a{\ncolor: pink; }",
+  }, {
+    code: "a{\n\tcolor: pink; }",
+  }, {
+    code: "a{\n  color: pink; }",
+  }, {
+    code: "@media print {\na {\ncolor: pink; } }",
+  }, {
+    code: "@media print {\r\na {\r\ncolor: pink; } }",
+    description: "CRLF",
+  }, {
+    code: "@media print{\na{\ncolor: pink; } }",
+  }, {
+    code: "@media print{\n\ta{\n  color: pink; } }",
+  }, {
+    code: "@media print{\r\n\ta{\r\n  color: pink; } }",
+    description: "CRLF",
+  }, {
+    code: "a { color: pink; }",
+  }, {
+    code: "a {\tcolor: pink; }",
+  }, {
+    code: "a {  color: pink;  background: orange; }",
+  }, {
+    code: "a { /* 1 */ color: pink; }",
+  } ],
 
-  tr.notOk("a { color: pink;\nbackground: orange; }", {
+  reject: [ {
+    code: "a { color: pink;\nbackground: orange; }",
     message: messages.expectedAfterMultiLine(),
     line: 1,
     column: 4,
-  })
-  tr.notOk("a {color: pink;\nbackground: orange; }", {
+  }, {
+    code: "a {color: pink;\nbackground: orange; }",
     message: messages.expectedAfterMultiLine(),
     line: 1,
     column: 4,
-  })
-  tr.notOk("a {  color: pink;\nbackground: orange; }", {
+  }, {
+    code: "a {  color: pink;\nbackground: orange; }",
     message: messages.expectedAfterMultiLine(),
     line: 1,
     column: 4,
-  })
-  tr.notOk("a {\tcolor: pink;\nbackground: orange; }", {
+  }, {
+    code: "a {\tcolor: pink;\nbackground: orange; }",
     message: messages.expectedAfterMultiLine(),
     line: 1,
     column: 4,
-  })
-  tr.notOk("a {\tcolor: pink;\r\nbackground: orange; }", {
+  }, {
+    code: "a {\tcolor: pink;\r\nbackground: orange; }",
+    description: "CRLF",
     message: messages.expectedAfterMultiLine(),
     line: 1,
     column: 4,
-  }, "CRLF")
-  tr.notOk("@media print { a {\ncolor:\npink; } }", {
+  }, {
+    code: "@media print { a {\ncolor:\npink; } }",
     message: messages.expectedAfterMultiLine(),
     line: 1,
     column: 15,
-  })
-  tr.notOk("@media print {\na { color:\npink; } }", {
+  }, {
+    code: "@media print {\na { color:\npink; } }",
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 4,
-  })
-  tr.notOk("@media print {\r\na { color:\r\npink; } }", {
+  }, {
+    code: "@media print {\r\na { color:\r\npink; } }",
+    description: "CRLF",
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 4,
-  }, "CRLF")
-
-  // Ignore single-line
-  tr.ok("a { color: pink; }")
-  tr.ok("a {\tcolor: pink; }")
-  tr.ok("a {  color: pink;  background: orange; }")
-  tr.ok("a { /* 1 */ color: pink; }")
+  } ],
 })
 
-testRule("never-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["never-multi-line"],
 
-  tr.ok("a {color: pink;\nbackground: orange; }")
-  tr.ok("a {color: pink;\r\nbackground: orange; }", "CRLF")
-  tr.ok("a{color: pink;\nbackground: orange; }")
-  tr.ok("@media print {a {color: pink;\nbackground: orange; } }")
-  tr.ok("@media print{a{color: pink;\nbackground: orange; } }")
+  accept: [ {
+    code: "a {color: pink;\nbackground: orange; }",
+  }, {
+    code: "a {color: pink;\r\nbackground: orange; }",
+    description: "CRLF",
+  }, {
+    code: "a{color: pink;\nbackground: orange; }",
+  }, {
+    code: "@media print {a {color: pink;\nbackground: orange; } }",
+  }, {
+    code: "@media print{a{color: pink;\nbackground: orange; } }",
+  }, {
+    code: "a { color: pink; }",
+  }, {
+    code: "a {  color: pink; }",
+  }, {
+    code: "a {\tcolor: pink; }",
+  }, {
+    code: "@media print { a { color: pink; } }",
+  }, {
+    code: "@media print {\ta {\tcolor: pink; } }",
+  } ],
 
-  // Ignore single-line
-  tr.ok("a { color: pink; }")
-  tr.ok("a {  color: pink; }")
-  tr.ok("a {\tcolor: pink; }")
-  tr.ok("@media print { a { color: pink; } }")
-  tr.ok("@media print {\ta {\tcolor: pink; } }")
-
-  tr.notOk("a { color: pink;\nbackground: orange; }", {
+  reject: [ {
+    code: "a { color: pink;\nbackground: orange; }",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 4,
-  })
-  tr.notOk("a {\ncolor: pink;\nbackground: orange; }", {
+  }, {
+    code: "a {\ncolor: pink;\nbackground: orange; }",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 4,
-  })
-  tr.notOk("a {\r\ncolor: pink;\r\nbackground: orange; }", {
+  }, {
+    code: "a {\r\ncolor: pink;\r\nbackground: orange; }",
+    description: "CRLF",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 4,
-  }, "CRLF")
-  tr.notOk("a {  color: pink;\nbackground: orange; }", {
+  }, {
+    code: "a {  color: pink;\nbackground: orange; }",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 4,
-  })
-  tr.notOk("a {\tcolor: pink;\nbackground: orange; }", {
+  }, {
+    code: "a {\tcolor: pink;\nbackground: orange; }",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 4,
-  })
-  tr.notOk("@media print {\na {color: pink;\nbackground: orange; } }", {
+  }, {
+    code: "@media print {\na {color: pink;\nbackground: orange; } }",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 15,
-  })
-  tr.notOk("@media print {a {\ncolor: pink;\nbackground: orange; } }", {
+  }, {
+    code: "@media print {a {\ncolor: pink;\nbackground: orange; } }",
     message: messages.rejectedAfterMultiLine(),
     line: 1,
     column: 18,
-  })
+  } ],
 })

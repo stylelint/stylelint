@@ -1,58 +1,74 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
 
-testRule([
-  "transform",
-  "background-size",
-], tr => {
-  warningFreeBasics(tr)
+  config: [[
+    "transform",
+    "background-size",
+  ]],
 
-  tr.ok("a { background-size: cover; }")
-  tr.ok("a { transform: scale(1); }")
-  tr.ok("a { -webkit-transform: scale(1); }")
-  tr.ok("a { transform: scale(1); background-size: cover; }")
-  tr.ok("a { transform: scale(1); -webkit-transform: scale(1); background-size: cover; }")
-  tr.ok("a { $scss: 0; }")
-  tr.ok("a { @less: 0; }")
-  tr.ok("a { --custom-property: 0; }")
+  accept: [ {
+    code: "a { background-size: cover; }",
+  }, {
+    code: "a { transform: scale(1); }",
+  }, {
+    code: "a { -webkit-transform: scale(1); }",
+  }, {
+    code: "a { transform: scale(1); background-size: cover; }",
+  }, {
+    code: "a { transform: scale(1); -webkit-transform: scale(1); background-size: cover; }",
+  }, {
+    code: "a { $scss: 0; }",
+  }, {
+    code: "a { @less: 0; }",
+  }, {
+    code: "a { --custom-property: 0; }",
+  } ],
 
-  tr.notOk("a { background: pink; }", {
+  reject: [ {
+    code: "a { background: pink; }",
     message: messages.rejected("background"),
     line: 1,
     column: 5,
-  })
-  tr.notOk("a { color: pink; }", {
+  }, {
+    code: "a { color: pink; }",
     message: messages.rejected("color"),
     line: 1,
     column: 5,
-  })
-  tr.notOk("a { overflow: hidden; background-size: cover; }", {
+  }, {
+    code: "a { overflow: hidden; background-size: cover; }",
     message: messages.rejected("overflow"),
     line: 1,
     column: 5,
-  })
-  tr.notOk("a { color: orange; -webkit-transform: scale(1); }", {
+  }, {
+    code: "a { color: orange; -webkit-transform: scale(1); }",
     message: messages.rejected("color"),
     line: 1,
     column: 5,
-  })
+  } ],
 })
 
-testRule([
-  "/^background/",
-], tr => {
-  warningFreeBasics(tr)
-  tr.ok("a { background: pink; }")
-  tr.ok("a { background-color: pink; }")
-  tr.ok("a { background-image: none; }")
-  tr.notOk("a { color: pink; }", {
+testRule(rule, {
+  ruleName,
+
+  config: [[
+    "/^background/",
+  ]],
+
+  accept: [ {
+    code: "a { background: pink; }",
+  }, {
+    code: "a { background-color: pink; }",
+  }, {
+    code: "a { background-image: none; }",
+  } ],
+
+  reject: [{
+    code: "a { color: pink; }",
     message: messages.rejected("color"),
     line: 1,
     column: 5,
-  })
+  }],
 })

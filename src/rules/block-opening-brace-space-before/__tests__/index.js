@@ -1,337 +1,392 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: "@import url(x.css)",
+  }, {
+    code: "a { color: pink; }",
+  }, {
+    code: "@media print { a { color: pink; } }",
+  }, {
+    code: "a {{ &:hover { color: pink; }}}",
+  }, {
+    code: "a {\n&:hover { color: pink; }}",
+  } ],
 
-  tr.ok("@import url(x.css)")
-  tr.ok("a { color: pink; }")
-  tr.ok("@media print { a { color: pink; } }")
-
-  tr.ok("a {{ &:hover { color: pink; }}}")
-  tr.ok("a {\n&:hover { color: pink; }}")
-
-  tr.notOk("a{ color: pink; }", {
+  reject: [ {
+    code: "a{ color: pink; }",
     message: messages.expectedBefore(),
     line: 1,
     column: 1,
-  })
-  tr.notOk("a  { color: pink; }", {
+  }, {
+    code: "a  { color: pink; }",
     message: messages.expectedBefore(),
     line: 1,
     column: 3,
-  })
-  tr.notOk("a\t{ color: pink; }", {
+  }, {
+    code: "a\t{ color: pink; }",
     message: messages.expectedBefore(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a\n{ color: pink; }", {
+  }, {
+    code: "a\n{ color: pink; }",
     message: messages.expectedBefore(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a\r\n{ color: pink; }", {
+  }, {
+    code: "a\r\n{ color: pink; }",
+    description: "CRLF",
     message: messages.expectedBefore(),
     line: 1,
     column: 3,
-  }, "CRLF")
-  tr.notOk("@media print\n{ a { color: pink; } }", {
+  }, {
+    code: "@media print\n{ a { color: pink; } }",
     message: messages.expectedBefore(),
     line: 1,
     column: 13,
-  })
-  tr.notOk("@media print { a\n{ color: pink; } }", {
+  }, {
+    code: "@media print { a\n{ color: pink; } }",
     message: messages.expectedBefore(),
     line: 1,
     column: 17,
-  })
+  } ],
 })
 
-testRule("always", { ignoreAtRules: ["for"] }, tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: [ "always", { ignoreAtRules: ["for"] } ],
 
-  tr.ok("a { color: pink; }")
-  tr.ok("@for ...\n{ color: pink; }")
-  tr.ok("@for ...\r\n{ color: pink; }")
+  accept: [ {
+    code: "a { color: pink; }",
+  }, {
+    code: "@for ...\n{ color: pink; }",
+  }, {
+    code: "@for ...\r\n{ color: pink; }",
+  } ],
 
-  tr.notOk("a{ color: pink; }", {
+  reject: [{
+    code: "a{ color: pink; }",
     message: messages.expectedBefore(),
     line: 1,
     column: 1,
-  })
+  }],
 })
 
-testRule("always", { ignoreAtRules: "/fo/" }, tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: [ "always", { ignoreAtRules: "/fo/" } ],
 
-  tr.ok("a { color: pink; }")
-  tr.ok("@for ...\n{ color: pink; }")
-  tr.ok("@for ...\r\n{ color: pink; }")
+  accept: [ {
+    code: "a { color: pink; }",
+  }, {
+    code: "@for ...\n{ color: pink; }",
+  }, {
+    code: "@for ...\r\n{ color: pink; }",
+  } ],
 
-  tr.notOk("a{ color: pink; }", {
+  reject: [{
+    code: "a{ color: pink; }",
     message: messages.expectedBefore(),
     line: 1,
     column: 1,
-  })
+  }],
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["never"],
 
-  tr.ok("a{ color: pink; }")
-  tr.ok("@media print{ a{ color: pink; } }")
+  accept: [ {
+    code: "a{ color: pink; }",
+  }, {
+    code: "@media print{ a{ color: pink; } }",
+  } ],
 
-  tr.notOk("a { color: pink; }", {
+  reject: [ {
+    code: "a { color: pink; }",
     message: messages.rejectedBefore(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a  { color: pink; }", {
+  }, {
+    code: "a  { color: pink; }",
     message: messages.rejectedBefore(),
     line: 1,
     column: 3,
-  })
-  tr.notOk("a\t{ color: pink; }", {
+  }, {
+    code: "a\t{ color: pink; }",
     message: messages.rejectedBefore(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a\n{ color: pink; }", {
+  }, {
+    code: "a\n{ color: pink; }",
     message: messages.rejectedBefore(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a\r\n{ color: pink; }", {
+  }, {
+    code: "a\r\n{ color: pink; }",
+    description: "CRLF",
     message: messages.rejectedBefore(),
     line: 1,
     column: 3,
-  }, "CRLF")
-  tr.notOk("@media print { a{ color: pink; } }", {
+  }, {
+    code: "@media print { a{ color: pink; } }",
     message: messages.rejectedBefore(),
     line: 1,
     column: 13,
-  })
-  tr.notOk("@media print{ a { color: pink; } }", {
+  }, {
+    code: "@media print{ a { color: pink; } }",
     message: messages.rejectedBefore(),
     line: 1,
     column: 16,
-  })
+  } ],
 })
 
-testRule("always-single-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["always-single-line"],
 
-  // Regular "always" tests
-  tr.ok("a { color: pink; }")
-  tr.ok("@media print { a { color: pink; } }")
+  accept: [ {
+    code: "a { color: pink; }",
+  }, {
+    code: "@media print { a { color: pink; } }",
+  }, {
+    code: "a{ color:\npink; }",
+  }, {
+    code: "@media print { a{ color:\npink; } }",
+  }, {
+    code: "@media print{ a { color:\npink; } }",
+  }, {
+    code: "@media print{\na { color: pink; } }",
+  } ],
 
-  tr.notOk("a{ color: pink; }", {
+  reject: [ {
+    code: "a{ color: pink; }",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 1,
-  })
-  tr.notOk("a  { color: pink; }", {
+  }, {
+    code: "a  { color: pink; }",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 3,
-  })
-  tr.notOk("a\t{ color: pink; }", {
+  }, {
+    code: "a\t{ color: pink; }",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a\n{ color: pink; }", {
+  }, {
+    code: "a\n{ color: pink; }",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a\r\n{ color: pink; }", {
+  }, {
+    code: "a\r\n{ color: pink; }",
+    description: "CRLF",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 3,
-  }, "CRLF")
-  tr.notOk("@media print\n{ a { color: pink; } }", {
+  }, {
+    code: "@media print\n{ a { color: pink; } }",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 13,
-  })
-  tr.notOk("@media print { a\n{ color: pink; } }", {
+  }, {
+    code: "@media print { a\n{ color: pink; } }",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 17,
-  })
-
-  // Ignoring multi-line blocks
-  tr.ok("a{ color:\npink; }")
-  tr.ok("@media print { a{ color:\npink; } }")
-  tr.ok("@media print{ a { color:\npink; } }")
-  tr.ok("@media print{\na { color: pink; } }")
+  } ],
 })
 
-testRule("never-single-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["never-single-line"],
 
-  // Regular "never" tests
-  tr.ok("a{ color: pink; }")
-  tr.ok("@media print{ a{ color: pink; } }")
+  accept: [ {
+    code: "a{ color: pink; }",
+  }, {
+    code: "@media print{ a{ color: pink; } }",
+  }, {
+    code: "a { color:\npink; }",
+  }, {
+    code: "a { color:\r\npink; }",
+    description: "CRLF",
+  }, {
+    code: "@media print { a { color:\npink; } }",
+  }, {
+    code: "@media print{ a{ color:\npink; } }",
+  }, {
+    code: "@media print {\na{ color: pink; } }",
+  }, {
+    code: "@media print{\na{ color: pink; } }",
+  }, {
+    code: "@media print{\r\na{ color: pink; } }",
+    description: "CRLF",
+  } ],
 
-  tr.notOk("a { color: pink; }", {
+  reject: [ {
+    code: "a { color: pink; }",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a  { color: pink; }", {
+  }, {
+    code: "a  { color: pink; }",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 3,
-  })
-  tr.notOk("a\t{ color: pink; }", {
+  }, {
+    code: "a\t{ color: pink; }",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a\n{ color: pink; }", {
+  }, {
+    code: "a\n{ color: pink; }",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a\r\n{ color: pink; }", {
+  }, {
+    code: "a\r\n{ color: pink; }",
+    description: "CRLF",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 3,
-  }, "CRLF")
-  tr.notOk("@media print { a{ color: pink; } }", {
+  }, {
+    code: "@media print { a{ color: pink; } }",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 13,
-  })
-  tr.notOk("@media print{ a { color: pink; } }", {
+  }, {
+    code: "@media print{ a { color: pink; } }",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 16,
-  })
-
-  // Ignoring multi-line blocks
-  tr.ok("a { color:\npink; }")
-  tr.ok("a { color:\r\npink; }", "CRLF")
-  tr.ok("@media print { a { color:\npink; } }")
-  tr.ok("@media print{ a{ color:\npink; } }")
-  tr.ok("@media print {\na{ color: pink; } }")
-  tr.ok("@media print{\na{ color: pink; } }")
-  tr.ok("@media print{\r\na{ color: pink; } }", "CRLF")
+  } ],
 })
 
-testRule("always-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["always-multi-line"],
 
-  tr.ok("a { color: pink;\nbackground: orange; }")
-  tr.ok("@media print {\na { color: pink;\nbackground: orange } }")
-  tr.ok("@media print {\r\na { color: pink;\r\nbackground: orange } }", "CRLF")
+  accept: [ {
+    code: "a { color: pink;\nbackground: orange; }",
+  }, {
+    code: "@media print {\na { color: pink;\nbackground: orange } }",
+  }, {
+    code: "@media print {\r\na { color: pink;\r\nbackground: orange } }",
+    description: "CRLF",
+  }, {
+    code: "a { color: pink; }",
+  }, {
+    code: "@media print { a { color: pink; } }",
+  }, {
+    code: "a{ color: pink; }",
+  }, {
+    code: "a  { color: pink; }",
+  }, {
+    code: "a\t{ color: pink; }",
+  } ],
 
-  // Ignoring single-line blocks
-  tr.ok("a { color: pink; }")
-  tr.ok("@media print { a { color: pink; } }")
-  tr.ok("a{ color: pink; }")
-  tr.ok("a  { color: pink; }")
-  tr.ok("a\t{ color: pink; }")
-
-  tr.notOk("a{ color: pink;\nbackground: orange; }", {
+  reject: [ {
+    code: "a{ color: pink;\nbackground: orange; }",
     message: messages.expectedBeforeMultiLine(),
     line: 1,
     column: 1,
-  })
-  tr.notOk("a  { color: pink;\nbackground: orange; }", {
+  }, {
+    code: "a  { color: pink;\nbackground: orange; }",
     message: messages.expectedBeforeMultiLine(),
     line: 1,
     column: 3,
-  })
-  tr.notOk("a\t{ color: pink;\nbackground: orange; }", {
+  }, {
+    code: "a\t{ color: pink;\nbackground: orange; }",
     message: messages.expectedBeforeMultiLine(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a\n{ color: pink;\nbackground: orange; }", {
+  }, {
+    code: "a\n{ color: pink;\nbackground: orange; }",
     message: messages.expectedBeforeMultiLine(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a\r\n{ color: pink;\r\nbackground: orange; }", {
+  }, {
+    code: "a\r\n{ color: pink;\r\nbackground: orange; }",
+    description: "CRLF",
     message: messages.expectedBeforeMultiLine(),
     line: 1,
     column: 3,
-  }, "CRLF")
-  tr.notOk("@media print\n{\na { color: pink;\nbackground: orange; } }", {
+  }, {
+    code: "@media print\n{\na { color: pink;\nbackground: orange; } }",
     message: messages.expectedBeforeMultiLine(),
     line: 1,
     column: 13,
-  })
-  tr.notOk("@media print { a\n{ color: pink;\nbackground: orange; } }", {
+  }, {
+    code: "@media print { a\n{ color: pink;\nbackground: orange; } }",
     message: messages.expectedBeforeMultiLine(),
     line: 1,
     column: 17,
-  })
+  } ],
 })
 
-testRule("never-multi-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["never-multi-line"],
 
-  tr.ok("a{ color: pink;\nbackground: orange; }")
-  tr.ok("@media print{\na{ color: pink;\nbackground: orange } }")
-  tr.ok("@media print{\r\na{ color: pink;\r\nbackground: orange } }", "CRLF")
+  accept: [ {
+    code: "a{ color: pink;\nbackground: orange; }",
+  }, {
+    code: "@media print{\na{ color: pink;\nbackground: orange } }",
+  }, {
+    code: "@media print{\r\na{ color: pink;\r\nbackground: orange } }",
+    description: "CRLF",
+  }, {
+    code: "a { color: pink; }",
+  }, {
+    code: "@media print { a { color: pink; } }",
+  }, {
+    code: "a{ color: pink; }",
+  }, {
+    code: "a  { color: pink; }",
+  }, {
+    code: "a\t{ color: pink; }",
+  } ],
 
-  // Ignoring single-line blocks
-  tr.ok("a { color: pink; }")
-  tr.ok("@media print { a { color: pink; } }")
-  tr.ok("a{ color: pink; }")
-  tr.ok("a  { color: pink; }")
-  tr.ok("a\t{ color: pink; }")
-
-  tr.notOk("a { color: pink;\nbackground: orange; }", {
+  reject: [ {
+    code: "a { color: pink;\nbackground: orange; }",
     message: messages.rejectedBeforeMultiLine(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a  { color: pink;\nbackground: orange; }", {
+  }, {
+    code: "a  { color: pink;\nbackground: orange; }",
     message: messages.rejectedBeforeMultiLine(),
     line: 1,
     column: 3,
-  })
-  tr.notOk("a\t{ color: pink;\nbackground: orange; }", {
+  }, {
+    code: "a\t{ color: pink;\nbackground: orange; }",
     message: messages.rejectedBeforeMultiLine(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("a\n{ color: pink;\nbackground: orange; }", {
+  }, {
+    code: "a\n{ color: pink;\nbackground: orange; }",
     message: messages.rejectedBeforeMultiLine(),
     line: 1,
     column: 2,
-  })
-  tr.notOk("@media print\n{\na{ color: pink;\nbackground: orange; } }", {
+  }, {
+    code: "@media print\n{\na{ color: pink;\nbackground: orange; } }",
     message: messages.rejectedBeforeMultiLine(),
     line: 1,
     column: 13,
-  })
-  tr.notOk(
-    "@media print{ a\n{ color: pink;\nbackground: orange; } }",
-    {
-      message: messages.rejectedBeforeMultiLine(),
-      line: 1,
-      column: 16,
-    }
-  )
-  tr.notOk(
-    "@media print{ a\r\n{ color: pink;\r\nbackground: orange; } }",
-    {
-      message: messages.rejectedBeforeMultiLine(),
-      line: 1,
-      column: 17,
-    },
-    "CRLF"
-  )
+  }, {
+    code: "@media print{ a\n{ color: pink;\nbackground: orange; } }",
+    message: messages.rejectedBeforeMultiLine(),
+    line: 1,
+    column: 16,
+  }, {
+    code: "@media print{ a\r\n{ color: pink;\r\nbackground: orange; } }",
+    description: "CRLF",
+    message: messages.rejectedBeforeMultiLine(),
+    line: 1,
+    column: 17,
+  } ],
 })

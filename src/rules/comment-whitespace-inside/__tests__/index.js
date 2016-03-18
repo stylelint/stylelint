@@ -1,147 +1,175 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
-import scssSyntax from "postcss-scss"
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: "/* comment */",
+  }, {
+    code: "/* comment comment */",
+  }, {
+    code: "/* comment\ncomment */",
+  }, {
+    code: "/* comment\n\ncomment */",
+  }, {
+    code: "/** comment */",
+  }, {
+    code: "/**** comment ***/",
+  }, {
+    code: "/*\ncomment\n*/",
+  }, {
+    code: "/*\tcomment   */",
+  }, {
+    code: "/*! copyright */",
+  }, {
+    code: "/*# sourcemap */",
+  } ],
 
-  tr.ok("/* comment */")
-  tr.ok("/* comment comment */")
-  tr.ok("/* comment\ncomment */")
-  tr.ok("/* comment\n\ncomment */")
-  tr.ok("/** comment */")
-  tr.ok("/**** comment ***/")
-  tr.ok("/*\ncomment\n*/")
-  tr.ok("/*\tcomment   */")
-  tr.ok("/*! copyright */")
-  tr.ok("/*# sourcemap */")
-
-  tr.notOk("/*comment */", {
+  reject: [ {
+    code: "/*comment */",
     message: messages.expectedOpening,
     line: 1,
     column: 3,
-  })
-  tr.notOk("/**comment **/", {
+  }, {
+    code: "/**comment **/",
     message: messages.expectedOpening,
     line: 1,
     column: 4,
-  })
-  tr.notOk("/* comment*/", {
+  }, {
+    code: "/* comment*/",
     message: messages.expectedClosing,
     line: 1,
     column: 10,
-  })
-  tr.notOk("/*comment comment */", {
+  }, {
+    code: "/*comment comment */",
     message: messages.expectedOpening,
     line: 1,
     column: 3,
-  })
-  tr.notOk("/* comment comment*/", {
+  }, {
+    code: "/* comment comment*/",
     message: messages.expectedClosing,
     line: 1,
     column: 18,
-  })
-  tr.notOk("/*comment\n\ncomment */", {
+  }, {
+    code: "/*comment\n\ncomment */",
     message: messages.expectedOpening,
     line: 1,
     column: 3,
-  })
-  tr.notOk("/* comment\n\ncomment*/", {
+  }, {
+    code: "/* comment\n\ncomment*/",
     message: messages.expectedClosing,
     line: 3,
     column: 7,
-  })
-  tr.notOk("/*!copyright */", {
+  }, {
+    code: "/*!copyright */",
     message: messages.expectedOpening,
     line: 1,
     column: 3,
-  })
+  } ],
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["never"],
 
-  tr.ok("/*comment*/")
-  tr.ok("/*comment comment*/")
-  tr.ok("/*comment\ncomment*/")
-  tr.ok("/*comment\n\ncomment*/")
-  tr.ok("/**comment*/")
-  tr.ok("/****comment***/")
-  tr.ok("/*! copyright */")
-  tr.ok("/*# sourcemap */")
+  accept: [ {
+    code: "/*comment*/",
+  }, {
+    code: "/*comment comment*/",
+  }, {
+    code: "/*comment\ncomment*/",
+  }, {
+    code: "/*comment\n\ncomment*/",
+  }, {
+    code: "/**comment*/",
+  }, {
+    code: "/****comment***/",
+  }, {
+    code: "/*! copyright */",
+  }, {
+    code: "/*# sourcemap */",
+  } ],
 
-  tr.notOk("/* comment*/", {
+  reject: [ {
+    code: "/* comment*/",
     message: messages.rejectedOpening,
     line: 1,
     column: 3,
-  })
-  tr.notOk("/** comment*/", {
+  }, {
+    code: "/** comment*/",
     message: messages.rejectedOpening,
     line: 1,
     column: 4,
-  })
-  tr.notOk("/*comment */", {
+  }, {
+    code: "/*comment */",
     message: messages.rejectedClosing,
     line: 1,
     column: 10,
-  })
-  tr.notOk("/*  comment*/", {
+  }, {
+    code: "/*  comment*/",
     message: messages.rejectedOpening,
     line: 1,
     column: 3,
-  })
-  tr.notOk("/*comment  */", {
+  }, {
+    code: "/*comment  */",
     message: messages.rejectedClosing,
     line: 1,
     column: 11,
-  })
-  tr.notOk("/*\ncomment*/", {
+  }, {
+    code: "/*\ncomment*/",
     message: messages.rejectedOpening,
     line: 1,
     column: 3,
-  })
-  tr.notOk("/*comment\n*/", {
+  }, {
+    code: "/*comment\n*/",
     message: messages.rejectedClosing,
     line: 1,
     column: 10,
-  })
-  tr.notOk("/* comment comment*/", {
+  }, {
+    code: "/* comment comment*/",
     message: messages.rejectedOpening,
     line: 1,
     column: 3,
-  })
-  tr.notOk("/*comment comment */", {
+  }, {
+    code: "/*comment comment */",
     message: messages.rejectedClosing,
     line: 1,
     column: 18,
-  })
-  tr.notOk("/* comment\n\ncomment*/", {
+  }, {
+    code: "/* comment\n\ncomment*/",
     message: messages.rejectedOpening,
     line: 1,
     column: 3,
-  })
-  tr.notOk("/*comment\n\ncomment */", {
+  }, {
+    code: "/*comment\n\ncomment */",
     message: messages.rejectedClosing,
     line: 3,
     column: 8,
-  })
+  } ],
 })
 
-const testRuleScss = ruleTester(rule, ruleName, {
-  postcssOptions: {
-    syntax: scssSyntax,
-  },
+testRule(rule, {
+  ruleName,
+  config: ["always"],
+  skipBasicChecks: true,
+  syntax: "scss",
+
+  accept: [{
+    code: "//comment",
+    description: "single-line comment ignored",
+  }],
 })
 
-testRuleScss("always", tr => {
-  tr.ok("//comment", "single-line comment ignored")
-})
+testRule(rule, {
+  ruleName,
+  config: ["never"],
+  skipBasicChecks: true,
+  syntax: "scss",
 
-testRuleScss("never", tr => {
-  tr.ok("// comment", "single-line comment ignored")
+  accept: [{
+    code: "// comment",
+    description: "single-line comment ignored",
+  }],
 })

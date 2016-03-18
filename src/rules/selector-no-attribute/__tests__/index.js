@@ -1,42 +1,44 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: [undefined],
 
-testRule(undefined, tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: "foo {}",
+  }, {
+    code: ".bar {}",
+  }, {
+    code: "foo .bar {}",
+  }, {
+    code: ":root { --custom-property-set: {} }",
+  } ],
 
-  tr.ok("foo {}")
-  tr.ok(".bar {}")
-  tr.ok("foo .bar {}")
-  tr.ok(":root { --custom-property-set: {} }")
-
-  tr.notOk("[foo] {}", {
+  reject: [ {
+    code: "[foo] {}",
     message: messages.rejected,
     line: 1,
     column: 1,
-  })
-  tr.notOk("a[rel=\"external\"] {}", {
+  }, {
+    code: "a[rel=\"external\"] {}",
     message: messages.rejected,
     line: 1,
     column: 2,
-  })
-  tr.notOk("a, .foo[type=\"text\"] {}", {
+  }, {
+    code: "a, .foo[type=\"text\"] {}",
     message: messages.rejected,
     line: 1,
     column: 8,
-  })
-  tr.notOk("a > [foo] {}", {
+  }, {
+    code: "a > [foo] {}",
     message: messages.rejected,
     line: 1,
     column: 5,
-  })
-  tr.notOk("a[rel='external'] {}", {
+  }, {
+    code: "a[rel='external'] {}",
     message: messages.rejected,
     line: 1,
     column: 2,
-  })
+  } ],
 })

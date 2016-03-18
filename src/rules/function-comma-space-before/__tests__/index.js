@@ -1,166 +1,210 @@
-import {
-  ruleTester,
-  warningFreeBasics,
-} from "../../../testUtils"
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
-const testRule = ruleTester(rule, ruleName)
+testRule(rule, {
+  ruleName,
+  config: ["always"],
 
-testRule("always", tr => {
-  warningFreeBasics(tr)
+  accept: [ {
+    code: "a::before { content: \"func(foo,bar,baz)\"; }",
+  }, {
+    code: "a::before { background: url('func(foo,bar,baz)'); }",
+  }, {
+    code: "a { background-size: 0, 0, 0; }",
+  }, {
+    code: "a { transform: translate(1 , 1); }",
+  }, {
+    code: "a { transform: translate(1 ,1); }",
+  }, {
+    code: "a { transform: color(rgb(0 , 0 ,0) lightness(50%)); }",
+  }, {
+    code: "a { background: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns); }",
+    description: "data URI with spaceless comma",
+  } ],
 
-  tr.ok("a::before { content: \"func(foo,bar,baz)\"; }")
-  tr.ok("a::before { background: url('func(foo,bar,baz)'); }")
-  tr.ok("a { background-size: 0, 0, 0; }")
-  tr.ok("a { transform: translate(1 , 1); }")
-  tr.ok("a { transform: translate(1 ,1); }")
-  tr.ok("a { transform: color(rgb(0 , 0 ,0) lightness(50%)); }")
-  tr.ok("a { background: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns); }",
-    "data URI with spaceless comma")
-
-  tr.notOk("a { transform: translate(1, 1); }", {
+  reject: [ {
+    code: "a { transform: translate(1, 1); }",
     message: messages.expectedBefore(),
     line: 1,
     column: 27,
-  })
-  tr.notOk("a { transform: translate(1  , 1); }", {
+  }, {
+    code: "a { transform: translate(1  , 1); }",
     message: messages.expectedBefore(),
     line: 1,
     column: 29,
-  })
-  tr.notOk("a { transform: translate(1\n, 1); }", {
+  }, {
+    code: "a { transform: translate(1\n, 1); }",
     message: messages.expectedBefore(),
     line: 2,
     column: 1,
-  })
-  tr.notOk("a { transform: translate(1\r\n, 1); }", {
+  }, {
+    code: "a { transform: translate(1\r\n, 1); }",
+    description: "CRLF",
     message: messages.expectedBefore(),
     line: 2,
     column: 1,
-  }, "CRLF")
-  tr.notOk("a { transform: translate(1\t, 1); }", {
+  }, {
+    code: "a { transform: translate(1\t, 1); }",
     message: messages.expectedBefore(),
     line: 1,
     column: 28,
-  })
-  tr.notOk("a { transform: color(rgb(0 , 0, 0) lightness(50%)); }", {
+  }, {
+    code: "a { transform: color(rgb(0 , 0, 0) lightness(50%)); }",
     message: messages.expectedBefore(),
     line: 1,
     column: 31,
-  })
-  tr.notOk("a { transform: color(lightness(50%) rgb(0 , 0, 0)); }", {
+  }, {
+    code: "a { transform: color(lightness(50%) rgb(0 , 0, 0)); }",
     message: messages.expectedBefore(),
     line: 1,
     column: 46,
-  })
+  } ],
 })
 
-testRule("never", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["never"],
 
-  tr.ok("a::before { content: \"func(foo ,bar ,baz)\"; }")
-  tr.ok("a::before { background: url('func(foo ,bar ,baz)'); }")
-  tr.ok("a { background-size: 0 , 0 , 0; }")
-  tr.ok("a { transform: translate(1, 1); }")
-  tr.ok("a { transform: translate(1,1); }")
-  tr.ok("a { transform: color(rgb(0, 0,0) lightness(50%)); }")
+  accept: [ {
+    code: "a::before { content: \"func(foo ,bar ,baz)\"; }",
+  }, {
+    code: "a::before { background: url('func(foo ,bar ,baz)'); }",
+  }, {
+    code: "a { background-size: 0 , 0 , 0; }",
+  }, {
+    code: "a { transform: translate(1, 1); }",
+  }, {
+    code: "a { transform: translate(1,1); }",
+  }, {
+    code: "a { transform: color(rgb(0, 0,0) lightness(50%)); }",
+  } ],
 
-  tr.notOk("a { transform: translate(1 , 1); }", {
+  reject: [ {
+    code: "a { transform: translate(1 , 1); }",
     message: messages.rejectedBefore(),
     line: 1,
     column: 28,
-  })
-  tr.notOk("a { transform: translate(1  , 1); }", {
+  }, {
+    code: "a { transform: translate(1  , 1); }",
     message: messages.rejectedBefore(),
     line: 1,
     column: 29,
-  })
-  tr.notOk("a { transform: translate(1\n, 1); }", {
+  }, {
+    code: "a { transform: translate(1\n, 1); }",
     message: messages.rejectedBefore(),
     line: 2,
     column: 1,
-  })
-  tr.notOk("a { transform: translate(1\r\n, 1); }", {
+  }, {
+    code: "a { transform: translate(1\r\n, 1); }",
+    description: "CRLF",
     message: messages.rejectedBefore(),
     line: 2,
     column: 1,
-  }, "CRLF")
-  tr.notOk("a { transform: translate(1\t, 1); }", {
+  }, {
+    code: "a { transform: translate(1\t, 1); }",
     message: messages.rejectedBefore(),
     line: 1,
     column: 28,
-  })
-  tr.notOk("a { transform: color(rgb(0, 0 , 0) lightness(50%)); }", {
+  }, {
+    code: "a { transform: color(rgb(0, 0 , 0) lightness(50%)); }",
     message: messages.rejectedBefore(),
     line: 1,
     column: 31,
-  })
-  tr.notOk("a { transform: color(lightness(50%) rgb(0, 0 , 0)); }", {
+  }, {
+    code: "a { transform: color(lightness(50%) rgb(0, 0 , 0)); }",
     message: messages.rejectedBefore(),
     line: 1,
     column: 46,
-  })
+  } ],
 })
 
-testRule("always-single-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["always-single-line"],
 
-  tr.ok("a::before { content: \"func(foo,bar,baz)\"; }")
-  tr.ok("a::before { background: url('func(foo,bar,baz)'); }")
-  tr.ok("a { background-size: 0, 0, 0; }")
-  tr.ok("a { transform: translate(1 , 1); }")
-  tr.ok("a { transform: translate(1 ,1); }")
-  tr.ok("a { transform: color(rgb(0 , 0 ,0) lightness(50%)); }")
+  accept: [ {
+    code: "a::before { content: \"func(foo,bar,baz)\"; }",
+  }, {
+    code: "a::before { background: url('func(foo,bar,baz)'); }",
+  }, {
+    code: "a { background-size: 0, 0, 0; }",
+  }, {
+    code: "a { transform: translate(1 , 1); }",
+  }, {
+    code: "a { transform: translate(1 ,1); }",
+  }, {
+    code: "a { transform: color(rgb(0 , 0 ,0) lightness(50%)); }",
+  }, {
+    code: "a { transform: translate(1,\n1); }",
+  }, {
+    code: "a { transform: translate(1  ,\n1); }",
+  }, {
+    code: "a { transform: translate(1\t,\r\n1); }",
+    description: "CRLF",
+  }, {
+    code: "a { transform: translate(1\n, 1); }",
+  }, {
+    code: "a { transform: translate(1\n,\n1); }",
+  }, {
+    code: "a { background: linear-gradient(45deg,\nrgba(0 , 0 , 0 ,1)\n,red); }",
+  } ],
 
-  tr.ok("a { transform: translate(1,\n1); }")
-  tr.ok("a { transform: translate(1  ,\n1); }")
-  tr.ok("a { transform: translate(1\t,\r\n1); }", "CRLF")
-  tr.ok("a { transform: translate(1\n, 1); }")
-  tr.ok("a { transform: translate(1\n,\n1); }")
-
-  tr.ok("a { background: linear-gradient(45deg,\nrgba(0 , 0 , 0 ,1)\n,red); }")
-
-  tr.notOk("a { transform: color(rgb(0 , 0, 0) lightness(50%)); }", {
+  reject: [ {
+    code: "a { transform: color(rgb(0 , 0, 0) lightness(50%)); }",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 31,
-  })
-  tr.notOk("a { transform: color(lightness(50%) rgb(0 , 0, 0)); }", {
+  }, {
+    code: "a { transform: color(lightness(50%) rgb(0 , 0, 0)); }",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 46,
-  })
-  tr.notOk("a { background: linear-gradient(45deg,\nrgba(0 , 0,0 ,1),red); }", {
+  }, {
+    code: "a { background: linear-gradient(45deg,\nrgba(0 , 0,0 ,1),red); }",
     message: messages.expectedBeforeSingleLine(),
     line: 2,
     column: 11,
-  })
+  } ],
 })
 
-testRule("never-single-line", tr => {
-  warningFreeBasics(tr)
+testRule(rule, {
+  ruleName,
+  config: ["never-single-line"],
 
-  tr.ok("a::before { content: \"func(foo ,bar ,baz)\"; }")
-  tr.ok("a::before { background: url('func(foo ,bar ,baz)'); }")
-  tr.ok("a { background-size: 0 , 0 , 0; }")
-  tr.ok("a { transform: translate(1, 1); }")
-  tr.ok("a { transform: translate(1,1); }")
-  tr.ok("a { transform: color(rgb(0, 0,0) lightness(50%)); }")
+  accept: [ {
+    code: "a::before { content: \"func(foo ,bar ,baz)\"; }",
+  }, {
+    code: "a::before { background: url('func(foo ,bar ,baz)'); }",
+  }, {
+    code: "a { background-size: 0 , 0 , 0; }",
+  }, {
+    code: "a { transform: translate(1, 1); }",
+  }, {
+    code: "a { transform: translate(1,1); }",
+  }, {
+    code: "a { transform: color(rgb(0, 0,0) lightness(50%)); }",
+  }, {
+    code: "a { transform: translate(1 ,\n1); }",
+  }, {
+    code: "a { transform: translate(1  ,\n1); }",
+  }, {
+    code: "a { transform: translate(1\t,\r\n1); }",
+    description: "CRLF",
+  }, {
+    code: "a { transform: translate(1\n, 1); }",
+  }, {
+    code: "a { transform: translate(1\n,\n1); }",
+  } ],
 
-  tr.ok("a { transform: translate(1 ,\n1); }")
-  tr.ok("a { transform: translate(1  ,\n1); }")
-  tr.ok("a { transform: translate(1\t,\r\n1); }", "CRLF")
-  tr.ok("a { transform: translate(1\n, 1); }")
-  tr.ok("a { transform: translate(1\n,\n1); }")
-
-  tr.notOk("a { transform: color(rgb(0, 0 , 0) lightness(50%)); }", {
+  reject: [ {
+    code: "a { transform: color(rgb(0, 0 , 0) lightness(50%)); }",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 31,
-  })
-  tr.notOk("a { transform: color(lightness(50%) rgb(0, 0 , 0)); }", {
+  }, {
+    code: "a { transform: color(lightness(50%) rgb(0, 0 , 0)); }",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 46,
-  })
+  } ],
 })
