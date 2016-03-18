@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: 'one'; }",
     description: "without newline",
   }, {
@@ -28,9 +27,9 @@ testRule(rule, {
     }`,
 
     description: "attribute containing double-slash",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a::before { content: 'one\ntwo'; }",
     message: messages.rejected,
     line: 1,
@@ -41,5 +40,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 27,
-  }],
+  } ],
 })

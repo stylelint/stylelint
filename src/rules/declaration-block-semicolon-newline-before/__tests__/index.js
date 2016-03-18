@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "color: pink\n;",
     description: "declaration on root",
   }, {
@@ -23,9 +22,9 @@ testRule(rule, {
   }, {
     code: "a,\nb { color: pink\n;top: 0}",
     description: "multi-line rule, multi-line declaration-block",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink;top: 0 }",
     message: messages.expectedBefore(),
     line: 1,
@@ -45,14 +44,14 @@ testRule(rule, {
     message: messages.expectedBefore(),
     line: 1,
     column: 16,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "color: pink\n;",
     description: "declaration on root",
   }, {
@@ -77,9 +76,9 @@ testRule(rule, {
   }, {
     code: "a,\r\nb { color: pink; top: 0}",
     description: "multi-line rule, single-line declaration-block and CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {\ncolor: pink;top: 0\n}",
     message: messages.expectedBeforeMultiLine(),
     line: 2,
@@ -105,14 +104,14 @@ testRule(rule, {
     message: messages.expectedBeforeMultiLine(),
     line: 2,
     column: 12,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "color: pink;",
     description: "declaration on root",
   }, {
@@ -134,9 +133,9 @@ testRule(rule, {
   }, {
     code: "a,\nb { color: pink ;top: 0}",
     description: "multi-line rule, single-line declaration-block",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {\ncolor: pink\n;top: 0\n}",
     message: messages.rejectedBeforeMultiLine(),
     line: 2,
@@ -168,5 +167,5 @@ testRule(rule, {
     message: messages.rejectedBeforeMultiLine(),
     line: 2,
     column: 12,
-  }],
+  } ],
 })

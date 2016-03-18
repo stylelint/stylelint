@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a { margin: 0; }",
     description: "plain zero",
   }, {
@@ -51,9 +50,9 @@ testRule(rule, {
   }, {
     code: "a { background: url(data:image/svg+xml;...0.5); }",
     description: "data URI containing leading zero",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { line-height: .5; }",
     description: "unitless fractional value without leading zero",
     message: messages.expected,
@@ -95,14 +94,14 @@ testRule(rule, {
     message: messages.expected,
     line: 1,
     column: 19,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a { margin: 0; }",
     description: "plain zero",
   }, {
@@ -141,9 +140,9 @@ testRule(rule, {
   }, {
     code: "a { transform: translate(.4px, .8px); }",
     description: "multiple fractional values without leading zeros in a function",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { line-height: 0.5; }",
     description: "unitless fractional value with leading zero",
     message: messages.rejected,
@@ -179,5 +178,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 31,
-  }],
+  } ],
 })

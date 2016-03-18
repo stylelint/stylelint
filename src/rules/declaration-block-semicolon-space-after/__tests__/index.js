@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a { color: pink; }",
@@ -17,9 +16,9 @@ testRule(rule, {
     description: "no space between trailing semicolon and closing brace",
   }, {
     code: "a { color: pink; top: 0}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink;top: 0; }",
     message: messages.expectedAfter(),
     line: 1,
@@ -45,14 +44,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 17,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a::before { content: \";a\"; }",
@@ -70,9 +69,9 @@ testRule(rule, {
   }, {
     code: "a {\r\n  color: pink;\r\n  top: 0;\r\n}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink;top: 0; }",
     message: messages.expectedAfterSingleLine(),
     line: 1,
@@ -98,14 +97,14 @@ testRule(rule, {
     message: messages.expectedAfterSingleLine(),
     line: 1,
     column: 17,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a::before { content: \"; a\"; }",
@@ -120,9 +119,9 @@ testRule(rule, {
   }, {
     code: "a {\r\n  color: pink; top: 0;\r\n}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; top: 0; }",
     message: messages.rejectedAfterSingleLine(),
     line: 1,
@@ -148,5 +147,5 @@ testRule(rule, {
     message: messages.rejectedAfterSingleLine(),
     line: 1,
     column: 17,
-  }],
+  } ],
 })

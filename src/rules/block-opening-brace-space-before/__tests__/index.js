@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "@import url(x.css)",
   }, {
     code: "a { color: pink; }",
@@ -16,9 +15,9 @@ testRule(rule, {
     code: "a {{ &:hover { color: pink; }}}",
   }, {
     code: "a {\n&:hover { color: pink; }}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a{ color: pink; }",
     message: messages.expectedBefore(),
     line: 1,
@@ -54,20 +53,20 @@ testRule(rule, {
     message: messages.expectedBefore(),
     line: 1,
     column: 17,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: ["always", { ignoreAtRules: ["for"] }],
+  config: [ "always", { ignoreAtRules: ["for"] } ],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "@for ...\n{ color: pink; }",
   }, {
     code: "@for ...\r\n{ color: pink; }",
-  }],
+  } ],
 
   reject: [{
     code: "a{ color: pink; }",
@@ -79,15 +78,15 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: ["always", { ignoreAtRules: "/fo/" }],
+  config: [ "always", { ignoreAtRules: "/fo/" } ],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "@for ...\n{ color: pink; }",
   }, {
     code: "@for ...\r\n{ color: pink; }",
-  }],
+  } ],
 
   reject: [{
     code: "a{ color: pink; }",
@@ -101,13 +100,13 @@ testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a{ color: pink; }",
   }, {
     code: "@media print{ a{ color: pink; } }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; }",
     message: messages.rejectedBefore(),
     line: 1,
@@ -143,14 +142,14 @@ testRule(rule, {
     message: messages.rejectedBefore(),
     line: 1,
     column: 16,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "@media print { a { color: pink; } }",
@@ -162,9 +161,9 @@ testRule(rule, {
     code: "@media print{ a { color:\npink; } }",
   }, {
     code: "@media print{\na { color: pink; } }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a{ color: pink; }",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
@@ -200,14 +199,14 @@ testRule(rule, {
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 17,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a{ color: pink; }",
   }, {
     code: "@media print{ a{ color: pink; } }",
@@ -227,9 +226,9 @@ testRule(rule, {
   }, {
     code: "@media print{\r\na{ color: pink; } }",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; }",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
@@ -265,14 +264,14 @@ testRule(rule, {
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 16,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink;\nbackground: orange; }",
   }, {
     code: "@media print {\na { color: pink;\nbackground: orange } }",
@@ -289,9 +288,9 @@ testRule(rule, {
     code: "a  { color: pink; }",
   }, {
     code: "a\t{ color: pink; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a{ color: pink;\nbackground: orange; }",
     message: messages.expectedBeforeMultiLine(),
     line: 1,
@@ -327,14 +326,14 @@ testRule(rule, {
     message: messages.expectedBeforeMultiLine(),
     line: 1,
     column: 17,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a{ color: pink;\nbackground: orange; }",
   }, {
     code: "@media print{\na{ color: pink;\nbackground: orange } }",
@@ -351,9 +350,9 @@ testRule(rule, {
     code: "a  { color: pink; }",
   }, {
     code: "a\t{ color: pink; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink;\nbackground: orange; }",
     message: messages.rejectedBeforeMultiLine(),
     line: 1,
@@ -389,5 +388,5 @@ testRule(rule, {
     message: messages.rejectedBeforeMultiLine(),
     line: 1,
     column: 17,
-  }],
+  } ],
 })

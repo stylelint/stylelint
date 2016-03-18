@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: ".foo { background: linear-gradient(to top, #fff, #000; )}",
   }, {
     code: ".foo { background: linear-gradient(to bottom, #fff, #000; )}",
@@ -36,9 +35,9 @@ testRule(rule, {
     code: ".foo { background: linear-gradient(black, white); }",
   }, {
     code: ".foo { background: linear-gradient(rgba(255, 255, 255, 0.5) 0%, #000); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: ".foo { background: linear-gradient(bottom, #fff, #000; )}",
     message: messages.rejected,
   }, {
@@ -62,5 +61,5 @@ testRule(rule, {
   }, {
     code: ".foo { background: linear-gradient(1.577, #fff, #000; )}",
     message: messages.rejected,
-  }],
+  } ],
 })

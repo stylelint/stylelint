@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [1],
 
-  accept: [{
+  accept: [ {
     code: "a { b { top: 0; }}",
   }, {
     code: "@media print { a { b { top: 0; }}}",
@@ -17,9 +16,9 @@ testRule(rule, {
   }, {
     code: "a { b { @include foo; } }",
     description: "at-rule without block",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { b { c { top: 0; }}}",
     message: messages.rejected(1),
   }, {
@@ -34,14 +33,14 @@ testRule(rule, {
   }, {
     code: "a { @nest b { c { top: 0; }}}",
     message: messages.rejected(1),
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: [3],
 
-  accept: [{
+  accept: [ {
     code: "a { b { c { d { top: 0; }}}}",
   }, {
     code: "@media print { a { b { c { d { top: 0; }}}}}",
@@ -50,7 +49,7 @@ testRule(rule, {
   }, {
     code: "a { & > b { & > c { @media print { color: pink; }}}}",
     description: messages.rejected(3),
-  }],
+  } ],
 
   reject: [{
     code: "a { b { c { d { e { top: 0; }}}}}",
@@ -60,17 +59,17 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [1, { ignore: ["at-rules-without-declaration-blocks"] }],
+  config: [ 1, { ignore: ["at-rules-without-declaration-blocks"] } ],
 
-  accept: [{
+  accept: [ {
     code: "a { b { top: 0; }}",
   }, {
     code: "a { @media print { b { top: 0; }}}",
   }, {
     code: "a { @nest b { c { top: 0; }}}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { b { c { top: 0; }}}",
     message: messages.rejected(1),
   }, {
@@ -79,5 +78,5 @@ testRule(rule, {
   }, {
     code: "a { @nest b { @nest c { top: 0; @nest d { bottom: 0; }}}}",
     message: messages.rejected(1),
-  }],
+  } ],
 })

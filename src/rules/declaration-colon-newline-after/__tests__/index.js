@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a {\n" +
     "  color:\n" +
     "    pink\n" +
@@ -28,9 +27,9 @@ testRule(rule, {
   }, {
     code: "a { background:\n  url(data:application/font-woff;...); }",
     description: "data URI",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color :pink; }",
     description: "no newline after",
     message: messages.expectedAfter(),
@@ -54,14 +53,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 11,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a {\n" +
     "  color: pink\n" +
     "}",
@@ -82,9 +81,9 @@ testRule(rule, {
     code: "a { color\n: pink }",
   }, {
     code: "a { color\r\n:  pink }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {\n" +
     "  box-shadow: 0 0 0 1px #5b9dd9\n" +
     "    0 0 2px 1px rgba(30, 140, 190, 0.8);\n" +
@@ -102,5 +101,5 @@ testRule(rule, {
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 13,
-  }],
+  } ],
 })

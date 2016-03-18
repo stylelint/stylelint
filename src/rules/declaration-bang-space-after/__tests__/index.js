@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
     description: "no !important",
   }, {
@@ -24,9 +23,9 @@ testRule(rule, {
   }, {
     code: "a::before { content: \"!!!\" ! important; }",
     description: "ignores string",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink!important; }",
     description: "no space after",
     message: messages.expectedAfter(),
@@ -50,14 +49,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 16,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
     description: "no !important",
   }, {
@@ -72,9 +71,9 @@ testRule(rule, {
   }, {
     code: "a { color: pink\r\n!important; }",
     description: "CRLF before and none after",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink! important; }",
     description: "space after",
     message: messages.rejectedAfter(),
@@ -92,5 +91,5 @@ testRule(rule, {
     message: messages.rejectedAfter(),
     line: 1,
     column: 16,
-  }],
+  } ],
 })

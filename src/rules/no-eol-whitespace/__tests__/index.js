@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -7,7 +6,7 @@ testRule(rule, {
   config: [undefined],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "",
     description: "empty string",
   }, {
@@ -59,9 +58,9 @@ testRule(rule, {
     code: "a\n{\n\tcolor: pink;\n\ttop: 0;\n}",
   }, {
     code: "@media print {\n  a {\n  color: pink;\n  }\n}\n\n@media screen {\n  b { color: orange; }\n}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: " \n",
     description: "no nodes with space before newline",
     message: messages.rejected,
@@ -214,5 +213,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 8,
     column: 23,
-  }],
+  } ],
 })

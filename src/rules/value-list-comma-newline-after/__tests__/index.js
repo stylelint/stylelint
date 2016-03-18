@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a { background-size: 0,\n0; }",
   }, {
     code: "a { background-size: 0 ,\n  0; }",
@@ -19,9 +18,9 @@ testRule(rule, {
   }, {
     code: "a { transform: translate(1,1); }",
     description: "ignores function",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { background-size: 0, 0; }",
     message: messages.expectedAfter(),
     line: 1,
@@ -36,14 +35,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 23,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { background-size: 0,\n0,\n0; }",
   }, {
     code: "a { background-size: 0 ,\n  0,\n0; }",
@@ -59,9 +58,9 @@ testRule(rule, {
   }, {
     code: "a { background-size: 0, 0;\r\n}",
     description: "ignores single-line list, multi-line block with CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { background-size: 0,\n0, 0; }",
     message: messages.expectedAfterMultiLine(),
     line: 2,
@@ -82,14 +81,14 @@ testRule(rule, {
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 2,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { background-size: 0\n,0\n,0; }",
   }, {
     code: "a { background-size: 0\r\n,0\r\n,0; }",
@@ -103,9 +102,9 @@ testRule(rule, {
   }, {
     code: "a { background-size: 0, 0;\r\n}",
     description: "ignores single-line list, multi-line block with CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { background-size: 0\n,0\n, 0; }",
     message: messages.rejectedAfterMultiLine(),
     line: 3,
@@ -126,5 +125,5 @@ testRule(rule, {
     message: messages.rejectedAfterMultiLine(),
     line: 3,
     column: 1,
-  }],
+  } ],
 })

@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a { color: pink; background: orange; }",
@@ -27,9 +26,9 @@ testRule(rule, {
     code: "a { --custom-property: 0; --custom-property: 1; }",
   }, {
     code: "@fontface { src: url(font.eof); src: url(font.woff) }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; color: orange }",
     message: messages.rejected("color"),
   }, {
@@ -58,5 +57,5 @@ testRule(rule, {
     code: "a { color: pink; @media { color: orange; .foo { color: black; color: white; } } }",
     description: "double nested again",
     message: messages.rejected("color"),
-  }],
+  } ],
 })

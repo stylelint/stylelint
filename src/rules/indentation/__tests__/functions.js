@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName } from ".."
 
@@ -7,7 +6,7 @@ testRule(rule, {
   config: [2],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: ".foo {\n" +
     "  color: rgb(0, 0, 0);\n" +
     "}",
@@ -55,5 +54,5 @@ testRule(rule, {
     "      )\n" +
     "    );\n" +
     "}",
-  }],
+  } ],
 })

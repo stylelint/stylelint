@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "@import url(x.com?a=b,c=d)",
   }, {
     code: "@media (max-width: 600px) {}",
@@ -25,9 +24,9 @@ testRule(rule, {
     description: "indentation after the CRLF before the comma",
   }, {
     code: "@media screen and (color)\n\n, projection and (color)",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media screen and (color), projection and (color)",
     message: messages.expectedBefore(),
     line: 1,
@@ -42,14 +41,14 @@ testRule(rule, {
     message: messages.expectedBefore(),
     line: 1,
     column: 27,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "@media screen and (color)\n, projection and (color) {}",
     description: "multi-line list, single-line block",
   }, {
@@ -64,9 +63,9 @@ testRule(rule, {
   }, {
     code: "@media screen and (color),projection and (color) {\n}",
     description: "ignore single line list, multi-line block",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media screen and (color),projection and (color)\n, print {}",
     message: messages.expectedBeforeMultiLine(),
     line: 1,
@@ -82,14 +81,14 @@ testRule(rule, {
     message: messages.expectedBeforeMultiLine(),
     line: 1,
     column: 26,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "@media screen and (color),\nprojection and (color) {}",
     description: "multi-line list, single-line block",
   }, {
@@ -104,9 +103,9 @@ testRule(rule, {
   }, {
     code: "@media screen and (color) ,projection and (color) {\n}",
     description: "ignore single line list, multi-line block",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media screen and (color) ,projection and (color),\nprint {}",
     message: messages.rejectedBeforeMultiLine(),
     line: 1,
@@ -122,5 +121,5 @@ testRule(rule, {
     message: messages.rejectedBeforeMultiLine(),
     line: 1,
     column: 27,
-  }],
+  } ],
 })

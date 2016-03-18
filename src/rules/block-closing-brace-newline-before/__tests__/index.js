@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink;\n}",
   }, {
     code: "a { color: pink;\r\n}",
@@ -23,9 +22,9 @@ testRule(rule, {
   }, {
     code: "@media print {\n\ta {\n\t\tcolor: pink;\n\t\t{\n\t\t\t&:hover;\n\t\t\t}\n\t\t}\n}",
     description: "3 level deep nesting with indentation after the newline before the closing braces",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink;}",
     message: messages.expectedBefore,
     line: 1,
@@ -61,14 +60,14 @@ testRule(rule, {
     message: messages.expectedBefore,
     line: 2,
     column: 18,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink;\ntop: 0;\n}",
   }, {
     code: "a { color: pink;\ntop: 0;\n\t\t}",
@@ -85,9 +84,9 @@ testRule(rule, {
     code: "a { color: pink;} b { color: red;}",
   }, {
     code: "a { color: pink;}b { color: red;}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink;\ntop: 0;}",
     message: messages.expectedBeforeMultiLine,
     line: 2,
@@ -118,14 +117,14 @@ testRule(rule, {
     message: messages.expectedBeforeMultiLine,
     line: 2,
     column: 8,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink;\ntop: 0;}",
   }, {
     code: "a { color: pink;\r\ntop: 0;}",
@@ -140,9 +139,9 @@ testRule(rule, {
     code: "a { color: pink;\t}",
   }, {
     code: "a { color: pink;  }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink;\ntop: 0; }",
     message: messages.rejectedBeforeMultiLine,
     line: 2,
@@ -173,5 +172,5 @@ testRule(rule, {
     message: messages.rejectedBeforeMultiLine,
     line: 3,
     column: 8,
-  }],
+  } ],
 })

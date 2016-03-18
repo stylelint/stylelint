@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["double"],
 
-  accept: [{
+  accept: [ {
     code: "@import url(\"foo.css\");",
 
     description: {
@@ -28,9 +27,9 @@ testRule(rule, {
     code: "a { cursor: url(\"foo.png\"); }",
   }, {
     code: "a { background-image: url(\"foo.css\"), url(\"bar.css\"), url(\"baz.css\"); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@import url('foo.css');",
     message: messages.expected("double quotes"),
     line: 1,
@@ -85,14 +84,14 @@ testRule(rule, {
     message: messages.expected("double quotes"),
     line: 1,
     column: 59,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["single"],
 
-  accept: [{
+  accept: [ {
     code: "@import url('foo.css');",
   }, {
     code: "@document url('http://www.w3.org/');",
@@ -108,9 +107,9 @@ testRule(rule, {
     code: "a { cursor: url('foo.png'); }",
   }, {
     code: "a { background-image: url('foo.css'), url('bar.css'), url('baz.css'); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@import url(\"foo.css\");",
     message: messages.expected("single quotes"),
     line: 1,
@@ -165,14 +164,14 @@ testRule(rule, {
     message: messages.expected("single quotes"),
     line: 1,
     column: 59,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["none"],
 
-  accept: [{
+  accept: [ {
     code: "@import url(foo.css);",
   }, {
     code: "@document url(http://www.w3.org/);",
@@ -188,9 +187,9 @@ testRule(rule, {
     code: "a { cursor: url(foo.png); }",
   }, {
     code: "a { background-image: url(foo.css), url(bar.css), url(baz.css); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@import url(\"foo.css\");",
     message: messages.expected("no quotes"),
     line: 1,
@@ -245,5 +244,5 @@ testRule(rule, {
     message: messages.expected("no quotes"),
     line: 1,
     column: 55,
-  }],
+  } ],
 })

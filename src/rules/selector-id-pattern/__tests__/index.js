@@ -1,10 +1,9 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import { mergeTestDescriptions } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const basicAZTests = {
-  accept: [{
+  accept: [ {
     code: "a {}",
   }, {
     code: ".foo {}",
@@ -18,9 +17,9 @@ const basicAZTests = {
     code: "a /* #foo */ {}",
   }, {
     code: ":root { --custom-property-set: {} }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a #foo {}",
     message: messages.expected("foo"),
     line: 1,
@@ -30,7 +29,7 @@ const basicAZTests = {
     message: messages.expected("bar"),
     line: 1,
     column: 10,
-  }],
+  } ],
 }
 
 testRule(rule, mergeTestDescriptions(basicAZTests, {

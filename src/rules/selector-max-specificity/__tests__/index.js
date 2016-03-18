@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["0,3,0"],
 
-  accept: [{
+  accept: [ {
     code: ".ab {}",
   }, {
     code: ".ab .cd {}",
@@ -20,9 +19,9 @@ testRule(rule, {
     code: ".cd .de div span a > b {}",
   }, {
     code: ".cd .de, .cd .ef > b {}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "#jubjub {}",
     message: messages.expected("#jubjub", "0,3,0"),
     line: 1,
@@ -37,14 +36,14 @@ testRule(rule, {
     message: messages.expected(".sausages .burgers .bacon a", "0,3,0"),
     line: 1,
     column: 20,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["0,2,1"],
 
-  accept: [{
+  accept: [ {
     code: ".cd .de,\n.cd .ef > b {}",
   }, {
     code: ".cd { .de {} }",
@@ -64,9 +63,9 @@ testRule(rule, {
   }, {
     code: "@media print { .cd { .de {} } }",
     description: "media query > rule > rule",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: ".thing div .thing,\n.sausages .burgers .bacon a {}",
     message: messages.expected(".sausages .burgers .bacon a", "0,2,1"),
     line: 2,
@@ -89,7 +88,7 @@ testRule(rule, {
   }, {
     code: "@media print { li { & + .ab, .ef.ef { .cd {} } } }",
     message: messages.expected("li .ef.ef .cd", "0,2,1"),
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -100,7 +99,7 @@ testRule(rule, {
     code: ".cd .de {& .fg {}}",
   }],
 
-  reject: [{
+  reject: [ {
     code: ".thing .thing2 {&.nested {#pop {}}}",
     message: messages.expected(".thing .thing2.nested #pop", "0,4,1"),
     line: 1,
@@ -115,7 +114,7 @@ testRule(rule, {
     message: messages.expected("a.here .thing .thing2 .thing3 .thing4", "0,4,1"),
     line: 1,
     column: 33,
-  }],
+  } ],
 })
 
 testRule(rule, {

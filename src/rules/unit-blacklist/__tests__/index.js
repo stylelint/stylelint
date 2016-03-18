@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -10,7 +9,7 @@ testRule(rule, {
     "vmin",
   ]],
 
-  accept: [{
+  accept: [ {
     code: "a { line-height: 1; }",
   }, {
     code: "a { color: #000; }",
@@ -40,9 +39,9 @@ testRule(rule, {
   }, {
     code: "a { font-size: --some-fs-10px; }",
     description: "ignore css variable includes unit",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { font-size: 13px; }",
     message: messages.rejected("px"),
     line: 1,
@@ -82,5 +81,5 @@ testRule(rule, {
     message: messages.rejected("vmin"),
     line: 1,
     column: 68,
-  }],
+  } ],
 })

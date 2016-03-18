@@ -1,10 +1,9 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import { mergeTestDescriptions } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 const sharedAlwaysTests = {
-  accept: [{
+  accept: [ {
     code: "a {} b {}",
     description: "rule ignored",
   }, {
@@ -20,9 +19,9 @@ const sharedAlwaysTests = {
   }, {
     code: "a {}\n\r\n@media {}",
     description: "mixed",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {} @media {}",
     message: messages.expected,
   }, {
@@ -40,11 +39,11 @@ const sharedAlwaysTests = {
   }, {
     code: "a {}\r\n\r\n/* comment */\r\n@media {}",
     message: messages.expected,
-  }],
+  } ],
 }
 
 const sharedNeverTests = {
-  accept: [{
+  accept: [ {
     code: "a {}\n\nb {}",
     description: "rule ignored",
   }, {
@@ -58,15 +57,15 @@ const sharedNeverTests = {
     code: "@keyframes foo {}\n@media {}",
   }, {
     code: "@keyframes foo {} @media {}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {}\n\n@media {}",
     message: messages.rejected,
   }, {
     code: "@keyframes foo {}\n/* comment */\n\n@media {}",
     message: messages.rejected,
-  }],
+  } ],
 }
 
 testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
@@ -80,9 +79,9 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
 
 testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   ruleName,
-  config: ["always", { except: ["blockless-group"] }],
+  config: [ "always", { except: ["blockless-group"] } ],
 
-  accept: [{
+  accept: [ {
     code: "a {\n\n  @mixin foo;\n}",
   }, {
     code: "@keyframes foo {}\n\n@import 'x.css'",
@@ -93,29 +92,29 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   }, {
     code: "@import 'x.css';",
     description: "single blockless rule",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@keyframes foo {}\n@import 'x.css'",
     message: messages.expected,
   }, {
     code: "@import 'x.css';\n\n@import 'y.css'",
     message: messages.rejected,
-  }],
+  } ],
 }))
 
 testRule(rule, {
   ruleName,
-  config: ["always", { ignore: ["after-comment"] }],
+  config: [ "always", { ignore: ["after-comment"] } ],
 
-  accept: [{
+  accept: [ {
     code: "/* foo */\n@media {}",
   }, {
     code: "/* foo */\n\n@media{}",
   }, {
     code: "/* foo */\r\n\r\n@media {}",
     description: "CRLF",
-  }],
+  } ],
 
   reject: [{
     code: "a {} @media {}",
@@ -125,45 +124,45 @@ testRule(rule, {
 
 testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   ruleName,
-  config: ["always", { except: ["all-nested"] }],
+  config: [ "always", { except: ["all-nested"] } ],
 
-  accept: [{
+  accept: [ {
     code: "a {\n  @mixin foo;\n  color: pink;\n}",
   }, {
     code: "a {\n  color: pink;\n  @mixin foo;\n}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {\n\n  @mixin foo;\n  color: pink;\n}",
     message: messages.rejected,
   }, {
     code: "a {\n\n  color: pink;\n\n  @mixin foo;\n}",
     message: messages.rejected,
-  }],
+  } ],
 }))
 
 testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   ruleName,
-  config: ["always", { except: ["first-nested"] }],
+  config: [ "always", { except: ["first-nested"] } ],
 
   accept: [{
     code: "a {\n  @mixin foo;\n  color: pink;\n}",
   }],
 
-  reject: [{
+  reject: [ {
     code: "a {\n  color: pink;\n  @mixin foo;\n}",
     message: messages.expected,
   }, {
     code: "a {\n\n  @mixin foo;\n  color: pink;\n}",
     message: messages.rejected,
-  }],
+  } ],
 }))
 
 testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   ruleName,
-  config: ["always", { ignore: ["all-nested"] }],
+  config: [ "always", { ignore: ["all-nested"] } ],
 
-  accept: [{
+  accept: [ {
     code: "a {\n  @mixin foo;\n  color: pink;\n}",
   }, {
     code: "a {\n  color: pink;\n  @mixin foo;\n}",
@@ -171,14 +170,14 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
     code: "a {\n\n  @mixin foo;\n  color: pink;\n}",
   }, {
     code: "a {\n\n  color: pink;\n\n  @mixin foo;\n}",
-  }],
+  } ],
 }))
 
 testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   ruleName,
-  config: ["always", { except: [ "blockless-group", "all-nested" ] }],
+  config: [ "always", { except: [ "blockless-group", "all-nested" ] } ],
 
-  accept: [{
+  accept: [ {
     code: "a {\n  @mixin foo;\n  color: pink;\n}",
   }, {
     code: "a {\n  color: pink;\n  @mixin foo;\n}",
@@ -193,9 +192,9 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
     description: "single blockless rule",
   }, {
     code: "a {\n  @mixin foo;\n  @mixin bar;\n}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@keyframes foo {}\n@import 'x.css'",
     message: messages.expected,
   }, {
@@ -207,7 +206,7 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
   }, {
     code: "a {\n\n  color: pink;\n\n  @mixin foo;\n}",
     message: messages.rejected,
-  }],
+  } ],
 }))
 
 testRule(rule, mergeTestDescriptions(sharedNeverTests, {
@@ -221,9 +220,9 @@ testRule(rule, mergeTestDescriptions(sharedNeverTests, {
 
 testRule(rule, mergeTestDescriptions(sharedNeverTests, {
   ruleName,
-  config: ["never", { except: ["blockless-group"] }],
+  config: [ "never", { except: ["blockless-group"] } ],
 
-  accept: [{
+  accept: [ {
     code: "a {\n  @mixin foo;\n}",
   }, {
     code: "@keyframes foo {}\n@import 'x.css'",
@@ -234,81 +233,81 @@ testRule(rule, mergeTestDescriptions(sharedNeverTests, {
   }, {
     code: "@import 'x.css';",
     description: "single blockless rule",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@keyframes foo {}\n\n@import 'x.css'",
     message: messages.rejected,
   }, {
     code: "@import 'x.css';\n@import 'y.css'",
     message: messages.expected,
-  }],
+  } ],
 }))
 
 testRule(rule, mergeTestDescriptions(sharedNeverTests, {
   ruleName,
-  config: ["never", { except: ["all-nested"] }],
+  config: [ "never", { except: ["all-nested"] } ],
 
-  accept: [{
+  accept: [ {
     code: "a {\n\n  @mixin foo;\n  color: pink;\n}",
   }, {
     code: "a {\n  color: pink;\n\n  @mixin foo;\n}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {\n  @mixin foo;\n  color: pink;\n}",
     message: messages.expected,
   }, {
     code: "a {\n\n  color: pink;\n  @mixin foo;\n}",
     message: messages.expected,
-  }],
+  } ],
 }))
 
 testRule(rule, mergeTestDescriptions(sharedNeverTests, {
   ruleName,
-  config: ["never", { except: ["first-nested"] }],
+  config: [ "never", { except: ["first-nested"] } ],
 
   accept: [{
     code: "a {\n\n  @mixin foo;\n  color: pink;\n}",
   }],
 
-  reject: [{
+  reject: [ {
     code: "a {\n  color: pink;\n\n  @mixin foo;\n}",
     message: messages.rejected,
   }, {
     code: "a {\n  @mixin foo;\n  color: pink;\n}",
     message: messages.expected,
-  }],
+  } ],
 }))
 
 testRule(rule, {
   ruleName,
-  config: ["never", { ignore: ["after-comment"] }],
+  config: [ "never", { ignore: ["after-comment"] } ],
 
-  accept: [{
+  accept: [ {
     code: "/* foo */\n@media {}",
   }, {
     code: "/* foo */\r\na@media {}",
     description: "CRLF",
   }, {
     code: "/* foo */\n\n@media {}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "b {}\n\n@media {}",
     message: messages.rejected,
   }, {
     code: "b {}\r\n\r\n@media {}",
     description: "CRLF",
     message: messages.rejected,
-  }],
+  } ],
 })
 
 testRule(rule, mergeTestDescriptions(sharedNeverTests, {
   ruleName,
-  config: ["never", { ignore: ["all-nested"] }],
+  config: [ "never", { ignore: ["all-nested"] } ],
 
-  accept: [{
+  accept: [ {
     code: "a {\n  @mixin foo;\n  color: pink;\n}",
   }, {
     code: "a {\n  color: pink;\n  @mixin foo;\n}",
@@ -316,5 +315,5 @@ testRule(rule, mergeTestDescriptions(sharedNeverTests, {
     code: "a {\n\n  @mixin foo;\n  color: pink;\n}",
   }, {
     code: "a {\n\n  color: pink;\n\n  @mixin foo;\n}",
-  }],
+  } ],
 }))

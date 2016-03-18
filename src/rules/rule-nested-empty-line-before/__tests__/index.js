@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a {} b {}",
     description: "non-nested node ignored",
   }, {
@@ -37,9 +36,9 @@ testRule(rule, {
   }, {
     code: "@media {\r\n\r\na {}\r\n/* comment */\r\n\r\nb {}}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media { b {} }",
     message: messages.expected,
   }, {
@@ -59,14 +58,14 @@ testRule(rule, {
     code: "@media {\r\n  b {}\r\n\r\n  a {}\r\n\r\n}",
     description: "CRLF",
     message: messages.expected,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: ["always", { except: ["first-nested"] }],
+  config: [ "always", { except: ["first-nested"] } ],
 
-  accept: [{
+  accept: [ {
     code: "a {} b {}",
     description: "non-nested node ignored",
   }, {
@@ -91,9 +90,9 @@ testRule(rule, {
   }, {
     code: "@media {\r\na {}\r\n/* comment */\r\n\r\nb {}}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media {\n\n  a {}\n}",
     message: messages.rejected,
   }, {
@@ -113,15 +112,15 @@ testRule(rule, {
   }, {
     code: "@media {\n  b {}\n  a {}\n\n}",
     message: messages.expected,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: ["always", { ignore: ["after-comment"] }],
+  config: [ "always", { ignore: ["after-comment"] } ],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "@media {\n  /* foo */\n  a {}\n}",
   }, {
     code: "@media {\r\n  /* foo */\r\n  a {}\r\n}",
@@ -131,23 +130,23 @@ testRule(rule, {
   }, {
     code: "@media {\r\n  /* foo */\r\n\r\n  a {}\r\n}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media {\n\n  a{}\n  b {}\n\n}",
     message: messages.expected,
   }, {
     code: "@media {\r\n\r\n  a{}\r\n  b {}\r\n\r\n}",
     description: "CRLF",
     message: messages.expected,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a {} b {}",
     description: "non-nested node ignored",
   }, {
@@ -172,9 +171,9 @@ testRule(rule, {
   }, {
     code: "@media {\r\na {}\r\n/* comment */\r\nb {}}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media {\n\n  a {}\n\n}",
     message: messages.rejected,
   }, {
@@ -197,38 +196,38 @@ testRule(rule, {
     code: "@media {\r\na {}\r\n/* comment */\r\n\r\nb {}}",
     description: "CRLF",
     message: messages.rejected,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: ["never", { ignore: ["after-comment"] }],
+  config: [ "never", { ignore: ["after-comment"] } ],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "@media {\n  /* foo */\n  a {}\n}",
   }, {
     code: "@media {\n  /* foo */\n\n  a {}\n}",
   }, {
     code: "@media {\r\n  /* foo */\r\n\r\n  a {}\r\n}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media {\n  a{}\n\n  b {}\n}",
     message: messages.rejected,
   }, {
     code: "@media {\r\n  a{}\r\n\r\n  b {}\r\n}",
     description: "CRLF",
     message: messages.rejected,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "@media { a { color:pink; } b { top: 0; } }",
     description: "single-line ignored",
   }, {
@@ -251,9 +250,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "@media {\n\na {\n\t\tcolor: pink; }\n/* comment */\n\nb {\n\t\ttop: 0; }}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media {\n  a {\n    color: pink;\n}\n\n}",
     message: messages.expected,
   }, {
@@ -273,14 +272,14 @@ testRule(rule, {
     code: "@media {\r\n\r\na {\r\n\t\tcolor: pink; }\r\n/* comment */\r\nb {\r\n\t\ttop: 0; }}",
     description: "CRLF",
     message: messages.expected,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: ["always-multi-line", { except: ["first-nested"] }],
+  config: [ "always-multi-line", { except: ["first-nested"] } ],
 
-  accept: [{
+  accept: [ {
     code: "@media { a { color:pink; } b { top: 0; } }",
     description: "single-line ignored",
   }, {
@@ -303,9 +302,9 @@ testRule(rule, {
   }, {
     code: "@media {\r\na {\r\n\t\tcolor: pink; }\r\n/* comment */\r\n\r\nb {\r\n\t\ttop: 0; }}",
     description: "CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media {\n\n  a {\n    color: pink;\n}\n\n}",
     message: messages.rejected,
   }, {
@@ -318,14 +317,14 @@ testRule(rule, {
   }, {
     code: "@media {\na {\n\t\tcolor: pink; }\n/* comment */\nb {\n\t\ttop: 0; }}",
     message: messages.expected,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "@media {\n\na { color:pink; }\n\nb { top: 0; } }",
     description: "single-line ignored",
   }, {
@@ -351,9 +350,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "@media {\na {\n\t\tcolor: pink; }\n/* comment */\nb {\n\t\ttop: 0; }}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@media {\n\n  a {\n    color: pink;\n}\n\n}",
     message: messages.rejected,
   }, {
@@ -369,5 +368,5 @@ testRule(rule, {
   }, {
     code: "@media { a {\n\t\tcolor: pink; }\n/* comment */\n\nb {\n\t\ttop: 0; }}",
     message: messages.rejected,
-  }],
+  } ],
 })

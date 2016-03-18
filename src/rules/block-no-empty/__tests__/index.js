@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -7,7 +6,7 @@ testRule(rule, {
   config: [undefined],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "",
   }, {
     code: "@import \"foo.css\";",
@@ -17,9 +16,9 @@ testRule(rule, {
     code: "@media print { a { color: pink; } }",
   }, {
     code: "@import url(x.css)",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {}",
     message: messages.rejected,
     line: 1,
@@ -44,5 +43,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 18,
-  }],
+  } ],
 })

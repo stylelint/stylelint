@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"(a) ( a)\"; }",
   }, {
     code: "a::before { background: url(\n'asdf( Vcxvsd)ASD'\n); }",
@@ -17,9 +16,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "a { color: color(\nrgb(\n0, 0, 0\n) lightness(\n50%\n)\n); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate(1, 1\n); }",
     message: messages.expectedOpening,
     line: 1,
@@ -70,14 +69,14 @@ testRule(rule, {
     message: messages.expectedOpening,
     line: 1,
     column: 26,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"(a) ( a)\"; }",
   }, {
     code: "a::before { background: url(\n'asdf( Vcxvsd)ASD'\n); }",
@@ -92,9 +91,9 @@ testRule(rule, {
     code: "a { transform: translate(1, 1); }",
   }, {
     code: "a { transform: translate(  1, 1\t); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate(1, 1\n); }",
     message: messages.expectedOpeningMultiLine,
     line: 1,
@@ -145,14 +144,14 @@ testRule(rule, {
     message: messages.expectedOpeningMultiLine,
     line: 1,
     column: 26,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"(a) ( a)\"; }",
   }, {
     code: "a::before { background: url('asdf(Vcxv\nsd\n)ASD'); }",
@@ -167,9 +166,9 @@ testRule(rule, {
     code: "a { transform: translate(1,\n  1); }",
   }, {
     code: "a { transform: translate(1,\n\t\t1); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate(\n  1,\n  1); }",
     message: messages.rejectedOpeningMultiLine,
     line: 1,
@@ -199,5 +198,5 @@ testRule(rule, {
     message: messages.rejectedOpeningMultiLine,
     line: 1,
     column: 41,
-  }],
+  } ],
 })

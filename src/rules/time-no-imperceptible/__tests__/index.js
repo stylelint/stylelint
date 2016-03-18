@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: "a { transition-delay: 0.2s; }",
   }, {
     code: "a { transition-delay: 3s; }",
@@ -46,9 +45,9 @@ testRule(rule, {
     code: "a { animation: foo 0.8s linear; }",
   }, {
     code: "a { animation: foo 0.8s 200ms ease-in-out; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transition-delay: 0.006s; }",
     message: messages.rejected("0.006s"),
     line: 1,
@@ -108,5 +107,5 @@ testRule(rule, {
     message: messages.rejected("20ms"),
     line: 1,
     column: 25,
-  }],
+  } ],
 })

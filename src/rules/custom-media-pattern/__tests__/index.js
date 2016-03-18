@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,15 +5,15 @@ testRule(rule, {
   ruleName,
   config: [/foo-.+/],
 
-  accept: [{
+  accept: [ {
     code: "@keyframes foofoo {}",
   }, {
     code: "@custom-media --foo-bar (min-width: 0);",
   }, {
     code: "@custom-media --foo-foofoo (min-width: 0);",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@custom-media --foa-bar (min-width: 0);",
     message: messages.expected,
     line: 1,
@@ -24,22 +23,22 @@ testRule(rule, {
     message: messages.expected,
     line: 1,
     column: 15,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["foo-.+"],
 
-  accept: [{
+  accept: [ {
     code: "@keyframes foofoo {}",
   }, {
     code: "@custom-media --foo-bar (min-width: 0);",
   }, {
     code: "@custom-media --foo-foofoo (min-width: 0);",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@custom-media --foa-bar (min-width: 0);",
     message: messages.expected,
     line: 1,
@@ -49,20 +48,20 @@ testRule(rule, {
     message: messages.expected,
     line: 1,
     column: 15,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: [/^[A-Z][a-z]+-[a-z][a-zA-Z]+$/],
 
-  accept: [{
+  accept: [ {
     code: "@custom-media --Ape-ageLess",
   }, {
     code: "@custom-media --Purr-piratePlant",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "@custom-media --ape-ageLess",
     message: messages.expected,
     line: 1,
@@ -72,5 +71,5 @@ testRule(rule, {
     message: messages.expected,
     line: 1,
     column: 15,
-  }],
+  } ],
 })

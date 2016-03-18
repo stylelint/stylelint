@@ -30,7 +30,6 @@
   ],
   "dependencies": {
     "autoprefixer": "^6.0.0",
-    "ava": "^0.11.0",
     "balanced-match": "^0.3.0",
     "chalk": "^1.1.1",
     "colorguard": "^1.0.1",
@@ -60,7 +59,6 @@
     "babel-tape-runner": "^2.0.0",
     "eslint": "^2.4.0",
     "eslint-config-stylelint": "^1.0.0",
-    "jscodeshift": "^0.3.14",
     "npmpub": "^3.0.1",
     "postcss-import": "^8.0.2",
     "remark": "^4.0.0",
@@ -75,10 +73,7 @@
     "release": "npmpub",
     "lint": "eslint . --ignore-path .gitignore && remark . --quiet --frail",
     "tape": "babel-tape-runner \"src/**/__tests__/*.js\"",
-    "test-rules": "babel-tape-runner src/rules/**/__tests__/*.js",
-    "test": "npm run lint && npm run tape",
-    "shift-tests": "jscodeshift -t ./shift-tests.js src/rules/**/__tests__/*.js",
-    "reset-tests": "trash src/**/*-codeshiftInfo.js && git checkout -- src/rules"
+    "test": "npm run lint && npm run tape"
   },
   "babel": {
     "presets": [

@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a { background-size: 0\n,0\n,0; }",
   }, {
     code: "a { background-size: 0\n,  0\n,\t0; }",
@@ -28,9 +27,9 @@ testRule(rule, {
   }, {
     code: "a { transform: translate(1,1); }",
     description: "function arguments",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { background-size: 0, 0; }",
     message: messages.expectedBefore(),
     line: 1,
@@ -50,14 +49,14 @@ testRule(rule, {
     message: messages.expectedBefore(),
     line: 1,
     column: 24,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { background-size: 0\n,0\n,0; }",
   }, {
     code: "a { background-size: 0\n,  0\n,\t0; }",
@@ -73,9 +72,9 @@ testRule(rule, {
   }, {
     code: "a { background-size: 0, 0;\r\n}",
     description: "ignores single-line list, multi-line block with CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { background-size: 0\n, 0, 0; }",
     message: messages.expectedBeforeMultiLine(),
     line: 2,
@@ -96,14 +95,14 @@ testRule(rule, {
     message: messages.expectedBeforeMultiLine(),
     line: 2,
     column: 5,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a { background-size: 0,\n0,\n0; }",
   }, {
     code: "a { background-size: 0 ,0; }",
@@ -111,9 +110,9 @@ testRule(rule, {
   }, {
     code: "a { background-size: 0 ,0;\n}",
     description: "ignores single-line list, multi-line block",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { background-size: 0,\n0\n, 0; }",
     message: messages.rejectedBeforeMultiLine(),
     line: 3,
@@ -135,5 +134,5 @@ testRule(rule, {
     message: messages.rejectedBeforeMultiLine(),
     line: 2,
     column: 1,
-  }],
+  } ],
 })

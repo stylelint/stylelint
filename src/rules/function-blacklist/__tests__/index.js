@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -11,7 +10,7 @@ testRule(rule, {
     "linear-gradient",
   ]],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a { transform: rotate(7deg) }",
@@ -21,9 +20,9 @@ testRule(rule, {
     code: "a { color: color(rgb(0, 0, 0) lightness(50%)); }",
   }, {
     code: "@media (max-width: 10px) { a { color: color(rgb(0, 0, 0) lightness(50%)); } }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: scale(1); }",
     message: messages.rejected("scale"),
     line: 1,
@@ -68,5 +67,5 @@ testRule(rule, {
     message: messages.rejected("rgba"),
     line: 1,
     column: 45,
-  }],
+  } ],
 })

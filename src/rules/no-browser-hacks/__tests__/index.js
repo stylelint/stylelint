@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [true],
 
-  reject: [{
+  reject: [ {
     code: "h1 { _color: red }",
     description: "ie 6 underscore hack",
     message: messages.rejected("property", "_color"),
@@ -30,14 +29,14 @@ testRule(rule, {
     message: messages.rejected("selector", "html ~ /**/ body h1"),
     line: 1,
     column: 1,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: [true, { browsers: "last 2 versions, ie >= 5" }],
+  config: [ true, { browsers: "last 2 versions, ie >= 5" } ],
 
-  accept: [{
+  accept: [ {
     code: "h1 { _color: red }",
     description: "ie 6 underscore hack",
   }, {
@@ -49,5 +48,5 @@ testRule(rule, {
   }, {
     code: "html ~ /**/ body h1 { color: red }",
     description: "html combinator comment body hack",
-  }],
+  } ],
 })

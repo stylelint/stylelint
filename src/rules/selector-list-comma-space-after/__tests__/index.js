@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a, b {}",
   }, {
     code: "a, b, c {}",
@@ -20,9 +19,9 @@ testRule(rule, {
   }, {
     code: "a, b[data-foo=\"tr,tr\"] {}",
     description: "string",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a,b {}",
     message: messages.expectedAfter(),
     line: 1,
@@ -58,14 +57,14 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 5,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a,b {}",
   }, {
     code: "a,b,c {}",
@@ -79,9 +78,9 @@ testRule(rule, {
   }, {
     code: "a,b[data-foo=\"tr, tr\"] {}",
     description: "string",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a, b {}",
     message: messages.rejectedAfter(),
     line: 1,
@@ -117,14 +116,14 @@ testRule(rule, {
     message: messages.rejectedAfter(),
     line: 1,
     column: 4,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a, b {}",
   }, {
     code: "a, b {\n}",
@@ -132,9 +131,9 @@ testRule(rule, {
   }, {
     code: "a, b {\r\n}",
     description: "single-line selector list, multi-line block with CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a,b {}",
     message: messages.expectedAfterSingleLine(),
     line: 1,
@@ -150,14 +149,14 @@ testRule(rule, {
     message: messages.expectedAfterSingleLine(),
     line: 1,
     column: 2,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a,b {}",
   }, {
     code: "a,b {\n}",
@@ -165,9 +164,9 @@ testRule(rule, {
   }, {
     code: "a,b {\r\n}",
     description: "single-line selector list, multi-line block with CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a, b {}",
     message: messages.rejectedAfterSingleLine(),
     line: 1,
@@ -183,5 +182,5 @@ testRule(rule, {
     message: messages.rejectedAfterSingleLine(),
     line: 1,
     column: 2,
-  }],
+  } ],
 })

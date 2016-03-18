@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -11,7 +10,7 @@ testRule(rule, {
     "/color/": ["/^green/"],
   }],
 
-  accept: [{
+  accept: [ {
     code: "div { whitespace: nowrap; }",
   }, {
     code: "a { transform: scale(1, 1); }",
@@ -21,9 +20,9 @@ testRule(rule, {
     code: "a { color: green; }",
   }, {
     code: "a { background-color: green; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "div { whitespace: pre; }",
     message: messages.rejected("whitespace", "pre"),
     line: 1,
@@ -48,5 +47,5 @@ testRule(rule, {
     message: messages.rejected("background-color", "pink"),
     line: 1,
     column: 5,
-  }],
+  } ],
 })

@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -7,7 +6,7 @@ testRule(rule, {
   config: [2],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a,\n" +
@@ -21,9 +20,9 @@ testRule(rule, {
     "  a,\n" +
     "  b { color: pink;}\n" +
     "}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a,\n" +
     "  b { color: pink; }",
 
@@ -65,5 +64,5 @@ testRule(rule, {
     message: messages.expected("2 spaces"),
     line: 2,
     column: 4,
-  }],
+  } ],
 })

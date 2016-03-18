@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,13 +5,13 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: ":root {}",
   }, {
     code: "   :root\n {}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a, :root {}",
     message: messages.rejected,
   }, {
@@ -30,5 +29,5 @@ testRule(rule, {
   }, {
     code: "html :root {}",
     message: messages.rejected,
-  }],
+  } ],
 })

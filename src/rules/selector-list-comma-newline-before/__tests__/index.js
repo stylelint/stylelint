@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a\n,b {}",
   }, {
     code: "a\n,b\n,c {}",
@@ -34,9 +33,9 @@ testRule(rule, {
   }, {
     code: "\ta\n\t, b {}",
     description: "indented statement",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a,b {}",
     message: messages.expectedBefore(),
     line: 1,
@@ -67,14 +66,14 @@ testRule(rule, {
     message: messages.expectedBefore(),
     line: 2,
     column: 3,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a\n,b {}",
   }, {
     code: "a\r\n,b {}",
@@ -88,9 +87,9 @@ testRule(rule, {
   }, {
     code: "\ta\n\t, b {\n}",
     description: "indented statement",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a\n,b, c {}",
     message: messages.expectedBeforeMultiLine(),
     line: 2,
@@ -106,14 +105,14 @@ testRule(rule, {
     message: messages.expectedBeforeMultiLine(),
     line: 2,
     column: 3,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-multi-line"],
 
-  accept: [{
+  accept: [ {
     code: "a,\nb {}",
   }, {
     code: "a ,b {}",
@@ -124,9 +123,9 @@ testRule(rule, {
   }, {
     code: "a ,b {\r\n}",
     description: "ignores single-line selector list, multi-line block with CRLF",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a,\nb , c {}",
     message: messages.rejectedBeforeMultiLine(),
     line: 2,
@@ -142,5 +141,5 @@ testRule(rule, {
     message: messages.rejectedBeforeMultiLine(),
     line: 2,
     column: 3,
-  }],
+  } ],
 })

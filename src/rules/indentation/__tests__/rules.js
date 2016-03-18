@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [2],
 
-  accept: [{
+  accept: [ {
     code: "/* anything\n" +
     "    goes\n" +
     "\t\t\twithin a comment */\n" +
@@ -83,9 +82,9 @@ testRule(rule, {
     code: "@media print {\n" +
     "  * { color: pink; }\n" +
     "}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "\ta {\n" +
     "  color: pink;\n" +
     "}",
@@ -192,14 +191,14 @@ testRule(rule, {
     "}",
 
     message: messages.expected("2 spaces"),
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["tab"],
 
-  accept: [{
+  accept: [ {
     code: "",
   }, {
     code: "a {color: pink;}",
@@ -218,9 +217,9 @@ testRule(rule, {
   }, {
     code: "a {\n" +
     "\tcolor: pink;}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "\ta {\n" +
     "\tcolor: pink;\n" +
     "}",
@@ -291,14 +290,14 @@ testRule(rule, {
     message: messages.expected("1 tab"),
     line: 2,
     column: 1,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: [2, { except: ["value"] }],
+  config: [ 2, { except: ["value"] } ],
 
-  accept: [{
+  accept: [ {
     code: "a {\n" +
     "  background-position: top left, top right, bottom left;\n" +
     "  color: pink;\n" +
@@ -310,9 +309,9 @@ testRule(rule, {
     "  bottom left;\n" +
     "  color: pink;\n" +
     "}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a {\n" +
     "  background-position: top left,\n" +
     "    top right,\n" +
@@ -334,14 +333,14 @@ testRule(rule, {
     message: messages.expected("2 spaces"),
     line: 4,
     column: 1,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: [2, { ignore: ["value"] }],
+  config: [ 2, { ignore: ["value"] } ],
 
-  accept: [{
+  accept: [ {
     code: "a {\n" +
     "  background-position: top left, top right, bottom left;\n" +
     "  color: pink;\n" +
@@ -367,7 +366,7 @@ testRule(rule, {
     "    bottom left;\n" +
     "  color: pink;\n" +
     "}",
-  }],
+  } ],
 
   reject: [{
     code: "\ta {\n" +

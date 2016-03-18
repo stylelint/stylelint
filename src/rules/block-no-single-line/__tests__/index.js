@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -7,7 +6,7 @@ testRule(rule, {
   config: [undefined],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "",
   }, {
     code: "@import \"foo.css\";",
@@ -35,9 +34,9 @@ testRule(rule, {
   }, {
     code: "a {\n@media (color) { color: pink;\r\nbackground: orange; }\n}",
     description: "multi-line blocks with the at-rule nested",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: pink; }",
     message: messages.rejected,
     line: 1,
@@ -78,5 +77,5 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 7,
-  }],
+  } ],
 })

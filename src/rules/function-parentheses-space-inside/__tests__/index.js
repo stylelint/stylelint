@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"(a) ( a )\"; }",
   }, {
     code: "a::before { background: url( 'asdf(Vcxvsd)ASD' ); }",
@@ -14,9 +13,9 @@ testRule(rule, {
     code: "a { transform: translate( 1, 1 ); }",
   }, {
     code: "a { color: color( rgb( 0, 0, 0 ) lightness( 50% ) ); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate(1, 1 ); }",
     message: messages.expectedOpening,
     line: 1,
@@ -92,14 +91,14 @@ testRule(rule, {
     message: messages.expectedOpening,
     line: 1,
     column: 26,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["always-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"(a) ( a )\"; }",
   }, {
     code: "a::before { background: url( 'asdf(Vcxvsd)ASD' ); }",
@@ -116,9 +115,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "a { color: color(rgb(0,\n0,\n0 ) lightness( 50% )); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: color(rgb(0,\n0,\n0 ) lightness(50% )); }",
     message: messages.expectedOpeningSingleLine,
     line: 3,
@@ -183,14 +182,14 @@ testRule(rule, {
     message: messages.expectedClosingSingleLine,
     line: 1,
     column: 35,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"(a) ( a )\"; }",
   }, {
     code: "a::before { background: url('asdf( Vcxvsd )ASD'); }",
@@ -200,9 +199,9 @@ testRule(rule, {
     code: "a { transform: translate(1, 1); }",
   }, {
     code: "a { color: color(rgb(0, 0, 0) lightness(50%)); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { transform: translate( 1, 1); }",
     message: messages.rejectedOpening,
     line: 1,
@@ -278,14 +277,14 @@ testRule(rule, {
     message: messages.rejectedClosing,
     line: 3,
     column: 2,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["never-single-line"],
 
-  accept: [{
+  accept: [ {
     code: "a::before { content: \"(a) ( a )\"; }",
   }, {
     code: "a::before { background: url('asdf( Vcxvsd )ASD'); }",
@@ -302,9 +301,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "a { color: color(rgb(0,\n0,\n0 ) lightness(50%)); }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: color(rgb(0,\n0,\n0) lightness( 50%)); }",
     message: messages.rejectedOpeningSingleLine,
     line: 3,
@@ -369,5 +368,5 @@ testRule(rule, {
     message: messages.rejectedOpeningSingleLine,
     line: 1,
     column: 27,
-  }],
+  } ],
 })

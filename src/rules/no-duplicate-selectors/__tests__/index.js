@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import postcss from "postcss"
 import postcssImport from "postcss-import"
@@ -10,7 +9,7 @@ testRule(rule, {
   ruleName,
   config: [null],
 
-  accept: [{
+  accept: [ {
     code: "a {} b {} c {} d, e, f {}",
     description: "no duplicates",
   }, {
@@ -31,9 +30,9 @@ testRule(rule, {
   }, {
     code: "a b { top: 0; } a { b, c { color: pink; } }",
     description: "nested resolution",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a, a {}",
     description: "duplicate within one rule's selector list",
     message: messages.rejected("a"),
@@ -75,7 +74,7 @@ testRule(rule, {
     message: messages.rejected("a b"),
     line: 1,
     column: 12,
-  }],
+  } ],
 })
 
 test("with postcss-import and duplicates within a file", t => {

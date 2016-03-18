@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -7,7 +6,7 @@ testRule(rule, {
   config: [true],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "",
   }, {
     code: "@import \"foo.css\";",
@@ -49,9 +48,9 @@ testRule(rule, {
     code: "@keyframes spin { to {} from {} }",
   }, {
     code: ":root { --custom-property-set: {} }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "foo {}",
     message: messages.rejected,
     line: 1,
@@ -71,15 +70,15 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 13,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: [true, { ignore: ["descendant"] }],
+  config: [ true, { ignore: ["descendant"] } ],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: ".foo div {}",
   }, {
     code: ".foo > div {}",
@@ -88,9 +87,9 @@ testRule(rule, {
   }, {
     code: "#bar div.foo {}",
     description: "descendant and compounded",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "div {}",
     message: messages.rejected,
   }, {
@@ -99,23 +98,23 @@ testRule(rule, {
   }, {
     code: "div.foo {}",
     message: messages.rejected,
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
-  config: [true, { ignore: ["compounded"] }],
+  config: [ true, { ignore: ["compounded"] } ],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "div.foo {}",
   }, {
     code: "div#foo {}",
   }, {
     code: "div[something] {}",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "div {}",
     message: messages.rejected,
   }, {
@@ -128,5 +127,5 @@ testRule(rule, {
     code: "#bar div.foo {}",
     description: "compounded and descendant",
     message: messages.rejected,
-  }],
+  } ],
 })

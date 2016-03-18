@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: [undefined],
 
-  accept: [{
+  accept: [ {
     code: "a { /* color: pink; */ }",
     description: "regular comment around declaration",
   }, {
@@ -15,9 +14,9 @@ testRule(rule, {
   }, {
     code: "a { background: url(//foo.com/bar.png) }",
     description: "url with double slash",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { // color: pink; }",
     description: "before declaration",
     message: messages.rejected,
@@ -41,7 +40,7 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 1,
-  }],
+  } ],
 })
 
 testRule(rule, {

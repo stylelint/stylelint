@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -14,7 +13,7 @@ testRule(rule, {
     "color": [ "red", "green", "blue", "/^sea/" ],
   }],
 
-  accept: [{
+  accept: [ {
     code: "a { color: pink; }",
   }, {
     code: "a { color: lightgreen; }",
@@ -43,9 +42,9 @@ testRule(rule, {
       message: messages.rejected("color", "darkseagreen"),
       column: 5,
     },
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { color: red; }",
     message: messages.rejected("color", "red"),
     line: 1,
@@ -73,7 +72,7 @@ testRule(rule, {
     code: "a { color: seagreen }",
     message: messages.rejected("color", "seagreen"),
     column: 5,
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -85,7 +84,7 @@ testRule(rule, {
 
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "a { animation: foo 1s linear; }",
   }, {
     code: "a { -webkit-animation: foo 1s linear; }",
@@ -93,9 +92,9 @@ testRule(rule, {
     code: "a { animation-timing-function: linear; }",
   }, {
     code: "a { -webkit-animation-timing-function: linear; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { animation: foo 1s ease-in-out; }",
     message: messages.rejected("animation", "foo 1s ease-in-out"),
   }, {
@@ -107,5 +106,5 @@ testRule(rule, {
   }, {
     code: "a { -webkit-animation-timing-function: ease-in-out; }",
     message: messages.rejected("-webkit-animation-timing-function", "ease-in-out"),
-  }],
+  } ],
 })

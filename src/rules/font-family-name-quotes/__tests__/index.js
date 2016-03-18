@@ -1,4 +1,3 @@
-/* eslint-disable comma-dangle,array-bracket-spacing */
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
 import rule, { ruleName, messages } from ".."
 
@@ -6,7 +5,7 @@ testRule(rule, {
   ruleName,
   config: ["single-where-required"],
 
-  accept: [{
+  accept: [ {
     code: "a { font-family: $sassy-font-family; }",
     description: "ignores sass variables",
   }, {
@@ -23,9 +22,9 @@ testRule(rule, {
     code: "a { font-family: Arial, 'Ahem!', sans-serif; }",
   }, {
     code: "a { font-family: 'Hawaii 5-0', Arial, sans-serif; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { font-family: 'Lucida Grande', Arial, sans-serif; }",
     message: messages.expected("no", "Lucida Grande"),
     line: 1,
@@ -53,14 +52,14 @@ testRule(rule, {
   }, {
     code: "a { font-family: \"Hawaii 5-0\", Arial, sans-serif; }",
     message: messages.expected("single", "Hawaii 5-0"),
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["double-where-required"],
 
-  accept: [{
+  accept: [ {
     code: "a { font-family: $sassy-font-family; }",
     description: "ignores sass variables",
   }, {
@@ -77,9 +76,9 @@ testRule(rule, {
     code: "a { font-family: Arial, \"Ahem!\", sans-serif; }",
   }, {
     code: "a { font-family: \"Hawaii 5-0\", Arial, sans-serif; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { font-family: \"Lucida Grande\", Arial, sans-serif; }",
     message: messages.expected("no", "Lucida Grande"),
     line: 1,
@@ -107,14 +106,14 @@ testRule(rule, {
   }, {
     code: "a { font-family: 'Hawaii 5-0', Arial, sans-serif; }",
     message: messages.expected("double", "Hawaii 5-0"),
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["single-where-recommended"],
 
-  accept: [{
+  accept: [ {
     code: "a { font-family: $sassy-font-family; }",
     description: "ignores sass variables",
   }, {
@@ -137,9 +136,9 @@ testRule(rule, {
     code: "a { font-family: Arial, 'Ahem!', sans-serif; }",
   }, {
     code: "a { font-family: 'Hawaii 5-0', Arial, sans-serif; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { font-family: Lucida Grande, Arial, sans-serif; }",
     message: messages.expected("single", "Lucida Grande"),
     line: 1,
@@ -185,14 +184,14 @@ testRule(rule, {
   }, {
     code: "a { font-family: \"snake_case\"; }",
     message: messages.expected("single", "snake_case"),
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["double-where-recommended"],
 
-  accept: [{
+  accept: [ {
     code: "a { font-family: $sassy-font-family; }",
     description: "ignores sass variables",
   }, {
@@ -215,9 +214,9 @@ testRule(rule, {
     code: "a { font-family: Arial, \"Ahem!\", sans-serif; }",
   }, {
     code: "a { font-family: \"Hawaii 5-0\", Arial, sans-serif; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { font-family: Lucida Grande, Arial, sans-serif; }",
     message: messages.expected("double", "Lucida Grande"),
     line: 1,
@@ -263,14 +262,14 @@ testRule(rule, {
   }, {
     code: "a { font-family: 'snake_case'; }",
     message: messages.expected("double", "snake_case"),
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["single-unless-keyword"],
 
-  accept: [{
+  accept: [ {
     code: "a { font-family: $sassy-font-family; }",
     description: "ignores sass variables",
   }, {
@@ -291,9 +290,9 @@ testRule(rule, {
     code: "a { font-family: 'Times', 'Arial', cursive; }",
   }, {
     code: "a { font-family: inherit; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { font-family: 'Lucida Grande', 'Arial', 'sans-serif'; }",
     message: messages.expected("no", "sans-serif"),
   }, {
@@ -305,14 +304,14 @@ testRule(rule, {
   }, {
     code: "a { font-family: 'Lucida Grande', \"Arial\", sans-serif; }",
     message: messages.expected("single", "Arial"),
-  }],
+  } ],
 })
 
 testRule(rule, {
   ruleName,
   config: ["double-unless-keyword"],
 
-  accept: [{
+  accept: [ {
     code: "a { font-family: $sassy-font-family; }",
     description: "ignores sass variables",
   }, {
@@ -333,9 +332,9 @@ testRule(rule, {
     code: "a { font-family: \"Times\", \"Arial\", cursive; }",
   }, {
     code: "a { font-family: inherit; }",
-  }],
+  } ],
 
-  reject: [{
+  reject: [ {
     code: "a { font-family: \"Lucida Grande\", \"Arial\", \"sans-serif\"; }",
     message: messages.expected("no", "sans-serif"),
   }, {
@@ -347,5 +346,5 @@ testRule(rule, {
   }, {
     code: "a { font-family: \"Lucida Grande\", 'Arial', sans-serif; }",
     message: messages.expected("double", "Arial"),
-  }],
+  } ],
 })
