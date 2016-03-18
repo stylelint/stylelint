@@ -77,6 +77,7 @@ You might want to learn a little about [the conventions](https://github.com/styl
     "no-descending-specificity": true,
     "no-duplicate-selectors": true,
     "no-eol-whitespace": true,
+    "no-indistinguishable-colors": true,
     "no-invalid-double-slash-comments": true,
     "no-missing-eof-newline": true,
     "no-unknown-animations": true,
