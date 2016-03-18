@@ -1,3 +1,7 @@
+# HEAD
+
+- Added: `no-indistinguishable-colors` rule.
+
 # 5.1.0
 
 - Added: `selector-type-case` rule.
