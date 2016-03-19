@@ -41,7 +41,7 @@ export default function (expectation) {
 export function selectorListCommaWhitespaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkRules(rule => {
     const selector = rule.selector
-    styleSearch({ source: selector, target: "," }, match => {
+    styleSearch({ source: selector, target: ",", outsideFunctionalNotation: true }, match => {
       checkDelimiter(selector, match.startIndex, rule)
     })
   })

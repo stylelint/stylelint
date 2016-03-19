@@ -19,6 +19,12 @@ testRule(rule, {
   }, {
     code: "a ,b[data-foo=\"tr,tr\"] {}",
     description: "string",
+  }, {
+    code: "a:matches(:hover, :focus) {}",
+    description: "comma inside :matches()",
+  }, {
+    code: ":not(:hover, :focus) {}",
+    description: "comma inside :not()",
   } ],
 
   reject: [ {
@@ -78,6 +84,12 @@ testRule(rule, {
   }, {
     code: "a,b[data-foo=\"tr ,tr\"] {}",
     description: "string",
+  }, {
+    code: "a:matches(:hover , :focus) {}",
+    description: "comma inside :matches()",
+  }, {
+    code: ":not(:hover , :focus) {}",
+    description: "comma inside :not()",
   } ],
 
   reject: [ {

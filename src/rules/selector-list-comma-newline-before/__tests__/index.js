@@ -33,6 +33,12 @@ testRule(rule, {
   }, {
     code: "\ta\n\t, b {}",
     description: "indented statement",
+  }, {
+    code: "a:matches(:hover, :focus) {}",
+    description: "comma inside :matches()",
+  }, {
+    code: ":not(:hover, :focus) {}",
+    description: "comma inside :not()",
   } ],
 
   reject: [ {
@@ -123,6 +129,12 @@ testRule(rule, {
   }, {
     code: "a ,b {\r\n}",
     description: "ignores single-line selector list, multi-line block with CRLF",
+  }, {
+    code: "a:matches(:hover, :focus) {}",
+    description: "comma inside :matches()",
+  }, {
+    code: ":not(:hover, :focus) {}",
+    description: "comma inside :not()",
   } ],
 
   reject: [ {

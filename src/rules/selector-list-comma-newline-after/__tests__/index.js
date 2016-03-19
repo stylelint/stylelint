@@ -39,6 +39,12 @@ testRule(rule, {
   }, {
     code: "a, /* comment\n       commentline2 */\nb {}",
     description: "with end-of-line multi-line comment with newline after",
+  }, {
+    code: "a:matches(:hover, :focus) {}",
+    description: "comma inside :matches()",
+  }, {
+    code: ":not(:hover, :focus) {}",
+    description: "comma inside :not()",
   } ],
 
   reject: [ {
@@ -141,6 +147,12 @@ testRule(rule, {
   }, {
     code: "a ,b {\n}",
     description: "ignores single-line selector list, multi-line block",
+  }, {
+    code: "a:matches(:hover, :focus) {}",
+    description: "comma inside :matches()",
+  }, {
+    code: ":not(:hover, :focus) {}",
+    description: "comma inside :not()",
   } ],
 
   reject: [ {

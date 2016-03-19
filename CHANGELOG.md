@@ -3,6 +3,7 @@
 - Added: `no-indistinguishable-colors` rule.
 - Added: `at-rule-blockless-newline-after` rule.
 - Fixed: `font-weight-notation` now ignore `inherit` value.
+- Fixed: `selector-list-comma-*` rules no longer deliver false positives inside functional notation.
 
 # 5.1.0
 
