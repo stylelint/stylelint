@@ -129,3 +129,14 @@ testRule(rule, {
     message: messages.rejected,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [true],
+  skipBasicChecks: true,
+  syntax: "scss",
+
+  accept: [
+    { code: "// Comment\n.c {}" },
+  ],
+})

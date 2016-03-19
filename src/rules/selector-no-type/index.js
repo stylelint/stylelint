@@ -33,7 +33,9 @@ export default function (on, options) {
 
       if (cssRuleHasSelectorEndingWithColon(rule)) { return }
 
-      selectorParser(selectorAST => {
+      selectorParser(checkSelector).process(rule.selector)
+
+      function checkSelector(selectorAST) {
         selectorAST.eachTag(tag => {
           // postcss-selector-parser includes the arguments to nth-child() functions
           // as "tags", so we need to ignore them ourselves.
@@ -43,7 +45,7 @@ export default function (on, options) {
             return
           }
 
-          // & is not a type selector: it's used for nesting 
+          // & is not a type selector: it's used for nesting
           if (tag.value[0] === "&") { return }
 
           if (optionsHaveIgnored(options, "descendant")  && isCombinator(tag.prev())) {
@@ -67,8 +69,7 @@ export default function (on, options) {
             result,
           })
         })
-      })
-        .process(rule.selector)
+      }
     })
   }
 }
