@@ -71,13 +71,15 @@ export default function (expectation, options) {
 
     function checkWeight(weightValue, decl) {
       if (cssWordIsVariable(weightValue)) { return }
+      if (weightValue === INHERIT_KEYWORD) { return }
+
       if (optionsHaveIgnored(options, "relative") &&
         includes(RELATIVE_NAMED_WEIGHTS, weightValue)) { return }
 
       const weightValueOffset = decl.value.indexOf(weightValue)
 
       if (expectation === "numeric") {
-        if (!isNumbery(weightValue) && weightValue !== INHERIT_KEYWORD) {
+        if (!isNumbery(weightValue)) {
           return complain(messages.expected("numeric"))
         }
       }
@@ -91,7 +93,6 @@ export default function (expectation, options) {
         }
         if (!includes(WEIGHT_SPECIFIC_KEYWORDS, weightValue)
           && weightValue !== NORMAL_KEYWORD
-          && weightValue !== INHERIT_KEYWORD
         ) {
           return complain(messages.invalidNamed(weightValue))
         }
