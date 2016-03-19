@@ -30,6 +30,8 @@ testRule(rule, {
   }, {
     code: "a b { top: 0; } a { b, c { color: pink; } }",
     description: "nested resolution",
+  }, {
+    code: "@mixin foo { &:hover {} } @mixin bar { &:hover {} }",
   } ],
 
   reject: [ {

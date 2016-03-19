@@ -2,7 +2,7 @@ import { includes, union } from "lodash"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 import {
   cssNodeContextLookup,
-  findMediaContext,
+  findAtRuleContext,
   ruleMessages,
   report,
   validateOptions,
@@ -30,7 +30,7 @@ export default function (actual) {
       // Return early if the rule contains a keyframe selector
       if (rule.parent.type === "atrule" && rule.parent.name === "keyframes") { return }
 
-      const contextSelectorSet = selectorContextLookup.getContext(rule, findMediaContext(rule))
+      const contextSelectorSet = selectorContextLookup.getContext(rule, findAtRuleContext(rule))
       const resolvedSelectors = rule.selectors.reduce((result, selector) => {
         return union(result, resolvedNestedSelector(selector, rule))
       }, [])

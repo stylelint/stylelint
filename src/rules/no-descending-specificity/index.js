@@ -5,7 +5,7 @@ import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 import {
   cssNodeContextLookup,
-  findMediaContext,
+  findAtRuleContext,
   isLowerSpecificity,
   report,
   ruleMessages,
@@ -26,7 +26,7 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      const comparisonContext = selectorContextLookup.getContext(rule, findMediaContext(rule))
+      const comparisonContext = selectorContextLookup.getContext(rule, findAtRuleContext(rule))
 
       rule.selectors.forEach(selector => {
         // The edge-case of duplicate selectors will act acceptably

@@ -11,7 +11,7 @@ export { default as cssStatementHasEmptyBlock } from "./cssStatementHasEmptyBloc
 export { default as cssStatementStringBeforeBlock } from "./cssStatementStringBeforeBlock"
 export { default as cssWordIsVariable } from "./cssWordIsVariable"
 export { default as declarationValueIndexOffset } from "./declarationValueIndexOffset"
-export { default as findMediaContext } from "./findMediaContext"
+export { default as findAtRuleContext } from "./findAtRuleContext"
 export { default as isLowerSpecificity } from "./isLowerSpecificity"
 export { default as isAutoprefixable } from "./isAutoprefixable"
 export { default as isSingleLineString } from "./isSingleLineString"

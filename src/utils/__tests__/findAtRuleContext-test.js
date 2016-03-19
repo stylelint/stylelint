@@ -1,8 +1,8 @@
 import test from "tape"
 import postcss from "postcss"
-import findMediaContext from "../findMediaContext"
+import findAtRuleContext from "../findAtRuleContext"
 
-test("findMediaContext", t => {
+test("findAtRuleContext", t => {
   const css = `
     a {}
     @media print {
@@ -19,16 +19,16 @@ test("findMediaContext", t => {
     result.root.eachRule(rule => {
       switch (rule.selector) {
         case "a":
-          t.equal(findMediaContext(rule), null)
+          t.equal(findAtRuleContext(rule), null)
           break
         case "b":
-          t.equal(findMediaContext(rule).params, "print")
+          t.equal(findAtRuleContext(rule).params, "print")
           break
         case "c":
-          t.equal(findMediaContext(rule).params, "(min-width: 900px)")
+          t.equal(findAtRuleContext(rule).params, "(min-width: 900px)")
           break
         case "d":
-          t.equal(findMediaContext(rule), null)
+          t.equal(findAtRuleContext(rule), null)
           break
         default:
       }
