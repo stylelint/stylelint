@@ -1,4 +1,6 @@
 import {
+  declarationValueIndexOffset,
+  styleSearch,
   report,
   ruleMessages,
   validateOptions,
@@ -35,16 +37,14 @@ export default function (expectation) {
 
 export function declarationBangSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(function (decl) {
-    if (!decl.important) { return }
+    const indexOffset = declarationValueIndexOffset(decl)
     const declString = decl.toString()
+    const valueString = decl.toString().slice(indexOffset)
+    if (valueString.indexOf("!") == -1) { return }
 
-    // Start from the right and only pay attention to the first
-    // exclamation mark found
-    for (let i = declString.length - 1; i >= 0; i--) {
-      if (declString[i] !== "!") { continue }
-      check(declString, i, decl)
-      break
-    }
+    styleSearch({ source: valueString, target: "!" }, match => {
+      check(declString, match.startIndex + indexOffset, decl)
+    })
   })
 
   function check(source, index, node) {

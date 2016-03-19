@@ -12,17 +12,20 @@ testRule(rule, {
     code: "a { color: pink! important; }",
     description: "space only after",
   }, {
-    code: "a { color: pink ! important; }",
+    code: "a { color: pink ! default; }",
     description: "space before and after",
   }, {
     code: "a { color: pink\n! important; }",
     description: "newline before and space after",
   }, {
-    code: "a { color: pink\r\n! important; }",
+    code: "a { color: pink\r\n! optional; }",
     description: "CRLF before and space after",
   }, {
     code: "a::before { content: \"!!!\" ! important; }",
     description: "ignores string",
+  }, {
+    code: "a { color: pink /* !important */;}",
+    description: "violating comment",
   } ],
 
   reject: [ {
@@ -32,7 +35,7 @@ testRule(rule, {
     line: 1,
     column: 16,
   }, {
-    code: "a { color: pink!  important; }",
+    code: "a { color: pink!  global; }",
     description: "two spaces after",
     message: messages.expectedAfter(),
     line: 1,
@@ -44,7 +47,7 @@ testRule(rule, {
     line: 1,
     column: 16,
   }, {
-    code: "a { color: pink!\r\nimportant; }",
+    code: "a { color: pink!\r\nexciting; }",
     description: "CRLF after",
     message: messages.expectedAfter(),
     line: 1,
