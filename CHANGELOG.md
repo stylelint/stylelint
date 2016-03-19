@@ -7,6 +7,7 @@
 - Fixed: `declaration-bang-space-*` understands arbitrary bang declarations (e.g. `!default`).
 - Fixed: `font-weight-notation` now ignore `inherit` value.
 - Fixed: `selector-list-comma-*` rules no longer deliver false positives inside functional notation.
+- Fixed: `indentation` treats `@nest` at-rules like regular rules with selectors.
 
 # 5.1.0
 

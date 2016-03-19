@@ -198,7 +198,9 @@ export default function (space, options) {
     function checkAtRuleParams(atRule, ruleLevel) {
       if (optionsHaveIgnored(options, "param")) { return }
 
-      const paramLevel = (optionsHaveException(options, "param"))
+      // @nest rules should be treated like regular rules, not expected
+      // to have their params (selectors) indented
+      const paramLevel = (optionsHaveException(options, "param") || atRule.name === "nest")
         ? ruleLevel
         : ruleLevel + 1
 

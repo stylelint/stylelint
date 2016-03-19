@@ -20,6 +20,13 @@ testRule(rule, {
     "  a,\n" +
     "  b { color: pink;}\n" +
     "}",
+  }, {
+    code: "a {\n" +
+    "  @nest b & ,\n" +
+    "  &.foo {\n" +
+    "    color: pink;\n" +
+    "  }\n" +
+    "}",
   } ],
 
   reject: [ {
