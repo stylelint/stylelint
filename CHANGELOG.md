@@ -2,6 +2,7 @@
 
 - Added: `no-indistinguishable-colors` rule.
 - Added: `at-rule-blockless-newline-after` rule.
+- Fixed: `font-weight-notation` now ignore `inherit` value.
 
 # 5.1.0
 
