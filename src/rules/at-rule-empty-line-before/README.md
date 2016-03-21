@@ -1,6 +1,6 @@
 # at-rule-empty-line-before
 
-Require or disallow an empty line before @rules.
+Require or disallow an empty line before at-rules.
 
 ```css
 a {}
@@ -18,7 +18,7 @@ If the at-rule is the very first node in a stylesheet then it is ignored.
 
 ### `"always"`
 
-There *must always* be an empty line before @rules.
+There *must always* be an empty line before at-rules.
 
 The following patterns are considered warnings:
 
@@ -41,7 +41,7 @@ a {}
 
 ### `"never"`
 
-There *must never* be an empty before @rules.
+There *must never* be an empty before at-rules.
 
 The following patterns are considered warnings:
 

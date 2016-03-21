@@ -181,9 +181,9 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 
 ### At rule
 
-- [`at-rule-blockless-newline-after`](../../src/rules/at-rule-blockless-newline-after/README.md): Require a newline after blockless @rules.
-- [`at-rule-empty-line-before`](../../src/rules/at-rule-empty-line-before/README.md): Require or disallow an empty line before @rules.
-- [`at-rule-no-vendor-prefix`](../../src/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for @rules.
+- [`at-rule-empty-line-before`](../../src/rules/at-rule-empty-line-before/README.md): Require or disallow an empty line before at-rules.
+- [`at-rule-no-vendor-prefix`](../../src/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for at-rules.
+- [`at-rule-semicolon-newline-after`](../../src/rules/at-rule-semicolon-newline-after/README.md): Require a newline after the semicolon of at-rules.
 
 ### Comment
 
