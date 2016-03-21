@@ -22,7 +22,7 @@ Once you have something to show, you'll create a [pull request](https://github.c
 
 ### Come up with a name
 
-Have a look at the [rules guide](/docs/user-guide/rules.md) to familiarize yourself the rule naming conventions. In particular, the section [about rule names](https://github.com/stylelint/stylelint/blob/contribution-docs/docs/user-guide/rules.md#about-rule-names).
+Have a look at the [rules guide](/docs/user-guide/rules.md) to familiarize yourself the rule naming conventions. In particular, the section [about rule names](/docs/user-guide/rules.md#about-rule-names).
 
 We take care to ensure that all the rules are named accurately and consistently. Our goals in that effort are to ensure that rules are easy to find and understand, and to prevent us from wanting to change the name later.
 
@@ -126,9 +126,9 @@ Take the form of:
 The final step is to add references to the new rule in the following places:
 
 - [The rules `index.js` file](https://github.com/stylelint/stylelint/blob/master/src/rules/index.js)
-- [The CHANGELOG](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md)
-- [The list of rules](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/rules.md)
-- [The example config](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/example-config.md)
+- [The CHANGELOG](/CHANGELOG.md)
+- [The list of rules](/docs/user-guide/rules.md)
+- [The example config](/docs/user-guide/example-config.md)
 
 ## Adding options to existing rules
 
