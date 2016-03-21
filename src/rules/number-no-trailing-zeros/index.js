@@ -1,6 +1,7 @@
 import execall from "execall"
 import {
   blurComments,
+  blurFunctionArguments,
   cssStatementHasBlock,
   cssStatementStringBeforeBlock,
   report,
@@ -38,7 +39,8 @@ export default function (actual) {
       // Get out quickly if there are no periods
       if (source.indexOf(".") === -1) { return }
 
-      const errors = execall(/\.\d*0+(?:\D|$)/g, blurComments(source))
+      const sanitizedSource = blurComments(blurFunctionArguments(source, "url"))
+      const errors = execall(/\.\d*0+(?:\D|$)/g, sanitizedSource)
       if (!errors.length) { return }
 
       errors.forEach(error => {
