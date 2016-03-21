@@ -7,10 +7,10 @@ import {
   whitespaceChecker,
 } from "../../utils"
 
-export const ruleName = "at-rule-blockless-newline-after"
+export const ruleName = "at-rule-semicolon-newline-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: () => "Expected newline after blockless at-rule",
+  expectedAfter: () => "Expected newline after \";\"",
 })
 
 export default function (actual) {

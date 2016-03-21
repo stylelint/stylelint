@@ -1,6 +1,6 @@
-# at-rule-blockless-newline-after
+# at-rule-semicolon-newline-after
 
-Require a newline after blockless at-rules.
+Require a newline after the semicolon of at-rules.
 
 ```css
 a {}
@@ -23,7 +23,7 @@ This rule allows an end-of-line comment separated from the semicolon by spaces, 
 
 ### `"always"`
 
-There *must always* be a newline after blockless at-rules.
+There *must always* be a newline after the semicolon.
 
 The following patterns are considered warnings:
 
