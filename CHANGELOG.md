@@ -7,6 +7,7 @@
 - Fixed: `font-weight-notation` now ignore `inherit` value.
 - Fixed: `selector-list-comma-*` rules no longer deliver false positives inside functional notation.
 - Fixed: `indentation` treats `@nest` at-rules like regular rules with selectors.
+- Fixed: `number-no-trailing-zeros` no longer delivers false positives in `url()` arguments.
 
 # 5.1.0
 

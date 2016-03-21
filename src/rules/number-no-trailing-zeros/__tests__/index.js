@@ -23,6 +23,9 @@ testRule(rule, {
     code: "@import \"0.10.css\";",
   }, {
     code: "@import url(0.10.css);",
+  }, {
+    code: "a { background: url(data:image/svg+xml;...1.0); }",
+    description: "data URI containing trailing zero",
   } ],
 
   reject: [ {
