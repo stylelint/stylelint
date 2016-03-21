@@ -55,4 +55,4 @@ For testing your plugin, you might consider using the same rule-testing function
 
 ## Adding plugins to the list
 
-Once your plugin is published, please send us a Pull Request to add your plugin to [the list](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/plugins.md).
+Once your plugin is published, please send us a Pull Request to add your plugin to [the list](/docs/user-guide/plugins.md).
