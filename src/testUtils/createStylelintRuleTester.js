@@ -131,7 +131,8 @@ export default function (equalityCheck) {
             actual: warnings.length,
             description: assertionDescription,
           }]
-        })
+        }).catch(err => console.log(err.stack)) // eslint-disable-line no-console
+
         equalityCheck(resultPromise, {
           comparisonCount: 1,
           caseDescription: createCaseDescription(acceptedCase.code),
@@ -190,7 +191,7 @@ export default function (equalityCheck) {
             })
           }
           return comparisons
-        })
+        }).catch(err => console.log(err.stack)) // eslint-disable-line no-console
 
         equalityCheck(resultPromise, {
           comparisonCount,
