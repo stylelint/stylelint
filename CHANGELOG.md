@@ -10,6 +10,7 @@
 - Fixed: `indentation` treats `@nest` at-rules like regular rules with selectors.
 - Fixed: `number-no-trailing-zeros` no longer delivers false positives in `url()` arguments.
 - Fixed: `no-duplicate-selectors` no longer delivers false positives with descendant combinators.
+- Fixed: `root-no-standard-properties` no longer delivers false positives inside the `:not()` pseudo-selector.
 
 # 5.1.0
 

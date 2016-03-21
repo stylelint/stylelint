@@ -15,6 +15,18 @@ testRule(rule, {
     code: ":root { $scss: 0; }",
   }, {
     code: ":root { @less: 0; }",
+  }, {
+    code: ":not(:root) { color: pink; }",
+    description: "negation pseudo-class",
+  }, {
+    code: "svg:not(:root) { color: pink; }",
+    description: "negation pseudo-class",
+  }, {
+    code: "a, :not(:root) { color: pink; }",
+    description: "negation pseudo-class",
+  }, {
+    code: ":not(:root) { --foo: pink; }",
+    description: "negation pseudo-class",
   } ],
 
   reject: [ {
@@ -37,5 +49,15 @@ testRule(rule, {
     message: messages.rejected("margin"),
     line: 1,
     column: 28,
+  }, {
+    code: ":root, :not(a) { color: pink; }",
+    message: messages.rejected("color"),
+    line: 1,
+    column: 18,
+  }, {
+    code: ":root:not(a) { color: pink; }",
+    message: messages.rejected("color"),
+    line: 1,
+    column: 16,
   } ],
 })
