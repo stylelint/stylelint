@@ -7,11 +7,12 @@ import {
 export const ruleName = "stylelint-disable-reason"
 
 export const messages = ruleMessages(ruleName, {
-  expectedPreceding: "Expected comment reason preceding stylelint disable comment",
-  expectedSucceeding: "Expected comment reason succeeding stylelint disable comment",
+  expectedBefore: "Expected comment reason before stylelint disable comment",
+  expectedAfter: "Expected comment reason after stylelint disable comment",
 })
 
-const stylelintDisableCommand= "stylelint-disable"
+const stylelintDisableCommand = "stylelint-disable"
+const stylelintDisableLineCommand = "stylelint-disable-line"
 
 export default function (expectation) {
   return function (root, result) {
@@ -21,39 +22,58 @@ export default function (expectation) {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
-        "always-preceding",
-        "always-succeeding",
+        "always-before",
+        "always-after",
       ],
     })
     if (!validOptions) { return }
 
     root.walkComments(function (comment) {
-      if (comment.text.indexOf(stylelintDisableCommand) === 0) {
+      if (comment.text.indexOf(stylelintDisableCommand) !== 0) { return }
 
-        if (expectation === "always-preceding") {
-          const prev = comment.prev()
+      if (expectation === "always-before") {
+        const prev = comment.prev()
+        const prevCommentValid = prev
+          && prev.type === "comment"
+          && !isDisableCommand(prev.text)
 
-          if (!prev || prev.type !== "comment" || prev.text.indexOf(stylelintDisableCommand) === 0) {
-            report({
-              message: messages.expectedPreceding,
-              node: comment,
-              result,
-              ruleName,
-            })
-          }
-        } else if (expectation === "always-succeeding") {
-          const next = comment.next()
+        let prevDisableLineCommentValid = false
 
-          if (!next || next.type !== "comment" || next.text.indexOf(stylelintDisableCommand) === 0) {
-            report({
-              message: messages.expectedSucceeding,
-              node: comment,
-              result,
-              ruleName,
-            })
-          }
+        if (prev && comment.text.indexOf(stylelintDisableLineCommand) === 0) {
+          const prevPrev = prev.prev()
+
+          prevDisableLineCommentValid = prevPrev
+            && prevPrev.type === "comment"
+            && !isDisableCommand(prevPrev.text)
+        }
+
+        if (!prevCommentValid && !prevDisableLineCommentValid) {
+          report({
+            message: messages.expectedBefore,
+            node: comment,
+            result,
+            ruleName,
+          })
+        }
+      } else if (expectation === "always-after") {
+        const next = comment.next()
+        const nextCommentValid = next
+          && next.type === "comment"
+          && !isDisableCommand(next.text)
+
+        if (!nextCommentValid) {
+          report({
+            message: messages.expectedAfter,
+            node: comment,
+            result,
+            ruleName,
+          })
         }
       }
     })
+
+    function isDisableCommand(text) {
+      return text.indexOf(stylelintDisableCommand) === 0
+    }
   }
 }

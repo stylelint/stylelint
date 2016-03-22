@@ -5,10 +5,10 @@ Control comments should be preceded by a comment explaining why stylelint are be
 ```css
 a {
   /* Need for IE 6 */                   /*←*/
-  /* eslint-disable no-browser-hacks */ /*↑*/
+  /* stylelint-disable no-browser-hacks */ /*↑*/
   /* Need for IE 6 */                   /*←*/
   _display: block;                      /*↑*/
-  /* eslint-enable no-browser-hacks */  /*↑*/
+  /* stylelint-enable no-browser-hacks */  /*↑*/
 }                                       /*↑*/
 /**                                       ↑
 *                           The reason of disable stylelint */
@@ -16,9 +16,9 @@ a {
 
 ## Options
 
-`string`: `"always-preceding"|"always-succeeding"`
+`string`: `"always-before"|"always-after"`
 
-### `"always-preceding"`
+### `"always-before"`
 
 There must always be a reason comment before the stylelint disable comment.
 
@@ -26,18 +26,18 @@ The following patterns are considered warnings:
 
 ```css
 a {
-  /* eslint-disable no-browser-hacks */
+  /* stylelint-disable no-browser-hacks */
   _display: block;
-  /* eslint-enable no-browser-hacks */
+  /* stylelint-enable no-browser-hacks */
 }
 ```
 
 ```css
 a {
-  /* eslint-disable no-browser-hacks */
+  /* stylelint-disable no-browser-hacks */
   /* Need for IE 6 */
   _display: block;
-  /* eslint-enable no-browser-hacks */
+  /* stylelint-enable no-browser-hacks */
 }
 ```
 
@@ -56,9 +56,9 @@ The following patterns are not considered warnings:
 ```css
 a {
   /* Reason for disable */
-  /* eslint-disable no-browser-hacks */
+  /* stylelint-disable no-browser-hacks */
   _display: block;
-  /* eslint-enable no-browser-hacks */
+  /* stylelint-enable no-browser-hacks */
 }
 ```
 
@@ -72,7 +72,14 @@ a {
 }
 ```
 
-### `"always-succeeding"`
+```css
+a {
+  /* Reason for disable */
+  _display: block; /* stylelint-disable-line no-browser-hacks */
+}
+```
+
+### `"always-after"`
 
 There must always be a reason comment after the stylelint disable comment.
 
@@ -80,18 +87,18 @@ The following patterns are considered warnings:
 
 ```css
 a {
-  /* eslint-disable no-browser-hacks */
+  /* stylelint-disable no-browser-hacks */
   _display: block;
-  /* eslint-enable no-browser-hacks */
+  /* stylelint-enable no-browser-hacks */
 }
 ```
 
 ```css
 a {
   /* Need for IE 6 */
-  /* eslint-disable no-browser-hacks */
+  /* stylelint-disable no-browser-hacks */
   _display: block;
-  /* eslint-enable no-browser-hacks */
+  /* stylelint-enable no-browser-hacks */
 }
 ```
 
@@ -109,10 +116,10 @@ The following patterns are not considered warnings:
 
 ```css
 a {
-  /* eslint-disable no-browser-hacks */
+  /* stylelint-disable no-browser-hacks */
   /* Need for IE 6 */
   _display: block;
-  /* eslint-enable no-browser-hacks */
+  /* stylelint-enable no-browser-hacks */
 }
 ```
 
@@ -123,5 +130,12 @@ a {} /* stylelint-disable-line block-no-empty */ /* Reason for disable */
 ```css
 a {
   _display: block; /* stylelint-disable-line no-browser-hacks */ /* Reason for disable */
+}
+```
+
+```css
+a {
+  _display: block; /* stylelint-disable-line no-browser-hacks */ 
+  /* Reason for disable */
 }
 ```
