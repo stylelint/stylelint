@@ -1,6 +1,6 @@
 # at-rule-no-vendor-prefix
 
-Disallow vendor prefixes for @rules.
+Disallow vendor prefixes for at-rules.
 
 ```css
     @-webkit-keyframes { 0% { top: 0; } }
