@@ -41,7 +41,7 @@ testRule(rule, {
   accept: [ {
     code: "/* stylelint-disable */\n/* reason */\na {}",
   }, {
-    code: "a {}/* stylelint-disable-line *//* reason */",
+    code: "a {}/* stylelint-disable-line *//* reason block-no-empty */",
   } ],
 
   reject: [ {
