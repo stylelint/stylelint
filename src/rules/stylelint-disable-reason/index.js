@@ -33,21 +33,24 @@ export default function (expectation) {
 
       if (expectation === "always-before") {
         const prev = comment.prev()
-        const prevCommentValid = prev
+        const prevIsCommentAndValid = prev
           && prev.type === "comment"
           && !isDisableCommand(prev.text)
 
-        let prevDisableLineCommentValid = false
+        let prevDisableLineIsCommentAndValid = false
 
-        if (prev && comment.text.indexOf(stylelintDisableLineCommand) === 0) {
-          const prevPrev = prev.prev()
+        if (comment.text.indexOf(stylelintDisableLineCommand) === 0
+          && !prevIsCommentAndValid
+          && prev
+        ) {
+          const friendlyPrev = prev.prev()
 
-          prevDisableLineCommentValid = prevPrev
-            && prevPrev.type === "comment"
-            && !isDisableCommand(prevPrev.text)
+          prevDisableLineIsCommentAndValid = friendlyPrev
+            && friendlyPrev.type === "comment"
+            && !isDisableCommand(friendlyPrev.text)
         }
 
-        if (!prevCommentValid && !prevDisableLineCommentValid) {
+        if (!prevIsCommentAndValid && !prevDisableLineIsCommentAndValid) {
           report({
             message: messages.expectedBefore,
             node: comment,
@@ -57,11 +60,11 @@ export default function (expectation) {
         }
       } else if (expectation === "always-after") {
         const next = comment.next()
-        const nextCommentValid = next
+        const nextIsCommentAndValid = next
           && next.type === "comment"
           && !isDisableCommand(next.text)
 
-        if (!nextCommentValid) {
+        if (!nextIsCommentAndValid) {
           report({
             message: messages.expectedAfter,
             node: comment,
