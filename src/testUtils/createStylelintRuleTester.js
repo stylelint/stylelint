@@ -27,6 +27,8 @@ import basicChecks from "./basicChecks"
  *   - `completeAssertionDescription` {string}: While each individual
  *   	 comparison may have its own description, this is a description
  *   	 of the whole assertion (e.g. useful for Mocha).
+ *   - `only` {boolean}: If `true`, the test runner should only run this
+ *     test case (e.g. `test.only` in tape, `describe.only` in Mocha).
  *
  * `processCss` is a Promsie that resolves with an array of comparisons.
  * Each comparison has the following properties:
@@ -137,57 +139,58 @@ export default function (equalityCheck) {
           comparisonCount: 1,
           caseDescription: createCaseDescription(acceptedCase.code),
           completeAssertionDescription: assertionDescription,
+          only: acceptedCase.only,
         })
       })
     }
 
     if (schema.reject) {
-      schema.reject.forEach(rejectable => {
+      schema.reject.forEach(rejectedCase => {
         let completeAssertionDescription = "should register one warning"
         let comparisonCount = 1
-        if (rejectable.line) {
+        if (rejectedCase.line) {
           comparisonCount++
-          completeAssertionDescription += ` on line ${rejectable.line}`
+          completeAssertionDescription += ` on line ${rejectedCase.line}`
         }
-        if (rejectable.column) {
+        if (rejectedCase.column) {
           comparisonCount++
-          completeAssertionDescription += ` on column ${rejectable.column}`
+          completeAssertionDescription += ` on column ${rejectedCase.column}`
         }
-        if (rejectable.message) {
+        if (rejectedCase.message) {
           comparisonCount++
-          completeAssertionDescription += ` with message "${rejectable.message}"`
+          completeAssertionDescription += ` with message "${rejectedCase.message}"`
         }
 
-        const resultPromise = postcssProcess(rejectable.code).then(postcssResult => {
+        const resultPromise = postcssProcess(rejectedCase.code).then(postcssResult => {
           const warnings = postcssResult.warnings()
           const comparisons = [{
             expected: 1,
             actual: warnings.length,
-            description: spaceJoin(rejectable.description, "should register one warning"),
+            description: spaceJoin(rejectedCase.description, "should register one warning"),
           }]
           if (!warnings.length) return comparisons
 
           const warning = warnings[0]
 
-          if (rejectable.line) {
+          if (rejectedCase.line) {
             comparisons.push({
-              expected: rejectable.line,
+              expected: rejectedCase.line,
               actual: warning.line,
-              description: spaceJoin(rejectable.description, `should warn on line ${rejectable.line}`),
+              description: spaceJoin(rejectedCase.description, `should warn on line ${rejectedCase.line}`),
             })
           }
-          if (rejectable.column !== undefined) {
+          if (rejectedCase.column !== undefined) {
             comparisons.push({
-              expected: rejectable.column,
+              expected: rejectedCase.column,
               actual: warning.column,
-              description: spaceJoin(rejectable.description, `should warn on column ${rejectable.column}`),
+              description: spaceJoin(rejectedCase.description, `should warn on column ${rejectedCase.column}`),
             })
           }
-          if (rejectable.message) {
+          if (rejectedCase.message) {
             comparisons.push({
-              expected: rejectable.message,
+              expected: rejectedCase.message,
               actual: warning.text,
-              description: spaceJoin(rejectable.description, `should warn with message ${rejectable.message}`),
+              description: spaceJoin(rejectedCase.description, `should warn with message ${rejectedCase.message}`),
             })
           }
           return comparisons
@@ -196,7 +199,8 @@ export default function (equalityCheck) {
         equalityCheck(resultPromise, {
           comparisonCount,
           completeAssertionDescription,
-          caseDescription: createCaseDescription(rejectable.code),
+          caseDescription: createCaseDescription(rejectedCase.code),
+          only: rejectedCase.only,
         })
       })
     }
