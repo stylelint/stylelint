@@ -132,6 +132,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`selector-no-attribute`](../../src/rules/selector-no-attribute/README.md): Disallow attribute selectors.
 - [`selector-no-combinator`](../../src/rules/selector-no-combinator/README.md): Disallow combinators in selectors.
 - [`selector-no-id`](../../src/rules/selector-no-id/README.md): Disallow id selectors.
+- [`selector-no-qualifying-type`](../../src/rules/selector-no-qualifying-type/README.md): Disallow combinations of qualifying elements with id, class or attribute selectors.
 - [`selector-no-type`](../../src/rules/selector-no-type/README.md): Disallow type selectors.
 - [`selector-no-universal`](../../src/rules/selector-no-universal/README.md): Disallow the universal selector.
 - [`selector-no-vendor-prefix`](../../src/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors.
