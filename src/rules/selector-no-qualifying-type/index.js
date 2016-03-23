@@ -112,6 +112,3 @@ export default (options) => {
     root.walkRules(checkForQualifyingElement);
   };
 };
-
-module.exports.ruleName = ruleName;
-module.exports.messages = messages;
