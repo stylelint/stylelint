@@ -1,14 +1,14 @@
 import testRule from '../../../testUtils/stylelint-test-rule-tape';
 import rule, { ruleName, messages } from '..';
 
-testRule({ noElementWithAttribute: true }, (tr) => {
+testRule({ ignore: 'attribute' }, (tr) => {
   basics(tr);
 
   tr.ok('input { top: 0; }');
   tr.notOk('input[type=\'button\'] { top: 0; }', 'Avoid qualifying attribute selectors with an element');
 });
 
-testRule({ noElementWithClass: true }, (tr) => {
+testRule({ ignore: 'class' }, (tr) => {
   basics(tr);
 
   tr.ok('.class { top: 0; }');
@@ -18,7 +18,7 @@ testRule({ noElementWithClass: true }, (tr) => {
   tr.notOk('div.class { top: 0; }','Avoid qualifying class selectors with an element');
 });
 
-testRule({ noElementWithId: true }, (tr) => {
+testRule({ ignore: 'id' }, (tr) => {
   basics(tr);
 
   tr.ok('#id { top: 0; }');

@@ -10,24 +10,17 @@ import {
 export const ruleName = 'selector-no-qualifying-type';
 export const messages = ruleMessages(ruleName, {});
 
-export default (options) => {
+export default (enabled, options) => {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
+      actual: enabled,
+        possible: [true, false]
+    }, {
       actual: options,
       possible: {
-        noElementWithAttribute: [
-          true,
-          false
-        ],
-        noElementWithClass: [
-          true,
-          false
-        ],
-        noElementWithId: [
-          true,
-          false
-        ]
-      }
+        ignore: ['attribute', 'class', 'id']
+      },
+      optional: true
     });
 
     const isElementSelector = (selector) => {
@@ -70,15 +63,15 @@ export default (options) => {
 
     const checkForQualifyingElement = (rule) => {
       rule.selectors.forEach(selector => {
-        // Return early if there is interpolation in the selector
-        if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(selector)) {
-          return
+        // Return early if there is interpolation in the selector, or rule is set to 'false'
+        if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(selector) || !enabled) {
+          return;
         }
 
         // Replace combinators with whitespace, as they not relevant to rule
         const selectorNoCombinators = selector.replace(/>|\+|~/g, ' ');
 
-        if (options.noElementWithAttribute && hasAttributeQualifiedByElement(selectorNoCombinators)) {
+        if (options.ignore === 'attribute' && hasAttributeQualifiedByElement(selectorNoCombinators)) {
           report({
             ruleName: ruleName,
             result: result,
@@ -86,7 +79,7 @@ export default (options) => {
             message: 'Avoid qualifying attribute selectors with an element'
           });
         }
-        if (options.noElementWithClass && hasClassQualifiedByElement(selectorNoCombinators)) {
+        if (options.ignore === 'class' && hasClassQualifiedByElement(selectorNoCombinators)) {
           report({
             ruleName: ruleName,
             result: result,
@@ -94,7 +87,7 @@ export default (options) => {
             message: 'Avoid qualifying class selectors with an element'
           });
         }
-        if (options.noElementWithId && hasIdQualifiedByElement(selectorNoCombinators)) {
+        if (options.ignore === 'id' && hasIdQualifiedByElement(selectorNoCombinators)) {
           report({
             ruleName: ruleName,
             result: result,

@@ -8,13 +8,9 @@ This rule will cause stylelint to warn you whenever a disallowed combination is 
 
 ## Details
 
-There are 3 options (`true` / `false`):
-`noElementWithAttribute`,
-`noElementWithClass`,
-`noElementWithId`
+There is an ignore option (`attribute` / `class` / `id`):
 
-For `noElementWithAttribute: true`:
-
+Default without `ignore` option.
 ```css
 input { /* OK */
   margin: 0
@@ -24,9 +20,6 @@ input[type='button'] { /* Not OK */
   margin: 0
 }
 ```
-
-For `noElementWithClass: true`:
-
 ```css
 .class { /* OK */
   margin: 0
@@ -36,15 +29,31 @@ div.class { /* Not OK */
   margin: 0
 }
 ```
-
-For `noElementWithId: true`:
-
 ```css
 #id { /* OK */
   margin: 0
 }
 
 div#id { /* Not OK */
+  margin: 0
+}
+```
+
+With ignore set to `'attribute'`:
+```css
+input[type='button'] { /* OK */
+  margin: 0
+}
+```
+With ignore set to `'class'`:
+```css
+div.class { /* OK */
+  margin: 0
+}
+```
+With ignore set to `'id'`:
+```css
+div#id { /* OK */
   margin: 0
 }
 ```
@@ -62,9 +71,7 @@ Example:
   ],
   "rules": {
     "selector-no-qualifying-type": {
-      "noElementWithClass": true // Or false
-      "noElementWithId": true // Or false
-      "noElementWithAttribute": false // Or true
+      "ignore": "attribute" // Optional. Other values: "class", "id".
     }
   }
 };
