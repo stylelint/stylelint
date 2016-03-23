@@ -1,36 +1,89 @@
-import testRule from '../../../testUtils/stylelint-test-rule-tape';
-import rule, { ruleName, messages } from '..';
+import testRule from "../../../testUtils/stylelint-test-rule-tape"
+import rule, { ruleName, messages } from ".."
 
-testRule({ ignore: 'attribute' }, (tr) => {
-  basics(tr);
+testRule(rule, {
+  ruleName,
+  config: [true],
 
-  tr.ok('input { top: 0; }');
-  tr.notOk('input[type=\'button\'] { top: 0; }', 'Avoid qualifying attribute selectors with an element');
+  accept: [{
+    code: 'input { top: 0; }'
+  }, {
+    code: '.class { top: 0; }'
+  }, {
+    code: 'div>.class { top: 0; }'
+  }, {
+    code: 'div+.class { top: 0; }'
+  }, {
+    code: 'div~.class { top: 0; }'
+  }, {
+    code: '#id { top: 0; }'
+  }, {
+    code: 'div>#id { top: 0; }'
+  }, {
+    code: 'div+#id { top: 0; }'
+  }, {
+    code: 'div~#id { top: 0; }'
+  }],
+
+  reject: [{
+    code: 'input[type=\'button\'] { top: 0; }',
+    message: 'Avoid qualifying attribute selectors with an element'
+  }, {
+    code: 'div.class { top: 0; }',
+    message: 'Avoid qualifying class selectors with an element'
+  }, {
+    code: 'div#id { top: 0; }',
+    message: 'Avoid qualifying id selectors with an element'
+  }]
 });
 
-testRule({ ignore: 'class' }, (tr) => {
-  basics(tr);
+testRule(rule, {
+  ruleName,
+  config: [true, { ignore: 'attribute' }],
 
-  tr.ok('.class { top: 0; }');
-  tr.ok('div>.class { top: 0; }');
-  tr.ok('div+.class { top: 0; }');
-  tr.ok('div~.class { top: 0; }');
-  tr.notOk('div.class { top: 0; }','Avoid qualifying class selectors with an element');
+  accept: [{
+    code: 'input[type=\'button\'] { top: 0; }'
+  }],
+
+  reject: [{
+    code: 'div.class { top: 0; }',
+    message: 'Avoid qualifying class selectors with an element'
+  }, {
+    code: 'div#id { top: 0; }',
+    message: 'Avoid qualifying id selectors with an element'
+  }]
 });
 
-testRule({ ignore: 'id' }, (tr) => {
-  basics(tr);
+testRule(rule, {
+  ruleName,
+  config: [true, { ignore: 'class' }],
 
-  tr.ok('#id { top: 0; }');
-  tr.ok('div>#id { top: 0; }');
-  tr.ok('div+#id { top: 0; }');
-  tr.ok('div~#id { top: 0; }');
-  tr.notOk('div#id { top: 0; }', 'Avoid qualifying id selectors with an element');
+  accept: [{
+    code: 'div.class { top: 0; }'
+  }],
+
+  reject: [{
+    code: 'input[type=\'button\'] { top: 0; }',
+    message: 'Avoid qualifying attribute selectors with an element'
+  }, {
+    code: 'div#id { top: 0; }',
+    message: 'Avoid qualifying id selectors with an element'
+  }]
 });
 
-var basics = (tr) => {
-  tr.ok('');
-  tr.ok('a {}');
-  tr.ok('@import "foo.css";');
-  tr.ok('a { top: 0; }');
-};
+testRule(rule, {
+  ruleName,
+  config: [true, { ignore: 'id' }],
+
+  accept: [{
+    code: 'div#id { top: 0; }'
+  }],
+
+  reject: [{
+    code: 'input[type=\'button\'] { top: 0; }',
+    message: 'Avoid qualifying attribute selectors with an element'
+  }, {
+    code: 'div.class { top: 0; }',
+    message: 'Avoid qualifying class selectors with an element'
+  }]
+});

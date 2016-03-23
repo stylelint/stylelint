@@ -108,7 +108,7 @@ You might want to learn a little about [the conventions](/docs/user-guide/rules.
     "selector-no-attribute": true,
     "selector-no-combinator": true,
     "selector-no-id": true,
-    "selector-no-qualifying-type": { "ignore": "attribute"|"class"|"id" },
+    "selector-no-qualifying-type": [true, { "ignore": "attribute"|"class"|"id" }],
     "selector-no-type": true,
     "selector-no-universal": true,
     "selector-no-vendor-prefix": true,
