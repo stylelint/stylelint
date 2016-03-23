@@ -7,8 +7,8 @@ import {
 export const ruleName = "stylelint-disable-reason"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: "Expected comment reason before stylelint disable comment",
-  expectedAfter: "Expected comment reason after stylelint disable comment",
+  expectedBefore: "Expected comment reason before `stylelint-disable` comment",
+  expectedAfter: "Expected comment reason after `stylelint-disable` comment",
 })
 
 const stylelintDisableCommand = "stylelint-disable"

@@ -1,17 +1,16 @@
 # stylelint-disable-reason
 
-Control comments should be preceded by a comment explaining why stylelint are being disabled.
+Require a reason comment before or after `stylelint-disable` comments.
 
 ```css
 a {
-  /* Need for IE 6 */                   /*←*/
-  /* stylelint-disable no-browser-hacks */ /*↑*/
-  /* Need for IE 6 */                   /*←*/
-  _display: block;                      /*↑*/
+  /* stylelint-disable no-browser-hacks */
+  /* Need for IE 6 */                      /*←*/
+  _display: block;                         /*↑*/
   /* stylelint-enable no-browser-hacks */  /*↑*/
-}                                       /*↑*/
-/**                                       ↑
-*                           The reason of disable stylelint */
+}                                          /*↑*/
+/**                                          ↑
+*                          This reason comment */
 ```
 
 ## Options
@@ -20,7 +19,7 @@ a {
 
 ### `"always-before"`
 
-There must always be a reason comment before the stylelint disable comment.
+There *must always* be a reason comment before the `stylelint-disable` comment.
 
 The following patterns are considered warnings:
 
@@ -51,7 +50,7 @@ a {
 }
 ```
 
-The following patterns are not considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 a {
@@ -81,7 +80,7 @@ a {
 
 ### `"always-after"`
 
-There must always be a reason comment after the stylelint disable comment.
+There *must always* be a reason comment after the `stylelint-disable` disable comment.
 
 The following patterns are considered warnings:
 
@@ -112,7 +111,7 @@ a {
 }
 ```
 
-The following patterns are not considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 a {
@@ -135,7 +134,7 @@ a {
 
 ```css
 a {
-  _display: block; /* stylelint-disable-line no-browser-hacks */ 
+  _display: block; /* stylelint-disable-line no-browser-hacks */
   /* Reason for disable */
 }
 ```
