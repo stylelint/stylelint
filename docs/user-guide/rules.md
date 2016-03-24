@@ -40,6 +40,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`function-url-quotes`](../../src/rules/function-url-quotes/README.md): Specify single, double or no quotes for urls.
 - [`function-whitelist`](../../src/rules/function-whitelist/README.md): Specify a whitelist of allowed functions.
 - [`function-whitespace-after`](../../src/rules/function-whitespace-after/README.md): Require or disallow whitespace after functions.
+- [`function-max-empty-lines`](../../src/rules/function-max-empty-lines/README.md): Limit the number of adjacent empty lines within functions.
 
 ### Number
 
