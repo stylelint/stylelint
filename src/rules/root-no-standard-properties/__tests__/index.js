@@ -27,6 +27,9 @@ testRule(rule, {
   }, {
     code: ":not(:root) { --foo: pink; }",
     description: "negation pseudo-class",
+  }, {
+    code: "div, a:not(div a:root) { --foo: pink; }",
+    description: "negation pseudo-class",
   } ],
 
   reject: [ {
@@ -59,5 +62,10 @@ testRule(rule, {
     message: messages.rejected("color"),
     line: 1,
     column: 16,
+  }, {
+    code: ".foo, :root, .bar:not(:hover) { color: pink; }",
+    message: messages.rejected("color"),
+    line: 1,
+    column: 33,
   } ],
 })
