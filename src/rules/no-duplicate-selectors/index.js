@@ -1,5 +1,6 @@
 import { includes, union } from "lodash"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
+import normalizeSelector from "normalize-selector"
 import {
   cssNodeContextLookup,
   findAtRuleContext,
@@ -70,8 +71,4 @@ export default function (actual) {
       })
     })
   }
-}
-
-function normalizeSelector(selector) {
-  return selector.replace(/\s/g, "")
 }

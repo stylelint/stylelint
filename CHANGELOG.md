@@ -9,6 +9,7 @@
 - Fixed: `selector-list-comma-*` rules no longer deliver false positives inside functional notation.
 - Fixed: `indentation` treats `@nest` at-rules like regular rules with selectors.
 - Fixed: `number-no-trailing-zeros` no longer delivers false positives in `url()` arguments.
+- Fixed: `no-duplicate-selectors` no longer delivers false positives with descendant combinators.
 
 # 5.1.0
 

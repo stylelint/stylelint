@@ -32,6 +32,10 @@ testRule(rule, {
     description: "nested resolution",
   }, {
     code: "@mixin foo { &:hover {} } @mixin bar { &:hover {} }",
+  }, {
+    code: "ul, ol {} ul {}",
+  }, {
+    code: "[disabled].foo, [disabled] .foo {}",
   } ],
 
   reject: [ {
