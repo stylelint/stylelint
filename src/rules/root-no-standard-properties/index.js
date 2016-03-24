@@ -1,3 +1,4 @@
+import selectorParser from "postcss-selector-parser"
 import {
   report,
   ruleMessages,
@@ -18,21 +19,37 @@ export default function (actual) {
 
     root.walkRules(rule => {
       if (rule.selector.indexOf(":root") === -1) { return }
+      selectorParser(checkSelector).process(rule.selector)
 
-      rule.walkDecls(function (decl) {
-        const prop = decl.prop
+      function checkSelector(selectorAST) {
+        if (ignoreRule(selectorAST)) { return }
 
-        if (cssWordIsVariable(prop)) { return }
+        rule.walkDecls(function (decl) {
+          const prop = decl.prop
 
-        if (prop.indexOf("--") !== 0) {
-          report({
-            message: messages.rejected(prop),
-            node: decl,
-            result,
-            ruleName,
-          })
-        }
-      })
+          if (cssWordIsVariable(prop)) { return }
+
+          if (prop.indexOf("--") !== 0) {
+            report({
+              message: messages.rejected(prop),
+              node: decl,
+              result,
+              ruleName,
+            })
+          }
+        })
+      }
     })
   }
+}
+
+function ignoreRule(selectorAST) {
+  let ignore = false
+  selectorAST.eachInside(selectorNode => {
+    // ignore `:root` selector inside a `:not()` selector
+    if (selectorNode.value === ":root" && selectorNode.parent.parent.value === ":not") {
+      ignore = true
+    }
+  })
+  return ignore
 }
