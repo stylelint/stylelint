@@ -1,3 +1,7 @@
+# HEAD
+
+- Fixed: `function-calc-no-unspaced-operator` now ignore functions inside `calc` function.
+
 # 5.2.0
 
 - Added: `no-indistinguishable-colors` rule.

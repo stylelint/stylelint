@@ -22,6 +22,16 @@ testRule(rule, {
   }, {
     code: "a { top: calc(calc(1em * 2) / 3); }",
   }, {
+    code: "a { padding: calc(1px + 2px) calc(1px + 2px); }",
+  }, {
+    code: "a { padding: calc(1px - 2px) calc(1px - 2px); }",
+  }, {
+    code: "a { padding: calc(1px * 2) calc(1px * 2); }",
+  }, {
+    code: "a { padding: calc(1px / 2) calc(1px / 2); }",
+  }, {
+    code: "a { padding: calc(calc(1em * 2) / 3) calc(calc(1em * 2) / 3); }",
+  }, {
     code: "a { top: calc(+1px)}",
     description: "sign",
   }, {
@@ -48,6 +58,12 @@ testRule(rule, {
   }, {
     code: "a { top: calc(2rem + @fh+d*sf-as); }",
     description: "Less variable with symbols",
+  }, {
+    code: "a { top: rem-calc(10px+ 10px); }",
+    description: "ignore function have calc in name",
+  }, {
+    code: "a { padding: rem-calc(10px+ 10px) rem-calc(10px+ 10px); }",
+    description: "ignore function have calc in name",
   } ],
 
   reject: [ {
@@ -132,5 +148,87 @@ testRule(rule, {
     message: messages.expectedOperatorBeforeSign("-"),
     line: 1,
     column: 19,
+  }, {
+    code: "a { padding: 10px calc(1px +\t-1px)}",
+    description: "tab before sign after operator",
+    message: messages.expectedAfter("+"),
+    line: 1,
+    column: 28,
+  }, {
+    code: "a { padding: 10px calc(1px +  -1px)}",
+    description: "multiple spaces before sign after operator",
+    message: messages.expectedAfter("+"),
+    line: 1,
+    column: 28,
+  }, {
+    code: "a { padding: 10px calc(1px+ 2px); }",
+    message: messages.expectedBefore("+"),
+    line: 1,
+    column: 27,
+  }, {
+    code: "a { padding: 10px calc(1px  + 2px); }",
+    message: messages.expectedBefore("+"),
+    line: 1,
+    column: 29,
+  }, {
+    code: "a { padding: 10px calc(1px\t+ 2px); }",
+    message: messages.expectedBefore("+"),
+    line: 1,
+    column: 28,
+  }, {
+    code: "a { padding: 10px calc(1px +  2px); }",
+    message: messages.expectedAfter("+"),
+    line: 1,
+    column: 28,
+  }, {
+    code: "a { padding: 10px calc(1px +\t2px); }",
+    message: messages.expectedAfter("+"),
+    line: 1,
+    column: 28,
+  }, {
+    code: "a { padding: 10px calc(1px- 2px); }",
+    message: messages.expectedBefore("-"),
+    line: 1,
+    column: 27,
+  }, {
+    code: "a { padding: 10px calc(1px* 2); }",
+    message: messages.expectedBefore("*"),
+    line: 1,
+    column: 27,
+  }, {
+    code: "a { padding: 10px calc(1px *2); }",
+    message: messages.expectedAfter("*"),
+    line: 1,
+    column: 28,
+  }, {
+    code: "a { padding: 10px calc(1px/ 2); }",
+    message: messages.expectedBefore("/"),
+    line: 1,
+    column: 27,
+  }, {
+    code: "a { padding: 10px calc(1px /2); }",
+    message: messages.expectedAfter("/"),
+    line: 1,
+    column: 28,
+  }, {
+    code: "a { padding: 10px calc(calc(1px* 2px) + 3px); }",
+    message: messages.expectedBefore("*"),
+    line: 1,
+    column: 32,
+  }, {
+    code: "a { padding: 10px calc(calc(1px + 2px)* 3px); }",
+    message: messages.expectedBefore("*"),
+    line: 1,
+    column: 39,
+  }, {
+    code: "a { padding: 10px calc(1px +2px); }",
+    message: messages.expectedOperatorBeforeSign("+"),
+    line: 1,
+    column: 28,
+  }, {
+    code: "a { padding: 10px calc(1px -2px); }",
+    message: messages.expectedOperatorBeforeSign("-"),
+    line: 1,
+    column: 28,
   } ],
 })
