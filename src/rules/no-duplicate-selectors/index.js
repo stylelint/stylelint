@@ -15,16 +15,16 @@ export const messages = ruleMessages(ruleName, {
   rejected: selector => `Unexpected duplicate selector "${selector}"`,
 })
 
-// The top level of this map will be rule sources.
-// Each source maps to another map, which maps rule parents to a set of selectors.
-// This ensures that selectors are only checked against selectors
-// from other rules that share the same parent and the same source.
-const selectorContextLookup = cssNodeContextLookup()
-
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
+
+    // The top level of this map will be rule sources.
+    // Each source maps to another map, which maps rule parents to a set of selectors.
+    // This ensures that selectors are only checked against selectors
+    // from other rules that share the same parent and the same source.
+    const selectorContextLookup = cssNodeContextLookup()
 
     root.walkRules(rule => {
 

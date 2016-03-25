@@ -11,6 +11,7 @@
 - Fixed: `number-no-trailing-zeros` no longer delivers false positives in `url()` arguments.
 - Fixed: `no-duplicate-selectors` no longer delivers false positives with descendant combinators.
 - Fixed: `root-no-standard-properties` no longer delivers false positives inside the `:not()` pseudo-selector.
+- Fixed: `no-duplicate-selectors` no longer delivers false positives after second run in Atom linter.
 
 # 5.1.0
 
