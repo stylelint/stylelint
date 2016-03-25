@@ -2,6 +2,7 @@
 
 - Fixed: `no-descending-specificity` no longer delivers false positives after second run in Atom linter.
 - Fixed: `stylelint-disable-rule` imported correctly.
+- Fixed: `function-calc-no-unspaced-operator` now better ignores non-`calc` functions.
 
 # 5.2.0
 

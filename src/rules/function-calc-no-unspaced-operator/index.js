@@ -1,11 +1,12 @@
 import {
-  cssFunctionArguments,
   report,
   ruleMessages,
   styleSearch,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import valueParser from "postcss-value-parser"
+import balancedMatch from "balanced-match"
 
 export const ruleName = "function-calc-no-unspaced-operator"
 
@@ -23,7 +24,15 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      cssFunctionArguments(decl.toString(), "calc", (rawExpression, expressionIndex) => {
+      valueParser(decl.value).walk(node => {
+        if (node.type !== "function" || node.value !== "calc") { return }
+
+        const parensMatch = balancedMatch("(", ")", valueParser.stringify(node))
+        const rawExpression = parensMatch.body
+        const expressionIndex = decl.source.start.column
+          + decl.prop.length
+          + decl.raws.between.length
+          + node.sourceIndex
         const expression = blurVariables(rawExpression)
 
         checkSymbol("+")
