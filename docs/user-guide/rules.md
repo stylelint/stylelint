@@ -35,12 +35,12 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`function-comma-space-after`](../../src/rules/function-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of functions.
 - [`function-comma-space-before`](../../src/rules/function-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of functions.
 - [`function-linear-gradient-no-nonstandard-direction`](../../src/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow direction values in `linear-gradient()` calls that are not valid according to the [standard syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#Syntax).
+- [`function-max-empty-lines`](../../src/rules/function-max-empty-lines/README.md): Limit the number of adjacent empty lines within functions.
 - [`function-parentheses-newline-inside`](../../src/rules/function-parentheses-newline-inside/README.md): Require a newline or disallow whitespace on the inside of the parentheses of functions.
 - [`function-parentheses-space-inside`](../../src/rules/function-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses of functions.
 - [`function-url-quotes`](../../src/rules/function-url-quotes/README.md): Specify single, double or no quotes for urls.
 - [`function-whitelist`](../../src/rules/function-whitelist/README.md): Specify a whitelist of allowed functions.
 - [`function-whitespace-after`](../../src/rules/function-whitespace-after/README.md): Require or disallow whitespace after functions.
-- [`function-max-empty-lines`](../../src/rules/function-max-empty-lines/README.md): Limit the number of adjacent empty lines within functions.
 
 ### Number
 

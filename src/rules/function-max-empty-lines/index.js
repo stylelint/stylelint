@@ -26,11 +26,13 @@ export default function (max) {
       if (decl.value.indexOf("(") === -1) { return }
 
       const declString = decl.toString()
+      const repeatLFNewLines = repeat("\n", maxAdjacentNewlines)
+      const repeatCRLFNewLines = repeat("\r\n", maxAdjacentNewlines)
 
       styleSearch({ source: declString, target: "\n", withinFunctionalNotation: true }, match => {
         if (
-          declString.substr(match.startIndex + 1, maxAdjacentNewlines) === repeat("\n", maxAdjacentNewlines)
-          || declString.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeat("\r\n", maxAdjacentNewlines)
+          declString.substr(match.startIndex + 1, maxAdjacentNewlines) === repeatLFNewLines
+          || declString.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeatCRLFNewLines
         ) {
           report({
             message: messages.rejected,

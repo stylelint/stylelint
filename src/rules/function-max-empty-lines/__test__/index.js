@@ -6,9 +6,27 @@ testRule(rule, {
   config: [0],
 
   accept: [ {
+    code: "a { transform: translate(1, 1); }",
+  }, {
     code: "a { transform: translate(\n1\n,\n1\n); }",
   }, {
     code: "a { transform: translate(\r\n1\r\n,\r\n1\r\n); }",
+  }, {
+    code: "a { transform: translate\n\n(1, 1); }",
+  }, {
+    code: "a { transform: translate\r\n\r\n(1, 1); }",
+  },  {
+    code: "a { transform: translate(1, 1)\n\n; }",
+  }, {
+    code: "a { transform: translate(1, 1)\r\n\r\n; }",
+  }, {
+    code: "a { transform:\n\ntranslate(1, 1); }",
+  }, {
+    code: "a { transform:\r\n\r\ntranslate(1, 1); }",
+  }, {
+    code: "a { background: blah,\n\nfoo; }",
+  }, {
+    code: "a { background: blah,\r\n\r\nfoo; }",
   } ],
 
   reject: [ {
