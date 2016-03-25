@@ -108,6 +108,7 @@ import selectorRootNoComposition from "./selector-root-no-composition"
 import selectorTypeCase from "./selector-type-case"
 import stringNoNewline from "./string-no-newline"
 import stringQuotes from "./string-quotes"
+import stylelintDisableReason from "./stylelint-disable-reason"
 import timeNoImperceptible from "./time-no-imperceptible"
 import unitBlacklist from "./unit-blacklist"
 import unitWhitelist from "./unit-whitelist"
@@ -228,6 +229,7 @@ export default {
   "selector-type-case": selectorTypeCase,
   "string-no-newline": stringNoNewline,
   "string-quotes": stringQuotes,
+  "stylelint-disable-reason": stylelintDisableReason,
   "time-no-imperceptible": timeNoImperceptible,
   "unit-blacklist": unitBlacklist,
   "unit-whitelist": unitWhitelist,

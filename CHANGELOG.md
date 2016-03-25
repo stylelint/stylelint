@@ -1,6 +1,7 @@
 # Head
 
 - Fixed: `no-descending-specificity` no longer delivers false positives after second run in Atom linter.
+- Fixed: `stylelint-disable-rule` imported correctly.
 
 # 5.2.0
 
