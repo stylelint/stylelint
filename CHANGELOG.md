@@ -1,3 +1,7 @@
+# HEAD
+
+- Fixed: `stylelint-disable-rule` add import in rules config.
+
 # 5.2.0
 
 - Added: `no-indistinguishable-colors` rule.
