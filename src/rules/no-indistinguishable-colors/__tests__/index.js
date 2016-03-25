@@ -6,9 +6,11 @@ testRule(rule, {
   ruleName,
   config: [true],
 
-  accept: [{
+  accept: [ {
     code: "a { color: #fff; } b { color: #000; }",
-  }],
+  }, {
+    code: "a {\n  background-image: url(../images/white.png);\n  color: #fff;\n}",
+  } ],
 
   reject: [ {
     code: "h1 {\n  color: black;\n  color: #010101;\n}",
