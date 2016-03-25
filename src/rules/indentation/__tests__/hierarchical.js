@@ -97,6 +97,15 @@ testRule(rule, {
     "  .r-Grid-cell {\n" +
     "    text-align: center;\n" +
     "  }",
+  }, {
+    code: ".foo {}\n" +
+    "  /* Comment */\n" +
+    "  .foo-one {}\n",
+    description: "comment hierarchy",
+  }, {
+    code: ".foo {}\n" +
+    "  /* Comment */\n",
+    description: "comment hierarchy",
   } ],
 
   reject: [ {
