@@ -1,4 +1,4 @@
-# HEAD
+# 5.2.0
 
 - Added: `no-indistinguishable-colors` rule.
 - Added: `at-rule-semicolon-newline-after` rule.
