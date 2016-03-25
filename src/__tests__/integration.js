@@ -30,6 +30,7 @@ const config = {
     } ],
     "function-blacklist": ["calc"],
     "function-whitelist": null,
+    "no-duplicate-selectors": true,
   },
 }
 
