@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `no-descending-specificity` no longer delivers false positives after second run in Atom linter.
+
 # 5.2.0
 
 - Added: `no-indistinguishable-colors` rule.

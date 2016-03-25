@@ -18,12 +18,12 @@ export const messages = ruleMessages(ruleName, {
   rejected: (a, b) => `Expected selector "${b}" to come before selector "${a}"`,
 })
 
-const selectorContextLookup = cssNodeContextLookup()
-
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
+
+    const selectorContextLookup = cssNodeContextLookup()
 
     root.walkRules(rule => {
       const comparisonContext = selectorContextLookup.getContext(rule, findAtRuleContext(rule))
