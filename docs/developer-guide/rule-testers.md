@@ -62,24 +62,27 @@ var testRule = stylelint.createRuleTester(equalityCheck)
 Pass in an `equalityCheck` function. Given some information, this checker should use whatever test runner you like to perform equality checks.
 
 The `equalityCheck` function should accept two arguments:
+
 - `processCss` {Promise}: A Promise that resolves with an array of comparisons that you need to check (documented below).
 - `context` {object}: An object that contains additional information you may need:
   - `caseDescription` {string}: A description of the test case as  whole. It will end up printing like something this:
-  ```
-	> rule: value-list-comma-space-before
-	> config: "always-single-line"
-	> code: "a { background-size: 0 ,0;\n}"
+  ```bash
+  > rule: value-list-comma-space-before
+  > config: "always-single-line"
+  > code: "a { background-size: 0 ,0;\n}"
   ```
   - `comparisonCount` {number}: The number of comparisons that will need to be performed (e.g. useful for tape).
   - `completeAssertionDescription` {string}: While each individual comparison may have its own description, this is a description of the whole assertion (e.g. useful for Mocha).
   - `only` {boolean}: If `true`, the test runner should only run this test case (e.g. `test.only` in tape, `describe.only` in Mocha).
 
 `processCss` is a Promise that resolves with an array of comparisons. Each comparison has the following properties:
+
 - `actual` {any}: Some actual value.
 - `expected` {any}: Some expected value.
 - `description` {string}: A (possibly empty) description of the comparison.
 
 Within the `equalityCheck` function, you need to ensure that you do the following:
+
 - Set up the test case.
 - When `processCss` resolves, loop through every comparison.
 - For each comparison, make an assertion checking that `actual === expected`.
