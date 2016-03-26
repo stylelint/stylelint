@@ -1,4 +1,5 @@
-import testRule from "../../../testUtils/stylelint-test-rule-tape"
+import testRule from "../../../testUtils/testRule"
+
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {

@@ -1,4 +1,4 @@
-import testRule from "../testUtils/stylelint-test-rule-tape.js"
+import testRule from "../testUtils/testRule.js"
 import blockNoEmpty, {
   ruleName as blockNoEmptyName,
   messages as blockNoEmptyMessages,
