@@ -1,5 +1,5 @@
 import { vendor } from "postcss"
-import { isObject, find } from "lodash"
+import { isObject, isEmpty, find } from "lodash"
 import {
   report,
   ruleMessages,
@@ -26,6 +26,8 @@ export default function (whitelist) {
       const { prop, value } = decl
       const unprefixedProp = vendor.unprefixed(prop)
       const propWhitelist = find(whitelist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
+
+      if (isEmpty(propWhitelist)) { return }
 
       if (!matchesStringOrRegExp(value, propWhitelist)) {
         report({

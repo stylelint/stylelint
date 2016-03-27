@@ -49,3 +49,15 @@ testRule(rule, {
     column: 5,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: { position: ["static"] },
+  skipBasicChecks: true,
+  accept: [
+    {
+      code: "a { font-size: 1em; }",
+      description: "irrelevant CSS",
+    },
+  ],
+})

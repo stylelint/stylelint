@@ -108,3 +108,15 @@ testRule(rule, {
     message: messages.rejected("-webkit-animation-timing-function", "ease-in-out"),
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: { position: ["fixed"] },
+  skipBasicChecks: true,
+  accept: [
+    {
+      code: "a { font-size: 1em; }",
+      description: "irrelevant CSS",
+    },
+  ],
+})
