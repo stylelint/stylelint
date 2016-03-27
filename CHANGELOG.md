@@ -1,5 +1,6 @@
 # Head
 
+- Added: exposed `stylelint.createRuleTester()`.
 - Fixed: `property-value-blacklist` and `-whitelist` no longer error on properties without a corresponding list entry.
 
 # 5.2.1

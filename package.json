@@ -94,10 +94,12 @@
   "remarkConfig": {
     "plugins": {
       "lint": {
+        "list-item-content-indent": false,
         "list-item-indent": "space",
         "list-item-spacing": false,
         "maximum-heading-length": false,
         "maximum-line-length": false,
+        "no-missing-blank-lines": false,
         "no-multiple-toplevel-headings": false
       }
     }

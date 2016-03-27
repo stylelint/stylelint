@@ -8,6 +8,9 @@ import {
   styleSearch,
   validateOptions,
 } from "./utils"
+import {
+  createRuleTester,
+} from "./testUtils"
 
 const stylelint = postcssPlugin
 
@@ -21,5 +24,6 @@ stylelint.utils = {
 stylelint.lint = standalone
 stylelint.rules = rules
 stylelint.createPlugin = createPlugin
+stylelint.createRuleTester = createRuleTester
 
 module.exports = stylelint

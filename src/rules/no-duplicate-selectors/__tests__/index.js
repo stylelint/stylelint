@@ -1,4 +1,5 @@
-import testRule from "../../../testUtils/stylelint-test-rule-tape"
+import testRule from "../../../testUtils/testRule"
+
 import postcss from "postcss"
 import postcssImport from "postcss-import"
 import path from "path"
