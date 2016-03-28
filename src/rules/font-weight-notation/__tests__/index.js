@@ -43,6 +43,9 @@ testRule(rule, {
   }, {
     code: "a { font-weight: inherit; }",
     description: "ignore inherit value",
+  }, {
+    code: "a { font-weight: initial; }",
+    description: "ignore initial value",
   } ],
 
   reject: [ {

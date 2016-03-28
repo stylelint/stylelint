@@ -18,6 +18,7 @@ export const messages = ruleMessages(ruleName, {
 
 const WEIGHT_SPECIFIC_KEYWORDS = [ "bold", "bolder", "lighter" ]
 const INHERIT_KEYWORD = "inherit"
+const INITIAL_KEYWORD = "initial"
 const NORMAL_KEYWORD = "normal"
 const RELATIVE_NAMED_WEIGHTS = [ "bolder", "lighter" ]
 const WEIGHTS_WITH_KEYWORD_EQUIVALENTS = [ "400", "700" ]
@@ -71,7 +72,7 @@ export default function (expectation, options) {
 
     function checkWeight(weightValue, decl) {
       if (cssWordIsVariable(weightValue)) { return }
-      if (weightValue === INHERIT_KEYWORD) { return }
+      if (weightValue === INHERIT_KEYWORD || weightValue === INITIAL_KEYWORD) { return }
 
       if (optionsHaveIgnored(options, "relative") &&
         includes(RELATIVE_NAMED_WEIGHTS, weightValue)) { return }
