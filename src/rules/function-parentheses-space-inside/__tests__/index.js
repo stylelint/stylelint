@@ -14,6 +14,9 @@ testRule(rule, {
     code: "a { transform: translate( 1, 1 ); }",
   }, {
     code: "a { color: color( rgb( 0, 0, 0 ) lightness( 50% ) ); }",
+  }, {
+    code: "$map: (key: value, key2: value2)",
+    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -116,6 +119,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "a { color: color(rgb(0,\n0,\n0 ) lightness( 50% )); }",
+  }, {
+    code: "$map: (key: value, key2: value2)",
+    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -200,6 +206,9 @@ testRule(rule, {
     code: "a { transform: translate(1, 1); }",
   }, {
     code: "a { color: color(rgb(0, 0, 0) lightness(50%)); }",
+  }, {
+    code: "$map: ( key: value, key2: value2 )",
+    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -302,6 +311,9 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "a { color: color(rgb(0,\n0,\n0 ) lightness(50%)); }",
+  }, {
+    code: "$map: ( key: value, key2: value2 )",
+    description: "SCSS map",
   } ],
 
   reject: [ {

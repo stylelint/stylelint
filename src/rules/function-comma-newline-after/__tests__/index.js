@@ -23,6 +23,9 @@ testRule(rule, {
     code: "a { transform: color(rgb(0 ,\n\t0,\n\t0) lightness(50%)); }",
   }, {
     code: "a { background: linear-gradient(45deg,\n rgba(0,\n 0,\n 0,\n 1),\n red); }",
+  }, {
+    code: "$map: (key: value, key2: value2)",
+    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -115,6 +118,9 @@ testRule(rule, {
           );
         }
     `,
+  }, {
+    code: "$map: (key: value\n, key2: value2)",
+    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -170,6 +176,9 @@ testRule(rule, {
     code: "a { transform: translate(1,\t1); }",
   }, {
     code: "a { background: linear-gradient(45deg\n,rgba(0, 0, 0, 1),red); }",
+  }, {
+    code: "$map: (key: value,\nkey2: value2)",
+    description: "SCSS map",
   } ],
 
   reject: [ {
