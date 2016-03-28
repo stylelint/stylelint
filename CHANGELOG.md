@@ -2,6 +2,7 @@
 
 - Added: exposed `stylelint.createRuleTester()`.
 - Fixed: `property-value-blacklist` and `-whitelist` no longer error on properties without a corresponding list entry.
+- Fixed: `font-weight-notation` now ignore `initial` value.
 
 # 5.2.1
 
