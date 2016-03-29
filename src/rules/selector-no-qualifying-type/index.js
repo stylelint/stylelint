@@ -8,7 +8,7 @@ import {
 
 export const ruleName = "selector-no-qualifying-type"
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected selector qualified by type"
+  rejected: "Unexpected selector qualified by type",
 })
 
 export default (enabled, options) => {
