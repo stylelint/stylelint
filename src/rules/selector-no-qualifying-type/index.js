@@ -7,7 +7,9 @@ import {
 } from "../../utils"
 
 export const ruleName = "selector-no-qualifying-type"
-export const messages = ruleMessages(ruleName, {})
+export const messages = ruleMessages(ruleName, {
+  rejected: "Unexpected selector qualified by type"
+})
 
 export default (enabled, options) => {
   return (root, result) => {
@@ -75,7 +77,7 @@ export default (enabled, options) => {
             ruleName,
             result,
             node: rule,
-            message: "Avoid qualifying attribute selectors with an element",
+            message: messages.rejected,
           })
         }
         if (options.ignore === "class" && hasClassQualifiedByElement(selectorNoCombinators)) {
@@ -83,7 +85,7 @@ export default (enabled, options) => {
             ruleName,
             result,
             node: rule,
-            message: "Avoid qualifying class selectors with an element",
+            message: messages.rejected,
           })
         }
         if (options.ignore === "id" && hasIdQualifiedByElement(selectorNoCombinators)) {
@@ -91,7 +93,7 @@ export default (enabled, options) => {
             ruleName,
             result,
             node: rule,
-            message: "Avoid qualifying id selectors with an element",
+            message: messages.rejected,
           })
         }
       })
