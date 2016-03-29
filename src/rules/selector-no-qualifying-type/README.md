@@ -1,85 +1,87 @@
-# stylelint-selector-no-qualifying-type
+# selector-no-qualifying-type
 
-A stylelint rule to disallow combinations of qualifying elements with id, class or attribute selectors.
-
-This rule will cause stylelint to warn you whenever a disallowed combination is used.
-
-## Details
-
-There is an ignore option (`attribute` / `class` / `id`):
-
-Default without `ignore` option.
+Disallow qualifying a selector by type.
 
 ```css
-input { /* OK */
-  margin: 0
-}
+    a.class {}
+/** ↑
+ * This type of selector that is qualified with a class */
+```
 
-input[type='button'] { /* Not OK */
+The following patterns are considered warnings:
+
+```css
+div.class {
   margin: 0
 }
 ```
 
 ```css
-.class { /* OK */
-  margin: 0
-}
-
-div.class { /* Not OK */
+div#id {
   margin: 0
 }
 ```
 
 ```css
-#id { /* OK */
-  margin: 0
-}
-
-div#id { /* Not OK */
+input[type='button'] {
   margin: 0
 }
 ```
 
-With ignore set to `'attribute'`:
+The following patterns are *not* considered warnings:
 
 ```css
-input[type='button'] { /* OK */
+.class {
   margin: 0
 }
 ```
-
-With ignore set to `'class'`:
 
 ```css
-div.class { /* OK */
+#id {
   margin: 0
 }
 ```
-
-With ignore set to `'id'`:
 
 ```css
-div#id { /* OK */
+input {
   margin: 0
 }
 ```
 
-## Usage
+## Options (optional)
 
-Add `selector-no-qualifying-type` to your rules, with your desired options.
+### `ignore: "class"`
 
-Example:
+Allow class selectors qualified by type.
 
-```js
-{
-  "plugins": [
-    "stylelint-selector-no-qualifying-type"
-  ],
-  "rules": {
-    "selector-no-qualifying-type": [
-      true,
-      { ignore: "attribute" } // Optional. Other values: "class", "id"
-    ]
-  }
-};
+For example, the following would *not* be considered warnings:
+
+```css
+div.class {
+  margin: 0
+}
+```
+
+### `ignore: "id"`
+
+Allow id selectors qualified by type.
+
+For example, the following would *not* be considered warnings:
+
+```css
+div#id {
+  margin: 0
+}
+```
+
+### `ignore: "attribute"`
+
+Allow attribute selectors qualified by type.
+
+For example, the following would *not* be considered warnings:
+
+```css
+input[type='button'] {
+  margin: 0
+}
 ```
