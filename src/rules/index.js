@@ -45,6 +45,7 @@ import functionCommaNewlineBefore from "./function-comma-newline-before"
 import functionCommaSpaceAfter from "./function-comma-space-after"
 import functionCommaSpaceBefore from "./function-comma-space-before"
 import functionLinearGradientNoNonstandardDirection from "./function-linear-gradient-no-nonstandard-direction"
+import functionMaxEmptyLines from "./function-max-empty-lines"
 import functionParenthesesNewlineInside from "./function-parentheses-newline-inside"
 import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
 import functionUrlQuotes from "./function-url-quotes"
@@ -166,6 +167,7 @@ export default {
   "function-comma-space-after": functionCommaSpaceAfter,
   "function-comma-space-before": functionCommaSpaceBefore,
   "function-linear-gradient-no-nonstandard-direction": functionLinearGradientNoNonstandardDirection,
+  "function-max-empty-lines": functionMaxEmptyLines,
   "function-parentheses-newline-inside": functionParenthesesNewlineInside,
   "function-parentheses-space-inside": functionParenthesesSpaceInside,
   "function-url-quotes": functionUrlQuotes,
