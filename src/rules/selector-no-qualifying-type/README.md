@@ -5,7 +5,7 @@ Disallow qualifying a selector by type.
 ```css
     a.class {}
 /** ↑
- * This type of selector that is qualified with a class */
+ * This is the type in a selector that is qualified with a class */
 ```
 
 The following patterns are considered warnings:
