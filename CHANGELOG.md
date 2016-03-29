@@ -3,6 +3,8 @@
 - Added: exposed `stylelint.createRuleTester()`.
 - Fixed: `property-value-blacklist` and `-whitelist` no longer error on properties without a corresponding list entry.
 - Fixed: `font-weight-notation` now ignores `initial` value.
+- Fixed: `selector-id-pattern` no longer warns about Sass interpolation when an Id is specified through interpolation
+- Fixed: `selector-class-pattern` no longer warns about Sass interpolation when a class is specified through interpolation
 
 # 5.2.1
 

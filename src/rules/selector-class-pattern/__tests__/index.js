@@ -107,3 +107,17 @@ testRule(rule, {
     message: messages.expected("A"),
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  syntax: "scss",
+  config: [ /^[A-Z]+$/, { resolveNestedSelectors: true } ],
+
+  accept:[ {
+    code: "@for $n from 1 through 5 { .A#{$n} { } }",
+    description: "ignore sass interpolation inside @for",
+  }, {
+    code: "@for $n from 1 through 5 { .A { &B#{$n} { } }}",
+    description: "ignore sass interpolation of nested selector inside @for",
+  } ],
+})

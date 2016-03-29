@@ -42,3 +42,14 @@ testRule(rule, mergeTestDescriptions(basicAZTests, {
   ruleName,
   config: ["^[A-Z]+$"],
 }))
+
+testRule(rule, {
+  ruleName,
+  syntax: "scss",
+  config: [/^[A-Z]+$/],
+
+  accept:[{
+    code: "@for $n from 1 through 5 { #a#{$n} { } }",
+    description: "ignore sass interpolation inside @for",
+  }],
+})
