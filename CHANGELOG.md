@@ -4,6 +4,7 @@
 - Added: `function-max-empty-lines` rule.
 - Fixed: `property-value-blacklist` and `-whitelist` no longer error on properties without a corresponding list entry.
 - Fixed: `font-weight-notation` now ignores `initial` value.
+- Fixed: `no-unknown-animations` now ignores `none`, `initial`, `inherit`, `unset` values.
 
 # 5.2.1
 

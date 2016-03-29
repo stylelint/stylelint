@@ -17,8 +17,12 @@ export const messages = ruleMessages(ruleName, {
 // cf. https://developer.mozilla.org/en-US/docs/Web/CSS/animation
 const animationShorthandKeywords = new Set([
   "infinite", "normal", "reverse", "alternate", "alternate-reverse",
-  "none", "forwards", "backwards", "both", "running", "paused",
+  "none", "initial", "inherit", "unset", "forwards", "backwards", "both", "running", "paused",
   "linear", "ease-in", "ease-out", "ease-in-out", "step-start", "step-end",
+])
+
+const animationNameKeywords = new Set([
+  "none", "initial", "inherit", "unset",
 ])
 
 export default function (actual) {
@@ -32,7 +36,7 @@ export default function (actual) {
     })
 
     root.walkDecls(decl => {
-      if (decl.prop === "animation-name") {
+      if (decl.prop === "animation-name" && !animationNameKeywords.has(decl.value)) {
         checkAnimationName(decl.value, decl)
       }
 
