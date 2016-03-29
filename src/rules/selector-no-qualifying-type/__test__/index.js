@@ -1,5 +1,5 @@
 import testRule from "../../../testUtils/stylelint-test-rule-tape"
-import rule, { ruleName } from ".."
+import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
   ruleName,
@@ -27,13 +27,13 @@ testRule(rule, {
 
   reject: [ {
     code: "input[type=\"button\"] { top: 0; }",
-    message: "Avoid qualifying attribute selectors with an element",
+    message: messages.rejected,
   }, {
     code: "div.class { top: 0; }",
-    message: "Avoid qualifying class selectors with an element",
+    message: messages.rejected,
   }, {
     code: "div#id { top: 0; }",
-    message: "Avoid qualifying id selectors with an element",
+    message: messages.rejected,
   } ],
 })
 
@@ -47,10 +47,10 @@ testRule(rule, {
 
   reject: [ {
     code: "div.class { top: 0; }",
-    message: "Avoid qualifying class selectors with an element",
+    message: messages.rejected,
   }, {
     code: "div#id { top: 0; }",
-    message: "Avoid qualifying id selectors with an element",
+    message: messages.rejected,
   } ],
 })
 
@@ -64,10 +64,10 @@ testRule(rule, {
 
   reject: [ {
     code: "input[type=\"button\"] { top: 0; }",
-    message: "Avoid qualifying attribute selectors with an element",
+    message: messages.rejected,
   }, {
     code: "div#id { top: 0; }",
-    message: "Avoid qualifying id selectors with an element",
+    message: messages.rejected,
   } ],
 })
 
@@ -81,9 +81,9 @@ testRule(rule, {
 
   reject: [ {
     code: "input[type=\"button\"] { top: 0; }",
-    message: "Avoid qualifying attribute selectors with an element",
+    message: messages.rejected,
   }, {
     code: "div.class { top: 0; }",
-    message: "Avoid qualifying class selectors with an element",
+    message: messages.rejected,
   } ],
 })
