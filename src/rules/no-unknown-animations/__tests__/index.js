@@ -10,8 +10,44 @@ testRule(rule, {
     code: "@keyframes foo {} a { animation-name: foo; }",
     description: "keyframes before usage",
   }, {
+    code: "a { animation-name: none; }",
+    description: "ignore none",
+  }, {
+    code: "a { animation-name: initial; }",
+    description: "ignore initial",
+  }, {
+    code: "a { animation-name: inherit; }",
+    description: "ignore inherit",
+  }, {
+    code: "a { animation-name: unset; }",
+    description: "ignore unset",
+  }, {
     code: "a { animation-name: foo; } @keyframes foo {}",
     description: "keyframes after usage",
+  }, {
+    code: "a { animation: none; }",
+    description: "ignore none in longhand",
+  }, {
+    code: "a { animation: 2s linear 0s infinite alternate none; }",
+    description: "ignore none in longhand",
+  }, {
+    code: "a { animation: initial; }",
+    description: "ignore initial in longhand",
+  }, {
+    code: "a { animation: 2s linear 0s infinite alternate initial; }",
+    description: "ignore initial in longhand",
+  }, {
+    code: "a { animation: inherit; }",
+    description: "ignore inherit in longhand",
+  }, {
+    code: "a { animation: 2s linear 0s infinite alternate inherit; }",
+    description: "ignore inherit in longhand",
+  }, {
+    code: "a { animation: unset; }",
+    description: "ignore unset in longhand",
+  }, {
+    code: "a { animation: 2s linear 0s infinite alternate unset; }",
+    description: "ignore unset in longhand",
   }, {
     code: "@keyframes foo {} a { animation: foo 2s linear; }",
     description: "animation shorthand",
