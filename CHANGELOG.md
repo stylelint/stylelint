@@ -1,10 +1,12 @@
 # Head
 
 - Added: exposed `stylelint.createRuleTester()`.
+- Added: `function-max-empty-lines` rule.
 - Fixed: `property-value-blacklist` and `-whitelist` no longer error on properties without a corresponding list entry.
 - Fixed: `font-weight-notation` now ignores `initial` value.
 - Fixed: `selector-id-pattern` now ignores selectors with Sass interpolation.
 - Fixed: `selector-class-pattern` now ignores selectors with Sass interpolation.
+- Fixed: `no-unknown-animations` now ignores `none`, `initial`, `inherit`, `unset` values.
 
 # 5.2.1
 
@@ -17,7 +19,6 @@
 - Added: `no-indistinguishable-colors` rule.
 - Added: `at-rule-semicolon-newline-after` rule.
 - Added: `stylelint-disable-reason` rule.
-- Added: `function-max-empty-lines` rule.
 - Fixed: `no-duplicate-selectors` contextualizes selectors by all at-rules, not just media queries.
 - Fixed: `declaration-bang-space-*` understands arbitrary bang declarations (e.g. `!default`).
 - Fixed: `font-weight-notation` now ignore `inherit` value.
