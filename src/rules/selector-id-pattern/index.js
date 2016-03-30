@@ -24,6 +24,9 @@ export default function (pattern) {
     const normalizedPattern = isString(pattern) ? new RegExp(pattern) : pattern
 
     root.walkRules(rule => {
+      // Ignore Sass intepolation possibilities
+      if (/#{.+}/.test(rule.selector)) { return }
+
       if (cssRuleHasSelectorEndingWithColon(rule)) { return }
       selectorParser(checkSelector).process(rule.selector)
 

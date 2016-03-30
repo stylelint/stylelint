@@ -36,6 +36,9 @@ export default function (pattern, options) {
     root.walkRules(rule => {
       if (cssRuleHasSelectorEndingWithColon(rule)) { return }
 
+      // Ignore Sass intepolation possibilities
+      if (/#{.+}/.test(rule.selector)) { return }
+
       // Only bother resolving selectors that have an interpolating &
       if (shouldResolveNestedSelectors && hasInterpolatingAmpersand(rule.selector)) {
         resolveNestedSelector(rule.selector, rule).forEach(selector => {
