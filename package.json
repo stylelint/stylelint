@@ -64,11 +64,13 @@
     "postcss-import": "^8.0.2",
     "remark": "^4.0.0",
     "remark-lint": "^3.0.0",
+    "rimraf": "^2.5.2",
     "sinon": "^1.16.1",
     "tape": "^4.2.0",
     "trash": "^3.4.1"
   },
   "scripts": {
+    "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist",
     "prepublish": "npm run build",
     "release": "npmpub",
