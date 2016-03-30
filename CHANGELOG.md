@@ -2,6 +2,7 @@
 
 - Added: exposed `stylelint.createRuleTester()`.
 - Added: `function-max-empty-lines` rule.
+- Fixed: `function-comma-space-after`, `function-comma-space-before`, `function-parentheses-newline-inside` and `function-parentheses-space-inside` now ignore SCSS maps.
 - Fixed: `property-value-blacklist` and `-whitelist` no longer error on properties without a corresponding list entry.
 - Fixed: `font-weight-notation` now ignores `initial` value.
 - Fixed: `no-unknown-animations` now ignores `none`, `initial`, `inherit`, `unset` values.
