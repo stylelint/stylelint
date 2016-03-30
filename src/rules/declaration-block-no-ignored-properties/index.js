@@ -37,19 +37,35 @@ const ignored = [ {
   ],
 }, {
   property: "display",
-  value: "/^table.*$/",
+  value: "/^table-.*$/",
   ignoredProperties: [
     "margin",
+    "margin-top",
+    "margin-right",
+    "margin-bottom",
+    "margin-left",
     "float",
   ],
 }, {
-  property: "display",
-  value: "/^flex.*$/",
+  property: "position",
+  value: "static",
   ignoredProperties: [
-    "/^columns.*$/",
+    "top",
+    "right",
+    "bottom",
+    "left",
+  ],
+}, {
+  property: "position",
+  value: "absolute",
+  ignoredProperties: [
     "float",
-    "clear",
-    "vertical-align",
+  ],
+}, {
+  property: "position",
+  value: "fixed",
+  ignoredProperties: [
+    "float",
   ],
 } ]
 
@@ -58,7 +74,7 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.walkDecls(decl => {
+    root.walkDecls((decl, index) => {
       const { prop, value } = decl
       const unprefixedProp = vendor.unprefixed(prop)
       const unprefixedValue = vendor.unprefixed(value)
@@ -67,12 +83,12 @@ export default function (actual) {
         const matchProperty = matchesStringOrRegExp(unprefixedProp, ignore.property)
         const matchValue = matchesStringOrRegExp(unprefixedValue, ignore.value)
 
-        if (!matchProperty || !matchValue || !decl.parent || ignore.ignoredProperties.length < 1) { return }
+        if (!matchProperty || !matchValue || !decl.parent) { return }
 
         const ignoredProperties = ignore.ignoredProperties
 
-        // Todo ignore self
-        decl.parent.nodes.forEach((node) => {
+        decl.parent.nodes.forEach((node, nodeIndex) => {
+          if (index === nodeIndex) { return }
           if (ignoredProperties.indexOf(node.prop) === -1) { return }
 
           report({
