@@ -1,10 +1,11 @@
 import valueParser from "postcss-value-parser"
-
+// import _ from "lodash"
 import {
   declarationValueIndexOffset,
   report,
   ruleMessages,
   validateOptions,
+  matchesStringOrRegExp,
 } from "../../utils"
 import representations from "./representations"
 
@@ -19,8 +20,18 @@ export const messages = ruleMessages(ruleName, {
   ),
 })
 
-const FUNC_REPRESENTATION = [ "rgb", "rgba", "hsl", "hsla", "hwb", "gray" ]
+const FUNC_REPRESENTATIONS = [ "rgb", "rgba", "hsl", "hsla", "hwb", "gray" ]
 const NODE_TYPES = [ "word", "function" ]
+const COLOR_PROPERTIES = [
+  "color",
+  "background",
+  "background-color",
+  // Get border, border-[side], and border-[side]-color
+  "/^border(?:-(?:top|bottom|left|right)+(?:-color)?)?$/",
+  "outline-color",
+  "text-shadow",
+  "box-shadow",
+]
 
 export default function (expectation) {
   return (root, result) => {
@@ -36,6 +47,8 @@ export default function (expectation) {
     const namedColors = Object.keys(representations)
 
     root.walkDecls(decl => {
+      if (!matchesStringOrRegExp(decl.prop, COLOR_PROPERTIES)) { return }
+
       valueParser(decl.value).walk(node => {
         const { value, type, sourceIndex } = node
 
@@ -44,44 +57,54 @@ export default function (expectation) {
 
         // Check for named colors for "never" option
         if (
-          expectation === "never" &&
-          type === "word" &&
-          namedColors.indexOf(value) !== -1
+          expectation === "never"
+          && type === "word"
+          && namedColors.indexOf(value) !== -1
         ) {
           complain(
             messages.rejected(value),
             decl,
             declarationValueIndexOffset(decl) + sourceIndex
           )
+          return
         }
-        // Check "always-where-possible" option
-        if (expectation === "always-where-possible") {
-          // First by checking for alternative color function representations
-          if (
-            type === "function" &&
-            FUNC_REPRESENTATION.indexOf(value) !== -1
-          ) {
-            const cssString = valueParser.stringify(node).replace(/\s+/g, "")
-            namedColors.forEach(namedColor => {
-              if (representations[namedColor].func.indexOf(cssString) !== -1) {
-                complain(
-                  messages.expected(namedColor, cssString),
-                  decl,
-                  declarationValueIndexOffset(decl) + sourceIndex
-                )
-              }
-            })
-          // Then by checking for alternative hex representations
-          } else {
-            namedColors.forEach(namedColor => {
-              if (representations[namedColor].hex.indexOf(value) !== -1) {
-                complain(
-                  messages.expected(namedColor, value),
-                  decl,
-                  declarationValueIndexOffset(decl) + sourceIndex
-                )
-              }
-            })
+
+        // Check "always-where-possible" option ...
+        if (expectation !== "always-where-possible") { return }
+
+        // First by checking for alternative color function representations ...
+        if (
+          type === "function"
+          && FUNC_REPRESENTATIONS.indexOf(value) !== -1
+        ) {
+          // Remove all spaces to match what's in `representations`
+          const normalizedFunctionString = valueParser.stringify(node).replace(/\s+/g, "")
+          let namedColor
+          for (let i = 0, l = namedColors.length; i < l; i++) {
+            namedColor = namedColors[i]
+            if (representations[namedColor].func.indexOf(normalizedFunctionString) !== -1) {
+              complain(
+                messages.expected(namedColor, normalizedFunctionString),
+                decl,
+                declarationValueIndexOffset(decl) + sourceIndex
+              )
+              return // Exit as soon as a problem is found
+            }
+          }
+          return
+        }
+
+        // Then by checking for alternative hex representations
+        let namedColor
+        for (let i = 0, l = namedColors.length; i < l; i++) {
+          namedColor = namedColors[i]
+          if (representations[namedColor].hex.indexOf(value) !== -1) {
+            complain(
+              messages.expected(namedColor, value),
+              decl,
+              declarationValueIndexOffset(decl) + sourceIndex
+            )
+            return // Exit as soon as a problem is found
           }
         }
       })
