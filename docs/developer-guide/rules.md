@@ -32,7 +32,13 @@ Every rule must have a **primary option**. In `"color-hex-case": "upper"`, the p
 
 Some rules require extra flexibility to address a variety of use-cases. These can use a **secondary options object**. In `"color-hex-case": "upper"`, there is no secondary options object; in `"indentation": [2, { "except": ["block"] }]`, the secondary options object is `{ "except": ["block"] }`.
 
-The most typical secondary options are `"ignores"` and `"except"`; but anything is possible.
+The most typical secondary options are `"ignore": []` and `"except": []`; but anything is possible.
+
+`"ignore"` and `"except"` accept an array of predefined keyword options e.g. `["relative", "first-nested", "descendant"]`. Use `"ignore"` when you want the rule to simply skip-over a particular pattern, and use `except` when you want to invert the primary option for a particular pattern.
+
+Use a more specific secondary option name when accepting a *user-defined* list of things to ignore. For example, use `"ignoreAtRules": []` if a rule checks at-rules and you want to allow a user to specify which particular at-rule types to ignore.
+
+A rule's secondary option can be anything if you're not ignoring or making exceptions. As an example, `resolveNestedSelectors: true|false` is used within some `selector-*` rules to change how the rule processes nested selectors.
 
 *Use explicit, rather than implicit, options.* For example:
 
