@@ -16,7 +16,8 @@ export const messages = ruleMessages(ruleName, {
 export default function (maxLength, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
-      maxLength: isNumber,
+      actual: maxLength,
+      possible: isNumber,
     }, {
       actual: options,
       possible: {
@@ -30,11 +31,23 @@ export default function (maxLength, options) {
     // so they do not throw the game
     const rootString = root.toString().replace(/url\(.*\)/g, "url()")
 
+    const ignoreNonComments = optionsHaveIgnored(options, "non-comments")
+
     // Check first line
     checkNewline({ endIndex: 0 })
 
     // Check subsequent lines
     styleSearch({ source: rootString, target: ["\n"], checkComments: true }, checkNewline)
+
+    function complain(index) {
+      report({
+        index,
+        result,
+        ruleName,
+        message: messages.expected(maxLength),
+        node: root,
+      })
+    }
 
     function checkNewline(match) {
       let nextNewlineIndex = rootString.indexOf("\n", match.endIndex)
@@ -45,8 +58,23 @@ export default function (maxLength, options) {
       }
 
       // If the line's length is less than or equal to the specified
-      // max, ignore it
+      // max, ignore it ... So anything below is liable to be complained about
       if (nextNewlineIndex - match.endIndex <= maxLength) { return }
+
+      const complaintIndex = nextNewlineIndex - 1
+
+      if (ignoreNonComments) {
+        if (match.insideComment) {
+          return complain(complaintIndex)
+        }
+
+        // This trimming business is to notice when the line starts a
+        // comment but that comment is indented, e.g.
+        //       /* something here */
+        const nextTwoChars = rootString.slice(match.endIndex).trim().slice(0, 2)
+        if (nextTwoChars !== "/*" && nextTwoChars !== "//") { return }
+        return complain(complaintIndex)
+      }
 
       // If there are no spaces besides initial (indent) spaces, ignore it
       const lineString = rootString.slice(match.endIndex, nextNewlineIndex)
@@ -54,24 +82,7 @@ export default function (maxLength, options) {
         return
       }
 
-      if (optionsHaveIgnored(options, "non-comments")) {
-        // This trimming business is to notice when the line starts a
-        // comment but that comment is indented, e.g.
-        //       /* something here */
-        const nextTwoChars = rootString.slice(match.endIndex).trim().slice(0, 2)
-        if (
-          !match.insideComment
-          && (nextTwoChars !== "/*" && nextTwoChars !== "//")
-        ) { return }
-      }
-
-      report({
-        message: messages.expected(maxLength),
-        node: root,
-        index: nextNewlineIndex - 1,
-        result,
-        ruleName,
-      })
+      return complain(complaintIndex)
     }
   }
 }
