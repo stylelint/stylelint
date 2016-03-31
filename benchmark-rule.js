@@ -8,17 +8,19 @@ import normalizeRuleSettings from "./src/normalizeRuleSettings"
 const ruleName = process.argv[2]
 const ruleOptions = process.argv[3]
 
-console.log(`>> Rule name: ${ruleName}`)
-console.log(`>> Rule options: ${ruleOptions}`)
+if (!ruleName || !ruleOptions) {
+  throw new Error("You must specify a rule name and rule options")
+}
 
 const CSS_URL = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css"
 
-console.log(">> Fetching CSS")
 request(CSS_URL, (error, response, body) => {
-  console.log(">> CSS fetched. Running benchmark ...\n")
   if (error) throw error
 
-  const parsedOptions = (ruleOptions[0] === "[") ? JSON.parse(ruleOptions) : ruleOptions
+  let parsedOptions = ruleOptions
+  if (ruleOptions[0] === "[" || parsedOptions === "true" || parsedOptions === "false" || Number(parsedOptions) == parsedOptions) {
+    parsedOptions = JSON.parse(ruleOptions)
+  }
   const rule = rules[ruleName](...normalizeRuleSettings(parsedOptions))
   const processor = postcss().use(rule)
 
