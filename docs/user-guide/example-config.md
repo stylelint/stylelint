@@ -33,6 +33,7 @@ You might want to learn a little about [the conventions](/docs/user-guide/rules.
     "declaration-bang-space-after": "always"|"never",
     "declaration-bang-space-before": "always"|"never",
     "declaration-block-no-duplicate-properties": true,
+    "declaration-block-no-ignored-properties": true,
     "declaration-block-no-shorthand-property-overrides": true,
     "declaration-block-properties-order": "alphabetical"|[],
     "declaration-block-semicolon-newline-after": "always"|"always-multi-line"|"never-multi-line",

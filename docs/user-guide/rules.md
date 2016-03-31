@@ -101,7 +101,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 ### Declaration block
 
 - [`declaration-block-no-duplicate-properties`](../../src/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks.
-- [`declaration-block-no-ignored-properties`](../../src/rules/declaration-block-no-ignored-properties/README.md): Disallow properties has no effect.
+- [`declaration-block-no-ignored-properties`](../../src/rules/declaration-block-no-ignored-properties/README.md): Disallow property values that are ignored due to another property value in the same rule.
 - [`declaration-block-no-shorthand-property-overrides`](../../src/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties within declaration blocks.
 - [`declaration-block-properties-order`](../../src/rules/declaration-block-properties-order/README.md): Specify the order of properties within declaration blocks.
 - [`declaration-block-semicolon-newline-after`](../../src/rules/declaration-block-semicolon-newline-after/README.md): Require a newline or disallow whitespace after the semicolons of declaration blocks.

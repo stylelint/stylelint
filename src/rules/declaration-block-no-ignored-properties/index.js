@@ -9,7 +9,7 @@ import {
 export const ruleName = "declaration-block-no-ignored-properties"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (p, v) => `Unexpected ignored property "${p}" with "${v}"`,
+  rejected: (ignored, cause) => `Unexpected property "${ignored}" that is ignored because of "${cause}"`,
 })
 
 const ignored = [ {
@@ -72,6 +72,7 @@ const ignored = [ {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
+
     if (!validOptions) { return }
 
     root.walkDecls((decl, index) => {
@@ -83,13 +84,12 @@ export default function (actual) {
         const matchProperty = matchesStringOrRegExp(unprefixedProp, ignore.property)
         const matchValue = matchesStringOrRegExp(unprefixedValue, ignore.value)
 
-        if (!matchProperty || !matchValue || !decl.parent) { return }
+        if (!matchProperty || !matchValue) { return }
 
         const ignoredProperties = ignore.ignoredProperties
 
         decl.parent.nodes.forEach((node, nodeIndex) => {
-          if (index === nodeIndex) { return }
-          if (ignoredProperties.indexOf(node.prop) === -1) { return }
+          if (ignoredProperties.indexOf(node.prop) === -1 || index === nodeIndex) { return }
 
           report({
             message: messages.rejected(node.prop, decl.toString()),
