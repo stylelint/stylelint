@@ -4,7 +4,7 @@ import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
   ruleName,
-  config: ["20"],
+  config: [20],
 
   accept: [ {
     code: "a { color: 0; }",
@@ -55,7 +55,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: ["30"],
+  config: [30],
 
   accept: [{
     code: "a { color: 0;\n  top: 0; left: 0; right: 0; \n  bottom: 0; }",
@@ -71,7 +71,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ "20", { ignore: "non-comments" } ],
+  config: [ 20, { ignore: "non-comments" } ],
 
   accept: [ {
     code: "a { color: 0; top: 0; bottom: 0; }",

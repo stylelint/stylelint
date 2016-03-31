@@ -8,6 +8,7 @@
 - Fixed: `selector-id-pattern` now ignores selectors with Sass interpolation.
 - Fixed: `selector-class-pattern` now ignores selectors with Sass interpolation.
 - Fixed: `no-unknown-animations` now ignores `none`, `initial`, `inherit`, `unset` values.
+- Fixed: `max-line-length` options validation.
 
 # 5.2.1
 
