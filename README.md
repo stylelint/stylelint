@@ -51,6 +51,7 @@ You can help in a number of ways:
 - Chime in on any open issue or pull request.
 - Open new issues about your ideas for making stylelint better, and pull requests to show us how your idea works.
 - Add new tests to *absolutely anything*.
+- Work on [improving performance of rules](docs/developer-guide/benchmarks.md).
 - Create or contribute to ecosystem tools, like the plugins for Atom and Sublime Text.
 - Spread the word.
 
