@@ -23,10 +23,13 @@ export default function (max) {
     if (!validOptions) { return }
 
     const rootString = root.toString()
+    const repeatLFNewLines = repeat("\n", maxAdjacentNewlines)
+    const repeatCRLFNewLines = repeat("\r\n", maxAdjacentNewlines)
+
     styleSearch({ source: rootString, target: "\n", checkComments: true }, match => {
       if (
-        rootString.substr(match.startIndex + 1, maxAdjacentNewlines) === repeat("\n", maxAdjacentNewlines)
-        || rootString.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeat("\r\n", maxAdjacentNewlines)
+        rootString.substr(match.startIndex + 1, maxAdjacentNewlines) === repeatLFNewLines
+        || rootString.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeatCRLFNewLines
       ) {
         report({
           message: messages.rejected,
