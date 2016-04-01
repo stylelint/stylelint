@@ -13,7 +13,7 @@ testRule(rule, {
   }, {
     code: "a { color: rgba(0, 0, 0, 0); }",
   }, {
-    code: "a { something: #000, #fff, #333; }",
+    code: "a { background: #000, #fff, #333; }",
   }, {
     code: "/** color: black; */",
     description: "ignore color names within comments",
@@ -52,20 +52,20 @@ testRule(rule, {
     line: 1,
     column: 12,
   }, {
-    code: "a { something: #00c, red, #fff; }",
+    code: "a { background: #00c, red, #fff; }",
     message: messages.rejected("red"),
     line: 1,
-    column: 22,
+    column: 23,
   }, {
-    code: "a { something: #fff1a1, rgb(250, 250, 0), black; }",
+    code: "a { background: #fff1a1, rgb(250, 250, 0), black; }",
     message: messages.rejected("black"),
     line: 1,
-    column: 43,
+    column: 44,
   }, {
-    code: "a { something:#cccccc,white,#12345a; }",
+    code: "a { background:#cccccc,white,#12345a; }",
     message: messages.rejected("white"),
     line: 1,
-    column: 23,
+    column: 24,
   } ],
 })
 
@@ -200,9 +200,9 @@ testRule(rule, {
     line: 1,
     column: 12,
   }, {
-    code: "a { something: #302, rgb(\n0 ,\n 0 ,\r\n 0) }",
+    code: "a { background: #302, rgb(\n0 ,\n 0 ,\r\n 0) }",
     message: messages.expected("black", "rgb(0,0,0)"),
     line: 1,
-    column: 22,
+    column: 23,
   } ],
 })
