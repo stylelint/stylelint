@@ -9,8 +9,8 @@ import {
 export const ruleName = "function-url-data-uris"
 
 export const messages = ruleMessages(ruleName, {
-  expected: "Expected data uris in function url",
-  rejected: "Unexpected data uris in function url",
+  expected: "Expected a data URI",
+  rejected: "Unexpected data URI",
 })
 
 export default function (expectation) {

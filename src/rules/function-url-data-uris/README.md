@@ -3,9 +3,9 @@
 Require or disallow data URIs for urls.
 
 ```css
-a { background-image: url(image.png); }
-/**                       ↑ 
- *                  These values */
+a { background-image: url('data:image/gif;base64,R0lGODlh='); }
+/**                        ↑ 
+ *                  This data URI */
 ```
 
 This rule ignores variables inside `url` function (`$sass`, `@less`, `--custom-property`).
