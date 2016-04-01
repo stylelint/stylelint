@@ -5,7 +5,6 @@ import {
   report,
   ruleMessages,
   validateOptions,
-  matchesStringOrRegExp,
 } from "../../utils"
 import representations from "./representations"
 
@@ -22,16 +21,6 @@ export const messages = ruleMessages(ruleName, {
 
 const FUNC_REPRESENTATIONS = [ "rgb", "rgba", "hsl", "hsla", "hwb", "gray" ]
 const NODE_TYPES = [ "word", "function" ]
-const COLOR_PROPERTIES = [
-  "color",
-  "background",
-  "background-color",
-  // Get border, border-[side], and border-[side]-color
-  "/^border(?:-(?:top|bottom|left|right)+(?:-color)?)?$/",
-  "outline-color",
-  "text-shadow",
-  "box-shadow",
-]
 
 export default function (expectation) {
   return (root, result) => {
@@ -47,8 +36,6 @@ export default function (expectation) {
     const namedColors = Object.keys(representations)
 
     root.walkDecls(decl => {
-      if (!matchesStringOrRegExp(decl.prop, COLOR_PROPERTIES)) { return }
-
       valueParser(decl.value).walk(node => {
         const { value, type, sourceIndex } = node
 
