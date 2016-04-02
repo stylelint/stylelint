@@ -57,6 +57,7 @@ You might want to learn a little about [the conventions](/docs/user-guide/rules.
     "function-linear-gradient-no-nonstandard-direction": true,
     "function-parentheses-newline-inside": "always"|"always-multi-line"|"never-multi-line",
     "function-parentheses-space-inside": "always"|"never"|"always-single-line"|"never-single-line",
+    "function-url-data-uris": "always"|"never",
     "function-url-quotes": "single"|"double"|"none",
     "function-whitelist": string|[],
     "function-whitespace-after": "always"|"never",

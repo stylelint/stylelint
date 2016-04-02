@@ -49,6 +49,7 @@ import functionLinearGradientNoNonstandardDirection from "./function-linear-grad
 import functionMaxEmptyLines from "./function-max-empty-lines"
 import functionParenthesesNewlineInside from "./function-parentheses-newline-inside"
 import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
+import functionUrlDataUris from "./function-url-data-uris"
 import functionUrlQuotes from "./function-url-quotes"
 import functionWhitelist from "./function-whitelist"
 import functionWhitespaceAfter from "./function-whitespace-after"
@@ -172,6 +173,7 @@ export default {
   "function-max-empty-lines": functionMaxEmptyLines,
   "function-parentheses-newline-inside": functionParenthesesNewlineInside,
   "function-parentheses-space-inside": functionParenthesesSpaceInside,
+  "function-url-data-uris": functionUrlDataUris,
   "function-url-quotes": functionUrlQuotes,
   "function-whitelist": functionWhitelist,
   "function-whitespace-after": functionWhitespaceAfter,
