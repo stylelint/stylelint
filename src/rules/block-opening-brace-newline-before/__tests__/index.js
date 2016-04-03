@@ -332,6 +332,14 @@ testRule(rule, {
     code: "a  { color: pink; }",
   }, {
     code: "a\t{ color: pink; }",
+  }, {
+    code: "a {\ncolor: red; }",
+  }, {
+    code: "a { color: red; \n}",
+  }, {
+    code: "a { nested {\n}}",
+  }, {
+    code: "a { nested {\r\n}}",
   } ],
 
   reject: [ {
