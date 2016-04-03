@@ -161,10 +161,10 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
   config: ["never"],
-  syntax: "scss",
+  syntax: "sugarss",
 
   accept: [{
-    code: "a { color: pink;\n\n// comment\ntop: 0; }",
+    code: "a\n  color: pink\n\n  // single-line comment\n  top: 0",
     description: "single-line comment ignored",
   }],
 })

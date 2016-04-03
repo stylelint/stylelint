@@ -1,5 +1,6 @@
 # Head
 
+- Added: support for [SugarSS](https://github.com/postcss/sugarss) syntax.
 - Added: exposed `stylelint.createRuleTester()`.
 - Added: `function-max-empty-lines` rule.
 - Added: `declaration-block-no-ignored-properties` rule.

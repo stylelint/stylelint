@@ -9,20 +9,26 @@ You can run the linter before or after your css processors. Depending on which p
 
 *In both cases you can either turn off the incompatible linter rule, or stop using the incompatible plugin/processor.* You could also approach plugin/processor authors and request alternate formatting options that will make their plugin/processor compatible with stylelint.
 
-## Parsing SCSS
+## Parsing non-standard syntax
 
-The linter can *parse* SCSS syntax.
+The linter can *parse* any the following non-standard syntaxes by using special PostCSS parsers:
+
+- SCSS (using [`postcss-scss`](https://github.com/postcss/postcss-scss))
+- SugarSS (using [`sugarss`](https://github.com/postcss/sugarss))
+
+(Whenever someone writes a PostCSS parser for another syntax, stylelint can easily add support for that.)
 
 Both the [CLI](/docs/user-guide/cli.md) and the [Node API](docs/user-guide/cli.md) expose a `syntax` option.
 
 - If you're using the CLI, use the `syntax` flag like so:  `stylelint --syntax scss ...`
-- If you're using the Node API, pass in the `syntax` option like so: `stylelint.lint({ syntax: "scss", ... })`.
+- If you're using the Node API, pass in the `syntax` option like so: `stylelint.lint({ syntax: "sugarss", ... })`.
 
-If you're using the linter as a [PostCSS Plugin](/docs/user-guide/postcss-plugin.md), you'll need to use [postcss-scss](https://github.com/postcss/postcss-scss) directly with PostCSS's `syntax` option like so:
+If you're using the linter as a [PostCSS Plugin](/docs/user-guide/postcss-plugin.md), you'll need to use the special parser directly with PostCSS's `syntax` option like so:
 
 ```js
 var postcss = require("postcss")
 var scss = require("postcss-scss")
+// or use "sugarss"
 
 postcss([
   require("stylelint"),

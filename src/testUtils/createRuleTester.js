@@ -1,5 +1,6 @@
 import postcss from "postcss"
 import scssSyntax from "postcss-scss"
+import sugarss from "sugarss"
 import _ from "lodash"
 import normalizeRuleSettings from "../normalizeRuleSettings"
 import disableRanges from "../disableRanges"
@@ -67,8 +68,7 @@ import basicChecks from "./basicChecks"
  *   - `description` {[string]}: An optional description of the case.
  *
  * Optional properties:
- * - `syntax` {"css"|"scss"}: Defaults to `"css"`. Set to `"scss"` to
- *   run a test that uses `postcss-scss` to parse.
+ * - `syntax` {"css"|"scss"|"sugarss"}: Defaults to `"css"`.
  * - `skipBasicChecks` {boolean}: Defaults to `false`. If `true`, a
  *   few rudimentary checks (that should almost always be included)
  *   will not be performed.
@@ -101,9 +101,16 @@ export default function (equalityCheck) {
     // the PostCSS LazyResult promise
     function postcssProcess(code) {
       const postcssProcessOptions = {}
-      if (schema.syntax === "scss") {
-        postcssProcessOptions.syntax = scssSyntax
+
+      switch (schema.syntax) {
+        case "scss":
+          postcssProcessOptions.syntax = scssSyntax
+          break
+        case "sugarss":
+          postcssProcessOptions.syntax = sugarss
+          break
       }
+
       const processor = postcss()
       processor.use(disableRanges)
 

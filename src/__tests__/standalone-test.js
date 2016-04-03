@@ -190,6 +190,30 @@ test("standalone with scss syntax", t => {
   t.plan(planned)
 })
 
+test("standalone with sugarss syntax", t => {
+  let planned = 0
+  const config = {
+    rules: {
+      "number-zero-length-no-unit": true,
+    },
+  }
+
+  standalone({
+    config,
+    code: ".one\n  color: black\n  top: 0px\n.two",
+    syntax: "sugarss",
+    formatter: stringFormatter,
+  }).then(({ output }) => {
+    const strippedOutput = chalk.stripColor(output)
+    t.equal(typeof output, "string")
+    t.ok(strippedOutput.indexOf("3:9") !== -1)
+    t.ok(strippedOutput.indexOf("number-zero-length-no-unit") !== -1)
+  }).catch(logError)
+  planned += 3
+
+  t.plan(planned)
+})
+
 test("standalone with extending config and ignoreFiles glob ignoring single glob", t => {
   let planned = 0
   standalone({

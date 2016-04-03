@@ -106,6 +106,8 @@ gulp.task("build:scss", function () {
 })
 ```
 
+The same pattern can be used to read [SugarSS](https://github.com/postcss/sugarss) syntax.
+
 ### Example D
 
 Using the plugin with the PostCSS JS API:
