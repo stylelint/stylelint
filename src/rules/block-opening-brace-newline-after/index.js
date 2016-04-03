@@ -41,7 +41,7 @@ export default function (expectation) {
       // Return early if blockless or has an empty block
       if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
-      // Allow an end-of-line comment x spaces after the semicolon
+      // Allow an end-of-line comment x spaces after the brace
       const firstNode = statement.first
       const firstNodeIsAcceptableComment = (
         firstNode.type === "comment"

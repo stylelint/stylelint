@@ -47,15 +47,26 @@ export default function (expectation, options) {
     root.walkAtRules(check)
 
     function check(statement) {
-      const nextNode = statement.next()
-      if (!nextNode) { return }
       if (!cssStatementHasBlock(statement)) { return }
       if (cssStatementIsIgnoredAtRule(statement, options)) { return }
+
+      const nextNode = statement.next()
+      if (!nextNode) { return }
+
+      // Allow an end-of-line comment x spaces after the brace
+      const nextNodeIsSingleLineComment = (
+        nextNode.type === "comment"
+        && !/[^ ]/.test(nextNode.raw("before"))
+        && nextNode.toString().indexOf("\n") === -1
+      )
+
+      const nodeToCheck = (nextNodeIsSingleLineComment) ? nextNode.next() : nextNode
+      if (!nodeToCheck) { return }
 
       // Only check one after, because there might be other
       // spaces handled by the indentation rule
       checker.afterOneOnly({
-        source: rawNodeString(nextNode),
+        source: rawNodeString(nodeToCheck),
         index: -1,
         lineCheckStr: cssStatementBlockString(statement),
         err: msg => {
