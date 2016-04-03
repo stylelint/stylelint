@@ -1,9 +1,9 @@
 import {
+  isWhitespace,
   report,
   ruleMessages,
   styleSearch,
   validateOptions,
-  whitespaceChecker,
 } from "../../utils"
 import valueParser from "postcss-value-parser"
 import balancedMatch from "balanced-match"
@@ -17,11 +17,13 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function (actual) {
-  const checker = whitespaceChecker("space", "always", messages)
-
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
+
+    function complain(message, node, index) {
+      report({ message, node, index, result, ruleName })
+    }
 
     root.walkDecls(decl => {
       valueParser(decl.value).walk(node => {
@@ -41,7 +43,13 @@ export default function (actual) {
         checkSymbol("/")
 
         function checkSymbol(symbol) {
-          styleSearch({ source: expression, target: symbol, outsideFunctionalNotation: true }, match => {
+          const styleSearchOptions = {
+            source: expression,
+            target: symbol,
+            outsideFunctionalNotation: true,
+          }
+
+          styleSearch(styleSearchOptions, match => {
             const index = match.startIndex
 
             // Deal with signs.
@@ -49,49 +57,35 @@ export default function (actual) {
             // that permit signs in front of variables, e.g. `-$number`)
             if ((symbol === "+" || symbol === "-") && /[\d@\$]/.test(expression[index + 1])) {
               const expressionBeforeSign = expression.substr(0, index)
+
               // Ignore signs at the beginning of the expression
               if (/^\s*$/.test(expressionBeforeSign)) { return }
 
               // Otherwise, ensure that there is a real operator preceeding them
               if (/[\*/+-]\s*$/.test(expressionBeforeSign)) { return }
 
-              report({
-                message: messages.expectedOperatorBeforeSign(symbol),
-                node: decl,
-                index: expressionIndex + index,
-                result,
-                ruleName,
-              })
-
+              // And if not, complain
+              complain(messages.expectedOperatorBeforeSign(symbol), decl, expressionIndex + index)
               return
             }
 
-            checker.after({
-              index,
-              source: expression,
-              err: m => {
-                report({
-                  message: m,
-                  node: decl,
-                  index: expressionIndex + index,
-                  result,
-                  ruleName,
-                })
-              },
-            })
-            checker.before({
-              index,
-              source: expression,
-              err: m => {
-                report({
-                  message: m,
-                  node: decl,
-                  index: expressionIndex + index,
-                  result,
-                  ruleName,
-                })
-              },
-            })
+            const beforeOk = (
+              (expression[index - 1] === " " && !isWhitespace(expression[index - 2]))
+              || newlineBefore(expression, index - 1)
+            )
+            if (!beforeOk) {
+              complain(messages.expectedBefore(symbol), decl, expressionIndex + index)
+            }
+
+            const afterOk = (
+              (expression[index + 1] === " " && !isWhitespace(expression[index + 2]))
+              || expression[index + 1] === "\n"
+              || expression.substr(index + 1, 2) === "\r\n"
+            )
+
+            if (!afterOk) {
+              complain(messages.expectedAfter(symbol), decl, expressionIndex + index)
+            }
           })
         }
       })
@@ -101,4 +95,13 @@ export default function (actual) {
 
 function blurVariables(source) {
   return source.replace(/[\$@][^\)\s]+/g, "0")
+}
+
+function newlineBefore(str, startIndex) {
+  let index = startIndex
+  while (index && isWhitespace(str[index])) {
+    if (str[index] === "\n") return true
+    index--
+  }
+  return false
 }

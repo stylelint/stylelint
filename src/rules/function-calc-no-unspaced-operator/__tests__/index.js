@@ -65,6 +65,18 @@ testRule(rule, {
   }, {
     code: "a { padding: rem-calc(10px+ 10px) rem-calc(10px+ 10px); }",
     description: "ignore function have calc in name",
+  }, {
+    code: "margin-top: calc(var(--some-variable) +\n  var(--some-other-variable));",
+    description: "newline and spaces after operator",
+  }, {
+    code: "margin-top: calc(var(--some-variable) +\n\tvar(--some-other-variable));",
+    description: "newline and tab after operator",
+  }, {
+    code: "margin-top: calc(var(--some-variable)\n  + var(--some-other-variable));",
+    description: "newline and spaces before operator",
+  }, {
+    code: "margin-top: calc(var(--some-variable)\n\t+ var(--some-other-variable));",
+    description: "newline and tab before operator",
   } ],
 
   reject: [ {
