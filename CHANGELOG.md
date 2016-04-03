@@ -11,6 +11,7 @@
 - Fixed: `selector-class-pattern` now ignores selectors with Sass interpolation.
 - Fixed: `no-unknown-animations` now ignores `none`, `initial`, `inherit`, `unset` values.
 - Fixed: `max-line-length` options validation.
+- Fixed: `function-calc-no-unspaced-operator` accepts newlines.
 
 # 5.2.1
 
