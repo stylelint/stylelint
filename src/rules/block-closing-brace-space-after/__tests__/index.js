@@ -23,6 +23,8 @@ testRule(rule, {
     code: "@media print { a { color: pink; } b { color: red; }}",
   }, {
     code: "@media print { a { color: pink; }} @media screen { b { color: red; }}",
+  }, {
+    code: ".a {} /* stylelint-disable-line block-no-empty */",
   } ],
 
   reject: [ {
