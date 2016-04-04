@@ -143,10 +143,10 @@ testRule(rule, {
 
   accept: [
     // temporarily disable this test until this is fully supported in stylelint
-    {
-      code: "h1 { max-height: ((@line-height) * (@lines-to-show))em; }",
-      description: "Less-style interpolation",
-    },
+    // {
+    //   code: "h1 { max-height: ((@line-height) * (@lines-to-show))em; }",
+    //   description: "Less-style interpolation",
+    // },
   ],
 
   reject: [{
