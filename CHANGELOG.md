@@ -13,6 +13,7 @@
 - Fixed: `no-unknown-animations` now ignores `none`, `initial`, `inherit`, `unset` values.
 - Fixed: `max-line-length` options validation.
 - Fixed: `function-calc-no-unspaced-operator` accepts newlines.
+- Fixed: `block-closing-brace-newline-after` accepts single-line comments immediately after the closing brace.
 
 # 5.2.1
 

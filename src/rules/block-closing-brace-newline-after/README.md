@@ -9,6 +9,14 @@ a { color: red; }↑
  * The newline after this brace */
 ```
 
+This rule allows an end-of-line comment separated from the closing brace by spaces, as long as the comment contains no newlines. For example,
+
+```css
+a {
+  color: pink;
+} /* end-of-line comment */
+```
+
 ## Options
 
 `string`: `"always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line"`
