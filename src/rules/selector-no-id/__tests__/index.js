@@ -46,6 +46,8 @@ testRule(rule, {
   syntax: "scss",
 
   accept: [ {
+    code: "@keyframes spin { #{50% - $n} {} }",
+  }, {
     code: "@for $n from 1 through 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }",
     description: "ignore sass interpolation inside @for",
   }, {

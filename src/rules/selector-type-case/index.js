@@ -1,6 +1,7 @@
 import selectorParser from "postcss-selector-parser"
 import {
   cssRuleHasSelectorEndingWithColon,
+  cssRuleIsKeyframe,
   report,
   ruleMessages,
   validateOptions,
@@ -24,12 +25,11 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      // Ignore keyframe selectors
-      if (rule.parent.type === "atrule" && rule.parent.name === "keyframes") {
-        return
-      }
 
-      if (cssRuleHasSelectorEndingWithColon(rule)) { return }
+      if (
+        cssRuleHasSelectorEndingWithColon(rule)
+        || cssRuleIsKeyframe(rule)
+      ) { return }
 
       function checkSelector(selectorAST) {
         selectorAST.eachTag(tag => {
@@ -44,7 +44,7 @@ export default function (expectation) {
             return
           }
 
-          // & is not a type selector: it's used for nesting 
+          // & is not a type selector: it's used for nesting
           if (value[0] === "&") { return }
 
           const expectedValue = expectation === "lower" ? value.toLowerCase() : value.toUpperCase()
@@ -60,7 +60,7 @@ export default function (expectation) {
           })
         })
       }
-      
+
       selectorParser(checkSelector).process(rule.selector)
     })
   }
