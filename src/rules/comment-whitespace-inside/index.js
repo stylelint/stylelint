@@ -27,7 +27,7 @@ export default function (expectation) {
 
     root.walkComments(function (comment) {
 
-      if (comment.raws.inline) { return }
+      if (comment.raws.inline || comment.inline) { return }
 
       const rawComment = comment.toString()
       const firstFourChars = rawComment.substr(0, 4)
