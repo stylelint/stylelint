@@ -1,5 +1,6 @@
 import postcss from "postcss"
 import scssSyntax from "postcss-scss"
+import lessSyntax from "postcss-less"
 import sugarss from "sugarss"
 import _ from "lodash"
 import normalizeRuleSettings from "../normalizeRuleSettings"
@@ -68,7 +69,9 @@ import basicChecks from "./basicChecks"
  *   - `description` {[string]}: An optional description of the case.
  *
  * Optional properties:
- * - `syntax` {"css"|"scss"|"sugarss"}: Defaults to `"css"`.
+ * - `syntax` {"css"|"scss"|"less"|"sugarss"}: Defaults to `"css"`. Set to `"scss"` to
+ *   run a test that uses `postcss-scss` to parse. Set to `"less"` to run a 
+ *   test that uses `postcss-less` to parse.
  * - `skipBasicChecks` {boolean}: Defaults to `false`. If `true`, a
  *   few rudimentary checks (that should almost always be included)
  *   will not be performed.
@@ -105,6 +108,9 @@ export default function (equalityCheck) {
       switch (schema.syntax) {
         case "scss":
           postcssProcessOptions.syntax = scssSyntax
+          break
+        case "less":
+          postcssProcessOptions.syntax = lessSyntax
           break
         case "sugarss":
           postcssProcessOptions.syntax = sugarss
