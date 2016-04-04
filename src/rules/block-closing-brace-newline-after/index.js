@@ -15,9 +15,9 @@ export const ruleName = "block-closing-brace-newline-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected newline after \"}\"",
-  expectedAfterSingleLine: () => "Expected single space after \"}\" of a single-line block",
+  expectedAfterSingleLine: () => "Expected newline after \"}\" of a single-line block",
   rejectedAfterSingleLine: () => "Unexpected whitespace after \"}\" of a single-line block",
-  expectedAfterMultiLine: () => "Expected single space after \"}\" of a multi-line block",
+  expectedAfterMultiLine: () => "Expected newline after \"}\" of a multi-line block",
   rejectedAfterMultiLine: () => "Unexpected whitespace after \"}\" of a multi-line block",
 })
 
