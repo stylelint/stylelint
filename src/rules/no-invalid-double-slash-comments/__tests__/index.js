@@ -67,3 +67,27 @@ testRule(rule, {
     description: "single-line comment ignored",
   }],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [undefined],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [{
+    code: "// a { color: pink }",
+    description: "single-line comment ignored",
+  }],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [undefined],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [{
+    code: "a { \n// color: pink;\n }",
+    description: "single-line comment ignored",
+  }],
+})

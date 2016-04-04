@@ -134,3 +134,25 @@ testRule(rule, {
     column: 13,
   }],
 })
+
+testRule(rule, {
+  ruleName,
+  config: ["always"],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [
+    // temporarily disable this test until this is fully supported in stylelint
+    {
+      code: "h1 { max-height: ((@line-height) * (@lines-to-show))em; }",
+      description: "Less-style interpolation",
+    },
+  ],
+
+  reject: [{
+    code: "a { padding:\n  10px\n  // comment one\n  // comment two\n  var(--boo)orange}",
+    message: messages.expected,
+    line: 5,
+    column: 13,
+  }],
+})

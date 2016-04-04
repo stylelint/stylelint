@@ -128,3 +128,14 @@ testRule(rule, {
     description: "ignore rules with variable interpolation",
   }],
 })
+
+testRule(rule, {
+  ruleName,
+  config: ["0,1,1"],
+  syntax: "less",
+
+  accept: [{
+    code: "#hello @{test} {}",
+    description: "ignore rules with variable interpolation",
+  }],
+})

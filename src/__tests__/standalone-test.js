@@ -214,6 +214,30 @@ test("standalone with sugarss syntax", t => {
   t.plan(planned)
 })
 
+test("standalone with Less syntax", t => {
+  let planned = 0
+  const config = {
+    rules: {
+      "block-no-empty": true,
+    },
+  }
+
+  standalone({
+    config,
+    code: "@foo: bar; // foo;\nb {}",
+    syntax: "less",
+    formatter: stringFormatter,
+  }).then(({ output }) => {
+    const strippedOutput = chalk.stripColor(output)
+    t.equal(typeof output, "string")
+    t.ok(strippedOutput.indexOf("2:3") !== -1)
+    t.ok(strippedOutput.indexOf("block-no-empty") !== -1)
+  }).catch(logError)
+  planned += 3
+
+  t.plan(planned)
+})
+
 test("standalone with extending config and ignoreFiles glob ignoring single glob", t => {
   let planned = 0
   standalone({
