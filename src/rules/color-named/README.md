@@ -101,3 +101,7 @@ a { color: var(--foo-color-white); }
 ```scss
 a { color: $blue; }
 ```
+
+```less
+a { color: @blue; }
+```
