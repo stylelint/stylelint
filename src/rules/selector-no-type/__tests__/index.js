@@ -141,3 +141,14 @@ testRule(rule, {
     { code: "// Comment\n.c {}" },
   ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [true],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [
+    { code: "// Comment\n.c {}" },
+  ],
+})

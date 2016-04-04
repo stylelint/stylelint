@@ -186,3 +186,15 @@ testRule(rule, {
     description: "with end-of-line // comment with newline after",
   }],
 })
+
+testRule(rule, {
+  ruleName,
+  config: ["always"],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [{
+    code: "a, // comment\nb {}",
+    description: "with end-of-line // comment with newline after",
+  }],
+})
