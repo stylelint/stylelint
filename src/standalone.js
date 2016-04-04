@@ -3,6 +3,7 @@ import globby from "globby"
 import _ from "lodash"
 import { readFile } from "fs"
 import scssSyntax from "postcss-scss"
+import sugarss from "sugarss"
 import stylelintPostcssPlugin from "./postcssPlugin"
 import * as formatters from "./formatters"
 
@@ -76,8 +77,14 @@ export default function ({
     if (filepath) {
       postcssProcessOptions.from = filepath
     }
-    if (syntax === "scss") {
-      postcssProcessOptions.syntax = scssSyntax
+
+    switch (syntax) {
+      case "scss":
+        postcssProcessOptions.syntax = scssSyntax
+        break
+      case "sugarss":
+        postcssProcessOptions.syntax = sugarss
+        break
     }
 
     return postcss()

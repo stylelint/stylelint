@@ -21,7 +21,7 @@ const minimistOptions = {
     v: "verbose",
   },
 }
-const syntaxOptions = ["scss"]
+const syntaxOptions = [ "scss", "sugarss" ]
 
 const meowOptions = {
   help: [
@@ -52,7 +52,7 @@ const meowOptions = {
     "  -q, --quiet         Only register warnings for rules with an \"error\"-level severity",
     "                      (ignore \"warning\"-level)",
     "  -s, --syntax        Specify a non-standard syntax that should be used to ",
-    "                      parse source stylesheets. Options: \"scss\"",
+    "                      parse source stylesheets. Options: \"scss\", \"sugarss\"",
     "  -v, --verbose       Get more stats",
   ],
   pkg: "../package.json",
