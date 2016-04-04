@@ -59,6 +59,13 @@ h1 {
 }
 ```
 
+```less
+/* notice the )}, with no space after the closing parenthesis */
+h1 {
+  max-height: ((@line-height) * (@lines-to-show))em;
+}
+```
+
 ### `"never"`
 
 There *must never* be whitespace after the function.

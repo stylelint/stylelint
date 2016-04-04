@@ -63,7 +63,7 @@ The difference between the `configOverrides` and `config` options is this: If an
 
 ### `syntax`
 
-Options: `"scss"|"sugarss"`.
+Options: `"scss"|"less"|"sugarss"`.
 
 Specify a non-standard syntax that should be used to parse source stylesheets.
 
@@ -137,3 +137,13 @@ stylelint.lint({
 }).then(function() { .. });
 
 The same pattern can be used to read [SugarSS](https://github.com/postcss/sugarss) syntax.
+
+Maybe I want to use my own custom formatter function and parse `.less` source files:
+
+```js
+stylelint.lint({
+  files: "all/my/stylesheets/*.less",
+  config: myConfig,
+  syntax: "less",
+  formatter: function(stylelintResults) { .. }
+}).then(function() { .. });
