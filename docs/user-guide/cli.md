@@ -38,6 +38,12 @@ stylelint "foo/**/*.scss" --syntax scss
 
 The above can be slightly tweaked to check SugarSS: `--syntax sugarss`.
 
+Linting all the `.less` files in the `foo` directory, using the `syntax` option:
+
+```shell
+stylelint "foo/**/*.less" --syntax less
+```
+
 ## Exit codes
 
 The CLI can exit the process with the following exit codes:

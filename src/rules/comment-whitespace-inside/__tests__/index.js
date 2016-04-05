@@ -174,3 +174,27 @@ testRule(rule, {
     description: "single-line comment ignored",
   }],
 })
+
+testRule(rule, {
+  ruleName,
+  config: ["always"],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [{
+    code: "//comment",
+    description: "single-line comment ignored",
+  }],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["never"],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [{
+    code: "// comment",
+    description: "single-line comment ignored",
+  }],
+})
