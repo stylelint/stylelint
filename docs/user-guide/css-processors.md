@@ -14,6 +14,7 @@ You can run the linter before or after your css processors. Depending on which p
 The linter can *parse* any the following non-standard syntaxes by using special PostCSS parsers:
 
 - SCSS (using [`postcss-scss`](https://github.com/postcss/postcss-scss))
+- Less (using [postcss-less](https://github.com/webschik/postcss-less))
 - SugarSS (using [`sugarss`](https://github.com/postcss/sugarss))
 
 (Whenever someone writes a PostCSS parser for another syntax, stylelint can easily add support for that.)
@@ -28,7 +29,7 @@ If you're using the linter as a [PostCSS Plugin](/docs/user-guide/postcss-plugin
 ```js
 var postcss = require("postcss")
 var scss = require("postcss-scss")
-// or use "sugarss"
+// or use "postcss-less" or "sugarss"
 
 postcss([
   require("stylelint"),
@@ -37,32 +38,6 @@ postcss([
   .process(css, {
     from: "src/app.css",
     syntax: scss
-  })
-})
-```
-
-## Parsing Less
-
-The linter can *parse* Less syntax.
-
-Both the [CLI](/docs/user-guide/cli.md) and the [Node API](docs/user-guide/cli.md) expose a `syntax` option.
-
-- If you're using the CLI, use the `syntax` flag like so:  `stylelint --syntax less ...`
-- If you're using the Node API, pass in the `syntax` option like so: `stylelint.lint({ syntax: "less", ... })`.
-
-If you're using the linter as a [PostCSS Plugin](/docs/user-guide/postcss-plugin.md), you'll need to use [postcss-less](https://github.com/webschik/postcss-less) directly with PostCSS's `syntax` option like so:
-
-```js
-var postcss = require("postcss")
-var less = require("postcss-less")
-
-postcss([
-  require("stylelint"),
-  require("reporter")
-])
-  .process(css, {
-    from: "src/app.css",
-    syntax: less
   })
 })
 ```

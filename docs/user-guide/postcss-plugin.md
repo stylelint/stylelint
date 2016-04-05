@@ -84,27 +84,15 @@ gulp.task("build:css", function () {
 
 ### Example C
 
-Using the plugin with [`gulp-postcss`](https://github.com/postcss/gulp-postcss) and [`postcss-scss`](https://github.com/postcss/postcss-scss) to lint SCSS or [`postcss-less`](https://github.com/webschik/postcss-less) to lint Less, and as part of the build task:
+Using the plugin with [`gulp-postcss`](https://github.com/postcss/gulp-postcss) and [`postcss-less`](https://github.com/webschik/postcss-less) to lint Less, and as part of the build task:
 
 *Note: the stylelint PostCSS plugin, unlike the stylelint CLI and node API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.*
 
 ```js
 var postcss = require("gulp-postcss")
 var reporter = require("postcss-reporter")
-var scss = require("postcss-scss")
 var less = require("postcss-less")
 var stylelint = require("stylelint")
-
-gulp.task("build:scss", function () {
-  return gulp.src("src/**/*.scss")
-    .pipe(postcss([
-      stylelint({ /* your options */ }),
-      /* other plugins... */
-      reporter({ clearMessages: true }),
-    ], {
-      syntax: scss
-    }))
-})
 
 gulp.task("build:less", function () {
   return gulp.src("src/**/*.less")
@@ -118,7 +106,7 @@ gulp.task("build:less", function () {
 })
 ```
 
-The same pattern can be used to read [SugarSS](https://github.com/postcss/sugarss) syntax.
+The same pattern can be used to read SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.
 
 ### Example D
 

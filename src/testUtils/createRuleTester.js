@@ -69,9 +69,7 @@ import basicChecks from "./basicChecks"
  *   - `description` {[string]}: An optional description of the case.
  *
  * Optional properties:
- * - `syntax` {"css"|"scss"|"less"|"sugarss"}: Defaults to `"css"`. Set to `"scss"` to
- *   run a test that uses `postcss-scss` to parse. Set to `"less"` to run a 
- *   test that uses `postcss-less` to parse.
+ * - `syntax` {"css"|"scss"|"less"|"sugarss"}: Defaults to `"css"`.
  * - `skipBasicChecks` {boolean}: Defaults to `false`. If `true`, a
  *   few rudimentary checks (that should almost always be included)
  *   will not be performed.

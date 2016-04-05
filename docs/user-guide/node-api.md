@@ -136,14 +136,4 @@ stylelint.lint({
   formatter: function(stylelintResults) { .. }
 }).then(function() { .. });
 
-The same pattern can be used to read [SugarSS](https://github.com/postcss/sugarss) syntax.
-
-Maybe I want to use my own custom formatter function and parse `.less` source files:
-
-```js
-stylelint.lint({
-  files: "all/my/stylesheets/*.less",
-  config: myConfig,
-  syntax: "less",
-  formatter: function(stylelintResults) { .. }
-}).then(function() { .. });
+The same pattern can be used to read Less or [SugarSS](https://github.com/postcss/sugarss) syntax.

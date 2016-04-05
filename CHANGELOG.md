@@ -1,5 +1,6 @@
 # Head
 
+- Added: (experimental) support for [Less](http://lesscss.org/) syntax.
 - Added: support for [SugarSS](https://github.com/postcss/sugarss) syntax.
 - Added: exposed `stylelint.createRuleTester()`.
 - Added: `function-max-empty-lines` rule.

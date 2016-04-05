@@ -36,13 +36,7 @@ Linting all the `.scss` files in the `foo` directory, using the `syntax` option:
 stylelint "foo/**/*.scss" --syntax scss
 ```
 
-The above can be slightly tweaked to check SugarSS: `--syntax sugarss`.
-
-Linting all the `.less` files in the `foo` directory, using the `syntax` option:
-
-```shell
-stylelint "foo/**/*.less" --syntax less
-```
+The above can be slightly altered to read Less or SugarSS syntax: `--syntax less`, `--syntax sugarss`.
 
 ## Exit codes
 
