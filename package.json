@@ -39,6 +39,7 @@
     "get-stdin": "^5.0.0",
     "globby": "^4.0.0",
     "globjoin": "^0.1.2",
+    "htmlparser2": "^3.9.0",
     "lodash": "^4.0.0",
     "log-symbols": "^1.0.2",
     "meow": "^3.3.0",

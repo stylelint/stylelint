@@ -38,6 +38,11 @@ stylelint "foo/**/*.scss" --syntax scss
 
 The above can be slightly altered to read Less or SugarSS syntax: `--syntax less`, `--syntax sugarss`.
 
+Extract `<style>` tags from html and lint:
+```shell
+stylelint "foo/**/*.html" --extract
+```
+
 ## Syntax errors
 
 The CLI informs you about syntax errors in your CSS.
