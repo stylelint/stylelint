@@ -8,6 +8,7 @@ export { default as cssRuleHasSelectorEndingWithColon } from "./cssRuleHasSelect
 export { default as cssStatementBlockString } from "./cssStatementBlockString"
 export { default as cssStatementHasBlock } from "./cssStatementHasBlock"
 export { default as cssStatementHasEmptyBlock } from "./cssStatementHasEmptyBlock"
+export { default as cssRuleIsKeyframe } from "./cssRuleIsKeyframe"
 export { default as cssStatementStringBeforeBlock } from "./cssStatementStringBeforeBlock"
 export { default as cssWordIsVariable } from "./cssWordIsVariable"
 export { default as declarationValueIndexOffset } from "./declarationValueIndexOffset"
