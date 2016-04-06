@@ -62,6 +62,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 ### Unit
 
 - [`unit-blacklist`](../../src/rules/unit-blacklist/README.md): Specify a blacklist of disallowed units.
+- [`unit-no-unknown`](../../src/rules/unit-no-unknown/README.md): Disallow unknown units.
 - [`unit-whitelist`](../../src/rules/unit-whitelist/README.md): Specify a whitelist of allowed units.
 
 ### Value
