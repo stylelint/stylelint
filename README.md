@@ -10,7 +10,7 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
 
 - **Over a hundred rules:** From stylistic rules (e.g. checking the spacing around the colon in declarations) to rules that catch subtle coding mistakes (e.g. invalid hex colors or [overriding shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Tricky_edge_cases)).
 - **Support for the latest CSS syntax:** Including custom properties, range context for media features, calc() and nesting.
-- **Understands *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS can parse, including SCSS, SugarSS, and *experimental support* for Less.
+- **Understands *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and *experimental support* for Less.
 - **Completely unopinionated:** Only enable the rules you want, and configure them with options that tailor the linter to your needs.
 - **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config.
 - **Support for plugins:** It's easy to create your own rules and add them to the linter.
