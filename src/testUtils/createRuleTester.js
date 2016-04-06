@@ -122,8 +122,7 @@ export default function (equalityCheck) {
         schema.preceedingPlugins.forEach(processor.use)
       }
 
-      return processor
-        .use(rule(rulePrimaryOptions, ruleSecondaryOptions))
+      return processor.use(rule(rulePrimaryOptions, ruleSecondaryOptions))
         .process(code, postcssProcessOptions)
     }
 
@@ -155,7 +154,7 @@ export default function (equalityCheck) {
       })
     }
 
-    if (schema.reject) {
+    if (schema.reject && schema.reject.length) {
       schema.reject.forEach(rejectedCase => {
         let completeAssertionDescription = "should register one warning"
         let comparisonCount = 1
@@ -163,7 +162,7 @@ export default function (equalityCheck) {
           comparisonCount++
           completeAssertionDescription += ` on line ${rejectedCase.line}`
         }
-        if (rejectedCase.column) {
+        if (rejectedCase.column !== undefined) {
           comparisonCount++
           completeAssertionDescription += ` on column ${rejectedCase.column}`
         }
@@ -174,33 +173,32 @@ export default function (equalityCheck) {
 
         const resultPromise = postcssProcess(rejectedCase.code).then(postcssResult => {
           const warnings = postcssResult.warnings()
+          const warning = warnings[0]
+
           const comparisons = [{
             expected: 1,
             actual: warnings.length,
             description: spaceJoin(rejectedCase.description, "should register one warning"),
           }]
-          if (!warnings.length) return comparisons
-
-          const warning = warnings[0]
 
           if (rejectedCase.line) {
             comparisons.push({
               expected: rejectedCase.line,
-              actual: warning.line,
+              actual: _.get(warning, "line"),
               description: spaceJoin(rejectedCase.description, `should warn on line ${rejectedCase.line}`),
             })
           }
           if (rejectedCase.column !== undefined) {
             comparisons.push({
               expected: rejectedCase.column,
-              actual: warning.column,
+              actual: _.get(warning, "column"),
               description: spaceJoin(rejectedCase.description, `should warn on column ${rejectedCase.column}`),
             })
           }
           if (rejectedCase.message) {
             comparisons.push({
               expected: rejectedCase.message,
-              actual: warning.text,
+              actual: _.get(warning, "text"),
               description: spaceJoin(rejectedCase.description, `should warn with message ${rejectedCase.message}`),
             })
           }
