@@ -1,3 +1,7 @@
+# Head
+
+- Added: `unit-no-unknown` rule.
+
 # 5.3.0
 
 - Added: (experimental) support for [Less](http://lesscss.org/) syntax.
