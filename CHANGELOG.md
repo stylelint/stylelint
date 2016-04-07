@@ -1,4 +1,4 @@
-# Head
+# 5.3.0
 
 - Added: (experimental) support for [Less](http://lesscss.org/) syntax.
 - Added: support for [SugarSS](https://github.com/postcss/sugarss) syntax.
