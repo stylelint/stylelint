@@ -27,6 +27,8 @@ export default function (whitelistInput) {
       const { value } = decl
 
       valueParser(value).walk(function (node) {
+        if (node.type === "function" && node.value === "url") { return false }
+
         const unit = valueParser.unit(node.value).unit
 
         if (unit && whitelist.indexOf(unit) === -1 && node.type !== "string") {

@@ -40,6 +40,9 @@ testRule(rule, {
   }, {
     code: "a { font-size: --some-fs-10px; }",
     description: "ignore css variable includes unit",
+  }, {
+    code: "a { background-url: url(10vmin); }",
+    description: "ignore css variable includes unit",
   } ],
 
   reject: [ {
