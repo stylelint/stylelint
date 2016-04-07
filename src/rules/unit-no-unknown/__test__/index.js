@@ -242,7 +242,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ true, { ignore: ["pix"] } ],
+  config: [ true, { ignoreUnits: ["pix"] } ],
 
   accept: [ {
     code: "a { margin: 10px; }",

@@ -1,11 +1,9 @@
 import { isString } from "lodash"
 import valueParser from "postcss-value-parser"
-
 import {
-  optionsHaveIgnored,
-  isKnownUnit,
   cssWordIsVariable,
   declarationValueIndexOffset,
+  isKnownUnit,
   report,
   ruleMessages,
   validateOptions,
@@ -22,7 +20,7 @@ export default function (actual, options) {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
       possible: {
-        ignore: [isString],
+        ignoreUnits: [isString],
       },
       optional: true,
     })
@@ -45,7 +43,11 @@ export default function (actual, options) {
 
         const unit = parsedUnit.unit
 
-        if (!unit || isKnownUnit(unit) || optionsHaveIgnored(options, unit)) { return }
+        if (!unit || isKnownUnit(unit)) { return }
+
+        const ignoreUnits = options && options.ignoreUnits || []
+
+        if (ignoreUnits.indexOf(unit) !== -1) { return }
 
         report({
           message: messages.rejected(unit),
