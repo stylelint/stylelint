@@ -193,6 +193,12 @@ testRule(rule, {
     code: "a { color:\r\npink;}",
     description: "CRLF",
   }, {
+    code: "a {}\nb {}\n",
+  }, {
+    code: "a {}\n\nb {}\n",
+  }, {
+    code: "a {}\rb {}\r",
+  }, {
     code: "a { color:\npink;} b { color: red; }",
   }, {
     code: "a { color:\npink;} b { color:\nred;}",
