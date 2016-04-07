@@ -4,6 +4,7 @@ import {
   range,
 } from "lodash"
 import {
+  isKnownUnit,
   blurComments,
   cssStatementHasBlock,
   cssStatementStringBeforeBlock,
@@ -17,15 +18,6 @@ export const ruleName = "number-zero-length-no-unit"
 export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected unit on zero length number",
 })
-
-// Only length units can be left off
-// cf. http://www.w3.org/TR/css3-values/#length-value
-// cf. https://github.com/brigade/scss-lint/issues/154
-const lengthUnits = new Set([
-  "em", "ex", "ch", "vw", "vh", "cm", "mm", "in", "pt", "pc", "px",
-  "rem",
-  "vmin", "vmax",
-])
 
 export default function (actual) {
   return (root, result) => {
@@ -97,9 +89,9 @@ export default function (actual) {
         // If there is not a length unit at the end of this value, ignore.
         // (Length units are 2, 3, or 4 characters)
         const unitLength = (function () {
-          if (lengthUnits.has(valueWithZero.slice(-4))) { return 4 }
-          if (lengthUnits.has(valueWithZero.slice(-3))) { return 3 }
-          if (lengthUnits.has(valueWithZero.slice(-2))) { return 2 }
+          if (isKnownUnit(valueWithZero.slice(-4))) { return 4 }
+          if (isKnownUnit(valueWithZero.slice(-3))) { return 3 }
+          if (isKnownUnit(valueWithZero.slice(-2))) { return 2 }
           return 0
         }())
 

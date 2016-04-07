@@ -15,6 +15,7 @@ export { default as declarationValueIndexOffset } from "./declarationValueIndexO
 export { default as findAtRuleContext } from "./findAtRuleContext"
 export { default as isLowerSpecificity } from "./isLowerSpecificity"
 export { default as isAutoprefixable } from "./isAutoprefixable"
+export { default as isKnownUnit } from "./isKnownUnit"
 export { default as isSingleLineString } from "./isSingleLineString"
 export { default as isValidHex } from "./isValidHex"
 export { default as isWhitespace } from "./isWhitespace"

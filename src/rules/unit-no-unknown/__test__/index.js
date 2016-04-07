@@ -4,7 +4,7 @@ import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
 
   accept: [ {
     code: "a { line-height: 1; }",
@@ -177,7 +177,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
   syntax: "scss",
-  config: [undefined],
+  config: [true],
 
   accept: [{
     code: "a { width: 1em; \n// width: 10pix\n }",
@@ -225,7 +225,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
   syntax: "less",
-  config: [undefined],
+  config: [true],
 
   accept: [{
     code: "a { width: 1em; \n// width: 10pix\n }",
@@ -242,7 +242,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ undefined, { ignore: ["pix"] } ],
+  config: [ true, { ignore: ["pix"] } ],
 
   accept: [ {
     code: "a { margin: 10px; }",
