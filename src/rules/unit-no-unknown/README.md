@@ -50,7 +50,7 @@ a {
 
 ## Optional options
 
-### `ignore: ["array", "of", "units"]`
+### `ignoreUnits: ["array", "of", "units"]`
 
 Allow unknown units.
 
