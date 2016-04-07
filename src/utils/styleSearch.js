@@ -57,22 +57,22 @@ export default function (options, callback) {
   // If the target is just a string, it is easy to check whether
   // some index of the source matches it.
   // If the target is an array of strings, though, we have to
-  // check whether some index of the source mathces *any* of
+  // check whether some index of the source matches *any* of
   // those target strings (stopping after the first match).
-  const checkAgainstTarget = (function () {
+  const getMatch = (function () {
     if (!targetIsArray) {
-      return checkChar.bind(null, target)
+      return getMatchBase.bind(null, target)
     }
     return (index) => {
       for (let ti = 0, tl = target.length; ti < tl; ti++) {
-        const checkResult = checkChar(target[ti], index)
+        const checkResult = getMatchBase(target[ti], index)
         if (checkResult) { return checkResult }
       }
       return false
     }
   }())
 
-  function checkChar(targetString, index) {
+  function getMatchBase(targetString, index) {
     const targetStringLength = targetString.length
 
     // Target is a single character
@@ -96,7 +96,6 @@ export default function (options, callback) {
   }
 
   for (let i = 0, l = source.length; i < l; i++) {
-
     const currentChar = source[i]
 
     // Register the beginning of a comment
@@ -105,11 +104,12 @@ export default function (options, callback) {
       && currentChar === "/"
       && source[i - 1] !== "\\" // escaping
     ) {
+      // standard comments
       if (source[i + 1] === "*") {
         insideComment = true
         continue
       }
-      // single-line
+      // single-line comments
       if (source[i + 1] === "/") {
         insideComment = true
         insideSingleLineComment = true
@@ -117,7 +117,7 @@ export default function (options, callback) {
       }
     }
 
-    // Register the end of a (standard) comment
+    // Register the end of a standard comment
     if (
       insideComment && !insideSingleLineComment
       && currentChar === "*"
@@ -147,7 +147,7 @@ export default function (options, callback) {
       insideString = true
 
       // For string-quotes rule
-      if (target === currentChar) { matchFound(checkAgainstTarget(i)) }
+      if (target === currentChar) { handleMatch(getMatch(i)) }
       continue
     }
 
@@ -168,18 +168,25 @@ export default function (options, callback) {
       // know when the outermost function (possibly
       // containing nested functions) is closing
       openingParenCount++
-      insideFunction = true
-      if (target === "(") { matchFound(checkAgainstTarget(i)) }
+
+      // Only inside a function if there is a function name
+      // before the opening paren
+      if (/[a-zA-Z]/.test(source[i - 1])) {
+        insideFunction = true
+      }
+
+      if (target === "(") { handleMatch(getMatch(i)) }
       continue
     }
 
     // Register the end of a function
     if (currentChar === ")") {
       openingParenCount--
+      // Do this here so it's still technically inside a function
+      if (target === ")") { handleMatch(getMatch(i)) }
       if (openingParenCount === 0) {
         insideFunction = false
       }
-      if (target === ")") { matchFound(checkAgainstTarget(i)) }
       continue
     }
 
@@ -188,7 +195,7 @@ export default function (options, callback) {
       continue
     }
 
-    const match = checkAgainstTarget(i)
+    const match = getMatch(i)
 
     if (!match) { continue }
 
@@ -196,11 +203,11 @@ export default function (options, callback) {
     if (options.outsideFunctionalNotation && insideFunction) { continue }
     if (options.withinStrings && !insideString) { continue }
     if (options.withinComments && !insideComment) { continue }
-    matchFound(match)
+    handleMatch(match)
     if (options.onlyOne) { return }
   }
 
-  function matchFound(match) {
+  function handleMatch(match) {
     matchCount++
     callback(match, matchCount)
   }

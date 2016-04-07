@@ -25,7 +25,10 @@ testRule(rule, {
     code: "a { background: linear-gradient(45deg,\n rgba(0,\n 0,\n 0,\n 1),\n red); }",
   }, {
     code: "$map: (key: value, key2: value2)",
-    description: "SCSS map",
+    description: "Sass map ignored",
+  }, {
+    code: "$list: (value, value2)",
+    description: "Sass list ignored",
   } ],
 
   reject: [ {

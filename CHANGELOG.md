@@ -18,6 +18,7 @@
 - Fixed: `block-closing-brace-newline-after` accepts single-line comments immediately after the closing brace.
 - Fixed: `selector-no-id` now ignores keyframe selectors.
 - Fixed: `unit-blacklist` and `unit-whitelist` now ignores `url` functions.
+- Fixed: `function-*` rules should all now ignore all Sass maps and lists.
 
 # 5.2.1
 

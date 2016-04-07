@@ -27,6 +27,9 @@ testRule(rule, {
     code: "a { background: blah,\n\nfoo; }",
   }, {
     code: "a { background: blah,\r\n\r\nfoo; }",
+  }, {
+    code: "$list: (value,\n\n\nvalue2)",
+    description: "Sass list ignored",
   } ],
 
   reject: [ {

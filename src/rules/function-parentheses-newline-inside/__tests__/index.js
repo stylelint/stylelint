@@ -19,7 +19,10 @@ testRule(rule, {
     code: "a { color: color(\nrgb(\n0, 0, 0\n) lightness(\n50%\n)\n); }",
   }, {
     code: "$map: (key: value,key2: value2)",
-    description: "SCSS map",
+    description: "Sass map ignored",
+  }, {
+    code: "$list: (value, value2)",
+    description: "Sass list ignored",
   } ],
 
   reject: [ {

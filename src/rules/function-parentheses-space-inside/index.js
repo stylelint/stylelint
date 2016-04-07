@@ -36,11 +36,14 @@ export default function (expectation) {
 
     root.walkDecls(decl => {
       if (cssDeclarationIsMap(decl)) { return }
-    
+
       if (decl.value.indexOf("(") === -1) { return }
 
       valueParser(decl.value).walk(valueNode => {
         if (valueNode.type !== "function") { return }
+
+        // Function nodes without names are things in parentheses like Sass lists
+        if (!valueNode.value) { return }
 
         const functionString = valueParser.stringify(valueNode)
         const isSingleLine = isSingleLineString(functionString)

@@ -67,6 +67,11 @@ test("`withinFunctionalNotation` option", t => {
     target: "v",
     withinFunctionalNotation: true,
   }), [])
+  t.deepEqual(styleSearchResults({
+    source: "abc (abc)",
+    target: "b",
+    withinFunctionalNotation: true,
+  }), [], "parens without function is not interpreted as a function")
   t.end()
 })
 
@@ -96,6 +101,11 @@ test("`outsideFunctionalNotation` option", t => {
     target: "v",
     outsideFunctionalNotation: true,
   }), [])
+  t.deepEqual(styleSearchResults({
+    source: "abc (def)",
+    target: "e",
+    outsideFunctionalNotation: true,
+  }), [6], "parens without function is not interpreted as a function")
   t.end()
 })
 

@@ -40,6 +40,9 @@ testRule(rule, {
     code: "a { color: color(rgb(0,0,0)\nlightness(50%)) };",
   }, {
     code: "a { color: color(rgb(0,0,0)\r\nlightness(50%)) };",
+  }, {
+    code: "$list: (value, value2);$thingTwo: 0px",
+    description: "Sass list ignored",
   } ],
 
   reject: [ {
