@@ -55,5 +55,11 @@ testRule(rule, {
     "      )\n" +
     "    );\n" +
     "}",
+  }, {
+    code: "$tooltip-default-settings: (\n" +
+    "    tooltip-gutter: 8px 10px,\n" +
+    "  tooltip-border: 1px solid,\n" +
+    ");",
+    description: "Sass maps ignored",
   } ],
 })

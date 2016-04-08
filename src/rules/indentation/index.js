@@ -209,10 +209,9 @@ export default function (space, options) {
 
     function checkMultilineBit(source, newlineIndentLevel, node) {
       if (source.indexOf("\n") === -1) { return }
-      styleSearch({ source, target: "\n" }, (match) => {
-        // Function arguments are ignored to allow for arbitrary indentation
-        if (match.insideFunction) { return }
-
+      // `outsideParens` because function arguments and also non-standard parenthesized stuff like
+      // Sass maps are ignored to allow for arbitrary indentation
+      styleSearch({ source, target: "\n", outsideParens: true }, (match) => {
         // Starting at the index after the newline, we want to
         // check that the whitespace characters (excluding newlines) before the first
         // non-whitespace character equal the expected indentation
