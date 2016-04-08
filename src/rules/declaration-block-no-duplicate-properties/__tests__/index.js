@@ -60,3 +60,33 @@ testRule(rule, {
     message: messages.rejected("color"),
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignore: ["consecutive-duplicates"] } ],
+  skipBasicChecks: true,
+
+  accept: [ {
+    code: "p {font-size: 16px; font-size: 1rem; }"
+  }, {
+    code: "p {display: inline-block; font-size: 16px; font-size: 1rem; }"
+  }, {
+    code: "p {font-size: 16px; font-size: 1rem; color: red; }"
+  }, {
+    code: "p {display: inline-block; font-size: 16px; font-size: 1rem; color: red; }"
+  } ],
+
+  reject: [ {
+    code: "p {font-size: 16px; font-weight: 400; font-size: 1rem; }",
+    message: messages.rejected("font-size"),
+  }, {
+    code: "p {display: inline-block; font-size: 16px; font-weight: 400; font-size: 1rem; }",
+    message: messages.rejected("font-size"),
+  }, {
+    code: "p {font-size: 16px; font-weight: 400; font-size: 1rem; color: red; }",
+    message: messages.rejected("font-size"),
+  }, {
+    code: "p {display: inline-block; font-size: 16px; font-weight: 400; font-size: 1rem; color: red; }",
+    message: messages.rejected("font-size"),
+  } ],
+})

@@ -10,6 +10,7 @@
 - Added: `function-max-empty-lines` rule.
 - Added: `declaration-block-no-ignored-properties` rule.
 - Added: `function-url-data-uris` rule.
+- Added: `consecutive-duplicates` option for `declaration-block-no-duplicate-properties` rule.
 - Fixed: `block-closing-brace-newline-after` use of "single space", rather than "newline", in its messages.
 - Fixed: `function-comma-space-after`, `function-comma-space-before`, `function-parentheses-newline-inside` and `function-parentheses-space-inside` now ignore SCSS maps.
 - Fixed: `property-value-blacklist` and `-whitelist` no longer error on properties without a corresponding list entry.
