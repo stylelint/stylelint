@@ -1,6 +1,7 @@
 # Head
 
 - Added: `unit-no-unknown` rule.
+- Fixed: `declaration-block-no-ignored-properties` now ignore `clear` for `position: absolute` and `position: relative` and not ignore `float` on `display: table-*`
 
 # 5.3.0
 
