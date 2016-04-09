@@ -1,9 +1,9 @@
 import {
+  cssWordIsVariable,
+  optionsHaveIgnored,
   report,
   ruleMessages,
-  cssWordIsVariable,
   validateOptions,
-  optionsHaveIgnored,
 } from "../../utils"
 
 export const ruleName = "declaration-block-no-duplicate-properties"

@@ -54,5 +54,6 @@ The following patterns are *not* considered warnings:
 p {
   font-size: 16px;
   font-size: 1rem;
+  font-weight: 400;
 }
 ```
