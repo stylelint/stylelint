@@ -3,6 +3,7 @@
 - Added: `unit-no-unknown` rule.
 - Fixed: `no-descending-specificity` no longer gets confused when the last part of a selector is a compound selector.
 - Fixed: regression causing `indentation` to complain about Sass maps.
+- Fixed: `declaration-block-no-ignored-properties` now ignore `clear` for `position: absolute` and `position: relative` and does not ignore `float` on `display: table-*`.
 
 # 5.3.0
 

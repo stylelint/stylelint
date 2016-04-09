@@ -189,8 +189,20 @@ testRule(rule, {
     column: 25,
     description: "position: absolute rules out float",
   }, {
+    code: "a { position: absolute; clear: left; }",
+    message: messages.rejected("clear", "position: absolute"),
+    line: 1,
+    column: 25,
+    description: "position: absolute rules out clear",
+  }, {
     code: "a { position: fixed; float: left; }",
     message: messages.rejected("float", "position: fixed"),
+    line: 1,
+    column: 22,
+    description: "position: absolute rules out float",
+  }, {
+    code: "a { position: fixed; clear: left; }",
+    message: messages.rejected("clear", "position: fixed"),
     line: 1,
     column: 22,
     description: "position: absolute rules out float",
