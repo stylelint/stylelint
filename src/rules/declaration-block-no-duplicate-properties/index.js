@@ -17,7 +17,7 @@ export default function (on, options) {
     const validOptions = validateOptions(result, ruleName, { actual: on }, {
       actual: options,
       possible: {
-        ignore: [ "consecutive-duplicates" ],
+        ignore: ["consecutive-duplicates"],
       },
       optional: true,
     })
@@ -51,7 +51,7 @@ export default function (on, options) {
         // Ignore the src property as commonly duplicated in at-fontface
         if (prop === "src") { return }
 
-        const indexDuplicate = decls.indexOf(prop);
+        const indexDuplicate = decls.indexOf(prop)
 
         if (indexDuplicate !== -1) {
           if (

@@ -67,13 +67,13 @@ testRule(rule, {
   skipBasicChecks: true,
 
   accept: [ {
-    code: "p {font-size: 16px; font-size: 1rem; }"
+    code: "p {font-size: 16px; font-size: 1rem; }",
   }, {
-    code: "p {display: inline-block; font-size: 16px; font-size: 1rem; }"
+    code: "p {display: inline-block; font-size: 16px; font-size: 1rem; }",
   }, {
-    code: "p {font-size: 16px; font-size: 1rem; color: red; }"
+    code: "p {font-size: 16px; font-size: 1rem; color: red; }",
   }, {
-    code: "p {display: inline-block; font-size: 16px; font-size: 1rem; color: red; }"
+    code: "p {display: inline-block; font-size: 16px; font-size: 1rem; color: red; }",
   } ],
 
   reject: [ {
