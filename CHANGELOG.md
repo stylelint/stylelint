@@ -1,6 +1,7 @@
 # Head
 
 - Added: `unit-no-unknown` rule.
+- Fixed: `no-descending-specificity` no longer gets confused when the last part of a selector is a compound selector.
 
 # 5.3.0
 
