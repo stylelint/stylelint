@@ -1,3 +1,7 @@
+# Head
+
+- Added: `consecutive-duplicates` option for `declaration-block-no-duplicate-properties` rule.
+
 # 5.4.0
 
 - Added: `unit-no-unknown` rule.
