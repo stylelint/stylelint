@@ -24,6 +24,8 @@
  *   matches found *inside* CSS functions
  * @param {boolean} [options.outsideFunctionalNotation] - If `true`, only report
  *   matches found *outside* CSS functions
+ * @param {boolean} [options.outsideParens] - If `true`, only report
+ *   matches found *outside* of *any* parentheses (including functions but also Sass maps etc.)
  * @param {boolean} [options.withinStrings] - If `true`, only report
  *   matches found *inside* CSS strings
  * @param {boolean} [options.withinComments] - If `true`, only report
@@ -44,6 +46,7 @@ export default function (options, callback) {
   let insideString = false
   let insideComment = false
   let insideSingleLineComment = false
+  let insideParens = false
   let insideFunction = false
   let openingParenCount = 0
   let matchCount = 0
@@ -86,6 +89,7 @@ export default function (options, callback) {
     }
 
     return {
+      insideParens,
       insideFunction,
       insideComment,
       insideString,
@@ -162,13 +166,14 @@ export default function (options, callback) {
 
     if (insideString && ignoreStrings) { continue }
 
-    // Register the beginning of a function
+    // Register the beginning of parens/functions
     if (currentChar === "(") {
       // Keep track of opening parentheses so that we
       // know when the outermost function (possibly
       // containing nested functions) is closing
       openingParenCount++
 
+      insideParens = true
       // Only inside a function if there is a function name
       // before the opening paren
       if (/[a-zA-Z]/.test(source[i - 1])) {
@@ -185,6 +190,7 @@ export default function (options, callback) {
       // Do this here so it's still technically inside a function
       if (target === ")") { handleMatch(getMatch(i)) }
       if (openingParenCount === 0) {
+        insideParens = false
         insideFunction = false
       }
       continue
@@ -199,6 +205,7 @@ export default function (options, callback) {
 
     if (!match) { continue }
 
+    if (options.outsideParens && insideParens) { continue }
     if (options.withinFunctionalNotation && !insideFunction) { continue }
     if (options.outsideFunctionalNotation && insideFunction) { continue }
     if (options.withinStrings && !insideString) { continue }

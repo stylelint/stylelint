@@ -44,7 +44,6 @@ const ignored = [ {
     "margin-right",
     "margin-bottom",
     "margin-left",
-    "float",
   ],
 }, {
   property: "position",
@@ -60,12 +59,14 @@ const ignored = [ {
   value: "absolute",
   ignoredProperties: [
     "float",
+    "clear",
   ],
 }, {
   property: "position",
   value: "fixed",
   ignoredProperties: [
     "float",
+    "clear",
   ],
 } ]
 

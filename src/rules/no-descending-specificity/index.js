@@ -40,7 +40,7 @@ export default function (actual) {
 
     function checkSelector(selectorNode, rule, sourceIndex, comparisonContext) {
       const selector = selectorNode.toString()
-      const lastNonPseudoSelectorNode = getLastNonPseudoSelectorNode(selectorNode)
+      const lastNonPseudoSelectorNode = lastCompoundSelectorWithoutPseudo(selectorNode)
       const selectorSpecificity = calculate(selector)[0].specificity.split(",")
       const entry = { selector, specificity: selectorSpecificity }
 
@@ -68,12 +68,14 @@ export default function (actual) {
   }
 }
 
-function getLastNonPseudoSelectorNode(selectorNode) {
-  let s = _.last(selectorNode.nodes[0].nodes)
-  while (s.type === "pseudo") {
-    const prev = s.prev()
-    if (!prev) { return s.toString() }
-    s = s.prev()
-  }
-  return s.toString()
+function lastCompoundSelectorWithoutPseudo(selectorNode) {
+  const nodesAfterLastCombinator = _.last(selectorNode.nodes[0].split(node => {
+    return node.type === "combinator"
+  }))
+
+  const nodesWithoutPseudos = nodesAfterLastCombinator.filter(node => {
+    return node.type !== "pseudo"
+  })
+
+  return nodesWithoutPseudos.toString()
 }

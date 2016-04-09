@@ -109,6 +109,40 @@ test("`outsideFunctionalNotation` option", t => {
   t.end()
 })
 
+test("`outsideParens` option", t => {
+  t.deepEqual(styleSearchResults({
+    source: "abc var(--cba)",
+    target: "c",
+    outsideParens: true,
+  }), [2])
+  t.deepEqual(styleSearchResults({
+    source: "abc var(--cba)",
+    target: "a",
+    outsideParens: true,
+  }), [0])
+  t.deepEqual(styleSearchResults({
+    source: "abc \"a var(--cba)\"",
+    target: "a",
+    outsideParens: true,
+  }), [0])
+  t.deepEqual(styleSearchResults({
+    source: "translate(1px, calc(1px * 2))",
+    target: "1",
+    outsideParens: true,
+  }), [])
+  t.deepEqual(styleSearchResults({
+    source: "var(--horse)",
+    target: "v",
+    outsideParens: true,
+  }), [])
+  t.deepEqual(styleSearchResults({
+    source: "abc (def)",
+    target: "e",
+    outsideParens: true,
+  }), [], "parens without function are still ignored")
+  t.end()
+})
+
 test("ignores matches within single-quote strings", t => {
   t.deepEqual(styleSearchResults({
     source: "abc 'abc'",

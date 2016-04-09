@@ -14,7 +14,7 @@ The clashes of these two mechanisms for prioritization, source order and specifi
 
 This rule enforces that practice *as best it can*. (It cannot catch every actual overriding selector (because it does not know the DOM structure, for one), but it can catch certain common mistakes.)
 
-Here's how it works: This rule looks at the last *compound selector* in every full selector, and then compares it with other selectors in the stylesheet that end in the same way.
+Here's how it works: **This rule looks at the last *compound selector* in every full selector, and then compares it with other selectors in the stylesheet that end in the same way.**
 
 So `.foo .bar` (whose last compound selector is `.bar`) will be compared to `.bar` and `#baz .bar`, but not to `#baz .foo` or `.bar .foo`.
 

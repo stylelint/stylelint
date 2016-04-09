@@ -33,6 +33,8 @@ testRule(rule, {
     code: ".m:hover {} .b {}",
   }, {
     code: ".menu:hover {} .burger {}",
+  }, {
+    code: ".foo.bar, .foo.bar:focus { @mixin: foo; } .baz.bar, .baz.bar:focus {}",
   } ],
 
   reject: [ {

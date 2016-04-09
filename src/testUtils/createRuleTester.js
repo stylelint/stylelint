@@ -149,7 +149,6 @@ export default function (equalityCheck) {
           comparisonCount: 1,
           caseDescription: createCaseDescription(acceptedCase.code),
           completeAssertionDescription: assertionDescription,
-          only: acceptedCase.only,
         })
       })
     }
