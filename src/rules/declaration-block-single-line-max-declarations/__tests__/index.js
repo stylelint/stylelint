@@ -65,3 +65,16 @@ testRule(rule, {
     column: 3,
   }],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [2],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [{
+    code: "a { .tab-focus(); }",
+    description: "single mixin",
+  },
+  ],
+})

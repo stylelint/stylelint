@@ -25,6 +25,7 @@ export default function (quantity) {
     root.walkRules(rule => {
 
       if (!isSingleLineString(cssStatementBlockString(rule))) { return }
+      if (!rule.nodes) { return }
 
       const decls = rule.nodes.filter(node => node.type === "decl")
 
