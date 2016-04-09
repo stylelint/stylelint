@@ -1,19 +1,5 @@
 # Contributing
 
-Any help is welcome and appreciated.
-
-## Ways to contribute
-
-- Adding new rules. Whether it's one of the [few](https://github.com/stylelint/stylelint/labels/type%3A%20rule) that we've still to do, or something that you need and we've not thought of yet.
-- Expanding the [documentation](https://github.com/stylelint/stylelint/tree/master/docs).
-- Working on other [open issues](https://github.com/stylelint/stylelint/issues).
-
-## Communication
-
-We mostly communicate via [issues](https://github.com/stylelint/stylelint/issues) and [pull requests](https://github.com/stylelint/stylelint/pulls). There is also [stackoverflow](http://stackoverflow.com/questions/tagged/stylelint), which is our preferred QA forum. Tag your post with "stylelint".
-
-### Conduct
-
 Respect that people have differences of opinion and that every design or implementation choice carries a trade-off and numerous costs. There is seldom a right answer, merely an optimal answer given a set of values and circumstances.
 
 Please keep unstructured critique to a minimum. If you have solid ideas you want to experiment with, make a fork and see how it works.

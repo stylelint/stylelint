@@ -106,6 +106,7 @@
         "list-item-spacing": false,
         "maximum-heading-length": false,
         "maximum-line-length": false,
+        "no-heading-punctuation": false,
         "no-missing-blank-lines": false,
         "no-multiple-toplevel-headings": false
       }
