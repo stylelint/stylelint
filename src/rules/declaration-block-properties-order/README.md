@@ -527,7 +527,7 @@ a {
 Given this configuration:
 
 ```js
-[["all", "compose"], { unspecified: "bottomAlphabetical" }]
+[["composes"], { unspecified: "bottomAlphabetical" }]
 ```
 
 The following patterns are considered warnings:
@@ -535,25 +535,14 @@ The following patterns are considered warnings:
 ```css
 a {
   align-items: flex-end;
-  all: initial;
-  compose: b;
+  composes: b;
   left: 0;
 }
 ```
 
 ```css
 a {
-  all: initial;
-  align-items: flex-end;
-  compose: b;
-  left: 0;
-}
-```
-
-```css
-a {
-  all: initial;
-  compose: b;
+  composes: b;
   left: 0;
   align-items: flex-end;
 }
@@ -563,8 +552,7 @@ The following patterns are *not* considered warnings:
 
 ```css
 a {
-  all: initial;
-  compose: b;
+  composes: b;
   align-items: flex-end;
   left: 0;
 }
