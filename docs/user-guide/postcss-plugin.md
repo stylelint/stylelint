@@ -1,4 +1,4 @@
-# The stylelint PostCSS Plugin
+# The stylelint PostCSS plugin
 
 As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a PostCSS runner -- such as [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss) -- or with the PostCSS JS API directly.
 

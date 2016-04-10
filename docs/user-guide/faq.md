@@ -14,7 +14,7 @@ npm install -g stylelint
 
 Then refer to the [CLI usage examples](/docs/user-guide/cli.md) within the doc.
 
-The CLI can also be used from within [npm run scripts](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) if you'd rather use them over a task runner like `gulp`.
+The CLI can also be used from within [npm run scripts](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
 
 ## How do I use stylelint with gulp?
 
@@ -32,15 +32,15 @@ There are example of using the PostCSS plugin within the [docs](/docs/user-guide
 
 ## How do I lint SCSS, Less, or other non-standard syntax?
 
-stylelint can *parse* any the following non-standard syntaxes: SCSS, less and SugarSS. Refer to the [docs](/docs/user-guide/css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse one of these syntaxes.
+stylelint can *parse* any the following non-standard syntaxes: SCSS, Less and SugarSS. Refer to the [docs](/docs/user-guide/css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse one of these syntaxes.
 
 ## How do I automatically fix stylistic warnings?
 
-[stylefmt](https://github.com/morishitter/stylefmt) supports stylelint configuration files and can automatically a number of stylistic warnings.
+[stylefmt](https://github.com/morishitter/stylefmt) supports stylelint configuration files and can automatically fix a number of stylistic warnings.
 
 ## Can I use stylelint as a PostCSS plugin?
 
-[Yes you can](/docs/user-guide/postcss-plugin.md), but it's not our recommended method as the CLI and Node API (used within the likes of `gulp-stylelint` and `webpack-plugin-stylelint` is more fully-featured.
+[Yes, you can](/docs/user-guide/postcss-plugin.md), but it limits your reporting options to [postcss-reporter](https://github.com/postcss/postcss-reporter/). We recommend using the CLI or Node API, instead, for better reporting.
 
 ## Should I lint before or after processing my stylesheets through PostCSS plugins or other processors?
 
@@ -50,11 +50,13 @@ We [recommend](/docs/user-guide/css-processors.md) linting your source files bef
 
 You'll want to make use of the [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern) plugin.
 
+You can also take advantage of `selector-*` rules to ban certain categories of selectors (e.g. id selectors) and control specificity.
+
 If you're using SUITCSS, you'll probably want to use [their shareable config](https://github.com/suitcss/stylelint-config-suitcss).
 
 ## How do I manage conflicts between rules?
 
-Each rule is standalone and sometimes it's possible to configure rules so that they conflict with one another. For example, you could configure the `string-quotes` rule to `"single"`, but configure `font-family-name-quotes` to use `"double-where-recommended"`. Or turn on two conflicting blacklist and whitelist rules e.g. `unit-blacklist` and `unit-whitelist`.
+Each rule stands alone, so sometimes it's possible to configure rules such that they conflict with one another. For example, you could configure the `string-quotes` rule to `"single"`, but configure `font-family-name-quotes` to use `"double-where-recommended"`. Or turn on two conflicting blacklist and whitelist rules e.g. `unit-blacklist` and `unit-whitelist`.
 
 It's your responsibility as the configuration author to resolve these conflicts.
 

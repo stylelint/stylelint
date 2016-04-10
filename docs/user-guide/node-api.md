@@ -4,7 +4,7 @@ The stylelint module includes a `lint()` function that provides the Node API.
 
 ```js
 stylelint.lint(options)
-  .then(function(resultObject) { ... });
+  .then(function(resultObject) { .. });
 ```
 
 ## Options
@@ -113,7 +113,7 @@ stylelint.lint({
   config: myConfig,
   configBasedir: path.join(__dirname, "configs"),
   files: "all/my/stylesheets/*.css"
-}).then(function() { ... });
+}).then(function() { .. });
 ```
 
 Maybe I want to use a CSS string instead of a file glob, and I want to use the string formatter instead of the default JSON:
@@ -123,7 +123,7 @@ stylelint.lint({
   code: "a { color: pink; }",
   config: myConfig,
   formatter: "string"
-}).then(function() { ... });
+}).then(function() { .. });
 ```
 
 Maybe I want to use my own custom formatter function and parse `.scss` source files:
@@ -132,9 +132,9 @@ Maybe I want to use my own custom formatter function and parse `.scss` source fi
 stylelint.lint({
   config: myConfig,
   files: "all/my/stylesheets/*.scss",
-  formatter: function(stylelintResults) { ... },
+  formatter: function(stylelintResults) { .. },
   syntax: "scss"
-}).then(function() { ... });
+}).then(function() { .. });
 ```
 
 The same pattern can be used to read Less or [SugarSS](https://github.com/postcss/sugarss) syntax.

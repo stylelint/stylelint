@@ -12,9 +12,11 @@ Finding and loading of your configuration object is done with [cosmiconfig](http
 
 The `.stylelintrc` file (without extension) can be in JSON or YAML format. Alternately, you can add a filename extension to designate JSON, YAML, or JS format: `.stylelintrc.json`, `.stylelintrc.yaml`, `.stylelintrc.js`. You may want to use an extension so that your text editor can better interpret the file, and help with syntax checking and highlighting.
 
-Once one of these is found and parsed, the search will stop and that object will be used. The configuration search can be short-circuited by using either the `config` or `configFile` options.
+Once one of these is found and parsed, the search will stop and that object will be used.
 
-## Signature of the configuration object
+The configuration search can be short-circuited by using either the `config` or `configFile` options.
+
+## The configuration object
 
 The configuration object can have the following properties. Only `rules` is required.
 

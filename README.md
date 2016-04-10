@@ -25,13 +25,13 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
 
 With stylelint, it's easy to start linting your CSS:
 
-1. Decide whether to use either:
+1. Decide how you want to use stylelint:
 
-    - [a plugin for your text editor](/docs/user-guide/complementary-tools.md#editor-plugins)
-    - [a plugin for your task runner](/docs/user-guide/complementary-tools.md#runnersloaders)
-    - [the stylelint CLI](/docs/user-guide/cli.md)
-    - [the stylelint Node API](/docs/user-guide/node-api.md)
-    - [the stylelint PostCSS plugin](/docs/user-guide/postcss-plugin.md)
+    - [via a plugin for your text editor](/docs/user-guide/complementary-tools.md#editor-plugins)
+    - [via a plugin for your task runner](/docs/user-guide/complementary-tools.md#runnersloaders)
+    - [via stylelint CLI](/docs/user-guide/cli.md)
+    - [via stylelint Node API](/docs/user-guide/node-api.md)
+    - [via stylelint PostCSS plugin](/docs/user-guide/postcss-plugin.md)
 
 2. Create your [configuration object](/docs/user-guide/configuration.md) (probably as a `.stylelintrc` file) by either crafting your own config or extending a pre-written, shared config.
 
