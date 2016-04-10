@@ -21,6 +21,9 @@ testRule(rule, {
   }, {
     code: "a { &:hover { color: pink; }}",
     description: "nested",
+  }, {
+    code: "a { @import foo; }",
+    description: "at-rule with trailing semicolon",
   } ],
 
   reject: [ {
@@ -53,6 +56,12 @@ testRule(rule, {
     message: messages.expected,
     line: 1,
     column: 26,
+  }, {
+    code: "a { @import foo }",
+    description: "at-rule without trailing semicolon",
+    message: messages.expected,
+    line: 1,
+    column: 16,
   } ],
 })
 
