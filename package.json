@@ -39,7 +39,6 @@
     "get-stdin": "^5.0.0",
     "globby": "^4.0.0",
     "globjoin": "^0.1.2",
-    "is-css-color-name": "^0.1.1",
     "lodash": "^4.0.0",
     "meow": "^3.3.0",
     "multimatch": "^2.1.0",
