@@ -17,6 +17,9 @@ testRule(rule, {
   }, {
     code: "$map: (key: value, key2: value2)",
     description: "SCSS map",
+  }, {
+    code: "$list: (value, value2)",
+    description: "Sass list ignored",
   } ],
 
   reject: [ {

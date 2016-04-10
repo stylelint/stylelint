@@ -46,6 +46,8 @@ testRule(rule, {
   syntax: "scss",
 
   accept: [ {
+    code: "@keyframes spin { #{50% - $n} {} }",
+  }, {
     code: "@for $n from 1 through 10 { .n-#{$n} { content: \"n: #{1 + 1}\"; } }",
     description: "ignore sass interpolation inside @for",
   }, {
@@ -77,5 +79,44 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 43,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [undefined],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [ {
+    code: ".for(@n: 1) when (@n <= 10) { .n-@{n} { content: %(\"n: %d\", 1 + 1); } .for(@n + 1); }",
+    description: "ignore Less interpolation inside .for",
+  }, {
+    code: ".for(@n: 1) when (@n <= 10) { .n-@{n}-@{n} { content: %(\"n: %d\", 1 + 1); } .for(@n + 1); }",
+    description: "ignore multiple Less interpolations in a selector inside .for",
+  }, {
+    code: ".for(@n: 1) when (@n <= 10) { .n-@{n}n@{n} { content: %(\"n: %d\", 1 + 1); } .for(@n + 1); }",
+    description: "ignore multiple Less interpolations in a selector inside .for",
+  }, {
+    code: ".each(@vals, @n: 1) when (@n <= length(@vals)) { @val: extract(@vals, @n); .n-@{val} { content: %(\"n: %d\", 1 + 1); } .each(@vals, @n + 1); }",
+    description: "ignore Less interpolation inside .each",
+  }, {
+    code: ".while(@n: 0) when (@n < 10) { .n-@{n} { content: %(\"n: %d\", 1 + 1); } .while(@n + 1) }",
+    description: "ignore Less interpolation inside .while",
+  },
+  ],
+
+  reject: [ {
+    code: ".for(@n: 1) when (@n <= 10) { .n-@{n} #foo { } .for(@n + 1) }",
+    description: "report Less interpolation + id inside .for",
+    message: messages.rejected,
+    line: 1,
+    column: 39,
+  }, {
+    code: ".for(@n: 1) when (@n <= 10) { .n-@{n}-@{n} #foo { } .for(@n + 1) }",
+    description: "report Less interpolation + id inside .for",
+    message: messages.rejected,
+    line: 1,
+    column: 44,
   } ],
 })

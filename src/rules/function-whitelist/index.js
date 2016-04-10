@@ -26,15 +26,16 @@ export default function (whitelistInput) {
     root.walkDecls(decl => {
       const { value } = decl
       valueParser(value).walk(function (node) {
-        if (node.type === "function" && whitelist.indexOf(vendor.unprefixed(node.value)) === -1) {
-          report({
-            message: messages.rejected(node.value),
-            node: decl,
-            index: declarationValueIndexOffset(decl) + node.sourceIndex,
-            result,
-            ruleName,
-          })
-        }
+        if (node.type !== "function") { return }
+        if (!node.value) { return }
+        if (whitelist.indexOf(vendor.unprefixed(node.value)) !== -1) { return }
+        report({
+          message: messages.rejected(node.value),
+          node: decl,
+          index: declarationValueIndexOffset(decl) + node.sourceIndex,
+          result,
+          ruleName,
+        })
       })
     })
   }

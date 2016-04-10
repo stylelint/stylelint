@@ -120,6 +120,7 @@ You might want to learn a little about [the conventions](/docs/user-guide/rules.
     "string-quotes": "single"|"double",
     "time-no-imperceptible": true,
     "unit-blacklist": string|[],
+    "unit-no-unknown": true,
     "unit-whitelist": string|[],
     "value-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
     "value-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",

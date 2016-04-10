@@ -38,6 +38,30 @@ testRule(rule, {
   }, {
     code: "a { font-size: --some-fs-10rem; }",
     description: "ignore css variable includes unit",
+  }, {
+    code: "a { background-url: url(10vmin); }",
+    description: "ignore url function",
+  }, {
+    code: "a { margin10rem: 10em; }",
+    description: "ignore property include wrong unit",
+  }, {
+    code: "a10rem { margin: 10em; }",
+    description: "ignore type selector include wrong unit",
+  }, {
+    code: "#a10rem { margin: 10em; }",
+    description: "ignore class selector include wrong unit",
+  }, {
+    code: ".a10rem { margin: 10em; }",
+    description: "ignore class selector include wrong unit",
+  }, {
+    code: "input[type=10rem] { margin: 10em; }",
+    description: "ignore class selector include wrong unit",
+  }, {
+    code: "a:hover10rem { margin: 10em; }",
+    description: "ignore pseudo-class include wrong unit",
+  }, {
+    code: "a::before10rem { margin: 10em; }",
+    description: "ignore pseudo-class include wrong unit",
   } ],
 
   reject: [ {

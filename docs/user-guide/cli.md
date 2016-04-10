@@ -36,6 +36,8 @@ Linting all the `.scss` files in the `foo` directory, using the `syntax` option:
 stylelint "foo/**/*.scss" --syntax scss
 ```
 
+The above can be slightly altered to read Less or SugarSS syntax: `--syntax less`, `--syntax sugarss`.
+
 ## Exit codes
 
 The CLI can exit the process with the following exit codes:

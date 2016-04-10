@@ -23,6 +23,9 @@ testRule(rule, {
     code: "a { color: color(rgb(0, 0, 0) lightness(50%)); }",
   }, {
     code: "@media (max-width: 10px) { a { color: color(rgb(0, 0, 0) lightness(50%)); } }",
+  }, {
+    code: "$list: (value, value2)",
+    description: "Sass list ignored",
   } ],
 
   reject: [ {

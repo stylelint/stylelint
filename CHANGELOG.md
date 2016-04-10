@@ -1,9 +1,24 @@
 # Head
 
+- Added: `consecutive-duplicates` option for `declaration-block-no-duplicate-properties` rule.
+- Fixed: `block-no-empty` no longer delivers false positives for less syntax.
+
+# 5.4.0
+
+- Added: `unit-no-unknown` rule.
+- Fixed: `no-descending-specificity` no longer gets confused when the last part of a selector is a compound selector.
+- Fixed: regression causing `indentation` to complain about Sass maps.
+- Fixed: `declaration-block-no-ignored-properties` now ignore `clear` for `position: absolute` and `position: relative` and does not ignore `float` on `display: table-*`.
+
+# 5.3.0
+
+- Added: (experimental) support for [Less](http://lesscss.org/) syntax.
+- Added: support for [SugarSS](https://github.com/postcss/sugarss) syntax.
 - Added: exposed `stylelint.createRuleTester()`.
 - Added: `function-max-empty-lines` rule.
 - Added: `declaration-block-no-ignored-properties` rule.
 - Added: `function-url-data-uris` rule.
+- Fixed: `block-closing-brace-newline-after` use of "single space", rather than "newline", in its messages.
 - Fixed: `function-comma-space-after`, `function-comma-space-before`, `function-parentheses-newline-inside` and `function-parentheses-space-inside` now ignore SCSS maps.
 - Fixed: `property-value-blacklist` and `-whitelist` no longer error on properties without a corresponding list entry.
 - Fixed: `font-weight-notation` now ignores `initial` value.
@@ -11,6 +26,11 @@
 - Fixed: `selector-class-pattern` now ignores selectors with Sass interpolation.
 - Fixed: `no-unknown-animations` now ignores `none`, `initial`, `inherit`, `unset` values.
 - Fixed: `max-line-length` options validation.
+- Fixed: `function-calc-no-unspaced-operator` accepts newlines.
+- Fixed: `block-closing-brace-newline-after` accepts single-line comments immediately after the closing brace.
+- Fixed: `selector-no-id` now ignores keyframe selectors.
+- Fixed: `unit-blacklist` and `unit-whitelist` now ignores `url` functions.
+- Fixed: `function-*` rules should all now ignore all Sass maps and lists.
 
 # 5.2.1
 

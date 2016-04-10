@@ -23,7 +23,10 @@ testRule(rule, {
     description: "data URI with spaceless comma",
   }, {
     code: "$map: (key: value,key2: value2)",
-    description: "SCSS map",
+    description: "Sass map ignored",
+  }, {
+    code: "$list: (value,value2)",
+    description: "Sass list ignored",
   } ],
 
   reject: [ {

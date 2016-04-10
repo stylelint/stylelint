@@ -1,5 +1,7 @@
 import postcss from "postcss"
 import scssSyntax from "postcss-scss"
+import lessSyntax from "postcss-less"
+import sugarss from "sugarss"
 import _ from "lodash"
 import normalizeRuleSettings from "../normalizeRuleSettings"
 import disableRanges from "../disableRanges"
@@ -67,8 +69,7 @@ import basicChecks from "./basicChecks"
  *   - `description` {[string]}: An optional description of the case.
  *
  * Optional properties:
- * - `syntax` {"css"|"scss"}: Defaults to `"css"`. Set to `"scss"` to
- *   run a test that uses `postcss-scss` to parse.
+ * - `syntax` {"css"|"scss"|"less"|"sugarss"}: Defaults to `"css"`.
  * - `skipBasicChecks` {boolean}: Defaults to `false`. If `true`, a
  *   few rudimentary checks (that should almost always be included)
  *   will not be performed.
@@ -101,9 +102,19 @@ export default function (equalityCheck) {
     // the PostCSS LazyResult promise
     function postcssProcess(code) {
       const postcssProcessOptions = {}
-      if (schema.syntax === "scss") {
-        postcssProcessOptions.syntax = scssSyntax
+
+      switch (schema.syntax) {
+        case "scss":
+          postcssProcessOptions.syntax = scssSyntax
+          break
+        case "less":
+          postcssProcessOptions.syntax = lessSyntax
+          break
+        case "sugarss":
+          postcssProcessOptions.syntax = sugarss
+          break
       }
+
       const processor = postcss()
       processor.use(disableRanges)
 
@@ -111,8 +122,7 @@ export default function (equalityCheck) {
         schema.preceedingPlugins.forEach(processor.use)
       }
 
-      return processor
-        .use(rule(rulePrimaryOptions, ruleSecondaryOptions))
+      return processor.use(rule(rulePrimaryOptions, ruleSecondaryOptions))
         .process(code, postcssProcessOptions)
     }
 
@@ -139,12 +149,11 @@ export default function (equalityCheck) {
           comparisonCount: 1,
           caseDescription: createCaseDescription(acceptedCase.code),
           completeAssertionDescription: assertionDescription,
-          only: acceptedCase.only,
         })
       })
     }
 
-    if (schema.reject) {
+    if (schema.reject && schema.reject.length) {
       schema.reject.forEach(rejectedCase => {
         let completeAssertionDescription = "should register one warning"
         let comparisonCount = 1
@@ -152,7 +161,7 @@ export default function (equalityCheck) {
           comparisonCount++
           completeAssertionDescription += ` on line ${rejectedCase.line}`
         }
-        if (rejectedCase.column) {
+        if (rejectedCase.column !== undefined) {
           comparisonCount++
           completeAssertionDescription += ` on column ${rejectedCase.column}`
         }
@@ -163,33 +172,32 @@ export default function (equalityCheck) {
 
         const resultPromise = postcssProcess(rejectedCase.code).then(postcssResult => {
           const warnings = postcssResult.warnings()
+          const warning = warnings[0]
+
           const comparisons = [{
             expected: 1,
             actual: warnings.length,
             description: spaceJoin(rejectedCase.description, "should register one warning"),
           }]
-          if (!warnings.length) return comparisons
-
-          const warning = warnings[0]
 
           if (rejectedCase.line) {
             comparisons.push({
               expected: rejectedCase.line,
-              actual: warning.line,
+              actual: _.get(warning, "line"),
               description: spaceJoin(rejectedCase.description, `should warn on line ${rejectedCase.line}`),
             })
           }
           if (rejectedCase.column !== undefined) {
             comparisons.push({
               expected: rejectedCase.column,
-              actual: warning.column,
+              actual: _.get(warning, "column"),
               description: spaceJoin(rejectedCase.description, `should warn on column ${rejectedCase.column}`),
             })
           }
           if (rejectedCase.message) {
             comparisons.push({
               expected: rejectedCase.message,
-              actual: warning.text,
+              actual: _.get(warning, "text"),
               description: spaceJoin(rejectedCase.description, `should warn with message ${rejectedCase.message}`),
             })
           }

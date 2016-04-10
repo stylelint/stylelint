@@ -1,7 +1,8 @@
 import {
+  cssWordIsVariable,
+  optionsHaveIgnored,
   report,
   ruleMessages,
-  cssWordIsVariable,
   validateOptions,
 } from "../../utils"
 
@@ -11,9 +12,15 @@ export const messages = ruleMessages(ruleName, {
   rejected: p => `Unexpected duplicate property "${p}"`,
 })
 
-export default function (actual) {
+export default function (on, options) {
   return (root, result) => {
-    const validOptions = validateOptions(result, ruleName, { actual })
+    const validOptions = validateOptions(result, ruleName, { actual: on }, {
+      actual: options,
+      possible: {
+        ignore: ["consecutive-duplicates"],
+      },
+      optional: true,
+    })
     if (!validOptions) { return }
 
     // In order to accommodate nested blocks (postcss-nested),
@@ -29,11 +36,14 @@ export default function (actual) {
 
     function checkRulesInNode(node) {
       const decls = []
+
       node.each(child => {
         if (child.nodes && child.nodes.length) {
           checkRulesInNode(child)
         }
+
         if (child.type !== "decl") { return }
+
         const prop = child.prop
 
         if (cssWordIsVariable(prop)) { return }
@@ -41,7 +51,16 @@ export default function (actual) {
         // Ignore the src property as commonly duplicated in at-fontface
         if (prop === "src") { return }
 
-        if (decls.indexOf(prop) !== -1) {
+        const indexDuplicate = decls.indexOf(prop)
+
+        if (indexDuplicate !== -1) {
+          if (
+            optionsHaveIgnored(options, "consecutive-duplicates")
+            && indexDuplicate === decls.length - 1
+          ) {
+            return
+          }
+
           report({
             message: messages.rejected(prop),
             node: child,
@@ -49,6 +68,7 @@ export default function (actual) {
             ruleName,
           })
         }
+
         decls.push(prop)
       })
     }

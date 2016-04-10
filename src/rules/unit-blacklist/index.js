@@ -27,17 +27,20 @@ export default function (blacklistInput) {
       const { value } = decl
 
       valueParser(value).walk(function (node) {
+        if (node.type === "function" && node.value === "url") { return false }
+        if (node.type !== "word") { return }
+
         const unit = valueParser.unit(node.value).unit
 
-        if (blacklist.indexOf(unit) !== -1 && node.type !== "string") {
-          report({
-            message: messages.rejected(unit),
-            node: decl,
-            index: declarationValueIndexOffset(decl) + node.sourceIndex,
-            result,
-            ruleName,
-          })
-        }
+        if (!unit || blacklist.indexOf(unit) === -1) { return }
+
+        report({
+          message: messages.rejected(unit),
+          node: decl,
+          index: declarationValueIndexOffset(decl) + node.sourceIndex,
+          result,
+          ruleName,
+        })
       })
     })
   }

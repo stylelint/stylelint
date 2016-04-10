@@ -114,6 +114,7 @@ import stringQuotes from "./string-quotes"
 import stylelintDisableReason from "./stylelint-disable-reason"
 import timeNoImperceptible from "./time-no-imperceptible"
 import unitBlacklist from "./unit-blacklist"
+import unitNoUnknown from "./unit-no-unknown"
 import unitWhitelist from "./unit-whitelist"
 import valueListCommaNewlineAfter from "./value-list-comma-newline-after"
 import valueListCommaNewlineBefore from "./value-list-comma-newline-before"
@@ -238,6 +239,7 @@ export default {
   "stylelint-disable-reason": stylelintDisableReason,
   "time-no-imperceptible": timeNoImperceptible,
   "unit-blacklist": unitBlacklist,
+  "unit-no-unknown": unitNoUnknown,
   "unit-whitelist": unitWhitelist,
   "value-list-comma-newline-after": valueListCommaNewlineAfter,
   "value-list-comma-newline-before": valueListCommaNewlineBefore,

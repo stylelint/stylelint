@@ -127,3 +127,29 @@ testRule(rule, {
     column: 12,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: ["double"],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [{
+    code: "a {\n  // 'horse'\n}",
+    description: "ignores single-line Less comment",
+  }],
+
+  reject: [ {
+    code: "a::before {\n  // 'horse'\n  content: 'thing'; }",
+    description: "pays attention when single-line Less comment ends",
+    message: messages.expected("double"),
+    line: 3,
+    column: 12,
+  }, {
+    code: "a::before {\n// one\n// two\n// three\n  content: 'thing'; }",
+    description: "accurate position after // comments",
+    message: messages.expected("double"),
+    line: 5,
+    column: 12,
+  } ],
+})

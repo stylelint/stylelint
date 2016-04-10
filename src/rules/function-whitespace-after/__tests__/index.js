@@ -40,6 +40,9 @@ testRule(rule, {
     code: "a { color: color(rgb(0,0,0)\nlightness(50%)) };",
   }, {
     code: "a { color: color(rgb(0,0,0)\r\nlightness(50%)) };",
+  }, {
+    code: "$list: (value, value2);$thingTwo: 0px",
+    description: "Sass list ignored",
   } ],
 
   reject: [ {
@@ -126,6 +129,28 @@ testRule(rule, {
     code: "h1 { max-height: #{($line-height) * ($lines-to-show)}em; }",
     description: "Sass-style interpolation with curly braces",
   }],
+
+  reject: [{
+    code: "a { padding:\n  10px\n  // comment one\n  // comment two\n  var(--boo)orange}",
+    message: messages.expected,
+    line: 5,
+    column: 13,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["always"],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [
+    // temporarily disable this test until this is fully supported in stylelint
+    // {
+    //   code: "h1 { max-height: ((@line-height) * (@lines-to-show))em; }",
+    //   description: "Less-style interpolation",
+    // },
+  ],
 
   reject: [{
     code: "a { padding:\n  10px\n  // comment one\n  // comment two\n  var(--boo)orange}",

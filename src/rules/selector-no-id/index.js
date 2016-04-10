@@ -1,6 +1,7 @@
 import selectorParser from "postcss-selector-parser"
 import {
   cssRuleHasSelectorEndingWithColon,
+  cssRuleIsKeyframe,
   report,
   ruleMessages,
   validateOptions,
@@ -18,7 +19,10 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (cssRuleHasSelectorEndingWithColon(rule)) { return }
+      if (
+        cssRuleHasSelectorEndingWithColon(rule)
+        || cssRuleIsKeyframe(rule)
+      ) { return }
       selectorParser(selectorAST => {
         selectorAST.eachId(idNode => {
           // Ignore Sass intepolation possibilities

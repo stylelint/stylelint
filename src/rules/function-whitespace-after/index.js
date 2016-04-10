@@ -27,7 +27,7 @@ export default function (expectation) {
     root.walkDecls(decl => {
       const declString = decl.toString()
 
-      styleSearch({ source: declString, target: ")" }, match => {
+      styleSearch({ source: declString, target: ")", withinFunctionalNotation: true }, match => {
         checkClosingParen(declString, match.startIndex, decl)
       })
     })

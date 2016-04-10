@@ -1,5 +1,6 @@
 import test from "tape"
 import postcss from "postcss"
+import lessSyntax from "postcss-less"
 import stylelint from "../"
 
 const config = {
@@ -72,6 +73,26 @@ test("integration test expecting warnings", t => {
     t.equal(messages[1].severity, "warning")
     t.equal(messages[2].text, "You made a mistake")
     t.equal(messages[2].severity, "warning")
+  }
+})
+
+const less = (
+`.foo(@bar) {
+    color: @bar;
+}
+`)
+
+test("Less integration test", t => {
+  t.plan(1)
+
+  postcss()
+    .use(stylelint({ rules: {} }))
+    .process(less, { syntax: lessSyntax })
+    .then(checkResult)
+    .catch(logError)
+
+  function checkResult(result) {
+    t.equal(result.messages.length, 0)
   }
 })
 

@@ -2,6 +2,7 @@ import test from "tape"
 import { noop } from "lodash"
 import postcss from "postcss"
 import scss from "postcss-scss"
+import less from "postcss-less"
 import disableRanges from "../disableRanges"
 
 test("disableRanges registers disable/enable commands without rules", t => {
@@ -175,6 +176,26 @@ test("SCSS // line-disabling comment", t => {
     color: pink !important; // stylelint-disable-line declaration-no-important
   }`
   postcss().use(disableRanges).process(scssSource, { syntax: scss }).then(result => {
+    t.deepEqual(result.stylelint.disabledRanges, {
+      all: [],
+      "declaration-no-important": [{
+        start: 2,
+        end: 2,
+      }],
+    })
+  }).catch(logError)
+  planCount += 1
+
+  t.plan(planCount)
+})
+
+test("Less // line-disabling comment", t => {
+  let planCount = 0
+
+  const lessSource = `a {
+    color: pink !important; // stylelint-disable-line declaration-no-important
+  }`
+  postcss().use(disableRanges).process(lessSource, { syntax: less }).then(result => {
     t.deepEqual(result.stylelint.disabledRanges, {
       all: [],
       "declaration-no-important": [{

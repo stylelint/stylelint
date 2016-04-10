@@ -39,6 +39,9 @@ export default function (expectation) {
       valueParser(decl.value).walk(valueNode => {
         if (valueNode.type !== "function") { return }
 
+        // Function nodes without names are things in parentheses like Sass lists
+        if (!valueNode.value) { return }
+
         const functionString = valueParser.stringify(valueNode)
         const isMultiLine = !isSingleLineString(functionString)
         function containsNewline(str) {

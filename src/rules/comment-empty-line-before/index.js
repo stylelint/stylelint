@@ -54,7 +54,7 @@ export default function (expectation, options) {
         && optionsHaveIgnored(options, "between-comments")
       ) { return }
 
-      if (comment.raws.inline) { return }
+      if (comment.raws.inline || comment.inline) { return }
 
       const before = comment.raw("before")
 

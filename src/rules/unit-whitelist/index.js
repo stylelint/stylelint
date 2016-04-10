@@ -27,17 +27,20 @@ export default function (whitelistInput) {
       const { value } = decl
 
       valueParser(value).walk(function (node) {
+        if (node.type === "function" && node.value === "url") { return false }
+        if (node.type !== "word") { return }
+
         const unit = valueParser.unit(node.value).unit
 
-        if (unit && whitelist.indexOf(unit) === -1 && node.type !== "string") {
-          report({
-            message: messages.rejected(unit),
-            node: decl,
-            index: declarationValueIndexOffset(decl) + node.sourceIndex,
-            result,
-            ruleName,
-          })
-        }
+        if (!unit || whitelist.indexOf(unit) !== -1) { return }
+
+        report({
+          message: messages.rejected(unit),
+          node: decl,
+          index: declarationValueIndexOffset(decl) + node.sourceIndex,
+          result,
+          ruleName,
+        })
       })
     })
   }
