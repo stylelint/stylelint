@@ -22,7 +22,7 @@ Once you have something to show, you'll create a [pull request](https://github.c
 
 ### Come up with a name
 
-Have a look at the [rules guide](/docs/user-guide/rules.md) to familiarize yourself the rule naming conventions. In particular, the section [about rule names](/docs/user-guide/rules.md#about-rule-names).
+Have a look at the [rules user guide](/docs/user-guide/about-rules.md) to familiarize yourself the rule naming conventions.
 
 We take care to ensure that all the rules are named accurately and consistently. Our goals in that effort are to ensure that rules are easy to find and understand, and to prevent us from wanting to change the name later.
 
