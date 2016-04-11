@@ -2,6 +2,7 @@
 
 - Added: `consecutive-duplicates` option for `declaration-block-no-duplicate-properties` rule.
 - Fixed: `block-no-empty` no longer delivers false positives for less syntax.
+- Fixed: `CssSyntaxError` is no longer thrown but reported alongside warnings.
 
 # 5.4.0
 
