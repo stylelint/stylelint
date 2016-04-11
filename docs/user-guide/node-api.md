@@ -87,6 +87,11 @@ An array containing all the [PostCSS LazyResults](https://github.com/postcss/pos
 
 An array containing all the stylelint result objects (the objects that formatters consume).
 
+## Syntax errors
+
+`stylelint.lint()` does not reject the Promise when your CSS contains syntax errors. 
+It resolves with an object (see [The returned promise](#the-returned-promise)) that contains information about the syntax error.
+
 ## Usage examples
 
 If `myConfig` contains no relative paths for `extends` or `plugins`, I do not have to use `configBasedir`:
