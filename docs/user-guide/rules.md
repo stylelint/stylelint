@@ -71,6 +71,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 ### Value list
 
+- [`value-keyword-case`](../../src/rules/value-keyword-case/README.md): Specify lowercase or uppercase for keywords values.
 - [`value-list-comma-newline-after`](../../src/rules/value-list-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of value lists.
 - [`value-list-comma-newline-before`](../../src/rules/value-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of value lists.
 - [`value-list-comma-space-after`](../../src/rules/value-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of value lists.
