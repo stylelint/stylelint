@@ -5,7 +5,7 @@ Specify lowercase or uppercase for units.
 ```css
     a { width: 10px; }
 /**              ↑
- *          These units */
+ *     These units */
 ```
 
 ## Options
