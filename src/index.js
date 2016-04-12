@@ -7,6 +7,7 @@ import {
   ruleMessages,
   styleSearch,
   validateOptions,
+  cssWordIsVariable,
 } from "./utils"
 import {
   createRuleTester,
@@ -19,6 +20,7 @@ stylelint.utils = {
   ruleMessages,
   styleSearch,
   validateOptions,
+  cssWordIsVariable,
 }
 
 stylelint.lint = standalone
