@@ -120,6 +120,7 @@ You might want to learn a little about [the naming conventions](/docs/user-guide
     "string-quotes": "single"|"double",
     "time-no-imperceptible": true,
     "unit-blacklist": string|[],
+    "unit-case": "single"|"double",
     "unit-no-unknown": true,
     "unit-whitelist": string|[],
     "value-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
