@@ -6,6 +6,7 @@ import {
   ruleMessages,
   styleSearch,
   validateOptions,
+  cssWordIsVariable,
 } from "./utils"
 
 const stylelint = postcssPlugin
@@ -15,6 +16,7 @@ stylelint.utils = {
   ruleMessages,
   styleSearch,
   validateOptions,
+  cssWordIsVariable,
 }
 
 stylelint.lint = standalone
