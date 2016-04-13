@@ -1,6 +1,6 @@
 # selector-pseudo-element-case
 
-Specify lowercase or uppercase for pseudo-elements selectors.
+Specify lowercase or uppercase for pseudo-element selectors.
 
 ```css
     a::before {}
