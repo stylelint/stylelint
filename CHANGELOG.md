@@ -2,6 +2,7 @@
 
 - Added: `consecutive-duplicates` option for `declaration-block-no-duplicate-properties` rule.
 - Added: `unit-case` rule.
+- Added: exposed `stylelint.utils.cssWordIsVariable()`.
 - Fixed: `block-no-empty` no longer delivers false positives for less syntax.
 
 # 5.4.0
