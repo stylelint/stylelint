@@ -1,10 +1,10 @@
 # function-name-case
 
-Specify lowercase or uppercase for functions.
+Specify lowercase or uppercase for function names.
 
 ```css
-      a { width: calc(5% - 10em); }
-/**              ↑
+a { width: calc(5% - 10em); }
+/**        ↑
  * These functions */
 ```
 
