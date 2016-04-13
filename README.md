@@ -61,7 +61,9 @@ There is always a lot of work to do, and already well over 100 rules to maintain
 - Create or contribute to ecosystem tools, like the plugins for Atom and Sublime Text.
 - Spread the word.
 
-We communicate via [issues](https://github.com/stylelint/stylelint/issues) and [pull requests](https://github.com/stylelint/stylelint/pulls). There is also [stackoverflow](http://stackoverflow.com/questions/tagged/stylelint), which is our preferred QA forum. Tag your post with "stylelint".
+We communicate via [issues](https://github.com/stylelint/stylelint/issues) and [pull requests](https://github.com/stylelint/stylelint/pulls).
+
+There is also [stackoverflow](http://stackoverflow.com/questions/tagged/stylelint), which is our preferred QA forum. Tag your post with "stylelint".
 
 ## Important documents
 
