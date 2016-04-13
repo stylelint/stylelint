@@ -8,6 +8,7 @@
 - Added: `function-name-case` rule.
 - Added: `selector-pseudo-element-case` rule.
 - Added: `value-keyword-case` rule.
+- Added: `selector-pseudo-class-case` rule.
 - Fixed: `block-no-empty` no longer delivers false positives for less syntax.
 - Fixed: `declaration-block-trailing-semicolon` better understands nested at-rules.
 

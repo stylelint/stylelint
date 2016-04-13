@@ -141,6 +141,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`selector-no-type`](../../src/rules/selector-no-type/README.md): Disallow type selectors.
 - [`selector-no-universal`](../../src/rules/selector-no-universal/README.md): Disallow the universal selector.
 - [`selector-no-vendor-prefix`](../../src/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors.
+- [`selector-pseudo-class-case`](../../src/rules/selector-pseudo-class-case/README.md): Specify lowercase or uppercase for pseudo-class selectors.
 - [`selector-pseudo-element-case`](../../src/rules/selector-pseudo-element-case/README.md): Specify lowercase or uppercase for pseudo-element selectors.
 - [`selector-pseudo-element-colon-notation`](../../src/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
 - [`selector-root-no-composition`](../../src/rules/selector-root-no-composition/README.md): Disallow the composition of `:root` in selectors.
