@@ -20,6 +20,7 @@ test("isKnownUnit", t => {
   t.ok(isKnownUnit("in"))
   t.ok(isKnownUnit("pt"))
   t.ok(isKnownUnit("pc"))
+  t.ok(isKnownUnit("q"))
   t.ok(isKnownUnit("s"))
   t.ok(isKnownUnit("ms"))
   t.ok(isKnownUnit("deg"))
