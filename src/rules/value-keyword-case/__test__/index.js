@@ -93,6 +93,8 @@ testRule(rule, {
     code: "@media (min-width: 768px) { color: red; }",
   }, {
     code: "@media screen { color: green; @media (min-width: 768px) { color: red; } }",
+  }, {
+    code: "a { color: red; border: 5px solid currentColor; }",
   } ],
 
   reject: [ {
@@ -249,6 +251,10 @@ testRule(rule, {
     code: ".a { &-link { display: block } }",
   }, {
     code: "$map: (display-first: block, display-second: inline);",
+  }, {
+    code: "a { background-#{$variable}: property#{$variable}; }",
+  }, {
+    code: "a { background-#{$variable}: PROPERTY#{$variable}; }",
   } ],
 
   reject: [ {
@@ -285,7 +291,7 @@ testRule(rule, {
     code: "$map: (Display-first: block, display-second: inline);",
     message: messages.expected("Display-first", "display-first"),
     line: 1,
-    column: 23,
+    column: 8,
   }, {
     code: "$map: (display-first: Block, display-second: inline);",
     message: messages.expected("Block", "block"),
@@ -469,6 +475,8 @@ testRule(rule, {
     code: "@media (min-width: 768px) { color: RED; }",
   }, {
     code: "@media screen { color: GREEN; @media (min-width: 768px) { color: RED; } }",
+  }, {
+    code: "a { color: RED; border: 5px SOLID currentColor; }",
   } ],
 
   reject: [ {
@@ -625,6 +633,10 @@ testRule(rule, {
     code: ".a { &-link { display: BLOCK } }",
   }, {
     code: "$map: (DISPLAY-FIRST: BLOCK, DISPLAY-SECOND: INLINE);",
+  }, {
+    code: "a { background-#{$variable}: property#{$variable}; }",
+  }, {
+    code: "a { background-#{$variable}: PROPERTY#{$variable}; }",
   } ],
 
   reject: [ {
@@ -658,10 +670,10 @@ testRule(rule, {
     line: 1,
     column: 24,
   }, {
-    code: "$map: (display-first: Block, DISPLAY-SECOND: INLINE);",
+    code: "$map: (display-first: BLOCK, DISPLAY-SECOND: INLINE);",
     message: messages.expected("display-first", "DISPLAY-FIRST"),
     line: 1,
-    column: 23,
+    column: 8,
   }, {
     code: "$map: (DISPLAY-FIRST: Block, DISPLAY-SECOND: INLINE);",
     message: messages.expected("Block", "BLOCK"),

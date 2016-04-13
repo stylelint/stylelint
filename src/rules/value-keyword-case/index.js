@@ -36,14 +36,13 @@ export default function (expectation) {
         if (node.type === "function" && node.value === "url") { return false }
 
         const keyword = node.value
-        const hexMatch = /^#[0-9A-Za-z]+/.exec(keyword)
 
         // Ignore css variables, and hex values, and math operators, and sass interpolation
         if (node.type !== "word"
           || cssWordIsVariable(node.value)
-          || hexMatch
+          || value.indexOf("#") !== -1
           || ignoredCharacters.has(keyword)
-          || /#{.+}/.test(node.value)
+          || keyword === "currentColor"
         ) { return }
 
         const parsedUnit = valueParser.unit(keyword)

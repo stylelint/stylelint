@@ -1,4 +1,4 @@
-# unit-case
+# value-keyword-case
 
 Specify lowercase or uppercase for keywords values.
 
@@ -34,11 +34,23 @@ a {
 }
 ```
 
+```css
+a {
+  transition: -WEBKIT-TRANSFORM 2s;
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
 a {
   display: block;
+}
+```
+
+```css
+a {
+  transition: -webkit-transform 2s;
 }
 ```
 
@@ -64,10 +76,22 @@ a {
 }
 ```
 
+```css
+a {
+  transition: -webkit-transform 2s;
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
 a {
   display: BLOCK;
+}
+```
+
+```css
+a {
+  transition: -WEBKIT-TRANSFORM 2s;
 }
 ```
