@@ -55,6 +55,7 @@ You might want to learn a little about [the naming conventions](/docs/user-guide
     "function-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
     "function-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
     "function-linear-gradient-no-nonstandard-direction": true,
+    "function-name-case": "lower"|"upper",
     "function-parentheses-newline-inside": "always"|"always-multi-line"|"never-multi-line",
     "function-parentheses-space-inside": "always"|"never"|"always-single-line"|"never-single-line",
     "function-url-data-uris": "always"|"never",
