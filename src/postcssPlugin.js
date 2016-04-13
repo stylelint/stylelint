@@ -34,7 +34,10 @@ export default postcss.plugin("stylelint", (options = {}) => {
           return globjoin(configDir, glob)
         })
         const sourcePath = get(root, "source.input.file", "")
-        if (multimatch(sourcePath, absoluteIgnoreFiles).length) { return }
+        if (multimatch(sourcePath, absoluteIgnoreFiles).length) {
+          result.warn("This file is ignored", {severity: "info"})
+          return
+        }
       }
 
       if (config.plugins) {
