@@ -82,6 +82,7 @@ import numberMaxPrecision from "./number-max-precision"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
 import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyBlacklist from "./property-blacklist"
+import propertyCase from "./property-case"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
 import propertyUnitBlacklist from "./property-unit-blacklist"
 import propertyUnitWhitelist from "./property-unit-whitelist"
@@ -208,6 +209,7 @@ export default {
   "number-no-trailing-zeros": numberNoTrailingZeros,
   "number-zero-length-no-unit": numberZeroLengthNoUnit,
   "property-blacklist": propertyBlacklist,
+  "property-case": propertyCase,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
   "property-unit-blacklist": propertyUnitBlacklist,
   "property-unit-whitelist": propertyUnitWhitelist,

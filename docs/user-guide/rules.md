@@ -83,6 +83,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 ### Property
 
 - [`property-blacklist`](../../src/rules/property-blacklist/README.md): Specify a blacklist of disallowed properties.
+- [`property=case`](../../src/rules/property-case/README.md): Specify lowercase or uppercase for properties.
 - [`property-no-vendor-prefix`](../../src/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties.
 - [`property-unit-blacklist`](../../src/rules/property-unit-blacklist/README.md): Specify a blacklist of disallowed units for specific properties.
 - [`property-unit-whitelist`](../../src/rules/property-unit-whitelist/README.md): Specify a whitelist of allowed units for specific properties.

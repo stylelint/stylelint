@@ -90,6 +90,7 @@ You might want to learn a little about [the naming conventions](/docs/user-guide
     "number-no-trailing-zeros": true,
     "number-zero-length-no-unit": true,
     "property-blacklist": string|[],
+    "property-case": "lower"|"upper",
     "property-no-vendor-prefix": true,
     "property-unit-blacklist": {},
     "property-unit-whitelist": {},
