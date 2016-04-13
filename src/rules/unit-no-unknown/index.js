@@ -33,9 +33,7 @@ export default function (actual, options) {
       valueParser(value).walk(function (node) {
         // Ignore wrong units within `url` function
         if (node.type === "function" && node.value === "url") { return false }
-        if (node.type !== "word"
-          || cssWordIsVariable(node.value)
-        ) { return }
+        if (node.type !== "word" || cssWordIsVariable(node.value)) { return }
 
         const parsedUnit = valueParser.unit(node.value)
 
