@@ -1,8 +1,8 @@
 # Example config
 
-This example config lists all of the [rules](/docs/user-guide/rules.md) and their primary options. You can remove ([or turn off](./configuration.md)) the rules you don't want and edit the primary option of each rule to your liking.
+This example config lists all of the [rules](/docs/user-guide/rules.md) and their primary options. You can remove ([or turn off](/docs/user-guide/configuration.md#rules)) the rules you don't want and edit the primary option of each rule to your liking.
 
-You might want to learn a little about [the naming conventions](/docs/user-guide/rules.md#about-rule-names) the rules follow, to get a better idea of what each rule does.
+You might want to learn a little about [how rules are named and how they work together](/docs/user-guide/about-rules.md), to get a better idea of what each rule does.
 
 ```json
 {
