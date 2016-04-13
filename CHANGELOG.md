@@ -1,3 +1,9 @@
+# Head
+- Added: Handling of `.stylelintignore` file to add more ignored patterns
+- Added: Notice that a file is ignored
+- Fixed: configuration is initialized only once in the PostCSS plugin
+- Fixed: PostCSS is initialized only once in cli	
+	
 # 6.0.3
 
 - Fixed: CRLF (`\r\n`) warning positioning in `max-empty-lines` and `function-max-empty-lines`.
