@@ -13,6 +13,7 @@ export const messages = ruleMessages(ruleName, {
   expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
+// Operators are interpreted as "words" by the value parser, so we want to make sure to ignore them.
 const ignoredCharacters = new Set([
   "+", "-", "/", "*", "%",
 ])
