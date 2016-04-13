@@ -5,6 +5,7 @@
 - Added: exposed `stylelint.utils.cssWordIsVariable()`.
 - Added: `property-case` rule.
 - Added: `function-name-case` rule.
+- Added: `selector-pseudo-element-case` rule.
 - Fixed: `block-no-empty` no longer delivers false positives for less syntax.
 
 # 5.4.0

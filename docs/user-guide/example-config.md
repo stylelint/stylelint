@@ -115,6 +115,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-no-type": true,
     "selector-no-universal": true,
     "selector-no-vendor-prefix": true,
+    "selector-pseudo-element-case": "lower"|"upper",
     "selector-pseudo-element-colon-notation": "single"|"double",
     "selector-root-no-composition": true,
     "selector-type-case": "lower"|"upper",
