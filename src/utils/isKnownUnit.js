@@ -16,6 +16,10 @@ const knownUnits = new Set([
   "s", "ms",
   // Angle
   "deg", "grad", "turn", "rad",
+  // Frequency
+  "Hz", "kHz",
+  // Resolution
+  "dpi", "dpcm", "dppx",
 ])
 
 export default function (unit) {
