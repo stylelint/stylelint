@@ -10,8 +10,11 @@ import buildConfig from "./buildConfig"
 import normalizeRuleSettings from "./normalizeRuleSettings"
 
 export default postcss.plugin("stylelint", (options = {}) => {
+  let configPromise
   return (root, result) => {
-    const configPromise = buildConfig(options)
+    if (!configPromise) {
+      configPromise = buildConfig(options)
+    }
 
     // result.stylelint is the namespace for passing stylelint-related
     // configuration and data across sub-plugins via the PostCSS Result
