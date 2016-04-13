@@ -40,6 +40,7 @@
     "globby": "^4.0.0",
     "globjoin": "^0.1.2",
     "lodash": "^4.0.0",
+    "log-symbols": "^1.0.2",
     "meow": "^3.3.0",
     "multimatch": "^2.1.0",
     "normalize-selector": "^0.2.0",
@@ -53,7 +54,8 @@
     "resolve-from": "^2.0.0",
     "specificity": "^0.1.5",
     "stylehacks": "^2.3.0",
-    "sugarss": "^0.1.2"
+    "sugarss": "^0.1.2",
+    "table": "^3.7.8"
   },
   "devDependencies": {
     "babel-cli": "^6.1.18",
