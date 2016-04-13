@@ -1,6 +1,8 @@
 # About rules
 
-We have taken great care to consistently name rules. The rules have been designed to work in conjunction with one another so that strict conventions can be enforced.
+We have taken great care to consistently name rules.
+
+The rules have been designed to work in conjunction with one another so that strict conventions can be enforced.
 
 ## About rule names
 

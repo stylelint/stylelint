@@ -14,7 +14,7 @@ You can run the linter before or after your css processors. Depending on which p
 The linter can *parse* any the following non-standard syntaxes by using special PostCSS parsers:
 
 - SCSS (using [`postcss-scss`](https://github.com/postcss/postcss-scss))
-- Less (using [postcss-less](https://github.com/webschik/postcss-less))
+- Less (using [`postcss-less`](https://github.com/webschik/postcss-less))
 - SugarSS (using [`sugarss`](https://github.com/postcss/sugarss))
 
 (Whenever someone writes a PostCSS parser for another syntax, stylelint can easily add support for that.)

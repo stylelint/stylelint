@@ -20,7 +20,7 @@ The CLI can also be used from within [npm run scripts](http://blog.keithcirkel.c
 
 Use [`gulp-stylelint`](https://github.com/olegskl/gulp-stylelint).
 
-## How do I lint using webpack
+## How do I lint using webpack?
 
 Use [stylelint-webpack-plugin](https://github.com/vieron/stylelint-webpack-plugin).
 
