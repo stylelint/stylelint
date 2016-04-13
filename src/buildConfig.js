@@ -112,10 +112,10 @@ function getModulePath(basedir, lookup) {
 }
 
 function findIgnorePatterns(configDir) {
-  var ignoreFilePath = path.resolve(configDir, ".stylelintignore");
+  const ignoreFilePath = path.resolve(configDir, ".stylelintignore")
 
   if (!fs.existsSync(ignoreFilePath)) {
-    return [];
+    return []
   }
 
   return fs.readFileSync(ignoreFilePath, "utf8")
