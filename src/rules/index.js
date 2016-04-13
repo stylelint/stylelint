@@ -47,6 +47,7 @@ import functionCommaSpaceAfter from "./function-comma-space-after"
 import functionCommaSpaceBefore from "./function-comma-space-before"
 import functionLinearGradientNoNonstandardDirection from "./function-linear-gradient-no-nonstandard-direction"
 import functionMaxEmptyLines from "./function-max-empty-lines"
+import functionNameCase from "./function-name-case"
 import functionParenthesesNewlineInside from "./function-parentheses-newline-inside"
 import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
 import functionUrlDataUris from "./function-url-data-uris"
@@ -174,6 +175,7 @@ export default {
   "function-comma-space-before": functionCommaSpaceBefore,
   "function-linear-gradient-no-nonstandard-direction": functionLinearGradientNoNonstandardDirection,
   "function-max-empty-lines": functionMaxEmptyLines,
+  "function-name-case": functionNameCase,
   "function-parentheses-newline-inside": functionParenthesesNewlineInside,
   "function-parentheses-space-inside": functionParenthesesSpaceInside,
   "function-url-data-uris": functionUrlDataUris,
