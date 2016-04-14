@@ -100,6 +100,7 @@ export default function ({
       }))
       .process(code, postcssProcessOptions)
       .then(handleResult)
+      .catch(cssSyntaxError)
 
     function handleResult(postcssResult) {
       const source = (!postcssResult.root.source)
@@ -133,6 +134,24 @@ export default function ({
           severity: message.severity,
           text: message.text,
         })),
+      }
+    }
+
+    function cssSyntaxError(error) {
+      if (error.name !== "CssSyntaxError") { throw error }
+
+      return {
+        source: error.file || "<input css 1>",
+        deprecations: [],
+        invalidOptionWarnings: [],
+        errored: true,
+        warnings: [{
+          line: error.line,
+          column: error.column,
+          rule: error.name,
+          severity: "error",
+          text: error.reason + " (" + error.name + ")",
+        }],
       }
     }
   }

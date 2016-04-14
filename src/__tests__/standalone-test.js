@@ -395,6 +395,41 @@ test("standalone using codeFilename and ignoreFiles with configBasedir", t => {
   t.plan(1)
 })
 
+test("standalone passing code with syntax error", t => {
+  standalone({
+    code: "a { color: 'red; }",
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)[0]
+    t.equal(parsedOutput.source, "<input css 1>", "<input css 1> as source")
+    t.equal(parsedOutput.deprecations.length, 0, "empty deprecations")
+    t.equal(parsedOutput.invalidOptionWarnings.length, 0,
+            "empty invalidOptionWarnings")
+    t.ok(parsedOutput.errored, "errored true")
+    t.equal(parsedOutput.warnings.length, 1, "syntax error in warnings")
+    t.equal(parsedOutput.warnings[0].rule, "CssSyntaxError",
+            "syntax error rule is CssSyntaxError")
+    t.equal(parsedOutput.warnings[0].severity, "error",
+            "syntax error severity is error")
+    t.ok(parsedOutput.warnings[0].text.indexOf(" (CssSyntaxError)" !== -1),
+         "(CssSyntaxError) in warning text")
+  }).catch(logError)
+
+  t.plan(8)
+})
+
+test("standalone passing file with syntax error", t => {
+  standalone({
+    code: "a { color: 'red; }",
+    codeFilename: path.join(__dirname, "syntax-error.css"),
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)[0]
+    t.ok(parsedOutput.source.indexOf("syntax-error.css") !== -1,
+         "filename as source")
+  }).catch(logError)
+
+  t.plan(1)
+})
+
 function logError(err) {
   console.log(err.stack) // eslint-disable-line no-console
 }

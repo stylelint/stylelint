@@ -8,7 +8,7 @@ import {
 export const ruleName = "color-hex-case"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (h, v) => `Expected "${h}" to be "${v}"`,
+  expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
 export default function (expectation) {

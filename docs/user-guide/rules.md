@@ -1,14 +1,12 @@
 # Rules
 
-There are over a hundred rules built into stylelint. They all focus on *standard css* and aim to be valuable to the majority of users. In addition to these rules there are [plugins](/docs/user-guide/plugins.md), which are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases.
+Rules focus on *standard css* and aim to be valuable to the majority of users. In addition to these rules there are [plugins](/docs/user-guide/plugins.md), which are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases. Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for more ways to lint.
 
-Every rule and plugin is standalone and turned off by default. None of the rules or plugins have default values for their options.
+Every rule is standalone and turned off by default. None of the rules have default values for their options.
 
 ## List of rules
 
 Here are all the rules within stylelint, grouped by the [*thing*](http://apps.workflower.fi/vocabs/css/en) they apply to.
-
-Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for more ways to lint.
 
 ### Color
 
@@ -36,6 +34,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`function-comma-space-before`](../../src/rules/function-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of functions.
 - [`function-linear-gradient-no-nonstandard-direction`](../../src/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow direction values in `linear-gradient()` calls that are not valid according to the [standard syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#Syntax).
 - [`function-max-empty-lines`](../../src/rules/function-max-empty-lines/README.md): Limit the number of adjacent empty lines within functions.
+- [`function-name-case`](../../src/rules/function-name-case/README.md): Specify lowercase or uppercase for function names.
 - [`function-parentheses-newline-inside`](../../src/rules/function-parentheses-newline-inside/README.md): Require a newline or disallow whitespace on the inside of the parentheses of functions.
 - [`function-parentheses-space-inside`](../../src/rules/function-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses of functions.
 - [`function-url-data-uris`](../../src/rules/function-url-data-uris/README.md): Require or disallow data URIs for urls.
@@ -62,6 +61,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 ### Unit
 
 - [`unit-blacklist`](../../src/rules/unit-blacklist/README.md): Specify a blacklist of disallowed units.
+- [`unit-case`](../../src/rules/unit-case/README.md): Specify lowercase or uppercase for units.
 - [`unit-no-unknown`](../../src/rules/unit-no-unknown/README.md): Disallow unknown units.
 - [`unit-whitelist`](../../src/rules/unit-whitelist/README.md): Specify a whitelist of allowed units.
 
@@ -71,6 +71,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 
 ### Value list
 
+- [`value-keyword-case`](../../src/rules/value-keyword-case/README.md): Specify lowercase or uppercase for keywords values.
 - [`value-list-comma-newline-after`](../../src/rules/value-list-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of value lists.
 - [`value-list-comma-newline-before`](../../src/rules/value-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of value lists.
 - [`value-list-comma-space-after`](../../src/rules/value-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of value lists.
@@ -84,6 +85,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 ### Property
 
 - [`property-blacklist`](../../src/rules/property-blacklist/README.md): Specify a blacklist of disallowed properties.
+- [`property=case`](../../src/rules/property-case/README.md): Specify lowercase or uppercase for properties.
 - [`property-no-vendor-prefix`](../../src/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties.
 - [`property-unit-blacklist`](../../src/rules/property-unit-blacklist/README.md): Specify a blacklist of disallowed units for specific properties.
 - [`property-unit-whitelist`](../../src/rules/property-unit-whitelist/README.md): Specify a whitelist of allowed units for specific properties.
@@ -139,6 +141,7 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`selector-no-type`](../../src/rules/selector-no-type/README.md): Disallow type selectors.
 - [`selector-no-universal`](../../src/rules/selector-no-universal/README.md): Disallow the universal selector.
 - [`selector-no-vendor-prefix`](../../src/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors.
+- [`selector-pseudo-element-case`](../../src/rules/selector-pseudo-element-case/README.md): Specify lowercase or uppercase for pseudo-element selectors.
 - [`selector-pseudo-element-colon-notation`](../../src/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
 - [`selector-root-no-composition`](../../src/rules/selector-root-no-composition/README.md): Disallow the composition of `:root` in selectors.
 - [`selector-type-case`](../../src/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selector.
@@ -210,117 +213,3 @@ Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for m
 - [`no-unknown-animations`](../../src/rules/no-unknown-animations/README.md): Disallow animation names that do not correspond to a `@keyframes` declaration.
 - [`no-unsupported-browser-features`](../../src/rules/no-unsupported-browser-features/README.md): Disallow features that are unsupported by the browsers that you are targeting.
 - [`stylelint-disable-reason`](../../src/rules/stylelint-disable-reason/README.md): Require a reason comment before or after `stylelint-disable` comments.
-
-## About rule names
-
-- Made of lowercase words separated by hyphens.
-- Split into two parts:
-
-  - The first describes what [*thing*](http://apps.workflower.fi/vocabs/css/en) the rule applies to.
-  - The second describes what the rule is checking.
-
-```shell
-"number-leading-zero"
-    ↑       ↑
-the thing   what the rule is checking
-```
-
-- Except when the rule applies to the whole stylesheet:
-
-```shell
-"no-eol-whitespace"
-"indentation"
-     ↑
-  what the rules are checking
-```
-
-### No rules
-
-Most rules allow you to choose whether you want to require *or- disallow something.
-
-For example, whether numbers *must* or *must not* have a leading zero:
-
-- `number-leading-zero`: `string - "always"|"never"`
-
-  - `"always"` - there *must always* be a leading zero.
-  - `"never"` - there *must never* be a leading zero.
-
-```css
-    a { line-height: 0.5; }
-/**                  ↑
- *   This leading zero */
-```
-
-However, some rules *just disallow* something. `*-no-*` is used to identify these rules.
-
-For example, whether empty blocks should be disallowed:
-
-- `block-no-empty` - blocks *must not* be empty.
-
-```css
-    a { }
-/**    ↑
- *  Blocks like this */
-```
-
-Notice how, for a rule like this, it does not make sense to have an option to enforce the opposite i.e. that every block *must* be empty.
-
-### Max rules
-
-`*-max-*` is used when a rule is *setting a limit* to something.
-
-For example, specifying the maximum number of digits after the "." in a number:
-
-- `number-max-precision`: `int`
-
-```css
-    a { font-size: 1.333em; }
-/**                 ↑
- * The maximum number of digits after this "." */
-```
-
-### Whitespace rules
-
-Whitespace rules allow you to specify whether an empty line, a single space, a newline or no space must be used in some specific part of the stylesheet.
-
-The whitespace rules combine two sets of keywords:
-
-1. `before`, `after` and `inside` are used to specify where the whitespace (if any) is expected.
-2. `empty-line`, `space` and `newline` are used to specify whether a single empty line, a single space, a single newline or no space is expected there.
-
-For example, specifying if a single empty line or no space must come before all the comments in a stylesheet:
-
-- `comment-empty-line-before`: `string` - `"always"|"never"`
-
-```css
-    a {}
-                  ←
-    /* comment */ ↑
-                  ↑
-/**               ↑
- *        This empty line  */
-```
-
-Additionally, some whitespace rule make use of another set of keywords:
-
-1. `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` or `range-operator` are used if a specific piece of punctuation in the *thing* is being targetted.
-
-For example, specifying if a single space or no space must come after a comma in a function:
-
-- `function-comma-space-after`: `string` - `"always"|"never"`
-
-```css
-    a { transform: translate(1, 1) }
-/**                           ↑
- *  The space after this commas */
-```
-
-The plural of the punctuation is used for `inside` rules. For example, specifying if a single space or no space must be inside the parentheses of a function:
-
-- `function-parentheses-space-inside`: `string` - `"always"|"never"`
-
-```css
-    a { transform: translate( 1, 1 ); }
-/**                         ↑      ↑
- * The space inside these two parentheses */
-```

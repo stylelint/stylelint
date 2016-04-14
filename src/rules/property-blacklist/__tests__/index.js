@@ -16,6 +16,12 @@ testRule(rule, {
     code: "a { background: red; }",
   }, {
     code: "a { top: 0; color: pink; }",
+  }, {
+    code: "a { $scss: 0; }",
+  }, {
+    code: "a { @less: 0; }",
+  }, {
+    code: "a { --custom-property: 0; }",
   } ],
 
   reject: [ {
@@ -47,6 +53,12 @@ testRule(rule, {
     code: "a { color: pink; }",
   }, {
     code: "a { no-background: sure; }",
+  }, {
+    code: "a { $scss: 0; }",
+  }, {
+    code: "a { @less: 0; }",
+  }, {
+    code: "a { --custom-property: 0; }",
   } ],
 
   reject: [ {
@@ -64,5 +76,21 @@ testRule(rule, {
     message: messages.rejected("background-image"),
     line: 1,
     column: 5,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+
+  config: [[
+    "/margin/",
+  ]],
+
+  accept: [ {
+    code: "a { $margin: 0; }",
+  }, {
+    code: "a { @margin: 0; }",
+  }, {
+    code: "a { --margin: 0; }",
   } ],
 })

@@ -11,11 +11,15 @@ const knownUnits = new Set([
   // Viewport-percentage lengths
   "vh", "vw", "vmin", "vmax", "vm",
   // Absolute length units
-  "px", "mm", "cm", "in", "pt", "pc",
+  "px", "mm", "cm", "in", "pt", "pc", "q",
   // Time length units
   "s", "ms",
   // Angle
   "deg", "grad", "turn", "rad",
+  // Frequency
+  "Hz", "kHz",
+  // Resolution
+  "dpi", "dpcm", "dppx",
 ])
 
 export default function (unit) {

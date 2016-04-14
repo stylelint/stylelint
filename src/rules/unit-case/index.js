@@ -1,6 +1,4 @@
-import { isString } from "lodash"
 import valueParser from "postcss-value-parser"
-
 import {
   cssWordIsVariable,
   declarationValueIndexOffset,
@@ -9,25 +7,28 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "unit-whitelist"
+export const ruleName = "unit-case"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (u) => `Unexpected unit "${u}"`,
+  expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
-export default function (whitelistInput) {
-  const whitelist = [].concat(whitelistInput)
+export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
-      actual: whitelist,
-      possible: [isString],
+      actual: expectation,
+      possible: [
+        "lower",
+        "upper",
+      ],
     })
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
       const { value } = decl
 
-      valueParser(value).walk(function (node) {
+      valueParser(value).walk((node) => {
+        // Ignore wrong units within `url` function
         if (node.type === "function" && node.value === "url") { return false }
         if (node.type !== "word" || cssWordIsVariable(node.value)) { return }
 
@@ -37,10 +38,14 @@ export default function (whitelistInput) {
 
         const unit = parsedUnit.unit
 
-        if (!unit || whitelist.indexOf(unit) !== -1) { return }
+        if (!unit) { return }
+
+        const expectedUnit = expectation === "lower" ? unit.toLowerCase() : unit.toUpperCase()
+
+        if (unit === expectedUnit) { return }
 
         report({
-          message: messages.rejected(unit),
+          message: messages.expected(unit, expectedUnit),
           node: decl,
           index: declarationValueIndexOffset(decl) + node.sourceIndex,
           result,
