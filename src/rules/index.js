@@ -108,6 +108,7 @@ import selectorNoId from "./selector-no-id"
 import selectorNoType from "./selector-no-type"
 import selectorNoUniversal from "./selector-no-universal"
 import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
+import selectorPseudoClassCase from "./selector-pseudo-class-case"
 import selectorPseudoElementCase from "./selector-pseudo-element-case"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
 import selectorRootNoComposition from "./selector-root-no-composition"
@@ -238,6 +239,7 @@ export default {
   "selector-no-type": selectorNoType,
   "selector-no-universal": selectorNoUniversal,
   "selector-no-vendor-prefix": selectorNoVendorPrefix,
+  "selector-pseudo-class-case": selectorPseudoClassCase,
   "selector-pseudo-element-case": selectorPseudoElementCase,
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
   "selector-root-no-composition": selectorRootNoComposition,
