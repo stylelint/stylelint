@@ -5,12 +5,12 @@ import symbols from "log-symbols"
 import table, { getBorderCharacters } from "table"
 import utils from "postcss-reporter/lib/util"
 
-const marginWidths = 9
+const MARGIN_WIDTHS = 9
 
 const levelColors = {
-  "info": "blue",
-  "warning": "yellow",
-  "error": "red",
+  info: "blue",
+  warning: "yellow",
+  error: "red",
 }
 
 function deprecationsFormatter(results) {
@@ -41,18 +41,6 @@ function invalidOptionsFormatter(results) {
   }, "\n")
 }
 
-function getSeverity(type) {
-  if (type == "error") {
-    return "error"
-  }
-
-  if (type == "info") {
-    return "info"
-  }
-
-  return "warning"
-}
-
 function logFrom(fromValue) {
   if (fromValue.charAt(0) === "<") return fromValue
   return path.relative(process.cwd(), fromValue).split(path.sep).join("/")
@@ -67,112 +55,87 @@ function getMessageWidth(columnWidths) {
   const fullWidth = _.sum(_.values(columnWidths))
 
   // If there is no reason to wrap the text, we won't align the last column to the right
-  if (availableWidth > fullWidth + marginWidths) {
+  if (availableWidth > fullWidth + MARGIN_WIDTHS) {
     return columnWidths[3]
   }
 
-  return availableWidth - (fullWidth - columnWidths[3] + marginWidths)
+  return availableWidth - (fullWidth - columnWidths[3] + MARGIN_WIDTHS)
 }
 
-function formatter(opts) {
-  const options = opts || {}
-  const sortByPosition = (typeof options.sortByPosition !== "undefined") ? options.sortByPosition : true
-  const positionless = options.positionless || "first"
+function formatter(messages, source) {
+  if (!messages.length) return ""
 
-  return function (input) {
-    const messages = input.messages
-    const source = input.source
+  const orderedMessages = _.sortBy(
+    messages,
+    (m) => m.line ? 2 : 1, // positionless first
+    (m) => m.line ,
+    (m) => m.column
+  )
 
-    if (!messages.length) return ""
+  // Create a list of column widths, needed to calculate
+  // the size of the message column and if needed wrap it.
+  const columnWidths = { 0: 1, 1: 1, 2: 1, 3: 1, 4: 1 }
 
-    const orderedMessages = _.sortBy(
-      messages,
-      (m) => {
-        if (!m.line) return 1
-        if (positionless === "any") return 1
-        if (positionless === "first") return 2
-        if (positionless === "last") return 0
-      },
-      (m) => sortByPosition? m.line : 1,
-      (m) => sortByPosition? m.column : 1
-    )
+  const calculateWidths = function (columns) {
 
-    // Create a list of column widths, needed to calculate
-    // the size of the message column and if needed wrap it.
-    const columnWidths = { 0: 1, 1: 1, 2: 1, 3: 1, 4: 1 }
+    _.forOwn(columns, (value, key) => {
+      columnWidths[key] = Math.max(columnWidths[key], chalk.stripColor(value).toString().length)
+    })
 
-    const calculateWidths = function (columns) {
-      let width, i
-      for (i in columns) {
-        if (columns.hasOwnProperty(i)) {
-          width = chalk.stripColor(columns[i]).toString().length
-          if (width > columnWidths[i]) {
-            columnWidths[i] = width
-          }
-        }
-      }
-
-      return columns
-    }
-
-    let output = "\n"
-
-    if (source) {
-      output += chalk.bold.underline(logFrom(source)) + "\n"
-    }
-
-    const cleanedMessages = orderedMessages.map(
-      (message) => {
-        const location = utils.getLocation(message)
-        const severity = getSeverity(message.severity)
-        const messageType = chalk[levelColors[severity]](options.noIcon ? severity : symbols[severity])
-
-        const escapedRule = ("(" + message.rule + ")").replace(/[|\\{}()[\]^$+*?.]/g, "\\$&")
-
-        return calculateWidths([
-          location.line || "",
-          location.column || "",
-          messageType,
-          message.text.replace(/\.$/, "").replace(new RegExp(escapedRule + "$"), ""),
-          chalk.yellow(message.rule || ""),
-        ])
-      })
-
-    output += table(
-      cleanedMessages,
-      {
-        border: getBorderCharacters("void"),
-        columns: {
-          0: { alignment: "right", width: columnWidths[0], paddingRight: 0 },
-          1: { alignment: "left", width: columnWidths[1] },
-          2: { alignment: "left", width: columnWidths[2] },
-          3: { alignment: "left", width: getMessageWidth(columnWidths), wrapWord: true },
-          4: { alignment: "left", width: columnWidths[4], paddingRight: 0 },
-        },
-        drawHorizontalLine: () => false,
-      }
-      )
-      .split("\n")
-      .map((el) => el.replace(/(\d+)\s+(\d+)/, (m, p1, p2) => chalk.bold(p1 + ":" + p2)))
-      .join("\n")
-
-    return output
+    return columns
   }
-}
 
-const minimalFormatter = formatter({
-  noIcon: false,
-})
+  let output = "\n"
+
+  if (source) {
+    output += chalk.bold.underline(logFrom(source)) + "\n"
+  }
+
+  const cleanedMessages = orderedMessages.map(
+    (message) => {
+      const location = utils.getLocation(message)
+      const severity = message.severity
+
+      const row = [
+        location.line || "",
+        location.column || "",
+        symbols[severity] ? chalk[levelColors[severity]](symbols[severity])  : severity,
+        message.text.replace(/\.$/, "").replace(new RegExp(_.escapeRegExp("(" + message.rule + ")") + "$"), ""),
+        chalk.yellow(message.rule || ""),
+      ]
+
+      calculateWidths(row)
+
+      return row
+    })
+
+  output += table(
+    cleanedMessages,
+    {
+      border: getBorderCharacters("void"),
+      columns: {
+        0: { alignment: "right", width: columnWidths[0], paddingRight: 0 },
+        1: { alignment: "left", width: columnWidths[1] },
+        2: { alignment: "left", width: columnWidths[2] },
+        3: { alignment: "left", width: getMessageWidth(columnWidths), wrapWord: true },
+        4: { alignment: "left", width: columnWidths[4], paddingRight: 0 },
+      },
+      drawHorizontalLine: () => false,
+    }
+    )
+    .split("\n")
+    .map((el) => el.replace(/(\d+)\s+(\d+)/, (m, p1, p2) => chalk.bold(p1 + ":" + p2)))
+    .join("\n")
+
+  return output
+}
 
 export default function (results) {
   let output = invalidOptionsFormatter(results)
   output += deprecationsFormatter(results)
 
   return results.reduce((output, result) => {
-    output += minimalFormatter({
-      messages: result.warnings,
-      source: result.source,
-    })
+    output += formatter(result.warnings, result.source)
     return output
   }, output)
 }
