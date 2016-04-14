@@ -1,5 +1,6 @@
 # Head
 
+- Changed: `CssSyntaxError` is no longer thrown but reported alongside warnings.
 - Added: `consecutive-duplicates` option for `declaration-block-no-duplicate-properties` rule.
 - Added: `unit-case` rule.
 - Added: exposed `stylelint.utils.cssWordIsVariable()`.
