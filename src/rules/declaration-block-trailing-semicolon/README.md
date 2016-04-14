@@ -28,6 +28,10 @@ a { color: pink }
 a { background: orange; color: pink }
 ```
 
+```css
+a { @include foo }
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -36,6 +40,10 @@ a { color: pink; }
 
 ```css
 a { background: orange; color: pink; }
+```
+
+```css
+a { @include foo; }
 ```
 
 ### `"never"`

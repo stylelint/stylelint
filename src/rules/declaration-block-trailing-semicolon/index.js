@@ -1,7 +1,7 @@
 import {
   report,
   ruleMessages,
-  cssStatementHasEmptyBlock,
+  cssStatementHasBlock,
   validateOptions,
 } from "../../utils"
 
@@ -23,38 +23,37 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.walkRules(rule => {
-      // Return early if an empty rule
-      if (cssStatementHasEmptyBlock(rule)) { return }
+    root.walkAtRules(atRule => {
+      if (atRule.parent === root) { return }
+      if (atRule !== atRule.parent.last) { return }
+      if (cssStatementHasBlock(atRule)) { return }
+      checkLastNode(atRule)
+    })
 
-      if (!rule.last || rule.last.type !== "decl") { return }
+    root.walkDecls(decl => {
+      if (decl !== decl.parent.last) { return }
+      checkLastNode(decl)
+    })
 
-      let errorIndexOffset = rule.toString().length
-      const after = rule.raw("after")
-      if (after) {
-        errorIndexOffset -= after.length
-      }
-
-      let errorIndex
+    function checkLastNode(node) {
       let message
+
       if (expectation === "always") {
-        if (rule.raws.semicolon) { return }
-        errorIndex = errorIndexOffset - 1
+        if (node.parent.raws.semicolon) { return }
         message = messages.expected
       }
       if (expectation === "never") {
-        if (!rule.raws.semicolon) { return }
-        errorIndex = errorIndexOffset - 2
+        if (!node.parent.raws.semicolon) { return }
         message = messages.rejected
       }
 
       report({
         message,
-        node: rule,
-        index: errorIndex,
+        node,
+        index: node.toString().trim().length - 1,
         result,
         ruleName,
       })
-    })
+    }
   }
 }
