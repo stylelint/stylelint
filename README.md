@@ -28,7 +28,7 @@ With stylelint, it's easy to start linting your CSS:
 1. Decide how you want to use stylelint:
 
     - [via a plugin for your text editor](/docs/user-guide/complementary-tools.md#editor-plugins)
-    - [via a plugin for your task runner](/docs/user-guide/complementary-tools.md#build-tool-plugins)
+    - [via a plugin for your build tool](/docs/user-guide/complementary-tools.md#build-tool-plugins)
     - [via the stylelint CLI](/docs/user-guide/cli.md)
     - [via the stylelint Node API](/docs/user-guide/node-api.md)
     - [via the stylelint PostCSS plugin](/docs/user-guide/postcss-plugin.md)
