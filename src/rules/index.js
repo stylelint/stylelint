@@ -86,6 +86,7 @@ import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyBlacklist from "./property-blacklist"
 import propertyCase from "./property-case"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
+import propertyShorthandNoUnnecessaryValue from "./property-shorthand-no-unnecessary-value"
 import propertyUnitBlacklist from "./property-unit-blacklist"
 import propertyUnitWhitelist from "./property-unit-whitelist"
 import propertyValueBlacklist from "./property-value-blacklist"
@@ -220,6 +221,7 @@ export default {
   "property-blacklist": propertyBlacklist,
   "property-case": propertyCase,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
+  "property-shorthand-no-unnecessary-value": propertyShorthandNoUnnecessaryValue,
   "property-unit-blacklist": propertyUnitBlacklist,
   "property-unit-whitelist": propertyUnitWhitelist,
   "property-value-blacklist": propertyValueBlacklist,

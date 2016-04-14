@@ -95,6 +95,7 @@ You might want to learn a little about [how rules are named and how they work to
     "property-blacklist": string|[],
     "property-case": "lower"|"upper",
     "property-no-vendor-prefix": true,
+    "property-shorthand-no-unnecessary-value": true,
     "property-unit-blacklist": {},
     "property-unit-whitelist": {},
     "property-value-blacklist": {},
