@@ -29,28 +29,28 @@ export default function (expectation) {
 
     root.walkRules(rule => {
       const selector = rule.selector
-      const startIndexPseudoElement = selector.indexOf(":")
+      const startIndexPseudo = selector.indexOf(":")
 
-      if (startIndexPseudoElement === -1) { return }
+      if (startIndexPseudo === -1) { return }
 
       selectorParser(selectorTree => {
         selectorTree.eachPseudo(pseudoNode => {
-          const pseudoElement = pseudoNode.value
+          const pseudo = pseudoNode.value
 
-          if (pseudoElement.indexOf("::") !== -1
-            || pseudoElements.has(pseudoElement.toLowerCase())
+          if (pseudo.indexOf("::") !== -1
+            || pseudoElements.has(pseudo.toLowerCase())
           ) {
             return
           }
 
-          const expectedPseudoElement = expectation === "lower"
-            ? pseudoElement.toLowerCase()
-            : pseudoElement.toUpperCase()
+          const expectedPseudo = expectation === "lower"
+            ? pseudo.toLowerCase()
+            : pseudo.toUpperCase()
 
-          if (pseudoElement === expectedPseudoElement) { return }
+          if (pseudo === expectedPseudo) { return }
 
           report({
-            message: messages.expected(pseudoElement, expectedPseudoElement),
+            message: messages.expected(pseudo, expectedPseudo),
             node: rule,
             index: pseudoNode.sourceIndex,
             ruleName,
