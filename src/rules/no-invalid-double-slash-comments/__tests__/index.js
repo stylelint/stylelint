@@ -72,6 +72,18 @@ testRule(rule, {
   ruleName,
   config: [undefined],
   skipBasicChecks: true,
+  syntax: "scss",
+
+  accept: [{
+    code: "a { color: pink; // }",
+    description: "single-line comment ignored",
+  }],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [undefined],
+  skipBasicChecks: true,
   syntax: "less",
 
   accept: [{
