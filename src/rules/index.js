@@ -120,6 +120,7 @@ import unitBlacklist from "./unit-blacklist"
 import unitCase from "./unit-case"
 import unitNoUnknown from "./unit-no-unknown"
 import unitWhitelist from "./unit-whitelist"
+import valueKeywordCase from "./value-keyword-case"
 import valueListCommaNewlineAfter from "./value-list-comma-newline-after"
 import valueListCommaNewlineBefore from "./value-list-comma-newline-before"
 import valueListCommaSpaceAfter from "./value-list-comma-space-after"
@@ -249,6 +250,7 @@ export default {
   "unit-case": unitCase,
   "unit-no-unknown": unitNoUnknown,
   "unit-whitelist": unitWhitelist,
+  "value-keyword-case": valueKeywordCase,
   "value-list-comma-newline-after": valueListCommaNewlineAfter,
   "value-list-comma-newline-before": valueListCommaNewlineBefore,
   "value-list-comma-space-after": valueListCommaSpaceAfter,

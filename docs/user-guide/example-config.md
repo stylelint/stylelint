@@ -126,6 +126,7 @@ You might want to learn a little about [how rules are named and how they work to
     "unit-case": "single"|"double",
     "unit-no-unknown": true,
     "unit-whitelist": string|[],
+    "value-keyword-case": "lower"|"upper",
     "value-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
     "value-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
     "value-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
