@@ -1,0 +1,7 @@
+.baz {
+    color: #4f;
+}
+.foo {
+    top:0px !important;
+}
+.foo.bar {}
