@@ -22,17 +22,13 @@ const shorthandableProperties = new Set([
   "border-width",
 ])
 
+const ignoredCharacters = [
+  "+", "-", "*", "/", "(", ")",
+  "$", "@", "--", "var(",
+]
+
 function isIgnoredCharacters(value) {
-  return value.indexOf("+") !== -1
-    || value.indexOf("-") !== -1
-    || value.indexOf("*") !== -1
-    || value.indexOf("/") !== -1
-    || value.indexOf("(") !== -1
-    || value.indexOf(")") !== -1
-    || value.indexOf("$") !== -1
-    || value.indexOf("@") !== -1
-    || value.indexOf("--") !== -1
-    || value.indexOf("var(") !== -1
+  return ignoredCharacters.some(char => value.indexOf(char) !== -1)
 }
 
 function canCondense(top, right, bottom = null, left = null) {
