@@ -3,6 +3,7 @@ import {
   findLastIndex,
   range,
 } from "lodash"
+import valueParser from "postcss-value-parser"
 import {
   isKnownUnit,
   blurComments,
@@ -18,6 +19,13 @@ export const ruleName = "number-zero-length-no-unit"
 export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected unit on zero length number",
 })
+
+const ignoredUnits = new Set([
+  "dpcm", "dppx", "dpi",
+  "kHz", "Hz",
+  "s", "ms",
+  "%",
+])
 
 export default function (actual) {
   return (root, result) => {
@@ -78,6 +86,9 @@ export default function (actual) {
           : nextValueBreakIndex + valueWithZeroStart
 
         const valueWithZero = value.slice(valueWithZeroStart, valueWithZeroEnd)
+        const parsedValue = valueParser.unit(valueWithZero)
+
+        if (parsedValue && parsedValue.unit && ignoredUnits.has(parsedValue.unit)) { return }
 
         // Add the indexes to ignorableIndexes so the same value will not
         // be checked multiple times.
@@ -92,6 +103,7 @@ export default function (actual) {
           if (isKnownUnit(valueWithZero.slice(-4))) { return 4 }
           if (isKnownUnit(valueWithZero.slice(-3))) { return 3 }
           if (isKnownUnit(valueWithZero.slice(-2))) { return 2 }
+          if (isKnownUnit(valueWithZero.slice(-1))) { return 1 }
           return 0
         }())
 

@@ -11,6 +11,7 @@
 - Added: `selector-pseudo-class-case` rule.
 - Fixed: `block-no-empty` no longer delivers false positives for less syntax.
 - Fixed: `declaration-block-trailing-semicolon` better understands nested at-rules.
+- Fixed: `number-zero-length-no-unit` now work with `q` unit and ignores `s`, `ms`, `kHz`, `Hz`, `dpcm`, `dppx`, `dpi` units
 
 # 5.4.0
 
