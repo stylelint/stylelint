@@ -180,3 +180,51 @@ testRule(rule, {
     column: 3,
   }],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [ 2, {
+    indentClosingBrace: true,
+  } ],
+
+  accept: [ {
+    code: "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "    }\n" +
+    "  }",
+  }, {
+    code: "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "    }\n" +
+    "  }\n" +
+    "\n" +
+    "@media screen {\n" +
+    "  b { color: orange; }\n" +
+    "  }",
+  } ],
+
+  reject: [ {
+    code: "\n" +
+    "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "    }\n" +
+    " }",
+
+    message: messages.expected("2 spaces"),
+    line: 6,
+    column: 2,
+  }, {
+    code: "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "   }\n" +
+    "  }",
+
+    message: messages.expected("4 spaces"),
+    line: 4,
+    column: 4,
+  } ],
+})

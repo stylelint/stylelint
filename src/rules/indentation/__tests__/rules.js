@@ -379,3 +379,42 @@ testRule(rule, {
     column: 2,
   }],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [ 2, {
+    indentClosingBrace: true,
+  } ],
+
+  accept: [ {
+    code: "a {\n" +
+    "  color: pink;\n" +
+    "  }",
+  }, {
+    code: "a {\n" +
+    "  color: pink;\n" +
+    "  & b {\n" +
+    "    top: 0;\n" +
+    "    }\n" +
+    "  }",
+  } ],
+
+  reject: [ {
+    code: "a {\n" +
+    "  color: pink;\n" +
+    "}",
+    message: messages.expected("2 spaces"),
+    line: 3,
+    column: 1,
+  }, {
+    code: "a {\n" +
+    "  color: pink;\n" +
+    "  & b {\n" +
+    "    top: 0;\n" +
+    "   }\n" +
+    "  }",
+    message: messages.expected("4 spaces"),
+    line: 5,
+    column: 4,
+  } ],
+})

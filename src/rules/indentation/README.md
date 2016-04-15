@@ -296,44 +296,38 @@ The following patterns are *not* considered warnings:
 .bar {}
 ```
 
-## Caveats
+### `indentClosingBrace: true|false`
 
-Function arguments are simply ignored, to allow for arbitrary indentation. So any of the following are *not* considered warnings:
+If `true`, the closing brace of a block (rule or at-rule) will be expected at the same indentation level as the block's inner nodes.
+
+For example, with `indentClosingBrace: true`, the following patterns are considered warnings:
 
 ```css
-.foo {
-  color: rgb(0, 0, 0);
+a {
+  color: pink;
 }
 ```
 
 ```css
-.foo {
-  color: rgb(
-    0,
-    0,
-    0
-  );
+@media print {
+  a {
+    color: pink;
+  }  
 }
 ```
 
+And the following patterns are *not* considered warnings:
+
 ```css
-.foo {
-  color: rgb(
-      0,
-      0,
-      0
-    );
-}
+a {
+  color: pink;
+  }
 ```
 
 ```css
-.foo {
-  color: bar(
-    rgb(
-    0,
-    0,
-    0
-    )
-  );
-}
+@media print {
+  a {
+    color: pink;
+    }  
+  }
 ```

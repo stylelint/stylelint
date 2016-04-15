@@ -52,6 +52,7 @@ export default function (space, options = {}) {
         ignore: [ "value", "param" ],
         hierarchicalSelectors: [isBoolean],
         indentInsideParens: [ "once", "twice", "once-at-root-twice-in-block" ],
+        indentClosingBrace: [isBoolean],
       },
       optional: true,
     })
@@ -112,14 +113,16 @@ export default function (space, options = {}) {
       // Only blocks have the `after` string to check.
       // Only inspect `after` strings that start with a newline;
       // otherwise there's no indentation involved.
+      // And check `indentClosingBrace` to see if it should be indented an extra level.
+      const closingBraceLevel = (options.indentClosingBrace) ? nodeLevel + 1 : nodeLevel
       if (
         cssStatementHasBlock(node)
         && after
         && after.indexOf("\n") !== -1
-        && after.slice(after.lastIndexOf("\n") + 1) !== expectedWhitespace
+        && after.slice(after.lastIndexOf("\n") + 1) !== repeat(indentChar, closingBraceLevel)
       ) {
         report({
-          message: messages.expected(legibleExpectation(nodeLevel)),
+          message: messages.expected(legibleExpectation(closingBraceLevel)),
           node,
           index: node.toString().length - 1,
           result,
@@ -219,15 +222,19 @@ export default function (space, options = {}) {
           const isClosingParen = /^\s*\)/.test(source.slice(match.startIndex))
           switch (options.indentInsideParens) {
             case "once":
-              if (isClosingParen) { expectedIndentLevel -= 1 }
+              if (isClosingParen && !options.indentClosingBrace) { expectedIndentLevel -= 1 }
               break
             case "twice":
-              if (!isClosingParen) { expectedIndentLevel += 1 }
+              if (!isClosingParen || options.indentClosingBrace) { expectedIndentLevel += 1 }
               break
             case "once-at-root-twice-in-block":
-              if (isClosingParen && node.parent === root) {
-                expectedIndentLevel -= 1
-              } else if (!isClosingParen && node.parent !== root) {
+              if (node.parent === root) {
+                if (isClosingParen && !options.indentClosingBrace) {
+                  expectedIndentLevel -= 1
+                }
+                break
+              }
+              if (!isClosingParen || options.indentClosingBrace) {
                 expectedIndentLevel += 1
               }
               break
