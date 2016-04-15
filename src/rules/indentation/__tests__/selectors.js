@@ -36,7 +36,7 @@ testRule(rule, {
 
     message: messages.expected("0 spaces"),
     line: 2,
-    column: 1,
+    column: 3,
   }, {
     code: "a,\n" +
     "b,\n" +
@@ -44,7 +44,7 @@ testRule(rule, {
 
     message: messages.expected("0 spaces"),
     line: 3,
-    column: 1,
+    column: 2,
   }, {
     code: "@media print {\n" +
     "  a,\n" +
@@ -62,7 +62,7 @@ testRule(rule, {
 
     message: messages.expected("2 spaces"),
     line: 3,
-    column: 1,
+    column: 4,
   }, {
     code: "@media print {\n" +
     "   a,\n" +

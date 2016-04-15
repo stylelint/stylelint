@@ -174,7 +174,7 @@ testRule(rule, {
 
     message: messages.expected("4 spaces"),
     line: 3,
-    column: 1,
+    column: 3,
   }, {
     code: "a {\n" +
     "  background-position: top left,\n" +
@@ -185,7 +185,7 @@ testRule(rule, {
 
     message: messages.expected("4 spaces"),
     line: 4,
-    column: 1,
+    column: 3,
   }, {
     code: "@media print {\n" +
     "   * { color: pink; }\n" +
@@ -322,7 +322,7 @@ testRule(rule, {
 
     message: messages.expected("2 spaces"),
     line: 3,
-    column: 1,
+    column: 5,
   }, {
     code: "a {\n" +
     "  background-position: top left,\n" +
@@ -333,7 +333,7 @@ testRule(rule, {
 
     message: messages.expected("2 spaces"),
     line: 4,
-    column: 1,
+    column: 5,
   } ],
 })
 

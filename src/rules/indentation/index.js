@@ -36,7 +36,7 @@ function addNodeToHierarchy(node, superordinate, level) {
  * @param {array} [options.hierarchicalSelectors = false] - If `true`, we'll look for a
  *   hierarchical style of indentation (see tests and docs)
  */
-export default function (space, options) {
+export default function (space, options = {}) {
   const isTab = space === "tab"
   const indentChar = (isTab) ? "\t" : repeat(" ", space)
   const warningWord = (isTab) ? "tab" : "space"
@@ -51,6 +51,7 @@ export default function (space, options) {
         except: [ "block", "value", "param" ],
         ignore: [ "value", "param" ],
         hierarchicalSelectors: [isBoolean],
+        indentInsideParens: [ "once", "twice", "once-at-root-twice-in-block" ],
       },
       optional: true,
     })
@@ -211,7 +212,28 @@ export default function (space, options) {
       if (source.indexOf("\n") === -1) { return }
       // `outsideParens` because function arguments and also non-standard parenthesized stuff like
       // Sass maps are ignored to allow for arbitrary indentation
-      styleSearch({ source, target: "\n", outsideParens: true }, (match) => {
+      styleSearch({ source, target: "\n", outsideParens: !options.indentInsideParens }, (match) => {
+        let expectedIndentLevel = newlineIndentLevel
+        // Modify for paren content and closing paren
+        if (options.indentInsideParens && match.insideParens) {
+          const isClosingParen = /^\s*\)/.test(source.slice(match.startIndex))
+          switch (options.indentInsideParens) {
+            case "once":
+              if (isClosingParen) { expectedIndentLevel -= 1 }
+              break
+            case "twice":
+              if (!isClosingParen) { expectedIndentLevel += 1 }
+              break
+            case "once-at-root-twice-in-block":
+              if (isClosingParen && node.parent === root) {
+                expectedIndentLevel -= 1
+              } else if (!isClosingParen && node.parent !== root) {
+                expectedIndentLevel += 1
+              }
+              break
+          }
+        }
+
         // Starting at the index after the newline, we want to
         // check that the whitespace characters (excluding newlines) before the first
         // non-whitespace character equal the expected indentation
@@ -219,11 +241,11 @@ export default function (space, options) {
         if (!afterNewlineSpaceMatches) { return }
         const afterNewlineSpace = afterNewlineSpaceMatches[1]
 
-        if (afterNewlineSpace !== repeat(indentChar, newlineIndentLevel)) {
+        if (afterNewlineSpace !== repeat(indentChar, expectedIndentLevel)) {
           report({
-            message: messages.expected(legibleExpectation(newlineIndentLevel)),
+            message: messages.expected(legibleExpectation(expectedIndentLevel)),
             node,
-            index: match.startIndex + 1,
+            index: match.startIndex + afterNewlineSpace.length + 1,
             result,
             ruleName,
           })

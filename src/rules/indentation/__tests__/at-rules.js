@@ -128,7 +128,7 @@ testRule(rule, {
     description: "multi-line at-rule params",
     message: messages.expected("1 tab"),
     line: 2,
-    column: 1,
+    column: 3,
   } ],
 })
 
@@ -149,7 +149,7 @@ testRule(rule, {
 
     message: messages.expected("0 spaces"),
     line: 2,
-    column: 1,
+    column: 3,
   }],
 })
 
