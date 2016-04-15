@@ -9,6 +9,8 @@ import {
 } from "lodash"
 import { configurationError } from "./utils"
 
+const IGNORE_FILENAME = ".stylelintignore"
+
 export default function (options) {
   const rawConfig = (() => {
     if (options.config) return options.config
@@ -57,12 +59,13 @@ export default function (options) {
 }
 
 function augmentConfig(config, configDir) {
-  // Absolutize the plugins here, because here is the place
-  // where we know the basedir for this particular config
-  const configWithAbsolutePlugins = absolutizePlugins(config, configDir)
 
   // Get ignore patterns from .stylelintignore
   config.ignoreFiles = [].concat(findIgnorePatterns(configDir), config.ignoreFiles || [])
+
+  // Absolutize the plugins here, because here is the place
+  // where we know the basedir for this particular config
+  const configWithAbsolutePlugins = absolutizePlugins(config, configDir)
 
   if (!config.extends) {
     return Promise.resolve(configWithAbsolutePlugins)
@@ -112,15 +115,16 @@ function getModulePath(basedir, lookup) {
 }
 
 function findIgnorePatterns(configDir) {
-  const ignoreFilePath = path.resolve(configDir, ".stylelintignore")
+  const ignoreFilePath = path.resolve(configDir, IGNORE_FILENAME)
 
-  if (!fs.existsSync(ignoreFilePath)) {
+  try {
+    return fs.readFileSync(ignoreFilePath, "utf8")
+      .split(/\r?\n/g)
+      .filter(val => val.trim() !== "")     // Remove empty lines
+      .filter(val => val.trim()[0] !== "#") // Remove comments
+  } catch (e) {
     return []
   }
-
-  return fs.readFileSync(ignoreFilePath, "utf8")
-    .split(/\r?\n/g)
-    .filter(val => val.trim() !== "")
 }
 
 // The `ignoreFiles` option only works with the

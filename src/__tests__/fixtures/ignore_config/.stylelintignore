@@ -1,0 +1,4 @@
+# we need to go up one folder as the paths are
+# resolved absolutely to the directory the file's in
+../**/*.css
+!../**/invalid-hex.css

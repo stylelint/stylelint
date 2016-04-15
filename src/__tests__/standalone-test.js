@@ -310,6 +310,29 @@ test("standalone with extending config with ignoreFiles glob ignoring one by neg
   t.plan(7)
 })
 
+test("standalone with .stylelintignore file ignoring one by negation", t => {
+  standalone({
+    files: [`${fixturesPath}/*.css`],
+    config: {
+      extends: [
+        `${fixturesPath}/config-block-no-empty`,
+        `${fixturesPath}/config-color-no-invalid-hex`,
+      ],
+    },
+    configBasedir: path.join(__dirname, "fixtures/ignore_config"),
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)
+    t.equal(parsedOutput.length, 2)
+    t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1)
+    t.equal(parsedOutput[0].warnings.length, 1)
+    t.equal(parsedOutput[0].warnings[0].severity, "info", "must be an information")
+    t.equal(parsedOutput[0].warnings[0].text, "This file is ignored")
+    t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
+    t.equal(parsedOutput[1].warnings.length, 1)
+  }).catch(logError)
+  t.plan(7)
+})
+
 test("standalone extending a config that ignores files", t => {
   let planned = 0
   standalone({
