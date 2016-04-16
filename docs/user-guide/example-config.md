@@ -1,13 +1,14 @@
 # Example config
 
-This example config lists all of the [rules](/docs/user-guide/rules.md) and their primary options. You can remove ([or turn off](./configuration.md#configuring-rules)) the rules you don't want and edit the primary option of each rule to your liking.
+This example config lists all of the [rules](/docs/user-guide/rules.md) and their primary options. You can remove ([or turn off](/docs/user-guide/configuration.md#rules)) the rules you don't want and edit the primary option of each rule to your liking.
 
-You might want to learn a little about [the conventions](/docs/user-guide/rules.md#about-rule-names) the rule names follow, to get a better idea of what each rule does.
+You might want to learn a little about [how rules are named and how they work together](/docs/user-guide/about-rules.md), to get a better idea of what each rule does.
 
 ```json
 {
   "rules": {
     "at-rule-empty-line-before": "always"|"never",
+    "at-rule-name-case": "lower"|"upper",
     "at-rule-no-vendor-prefix": true,
     "at-rule-semicolon-newline-after": "always",
     "block-closing-brace-newline-after": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
@@ -55,6 +56,7 @@ You might want to learn a little about [the conventions](/docs/user-guide/rules.
     "function-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
     "function-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
     "function-linear-gradient-no-nonstandard-direction": true,
+    "function-name-case": "lower"|"upper",
     "function-parentheses-newline-inside": "always"|"always-multi-line"|"never-multi-line",
     "function-parentheses-space-inside": "always"|"never"|"always-single-line"|"never-single-line",
     "function-url-data-uris": "always"|"never",
@@ -90,6 +92,7 @@ You might want to learn a little about [the conventions](/docs/user-guide/rules.
     "number-no-trailing-zeros": true,
     "number-zero-length-no-unit": true,
     "property-blacklist": string|[],
+    "property-case": "lower"|"upper",
     "property-no-vendor-prefix": true,
     "property-unit-blacklist": {},
     "property-unit-whitelist": {},
@@ -113,6 +116,8 @@ You might want to learn a little about [the conventions](/docs/user-guide/rules.
     "selector-no-type": true,
     "selector-no-universal": true,
     "selector-no-vendor-prefix": true,
+    "selector-pseudo-class-case": "lower"|"upper",
+    "selector-pseudo-element-case": "lower"|"upper",
     "selector-pseudo-element-colon-notation": "single"|"double",
     "selector-root-no-composition": true,
     "selector-type-case": "lower"|"upper",
@@ -120,8 +125,10 @@ You might want to learn a little about [the conventions](/docs/user-guide/rules.
     "string-quotes": "single"|"double",
     "time-no-imperceptible": true,
     "unit-blacklist": string|[],
+    "unit-case": "single"|"double",
     "unit-no-unknown": true,
     "unit-whitelist": string|[],
+    "value-keyword-case": "lower"|"upper",
     "value-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
     "value-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
     "value-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",

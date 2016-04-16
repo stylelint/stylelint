@@ -38,6 +38,12 @@ stylelint "foo/**/*.scss" --syntax scss
 
 The above can be slightly altered to read Less or SugarSS syntax: `--syntax less`, `--syntax sugarss`.
 
+## Syntax errors
+
+The CLI informs you about syntax errors in your CSS.
+It uses the same format as it uses for linting warnings.
+The error name is `CssSyntaxError`.
+
 ## Exit codes
 
 The CLI can exit the process with the following exit codes:

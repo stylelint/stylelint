@@ -1,6 +1,8 @@
-# The stylelint PostCSS Plugin
+# The stylelint PostCSS plugin
 
-As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a PostCSS runner -- such as [`gulp-postcss`](https://github.com/postcss/gulp-postcss), [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss) and [`postcss-loader`](https://github.com/postcss/postcss-loader) -- or with the PostCSS JS API directly.
+As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a PostCSS runner -- such as [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss) -- or with the PostCSS JS API directly.
+
+If a dedicated stylelint task runner plugin [is available](/docs/user-guide/complementary-tools.md) (e.g. `gulp-stylelint`) we recommend you use that rather than this plugin.
 
 ## Options
 
@@ -10,11 +12,11 @@ The plugin accepts an options object as argument, with the following properties:
 
 A [stylelint configuration object](/docs/user-guide/configuration.md).
 
-If no `config` is passed, stylelint will look for a `.stylelintrc` configuration file.
+If no `config` or `configFile` is passed, stylelint will look for a `.stylelintrc` configuration file.
 
 ### `configFile`
 
-The path to a JSON, YAML, or JS file  that contains your [stylelint configuration object](/docs/user-guide/configuration.md).
+The path to a JSON, YAML, or JS file that contains your [stylelint configuration object](/docs/user-guide/configuration.md).
 
 It should be either absolute or relative to the directory that your process is running from (`process.cwd()`). We'd recommend absolute.
 
@@ -35,85 +37,89 @@ The difference between the `configOverrides` and `config` options is this: If an
 
 ## Usage examples
 
-We recommend you lint your CSS before applying any transformations. You can do this by either placing stylelint at the beginning of your plugin pipeline, using a plugin like [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) to lint the your files before any transformations, or by creating a separate lint process that is independent of your build one.
+We recommend you lint your CSS before applying any transformations. You can do this by either:
 
-You'll also need to use a reporter. *The stylelint plugin registers warnings via PostCSS*. Therefore, you'll want to use it with a PostCSS runner that prints warnings (e.g. [`gulp-postcss`](https://github.com/postcss/gulp-postcss)) or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
+- creating a separate lint task that is independent of your build one.
+- using the [`plugins` option](https://github.com/postcss/postcss-import#plugins) of [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) to lint the your files before any transformations.
+- placing stylelint at the beginning of your plugin pipeline.
+
+You'll also need to use a reporter. *The stylelint plugin registers warnings via PostCSS*. Therefore, you'll want to use it with a PostCSS runner that prints warnings (e.g. [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss)) or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
 
 ### Example A
 
-Using the plugin with [`gulp-postcss`](https://github.com/postcss/gulp-postcss), and as a separate lint task:
+Using the plugin with [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss), and as a separate lint task:
 
 ```js
-var postcss = require("gulp-postcss")
-var reporter = require("postcss-reporter")
-var stylelint = require("stylelint")
-
-gulp.task("lint:css", function () {
-  return gulp.src("src/**/*.css")
-    .pipe(postcss([
-      stylelint({ /* your options */ }),
-      reporter({ clearMessages: true }),
-    ]))
+grunt.initConfig({
+  postcss: {
+    // build task (this example uses postcss-import and autoprefixer)
+    build: {
+      options: {
+        map: true,
+        processors: [
+          require("postcss-import"),
+          require("autoprefixer")({browsers: "last 2 versions"})
+        ]
+      },
+      // start at the entry file
+      dist: {
+        src: 'css/entry.css'
+      }
+    },
+    // separate lint task
+    lint: {
+      options: {
+        processors: [
+          require("stylelint")({ /* your options */ }),
+          require("postcss-reporter")({ clearMessages: true })
+        ]
+      },
+      // lint all the .css files in the css directory
+      dist: {
+        src: 'css/**/*.css'
+      }
+    }
+  }
 })
 ```
 
 ### Example B
 
-Using the plugin within [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import), as part of the build task:
+Using the plugin with [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss), but within [`postcss-import`](https://github.com/postcss/postcss-import) (using the its `plugins` option) as part of the build task:
 
 ```js
-var easyImport = require("postcss-easy-import")
-var postcss = require("gulp-postcss")
-var reporter = require("postcss-reporter")
-var stylelint = require("stylelint")
-
-gulp.task("build:css", function () {
-  return gulp.src("src/main.css")
-    .pipe(postcss([
-      stylelint({ /* your options */ })
-      easyImport({
-        plugins: [
-          stylelint({ /* your options */ })
-        ]
-      })
-      /* other plugins... */
-      reporter({ clearMessages: true })
-    ]))
+grunt.initConfig({
+  postcss: {
+    // this example uses postcss-cssnext
+    options: {
+      map: true,
+      processors: [
+        require("postcss-import")({
+          plugins: [
+            require("stylelint")({ /* your options */ })
+          ]
+        }),
+        require("postcss-cssnext")
+        require("postcss-reporter")({ clearMessages: true })
+      ]
+    },
+    // start at the entry file
+    dist: {
+      src: 'css/entry.css'
+    }
+  }
 })
 ```
 
 ### Example C
 
-Using the plugin with [`gulp-postcss`](https://github.com/postcss/gulp-postcss) and [`postcss-less`](https://github.com/webschik/postcss-less) to lint Less, and as part of the build task:
+Using the plugin to lint Less using the PostCSS JS API and [`postcss-less`](https://github.com/webschik/postcss-less).
 
 *Note: the stylelint PostCSS plugin, unlike the stylelint CLI and node API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.*
 
 ```js
-var postcss = require("gulp-postcss")
-var reporter = require("postcss-reporter")
-var less = require("postcss-less")
-var stylelint = require("stylelint")
-
-gulp.task("build:less", function () {
-  return gulp.src("src/**/*.less")
-    .pipe(postcss([
-      stylelint({ /* your options */ }),
-      /* other plugins... */
-      reporter({ clearMessages: true }),
-    ], {
-      syntax: less
-    }))
-})
-```
-
-The same pattern can be used to read SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.
-
-### Example D
-
-Using the plugin with the PostCSS JS API:
-
-```js
 var fs = require("fs")
+var less = require("postcss-less")
 var postcss = require("postcss")
 var reporter = require("postcss-reporter")
 var stylelint = require("stylelint")
@@ -125,12 +131,12 @@ postcss([
   stylelint({ /* your options */ }),
   reporter({ clearMessages: true }),
 ])
-  .process(css, { from: "input.css" })
+  .process(css, {
+    from: "input.css",
+    syntax: less
+  })
   .then()
   .catch(err => console.error(err.stack))
 ```
 
-## PostCSS version compatibility
-
-- Versions `1.0.0+` of the linter are compatible with PostCSS `5.0.2+`.
-- Versions `0.8.0 and below` of the linter are compatible with PostCSS `4.x`.
+The same pattern can be used to lint SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.

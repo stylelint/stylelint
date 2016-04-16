@@ -56,6 +56,9 @@ testRule(rule, {
   }, {
     code: "@media (min-width: 0)",
     description: "media feature",
+  }, {
+    code: "a { transform: translate(0); }",
+    description: "transform function",
   } ],
 
   reject: [ {
@@ -99,5 +102,11 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 21,
+  }, {
+    code: "a { transform: translate(0px); }",
+    description: "transform function",
+    message: messages.rejected,
+    line: 1,
+    column: 27,
   } ],
 })

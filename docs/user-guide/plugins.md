@@ -1,13 +1,17 @@
 # Plugins
 
-Plugins are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases.
+Plugins are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases. Their names are prefixed with "stylelint".
 
-Plugins share all the same traits and conventions as [rules](/docs/user-guide/rules.md), except their names are prefixed within "stylelint".
+## Methodologies
 
-## Selector
+### Selector
 
-- [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors (incorporates [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter).)
+- [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors (incorporates [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter)).
 
-## Declaration
+## Non-standard syntax
 
-- [`stylelint-declaration-use-variable`](https://github.com/sh-waqar/stylelint-declaration-use-variable): Specify a property for which you want scss variable to be used.
+### SCSS
+
+#### Declaration
+
+- [`stylelint-declaration-use-variable`](https://github.com/sh-waqar/stylelint-declaration-use-variable): Specify properties for which a SCSS variable must be used.

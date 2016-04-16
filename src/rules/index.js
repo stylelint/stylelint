@@ -1,4 +1,5 @@
 import atRuleSemicolonNewlineAfter from "./at-rule-semicolon-newline-after"
+import atRuleNameCase from "./at-rule-name-case"
 import atRuleEmptyLineBefore from "./at-rule-empty-line-before"
 import atRuleNoVendorPrefix from "./at-rule-no-vendor-prefix"
 import blockClosingBraceNewlineAfter from "./block-closing-brace-newline-after"
@@ -47,6 +48,7 @@ import functionCommaSpaceAfter from "./function-comma-space-after"
 import functionCommaSpaceBefore from "./function-comma-space-before"
 import functionLinearGradientNoNonstandardDirection from "./function-linear-gradient-no-nonstandard-direction"
 import functionMaxEmptyLines from "./function-max-empty-lines"
+import functionNameCase from "./function-name-case"
 import functionParenthesesNewlineInside from "./function-parentheses-newline-inside"
 import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
 import functionUrlDataUris from "./function-url-data-uris"
@@ -82,6 +84,7 @@ import numberMaxPrecision from "./number-max-precision"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
 import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyBlacklist from "./property-blacklist"
+import propertyCase from "./property-case"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
 import propertyUnitBlacklist from "./property-unit-blacklist"
 import propertyUnitWhitelist from "./property-unit-whitelist"
@@ -106,6 +109,8 @@ import selectorNoId from "./selector-no-id"
 import selectorNoType from "./selector-no-type"
 import selectorNoUniversal from "./selector-no-universal"
 import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
+import selectorPseudoClassCase from "./selector-pseudo-class-case"
+import selectorPseudoElementCase from "./selector-pseudo-element-case"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
 import selectorRootNoComposition from "./selector-root-no-composition"
 import selectorTypeCase from "./selector-type-case"
@@ -114,8 +119,10 @@ import stringQuotes from "./string-quotes"
 import stylelintDisableReason from "./stylelint-disable-reason"
 import timeNoImperceptible from "./time-no-imperceptible"
 import unitBlacklist from "./unit-blacklist"
+import unitCase from "./unit-case"
 import unitNoUnknown from "./unit-no-unknown"
 import unitWhitelist from "./unit-whitelist"
+import valueKeywordCase from "./value-keyword-case"
 import valueListCommaNewlineAfter from "./value-list-comma-newline-after"
 import valueListCommaNewlineBefore from "./value-list-comma-newline-before"
 import valueListCommaSpaceAfter from "./value-list-comma-space-after"
@@ -124,6 +131,7 @@ import valueNoVendorPrefix from "./value-no-vendor-prefix"
 
 export default {
   "at-rule-semicolon-newline-after": atRuleSemicolonNewlineAfter,
+  "at-rule-name-case": atRuleNameCase,
   "at-rule-empty-line-before": atRuleEmptyLineBefore,
   "at-rule-no-vendor-prefix": atRuleNoVendorPrefix,
   "block-closing-brace-newline-after": blockClosingBraceNewlineAfter,
@@ -172,6 +180,7 @@ export default {
   "function-comma-space-before": functionCommaSpaceBefore,
   "function-linear-gradient-no-nonstandard-direction": functionLinearGradientNoNonstandardDirection,
   "function-max-empty-lines": functionMaxEmptyLines,
+  "function-name-case": functionNameCase,
   "function-parentheses-newline-inside": functionParenthesesNewlineInside,
   "function-parentheses-space-inside": functionParenthesesSpaceInside,
   "function-url-data-uris": functionUrlDataUris,
@@ -207,6 +216,7 @@ export default {
   "number-no-trailing-zeros": numberNoTrailingZeros,
   "number-zero-length-no-unit": numberZeroLengthNoUnit,
   "property-blacklist": propertyBlacklist,
+  "property-case": propertyCase,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
   "property-unit-blacklist": propertyUnitBlacklist,
   "property-unit-whitelist": propertyUnitWhitelist,
@@ -231,6 +241,8 @@ export default {
   "selector-no-type": selectorNoType,
   "selector-no-universal": selectorNoUniversal,
   "selector-no-vendor-prefix": selectorNoVendorPrefix,
+  "selector-pseudo-class-case": selectorPseudoClassCase,
+  "selector-pseudo-element-case": selectorPseudoElementCase,
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
   "selector-root-no-composition": selectorRootNoComposition,
   "selector-type-case": selectorTypeCase,
@@ -239,8 +251,10 @@ export default {
   "stylelint-disable-reason": stylelintDisableReason,
   "time-no-imperceptible": timeNoImperceptible,
   "unit-blacklist": unitBlacklist,
+  "unit-case": unitCase,
   "unit-no-unknown": unitNoUnknown,
   "unit-whitelist": unitWhitelist,
+  "value-keyword-case": valueKeywordCase,
   "value-list-comma-newline-after": valueListCommaNewlineAfter,
   "value-list-comma-newline-before": valueListCommaNewlineBefore,
   "value-list-comma-space-after": valueListCommaSpaceAfter,

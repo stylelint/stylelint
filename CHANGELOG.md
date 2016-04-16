@@ -1,7 +1,17 @@
 # Head
 
+- Changed: `CssSyntaxError` is no longer thrown but reported alongside warnings.
 - Added: `consecutive-duplicates` option for `declaration-block-no-duplicate-properties` rule.
+- Added: `unit-case` rule.
+- Added: exposed `stylelint.utils.cssWordIsVariable()`.
+- Added: `property-case` rule.
+- Added: `function-name-case` rule.
+- Added: `selector-pseudo-element-case` rule.
+- Added: `value-keyword-case` rule.
+- Added: `selector-pseudo-class-case` rule.
+- Added: `at-rule-name-case` rule.
 - Fixed: `block-no-empty` no longer delivers false positives for less syntax.
+- Fixed: `declaration-block-trailing-semicolon` better understands nested at-rules.
 
 # 5.4.0
 
