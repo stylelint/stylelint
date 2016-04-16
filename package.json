@@ -30,7 +30,7 @@
   ],
   "dependencies": {
     "autoprefixer": "^6.0.0",
-    "balanced-match": "^0.3.0",
+    "balanced-match": "^0.4.0",
     "chalk": "^1.1.1",
     "colorguard": "^1.1.1",
     "cosmiconfig": "^1.1.0",
