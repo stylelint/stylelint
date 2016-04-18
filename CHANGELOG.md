@@ -2,6 +2,8 @@
 
 - Changed: `CssSyntaxError` is no longer thrown but reported alongside warnings.
 - Added: new look for standard formatter and support for arbitrary severity names.
+- Added: `indentInsideParens` option to `indentation`.
+- Added: `indentClosingBrace` option to `indentation`.
 - Added: `consecutive-duplicates` option for `declaration-block-no-duplicate-properties` rule.
 - Added: `unit-case` rule.
 - Added: exposed `stylelint.utils.cssWordIsVariable()`.
