@@ -19,6 +19,7 @@ import colorNoHex from "./color-no-hex"
 import colorNoInvalidHex from "./color-no-invalid-hex"
 import commentEmptyLineBefore from "./comment-empty-line-before"
 import commentWhitespaceInside from "./comment-whitespace-inside"
+import commentWordBlacklist from "./comment-word-blacklist"
 import customMediaPattern from "./custom-media-pattern"
 import customPropertyNoOutsideRoot from "./custom-property-no-outside-root"
 import customPropertyPattern from "./custom-property-pattern"
@@ -154,6 +155,7 @@ export default {
   "color-no-invalid-hex": colorNoInvalidHex,
   "comment-empty-line-before": commentEmptyLineBefore,
   "comment-whitespace-inside": commentWhitespaceInside,
+  "comment-word-blacklist": commentWordBlacklist,
   "custom-media-pattern": customMediaPattern,
   "custom-property-no-outside-root": customPropertyNoOutsideRoot,
   "custom-property-pattern": customPropertyPattern,

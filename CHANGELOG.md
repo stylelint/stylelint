@@ -37,6 +37,7 @@
 - Added: `value-keyword-case` rule.
 - Added: `selector-pseudo-class-case` rule.
 - Added: `at-rule-name-case` rule.
+- Added: `comment-word-blacklist` rule.
 - Fixed: `block-no-empty` no longer delivers false positives for less syntax.
 - Fixed: `declaration-block-trailing-semicolon` better understands nested at-rules.
 - Fixed: `number-zero-length-no-unit` now work with `q` unit and ignores `s`, `ms`, `kHz`, `Hz`, `dpcm`, `dppx`, `dpi` units
