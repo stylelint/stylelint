@@ -12,6 +12,20 @@ export const messages = ruleMessages(ruleName, {
   expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
+const ignoredCamelCaseFunctionNames = {
+  "translatex": "translateX",
+  "translatey": "translateY",
+  "translatez": "translateZ",
+  "scalex": "scaleX",
+  "scaley": "scaleY",
+  "scalez": "scaleZ",
+  "rotatex": "rotateX",
+  "rotatey": "rotateY",
+  "rotatez": "rotateZ",
+  "skewx": "skewX",
+  "skewy": "skewY",
+}
+
 export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -30,10 +44,19 @@ export default function (expectation) {
         if (node.type !== "function") { return }
 
         const functionName = node.value
+        const functionNameLowerCase = functionName.toLocaleLowerCase()
 
-        const expectedFunctionName = expectation === "lower"
-          ? functionName.toLowerCase()
-          : functionName.toUpperCase()
+        let expectedFunctionName = null
+
+        if (expectation === "lower"
+          && ignoredCamelCaseFunctionNames.hasOwnProperty(functionNameLowerCase)
+        ) {
+          expectedFunctionName = ignoredCamelCaseFunctionNames[functionNameLowerCase]
+        } else if (expectation === "lower") {
+          expectedFunctionName = functionNameLowerCase
+        } else {
+          expectedFunctionName = functionName.toUpperCase()
+        }
 
         if (functionName === expectedFunctionName) { return }
 

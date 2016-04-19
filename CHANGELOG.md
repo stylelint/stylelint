@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `function-name-case` now better handling functions `translateX`, `translateY`, `translateZ`, `scaleX`, `scaleY`, `scaleZ`, `rotateX`, `rotateY`, `rotateZ`, `skewX`, `skewY` with `lower` option.
+
 # 6.0.0
 
 - Changed: `CssSyntaxError` is no longer thrown but reported alongside warnings.
