@@ -1,6 +1,6 @@
 # Head
 
-- Fixed: `function-name-case` now better handling functions `translateX`, `translateY`, `translateZ`, `scaleX`, `scaleY`, `scaleZ`, `rotateX`, `rotateY`, `rotateZ`, `skewX`, `skewY` with `lower` option.
+- Fixed: `function-name-case` now accounts for camelCase function names (e.g. `translateX`, `scaleX` etc) when the `lower` option is used.
 
 # 6.0.0
 
