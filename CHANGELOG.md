@@ -1,4 +1,4 @@
-# Head
+# 6.0.0
 
 - Changed: `CssSyntaxError` is no longer thrown but reported alongside warnings.
 - Added: new look for standard formatter and support for arbitrary severity names.
