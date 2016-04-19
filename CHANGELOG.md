@@ -1,4 +1,4 @@
-# Head
+# 6.0.1
 
 - Fixed: `function-name-case` now accounts for camelCase function names (e.g. `translateX`, `scaleX` etc) when the `lower` option is used.
 
