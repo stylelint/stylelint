@@ -125,7 +125,7 @@ You might want to learn a little about [how rules are named and how they work to
     "string-quotes": "single"|"double",
     "time-no-imperceptible": true,
     "unit-blacklist": string|[],
-    "unit-case": "single"|"double",
+    "unit-case": "lower"|"upper",
     "unit-no-unknown": true,
     "unit-whitelist": string|[],
     "value-keyword-case": "lower"|"upper",
