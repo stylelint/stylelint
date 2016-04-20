@@ -430,6 +430,16 @@ test("standalone passing file with syntax error", t => {
   t.plan(1)
 })
 
+test("syntax error sets errored to true", t => {
+  standalone({
+    code: "a { color: 'red; }",
+  }).then(({ errored }) => {
+    t.ok(errored, "errored is true")
+  }).catch(logError)
+
+  t.plan(1)
+})
+
 function logError(err) {
   console.log(err.stack) // eslint-disable-line no-console
 }

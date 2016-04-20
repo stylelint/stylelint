@@ -140,6 +140,7 @@ export default function ({
     function cssSyntaxError(error) {
       if (error.name !== "CssSyntaxError") { throw error }
 
+      errored = true
       return {
         source: error.file || "<input css 1>",
         deprecations: [],
