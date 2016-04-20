@@ -41,7 +41,7 @@ testRule(rule, {
     code: "a { transform: translate(\r\n\r\n1\r\n,\r\n1\r\n); }",
     message: messages.rejected,
     line: 1,
-    column: 27,
+    column: 26,
   }, {
     code: "a { transform: translate(\n1\n\n,\n1\n); }",
     message: messages.rejected,
@@ -51,7 +51,7 @@ testRule(rule, {
     code: "a { transform: translate(\r\n1\r\n\r\n,\r\n1\r\n); }",
     message: messages.rejected,
     line: 2,
-    column: 3,
+    column: 2,
   }, {
     code: "a { transform: translate(\n1\n,\n\n1\n); }",
     message: messages.rejected,
@@ -61,7 +61,7 @@ testRule(rule, {
     code: "a { transform: translate(\r\n1\r\n,\r\n\r\n1\r\n); }",
     message: messages.rejected,
     line: 3,
-    column: 3,
+    column: 2,
   }, {
     code: "a { transform: translate(\n1\n,\n1\n\n); }",
     message: messages.rejected,
@@ -71,7 +71,7 @@ testRule(rule, {
     code: "a { transform: translate(\r\n1\r\n,\r\n1\r\n\r\n); }",
     message: messages.rejected,
     line: 4,
-    column: 3,
+    column: 2,
   } ],
 })
 
@@ -110,7 +110,7 @@ testRule(rule, {
     code: "a { transform: translate(\r\n\r\n\r\n1\r\n,\r\n1\r\n); }",
     message: messages.rejected,
     line: 1,
-    column: 27,
+    column: 26,
   }, {
     code: "a { transform: translate(\n1\n\n\n,\n1\n); }",
     message: messages.rejected,
@@ -120,7 +120,7 @@ testRule(rule, {
     code: "a { transform: translate(\r\n1\r\n\r\n\r\n,\r\n1\r\n); }",
     message: messages.rejected,
     line: 2,
-    column: 3,
+    column: 2,
   }, {
     code: "a { transform: translate(\n1\n,\n\n\n1\n); }",
     message: messages.rejected,
@@ -130,7 +130,7 @@ testRule(rule, {
     code: "a { transform: translate(\r\n1\r\n,\r\n\r\n\r\n1\r\n); }",
     message: messages.rejected,
     line: 3,
-    column: 3,
+    column: 2,
   }, {
     code: "a { transform: translate(\n1\n,\n1\n\n\n); }",
     message: messages.rejected,
@@ -140,7 +140,7 @@ testRule(rule, {
     code: "a { transform: translate(\r\n1\r\n,\r\n1\r\n\r\n\r\n); }",
     message: messages.rejected,
     line: 4,
-    column: 3,
+    column: 2,
   } ],
 })
 
@@ -195,7 +195,7 @@ testRule(rule, {
     code: "a { transform: translate(\r\n\r\n\r\n\r\n1\r\n,\r\n1\r\n); }",
     message: messages.rejected,
     line: 1,
-    column: 27,
+    column: 26,
   }, {
     code: "a { transform: translate(\n1\n\n\n\n,\n1\n); }",
     message: messages.rejected,
@@ -205,7 +205,7 @@ testRule(rule, {
     code: "a { transform: translate(\r\n1\r\n\r\n\r\n\r\n,\r\n1\r\n); }",
     message: messages.rejected,
     line: 2,
-    column: 3,
+    column: 2,
   }, {
     code: "a { transform: translate(\n1\n,\n\n\n\n1\n); }",
     message: messages.rejected,
@@ -215,7 +215,7 @@ testRule(rule, {
     code: "a { transform: translate(\r\n1\r\n,\r\n\r\n\r\n\r\n1\r\n); }",
     message: messages.rejected,
     line: 3,
-    column: 3,
+    column: 2,
   }, {
     code: "a { transform: translate(\n1\n,\n1\n\n\n\n); }",
     message: messages.rejected,
@@ -225,6 +225,6 @@ testRule(rule, {
     code: "a { transform: translate(\r\n1\r\n,\r\n1\r\n\r\n\r\n\r\n); }",
     message: messages.rejected,
     line: 4,
-    column: 3,
+    column: 2,
   } ],
 })

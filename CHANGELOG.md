@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: CRLF (`\r\n`) warning positioning in `function-max-empty-lines`.
+
 # 6.0.2
 
 - Fixed: `CssSyntaxError` sets `errored` on output to `true`.
