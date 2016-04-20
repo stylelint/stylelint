@@ -404,6 +404,7 @@ test("standalone passing code with syntax error", t => {
     t.equal(parsedOutput.deprecations.length, 0, "empty deprecations")
     t.equal(parsedOutput.invalidOptionWarnings.length, 0,
       "empty invalidOptionWarnings")
+    t.ok(parsedOutput.errored)
     t.equal(parsedOutput.warnings.length, 1, "syntax error in warnings")
     t.equal(parsedOutput.warnings[0].rule, "CssSyntaxError",
       "syntax error rule is CssSyntaxError")

@@ -1,4 +1,4 @@
-# Head
+# 6.0.2
 
 - Fixed: `CssSyntaxError` sets `errored` on output to `true`.
 
