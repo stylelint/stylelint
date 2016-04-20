@@ -31,10 +31,14 @@ export default function (max) {
         rootString.substr(match.startIndex + 1, maxAdjacentNewlines) === repeatLFNewLines
         || rootString.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeatCRLFNewLines
       ) {
+        // Put index at `\r` if it's CRLF, otherwise leave it at `\n`
+        let index = match.startIndex
+        if (rootString[index - 1] === "\r") { index -= 1 }
+
         report({
           message: messages.rejected,
           node: root,
-          index: match.startIndex,
+          index,
           result,
           ruleName,
         })

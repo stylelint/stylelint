@@ -33,7 +33,7 @@ testRule(rule, {
     code: "a {}\r\n\r\n\r\nb{}",
     message: messages.rejected,
     line: 1,
-    column: 6,
+    column: 5,
   }, {
     code: "a {}\n\n/** horse */\n\n\nb{}",
     message: messages.rejected,
@@ -43,7 +43,7 @@ testRule(rule, {
     code: "a {}\r\n\r\n/** horse */\r\n\r\n\r\nb{}",
     message: messages.rejected,
     line: 3,
-    column: 14,
+    column: 13,
   }, {
     code: "/* horse\n\n\n */\na{}",
     message: messages.rejected,
@@ -53,7 +53,7 @@ testRule(rule, {
     code: "/* horse\r\n\r\n\r\n */\r\na{}",
     message: messages.rejected,
     line: 1,
-    column: 10,
+    column: 9,
   } ],
 })
 
@@ -84,7 +84,7 @@ testRule(rule, {
     code: "a {}\r\n\r\n\r\n\r\nb{}",
     message: messages.rejected,
     line: 1,
-    column: 6,
+    column: 5,
   }, {
     code: "a {}\n\n/** horse */\n\n\n\nb{}",
     message: messages.rejected,
@@ -94,7 +94,7 @@ testRule(rule, {
     code: "a {}\r\n\r\n/** horse */\r\n\r\n\r\n\r\nb{}",
     message: messages.rejected,
     line: 3,
-    column: 14,
+    column: 13,
   }, {
     code: "/* horse\n\n\n\n */\na{}",
     message: messages.rejected,
@@ -104,6 +104,6 @@ testRule(rule, {
     code: "/* horse\r\n\r\n\r\n\r\n */\r\na{}",
     message: messages.rejected,
     line: 1,
-    column: 10,
+    column: 9,
   } ],
 })
