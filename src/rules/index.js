@@ -86,7 +86,6 @@ import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyBlacklist from "./property-blacklist"
 import propertyCase from "./property-case"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
-import propertyShorthandNoUnnecessaryValue from "./property-shorthand-no-unnecessary-value"
 import propertyUnitBlacklist from "./property-unit-blacklist"
 import propertyUnitWhitelist from "./property-unit-whitelist"
 import propertyValueBlacklist from "./property-value-blacklist"
@@ -130,6 +129,7 @@ import valueListCommaNewlineAfter from "./value-list-comma-newline-after"
 import valueListCommaNewlineBefore from "./value-list-comma-newline-before"
 import valueListCommaSpaceAfter from "./value-list-comma-space-after"
 import valueListCommaSpaceBefore from "./value-list-comma-space-before"
+import valueNoRedundantLonghand from "./value-no-redundant-longhand"
 import valueNoVendorPrefix from "./value-no-vendor-prefix"
 
 export default {
@@ -221,7 +221,6 @@ export default {
   "property-blacklist": propertyBlacklist,
   "property-case": propertyCase,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
-  "property-shorthand-no-unnecessary-value": propertyShorthandNoUnnecessaryValue,
   "property-unit-blacklist": propertyUnitBlacklist,
   "property-unit-whitelist": propertyUnitWhitelist,
   "property-value-blacklist": propertyValueBlacklist,
@@ -265,5 +264,6 @@ export default {
   "value-list-comma-newline-before": valueListCommaNewlineBefore,
   "value-list-comma-space-after": valueListCommaSpaceAfter,
   "value-list-comma-space-before": valueListCommaSpaceBefore,
+  "value-no-redundant-longhand": valueNoRedundantLonghand,
   "value-no-vendor-prefix": valueNoVendorPrefix,
 }

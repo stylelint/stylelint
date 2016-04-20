@@ -95,7 +95,6 @@ You might want to learn a little about [how rules are named and how they work to
     "property-blacklist": string|[],
     "property-case": "lower"|"upper",
     "property-no-vendor-prefix": true,
-    "property-shorthand-no-unnecessary-value": true,
     "property-unit-blacklist": {},
     "property-unit-whitelist": {},
     "property-value-blacklist": {},
@@ -139,6 +138,7 @@ You might want to learn a little about [how rules are named and how they work to
     "value-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
     "value-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
     "value-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
+    "value-no-redundant-longhand": true,
     "value-no-vendor-prefix": true
   }
 }

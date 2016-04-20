@@ -1,6 +1,6 @@
-# property-shorthand-no-unnecessary-value
+# value-no-redundant-longhand
 
-Disallow longhand form for properties that support it.
+Disallow redundant values in longhand properties.
 
 ```css
 .foo { margin: 1px 1px 1px 1px; }
@@ -8,7 +8,7 @@ Disallow longhand form for properties that support it.
  *  These properties */
 ```
 
-The rule warns when you use longhand form for properties:
+This rule warns you when you use redundant values in the following longhand properties:
 
 - `margin`
 - `padding`

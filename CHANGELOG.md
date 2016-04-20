@@ -4,6 +4,7 @@
 - Added: `selector-attribute-brackets-space-inside` rule.
 - Added: `.stylelintignore` file.
 - Added: warning message in ouput when a file is ignored.
+- Added: `shorthand-property-no-redundant-values` rule.
 
 # 6.0.3
 
@@ -32,7 +33,6 @@
 - Added: `value-keyword-case` rule.
 - Added: `selector-pseudo-class-case` rule.
 - Added: `at-rule-name-case` rule.
-- Added: `property-shorthand-no-unnecessary-value` rule.
 - Fixed: `block-no-empty` no longer delivers false positives for less syntax.
 - Fixed: `declaration-block-trailing-semicolon` better understands nested at-rules.
 - Fixed: `number-zero-length-no-unit` now work with `q` unit and ignores `s`, `ms`, `kHz`, `Hz`, `dpcm`, `dppx`, `dpi` units
