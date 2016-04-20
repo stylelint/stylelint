@@ -1,3 +1,4 @@
+import _ from "lodash"
 import selectorParser from "postcss-selector-parser"
 import {
   report,
@@ -29,10 +30,7 @@ export default function (expectation) {
     root.walkRules(rule => {
       selectorParser(selectorTree => {
         selectorTree.eachPseudo(pseudoNode => {
-          if (pseudoNode.parent
-            && pseudoNode.parent.parent
-            && pseudoNode.parent.parent.type === "pseudo"
-          ) { return }
+          if (_.get(pseudoNode, "parent.parent.type") === "pseudo") { return }
 
           const pseudoSelectorString = pseudoNode.toString()
 
