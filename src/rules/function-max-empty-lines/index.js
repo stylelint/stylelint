@@ -34,10 +34,14 @@ export default function (max) {
           declString.substr(match.startIndex + 1, maxAdjacentNewlines) === repeatLFNewLines
           || declString.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeatCRLFNewLines
         ) {
+          // Put index at `\r` if it's CRLF, otherwise leave it at `\n`
+          let index = match.startIndex
+          if (declString[index - 1] === "\r") { index -= 1 }
+
           report({
             message: messages.rejected,
             node: decl,
-            index: match.startIndex,
+            index,
             result,
             ruleName,
           })
