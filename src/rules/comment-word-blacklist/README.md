@@ -1,39 +1,39 @@
 # comment-word-blacklist
 
-Specify a blacklist of disallowed comments.
+Specify a blacklist of disallowed words within comments.
 
 ```css
-    /* comment */
-/**    ↑
- * These comments */
+ /* words within comments */
+/** ↑     ↑      ↑
+ * These three words */
 ```
 
 ## Options
 
-`array`: `"["array", "of", "unprefixed", "functions"]`
+`array`: `["array", "of", "words", "or", "/regex/" ]`
 
 Given:
 
 ```js
-["/todo/", "badword"]
+["/^TODO:/", "badword"]
 ```
 
 The following patterns are considered warnings:
 
 ```css
-/* todo */
+/* TODO: */
 ```
 
 ```css
-/* todo: add fallback */
+/* TODO: add fallback */
 ```
 
 ```css
-/* some todo */
+/* some badword */
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-/* comments */
+/* comment */
 ```

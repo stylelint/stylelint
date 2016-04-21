@@ -28,10 +28,12 @@ export default function (blacklist) {
       // Return early if sourcemap or copyright comment
       if (firstFourChars === "/*# " || firstFourChars === "/*! ") { return }
 
-      if (!matchesStringOrRegExp(text, blacklist)) { return }
+      const matchesWord = matchesStringOrRegExp(text, blacklist)
+
+      if (!matchesWord) { return }
 
       report({
-        message: messages.rejected("todo"),
+        message: messages.rejected(matchesWord.match),
         node: comment,
         result,
         ruleName,
