@@ -116,6 +116,7 @@ import selectorPseudoElementCase from "./selector-pseudo-element-case"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
 import selectorRootNoComposition from "./selector-root-no-composition"
 import selectorTypeCase from "./selector-type-case"
+import shorthandPropertyNoRedundantValues from "./shorthand-property-no-redundant-values"
 import stringNoNewline from "./string-no-newline"
 import stringQuotes from "./string-quotes"
 import stylelintDisableReason from "./stylelint-disable-reason"
@@ -250,6 +251,7 @@ export default {
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
   "selector-root-no-composition": selectorRootNoComposition,
   "selector-type-case": selectorTypeCase,
+  "shorthand-property-no-redundant-values": shorthandPropertyNoRedundantValues,
   "string-no-newline": stringNoNewline,
   "string-quotes": stringQuotes,
   "stylelint-disable-reason": stylelintDisableReason,

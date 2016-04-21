@@ -82,6 +82,10 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`custom-property-no-outside-root`](../../src/rules/custom-property-no-outside-root/README.md): Disallow custom properties outside of `:root` rules.
 - [`custom-property-pattern`](../../src/rules/custom-property-pattern/README.md): Specify a pattern for custom properties.
 
+### Shorthand property
+
+- [`shorthand-property-no-redundant-values`](../../src/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values in shorthand properties.
+
 ### Property
 
 - [`property-blacklist`](../../src/rules/property-blacklist/README.md): Specify a blacklist of disallowed properties.

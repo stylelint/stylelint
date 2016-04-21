@@ -4,6 +4,7 @@
 - Added: `selector-attribute-brackets-space-inside` rule.
 - Added: `.stylelintignore` file.
 - Added: warning message in ouput when a file is ignored.
+- Added: `shorthand-property-no-redundant-values` rule.
 
 # 6.0.3
 

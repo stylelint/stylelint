@@ -125,6 +125,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-pseudo-element-colon-notation": "single"|"double",
     "selector-root-no-composition": true,
     "selector-type-case": "lower"|"upper",
+    "shorthand-property-no-redundant-values": true,
     "string-no-newline": true,
     "string-quotes": "single"|"double",
     "stylelint-disable-reason": "always-before"|"always-after",
