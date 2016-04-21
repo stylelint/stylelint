@@ -1,14 +1,14 @@
 # value-no-redundant-longhand
 
-Disallow redundant values in longhand properties.
+Disallow redundant values in shorthand properties.
 
 ```css
 .foo { margin: 1px 1px 1px 1px; }
-/**            ↑
- *  These properties */
+/**                ↑   ↑   ↑
+ *              These values */
 ```
 
-This rule warns you when you use redundant values in the following longhand properties:
+This rule warns you when you use redundant values in the following shorthand properties:
 
 - `margin`
 - `padding`

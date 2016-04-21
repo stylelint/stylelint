@@ -67,7 +67,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 ### Value
 
-- [`value-no-redundant-longhand`](../../src/rules/value-no-redundant-longhand/README.md): Disallow redundant values in longhand properties.
+- [`value-no-redundant-longhand`](../../src/rules/value-no-redundant-longhand/README.md): Disallow redundant values in shorthand properties.
 - [`value-no-vendor-prefix`](../../src/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values.
 
 ### Value list
