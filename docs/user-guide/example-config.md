@@ -103,6 +103,7 @@ You might want to learn a little about [how rules are named and how they work to
     "root-no-standard-properties": true,
     "rule-nested-empty-line-before": "always"|"never",
     "rule-non-nested-empty-line-before": "always"|"never",
+    "selector-attribute-brackets-space-inside": "always"|"never",
     "selector-class-pattern": string,
     "selector-combinator-space-after": "always"|"never",
     "selector-combinator-space-before": "always"|"never",
