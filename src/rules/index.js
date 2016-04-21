@@ -116,6 +116,7 @@ import selectorPseudoElementCase from "./selector-pseudo-element-case"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
 import selectorRootNoComposition from "./selector-root-no-composition"
 import selectorTypeCase from "./selector-type-case"
+import shorthandPropertyNoRedundantValues from "./shorthand-property-no-redundant-values"
 import stringNoNewline from "./string-no-newline"
 import stringQuotes from "./string-quotes"
 import stylelintDisableReason from "./stylelint-disable-reason"
@@ -129,7 +130,6 @@ import valueListCommaNewlineAfter from "./value-list-comma-newline-after"
 import valueListCommaNewlineBefore from "./value-list-comma-newline-before"
 import valueListCommaSpaceAfter from "./value-list-comma-space-after"
 import valueListCommaSpaceBefore from "./value-list-comma-space-before"
-import valueNoRedundantLonghand from "./value-no-redundant-longhand"
 import valueNoVendorPrefix from "./value-no-vendor-prefix"
 
 export default {
@@ -251,6 +251,7 @@ export default {
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
   "selector-root-no-composition": selectorRootNoComposition,
   "selector-type-case": selectorTypeCase,
+  "shorthand-property-no-redundant-values": shorthandPropertyNoRedundantValues,
   "string-no-newline": stringNoNewline,
   "string-quotes": stringQuotes,
   "stylelint-disable-reason": stylelintDisableReason,
@@ -264,6 +265,5 @@ export default {
   "value-list-comma-newline-before": valueListCommaNewlineBefore,
   "value-list-comma-space-after": valueListCommaSpaceAfter,
   "value-list-comma-space-before": valueListCommaSpaceBefore,
-  "value-no-redundant-longhand": valueNoRedundantLonghand,
   "value-no-vendor-prefix": valueNoVendorPrefix,
 }

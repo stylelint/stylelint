@@ -125,6 +125,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-pseudo-element-colon-notation": "single"|"double",
     "selector-root-no-composition": true,
     "selector-type-case": "lower"|"upper",
+    "shorthand-property-no-redundant-values": true,
     "string-no-newline": true,
     "string-quotes": "single"|"double",
     "stylelint-disable-reason": "always-before"|"always-after",
@@ -138,7 +139,6 @@ You might want to learn a little about [how rules are named and how they work to
     "value-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
     "value-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
     "value-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
-    "value-no-redundant-longhand": true,
     "value-no-vendor-prefix": true
   }
 }

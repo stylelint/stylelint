@@ -7,7 +7,7 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "value-no-redundant-longhand"
+export const ruleName = "shorthand-property-no-redundant-values"
 
 export const messages = ruleMessages(ruleName, {
   rejected: (unexpected, expected) => `Unexpected longhand value '${unexpected}' instead of '${expected}'`,
