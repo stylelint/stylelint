@@ -1,4 +1,5 @@
 import path from "path"
+import fs from "fs"
 import cosmiconfig from "cosmiconfig"
 import resolveFrom from "resolve-from"
 import {
@@ -7,6 +8,8 @@ import {
   omit,
 } from "lodash"
 import { configurationError } from "./utils"
+
+const IGNORE_FILENAME = ".stylelintignore"
 
 export default function (options) {
   const rawConfig = (() => {
@@ -56,9 +59,14 @@ export default function (options) {
 }
 
 function augmentConfig(config, configDir) {
+
+  // Get ignore patterns from .stylelintignore
+  config.ignoreFiles = [].concat(findIgnorePatterns(configDir), config.ignoreFiles || [])
+
   // Absolutize the plugins here, because here is the place
   // where we know the basedir for this particular config
   const configWithAbsolutePlugins = absolutizePlugins(config, configDir)
+
   if (!config.extends) {
     return Promise.resolve(configWithAbsolutePlugins)
   }
@@ -104,6 +112,19 @@ function getModulePath(basedir, lookup) {
   throw configurationError(
     `Could not find "${lookup}". Do you need a \`configBasedir\`?`
   )
+}
+
+function findIgnorePatterns(configDir) {
+  const ignoreFilePath = path.resolve(configDir, IGNORE_FILENAME)
+
+  try {
+    return fs.readFileSync(ignoreFilePath, "utf8")
+      .split(/\r?\n/g)
+      .filter(val => val.trim() !== "")     // Remove empty lines
+      .filter(val => val.trim()[0] !== "#") // Remove comments
+  } catch (e) {
+    return []
+  }
 }
 
 // The `ignoreFiles` option only works with the

@@ -239,7 +239,6 @@ test("standalone with Less syntax", t => {
 })
 
 test("standalone with extending config and ignoreFiles glob ignoring single glob", t => {
-  let planned = 0
   standalone({
     files: [`${fixturesPath}/*.css`],
     config: {
@@ -256,14 +255,14 @@ test("standalone with extending config and ignoreFiles glob ignoring single glob
     t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1)
     t.equal(parsedOutput[0].warnings.length, 1)
     t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
-    t.equal(parsedOutput[1].warnings.length, 0)
+    t.equal(parsedOutput[1].warnings.length, 1)
+    t.equal(parsedOutput[1].warnings[0].severity, "info", "must be an information")
+    t.equal(parsedOutput[1].warnings[0].text, "This file is ignored")
   }).catch(logError)
-  planned += 5
-  t.plan(planned)
+  t.plan(7)
 })
 
 test("standalone with absolute ignoreFiles glob path", t => {
-  let planned = 0
   standalone({
     files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
     config: {
@@ -276,15 +275,15 @@ test("standalone with absolute ignoreFiles glob path", t => {
   }).then(({ output }) => {
     const parsedOutput = JSON.parse(output)
     t.equal(parsedOutput.length, 2)
-    t.equal(parsedOutput[0].warnings.length, 0)
+    t.equal(parsedOutput[0].warnings.length, 1)
+    t.equal(parsedOutput[0].warnings[0].severity, "info", "must be an information")
+    t.equal(parsedOutput[0].warnings[0].text, "This file is ignored")
     t.equal(parsedOutput[1].warnings.length, 0)
   }).catch(logError)
-  planned += 3
-  t.plan(planned)
+  t.plan(5)
 })
 
 test("standalone with extending config with ignoreFiles glob ignoring one by negation", t => {
-  let planned = 0
   standalone({
     files: [`${fixturesPath}/*.css`],
     config: {
@@ -302,12 +301,36 @@ test("standalone with extending config with ignoreFiles glob ignoring one by neg
     const parsedOutput = JSON.parse(output)
     t.equal(parsedOutput.length, 2)
     t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1)
-    t.equal(parsedOutput[0].warnings.length, 0)
+    t.equal(parsedOutput[0].warnings.length, 1)
+    t.equal(parsedOutput[0].warnings[0].severity, "info", "must be an information")
+    t.equal(parsedOutput[0].warnings[0].text, "This file is ignored")
     t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
     t.equal(parsedOutput[1].warnings.length, 1)
   }).catch(logError)
-  planned += 5
-  t.plan(planned)
+  t.plan(7)
+})
+
+test("standalone with .stylelintignore file ignoring one by negation", t => {
+  standalone({
+    files: [`${fixturesPath}/*.css`],
+    config: {
+      extends: [
+        `${fixturesPath}/config-block-no-empty`,
+        `${fixturesPath}/config-color-no-invalid-hex`,
+      ],
+    },
+    configBasedir: path.join(__dirname, "fixtures/ignore_config"),
+  }).then(({ output }) => {
+    const parsedOutput = JSON.parse(output)
+    t.equal(parsedOutput.length, 2)
+    t.ok(parsedOutput[0].source.indexOf("empty-block.css") !== -1)
+    t.equal(parsedOutput[0].warnings.length, 1)
+    t.equal(parsedOutput[0].warnings[0].severity, "info", "must be an information")
+    t.equal(parsedOutput[0].warnings[0].text, "This file is ignored")
+    t.ok(parsedOutput[1].source.indexOf("invalid-hex.css") !== -1)
+    t.equal(parsedOutput[1].warnings.length, 1)
+  }).catch(logError)
+  t.plan(7)
 })
 
 test("standalone extending a config that ignores files", t => {
@@ -372,10 +395,12 @@ test("standalone using codeFilename and ignoreFiles together", t => {
     },
   }).then(({ output }) => {
     const parsedOutput = JSON.parse(output)[0]
-    t.equal(parsedOutput.warnings.length, 0, "no warnings")
+    t.equal(parsedOutput.warnings.length, 1, "Must have one warning that is an information")
+    t.equal(parsedOutput.warnings[0].severity, "info", "must be an information")
+    t.equal(parsedOutput.warnings[0].text, "This file is ignored")
   }).catch(logError)
 
-  t.plan(1)
+  t.plan(3)
 })
 
 test("standalone using codeFilename and ignoreFiles with configBasedir", t => {
@@ -389,10 +414,12 @@ test("standalone using codeFilename and ignoreFiles with configBasedir", t => {
     configBasedir: __dirname,
   }).then(({ output }) => {
     const parsedOutput = JSON.parse(output)[0]
-    t.equal(parsedOutput.warnings.length, 0, "no warnings")
+    t.equal(parsedOutput.warnings.length, 1, "Must have one warning that is an information")
+    t.equal(parsedOutput.warnings[0].severity, "info", "must be an information")
+    t.equal(parsedOutput.warnings[0].text, "This file is ignored")
   }).catch(logError)
 
-  t.plan(1)
+  t.plan(3)
 })
 
 test("standalone passing code with syntax error", t => {

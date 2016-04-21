@@ -2,6 +2,8 @@
 
 - Added: `selector-pseudo-class-parentheses-space-inside` rule.
 - Added: `selector-attribute-brackets-space-inside` rule.
+- Added: `.stylelintignore` file.
+- Added: warning message in ouput when a file is ignored.
 
 # 6.0.3
 
