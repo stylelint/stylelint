@@ -28,6 +28,8 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
+      if (rule.selector.indexOf("(") === -1) { return }
+
       selectorParser(selectorTree => {
         selectorTree.eachPseudo(pseudoNode => {
           if (_.get(pseudoNode, "parent.parent.type") === "pseudo") { return }
@@ -36,49 +38,37 @@ export default function (expectation) {
 
           styleSearch({ source: pseudoSelectorString, target: "(" }, match => {
             const nextCharIsSpace = pseudoSelectorString[match.startIndex + 1] === " "
+            const index = pseudoNode.sourceIndex + match.startIndex + 1
             if (nextCharIsSpace && expectation === "never") {
-              report({
-                message: messages.rejectedOpening,
-                node: rule,
-                index: pseudoNode.sourceIndex + match.startIndex + 1,
-                result,
-                ruleName,
-              })
+              complain(messages.rejectedOpening, index)
             }
             if (!nextCharIsSpace && expectation === "always") {
-              report({
-                message: messages.expectedOpening,
-                node: rule,
-                index: pseudoNode.sourceIndex + match.startIndex + 1,
-                result,
-                ruleName,
-              })
+              complain(messages.expectedOpening, index)
             }
           })
 
           styleSearch({ source: pseudoSelectorString, target: ")" }, match => {
             const prevCharIsSpace = pseudoSelectorString[match.startIndex - 1] === " "
+            const index = pseudoNode.sourceIndex + match.startIndex - 1
             if (prevCharIsSpace && expectation === "never") {
-              report({
-                message: messages.rejectedClosing,
-                node: rule,
-                index: pseudoNode.sourceIndex + match.startIndex - 1,
-                result,
-                ruleName,
-              })
+              complain(messages.rejectedClosing, index)
             }
             if (!prevCharIsSpace && expectation === "always") {
-              report({
-                message: messages.expectedClosing,
-                node: rule,
-                index: pseudoNode.sourceIndex + match.startIndex - 1,
-                result,
-                ruleName,
-              })
+              complain(messages.expectedClosing, index)
             }
           })
         })
       }).process(rule.selector)
+
+      function complain(message, index) {
+        report({
+          message,
+          index,
+          result,
+          ruleName,
+          node: rule,
+        })
+      }
     })
   }
 }

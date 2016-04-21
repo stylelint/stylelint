@@ -1,10 +1,10 @@
 # selector-pseudo-class-parentheses-space-inside
 
-Require a single space or disallow whitespace on the inside of the parentheses within selectors.
+Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors.
 
 ```css
 input:not( [type="submit"] ) {}
-/**       ↑               ↑
+/**      ↑                 ↑
  * The space inside these two parentheses */
 ```
 
