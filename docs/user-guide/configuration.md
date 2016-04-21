@@ -207,6 +207,6 @@ The `ignoreFiles` property is stripped from extended configs: only the root-leve
 
 Like `ignoreFiles` in the configuration object, you can specify a list of files or patterns that will be ignored.
 
-Stylelint will check for the `.stylelintignore` file in `configBasedir` if it's provided or in `process.cwd()`
+stylelint will check for the `.stylelintignore` file in `configBasedir` if it's provided or in `process.cwd()`
 
 You must put only one pattern per line, the patterns are the same as for `ignoreFiles`

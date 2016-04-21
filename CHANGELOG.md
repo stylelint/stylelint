@@ -1,8 +1,8 @@
 # Head
-- Added: Handling of `.stylelintignore` file to add more ignored patterns
-- Added: Notice that a file is ignored
-- Fixed: configuration is initialized only once in the PostCSS plugin
-- Fixed: PostCSS is initialized only once in cli	
+- Added: handling of `.stylelintignore` file to add more ignored patterns.
+- Added: notice that a file is ignored.
+- Fixed: configuration is initialized only once in the PostCSS plugin.
+- Fixed: PostCSS is initialized only once in cli.	
 	
 # 6.0.3
 
