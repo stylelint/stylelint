@@ -1,4 +1,4 @@
-# Head
+# 6.0.3
 
 - Fixed: CRLF (`\r\n`) warning positioning in `max-empty-lines` and `function-max-empty-lines`.
 
