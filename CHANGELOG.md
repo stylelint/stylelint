@@ -73,6 +73,7 @@
 
 # 5.2.0
 
+- Added: `selector-no-qualifying-type` rule.
 - Added: `no-indistinguishable-colors` rule.
 - Added: `at-rule-semicolon-newline-after` rule.
 - Added: `stylelint-disable-reason` rule.
