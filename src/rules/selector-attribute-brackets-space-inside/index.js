@@ -6,7 +6,7 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "selector-attribute-square-brackets-space-inside"
+export const ruleName = "selector-attribute-brackets-space-inside"
 
 export const messages = ruleMessages(ruleName, {
   expectedOpening: "Expected single space after \"[\"",
@@ -27,55 +27,45 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
+      if (rule.selector.indexOf("[") === -1) { return }
+
       selectorParser(selectorTree => {
         selectorTree.eachAttribute(attributeNode => {
           const attributeSelectorString = attributeNode.toString()
 
           styleSearch({ source: attributeSelectorString, target: "[" }, match => {
             const nextCharIsSpace = attributeSelectorString[match.startIndex + 1] === " "
+            const index = attributeNode.sourceIndex + match.startIndex + 1
             if (nextCharIsSpace && expectation === "never") {
-              report({
-                message: messages.rejectedOpening,
-                node: rule,
-                index: attributeNode.sourceIndex + match.startIndex + 1,
-                result,
-                ruleName,
-              })
+              complain(messages.rejectedOpening, index)
             }
             if (!nextCharIsSpace && expectation === "always") {
-              report({
-                message: messages.expectedOpening,
-                node: rule,
-                index: attributeNode.sourceIndex + match.startIndex + 1,
-                result,
-                ruleName,
-              })
+              complain(messages.expectedOpening, index)
             }
           })
 
           styleSearch({ source: attributeSelectorString, target: "]" }, match => {
             const prevCharIsSpace = attributeSelectorString[match.startIndex - 1] === " "
+            const index = attributeNode.sourceIndex + match.startIndex - 1
             if (prevCharIsSpace && expectation === "never") {
-              report({
-                message: messages.rejectedClosing,
-                node: rule,
-                index: attributeNode.sourceIndex + match.startIndex - 1,
-                result,
-                ruleName,
-              })
+              complain(messages.rejectedClosing, index)
             }
             if (!prevCharIsSpace && expectation === "always") {
-              report({
-                message: messages.expectedClosing,
-                node: rule,
-                index: attributeNode.sourceIndex + match.startIndex - 1,
-                result,
-                ruleName,
-              })
+              complain(messages.expectedClosing, index)
             }
           })
         })
       }).process(rule.selector)
+
+      function complain(message, index) {
+        report({
+          message,
+          index,
+          result,
+          ruleName,
+          node: rule,
+        })
+      }
     })
   }
 }

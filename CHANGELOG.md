@@ -1,7 +1,7 @@
 # Head
 
 - Added: `selector-pseudo-class-parentheses-space-inside` rule.
-- Added: `selector-attribute-square-brackets-space-inside` rule.
+- Added: `selector-attribute-brackets-space-inside` rule.
 
 # 6.0.3
 

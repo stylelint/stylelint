@@ -1,11 +1,11 @@
-# selector-attribute-square-brackets-space-inside
+# selector-attribute-brackets-space-inside
 
-Require a single space or disallow whitespace on the inside of the square brackets within selectors.
+Require a single space or disallow whitespace on the inside of the brackets within attribute selectors.
 
 ```css
 .foo[ target=_blank ]
-/**  ↑             ↑
- * The space inside these two square brackets */
+/** ↑               ↑
+ * The space inside these two brackets */
 ```
 
 ## Options
@@ -14,7 +14,7 @@ Require a single space or disallow whitespace on the inside of the square bracke
 
 ### `"always"`
 
-There *must always* be a single space inside the parentheses.
+There *must always* be a single space inside the brackets.
 
 The following patterns are considered warnings:
 
@@ -54,7 +54,7 @@ The following patterns are *not* considered warnings:
 
 ### `"never"`
 
-There *must never* be whitespace on the inside the parentheses.
+There *must never* be whitespace on the inside the brackets.
 
 The following patterns are considered warnings:
 
