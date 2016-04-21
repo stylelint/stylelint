@@ -765,3 +765,97 @@ testRule(rule, {
     column: 27,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [ "lower", { ignoreKeywords: [ "Block", "bLoCk", "BLOCK", "/^(f|F)lex$/" ] } ],
+
+  accept: [ {
+    code: "a { display: block; }",
+  }, {
+    code: "a { display: Block; }",
+  }, {
+    code: "a { display: bLoCk; }",
+  }, {
+    code: "a { display: BLOCK; }",
+  }, {
+    code: "a { display: flex; }",
+  }, {
+    code: "a { display: Flex; }",
+  } ],
+
+  reject: [ {
+    code: "a { display: Inline; }",
+    message: messages.expected("Inline", "inline"),
+    line: 1,
+    column: 14,
+  }, {
+    code: "a { display: iNlInE; }",
+    message: messages.expected("iNlInE", "inline"),
+    line: 1,
+    column: 14,
+  }, {
+    code: "a { display: INLINE; }",
+    message: messages.expected("INLINE", "inline"),
+    line: 1,
+    column: 14,
+  }, {
+    code: "a { display: fLeX; }",
+    message: messages.expected("fLeX", "flex"),
+    line: 1,
+    column: 14,
+  }, {
+    code: "a { display: FLEX; }",
+    message: messages.expected("FLEX", "flex"),
+    line: 1,
+    column: 14,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "upper", { ignoreKeywords: [ "Block", "bLoCk", "block", "/^(f|F)lex$/" ] } ],
+
+  accept: [ {
+    code: "a { display: block; }",
+  }, {
+    code: "a { display: Block; }",
+  }, {
+    code: "a { display: bLoCk; }",
+  }, {
+    code: "a { display: BLOCK; }",
+  }, {
+    code: "a { display: FLEX; }",
+  }, {
+    code: "a { display: Flex; }",
+  }, {
+    code: "a { display: flex; }",
+  } ],
+
+  reject: [ {
+    code: "a { display: Inline; }",
+    message: messages.expected("Inline", "INLINE"),
+    line: 1,
+    column: 14,
+  }, {
+    code: "a { display: iNlInE; }",
+    message: messages.expected("iNlInE", "INLINE"),
+    line: 1,
+    column: 14,
+  }, {
+    code: "a { display: inline; }",
+    message: messages.expected("inline", "INLINE"),
+    line: 1,
+    column: 14,
+  }, {
+    code: "a { display: fLeX; }",
+    message: messages.expected("fLeX", "FLEX"),
+    line: 1,
+    column: 14,
+  }, {
+    code: "a { display: fLEX; }",
+    message: messages.expected("fLEX", "FLEX"),
+    line: 1,
+    column: 14,
+  } ],
+})
