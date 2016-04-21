@@ -5,6 +5,7 @@
 - Added: `.stylelintignore` file.
 - Added: warning message in ouput when a file is ignored.
 - Added: `shorthand-property-no-redundant-values` rule.
+- Added: `ignoreKeywords` option for `value-keyword-case`.
 
 # 6.0.3
 
