@@ -1,4 +1,4 @@
-# Head
+# 6.1.0
 
 - Added: `comment-word-blacklist` rule.
 - Added: `selector-attribute-brackets-space-inside` rule.
