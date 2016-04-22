@@ -40,6 +40,17 @@ testRule(rule, {
     description: "CRLF",
     message: messages.rejected,
     line: 1,
-    column: 27,
+    column: 26,
   } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [],
+  syntax: "scss",
+  skipBasicChecks: true,
+
+  accept: [{
+    code: "/// it's not ok\na {}",
+  }],
 })
