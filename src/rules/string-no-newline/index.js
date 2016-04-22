@@ -18,11 +18,14 @@ export default function (actual) {
 
     const cssString = root.toString()
     styleSearch({ source: cssString, target: "\n", withinStrings: true }, match => {
-      if (cssString[match.startIndex - 1] === "\\") { return }
+      const charBefore = cssString[match.startIndex - 1]
+      let index = match.startIndex
+      if (charBefore === "\\") { return }
+      if (charBefore === "\r") index -= 1
       report({
         message: messages.rejected,
         node: root,
-        index: match.startIndex,
+        index,
         result,
         ruleName,
       })

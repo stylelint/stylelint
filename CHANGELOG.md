@@ -6,6 +6,8 @@
 - Added: warning message in ouput when a file is ignored.
 - Added: `shorthand-property-no-redundant-values` rule.
 - Added: `ignoreKeywords` option for `value-keyword-case`.
+- Fixed: CRLF (`\r\n`) warning positioning in `string-no-newline`.
+- Fixed: parsing problems when using `///`-SassDoc-style comments.
 
 # 6.0.3
 
