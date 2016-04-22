@@ -64,52 +64,52 @@ testRule(rule, {
 
   reject: [ {
     code: "/* TODO: */",
-    message: messages.rejected("TODO:"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
     code: "/* TODO: comment */",
-    message: messages.rejected("TODO: comment"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
     code: "/* TODO: comment\n next line */",
-    message: messages.rejected("TODO: comment\n next line"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
     code: "/* TODO: comment\n next line */",
-    message: messages.rejected("TODO: comment\n next line"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
     code: "/* TODO: comment\r\n next line */",
-    message: messages.rejected("TODO: comment\r\n next line"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
     code: "/* TODO: comment\n\n next line */",
-    message: messages.rejected("TODO: comment\n\n next line"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
     code: "/*\n TODO: comment */",
-    message: messages.rejected("TODO: comment"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
     code: "/*\r\n TODO: comment */",
-    message: messages.rejected("TODO: comment"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
     code: "/*\n\n TODO: comment */",
-    message: messages.rejected("TODO: comment"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
     code: "/*\r\n\r\n TODO: comment */",
-    message: messages.rejected("TODO: comment"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
@@ -142,12 +142,12 @@ testRule(rule, {
 
   reject: [ {
     code: "// TODO:",
-    message: messages.rejected("TODO:"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
     code: "// TODO: comment",
-    message: messages.rejected("TODO: comment"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
@@ -178,12 +178,12 @@ testRule(rule, {
 
   reject: [ {
     code: "// TODO:",
-    message: messages.rejected("TODO:"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {
     code: "// TODO: comment",
-    message: messages.rejected("TODO: comment"),
+    message: messages.rejected("/^TODO:/"),
     line: 1,
     column: 1,
   }, {

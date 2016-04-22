@@ -9,7 +9,7 @@ import {
 export const ruleName = "comment-word-blacklist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (word) => `Unexpected word "${word}"`,
+  rejected: (pattern) => `Unexpected word matching pattern "${pattern}"`,
 })
 
 export default function (blacklist) {
@@ -33,7 +33,7 @@ export default function (blacklist) {
       if (!matchesWord) { return }
 
       report({
-        message: messages.rejected(matchesWord.match),
+        message: messages.rejected(matchesWord.pattern),
         node: comment,
         result,
         ruleName,
