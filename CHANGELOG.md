@@ -6,6 +6,7 @@
 - Added: `ignoreKeywords` option for `value-keyword-case`.
 - Added: support for `.stylelintignore` file.
 - Added: warning message in output when a file is ignored.
+- Added: `comment-word-blacklist` rule.
 - Fixed: CRLF (`\r\n`) warning positioning in `string-no-newline`.
 - Fixed: parsing problems when using `///`-SassDoc-style comments.
 - Fixed: `max-empty-lines` places warning at the end of the violating newlines to avoid positioning confusions.

@@ -28,6 +28,7 @@ You might want to learn a little about [how rules are named and how they work to
     "color-no-invalid-hex": true,
     "comment-empty-line-before": "always"|"never",
     "comment-whitespace-inside": "always"|"never",
+    "comment-word-blacklist": string|[],
     "custom-media-pattern": string,
     "custom-property-no-outside-root": true,
     "custom-property-pattern": string,
