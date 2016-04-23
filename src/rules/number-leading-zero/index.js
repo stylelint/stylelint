@@ -32,6 +32,8 @@ export default function (expectation) {
     })
 
     root.walkAtRules(atRule => {
+      if (atRule.name === "import") { return }
+
       const source = (cssStatementHasBlock(atRule))
         ? cssStatementStringBeforeBlock(atRule, { noBefore: true })
         : atRule.toString()

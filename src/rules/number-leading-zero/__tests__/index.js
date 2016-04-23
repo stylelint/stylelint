@@ -51,6 +51,9 @@ testRule(rule, {
   }, {
     code: "a { background: url(data:image/svg+xml;...0.5); }",
     description: "data URI containing leading zero",
+  }, {
+    code: "@import 'testfile.0.3.css'",
+    description: "ignore @import at-rules",
   } ],
 
   reject: [ {
@@ -141,6 +144,9 @@ testRule(rule, {
   }, {
     code: "a { transform: translate(.4px, .8px); }",
     description: "multiple fractional values without leading zeros in a function",
+  }, {
+    code: "@import 'testfile.0.3.css'",
+    description: "ignore @import at-rules",
   } ],
 
   reject: [ {
