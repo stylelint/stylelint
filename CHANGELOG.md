@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: documentation links to `selector-pseudo-class-parentheses-space-inside` and `selector-attribute-brackets-space-inside`.
+
 # 6.1.0
 
 - Added: `comment-word-blacklist` rule.
