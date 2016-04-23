@@ -134,7 +134,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 ### Selector
 
-- [`selector-attribute-brackets-space-inside`](../../src/rules/selector-attribute-square-brackets-space-inside/README.md): Require a single space or disallow whitespace on the inside of the brackets within attribute selectors.
+- [`selector-attribute-brackets-space-inside`](../../src/rules/selector-attribute-brackets-space-inside/README.md): Require a single space or disallow whitespace on the inside of the brackets within attribute selectors.
 - [`selector-class-pattern`](../../src/rules/selector-class-pattern/README.md): Specify a pattern for class selectors.
 - [`selector-combinator-space-after`](../../src/rules/selector-combinator-space-after/README.md): Require a single space or disallow whitespace after the combinators of selectors.
 - [`selector-combinator-space-before`](../../src/rules/selector-combinator-space-before/README.md): Require a single space or disallow whitespace before the combinators of selectors.
@@ -147,7 +147,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`selector-no-universal`](../../src/rules/selector-no-universal/README.md): Disallow the universal selector.
 - [`selector-no-vendor-prefix`](../../src/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors.
 - [`selector-pseudo-class-case`](../../src/rules/selector-pseudo-class-case/README.md): Specify lowercase or uppercase for pseudo-class selectors.
-- [`selector-pseudo-class-parentheses-space-inside`](../../src/rules/selector-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors.
+- [`selector-pseudo-class-parentheses-space-inside`](../../src/rules/selector-pseudo-class-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors.
 - [`selector-pseudo-element-case`](../../src/rules/selector-pseudo-element-case/README.md): Specify lowercase or uppercase for pseudo-element selectors.
 - [`selector-pseudo-element-colon-notation`](../../src/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
 - [`selector-root-no-composition`](../../src/rules/selector-root-no-composition/README.md): Disallow the composition of `:root` in selectors.
