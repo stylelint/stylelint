@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `declaration-colon-*` rules now ignore SCSS lists.
+
 # 6.1.1
 
 - Fixed: documentation links to `selector-pseudo-class-parentheses-space-inside` and `selector-attribute-brackets-space-inside`.

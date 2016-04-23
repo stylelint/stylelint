@@ -22,6 +22,9 @@ testRule(rule, {
     code: "$map:(key:value)",
     description: "SCSS map with no newlines",
   }, {
+    code: "$list:('value1', 'value2')",
+    description: "SCSS lst with no newlines",
+  }, {
     code: "a { background: url(data:application/font-woff;...); }",
     description: "data URI",
   } ],
