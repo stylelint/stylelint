@@ -1,4 +1,5 @@
 import {
+  cssDeclarationIsList,
   cssDeclarationIsMap,
   declarationValueIndexOffset,
   report,
@@ -40,6 +41,7 @@ export default function (expectation) {
 export function declarationColonSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
 
+    if (cssDeclarationIsList(decl)) { return }
     if (cssDeclarationIsMap(decl)) { return }
 
     // Get the raw prop, and only the prop

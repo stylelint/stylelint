@@ -1,4 +1,5 @@
 import {
+  cssDeclarationIsList,
   cssDeclarationIsMap,
   declarationValueIndexOffset,
   report,
@@ -29,6 +30,7 @@ export default function (expectation) {
 
     root.walkDecls(decl => {
 
+      if (cssDeclarationIsList(decl)) { return }
       if (cssDeclarationIsMap(decl)) { return }
 
       // Get the raw prop, and only the prop
