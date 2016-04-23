@@ -39,6 +39,12 @@ export default function (pattern, options) {
       // Ignore Sass intepolation possibilities
       if (/#{.+}/.test(rule.selector)) { return }
 
+      // Ignore called Less mixins
+      if (rule.ruleWithoutBody) { return }
+
+      // Ignore non-outputting Less mixin definitions
+      if (_.endsWith(rule.selector, ")")) { return }
+
       // Only bother resolving selectors that have an interpolating &
       if (shouldResolveNestedSelectors && hasInterpolatingAmpersand(rule.selector)) {
         resolveNestedSelector(rule.selector, rule).forEach(selector => {

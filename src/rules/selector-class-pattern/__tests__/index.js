@@ -121,3 +121,38 @@ testRule(rule, {
     description: "ignore sass interpolation of nested selector inside @for",
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  syntax: "less",
+  config: [/^[A-Z]+$/],
+
+  accept:[ {
+    code: ".mixin-name() { }",
+    description: "ignore non-ouputting Less class mixin definition",
+  }, {
+    code: ".A { .mixin-name; }",
+    description: "ignore called Less class mixin",
+  }, {
+    code: ".A { .mixin-name(@var); }",
+    description: "ignore called Less class parametric mixin",
+  }, {
+    code: "#mixin-name() { }",
+    description: "ignore non-ouputting Less id mixin definition",
+  }, {
+    code: ".A { #mixin-name; }",
+    description: "ignore called Less id mixin",
+  }, {
+    code: "#namespace { .mixin-name() { } }",
+    description: "ignore namespaced non-ouputting Less class mixin definition",
+  }, {
+    code: ".A { #namespace > .mixin-name; }",
+    description: "ignore called namespaced Less mixin (child)",
+  }, {
+    code: ".A { #namespace .mixin-name; }",
+    description: "ignore called namespaced Less mixin (decendant)",
+  }, {
+    code: ".A { #namespace.mixin-name; }",
+    description: "ignore called namespaced Less mixin (compounded)",
+  } ],
+})

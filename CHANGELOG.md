@@ -1,6 +1,7 @@
-# HEAD
+# Head
 
 - Fixed: `number-leading-zero` will not check `@import` at-rules.
+- Fixed: `selector-class-pattern` now ignores non-ouputting Less mixin definitions and called Less mixins.
 
 # 6.1.1
 

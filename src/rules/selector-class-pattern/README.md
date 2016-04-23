@@ -8,6 +8,8 @@ Specify a pattern for class selectors.
  * These class selectors */
 ```
 
+This rule ignores non-ouputting Less mixin definitions and called Less mixins.
+
 ## Options
 
 `regex` or `string`
@@ -22,7 +24,13 @@ The following patterns are considered warnings:
 
 ```css
 .foop {}
+```
+
+```css
 .foo-BAR {}
+```
+
+```css
 div > #zing + .foo-BAR {}
 ```
 
@@ -30,9 +38,28 @@ The following patterns are *not* considered warnings:
 
 ```css
 .foo-bar {}
+```
+
+```css
 div > #zing + .foo-bar {}
+```
+
+```css
 #foop {}
+```
+
+```css
 [foo='bar'] {}
+```
+
+```less
+.foop() {}
+```
+
+```less
+.foo-bar {
+  .foop;
+}
 ```
 
 ## Optional options
