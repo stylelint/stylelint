@@ -35,15 +35,15 @@ export default function (pattern) {
           if (selectorNode.type !== "id") { return }
           const { value, sourceIndex } = selectorNode
 
-          if (!normalizedPattern.test(value)) {
-            report({
-              result,
-              ruleName,
-              message: messages.expected(value),
-              node: rule,
-              index: sourceIndex,
-            })
-          }
+          if (normalizedPattern.test(value)) { return }
+          
+          report({
+            result,
+            ruleName,
+            message: messages.expected(value),
+            node: rule,
+            index: sourceIndex,
+          })
         })
       }
     })

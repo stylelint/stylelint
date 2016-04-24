@@ -17,20 +17,19 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      const prop = decl.prop
+      const { prop } = decl
 
       // Make sure there's a vendor prefix,
       // but this isn't a custom property
       if (prop[0] !== "-" || prop[1] === "-") { return }
 
-      if (isAutoprefixable.property(prop)) {
-        report({
-          message: messages.rejected(prop),
-          node: decl,
-          result,
-          ruleName,
-        })
-      }
+      if (!isAutoprefixable.property(prop)) { return }
+      report({
+        message: messages.rejected(prop),
+        node: decl,
+        result,
+        ruleName,
+      })
     })
   }
 }

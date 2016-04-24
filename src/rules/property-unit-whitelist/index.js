@@ -38,15 +38,16 @@ export default function (whitelist) {
 
         const unit = valueParser.unit(node.value).unit
 
-        if (unit && propWhitelist.indexOf(unit) === -1) {
-          report({
-            message: messages.rejected(prop, unit),
-            node: decl,
-            index: declarationValueIndexOffset(decl) + node.sourceIndex,
-            result,
-            ruleName,
-          })
-        }
+        if (!unit) { return }
+        if (propWhitelist.indexOf(unit) !== -1) { return }
+        
+        report({
+          message: messages.rejected(prop, unit),
+          node: decl,
+          index: declarationValueIndexOffset(decl) + node.sourceIndex,
+          result,
+          ruleName,
+        })
       })
     })
   }

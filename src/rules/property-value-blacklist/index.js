@@ -29,14 +29,14 @@ export default function (blacklist) {
 
       if (isEmpty(propBlacklist)) { return }
 
-      if (matchesStringOrRegExp(value, propBlacklist)) {
-        report({
-          message: messages.rejected(prop, value),
-          node: decl,
-          result,
-          ruleName,
-        })
-      }
+      if (!matchesStringOrRegExp(value, propBlacklist)) { return }
+
+      report({
+        message: messages.rejected(prop, value),
+        node: decl,
+        result,
+        ruleName,
+      })
     })
   }
 }

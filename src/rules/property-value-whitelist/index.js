@@ -29,14 +29,14 @@ export default function (whitelist) {
 
       if (isEmpty(propWhitelist)) { return }
 
-      if (!matchesStringOrRegExp(value, propWhitelist)) {
-        report({
-          message: messages.rejected(prop, value),
-          node: decl,
-          result,
-          ruleName,
-        })
-      }
+      if (matchesStringOrRegExp(value, propWhitelist)) { return }
+
+      report({
+        message: messages.rejected(prop, value),
+        node: decl,
+        result,
+        ruleName,
+      })
     })
   }
 }

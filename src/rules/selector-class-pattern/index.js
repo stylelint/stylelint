@@ -58,15 +58,14 @@ export default function (pattern, options) {
     function checkSelector(fullSelector, rule) {
       fullSelector.eachClass(classNode => {
         const { value, sourceIndex } = classNode
-        if (!normalizedPattern.test(value)) {
-          report({
-            result,
-            ruleName,
-            message: messages.expected(value),
-            node: rule,
-            index: sourceIndex,
-          })
-        }
+        if (normalizedPattern.test(value)) { return }
+        report({
+          result,
+          ruleName,
+          message: messages.expected(value),
+          node: rule,
+          index: sourceIndex,
+        })
       })
     }
   }
