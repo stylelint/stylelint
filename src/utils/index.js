@@ -1,7 +1,7 @@
 export { default as blurComments } from "./blurComments"
 export { default as blurFunctionArguments } from "./blurFunctionArguments"
 export { default as configurationError } from "./configurationError"
-export { default as cssDeclarationIsMap } from "./cssDeclarationIsMap"
+export { default as isValidDeclaration } from "./isValidDeclaration"
 export { default as cssFunctionArguments } from "./cssFunctionArguments"
 export { default as cssNodeContextLookup } from "./cssNodeContextLookup"
 export { default as cssRuleHasSelectorEndingWithColon } from "./cssRuleHasSelectorEndingWithColon"

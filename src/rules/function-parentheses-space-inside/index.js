@@ -1,6 +1,6 @@
 import valueParser from "postcss-value-parser"
 import {
-  cssDeclarationIsMap,
+  isValidDeclaration,
   declarationValueIndexOffset,
   isSingleLineString,
   report,
@@ -35,7 +35,7 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      if (cssDeclarationIsMap(decl)) { return }
+      if (!isValidDeclaration(decl)) { return }
 
       if (decl.value.indexOf("(") === -1) { return }
 
