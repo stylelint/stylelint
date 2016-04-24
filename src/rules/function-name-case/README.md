@@ -8,6 +8,8 @@ a { width: calc(5% - 10em); }
  * These functions */
 ```
 
+Camel case function names, e.g. `translateX`, are accounted for when the `lower` option is used.
+
 ## Options
 
 `string`: `"lower"|"upper"`

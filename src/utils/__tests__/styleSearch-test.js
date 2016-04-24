@@ -229,7 +229,11 @@ test("`withinComments` option", t => {
     target: "b",
     withinComments: true,
   }), [6])
-
+  t.deepEqual(styleSearchResults({
+    source: "abc/*/abc*/",
+    target: "b",
+    withinComments: true,
+  }), [7])
   t.deepEqual(styleSearchResults({
     source: "ab'c/*abc*/c'",
     target: "b",
@@ -245,6 +249,11 @@ test("ignores matches within single-line comment", t => {
   }), [])
   t.deepEqual(styleSearchResults({
     source: "abc // command",
+    target: "a",
+  }), [0])
+  // Triple-slash comments are used for sassdoc
+  t.deepEqual(styleSearchResults({
+    source: "abc /// it's all ok",
     target: "a",
   }), [0])
   t.end()

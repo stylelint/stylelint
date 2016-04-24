@@ -111,6 +111,54 @@ a {
 
 ## Optional options
 
+### `indentInsideParens: ["once", "twice", "once-at-root-twice-in-block"]`
+
+By default, indentation within function arguments and other parentheses are ignored. If you would like to enforce indentation inside parentheses, use this option.
+
+`"once"` means you expect one extra indentation (of your specified type) after newlines inside parentheses, and expect the closing parenthesis to have no extra indentation. For example:
+
+```css
+a {
+  color: rgb(
+    255,
+    255,
+    255
+  );
+  top: 0;
+}
+```
+
+`"twice"` means you expect two extra indentations (of your specified type) after newlines inside parentheses, and expect the closing parenthesis to have one extra indentation. For example:
+
+```css
+a {
+  color: rgb(
+      255,
+      255,
+      255
+    );
+  top: 0;
+}
+```
+
+`"once-at-root-twice-in-block"` means two things: You want the behavior of `"once"`, as documented above, when the parenthetical expression is part of a node that is an immediate descendent of the root — i.e. not inside a block. And you want the behavior of `"twice"`, as documented above, when the parenthetical expression is part of a node that is inside a block. For example, with a SCSS map:
+
+```scss
+$foo: (
+  bar: 1,
+  baz: 2
+);
+
+a {
+  color: rgb(
+      255,
+      255,
+      255
+    );
+  top: 0;
+}
+```
+
 ### `except: ["block", "value", "param"]`
 
 Do *not* indent for these things.
@@ -248,44 +296,38 @@ The following patterns are *not* considered warnings:
 .bar {}
 ```
 
-## Caveats
+### `indentClosingBrace: true|false`
 
-Function arguments are simply ignored, to allow for arbitrary indentation. So any of the following are *not* considered warnings:
+If `true`, the closing brace of a block (rule or at-rule) will be expected at the same indentation level as the block's inner nodes.
+
+For example, with `indentClosingBrace: true`, the following patterns are considered warnings:
 
 ```css
-.foo {
-  color: rgb(0, 0, 0);
+a {
+  color: pink;
 }
 ```
 
 ```css
-.foo {
-  color: rgb(
-    0,
-    0,
-    0
-  );
+@media print {
+  a {
+    color: pink;
+  }  
 }
 ```
 
+And the following patterns are *not* considered warnings:
+
 ```css
-.foo {
-  color: rgb(
-      0,
-      0,
-      0
-    );
-}
+a {
+  color: pink;
+  }
 ```
 
 ```css
-.foo {
-  color: bar(
-    rgb(
-    0,
-    0,
-    0
-    )
-  );
-}
+@media print {
+  a {
+    color: pink;
+    }  
+  }
 ```

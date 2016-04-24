@@ -7,30 +7,53 @@
  * as regular expressions.
  *
  * @param {string|array} input
- * @param {string|regexp|array} comparisonInput
- * @return {boolean}
+ * @param {string|regexp|array} comparison
+ * @return {boolean|object} `false` if no match is found.
+ *   If a match is found, returns an object with these properties:
+ *   - `match`: the `input` value that had a match
+ *   - `pattern`: the `comparison` pattern that had a match
  */
-export default function (input, comparisonInput) {
-  if (Array.isArray(input)) {
-    return input.some(testAgainstStringOrArray)
-  }
-  return testAgainstStringOrArray(input)
-
-  function testAgainstStringOrArray(value) {
-    if (Array.isArray(comparisonInput)) {
-      return comparisonInput.some(comparison => {
-        return testAgainstString(value, comparison)
-      })
-    }
-    return testAgainstString(value, comparisonInput)
+export default function matchesStringOrRegExp(input, comparison) {
+  if (!Array.isArray(input)) {
+    return testAgainstStringOrArray(input, comparison)
   }
 
-  function testAgainstString(value, comparison) {
-    const comparisonIsRegex = comparison[0] === "/"
-      && comparison[comparison.length - 1] === "/"
-    if (comparisonIsRegex) {
-      return new RegExp(comparison.slice(1, -1)).test(value)
+  for (const inputItem of input) {
+    const testResult = testAgainstStringOrArray(inputItem, comparison)
+    if (testResult) {
+      return testResult
     }
-    return value === comparison
   }
+
+  return false
+}
+
+function testAgainstStringOrArray(value, comparison) {
+  if (!Array.isArray(comparison)) {
+    return testAgainstString(value, comparison)
+  }
+
+  for (const comparisonItem of comparison) {
+    const testResult = testAgainstString(value, comparisonItem)
+    if (testResult) {
+      return testResult
+    }
+  }
+  return false
+}
+
+function testAgainstString(value, comparison) {
+  const comparisonIsRegex = comparison[0] === "/"
+    && comparison[comparison.length - 1] === "/"
+
+  if (comparisonIsRegex) {
+    const valueMatches = new RegExp(comparison.slice(1, -1)).test(value)
+    return (valueMatches)
+      ? { match: value, pattern: comparison }
+      : false
+  }
+
+  return (value === comparison)
+    ? { match: value, pattern: comparison }
+    : false
 }

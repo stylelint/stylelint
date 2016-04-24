@@ -1,17 +1,55 @@
 # Head
 
+- Fixed: `number-leading-zero` will not check `@import` at-rules.
+- Fixed: `selector-class-pattern` now ignores non-ouputting Less mixin definitions and called Less mixins.
+
+# 6.1.1
+
+- Fixed: documentation links to `selector-pseudo-class-parentheses-space-inside` and `selector-attribute-brackets-space-inside`.
+
+# 6.1.0
+
+- Added: `comment-word-blacklist` rule.
+- Added: `selector-attribute-brackets-space-inside` rule.
+- Added: `selector-pseudo-class-parentheses-space-inside` rule.
+- Added: `shorthand-property-no-redundant-values` rule.
+- Added: `ignoreKeywords` option for `value-keyword-case`.
+- Added: support for `.stylelintignore` file.
+- Added: warning message in output when a file is ignored.
+- Fixed: CRLF (`\r\n`) warning positioning in `string-no-newline`.
+- Fixed: parsing problems when using `///`-SassDoc-style comments.
+- Fixed: `max-empty-lines` places warning at the end of the violating newlines to avoid positioning confusions.
+
+# 6.0.3
+
+- Fixed: CRLF (`\r\n`) warning positioning in `max-empty-lines` and `function-max-empty-lines`.
+
+# 6.0.2
+
+- Fixed: `CssSyntaxError` sets `errored` on output to `true`.
+
+# 6.0.1
+
+- Fixed: `function-name-case` now accounts for camelCase function names (e.g. `translateX`, `scaleX` etc) when the `lower` option is used.
+
+# 6.0.0
+
 - Changed: `CssSyntaxError` is no longer thrown but reported alongside warnings.
-- Added: `consecutive-duplicates` option for `declaration-block-no-duplicate-properties` rule.
-- Added: `unit-case` rule.
+- Added: new look for standard formatter and support for arbitrary severity names.
 - Added: exposed `stylelint.utils.cssWordIsVariable()`.
-- Added: `property-case` rule.
-- Added: `function-name-case` rule.
-- Added: `selector-pseudo-element-case` rule.
-- Added: `value-keyword-case` rule.
-- Added: `selector-pseudo-class-case` rule.
 - Added: `at-rule-name-case` rule.
+- Added: `function-name-case` rule.
+- Added: `property-case` rule.
+- Added: `selector-pseudo-class-case` rule.
+- Added: `selector-pseudo-element-case` rule.
+- Added: `unit-case` rule.
+- Added: `value-keyword-case` rule.
+- Added: `indentClosingBrace` option to `indentation`.
+- Added: `indentInsideParens` option to `indentation`.
+- Added: `consecutive-duplicates` option for `declaration-block-no-duplicate-properties` rule.
 - Fixed: `block-no-empty` no longer delivers false positives for less syntax.
 - Fixed: `declaration-block-trailing-semicolon` better understands nested at-rules.
+- Fixed: `number-zero-length-no-unit` now work with `q` unit and ignores `s`, `ms`, `kHz`, `Hz`, `dpcm`, `dppx`, `dpi` units
 
 # 5.4.0
 
@@ -25,43 +63,43 @@
 - Added: (experimental) support for [Less](http://lesscss.org/) syntax.
 - Added: support for [SugarSS](https://github.com/postcss/sugarss) syntax.
 - Added: exposed `stylelint.createRuleTester()`.
-- Added: `function-max-empty-lines` rule.
 - Added: `declaration-block-no-ignored-properties` rule.
+- Added: `function-max-empty-lines` rule.
 - Added: `function-url-data-uris` rule.
-- Fixed: `block-closing-brace-newline-after` use of "single space", rather than "newline", in its messages.
-- Fixed: `function-comma-space-after`, `function-comma-space-before`, `function-parentheses-newline-inside` and `function-parentheses-space-inside` now ignore SCSS maps.
-- Fixed: `property-value-blacklist` and `-whitelist` no longer error on properties without a corresponding list entry.
-- Fixed: `font-weight-notation` now ignores `initial` value.
-- Fixed: `selector-id-pattern` now ignores selectors with Sass interpolation.
-- Fixed: `selector-class-pattern` now ignores selectors with Sass interpolation.
-- Fixed: `no-unknown-animations` now ignores `none`, `initial`, `inherit`, `unset` values.
-- Fixed: `max-line-length` options validation.
-- Fixed: `function-calc-no-unspaced-operator` accepts newlines.
 - Fixed: `block-closing-brace-newline-after` accepts single-line comments immediately after the closing brace.
+- Fixed: `block-closing-brace-newline-after` use of "single space", rather than "newline", in its messages.
+- Fixed: `font-weight-notation` now ignores `initial` value.
+- Fixed: `function-*` rules should all now ignore all Sass maps and lists.
+- Fixed: `function-calc-no-unspaced-operator` accepts newlines.
+- Fixed: `function-comma-space-after`, `function-comma-space-before`, `function-parentheses-newline-inside` and `function-parentheses-space-inside` now ignore SCSS maps.
+- Fixed: `max-line-length` options validation.
+- Fixed: `no-unknown-animations` now ignores `none`, `initial`, `inherit`, `unset` values.
+- Fixed: `property-value-blacklist` and `-whitelist` no longer error on properties without a corresponding list entry.
+- Fixed: `selector-class-pattern` now ignores selectors with Sass interpolation.
+- Fixed: `selector-id-pattern` now ignores selectors with Sass interpolation.
 - Fixed: `selector-no-id` now ignores keyframe selectors.
 - Fixed: `unit-blacklist` and `unit-whitelist` now ignores `url` functions.
-- Fixed: `function-*` rules should all now ignore all Sass maps and lists.
 
 # 5.2.1
 
+- Fixed: `function-calc-no-unspaced-operator` now better ignores non-`calc` functions.
 - Fixed: `no-descending-specificity` no longer delivers false positives after second run in Atom linter.
 - Fixed: `stylelint-disable-rule` imported correctly.
-- Fixed: `function-calc-no-unspaced-operator` now better ignores non-`calc` functions.
 
 # 5.2.0
 
-- Added: `no-indistinguishable-colors` rule.
 - Added: `at-rule-semicolon-newline-after` rule.
+- Added: `no-indistinguishable-colors` rule.
 - Added: `stylelint-disable-reason` rule.
-- Fixed: `no-duplicate-selectors` contextualizes selectors by all at-rules, not just media queries.
 - Fixed: `declaration-bang-space-*` understands arbitrary bang declarations (e.g. `!default`).
 - Fixed: `font-weight-notation` now ignore `inherit` value.
-- Fixed: `selector-list-comma-*` rules no longer deliver false positives inside functional notation.
 - Fixed: `indentation` treats `@nest` at-rules like regular rules with selectors.
-- Fixed: `number-no-trailing-zeros` no longer delivers false positives in `url()` arguments.
-- Fixed: `no-duplicate-selectors` no longer delivers false positives with descendant combinators.
-- Fixed: `root-no-standard-properties` no longer delivers false positives inside the `:not()` pseudo-selector.
+- Fixed: `no-duplicate-selectors` contextualizes selectors by all at-rules, not just media queries.
 - Fixed: `no-duplicate-selectors` no longer delivers false positives after second run in Atom linter.
+- Fixed: `no-duplicate-selectors` no longer delivers false positives with descendant combinators.
+- Fixed: `number-no-trailing-zeros` no longer delivers false positives in `url()` arguments.
+- Fixed: `root-no-standard-properties` no longer delivers false positives inside the `:not()` pseudo-selector.
+- Fixed: `selector-list-comma-*` rules no longer deliver false positives inside functional notation.
 
 # 5.1.0
 

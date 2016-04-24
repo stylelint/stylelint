@@ -121,27 +121,30 @@ export default function (options, callback) {
       }
     }
 
-    // Register the end of a standard comment
-    if (
-      insideComment && !insideSingleLineComment
-      && currentChar === "*"
-      && source[i - 1] !== "\\" // escaping
-      && source[i + 1] === "/"
-    ) {
-      insideComment = false
-      continue
-    }
+    if (insideComment) {
+      // Register the end of a standard comment
+      if (
+        !insideSingleLineComment
+        && currentChar === "*"
+        && source[i - 1] !== "\\" // escaping
+        && source[i + 1] === "/"
+        && source[i - 1] !== "/" // don't end if it's /*/
+      ) {
+        insideComment = false
+        continue
+      }
 
-    // Register the end of a single-line comment
-    if (
-      insideComment && insideSingleLineComment
-      && currentChar === "\n"
-    ) {
-      insideComment = false
-      insideSingleLineComment = false
-    }
+      // Register the end of a single-line comment
+      if (
+        insideSingleLineComment
+        && currentChar === "\n"
+      ) {
+        insideComment = false
+        insideSingleLineComment = false
+      }
 
-    if (insideComment && ignoreComments) { continue }
+      if (ignoreComments) { continue }
+    }
 
     // Register the beginning of a string
     if (!insideComment && !insideString && (currentChar === "\"" || currentChar === "'")) {
@@ -162,12 +165,12 @@ export default function (options, callback) {
         insideString = false
         continue
       }
+
+      if (ignoreStrings) { continue }
     }
 
-    if (insideString && ignoreStrings) { continue }
-
     // Register the beginning of parens/functions
-    if (currentChar === "(") {
+    if (!insideString && !insideComment && currentChar === "(") {
       // Keep track of opening parentheses so that we
       // know when the outermost function (possibly
       // containing nested functions) is closing
@@ -184,16 +187,18 @@ export default function (options, callback) {
       continue
     }
 
-    // Register the end of a function
-    if (currentChar === ")") {
-      openingParenCount--
-      // Do this here so it's still technically inside a function
-      if (target === ")") { handleMatch(getMatch(i)) }
-      if (openingParenCount === 0) {
-        insideParens = false
-        insideFunction = false
+    if (insideParens) {
+      // Register the end of a function
+      if (currentChar === ")") {
+        openingParenCount--
+        // Do this here so it's still technically inside a function
+        if (target === ")") { handleMatch(getMatch(i)) }
+        if (openingParenCount === 0) {
+          insideParens = false
+          insideFunction = false
+        }
+        continue
       }
-      continue
     }
 
     // If this char is part of a function name, ignore it

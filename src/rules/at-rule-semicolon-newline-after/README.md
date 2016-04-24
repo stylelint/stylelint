@@ -3,15 +3,13 @@
 Require a newline after the semicolon of at-rules.
 
 ```css
-a {}
-
 @import url("x.css");
 @import url("y.css");
 /**                 ↑
  * The newline after these semicolons */
 ```
 
-This rule allows an end-of-line comment separated from the semicolon by spaces, as long as the comment contains no newlines. For example,
+This rule allows an end-of-line comment separated from the semicolon by spaces, as long as the comment contains no newlines. For example:
 
 ```css
 @import url("x.css"); /* end-of-line comment */
@@ -32,7 +30,7 @@ The following patterns are considered warnings:
 ```
 
 ```css
-@import url("x.css"); a {};
+@import url("x.css"); a {}
 ```
 
 The following patterns are *not* considered warnings:
@@ -44,11 +42,11 @@ The following patterns are *not* considered warnings:
 
 ```css
 @import url("x.css"); /* end-of-line comment */
-a {};
+a {}
 ```
 
 ```css
 @import url("x.css");
 
-a {};
+a {}
 ```

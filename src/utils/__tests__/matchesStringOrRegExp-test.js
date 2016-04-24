@@ -2,43 +2,53 @@ import test from "tape"
 import matchesStringOrRegExp from "../matchesStringOrRegExp"
 
 test("matchesStringOrRegExp comparing with string comparisonValues", t => {
-  t.ok(matchesStringOrRegExp("bar", "bar"))
+  t.deepEqual(matchesStringOrRegExp("bar", "bar"),
+    { match: "bar", pattern: "bar" })
   t.notOk(matchesStringOrRegExp("bar", "/bar something"))
-  t.ok(matchesStringOrRegExp("/bar something", "/bar something"))
-  t.ok(matchesStringOrRegExp("bar something/", "bar something/"))
+  t.deepEqual(matchesStringOrRegExp("/bar something", "/bar something"),
+    { match: "/bar something", pattern: "/bar something" })
+  t.deepEqual(matchesStringOrRegExp("bar something/", "bar something/"),
+    { match: "bar something/", pattern: "bar something/" })
   t.notOk(matchesStringOrRegExp("bar something/", "bar something//"))
 
-  t.ok(matchesStringOrRegExp([ "foo", "bar" ], "bar"))
+  t.deepEqual(matchesStringOrRegExp([ "foo", "bar" ], "bar"),
+    { match: "bar", pattern: "bar" })
   t.notOk(matchesStringOrRegExp([ "foo", "baz" ], "bar"))
 
-  t.ok(matchesStringOrRegExp("bar", [ "foo", "bar" ]))
+  t.deepEqual(matchesStringOrRegExp("bar", [ "foo", "bar" ]),
+    { match: "bar", pattern: "bar" })
   t.notOk(matchesStringOrRegExp("bar", [ "foo", "baz" ]))
 
-  t.ok(matchesStringOrRegExp([ "foo", "baz" ], [ "foo", "bar" ]))
+  t.deepEqual(matchesStringOrRegExp([ "foo", "baz" ], [ "foo", "bar" ]),
+    { match: "foo", pattern: "foo" })
   t.notOk(matchesStringOrRegExp([ "bar", "hooha" ], [ "foo", "baz" ]))
 
   t.end()
 })
 
 test("matchesStringOrRegExp comparing with a RegExp comparisonValue", t => {
-  const comparisonValue = "/\\.foo$/"
-  const anotherComparisonValue = "/^bar/"
+  t.deepEqual(matchesStringOrRegExp(".foo", "/\\.foo$/"),
+    { match: ".foo", pattern: "/\\.foo$/" })
+  t.deepEqual(matchesStringOrRegExp("bar .foo", "/\\.foo$/"),
+    { match: "bar .foo", pattern: "/\\.foo$/" })
+  t.notOk(matchesStringOrRegExp("bar .foo bar", "/\\.foo$/"))
+  t.notOk(matchesStringOrRegExp("foo", "/\\.foo$/"))
 
-  t.ok(matchesStringOrRegExp(".foo", comparisonValue))
-  t.ok(matchesStringOrRegExp("bar .foo", comparisonValue))
-  t.notOk(matchesStringOrRegExp("bar .foo bar", comparisonValue))
-  t.notOk(matchesStringOrRegExp("foo", comparisonValue))
+  t.deepEqual(matchesStringOrRegExp([ ".foo", "bar" ], "/\\.foo$/"),
+    { match: ".foo", pattern: "/\\.foo$/" })
+  t.notOk(matchesStringOrRegExp([ "foo", "baz" ], "/\\.foo$/"))
 
-  t.ok(matchesStringOrRegExp([ ".foo", "bar" ], comparisonValue))
-  t.notOk(matchesStringOrRegExp([ "foo", "baz" ], comparisonValue))
+  t.deepEqual(matchesStringOrRegExp(".foo", [ "/\\.foo$/", "/^bar/" ]),
+    { match: ".foo", pattern: "/\\.foo$/" })
+  t.deepEqual(matchesStringOrRegExp("bar", [ "/\\.foo$/", "/^bar/" ]),
+    { match: "bar", pattern: "/^bar/" })
+  t.notOk(matchesStringOrRegExp("ebarz", [ "/\\.foo$/", "/^bar/" ]))
 
-  t.ok(matchesStringOrRegExp(".foo", [ comparisonValue, anotherComparisonValue ]))
-  t.ok(matchesStringOrRegExp("bar", [ comparisonValue, anotherComparisonValue ]))
-  t.notOk(matchesStringOrRegExp("ebarz", [ comparisonValue, anotherComparisonValue ]))
-
-  t.ok(matchesStringOrRegExp([ ".foo", "ebarz" ], [ comparisonValue, anotherComparisonValue ]))
-  t.ok(matchesStringOrRegExp([ "bar", "foo" ], [ comparisonValue, anotherComparisonValue ]))
-  t.notOk(matchesStringOrRegExp([ "ebarz", "foo" ], [ comparisonValue, anotherComparisonValue ]))
+  t.deepEqual(matchesStringOrRegExp([ ".foo", "ebarz" ], [ "/\\.foo$/", "/^bar/" ]),
+    { match: ".foo", pattern: "/\\.foo$/" })
+  t.deepEqual(matchesStringOrRegExp([ "bar", "foo" ], [ "/\\.foo$/", "/^bar/" ]),
+    { match: "bar", pattern: "/^bar/" })
+  t.notOk(matchesStringOrRegExp([ "ebarz", "foo" ], [ "/\\.foo$/", "/^bar/" ]))
 
   t.end()
 })

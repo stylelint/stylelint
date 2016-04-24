@@ -128,7 +128,7 @@ testRule(rule, {
     description: "multi-line at-rule params",
     message: messages.expected("1 tab"),
     line: 2,
-    column: 1,
+    column: 3,
   } ],
 })
 
@@ -149,7 +149,7 @@ testRule(rule, {
 
     message: messages.expected("0 spaces"),
     line: 2,
-    column: 1,
+    column: 3,
   }],
 })
 
@@ -179,4 +179,52 @@ testRule(rule, {
     line: 2,
     column: 3,
   }],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ 2, {
+    indentClosingBrace: true,
+  } ],
+
+  accept: [ {
+    code: "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "    }\n" +
+    "  }",
+  }, {
+    code: "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "    }\n" +
+    "  }\n" +
+    "\n" +
+    "@media screen {\n" +
+    "  b { color: orange; }\n" +
+    "  }",
+  } ],
+
+  reject: [ {
+    code: "\n" +
+    "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "    }\n" +
+    " }",
+
+    message: messages.expected("2 spaces"),
+    line: 6,
+    column: 2,
+  }, {
+    code: "@media print {\n" +
+    "  a {\n" +
+    "    color: pink;\n" +
+    "   }\n" +
+    "  }",
+
+    message: messages.expected("4 spaces"),
+    line: 4,
+    column: 4,
+  } ],
 })

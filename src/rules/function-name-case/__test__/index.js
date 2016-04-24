@@ -32,6 +32,14 @@ testRule(rule, {
     code: "a { background: -webkit-radial-gradient(red, green, blue); }",
   }, {
     code: "@media (max-width: 10px) { a { color: color(rgb(0, 0, 0) lightness(50%)); } }",
+  }, {
+    code: "a { transform: translateX(0); }",
+  }, {
+    code: "a { transform: scaleX(0); }",
+  }, {
+    code: "a { transform: rotateX(0); }",
+  }, {
+    code: "a { transform: skewX(0); }",
   } ],
 
   reject: [ {
@@ -124,6 +132,21 @@ testRule(rule, {
     message: messages.expected("Lightness", "lightness"),
     line: 1,
     column: 58,
+  }, {
+    code: "a { transform: TranslateX(0); }",
+    message: messages.expected("TranslateX", "translateX"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { transform: tRaNsLaTeX(0); }",
+    message: messages.expected("tRaNsLaTeX", "translateX"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { transform: TRANSLATEX(0); }",
+    message: messages.expected("TRANSLATEX", "translateX"),
+    line: 1,
+    column: 16,
   } ],
 })
 
@@ -157,6 +180,8 @@ testRule(rule, {
     code: "a { background: -WEBKIT-RADIAL-GRADIENT(red, green, blue); }",
   }, {
     code: "@media (max-width: 10px) { a { color: COLOR(RGB(0, 0, 0) LIGHTNESS(50%)); } }",
+  }, {
+    code: "a { transform: TRANSLATEX(0); }",
   } ],
 
   reject: [ {
@@ -249,5 +274,20 @@ testRule(rule, {
     message: messages.expected("Lightness", "LIGHTNESS"),
     line: 1,
     column: 58,
+  }, {
+    code: "a { transform: TranslateX(0); }",
+    message: messages.expected("TranslateX", "TRANSLATEX"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { transform: tRaNsLaTeX(0); }",
+    message: messages.expected("tRaNsLaTeX", "TRANSLATEX"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { transform: translateX(0); }",
+    message: messages.expected("translateX", "TRANSLATEX"),
+    line: 1,
+    column: 16,
   } ],
 })

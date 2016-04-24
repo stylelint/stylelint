@@ -35,6 +35,8 @@ export default function ({
 
   let errored = false
 
+  let initialisedPostcss
+
   if (!files) {
     return lintString(code, codeFilename).then(result => {
       const results = [result]
@@ -73,6 +75,20 @@ export default function ({
     }).then(code => lintString(code, filepath))
   }
 
+  function getPostcss() {
+    if (!initialisedPostcss) {
+      initialisedPostcss = postcss()
+        .use(stylelintPostcssPlugin({
+          config,
+          configFile,
+          configBasedir,
+          configOverrides,
+        }))
+    }
+
+    return initialisedPostcss
+  }
+
   function lintString(code, filepath) {
     const postcssProcessOptions = {}
     if (filepath) {
@@ -91,13 +107,7 @@ export default function ({
         break
     }
 
-    return postcss()
-      .use(stylelintPostcssPlugin({
-        config,
-        configFile,
-        configBasedir,
-        configOverrides,
-      }))
+    return getPostcss()
       .process(code, postcssProcessOptions)
       .then(handleResult)
       .catch(cssSyntaxError)
@@ -140,6 +150,7 @@ export default function ({
     function cssSyntaxError(error) {
       if (error.name !== "CssSyntaxError") { throw error }
 
+      errored = true
       return {
         source: error.file || "<input css 1>",
         deprecations: [],

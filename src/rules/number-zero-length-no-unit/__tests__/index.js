@@ -59,6 +59,30 @@ testRule(rule, {
   }, {
     code: "a { transform: translate(0); }",
     description: "transform function",
+  }, {
+    code: "a { transition-duration: 0s; }",
+    description: "ignore seconds",
+  }, {
+    code: "a { transition-duration: 0ms; }",
+    description: "ignore milliseconds",
+  }, {
+    code: "a { transition: top 0s; }",
+    description: "ignore seconds",
+  }, {
+    code: "a { transition: top 0ms; }",
+    description: "ignore milliseconds",
+  }, {
+    code: "a { margin: 0%; }",
+    description: "ignore percent unit",
+  }, {
+    code: "@media print and (min-resolution: 0dpi) { }",
+    description: "ignore dpi",
+  }, {
+    code: "@media print and (min-resolution: 0dpcm) { }",
+    description: "ignore dpcm",
+  }, {
+    code: "@media print and (min-resolution: 0dppx) { }",
+    description: "ignore dppx",
   } ],
 
   reject: [ {
@@ -108,5 +132,11 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 27,
+  }, {
+    code: "a { margin: 0q; }",
+    description: "work with q unit",
+    message: messages.rejected,
+    line: 1,
+    column: 14,
   } ],
 })

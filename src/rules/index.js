@@ -19,6 +19,7 @@ import colorNoHex from "./color-no-hex"
 import colorNoInvalidHex from "./color-no-invalid-hex"
 import commentEmptyLineBefore from "./comment-empty-line-before"
 import commentWhitespaceInside from "./comment-whitespace-inside"
+import commentWordBlacklist from "./comment-word-blacklist"
 import customMediaPattern from "./custom-media-pattern"
 import customPropertyNoOutsideRoot from "./custom-property-no-outside-root"
 import customPropertyPattern from "./custom-property-pattern"
@@ -94,6 +95,7 @@ import propertyWhitelist from "./property-whitelist"
 import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
 import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
+import selectorAttributeBracketsSpaceInside from "./selector-attribute-brackets-space-inside"
 import selectorClassPattern from "./selector-class-pattern"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
@@ -110,10 +112,12 @@ import selectorNoType from "./selector-no-type"
 import selectorNoUniversal from "./selector-no-universal"
 import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
 import selectorPseudoClassCase from "./selector-pseudo-class-case"
+import selectorPseudoClassParenthesesSpaceInside from "./selector-pseudo-class-parentheses-space-inside"
 import selectorPseudoElementCase from "./selector-pseudo-element-case"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
 import selectorRootNoComposition from "./selector-root-no-composition"
 import selectorTypeCase from "./selector-type-case"
+import shorthandPropertyNoRedundantValues from "./shorthand-property-no-redundant-values"
 import stringNoNewline from "./string-no-newline"
 import stringQuotes from "./string-quotes"
 import stylelintDisableReason from "./stylelint-disable-reason"
@@ -151,6 +155,7 @@ export default {
   "color-no-invalid-hex": colorNoInvalidHex,
   "comment-empty-line-before": commentEmptyLineBefore,
   "comment-whitespace-inside": commentWhitespaceInside,
+  "comment-word-blacklist": commentWordBlacklist,
   "custom-media-pattern": customMediaPattern,
   "custom-property-no-outside-root": customPropertyNoOutsideRoot,
   "custom-property-pattern": customPropertyPattern,
@@ -226,6 +231,7 @@ export default {
   "root-no-standard-properties": rootNoStandardProperties,
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
+  "selector-attribute-brackets-space-inside": selectorAttributeBracketsSpaceInside,
   "selector-class-pattern": selectorClassPattern,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,
@@ -242,10 +248,12 @@ export default {
   "selector-no-universal": selectorNoUniversal,
   "selector-no-vendor-prefix": selectorNoVendorPrefix,
   "selector-pseudo-class-case": selectorPseudoClassCase,
+  "selector-pseudo-class-parentheses-space-inside": selectorPseudoClassParenthesesSpaceInside,
   "selector-pseudo-element-case": selectorPseudoElementCase,
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
   "selector-root-no-composition": selectorRootNoComposition,
   "selector-type-case": selectorTypeCase,
+  "shorthand-property-no-redundant-values": shorthandPropertyNoRedundantValues,
   "string-no-newline": stringNoNewline,
   "string-quotes": stringQuotes,
   "stylelint-disable-reason": stylelintDisableReason,

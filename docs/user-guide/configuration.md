@@ -202,3 +202,11 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 - or `process.cwd()`.
 
 The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
+
+## `.stylelintignore`
+
+Like `ignoreFiles` in the configuration object, you can specify a list of files or patterns that will be ignored.
+
+You must include only one pattern per line. And the patterns are the same globs as for `ignoreFiles`, above.
+
+stylelint will check for the `.stylelintignore` file in the config's `configBasedir` (if it's provided), the config's own directory, or `process.cwd()`.

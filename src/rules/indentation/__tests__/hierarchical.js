@@ -264,3 +264,32 @@ testRule(rule, {
     column: 7,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [ 2, {
+    hierarchicalSelectors: true,
+    indentClosingBrace: true,
+  } ],
+
+  accept: [{
+    code: ".foo {\n" +
+    "  color: pink;\n" +
+    "  }\n" +
+    "  .foo-one {\n" +
+    "    top: 0;\n" +
+    "    }",
+  }],
+
+  reject: [{
+    code: ".foo {\n" +
+    "  color: pink;\n" +
+    "  }\n" +
+    "  .foo-one {\n" +
+    "    top: 0;\n" +
+    "     }",
+    message: messages.expected("4 spaces"),
+    line: 6,
+    column: 6,
+  }],
+})

@@ -1,7 +1,9 @@
 import valueParser from "postcss-value-parser"
+import { isString } from "lodash"
 import {
   cssWordIsVariable,
   declarationValueIndexOffset,
+  matchesStringOrRegExp,
   report,
   ruleMessages,
   validateOptions,
@@ -18,7 +20,7 @@ const ignoredCharacters = new Set([
   "+", "-", "/", "*", "%",
 ])
 
-export default function (expectation) {
+export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -26,6 +28,12 @@ export default function (expectation) {
         "lower",
         "upper",
       ],
+    }, {
+      actual: options,
+      possible: {
+        ignoreKeywords: [isString],
+      },
+      optional: true,
     })
     if (!validOptions) { return }
 
@@ -49,6 +57,10 @@ export default function (expectation) {
         const parsedUnit = valueParser.unit(keyword)
 
         if (parsedUnit !== false) { return }
+
+        const ignoreKeywords = options && options.ignoreKeywords || []
+
+        if (ignoreKeywords.length > 0 && matchesStringOrRegExp(keyword, ignoreKeywords)) { return }
 
         const expectedKeyword = expectation === "lower" ? keyword.toLowerCase() : keyword.toUpperCase()
 

@@ -26,19 +26,38 @@ export default function (max) {
     const repeatLFNewLines = repeat("\n", maxAdjacentNewlines)
     const repeatCRLFNewLines = repeat("\r\n", maxAdjacentNewlines)
 
-    styleSearch({ source: rootString, target: "\n", checkComments: true }, match => {
-      if (
-        rootString.substr(match.startIndex + 1, maxAdjacentNewlines) === repeatLFNewLines
-        || rootString.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeatCRLFNewLines
-      ) {
-        report({
-          message: messages.rejected,
-          node: root,
-          index: match.startIndex,
-          result,
-          ruleName,
-        })
-      }
+    styleSearch({ source: rootString, target: "\n" }, match => {
+      checkMatch(rootString, match.endIndex, root)
     })
+
+    // We must check comments separately in order to accommodate stupid
+    // `//`-comments from SCSS, which postcss-scss converts to `/* ... */`,
+    // which adds to extra characters at the end, which messes up our
+    // warning position
+    root.walkComments(comment => {
+      const source = comment.raw("left") + comment.text + comment.raw("right")
+      styleSearch({ source, target: "\n" }, match => {
+        checkMatch(source, match.endIndex, comment, 2)
+      })
+    })
+
+    function checkMatch(source, matchEndIndex, node, offset = 0) {
+      let violationIndex = false
+      if (source.substr(matchEndIndex, maxAdjacentNewlines) === repeatLFNewLines) {
+        violationIndex = matchEndIndex + maxAdjacentNewlines
+      } else if (source.substr(matchEndIndex, maxAdjacentNewlines * 2) === repeatCRLFNewLines) {
+        violationIndex = matchEndIndex + (maxAdjacentNewlines * 2)
+      }
+
+      if (!violationIndex) { return }
+
+      report({
+        message: messages.rejected,
+        node,
+        index: violationIndex + offset,
+        result,
+        ruleName,
+      })
+    }
   }
 }

@@ -27,33 +27,33 @@ testRule(rule, {
   reject: [ {
     code: "a {}\n\n\nb{}",
     message: messages.rejected,
-    line: 1,
-    column: 5,
+    line: 4,
+    column: 1,
   }, {
     code: "a {}\r\n\r\n\r\nb{}",
     message: messages.rejected,
-    line: 1,
-    column: 6,
+    line: 4,
+    column: 1,
   }, {
     code: "a {}\n\n/** horse */\n\n\nb{}",
     message: messages.rejected,
-    line: 3,
-    column: 13,
+    line: 6,
+    column: 1,
   }, {
     code: "a {}\r\n\r\n/** horse */\r\n\r\n\r\nb{}",
     message: messages.rejected,
-    line: 3,
-    column: 14,
+    line: 6,
+    column: 1,
   }, {
     code: "/* horse\n\n\n */\na{}",
     message: messages.rejected,
-    line: 1,
-    column: 9,
+    line: 4,
+    column: 1,
   }, {
     code: "/* horse\r\n\r\n\r\n */\r\na{}",
     message: messages.rejected,
-    line: 1,
-    column: 10,
+    line: 4,
+    column: 1,
   } ],
 })
 
@@ -78,32 +78,50 @@ testRule(rule, {
   reject: [ {
     code: "a {}\n\n\n\nb{}",
     message: messages.rejected,
-    line: 1,
-    column: 5,
+    line: 5,
+    column: 1,
   }, {
     code: "a {}\r\n\r\n\r\n\r\nb{}",
     message: messages.rejected,
-    line: 1,
-    column: 6,
+    line: 5,
+    column: 1,
   }, {
     code: "a {}\n\n/** horse */\n\n\n\nb{}",
     message: messages.rejected,
-    line: 3,
-    column: 13,
+    line: 7,
+    column: 1,
   }, {
     code: "a {}\r\n\r\n/** horse */\r\n\r\n\r\n\r\nb{}",
     message: messages.rejected,
-    line: 3,
-    column: 14,
+    line: 7,
+    column: 1,
   }, {
     code: "/* horse\n\n\n\n */\na{}",
     message: messages.rejected,
-    line: 1,
-    column: 9,
+    line: 5,
+    column: 1,
   }, {
     code: "/* horse\r\n\r\n\r\n\r\n */\r\na{}",
     message: messages.rejected,
-    line: 1,
-    column: 10,
+    line: 5,
+    column: 1,
   } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [2],
+  skipBasicChecks: true,
+  syntax: "scss",
+
+  accept: [{
+    code: "// one\n\n\n// two\n",
+  }],
+
+  reject: [{
+    code: "// one\n\n\n\n// two\n",
+    message: messages.rejected,
+    line: 5,
+    column: 1,
+  }],
 })
