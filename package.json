@@ -75,7 +75,7 @@
     "trash": "^3.4.1"
   },
   "scripts": {
-    "benchmark-rule": "babel-node benchmark-rule.js",
+    "benchmark-rule": "babel-node scripts/benchmark-rule.js",
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist",
     "prepublish": "npm run build",
