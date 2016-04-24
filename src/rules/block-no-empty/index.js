@@ -22,15 +22,15 @@ export default function (actual) {
     root.walkAtRules(check)
 
     function check(statement) {
-      if (cssStatementHasEmptyBlock(statement)) {
-        report({
-          message: messages.rejected,
-          node: statement,
-          index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length,
-          result,
-          ruleName,
-        })
-      }
+      if (!cssStatementHasEmptyBlock(statement)) { return }
+
+      report({
+        message: messages.rejected,
+        node: statement,
+        index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length,
+        result,
+        ruleName,
+      })
     }
   }
 }

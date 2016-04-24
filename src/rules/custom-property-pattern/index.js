@@ -24,17 +24,16 @@ export default function (pattern) {
       : pattern
 
     root.walkDecls(decl => {
-      const prop = decl.prop
+      const { prop } = decl
       if (prop.slice(0, 2) !== "--") { return }
+      if (regexpPattern.test(prop.slice(2))) { return }
 
-      if (!regexpPattern.test(prop.slice(2))) {
-        report({
-          message: messages.expected,
-          node: decl,
-          result,
-          ruleName,
-        })
-      }
+      report({
+        message: messages.expected,
+        node: decl,
+        result,
+        ruleName,
+      })
     })
   }
 }

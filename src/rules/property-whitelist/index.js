@@ -29,14 +29,14 @@ export default function (whitelistInput) {
 
       if (cssWordIsVariable(prop)) { return }
 
-      if (!matchesStringOrRegExp(vendor.unprefixed(prop), whitelist)) {
-        report({
-          message: messages.rejected(prop),
-          node: decl,
-          result,
-          ruleName,
-        })
-      }
+      if (matchesStringOrRegExp(vendor.unprefixed(prop), whitelist)) { return }
+
+      report({
+        message: messages.rejected(prop),
+        node: decl,
+        result,
+        ruleName,
+      })
     })
   }
 }

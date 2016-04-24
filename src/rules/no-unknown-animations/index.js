@@ -57,15 +57,14 @@ export default function (actual) {
     })
 
     function checkAnimationName(animationName, decl, offset = 0) {
-      if (!declaredAnimations.has(animationName)) {
-        report({
-          result,
-          ruleName,
-          message: messages.rejected(animationName),
-          node: decl,
-          index: declarationValueIndexOffset(decl) + offset,
-        })
-      }
+      if (declaredAnimations.has(animationName)) { return }
+      report({
+        result,
+        ruleName,
+        message: messages.rejected(animationName),
+        node: decl,
+        index: declarationValueIndexOffset(decl) + offset,
+      })
     }
   }
 }
