@@ -1,10 +1,10 @@
 import _ from "lodash"
 
 /**
- * Check whether a rule is valid
+ * Check whether a rule is standard
  *
  * @param {Rule} postcss rule node
- * @return {boolean} If `true`, the rule is valid
+ * @return {boolean} If `true`, the rule is standard
  */
 export default function (rule) {
 
