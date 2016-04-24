@@ -371,3 +371,17 @@ testRule(rule, {
     message: messages.rejected,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  syntax: "less",
+  config: ["always"],
+
+  accept: [ {
+    code: "a { .mixin-call(); }",
+    description: "LESS mixin call ignored",
+  }, {
+    code: "a { &:extend(.class); }",
+    description: "LESS extends ignored",
+  } ],
+})
