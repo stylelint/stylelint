@@ -65,20 +65,9 @@ testRule(rule, {
   }, {
     code: "div:nth-child(#{map-get($foo, bar)}) {}",
     description: "ignore sass map-get interpolation",
-  } ],
-
-  reject: [ {
-    code: "@for $n from 1 through 10 { .n-#{$n} #foo { } }",
-    description: "report sass interpolation + id inside @for",
-    message: messages.rejected,
-    line: 1,
-    column: 38,
   }, {
-    code: "@for $n from 1 through 10 { .n#{$n}-#{$n} #foo { } }",
-    description: "report sass interpolation + id inside @for",
-    message: messages.rejected,
-    line: 1,
-    column: 43,
+    code: "@for $n from 1 through 10 { .n-#{$n} #foo { } }",
+    description: "ignore sass interpolation + id inside @for",
   } ],
 })
 
@@ -103,20 +92,9 @@ testRule(rule, {
   }, {
     code: ".while(@n: 0) when (@n < 10) { .n-@{n} { content: %(\"n: %d\", 1 + 1); } .while(@n + 1) }",
     description: "ignore Less interpolation inside .while",
+  }, {
+    code: ".for(@n: 1) when (@n <= 10) { .n-@{n} #foo { } .for(@n + 1) }",
+    description: "ignore Less interpolation + id inside .for",
   },
   ],
-
-  reject: [ {
-    code: ".for(@n: 1) when (@n <= 10) { .n-@{n} #foo { } .for(@n + 1) }",
-    description: "report Less interpolation + id inside .for",
-    message: messages.rejected,
-    line: 1,
-    column: 39,
-  }, {
-    code: ".for(@n: 1) when (@n <= 10) { .n-@{n}-@{n} #foo { } .for(@n + 1) }",
-    description: "report Less interpolation + id inside .for",
-    message: messages.rejected,
-    line: 1,
-    column: 44,
-  } ],
 })

@@ -1,7 +1,7 @@
 import selectorParser from "postcss-selector-parser"
 import { get } from "lodash"
 import {
-  cssRuleHasSelectorEndingWithColon,
+  isValidRule,
   cssRuleIsKeyframe,
   optionsHaveIgnored,
   report,
@@ -28,10 +28,8 @@ export default function (on, options) {
 
     root.walkRules(rule => {
 
-      if (
-        cssRuleHasSelectorEndingWithColon(rule)
-        || cssRuleIsKeyframe(rule)
-      ) { return }
+      if (!isValidRule(rule)) { return }
+      if (cssRuleIsKeyframe(rule)) { return }
 
       selectorParser(checkSelector).process(rule.selector)
 

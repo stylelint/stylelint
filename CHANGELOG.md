@@ -1,7 +1,9 @@
 # Head
 
 - Fixed: `number-leading-zero` will not check `@import` at-rules.
+- Fixed: `rule-nested-empty-line-before` ignores Less blockless rules (mixin and extend calls).
 - Fixed: `selector-class-pattern` now ignores non-ouputting Less mixin definitions and called Less mixins.
+- Fixed: `selector-no-id` now completely ignores selectors containing interpolation.
 
 # 6.1.1
 

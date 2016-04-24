@@ -1,5 +1,6 @@
 import {
   isSingleLineString,
+  isValidRule,
   optionsHaveException,
   optionsHaveIgnored,
   report,
@@ -34,6 +35,8 @@ export default function (expectation, options) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
+
+      if (!isValidRule(rule)) { return }
 
       // Ignore nested rule sets
       if (rule.parent !== root) { return }
