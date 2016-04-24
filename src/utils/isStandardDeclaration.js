@@ -9,6 +9,9 @@ export default function (decl) {
 
   // SCSS var (e.g. $var: x), list (e.g. $list: (x)) or map (e.g. $map: (key:value))
   if (prop[0] === "$") { return false }
-  
+
+  // Less var (e.g. @var: x)
+  if (prop[0] === "@") { return false }
+
   return true
 }
