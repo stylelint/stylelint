@@ -1,7 +1,8 @@
 import { vendor } from "postcss"
 import { isString } from "lodash"
 import {
-  cssWordIsVariable,
+  isStandardDeclaration,
+  propertyIsCustom,
   report,
   ruleMessages,
   validateOptions,
@@ -25,9 +26,10 @@ export default function (whitelistInput) {
 
     root.walkDecls(decl => {
 
-      const prop = decl.prop
+      if (!isStandardDeclaration(decl)) { return }
 
-      if (cssWordIsVariable(prop)) { return }
+      const { prop } = decl
+      if (propertyIsCustom(prop)) { return }
 
       if (!matchesStringOrRegExp(vendor.unprefixed(prop), whitelist)) {
         report({
