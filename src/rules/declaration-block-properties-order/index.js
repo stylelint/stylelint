@@ -1,9 +1,10 @@
 import _ from "lodash"
 import { vendor } from "postcss"
 import {
+  isStandardDeclaration,
+  propertyIsCustom,
   report,
   ruleMessages,
-  cssWordIsVariable,
   validateOptions,
 } from "../../utils"
 
@@ -55,9 +56,13 @@ export default function (expectation, options) {
 
         if (child.type !== "decl") { return }
 
-        if (cssWordIsVariable(child.prop)) { return }
+        if (!isStandardDeclaration(child)) { return }
 
-        let unprefixedPropName = vendor.unprefixed(child.prop)
+        const { prop } = child
+
+        if (propertyIsCustom(prop)) { return }
+
+        let unprefixedPropName = vendor.unprefixed(prop)
 
         // Hack to allow -moz-osx-font-smoothing to be understood
         // just like -webkit-font-smoothing
@@ -66,7 +71,7 @@ export default function (expectation, options) {
         }
 
         const propData = {
-          name: child.prop,
+          name: prop,
           unprefixedName: unprefixedPropName,
           orderData: (alphabetical) ? null : getOrderData(expectedOrder, unprefixedPropName),
           before: child.raw("before"),
