@@ -1,6 +1,7 @@
 import {
-  cssWordIsVariable,
+  isStandardDeclaration,
   optionsHaveIgnored,
+  propertyIsCustom,
   report,
   ruleMessages,
   validateOptions,
@@ -43,10 +44,11 @@ export default function (on, options) {
         }
 
         if (child.type !== "decl") { return }
+        if (!isStandardDeclaration(child)) { return }
 
-        const prop = child.prop
+        const { prop } = child
 
-        if (cssWordIsVariable(prop)) { return }
+        if (propertyIsCustom(prop)) { return }
 
         // Ignore the src property as commonly duplicated in at-fontface
         if (prop === "src") { return }
