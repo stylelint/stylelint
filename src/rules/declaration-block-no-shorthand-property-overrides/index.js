@@ -34,14 +34,13 @@ export default function (actual) {
           return
         }
         overrideables.forEach(longhandProp => {
-          if (declarations.has(longhandProp)) {
-            report({
-              ruleName,
-              result,
-              node,
-              message: messages.rejected(prop, longhandProp),
-            })
-          }
+          if (!declarations.has(longhandProp)) { return }
+          report({
+            ruleName,
+            result,
+            node,
+            message: messages.rejected(prop, longhandProp),
+          })
         })
       })
     }

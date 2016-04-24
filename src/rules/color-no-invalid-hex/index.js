@@ -28,17 +28,17 @@ export default function (actual) {
 
         const hexMatch = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))
         if (!hexMatch) { return }
-        const hexValue = hexMatch[0]
 
-        if (!isValidHex(hexValue)) {
-          report({
-            message: messages.rejected(hexValue),
-            node: decl,
-            index: match.startIndex,
-            result,
-            ruleName,
-          })
-        }
+        const hexValue = hexMatch[0]
+        if (isValidHex(hexValue)) { return }
+
+        report({
+          message: messages.rejected(hexValue),
+          node: decl,
+          index: match.startIndex,
+          result,
+          ruleName,
+        })
       })
     })
   }

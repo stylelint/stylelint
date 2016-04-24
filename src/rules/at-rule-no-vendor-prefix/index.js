@@ -21,14 +21,14 @@ export default function (actual) {
 
       if (name[0] !== "-") { return }
 
-      if (isAutoprefixable.atRuleName(name)) {
-        report({
-          message: messages.rejected(name),
-          node: atRule,
-          result,
-          ruleName,
-        })
-      }
+      if (!isAutoprefixable.atRuleName(name)) { return }
+
+      report({
+        message: messages.rejected(name),
+        node: atRule,
+        result,
+        ruleName,
+      })
     })
   }
 }
