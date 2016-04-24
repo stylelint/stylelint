@@ -3,8 +3,8 @@ import Benchmark from "benchmark"
 import request from "request"
 import postcss from "postcss"
 import chalk from "chalk"
-import rules from "./src/rules"
-import normalizeRuleSettings from "./src/normalizeRuleSettings"
+import rules from "../src/rules"
+import normalizeRuleSettings from "../src/normalizeRuleSettings"
 
 const ruleName = process.argv[2]
 const ruleOptions = process.argv[3]
