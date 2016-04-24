@@ -42,6 +42,9 @@ export default function (expectation, options) {
       // Only attend to nested rule sets
       if (rule.parent === root) { return }
 
+      // For LESS, ignore mixin and extend calls in the form of blockless rules
+      if (rule.ruleWithoutBody) { return }
+
       checkRuleEmptyLineBefore({ rule, expectation, options, result, messages, checkedRuleName: ruleName })
     })
   }
