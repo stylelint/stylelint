@@ -1,6 +1,6 @@
 import selectorParser from "postcss-selector-parser"
 import {
-  cssRuleHasSelectorEndingWithColon,
+  isValidRule,
   cssRuleIsKeyframe,
   report,
   ruleMessages,
@@ -26,10 +26,8 @@ export default function (expectation) {
 
     root.walkRules(rule => {
 
-      if (
-        cssRuleHasSelectorEndingWithColon(rule)
-        || cssRuleIsKeyframe(rule)
-      ) { return }
+      if (!isValidRule(rule)) { return }
+      if (cssRuleIsKeyframe(rule)) { return }
 
       function checkSelector(selectorAST) {
         selectorAST.eachTag(tag => {
