@@ -2,7 +2,7 @@ import resolveNestedSelector from "postcss-resolve-nested-selector"
 import selectorParser from "postcss-selector-parser"
 import _ from "lodash"
 import {
-  isValidRule,
+  isStandardRule,
   report,
   ruleMessages,
   validateOptions,
@@ -34,7 +34,7 @@ export default function (pattern, options) {
       : pattern
 
     root.walkRules(rule => {
-      if (!isValidRule(rule)) { return }
+      if (!isStandardRule(rule)) { return }
 
       // Only bother resolving selectors that have an interpolating &
       if (shouldResolveNestedSelectors && hasInterpolatingAmpersand(rule.selector)) {

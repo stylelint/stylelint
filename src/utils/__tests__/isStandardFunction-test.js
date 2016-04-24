@@ -1,25 +1,25 @@
-import isValidFunction from "../isValidFunction"
+import isStandardFunction from "../isStandardFunction"
 import postcss from "postcss"
 import test from "tape"
 import valueParser from "postcss-value-parser"
 
-test("isValidFunction", t => {
+test("isStandardFunction", t => {
   t.plan(4)
 
   rules("a { prop: calc(a + b) }", func => {
-    t.ok(isValidFunction(func), "calc")
+    t.ok(isStandardFunction(func), "calc")
   })
 
   rules("a { prop: url('x.css') }", func => {
-    t.ok(isValidFunction(func), "url")
+    t.ok(isStandardFunction(func), "url")
   })
 
   rules("a { $list: (list) }", func => {
-    t.notOk(isValidFunction(func), "scss list")
+    t.notOk(isStandardFunction(func), "scss list")
   })
 
   rules("a { $map: (key: value) }", func => {
-    t.notOk(isValidFunction(func), "scss map")
+    t.notOk(isStandardFunction(func), "scss map")
   })
 })
 

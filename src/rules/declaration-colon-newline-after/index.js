@@ -1,5 +1,5 @@
 import {
-  isValidDeclaration,
+  isStandardDeclaration,
   declarationValueIndexOffset,
   report,
   ruleMessages,
@@ -29,7 +29,7 @@ export default function (expectation) {
 
     root.walkDecls(decl => {
 
-      if (!isValidDeclaration(decl)) { return }
+      if (!isStandardDeclaration(decl)) { return }
 
       // Get the raw prop, and only the prop
       const endOfPropIndex = declarationValueIndexOffset(decl) + decl.raw("between").length - 1

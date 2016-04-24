@@ -2,7 +2,7 @@ import { calculate } from "specificity"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 import {
-  isValidRule,
+  isStandardRule,
   report,
   ruleMessages,
   validateOptions,
@@ -27,7 +27,7 @@ export default function (max) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (!isValidRule(rule)) { return }
+      if (!isStandardRule(rule)) { return }
       // Using rule.selectors gets us each selector in the eventuality we have a comma separated set
       rule.selectors.forEach(selector => {
         resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {

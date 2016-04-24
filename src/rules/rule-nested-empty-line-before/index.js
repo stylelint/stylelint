@@ -1,5 +1,5 @@
 import {
-  isValidRule,
+  isStandardRule,
   ruleMessages,
   validateOptions,
 } from "../../utils"
@@ -40,7 +40,7 @@ export default function (expectation, options) {
 
     root.walkRules(rule => {
 
-      if (!isValidRule(rule)) { return }
+      if (!isStandardRule(rule)) { return }
 
       // Only attend to nested rule sets
       if (rule.parent === root) { return }

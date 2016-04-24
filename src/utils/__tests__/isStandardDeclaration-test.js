@@ -1,8 +1,8 @@
-import isValidDeclaration from "../isValidDeclaration"
+import isStandardDeclaration from "../isStandardDeclaration"
 import postcss from "postcss"
 import test from "tape"
 
-test("isValidDeclaration", t => {
+test("isStandardDeclaration", t => {
   t.ok(postcssCheck("a: b"))
   t.ok(postcssCheck("a: $b"))
   t.ok(postcssCheck("--prefix-a-b: $c"))
@@ -16,5 +16,5 @@ test("isValidDeclaration", t => {
 
 function postcssCheck(cssString) {
   const root = postcss.parse(cssString)
-  return isValidDeclaration(root.first)
+  return isStandardDeclaration(root.first)
 }

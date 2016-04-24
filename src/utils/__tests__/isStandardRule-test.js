@@ -1,65 +1,65 @@
-import isValidRule from "../isValidRule"
+import isStandardRule from "../isStandardRule"
 import less from "postcss-less"
 import scss from "postcss-scss"
 import postcss from "postcss"
 import test from "tape"
 
-test("isValidRule", t => {
+test("isStandardRule", t => {
   t.plan(16)
 
   rules("a {}", rule => {
-    t.ok(isValidRule(rule), "type")
+    t.ok(isStandardRule(rule), "type")
   })
   rules("a:last-child {}", rule => {
-    t.ok(isValidRule(rule), "pseudo-class")
+    t.ok(isStandardRule(rule), "pseudo-class")
   })
   rules("a:not(.a) {}", rule => {
-    t.ok(isValidRule(rule), "pseudo-class not")
+    t.ok(isStandardRule(rule), "pseudo-class not")
   })
   rules("a::after {}", rule => {
-    t.ok(isValidRule(rule), "pseudo-element")
+    t.ok(isStandardRule(rule), "pseudo-element")
   })
   rules(":--custom-selector {}", rule => {
-    t.ok(isValidRule(rule), "custom-selector")
+    t.ok(isStandardRule(rule), "custom-selector")
   })
   rules(":--custom-selector:--custom-selector {}", rule => {
-    t.ok(isValidRule(rule), "compound custom-selectors")
+    t.ok(isStandardRule(rule), "compound custom-selectors")
   })
 
   rules("--custom-property-set: {}", rule => {
-    t.notOk(isValidRule(rule), "custom-property-set")
+    t.notOk(isStandardRule(rule), "custom-property-set")
   })
 
   scssRules(".n-#{$n}", rule => {
-    t.notOk(isValidRule(rule), "scss interpolation")
+    t.notOk(isStandardRule(rule), "scss interpolation")
   })
 
   lessRules(".mixin-name(@var);", rule => {
-    t.notOk(isValidRule(rule), "called Less class parametric mixin")
+    t.notOk(isStandardRule(rule), "called Less class parametric mixin")
   })
   lessRules(".mixin-name() {}", rule => {
-    t.notOk(isValidRule(rule), "non-ouputting Less class mixin definition")
+    t.notOk(isStandardRule(rule), "non-ouputting Less class mixin definition")
   })
   lessRules("#mixin-name() {}", rule => {
-    t.notOk(isValidRule(rule), "non-ouputting Less id mixin definition")
+    t.notOk(isStandardRule(rule), "non-ouputting Less id mixin definition")
   })
   lessRules("#mixin-name;", rule => {
-    t.notOk(isValidRule(rule), "called Less id mixin")
+    t.notOk(isStandardRule(rule), "called Less id mixin")
   })
   lessRules("#mixin-name;", rule => {
-    t.notOk(isValidRule(rule), "called Less id mixin")
+    t.notOk(isStandardRule(rule), "called Less id mixin")
   })
   lessRules("#namespace > .mixin-name;", rule => {
-    t.notOk(isValidRule(rule), "called namespaced Less mixin (child)")
+    t.notOk(isStandardRule(rule), "called namespaced Less mixin (child)")
   })
   lessRules("#namespace .mixin-name;", rule => {
-    t.notOk(isValidRule(rule), "called namespaced Less mixin (descendant)")
+    t.notOk(isStandardRule(rule), "called namespaced Less mixin (descendant)")
   })
   lessRules("#namespace.mixin-name;", rule => {
-    t.notOk(isValidRule(rule), "called namespaced Less mixin (compound)")
+    t.notOk(isStandardRule(rule), "called namespaced Less mixin (compound)")
   })
   lessRules(".n-@{n}", rule => {
-    t.notOk(isValidRule(rule), "Less interpolation")
+    t.notOk(isStandardRule(rule), "Less interpolation")
   })
 })
 

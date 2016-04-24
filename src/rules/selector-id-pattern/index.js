@@ -1,7 +1,7 @@
 import selectorParser from "postcss-selector-parser"
 import { isRegExp, isString } from "lodash"
 import {
-  isValidRule,
+  isStandardRule,
   report,
   ruleMessages,
   validateOptions,
@@ -24,7 +24,7 @@ export default function (pattern) {
     const normalizedPattern = isString(pattern) ? new RegExp(pattern) : pattern
 
     root.walkRules(rule => {
-      if (!isValidRule(rule)) { return }
+      if (!isStandardRule(rule)) { return }
       
       selectorParser(checkSelector).process(rule.selector)
 
