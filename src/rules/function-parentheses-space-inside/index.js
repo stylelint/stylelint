@@ -2,8 +2,8 @@ import valueParser from "postcss-value-parser"
 import {
   declarationValueIndexOffset,
   isSingleLineString,
-  isValidDeclaration,
-  isValidFunction,
+  isStandardDeclaration,
+  isStandardFunction,
   report,
   ruleMessages,
   validateOptions,
@@ -36,14 +36,14 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      if (!isValidDeclaration(decl)) { return }
+      if (!isStandardDeclaration(decl)) { return }
 
       if (decl.value.indexOf("(") === -1) { return }
 
       valueParser(decl.value).walk(valueNode => {
         if (valueNode.type !== "function") { return }
 
-        if (!isValidFunction(valueNode)) { return }
+        if (!isStandardFunction(valueNode)) { return }
 
         const functionString = valueParser.stringify(valueNode)
         const isSingleLine = isSingleLineString(functionString)

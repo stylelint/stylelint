@@ -1,6 +1,6 @@
 import selectorParser from "postcss-selector-parser"
 import {
-  isValidRule,
+  isStandardRule,
   report,
   ruleMessages,
   validateOptions,
@@ -18,7 +18,7 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (!isValidRule(rule)) { return }
+      if (!isStandardRule(rule)) { return }
       selectorParser(selectorAST => {
         selectorAST.eachCombinator(combinator => {
           report({

@@ -1,6 +1,6 @@
 import selectorParser from "postcss-selector-parser"
 import {
-  isValidRule,
+  isStandardRule,
   cssRuleIsKeyframe,
   report,
   ruleMessages,
@@ -26,7 +26,7 @@ export default function (expectation) {
 
     root.walkRules(rule => {
 
-      if (!isValidRule(rule)) { return }
+      if (!isStandardRule(rule)) { return }
       if (cssRuleIsKeyframe(rule)) { return }
 
       function checkSelector(selectorAST) {

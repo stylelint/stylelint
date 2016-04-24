@@ -1,8 +1,8 @@
 import valueParser from "postcss-value-parser"
 import {
   declarationValueIndexOffset,
-  isValidDeclaration,
-  isValidFunction,
+  isStandardDeclaration,
+  isStandardFunction,
   report,
   ruleMessages,
   styleSearch,
@@ -44,12 +44,12 @@ export default function (expectation) {
 
 export function functionCommaSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
-    if (!isValidDeclaration(decl)) { return }
+    if (!isStandardDeclaration(decl)) { return }
 
     valueParser(decl.value).walk(valueNode => {
       if (valueNode.type !== "function") { return }
 
-      if (!isValidFunction(valueNode)) { return }
+      if (!isStandardFunction(valueNode)) { return }
 
       // Ignore `url()` arguments, which may contain data URIs or other funky stuff
       if (valueNode.value === "url") { return }

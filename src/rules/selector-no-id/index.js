@@ -1,6 +1,6 @@
 import selectorParser from "postcss-selector-parser"
 import {
-  isValidRule,
+  isStandardRule,
   cssRuleIsKeyframe,
   report,
   ruleMessages,
@@ -19,7 +19,7 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (!isValidRule(rule)) { return }
+      if (!isStandardRule(rule)) { return }
       if (cssRuleIsKeyframe(rule)) { return }
       selectorParser(selectorAST => {
         selectorAST.eachId(idNode => {
