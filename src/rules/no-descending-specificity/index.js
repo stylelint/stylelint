@@ -4,7 +4,7 @@ import selectorParser from "postcss-selector-parser"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 import {
-  cssNodeContextLookup,
+  nodeContextLookup,
   findAtRuleContext,
   isLowerSpecificity,
   report,
@@ -23,7 +23,7 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    const selectorContextLookup = cssNodeContextLookup()
+    const selectorContextLookup = nodeContextLookup()
 
     root.walkRules(rule => {
       const comparisonContext = selectorContextLookup.getContext(rule, findAtRuleContext(rule))
