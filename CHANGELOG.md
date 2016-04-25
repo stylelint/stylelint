@@ -1,4 +1,4 @@
-# Head
+# 6.2.0
 
 - Added: `selector-no-qualifying-type` rule.
 - Fixed: `number-leading-zero` will not check `@import` at-rules.
