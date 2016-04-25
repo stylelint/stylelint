@@ -1,6 +1,7 @@
 import {
-  functionArgumentsSearch,
   atRuleParamIndex,
+  functionArgumentsSearch,
+  isStandardUrl,
   report,
   ruleMessages,
   validateOptions,
@@ -60,53 +61,41 @@ export default function (expectation) {
       }
 
       statement.walkDecls(function (decl) {
+        if (decl.value.indexOf("url(") === -1) { return }
+
         functionArgumentsSearch(decl.toString(), "url", (args, index) => {
-          if (strDefiesExpectation(args)) {
-            report({
-              message: messages.expected(quoteMsg),
-              node: decl,
-              index,
-              result,
-              ruleName,
-            })
-          }
+          if (!strDefiesExpectation(args) || !isStandardUrl(args)) { return }
+
+          complain(messages.expected(quoteMsg), decl, index)
         })
       })
     }
 
     function checkAtRuleParams(atRule) {
       functionArgumentsSearch(atRule.params, "url", (args, index) => {
-        if (strDefiesExpectation(args)) {
-          report({
-            message: messages.expected(quoteMsg),
-            node: atRule,
-            index: index + atRuleParamIndex(atRule),
-            result,
-            ruleName,
-          })
-        }
+        if (!strDefiesExpectation(args) || !isStandardUrl(args)) { return }
+
+        complain(messages.expected(quoteMsg), atRule, index + atRuleParamIndex(atRule))
       })
       functionArgumentsSearch(atRule.params, "url-prefix", (args, index) => {
-        if (strDefiesExpectation(args)) {
-          report({
-            message: messages.expected(quoteMsg, "url-prefix"),
-            node: atRule,
-            index: index + atRuleParamIndex(atRule),
-            result,
-            ruleName,
-          })
-        }
+        if (!strDefiesExpectation(args) || !isStandardUrl(args)) { return }
+
+        complain(messages.expected(quoteMsg, "url-prefix"), atRule, index + atRuleParamIndex(atRule))
       })
       functionArgumentsSearch(atRule.params, "domain", (args, index) => {
-        if (strDefiesExpectation(args)) {
-          report({
-            message: messages.expected(quoteMsg, "domain"),
-            node: atRule,
-            index: index + atRuleParamIndex(atRule),
-            result,
-            ruleName,
-          })
-        }
+        if (!strDefiesExpectation(args) || !isStandardUrl(args)) { return }
+
+        complain(messages.expected(quoteMsg, "domain"), atRule, index + atRuleParamIndex(atRule))
+      })
+    }
+
+    function complain(message, node, index) {
+      report({
+        index,
+        message,
+        node,
+        result,
+        ruleName,
       })
     }
   }

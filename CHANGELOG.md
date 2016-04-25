@@ -1,6 +1,7 @@
 # Head
 
 - Added: `no-extra-semicolons` rule.
+- Fixed: `function-url-quotes` ignores functions contain `$sass` and `@less` variables.
 
 # 6.2.2
 
