@@ -14,9 +14,6 @@ export default function (rule) {
   // Custom property set (e.g. --custom-property-set: {})
   if (_.endsWith(selector, ":")) { return false }
 
-  // SCSS or Less interpolation
-  if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(selector)) { return false }
-
   // Called Less mixin (e.g. a { .mixin() })
   if (rule.ruleWithoutBody) { return false }
 

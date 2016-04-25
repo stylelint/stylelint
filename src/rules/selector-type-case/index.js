@@ -2,6 +2,7 @@ import selectorParser from "postcss-selector-parser"
 import {
   isKeyframeRule,
   isStandardRule,
+  isStandardSelector,
   isStandardTypeSelector,
   report,
   ruleMessages,
@@ -29,6 +30,8 @@ export default function (expectation) {
 
       if (!isStandardRule(rule)) { return }
       if (isKeyframeRule(rule)) { return }
+      const { selector } = rule
+      if (!isStandardSelector(selector)) { return }
 
       function checkSelector(selectorAST) {
         selectorAST.eachTag(tag => {
@@ -50,7 +53,7 @@ export default function (expectation) {
         })
       }
 
-      selectorParser(checkSelector).process(rule.selector)
+      selectorParser(checkSelector).process(selector)
     })
   }
 }

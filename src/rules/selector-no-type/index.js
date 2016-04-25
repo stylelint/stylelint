@@ -3,6 +3,7 @@ import { get } from "lodash"
 import {
   isKeyframeRule,
   isStandardRule,
+  isStandardSelector,
   isStandardTypeSelector,
   optionsHaveIgnored,
   report,
@@ -31,8 +32,10 @@ export default function (on, options) {
 
       if (!isStandardRule(rule)) { return }
       if (isKeyframeRule(rule)) { return }
+      const { selector } = rule
+      if (!isStandardSelector(selector)) { return }
 
-      selectorParser(checkSelector).process(rule.selector)
+      selectorParser(checkSelector).process(selector)
 
       function checkSelector(selectorAST) {
         selectorAST.eachTag(tag => {

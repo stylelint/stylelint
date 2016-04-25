@@ -1,11 +1,10 @@
 import isStandardRule from "../isStandardRule"
 import less from "postcss-less"
-import scss from "postcss-scss"
 import postcss from "postcss"
 import test from "tape"
 
 test("isStandardRule", t => {
-  t.plan(16)
+  t.plan(15)
 
   rules("a {}", rule => {
     t.ok(isStandardRule(rule), "type")
@@ -28,10 +27,6 @@ test("isStandardRule", t => {
 
   rules("--custom-property-set: {}", rule => {
     t.notOk(isStandardRule(rule), "custom-property-set")
-  })
-
-  scssRules(".n-#{$n}", rule => {
-    t.notOk(isStandardRule(rule), "scss interpolation")
   })
 
   lessRules(".mixin-name(@var);", rule => {
@@ -58,9 +53,6 @@ test("isStandardRule", t => {
   lessRules("#namespace.mixin-name;", rule => {
     t.notOk(isStandardRule(rule), "called namespaced Less mixin (compound)")
   })
-  lessRules(".n-@{n}", rule => {
-    t.notOk(isStandardRule(rule), "Less interpolation")
-  })
 })
 
 function rules(css, cb) {
@@ -71,12 +63,6 @@ function rules(css, cb) {
 
 function lessRules(css, cb) {
   postcss().process(css, { syntax: less }).then(result => {
-    result.root.walkRules(cb)
-  })
-}
-
-function scssRules(css, cb) {
-  postcss().process(css, { syntax: scss }).then(result => {
     result.root.walkRules(cb)
   })
 }

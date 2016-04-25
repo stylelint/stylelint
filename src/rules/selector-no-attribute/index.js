@@ -1,6 +1,7 @@
 import selectorParser from "postcss-selector-parser"
 import {
   isStandardRule,
+  isStandardSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -19,6 +20,8 @@ export default function (actual) {
 
     root.walkRules(rule => {
       if (!isStandardRule(rule)) { return }
+      const { selector } = rule
+      if (!isStandardSelector(selector)) { return }
       selectorParser(selectorAST => {
         selectorAST.eachAttribute(attribute => {
           report({
@@ -30,7 +33,7 @@ export default function (actual) {
           })
         })
       })
-        .process(rule.selector)
+        .process(selector)
     })
   }
 }

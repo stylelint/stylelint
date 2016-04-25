@@ -2,6 +2,7 @@ import selectorParser from "postcss-selector-parser"
 import { isRegExp, isString } from "lodash"
 import {
   isStandardRule,
+  isStandardSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -25,8 +26,11 @@ export default function (pattern) {
 
     root.walkRules(rule => {
       if (!isStandardRule(rule)) { return }
-      
-      selectorParser(checkSelector).process(rule.selector)
+
+      const { selector } = rule
+      if (!isStandardSelector(selector)) { return }
+
+      selectorParser(checkSelector).process(selector)
 
       function checkSelector(fullSelector) {
         fullSelector.eachInside(selectorNode => {
@@ -34,7 +38,7 @@ export default function (pattern) {
           const { value, sourceIndex } = selectorNode
 
           if (normalizedPattern.test(value)) { return }
-          
+
           report({
             result,
             ruleName,
