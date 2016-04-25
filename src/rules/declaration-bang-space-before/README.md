@@ -23,7 +23,7 @@ a { color: pink!important; }
 ```
 
 ```css
-a { color: pink   ! important; }
+a { color: pink  ! important; }
 ```
 
 The following patterns are *not* considered warnings:
@@ -33,7 +33,7 @@ a { color: pink !important; }
 ```
 
 ```css
-a { color:pink  ! important; }
+a { color:pink ! important; }
 ```
 
 ### `"never"`
