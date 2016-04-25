@@ -8,7 +8,7 @@ import {
   isKnownUnit,
   blurComments,
   hasBlock,
-  cssStatementStringBeforeBlock,
+  beforeBlockString,
   report,
   ruleMessages,
   styleSearch,
@@ -38,7 +38,7 @@ export default function (actual) {
 
     root.walkAtRules(atRule => {
       const source = (hasBlock(atRule))
-        ? cssStatementStringBeforeBlock(atRule, { noBefore: true })
+        ? beforeBlockString(atRule, { noBefore: true })
         : atRule.toString()
       check(source, atRule)
     })

@@ -4,7 +4,7 @@ import {
   blockString,
   hasBlock,
   hasEmptyBlock,
-  cssStatementStringBeforeBlock,
+  beforeBlockString,
   matchesStringOrRegExp,
   report,
   ruleMessages,
@@ -56,7 +56,7 @@ export default function (expectation, options) {
       // Return early if at-rule is to be ignored
       if (cssStatementIsIgnoredAtRule(statement, options)) { return }
 
-      const source = cssStatementStringBeforeBlock(statement)
+      const source = beforeBlockString(statement)
 
       checker.before({
         source,
@@ -66,7 +66,7 @@ export default function (expectation, options) {
           report({
             message: m,
             node: statement,
-            index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length - 1,
+            index: beforeBlockString(statement, { noBefore: true }).length - 1,
             result,
             ruleName,
           })

@@ -3,7 +3,7 @@ import _ from "lodash"
 import {
   blurFunctionArguments,
   hasBlock,
-  cssStatementStringBeforeBlock,
+  beforeBlockString,
   report,
   ruleMessages,
   validateOptions,
@@ -35,7 +35,7 @@ export default function (expectation) {
       if (atRule.name === "import") { return }
 
       const source = (hasBlock(atRule))
-        ? cssStatementStringBeforeBlock(atRule, { noBefore: true })
+        ? beforeBlockString(atRule, { noBefore: true })
         : atRule.toString()
       check(source, atRule)
     })

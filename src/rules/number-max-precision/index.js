@@ -3,7 +3,7 @@ import execall from "execall"
 import {
   blurComments,
   hasBlock,
-  cssStatementStringBeforeBlock,
+  beforeBlockString,
   report,
   ruleMessages,
   validateOptions,
@@ -31,7 +31,7 @@ export default function (precision) {
 
     root.walkAtRules(atRule => {
       const source = (hasBlock(atRule))
-        ? cssStatementStringBeforeBlock(atRule, { noBefore: true })
+        ? beforeBlockString(atRule, { noBefore: true })
         : atRule.toString()
       check(source, atRule)
     })

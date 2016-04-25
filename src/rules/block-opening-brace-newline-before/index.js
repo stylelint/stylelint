@@ -2,7 +2,7 @@ import {
   hasBlock,
   hasEmptyBlock,
   blockString,
-  cssStatementStringBeforeBlock,
+  beforeBlockString,
   report,
   ruleMessages,
   validateOptions,
@@ -44,7 +44,7 @@ export default function (expectation) {
       // Return early if blockless or has an empty block
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
-      const beforeBrace = cssStatementStringBeforeBlock(statement)
+      const beforeBrace = beforeBlockString(statement)
 
       checker.beforeAllowingIndentation({
         lineCheckStr: blockString(statement),
@@ -54,7 +54,7 @@ export default function (expectation) {
           report({
             message: m,
             node: statement,
-            index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length - 1,
+            index: beforeBlockString(statement, { noBefore: true }).length - 1,
             result,
             ruleName,
           })

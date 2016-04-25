@@ -1,7 +1,7 @@
 import {
   blockString,
   hasBlock,
-  cssStatementStringBeforeBlock,
+  beforeBlockString,
   isSingleLineString,
   report,
   ruleMessages,
@@ -30,7 +30,7 @@ export default function (actual) {
       report({
         message: messages.rejected,
         node: statement,
-        index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length,
+        index: beforeBlockString(statement, { noBefore: true }).length,
         result,
         ruleName,
       })

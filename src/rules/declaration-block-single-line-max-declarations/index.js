@@ -1,7 +1,7 @@
 import { isNumber } from "lodash"
 import {
   blockString,
-  cssStatementStringBeforeBlock,
+  beforeBlockString,
   isSingleLineString,
   report,
   ruleMessages,
@@ -34,7 +34,7 @@ export default function (quantity) {
       report({
         message: messages.expected(quantity),
         node: rule,
-        index: cssStatementStringBeforeBlock(rule, { noBefore: true }).length,
+        index: beforeBlockString(rule, { noBefore: true }).length,
         result,
         ruleName,
       })

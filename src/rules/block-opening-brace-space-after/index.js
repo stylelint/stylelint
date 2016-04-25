@@ -2,7 +2,7 @@ import {
   blockString,
   hasBlock,
   hasEmptyBlock,
-  cssStatementStringBeforeBlock,
+  beforeBlockString,
   report,
   ruleMessages,
   validateOptions,
@@ -51,7 +51,7 @@ export default function (expectation) {
           report({
             message: m,
             node: statement,
-            index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length + 1,
+            index: beforeBlockString(statement, { noBefore: true }).length + 1,
             result,
             ruleName,
           })

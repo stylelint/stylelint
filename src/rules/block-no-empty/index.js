@@ -1,6 +1,6 @@
 import {
   hasEmptyBlock,
-  cssStatementStringBeforeBlock,
+  beforeBlockString,
   report,
   ruleMessages,
   validateOptions,
@@ -27,7 +27,7 @@ export default function (actual) {
       report({
         message: messages.rejected,
         node: statement,
-        index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length,
+        index: beforeBlockString(statement, { noBefore: true }).length,
         result,
         ruleName,
       })

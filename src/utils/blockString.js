@@ -1,6 +1,6 @@
 import rawNodeString from "./rawNodeString"
 import hasBlock from "./hasBlock"
-import cssStatementStringBeforeBlock from "./cssStatementStringBeforeBlock"
+import beforeBlockString from "./beforeBlockString"
 
 /**
  * Return a CSS statement's block -- the string that starts and `{` and ends with `}`.
@@ -13,5 +13,5 @@ import cssStatementStringBeforeBlock from "./cssStatementStringBeforeBlock"
  */
 export default function (statement) {
   if (!hasBlock(statement)) { return }
-  return rawNodeString(statement).slice(cssStatementStringBeforeBlock(statement).length)
+  return rawNodeString(statement).slice(beforeBlockString(statement).length)
 }

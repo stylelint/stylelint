@@ -6,7 +6,7 @@ import {
   ruleMessages,
   styleSearch,
   hasBlock,
-  cssStatementStringBeforeBlock,
+  beforeBlockString,
   validateOptions,
 } from "../../utils"
 
@@ -208,7 +208,7 @@ export default function (space, options = {}) {
         ? ruleLevel
         : ruleLevel + 1
 
-      checkMultilineBit(cssStatementStringBeforeBlock(atRule).trim(), paramLevel, atRule)
+      checkMultilineBit(beforeBlockString(atRule).trim(), paramLevel, atRule)
     }
 
     function checkMultilineBit(source, newlineIndentLevel, node) {
