@@ -12,5 +12,8 @@ export default function (property) {
   // Less var (e.g. @var: x)
   if (property[0] === "@") { return false }
 
+  // SCSS or Less interpolation
+  if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(property)) { return false }
+
   return true
 }
