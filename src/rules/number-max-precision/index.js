@@ -31,7 +31,7 @@ export default function (precision) {
 
     root.walkAtRules(atRule => {
       const source = (hasBlock(atRule))
-        ? beforeBlockString(atRule, { noBefore: true })
+        ? beforeBlockString(atRule, { noRawBefore: true })
         : atRule.toString()
       check(source, atRule)
     })

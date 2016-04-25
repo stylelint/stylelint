@@ -35,7 +35,7 @@ export default function (expectation) {
       if (atRule.name === "import") { return }
 
       const source = (hasBlock(atRule))
-        ? beforeBlockString(atRule, { noBefore: true })
+        ? beforeBlockString(atRule, { noRawBefore: true })
         : atRule.toString()
       check(source, atRule)
     })

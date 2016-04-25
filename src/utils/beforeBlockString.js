@@ -7,14 +7,14 @@
  *
  * @param {Rule|AtRule} statement - postcss rule or at-rule node
  * @param {object} options
- * @param {boolean} [options.noBefore] - Leave out the `before` string
+ * @param {boolean} [options.noRawBefore] - Leave out the `before` string
  * @return {string}
  */
-export default function (statement, { noBefore }={}) {
+export default function (statement, { noRawBefore }={}) {
   let result = ""
   if (statement.type !== "rule" && statement.type !== "atrule") { return result }
 
-  if (!noBefore) {
+  if (!noRawBefore) {
     result += statement.raw("before")
   }
   if (statement.type === "rule") {

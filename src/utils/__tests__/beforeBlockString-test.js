@@ -25,9 +25,9 @@ test("beforeBlockString at-rules", t => {
   t.end()
 })
 
-test("beforeBlockString with noBefore", t => {
-  t.equal(postcssCheck({ noBefore: true }, "\na {}"), "a ")
-  t.equal(postcssCheck({ noBefore: true }, "\n@media print {}"), "@media print ")
+test("beforeBlockString with noRawBefore", t => {
+  t.equal(postcssCheck({ noRawBefore: true }, "\na {}"), "a ")
+  t.equal(postcssCheck({ noRawBefore: true }, "\n@media print {}"), "@media print ")
   t.end()
 })
 

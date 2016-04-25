@@ -34,7 +34,7 @@ export default function (quantity) {
       report({
         message: messages.expected(quantity),
         node: rule,
-        index: beforeBlockString(rule, { noBefore: true }).length,
+        index: beforeBlockString(rule, { noRawBefore: true }).length,
         result,
         ruleName,
       })

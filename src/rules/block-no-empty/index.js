@@ -27,7 +27,7 @@ export default function (actual) {
       report({
         message: messages.rejected,
         node: statement,
-        index: beforeBlockString(statement, { noBefore: true }).length,
+        index: beforeBlockString(statement, { noRawBefore: true }).length,
         result,
         ruleName,
       })

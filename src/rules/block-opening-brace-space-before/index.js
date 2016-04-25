@@ -66,7 +66,7 @@ export default function (expectation, options) {
           report({
             message: m,
             node: statement,
-            index: beforeBlockString(statement, { noBefore: true }).length - 1,
+            index: beforeBlockString(statement, { noRawBefore: true }).length - 1,
             result,
             ruleName,
           })
