@@ -1,16 +1,19 @@
 /**
- * Check whether a word is standard
+ * Check whether a value is standard
  *
- * @param {string} word
- * @return {boolean} If `true`, the word is a variable
+ * @param {string} value
+ * @return {boolean} If `true`, the value is a variable
  */
-export default function (word) {
+export default function (value) {
 
   // SCSS variable
-  if (word[0] === "$") { return false }
+  if (value[0] === "$") { return false }
 
   // Less variable
-  if (word[0] === "@") { return false }
+  if (value[0] === "@") { return false }
+
+  // SCSS or Less interpolation
+  if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(value)) { return false }
 
   return true
 }

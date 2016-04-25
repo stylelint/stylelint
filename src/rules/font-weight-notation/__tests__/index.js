@@ -178,3 +178,14 @@ testRule(rule, {
     column: 11,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  syntax: "scss",
+  config: ["numeric"],
+
+  accept: [{
+    code: "@mixin font-face($weight) { a { font-weight: #{$weight}; } }",
+    description: "ignores sass interpolation",
+  }],
+})
