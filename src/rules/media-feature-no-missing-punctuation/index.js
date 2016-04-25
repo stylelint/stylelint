@@ -1,6 +1,6 @@
 import execall from "execall"
 import {
-  mediaQueryParamIndexOffset,
+  atRuleParamIndex,
   report,
   ruleMessages,
   validateOptions,
@@ -55,7 +55,7 @@ export default function (actual) {
             ruleName,
             message: messages.rejected,
             node: atRule,
-            index: mediaQueryParamIndexOffset(atRule) + mediaFeatureMatch.index,
+            index: atRuleParamIndex(atRule) + mediaFeatureMatch.index,
           })
         }
       })

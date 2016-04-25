@@ -1,6 +1,6 @@
 import {
   functionArgumentsSearch,
-  mediaQueryParamIndexOffset,
+  atRuleParamIndex,
   report,
   ruleMessages,
   validateOptions,
@@ -80,7 +80,7 @@ export default function (expectation) {
           report({
             message: messages.expected(quoteMsg),
             node: atRule,
-            index: index + mediaQueryParamIndexOffset(atRule),
+            index: index + atRuleParamIndex(atRule),
             result,
             ruleName,
           })
@@ -91,7 +91,7 @@ export default function (expectation) {
           report({
             message: messages.expected(quoteMsg, "url-prefix"),
             node: atRule,
-            index: index + mediaQueryParamIndexOffset(atRule),
+            index: index + atRuleParamIndex(atRule),
             result,
             ruleName,
           })
@@ -102,7 +102,7 @@ export default function (expectation) {
           report({
             message: messages.expected(quoteMsg, "domain"),
             node: atRule,
-            index: index + mediaQueryParamIndexOffset(atRule),
+            index: index + atRuleParamIndex(atRule),
             result,
             ruleName,
           })

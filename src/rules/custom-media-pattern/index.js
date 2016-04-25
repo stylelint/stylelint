@@ -1,6 +1,6 @@
 import { isRegExp, isString } from "lodash"
 import {
-  mediaQueryParamIndexOffset,
+  atRuleParamIndex,
   report,
   ruleMessages,
   validateOptions,
@@ -34,7 +34,7 @@ export default function (pattern) {
       report({
         message: messages.expected,
         node: atRule,
-        index: mediaQueryParamIndexOffset(atRule),
+        index: atRuleParamIndex(atRule),
         result,
         ruleName,
       })
