@@ -1,6 +1,6 @@
 import postcss from "postcss"
 import {
-  cssWordIsVariable,
+  isVariable,
   report,
   ruleMessages,
   validateOptions,
@@ -60,7 +60,7 @@ export default function (expectation) {
     })
 
     function checkFamilyName(rawFamily, decl) {
-      if (cssWordIsVariable(rawFamily)) { return }
+      if (isVariable(rawFamily)) { return }
 
       const quoteType = getQuoteType(rawFamily)
       // Clean the family of its quotes

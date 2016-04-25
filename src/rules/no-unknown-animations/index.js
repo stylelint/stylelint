@@ -1,7 +1,7 @@
 import postcss from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import {
-  cssWordIsVariable,
+  isVariable,
   declarationValueIndexOffset,
   report,
   ruleMessages,
@@ -48,7 +48,7 @@ export default function (actual) {
           // Ignore keywords for other animation parts
           if (animationShorthandKeywords.has(value)) { continue }
           // Ignore variables
-          if (cssWordIsVariable(value)) { continue }
+          if (isVariable(value)) { continue }
           // Ignore functions
           if (value.indexOf("(") !== -1) { continue }
           checkAnimationName(value, decl, decl.value.indexOf(value))

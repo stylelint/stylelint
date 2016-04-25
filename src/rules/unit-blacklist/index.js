@@ -2,7 +2,7 @@ import { isString } from "lodash"
 import valueParser from "postcss-value-parser"
 
 import {
-  cssWordIsVariable,
+  isVariable,
   declarationValueIndexOffset,
   report,
   ruleMessages,
@@ -29,7 +29,7 @@ export default function (blacklistInput) {
 
       valueParser(value).walk(function (node) {
         if (node.type === "function" && node.value === "url") { return false }
-        if (node.type !== "word" || cssWordIsVariable(node.value)) { return }
+        if (node.type !== "word" || isVariable(node.value)) { return }
 
         const parsedUnit = valueParser.unit(node.value)
 
