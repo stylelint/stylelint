@@ -1,11 +1,12 @@
 import { vendor } from "postcss"
 import { isString } from "lodash"
 import {
-  cssWordIsVariable,
+  isStandardDeclaration,
+  matchesStringOrRegExp,
+  propertyIsCustom,
   report,
   ruleMessages,
   validateOptions,
-  matchesStringOrRegExp,
 } from "../../utils"
 
 export const ruleName = "property-blacklist"
@@ -24,19 +25,18 @@ export default function (blacklistInput) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
+      if (!isStandardDeclaration(decl)) { return }
 
-      const prop = decl.prop
+      const { prop } = decl
+      if (propertyIsCustom(prop)) { return }
+      if (!matchesStringOrRegExp(vendor.unprefixed(prop), blacklist)) { return }
 
-      if (cssWordIsVariable(prop)) { return }
-
-      if (matchesStringOrRegExp(vendor.unprefixed(prop), blacklist)) {
-        report({
-          message: messages.rejected(prop),
-          node: decl,
-          result,
-          ruleName,
-        })
-      }
+      report({
+        message: messages.rejected(prop),
+        node: decl,
+        result,
+        ruleName,
+      })
     })
   }
 }

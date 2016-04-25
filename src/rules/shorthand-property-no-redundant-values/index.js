@@ -1,7 +1,8 @@
 import valueParser from "postcss-value-parser"
 import { vendor } from "postcss"
 import {
-  cssWordIsVariable,
+  isStandardDeclaration,
+  propertyIsCustom,
   report,
   ruleMessages,
   validateOptions,
@@ -63,12 +64,17 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
+
+      if (!isStandardDeclaration(decl)) { return }
+
       const { prop, value } = decl
 
-      // ignore variables, and interpolation, and not shorthandable properties, and math operations and variables
-      if (cssWordIsVariable(prop)
-        || isIgnoredCharacters(value)
-        || !shorthandableProperties.has(vendor.unprefixed(prop))
+      if (propertyIsCustom(prop)) { return }
+
+      // ignore not shorthandable properties, and math operations
+      if (
+        isIgnoredCharacters(value) ||
+        !shorthandableProperties.has(vendor.unprefixed(prop))
       ) { return }
 
       const valuesToShorthand = []
