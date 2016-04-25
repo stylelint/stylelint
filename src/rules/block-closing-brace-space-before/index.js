@@ -1,7 +1,7 @@
 import {
-  cssStatementBlockString,
-  cssStatementHasBlock,
-  cssStatementHasEmptyBlock,
+  blockString,
+  hasBlock,
+  hasEmptyBlock,
   report,
   ruleMessages,
   validateOptions,
@@ -44,9 +44,9 @@ export default function (expectation) {
     function check(statement) {
 
       // Return early if blockless or has empty block
-      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
+      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
-      const source = cssStatementBlockString(statement)
+      const source = blockString(statement)
 
       checker.before({
         source,

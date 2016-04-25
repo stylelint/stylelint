@@ -2,7 +2,8 @@ import resolveNestedSelector from "postcss-resolve-nested-selector"
 import selectorParser from "postcss-selector-parser"
 import _ from "lodash"
 import {
-  cssRuleHasSelectorEndingWithColon,
+  isStandardRule,
+  isStandardSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -34,24 +35,18 @@ export default function (pattern, options) {
       : pattern
 
     root.walkRules(rule => {
-      if (cssRuleHasSelectorEndingWithColon(rule)) { return }
+      if (!isStandardRule(rule)) { return }
 
-      // Ignore Sass intepolation possibilities
-      if (/#{.+}/.test(rule.selector)) { return }
-
-      // Ignore called Less mixins
-      if (rule.ruleWithoutBody) { return }
-
-      // Ignore non-outputting Less mixin definitions
-      if (_.endsWith(rule.selector, ")")) { return }
+      const { selector } = rule
+      if (!isStandardSelector(selector)) { return }
 
       // Only bother resolving selectors that have an interpolating &
-      if (shouldResolveNestedSelectors && hasInterpolatingAmpersand(rule.selector)) {
-        resolveNestedSelector(rule.selector, rule).forEach(selector => {
+      if (shouldResolveNestedSelectors && hasInterpolatingAmpersand(selector)) {
+        resolveNestedSelector(selector, rule).forEach(selector => {
           selectorParser(s => checkSelector(s, rule)).process(selector)
         })
       } else {
-        selectorParser(s => checkSelector(s, rule)).process(rule.selector)
+        selectorParser(s => checkSelector(s, rule)).process(selector)
       }
     })
 

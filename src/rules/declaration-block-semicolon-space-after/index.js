@@ -1,5 +1,5 @@
 import {
-  cssStatementBlockString,
+  blockString,
   rawNodeString,
   report,
   ruleMessages,
@@ -43,7 +43,7 @@ export default function (expectation) {
       checker.after({
         source: rawNodeString(nextDecl),
         index: -1,
-        lineCheckStr: cssStatementBlockString(parentRule),
+        lineCheckStr: blockString(parentRule),
         err: m => {
           report({
             message: m,

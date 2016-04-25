@@ -1,5 +1,6 @@
 import {
-  cssWordIsVariable,
+  isCustomProperty,
+  isStandardProperty,
   report,
   ruleMessages,
   validateOptions,
@@ -23,12 +24,11 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      const prop = decl.prop
-      // Ignore sass interpolation and css variables
-      if (/#{.+}/.test(decl.toString()) || cssWordIsVariable(prop)) { return }
+      const { prop } = decl
+      if (!isStandardProperty(prop)) { return }
+      if (isCustomProperty(prop)) { return }
 
       const expectedProp = expectation === "lower" ? prop.toLowerCase() : prop.toUpperCase()
-
       if (prop === expectedProp) { return }
 
       report({

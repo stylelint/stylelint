@@ -3,7 +3,8 @@ import { vendor } from "postcss"
 import valueParser from "postcss-value-parser"
 
 import {
-  declarationValueIndexOffset,
+  declarationValueIndex,
+  isStandardFunction,
   report,
   ruleMessages,
   validateOptions,
@@ -27,12 +28,12 @@ export default function (whitelistInput) {
       const { value } = decl
       valueParser(value).walk(function (node) {
         if (node.type !== "function") { return }
-        if (!node.value) { return }
+        if (!isStandardFunction(node)) { return }
         if (whitelist.indexOf(vendor.unprefixed(node.value)) !== -1) { return }
         report({
           message: messages.rejected(node.value),
           node: decl,
-          index: declarationValueIndexOffset(decl) + node.sourceIndex,
+          index: declarationValueIndex(decl) + node.sourceIndex,
           result,
           ruleName,
         })

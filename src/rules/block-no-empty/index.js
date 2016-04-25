@@ -1,6 +1,6 @@
 import {
-  cssStatementHasEmptyBlock,
-  cssStatementStringBeforeBlock,
+  hasEmptyBlock,
+  beforeBlockString,
   report,
   ruleMessages,
   validateOptions,
@@ -22,12 +22,12 @@ export default function (actual) {
     root.walkAtRules(check)
 
     function check(statement) {
-      if (!cssStatementHasEmptyBlock(statement)) { return }
+      if (!hasEmptyBlock(statement)) { return }
 
       report({
         message: messages.rejected,
         node: statement,
-        index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length,
+        index: beforeBlockString(statement, { noRawBefore: true }).length,
         result,
         ruleName,
       })

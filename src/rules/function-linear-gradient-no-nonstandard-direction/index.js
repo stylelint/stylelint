@@ -1,5 +1,5 @@
 import {
-  cssFunctionArguments,
+  functionArgumentsSearch,
   report,
   ruleMessages,
   validateOptions,
@@ -26,7 +26,7 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      cssFunctionArguments(decl.toString(), "linear-gradient", (expression, expressionIndex) => {
+      functionArgumentsSearch(decl.toString(), "linear-gradient", (expression, expressionIndex) => {
         const firstArg = expression.split(",")[0].trim()
 
         // If the first character is a number, we can assume the user intends an angle

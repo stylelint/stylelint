@@ -1,8 +1,8 @@
 import { isString } from "lodash"
 
 import {
-  cssStatementBlockString,
-  cssStatementHasBlock,
+  blockString,
+  hasBlock,
   rawNodeString,
   report,
   ruleMessages,
@@ -47,7 +47,7 @@ export default function (expectation, options) {
     root.walkAtRules(check)
 
     function check(statement) {
-      if (!cssStatementHasBlock(statement)) { return }
+      if (!hasBlock(statement)) { return }
       if (cssStatementIsIgnoredAtRule(statement, options)) { return }
 
       const nextNode = statement.next()
@@ -68,7 +68,7 @@ export default function (expectation, options) {
       checker.afterOneOnly({
         source: rawNodeString(nodeToCheck),
         index: -1,
-        lineCheckStr: cssStatementBlockString(statement),
+        lineCheckStr: blockString(statement),
         err: msg => {
           report({
             message: msg,

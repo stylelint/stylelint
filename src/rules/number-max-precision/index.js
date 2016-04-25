@@ -2,8 +2,8 @@ import { isNumber } from "lodash"
 import execall from "execall"
 import {
   blurComments,
-  cssStatementHasBlock,
-  cssStatementStringBeforeBlock,
+  hasBlock,
+  beforeBlockString,
   report,
   ruleMessages,
   validateOptions,
@@ -30,8 +30,8 @@ export default function (precision) {
     })
 
     root.walkAtRules(atRule => {
-      const source = (cssStatementHasBlock(atRule))
-        ? cssStatementStringBeforeBlock(atRule, { noBefore: true })
+      const source = (hasBlock(atRule))
+        ? beforeBlockString(atRule, { noRawBefore: true })
         : atRule.toString()
       check(source, atRule)
     })

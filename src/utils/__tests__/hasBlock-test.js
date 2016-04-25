@@ -1,8 +1,8 @@
-import cssStatementHasBlock from "../cssStatementHasBlock"
+import hasBlock from "../hasBlock"
 import postcss from "postcss"
 import test from "tape"
 
-test("cssStatementHasBlock", t => {
+test("hasBlock", t => {
   t.ok(postcssCheck("a {}"), "empty rule")
   t.ok(postcssCheck("a { }"), "emtpy rule with space")
   t.ok(postcssCheck("a {\n}"), "emtpy rule with newline")
@@ -33,5 +33,5 @@ test("cssStatementHasBlock", t => {
 
 function postcssCheck(cssString) {
   const root = postcss.parse(cssString)
-  return cssStatementHasBlock(root.first)
+  return hasBlock(root.first)
 }

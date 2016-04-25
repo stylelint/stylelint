@@ -1,6 +1,6 @@
 import {
-  cssFunctionArguments,
-  mediaQueryParamIndexOffset,
+  functionArgumentsSearch,
+  atRuleParamIndex,
   report,
   ruleMessages,
   validateOptions,
@@ -60,7 +60,7 @@ export default function (expectation) {
       }
 
       statement.walkDecls(function (decl) {
-        cssFunctionArguments(decl.toString(), "url", (args, index) => {
+        functionArgumentsSearch(decl.toString(), "url", (args, index) => {
           if (strDefiesExpectation(args)) {
             report({
               message: messages.expected(quoteMsg),
@@ -75,34 +75,34 @@ export default function (expectation) {
     }
 
     function checkAtRuleParams(atRule) {
-      cssFunctionArguments(atRule.params, "url", (args, index) => {
+      functionArgumentsSearch(atRule.params, "url", (args, index) => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg),
             node: atRule,
-            index: index + mediaQueryParamIndexOffset(atRule),
+            index: index + atRuleParamIndex(atRule),
             result,
             ruleName,
           })
         }
       })
-      cssFunctionArguments(atRule.params, "url-prefix", (args, index) => {
+      functionArgumentsSearch(atRule.params, "url-prefix", (args, index) => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg, "url-prefix"),
             node: atRule,
-            index: index + mediaQueryParamIndexOffset(atRule),
+            index: index + atRuleParamIndex(atRule),
             result,
             ruleName,
           })
         }
       })
-      cssFunctionArguments(atRule.params, "domain", (args, index) => {
+      functionArgumentsSearch(atRule.params, "domain", (args, index) => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg, "domain"),
             node: atRule,
-            index: index + mediaQueryParamIndexOffset(atRule),
+            index: index + atRuleParamIndex(atRule),
             result,
             ruleName,
           })

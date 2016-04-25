@@ -1,8 +1,9 @@
 import selectorParser from "postcss-selector-parser"
 import {
+  isStandardProperty,
+  isCustomProperty,
   report,
   ruleMessages,
-  cssWordIsVariable,
   validateOptions,
 } from "../../utils"
 
@@ -25,18 +26,17 @@ export default function (actual) {
         if (ignoreRule(selectorAST)) { return }
 
         rule.walkDecls(function (decl) {
-          const prop = decl.prop
 
-          if (cssWordIsVariable(prop)) { return }
+          const { prop } = decl
+          if (!isStandardProperty(prop)) { return }
+          if (isCustomProperty(prop)) { return }
 
-          if (prop.indexOf("--") !== 0) {
-            report({
-              message: messages.rejected(prop),
-              node: decl,
-              result,
-              ruleName,
-            })
-          }
+          report({
+            message: messages.rejected(prop),
+            node: decl,
+            result,
+            ruleName,
+          })
         })
       }
     })

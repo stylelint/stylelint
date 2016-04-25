@@ -1,7 +1,7 @@
 import { isNumber } from "lodash"
 import {
-  cssStatementBlockString,
-  cssStatementStringBeforeBlock,
+  blockString,
+  beforeBlockString,
   isSingleLineString,
   report,
   ruleMessages,
@@ -24,7 +24,7 @@ export default function (quantity) {
 
     root.walkRules(rule => {
 
-      if (!isSingleLineString(cssStatementBlockString(rule))) { return }
+      if (!isSingleLineString(blockString(rule))) { return }
       if (!rule.nodes) { return }
 
       const decls = rule.nodes.filter(node => node.type === "decl")
@@ -34,7 +34,7 @@ export default function (quantity) {
       report({
         message: messages.expected(quantity),
         node: rule,
-        index: cssStatementStringBeforeBlock(rule, { noBefore: true }).length,
+        index: beforeBlockString(rule, { noRawBefore: true }).length,
         result,
         ruleName,
       })

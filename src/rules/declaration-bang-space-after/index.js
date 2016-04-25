@@ -1,5 +1,5 @@
 import {
-  declarationValueIndexOffset,
+  declarationValueIndex,
   styleSearch,
   report,
   ruleMessages,
@@ -37,7 +37,7 @@ export default function (expectation) {
 
 export function declarationBangSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(function (decl) {
-    const indexOffset = declarationValueIndexOffset(decl)
+    const indexOffset = declarationValueIndex(decl)
     const declString = decl.toString()
     const valueString = decl.toString().slice(indexOffset)
     if (valueString.indexOf("!") == -1) { return }

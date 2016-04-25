@@ -3,7 +3,7 @@ import { vendor } from "postcss"
 import valueParser from "postcss-value-parser"
 
 import {
-  declarationValueIndexOffset,
+  declarationValueIndex,
   report,
   ruleMessages,
   validateOptions,
@@ -31,7 +31,7 @@ export default function (blacklist) {
         report({
           message: messages.rejected(node.value),
           node: decl,
-          index: declarationValueIndexOffset(decl) + node.sourceIndex,
+          index: declarationValueIndex(decl) + node.sourceIndex,
           result,
           ruleName,
         })

@@ -1,6 +1,7 @@
 import selectorParser from "postcss-selector-parser"
 import {
-  cssRuleHasSelectorEndingWithColon,
+  isStandardRule,
+  isStandardSelector,
   report,
   ruleMessages,
   isAutoprefixable,
@@ -19,7 +20,9 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (cssRuleHasSelectorEndingWithColon(rule)) { return }
+      if (!isStandardRule(rule)) { return }
+      const { selector } = rule
+      if (!isStandardSelector(selector)) { return }
       selectorParser(selectorTree => {
         selectorTree.eachPseudo(pseudoNode => {
           if (isAutoprefixable.selector(pseudoNode.value)) {
@@ -32,7 +35,7 @@ export default function (actual) {
             })
           }
         })
-      }).process(rule.selector)
+      }).process(selector)
     })
   }
 }

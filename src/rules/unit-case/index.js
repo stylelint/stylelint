@@ -1,7 +1,7 @@
 import valueParser from "postcss-value-parser"
 import {
-  cssWordIsVariable,
-  declarationValueIndexOffset,
+  declarationValueIndex,
+  isStandardValue,
   report,
   ruleMessages,
   validateOptions,
@@ -30,7 +30,7 @@ export default function (expectation) {
       valueParser(value).walk((node) => {
         // Ignore wrong units within `url` function
         if (node.type === "function" && node.value === "url") { return false }
-        if (node.type !== "word" || cssWordIsVariable(node.value)) { return }
+        if (node.type !== "word" || !isStandardValue(node.value)) { return }
 
         const parsedUnit = valueParser.unit(node.value)
 
@@ -47,7 +47,7 @@ export default function (expectation) {
         report({
           message: messages.expected(unit, expectedUnit),
           node: decl,
-          index: declarationValueIndexOffset(decl) + node.sourceIndex,
+          index: declarationValueIndex(decl) + node.sourceIndex,
           result,
           ruleName,
         })

@@ -1,7 +1,7 @@
 import {
-  cssStatementBlockString,
-  cssStatementHasBlock,
-  cssStatementStringBeforeBlock,
+  blockString,
+  hasBlock,
+  beforeBlockString,
   isSingleLineString,
   report,
   ruleMessages,
@@ -24,13 +24,13 @@ export default function (actual) {
     root.walkAtRules(check)
 
     function check(statement) {
-      if (!cssStatementHasBlock(statement)) { return }
-      if (!isSingleLineString(cssStatementBlockString(statement))) { return }
+      if (!hasBlock(statement)) { return }
+      if (!isSingleLineString(blockString(statement))) { return }
 
       report({
         message: messages.rejected,
         node: statement,
-        index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length,
+        index: beforeBlockString(statement, { noRawBefore: true }).length,
         result,
         ruleName,
       })

@@ -1,10 +1,10 @@
 import { isString } from "lodash"
 
 import {
-  cssStatementBlockString,
-  cssStatementHasBlock,
-  cssStatementHasEmptyBlock,
-  cssStatementStringBeforeBlock,
+  blockString,
+  hasBlock,
+  hasEmptyBlock,
+  beforeBlockString,
   matchesStringOrRegExp,
   report,
   ruleMessages,
@@ -51,22 +51,22 @@ export default function (expectation, options) {
 
     function check(statement) {
       // Return early if blockless or has an empty block
-      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
+      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
       // Return early if at-rule is to be ignored
       if (cssStatementIsIgnoredAtRule(statement, options)) { return }
 
-      const source = cssStatementStringBeforeBlock(statement)
+      const source = beforeBlockString(statement)
 
       checker.before({
         source,
         index: source.length,
-        lineCheckStr: cssStatementBlockString(statement),
+        lineCheckStr: blockString(statement),
         err: m => {
           report({
             message: m,
             node: statement,
-            index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length - 1,
+            index: beforeBlockString(statement, { noRawBefore: true }).length - 1,
             result,
             ruleName,
           })

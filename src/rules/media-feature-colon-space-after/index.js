@@ -1,5 +1,5 @@
 import {
-  mediaQueryParamIndexOffset,
+  atRuleParamIndex,
   report,
   ruleMessages,
   styleSearch,
@@ -52,7 +52,7 @@ export function mediaFeatureColonSpaceChecker({ locationChecker, root, result, c
       report({
         message: m,
         node,
-        index: index + mediaQueryParamIndexOffset(node),
+        index: index + atRuleParamIndex(node),
         result,
         ruleName: checkedRuleName,
       }),

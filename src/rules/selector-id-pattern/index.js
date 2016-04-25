@@ -1,7 +1,8 @@
 import selectorParser from "postcss-selector-parser"
 import { isRegExp, isString } from "lodash"
 import {
-  cssRuleHasSelectorEndingWithColon,
+  isStandardRule,
+  isStandardSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -24,11 +25,12 @@ export default function (pattern) {
     const normalizedPattern = isString(pattern) ? new RegExp(pattern) : pattern
 
     root.walkRules(rule => {
-      // Ignore Sass intepolation possibilities
-      if (/#{.+}/.test(rule.selector)) { return }
+      if (!isStandardRule(rule)) { return }
 
-      if (cssRuleHasSelectorEndingWithColon(rule)) { return }
-      selectorParser(checkSelector).process(rule.selector)
+      const { selector } = rule
+      if (!isStandardSelector(selector)) { return }
+
+      selectorParser(checkSelector).process(selector)
 
       function checkSelector(fullSelector) {
         fullSelector.eachInside(selectorNode => {
@@ -36,7 +38,7 @@ export default function (pattern) {
           const { value, sourceIndex } = selectorNode
 
           if (normalizedPattern.test(value)) { return }
-          
+
           report({
             result,
             ruleName,

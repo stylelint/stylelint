@@ -1,5 +1,5 @@
 import {
-  cssStatementBlockString,
+  blockString,
   report,
   ruleMessages,
   validateOptions,
@@ -38,7 +38,7 @@ export default function (expectation) {
       checker.before({
         source: declString,
         index: declString.length,
-        lineCheckStr: cssStatementBlockString(parentRule),
+        lineCheckStr: blockString(parentRule),
         err: m => {
           report({
             message: m,

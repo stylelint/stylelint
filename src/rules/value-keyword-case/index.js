@@ -1,8 +1,8 @@
 import valueParser from "postcss-value-parser"
 import { isString } from "lodash"
 import {
-  cssWordIsVariable,
-  declarationValueIndexOffset,
+  declarationValueIndex,
+  isStandardValue,
   matchesStringOrRegExp,
   report,
   ruleMessages,
@@ -55,7 +55,7 @@ export default function (expectation, options) {
 
         // Ignore css variables, and hex values, and math operators, and sass interpolation
         if (node.type !== "word"
-          || cssWordIsVariable(node.value)
+          || !isStandardValue(node.value)
           || value.indexOf("#") !== -1
           || ignoredCharacters.has(keyword)
         ) { return }
@@ -86,7 +86,7 @@ export default function (expectation, options) {
         report({
           message: messages.expected(keyword, expectedKeyword),
           node: decl,
-          index: declarationValueIndexOffset(decl) + node.sourceIndex,
+          index: declarationValueIndex(decl) + node.sourceIndex,
           result,
           ruleName,
         })

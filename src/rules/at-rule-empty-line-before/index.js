@@ -1,5 +1,5 @@
 import {
-  cssStatementHasBlock,
+  hasBlock,
   optionsHaveException,
   optionsHaveIgnored,
   report,
@@ -77,8 +77,8 @@ export default function (expectation, options) {
         return (
           optionsHaveException(options, "blockless-group")
           && previousNode && previousNode.type === "atrule"
-          && !cssStatementHasBlock(previousNode)
-          && !cssStatementHasBlock(atRule)
+          && !hasBlock(previousNode)
+          && !hasBlock(atRule)
         )
       }
 
