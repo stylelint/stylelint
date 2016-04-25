@@ -1,9 +1,9 @@
 import { vendor } from "postcss"
 import { isString } from "lodash"
 import {
-  isStandardDeclaration,
-  matchesStringOrRegExp,
   isCustomProperty,
+  isStandardProperty,
+  matchesStringOrRegExp,
   report,
   ruleMessages,
   validateOptions,
@@ -25,9 +25,8 @@ export default function (blacklistInput) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      if (!isStandardDeclaration(decl)) { return }
-
       const { prop } = decl
+      if (!isStandardProperty(prop)) { return }
       if (isCustomProperty(prop)) { return }
       if (!matchesStringOrRegExp(vendor.unprefixed(prop), blacklist)) { return }
 

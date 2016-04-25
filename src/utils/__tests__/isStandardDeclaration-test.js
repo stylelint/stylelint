@@ -1,11 +1,10 @@
 import isStandardDeclaration from "../isStandardDeclaration"
-import less from "postcss-less"
 import postcss from "postcss"
 import test from "tape"
 
 test("isStandardDeclaration", t => {
 
-  t.plan(8)
+  t.plan(7)
 
   rules("a { a: b }", decl => {
     t.ok(isStandardDeclaration(decl), "standard prop and value")
@@ -29,20 +28,10 @@ test("isStandardDeclaration", t => {
   rules("$map: (value, value2)", decl => {
     t.notOk(isStandardDeclaration(decl), "scss map")
   })
-
-  lessRules("a { @var: b }", decl => {
-    t.notOk(isStandardDeclaration(decl), "less var")
-  })
 })
 
 function rules(css, cb) {
   postcss().process(css).then(result => {
-    result.root.walkDecls(cb)
-  })
-}
-
-function lessRules(css, cb) {
-  postcss().process(css, { syntax: less }).then(result => {
     result.root.walkDecls(cb)
   })
 }

@@ -2,7 +2,6 @@ import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   isSingleLineString,
-  isStandardDeclaration,
   isStandardFunction,
   report,
   ruleMessages,
@@ -33,8 +32,6 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      if (!isStandardDeclaration(decl)) { return }
-
       if (decl.value.indexOf("(") === -1) { return }
 
       valueParser(decl.value).walk(valueNode => {

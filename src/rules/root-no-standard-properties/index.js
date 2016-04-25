@@ -1,6 +1,6 @@
 import selectorParser from "postcss-selector-parser"
 import {
-  isStandardDeclaration,
+  isStandardProperty,
   isCustomProperty,
   report,
   ruleMessages,
@@ -26,10 +26,9 @@ export default function (actual) {
         if (ignoreRule(selectorAST)) { return }
 
         rule.walkDecls(function (decl) {
-          if (!isStandardDeclaration(decl)) { return }
 
           const { prop } = decl
-
+          if (!isStandardProperty(prop)) { return }
           if (isCustomProperty(prop)) { return }
 
           report({
