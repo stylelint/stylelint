@@ -108,6 +108,7 @@ import selectorMaxSpecificity from "./selector-max-specificity"
 import selectorNoAttribute from "./selector-no-attribute"
 import selectorNoCombinator from "./selector-no-combinator"
 import selectorNoId from "./selector-no-id"
+import selectorNoQualifyingType from "./selector-no-qualifying-type"
 import selectorNoType from "./selector-no-type"
 import selectorNoUniversal from "./selector-no-universal"
 import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
@@ -244,6 +245,7 @@ export default {
   "selector-no-attribute": selectorNoAttribute,
   "selector-no-combinator": selectorNoCombinator,
   "selector-no-id": selectorNoId,
+  "selector-no-qualifying-type": selectorNoQualifyingType,
   "selector-no-type": selectorNoType,
   "selector-no-universal": selectorNoUniversal,
   "selector-no-vendor-prefix": selectorNoVendorPrefix,

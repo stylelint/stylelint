@@ -117,6 +117,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-no-attribute": true,
     "selector-no-combinator": true,
     "selector-no-id": true,
+    "selector-no-qualifying-type": true,
     "selector-no-type": true,
     "selector-no-universal": true,
     "selector-no-vendor-prefix": true,
