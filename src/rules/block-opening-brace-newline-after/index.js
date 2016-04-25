@@ -1,5 +1,5 @@
 import {
-  cssStatementBlockString,
+  blockString,
   cssStatementHasBlock,
   cssStatementHasEmptyBlock,
   cssStatementStringBeforeBlock,
@@ -56,7 +56,7 @@ export default function (expectation) {
       checker.afterOneOnly({
         source: rawNodeString(nodeToCheck),
         index: -1,
-        lineCheckStr: cssStatementBlockString(statement),
+        lineCheckStr: blockString(statement),
         err: m => {
           report({
             message: m,

@@ -1,7 +1,7 @@
 import { isString } from "lodash"
 
 import {
-  cssStatementBlockString,
+  blockString,
   cssStatementHasBlock,
   rawNodeString,
   report,
@@ -68,7 +68,7 @@ export default function (expectation, options) {
       checker.afterOneOnly({
         source: rawNodeString(nodeToCheck),
         index: -1,
-        lineCheckStr: cssStatementBlockString(statement),
+        lineCheckStr: blockString(statement),
         err: msg => {
           report({
             message: msg,

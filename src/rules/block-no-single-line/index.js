@@ -1,5 +1,5 @@
 import {
-  cssStatementBlockString,
+  blockString,
   cssStatementHasBlock,
   cssStatementStringBeforeBlock,
   isSingleLineString,
@@ -25,7 +25,7 @@ export default function (actual) {
 
     function check(statement) {
       if (!cssStatementHasBlock(statement)) { return }
-      if (!isSingleLineString(cssStatementBlockString(statement))) { return }
+      if (!isSingleLineString(blockString(statement))) { return }
 
       report({
         message: messages.rejected,

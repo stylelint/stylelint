@@ -1,5 +1,5 @@
 import {
-  cssStatementBlockString,
+  blockString,
   cssStatementHasBlock,
   cssStatementHasEmptyBlock,
   report,
@@ -46,7 +46,7 @@ export default function (expectation) {
       // Return early if blockless or has empty block
       if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
-      const source = cssStatementBlockString(statement)
+      const source = blockString(statement)
 
       checker.before({
         source,

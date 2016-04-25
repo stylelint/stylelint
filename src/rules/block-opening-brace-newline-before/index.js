@@ -1,7 +1,7 @@
 import {
   cssStatementHasBlock,
   cssStatementHasEmptyBlock,
-  cssStatementBlockString,
+  blockString,
   cssStatementStringBeforeBlock,
   report,
   ruleMessages,
@@ -47,7 +47,7 @@ export default function (expectation) {
       const beforeBrace = cssStatementStringBeforeBlock(statement)
 
       checker.beforeAllowingIndentation({
-        lineCheckStr: cssStatementBlockString(statement),
+        lineCheckStr: blockString(statement),
         source: beforeBrace,
         index: beforeBrace.length,
         err: m => {

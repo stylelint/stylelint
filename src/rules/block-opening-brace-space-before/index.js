@@ -1,7 +1,7 @@
 import { isString } from "lodash"
 
 import {
-  cssStatementBlockString,
+  blockString,
   cssStatementHasBlock,
   cssStatementHasEmptyBlock,
   cssStatementStringBeforeBlock,
@@ -61,7 +61,7 @@ export default function (expectation, options) {
       checker.before({
         source,
         index: source.length,
-        lineCheckStr: cssStatementBlockString(statement),
+        lineCheckStr: blockString(statement),
         err: m => {
           report({
             message: m,
