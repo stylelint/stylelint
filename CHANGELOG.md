@@ -1,3 +1,8 @@
+# Head
+
+- Fixed: `declaration-colon-*` rules now ignore SCSS lists.
+- Fixed: `rule-nested-empty-line-before` now ignores Less blockless rules (mixin and extend calls).
+
 # 6.2.1
 
 - Fixed: more problems with exposed `stylelint.createRuleTester`.
