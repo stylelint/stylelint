@@ -1,6 +1,7 @@
 import {
-  functionArgumentsSearch,
   atRuleParamIndex,
+  functionArgumentsSearch,
+  isStandardUrl,
   report,
   ruleMessages,
   validateOptions,
@@ -87,50 +88,39 @@ export default function (expectation) {
       }
 
       statement.walkDecls(function (decl) {
-        functionArgumentsSearch(decl.toString().toLowerCase(), "url", (args, index) => {
-          const trimLeftArgs = args.trimLeft()
-          if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
-          complain(messages.expected(quoteMsg), decl, index + args.length - trimLeftArgs.length)
+        if (decl.value.indexOf("url(") === -1) { return }
+
+        functionArgumentsSearch(decl.toString(), "url", (args, index) => {
+          if (!strDefiesExpectation(args) || !isStandardUrl(args)) { return }
+
+          complain(messages.expected(quoteMsg), decl, index)
         })
       })
     }
 
     function checkAtRuleParams(atRule) {
-      const atRuleParamsLowerCase = atRule.params.toLowerCase()
-      functionArgumentsSearch(atRuleParamsLowerCase, "url", (args, index) => {
-        const trimLeftArgs = args.trimLeft()
-        if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
-        complain(
-          messages.expected(quoteMsg),
-          atRule,
-          index + args.length - trimLeftArgs.length + atRuleParamIndex(atRule)
-        )
+      functionArgumentsSearch(atRule.params, "url", (args, index) => {
+        if (!strDefiesExpectation(args) || !isStandardUrl(args)) { return }
+
+        complain(messages.expected(quoteMsg), atRule, index + atRuleParamIndex(atRule))
       })
-      functionArgumentsSearch(atRuleParamsLowerCase, "url-prefix", (args, index) => {
-        const trimLeftArgs = args.trimLeft()
-        if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
-        complain(
-          messages.expected(quoteMsg, "url-prefix"),
-          atRule,
-          index + args.length - trimLeftArgs.length + atRuleParamIndex(atRule)
-        )
+      functionArgumentsSearch(atRule.params, "url-prefix", (args, index) => {
+        if (!strDefiesExpectation(args) || !isStandardUrl(args)) { return }
+
+        complain(messages.expected(quoteMsg, "url-prefix"), atRule, index + atRuleParamIndex(atRule))
       })
-      functionArgumentsSearch(atRuleParamsLowerCase, "domain", (args, index) => {
-        const trimLeftArgs = args.trimLeft()
-        if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
-        complain(
-          messages.expected(quoteMsg, "domain"),
-          atRule,
-          index + args.length - trimLeftArgs.length + atRuleParamIndex(atRule)
-        )
+      functionArgumentsSearch(atRule.params, "domain", (args, index) => {
+        if (!strDefiesExpectation(args) || !isStandardUrl(args)) { return }
+
+        complain(messages.expected(quoteMsg, "domain"), atRule, index + atRuleParamIndex(atRule))
       })
     }
 
     function complain(message, node, index) {
       report({
+        index,
         message,
         node,
-        index,
         result,
         ruleName,
       })

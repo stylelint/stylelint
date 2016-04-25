@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `function-url-quotes` ignores values containing `$sass` and `@less` variables.
+
 # 6.5.1
 
 - Deprecated: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
