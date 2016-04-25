@@ -2,7 +2,7 @@ import execall from "execall"
 import {
   blurComments,
   blurFunctionArguments,
-  cssStatementHasBlock,
+  hasBlock,
   cssStatementStringBeforeBlock,
   report,
   ruleMessages,
@@ -29,7 +29,7 @@ export default function (actual) {
       // Ignore @imports
       if (atRule.name === "import") { return }
 
-      const source = (cssStatementHasBlock(atRule))
+      const source = (hasBlock(atRule))
         ? cssStatementStringBeforeBlock(atRule, { noBefore: true })
         : atRule.toString()
       check(source, atRule)

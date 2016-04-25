@@ -1,6 +1,6 @@
 import {
   blockString,
-  cssStatementHasBlock,
+  hasBlock,
   cssStatementStringBeforeBlock,
   isSingleLineString,
   report,
@@ -24,7 +24,7 @@ export default function (actual) {
     root.walkAtRules(check)
 
     function check(statement) {
-      if (!cssStatementHasBlock(statement)) { return }
+      if (!hasBlock(statement)) { return }
       if (!isSingleLineString(blockString(statement))) { return }
 
       report({

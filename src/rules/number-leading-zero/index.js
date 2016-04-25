@@ -2,7 +2,7 @@ import execall from "execall"
 import _ from "lodash"
 import {
   blurFunctionArguments,
-  cssStatementHasBlock,
+  hasBlock,
   cssStatementStringBeforeBlock,
   report,
   ruleMessages,
@@ -34,7 +34,7 @@ export default function (expectation) {
     root.walkAtRules(atRule => {
       if (atRule.name === "import") { return }
 
-      const source = (cssStatementHasBlock(atRule))
+      const source = (hasBlock(atRule))
         ? cssStatementStringBeforeBlock(atRule, { noBefore: true })
         : atRule.toString()
       check(source, atRule)

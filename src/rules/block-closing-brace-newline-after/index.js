@@ -2,7 +2,7 @@ import { isString } from "lodash"
 
 import {
   blockString,
-  cssStatementHasBlock,
+  hasBlock,
   rawNodeString,
   report,
   ruleMessages,
@@ -47,7 +47,7 @@ export default function (expectation, options) {
     root.walkAtRules(check)
 
     function check(statement) {
-      if (!cssStatementHasBlock(statement)) { return }
+      if (!hasBlock(statement)) { return }
       if (cssStatementIsIgnoredAtRule(statement, options)) { return }
 
       const nextNode = statement.next()

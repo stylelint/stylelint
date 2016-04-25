@@ -1,7 +1,7 @@
 import { startsWith } from "lodash"
 import {
   blockString,
-  cssStatementHasBlock,
+  hasBlock,
   cssStatementHasEmptyBlock,
   isSingleLineString,
   report,
@@ -36,7 +36,7 @@ export default function (expectation) {
     function check(statement) {
 
       // Return early if blockless or has empty block
-      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
+      if (!hasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
       const blockIsMultiLine = !isSingleLineString(blockString(statement))
       const after = statement.raw("after")

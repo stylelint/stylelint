@@ -1,5 +1,5 @@
 import {
-  cssStatementHasBlock,
+  hasBlock,
   rawNodeString,
   report,
   ruleMessages,
@@ -27,7 +27,7 @@ export default function (actual) {
 
       const nextNode = atRule.next()
       if (!nextNode) { return }
-      if (cssStatementHasBlock(atRule)) { return }
+      if (hasBlock(atRule)) { return }
 
       // Allow an end-of-line comment x spaces after the semicolon
       const nextNodeIsAcceptableComment = (

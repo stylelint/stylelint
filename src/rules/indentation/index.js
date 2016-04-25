@@ -5,7 +5,7 @@ import {
   report,
   ruleMessages,
   styleSearch,
-  cssStatementHasBlock,
+  hasBlock,
   cssStatementStringBeforeBlock,
   validateOptions,
 } from "../../utils"
@@ -116,7 +116,7 @@ export default function (space, options = {}) {
       // And check `indentClosingBrace` to see if it should be indented an extra level.
       const closingBraceLevel = (options.indentClosingBrace) ? nodeLevel + 1 : nodeLevel
       if (
-        cssStatementHasBlock(node)
+        hasBlock(node)
         && after
         && after.indexOf("\n") !== -1
         && after.slice(after.lastIndexOf("\n") + 1) !== repeat(indentChar, closingBraceLevel)
@@ -173,7 +173,7 @@ export default function (space, options = {}) {
       if (
         optionsHaveException(options, "block")
         && (node.type === "rule" || node.type === "atrule")
-        && cssStatementHasBlock(node)
+        && hasBlock(node)
       ) {
         calculatedLevel--
       }

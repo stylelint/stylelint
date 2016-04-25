@@ -2,7 +2,7 @@ import { isString } from "lodash"
 
 import {
   blockString,
-  cssStatementHasBlock,
+  hasBlock,
   cssStatementHasEmptyBlock,
   cssStatementStringBeforeBlock,
   matchesStringOrRegExp,
@@ -51,7 +51,7 @@ export default function (expectation, options) {
 
     function check(statement) {
       // Return early if blockless or has an empty block
-      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
+      if (!hasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
       // Return early if at-rule is to be ignored
       if (cssStatementIsIgnoredAtRule(statement, options)) { return }

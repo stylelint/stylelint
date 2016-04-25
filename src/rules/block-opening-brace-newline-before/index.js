@@ -1,5 +1,5 @@
 import {
-  cssStatementHasBlock,
+  hasBlock,
   cssStatementHasEmptyBlock,
   blockString,
   cssStatementStringBeforeBlock,
@@ -42,7 +42,7 @@ export default function (expectation) {
     function check(statement) {
 
       // Return early if blockless or has an empty block
-      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
+      if (!hasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
 
       const beforeBrace = cssStatementStringBeforeBlock(statement)
 

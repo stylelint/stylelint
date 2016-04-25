@@ -7,7 +7,7 @@ import valueParser from "postcss-value-parser"
 import {
   isKnownUnit,
   blurComments,
-  cssStatementHasBlock,
+  hasBlock,
   cssStatementStringBeforeBlock,
   report,
   ruleMessages,
@@ -37,7 +37,7 @@ export default function (actual) {
     })
 
     root.walkAtRules(atRule => {
-      const source = (cssStatementHasBlock(atRule))
+      const source = (hasBlock(atRule))
         ? cssStatementStringBeforeBlock(atRule, { noBefore: true })
         : atRule.toString()
       check(source, atRule)
