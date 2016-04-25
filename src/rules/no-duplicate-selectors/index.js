@@ -3,7 +3,7 @@ import resolvedNestedSelector from "postcss-resolve-nested-selector"
 import normalizeSelector from "normalize-selector"
 import {
   cssNodeContextLookup,
-  cssRuleIsKeyframe,
+  isKeyframeRule,
   findAtRuleContext,
   ruleMessages,
   report,
@@ -29,7 +29,7 @@ export default function (actual) {
 
     root.walkRules(rule => {
 
-      if (cssRuleIsKeyframe(rule)) { return }
+      if (isKeyframeRule(rule)) { return }
 
       const contextSelectorSet = selectorContextLookup.getContext(rule, findAtRuleContext(rule))
       const resolvedSelectors = rule.selectors.reduce((result, selector) => {

@@ -1,7 +1,7 @@
 import selectorParser from "postcss-selector-parser"
 import { get } from "lodash"
 import {
-  cssRuleIsKeyframe,
+  isKeyframeRule,
   isStandardRule,
   isStandardTypeSelector,
   optionsHaveIgnored,
@@ -30,7 +30,7 @@ export default function (on, options) {
     root.walkRules(rule => {
 
       if (!isStandardRule(rule)) { return }
-      if (cssRuleIsKeyframe(rule)) { return }
+      if (isKeyframeRule(rule)) { return }
 
       selectorParser(checkSelector).process(rule.selector)
 

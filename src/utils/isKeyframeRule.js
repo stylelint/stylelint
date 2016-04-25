@@ -2,7 +2,7 @@
  * Check if a rule is a keyframe one
  *
  * @param {Rule} rule - postcss rule node
- * @return {boolean} True if the rule is a keyframe one
+ * @return {boolean} If `true`, the rule is a keyframe one
  */
 export default function (rule) {
   const { parent } = rule

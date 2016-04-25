@@ -1,35 +1,35 @@
-import cssRuleIsKeyframe from "../cssRuleIsKeyframe"
+import isKeyframeRule from "../isKeyframeRule"
 import postcss from "postcss"
 import test from "tape"
 
-test("cssRuleIsKeyframe", t => {
+test("isKeyframeRule", t => {
 
   t.plan(9)
 
   rules("@keyframes identifier { to {} }", rule => {
-    t.ok(cssRuleIsKeyframe(rule), "to")
+    t.ok(isKeyframeRule(rule), "to")
   })
   rules("@keyframes identifier { from {} }", rule => {
-    t.ok(cssRuleIsKeyframe(rule), "from")
+    t.ok(isKeyframeRule(rule), "from")
   })
   rules("@keyframes identifier { 50% {} }", rule => {
-    t.ok(cssRuleIsKeyframe(rule), "50%")
+    t.ok(isKeyframeRule(rule), "50%")
   })
 
   rules("a {}", rule => {
-    t.notOk(cssRuleIsKeyframe(rule), "rule")
+    t.notOk(isKeyframeRule(rule), "rule")
   })
   rules("a { & b {} }", rule => {
-    t.notOk(cssRuleIsKeyframe(rule), "rule and direct nested rule")
+    t.notOk(isKeyframeRule(rule), "rule and direct nested rule")
   })
   rules("a { @nest b & {} }", rule => {
-    t.notOk(cssRuleIsKeyframe(rule), "@nest nested rule")
+    t.notOk(isKeyframeRule(rule), "@nest nested rule")
   })
   rules("@media print { a {} }", rule => {
-    t.notOk(cssRuleIsKeyframe(rule), "@media")
+    t.notOk(isKeyframeRule(rule), "@media")
   })
   rules("@supports (animation-name: test) { a {} }", rule => {
-    t.notOk(cssRuleIsKeyframe(rule), "@supports")
+    t.notOk(isKeyframeRule(rule), "@supports")
   })
 })
 
