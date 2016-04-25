@@ -48,8 +48,13 @@ export default function (expectation, options) {
       const { value } = decl
 
       valueParser(value).walk((node) => {
-        // Ignore keywords within `url` function
-        if (node.type === "function" && node.value === "url") { return false }
+        // Ignore keywords within `url` and `var` function
+        if (
+          node.type === "function" && (
+            node.value === "url" ||
+            node.value === "var"
+          )
+        ) { return false }
 
         const keyword = node.value
 
