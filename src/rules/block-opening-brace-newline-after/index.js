@@ -1,7 +1,7 @@
 import {
   blockString,
   hasBlock,
-  cssStatementHasEmptyBlock,
+  hasEmptyBlock,
   cssStatementStringBeforeBlock,
   rawNodeString,
   report,
@@ -39,7 +39,7 @@ export default function (expectation) {
     function check(statement) {
 
       // Return early if blockless or has an empty block
-      if (!hasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
+      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
       // Allow an end-of-line comment x spaces after the brace
       const firstNode = statement.first

@@ -1,5 +1,5 @@
 import {
-  cssStatementHasEmptyBlock,
+  hasEmptyBlock,
   cssStatementStringBeforeBlock,
   report,
   ruleMessages,
@@ -22,7 +22,7 @@ export default function (actual) {
     root.walkAtRules(check)
 
     function check(statement) {
-      if (!cssStatementHasEmptyBlock(statement)) { return }
+      if (!hasEmptyBlock(statement)) { return }
 
       report({
         message: messages.rejected,

@@ -1,7 +1,7 @@
 import {
   blockString,
   hasBlock,
-  cssStatementHasEmptyBlock,
+  hasEmptyBlock,
   report,
   ruleMessages,
   validateOptions,
@@ -44,7 +44,7 @@ export default function (expectation) {
     function check(statement) {
 
       // Return early if blockless or has empty block
-      if (!hasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
+      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
       const source = blockString(statement)
 
