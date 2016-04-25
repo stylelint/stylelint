@@ -1,7 +1,7 @@
 import {
   isStandardDeclaration,
   optionsHaveIgnored,
-  propertyIsCustom,
+  isCustomProperty,
   report,
   ruleMessages,
   validateOptions,
@@ -48,7 +48,7 @@ export default function (on, options) {
 
         const { prop } = child
 
-        if (propertyIsCustom(prop)) { return }
+        if (isCustomProperty(prop)) { return }
 
         // Ignore the src property as commonly duplicated in at-fontface
         if (prop === "src") { return }

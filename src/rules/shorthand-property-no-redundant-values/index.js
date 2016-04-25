@@ -2,7 +2,7 @@ import valueParser from "postcss-value-parser"
 import { vendor } from "postcss"
 import {
   isStandardDeclaration,
-  propertyIsCustom,
+  isCustomProperty,
   report,
   ruleMessages,
   validateOptions,
@@ -69,7 +69,7 @@ export default function (actual) {
 
       const { prop, value } = decl
 
-      if (propertyIsCustom(prop)) { return }
+      if (isCustomProperty(prop)) { return }
 
       // ignore not shorthandable properties, and math operations
       if (

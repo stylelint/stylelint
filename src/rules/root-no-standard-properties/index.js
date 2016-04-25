@@ -1,7 +1,7 @@
 import selectorParser from "postcss-selector-parser"
 import {
   isStandardDeclaration,
-  propertyIsCustom,
+  isCustomProperty,
   report,
   ruleMessages,
   validateOptions,
@@ -30,7 +30,7 @@ export default function (actual) {
 
           const { prop } = decl
 
-          if (propertyIsCustom(prop)) { return }
+          if (isCustomProperty(prop)) { return }
 
           report({
             message: messages.rejected(prop),

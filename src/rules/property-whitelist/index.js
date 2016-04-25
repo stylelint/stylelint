@@ -2,7 +2,7 @@ import { vendor } from "postcss"
 import { isString } from "lodash"
 import {
   isStandardDeclaration,
-  propertyIsCustom,
+  isCustomProperty,
   report,
   ruleMessages,
   validateOptions,
@@ -29,7 +29,7 @@ export default function (whitelistInput) {
       if (!isStandardDeclaration(decl)) { return }
 
       const { prop } = decl
-      if (propertyIsCustom(prop)) { return }
+      if (isCustomProperty(prop)) { return }
 
       if (matchesStringOrRegExp(vendor.unprefixed(prop), whitelist)) { return }
 
