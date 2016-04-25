@@ -1,4 +1,4 @@
-import testRule from "../../../testUtils/testRule"
+import { testRule } from "../../../testUtils"
 import rule, { ruleName, messages } from ".."
 
 testRule(rule, {
