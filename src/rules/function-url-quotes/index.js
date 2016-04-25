@@ -1,5 +1,5 @@
 import {
-  cssFunctionArguments,
+  functionArgumentsSearch,
   mediaQueryParamIndexOffset,
   report,
   ruleMessages,
@@ -60,7 +60,7 @@ export default function (expectation) {
       }
 
       statement.walkDecls(function (decl) {
-        cssFunctionArguments(decl.toString(), "url", (args, index) => {
+        functionArgumentsSearch(decl.toString(), "url", (args, index) => {
           if (strDefiesExpectation(args)) {
             report({
               message: messages.expected(quoteMsg),
@@ -75,7 +75,7 @@ export default function (expectation) {
     }
 
     function checkAtRuleParams(atRule) {
-      cssFunctionArguments(atRule.params, "url", (args, index) => {
+      functionArgumentsSearch(atRule.params, "url", (args, index) => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg),
@@ -86,7 +86,7 @@ export default function (expectation) {
           })
         }
       })
-      cssFunctionArguments(atRule.params, "url-prefix", (args, index) => {
+      functionArgumentsSearch(atRule.params, "url-prefix", (args, index) => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg, "url-prefix"),
@@ -97,7 +97,7 @@ export default function (expectation) {
           })
         }
       })
-      cssFunctionArguments(atRule.params, "domain", (args, index) => {
+      functionArgumentsSearch(atRule.params, "domain", (args, index) => {
         if (strDefiesExpectation(args)) {
           report({
             message: messages.expected(quoteMsg, "domain"),
