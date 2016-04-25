@@ -50,9 +50,9 @@ input {
 }
 ```
 
-## Options (optional)
+## Optional options
 
-### `ignore: "class"`
+### `ignore: ["class"]`
 
 Allow class selectors qualified by type.
 
@@ -64,7 +64,7 @@ div.class {
 }
 ```
 
-### `ignore: "id"`
+### `ignore: ["id"]`
 
 Allow id selectors qualified by type.
 
@@ -76,7 +76,7 @@ div#id {
 }
 ```
 
-### `ignore: "attribute"`
+### `ignore: ["attribute"]`
 
 Allow attribute selectors qualified by type.
 
