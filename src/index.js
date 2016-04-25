@@ -9,9 +9,7 @@ import {
   validateOptions,
   cssWordIsVariable,
 } from "./utils"
-import {
-  createRuleTester,
-} from "./testUtils"
+import createRuleTester from "./testUtils/createRuleTester"
 
 const stylelint = postcssPlugin
 

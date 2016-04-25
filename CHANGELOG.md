@@ -1,3 +1,7 @@
+# 6.2.1
+
+- Fixed: more problems with exposed `stylelint.createRuleTester`.
+
 # 6.2.0
 
 - Added: `selector-no-qualifying-type` rule.
