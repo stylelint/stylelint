@@ -1,6 +1,6 @@
 import selectorParser from "postcss-selector-parser"
 import {
-  cssRuleHasSelectorEndingWithColon,
+  isStandardRule,
   report,
   ruleMessages,
   isAutoprefixable,
@@ -19,7 +19,7 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (cssRuleHasSelectorEndingWithColon(rule)) { return }
+      if (!isStandardRule(rule)) { return }
       selectorParser(selectorTree => {
         selectorTree.eachPseudo(pseudoNode => {
           if (isAutoprefixable.selector(pseudoNode.value)) {

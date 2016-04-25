@@ -216,3 +216,14 @@ testRule(rule, {
     message: messages.rejected,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  syntax: "less",
+  config: ["always"],
+
+  accept: [{
+    code: "a {}\n.mixin-call() {}",
+    description: "ignore non-ouputting Less class mixin definition",
+  }],
+})
