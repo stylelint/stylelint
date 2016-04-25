@@ -1,8 +1,9 @@
 import postcss from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import {
-  isVariable,
   declarationValueIndex,
+  isStandardValue,
+  isVariable,
   report,
   ruleMessages,
   validateOptions,
@@ -43,12 +44,14 @@ export default function (actual) {
       if (decl.prop === "animation") {
         const valueList = postcss.list.space(decl.value)
         for (const value of valueList) {
+          // Ignore non standard syntax
+          if (!isStandardValue(value)) { continue }
+          // Ignore variables
+          if (isVariable(value)) { continue }
           // Ignore numbers with units
           if (postcssValueParser.unit(value)) { continue }
           // Ignore keywords for other animation parts
           if (animationShorthandKeywords.has(value)) { continue }
-          // Ignore variables
-          if (isVariable(value)) { continue }
           // Ignore functions
           if (value.indexOf("(") !== -1) { continue }
           checkAnimationName(value, decl, decl.value.indexOf(value))

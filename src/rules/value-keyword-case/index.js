@@ -1,8 +1,8 @@
 import valueParser from "postcss-value-parser"
 import { isString } from "lodash"
 import {
-  isVariable,
   declarationValueIndex,
+  isStandardValue,
   matchesStringOrRegExp,
   report,
   ruleMessages,
@@ -48,7 +48,7 @@ export default function (expectation, options) {
 
         // Ignore css variables, and hex values, and math operators, and sass interpolation
         if (node.type !== "word"
-          || isVariable(node.value)
+          || !isStandardValue(node.value)
           || value.indexOf("#") !== -1
           || ignoredCharacters.has(keyword)
           || keyword === "currentColor"

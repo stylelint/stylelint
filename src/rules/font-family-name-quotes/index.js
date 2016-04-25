@@ -1,5 +1,6 @@
 import postcss from "postcss"
 import {
+  isStandardValue,
   isVariable,
   report,
   ruleMessages,
@@ -60,6 +61,7 @@ export default function (expectation) {
     })
 
     function checkFamilyName(rawFamily, decl) {
+      if (!isStandardValue(rawFamily)) { return }
       if (isVariable(rawFamily)) { return }
 
       const quoteType = getQuoteType(rawFamily)
