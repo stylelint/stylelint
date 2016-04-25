@@ -1,6 +1,6 @@
 import valueParser from "postcss-value-parser"
 import {
-  declarationValueIndexOffset,
+  declarationValueIndex,
   isSingleLineString,
   isStandardDeclaration,
   isStandardFunction,
@@ -95,7 +95,7 @@ export default function (expectation) {
           result,
           message,
           node: decl,
-          index: declarationValueIndexOffset(decl) + offset,
+          index: declarationValueIndex(decl) + offset,
         })
       }
     })

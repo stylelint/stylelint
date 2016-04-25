@@ -2,7 +2,7 @@ import postcss from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import {
   isVariable,
-  declarationValueIndexOffset,
+  declarationValueIndex,
   report,
   ruleMessages,
   validateOptions,
@@ -63,7 +63,7 @@ export default function (actual) {
         ruleName,
         message: messages.rejected(animationName),
         node: decl,
-        index: declarationValueIndexOffset(decl) + offset,
+        index: declarationValueIndex(decl) + offset,
       })
     }
   }

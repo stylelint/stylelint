@@ -2,7 +2,7 @@ import postcss from "postcss"
 import { includes } from "lodash"
 import {
   isVariable,
-  declarationValueIndexOffset,
+  declarationValueIndex,
   optionsHaveIgnored,
   report,
   ruleMessages,
@@ -106,7 +106,7 @@ export default function (expectation, options) {
           result,
           message,
           node: decl,
-          index: declarationValueIndexOffset(decl) + weightValueOffset,
+          index: declarationValueIndex(decl) + weightValueOffset,
         })
       }
     }

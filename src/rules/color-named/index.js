@@ -1,7 +1,7 @@
 import valueParser from "postcss-value-parser"
 // import _ from "lodash"
 import {
-  declarationValueIndexOffset,
+  declarationValueIndex,
   report,
   ruleMessages,
   validateOptions,
@@ -51,7 +51,7 @@ export default function (expectation) {
           complain(
             messages.rejected(value),
             decl,
-            declarationValueIndexOffset(decl) + sourceIndex
+            declarationValueIndex(decl) + sourceIndex
           )
           return
         }
@@ -73,7 +73,7 @@ export default function (expectation) {
               complain(
                 messages.expected(namedColor, normalizedFunctionString),
                 decl,
-                declarationValueIndexOffset(decl) + sourceIndex
+                declarationValueIndex(decl) + sourceIndex
               )
               return // Exit as soon as a problem is found
             }
@@ -89,7 +89,7 @@ export default function (expectation) {
             complain(
               messages.expected(namedColor, value),
               decl,
-              declarationValueIndexOffset(decl) + sourceIndex
+              declarationValueIndex(decl) + sourceIndex
             )
             return // Exit as soon as a problem is found
           }

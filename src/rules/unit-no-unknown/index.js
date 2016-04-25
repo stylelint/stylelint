@@ -2,7 +2,7 @@ import { isString } from "lodash"
 import valueParser from "postcss-value-parser"
 import {
   isVariable,
-  declarationValueIndexOffset,
+  declarationValueIndex,
   isKnownUnit,
   report,
   ruleMessages,
@@ -50,7 +50,7 @@ export default function (actual, options) {
         report({
           message: messages.rejected(unit),
           node: decl,
-          index: declarationValueIndexOffset(decl) + node.sourceIndex,
+          index: declarationValueIndex(decl) + node.sourceIndex,
           result,
           ruleName,
         })

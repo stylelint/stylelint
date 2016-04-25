@@ -2,7 +2,7 @@ import valueParser from "postcss-value-parser"
 import { isString } from "lodash"
 import {
   isVariable,
-  declarationValueIndexOffset,
+  declarationValueIndex,
   matchesStringOrRegExp,
   report,
   ruleMessages,
@@ -69,7 +69,7 @@ export default function (expectation, options) {
         report({
           message: messages.expected(keyword, expectedKeyword),
           node: decl,
-          index: declarationValueIndexOffset(decl) + node.sourceIndex,
+          index: declarationValueIndex(decl) + node.sourceIndex,
           result,
           ruleName,
         })

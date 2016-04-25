@@ -1,6 +1,6 @@
 import valueParser from "postcss-value-parser"
 import {
-  declarationValueIndexOffset,
+  declarationValueIndex,
   isStandardDeclaration,
   isStandardFunction,
   report,
@@ -72,7 +72,7 @@ export function functionCommaSpaceChecker({ locationChecker, root, result, check
           source: functionArguments,
           index: match.startIndex,
           err: (message) => {
-            const index = declarationValueIndexOffset(decl) +
+            const index = declarationValueIndex(decl) +
               valueNode.value.length + 1 +
               valueNode.sourceIndex +
               match.startIndex
