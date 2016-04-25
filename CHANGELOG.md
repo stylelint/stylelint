@@ -2,6 +2,7 @@
 
 - Fixed: `number-leading-zero` will not check `@import` at-rules.
 - Fixed: `selector-class-pattern` now ignores non-ouputting Less mixin definitions and called Less mixins.
+- Fixed: `value-keyword-case` now accounts for camelCase keywords (e.g. `optimizeSpeed`, `optimizeLegibility` and `geometricPrecision`) when the `lower` option is used.
 
 # 6.1.1
 

@@ -95,6 +95,12 @@ testRule(rule, {
     code: "@media screen { color: green; @media (min-width: 768px) { color: red; } }",
   }, {
     code: "a { color: red; border: 5px solid currentColor; }",
+  }, {
+    code: "a { text-rendering: optimizeSpeed; }",
+  }, {
+    code: "a { text-rendering: optimizeLegibility; }",
+  }, {
+    code: "a { text-rendering: geometricPrecision; }",
   } ],
 
   reject: [ {
@@ -198,6 +204,11 @@ testRule(rule, {
     message: messages.expected("Red", "red"),
     line: 1,
     column: 66,
+  }, {
+    code: "a { text-rendering: OptimizeSpeed; }",
+    message: messages.expected("OptimizeSpeed", "optimizeSpeed"),
+    line: 1,
+    column: 21,
   } ],
 })
 
@@ -476,7 +487,13 @@ testRule(rule, {
   }, {
     code: "@media screen { color: GREEN; @media (min-width: 768px) { color: RED; } }",
   }, {
-    code: "a { color: RED; border: 5px SOLID currentColor; }",
+    code: "a { color: RED; border: 5px SOLID CURRENTCOLOR; }",
+  }, {
+    code: "a { text-rendering: OPTIMIZESPEED; }",
+  }, {
+    code: "a { text-rendering: OPTIMIZELEGIBILITY; }",
+  }, {
+    code: "a { text-rendering: GEOMETRICPRECISION; }",
   } ],
 
   reject: [ {
@@ -580,6 +597,11 @@ testRule(rule, {
     message: messages.expected("Red", "RED"),
     line: 1,
     column: 66,
+  }, {
+    code: "a { text-rendering: optimizeSpeed; }",
+    message: messages.expected("optimizeSpeed", "OPTIMIZESPEED"),
+    line: 1,
+    column: 21,
   } ],
 })
 
