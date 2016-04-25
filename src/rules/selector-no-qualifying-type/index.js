@@ -1,8 +1,9 @@
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 import selectorParser from "postcss-selector-parser"
 import {
-  cssRuleHasSelectorEndingWithColon,
-  cssRuleIsKeyframe,
+  isKeyframeRule,
+  isStandardRule,
+  isStandardSelector,
   optionsHaveIgnored,
   report,
   ruleMessages,
@@ -72,16 +73,10 @@ export default (enabled, options) => {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (
-        cssRuleHasSelectorEndingWithColon(rule)
-        || cssRuleIsKeyframe(rule)
-        || !isSelectorCharacters(rule.selector)
-      ) { return }
-
-      // Return early if there is interpolation in the selector
-      if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(rule.selector)) {
-        return
-      }
+      if (!isStandardRule(rule)) { return }
+      if (isKeyframeRule(rule)) { return }
+      if (!isStandardSelector(rule.selector)) { return }
+      if (!isSelectorCharacters(rule.selector)) { return }
 
       function checkSelector(selectorAST) {
         selectorAST.eachTag(selector => {
