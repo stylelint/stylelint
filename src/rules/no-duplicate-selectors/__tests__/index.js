@@ -1,4 +1,4 @@
-import testRule from "../../../testUtils/testRule"
+import { testRule } from "../../../testUtils"
 
 import postcss from "postcss"
 import postcssImport from "postcss-import"
