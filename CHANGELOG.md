@@ -1,5 +1,6 @@
 # Head
 
+- Deprecated: `stylelint.utils.cssWordIsVariable()` as non-standard syntax utils are now defensive.
 - Fixed: `declaration-colon-*` rules now ignore SCSS lists.
 - Fixed: `rule-nested-empty-line-before` now ignores Less blockless rules (mixin and extend calls).
 
