@@ -101,6 +101,18 @@ testRule(rule, {
     code: "a { text-rendering: optimizeLegibility; }",
   }, {
     code: "a { text-rendering: geometricPrecision; }",
+  }, {
+    code: "a { animation: foo 2s }",
+  }, {
+    code: "a { animation: FOO 2s infinite }",
+  }, {
+    code: "a { font: 14px bold test }",
+  }, {
+    code: "a { font: 14px bold TEST }",
+  }, {
+    code: "a { list-style-type: CUSTOM; }",
+  }, {
+    code: "a { list-style-type: custom; }",
   } ],
 
   reject: [ {

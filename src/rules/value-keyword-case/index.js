@@ -2,6 +2,8 @@ import valueParser from "postcss-value-parser"
 import { isString } from "lodash"
 import {
   declarationValueIndex,
+  findAnimationName,
+  findFontFamily,
   isStandardValue,
   matchesStringOrRegExp,
   report,
@@ -18,6 +20,22 @@ export const messages = ruleMessages(ruleName, {
 // Operators are interpreted as "words" by the value parser, so we want to make sure to ignore them.
 const ignoredCharacters = new Set([
   "+", "-", "/", "*", "%",
+])
+
+const ignoredProperties = new Set([
+  "animation-timing-function",
+  "animation-name",
+  "will-change",
+  "font-family",
+  "counter-increment",
+  "grid-row",
+  "grid-column",
+  "grid-area",
+  "list-style-type",
+])
+
+const allowedValueForIgnoreProperties = new Set([
+  "none", "inherit", "initial", "unset",
 ])
 
 const ignoredCamelCaseKeywords = {
@@ -45,7 +63,9 @@ export default function (expectation, options) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      const { value } = decl
+      const { prop, value } = decl
+
+      if (ignoredProperties.has(prop) && !allowedValueForIgnoreProperties.has(value)) { return }
 
       valueParser(value).walk((node) => {
         // Ignore keywords within `url` and `var` function
@@ -64,6 +84,18 @@ export default function (expectation, options) {
           || value.indexOf("#") !== -1
           || ignoredCharacters.has(keyword)
         ) { return }
+
+        if (decl.prop === "animation") {
+          const animationNames = findAnimationName(node.value.toLowerCase())
+
+          if (animationNames.length > 0) { return }
+        }
+
+        if (decl.prop === "font") {
+          const fontFamilies = findFontFamily(node.value.toLowerCase())
+
+          if (fontFamilies.length > 0) { return }
+        }
 
         const parsedUnit = valueParser.unit(keyword)
 
