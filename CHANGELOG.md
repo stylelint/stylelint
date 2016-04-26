@@ -3,6 +3,7 @@
 - Deprecated: `stylelint.utils.cssWordIsVariable()` as non-standard syntax utils are now defensive.
 - Fixed: `declaration-colon-*` rules now ignore SCSS lists.
 - Fixed: `rule-nested-empty-line-before` now ignores Less blockless rules (mixin and extend calls).
+- Fixed: `font-weight-notation` now ignores SCSS interpolation.
 
 # 6.2.1
 
