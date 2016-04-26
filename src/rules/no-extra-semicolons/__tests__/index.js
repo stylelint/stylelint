@@ -7,12 +7,7 @@ testRule(rule, {
   config: [true],
 
   accept: [ {
-    code: "",
-    description: "empty string",
-  }, {
     code: "@import 'x.css';",
-  }, {
-    code: ".foo { }",
   }, {
     code: ".foo { color: red }",
   }, {

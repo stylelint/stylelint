@@ -42,9 +42,9 @@ export default function (actual) {
     if (!validOptions) { return }
 
     if (root.raws.after) {
-      const rawBeforeRoot = root.raws.after
-      styleSearch({ source: rawBeforeRoot, target: ";" }, match => {
-        complain(root.toString().length - rawBeforeRoot.length + match.startIndex)
+      const rawAfterRoot = root.raws.after
+      styleSearch({ source: rawAfterRoot, target: ";" }, match => {
+        complain(root.toString().length - rawAfterRoot.length + match.startIndex)
       })
     }
 

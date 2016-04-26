@@ -3,8 +3,8 @@
 Disallow extra semicolons.
 
 ```css
-a { color: pink; }
-/**            ↑
+a { color: pink;; }
+/**             ↑
  *  This semicolons */
 ```
 
