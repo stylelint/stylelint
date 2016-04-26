@@ -1,4 +1,4 @@
-# Head
+# 6.2.2
 
 - Deprecated: `stylelint.utils.cssWordIsVariable()` as non-standard syntax utils are now defensive.
 - Fixed: `declaration-colon-*` rules now ignore SCSS lists.
