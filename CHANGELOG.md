@@ -2,6 +2,7 @@
 
 - Added: `selector-attribute-operator-space-after` rule.
 - Added: `selector-attribute-operator-space-before` rule.
+- Added: `selector-max-empty-lines` rule.
 - Added: `no-extra-semicolons` rule.
 
 # 6.2.2
