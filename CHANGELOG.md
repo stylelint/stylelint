@@ -1,3 +1,7 @@
+# Head
+
+- Added: `no-extra-semicolons` rule.
+
 # 6.2.2
 
 - Deprecated: `stylelint.utils.cssWordIsVariable()` as non-standard syntax utils are now defensive.

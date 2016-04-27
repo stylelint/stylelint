@@ -217,6 +217,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`no-descending-specificity`](../../src/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 - [`no-duplicate-selectors`](../../src/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 - [`no-eol-whitespace`](../../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
+- [`no-extra-semicolons`](../../src/rules/no-extra-semicolons/README.md): Disallow extra semicolons.
 - [`no-indistinguishable-colors`](../../src/rules/no-indistinguishable-colors/README.md): Disallow colors that are suspiciously close to being identical.
 - [`no-invalid-double-slash-comments`](../../src/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
 - [`no-missing-eof-newline`](../../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.

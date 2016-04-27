@@ -84,6 +84,7 @@ You might want to learn a little about [how rules are named and how they work to
     "no-descending-specificity": true,
     "no-duplicate-selectors": true,
     "no-eol-whitespace": true,
+    "no-extra-semicolons": true,
     "no-indistinguishable-colors": true,
     "no-invalid-double-slash-comments": true,
     "no-missing-eof-newline": true,
