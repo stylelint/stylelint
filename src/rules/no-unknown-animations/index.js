@@ -1,9 +1,6 @@
-import postcss from "postcss"
-import postcssValueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
-  isStandardValue,
-  isVariable,
+  findAnimationName,
   report,
   ruleMessages,
   validateOptions,
@@ -14,13 +11,6 @@ export const ruleName = "no-unknown-animations"
 export const messages = ruleMessages(ruleName, {
   rejected: animationName => `Unknown animation name "${animationName}"`,
 })
-
-// cf. https://developer.mozilla.org/en-US/docs/Web/CSS/animation
-const animationShorthandKeywords = new Set([
-  "infinite", "normal", "reverse", "alternate", "alternate-reverse",
-  "none", "initial", "inherit", "unset", "forwards", "backwards", "both", "running", "paused",
-  "linear", "ease-in", "ease-out", "ease-in-out", "step-start", "step-end",
-])
 
 const animationNameKeywords = new Set([
   "none", "initial", "inherit", "unset",
@@ -42,20 +32,13 @@ export default function (actual) {
       }
 
       if (decl.prop === "animation") {
-        const valueList = postcss.list.space(decl.value)
-        for (const value of valueList) {
-          // Ignore non standard syntax
-          if (!isStandardValue(value)) { continue }
-          // Ignore variables
-          if (isVariable(value)) { continue }
-          // Ignore numbers with units
-          if (postcssValueParser.unit(value)) { continue }
-          // Ignore keywords for other animation parts
-          if (animationShorthandKeywords.has(value)) { continue }
-          // Ignore functions
-          if (value.indexOf("(") !== -1) { continue }
-          checkAnimationName(value, decl, decl.value.indexOf(value))
-        }
+        const animationNames = findAnimationName(decl.value)
+
+        if (animationNames.length === 0) { return }
+
+        animationNames.forEach(
+          (animation) => checkAnimationName(animation.name, decl, decl.value.indexOf(animation.name))
+        )
       }
     })
 
