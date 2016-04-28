@@ -9,6 +9,7 @@ You might want to learn a little about [how rules are named and how they work to
   "rules": {
     "at-rule-empty-line-before": "always"|"never",
     "at-rule-name-case": "lower"|"upper",
+    "at-rule-name-space-after": "always"|"always-single-line",
     "at-rule-no-vendor-prefix": true,
     "at-rule-semicolon-newline-after": "always",
     "block-closing-brace-newline-after": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",

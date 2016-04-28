@@ -4,6 +4,7 @@
 - Added: support for plugins that provides an array of rules.
 - Added: support for extracting and linting CSS from within HTML sources.
 - Added: `--stdin-filename` option to CLI.
+- Added: `at-rule-name-space-after` rule.
 - Added: `no-extra-semicolons` rule.
 - Added: `selector-attribute-operator-space-after` rule.
 - Added: `selector-attribute-operator-space-before` rule.
