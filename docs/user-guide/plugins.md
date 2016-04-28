@@ -7,6 +7,7 @@ Plugins are rules built by the community that support methodologies, toolsets, *
 ### Selector
 
 - [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors (incorporates [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter)).
+- [`stylelint-selector-max-depth`](https://github.com/dryoma/stylelint-selector-max-depth): Limit selectors depth.
 
 ## Non-standard syntax
 
