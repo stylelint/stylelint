@@ -1,6 +1,7 @@
 # Head
 
 - Added: `no-extra-semicolons` rule.
+- Added: `selector-max-depth` rule.
 
 # 6.2.2
 

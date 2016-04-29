@@ -139,6 +139,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`selector-combinator-space-after`](../../src/rules/selector-combinator-space-after/README.md): Require a single space or disallow whitespace after the combinators of selectors.
 - [`selector-combinator-space-before`](../../src/rules/selector-combinator-space-before/README.md): Require a single space or disallow whitespace before the combinators of selectors.
 - [`selector-id-pattern`](../../src/rules/selector-id-pattern/README.md): Specify a pattern for id selectors.
+- [`selector-max-depth`](../../src/rules/selector-max-depth/README.md): Limit the depth of selectors.
 - [`selector-max-specificity`](../../src/rules/selector-max-specificity/README.md): Limit the specificity of selectors.
 - [`selector-no-attribute`](../../src/rules/selector-no-attribute/README.md): Disallow attribute selectors.
 - [`selector-no-combinator`](../../src/rules/selector-no-combinator/README.md): Disallow combinators in selectors.
