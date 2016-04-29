@@ -3,6 +3,7 @@
 - Added: `selector-attribute-operator-space-after` rule.
 - Added: `selector-attribute-operator-space-before` rule.
 - Added: `no-extra-semicolons` rule.
+- Added: `selector-max-depth` rule.
 
 # 6.2.2
 
