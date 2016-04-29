@@ -112,6 +112,7 @@ import selectorListCommaNewlineBefore from "./selector-list-comma-newline-before
 import selectorListCommaSpaceAfter from "./selector-list-comma-space-after"
 import selectorListCommaSpaceBefore from "./selector-list-comma-space-before"
 import selectorMaxEmptyLines from "./selector-max-empty-lines"
+import selectorMaxDepth from "./selector-max-depth"
 import selectorMaxSpecificity from "./selector-max-specificity"
 import selectorNoAttribute from "./selector-no-attribute"
 import selectorNoCombinator from "./selector-no-combinator"
@@ -260,6 +261,7 @@ export default {
   "selector-list-comma-space-after": selectorListCommaSpaceAfter,
   "selector-list-comma-space-before": selectorListCommaSpaceBefore,
   "selector-max-empty-lines": selectorMaxEmptyLines,
+  "selector-max-depth": selectorMaxDepth,
   "selector-max-specificity": selectorMaxSpecificity,
   "selector-no-attribute": selectorNoAttribute,
   "selector-no-combinator": selectorNoCombinator,

@@ -54,6 +54,7 @@
 - Fixed: `number-max-precision` now ignores `@import` at-rules and `url()` functions.
 - Fixed: `selector-class-pattern` and `selector-id-pattern` rules now ignore SCSS variable interpolation.
 - Fixed: `value-list-comma-*` rules now ignore SCSS maps.
+- Added: `selector-max-depth` rule.
 
 # 6.2.2
 
