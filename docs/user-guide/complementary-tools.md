@@ -8,6 +8,7 @@
 
 ## Build tool plugins
 
+- [grunt-postcss](https://github.com/nDmitry/grunt-postcss) - a grunt plugin for PostCSS that can be used with stylelint.
 - [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) - a gulp plugin for stylelint.
 - [stylelint-webpack-plugin](https://github.com/vieron/stylelint-webpack-plugin) - a webpack plugin for stylelint.
 
