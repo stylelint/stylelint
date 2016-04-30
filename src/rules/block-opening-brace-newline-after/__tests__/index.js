@@ -87,18 +87,6 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 4,
-  }, {
-    code: "a {\t/* 1 */ color: pink; }",
-    description: "next node is comment with tab before",
-    message: messages.expectedAfter(),
-    line: 1,
-    column: 4,
-  }, {
-    code: "a { /* 1\n2 */ color: pink; }",
-    description: "next node is end-of-line comment containing newlines",
-    message: messages.expectedAfter(),
-    line: 1,
-    column: 4,
   } ],
 })
 

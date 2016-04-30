@@ -3,6 +3,7 @@ import {
   hasBlock,
   hasEmptyBlock,
   beforeBlockString,
+  nextNonCommentNode,
   rawNodeString,
   report,
   ruleMessages,
@@ -41,16 +42,8 @@ export default function (expectation) {
       // Return early if blockless or has an empty block
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
-      // Allow an end-of-line comment x spaces after the brace
-      const firstNode = statement.first
-      const firstNodeIsAcceptableComment = (
-        firstNode.type === "comment"
-        && !/[^ ]/.test(firstNode.raw("before"))
-        && firstNode.toString().indexOf("\n") === -1
-      )
-      const nodeToCheck = (firstNodeIsAcceptableComment)
-        ? firstNode.next()
-        : firstNode
+      // Allow an end-of-line comment
+      const nodeToCheck = nextNonCommentNode(statement.first)
       if (!nodeToCheck) { return }
 
       checker.afterOneOnly({

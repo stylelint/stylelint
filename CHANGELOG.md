@@ -4,6 +4,7 @@
 - Added: `selector-attribute-operator-space-before` rule.
 - Added: `selector-max-empty-lines` rule.
 - Added: `no-extra-semicolons` rule.
+- Added: more flexible support for end-of-line comments in `at-rule-semicolon-newline-after`, `block-opening-brace-newline-after`, and `declaration-block-semicolon-newline-after`.
 
 # 6.2.2
 
