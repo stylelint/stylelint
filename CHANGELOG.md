@@ -6,6 +6,7 @@
 - Added: `selector-max-empty-lines` rule.
 - Added: `no-extra-semicolons` rule.
 - Added: more flexible support for end-of-line comments in `at-rule-semicolon-newline-after`, `block-opening-brace-newline-after`, and `declaration-block-semicolon-newline-after`.
+- Added: `--stdin-filename` option to CLI.
 
 # 6.2.2
 
