@@ -1,4 +1,4 @@
-import testRule from "../../../testUtils/testRule"
+import { testRule } from "../../../testUtils"
 
 import rule, { ruleName, messages } from ".."
 
@@ -369,5 +369,19 @@ testRule(rule, {
   }, {
     code: "@media { a {\n\t\tcolor: pink; }\n/* comment */\n\nb {\n\t\ttop: 0; }}",
     message: messages.rejected,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  syntax: "less",
+  config: ["always"],
+
+  accept: [ {
+    code: "a { .mixin-call(); }",
+    description: "Less mixin call ignored",
+  }, {
+    code: "a { &:extend(.class); }",
+    description: "Less extends ignored",
   } ],
 })

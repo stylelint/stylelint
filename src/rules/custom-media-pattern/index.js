@@ -1,6 +1,6 @@
 import { isRegExp, isString } from "lodash"
 import {
-  mediaQueryParamIndexOffset,
+  atRuleParamIndex,
   report,
   ruleMessages,
   validateOptions,
@@ -29,15 +29,15 @@ export default function (pattern) {
 
       const customMediaName = atRule.params.match(/^--(\S+)\b/)[1]
 
-      if (!regexpPattern.test(customMediaName)) {
-        report({
-          message: messages.expected,
-          node: atRule,
-          index: mediaQueryParamIndexOffset(atRule),
-          result,
-          ruleName,
-        })
-      }
+      if (regexpPattern.test(customMediaName)) { return }
+
+      report({
+        message: messages.expected,
+        node: atRule,
+        index: atRuleParamIndex(atRule),
+        result,
+        ruleName,
+      })
     })
   }
 }

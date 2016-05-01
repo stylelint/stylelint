@@ -1,6 +1,7 @@
 import valueParser from "postcss-value-parser"
 import {
-  cssWordIsVariable,
+  isStandardValue,
+  isVariable,
   report,
   ruleMessages,
   validateOptions,
@@ -30,7 +31,9 @@ export default function (expectation) {
 
         const urlValueNode = valueNode.nodes[0]
 
-        if (!urlValueNode.value || cssWordIsVariable(urlValueNode.value)) { return }
+        if (!urlValueNode.value) { return }
+        if (!isStandardValue(urlValueNode.value)) { return }
+        if (isVariable(urlValueNode.value)) { return }
 
         const valueContainDataUris = urlValueNode.value.indexOf("data:") === 0
         const needUrlDataUris = expectation === "always"

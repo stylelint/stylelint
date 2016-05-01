@@ -2,8 +2,8 @@ import { includes, union } from "lodash"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 import normalizeSelector from "normalize-selector"
 import {
-  cssNodeContextLookup,
-  cssRuleIsKeyframe,
+  nodeContextLookup,
+  isKeyframeRule,
   findAtRuleContext,
   ruleMessages,
   report,
@@ -25,11 +25,11 @@ export default function (actual) {
     // Each source maps to another map, which maps rule parents to a set of selectors.
     // This ensures that selectors are only checked against selectors
     // from other rules that share the same parent and the same source.
-    const selectorContextLookup = cssNodeContextLookup()
+    const selectorContextLookup = nodeContextLookup()
 
     root.walkRules(rule => {
 
-      if (cssRuleIsKeyframe(rule)) { return }
+      if (isKeyframeRule(rule)) { return }
 
       const contextSelectorSet = selectorContextLookup.getContext(rule, findAtRuleContext(rule))
       const resolvedSelectors = rule.selectors.reduce((result, selector) => {
@@ -55,7 +55,7 @@ export default function (actual) {
         })
       }
 
-      // We're treating the Map created by cssNodeContextLookup as a Set
+      // We're treating the Map created by nodeContextLookup as a Set
       contextSelectorSet.set(sortedSelectorList, null)
 
       // Or complain if one selector list contains the same selector more than one

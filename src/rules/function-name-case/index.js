@@ -1,6 +1,6 @@
 import valueParser from "postcss-value-parser"
 import {
-  declarationValueIndexOffset,
+  declarationValueIndex,
   report,
   ruleMessages,
   validateOptions,
@@ -63,7 +63,7 @@ export default function (expectation) {
         report({
           message: messages.expected(functionName, expectedFunctionName),
           node: decl,
-          index: declarationValueIndexOffset(decl) + node.sourceIndex,
+          index: declarationValueIndex(decl) + node.sourceIndex,
           result,
           ruleName,
         })

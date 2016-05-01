@@ -1,7 +1,9 @@
 import selectorParser from "postcss-selector-parser"
 import {
-  cssRuleHasSelectorEndingWithColon,
-  cssRuleIsKeyframe,
+  isKeyframeRule,
+  isStandardRule,
+  isStandardSelector,
+  isStandardTypeSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -26,27 +28,17 @@ export default function (expectation) {
 
     root.walkRules(rule => {
 
-      if (
-        cssRuleHasSelectorEndingWithColon(rule)
-        || cssRuleIsKeyframe(rule)
-      ) { return }
+      if (!isStandardRule(rule)) { return }
+      if (isKeyframeRule(rule)) { return }
+      const { selector } = rule
+      if (!isStandardSelector(selector)) { return }
 
       function checkSelector(selectorAST) {
         selectorAST.eachTag(tag => {
-          // Destructring the tag object
-          const { parent, sourceIndex, value } = tag
 
-          // postcss-selector-parser includes the arguments to nth-child() functions
-          // as "tags", so we need to ignore them ourselves.
-          // The fake-tag's "parent" is actually a selector node, whose parent
-          // should be the :nth-child pseudo node.
-          if (parent.parent.type === "pseudo" && parent.parent.value === ":nth-child") {
-            return
-          }
+          if (!isStandardTypeSelector(tag)) { return }
 
-          // & is not a type selector: it's used for nesting
-          if (value[0] === "&") { return }
-
+          const { sourceIndex, value } = tag
           const expectedValue = expectation === "lower" ? value.toLowerCase() : value.toUpperCase()
 
           if (value === expectedValue) { return }
@@ -61,7 +53,7 @@ export default function (expectation) {
         })
       }
 
-      selectorParser(checkSelector).process(rule.selector)
+      selectorParser(checkSelector).process(selector)
     })
   }
 }

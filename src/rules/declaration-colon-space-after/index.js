@@ -1,6 +1,6 @@
 import {
-  cssDeclarationIsMap,
-  declarationValueIndexOffset,
+  isStandardDeclaration,
+  declarationValueIndex,
   report,
   ruleMessages,
   validateOptions,
@@ -40,10 +40,10 @@ export default function (expectation) {
 export function declarationColonSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
 
-    if (cssDeclarationIsMap(decl)) { return }
+    if (!isStandardDeclaration(decl)) { return }
 
     // Get the raw prop, and only the prop
-    const endOfPropIndex = declarationValueIndexOffset(decl) + decl.raw("between").length - 1
+    const endOfPropIndex = declarationValueIndex(decl) + decl.raw("between").length - 1
 
     // The extra characters tacked onto the end ensure that there is a character to check
     // after the colon. Otherwise, with `background:pink` the character after the

@@ -1,8 +1,8 @@
 import valueParser from "postcss-value-parser"
 import {
-  cssDeclarationIsMap,
+  declarationValueIndex,
   isSingleLineString,
-  declarationValueIndexOffset,
+  isStandardFunction,
   report,
   ruleMessages,
   validateOptions,
@@ -32,15 +32,12 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      if (cssDeclarationIsMap(decl)) { return }
-
       if (decl.value.indexOf("(") === -1) { return }
 
       valueParser(decl.value).walk(valueNode => {
         if (valueNode.type !== "function") { return }
 
-        // Function nodes without names are things in parentheses like Sass lists
-        if (!valueNode.value) { return }
+        if (!isStandardFunction(valueNode)) { return }
 
         const functionString = valueParser.stringify(valueNode)
         const isMultiLine = !isSingleLineString(functionString)
@@ -87,7 +84,7 @@ export default function (expectation) {
           result,
           message,
           node: decl,
-          index: declarationValueIndexOffset(decl) + offset,
+          index: declarationValueIndex(decl) + offset,
         })
       }
     })

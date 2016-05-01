@@ -1,7 +1,7 @@
 import postcss from "postcss"
 import valueParser from "postcss-value-parser"
 import {
-  declarationValueIndexOffset,
+  declarationValueIndex,
   report,
   ruleMessages,
   validateOptions,
@@ -57,7 +57,7 @@ export default function (actual) {
         result,
         ruleName,
         message,
-        index: declarationValueIndexOffset(decl) + offset,
+        index: declarationValueIndex(decl) + offset,
         node: decl,
       })
     }

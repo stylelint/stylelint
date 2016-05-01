@@ -1,5 +1,5 @@
 import {
-  cssFunctionArguments,
+  functionArgumentsSearch,
   report,
   ruleMessages,
   validateOptions,
@@ -26,13 +26,13 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      cssFunctionArguments(decl.toString(), "linear-gradient", (expression, expressionIndex) => {
+      functionArgumentsSearch(decl.toString(), "linear-gradient", (expression, expressionIndex) => {
         const firstArg = expression.split(",")[0].trim()
 
         // If the first character is a number, we can assume the user intends an angle
         if (/[\d\.]/.test(firstArg[0])) {
           if (/^[\d\.]+(?:deg|grad|rad|turn)$/.test(firstArg)) { return }
-          warn()
+          complain()
           return
         }
 
@@ -42,11 +42,11 @@ export default function (actual) {
         if (!/left|right|top|bottom/.test(firstArg)) { return }
 
         if (!isStandardDirection(firstArg)) {
-          warn()
+          complain()
           return
         }
 
-        function warn() {
+        function complain() {
           report({
             message: messages.rejected,
             node: decl,

@@ -1,8 +1,8 @@
 import {
-  cssStatementBlockString,
-  cssStatementHasBlock,
-  cssStatementHasEmptyBlock,
-  cssStatementStringBeforeBlock,
+  blockString,
+  hasBlock,
+  hasEmptyBlock,
+  beforeBlockString,
   rawNodeString,
   report,
   ruleMessages,
@@ -39,7 +39,7 @@ export default function (expectation) {
     function check(statement) {
 
       // Return early if blockless or has an empty block
-      if (!cssStatementHasBlock(statement) || cssStatementHasEmptyBlock(statement)) { return }
+      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
       // Allow an end-of-line comment x spaces after the brace
       const firstNode = statement.first
@@ -56,12 +56,12 @@ export default function (expectation) {
       checker.afterOneOnly({
         source: rawNodeString(nodeToCheck),
         index: -1,
-        lineCheckStr: cssStatementBlockString(statement),
+        lineCheckStr: blockString(statement),
         err: m => {
           report({
             message: m,
             node: statement,
-            index: cssStatementStringBeforeBlock(statement, { noBefore: true }).length + 1,
+            index: beforeBlockString(statement, { noRawBefore: true }).length + 1,
             result,
             ruleName,
           })

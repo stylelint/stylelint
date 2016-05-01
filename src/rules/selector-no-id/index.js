@@ -1,7 +1,8 @@
 import selectorParser from "postcss-selector-parser"
 import {
-  cssRuleHasSelectorEndingWithColon,
-  cssRuleIsKeyframe,
+  isKeyframeRule,
+  isStandardRule,
+  isStandardSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -19,14 +20,13 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (
-        cssRuleHasSelectorEndingWithColon(rule)
-        || cssRuleIsKeyframe(rule)
-      ) { return }
+      if (!isStandardRule(rule)) { return }
+      if (isKeyframeRule(rule)) { return }
+      const { selector } = rule
+      if (!isStandardSelector(selector)) { return }
       selectorParser(selectorAST => {
         selectorAST.eachId(idNode => {
-          // Ignore Sass intepolation possibilities
-          if (/#{.+}/.test(idNode.toString())) { return }
+
           if (idNode.parent.parent.type === "pseudo") { return }
 
           report({
@@ -38,7 +38,7 @@ export default function (actual) {
           })
         })
       })
-        .process(rule.selector)
+        .process(selector)
     })
   }
 }

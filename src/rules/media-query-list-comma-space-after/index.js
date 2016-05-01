@@ -1,5 +1,5 @@
 import {
-  mediaQueryParamIndexOffset,
+  atRuleParamIndex,
   report,
   ruleMessages,
   styleSearch,
@@ -51,7 +51,7 @@ export function mediaQueryListCommaWhitespaceChecker({ locationChecker, root, re
       report({
         message: m,
         node,
-        index: index + mediaQueryParamIndexOffset(node),
+        index: index + atRuleParamIndex(node),
         result,
         ruleName: checkedRuleName,
       }),

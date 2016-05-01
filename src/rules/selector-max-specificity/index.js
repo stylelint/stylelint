@@ -2,6 +2,8 @@ import { calculate } from "specificity"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 import {
+  isStandardRule,
+  isStandardSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -26,11 +28,10 @@ export default function (max) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
+      if (!isStandardRule(rule)) { return }
+      if (!isStandardSelector(rule.selector)) { return }
       // Using rule.selectors gets us each selector in the eventuality we have a comma separated set
       rule.selectors.forEach(selector => {
-        // Return early if there is interpolation in the selector
-        if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(selector)) { return }
-
         resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {
           // calculate() returns a four section string — we only need 3 so strip the first two characters
           const computedSpecificity = calculate(resolvedSelector)[0].specificity.substring(2)

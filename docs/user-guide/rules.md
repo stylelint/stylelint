@@ -135,6 +135,8 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 ### Selector
 
 - [`selector-attribute-brackets-space-inside`](../../src/rules/selector-attribute-brackets-space-inside/README.md): Require a single space or disallow whitespace on the inside of the brackets within attribute selectors.
+- [`selector-attribute-operator-space-after`](../../src/rules/selector-attribute-operator-space-after/README.md): Require a single space or disallow whitespace after operators within attribute selectors.
+- [`selector-attribute-operator-space-before`](../../src/rules/selector-attribute-operator-space-before/README.md): Require a single space or disallow whitespace before operators within attribute selectors.
 - [`selector-class-pattern`](../../src/rules/selector-class-pattern/README.md): Specify a pattern for class selectors.
 - [`selector-combinator-space-after`](../../src/rules/selector-combinator-space-after/README.md): Require a single space or disallow whitespace after the combinators of selectors.
 - [`selector-combinator-space-before`](../../src/rules/selector-combinator-space-before/README.md): Require a single space or disallow whitespace before the combinators of selectors.
@@ -143,6 +145,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`selector-no-attribute`](../../src/rules/selector-no-attribute/README.md): Disallow attribute selectors.
 - [`selector-no-combinator`](../../src/rules/selector-no-combinator/README.md): Disallow combinators in selectors.
 - [`selector-no-id`](../../src/rules/selector-no-id/README.md): Disallow id selectors.
+- [`selector-no-qualifying-type`](../../src/rules/selector-no-qualifying-type/README.md): Disallow qualifying a selector by type.
 - [`selector-no-type`](../../src/rules/selector-no-type/README.md): Disallow type selectors.
 - [`selector-no-universal`](../../src/rules/selector-no-universal/README.md): Disallow the universal selector.
 - [`selector-no-vendor-prefix`](../../src/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors.
@@ -152,6 +155,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`selector-pseudo-element-colon-notation`](../../src/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
 - [`selector-root-no-composition`](../../src/rules/selector-root-no-composition/README.md): Disallow the composition of `:root` in selectors.
 - [`selector-type-case`](../../src/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selector.
+- [`selector-max-empty-lines`](../../src/rules/selector-max-empty-lines/README.md): Limit the number of adjacent empty lines within selectors.
 
 ### Selector list
 
@@ -216,6 +220,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`no-descending-specificity`](../../src/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 - [`no-duplicate-selectors`](../../src/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 - [`no-eol-whitespace`](../../src/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
+- [`no-extra-semicolons`](../../src/rules/no-extra-semicolons/README.md): Disallow extra semicolons.
 - [`no-indistinguishable-colors`](../../src/rules/no-indistinguishable-colors/README.md): Disallow colors that are suspiciously close to being identical.
 - [`no-invalid-double-slash-comments`](../../src/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
 - [`no-missing-eof-newline`](../../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.

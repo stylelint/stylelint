@@ -1,6 +1,6 @@
 import {
-  cssStatementBlockString,
-  cssStatementHasBlock,
+  blockString,
+  hasBlock,
   report,
   rawNodeString,
   ruleMessages,
@@ -44,12 +44,12 @@ export default function (expectation) {
     function check(statement) {
       const nextNode = statement.next()
       if (!nextNode) { return }
-      if (!cssStatementHasBlock(statement)) { return }
+      if (!hasBlock(statement)) { return }
 
       checker.after({
         source: rawNodeString(nextNode),
         index: -1,
-        lineCheckStr: cssStatementBlockString(statement),
+        lineCheckStr: blockString(statement),
         err: msg => {
           report({
             message: msg,

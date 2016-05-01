@@ -1,7 +1,7 @@
 import {
   report,
   ruleMessages,
-  cssStatementHasBlock,
+  hasBlock,
   validateOptions,
 } from "../../utils"
 
@@ -26,7 +26,7 @@ export default function (expectation) {
     root.walkAtRules(atRule => {
       if (atRule.parent === root) { return }
       if (atRule !== atRule.parent.last) { return }
-      if (cssStatementHasBlock(atRule)) { return }
+      if (hasBlock(atRule)) { return }
       checkLastNode(atRule)
     })
 

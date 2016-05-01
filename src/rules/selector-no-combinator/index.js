@@ -1,6 +1,7 @@
 import selectorParser from "postcss-selector-parser"
 import {
-  cssRuleHasSelectorEndingWithColon,
+  isStandardRule,
+  isStandardSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -18,7 +19,9 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (cssRuleHasSelectorEndingWithColon(rule)) { return }
+      if (!isStandardRule(rule)) { return }
+      const { selector } = rule
+      if (!isStandardSelector(selector)) { return }
       selectorParser(selectorAST => {
         selectorAST.eachCombinator(combinator => {
           report({
@@ -30,7 +33,7 @@ export default function (actual) {
           })
         })
       })
-        .process(rule.selector)
+        .process(selector)
     })
   }
 }

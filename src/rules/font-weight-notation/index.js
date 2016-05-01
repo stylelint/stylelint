@@ -1,8 +1,9 @@
 import postcss from "postcss"
 import { includes } from "lodash"
 import {
-  cssWordIsVariable,
-  declarationValueIndexOffset,
+  isStandardValue,
+  isVariable,
+  declarationValueIndex,
   optionsHaveIgnored,
   report,
   ruleMessages,
@@ -71,7 +72,8 @@ export default function (expectation, options) {
     }
 
     function checkWeight(weightValue, decl) {
-      if (cssWordIsVariable(weightValue)) { return }
+      if (!isStandardValue(weightValue)) { return }
+      if (isVariable(weightValue)) { return }
       if (weightValue === INHERIT_KEYWORD || weightValue === INITIAL_KEYWORD) { return }
 
       if (optionsHaveIgnored(options, "relative") &&
@@ -106,7 +108,7 @@ export default function (expectation, options) {
           result,
           message,
           node: decl,
-          index: declarationValueIndexOffset(decl) + weightValueOffset,
+          index: declarationValueIndex(decl) + weightValueOffset,
         })
       }
     }

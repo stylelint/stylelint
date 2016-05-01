@@ -1,4 +1,4 @@
-import testRule from "../../../testUtils/testRule"
+import { testRule } from "../../../testUtils"
 
 import rule, { ruleName, messages } from ".."
 
@@ -21,6 +21,9 @@ testRule(rule, {
   }, {
     code: "$map:(key:value)",
     description: "SCSS map with no newlines",
+  }, {
+    code: "$list:('value1', 'value2')",
+    description: "SCSS list with no newlines",
   }, {
     code: "a { background : url(data:application/font-woff;...); }",
     description: "data URI",

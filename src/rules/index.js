@@ -75,6 +75,7 @@ import noBrowserHacks from "./no-browser-hacks"
 import noDescendingSpecificity from "./no-descending-specificity"
 import noDuplicateSelectors from "./no-duplicate-selectors"
 import noEolWhitespace from "./no-eol-whitespace"
+import noExtraSemicolons from "./no-extra-semicolons"
 import noIndistinguishableColors from "./no-indistinguishable-colors"
 import noInvalidDoubleSlashComments from "./no-invalid-double-slash-comments"
 import noMissingEofNewline from "./no-missing-eof-newline"
@@ -96,6 +97,8 @@ import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
 import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
 import selectorAttributeBracketsSpaceInside from "./selector-attribute-brackets-space-inside"
+import selectorAttributeOperatorSpaceAfter from "./selector-attribute-operator-space-after"
+import selectorAttributeOperatorSpaceBefore from "./selector-attribute-operator-space-before"
 import selectorClassPattern from "./selector-class-pattern"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
@@ -104,10 +107,12 @@ import selectorListCommaNewlineAfter from "./selector-list-comma-newline-after"
 import selectorListCommaNewlineBefore from "./selector-list-comma-newline-before"
 import selectorListCommaSpaceAfter from "./selector-list-comma-space-after"
 import selectorListCommaSpaceBefore from "./selector-list-comma-space-before"
+import selectorMaxEmptyLines from "./selector-max-empty-lines"
 import selectorMaxSpecificity from "./selector-max-specificity"
 import selectorNoAttribute from "./selector-no-attribute"
 import selectorNoCombinator from "./selector-no-combinator"
 import selectorNoId from "./selector-no-id"
+import selectorNoQualifyingType from "./selector-no-qualifying-type"
 import selectorNoType from "./selector-no-type"
 import selectorNoUniversal from "./selector-no-universal"
 import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
@@ -211,6 +216,7 @@ export default {
   "no-descending-specificity": noDescendingSpecificity,
   "no-duplicate-selectors": noDuplicateSelectors,
   "no-eol-whitespace": noEolWhitespace,
+  "no-extra-semicolons": noExtraSemicolons,
   "no-indistinguishable-colors": noIndistinguishableColors,
   "no-invalid-double-slash-comments": noInvalidDoubleSlashComments,
   "no-missing-eof-newline": noMissingEofNewline,
@@ -232,6 +238,8 @@ export default {
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
   "selector-attribute-brackets-space-inside": selectorAttributeBracketsSpaceInside,
+  "selector-attribute-operator-space-after": selectorAttributeOperatorSpaceAfter,
+  "selector-attribute-operator-space-before": selectorAttributeOperatorSpaceBefore,
   "selector-class-pattern": selectorClassPattern,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,
@@ -240,10 +248,12 @@ export default {
   "selector-list-comma-newline-before": selectorListCommaNewlineBefore,
   "selector-list-comma-space-after": selectorListCommaSpaceAfter,
   "selector-list-comma-space-before": selectorListCommaSpaceBefore,
+  "selector-max-empty-lines": selectorMaxEmptyLines,
   "selector-max-specificity": selectorMaxSpecificity,
   "selector-no-attribute": selectorNoAttribute,
   "selector-no-combinator": selectorNoCombinator,
   "selector-no-id": selectorNoId,
+  "selector-no-qualifying-type": selectorNoQualifyingType,
   "selector-no-type": selectorNoType,
   "selector-no-universal": selectorNoUniversal,
   "selector-no-vendor-prefix": selectorNoVendorPrefix,

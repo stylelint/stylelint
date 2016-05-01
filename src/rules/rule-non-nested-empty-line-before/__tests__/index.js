@@ -1,4 +1,4 @@
-import testRule from "../../../testUtils/testRule"
+import { testRule } from "../../../testUtils"
 
 import rule, { ruleName, messages } from ".."
 
@@ -215,4 +215,15 @@ testRule(rule, {
     description: "CRLF",
     message: messages.rejected,
   } ],
+})
+
+testRule(rule, {
+  ruleName,
+  syntax: "less",
+  config: ["always"],
+
+  accept: [{
+    code: "a {}\n.mixin-call() {}",
+    description: "ignore non-ouputting Less class mixin definition",
+  }],
 })

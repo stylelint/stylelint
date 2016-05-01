@@ -1,8 +1,8 @@
 import valueParser from "postcss-value-parser"
 import { isString } from "lodash"
 import {
-  cssWordIsVariable,
-  declarationValueIndexOffset,
+  declarationValueIndex,
+  isStandardValue,
   matchesStringOrRegExp,
   report,
   ruleMessages,
@@ -19,6 +19,13 @@ export const messages = ruleMessages(ruleName, {
 const ignoredCharacters = new Set([
   "+", "-", "/", "*", "%",
 ])
+
+const ignoredCamelCaseKeywords = {
+  "optimizespeed": "optimizeSpeed",
+  "optimizelegibility": "optimizeLegibility",
+  "geometricprecision": "geometricPrecision",
+  "currentcolor": "currentColor",
+}
 
 export default function (expectation, options) {
   return (root, result) => {
@@ -41,17 +48,21 @@ export default function (expectation, options) {
       const { value } = decl
 
       valueParser(value).walk((node) => {
-        // Ignore keywords within `url` function
-        if (node.type === "function" && node.value === "url") { return false }
+        // Ignore keywords within `url` and `var` function
+        if (
+          node.type === "function" && (
+            node.value === "url" ||
+            node.value === "var"
+          )
+        ) { return false }
 
         const keyword = node.value
 
         // Ignore css variables, and hex values, and math operators, and sass interpolation
         if (node.type !== "word"
-          || cssWordIsVariable(node.value)
+          || !isStandardValue(node.value)
           || value.indexOf("#") !== -1
           || ignoredCharacters.has(keyword)
-          || keyword === "currentColor"
         ) { return }
 
         const parsedUnit = valueParser.unit(keyword)
@@ -62,14 +73,25 @@ export default function (expectation, options) {
 
         if (ignoreKeywords.length > 0 && matchesStringOrRegExp(keyword, ignoreKeywords)) { return }
 
-        const expectedKeyword = expectation === "lower" ? keyword.toLowerCase() : keyword.toUpperCase()
+        const keywordLowerCase = keyword.toLocaleLowerCase()
+        let expectedKeyword = null
+
+        if (expectation === "lower"
+          && ignoredCamelCaseKeywords.hasOwnProperty(keywordLowerCase)
+        ) {
+          expectedKeyword = ignoredCamelCaseKeywords[keywordLowerCase]
+        } else if (expectation === "lower") {
+          expectedKeyword = keyword.toLowerCase()
+        } else {
+          expectedKeyword = keyword.toUpperCase()
+        }
 
         if (keyword === expectedKeyword) { return }
 
         report({
           message: messages.expected(keyword, expectedKeyword),
           node: decl,
-          index: declarationValueIndexOffset(decl) + node.sourceIndex,
+          index: declarationValueIndex(decl) + node.sourceIndex,
           result,
           ruleName,
         })

@@ -1,7 +1,28 @@
 # Head
 
+- Added: `selector-attribute-operator-space-after` rule.
+- Added: `selector-attribute-operator-space-before` rule.
+- Added: `selector-max-empty-lines` rule.
+- Added: `no-extra-semicolons` rule.
+
+# 6.2.2
+
+- Deprecated: `stylelint.utils.cssWordIsVariable()` as non-standard syntax utils are now defensive.
+- Fixed: `declaration-colon-*` rules now ignore SCSS lists.
+- Fixed: `rule-nested-empty-line-before` now ignores Less blockless rules (mixin and extend calls).
+- Fixed: `font-weight-notation` now ignores SCSS interpolation.
+
+# 6.2.1
+
+- Fixed: more problems with exposed `stylelint.createRuleTester`.
+
+# 6.2.0
+
+- Added: `selector-no-qualifying-type` rule.
 - Fixed: `number-leading-zero` will not check `@import` at-rules.
 - Fixed: `selector-class-pattern` now ignores non-ouputting Less mixin definitions and called Less mixins.
+- Fixed: `value-keyword-case` now accounts for camelCase keywords (e.g. `optimizeSpeed`, `optimizeLegibility` and `geometricPrecision`) when the `lower` option is used.
+- Fixed: `testUtils` and `stylelint.createRuleTester` module mistakes.
 
 # 6.1.1
 

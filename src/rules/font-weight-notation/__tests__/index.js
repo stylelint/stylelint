@@ -1,4 +1,4 @@
-import testRule from "../../../testUtils/testRule"
+import { testRule } from "../../../testUtils"
 
 import rule, { ruleName, messages } from ".."
 
@@ -177,4 +177,15 @@ testRule(rule, {
     line: 1,
     column: 11,
   } ],
+})
+
+testRule(rule, {
+  ruleName,
+  syntax: "scss",
+  config: ["numeric"],
+
+  accept: [{
+    code: "@mixin font-face($weight) { a { font-weight: #{$weight}; } }",
+    description: "ignores sass interpolation",
+  }],
 })

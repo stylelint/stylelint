@@ -1,11 +1,12 @@
 import { vendor } from "postcss"
 import { isString } from "lodash"
 import {
-  cssWordIsVariable,
+  isCustomProperty,
+  isStandardProperty,
+  matchesStringOrRegExp,
   report,
   ruleMessages,
   validateOptions,
-  matchesStringOrRegExp,
 } from "../../utils"
 
 export const ruleName = "property-whitelist"
@@ -25,18 +26,17 @@ export default function (whitelistInput) {
 
     root.walkDecls(decl => {
 
-      const prop = decl.prop
+      const { prop } = decl
+      if (!isStandardProperty(prop)) { return }
+      if (isCustomProperty(prop)) { return }
+      if (matchesStringOrRegExp(vendor.unprefixed(prop), whitelist)) { return }
 
-      if (cssWordIsVariable(prop)) { return }
-
-      if (!matchesStringOrRegExp(vendor.unprefixed(prop), whitelist)) {
-        report({
-          message: messages.rejected(prop),
-          node: decl,
-          result,
-          ruleName,
-        })
-      }
+      report({
+        message: messages.rejected(prop),
+        node: decl,
+        result,
+        ruleName,
+      })
     })
   }
 }

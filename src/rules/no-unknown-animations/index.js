@@ -1,8 +1,9 @@
 import postcss from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import {
-  cssWordIsVariable,
-  declarationValueIndexOffset,
+  declarationValueIndex,
+  isStandardValue,
+  isVariable,
   report,
   ruleMessages,
   validateOptions,
@@ -43,12 +44,14 @@ export default function (actual) {
       if (decl.prop === "animation") {
         const valueList = postcss.list.space(decl.value)
         for (const value of valueList) {
+          // Ignore non standard syntax
+          if (!isStandardValue(value)) { continue }
+          // Ignore variables
+          if (isVariable(value)) { continue }
           // Ignore numbers with units
           if (postcssValueParser.unit(value)) { continue }
           // Ignore keywords for other animation parts
           if (animationShorthandKeywords.has(value)) { continue }
-          // Ignore variables
-          if (cssWordIsVariable(value)) { continue }
           // Ignore functions
           if (value.indexOf("(") !== -1) { continue }
           checkAnimationName(value, decl, decl.value.indexOf(value))
@@ -57,15 +60,14 @@ export default function (actual) {
     })
 
     function checkAnimationName(animationName, decl, offset = 0) {
-      if (!declaredAnimations.has(animationName)) {
-        report({
-          result,
-          ruleName,
-          message: messages.rejected(animationName),
-          node: decl,
-          index: declarationValueIndexOffset(decl) + offset,
-        })
-      }
+      if (declaredAnimations.has(animationName)) { return }
+      report({
+        result,
+        ruleName,
+        message: messages.rejected(animationName),
+        node: decl,
+        index: declarationValueIndex(decl) + offset,
+      })
     }
   }
 }

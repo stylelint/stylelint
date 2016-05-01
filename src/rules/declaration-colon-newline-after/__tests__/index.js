@@ -1,4 +1,4 @@
-import testRule from "../../../testUtils/testRule"
+import { testRule } from "../../../testUtils"
 
 import rule, { ruleName, messages } from ".."
 
@@ -74,6 +74,9 @@ testRule(rule, {
   }, {
     code: "$map\n: (\nkey: value,\nkey2 :value2)",
     description: "SCSS map with newlines",
+  }, {
+    code: "$list: (\n'value1',\n'value2',\n)",
+    description: "SCSS list with newlines",
   }, {
     code: "a { color:pink }",
   }, {

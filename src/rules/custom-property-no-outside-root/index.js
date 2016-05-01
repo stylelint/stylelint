@@ -20,14 +20,13 @@ export default function (actual) {
       if (rule.selector.trim() === ":root") { return }
 
       rule.walkDecls(decl => {
-        if (decl.prop.substr(0, 2) === "--") {
-          report({
-            message: messages.rejected,
-            node: decl,
-            result,
-            ruleName,
-          })
-        }
+        if (decl.prop.substr(0, 2) !== "--") { return }
+        report({
+          message: messages.rejected,
+          node: decl,
+          result,
+          ruleName,
+        })
       })
     })
   }
