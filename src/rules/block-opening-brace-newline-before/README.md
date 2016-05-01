@@ -41,6 +41,13 @@ a
 color: pink; }
 ```
 
+```css
+a /* foo */
+  {
+    color: pink;
+  }
+```
+
 ### `"always-single-line"`
 
 There *must always* be a newline before the opening brace in single-line blocks.
