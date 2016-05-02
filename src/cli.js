@@ -49,6 +49,7 @@ const meowOptions = {
     "                      directory tree until a configuration file is found.",
     "  --version           Get the currently installed version of stylelint.",
     "  --custom-formatter  Path to a JS file exporting a custom formatting function",
+    "  --stdin-filename    Specify a filename to assign stdin input",
     "  -f, --formatter     Specify a formatter: \"json\" or \"string\". Default is \"string\".",
     "  -q, --quiet         Only register warnings for rules with an \"error\"-level severity",
     "                      (ignore \"warning\"-level)",
@@ -95,6 +96,10 @@ if (cli.flags.config) {
   // in `process.cwd()`.
   optionsBase.configFile = resolveFrom(process.cwd(), cli.flags.config)
     || path.join(process.cwd(), cli.flags.config)
+}
+
+if (cli.flags.stdinFilename) {
+  optionsBase.codeFilename = cli.flags.stdinFilename
 }
 
 Promise.resolve().then(() => {
