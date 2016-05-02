@@ -67,6 +67,10 @@ Options: `"scss"|"less"|"sugarss"`.
 
 Specify a non-standard syntax that should be used to parse source stylesheets.
 
+### `extractStyleTagsFromHtml`
+
+Boolean. Enable extraction of CSS from `<style>` tags in HTML structures.
+
 ## The returned promise
 
 `stylelint.lint()` returns a Promise that resolves with an object containing the following properties:
@@ -89,7 +93,7 @@ An array containing all the stylelint result objects (the objects that formatter
 
 ## Syntax errors
 
-`stylelint.lint()` does not reject the Promise when your CSS contains syntax errors. 
+`stylelint.lint()` does not reject the Promise when your CSS contains syntax errors.
 It resolves with an object (see [The returned promise](#the-returned-promise)) that contains information about the syntax error.
 
 ## Usage examples
