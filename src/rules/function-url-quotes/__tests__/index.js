@@ -28,6 +28,36 @@ testRule(rule, {
     code: "a { cursor: url(\"foo.png\"); }",
   }, {
     code: "a { background-image: url(\"foo.css\"), url(\"bar.css\"), url(\"baz.css\"); }",
+  }, {
+    code: "@import url(@variable);",
+  }, {
+    code: "@import url($variable + 'foo.css');",
+  }, {
+    code: "@import url($variable + \"foo.css\");",
+  }, {
+    code: "@import url('foo.css' + $variable);",
+  }, {
+    code: "@import url(\"foo.css\" + $variable);",
+  }, {
+    code: "@import url($variable-one + 'foo.css' + $variable-two);",
+  }, {
+    code: "@import url($variable-one + \"foo.css\" + $variable-two);",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url(@variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url($variable + 'foo.ttf'); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\"); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url(\"foo.ttf\" + $variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url('foo.ttf' + $variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url($variable + 'foo.ttf' + $variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\" + $variable); }",
+  }, {
+    code: "a { background: url(\"/images/my_image@2x.png\") }",
   } ],
 
   reject: [ {
@@ -108,6 +138,36 @@ testRule(rule, {
     code: "a { cursor: url('foo.png'); }",
   }, {
     code: "a { background-image: url('foo.css'), url('bar.css'), url('baz.css'); }",
+  }, {
+    code: "@import url(@variable);",
+  }, {
+    code: "@import url($variable + 'foo.css');",
+  }, {
+    code: "@import url($variable + \"foo.css\");",
+  }, {
+    code: "@import url('foo.css' + $variable);",
+  }, {
+    code: "@import url(\"foo.css\" + $variable);",
+  }, {
+    code: "@import url($variable-one + 'foo.css' + $variable-two);",
+  }, {
+    code: "@import url($variable-one + \"foo.css\" + $variable-two);",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url(@variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url($variable + 'foo.ttf'); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\"); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url('foo.ttf' + $variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url(\"foo.ttf\" + $variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url($variable + 'foo.ttf' + $variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\" + $variable); }",
+  }, {
+    code: "a { background: url('/images/my_image@2x.png') }",
   } ],
 
   reject: [ {
@@ -188,6 +248,36 @@ testRule(rule, {
     code: "a { cursor: url(foo.png); }",
   }, {
     code: "a { background-image: url(foo.css), url(bar.css), url(baz.css); }",
+  }, {
+    code: "@import url(@variable);",
+  }, {
+    code: "@import url($variable + 'foo.css');",
+  }, {
+    code: "@import url($variable + \"foo.css\");",
+  }, {
+    code: "@import url('foo.css' + $variable);",
+  }, {
+    code: "@import url(\"foo.css\" + $variable);",
+  }, {
+    code: "@import url($variable-one + 'foo.css' + $variable-two);",
+  }, {
+    code: "@import url($variable-one + \"foo.css\" + $variable-two);",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url(@variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url($variable + 'foo.ttf'); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\"); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url('foo.ttf' + $variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url(\"foo.ttf\" + $variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url($variable + 'foo.ttf' + $variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf'\" + $variable); }",
+  }, {
+    code: "a { background: url(/images/my_image@2x.png) }",
   } ],
 
   reject: [ {

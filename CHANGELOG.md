@@ -4,6 +4,7 @@
 - Added: `selector-attribute-operator-space-before` rule.
 - Added: `selector-max-empty-lines` rule.
 - Added: `no-extra-semicolons` rule.
+- Fixed: `function-url-quotes` ignores functions contain `$sass` and `@less` variables.
 
 # 6.2.2
 
