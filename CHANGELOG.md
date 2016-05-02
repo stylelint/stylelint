@@ -7,6 +7,7 @@
 - Added: `no-extra-semicolons` rule.
 - Added: more flexible support for end-of-line comments in `at-rule-semicolon-newline-after`, `block-opening-brace-newline-after`, and `declaration-block-semicolon-newline-after`.
 - Added: `--stdin-filename` option to CLI.
+- Fixed: `no-indistinguishable-colors` now ignores keyword color names within `url()`.
 
 # 6.2.2
 
