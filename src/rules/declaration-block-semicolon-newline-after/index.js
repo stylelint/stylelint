@@ -1,6 +1,7 @@
 import {
   blockString,
   report,
+  nextNonCommentNode,
   rawNodeString,
   ruleMessages,
   validateOptions,
@@ -38,15 +39,8 @@ export default function (expectation) {
       const nextNode = decl.next()
       if (!nextNode) { return }
 
-      // Allow an end-of-line comment x spaces after the semicolon
-      const nextNodeIsAcceptableComment = (
-        nextNode.type === "comment"
-        && !/[^ ]/.test(nextNode.raw("before"))
-        && nextNode.toString().indexOf("\n") === -1
-      )
-      const nodeToCheck = (nextNodeIsAcceptableComment)
-        ? nextNode.next()
-        : nextNode
+      // Allow end-of-line comment
+      const nodeToCheck = nextNonCommentNode(nextNode)
       if (!nodeToCheck) { return }
 
       checker.afterOneOnly({

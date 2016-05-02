@@ -1,5 +1,6 @@
 import {
   hasBlock,
+  nextNonCommentNode,
   rawNodeString,
   report,
   ruleMessages,
@@ -29,15 +30,8 @@ export default function (actual) {
       if (!nextNode) { return }
       if (hasBlock(atRule)) { return }
 
-      // Allow an end-of-line comment x spaces after the semicolon
-      const nextNodeIsAcceptableComment = (
-        nextNode.type === "comment"
-        && !/[^ \t]/.test(nextNode.raw("before"))
-        && nextNode.toString().indexOf("\n") === -1
-      )
-      const nodeToCheck = (nextNodeIsAcceptableComment)
-        ? nextNode.next()
-        : nextNode
+      // Allow an end-of-line comment
+      const nodeToCheck = nextNonCommentNode(nextNode)
       if (!nodeToCheck) { return }
 
       checker.afterOneOnly({
