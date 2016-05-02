@@ -9,12 +9,13 @@ import standalone from "./standalone"
 
 const minimistOptions = {
   default: {
+    config: false,
     f: "string",
     q: false,
-    config: false,
     v: false,
   },
   alias: {
+    e: "extract",
     f: "formatter",
     q: "quiet",
     s: "syntax",
