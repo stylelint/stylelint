@@ -2,7 +2,7 @@
   "rules": {
     "color-no-invalid-hex": true,
     "declaration-colon-space-after": ["always"],
-    "declaration-no-important": true,
-    "selector-max-specificity": ["0,1,0", {"severity": "warning"}],
+    "property-unit-blacklist": {"margin": ["px"]},
+    "selector-max-specificity": ["0,1,0", {"severity": "warning"}]
   }
 }
