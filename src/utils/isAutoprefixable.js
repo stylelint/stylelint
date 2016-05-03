@@ -23,27 +23,28 @@ const prefixes = new Prefixes(
 export default {
 
   atRuleName(identifier) {
-    return prefixes.remove[`@${identifier}`]
+    return prefixes.remove[`@${identifier.toLowerCase()}`]
   },
 
   selector(identifier) {
     return prefixes.remove.selectors.some(selectorObj => {
-      return identifier === selectorObj.prefixed
+      return identifier.toLowerCase() === selectorObj.prefixed
     })
   },
 
   mediaFeatureName(identifier) {
-    return identifier.indexOf("device-pixel-ratio") !== -1
+    return identifier.toLowerCase().indexOf("device-pixel-ratio") !== -1
   },
 
   property(identifier) {
-    return autoprefixer.data.prefixes[prefixes.unprefixed(identifier)]
+    return autoprefixer.data.prefixes[prefixes.unprefixed(identifier.toLowerCase())]
   },
 
   propertyValue(prop, value) {
-    const possiblePrefixableValues = prefixes.remove[prop] && prefixes.remove[prop].values
+    const possiblePrefixableValues = prefixes.remove[prop.toLowerCase()]
+      && prefixes.remove[prop.toLowerCase()].values
     return possiblePrefixableValues && possiblePrefixableValues.some(valueObj => {
-      return value === valueObj.prefixed
+      return value.toLowerCase() === valueObj.prefixed
     })
   },
 

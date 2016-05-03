@@ -23,9 +23,19 @@ testRule(rule, {
   }, {
     code: "@import \"0.10.css\";",
   }, {
+    code: "@iMpOrT \"0.10.css\";",
+  }, {
+    code: "@IMPORT \"0.10.css\";",
+  }, {
     code: "@import url(0.10.css);",
   }, {
     code: "a { background: url(data:image/svg+xml;...1.0); }",
+    description: "data URI containing trailing zero",
+  }, {
+    code: "a { background: uRl(data:image/svg+xml;...1.0); }",
+    description: "data URI containing trailing zero",
+  }, {
+    code: "a { background: URL(data:image/svg+xml;...1.0); }",
     description: "data URI containing trailing zero",
   } ],
 

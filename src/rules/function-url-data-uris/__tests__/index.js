@@ -23,6 +23,14 @@ testRule(rule, {
   }, {
     code: "a { background: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
   }, {
+    code: "a { background: uRl('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+  }, {
+    code: "a { background: URL('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+  }, {
+    code: "a { background: url('dAtA:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+  }, {
+    code: "a { background: url('DATA:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+  }, {
     code: "a { cursor: url('data:image/ico;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
   }, {
     code: "a { background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=') }",
@@ -85,6 +93,16 @@ testRule(rule, {
     column: 34,
   }, {
     code: "a { background: url('foo.png'); }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: uRl('foo.png'); }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: URL('foo.png'); }",
     message: messages.expected,
     line: 1,
     column: 5,
@@ -157,6 +175,10 @@ testRule(rule, {
   }, {
     code: "a { background: url('image.png'); }",
   }, {
+    code: "a { background: uRl('image.png'); }",
+  }, {
+    code: "a { background: URL('image.png'); }",
+  }, {
     code: "a { cursor: url('image.ico'); }",
   }, {
     code: "a { background-image: url('image.png') }",
@@ -219,6 +241,16 @@ testRule(rule, {
     column: 34,
   }, {
     code: "a { background: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+    message: messages.rejected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url('dAtA:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+    message: messages.rejected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url('DATA:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
     message: messages.rejected,
     line: 1,
     column: 5,

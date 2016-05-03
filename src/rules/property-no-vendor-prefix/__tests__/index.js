@@ -20,11 +20,27 @@ testRule(rule, {
   }, {
     code: "a { -webkit-touch-callout: none; }",
     description: "another non-standard prefixed property",
+  }, {
+    code: "a { -wEbKiT-tOuCh-CaLlOuT: none; }",
+    description: "another non-standard prefixed property",
+  }, {
+    code: "a { -WEBKIT-TOUCH-CALLOUT: none; }",
+    description: "another non-standard prefixed property",
   } ],
 
   reject: [ {
     code: "a { -webkit-transform: scale(1); }",
     message: messages.rejected("-webkit-transform"),
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { -wEbKiT-tRaNsFoRm: scale(1); }",
+    message: messages.rejected("-wEbKiT-tRaNsFoRm"),
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { -WEBKIT-TRANSFORM: scale(1); }",
+    message: messages.rejected("-WEBKIT-TRANSFORM"),
     line: 1,
     column: 5,
   }, {

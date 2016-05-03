@@ -15,6 +15,22 @@ testRule(rule, {
       column: 14,
     },
   }, {
+    code: "@import uRl(\"foo.css\");",
+
+    description: {
+      message: messages.expected("double quotes"),
+      line: 1,
+      column: 14,
+    },
+  }, {
+    code: "@import URL(\"foo.css\");",
+
+    description: {
+      message: messages.expected("double quotes"),
+      line: 1,
+      column: 14,
+    },
+  }, {
     code: "@import url( \"foo.css\" );",
 
     description: {
@@ -41,6 +57,10 @@ testRule(rule, {
   }, {
     code: "a { background: url(\"foo.css\"); }",
   }, {
+    code: "a { background: uRl(\"foo.css\"); }",
+  }, {
+    code: "a { background: URL(\"foo.css\"); }",
+  }, {
     code: "a { background: url( \"foo.css\" ); }",
   }, {
     code: "a { background: url(  \"foo.css\"  ); }",
@@ -54,6 +74,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@import url('foo.css');",
+    message: messages.expected("double quotes"),
+    line: 1,
+    column: 13,
+  }, {
+    code: "@import uRl('foo.css');",
+    message: messages.expected("double quotes"),
+    line: 1,
+    column: 13,
+  }, {
+    code: "@import uRl('foo.css');",
     message: messages.expected("double quotes"),
     line: 1,
     column: 13,
@@ -118,6 +148,16 @@ testRule(rule, {
     line: 1,
     column: 21,
   }, {
+    code: "a { background: uRl('foo.css'); }",
+    message: messages.expected("double quotes"),
+    line: 1,
+    column: 21,
+  }, {
+    code: "a { background: URL('foo.css'); }",
+    message: messages.expected("double quotes"),
+    line: 1,
+    column: 21,
+  }, {
     code: "a { background: url( 'foo.css' ); }",
     message: messages.expected("double quotes"),
     line: 1,
@@ -172,6 +212,10 @@ testRule(rule, {
   accept: [ {
     code: "@import url('foo.css');",
   }, {
+    code: "@import uRl('foo.css');",
+  }, {
+    code: "@import URL('foo.css');",
+  }, {
     code: "@import url( 'foo.css' );",
   }, {
     code: "@document url('http://www.w3.org/');",
@@ -192,6 +236,10 @@ testRule(rule, {
   }, {
     code: "a { background: url('foo.css'); }",
   }, {
+    code: "a { background: uRl('foo.css'); }",
+  }, {
+    code: "a { background: URL('foo.css'); }",
+  }, {
     code: "a { background: url( 'foo.css' ); }",
   }, {
     code: "a { background: url(  'foo.css'  ); }",
@@ -205,6 +253,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@import url(\"foo.css\");",
+    message: messages.expected("single quotes"),
+    line: 1,
+    column: 13,
+  },  {
+    code: "@import uRl(\"foo.css\");",
+    message: messages.expected("single quotes"),
+    line: 1,
+    column: 13,
+  }, {
+    code: "@import URL(\"foo.css\");",
     message: messages.expected("single quotes"),
     line: 1,
     column: 13,
@@ -269,6 +327,16 @@ testRule(rule, {
     line: 1,
     column: 21,
   }, {
+    code: "a { background: uRl(\"foo.css\"); }",
+    message: messages.expected("single quotes"),
+    line: 1,
+    column: 21,
+  }, {
+    code: "a { background: URL(\"foo.css\"); }",
+    message: messages.expected("single quotes"),
+    line: 1,
+    column: 21,
+  }, {
     code: "a { background: url( \"foo.css\" ); }",
     message: messages.expected("single quotes"),
     line: 1,
@@ -322,7 +390,11 @@ testRule(rule, {
 
   accept: [ {
     code: "@import url(foo.css);",
-  },  {
+  }, {
+    code: "@import uRl(foo.css);",
+  }, {
+    code: "@import URL(foo.css);",
+  }, {
     code: "@import url( foo.css );",
   }, {
     code: "@document url(http://www.w3.org/);",
@@ -343,6 +415,10 @@ testRule(rule, {
   }, {
     code: "a { background: url(foo.css); }",
   }, {
+    code: "a { background: uRl(foo.css); }",
+  }, {
+    code: "a { background: URL(foo.css); }",
+  }, {
     code: "a { background: url( foo.css ); }",
   }, {
     code: "a { background: url(  foo.css  ); }",
@@ -356,6 +432,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@import url(\"foo.css\");",
+    message: messages.expected("no quotes"),
+    line: 1,
+    column: 13,
+  }, {
+    code: "@import uRl(\"foo.css\");",
+    message: messages.expected("no quotes"),
+    line: 1,
+    column: 13,
+  }, {
+    code: "@import URL(\"foo.css\");",
     message: messages.expected("no quotes"),
     line: 1,
     column: 13,
@@ -416,6 +502,16 @@ testRule(rule, {
     column: 42,
   }, {
     code: "a { background: url(\"foo.css\"); }",
+    message: messages.expected("no quotes"),
+    line: 1,
+    column: 21,
+  }, {
+    code: "a { background: uRl(\"foo.css\"); }",
+    message: messages.expected("no quotes"),
+    line: 1,
+    column: 21,
+  }, {
+    code: "a { background: URL(\"foo.css\"); }",
     message: messages.expected("no quotes"),
     line: 1,
     column: 21,

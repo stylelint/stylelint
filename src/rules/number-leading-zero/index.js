@@ -32,7 +32,7 @@ export default function (expectation) {
     })
 
     root.walkAtRules(atRule => {
-      if (atRule.name === "import") { return }
+      if (atRule.name.toLowerCase() === "import") { return }
 
       const source = (hasBlock(atRule))
         ? beforeBlockString(atRule, { noRawBefore: true })

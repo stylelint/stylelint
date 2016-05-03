@@ -4,9 +4,15 @@ import test from "tape"
 
 test("isKeyframeRule", t => {
 
-  t.plan(9)
+  t.plan(11)
 
   rules("@keyframes identifier { to {} }", rule => {
+    t.ok(isKeyframeRule(rule), "to")
+  })
+  rules("@kEyFrAmEs identifier { to {} }", rule => {
+    t.ok(isKeyframeRule(rule), "to")
+  })
+  rules("@KEYFRAMES identifier { to {} }", rule => {
     t.ok(isKeyframeRule(rule), "to")
   })
   rules("@keyframes identifier { from {} }", rule => {

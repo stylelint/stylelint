@@ -49,6 +49,12 @@ testRule(rule, {
     code: "a { margin: url(13PX); }",
     description: "ignore url function",
   }, {
+    code: "a { margin: uRl(13PX); }",
+    description: "ignore url function",
+  }, {
+    code: "a { margin: URL(13PX); }",
+    description: "ignore url function",
+  }, {
     code: "a { marginPX: 10px; }",
     description: "ignore property include unit",
   }, {

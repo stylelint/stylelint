@@ -27,7 +27,7 @@ export default function (actual) {
     root.walkAtRules(atRule => {
 
       // Ignore @imports
-      if (atRule.name === "import") { return }
+      if (atRule.name.toLowerCase() === "import") { return }
 
       const source = (hasBlock(atRule))
         ? beforeBlockString(atRule, { noRawBefore: true })

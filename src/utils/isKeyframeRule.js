@@ -8,6 +8,6 @@ export default function (rule) {
   const { parent } = rule
   return (
     parent.type === "atrule"
-    && parent.name === "keyframes"
+    && parent.name.toLowerCase() === "keyframes"
   )
 }

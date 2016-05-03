@@ -81,6 +81,18 @@ testRule(rule, {
     column: 22,
     description: "display: inline rules out width, height, margin-top and margin-bottom, and float",
   }, {
+    code: "a { dIsPlAy: iNlInE; wIdTh: 100pX; }",
+    message: messages.rejected("wIdTh", "dIsPlAy: iNlInE"),
+    line: 1,
+    column: 22,
+    description: "display: inline rules out width, height, margin-top and margin-bottom, and float",
+  }, {
+    code: "a { DISPLAY: INLINE; WIDTH: 100PX; }",
+    message: messages.rejected("WIDTH", "DISPLAY: INLINE"),
+    line: 1,
+    column: 22,
+    description: "display: inline rules out width, height, margin-top and margin-bottom, and float",
+  }, {
     code: "a { display: inline; height: 100px; }",
     message: messages.rejected("height", "display: inline"),
     line: 1,

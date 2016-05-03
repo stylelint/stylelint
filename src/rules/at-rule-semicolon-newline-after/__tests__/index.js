@@ -12,6 +12,10 @@ testRule(rule, {
   }, {
     code: "@import 'x.css';\na {}",
   }, {
+    code: "@iMpOrT 'x.css';\na {}",
+  }, {
+    code: "@IMPORT 'x.css';\na {}",
+  }, {
     code: "@charset 'UTF-8';\na {}",
   }, {
     code: "@charset 'UTF-8';\n@import 'x.css'",
@@ -50,6 +54,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@mixin foo; a {}",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 12,
+  }, {
+    code: "@mIxIn foo; a {}",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 12,
+  }, {
+    code: "@MIXIN foo; a {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 12,

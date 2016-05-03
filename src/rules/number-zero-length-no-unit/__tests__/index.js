@@ -16,6 +16,12 @@ testRule(rule, {
     code: "a { top: 10px; }",
     description: "zero at end of non-zero value",
   }, {
+    code: "a { top: 10pX; }",
+    description: "zero at end of non-zero value",
+  }, {
+    code: "a { top: 10PX; }",
+    description: "zero at end of non-zero value",
+  }, {
     code: "a { top: 100.00px; }",
     description: "zero at end of non-zero value after decimal",
   }, {
@@ -78,6 +84,12 @@ testRule(rule, {
     code: "@media print and (min-resolution: 0dpi) { }",
     description: "ignore dpi",
   }, {
+    code: "@media print and (min-resolution: 0dPi) { }",
+    description: "ignore dpi",
+  }, {
+    code: "@media print and (min-resolution: 0DPI) { }",
+    description: "ignore dpi",
+  }, {
     code: "@media print and (min-resolution: 0dpcm) { }",
     description: "ignore dpcm",
   }, {
@@ -87,6 +99,16 @@ testRule(rule, {
 
   reject: [ {
     code: "a { top: 0px; }",
+    message: messages.rejected,
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { top: 0pX; }",
+    message: messages.rejected,
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { top: 0PX; }",
     message: messages.rejected,
     line: 1,
     column: 11,

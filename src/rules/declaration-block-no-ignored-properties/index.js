@@ -82,15 +82,15 @@ export default function (actual) {
       const unprefixedValue = vendor.unprefixed(value)
 
       ignored.forEach(ignore => {
-        const matchProperty = matchesStringOrRegExp(unprefixedProp, ignore.property)
-        const matchValue = matchesStringOrRegExp(unprefixedValue, ignore.value)
+        const matchProperty = matchesStringOrRegExp(unprefixedProp.toLowerCase(), ignore.property)
+        const matchValue = matchesStringOrRegExp(unprefixedValue.toLowerCase(), ignore.value)
 
         if (!matchProperty || !matchValue) { return }
 
         const ignoredProperties = ignore.ignoredProperties
 
         decl.parent.nodes.forEach((node, nodeIndex) => {
-          if (ignoredProperties.indexOf(node.prop) === -1 || index === nodeIndex) { return }
+          if (ignoredProperties.indexOf(node.prop.toLowerCase()) === -1 || index === nodeIndex) { return }
 
           report({
             message: messages.rejected(node.prop, decl.toString()),

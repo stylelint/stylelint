@@ -52,7 +52,19 @@ testRule(rule, {
     code: "a { background: url(data:image/svg+xml;...0.5); }",
     description: "data URI containing leading zero",
   }, {
+    code: "a { background: uRl(data:image/svg+xml;...0.5); }",
+    description: "data URI containing leading zero",
+  }, {
+    code: "a { background: URL(data:image/svg+xml;...0.5); }",
+    description: "data URI containing leading zero",
+  }, {
     code: "@import 'testfile.0.3.css'",
+    description: "ignore @import at-rules",
+  }, {
+    code: "@iMpOrT 'testfile.0.3.css'",
+    description: "ignore @import at-rules",
+  }, {
+    code: "@IMPORT 'testfile.0.3.css'",
     description: "ignore @import at-rules",
   } ],
 
@@ -145,7 +157,22 @@ testRule(rule, {
     code: "a { transform: translate(.4px, .8px); }",
     description: "multiple fractional values without leading zeros in a function",
   }, {
+    code: "a { background: url(data:image/svg+xml;...0.5); }",
+    description: "data URI containing leading zero",
+  }, {
+    code: "a { background: uRl(data:image/svg+xml;...0.5); }",
+    description: "data URI containing leading zero",
+  }, {
+    code: "a { background: URL(data:image/svg+xml;...0.5); }",
+    description: "data URI containing leading zero",
+  }, {
     code: "@import 'testfile.0.3.css'",
+    description: "ignore @import at-rules",
+  }, {
+    code: "@iMpOrT 'testfile.0.3.css'",
+    description: "ignore @import at-rules",
+  }, {
+    code: "@IMPORT 'testfile.0.3.css'",
     description: "ignore @import at-rules",
   } ],
 

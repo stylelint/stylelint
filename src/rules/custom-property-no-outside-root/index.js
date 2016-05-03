@@ -17,7 +17,7 @@ export default function (actual) {
 
     root.walkRules(rule => {
       // Ignore rules whose selector is just `:root`
-      if (rule.selector.trim() === ":root") { return }
+      if (rule.selector.toLowerCase().trim() === ":root") { return }
 
       rule.walkDecls(decl => {
         if (decl.prop.substr(0, 2) !== "--") { return }
