@@ -211,20 +211,60 @@ testRule(rule, {
     line: 1,
     column: 22,
   }, {
+    code: "@document url-prefix( \"http://www.w3.org/Style\" );",
+    message: messages.expected("no quotes", "url-prefix"),
+    line: 1,
+    column: 23,
+  }, {
+    code: "@document url-prefix( 'http://www.w3.org/Style' );",
+    message: messages.expected("no quotes", "url-prefix"),
+    line: 1,
+    column: 23,
+  }, {
     code: "@document domain(\"mozilla.org\");",
     message: messages.expected("no quotes", "domain"),
     line: 1,
     column: 18,
+  }, {
+    code: "@document domain( \"mozilla.org\" );",
+    message: messages.expected("no quotes", "domain"),
+    line: 1,
+    column: 19,
+  }, {
+    code: "@document domain( 'mozilla.org' );",
+    message: messages.expected("no quotes", "domain"),
+    line: 1,
+    column: 19,
   }, {
     code: "@font-face { font-family: foo; src: url('foo.ttf'); }",
     message: messages.expected("no quotes"),
     line: 1,
     column: 41,
   }, {
+    code: "@font-face { font-family: foo; src: url( \"foo.ttf\" ); }",
+    message: messages.expected("no quotes"),
+    line: 1,
+    column: 42,
+  }, {
+    code: "@font-face { font-family: foo; src: url( 'foo.ttf' ); }",
+    message: messages.expected("no quotes"),
+    line: 1,
+    column: 42,
+  }, {
     code: "a { background: url(\"foo.css\"); }",
     message: messages.expected("no quotes"),
     line: 1,
     column: 21,
+  }, {
+    code: "a { background: url( \"foo.css\" ); }",
+    message: messages.expected("no quotes"),
+    line: 1,
+    column: 23,
+  }, {
+    code: "a { background: url( 'foo.css' ); }",
+    message: messages.expected("no quotes"),
+    line: 1,
+    column: 23,
   }, {
     code: "a { cursor: url(\"foo.png\"); }",
     message: messages.expected("no quotes"),
@@ -245,5 +285,10 @@ testRule(rule, {
     message: messages.expected("no quotes"),
     line: 1,
     column: 55,
+  }, {
+    code: "a { background-image: url( \"foo.css\" ), url( 'bar.css' ); }",
+    message: messages.expected("no quotes"),
+    line: 1,
+    column: 28,
   } ],
 })
