@@ -8,6 +8,8 @@
 - Added: more flexible support for end-of-line comments in `at-rule-semicolon-newline-after`, `block-opening-brace-newline-after`, and `declaration-block-semicolon-newline-after`.
 - Added: `--stdin-filename` option to CLI.
 - Fixed: `no-indistinguishable-colors` now ignores keyword color names within `url()`.
+- Fixed: string and verbose formatters no longer use an ambiguous colour scheme.
+- Fixed: string formatter no longer outputs an empty line if there are no problems.
 
 # 6.2.2
 
