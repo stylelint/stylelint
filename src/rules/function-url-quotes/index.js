@@ -61,52 +61,50 @@ export default function (expectation) {
 
       statement.walkDecls(function (decl) {
         functionArgumentsSearch(decl.toString(), "url", (args, index) => {
-          if (strDefiesExpectation(args)) {
-            report({
-              message: messages.expected(quoteMsg),
-              node: decl,
-              index,
-              result,
-              ruleName,
-            })
-          }
+          const trimLeftArgs = args.trimLeft()
+          if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
+          complain(messages.expected(quoteMsg), decl, index + args.length - trimLeftArgs.length)
         })
       })
     }
 
     function checkAtRuleParams(atRule) {
       functionArgumentsSearch(atRule.params, "url", (args, index) => {
-        if (strDefiesExpectation(args)) {
-          report({
-            message: messages.expected(quoteMsg),
-            node: atRule,
-            index: index + atRuleParamIndex(atRule),
-            result,
-            ruleName,
-          })
-        }
+        const trimLeftArgs = args.trimLeft()
+        if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
+        complain(
+          messages.expected(quoteMsg),
+          atRule,
+          index + args.length - trimLeftArgs.length + atRuleParamIndex(atRule)
+        )
       })
       functionArgumentsSearch(atRule.params, "url-prefix", (args, index) => {
-        if (strDefiesExpectation(args)) {
-          report({
-            message: messages.expected(quoteMsg, "url-prefix"),
-            node: atRule,
-            index: index + atRuleParamIndex(atRule),
-            result,
-            ruleName,
-          })
-        }
+        const trimLeftArgs = args.trimLeft()
+        if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
+        complain(
+          messages.expected(quoteMsg, "url-prefix"),
+          atRule,
+          index + args.length - trimLeftArgs.length + atRuleParamIndex(atRule)
+        )
       })
       functionArgumentsSearch(atRule.params, "domain", (args, index) => {
-        if (strDefiesExpectation(args)) {
-          report({
-            message: messages.expected(quoteMsg, "domain"),
-            node: atRule,
-            index: index + atRuleParamIndex(atRule),
-            result,
-            ruleName,
-          })
-        }
+        const trimLeftArgs = args.trimLeft()
+        if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
+        complain(
+          messages.expected(quoteMsg, "domain"),
+          atRule,
+          index + args.length - trimLeftArgs.length + atRuleParamIndex(atRule)
+        )
+      })
+    }
+
+    function complain(message, node, index) {
+      report({
+        message,
+        node,
+        index,
+        result,
+        ruleName,
       })
     }
   }
