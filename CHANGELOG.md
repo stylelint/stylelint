@@ -14,6 +14,7 @@
 - Fixed: string formatter no longer outputs an empty line if there are no problems.
 - Fixed: `function-url-quotes` now ignores spaces within `url()`.
 - Fixed: `value-list-comma-*` rules now ignore SCSS maps.
+- Fixed: `no-descending-specificity` now ignores selectors ending on `,`.
 
 # 6.2.2
 
