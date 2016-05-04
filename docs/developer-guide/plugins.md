@@ -20,6 +20,10 @@ In order for your plugin rule to work with the standard configuration format, (e
 
 `ruleFunction` should return a function that is essentially a little PostCSS plugin: it takes 2 arguments: the PostCSS Root (the parsed AST), and the PostCSS LazyResult. You'll have to [learn about the PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md).
 
+## Modules providing multiple rules
+
+To make a single module provide multiple rules, simply export an array of plugin objects (rather than a single object).
+
 ## `stylelint.utils`
 
 A few of stylelint's internal utilities are exposed publicly in `stylelint.utils`, to help you write plugin rules. For details about the APIs of these functions, please look at comments in the source code and examples in the standard rules.

@@ -1,6 +1,6 @@
 # Plugins
 
-Plugins are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases. Their names are prefixed with "stylelint".
+Plugins are rules and sets of rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases. Their names are prefixed with "stylelint".
 
 ## Methodologies
 

@@ -1,5 +1,6 @@
 # Head
 
+- Added: support for plugin modules that provides an array of rules.
 - Added: support for extracting and linting CSS from within HTML sources.
 - Added: `selector-attribute-operator-space-after` rule.
 - Added: `selector-attribute-operator-space-before` rule.

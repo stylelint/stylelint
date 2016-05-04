@@ -176,9 +176,11 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 
 ### `plugins`
 
-Plugins are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases. To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
+Plugins are rules or sets of rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases.
 
-Once the plugin is declared, within your `"rules"` object *you'll need to add options* for the plugin's rule just like any standard rule. You will have to look at the plugin's documentation to know what the rule name should be.
+To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
+
+Once the plugin is declared, within your `"rules"` object *you'll need to add options* for the plugin's rule(s), just like any standard rule. You will have to look at the plugin's documentation to know what the rule name should be.
 
 ```json
 {
@@ -190,6 +192,22 @@ Once the plugin is declared, within your `"rules"` object *you'll need to add op
   },
 }
 ```
+
+A "plugin" can provide a single rule or a set of rules. If the plugin you use provides a set, just invoke the module in your `"plugins"` configuration value, and use the rules it provides in `"rules"`. For example:
+
+```json
+{
+  "plugins": [
+    "../some-rule-set.js"
+  ],
+  "rules": {
+    "first-rule": "everything",
+    "second-rule": "nothing",
+    "third-rule": "everything"
+  },
+}
+```
+
 
 ### `ignoreFiles`
 
