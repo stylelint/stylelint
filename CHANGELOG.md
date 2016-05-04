@@ -10,6 +10,7 @@
 - Fixed: `no-indistinguishable-colors` now ignores keyword color names within `url()`.
 - Fixed: string and verbose formatters no longer use an ambiguous colour scheme.
 - Fixed: string formatter no longer outputs an empty line if there are no problems.
+- Fixed: `function-url-quotes` now ignores spaces within `url()`.
 
 # 6.2.2
 

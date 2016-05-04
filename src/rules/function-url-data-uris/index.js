@@ -31,9 +31,10 @@ export default function (expectation) {
 
         const urlValueNode = valueNode.nodes[0]
 
-        if (!urlValueNode.value) { return }
-        if (!isStandardValue(urlValueNode.value)) { return }
-        if (isVariable(urlValueNode.value)) { return }
+        if (!urlValueNode.value
+          || !isStandardValue(urlValueNode.value)
+          || isVariable(urlValueNode.value)
+        ) { return }
 
         const valueContainDataUris = urlValueNode.value.indexOf("data:") === 0
         const needUrlDataUris = expectation === "always"

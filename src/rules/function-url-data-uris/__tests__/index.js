@@ -9,6 +9,10 @@ testRule(rule, {
   accept: [ {
     code: "@import url('foo.css');",
   }, {
+    code: "@import url( 'foo.css' );",
+  }, {
+    code: "@import url(  'foo.css'  );",
+  }, {
     code: "@document url('http://www.w3.org/');",
   }, {
     code: "@font-face { font-family: 'foo'; src: url(data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=); }",
@@ -55,7 +59,17 @@ testRule(rule, {
     line: 1,
     column: 34,
   }, {
+    code: "@font-face { font-family: 'foo'; src: url( foo.ttf ); }",
+    message: messages.expected,
+    line: 1,
+    column: 34,
+  }, {
     code: "@font-face { font-family: 'foo'; src: url('foo.ttf'); }",
+    message: messages.expected,
+    line: 1,
+    column: 34,
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url( 'foo.ttf' ); }",
     message: messages.expected,
     line: 1,
     column: 34,
@@ -65,7 +79,32 @@ testRule(rule, {
     line: 1,
     column: 34,
   }, {
+    code: "@font-face { font-family: 'foo'; src: url( \"foo.ttf'\" ); }",
+    message: messages.expected,
+    line: 1,
+    column: 34,
+  }, {
     code: "a { background: url('foo.png'); }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url( 'foo.png' ); }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url(  'foo.png'  ); }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url( 'foo.png' ); }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url(  'foo.png'  ); }",
     message: messages.expected,
     line: 1,
     column: 5,
@@ -103,6 +142,10 @@ testRule(rule, {
 
   accept: [ {
     code: "@import url('foo.css');",
+  }, {
+    code: "@import url( 'foo.css' );",
+  }, {
+    code: "@import url(  'foo.css'  );",
   }, {
     code: "@document url('http://www.w3.org/');",
   }, {
@@ -150,7 +193,17 @@ testRule(rule, {
     line: 1,
     column: 34,
   }, {
+    code: "@font-face { font-family: 'foo'; src: url( data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs= ); }",
+    message: messages.rejected,
+    line: 1,
+    column: 34,
+  }, {
     code: "@font-face { font-family: 'foo'; src: url('data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+    message: messages.rejected,
+    line: 1,
+    column: 34,
+  },  {
+    code: "@font-face { font-family: 'foo'; src: url( 'data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=' ); }",
     message: messages.rejected,
     line: 1,
     column: 34,
@@ -160,7 +213,22 @@ testRule(rule, {
     line: 1,
     column: 34,
   }, {
+    code: "@font-face { font-family: 'foo'; src: url( \"data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='\" ); }",
+    message: messages.rejected,
+    line: 1,
+    column: 34,
+  }, {
     code: "a { background: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+    message: messages.rejected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url( 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=' ); }",
+    message: messages.rejected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url(  'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='  ); }",
     message: messages.rejected,
     line: 1,
     column: 5,
