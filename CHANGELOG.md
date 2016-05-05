@@ -12,6 +12,7 @@
 - Fixed: string and verbose formatters no longer use an ambiguous colour scheme.
 - Fixed: string formatter no longer outputs an empty line if there are no problems.
 - Fixed: `function-url-quotes` now ignores spaces within `url()`.
+- Fixed: `value-list-comma-*` rules now ignore SCSS maps.
 
 # 6.2.2
 
