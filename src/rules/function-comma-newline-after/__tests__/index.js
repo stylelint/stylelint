@@ -24,11 +24,15 @@ testRule(rule, {
   }, {
     code: "a { background: linear-gradient(45deg,\n rgba(0,\n 0,\n 0,\n 1),\n red); }",
   }, {
-    code: "$map: (key: value, key2: value2)",
-    description: "Sass map ignored",
-  }, {
-    code: "$list: (value, value2)",
-    description: "Sass list ignored",
+    code: `
+      a { 
+        transform: translate(
+          1px, /* stylelint-disable-line some-rule */ 
+          1px
+        );
+      }
+    `,
+
   } ],
 
   reject: [ {
@@ -71,6 +75,20 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 2,
     column: 4,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["always"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value, key2: value2)",
+    description: "sass map ignored",
+  }, {
+    code: "$list: (value, value2)",
+    description: "sass list ignored",
   } ],
 })
 
@@ -121,9 +139,6 @@ testRule(rule, {
           );
         }
     `,
-  }, {
-    code: "$map: (key: value\n, key2: value2)",
-    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -156,6 +171,17 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: ["always-multi-line"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value\n, key2: value2)",
+    description: "sass map",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: ["never-multi-line"],
 
   accept: [ {
@@ -179,9 +205,6 @@ testRule(rule, {
     code: "a { transform: translate(1,\t1); }",
   }, {
     code: "a { background: linear-gradient(45deg\n,rgba(0, 0, 0, 1),red); }",
-  }, {
-    code: "$map: (key: value,\nkey2: value2)",
-    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -211,3 +234,14 @@ testRule(rule, {
     column: 18,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: ["never-multi-line"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value,\nkey2: value2)",
+    description: "sass map",
+  } ],
+});
