@@ -62,9 +62,7 @@ grunt.initConfig({
         ]
       },
       // start at the entry file
-      dist: {
-        src: 'css/entry.css'
-      }
+      src: 'css/entry.css'
     },
     // separate lint task
     lint: {
@@ -75,9 +73,7 @@ grunt.initConfig({
         ]
       },
       // lint all the .css files in the css directory
-      dist: {
-        src: 'css/**/*.css'
-      }
+      src: 'css/**/*.css'
     }
   }
 })
