@@ -23,7 +23,7 @@ export default function (actual) {
       const { selector } = rule
       if (!isStandardSelector(selector)) { return }
       selectorParser(selectorAST => {
-        selectorAST.eachCombinator(combinator => {
+        selectorAST.walkCombinators(combinator => {
           report({
             message: messages.rejected,
             node: rule,

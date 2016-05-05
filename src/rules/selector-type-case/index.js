@@ -34,7 +34,7 @@ export default function (expectation) {
       if (!isStandardSelector(selector)) { return }
 
       function checkSelector(selectorAST) {
-        selectorAST.eachTag(tag => {
+        selectorAST.walkTags(tag => {
 
           if (!isStandardTypeSelector(tag)) { return }
 

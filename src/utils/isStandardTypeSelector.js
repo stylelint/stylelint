@@ -17,8 +17,8 @@ export default function (node) {
     return false
   }
 
-  // & is not a type selector: it's used for nesting
-  if (node.value[0] === "&") { return false }
+  // &-bar is a nesting selector combined with a suffix
+  if (node.prev() && node.prev().type === "nesting") { return false }
 
   return true
 }

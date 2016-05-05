@@ -49,7 +49,7 @@ export function selectorAttributeOperatorSpaceChecker({
     ) { return }
 
     selectorParser(selectorTree => {
-      selectorTree.eachAttribute(attributeNode => {
+      selectorTree.walkAttributes(attributeNode => {
         const operator = attributeNode.operator
 
         if (!operator) { return }

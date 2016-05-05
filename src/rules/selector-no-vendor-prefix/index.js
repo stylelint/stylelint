@@ -24,7 +24,7 @@ export default function (actual) {
       const { selector } = rule
       if (!isStandardSelector(selector)) { return }
       selectorParser(selectorTree => {
-        selectorTree.eachPseudo(pseudoNode => {
+        selectorTree.walkPseudos(pseudoNode => {
           if (isAutoprefixable.selector(pseudoNode.value)) {
             report({
               result,

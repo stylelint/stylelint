@@ -68,6 +68,7 @@
     "npm-run-all": "^1.8.0",
     "npmpub": "^3.0.1",
     "postcss-import": "^8.0.2",
+    "postcss-selector-parser": "^2.0.0",
     "remark": "^4.0.0",
     "remark-lint": "^3.0.0",
     "request": "^2.69.0",

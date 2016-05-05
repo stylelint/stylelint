@@ -25,7 +25,7 @@ export default function (actual) {
       const { selector } = rule
       if (!isStandardSelector(selector)) { return }
       selectorParser(selectorAST => {
-        selectorAST.eachId(idNode => {
+        selectorAST.walkIds(idNode => {
 
           if (idNode.parent.parent.type === "pseudo") { return }
 
