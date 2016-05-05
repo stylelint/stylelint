@@ -25,14 +25,14 @@ testRule(rule, {
     code: "a { background: linear-gradient(45deg,\n rgba(0,\n 0,\n 0,\n 1),\n red); }",
   }, {
     code: `
-      a { 
+      a {
         transform: translate(
-          1px, /* stylelint-disable-line some-rule */ 
+          1px, /* comment */
           1px
         );
       }
     `,
-
+    description: "eol comments",
   } ],
 
   reject: [ {
@@ -75,6 +75,16 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 2,
     column: 4,
+  }, {
+    code: `
+      a {
+        transform: translateX(
+          1px,  /* comment (with trailing space) */ 
+          1px
+        );
+      }
+    `,
+    description: "eol comments",
   } ],
 })
 
@@ -89,6 +99,16 @@ testRule(rule, {
   }, {
     code: "$list: (value, value2)",
     description: "sass list ignored",
+  }, {
+    code: `
+      a {
+        transform: translate(
+          1px, // line comment   
+          1px
+        );
+      }
+    `,
+    description: "eol comments",
   } ],
 })
 
@@ -139,6 +159,16 @@ testRule(rule, {
           );
         }
     `,
+  }, {
+    code: `
+      a {
+        transform: translate(
+          1px, /* comment */
+          1px
+        );
+      }
+    `,
+    description: "eol comments",
   } ],
 
   reject: [ {
@@ -166,6 +196,16 @@ testRule(rule, {
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 4,
+  }, {
+    code: `
+      a {
+        transform: translate(
+          1px, /* comment */ 
+          1px
+        );
+      }
+    `,
+    description: "eol comments",
   } ],
 })
 
@@ -177,6 +217,16 @@ testRule(rule, {
   accept: [ {
     code: "$map: (key: value\n, key2: value2)",
     description: "sass map",
+  }, {
+    code: `
+      a {
+        transform: translate(
+          1px, // line comment   
+          1px
+        );
+      }
+    `,
+    description: "eol comments",
   } ],
 })
 
@@ -205,6 +255,13 @@ testRule(rule, {
     code: "a { transform: translate(1,\t1); }",
   }, {
     code: "a { background: linear-gradient(45deg\n,rgba(0, 0, 0, 1),red); }",
+  }, {
+    code: `
+      a {
+        transform: translate(1px, 1px); /* comment */  
+      }
+    `,
+    description: "eol comments",
   } ],
 
   reject: [ {
@@ -240,8 +297,15 @@ testRule(rule, {
   config: ["never-multi-line"],
   syntax: "scss",
 
-  accept: [ {
+  accept: [{
     code: "$map: (key: value,\nkey2: value2)",
     description: "sass map",
+  }, {
+    code: `
+      a {
+        transform: translate(1px, 1px); // line comment  
+      }
+    `,
+    description: "eol comments",
   } ],
 });

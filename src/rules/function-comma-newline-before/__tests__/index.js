@@ -21,12 +21,6 @@ testRule(rule, {
     code: "a { transform: color(rgb(0\n\t, 0\n\t,0) lightness(50%)); }",
   }, {
     code: "a { transform: color(rgb(0\n  , 0\n  ,0) lightness(50%)); }",
-  }, {
-    code: "$map: (key: value, key2: value2)",
-    description: "Sass map ignored",
-  }, {
-    code: "$list: (value, value2)",
-    description: "Sass list ignored",
   } ],
 
   reject: [ {
@@ -59,6 +53,20 @@ testRule(rule, {
     message: messages.expectedBefore(),
     line: 2,
     column: 4,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["always"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value, key2: value2)",
+    description: "Sass map ignored",
+  }, {
+    code: "$list: (value, value2)",
+    description: "Sass list ignored",
   } ],
 })
 
@@ -116,6 +124,17 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: ["always-multi-line"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value,\nkey2: value2)",
+    description: "SCSS map",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: ["never-multi-line"],
 
   accept: [ {
@@ -130,9 +149,6 @@ testRule(rule, {
     code: "a { transform: translate(1 , 1); }",
   }, {
     code: "a { transform: translate(1\t,1); }",
-  }, {
-    code: "$map: (key: value\n,key2: value2)",
-    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -155,5 +171,16 @@ testRule(rule, {
     message: messages.rejectedBeforeMultiLine(),
     line: 3,
     column: 1,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["never-multi-line"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value\n,key2: value2)",
+    description: "SCSS map",
   } ],
 })

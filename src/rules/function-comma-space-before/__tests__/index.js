@@ -21,12 +21,6 @@ testRule(rule, {
   }, {
     code: "a { background: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns); }",
     description: "data URI with spaceless comma",
-  }, {
-    code: "$map: (key: value,key2: value2)",
-    description: "Sass map ignored",
-  }, {
-    code: "$list: (value, value2)",
-    description: "Sass list ignored",
   } ],
 
   reject: [ {
@@ -70,6 +64,20 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: ["always"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value,key2: value2)",
+    description: "Sass map ignored",
+  }, {
+    code: "$list: (value, value2)",
+    description: "Sass list ignored",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: ["never"],
 
   accept: [ {
@@ -84,9 +92,6 @@ testRule(rule, {
     code: "a { transform: translate(1,1); }",
   }, {
     code: "a { transform: color(rgb(0, 0,0) lightness(50%)); }",
-  }, {
-    code: "$map: (key: value ,key2: value2)",
-    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -130,6 +135,17 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: ["never"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value ,key2: value2)",
+    description: "SCSS map",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: ["always-single-line"],
 
   accept: [ {
@@ -157,9 +173,6 @@ testRule(rule, {
     code: "a { transform: translate(1\n,\n1); }",
   }, {
     code: "a { background: linear-gradient(45deg,\nrgba(0 , 0 , 0 ,1)\n,red); }",
-  }, {
-    code: "$map: (key: value,key2: value2)",
-    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -177,6 +190,17 @@ testRule(rule, {
     message: messages.expectedBeforeSingleLine(),
     line: 2,
     column: 11,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["always-single-line"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value,key2: value2)",
+    description: "SCSS map",
   } ],
 })
 
@@ -207,9 +231,6 @@ testRule(rule, {
     code: "a { transform: translate(1\n, 1); }",
   }, {
     code: "a { transform: translate(1\n,\n1); }",
-  }, {
-    code: "$map: (key: value ,key2: value2)",
-    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -222,5 +243,16 @@ testRule(rule, {
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 46,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["never-single-line"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value ,key2: value2)",
+    description: "SCSS map",
   } ],
 })
