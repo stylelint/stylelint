@@ -8,6 +8,7 @@
 - Added: `no-extra-semicolons` rule.
 - Added: more flexible support for end-of-line comments in `at-rule-semicolon-newline-after`, `block-opening-brace-newline-after`, and `declaration-block-semicolon-newline-after`.
 - Added: `--stdin-filename` option to CLI.
+- Fixed: all rules and utils now handle case insensitive CSS identifiers.
 - Fixed: `no-indistinguishable-colors` now ignores keyword color names within `url()`.
 - Fixed: string and verbose formatters no longer use an ambiguous colour scheme.
 - Fixed: `selector-class-pattern` and `selector-id-pattern` rules now ignore SCSS variable interpolation.
