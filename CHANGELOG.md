@@ -10,6 +10,7 @@
 - Added: `--stdin-filename` option to CLI.
 - Fixed: `no-indistinguishable-colors` now ignores keyword color names within `url()`.
 - Fixed: string and verbose formatters no longer use an ambiguous colour scheme.
+- Fixed: `selector-class-pattern` and `selector-id-pattern` rules now ignore SCSS variable interpolation.
 - Fixed: string formatter no longer outputs an empty line if there are no problems.
 - Fixed: `function-url-quotes` now ignores spaces within `url()`.
 - Fixed: `value-list-comma-*` rules now ignore SCSS maps.
