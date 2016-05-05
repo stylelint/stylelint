@@ -22,7 +22,7 @@ testRule(rule, {
     code: "a { background: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns); }",
     description: "data URI with spaceless comma",
   }, {
-    code: "a { transform: translate(1, /* test */1); }",
+    code: "a { transform: translate(1, /* comment */1); }",
     description: "comments",
   } ],
 
@@ -63,7 +63,7 @@ testRule(rule, {
     line: 1,
     column: 47,
   }, {
-    code: "a { transform: translate(1,/* test */1); }",
+    code: "a { transform: translate(1,/* comment */1); }",
     description: "comments",
   } ],
 })
@@ -99,7 +99,7 @@ testRule(rule, {
   }, {
     code: "a { transform: color(rgb(0 ,0,0) lightness(50%)); }",
   }, {
-    code: "a { transform: translate(1,/* test */1); }",
+    code: "a { transform: translate(1,/* comment */1); }",
     description: "comments",
   } ],
 
@@ -140,7 +140,7 @@ testRule(rule, {
     line: 1,
     column: 43,
   }, {
-    code: "a { transform: translate(1, /* test */1); }",
+    code: "a { transform: translate(1, /* comment */1); }",
     description: "comments",
   } ],
 })
