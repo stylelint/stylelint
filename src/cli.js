@@ -9,12 +9,13 @@ import standalone from "./standalone"
 
 const minimistOptions = {
   default: {
+    config: false,
     f: "string",
     q: false,
-    config: false,
     v: false,
   },
   alias: {
+    e: "extract",
     f: "formatter",
     q: "quiet",
     s: "syntax",
@@ -48,11 +49,13 @@ const meowOptions = {
     "                      directory tree until a configuration file is found.",
     "  --version           Get the currently installed version of stylelint.",
     "  --custom-formatter  Path to a JS file exporting a custom formatting function",
+    "  --stdin-filename    Specify a filename to assign stdin input",
     "  -f, --formatter     Specify a formatter: \"json\" or \"string\". Default is \"string\".",
     "  -q, --quiet         Only register warnings for rules with an \"error\"-level severity",
     "                      (ignore \"warning\"-level)",
     "  -s, --syntax        Specify a non-standard syntax that should be used to ",
     "                      parse source stylesheets. Options: \"scss\", \"less\", \"sugarss\"",
+    "  -e, --extract       Extract and lint CSS from style tags in HTML structures",
     "  -v, --verbose       Get more stats",
   ],
   pkg: "../package.json",
@@ -80,6 +83,10 @@ if (cli.flags.syntax && includes(syntaxOptions, cli.flags.syntax)) {
   optionsBase.syntax = cli.flags.syntax
 }
 
+if (cli.flags.extract) {
+  optionsBase.extractStyleTagsFromHtml = cli.flags.extract
+}
+
 if (cli.flags.config) {
   // Should check these possibilities:
   //   a. name of a node_module
@@ -89,6 +96,10 @@ if (cli.flags.config) {
   // in `process.cwd()`.
   optionsBase.configFile = resolveFrom(process.cwd(), cli.flags.config)
     || path.join(process.cwd(), cli.flags.config)
+}
+
+if (cli.flags.stdinFilename) {
+  optionsBase.codeFilename = cli.flags.stdinFilename
 }
 
 Promise.resolve().then(() => {

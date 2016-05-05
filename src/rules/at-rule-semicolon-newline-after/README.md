@@ -9,10 +9,12 @@ Require a newline after the semicolon of at-rules.
  * The newline after these semicolons */
 ```
 
-This rule allows an end-of-line comment separated from the semicolon by spaces, as long as the comment contains no newlines. For example:
+This rule allows an end-of-line comment followed by a newline. For example:
 
 ```css
 @import url("x.css"); /* end-of-line comment */
+
+a {}
 ```
 
 ## Options

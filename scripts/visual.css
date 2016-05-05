@@ -1,7 +1,8 @@
 .baz {
     color: #4f;
 }
-.foo {
-    top:0px !important;
-}
 .foo.bar {}
+.foo {
+    margin: 0px;
+    color:red;
+}

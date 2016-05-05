@@ -5,6 +5,7 @@ import rule, { ruleName, messages } from ".."
 testRule(rule, {
   ruleName,
   config: ["always"],
+  skipBasicChecks: true,
 
   accept: [ {
     code: "@import url(x.css)",
@@ -35,6 +36,9 @@ testRule(rule, {
     code: "a\n{ &:hover\n{ color: pink; }}",
   }, {
     code: "a\n{ color: red; &:hover\n{ color: pink; }}",
+  }, {
+    code: "a /* x */\n{ color: pink; }",
+    description: "end-of-line comment after selector",
   } ],
 
   reject: [ {
@@ -90,16 +94,16 @@ testRule(rule, {
     line: 2,
     column: 3,
   }, {
-    code: "a\n/* foo */{ a{ color: pink; } }",
+    code: "a\n/* foo */{ color: pink; }",
     message: messages.expectedBefore(),
     line: 2,
-    column: 12,
+    column: 9,
   }, {
-    code: "a\r\n/* foo */{ a{ color: pink; } }",
+    code: "a\r\n/* foo */{ color: pink; }",
     description: "CRLF",
     message: messages.expectedBefore(),
     line: 2,
-    column: 12,
+    column: 9,
   } ],
 })
 
@@ -264,6 +268,8 @@ testRule(rule, {
     code: "a  { color: pink; }",
   }, {
     code: "a\t{ color: pink; }",
+  }, {
+    code: "a /* foo */\n  {\n    color: pink;\n  }",
   } ],
 
   reject: [ {

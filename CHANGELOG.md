@@ -1,9 +1,18 @@
 # Head
 
+- Added: support for plugin modules that provides an array of rules.
+- Added: support for extracting and linting CSS from within HTML sources.
 - Added: `selector-attribute-operator-space-after` rule.
 - Added: `selector-attribute-operator-space-before` rule.
 - Added: `selector-max-empty-lines` rule.
 - Added: `no-extra-semicolons` rule.
+- Added: more flexible support for end-of-line comments in `at-rule-semicolon-newline-after`, `block-opening-brace-newline-after`, and `declaration-block-semicolon-newline-after`.
+- Added: `--stdin-filename` option to CLI.
+- Fixed: `no-indistinguishable-colors` now ignores keyword color names within `url()`.
+- Fixed: string and verbose formatters no longer use an ambiguous colour scheme.
+- Fixed: string formatter no longer outputs an empty line if there are no problems.
+- Fixed: `function-url-quotes` now ignores spaces within `url()`.
+- Fixed: `value-list-comma-*` rules now ignore SCSS maps.
 
 # 6.2.2
 

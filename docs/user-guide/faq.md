@@ -34,6 +34,10 @@ There are example of using the PostCSS plugin within the [docs](/docs/user-guide
 
 stylelint can *parse* any the following non-standard syntaxes: SCSS, Less and SugarSS. Refer to the [docs](/docs/user-guide/css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse one of these syntaxes.
 
+## How do I lint styles within `<style>` tags?
+
+stylelint can *extract and lint* any styles within `<style>` tags. This can be done via the [Node API](/docs/user-guide/node-api.md#extractStyleTagsFromHtml) and the [CLI](/docs/user-guide/cli.md).
+
 ## How do I automatically fix stylistic warnings?
 
 [stylefmt](https://github.com/morishitter/stylefmt) supports stylelint configuration files and can automatically fix a number of stylistic warnings.
