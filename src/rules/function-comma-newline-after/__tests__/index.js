@@ -78,7 +78,7 @@ testRule(rule, {
   }, {
     code: `
       a {
-        transform: translateX(
+        transform: translate(
           1px,  /* comment (with trailing space) */ 
           1px
         );
@@ -200,7 +200,7 @@ testRule(rule, {
     code: `
       a {
         transform: translate(
-          1px, /* comment */ 
+          1px, /* comment (with trailing space) */ 
           1px
         );
       }

@@ -21,6 +21,16 @@ testRule(rule, {
     code: "a { transform: color(rgb(0\n\t, 0\n\t,0) lightness(50%)); }",
   }, {
     code: "a { transform: color(rgb(0\n  , 0\n  ,0) lightness(50%)); }",
+  }, {
+    code: `
+      a {
+        transform: translate(
+          1px,  /* comment */
+          1px
+        );
+      }
+    `,
+    description: "eol comments",
   } ],
 
   reject: [ {
