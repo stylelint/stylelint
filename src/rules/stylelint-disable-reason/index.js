@@ -16,9 +16,6 @@ const stylelintDisableLineCommand = "stylelint-disable-line"
 
 export default function (expectation) {
   return function (root, result) {
-    result.stylelint = result.stylelint || {}
-    result.stylelint.disabledRanges = false
-
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
@@ -51,12 +48,16 @@ export default function (expectation) {
         }
 
         if (!prevIsCommentAndValid && !prevDisableLineIsCommentAndValid) {
+          const disableRanges = result.stylelint.disabledRanges
+          result.stylelint.disabledRanges = false
+
           report({
             message: messages.expectedBefore,
             node: comment,
             result,
             ruleName,
           })
+          result.stylelint.disabledRanges = disableRanges
         }
       } else if (expectation === "always-after") {
         const next = comment.next()
@@ -65,12 +66,16 @@ export default function (expectation) {
           && !isDisableCommand(next.text)
 
         if (!nextIsCommentAndValid) {
+          const disableRanges = result.stylelint.disabledRanges
+          result.stylelint.disabledRanges = false
+
           report({
             message: messages.expectedAfter,
             node: comment,
             result,
             ruleName,
           })
+          result.stylelint.disabledRanges = disableRanges
         }
       }
     })
