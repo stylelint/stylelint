@@ -22,11 +22,8 @@ testRule(rule, {
     code: "a { background: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns); }",
     description: "data URI with spaceless comma",
   }, {
-    code: "$map: (key: value,key2: value2)",
-    description: "Sass map ignored",
-  }, {
-    code: "$list: (value,value2)",
-    description: "Sass list ignored",
+    code: "a { transform: translate(1, /* test */1); }",
+    description: "comments",
   } ],
 
   reject: [ {
@@ -65,6 +62,23 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 47,
+  }, {
+    code: "a { transform: translate(1,/* test */1); }",
+    description: "comments",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["always"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value,key2: value2)",
+    description: "Sass map ignored",
+  }, {
+    code: "$list: (value,value2)",
+    description: "Sass list ignored",
   } ],
 })
 
@@ -85,8 +99,8 @@ testRule(rule, {
   }, {
     code: "a { transform: color(rgb(0 ,0,0) lightness(50%)); }",
   }, {
-    code: "$map: (key: value, key2: value2)",
-    description: "SCSS map",
+    code: "a { transform: translate(1,/* test */1); }",
+    description: "comments",
   } ],
 
   reject: [ {
@@ -125,6 +139,20 @@ testRule(rule, {
     message: messages.rejectedAfter(),
     line: 1,
     column: 43,
+  }, {
+    code: "a { transform: translate(1, /* test */1); }",
+    description: "comments",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["never"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value, key2: value2)",
+    description: "SCSS map",
   } ],
 })
 
@@ -159,9 +187,6 @@ testRule(rule, {
     description: "CRLF",
   }, {
     code: "a { background: linear-gradient(45deg\n,rgba(0, 0, 0, 1)\n,red); }",
-  }, {
-    code: "$map: (key: value,key2: value2)",
-    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -179,6 +204,17 @@ testRule(rule, {
     message: messages.expectedAfterSingleLine(),
     line: 2,
     column: 11,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["always-single-line"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value,key2: value2)",
+    description: "SCSS map",
   } ],
 })
 
@@ -211,9 +247,6 @@ testRule(rule, {
   }, {
     code: "a { color: rgba(0\n, 0, 0); }",
     description: "CRLF",
-  }, {
-    code: "$map: (key: value, key2: value2)",
-    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -231,5 +264,16 @@ testRule(rule, {
     message: messages.rejectedAfterSingleLine(),
     line: 2,
     column: 13,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["never-single-line"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value, key2: value2)",
+    description: "SCSS map",
   } ],
 })
