@@ -208,7 +208,6 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 }
 ```
 
-
 ### `ignoreFiles`
 
 Provide a glob or array of globs to ignore specific files.
