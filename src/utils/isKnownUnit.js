@@ -23,5 +23,5 @@ const knownUnits = new Set([
 ])
 
 export default function (unit) {
-  return knownUnits.has(unit)
+  return knownUnits.has(unit) || knownUnits.has(unit.toLowerCase())
 }

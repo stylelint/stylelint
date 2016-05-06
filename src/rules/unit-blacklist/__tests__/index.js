@@ -44,6 +44,12 @@ testRule(rule, {
     code: "a { background-url: url(10vmin); }",
     description: "ignore url function",
   }, {
+    code: "a { background-url: uRl(10vmin); }",
+    description: "ignore url function",
+  }, {
+    code: "a { background-url: URL(10vmin); }",
+    description: "ignore url function",
+  }, {
     code: "a { margin10px: 10em; }",
     description: "ignore property include wrong unit",
   }, {

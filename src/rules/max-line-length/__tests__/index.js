@@ -17,7 +17,15 @@ testRule(rule, {
   }, {
     code: "a {\n background: url(somethingsomethingsomethingsomething);\n}",
   }, {
+    code: "a {\n background: uRl(somethingsomethingsomethingsomething);\n}",
+  }, {
+    code: "a {\n background: URL(somethingsomethingsomethingsomething);\n}",
+  }, {
     code: "a {\n  background: url(\n  somethingsomethingsomethingsomething\n  );\n}",
+  }, {
+    code: "a {\n  background: uRl(\n  somethingsomethingsomethingsomething\n  );\n}",
+  }, {
+    code: "a {\n  background: URL(\n  somethingsomethingsomethingsomething\n  );\n}",
   } ],
 
   reject: [ {

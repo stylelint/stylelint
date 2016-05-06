@@ -12,10 +12,24 @@ testRule(rule, {
     code: "@custom-media --foo-bar (min-width: 0);",
   }, {
     code: "@custom-media --foo-foofoo (min-width: 0);",
+  }, {
+    code: "@cUsToM-mEdIa --foo-foofoo (min-width: 0);",
+  }, {
+    code: "@CUSTOM-MEDIA --foo-foofoo (min-width: 0);",
   } ],
 
   reject: [ {
     code: "@custom-media --foa-bar (min-width: 0);",
+    message: messages.expected,
+    line: 1,
+    column: 15,
+  }, {
+    code: "@cUsToM-mEdIa --foa-bar (min-width: 0);",
+    message: messages.expected,
+    line: 1,
+    column: 15,
+  }, {
+    code: "@CUSTOM-MEDIA --foa-bar (min-width: 0);",
     message: messages.expected,
     line: 1,
     column: 15,

@@ -35,6 +35,36 @@ test("iterateCodeForStyleTags found style tags call function with previous code 
   t.end()
 })
 
+test("iterateCodeForStyleTags found style tags call function with previous code and style code", t => {
+  let found = 0
+  const code = "<sTyLe>\na {}\n</sTyLe>\n<sTyLe></sTyLe>"
+  const expectedPreviousCodes = [ "<sTyLe>", "</sTyLe>\n<sTyLe>" ]
+  const expectedStyleCodes = [ "\na {}\n", "" ]
+  iterateCodeForStyleTags(code, (previousCode, styleCode) => {
+    t.equal(typeof previousCode, "string")
+    t.equal(previousCode, expectedPreviousCodes[found])
+    t.equal(typeof styleCode, "string")
+    t.equal(styleCode, expectedStyleCodes[found])
+    found++
+  })
+  t.end()
+})
+
+test("iterateCodeForStyleTags found style tags call function with previous code and style code", t => {
+  let found = 0
+  const code = "<STYLE>\na {}\n</STYLE>\n<STYLE></STYLE>"
+  const expectedPreviousCodes = [ "<STYLE>", "</STYLE>\n<STYLE>" ]
+  const expectedStyleCodes = [ "\na {}\n", "" ]
+  iterateCodeForStyleTags(code, (previousCode, styleCode) => {
+    t.equal(typeof previousCode, "string")
+    t.equal(previousCode, expectedPreviousCodes[found])
+    t.equal(typeof styleCode, "string")
+    t.equal(styleCode, expectedStyleCodes[found])
+    found++
+  })
+  t.end()
+})
+
 test("styleTagsFromHtmlExtracter returns extrated code and mapping of line and indentation", t => {
   const code = "<script></script>\n<style>\n  a { }\n</style>\n<style>\na {\n}\n</style>"
   const expected = "\na { }\n\na {\n}\n"

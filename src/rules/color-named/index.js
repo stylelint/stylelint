@@ -19,6 +19,7 @@ export const messages = ruleMessages(ruleName, {
   ),
 })
 
+// Todo tested on case insensivity
 const FUNC_REPRESENTATIONS = [ "rgb", "rgba", "hsl", "hsla", "hwb", "gray" ]
 const NODE_TYPES = [ "word", "function" ]
 
@@ -46,7 +47,7 @@ export default function (expectation) {
         if (
           expectation === "never"
           && type === "word"
-          && namedColors.indexOf(value) !== -1
+          && namedColors.indexOf(value.toLowerCase()) !== -1
         ) {
           complain(
             messages.rejected(value),
@@ -62,14 +63,14 @@ export default function (expectation) {
         // First by checking for alternative color function representations ...
         if (
           type === "function"
-          && FUNC_REPRESENTATIONS.indexOf(value) !== -1
+          && FUNC_REPRESENTATIONS.indexOf(value.toLowerCase()) !== -1
         ) {
           // Remove all spaces to match what's in `representations`
           const normalizedFunctionString = valueParser.stringify(node).replace(/\s+/g, "")
           let namedColor
           for (let i = 0, l = namedColors.length; i < l; i++) {
             namedColor = namedColors[i]
-            if (representations[namedColor].func.indexOf(normalizedFunctionString) !== -1) {
+            if (representations[namedColor].func.indexOf(normalizedFunctionString.toLowerCase()) !== -1) {
               complain(
                 messages.expected(namedColor, normalizedFunctionString),
                 decl,
@@ -85,7 +86,7 @@ export default function (expectation) {
         let namedColor
         for (let i = 0, l = namedColors.length; i < l; i++) {
           namedColor = namedColors[i]
-          if (representations[namedColor].hex.indexOf(value) !== -1) {
+          if (representations[namedColor].hex.indexOf(value.toLowerCase()) !== -1) {
             complain(
               messages.expected(namedColor, value),
               decl,

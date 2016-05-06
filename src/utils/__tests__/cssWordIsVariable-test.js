@@ -8,6 +8,8 @@ test("cssWordIsVariable", t => {
   t.ok(cssWordIsVariable("$sass-variable"))
   t.ok(cssWordIsVariable("@less-variable"))
   t.ok(cssWordIsVariable("var(--something)"))
+  t.ok(cssWordIsVariable("vAr(--something)"))
+  t.ok(cssWordIsVariable("VAR(--something)"))
   t.ok(cssWordIsVariable("var(  --something  )"))
   t.end()
 })

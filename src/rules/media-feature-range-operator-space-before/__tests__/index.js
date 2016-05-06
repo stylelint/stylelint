@@ -9,6 +9,10 @@ testRule(rule, {
   accept: [ {
     code: "@media (max-width = 600px) {}",
   }, {
+    code: "@mEdIa (max-width = 600px) {}",
+  }, {
+    code: "@MEDIA (max-width = 600px) {}",
+  }, {
     code: "@media (max-width >600px) {}",
   }, {
     code: "@media (max-width >= 600px) and (min-width <= 3em) {}",
@@ -16,6 +20,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@media (max-width< 600px) {}",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 17,
+  }, {
+    code: "@mEdIa (max-width< 600px) {}",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 17,
+  }, {
+    code: "@MEDIA (max-width< 600px) {}",
     message: messages.expectedBefore(),
     line: 1,
     column: 17,
@@ -60,6 +74,10 @@ testRule(rule, {
   accept: [ {
     code: "@media (max-width= 600px) {}",
   }, {
+    code: "@mEdIa (max-width= 600px) {}",
+  }, {
+    code: "@MEDIA (max-width= 600px) {}",
+  }, {
     code: "@media (max-width>600px) {}",
   }, {
     code: "@media (max-width>= 600px) and (min-width<= 3em) {}",
@@ -67,6 +85,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@media (max-width < 600px) {}",
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 18,
+  }, {
+    code: "@mEdIa (max-width < 600px) {}",
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 18,
+  }, {
+    code: "@MEDIA (max-width < 600px) {}",
     message: messages.rejectedBefore(),
     line: 1,
     column: 18,

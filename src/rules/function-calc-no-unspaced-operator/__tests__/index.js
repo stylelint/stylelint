@@ -15,6 +15,10 @@ testRule(rule, {
   }, {
     code: "a { top: calc(1px + 2px); }",
   }, {
+    code: "a { top: cAlC(1px + 2px); }",
+  }, {
+    code: "a { top: CALC(1px + 2px); }",
+  }, {
     code: "a { top: calc(1px - 2px); }",
   }, {
     code: "a { top: calc(1px * 2); }",
@@ -105,6 +109,16 @@ testRule(rule, {
     column: 19,
   }, {
     code: "a { top: calc(1px+ 2px); }",
+    message: messages.expectedBefore("+"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { top: cAlC(1px+ 2px); }",
+    message: messages.expectedBefore("+"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { top: CALC(1px+ 2px); }",
     message: messages.expectedBefore("+"),
     line: 1,
     column: 18,

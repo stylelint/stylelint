@@ -19,7 +19,7 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (rule.selector.indexOf(":root") === -1) { return }
+      if (rule.selector.toLowerCase().indexOf(":root") === -1) { return }
       selectorParser(checkSelector).process(rule.selector)
 
       function checkSelector(selectorAST) {
@@ -45,9 +45,13 @@ export default function (actual) {
 
 function ignoreRule(selectorAST) {
   let ignore = false
-  selectorAST.eachInside(selectorNode => {
+  selectorAST.walk(selectorNode => {
     // ignore `:root` selector inside a `:not()` selector
-    if (selectorNode.value === ":root" && selectorNode.parent.parent.value === ":not") {
+    if (selectorNode.value
+      && selectorNode.value.toLowerCase() === ":root"
+      && selectorNode.parent.parent.value
+      && selectorNode.parent.parent.value.toLowerCase() === ":not"
+    ) {
       ignore = true
     }
   })

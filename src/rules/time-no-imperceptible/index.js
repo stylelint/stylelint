@@ -28,13 +28,13 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      if (LONGHAND_PROPERTIES_TO_CHECK.indexOf(decl.prop) !== -1) {
+      if (LONGHAND_PROPERTIES_TO_CHECK.indexOf(decl.prop.toLowerCase()) !== -1) {
         if (isImperceptibleTime(decl.value)) {
           complain(messages.rejected(decl.value), decl)
         }
       }
 
-      if (SHORTHAND_PROPERTIES_TO_CHECK.indexOf(decl.prop) !== -1) {
+      if (SHORTHAND_PROPERTIES_TO_CHECK.indexOf(decl.prop.toLowerCase()) !== -1) {
         const valueList = postcss.list.space(decl.value)
         for (const value of valueList) {
           if (isImperceptibleTime(value)) {
@@ -47,8 +47,8 @@ export default function (actual) {
     function isImperceptibleTime(time) {
       const parsedTime = valueParser.unit(time)
       if (!parsedTime) return false
-      if (parsedTime.unit === "ms" && parsedTime.number <= MINIMUM_MILLISECONDS) { return true }
-      if (parsedTime.unit === "s" && parsedTime.number * 1000 <= MINIMUM_MILLISECONDS) { return true }
+      if (parsedTime.unit.toLowerCase() === "ms" && parsedTime.number <= MINIMUM_MILLISECONDS) { return true }
+      if (parsedTime.unit.toLowerCase() === "s" && parsedTime.number * 1000 <= MINIMUM_MILLISECONDS) { return true }
       return false
     }
 

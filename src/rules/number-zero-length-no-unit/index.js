@@ -88,7 +88,7 @@ export default function (actual) {
         const valueWithZero = value.slice(valueWithZeroStart, valueWithZeroEnd)
         const parsedValue = valueParser.unit(valueWithZero)
 
-        if (parsedValue && parsedValue.unit && ignoredUnits.has(parsedValue.unit)) { return }
+        if (parsedValue && parsedValue.unit && ignoredUnits.has(parsedValue.unit.toLowerCase())) { return }
 
         // Add the indexes to ignorableIndexes so the same value will not
         // be checked multiple times.

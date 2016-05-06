@@ -50,9 +50,9 @@ export default function (on, options) {
         if (isCustomProperty(prop)) { return }
 
         // Ignore the src property as commonly duplicated in at-fontface
-        if (prop === "src") { return }
+        if (prop.toLowerCase() === "src") { return }
 
-        const indexDuplicate = decls.indexOf(prop)
+        const indexDuplicate = decls.indexOf(prop.toLowerCase())
 
         if (indexDuplicate !== -1) {
           if (
@@ -70,7 +70,7 @@ export default function (on, options) {
           })
         }
 
-        decls.push(prop)
+        decls.push(prop.toLowerCase())
       })
     }
   }

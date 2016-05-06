@@ -36,6 +36,16 @@ testRule(rule, {
     line: 1,
     column: 3,
   }, {
+    code: "a::bEfOrE { color: pink; }",
+    message: messages.expected("single"),
+    line: 1,
+    column: 3,
+  }, {
+    code: "a::BEFORE { color: pink; }",
+    message: messages.expected("single"),
+    line: 1,
+    column: 3,
+  }, {
     code: "a::after { color: pink; }",
     message: messages.expected("single"),
     line: 1,

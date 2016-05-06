@@ -18,16 +18,17 @@ import balancedMatch from "balanced-match"
  * @return {string} - The result string, with the function arguments "blurred"
  */
 export default function (source, functionName, blurChar="`") {
-  const nameWithParen = `${functionName}(`
-  if (!_.includes(source, nameWithParen)) { return source }
+  const nameWithParen = `${functionName.toLowerCase()}(`
+  const lowerCaseSource =  source.toLowerCase()
+  if (!_.includes(lowerCaseSource, nameWithParen)) { return source }
 
   const functionNameLength = functionName.length
 
   let result = source
   let searchStartIndex = 0
-  while (source.indexOf(nameWithParen, searchStartIndex) !== -1) {
-    const openingParenIndex = source.indexOf(nameWithParen, searchStartIndex) + functionNameLength
-    const closingParenIndex = balancedMatch("(", ")", source.slice(openingParenIndex)).end + openingParenIndex
+  while (lowerCaseSource.indexOf(nameWithParen, searchStartIndex) !== -1) {
+    const openingParenIndex = lowerCaseSource.indexOf(nameWithParen, searchStartIndex) + functionNameLength
+    const closingParenIndex = balancedMatch("(", ")", lowerCaseSource.slice(openingParenIndex)).end + openingParenIndex
     const argumentsLength = closingParenIndex - openingParenIndex - 1
     result = result.slice(0, openingParenIndex + 1) + _.repeat(blurChar, argumentsLength) + result.slice(closingParenIndex)
     searchStartIndex = closingParenIndex

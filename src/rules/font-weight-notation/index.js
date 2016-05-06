@@ -43,11 +43,11 @@ export default function (expectation, options) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      if (decl.prop === "font-weight") {
+      if (decl.prop.toLowerCase() === "font-weight") {
         checkWeight(decl.value, decl)
       }
 
-      if (decl.prop === "font") {
+      if (decl.prop.toLowerCase() === "font") {
         checkFont(decl)
       }
     })
@@ -61,9 +61,9 @@ export default function (expectation, options) {
 
       for (const value of postcss.list.space(decl.value)) {
         if (
-          (value === NORMAL_KEYWORD && !hasNumericFontWeight)
+          (value.toLowerCase() === NORMAL_KEYWORD && !hasNumericFontWeight)
           || isNumbery(value)
-          || includes(WEIGHT_SPECIFIC_KEYWORDS, value)
+          || includes(WEIGHT_SPECIFIC_KEYWORDS, value.toLowerCase())
         ) {
           checkWeight(value, decl)
           return
@@ -74,10 +74,12 @@ export default function (expectation, options) {
     function checkWeight(weightValue, decl) {
       if (!isStandardValue(weightValue)) { return }
       if (isVariable(weightValue)) { return }
-      if (weightValue === INHERIT_KEYWORD || weightValue === INITIAL_KEYWORD) { return }
+      if (weightValue.toLowerCase() === INHERIT_KEYWORD
+        || weightValue.toLowerCase() === INITIAL_KEYWORD
+      ) { return }
 
       if (optionsHaveIgnored(options, "relative") &&
-        includes(RELATIVE_NAMED_WEIGHTS, weightValue)) { return }
+        includes(RELATIVE_NAMED_WEIGHTS, weightValue.toLowerCase())) { return }
 
       const weightValueOffset = decl.value.indexOf(weightValue)
 
@@ -89,13 +91,13 @@ export default function (expectation, options) {
 
       if (expectation === "named-where-possible") {
         if (isNumbery(weightValue)) {
-          if (includes(WEIGHTS_WITH_KEYWORD_EQUIVALENTS, weightValue)) {
+          if (includes(WEIGHTS_WITH_KEYWORD_EQUIVALENTS, weightValue.toLowerCase())) {
             complain(messages.expected("named"))
           }
           return
         }
-        if (!includes(WEIGHT_SPECIFIC_KEYWORDS, weightValue)
-          && weightValue !== NORMAL_KEYWORD
+        if (!includes(WEIGHT_SPECIFIC_KEYWORDS, weightValue.toLowerCase())
+          && weightValue.toLowerCase() !== NORMAL_KEYWORD
         ) {
           return complain(messages.invalidNamed(weightValue))
         }

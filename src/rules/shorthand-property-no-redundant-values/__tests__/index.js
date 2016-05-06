@@ -63,6 +63,26 @@ testRule(rule, {
     line: 1,
     column: 5,
   }, {
+    code: "a { margin: 1Px 1pX; }",
+    message: messages.rejected("1Px 1pX", "1Px"),
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { margin: 1PX 1PX; }",
+    message: messages.rejected("1PX 1PX", "1PX"),
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { mArGiN: 1px 1px; }",
+    message: messages.rejected("1px 1px", "1px"),
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { MARGIN: 1px 1px; }",
+    message: messages.rejected("1px 1px", "1px"),
+    line: 1,
+    column: 5,
+  }, {
     code: "a { margin: 1px 1px 1px; }",
     message: messages.rejected("1px 1px 1px", "1px"),
     line: 1,
@@ -70,6 +90,16 @@ testRule(rule, {
   }, {
     code: "a { margin: 1px 2px 1px; }",
     message: messages.rejected("1px 2px 1px", "1px 2px"),
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { margin: 1px 2pX 1px; }",
+    message: messages.rejected("1px 2pX 1px", "1px 2pX"),
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { margin: 1px 2PX 1px; }",
+    message: messages.rejected("1px 2PX 1px", "1px 2PX"),
     line: 1,
     column: 5,
   }, {
@@ -120,6 +150,26 @@ testRule(rule, {
   }, {
     code: "a { border-color: transparent transparent transparent transparent; }",
     message: messages.rejected("transparent transparent transparent transparent", "transparent"),
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { border-color: transparent tRaNsPaReNt TRANSPARENT transparent; }",
+    message: messages.rejected("transparent tRaNsPaReNt TRANSPARENT transparent", "transparent"),
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { border-color: tRaNsPaReNt TRANSPARENT TRANSPARENT transparent; }",
+    message: messages.rejected("tRaNsPaReNt TRANSPARENT TRANSPARENT transparent", "tRaNsPaReNt"),
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { border-color: tRaNsPaReNt tRaNsPaReNt tRaNsPaReNt tRaNsPaReNt; }",
+    message: messages.rejected("tRaNsPaReNt tRaNsPaReNt tRaNsPaReNt tRaNsPaReNt", "tRaNsPaReNt"),
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { border-color: TRANSPARENT TRANSPARENT TRANSPARENT TRANSPARENT; }",
+    message: messages.rejected("TRANSPARENT TRANSPARENT TRANSPARENT TRANSPARENT", "TRANSPARENT"),
     line: 1,
     column: 5,
   }, {

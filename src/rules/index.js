@@ -120,6 +120,7 @@ import selectorPseudoClassCase from "./selector-pseudo-class-case"
 import selectorPseudoClassParenthesesSpaceInside from "./selector-pseudo-class-parentheses-space-inside"
 import selectorPseudoElementCase from "./selector-pseudo-element-case"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
+import selectorPseudoElementNoUnknown from "./selector-pseudo-element-no-unknown"
 import selectorRootNoComposition from "./selector-root-no-composition"
 import selectorTypeCase from "./selector-type-case"
 import shorthandPropertyNoRedundantValues from "./shorthand-property-no-redundant-values"
@@ -261,6 +262,7 @@ export default {
   "selector-pseudo-class-parentheses-space-inside": selectorPseudoClassParenthesesSpaceInside,
   "selector-pseudo-element-case": selectorPseudoElementCase,
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
+  "selector-pseudo-element-no-unknown": selectorPseudoElementNoUnknown,
   "selector-root-no-composition": selectorRootNoComposition,
   "selector-type-case": selectorTypeCase,
   "shorthand-property-no-redundant-values": shorthandPropertyNoRedundantValues,

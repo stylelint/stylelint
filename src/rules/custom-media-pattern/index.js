@@ -25,7 +25,7 @@ export default function (pattern) {
       : pattern
 
     root.walkAtRules(atRule => {
-      if (atRule.name !== "custom-media") { return }
+      if (atRule.name.toLowerCase() !== "custom-media") { return }
 
       const customMediaName = atRule.params.match(/^--(\S+)\b/)[1]
 

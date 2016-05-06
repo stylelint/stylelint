@@ -27,11 +27,30 @@ testRule(rule, {
     code: "a { --custom-property: 0; --custom-property: 1; }",
   }, {
     code: "@fontface { src: url(font.eof); src: url(font.woff) }",
+  }, {
+    code: "@fontface { sRc: url(font.eof); sRc: url(font.woff) }",
+  }, {
+    code: "@fontface { SRC: url(font.eof); SRC: url(font.woff) }",
   } ],
 
   reject: [ {
     code: "a { color: pink; color: orange }",
     message: messages.rejected("color"),
+  }, {
+    code: "a { cOlOr: pink; color: orange }",
+    message: messages.rejected("color"),
+  }, {
+    code: "a { color: pink; cOlOr: orange }",
+    message: messages.rejected("cOlOr"),
+  }, {
+    code: "a { cOlOr: pink; cOlOr: orange }",
+    message: messages.rejected("cOlOr"),
+  }, {
+    code: "a { COLOR: pink; color: orange }",
+    message: messages.rejected("color"),
+  }, {
+    code: "a { color: pink; COLOR: orange }",
+    message: messages.rejected("COLOR"),
   }, {
     code: "a { color: pink; background: orange; color: orange }",
     message: messages.rejected("color"),

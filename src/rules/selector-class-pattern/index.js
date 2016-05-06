@@ -51,7 +51,7 @@ export default function (pattern, options) {
     })
 
     function checkSelector(fullSelector, rule) {
-      fullSelector.eachClass(classNode => {
+      fullSelector.walkClasses(classNode => {
         const { value, sourceIndex } = classNode
         if (normalizedPattern.test(value)) { return }
         report({

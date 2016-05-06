@@ -27,7 +27,7 @@ export default function (actual) {
 
     root.walkDecls(decl => {
       valueParser(decl.value).walk(node => {
-        if (node.type !== "function" || node.value !== "calc") { return }
+        if (node.type !== "function" || node.value.toLowerCase() !== "calc") { return }
 
         const parensMatch = balancedMatch("(", ")", valueParser.stringify(node))
         const rawExpression = parensMatch.body

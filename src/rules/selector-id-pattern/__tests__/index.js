@@ -48,8 +48,11 @@ testRule(rule, {
   syntax: "scss",
   config: [/^[A-Z]+$/],
 
-  accept:[{
+  accept:[ {
     code: "@for $n from 1 through 5 { #a#{$n} { } }",
     description: "ignore sass interpolation inside @for",
-  }],
+  }, {
+    code: ".#{$a} {}",
+    description: "ignore sass var interpolation",
+  } ],
 })

@@ -29,8 +29,12 @@ export default function (actual) {
       const comparisonContext = selectorContextLookup.getContext(rule, findAtRuleContext(rule))
 
       rule.selectors.forEach(selector => {
+        const trimSelector = selector.trim()
+        // Ignore `.selector, { }`
+        if (trimSelector === "") { return }
+
         // The edge-case of duplicate selectors will act acceptably
-        const index = rule.selector.indexOf(selector.trim())
+        const index = rule.selector.indexOf(trimSelector)
         // Resolve any nested selectors before checking
         resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {
           selectorParser(s => checkSelector(s, rule, index, comparisonContext)).process(resolvedSelector)

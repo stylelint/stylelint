@@ -13,7 +13,15 @@ const sharedAlwaysTests = {
   }, {
     code: "a {}\n\n@media {}",
   }, {
+    code: "a {}\n\n@mEdIa {}",
+  }, {
+    code: "a {}\n\n@MEDIA {}",
+  }, {
     code: "@keyframes foo {}\n\n@media {}",
+  }, {
+    code: "@kEyFrAmEs foo {}\n\n@MeDia {}",
+  }, {
+    code: "@KEYFRAMES foo {}\n\n@MEDIA {}",
   }, {
     code: "a {}\r\n\r\n@media {}",
     description: "windows",
@@ -24,6 +32,12 @@ const sharedAlwaysTests = {
 
   reject: [ {
     code: "a {} @media {}",
+    message: messages.expected,
+  }, {
+    code: "a {} @mEdIa {}",
+    message: messages.expected,
+  }, {
+    code: "a {} @MEDIA {}",
     message: messages.expected,
   }, {
     code: "@keyframes foo {} @media {}",

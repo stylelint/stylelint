@@ -11,6 +11,10 @@ testRule(rule, {
   }, {
     code: "a::before { content: \"3.12345px\"; }",
   }, {
+    code: "a::before { cOnTeNt: \"3.12345px\"; }",
+  }, {
+    code: "a::before { CONTENT: \"3.12345px\"; }",
+  }, {
     code: "a { top: 3%; }",
   }, {
     code: "a { top: 3.1%; }",
@@ -20,6 +24,10 @@ testRule(rule, {
     code: "a { padding: 6.1% 3.12%; }",
   }, {
     code: "@media (min-width: 5.12em) {}",
+  }, {
+    code: "@import '1.123.css'",
+  }, {
+    code: "a { background: url(1.123.jpg) }",
   } ],
 
   reject: [ {

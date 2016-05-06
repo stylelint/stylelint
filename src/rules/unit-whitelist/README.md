@@ -47,5 +47,9 @@ a { height: 100px; }
 ```
 
 ```css
+a { height: 100PX; }
+```
+
+```css
 a { transform: rotate(30deg); }
 ```

@@ -153,6 +153,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`selector-pseudo-class-parentheses-space-inside`](../../src/rules/selector-pseudo-class-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors.
 - [`selector-pseudo-element-case`](../../src/rules/selector-pseudo-element-case/README.md): Specify lowercase or uppercase for pseudo-element selectors.
 - [`selector-pseudo-element-colon-notation`](../../src/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
+- [`selector-pseudo-element-no-unknown`](../../src/rules/selector-pseudo-element-no-unknown/README.md): Disallow unknown pseudo-element selectors.
 - [`selector-root-no-composition`](../../src/rules/selector-root-no-composition/README.md): Disallow the composition of `:root` in selectors.
 - [`selector-type-case`](../../src/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selector.
 - [`selector-max-empty-lines`](../../src/rules/selector-max-empty-lines/README.md): Limit the number of adjacent empty lines within selectors.

@@ -27,7 +27,10 @@ export default function (expectation) {
 
     root.walkDecls(function (decl) {
       valueParser(decl.value).walk(valueNode => {
-        if (valueNode.type !== "function" || valueNode.value !== "url" || !valueNode.nodes[0]) { return }
+        if (valueNode.type !== "function"
+          || valueNode.value.toLowerCase() !== "url"
+          || !valueNode.nodes[0]
+        ) { return }
 
         const urlValueNode = valueNode.nodes[0]
 
@@ -36,7 +39,7 @@ export default function (expectation) {
           || isVariable(urlValueNode.value)
         ) { return }
 
-        const valueContainDataUris = urlValueNode.value.indexOf("data:") === 0
+        const valueContainDataUris = urlValueNode.value.toLowerCase().indexOf("data:") === 0
         const needUrlDataUris = expectation === "always"
 
         if (valueContainDataUris && needUrlDataUris
