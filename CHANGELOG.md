@@ -1,6 +1,6 @@
 # Head
 
-- Deprecated: support for unprefixed plugin names i.e. only `your-prefix/your-rule-name` are supported. If your plugin exports a single rule then prefix your rule name with just a slash (e.g. `/your-rule-name`).
+- Deprecated: support for plugin names that aren't namedspaced i.e. only `your-namespace/your-rule-name` are supported. If your plugin exports a single rule then you may simply namespace your rule a slash (e.g. `/your-rule-name`).
 - Added: support for plugin modules that provides an array of rules.
 - Added: support for extracting and linting CSS from within HTML sources.
 - Added: `selector-attribute-operator-space-after` rule.

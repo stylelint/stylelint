@@ -183,7 +183,7 @@ test("deprecation warning for slashless plugin rule names", t => {
 
   postcss().use(stylelint(config)).process(".foo {}").then(result => {
     t.equal(result.warnings().length, 2)
-    t.equal(result.warnings()[0].text, "Unprefixed plugin rules have been deprecated, and in 7.0 they will be disallowed.")
+    t.equal(result.warnings()[0].text, "Plugin rules that aren't namespaced have been deprecated, and in 7.0 they will be disallowed.")
     t.equal(result.warnings()[0].stylelintType, "deprecation")
     t.equal(result.warnings()[1].text, "found .foo (slashless-warn-about-foo)")
   }).catch(logError)

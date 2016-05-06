@@ -58,7 +58,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
             }
             if (!_.includes(plugin.ruleName, "/")) {
               result.warn((
-                "Unprefixed plugin rules have been deprecated, " +
+                "Plugin rules that aren't namespaced have been deprecated, " +
                 "and in 7.0 they will be disallowed."
               ), {
                 stylelintType: "deprecation",
