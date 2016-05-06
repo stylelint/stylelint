@@ -5,7 +5,7 @@
 
 var stylelint = require("stylelint")
 
-var myPluginRuleName = "/foobar"
+var myPluginRuleName = "plugin/foobar"
 var myPluginRule = stylelint.createPlugin(myPluginRuleName, function(expectationKeyword, optionsObject) {
   return function(postcssRoot, postcssResult) {
     // ... some logic ...

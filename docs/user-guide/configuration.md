@@ -188,7 +188,7 @@ Once the plugin is declared, within your `"rules"` object *you'll need to add op
     "../special-rule.js"
   ],
   "rules": {
-    "/special-rule": "everything"
+    "plugin/special-rule": "everything"
   },
 }
 ```
