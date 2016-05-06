@@ -144,10 +144,10 @@ testRule(rule, {
   config: ["always-multi-line"],
   syntax: "scss",
 
-  accept: [ {
+  accept: [{
     code: "$map: (key: value,\nkey2: value2)",
     description: "SCSS map",
-  } ],
+  }],
 })
 
 testRule(rule, {
@@ -206,8 +206,8 @@ testRule(rule, {
   config: ["never-multi-line"],
   syntax: "scss",
 
-  accept: [ {
+  accept: [{
     code: "$map: (key: value\n,key2: value2)",
     description: "SCSS map",
-  } ],
+  }],
 })

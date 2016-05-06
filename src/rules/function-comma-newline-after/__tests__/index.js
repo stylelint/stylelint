@@ -297,7 +297,7 @@ testRule(rule, {
   config: ["never-multi-line"],
   syntax: "scss",
 
-  accept: [{
+  accept: [ {
     code: "$map: (key: value,\nkey2: value2)",
     description: "sass map",
   }, {
@@ -308,4 +308,4 @@ testRule(rule, {
     `,
     description: "eol comments",
   } ],
-});
+})

@@ -43,9 +43,9 @@ export default function (expectation) {
 
 export function functionCommaSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
-    let declValue = (() => {
-      let raws = decl.raws.value;
-      return (raws && raws.raw) || decl.value;
+    const declValue = (() => {
+      const raws = decl.raws.value
+      return (raws && raws.raw) || decl.value
     })()
 
     valueParser(declValue).walk(valueNode => {
@@ -64,7 +64,7 @@ export function functionCommaSpaceChecker({ locationChecker, root, result, check
         result = result.slice(0, result.length - 1)
         // 1. Remove comments including preceeding whitespace (when only succeeded by whitespace)
         // 2. Remove all other comments, but leave adjacent whitespace intact
-        result = result.replace(/(\ *\/(\*.*\*\/(?!\S)|\/.*)|(\/(\*.*\*\/|\/.*)))/, '')
+        result = result.replace(/(\ *\/(\*.*\*\/(?!\S)|\/.*)|(\/(\*.*\*\/|\/.*)))/, "")
         return result
       })()
 
