@@ -1,8 +1,8 @@
 import stylelint from "../../"
 
-const ruleName = "/warn-about-foo"
+const ruleName = "plugin/warn-about-foo"
 
-const warnAboutFooMessages = stylelint.utils.ruleMessages("/warn-about-foo", {
+const warnAboutFooMessages = stylelint.utils.ruleMessages("plugin/warn-about-foo", {
   found: "found .foo",
 })
 

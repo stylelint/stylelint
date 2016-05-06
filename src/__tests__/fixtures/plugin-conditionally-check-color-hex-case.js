@@ -1,6 +1,6 @@
 import stylelint from "../../"
 
-const ruleName = "/conditionally-check-color-hex-case"
+const ruleName = "plugin/conditionally-check-color-hex-case"
 
 export default stylelint.createPlugin(ruleName, function (expectation) {
   const colorHexCaseRule = stylelint.rules["color-hex-case"](expectation)
