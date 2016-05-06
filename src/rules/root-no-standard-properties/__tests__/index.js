@@ -9,6 +9,10 @@ testRule(rule, {
   accept: [ {
     code: ":root { --foo: 0; }",
   }, {
+    code: ":rOoT { --foo: 0; }",
+  }, {
+    code: ":ROOT { --foo: 0; }",
+  }, {
     code: "a, :root { --foo: 0; }",
   }, {
     code: "a { color: pink; } :root { --foo: 0; }",
@@ -18,6 +22,18 @@ testRule(rule, {
     code: ":root { @less: 0; }",
   }, {
     code: ":not(:root) { color: pink; }",
+    description: "negation pseudo-class",
+  }, {
+    code: ":nOt(:root) { color: pink; }",
+    description: "negation pseudo-class",
+  }, {
+    code: ":NOT(:root) { color: pink; }",
+    description: "negation pseudo-class",
+  }, {
+    code: ":not(:rOoT) { color: pink; }",
+    description: "negation pseudo-class",
+  }, {
+    code: ":not(:ROOT) { color: pink; }",
     description: "negation pseudo-class",
   }, {
     code: "svg:not(:root) { color: pink; }",
@@ -39,6 +55,16 @@ testRule(rule, {
     line: 1,
     column: 9,
   }, {
+    code: ":rOoT { top: 0; }",
+    message: messages.rejected("top"),
+    line: 1,
+    column: 9,
+  }, {
+    code: ":ROOT { top: 0; }",
+    message: messages.rejected("top"),
+    line: 1,
+    column: 9,
+  }, {
     code: ":root { -webkit-transform: scale(0); }",
     message: messages.rejected("-webkit-transform"),
     line: 1,
@@ -55,6 +81,16 @@ testRule(rule, {
     column: 28,
   }, {
     code: ":root, :not(a) { color: pink; }",
+    message: messages.rejected("color"),
+    line: 1,
+    column: 18,
+  }, {
+    code: ":rOoT, :nOt(a) { color: pink; }",
+    message: messages.rejected("color"),
+    line: 1,
+    column: 18,
+  }, {
+    code: ":ROOT, :NOT(a) { color: pink; }",
     message: messages.rejected("color"),
     line: 1,
     column: 18,

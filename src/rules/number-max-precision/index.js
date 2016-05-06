@@ -25,7 +25,7 @@ export default function (precision) {
 
     root.walkDecls(decl => {
       // Don't bother with strings
-      if (decl.prop === "content") { return }
+      if (decl.prop.toLowerCase() === "content") { return }
       check(decl.toString(), decl)
     })
 

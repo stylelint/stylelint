@@ -16,9 +16,10 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (rule.selector.indexOf(":root") === -1) { return }
-
-      if (rule.selector.trim() === ":root") { return }
+      if (rule.selector.toLowerCase().indexOf(":root") === -1
+      || rule.selector.toLowerCase().trim() === ":root") {
+        return
+      }
 
       report({
         message: messages.rejected,

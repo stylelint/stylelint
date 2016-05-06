@@ -37,11 +37,13 @@ export default function (actual) {
     })
 
     root.walkDecls(decl => {
-      if (decl.prop === "animation-name" && !animationNameKeywords.has(decl.value)) {
+      if (decl.prop.toLowerCase() === "animation-name"
+        && !animationNameKeywords.has(decl.value.toLowerCase())
+      ) {
         checkAnimationName(decl.value, decl)
       }
 
-      if (decl.prop === "animation") {
+      if (decl.prop.toLowerCase() === "animation") {
         const valueList = postcss.list.space(decl.value)
         for (const value of valueList) {
           // Ignore non standard syntax
@@ -51,7 +53,7 @@ export default function (actual) {
           // Ignore numbers with units
           if (postcssValueParser.unit(value)) { continue }
           // Ignore keywords for other animation parts
-          if (animationShorthandKeywords.has(value)) { continue }
+          if (animationShorthandKeywords.has(value.toLowerCase())) { continue }
           // Ignore functions
           if (value.indexOf("(") !== -1) { continue }
           checkAnimationName(value, decl, decl.value.indexOf(value))

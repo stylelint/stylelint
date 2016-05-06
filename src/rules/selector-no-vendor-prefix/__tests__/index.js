@@ -29,6 +29,16 @@ testRule(rule, {
     line: 1,
     column: 1,
   }, {
+    code: ":-wEbKiT-fUlL-sCrEeN a {}",
+    message: messages.rejected(":-wEbKiT-fUlL-sCrEeN"),
+    line: 1,
+    column: 1,
+  }, {
+    code: ":-WEBKIT-FULL-SCREEN a {}",
+    message: messages.rejected(":-WEBKIT-FULL-SCREEN"),
+    line: 1,
+    column: 1,
+  }, {
     code: "body, :-ms-fullscreen a {}",
     message: messages.rejected(":-ms-fullscreen"),
     line: 1,

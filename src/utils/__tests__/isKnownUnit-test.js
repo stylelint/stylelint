@@ -5,6 +5,8 @@ test("isKnownUnit", t => {
   t.notOk(isKnownUnit("pix"))
   t.notOk(isKnownUnit("pixels"))
   t.ok(isKnownUnit("em"))
+  t.ok(isKnownUnit("Em"))
+  t.ok(isKnownUnit("EM"))
   t.ok(isKnownUnit("ex"))
   t.ok(isKnownUnit("ch"))
   t.ok(isKnownUnit("rem"))

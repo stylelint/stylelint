@@ -11,6 +11,10 @@ testRule(rule, {
   }, {
     code: "a::before { content: \"3.12345px\"; }",
   }, {
+    code: "a::before { cOnTeNt: \"3.12345px\"; }",
+  }, {
+    code: "a::before { CONTENT: \"3.12345px\"; }",
+  }, {
     code: "a { top: 3%; }",
   }, {
     code: "a { top: 3.1%; }",

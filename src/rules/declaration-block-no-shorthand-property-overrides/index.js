@@ -22,24 +22,24 @@ export default function (actual) {
     root.walkAtRules(check)
 
     function check(statement) {
-      const declarations = new Set()
+      const declarations = {}
       // Shallow iteration so nesting doesn't produce
       // false positives
       statement.each(node => {
         if (node.type !== "decl") { return }
         const { prop } = node
-        const overrideables = shorthands[prop]
+        const overrideables = shorthands[prop.toLowerCase()]
         if (!overrideables) {
-          declarations.add(prop)
+          declarations[prop.toLowerCase()] = prop
           return
         }
         overrideables.forEach(longhandProp => {
-          if (!declarations.has(longhandProp)) { return }
+          if (!declarations.hasOwnProperty(longhandProp)) { return }
           report({
             ruleName,
             result,
             node,
-            message: messages.rejected(prop, longhandProp),
+            message: messages.rejected(prop, declarations[longhandProp]),
           })
         })
       })

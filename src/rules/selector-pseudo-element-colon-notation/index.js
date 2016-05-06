@@ -30,21 +30,23 @@ export default function (expectation) {
       if (selector.indexOf(":") === -1) { return }
 
       // match only level 1 and 2 pseudo elements
-      styleSearch({ source: selector, target: [ ":before", ":after", ":first-line", ":first-letter" ] }, match => {
+      styleSearch({
+        source: selector.toLowerCase(),
+        target: [ ":before", ":after", ":first-line", ":first-letter" ] },
+        match => {
+          const prevCharIsColon = selector[match.startIndex - 1] === ":"
 
-        const prevCharIsColon = selector[match.startIndex - 1] === ":"
+          if (expectation === "single" && !prevCharIsColon) { return }
+          if (expectation === "double" && prevCharIsColon) { return }
 
-        if (expectation === "single" && !prevCharIsColon) { return }
-        if (expectation === "double" && prevCharIsColon) { return }
-
-        report({
-          message: messages.expected(expectation),
-          node: rule,
-          index: match.startIndex,
-          result,
-          ruleName,
+          report({
+            message: messages.expected(expectation),
+            node: rule,
+            index: match.startIndex,
+            result,
+            ruleName,
+          })
         })
-      })
     })
   }
 }

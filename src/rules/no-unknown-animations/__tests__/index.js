@@ -69,10 +69,28 @@ testRule(rule, {
   }, {
     code: "@keyframes foo {} a { animation: foo 100ms cubic-bezier(0.1, 0.7, 1.0, 0.1); }",
     description: "ignores cubic-bezier() function",
+  }, {
+    code: "@keyframes fOo {} a { animation: fOo 100Ms CuBiC-bEzIeR(0.1, 0.7, 1.0, 0.1); }",
+    description: "ignores CuBiC-bEzIeR() function",
+  }, {
+    code: "@keyframes FOO {} a { animation: FOO 100MS CUBIC-BEZIER(0.1, 0.7, 1.0, 0.1); }",
+    description: "ignores CUBIC-BEZIER() function",
   } ],
 
   reject: [ {
     code: "a { animation-name: foo; }",
+    description: "no declaration",
+    message: messages.rejected("foo"),
+    line: 1,
+    column: 21,
+  }, {
+    code: "a { aNiMaTiOn-NaMe: foo; }",
+    description: "no declaration",
+    message: messages.rejected("foo"),
+    line: 1,
+    column: 21,
+  }, {
+    code: "a { ANIMATION-NAME: foo; }",
     description: "no declaration",
     message: messages.rejected("foo"),
     line: 1,
@@ -87,6 +105,18 @@ testRule(rule, {
     code: "a { animation: baz 100ms ease-in backwards; } @keyframes bar {}",
     description: "no matching declaration with animation shorthand",
     message: messages.rejected("baz"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { animation: bAz 100Ms EaSe-In BaCkWaRdS; } @keyframes bAr {}",
+    description: "no matching declaration with animation shorthand",
+    message: messages.rejected("bAz"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { animation: BAZ 100MS EASE-IN BACKWARDS; } @keyframes BAR {}",
+    description: "no matching declaration with animation shorthand",
+    message: messages.rejected("BAZ"),
     line: 1,
     column: 16,
   } ],

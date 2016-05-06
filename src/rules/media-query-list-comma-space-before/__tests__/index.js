@@ -11,6 +11,10 @@ testRule(rule, {
   }, {
     code: "@media (max-width: 600px) {}",
   }, {
+    code: "@mEdIa (max-width: 600px) {}",
+  }, {
+    code: "@MEDIA (max-width: 600px) {}",
+  }, {
     code: "@media screen and (color) , projection and (color) {}",
   }, {
     code: "@media screen and (color) ,  projection and (color) {}",
@@ -23,6 +27,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@media screen and (color), projection and (color)",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 26,
+  }, {
+    code: "@mEdIa screen and (color), projection and (color)",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 26,
+  }, {
+    code: "@MEDIA screen and (color), projection and (color)",
     message: messages.expectedBefore(),
     line: 1,
     column: 26,
@@ -59,6 +73,10 @@ testRule(rule, {
   }, {
     code: "@media (max-width: 600px) {}",
   }, {
+    code: "@mEdIa (max-width: 600px) {}",
+  }, {
+    code: "@MEDIA (max-width: 600px) {}",
+  }, {
     code: "@media screen and (color),projection and (color) {}",
   }, {
     code: "@media screen and (color), projection and (color) {}",
@@ -71,6 +89,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@media screen and (color) , projection and (color)",
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 27,
+  }, {
+    code: "@mEdIa screen and (color) , projection and (color)",
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 27,
+  }, {
+    code: "@MEDIA screen and (color) , projection and (color)",
     message: messages.rejectedBefore(),
     line: 1,
     column: 27,
@@ -105,6 +133,10 @@ testRule(rule, {
   accept: [ {
     code: "@media screen and (color) ,projection and (color) {}",
   }, {
+    code: "@mEdIa screen and (color) ,projection and (color) {}",
+  }, {
+    code: "@MEDIA screen and (color) ,projection and (color) {}",
+  }, {
     code: "@media screen and (color) ,projection and (color) {\n}",
     description: "single-line list, multi-line block",
   }, {
@@ -120,6 +152,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@media screen and (color), projection and (color) {}",
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 26,
+  }, {
+    code: "@mEdIa screen and (color), projection and (color) {}",
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 26,
+  }, {
+    code: "@MEDIA screen and (color), projection and (color) {}",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 26,
@@ -145,6 +187,10 @@ testRule(rule, {
   accept: [ {
     code: "@media screen and (color), projection and (color) {}",
   }, {
+    code: "@mEdIa screen and (color), projection and (color) {}",
+  }, {
+    code: "@MEDIA screen and (color), projection and (color) {}",
+  }, {
     code: "@media screen and (color), projection and (color) {\n}",
     description: "single-line list, multi-line block",
   }, {
@@ -160,6 +206,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@media screen and (color) ,projection and (color) {}",
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 27,
+  }, {
+    code: "@mEdIa screen and (color) ,projection and (color) {}",
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 27,
+  }, {
+    code: "@MEDIA screen and (color) ,projection and (color) {}",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 27,

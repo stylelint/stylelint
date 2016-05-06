@@ -5,5 +5,5 @@
  * @return {boolean} If `true`, the word is a variable
  */
 export default function (word) {
-  return (word.slice(0, 4) === "var(")
+  return (word.toLowerCase().slice(0, 4) === "var(")
 }

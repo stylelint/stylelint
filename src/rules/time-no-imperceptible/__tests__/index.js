@@ -9,6 +9,10 @@ testRule(rule, {
   accept: [ {
     code: "a { transition-delay: 0.2s; }",
   }, {
+    code: "a { tRaNsItIoN-dElAy: 0.2s; }",
+  }, {
+    code: "a { TRANSITION-DELAY: 0.2s; }",
+  }, {
     code: "a { transition-delay: 3s; }",
   }, {
     code: "a { transition-delay: 200ms; }",
@@ -24,6 +28,10 @@ testRule(rule, {
     code: "a { transition-duration: 4700ms; }",
   }, {
     code: "a { transition: foo 0.8s linear; }",
+  }, {
+    code: "a { tRaNsItIoN: foo 0.8s linear; }",
+  }, {
+    code: "a { TRANSITION: foo 0.8s linear; }",
   }, {
     code: "a { transition: foo 0.8s 200ms ease-in-out; }",
   }, {
@@ -54,8 +62,28 @@ testRule(rule, {
     line: 1,
     column: 23,
   }, {
+    code: "a { tRaNsItIoN-dElAy: 0.006s; }",
+    message: messages.rejected("0.006s"),
+    line: 1,
+    column: 23,
+  }, {
+    code: "a { TRANSITION-DELAY: 0.006s; }",
+    message: messages.rejected("0.006s"),
+    line: 1,
+    column: 23,
+  }, {
+    code: "a { transition-delay: 0.006S; }",
+    message: messages.rejected("0.006S"),
+    line: 1,
+    column: 23,
+  }, {
     code: "a { transition-delay: 3ms; }",
     message: messages.rejected("3ms"),
+    line: 1,
+    column: 23,
+  }, {
+    code: "a { transition-delay: 3MS; }",
+    message: messages.rejected("3MS"),
     line: 1,
     column: 23,
   }, {
@@ -70,6 +98,16 @@ testRule(rule, {
     column: 26,
   }, {
     code: "a { transition: foo 0.008s linear; }",
+    message: messages.rejected("0.008s"),
+    line: 1,
+    column: 21,
+  }, {
+    code: "a { tRaNsItIoN: foo 0.008s linear; }",
+    message: messages.rejected("0.008s"),
+    line: 1,
+    column: 21,
+  }, {
+    code: "a { TRANSITION: foo 0.008s linear; }",
     message: messages.rejected("0.008s"),
     line: 1,
     column: 21,

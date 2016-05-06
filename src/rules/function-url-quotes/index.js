@@ -60,7 +60,7 @@ export default function (expectation) {
       }
 
       statement.walkDecls(function (decl) {
-        functionArgumentsSearch(decl.toString(), "url", (args, index) => {
+        functionArgumentsSearch(decl.toString().toLowerCase(), "url", (args, index) => {
           const trimLeftArgs = args.trimLeft()
           if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
           complain(messages.expected(quoteMsg), decl, index + args.length - trimLeftArgs.length)
@@ -69,7 +69,8 @@ export default function (expectation) {
     }
 
     function checkAtRuleParams(atRule) {
-      functionArgumentsSearch(atRule.params, "url", (args, index) => {
+      const atRuleParamsLowerCase = atRule.params.toLowerCase()
+      functionArgumentsSearch(atRuleParamsLowerCase, "url", (args, index) => {
         const trimLeftArgs = args.trimLeft()
         if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
         complain(
@@ -78,7 +79,7 @@ export default function (expectation) {
           index + args.length - trimLeftArgs.length + atRuleParamIndex(atRule)
         )
       })
-      functionArgumentsSearch(atRule.params, "url-prefix", (args, index) => {
+      functionArgumentsSearch(atRuleParamsLowerCase, "url-prefix", (args, index) => {
         const trimLeftArgs = args.trimLeft()
         if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
         complain(
@@ -87,7 +88,7 @@ export default function (expectation) {
           index + args.length - trimLeftArgs.length + atRuleParamIndex(atRule)
         )
       })
-      functionArgumentsSearch(atRule.params, "domain", (args, index) => {
+      functionArgumentsSearch(atRuleParamsLowerCase, "domain", (args, index) => {
         const trimLeftArgs = args.trimLeft()
         if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
         complain(
