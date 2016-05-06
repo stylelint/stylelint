@@ -1,3 +1,4 @@
+import _ from "lodash"
 import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
@@ -43,10 +44,7 @@ export default function (expectation) {
 
 export function functionCommaSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
-    const declValue = (() => {
-      const raws = decl.raws.value
-      return (raws && raws.raw) || decl.value
-    })()
+    const declValue = _.get(decl, "raws.value.raw", decl.value)
 
     valueParser(declValue).walk(valueNode => {
       if (valueNode.type !== "function") { return }
