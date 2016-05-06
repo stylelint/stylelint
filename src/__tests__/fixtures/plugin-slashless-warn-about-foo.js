@@ -1,8 +1,8 @@
 import stylelint from "../../"
 
-const ruleName = "/warn-about-foo"
+const ruleName = "slashless-warn-about-foo"
 
-const warnAboutFooMessages = stylelint.utils.ruleMessages("/warn-about-foo", {
+const warnAboutFooMessages = stylelint.utils.ruleMessages("slashless-warn-about-foo", {
   found: "found .foo",
 })
 

@@ -16,7 +16,7 @@ const configRelative = {
     "./fixtures/plugin-warn-about-foo",
   ],
   rules: {
-    "warn-about-foo": "always",
+    "/warn-about-foo": "always",
     "block-no-empty": true,
   },
 }
@@ -26,7 +26,7 @@ const configAbsolute = {
     path.join(__dirname, "./fixtures/plugin-warn-about-foo"),
   ],
   rules: {
-    "warn-about-foo": "always",
+    "/warn-about-foo": "always",
     "block-no-empty": true,
   },
 }
@@ -47,7 +47,7 @@ test("plugin runs", t => {
   processorRelative.process(cssWithFoo)
     .then(result => {
       t.equal(result.warnings().length, 2)
-      t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
+      t.equal(result.warnings()[0].text, "found .foo (/warn-about-foo)")
       t.ok(result.warnings()[0].node)
     })
     .catch(logError)
@@ -70,7 +70,7 @@ test("plugin with absolute path and no configBasedir", t => {
   processorAbsolute.process(cssWithFoo)
     .then(result => {
       t.equal(result.warnings().length, 2)
-      t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
+      t.equal(result.warnings()[0].text, "found .foo (/warn-about-foo)")
       t.ok(result.warnings()[0].node)
     })
     .catch(logError)
@@ -85,7 +85,7 @@ test("config extending another config that invokes a plugin with a relative path
   processorExtendRelative.process(cssWithFoo)
     .then(result => {
       t.equal(result.warnings().length, 1)
-      t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
+      t.equal(result.warnings()[0].text, "found .foo (/warn-about-foo)")
       t.ok(result.warnings()[0].node)
     })
     .catch(logError)
@@ -105,7 +105,7 @@ test("plugin using exposed rules via stylelint.rules", t => {
     config: {
       plugins: [path.join(__dirname, "fixtures/plugin-conditionally-check-color-hex-case")],
       rules: {
-        "conditionally-check-color-hex-case": expectation,
+        "/conditionally-check-color-hex-case": expectation,
       },
     },
   })
@@ -149,8 +149,8 @@ test("module providing an array of plugins", t => {
   const config = {
     plugins: [path.join(__dirname, "fixtures/plugin-array")],
     rules: {
-      "conditionally-check-color-hex-case": "upper",
-      "warn-about-foo": "always",
+      "/conditionally-check-color-hex-case": "upper",
+      "/warn-about-foo": "always",
     },
   }
 
@@ -164,9 +164,30 @@ test("module providing an array of plugins", t => {
 
   postcss().use(stylelint(config)).process(".foo {}").then(result => {
     t.equal(result.warnings().length, 1)
-    t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
+    t.equal(result.warnings()[0].text, "found .foo (/warn-about-foo)")
   }).catch(logError)
   planned += 2
+
+  t.plan(planned)
+})
+
+test("deprecation warning for slashless plugin rule names", t => {
+  const config = {
+    plugins: [path.join(__dirname, "fixtures/plugin-slashless-warn-about-foo")],
+    rules: {
+      "slashless-warn-about-foo": "always",
+    },
+  }
+
+  let planned = 0
+
+  postcss().use(stylelint(config)).process(".foo {}").then(result => {
+    t.equal(result.warnings().length, 2)
+    t.equal(result.warnings()[0].text, "Unprefixed plugin rules have been deprecated, and in 7.0 they will be disallowed.")
+    t.equal(result.warnings()[0].stylelintType, "deprecation")
+    t.equal(result.warnings()[1].text, "found .foo (slashless-warn-about-foo)")
+  }).catch(logError)
+  planned += 4
 
   t.plan(planned)
 })
