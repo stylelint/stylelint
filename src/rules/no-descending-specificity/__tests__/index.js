@@ -46,6 +46,11 @@ testRule(rule, {
     line: 1,
     column: 8,
   }, {
+    code: "b a, {} a, {}",
+    message: messages.rejected("a", "b a"),
+    line: 1,
+    column: 9,
+  }, {
     code: "a + a {} a {}",
     message: messages.rejected("a", "a + a"),
     line: 1,
