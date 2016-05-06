@@ -22,11 +22,15 @@ testRule(rule, {
   }, {
     code: "a { transform: color(rgb(0\n  , 0\n  ,0) lightness(50%)); }",
   }, {
-    code: "$map: (key: value, key2: value2)",
-    description: "Sass map ignored",
-  }, {
-    code: "$list: (value, value2)",
-    description: "Sass list ignored",
+    code: `
+      a {
+        transform: translate(
+          1px /* comment */
+          ,1px
+        );
+      }
+    `,
+    description: "eol comments",
   } ],
 
   reject: [ {
@@ -64,6 +68,20 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: ["always"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value, key2: value2)",
+    description: "Sass map ignored",
+  }, {
+    code: "$list: (value, value2)",
+    description: "Sass list ignored",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: ["always-multi-line"],
 
   accept: [ {
@@ -92,8 +110,15 @@ testRule(rule, {
   }, {
     code: "a { background: linear-gradient(45deg\n, rgba(0, 0, 0, 1)\n, red); }",
   }, {
-    code: "$map: (key: value,\nkey2: value2)",
-    description: "SCSS map",
+    code: `
+      a {
+        transform: translate(
+          1px /* comment */
+          ,1px
+        );
+      }
+    `,
+    description: "eol comments",
   } ],
 
   reject: [ {
@@ -116,6 +141,17 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: ["always-multi-line"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value,\nkey2: value2)",
+    description: "SCSS map",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: ["never-multi-line"],
 
   accept: [ {
@@ -130,9 +166,6 @@ testRule(rule, {
     code: "a { transform: translate(1 , 1); }",
   }, {
     code: "a { transform: translate(1\t,1); }",
-  }, {
-    code: "$map: (key: value\n,key2: value2)",
-    description: "SCSS map",
   } ],
 
   reject: [ {
@@ -155,5 +188,26 @@ testRule(rule, {
     message: messages.rejectedBeforeMultiLine(),
     line: 3,
     column: 1,
+  }, {
+    code: `
+      a {
+        transform: translate(
+          1px /* comment */
+          , 1px
+        );
+      }
+    `,
+    description: "eol comments",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["never-multi-line"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "$map: (key: value\n,key2: value2)",
+    description: "SCSS map",
   } ],
 })

@@ -18,6 +18,7 @@
 - Fixed: `function-url-quotes` now ignores spaces within `url()`.
 - Fixed: `value-list-comma-*` rules now ignore SCSS maps.
 - Fixed: `no-descending-specificity` now ignores trailing colons within selectors.
+- Fixed: `function-comma-newline-after` now allows comments at the end of a line.
 
 # 6.2.2
 
