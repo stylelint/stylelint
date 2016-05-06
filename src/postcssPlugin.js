@@ -1,7 +1,7 @@
 import postcss from "postcss"
 import multimatch from "multimatch"
 import globjoin from "globjoin"
-import { get } from "lodash"
+import _ from "lodash"
 import path from "path"
 import { configurationError } from "./utils"
 import ruleDefinitions from "./rules"
@@ -36,7 +36,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
           if (path.isAbsolute(glob)) return glob
           return globjoin(configDir, glob)
         })
-        const sourcePath = get(root, "source.input.file", "")
+        const sourcePath = _.get(root, "source.input.file", "")
         if (multimatch(sourcePath, absoluteIgnoreFiles).length) {
           result.warn("This file is ignored", { severity: "info" })
           return
@@ -55,6 +55,15 @@ export default postcss.plugin("stylelint", (options = {}) => {
                 `The plugin "${pluginPath}" is not doing this, so will not work ` +
                 "with stylelint v3+. Please file an issue with the plugin."
               )
+            }
+            if (!_.includes(plugin.ruleName, "/")) {
+              result.warn((
+                "Plugin rules that aren't namespaced have been deprecated, " +
+                "and in 7.0 they will be disallowed."
+              ), {
+                stylelintType: "deprecation",
+                stylelintReference: "http://stylelint.io/developer-guide/plugins/",
+              })
             }
             ruleDefinitions[plugin.ruleName] = plugin.rule
           })
@@ -81,7 +90,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
         if (primaryOption === null) { return }
 
         // Log the rule's severity in the PostCSS result
-        result.stylelint.ruleSeverities[ruleName] = get(secondaryOptions, "severity", "error")
+        result.stylelint.ruleSeverities[ruleName] = _.get(secondaryOptions, "severity", "error")
         result.stylelint.customMessages[ruleName] = secondaryOptions && secondaryOptions.message
 
         // Run the rule with the primary and secondary options

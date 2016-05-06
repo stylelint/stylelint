@@ -5,7 +5,7 @@
 
 var stylelint = require("stylelint")
 
-var myPluginRuleName = "foobar"
+var myPluginRuleName = "plugin/foobar"
 var myPluginRule = stylelint.createPlugin(myPluginRuleName, function(expectationKeyword, optionsObject) {
   return function(postcssRoot, postcssResult) {
     // ... some logic ...
@@ -15,6 +15,8 @@ var myPluginRule = stylelint.createPlugin(myPluginRuleName, function(expectation
 ```
 
 `stylelint.createPlugin(ruleName, ruleFunction)` ensures that your plugin will be setup properly alongside other rules. *Make sure you document your plugin's rule name for users, because they will need to use it in their config.*
+
+Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`. If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`. This namespace ensures that plugin rules will never clash with core rules.
 
 In order for your plugin rule to work with the standard configuration format, (e.g. `["tab", { hierarchicalSelectors: true }]`), `ruleFunction` should accept 2 arguments: the expectation keyword (e.g. `"tab"`) and, optionally, an options object (e.g. `{ hierarchicalSelectors: true }`).
 

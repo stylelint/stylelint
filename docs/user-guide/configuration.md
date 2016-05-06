@@ -188,7 +188,7 @@ Once the plugin is declared, within your `"rules"` object *you'll need to add op
     "../special-rule.js"
   ],
   "rules": {
-    "special-rule": "everything"
+    "plugin/special-rule": "everything"
   },
 }
 ```
@@ -201,9 +201,9 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
     "../some-rule-set.js"
   ],
   "rules": {
-    "first-rule": "everything",
-    "second-rule": "nothing",
-    "third-rule": "everything"
+    "some-rule-set/first-rule": "everything",
+    "some-rule-set/second-rule": "nothing",
+    "some-rule-set/third-rule": "everything"
   },
 }
 ```
