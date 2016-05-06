@@ -1,9 +1,10 @@
 import { isNumber } from "lodash"
 import execall from "execall"
 import {
-  blurComments,
-  hasBlock,
   beforeBlockString,
+  blurComments,
+  blurFunctionArguments,
+  hasBlock,
   report,
   ruleMessages,
   validateOptions,
@@ -30,6 +31,9 @@ export default function (precision) {
     })
 
     root.walkAtRules(atRule => {
+      // Ignore @imports
+      if (atRule.name === "import") { return }
+
       const source = (hasBlock(atRule))
         ? beforeBlockString(atRule, { noRawBefore: true })
         : atRule.toString()
@@ -37,8 +41,9 @@ export default function (precision) {
     })
 
     function check(source, node) {
-      // Negative
-      const decimalNumberMatches = execall(/(\d*\.(\d+))/g, blurComments(source))
+
+      const sanitizedSource = blurComments(blurFunctionArguments(source, "url"))
+      const decimalNumberMatches = execall(/(\d*\.(\d+))/g, sanitizedSource)
       if (!decimalNumberMatches.length) { return }
 
       decimalNumberMatches.forEach(match => {
