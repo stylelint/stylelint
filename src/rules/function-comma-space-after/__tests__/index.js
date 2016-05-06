@@ -150,10 +150,10 @@ testRule(rule, {
   config: ["never"],
   syntax: "scss",
 
-  accept: [ {
+  accept: [{
     code: "$map: (key: value, key2: value2)",
     description: "SCSS map",
-  } ],
+  }],
 })
 
 testRule(rule, {
@@ -212,10 +212,10 @@ testRule(rule, {
   config: ["always-single-line"],
   syntax: "scss",
 
-  accept: [ {
+  accept: [{
     code: "$map: (key: value,key2: value2)",
     description: "SCSS map",
-  } ],
+  }],
 })
 
 testRule(rule, {
@@ -272,8 +272,8 @@ testRule(rule, {
   config: ["never-single-line"],
   syntax: "scss",
 
-  accept: [ {
+  accept: [{
     code: "$map: (key: value, key2: value2)",
     description: "SCSS map",
-  } ],
+  }],
 })
