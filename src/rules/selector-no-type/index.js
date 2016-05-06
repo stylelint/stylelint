@@ -38,7 +38,7 @@ export default function (on, options) {
       selectorParser(checkSelector).process(selector)
 
       function checkSelector(selectorAST) {
-        selectorAST.eachTag(tag => {
+        selectorAST.walkTags(tag => {
 
           if (!isStandardTypeSelector(tag)) { return }
 

@@ -58,7 +58,7 @@ export default function (space, options = {}) {
     })
     if (!validOptions) { return }
 
-    // Cycle through all nodes using eachInside.
+    // Cycle through all nodes using walk.
     // This is done instead of using
     // eachRule, eachAtRule, and eachDecl,
     // so that any hierarchy can be accounted for *in order*.

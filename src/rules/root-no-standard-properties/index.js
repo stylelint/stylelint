@@ -45,7 +45,7 @@ export default function (actual) {
 
 function ignoreRule(selectorAST) {
   let ignore = false
-  selectorAST.eachInside(selectorNode => {
+  selectorAST.walk(selectorNode => {
     // ignore `:root` selector inside a `:not()` selector
     if (selectorNode.value === ":root" && selectorNode.parent.parent.value === ":not") {
       ignore = true

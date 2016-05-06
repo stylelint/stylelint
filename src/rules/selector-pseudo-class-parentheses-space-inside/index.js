@@ -31,7 +31,7 @@ export default function (expectation) {
       if (rule.selector.indexOf("(") === -1) { return }
 
       selectorParser(selectorTree => {
-        selectorTree.eachPseudo(pseudoNode => {
+        selectorTree.walkPseudos(pseudoNode => {
           if (_.get(pseudoNode, "parent.parent.type") === "pseudo") { return }
 
           const pseudoSelectorString = pseudoNode.toString()

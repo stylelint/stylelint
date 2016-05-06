@@ -79,7 +79,7 @@ export default (enabled, options) => {
       if (!isSelectorCharacters(rule.selector)) { return }
 
       function checkSelector(selectorAST) {
-        selectorAST.eachTag(selector => {
+        selectorAST.walkTags(selector => {
           const selectorParent = selector.parent
 
           if (selectorParent.nodes.length === 1) {

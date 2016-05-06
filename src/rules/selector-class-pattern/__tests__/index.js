@@ -119,6 +119,9 @@ testRule(rule, {
   }, {
     code: "@for $n from 1 through 5 { .A { &B#{$n} { } }}",
     description: "ignore sass interpolation of nested selector inside @for",
+  }, {
+    code: ".#{$a} {}",
+    description: "ignore sass var interpolation",
   } ],
 })
 
