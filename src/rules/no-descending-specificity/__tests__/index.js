@@ -5,6 +5,7 @@ import rule, { ruleName, messages } from ".."
 testRule(rule, {
   ruleName,
   config: [true],
+  skipBasicChecks: true,
 
   accept: [ {
     code: "a {} b a {}",
@@ -35,6 +36,8 @@ testRule(rule, {
     code: ".menu:hover {} .burger {}",
   }, {
     code: ".foo.bar, .foo.bar:focus { @mixin: foo; } .baz.bar, .baz.bar:focus {}",
+  }, {
+    code: ".selector, { }",
   } ],
 
   reject: [ {
@@ -42,6 +45,11 @@ testRule(rule, {
     message: messages.rejected("a", "b a"),
     line: 1,
     column: 8,
+  }, {
+    code: "b a, {} a, {}",
+    message: messages.rejected("a", "b a"),
+    line: 1,
+    column: 9,
   }, {
     code: "a + a {} a {}",
     message: messages.rejected("a", "a + a"),
