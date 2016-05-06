@@ -59,6 +59,16 @@ testRule(rule, {
     message: messages.expectedBefore(),
     line: 1,
     column: 46,
+  }, {
+    code: `
+      a {
+        transform: translate(
+          1px /* comment */
+          ,1px
+        );
+      }
+    `,
+    description: "eol comments",
   } ],
 })
 

@@ -25,8 +25,8 @@ testRule(rule, {
     code: `
       a {
         transform: translate(
-          1px,  /* comment */
-          1px
+          1px /* comment */
+          ,1px
         );
       }
     `,
@@ -110,8 +110,15 @@ testRule(rule, {
   }, {
     code: "a { background: linear-gradient(45deg\n, rgba(0, 0, 0, 1)\n, red); }",
   }, {
-    code: "$map: (key: value,\nkey2: value2)",
-    description: "SCSS map",
+    code: `
+      a {
+        transform: translate(
+          1px /* comment */
+          ,1px
+        );
+      }
+    `,
+    description: "eol comments",
   } ],
 
   reject: [ {
@@ -181,6 +188,16 @@ testRule(rule, {
     message: messages.rejectedBeforeMultiLine(),
     line: 3,
     column: 1,
+  }, {
+    code: `
+      a {
+        transform: translate(
+          1px /* comment */
+          , 1px
+        );
+      }
+    `,
+    description: "eol comments",
   } ],
 })
 
