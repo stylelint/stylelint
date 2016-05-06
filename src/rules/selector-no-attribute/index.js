@@ -23,7 +23,7 @@ export default function (actual) {
       const { selector } = rule
       if (!isStandardSelector(selector)) { return }
       selectorParser(selectorAST => {
-        selectorAST.eachAttribute(attribute => {
+        selectorAST.walkAttributes(attribute => {
           report({
             message: messages.rejected,
             node: rule,

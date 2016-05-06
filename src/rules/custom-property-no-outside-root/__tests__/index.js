@@ -9,6 +9,10 @@ testRule(rule, {
   accept: [ {
     code: ":root { --foo-bar: 1px; }",
   }, {
+    code: ":rOoT { --foo-bar: 1px; }",
+  }, {
+    code: ":ROOT { --foo-bar: 1px; }",
+  }, {
     code: "a { color: pink; }",
   }, {
     code: "a { -webkit-transform: 1px; }",
@@ -25,6 +29,12 @@ testRule(rule, {
     message: messages.rejected,
   }, {
     code: ":root a { --foo-bar: 1px; }",
+    message: messages.rejected,
+  }, {
+    code: ":rOoT a { --foo-bar: 1px; }",
+    message: messages.rejected,
+  }, {
+    code: ":ROOT a { --foo-bar: 1px; }",
     message: messages.rejected,
   } ],
 })

@@ -11,7 +11,7 @@ a {
  * The newline after this semicolon */
 ```
 
-This rule allows an end-of-line comment separated from the semicolon by spaces, as long as the comment contains no newlines. For example,
+This rule allows an end-of-line comment followed by a newline. For example,
 
 ```css
 a {

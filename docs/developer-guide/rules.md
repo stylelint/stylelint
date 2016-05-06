@@ -86,6 +86,7 @@ And please *consider edge-cases.* These are where the bugs and shortcomings of r
 - How does your rule handle whitespace and punctuation (e.g. normalising strings before comparison)?
 - How does your rule handle `url()` functions, including data URIs?
 - How does your rule handle nesting?
+- How does your rule handle case sensitivity (e.g. many CSS identifiers are case insensitive)?
 
 #### Running tests
 

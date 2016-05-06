@@ -27,7 +27,7 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkAtRules(atRule => {
-      if (atRule.name !== "media") { return }
+      if (atRule.name.toLowerCase() !== "media") { return }
 
       const params = atRule.params
       const indexBoost = atRuleParamIndex(atRule)

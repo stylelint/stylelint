@@ -11,6 +11,10 @@ testRule(rule, {
   }, {
     code: "a { color: #ababab; }",
   }, {
+    code: "a { color: #AbAbAb; }",
+  }, {
+    code: "a { color: #ABABAB; }",
+  }, {
     code: "a { color: rgba(0, 0, 0, 0); }",
   }, {
     code: "a { background: #000, #fff, #333; }",
@@ -47,6 +51,16 @@ testRule(rule, {
     line: 1,
     column: 12,
   }, {
+    code: "a { color: rEd; }",
+    message: messages.rejected("rEd"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { color: RED; }",
+    message: messages.rejected("RED"),
+    line: 1,
+    column: 12,
+  }, {
     code: "a { color: rebeccapurple; }",
     message: messages.rejected("rebeccapurple"),
     line: 1,
@@ -75,6 +89,10 @@ testRule(rule, {
 
   accept: [ {
     code: "a { color: black; }",
+  }, {
+    code: "a { color: bLaCk; }",
+  }, {
+    code: "a { color: BLACK; }",
   }, {
     code: "a { color: rgb(0,0,1); }",
   }, {
@@ -105,6 +123,16 @@ testRule(rule, {
     line: 1,
     column: 12,
   }, {
+    code: "a { color: #fFfFfF }",
+    message: messages.expected("white", "#fFfFfF"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { color: #FFFFFF }",
+    message: messages.expected("white", "#FFFFFF"),
+    line: 1,
+    column: 12,
+  }, {
     code: "a { background: #f000 }",
     message: messages.expected("black", "#f000"),
     line: 1,
@@ -117,6 +145,16 @@ testRule(rule, {
   }, {
     code: "a { color: rgb(0, 0, 0) }",
     message: messages.expected("black", "rgb(0,0,0)"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { color: rGb(0, 0, 0) }",
+    message: messages.expected("black", "rGb(0,0,0)"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { color: RGB(0, 0, 0) }",
+    message: messages.expected("black", "RGB(0,0,0)"),
     line: 1,
     column: 12,
   }, {

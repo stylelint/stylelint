@@ -33,7 +33,7 @@ export default function (pattern) {
       selectorParser(checkSelector).process(selector)
 
       function checkSelector(fullSelector) {
-        fullSelector.eachInside(selectorNode => {
+        fullSelector.walk(selectorNode => {
           if (selectorNode.type !== "id") { return }
           const { value, sourceIndex } = selectorNode
 

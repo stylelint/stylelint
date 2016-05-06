@@ -1,4 +1,6 @@
 import {
+  isStandardDeclaration,
+  isStandardProperty,
   report,
   ruleMessages,
   styleSearch,
@@ -40,6 +42,10 @@ export default function (expectation) {
 
 export function valueListCommaWhitespaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
+    if (
+      !isStandardDeclaration(decl)
+      || !isStandardProperty(decl.prop)
+    ) { return }
     styleSearch({ source: decl.toString(), target: ",", outsideFunctionalNotation: true }, match => {
       checkComma(decl.toString(), match.startIndex, decl)
     })

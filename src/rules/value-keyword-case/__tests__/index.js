@@ -63,7 +63,19 @@ testRule(rule, {
     code: "a { font-size: var(--some-fs-BLOCK); }",
     description: "ignore css variable includes value keyword",
   }, {
+    code: "a { font-size: vAr(--some-fs-BLOCK); }",
+    description: "ignore css variable includes value keyword",
+  }, {
+    code: "a { font-size: VAR(--some-fs-BLOCK); }",
+    description: "ignore css variable includes value keyword",
+  }, {
     code: "a { background-url: url(BLOCK); }",
+    description: "ignore url function",
+  }, {
+    code: "a { background-url: uRl(BLOCK); }",
+    description: "ignore url function",
+  }, {
+    code: "a { background-url: URL(BLOCK); }",
     description: "ignore url function",
   }, {
     code: "a { displayBLOCK: block; }",
@@ -455,8 +467,20 @@ testRule(rule, {
   }, {
     code: "a { font-size: var(--some-fs-block); }",
     description: "ignore css variable includes value keyword",
+  },  {
+    code: "a { font-size: vAr(--some-fs-block); }",
+    description: "ignore css variable includes value keyword",
+  },  {
+    code: "a { font-size: VAR(--some-fs-block); }",
+    description: "ignore css variable includes value keyword",
   }, {
     code: "a { background-url: url(block); }",
+    description: "ignore url function",
+  }, {
+    code: "a { background-url: uRl(block); }",
+    description: "ignore url function",
+  }, {
+    code: "a { background-url: URL(block); }",
     description: "ignore url function",
   }, {
     code: "a { displayblock: BLOCK; }",

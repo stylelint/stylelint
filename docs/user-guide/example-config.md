@@ -129,6 +129,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-pseudo-class-parentheses-space-inside": "always"|"never",
     "selector-pseudo-element-case": "lower"|"upper",
     "selector-pseudo-element-colon-notation": "single"|"double",
+    "selector-pseudo-element-no-unknown": true,
     "selector-root-no-composition": true,
     "selector-type-case": "lower"|"upper",
     "shorthand-property-no-redundant-values": true,

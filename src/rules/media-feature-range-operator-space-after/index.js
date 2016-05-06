@@ -52,7 +52,7 @@ export default function (expectation) {
 }
 
 export function findMediaOperator(atRule, cb) {
-  if (atRule.name !== "media") { return }
+  if (atRule.name.toLowerCase() !== "media") { return }
 
   const params = atRule.params
   let match

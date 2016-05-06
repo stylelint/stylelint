@@ -18,6 +18,10 @@ testRule(rule, {
   }, {
     code: "a { font-weight: 100; }",
   }, {
+    code: "a { fOnT-wEiGhT: 100; }",
+  }, {
+    code: "a { FONT-WEIGHT: 100; }",
+  }, {
     code: "a { font-weight: 700; }",
   }, {
     code: "a { font-weight: 850; }",
@@ -25,6 +29,10 @@ testRule(rule, {
     code: "a { font-weight: 900; }",
   }, {
     code: "a { font: italic small-caps 400 16px/3 cursive; }",
+  }, {
+    code: "a { fOnT: italic small-caps 400 16px/3 cursive; }",
+  }, {
+    code: "a { FONT: italic small-caps 400 16px/3 cursive; }",
   }, {
     code: "a { font: italic small-caps 400 16px/500 cursive; }",
   }, {
@@ -46,10 +54,36 @@ testRule(rule, {
   }, {
     code: "a { font-weight: initial; }",
     description: "ignore initial value",
+  }, {
+    code: "a { font-weight: iNiTiAl; }",
+    description: "ignore initial value",
+  }, {
+    code: "a { font-weight: INITIAL; }",
+    description: "ignore initial value",
   } ],
 
   reject: [ {
     code: "a { font-weight: normal; }",
+    message: messages.expected("numeric"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { fOnT-wEiGhT: normal; }",
+    message: messages.expected("numeric"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { FONT-WEIGHT: normal; }",
+    message: messages.expected("numeric"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { font-weight: nOrMaL; }",
+    message: messages.expected("numeric"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { font-weight: NORMAL; }",
     message: messages.expected("numeric"),
     line: 1,
     column: 18,
@@ -88,6 +122,10 @@ testRule(rule, {
   }, {
     code: "a { font-weight: bolder; }",
   }, {
+    code: "a { font-weight: bOlDeR; }",
+  }, {
+    code: "a { font-weight: BOLDER; }",
+  }, {
     code: "a { font-weight: lighter; }",
   }, {
     code: "a { font: italic small-caps lighter 16px/3 cursive; }",
@@ -117,6 +155,10 @@ testRule(rule, {
   }, {
     code: "a { font-weight: bold; }",
   }, {
+    code: "a { font-weight: BoLd; }",
+  }, {
+    code: "a { font-weight: BOLD; }",
+  }, {
     code: "a { font-weight: bolder; }",
   }, {
     code: "a { font-weight: normal; }",
@@ -145,6 +187,12 @@ testRule(rule, {
     description: "another number without keyword equivalent",
   }, {
     code: "a { font-weight: inherit; }",
+    description: "ignore inherit value",
+  }, {
+    code: "a { font-weight: iNhErIt; }",
+    description: "ignore inherit value",
+  }, {
+    code: "a { font-weight: INHERIT; }",
     description: "ignore inherit value",
   } ],
 

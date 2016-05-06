@@ -40,7 +40,7 @@ testRule(rule, {
     code: "a {\n  color: pink;    /* 1 */\n  top: 0\n}",
     description: "end-of-line comment a few spaces after",
   }, {
-    code: "a {\r\n  color: pink; /* 1 */\r\n  top: 0\r\n}",
+    code: "a {\r\n  color: pink;\t/* 1 */\r\n  top: 0\r\n}",
     description: "end-of-line comment and CRLF",
   }, {
     code: "a {\n  color: pink;\n  /* 1 */\n  top: 0\n}",
@@ -82,18 +82,6 @@ testRule(rule, {
   }, {
     code: "a {\r\n  color: pink; /* 1 */ top: 0\r\n}",
     description: "CRLF and next node is comment without newline after",
-    message: messages.expectedAfter(),
-    line: 2,
-    column: 15,
-  }, {
-    code: "a {\n  color: pink;\t/* 1 */\n  top: 0\n}",
-    description: "next node is comment with tab before",
-    message: messages.expectedAfter(),
-    line: 2,
-    column: 15,
-  }, {
-    code: "a {\n  color: pink; /* 1\n2 */\n  top: 0\n}",
-    description: "next node is end-of-line comment containing newline",
     message: messages.expectedAfter(),
     line: 2,
     column: 15,

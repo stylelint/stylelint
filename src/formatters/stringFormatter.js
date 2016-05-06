@@ -20,11 +20,11 @@ function deprecationsFormatter(results) {
   if (!uniqueDeprecationWarnings || !uniqueDeprecationWarnings.length) { return "" }
 
   return uniqueDeprecationWarnings.reduce((output, warning) => {
-    output += chalk.yellow.bold(">> Deprecation Warning: ")
+    output += chalk.yellow("Deprecation Warning: ")
     output += warning.text
     if (warning.reference) {
-      output += chalk.yellow(" See: ")
-      output += chalk.green.underline(warning.reference)
+      output += chalk.dim(" See: ")
+      output += chalk.dim.underline(warning.reference)
     }
     return output + "\n"
   }, "\n")
@@ -35,7 +35,7 @@ function invalidOptionsFormatter(results) {
   const uniqueInvalidOptionWarnings = _.uniq(allInvalidOptionWarnings)
 
   return uniqueInvalidOptionWarnings.reduce((output, warning) => {
-    output += chalk.red.bold(">> Invalid Option: ")
+    output += chalk.red("Invalid Option: ")
     output += warning
     return output + "\n"
   }, "\n")
@@ -88,7 +88,7 @@ function formatter(messages, source) {
   let output = "\n"
 
   if (source) {
-    output += chalk.bold.underline(logFrom(source)) + "\n"
+    output += chalk.underline(logFrom(source)) + "\n"
   }
 
   const cleanedMessages = orderedMessages.map(
@@ -99,9 +99,9 @@ function formatter(messages, source) {
       const row = [
         location.line || "",
         location.column || "",
-        symbols[severity] ? chalk[levelColors[severity]](symbols[severity])  : severity,
+        symbols[severity] ? chalk[levelColors[severity]](symbols[severity]) : severity,
         message.text.replace(/\.$/, "").replace(new RegExp(_.escapeRegExp("(" + message.rule + ")") + "$"), ""),
-        chalk.yellow(message.rule || ""),
+        chalk.gray(message.rule || ""),
       ]
 
       calculateWidths(row)
@@ -116,7 +116,7 @@ function formatter(messages, source) {
       columns: {
         0: { alignment: "right", width: columnWidths[0], paddingRight: 0 },
         1: { alignment: "left", width: columnWidths[1] },
-        2: { alignment: "left", width: columnWidths[2] },
+        2: { alignment: "center", width: columnWidths[2] },
         3: { alignment: "left", width: getMessageWidth(columnWidths), wrapWord: true },
         4: { alignment: "left", width: columnWidths[4], paddingRight: 0 },
       },
@@ -124,7 +124,7 @@ function formatter(messages, source) {
     }
     )
     .split("\n")
-    .map((el) => el.replace(/(\d+)\s+(\d+)/, (m, p1, p2) => chalk.bold(p1 + ":" + p2)))
+    .map((el) => el.replace(/(\d+)\s+(\d+)/, (m, p1, p2) => chalk.gray(p1 + ":" + p2)))
     .join("\n")
 
   return output
@@ -134,8 +134,17 @@ export default function (results) {
   let output = invalidOptionsFormatter(results)
   output += deprecationsFormatter(results)
 
-  return results.reduce((output, result) => {
+  output = results.reduce((output, result) => {
     output += formatter(result.warnings, result.source)
     return output
   }, output)
+
+  // Ensure consistent padding
+  output = output.trim()
+
+  if (output !== "") {
+    output = "\n" + output + "\n\n"
+  }
+
+  return output
 }

@@ -9,6 +9,10 @@ testRule(rule, {
   accept: [ {
     code: ".foo { background: linear-gradient(to top, #fff, #000; )}",
   }, {
+    code: ".foo { background: lInEaR-gRaDiEnT(to top, #fff, #000; )}",
+  }, {
+    code: ".foo { background: LINEAR-GRADIENT(to top, #fff, #000; )}",
+  }, {
     code: ".foo { background: linear-gradient(to bottom, #fff, #000; )}",
   }, {
     code: ".foo { background: linear-gradient(  to right, #fff, #000; )}",
@@ -40,6 +44,18 @@ testRule(rule, {
 
   reject: [ {
     code: ".foo { background: linear-gradient(bottom, #fff, #000; )}",
+    message: messages.rejected,
+  }, {
+    code: ".foo { background: lInEaR-gRaDiEnT(bottom, #fff, #000; )}",
+    message: messages.rejected,
+  }, {
+    code: ".foo { background: LINEAR-GRADIENT(bottom, #fff, #000; )}",
+    message: messages.rejected,
+  }, {
+    code: ".foo { background: linear-gradient(bOtToM, #fff, #000; )}",
+    message: messages.rejected,
+  }, {
+    code: ".foo { background: linear-gradient(BOTTOM, #fff, #000; )}",
     message: messages.rejected,
   }, {
     code: ".foo { background: linear-gradient(top, #fff, #000; )}",

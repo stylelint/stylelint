@@ -2,6 +2,7 @@ import postcss from "postcss"
 import globby from "globby"
 import _ from "lodash"
 import { readFile } from "fs"
+import { styleTagsFromHtmlExtracter } from "./utils"
 import scssSyntax from "postcss-scss"
 import lessSyntax from "postcss-less"
 import sugarss from "sugarss"
@@ -23,6 +24,7 @@ export default function ({
   configOverrides,
   syntax,
   formatter = "json",
+  extractStyleTagsFromHtml,
 } = {}) {
   const isValidCode = typeof code === "string"
   if (!files && !isValidCode || files && (code || isValidCode)) {
@@ -94,6 +96,12 @@ export default function ({
     if (filepath) {
       postcssProcessOptions.from = filepath
     }
+    let extractMap = []
+    if (extractStyleTagsFromHtml) {
+      const extracted = styleTagsFromHtmlExtracter(code)
+      code = extracted.code
+      extractMap = extracted.map
+    }
 
     switch (syntax) {
       case "scss":
@@ -137,13 +145,16 @@ export default function ({
         deprecations,
         invalidOptionWarnings,
         errored: postcssResult.stylelint.stylelintError,
-        warnings: postcssResult.messages.map(message => ({
-          line: message.line,
-          column: message.column,
-          rule: message.rule,
-          severity: message.severity,
-          text: message.text,
-        })),
+        warnings: postcssResult.messages.map(message => {
+          const map = extractMap[message.line] || {}
+          return {
+            line: map.line || message.line,
+            column: (map.indent || 0) + message.column,
+            rule: message.rule,
+            severity: message.severity,
+            text: message.text,
+          }
+        }),
       }
     }
 

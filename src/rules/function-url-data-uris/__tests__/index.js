@@ -9,6 +9,10 @@ testRule(rule, {
   accept: [ {
     code: "@import url('foo.css');",
   }, {
+    code: "@import url( 'foo.css' );",
+  }, {
+    code: "@import url(  'foo.css'  );",
+  }, {
     code: "@document url('http://www.w3.org/');",
   }, {
     code: "@font-face { font-family: 'foo'; src: url(data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=); }",
@@ -18,6 +22,14 @@ testRule(rule, {
     code: "@font-face { font-family: 'foo'; src: url(\"data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=\"); }",
   }, {
     code: "a { background: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+  }, {
+    code: "a { background: uRl('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+  }, {
+    code: "a { background: URL('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+  }, {
+    code: "a { background: url('dAtA:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+  }, {
+    code: "a { background: url('DATA:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
   }, {
     code: "a { cursor: url('data:image/ico;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
   }, {
@@ -55,7 +67,17 @@ testRule(rule, {
     line: 1,
     column: 34,
   }, {
+    code: "@font-face { font-family: 'foo'; src: url( foo.ttf ); }",
+    message: messages.expected,
+    line: 1,
+    column: 34,
+  }, {
     code: "@font-face { font-family: 'foo'; src: url('foo.ttf'); }",
+    message: messages.expected,
+    line: 1,
+    column: 34,
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url( 'foo.ttf' ); }",
     message: messages.expected,
     line: 1,
     column: 34,
@@ -65,7 +87,42 @@ testRule(rule, {
     line: 1,
     column: 34,
   }, {
+    code: "@font-face { font-family: 'foo'; src: url( \"foo.ttf'\" ); }",
+    message: messages.expected,
+    line: 1,
+    column: 34,
+  }, {
     code: "a { background: url('foo.png'); }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: uRl('foo.png'); }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: URL('foo.png'); }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url( 'foo.png' ); }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url(  'foo.png'  ); }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url( 'foo.png' ); }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url(  'foo.png'  ); }",
     message: messages.expected,
     line: 1,
     column: 5,
@@ -104,6 +161,10 @@ testRule(rule, {
   accept: [ {
     code: "@import url('foo.css');",
   }, {
+    code: "@import url( 'foo.css' );",
+  }, {
+    code: "@import url(  'foo.css'  );",
+  }, {
     code: "@document url('http://www.w3.org/');",
   }, {
     code: "@font-face { font-family: 'foo'; src: url(foo.ttf); }",
@@ -113,6 +174,10 @@ testRule(rule, {
     code: "@font-face { font-family: 'foo'; src: url(\"foo.ttf\"); }",
   }, {
     code: "a { background: url('image.png'); }",
+  }, {
+    code: "a { background: uRl('image.png'); }",
+  }, {
+    code: "a { background: URL('image.png'); }",
   }, {
     code: "a { cursor: url('image.ico'); }",
   }, {
@@ -150,7 +215,17 @@ testRule(rule, {
     line: 1,
     column: 34,
   }, {
+    code: "@font-face { font-family: 'foo'; src: url( data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs= ); }",
+    message: messages.rejected,
+    line: 1,
+    column: 34,
+  }, {
     code: "@font-face { font-family: 'foo'; src: url('data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+    message: messages.rejected,
+    line: 1,
+    column: 34,
+  },  {
+    code: "@font-face { font-family: 'foo'; src: url( 'data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=' ); }",
     message: messages.rejected,
     line: 1,
     column: 34,
@@ -160,7 +235,32 @@ testRule(rule, {
     line: 1,
     column: 34,
   }, {
+    code: "@font-face { font-family: 'foo'; src: url( \"data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='\" ); }",
+    message: messages.rejected,
+    line: 1,
+    column: 34,
+  }, {
     code: "a { background: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+    message: messages.rejected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url('dAtA:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+    message: messages.rejected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url('DATA:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+    message: messages.rejected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url( 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=' ); }",
+    message: messages.rejected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a { background: url(  'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='  ); }",
     message: messages.rejected,
     line: 1,
     column: 5,

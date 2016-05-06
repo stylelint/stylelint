@@ -9,6 +9,10 @@ testRule(rule, {
   accept: [ {
     code: "@media (max-width: 600px) {}",
   }, {
+    code: "@mEdIa (max-width: 600px) {}",
+  }, {
+    code: "@MEDIA (max-width: 600px) {}",
+  }, {
     code: "@media (max-width : 600px) {}",
   }, {
     code: "@media (max-width: 600px) and (min-width: 3em) {}",
@@ -18,6 +22,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@media (max-width:600px) {}",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 18,
+  }, {
+    code: "@mEdIa (max-width:600px) {}",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 18,
+  }, {
+    code: "@MEDIA (max-width:600px) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 18,
@@ -62,6 +76,10 @@ testRule(rule, {
   accept: [ {
     code: "@media (max-width:600px) {}",
   }, {
+    code: "@mEdIa (max-width:600px) {}",
+  }, {
+    code: "@MEDIA (max-width:600px) {}",
+  }, {
     code: "@media (max-width:600px) and (min-width:3em) {}",
   }, {
     code: "@custom-selector : --enter :hover;",
@@ -69,6 +87,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@media (max-width: 600px) {}",
+    message: messages.rejectedAfter(),
+    line: 1,
+    column: 18,
+  }, {
+    code: "@mEdIa (max-width: 600px) {}",
+    message: messages.rejectedAfter(),
+    line: 1,
+    column: 18,
+  }, {
+    code: "@MEDIA (max-width: 600px) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 18,

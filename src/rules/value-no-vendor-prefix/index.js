@@ -24,18 +24,18 @@ export default function (actual) {
       const { prop } = decl
 
       // Search the full declaration in order to get an accurate index
-      styleSearch({ source: declString, target: valuePrefixes }, match => {
+      styleSearch({ source: declString.toLowerCase(), target: valuePrefixes }, match => {
         if (match.startIndex <= prop.length) { return }
-        const fullIdentifier = /^(-[a-z-]+)\b/.exec(declString.slice(match.startIndex))[1]
-        if (isAutoprefixable.propertyValue(prop, fullIdentifier)) {
-          report({
-            message: messages.rejected(fullIdentifier),
-            node: decl,
-            index: match.startIndex,
-            result,
-            ruleName,
-          })
-        }
+        const fullIdentifier = /^(-[a-z-]+)\b/i.exec(declString.slice(match.startIndex))[1]
+        if (!isAutoprefixable.propertyValue(prop, fullIdentifier)) { return }
+
+        report({
+          message: messages.rejected(fullIdentifier),
+          node: decl,
+          index: match.startIndex,
+          result,
+          ruleName,
+        })
       })
     })
   }

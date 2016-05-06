@@ -15,6 +15,10 @@ testRule(rule, {
   }, {
     code: "a { margin: 1em; }",
   }, {
+    code: "a { margin: 1Em; }",
+  }, {
+    code: "a { margin: 1EM; }",
+  }, {
     code: "a { margin: 1ex; }",
   }, {
     code: "a { margin: 1%; }",
@@ -87,6 +91,12 @@ testRule(rule, {
     description: "ignore css variable includes wrong unit",
   }, {
     code: "a { margin: url(13pix); }",
+    description: "ignore url function",
+  }, {
+    code: "a { margin: uRl(13pix); }",
+    description: "ignore url function",
+  }, {
+    code: "a { margin: URL(13pix); }",
     description: "ignore url function",
   }, {
     code: "a { margin10px: 10px; }",

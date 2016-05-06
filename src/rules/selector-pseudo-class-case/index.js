@@ -34,7 +34,7 @@ export default function (expectation) {
       if (startIndexPseudo === -1) { return }
 
       selectorParser(selectorTree => {
-        selectorTree.eachPseudo(pseudoNode => {
+        selectorTree.walkPseudos(pseudoNode => {
           const pseudo = pseudoNode.value
 
           if (pseudo.indexOf("::") !== -1

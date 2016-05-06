@@ -15,6 +15,10 @@ testRule(rule, {
   }, {
     code: "@media (min-width: 300px) {}",
   }, {
+    code: "@mEdIa (min-width: 300px) {}",
+  }, {
+    code: "@MEDIA (min-width: 300px) {}",
+  }, {
     code: "@media ( min-width: 300px ) {}",
   }, {
     code: "@media (min-width   :\t300px) {}",
@@ -44,6 +48,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@media (min-width 300px) {}",
+    message: messages.rejected,
+    line: 1,
+    column: 8,
+  }, {
+    code: "@mEdIa (min-width 300px) {}",
+    message: messages.rejected,
+    line: 1,
+    column: 8,
+  }, {
+    code: "@MEDIA (min-width 300px) {}",
     message: messages.rejected,
     line: 1,
     column: 8,

@@ -11,6 +11,10 @@ testRule(rule, {
   }, {
     code: "@media (max-width: 600px) {}",
   }, {
+    code: "@mEdIa (max-width: 600px) {}",
+  }, {
+    code: "@MEDIA (max-width: 600px) {}",
+  }, {
     code: "@media screen and (color)\n, projection and (color) {}",
   }, {
     code: "@media screen and (color)\r\n, projection and (color) {}",
@@ -29,6 +33,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@media screen and (color), projection and (color)",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 26,
+  }, {
+    code: "@mEdIa screen and (color), projection and (color)",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 26,
+  }, {
+    code: "@MEDIA screen and (color), projection and (color)",
     message: messages.expectedBefore(),
     line: 1,
     column: 26,
@@ -53,6 +67,12 @@ testRule(rule, {
     code: "@media screen and (color)\n, projection and (color) {}",
     description: "multi-line list, single-line block",
   }, {
+    code: "@mEdIa screen and (color)\n, projection and (color) {}",
+    description: "multi-line list, single-line block",
+  }, {
+    code: "@MEDIA screen and (color)\n, projection and (color) {}",
+    description: "multi-line list, single-line block",
+  }, {
     code: "@media screen and (color)\r\n, projection and (color) {}",
     description: "multi-line list, single-line block and CRLF",
   }, {
@@ -68,6 +88,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@media screen and (color),projection and (color)\n, print {}",
+    message: messages.expectedBeforeMultiLine(),
+    line: 1,
+    column: 26,
+  }, {
+    code: "@mEdIa screen and (color),projection and (color)\n, print {}",
+    message: messages.expectedBeforeMultiLine(),
+    line: 1,
+    column: 26,
+  }, {
+    code: "@MEDIA screen and (color),projection and (color)\n, print {}",
     message: messages.expectedBeforeMultiLine(),
     line: 1,
     column: 26,
@@ -93,6 +123,12 @@ testRule(rule, {
     code: "@media screen and (color),\nprojection and (color) {}",
     description: "multi-line list, single-line block",
   }, {
+    code: "@mEdIa screen and (color),\nprojection and (color) {}",
+    description: "multi-line list, single-line block",
+  }, {
+    code: "@MEDIA screen and (color),\nprojection and (color) {}",
+    description: "multi-line list, single-line block",
+  }, {
     code: "@media screen and (color),\nprojection and (color) {\n}",
     description: "multi-line list, multi-line block",
   }, {
@@ -108,6 +144,16 @@ testRule(rule, {
 
   reject: [ {
     code: "@media screen and (color) ,projection and (color),\nprint {}",
+    message: messages.rejectedBeforeMultiLine(),
+    line: 1,
+    column: 27,
+  }, {
+    code: "@mEdIa screen and (color) ,projection and (color),\nprint {}",
+    message: messages.rejectedBeforeMultiLine(),
+    line: 1,
+    column: 27,
+  }, {
+    code: "@MEDIA screen and (color) ,projection and (color),\nprint {}",
     message: messages.rejectedBeforeMultiLine(),
     line: 1,
     column: 27,

@@ -31,11 +31,16 @@ function isIgnoredCharacters(value) {
 }
 
 function canCondense(top, right, bottom = null, left = null) {
-  if (canCondenseToOneValue(top, right, bottom, left)) {
+  const lowerTop = top.toLowerCase()
+  const lowerRight = right.toLowerCase()
+  const lowerBottom = bottom && bottom.toLowerCase()
+  const lowerLeft = left && left.toLowerCase()
+
+  if (canCondenseToOneValue(lowerTop, lowerRight, lowerBottom, lowerLeft)) {
     return [top]
-  } else if (canCondenseToTwoValues(top, right, bottom, left)) {
+  } else if (canCondenseToTwoValues(lowerTop, lowerRight, lowerBottom, lowerLeft)) {
     return [ top, right ]
-  } else if (canCondenseToThreeValues(top, right, bottom, left)) {
+  } else if (canCondenseToThreeValues(lowerTop, lowerRight, lowerBottom, lowerLeft)) {
     return [ top, right, bottom ]
   } else {
     return [ top, right, bottom, left ]
@@ -68,7 +73,7 @@ export default function (actual) {
       // ignore not shorthandable properties, and math operations
       if (
         isIgnoredCharacters(value) ||
-        !shorthandableProperties.has(vendor.unprefixed(prop))
+        !shorthandableProperties.has(vendor.unprefixed(prop.toLowerCase()))
       ) { return }
 
       const valuesToShorthand = []
@@ -87,7 +92,7 @@ export default function (actual) {
       const shortestFormString = shortestForm.filter((value) => { return value }).join(" ")
       const valuesFormString = valuesToShorthand.join(" ")
 
-      if (shortestFormString === valuesFormString) { return }
+      if (shortestFormString.toLowerCase() === valuesFormString) { return }
 
       report({
         message: messages.rejected(value, shortestFormString),

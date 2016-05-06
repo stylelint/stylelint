@@ -29,7 +29,7 @@ export default function (maxLength, options) {
 
     // Collapse all urls into something nice and short,
     // so they do not throw the game
-    const rootString = root.toString().replace(/url\(.*\)/g, "url()")
+    const rootString = root.toString().replace(/url\(.*\)/ig, "url()")
 
     const ignoreNonComments = optionsHaveIgnored(options, "non-comments")
 

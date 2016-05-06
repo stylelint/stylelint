@@ -30,7 +30,7 @@ export default function (expectation) {
       if (rule.selector.indexOf("[") === -1) { return }
 
       selectorParser(selectorTree => {
-        selectorTree.eachAttribute(attributeNode => {
+        selectorTree.walkAttributes(attributeNode => {
           const attributeSelectorString = attributeNode.toString()
 
           styleSearch({ source: attributeSelectorString, target: "[" }, match => {

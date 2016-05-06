@@ -45,17 +45,19 @@ export default postcss.plugin("stylelint", (options = {}) => {
 
       if (config.plugins) {
         config.plugins.forEach(pluginPath => {
-          const pluginImport = require(pluginPath)
+          let pluginImport = require(pluginPath)
           // Handle either ES6 or CommonJS modules
-          const plugin = pluginImport.default || pluginImport
-          if (!plugin.ruleName) {
-            throw configurationError(
-              "stylelint v3+ requires plugins to expose a ruleName. " +
-              `The plugin "${pluginPath}" is not doing this, so will not work ` +
-              "with stylelint v3+. Please file an issue with the plugin."
-            )
-          }
-          ruleDefinitions[plugin.ruleName] = plugin.rule
+          pluginImport = pluginImport.default || pluginImport
+          ;[].concat(pluginImport).forEach(plugin => {
+            if (!plugin.ruleName) {
+              throw configurationError(
+                "stylelint v3+ requires plugins to expose a ruleName. " +
+                `The plugin "${pluginPath}" is not doing this, so will not work ` +
+                "with stylelint v3+. Please file an issue with the plugin."
+              )
+            }
+            ruleDefinitions[plugin.ruleName] = plugin.rule
+          })
         })
       }
 

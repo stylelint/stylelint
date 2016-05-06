@@ -29,6 +29,12 @@ testRule(rule, {
     code: "a { padding-left: 10px; padding: 20px; }",
     message: messages.rejected("padding", "padding-left"),
   }, {
+    code: "a { pAdDiNg-lEfT: 10Px; pAdDiNg: 20Px; }",
+    message: messages.rejected("pAdDiNg", "pAdDiNg-lEfT"),
+  }, {
+    code: "a { PADDING-LEFT: 10PX; PADDING: 20PX; }",
+    message: messages.rejected("PADDING", "PADDING-LEFT"),
+  }, {
     code: "a { padding-left: 10px; { b { padding-top: 10px; padding: 20px; }}}",
     description: "override within nested rule",
     message: messages.rejected("padding", "padding-top"),

@@ -51,8 +51,8 @@ export default function (expectation, options) {
         // Ignore keywords within `url` and `var` function
         if (
           node.type === "function" && (
-            node.value === "url" ||
-            node.value === "var"
+            node.value.toLowerCase() === "url" ||
+            node.value.toLowerCase() === "var"
           )
         ) { return false }
 

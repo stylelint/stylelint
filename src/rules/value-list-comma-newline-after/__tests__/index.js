@@ -19,6 +19,9 @@ testRule(rule, {
   }, {
     code: "a { transform: translate(1,1); }",
     description: "ignores function",
+  }, {
+    code: "$grid-breakpoints: (\n(xs),\n(sm, 768px)\n) !default;",
+    description: "ignores scss maps",
   } ],
 
   reject: [ {

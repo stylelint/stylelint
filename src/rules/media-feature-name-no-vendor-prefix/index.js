@@ -18,18 +18,17 @@ export default function (actual) {
 
     root.walkAtRules(atRule => {
       const { params } = atRule
-      if (isAutoprefixable.mediaFeatureName(params)) {
-        const matches = atRule.toString().match(/[a-z-]+device-pixel-ratio/g)
-        matches.forEach(match => {
-          report({
-            message: messages.rejected,
-            node: atRule,
-            word: match,
-            result,
-            ruleName,
-          })
+      if (!isAutoprefixable.mediaFeatureName(params)) { return }
+      const matches = atRule.toString().match(/[a-z-]+device-pixel-ratio/ig)
+      matches.forEach(match => {
+        report({
+          message: messages.rejected,
+          node: atRule,
+          word: match,
+          result,
+          ruleName,
         })
-      }
+      })
     })
   }
 }

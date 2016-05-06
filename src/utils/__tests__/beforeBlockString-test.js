@@ -36,6 +36,11 @@ test("beforeBlockString with declaration directly at root", t => {
   t.end()
 })
 
+test("beforeBlockString with comment after selector", t => {
+  t.equal(postcssCheck("a /* x */\n{}"), "a /* x */\n")
+  t.end()
+})
+
 function postcssCheck(options={}, cssString) {
   if (typeof options === "string") {
     cssString = options

@@ -40,7 +40,7 @@ export function mediaFeatureColonSpaceChecker({ locationChecker, root, result, c
     const { name, params } = atRule
 
     // Only deal with @media at-rules
-    if (name !== "media") { return }
+    if (name.toLowerCase() !== "media") { return }
 
     styleSearch({ source: params, target: ":" }, match => {
       checkColon(params, match.startIndex, atRule)

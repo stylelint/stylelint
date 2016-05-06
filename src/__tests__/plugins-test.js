@@ -55,12 +55,11 @@ test("plugin runs", t => {
 
   processorRelative.process(cssWithoutFoo)
     .then(result => {
-      t.equal(result.warnings().length, 2)
-      t.equal(result.warnings()[0].text, "never found .foo (warn-about-foo)")
-      t.notOk(result.warnings()[0].node)
+      t.equal(result.warnings().length, 1)
+      t.equal(result.warnings()[0].text, "Unexpected empty block (block-no-empty)")
     })
     .catch(logError)
-  planned += 3
+  planned += 2
 
   t.plan(planned)
 })
@@ -142,6 +141,32 @@ test("plugin using exposed rules via stylelint.rules", t => {
     t.equal(result.warnings().length, 0)
   }).catch(logError)
   planned += 1
+
+  t.plan(planned)
+})
+
+test("module providing an array of plugins", t => {
+  const config = {
+    plugins: [path.join(__dirname, "fixtures/plugin-array")],
+    rules: {
+      "conditionally-check-color-hex-case": "upper",
+      "warn-about-foo": "always",
+    },
+  }
+
+  let planned = 0
+
+  postcss().use(stylelint(config)).process("@@check-color-hex-case a { color: #eee; }").then(result => {
+    t.equal(result.warnings().length, 1)
+    t.equal(result.warnings()[0].text, "Expected \"#eee\" to be \"#EEE\" (color-hex-case)")
+  }).catch(logError)
+  planned += 2
+
+  postcss().use(stylelint(config)).process(".foo {}").then(result => {
+    t.equal(result.warnings().length, 1)
+    t.equal(result.warnings()[0].text, "found .foo (warn-about-foo)")
+  }).catch(logError)
+  planned += 2
 
   t.plan(planned)
 })
