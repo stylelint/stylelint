@@ -90,7 +90,7 @@ export default function (actual) {
         const ignoredProperties = ignore.ignoredProperties
 
         decl.parent.nodes.forEach((node, nodeIndex) => {
-          if (ignoredProperties.indexOf(node.prop.toLowerCase()) === -1 || index === nodeIndex) { return }
+          if (!node.prop || ignoredProperties.indexOf(node.prop.toLowerCase()) === -1 || index === nodeIndex) { return }
 
           report({
             message: messages.rejected(node.prop, decl.toString()),
