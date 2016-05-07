@@ -47,6 +47,8 @@ export default function (targetWhitespace, expectation, messages) {
    * @param {function} args.err - If a violation is found, this callback
    *   will be invoked with the relevant warning message.
    *   Typically this callback will report() the violation.
+   * @param {function} args.errTarget - If a violation is found, this string
+   *   will be sent to the relevant warning message.
    * @param {string} [args.lineCheckStr] - Single- and multi-line checkers
    *   will use this string to determine whether they should proceed,
    *   i.e. if this string is one line only, single-line checkers will check,
@@ -65,11 +67,12 @@ export default function (targetWhitespace, expectation, messages) {
     source,
     index,
     err,
+    errTarget,
     lineCheckStr,
     onlyOneChar=false,
     allowIndentation=false,
   }) {
-    activeArgs = { source, index, err, onlyOneChar, allowIndentation }
+    activeArgs = { source, index, err, errTarget, onlyOneChar, allowIndentation }
     switch (expectation) {
       case "always":
         expectBefore()
@@ -104,8 +107,8 @@ export default function (targetWhitespace, expectation, messages) {
    * Parameters are pretty much the same as for `before()`, above, just substitute
    * the word "after" for "before".
    */
-  function after({ source, index, err, lineCheckStr, onlyOneChar=false }) {
-    activeArgs = { source, index, err, onlyOneChar }
+  function after({ source, index, err, errTarget, lineCheckStr, onlyOneChar=false }) {
+    activeArgs = { source, index, err, errTarget, onlyOneChar }
     switch (expectation) {
       case "always":
         expectAfter()
@@ -166,7 +169,7 @@ export default function (targetWhitespace, expectation, messages) {
       if (activeArgs.onlyOneChar || !isWhitespace(twoCharsBefore)) { return }
     }
 
-    activeArgs.err(messageFunc(source[index]))
+    activeArgs.err(messageFunc(activeArgs.errTarget ? activeArgs.errTarget : source[index]))
   }
 
   function expectBeforeAllowingIndentation(messageFunc=messages.expectedBefore) {
@@ -181,7 +184,7 @@ export default function (targetWhitespace, expectation, messages) {
         i--
         continue
       }
-      err(messageFunc(source[index]))
+      err(messageFunc(activeArgs.errTarget ? activeArgs.errTarget : source[index]))
       return
     }
   }
@@ -191,7 +194,7 @@ export default function (targetWhitespace, expectation, messages) {
     const oneCharBefore = source[index - 1]
 
     if (isValue(oneCharBefore) && isWhitespace(oneCharBefore)) {
-      activeArgs.err(messageFunc(source[index]))
+      activeArgs.err(messageFunc(activeArgs.errTarget ? activeArgs.errTarget : source[index]))
     }
   }
 
@@ -223,7 +226,7 @@ export default function (targetWhitespace, expectation, messages) {
       if (activeArgs.onlyOneChar || !isWhitespace(twoCharsAfter)) { return }
     }
 
-    activeArgs.err(messageFunc(source[index]))
+    activeArgs.err(messageFunc(activeArgs.errTarget ? activeArgs.errTarget : source[index]))
   }
 
   function rejectAfter(messageFunc=messages.rejectedAfter) {
@@ -231,7 +234,7 @@ export default function (targetWhitespace, expectation, messages) {
     const oneCharAfter = source[index + 1]
 
     if (isValue(oneCharAfter) && isWhitespace(oneCharAfter)) {
-      activeArgs.err(messageFunc(source[index]))
+      activeArgs.err(messageFunc(activeArgs.errTarget ? activeArgs.errTarget : source[index]))
     }
   }
 

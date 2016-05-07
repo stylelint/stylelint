@@ -1,5 +1,6 @@
 import atRuleSemicolonNewlineAfter from "./at-rule-semicolon-newline-after"
 import atRuleNameCase from "./at-rule-name-case"
+import atRuleNameSpaceAfter from "./at-rule-name-space-after"
 import atRuleEmptyLineBefore from "./at-rule-empty-line-before"
 import atRuleNoVendorPrefix from "./at-rule-no-vendor-prefix"
 import blockClosingBraceNewlineAfter from "./block-closing-brace-newline-after"
@@ -142,6 +143,7 @@ import valueNoVendorPrefix from "./value-no-vendor-prefix"
 export default {
   "at-rule-semicolon-newline-after": atRuleSemicolonNewlineAfter,
   "at-rule-name-case": atRuleNameCase,
+  "at-rule-name-space-after": atRuleNameSpaceAfter,
   "at-rule-empty-line-before": atRuleEmptyLineBefore,
   "at-rule-no-vendor-prefix": atRuleNoVendorPrefix,
   "block-closing-brace-newline-after": blockClosingBraceNewlineAfter,
