@@ -57,6 +57,8 @@ testRule(rule, {
     code: "@unknown \"ident\";",
   }, {
     code: "@unknown ident { };",
+  }, {
+    code: "a { color: pink; @crazy-custom-at-rule; }",
   } ],
 
   reject: [ {

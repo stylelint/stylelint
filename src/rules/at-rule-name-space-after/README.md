@@ -1,11 +1,11 @@
 # at-rule-name-space-after
 
-Require a single space or disallow whitespace after at-rule names.
+Require a single space after at-rule names.
 
 ```css
 @media (max-width: 600px) {}
 /**   ↑
- * The space after at-rules */
+ * The space after at-rule names */
 ```
 
 ## Options
@@ -14,29 +14,85 @@ Require a single space or disallow whitespace after at-rule names.
 
 ### `"always"`
 
-There *must always* be a single space after at-rules.
+There *must always* be a single space after at-rule names.
 
 The following patterns are considered warnings:
 
 ```css
+@charset"UTF-8";
+```
 
+```css
+@media(min-width: 700px) { }
+```
+
+```css
+@media  (min-width: 700px) { }
+```
+
+```css
+@media 
+(min-width: 700px) { }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
+@charset "UTF-8";
+```
+
+```css
+@import url("x.css");
+```
+
+```css
+@media (min-width: 700px) { }
 ```
 
 ### `"always-single-line"`
 
-There *must always* be a single space after at-rules in single-line declaration blocks.
+There *must always* be a single space after at-rule names in single-line declaration blocks.
 
 The following patterns are considered warnings:
 
 ```css
+@charset"UTF-8";
+```
+
+```css
+@media(min-width: 700px) { }
+```
+
+```css
+@media  (min-width: 700px) { }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
+@charset "UTF-8";
+```
+
+```css
+@import url("x.css");
+```
+
+```css
+@media (min-width: 700px) { }
+```
+
+```css
+@media 
+(min-width: 700px) { }
+```
+
+```css
+@media(min-width: 700px) and
+  (orientation: portrait) { }
+```
+
+```css
+@media
+  (min-width: 700px) and
+  (orientation: portrait) { }
 ```

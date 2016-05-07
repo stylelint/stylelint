@@ -202,7 +202,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 - [`at-rule-empty-line-before`](../../src/rules/at-rule-empty-line-before/README.md): Require or disallow an empty line before at-rules.
 - [`at-rule-name-case`](../../src/rules/at-rule-name-case/README.md): Specify lowercase or uppercase for at-rules names.
-- [`at-rule-name-space-after`](../../src/rules/at-rule-name-space-after/README.md): Require a single space or disallow whitespace after at-rule names.
+- [`at-rule-name-space-after`](../../src/rules/at-rule-name-space-after/README.md): Require a single space after at-rule names.
 - [`at-rule-no-vendor-prefix`](../../src/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for at-rules.
 - [`at-rule-semicolon-newline-after`](../../src/rules/at-rule-semicolon-newline-after/README.md): Require a newline after the semicolon of at-rules.
 

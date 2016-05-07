@@ -10,7 +10,7 @@ export default function (atRule) {
   if (!atRule.nodes && atRule.params === "") { return false }
 
   // Ignore detached ruleset `@detached-ruleset: { background: red; }; .top { @detached-ruleset(); }`
-  if (!atRule.nodes && atRule.afterName === "" && atRule.params[0] === "(") { return false }
+  if (!atRule.nodes && atRule.raws.afterName === "" && atRule.params[0] === "(") { return false }
 
   return true
 }
