@@ -1,4 +1,4 @@
-# Head
+# 6.3.1
 
 - Fixed: `declaration-block-no-ignored-properties` now longer crashes on nested rules.
 
