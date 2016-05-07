@@ -33,6 +33,10 @@ testRule(rule, {
   }, {
     code: "a { display: inline-block; vertical-align: baseline; }",
   }, {
+    code: "a { display: inline-table; vertical-align: baseline; }",
+  }, {
+    code: "a { display: inline-flex; vertical-align: baseline; }",
+  }, {
     code: "a { display: block; }",
   }, {
     code: "a { display: block; color: red; }",
@@ -53,9 +57,15 @@ testRule(rule, {
   }, {
     code: "a { display: table-cell; padding: 10px; }",
   }, {
+    code: "a { display: table-cell; vertical-align: baseline; }",
+  }, {
     code: "a { position: static; display: block; }",
   }, {
     code: "a { position: static; width: 100%; }",
+  }, {
+    code: "a { position: static; vertical-align: baseline; }",
+  }, {
+    code: "a { position: relative; vertical-align: baseline; }",
   }, {
     code: "a { position: absolute; top: 0px; }",
   }, {
@@ -138,6 +148,90 @@ testRule(rule, {
     line: 1,
     column: 21,
     description: "display: block rules out baseline",
+  }, {
+    code: "a { display: flex; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "display: flex"),
+    line: 1,
+    column: 20,
+    description: "display: flex rules out baseline",
+  }, {
+    code: "a { display: list-item; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "display: list-item"),
+    line: 1,
+    column: 25,
+    description: "display: list-item rules out baseline",
+  }, {
+    code: "a { display: table; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "display: table"),
+    line: 1,
+    column: 21,
+    description: "display: table rules out baseline",
+  }, {
+    code: "a { display: table-row-group; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "display: table-row-group"),
+    line: 1,
+    column: 31,
+    description: "display: table-row-group rules out baseline",
+  }, {
+    code: "a { display: table-column; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "display: table-column"),
+    line: 1,
+    column: 28,
+    description: "display: table-column rules out baseline",
+  }, {
+    code: "a { display: table-column-group; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "display: table-column-group"),
+    line: 1,
+    column: 34,
+    description: "display: table-column-group rules out baseline",
+  }, {
+    code: "a { display: table-header-group; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "display: table-header-group"),
+    line: 1,
+    column: 34,
+    description: "display: table-header-group rules out baseline",
+  }, {
+    code: "a { display: table-footer-group; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "display: table-footer-group"),
+    line: 1,
+    column: 34,
+    description: "display: table-footer-group rules out baseline",
+  }, {
+    code: "a { display: table-row; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "display: table-row"),
+    line: 1,
+    column: 25,
+    description: "display: table-row rules out baseline",
+  }, {
+    code: "a { display: table-caption; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "display: table-caption"),
+    line: 1,
+    column: 29,
+    description: "display: table-caption rules out baseline",
+  }, {
+    code: "a { position: absolute; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "position: absolute"),
+    line: 1,
+    column: 25,
+    description: "position: absolute rules out baseline",
+  }, {
+    code: "a { position: fixed; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "position: fixed"),
+    line: 1,
+    column: 22,
+    description: "position: fixed rules out baseline",
+  }, {
+    code: "a { float: left; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "float: left"),
+    line: 1,
+    column: 18,
+    description: "float: left rules out baseline",
+  }, {
+    code: "a { float: right; vertical-align: baseline; }",
+    message: messages.rejected("vertical-align", "float: right"),
+    line: 1,
+    column: 19,
+    description: "float: right rules out baseline",
   }, {
     code: "a { display: table-cell; margin: 10px; }",
     message: messages.rejected("margin", "display: table-cell"),

@@ -14,11 +14,16 @@ The rule warns when it finds:
 
 - `display: inline` used with `width`, `height`, `margin`, `margin-top`, `margin-bottom`, and `float`.
 - `display: inline-block` used with `float`.
+- `display: list-item` used with `vertical-align`.
 - `display: block` used with `vertical-align`.
+- `display: flex` used with `vertical-align`.
+- `display: table` used with `vertical-align`.
 - `display: table-*` used with `margin` (and all variants) or `float`.
+- `display: table-*` (except `table-cell`) used with `vertical-align`.
 - `position: static` used with `top`, `right`, `bottom`, and `left`.
-- `position: absolute` used with `float`.
-- `position: fixed` used with `float`.
+- `position: absolute` used with `float` or `vertical-align`.
+- `position: fixed` used with `float` or `vertical-align`.
+- `float: left` and `float: right` used with `vertical-align`.
 
 The following patterns are considered warnings:
 
@@ -52,6 +57,24 @@ a { display: block; vertical-align: baseline; }
 
 `display: block` causes `vertical-align` to be ignored.
 
+```css
+a { display: flex; vertical-align: baseline; }
+```
+
+`display: flex` causes `vertical-align` to be ignored.
+
+```css
+a { position: absolute; vertical-align: baseline; }
+```
+
+`position: absolute` causes `vertical-align` to be ignored.
+
+```css
+a { float: left; vertical-align: baseline; }
+```
+
+`float: left` causes `vertical-align` to be ignored.
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -77,3 +100,15 @@ a { display: block; float: left; }
 ```
 
 Although `display: inline-block` causes `float` to be ignored, `block` works with `float`.
+
+```css
+a { display: table-cell; vertical-align: baseline; }
+```
+
+Although `display: block` causes `vertical-align` to be ignored, `table-cell` works with `vertical-align`.
+
+```css
+a { position: relative; vertical-align: baseline; }
+```
+
+Although `position: absolute` causes `vertical-align` to be ignored, `relative` works with `vertical-align`.
