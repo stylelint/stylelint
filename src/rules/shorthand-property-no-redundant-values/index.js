@@ -92,7 +92,7 @@ export default function (actual) {
       const shortestFormString = shortestForm.filter((value) => { return value }).join(" ")
       const valuesFormString = valuesToShorthand.join(" ")
 
-      if (shortestFormString.toLowerCase() === valuesFormString) { return }
+      if (shortestFormString.toLowerCase() === valuesFormString.toLowerCase()) { return }
 
       report({
         message: messages.rejected(value, shortestFormString),
