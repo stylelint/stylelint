@@ -51,6 +51,6 @@ testRule(rule, {
   skipBasicChecks: true,
 
   accept: [{
-    code: "/// it's not ok\na {}",
+    code: "/// it's within a comment\na {}",
   }],
 })
