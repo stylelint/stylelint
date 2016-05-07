@@ -1,32 +1,32 @@
 # Head
 
-- Deprecated: support for plugin names that aren't namedspaced i.e. only `your-namespace/your-rule-name` are supported. If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`).
-- Added: support for plugin modules that provides an array of rules.
+- Deprecated: support for plugin rule names that aren't namespaced i.e. only `your-namespace/your-rule-name` rule names are supported. If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`).
+- Added: support for plugins that provides an array of rules.
 - Added: support for extracting and linting CSS from within HTML sources.
+- Added: `--stdin-filename` option to CLI.
+- Added: `no-extra-semicolons` rule.
 - Added: `selector-attribute-operator-space-after` rule.
 - Added: `selector-attribute-operator-space-before` rule.
 - Added: `selector-max-empty-lines` rule.
 - Added: `selector-pseudo-element-no-unknown` rule.
-- Added: `no-extra-semicolons` rule.
-- Added: more flexible support for end-of-line comments in `at-rule-semicolon-newline-after`, `block-opening-brace-newline-after`, and `declaration-block-semicolon-newline-after`.
-- Added: `--stdin-filename` option to CLI.
-- Fixed: all rules and utils now handle case insensitive CSS identifiers.
-- Fixed: `number-max-precision` now ignores `@import` at-rules and `url()` functions.
-- Fixed: `no-indistinguishable-colors` now ignores keyword color names within `url()`.
-- Fixed: string and verbose formatters no longer use an ambiguous colour scheme.
-- Fixed: `selector-class-pattern` and `selector-id-pattern` rules now ignore SCSS variable interpolation.
+- Added: flexible support for end-of-line comments in `at-rule-semicolon-newline-after`, `block-opening-brace-newline-after`, and `declaration-block-semicolon-newline-after`.
+- Fixed: string and verbose formatters no longer use an ambiguous colour schemes.
 - Fixed: string formatter no longer outputs an empty line if there are no problems.
-- Fixed: `function-url-quotes` now ignores spaces within `url()`.
-- Fixed: `value-list-comma-*` rules now ignore SCSS maps.
-- Fixed: `no-descending-specificity` now ignores trailing colons within selectors.
+- Fixed: all rules now handle case insensitive CSS identifiers.
 - Fixed: `function-comma-newline-after` now allows end-of-line comments.
+- Fixed: `function-url-quotes` now ignores spaces within `url()`.
+- Fixed: `no-descending-specificity` now ignores trailing colons within selectors.
+- Fixed: `no-indistinguishable-colors` now ignores keyword color names within `url()`.
+- Fixed: `number-max-precision` now ignores `@import` at-rules and `url()` functions.
+- Fixed: `selector-class-pattern` and `selector-id-pattern` rules now ignore SCSS variable interpolation.
+- Fixed: `value-list-comma-*` rules now ignore SCSS maps.
 
 # 6.2.2
 
 - Deprecated: `stylelint.utils.cssWordIsVariable()` as non-standard syntax utils are now defensive.
 - Fixed: `declaration-colon-*` rules now ignore SCSS lists.
-- Fixed: `rule-nested-empty-line-before` now ignores Less blockless rules (mixin and extend calls).
 - Fixed: `font-weight-notation` now ignores SCSS interpolation.
+- Fixed: `rule-nested-empty-line-before` now ignores Less blockless rules (mixin and extend calls).
 
 # 6.2.1
 
@@ -46,13 +46,13 @@
 
 # 6.1.0
 
+- Added: support for `.stylelintignore` file.
+- Added: warning message in output when a file is ignored.
 - Added: `comment-word-blacklist` rule.
 - Added: `selector-attribute-brackets-space-inside` rule.
 - Added: `selector-pseudo-class-parentheses-space-inside` rule.
 - Added: `shorthand-property-no-redundant-values` rule.
 - Added: `ignoreKeywords` option for `value-keyword-case`.
-- Added: support for `.stylelintignore` file.
-- Added: warning message in output when a file is ignored.
 - Fixed: CRLF (`\r\n`) warning positioning in `string-no-newline`.
 - Fixed: parsing problems when using `///`-SassDoc-style comments.
 - Fixed: `max-empty-lines` places warning at the end of the violating newlines to avoid positioning confusions.
