@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `declaration-block-no-ignored-properties` now longer crashes on nested rules.
+
 # 6.3.0
 
 - Deprecated: support for plugin rule names that aren't namespaced i.e. only `your-namespace/your-rule-name` rule names are supported. If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`).

@@ -72,6 +72,10 @@ testRule(rule, {
     code: "a { position: fixed; bottom: 0px; }",
   }, {
     code: "a { position: fixed; left: 0px; }",
+  }, {
+    code: "a { display: inline; &:hover { width: 100px; } }",
+  }, {
+    code: "a { display: inline; &::before { width: 100px; } }",
   } ],
 
   reject: [ {
