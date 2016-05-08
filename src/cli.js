@@ -37,26 +37,27 @@ const meowOptions = {
     "  You can also pass no input and use stdin, instead.",
     "",
     "Options",
-    "  --config            Path to a specific configuration file (JSON, YAML, or CommonJS),",
-    "                      or the name of a module in `node_modules` that points to one.",
-    "                      If no `--config` argument is provided, stylelint will search for",
-    "                      configuration  files in the following places, in this order:",
-    "                        - a `stylelint` property in `package.json`",
-    "                        - a `.stylelintrc` file (with or without filename extension:",
-    "                          `.json`, `.yaml`, and `.js` are available)",
-    "                        - a `stylelint.config.js` file exporting a JS object",
-    "                      The search will begin in the working directory and move up the",
-    "                      directory tree until a configuration file is found.",
-    "  --version           Get the currently installed version of stylelint.",
-    "  --custom-formatter  Path to a JS file exporting a custom formatting function",
-    "  --stdin-filename    Specify a filename to assign stdin input",
-    "  -f, --formatter     Specify a formatter: \"json\" or \"string\". Default is \"string\".",
-    "  -q, --quiet         Only register warnings for rules with an \"error\"-level severity",
-    "                      (ignore \"warning\"-level)",
-    "  -s, --syntax        Specify a non-standard syntax that should be used to ",
-    "                      parse source stylesheets. Options: \"scss\", \"less\", \"sugarss\"",
-    "  -e, --extract       Extract and lint CSS from style tags in HTML structures",
-    "  -v, --verbose       Get more stats",
+    "  --config                   Path to a specific configuration file (JSON, YAML, or CommonJS),",
+    "                             or the name of a module in `node_modules` that points to one.",
+    "                             If no `--config` argument is provided, stylelint will search for",
+    "                             configuration  files in the following places, in this order:",
+    "                               - a `stylelint` property in `package.json`",
+    "                               - a `.stylelintrc` file (with or without filename extension:",
+    "                                 `.json`, `.yaml`, and `.js` are available)",
+    "                               - a `stylelint.config.js` file exporting a JS object",
+    "                             The search will begin in the working directory and move up the",
+    "                             directory tree until a configuration file is found.",
+    "  --version                  Get the currently installed version of stylelint.",
+    "  --custom-formatter         Path to a JS file exporting a custom formatting function",
+    "  --stdin-filename           Specify a filename to assign stdin input",
+    "  --ignore-disable-comments  Ignores disable comments in files",
+    "  -f, --formatter            Specify a formatter: \"json\" or \"string\". Default is \"string\".",
+    "  -q, --quiet                Only register warnings for rules with an \"error\"-level severity",
+    "                             (ignore \"warning\"-level)",
+    "  -s, --syntax               Specify a non-standard syntax that should be used to ",
+    "                             parse source stylesheets. Options: \"scss\", \"less\", \"sugarss\"",
+    "  -e, --extract              Extract and lint CSS from style tags in HTML structures",
+    "  -v, --verbose              Get more stats",
   ],
   pkg: "../package.json",
 }
@@ -77,6 +78,10 @@ const optionsBase = {
 
 if (cli.flags.quiet) {
   optionsBase.configOverrides.quiet =  cli.flags.quiet
+}
+
+if (cli.flags.ignoreDisableComments) {
+  optionsBase.ignoreDisableComments = true
 }
 
 if (cli.flags.syntax && includes(syntaxOptions, cli.flags.syntax)) {
