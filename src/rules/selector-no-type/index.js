@@ -28,6 +28,9 @@ export default function (on, options) {
     })
     if (!validOptions) { return }
 
+    const ignoreDescendant = optionsHaveIgnored(options, "descendant")
+    const ignoreCompounded = optionsHaveIgnored(options, "compounded")
+
     root.walkRules(rule => {
 
       if (!isStandardRule(rule)) { return }
@@ -42,18 +45,9 @@ export default function (on, options) {
 
           if (!isStandardTypeSelector(tag)) { return }
 
-          if (optionsHaveIgnored(options, "descendant") && isCombinator(tag.prev())) {
-            return
-          }
+          if (ignoreDescendant && hasCombinatorBefore(tag)) { return }
 
-          if (
-            optionsHaveIgnored(options, "compounded")
-            && get(tag, "parent.nodes.length") > 1
-            && !isCombinator(tag.prev())
-            && !isCombinator(tag.next())
-          ) {
-            return
-          }
+          if (ignoreCompounded && isCompounded(tag)) { return }
 
           report({
             message: messages.rejected,
@@ -68,6 +62,18 @@ export default function (on, options) {
   }
 }
 
+function hasCombinatorBefore(node) {
+  return node.parent.nodes.slice(0, node.parent.nodes.indexOf(node))
+    .some(isCombinator)
+}
+
+function isCompounded(node) {
+  if (node.prev() && !isCombinator(node.prev())) { return true }
+  if (node.next() && !isCombinator(node.next())) { return true }
+  return false
+}
+
 function isCombinator(node) {
+  if (!node) return false
   return get(node, "type") === "combinator"
 }
