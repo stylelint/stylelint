@@ -74,7 +74,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
       result.stylelint.quiet = config.quiet
 
       // First check for disabled ranges, adding them to the result object
-      disableRanges(root, result)
+      if (options.ignoreDisableComments != true) { disableRanges(root, result) }
 
       Object.keys(config.rules).forEach(ruleName => {
         if (!ruleDefinitions[ruleName]) {

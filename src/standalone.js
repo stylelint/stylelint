@@ -25,6 +25,7 @@ export default function ({
   syntax,
   formatter = "json",
   extractStyleTagsFromHtml,
+  ignoreDisableComments,
 } = {}) {
   const isValidCode = typeof code === "string"
   if (!files && !isValidCode || files && (code || isValidCode)) {
@@ -85,6 +86,7 @@ export default function ({
           configFile,
           configBasedir,
           configOverrides,
+          ignoreDisableComments,
         }))
     }
 
