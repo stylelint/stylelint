@@ -46,7 +46,7 @@ input::-moz-placeholder { }
 
 ### `ignorePseudoElements: ["array", "of", "pseudo-elements"]`
 
-Allow unknown units.
+Allow unknown pseudo-element selectors.
 
 For example, given:
 
