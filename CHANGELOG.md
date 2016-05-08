@@ -1,3 +1,5 @@
+- Added: `--ignore-disable-comments` option to CLI to skip any inline disable comments
+
 # 6.3.1
 
 - Fixed: `declaration-block-no-ignored-properties` now longer crashes on nested rules.
