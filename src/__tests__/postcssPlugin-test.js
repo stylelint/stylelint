@@ -14,6 +14,21 @@ test("`configFile` option with absolute path", t => {
   })
 })
 
+test("checks with ignore-disable-comments should have undefined disabledRanges", t => {
+  const source = `/* stylelint-disable block-no-empty */
+    a {}`
+  const config = {
+    configFile: path.join(__dirname, "fixtures/config-block-no-empty.json"),
+    ignoreDisableComments: true,
+  }
+  t.plan(1)
+  postcssPlugin.process(source, config).then(result => {
+    t.equal(result.stylelint.disabledRanges, undefined)
+  }).catch(err => {
+    t.equal(err.code, "ENOENT")
+  })
+})
+
 test("`configFile` with bad path", t => {
   t.plan(1)
   postcssPlugin.process("a {}", { configFile: "./herby.json" }).catch(err => {
