@@ -55,6 +55,9 @@ testRule(rule, {
   }, {
     code: "a { margin: var(--margin) var(--margin); }",
     description: "ignore variables",
+  }, {
+    code: "a { border-color: #FFFFFF transparent transparent }",
+    description: "ignore upper case value",
   } ],
 
   reject: [ {
