@@ -1,5 +1,6 @@
 # Head
 
+- Fixed: `selector-no-type` does a better job when ignoring descendant and compound selectors.
 - Fixed: `block-closing-brace-newline-before` no longer delivers false positives for extra semicolon.
 
 # 6.3.2
