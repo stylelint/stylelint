@@ -3,8 +3,8 @@ import isKnownPseudoElement from "../isKnownPseudoElement"
 
 test("isKnownUnit", t => {
   t.notOk(isKnownPseudoElement("pseudo"))
-  t.notOk(isKnownPseudoElement("pseudo"))
-  t.notOk(isKnownPseudoElement("element"))
+  t.notOk(isKnownPseudoElement("pSeUdO"))
+  t.notOk(isKnownPseudoElement("PSEUDO"))
   t.notOk(isKnownPseudoElement("element"))
   t.ok(isKnownPseudoElement("before"))
   t.ok(isKnownPseudoElement("bEfOrE"))
@@ -24,5 +24,11 @@ test("isKnownUnit", t => {
   t.ok(isKnownPseudoElement("placeholder"))
   t.ok(isKnownPseudoElement("shadow"))
   t.ok(isKnownPseudoElement("content"))
+
+  t.ok(isKnownPseudoElement("first-line", { only: "oneColonNotation" }))
+  t.ok(isKnownPseudoElement("first-letter", { only: "oneColonNotation" }))
+  t.ok(isKnownPseudoElement("before", { only: "oneColonNotation" }))
+  t.ok(isKnownPseudoElement("after", { only: "oneColonNotation" }))
+  t.notOk(isKnownPseudoElement("selection", { only: "oneColonNotation" }))
   t.end()
 })

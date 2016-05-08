@@ -6,13 +6,23 @@
  */
 
 // https://drafts.csswg.org/selectors-4/#overview
-const knownPseudoElements = new Set([
+const knownOneColonNotationPseudoElements = new Set([
+  "first-line", "first-letter", "before", "after",
+])
+
+const knownTwoColonNotationPseudoElements = new Set([
   "before", "after", "first-line", "first-letter",
   "selection", "spelling-error", "grammar-error",
   "backdrop", "marker", "placeholder",
   "shadow", "content",
 ])
 
-export default function (pseudoElement) {
-  return knownPseudoElements.has(pseudoElement.toLowerCase())
+export default function (pseudoElement, { only = false } = {}) {
+  const pseudoElementLowerCase = pseudoElement.toLowerCase()
+
+  if (only && only === "oneColonNotation") {
+    return knownOneColonNotationPseudoElements.has(pseudoElementLowerCase)
+  }
+
+  return knownTwoColonNotationPseudoElements.has(pseudoElementLowerCase)
 }
