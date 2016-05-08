@@ -31,7 +31,25 @@ const ignored = [ {
   ],
 }, {
   property: "display",
+  value: "list-item",
+  ignoredProperties: [
+    "vertical-align",
+  ],
+}, {
+  property: "display",
   value: "block",
+  ignoredProperties: [
+    "vertical-align",
+  ],
+}, {
+  property: "display",
+  value: "flex",
+  ignoredProperties: [
+    "vertical-align",
+  ],
+}, {
+  property: "display",
+  value: "table",
   ignoredProperties: [
     "vertical-align",
   ],
@@ -44,6 +62,24 @@ const ignored = [ {
     "margin-right",
     "margin-bottom",
     "margin-left",
+  ],
+}, {
+  property: "display",
+  value: "/^table-(row|row-group|column|column-group|header-group|footer-group|caption).*$/",
+  ignoredProperties: [
+    "vertical-align",
+  ],
+}, {
+  property: "float",
+  value: "left",
+  ignoredProperties: [
+    "vertical-align",
+  ],
+}, {
+  property: "float",
+  value: "right",
+  ignoredProperties: [
+    "vertical-align",
   ],
 }, {
   property: "position",
@@ -60,6 +96,7 @@ const ignored = [ {
   ignoredProperties: [
     "float",
     "clear",
+    "vertical-align",
   ],
 }, {
   property: "position",
@@ -67,6 +104,7 @@ const ignored = [ {
   ignoredProperties: [
     "float",
     "clear",
+    "vertical-align",
   ],
 } ]
 
