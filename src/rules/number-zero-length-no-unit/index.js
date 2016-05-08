@@ -16,16 +16,10 @@ import {
 } from "../../utils"
 
 export const ruleName = "number-zero-length-no-unit"
+
 export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected unit on zero length number",
 })
-
-const ignoredUnits = new Set([
-  "dpcm", "dppx", "dpi",
-  "kHz", "Hz",
-  "s", "ms",
-  "%",
-])
 
 export default function (actual) {
   return (root, result) => {
@@ -88,31 +82,22 @@ export default function (actual) {
         const valueWithZero = value.slice(valueWithZeroStart, valueWithZeroEnd)
         const parsedValue = valueParser.unit(valueWithZero)
 
-        if (parsedValue && parsedValue.unit && ignoredUnits.has(parsedValue.unit.toLowerCase())) { return }
+        if (!parsedValue || (parsedValue && !parsedValue.unit)) { return }
 
         // Add the indexes to ignorableIndexes so the same value will not
         // be checked multiple times.
         range(valueWithZeroStart, valueWithZeroEnd).forEach(i => ignorableIndexes.add(i))
 
         // Only pay attention if the value parses to 0
-        if (parseFloat(valueWithZero, 10) !== 0) { return }
-
-        // If there is not a length unit at the end of this value, ignore.
-        // (Length units are 2, 3, or 4 characters)
-        const unitLength = (function () {
-          if (isKnownUnit(valueWithZero.slice(-4))) { return 4 }
-          if (isKnownUnit(valueWithZero.slice(-3))) { return 3 }
-          if (isKnownUnit(valueWithZero.slice(-2))) { return 2 }
-          if (isKnownUnit(valueWithZero.slice(-1))) { return 1 }
-          return 0
-        }())
-
-        if (!unitLength) { return }
+        // and units with lengths
+        if (parseFloat(valueWithZero, 10) !== 0
+          || !isKnownUnit(parsedValue.unit, { only: "length" })
+        ) { return }
 
         report({
           message: messages.rejected,
           node,
-          index: valueWithZeroEnd - unitLength,
+          index: valueWithZeroEnd - parsedValue.unit.length,
           result,
           ruleName,
         })
