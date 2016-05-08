@@ -65,7 +65,7 @@ export default function (expectation, options) {
         if (
           (value.toLowerCase() === NORMAL_KEYWORD && !hasNumericFontWeight)
           || isNumbery(value)
-          || fontWeightKeywords.has(value.toLowerCase())
+          || value.toLowerCase() !== NORMAL_KEYWORD && fontWeightKeywords.has(value.toLowerCase())
         ) {
           checkWeight(value, decl)
           return
@@ -93,7 +93,7 @@ export default function (expectation, options) {
 
       if (expectation === "named-where-possible") {
         if (isNumbery(weightValue)) {
-          if (includes(WEIGHTS_WITH_KEYWORD_EQUIVALENTS, weightValue.toLowerCase())) {
+          if (includes(WEIGHTS_WITH_KEYWORD_EQUIVALENTS, weightValue)) {
             complain(messages.expected("named"))
           }
           return

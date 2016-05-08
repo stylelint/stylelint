@@ -1,7 +1,5 @@
-import postcss from "postcss"
 import {
-  isStandardValue,
-  isVariable,
+  findFontFamily,
   report,
   ruleMessages,
   validateOptions,
@@ -75,15 +73,22 @@ export default function (expectation) {
     }
 
     root.walkDecls(/^font-family$/i, decl => {
-      postcss.list.comma(decl.value).forEach(familyName => {
-        checkFamilyName(familyName, decl)
+      const fontFamilies = findFontFamily(decl.value)
+
+      if (fontFamilies.length === 0) { return }
+
+      fontFamilies.forEach(fontFamilyNode => {
+        let rawFamily = fontFamilyNode.value
+
+        if (fontFamilyNode.quote) {
+          rawFamily = fontFamilyNode.quote + rawFamily + fontFamilyNode.quote
+        }
+
+        checkFamilyName(rawFamily, decl)
       })
     })
 
     function checkFamilyName(rawFamily, decl) {
-      if (!isStandardValue(rawFamily)) { return }
-      if (isVariable(rawFamily)) { return }
-
       const quoteType = getQuoteType(rawFamily)
       // Clean the family of its quotes
       const family = rawFamily.replace(/^['"]|['"]$/g, "")

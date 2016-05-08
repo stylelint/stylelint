@@ -56,9 +56,27 @@ export const colorFunctionNames = new Set([
   "gray",
 ])
 
-export const fontFamilyKeywords = new Set([
+export const camelCaseFunctionNames = new Set([
+  "translateX",
+  "translateY",
+  "translateZ",
+  "scaleX",
+  "scaleY",
+  "scaleZ",
+  "rotateX",
+  "rotateY",
+  "rotateZ",
+  "skewX",
+  "skewY",
+])
+
+export const basicKeywords = new Set([
+  "initial",
   "inherit",
   "unset",
+])
+
+export const fontFamilyKeywords = uniteSets(basicKeywords, [
   "serif",
   "sans-serif",
   "cursive",
@@ -76,35 +94,19 @@ export const fontWeightAbsoluteKeywords = new Set([
 ])
 
 export const fontWeightKeywords = uniteSets(
+  basicKeywords,
   fontWeightRelativeKeywords,
   fontWeightAbsoluteKeywords
 )
 
-export const camelCaseFunctionNames = new Set([
-  "translateX",
-  "translateY",
-  "translateZ",
-  "scaleX",
-  "scaleY",
-  "scaleZ",
-  "rotateX",
-  "rotateY",
-  "rotateZ",
-  "skewX",
-  "skewY",
-])
-
 // cf. https://developer.mozilla.org/en-US/docs/Web/CSS/animation
-export const animationShorthandKeywords = new Set([
+export const animationShorthandKeywords = uniteSets(basicKeywords, [
   "infinite",
   "normal",
   "reverse",
   "alternate",
   "alternate-reverse",
   "none",
-  "initial",
-  "inherit",
-  "unset",
   "forwards",
   "backwards",
   "both",
@@ -119,11 +121,8 @@ export const animationShorthandKeywords = new Set([
   "step-end",
 ])
 
-export const animationNameKeywords = new Set([
+export const animationNameKeywords = uniteSets(basicKeywords, [
   "none",
-  "initial",
-  "inherit",
-  "unset",
 ])
 
 // These are the ones that can have single-colon notation
@@ -247,11 +246,8 @@ export const camelCaseKeywords = new Set([
 ])
 
 // https://developer.mozilla.org/docs/Web/CSS/counter-increment
-export const counterIncrementKeywords = new Set([
+export const counterIncrementKeywords = uniteSets(basicKeywords, [
   "none",
-  "inherit",
-  "initial",
-  "unset",
 ])
 
 export const gridRowKeywords = new Set([
@@ -264,20 +260,14 @@ export const gridColumnKeywords = new Set([
   "span",
 ])
 
-export const gridAreaKeywords = new Set([
-  "unset",
-  "initial",
-  "inherit",
+export const gridAreaKeywords = uniteSets(basicKeywords, [
   "auto",
   "span",
 ])
 
 // https://developer.mozilla.org/ru/docs/Web/CSS/list-style-type
-export const listStyleTypeKeywords = new Set([
+export const listStyleTypeKeywords = uniteSets(basicKeywords, [
   "none",
-  "unset",
-  "initial",
-  "inherit",
   "disc",
   "circle",
   "square",
@@ -340,6 +330,78 @@ export const listStyleTypeKeywords = new Set([
   "hangul",
   "hangul-consonant",
   "urdu",
+])
+
+export const fontStyleKeywords = uniteSets(basicKeywords, [
+  "normal",
+  "italic",
+  "oblique",
+])
+
+export const fontVariantKeywords = uniteSets(basicKeywords, [
+  "normal",
+  "none",
+  "historical-forms",
+  "none",
+  "common-ligatures",
+  "no-common-ligatures",
+  "discretionary-ligatures",
+  "no-discretionary-ligatures",
+  "historical-ligatures",
+  "no-historical-ligatures",
+  "contextual",
+  "no-contextual",
+  "small-caps",
+  "small-caps",
+  "all-small-caps",
+  "petite-caps",
+  "all-petite-caps",
+  "unicase",
+  "titling-caps",
+  "lining-nums",
+  "oldstyle-nums",
+  "proportional-nums",
+  "tabular-nums",
+  "diagonal-fractions",
+  "stacked-fractions",
+  "ordinal",
+  "slashed-zero",
+  "jis78",
+  "jis83",
+  "jis90",
+  "jis04",
+  "simplified",
+  "traditional",
+  "full-width",
+  "proportional-width",
+  "ruby",
+])
+
+export const fontStretchKeywords = uniteSets(basicKeywords, [
+  "semi-condensed",
+  "condensed",
+  "extra-condensed",
+  "ultra-condensed",
+  "semi-expanded",
+  "expanded",
+  "extra-expanded",
+  "ultra-expanded",
+])
+
+export const fontSizeKeywords = uniteSets(basicKeywords, [
+  "xx-small",
+  "x-small",
+  "small",
+  "medium",
+  "large",
+  "x-large",
+  "xx-large",
+  "larger",
+  "smaller",
+])
+
+export const lineHeightKeywords = uniteSets(basicKeywords, [
+  "normal",
 ])
 
 function uniteSets(...sets) {
