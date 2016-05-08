@@ -1,5 +1,6 @@
 import test from "tape"
 import postcss from "postcss"
+import scssSyntax from "postcss-scss"
 import lessSyntax from "postcss-less"
 import stylelint from "../"
 
@@ -88,6 +89,26 @@ test("Less integration test", t => {
   postcss()
     .use(stylelint({ rules: {} }))
     .process(less, { syntax: lessSyntax })
+    .then(checkResult)
+    .catch(logError)
+
+  function checkResult(result) {
+    t.equal(result.messages.length, 0)
+  }
+})
+
+const scss = (
+  `.foo-#{variable} {
+    color: $color;
+}
+`)
+
+test("Scss integration test", t => {
+  t.plan(1)
+
+  postcss()
+    .use(stylelint({ rules: {} }))
+    .process(scss, { syntax: scssSyntax })
     .then(checkResult)
     .catch(logError)
 
