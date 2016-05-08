@@ -79,139 +79,170 @@ import basicChecks from "./basicChecks"
  * @param {function} equalityCheck - Described above
  * @return {function} testRule - Decsribed above
  */
+let onlyTest
+
+function checkCaseForOnly(testCase) {
+  if (!testCase.only) { return }
+  if (onlyTest) { throw new Error("Cannot use `only` on multiple test cases") }
+  onlyTest = testCase
+}
+
 export default function (equalityCheck) {
   return function (rule, schema) {
-    const { ruleName } = schema
-    const ruleOptions = normalizeRuleSettings(schema.config)
-    const rulePrimaryOptions = ruleOptions[0]
-    const ruleSecondaryOptions = ruleOptions[1]
-
-    let printableConfig = (rulePrimaryOptions) ? JSON.stringify(rulePrimaryOptions) : ""
-    if (printableConfig && ruleSecondaryOptions) {
-      printableConfig += ", " + JSON.stringify(ruleSecondaryOptions)
+    const alreadyHadOnlyTest = !!onlyTest
+    if (schema.accept) {
+      schema.accept.forEach(checkCaseForOnly)
+    }
+    if (onlyTest) {
+      schema = _.assign(_.omit(schema, [ "accept", "reject" ]), { accept: [onlyTest] })
     }
 
-    function createCaseDescription(code) {
-      let text = `\n> rule: ${ruleName}\n`
-      text += `> config: ${printableConfig}\n`
-      text += `> code: ${JSON.stringify(code)}\n`
-      return text
+    if (schema.reject) {
+      schema.reject.forEach(checkCaseForOnly)
+    }
+    if (onlyTest) {
+      schema = _.assign(_.omit(schema, [ "accept", "reject" ]), { reject: [onlyTest] })
     }
 
-    // Process the code through the rule and return
-    // the PostCSS LazyResult promise
-    function postcssProcess(code) {
-      const postcssProcessOptions = {}
-
-      switch (schema.syntax) {
-        case "scss":
-          postcssProcessOptions.syntax = scssSyntax
-          break
-        case "less":
-          postcssProcessOptions.syntax = lessSyntax
-          break
-        case "sugarss":
-          postcssProcessOptions.syntax = sugarss
-          break
-      }
-
-      const processor = postcss()
-      processor.use(disableRanges)
-
-      if (schema.preceedingPlugins) {
-        schema.preceedingPlugins.forEach(processor.use)
-      }
-
-      return processor.use(rule(rulePrimaryOptions, ruleSecondaryOptions))
-        .process(code, postcssProcessOptions)
-    }
-
-    // Apply the basic positive checks unless
-    // explicitly told not to
-    const passingTestCases = (schema.skipBasicChecks)
-      ? schema.accept
-      : basicChecks.concat(schema.accept)
-
-    if (passingTestCases && passingTestCases.length) {
-      passingTestCases.forEach(acceptedCase => {
-        if (!acceptedCase) { return }
-        const assertionDescription = spaceJoin(acceptedCase.description, "should be accepted")
-        const resultPromise = postcssProcess(acceptedCase.code).then(postcssResult => {
-          const warnings = postcssResult.warnings()
-          return [{
-            expected: 0,
-            actual: warnings.length,
-            description: assertionDescription,
-          }]
-        }).catch(err => console.log(err.stack)) // eslint-disable-line no-console
-
-        equalityCheck(resultPromise, {
-          comparisonCount: 1,
-          caseDescription: createCaseDescription(acceptedCase.code),
-          completeAssertionDescription: assertionDescription,
-        })
+    if (!alreadyHadOnlyTest) {
+      process.nextTick(() => {
+        processGroup(rule, schema, equalityCheck)
       })
     }
+  }
+}
 
-    if (schema.reject && schema.reject.length) {
-      schema.reject.forEach(rejectedCase => {
-        let completeAssertionDescription = "should register one warning"
-        let comparisonCount = 1
+function processGroup(rule, schema, equalityCheck) {
+  const { ruleName } = schema
+  const ruleOptions = normalizeRuleSettings(schema.config)
+  const rulePrimaryOptions = ruleOptions[0]
+  const ruleSecondaryOptions = ruleOptions[1]
+
+  let printableConfig = (rulePrimaryOptions) ? JSON.stringify(rulePrimaryOptions) : ""
+  if (printableConfig && ruleSecondaryOptions) {
+    printableConfig += ", " + JSON.stringify(ruleSecondaryOptions)
+  }
+
+  function createCaseDescription(code) {
+    let text = `\n> rule: ${ruleName}\n`
+    text += `> config: ${printableConfig}\n`
+    text += `> code: ${JSON.stringify(code)}\n`
+    return text
+  }
+
+  // Process the code through the rule and return
+  // the PostCSS LazyResult promise
+  function postcssProcess(code) {
+    const postcssProcessOptions = {}
+
+    switch (schema.syntax) {
+      case "scss":
+        postcssProcessOptions.syntax = scssSyntax
+        break
+      case "less":
+        postcssProcessOptions.syntax = lessSyntax
+        break
+      case "sugarss":
+        postcssProcessOptions.syntax = sugarss
+        break
+    }
+
+    const processor = postcss()
+    processor.use(disableRanges)
+
+    if (schema.preceedingPlugins) {
+      schema.preceedingPlugins.forEach(processor.use)
+    }
+
+    return processor.use(rule(rulePrimaryOptions, ruleSecondaryOptions))
+      .process(code, postcssProcessOptions)
+  }
+
+  // Apply the basic positive checks unless
+  // explicitly told not to
+  const passingTestCases = (schema.skipBasicChecks)
+    ? schema.accept
+    : basicChecks.concat(schema.accept)
+
+  if (passingTestCases && passingTestCases.length) {
+    passingTestCases.forEach(acceptedCase => {
+      if (!acceptedCase) { return }
+      const assertionDescription = spaceJoin(acceptedCase.description, "should be accepted")
+      const resultPromise = postcssProcess(acceptedCase.code).then(postcssResult => {
+        const warnings = postcssResult.warnings()
+        return [{
+          expected: 0,
+          actual: warnings.length,
+          description: assertionDescription,
+        }]
+      }).catch(err => console.log(err.stack)) // eslint-disable-line no-console
+
+      equalityCheck(resultPromise, {
+        comparisonCount: 1,
+        caseDescription: createCaseDescription(acceptedCase.code),
+        completeAssertionDescription: assertionDescription,
+      })
+    })
+  }
+
+  if (schema.reject && schema.reject.length) {
+    schema.reject.forEach(rejectedCase => {
+      let completeAssertionDescription = "should register one warning"
+      let comparisonCount = 1
+      if (rejectedCase.line) {
+        comparisonCount++
+        completeAssertionDescription += ` on line ${rejectedCase.line}`
+      }
+      if (rejectedCase.column !== undefined) {
+        comparisonCount++
+        completeAssertionDescription += ` on column ${rejectedCase.column}`
+      }
+      if (rejectedCase.message) {
+        comparisonCount++
+        completeAssertionDescription += ` with message "${rejectedCase.message}"`
+      }
+
+      const resultPromise = postcssProcess(rejectedCase.code).then(postcssResult => {
+        const warnings = postcssResult.warnings()
+        const warning = warnings[0]
+
+        const comparisons = [{
+          expected: 1,
+          actual: warnings.length,
+          description: spaceJoin(rejectedCase.description, "should register one warning"),
+        }]
+
         if (rejectedCase.line) {
-          comparisonCount++
-          completeAssertionDescription += ` on line ${rejectedCase.line}`
+          comparisons.push({
+            expected: rejectedCase.line,
+            actual: _.get(warning, "line"),
+            description: spaceJoin(rejectedCase.description, `should warn on line ${rejectedCase.line}`),
+          })
         }
         if (rejectedCase.column !== undefined) {
-          comparisonCount++
-          completeAssertionDescription += ` on column ${rejectedCase.column}`
+          comparisons.push({
+            expected: rejectedCase.column,
+            actual: _.get(warning, "column"),
+            description: spaceJoin(rejectedCase.description, `should warn on column ${rejectedCase.column}`),
+          })
         }
         if (rejectedCase.message) {
-          comparisonCount++
-          completeAssertionDescription += ` with message "${rejectedCase.message}"`
+          comparisons.push({
+            expected: rejectedCase.message,
+            actual: _.get(warning, "text"),
+            description: spaceJoin(rejectedCase.description, `should warn with message ${rejectedCase.message}`),
+          })
         }
+        return comparisons
+      }).catch(err => console.log(err.stack)) // eslint-disable-line no-console
 
-        const resultPromise = postcssProcess(rejectedCase.code).then(postcssResult => {
-          const warnings = postcssResult.warnings()
-          const warning = warnings[0]
-
-          const comparisons = [{
-            expected: 1,
-            actual: warnings.length,
-            description: spaceJoin(rejectedCase.description, "should register one warning"),
-          }]
-
-          if (rejectedCase.line) {
-            comparisons.push({
-              expected: rejectedCase.line,
-              actual: _.get(warning, "line"),
-              description: spaceJoin(rejectedCase.description, `should warn on line ${rejectedCase.line}`),
-            })
-          }
-          if (rejectedCase.column !== undefined) {
-            comparisons.push({
-              expected: rejectedCase.column,
-              actual: _.get(warning, "column"),
-              description: spaceJoin(rejectedCase.description, `should warn on column ${rejectedCase.column}`),
-            })
-          }
-          if (rejectedCase.message) {
-            comparisons.push({
-              expected: rejectedCase.message,
-              actual: _.get(warning, "text"),
-              description: spaceJoin(rejectedCase.description, `should warn with message ${rejectedCase.message}`),
-            })
-          }
-          return comparisons
-        }).catch(err => console.log(err.stack)) // eslint-disable-line no-console
-
-        equalityCheck(resultPromise, {
-          comparisonCount,
-          completeAssertionDescription,
-          caseDescription: createCaseDescription(rejectedCase.code),
-          only: rejectedCase.only,
-        })
+      equalityCheck(resultPromise, {
+        comparisonCount,
+        completeAssertionDescription,
+        caseDescription: createCaseDescription(rejectedCase.code),
+        only: rejectedCase.only,
       })
-    }
+    })
   }
 }
 
