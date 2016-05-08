@@ -9,6 +9,10 @@ testRule(rule, {
   accept: [ {
     code: "a { color: pink;\n}",
   }, {
+    code: "a { color: pink;;\n}",
+  }, {
+    code: "a { color: pink;;;\n}",
+  }, {
     code: "a { color: pink;\r\n}",
     description: "CRLF",
   }, {
@@ -30,6 +34,11 @@ testRule(rule, {
     message: messages.expectedBefore,
     line: 1,
     column: 16,
+  }, {
+    code: "a { color: pink;;}",
+    message: messages.expectedBefore,
+    line: 1,
+    column: 17,
   }, {
     code: "a { color: pink; }",
     message: messages.expectedBefore,
@@ -71,6 +80,19 @@ testRule(rule, {
   accept: [ {
     code: "a { color: pink;\ntop: 0;\n}",
   }, {
+    code: "a { color: pink;\r\ntop: 0;\r\n}",
+    description: "CRLF",
+  }, {
+    code: "a { color: pink;;\ntop: 0;;\n}",
+  }, {
+    code: "a { color: pink;;\r\ntop: 0;;\r\n}",
+    description: "CRLF",
+  }, {
+    code: "a { color: pink;;;\ntop: 0;;;\n}",
+  }, {
+    code: "a { color: pink;;;\r\ntop: 0;;;\r\n}",
+    description: "CRLF",
+  }, {
     code: "a { color: pink;\ntop: 0;\n\t\t}",
   }, {
     code: "a { color: pink;\r\ntop: 0;\r\n\t\t}",
@@ -81,6 +103,10 @@ testRule(rule, {
     code: "a { color: pink;\ntop: 0;\n}b { color: red;\n}",
   }, {
     code: "a { color: pink;}",
+  }, {
+    code: "a { color: pink;;}",
+  }, {
+    code: "a { color: pink;;;}",
   }, {
     code: "a { color: pink;} b { color: red;}",
   }, {
@@ -98,6 +124,28 @@ testRule(rule, {
     message: messages.expectedBeforeMultiLine,
     line: 2,
     column: 7,
+  }, {
+    code: "a { color: pink;;\ntop: 0;;}",
+    message: messages.expectedBeforeMultiLine,
+    line: 2,
+    column: 8,
+  }, {
+    code: "a { color: pink;;\r\ntop: 0;;}",
+    description: "CRLF",
+    message: messages.expectedBeforeMultiLine,
+    line: 2,
+    column: 8,
+  }, {
+    code: "a { color: pink;;;\ntop: 0;;;}",
+    message: messages.expectedBeforeMultiLine,
+    line: 2,
+    column: 9,
+  }, {
+    code: "a { color: pink;;;\r\ntop: 0;;;}",
+    description: "CRLF",
+    message: messages.expectedBeforeMultiLine,
+    line: 2,
+    column: 9,
   }, {
     code: "a { color: pink;\ntop: 0; }",
     message: messages.expectedBeforeMultiLine,
@@ -131,6 +179,16 @@ testRule(rule, {
     code: "a { color: pink;\r\ntop: 0;}",
     description: "CRLF",
   }, {
+    code: "a { color: pink;;\ntop: 0;;}",
+  }, {
+    code: "a { color: pink;;\r\ntop: 0;;}",
+    description: "CRLF",
+  }, {
+    code: "a { color: pink;;;\ntop: 0;;;}",
+  }, {
+    code: "a { color: pink;;;\r\ntop: 0;;;}",
+    description: "CRLF",
+  }, {
     code: "a { color: pink;\ntop: 0;} b { color: red;\ntop: 0;}",
   }, {
     code: "a { color: pink;\ntop: 0;}b { color: red;\ntop: 0;}",
@@ -153,6 +211,28 @@ testRule(rule, {
     message: messages.rejectedBeforeMultiLine,
     line: 2,
     column: 8,
+  }, {
+    code: "a { color: pink;;\ntop: 0;; }",
+    message: messages.rejectedBeforeMultiLine,
+    line: 2,
+    column: 9,
+  }, {
+    code: "a { color: pink;;\r\ntop: 0;; }",
+    description: "CRLF",
+    message: messages.rejectedBeforeMultiLine,
+    line: 2,
+    column: 9,
+  }, {
+    code: "a { color: pink;;;\ntop: 0;;; }",
+    message: messages.rejectedBeforeMultiLine,
+    line: 2,
+    column: 10,
+  }, {
+    code: "a { color: pink;;;\r\ntop: 0;;; }",
+    description: "CRLF",
+    message: messages.rejectedBeforeMultiLine,
+    line: 2,
+    column: 10,
   }, {
     code: "a { color: pink;\ntop: 0;\n}",
     message: messages.rejectedBeforeMultiLine,

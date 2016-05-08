@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `block-closing-brace-newline-before` no longer delivers false positives for extra semicolon.
+
 # 6.3.2
 
 - Fixed: `shorthand-property-no-redundant-values` now handles uppercase values properly.
