@@ -16,12 +16,6 @@ testRule(rule, {
     code: "a { top: 10px; }",
     description: "zero at end of non-zero value",
   }, {
-    code: "a { top: 10pX; }",
-    description: "zero at end of non-zero value",
-  }, {
-    code: "a { top: 10PX; }",
-    description: "zero at end of non-zero value",
-  }, {
     code: "a { top: 100.00px; }",
     description: "zero at end of non-zero value after decimal",
   }, {
@@ -95,10 +89,32 @@ testRule(rule, {
   }, {
     code: "@media print and (min-resolution: 0dppx) { }",
     description: "ignore dppx",
+  }, {
+    code: ".a { background: linear-gradient(0deg, rgba(7, 29, 73, 0.12) 0%, rgba(7, 29, 73, 0) 80%) #fff; }",
+    description: "ignore deg",
+  }, {
+    code: ".a { background: linear-gradient(0grad, rgba(7, 29, 73, 0.12) 0%, rgba(7, 29, 73, 0) 80%) #fff; }",
+    description: "ignore grad",
+  }, {
+    code: ".a { background: linear-gradient(0turn, rgba(7, 29, 73, 0.12) 0%, rgba(7, 29, 73, 0) 80%) #fff; }",
+    description: "ignore turn",
+  }, {
+    code: ".a { background: linear-gradient(0rad, rgba(7, 29, 73, 0.12) 0%, rgba(7, 29, 73, 0) 80%) #fff; }",
+    description: "ignore rad",
   } ],
 
   reject: [ {
     code: "a { top: 0px; }",
+    message: messages.rejected,
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { tOp: 0px; }",
+    message: messages.rejected,
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { TOP: 0px; }",
     message: messages.rejected,
     line: 1,
     column: 11,
