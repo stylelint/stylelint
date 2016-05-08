@@ -3,7 +3,7 @@
  *
  * @param {string} Unit
  * @param {object} args - Named arguments object
- * @param {string} [args.only={ length: false }] - Check unit only with length
+ * @param {string} [args.only=false] - Check unit only with length
  * @return {boolean} If `true`, the unit is known
  */
 
@@ -29,10 +29,10 @@ const knownLengthUnits = new Set([
   "px", "mm", "cm", "in", "pt", "pc", "q",
 ])
 
-export default function (unit, { only = { length: false } } = {}) {
+export default function (unit, { only = false } = {}) {
   const unitLowerCase = unit.toLowerCase()
 
-  if (only.length) { return knownLengthUnits.has(unitLowerCase) }
+  if (only && only === "length") { return knownLengthUnits.has(unitLowerCase) }
 
   const knownUnits = new Set([ ...knownNonLengthUnits, ...knownLengthUnits ])
 
