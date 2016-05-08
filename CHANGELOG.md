@@ -2,7 +2,7 @@
 
 - Fixed: `selector-no-type` does a better job when ignoring descendant and compound selectors.
 - Fixed: `block-closing-brace-newline-before` no longer delivers false positives for extra semicolon.
-- Fixed: `font-family-name-quotes` now handle case insensitive `font-family`. 
+- Fixed: `font-family-name-quotes` is now case insensitive when hunting for font-family properties.
 
 # 6.3.2
 
