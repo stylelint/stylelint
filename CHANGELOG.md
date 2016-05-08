@@ -1,4 +1,4 @@
-# Head
+# 6.3.3
 
 - Fixed: `block-closing-brace-newline-before` no longer delivers false positives for extra semicolon.
 - Fixed: `declaration-block-no-ignored-properties` now detects use of `vertical-align` with block-level elements.
