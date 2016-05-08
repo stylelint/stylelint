@@ -87,7 +87,7 @@ testRule(rule, {
     code: ".foo + div {}",
   }, {
     code: "#bar div.foo {}",
-    description: "descendant and compounded",
+    description: "compounded and descendant",
   } ],
 
   reject: [ {
@@ -113,6 +113,9 @@ testRule(rule, {
     code: "div#foo {}",
   }, {
     code: "div[something] {}",
+  }, {
+    code: "#bar div.foo {}",
+    description: "compounded and descendant",
   } ],
 
   reject: [ {
@@ -124,11 +127,18 @@ testRule(rule, {
   }, {
     code: ".foo div {}",
     message: messages.rejected,
-  }, {
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignore: [ "compounded", "descendant" ] } ],
+  skipBasicChecks: true,
+
+  accept: [{
     code: "#bar div.foo {}",
     description: "compounded and descendant",
-    message: messages.rejected,
-  } ],
+  }],
 })
 
 testRule(rule, {
