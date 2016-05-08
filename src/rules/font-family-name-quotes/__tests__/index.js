@@ -18,6 +18,10 @@ testRule(rule, {
   }, {
     code: "a { font-family: Lucida Grande, Arial, sans-serif; }",
   }, {
+    code: "a { fOnT-fAmIlY: Lucida Grande, Arial, sans-serif; }",
+  }, {
+    code: "a { FONT-FAMILY: Lucida Grande, Arial, sans-serif; }",
+  }, {
     code: "a { font-family: 'Red/Black', Arial, sans-serif; }",
   }, {
     code: "a { font-family: Arial, 'Ahem!', sans-serif; }",
@@ -27,6 +31,16 @@ testRule(rule, {
 
   reject: [ {
     code: "a { font-family: 'Lucida Grande', Arial, sans-serif; }",
+    message: messages.expected("no", "Lucida Grande"),
+    line: 1,
+    column: 19,
+  }, {
+    code: "a { fOnT-fAmIlY: 'Lucida Grande', Arial, sans-serif; }",
+    message: messages.expected("no", "Lucida Grande"),
+    line: 1,
+    column: 19,
+  }, {
+    code: "a { FONT-FAMILY: 'Lucida Grande', Arial, sans-serif; }",
     message: messages.expected("no", "Lucida Grande"),
     line: 1,
     column: 19,
@@ -72,6 +86,10 @@ testRule(rule, {
   }, {
     code: "a { font-family: Lucida Grande, Arial, sans-serif; }",
   }, {
+    code: "a { fOnT-fAmIlY: Lucida Grande, Arial, sans-serif; }",
+  }, {
+    code: "a { FONT-FAMILY: Lucida Grande, Arial, sans-serif; }",
+  }, {
     code: "a { font-family: \"Red/Black\", Arial, sans-serif; }",
   }, {
     code: "a { font-family: Arial, \"Ahem!\", sans-serif; }",
@@ -81,6 +99,16 @@ testRule(rule, {
 
   reject: [ {
     code: "a { font-family: \"Lucida Grande\", Arial, sans-serif; }",
+    message: messages.expected("no", "Lucida Grande"),
+    line: 1,
+    column: 19,
+  }, {
+    code: "a { fOnT-fAmIlY: \"Lucida Grande\", Arial, sans-serif; }",
+    message: messages.expected("no", "Lucida Grande"),
+    line: 1,
+    column: 19,
+  }, {
+    code: "a { FONT-FAMILY: \"Lucida Grande\", Arial, sans-serif; }",
     message: messages.expected("no", "Lucida Grande"),
     line: 1,
     column: 19,
@@ -126,6 +154,10 @@ testRule(rule, {
   }, {
     code: "a { font-family: 'Lucida Grande', Arial, sans-serif; }",
   }, {
+    code: "a { fOnT-fAmIlY: 'Lucida Grande', Arial, sans-serif; }",
+  }, {
+    code: "a { FONT-FAMILY: 'Lucida Grande', Arial, sans-serif; }",
+  }, {
     code: "a { font-family: Times, 'Times New Roman', serif; }",
   }, {
     code: "a { font-family: 'Something6'; }",
@@ -141,6 +173,16 @@ testRule(rule, {
 
   reject: [ {
     code: "a { font-family: Lucida Grande, Arial, sans-serif; }",
+    message: messages.expected("single", "Lucida Grande"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { fOnT-fAmIlY: Lucida Grande, Arial, sans-serif; }",
+    message: messages.expected("single", "Lucida Grande"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { FONT-FAMILY: Lucida Grande, Arial, sans-serif; }",
     message: messages.expected("single", "Lucida Grande"),
     line: 1,
     column: 18,
@@ -204,6 +246,10 @@ testRule(rule, {
   }, {
     code: "a { font-family: \"Lucida Grande\", Arial, sans-serif; }",
   }, {
+    code: "a { fOnT-fAmIlY: \"Lucida Grande\", Arial, sans-serif; }",
+  }, {
+    code: "a { FONT-FAMILY: \"Lucida Grande\", Arial, sans-serif; }",
+  }, {
     code: "a { font-family: Times, \"Times New Roman\", serif; }",
   }, {
     code: "a { font-family: \"Something6\"; }",
@@ -219,6 +265,16 @@ testRule(rule, {
 
   reject: [ {
     code: "a { font-family: Lucida Grande, Arial, sans-serif; }",
+    message: messages.expected("double", "Lucida Grande"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { fOnT-fAmIlY: Lucida Grande, Arial, sans-serif; }",
+    message: messages.expected("double", "Lucida Grande"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { FONT-FAMILY: Lucida Grande, Arial, sans-serif; }",
     message: messages.expected("double", "Lucida Grande"),
     line: 1,
     column: 18,
@@ -282,6 +338,10 @@ testRule(rule, {
   }, {
     code: "a { font-family: 'Lucida Grande', 'Arial', sans-serif; }",
   }, {
+    code: "a { fOnT-fAmIlY: 'Lucida Grande', 'Arial', sans-serif; }",
+  }, {
+    code: "a { FONT-FAMILY: 'Lucida Grande', 'Arial', sans-serif; }",
+  }, {
     code: "a { font-family: 'Hawaii 5-0', 'Arial', cursive; }",
   }, {
     code: "a { font-family: 'Times', 'Arial', serif; }",
@@ -295,6 +355,12 @@ testRule(rule, {
 
   reject: [ {
     code: "a { font-family: 'Lucida Grande', 'Arial', 'sans-serif'; }",
+    message: messages.expected("no", "sans-serif"),
+  }, {
+    code: "a { fOnT-fAmIlY: 'Lucida Grande', 'Arial', 'sans-serif'; }",
+    message: messages.expected("no", "sans-serif"),
+  }, {
+    code: "a { FONT-FAMILY: 'Lucida Grande', 'Arial', 'sans-serif'; }",
     message: messages.expected("no", "sans-serif"),
   }, {
     code: "a { font-family: 'inherit'; }",
@@ -324,6 +390,10 @@ testRule(rule, {
   }, {
     code: "a { font-family: \"Lucida Grande\", \"Arial\", sans-serif; }",
   }, {
+    code: "a { fOnT-fAmIlY: \"Lucida Grande\", \"Arial\", sans-serif; }",
+  }, {
+    code: "a { FONT-FAMILY: \"Lucida Grande\", \"Arial\", sans-serif; }",
+  }, {
     code: "a { font-family: \"Hawaii 5-0\", \"Arial\", cursive; }",
   }, {
     code: "a { font-family: \"Times\", \"Arial\", serif; }",
@@ -337,6 +407,12 @@ testRule(rule, {
 
   reject: [ {
     code: "a { font-family: \"Lucida Grande\", \"Arial\", \"sans-serif\"; }",
+    message: messages.expected("no", "sans-serif"),
+  }, {
+    code: "a { fOnT-fAmIlY: \"Lucida Grande\", \"Arial\", \"sans-serif\"; }",
+    message: messages.expected("no", "sans-serif"),
+  }, {
+    code: "a { FONT-FAMILY: \"Lucida Grande\", \"Arial\", \"sans-serif\"; }",
     message: messages.expected("no", "sans-serif"),
   }, {
     code: "a { font-family: \"inherit\"; }",

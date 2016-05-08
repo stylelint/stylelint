@@ -1,6 +1,7 @@
 # Head
 
 - Fixed: `block-closing-brace-newline-before` no longer delivers false positives for extra semicolon.
+- Fixed: `font-family-name-quotes` now handle case insensitive `font-family`. 
 
 # 6.3.2
 

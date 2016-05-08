@@ -54,7 +54,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.walkDecls("font-family", decl => {
+    root.walkDecls(/font-family/i, decl => {
       postcss.list.comma(decl.value).forEach(familyName => {
         checkFamilyName(familyName, decl)
       })
