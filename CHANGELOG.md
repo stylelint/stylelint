@@ -1,4 +1,4 @@
-# Head
+# 6.3.2
 
 - Fixed: `shorthand-property-no-redundant-values` now handles uppercase values properly.
 
