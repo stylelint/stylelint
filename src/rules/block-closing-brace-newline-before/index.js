@@ -39,7 +39,8 @@ export default function (expectation) {
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
       const blockIsMultiLine = !isSingleLineString(blockString(statement))
-      const after = statement.raw("after")
+      // Ignore extra semicolon
+      const after = statement.raw("after").replace(/;+/, "")
 
       if (after === undefined) { return }
 
