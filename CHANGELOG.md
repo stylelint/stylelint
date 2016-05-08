@@ -1,10 +1,10 @@
 # Head
 
-- Fixed: `selector-no-type` does a better job when ignoring descendant and compound selectors.
 - Fixed: `block-closing-brace-newline-before` no longer delivers false positives for extra semicolon.
+- Fixed: `declaration-block-no-ignored-properties` now detects use of `vertical-align` with block-level elements.
 - Fixed: `font-family-name-quotes` is now case insensitive when hunting for font-family properties.
 - Fixed: `number-zero-length-no-unit` now ignores `deg`, `grad`, `turn` and `rad` units.
-- Fixed: improved detection of use `vertical-align` with block-level elements in `declaration-block-no-ignored-properties`.
+- Fixed: `selector-no-type` does a better job when ignoring descendant and compound selectors.
 
 # 6.3.2
 
