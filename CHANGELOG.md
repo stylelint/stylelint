@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `shorthand-property-no-redundant-values` now handles uppercase values properly.
+
 # 6.3.1
 
 - Fixed: `declaration-block-no-ignored-properties` now longer crashes on nested rules.
