@@ -114,8 +114,7 @@ testRule(rule, {
     line: 1,
     column: 22,
     description: "display: inline rules out min-width",
-  },
-  {
+  }, {
     code: "a { display: inline; max-width: 100px; }",
     message: messages.rejected("max-width", "display: inline"),
     line: 1,
@@ -164,6 +163,24 @@ testRule(rule, {
     line: 1,
     column: 22,
     description: "display: inline rules out width, height, margin-top and margin-bottom, and float",
+  }, {
+    code: "a { display: inline; overflow: scroll; }",
+    message: messages.rejected("overflow", "display: inline"),
+    line: 1,
+    column: 22,
+    description: "display: inline rules out overflow",
+  }, {
+    code: "a { display: inline; overflow-x: scroll; }",
+    message: messages.rejected("overflow-x", "display: inline"),
+    line: 1,
+    column: 22,
+    description: "display: inline rules out overflow-x",
+  }, {
+    code: "a { display: inline; overflow-y: scroll; }",
+    message: messages.rejected("overflow-y", "display: inline"),
+    line: 1,
+    column: 22,
+    description: "display: inline rules out overflow-x",
   }, {
     code: "a { display: inline-block; float: left; }",
     message: messages.rejected("float", "display: inline-block"),
