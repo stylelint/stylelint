@@ -23,6 +23,10 @@ testRule(rule, {
   }, {
     code: "a { line-height: 1.2rem; }",
   }, {
+    code: "a { line-height: 1.2rEm; }",
+  }, {
+    code: "a { line-height: 1.2REM; }",
+  }, {
     code: "a { margin: 0 10em 5rem 2in; }",
   }, {
     code: "a { background-position: top right, 1em 5vh; }",
@@ -77,6 +81,16 @@ testRule(rule, {
   reject: [ {
     code: "a { font-size: 13px; }",
     message: messages.rejected("px"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { font-size: 13pX; }",
+    message: messages.rejected("pX"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { font-size: 13PX; }",
+    message: messages.rejected("PX"),
     line: 1,
     column: 16,
   }, {

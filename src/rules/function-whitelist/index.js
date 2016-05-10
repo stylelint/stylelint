@@ -29,7 +29,7 @@ export default function (whitelistInput) {
       valueParser(value).walk(function (node) {
         if (node.type !== "function") { return }
         if (!isStandardFunction(node)) { return }
-        if (whitelist.indexOf(vendor.unprefixed(node.value)) !== -1) { return }
+        if (whitelist.indexOf(vendor.unprefixed(node.value).toLowerCase()) !== -1) { return }
         report({
           message: messages.rejected(node.value),
           node: decl,

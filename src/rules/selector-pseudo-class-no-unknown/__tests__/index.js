@@ -86,9 +86,13 @@ testRule(rule, {
   config: [ true, { ignorePseudoClasses: ["unknown"] } ],
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: "a:unknown { }",
-  }],
+  }, {
+    code: "a:uNkNoWn { }",
+  }, {
+    code: "a:UNKNOWN { }",
+  } ],
 
   reject: [{
     code: "a:pseudo-class { }",

@@ -54,6 +54,12 @@ testRule(rule, {
     code: "@keyframes foo {} a { animation: foo 2s linear; }",
     description: "animation shorthand",
   }, {
+    code: "@kEyFrAmEs foo {} a { animation: foo 2s linear; }",
+    description: "animation shorthand",
+  }, {
+    code: "@KEYFRAMES foo {} a { animation: foo 2s linear; }",
+    description: "animation shorthand",
+  }, {
     code: "@keyframes foo {} a { animation: linear foo 2s backwards; }",
     description: "animation shorthand variant",
   }, {
@@ -99,6 +105,18 @@ testRule(rule, {
     column: 21,
   }, {
     code: "@keyframes bar {} .baz { animation-name: foo; }",
+    description: "no matching declaration with animation-name",
+    message: messages.rejected("foo"),
+    line: 1,
+    column: 42,
+  }, {
+    code: "@kEyFrAmEs bar {} .baz { animation-name: foo; }",
+    description: "no matching declaration with animation-name",
+    message: messages.rejected("foo"),
+    line: 1,
+    column: 42,
+  }, {
+    code: "@KEYFRAMES bar {} .baz { animation-name: foo; }",
     description: "no matching declaration with animation-name",
     message: messages.rejected("foo"),
     line: 1,

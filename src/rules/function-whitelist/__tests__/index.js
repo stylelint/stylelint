@@ -20,6 +20,10 @@ testRule(rule, {
   }, {
     code: "a { transform: rotate(7deg) }",
   }, {
+    code: "a { transform: rOtAtE(7deg) }",
+  }, {
+    code: "a { transform: ROTATE(7deg) }",
+  }, {
     code: "a { background: -webkit-radial-gradient(red, green, blue); }",
   }, {
     code: "a { color: color(rgb(0, 0, 0) lightness(50%)); }",
@@ -33,6 +37,16 @@ testRule(rule, {
   reject: [ {
     code: "a { transform: scale(1); }",
     message: messages.rejected("scale"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { transform: sCaLe(1); }",
+    message: messages.rejected("sCaLe"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { transform: SCALE(1); }",
+    message: messages.rejected("SCALE"),
     line: 1,
     column: 16,
   }, {

@@ -41,11 +41,11 @@ export default function (actual, options) {
 
         const unit = parsedUnit.unit
 
-        if (!unit || isKnownUnit(unit)) { return }
+        if (!unit || (unit && isKnownUnit(unit))) { return }
 
         const ignoreUnits = options && options.ignoreUnits || []
 
-        if (ignoreUnits.indexOf(unit) !== -1) { return }
+        if (ignoreUnits.indexOf(unit.toLowerCase()) !== -1) { return }
 
         report({
           message: messages.rejected(unit),

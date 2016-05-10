@@ -260,6 +260,10 @@ testRule(rule, {
     code: "a { margin: 10px; }",
   }, {
     code: "a { margin: 10pix; }",
+  }, {
+    code: "a { margin: 10pIx; }",
+  }, {
+    code: "a { margin: 10PIX; }",
   } ],
 
   reject: [{

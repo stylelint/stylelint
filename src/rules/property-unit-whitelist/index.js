@@ -36,11 +36,14 @@ export default function (whitelist) {
       valueParser(value).walk(function (node) {
         if (node.type === "string") { return }
 
-        const unit = valueParser.unit(node.value).unit
+        const parsedUnit = valueParser.unit(node.value)
 
-        if (!unit) { return }
-        if (propWhitelist.indexOf(unit) !== -1) { return }
-        
+        if (!parsedUnit) { return }
+
+        const unit = parsedUnit.unit
+
+        if (!unit || (unit && propWhitelist.indexOf(unit.toLowerCase())) !== -1) { return }
+
         report({
           message: messages.rejected(prop, unit),
           node: decl,

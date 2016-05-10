@@ -112,6 +112,10 @@ testRule(rule, {
     code: "a::before { }",
   }, {
     code: "a::pseudo { }",
+  }, {
+    code: "a::pSeUdO { }",
+  }, {
+    code: "a::PSEUDO { }",
   } ],
 
   reject: [{

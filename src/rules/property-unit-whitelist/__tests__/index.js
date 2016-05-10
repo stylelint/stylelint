@@ -26,6 +26,10 @@ testRule(rule, {
   }, {
     code: "a { margin: 0 10em; }",
   }, {
+    code: "a { margin: 0 10eM; }",
+  }, {
+    code: "a { margin: 0 10EM; }",
+  }, {
     code: "a { background-position: top right, 0 50%; }",
   }, {
     code: "a { margin: calc(30em - 10em); }",
@@ -52,6 +56,16 @@ testRule(rule, {
   reject: [ {
     code: "a { font-size: 1.2rem; }",
     message: messages.rejected("font-size", "rem"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { font-size: 1.2rEm; }",
+    message: messages.rejected("font-size", "rEm"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { font-size: 1.2REM; }",
+    message: messages.rejected("font-size", "REM"),
     line: 1,
     column: 16,
   }, {
