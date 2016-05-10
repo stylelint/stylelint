@@ -2,6 +2,7 @@
 
 - Changed: invalid configuration sets result's `stylelintError` to `true`, which in turn causes CLI to exit with a non-zero code.
 - Changed: `declaration-block-no-ignored-properties` now detects use of `min-width` and `max-width` with inline, table-row, table-row-group, table-column and table-column-group elements.
+- Changed: `declaration-block-no-ignored-properties` now detects use of `overflow`, `overflow-x` and `overflow-y` with inline elements.
 
 # Head
 
