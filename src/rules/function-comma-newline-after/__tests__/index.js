@@ -1,6 +1,8 @@
 import { testRule } from "../../../testUtils"
+import rules from "../../../rules"
+import { ruleName, messages } from ".."
 
-import rule, { ruleName, messages } from ".."
+const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
@@ -76,14 +78,8 @@ testRule(rule, {
     line: 2,
     column: 4,
   }, {
-    code: `
-      a {
-        transform: translate(
-          1px,  /* comment (with trailing space) */ 
-          1px
-        );
-      }
-    `,
+    code: "a {\n  transform: translate(\n    1px,  /* comment (with trailing space) */  \n" +
+      "    1px\n  );\n}",
     description: "eol comments",
   } ],
 })
@@ -103,7 +99,7 @@ testRule(rule, {
     code: `
       a {
         transform: translate(
-          1px, // line comment   
+          1px, // line comment
           1px
         );
       }
@@ -197,14 +193,8 @@ testRule(rule, {
     line: 2,
     column: 4,
   }, {
-    code: `
-      a {
-        transform: translate(
-          1px, /* comment (with trailing space) */ 
-          1px
-        );
-      }
-    `,
+    code: "a {\n  transform: translate(\n    1px,  /* comment (with trailing space) */  \n" +
+      "    1px\n  );\n}",
     description: "eol comments",
   } ],
 })
@@ -221,7 +211,7 @@ testRule(rule, {
     code: `
       a {
         transform: translate(
-          1px, // line comment   
+          1px, // line comment
           1px
         );
       }
@@ -258,7 +248,7 @@ testRule(rule, {
   }, {
     code: `
       a {
-        transform: translate(1px, 1px); /* comment */  
+        transform: translate(1px, 1px); /* comment */
       }
     `,
     description: "eol comments",
@@ -303,7 +293,7 @@ testRule(rule, {
   }, {
     code: `
       a {
-        transform: translate(1px, 1px); // line comment  
+        transform: translate(1px, 1px); // line comment
       }
     `,
     description: "eol comments",
