@@ -6,6 +6,11 @@ node_js:
   - '4'
   - '0.12'
 
+script: npm run coverage
+
+after_success:
+    - npm run coveralls
+
 notifications:
   webhooks:
     - https://webhooks.gitter.im/e/d763493612da45967361
