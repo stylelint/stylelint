@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `declaration-block-no-ignored-properties` now detects use of `min-width` and `max-width` with inline, table-row, table-row-group, table-column and table-column-group elements.
+
 # 6.3.3
 
 - Fixed: `block-closing-brace-newline-before` no longer delivers false positives for extra semicolon.
