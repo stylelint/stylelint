@@ -58,6 +58,8 @@ testRule(rule, {
     code: "a:hover::before { }",
   }, {
     code: "a:hover::-moz-placeholder { }",
+  }, {
+    code: "a,\nb > .foo::before { }",
   } ],
 
   reject: [ {
@@ -90,6 +92,11 @@ testRule(rule, {
     message: messages.rejected("::element"),
     line: 1,
     column: 8,
+  }, {
+    code: "a,\nb > .foo::error { }",
+    message: messages.rejected("::error"),
+    line: 2,
+    column: 9,
   } ],
 })
 
