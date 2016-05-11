@@ -43,7 +43,7 @@ export default function (actual, options) {
 
           const ignorePseudoElements = options && options.ignorePseudoElements || []
 
-          if (ignorePseudoElements.indexOf(pseudoElementName) !== -1) { return }
+          if (ignorePseudoElements.indexOf(pseudoElementName.toLowerCase()) !== -1) { return }
 
           report({
             message: messages.rejected(pseudoElement),

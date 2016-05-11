@@ -19,6 +19,10 @@ testRule(rule, {
   }, {
     code: "a { font-size: 14px; }",
   }, {
+    code: "a { font-size: 14pX; }",
+  }, {
+    code: "a { font-size: 14PX; }",
+  }, {
     code: "a { font-size: 1.2em; }",
   }, {
     code: "a { margin: 0 10em 5em 2px; }",
@@ -80,6 +84,16 @@ testRule(rule, {
   }, {
     code: "a { width: 100vmin; }",
     message: messages.rejected("vmin"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { width: 100vMiN; }",
+    message: messages.rejected("vMiN"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { width: 100VMIN; }",
+    message: messages.rejected("VMIN"),
     line: 1,
     column: 12,
   }, {

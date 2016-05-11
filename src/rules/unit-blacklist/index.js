@@ -37,7 +37,7 @@ export default function (blacklistInput) {
 
         const unit = parsedUnit.unit
 
-        if (!unit || blacklist.indexOf(unit) === -1) { return }
+        if (!unit || (unit && blacklist.indexOf(unit.toLowerCase()) === -1)) { return }
 
         report({
           message: messages.rejected(unit),

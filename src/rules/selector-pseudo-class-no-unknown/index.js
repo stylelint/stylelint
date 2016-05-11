@@ -47,7 +47,7 @@ export default function (actual, options) {
 
           const ignorePseudoElements = options && options.ignorePseudoClasses || []
 
-          if (ignorePseudoElements.indexOf(pseudoClassName) !== -1) { return }
+          if (ignorePseudoElements.indexOf(pseudoClassName.toLowerCase()) !== -1) { return }
 
           report({
             message: messages.rejected(pseudoClass),

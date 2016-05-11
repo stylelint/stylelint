@@ -36,17 +36,21 @@ export default function (blacklist) {
       valueParser(value).walk(function (node) {
         if (node.type === "string") { return }
 
-        const unit = valueParser.unit(node.value).unit
+        const parsedUnit = valueParser.unit(node.value)
 
-        if (propBlacklist.indexOf(unit) !== -1) {
-          report({
-            message: messages.rejected(prop, unit),
-            node: decl,
-            index: declarationValueIndex(decl) + node.sourceIndex,
-            result,
-            ruleName,
-          })
-        }
+        if (!parsedUnit) { return }
+
+        const unit = parsedUnit.unit
+
+        if (!unit || (unit && propBlacklist.indexOf(unit.toLowerCase()) === -1)) { return }
+
+        report({
+          message: messages.rejected(prop, unit),
+          node: decl,
+          index: declarationValueIndex(decl) + node.sourceIndex,
+          result,
+          ruleName,
+        })
       })
     })
   }

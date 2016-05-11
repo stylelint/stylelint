@@ -37,7 +37,7 @@ export default function (whitelistInput) {
 
         const unit = parsedUnit.unit
 
-        if (!unit || whitelist.indexOf(unit) !== -1) { return }
+        if (!unit || (unit && whitelist.indexOf(unit.toLowerCase()) !== -1)) { return }
 
         report({
           message: messages.rejected(unit),

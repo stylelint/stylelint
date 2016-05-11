@@ -26,7 +26,7 @@ export default function (blacklist) {
       const { value } = decl
       valueParser(value).walk(function (node) {
         if (node.type !== "function") { return }
-        if (blacklist.indexOf(vendor.unprefixed(node.value)) === -1) { return }
+        if (blacklist.indexOf(vendor.unprefixed(node.value).toLowerCase()) === -1) { return }
 
         report({
           message: messages.rejected(node.value),
