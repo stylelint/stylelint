@@ -19,7 +19,7 @@ export const messages = ruleMessages(ruleName, {
 const animationShorthandKeywords = new Set([
   "infinite", "normal", "reverse", "alternate", "alternate-reverse",
   "none", "initial", "inherit", "unset", "forwards", "backwards", "both", "running", "paused",
-  "linear", "ease-in", "ease-out", "ease-in-out", "step-start", "step-end",
+  "linear", "ease", "ease-in", "ease-out", "ease-in-out", "step-start", "step-end",
 ])
 
 const animationNameKeywords = new Set([

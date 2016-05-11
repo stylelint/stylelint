@@ -54,6 +54,9 @@ testRule(rule, {
     code: "@keyframes foo {} a { animation: foo 2s linear; }",
     description: "animation shorthand",
   }, {
+    code: "@keyframes foo {} a { animation: foo 1s ease 0.2s 1 both; }",
+    description: "animation shorthand",
+  }, {
     code: "@kEyFrAmEs foo {} a { animation: foo 2s linear; }",
     description: "animation shorthand",
   }, {
