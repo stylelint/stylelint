@@ -12,7 +12,9 @@ const knownValues = new Set([
 ])
 
 export default function (value) {
-  if (knownValues.has(value) || isFinite(parseInt(value))) { return false }
+  const valueLowerCase = value.toLowerCase()
+
+  if (knownValues.has(valueLowerCase) || isFinite(parseInt(valueLowerCase))) { return false }
 
   return true
 }
