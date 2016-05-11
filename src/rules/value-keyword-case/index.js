@@ -2,6 +2,7 @@ import valueParser from "postcss-value-parser"
 import { isString } from "lodash"
 import {
   declarationValueIndex,
+  isCustomIdentPropertyCounterIncrement,
   isStandardValue,
   matchesStringOrRegExp,
   report,
@@ -45,14 +46,15 @@ export default function (expectation, options) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      const { value } = decl
+      const { prop, value } = decl
 
       valueParser(value).walk((node) => {
         // Ignore keywords within `url` and `var` function
+        const valueLowerCase = node.value.toLowerCase()
         if (
           node.type === "function" && (
-            node.value.toLowerCase() === "url" ||
-            node.value.toLowerCase() === "var"
+            valueLowerCase === "url" ||
+            valueLowerCase === "var"
           )
         ) { return false }
 
@@ -64,6 +66,8 @@ export default function (expectation, options) {
           || value.indexOf("#") !== -1
           || ignoredCharacters.has(keyword)
         ) { return }
+
+        if (prop === "counter-increment" && isCustomIdentPropertyCounterIncrement(valueLowerCase)) { return }
 
         const parsedUnit = valueParser.unit(keyword)
 

@@ -7,6 +7,7 @@
 - Fixed: `font-family-name-quotes`, `media-feature-no-missing-punctuation`, `media-query-list-comma-newline-after`, `media-query-list-comma-newline-before`, `media-query-list-comma-space-after` and `media-query-list-comma-space-before` rules now better ignore SCSS, Less variables and nonstandard at-rules.
 - Fixed: string formatter no longer errors on multi-byte `message`.
 - Fixed: `no-unknown-animations` now ignores `ease` value.
+- Fixed: `value-keyword-case` now ignores custom idents of property `counter-increment`.
 
 # 6.3.3
 
