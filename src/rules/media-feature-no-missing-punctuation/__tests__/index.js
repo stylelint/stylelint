@@ -46,6 +46,12 @@ testRule(rule, {
     code: "@media only screen and ( min-width: 300px ) and ( max-width: 600px ) {}",
   }, {
     code: "@media (color) {}",
+  }, {
+    code: "@non-media (min-width 300px) {}",
+    description: "ignore at-rules contain media in name",
+  }, {
+    code: "@media-non (min-width 300px) {}",
+    description: "ignore at-rules contain media in name",
   } ],
 
   reject: [ {
