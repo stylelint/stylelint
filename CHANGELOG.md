@@ -8,6 +8,7 @@
 - Fixed: string formatter no longer errors on multi-byte `message`.
 - Fixed: `no-unknown-animations` now ignores `ease` value.
 - Fixed: `value-keyword-case` now ignores custom idents of property `counter-increment`.
+- Fixed: `value-keyword-case` now ignores custom idents of property `animation-name`.
 
 # 6.3.3
 

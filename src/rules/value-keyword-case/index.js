@@ -2,6 +2,7 @@ import valueParser from "postcss-value-parser"
 import { isString } from "lodash"
 import {
   declarationValueIndex,
+  isCustomIdentPropertyAnimationName,
   isCustomIdentPropertyCounterIncrement,
   isStandardValue,
   matchesStringOrRegExp,
@@ -67,6 +68,7 @@ export default function (expectation, options) {
           || ignoredCharacters.has(keyword)
         ) { return }
 
+        if (prop === "animation-name" && isCustomIdentPropertyAnimationName(valueLowerCase)) { return }
         if (prop === "counter-increment" && isCustomIdentPropertyCounterIncrement(valueLowerCase)) { return }
 
         const parsedUnit = valueParser.unit(keyword)

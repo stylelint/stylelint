@@ -1,7 +1,10 @@
 import test from "tape"
 import isCustomIdentPropertyCounterIncrement from "../isCustomIdentPropertyCounterIncrement"
 
-test("isCustomProperty", t => {
+test("isCustomIdents", t => {
+  t.ok(isCustomIdentPropertyCounterIncrement("counter"))
+  t.ok(isCustomIdentPropertyCounterIncrement("cOuNtEr"))
+  t.ok(isCustomIdentPropertyCounterIncrement("COUNTER"))
   t.ok(isCustomIdentPropertyCounterIncrement("counter-name"))
   t.ok(isCustomIdentPropertyCounterIncrement("counter1"))
   t.ok(isCustomIdentPropertyCounterIncrement("counter2"))
