@@ -2,6 +2,7 @@ import chalk from "chalk"
 import path from "path"
 import _ from "lodash"
 import symbols from "log-symbols"
+import stringWidth from "string-width"
 import table, { getBorderCharacters } from "table"
 import utils from "postcss-reporter/lib/util"
 
@@ -79,7 +80,7 @@ function formatter(messages, source) {
   const calculateWidths = function (columns) {
 
     _.forOwn(columns, (value, key) => {
-      columnWidths[key] = Math.max(columnWidths[key], chalk.stripColor(value).toString().length)
+      columnWidths[key] = Math.max(columnWidths[key], stringWidth(value))
     })
 
     return columns
