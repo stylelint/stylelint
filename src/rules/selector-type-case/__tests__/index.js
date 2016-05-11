@@ -71,6 +71,11 @@ testRule(rule, {
   }, {
     code: "A { &:nth-child(3n + 1) {} }",
     message: messages.expected("A", "a"),
+  }, {
+    code: "a { color: .panel {} }",
+    message: "Cannot parse selector",
+    line: 1,
+    column: 5,
   } ],
 })
 
