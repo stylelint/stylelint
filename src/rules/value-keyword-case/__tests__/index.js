@@ -115,6 +115,12 @@ testRule(rule, {
     code: "a { text-rendering: optimizeLegibility; }",
   }, {
     code: "a { text-rendering: geometricPrecision; }",
+  }, {
+    code: "a { counter-increment: counter-name; }",
+  }, {
+    code: "a { counter-increment: cOuNtEr-NaMe; }",
+  }, {
+    code: "a { counter-increment: COUNTER-NAME; }",
   } ],
 
   reject: [ {
@@ -223,6 +229,11 @@ testRule(rule, {
     message: messages.expected("OptimizeSpeed", "optimizeSpeed"),
     line: 1,
     column: 21,
+  }, {
+    code: "a { counter-increment: INHERIT; }",
+    message: messages.expected("INHERIT", "inherit"),
+    line: 1,
+    column: 24,
   } ],
 })
 
@@ -520,6 +531,12 @@ testRule(rule, {
     code: "a { text-rendering: OPTIMIZELEGIBILITY; }",
   }, {
     code: "a { text-rendering: GEOMETRICPRECISION; }",
+  }, {
+    code: "a { counter-increment: counter-name; }",
+  }, {
+    code: "a { counter-increment: cOuNtEr-NaMe; }",
+  }, {
+    code: "a { counter-increment: COUNTER-NAME; }",
   } ],
 
   reject: [ {
@@ -628,6 +645,11 @@ testRule(rule, {
     message: messages.expected("optimizeSpeed", "OPTIMIZESPEED"),
     line: 1,
     column: 21,
+  }, {
+    code: "a { counter-increment: inherit; }",
+    message: messages.expected("inherit", "INHERIT"),
+    line: 1,
+    column: 24,
   } ],
 })
 
