@@ -80,7 +80,7 @@ function formatter(messages, source) {
   const calculateWidths = function (columns) {
 
     _.forOwn(columns, (value, key) => {
-      columnWidths[key] = Math.max(columnWidths[key], stringWidth(value))
+      columnWidths[key] = Math.max(columnWidths[key], stringWidth(value.toString()))
     })
 
     return columns
