@@ -1,8 +1,8 @@
-import selectorParser from "postcss-selector-parser"
 import { isRegExp, isString } from "lodash"
 import {
   isStandardRule,
   isStandardSelector,
+  parseSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -30,9 +30,7 @@ export default function (pattern) {
       const { selector } = rule
       if (!isStandardSelector(selector)) { return }
 
-      selectorParser(checkSelector).process(selector)
-
-      function checkSelector(fullSelector) {
+      parseSelector(selector, result, rule, fullSelector => {
         fullSelector.walk(selectorNode => {
           if (selectorNode.type !== "id") { return }
           const { value, sourceIndex } = selectorNode
@@ -47,7 +45,7 @@ export default function (pattern) {
             index: sourceIndex,
           })
         })
-      }
+      })
     })
   }
 }

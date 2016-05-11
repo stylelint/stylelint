@@ -1,5 +1,5 @@
-import selectorParser from "postcss-selector-parser"
 import {
+  parseSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -33,7 +33,7 @@ export default function (expectation) {
 
       if (startIndexPseudoElement === -1) { return }
 
-      selectorParser(selectorTree => {
+      parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkPseudos(pseudoNode => {
           const pseudoElement = pseudoNode.value
 
@@ -57,7 +57,7 @@ export default function (expectation) {
             result,
           })
         })
-      }).process(selector)
+      })
     })
   }
 }

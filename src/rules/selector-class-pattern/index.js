@@ -1,9 +1,9 @@
 import resolveNestedSelector from "postcss-resolve-nested-selector"
-import selectorParser from "postcss-selector-parser"
 import _ from "lodash"
 import {
   isStandardRule,
   isStandardSelector,
+  parseSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -43,10 +43,10 @@ export default function (pattern, options) {
       // Only bother resolving selectors that have an interpolating &
       if (shouldResolveNestedSelectors && hasInterpolatingAmpersand(selector)) {
         resolveNestedSelector(selector, rule).forEach(selector => {
-          selectorParser(s => checkSelector(s, rule)).process(selector)
+          parseSelector(selector, result, rule, s => checkSelector(s, rule))
         })
       } else {
-        selectorParser(s => checkSelector(s, rule)).process(selector)
+        parseSelector(selector, result, rule, s => checkSelector(s, rule))
       }
     })
 

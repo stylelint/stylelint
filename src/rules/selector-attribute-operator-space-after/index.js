@@ -1,5 +1,5 @@
-import selectorParser from "postcss-selector-parser"
 import {
+  parseSelector,
   report,
   ruleMessages,
   styleSearch,
@@ -48,7 +48,7 @@ export function selectorAttributeOperatorSpaceChecker({
       || rule.selector.indexOf("=") === -1
     ) { return }
 
-    selectorParser(selectorTree => {
+    parseSelector(rule.selector, result, rule, selectorTree => {
       selectorTree.walkAttributes(attributeNode => {
         const operator = attributeNode.operator
 
@@ -67,7 +67,7 @@ export function selectorAttributeOperatorSpaceChecker({
           )
         })
       })
-    }).process(rule.selector)
+    })
 
     function checkOperator(source, index, node, attributeIndex, operator) {
       locationChecker({
@@ -84,4 +84,3 @@ export function selectorAttributeOperatorSpaceChecker({
     }
   })
 }
-

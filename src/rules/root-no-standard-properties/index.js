@@ -1,7 +1,7 @@
-import selectorParser from "postcss-selector-parser"
 import {
   isStandardProperty,
   isCustomProperty,
+  parseSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -20,7 +20,7 @@ export default function (actual) {
 
     root.walkRules(rule => {
       if (rule.selector.toLowerCase().indexOf(":root") === -1) { return }
-      selectorParser(checkSelector).process(rule.selector)
+      parseSelector(rule.selector, result, rule, checkSelector)
 
       function checkSelector(selectorAST) {
         if (ignoreRule(selectorAST)) { return }

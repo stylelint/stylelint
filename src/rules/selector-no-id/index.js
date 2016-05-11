@@ -1,8 +1,8 @@
-import selectorParser from "postcss-selector-parser"
 import {
   isKeyframeRule,
   isStandardRule,
   isStandardSelector,
+  parseSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -24,7 +24,7 @@ export default function (actual) {
       if (isKeyframeRule(rule)) { return }
       const { selector } = rule
       if (!isStandardSelector(selector)) { return }
-      selectorParser(selectorAST => {
+      parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkIds(idNode => {
 
           if (idNode.parent.parent.type === "pseudo") { return }
@@ -38,7 +38,6 @@ export default function (actual) {
           })
         })
       })
-        .process(selector)
     })
   }
 }

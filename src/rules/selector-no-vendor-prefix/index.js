@@ -1,7 +1,7 @@
-import selectorParser from "postcss-selector-parser"
 import {
   isStandardRule,
   isStandardSelector,
+  parseSelector,
   report,
   ruleMessages,
   isAutoprefixable,
@@ -23,7 +23,7 @@ export default function (actual) {
       if (!isStandardRule(rule)) { return }
       const { selector } = rule
       if (!isStandardSelector(selector)) { return }
-      selectorParser(selectorTree => {
+      parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkPseudos(pseudoNode => {
           if (isAutoprefixable.selector(pseudoNode.value)) {
             report({
@@ -35,7 +35,7 @@ export default function (actual) {
             })
           }
         })
-      }).process(selector)
+      })
     })
   }
 }

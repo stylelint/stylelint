@@ -1,12 +1,12 @@
 import { calculate } from "specificity"
 import _ from "lodash"
-import selectorParser from "postcss-selector-parser"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 import {
   nodeContextLookup,
   findAtRuleContext,
   isLowerSpecificity,
+  parseSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -37,7 +37,7 @@ export default function (actual) {
         const index = rule.selector.indexOf(trimSelector)
         // Resolve any nested selectors before checking
         resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {
-          selectorParser(s => checkSelector(s, rule, index, comparisonContext)).process(resolvedSelector)
+          parseSelector(resolvedSelector, result, rule, s => checkSelector(s, rule, index, comparisonContext))
         })
       })
     })
