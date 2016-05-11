@@ -25,41 +25,47 @@ testRule(rule, {
   }, {
     code: "@media screen and (color)\r\n, projection and (color) {}",
     description: "CRLF",
+  }, {
+    code: "@non-media screen and (color),projection and (color) {}",
+    description: "ignore at-rules contain media in name",
+  }, {
+    code: "@media-non screen and (color),projection and (color) {}",
+    description: "ignore at-rules contain media in name",
   } ],
 
   reject: [ {
-    code: "@media screen and (color),projection and (color)",
+    code: "@media screen and (color),projection and (color) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 26,
   }, {
-    code: "@mEdIa screen and (color),projection and (color)",
+    code: "@mEdIa screen and (color),projection and (color) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 26,
   }, {
-    code: "@MEDIA screen and (color),projection and (color)",
+    code: "@MEDIA screen and (color),projection and (color) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 26,
   }, {
-    code: "@media screen and (color),  projection and (color)",
+    code: "@media screen and (color),  projection and (color) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 26,
   }, {
-    code: "@media screen and (color),\nprojection and (color)",
+    code: "@media screen and (color),\nprojection and (color) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 26,
   }, {
-    code: "@media screen and (color),\r\nprojection and (color)",
+    code: "@media screen and (color),\r\nprojection and (color) {}",
     description: "CRLF",
     message: messages.expectedAfter(),
     line: 1,
     column: 26,
   }, {
-    code: "@media screen and (color),\tprojection and (color)",
+    code: "@media screen and (color),\tprojection and (color) {}",
     message: messages.expectedAfter(),
     line: 1,
     column: 26,
@@ -87,41 +93,47 @@ testRule(rule, {
   }, {
     code: "@media screen and (color)\r\n,projection and (color) {}",
     description: "CRLF",
+  }, {
+    code: "@non-media screen and (color), projection and (color) {}",
+    description: "ignore at-rules contain media in name",
+  }, {
+    code: "@media-non screen and (color), projection and (color) {}",
+    description: "ignore at-rules contain media in name",
   } ],
 
   reject: [ {
-    code: "@media screen and (color), projection and (color)",
+    code: "@media screen and (color), projection and (color) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 26,
   }, {
-    code: "@mEdIa screen and (color), projection and (color)",
+    code: "@mEdIa screen and (color), projection and (color) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 26,
   }, {
-    code: "@MEDIA screen and (color), projection and (color)",
+    code: "@MEDIA screen and (color), projection and (color) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 26,
   }, {
-    code: "@media screen and (color),  projection and (color)",
+    code: "@media screen and (color),  projection and (color) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 26,
   }, {
-    code: "@media screen and (color),\nprojection and (color)",
+    code: "@media screen and (color),\nprojection and (color) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 26,
   }, {
-    code: "@media screen and (color),\r\nprojection and (color)",
+    code: "@media screen and (color),\r\nprojection and (color) {}",
     description: "CRLF",
     message: messages.rejectedAfter(),
     line: 1,
     column: 26,
   }, {
-    code: "@media screen and (color),\tprojection and (color)",
+    code: "@media screen and (color),\tprojection and (color) {}",
     message: messages.rejectedAfter(),
     line: 1,
     column: 26,
@@ -150,6 +162,12 @@ testRule(rule, {
   }, {
     code: "@media screen and (color)\r\n,projection and (color) {}",
     description: "ignore multi-line and CRLF",
+  }, {
+    code: "@non-media screen and (color) ,projection and (color) {}",
+    description: "ignore at-rules contain media in name",
+  }, {
+    code: "@media-non screen and (color) ,projection and (color) {}",
+    description: "ignore at-rules contain media in name",
   } ],
 
   reject: [ {
@@ -204,6 +222,12 @@ testRule(rule, {
   }, {
     code: "@media screen and (color),\r\nprojection and (color) {}",
     description: "ignore multi-line and CRLF",
+  }, {
+    code: "@non-media screen and (color), projection and (color) {}",
+    description: "ignore at-rules contain media in name",
+  }, {
+    code: "@media-non screen and (color), projection and (color) {}",
+    description: "ignore at-rules contain media in name",
   } ],
 
   reject: [ {

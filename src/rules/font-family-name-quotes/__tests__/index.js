@@ -18,6 +18,24 @@ testRule(rule, {
     code: "a { font-family: var(--ff1); }",
     description: "ignores custom properties",
   }, {
+    code: "$font-family: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@font-family: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
+    code: "$default-font-family: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@default-font-family: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
+    code: "$font-family-variable: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@font-family-variable: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
     code: "a { font-family: Lucida Grande, Arial, sans-serif; }",
   }, {
     code: "a { fOnT-fAmIlY: Lucida Grande, Arial, sans-serif; }",
@@ -86,6 +104,24 @@ testRule(rule, {
     code: "a { font-family: var(--ff1); }",
     description: "ignores custom properties",
   }, {
+    code: "$font-family: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@font-family: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
+    code: "$default-font-family: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@default-font-family: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
+    code: "$font-family-variable: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@font-family-variable: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
     code: "a { font-family: Lucida Grande, Arial, sans-serif; }",
   }, {
     code: "a { fOnT-fAmIlY: Lucida Grande, Arial, sans-serif; }",
@@ -153,6 +189,24 @@ testRule(rule, {
   }, {
     code: "a { font-family: var(--ff1); }",
     description: "ignores custom properties",
+  }, {
+    code: "$font-family: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@font-family: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
+    code: "$default-font-family: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@default-font-family: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
+    code: "$font-family-variable: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@font-family-variable: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
   }, {
     code: "a { font-family: 'Lucida Grande', Arial, sans-serif; }",
   }, {
@@ -246,6 +300,24 @@ testRule(rule, {
     code: "a { font-family: var(--ff1); }",
     description: "ignores custom properties",
   }, {
+    code: "$font-family: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@font-family: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
+    code: "$default-font-family: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@default-font-family: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
+    code: "$font-family-variable: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@font-family-variable: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
     code: "a { font-family: \"Lucida Grande\", Arial, sans-serif; }",
   }, {
     code: "a { fOnT-fAmIlY: \"Lucida Grande\", Arial, sans-serif; }",
@@ -338,6 +410,24 @@ testRule(rule, {
     code: "a { font-family: var(--ff1); }",
     description: "ignores custom properties",
   }, {
+    code: "$font-family: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@font-family: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
+    code: "$default-font-family: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@default-font-family: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
+    code: "$font-family-variable: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@font-family-variable: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
     code: "a { font-family: 'Lucida Grande', 'Arial', sans-serif; }",
   }, {
     code: "a { fOnT-fAmIlY: 'Lucida Grande', 'Arial', sans-serif; }",
@@ -389,6 +479,24 @@ testRule(rule, {
   }, {
     code: "a { font-family: var(--ff1); }",
     description: "ignores custom properties",
+  }, {
+    code: "$font-family: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@font-family: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
+    code: "$default-font-family: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@default-font-family: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
+  }, {
+    code: "$font-family-variable: map-get($font-stacks, default);",
+    description: "ignores scss variable contain font-family in name",
+  }, {
+    code: "@font-family-variable: map-get($font-stacks, default);",
+    description: "ignores less variable contain font-family in name",
   }, {
     code: "a { font-family: \"Lucida Grande\", \"Arial\", sans-serif; }",
   }, {
