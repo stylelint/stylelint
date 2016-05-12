@@ -9,6 +9,7 @@
 - Fixed: `no-unknown-animations` now ignores `ease` value.
 - Fixed: `value-keyword-case` now ignores custom idents of property `counter-increment`.
 - Fixed: `value-keyword-case` now ignores custom idents of property `animation-name`.
+- Fixed: `unit-no-unknown` now ignores interpolation inside functions.
 
 # 6.3.3
 

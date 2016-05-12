@@ -191,10 +191,16 @@ testRule(rule, {
   syntax: "scss",
   config: [true],
 
-  accept: [{
+  accept: [ {
     code: "a { width: 1em; \n// width: 10pix\n }",
     description: "ignore wrong unit within comments",
-  }],
+  }, {
+    code: "a { margin: #{$thumbnail-caption-padding}; }",
+    description: "ignore interpolation",
+  } , {
+    code: "a { margin: calc(100% - #{margin * 2}); }",
+    description: "ignore interpolation within function",
+  } ],
 
   reject: [ {
     code: "a { margin: 10pix + 10px; }",
