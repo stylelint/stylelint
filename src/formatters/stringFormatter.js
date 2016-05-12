@@ -96,12 +96,16 @@ function formatter(messages, source) {
     (message) => {
       const location = utils.getLocation(message)
       const severity = message.severity
-
       const row = [
         location.line || "",
         location.column || "",
         symbols[severity] ? chalk[levelColors[severity]](symbols[severity]) : severity,
-        message.text.replace(/\.$/, "").replace(new RegExp(_.escapeRegExp("(" + message.rule + ")") + "$"), ""),
+        message
+          .text
+          // Remove all control characters (newline, tab and etc)
+          .replace(/[\x01-\x1A]+/g, " ") // eslint-disable-line
+          .replace(/\.$/, "")
+          .replace(new RegExp(_.escapeRegExp("(" + message.rule + ")") + "$"), ""),
         chalk.gray(message.rule || ""),
       ]
 
