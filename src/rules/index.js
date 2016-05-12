@@ -1,8 +1,8 @@
-import atRuleSemicolonNewlineAfter from "./at-rule-semicolon-newline-after"
+import atRuleEmptyLineBefore from "./at-rule-empty-line-before"
 import atRuleNameCase from "./at-rule-name-case"
 import atRuleNameSpaceAfter from "./at-rule-name-space-after"
-import atRuleEmptyLineBefore from "./at-rule-empty-line-before"
 import atRuleNoVendorPrefix from "./at-rule-no-vendor-prefix"
+import atRuleSemicolonNewlineAfter from "./at-rule-semicolon-newline-after"
 import blockClosingBraceNewlineAfter from "./block-closing-brace-newline-after"
 import blockClosingBraceNewlineBefore from "./block-closing-brace-newline-before"
 import blockClosingBraceSpaceAfter from "./block-closing-brace-space-after"
@@ -58,6 +58,7 @@ import functionUrlQuotes from "./function-url-quotes"
 import functionWhitelist from "./function-whitelist"
 import functionWhitespaceAfter from "./function-whitespace-after"
 import indentation from "./indentation"
+import keyframeDeclarationNoImportant from "./keyframe-declaration-no-important"
 import maxEmptyLines from "./max-empty-lines"
 import maxLineLength from "./max-line-length"
 import maxNestingDepth from "./max-nesting-depth"
@@ -143,11 +144,11 @@ import valueListCommaSpaceBefore from "./value-list-comma-space-before"
 import valueNoVendorPrefix from "./value-no-vendor-prefix"
 
 export default {
-  "at-rule-semicolon-newline-after": atRuleSemicolonNewlineAfter,
+  "at-rule-empty-line-before": atRuleEmptyLineBefore,
   "at-rule-name-case": atRuleNameCase,
   "at-rule-name-space-after": atRuleNameSpaceAfter,
-  "at-rule-empty-line-before": atRuleEmptyLineBefore,
   "at-rule-no-vendor-prefix": atRuleNoVendorPrefix,
+  "at-rule-semicolon-newline-after": atRuleSemicolonNewlineAfter,
   "block-closing-brace-newline-after": blockClosingBraceNewlineAfter,
   "block-closing-brace-newline-before": blockClosingBraceNewlineBefore,
   "block-closing-brace-space-after": blockClosingBraceSpaceAfter,
@@ -203,6 +204,7 @@ export default {
   "function-whitelist": functionWhitelist,
   "function-whitespace-after": functionWhitespaceAfter,
   "indentation": indentation, // eslint-disable-line object-shorthand
+  "keyframe-declaration-no-important": keyframeDeclarationNoImportant,
   "max-empty-lines": maxEmptyLines,
   "max-line-length": maxLineLength,
   "max-nesting-depth": maxNestingDepth,
