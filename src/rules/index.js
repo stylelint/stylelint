@@ -125,6 +125,7 @@ import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-
 import selectorPseudoElementNoUnknown from "./selector-pseudo-element-no-unknown"
 import selectorRootNoComposition from "./selector-root-no-composition"
 import selectorTypeCase from "./selector-type-case"
+import selectorTypeNoUnknown from "./selector-type-no-unknown"
 import shorthandPropertyNoRedundantValues from "./shorthand-property-no-redundant-values"
 import stringNoNewline from "./string-no-newline"
 import stringQuotes from "./string-quotes"
@@ -269,6 +270,7 @@ export default {
   "selector-pseudo-element-no-unknown": selectorPseudoElementNoUnknown,
   "selector-root-no-composition": selectorRootNoComposition,
   "selector-type-case": selectorTypeCase,
+  "selector-type-no-unknown": selectorTypeNoUnknown,
   "shorthand-property-no-redundant-values": shorthandPropertyNoRedundantValues,
   "string-no-newline": stringNoNewline,
   "string-quotes": stringQuotes,

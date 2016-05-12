@@ -134,6 +134,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-pseudo-element-no-unknown": true,
     "selector-root-no-composition": true,
     "selector-type-case": "lower"|"upper",
+    "selector-type-no-unknown": true,
     "shorthand-property-no-redundant-values": true,
     "string-no-newline": true,
     "string-quotes": "single"|"double",
