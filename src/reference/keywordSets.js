@@ -230,3 +230,11 @@ export const camelCaseKeywords = new Set([
   "geometricPrecision",
   "currentColor",
 ])
+
+// https://developer.mozilla.org/docs/Web/CSS/counter-increment
+export const counterIncrementKeywords = new Set([
+  "none",
+  "inherit",
+  "initial",
+  "unset",
+])

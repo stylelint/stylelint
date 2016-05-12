@@ -2,7 +2,6 @@ import valueParser from "postcss-value-parser"
 import { isString } from "lodash"
 import {
   declarationValueIndex,
-  isCustomIdentPropertyAnimationName,
   isCustomIdentPropertyCounterIncrement,
   isStandardValue,
   matchesStringOrRegExp,
@@ -10,7 +9,10 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import { camelCaseKeywords } from "../../reference/keywordSets"
+import {
+  camelCaseKeywords,
+  animationNameKeywords,
+} from "../../reference/keywordSets"
 
 export const ruleName = "value-keyword-case"
 
@@ -67,7 +69,7 @@ export default function (expectation, options) {
           || ignoredCharacters.has(keyword)
         ) { return }
 
-        if (prop === "animation-name" && isCustomIdentPropertyAnimationName(valueLowerCase)) { return }
+        if (prop === "animation-name" && !animationNameKeywords.has(valueLowerCase)) { return }
         if (prop === "counter-increment" && isCustomIdentPropertyCounterIncrement(valueLowerCase)) { return }
 
         const parsedUnit = valueParser.unit(keyword)
