@@ -60,6 +60,8 @@ testRule(rule, {
     code: "[ target ] { content: \"[\" }",
   }, {
     code: "[ target ] { content: \"]\" }",
+  }, {
+    code: "[ foo=bar i ] { }",
   } ],
 
   reject: [ {
@@ -272,6 +274,16 @@ testRule(rule, {
     message: messages.expectedClosing,
     line: 1,
     column: 8,
+  }, {
+    code: "[ foo=bar i] { }",
+    message: messages.expectedClosing,
+    line: 1,
+    column: 11,
+  }, {
+    code: "[foo=bar i ] { }",
+    message: messages.expectedOpening,
+    line: 1,
+    column: 2,
   } ],
 })
 
@@ -329,6 +341,8 @@ testRule(rule, {
     code: "[target] { content: \"[\" }",
   }, {
     code: "[target] { content: \"]\" }",
+  }, {
+    code: "[foo=bar i] { }",
   } ],
 
   reject: [ {
@@ -541,5 +555,15 @@ testRule(rule, {
     message: messages.rejectedClosing,
     line: 1,
     column: 8,
+  }, {
+    code: "[ foo=bar i] { }",
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 2,
+  }, {
+    code: "[foo=bar i ] { }",
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 11,
   } ],
 })
