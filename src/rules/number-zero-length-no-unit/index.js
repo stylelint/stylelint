@@ -5,7 +5,6 @@ import {
 } from "lodash"
 import valueParser from "postcss-value-parser"
 import {
-  isKnownUnit,
   blurComments,
   hasBlock,
   beforeBlockString,
@@ -14,6 +13,7 @@ import {
   styleSearch,
   validateOptions,
 } from "../../utils"
+import { lengthUnits } from "../../reference/keywordSets"
 
 export const ruleName = "number-zero-length-no-unit"
 
@@ -91,7 +91,7 @@ export default function (actual) {
         // Only pay attention if the value parses to 0
         // and units with lengths
         if (parseFloat(valueWithZero, 10) !== 0
-          || !isKnownUnit(parsedValue.unit, { only: "length" })
+          || !lengthUnits.has(parsedValue.unit.toLowerCase())
         ) { return }
 
         report({

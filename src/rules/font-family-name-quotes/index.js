@@ -6,14 +6,13 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { fontFamilyKeywords } from "../../reference/keywordSets"
 
 export const ruleName = "font-family-name-quotes"
 
 export const messages = ruleMessages(ruleName, {
   expected: (style, family) => `Expected ${style} quotes around font-family name "${family}"`,
 })
-
-const FONT_FAMILY_KEYWORDS = [ "inherit", "serif", "sans-serif", "cursive", "fantasy", "monospace" ]
 
 // "To avoid mistakes in escaping, it is recommended to quote font family names
 // that contain white space, digits, or punctuation characters other than hyphens"
@@ -69,7 +68,7 @@ export default function (expectation) {
       const family = rawFamily.replace(/^['"]|['"]$/g, "")
 
       // Disallow quotes around (case-insensitive) keywords in all cases
-      if (FONT_FAMILY_KEYWORDS.indexOf(family.toLowerCase()) !== -1) {
+      if (fontFamilyKeywords.has(family.toLowerCase())) {
         if (quoteType !== "none") {
           return complain(messages.expected("no", family), family, decl)
         }

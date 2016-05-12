@@ -10,6 +10,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { camelCaseKeywords } from "../../reference/keywordSets"
 
 export const ruleName = "value-keyword-case"
 
@@ -22,12 +23,10 @@ const ignoredCharacters = new Set([
   "+", "-", "/", "*", "%",
 ])
 
-const ignoredCamelCaseKeywords = {
-  "optimizespeed": "optimizeSpeed",
-  "optimizelegibility": "optimizeLegibility",
-  "geometricprecision": "geometricPrecision",
-  "currentcolor": "currentColor",
-}
+const mapLowercaseKeywordsToCamelCase = new Map()
+camelCaseKeywords.forEach(func => {
+  mapLowercaseKeywordsToCamelCase.set(func.toLowerCase(), func)
+})
 
 export default function (expectation, options) {
   return (root, result) => {
@@ -83,9 +82,9 @@ export default function (expectation, options) {
         let expectedKeyword = null
 
         if (expectation === "lower"
-          && ignoredCamelCaseKeywords.hasOwnProperty(keywordLowerCase)
+          && mapLowercaseKeywordsToCamelCase.has(keywordLowerCase)
         ) {
-          expectedKeyword = ignoredCamelCaseKeywords[keywordLowerCase]
+          expectedKeyword = mapLowercaseKeywordsToCamelCase.get(keywordLowerCase)
         } else if (expectation === "lower") {
           expectedKeyword = keyword.toLowerCase()
         } else {

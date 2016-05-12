@@ -3,11 +3,11 @@ import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   getUnitFromValueNode,
-  isKnownUnit,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { units } from "../../reference/keywordSets"
 
 export const ruleName = "unit-no-unknown"
 
@@ -34,7 +34,7 @@ export default function (actual, options) {
 
         const unit = getUnitFromValueNode(node)
 
-        if (!unit || (unit && isKnownUnit(unit))) { return }
+        if (!unit || (unit && units.has(unit.toLowerCase()))) { return }
 
         const ignoreUnits = options && options.ignoreUnits || []
 

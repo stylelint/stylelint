@@ -1,3 +1,4 @@
+import _ from "lodash"
 import {
   report,
   ruleMessages,
@@ -5,6 +6,7 @@ import {
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import { nonSpaceCombinators } from "../../reference/punctuationSets"
 
 export const ruleName = "selector-combinator-space-after"
 
@@ -12,8 +14,6 @@ export const messages = ruleMessages(ruleName, {
   expectedAfter: c => `Expected single space after "${c}" combinator `,
   rejectedAfter: c => `Unexpected whitespace after "${c}" combinator`,
 })
-
-const combinators = [ ">", "+", "~" ]
 
 export default function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
@@ -43,7 +43,7 @@ export function selectorCombinatorSpaceChecker({ locationChecker, root, result, 
     rule.selectors.forEach(selector => {
       styleSearch({
         source: selector,
-        target: combinators,
+        target: _.toArray(nonSpaceCombinators),
         outsideFunctionalNotation: true,
       }, match => {
         // Catch ~= in attribute selectors

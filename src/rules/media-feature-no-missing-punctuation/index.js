@@ -5,6 +5,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { mediaFeaturePunctuation } from "../../reference/punctuationSets"
 
 export const ruleName = "media-feature-no-missing-punctuation"
 
@@ -12,10 +13,8 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected missing punctuation within non-boolean media feature",
 })
 
-const PUNCTUATION = [ ":", "=", ">", ">=", "<", "<=" ]
-
 function isPunctuation(str) {
-  return PUNCTUATION.indexOf(str) !== -1
+  return mediaFeaturePunctuation.has(str)
 }
 
 function endsWithPunctuation(str) {

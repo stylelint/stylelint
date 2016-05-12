@@ -5,6 +5,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import shorthandData from "../../reference/shorthandData"
 
 export const ruleName = "shorthand-property-no-redundant-values"
 
@@ -12,14 +13,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (unexpected, expected) => `Unexpected longhand value '${unexpected}' instead of '${expected}'`,
 })
 
-const shorthandableProperties = new Set([
-  "margin",
-  "padding",
-  "border-color",
-  "border-radius",
-  "border-style",
-  "border-width",
-])
+const shorthandableProperties = new Set(Object.keys(shorthandData))
 
 const ignoredCharacters = [
   "+", "-", "*", "/", "(", ")",

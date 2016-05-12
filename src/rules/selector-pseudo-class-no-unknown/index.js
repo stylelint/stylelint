@@ -1,13 +1,15 @@
 import { isString } from "lodash"
 import { vendor } from "postcss"
 import {
-  isKnownPseudoClass,
-  isKnownPseudoElement,
   parseSelector,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import {
+  pseudoClasses,
+  pseudoElements,
+} from "../../reference/keywordSets"
 
 export const ruleName = "selector-pseudo-class-no-unknown"
 
@@ -41,8 +43,8 @@ export default function (actual, options) {
           const pseudoClassName = pseudoClass.replace(/:+/, "")
 
           if (vendor.prefix(pseudoClassName)
-            || isKnownPseudoClass(pseudoClassName)
-            || isKnownPseudoElement(pseudoClassName)
+            || pseudoClasses.has(pseudoClassName.toLowerCase())
+            || pseudoElements.has(pseudoClassName.toLowerCase())
           ) { return }
 
           const ignorePseudoElements = options && options.ignorePseudoClasses || []
