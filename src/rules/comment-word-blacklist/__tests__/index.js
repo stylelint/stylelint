@@ -1,5 +1,8 @@
-import testRule from "../../../testUtils/testRule"
-import rule, { ruleName, messages } from ".."
+import { testRule } from "../../../testUtils"
+import rules from "../../../rules"
+import { ruleName, messages } from ".."
+
+const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
