@@ -1,5 +1,6 @@
 # Head
 
+- Added: `at-rule-name-newline-after` rule.
 - Fixed: `function-url-quotes` ignores values containing `$sass` and `@less` variables.
 
 # 6.5.1
