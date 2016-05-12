@@ -1,7 +1,8 @@
-import { testRule } from "../../../testUtils"
+import { mergeTestDescriptions, testRule } from "../../../testUtils"
+import rules from "../../../rules"
+import { ruleName, messages } from ".."
 
-import { mergeTestDescriptions } from "../../../testUtils"
-import rule, { ruleName, messages } from ".."
+const rule = rules[ruleName]
 
 const sharedTests = {
   accept: [ {

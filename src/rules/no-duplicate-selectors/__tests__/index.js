@@ -1,10 +1,12 @@
 import { testRule } from "../../../testUtils"
-
+import rules from "../../../rules"
 import postcss from "postcss"
 import postcssImport from "postcss-import"
 import path from "path"
 import test from "tape"
-import rule, { ruleName, messages } from ".."
+import { ruleName, messages } from ".."
+
+const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
