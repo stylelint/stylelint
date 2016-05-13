@@ -92,7 +92,7 @@ test("standalone with style tag extraction when style opening tag is multiline",
   t.plan(planned)
 })
 
-const codeD = `<style></style>
+const codeD = `<style>b { color: pink; }</style>
 <style>a {}</style>`
 
 test("standalone with style tag extraction when style tag opens and closes on one line", t => {
@@ -118,7 +118,6 @@ test("standalone with style tag extraction when style tag opens and closes on on
 const codeE = `<style
   id="horse"
   class="cow">a {}
-
 </style>`
 
 test("standalone with style tag extraction when style oepningn tag is multi-line, but content does not start with newline", t => {
@@ -135,6 +134,28 @@ test("standalone with style tag extraction when style oepningn tag is multi-line
     t.equal(results[0].warnings[0].rule, "block-no-empty")
     t.equal(results[0].warnings[0].line, 3)
     t.equal(results[0].warnings[0].column, 15)
+  }).catch(logError)
+  planned += 6
+
+  t.plan(planned)
+})
+
+const codeF = "<style></style><style>a {}</style>"
+
+test("standalone with style tag extraction when multiple style tags share a line", t => {
+  let planned = 0
+  standalone({
+    code: codeF,
+    config: configExtendingOne,
+    configBasedir: fixturesPath,
+    extractStyleTagsFromHtml: true,
+  }).then(({ output, results }) => {
+    t.equal(typeof output, "string")
+    t.equal(results.length, 1)
+    t.equal(results[0].warnings.length, 1)
+    t.equal(results[0].warnings[0].rule, "block-no-empty")
+    t.equal(results[0].warnings[0].line, 1)
+    t.equal(results[0].warnings[0].column, 25)
   }).catch(logError)
   planned += 6
 
