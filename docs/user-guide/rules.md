@@ -157,6 +157,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`selector-pseudo-element-no-unknown`](../../src/rules/selector-pseudo-element-no-unknown/README.md): Disallow unknown pseudo-element selectors.
 - [`selector-root-no-composition`](../../src/rules/selector-root-no-composition/README.md): Disallow the composition of `:root` in selectors.
 - [`selector-type-case`](../../src/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selector.
+- [`selector-type-no-unknown`](../../src/rules/selector-type-no-unknown/README.md): Disallow unknown type selectors.
 - [`selector-max-empty-lines`](../../src/rules/selector-max-empty-lines/README.md): Limit the number of adjacent empty lines within selectors.
 
 ### Selector list
