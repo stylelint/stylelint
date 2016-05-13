@@ -76,6 +76,9 @@ testRule(rule, {
   }, {
     code: "a::before10px { margin: 10em; }",
     description: "ignore pseudo-class include wrong unit",
+  }, {
+    code: "a { margin: calc(100% - #{margin * 2}); }",
+    description: "work with interpolation",
   } ],
 
   reject: [ {
@@ -128,5 +131,10 @@ testRule(rule, {
     message: messages.rejected("vmin"),
     line: 1,
     column: 68,
+  }, {
+    code: "a { margin: calc(100% - #{$margin * 2px}); }",
+    message: messages.rejected("px"),
+    line: 1,
+    column: 37,
   } ],
 })
