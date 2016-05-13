@@ -1,8 +1,8 @@
 import { isString } from "lodash"
-import selectorParser from "postcss-selector-parser"
 import htmlTags from "html-tags"
 import svgTags from "svg-tags"
 import {
+  parseSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -28,7 +28,7 @@ export default function (actual, options) {
     root.walkRules(rule => {
       const selector = rule.selector
 
-      selectorParser(selectorTree => {
+      parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkTags(tagNode => {
           const tagName = tagNode.value
           const tagNameLowerCase = tagName.toLowerCase()
@@ -49,7 +49,7 @@ export default function (actual, options) {
             result,
           })
         })
-      }).process(selector)
+      })
     })
   }
 }
