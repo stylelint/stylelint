@@ -141,10 +141,13 @@ testRule(rule, {
   syntax: "scss",
   config: ["lower"],
 
-  accept: [{
+  accept: [ {
     code: "a { width: 1em; \n// width: 10PX\n }",
     description: "ignore unit within comments",
-  }],
+  }, {
+    code: "a { margin: calc(100% - #{$margin * 2}); }",
+    description: "work with interpolation",
+  } ],
 
   reject: [ {
     code: "a { margin: 10PX; }",
@@ -196,6 +199,11 @@ testRule(rule, {
     message: messages.expected("PX", "px"),
     line: 1,
     column: 7,
+  }, {
+    code: "a { margin: calc(100% - #{$margin * 2PX}); }",
+    message: messages.expected("PX", "px"),
+    line: 1,
+    column: 37,
   } ],
 })
 
@@ -358,10 +366,13 @@ testRule(rule, {
   syntax: "scss",
   config: ["upper"],
 
-  accept: [{
+  accept: [ {
     code: "a { width: 1EM; \n// width: 10px\n }",
     description: "ignore unit within comments",
-  }],
+  }, {
+    code: "a { margin: calc(100% - #{$margin * 2}); }",
+    description: "work with interpolation",
+  } ],
 
   reject: [ {
     code: "a { margin: 10px; }",
@@ -413,6 +424,11 @@ testRule(rule, {
     message: messages.expected("px", "PX"),
     line: 1,
     column: 7,
+  }, {
+    code: "a { margin: calc(100% - #{$margin * 2px}); }",
+    message: messages.expected("px", "PX"),
+    line: 1,
+    column: 37,
   } ],
 })
 

@@ -10,7 +10,7 @@
 - Fixed: `no-unknown-animations` now ignores `ease` value.
 - Fixed: `value-keyword-case` now ignores custom idents of property `counter-increment`.
 - Fixed: `value-keyword-case` now ignores custom idents of property `animation-name`.
-- Fixed: `unit-no-unknown` now ignores interpolation inside functions.
+- Fixed: `unit-blacklist`, `unit-case`, `unit-no-unknown`, `unit-whitelist` now better accounts interpolation.
 - Fixed: `unit-no-unknown` no longer breaks Node 0.12 (because we've included the Babel polyfill).
 - Fixed: catch errors thrown by `postcss-selector-parser` and register them as PostCSS warnings, providing a better UX for editor plugins.
 

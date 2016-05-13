@@ -1,9 +1,8 @@
 import { isString } from "lodash"
 import valueParser from "postcss-value-parser"
-
 import {
   declarationValueIndex,
-  isStandardValue,
+  getUnitFromValueNode,
   report,
   ruleMessages,
   validateOptions,
@@ -25,17 +24,11 @@ export default function (whitelistInput) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      const { value } = decl
-
-      valueParser(value).walk(function (node) {
+      valueParser(decl.value).walk(function (node) {
+        // Ignore wrong units within `url` function
         if (node.type === "function" && node.value.toLowerCase() === "url") { return false }
-        if (node.type !== "word" || !isStandardValue(node.value)) { return }
 
-        const parsedUnit = valueParser.unit(node.value)
-
-        if (!parsedUnit) { return }
-
-        const unit = parsedUnit.unit
+        const unit = getUnitFromValueNode(node)
 
         if (!unit || (unit && whitelist.indexOf(unit.toLowerCase()) !== -1)) { return }
 

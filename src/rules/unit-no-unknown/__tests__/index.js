@@ -197,9 +197,9 @@ testRule(rule, {
   }, {
     code: "a { margin: #{$thumbnail-caption-padding}; }",
     description: "ignore interpolation",
-  } , {
-    code: "a { margin: calc(100% - #{margin * 2}); }",
-    description: "ignore interpolation within function",
+  }, {
+    code: "a { margin: calc(100% - #{$margin * 2}); }",
+    description: "work with interpolation",
   } ],
 
   reject: [ {
@@ -237,6 +237,11 @@ testRule(rule, {
     message: messages.rejected("pix"),
     line: 1,
     column: 7,
+  }, {
+    code: "a { margin: calc(100% - #{$margin * 2pix}); }",
+    message: messages.rejected("pix"),
+    line: 1,
+    column: 37,
   } ],
 })
 
