@@ -30,6 +30,7 @@
   ],
   "dependencies": {
     "autoprefixer": "^6.0.0",
+    "babel-polyfill": "^6.8.0",
     "balanced-match": "^0.4.0",
     "chalk": "^1.1.1",
     "colorguard": "^1.2.0",

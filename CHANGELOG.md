@@ -11,6 +11,7 @@
 - Fixed: `value-keyword-case` now ignores custom idents of property `counter-increment`.
 - Fixed: `value-keyword-case` now ignores custom idents of property `animation-name`.
 - Fixed: `unit-no-unknown` now ignores interpolation inside functions.
+- Fixed: `unit-no-unknown` no longer breaks Node 0.12 (because we've included the Babel polyfill).
 
 # 6.3.3
 

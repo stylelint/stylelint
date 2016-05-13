@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// Polyfill is required as long as we support Node 0.12, because
+// use of the spread operator Babel plugin requires `Array.from()`
+import "babel-polyfill"
 import meow from "meow"
 import path from "path"
 import { assign, includes } from "lodash"
