@@ -1,10 +1,10 @@
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
-import selectorParser from "postcss-selector-parser"
 import {
   isKeyframeRule,
   isStandardRule,
   isStandardSelector,
   optionsHaveIgnored,
+  parseSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -108,7 +108,7 @@ export default (enabled, options) => {
       }
 
       resolvedNestedSelector(rule.selector, rule).forEach(resolvedSelector => {
-        selectorParser(checkSelector).process(resolvedSelector)
+        parseSelector(resolvedSelector, result, rule, checkSelector)
       })
 
       function complain(index) {

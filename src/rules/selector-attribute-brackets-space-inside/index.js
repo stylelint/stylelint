@@ -1,5 +1,5 @@
-import selectorParser from "postcss-selector-parser"
 import {
+  parseSelector,
   report,
   ruleMessages,
   styleSearch,
@@ -29,7 +29,7 @@ export default function (expectation) {
     root.walkRules(rule => {
       if (rule.selector.indexOf("[") === -1) { return }
 
-      selectorParser(selectorTree => {
+      parseSelector(rule.selector, result, rule, selectorTree => {
         selectorTree.walkAttributes(attributeNode => {
           const attributeSelectorString = attributeNode.toString()
 
@@ -55,7 +55,7 @@ export default function (expectation) {
             }
           })
         })
-      }).process(rule.selector)
+      })
 
       function complain(message, index) {
         report({

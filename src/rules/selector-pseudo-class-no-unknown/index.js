@@ -1,9 +1,9 @@
 import { isString } from "lodash"
-import selectorParser from "postcss-selector-parser"
 import { vendor } from "postcss"
 import {
   isKnownPseudoClass,
   isKnownPseudoElement,
+  parseSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -31,7 +31,7 @@ export default function (actual, options) {
 
       if (selector.indexOf(":") === -1) { return }
 
-      selectorParser(selectorTree => {
+      parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkPseudos(pseudoNode => {
           const pseudoClass = pseudoNode.value
 
@@ -57,7 +57,7 @@ export default function (actual, options) {
             result,
           })
         })
-      }).process(selector)
+      })
     })
   }
 }

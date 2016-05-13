@@ -1,9 +1,9 @@
-import selectorParser from "postcss-selector-parser"
 import {
   isKeyframeRule,
   isStandardRule,
   isStandardSelector,
   isStandardTypeSelector,
+  parseSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -33,7 +33,7 @@ export default function (expectation) {
       const { selector } = rule
       if (!isStandardSelector(selector)) { return }
 
-      function checkSelector(selectorAST) {
+      parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkTags(tag => {
 
           if (!isStandardTypeSelector(tag)) { return }
@@ -51,9 +51,7 @@ export default function (expectation) {
             result,
           })
         })
-      }
-
-      selectorParser(checkSelector).process(selector)
+      })
     })
   }
 }

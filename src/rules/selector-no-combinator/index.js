@@ -1,7 +1,7 @@
-import selectorParser from "postcss-selector-parser"
 import {
   isStandardRule,
   isStandardSelector,
+  parseSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -22,7 +22,7 @@ export default function (actual) {
       if (!isStandardRule(rule)) { return }
       const { selector } = rule
       if (!isStandardSelector(selector)) { return }
-      selectorParser(selectorAST => {
+      parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkCombinators(combinator => {
           report({
             message: messages.rejected,
@@ -33,7 +33,6 @@ export default function (actual) {
           })
         })
       })
-        .process(selector)
     })
   }
 }

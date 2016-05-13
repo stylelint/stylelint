@@ -1,4 +1,3 @@
-import selectorParser from "postcss-selector-parser"
 import { get } from "lodash"
 import {
   isKeyframeRule,
@@ -6,6 +5,7 @@ import {
   isStandardSelector,
   isStandardTypeSelector,
   optionsHaveIgnored,
+  parseSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -38,9 +38,7 @@ export default function (on, options) {
       const { selector } = rule
       if (!isStandardSelector(selector)) { return }
 
-      selectorParser(checkSelector).process(selector)
-
-      function checkSelector(selectorAST) {
+      parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkTags(tag => {
 
           if (!isStandardTypeSelector(tag)) { return }
@@ -57,7 +55,7 @@ export default function (on, options) {
             result,
           })
         })
-      }
+      })
     })
   }
 }
