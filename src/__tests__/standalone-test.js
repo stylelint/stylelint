@@ -486,6 +486,17 @@ test("syntax error sets errored to true", t => {
   t.plan(1)
 })
 
+test.only("configuration error sets errored to true", t => {
+  standalone({
+    code: "a { color: 'red'; }",
+    config: { rules: { "block-no-empty": "wahoo" } },
+  }).then(({ errored }) => {
+    t.ok(errored, "errored is true")
+  }).catch(logError)
+
+  t.plan(1)
+})
+
 test("standalone with style tag extraction from code string", t => {
   let planned = 0
   standalone({
