@@ -1,3 +1,7 @@
+# 7.0.0
+
+- Changed: invalid configuration sets result's `stylelintError` to `true`, which in turn causes CLI to exit with a non-zero code.
+
 # 6.7.1
 
 - Fixed: `block-*-brace-*-before` CRLF (`\r\n`) warning positioning.
