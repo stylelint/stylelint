@@ -214,6 +214,10 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`comment-whitespace-inside`](../../src/rules/comment-whitespace-inside/README.md): Require or disallow whitespace on the inside of comment markers.
 - [`comment-word-blacklist`](../../src/rules/comment-word-blacklist/README.md): Specify a blacklist of disallowed words within comments.
 
+### Keyframe rule
+
+- [`keyframe-declaration-no-important`](../../src/rules/keyframe-declaration-no-important/README.md): Disallow `!important` within declarations in a keyframe rule.
+
 ### General / Sheet
 
 - [`indentation`](../../src/rules/indentation/README.md): Specify indentation.

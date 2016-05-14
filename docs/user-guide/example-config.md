@@ -67,6 +67,7 @@ You might want to learn a little about [how rules are named and how they work to
     "function-whitelist": string|[],
     "function-whitespace-after": "always"|"never",
     "indentation": int|"tab",
+    "keyframe-declaration-no-important": true,
     "max-empty-lines": int,
     "max-line-length": int,
     "max-nesting-depth": int,
