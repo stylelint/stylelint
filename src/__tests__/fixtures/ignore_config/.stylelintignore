@@ -1,4 +1,4 @@
-# we need to go up one folder as the paths are
-# resolved absolutely to the directory the file's in
+# Paths are resolved absolutely to this directory
+
 ../**/*.css
 !../**/invalid-hex.css
