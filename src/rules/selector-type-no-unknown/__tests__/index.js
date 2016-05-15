@@ -61,6 +61,16 @@ testRule(rule, {
     message: messages.rejected("unknown"),
     line: 1,
     column: 4,
+  }, {
+    code: "unknown[target] {}",
+    message: messages.rejected("unknown"),
+    line: 1,
+    column: 1,
+  }, {
+    code: "@media only screen and (min-width: 35em) { unknown {} }",
+    message: messages.rejected("unknown"),
+    line: 1,
+    column: 44,
   } ],
 })
 
@@ -70,15 +80,15 @@ testRule(rule, {
   skipBasicChecks: true,
 
   accept: [ {
-    code: "unknown { }",
+    code: "unknown {}",
   }, {
-    code: "uNkNoWn { }",
+    code: "uNkNoWn {}",
   }, {
-    code: "UNKNOWN { }",
+    code: "UNKNOWN {}",
   } ],
 
   reject: [{
-    code: "tag { }",
+    code: "tag {}",
     message: messages.rejected("tag"),
     line: 1,
     column: 1,
