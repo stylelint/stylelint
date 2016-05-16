@@ -56,6 +56,7 @@ export const colorFunctionNames = new Set([
 
 export const fontFamilyKeywords = new Set([
   "inherit",
+  "unset",
   "serif",
   "sans-serif",
   "cursive",
@@ -237,4 +238,22 @@ export const counterIncrementKeywords = new Set([
   "inherit",
   "initial",
   "unset",
+])
+
+export const gridRowKeywords = new Set([
+  "auto",
+  "span",
+])
+
+export const gridColumnKeywords = new Set([
+  "auto",
+  "span",
+])
+
+export const gridAreaKeywords = new Set([
+  "unset",
+  "initial",
+  "inherit",
+  "auto",
+  "span",
 ])

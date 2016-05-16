@@ -12,6 +12,10 @@ import {
 import {
   camelCaseKeywords,
   animationNameKeywords,
+  fontFamilyKeywords,
+  gridRowKeywords,
+  gridColumnKeywords,
+  gridAreaKeywords,
 } from "../../reference/keywordSets"
 
 export const ruleName = "value-keyword-case"
@@ -70,7 +74,11 @@ export default function (expectation, options) {
         ) { return }
 
         if (prop === "animation-name" && !animationNameKeywords.has(valueLowerCase)) { return }
+        if (prop === "font-family" && !fontFamilyKeywords.has(valueLowerCase)) { return }
         if (prop === "counter-increment" && isCustomIdentPropertyCounterIncrement(valueLowerCase)) { return }
+        if (prop === "grid-row" && !gridRowKeywords.has(valueLowerCase)) { return }
+        if (prop === "grid-column" && !gridColumnKeywords.has(valueLowerCase)) { return }
+        if (prop === "grid-area" && !gridAreaKeywords.has(valueLowerCase)) { return }
 
         const parsedUnit = valueParser.unit(keyword)
 
