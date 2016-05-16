@@ -1,4 +1,6 @@
 import { isFinite } from "lodash"
+import { counterIncrementKeywords } from "../reference/keywordSets"
+
 /**
  * Check value is a custom ident
  *
@@ -6,15 +8,10 @@ import { isFinite } from "lodash"
  * @return {boolean} If `true`, value is a custom ident
  */
 
-// https://developer.mozilla.org/ru/docs/Web/CSS/counter-increment
-const knownValues = new Set([
-  "none", "inherit", "initial", "unset",
-])
-
 export default function (value) {
   const valueLowerCase = value.toLowerCase()
 
-  if (knownValues.has(valueLowerCase) || isFinite(parseInt(valueLowerCase))) { return false }
+  if (counterIncrementKeywords.has(valueLowerCase) || isFinite(parseInt(valueLowerCase))) { return false }
 
   return true
 }

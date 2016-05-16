@@ -5,6 +5,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { camelCaseFunctionNames } from "../../reference/keywordSets"
 
 export const ruleName = "function-name-case"
 
@@ -12,19 +13,10 @@ export const messages = ruleMessages(ruleName, {
   expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
-const ignoredCamelCaseFunctionNames = {
-  "translatex": "translateX",
-  "translatey": "translateY",
-  "translatez": "translateZ",
-  "scalex": "scaleX",
-  "scaley": "scaleY",
-  "scalez": "scaleZ",
-  "rotatex": "rotateX",
-  "rotatey": "rotateY",
-  "rotatez": "rotateZ",
-  "skewx": "skewX",
-  "skewy": "skewY",
-}
+const mapLowercaseFunctionNamesToCamelCase = new Map()
+camelCaseFunctionNames.forEach(func => {
+  mapLowercaseFunctionNamesToCamelCase.set(func.toLowerCase(), func)
+})
 
 export default function (expectation) {
   return (root, result) => {
@@ -49,9 +41,9 @@ export default function (expectation) {
         let expectedFunctionName = null
 
         if (expectation === "lower"
-          && ignoredCamelCaseFunctionNames.hasOwnProperty(functionNameLowerCase)
+          && mapLowercaseFunctionNamesToCamelCase.has(functionNameLowerCase)
         ) {
-          expectedFunctionName = ignoredCamelCaseFunctionNames[functionNameLowerCase]
+          expectedFunctionName = mapLowercaseFunctionNamesToCamelCase.get(functionNameLowerCase)
         } else if (expectation === "lower") {
           expectedFunctionName = functionNameLowerCase
         } else {

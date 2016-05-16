@@ -1,9 +1,11 @@
+import _ from "lodash"
 import {
   report,
   ruleMessages,
   styleSearch,
   validateOptions,
 } from "../../utils"
+import { levelOneAndTwoPseudoElements } from "../../reference/keywordSets"
 
 export const ruleName = "selector-pseudo-element-colon-notation"
 
@@ -30,23 +32,21 @@ export default function (expectation) {
       if (selector.indexOf(":") === -1) { return }
 
       // match only level 1 and 2 pseudo elements
-      styleSearch({
-        source: selector.toLowerCase(),
-        target: [ ":before", ":after", ":first-line", ":first-letter" ] },
-        match => {
-          const prevCharIsColon = selector[match.startIndex - 1] === ":"
+      const pseudoElementsWithColons = _.toArray(levelOneAndTwoPseudoElements).map(x => `:${x}`)
+      styleSearch({ source: selector.toLowerCase(), target: pseudoElementsWithColons }, match => {
+        const prevCharIsColon = selector[match.startIndex - 1] === ":"
 
-          if (expectation === "single" && !prevCharIsColon) { return }
-          if (expectation === "double" && prevCharIsColon) { return }
+        if (expectation === "single" && !prevCharIsColon) { return }
+        if (expectation === "double" && prevCharIsColon) { return }
 
-          report({
-            message: messages.expected(expectation),
-            node: rule,
-            index: match.startIndex,
-            result,
-            ruleName,
-          })
+        report({
+          message: messages.expected(expectation),
+          node: rule,
+          index: match.startIndex,
+          result,
+          ruleName,
         })
+      })
     })
   }
 }

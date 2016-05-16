@@ -1,12 +1,12 @@
 import { isString } from "lodash"
 import { vendor } from "postcss"
 import {
-  isKnownPseudoElement,
   parseSelector,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { pseudoElements } from "../../reference/keywordSets"
 
 export const ruleName = "selector-pseudo-element-no-unknown"
 
@@ -39,7 +39,7 @@ export default function (actual, options) {
 
           const pseudoElementName = pseudoElement.replace(/:+/, "")
 
-          if (vendor.prefix(pseudoElementName) || isKnownPseudoElement(pseudoElementName)) { return }
+          if (vendor.prefix(pseudoElementName) || pseudoElements.has(pseudoElementName.toLowerCase())) { return }
 
           const ignorePseudoElements = options && options.ignorePseudoElements || []
 

@@ -3,7 +3,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import shorthands from "./shorthands"
+import shorthandData from "../../reference/shorthandData"
 
 export const ruleName = "declaration-block-no-shorthand-property-overrides"
 
@@ -28,7 +28,7 @@ export default function (actual) {
       statement.each(node => {
         if (node.type !== "decl") { return }
         const { prop } = node
-        const overrideables = shorthands[prop.toLowerCase()]
+        const overrideables = shorthandData[prop.toLowerCase()]
         if (!overrideables) {
           declarations[prop.toLowerCase()] = prop
           return

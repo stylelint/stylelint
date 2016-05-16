@@ -2,7 +2,6 @@ import valueParser from "postcss-value-parser"
 import { isString } from "lodash"
 import {
   declarationValueIndex,
-  isCustomIdentPropertyAnimationName,
   isCustomIdentPropertyCounterIncrement,
   isStandardValue,
   matchesStringOrRegExp,
@@ -10,6 +9,10 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import {
+  camelCaseKeywords,
+  animationNameKeywords,
+} from "../../reference/keywordSets"
 
 export const ruleName = "value-keyword-case"
 
@@ -22,12 +25,10 @@ const ignoredCharacters = new Set([
   "+", "-", "/", "*", "%",
 ])
 
-const ignoredCamelCaseKeywords = {
-  "optimizespeed": "optimizeSpeed",
-  "optimizelegibility": "optimizeLegibility",
-  "geometricprecision": "geometricPrecision",
-  "currentcolor": "currentColor",
-}
+const mapLowercaseKeywordsToCamelCase = new Map()
+camelCaseKeywords.forEach(func => {
+  mapLowercaseKeywordsToCamelCase.set(func.toLowerCase(), func)
+})
 
 export default function (expectation, options) {
   return (root, result) => {
@@ -68,7 +69,7 @@ export default function (expectation, options) {
           || ignoredCharacters.has(keyword)
         ) { return }
 
-        if (prop === "animation-name" && isCustomIdentPropertyAnimationName(valueLowerCase)) { return }
+        if (prop === "animation-name" && !animationNameKeywords.has(valueLowerCase)) { return }
         if (prop === "counter-increment" && isCustomIdentPropertyCounterIncrement(valueLowerCase)) { return }
 
         const parsedUnit = valueParser.unit(keyword)
@@ -83,9 +84,9 @@ export default function (expectation, options) {
         let expectedKeyword = null
 
         if (expectation === "lower"
-          && ignoredCamelCaseKeywords.hasOwnProperty(keywordLowerCase)
+          && mapLowercaseKeywordsToCamelCase.has(keywordLowerCase)
         ) {
-          expectedKeyword = ignoredCamelCaseKeywords[keywordLowerCase]
+          expectedKeyword = mapLowercaseKeywordsToCamelCase.get(keywordLowerCase)
         } else if (expectation === "lower") {
           expectedKeyword = keyword.toLowerCase()
         } else {

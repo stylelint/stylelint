@@ -9,6 +9,10 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import {
+  fontWeightKeywords,
+  fontWeightRelativeKeywords,
+} from "../../reference/keywordSets"
 
 export const ruleName = "font-weight-notation"
 
@@ -17,11 +21,9 @@ export const messages = ruleMessages(ruleName, {
   invalidNamed: name => `Unexpected invalid font-weight name "${name}"`,
 })
 
-const WEIGHT_SPECIFIC_KEYWORDS = [ "bold", "bolder", "lighter" ]
 const INHERIT_KEYWORD = "inherit"
 const INITIAL_KEYWORD = "initial"
 const NORMAL_KEYWORD = "normal"
-const RELATIVE_NAMED_WEIGHTS = [ "bolder", "lighter" ]
 const WEIGHTS_WITH_KEYWORD_EQUIVALENTS = [ "400", "700" ]
 
 function isNumbery(x) {
@@ -63,7 +65,7 @@ export default function (expectation, options) {
         if (
           (value.toLowerCase() === NORMAL_KEYWORD && !hasNumericFontWeight)
           || isNumbery(value)
-          || includes(WEIGHT_SPECIFIC_KEYWORDS, value.toLowerCase())
+          || fontWeightKeywords.has(value.toLowerCase())
         ) {
           checkWeight(value, decl)
           return
@@ -79,7 +81,7 @@ export default function (expectation, options) {
       ) { return }
 
       if (optionsHaveIgnored(options, "relative") &&
-        includes(RELATIVE_NAMED_WEIGHTS, weightValue.toLowerCase())) { return }
+        fontWeightRelativeKeywords.has(weightValue.toLowerCase())) { return }
 
       const weightValueOffset = decl.value.indexOf(weightValue)
 
@@ -96,7 +98,7 @@ export default function (expectation, options) {
           }
           return
         }
-        if (!includes(WEIGHT_SPECIFIC_KEYWORDS, weightValue.toLowerCase())
+        if (!fontWeightKeywords.has(weightValue.toLowerCase())
           && weightValue.toLowerCase() !== NORMAL_KEYWORD
         ) {
           return complain(messages.invalidNamed(weightValue))

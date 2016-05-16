@@ -8,23 +8,16 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import {
+  animationShorthandKeywords,
+  animationNameKeywords,
+} from "../../reference/keywordSets"
 
 export const ruleName = "no-unknown-animations"
 
 export const messages = ruleMessages(ruleName, {
   rejected: animationName => `Unknown animation name "${animationName}"`,
 })
-
-// cf. https://developer.mozilla.org/en-US/docs/Web/CSS/animation
-const animationShorthandKeywords = new Set([
-  "infinite", "normal", "reverse", "alternate", "alternate-reverse",
-  "none", "initial", "inherit", "unset", "forwards", "backwards", "both", "running", "paused",
-  "linear", "ease", "ease-in", "ease-out", "ease-in-out", "step-start", "step-end",
-])
-
-const animationNameKeywords = new Set([
-  "none", "initial", "inherit", "unset",
-])
 
 export default function (actual) {
   return (root, result) => {

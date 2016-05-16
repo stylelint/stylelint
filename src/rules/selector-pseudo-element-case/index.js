@@ -4,17 +4,13 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { levelOneAndTwoPseudoElements } from "../../reference/keywordSets"
 
 export const ruleName = "selector-pseudo-element-case"
 
 export const messages = ruleMessages(ruleName, {
   expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
-
-// level 1 and 2 pseudo elements
-const pseudoElements = new Set([
-  ":before", ":after", ":first-line", ":first-letter",
-])
 
 export default function (expectation) {
   return (root, result) => {
@@ -38,7 +34,7 @@ export default function (expectation) {
           const pseudoElement = pseudoNode.value
 
           if (pseudoElement.indexOf("::") === -1
-            && !pseudoElements.has(pseudoElement.toLowerCase())
+            && !levelOneAndTwoPseudoElements.has(pseudoElement.toLowerCase().slice(1))
           ) {
             return
           }
