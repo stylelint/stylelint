@@ -112,6 +112,7 @@ const ignored = [ {
     "right",
     "bottom",
     "left",
+    "z-index",
   ],
 }, {
   property: "position",

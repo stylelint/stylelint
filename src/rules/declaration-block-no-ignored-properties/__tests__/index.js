@@ -419,6 +419,12 @@ testRule(rule, {
     column: 23,
     description: "position: static rules out top, right, bottom, and left",
   }, {
+    code: "a { position: static; z-index: 1; }",
+    message: messages.rejected("z-index", "position: static"),
+    line: 1,
+    column: 23,
+    description: "position: static rules out z-index",
+  }, {
     code: "a { position: absolute; float: left; }",
     message: messages.rejected("float", "position: absolute"),
     line: 1,
