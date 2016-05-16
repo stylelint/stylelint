@@ -16,6 +16,7 @@ import {
   gridRowKeywords,
   gridColumnKeywords,
   gridAreaKeywords,
+  listStyleTypeKeywords,
 } from "../../reference/keywordSets"
 
 export const ruleName = "value-keyword-case"
@@ -79,6 +80,7 @@ export default function (expectation, options) {
         if (prop === "grid-row" && !gridRowKeywords.has(valueLowerCase)) { return }
         if (prop === "grid-column" && !gridColumnKeywords.has(valueLowerCase)) { return }
         if (prop === "grid-area" && !gridAreaKeywords.has(valueLowerCase)) { return }
+        if (prop === "list-style-type" && !listStyleTypeKeywords.has(valueLowerCase)) { return }
 
         const parsedUnit = valueParser.unit(keyword)
 
