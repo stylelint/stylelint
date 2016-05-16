@@ -212,6 +212,10 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`at-rule-no-vendor-prefix`](../../src/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for at-rules.
 - [`at-rule-semicolon-newline-after`](../../src/rules/at-rule-semicolon-newline-after/README.md): Require a newline after the semicolon of at-rules.
 
+### `stylelint-disable` comment
+
+- [`stylelint-disable-reason`](../../src/rules/stylelint-disable-reason/README.md): Require a reason comment before or after `stylelint-disable` comments.
+
 ### Comment
 
 - [`comment-empty-line-before`](../../src/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments.
@@ -234,4 +238,3 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`no-missing-eof-newline`](../../src/rules/no-missing-eof-newline/README.md): Disallow missing end-of-file newline.
 - [`no-unknown-animations`](../../src/rules/no-unknown-animations/README.md): Disallow animation names that do not correspond to a `@keyframes` declaration.
 - [`no-unsupported-browser-features`](../../src/rules/no-unsupported-browser-features/README.md): Disallow features that are unsupported by the browsers that you are targeting.
-- [`stylelint-disable-reason`](../../src/rules/stylelint-disable-reason/README.md): Require a reason comment before or after `stylelint-disable` comments.
