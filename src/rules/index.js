@@ -99,8 +99,10 @@ import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
 import ruleNonNestedEmptyLineBefore from "./rule-non-nested-empty-line-before"
 import selectorAttributeBracketsSpaceInside from "./selector-attribute-brackets-space-inside"
+import selectorAttributeOperatorBlacklist from "./selector-attribute-operator-blacklist"
 import selectorAttributeOperatorSpaceAfter from "./selector-attribute-operator-space-after"
 import selectorAttributeOperatorSpaceBefore from "./selector-attribute-operator-space-before"
+import selectorAttributeOperatorWhitelist from "./selector-attribute-operator-whitelist"
 import selectorClassPattern from "./selector-class-pattern"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
@@ -245,8 +247,10 @@ export default {
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
   "rule-non-nested-empty-line-before": ruleNonNestedEmptyLineBefore,
   "selector-attribute-brackets-space-inside": selectorAttributeBracketsSpaceInside,
+  "selector-attribute-operator-blacklist": selectorAttributeOperatorBlacklist,
   "selector-attribute-operator-space-after": selectorAttributeOperatorSpaceAfter,
   "selector-attribute-operator-space-before": selectorAttributeOperatorSpaceBefore,
+  "selector-attribute-operator-whitelist": selectorAttributeOperatorWhitelist,
   "selector-class-pattern": selectorClassPattern,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,
