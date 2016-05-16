@@ -110,6 +110,14 @@ color: pink; }
 The following patterns are *not* considered warnings:
 
 ```css
+a{ color: pink; }
+```
+
+```css
+a { color: pink; }
+```
+
+```css
 a
 { color: pink; }
 ```
