@@ -9,7 +9,7 @@ import {
 export const ruleName = "function-url-quotes"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (q, f="url") => `Expected ${q} around ${f} argument`,
+  expected: (q, f = "url") => `Expected ${q} around ${f} argument`,
 })
 
 export default function (expectation) {

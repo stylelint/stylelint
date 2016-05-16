@@ -41,7 +41,7 @@ test("beforeBlockString with comment after selector", t => {
   t.end()
 })
 
-function postcssCheck(options={}, cssString) {
+function postcssCheck(options = {}, cssString) {
   if (typeof options === "string") {
     cssString = options
   }

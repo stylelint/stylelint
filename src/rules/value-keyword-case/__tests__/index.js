@@ -334,7 +334,7 @@ testRule(rule, {
     message: messages.expected("Block", "block"),
     line: 1,
     column: 24,
-  },{
+  }, {
     code: "$map: (Display-first: block, display-second: inline);",
     message: messages.expected("Display-first", "display-first"),
     line: 1,

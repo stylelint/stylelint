@@ -17,7 +17,7 @@ import balancedMatch from "balanced-match"
  * @param {[string]} blurChar="`"
  * @return {string} - The result string, with the function arguments "blurred"
  */
-export default function (source, functionName, blurChar="`") {
+export default function (source, functionName, blurChar = "`") {
   const nameWithParen = `${functionName.toLowerCase()}(`
   const lowerCaseSource =  source.toLowerCase()
   if (!_.includes(lowerCaseSource, nameWithParen)) { return source }

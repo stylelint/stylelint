@@ -69,8 +69,8 @@ export default function (targetWhitespace, expectation, messages) {
     err,
     errTarget,
     lineCheckStr,
-    onlyOneChar=false,
-    allowIndentation=false,
+    onlyOneChar = false,
+    allowIndentation = false,
   }) {
     activeArgs = { source, index, err, errTarget, onlyOneChar, allowIndentation }
     switch (expectation) {
@@ -107,7 +107,7 @@ export default function (targetWhitespace, expectation, messages) {
    * Parameters are pretty much the same as for `before()`, above, just substitute
    * the word "after" for "before".
    */
-  function after({ source, index, err, errTarget, lineCheckStr, onlyOneChar=false }) {
+  function after({ source, index, err, errTarget, lineCheckStr, onlyOneChar = false }) {
     activeArgs = { source, index, err, errTarget, onlyOneChar }
     switch (expectation) {
       case "always":
@@ -141,7 +141,7 @@ export default function (targetWhitespace, expectation, messages) {
     before(assign({}, obj, { allowIndentation: true }))
   }
 
-  function expectBefore(messageFunc=messages.expectedBefore) {
+  function expectBefore(messageFunc = messages.expectedBefore) {
     if (activeArgs.allowIndentation) {
       expectBeforeAllowingIndentation(messageFunc)
       return
@@ -172,7 +172,7 @@ export default function (targetWhitespace, expectation, messages) {
     activeArgs.err(messageFunc(activeArgs.errTarget ? activeArgs.errTarget : source[index]))
   }
 
-  function expectBeforeAllowingIndentation(messageFunc=messages.expectedBefore) {
+  function expectBeforeAllowingIndentation(messageFunc = messages.expectedBefore) {
     const { source, index, err } = activeArgs
     const expectedChar = (function () {
       if (targetWhitespace === "newline") { return "\n" }
@@ -189,7 +189,7 @@ export default function (targetWhitespace, expectation, messages) {
     }
   }
 
-  function rejectBefore(messageFunc=messages.rejectedBefore) {
+  function rejectBefore(messageFunc = messages.rejectedBefore) {
     const { source, index } = activeArgs
     const oneCharBefore = source[index - 1]
 
@@ -202,7 +202,7 @@ export default function (targetWhitespace, expectation, messages) {
     after(assign({}, obj, { onlyOneChar: true }))
   }
 
-  function expectAfter(messageFunc=messages.expectedAfter) {
+  function expectAfter(messageFunc = messages.expectedAfter) {
     const { source, index } = activeArgs
 
     const oneCharAfter = source[index + 1]
@@ -229,7 +229,7 @@ export default function (targetWhitespace, expectation, messages) {
     activeArgs.err(messageFunc(activeArgs.errTarget ? activeArgs.errTarget : source[index]))
   }
 
-  function rejectAfter(messageFunc=messages.rejectedAfter) {
+  function rejectAfter(messageFunc = messages.rejectedAfter) {
     const { source, index } = activeArgs
     const oneCharAfter = source[index + 1]
 

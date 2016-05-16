@@ -174,7 +174,7 @@ testRule(rule, {
   ruleName,
   config: ["always"],
   syntax: "less",
-  
+
   accept: [ {
     code: "a { color: pink;\n// comment\ntop: 0; }",
     description: "single-line comment ignored",
@@ -188,7 +188,7 @@ testRule(rule, {
   ruleName,
   config: ["never"],
   syntax: "less",
-  
+
   accept: [{
     code: "a { color: pink;\n\n// comment\ntop: 0; }",
     description: "single-line comment ignored",

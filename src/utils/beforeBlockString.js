@@ -10,7 +10,7 @@
  * @param {boolean} [options.noRawBefore] - Leave out the `before` string
  * @return {string}
  */
-export default function (statement, { noRawBefore }={}) {
+export default function (statement, { noRawBefore } = {}) {
   let result = ""
   if (statement.type !== "rule" && statement.type !== "atrule") { return result }
 

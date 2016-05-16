@@ -7,6 +7,6 @@
  * @param {string} source
  * @return {string} - The result string, with the interpolation characters "blurred"
  */
-export default function (source, blurChar=" ") {
+export default function (source, blurChar = " ") {
   return source.replace(/[#@{}]+/g, blurChar)
 }

@@ -74,7 +74,7 @@ export function selectorAttributeOperatorSpaceChecker({
         source,
         index,
         err: (m) => report({
-          message: m.replace(checkBeforeOperator ? operator[0] : operator[operator.length - 1] , operator),
+          message: m.replace(checkBeforeOperator ? operator[0] : operator[operator.length - 1], operator),
           node,
           index: attributeIndex + index,
           result,

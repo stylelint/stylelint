@@ -146,7 +146,7 @@ export default function (space, options = {}) {
       }
     })
 
-    function indentationLevel(node, level=0) {
+    function indentationLevel(node, level = 0) {
       if (node.parent.type === "root") { return level }
 
       // In case by recursion we're checking a node that's

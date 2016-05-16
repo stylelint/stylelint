@@ -69,7 +69,7 @@ function formatter(messages, source) {
   const orderedMessages = _.sortBy(
     messages,
     (m) => m.line ? 2 : 1, // positionless first
-    (m) => m.line ,
+    (m) => m.line,
     (m) => m.column
   )
 

@@ -55,7 +55,7 @@ export default function (expectation, options) {
         }
 
         if (child.type !== "decl") { return }
-  
+
         const { prop } = child
         if (!isStandardProperty(prop)) { return }
         if (isCustomProperty(prop)) { return }

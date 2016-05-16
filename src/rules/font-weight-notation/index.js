@@ -35,7 +35,7 @@ export default function (expectation, options) {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [ "numeric", "named-where-possible" ],
-    } , {
+    }, {
       actual: options,
       possible: {
         ignore: ["relative"],

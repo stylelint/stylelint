@@ -289,7 +289,7 @@ testRule(rule, {
     line: 1,
     column: 26,
     description: "display: table-* rules out margin",
-  },{
+  }, {
     code: "a { display: table-cell; margin-right: 10px; }",
     message: messages.rejected("margin-right", "display: table-cell"),
     line: 1,
