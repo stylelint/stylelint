@@ -47,7 +47,7 @@ export default function (actual) {
         report({
           message: messages.rejected,
           node,
-          index: error.index + error.match.length -2,
+          index: error.index + error.match.length - 2,
           result,
           ruleName,
         })
