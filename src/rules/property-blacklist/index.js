@@ -12,7 +12,7 @@ import {
 export const ruleName = "property-blacklist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (p) => `Unexpected property "${p}"`,
+  rejected: (property) => `Unexpected property "${property}"`,
 })
 
 export default function (blacklistInput) {

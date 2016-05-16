@@ -12,7 +12,7 @@ import { units } from "../../reference/keywordSets"
 export const ruleName = "unit-no-unknown"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (u) => `Unexpected unknown unit "${u}"`,
+  rejected: (unit) => `Unexpected unknown unit "${unit}"`,
 })
 
 export default function (actual, options) {

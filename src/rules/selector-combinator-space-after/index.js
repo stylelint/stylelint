@@ -11,8 +11,8 @@ import { nonSpaceCombinators } from "../../reference/punctuationSets"
 export const ruleName = "selector-combinator-space-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: c => `Expected single space after "${c}" combinator `,
-  rejectedAfter: c => `Unexpected whitespace after "${c}" combinator`,
+  expectedAfter: combinator => `Expected single space after "${combinator}" combinator`,
+  rejectedAfter: combinator => `Unexpected whitespace after "${combinator}" combinator`,
 })
 
 export default function (expectation) {

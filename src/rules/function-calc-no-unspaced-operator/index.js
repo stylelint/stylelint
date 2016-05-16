@@ -11,9 +11,9 @@ import balancedMatch from "balanced-match"
 export const ruleName = "function-calc-no-unspaced-operator"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: o => `Expected single space before "${o}" operator`,
-  expectedAfter: o => `Expected single space after "${o}" operator`,
-  expectedOperatorBeforeSign: o => `Expected an operator before sign "${o}"`,
+  expectedBefore: operator => `Expected single space before "${operator}" operator`,
+  expectedAfter: operator => `Expected single space after "${operator}" operator`,
+  expectedOperatorBeforeSign: operator => `Expected an operator before sign "${operator}"`,
 })
 
 export default function (actual) {

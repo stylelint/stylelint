@@ -13,7 +13,7 @@ import {
 export const ruleName = "property-unit-whitelist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (p, u) => `Unexpected unit "${u}" for property "${p}"`,
+  rejected: (property, unit) => `Unexpected unit "${unit}" for property "${property}"`,
 })
 
 export default function (whitelist) {
