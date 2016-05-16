@@ -41,7 +41,8 @@ export default function (expectation) {
       if (!nextDecl) { return }
 
       checker.after({
-        source: rawNodeString(nextDecl),
+        // Ignore extra semicolon
+        source: rawNodeString(nextDecl).replace(/;+/, ""),
         index: -1,
         lineCheckStr: blockString(parentRule),
         err: m => {

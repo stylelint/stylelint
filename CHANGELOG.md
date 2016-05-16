@@ -14,6 +14,7 @@
 - Fixed: `unit-blacklist`, `unit-case`, `unit-no-unknown`, `unit-whitelist` now better accounts interpolation.
 - Fixed: `unit-no-unknown` no longer breaks Node 0.12 (because we've included the Babel polyfill).
 - Fixed: catch errors thrown by `postcss-selector-parser` and register them as PostCSS warnings, providing a better UX for editor plugins.
+- Fixed: `declaration-block-semicolon-newline-after` and `declaration-block-semicolon-space-after` no longer delivers false positives for extra semicolon.
 
 # 6.3.3
 

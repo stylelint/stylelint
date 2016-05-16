@@ -11,6 +11,9 @@ testRule(rule, {
   accept: [ {
     code: "a { color: pink; }",
   }, {
+    code: "a { color: pink;; }",
+    description: "ignore extra semicolon",
+  }, {
     code: "a { color: pink; }",
   }, {
     code: "a::before { content: \";a\"; }",
@@ -19,10 +22,19 @@ testRule(rule, {
     description: "no space between trailing semicolon and closing brace",
   }, {
     code: "a { color: pink; top: 0}",
+  }, {
+    code: "a { color: pink;; top: 0}",
+    description: "ignore extra semicolon",
   } ],
 
   reject: [ {
     code: "a { color: pink;top: 0; }",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { color: pink;;top: 0;; }",
+    description: "ignore extra semicolon",
     message: messages.expectedAfter(),
     line: 1,
     column: 17,
@@ -57,10 +69,16 @@ testRule(rule, {
   accept: [ {
     code: "a { color: pink; }",
   }, {
+    code: "a { color: pink;; }",
+    description: "ignore extra semicolon",
+  }, {
     code: "a::before { content: \";a\"; }",
   }, {
     code: "a { color: pink; top: 0;}",
     description: "no space between trailing semicolon and closing brace",
+  }, {
+    code: "a { color: pink;; top: 0;;}",
+    description: "ignore extra semicolon",
   }, {
     code: "a,\nb { color: pink; top: 0; }",
     description: "multi-line rule, single-line declaration-block",
@@ -76,6 +94,12 @@ testRule(rule, {
 
   reject: [ {
     code: "a { color: pink;top: 0; }",
+    message: messages.expectedAfterSingleLine(),
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { color: pink;;top: 0;; }",
+    description: "ignore extra semicolon",
     message: messages.expectedAfterSingleLine(),
     line: 1,
     column: 17,
@@ -110,10 +134,16 @@ testRule(rule, {
   accept: [ {
     code: "a { color: pink; }",
   }, {
+    code: "a { color: pink;; }",
+    description: "ignore extra semicolon",
+  }, {
     code: "a::before { content: \"; a\"; }",
   }, {
     code: "a { color: pink;top: 0; }",
     description: "space between trailing semicolon and closing brace",
+  }, {
+    code: "a { color: pink;;top: 0;; }",
+    description: "ignore extra semicolon",
   }, {
     code: "a,\nb { color: pink;top: 0; }",
     description: "multi-line rule, single-line declaration-block",
@@ -126,6 +156,12 @@ testRule(rule, {
 
   reject: [ {
     code: "a { color: pink; top: 0; }",
+    message: messages.rejectedAfterSingleLine(),
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { color: pink;; top: 0;; }",
+    description: "ignore extra semicolon",
     message: messages.rejectedAfterSingleLine(),
     line: 1,
     column: 17,

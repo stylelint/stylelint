@@ -34,6 +34,7 @@ export default function (expectation) {
     root.walkDecls(decl => {
       // Ignore last declaration if there's no trailing semicolon
       const parentRule = decl.parent
+
       if (!parentRule.raw("semicolon") && parentRule.last === decl) { return }
 
       const nextNode = decl.next()
@@ -44,7 +45,8 @@ export default function (expectation) {
       if (!nodeToCheck) { return }
 
       checker.afterOneOnly({
-        source: rawNodeString(nodeToCheck),
+        // Ignore extra semicolon
+        source: rawNodeString(nodeToCheck).replace(/;+/, ""),
         index: -1,
         lineCheckStr: blockString(parentRule),
         err: m => {

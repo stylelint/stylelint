@@ -14,9 +14,15 @@ testRule(rule, {
   }, {
     code: "a { color: pink\n; }",
   }, {
+    code: "a { color: pink\n;; }",
+    description: "ignore extra semicolon",
+  }, {
     code: "a::before { content: \";a\"\n; }",
   }, {
     code: "a { color: pink\n;top: 0 }",
+  }, {
+    code: "a { color: pink\n;;top: 0 }",
+    description: "ignore extra semicolon",
   }, {
     code: "a { color: pink\n;top: 0}",
   }, {
@@ -29,6 +35,12 @@ testRule(rule, {
 
   reject: [ {
     code: "a { color: pink;top: 0 }",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 15,
+  }, {
+    code: "a { color: pink;;top: 0 }",
+    description: "ignore extra semicolon",
     message: messages.expectedBefore(),
     line: 1,
     column: 15,
@@ -60,12 +72,18 @@ testRule(rule, {
   }, {
     code: "a {\ncolor: pink\n; }",
   }, {
+    code: "a {\ncolor: pink\n;; }",
+    description: "ignore extra semicolon",
+  }, {
     code: "a::before {\ncontent: \";a\"\n; }",
   }, {
     code: "a::before {\r\ncontent: \";a\"\r\n; }",
     description: "CRLF",
   }, {
     code: "a {\ncolor: pink\n;top: 0 }",
+  }, {
+    code: "a {\ncolor: pink\n;;top: 0 }",
+    description: "ignore extra semicolon",
   }, {
     code: "a {\ncolor: pink\n;top: 0}",
   }, {
@@ -83,6 +101,12 @@ testRule(rule, {
 
   reject: [ {
     code: "a {\ncolor: pink;top: 0\n}",
+    message: messages.expectedBeforeMultiLine(),
+    line: 2,
+    column: 11,
+  }, {
+    code: "a {\ncolor: pink;;top: 0\n}",
+    description: "ignore extra semicolon",
     message: messages.expectedBeforeMultiLine(),
     line: 2,
     column: 11,
@@ -120,12 +144,18 @@ testRule(rule, {
   }, {
     code: "a {\ncolor: pink;\n}",
   }, {
+    code: "a {\ncolor: pink;;\n}",
+    description: "ignore extra semicolon",
+  }, {
     code: "a {\r\ncolor: pink;\r\n}",
     description: "CRLF",
   }, {
     code: "a::before {\ncontent: \";a\";\n}",
   }, {
     code: "a {\ncolor: pink;\ntop: 0 }",
+  }, {
+    code: "a {\ncolor: pink;;\ntop: 0 }",
+    description: "ignore extra semicolon",
   }, {
     code: "a {\ncolor: pink;\ntop: 0}",
   }, {
@@ -140,6 +170,12 @@ testRule(rule, {
 
   reject: [ {
     code: "a {\ncolor: pink\n;top: 0\n}",
+    message: messages.rejectedBeforeMultiLine(),
+    line: 2,
+    column: 12,
+  }, {
+    code: "a {\ncolor: pink\n;;top: 0\n}",
+    description: "ignore extra semicolon",
     message: messages.rejectedBeforeMultiLine(),
     line: 2,
     column: 12,
