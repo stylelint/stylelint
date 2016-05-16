@@ -1,6 +1,8 @@
 # Head
 
 - Added: `keyframe-declaration-no-important` rule.
+- Added: `selector-attribute-operator-blacklist` rule.
+- Added: `selector-attribute-operator-whitelist` rule.
 - Added: `selector-type-no-unknown` rule.
 - Added: `selector-pseudo-class-no-unknown` rule.
 - Fixed: `declaration-block-no-ignored-properties` now detects use of `min-width` and `max-width` with inline, table-row, table-row-group, table-column and table-column-group elements.

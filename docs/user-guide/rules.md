@@ -139,8 +139,10 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 ### Selector
 
 - [`selector-attribute-brackets-space-inside`](../../src/rules/selector-attribute-brackets-space-inside/README.md): Require a single space or disallow whitespace on the inside of the brackets within attribute selectors.
+- [`selector-attribute-operator-blacklist`](../../src/rules/selector-attribute-operator-blacklist/README.md): Specify a blacklist of disallowed attribute operators.
 - [`selector-attribute-operator-space-after`](../../src/rules/selector-attribute-operator-space-after/README.md): Require a single space or disallow whitespace after operators within attribute selectors.
 - [`selector-attribute-operator-space-before`](../../src/rules/selector-attribute-operator-space-before/README.md): Require a single space or disallow whitespace before operators within attribute selectors.
+- [`selector-attribute-operator-whitelist`](../../src/rules/selector-attribute-operator-whitelist/README.md): Specify a whitelist of allowed attribute operators.
 - [`selector-class-pattern`](../../src/rules/selector-class-pattern/README.md): Specify a pattern for class selectors.
 - [`selector-combinator-space-after`](../../src/rules/selector-combinator-space-after/README.md): Require a single space or disallow whitespace after the combinators of selectors.
 - [`selector-combinator-space-before`](../../src/rules/selector-combinator-space-before/README.md): Require a single space or disallow whitespace before the combinators of selectors.
