@@ -69,7 +69,7 @@
     "benchmark": "^2.1.0",
     "eslint": "^2.4.0",
     "eslint-config-stylelint": "^1.0.0",
-    "npm-run-all": "^1.8.0",
+    "npm-run-all": "^2.1.0",
     "npmpub": "^3.0.1",
     "postcss-import": "^8.0.2",
     "remark": "^4.0.0",
