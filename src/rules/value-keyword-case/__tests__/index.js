@@ -122,11 +122,29 @@ testRule(rule, {
   }, {
     code: "a { animation-name: ANIMATION-NAME; }",
   }, {
+    code: "a { font-family: serif; }",
+  }, {
+    code: "a { font-family: Gill Sans Extrabold, sans-serif; }",
+  }, {
     code: "a { counter-increment: counter-name; }",
   }, {
     code: "a { counter-increment: cOuNtEr-NaMe; }",
   }, {
     code: "a { counter-increment: COUNTER-NAME; }",
+  }, {
+    code: "a { grid-row: auto / auto; }",
+  }, {
+    code: "a { grid-row: 5 SOOMEGRIDAREA span / 2 span; }",
+  }, {
+    code: "a { grid-column: auto / auto; }",
+  }, {
+    code: "a { grid-column: 5 SOOMEGRIDAREA span / 2 span; }",
+  }, {
+    code: "a { grid-area: auto / auto; }",
+  }, {
+    code: "a { grid-area: 5 SOOMEGRIDAREA span / 2 span; }",
+  }, {
+    code: "a { grid-area: [linename1] 100px [linename2 linename3]; }",
   } ],
 
   reject: [ {
@@ -241,10 +259,45 @@ testRule(rule, {
     line: 1,
     column: 21,
   }, {
+    code: "a { font-family: MONOSPACE; }",
+    message: messages.expected("MONOSPACE", "monospace"),
+    line: 1,
+    column: 18,
+  }, {
     code: "a { counter-increment: INHERIT; }",
     message: messages.expected("INHERIT", "inherit"),
     line: 1,
     column: 24,
+  }, {
+    code: "a { grid-row: AUTO / auto; }",
+    message: messages.expected("AUTO", "auto"),
+    line: 1,
+    column: 15,
+  }, {
+    code: "a { grid-row: SPAN SOMEGRIDAREA;; }",
+    message: messages.expected("SPAN", "span"),
+    line: 1,
+    column: 15,
+  }, {
+    code: "a { grid-column: AUTO / auto; }",
+    message: messages.expected("AUTO", "auto"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { grid-column: SPAN SOMEGRIDAREA;; }",
+    message: messages.expected("SPAN", "span"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { grid-area: AUTO / auto; }",
+    message: messages.expected("AUTO", "auto"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { grid-area: SPAN SOMEGRIDAREA;; }",
+    message: messages.expected("SPAN", "span"),
+    line: 1,
+    column: 16,
   } ],
 })
 
@@ -549,11 +602,29 @@ testRule(rule, {
   }, {
     code: "a { animation-name: ANIMATION-NAME; }",
   }, {
+    code: "a { font-family: SERIF; }",
+  }, {
+    code: "a { font-family: Gill Sans Extrabold, SANS-SERIF; }",
+  }, {
     code: "a { counter-increment: counter-name; }",
   }, {
     code: "a { counter-increment: cOuNtEr-NaMe; }",
   }, {
     code: "a { counter-increment: COUNTER-NAME; }",
+  }, {
+    code: "a { grid-row: AUTO / AUTO; }",
+  }, {
+    code: "a { grid-row: 5 somegridarea SPAN / 2 SPAN; }",
+  }, {
+    code: "a { grid-column: AUTO / AUTO; }",
+  }, {
+    code: "a { grid-column: 5 somegridarea SPAN / 2 SPAN; }",
+  }, {
+    code: "a { grid-area: AUTO / AUTO; }",
+  }, {
+    code: "a { grid-area: 5 somegridarea SPAN / 2 SPAN; }",
+  }, {
+    code: "a { grid-area: [linename1] 100px [linename2 linename3]; }",
   } ],
 
   reject: [ {
@@ -668,10 +739,45 @@ testRule(rule, {
     line: 1,
     column: 21,
   }, {
+    code: "a { font-family: monospace; }",
+    message: messages.expected("monospace", "MONOSPACE"),
+    line: 1,
+    column: 18,
+  }, {
     code: "a { counter-increment: inherit; }",
     message: messages.expected("inherit", "INHERIT"),
     line: 1,
     column: 24,
+  }, {
+    code: "a { grid-row: auto / AUTO; }",
+    message: messages.expected("auto", "AUTO"),
+    line: 1,
+    column: 15,
+  }, {
+    code: "a { grid-row: span somegridarea; }",
+    message: messages.expected("span", "SPAN"),
+    line: 1,
+    column: 15,
+  }, {
+    code: "a { grid-column: auto / AUTO; }",
+    message: messages.expected("auto", "AUTO"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { grid-column: span somegridarea; }",
+    message: messages.expected("span", "SPAN"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { grid-area: auto / AUTO; }",
+    message: messages.expected("auto", "AUTO"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { grid-area: span somegridarea; }",
+    message: messages.expected("span", "SPAN"),
+    line: 1,
+    column: 16,
   } ],
 })
 
