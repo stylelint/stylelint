@@ -9,8 +9,8 @@ import { selectorCombinatorSpaceChecker } from "../selector-combinator-space-aft
 export const ruleName = "selector-combinator-space-before"
 
 export const messages = ruleMessages(ruleName, {
-  expectedBefore: c => `Expected single space before "${c}" combinator`,
-  rejectedBefore: c => `Unexpected whitespace before "${c}" combinator`,
+  expectedBefore: combinator => `Expected single space before "${combinator}" combinator`,
+  rejectedBefore: combinator => `Unexpected whitespace before "${combinator}" combinator`,
 })
 
 export default function (expectation) {

@@ -14,7 +14,7 @@ import {
 export const ruleName = "selector-pseudo-class-no-unknown"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (u) => `Unexpected unknown pseudo-class selector "${u}"`,
+  rejected: (selector) => `Unexpected unknown pseudo-class selector "${selector}"`,
 })
 
 export default function (actual, options) {

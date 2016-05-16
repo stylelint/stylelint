@@ -10,7 +10,7 @@ import {
 export const ruleName = "property-value-whitelist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (p, u) => `Unexpected value "${u}" for property "${p}"`,
+  rejected: (property, value) => `Unexpected value "${value}" for property "${property}"`,
 })
 
 export default function (whitelist) {

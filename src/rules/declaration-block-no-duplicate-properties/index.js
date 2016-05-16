@@ -10,7 +10,7 @@ import {
 export const ruleName = "declaration-block-no-duplicate-properties"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: p => `Unexpected duplicate property "${p}"`,
+  rejected: property => `Unexpected duplicate property "${property}"`,
 })
 
 export default function (on, options) {

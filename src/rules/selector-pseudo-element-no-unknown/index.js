@@ -11,7 +11,7 @@ import { pseudoElements } from "../../reference/keywordSets"
 export const ruleName = "selector-pseudo-element-no-unknown"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (u) => `Unexpected unknown pseudo-element selector "${u}"`,
+  rejected: (selector) => `Unexpected unknown pseudo-element selector "${selector}"`,
 })
 
 export default function (actual, options) {

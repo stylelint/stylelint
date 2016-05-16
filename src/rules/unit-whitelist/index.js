@@ -11,7 +11,7 @@ import {
 export const ruleName = "unit-whitelist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (u) => `Unexpected unit "${u}"`,
+  rejected: (unit) => `Unexpected unit "${unit}"`,
 })
 
 export default function (whitelistInput) {

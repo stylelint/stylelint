@@ -11,7 +11,7 @@ import {
 export const ruleName = "selector-type-no-unknown"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (u) => `Unexpected unknown type selector "${u}"`,
+  rejected: (selector) => `Unexpected unknown type selector "${selector}"`,
 })
 
 export default function (actual, options) {
