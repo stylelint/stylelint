@@ -7,7 +7,7 @@ import {
 export const ruleName = "keyframe-declaration-no-important"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected !important within declarations in a keyframe",
+  rejected: "Unexpected !important",
 })
 
 export default function (actual) {
@@ -17,10 +17,7 @@ export default function (actual) {
 
     root.walkAtRules(/^keyframes$/i, atRuleKeyframes => {
       atRuleKeyframes.walkDecls(decl => {
-        if (!decl.important) {
-          return
-        }
-
+        if (!decl.important) { return }
         report({
           message: messages.rejected,
           node: decl,

@@ -1,47 +1,47 @@
 # keyframe-declaration-no-important
 
-Disallow `!important` within declarations in a keyframe rule.
+Disallow `!important` within keyframe declarations.
 
 ```css
 @keyframes important2 {
   from { margin: 10px }
-  to   { margin: 20px !important }
-}                  /* ↑ */
-/**                   ↑
- *            This !important */
+  to { margin: 20px !important }
+}                /* ↑ */
+/**                 ↑
+*     This !important */
 ```
 
 The following patterns are considered warnings:
 
 ```css
 @keyframes important1 {
-  from { 
-    margin-top: 50px; 
+  from {
+    margin-top: 50px;
   }
-  to { 
-    margin-top: 100px !important; 
-  }
-}
-```
-
-```css
-@keyframes important1 {
-  from { 
-    margin-top: 50px; 
-  }
-  to { 
-    margin-top: 100px!important; 
+  to {
+    margin-top: 100px !important;
   }
 }
 ```
 
 ```css
 @keyframes important1 {
-  from { 
-    margin-top: 50px; 
+  from {
+    margin-top: 50px;
   }
-  to { 
-    margin-top: 100px ! important; 
+  to {
+    margin-top: 100px!important;
+  }
+}
+```
+
+```css
+@keyframes important1 {
+  from {
+    margin-top: 50px;
+  }
+  to {
+    margin-top: 100px ! important;
   }
 }
 ```
@@ -54,11 +54,11 @@ a { color: pink !important; }
 
 ```css
 @keyframes important1 {
-  from { 
-    margin-top: 50px; 
+  from {
+    margin-top: 50px;
   }
-  to { 
-    margin-top: 100px; 
+  to {
+    margin-top: 100px;
   }
 }
 ```
