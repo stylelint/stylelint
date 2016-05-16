@@ -86,7 +86,7 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 2,
-  },{
+  }, {
     code: "\t\t;",
     message: messages.rejected,
     line: 1,
