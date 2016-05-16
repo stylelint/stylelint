@@ -14,15 +14,27 @@ testRule(rule, {
   }, {
     code: "a { color: pink ; }",
   }, {
+    code: "a { color: pink ;; }",
+    description: "ignore extra semicolon",
+  }, {
     code: "a::before { content: \";a\" ; }",
   }, {
     code: "a { color: pink ; top: 0 ; }",
+  }, {
+    code: "a { color: pink ;; top: 0 ; }",
+    description: "ignore extra semicolon",
   }, {
     code: "a { color: pink ; top: 0}",
   } ],
 
   reject: [ {
     code: "a { color: pink; }",
+    message: messages.expectedBefore(),
+    line: 1,
+    column: 15,
+  }, {
+    code: "a { color: pink;; }",
+    description: "ignore extra semicolon",
     message: messages.expectedBefore(),
     line: 1,
     column: 15,
@@ -65,6 +77,9 @@ testRule(rule, {
   }, {
     code: "a { color: pink; }",
   }, {
+    code: "a { color: pink;; }",
+    description: "ignore extra semicolon",
+  }, {
     code: "a::before { content: \";a\"; }",
   }, {
     code: "a { color: pink; top: 0; }",
@@ -72,6 +87,12 @@ testRule(rule, {
 
   reject: [ {
     code: "a { color: pink ; }",
+    message: messages.rejectedBefore(),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { color: pink ;; }",
+    description: "ignore extra semicolon",
     message: messages.rejectedBefore(),
     line: 1,
     column: 16,
@@ -114,6 +135,9 @@ testRule(rule, {
   }, {
     code: "a { color: pink ; }",
   }, {
+    code: "a { color: pink ;; }",
+    description: "ignore extra semicolon",
+  }, {
     code: "a::before { content: \";a\" ; }",
   }, {
     code: "a { color: pink ; top: 0 ; }",
@@ -129,6 +153,12 @@ testRule(rule, {
 
   reject: [ {
     code: "a { color: pink; }",
+    message: messages.expectedBeforeSingleLine(),
+    line: 1,
+    column: 15,
+  }, {
+    code: "a { color: pink;; }",
+    description: "ignore extra semicolon",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
     column: 15,
@@ -171,6 +201,9 @@ testRule(rule, {
   }, {
     code: "a { color: pink; }",
   }, {
+    code: "a { color: pink;; }",
+    description: "ignore extra semicolon",
+  }, {
     code: "a::before { content: \";a\"; }",
   }, {
     code: "a { color: pink; top: 0; }",
@@ -179,10 +212,19 @@ testRule(rule, {
     description: "multi-line rule, single-line declaration-block",
   }, {
     code: "a {\n  color: pink ;\n  top: 0 ;\n}",
+  }, {
+    code: "a {\n  color: pink ;;\n  top: 0 ;\n}",
+    description: "ignore extra semicolon",
   } ],
 
   reject: [ {
     code: "a { color: pink ; }",
+    message: messages.rejectedBeforeSingleLine(),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { color: pink ;; }",
+    description: "ignore extra semicolon",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
     column: 16,

@@ -11,6 +11,9 @@ testRule(rule, {
   accept: [ {
     code: "a { color: pink;\n}",
   }, {
+    code: "a { color: pink;;\n}",
+    description: "ignore extra semicolon",
+  }, {
     code: "a { color: pink;\r\n}",
     description: "CRLF",
   }, {
@@ -27,6 +30,9 @@ testRule(rule, {
   }, {
     code: "a { color: pink;\ntop: 0; }",
     description: "space between trailing semicolon and closing brace",
+  }, {
+    code: "a { color: pink;;\ntop: 0; }",
+    description: "ignore extra semicolon",
   }, {
     code: "a { color: pink;\ntop: 0;}",
     description: "no space between trailing semicolon and closing brace",
@@ -57,6 +63,12 @@ testRule(rule, {
 
   reject: [ {
     code: "a { color: pink;top: 0; }",
+    message: messages.expectedAfter(),
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { color: pink;;top: 0; }",
+    description: "ignore extra semicolon",
     message: messages.expectedAfter(),
     line: 1,
     column: 17,
@@ -97,12 +109,18 @@ testRule(rule, {
   accept: [ {
     code: "a {\ncolor: pink;\n}",
   }, {
+    code: "a {\ncolor: pink;;\n}",
+    description: "ignore extra semicolon",
+  }, {
     code: "a::before {\ncontent: \";a\";\n}",
   }, {
     code: "a::before {\r\ncontent: \";a\";\r\n}",
     description: "CRLF",
   }, {
     code: "a {\ncolor: pink;\n top:0;\n}",
+  }, {
+    code: "a {\ncolor: pink;;\n top:0;\n}",
+    description: "ignore extra semicolon",
   }, {
     code: "a {\ncolor: pink;\n  top:0;\n}",
   }, {
@@ -130,6 +148,12 @@ testRule(rule, {
 
   reject: [ {
     code: "a {\ncolor: pink;top: 0;\n}",
+    description: "ignore extra semicolon",
+    message: messages.expectedAfterMultiLine(),
+    line: 2,
+    column: 13,
+  }, {
+    code: "a {\ncolor: pink;;top: 0;\n}",
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 13,
@@ -170,6 +194,9 @@ testRule(rule, {
   accept: [ {
     code: "a {\ncolor: pink;\n}",
   }, {
+    code: "a {\ncolor: pink;;\n}",
+    description: "ignore extra semicolon",
+  }, {
     code: "a {\r\ncolor: pink;\r\n}",
     description: "CRLF",
   }, {
@@ -183,12 +210,21 @@ testRule(rule, {
   }, {
     code: "a { color: pink; top: 0; }",
   }, {
+    code: "a { color: pink;; top: 0; }",
+    description: "ignore extra semicolon",
+  }, {
     code: "a,\nb { color: pink; top: 0}",
     description: "multi-line rule, single-line declaration-block",
   } ],
 
   reject: [ {
     code: "a {\ncolor: pink; top: 0;\n}",
+    message: messages.rejectedAfterMultiLine(),
+    line: 2,
+    column: 13,
+  }, {
+    code: "a {\ncolor: pink;; top: 0;\n}",
+    description: "ignore extra semicolon",
     message: messages.rejectedAfterMultiLine(),
     line: 2,
     column: 13,
