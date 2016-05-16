@@ -97,6 +97,10 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`property-value-whitelist`](../../src/rules/property-value-whitelist/README.md): Specify a whitelist of allowed values for specific properties.
 - [`property-whitelist`](../../src/rules/property-whitelist/README.md): Specify a whitelist of allowed properties.
 
+### Keyframe declaration
+
+- [`keyframe-declaration-no-important`](../../src/rules/keyframe-declaration-no-important/README.md): Disallow `!important` within keyframe declarations.
+
 ### Declaration
 
 - [`declaration-bang-space-after`](../../src/rules/declaration-bang-space-after/README.md): Require a single space or disallow whitespace after the bang of declarations.
@@ -213,10 +217,6 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`comment-empty-line-before`](../../src/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments.
 - [`comment-whitespace-inside`](../../src/rules/comment-whitespace-inside/README.md): Require or disallow whitespace on the inside of comment markers.
 - [`comment-word-blacklist`](../../src/rules/comment-word-blacklist/README.md): Specify a blacklist of disallowed words within comments.
-
-### Keyframe rule
-
-- [`keyframe-declaration-no-important`](../../src/rules/keyframe-declaration-no-important/README.md): Disallow `!important` within declarations in a keyframe rule.
 
 ### General / Sheet
 
