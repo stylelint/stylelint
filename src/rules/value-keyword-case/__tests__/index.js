@@ -145,6 +145,10 @@ testRule(rule, {
     code: "a { grid-area: 5 SOOMEGRIDAREA span / 2 span; }",
   }, {
     code: "a { grid-area: [linename1] 100px [linename2 linename3]; }",
+  }, {
+    code: "ol { list-style-type: upper-alpha; }",
+  }, {
+    code: "ol { list-style-type: CUSTOM-COUNTER-STYLE; }",
   } ],
 
   reject: [ {
@@ -298,6 +302,11 @@ testRule(rule, {
     message: messages.expected("SPAN", "span"),
     line: 1,
     column: 16,
+  }, {
+    code: "ol { list-style-type: UPPER-ALPHA; }",
+    message: messages.expected("UPPER-ALPHA", "upper-alpha"),
+    line: 1,
+    column: 23,
   } ],
 })
 
@@ -625,6 +634,10 @@ testRule(rule, {
     code: "a { grid-area: 5 somegridarea SPAN / 2 SPAN; }",
   }, {
     code: "a { grid-area: [linename1] 100px [linename2 linename3]; }",
+  }, {
+    code: "ol { list-style-type: UPPER-ALPHA; }",
+  }, {
+    code: "ol { list-style-type: custom-counter-style; }",
   } ],
 
   reject: [ {
@@ -778,6 +791,11 @@ testRule(rule, {
     message: messages.expected("span", "SPAN"),
     line: 1,
     column: 16,
+  }, {
+    code: "ol { list-style-type: upper-alpha; }",
+    message: messages.expected("upper-alpha", "UPPER-ALPHA"),
+    line: 1,
+    column: 23,
   } ],
 })
 
