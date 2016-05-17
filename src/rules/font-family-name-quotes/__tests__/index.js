@@ -59,6 +59,8 @@ testRule(rule, {
     code: "a { font-family: 'Lucida Grande', \"Arial\", sans-serif; }",
   }, {
     code: "a { font-family: \"Lucida Grande\", 'Arial', sans-serif; }",
+  }, {
+    code: "a { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }",
   } ],
 
   reject: [ {
@@ -137,6 +139,8 @@ testRule(rule, {
     code: "a { font-family: 'Something6'; }",
   }, {
     code: "a { font-family: 'snake_case'; }",
+  }, {
+    code: "a { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }",
   } ],
 
   reject: [ {
@@ -232,6 +236,8 @@ testRule(rule, {
     code: "a { font-family: Arial, 'Ahem!', sans-serif; }",
   }, {
     code: "a { font-family: 'Hawaii 5-0', Arial, sans-serif; }",
+  }, {
+    code: "a { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; }",
   } ],
 
   reject: [ {
