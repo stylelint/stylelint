@@ -12,6 +12,10 @@ Plugins are rules and sets of rules built by the community that support methodol
 
 ### SCSS
 
+#### Collection
+
+- [`stylelint-scss`](https://github.com/kristerkari/stylelint-scss): A collection of SCSS specific linting rules for stylelint.
+
 #### Declaration
 
 - [`stylelint-declaration-use-variable`](https://github.com/sh-waqar/stylelint-declaration-use-variable): Specify properties for which a SCSS variable must be used.
