@@ -23,7 +23,7 @@ The rule warns when it finds:
 - `display: table-(row|row-group)` used with `width`, `min-width` or `max-width`.
 - `display: table-(column|column-group)` used with `height`, `min-height` or `max-height`.
 - `float: left` and `float: right` used with `vertical-align`.
-- `position: static` used with `top`, `right`, `bottom`, or `left`.
+- `position: static` used with `top`, `right`, `bottom`, `left` or `z-index`.
 - `position: absolute` used with `float`, `clear` or `vertical-align`.
 - `position: fixed` used with `float`, `clear` or `vertical-align`.
 
