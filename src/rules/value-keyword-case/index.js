@@ -2,6 +2,7 @@ import valueParser from "postcss-value-parser"
 import { isString } from "lodash"
 import {
   declarationValueIndex,
+  getUnitFromValueNode,
   isCustomIdentPropertyCounterIncrement,
   isStandardValue,
   matchesStringOrRegExp,
@@ -60,8 +61,8 @@ export default function (expectation, options) {
         const valueLowerCase = node.value.toLowerCase()
         if (
           node.type === "function" && (
-            valueLowerCase === "url" ||
-            valueLowerCase === "var"
+            valueLowerCase === "url"
+            || valueLowerCase === "var"
           )
         ) { return false }
 
@@ -81,10 +82,7 @@ export default function (expectation, options) {
         if (prop === "grid-column" && !gridColumnKeywords.has(valueLowerCase)) { return }
         if (prop === "grid-area" && !gridAreaKeywords.has(valueLowerCase)) { return }
         if (prop === "list-style-type" && !listStyleTypeKeywords.has(valueLowerCase)) { return }
-
-        const parsedUnit = valueParser.unit(keyword)
-
-        if (parsedUnit !== false) { return }
+        if (getUnitFromValueNode(node)) { return }
 
         const ignoreKeywords = options && options.ignoreKeywords || []
 

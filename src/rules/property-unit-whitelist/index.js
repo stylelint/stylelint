@@ -4,6 +4,7 @@ import valueParser from "postcss-value-parser"
 
 import {
   declarationValueIndex,
+  getUnitFromValueNode,
   report,
   ruleMessages,
   validateOptions,
@@ -36,11 +37,7 @@ export default function (whitelist) {
       valueParser(value).walk(function (node) {
         if (node.type === "string") { return }
 
-        const parsedUnit = valueParser.unit(node.value)
-
-        if (!parsedUnit) { return }
-
-        const unit = parsedUnit.unit
+        const unit = getUnitFromValueNode(node)
 
         if (!unit || (unit && propWhitelist.indexOf(unit.toLowerCase())) !== -1) { return }
 

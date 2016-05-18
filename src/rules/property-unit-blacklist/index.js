@@ -4,10 +4,11 @@ import valueParser from "postcss-value-parser"
 
 import {
   declarationValueIndex,
+  getUnitFromValueNode,
+  matchesStringOrRegExp,
   report,
   ruleMessages,
   validateOptions,
-  matchesStringOrRegExp,
 } from "../../utils"
 
 export const ruleName = "property-unit-blacklist"
@@ -36,11 +37,7 @@ export default function (blacklist) {
       valueParser(value).walk(function (node) {
         if (node.type === "string") { return }
 
-        const parsedUnit = valueParser.unit(node.value)
-
-        if (!parsedUnit) { return }
-
-        const unit = parsedUnit.unit
+        const unit = getUnitFromValueNode(node)
 
         if (!unit || (unit && propBlacklist.indexOf(unit.toLowerCase()) === -1)) { return }
 
