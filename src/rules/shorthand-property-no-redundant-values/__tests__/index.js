@@ -61,6 +61,21 @@ testRule(rule, {
   }, {
     code: "a { border-color: #FFFFFF transparent transparent }",
     description: "ignore upper case value",
+  }, {
+    code: "a { background: url(img.gif), url(img.gif); }",
+    description: "ignore background property",
+  }, {
+    code: "a { font: 12pt/10pt 'Font', 'Font', 'Font'; }",
+    description: "ignore font property",
+  }, {
+    code: "a { border: 5px solid red; }",
+    description: "ignore border property",
+  }, {
+    code: "a { list-style: square outside; }",
+    description: "ignore list-style property",
+  }, {
+    code: "a { transition: opacity 0.35s, transform 0.35s; }",
+    description: "ignore transition property",
   } ],
 
   reject: [ {
