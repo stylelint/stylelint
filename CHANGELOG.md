@@ -1,6 +1,7 @@
 # Head
 
 - Fixed: `unit-no-unknown` now ignores hex colors.
+- Fixed: `shorthand-property-no-redundant-values` now ignores `background`, `font`, `border`, `border-top`, `border-bottom`, `border-left`, `border-right`, `list-style`, `transition` properties.
 
 # 6.4.0
 

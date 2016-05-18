@@ -20,6 +20,18 @@ const ignoredCharacters = [
   "$", "@", "--", "var(",
 ]
 
+const ignoredShorthandProperties = new Set([
+  "background",
+  "font",
+  "border",
+  "border-top",
+  "border-bottom",
+  "border-left",
+  "border-right",
+  "list-style",
+  "transition",
+])
+
 function isIgnoredCharacters(value) {
   return ignoredCharacters.some(char => value.indexOf(char) !== -1)
 }
@@ -63,11 +75,13 @@ export default function (actual) {
     root.walkDecls(decl => {
 
       const { prop, value } = decl
+      const normalizedProp = vendor.unprefixed(prop.toLowerCase())
 
-      // ignore not shorthandable properties, and math operations
+      // Ignore not shorthandable properties, and math operations
       if (
-        isIgnoredCharacters(value) ||
-        !shorthandableProperties.has(vendor.unprefixed(prop.toLowerCase()))
+        isIgnoredCharacters(value)
+        || !shorthandableProperties.has(normalizedProp)
+        || ignoredShorthandProperties.has(normalizedProp)
       ) { return }
 
       const valuesToShorthand = []
