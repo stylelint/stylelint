@@ -121,6 +121,9 @@ testRule(rule, {
   }, {
     code: "a::before10pix { margin: 10px; }",
     description: "ignore pseudo-class include wrong unit",
+  }, {
+    code: "a { color: #1f1f1f; }",
+    description: "ignore color hex",
   } ],
 
   reject: [ {

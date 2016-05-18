@@ -19,6 +19,7 @@ export default function (node) {
   if (node.type !== "word"
     || !isStandardValue(value)
     || !isFinite(parseInt(value))
+    || node.value[0] === "#"
   ) { return null }
 
   const parsedUnit = valueParser.unit(value)

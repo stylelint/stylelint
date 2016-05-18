@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `unit-no-unknown` now ignores hex colors.
+
 # 6.4.0
 
 - Added: `keyframe-declaration-no-important` rule.
