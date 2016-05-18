@@ -3,16 +3,16 @@
 - Added: `keyframe-declaration-no-important` rule.
 - Added: `selector-attribute-operator-blacklist` rule.
 - Added: `selector-attribute-operator-whitelist` rule.
-- Added: `selector-type-no-unknown` rule.
 - Added: `selector-pseudo-class-no-unknown` rule.
+- Added: `selector-type-no-unknown` rule.
+- Fixed: string formatter no longer errors on multi-byte `message`.
+- Fixed: catch errors thrown by `postcss-selector-parser` and register them as PostCSS warnings, providing a better UX for editor plugins.
 - Fixed: some rules now better handle case insensitive CSS identifiers.
 - Fixed: `font-family-name-quotes`, `media-feature-no-missing-punctuation`, `media-query-list-comma-newline-after`, `media-query-list-comma-newline-before`, `media-query-list-comma-space-after` and `media-query-list-comma-space-before` rules now better ignore SCSS, Less variables and nonstandard at-rules.
-- Fixed: string formatter no longer errors on multi-byte `message`.
 - Fixed: `no-unknown-animations` now ignores `ease` value.
-- Fixed: `value-keyword-case` now ignores custom idents of properties `animation-name`, `counter-increment`, `font-family`, `grid-row`, `grid-column`, `grid-area`, `list-style-type`.
 - Fixed: `unit-blacklist`, `unit-case`, `unit-no-unknown`, `unit-whitelist` now better accounts interpolation.
 - Fixed: `unit-no-unknown` no longer breaks Node 0.12 (because we've included the Babel polyfill).
-- Fixed: catch errors thrown by `postcss-selector-parser` and register them as PostCSS warnings, providing a better UX for editor plugins.
+- Fixed: `value-keyword-case` now ignores custom idents of properties `animation-name`, `counter-increment`, `font-family`, `grid-row`, `grid-column`, `grid-area`, `list-style-type`.
 - Fixed: wrong example for `always-multi-line` in rule `block-opening-brace-newline-before` documentation.
 
 # 6.3.3
