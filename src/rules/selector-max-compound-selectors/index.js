@@ -28,7 +28,7 @@ export default function (max) {
     // Finds actual selectors in selectorNode object and checks them
     function checkSelector(selectorNode, rule) {
       let compoundCount = 1
-      
+
       selectorNode.each(childNode => {
         // Only traverse inside actual selectors and :not()
         if (childNode.type === "selector" || childNode.value === ":not") {
@@ -36,7 +36,7 @@ export default function (max) {
         }
 
         // Compund selectors are separated by combinators, so increase count when meeting one
-        if (childNode.type === "combinator") { compoundCount ++ }
+        if (childNode.type === "combinator") { compoundCount++ }
       })
 
       if (selectorNode.type !== "root" && selectorNode.type !== "pseudo" && compoundCount > max) {

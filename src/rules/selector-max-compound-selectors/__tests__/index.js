@@ -1,7 +1,7 @@
 import { testRule } from "../../../testUtils"
 
 import rule, { ruleName, messages } from ".."
- 
+
 // Testing plain selectors, different combinators
 testRule(rule, {
   ruleName,
@@ -28,7 +28,7 @@ testRule(rule, {
   }, {
     code: "a { top: 0; d { top: 0; }}",
   } ],
-  
+
   reject: [ {
     code: "a b c { top: 0; }",
     message: messages.expected("a b c", 2),
@@ -72,7 +72,7 @@ testRule(rule, {
     code: " [type=\"text\"]#id.classname l {}",
     description: "attr selector with class and id selectors, complies.",
   } ],
-  
+
   reject: [ {
     code: ":not(a b c) { top: 0; }",
     description: "Standalone :not(), number of compound selectors > max inside it",
