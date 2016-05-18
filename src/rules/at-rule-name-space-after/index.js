@@ -10,7 +10,6 @@ export const ruleName = "at-rule-name-space-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: (name) => `Expected single space after at-rule name \"${name}\"`,
-  rejectedAfter: (name) => `Unexpected whitespace after at-rule name \"${name}\"`,
 })
 
 export default function (expectation) {

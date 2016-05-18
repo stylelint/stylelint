@@ -283,6 +283,9 @@ testRule(rule, {
   }, {
     code: "a { font-family: \"snake_case\"; }",
     message: messages.expected("single", "snake_case"),
+  }, {
+    code: "a { font-family: 'Arial'; }",
+    message: messages.expected("no", "Arial"),
   } ],
 })
 
@@ -393,6 +396,9 @@ testRule(rule, {
   }, {
     code: "a { font-family: 'snake_case'; }",
     message: messages.expected("double", "snake_case"),
+  }, {
+    code: "a { font-family: \"Arial\"; }",
+    message: messages.expected("no", "Arial"),
   } ],
 })
 

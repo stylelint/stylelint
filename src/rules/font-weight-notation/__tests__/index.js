@@ -204,6 +204,12 @@ testRule(rule, {
     line: 1,
     column: 18,
   }, {
+    code: "a { font-weight: boldd; }",
+    description: "invalid font-weight value",
+    message: messages.invalidNamed("boldd"),
+    line: 1,
+    column: 18,
+  }, {
     code: "a { font: italic small-caps 700 16px/3 cursive; }",
     message: messages.expected("named"),
     line: 1,
