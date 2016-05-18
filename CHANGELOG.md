@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `selector-type-no-unknown` now ignores nested selectors.
+
 # 6.4.1
 
 - Fixed: `shorthand-property-no-redundant-values` now ignores `background`, `font`, `border`, `border-top`, `border-bottom`, `border-left`, `border-right`, `list-style`, `transition` properties.
