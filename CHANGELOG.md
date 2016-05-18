@@ -5,8 +5,6 @@
 - Added: `selector-attribute-operator-whitelist` rule.
 - Added: `selector-type-no-unknown` rule.
 - Added: `selector-pseudo-class-no-unknown` rule.
-- Fixed: `declaration-block-no-ignored-properties` now detects use of `min-width` and `max-width` with inline, table-row, table-row-group, table-column and table-column-group elements.
-- Fixed: `declaration-block-no-ignored-properties` now detects use of `overflow`, `overflow-x` and `overflow-y` with inline elements.
 - Fixed: some rules now better handle case insensitive CSS identifiers.
 - Fixed: `font-family-name-quotes`, `media-feature-no-missing-punctuation`, `media-query-list-comma-newline-after`, `media-query-list-comma-newline-before`, `media-query-list-comma-space-after` and `media-query-list-comma-space-before` rules now better ignore SCSS, Less variables and nonstandard at-rules.
 - Fixed: string formatter no longer errors on multi-byte `message`.
