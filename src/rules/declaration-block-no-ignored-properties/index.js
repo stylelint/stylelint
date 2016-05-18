@@ -22,9 +22,6 @@ const ignored = [ {
     "margin-top",
     "margin-bottom",
     "float",
-    "overflow",
-    "overflow-x",
-    "overflow-y",
   ],
 }, {
   property: "display",
