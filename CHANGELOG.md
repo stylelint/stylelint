@@ -1,4 +1,4 @@
-# Head
+# 6.4.0
 
 - Added: `keyframe-declaration-no-important` rule.
 - Added: `selector-attribute-operator-blacklist` rule.
