@@ -9,10 +9,10 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "selector-max-depth"
+export const ruleName = "selector-max-compound-selectors"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (selector, depth) => `Expected "${selector}" to have a depth equal to or less than ${depth}`,
+  expected: (selector, max) => `Expected "${selector}" to have no more than ${max} compound selectors`,
 })
 
 export default function (max) {

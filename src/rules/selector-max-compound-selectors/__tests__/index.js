@@ -59,7 +59,7 @@ testRule(rule, {
 
   accept: [ {
     code: ":not( a b ) {}",
-    description: "Standalone :not(), depth <= max inside it",
+    description: "Standalone :not(), number of compound selectors <= max inside it",
   }, {
     code: "a b:not(c d) {}",
   }, {
@@ -75,25 +75,25 @@ testRule(rule, {
   
   reject: [ {
     code: ":not(a b c) { top: 0; }",
-    description: "Standalone :not(), depth > max inside it",
+    description: "Standalone :not(), number of compound selectors > max inside it",
     message: messages.expected("a b c", 2),
     line: 1,
     column: 6,
   }, {
     code: "a b > c:not( d e ) { top: 0; }",
-    description: "Depth > max outside of :not()",
+    description: "number of compound selectors > max outside of :not()",
     message: messages.expected("a b > c:not( d e )", 2),
     line: 1,
     column: 1,
   }, {
     code: "a b :not(d) { top: 0; }",
-    description: "Standalone :not, depth > max outside of :not()",
+    description: "Standalone :not, number of compound selectors > max outside of :not()",
     message: messages.expected("a b :not(d)", 2),
     line: 1,
     column: 1,
   }, {
     code: "a b :not(d) { top: 0; }",
-    description: "Standalone attr selector, depth > max outside of :not()",
+    description: "Standalone attr selector, number of compound selectors > max outside of :not()",
     message: messages.expected("a b :not(d)", 2),
     line: 1,
     column: 1,
@@ -146,15 +146,15 @@ testRule(rule, {
     message: messages.expected(".fg > .cd .de", 2),
   }, {
     code: "a { @media print { b > c { d {} } } }",
-    description: "The rule fails, but nesting even deeper with more selector depth,",
+    description: "The rule fails, but nesting even deeper with more compound selectors,",
     message: messages.expected("a b > c d", 2),
   }, {
     code: ".a { @media print { & .b > .c { & + .d {} } } }",
-    description: "The rule fails, but nesting even deeper with more selector depth, parent ref.,",
+    description: "The rule fails, but nesting even deeper with more compound selectors, parent ref.,",
     message: messages.expected(".a .b > .c + .d", 2),
   }, {
     code: "@media print { li { & + .ab { .cd { top: 10px; } } } }",
-    description: "The rule fails, but nesting even deeper with more selector depth, has declarations",
+    description: "The rule fails, but nesting even deeper with more compound selectors, has declarations",
     message: messages.expected("li + .ab .cd", 2),
   } ],
 })
