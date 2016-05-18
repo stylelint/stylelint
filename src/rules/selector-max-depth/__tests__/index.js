@@ -1,7 +1,7 @@
 import { testRule } from "../../../testUtils"
 
 import rule, { ruleName, messages } from ".."
-
+ 
 // Testing plain selectors, different combinators
 testRule(rule, {
   ruleName,
@@ -35,15 +35,20 @@ testRule(rule, {
     line: 1,
     column: 1,
   }, {
-    code: "#id > .cl + .cl2 .foo { top: 0; }",
-    message: messages.expected("#id > .cl + .cl2 .foo", 2),
+    code: "#id > .cl + .cl2 { top: 0; }",
+    message: messages.expected("#id > .cl + .cl2", 2),
     line: 1,
     column: 1,
   }, {
-    code: "a c, d + e > f h { top: 0; }",
-    message: messages.expected("d + e > f h", 2),
+    code: "a c, d + e h { top: 0; }",
+    message: messages.expected("d + e h", 2),
     line: 1,
     column: 6,
+  }, {
+    code: "a ~ h + d { top: 0; }",
+    message: messages.expected("a ~ h + d", 2),
+    line: 1,
+    column: 1,
   } ],
 })
 
@@ -57,8 +62,6 @@ testRule(rule, {
     description: "Standalone :not(), depth <= max inside it",
   }, {
     code: "a b:not(c d) {}",
-  }, {
-    code: "a +b, c d:not( e+ f >h ~g) {}",
   }, {
     code: "[type=\"text\"] {top: 1px;}",
     description: "Single attr selector, complies.",
@@ -150,9 +153,9 @@ testRule(rule, {
     description: "The rule fails, but nesting even deeper with more selector depth, parent ref.,",
     message: messages.expected(".a .b > .c + .d", 2),
   }, {
-    code: "@media print { li { & + .ab, .ef.ef { .cd { top: 10px; } } } }",
+    code: "@media print { li { & + .ab { .cd { top: 10px; } } } }",
     description: "The rule fails, but nesting even deeper with more selector depth, has declarations",
-    message: messages.expected("li .ef.ef .cd", 2),
+    message: messages.expected("li + .ab .cd", 2),
   } ],
 })
 

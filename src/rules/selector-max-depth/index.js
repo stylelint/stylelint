@@ -1,4 +1,5 @@
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
+import selectorParser from "postcss-selector-parser"
 
 import {
   isStandardRule,
@@ -16,7 +17,6 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (max) {
   return (root, result) => {
-    const innerSelectorReg = /(?::not\((.*?)\))/g
     const validOptions = validateOptions(result, ruleName, {
       actual: max,
       possible: [function (max) {
@@ -25,52 +25,45 @@ export default function (max) {
     })
     if (!validOptions) { return }
 
-    // Compares depth of a selector with the maximum
-    function checkDepth(selector, rule) {
-      // a) Replacing all :not() occureces with a dummy selector
-      const stripped = selector.replace(innerSelectorReg, "a")
-        // b) Replacing "[...]", "(...)", "+", "~" (the last two might come with
-        // spaces) with dummy selectors for simplicity and since we don't need those to count depth
-        .replace(/\(.*?\)|\[.*?\]|(\s*)[+~](\s*)/g, "a")
-        // c) Trimming redundant spaces
-        .replace(/\s+/g, " ")
+    // Finds actual selectors in selectorNode object and checks them
+    function checkSelector(selectorNode, rule) {
+      let compoundCount = 1
+      
+      selectorNode.each(childNode => {
+        // Only traverse inside actual selectors and :not()
+        if (childNode.type === "selector" || childNode.value === ":not") {
+          checkSelector(childNode, rule)
+        }
 
-      // Finally find everything between spaces and ">" (possibly with spaces)
-      const depth = stripped.match(/[^\s>]+/g).length
-      if (depth > max) {
+        // Compund selectors are separated by combinators, so increase count when meeting one
+        if (childNode.type === "combinator") { compoundCount ++ }
+      })
+
+      if (selectorNode.type !== "root" && selectorNode.type !== "pseudo" && compoundCount > max) {
         report({
           ruleName,
           result,
           node: rule,
-          message: messages.expected(selector, max),
-          word: selector,
+          message: messages.expected(selectorNode, max),
+          word: selectorNode,
         })
       }
     }
 
     root.walkRules(rule => {
       // Nested selectors are processed in steps, as nesting levels are resolved.
-      // Here we skip processing the intermediate patrs of selectors
+      // Here we skip processing the intermediate parts of selectors (to process only fully resolved selectors)
       if (rule.nodes.some(node => node.type === "rule" || node.type === "atrule")) { return }
       // Skip custom rules, Less selectors, etc.
       if (!isStandardRule(rule)) { return }
       // Skip selectors with interpolation
       if (!isStandardSelector(rule.selector)) { return }
 
-      // Using rule.selectors gets us each selector if there is a comma separated set
+      // Using `rule.selectors` gets us each selector if there is a comma separated set
       rule.selectors.forEach((selector) => {
         resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {
-          // Initializing a new object, so that innerSelectorReg's lastIndex
-          // dropping in checkDepth doesn't affect a loop here
-          const innerSelReplaceReg = new RegExp(innerSelectorReg)
-          // 1. Find all :not() pseudo-classes, check their contents first
-          let match = innerSelReplaceReg.exec(resolvedSelector)
-          while (match !== null) {
-            checkDepth(match[1], rule)
-            match = innerSelReplaceReg.exec(resolvedSelector)
-          }
-          // 2. Check the rest
-          checkDepth(resolvedSelector, rule)
+          // Process each resolved selector with `checkSelector` via postcss-selector-parser
+          selectorParser(s => checkSelector(s, rule)).process(resolvedSelector)
         })
       })
     })
