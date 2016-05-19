@@ -1,4 +1,6 @@
 import {
+  isStandardRule,
+  isStandardSelector,
   parseSelector,
   report,
   ruleMessages,
@@ -24,6 +26,7 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
+      if (!isStandardRule(rule)) { return }
       const selector = rule.selector
       const startIndexPseudo = selector.indexOf(":")
 
@@ -32,6 +35,8 @@ export default function (expectation) {
       parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkPseudos(pseudoNode => {
           const pseudo = pseudoNode.value
+
+          if (!isStandardSelector(pseudo)) { return }
 
           if (pseudo.indexOf("::") !== -1
             || levelOneAndTwoPseudoElements.has(pseudo.toLowerCase().slice(1))
