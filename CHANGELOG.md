@@ -1,4 +1,4 @@
-# Head
+# 6.4.2
 
 - Fixed: `selector-pseudo-class-case`, `selector-pseudo-class-no-unknown`, `selector-pseudo-element-case`, `selector-pseudo-element-no-unknown` rules now ignore SCSS variable interpolation.
 - Fixed: `selector-type-no-unknown` now ignores nested selectors and keyframe selectors.
