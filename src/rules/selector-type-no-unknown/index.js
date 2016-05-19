@@ -2,6 +2,10 @@ import { isString } from "lodash"
 import htmlTags from "html-tags"
 import svgTags from "svg-tags"
 import {
+  isStandardRule,
+  isKeyframeRule,
+  isStandardSelector,
+  isStandardTypeSelector,
   parseSelector,
   report,
   ruleMessages,
@@ -26,10 +30,15 @@ export default function (actual, options) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      const selector = rule.selector
+      if (!isStandardRule(rule)) { return }
+      if (isKeyframeRule(rule)) { return }
+      const { selector } = rule
+      if (!isStandardSelector(selector)) { return }
 
       parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkTags(tagNode => {
+          if (!isStandardTypeSelector(tagNode)) { return }
+
           const tagName = tagNode.value
           const tagNameLowerCase = tagName.toLowerCase()
 

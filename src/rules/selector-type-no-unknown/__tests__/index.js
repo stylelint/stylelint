@@ -7,6 +7,7 @@ const rule = rules[ruleName]
 testRule(rule, {
   ruleName,
   config: [true],
+  skipBasicChecks: true,
 
   accept: [ {
     code: "a {}",
@@ -67,10 +68,28 @@ testRule(rule, {
     line: 1,
     column: 1,
   }, {
+    code: "unknown:nth-child(even) {}",
+    message: messages.rejected("unknown"),
+    line: 1,
+    column: 1,
+  }, {
     code: "@media only screen and (min-width: 35em) { unknown {} }",
     message: messages.rejected("unknown"),
     line: 1,
     column: 44,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [true],
+  skipBasicChecks: true,
+  syntax: "scss",
+
+  accept: [ {
+    code: ".foo { &-bar {} }",
+  }, {
+    code: "#{$variable} {}",
   } ],
 })
 
