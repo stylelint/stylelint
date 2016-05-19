@@ -6,7 +6,7 @@ const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
 
   accept: [ {
     code: ".foo { display: flex; }",
@@ -70,5 +70,33 @@ testRule(rule, {
     message: messages.rejected("-moz-max-content"),
     line: 1,
     column: 19,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [true],
+  syntax: "scss",
+
+  accept: [ {
+    code: "a { $margin: -webkit-box; }",
+  }, {
+    code: "a { margin: $variable-webkit-variable; }",
+  }, {
+    code: "a { margin: #{$variable-webkit-variable}; }",
+  }, {
+    code: "a { #{$display}: -webkit-box; }",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [true],
+  syntax: "less",
+
+  accept: [ {
+    code: "@new-color: -webkit-function(@color, 10%);",
+  }, {
+    code: "a { margin: @variable-webkit-variable; }",
   } ],
 })
