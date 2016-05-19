@@ -16,7 +16,7 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.walkAtRules(atRule => {
+    root.walkAtRules(/^media$/i, atRule => {
       const { params } = atRule
       if (!isAutoprefixable.mediaFeatureName(params)) { return }
       const matches = atRule.toString().match(/[a-z-]+device-pixel-ratio/ig)

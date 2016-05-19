@@ -27,7 +27,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.walkAtRules(atRule => {
+    root.walkAtRules(/^media$/i, atRule => {
       findMediaOperator(atRule, checkBeforeOperator)
     })
 
