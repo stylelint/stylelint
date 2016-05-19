@@ -67,6 +67,14 @@ export default function (space, options = {}) {
       let nodeLevel = indentationLevel(node)
 
       if (options && options.hierarchicalSelectors) {
+        result.warn((
+          "The 'hierarchicalSelectors' option for 'indentation' has been deprecated, "
+            + "and will be removed in '7.0'. If you use this option please consider "
+            + "creating a plugin for the community."
+        ), {
+          stylelintType: "deprecation",
+          stylelintReference: "http://stylelint.io/user-guide/release-planning/",
+        })
         // hierarchicalSelectorsLevel will add the node to the hierarchyMap ...
         nodeLevel = hierarchicalSelectorsLevel(node, nodeLevel)
       } else {
