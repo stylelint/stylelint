@@ -1,7 +1,6 @@
 import { vendor } from "postcss"
 import { isObject, find } from "lodash"
 import valueParser from "postcss-value-parser"
-
 import {
   declarationValueIndex,
   getUnitFromValueNode,
@@ -35,6 +34,8 @@ export default function (whitelist) {
       if (!propWhitelist) { return }
 
       valueParser(value).walk(function (node) {
+        // Ignore wrong units within `url` function
+        if (node.type === "function" && node.value.toLowerCase() === "url") { return false }
         if (node.type === "string") { return }
 
         const unit = getUnitFromValueNode(node)
