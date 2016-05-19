@@ -71,7 +71,7 @@ projection and (color) {}
 
 ### `"never-multi-line"`
 
-There *must never* be a white before the commas in multi-line media query lists.
+There *must never* be whitespace before the commas in multi-line media query lists.
 
 The following patterns are considered warnings:
 
