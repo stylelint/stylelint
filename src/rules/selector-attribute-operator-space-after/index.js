@@ -1,4 +1,5 @@
 import {
+  isStandardRule,
   parseSelector,
   report,
   ruleMessages,
@@ -44,6 +45,7 @@ export function selectorAttributeOperatorSpaceChecker({
   checkBeforeOperator,
 }) {
   root.walkRules(rule => {
+    if (!isStandardRule(rule)) { return }
     if (rule.selector.indexOf("[") === -1
       || rule.selector.indexOf("=") === -1
     ) { return }
