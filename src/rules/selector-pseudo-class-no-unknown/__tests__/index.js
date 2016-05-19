@@ -83,6 +83,21 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: [true],
+  skipBasicChecks: true,
+  syntax: "scss",
+
+  accept: [ {
+    code: ":#{$variable} {}",
+  }, {
+    code: ":#{$VARIABLE} {}",
+  }, {
+    code: "a:#{$variable} {}",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: [ true, { ignorePseudoClasses: ["unknown"] } ],
   skipBasicChecks: true,
 

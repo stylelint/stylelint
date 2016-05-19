@@ -187,6 +187,21 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: ["lower"],
+  skipBasicChecks: true,
+  syntax: "scss",
+
+  accept: [ {
+    code: "::#{$variable} {}",
+  }, {
+    code: "::#{$VARIABLE} {}",
+  }, {
+    code: "a::#{$variable} {}",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: ["upper"],
 
   accept: [ {
@@ -363,6 +378,21 @@ testRule(rule, {
     message: messages.expected("::-moz-placeholder", "::-MOZ-PLACEHOLDER"),
     line: 1,
     column: 6,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["upper"],
+  skipBasicChecks: true,
+  syntax: "scss",
+
+  accept: [ {
+    code: "::#{$variable} {}",
+  }, {
+    code: "::#{$VARIABLE} {}",
+  }, {
+    code: "a::#{$variable} {}",
   } ],
 })
 

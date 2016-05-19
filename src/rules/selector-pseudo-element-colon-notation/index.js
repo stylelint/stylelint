@@ -1,5 +1,6 @@
 import _ from "lodash"
 import {
+  isStandardRule,
   report,
   ruleMessages,
   styleSearch,
@@ -26,6 +27,7 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
+      if (!isStandardRule(rule)) { return }
       const selector = rule.selector
 
       // get out early if no pseudo elements or classes

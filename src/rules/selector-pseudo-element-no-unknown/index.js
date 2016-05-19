@@ -1,6 +1,8 @@
 import { isString } from "lodash"
 import { vendor } from "postcss"
 import {
+  isStandardRule,
+  isStandardSelector,
   parseSelector,
   report,
   ruleMessages,
@@ -26,6 +28,7 @@ export default function (actual, options) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
+      if (!isStandardRule(rule)) { return }
       const selector = rule.selector
 
       if (selector.indexOf("::") === -1) { return }
@@ -33,6 +36,8 @@ export default function (actual, options) {
       parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkPseudos(pseudoNode => {
           const pseudoElement = pseudoNode.value
+
+          if (!isStandardSelector(pseudoElement)) { return }
 
           // Ignore pseudo-classes
           if (pseudoElement.indexOf("::") === -1) { return }
