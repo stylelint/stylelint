@@ -172,7 +172,7 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 - An absolute path to a file (which makes sense if you're creating a JS object in a Node context and passing it in) with a `.js` or `.json` extension.
 - A relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
-*Because of `extends`, you can create and use shareable stylelint configurations.*
+*Because of `extends`, you can create and use shareable stylelint configurations.* Use the `stylelint-config` keyword within your `package.json` if publishing your config to npm.
 
 ### `plugins`
 
