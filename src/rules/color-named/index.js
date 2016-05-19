@@ -1,6 +1,7 @@
 import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
+  isStandardValue,
   report,
   ruleMessages,
   validateOptions,
@@ -39,6 +40,7 @@ export default function (expectation) {
       valueParser(decl.value).walk(node => {
         const { value, type, sourceIndex } = node
 
+        if (!isStandardValue(value)) { return }
         // Return early if neither a word nor a function
         if (NODE_TYPES.indexOf(type) === -1) { return }
 
