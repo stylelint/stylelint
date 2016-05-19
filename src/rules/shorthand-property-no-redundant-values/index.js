@@ -1,6 +1,8 @@
 import valueParser from "postcss-value-parser"
 import { vendor } from "postcss"
 import {
+  isStandardDeclaration,
+  isStandardProperty,
   report,
   ruleMessages,
   validateOptions,
@@ -73,6 +75,10 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
+      if (
+        !isStandardDeclaration(decl)
+        || !isStandardProperty(decl.prop)
+      ) { return }
 
       const { prop, value } = decl
       const normalizedProp = vendor.unprefixed(prop.toLowerCase())
