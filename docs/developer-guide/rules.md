@@ -61,7 +61,7 @@ Look at the messages of other rules to glean more conventions and patterns.
 
 You will use the simple [PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md) to navigate and analyze the CSS syntax tree.
 
-Depending on the rule, you may also want to use [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and/or [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser), which are easier and more accurate than most people's guesses at regular expressions.
+Depending on the rule, we recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and/or [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). Use these standard parsers whenever possible, even if there's a performance hit, because there are significant gains in doing so.
 
 stylelint has a number of [utility functions](https://github.com/stylelint/stylelint/tree/master/src/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!)
 

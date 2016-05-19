@@ -26,14 +26,23 @@ In order for your plugin rule to work with the standard configuration format, (e
 
 To make a single module provide multiple rules, simply export an array of plugin objects (rather than a single object).
 
+## Standard parsers
+
+We recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and/or [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). Use these standard parsers whenever possible, even if there's a performance hit, because there are significant gains in doing so.
+
 ## `stylelint.utils`
 
 A few of stylelint's internal utilities are exposed publicly in `stylelint.utils`, to help you write plugin rules. For details about the APIs of these functions, please look at comments in the source code and examples in the standard rules.
 
-- `report`: Report your linting warnings. *You'll want to use this: do not use `node.warn()` directly.* If you use `report`, your plugin will respect disabled ranges and other possible future features of stylelint, so it will fit in better with the standard rules.
+You will want to use:
+
+- `report`: Report your linting warnings. *Do not use `node.warn()` directly.* If you use `report`, your plugin will respect disabled ranges and other possible future features of stylelint, so it will fit in better with the standard rules.
 - `ruleMessages`: Tailor your messages to look like the messages of other stylelint rules. Currently, this means that the name of the rule is appended, in parentheses, to the end of the message.
-- `styleSearch`: Search within CSS strings, and for every match found invoke a callback, passing a match object with details about the match. `styleSearch` ignores CSS strings (e.g. `content: "foo";`) and by default ignores comments. It can also be restricted to substrings within or outside of CSS functional notation.
 - `validateOptions`: Help your user's out by checking that the options they've submitted are valid.
+
+You may want to use:
+
+- `styleSearch`: Search within CSS strings, and for every match found invoke a callback, passing a match object with details about the match. `styleSearch` ignores CSS strings (e.g. `content: "foo";`) and by default ignores comments. It can also be restricted to substrings within or outside of CSS functional notation.
 
 ## `stylelint.rules`
 
@@ -59,6 +68,7 @@ export default stylelint.createPlugin(ruleName, function (expectation) {
 
 For testing your plugin, you might consider using the same rule-testing function that stylelint uses internally: [`stylelint-test-rule-tape`](https://github.com/stylelint/stylelint-test-rule-tape).
 
-## Adding plugins to the list
+## Sharing plugins
 
-Once your plugin is published, please send us a Pull Request to add your plugin to [the list](/docs/user-guide/plugins.md).
+- Use the `stylelint-plugin` keyword within your `package.json`.
+- Once your plugin is published, please send us a Pull Request to add your plugin to [the list](/docs/user-guide/plugins.md).
