@@ -29,7 +29,7 @@ export default function (expectation) {
       valueParser(decl.value).walk(valueNode => {
         if (valueNode.type !== "function"
           || valueNode.value.toLowerCase() !== "url"
-          || !valueNode.nodes[0]
+          || !valueNode.nodes.length > 0
         ) { return }
 
         const urlValueNode = valueNode.nodes[0]
