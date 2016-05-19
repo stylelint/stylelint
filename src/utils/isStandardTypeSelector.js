@@ -20,5 +20,8 @@ export default function (node) {
   // &-bar is a nesting selector combined with a suffix
   if (node.prev() && node.prev().type === "nesting") { return false }
 
+  // %bar is a placeholder selector (from SCSS)
+  if (node.value.indexOf("%") === 0) { return false }
+
   return true
 }
