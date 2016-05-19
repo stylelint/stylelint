@@ -4,17 +4,19 @@ Plugins are rules and sets of rules built by the community that support methodol
 
 ## Methodologies
 
-### Selector
+### Individual rules
+
+#### Selector
 
 - [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors (incorporates [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter)).
 
 ## Non-standard syntax
 
-### SCSS
-
-#### Collection
+### Packs
 
 - [`stylelint-scss`](https://github.com/kristerkari/stylelint-scss): A collection of SCSS specific linting rules for stylelint.
+
+### Individual rules
 
 #### Declaration
 
