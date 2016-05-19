@@ -79,6 +79,10 @@ testRule(rule, {
     code: "a { color: pink; @media { color: orange; .foo { color: black; color: white; } } }",
     description: "double nested again",
     message: messages.rejected("color"),
+  }, {
+    code: "a { src: url(font.eof); src: url(font.woff); }",
+    description: "ignore src only in font-face at-rule",
+    message: messages.rejected("src"),
   } ],
 })
 

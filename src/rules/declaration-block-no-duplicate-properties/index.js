@@ -50,7 +50,10 @@ export default function (on, options) {
         if (isCustomProperty(prop)) { return }
 
         // Ignore the src property as commonly duplicated in at-fontface
-        if (prop.toLowerCase() === "src") { return }
+        if (node.type === "atrule"
+          && node.name.toLowerCase() === "fontface"
+          && prop.toLowerCase() === "src"
+        ) { return }
 
         const indexDuplicate = decls.indexOf(prop.toLowerCase())
 

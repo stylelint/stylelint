@@ -1,6 +1,7 @@
 # Head
 
 - Fixed: `selector-type-no-unknown` now ignores nested selectors.
+- Fixed: `declaration-block-no-ignored-properties` now not ignore `src` properties, places out of `fontface` at-rules.
 
 # 6.4.1
 
