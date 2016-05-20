@@ -467,7 +467,7 @@ test("syntax error sets errored to true", t => {
   t.plan(1)
 })
 
-test.only("configuration error sets errored to true", t => {
+test("configuration error sets errored to true", t => {
   standalone({
     code: "a { color: 'red'; }",
     config: { rules: { "block-no-empty": "wahoo" } },
