@@ -9,5 +9,8 @@ export default function (selector) {
   // SCSS or Less interpolation
   if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(selector)) { return false }
 
+  // SCSS placeholder selectors
+  if (selector.indexOf("%") === 0) { return false }
+
   return true
 }

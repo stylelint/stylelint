@@ -40,6 +40,9 @@ testRule(rule, {
   }, {
     code: "circle {}",
     description: "svg tags",
+  }, {
+    code: "%foo",
+    description: "ignore placeholder selector",
   } ],
 
   reject: [ {
@@ -113,4 +116,3 @@ testRule(rule, {
     column: 1,
   }],
 })
-

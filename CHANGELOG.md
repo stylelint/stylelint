@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `selector-type-no-unknown` and `selector-type-case` rules now ignore placeholder selectors.
+
 # 6.4.2
 
 - Fixed: `selector-pseudo-class-case`, `selector-pseudo-class-no-unknown`, `selector-pseudo-element-case`, `selector-pseudo-element-no-unknown` rules now ignore SCSS variable interpolation.
