@@ -15,5 +15,6 @@ test("isStandardSelector", t => {
   t.notOk(isStandardSelector("#{50% - $n}"), "SCSS interpolation (id)")
   t.notOk(isStandardSelector(".n-#{$n}"), "SCSS interpolation (class)")
   t.notOk(isStandardSelector(".n-@{n}"), "Less interpolation")
+  t.notOk(isStandardSelector("%foo"), "SCSS placeholder")
   t.end()
 })
