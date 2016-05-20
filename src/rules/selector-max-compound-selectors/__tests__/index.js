@@ -156,6 +156,22 @@ testRule(rule, {
     code: "@media print { li { & + .ab { .cd { top: 10px; } } } }",
     description: "The rule fails, but nesting even deeper with more compound selectors, has declarations",
     message: messages.expected("li + .ab .cd", 2),
+  }, {
+    code: "a { & b c { } }",
+    description: "Direct nesting",
+    message: messages.expected("a b c", 2),
+  }, {
+    code: "a { @nest & b c { } }",
+    description: "@nest nesting (nest-prefixed)",
+    message: messages.expected("a b c", 2),
+  }, {
+    code: "a { @nest b c & { } }",
+    description: "@nest nesting (nest-containing)",
+    message: messages.expected("b c a", 2),
+  }, {
+    code: "a { @nest b &, c d & { } }",
+    description: "@nest nesting (nest-containing) list",
+    message: messages.expected("c d a", 2),
   } ],
 })
 

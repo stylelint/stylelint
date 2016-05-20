@@ -26,13 +26,15 @@ export default function (max) {
     if (!validOptions) { return }
 
     // Finds actual selectors in selectorNode object and checks them
-    function checkSelector(selectorNode, rule) {
+    function checkSelector(selectorNode, statement) {
+
       let compoundCount = 1
 
       selectorNode.each(childNode => {
         // Only traverse inside actual selectors and :not()
         if (childNode.type === "selector" || childNode.value === ":not") {
-          checkSelector(childNode, rule)
+          checkSelector(childNode, statement)
+
         }
 
         // Compund selectors are separated by combinators, so increase count when meeting one
@@ -43,29 +45,34 @@ export default function (max) {
         report({
           ruleName,
           result,
-          node: rule,
-          message: messages.expected(selectorNode, max),
+          node: statement,
+          message: messages.expected(selectorNode.toString().trim(), max),
           word: selectorNode,
         })
       }
     }
 
-    root.walkRules(rule => {
+    function checkStatement(statement, selectors) {
       // Nested selectors are processed in steps, as nesting levels are resolved.
       // Here we skip processing the intermediate parts of selectors (to process only fully resolved selectors)
-      if (rule.nodes.some(node => node.type === "rule" || node.type === "atrule")) { return }
-      // Skip custom rules, Less selectors, etc.
-      if (!isStandardRule(rule)) { return }
-      // Skip selectors with interpolation
-      if (!isStandardSelector(rule.selector)) { return }
+      if (statement.nodes.some(node => node.type === "rule" || node.type === "atrule")) { return }
 
-      // Using `rule.selectors` gets us each selector if there is a comma separated set
-      rule.selectors.forEach((selector) => {
-        resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {
+      selectors.forEach((selector) => {
+        resolvedNestedSelector(selector, statement).forEach(resolvedSelector => {
           // Process each resolved selector with `checkSelector` via postcss-selector-parser
-          selectorParser(s => checkSelector(s, rule)).process(resolvedSelector)
+          selectorParser(s => checkSelector(s, statement)).process(resolvedSelector)
         })
       })
+    }
+
+    root.walkRules(rule => {
+      if (!isStandardRule(rule)) { return }
+      if (!isStandardSelector(rule.selector)) { return }
+      checkStatement(rule, rule.selectors)
+    })
+
+    root.walkAtRules(/^nest$/i, atRule => {
+      checkStatement(atRule, atRule.params.split(","))
     })
   }
 }

@@ -15,6 +15,8 @@ testRule(rule, {
   }, {
     code: ".ab .cd span {}",
   }, {
+    code: ".a .b @nest { span {} }",
+  }, {
     code: ".cd div span {}",
   }, {
     code: ".cd .de div span a {}",
@@ -34,6 +36,29 @@ testRule(rule, {
     message: messages.expected(".thing div .thing .sausages", "0,3,0"),
     line: 1,
     column: 1,
+  }, {
+    code: ".a .b .c .d {}",
+    message: messages.expected(".a .b .c .d", "0,3,0"),
+    line: 1,
+    column: 1,
+  }, {
+    code: ".a .b .c { @nest & .d {} }",
+    message: messages.expected(".a .b .c .d", "0,3,0"),
+    description: "@nest nesting (nest-prefixed)",
+    line: 1,
+    column: 18,
+  }, {
+    code: ".a .b .c { @nest .d & {} }",
+    message: messages.expected(".d .a .b .c", "0,3,0"),
+    description: "@nest nesting (nest-containing)",
+    line: 1,
+    column: 18,
+  }, {
+    code: ".a .b { @nest .c &, .d .e & {} }",
+    message: messages.expected(".d .e .a .b", "0,3,0"),
+    description: "@nest nesting (nest-containing) list",
+    line: 1,
+    column: 20,
   }, {
     code: ".thing div .thing, .sausages .burgers .bacon a {}",
     message: messages.expected(".sausages .burgers .bacon a", "0,3,0"),
