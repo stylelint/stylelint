@@ -43,7 +43,7 @@ a {} /* comment */
 
 ### `"never"`
 
-There *must never* be an empty before comments.
+There *must never* be an empty line before comments.
 
 The following patterns are considered warnings:
 
