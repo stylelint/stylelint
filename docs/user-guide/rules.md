@@ -56,7 +56,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 ### Time
 
-- [`time-no-imperceptible`](../../src/rules/time-no-imperceptible/README.md): Disallow `animation` and `transition` times under 100ms.
+- [`time-no-imperceptible`](../../src/rules/time-no-imperceptible/README.md): Disallow `animation` and `transition` less than or equal to 100ms.
 
 ### Unit
 
