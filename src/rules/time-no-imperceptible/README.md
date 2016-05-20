@@ -1,6 +1,6 @@
 # time-no-imperceptible
 
-Disallow `animation` and `transition` times under 100ms.
+Disallow `animation` and `transition` less than or equal to 100ms.
 
 ```css
 .foo { animation: slip-n-slide 150ms linear; }
