@@ -9,6 +9,7 @@
 - [The Node API](/docs/user-guide/node-api.md) - options and examples for using the Node API.
 - [The PostCSS plugin](/docs/user-guide/postcss-plugin.md) - options and examples for using the PostCSS plugin.
 - [CSS processors](/docs/user-guide/css-processors.md) - how to use the linter with a CSS processor, like SCSS or PostCSS plugins.
+- [Release planning](/docs/user-guide/release-planning.md) - plans and calls-for-help for upcoming releases.
 - [Complementary tools](/docs/user-guide/complementary-tools.md) - list of editor plugins, build tool plugins and other tools.
 - [FAQ](/docs/user-guide/faq.md) - frequently asked questions about using and configuring stylelint.
 - [Articles](/docs/user-guide/articles.md) - a collection of articles and tutorials about stylelint.
