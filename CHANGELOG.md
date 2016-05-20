@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `babel-polyfill` removed so it doesn't clash with other processes using `babel-polyfill`.
+
 # 6.4.2
 
 - Fixed: `selector-pseudo-class-case`, `selector-pseudo-class-no-unknown`, `selector-pseudo-element-case`, `selector-pseudo-element-no-unknown` rules now ignore SCSS variable interpolation.

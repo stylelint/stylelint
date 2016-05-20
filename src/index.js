@@ -1,6 +1,3 @@
-// Polyfill is required as long as we support Node 0.12, because
-// use of the spread operator Babel plugin requires `Array.from()`
-import "babel-polyfill"
 import postcssPlugin from "./postcssPlugin"
 import standalone from "./standalone"
 import createPlugin from "./createPlugin"

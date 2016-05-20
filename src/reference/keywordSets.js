@@ -1,3 +1,5 @@
+import _ from "lodash"
+
 export const nonLengthUnits = new Set([
   // Relative length units
   "%",
@@ -40,10 +42,10 @@ export const lengthUnits = new Set([
   "q",
 ])
 
-export const units = new Set([
-  ...nonLengthUnits,
-  ...lengthUnits,
-])
+export const units = uniteSets(
+  nonLengthUnits,
+  lengthUnits
+)
 
 export const colorFunctionNames = new Set([
   "rgb",
@@ -73,10 +75,10 @@ export const fontWeightAbsoluteKeywords = new Set([
   "bold",
 ])
 
-export const fontWeightKeywords = new Set([
-  ...fontWeightRelativeKeywords,
-  ...fontWeightAbsoluteKeywords,
-])
+export const fontWeightKeywords = uniteSets(
+  fontWeightRelativeKeywords,
+  fontWeightAbsoluteKeywords
+)
 
 export const camelCaseFunctionNames = new Set([
   "translateX",
@@ -148,10 +150,10 @@ export const levelThreePseudoElements = new Set([
   "content",
 ])
 
-export const pseudoElements = new Set([
-  ...levelOneAndTwoPseudoElements,
-  ...levelThreePseudoElements,
-])
+export const pseudoElements = uniteSets(
+  levelOneAndTwoPseudoElements,
+  levelThreePseudoElements
+)
 
 export const pseudoClasses = new Set([
   "active",
@@ -220,10 +222,10 @@ export const longhandTimeProperties = new Set([
   "animation-delay",
 ])
 
-export const timeProperties = new Set([
-  ...shorthandTimeProperties,
-  ...longhandTimeProperties,
-])
+export const timeProperties = uniteSets(
+  shorthandTimeProperties,
+  longhandTimeProperties
+)
 
 export const camelCaseKeywords = new Set([
   "optimizeSpeed",
@@ -327,3 +329,9 @@ export const listStyleTypeKeywords = new Set([
   "hangul-consonant",
   "urdu",
 ])
+
+function uniteSets(...sets) {
+  return new Set(sets.reduce((result, set) => {
+    return result.concat(_.toArray(set))
+  }, []))
+}
