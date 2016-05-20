@@ -17,6 +17,10 @@ export default function (rule) {
   // Called Less mixin (e.g. a { .mixin() })
   if (rule.ruleWithoutBody) { return false }
 
+  // Ignore mixin or &:extend rule
+  // https://github.com/webschik/postcss-less/blob/master/lib/less-parser.js#L52
+  if (rule.params && rule.params[0]) { return false }
+
   // Non-outputting Less mixin definition (e.g. .mixin() {})
   if (_.endsWith(selector, ")") && !_.includes(selector, ":")) { return false }
 
