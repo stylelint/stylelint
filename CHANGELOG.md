@@ -2,6 +2,7 @@
 
 - Added: `selector-max-compound-selectors` rule.
 - Fixed: `babel-polyfill` removed so it doesn't clash with other processes using `babel-polyfill`.
+- Fixed: `selector-type-case` and `selector-type-no-unknown` rules now ignore SCSS placeholder selectors.
 
 # 6.4.2
 

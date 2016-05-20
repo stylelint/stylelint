@@ -90,6 +90,9 @@ testRule(rule, {
     code: ".foo { &-bar {} }",
   }, {
     code: "#{$variable} {}",
+  }, {
+    code: "%foo {}",
+    description: "ignore placeholder selector",
   } ],
 })
 
@@ -113,4 +116,3 @@ testRule(rule, {
     column: 1,
   }],
 })
-

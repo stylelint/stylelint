@@ -151,3 +151,19 @@ testRule(rule, {
     message: messages.expected("a", "A"),
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: ["upper"],
+  skipBasicChecks: true,
+  syntax: "scss",
+
+  accept: [ {
+    code: ".foo { &-bar {} }",
+  }, {
+    code: "#{$variable} {}",
+  }, {
+    code: "%foo {}",
+    description: "ignore placeholder selector",
+  } ],
+})
