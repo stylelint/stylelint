@@ -1,4 +1,4 @@
-# Head
+# 6.5.0
 
 - Added: `selector-max-compound-selectors` rule.
 - Fixed: `babel-polyfill` removed so it doesn't clash with other processes using `babel-polyfill`.
