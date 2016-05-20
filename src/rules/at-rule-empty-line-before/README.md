@@ -41,7 +41,7 @@ a {}
 
 ### `"never"`
 
-There *must never* be an empty before at-rules.
+There *must never* be an empty line before at-rules.
 
 The following patterns are considered warnings:
 

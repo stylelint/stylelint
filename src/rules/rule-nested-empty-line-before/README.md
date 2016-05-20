@@ -42,7 +42,7 @@ The following patterns are *not* considered warnings:
 
 ### `"never"`
 
-There *must never* be an empty before rules.
+There *must never* be an empty line before rules.
 
 The following patterns are considered warnings:
 
