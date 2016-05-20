@@ -1,5 +1,6 @@
 # Head
 
+- Added: `selector-max-compound-selectors` rule.
 - Fixed: `babel-polyfill` removed so it doesn't clash with other processes using `babel-polyfill`.
 
 # 6.4.2
@@ -57,7 +58,6 @@
 - Added: `selector-attribute-operator-space-before` rule.
 - Added: `selector-max-empty-lines` rule.
 - Added: `selector-pseudo-element-no-unknown` rule.
-- Added: `selector-max-compound-selectors` rule.
 - Added: flexible support for end-of-line comments in `at-rule-semicolon-newline-after`, `block-opening-brace-newline-after`, and `declaration-block-semicolon-newline-after`.
 - Fixed: string and verbose formatters no longer use an ambiguous colour schemes.
 - Fixed: string formatter no longer outputs an empty line if there are no problems.

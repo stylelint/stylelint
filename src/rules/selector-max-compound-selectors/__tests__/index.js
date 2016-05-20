@@ -100,7 +100,7 @@ testRule(rule, {
   } ],
 })
 
-// Tesging nested selectors
+// Testing nested selectors
 testRule(rule, {
   ruleName,
   config: [2],

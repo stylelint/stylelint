@@ -5,15 +5,15 @@ Limit the number of compound selectors in a selector.
 ```css
    div .bar[data-val] > a.baz + .boom > #lorem {
 /* ↑   ↑                ↑       ↑       ↑
-   |   |                |       |       | 
+   |   |                |       |       |
   Lv1  v2               Lv3     Lv4     Lv5  -- these are compound selectors */
 ```
 
-A [compound selector](https://www.w3.org/TR/selectors4/#compound) is a chain of one or more simple (tag, class, id, universal, attribute) selectors. The reason why one might want to limit their number is described in [SMACSS book](http://smacss.com/book/applicability).
+A [compound selector](https://www.w3.org/TR/selectors4/#compound) is a chain of one or more simple (tag, class, id, universal, attribute) selectors. If there is more than one compound selector in a complete selector, they will be separated by combinators (e.g. ` `, `+`, `>`). One reason why you might want to limit the number of compound selectors is described in the [SMACSS book](http://smacss.com/book/applicability).
 
 This rule resolves nested selectors before calculating the depth of a selector.
 
-`:not()` is considered one compound selector irrespective to the complexity of the selector inside it. The rule does process that inner selector, yet separately of the main selector.
+`:not()` is considered one compound selector irrespective to the complexity of the selector inside it. The rule *does* process that inner selector, but does so separately, independent of the main selector.
 
 ## Options
 
