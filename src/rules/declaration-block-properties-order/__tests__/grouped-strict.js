@@ -59,14 +59,14 @@ testRule(rule, {
 
   config: [[
     {
-      emptyLineBefore: "always",
+      // emptyLineBefore: "always",
       properties: [
         "height",
         "width",
       ],
     },
     {
-      emptyLineBefore: "always",
+      // emptyLineBefore: "always",
       properties: [
         "font-size",
         "font-weight",
@@ -88,17 +88,17 @@ testRule(rule, {
     description: "unspecified before specified",
   } ],
 
-  reject: [ {
-    code: "a {\r\n  height: 1px;\r\n  width: 2px;\r\n  font-size: 2px;\r\n  font-weight: bold;\r\n}",
-    message: messages.expectedEmptyLineBetween("font-size", "width"),
-    line: 4,
-    column: 3,
-  }, {
-    code: "a {\r\n  height: 1px;\r\n  font-weight: bold;\r\n}",
-    message: messages.expectedEmptyLineBetween("font-weight", "height"),
-    line: 3,
-    column: 3,
-  } ],
+  // reject: [ {
+  //   code: "a {\r\n  height: 1px;\r\n  width: 2px;\r\n  font-size: 2px;\r\n  font-weight: bold;\r\n}",
+  //   message: messages.expectedEmptyLineBetween("font-size", "width"),
+  //   line: 4,
+  //   column: 3,
+  // }, {
+  //   code: "a {\r\n  height: 1px;\r\n  font-weight: bold;\r\n}",
+  //   message: messages.expectedEmptyLineBetween("font-weight", "height"),
+  //   line: 3,
+  //   column: 3,
+  // } ],
 })
 
 testRule(rule, {
@@ -106,14 +106,14 @@ testRule(rule, {
 
   config: [[
     {
-      emptyLineBefore: "never",
+      // emptyLineBefore: "never",
       properties: [
         "height",
         "width",
       ],
     },
     {
-      emptyLineBefore: "never",
+      // emptyLineBefore: "never",
       properties: [
         "font-size",
         "font-weight",
@@ -129,17 +129,17 @@ testRule(rule, {
     code: "a {\r\n  height: 1px;  \r\n  font-weight: bold;\r\n}",
   } ],
 
-  reject: [ {
-    code: "a {\r\n  height: 1px;\r\n  width: 2px;\r\n\r\n  font-size: 2px;\r\n  font-weight: bold;\r\n}",
-    message: messages.rejectedEmptyLineBetween("font-size", "width"),
-    line: 5,
-    column: 3,
-  }, {
-    code: "a {\r\n  height: 1px;\r\n\r\n  font-weight: bold;\r\n}",
-    message: messages.rejectedEmptyLineBetween("font-weight", "height"),
-    line: 4,
-    column: 3,
-  } ],
+  // reject: [ {
+  //   code: "a {\r\n  height: 1px;\r\n  width: 2px;\r\n\r\n  font-size: 2px;\r\n  font-weight: bold;\r\n}",
+  //   message: messages.rejectedEmptyLineBetween("font-size", "width"),
+  //   line: 5,
+  //   column: 3,
+  // }, {
+  //   code: "a {\r\n  height: 1px;\r\n\r\n  font-weight: bold;\r\n}",
+  //   message: messages.rejectedEmptyLineBetween("font-weight", "height"),
+  //   line: 4,
+  //   column: 3,
+  // } ],
 })
 
 testRule(rule, {
@@ -147,7 +147,7 @@ testRule(rule, {
 
   config: [[
     {
-      emptyLineBefore: "always",
+      // emptyLineBefore: "always",
       properties: [
         "margin-top",
         "margin-right",
@@ -155,7 +155,7 @@ testRule(rule, {
       ],
     },
     {
-      emptyLineBefore: "always",
+      // emptyLineBefore: "always",
       properties: [
         "font-size",
       ],
@@ -168,10 +168,10 @@ testRule(rule, {
     code: ".foo { margin-bottom: 20px;\n\nfont-size: 26px; }",
   }],
 
-  reject: [{
-    code: ".foo { margin-bottom: 20px; font-size: 26px; }",
-    message: messages.expectedEmptyLineBetween("font-size", "margin-bottom"),
-  }],
+  // reject: [{
+  //   code: ".foo { margin-bottom: 20px; font-size: 26px; }",
+  //   message: messages.expectedEmptyLineBetween("font-size", "margin-bottom"),
+  // }],
 })
 
 testRule(rule, {
@@ -179,7 +179,7 @@ testRule(rule, {
 
   config: [[
     {
-      emptyLineBefore: "never",
+      // emptyLineBefore: "never",
       properties: [
         "margin-top",
         "margin-right",
@@ -187,7 +187,7 @@ testRule(rule, {
       ],
     },
     {
-      emptyLineBefore: "never",
+      // emptyLineBefore: "never",
       properties: [
         "font-size",
       ],
@@ -200,8 +200,8 @@ testRule(rule, {
     code: ".foo { margin-bottom: 20px; font-size: 26px; }",
   }],
 
-  reject: [{
-    code: ".foo { margin-bottom: 20px;\n\n font-size: 26px; }",
-    message: messages.rejectedEmptyLineBetween("font-size", "margin-bottom"),
-  }],
+  // reject: [{
+  //   code: ".foo { margin-bottom: 20px;\n\n font-size: 26px; }",
+  //   message: messages.rejectedEmptyLineBetween("font-size", "margin-bottom"),
+  // }],
 })

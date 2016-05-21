@@ -2,6 +2,10 @@ import { testRule } from "../../../testUtils"
 import rules from "../../../rules"
 import { ruleName, messages } from ".."
 
+import postcss from "postcss"
+import test from "tape"
+import stylelint from "../../.."
+
 const rule = rules[ruleName]
 
 testRule(rule, {
@@ -72,7 +76,7 @@ testRule(rule, {
     "height",
     {
       order: "flexible",
-      emptyLineBefore: "always",
+      // emptyLineBefore: "always",
       properties: [
         "color",
         "font-size",
@@ -106,42 +110,42 @@ testRule(rule, {
     description: "unspecified before grouped specified",
   } ],
 
-  reject: [ {
-    code: "a {\n  height: 1px;\n  color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}",
-    message: messages.expectedEmptyLineBetween("color", "height"),
-    line: 3,
-    column: 3,
-  }, {
-    code: "a {\n  height: 1px;\n  font-size: 2px;\n  color: pink;\n  font-weight: bold;\n}",
-    message: messages.expectedEmptyLineBetween("font-size", "height"),
-    line: 3,
-    column: 3,
-  }, {
-    code: "a {\n  height: 1px;\n  font-weight: bold;\n  font-size: 2px;\n  color: pink;\n}",
-    message: messages.expectedEmptyLineBetween("font-weight", "height"),
-    line: 3,
-    column: 3,
-  }, {
-    code: "a {\n  height: 1px;\n  font-size: 2px;\n  color: pink;\n}",
-    message: messages.expectedEmptyLineBetween("font-size", "height"),
-    line: 3,
-    column: 3,
-  }, {
-    code: "a {\n  height: 1px;\n  width: 2px;\n  color: pink;\n}",
-    message: messages.expectedEmptyLineBetween("color", "width"),
-    line: 4,
-    column: 3,
-  }, {
-    code: "a {\n  height: 1px;\n  width: 2px;\n  border: 1px solid;\n  font-weight: pink;\n}",
-    message: messages.expectedEmptyLineBetween("font-weight", "border"),
-    line: 5,
-    column: 3,
-  }, {
-    code: "a {\n  height: 1px;\n  /* something */\n  font-weight: bold;\n}",
-    message: messages.expectedEmptyLineBetween("font-weight", "height"),
-    line: 4,
-    column: 3,
-  } ],
+  // reject: [ {
+  //   code: "a {\n  height: 1px;\n  color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}",
+  //   message: messages.expectedEmptyLineBetween("color", "height"),
+  //   line: 3,
+  //   column: 3,
+  // }, {
+  //   code: "a {\n  height: 1px;\n  font-size: 2px;\n  color: pink;\n  font-weight: bold;\n}",
+  //   message: messages.expectedEmptyLineBetween("font-size", "height"),
+  //   line: 3,
+  //   column: 3,
+  // }, {
+  //   code: "a {\n  height: 1px;\n  font-weight: bold;\n  font-size: 2px;\n  color: pink;\n}",
+  //   message: messages.expectedEmptyLineBetween("font-weight", "height"),
+  //   line: 3,
+  //   column: 3,
+  // }, {
+  //   code: "a {\n  height: 1px;\n  font-size: 2px;\n  color: pink;\n}",
+  //   message: messages.expectedEmptyLineBetween("font-size", "height"),
+  //   line: 3,
+  //   column: 3,
+  // }, {
+  //   code: "a {\n  height: 1px;\n  width: 2px;\n  color: pink;\n}",
+  //   message: messages.expectedEmptyLineBetween("color", "width"),
+  //   line: 4,
+  //   column: 3,
+  // }, {
+  //   code: "a {\n  height: 1px;\n  width: 2px;\n  border: 1px solid;\n  font-weight: pink;\n}",
+  //   message: messages.expectedEmptyLineBetween("font-weight", "border"),
+  //   line: 5,
+  //   column: 3,
+  // }, {
+  //   code: "a {\n  height: 1px;\n  /* something */\n  font-weight: bold;\n}",
+  //   message: messages.expectedEmptyLineBetween("font-weight", "height"),
+  //   line: 4,
+  //   column: 3,
+  // } ],
 })
 
 testRule(rule, {
@@ -151,7 +155,7 @@ testRule(rule, {
     "height",
     {
       order: "flexible",
-      emptyLineBefore: "never",
+      // emptyLineBefore: "never",
       properties: [
         "color",
         "font-size",
@@ -173,40 +177,92 @@ testRule(rule, {
     description: "comment before line break",
   } ],
 
-  reject: [ {
-    code: "a {\n  height: 1px;\n\n  color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}",
-    message: messages.rejectedEmptyLineBetween("color", "height"),
-    line: 4,
-    column: 3,
-  }, {
-    code: "a {\n  height: 1px;\n\n  font-size: 2px;\n  color: pink;\n  font-weight: bold;\n}",
-    message: messages.rejectedEmptyLineBetween("font-size", "height"),
-    line: 4,
-    column: 3,
-  }, {
-    code: "a {\n  height: 1px;\n\n  font-weight: bold;\n  font-size: 2px;\n  color: pink;\n}",
-    message: messages.rejectedEmptyLineBetween("font-weight", "height"),
-    line: 4,
-    column: 3,
-  }, {
-    code: "a {\n  height: 1px;\n\n  font-size: 2px;\n  color: pink;\n}",
-    message: messages.rejectedEmptyLineBetween("font-size", "height"),
-    line: 4,
-    column: 3,
-  }, {
-    code: "a {\n  height: 1px;\n  width: 2px;\n\n  color: pink;\n}",
-    message: messages.rejectedEmptyLineBetween("color", "width"),
-    line: 5,
-    column: 3,
-  }, {
-    code: "a {\n  height: 1px;\n  width: 2px;\n  border: 1px solid;\n\n  font-weight: pink;\n}",
-    message: messages.rejectedEmptyLineBetween("font-weight", "border"),
-    line: 6,
-    column: 3,
-  }, {
-    code: "a {\n  height: 1px;\n\n  /* something */\n  font-weight: bold;\n}",
-    message: messages.rejectedEmptyLineBetween("font-weight", "height"),
-    line: 5,
-    column: 3,
-  } ],
+  // reject: [ {
+  //   code: "a {\n  height: 1px;\n\n  color: pink;\n  font-size: 2px;\n  font-weight: bold;\n}",
+  //   message: messages.rejectedEmptyLineBetween("color", "height"),
+  //   line: 4,
+  //   column: 3,
+  // }, {
+  //   code: "a {\n  height: 1px;\n\n  font-size: 2px;\n  color: pink;\n  font-weight: bold;\n}",
+  //   message: messages.rejectedEmptyLineBetween("font-size", "height"),
+  //   line: 4,
+  //   column: 3,
+  // }, {
+  //   code: "a {\n  height: 1px;\n\n  font-weight: bold;\n  font-size: 2px;\n  color: pink;\n}",
+  //   message: messages.rejectedEmptyLineBetween("font-weight", "height"),
+  //   line: 4,
+  //   column: 3,
+  // }, {
+  //   code: "a {\n  height: 1px;\n\n  font-size: 2px;\n  color: pink;\n}",
+  //   message: messages.rejectedEmptyLineBetween("font-size", "height"),
+  //   line: 4,
+  //   column: 3,
+  // }, {
+  //   code: "a {\n  height: 1px;\n  width: 2px;\n\n  color: pink;\n}",
+  //   message: messages.rejectedEmptyLineBetween("color", "width"),
+  //   line: 5,
+  //   column: 3,
+  // }, {
+  //   code: "a {\n  height: 1px;\n  width: 2px;\n  border: 1px solid;\n\n  font-weight: pink;\n}",
+  //   message: messages.rejectedEmptyLineBetween("font-weight", "border"),
+  //   line: 6,
+  //   column: 3,
+  // }, {
+  //   code: "a {\n  height: 1px;\n\n  /* something */\n  font-weight: bold;\n}",
+  //   message: messages.rejectedEmptyLineBetween("font-weight", "height"),
+  //   line: 5,
+  //   column: 3,
+  // } ],
 })
+
+test("deprecation warning for emptyLineBefore", t => {
+  const config = {
+    rules: {
+      "declaration-block-properties-order": [
+        {
+          order: "flexible",
+          emptyLineBefore: "never",
+          properties: [
+            "height",
+            "width",
+          ],
+        },
+        {
+          order: "flexible",
+          emptyLineBefore: "never",
+          properties: [
+            "color",
+            "font-size",
+            "font-weight",
+          ],
+        },
+      ],
+    },
+  }
+
+  const css = `
+    a {
+      height: 1px;
+
+      font-size: 2px;
+      color: pink;
+      font-weight: bold;
+    }
+  `
+
+  let planned = 0
+
+  postcss().use(stylelint(config)).process(css).then(result => {
+    t.equal(result.warnings().length, 2)
+    t.equal(result.warnings()[0].text, "The 'emptyLineBefore' option for 'declaration-block-properties-order' has been deprecated, and will be removed in '7.0'. If you use this option please consider creating a plugin for the community.")
+    t.equal(result.warnings()[0].stylelintType, "deprecation")
+    t.equal(result.warnings()[1].text, "Unexpected empty line between property \"font-size and property \"height\" (declaration-block-properties-order)")
+  }).catch(logError)
+  planned += 4
+
+  t.plan(planned)
+})
+
+function logError(err) {
+  console.log(err.stack) // eslint-disable-line no-console
+}
