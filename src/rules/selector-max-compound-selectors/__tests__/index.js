@@ -176,8 +176,14 @@ testRule(rule, {
   config: [1],
   syntax: "less",
 
-  accept: [{
+  accept: [ {
     code: "#hello @{test} {}",
     description: "ignore rules with variable interpolation",
-  }],
+  }, {
+    code: ".setFont(@size) { font-size: @size; }",
+    description: "ignore mixins",
+  }, {
+    code: ".test { .setFont(12px) }",
+    description: "ignore called mixins",
+  } ],
 })

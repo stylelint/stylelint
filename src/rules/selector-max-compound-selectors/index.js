@@ -51,13 +51,12 @@ export default function (max) {
     }
 
     root.walkRules(rule => {
+      if (!isStandardRule(rule)) { return }
+      if (!isStandardSelector(rule.selector)) { return }
+
       // Nested selectors are processed in steps, as nesting levels are resolved.
       // Here we skip processing the intermediate parts of selectors (to process only fully resolved selectors)
       if (rule.nodes.some(node => node.type === "rule" || node.type === "atrule")) { return }
-      // Skip custom rules, Less selectors, etc.
-      if (!isStandardRule(rule)) { return }
-      // Skip selectors with interpolation
-      if (!isStandardSelector(rule.selector)) { return }
 
       // Using `rule.selectors` gets us each selector if there is a comma separated set
       rule.selectors.forEach((selector) => {
