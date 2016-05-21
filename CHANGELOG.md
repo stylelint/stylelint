@@ -1,5 +1,6 @@
 # Head
 
+- Deprecated: `"hierarchicalSelectors"` option for `indentation`.
 - Fixed: `selector-max-compound-selectors` no longer errors on Less mixins.
 
 # 6.5.0
