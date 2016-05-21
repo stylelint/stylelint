@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `selector-max-compound-selectors` no longer errors on Less mixins.
+
 # 6.5.0
 
 - Added: `selector-max-compound-selectors` rule.
