@@ -119,6 +119,16 @@ export default function (expectation, options) {
           // secondProp seperatedGroups start at 2 so we minus 2 to get the 1st item
           // from our groups array
           const emptyLineBefore = _.get(groups[secondPropSeparatedGroup - 2], "emptyLineBefore")
+          if (emptyLineBefore) {
+            result.warn((
+              "The 'emptyLineBefore' option for 'declaration-block-properties-order' has been deprecated, "
+                + "and will be removed in '7.0'. If you use this option please consider "
+                + "creating a plugin for the community."
+            ), {
+              stylelintType: "deprecation",
+              stylelintReference: "http://stylelint.io/user-guide/release-planning/",
+            })
+          }
           if (!hasEmptyLineBefore(secondPropData.node) && emptyLineBefore === "always") {
             complain({
               message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),

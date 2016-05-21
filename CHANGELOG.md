@@ -1,5 +1,6 @@
 # Head
 
+- Deprecated: `"emptyLineBefore"` option for `declaration-block-properties-order`.
 - Deprecated: `"hierarchicalSelectors"` option for `indentation`.
 - Fixed: `selector-max-compound-selectors` no longer errors on Less mixins.
 
