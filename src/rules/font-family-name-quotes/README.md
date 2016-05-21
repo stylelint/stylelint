@@ -1,6 +1,6 @@
 # font-family-name-quotes
 
-Specify whether or not quotation marks should be used around font family names, and whether single or double.
+Specify whether or not quotation marks should be used around font family names.
 
 ```css
 a { font-family: "Times New Roman", 'Ancient Runes', serif; }
@@ -12,7 +12,7 @@ This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntax
 
 ## Options
 
-`string`: `"single-where-required"|"single-where-recommended"|"single-unless-keyword"|"double-where-required"|"double-where-recommended|"double-unless-keyword"`
+`string`: `"always-where-required"|"always-where-recommended"|"always-unless-keyword"`
 
 *Please read the following to understand these options*:
 
@@ -24,11 +24,11 @@ For more on these subtleties, read ["Unquoted font family names in CSS"](https:/
 
 **Caveat:** This rule does not currently understand escape sequences such as those described by Mathias. If you want to use the font family name "Hawaii 5-0" you will need to wrap it in quotes, instead of escaping it as `Hawaii \35 -0` or `Hawaii\ 5-0`.
 
-### `"single-unless-keyword"` and `"double-unless-keyword"`
+### `"always-unless-keyword"`
 
 Expect quotes around every font family name that is not a keyword.
 
-For example, with `"single-unless-keyword"`, the following patterns are considered warnings:
+The following patterns are considered warnings:
 
 ```css
 a { font-family: Arial, sans-serif; }
@@ -45,23 +45,21 @@ a { font-family: 'Arial', sans-serif; }
 ```
 
 ```css
-a { font-family: 'Times New Roman', 'Times', serif; }
+a { font-family: "Times New Roman", "Times", serif; }
 ```
 
-The same examples apply to `"double-unless-keyword"`, but with `"` quotes.
-
-### `"single-where-required"` and `"double-where-required"`
+### `"always-where-required"`
 
 Expect quotes only when quotes are *required* according to the criteria above, and disallow quotes in all other cases.
 
-For example, with `"double-where-required"`, the following patterns are considered warnings:
+The following patterns are considered warnings:
 
 ```css
 a { font-family: "Arial", sans-serif; }
 ```
 
 ```css
-a { font-family: "Times New Roman", Times, serif; }
+a { font-family: 'Times New Roman', Times, serif; }
 ```
 
 And the following patterns are *not* considered warnings:
@@ -78,13 +76,11 @@ a { font-family: Times New Roman, Times, serif; }
 a { font-family: "Hawaii 5-0"; }
 ```
 
-The same examples apply to `"single-where-required"`, but with `'` quotes.
-
-### `"single-where-recommended"` and `"double-where-recommended"`
+### `"always-where-recommended"`
 
 Expect quotes only when quotes are *recommended* according to the criteria above, and disallow quotes in all other cases. (This includes all cases where quotes are *required*, as well.)
 
-For example, with `"single-where-recommended"`, the following patterns are considered warnings:
+The following patterns are considered warnings:
 
 ```css
 a { font-family: Times New Roman, Times, serif; }
@@ -105,11 +101,9 @@ a { font-family: 'Times New Roman', Times, serif; }
 ```
 
 ```css
-a { font-family: 'MyFontVersion6', 'sake_case_font'; }
+a { font-family: "MyFontVersion6", "sake_case_font"; }
 ```
 
 ```css
 a { font-family: Arial, sans-serif; }
 ```
-
-The same examples apply to `"double-where-recommended"`, but with `"` quotes.

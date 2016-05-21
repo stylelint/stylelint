@@ -49,9 +49,30 @@ export default function (expectation) {
         "double-where-required",
         "double-where-recommended",
         "double-unless-keyword",
+
+        "always-where-required",
+        "always-where-recommended",
+        "always-unless-keyword",
       ],
     })
     if (!validOptions) { return }
+
+    if (
+      expectation === "single-where-required"
+      || expectation === "single-where-recommended"
+      || expectation === "single-unless-keyword"
+      || expectation === "double-where-required"
+      || expectation === "double-where-recommended"
+      || expectation === "double-unless-keyword"
+    ) {
+      result.warn((
+        "The '" + expectation + "' option for 'font-family-name-quotes' has been deprecated, "
+          + "and will be removed in '7.0'. Instead, use the 'always-where-required', 'always-where-recommended' or 'always-unless-keyword' options together with the 'string-quotes' rule."
+      ), {
+        stylelintType: "deprecation",
+        stylelintReference: "http://stylelint.io/user-guide/rules/font-family-name-quotes/",
+      })
+    }
 
     root.walkDecls(/^font-family$/i, decl => {
       postcss.list.comma(decl.value).forEach(familyName => {
@@ -121,6 +142,25 @@ export default function (expectation) {
             return complain(messages.expected("double", family), family, decl)
           }
           return
+
+        case "always-where-recommended":
+          if (!recommended && quoteType !== "none") {
+            return complain(messages.expected("no", family), family, decl)
+          }
+          if (recommended && quoteType === "none") {
+            return complain(messages.expected("", family), family, decl)
+          }
+          return
+
+        case "always-where-required":
+          if (!required && quoteType !== "none") {
+            return complain(messages.expected("no", family), family, decl)
+          }
+          if (required && quoteType === "none") {
+            return complain(messages.expected("", family), family, decl)
+          }
+          return
+
         default: return
       }
     }
