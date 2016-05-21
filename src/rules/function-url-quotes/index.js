@@ -22,6 +22,11 @@ export default function (expectation) {
         return "double quotes"
       case "none":
         return "no quotes"
+
+      case "always":
+        return "quotes"
+      case "never":
+        return "no quotes"
     }
   }())
 
@@ -33,6 +38,11 @@ export default function (expectation) {
         return c => c !== "\""
       case "none":
         return c => c === "'" || c === "\""
+
+      case "never":
+        return c => c === "'" || c === "\""
+      case "always":
+        return c => c !== "'" && c !== "\""
     }
   }())
 
@@ -47,9 +57,26 @@ export default function (expectation) {
         "single",
         "double",
         "none",
+
+        "always",
+        "never",
       ],
     })
     if (!validOptions) { return }
+
+    if (
+      expectation === "single"
+      || expectation === "double"
+      || expectation === "none"
+    ) {
+      result.warn((
+        "The '" + expectation + "' option for 'function-url-quotes' has been deprecated, "
+          + "and will be removed in '7.0'. Instead, use the 'always' or 'never' options together with the 'string-quotes' rule."
+      ), {
+        stylelintType: "deprecation",
+        stylelintReference: "http://stylelint.io/user-guide/rules/function-url-quotes/",
+      })
+    }
 
     root.walkAtRules(check)
     root.walkRules(check)
