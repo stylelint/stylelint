@@ -14,6 +14,10 @@ testRule(rule, {
   }, {
     code: "input {}",
   }, {
+    code: "acronym {}",
+  }, {
+    code: "HGrOuP {}",
+  }, {
     code: "iNpUt {}",
   }, {
     code: "INPUT {}",

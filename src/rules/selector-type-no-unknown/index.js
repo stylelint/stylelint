@@ -18,6 +18,32 @@ export const messages = ruleMessages(ruleName, {
   rejected: (selector) => `Unexpected unknown type selector "${selector}"`,
 })
 
+// htmlTags includes only "standard" tags. So we augment it with older tags etc.
+const nonStandardHtmlTags = new Set([
+  "acronym",
+  "applet",
+  "basefont",
+  "big",
+  "blink",
+  "center",
+  "content",
+  "dir",
+  "font",
+  "frame",
+  "frameset",
+  "hgroup",
+  "isindex",
+  "keygen",
+  "listing",
+  "marquee",
+  "noembed",
+  "plaintext",
+  "spacer",
+  "strike",
+  "tt",
+  "xmp",
+])
+
 export default function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
@@ -44,6 +70,7 @@ export default function (actual, options) {
 
           if (htmlTags.indexOf(tagNameLowerCase) !== -1
             || svgTags.indexOf(tagNameLowerCase) !== -1
+            || nonStandardHtmlTags.has(tagNameLowerCase)
           ) { return }
 
           const ignoreTypes = options && options.ignoreTypes || []
