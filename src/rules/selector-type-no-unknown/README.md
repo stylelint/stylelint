@@ -3,8 +3,8 @@
 Disallow unknown type selectors.
 
 ```css
-       input {}
-/**    ↑
+    unknown {}
+/** ↑
  * This type selector */
 ```
 
@@ -15,25 +15,13 @@ unknown { }
 ```
 
 ```css
-uNkNoWn { }
-```
-
-```css
-UNKNOWN { }
+tag { }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
 input { }
-```
-
-```css
-iNpUt { }
-```
-
-```css
-INPUT { }
 ```
 
 ```css
@@ -62,22 +50,10 @@ The following patterns are considered warnings:
 tag
 ```
 
-```css
-tAg
-```
-
-```css
-TAG
-```
-
 The following patterns are *not* considered warnings:
 
 ```css
 unknown { }
-```
-
-```css
-uNkNoWn { }
 ```
 
 ```css
