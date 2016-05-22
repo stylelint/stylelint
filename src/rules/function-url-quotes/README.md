@@ -1,6 +1,6 @@
 # function-url-quotes
 
-Specify single, double or no quotes for urls.
+Require or disallow quotes for urls.
 
 ```css
 a { background: url("x.jpg") }
@@ -10,70 +10,30 @@ a { background: url("x.jpg") }
 
 ## Options
 
-`string`: `"single"|"double"|"none"`
+`string`: `"always"|"never"`
 
-### `"single"`
+### `"always"`
 
-Url quotes *must always* be single.
+Urls *must always* be quoted.
 
 The following patterns are considered warnings:
-
-```css
-a { background: url("x.jpg"); }
-```
 
 ```css
 @import url(foo.css);
 ```
 
 ```css
-@document domain("http://www.w3.org/");
+@document domain(http://www.w3.org/);
 ```
 
 ```css
-@font-face { font-family: 'foo'; src: url("foo.ttf"); }
+@font-face { font-family: 'foo'; src: url(foo.ttf); }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
 a { background: url('x.jpg'); }
-```
-
-```css
-@import url('foo.css');
-```
-
-```css
-@document domain('http://www.w3.org/');
-```
-
-```css
-@font-face { font-family: "foo"; src: url('foo.ttf'); }
-```
-
-### `"double"`
-
-Url quotes *must always* be double.
-
-The following patterns are considered warnings:
-
-```css
-a { background: url('x.jpg'); }
-```
-
-```css
-@import url(foo.css);
-```
-
-```css
-@font-face { font-family: "foo"; src: url('foo.ttf'); }
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-a { background: url("x.jpg"); }
 ```
 
 ```css
@@ -81,12 +41,16 @@ a { background: url("x.jpg"); }
 ```
 
 ```css
-@font-face { font-family: 'foo'; src: url("foo.ttf"); }
+@document domain('http://www.w3.org/');
 ```
 
-### `"none"`
+```css
+@font-face { font-family: "foo"; src: url("foo.ttf"); }
+```
 
-Urls *must not* be quoted.
+### `"never"`
+
+Urls *must never* be quoted.
 
 The following patterns are considered warnings:
 
