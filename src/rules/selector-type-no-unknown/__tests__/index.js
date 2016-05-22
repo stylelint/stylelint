@@ -38,6 +38,12 @@ testRule(rule, {
   }, {
     code: "a[target] {}",
   }, {
+    code: ":lang(en) {}",
+  }, {
+    code: "a:nth-of-type(n) {}",
+  }, {
+    code: "a:nth-child(n) {}",
+  }, {
     code: "circle {}",
     description: "svg tags",
   } ],

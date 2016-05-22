@@ -4,14 +4,30 @@ import test from "tape"
 import selectorParser from "postcss-selector-parser"
 
 test("isStandardTypeSelector", t => {
-  t.plan(4)
+  t.plan(8)
 
   rules("a {}", func => {
     t.ok(isStandardTypeSelector(func), "tag")
   })
 
   rules(".foo:nth-child(n) {}", func => {
-    t.notOk(isStandardTypeSelector(func), "pseudo selector")
+    t.notOk(isStandardTypeSelector(func), "nth-child pseudo selector")
+  })
+
+  rules(".foo:nth-last-child(n) {}", func => {
+    t.notOk(isStandardTypeSelector(func), "nth-last-child pseudo selector")
+  })
+
+  rules(".foo:nth-of-type(n) {}", func => {
+    t.notOk(isStandardTypeSelector(func), "nth-of-type pseudo selector")
+  })
+
+  rules(":lang(en) {}", func => {
+    t.notOk(isStandardTypeSelector(func), "lang pseudo selector")
+  })
+
+  rules(":dir(ltr) {}", func => {
+    t.notOk(isStandardTypeSelector(func), "dir pseudo selector")
   })
 
   rules(".foo { &-bar {} }", func => {
@@ -32,5 +48,7 @@ function rules(css, cb) {
         })
       }).process(rule.selector)
     })
+  }).catch(error => {
+    console.log(error) // eslint-disable-line no-console
   })
 }
