@@ -1,14 +1,14 @@
 # Head
 
-- Deprecated: `"single"`, `"double"` and `"none"` options for `function-url-quotes`. Instead, use the `"always"` or `"never"` options together with the `string-quotes` rule.
-- Deprecated: `"single-where-required"`, `"single-where-recommended"`, `"single-unless-keyword"`, `"double-where-required"`, `"double-where-recommended"` and `"double-unless-keyword"` options for `font-family-name-quotes`. Instead, use the `"always-unless-keyword"`, `always-where-recommended` and `always-where-required` or `"never"` options together with the `string-quotes` rule.
 - Deprecated: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community.
+- Deprecated: `"single-where-required"`, `"single-where-recommended"`, `"single-unless-keyword"`, `"double-where-required"`, `"double-where-recommended"` and `"double-unless-keyword"` options for `font-family-name-quotes`. Instead, use the `"always-unless-keyword"`, `always-where-recommended` and `always-where-required` or `"never"` options together with the `string-quotes` rule.
+- Deprecated: `"single"`, `"double"` and `"none"` options for `function-url-quotes`. Instead, use the `"always"` or `"never"` options together with the `string-quotes` rule.
 - Deprecated: `"hierarchicalSelectors"` option for `indentation`.  If you use this option, please consider creating a plugin for the community.
 - Fixed: the string formatter no longer errors on non-rule errors.
-- Fixed: `selector-type-no-unknown` now ignores obsolete HTML tags and `<hgroup>`.
-- Fixed: `selector-max-compound-selectors` no longer errors on Less mixins.
 - Fixed: `selector-list-comma-*` rules now ignore Less mixins.
+- Fixed: `selector-max-compound-selectors` no longer errors on Less mixins.
 - Fixed: `selector-type-no-unknown` now ignores all *An+B notation* and linguistic pseudo-classes.
+- Fixed: `selector-type-no-unknown` now ignores obsolete HTML tags and `<hgroup>`.
 
 # 6.5.0
 
