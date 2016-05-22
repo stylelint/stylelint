@@ -18,7 +18,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 ### Font family
 
-- [`font-family-name-quotes`](../../src/rules/font-family-name-quotes/README.md): Specify whether or not quotation marks should be used around font family names, and whether single or double.
+- [`font-family-name-quotes`](../../src/rules/font-family-name-quotes/README.md): Specify whether or not quotation marks should be used around font family names.
 
 ### Font weight
 
@@ -38,7 +38,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`function-parentheses-newline-inside`](../../src/rules/function-parentheses-newline-inside/README.md): Require a newline or disallow whitespace on the inside of the parentheses of functions.
 - [`function-parentheses-space-inside`](../../src/rules/function-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses of functions.
 - [`function-url-data-uris`](../../src/rules/function-url-data-uris/README.md): Require or disallow data URIs for urls.
-- [`function-url-quotes`](../../src/rules/function-url-quotes/README.md): Specify single, double or no quotes for urls.
+- [`function-url-quotes`](../../src/rules/function-url-quotes/README.md): Require or disallow quotes for urls.
 - [`function-whitelist`](../../src/rules/function-whitelist/README.md): Specify a whitelist of allowed functions.
 - [`function-whitespace-after`](../../src/rules/function-whitespace-after/README.md): Require or disallow whitespace after functions.
 
