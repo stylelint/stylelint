@@ -155,7 +155,21 @@ export const pseudoElements = uniteSets(
   levelThreePseudoElements
 )
 
-export const pseudoClasses = new Set([
+export const aNPlusBNotationPseudoClasses = new Set([
+  "nth-child",
+  "nth-column",
+  "nth-last-child",
+  "nth-last-column",
+  "nth-last-of-type",
+  "nth-of-type",
+])
+
+export const linguisticPseudoClasses = new Set([
+  "dir",
+  "lang",
+])
+
+export const otherPseudoClasses = new Set([
   "active",
   "any-link",
   "blank",
@@ -163,7 +177,6 @@ export const pseudoClasses = new Set([
   "contains",
   "current",
   "default",
-  "dir",
   "disabled",
   "drop",
   "empty",
@@ -179,18 +192,11 @@ export const pseudoClasses = new Set([
   "indeterminate",
   "in-range",
   "invalid",
-  "lang",
   "last-child",
   "last-of-type",
   "link",
   "matches",
   "not",
-  "nth-child",
-  "nth-column",
-  "nth-last-child",
-  "nth-last-column",
-  "nth-last-of-type",
-  "nth-of-type",
   "only-child",
   "only-of-type",
   "optional",
@@ -209,6 +215,12 @@ export const pseudoClasses = new Set([
   "valid",
   "visited",
 ])
+
+export const pseudoClasses = uniteSets(
+  aNPlusBNotationPseudoClasses,
+  linguisticPseudoClasses,
+  otherPseudoClasses
+)
 
 export const shorthandTimeProperties = new Set([
   "transition",

@@ -6,6 +6,7 @@
 - Deprecated: `"hierarchicalSelectors"` option for `indentation`.  If you use this option, please consider creating a plugin for the community.
 - Fixed: `selector-max-compound-selectors` no longer errors on Less mixins.
 - Fixed: `selector-list-comma-*` rules now ignore Less mixins.
+- Fixed: `selector-type-no-unknown` now ignores all *An+B notation* and linguistic pseudo-classes.
 
 # 6.5.0
 
