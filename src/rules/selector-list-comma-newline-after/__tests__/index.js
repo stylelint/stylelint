@@ -195,8 +195,14 @@ testRule(rule, {
   skipBasicChecks: true,
   syntax: "less",
 
-  accept: [{
+  accept: [ {
     code: "a, // comment\nb {}",
     description: "with end-of-line // comment with newline after",
-  }],
+  }, {
+    code: ".col( @a, @b ) {}",
+    description: "mixin ending in a char",
+  }, {
+    code: ".col3( @a, @b ) {}",
+    description: "mixin ending in a number",
+  } ],
 })

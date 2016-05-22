@@ -1,7 +1,8 @@
 import {
+  isStandardRule,
+  report,
   ruleMessages,
   styleSearch,
-  report,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
@@ -28,6 +29,7 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
+      if (!isStandardRule(rule)) { return }
       // Get raw selector so we can allow end-of-line comments, e.g.
       // a, /* comment */
       // b {}
