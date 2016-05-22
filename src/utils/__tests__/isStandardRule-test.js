@@ -4,7 +4,7 @@ import postcss from "postcss"
 import test from "tape"
 
 test("isStandardRule", t => {
-  t.plan(15)
+  t.plan(17)
 
   rules("a {}", rule => {
     t.ok(isStandardRule(rule), "type")
@@ -34,6 +34,12 @@ test("isStandardRule", t => {
   })
   lessRules(".mixin-name() {}", rule => {
     t.notOk(isStandardRule(rule), "non-ouputting Less class mixin definition")
+  })
+  lessRules(".mixin-name(@a, @b) {}", rule => {
+    t.notOk(isStandardRule(rule), "non-ouputting parametric Less class mixin definition")
+  })
+  lessRules(".mixin-name3(@a, @b) {}", rule => {
+    t.notOk(isStandardRule(rule), "non-ouputting parametric Less class mixin definition ending in number")
   })
   lessRules("#mixin-name() {}", rule => {
     t.notOk(isStandardRule(rule), "non-ouputting Less id mixin definition")

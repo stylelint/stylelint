@@ -3,6 +3,7 @@
 - Deprecated: `"emptyLineBefore"` option for `declaration-block-properties-order`.
 - Deprecated: `"hierarchicalSelectors"` option for `indentation`.
 - Fixed: `selector-max-compound-selectors` no longer errors on Less mixins.
+- Fixed: `selector-list-comma-*` rules now ignore Less mixins.
 
 # 6.5.0
 

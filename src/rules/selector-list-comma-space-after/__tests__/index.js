@@ -199,3 +199,18 @@ testRule(rule, {
     column: 2,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: ["always"],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [ {
+    code: ".col( @a,@b ) {}",
+    description: "mixin ending in a char",
+  }, {
+    code: ".col3( @a,@b ) {}",
+    description: "mixin ending in a number",
+  } ],
+})
