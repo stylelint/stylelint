@@ -56,3 +56,5 @@ test.css
 ```
 
 <!--- Note: stackoverflow is our preferred QA forum - http://stackoverflow.com/questions/tagged/stylelint -->
+
+<!--- Tip: If you can submit a pull request that includes a failing test this would be really helpful -->
