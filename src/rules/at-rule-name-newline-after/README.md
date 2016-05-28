@@ -3,9 +3,10 @@
 Require a newline after at-rule names.
 
 ```css
-@media (max-width: 600px) {}
-/**   ↑
- * The newline after at-rule names */
+    @media
+   /*↑*/  (max-width: 600px) {}
+/**  ↑
+ * The newline after this at-rule name */
 ```
 
 ## Options
@@ -19,38 +20,11 @@ There *must always* be a newline after at-rule names.
 The following patterns are considered warnings:
 
 ```css
-@charset"UTF-8";
-```
-
-```css
 @charset "UTF-8";
 ```
 
 ```css
-@charset 
-
-"UTF-8";
-```
-
-```css
-@media(min-width: 700px) and
-  (orientation: landscape) { }
-```
-
-```css
 @media (min-width: 700px) and
-  (orientation: landscape) { }
-```
-
-```css
-@media  (min-width: 700px) and
-  (orientation: landscape) { }
-```
-
-```css
-@media 
-
-(min-width: 700px) and
   (orientation: landscape) { }
 ```
 
@@ -62,7 +36,7 @@ The following patterns are *not* considered warnings:
 ```
 
 ```css
-@import 
+@import
   "x.css" screen and
  (orientation:landscape);
 ```
@@ -74,7 +48,7 @@ The following patterns are *not* considered warnings:
 
 ```css
 @media
-  (min-width: 700px) and 
+  (min-width: 700px) and
   (orientation: landscape) { }
 ```
 
@@ -94,23 +68,10 @@ The following patterns are considered warnings:
  (orientation: landscape) { }
 ```
 
-```css
-@media (min-width: 700px) 
-  and (orientation: landscape) { }
-```
-
 The following patterns are *not* considered warnings:
 
 ```css
-@charset"UTF-8";
-```
-
-```css
 @charset "UTF-8";
-```
-
-```css
-@charset  "UTF-8";
 ```
 
 ```css
@@ -127,7 +88,7 @@ The following patterns are *not* considered warnings:
 ```
 
 ```css
-@media 
+@media
   (min-width: 700px) and
   (orientation: landscape) { }
 ```
