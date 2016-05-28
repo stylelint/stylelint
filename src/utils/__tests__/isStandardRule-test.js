@@ -4,7 +4,7 @@ import postcss from "postcss"
 import test from "tape"
 
 test("isStandardRule", t => {
-  t.plan(17)
+  t.plan(19)
 
   rules("a {}", rule => {
     t.ok(isStandardRule(rule), "type")
@@ -58,6 +58,12 @@ test("isStandardRule", t => {
   })
   lessRules("#namespace.mixin-name;", rule => {
     t.notOk(isStandardRule(rule), "called namespaced Less mixin (compound)")
+  })
+  lessRules(".box-shadow(@style, @c) when (iscolor(@c)) {}", rule => {
+    t.notOk(isStandardRule(rule), "less mixin")
+  })
+  lessRules("&:extend(.inline);", rule => {
+    t.notOk(isStandardRule(rule), "less extend")
   })
 })
 
