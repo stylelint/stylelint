@@ -14,6 +14,12 @@ export const messages = ruleMessages(ruleName, {
   expected: (style, family) => `Expected ${style} quotes around font-family name "${family}"`,
 })
 
+function isSystemFontKeyword(font) {
+  if (font.indexOf("-apple-") === 0) { return true }
+  if (font === "BlinkMacSystemFont") { return true }
+  return false
+}
+
 // "To avoid mistakes in escaping, it is recommended to quote font family names
 // that contain white space, digits, or punctuation characters other than hyphens"
 // (https://www.w3.org/TR/CSS2/fonts.html#font-family-prop)
@@ -88,8 +94,9 @@ export default function (expectation) {
       // Clean the family of its quotes
       const family = rawFamily.replace(/^['"]|['"]$/g, "")
 
-      // Disallow quotes around (case-insensitive) keywords in all cases
-      if (fontFamilyKeywords.has(family.toLowerCase())) {
+      // Disallow quotes around (case-insensitive) keywords
+      // and system font keywords in all cases
+      if (fontFamilyKeywords.has(family.toLowerCase()) || isSystemFontKeyword(family)) {
         if (quoteType !== "none") {
           return complain(messages.expected("no", family), family, decl)
         }
