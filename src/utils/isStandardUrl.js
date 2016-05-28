@@ -14,11 +14,8 @@ export default function (url) {
     || url[0] === "\"" && url[url.length - 1] === "\""
   ) { return true }
 
-  // SCSS var
-  if (/\$[a-zA-Z_-][a-zA-Z0-9_-]*/.test(url)) { return false }
-
-  // Less function allow only first and one variable, addition is forbidden
-  if (url[0] === "@") { return false }
+  // Sass and Less variables at the beginning or after a + sign within
+  if (url[0] === "$" || url[0] === "@" || /['"]\s*\+\s*[\$@]/.test(url)) { return false }
 
   return true
 }

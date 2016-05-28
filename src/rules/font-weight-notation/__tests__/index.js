@@ -240,8 +240,11 @@ testRule(rule, {
   syntax: "scss",
   config: ["numeric"],
 
-  accept: [{
+  accept: [ {
     code: "@mixin font-face($weight) { a { font-weight: #{$weight}; } }",
     description: "ignores sass interpolation",
-  }],
+  }, {
+    code: "a { font-weight: $foo }",
+    description: "ignore sass variable",
+  } ],
 })

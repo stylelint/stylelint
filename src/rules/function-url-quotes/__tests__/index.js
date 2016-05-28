@@ -65,38 +65,6 @@ testRule(rule, {
   }, {
     code: "a { background: uRl(\"foo.css\"); }",
   }, {
-    code: "a { background-image: url(\"foo.css\"), url(\"bar.css\"), url(\"baz.css\"); }",
-  }, {
-    code: "@import url(@variable);",
-  }, {
-    code: "@import url($variable + 'foo.css');",
-  }, {
-    code: "@import url($variable + \"foo.css\");",
-  }, {
-    code: "@import url('foo.css' + $variable);",
-  }, {
-    code: "@import url(\"foo.css\" + $variable);",
-  }, {
-    code: "@import url($variable-one + 'foo.css' + $variable-two);",
-  }, {
-    code: "@import url($variable-one + \"foo.css\" + $variable-two);",
-  }, {
-    code: "@font-face { font-family: 'foo'; src: url(@variable); }",
-  }, {
-    code: "@font-face { font-family: 'foo'; src: url($variable + 'foo.ttf'); }",
-  }, {
-    code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\"); }",
-  }, {
-    code: "@font-face { font-family: 'foo'; src: url(\"foo.ttf\" + $variable); }",
-  }, {
-    code: "@font-face { font-family: 'foo'; src: url('foo.ttf' + $variable); }",
-  }, {
-    code: "@font-face { font-family: 'foo'; src: url($variable + 'foo.ttf' + $variable); }",
-  }, {
-    code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\" + $variable); }",
-  }, {
-    code: "a { background: url(\"/images/my_image@2x.png\") }",
-  }, {
     code: "a { background: URL(\"foo.css\"); }",
   }, {
     code: "a { background: url( \"foo.css\" ); }",
@@ -169,15 +137,15 @@ testRule(rule, {
   }, {
     code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\"); }",
   }, {
-    code: "@font-face { font-family: 'foo'; src: url('foo.ttf' + $variable); }",
-  }, {
     code: "@font-face { font-family: 'foo'; src: url(\"foo.ttf\" + $variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url('foo.ttf' + $variable); }",
   }, {
     code: "@font-face { font-family: 'foo'; src: url($variable + 'foo.ttf' + $variable); }",
   }, {
     code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\" + $variable); }",
   }, {
-    code: "a { background: url('/images/my_image@2x.png') }",
+    code: "a { background: url(\"/images/my_image@2x.png\") }",
   } ],
 
   reject: [ {
@@ -313,15 +281,13 @@ testRule(rule, {
   }, {
     code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\"); }",
   }, {
-    code: "@font-face { font-family: 'foo'; src: url('foo.ttf' + $variable); }",
-  }, {
     code: "@font-face { font-family: 'foo'; src: url(\"foo.ttf\" + $variable); }",
+  }, {
+    code: "@font-face { font-family: 'foo'; src: url('foo.ttf' + $variable); }",
   }, {
     code: "@font-face { font-family: 'foo'; src: url($variable + 'foo.ttf' + $variable); }",
   }, {
-    code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf'\" + $variable); }",
-  }, {
-    code: "a { background: url(/images/my_image@2x.png) }",
+    code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\" + $variable); }",
   } ],
 
   reject: [ {
@@ -454,6 +420,11 @@ testRule(rule, {
     message: messages.expected("no quotes"),
     line: 1,
     column: 56,
+  }, {
+    code: "a { background: url(\"/images/my_image@2x.png\") }",
+    message: messages.expected("no quotes"),
+    line: 1,
+    column: 21,
   } ],
 })
 
