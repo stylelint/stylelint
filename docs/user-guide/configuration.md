@@ -224,6 +224,8 @@ The `ignoreFiles` property is stripped from extended configs: only the root-leve
 
 Like `ignoreFiles` in the configuration object, you can specify a list of files or patterns that will be ignored.
 
-You must include only one pattern per line. And the patterns are the same globs as for `ignoreFiles`, above.
+You must include only one pattern per line. And the patterns are the same globs as for `ignoreFiles`, above, analyzed relative to the same location.
 
 stylelint will check for the `.stylelintignore` file in the config's `configBasedir` (if it's provided), the config's own directory, or `process.cwd()`.
+
+You can also specify an absolute path for your ignore patterns file using the `--ignore-path` (in the CLI) and `ignorePath` (in JS) options.

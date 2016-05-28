@@ -28,6 +28,9 @@ const FILE_NOT_FOUND_ERROR_CODE = "ENOENT"
  *   considered relative to.
  * @param {object} [options.configOverrides] - An object to merge on top of the
  *   final derived configuration object
+ * @param {object} [options.ignorePath] - Specify a file of ignore patterns.
+ *   The path can be absolute or relative to `process.cwd()`.
+ *   Defaults to `${configDir}/.stylelintignore`.
  * @return {object} Object with `config` and `configDir` properties.
  */
 export default function (options) {
@@ -39,7 +42,10 @@ export default function (options) {
   const configBasedir = options.configBasedir || process.cwd()
 
   if (rawConfig) {
-    return augmentConfig(rawConfig, configBasedir, { addIgnorePatterns: true }).then(augmentedConfig => {
+    return augmentConfig(rawConfig, configBasedir, {
+      addIgnorePatterns: true,
+      ignorePath: options.ignorePath,
+    }).then(augmentedConfig => {
       return {
         config: merge(augmentedConfig, options.configOverrides),
         configDir: configBasedir,
@@ -65,7 +71,10 @@ export default function (options) {
   return cosmiconfig("stylelint", cosmiconfigOptions).then(result => {
     if (!result) throw configurationError("No configuration found")
     rootConfigDir = path.dirname(result.filepath)
-    return augmentConfig(result.config, rootConfigDir, { addIgnorePatterns: true })
+    return augmentConfig(result.config, rootConfigDir, {
+      addIgnorePatterns: true,
+      ignorePath: options.ignorePath,
+    })
   }).then(augmentedConfig => {
     const finalConfig = (options.configOverrides)
       ? merge({}, augmentedConfig, options.configOverrides)
@@ -87,11 +96,12 @@ export default function (options) {
  * @param {object} [options]
  * @param {boolean} [options.addIgnorePatterns=false] - Look for `.stylelintignore` and
  *   add its patterns to `config.ignoreFiles`.
+ * @param {string} [options.ignorePath] - See above.
  * @return {object}
  */
 export function augmentConfig(config, configDir, options = {}) {
   const start = (options.addIgnorePatterns)
-    ? addIgnoreFiles(config, configDir)
+    ? addIgnoreFiles(config, configDir, options.ignorePath)
     : Promise.resolve(config)
   return start.then(configWithIgnorePatterns => {
     const absolutizedConfig = absolutizePlugins(configWithIgnorePatterns, configDir)
@@ -102,17 +112,22 @@ export function augmentConfig(config, configDir, options = {}) {
   })
 }
 
-export function addIgnoreFiles(config, configDir) {
-  return findIgnorePatterns(configDir).then(ignorePatterns => {
+export function addIgnoreFiles(config, configDir, ignorePath) {
+  return findIgnorePatterns(configDir, ignorePath).then(ignorePatterns => {
     config.ignoreFiles = [].concat(ignorePatterns, config.ignoreFiles || [])
     return config
   })
 }
 
-function findIgnorePatterns(configDir) {
-  const ignoreFilePath = path.resolve(configDir, IGNORE_FILENAME)
+function findIgnorePatterns(configDir, ignorePath) {
+  let defaultedIgnorePath = path.resolve(configDir, IGNORE_FILENAME)
+  if (ignorePath) {
+    defaultedIgnorePath = (path.isAbsolute(ignorePath))
+      ? ignorePath
+      : path.resolve(process.cwd(), ignorePath)
+  }
   return new Promise((resolve, reject) => {
-    fs.readFile(ignoreFilePath, "utf8", (err, data) => {
+    fs.readFile(defaultedIgnorePath, "utf8", (err, data) => {
       if (err) {
         // If the file's not found, great, we'll just give an empty array
         if (err.code === FILE_NOT_FOUND_ERROR_CODE) { return resolve([]) }
