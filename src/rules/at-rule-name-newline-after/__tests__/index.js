@@ -113,10 +113,6 @@ testRule(rule, {
     line: 1,
     column: 6,
   }, {
-    message: messages.expectedAfter("@media"),
-    line: 1,
-    column: 6,
-  }, {
     code: "@unknown \"ident\";",
     message: messages.expectedAfter("@unknown"),
     line: 1,
