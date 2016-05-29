@@ -1,3 +1,6 @@
+<!-- Here are the best ways to help resolve your issue:
+1. Figure out what needs to be done, propose it, and then write the code and submit a PR.
+2. If your issue is a bug, consider at least submitting a PR with failing tests. -->
 > Describe the issue. Is it a bug or a feature request (new rule, new option, etc.)?
 
 e.g. "A bug where..."
