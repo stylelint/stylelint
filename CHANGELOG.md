@@ -5,6 +5,7 @@
 - Removed: `"single"`, `"double"` and `"none"` options for `function-url-quotes`. Instead, use the `"always"` or `"never"` options together with the `string-quotes` rule.
 - Removed: `"hierarchicalSelectors"` option for `indentation`.  If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
 - Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`).
+- Removed: `stylelint.utils.cssWordIsVariable()`.
 - Changed: invalid configuration sets result's `stylelintError` to `true`, which in turn causes CLI to exit with a non-zero code.
 - Changed: `declaration-block-no-ignored-properties` now detects use of `min-width` and `max-width` with inline, table-row, table-row-group, table-column and table-column-group elements.
 - Changed: `declaration-block-no-ignored-properties` now detects use of `overflow`, `overflow-x` and `overflow-y` with inline elements.
