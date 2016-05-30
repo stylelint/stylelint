@@ -17,6 +17,7 @@ const minimistOptions = {
   alias: {
     e: "extract",
     f: "formatter",
+    i: "ignore-path",
     q: "quiet",
     s: "syntax",
     v: "verbose",
@@ -51,6 +52,10 @@ const meowOptions = {
     "  --custom-formatter  Path to a JS file exporting a custom formatting function",
     "  --stdin-filename    Specify a filename to assign stdin input",
     "  -f, --formatter     Specify a formatter: \"json\" or \"string\". Default is \"string\".",
+    "  -i, --ignore-path   Specify a to a file containing patterns describing files",
+    "                      to ignore. The path can be absolute or relative to `cwd`.",
+    "                      By default, stylelint looks for `.stylelintignore` in the",
+    "                      same directory as the configuration file.",
     "  -q, --quiet         Only register warnings for rules with an \"error\"-level severity",
     "                      (ignore \"warning\"-level)",
     "  -s, --syntax        Specify a non-standard syntax that should be used to ",
@@ -100,6 +105,10 @@ if (cli.flags.config) {
 
 if (cli.flags.stdinFilename) {
   optionsBase.codeFilename = cli.flags.stdinFilename
+}
+
+if (cli.flags.ignorePath) {
+  optionsBase.ignorePath = cli.flags.ignorePath
 }
 
 Promise.resolve().then(() => {

@@ -15,6 +15,7 @@ const ignoredGlobs = [
 ]
 
 export default function ({
+  // Options
   files,
   code,
   codeFilename,
@@ -22,6 +23,7 @@ export default function ({
   configFile,
   configBasedir,
   configOverrides,
+  ignorePath,
   syntax,
   formatter = "json",
   extractStyleTagsFromHtml,
@@ -85,6 +87,7 @@ export default function ({
           configFile,
           configBasedir,
           configOverrides,
+          ignorePath,
         }))
     }
 

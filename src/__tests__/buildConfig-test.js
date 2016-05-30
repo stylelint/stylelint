@@ -162,6 +162,30 @@ test("buildConfig adds `.stylelintignore`", t => {
   t.plan(planned)
 })
 
+test("buildConfig adds ignore patterns from options.ignorePath", t => {
+  let planned = 0
+
+  const optionsA = {
+    config: {
+      rules: {
+        foo: true,
+      },
+    },
+    ignorePath: path.join(__dirname, "./fixtures/ignore_config/foo.txt"),
+  }
+  buildConfig(optionsA).then(({ config }) => {
+    t.deepEqual(config, {
+      ignoreFiles: ["./empty-block.css"],
+      rules: {
+        foo: true,
+      },
+    }, "finds and loads options.ignorePath")
+  })
+  planned += 1
+
+  t.plan(planned)
+})
+
 test("buildConfig throws as needed", t => {
   let planned = 0
 
