@@ -15,8 +15,12 @@ export default function (results) {
       formatting = "red"
     } else if (result.warnings.length) {
       formatting = "yellow"
+    } else if (result.ignored) {
+      formatting = "gray"
     }
-    output += _.get(chalk, formatting)(` ${result.source}\n`)
+    let sourceText = ` ${result.source}`
+    if (result.ignored) { sourceText += " (ignored)" }
+    output += _.get(chalk, formatting)(` ${sourceText}\n`)
   })
 
   const warnings = _.flatten(results.map(r => r.warnings))
