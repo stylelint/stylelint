@@ -4,6 +4,7 @@
 - Changed: `declaration-block-no-ignored-properties` now detects use of `min-width` and `max-width` with inline, table-row, table-row-group, table-column and table-column-group elements.
 - Changed: `declaration-block-no-ignored-properties` now detects use of `overflow`, `overflow-x` and `overflow-y` with inline elements.
 - Changed: `font-family-name-quotes` treats `-apple-*` and `BlinkMacSystemFont` system fonts as keywords that should never be wrapped in quotes.
+- Added: non-standard syntaxes are automatically inferred from file extensions `.scss`, `.less`, and `.sss`.
 
 # Head
 
