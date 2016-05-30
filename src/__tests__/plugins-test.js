@@ -171,27 +171,6 @@ test("module providing an array of plugins", t => {
   t.plan(planned)
 })
 
-test("deprecation warning for slashless plugin rule names", t => {
-  const config = {
-    plugins: [path.join(__dirname, "fixtures/plugin-slashless-warn-about-foo")],
-    rules: {
-      "slashless-warn-about-foo": "always",
-    },
-  }
-
-  let planned = 0
-
-  postcss().use(stylelint(config)).process(".foo {}").then(result => {
-    t.equal(result.warnings().length, 2)
-    t.equal(result.warnings()[0].text, "Plugin rules that aren't namespaced have been deprecated, and in 7.0 they will be disallowed.")
-    t.equal(result.warnings()[0].stylelintType, "deprecation")
-    t.equal(result.warnings()[1].text, "found .foo (slashless-warn-about-foo)")
-  }).catch(logError)
-  planned += 4
-
-  t.plan(planned)
-})
-
 function logError(err) {
   console.log(err.stack) // eslint-disable-line no-console
 }
