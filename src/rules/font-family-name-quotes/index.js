@@ -1,4 +1,6 @@
 import {
+  isStandardValue,
+  isVariable,
   findFontFamily,
   report,
   ruleMessages,
@@ -9,7 +11,8 @@ import { fontFamilyKeywords } from "../../reference/keywordSets"
 export const ruleName = "font-family-name-quotes"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (style, family) => `Expected ${style} quotes around font-family name "${family}"`,
+  expected: (family) => `Expected quotes around font-family name "${family}"`,
+  rejected: (family) => `Unexpected quotes around font-family name "${family}"`,
 })
 
 function isSystemFontKeyword(font) {
@@ -36,47 +39,17 @@ function quotesRequired(family) {
   })
 }
 
-function getQuoteType(str) {
-  if (str[0] && str[str.length - 1] === "\"") { return "double" }
-  if (str[0] && str[str.length - 1] === "'") { return "single" }
-  return "none"
-}
-
 export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
       possible: [
-        "single-where-required",
-        "single-where-recommended",
-        "single-unless-keyword",
-        "double-where-required",
-        "double-where-recommended",
-        "double-unless-keyword",
-
         "always-where-required",
         "always-where-recommended",
         "always-unless-keyword",
       ],
     })
     if (!validOptions) { return }
-
-    if (
-      expectation === "single-where-required"
-      || expectation === "single-where-recommended"
-      || expectation === "single-unless-keyword"
-      || expectation === "double-where-required"
-      || expectation === "double-where-recommended"
-      || expectation === "double-unless-keyword"
-    ) {
-      result.warn((
-        "The '" + expectation + "' option for 'font-family-name-quotes' has been deprecated, "
-          + "and will be removed in '7.0'. Instead, use the 'always-where-required', 'always-where-recommended' or 'always-unless-keyword' options together with the 'string-quotes' rule."
-      ), {
-        stylelintType: "deprecation",
-        stylelintReference: "http://stylelint.io/user-guide/rules/font-family-name-quotes/",
-      })
-    }
 
     root.walkDecls(/^font-family$/i, decl => {
       const fontFamilies = findFontFamily(decl.value)
@@ -95,15 +68,19 @@ export default function (expectation) {
     })
 
     function checkFamilyName(rawFamily, decl) {
-      const quoteType = getQuoteType(rawFamily)
+      if (!isStandardValue(rawFamily)) { return }
+      if (isVariable(rawFamily)) { return }
+
+      const hasQuotes = rawFamily[0] === "'" || rawFamily[0] === "\""
+
       // Clean the family of its quotes
       const family = rawFamily.replace(/^['"]|['"]$/g, "")
 
       // Disallow quotes around (case-insensitive) keywords
       // and system font keywords in all cases
       if (fontFamilyKeywords.has(family.toLowerCase()) || isSystemFontKeyword(family)) {
-        if (quoteType !== "none") {
-          return complain(messages.expected("no", family), family, decl)
+        if (hasQuotes) {
+          return complain(messages.rejected(family), family, decl)
         }
         return
       }
@@ -112,64 +89,27 @@ export default function (expectation) {
       const recommended = quotesRecommended(family)
 
       switch (expectation) {
-        case "single-where-required":
-          if (!required && quoteType !== "none") {
-            return complain(messages.expected("no", family), family, decl)
-          }
-          if (required && quoteType !== "single") {
-            return complain(messages.expected("single", family), family, decl)
-          }
-          return
-        case "single-where-recommended":
-          if (!recommended && quoteType !== "none") {
-            return complain(messages.expected("no", family), family, decl)
-          }
-          if (recommended && quoteType !== "single") {
-            return complain(messages.expected("single", family), family, decl)
-          }
-          return
-        case "single-unless-keyword":
-          if (quoteType !== "single") {
-            return complain(messages.expected("single", family), family, decl)
-          }
-          return
-        case "double-where-required":
-          if (!required && quoteType !== "none") {
-            return complain(messages.expected("no", family), family, decl)
-          }
-          if (required && quoteType !== "double") {
-            return complain(messages.expected("double", family), family, decl)
-          }
-          return
-        case "double-where-recommended":
-          if (!recommended && quoteType !== "none") {
-            return complain(messages.expected("no", family), family, decl)
-          }
-          if (recommended && quoteType !== "double") {
-            return complain(messages.expected("double", family), family, decl)
-          }
-          return
-        case "double-unless-keyword":
-          if (quoteType !== "double") {
-            return complain(messages.expected("double", family), family, decl)
+        case "always-unless-keyword":
+          if (!hasQuotes) {
+            return complain(messages.expected(family), family, decl)
           }
           return
 
         case "always-where-recommended":
-          if (!recommended && quoteType !== "none") {
-            return complain(messages.expected("no", family), family, decl)
+          if (!recommended && hasQuotes) {
+            return complain(messages.rejected(family), family, decl)
           }
-          if (recommended && quoteType === "none") {
-            return complain(messages.expected("", family), family, decl)
+          if (recommended && !hasQuotes) {
+            return complain(messages.expected(family), family, decl)
           }
           return
 
         case "always-where-required":
-          if (!required && quoteType !== "none") {
-            return complain(messages.expected("no", family), family, decl)
+          if (!required && hasQuotes) {
+            return complain(messages.rejected(family), family, decl)
           }
-          if (required && quoteType === "none") {
-            return complain(messages.expected("", family), family, decl)
+          if (required && !hasQuotes) {
+            return complain(messages.expected(family), family, decl)
           }
           return
 
