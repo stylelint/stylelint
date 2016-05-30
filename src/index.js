@@ -3,7 +3,6 @@ import standalone from "./standalone"
 import createPlugin from "./createPlugin"
 import rules from "./rules"
 import {
-  cssWordIsVariable, // Deprecated
   report,
   ruleMessages,
   styleSearch,
@@ -14,7 +13,6 @@ import createRuleTester from "./testUtils/createRuleTester"
 const stylelint = postcssPlugin
 
 stylelint.utils = {
-  cssWordIsVariable, // Deprecated
   report,
   ruleMessages,
   styleSearch,
