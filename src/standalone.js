@@ -107,7 +107,7 @@ export default function ({
       extractMap = extracted.map
     }
 
-    const fileExtension = path.extname(filepath)
+    const fileExtension = path.extname(filepath || "")
     if (syntax === "scss" || !syntax && fileExtension === ".scss") {
       postcssProcessOptions.syntax = scssSyntax
     } else if (syntax === "less" || !syntax && fileExtension === ".less") {
