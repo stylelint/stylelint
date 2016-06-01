@@ -250,12 +250,12 @@ export const counterIncrementKeywords = uniteSets(basicKeywords, [
   "none",
 ])
 
-export const gridRowKeywords = new Set([
+export const gridRowKeywords = uniteSets(basicKeywords, [
   "auto",
   "span",
 ])
 
-export const gridColumnKeywords = new Set([
+export const gridColumnKeywords = uniteSets(basicKeywords, [
   "auto",
   "span",
 ])
@@ -404,13 +404,22 @@ export const lineHeightKeywords = uniteSets(basicKeywords, [
   "normal",
 ])
 
-function uniteSets(...sets) {
-  return new Set(sets.reduce((result, set) => {
-    return result.concat(_.toArray(set))
-  }, []))
-}
+export const listStylePositionKeywords = uniteSets(basicKeywords, [
+  "inside",
+  "outside",
+])
+
+export const listStyleImageKeywords = uniteSets(basicKeywords, [
+  "none",
+])
 
 export const keyframeSelectorKeywords = new Set([
   "from",
   "to",
 ])
+
+function uniteSets(...sets) {
+  return new Set(sets.reduce((result, set) => {
+    return result.concat(_.toArray(set))
+  }, []))
+}
