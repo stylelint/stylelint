@@ -4,6 +4,7 @@
 - Added: `at-rule-name-newline-after` rule.
 - Fixed: `function-url-quotes` ignores values containing `$sass` and `@less` variables.
 - Fixed: selector-targeting rules ignore Less mixins and extends.
+- Fixed: no-extra-semicolons reports errors on the correct line
 
 # 6.5.1
 
