@@ -171,6 +171,26 @@ test("module providing an array of plugins", t => {
   t.plan(planned)
 })
 
+test("slashless plugin causes configuration error", t => {
+  let planned = 0
+
+  const config = {
+    plugins: [path.join(__dirname, "fixtures/plugin-slashless-warn-about-foo")],
+    rules: {
+      "slashless-warn-about-foo": true,
+    },
+  }
+
+  postcss().use(stylelint(config)).process(".foo {}").then(() => {
+    t.ok(false, "should not be here!")
+  }).catch(err => {
+    t.equal(err.message.indexOf("stylelint v7+ requires plugin rules to be namspaced"), 0)
+  })
+  planned += 1
+
+  t.plan(planned)
+})
+
 function logError(err) {
   console.log(err.stack) // eslint-disable-line no-console
 }
