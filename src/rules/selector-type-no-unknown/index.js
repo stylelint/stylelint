@@ -2,8 +2,8 @@ import { isString } from "lodash"
 import htmlTags from "html-tags"
 import svgTags from "svg-tags"
 import {
+  isKeyframeSelector,
   isStandardRule,
-  isKeyframeRule,
   isStandardSelector,
   isStandardTypeSelector,
   parseSelector,
@@ -57,9 +57,9 @@ export default function (actual, options) {
 
     root.walkRules(rule => {
       if (!isStandardRule(rule)) { return }
-      if (isKeyframeRule(rule)) { return }
       const { selector } = rule
       if (!isStandardSelector(selector)) { return }
+      if (isKeyframeSelector(selector)) { return }
 
       parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkTags(tagNode => {
