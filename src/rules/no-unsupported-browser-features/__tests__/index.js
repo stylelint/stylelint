@@ -29,13 +29,13 @@ testRule(rule, {
   reject: [ {
     code: "a { opacity: 1; }",
     description: "opacity",
-    message: messages.rejected("CSS3 Opacity not supported by: IE (7,8)"),
+    message: messages.rejected("Unexpected browser feature \"css-opacity\" not supported by IE 7, 8"),
     line: 1,
     column: 5,
   }, {
     code: "a { outline: none; }",
     description: "outline",
-    message: messages.rejected("CSS outline not supported by: IE (7)"),
+    message: messages.rejected("Unexpected browser feature \"outline\" not supported by IE 7"),
     line: 1,
     column: 5,
   } ],
@@ -52,7 +52,7 @@ testRule(rule, {
   reject: [{
     code: "a { opacity: 1; }",
     description: "opacity",
-    message: messages.rejected("CSS3 Opacity not supported by: IE (7,8)"),
+    message: messages.rejected("Unexpected browser feature \"css-opacity\" not supported by IE 7, 8"),
     line: 1,
     column: 5,
   }],
@@ -71,7 +71,7 @@ testRule(rule, {
   reject: [{
     code: "a { background: linear-gradient(black, white); }",
     description: "gradient",
-    message: messages.rejected("CSS Gradients not supported by: IE (9)"),
+    message: messages.rejected("Unexpected browser feature \"css-gradients\" not supported by IE 9"),
     line: 1,
     column: 5,
   }],

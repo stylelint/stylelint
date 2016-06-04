@@ -10,7 +10,7 @@ import {
 export const ruleName = "no-unsupported-browser-features"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: details => `Unexpected browser feature ${details}`,
+  rejected: (details) => `Unexpected browser feature ${details}`,
 })
 
 export default function (on, options) {
@@ -37,7 +37,7 @@ export default function (on, options) {
 
     const doiuseResult = new Result()
     doiuse(doiuseOptions).postcss(root, doiuseResult)
-    doiuseResult.warnings().forEach(doiuseWarning => {
+    doiuseResult.warnings().forEach((doiuseWarning) => {
       report({
         ruleName,
         result,
@@ -51,5 +51,9 @@ export default function (on, options) {
 }
 
 function cleanDoiuseWarningText(warningText) {
-  return warningText.replace(/\s*\(\S+?\)$/, "")
+  const featureRegex = /\s*\(\S+?\)$/
+  const regexResult = warningText.exec(featureRegex)
+  const featureName = regexResult ? `"${regexResult[1]}"` : ""
+  const endOfWarning = warningText.slice(warningText.indexOf("not supported by")).replace(featureRegex, "").replace(/:\(\)/g, "")
+  return `Unexpected browser feature ${featureName} ${endOfWarning}`
 }

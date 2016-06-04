@@ -2,6 +2,7 @@
 
 - Added: `ignorePath` (for JS) and `--ignore-path` (for CLI) options.
 - Added: `at-rule-name-newline-after` rule.
+- Added: `no-unsupported-browser-features` message now includes feature name.
 - Fixed: `function-whitespace-after` ignores `postcss-simple-vars`-style interpolation.
 - Fixed: `function-url-quotes` ignores values containing `$sass` and `@less` variables.
 - Fixed: selector-targeting rules ignore Less mixins and extends.
