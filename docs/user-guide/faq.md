@@ -26,7 +26,7 @@ The stylelint community also maintains a [handful of plugins](/docs/user-guide/c
 
 ## How do I lint SCSS, Less, or other non-standard syntax?
 
-stylelint can *parse* any the following non-standard syntaxes: SCSS, Less and SugarSS. Refer to the [docs](/docs/user-guide/css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse one of these syntaxes.
+stylelint can *parse* any the following non-standard syntaxes: SCSS, Less and SugarSS. Non-standard syntaxes are automatically inferred from file extensions `.scss`, `.less`, and `.sss`; or else you can specify the syntax yourself. Refer to the [docs](/docs/user-guide/css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse one of these syntaxes.
 
 ## Should I lint before or after processing my stylesheets through PostCSS plugins or other processors?
 

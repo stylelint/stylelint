@@ -19,7 +19,7 @@ The linter can *parse* any the following non-standard syntaxes by using special 
 
 (Whenever someone writes a PostCSS parser for another syntax, stylelint can easily add support for that.)
 
-Both the [CLI](/docs/user-guide/cli.md) and the [Node API](docs/user-guide/cli.md) expose a `syntax` option.
+*Non-standard syntaxes are automatically inferred from file extensions `.less`, `.scss`, and `.sss`.* If you would need to specify your non-standard syntax, though, both the [CLI](/docs/user-guide/cli.md) and the [Node API](docs/user-guide/cli.md) expose a `syntax` option.
 
 - If you're using the CLI, use the `syntax` flag like so:  `stylelint --syntax scss ...`
 - If you're using the Node API, pass in the `syntax` option like so: `stylelint.lint({ syntax: "sugarss", ... })`.
