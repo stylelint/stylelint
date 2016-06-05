@@ -72,6 +72,16 @@ test("`withinFunctionalNotation` option", t => {
     target: "b",
     withinFunctionalNotation: true,
   }), [], "parens without function is not interpreted as a function")
+  t.deepEqual(styleSearchResults({
+    source: "de$(abc)fg",
+    target: "b",
+    withinFunctionalNotation: true,
+  }), [], "parens preceded by `$`, for postcss-simple-vars interpolation, not interpreted as a function")
+  t.deepEqual(styleSearchResults({
+    source: "de$(abc)fg",
+    target: ")",
+    withinFunctionalNotation: true,
+  }), [], "closing paren of non-function is ignored")
   t.end()
 })
 

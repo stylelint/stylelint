@@ -13,6 +13,8 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected whitespace after \")\"",
 })
 
+const ACCEPTABLE_AFTER_CLOSING_PAREN = new Set([ ")", ",", "}", ":", undefined ])
+
 export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -40,7 +42,7 @@ export default function (expectation) {
         if (nextChar === " ") { return }
         if (nextChar === "\n") { return }
         if (source.substr(index + 1, 2) === "\r\n") { return }
-        if ([ ")", ",", "}", undefined ].indexOf(nextChar) !== -1) { return }
+        if (ACCEPTABLE_AFTER_CLOSING_PAREN.has(nextChar)) { return }
         report({
           message: messages.expected,
           node,
