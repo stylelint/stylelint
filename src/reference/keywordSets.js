@@ -409,3 +409,8 @@ function uniteSets(...sets) {
     return result.concat(_.toArray(set))
   }, []))
 }
+
+export const keyframeSelectorKeywords = new Set([
+  "from",
+  "to",
+])
