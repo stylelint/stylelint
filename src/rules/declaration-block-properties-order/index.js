@@ -44,7 +44,6 @@ export default function (expectation, options) {
 
     function checkNode(node) {
       const allPropData = []
-      let lastKnownSeparatedGroup = 1
 
       node.each(child => {
         // If the child has nested nodes with child
@@ -103,45 +102,6 @@ export default function (expectation, options) {
 
         const firstPropIsUnspecified = !firstPropData.orderData
         const secondPropIsUnspecified = !secondPropData.orderData
-
-        // Now check newlines between ...
-        const firstPropSeparatedGroup = (!firstPropIsUnspecified)
-          ? firstPropData.orderData.separatedGroup
-          : lastKnownSeparatedGroup
-        const secondPropSeparatedGroup = (!secondPropIsUnspecified)
-          ? secondPropData.orderData.separatedGroup
-          : lastKnownSeparatedGroup
-
-        if (firstPropSeparatedGroup !== secondPropSeparatedGroup && !secondPropIsUnspecified) {
-          // Get an array of just the property groups, remove any solo properties
-          const groups = _.reject(expectation, _.isString)
-
-          // secondProp seperatedGroups start at 2 so we minus 2 to get the 1st item
-          // from our groups array
-          const emptyLineBefore = _.get(groups[secondPropSeparatedGroup - 2], "emptyLineBefore")
-          if (emptyLineBefore) {
-            result.warn((
-              "The 'emptyLineBefore' option for 'declaration-block-properties-order' has been deprecated, "
-                + "and will be removed in '7.0'. If you use this option please consider "
-                + "creating a plugin for the community."
-            ), {
-              stylelintType: "deprecation",
-              stylelintReference: "http://stylelint.io/user-guide/release-planning/",
-            })
-          }
-          if (!hasEmptyLineBefore(secondPropData.node) && emptyLineBefore === "always") {
-            complain({
-              message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),
-              node: secondPropData.node,
-            })
-          } else if (hasEmptyLineBefore(secondPropData.node) && emptyLineBefore === "never") {
-            complain({
-              message: messages.rejectedEmptyLineBetween(secondPropData.name, firstPropData.name),
-              node: secondPropData.node,
-            })
-          }
-        }
-        lastKnownSeparatedGroup = secondPropSeparatedGroup
 
         // Now check actual known properties ...
         if (!firstPropIsUnspecified && !secondPropIsUnspecified) {
@@ -202,10 +162,9 @@ export default function (expectation, options) {
 
 function createExpectedOrder(input) {
   const order = {}
-  let separatedGroup = 1
   let expectedPosition = 0
 
-  appendGroup(input, 1)
+  appendGroup(input)
 
   function appendGroup(items) {
     items.forEach(item => appendItem(item, false))
@@ -217,13 +176,8 @@ function createExpectedOrder(input) {
       // to make that flexibility work;
       // otherwise, it will always ascend
       if (!inFlexibleGroup) { expectedPosition += 1 }
-      order[item] = { separatedGroup, expectedPosition }
+      order[item] = { expectedPosition }
       return
-    }
-
-    // If item is not a string, it's a group ...
-    if (item.emptyLineBefore) {
-      separatedGroup += 1
     }
 
     if (!item.order || item.order === "strict") {
@@ -250,15 +204,6 @@ function getOrderData(expectedOrder, propName) {
     orderData = getOrderData(expectedOrder, propNamePreHyphen)
   }
   return orderData
-}
-
-function hasEmptyLineBefore(decl) {
-  if (/\r?\n\s*\r?\n/.test(decl.raw("before"))) { return true }
-  const prevNode = decl.prev()
-  if (!prevNode) { return false }
-  if (prevNode.type !== "comment") { return false }
-  if (/\r?\n\s*\r?\n/.test(prevNode.raw("before"))) { return true }
-  return false
 }
 
 function checkAlpabeticalOrder(firstPropData, secondPropData) {

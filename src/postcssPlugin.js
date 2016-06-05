@@ -56,13 +56,12 @@ export default postcss.plugin("stylelint", (options = {}) => {
               )
             }
             if (!_.includes(plugin.ruleName, "/")) {
-              result.warn((
-                "Plugin rules that aren't namespaced have been deprecated, " +
-                "and in 7.0 they will be disallowed."
-              ), {
-                stylelintType: "deprecation",
-                stylelintReference: "http://stylelint.io/developer-guide/plugins/",
-              })
+              throw configurationError(
+                "stylelint v7+ requires plugin rules to be namspaced, " +
+                "i.e. only `plugin-namespace/plugin-rule-name` plugin rule names are supported. " +
+                `The plugin rule "${plugin.ruleName}" does not do this, so will not work. ` +
+                "Please file an issue with the plugin."
+              )
             }
             ruleDefinitions[plugin.ruleName] = plugin.rule
           })
