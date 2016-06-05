@@ -81,27 +81,28 @@ import basicChecks from "./basicChecks"
  */
 let onlyTest
 
-function checkCaseForOnly(testCase) {
+function checkCaseForOnly(caseType, testCase) {
   if (!testCase.only) { return }
   if (onlyTest) { throw new Error("Cannot use `only` on multiple test cases") }
-  onlyTest = testCase
+  onlyTest = { case: testCase, type: caseType }
 }
 
 export default function (equalityCheck) {
   return function (rule, schema) {
     const alreadyHadOnlyTest = !!onlyTest
     if (schema.accept) {
-      schema.accept.forEach(checkCaseForOnly)
-    }
-    if (onlyTest) {
-      schema = _.assign(_.omit(schema, [ "accept", "reject" ]), { accept: [onlyTest] })
+      schema.accept.forEach(_.partial(checkCaseForOnly, "accept"))
     }
 
     if (schema.reject) {
-      schema.reject.forEach(checkCaseForOnly)
+      schema.reject.forEach(_.partial(checkCaseForOnly, "reject"))
     }
+
     if (onlyTest) {
-      schema = _.assign(_.omit(schema, [ "accept", "reject" ]), { reject: [onlyTest] })
+      schema = _.assign(_.omit(schema, [ "accept", "reject" ]), {
+        skipBasicChecks: true,
+        [onlyTest.type]: [onlyTest.case],
+      })
     }
 
     if (!alreadyHadOnlyTest) {

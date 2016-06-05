@@ -209,17 +209,16 @@ export default function (options, callback) {
     const match = getMatch(i)
 
     if (!match) { continue }
-
-    if (options.outsideParens && insideParens) { continue }
-    if (options.withinFunctionalNotation && !insideFunction) { continue }
-    if (options.outsideFunctionalNotation && insideFunction) { continue }
-    if (options.withinStrings && !insideString) { continue }
-    if (options.withinComments && !insideComment) { continue }
     handleMatch(match)
     if (options.onlyOne) { return }
   }
 
   function handleMatch(match) {
+    if (options.outsideParens && insideParens) { return }
+    if (options.withinFunctionalNotation && !insideFunction) { return }
+    if (options.outsideFunctionalNotation && insideFunction) { return }
+    if (options.withinStrings && !insideString) { return }
+    if (options.withinComments && !insideComment) { return }
     matchCount++
     callback(match, matchCount)
   }
