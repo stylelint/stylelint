@@ -141,6 +141,7 @@ export default function ({
         return { text: w.text }
       })
 
+      // This defines the stylelint result object that formatters receive
       return {
         source,
         deprecations,
@@ -156,6 +157,7 @@ export default function ({
             text: message.text,
           }
         }),
+        ignored: postcssResult.stylelint.ignored,
         _postcssResult: postcssResult,
       }
     }
