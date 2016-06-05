@@ -8,7 +8,11 @@ export default function (results) {
   if (output === "") { output = "\n" }
 
   const sourceWord = (results.length > 1) ? "sources" : "source"
-  output += chalk.underline(`${results.length} ${sourceWord} checked\n`)
+  const ignoredCount = results.filter(result => result.ignored).length
+  const checkedDisplay = (ignoredCount)
+    ? `${results.length - ignoredCount} of ${results.length}`
+    : results.length
+  output += chalk.underline(`${checkedDisplay} ${sourceWord} checked\n`)
   results.forEach(result => {
     let formatting = "green"
     if (result.errored) {
