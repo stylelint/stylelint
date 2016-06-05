@@ -45,6 +45,12 @@ testRule(rule, {
   }, {
     code: "$list: (value, value2);$thingTwo: 0px",
     description: "Sass list ignored",
+  }, {
+    code: ".foo { $(x): calc(1px + 0px); }",
+    description: "postcss-simple-vars interpolation as property name",
+  }, {
+    code: ".foo { border-$(x)-left: 10px; }",
+    description: "postcss-simple-vars interpolation within property name",
   } ],
 
   reject: [ {

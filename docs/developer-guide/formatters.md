@@ -27,6 +27,7 @@ A formatter is a function that accepts *an array of these stylelint result objec
     {
       text: "Invalid option X for rule Y",
     }
-  ]
+  ],
+  ignored: false // This is `true` if the file's path matches a provided ignore pattern
 }
 ```
