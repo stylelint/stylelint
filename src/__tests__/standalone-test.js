@@ -607,3 +607,77 @@ test("standalone with extraction accepts plain css", t => {
 function logError(err) {
   console.log(err.stack) // eslint-disable-line no-console
 }
+
+import scss from "postcss-scss"
+import less from "postcss-less"
+import sugarss from "sugarss"
+
+test("standalone with syntax set by extension", t => {
+  let planned = 0
+
+  // First three sets of cases verify that the final test
+  // should be meaningful
+
+  standalone({
+    files: `${fixturesPath}/extension-sensitive.*`,
+    config: { rules: { "block-no-empty": true } },
+    syntax: "scss",
+  }).then(({ results }) => {
+    t.equal(results.length, 3, "correct number of files")
+    const sssResult = results.find(r => path.extname(r.source) === ".sss")
+    const lessResult = results.find(r => path.extname(r.source) === ".less")
+    const scssResult = results.find(r => path.extname(r.source) === ".scss")
+    t.equal(sssResult._postcssResult.opts.syntax, scss)
+    t.equal(lessResult._postcssResult.opts.syntax, scss)
+    t.equal(scssResult._postcssResult.opts.syntax, scss)
+  }).catch(logError)
+  planned += 4
+
+  standalone({
+    files: `${fixturesPath}/extension-sensitive.*`,
+    config: { rules: { "block-no-empty": true } },
+    syntax: "less",
+  }).then(({ results }) => {
+    t.equal(results.length, 3, "correct number of files")
+    const sssResult = results.find(r => path.extname(r.source) === ".sss")
+    const lessResult = results.find(r => path.extname(r.source) === ".less")
+    const scssResult = results.find(r => path.extname(r.source) === ".scss")
+    t.equal(sssResult._postcssResult.opts.syntax, less)
+    t.equal(lessResult._postcssResult.opts.syntax, less)
+    t.equal(scssResult._postcssResult.opts.syntax, less)
+  }).catch(logError)
+  planned += 4
+
+  standalone({
+    files: `${fixturesPath}/extension-sensitive.*`,
+    config: { rules: { "block-no-empty": true } },
+    syntax: "sugarss",
+  }).then(({ results }) => {
+    t.equal(results.length, 3, "correct number of files")
+    const sssResult = results.find(r => path.extname(r.source) === ".sss")
+    const lessResult = results.find(r => path.extname(r.source) === ".less")
+    const scssResult = results.find(r => path.extname(r.source) === ".scss")
+    t.equal(sssResult._postcssResult.opts.syntax, sugarss)
+    t.equal(lessResult._postcssResult.opts.syntax, sugarss)
+    t.equal(scssResult._postcssResult.opts.syntax, sugarss)
+  }).catch(logError)
+  planned += 4
+
+  standalone({
+    files: `${fixturesPath}/extension-sensitive.*`,
+    config: { rules: { "block-no-empty": true } },
+  }).then(({ results }) => {
+    t.equal(results.length, 3, "correct number of files")
+    const sssResult = results.find(r => path.extname(r.source) === ".sss")
+    const lessResult = results.find(r => path.extname(r.source) === ".less")
+    const scssResult = results.find(r => path.extname(r.source) === ".scss")
+    t.equal(sssResult._postcssResult.opts.syntax, sugarss, ".sss causes sugarss syntax")
+    t.equal(lessResult._postcssResult.opts.syntax, less, ".less causes Less syntax")
+    t.equal(scssResult._postcssResult.opts.syntax, scss, ".scss causes SCSS syntax")
+  }).catch(logError)
+  planned += 4
+
+  t.plan(planned)
+})
+
+function logError(err) { console.log(err.stack) } // eslint-disable-line
