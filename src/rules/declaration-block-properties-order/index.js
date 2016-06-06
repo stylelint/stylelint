@@ -12,8 +12,6 @@ export const ruleName = "declaration-block-properties-order"
 
 export const messages = ruleMessages(ruleName, {
   expected: (first, second) => `Expected property "${first}" to come before property "${second}"`,
-  expectedEmptyLineBetween: (first, second) => `Expected an empty line between property "${first}" and property "${second}"`,
-  rejectedEmptyLineBetween: (first, second) => `Unexpected empty line between property "${first} and property "${second}"`,
 })
 
 export default function (expectation, options) {
