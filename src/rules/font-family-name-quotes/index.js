@@ -112,8 +112,6 @@ export default function (expectation) {
             return complain(messages.expected(family), family, decl)
           }
           return
-
-        default: return
       }
     }
 
