@@ -456,5 +456,20 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 18,
+  }, {
+    code: "div a {\n  float: left;\n}\ndiv {\n  float: left;;\n}",
+    message: messages.rejected,
+    line: 5,
+    column: 15,
+  }, {
+    code: "div a {\n  float: left;\n}\ndiv {\n  float: left;  ;\n}",
+    message: messages.rejected,
+    line: 5,
+    column: 17,
+  }, {
+    code: "div a {\n  float: left;\n}\ndiv {\n  float: left;\n;\n}",
+    message: messages.rejected,
+    line: 6,
+    column: 1,
   } ],
 })
