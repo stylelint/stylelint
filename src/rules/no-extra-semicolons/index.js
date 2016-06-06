@@ -59,9 +59,9 @@ export default function (actual) {
       if (node.raws.after) {
         const rawAfterNode = node.raws.after
         styleSearch({ source: rawAfterNode, target: ";" }, match => {
-          const index = node.source.start.column
+          const index = getOffsetByNode(node)
             + node.toString().length - 1
-            - rawAfterNode.length - 1
+            - rawAfterNode.length
             + match.startIndex
           complain(index)
         })
