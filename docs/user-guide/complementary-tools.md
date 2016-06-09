@@ -10,6 +10,8 @@
 
 - [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) - a gulp plugin for stylelint.
 - [stylelint-webpack-plugin](https://github.com/vieron/stylelint-webpack-plugin) - a webpack plugin for stylelint.
+- [broccoli-style-lint] (https://github.com/billybonks/broccoli-style-lint) - a broccoli plugin for stylelint.
+- [ember-cli-style-lint] (https://github.com/billybonks/ember-cli-style-lint) - a ember cli plugin for stylelint.
 
 ## Autocorrect
 
