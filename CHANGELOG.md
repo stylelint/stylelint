@@ -7,6 +7,7 @@
 - Fixed: selector-targeting rules ignore Less mixins and extends.
 - Fixed: `selector-type-no-unknown` ignores non-standard usage of percentage keyframe selectors (e.g. within an SCSS mixin).
 - Fixed: `no-extra-semicolons` reports errors on the correct line.
+- Added: `at-rule-blacklist` rule.
 
 # 6.5.1
 
