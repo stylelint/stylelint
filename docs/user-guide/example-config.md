@@ -7,6 +7,7 @@ You might want to learn a little about [how rules are named and how they work to
 ```json
 {
   "rules": {
+    "at-rule-blacklist": string|[],
     "at-rule-empty-line-before": "always"|"never",
     "at-rule-name-case": "lower"|"upper",
     "at-rule-name-newline-after": "always"|"always-multi-line",

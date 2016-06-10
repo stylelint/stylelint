@@ -209,6 +209,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 ### At-rule
 
+- [`at-rule-blacklist`](../../src/rules/at-rule-blacklist/README.md): Specify a blacklist of disallowed at-rules.
 - [`at-rule-empty-line-before`](../../src/rules/at-rule-empty-line-before/README.md): Require or disallow an empty line before at-rules.
 - [`at-rule-name-case`](../../src/rules/at-rule-name-case/README.md): Specify lowercase or uppercase for at-rules names.
 - [`at-rule-name-newline-after`](../../src/rules/at-rule-name-newline-after/README.md): Require a newline after at-rule names.

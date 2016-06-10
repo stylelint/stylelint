@@ -1,3 +1,4 @@
+import atRuleBlacklist from "./at-rule-blacklist"
 import atRuleEmptyLineBefore from "./at-rule-empty-line-before"
 import atRuleNameCase from "./at-rule-name-case"
 import atRuleNameNewlineAfter from "./at-rule-name-newline-after"
@@ -148,6 +149,7 @@ import valueListCommaSpaceBefore from "./value-list-comma-space-before"
 import valueNoVendorPrefix from "./value-no-vendor-prefix"
 
 export default {
+  "at-rule-blacklist": atRuleBlacklist,
   "at-rule-empty-line-before": atRuleEmptyLineBefore,
   "at-rule-name-case": atRuleNameCase,
   "at-rule-name-newline-after": atRuleNameNewlineAfter,
