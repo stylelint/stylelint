@@ -1,10 +1,16 @@
 # The stylelint CLI
 
+## Installation
+
+Stylelint is an [npm package](https://www.npmjs.com/package/stylelint). You can install it per project, or globally. It may be easiest to install it globally to try it out.
+
+Use `npm -g install stylelint` to install it.
+
+## Usage examples
+
 `stylelint --help` prints the CLI documentation.
 
 The CLI outputs formatted results into `process.stdout`, which you can read with your human eyes or pipe elsewhere (e.g. write the information to a file).
-
-## Usage examples
 
 Looking for `.stylelintrc` and linting all `.css` files in the `foo` directory:  
 
