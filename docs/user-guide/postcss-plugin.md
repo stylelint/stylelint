@@ -4,6 +4,14 @@ As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), 
 
 If a dedicated stylelint task runner plugin [is available](/docs/user-guide/complementary-tools.md) (e.g. `gulp-stylelint`) we recommend you use that rather than this plugin.
 
+## Installation
+
+stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install it using:
+
+```console
+npm install stylelint
+```
+
 ## Options
 
 The plugin accepts an options object as argument, with the following properties:

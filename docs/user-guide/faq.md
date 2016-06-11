@@ -6,13 +6,7 @@ The stylelint community maintains a [handful of plugins](/docs/user-guide/comple
 
 ## How do I lint from the command line?
 
-First, install stylelint using the `-g` option:
-
-```shell
-npm install -g stylelint
-```
-
-Then refer to the [CLI usage examples](/docs/user-guide/cli.md) within the doc.
+Refer to the [CLI section](/docs/user-guide/cli.md) of the docs.
 
 The CLI can also be used from within [npm run scripts](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
 

@@ -7,6 +7,14 @@ stylelint.lint(options)
   .then(function(resultObject) { .. });
 ```
 
+## Installation
+
+stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install it using:
+
+```console
+npm install stylelint
+```
+
 ## Options
 
 Options is an object with the following properties.
