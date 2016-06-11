@@ -380,3 +380,163 @@ testRule(rule, mergeTestDescriptions(sharedNeverTests, {
     code: "a {\n\n  color: pink;\n\n  @mixin foo;\n}",
   } ],
 }))
+
+testRule(rule, {
+  ruleName,
+  config: [ "always", { ignoreAtRules: ["else"] } ],
+
+  accept: [ {
+    code: `
+      @if(true) {
+      } @else {
+      }
+    `,
+  }, {
+    code: `
+      @if(true) {
+      }
+
+      @else {
+      }
+    `,
+  }, {
+    code: `
+      @if(true) {}
+      @else if(true) {
+      }  @else {
+      }
+    `,
+  } ],
+
+  reject: [ {
+    code: `
+      @if(true) {
+      } @else-mixin {
+      }
+    `,
+    message: messages.expected,
+    line: 3,
+    column: 9,
+  }, {
+    code: `
+      @if (true) {}
+      @if (false) {
+      }
+    `,
+    message: messages.expected,
+    line: 3,
+    column: 7,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "always", { ignoreAtRules: "/fo/" } ],
+
+  accept: [ {
+    code: "@keyframes {}; @before-mixin();",
+  }, {
+    code: `
+      @if true {}
+      @for ... {
+      }
+    `,
+  } ],
+
+  reject: [{
+    code: `
+      @for ... {
+        color: pink;
+      }
+      @if true {}
+    `,
+    message: messages.expected,
+    line: 5,
+    column: 7,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "never", { ignoreAtRules: ["else"] } ],
+
+  accept: [ {
+    code: `
+      @if(true) {
+      } @else {
+      }
+    `,
+  }, {
+    code: `
+      @if(true) {
+      }
+
+      @else {
+      }
+    `,
+  }, {
+    code: `
+      @if(true) {}
+
+      @else if(true) {}
+
+      @else {}
+    `,
+  } ],
+
+  reject: [ {
+    code: `
+      @if(true) {
+      }
+
+      @else-mixin {}
+    `,
+    message: messages.rejected,
+    line: 5,
+    column: 7,
+  }, {
+    code: `
+      @if (true)
+      {}
+
+      @if (false) {
+      }
+    `,
+    message: messages.rejected,
+    line: 5,
+    column: 7,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "never", { ignoreAtRules: "/fo/" } ],
+
+  accept: [ {
+    code: `
+      @keyframes {}
+
+      @before-mixin();
+    `,
+  }, {
+    code: `
+      @if true {}
+
+      @for ... {
+      }
+    `,
+  } ],
+
+  reject: [{
+    code: `
+      @for ... {
+        color: pink;
+      }
+
+      @if true {}
+    `,
+    message: messages.rejected,
+    line: 6,
+    column: 7,
+  }],
+})

@@ -1,3 +1,5 @@
+import { isString } from "lodash"
+
 import {
   hasBlock,
   optionsHaveException,
@@ -6,6 +8,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { cssStatementIsIgnoredAtRule } from "../block-opening-brace-space-before"
 
 export const ruleName = "at-rule-empty-line-before"
 
@@ -24,6 +27,7 @@ export default function (expectation, options) {
       possible: {
         except: [ "blockless-group", "first-nested", "all-nested" ],
         ignore: [ "blockless-group", "after-comment", "all-nested" ],
+        ignoreAtRules: [isString],
       },
       optional: true,
     })
@@ -33,6 +37,9 @@ export default function (expectation, options) {
 
       // Ignore the first node
       if (atRule === root.first) { return }
+
+      // Return early if at-rule is to be ignored
+      if (cssStatementIsIgnoredAtRule(atRule, options)) { return }
 
       // Optionally ignore the expectation if the node is blockless
       if (optionsHaveIgnored(options, "blockless-group") && !hasBlock(atRule)) { return }
