@@ -110,10 +110,12 @@ testRule(rule, {
   } ],
 
   reject: [ {
-    code: "@mixin name ($p) {}",
+    code: `
+      @mixin name ($p) {}
+    `,
     message: messages.rejected("mixin"),
-    line: 1,
-    column: 1,
+    line: 2,
+    column: 7,
     description: "@rule not from a whitelist.",
   }, {
     code: "@import 'path/to/file.css';",
