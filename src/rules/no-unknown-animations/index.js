@@ -16,7 +16,7 @@ import {
 export const ruleName = "no-unknown-animations"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: animationName => `Unknown animation name "${animationName}"`,
+  rejected: animationName => `Unexpected unknown animation name "${animationName}"`,
 })
 
 export default function (actual) {

@@ -10,7 +10,7 @@ import { mediaFeaturePunctuation } from "../../reference/punctuationSets"
 export const ruleName = "media-feature-no-missing-punctuation"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected missing punctuation within non-boolean media feature",
+  rejected: "Unexpected missing punctuation",
 })
 
 function isPunctuation(str) {

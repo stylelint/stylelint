@@ -10,7 +10,7 @@ import {
 export const ruleName = "max-line-length"
 
 export const messages = ruleMessages(ruleName, {
-  expected: l => `Expected line length equal to or less than ${l} characters`,
+  expected: l => `Expected line length to be no more than ${l} characters`,
 })
 
 export default function (maxLength, options) {

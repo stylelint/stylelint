@@ -8,7 +8,7 @@ import {
 export const ruleName = "property-no-vendor-prefix"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: property => `Unexpected vendor-prefixed property "${property}"`,
+  rejected: property => `Unexpected vendor-prefix "${property}"`,
 })
 
 export default function (actual) {

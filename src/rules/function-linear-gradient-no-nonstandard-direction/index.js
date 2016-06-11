@@ -8,7 +8,7 @@ import {
 export const ruleName = "function-linear-gradient-no-nonstandard-direction"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected nonstandard direction for linear-gradient",
+  rejected: "Unexpected nonstandard direction",
 })
 
 function isStandardDirection(source) {
