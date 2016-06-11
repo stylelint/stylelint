@@ -53,6 +53,9 @@ testRule(rule, {
   }, {
     code: "a[rel~='copyright'] {}",
     description: "attribute selector with ~=",
+  }, {
+    code: ".foo\\+bar {}",
+    description: "escaped combinator-like character",
   } ],
 
   reject: [ {
