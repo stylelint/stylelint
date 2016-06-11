@@ -5,6 +5,7 @@ import atRuleNameNewlineAfter from "./at-rule-name-newline-after"
 import atRuleNameSpaceAfter from "./at-rule-name-space-after"
 import atRuleNoVendorPrefix from "./at-rule-no-vendor-prefix"
 import atRuleSemicolonNewlineAfter from "./at-rule-semicolon-newline-after"
+import atRuleWhitelist from "./at-rule-whitelist"
 import blockClosingBraceNewlineAfter from "./block-closing-brace-newline-after"
 import blockClosingBraceNewlineBefore from "./block-closing-brace-newline-before"
 import blockClosingBraceSpaceAfter from "./block-closing-brace-space-after"
@@ -156,6 +157,7 @@ export default {
   "at-rule-name-space-after": atRuleNameSpaceAfter,
   "at-rule-no-vendor-prefix": atRuleNoVendorPrefix,
   "at-rule-semicolon-newline-after": atRuleSemicolonNewlineAfter,
+  "at-rule-whitelist": atRuleWhitelist,
   "block-closing-brace-newline-after": blockClosingBraceNewlineAfter,
   "block-closing-brace-newline-before": blockClosingBraceNewlineBefore,
   "block-closing-brace-space-after": blockClosingBraceSpaceAfter,
