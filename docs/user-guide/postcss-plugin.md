@@ -2,7 +2,7 @@
 
 As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a PostCSS runner -- such as [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss) -- or with the PostCSS JS API directly.
 
-If a dedicated stylelint task runner plugin [is available](/docs/user-guide/complementary-tools.md) (e.g. `gulp-stylelint`) we recommend you use that rather than this plugin.
+If a dedicated stylelint task runner plugin [is available](/docs/user-guide/complementary-tools.md) (e.g. `gulp-stylelint`) we recommend you use that rather than this plugin, as they provide better reporting.
 
 ## Installation
 
