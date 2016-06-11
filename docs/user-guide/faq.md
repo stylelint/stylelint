@@ -54,7 +54,7 @@ If you're using SUITCSS, you'll probably want to use [their shareable config](ht
 
 ## How do I manage conflicts between rules?
 
-Each rule stands alone, so sometimes it's possible to configure rules such that they conflict with one another. For example, you could configure the `string-quotes` rule to `"single"`, but configure `font-family-name-quotes` to use `"double-where-recommended"`. Or turn on two conflicting blacklist and whitelist rules e.g. `unit-blacklist` and `unit-whitelist`.
+Each rule stands alone, so sometimes it's possible to configure rules such that they conflict with one another. For example, you could turn on two conflicting blacklist and whitelist rules e.g. `unit-blacklist` and `unit-whitelist`.
 
 It's your responsibility as the configuration author to resolve these conflicts.
 
