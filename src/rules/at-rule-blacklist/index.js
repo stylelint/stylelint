@@ -10,7 +10,7 @@ import {
 export const ruleName = "at-rule-blacklist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (name) => `Unexpected function "${name}"`,
+  rejected: (name) => `Unexpected at-rule "${name}"`,
 })
 
 export default function (blacklist) {
