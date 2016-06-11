@@ -127,25 +127,13 @@ testRule(rule, {
     code: "@media {}; @import 'x.css';",
   }],
 
-  reject: [{
+  reject: [ {
     code: "@import 'x.css'; @media {};",
     message: messages.expected,
-  }],
-})
-
-testRule(rule, {
-  ruleName,
-  syntax: "scss",
-  config: [ "always", { ignore: ["blockless-group"] } ],
-
-  accept: [{
-    code: "@import 'test'; @mixin('test');",
-  }],
-
-  reject: [{
+  }, {
     code: "@import 'test'; @include mixin(1) { @content; };",
     message: messages.expected,
-  }],
+  } ],
 })
 
 testRule(rule, {
@@ -350,6 +338,8 @@ testRule(rule, {
       @media {};
     `,
     message: messages.rejected,
+    line: 4,
+    column: 7,
   }],
 })
 
