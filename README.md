@@ -35,9 +35,12 @@ With stylelint, it's easy to start linting your CSS:
     - [via a plugin for your text editor](/docs/user-guide/complementary-tools.md#editor-plugins) (atom, sublime text etc)
     - [via the stylelint Node API](/docs/user-guide/node-api.md)
     - [via the stylelint PostCSS plugin](/docs/user-guide/postcss-plugin.md)
-2. Create your [configuration object](/docs/user-guide/configuration.md) by either extending a shared config or crafting your own one:
+2. Create your [configuration object](/docs/user-guide/configuration.md) by either extending a shared config or crafting your own:
     - To extend a shared config, we recommend using [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard). It includes over 80 of stylelint's rules with sensible defaults. (You can always override specific rules after extending the config.) We update the config with each new release of stylelint. Alternately, you can [search for](https://www.npmjs.com/browse/keyword/stylelint-config) a community config and [extend](/docs/user-guide/configuration.md#extends) that instead.
-    - To craft your own from the ground up, [learn about how rules are named and how they work together](/docs/user-guide/about-rules.md). *All of the rules are off by default*, so you only have to learn about [the rules](/docs/user-guide/rules.md) you want to turn on and enforce. That way you can start small, growing your config over time as you have a chance to explore more of the rules. Alternately, copy-paste [this example configuration](/docs/user-guide/example-config.md), which lists all of stylelint's rules and their primary options, then remove (or turn off) the rules you don't want and edit the primary option of each rule to your liking.
+    - To craft your own config, first [learn about how rules are named and how they work together](/docs/user-guide/about-rules.md), then either:
+      - Start small and only learn about [the rules](/docs/user-guide/rules.md) you want to turn on and enforce. *All of the rules are off by default*, and so you can start small, growing your config over time as you have a chance to explore more of the rules.
+      - Or copy-paste [this example configuration](/docs/user-guide/example-config.md), which lists all of stylelint's rules and their primary options. Then you can edit the options of each rule to your liking, and remove (or turn off with `null`) the rules that you don't care to enforce.
+
 3. Lint!
 
 Be sure to [specify the syntax](/docs/user-guide/css-processors.md#parsing-non-standard-syntax) if you're using non-standard syntax (e.g. SCSS, SugarSS or Less).

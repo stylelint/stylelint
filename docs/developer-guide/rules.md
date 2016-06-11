@@ -67,9 +67,9 @@ Look at the messages of other rules to glean more conventions and patterns.
 
 *When writing the rule, always look to other similar rules for conventions and patterns to start from and mimic.*
 
-You will use the simple [PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `foreach` to loop through the nodes.
+You will use the simple [PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes.
 
-Depending on the rule, we also recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and/or [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). Use these standard parsers whenever possible, even if there's a performance hit, because there are significant gains in doing so.
+Depending on the rule, we also recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
 stylelint has a number of [utility functions](https://github.com/stylelint/stylelint/tree/master/src/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!)
 
