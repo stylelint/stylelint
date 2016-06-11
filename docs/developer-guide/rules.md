@@ -28,9 +28,19 @@ We take care to ensure that all the rules are named accurately and consistently.
 
 ### Determine options
 
-Every rule must have a **primary option**. In `"color-hex-case": "upper"`, the primary option is `"upper"`; in `"indentation": [2, { "except": ["block"] }]`, the primary option is `2`.
+#### Primary
 
-Some rules require extra flexibility to address a variety of use-cases. These can use a **secondary options object**. In `"color-hex-case": "upper"`, there is no secondary options object; in `"indentation": [2, { "except": ["block"] }]`, the secondary options object is `{ "except": ["block"] }`.
+Every rule *must have* a **primary option**.
+
+- In `"color-hex-case": "upper"`, the primary option is `"upper"`
+- In `"indentation": [2, { "except": ["block"] }]`, the primary option is `2`.
+
+#### Secondary
+
+Some rules require extra flexibility to address a variety of use-cases. These can use a **secondary options object**.
+
+- In `"color-hex-case": "upper"`, there is no secondary options object
+- In `"indentation": [2, { "except": ["block"] }]`, the secondary options object is `{ "except": ["block"] }`.
 
 The most typical secondary options are `"ignore": []` and `"except": []`; but anything is possible.
 
@@ -40,11 +50,9 @@ Use a more specific secondary option name when accepting a *user-defined* list o
 
 A rule's secondary option can be anything if you're not ignoring or making exceptions. As an example, `resolveNestedSelectors: true|false` is used within some `selector-*` rules to change how the rule processes nested selectors.
 
-*Use explicit, rather than implicit, options.* For example:
+#### Be explicit
 
-- `color-hex-case: "upper"|"lower"` rather than `color-hex-uppercase: "always"|"never"`
-
-`color-hex-uppercase: "never"` *implies* always lowercase, but `color-hex-case: "lower"` makes it *explicit*.
+*Use explicit, rather than implicit, options.* For example, `color-hex-case: "upper"|"lower"` rather than `color-hex-uppercase: "always"|"never"`. As `color-hex-uppercase: "never"` *implies* always lowercase, whereas `color-hex-case: "lower"` makes it *explicit*.
 
 ### Determine warning messages
 
