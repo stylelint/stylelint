@@ -52,7 +52,7 @@ function getMessageWidth(columnWidths) {
     return columnWidths[3]
   }
 
-  const availableWidth = process.stdout.columns
+  const availableWidth = process.stdout.columns || 80
   const fullWidth = _.sum(_.values(columnWidths))
 
   // If there is no reason to wrap the text, we won't align the last column to the right
