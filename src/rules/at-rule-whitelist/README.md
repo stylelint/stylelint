@@ -26,7 +26,7 @@ The following patterns are considered warnings:
 
 ```css
 @media screen and (max-width: 1024px) {
-  ...
+  .a { display: none; }
 }
 ```
 

@@ -41,7 +41,5 @@ a { @extend placeholder; }
 The following patterns are *not* considered warnings:
 
 ```css
-@mixin name ($p) {
-  ...
-}
+@import "path/to/file.css";
 ```
