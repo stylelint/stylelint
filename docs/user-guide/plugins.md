@@ -4,10 +4,6 @@ Plugins are rules and sets of rules built by the community that support methodol
 
 ## Methodologies
 
-### Individual rules
-
-#### Selector
-
 - [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors (incorporates [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter)).
 
 ## Non-standard syntax
@@ -18,6 +14,10 @@ Plugins are rules and sets of rules built by the community that support methodol
 
 ### Individual rules
 
-#### Declaration
-
 - [`stylelint-declaration-use-variable`](https://github.com/sh-waqar/stylelint-declaration-use-variable): Specify properties for which a SCSS variable must be used.
+
+## Toolkits
+
+### Primer
+
+- [`stylelint-selector-no-utility`](https://github.com/primer/stylelint-selector-no-utility): Disallow Primer utility classes within complex selectors.
