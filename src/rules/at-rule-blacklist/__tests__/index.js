@@ -22,6 +22,7 @@ testRule(rule, {
     code: "a { @extend %placeholder; }",
     message: messages.rejected("extend"),
     line: 1,
+    column: 5,
     description: "@rule from a blacklist, is a Sass directive.",
   }, {
     code: `
@@ -32,6 +33,7 @@ testRule(rule, {
     `,
     message: messages.rejected("extend"),
     line: 3,
+    column: 9,
     description: "@rule from a blacklist; newline after its name.",
   }, {
     code: `
@@ -52,6 +54,7 @@ testRule(rule, {
     `,
     message: messages.rejected("Keyframes"),
     line: 2,
+    column: 7,
     description: "@rule from a blacklist; independent rule; messed case.",
   }, {
     code: `
@@ -62,6 +65,7 @@ testRule(rule, {
     `,
     message: messages.rejected("-moz-keyframes"),
     line: 2,
+    column: 7,
     description: "@rule from a blacklist; independent rule; has vendor prefix.",
   }, {
     code: `
@@ -72,6 +76,7 @@ testRule(rule, {
     `,
     message: messages.rejected("-WEBKET-KEYFRAMES"),
     line: 2,
+    column: 7,
     description: "@rule from a blacklist; independent rule; has vendor prefix.",
   } ],
 })
@@ -98,6 +103,7 @@ testRule(rule, {
     `,
     message: messages.rejected("keyframes"),
     line: 2,
+    column: 7,
     description: "@rule from a blacklist; independent rule.",
   }, {
     code: `
@@ -108,6 +114,7 @@ testRule(rule, {
     `,
     message: messages.rejected("Keyframes"),
     line: 2,
+    column: 7,
     description: "@rule from a blacklist; independent rule; messed case.",
   }, {
     code: `
@@ -118,6 +125,7 @@ testRule(rule, {
     `,
     message: messages.rejected("-moz-keyframes"),
     line: 2,
+    column: 7,
     description: "@rule from a blacklist; independent rule; has vendor prefix.",
   }, {
     code: `
@@ -128,6 +136,7 @@ testRule(rule, {
     `,
     message: messages.rejected("-WEBKET-KEYFRAMES"),
     line: 2,
+    column: 7,
     description: "@rule from a blacklist; independent rule; has vendor prefix.",
   } ],
 })
