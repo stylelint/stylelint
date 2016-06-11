@@ -128,6 +128,10 @@ Take the form of:
 - "Require ..." (for `after`, `before` and `inside` rules).
 - "Specify ..." (for everything else).
 
+#### Example patterns
+
+Use complete CSS patterns i.e. avoid ellipses (`...`)
+
 ### Wire up the rule
 
 The final step is to add references to the new rule in the following places:
