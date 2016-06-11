@@ -125,7 +125,7 @@ Take the form of:
 
 - "Disallow ..." (for `no` rules).
 - "Limit ..." (for `max` rules).
-- "Require ..." (for `after`, `before` and `inside` rules).
+- "Require ..." (for rules that accept `"always"` and `"never"` options).
 - "Specify ..." (for everything else).
 
 #### Example patterns
