@@ -123,27 +123,27 @@ testRule(rule, {
   ruleName,
   config: [ "always", { ignore: ["blockless-group"] } ],
 
-  accept: [ {
-    code: `@media {}; @import 'x.css';`,
-  } ],
+  accept: [{
+    code: "@media {}; @import 'x.css';",
+  }],
 
   reject: [{
-    code: `@import 'x.css'; @media {};`,
+    code: "@import 'x.css'; @media {};",
     message: messages.expected,
   }],
 })
 
 testRule(rule, {
   ruleName,
-  syntax: 'scss',
+  syntax: "scss",
   config: [ "always", { ignore: ["blockless-group"] } ],
 
-  accept: [ {
-    code: `@import 'test'; @mixin('test');`,
-  } ],
+  accept: [{
+    code: "@import 'test'; @mixin('test');",
+  }],
 
   reject: [{
-    code: `@import 'test'; @include mixin(1) { @content; };`,
+    code: "@import 'test'; @include mixin(1) { @content; };",
     message: messages.expected,
   }],
 })
