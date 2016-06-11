@@ -16,6 +16,9 @@ testRule(rule, {
     code: "a.foo {}",
   }, {
     code: ":root { --custom-property-set: {} }",
+  }, {
+    code: ".foo\\+bar {}",
+    description: "escaped combinator-like character",
   } ],
 
   reject: [ {

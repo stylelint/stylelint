@@ -4,6 +4,7 @@
 - Added: `at-rule-name-newline-after` rule.
 - Added: `at-rule-blacklist` rule.
 - Added: `at-rule-whitelist` rule.
+- Fixed: `selector-combinator-space-*` rules now ignore escaped combinator-like characters.
 - Fixed: `function-whitespace-after` ignores `postcss-simple-vars`-style interpolation.
 - Fixed: `function-url-quotes` ignores values containing `$sass` and `@less` variables.
 - Fixed: selector-targeting rules ignore Less mixins and extends.
