@@ -5,6 +5,7 @@
 - Added: `ignore: "blockless-group"` option for `at-rule-empty-line-before`.
 - Fixed: `selector-combinator-space-*` rules now ignore escaped combinator-like characters.
 - Added: `at-rule-blacklist` rule.
+- Added: `at-rule-whitelist` rule.
 - Fixed: `function-whitespace-after` ignores `postcss-simple-vars`-style interpolation.
 - Fixed: `function-url-quotes` ignores values containing `$sass` and `@less` variables.
 - Fixed: selector-targeting rules ignore Less mixins and extends.

@@ -14,6 +14,7 @@ You might want to learn a little about [how rules are named and how they work to
     "at-rule-name-space-after": "always"|"always-single-line",
     "at-rule-no-vendor-prefix": true,
     "at-rule-semicolon-newline-after": "always",
+    "at-rule-whitelist": string|[],
     "block-closing-brace-newline-after": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
     "block-closing-brace-newline-before": "always"|"always-multi-line"|"never-multi-line",
     "block-closing-brace-space-after": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
