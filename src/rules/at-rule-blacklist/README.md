@@ -2,17 +2,15 @@
 
 Specify a blacklist of disallowed at-rules.
 
-```scss
-      @keyframes name {
-/**   ↑
- *    Rules like this */
+```css
+    @keyframes name {}
+/** ↑
+ * At-rules like this */
 ```
 
 ## Options
 
 `array`: `"["array", "of", "unprefixed", "at-rules"]`
-
-The rule's search is case insensitive, and it also takes vendor prefixes into account.
 
 Given:
 
@@ -22,18 +20,18 @@ Given:
 
 The following patterns are considered warnings:
 
-```scss
+```css
 a { @extend placeholder; }
 ```
 
-```scss
+```css
 @keyframes name {
   from { top: 10px; }
   to { top: 20px; }
 }
 ```
 
-```scss
+```css
 @-moz-keyframes name {
   from { top: 10px; }
   to { top: 20px; }
@@ -42,7 +40,7 @@ a { @extend placeholder; }
 
 The following patterns are *not* considered warnings:
 
-```scss
+```css
 @mixin name ($p) {
   ...
 }
