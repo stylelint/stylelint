@@ -121,6 +121,35 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
 
 testRule(rule, {
   ruleName,
+  config: [ "always", { ignore: ["blockless-group"] } ],
+
+  accept: [ {
+    code: `@media {}; @import 'x.css';`,
+  } ],
+
+  reject: [{
+    code: `@import 'x.css'; @media {};`,
+    message: messages.expected,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
+  syntax: 'scss',
+  config: [ "always", { ignore: ["blockless-group"] } ],
+
+  accept: [ {
+    code: `@import 'test'; @mixin('test');`,
+  } ],
+
+  reject: [{
+    code: `@import 'test'; @include mixin(1) { @content; };`,
+    message: messages.expected,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
   config: [ "always", { ignore: ["after-comment"] } ],
 
   accept: [ {
@@ -295,6 +324,34 @@ testRule(rule, mergeTestDescriptions(sharedNeverTests, {
     message: messages.expected,
   } ],
 }))
+
+testRule(rule, {
+  ruleName,
+  config: [ "never", { ignore: ["blockless-group"] } ],
+
+  accept: [ {
+    code: `
+      @media {};
+
+      @import 'x.css';
+    `,
+  }, {
+    code: `
+      @import 'x.css';
+
+      @import 'y.css';
+    `,
+  } ],
+
+  reject: [{
+    code: `
+      @import 'x.css';
+
+      @media {};
+    `,
+    message: messages.rejected,
+  }],
+})
 
 testRule(rule, {
   ruleName,

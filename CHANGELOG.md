@@ -2,6 +2,7 @@
 
 - Added: option `ignorePath` (for JS) and `--ignore-path` (for CLI).
 - Added: `at-rule-name-newline-after` rule.
+- Added: `ignore: "blockless-group"` option for `at-rule-empty-line-before`.
 - Fixed: `function-whitespace-after` ignores `postcss-simple-vars`-style interpolation.
 - Fixed: `function-url-quotes` ignores values containing `$sass` and `@less` variables.
 - Fixed: selector-targeting rules ignore Less mixins and extends.
