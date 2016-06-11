@@ -46,10 +46,16 @@ export function selectorCombinatorSpaceChecker({ locationChecker, root, result, 
         target: _.toArray(nonSpaceCombinators),
         outsideFunctionalNotation: true,
       }, match => {
-        // Catch ~= in attribute selectors
-        if (match.target === "~" && selector[match.endIndex] === "=") { return }
 
-        check(selector, match.startIndex, rule)
+        const { endIndex, startIndex, target } = match
+
+        // Catch ~= in attribute selectors
+        if (target === "~" && selector[endIndex] === "=") { return }
+
+        // Catch escaped combinator-like character
+        if (selector[startIndex - 1] === "\\") { return }
+
+        check(selector, startIndex, rule)
       })
     })
   })
