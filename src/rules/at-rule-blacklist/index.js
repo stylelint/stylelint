@@ -13,7 +13,9 @@ export const messages = ruleMessages(ruleName, {
   rejected: (name) => `Unexpected at-rule "${name}"`,
 })
 
-export default function (blacklist) {
+export default function (blacklistInput) {
+  // To allow for just a string as a parameter (not only arrays of strings)
+  const blacklist = [].concat(blacklistInput)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
@@ -22,10 +24,11 @@ export default function (blacklist) {
     if (!validOptions) { return }
 
     root.walkAtRules(atRule => {
-      if (blacklist.indexOf(vendor.unprefixed(atRule.name).toLowerCase()) === -1) { return }
+      const { name } = atRule
+      if (blacklist.indexOf(vendor.unprefixed(name).toLowerCase()) === -1) { return }
 
       report({
-        message: messages.rejected(atRule.name),
+        message: messages.rejected(name),
         node: atRule,
         result,
         ruleName,
