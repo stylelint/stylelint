@@ -9,7 +9,7 @@
 - Fixed: selector-targeting rules ignore Less mixins and extends.
 - Fixed: `selector-type-no-unknown` ignores non-standard usage of percentage keyframe selectors (e.g. within an SCSS mixin).
 - Fixed: `no-extra-semicolons` reports errors on the correct line.
-- Fixed: crash when tty columns is reported as zero (fixes running stylelint on Travis CI using OSX)
+- Fixed: crash when tty columns is reported as zero, which happened when running stylelint on Travis CI in OSX.
 
 # 6.5.1
 
