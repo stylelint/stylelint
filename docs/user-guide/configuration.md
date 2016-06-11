@@ -18,7 +18,7 @@ The configuration search can be short-circuited by using either the `config` or 
 
 ## The configuration object
 
-The configuration object can have the following properties. Only `rules` is required.
+The configuration object can have the following properties.
 
 ### `rules`
 

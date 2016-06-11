@@ -6,13 +6,7 @@ The stylelint community maintains a [handful of plugins](/docs/user-guide/comple
 
 ## How do I lint from the command line?
 
-First, install stylelint using the `-g` option:
-
-```shell
-npm install -g stylelint
-```
-
-Then refer to the [CLI usage examples](/docs/user-guide/cli.md) within the doc.
+Refer to the [CLI section](/docs/user-guide/cli.md) of the docs.
 
 The CLI can also be used from within [npm run scripts](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
 
@@ -60,7 +54,7 @@ If you're using SUITCSS, you'll probably want to use [their shareable config](ht
 
 ## How do I manage conflicts between rules?
 
-Each rule stands alone, so sometimes it's possible to configure rules such that they conflict with one another. For example, you could configure the `string-quotes` rule to `"single"`, but configure `font-family-name-quotes` to use `"double-where-recommended"`. Or turn on two conflicting blacklist and whitelist rules e.g. `unit-blacklist` and `unit-whitelist`.
+Each rule stands alone, so sometimes it's possible to configure rules such that they conflict with one another. For example, you could turn on two conflicting blacklist and whitelist rules, e.g. `unit-blacklist` and `unit-whitelist`.
 
 It's your responsibility as the configuration author to resolve these conflicts.
 

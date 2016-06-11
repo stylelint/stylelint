@@ -7,6 +7,14 @@ stylelint.lint(options)
   .then(function(resultObject) { .. });
 ```
 
+## Installation
+
+stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install it using:
+
+```console
+npm install stylelint
+```
+
 ## Options
 
 Options is an object with the following properties.
@@ -102,7 +110,7 @@ It resolves with an object (see [The returned promise](#the-returned-promise)) t
 
 ## Usage examples
 
-If `myConfig` contains no relative paths for `extends` or `plugins`, I do not have to use `configBasedir`:
+If `myConfig` contains no relative paths for `extends` or `plugins`, you do not have to use `configBasedir`:
 
 ```js
 stylelint.lint({
@@ -119,7 +127,7 @@ stylelint.lint({
   });;
 ```
 
-If `myConfig` *does* contain relative paths for `extends` or `plugins`, I *do* have to use `configBasedir`:
+If `myConfig` *does* contain relative paths for `extends` or `plugins`, you *do* have to use `configBasedir`:
 
 ```js
 stylelint.lint({
@@ -129,7 +137,7 @@ stylelint.lint({
 }).then(function() { .. });
 ```
 
-Maybe I want to use a CSS string instead of a file glob, and I want to use the string formatter instead of the default JSON:
+Maybe you want to use a CSS string instead of a file glob, and you want to use the string formatter instead of the default JSON:
 
 ```js
 stylelint.lint({
@@ -139,7 +147,7 @@ stylelint.lint({
 }).then(function() { .. });
 ```
 
-Maybe I want to use my own custom formatter function and parse `.scss` source files:
+Maybe you want to use my own custom formatter function and parse `.scss` source files:
 
 ```js
 stylelint.lint({

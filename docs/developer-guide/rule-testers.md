@@ -47,7 +47,7 @@ Required properties:
 
 Optional properties:
 
-- `syntax` {"css"|"scss"|"sugarss"}: Defaults to `"css"`. Other settings use special parsers.
+- `syntax` {"css"|"less"|"scss"|"sugarss"}: Defaults to `"css"`. Other settings use special parsers.
 - `skipBasicChecks` {boolean}: Defaults to `false`. If `true`, a few rudimentary checks (that should almost always be included) will not be performed. You can check those out in `src/testUtils/basicChecks.js`.
 - `preceedingPlugins` {array}: An array of PostCSS plugins that should be run before the CSS is tested.
 
