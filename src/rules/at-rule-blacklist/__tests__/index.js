@@ -63,5 +63,71 @@ testRule(rule, {
     message: messages.rejected("-moz-keyframes"),
     line: 2,
     description: "@rule from a blacklist; independent rule; has vendor prefix.",
+  }, {
+    code: `
+      @-WEBKET-KEYFRAMES name {
+        from { top: 10px; }
+        to { top: 20px; }
+      }
+    `,
+    message: messages.rejected("-WEBKET-KEYFRAMES"),
+    line: 2,
+    description: "@rule from a blacklist; independent rule; has vendor prefix.",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+
+  config: ["keyframes"],
+
+  accept: [ {
+    code: "a { color: pink; }",
+    description: "Some random code.",
+  }, {
+    code: "@mixin name ($p) {}",
+    description: "@rule not from a blacklist.",
+  } ],
+
+  reject: [ {
+    code: `
+      @keyframes name {
+        from { top: 10px; }
+        to { top: 20px; }
+      }
+    `,
+    message: messages.rejected("keyframes"),
+    line: 2,
+    description: "@rule from a blacklist; independent rule.",
+  }, {
+    code: `
+      @Keyframes name {
+        from { top: 10px; }
+        to { top: 20px; }
+      }
+    `,
+    message: messages.rejected("Keyframes"),
+    line: 2,
+    description: "@rule from a blacklist; independent rule; messed case.",
+  }, {
+    code: `
+      @-moz-keyframes name {
+        from { top: 10px; }
+        to { top: 20px; }
+      }
+    `,
+    message: messages.rejected("-moz-keyframes"),
+    line: 2,
+    description: "@rule from a blacklist; independent rule; has vendor prefix.",
+  }, {
+    code: `
+      @-WEBKET-KEYFRAMES name {
+        from { top: 10px; }
+        to { top: 20px; }
+      }
+    `,
+    message: messages.rejected("-WEBKET-KEYFRAMES"),
+    line: 2,
+    description: "@rule from a blacklist; independent rule; has vendor prefix.",
   } ],
 })
