@@ -51,5 +51,15 @@ export default function (on, options) {
 }
 
 function cleanDoiuseWarningText(warningText) {
-  return warningText.replace(/\s*\(\S+?\)$/, "")
+
+  // Get index of feature Id
+  const featureIdIndex = warningText.lastIndexOf("(")
+
+  // Get feature Id, then replace brackets with quotes
+  const featureId = warningText.slice(featureIdIndex, warningText.length).replace(/\(|\)/g, "\"")
+
+  // Get "not supported by..." text, then strip colons and brackets.
+  const notSupportedBy = warningText.slice(warningText.indexOf("not"), featureIdIndex - 1).replace(/:|\(|\)/g, "")
+
+  return `${featureId} is ${notSupportedBy}`
 }

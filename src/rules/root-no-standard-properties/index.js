@@ -1,5 +1,5 @@
 import {
-  isStandardProperty,
+  isStandardSyntaxProperty,
   isCustomProperty,
   parseSelector,
   report,
@@ -10,7 +10,7 @@ import {
 export const ruleName = "root-no-standard-properties"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: property => `Unexpected standard property "${property}" applied to ":root"`,
+  rejected: property => `Unexpected standard property "${property}" within :root rule`,
 })
 
 export default function (actual) {
@@ -28,7 +28,7 @@ export default function (actual) {
         rule.walkDecls(function (decl) {
 
           const { prop } = decl
-          if (!isStandardProperty(prop)) { return }
+          if (!isStandardSyntaxProperty(prop)) { return }
           if (isCustomProperty(prop)) { return }
 
           report({

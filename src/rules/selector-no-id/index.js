@@ -1,7 +1,7 @@
 import {
   isKeyframeRule,
-  isStandardRule,
-  isStandardSelector,
+  isStandardSyntaxRule,
+  isStandardSyntaxSelector,
   parseSelector,
   report,
   ruleMessages,
@@ -20,10 +20,10 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (!isStandardRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
       if (isKeyframeRule(rule)) { return }
       const { selector } = rule
-      if (!isStandardSelector(selector)) { return }
+      if (!isStandardSyntaxSelector(selector)) { return }
       parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkIds(idNode => {
 

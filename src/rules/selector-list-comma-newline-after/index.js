@@ -1,5 +1,5 @@
 import {
-  isStandardRule,
+  isStandardSyntaxRule,
   report,
   ruleMessages,
   styleSearch,
@@ -29,7 +29,7 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (!isStandardRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
       // Get raw selector so we can allow end-of-line comments, e.g.
       // a, /* comment */
       // b {}

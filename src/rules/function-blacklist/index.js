@@ -4,7 +4,7 @@ import valueParser from "postcss-value-parser"
 
 import {
   declarationValueIndex,
-  isStandardFunction,
+  isStandardSyntaxFunction,
   report,
   ruleMessages,
   validateOptions,
@@ -27,7 +27,7 @@ export default function (blacklist) {
       const { value } = decl
       valueParser(value).walk(function (node) {
         if (node.type !== "function") { return }
-        if (!isStandardFunction(node)) { return }
+        if (!isStandardSyntaxFunction(node)) { return }
         if (blacklist.indexOf(vendor.unprefixed(node.value).toLowerCase()) === -1) { return }
 
         report({

@@ -1,5 +1,5 @@
 import {
-  isStandardAtRule,
+  isStandardSyntaxAtRule,
   report,
   ruleMessages,
   validateOptions,
@@ -35,7 +35,7 @@ export default function (expectation) {
 
 export function atRuleNameSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkAtRules(atRule => {
-    if (!isStandardAtRule(atRule)) { return }
+    if (!isStandardSyntaxAtRule(atRule)) { return }
 
     checkColon(
       `@${atRule.name}${atRule.raws.afterName}${atRule.params}`,

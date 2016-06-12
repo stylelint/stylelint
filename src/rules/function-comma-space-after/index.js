@@ -2,7 +2,7 @@ import _ from "lodash"
 import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
-  isStandardFunction,
+  isStandardSyntaxFunction,
   report,
   ruleMessages,
   styleSearch,
@@ -49,7 +49,7 @@ export function functionCommaSpaceChecker({ locationChecker, root, result, check
     valueParser(declValue).walk(valueNode => {
       if (valueNode.type !== "function") { return }
 
-      if (!isStandardFunction(valueNode)) { return }
+      if (!isStandardSyntaxFunction(valueNode)) { return }
 
       // Ignore `url()` arguments, which may contain data URIs or other funky stuff
       if (valueNode.value.toLowerCase() === "url") { return }

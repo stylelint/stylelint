@@ -28,32 +28,32 @@ testRule(rule, {
 
   reject: [ {
     code: "a {}\n\n\nb{}",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 4,
     column: 1,
   }, {
     code: "a {}\r\n\r\n\r\nb{}",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 4,
     column: 1,
   }, {
     code: "a {}\n\n/** horse */\n\n\nb{}",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 6,
     column: 1,
   }, {
     code: "a {}\r\n\r\n/** horse */\r\n\r\n\r\nb{}",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 6,
     column: 1,
   }, {
     code: "/* horse\n\n\n */\na{}",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 4,
     column: 1,
   }, {
     code: "/* horse\r\n\r\n\r\n */\r\na{}",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 4,
     column: 1,
   } ],
@@ -79,32 +79,32 @@ testRule(rule, {
 
   reject: [ {
     code: "a {}\n\n\n\nb{}",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 5,
     column: 1,
   }, {
     code: "a {}\r\n\r\n\r\n\r\nb{}",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 5,
     column: 1,
   }, {
     code: "a {}\n\n/** horse */\n\n\n\nb{}",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 7,
     column: 1,
   }, {
     code: "a {}\r\n\r\n/** horse */\r\n\r\n\r\n\r\nb{}",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 7,
     column: 1,
   }, {
     code: "/* horse\n\n\n\n */\na{}",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 5,
     column: 1,
   }, {
     code: "/* horse\r\n\r\n\r\n\r\n */\r\na{}",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 5,
     column: 1,
   } ],
@@ -122,7 +122,7 @@ testRule(rule, {
 
   reject: [{
     code: "// one\n\n\n\n// two\n",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 5,
     column: 1,
   }],

@@ -37,42 +37,42 @@ testRule(rule, {
 
   reject: [ {
     code: "a { transform: translate(\n\n1\n,\n1\n); }",
-    message: messages.rejected,
+    message: messages.expected(0),
     line: 1,
     column: 26,
   }, {
     code: "a { transform: translate(\r\n\r\n1\r\n,\r\n1\r\n); }",
-    message: messages.rejected,
+    message: messages.expected(0),
     line: 1,
     column: 26,
   }, {
     code: "a { transform: translate(\n1\n\n,\n1\n); }",
-    message: messages.rejected,
+    message: messages.expected(0),
     line: 2,
     column: 2,
   }, {
     code: "a { transform: translate(\r\n1\r\n\r\n,\r\n1\r\n); }",
-    message: messages.rejected,
+    message: messages.expected(0),
     line: 2,
     column: 2,
   }, {
     code: "a { transform: translate(\n1\n,\n\n1\n); }",
-    message: messages.rejected,
+    message: messages.expected(0),
     line: 3,
     column: 2,
   }, {
     code: "a { transform: translate(\r\n1\r\n,\r\n\r\n1\r\n); }",
-    message: messages.rejected,
+    message: messages.expected(0),
     line: 3,
     column: 2,
   }, {
     code: "a { transform: translate(\n1\n,\n1\n\n); }",
-    message: messages.rejected,
+    message: messages.expected(0),
     line: 4,
     column: 2,
   }, {
     code: "a { transform: translate(\r\n1\r\n,\r\n1\r\n\r\n); }",
-    message: messages.rejected,
+    message: messages.expected(0),
     line: 4,
     column: 2,
   } ],
@@ -106,42 +106,42 @@ testRule(rule, {
 
   reject: [ {
     code: "a { transform: translate(\n\n\n1\n,\n1\n); }",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 1,
     column: 26,
   }, {
     code: "a { transform: translate(\r\n\r\n\r\n1\r\n,\r\n1\r\n); }",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 1,
     column: 26,
   }, {
     code: "a { transform: translate(\n1\n\n\n,\n1\n); }",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 2,
     column: 2,
   }, {
     code: "a { transform: translate(\r\n1\r\n\r\n\r\n,\r\n1\r\n); }",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 2,
     column: 2,
   }, {
     code: "a { transform: translate(\n1\n,\n\n\n1\n); }",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 3,
     column: 2,
   }, {
     code: "a { transform: translate(\r\n1\r\n,\r\n\r\n\r\n1\r\n); }",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 3,
     column: 2,
   }, {
     code: "a { transform: translate(\n1\n,\n1\n\n\n); }",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 4,
     column: 2,
   }, {
     code: "a { transform: translate(\r\n1\r\n,\r\n1\r\n\r\n\r\n); }",
-    message: messages.rejected,
+    message: messages.expected(1),
     line: 4,
     column: 2,
   } ],
@@ -191,42 +191,42 @@ testRule(rule, {
 
   reject: [ {
     code: "a { transform: translate(\n\n\n\n1\n,\n1\n); }",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 1,
     column: 26,
   }, {
     code: "a { transform: translate(\r\n\r\n\r\n\r\n1\r\n,\r\n1\r\n); }",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 1,
     column: 26,
   }, {
     code: "a { transform: translate(\n1\n\n\n\n,\n1\n); }",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 2,
     column: 2,
   }, {
     code: "a { transform: translate(\r\n1\r\n\r\n\r\n\r\n,\r\n1\r\n); }",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 2,
     column: 2,
   }, {
     code: "a { transform: translate(\n1\n,\n\n\n\n1\n); }",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 3,
     column: 2,
   }, {
     code: "a { transform: translate(\r\n1\r\n,\r\n\r\n\r\n\r\n1\r\n); }",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 3,
     column: 2,
   }, {
     code: "a { transform: translate(\n1\n,\n1\n\n\n\n); }",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 4,
     column: 2,
   }, {
     code: "a { transform: translate(\r\n1\r\n,\r\n1\r\n\r\n\r\n\r\n); }",
-    message: messages.rejected,
+    message: messages.expected(2),
     line: 4,
     column: 2,
   } ],

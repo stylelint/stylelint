@@ -1,6 +1,6 @@
 import {
   isCustomProperty,
-  isStandardProperty,
+  isStandardSyntaxProperty,
   report,
   ruleMessages,
   validateOptions,
@@ -25,7 +25,7 @@ export default function (expectation) {
 
     root.walkDecls(decl => {
       const { prop } = decl
-      if (!isStandardProperty(prop)) { return }
+      if (!isStandardSyntaxProperty(prop)) { return }
       if (isCustomProperty(prop)) { return }
 
       const expectedProp = expectation === "lower" ? prop.toLowerCase() : prop.toUpperCase()

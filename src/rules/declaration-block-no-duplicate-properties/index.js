@@ -1,6 +1,6 @@
 import {
   isCustomProperty,
-  isStandardProperty,
+  isStandardSyntaxProperty,
   optionsHaveIgnored,
   report,
   ruleMessages,
@@ -10,7 +10,7 @@ import {
 export const ruleName = "declaration-block-no-duplicate-properties"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: property => `Unexpected duplicate property "${property}"`,
+  rejected: property => `Unexpected duplicate "${property}"`,
 })
 
 export default function (on, options) {
@@ -46,7 +46,7 @@ export default function (on, options) {
         if (child.type !== "decl") { return }
 
         const { prop } = child
-        if (!isStandardProperty(prop)) { return }
+        if (!isStandardSyntaxProperty(prop)) { return }
         if (isCustomProperty(prop)) { return }
 
         // Ignore the src property as commonly duplicated in at-fontface

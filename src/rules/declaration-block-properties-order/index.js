@@ -2,7 +2,7 @@ import _ from "lodash"
 import { vendor } from "postcss"
 import {
   isCustomProperty,
-  isStandardProperty,
+  isStandardSyntaxProperty,
   report,
   ruleMessages,
   validateOptions,
@@ -11,7 +11,9 @@ import {
 export const ruleName = "declaration-block-properties-order"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (first, second) => `Expected property "${first}" to come before property "${second}"`,
+  expected: (first, second) => `Expected "${first}" to come before "${second}"`,
+  expectedEmptyLineBetween: (first, second) => `Expected an empty line between "${first}" and "${second}"`,
+  rejectedEmptyLineBetween: (first, second) => `Unexpected empty line between "${first} and "${second}"`,
 })
 
 export default function (expectation, options) {
@@ -54,7 +56,7 @@ export default function (expectation, options) {
         if (child.type !== "decl") { return }
 
         const { prop } = child
-        if (!isStandardProperty(prop)) { return }
+        if (!isStandardSyntaxProperty(prop)) { return }
         if (isCustomProperty(prop)) { return }
 
         let unprefixedPropName = vendor.unprefixed(prop)

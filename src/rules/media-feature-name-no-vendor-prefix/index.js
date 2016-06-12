@@ -8,7 +8,7 @@ import {
 export const ruleName = "media-feature-name-no-vendor-prefix"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected vendor-prefixed media feature name",
+  rejected: "Unexpected vendor-prefix",
 })
 
 export default function (actual) {

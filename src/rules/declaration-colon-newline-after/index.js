@@ -1,5 +1,5 @@
 import {
-  isStandardDeclaration,
+  isStandardSyntaxDeclaration,
   declarationValueIndex,
   report,
   ruleMessages,
@@ -12,7 +12,7 @@ export const ruleName = "declaration-colon-newline-after"
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected newline after \":\"",
   rejectedAfter: () => "Unexpected whitespace after \":\"",
-  expectedAfterMultiLine: () => "Expected newline after \":\" with a multi-line value",
+  expectedAfterMultiLine: () => "Expected newline after \":\" with a multi-line declaration",
 })
 
 export default function (expectation) {
@@ -29,7 +29,7 @@ export default function (expectation) {
 
     root.walkDecls(decl => {
 
-      if (!isStandardDeclaration(decl)) { return }
+      if (!isStandardSyntaxDeclaration(decl)) { return }
 
       // Get the raw prop, and only the prop
       const endOfPropIndex = declarationValueIndex(decl) + decl.raw("between").length - 1

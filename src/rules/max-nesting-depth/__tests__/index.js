@@ -23,19 +23,19 @@ testRule(rule, {
 
   reject: [ {
     code: "a { b { c { top: 0; }}}",
-    message: messages.rejected(1),
+    message: messages.expected(1),
   }, {
     code: "@media print { a { b { c { top: 0; }}}}",
-    message: messages.rejected(1),
+    message: messages.expected(1),
   }, {
     code: "a { top: 0; b { top: 0; c { top: 0; }}}",
-    message: messages.rejected(1),
+    message: messages.expected(1),
   }, {
     code: "a { b { top: 0; c { top: 0; }} top: 0; }",
-    message: messages.rejected(1),
+    message: messages.expected(1),
   }, {
     code: "a { @nest b { c { top: 0; }}}",
-    message: messages.rejected(1),
+    message: messages.expected(1),
   } ],
 })
 
@@ -51,12 +51,12 @@ testRule(rule, {
     code: "a { & > b { @media print { color: pink; }}}",
   }, {
     code: "a { & > b { & > c { @media print { color: pink; }}}}",
-    description: messages.rejected(3),
+    description: messages.expected(3),
   } ],
 
   reject: [{
     code: "a { b { c { d { e { top: 0; }}}}}",
-    message: messages.rejected(3),
+    message: messages.expected(3),
   }],
 })
 
@@ -74,12 +74,12 @@ testRule(rule, {
 
   reject: [ {
     code: "a { b { c { top: 0; }}}",
-    message: messages.rejected(1),
+    message: messages.expected(1),
   }, {
     code: "a { @media print { b { c { top: 0; }}}}",
-    message: messages.rejected(1),
+    message: messages.expected(1),
   }, {
     code: "a { @nest b { @nest c { top: 0; @nest d { bottom: 0; }}}}",
-    message: messages.rejected(1),
+    message: messages.expected(1),
   } ],
 })

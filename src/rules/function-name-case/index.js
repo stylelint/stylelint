@@ -1,7 +1,7 @@
 import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
-  isStandardFunction,
+  isStandardSyntaxFunction,
   report,
   ruleMessages,
   validateOptions,
@@ -34,7 +34,7 @@ export default function (expectation) {
       const { value } = decl
 
       valueParser(value).walk(function (node) {
-        if (node.type !== "function" || !isStandardFunction(node)) { return }
+        if (node.type !== "function" || !isStandardSyntaxFunction(node)) { return }
 
         const functionName = node.value
         const functionNameLowerCase = functionName.toLowerCase()

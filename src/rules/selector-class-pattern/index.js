@@ -1,8 +1,8 @@
 import resolveNestedSelector from "postcss-resolve-nested-selector"
 import _ from "lodash"
 import {
-  isStandardRule,
-  isStandardSelector,
+  isStandardSyntaxRule,
+  isStandardSyntaxSelector,
   parseSelector,
   report,
   ruleMessages,
@@ -35,10 +35,10 @@ export default function (pattern, options) {
       : pattern
 
     root.walkRules(rule => {
-      if (!isStandardRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
 
       const { selector } = rule
-      if (!isStandardSelector(selector)) { return }
+      if (!isStandardSyntaxSelector(selector)) { return }
 
       // Only bother resolving selectors that have an interpolating &
       if (shouldResolveNestedSelectors && hasInterpolatingAmpersand(selector)) {

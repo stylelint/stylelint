@@ -1,5 +1,5 @@
 import {
-  isStandardRule,
+  isStandardSyntaxRule,
   ruleMessages,
   validateOptions,
 } from "../../utils"
@@ -40,7 +40,7 @@ export default function (expectation, options) {
 
     root.walkRules(rule => {
 
-      if (!isStandardRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
 
       // Only attend to nested rule sets
       if (rule.parent === root) { return }

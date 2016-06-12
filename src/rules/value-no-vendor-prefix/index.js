@@ -1,7 +1,7 @@
 import {
   isAutoprefixable,
-  isStandardDeclaration,
-  isStandardProperty,
+  isStandardSyntaxDeclaration,
+  isStandardSyntaxProperty,
   report,
   ruleMessages,
   styleSearch,
@@ -11,7 +11,7 @@ import {
 export const ruleName = "value-no-vendor-prefix"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: property => `Unexpected vendor-prefixed value "${property}"`,
+  rejected: value => `Unexpected vendor-prefix "${value}"`,
 })
 
 const valuePrefixes = [ "-webkit-", "-moz-", "-ms-", "-o-" ]
@@ -23,8 +23,8 @@ export default function (actual) {
 
     root.walkDecls(decl => {
       if (
-        !isStandardDeclaration(decl)
-        || !isStandardProperty(decl.prop)
+        !isStandardSyntaxDeclaration(decl)
+        || !isStandardSyntaxProperty(decl.prop)
         || decl.value[0] !== "-"
       ) { return }
 

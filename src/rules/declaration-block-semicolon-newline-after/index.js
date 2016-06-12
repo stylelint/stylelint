@@ -12,8 +12,8 @@ export const ruleName = "declaration-block-semicolon-newline-after"
 
 export const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected newline after \";\"",
-  expectedAfterMultiLine: () => "Expected newline after \";\" in a multi-line rule",
-  rejectedAfterMultiLine: () => "Unexpected newline after \";\" in a multi-line rule",
+  expectedAfterMultiLine: () => "Expected newline after \";\" in a multi-line declaration block",
+  rejectedAfterMultiLine: () => "Unexpected newline after \";\" in a multi-line declaration block",
 })
 
 export default function (expectation) {

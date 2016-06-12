@@ -11,7 +11,7 @@ import {
 export const ruleName = "no-indistinguishable-colors"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (a, b) => `Unexpected almost identical colors: "${a}" and "${b}"`,
+  rejected: (a, b) => `Unexpected indistinguishable colors "${a}" and "${b}"`,
 })
 
 export default function (on, options) {

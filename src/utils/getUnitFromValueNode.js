@@ -1,5 +1,5 @@
 import blurInterpolation from "./blurInterpolation"
-import isStandardValue from "./isStandardValue"
+import isStandardSyntaxValue from "./isStandardSyntaxValue"
 import valueParser from "postcss-value-parser"
 import { isFinite } from "lodash"
 
@@ -17,7 +17,7 @@ export default function (node) {
   const value = blurInterpolation(node.value, "")
 
   if (node.type !== "word"
-    || !isStandardValue(value)
+    || !isStandardSyntaxValue(value)
     || !isFinite(parseInt(value))
     || node.value[0] === "#"
   ) { return null }

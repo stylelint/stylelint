@@ -1,6 +1,6 @@
 import {
-  isStandardRule,
-  isStandardSelector,
+  isStandardSyntaxRule,
+  isStandardSyntaxSelector,
   parseSelector,
   report,
   ruleMessages,
@@ -11,7 +11,7 @@ import {
 export const ruleName = "selector-no-vendor-prefix"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: property => `Unexpected vendor-prefixed selector "${property}"`,
+  rejected: selector => `Unexpected vendor-prefix "${selector}"`,
 })
 
 export default function (actual) {
@@ -20,9 +20,9 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (!isStandardRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
       const { selector } = rule
-      if (!isStandardSelector(selector)) { return }
+      if (!isStandardSyntaxSelector(selector)) { return }
       parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkPseudos(pseudoNode => {
           if (isAutoprefixable.selector(pseudoNode.value)) {

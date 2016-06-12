@@ -2,8 +2,8 @@ import { calculate } from "specificity"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 import {
-  isStandardRule,
-  isStandardSelector,
+  isStandardSyntaxRule,
+  isStandardSyntaxSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -12,7 +12,7 @@ import {
 export const ruleName = "selector-max-specificity"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (selector, specificity) => `Expected "${selector}" to have a specificity equal to or less than "${specificity}"`,
+  expected: (selector, specificity) => `Expected "${selector}" to have a specificity no more than "${specificity}"`,
 })
 
 export default function (max) {
@@ -28,8 +28,8 @@ export default function (max) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (!isStandardRule(rule)) { return }
-      if (!isStandardSelector(rule.selector)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
+      if (!isStandardSyntaxSelector(rule.selector)) { return }
       // Using rule.selectors gets us each selector in the eventuality we have a comma separated set
       rule.selectors.forEach(selector => {
         resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {

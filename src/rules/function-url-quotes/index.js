@@ -1,5 +1,5 @@
 import {
-  isStandardUrl,
+  isStandardSyntaxUrl,
   functionArgumentsSearch,
   atRuleParamIndex,
   report,
@@ -55,7 +55,7 @@ export default function (expectation) {
 
     function checkArgs(args, node, index, functionName) {
       const leftTrimmedArgs = args.trimLeft()
-      if (!isStandardUrl(leftTrimmedArgs)) { return }
+      if (!isStandardSyntaxUrl(leftTrimmedArgs)) { return }
       const complaintIndex = index + args.length - leftTrimmedArgs.length
       const hasQuotes = leftTrimmedArgs[0] === "'" || leftTrimmedArgs[0] === "\""
       switch (expectation) {
