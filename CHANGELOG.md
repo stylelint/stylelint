@@ -17,11 +17,10 @@
 
 - Added: option `ignorePath` (for JS) and `--ignore-path` (for CLI).
 - Added: `at-rule-name-newline-after` rule.
-- Added: `ignore: "blockless-group"` option for `at-rule-empty-line-before`.
-- Fixed: `selector-combinator-space-*` rules now ignore escaped combinator-like characters.
 - Added: `at-rule-blacklist` rule.
 - Added: `at-rule-whitelist` rule.
 - Added: `ignore: "blockless-group"` option for `at-rule-empty-line-before`.
+- Added: `ignoreAtRules: []` option for `at-rule-empty-line-before`.
 - Fixed: `selector-combinator-space-*` rules now ignore escaped combinator-like characters.
 - Fixed: `function-whitespace-after` ignores `postcss-simple-vars`-style interpolation.
 - Fixed: `function-url-quotes` ignores values containing `$sass` and `@less` variables.
