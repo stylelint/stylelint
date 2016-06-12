@@ -7,7 +7,7 @@ import {
 export const ruleName = "selector-root-no-composition"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected composition of the \":root\" selector",
+  rejected: "Unexpected composition of :root selector",
 })
 
 export default function (actual) {

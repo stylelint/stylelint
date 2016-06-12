@@ -11,7 +11,7 @@ import {
 export const ruleName = "selector-no-vendor-prefix"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: property => `Unexpected vendor-prefixed selector "${property}"`,
+  rejected: selector => `Unexpected vendor-prefix "${selector}"`,
 })
 
 export default function (actual) {

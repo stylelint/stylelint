@@ -11,7 +11,7 @@ import {
 export const ruleName = "declaration-block-single-line-max-declarations"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (quantity) => `Expected a maximum of ${quantity} declaration(s)`,
+  expected: (quantity) => `Expected no more than ${quantity} declaration(s)`,
 })
 
 export default function (quantity) {

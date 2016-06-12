@@ -9,7 +9,7 @@ import {
 export const ruleName = "max-empty-lines"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected empty line",
+  expected: max => `Expected no more than ${max} empty lines`,
 })
 
 export default function (max) {
@@ -52,7 +52,7 @@ export default function (max) {
       if (!violationIndex) { return }
 
       report({
-        message: messages.rejected,
+        message: messages.expected(max),
         node,
         index: violationIndex + offset,
         result,

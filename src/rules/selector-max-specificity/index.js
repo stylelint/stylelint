@@ -12,7 +12,7 @@ import {
 export const ruleName = "selector-max-specificity"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (selector, specificity) => `Expected "${selector}" to have a specificity equal to or less than "${specificity}"`,
+  expected: (selector, specificity) => `Expected "${selector}" to have a specificity no more than "${specificity}"`,
 })
 
 export default function (max) {

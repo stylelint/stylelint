@@ -10,7 +10,7 @@ import {
 export const ruleName = "max-nesting-depth"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: depth => `Unexpected nesting depth greater than ${depth}`,
+  expected: depth => `Expected nesting depth to be no more than ${depth}`,
 })
 
 export default function (max, options) {
@@ -39,7 +39,7 @@ export default function (max, options) {
           ruleName,
           result,
           node: statement,
-          message: messages.rejected(max),
+          message: messages.expected(max),
         })
       }
     }

@@ -11,7 +11,7 @@ import {
 export const ruleName = "value-no-vendor-prefix"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: property => `Unexpected vendor-prefixed value "${property}"`,
+  rejected: value => `Unexpected vendor-prefix "${value}"`,
 })
 
 const valuePrefixes = [ "-webkit-", "-moz-", "-ms-", "-o-" ]

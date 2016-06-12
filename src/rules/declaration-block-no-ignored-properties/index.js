@@ -9,7 +9,7 @@ import {
 export const ruleName = "declaration-block-no-ignored-properties"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (ignored, cause) => `Unexpected property "${ignored}" that is ignored because of "${cause}"`,
+  rejected: (ignored, cause) => `Unexpected "${ignored}" with "${cause}"`,
 })
 
 const ignored = [ {
