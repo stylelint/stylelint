@@ -28,23 +28,31 @@ We take care to ensure that all the rules are named accurately and consistently.
 
 ### Determine options
 
-Every rule must have a **primary option**. In `"color-hex-case": "upper"`, the primary option is `"upper"`; in `"indentation": [2, { "except": ["block"] }]`, the primary option is `2`.
+#### Primary
 
-Some rules require extra flexibility to address a variety of use-cases. These can use a **secondary options object**. In `"color-hex-case": "upper"`, there is no secondary options object; in `"indentation": [2, { "except": ["block"] }]`, the secondary options object is `{ "except": ["block"] }`.
+Every rule *must have* a **primary option**.
+
+- In `"color-hex-case": "upper"`, the primary option is `"upper"`.
+- In `"indentation": [2, { "except": ["block"] }]`, the primary option is `2`.
+
+#### Secondary
+
+Some rules require extra flexibility to address a variety of use-cases. These can use a **secondary options object**.
+
+- In `"color-hex-case": "upper"`, there is no secondary options object.
+- In `"indentation": [2, { "except": ["block"] }]`, the secondary options object is `{ "except": ["block"] }`.
 
 The most typical secondary options are `"ignore": []` and `"except": []`; but anything is possible.
 
-`"ignore"` and `"except"` accept an array of predefined keyword options e.g. `["relative", "first-nested", "descendant"]`. Use `"ignore"` when you want the rule to simply skip-over a particular pattern, and use `except` when you want to invert the primary option for a particular pattern.
+`"ignore"` and `"except"` accept an array of predefined keyword options e.g. `["relative", "first-nested", "descendant"]`. Use `"ignore"` when you want the rule to simply skip-over a particular pattern, and use `"except"` when you want to invert the primary option for a particular pattern.
 
 Use a more specific secondary option name when accepting a *user-defined* list of things to ignore. For example, use `"ignoreAtRules": []` if a rule checks at-rules and you want to allow a user to specify which particular at-rule types to ignore.
 
 A rule's secondary option can be anything if you're not ignoring or making exceptions. As an example, `resolveNestedSelectors: true|false` is used within some `selector-*` rules to change how the rule processes nested selectors.
 
-*Use explicit, rather than implicit, options.* For example:
+#### Be explicit
 
-- `color-hex-case: "upper"|"lower"` rather than `color-hex-uppercase: "always"|"never"`
-
-`color-hex-uppercase: "never"` *implies* always lowercase, but `color-hex-case: "lower"` makes it *explicit*.
+*Use explicit, rather than implicit, options.* For example, `color-hex-case: "upper"|"lower"` rather than `color-hex-uppercase: "always"|"never"`. As `color-hex-uppercase: "never"` *implies* always lowercase, whereas `color-hex-case: "lower"` makes it *explicit*.
 
 ### Determine warning messages
 
@@ -59,9 +67,9 @@ Look at the messages of other rules to glean more conventions and patterns.
 
 *When writing the rule, always look to other similar rules for conventions and patterns to start from and mimic.*
 
-You will use the simple [PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md) to navigate and analyze the CSS syntax tree.
+You will use the simple [PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes.
 
-Depending on the rule, we recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and/or [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). Use these standard parsers whenever possible, even if there's a performance hit, because there are significant gains in doing so.
+Depending on the rule, we also recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
 stylelint has a number of [utility functions](https://github.com/stylelint/stylelint/tree/master/src/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!)
 
@@ -125,8 +133,12 @@ Take the form of:
 
 - "Disallow ..." (for `no` rules).
 - "Limit ..." (for `max` rules).
-- "Require ..." (for `after`, `before` and `inside` rules).
+- "Require ..." (for rules that accept `"always"` and `"never"` options).
 - "Specify ..." (for everything else).
+
+#### Example patterns
+
+Use complete CSS patterns i.e. avoid ellipses (`...`)
 
 ### Wire up the rule
 

@@ -12,7 +12,7 @@ If you are uncertain what "browser hacks" are, ["An Introduction to Browser-Spec
 
 This rule uses [stylehacks](https://github.com/ben-eb/stylehacks) to detect the hacks. Then, in the spirit of stylelint, it tells you that you've done something wrong. If instead you would like to automatically remove browser hacks, use [stylehacks](https://github.com/ben-eb/stylehacks) directly.
 
-[stylehacks](https://github.com/ben-eb/stylehacks) is only compatible with standard CSS syntax.
+[stylehacks](https://github.com/ben-eb/stylehacks) is only compatible with standard CSS syntax, and does not support nested properties nor custom property sets.
 
 Bugs and feature requests should be reported on the [stylehacks issue tracker](https://github.com/ben-eb/stylehacks/issues).
 

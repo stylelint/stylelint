@@ -1,9 +1,11 @@
+import atRuleBlacklist from "./at-rule-blacklist"
 import atRuleEmptyLineBefore from "./at-rule-empty-line-before"
 import atRuleNameCase from "./at-rule-name-case"
 import atRuleNameNewlineAfter from "./at-rule-name-newline-after"
 import atRuleNameSpaceAfter from "./at-rule-name-space-after"
 import atRuleNoVendorPrefix from "./at-rule-no-vendor-prefix"
 import atRuleSemicolonNewlineAfter from "./at-rule-semicolon-newline-after"
+import atRuleWhitelist from "./at-rule-whitelist"
 import blockClosingBraceNewlineAfter from "./block-closing-brace-newline-after"
 import blockClosingBraceNewlineBefore from "./block-closing-brace-newline-before"
 import blockClosingBraceSpaceAfter from "./block-closing-brace-space-after"
@@ -148,12 +150,14 @@ import valueListCommaSpaceBefore from "./value-list-comma-space-before"
 import valueNoVendorPrefix from "./value-no-vendor-prefix"
 
 export default {
+  "at-rule-blacklist": atRuleBlacklist,
   "at-rule-empty-line-before": atRuleEmptyLineBefore,
   "at-rule-name-case": atRuleNameCase,
   "at-rule-name-newline-after": atRuleNameNewlineAfter,
   "at-rule-name-space-after": atRuleNameSpaceAfter,
   "at-rule-no-vendor-prefix": atRuleNoVendorPrefix,
   "at-rule-semicolon-newline-after": atRuleSemicolonNewlineAfter,
+  "at-rule-whitelist": atRuleWhitelist,
   "block-closing-brace-newline-after": blockClosingBraceNewlineAfter,
   "block-closing-brace-newline-before": blockClosingBraceNewlineBefore,
   "block-closing-brace-space-after": blockClosingBraceSpaceAfter,

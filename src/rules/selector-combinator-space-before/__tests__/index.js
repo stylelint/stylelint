@@ -59,6 +59,9 @@ testRule(rule, {
   }, {
     code: ".foo {\n\t> span,\n\t> b { color:pink; } }",
     description: "nested selectors starting with combinator",
+  }, {
+    code: ".foo\\+bar {}",
+    description: "escaped combinator-like character",
   } ],
 
   reject: [ {

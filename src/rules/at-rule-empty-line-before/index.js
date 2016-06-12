@@ -23,7 +23,7 @@ export default function (expectation, options) {
       actual: options,
       possible: {
         except: [ "blockless-group", "first-nested", "all-nested" ],
-        ignore: [ "after-comment", "all-nested" ],
+        ignore: [ "blockless-group", "after-comment", "all-nested" ],
       },
       optional: true,
     })
@@ -34,6 +34,10 @@ export default function (expectation, options) {
       // Ignore the first node
       if (atRule === root.first) { return }
 
+      // Optionally ignore the expectation if the node is blockless
+      if (optionsHaveIgnored(options, "blockless-group") && !hasBlock(atRule)) { return }
+
+      // Optionally ignore the expectation if the node is nested
       const isNested = atRule.parent !== root
       if (optionsHaveIgnored(options, "all-nested") && isNested) { return }
 
