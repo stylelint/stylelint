@@ -1,3 +1,4 @@
+import styleSearch from "style-search"
 import {
   findIndex,
   findLastIndex,
@@ -10,7 +11,6 @@ import {
   beforeBlockString,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
 import { lengthUnits } from "../../reference/keywordSets"

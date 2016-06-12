@@ -1,6 +1,6 @@
+import styleSearch from "style-search"
 import {
   ruleMessages,
-  styleSearch,
   report,
   validateOptions,
 } from "../../utils"
@@ -19,7 +19,11 @@ export default function (actual) {
     if (!validOptions) { return }
 
     const rootString = root.toString()
-    styleSearch({ source: rootString, target: [ "\n", "\r" ], checkComments: true }, match => {
+    styleSearch({
+      source: rootString,
+      target: [ "\n", "\r" ],
+      comments: "check",
+    }, match => {
       if (whitespacesToReject.indexOf(rootString[match.startIndex - 1]) !== -1) {
         report({
           message: messages.rejected,

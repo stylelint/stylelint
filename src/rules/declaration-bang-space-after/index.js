@@ -1,6 +1,6 @@
+import styleSearch from "style-search"
 import {
   declarationValueIndex,
-  styleSearch,
   report,
   ruleMessages,
   validateOptions,

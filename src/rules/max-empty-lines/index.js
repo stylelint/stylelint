@@ -1,8 +1,8 @@
+import styleSearch from "style-search"
 import { isNumber, repeat } from "lodash"
 import {
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
 
