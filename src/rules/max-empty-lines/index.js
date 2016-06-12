@@ -9,7 +9,7 @@ import {
 export const ruleName = "max-empty-lines"
 
 export const messages = ruleMessages(ruleName, {
-  expected: max => `Expected no more than ${max} empty lines`,
+  expected: max => `Expected no more than ${max} empty line(s)`,
 })
 
 export default function (max) {
