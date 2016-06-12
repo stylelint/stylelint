@@ -1,8 +1,6 @@
-# property-value-whitelist
+# declaration-property-value-whitelist
 
-**Deprecated: use `declaration-property-value-whitelist` instead.**
-
-Specify a whitelist of allowed values for specific properties.
+Specify a whitelist of allowed property and value pairs within declarations.
 
 ```css
 a { text-transform: uppercase; }

@@ -1,8 +1,6 @@
-# property-unit-blacklist
+# declaration-property-unit-whitelist
 
-**Deprecated: use `declaration-property-unit-blacklist` instead.**
-
-Specify a blacklist of disallowed units for specific properties.
+Specify a whitelist of allowed property and unit pairs within declarations.
 
 ```css
 a { width: 100px; }
@@ -23,14 +21,41 @@ Given:
 ```js
 {
   "font-size": ["em", "px"],
-  "/^animation/": ["s"]
+  "/^animation/": ["s"],
+  "line-height": []
 }
 ```
 
 The following patterns are considered warnings:
 
 ```css
+a { font-size: 1.2rem; }
+```
+
+```css
+a { animation: animation-name 500ms ease; }
+```
+
+```css
+a { -webkit-animation: animation-name 500ms ease; }
+```
+
+```css
+a { animation-duration: 500ms; }
+```
+
+```css
+a { line-height: 13px; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
 a { font-size: 1em; }
+```
+
+```css
+a { height: 100px; }
 ```
 
 ```css
@@ -45,24 +70,6 @@ a { -webkit-animation: animation-name 5s ease; }
 a { animation-duration: 5s; }
 ```
 
-The following patterns are *not* considered warnings:
-
 ```css
-a { font-size: 1.2rem; }
-```
-
-```css
-a { height: 100px; }
-```
-
-```css
-a { animation: animation-name 500ms ease; }
-```
-
-```css
-a { -webkit-animation: animation-name 500ms ease; }
-```
-
-```css
-a { animation-duration: 500ms; }
+a { line-height: 1; }
 ```

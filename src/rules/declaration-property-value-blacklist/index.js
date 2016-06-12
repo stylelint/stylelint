@@ -7,25 +7,16 @@ import {
   matchesStringOrRegExp,
 } from "../../utils"
 
-export const ruleName = "property-value-whitelist"
+export const ruleName = "declaration-property-value-blacklist"
 
 export const messages = ruleMessages(ruleName, {
   rejected: (property, value) => `Unexpected value "${value}" for property "${property}"`,
 })
 
-export default function (whitelist) {
+export default function (blacklist) {
   return (root, result) => {
-
-    result.warn((
-      "'property-value-whitelist' has been deprecated, "
-        + "and will be removed in '7.0'. Use 'declaration-property-value-whitelist' instead."
-    ), {
-      stylelintType: "deprecation",
-      stylelintReference: "http://stylelint.io/user-guide/rules/declaration-property-value-whitelist/",
-    })
-
     const validOptions = validateOptions(result, ruleName, {
-      actual: whitelist,
+      actual: blacklist,
       possible: [isObject],
     })
     if (!validOptions) { return }
@@ -34,11 +25,11 @@ export default function (whitelist) {
 
       const { prop, value } = decl
       const unprefixedProp = vendor.unprefixed(prop)
-      const propWhitelist = find(whitelist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
+      const propBlacklist = find(blacklist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
 
-      if (isEmpty(propWhitelist)) { return }
+      if (isEmpty(propBlacklist)) { return }
 
-      if (matchesStringOrRegExp(value, propWhitelist)) { return }
+      if (!matchesStringOrRegExp(value, propBlacklist)) { return }
 
       report({
         message: messages.rejected(prop, value),

@@ -15,6 +15,15 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (blacklist) {
   return (root, result) => {
+
+    result.warn((
+      "'property-value-blacklist' has been deprecated, "
+        + "and will be removed in '7.0'. Use 'declaration-property-value-blacklist' instead."
+    ), {
+      stylelintType: "deprecation",
+      stylelintReference: "http://stylelint.io/user-guide/rules/declaration-property-value-blacklist/",
+    })
+
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
       possible: [isObject],

@@ -1,5 +1,7 @@
 # property-unit-whitelist
 
+**Deprecated: use `declaration-property-unit-whitelist` instead.**
+
 Specify a whitelist of allowed units for specific properties.
 
 ```css

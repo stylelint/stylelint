@@ -1,8 +1,6 @@
-# property-unit-blacklist
+# declaration-property-unit-blacklist
 
-**Deprecated: use `declaration-property-unit-blacklist` instead.**
-
-Specify a blacklist of disallowed units for specific properties.
+Specify a blacklist of disallowed property and unit pairs within declarations.
 
 ```css
 a { width: 100px; }

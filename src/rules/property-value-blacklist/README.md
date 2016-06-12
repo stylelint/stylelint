@@ -1,5 +1,7 @@
 # property-value-blacklist
 
+**Deprecated: use `declaration-property-value-blacklist` instead.**
+
 Specify a blacklist of disallowed values for specific properties.
 
 ```css
