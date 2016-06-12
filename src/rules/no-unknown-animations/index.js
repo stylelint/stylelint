@@ -38,7 +38,7 @@ export default function (actual) {
         if (animationNames.length === 0) { return }
 
         animationNames.forEach((animationNameNode) => {
-          if (basicKeywords.has(animationNameNode.value)) { return }
+          if (basicKeywords.has(animationNameNode.value.toLowerCase())) { return }
 
           checkAnimationName(animationNameNode.value, decl, animationNameNode.sourceIndex)
         })
