@@ -2,8 +2,8 @@ import resolvedNestedSelector from "postcss-resolve-nested-selector"
 import selectorParser from "postcss-selector-parser"
 
 import {
-  isStandardRule,
-  isStandardSelector,
+  isStandardSyntaxRule,
+  isStandardSyntaxSelector,
   report,
   ruleMessages,
   validateOptions,
@@ -51,8 +51,8 @@ export default function (max) {
     }
 
     root.walkRules(rule => {
-      if (!isStandardRule(rule)) { return }
-      if (!isStandardSelector(rule.selector)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
+      if (!isStandardSyntaxSelector(rule.selector)) { return }
 
       // Nested selectors are processed in steps, as nesting levels are resolved.
       // Here we skip processing the intermediate parts of selectors (to process only fully resolved selectors)

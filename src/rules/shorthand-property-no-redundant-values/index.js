@@ -1,8 +1,8 @@
 import valueParser from "postcss-value-parser"
 import { vendor } from "postcss"
 import {
-  isStandardDeclaration,
-  isStandardProperty,
+  isStandardSyntaxDeclaration,
+  isStandardSyntaxProperty,
   report,
   ruleMessages,
   validateOptions,
@@ -76,8 +76,8 @@ export default function (actual) {
 
     root.walkDecls(decl => {
       if (
-        !isStandardDeclaration(decl)
-        || !isStandardProperty(decl.prop)
+        !isStandardSyntaxDeclaration(decl)
+        || !isStandardSyntaxProperty(decl.prop)
       ) { return }
 
       const { prop, value } = decl

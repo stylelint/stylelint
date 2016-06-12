@@ -1,6 +1,6 @@
 import { isString } from "lodash"
 import {
-  isStandardRule,
+  isStandardSyntaxRule,
   parseSelector,
   report,
   ruleMessages,
@@ -23,7 +23,7 @@ export default function (blacklistInput) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (!isStandardRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
       if (rule.selector.indexOf("[") === -1
         || rule.selector.indexOf("=") === -1
       ) { return }

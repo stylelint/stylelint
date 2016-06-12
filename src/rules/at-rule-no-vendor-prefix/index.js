@@ -1,6 +1,6 @@
 import {
   isAutoprefixable,
-  isStandardAtRule,
+  isStandardSyntaxAtRule,
   report,
   ruleMessages,
   validateOptions,
@@ -18,7 +18,7 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkAtRules(atRule => {
-      if (!isStandardAtRule(atRule)) { return }
+      if (!isStandardSyntaxAtRule(atRule)) { return }
 
       const { name } = atRule
 

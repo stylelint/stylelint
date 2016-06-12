@@ -1,5 +1,5 @@
 import {
-  isStandardUrl,
+  isStandardSyntaxUrl,
   functionArgumentsSearch,
   atRuleParamIndex,
   report,
@@ -89,7 +89,7 @@ export default function (expectation) {
 
       statement.walkDecls(function (decl) {
         functionArgumentsSearch(decl.toString().toLowerCase(), "url", (args, index) => {
-          if (!isStandardUrl(args)) { return }
+          if (!isStandardSyntaxUrl(args)) { return }
           const trimLeftArgs = args.trimLeft()
           if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
           complain(messages.expected(quoteMsg), decl, index + args.length - trimLeftArgs.length)
@@ -100,7 +100,7 @@ export default function (expectation) {
     function checkAtRuleParams(atRule) {
       const atRuleParamsLowerCase = atRule.params.toLowerCase()
       functionArgumentsSearch(atRuleParamsLowerCase, "url", (args, index) => {
-        if (!isStandardUrl(args)) { return }
+        if (!isStandardSyntaxUrl(args)) { return }
         const trimLeftArgs = args.trimLeft()
         if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
         complain(
@@ -110,7 +110,7 @@ export default function (expectation) {
         )
       })
       functionArgumentsSearch(atRuleParamsLowerCase, "url-prefix", (args, index) => {
-        if (!isStandardUrl(args)) { return }
+        if (!isStandardSyntaxUrl(args)) { return }
         const trimLeftArgs = args.trimLeft()
         if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
         complain(
@@ -120,7 +120,7 @@ export default function (expectation) {
         )
       })
       functionArgumentsSearch(atRuleParamsLowerCase, "domain", (args, index) => {
-        if (!isStandardUrl(args)) { return }
+        if (!isStandardSyntaxUrl(args)) { return }
         const trimLeftArgs = args.trimLeft()
         if (!strDefiesExpectation(trimLeftArgs.trimRight())) { return }
         complain(

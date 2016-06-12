@@ -1,6 +1,6 @@
 import valueParser from "postcss-value-parser"
 import {
-  isStandardValue,
+  isStandardSyntaxValue,
   isVariable,
   report,
   ruleMessages,
@@ -35,7 +35,7 @@ export default function (expectation) {
         const urlValueNode = valueNode.nodes[0]
 
         if (!urlValueNode.value
-          || !isStandardValue(urlValueNode.value)
+          || !isStandardSyntaxValue(urlValueNode.value)
           || isVariable(urlValueNode.value)
         ) { return }
 

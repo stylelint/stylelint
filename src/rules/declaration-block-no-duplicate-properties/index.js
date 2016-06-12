@@ -1,6 +1,6 @@
 import {
   isCustomProperty,
-  isStandardProperty,
+  isStandardSyntaxProperty,
   optionsHaveIgnored,
   report,
   ruleMessages,
@@ -46,7 +46,7 @@ export default function (on, options) {
         if (child.type !== "decl") { return }
 
         const { prop } = child
-        if (!isStandardProperty(prop)) { return }
+        if (!isStandardSyntaxProperty(prop)) { return }
         if (isCustomProperty(prop)) { return }
 
         // Ignore the src property as commonly duplicated in at-fontface

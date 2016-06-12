@@ -1,9 +1,9 @@
 import { get } from "lodash"
 import {
   isKeyframeRule,
-  isStandardRule,
-  isStandardSelector,
-  isStandardTypeSelector,
+  isStandardSyntaxRule,
+  isStandardSyntaxSelector,
+  isStandardSyntaxTypeSelector,
   optionsHaveIgnored,
   parseSelector,
   report,
@@ -33,15 +33,15 @@ export default function (on, options) {
 
     root.walkRules(rule => {
 
-      if (!isStandardRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
       if (isKeyframeRule(rule)) { return }
       const { selector } = rule
-      if (!isStandardSelector(selector)) { return }
+      if (!isStandardSyntaxSelector(selector)) { return }
 
       parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkTags(tag => {
 
-          if (!isStandardTypeSelector(tag)) { return }
+          if (!isStandardSyntaxTypeSelector(tag)) { return }
 
           if (ignoreDescendant && hasCombinatorBefore(tag)) { return }
 

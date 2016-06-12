@@ -1,8 +1,8 @@
 import {
   isKeyframeRule,
-  isStandardRule,
-  isStandardSelector,
-  isStandardTypeSelector,
+  isStandardSyntaxRule,
+  isStandardSyntaxSelector,
+  isStandardSyntaxTypeSelector,
   parseSelector,
   report,
   ruleMessages,
@@ -28,15 +28,15 @@ export default function (expectation) {
 
     root.walkRules(rule => {
 
-      if (!isStandardRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
       if (isKeyframeRule(rule)) { return }
       const { selector } = rule
-      if (!isStandardSelector(selector)) { return }
+      if (!isStandardSyntaxSelector(selector)) { return }
 
       parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkTags(tag => {
 
-          if (!isStandardTypeSelector(tag)) { return }
+          if (!isStandardSyntaxTypeSelector(tag)) { return }
 
           const { sourceIndex, value } = tag
           const expectedValue = expectation === "lower" ? value.toLowerCase() : value.toUpperCase()

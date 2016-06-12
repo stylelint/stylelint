@@ -1,41 +1,41 @@
-import isStandardTypeSelector from "../isStandardTypeSelector"
+import isStandardSyntaxTypeSelector from "../isStandardSyntaxTypeSelector"
 import postcss from "postcss"
 import test from "tape"
 import selectorParser from "postcss-selector-parser"
 
-test("isStandardTypeSelector", t => {
+test("isStandardSyntaxTypeSelector", t => {
   t.plan(8)
 
   rules("a {}", func => {
-    t.ok(isStandardTypeSelector(func), "tag")
+    t.ok(isStandardSyntaxTypeSelector(func), "tag")
   })
 
   rules(".foo:nth-child(n) {}", func => {
-    t.notOk(isStandardTypeSelector(func), "nth-child pseudo selector")
+    t.notOk(isStandardSyntaxTypeSelector(func), "nth-child pseudo selector")
   })
 
   rules(".foo:nth-last-child(n) {}", func => {
-    t.notOk(isStandardTypeSelector(func), "nth-last-child pseudo selector")
+    t.notOk(isStandardSyntaxTypeSelector(func), "nth-last-child pseudo selector")
   })
 
   rules(".foo:nth-of-type(n) {}", func => {
-    t.notOk(isStandardTypeSelector(func), "nth-of-type pseudo selector")
+    t.notOk(isStandardSyntaxTypeSelector(func), "nth-of-type pseudo selector")
   })
 
   rules(":lang(en) {}", func => {
-    t.notOk(isStandardTypeSelector(func), "lang pseudo selector")
+    t.notOk(isStandardSyntaxTypeSelector(func), "lang pseudo selector")
   })
 
   rules(":dir(ltr) {}", func => {
-    t.notOk(isStandardTypeSelector(func), "dir pseudo selector")
+    t.notOk(isStandardSyntaxTypeSelector(func), "dir pseudo selector")
   })
 
   rules(".foo { &-bar {} }", func => {
-    t.notOk(isStandardTypeSelector(func), "nesting selector")
+    t.notOk(isStandardSyntaxTypeSelector(func), "nesting selector")
   })
 
   rules(".foo { &__bar {} }", func => {
-    t.notOk(isStandardTypeSelector(func), "nesting selector")
+    t.notOk(isStandardSyntaxTypeSelector(func), "nesting selector")
   })
 })
 

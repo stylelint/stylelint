@@ -1,5 +1,5 @@
 import {
-  isStandardProperty,
+  isStandardSyntaxProperty,
   isCustomProperty,
   parseSelector,
   report,
@@ -28,7 +28,7 @@ export default function (actual) {
         rule.walkDecls(function (decl) {
 
           const { prop } = decl
-          if (!isStandardProperty(prop)) { return }
+          if (!isStandardSyntaxProperty(prop)) { return }
           if (isCustomProperty(prop)) { return }
 
           report({

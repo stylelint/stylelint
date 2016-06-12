@@ -2,7 +2,7 @@ import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   isSingleLineString,
-  isStandardFunction,
+  isStandardSyntaxFunction,
   report,
   ruleMessages,
   validateOptions,
@@ -41,7 +41,7 @@ export default function (expectation) {
       valueParser(decl.value).walk(valueNode => {
         if (valueNode.type !== "function") { return }
 
-        if (!isStandardFunction(valueNode)) { return }
+        if (!isStandardSyntaxFunction(valueNode)) { return }
 
         const functionString = valueParser.stringify(valueNode)
         const isSingleLine = isSingleLineString(functionString)

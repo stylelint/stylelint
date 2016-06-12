@@ -1,7 +1,7 @@
 import { isRegExp, isString } from "lodash"
 import {
-  isStandardRule,
-  isStandardSelector,
+  isStandardSyntaxRule,
+  isStandardSyntaxSelector,
   parseSelector,
   report,
   ruleMessages,
@@ -25,10 +25,10 @@ export default function (pattern) {
     const normalizedPattern = isString(pattern) ? new RegExp(pattern) : pattern
 
     root.walkRules(rule => {
-      if (!isStandardRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
 
       const { selector } = rule
-      if (!isStandardSelector(selector)) { return }
+      if (!isStandardSyntaxSelector(selector)) { return }
 
       parseSelector(selector, result, rule, fullSelector => {
         fullSelector.walk(selectorNode => {

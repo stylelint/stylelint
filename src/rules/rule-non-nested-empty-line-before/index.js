@@ -1,6 +1,6 @@
 import {
   isSingleLineString,
-  isStandardRule,
+  isStandardSyntaxRule,
   optionsHaveException,
   optionsHaveIgnored,
   report,
@@ -36,7 +36,7 @@ export default function (expectation, options) {
 
     root.walkRules(rule => {
 
-      if (!isStandardRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
 
       // Ignore nested rule sets
       if (rule.parent !== root) { return }
