@@ -43,6 +43,10 @@ import declarationColonNewlineAfter from "./declaration-colon-newline-after"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
 import declarationNoImportant from "./declaration-no-important"
+import declarationPropertyUnitBlacklist from "./declaration-property-unit-blacklist"
+import declarationPropertyUnitWhitelist from "./declaration-property-unit-whitelist"
+import declarationPropertyValueBlacklist from "./declaration-property-value-blacklist"
+import declarationPropertyValueWhitelist from "./declaration-property-value-whitelist"
 import fontFamilyNameQuotes from "./font-family-name-quotes"
 import fontWeightNotation from "./font-weight-notation"
 import functionBlacklist from "./function-blacklist"
@@ -195,6 +199,10 @@ export default {
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
   "declaration-no-important": declarationNoImportant,
+  "declaration-property-unit-blacklist": declarationPropertyUnitBlacklist,
+  "declaration-property-unit-whitelist": declarationPropertyUnitWhitelist,
+  "declaration-property-value-blacklist": declarationPropertyValueBlacklist,
+  "declaration-property-value-whitelist": declarationPropertyValueWhitelist,
   "font-family-name-quotes": fontFamilyNameQuotes,
   "font-weight-notation": fontWeightNotation,
   "function-blacklist": functionBlacklist,

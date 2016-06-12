@@ -18,6 +18,15 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (blacklist) {
   return (root, result) => {
+
+    result.warn((
+      "'property-unit-blacklist' has been deprecated, "
+        + "and will be removed in '7.0'. Use 'declaration-property-unit-blacklist' instead."
+    ), {
+      stylelintType: "deprecation",
+      stylelintReference: "http://stylelint.io/user-guide/rules/declaration-property-unit-blacklist/",
+    })
+
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
       possible: [isObject],
