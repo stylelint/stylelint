@@ -1,6 +1,6 @@
+import styleSearch from "style-search"
 import {
   ruleMessages,
-  styleSearch,
   report,
   validateOptions,
 } from "../../utils"

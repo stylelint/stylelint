@@ -1,8 +1,8 @@
+import styleSearch from "style-search"
 import {
   isWhitespace,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
 import valueParser from "postcss-value-parser"
@@ -46,7 +46,7 @@ export default function (actual) {
           const styleSearchOptions = {
             source: expression,
             target: symbol,
-            outsideFunctionalNotation: true,
+            functionArguments: "skip",
           }
 
           styleSearch(styleSearchOptions, match => {

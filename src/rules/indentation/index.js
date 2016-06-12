@@ -1,10 +1,10 @@
+import styleSearch from "style-search"
 import { repeat, isNumber, isBoolean } from "lodash"
 import {
   optionsHaveException,
   optionsHaveIgnored,
   report,
   ruleMessages,
-  styleSearch,
   hasBlock,
   beforeBlockString,
   validateOptions,
