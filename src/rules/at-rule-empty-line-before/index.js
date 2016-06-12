@@ -4,11 +4,11 @@ import {
   hasBlock,
   optionsHaveException,
   optionsHaveIgnored,
+  optionsHaveIgnoredAtRule,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import { cssStatementIsIgnoredAtRule } from "../block-opening-brace-space-before"
 
 export const ruleName = "at-rule-empty-line-before"
 
@@ -39,7 +39,7 @@ export default function (expectation, options) {
       if (atRule === root.first) { return }
 
       // Return early if at-rule is to be ignored
-      if (cssStatementIsIgnoredAtRule(atRule, options)) { return }
+      if (optionsHaveIgnoredAtRule(options, atRule)) { return }
 
       // Optionally ignore the expectation if the node is blockless
       if (optionsHaveIgnored(options, "blockless-group") && !hasBlock(atRule)) { return }

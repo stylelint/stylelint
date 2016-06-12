@@ -5,7 +5,7 @@ import {
   hasBlock,
   hasEmptyBlock,
   beforeBlockString,
-  matchesStringOrRegExp,
+  optionsHaveIgnoredAtRule,
   report,
   ruleMessages,
   validateOptions,
@@ -54,7 +54,7 @@ export default function (expectation, options) {
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
       // Return early if at-rule is to be ignored
-      if (cssStatementIsIgnoredAtRule(statement, options)) { return }
+      if (optionsHaveIgnoredAtRule(options, statement)) { return }
 
       const source = beforeBlockString(statement)
 
@@ -74,13 +74,4 @@ export default function (expectation, options) {
       })
     }
   }
-}
-
-export function cssStatementIsIgnoredAtRule(statement, options) {
-  return (
-    options &&
-    options.ignoreAtRules &&
-    statement.type === "atrule" &&
-    matchesStringOrRegExp(statement.name, options.ignoreAtRules)
-  )
 }

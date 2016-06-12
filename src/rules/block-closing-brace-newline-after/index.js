@@ -3,13 +3,13 @@ import { isString } from "lodash"
 import {
   blockString,
   hasBlock,
+  optionsHaveIgnoredAtRule,
   rawNodeString,
   report,
   ruleMessages,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
-import { cssStatementIsIgnoredAtRule } from "../block-opening-brace-space-before"
 
 export const ruleName = "block-closing-brace-newline-after"
 
@@ -48,7 +48,7 @@ export default function (expectation, options) {
 
     function check(statement) {
       if (!hasBlock(statement)) { return }
-      if (cssStatementIsIgnoredAtRule(statement, options)) { return }
+      if (optionsHaveIgnoredAtRule(options, statement)) { return }
 
       const nextNode = statement.next()
       if (!nextNode) { return }
