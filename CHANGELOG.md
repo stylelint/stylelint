@@ -5,6 +5,8 @@
 - Added: `at-rule-name-newline-after` rule.
 - Added: `at-rule-blacklist` rule.
 - Added: `at-rule-whitelist` rule.
+- Added: `function-blacklist` now accepts regular expressions.
+- Added: `function-whitelist` now accepts regular expressions.
 - Added: `ignore: "blockless-group"` option for `at-rule-empty-line-before`.
 - Added: `ignoreAtRules: []` option for `at-rule-empty-line-before`.
 - Fixed: `selector-combinator-space-*` rules now ignore escaped combinator-like characters.

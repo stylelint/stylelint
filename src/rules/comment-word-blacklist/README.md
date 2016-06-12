@@ -10,7 +10,9 @@ Specify a blacklist of disallowed words within comments.
 
 ## Options
 
-`array`: `["array", "of", "words", "or", "/regex/" ]`
+`array|string`: `["array", "of", "words", "or", "/regex/"]|"word"|"/regex/"`
+
+If a string is surrounded with `"/"` (e.g. `"/^TODO:/"`), it is interpreted as a regular expression.
 
 Given:
 

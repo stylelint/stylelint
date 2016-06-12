@@ -84,9 +84,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
 
-  config: [[
-    "/margin/",
-  ]],
+  config: ["/margin/"],
 
   accept: [ {
     code: "a { $margin: 0; }",

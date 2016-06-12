@@ -15,8 +15,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (property) => `Unexpected property "${property}"`,
 })
 
-export default function (blacklistInput) {
-  const blacklist = [].concat(blacklistInput)
+export default function (blacklist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,

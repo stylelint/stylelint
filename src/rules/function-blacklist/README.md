@@ -10,7 +10,9 @@ a { transform: scale(1); }
 
 ## Options
 
-`array`: `"["array", "of", "unprefixed", "functions"]`
+`array|string`: `["array", "of", "unprefixed", "functions" or "regex"]|"function"|"/regex/"`
+
+If a string is surrounded with `"/"` (e.g. `"/^rgb/"`), it is interpreted as a regular expression.
 
 Given:
 

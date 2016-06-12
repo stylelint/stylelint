@@ -5,6 +5,7 @@ import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   isStandardSyntaxFunction,
+  matchesStringOrRegExp,
   report,
   ruleMessages,
   validateOptions,
@@ -29,7 +30,7 @@ export default function (whitelistInput) {
       valueParser(value).walk(function (node) {
         if (node.type !== "function") { return }
         if (!isStandardSyntaxFunction(node)) { return }
-        if (whitelist.indexOf(vendor.unprefixed(node.value).toLowerCase()) !== -1) { return }
+        if (matchesStringOrRegExp(vendor.unprefixed(node.value).toLowerCase(), whitelist)) { return }
         report({
           message: messages.rejected(node.value),
           node: decl,
