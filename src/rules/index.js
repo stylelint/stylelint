@@ -62,6 +62,7 @@ import functionWhitelist from "./function-whitelist"
 import functionWhitespaceAfter from "./function-whitespace-after"
 import indentation from "./indentation"
 import keyframeDeclarationNoImportant from "./keyframe-declaration-no-important"
+import lengthZeroNoUnit from "./length-zero-no-unit"
 import maxEmptyLines from "./max-empty-lines"
 import maxLineLength from "./max-line-length"
 import maxNestingDepth from "./max-nesting-depth"
@@ -214,6 +215,7 @@ export default {
   "function-whitespace-after": functionWhitespaceAfter,
   "indentation": indentation, // eslint-disable-line object-shorthand
   "keyframe-declaration-no-important": keyframeDeclarationNoImportant,
+  "length-zero-no-unit": lengthZeroNoUnit,
   "max-empty-lines": maxEmptyLines,
   "max-line-length": maxLineLength,
   "max-nesting-depth": maxNestingDepth,

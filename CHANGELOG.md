@@ -1,5 +1,6 @@
 # Head
 
+- Deprecated: `number-zero-length-no-unit`. Use `length-zero-no-unit` instead.
 - Deprecated: `stylelint.util.styleSearch()`. Use the external module [style-search](https://github.com/davidtheclark/style-search) instead.
 - Added: option `ignorePath` (for JS) and `--ignore-path` (for CLI).
 - Added: `at-rule-name-newline-after` rule.

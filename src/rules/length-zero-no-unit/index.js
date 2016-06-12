@@ -15,23 +15,14 @@ import {
 } from "../../utils"
 import { lengthUnits } from "../../reference/keywordSets"
 
-export const ruleName = "number-zero-length-no-unit"
+export const ruleName = "length-zero-no-unit"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected unit on zero length number",
+  rejected: "Unexpected unit",
 })
 
 export default function (actual) {
   return (root, result) => {
-
-    result.warn((
-      "'number-zero-length-no-unit' has been deprecated, "
-        + "and will be removed in '7.0'. Use 'length-zero-no-unit' instead."
-    ), {
-      stylelintType: "deprecation",
-      stylelintReference: "http://stylelint.io/user-guide/rules/length-zero-no-unit/",
-    })
-
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
