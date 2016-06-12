@@ -40,9 +40,7 @@ You will want to use:
 - `ruleMessages`: Tailor your messages to look like the messages of other stylelint rules. Currently, this means that the name of the rule is appended, in parentheses, to the end of the message.
 - `validateOptions`: Help your user's out by checking that the options they've submitted are valid.
 
-You may want to use:
-
-- `styleSearch`: Search within CSS strings, and for every match found invoke a callback, passing a match object with details about the match. `styleSearch` ignores CSS strings (e.g. `content: "foo";`) and by default ignores comments. It can also be restricted to substrings within or outside of CSS functional notation.
+**`stylelint.util.styleSearch` is deprecated and will be removed in v7. Use the external module [style-search](https://github.com/davidtheclark/style-search) instead.**
 
 ## `stylelint.rules`
 
