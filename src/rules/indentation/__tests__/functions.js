@@ -87,6 +87,14 @@ testRule(rule, {
     "  0\n" +
     ");",
     description: "sass-list",
+  }, {
+    code: "$colors: (\n" +
+    "  primary: (\n" +
+    "    base: $route;\n" +
+    "    contrast: $white\n" +
+    "  )\n" +
+    ");",
+    description: "nested Sass map",
   } ],
 
   reject: [ {
