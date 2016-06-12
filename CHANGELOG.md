@@ -1,5 +1,6 @@
 # Head
 
+- Deprecated: `stylelint.util.styleSearch()`. Use the external module [style-search](https://github.com/davidtheclark/style-search) instead.
 - Added: option `ignorePath` (for JS) and `--ignore-path` (for CLI).
 - Added: `at-rule-name-newline-after` rule.
 - Added: `at-rule-blacklist` rule.
