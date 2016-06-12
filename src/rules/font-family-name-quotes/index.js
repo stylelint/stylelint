@@ -1,5 +1,5 @@
 import {
-  isStandardValue,
+  isStandardSyntaxValue,
   isVariable,
   findFontFamily,
   report,
@@ -68,7 +68,7 @@ export default function (expectation) {
     })
 
     function checkFamilyName(rawFamily, decl) {
-      if (!isStandardValue(rawFamily)) { return }
+      if (!isStandardSyntaxValue(rawFamily)) { return }
       if (isVariable(rawFamily)) { return }
 
       const hasQuotes = rawFamily[0] === "'" || rawFamily[0] === "\""
