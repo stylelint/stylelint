@@ -1,10 +1,10 @@
+import styleSearch from "style-search"
 import { repeat, isNumber, isBoolean } from "lodash"
 import {
   optionsHaveException,
   optionsHaveIgnored,
   report,
   ruleMessages,
-  styleSearch,
   hasBlock,
   beforeBlockString,
   validateOptions,
@@ -172,7 +172,10 @@ export default function (space, options = {}) {
       // `outsideParens` because function arguments and also non-standard parenthesized stuff like
       // Sass maps are ignored to allow for arbitrary indentation
       let parentheticalDepth = 0
-      styleSearch({ source, target: "\n", outsideParens: !options.indentInsideParens }, (match) => {
+      styleSearch({
+        source, target: "\n",
+        parentheticals: (options.indentInsideParens) ? "check" : "skip",
+      }, (match) => {
         let expectedIndentLevel = newlineIndentLevel
         // Modififications for parenthetical content
         if (options.indentInsideParens && match.insideParens) {

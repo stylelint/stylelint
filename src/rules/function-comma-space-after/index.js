@@ -1,3 +1,4 @@
+import styleSearch from "style-search"
 import _ from "lodash"
 import valueParser from "postcss-value-parser"
 import {
@@ -5,7 +6,6 @@ import {
   isStandardSyntaxFunction,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
@@ -69,7 +69,7 @@ export function functionCommaSpaceChecker({ locationChecker, root, result, check
       styleSearch({
         source: functionArguments,
         target: ",",
-        outsideFunctionalNotation: true,
+        functionArguments: "skip",
       }, (match) => {
         locationChecker({
           source: functionArguments,

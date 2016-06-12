@@ -1,8 +1,8 @@
+import styleSearch from "style-search"
 import _ from "lodash"
 import {
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
@@ -44,7 +44,7 @@ export function selectorCombinatorSpaceChecker({ locationChecker, root, result, 
       styleSearch({
         source: selector,
         target: _.toArray(nonSpaceCombinators),
-        outsideFunctionalNotation: true,
+        functionArguments: "skip",
       }, match => {
 
         const { endIndex, startIndex, target } = match

@@ -1,9 +1,9 @@
+import styleSearch from "style-search"
 import {
   isStandardSyntaxDeclaration,
   isStandardSyntaxProperty,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
@@ -46,7 +46,11 @@ export function valueListCommaWhitespaceChecker({ locationChecker, root, result,
       !isStandardSyntaxDeclaration(decl)
       || !isStandardSyntaxProperty(decl.prop)
     ) { return }
-    styleSearch({ source: decl.toString(), target: ",", outsideFunctionalNotation: true }, match => {
+    styleSearch({
+      source: decl.toString(),
+      target: ",",
+      functionArguments: "skip",
+    }, match => {
       checkComma(decl.toString(), match.startIndex, decl)
     })
   })

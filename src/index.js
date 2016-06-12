@@ -5,7 +5,6 @@ import rules from "./rules"
 import {
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "./utils"
 import createRuleTester from "./testUtils/createRuleTester"
@@ -15,7 +14,6 @@ const stylelint = postcssPlugin
 stylelint.utils = {
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 }
 

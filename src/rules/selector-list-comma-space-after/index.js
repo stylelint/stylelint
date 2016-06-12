@@ -1,8 +1,8 @@
+import styleSearch from "style-search"
 import {
   isStandardSyntaxRule,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
@@ -43,7 +43,11 @@ export function selectorListCommaWhitespaceChecker({ locationChecker, root, resu
   root.walkRules(rule => {
     if (!isStandardSyntaxRule(rule)) { return }
     const selector = rule.selector
-    styleSearch({ source: selector, target: ",", outsideFunctionalNotation: true }, match => {
+    styleSearch({
+      source: selector,
+      target: ",",
+      functionArguments: "skip",
+    }, match => {
       checkDelimiter(selector, match.startIndex, rule)
     })
   })

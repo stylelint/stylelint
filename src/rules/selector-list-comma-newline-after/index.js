@@ -1,8 +1,8 @@
+import styleSearch from "style-search"
 import {
   isStandardSyntaxRule,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
@@ -34,7 +34,11 @@ export default function (expectation) {
       // a, /* comment */
       // b {}
       const selector = (rule.raws.selector) ? rule.raws.selector.raw : rule.selector
-      styleSearch({ source: selector, target: ",", outsideFunctionalNotation: true }, match => {
+      styleSearch({
+        source: selector,
+        target: ",",
+        functionArguments: "skip",
+      }, match => {
         const nextThreeChars = selector.substr(match.endIndex, 3)
 
         // If there's a // comment, that means there has to be a newline
