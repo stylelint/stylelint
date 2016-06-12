@@ -516,7 +516,7 @@ testRule(rule, {
     code: `
       @keyframes {}
 
-      @before-mixin();
+      @someelement-mixin();
     `,
   }, {
     code: `
