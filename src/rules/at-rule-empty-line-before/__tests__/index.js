@@ -431,21 +431,21 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ "always", { ignoreAtRules: "/fo/" } ],
+  config: [ "always", { ignoreAtRules: "/el/" } ],
 
   accept: [ {
-    code: "@keyframes {}; @before-mixin();",
+    code: "@keyframes {}; @an-element-mixin();",
   }, {
     code: `
       @if true {}
-      @for ... {
+      @else {
       }
     `,
   } ],
 
   reject: [{
     code: `
-      @for ... {
+      @else {
         color: pink;
       }
       @if true {}
@@ -510,7 +510,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ "never", { ignoreAtRules: "/fo/" } ],
+  config: [ "never", { ignoreAtRules: "/el/" } ],
 
   accept: [ {
     code: `
@@ -522,14 +522,14 @@ testRule(rule, {
     code: `
       @if true {}
 
-      @for ... {
+      @else {
       }
     `,
   } ],
 
   reject: [{
     code: `
-      @for ... {
+      @else {
         color: pink;
       }
 
