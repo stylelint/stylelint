@@ -1,7 +1,7 @@
 import {
   isAutoprefixable,
-  isStandardDeclaration,
-  isStandardProperty,
+  isStandardSyntaxDeclaration,
+  isStandardSyntaxProperty,
   report,
   ruleMessages,
   styleSearch,
@@ -23,8 +23,8 @@ export default function (actual) {
 
     root.walkDecls(decl => {
       if (
-        !isStandardDeclaration(decl)
-        || !isStandardProperty(decl.prop)
+        !isStandardSyntaxDeclaration(decl)
+        || !isStandardSyntaxProperty(decl.prop)
         || decl.value[0] !== "-"
       ) { return }
 

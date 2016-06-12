@@ -2,7 +2,7 @@ import postcss from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
-  isStandardValue,
+  isStandardSyntaxValue,
   isVariable,
   report,
   ruleMessages,
@@ -40,7 +40,7 @@ export default function (actual) {
         const valueList = postcss.list.space(decl.value)
         for (const value of valueList) {
           // Ignore non standard syntax
-          if (!isStandardValue(value)) { continue }
+          if (!isStandardSyntaxValue(value)) { continue }
           // Ignore variables
           if (isVariable(value)) { continue }
           // Ignore numbers with units

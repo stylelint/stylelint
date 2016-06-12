@@ -2,7 +2,7 @@ import _ from "lodash"
 import { vendor } from "postcss"
 import {
   isCustomProperty,
-  isStandardProperty,
+  isStandardSyntaxProperty,
   report,
   ruleMessages,
   validateOptions,
@@ -57,7 +57,7 @@ export default function (expectation, options) {
         if (child.type !== "decl") { return }
 
         const { prop } = child
-        if (!isStandardProperty(prop)) { return }
+        if (!isStandardSyntaxProperty(prop)) { return }
         if (isCustomProperty(prop)) { return }
 
         let unprefixedPropName = vendor.unprefixed(prop)

@@ -1,5 +1,5 @@
 import {
-  isStandardDeclaration,
+  isStandardSyntaxDeclaration,
   declarationValueIndex,
   report,
   ruleMessages,
@@ -40,7 +40,7 @@ export default function (expectation) {
 export function declarationColonSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
 
-    if (!isStandardDeclaration(decl)) { return }
+    if (!isStandardSyntaxDeclaration(decl)) { return }
 
     // Get the raw prop, and only the prop
     const endOfPropIndex = declarationValueIndex(decl) + decl.raw("between").length - 1

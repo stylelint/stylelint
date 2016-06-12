@@ -1,7 +1,7 @@
 import postcss from "postcss"
 import { includes } from "lodash"
 import {
-  isStandardValue,
+  isStandardSyntaxValue,
   isVariable,
   declarationValueIndex,
   optionsHaveIgnored,
@@ -74,7 +74,7 @@ export default function (expectation, options) {
     }
 
     function checkWeight(weightValue, decl) {
-      if (!isStandardValue(weightValue)) { return }
+      if (!isStandardSyntaxValue(weightValue)) { return }
       if (isVariable(weightValue)) { return }
       if (weightValue.toLowerCase() === INHERIT_KEYWORD
         || weightValue.toLowerCase() === INITIAL_KEYWORD

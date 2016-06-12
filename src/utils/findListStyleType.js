@@ -1,6 +1,6 @@
 import postcssValueParser from "postcss-value-parser"
 import {
-  isStandardValue,
+  isStandardSyntaxValue,
   isVariable,
 } from "./"
 import {
@@ -34,7 +34,7 @@ export default function findListStyleType(value) {
     const value = valueNode.value
 
     // Ignore non standard syntax
-    if (!isStandardValue(value)) { return }
+    if (!isStandardSyntaxValue(value)) { return }
     // Ignore variables
     if (isVariable(value)) { return }
     // Ignore keywords for other font parts

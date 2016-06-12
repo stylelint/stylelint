@@ -1,8 +1,8 @@
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 import {
   isKeyframeRule,
-  isStandardRule,
-  isStandardSelector,
+  isStandardSyntaxRule,
+  isStandardSyntaxSelector,
   optionsHaveIgnored,
   parseSelector,
   report,
@@ -73,9 +73,9 @@ export default (enabled, options) => {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (!isStandardRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
       if (isKeyframeRule(rule)) { return }
-      if (!isStandardSelector(rule.selector)) { return }
+      if (!isStandardSyntaxSelector(rule.selector)) { return }
       if (!isSelectorCharacters(rule.selector)) { return }
 
       function checkSelector(selectorAST) {

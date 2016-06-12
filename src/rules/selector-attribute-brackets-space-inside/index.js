@@ -1,5 +1,5 @@
 import {
-  isStandardRule,
+  isStandardSyntaxRule,
   parseSelector,
   report,
   ruleMessages,
@@ -28,7 +28,7 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-      if (!isStandardRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) { return }
       if (rule.selector.indexOf("[") === -1) { return }
 
       parseSelector(rule.selector, result, rule, selectorTree => {

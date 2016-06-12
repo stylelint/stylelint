@@ -2,7 +2,7 @@ import { vendor } from "postcss"
 import { isString } from "lodash"
 import {
   isCustomProperty,
-  isStandardProperty,
+  isStandardSyntaxProperty,
   matchesStringOrRegExp,
   report,
   ruleMessages,
@@ -26,7 +26,7 @@ export default function (blacklistInput) {
 
     root.walkDecls(decl => {
       const { prop } = decl
-      if (!isStandardProperty(prop)) { return }
+      if (!isStandardSyntaxProperty(prop)) { return }
       if (isCustomProperty(prop)) { return }
       if (!matchesStringOrRegExp(vendor.unprefixed(prop), blacklist)) { return }
 
