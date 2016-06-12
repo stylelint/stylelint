@@ -1,29 +1,27 @@
 import postcssValueParser from "postcss-value-parser"
 import {
+  getUnitFromValueNode,
   isStandardSyntaxValue,
   isVariable,
 } from "./"
 import {
-  listStyleTypeKeywords,
-  listStylePositionKeywords,
-  listStyleImageKeywords,
+  basicKeywords,
+  animationShorthandKeywords,
 } from "../reference/keywordSets"
 
 /**
- * Get the list-style-type within a `list-style` shorthand property value.
+ * Get the font-families within a `font` shorthand property value.
  *
  * @param {string} value
- * @return {object} Collection list-style-type nodes
+ * @return {object} Collection font-family nodes
  */
-export default function findListStyleType(value) {
-  const listStyleTypes = []
+export default function findAnimationName(value) {
+  const animationNames = []
 
   const valueNodes = postcssValueParser(value)
 
   // Handle `inherit`, `initial` and etc
-  if (valueNodes.nodes.length === 1
-    && listStyleTypeKeywords.has(valueNodes.nodes[0].value.toLowerCase())
-  ) {
+  if (valueNodes.nodes.length === 1 && basicKeywords.has(valueNodes.nodes[0].value.toLowerCase())) {
     return [valueNodes.nodes[0]]
   }
 
@@ -38,11 +36,13 @@ export default function findListStyleType(value) {
     // Ignore variables
     if (isVariable(valueLowerCase)) { return }
     // Ignore keywords for other font parts
-    if (listStylePositionKeywords.has(valueLowerCase) || listStyleImageKeywords.has(valueLowerCase)) { return }
+    if (animationShorthandKeywords.has(valueLowerCase)) { return }
+    // Ignore numbers with units
+    const unit = getUnitFromValueNode(valueNode)
+    if (unit || unit === "") { return }
 
-    listStyleTypes.push(valueNode)
+    animationNames.push(valueNode)
   })
 
-  return listStyleTypes
+  return animationNames
 }
-
