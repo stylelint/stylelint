@@ -223,26 +223,36 @@ export default function (space, options = {}) {
       if (source.indexOf("\n") === -1) { return }
       // `outsideParens` because function arguments and also non-standard parenthesized stuff like
       // Sass maps are ignored to allow for arbitrary indentation
+      let parentheticalDepth = 0
       styleSearch({ source, target: "\n", outsideParens: !options.indentInsideParens }, (match) => {
         let expectedIndentLevel = newlineIndentLevel
-        // Modify for paren content and closing paren
+        // Modififications for parenthetical content
         if (options.indentInsideParens && match.insideParens) {
-          const isClosingParen = /^\s*\)/.test(source.slice(match.startIndex))
+          const followsOpeningParenthesis = /\([ \t]*$/.test(source.slice(0, match.startIndex))
+          const precedesClosingParenthesis = /^[ \t]*\)/.test(source.slice(match.startIndex + 1))
+          if (followsOpeningParenthesis) { parentheticalDepth += 1 }
+          expectedIndentLevel += parentheticalDepth - 1
+          if (precedesClosingParenthesis) { parentheticalDepth -= 1 }
+
           switch (options.indentInsideParens) {
             case "once":
-              if (isClosingParen && !options.indentClosingBrace) { expectedIndentLevel -= 1 }
+              if (precedesClosingParenthesis && !options.indentClosingBrace) {
+                expectedIndentLevel -= 1
+              }
               break
             case "twice":
-              if (!isClosingParen || options.indentClosingBrace) { expectedIndentLevel += 1 }
+              if (!precedesClosingParenthesis || options.indentClosingBrace) {
+                expectedIndentLevel += 1
+              }
               break
             case "once-at-root-twice-in-block":
               if (node.parent === root) {
-                if (isClosingParen && !options.indentClosingBrace) {
+                if (precedesClosingParenthesis && !options.indentClosingBrace) {
                   expectedIndentLevel -= 1
                 }
                 break
               }
-              if (!isClosingParen || options.indentClosingBrace) {
+              if (!precedesClosingParenthesis || options.indentClosingBrace) {
                 expectedIndentLevel += 1
               }
               break

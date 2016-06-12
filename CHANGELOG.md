@@ -14,6 +14,7 @@
 - Fixed: `selector-type-no-unknown` ignores non-standard usage of percentage keyframe selectors (e.g. within an SCSS mixin).
 - Fixed: `no-extra-semicolons` reports errors on the correct line.
 - Fixed: crash when tty columns is reported as zero, which happened when running stylelint on Travis CI in OSX.
+- Fixed: `indentation` better understands nested parentheticals, like nested Sass maps.
 
 # 6.5.1
 
