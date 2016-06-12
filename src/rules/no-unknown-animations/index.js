@@ -1,16 +1,13 @@
-import postcss from "postcss"
-import postcssValueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
-  isStandardSyntaxValue,
-  isVariable,
+  findAnimationName,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
 import {
-  animationShorthandKeywords,
   animationNameKeywords,
+  basicKeywords,
 } from "../../reference/keywordSets"
 
 export const ruleName = "no-unknown-animations"
@@ -37,20 +34,14 @@ export default function (actual) {
       }
 
       if (decl.prop.toLowerCase() === "animation") {
-        const valueList = postcss.list.space(decl.value)
-        for (const value of valueList) {
-          // Ignore non standard syntax
-          if (!isStandardSyntaxValue(value)) { continue }
-          // Ignore variables
-          if (isVariable(value)) { continue }
-          // Ignore numbers with units
-          if (postcssValueParser.unit(value)) { continue }
-          // Ignore keywords for other animation parts
-          if (animationShorthandKeywords.has(value.toLowerCase())) { continue }
-          // Ignore functions
-          if (value.indexOf("(") !== -1) { continue }
-          checkAnimationName(value, decl, decl.value.indexOf(value))
-        }
+        const animationNames = findAnimationName(decl.value)
+        if (animationNames.length === 0) { return }
+
+        animationNames.forEach((animationNameNode) => {
+          if (basicKeywords.has(animationNameNode.value.toLowerCase())) { return }
+
+          checkAnimationName(animationNameNode.value, decl, animationNameNode.sourceIndex)
+        })
       }
     })
 

@@ -11,6 +11,14 @@ test("findFontFamily", t => {
     }]
   )
   t.deepEqual(
+    findListStyleType("INHERIT"),
+    [{
+      sourceIndex: 0,
+      type: "word",
+      value: "INHERIT",
+    }]
+  )
+  t.deepEqual(
     findListStyleType("none"),
     [{
       sourceIndex: 0,
@@ -60,6 +68,14 @@ test("findFontFamily", t => {
       sourceIndex: 0,
       type: "word",
       value: "square",
+    }]
+  )
+  t.deepEqual(
+    findListStyleType("SQUARE INSIDE URL('sqpurple.gif')"),
+    [{
+      sourceIndex: 0,
+      type: "word",
+      value: "SQUARE",
     }]
   )
   t.deepEqual(

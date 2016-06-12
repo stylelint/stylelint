@@ -99,31 +99,55 @@ export const fontWeightKeywords = uniteSets(
   fontWeightAbsoluteKeywords
 )
 
-// cf. https://developer.mozilla.org/en-US/docs/Web/CSS/animation
-export const animationShorthandKeywords = uniteSets(basicKeywords, [
+export const animationNameKeywords = uniteSets(basicKeywords, [
+  "none",
+])
+
+export const animationTimingFunctionKeywords = uniteSets(basicKeywords, [
+  "linear",
+  "ease",
+  "ease-in",
+  "ease-in-out",
+  "ease-out",
+  "step-start",
+  "step-end",
+  "steps",
+  "cubic-bezier",
+])
+
+export const animationIterationCountKeywords = new Set([
   "infinite",
+])
+
+export const animationDirectionKeywords = uniteSets(basicKeywords, [
   "normal",
   "reverse",
   "alternate",
   "alternate-reverse",
+])
+
+export const animationFillModeKeywords = new Set([
   "none",
   "forwards",
   "backwards",
   "both",
-  "running",
-  "paused",
-  "linear",
-  "ease",
-  "ease-in",
-  "ease-out",
-  "ease-in-out",
-  "step-start",
-  "step-end",
 ])
 
-export const animationNameKeywords = uniteSets(basicKeywords, [
-  "none",
+export const animationPlayStateKeywords = uniteSets(basicKeywords, [
+  "running",
+  "paused",
 ])
+
+// cf. https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+export const animationShorthandKeywords = uniteSets(
+  basicKeywords,
+  animationNameKeywords,
+  animationTimingFunctionKeywords,
+  animationIterationCountKeywords,
+  animationDirectionKeywords,
+  animationFillModeKeywords,
+  animationPlayStateKeywords
+)
 
 // These are the ones that can have single-colon notation
 export const levelOneAndTwoPseudoElements = new Set([
@@ -332,6 +356,22 @@ export const listStyleTypeKeywords = uniteSets(basicKeywords, [
   "urdu",
 ])
 
+export const listStylePositionKeywords = uniteSets(basicKeywords, [
+  "inside",
+  "outside",
+])
+
+export const listStyleImageKeywords = uniteSets(basicKeywords, [
+  "none",
+])
+
+export const listStyleShorthandKeywords = uniteSets(
+  basicKeywords,
+  listStyleTypeKeywords,
+  listStylePositionKeywords,
+  listStyleImageKeywords
+)
+
 export const fontStyleKeywords = uniteSets(basicKeywords, [
   "normal",
   "italic",
@@ -404,14 +444,15 @@ export const lineHeightKeywords = uniteSets(basicKeywords, [
   "normal",
 ])
 
-export const listStylePositionKeywords = uniteSets(basicKeywords, [
-  "inside",
-  "outside",
-])
-
-export const listStyleImageKeywords = uniteSets(basicKeywords, [
-  "none",
-])
+export const fontShorthandKeywords = uniteSets(
+  basicKeywords,
+  fontStyleKeywords,
+  fontVariantKeywords,
+  fontWeightKeywords,
+  fontStretchKeywords,
+  fontSizeKeywords,
+  lineHeightKeywords
+)
 
 export const keyframeSelectorKeywords = new Set([
   "from",

@@ -11,6 +11,14 @@ test("findFontFamily", t => {
     }]
   )
   t.deepEqual(
+    findFontFamily("INHERIT"),
+    [{
+      sourceIndex: 0,
+      type: "word",
+      value: "INHERIT",
+    }]
+  )
+  t.deepEqual(
     findFontFamily("12pt/10pt sans-serif"),
     [{
       sourceIndex: 10,
@@ -62,6 +70,14 @@ test("findFontFamily", t => {
     findFontFamily("italic bold 12px/30px $font, serif"),
     [{
       sourceIndex: 29,
+      type: "word",
+      value: "serif",
+    }]
+  )
+  t.deepEqual(
+    findFontFamily("ITALIC BOLD 12PX/30PX serif"),
+    [{
+      sourceIndex: 22,
       type: "word",
       value: "serif",
     }]

@@ -15,8 +15,14 @@ testRule(rule, {
     code: "a { animation-name: none; }",
     description: "ignore none",
   }, {
+    code: "a { animation-name: NONE; }",
+    description: "ignore NONE",
+  }, {
     code: "a { animation-name: initial; }",
     description: "ignore initial",
+  }, {
+    code: "a { animation-name: INITIAL; }",
+    description: "ignore INITIAL",
   }, {
     code: "a { animation-name: inherit; }",
     description: "ignore inherit",
@@ -30,11 +36,17 @@ testRule(rule, {
     code: "a { animation: none; }",
     description: "ignore none in longhand",
   }, {
+    code: "a { animation: NONE; }",
+    description: "ignore NONE in longhand",
+  }, {
     code: "a { animation: 2s linear 0s infinite alternate none; }",
     description: "ignore none in longhand",
   }, {
     code: "a { animation: initial; }",
     description: "ignore initial in longhand",
+  }, {
+    code: "a { animation: INITIAL; }",
+    description: "ignore INITIAL in longhand",
   }, {
     code: "a { animation: 2s linear 0s infinite alternate initial; }",
     description: "ignore initial in longhand",

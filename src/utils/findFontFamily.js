@@ -6,12 +6,7 @@ import {
 } from "./"
 import {
   basicKeywords,
-  fontStyleKeywords,
-  fontVariantKeywords,
-  fontWeightKeywords,
-  fontStretchKeywords,
-  fontSizeKeywords,
-  lineHeightKeywords,
+  fontShorthandKeywords,
 } from "../reference/keywordSets"
 
 const nodeTypesToCheck = new Set([
@@ -39,7 +34,7 @@ export default function findFontFamily(value) {
   const valueNodes = postcssValueParser(value)
 
   // Handle `inherit`, `initial` and etc
-  if (valueNodes.nodes.length === 1 && basicKeywords.has(valueNodes.nodes[0].value)) {
+  if (valueNodes.nodes.length === 1 && basicKeywords.has(valueNodes.nodes[0].value.toLowerCase())) {
     return [valueNodes.nodes[0]]
   }
 
@@ -50,20 +45,14 @@ export default function findFontFamily(value) {
     if (valueNode.type === "function") { return false }
     if (!nodeTypesToCheck.has(valueNode.type)) { return }
 
-    const value = valueNode.value
+    const valueLowerCase = valueNode.value.toLowerCase()
 
     // Ignore non standard syntax
-    if (!isStandardSyntaxValue(value)) { return }
+    if (!isStandardSyntaxValue(valueLowerCase)) { return }
     // Ignore variables
-    if (isVariable(value)) { return }
+    if (isVariable(valueLowerCase)) { return }
     // Ignore keywords for other font parts
-    if (fontStyleKeywords.has(value)
-      || fontVariantKeywords.has(value)
-      || fontWeightKeywords.has(value)
-      || fontStretchKeywords.has(value)
-      || fontSizeKeywords.has(value)
-      || lineHeightKeywords.has(value)
-    ) { return }
+    if (fontShorthandKeywords.has(valueLowerCase)) { return }
     // Ignore numbers with units
     const unit = getUnitFromValueNode(valueNode)
     if (unit && /[a-z%]/i.test(unit)) { return }
