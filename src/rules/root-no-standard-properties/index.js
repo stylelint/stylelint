@@ -10,7 +10,7 @@ import {
 export const ruleName = "root-no-standard-properties"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: property => `Unexpected standard property "${property}" within :root rule`,
+  rejected: property => `Unexpected standard property "${property}"`,
 })
 
 export default function (actual) {
