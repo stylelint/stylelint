@@ -10,7 +10,7 @@ Specify a blacklist of disallowed at-rules.
 
 ## Options
 
-`array`: `"["array", "of", "unprefixed", "at-rules"]`
+`array|string`: `"["array", "of", "unprefixed", "at-rules"]|"at-rule"`
 
 Given:
 

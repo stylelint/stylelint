@@ -6,6 +6,30 @@ const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
+  config: ["bad-word"],
+
+  accept: [ {
+    code: "/* comment */",
+  }, {
+    code: "/*! bad-word */",
+  }, {
+    code: "/*# bad-word */",
+  }, {
+    code: "/** bad-word **/",
+  }, {
+    code: "/*** bad-word ***/",
+  } ],
+
+  reject: [{
+    code: "/* bad-word */",
+    message: messages.rejected("bad-word"),
+    line: 1,
+    column: 1,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
   config: [[
     "/^TODO:/",
     "bad-word",

@@ -12,16 +12,9 @@ This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 ## Options
 
-`array`: `"["array", "of", "unprefixed", "properties"]`
+`array|string`: `["array", "of", "unprefixed", "properties" or "regex"]|"property"|"/regex/"`
 
-### `["array", "of", "unprefixed", properties"]`
-
-Whitelisted properties are the only *allowed* properties.
-
-If a string in the array is surrounded with `"/"` (e.g. `"/^background/"`),
-it is interpreted as a regular expression. This allows, for example,
-easy targeting of shorthands: `/^background/` will match `background`,
-`background-size`, `background-color`, etc.
+If a string is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^background/` will match `background`, `background-size`, `background-color`, etc.
 
 Given:
 

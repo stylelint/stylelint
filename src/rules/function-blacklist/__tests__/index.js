@@ -89,3 +89,25 @@ testRule(rule, {
     column: 45,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+
+  config: ["/rgb/"],
+
+  accept: [{
+    code: "a { color: hsl(208, 100%, 97%); }",
+  }],
+
+  reject: [ {
+    code: "a { color: rgb(0, 0, 0); }",
+    message: messages.rejected("rgb"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { color: rgba(0, 0, 0); }",
+    message: messages.rejected("rgba"),
+    line: 1,
+    column: 12,
+  } ],
+})

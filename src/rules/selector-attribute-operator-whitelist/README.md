@@ -10,11 +10,7 @@ a[target="_blank"] { }
 
 ## Options
 
-`array`: `"["array", "of", "operators"]`
-
-### `["array", "of", "operators"]`
-
-Whitelisted attribute operators are the only *allowed* attribute operators.
+`array|string`: `"["array", "of", "operators"]|"operator"`
 
 Given:
 
