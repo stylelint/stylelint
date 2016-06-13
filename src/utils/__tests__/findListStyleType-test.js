@@ -1,7 +1,7 @@
 import test from "tape"
 import findListStyleType from "../findListStyleType"
 
-test("findFontFamily", t => {
+test("findListStyleType", t => {
   t.deepEqual(
     findListStyleType("inherit"),
     [{
