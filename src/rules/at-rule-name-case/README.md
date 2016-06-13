@@ -8,7 +8,7 @@ Specify lowercase or uppercase for at-rules names.
  * These at-rule names */
 ```
 
-*Note: only lowercase at-rule names are valid in SCSS*.
+Only lowercase at-rule names are valid in SCSS.
 
 ## Options
 
