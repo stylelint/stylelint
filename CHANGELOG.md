@@ -1,26 +1,26 @@
 # Head
 
 - Deprecated: `number-zero-length-no-unit`. Use `length-zero-no-unit` instead.
+- Deprecated: `property-*-blacklist` and `property-*-whitelist`. Use `declaration-property-*-blacklist` and `declaration-property-*-whitelist` instead.
 - Deprecated: `stylelint.util.styleSearch()`. Use the external module [style-search](https://github.com/davidtheclark/style-search) instead.
-- Deprecated: `property-*-blacklist` and `property-*-whitelist` rules. Use `declaration-property-*-blacklist` and `declaration-property-*-whitelist` instead.
 - Added: option `ignorePath` (for JS) and `--ignore-path` (for CLI).
-- Added: `at-rule-name-newline-after` rule.
 - Added: `at-rule-blacklist` rule.
+- Added: `at-rule-name-newline-after` rule.
 - Added: `at-rule-whitelist` rule.
-- Added: `function-blacklist` now accepts regular expressions.
-- Added: `function-whitelist` now accepts regular expressions.
 - Added: `ignore: "blockless-group"` option for `at-rule-empty-line-before`.
 - Added: `ignoreAtRules: []` option for `at-rule-empty-line-before`.
-- Fixed: `selector-combinator-space-*` rules now ignore escaped combinator-like characters.
-- Fixed: `function-whitespace-after` ignores `postcss-simple-vars`-style interpolation.
-- Fixed: `function-url-quotes` ignores values containing `$sass` and `@less` variables.
-- Fixed: selector-targeting rules ignore Less mixins and extends.
-- Fixed: `selector-type-no-unknown` ignores non-standard usage of percentage keyframe selectors (e.g. within an SCSS mixin).
-- Fixed: `no-extra-semicolons` reports errors on the correct line.
+- Added: `function-blacklist` now accepts regular expressions.
+- Added: `function-whitelist` now accepts regular expressions.
 - Fixed: crash when tty columns is reported as zero, which happened when running stylelint on Travis CI in OSX.
-- Fixed: `indentation` better understands nested parentheticals, like nested Sass maps.
+- Fixed: selector-targeting rules ignore Less mixins and extends.
 - Fixed: `at-rule-name-newline-after` now correctly accepts one *or more* newlines.
 - Fixed: `declaration-block-semicolon-newline-before` now correctly accepts one *or more* newlines.
+- Fixed: `function-url-quotes` ignores values containing `$sass` and `@less` variables.
+- Fixed: `function-whitespace-after` ignores `postcss-simple-vars`-style interpolation.
+- Fixed: `indentation` better understands nested parentheticals, like nested Sass maps.
+- Fixed: `no-extra-semicolons` reports errors on the correct line.
+- Fixed: `selector-combinator-space-*` rules now ignore escaped combinator-like characters.
+- Fixed: `selector-type-no-unknown` ignores non-standard usage of percentage keyframe selectors (e.g. within an SCSS mixin).
 - Fixed: `value-keyword-case` now ignores custom idents of properties `animation`, `font`, `list-style`.
 
 # 6.5.1
