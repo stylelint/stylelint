@@ -47,12 +47,15 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`number-leading-zero`](../../src/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
 - [`number-max-precision`](../../src/rules/number-max-precision/README.md): Limit the number of decimal places allowed in numbers.
 - [`number-no-trailing-zeros`](../../src/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros in numbers.
-- [`number-zero-length-no-unit`](../../src/rules/number-zero-length-no-unit/README.md): Disallow units for zero lengths.
 
 ### String
 
 - [`string-no-newline`](../../src/rules/string-no-newline/README.md): Disallow (unescaped) newlines in strings.
 - [`string-quotes`](../../src/rules/string-quotes/README.md): Specify single or double quotes around strings.
+
+### Length
+
+- [`length-zero-no-unit`](../../src/rules/length-zero-no-unit/README.md): Disallow units for zero lengths.
 
 ### Time
 

@@ -1,6 +1,4 @@
-# number-zero-length-no-unit
-
-**Deprecated: use `length-zero-no-unit` instead.**
+# length-zero-no-unit
 
 Disallow units for zero lengths.
 
