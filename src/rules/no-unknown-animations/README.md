@@ -12,6 +12,10 @@ Disallow animation names that do not correspond to a `@keyframes` declaration.
  *           And this one */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

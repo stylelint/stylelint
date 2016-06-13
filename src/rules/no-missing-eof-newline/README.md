@@ -9,6 +9,10 @@ Disallow missing end-of-file newlines in non-empty files.
  * This newline */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

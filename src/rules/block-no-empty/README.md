@@ -8,6 +8,10 @@ Disallow empty blocks.
  * Blocks like this */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

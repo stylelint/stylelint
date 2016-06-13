@@ -10,6 +10,10 @@ Disallow vendor prefixes for media feature names.
 
 Right now this rule simply checks for prefixed *resolutions*.
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

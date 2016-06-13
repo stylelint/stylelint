@@ -8,6 +8,10 @@ Disallow single-line blocks.
  * Declaration blocks like this */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

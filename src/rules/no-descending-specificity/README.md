@@ -24,6 +24,10 @@ This rule only compares rules that are within the same media context. So `a {} @
 
 This rule resolves nested selectors before calculating the specificity of the selectors.
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

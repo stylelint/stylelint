@@ -10,6 +10,10 @@ Disallow standard properties inside `:root` rules.
 
 This rule ignores `$sass` and `@less` variables.
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

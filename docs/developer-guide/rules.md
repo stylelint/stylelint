@@ -118,9 +118,9 @@ Each rule must be accompanied by a README, fitting the following format:
 
 1. Rule name.
 2. Single line description.
-3. Prototypical code example (if necessary).
+3. Prototypical code example.
 4. Expanded description (if necessary).
-5. Options (if applicable).
+5. Options.
 6. Example patterns that are considered warnings (for each option value).
 7. Example patterns that are *not* considered warnings (for each option value).
 8. Optional options (if applicable).

@@ -8,6 +8,10 @@ Disallow the composition of `:root` in selectors.
  * This type of composite selector */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

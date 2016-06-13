@@ -10,6 +10,10 @@ Disallow missing punctuation for non-boolean media features.
 
 This rule ensures that there is either a colon or a range operator in non-boolean media features.
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

@@ -8,6 +8,10 @@ a { color: pink;; }
  *  This semicolons */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css
@@ -21,19 +25,19 @@ The following patterns are considered warnings:
 
 ```css
 .foo {
-  color: pink;; 
+  color: pink;;
 }
 ```
 
 ```css
 .foo {
-  ;color: pink; 
+  ;color: pink;
 }
 ```
 
 ```css
 .foo {
-  color: pink; 
+  color: pink;
   ;
 }
 ```

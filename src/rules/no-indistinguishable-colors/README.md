@@ -16,9 +16,27 @@ For more details about how css-colorguard works, please read [that module's docu
 
 Bugs and feature requests should be reported on the [css-colorguard issue tracker](https://github.com/SlexAxton/css-colorguard/issues).
 
-The options below directly correspond to the css-colorguard options.
+## Options
+
+### `true`
+
+Defaults to css-colorguard's default threshold of `3`.
+
+The following patterns are considered warnings:
+
+```css
+a { color: black; background: #010101; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { color: black; background: #FFF; }
+```
 
 ## Optional Options
+
+The options below directly correspond to the css-colorguard options.
 
 ### `threshold: number`
 

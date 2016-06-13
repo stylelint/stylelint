@@ -8,6 +8,10 @@ a { color: #333 }
  * These hex colors */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

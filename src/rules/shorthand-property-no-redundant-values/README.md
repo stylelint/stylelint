@@ -17,6 +17,10 @@ This rule warns you when you use redundant values in the following shorthand pro
 - `border-style`
 - `border-width`
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

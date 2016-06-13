@@ -21,6 +21,10 @@ The same selector *is* allowed to repeat in the following circumstances:
 
 This rule resolves nested selectors. So `a b {} a { & b {} }` counts as a warning, because the resolved selectors end up with a duplicate.
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css
