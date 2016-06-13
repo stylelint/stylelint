@@ -27,7 +27,7 @@ export default function (expectation) {
     atRuleNameSpaceChecker({
       root,
       result,
-      locationChecker: checker.after,
+      locationChecker: checker.afterOneOnly,
       checkedRuleName: ruleName,
     })
   }

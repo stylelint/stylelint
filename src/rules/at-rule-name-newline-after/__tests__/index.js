@@ -65,6 +65,12 @@ testRule(rule, {
     code: "@unknown\nident { };",
   }, {
     code: "a { color: pink; @crazy-custom-at-rule; }",
+  }, {
+    code: "@charset\n\n\"UTF-8\";",
+  }, {
+    code: "@charset\r\n\r\n\"UTF-8\";",
+  }, {
+    code: "@media\n\n(width <= 100px) { }",
   } ],
 
   reject: [ {
@@ -82,21 +88,6 @@ testRule(rule, {
     message: messages.expectedAfter("@charset"),
     line: 1,
     column: 8,
-  }, {
-    code: "@charset\n\n\"UTF-8\";",
-    message: messages.expectedAfter("@charset"),
-    line: 1,
-    column: 8,
-  }, {
-    code: "@charset\r\n\r\n\"UTF-8\";",
-    message: messages.expectedAfter("@charset"),
-    line: 1,
-    column: 8,
-  }, {
-    code: "@media\n\n(width <= 100px) { }",
-    message: messages.expectedAfter("@media"),
-    line: 1,
-    column: 6,
   }, {
     code: "@media (width <= 100px) { }",
     message: messages.expectedAfter("@media"),
@@ -253,19 +244,15 @@ testRule(rule, {
     code: "@unknown\"ident\";",
   }, {
     code: "@unknown ident { };",
+  }, {
+    code: "@charset\n\n\"UTF-8\";",
+  }, {
+    code: "@charset\r\n\r\n\"UTF-8\";",
+  }, {
+    code: "@media\n\n(min-width: 700px) and (orientation: landscape) { }",
   } ],
 
   reject: [ {
-    code: "@charset\n\n\"UTF-8\";",
-    message: messages.expectedAfter("@charset"),
-    line: 1,
-    column: 8,
-  }, {
-    code: "@charset\r\n\r\n\"UTF-8\";",
-    message: messages.expectedAfter("@charset"),
-    line: 1,
-    column: 8,
-  }, {
     code: "@import url(\"x.css\")\nscreen and (orientation:landscape);",
     message: messages.expectedAfter("@import"),
     line: 1,
@@ -275,11 +262,6 @@ testRule(rule, {
     message: messages.expectedAfter("@import"),
     line: 1,
     column: 7,
-  }, {
-    code: "@media\n\n(min-width: 700px) and (orientation: landscape) { }",
-    message: messages.expectedAfter("@media"),
-    line: 1,
-    column: 6,
   }, {
     code: "@media (\nmin-width: 700px) and (orientation: landscape) { }",
     message: messages.expectedAfter("@media"),

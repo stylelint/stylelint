@@ -14,6 +14,11 @@ testRule(rule, {
     code: "a { color: pink;\r\n}",
     description: "CRLF",
   }, {
+    code: "a { color: pink;\n\n}",
+  }, {
+    code: "a { color: pink;\r\n\r\n}",
+    description: "CRLF",
+  }, {
     code: "a::before { content: \";a\";\n}",
   }, {
     code: "a {\ncolor: pink;\n top:0;\n}",

@@ -35,7 +35,7 @@ export default function (expectation) {
 
       const declString = decl.toString()
 
-      checker.before({
+      checker.beforeAllowingIndentation({
         source: declString,
         index: declString.length,
         lineCheckStr: blockString(parentRule),

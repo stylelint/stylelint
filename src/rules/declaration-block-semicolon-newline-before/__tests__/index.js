@@ -14,6 +14,8 @@ testRule(rule, {
   }, {
     code: "a { color: pink\n; }",
   }, {
+    code: "a { color: pink\n\n; }",
+  }, {
     code: "a::before { content: \";a\"\n; }",
   }, {
     code: "a { color: pink\n;top: 0 }",
@@ -21,6 +23,9 @@ testRule(rule, {
     code: "a { color: pink\n;top: 0}",
   }, {
     code: "a { color: pink\r\n;top: 0}",
+    description: "CRLF",
+  }, {
+    code: "a { color: pink\r\n\r\n;top: 0}",
     description: "CRLF",
   }, {
     code: "a,\nb { color: pink\n;top: 0}",

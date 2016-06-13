@@ -11,10 +11,15 @@ testRule(rule, {
   accept: [ {
     code: "a { background-size: 0\n,0\n,0; }",
   }, {
+    code: "a { background-size: 0\n\n,0\n\n,0; }",
+  }, {
     code: "a { background-size: 0\n,  0\n,\t0; }",
   }, {
     code: "a { background-size: 0\r\n,  0\r\n,\t0; }",
     description: "CRLF",
+  }, {
+    code: "a { background-size: 0\r\n\r\n,  0\r\n,\t0; }",
+    description: "Double CRLF",
   }, {
     code: "a { background-size: 0\n    ,0\n,0; }",
     description: "indentation after the newline before the comma",

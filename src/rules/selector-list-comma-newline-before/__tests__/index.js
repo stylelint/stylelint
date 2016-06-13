@@ -11,10 +11,15 @@ testRule(rule, {
   accept: [ {
     code: "a\n,b {}",
   }, {
+    code: "a\n\n,b {}",
+  }, {
     code: "a\n,b\n,c {}",
   }, {
     code: "a\r\n,b\r\n,c {}",
     description: "CRLF",
+  }, {
+    code: "a\r\n\r\n,b\r\n,c {}",
+    description: "Double CRLF",
   }, {
     code: "a\n, b {}",
   }, {

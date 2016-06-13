@@ -20,6 +20,11 @@ testRule(rule, {
     code: "a { transform: translate(1\r\n, 1); }",
     description: "CRLF",
   }, {
+    code: "a { transform: translate(1\n\n,1); }",
+  }, {
+    code: "a { transform: translate(1\r\n\r\n, 1); }",
+    description: "CRLF",
+  }, {
     code: "a { transform: color(rgb(0\n\t, 0\n\t,0) lightness(50%)); }",
   }, {
     code: "a { transform: color(rgb(0\n  , 0\n  ,0) lightness(50%)); }",
