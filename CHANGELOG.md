@@ -2,6 +2,7 @@
 
 - Deprecated: `number-zero-length-no-unit`. Use `length-zero-no-unit` instead.
 - Deprecated: `property-*-blacklist` and `property-*-whitelist`. Use `declaration-property-*-blacklist` and `declaration-property-*-whitelist` instead.
+- Deprecated: `-v` and `--verbose` CLI flags. Use `-f verbose` or `--formatter verbose` instead.
 - Deprecated: `stylelint.util.styleSearch()`. Use the external module [style-search](https://github.com/davidtheclark/style-search) instead.
 - Added: option `ignorePath` (for JS) and `--ignore-path` (for CLI).
 - Added: `at-rule-blacklist` rule.

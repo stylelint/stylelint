@@ -51,7 +51,7 @@ const meowOptions = {
     "  --version           Get the currently installed version of stylelint.",
     "  --custom-formatter  Path to a JS file exporting a custom formatting function",
     "  --stdin-filename    Specify a filename to assign stdin input",
-    "  -f, --formatter     Specify a formatter: \"json\" or \"string\". Default is \"string\".",
+    "  -f, --formatter     Specify a formatter: \"json\", \"string\" or \"verbose\". Default is \"string\".",
     "  -i, --ignore-path   Specify a to a file containing patterns describing files",
     "                      to ignore. The path can be absolute or relative to `cwd`.",
     "                      By default, stylelint looks for `.stylelintignore` in the",
@@ -61,7 +61,6 @@ const meowOptions = {
     "  -s, --syntax        Specify a non-standard syntax that should be used to ",
     "                      parse source stylesheets. Options: \"scss\", \"less\", \"sugarss\"",
     "  -e, --extract       Extract and lint CSS from style tags in HTML structures",
-    "  -v, --verbose       Get more stats",
   ],
   pkg: "../package.json",
 }
@@ -73,6 +72,10 @@ if (cli.flags.customFormatter) {
   formatter = require(path.join(process.cwd(), cli.flags.customFormatter))
 } else if (cli.flags.verbose) {
   formatter = "verbose"
+  console.log( // eslint-disable-line no-console
+    "The '-v' and '--verbose' flags have been deprecated, and will be removed in '7.0'. " +
+    "Use '-f verbose' or '--formatter verbose' instead."
+  )
 }
 
 const optionsBase = {
