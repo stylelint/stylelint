@@ -11,10 +11,15 @@ testRule(rule, {
   accept: [ {
     code: "a { background-size: 0,\n0; }",
   }, {
+    code: "a { background-size: 0,\n\n0; }",
+  }, {
     code: "a { background-size: 0 ,\n  0; }",
   }, {
     code: "a { background-size: 0 ,\r\n  0; }",
     description: "CRLF",
+  }, {
+    code: "a { background-size: 0 ,\r\n\r\n  0; }",
+    description: "Double CRLF",
   }, {
     code: "a::before { content: \"foo,bar,baz\"; }",
     description: "string",

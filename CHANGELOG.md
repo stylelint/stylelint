@@ -18,6 +18,8 @@
 - Fixed: `no-extra-semicolons` reports errors on the correct line.
 - Fixed: crash when tty columns is reported as zero, which happened when running stylelint on Travis CI in OSX.
 - Fixed: `indentation` better understands nested parentheticals, like nested Sass maps.
+- Fixed: `at-rule-name-newline-after` now correctly accepts one *or more* newlines.
+- Fixed: `declaration-block-semicolon-newline-before` now correctly accepts one *or more* newlines.
 
 # 6.5.1
 

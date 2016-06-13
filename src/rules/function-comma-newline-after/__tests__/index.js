@@ -14,12 +14,17 @@ testRule(rule, {
     code: "a::before { background: url('func(foo,bar,baz)'); }",
   }, {
     code: "a { background-size: 0,\n  0,\n  0; }",
-  }, {
+  },  {
     code: "a { transform: translate(1 ,\n1); }",
+  }, {
+    code: "a { transform: translate(1 ,\n\n1); }",
   }, {
     code: "a { transform: translate(\n  1,\n  1\n); }",
   }, {
     code: "a { transform: translate(1,\r\n1); }",
+    description: "CRLF",
+  }, {
+    code: "a { transform: translate(1,\r\n\r\n1); }",
     description: "CRLF",
   }, {
     code: "a { transform: color(rgb(0 ,\n\t0,\n\t0) lightness(50%)); }",

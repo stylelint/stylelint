@@ -25,6 +25,12 @@ testRule(rule, {
     code: "a { color\r\n:\r\npink }",
     description: "CRLF before and after",
   }, {
+    code: "a { color\n\n:\n\npink }",
+    description: "double newline before after",
+  }, {
+    code: "a { color\r\n\r\n:\r\n\r\npink }",
+    description: "double CRLF before and after",
+  }, {
     code: "$map: (key: value)",
     description: "SCSS map with no newlines",
   }, {

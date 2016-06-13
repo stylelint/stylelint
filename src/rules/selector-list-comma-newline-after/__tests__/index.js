@@ -11,8 +11,13 @@ testRule(rule, {
   accept: [ {
     code: "a,\nb {}",
   }, {
+    code: "a,\n\nb {}",
+  }, {
     code: "a,\r\nb {}",
     description: "CRLF",
+  }, {
+    code: "a,\r\n\r\nb {}",
+    description: "Double CRLF",
   }, {
     code: "a,\nb,\nc {}",
   }, {

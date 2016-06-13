@@ -19,7 +19,12 @@ testRule(rule, {
   }, {
     code: "@media screen and (color)\n, projection and (color) {}",
   }, {
+    code: "@media screen and (color)\n\n, projection and (color) {}",
+  }, {
     code: "@media screen and (color)\r\n, projection and (color) {}",
+    description: "CRLF",
+  }, {
+    code: "@media screen and (color)\r\n\r\n, projection and (color) {}",
     description: "CRLF",
   }, {
     code: "@media screen and (color)\n     ,  projection and (color) {}",

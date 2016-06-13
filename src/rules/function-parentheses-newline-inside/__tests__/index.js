@@ -15,7 +15,12 @@ testRule(rule, {
   }, {
     code: "a { transform: translate(\n1, 1\n); }",
   }, {
+    code: "a { transform: translate(\n\n1, 1\n\n); }",
+  }, {
     code: "a { transform: translate(\r\n1, 1\r\n); }",
+    description: "CRLF",
+  }, {
+    code: "a { transform: translate(\r\n\r\n1, 1\r\n\r\n); }",
     description: "CRLF",
   }, {
     code: "a { color: color(\nrgb(\n0, 0, 0\n) lightness(\n50%\n)\n); }",

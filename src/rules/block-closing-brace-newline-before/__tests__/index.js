@@ -18,6 +18,11 @@ testRule(rule, {
     code: "a { color: pink;\r\n}",
     description: "CRLF",
   }, {
+    code: "a { color: pink;\n\n}",
+  }, {
+    code: "a { color: pink;\r\n\r\n}",
+    description: "CRLF",
+  }, {
     code: "a { color: pink;\n\t\t}",
   }, {
     code: "a { color: pink;\n} b { color: red;\n}",

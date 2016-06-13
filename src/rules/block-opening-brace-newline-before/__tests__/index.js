@@ -17,6 +17,11 @@ testRule(rule, {
     code: "a\r\n{ color: pink; }",
     description: "CRLF",
   }, {
+    code: "a\n\n{ color: pink; }",
+  }, {
+    code: "a\r\n\r\n{ color: pink; }",
+    description: "CRLF",
+  }, {
     code: "a\n{color: pink; }",
   }, {
     code: "@media print\n{ a\n{ color: pink; } }",
