@@ -1,34 +1,36 @@
 # Writing plugins
 
-```js
-// Abbreviated example:
+Plugins are rules and sets of rules built by the community. We recommend adhering to stylelint's [conventions for writing rules](/docs/developer-guide/rules.md#come-up-with-a-name), including conventions for: names, options, messages, tests and docs. These will help create a consistent user experience.
 
+## The anatomy of a plugin
+
+```js
+// Abbreviated example
 var stylelint = require("stylelint")
 
-var myPluginRuleName = "plugin/foobar"
-var myPluginRule = stylelint.createPlugin(myPluginRuleName, function(expectationKeyword, optionsObject) {
+var ruleName = "plugin/foobar"
+
+stylelint.utils.ruleMessages(ruleName, {
+  expected: "Expected ...",
+})
+
+var myPluginRule = stylelint.createPlugin(ruleName, function(primaryOption, secondaryOptionObject) {
   return function(postcssRoot, postcssResult) {
+    var validOptions = stylelint.utils.validateOptions(postcssResult, ruleName, { .. })
+    if (!validOptions) { return }
     // ... some logic ...
     stylelint.utils.report({ .. })
   }
 })
 ```
 
-`stylelint.createPlugin(ruleName, ruleFunction)` ensures that your plugin will be setup properly alongside other rules. *Make sure you document your plugin's rule name for users, because they will need to use it in their config.*
+Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`. If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`. This namespace ensures that plugin rules will never clash with core rules. *Make sure you document your plugin's rule name (and namespace) for users, because they will need to use it in their config.*
 
-Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`. If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`. This namespace ensures that plugin rules will never clash with core rules.
+`stylelint.createPlugin(ruleName, ruleFunction)` ensures that your plugin will be setup properly alongside other rules.
 
-In order for your plugin rule to work with the standard configuration format, (e.g. `["tab", { hierarchicalSelectors: true }]`), `ruleFunction` should accept 2 arguments: the expectation keyword (e.g. `"tab"`) and, optionally, an options object (e.g. `{ hierarchicalSelectors: true }`).
+In order for your plugin rule to work with the standard configuration format, (e.g. `["tab", { hierarchicalSelectors: true }]`), `ruleFunction` should accept 2 arguments: the primary option (e.g. `"tab"`) and, optionally, an secondary options object (e.g. `{ hierarchicalSelectors: true }`).
 
 `ruleFunction` should return a function that is essentially a little PostCSS plugin: it takes 2 arguments: the PostCSS Root (the parsed AST), and the PostCSS LazyResult. You'll have to [learn about the PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md).
-
-## Modules providing multiple rules
-
-To make a single module provide multiple rules, simply export an array of plugin objects (rather than a single object).
-
-## Standard parsers
-
-We recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and/or [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). Use these standard parsers whenever possible, even if there's a performance hit, because there are significant gains in doing so.
 
 ## `stylelint.utils`
 
@@ -37,7 +39,7 @@ A few of stylelint's internal utilities are exposed publicly in `stylelint.utils
 You will want to use:
 
 - `report`: Report your linting warnings. *Do not use `node.warn()` directly.* If you use `report`, your plugin will respect disabled ranges and other possible future features of stylelint, so it will fit in better with the standard rules.
-- `ruleMessages`: Tailor your messages to look like the messages of other stylelint rules. Currently, this means that the name of the rule is appended, in parentheses, to the end of the message.
+- `ruleMessages`: Tailor your messages to look like the messages of other stylelint rules.
 - `validateOptions`: Help your user's out by checking that the options they've submitted are valid.
 
 **`stylelint.util.styleSearch` is deprecated and will be removed in v7. Use the external module [style-search](https://github.com/davidtheclark/style-search) instead.**
@@ -62,11 +64,23 @@ export default stylelint.createPlugin(ruleName, function (expectation) {
 })
 ```
 
+## External helper modules
+
+In addition to the standard parsers mentioned in the ["Working on rules"](/docs/developer-guide/rules.md) doc, there are other external modules used within stylelint that we recommend using. These include:
+
+- [style-search](https://github.com/davidtheclark/style-search) - Search CSS (and CSS-like) strings, with sensitivity to whether matches occur inside strings, comments, and functions.
+
+Have a look through the [stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/src/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into a external module.
+
 ## Testing plugins
 
 For testing your plugin, you might consider using the same rule-testing function that stylelint uses internally: [`stylelint-test-rule-tape`](https://github.com/stylelint/stylelint-test-rule-tape).
 
-## Sharing plugins
+## Plugin packs
+
+To make a single module provide multiple rules, simply export an array of plugin objects (rather than a single object).
+
+## Sharing plugins and plugin packs
 
 - Use the `stylelint-plugin` keyword within your `package.json`.
 - Once your plugin is published, please send us a Pull Request to add your plugin to [the list](/docs/user-guide/plugins.md).
