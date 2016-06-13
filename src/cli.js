@@ -17,6 +17,7 @@ const minimistOptions = {
   alias: {
     e: "extract",
     f: "formatter",
+    h: "help",
     i: "ignore-path",
     q: "quiet",
     s: "syntax",
