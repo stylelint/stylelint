@@ -82,19 +82,29 @@ Each rule must be accompanied by tests that contain:
 - All patterns that are considered warnings.
 - All patterns that should *not* be considered warnings.
 
-It is easy to write stylelint tests, so *write as many as you can stand to.*
+It is easy to write stylelint tests, so *write as many as you can stand to*.
 
-And please *consider edge-cases.* These are where the bugs and shortcomings of rules always arise.
+#### Checklist
 
-#### Commonly overlooked edge-cases
+Please run through this checklist and ensure each point is covered by your tests. Especially *consider the edge-cases*. These are where the bugs and shortcomings of rules always arise.
+
+##### Best practices
+
+- Ensure you are testing errors in multiple positions, not the same place every time.
+- Ensure you use realistic (if simple) CSS, and avoid the use of ellipses.
+- Ensure you use standard CSS syntax by default, and only swap parsers when testing a specific piece of non-standard syntax.
+
+##### Commonly overlooked edge-cases
 
 - How does your rule handle variables (`$sass`, `@less`, or `var(--custom-property)`)?
 - How does your rule handle CSS strings (e.g. `content: "anything goes";`)?
-- How does your rule handle CSS comments?
-- How does your rule handle whitespace and punctuation (e.g. normalising strings before comparison)?
-- How does your rule handle `url()` functions, including data URIs?
-- How does your rule handle nesting?
-- How does your rule handle case sensitivity (e.g. many CSS identifiers are case insensitive)?
+- How does your rule handle CSS comments (e.g. `/* anything goes */`)?
+- How does your rule handle `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
+- How does your rule handle vendor prefixes (e.g. `@-webkit-keyframes name {}`)?
+- How does your rule handle case sensitivity (e.g. `@KEYFRAMES name {}`)?
+- How does your rule handle a pseudo-element *combined* with a pseudo-element (e.g. `a:hover::before`)?
+- How does your rule handle nesting (e.g. do you resolve `& a {}`, or check it as is?)?
+- How does your rule handle whitespace and punctuation (e.g. comparing `rgb(0,0,0)` with `rgb(0, 0, 0)`)?
 
 #### Running tests
 
@@ -138,7 +148,8 @@ Take the form of:
 
 #### Example patterns
 
-Use complete CSS patterns i.e. avoid ellipses (`...`)
+- Use complete CSS patterns i.e. avoid ellipses (`...`)
+- Use standard CSS syntax (and use `css` code fences) by default.
 
 ### Wire up the rule
 
