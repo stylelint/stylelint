@@ -8,6 +8,10 @@ a { top: 0.5000px; bottom: 1.0px; }
  *        These trailing zeros */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

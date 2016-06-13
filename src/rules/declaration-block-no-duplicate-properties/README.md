@@ -10,6 +10,10 @@ a { color: pink; color: orange; }
 
 This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

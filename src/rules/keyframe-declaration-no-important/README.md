@@ -11,6 +11,10 @@ Disallow `!important` within keyframe declarations.
 *     This !important */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

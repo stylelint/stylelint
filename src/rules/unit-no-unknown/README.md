@@ -8,6 +8,10 @@ a { width: 100pixels; }
  *  These units */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

@@ -27,6 +27,10 @@ The rule warns when it finds:
 - `position: absolute` used with `float`, `clear` or `vertical-align`.
 - `position: fixed` used with `float`, `clear` or `vertical-align`.
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

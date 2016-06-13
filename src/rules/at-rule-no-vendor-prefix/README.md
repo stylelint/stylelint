@@ -8,6 +8,10 @@ Disallow vendor prefixes for at-rules.
  * These prefixes */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

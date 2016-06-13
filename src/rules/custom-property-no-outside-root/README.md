@@ -8,6 +8,10 @@ Disallow custom properties outside of `:root` rules.
  * These selectors and these types of custom properties */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

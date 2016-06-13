@@ -16,11 +16,9 @@ This rule uses [stylehacks](https://github.com/ben-eb/stylehacks) to detect the 
 
 Bugs and feature requests should be reported on the [stylehacks issue tracker](https://github.com/ben-eb/stylehacks/issues).
 
-## Optional Options
+## Options
 
-### `browsers: "browserslist string"`
-
-A string interpreted by [browserslist](https://github.com/ai/browserslist) that designates precisely which browsers you wish to support. Something like `"> 1%, last 2 versions, ie >= 8"`. For details about the syntax (which is the same as when using Autoprefixer, by the way), please read [the browserslist documentation](https://github.com/ai/browserslist).
+### `true`
 
 Defaults to the browserslist default, which targets modern browsers.
 
@@ -30,4 +28,10 @@ For example, with the default settings, the following, which targets IE7-8, is c
 .foo { color/*\**/: pink\9; }
 ```
 
-But if you set `browsers: [ "last 2 versions", "ie >=7" ]` the hack above is allowed.
+## Optional Options
+
+### `browsers: "browserslist string"`
+
+A string interpreted by [browserslist](https://github.com/ai/browserslist) that designates precisely which browsers you wish to support. Something like `"> 1%, last 2 versions, ie >= 8"`. For details about the syntax (which is the same as when using Autoprefixer, by the way), please read [the browserslist documentation](https://github.com/ai/browserslist).
+
+If you set `browsers: [ "last 2 versions", "ie >=7" ]` the hack above is allowed.

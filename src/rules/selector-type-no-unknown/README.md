@@ -8,6 +8,10 @@ Disallow unknown type selectors.
  * This type selector */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

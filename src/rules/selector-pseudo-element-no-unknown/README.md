@@ -10,6 +10,10 @@ Disallow unknown pseudo-element selectors.
 
 All vendor-prefixes pseudo-element selectors are ignored.
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

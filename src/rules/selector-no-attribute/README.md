@@ -8,6 +8,10 @@ Disallow attribute selectors.
  * This type of selector */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

@@ -10,6 +10,10 @@ a { color: #y3 }
 
 Longhand hex colors can be either 6 or 8 (with alpha channel) hexadecimal characters. And their shorthand variants are 3 and 4 characters respectively.
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

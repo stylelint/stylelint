@@ -10,6 +10,10 @@ a { background-repeat: repeat; background: green; }
 
 In almost every case, this is just an authorial oversight. For more about this behavior, see [MDN's documentation of shorthand properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties).
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

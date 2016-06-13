@@ -10,6 +10,10 @@ Disallow `animation` and `transition` less than or equal to 100ms.
 
 This rule checks `transition-duration`, `transition-delay`, `animation-duration`, `animation-delay`, and those times as they manifest in the `transition` and `animation` shorthands.
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css

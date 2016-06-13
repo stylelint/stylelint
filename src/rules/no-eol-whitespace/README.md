@@ -8,6 +8,10 @@ a { color: pink; }···
  *  This whitespace */
 ```
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css
