@@ -20,6 +20,7 @@
 - Fixed: `indentation` better understands nested parentheticals, like nested Sass maps.
 - Fixed: `at-rule-name-newline-after` now correctly accepts one *or more* newlines.
 - Fixed: `declaration-block-semicolon-newline-before` now correctly accepts one *or more* newlines.
+- Fixed: `value-keyword-case` now ignores custom idents of properties `animation`, `font`, `list-style`.
 
 # 6.5.1
 

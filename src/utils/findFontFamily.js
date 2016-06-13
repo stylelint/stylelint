@@ -6,6 +6,7 @@ import {
 } from "./"
 import {
   basicKeywords,
+  fontFamilyKeywords,
   fontShorthandKeywords,
 } from "../reference/keywordSets"
 
@@ -52,7 +53,7 @@ export default function findFontFamily(value) {
     // Ignore variables
     if (isVariable(valueLowerCase)) { return }
     // Ignore keywords for other font parts
-    if (fontShorthandKeywords.has(valueLowerCase)) { return }
+    if (fontShorthandKeywords.has(valueLowerCase) && !fontFamilyKeywords.has(valueLowerCase)) { return }
     // Ignore numbers with units
     const unit = getUnitFromValueNode(valueNode)
     if (unit && /[a-z%]/i.test(unit)) { return }

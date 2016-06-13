@@ -451,7 +451,8 @@ export const fontShorthandKeywords = uniteSets(
   fontWeightKeywords,
   fontStretchKeywords,
   fontSizeKeywords,
-  lineHeightKeywords
+  lineHeightKeywords,
+  fontFamilyKeywords
 )
 
 export const keyframeSelectorKeywords = new Set([

@@ -116,11 +116,27 @@ testRule(rule, {
   }, {
     code: "a { text-rendering: geometricPrecision; }",
   }, {
+    code: "a { animation: inherit; }",
+  }, {
+    code: "a { animation: none; }",
+  }, {
+    code: "a { animation: 3s ease-in 1s 2 reverse both paused animation-name; }",
+  }, {
+    code: "a { animation: 3s ease-in 1s 2 reverse both paused aNiMaTiOn-NaMe; }",
+  }, {
+    code: "a { animation: 3s ease-in 1s 2 reverse both paused ANIMATION-NAME; }",
+  }, {
     code: "a { animation-name: animation-name; }",
   }, {
     code: "a { animation-name: aNiMaTiOn-NaMe; }",
   }, {
     code: "a { animation-name: ANIMATION-NAME; }",
+  }, {
+    code: "a { font: italic 2em font-family, sans-serif; }",
+  }, {
+    code: "a { font: italic 2em fOnT-FaMiLy, sans-serif; }",
+  }, {
+    code: "a { font: italic 2em FONT-FAMILY, sans-serif; }",
   }, {
     code: "a { font-family: serif; }",
   }, {
@@ -145,6 +161,20 @@ testRule(rule, {
     code: "a { grid-area: 5 SOOMEGRIDAREA span / 2 span; }",
   }, {
     code: "a { grid-area: [linename1] 100px [linename2 linename3]; }",
+  }, {
+    code: "a { list-style: inherit; }",
+  }, {
+    code: "a { list-style: none; }",
+  }, {
+    code: "a { list-style: square; }",
+  }, {
+    code: "a { list-style: lower-roman url('../img/dino.png') outside; }",
+  }, {
+    code: "a { list-style: custom-counter-style; }",
+  }, {
+    code: "a { list-style: cUsToM-cOuNtEr-StYle; }",
+  }, {
+    code: "a { list-style: CUSTOM-COUNTER-STYLE; }",
   }, {
     code: "ol { list-style-type: upper-alpha; }",
   }, {
@@ -258,10 +288,55 @@ testRule(rule, {
     line: 1,
     column: 21,
   }, {
+    code: "a { animation: INHERIT; }",
+    message: messages.expected("INHERIT", "inherit"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { animation: NONE; }",
+    message: messages.expected("NONE", "none"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { animation: 3s LINEAR 1s animation-name; }",
+    message: messages.expected("LINEAR", "linear"),
+    line: 1,
+    column: 19,
+  }, {
+    code: "a { animation: 3s LINEAR 1s aNiMaTiOn-NaMe; }",
+    message: messages.expected("LINEAR", "linear"),
+    line: 1,
+    column: 19,
+  }, {
+    code: "a { animation: 3s LINEAR 1s ANIMATION-NAME; }",
+    message: messages.expected("LINEAR", "linear"),
+    line: 1,
+    column: 19,
+  }, {
     code: "a { animation-name: INHERIT; }",
     message: messages.expected("INHERIT", "inherit"),
     line: 1,
     column: 21,
+  }, {
+    code: "a { font: ITALIC 2em font-family, sans-serif; }",
+    message: messages.expected("ITALIC", "italic"),
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { font: ITALIC 2em fOnT-FaMiLy, sans-serif; }",
+    message: messages.expected("ITALIC", "italic"),
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { font: ITALIC 2em FONT-FAMILY, sans-serif; }",
+    message: messages.expected("ITALIC", "italic"),
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { font: italic 2em FONT-FAMILY, SANS-SERIF; }",
+    message: messages.expected("SANS-SERIF", "sans-serif"),
+    line: 1,
+    column: 35,
   }, {
     code: "a { font-family: MONOSPACE; }",
     message: messages.expected("MONOSPACE", "monospace"),
@@ -302,6 +377,41 @@ testRule(rule, {
     message: messages.expected("SPAN", "span"),
     line: 1,
     column: 16,
+  }, {
+    code: "a { list-style: INHERIT; }",
+    message: messages.expected("INHERIT", "inherit"),
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { list-style: NONE; }",
+    message: messages.expected("NONE", "none"),
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { list-style: SQUARE; }",
+    message: messages.expected("SQUARE", "square"),
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { list-style: custom-counter-style url('../img/dino.png') OUTSIDE; }",
+    message: messages.expected("OUTSIDE", "outside"),
+    line: 1,
+    column: 61,
+  }, {
+    code: "a { list-style: cUsToM-cOuNtEr-StYlE url('../img/dino.png') OUTSIDE; }",
+    message: messages.expected("OUTSIDE", "outside"),
+    line: 1,
+    column: 61,
+  }, {
+    code: "a { list-style: CUSTOM-COUNTER-STYLE url('../img/dino.png') OUTSIDE; }",
+    message: messages.expected("OUTSIDE", "outside"),
+    line: 1,
+    column: 61,
+  }, {
+    code: "a { list-style: LOWER-ROMAN url('../img/dino.png') outside; }",
+    message: messages.expected("LOWER-ROMAN", "lower-roman"),
+    line: 1,
+    column: 17,
   }, {
     code: "ol { list-style-type: UPPER-ALPHA; }",
     message: messages.expected("UPPER-ALPHA", "upper-alpha"),
@@ -605,11 +715,25 @@ testRule(rule, {
   }, {
     code: "a { text-rendering: GEOMETRICPRECISION; }",
   }, {
+    code: "a { animation: NONE; }",
+  }, {
+    code: "a { animation: 3s EASE-IN 1s 2 REVERSE BOTH PAUSED animation-name; }",
+  }, {
+    code: "a { animation: 3s EASE-IN 1s 2 REVERSE BOTH PAUSED aNiMaTiOn-NaMe; }",
+  }, {
+    code: "a { animation: 3s EASE-IN 1s 2 REVERSE BOTH PAUSED ANIMATION-NAME; }",
+  }, {
     code: "a { animation-name: animation-name; }",
   }, {
     code: "a { animation-name: aNiMaTiOn-NaMe; }",
   }, {
     code: "a { animation-name: ANIMATION-NAME; }",
+  }, {
+    code: "a { font: ITALIC 2em font-family, SANS-SERIF; }",
+  }, {
+    code: "a { font: ITALIC 2em fOnT-FaMiLy, SANS-SERIF; }",
+  }, {
+    code: "a { font: ITALIC 2em FONT-FAMILY, SANS-SERIF; }",
   }, {
     code: "a { font-family: SERIF; }",
   }, {
@@ -634,6 +758,20 @@ testRule(rule, {
     code: "a { grid-area: 5 somegridarea SPAN / 2 SPAN; }",
   }, {
     code: "a { grid-area: [linename1] 100px [linename2 linename3]; }",
+  }, {
+    code: "a { list-style: INHERIT; }",
+  }, {
+    code: "a { list-style: NONE; }",
+  }, {
+    code: "a { list-style: SQUARE; }",
+  }, {
+    code: "a { list-style: LOWER-ROMAN url('../img/dino.png') OUTSIDE; }",
+  }, {
+    code: "a { list-style: custom-counter-style; }",
+  }, {
+    code: "a { list-style: cUsToM-cOuNtEr-StYle; }",
+  }, {
+    code: "a { list-style: CUSTOM-COUNTER-STYLE; }",
   }, {
     code: "ol { list-style-type: UPPER-ALPHA; }",
   }, {
@@ -747,10 +885,50 @@ testRule(rule, {
     line: 1,
     column: 21,
   }, {
+    code: "a { animation: none; }",
+    message: messages.expected("none", "NONE"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { animation: 3s linear 1s animation-name; }",
+    message: messages.expected("linear", "LINEAR"),
+    line: 1,
+    column: 19,
+  }, {
+    code: "a { animation: 3s linear 1s aNiMaTiOn-NaMe; }",
+    message: messages.expected("linear", "LINEAR"),
+    line: 1,
+    column: 19,
+  }, {
+    code: "a { animation: 3s linear 1s ANIMATION-NAME; }",
+    message: messages.expected("linear", "LINEAR"),
+    line: 1,
+    column: 19,
+  }, {
     code: "a { animation-name: inherit; }",
     message: messages.expected("inherit", "INHERIT"),
     line: 1,
     column: 21,
+  }, {
+    code: "a { font: italic 2em font-family, SANS-SERIF; }",
+    message: messages.expected("italic", "ITALIC"),
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { font: italic 2em fOnT-fAmIlY, SANS-SERIF; }",
+    message: messages.expected("italic", "ITALIC"),
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { font: italic 2em FONT-FAMILY, SANS-SERIF; }",
+    message: messages.expected("italic", "ITALIC"),
+    line: 1,
+    column: 11,
+  }, {
+    code: "a { font: ITALIC 2em font-family, sans-serif; }",
+    message: messages.expected("sans-serif", "SANS-SERIF"),
+    line: 1,
+    column: 35,
   }, {
     code: "a { font-family: monospace; }",
     message: messages.expected("monospace", "MONOSPACE"),
@@ -791,6 +969,46 @@ testRule(rule, {
     message: messages.expected("span", "SPAN"),
     line: 1,
     column: 16,
+  }, {
+    code: "a { list-style: inherit; }",
+    message: messages.expected("inherit", "INHERIT"),
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { list-style: none; }",
+    message: messages.expected("none", "NONE"),
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { list-style: square; }",
+    message: messages.expected("square", "SQUARE"),
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { list-style: custom-counter-style url('../img/dino.png') outside; }",
+    message: messages.expected("outside", "OUTSIDE"),
+    line: 1,
+    column: 61,
+  }, {
+    code: "a { list-style: cUsToM-cOuNtEr-StYlE url('../img/dino.png') outside; }",
+    message: messages.expected("outside", "OUTSIDE"),
+    line: 1,
+    column: 61,
+  }, {
+    code: "a { list-style: CUSTOM-COUNTER-STYLE url('../img/dino.png') outside; }",
+    message: messages.expected("outside", "OUTSIDE"),
+    line: 1,
+    column: 61,
+  }, {
+    code: "a { list-style: lower-roman url('../img/dino.png') OUTSIDE; }",
+    message: messages.expected("lower-roman", "LOWER-ROMAN"),
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { list-style: LOWER-ROMAN url('../img/dino.png') outside; }",
+    message: messages.expected("outside", "OUTSIDE"),
+    line: 1,
+    column: 52,
   }, {
     code: "ol { list-style-type: upper-alpha; }",
     message: messages.expected("upper-alpha", "UPPER-ALPHA"),
