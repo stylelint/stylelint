@@ -110,7 +110,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`declaration-no-important`](../../src/rules/declaration-no-important/README.md): Disallow `!important` within declarations.
 - [`declaration-property-unit-blacklist`](../../src/rules/declaration-property-unit-blacklist/README.md): Specify a blacklist of disallowed property and unit pairs within declarations.
 - [`declaration-property-unit-whitelist`](../../src/rules/declaration-property-unit-whitelist/README.md): Specify a whitelist of allowed property and unit pairs within declarations.
-- ['declaration-property-value-blacklist`](../../src/rules/declaration-property-value-blacklist/README.md): Specify a blacklist of disallowed property and value pairs within declarations.
+- [`declaration-property-value-blacklist`](../../src/rules/declaration-property-value-blacklist/README.md): Specify a blacklist of disallowed property and value pairs within declarations.
 - [`declaration-property-value-whitelist`](../../src/rules/declaration-property-value-whitelist/README.md): Specify a whitelist of allowed property and value pairs within declarations.
 
 ### Declaration block
