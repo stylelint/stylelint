@@ -10,6 +10,8 @@ a { background: orange; color: pink; }
 
 The trailing semicolon is the *last* semicolon in a declaration block and it is optional.
 
+This rule is not compatible with declaration blocks containing nested rules and at-rules.
+
 ## Options
 
 `string`: `"always"|"never"`
