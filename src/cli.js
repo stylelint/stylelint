@@ -12,7 +12,6 @@ const minimistOptions = {
     config: false,
     f: "string",
     q: false,
-    v: false,
   },
   alias: {
     e: "extract",
@@ -21,7 +20,7 @@ const minimistOptions = {
     i: "ignore-path",
     q: "quiet",
     s: "syntax",
-    v: "verbose",
+    v: "version",
   },
 }
 const syntaxOptions = [ "scss", "less", "sugarss" ]
@@ -49,7 +48,7 @@ const meowOptions = {
     "                        - a `stylelint.config.js` file exporting a JS object",
     "                      The search will begin in the working directory and move up the",
     "                      directory tree until a configuration file is found.",
-    "  --version           Get the currently installed version of stylelint.",
+    "  -v, --version       Get the currently installed version of stylelint.",
     "  --custom-formatter  Path to a JS file exporting a custom formatting function",
     "  --stdin-filename    Specify a filename to assign stdin input",
     "  -f, --formatter     Specify a formatter: \"json\", \"string\" or \"verbose\". Default is \"string\".",
@@ -74,12 +73,6 @@ const cli = meow(meowOptions, minimistOptions)
 let formatter = cli.flags.formatter
 if (cli.flags.customFormatter) {
   formatter = require(path.join(process.cwd(), cli.flags.customFormatter))
-} else if (cli.flags.verbose) {
-  formatter = "verbose"
-  console.log( // eslint-disable-line no-console
-    "The '-v' and '--verbose' flags have been deprecated, and will be removed in '7.0'. " +
-    "Use '-f verbose' or '--formatter verbose' instead."
-  )
 }
 
 const optionsBase = {
