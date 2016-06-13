@@ -1,6 +1,6 @@
 # Writing plugins
 
-Plugins are rules and sets of rules built by the community. We recommend adhering to stylelint's [conventions for writing rules](/docs/developer-guide/rules.md#come-up-with-a-name), including conventions for: names, options, messages, tests and docs. These will help create a consistent user experience.
+Plugins are rules and sets of rules built by the community. We recommend adhering to stylelint's [conventions for writing rules](/docs/developer-guide/rules.md#come-up-with-a-name), including conventions for names, options, messages, tests and docs. These will help create a consistent user experience.
 
 ## The anatomy of a plugin
 
