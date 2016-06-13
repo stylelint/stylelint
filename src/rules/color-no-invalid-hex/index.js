@@ -1,8 +1,8 @@
+import styleSearch from "style-search"
 import {
   isValidHex,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
 

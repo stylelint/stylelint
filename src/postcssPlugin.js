@@ -36,9 +36,8 @@ export default postcss.plugin("stylelint", (options = {}) => {
           if (path.isAbsolute(glob)) return glob
           return globjoin(configDir, glob)
         })
-        const sourcePath = _.get(root, "source.input.file", "")
-        if (multimatch(sourcePath, absoluteIgnoreFiles).length) {
-          result.warn("This file is ignored", { severity: "info" })
+        if (multimatch(_.get(root, "source.input.file", ""), absoluteIgnoreFiles).length) {
+          result.stylelint.ignored = true
           return
         }
       }
@@ -57,13 +56,12 @@ export default postcss.plugin("stylelint", (options = {}) => {
               )
             }
             if (!_.includes(plugin.ruleName, "/")) {
-              result.warn((
-                "Plugin rules that aren't namespaced have been deprecated, " +
-                "and in 7.0 they will be disallowed."
-              ), {
-                stylelintType: "deprecation",
-                stylelintReference: "http://stylelint.io/developer-guide/plugins/",
-              })
+              throw configurationError(
+                "stylelint v7+ requires plugin rules to be namspaced, " +
+                "i.e. only `plugin-namespace/plugin-rule-name` plugin rule names are supported. " +
+                `The plugin rule "${plugin.ruleName}" does not do this, so will not work. ` +
+                "Please file an issue with the plugin."
+              )
             }
             ruleDefinitions[plugin.ruleName] = plugin.rule
           })

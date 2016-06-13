@@ -1,10 +1,10 @@
+import styleSearch from "style-search"
 import {
   isAutoprefixable,
   isStandardSyntaxDeclaration,
   isStandardSyntaxProperty,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
 

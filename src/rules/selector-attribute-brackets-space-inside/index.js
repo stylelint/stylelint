@@ -1,9 +1,9 @@
+import styleSearch from "style-search"
 import {
   isStandardSyntaxRule,
   parseSelector,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
 

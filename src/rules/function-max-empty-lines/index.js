@@ -1,8 +1,8 @@
+import styleSearch from "style-search"
 import { isNumber, repeat } from "lodash"
 import {
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
 
@@ -29,7 +29,11 @@ export default function (max) {
       const repeatLFNewLines = repeat("\n", maxAdjacentNewlines)
       const repeatCRLFNewLines = repeat("\r\n", maxAdjacentNewlines)
 
-      styleSearch({ source: declString, target: "\n", withinFunctionalNotation: true }, match => {
+      styleSearch({
+        source: declString,
+        target: "\n",
+        functionArguments: "only",
+      }, match => {
         if (
           declString.substr(match.startIndex + 1, maxAdjacentNewlines) === repeatLFNewLines
           || declString.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeatCRLFNewLines

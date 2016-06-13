@@ -1,9 +1,9 @@
+import styleSearch from "style-search"
 import _ from "lodash"
 import {
   isStandardSyntaxRule,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
 import { levelOneAndTwoPseudoElements } from "../../reference/keywordSets"

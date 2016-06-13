@@ -1,8 +1,8 @@
+import styleSearch from "style-search"
 import {
   atRuleParamIndex,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
 

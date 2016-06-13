@@ -1,7 +1,7 @@
+import styleSearch from "style-search"
 import {
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
 
@@ -17,7 +17,11 @@ export default function (actual) {
     if (!validOptions) { return }
 
     const cssString = root.toString()
-    styleSearch({ source: cssString, target: "\n", withinStrings: true }, match => {
+    styleSearch({
+      source: cssString,
+      target: "\n",
+      strings: "only",
+    }, match => {
       const charBefore = cssString[match.startIndex - 1]
       let index = match.startIndex
       if (charBefore === "\\") { return }

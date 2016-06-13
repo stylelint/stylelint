@@ -1,10 +1,10 @@
+import styleSearch from "style-search"
 import _ from "lodash"
 import {
   isStandardSyntaxRule,
   parseSelector,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
 

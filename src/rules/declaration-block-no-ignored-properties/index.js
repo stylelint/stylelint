@@ -17,11 +17,18 @@ const ignored = [ {
   value: "inline",
   ignoredProperties: [
     "width",
+    "min-width",
+    "max-width",
     "height",
+    "min-height",
+    "max-height",
     "margin",
     "margin-top",
     "margin-bottom",
     "float",
+    "overflow",
+    "overflow-x",
+    "overflow-y",
   ],
 }, {
   property: "display",
@@ -68,6 +75,22 @@ const ignored = [ {
   value: "/^table-(row|row-group|column|column-group|header-group|footer-group|caption).*$/",
   ignoredProperties: [
     "vertical-align",
+  ],
+}, {
+  property: "display",
+  value: "/^table-(row|row-group).*$/",
+  ignoredProperties: [
+    "width",
+    "min-width",
+    "max-width",
+  ],
+}, {
+  property: "display",
+  value: "/^table-(column|column-group).*$/",
+  ignoredProperties: [
+    "height",
+    "min-height",
+    "max-height",
   ],
 }, {
   property: "float",
