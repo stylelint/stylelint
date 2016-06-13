@@ -193,7 +193,7 @@ test("standalone with sugarss syntax", t => {
   let planned = 0
   const config = {
     rules: {
-      "number-zero-length-no-unit": true,
+      "length-zero-no-unit": true,
     },
   }
 
@@ -206,7 +206,7 @@ test("standalone with sugarss syntax", t => {
     const strippedOutput = chalk.stripColor(output)
     t.equal(typeof output, "string")
     t.ok(strippedOutput.indexOf("3:9") !== -1)
-    t.ok(strippedOutput.indexOf("number-zero-length-no-unit") !== -1)
+    t.ok(strippedOutput.indexOf("length-zero-no-unit") !== -1)
   }).catch(logError)
   planned += 3
 
