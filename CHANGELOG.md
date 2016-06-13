@@ -1,4 +1,4 @@
-# Head
+# 6.6.0
 
 - Deprecated: `number-zero-length-no-unit`. Use `length-zero-no-unit` instead.
 - Deprecated: `property-*-blacklist` and `property-*-whitelist`. Use `declaration-property-*-blacklist` and `declaration-property-*-whitelist` instead.
