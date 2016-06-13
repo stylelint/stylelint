@@ -102,7 +102,7 @@ Please run through this checklist and ensure each point is covered by your tests
 - How does your rule handle `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
 - How does your rule handle vendor prefixes (e.g. `@-webkit-keyframes name {}`)?
 - How does your rule handle case sensitivity (e.g. `@KEYFRAMES name {}`)?
-- How does your rule handle a pseudo-element *combined* with a pseudo-element (e.g. `a:hover::before`)?
+- How does your rule handle a pseudo-class *combined* with a pseudo-element (e.g. `a:hover::before`)?
 - How does your rule handle nesting (e.g. do you resolve `& a {}`, or check it as is?)?
 - How does your rule handle whitespace and punctuation (e.g. comparing `rgb(0,0,0)` with `rgb(0, 0, 0)`)?
 
