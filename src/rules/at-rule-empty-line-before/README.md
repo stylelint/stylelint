@@ -209,3 +209,26 @@ b {
   @extend foo;
 }
 ```
+
+### `ignore: ["blockless-group"]`
+
+Ignore at-rules within a blockless group.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered warnings:
+
+```css
+@import url(x.css);
+
+@import url(y.css);
+
+@media print {}
+```
+
+```css
+@import url(x.css);
+@import url(y.css);
+
+@media print {}
+```
