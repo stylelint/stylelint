@@ -35,11 +35,17 @@ The `rules` property is *an object whose keys are rule names and values are rule
   "rules": {
     "block-no-empty": null,
     "color-no-invalid-hex": true,
+    "comment-empty-line-before": [ "always", {
+      "ignore": ["stylelint-commands", "between-comments"],
+    } ],
     "declaration-colon-space-after": "always",
     "indentation": ["tab", {
       "except": ["value"]
     }],
     "max-empty-lines": 2,
+    "rule-nested-empty-line-before": [ "always", {
+      "except": ["after-comment", "first-nested"],
+    } ],
     "unit-whitelist": ["em", "rem", "%", "s"]
   }
 }
