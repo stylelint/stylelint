@@ -1,6 +1,7 @@
 # Head
 
-- Fixed: `no-unsupported-browser-features` message now clearly states that only *fully* supported features are allowed. 
+- Fixed: `indentation` better understands nested parentheticals that aren't just Sass maps and lists.
+- Fixed: `no-unsupported-browser-features` message now clearly states that only *fully* supported features are allowed.
 
 # 6.6.0
 
