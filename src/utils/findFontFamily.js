@@ -1,8 +1,8 @@
 import postcssValueParser from "postcss-value-parser"
 import {
-  getUnitFromValueNode,
   isStandardSyntaxValue,
   isVariable,
+  isValidFontSize,
 } from "./"
 import {
   basicKeywords,
@@ -42,7 +42,7 @@ export default function findFontFamily(value) {
   let needMergeNodesByValue = false
   let mergeCharacters = null
 
-  valueNodes.walk((valueNode) => {
+  valueNodes.walk((valueNode, index, nodes) => {
     if (valueNode.type === "function") { return false }
     if (!nodeTypesToCheck.has(valueNode.type)) { return }
 
@@ -50,20 +50,26 @@ export default function findFontFamily(value) {
 
     // Ignore non standard syntax
     if (!isStandardSyntaxValue(valueLowerCase)) { return }
+
     // Ignore variables
     if (isVariable(valueLowerCase)) { return }
+
     // Ignore keywords for other font parts
     if (fontShorthandKeywords.has(valueLowerCase) && !fontFamilyKeywords.has(valueLowerCase)) { return }
-    // Ignore numbers with units
-    const unit = getUnitFromValueNode(valueNode)
-    if (unit && /[a-z%]/i.test(unit)) { return }
+
+    // Ignore font-sizes
+    if (isValidFontSize(valueNode.value)) { return }
+
+    // Ignore anything come after a <font-size>/, because it's a line-height
+    if (nodes[index - 1] && nodes[index - 1].value === "/"
+      && nodes[index - 2] && isValidFontSize(nodes[index - 2].value)) { return }
+
     // Detect when a space or comma is dividing a list of font-families, and save the joining character.
     if ((valueNode.type === "space" || (valueNode.type === "div" && valueNode.value !== ","))
       && fontFamilies.length !== 0
     ) {
       needMergeNodesByValue = true
       mergeCharacters = valueNode.value
-
       return
     } else if (valueNode.type === "space" || valueNode.type === "div") {
       return
