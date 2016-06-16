@@ -64,32 +64,9 @@ a {}
 
 ## Optional options
 
-### `except: ["blockless-group"]`
+### `except: ["all-nested", "blockless-group", "first-nested"]`
 
-Reverse the primary option for at-rules within a blockless group.
-
-For example, with `"always"`:
-
-The following patterns are considered warnings:
-
-```css
-@import url(x.css);
-
-@import url(y.css);
-
-@media print {}
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-@import url(x.css);
-@import url(y.css);
-
-@media print {}
-```
-
-### `except: ["all-nested"]`
+### `"all-nested"`
 
 Reverse the primary option for at-rules that are nested.
 
@@ -125,7 +102,32 @@ b {
 }
 ```
 
-### `except: ["first-nested"]`
+#### `"blockless-group"`
+
+Reverse the primary option for at-rules within a blockless group.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+@import url(x.css);
+
+@import url(y.css);
+
+@media print {}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+@import url(x.css);
+@import url(y.css);
+
+@media print {}
+```
+
+#### `"first-nested"`
 
 Reverse the primary option for at-rules that are nested and the first child of their parent node.
 
@@ -161,7 +163,9 @@ b {
 }
 ```
 
-### `ignore: ["after-comment"]`
+### `ignore: ["after-comment", "blockless-group", "all-nested"]`
+
+#### `"after-comment"`
 
 Ignore rules that come after a comment.
 
@@ -178,7 +182,7 @@ The following patterns are *not* considered warnings:
 @media {}
 ```
 
-### `ignore: ["all-nested"]`
+#### `"all-nested"`
 
 Ignore at-rules that are nested.
 
@@ -210,7 +214,7 @@ b {
 }
 ```
 
-### `ignore: ["blockless-group"]`
+#### `"blockless-group"`
 
 Ignore at-rules within a blockless group.
 

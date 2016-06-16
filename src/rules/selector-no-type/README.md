@@ -50,25 +50,13 @@ The following patterns are *not* considered warnings:
 
 ## Optional options
 
-### `ignore: [ "descendant" ]`
+### `ignore: ["compounded", "descendant"]`
 
-Allow descendant type selectors.
-
-For example, the following would *not* be considered warnings:
-
-```css
-.foo ul {}
-```
-
-```css
-#bar ul.foo {}
-```
-
-### `ignore: [ "compounded" ]`
+#### `"compounded"`
 
 Allow compounded type selectors -- i.e. type selectors chained with other selectors.
 
-For example, the following would *not* be considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 ul.foo {}
@@ -76,4 +64,18 @@ ul.foo {}
 
 ```css
 ul#bar {}
+```
+
+#### `"descendant"`
+
+Allow descendant type selectors.
+
+The following patterns are *not* considered warnings:
+
+```css
+.foo ul {}
+```
+
+```css
+#bar ul.foo {}
 ```

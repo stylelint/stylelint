@@ -56,11 +56,25 @@ input {
 
 ## Optional options
 
-### `ignore: ["class"]`
+### `ignore: ["attribute", "class", "id"]`
+
+#### `"attribute"`
+
+Allow attribute selectors qualified by type.
+
+The following patterns are *not* considered warnings:
+
+```css
+input[type='button'] {
+  margin: 0
+}
+```
+
+#### `"class"`
 
 Allow class selectors qualified by type.
 
-For example, the following would *not* be considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 div.class {
@@ -68,26 +82,14 @@ div.class {
 }
 ```
 
-### `ignore: ["id"]`
+#### `"id"`
 
 Allow id selectors qualified by type.
 
-For example, the following would *not* be considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 div#id {
-  margin: 0
-}
-```
-
-### `ignore: ["attribute"]`
-
-Allow attribute selectors qualified by type.
-
-For example, the following would *not* be considered warnings:
-
-```css
-input[type='button'] {
   margin: 0
 }
 ```
