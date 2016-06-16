@@ -15,7 +15,7 @@ Specify indentation.
 
 ## Options
 
-`int|"tab"` - int = number of spaces
+`int|"tab"`, where `int` is the number of spaces
 
 ### `2`
 
@@ -111,7 +111,7 @@ a {
 
 ## Optional options
 
-### `indentInsideParens: ["once", "twice", "once-at-root-twice-in-block"]`
+### `indentInsideParens: "once"|"twice"|"once-at-root-twice-in-block"`
 
 By default, indentation within function arguments and other parentheses are ignored. If you would like to enforce indentation inside parentheses, use this option.
 
@@ -159,70 +159,6 @@ a {
 }
 ```
 
-### `except: ["block", "value", "param"]`
-
-Do *not* indent for these things.
-
-For example, with `2`:
-
-The following patterns are considered warnings:
-
-```css
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 120dpi) {
-  a {
-    background-position: top left,
-      top right;
-  }
-}
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-@media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 120dpi) {
-a {
-background-position: top left,
-top right;
-}
-}
-```
-
-### `ignore: ["value"]`
-
-Ignore the indentation of values.
-
-For example, with `2`:
-
-The following patterns are *not* considered warnings:
-
-```css
-a {
-  background-position: top left,
-top right,
-  bottom left,
-    bottom right;
-}
-```
-
-### `ignore: ["param"]`
-
-Ignore the indentation of at-rule params.
-
-For example, with `2`:
-
-The following patterns are *not* considered warnings:
-
-```css
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-    (min-resolution: 120dpi) {
-}
-```
-
 ### `indentClosingBrace: true|false`
 
 If `true`, the closing brace of a block (rule or at-rule) will be expected at the same indentation level as the block's inner nodes.
@@ -257,4 +193,70 @@ a {
     color: pink;
     }  
   }
+```
+
+### `except: ["block", "value", "param"]`
+
+Do *not* indent for these things.
+
+For example, with `2`:
+
+The following patterns are considered warnings:
+
+```css
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 120dpi) {
+  a {
+    background-position: top left,
+      top right;
+  }
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {
+a {
+background-position: top left,
+top right;
+}
+}
+```
+
+### `ignore: ["value", "param"]`
+
+#### `"value"`
+
+Ignore the indentation of values.
+
+For example, with `2`:
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  background-position: top left,
+top right,
+  bottom left,
+    bottom right;
+}
+```
+
+#### `"param"`
+
+Ignore the indentation of at-rule params.
+
+For example, with `2`:
+
+The following patterns are *not* considered warnings:
+
+```css
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+    (min-resolution: 120dpi) {
+}
 ```
