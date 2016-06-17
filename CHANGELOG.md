@@ -14,7 +14,9 @@
 - Changed: `declaration-block-no-ignored-properties` now detects use of `overflow`, `overflow-x` and `overflow-y` with inline elements.
 - Changed: `font-family-name-quotes` treats `-apple-*` and `BlinkMacSystemFont` system fonts as keywords that should never be wrapped in quotes.
 - Changed: files matching ignore patterns no longer receive an "info"-severity message, which was always printed by the string formatter. Instead, the file's stylelint result object receives an `ignored: true` property, which various formatters can use as needed. The standard string formatter prints nothing for ignored files; but in `--verbose` mode, ignored files are included in the filelist.
+- Changed: `comment-word-blacklist` no longer ignores words within copyright  comments
 - Added: non-standard syntaxes are automatically inferred from file extensions `.scss`, `.less`, and `.sss`.
+- Fixed: The string options of `comment-word-blacklist` will now identify strings *within* comments. 
 
 # 6.7.1
 
