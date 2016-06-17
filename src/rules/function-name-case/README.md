@@ -97,3 +97,125 @@ a {
   background: -WEBKIT-RADIAL-GRADIENT(red, green, blue);
 }
 ```
+
+## Optional options
+
+### `ignoreFunctions: ["/regex/", "non-regex"]`
+
+Ignore case of function names.
+
+For example, with `"lower"`, given:
+
+```js
+["SOME-FUNCTION", "/^get.*$/"]
+```
+
+The following patterns are considered warnings:
+
+```css
+a {
+  color: sOmE-FuNcTiOn();
+}
+```
+
+```css
+a {
+  color: OTHER-SOME-FUNCTION();
+}
+```
+
+```css
+a {
+  color: GetColor();
+}
+```
+
+```css
+a {
+  color: GET_COLOR();
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  display: some-function();
+}
+```
+
+```css
+a {
+  display: SOME-FUNCTION();
+}
+```
+
+```css
+a {
+  display: getColor();
+}
+```
+
+```css
+a {
+  display: get_color();
+}
+```
+
+For example, with `"upper"`, given:
+
+```js
+["some-function", "/^get.*$/"]
+```
+
+The following patterns are considered warnings:
+
+```css
+a {
+  color: sOmE-FuNcTiOn();
+}
+```
+
+```css
+a {
+  color: other-some-function();
+}
+```
+
+```css
+a {
+  color: GetColor();
+}
+```
+
+```css
+a {
+  color: GET_COLOR();
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  display: some-function();
+}
+```
+
+```css
+a {
+  display: SOME-FUNCTION();
+}
+```
+
+```css
+a {
+  display: getColor();
+}
+```
+
+```css
+a {
+  display: get_color();
+}
+```
