@@ -88,7 +88,7 @@ a {
 
 ### `"never-single-line"`
 
-There *must nevers* be a whitespace inside the parentheses of single-line functions.
+There *must never* be whitespace inside the parentheses of single-line functions.
 
 The following patterns are considered warnings:
 
