@@ -58,8 +58,8 @@ function cleanDoiuseWarningText(warningText) {
   // Get feature Id, then replace brackets with quotes
   const featureId = warningText.slice(featureIdIndex, warningText.length).replace(/\(|\)/g, "\"")
 
-  // Get "not supported by..." text, then strip colons and brackets.
-  const notSupportedBy = warningText.slice(warningText.indexOf("not"), featureIdIndex - 1).replace(/:|\(|\)/g, "")
+  // Get list of browsers, then strip brackets.
+  const browsers = warningText.slice(warningText.indexOf(":") + 2, featureIdIndex - 1).replace(/\(|\)/g, "")
 
-  return `${featureId} is ${notSupportedBy}`
+  return `${featureId} is not fully supported by ${browsers}`
 }

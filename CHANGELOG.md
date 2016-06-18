@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `no-unsupported-browser-features` message now clearly states that only *fully* supported features are allowed. 
+
 # 6.6.0
 
 - Deprecated: `number-zero-length-no-unit`. Use `length-zero-no-unit` instead.
