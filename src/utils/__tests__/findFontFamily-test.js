@@ -296,5 +296,16 @@ test("findFontFamily", t => {
     ]
   )
 
+  t.deepEqual(
+    findFontFamily("16px/3 Arial"),
+    [
+      {
+        sourceIndex: 7,
+        type: "word",
+        value: "Arial",
+      },
+    ]
+  )
+
   t.end()
 })
