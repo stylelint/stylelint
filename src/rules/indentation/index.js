@@ -204,6 +204,11 @@ export default function (space, options = {}) {
     function checkSelector(rule, ruleLevel) {
       const selector = rule.selector
 
+      // Less mixins have params, and they should be indented extra
+      if (rule.params) {
+        ruleLevel += 1
+      }
+
       checkMultilineBit(selector, ruleLevel, rule)
     }
 
@@ -215,7 +220,6 @@ export default function (space, options = {}) {
       const paramLevel = (optionsHaveException(options, "param") || atRule.name === "nest")
         ? ruleLevel
         : ruleLevel + 1
-
       checkMultilineBit(beforeBlockString(atRule).trim(), paramLevel, atRule)
     }
 
@@ -224,14 +228,16 @@ export default function (space, options = {}) {
       // `outsideParens` because function arguments and also non-standard parenthesized stuff like
       // Sass maps are ignored to allow for arbitrary indentation
       let parentheticalDepth = 0
-      styleSearch({ source, target: "\n", outsideParens: !options.indentInsideParens }, (match) => {
+      styleSearch({ source, target: "\n", outsideParens: !options.indentInsideParens }, (match, matchCount) => {
         let expectedIndentLevel = newlineIndentLevel
         // Modififications for parenthetical content
         if (options.indentInsideParens && match.insideParens) {
+          // If the first match in is within parentheses, reduce the parenthesis penalty
+          if (matchCount === 1) parentheticalDepth -= 1
           const followsOpeningParenthesis = /\([ \t]*$/.test(source.slice(0, match.startIndex))
           const precedesClosingParenthesis = /^[ \t]*\)/.test(source.slice(match.startIndex + 1))
           if (followsOpeningParenthesis) { parentheticalDepth += 1 }
-          expectedIndentLevel += parentheticalDepth - 1
+          expectedIndentLevel += parentheticalDepth
           if (precedesClosingParenthesis) { parentheticalDepth -= 1 }
 
           switch (options.indentInsideParens) {

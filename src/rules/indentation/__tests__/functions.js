@@ -95,6 +95,14 @@ testRule(rule, {
     "  )\n" +
     ");",
     description: "nested Sass map",
+  }, {
+    code: "background:\n" +
+    "  linear-gradient(\n" +
+    "    to bottom,\n" +
+    "    transparentize($gray-dark, 1) 0%,\n" +
+    "    transparentize($gray-dark, 0.1) 100%\n" +
+    "  );",
+    description: "nested parenthetical inside multiline value",
   } ],
 
   reject: [ {
@@ -345,4 +353,22 @@ testRule(rule, {
     line: 5,
     column: 1,
   } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ 2, { indentInsideParens: "once" } ],
+  syntax: "less",
+  skipBasicChecks: true,
+
+  accept: [{
+    code: ".foo {\n" +
+    "  .mixin(\n" +
+    "    @foo,\n" +
+    "    @bar,\n" +
+    "    @baz\n" +
+    "  );\n" +
+    "}",
+    description: "Less mixin with multi-line arguments",
+  }],
 })
