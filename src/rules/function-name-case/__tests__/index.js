@@ -154,16 +154,14 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ "lower", { ignoreFunctions: [ "Some-function", "sOmE-FuNcTiOn", "SOME-FUNCTION", "/^get.*$/" ] } ],
+  config: [ "lower", { ignoreFunctions: [ "someFunction", "/^get.*$/" ] } ],
 
   accept: [ {
-    code: "a { color: Some-function(); }",
+    code: "a { color: somefunction(); }",
+    description: "Accepted because primary option is 'lower'",
   }, {
-    code: "a { color: sOmE-FuNcTiOn(); }",
-  }, {
-    code: "a { color: SOME-FUNCTION(); }",
-  }, {
-    code: "a { color: some-function(); }",
+    code: "a { color: someFunction(); }",
+    description: "Accepted because exact case-sensitive string is ignored",
   }, {
     code: "a { color: getDefaultColor(); }",
   }, {
@@ -176,10 +174,17 @@ testRule(rule, {
     line: 1,
     column: 12,
   }, {
-    code: "a { color: SoMe-FuNcTiOn(); }",
-    message: messages.expected("SoMe-FuNcTiOn", "some-function"),
+    code: "a { color: SoMeFuNcTiOn(); }",
+    message: messages.expected("SoMeFuNcTiOn", "somefunction"),
     line: 1,
     column: 12,
+    description: "Rejected because doesn't match exact case-sensitive string that is ignored",
+  }, {
+    code: "a { color: SOMEFUNCTION(); }",
+    message: messages.expected("SOMEFUNCTION", "somefunction"),
+    line: 1,
+    column: 12,
+    description: "Rejected because doesn't match exact case-sensitive string that is ignored",
   }, {
     code: "a { color: GetColor(); }",
     message: messages.expected("GetColor", "getcolor"),
