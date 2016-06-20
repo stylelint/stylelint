@@ -6,6 +6,35 @@ const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
+  config: ["0,1,0"],
+
+  accept: [ {
+    code: ".ab {}",
+  }, {
+    code: "span a {}",
+  }, {
+    code: "div div div div div div div div div div div {}",
+    message: "a selector with 11 elements has a lower specificity than a selector with one classname",
+  }, {
+    code: "z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z z {}",
+    message: "a selector with 101 elements has a lower specificity than a selector with one classname",
+  } ],
+
+  reject: [ {
+    code: ".ab .ab {}",
+    message: messages.expected(".ab .ab", "0,1,0"),
+    line: 1,
+    column: 1,
+  }, {
+    code: ".ab span {}",
+    message: messages.expected(".ab span", "0,1,0"),
+    line: 1,
+    column: 1,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: ["0,3,0"],
 
   accept: [ {
