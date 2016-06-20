@@ -59,7 +59,6 @@ export default function (actual, options) {
       if (!isStandardSyntaxRule(rule)) { return }
       const { selector } = rule
       if (!isStandardSyntaxSelector(selector)) { return }
-      if (isKeyframeSelector(selector)) { return }
 
       parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkTags(tagNode => {
@@ -67,6 +66,7 @@ export default function (actual, options) {
 
           const tagName = tagNode.value
           const tagNameLowerCase = tagName.toLowerCase()
+          if (isKeyframeSelector(tagName)) { return }
 
           if (htmlTags.indexOf(tagNameLowerCase) !== -1
             || svgTags.indexOf(tagNameLowerCase) !== -1

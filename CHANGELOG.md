@@ -5,6 +5,7 @@
 - Fixed: `indentation` better understands nested parentheticals that aren't just Sass maps and lists.
 - Fixed: `no-unsupported-browser-features` message now clearly states that only *fully* supported features are allowed.
 - Fixed: `selector-max-specificity` no longer reports that a selector with 11 elements or more has a higher specificity than a selector with a single classname.
+- Fixed: Fixed: `selector-type-no-unknown` no longer warns for complex keyframe selectors.
 
 # 6.6.0
 
