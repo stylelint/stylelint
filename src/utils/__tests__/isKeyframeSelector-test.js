@@ -13,6 +13,7 @@ test("isKeyframeSelector", t => {
   t.ok(isKeyframeSelector(".5%"))
   t.ok(isKeyframeSelector("000.5%"))
   t.ok(isKeyframeSelector("209%"))
+  t.ok(isKeyframeSelector("0%, 50%"))
 
   t.notOk(isKeyframeSelector("a"))
   t.notOk(isKeyframeSelector(".foo"))
