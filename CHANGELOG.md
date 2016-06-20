@@ -4,6 +4,7 @@
 - Fixed: rules using `findFontFamily` util correctly interpret `<font-size>/<line-height>` values with unitless line-heights.
 - Fixed: `indentation` better understands nested parentheticals that aren't just Sass maps and lists.
 - Fixed: `no-unsupported-browser-features` message now clearly states that only *fully* supported features are allowed.
+- Fixed: `selector-max-specificity` no longer reports that a selector with 11 elements or more has a higher specificity than a selector with a single classname.
 
 # 6.6.0
 
