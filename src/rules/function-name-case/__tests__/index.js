@@ -154,6 +154,52 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: [ "lower", { ignoreFunctions: [ "someFunction", "/^get.*$/" ] } ],
+
+  accept: [ {
+    code: "a { color: somefunction(); }",
+    description: "Accepted because primary option is 'lower'",
+  }, {
+    code: "a { color: someFunction(); }",
+    description: "Accepted because exact case-sensitive string is ignored",
+  }, {
+    code: "a { color: getDefaultColor(); }",
+  }, {
+    code: "a { color: get_default_color(); }",
+  } ],
+
+  reject: [ {
+    code: "a { color: OTHER-SOME-FUNCTION(); }",
+    message: messages.expected("OTHER-SOME-FUNCTION", "other-some-function"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { color: SoMeFuNcTiOn(); }",
+    message: messages.expected("SoMeFuNcTiOn", "somefunction"),
+    line: 1,
+    column: 12,
+    description: "Rejected because doesn't match exact case-sensitive string that is ignored",
+  }, {
+    code: "a { color: SOMEFUNCTION(); }",
+    message: messages.expected("SOMEFUNCTION", "somefunction"),
+    line: 1,
+    column: 12,
+    description: "Rejected because doesn't match exact case-sensitive string that is ignored",
+  }, {
+    code: "a { color: GetColor(); }",
+    message: messages.expected("GetColor", "getcolor"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { color: Get_COLOR(); }",
+    message: messages.expected("Get_COLOR", "get_color"),
+    line: 1,
+    column: 12,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: ["upper"],
 
   accept: [ {
@@ -291,5 +337,46 @@ testRule(rule, {
     message: messages.expected("translateX", "TRANSLATEX"),
     line: 1,
     column: 16,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "upper", { ignoreFunctions: [ "Some-function", "sOmE-FuNcTiOn", "some-function", "/^get.*$/" ] } ],
+
+  accept: [ {
+    code: "a { color: Some-function(); }",
+  }, {
+    code: "a { color: sOmE-FuNcTiOn(); }",
+  }, {
+    code: "a { color: SOME-FUNCTION(); }",
+  }, {
+    code: "a { color: some-function(); }",
+  }, {
+    code: "a { color: getDefaultColor(); }",
+  }, {
+    code: "a { color: get_default_color(); }",
+  } ],
+
+  reject: [ {
+    code: "a { color: other-some-function(); }",
+    message: messages.expected("other-some-function", "OTHER-SOME-FUNCTION"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { color: SoMe-FuNcTiOn(); }",
+    message: messages.expected("SoMe-FuNcTiOn", "SOME-FUNCTION"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { color: GetColor(); }",
+    message: messages.expected("GetColor", "GETCOLOR"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { color: Get_COLOR(); }",
+    message: messages.expected("Get_COLOR", "GET_COLOR"),
+    line: 1,
+    column: 12,
   } ],
 })

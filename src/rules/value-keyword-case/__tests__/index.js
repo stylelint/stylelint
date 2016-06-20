@@ -1202,16 +1202,14 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ "lower", { ignoreKeywords: [ "Block", "bLoCk", "BLOCK", "/^(f|F)lex$/" ] } ],
+  config: [ "lower", { ignoreKeywords: [ "Block", "/^(f|F)lex$/" ] } ],
 
   accept: [ {
     code: "a { display: block; }",
+    description: "Accepted because primary option is 'lower'",
   }, {
     code: "a { display: Block; }",
-  }, {
-    code: "a { display: bLoCk; }",
-  }, {
-    code: "a { display: BLOCK; }",
+    description: "Accepted because exact case-sensitive string is ignored",
   }, {
     code: "a { display: flex; }",
   }, {
@@ -1219,6 +1217,18 @@ testRule(rule, {
   } ],
 
   reject: [ {
+    code: "a { display: bLoCk; }",
+    message: messages.expected("bLoCk", "block"),
+    line: 1,
+    column: 14,
+    description: "Rejected because doesn't match exact case-sensitive string that is ignored",
+  }, {
+    code: "a { display: BLOCK; }",
+    message: messages.expected("BLOCK", "block"),
+    line: 1,
+    column: 14,
+    description: "Rejected because doesn't match exact case-sensitive string that is ignored",
+  }, {
     code: "a { display: Inline; }",
     message: messages.expected("Inline", "inline"),
     line: 1,

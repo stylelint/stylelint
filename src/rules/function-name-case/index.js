@@ -1,7 +1,9 @@
 import valueParser from "postcss-value-parser"
+import { isString } from "lodash"
 import {
   declarationValueIndex,
   isStandardSyntaxFunction,
+  matchesStringOrRegExp,
   report,
   ruleMessages,
   validateOptions,
@@ -19,7 +21,7 @@ camelCaseFunctionNames.forEach(func => {
   mapLowercaseFunctionNamesToCamelCase.set(func.toLowerCase(), func)
 })
 
-export default function (expectation) {
+export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -27,6 +29,12 @@ export default function (expectation) {
         "lower",
         "upper",
       ],
+    }, {
+      actual: options,
+      possible: {
+        ignoreFunctions: [isString],
+      },
+      optional: true,
     })
     if (!validOptions) { return }
 
@@ -38,6 +46,10 @@ export default function (expectation) {
 
         const functionName = node.value
         const functionNameLowerCase = functionName.toLowerCase()
+
+        const ignoreFunctions = options && options.ignoreFunctions || []
+
+        if (ignoreFunctions.length > 0 && matchesStringOrRegExp(functionName, ignoreFunctions)) { return }
 
         let expectedFunctionName = null
 

@@ -1,5 +1,6 @@
 # Head
 
+- Added: `ignoreFunctions: []` option for `function-name-case`.
 - Fixed: rules using `findFontFamily` util correctly interpret `<font-size>/<line-height>` values with unitless line-heights.
 - Fixed: `indentation` better understands nested parentheticals that aren't just Sass maps and lists.
 - Fixed: `no-unsupported-browser-features` message now clearly states that only *fully* supported features are allowed.
