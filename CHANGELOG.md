@@ -1,4 +1,4 @@
-# Head
+# 6.7.0
 
 - Added: `ignoreFunctions: []` option for `function-name-case`.
 - Fixed: rules using `findFontFamily` util correctly interpret `<font-size>/<line-height>` values with unitless line-heights.
