@@ -16,7 +16,13 @@ Also: we hope that your participation in the project isn't a one-off. *We'd love
 
 First, open [an issue](https://github.com/stylelint/stylelint/issues/new) and let everyone else know that you intend to create a new rule.
 
-Usually we have some discussion about the rule's purpose, name, and options before it's ready for development.
+Usually we have some discussion about the rule's purpose, name, and options before it's ready for development. We also discuss whether the rule meets the following criteria for inclusion in stylelint:
+
+- Applicable to standard CSS syntax only.
+- Useful to the majority of users.
+- Has a clear and unambiguous finished state.
+
+Otherwise, it should be a plugin.
 
 Once you have something to show, you'll create a [pull request](https://github.com/stylelint/stylelint/compare) to continue the conversation.
 
