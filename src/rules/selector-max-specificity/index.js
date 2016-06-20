@@ -27,7 +27,7 @@ export default function (max) {
     })
     if (!validOptions) { return }
 
-    const maxSpecificityArray = ("0," + max).split(",").map(parseFloat);
+    const maxSpecificityArray = ("0," + max).split(",").map(parseFloat)
     root.walkRules(rule => {
       if (!isStandardSyntaxRule(rule)) { return }
       if (!isStandardSyntaxSelector(rule.selector)) { return }
