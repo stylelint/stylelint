@@ -1,4 +1,4 @@
-import { calculate } from "specificity"
+import { compare } from "specificity"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 import {
@@ -27,16 +27,15 @@ export default function (max) {
     })
     if (!validOptions) { return }
 
+    const maxSpecificityArray = ("0," + max).split(",").map(parseFloat);
     root.walkRules(rule => {
       if (!isStandardSyntaxRule(rule)) { return }
       if (!isStandardSyntaxSelector(rule.selector)) { return }
       // Using rule.selectors gets us each selector in the eventuality we have a comma separated set
       rule.selectors.forEach(selector => {
         resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {
-          // calculate() returns a four section string — we only need 3 so strip the first two characters
-          const computedSpecificity = calculate(resolvedSelector)[0].specificity.substring(2)
           // Check if the selector specificity exceeds the allowed maximum
-          if (parseFloat(computedSpecificity.replace(/,/g, "")) > parseFloat(max.replace(/,/g, ""))) {
+          if (compare(resolvedSelector, maxSpecificityArray) === 1) {
             report({
               ruleName,
               result,
