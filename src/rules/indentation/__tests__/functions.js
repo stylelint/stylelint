@@ -154,6 +154,33 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: [ "tab", { indentInsideParens: "once", "indentClosingBrace": false } ],
+  skipBasicChecks: true,
+
+  accept: [{
+    code: "$some-list: (\n" +
+    "\tvar: value,\n" +
+    "\tvar: value,\n" +
+    "\tvar: value\n" +
+    ");",
+    description: "tabbed sass-list with property value pairs",
+  }],
+
+  reject: [{
+    code: "$some-list: (\n" +
+    "\tvar: value,\n" +
+    "\tvar: value,\n" +
+    "\t\tvar: value\n" +
+    ");",
+    description: "tabbed sass-list with property value pairs",
+    message: messages.expected("1 tab"),
+    line: 4,
+    column: 3,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
   config: [ 2, { indentInsideParens: "twice" } ],
   skipBasicChecks: true,
 
