@@ -1,8 +1,8 @@
 # The stylelint PostCSS plugin
 
-As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a PostCSS runner -- such as [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss) -- or with the PostCSS JS API directly.
+As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a PostCSS runner or with the PostCSS JS API directly.
 
-*However, if a dedicated stylelint task runner plugin [is available](/docs/user-guide/complementary-tools.md) (e.g. `gulp-stylelint`) we recommend you use that rather than this plugin, as they provide better reporting.*
+*However, if a dedicated stylelint task runner plugin [is available](/docs/user-guide/complementary-tools.md) (e.g. [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) or [grunt-stylelint](https://github.com/wikimedia/grunt-stylelint)) we recommend you use that rather than this plugin, as they provide better reporting.*
 
 ## Installation
 
@@ -55,73 +55,11 @@ We recommend you lint your CSS before applying any transformations. You can do t
 - using the [`plugins` option](https://github.com/postcss/postcss-import#plugins) of [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) to lint the your files before any transformations.
 - placing stylelint at the beginning of your plugin pipeline.
 
-You'll also need to use a reporter. *The stylelint plugin registers warnings via PostCSS*. Therefore, you'll want to use it with a PostCSS runner that prints warnings (e.g. [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss)) or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
+You'll also need to use a reporter. *The stylelint plugin registers warnings via PostCSS*. Therefore, you'll want to use it with a PostCSS runner that prints warnings or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
 
 ### Example A
 
-Using the plugin with [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss), and as a separate lint task:
-
-```js
-grunt.initConfig({
-  postcss: {
-    // build task (this example uses postcss-import and autoprefixer)
-    build: {
-      options: {
-        map: true,
-        processors: [
-          require("postcss-import"),
-          require("autoprefixer")({browsers: "last 2 versions"})
-        ]
-      },
-      // start at the entry file
-      src: 'css/entry.css'
-    },
-    // separate lint task
-    lint: {
-      options: {
-        processors: [
-          require("stylelint")({ /* your options */ }),
-          require("postcss-reporter")({ clearMessages: true })
-        ]
-      },
-      // lint all the .css files in the css directory
-      src: 'css/**/*.css'
-    }
-  }
-})
-```
-
-### Example B
-
-Using the plugin with [`grunt-postcss`](https://github.com/nDmitry/grunt-postcss), but within [`postcss-import`](https://github.com/postcss/postcss-import) (using the its `plugins` option) as part of the build task:
-
-```js
-grunt.initConfig({
-  postcss: {
-    // this example uses postcss-cssnext
-    options: {
-      map: true,
-      processors: [
-        require("postcss-import")({
-          plugins: [
-            require("stylelint")({ /* your options */ })
-          ]
-        }),
-        require("postcss-cssnext")
-        require("postcss-reporter")({ clearMessages: true })
-      ]
-    },
-    // start at the entry file
-    dist: {
-      src: 'css/entry.css'
-    }
-  }
-})
-```
-
-### Example C
-
-Using the plugin to lint Less using the PostCSS JS API and [`postcss-less`](https://github.com/webschik/postcss-less).
+A separate lint task that uses the plugin via the PostCSS JS API to lint Less using [`postcss-less`](https://github.com/webschik/postcss-less).
 
 *Note: the stylelint PostCSS plugin, unlike the stylelint CLI and node API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.*
 
@@ -129,15 +67,13 @@ Using the plugin to lint Less using the PostCSS JS API and [`postcss-less`](http
 var fs = require("fs")
 var less = require("postcss-less")
 var postcss = require("postcss")
-var reporter = require("postcss-reporter")
-var stylelint = require("stylelint")
 
 // CSS to be processed
 var css = fs.readFileSync("input.css", "utf8")
 
 postcss([
-  stylelint({ /* your options */ }),
-  reporter({ clearMessages: true }),
+  require("stylelint")({ /* your options */ })
+  require("postcss-reporter")({ clearMessages: true })
 ])
   .process(css, {
     from: "input.css",
@@ -148,3 +84,34 @@ postcss([
 ```
 
 The same pattern can be used to lint SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.
+
+### Example B
+
+A combined lint and build task where the plugin is used via the PostCSS JS API, but within [`postcss-import`](https://github.com/postcss/postcss-import) (using the its `plugins` option) so that the source files are linted before any transformations.
+
+```js
+var fs = require("fs")
+var postcss = require("postcss")
+var stylelint = require("stylelint")
+
+// CSS to be processed
+var css = fs.readFileSync("src/app.css", "utf8")
+
+postcss(
+  processors: [
+    require("postcss-import")({
+      plugins: [
+        require("stylelint")({ /* your options */ })
+      ]
+    }),
+    require("postcss-cssnext")
+    require("postcss-reporter")({ clearMessages: true })
+  ]
+)
+  .process(css, { from: 'src/app.css', to: 'app.css' })
+  .then(function (result) {
+    fs.writeFileSync('app.css', result.css);
+    if ( result.map ) fs.writeFileSync('app.css.map', result.map);
+  })
+  .catch(err => console.error(err.stack))
+```
