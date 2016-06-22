@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: `block-*-brace-*-before` CRLF (`\r\n`) warning positioning.
+
 # 6.7.0
 
 - Added: `ignoreFunctions: []` option for `function-name-case`.

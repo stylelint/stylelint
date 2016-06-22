@@ -219,7 +219,7 @@ testRule(rule, {
     description: "CRLF",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
-    column: 3,
+    column: 2,
   }, {
     code: "a { color: pink; }",
     message: messages.rejectedBeforeSingleLine(),
@@ -245,7 +245,7 @@ testRule(rule, {
     description: "CRLF",
     message: messages.rejectedBeforeSingleLine(),
     line: 2,
-    column: 5,
+    column: 4,
   }, {
     code: "@media print { a\n{ color: pink; } }",
     message: messages.rejectedBeforeSingleLine(),
@@ -387,6 +387,6 @@ testRule(rule, {
     code: "@media print{ a\r\n{ color: pink;\r\nbackground: orange; } }",
     message: messages.rejectedBeforeMultiLine(),
     line: 1,
-    column: 17,
+    column: 16,
   } ],
 })

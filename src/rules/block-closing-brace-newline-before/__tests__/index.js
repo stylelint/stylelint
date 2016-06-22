@@ -61,7 +61,7 @@ testRule(rule, {
     description: "CRLF",
     message: messages.expectedBefore,
     line: 1,
-    column: 19,
+    column: 18,
   }, {
     code: "a { color: pink;  }",
     message: messages.expectedBefore,
