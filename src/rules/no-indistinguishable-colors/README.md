@@ -64,7 +64,6 @@ The following patterns are *not* considered warnings:
 a { color: black; background: #010101; }
 ```
 
-
 ### `whitelist: [ [ "#colorA", "#colorB" ], [ "#colorA", "#colorB" ] ]`
 
 An array of color pairs to ignore. Each pair is an array with two items.
