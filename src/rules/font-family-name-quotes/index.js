@@ -11,8 +11,8 @@ import { fontFamilyKeywords } from "../../reference/keywordSets"
 export const ruleName = "font-family-name-quotes"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (family) => `Expected quotes around font-family name "${family}"`,
-  rejected: (family) => `Unexpected quotes around font-family name "${family}"`,
+  expected: (family) => `Expected quotes around "${family}"`,
+  rejected: (family) => `Unexpected quotes around "${family}"`,
 })
 
 function isSystemFontKeyword(font) {
