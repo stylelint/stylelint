@@ -117,6 +117,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-attribute-operator-space-after": "always"|"never",
     "selector-attribute-operator-space-before": "always"|"never",
     "selector-attribute-operator-whitelist": string|[],
+    "selector-attribute-quotes": "always"|"never",
     "selector-class-pattern": string,
     "selector-combinator-space-after": "always"|"never",
     "selector-combinator-space-before": "always"|"never",

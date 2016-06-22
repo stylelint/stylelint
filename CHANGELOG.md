@@ -1,6 +1,7 @@
 # Head
 
 - Added: `defaultSeverity` configuration option.
+- Added: `selector-attribute-quotes` rule.
 - Fixed: `selector-max-specificity` no longer crashes on selectors containing `:not()` pseudo-classes.
 - Fixed: `time-no-imperceptible` correctly handles negative time.
 - Fixed: `function-calc-no-unspaced-operator` correctly interprets negative fractional numbers without leading zeros and those wrapped in parentheses.
