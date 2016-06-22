@@ -38,7 +38,7 @@ a { font-family: Arial, sans-serif; }
 a { font-family: Times New Roman, Times, serif; }
 ```
 
-And the following patterns are *not* considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 a { font-family: 'Arial', sans-serif; }
@@ -62,7 +62,7 @@ a { font-family: "Arial", sans-serif; }
 a { font-family: 'Times New Roman', Times, serif; }
 ```
 
-And the following patterns are *not* considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 a { font-family: Arial, sans-serif; }
@@ -94,7 +94,7 @@ a { font-family: MyFontVersion6, sake_case_font; }
 a { font-family: 'Arial', sans-serif; }
 ```
 
-And the following patterns are *not* considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 a { font-family: 'Times New Roman', Times, serif; }

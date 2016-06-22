@@ -104,7 +104,9 @@ a {
 
 Ignore case of function names.
 
-For example, with `"lower"`, given:
+For example, with `"lower"`.
+
+Given:
 
 ```js
 ["SOME-FUNCTION", "/^get.*$/"]
@@ -162,7 +164,9 @@ a {
 }
 ```
 
-For example, with `"upper"`, given:
+For example, with `"upper"`.
+
+Given:
 
 ```js
 ["some-function", "/^get.*$/"]

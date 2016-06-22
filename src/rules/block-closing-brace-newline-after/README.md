@@ -135,7 +135,11 @@ a { color: pink;
 
 ### `ignoreAtRules: ["/regex/", "non-regex"]`
 
-Given `["if", "else"]`:
+Given:
+
+```js
+["if", "else"]`
+```
 
 The following patterns are *not* considered warnings:
 

@@ -58,7 +58,7 @@ a {
 
 Allow unknown units.
 
-For example, given:
+Given:
 
 ```js
 ["pixels"]

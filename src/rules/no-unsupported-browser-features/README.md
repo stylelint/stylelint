@@ -22,11 +22,13 @@ Bugs and feature requests should be reported on the [doiuse issue tracker](https
 
 Defaults to the doiuse default, which is `"> 1%, last 2 versions, Firefox ESR, Opera 12.1"`.
 
-For example, with the default settings, the following is considered a warning, because IE8 (which as of this writing had *just over* 1% global usage) does not support `opacity`:
+The following patterns are considered warnings:
 
 ```css
 .foo { opacity: 0.5; }
 ```
+
+As IE8 (which as of this writing had *just over* 1% global usage) does not support `opacity`:
 
 ## Optional Options
 

@@ -42,7 +42,7 @@ li > a { }
 
 Allow unknown type selectors.
 
-For example, given:
+Given:
 
 ```js
 ["unknown"]

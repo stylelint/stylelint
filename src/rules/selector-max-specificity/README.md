@@ -47,7 +47,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following are *not* considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 div {}

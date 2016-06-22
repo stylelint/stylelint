@@ -22,11 +22,13 @@ Bugs and feature requests should be reported on the [stylehacks issue tracker](h
 
 Defaults to the browserslist default, which targets modern browsers.
 
-For example, with the default settings, the following, which targets IE7-8, is considered a warning:
+The following patterns are considered warnings:
 
 ```css
 .foo { color/*\**/: pink\9; }
 ```
+
+As this hack targets IE7-8.
 
 ## Optional Options
 

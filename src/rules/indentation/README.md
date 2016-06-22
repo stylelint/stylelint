@@ -163,7 +163,9 @@ a {
 
 If `true`, the closing brace of a block (rule or at-rule) will be expected at the same indentation level as the block's inner nodes.
 
-For example, with `indentClosingBrace: true`, the following patterns are considered warnings:
+For example, with `indentClosingBrace: true`.
+
+The following patterns are considered warnings:
 
 ```css
 a {
@@ -179,7 +181,7 @@ a {
 }
 ```
 
-And the following patterns are *not* considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 a {
