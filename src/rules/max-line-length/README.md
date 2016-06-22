@@ -53,7 +53,11 @@ Only enforce the line-length limit for lines within comments.
 
 This does not apply to comments that are stuck in between other stuff, only to lines that begin at the beginning or in the middle of a comment.
 
-For example, with a maximum length of `30`, the following each have only one warning:
+For example, with a maximum length of `30`.
+
+The following patterns are considered warnings:
+
+Each have only one warning.
 
 ```css
 /* This line is too long for my rule */

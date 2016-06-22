@@ -100,7 +100,31 @@ a .foo__foo .bar .baz {}
 
 Ignore at-rules that only wrap other rules, and do not themselves have declaration blocks.
 
-For example, if you use `ignore: ["at-rules-without-declaration-blocks"]`, all of the following `.foo` rules would have a nesting depth of just 1.
+For example, with `1`:
+
+The following patterns are considered warnings:
+
+As the at-rules have a declarations blocks.
+
+```css
+a {
+  &:hover { /* 1 */
+    @media (min-width: 500px) { color: pink; } /* 2 */      
+  }
+}
+```
+
+```css
+a {
+  @nest > b { /* 1 */
+    .foo { color: pink; } /* 2 */      
+  }
+}
+```
+
+The following patterns are *not* considered warnings:
+
+As all of the following `.foo` rules would have a nesting depth of just 1.
 
 ```css
 a {
@@ -120,24 +144,6 @@ a {
 a {
   @media print { /* ignored because it's an at-rule without a declaration block of its own */
     .foo { color: pink; } /* 1 */
-  }
-}
-```
-
-But the following *would* contain a nesting depth greater than 1 because the at-rules have a declarations blocks:
-
-```css
-a {
-  &:hover { /* 1 */
-    @media (min-width: 500px) { color: pink; } /* 2 */      
-  }
-}
-```
-
-```css
-a {
-  @nest > b { /* 1 */
-    .foo { color: pink; } /* 2 */      
   }
 }
 ```

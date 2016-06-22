@@ -154,7 +154,11 @@ color: pink;}
 
 ### `ignoreAtRules: ["/regex/", "non-regex"]`
 
-Given `["/fo/"]` or `["for"]`:
+Given:
+
+```js
+["/fo/"]
+```
 
 The following patterns are *not* considered warnings:
 

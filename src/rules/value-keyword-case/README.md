@@ -102,7 +102,9 @@ a {
 
 Ignore case of keywords values.
 
-For example, with `"lower"`, given:
+For example, with `"lower"`.
+
+Given:
 
 ```js
 ["Block", "/^(f|F)lex$/"]
@@ -160,7 +162,9 @@ a {
 }
 ```
 
-For example, with `"upper"`, given:
+For example, with `"upper"`.
+
+Given:
 
 ```js
 ["Block", "/^(f|F)lex$/"]

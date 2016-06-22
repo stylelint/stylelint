@@ -52,7 +52,7 @@ input:-moz-placeholder { }
 
 Allow unknown pseudo-class selectors.
 
-For example, given:
+Given:
 
 ```js
 ["pseudo-class"]

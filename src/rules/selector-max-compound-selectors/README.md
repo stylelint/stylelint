@@ -3,7 +3,7 @@
 Limit the number of compound selectors in a selector.
 
 ```css
-   div .bar[data-val] > a.baz + .boom > #lorem {
+   div .bar[data-val] > a.baz + .boom > #lorem {}
 /* ↑   ↑                ↑       ↑       ↑
    |   |                |       |       |
   Lv1  v2               Lv3     Lv4     Lv5  -- these are compound selectors */
@@ -29,11 +29,11 @@ The following patterns are considered warnings:
 
 ```css
 .foo .baz {
-  & > .bar .lorem{}
+  & > .bar .lorem {}
 }
 ```
 
-The following are *not* considered warnings:
+The following patterns are *not* considered warnings:
 
 ```css
 div {}

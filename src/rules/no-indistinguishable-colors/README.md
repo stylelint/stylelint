@@ -46,29 +46,35 @@ The lower the threshold, the more similar colors have to be to trigger a warning
 
 ### `ignore: ["array", "of", "hexes", "to", "ignore"]`
 
-For example, with `ignore: ["black"]`, the following is no longer a warning:
+Given:
 
-```css
-a { color: black; background: #010101; }
+```js
+ignore: ["black"]
 ```
 
-But the following is still a warning:
+The following patterns are considered warnings:
 
 ```css
 a { color: #020202; background: #010101; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { color: black; background: #010101; }
 ```
 
 ### `whitelist: [ [ "#colorA", "#colorB" ], [ "#colorA", "#colorB" ] ]`
 
 An array of color pairs to ignore. Each pair is an array with two items.
 
-For example, with `whitelist: [ [ "black", "#010101" ] ]`, the following is no longer a warning:
+Given:
 
-```css
-a { color: black; background: #010101; }
+```js
+whitelist: [ [ "black", "#010101" ] ]
 ```
 
-But the following are still warnings:
+The following patterns are considered warnings:
 
 ```css
 a { color: #020202; background: #010101; }
@@ -76,4 +82,10 @@ a { color: #020202; background: #010101; }
 
 ```css
 a { color: black; background: #020202; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { color: black; background: #010101; }
 ```
