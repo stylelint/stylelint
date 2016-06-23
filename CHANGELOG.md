@@ -1,4 +1,4 @@
-# Head
+# 6.7.1
 
 - Fixed: `block-*-brace-*-before` CRLF (`\r\n`) warning positioning.
 - Fixed: `no-descending-specificity` now does comparison of specificity using ints, rather than strings.
