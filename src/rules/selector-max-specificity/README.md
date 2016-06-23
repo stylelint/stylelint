@@ -18,7 +18,7 @@ This rule resolves nested selectors before calculating the specificity of a sele
 
 `string`: Maximum specificity allowed.
 
-Format is `"id,foo,type"`, as laid out in the [W3C selector spec](https://drafts.csswg.org/selectors/#specificity-rules).
+Format is `"id,class,type"`, as laid out in the [W3C selector spec](https://drafts.csswg.org/selectors/#specificity-rules).
 
 For example, with `"0,2,0"`:
 
