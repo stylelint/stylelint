@@ -45,7 +45,7 @@ export default function (actual) {
     function checkSelector(selectorNode, rule, sourceIndex, comparisonContext) {
       const selector = selectorNode.toString()
       const lastNonPseudoSelectorNode = lastCompoundSelectorWithoutPseudo(selectorNode)
-      const selectorSpecificity = calculate(selector)[0].specificity.split(",")
+      const selectorSpecificity = calculate(selector)[0].specificityArray
       const entry = { selector, specificity: selectorSpecificity }
 
       if (!comparisonContext.has(lastNonPseudoSelectorNode)) {
