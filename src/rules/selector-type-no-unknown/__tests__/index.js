@@ -51,10 +51,10 @@ testRule(rule, {
     code: "circle {}",
     description: "svg tags",
   }, {
-    code: "@media keyframes { 0% {} 100% {} }",
+    code: "@media keyframes { 0.0% {} 49.1% {} 100% {} }",
     description: "standard usage of keyframe selectors",
   }, {
-    code: "@media keyframes { 0%, 100% {} }",
+    code: "@media keyframes { 0%, 50.001%, 100% {} }",
     description: "standard usage of complex keyframe selectors",
   }, {
     code: "@include keyframes(identifier) { 0% {} 100% {} }",
