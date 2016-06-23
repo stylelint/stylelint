@@ -47,6 +47,10 @@ export default function (expectation) {
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
       const source = blockString(statement)
+      const statementString = statement.toString()
+
+      let index = statementString.length - 2
+      if (statementString[index - 1] === "\r") { index -= 1 }
 
       checker.before({
         source,
@@ -55,7 +59,7 @@ export default function (expectation) {
           report({
             message: msg,
             node: statement,
-            index: statement.toString().length - 2,
+            index,
             result,
             ruleName,
           })

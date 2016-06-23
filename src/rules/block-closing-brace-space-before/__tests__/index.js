@@ -36,7 +36,7 @@ testRule(rule, {
     description: "CRLF",
     message: messages.expectedBefore(),
     line: 1,
-    column: 18,
+    column: 17,
   }, {
     code: "a { color: pink;\t}",
     message: messages.expectedBefore(),
@@ -82,7 +82,7 @@ testRule(rule, {
     description: "CRLF",
     message: messages.rejectedBefore(),
     line: 1,
-    column: 18,
+    column: 17,
   }, {
     code: "a { color: pink;\t}",
     message: messages.rejectedBefore(),

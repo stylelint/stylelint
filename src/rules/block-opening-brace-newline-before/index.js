@@ -44,17 +44,21 @@ export default function (expectation) {
       // Return early if blockless or has an empty block
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
-      const beforeBrace = beforeBlockString(statement)
+      const source = beforeBlockString(statement)
+      const beforeBraceNoRaw = beforeBlockString(statement, { noRawBefore: true })
+
+      let index = beforeBraceNoRaw.length - 1
+      if (beforeBraceNoRaw[index - 1] === "\r") { index -= 1 }
 
       checker.beforeAllowingIndentation({
         lineCheckStr: blockString(statement),
-        source: beforeBrace,
-        index: beforeBrace.length,
+        source,
+        index: source.length,
         err: m => {
           report({
             message: m,
             node: statement,
-            index: beforeBlockString(statement, { noRawBefore: true }).length - 1,
+            index,
             result,
             ruleName,
           })

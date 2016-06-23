@@ -57,6 +57,10 @@ export default function (expectation, options) {
       if (optionsHaveIgnoredAtRule(options, statement)) { return }
 
       const source = beforeBlockString(statement)
+      const beforeBraceNoRaw = beforeBlockString(statement, { noRawBefore: true })
+
+      let index = beforeBraceNoRaw.length - 1
+      if (beforeBraceNoRaw[index - 1] === "\r") { index -= 1 }
 
       checker.before({
         source,
@@ -66,7 +70,7 @@ export default function (expectation, options) {
           report({
             message: m,
             node: statement,
-            index: beforeBlockString(statement, { noRawBefore: true }).length - 1,
+            index,
             result,
             ruleName,
           })

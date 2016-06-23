@@ -45,7 +45,7 @@ testRule(rule, {
     description: "CRLF",
     message: messages.expectedBefore(),
     line: 1,
-    column: 3,
+    column: 2,
   }, {
     code: "@media print\n{ a { color: pink; } }",
     message: messages.expectedBefore(),
@@ -134,7 +134,7 @@ testRule(rule, {
     description: "CRLF",
     message: messages.rejectedBefore(),
     line: 1,
-    column: 3,
+    column: 2,
   }, {
     code: "@media print { a{ color: pink; } }",
     message: messages.rejectedBefore(),
@@ -191,7 +191,7 @@ testRule(rule, {
     description: "CRLF",
     message: messages.expectedBeforeSingleLine(),
     line: 1,
-    column: 3,
+    column: 2,
   }, {
     code: "@media print\n{ a { color: pink; } }",
     message: messages.expectedBeforeSingleLine(),
@@ -256,7 +256,7 @@ testRule(rule, {
     description: "CRLF",
     message: messages.rejectedBeforeSingleLine(),
     line: 1,
-    column: 3,
+    column: 2,
   }, {
     code: "@media print { a{ color: pink; } }",
     message: messages.rejectedBeforeSingleLine(),
@@ -318,7 +318,7 @@ testRule(rule, {
     description: "CRLF",
     message: messages.expectedBeforeMultiLine(),
     line: 1,
-    column: 3,
+    column: 2,
   }, {
     code: "@media print\n{\na { color: pink;\nbackground: orange; } }",
     message: messages.expectedBeforeMultiLine(),
@@ -390,6 +390,6 @@ testRule(rule, {
     description: "CRLF",
     message: messages.rejectedBeforeMultiLine(),
     line: 1,
-    column: 17,
+    column: 16,
   } ],
 })

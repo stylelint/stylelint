@@ -38,11 +38,15 @@ export default function (expectation) {
       // Return early if blockless or has empty block
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
-      const blockIsMultiLine = !isSingleLineString(blockString(statement))
       // Ignore extra semicolon
       const after = statement.raw("after").replace(/;+/, "")
-
       if (after === undefined) { return }
+
+      const blockIsMultiLine = !isSingleLineString(blockString(statement))
+      const statementString = statement.toString()
+
+      let index = statementString.length - 2
+      if (statementString[index - 1] === "\r") { index -= 1 }
 
       // We're really just checking whether a
       // newline *starts* the block's final space -- between
@@ -66,7 +70,7 @@ export default function (expectation) {
           result,
           ruleName,
           node: statement,
-          index: statement.toString().length - 2,
+          index,
         })
       }
     }
