@@ -12,6 +12,9 @@ testRule(rule, {
   accept: [ {
     code: "a {} b a {}",
   }, {
+    code: "a b {} a b a b a b a b a b a b {}",
+    description: "2 is less than 12 (type checking)",
+  }, {
     code: "a {} a b {}",
   }, {
     code: "a {} a + a {}",

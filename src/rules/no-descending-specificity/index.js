@@ -1,11 +1,10 @@
-import { calculate } from "specificity"
+import { calculate, compare } from "specificity"
 import _ from "lodash"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 import {
   nodeContextLookup,
   findAtRuleContext,
-  isLowerSpecificity,
   parseSelector,
   report,
   ruleMessages,
@@ -45,7 +44,7 @@ export default function (actual) {
     function checkSelector(selectorNode, rule, sourceIndex, comparisonContext) {
       const selector = selectorNode.toString()
       const lastNonPseudoSelectorNode = lastCompoundSelectorWithoutPseudo(selectorNode)
-      const selectorSpecificity = calculate(selector)[0].specificity.split(",")
+      const selectorSpecificity = calculate(selector)[0].specificityArray
       const entry = { selector, specificity: selectorSpecificity }
 
       if (!comparisonContext.has(lastNonPseudoSelectorNode)) {
@@ -56,7 +55,7 @@ export default function (actual) {
       const priorComparableSelectors = comparisonContext.get(lastNonPseudoSelectorNode)
 
       priorComparableSelectors.forEach(priorEntry => {
-        if (isLowerSpecificity(selectorSpecificity, priorEntry.specificity)) {
+        if (compare(selectorSpecificity, priorEntry.specificity) === -1) {
           report({
             ruleName,
             result,
