@@ -1,5 +1,5 @@
 import {
-  isKeyframeRule,
+  isKeyframeSelector,
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
   isStandardSyntaxTypeSelector,
@@ -28,10 +28,11 @@ export default function (expectation) {
 
     root.walkRules(rule => {
 
+      const { selector, selectors } = rule
+
       if (!isStandardSyntaxRule(rule)) { return }
-      if (isKeyframeRule(rule)) { return }
-      const { selector } = rule
       if (!isStandardSyntaxSelector(selector)) { return }
+      if (selectors.some(s => isKeyframeSelector(s))) { return }
 
       parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkTags(tag => {

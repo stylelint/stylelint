@@ -1,6 +1,8 @@
 # Head
 
 - Fixed: `block-*-brace-*-before` CRLF (`\r\n`) warning positioning.
+- Fixed: `selector-no-type` and `selector-type-case` now ignore non-standard keyframe selectors (e.g. within an SCSS mixin).
+- Fixed: `selector-type-no-unknown` no longer reports factional keyframe selectors.
 
 # 6.7.0
 
