@@ -47,6 +47,9 @@ testRule(rule, {
   }, {
     code: "@keyframes spin { to {} from {} }",
   }, {
+    code: "@include keyframes(identifier) { TO, 50.0% {} 50.01% {} 100% {} }",
+    description: "non-standard usage of keyframe selectors",
+  }, {
     code: ":root { --custom-property-set: {} }",
   } ],
 
