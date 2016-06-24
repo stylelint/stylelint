@@ -36,6 +36,10 @@ stylelint can *extract and lint* any styles within `<style>` tags. This can be d
 
 [stylefmt](https://github.com/morishitter/stylefmt) supports stylelint configuration files and can automatically fix a number of stylistic warnings.
 
+## How do I use Git pre-commit hooks?
+
+[lint-staged](https://github.com/okonet/lint-staged) is a NodeJS script that supports running stylelint against Git staged files.
+
 ## Can I use stylelint as a PostCSS plugin?
 
 [Yes, you can](/docs/user-guide/postcss-plugin.md), but it limits your reporting options to [postcss-reporter](https://github.com/postcss/postcss-reporter/). We recommend using the CLI or Node API, instead, for better reporting.
