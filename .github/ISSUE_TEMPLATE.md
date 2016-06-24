@@ -1,6 +1,5 @@
-<!-- Here are the best ways to help resolve your issue:
-1. Figure out what needs to be done, propose it, and then write the code and submit a PR.
-2. If your issue is a bug, consider at least submitting a PR with failing tests. -->
+<!-- Please answer the following questions: -->
+
 > Describe the issue. Is it a bug or a feature request (new rule, new option, etc.)?
 
 e.g. "A bug where..."
@@ -35,7 +34,7 @@ e.g.
 
 > Which version of stylelint are you using?
 
-e.g. `4.3.2`
+e.g. `6.7.1`
 
 > How are you running stylelint: CLI, PostCSS plugin, Node API?
 
@@ -58,4 +57,12 @@ test.css
 1:21    Expected 2 spaces (indentation)
 ```
 
-<!--- Note: stackoverflow is our preferred QA forum - http://stackoverflow.com/questions/tagged/stylelint -->
+<!--
+Here are the best ways to help resolve your issue:
+1. Figure out what needs to be done, propose it, and then write the code and submit a PR.
+2. If your issue is a bug, consider at least submitting a PR with failing tests.
+-->
+
+<!--
+Note: stackoverflow is our preferred QA forum - http://stackoverflow.com/questions/tagged/stylelint
+-->
