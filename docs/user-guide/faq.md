@@ -18,7 +18,7 @@ If there isn't a dedicated stylelint plugin for your task runner of choice, you 
 
 There are also examples of using the PostCSS plugin via the PostCSS JS API within the [docs](/docs/user-guide/postcss-plugin.md).
 
-However, using stylelint as PostCSS plugin limits your reporting options to [postcss-reporter](https://github.com/postcss/postcss-reporter/). We recommend using the stylelint CLI or Node API, instead, for better reporting.
+However, using stylelint as a PostCSS plugin limits your reporting options to [postcss-reporter](https://github.com/postcss/postcss-reporter/). We recommend using the stylelint CLI or Node API, instead, for better reporting.
 
 ## How do I lint within my text editor?
 
