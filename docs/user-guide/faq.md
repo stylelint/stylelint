@@ -38,7 +38,7 @@ stylelint can *extract and lint* any styles within `<style>` tags. This can be d
 
 ## How do I use Git pre-commit hooks?
 
-[lint-staged](https://github.com/okonet/lint-staged) is a NodeJS script supports running stylelint against Git staged files.
+[lint-staged](https://github.com/okonet/lint-staged) is a NodeJS script that supports running stylelint against Git staged files.
 
 ## Can I use stylelint as a PostCSS plugin?
 
