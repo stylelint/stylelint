@@ -177,13 +177,16 @@ export default function (space, options = {}) {
       // Sass maps are ignored to allow for arbitrary indentation
       let parentheticalDepth = 0
       styleSearch({ source, target: "\n", outsideParens: !options.indentInsideParens }, (match, matchCount) => {
+        const precedesClosingParenthesis = /^[ \t]*\)/.test(source.slice(match.startIndex + 1))
+
+        if (!options.indentInsideParens && (precedesClosingParenthesis || match.insideParens)) { return }
+
         let expectedIndentLevel = newlineIndentLevel
         // Modififications for parenthetical content
         if (options.indentInsideParens && match.insideParens) {
           // If the first match in is within parentheses, reduce the parenthesis penalty
           if (matchCount === 1) parentheticalDepth -= 1
           const followsOpeningParenthesis = /\([ \t]*$/.test(source.slice(0, match.startIndex))
-          const precedesClosingParenthesis = /^[ \t]*\)/.test(source.slice(match.startIndex + 1))
           if (followsOpeningParenthesis) { parentheticalDepth += 1 }
           expectedIndentLevel += parentheticalDepth
           if (precedesClosingParenthesis) { parentheticalDepth -= 1 }
