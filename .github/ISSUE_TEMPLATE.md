@@ -64,5 +64,5 @@ Here are the best ways to help resolve your issue:
 -->
 
 <!--
-Note: stackoverflow is our preferred QA forum - http://stackoverflow.com/questions/tagged/stylelint
+Note: GitHub issues are for stylelint bugs and enhancements, if you're looking for help or support with stylelint then stackoverflow is our preferred question and answer forum - http://stackoverflow.com/questions/tagged/stylelint
 -->
