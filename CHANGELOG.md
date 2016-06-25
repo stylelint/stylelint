@@ -1,3 +1,7 @@
+# Head
+
+- Added: `ignoreProperties: []` option for `declaration-block-no-duplicate-properties`.
+
 # 6.7.1
 
 - Fixed: `block-*-brace-*-before` CRLF (`\r\n`) warning positioning.

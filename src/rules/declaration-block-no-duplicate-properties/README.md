@@ -61,3 +61,33 @@ p {
   font-weight: 400;
 }
 ```
+
+### `ignoreProperties: ["/regex/", "non-regex"]`
+
+Ignore duplicates of specific properties.
+
+Given:
+
+```js
+["color", "/background\-/"]
+```
+
+The following patterns are considered warnings:
+
+```css
+a { color: pink; background: orange; background: white; }
+```
+
+```css
+a { background: orange; color: pink; background: white; }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { color: pink; color: orange; background-color: orange; background-color: white; }
+```
+
+```css
+a { color: pink; background-color: orange; color: orange; background-color: white; }
+```
