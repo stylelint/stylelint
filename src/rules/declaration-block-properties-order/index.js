@@ -215,30 +215,26 @@ function checkAlpabeticalOrder(firstPropData, secondPropData) {
 
 function validatePrimaryOption(actualOptions) {
 
+  // Return true early if alphabetical
   if (actualOptions === "alphabetical") { return true }
 
+  // Otherwise, begin checking array options
   if (!Array.isArray(actualOptions)) { return false }
 
   // Every item in the array must be a string or an object
   // with a "properties" property
-  if (actualOptions.every(item => {
+  if (!actualOptions.every(item => {
     if (_.isString(item)) { return true }
     return _.isPlainObject(item) && !_.isUndefined(item.properties)
-  })) { return true }
+  })) { return false }
 
   const objectItems = actualOptions.filter(_.isPlainObject)
 
-  // Every object-item's "emptyLineBefore" must be "always" or "never"
-  if (objectItems.every(item => {
-    if (_.isUndefined(item.emptyLineBefore)) { return true }
-    return _.includes([ "always", "never" ], item.emptyLineBefore)
-  })) { return true }
+  // Every object-item's "order" property must be "strict" or "flexible"
+  if (!objectItems.every(item => {
+    if (_.isUndefined(item.order)) { return true }
+    return _.includes([ "strict", "flexible" ], item.order)
+  })) { return false }
 
-  // Every object-item's "type" property must be "strict" or "flexible"
-  if (objectItems.every(item => {
-    if (_.isUndefined(item.type)) { return true }
-    return _.includes([ "string", "flexible" ], item.type)
-  })) { return true }
-
-  return false
+  return true
 }
