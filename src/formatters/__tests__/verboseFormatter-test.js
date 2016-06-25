@@ -18,7 +18,7 @@ test("no warnings", t => {
 
   t.equal(output, stripIndent`
     1 source checked
-      path/to/file.css
+     path/to/file.css
 
     0 problems found
   `)
@@ -48,7 +48,7 @@ test("one warnings (of severity 'error')", t => {
      1:2  ×  Unexpected foo  bar
 
     1 source checked
-      path/to/file.css
+     path/to/file.css
 
     1 problem found
      severity level "error": 1
@@ -102,8 +102,8 @@ test("two of the same warnings of 'error' and one of 'warning' across two files"
      3:1  ‼  Expected cat  baz
 
     2 sources checked
-      path/to/file.css
-      file2.css
+     path/to/file.css
+     file2.css
 
     3 problems found
      severity level "error": 2
@@ -135,7 +135,7 @@ test("lineless syntax error", t => {
           ×  Unexpected foo  SyntaxError
 
     1 source checked
-      path/to/file.css
+     path/to/file.css
 
     1 problem found
      severity level "error": 1
