@@ -30,6 +30,12 @@ testRule(rule, {
   accept: variablePositiveTests.concat([ {
     code: "a { font-family: \"Lucida Grande\", \"Arial\", sans-serif; }",
   }, {
+    code: "a { font: 1em \"Lucida Grande\", \"Arial\", sans-serif; }",
+  }, {
+    code: "a { fOnT: 1em \"Lucida Grande\", \"Arial\", sans-serif; }",
+  }, {
+    code: "a { font: italic small-caps bolder condensed 16px/3 \"Lucida Grande\", \"Arial\", sans-serif; }",
+  }, {
     code: "a { fOnT-fAmIlY: \"Lucida Grande\", \"Arial\", sans-serif; }",
   }, {
     code: "a { FONT-FAMILY: \"Lucida Grande\", \"Arial\", sans-serif; }",
@@ -49,6 +55,8 @@ testRule(rule, {
     code: "a { font-family: \"Lucida Grande\", 'Arial', sans-serif; }",
   }, {
     code: "a { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }",
+  }, {
+    code: "a { fonts: \"Arial\", sans-serif; }",
   } ]),
 
   reject: [ {
@@ -56,6 +64,11 @@ testRule(rule, {
     message: messages.rejected("sans-serif"),
     line: 1,
     column: 45,
+  }, {
+    code: "a { font: 1em \"Lucida Grande\", \"Arial\", \"sans-serif\"; }",
+    message: messages.rejected("sans-serif"),
+    line: 1,
+    column: 42,
   }, {
     code: "a { fOnT-fAmIlY: \"Lucida Grande\", \"Arial\", \"sans-serif\"; }",
     message: messages.rejected("sans-serif"),
@@ -88,6 +101,8 @@ testRule(rule, {
   config: ["always-where-recommended"],
 
   accept: variablePositiveTests.concat([ {
+    code: "a { font: 1em \"Lucida Grande\", Arial, sans-serif; }",
+  }, {
     code: "a { font-family: \"Lucida Grande\", Arial, sans-serif; }",
   }, {
     code: "a { fOnT-fAmIlY: \"Lucida Grande\", Arial, sans-serif; }",
@@ -122,6 +137,11 @@ testRule(rule, {
   } ]),
 
   reject: [ {
+    code: "a { font: 1em Lucida Grande, Arial, sans-serif; }",
+    message: messages.expected("Lucida Grande"),
+    line: 1,
+    column: 15,
+  }, {
     code: "a { font-family: Lucida Grande, Arial, sans-serif; }",
     message: messages.expected("Lucida Grande"),
     line: 1,
@@ -176,6 +196,8 @@ testRule(rule, {
   config: ["always-where-required"],
 
   accept: variablePositiveTests.concat([ {
+    code: "a { font: 1em Lucida Grande, Arial, sans-serif; }",
+  }, {
     code: "a { font-family: Lucida Grande, Arial, sans-serif; }",
   }, {
     code: "a { fOnT-fAmIlY: Lucida Grande, Arial, sans-serif; }",
@@ -198,6 +220,11 @@ testRule(rule, {
   } ]),
 
   reject: [ {
+    code: "a { font: 1em \"Lucida Grande\", Arial, sans-serif; }",
+    message: messages.rejected("Lucida Grande"),
+    line: 1,
+    column: 16,
+  }, {
     code: "a { font-family: \"Lucida Grande\", Arial, sans-serif; }",
     message: messages.rejected("Lucida Grande"),
     line: 1,

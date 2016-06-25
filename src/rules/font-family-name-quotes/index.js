@@ -51,7 +51,7 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.walkDecls(/^font-family$/i, decl => {
+    root.walkDecls(/^font(-family)?$/i, decl => {
       const fontFamilies = findFontFamily(decl.value)
 
       if (fontFamilies.length === 0) { return }
