@@ -14,7 +14,6 @@ const minimistOptions = {
     q: false,
   },
   alias: {
-    e: "extract",
     f: "formatter",
     h: "help",
     i: "ignore-path",
@@ -63,7 +62,6 @@ const meowOptions = {
     "                      If you do not specify a syntax, non-standard syntaxes will be",
     "                      automatically inferred by the file extensions",
     "                      `.scss`, `.less`, and `.sss`.",
-    "  -e, --extract       Extract and lint CSS from style tags in HTML structures",
   ],
   pkg: "../package.json",
 }
@@ -86,10 +84,6 @@ if (cli.flags.quiet) {
 
 if (cli.flags.syntax && includes(syntaxOptions, cli.flags.syntax)) {
   optionsBase.syntax = cli.flags.syntax
-}
-
-if (cli.flags.extract) {
-  optionsBase.extractStyleTagsFromHtml = cli.flags.extract
 }
 
 if (cli.flags.config) {

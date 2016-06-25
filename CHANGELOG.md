@@ -1,5 +1,6 @@
 # 7.0.0
 
+- Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration#processors.md) processors.
 - Removed: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
 - Removed: `"single-where-required"`, `"single-where-recommended"`, `"single-unless-keyword"`, `"double-where-required"`, `"double-where-recommended"` and `"double-unless-keyword"` options for `font-family-name-quotes`. Instead, use the `"always-unless-keyword"`, `always-where-recommended` or `always-where-required` options together with the `string-quotes` rule.
 - Removed: `"single"`, `"double"` and `"none"` options for `function-url-quotes`. Instead, use the `"always"` or `"never"` options together with the `string-quotes` rule.
@@ -17,6 +18,7 @@
 - Changed: `comment-word-blacklist` no longer ignores words within copyright  comments
 - Changed: `font-family-name-quotes` now checks the `font` property in addition to the `font-family` property
 - Added: non-standard syntaxes are automatically inferred from file extensions `.scss`, `.less`, and `.sss`.
+- Added: [processors](/docs/user-guide/configuration#processors.md).
 - Fixed: The string options of `comment-word-blacklist` will now identify strings *within* comments.
 
 # 6.7.1

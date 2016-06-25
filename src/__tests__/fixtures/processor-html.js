@@ -7,7 +7,7 @@ import htmlparser from "htmlparser2"
  * @param {string} code
  * @return {object} { map, code }
  */
-export default function styleTagsFromHtmlExtracter(code) {
+function styleTagsFromHtmlExtracter(code) {
   const map = []
   let resultCode = ""
   let lineNumber = 1
@@ -46,7 +46,7 @@ export default function styleTagsFromHtmlExtracter(code) {
  * @param {string} code
  * @param {function} onStyle
  */
-export function iterateCodeForStyleTags(code, onStyle) {
+function iterateCodeForStyleTags(code, onStyle) {
   let index = 0
   let currentStyle = null
   let isStructureHTML = false
@@ -81,4 +81,25 @@ export function iterateCodeForStyleTags(code, onStyle) {
 
   parser.parseComplete(code)
   return isStructureHTML
+}
+
+export default function () {
+  let extractMap = []
+  return {
+    code(code) {
+      const extracted = styleTagsFromHtmlExtracter(code)
+      extractMap = extracted.map
+      return extracted.code
+    },
+
+    result(result) {
+      result.warnings = result.warnings.map(warning => {
+        const map = extractMap[warning.line] || {}
+        if (map.line) { warning.line = map.line }
+        warning.column = (map.index || 0) + warning.column
+        return warning
+      })
+      return result
+    },
+  }
 }

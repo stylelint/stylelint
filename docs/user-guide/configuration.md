@@ -214,6 +214,23 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 }
 ```
 
+### `processors`
+
+Processors are functions that hook into stylelint's pipeline, modifying code on its way into stylelint and modifying results on their way out.
+
+*Processors can only be used with the CLI and the Node API, not with the PostCSS plugin.* (The PostCSS plugin will ignore them.)
+
+Processors can enable stylelint to lint the CSS within non-stylesheet files. For example, you could lint the CSS within `<style>` tags in HTML, or within strings in JavaScript.
+
+To use one, add a `"processors"` array to your config, containing "locaters" identifying the processors you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
+
+```json
+{
+  "processors": ["stylelint-html-processor"],
+  "rules": {..},
+}
+```
+
 ### `ignoreFiles`
 
 Provide a glob or array of globs to ignore specific files.

@@ -15,7 +15,7 @@ const FILE_NOT_FOUND_ERROR_CODE = "ENOENT"
 /**
  * - Accept a raw config or look up `.stylelintrc` (using cosmiconfig).
  * - Add patterns from `.stylelintignore` to the config's `ignoreFiles`.
- * - Resolve plugin names to absolute paths.
+ * - Resolve plugin and processor names to absolute paths.
  * - Resolve extends by finding, augmenting, and merging
  *   extended configs
  *
@@ -88,7 +88,7 @@ export default function (options) {
 
 /**
  * Given a configuration object, return a new augmented version with
- * - Plugins resolved to absolute paths
+ * - Plugins and processors resolved to absolute paths
  * - Extended configs merged in
  *
  * @param {object} config
@@ -104,7 +104,7 @@ export function augmentConfig(config, configDir, options = {}) {
     ? addIgnoreFiles(config, configDir, options.ignorePath)
     : Promise.resolve(config)
   return start.then(configWithIgnorePatterns => {
-    const absolutizedConfig = absolutizePlugins(configWithIgnorePatterns, configDir)
+    const absolutizedConfig = absolutizeExtras(configWithIgnorePatterns, configDir)
     if (absolutizedConfig.extends) {
       return extendConfig(absolutizedConfig, configDir)
     }
@@ -141,12 +141,17 @@ function findIgnorePatterns(configDir, ignorePath) {
   })
 }
 
-// Replace all plugin lookups with absolute paths
-function absolutizePlugins(config, configDir) {
-  if (!config.plugins) { return config }
-  return assign({}, config, {
-    plugins: config.plugins.map(lookup => getModulePath(configDir, lookup)),
-  })
+// Replace all plugin and processor lookups with absolute paths
+function absolutizeExtras(config, configDir) {
+  if (!config.plugins && !config.processors) { return config }
+  const result = assign({}, config)
+  if (config.plugins) {
+    result.plugins = [].concat(config.plugins).map(lookup => getModulePath(configDir, lookup))
+  }
+  if (config.processors) {
+    result.processors = [].concat(config.processors).map(lookup => getModulePath(configDir, lookup))
+  }
+  return result
 }
 
 function extendConfig(config, configDir) {

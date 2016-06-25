@@ -430,6 +430,7 @@ test("standalone using codeFilename and ignoreFiles with configBasedir", t => {
 test("standalone passing code with syntax error", t => {
   standalone({
     code: "a { color: 'red; }",
+    config: { rules: { "block-no-empty": true } },
   }).then(({ results }) => {
     const result = results[0]
     t.equal(result.source, "<input css 1>", "<input css 1> as source")
@@ -453,6 +454,7 @@ test("standalone passing file with syntax error", t => {
   standalone({
     code: "a { color: 'red; }",
     codeFilename: path.join(__dirname, "syntax-error.css"),
+    config: { rules: { "block-no-empty": true } },
   }).then(({ results }) => {
     t.ok(results[0].source.indexOf("syntax-error.css") !== -1,
       "filename as source")
@@ -464,6 +466,7 @@ test("standalone passing file with syntax error", t => {
 test("syntax error sets errored to true", t => {
   standalone({
     code: "a { color: 'red; }",
+    config: { rules: { "block-no-empty": true } },
   }).then(({ errored }) => {
     t.ok(errored, "errored is true")
   }).catch(logError)
@@ -480,113 +483,6 @@ test("configuration error sets errored to true", t => {
   }).catch(logError)
 
   t.plan(1)
-})
-
-test("standalone with style tag extraction from code string", t => {
-  let planned = 0
-  standalone({
-    code: "<script>\n</script>\n\n<style>\na {}\n</style>",
-    config: configExtendingOne,
-    configBasedir: fixturesPath,
-    extractStyleTagsFromHtml: true,
-  }).then(({ output, results }) => {
-    t.equal(typeof output, "string")
-    t.equal(results.length, 1)
-    t.equal(results[0].warnings.length, 1)
-    t.equal(results[0].warnings[0].rule, "block-no-empty")
-    t.equal(results[0].warnings[0].line, 5)
-    t.equal(results[0].warnings[0].column, 3)
-  }).catch(logError)
-  planned += 6
-
-  t.plan(planned)
-})
-
-test("standalone style tag extraction that has complex structure", t => {
-  let planned = 0
-  standalone({
-    code: "<style>\na {}\n</style>\n\n<script>\n</script>\n\n<style>\n  a {}\n</style>",
-    config: configExtendingOne,
-    configBasedir: fixturesPath,
-    extractStyleTagsFromHtml: true,
-  }).then(({ output, results }) => {
-    t.equal(typeof output, "string")
-    t.equal(results.length, 1)
-    t.equal(results[0].warnings.length, 2)
-    t.equal(results[0].warnings[0].rule, "block-no-empty")
-    t.equal(results[0].warnings[0].line, 2)
-    t.equal(results[0].warnings[0].column, 3)
-    t.equal(results[0].warnings[1].rule, "block-no-empty")
-    t.equal(results[0].warnings[1].line, 9)
-    t.equal(results[0].warnings[1].column, 5)
-  }).catch(logError)
-  planned += 9
-
-  t.plan(planned)
-})
-
-test("standalone with style tag extraction from file", t => {
-  let planned = 0
-
-  standalone({
-    files: [`${fixturesPath}/invalid-hex.html`],
-    config: {
-      "rules": {
-        "color-no-invalid-hex": true,
-      },
-    },
-    configBasedir: fixturesPath,
-    extractStyleTagsFromHtml: true,
-  }).then(({ output, results }) => {
-    t.equal(typeof output, "string")
-    t.equal(results.length, 1)
-    t.equal(results[0].warnings.length, 1)
-    t.equal(results[0].warnings[0].rule, "color-no-invalid-hex")
-    t.equal(results[0].warnings[0].line, 12)
-    t.equal(results[0].warnings[0].column, 12)
-  }).catch(logError)
-  planned += 6
-
-  t.plan(planned)
-})
-
-test("standalone with extraction accepts html with no style tag", t => {
-  let planned = 0
-
-  standalone({
-    code: "<script>\n</script>",
-    config: configExtendingOne,
-    configBasedir: fixturesPath,
-    extractStyleTagsFromHtml: true,
-  }).then(({ output, results }) => {
-    t.equal(typeof output, "string")
-    t.equal(results.length, 1)
-    t.equal(results[0].warnings.length, 0)
-  }).catch(logError)
-  planned += 3
-
-  t.plan(planned)
-})
-
-test("standalone with extraction accepts plain css", t => {
-  let planned = 0
-
-  standalone({
-    code: "a { }",
-    config: configExtendingOne,
-    configBasedir: fixturesPath,
-    extractStyleTagsFromHtml: true,
-  }).then(({ output, results }) => {
-    t.equal(typeof output, "string")
-    t.equal(results.length, 1)
-    t.equal(results[0].warnings.length, 1)
-    t.equal(results[0].warnings[0].rule, "block-no-empty")
-    t.equal(results[0].warnings[0].line, 1)
-    t.equal(results[0].warnings[0].column, 3)
-  }).catch(logError)
-  planned += 6
-
-  t.plan(planned)
 })
 
 function logError(err) {
