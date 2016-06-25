@@ -65,21 +65,15 @@ test("one ignored file", t => {
 
   const results = [{
     "source": "file.css",
-    "warnings":[{
-      "column": null,
-      "severity": "info",
-      "text": "This file is ignored",
-    }],
+    "warnings":[],
     "deprecations": [],
     "invalidOptionWarnings": [],
+    "ignored": true,
   }]
 
   const output = prepareFormatterOutput(results, stringFormatter)
 
-  t.equal(output, stripIndent`
-    file.css
-          i  This file is ignored
-    `)
+  t.equal(output, "")
   t.end()
 })
 

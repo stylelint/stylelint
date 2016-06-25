@@ -22,7 +22,7 @@ export default function (results) {
     } else if (result.ignored) {
       formatting = "gray"
     }
-    let sourceText = ` ${result.source}`
+    let sourceText = `${result.source}`
     if (result.ignored) { sourceText += " (ignored)" }
     output += _.get(chalk, formatting)(` ${sourceText}\n`)
   })
