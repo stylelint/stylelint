@@ -13,7 +13,6 @@ export default function optionsHaveIgnoredProperty(options, propertyName) {
   return !!(
     options &&
     options.ignoreProperties &&
-    propertyName &&
     matchesStringOrRegExp(propertyName, options.ignoreProperties)
   )
 }
