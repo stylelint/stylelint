@@ -57,7 +57,7 @@ export function checkRuleEmptyLineBefore({ rule, expectation, options, result, m
   if (optionsHaveIgnored(options, "after-comment")
     && rule.prev() && rule.prev().type === "comment") { return }
 
-  // Ignore if the exceptation is for multiple and the rule is single-line
+  // Ignore if the expectation is for multiple and the rule is single-line
   if (expectation.indexOf("multi-line") !== -1
     && isSingleLineString(rule.toString())) { return }
 
@@ -72,7 +72,7 @@ export function checkRuleEmptyLineBefore({ rule, expectation, options, result, m
     || before.indexOf("\r\n\r\n") !== -1
     || before.indexOf("\n\r\n") !== -1
 
-  // Return if the exceptation is met
+  // Return if the expectation is met
   if (expectEmptyLineBefore === emptyLineBefore) { return }
 
   const message = expectEmptyLineBefore ? messages.expected : messages.rejected

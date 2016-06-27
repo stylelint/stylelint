@@ -74,7 +74,7 @@ export default function (expectation, options) {
         || before.indexOf("\r\n\r\n") !== -1
         || before.indexOf("\n\r\n") !== -1
 
-      // Return if the exceptation is met
+      // Return if the expectation is met
       if (expectEmptyLineBefore === hasEmptyLineBefore) { return }
 
       const message = expectEmptyLineBefore ? messages.expected : messages.rejected
