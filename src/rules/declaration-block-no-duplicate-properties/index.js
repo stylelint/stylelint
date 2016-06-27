@@ -3,10 +3,10 @@ import {
   isCustomProperty,
   isStandardSyntaxProperty,
   optionsHaveIgnored,
+  optionsHaveIgnoredProperty,
   report,
   ruleMessages,
   validateOptions,
-  optionsHaveIgnoredProperty,
 } from "../../utils"
 
 export const ruleName = "declaration-block-no-duplicate-properties"
