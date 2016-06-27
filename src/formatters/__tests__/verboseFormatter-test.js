@@ -57,6 +57,82 @@ test("one warnings (of severity 'error')", t => {
   t.end()
 })
 
+test("0 stdout column", t => {
+
+  const stdoutColumn = process.stdout.columns
+  process.stdout.columns = 0
+
+  const results = [{
+    "source":  "path/to/file.css",
+    "errored": true,
+    "warnings":[{
+      "line": 1,
+      "column": 2,
+      "rule": "bar",
+      "severity": "error",
+      "text": "Unexpected foo",
+    }],
+    "deprecations": [],
+    "invalidOptionWarnings":[],
+  }]
+
+  const output = prepareFormatterOutput(results, verboseFormatter)
+
+  t.equal(output, stripIndent`
+    path/to/file.css
+     1:2  ×  Unexpected foo  bar
+
+    1 source checked
+     path/to/file.css
+
+    1 problem found
+     severity level "error": 1
+      bar: 1
+    `)
+
+  process.stdout.columns = stdoutColumn
+
+  t.end()
+})
+
+test("less than 80 stdout column", t => {
+
+  const stdoutColumn = process.stdout.columns
+  process.stdout.columns = 79
+
+  const results = [{
+    "source":  "path/to/file.css",
+    "errored": true,
+    "warnings":[{
+      "line": 1,
+      "column": 2,
+      "rule": "bar",
+      "severity": "error",
+      "text": "Unexpected foo",
+    }],
+    "deprecations": [],
+    "invalidOptionWarnings":[],
+  }]
+
+  const output = prepareFormatterOutput(results, verboseFormatter)
+
+  t.equal(output, stripIndent`
+    path/to/file.css
+     1:2  ×  Unexpected foo  bar
+
+    1 source checked
+     path/to/file.css
+
+    1 problem found
+     severity level "error": 1
+      bar: 1
+    `)
+
+  process.stdout.columns = stdoutColumn
+
+  t.end()
+})
+
 test("two of the same warnings of 'error' and one of 'warning' across two files", t => {
 
   const results = [ {
