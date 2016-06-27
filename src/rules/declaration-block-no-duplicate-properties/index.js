@@ -1,3 +1,4 @@
+import { isString } from "lodash"
 import {
   isCustomProperty,
   isStandardSyntaxProperty,
@@ -5,6 +6,7 @@ import {
   report,
   ruleMessages,
   validateOptions,
+  optionsHaveIgnoredProperty,
 } from "../../utils"
 
 export const ruleName = "declaration-block-no-duplicate-properties"
@@ -19,6 +21,7 @@ export default function (on, options) {
       actual: options,
       possible: {
         ignore: ["consecutive-duplicates"],
+        ignoreProperties: [isString],
       },
       optional: true,
     })
@@ -48,6 +51,9 @@ export default function (on, options) {
         const { prop } = child
         if (!isStandardSyntaxProperty(prop)) { return }
         if (isCustomProperty(prop)) { return }
+
+        // Return early if the property is to be ignored
+        if (optionsHaveIgnoredProperty(options, prop)) { return }
 
         // Ignore the src property as commonly duplicated in at-fontface
         if (prop.toLowerCase() === "src") { return }
