@@ -40,7 +40,6 @@
     "globby": "^5.0.0",
     "globjoin": "^0.1.2",
     "html-tags": "^1.1.1",
-    "htmlparser2": "^3.9.0",
     "lodash": "^4.0.0",
     "log-symbols": "^1.0.2",
     "meow": "^3.3.0",
@@ -71,6 +70,7 @@
     "coveralls": "^2.11.9",
     "eslint": "^2.4.0",
     "eslint-config-stylelint": "^2.0.0",
+    "htmlparser2": "^3.9.0",
     "npm-run-all": "^2.1.0",
     "npmpub": "^3.0.1",
     "nyc": "^6.4.4",
@@ -120,6 +120,7 @@
         "maximum-heading-length": false,
         "maximum-line-length": false,
         "no-duplicate-headings": false,
+        "no-emphasis-as-heading": false,
         "no-heading-punctuation": false,
         "no-missing-blank-lines": false,
         "no-multiple-toplevel-headings": false

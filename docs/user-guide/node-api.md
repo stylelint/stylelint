@@ -81,10 +81,6 @@ Specify a non-standard syntax that should be used to parse source stylesheets.
 
 If you do not specify a syntax, non-standard syntaxes will be automatically inferred by the file extensions `.scss`, `.less`, and `.sss`.
 
-### `extractStyleTagsFromHtml`
-
-Boolean. Enable extraction of CSS from `<style>` tags in HTML structures.
-
 ## The returned promise
 
 `stylelint.lint()` returns a Promise that resolves with an object containing the following properties:

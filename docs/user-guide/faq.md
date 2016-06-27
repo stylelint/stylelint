@@ -34,7 +34,7 @@ We [recommend](/docs/user-guide/css-processors.md) linting your source files bef
 
 ## How do I lint styles within `<style>` tags?
 
-stylelint can *extract and lint* any styles within `<style>` tags. This can be done via the [Node API](/docs/user-guide/node-api.md#extractStyleTagsFromHtml) and the [CLI](/docs/user-guide/cli.md).
+[Create a processor](/docs/developer-guide/processors.md) or [use an existing one](/docs/user-guide/configuration.md#processors) that extracts CSS from your HTML's `<style>` tags and feeds it into stylelint.
 
 ## How do I automatically fix stylistic warnings?
 

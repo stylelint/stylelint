@@ -10,7 +10,8 @@ import buildConfig from "./buildConfig"
 import normalizeRuleSettings from "./normalizeRuleSettings"
 
 export default postcss.plugin("stylelint", (options = {}) => {
-  let configPromise
+  // The Node API (standalone.js) will pass in its own _configPromise
+  let configPromise = options._configPromise
   return (root, result) => {
     if (!configPromise) {
       configPromise = buildConfig(options)
