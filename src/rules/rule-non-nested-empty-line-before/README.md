@@ -132,3 +132,26 @@ a
 b
 {}
 ```
+
+## Optional options
+
+### `except: ["after-single-line-comment"]`
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+/* comment */
+
+a
+{}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+/* comment */
+a
+{}
+```
