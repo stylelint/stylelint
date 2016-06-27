@@ -44,7 +44,8 @@ The `rules` property is *an object whose keys are rule names and values are rule
     }],
     "max-empty-lines": 2,
     "rule-nested-empty-line-before": [ "always", {
-      "except": ["after-comment", "first-nested"],
+      "except": ["first-nested"],
+      "ignore": ["after-comment"],
     } ],
     "unit-whitelist": ["em", "rem", "%", "s"]
   }
