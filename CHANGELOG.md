@@ -1,6 +1,6 @@
 # Head
 
-- Deprecated: `-e` and `--extract` CLI flags. If you use these flags, please consider creating a processor for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+- Deprecated: `-e` and `--extract` CLI flags, and the `extractStyleTagsFromHtml` node API option. If you use these flags or option, please consider creating a processor for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
 - Added: `ignoreProperties: []` option for `declaration-block-no-duplicate-properties`.
 
 # 6.7.1
