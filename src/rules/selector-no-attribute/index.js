@@ -1,6 +1,5 @@
 import {
   isStandardSyntaxRule,
-  isStandardSyntaxSelector,
   parseSelector,
   report,
   ruleMessages,
@@ -21,7 +20,6 @@ export default function (actual) {
     root.walkRules(rule => {
       if (!isStandardSyntaxRule(rule)) { return }
       const { selector } = rule
-      if (!isStandardSyntaxSelector(selector)) { return }
       parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkAttributes(attribute => {
           report({
