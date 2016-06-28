@@ -83,6 +83,7 @@ let onlyTest
 
 function checkCaseForOnly(caseType, testCase) {
   if (!testCase.only) { return }
+  /* istanbul ignore next */
   if (onlyTest) { throw new Error("Cannot use `only` on multiple test cases") }
   onlyTest = { case: testCase, type: caseType }
 }
