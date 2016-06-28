@@ -6,7 +6,7 @@ const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
 
   accept: [{
     code: "@media (min-resolution: 96dpi) {}",

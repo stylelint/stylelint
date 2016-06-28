@@ -6,7 +6,7 @@ const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
   skipBasicChecks: true,
 
   accept: [ {

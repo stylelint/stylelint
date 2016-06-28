@@ -6,7 +6,7 @@ const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
 
   accept: [ {
     code: "foo {}",
@@ -43,7 +43,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
   skipBasicChecks: true,
   syntax: "scss",
 
@@ -75,7 +75,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
   skipBasicChecks: true,
   syntax: "less",
 

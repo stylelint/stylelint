@@ -10,7 +10,7 @@ const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [null],
+  config: [true],
 
   accept: [ {
     code: "a {} b {} c {} d, e, f {}",
