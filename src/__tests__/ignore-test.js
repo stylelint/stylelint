@@ -1,6 +1,6 @@
+import path from "path"
 import standalone from "../standalone"
 import test from "tape"
-import path from "path"
 
 const fixturesPath = path.join(__dirname, "fixtures")
 

@@ -1,5 +1,3 @@
-import valueParser from "postcss-value-parser"
-import { vendor } from "postcss"
 import {
   isStandardSyntaxDeclaration,
   isStandardSyntaxProperty,
@@ -8,6 +6,8 @@ import {
   validateOptions,
 } from "../../utils"
 import shorthandData from "../../reference/shorthandData"
+import valueParser from "postcss-value-parser"
+import { vendor } from "postcss"
 
 export const ruleName = "shorthand-property-no-redundant-values"
 

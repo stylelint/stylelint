@@ -1,11 +1,11 @@
-import stylehacks from "stylehacks"
-import Result from "postcss/lib/result"
-import { isString } from "lodash"
 import {
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import Result from "postcss/lib/result"
+import { isString } from "lodash"
+import stylehacks from "stylehacks"
 
 export const ruleName = "no-browser-hacks"
 

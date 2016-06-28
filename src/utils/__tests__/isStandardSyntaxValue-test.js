@@ -1,5 +1,5 @@
-import test from "tape"
 import isStandardSyntaxValue from "../isStandardSyntaxValue"
+import test from "tape"
 
 test("isStandardSyntaxValue", t => {
   t.ok(isStandardSyntaxValue("initial"), "keyword")

@@ -1,5 +1,3 @@
-import { isString } from "lodash"
-
 import {
   hasBlock,
   optionsHaveException,
@@ -9,6 +7,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { isString } from "lodash"
 
 export const ruleName = "at-rule-empty-line-before"
 

@@ -1,7 +1,7 @@
 import blurInterpolation from "./blurInterpolation"
+import { isFinite } from "lodash"
 import isStandardSyntaxValue from "./isStandardSyntaxValue"
 import valueParser from "postcss-value-parser"
-import { isFinite } from "lodash"
 
 /**
  * Get unit from value node

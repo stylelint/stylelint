@@ -1,14 +1,18 @@
-import styleSearch from "style-search"
-import { repeat, isNumber, isBoolean } from "lodash"
 import {
+  beforeBlockString,
+  hasBlock,
   optionsHaveException,
   optionsHaveIgnored,
   report,
   ruleMessages,
-  hasBlock,
-  beforeBlockString,
   validateOptions,
 } from "../../utils"
+import {
+  isBoolean,
+  isNumber,
+  repeat,
+} from "lodash"
+import styleSearch from "style-search"
 
 export const ruleName = "indentation"
 export const messages = ruleMessages(ruleName, {

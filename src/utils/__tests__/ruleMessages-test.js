@@ -1,5 +1,5 @@
-import test from "tape"
 import ruleMessages from "../ruleMessages"
+import test from "tape"
 
 test("ruleMessages with simple messages", t => {
   t.deepEqual(

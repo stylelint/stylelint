@@ -1,10 +1,10 @@
-import { vendor } from "postcss"
 import {
+  matchesStringOrRegExp,
   report,
   ruleMessages,
   validateOptions,
-  matchesStringOrRegExp,
 } from "../../utils"
+import { vendor } from "postcss"
 
 export const ruleName = "declaration-block-no-ignored-properties"
 

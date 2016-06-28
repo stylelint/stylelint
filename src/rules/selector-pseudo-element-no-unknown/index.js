@@ -1,5 +1,3 @@
-import { isString } from "lodash"
-import { vendor } from "postcss"
 import {
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
@@ -8,7 +6,9 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { isString } from "lodash"
 import { pseudoElements } from "../../reference/keywordSets"
+import { vendor } from "postcss"
 
 export const ruleName = "selector-pseudo-element-no-unknown"
 

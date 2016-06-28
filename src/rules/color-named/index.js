@@ -1,4 +1,3 @@
-import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   isStandardSyntaxValue,
@@ -8,6 +7,7 @@ import {
 } from "../../utils"
 import { colorFunctionNames } from "../../reference/keywordSets"
 import namedColorData from "../../reference/namedColorData"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "color-named"
 

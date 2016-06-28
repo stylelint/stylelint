@@ -1,6 +1,6 @@
-import test from "tape"
 import path from "path"
 import postcssPlugin from "../postcssPlugin"
+import test from "tape"
 
 test("`configFile` option with absolute path", t => {
   const config = {

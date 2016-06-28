@@ -1,5 +1,3 @@
-import postcss from "postcss"
-import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   report,
@@ -10,6 +8,8 @@ import {
   longhandTimeProperties,
   shorthandTimeProperties,
 } from "../../reference/keywordSets"
+import postcss from "postcss"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "time-no-imperceptible"
 

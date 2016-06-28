@@ -1,4 +1,7 @@
-import { isRegExp, isString } from "lodash"
+import {
+  isRegExp,
+  isString,
+} from "lodash"
 import {
   isStandardSyntaxRule,
   isStandardSyntaxSelector,

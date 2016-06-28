@@ -1,13 +1,13 @@
-import postcss from "postcss"
-import multimatch from "multimatch"
-import globjoin from "globjoin"
 import _ from "lodash"
-import path from "path"
-import { configurationError } from "./utils"
-import ruleDefinitions from "./rules"
-import disableRanges from "./disableRanges"
 import buildConfig from "./buildConfig"
+import { configurationError } from "./utils"
+import disableRanges from "./disableRanges"
+import globjoin from "globjoin"
+import multimatch from "multimatch"
 import normalizeRuleSettings from "./normalizeRuleSettings"
+import path from "path"
+import postcss from "postcss"
+import ruleDefinitions from "./rules"
 
 export default postcss.plugin("stylelint", (options = {}) => {
   // The Node API (standalone.js) will pass in its own _configPromise

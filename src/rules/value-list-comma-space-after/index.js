@@ -1,4 +1,3 @@
-import styleSearch from "style-search"
 import {
   isStandardSyntaxDeclaration,
   isStandardSyntaxProperty,
@@ -7,6 +6,7 @@ import {
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "value-list-comma-space-after"
 

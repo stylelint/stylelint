@@ -1,5 +1,15 @@
-import valueParser from "postcss-value-parser"
-import { isString } from "lodash"
+import {
+  animationNameKeywords,
+  animationShorthandKeywords,
+  camelCaseKeywords,
+  fontFamilyKeywords,
+  fontShorthandKeywords,
+  gridAreaKeywords,
+  gridColumnKeywords,
+  gridRowKeywords,
+  listStyleShorthandKeywords,
+  listStyleTypeKeywords,
+} from "../../reference/keywordSets"
 import {
   declarationValueIndex,
   getUnitFromValueNode,
@@ -10,18 +20,8 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import {
-  animationShorthandKeywords,
-  animationNameKeywords,
-  camelCaseKeywords,
-  fontFamilyKeywords,
-  fontShorthandKeywords,
-  gridRowKeywords,
-  gridColumnKeywords,
-  gridAreaKeywords,
-  listStyleTypeKeywords,
-  listStyleShorthandKeywords,
-} from "../../reference/keywordSets"
+import { isString } from "lodash"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "value-keyword-case"
 

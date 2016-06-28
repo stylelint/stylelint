@@ -1,5 +1,3 @@
-import valueParser from "postcss-value-parser"
-import { isString } from "lodash"
 import {
   declarationValueIndex,
   isStandardSyntaxFunction,
@@ -9,6 +7,8 @@ import {
   validateOptions,
 } from "../../utils"
 import { camelCaseFunctionNames } from "../../reference/keywordSets"
+import { isString } from "lodash"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "function-name-case"
 

@@ -1,6 +1,6 @@
-import rawNodeString from "./rawNodeString"
-import hasBlock from "./hasBlock"
 import beforeBlockString from "./beforeBlockString"
+import hasBlock from "./hasBlock"
+import rawNodeString from "./rawNodeString"
 
 /**
  * Return a CSS statement's block -- the string that starts and `{` and ends with `}`.

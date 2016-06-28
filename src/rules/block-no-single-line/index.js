@@ -1,7 +1,7 @@
 import {
+  beforeBlockString,
   blockString,
   hasBlock,
-  beforeBlockString,
   isSingleLineString,
   report,
   ruleMessages,

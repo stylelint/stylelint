@@ -1,5 +1,5 @@
-import test from "tape"
 import findListStyleType from "../findListStyleType"
+import test from "tape"
 
 test("findListStyleType", t => {
   t.deepEqual(

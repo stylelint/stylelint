@@ -1,5 +1,5 @@
-import test from "tape"
 import blurComments from "../blurComments"
+import test from "tape"
 
 test("blurComments", t => {
   t.equal(blurComments("abc"), "abc")

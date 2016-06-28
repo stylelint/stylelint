@@ -1,10 +1,10 @@
-import styleSearch from "style-search"
 import {
   atRuleParamIndex,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "media-query-parentheses-space-inside"
 

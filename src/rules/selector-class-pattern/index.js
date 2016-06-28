@@ -1,5 +1,3 @@
-import resolveNestedSelector from "postcss-resolve-nested-selector"
-import _ from "lodash"
 import {
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
@@ -8,6 +6,8 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import _ from "lodash"
+import resolveNestedSelector from "postcss-resolve-nested-selector"
 
 export const ruleName = "selector-class-pattern"
 

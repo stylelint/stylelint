@@ -1,8 +1,7 @@
+import { prepareFormatterOutput } from "./stringFormatter-test"
 import { stripIndent } from "common-tags"
 import test from "tape"
 import verboseFormatter from "../verboseFormatter"
-
-import { prepareFormatterOutput } from "./stringFormatter-test"
 
 test("no warnings", t => {
 

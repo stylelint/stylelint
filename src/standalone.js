@@ -1,14 +1,14 @@
+import * as formatters from "./formatters"
+import _ from "lodash"
+import buildConfig from "./buildConfig"
+import globby from "globby"
+import lessSyntax from "postcss-less"
 import path from "path"
 import postcss from "postcss"
-import globby from "globby"
-import _ from "lodash"
 import { readFile } from "fs"
 import scssSyntax from "postcss-scss"
-import lessSyntax from "postcss-less"
-import sugarss from "sugarss"
-import buildConfig from "./buildConfig"
 import stylelintPostcssPlugin from "./postcssPlugin"
-import * as formatters from "./formatters"
+import sugarss from "sugarss"
 
 const ignoredGlobs = [
   "!**/node_modules/**",

@@ -1,15 +1,17 @@
-import { calculate, compare } from "specificity"
-import _ from "lodash"
-import resolvedNestedSelector from "postcss-resolve-nested-selector"
-
 import {
-  nodeContextLookup,
+  calculate,
+  compare,
+} from "specificity"
+import {
   findAtRuleContext,
+  nodeContextLookup,
   parseSelector,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import _ from "lodash"
+import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 export const ruleName = "no-descending-specificity"
 

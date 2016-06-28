@@ -1,7 +1,7 @@
-import postcss from "postcss"
-import test from "tape"
 import path from "path"
+import postcss from "postcss"
 import stylelint from ".."
+import test from "tape"
 
 const cssWithFoo = (
 ".foo {}"

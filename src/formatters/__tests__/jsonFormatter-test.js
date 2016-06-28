@@ -1,5 +1,5 @@
-import test from "tape"
 import jsonFormatter from "../jsonFormatter"
+import test from "tape"
 
 test("json formatter", t => {
 

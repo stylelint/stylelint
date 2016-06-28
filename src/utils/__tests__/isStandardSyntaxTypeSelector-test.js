@@ -1,7 +1,7 @@
 import isStandardSyntaxTypeSelector from "../isStandardSyntaxTypeSelector"
 import postcss from "postcss"
-import test from "tape"
 import selectorParser from "postcss-selector-parser"
+import test from "tape"
 
 test("isStandardSyntaxTypeSelector", t => {
   t.plan(8)

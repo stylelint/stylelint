@@ -1,11 +1,11 @@
-import _ from "lodash"
 import {
   hasBlock,
   optionsHaveIgnored,
-  ruleMessages,
   report,
+  ruleMessages,
   validateOptions,
 } from "../../utils"
+import _ from "lodash"
 
 export const ruleName = "max-nesting-depth"
 

@@ -1,6 +1,6 @@
-import test from "tape"
-import path from "path"
 import buildConfig from "../buildConfig"
+import path from "path"
+import test from "tape"
 
 test("buildConfig with config as argument object", t => {
   let planned = 0

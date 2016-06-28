@@ -1,6 +1,6 @@
 import {
-  isStandardSyntaxProperty,
   isCustomProperty,
+  isStandardSyntaxProperty,
   parseSelector,
   report,
   ruleMessages,

@@ -1,5 +1,3 @@
-import { isNumber } from "lodash"
-import execall from "execall"
 import {
   beforeBlockString,
   blurComments,
@@ -9,6 +7,8 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import execall from "execall"
+import { isNumber } from "lodash"
 
 export const ruleName = "number-max-precision"
 

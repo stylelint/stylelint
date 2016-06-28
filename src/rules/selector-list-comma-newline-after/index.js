@@ -1,4 +1,3 @@
-import styleSearch from "style-search"
 import {
   isStandardSyntaxRule,
   report,
@@ -6,6 +5,7 @@ import {
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "selector-list-comma-newline-after"
 

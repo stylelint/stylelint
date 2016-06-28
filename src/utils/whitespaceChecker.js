@@ -1,7 +1,7 @@
 import { assign } from "lodash"
-import isWhitespace from "./isWhitespace"
-import isSingleLineString from "./isSingleLineString"
 import configurationError from "./configurationError"
+import isSingleLineString from "./isSingleLineString"
+import isWhitespace from "./isWhitespace"
 
 /**
  * Create a whitespaceChecker, which exposes the following functions:

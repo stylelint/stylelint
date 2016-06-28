@@ -1,10 +1,10 @@
-import styleSearch from "style-search"
 import {
   isWhitespace,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "function-whitespace-after"
 

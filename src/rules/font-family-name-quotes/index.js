@@ -1,7 +1,7 @@
 import {
+  findFontFamily,
   isStandardSyntaxValue,
   isVariable,
-  findFontFamily,
   report,
   ruleMessages,
   validateOptions,

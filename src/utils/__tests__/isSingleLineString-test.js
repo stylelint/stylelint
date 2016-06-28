@@ -1,5 +1,5 @@
-import test from "tape"
 import isSingleLineString from "../isSingleLineString"
+import test from "tape"
 
 const multiLineTemplate = (
 `foo

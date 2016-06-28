@@ -1,6 +1,3 @@
-import styleSearch from "style-search"
-import _ from "lodash"
-import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   isStandardSyntaxFunction,
@@ -9,6 +6,9 @@ import {
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import _ from "lodash"
+import styleSearch from "style-search"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "function-comma-space-after"
 

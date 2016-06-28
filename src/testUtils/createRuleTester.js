@@ -1,11 +1,11 @@
+import _ from "lodash"
+import basicChecks from "./basicChecks"
+import disableRanges from "../disableRanges"
+import lessSyntax from "postcss-less"
+import normalizeRuleSettings from "../normalizeRuleSettings"
 import postcss from "postcss"
 import scssSyntax from "postcss-scss"
-import lessSyntax from "postcss-less"
 import sugarss from "sugarss"
-import _ from "lodash"
-import normalizeRuleSettings from "../normalizeRuleSettings"
-import disableRanges from "../disableRanges"
-import basicChecks from "./basicChecks"
 
 /**
  * Create a stylelint rule testing function.

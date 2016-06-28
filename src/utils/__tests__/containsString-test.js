@@ -1,5 +1,5 @@
-import test from "tape"
 import containsString from "../containsString"
+import test from "tape"
 
 test("containsString comparing with string comparison values", t => {
   t.deepEqual(containsString("bar", "bar"),

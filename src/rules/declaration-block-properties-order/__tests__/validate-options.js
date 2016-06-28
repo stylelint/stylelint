@@ -1,5 +1,5 @@
-import test from "tape"
 import stylelint from "../../.."
+import test from "tape"
 
 test("valid default order", t => {
   const config = {

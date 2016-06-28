@@ -1,19 +1,19 @@
-import styleSearch from "style-search"
+import {
+  beforeBlockString,
+  blurComments,
+  hasBlock,
+  report,
+  ruleMessages,
+  validateOptions,
+} from "../../utils"
 import {
   findIndex,
   findLastIndex,
   range,
 } from "lodash"
-import valueParser from "postcss-value-parser"
-import {
-  blurComments,
-  hasBlock,
-  beforeBlockString,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
 import { lengthUnits } from "../../reference/keywordSets"
+import styleSearch from "style-search"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "length-zero-no-unit"
 

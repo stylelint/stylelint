@@ -1,6 +1,6 @@
 import _ from "lodash"
-import stringFormatter from "./stringFormatter"
 import chalk from "chalk"
+import stringFormatter from "./stringFormatter"
 
 export default function (results) {
   let output = stringFormatter(results)

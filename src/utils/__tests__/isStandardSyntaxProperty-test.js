@@ -1,5 +1,5 @@
-import test from "tape"
 import isStandardSyntaxProperty from "../isStandardSyntaxProperty"
+import test from "tape"
 
 test("isStandardSyntaxProperty", t => {
   t.ok(isStandardSyntaxProperty("top"), "single word")

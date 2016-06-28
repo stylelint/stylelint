@@ -1,4 +1,3 @@
-import resolvedNestedSelector from "postcss-resolve-nested-selector"
 import {
   isKeyframeRule,
   isStandardSyntaxRule,
@@ -9,6 +8,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 export const ruleName = "selector-no-qualifying-type"
 

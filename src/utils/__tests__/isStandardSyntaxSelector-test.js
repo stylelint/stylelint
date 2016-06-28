@@ -1,5 +1,5 @@
-import test from "tape"
 import isStandardSyntaxSelector from "../isStandardSyntaxSelector"
+import test from "tape"
 
 test("isStandardSyntaxSelector", t => {
   t.ok(isStandardSyntaxSelector("a"), "type")

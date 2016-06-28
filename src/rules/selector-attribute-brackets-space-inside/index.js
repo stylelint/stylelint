@@ -1,4 +1,3 @@
-import styleSearch from "style-search"
 import {
   isStandardSyntaxRule,
   parseSelector,
@@ -6,6 +5,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "selector-attribute-brackets-space-inside"
 

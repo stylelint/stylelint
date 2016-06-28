@@ -1,5 +1,3 @@
-import { isString } from "lodash"
-import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   getUnitFromValueNode,
@@ -7,6 +5,8 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { isString } from "lodash"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "unit-blacklist"
 
