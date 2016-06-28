@@ -24,23 +24,6 @@ function isSelectorCharacters(value) {
   return selectorCharacters.some(char => value.indexOf(char) !== -1)
 }
 
-function getLeftNodes(node) {
-  const result = []
-  let leftNode = node
-
-  while ((leftNode = leftNode.prev())) {
-    if (leftNode.type === "combinator") { break }
-    if (leftNode.type !== "id"
-      && leftNode.type !== "class"
-      && leftNode.type !== "attribute"
-    ) { continue }
-
-    result.push(leftNode)
-  }
-
-  return result
-}
-
 function getRightNodes(node) {
   const result = []
   let rightNode = node
@@ -86,12 +69,10 @@ export default (enabled, options) => {
             return
           }
 
-          const leftNodes = getLeftNodes(selector)
-          const rightNodes = getRightNodes(selector)
-          const concatNodes = [].concat(leftNodes, rightNodes)
+          const selectorNodes = getRightNodes(selector)
           const index = selector.sourceIndex
 
-          concatNodes.forEach((selectorNode) => {
+          selectorNodes.forEach((selectorNode) => {
             if (selectorNode.type === "id" && !optionsHaveIgnored(options, "id")) {
               complain(index)
             }
