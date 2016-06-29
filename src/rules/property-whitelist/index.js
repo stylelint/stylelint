@@ -1,5 +1,3 @@
-import { vendor } from "postcss"
-import { isString } from "lodash"
 import {
   isCustomProperty,
   isStandardSyntaxProperty,
@@ -8,6 +6,8 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { isString } from "lodash"
+import { vendor } from "postcss"
 
 export const ruleName = "property-whitelist"
 

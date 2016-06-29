@@ -1,5 +1,5 @@
-import { isFinite } from "lodash"
 import { counterIncrementKeywords } from "../reference/keywordSets"
+import { isFinite } from "lodash"
 
 /**
  * Check value is a custom ident

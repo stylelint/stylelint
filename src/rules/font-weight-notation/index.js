@@ -1,9 +1,7 @@
-import postcss from "postcss"
-import { includes } from "lodash"
 import {
+  declarationValueIndex,
   isStandardSyntaxValue,
   isVariable,
-  declarationValueIndex,
   optionsHaveIgnored,
   report,
   ruleMessages,
@@ -13,6 +11,8 @@ import {
   fontWeightKeywords,
   fontWeightRelativeKeywords,
 } from "../../reference/keywordSets"
+import { includes } from "lodash"
+import postcss from "postcss"
 
 export const ruleName = "font-weight-notation"
 

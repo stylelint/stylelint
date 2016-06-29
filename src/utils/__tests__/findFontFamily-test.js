@@ -1,5 +1,5 @@
-import test from "tape"
 import findFontFamily from "../findFontFamily"
+import test from "tape"
 
 test("findFontFamily", t => {
   t.deepEqual(

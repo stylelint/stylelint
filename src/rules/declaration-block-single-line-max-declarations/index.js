@@ -1,12 +1,12 @@
-import { isNumber } from "lodash"
 import {
-  blockString,
   beforeBlockString,
+  blockString,
   isSingleLineString,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { isNumber } from "lodash"
 
 export const ruleName = "declaration-block-single-line-max-declarations"
 

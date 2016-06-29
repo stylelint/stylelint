@@ -1,5 +1,3 @@
-import _ from "lodash"
-import { vendor } from "postcss"
 import {
   isCustomProperty,
   isStandardSyntaxProperty,
@@ -7,6 +5,8 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import _ from "lodash"
+import { vendor } from "postcss"
 
 export const ruleName = "declaration-block-properties-order"
 

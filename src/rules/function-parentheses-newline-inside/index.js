@@ -1,4 +1,3 @@
-import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   isSingleLineString,
@@ -7,6 +6,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "function-parentheses-newline-inside"
 

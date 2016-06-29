@@ -1,13 +1,13 @@
-import postcssPlugin from "./postcssPlugin"
-import standalone from "./standalone"
-import createPlugin from "./createPlugin"
-import rules from "./rules"
 import {
   report,
   ruleMessages,
   validateOptions,
 } from "./utils"
+import createPlugin from "./createPlugin"
 import createRuleTester from "./testUtils/createRuleTester"
+import postcssPlugin from "./postcssPlugin"
+import rules from "./rules"
+import standalone from "./standalone"
 
 const stylelint = postcssPlugin
 

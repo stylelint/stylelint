@@ -1,7 +1,7 @@
+import configHtmlProcessor from "./fixtures/config-html-processor"
+import path from "path"
 import standalone from "../standalone"
 import test from "tape"
-import path from "path"
-import configHtmlProcessor from "./fixtures/config-html-processor"
 
 const fixturesPath = path.join(__dirname, "./fixtures")
 

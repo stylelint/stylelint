@@ -1,4 +1,3 @@
-import styleSearch from "style-search"
 import {
   isStandardSyntaxRule,
   parseSelector,
@@ -7,6 +6,7 @@ import {
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "selector-attribute-operator-space-after"
 

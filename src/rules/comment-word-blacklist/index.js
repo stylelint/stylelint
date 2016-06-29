@@ -1,11 +1,11 @@
-import { isString } from "lodash"
 import {
+  containsString,
+  matchesStringOrRegExp,
   report,
   ruleMessages,
   validateOptions,
-  matchesStringOrRegExp,
-  containsString,
 } from "../../utils"
+import { isString } from "lodash"
 
 export const ruleName = "comment-word-blacklist"
 

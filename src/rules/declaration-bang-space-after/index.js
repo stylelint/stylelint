@@ -1,4 +1,3 @@
-import styleSearch from "style-search"
 import {
   declarationValueIndex,
   report,
@@ -6,6 +5,7 @@ import {
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "declaration-bang-space-after"
 

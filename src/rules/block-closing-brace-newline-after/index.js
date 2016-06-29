@@ -1,5 +1,3 @@
-import { isString } from "lodash"
-
 import {
   blockString,
   hasBlock,
@@ -10,6 +8,7 @@ import {
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import { isString } from "lodash"
 
 export const ruleName = "block-closing-brace-newline-after"
 

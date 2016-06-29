@@ -1,12 +1,12 @@
-import styleSearch from "style-search"
-import _ from "lodash"
 import {
   report,
   ruleMessages,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import _ from "lodash"
 import { nonSpaceCombinators } from "../../reference/punctuationSets"
+import styleSearch from "style-search"
 
 export const ruleName = "selector-combinator-space-after"
 

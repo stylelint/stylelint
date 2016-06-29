@@ -1,14 +1,17 @@
-import { includes, union } from "lodash"
-import resolvedNestedSelector from "postcss-resolve-nested-selector"
-import normalizeSelector from "normalize-selector"
 import {
-  nodeContextLookup,
-  isKeyframeRule,
   findAtRuleContext,
-  ruleMessages,
+  isKeyframeRule,
+  nodeContextLookup,
   report,
+  ruleMessages,
   validateOptions,
 } from "../../utils"
+import {
+  includes,
+  union,
+} from "lodash"
+import normalizeSelector from "normalize-selector"
+import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 export const ruleName = "no-duplicate-selectors"
 

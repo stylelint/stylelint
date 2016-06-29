@@ -1,11 +1,11 @@
-import styleSearch from "style-search"
-import { isNumber } from "lodash"
 import {
   optionsHaveIgnored,
-  ruleMessages,
   report,
+  ruleMessages,
   validateOptions,
 } from "../../utils"
+import { isNumber } from "lodash"
+import styleSearch from "style-search"
 
 export const ruleName = "max-line-length"
 

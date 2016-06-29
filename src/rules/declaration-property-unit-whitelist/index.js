@@ -1,14 +1,17 @@
-import { vendor } from "postcss"
-import { isObject, find } from "lodash"
-import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   getUnitFromValueNode,
+  matchesStringOrRegExp,
   report,
   ruleMessages,
   validateOptions,
-  matchesStringOrRegExp,
 } from "../../utils"
+import {
+  find,
+  isObject,
+} from "lodash"
+import valueParser from "postcss-value-parser"
+import { vendor } from "postcss"
 
 export const ruleName = "declaration-property-unit-whitelist"
 

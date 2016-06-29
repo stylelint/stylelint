@@ -1,4 +1,3 @@
-import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   getUnitFromValueNode,
@@ -6,6 +5,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "unit-case"
 

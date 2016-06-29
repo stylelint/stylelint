@@ -1,13 +1,13 @@
-import path from "path"
-import fs from "fs"
-import cosmiconfig from "cosmiconfig"
-import resolveFrom from "resolve-from"
 import {
   assign,
   merge,
   omit,
 } from "lodash"
 import { configurationError } from "./utils"
+import cosmiconfig from "cosmiconfig"
+import fs from "fs"
+import path from "path"
+import resolveFrom from "resolve-from"
 
 const IGNORE_FILENAME = ".stylelintignore"
 const FILE_NOT_FOUND_ERROR_CODE = "ENOENT"

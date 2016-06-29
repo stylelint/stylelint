@@ -1,14 +1,14 @@
-import postcssValueParser from "postcss-value-parser"
-import {
-  isStandardSyntaxValue,
-  isVariable,
-  isValidFontSize,
-} from "./"
 import {
   basicKeywords,
   fontFamilyKeywords,
   fontShorthandKeywords,
 } from "../reference/keywordSets"
+import {
+  isStandardSyntaxValue,
+  isValidFontSize,
+  isVariable,
+} from "./"
+import postcssValueParser from "postcss-value-parser"
 
 const nodeTypesToCheck = new Set([
   "word",

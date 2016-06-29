@@ -1,6 +1,3 @@
-import { isString } from "lodash"
-import htmlTags from "html-tags"
-import svgTags from "svg-tags"
 import {
   isKeyframeSelector,
   isStandardSyntaxRule,
@@ -11,6 +8,9 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import htmlTags from "html-tags"
+import { isString } from "lodash"
+import svgTags from "svg-tags"
 
 export const ruleName = "selector-type-no-unknown"
 

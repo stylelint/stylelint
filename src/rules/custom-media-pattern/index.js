@@ -1,10 +1,13 @@
-import { isRegExp, isString } from "lodash"
 import {
   atRuleParamIndex,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import {
+  isRegExp,
+  isString,
+} from "lodash"
 
 export const ruleName = "custom-media-pattern"
 

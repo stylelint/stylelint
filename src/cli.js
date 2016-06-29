@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 
+import {
+  assign,
+  includes,
+} from "lodash"
+import getStdin from "get-stdin"
 import meow from "meow"
 import path from "path"
-import { assign, includes } from "lodash"
-import getStdin from "get-stdin"
 import resolveFrom from "resolve-from"
 import standalone from "./standalone"
 

@@ -1,8 +1,8 @@
 import {
   blockString,
-  report,
   nextNonCommentNode,
   rawNodeString,
+  report,
   ruleMessages,
   validateOptions,
   whitespaceChecker,

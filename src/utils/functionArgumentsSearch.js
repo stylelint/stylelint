@@ -1,5 +1,5 @@
-import styleSearch from "style-search"
 import balancedMatch from "balanced-match"
+import styleSearch from "style-search"
 
 /**
  * Search a CSS string for functions by name.

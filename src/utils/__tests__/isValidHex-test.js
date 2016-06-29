@@ -1,5 +1,5 @@
-import test from "tape"
 import isValidHex from "../isValidHex"
+import test from "tape"
 
 test("isValidHex", t => {
   t.ok(isValidHex("#333"))

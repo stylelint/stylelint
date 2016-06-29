@@ -1,5 +1,5 @@
-import test from "tape"
 import matchesStringOrRegExp from "../matchesStringOrRegExp"
+import test from "tape"
 
 test("matchesStringOrRegExp comparing with string comparisonValues", t => {
   t.deepEqual(matchesStringOrRegExp("bar", "bar"),

@@ -1,7 +1,7 @@
 import isStandardSyntaxAtRule from "../isStandardSyntaxAtRule"
-import scss from "postcss-scss"
 import less from "postcss-less"
 import postcss from "postcss"
+import scss from "postcss-scss"
 import test from "tape"
 
 test("isStandardSyntaxAtRule", t => {

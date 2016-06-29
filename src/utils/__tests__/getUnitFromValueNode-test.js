@@ -1,6 +1,6 @@
+import getUnitFromValueNode from "../getUnitFromValueNode"
 import test from "tape"
 import valueParser from "postcss-value-parser"
-import getUnitFromValueNode from "../getUnitFromValueNode"
 
 test("getUnitFromValueNode", t => {
   t.equal(getUnitFromValueNode(), null)

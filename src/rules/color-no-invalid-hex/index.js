@@ -1,10 +1,10 @@
-import styleSearch from "style-search"
 import {
   isValidHex,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "color-no-invalid-hex"
 

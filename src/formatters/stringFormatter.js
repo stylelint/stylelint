@@ -1,9 +1,9 @@
+import table, { getBorderCharacters } from "table"
+import _ from "lodash"
 import chalk from "chalk"
 import path from "path"
-import _ from "lodash"
-import symbols from "log-symbols"
 import stringWidth from "string-width"
-import table, { getBorderCharacters } from "table"
+import symbols from "log-symbols"
 import utils from "postcss-reporter/lib/util"
 
 const MARGIN_WIDTHS = 9

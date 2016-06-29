@@ -1,5 +1,5 @@
-import test from "tape"
 import isCustomIdentPropertyCounterIncrement from "../isCustomIdentPropertyCounterIncrement"
+import test from "tape"
 
 test("isCustomIdents", t => {
   t.ok(isCustomIdentPropertyCounterIncrement("counter"))

@@ -1,10 +1,10 @@
-import execall from "execall"
 import {
   atRuleParamIndex,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import execall from "execall"
 import { mediaFeaturePunctuation } from "../../reference/punctuationSets"
 
 export const ruleName = "media-feature-no-missing-punctuation"

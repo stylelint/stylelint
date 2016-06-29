@@ -1,8 +1,8 @@
 import {
+  beforeBlockString,
+  blockString,
   hasBlock,
   hasEmptyBlock,
-  blockString,
-  beforeBlockString,
   report,
   ruleMessages,
   validateOptions,

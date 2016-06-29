@@ -1,14 +1,14 @@
 import {
+  animationNameKeywords,
+  basicKeywords,
+} from "../../reference/keywordSets"
+import {
   declarationValueIndex,
   findAnimationName,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import {
-  animationNameKeywords,
-  basicKeywords,
-} from "../../reference/keywordSets"
 
 export const ruleName = "no-unknown-animations"
 

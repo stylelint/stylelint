@@ -1,13 +1,13 @@
-import execall from "execall"
 import {
+  beforeBlockString,
   blurComments,
   blurFunctionArguments,
   hasBlock,
-  beforeBlockString,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import execall from "execall"
 
 export const ruleName = "number-no-trailing-zeros"
 

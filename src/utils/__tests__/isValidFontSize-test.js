@@ -1,5 +1,5 @@
-import test from "tape"
 import isValidFontSize from "../isValidFontSize"
+import test from "tape"
 
 test("isValidFontSize", t => {
   t.ok(isValidFontSize("10px"))

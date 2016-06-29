@@ -1,4 +1,3 @@
-import { isString } from "lodash"
 import {
   isStandardSyntaxRule,
   parseSelector,
@@ -6,6 +5,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { isString } from "lodash"
 
 export const ruleName = "selector-attribute-operator-blacklist"
 

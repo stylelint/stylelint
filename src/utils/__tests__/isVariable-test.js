@@ -1,5 +1,5 @@
-import test from "tape"
 import isVariable from "../isVariable"
+import test from "tape"
 
 test("isVariable", t => {
   t.ok(isVariable("var(--something)"))

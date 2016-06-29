@@ -1,5 +1,5 @@
-import test from "tape"
 import isCustomProperty from "../isCustomProperty"
+import test from "tape"
 
 test("isCustomProperty", t => {
   t.ok(isCustomProperty("--custom-property"))

@@ -1,7 +1,7 @@
-import { stripIndent } from "common-tags"
 import chalk from "chalk"
-import test from "tape"
 import stringFormatter from "../stringFormatter"
+import { stripIndent } from "common-tags"
+import test from "tape"
 
 const symbolConversions = new Map()
 symbolConversions.set("ℹ", "i")

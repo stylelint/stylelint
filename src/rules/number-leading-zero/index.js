@@ -1,13 +1,13 @@
-import execall from "execall"
-import _ from "lodash"
 import {
+  beforeBlockString,
   blurFunctionArguments,
   hasBlock,
-  beforeBlockString,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import _ from "lodash"
+import execall from "execall"
 
 export const ruleName = "number-leading-zero"
 

@@ -1,13 +1,13 @@
-import postcssValueParser from "postcss-value-parser"
 import {
   isStandardSyntaxValue,
   isVariable,
 } from "./"
 import {
-  listStyleTypeKeywords,
-  listStylePositionKeywords,
   listStyleImageKeywords,
+  listStylePositionKeywords,
+  listStyleTypeKeywords,
 } from "../reference/keywordSets"
+import postcssValueParser from "postcss-value-parser"
 
 /**
  * Get the list-style-type within a `list-style` shorthand property value.
@@ -45,4 +45,3 @@ export default function findListStyleType(value) {
 
   return listStyleTypes
 }
-

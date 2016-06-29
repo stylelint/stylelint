@@ -1,8 +1,8 @@
-import test from "tape"
+import lessSyntax from "postcss-less"
 import postcss from "postcss"
 import scssSyntax from "postcss-scss"
-import lessSyntax from "postcss-less"
 import stylelint from "../"
+import test from "tape"
 
 const config = {
   rules: {
