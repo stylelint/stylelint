@@ -1,5 +1,6 @@
 import test from "tape"
 import postcss from "postcss"
+import sugarss from "sugarss"
 import beforeBlockString from "../beforeBlockString"
 
 test("beforeBlockString rules", t => {
@@ -41,10 +42,15 @@ test("beforeBlockString with comment after selector", t => {
   t.end()
 })
 
-function postcssCheck(options = {}, cssString) {
+test("beforeBlockString without brackets using SugarSS parser", t => {
+  t.equal(postcssCheck({ noRawBefore: true }, ".a", sugarss), ".a")
+  t.end()
+})
+
+function postcssCheck(options = {}, cssString, parser = postcss) {
   if (typeof options === "string") {
     cssString = options
   }
-  const root = postcss.parse(cssString)
+  const root = parser.parse(cssString)
   return beforeBlockString(root.first, options)
 }

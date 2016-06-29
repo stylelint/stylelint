@@ -22,6 +22,12 @@ export default function (statement, { noRawBefore } = {}) {
   } else {
     result += "@" + statement.name + statement.raw("afterName") + statement.params
   }
-  result += statement.raw("between")
+
+  const between = statement.raw("between")
+
+  if (between !== undefined) {
+    result += between
+  }
+
   return result
 }
