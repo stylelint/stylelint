@@ -12,6 +12,7 @@ You might want to learn a little about [how rules are named and how they work to
     "at-rule-name-case": "lower"|"upper",
     "at-rule-name-newline-after": "always"|"always-multi-line",
     "at-rule-name-space-after": "always"|"always-single-line",
+    "at-rule-no-unknown": true,
     "at-rule-no-vendor-prefix": true,
     "at-rule-semicolon-newline-after": "always",
     "at-rule-whitelist": string|[],
