@@ -9,7 +9,7 @@ const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
 
   accept: [ {
     code: "a { /* color: pink; */ }",
@@ -51,7 +51,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
   skipBasicChecks: true,
   syntax: "scss",
 
@@ -63,7 +63,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
   skipBasicChecks: true,
   syntax: "scss",
 
@@ -75,7 +75,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
   skipBasicChecks: true,
   syntax: "less",
 
@@ -87,7 +87,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
   skipBasicChecks: true,
   syntax: "less",
 

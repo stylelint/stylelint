@@ -9,7 +9,7 @@ const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
 
   accept: [ {
     code: "a { padding: 0 /* calc(1px+2px) */ 0; }",
