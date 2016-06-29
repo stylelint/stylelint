@@ -24,10 +24,17 @@ export default function (actual) {
     function check(statement) {
       if (!hasEmptyBlock(statement)) { return }
 
+      let index = beforeBlockString(statement, { noRawBefore: true }).length
+
+      // For empty blocks when using SugarSS parser
+      if (statement.raw("between") === undefined) {
+        index--
+      }
+
       report({
         message: messages.rejected,
         node: statement,
-        index: beforeBlockString(statement, { noRawBefore: true }).length,
+        index,
         result,
         ruleName,
       })
