@@ -30,6 +30,7 @@ import customPropertyPattern from "./custom-property-pattern"
 import declarationBangSpaceAfter from "./declaration-bang-space-after"
 import declarationBangSpaceBefore from "./declaration-bang-space-before"
 import declarationBlockNoDuplicateProperties from "./declaration-block-no-duplicate-properties"
+import noEmptySource from "./no-empty-source"
 import declarationBlockNoIgnoredProperties from "./declaration-block-no-ignored-properties"
 import declarationBlockNoShorthandPropertyOverrides from "./declaration-block-no-shorthand-property-overrides"
 import declarationBlockPropertiesOrder from "./declaration-block-properties-order"
@@ -241,6 +242,7 @@ export default {
   "no-browser-hacks": noBrowserHacks,
   "no-descending-specificity": noDescendingSpecificity,
   "no-duplicate-selectors": noDuplicateSelectors,
+  "no-empty-source": noEmptySource,
   "no-eol-whitespace": noEolWhitespace,
   "no-extra-semicolons": noExtraSemicolons,
   "no-indistinguishable-colors": noIndistinguishableColors,

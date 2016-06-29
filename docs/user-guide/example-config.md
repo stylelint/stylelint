@@ -93,6 +93,7 @@ You might want to learn a little about [how rules are named and how they work to
     "no-browser-hacks": true,
     "no-descending-specificity": true,
     "no-duplicate-selectors": true,
+    "no-empty-source": true,
     "no-eol-whitespace": true,
     "no-extra-semicolons": true,
     "no-indistinguishable-colors": true,
