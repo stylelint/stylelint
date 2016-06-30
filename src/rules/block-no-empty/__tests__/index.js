@@ -51,3 +51,17 @@ testRule(rule, {
     column: 18,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [undefined],
+  skipBasicChecks: true,
+  syntax: "sugarss",
+
+  reject: [{
+    code: ".a",
+    message: messages.rejected,
+    line: 1,
+    column: 2,
+  }],
+})

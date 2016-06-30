@@ -44,8 +44,9 @@ export default function (actual) {
     function isImperceptibleTime(time) {
       const parsedTime = valueParser.unit(time)
       if (!parsedTime) return false
-      if (parsedTime.unit.toLowerCase() === "ms" && parsedTime.number <= MINIMUM_MILLISECONDS) { return true }
-      if (parsedTime.unit.toLowerCase() === "s" && parsedTime.number * 1000 <= MINIMUM_MILLISECONDS) { return true }
+      const absoluteTime = Math.abs(parsedTime.number)
+      if (parsedTime.unit.toLowerCase() === "ms" && absoluteTime <= MINIMUM_MILLISECONDS) { return true }
+      if (parsedTime.unit.toLowerCase() === "s" && absoluteTime * 1000 <= MINIMUM_MILLISECONDS) { return true }
       return false
     }
 

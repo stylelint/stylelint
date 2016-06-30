@@ -25,6 +25,19 @@
 - Added: `no-missing-end-of-source-newline` rule.
 - Fixed: The string options of `comment-word-blacklist` will now identify strings *within* comments.
 
+# Head
+
+- Fixed: `time-no-imperceptible` correctly handles negative time.
+
+# 6.8.0
+
+- Deprecated: `-e` and `--extract` CLI flags, and the `extractStyleTagsFromHtml` node API option. If you use these flags or option, please consider creating a processor for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+- Added: `at-rule-no-unknown` rule.
+- Added: `no-empty-source` rule.
+- Added: `except: ["after-single-line-comment"]` option for `rule-non-nested-empty-line-before`.
+- Added: `ignoreProperties: []` option for `declaration-block-no-duplicate-properties`.
+- Fixed: accuracy of warning positions for empty blocks when using SugarSS parser.
+
 # 6.7.1
 
 - Fixed: `block-*-brace-*-before` CRLF (`\r\n`) warning positioning.

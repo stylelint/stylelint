@@ -13,7 +13,7 @@ import {
 import {
   declarationValueIndex,
   getUnitFromValueNode,
-  isCustomIdentPropertyCounterIncrement,
+  isCounterIncrementCustomIdentValue,
   isStandardSyntaxValue,
   matchesStringOrRegExp,
   report,
@@ -91,7 +91,7 @@ export default function (expectation, options) {
           return
         }
         if (prop === "font-family" && !fontFamilyKeywords.has(valueLowerCase)) { return }
-        if (prop === "counter-increment" && isCustomIdentPropertyCounterIncrement(valueLowerCase)) { return }
+        if (prop === "counter-increment" && isCounterIncrementCustomIdentValue(valueLowerCase)) { return }
         if (prop === "grid-row" && !gridRowKeywords.has(valueLowerCase)) { return }
         if (prop === "grid-column" && !gridColumnKeywords.has(valueLowerCase)) { return }
         if (prop === "grid-area" && !gridAreaKeywords.has(valueLowerCase)) { return }

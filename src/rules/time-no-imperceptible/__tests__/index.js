@@ -59,6 +59,10 @@ testRule(rule, {
     code: "a { animation: foo 0.8s linear; }",
   }, {
     code: "a { animation: foo 0.8s 200ms ease-in-out; }",
+  }, {
+    code: "a { animation-delay: -2.5s; }",
+  }, {
+    code: "a { animation-delay: -150ms; }",
   } ],
 
   reject: [ {
@@ -149,6 +153,11 @@ testRule(rule, {
   }, {
     code: "a { animation: foo 0.8s 20ms ease-in-out; }",
     message: messages.rejected("20ms"),
+    line: 1,
+    column: 25,
+  }, {
+    code: "a { animation: foo 0.8s -20ms ease-in-out; }",
+    message: messages.rejected("-20ms"),
     line: 1,
     column: 25,
   } ],

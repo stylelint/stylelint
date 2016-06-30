@@ -460,6 +460,32 @@ export const keyframeSelectorKeywords = new Set([
   "to",
 ])
 
+// https://developer.mozilla.org/en/docs/Web/CSS/At-rule
+export const atRules = new Set([
+  "apply",
+  "annotation",
+  "character-variant",
+  "charset",
+  "counter-style",
+  "custom-media",
+  "custom-selector",
+  "document",
+  "font-face",
+  "font-feature-values",
+  "import",
+  "keyframes",
+  "media",
+  "namespace",
+  "nest",
+  "ornaments",
+  "page",
+  "styleset",
+  "stylistic",
+  "supports",
+  "swash",
+  "viewport",
+])
+
 function uniteSets(...sets) {
   return new Set(sets.reduce((result, set) => {
     return result.concat(_.toArray(set))

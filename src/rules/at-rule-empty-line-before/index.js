@@ -71,7 +71,7 @@ export default function (expectation, options) {
         expectEmptyLineBefore = !expectEmptyLineBefore
       }
 
-      // Return if the exceptation is met
+      // Return if the expectation is met
       if (expectEmptyLineBefore === emptyLineBefore) { return }
 
       const message = expectEmptyLineBefore ? messages.expected : messages.rejected

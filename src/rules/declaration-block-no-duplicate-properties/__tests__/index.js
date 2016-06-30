@@ -114,3 +114,45 @@ testRule(rule, {
     message: messages.rejected("font-size"),
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignoreProperties: ["color"] } ],
+  skipBasicChecks: true,
+
+  accept: [ {
+    code: "p { color: pink; color: orange; }",
+  }, {
+    code: "p { COLOR: pink; color: orange; }",
+  }, {
+    code: "p { color: pink; background: orange; color: orange }",
+  } ],
+
+  reject: [ {
+    code: "p { color: pink; background: orange; background: white; }",
+    message: messages.rejected("background"),
+  }, {
+    code: "p { background: orange; color: pink; background: white; }",
+    message: messages.rejected("background"),
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignoreProperties: ["/background\-/"] } ],
+  skipBasicChecks: true,
+
+  accept: [ {
+    code: "p { background-color: pink; background-color: orange; }",
+  }, {
+    code: "p { background-color: pink; color: orange; background-color: orange }",
+  } ],
+
+  reject: [ {
+    code: "p { color: pink; background: orange; background: white; }",
+    message: messages.rejected("background"),
+  }, {
+    code: "p { background: orange; color: pink; background: white; }",
+    message: messages.rejected("background"),
+  } ],
+})
