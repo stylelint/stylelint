@@ -29,6 +29,7 @@ export default function (expectation, options) {
       actual: options,
       possible: {
         ignore: ["after-comment"],
+        except: ["after-single-line-comment"],
       },
       optional: true,
     })
@@ -64,6 +65,16 @@ export function checkRuleEmptyLineBefore({ rule, expectation, options, result, m
   // Optionally reverse the expectation for the first nested node
   if (optionsHaveException(options, "first-nested")
     && rule === rule.parent.first) {
+    expectEmptyLineBefore = !expectEmptyLineBefore
+  }
+
+  // Optionally reverse the expectation for single line comments
+  if (
+    optionsHaveException(options, "after-single-line-comment")
+    && rule.prev()
+    && rule.prev().type === "comment"
+    && isSingleLineString(rule.prev().toString())
+  ) {
     expectEmptyLineBefore = !expectEmptyLineBefore
   }
 

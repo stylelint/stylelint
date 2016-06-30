@@ -1,9 +1,10 @@
 # Head
 
 - Deprecated: `-e` and `--extract` CLI flags, and the `extractStyleTagsFromHtml` node API option. If you use these flags or option, please consider creating a processor for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
-- Added: `ignoreProperties: []` option for `declaration-block-no-duplicate-properties`.
-- Added: `no-empty-source` rule.
 - Added: `at-rule-no-unknown` rule.
+- Added: `no-empty-source` rule.
+- Added: `except: ["after-single-line-comment"]` option for `rule-non-nested-empty-line-before`.
+- Added: `ignoreProperties: []` option for `declaration-block-no-duplicate-properties`.
 - Fixed: accuracy of warning positions for empty blocks when using SugarSS parser.
 
 # 6.7.1

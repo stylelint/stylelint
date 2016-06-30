@@ -49,6 +49,26 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: [ "always", { except: ["after-single-line-comment"] } ],
+  skipBasicChecks: true,
+
+  accept: [ {
+    code: "/**\n * comment\n*/\n\na {}",
+  }, {
+    code: "/* comment */\na {}",
+  } ],
+
+  reject: [ {
+    code: "/**\n * comment\n*/\na {}",
+    message: messages.expected,
+  }, {
+    code: "/* comment */\n\na {}",
+    message: messages.rejected,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: [ "always", { ignore: ["after-comment"] } ],
   skipBasicChecks: true,
 
@@ -104,6 +124,26 @@ testRule(rule, {
   }, {
     code: "b {}\n\n/* comment here*/\n\na {}",
     message: messages.rejected,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "never", { except: ["after-single-line-comment"] } ],
+  skipBasicChecks: true,
+
+  accept: [ {
+    code: "/**\n * comment\n*/\na {}",
+  }, {
+    code: "/* comment */\n\na {}",
+  } ],
+
+  reject: [ {
+    code: "/**\n * comment\n*/\n\na {}",
+    message: messages.rejected,
+  }, {
+    code: "/* comment */\na {}",
+    message: messages.expected,
   } ],
 })
 
