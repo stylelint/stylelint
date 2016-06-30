@@ -54,9 +54,15 @@ export default function ({
       })
     }
 
-    const chosenFormatter = (typeof formatter === "string")
-      ? formatters[formatter]
-      : formatter
+    let chosenFormatter = formatter
+
+    if (typeof chosenFormatter === "string") {
+      if (_.includes(Object.keys(formatters), chosenFormatter)) {
+        chosenFormatter = formatters[chosenFormatter]
+      } else {
+        throw new Error("You must use a valid formatter option, either: json, string or verbose")
+      }
+    }
 
     let errored = false
 
@@ -129,6 +135,8 @@ export default function ({
         postcssProcessOptions.syntax = lessSyntax
       } else if (syntax === "sugarss" || !syntax && fileExtension === ".sss") {
         postcssProcessOptions.syntax = sugarss
+      } else if (syntax) {
+        throw new Error("You must use a valid syntax option, either: scss, less or sugarss")
       }
 
       codeProcessors.forEach(codeProcessor => {

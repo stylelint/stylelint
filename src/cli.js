@@ -2,7 +2,6 @@
 
 import {
   assign,
-  includes,
 } from "lodash"
 import getStdin from "get-stdin"
 import meow from "meow"
@@ -25,7 +24,6 @@ const minimistOptions = {
     v: "version",
   },
 }
-const syntaxOptions = [ "scss", "less", "sugarss" ]
 
 const meowOptions = {
   help: [
@@ -85,7 +83,7 @@ if (cli.flags.quiet) {
   optionsBase.configOverrides.quiet =  cli.flags.quiet
 }
 
-if (cli.flags.syntax && includes(syntaxOptions, cli.flags.syntax)) {
+if (cli.flags.syntax) {
   optionsBase.syntax = cli.flags.syntax
 }
 
