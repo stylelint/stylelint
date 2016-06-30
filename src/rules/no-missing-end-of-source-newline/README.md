@@ -1,6 +1,6 @@
-# no-missing-eof-newline
+# no-missing-end-of-source-newline
 
-Disallow missing end-of-file newlines in non-empty files.
+Disallow missing end-of-source newlines.
 
 ```css
     a { color: pink; }
@@ -8,6 +8,8 @@ Disallow missing end-of-file newlines in non-empty files.
 /** ↑
  * This newline */
 ```
+
+Completely empty files are not considered warnings.
 
 ## Options
 
@@ -25,5 +27,3 @@ The following patterns are *not* considered warnings:
 a { color: pink; }
 \n
 ```
-
-Completely empty files are not considered warnings.
