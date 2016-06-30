@@ -26,7 +26,7 @@ a { color: 0; top: 0; }
 
 ```css
 a {
-  background: url(a-url-that-is-over-20-characters-long);
+  background: linear-gradient(red, blue);
 }
 ```
 
