@@ -61,3 +61,7 @@ You'll want to make use of the [stylelint-selector-bem-pattern](https://github.c
 You can also take advantage of `selector-*` rules to ban certain categories of selectors (e.g. id selectors) and control specificity.
 
 If you're using SUITCSS, you'll probably want to use [their shareable config](https://github.com/suitcss/stylelint-config-suitcss).
+
+## How do I change the default severity to "warning" so stylelint doesn't break my build?
+
+Use the [`defaultSeverity`](/docs/user-guide/configuration.md#defaultSeverity) configuration option.
