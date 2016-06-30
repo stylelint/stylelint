@@ -1,4 +1,4 @@
-# Head
+# 6.8.0
 
 - Deprecated: `-e` and `--extract` CLI flags, and the `extractStyleTagsFromHtml` node API option. If you use these flags or option, please consider creating a processor for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
 - Added: `at-rule-no-unknown` rule.
