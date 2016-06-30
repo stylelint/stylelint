@@ -6,7 +6,7 @@ import {
 } from "../../utils"
 import styleSearch from "style-search"
 
-export const ruleName = "media-query-parentheses-space-inside"
+export const ruleName = "media-feature-parentheses-space-inside"
 
 export const messages = ruleMessages(ruleName, {
   expectedOpening: "Expected single space after \"(\"",

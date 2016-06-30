@@ -4,10 +4,10 @@ import {
   validateOptions,
 } from "../../utils"
 
-export const ruleName = "no-missing-eof-newline"
+export const ruleName = "no-missing-end-of-source-newline"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: "Unexpected missing newline at end of file",
+  rejected: "Unexpected missing end-of-source newline",
 })
 
 export default function (actual) {
