@@ -54,16 +54,14 @@ export default function ({
       })
     }
 
-    let chosenFormatter = ""
+    let chosenFormatter = formatter
 
-    if (typeof formatter === "string") {
-      if (_.includes(Object.keys(formatters), formatter)) {
-        chosenFormatter = formatters[formatter]
+    if (typeof chosenFormatter === "string") {
+      if (_.includes(Object.keys(formatters), chosenFormatter)) {
+        chosenFormatter = formatters[chosenFormatter]
       } else {
         throw new Error("You must use a valid formatter option, either: json, string or verbose")
       }
-    } else {
-      chosenFormatter = formatter
     }
 
     let errored = false
