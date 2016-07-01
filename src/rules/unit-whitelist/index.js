@@ -1,4 +1,5 @@
 import {
+  atRuleParamIndex,
   declarationValueIndex,
   getUnitFromValueNode,
   report,
@@ -23,23 +24,30 @@ export default function (whitelistInput) {
     })
     if (!validOptions) { return }
 
-    root.walkDecls(decl => {
-      valueParser(decl.value).walk(function (node) {
+    function check(node, value, getIndex) {
+      valueParser(value).walk(function (valueNode) {
         // Ignore wrong units within `url` function
-        if (node.type === "function" && node.value.toLowerCase() === "url") { return false }
+        if (valueNode.type === "function" && valueNode.value.toLowerCase() === "url") { return false }
 
-        const unit = getUnitFromValueNode(node)
+        const unit = getUnitFromValueNode(valueNode)
 
         if (!unit || (unit && whitelist.indexOf(unit.toLowerCase()) !== -1)) { return }
 
         report({
+          index: getIndex(node) + valueNode.sourceIndex,
           message: messages.rejected(unit),
-          node: decl,
-          index: declarationValueIndex(decl) + node.sourceIndex,
+          node,
           result,
           ruleName,
         })
       })
-    })
+    }
+
+    root.walkAtRules(/^media$/i, atRule =>
+      check(atRule, atRule.params, atRuleParamIndex)
+    )
+    root.walkDecls(decl =>
+      check(decl, decl.value, declarationValueIndex)
+    )
   }
 }

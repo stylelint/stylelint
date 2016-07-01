@@ -127,6 +127,12 @@ testRule(rule, {
   }, {
     code: "a { color: #1f1f1f; }",
     description: "ignore color hex",
+  }, {
+    code: "@media (min-width: 10px) {}",
+    description: "@media",
+  }, {
+    code: "@media (min-width: 10px)\n  and (max-width: 20px) {}",
+    description: "complex @media",
   } ],
 
   reject: [ {
@@ -189,6 +195,24 @@ testRule(rule, {
     message: messages.rejected("pix"),
     line: 1,
     column: 25,
+  }, {
+    code: "@media (min-width: 13pix) {}",
+    message: messages.rejected("pix"),
+    description: "@media",
+    line: 1,
+    column: 20,
+  }, {
+    code: "@media (min-width: 10px)\n  and (max-width: 20PIX) {}",
+    message: messages.rejected("PIX"),
+    description: "complex @media",
+    line: 2,
+    column: 19,
+  }, {
+    code: "@media (width < 10.01REMS) {}",
+    message: messages.rejected("REMS"),
+    description: "media feature range",
+    line: 1,
+    column: 17,
   } ],
 })
 

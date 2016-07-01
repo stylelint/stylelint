@@ -80,6 +80,12 @@ testRule(rule, {
   }, {
     code: "a { margin: calc(100px - #{margin * 2}); }",
     description: "work with interpolation",
+  }, {
+    code: "@media (min-width: 10em) {}",
+    description: "@media",
+  }, {
+    code: "@media (min-width: 10px)\n  and (max-width: 20em) {}",
+    description: "complex @media",
   } ],
 
   reject: [ {
@@ -137,5 +143,23 @@ testRule(rule, {
     message: messages.rejected("rem"),
     line: 1,
     column: 38,
+  }, {
+    code: "@media (min-width: 13rem) {}",
+    message: messages.rejected("rem"),
+    description: "@media",
+    line: 1,
+    column: 20,
+  }, {
+    code: "@media (min-width: 10em)\n  and (max-width: 20rem) {}",
+    message: messages.rejected("rem"),
+    description: "complex @media",
+    line: 2,
+    column: 19,
+  }, {
+    code: "@media (width < 10.01REM) {}",
+    message: messages.rejected("REM"),
+    description: "media feature range",
+    line: 1,
+    column: 17,
   } ],
 })
