@@ -126,6 +126,10 @@ Promise.resolve().then(() => {
     code: stdin,
   }))
 }).then(options => {
+  if (!options.files && !options.code) {
+    cli.showHelp()
+  }
+
   return standalone(options)
 }).then(({ output, errored }) => {
   if (!output) { return }
