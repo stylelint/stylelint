@@ -89,6 +89,9 @@ testRule(rule, {
   }, {
     code: "@media (min-width: 10px)\n  and (max-width: 20px) {}",
     description: "check complex @media",
+  }, {
+    code: "@media not screen and (min-width: 100px) {}",
+    description: "negation @media",
   } ],
 
   reject: [ {
@@ -160,6 +163,12 @@ testRule(rule, {
     description: "media feature range",
     line: 1,
     column: 17,
+  }, {
+    code: "@media not screen and (min-width: 100PX) {}",
+    message: messages.expected("PX", "px"),
+    description: "negation @media",
+    line: 1,
+    column: 35,
   } ],
 })
 
