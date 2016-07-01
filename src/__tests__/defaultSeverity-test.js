@@ -1,5 +1,5 @@
-import test from "tape"
 import postcssPlugin from "../postcssPlugin"
+import test from "tape"
 
 test("`defaultSeverity` option set to warning", t => {
   const config = {

@@ -1,5 +1,5 @@
-import test from "tape"
 import isCounterIncrementCustomIdentValue from "../isCounterIncrementCustomIdentValue"
+import test from "tape"
 
 test("isCustomIdents", t => {
   t.ok(isCounterIncrementCustomIdentValue("counter"))
