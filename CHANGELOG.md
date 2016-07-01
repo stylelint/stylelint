@@ -1,6 +1,7 @@
 # Head
 
 - Added: `defaultSeverity` configuration option.
+- Added: `function-url-path` rule.
 - Fixed: `time-no-imperceptible` correctly handles negative time.
 
 # 6.8.0
