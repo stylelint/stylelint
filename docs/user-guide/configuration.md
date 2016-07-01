@@ -97,9 +97,9 @@ Complex, overlapping disabling & enabling patterns are supported:
 
 #### Severities: error & warning
 
-By default, all rules have an `"error"`-level severity.
+By default, all rules have an `"error"`-level severity. You can change this default by adding a `defaultSeverity` property to your configuration (see below).
 
-To downgrade any rule use the secondary option `severity`. The available values for `severity` are:
+To adjust any specific rule's severity, use the secondary option `severity`. The available values for `severity` are:
 
 - `"warning"`
 - `"error"`
@@ -243,6 +243,13 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 - or `process.cwd()`.
 
 The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
+
+### `defaultSeverity`
+
+The default severity level for all rules that do not have a severity specified in their secondary options. The available values for `severity` are:
+
+- `"warning"`
+- `"error"`
 
 ## `.stylelintignore`
 

@@ -69,6 +69,8 @@ export default postcss.plugin("stylelint", (options = {}) => {
         })
       }
 
+      const defaultSeverity = config.defaultSeverity || "error"
+
       // Register details about the configuration
       result.stylelint.quiet = config.quiet
 
@@ -89,7 +91,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
         if (primaryOption === null) { return }
 
         // Log the rule's severity in the PostCSS result
-        result.stylelint.ruleSeverities[ruleName] = _.get(secondaryOptions, "severity", "error")
+        result.stylelint.ruleSeverities[ruleName] = _.get(secondaryOptions, "severity", defaultSeverity)
         result.stylelint.customMessages[ruleName] = secondaryOptions && secondaryOptions.message
 
         // Run the rule with the primary and secondary options

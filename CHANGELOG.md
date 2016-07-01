@@ -27,6 +27,7 @@
 
 # Head
 
+- Added: `defaultSeverity` configuration option.
 - Fixed: `time-no-imperceptible` correctly handles negative time.
 
 # 6.8.0
