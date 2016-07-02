@@ -49,6 +49,8 @@ testRule(rule, {
   }, {
     code: "@keyframes identifier { 0% { top: 0; left: 0; } 30% { top: 50px; } 68%, 100% { top: 100px; left: 100%; } }",
   }, {
+    code: "@-webkit-keyframes identifier { 0% { top: 0; left: 0; } 30% { top: 50px; } 68%, 100% { top: 100px; left: 100%; } }",
+  }, {
     code: "@viewport { min-width: 640px; max-width: 800px; }",
   }, {
     code: "@viewport { orientation: landscape; }",

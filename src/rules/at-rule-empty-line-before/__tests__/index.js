@@ -24,6 +24,10 @@ const sharedAlwaysTests = {
   }, {
     code: "@KEYFRAMES foo {}\n\n@MEDIA {}",
   }, {
+    code: "@-webkit-keyframes foo {}\n\n@media {}",
+  }, {
+    code: "@-webkit-keyframes foo {}\n\n@-webkit-keyframes bar {}",
+  }, {
     code: "a {}\r\n\r\n@media {}",
     description: "windows",
   }, {
@@ -42,6 +46,12 @@ const sharedAlwaysTests = {
     message: messages.expected,
   }, {
     code: "@keyframes foo {} @media {}",
+    message: messages.expected,
+  }, {
+    code: "@-webkit-keyframes foo {} @media {}",
+    message: messages.expected,
+  }, {
+    code: "@-webkit-keyframes foo {} @-webkit-keyframes bar {}",
     message: messages.expected,
   }, {
     code: "a {}\n@media {}",
