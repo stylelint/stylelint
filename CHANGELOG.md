@@ -1,6 +1,7 @@
 # Head
 
 - Added: `defaultSeverity` configuration option.
+- Fixed: `selector-max-specificity` no longer crashes on selectors containing `:not()` pseudo-classes.
 - Fixed: `time-no-imperceptible` correctly handles negative time.
 
 # 6.8.0
