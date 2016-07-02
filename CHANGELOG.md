@@ -3,6 +3,7 @@
 - Added: `defaultSeverity` configuration option.
 - Fixed: `selector-max-specificity` no longer crashes on selectors containing `:not()` pseudo-classes.
 - Fixed: `time-no-imperceptible` correctly handles negative time.
+- Fixed: `function-calc-no-unspaced-operator` correctly interprets negative fractional numbers without leading zeros and those wrapped in parentheses.
 
 # 6.8.0
 
