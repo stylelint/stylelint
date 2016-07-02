@@ -55,8 +55,12 @@ export default function (actual) {
             // Deal with signs.
             // (@ and $ are considered "digits" here to allow for variable syntaxes
             // that permit signs in front of variables, e.g. `-$number`)
-            if ((symbol === "+" || symbol === "-") && /[\d@\$]/.test(expression[index + 1])) {
+            // As is "." to deal with fractional numbers without a leading zero
+            if ((symbol === "+" || symbol === "-") && /[\d@\$.]/.test(expression[index + 1])) {
               const expressionBeforeSign = expression.substr(0, index)
+
+              // Ignore signs that directly follow a opening bracket
+              if (expressionBeforeSign[expressionBeforeSign.length - 1] === "(") { return }
 
               // Ignore signs at the beginning of the expression
               if (/^\s*$/.test(expressionBeforeSign)) { return }

@@ -27,6 +27,14 @@ testRule(rule, {
   }, {
     code: "a { top: calc(1px / 2); }",
   }, {
+    code: "a { top: calc(1px * -0.2); }",
+  }, {
+    code: "a { top: calc(1px * -.2); }",
+  }, {
+    code: "a { top: calc(1px * (-.2)); }",
+  }, {
+    code: "a { top: calc(1px * (-0.2)); }",
+  }, {
     code: "a { top: calc(calc(1em * 2) / 3); }",
   }, {
     code: "a { padding: calc(1px + 2px) calc(1px + 2px); }",
