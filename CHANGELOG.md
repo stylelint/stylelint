@@ -12,6 +12,7 @@
 - Removed: `stylelint.utils.styleSearch()`. Use the external [style-search](https://github.com/davidtheclark/style-search) module instead.
 - Removed: `--verbose` CLI flag.
 - Removed: NodeJS 0.12.x support, stylelint now requires NodeJS > 4.2.1 LTS or greater
+- Changed: `.stylelintignore` now uses `.gitignore` syntax, and stylelint looks for it in `process.cwd()`.
 - Changed: `-v` flag to display version number.
 - Changed: invalid configuration sets result's `stylelintError` to `true`, which in turn causes CLI to exit with a non-zero code.
 - Changed: `declaration-block-no-ignored-properties` now detects use of `min-width` and `max-width` with inline, table-row, table-row-group, table-column and table-column-group elements.

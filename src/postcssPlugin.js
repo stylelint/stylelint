@@ -2,7 +2,7 @@ import _ from "lodash"
 import buildConfig from "./buildConfig"
 import { configurationError } from "./utils"
 import disableRanges from "./disableRanges"
-import globjoin from "globjoin"
+import ignore from "ignore"
 import multimatch from "multimatch"
 import normalizeRuleSettings from "./normalizeRuleSettings"
 import path from "path"
@@ -12,6 +12,8 @@ import ruleDefinitions from "./rules"
 export default postcss.plugin("stylelint", (options = {}) => {
   // The Node API (standalone.js) will pass in its own _configPromise
   let configPromise = options._configPromise
+  let ignorePatternsFilter
+
   return (root, result) => {
     if (!configPromise) {
       configPromise = buildConfig(options)
@@ -23,7 +25,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
     result.stylelint.ruleSeverities = {}
     result.stylelint.customMessages = {}
 
-    return configPromise.then(({ config, configDir }) => {
+    return configPromise.then(({ config }) => {
       if (!config) {
         throw configurationError("No configuration provided")
       }
@@ -32,12 +34,17 @@ export default postcss.plugin("stylelint", (options = {}) => {
         throw configurationError("No rules found within configuration. Have you provided a \"rules\" property?")
       }
 
-      if (config.ignoreFiles) {
-        const absoluteIgnoreFiles = [].concat(config.ignoreFiles).map(glob => {
-          if (path.isAbsolute(glob)) return glob
-          return globjoin(configDir, glob)
-        })
-        if (multimatch(_.get(root, "source.input.file", ""), absoluteIgnoreFiles).length) {
+      if (!ignorePatternsFilter && config.ignorePatterns) {
+        ignorePatternsFilter = ignore().add(config.ignorePatterns).createFilter()
+      }
+
+      if (ignorePatternsFilter || config.ignoreFiles) {
+        const sourcePath = _.get(root, "source.input.file", "")
+        const filepathRelativeToCwd = path.relative(process.cwd(), sourcePath)
+        if (
+          (ignorePatternsFilter && !ignorePatternsFilter(filepathRelativeToCwd))
+          || (config.ignoreFiles && multimatch(sourcePath, config.ignoreFiles).length)
+        ) {
           result.stylelint.ignored = true
           return
         }

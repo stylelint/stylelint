@@ -16,14 +16,14 @@ test("standalone with extending config and ignoreFiles glob ignoring single glob
     },
     configBasedir: path.join(__dirname, "fixtures"),
   }).then(({ results }) => {
-    t.equal(results.length, 2)
-    t.ok(results[0].source.indexOf("empty-block.css") !== -1)
-    t.equal(results[0].warnings.length, 1)
-    t.ok(results[1].source.indexOf("invalid-hex.css") !== -1)
-    t.equal(results[1].warnings.length, 0)
-    t.ok(results[1].ignored)
+    t.equal(results.length, 2, "two files found")
+    t.ok(results[0].source.indexOf("empty-block.css") !== -1, "empty-block.css found")
+    t.equal(results[0].warnings.length, 1, "empty-block.css linted")
+    t.ok(results[1].source.indexOf("invalid-hex.css") !== -1, "invalid-hex.css found")
+    t.equal(results[1].warnings.length, 0, "invalid-hex.css not linted")
+    t.ok(results[1].ignored, "invalid-hex.css marked as ignored")
+    t.end()
   }).catch(logError)
-  t.plan(6)
 })
 
 test("standalone with absolute ignoreFiles glob path", t => {
@@ -37,13 +37,13 @@ test("standalone with absolute ignoreFiles glob path", t => {
     },
     configBasedir: path.join(__dirname, "fixtures"),
   }).then(({ results }) => {
-    t.equal(results.length, 2)
-    t.equal(results[0].warnings.length, 0)
-    t.ok(results[0].ignored)
-    t.equal(results[1].warnings.length, 0)
-    t.notOk(results[1].ignored)
+    t.equal(results.length, 2, "two files found")
+    t.equal(results[0].warnings.length, 0, "first not linted")
+    t.ok(results[0].ignored, "first marked as ignored")
+    t.equal(results[1].warnings.length, 0, "second has no warnings")
+    t.notOk(results[1].ignored, "second not marked as ignored")
+    t.end()
   }).catch(logError)
-  t.plan(5)
 })
 
 test("standalone with extending config with ignoreFiles glob ignoring one by negation", t => {
@@ -68,31 +68,8 @@ test("standalone with extending config with ignoreFiles glob ignoring one by neg
     t.ok(results[1].source.indexOf("invalid-hex.css") !== -1)
     t.equal(results[1].warnings.length, 1)
     t.notOk(results[1].ignored)
+    t.end()
   }).catch(logError)
-  t.plan(7)
-})
-
-test("standalone with .stylelintignore file ignoring one file", t => {
-  standalone({
-    files: [`${fixturesPath}/*.css`],
-    config: {
-      extends: [
-        `${fixturesPath}/config-block-no-empty`,
-        `${fixturesPath}/config-color-no-invalid-hex`,
-      ],
-    },
-    configBasedir: path.join(__dirname, "fixtures/ignore_config"),
-  }).then(({ results }) => {
-    t.equal(results.length, 2)
-    t.ok(results[0].source.indexOf("empty-block.css") !== -1)
-    t.equal(results[0].warnings.length, 0)
-    t.ok(results[0].ignored)
-    t.ok(results[1].source.indexOf("invalid-hex.css") !== -1,
-      "violation is for block-no-empty, not color-no-invalid-hex")
-    t.equal(results[1].warnings.length, 1)
-    t.notOk(results[1].ignored)
-  }).catch(logError)
-  t.plan(7)
 })
 
 test("standalone with specified `ignorePath` file ignoring one file", t => {
@@ -103,13 +80,13 @@ test("standalone with specified `ignorePath` file ignoring one file", t => {
         "block-no-empty": true,
       },
     },
-    ignorePath: path.join(__dirname, "fixtures/ignore_config/foo.txt"),
+    ignorePath: path.join(__dirname, "fixtures/ignore.txt"),
     configBasedir: path.join(__dirname, "fixtures"),
   }).then(({ results }) => {
-    t.equal(results[0].warnings.length, 0)
-    t.ok(results[0].ignored)
+    t.equal(results[0].warnings.length, 0, "no warnings registered")
+    t.ok(results[0].ignored, "marked as ignored")
+    t.end()
   }).catch(logError)
-  t.plan(2)
 })
 
 test("standalone extending a config that ignores files", t => {
