@@ -22,7 +22,7 @@ export default function (actual) {
     if (!validOptions) { return }
 
     const declaredAnimations = new Set()
-    root.walkAtRules(/keyframes/i, atRule => {
+    root.walkAtRules(/(-(moz|webkit)-)?keyframes/i, atRule => {
       declaredAnimations.add(atRule.params)
     })
 

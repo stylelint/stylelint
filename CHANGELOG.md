@@ -20,11 +20,14 @@
 - Changed: `comment-word-blacklist` no longer ignores words within copyright  comments
 - Changed: `font-family-name-quotes` now checks the `font` property in addition to the `font-family` property
 - Changed: `unit-*` rules now check `@media` values too.
+- Changed: `keyframe-declaration-no-important` now checks vendor prefixed `@keyframes` at-rules.
+- Changed: `time-no-imperceptible` now checks vendor prefixed properties.
 - Added: non-standard syntaxes are automatically inferred from file extensions `.scss`, `.less`, and `.sss`.
 - Added: [processors](/docs/user-guide/configuration#processors.md).
 - Added: `media-feature-parentheses-space-inside` rule.
 - Added: `no-missing-end-of-source-newline` rule.
 - Fixed: The string options of `comment-word-blacklist` will now identify strings *within* comments.
+- Fixed: `no-unknown-animations` now classifies vendor prefixed `@keyframes` at-rules as known.
 
 # Head
 

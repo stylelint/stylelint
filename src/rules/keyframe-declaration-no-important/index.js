@@ -15,7 +15,7 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    root.walkAtRules(/^keyframes$/i, atRuleKeyframes => {
+    root.walkAtRules(/^(-(moz|webkit)-)?keyframes$/i, atRuleKeyframes => {
       atRuleKeyframes.walkDecls(decl => {
         if (!decl.important) { return }
         report({
