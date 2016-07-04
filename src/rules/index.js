@@ -113,6 +113,7 @@ import selectorAttributeOperatorBlacklist from "./selector-attribute-operator-bl
 import selectorAttributeOperatorSpaceAfter from "./selector-attribute-operator-space-after"
 import selectorAttributeOperatorSpaceBefore from "./selector-attribute-operator-space-before"
 import selectorAttributeOperatorWhitelist from "./selector-attribute-operator-whitelist"
+import selectorAttributeQuotes from "./selector-attribute-quotes"
 import selectorClassPattern from "./selector-class-pattern"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
@@ -272,6 +273,7 @@ export default {
   "selector-attribute-operator-space-after": selectorAttributeOperatorSpaceAfter,
   "selector-attribute-operator-space-before": selectorAttributeOperatorSpaceBefore,
   "selector-attribute-operator-whitelist": selectorAttributeOperatorWhitelist,
+  "selector-attribute-quotes": selectorAttributeQuotes,
   "selector-class-pattern": selectorClassPattern,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,
