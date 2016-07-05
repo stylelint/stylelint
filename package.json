@@ -28,6 +28,9 @@
     "docs",
     "!**/__tests__"
   ],
+  "engines": {
+    "node": ">=4.2.1"
+  },
   "dependencies": {
     "autoprefixer": "^6.0.0",
     "balanced-match": "^0.4.0",
