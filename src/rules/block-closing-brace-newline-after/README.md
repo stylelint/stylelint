@@ -135,10 +135,14 @@ a { color: pink;
 
 ### `ignoreAtRules: ["/regex/", "non-regex"]`
 
+Ignore specified at-rules.
+
+For example, with `"always"` or `"always-multi-line"`.
+
 Given:
 
 ```js
-["if", "else"]`
+["if", "else"]
 ```
 
 The following patterns are *not* considered warnings:
