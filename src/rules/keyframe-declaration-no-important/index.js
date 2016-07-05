@@ -1,3 +1,4 @@
+import { vendor } from "postcss"
 import {
   report,
   ruleMessages,
@@ -14,8 +15,9 @@ export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
+    root.walkAtRules(/keyframes$/i, atRuleKeyframes => {
+      if (vendor.unprefixed(atRuleKeyframes.name).toLowerCase() !== "keyframes") { return }
 
-    root.walkAtRules(/^keyframes$/i, atRuleKeyframes => {
       atRuleKeyframes.walkDecls(decl => {
         if (!decl.important) { return }
         report({

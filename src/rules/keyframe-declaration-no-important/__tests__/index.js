@@ -48,5 +48,11 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 44,
+  }, {
+    code: "@-webkit-keyframes important { from { margin: 1px !important; } }",
+    description: "with !important",
+    message: messages.rejected,
+    line: 1,
+    column: 52,
   } ],
 })

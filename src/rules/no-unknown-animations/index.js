@@ -22,7 +22,9 @@ export default function (actual) {
     if (!validOptions) { return }
 
     const declaredAnimations = new Set()
-    root.walkAtRules(/keyframes/i, atRule => {
+    root.walkAtRules(/keyframes$/i, atRule => {
+      if (postcss.vendor.unprefixed(atRule.name).toLowerCase() !== "keyframes") { return }
+
       declaredAnimations.add(atRule.params)
     })
 

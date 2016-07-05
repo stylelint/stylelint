@@ -154,5 +154,11 @@ testRule(rule, {
     message: messages.rejected("BAZ"),
     line: 1,
     column: 16,
+  }, {
+    code: "a { animation-name: baz; } @-webkit-keyframes bar { }",
+    description: "working with vendor keyframes",
+    message: messages.rejected("baz"),
+    line: 1,
+    column: 21,
   } ],
 })
