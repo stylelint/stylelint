@@ -134,7 +134,7 @@ Promise.resolve().then(() => {
 }).then(({ output, errored }) => {
   if (!output) { return }
   process.stdout.write(output)
-  if (errored) { process.exit(2) }
+  if (errored) { process.exitCode = 2 }
 }).catch(err => {
   console.log(err.stack) // eslint-disable-line no-console
   process.exit(err.code || 1)
