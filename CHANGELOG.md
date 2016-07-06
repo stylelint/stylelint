@@ -7,6 +7,7 @@
 - Fixed: `time-no-imperceptible` correctly handles negative time.
 - Fixed: `function-calc-no-unspaced-operator` correctly interprets negative fractional numbers without leading zeros and those wrapped in parentheses.
 - Fixed: `number-max-precision` now ignores uppercase and mixed case `@import` at-rules.
+- Fixed:  Use `process.exitCode` with `stdOut` CLI to allow the process to exit naturally and avoid truncating output.
 
 # 6.8.0
 
