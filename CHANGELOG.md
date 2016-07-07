@@ -2,14 +2,14 @@
 
 - Added: `defaultSeverity` configuration option.
 - Added: invoking the CLI with no arguments and no stdin (i.e. just `stylelint`) is equivalent to `stylelint --help`.
-- Added: `selector-attribute-quotes` rule.
 - Added: `function-url-no-scheme-relative` rule.
+- Added: `selector-attribute-quotes` rule.
+- Fixed: the CLI now uses `process.exitCode` with `stdOut` to allow the process to exit naturally and avoid truncating output.
+- Fixed: `function-calc-no-unspaced-operator` correctly interprets negative fractional numbers without leading zeros and those wrapped in parentheses.
+- Fixed: `no-extra-semicolons` now ignores semicolons after Less mixins.
+- Fixed: `number-max-precision` now ignores uppercase and mixed case `@import` at-rules.
 - Fixed: `selector-max-specificity` no longer crashes on selectors containing `:not()` pseudo-classes.
 - Fixed: `time-no-imperceptible` correctly handles negative time.
-- Fixed: `function-calc-no-unspaced-operator` correctly interprets negative fractional numbers without leading zeros and those wrapped in parentheses.
-- Fixed: `number-max-precision` now ignores uppercase and mixed case `@import` at-rules.
-- Fixed:  Use `process.exitCode` with `stdOut` CLI to allow the process to exit naturally and avoid truncating output.
-- Fixed: `no-extra-semicolons` now ignores semicolons after Less mixins.
 
 # 6.8.0
 
