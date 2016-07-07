@@ -1,4 +1,4 @@
-# Head
+# 6.9.0
 
 - Added: `defaultSeverity` configuration option.
 - Added: invoking the CLI with no arguments and no stdin (i.e. just `stylelint`) is equivalent to `stylelint --help`.
