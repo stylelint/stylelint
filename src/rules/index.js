@@ -63,6 +63,7 @@ import functionNameCase from "./function-name-case"
 import functionParenthesesNewlineInside from "./function-parentheses-newline-inside"
 import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
 import functionUrlDataUris from "./function-url-data-uris"
+import functionUrlNoSchemeRelative from "./function-url-no-scheme-relative"
 import functionUrlQuotes from "./function-url-quotes"
 import functionWhitelist from "./function-whitelist"
 import functionWhitespaceAfter from "./function-whitespace-after"
@@ -222,6 +223,7 @@ export default {
   "function-parentheses-newline-inside": functionParenthesesNewlineInside,
   "function-parentheses-space-inside": functionParenthesesSpaceInside,
   "function-url-data-uris": functionUrlDataUris,
+  "function-url-no-scheme-relative": functionUrlNoSchemeRelative,
   "function-url-quotes": functionUrlQuotes,
   "function-whitelist": functionWhitelist,
   "function-whitespace-after": functionWhitespaceAfter,

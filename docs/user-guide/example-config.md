@@ -71,6 +71,7 @@ You might want to learn a little about [how rules are named and how they work to
     "function-parentheses-newline-inside": "always"|"always-multi-line"|"never-multi-line",
     "function-parentheses-space-inside": "always"|"never"|"always-single-line"|"never-single-line",
     "function-url-data-uris": "always"|"never",
+    "function-url-no-scheme-relative": true,
     "function-url-quotes": "always"|"never",
     "function-whitelist": string|[],
     "function-whitespace-after": "always"|"never",
