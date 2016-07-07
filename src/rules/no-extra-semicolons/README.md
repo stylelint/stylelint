@@ -8,6 +8,8 @@ a { color: pink;; }
  *  This semicolons */
 ```
 
+This rule ignores semicolons after Less mixins.
+
 ## Options
 
 ### `true`
