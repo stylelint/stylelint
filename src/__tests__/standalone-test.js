@@ -60,6 +60,40 @@ test("standalone with input css", t => {
   t.plan(planned)
 })
 
+test("standalone without input css and file(s) should throw error", t => {
+  t.throws(
+    () => standalone({ config: configBlockNoEmpty }),
+    new Error("You must pass stylelint a `files` glob or a `code` string, though not both")
+  )
+  t.end()
+})
+
+test("standalone without input css and file(s) should throw error", t => {
+  t.throws(
+    () => standalone({ config: configBlockNoEmpty }),
+    new Error("You must pass stylelint a `files` glob or a `code` string, though not both")
+  )
+
+  t.end()
+})
+
+test("standalone with non-existent-file should throw error with code 80", t => {
+  let planned = 0
+
+  const expectedError = new Error("Files glob patterns specified did not match any files")
+  expectedError.code = 80
+
+  standalone({
+    files: `${fixturesPath}/non-existent-file.css`,
+    config: configBlockNoEmpty,
+  }).catch((actualError) => {
+    t.deepEqual(actualError, expectedError)
+  })
+  planned += 1
+
+  t.plan(planned)
+})
+
 test("standalone passing code with syntax error", t => {
   standalone({
     code: "a { color: 'red; }",
