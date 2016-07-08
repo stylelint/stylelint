@@ -27,6 +27,7 @@
 - Changed: `time-no-imperceptible` now checks vendor prefixed properties.
 - Changed: `selector-attribute-quotes` now checks attribute selectors with whitespace around the operator or inside the brackets.
 - Changed: plugin arrays in extended configs are now concatenated with the main config's plugin array, instead of being overwritten by it. So plugins from the main config and from extended configs will all be loaded.
+- Changed: `declaration-block-no-ignored-properties` now ignores the combination of `float` and `display: inline-block | inline`.
 - Added: non-standard syntaxes are automatically inferred from file extensions `.scss`, `.less`, and `.sss`.
 - Added: [processors](/docs/user-guide/configuration#processors.md).
 - Added: `media-feature-parentheses-space-inside` rule.
