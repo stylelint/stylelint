@@ -2,7 +2,7 @@
 
 import meow from "meow"
 import path from "path"
-import { assign, includes } from "lodash"
+import { assign, cloneDeep, isEqual, includes } from "lodash"
 import getStdin from "get-stdin"
 import resolveFrom from "resolve-from"
 import standalone from "./standalone"
@@ -79,10 +79,12 @@ if (cli.flags.customFormatter) {
   )
 }
 
-const optionsBase = {
+const optionsBaseDefault = {
   formatter,
   configOverrides: {},
 }
+
+const optionsBase = cloneDeep(optionsBaseDefault)
 
 if (cli.flags.quiet) {
   optionsBase.configOverrides.quiet =  cli.flags.quiet
@@ -126,7 +128,11 @@ Promise.resolve().then(() => {
     code: stdin,
   }))
 }).then(options => {
-  if (!options.files && !options.code) {
+  if (
+    !options.files
+    && !options.code
+    && isEqual(optionsBaseDefault, optionsBase)
+  ) {
     cli.showHelp()
   }
 
