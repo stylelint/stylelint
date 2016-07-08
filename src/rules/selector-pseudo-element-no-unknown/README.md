@@ -8,6 +8,8 @@ Disallow unknown pseudo-element selectors.
  * This pseudo-element selector */
 ```
 
+This rule considers pseudo-element selectors defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
+
 All vendor-prefixes pseudo-element selectors are ignored.
 
 ## Options
