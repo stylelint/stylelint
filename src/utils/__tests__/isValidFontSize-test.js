@@ -8,5 +8,6 @@ test("isValidFontSize", t => {
   t.ok(isValidFontSize("small"))
   t.ok(isValidFontSize("smaller"))
   t.notOk(isValidFontSize("smallest"))
+  t.notOk(isValidFontSize(null))
   t.end()
 })
