@@ -8,6 +8,8 @@ Disallow unknown type selectors.
  * This type selector */
 ```
 
+This rule considers tags defined in the HTML and SVG Specifications to be known.
+
 ## Options
 
 ### `true`
