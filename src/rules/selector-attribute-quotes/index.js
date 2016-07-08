@@ -33,6 +33,8 @@ export default function (expectation) {
       parseSelector(rule.selector, result, rule, selectorTree => {
 
         selectorTree.walkAttributes(attributeNode => {
+          if (!attributeNode.operator) { return }
+
           const attributeSelectorString = attributeNode.toString()
 
           if (!attributeNode.quoted && expectation === "always") {

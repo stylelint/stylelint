@@ -1,3 +1,7 @@
+# Head
+
+- Fixes: better handling quotes in selector attribute with multiple attributes.
+
 # 6.9.0
 
 - Added: `defaultSeverity` configuration option.
