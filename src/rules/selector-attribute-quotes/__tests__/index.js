@@ -29,6 +29,8 @@ testRule(rule, {
     code: "[frame=\"hsides\" i] { }",
   }, {
     code: "[frame=\'hsides\' i] { }",
+  }, {
+    code: "[data-style=\'value\'][data-loading] { }",
   } ],
 
   reject: [ {
@@ -56,6 +58,11 @@ testRule(rule, {
     message: messages.expected("hsides"),
     line: 1,
     column: 8,
+  }, {
+    code: "[data-style=value][data-loading] { }",
+    message: messages.expected("value"),
+    line: 1,
+    column: 13,
   } ],
 })
 
@@ -71,6 +78,8 @@ testRule(rule, {
     code: "[class^=top] { }",
   }, {
     code: "[frame=hsides i] { }",
+  }, {
+    code: "[data-style=value][data-loading] { }",
   } ],
 
   reject: [ {
@@ -113,6 +122,11 @@ testRule(rule, {
     message: messages.rejected("hsides"),
     line: 1,
     column: 8,
+  }, {
+    code: "[data-style=\'value\'][data-loading] { }",
+    message: messages.rejected("value"),
+    line: 1,
+    column: 13,
   } ],
 })
 
