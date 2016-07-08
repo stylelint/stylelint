@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: a regression within the CLI where all flags required a parameter.
+
 # 6.9.0
 
 - Added: `defaultSeverity` configuration option.
