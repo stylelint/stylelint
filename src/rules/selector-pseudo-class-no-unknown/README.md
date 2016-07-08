@@ -8,7 +8,7 @@ Disallow unknown pseudo-class selectors.
  * This pseudo-class selector */
 ```
 
-This rule considers pseudo-element selectors defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
+This rule considers pseudo-class selectors defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
 All vendor-prefixes pseudo-class selectors are ignored.
 
