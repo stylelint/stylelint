@@ -7,11 +7,10 @@ test("buildConfig with config as argument object", t => {
 
   buildConfig({ rules: { foo: true } }).then(({ config, configDir }) => {
     t.deepEqual(config, {
-      ignoreFiles: [],
       rules: {
         foo: true,
       },
-    }, "adds empty ignoreFiles array and return config")
+    }, "returns config")
     t.equal(configDir, process.cwd(), "uses process.cwd as configDir")
   }).catch(logError)
   planned += 2
@@ -29,11 +28,10 @@ test("buildConfig with config as property of options object", t => {
   }
   buildConfig(optionsA).then(({ config, configDir }) => {
     t.deepEqual(config, {
-      ignoreFiles: [],
       rules: {
         foo: true,
       },
-    }, "adds empty ignoreFiles array and returns config")
+    }, "returns config")
     t.equal(configDir, process.cwd(), "uses process.cwd as configDir")
   }).catch(logError)
   planned += 2
@@ -73,11 +71,10 @@ test("buildConfig with config as property of options object", t => {
   }
   buildConfig(arg).then(({ config, configDir }) => {
     t.deepEqual(config, {
-      ignoreFiles: [],
       rules: {
         foo: true,
       },
-    }, "adds empty ignoreFiles array and returns config")
+    }, "returns config")
     t.deepEqual(configDir, process.cwd(), "uses process.cwd as configDir")
   }).catch(logError)
   planned += 2
@@ -95,14 +92,13 @@ test(
   }
   buildConfig(optionsA).then(({ config, configDir }) => {
     t.deepEqual(config, {
-      ignoreFiles: [],
       plugins: [
         path.join(__dirname, "./fixtures/plugin-warn-about-foo.js"),
       ],
       rules: {
         "plugin/warn-about-foo": "always",
       },
-    }, "adds empty ignoreFiles array and returns config")
+    }, "returns config")
     t.equal(configDir, path.join(__dirname, "./fixtures"
     ), "uses process.cwd as configDir")
   }).catch(logError)
@@ -119,7 +115,6 @@ test("buildConfig extends", t => {
   }
   buildConfig(optionsA).then(({ config }) => {
     t.deepEqual(config, {
-      ignoreFiles: [],
       plugins: [
         path.join(__dirname, "./fixtures/plugin-warn-about-foo.js"),
       ],
@@ -129,57 +124,6 @@ test("buildConfig extends", t => {
         "color-no-invalid-hex": true,
       },
     }, "extends deeply, merging rules and plugins")
-  })
-  planned += 1
-
-  t.plan(planned)
-})
-
-test("buildConfig adds `.stylelintignore`", t => {
-  let planned = 0
-
-  const optionsA = {
-    config: {
-      rules: {
-        foo: true,
-      },
-    },
-    configBasedir: path.join(__dirname, "./fixtures/ignore_config"),
-  }
-  buildConfig(optionsA).then(({ config }) => {
-    t.deepEqual(config, {
-      ignoreFiles: [
-        "../**/*.css",
-        "!../**/invalid-hex.css",
-      ],
-      rules: {
-        foo: true,
-      },
-    }, "finds and loads `.stylelintignore`")
-  })
-  planned += 1
-
-  t.plan(planned)
-})
-
-test("buildConfig adds ignore patterns from options.ignorePath", t => {
-  let planned = 0
-
-  const optionsA = {
-    config: {
-      rules: {
-        foo: true,
-      },
-    },
-    ignorePath: path.join(__dirname, "./fixtures/ignore_config/foo.txt"),
-  }
-  buildConfig(optionsA).then(({ config }) => {
-    t.deepEqual(config, {
-      ignoreFiles: ["./empty-block.css"],
-      rules: {
-        foo: true,
-      },
-    }, "finds and loads options.ignorePath")
   })
   planned += 1
 
