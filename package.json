@@ -72,7 +72,7 @@
     "eslint-config-stylelint": "^3.0.0",
     "npm-run-all": "^2.1.0",
     "npmpub": "^3.0.1",
-    "nyc": "^6.4.4",
+    "nyc": "^7.0.0",
     "postcss-import": "^8.0.2",
     "remark-cli": "^1.0.0",
     "remark-lint": "^4.0.0",
