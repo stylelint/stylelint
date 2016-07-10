@@ -135,6 +135,30 @@ test("buildConfig extends", t => {
   t.plan(planned)
 })
 
+test("buildConfig config with plugins extends with plugins", t => {
+  let planned = 0
+
+  const optionsA = {
+    configFile: path.join(__dirname, "./fixtures/config-plugin-extending-with-plugin.json"),
+  }
+  buildConfig(optionsA).then(({ config }) => {
+    t.deepEqual(config, {
+      ignoreFiles: [],
+      plugins: [
+        path.join(__dirname, "./fixtures/plugin-warn-about-bar.js"),
+        path.join(__dirname, "./fixtures/plugin-warn-about-foo.js"),
+      ],
+      rules: {
+        "plugin/warn-about-foo": "always",
+        "plugin/warn-about-bar": "always",
+      },
+    }, "extends, and merges plugins")
+  })
+  planned += 1
+
+  t.plan(planned)
+})
+
 test("buildConfig adds `.stylelintignore`", t => {
   let planned = 0
 

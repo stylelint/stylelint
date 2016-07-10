@@ -11,6 +11,10 @@ const cssWithoutFoo = (
 ".bar {}"
 )
 
+const cssWithFooAndBar = (
+".foo {}\n.bar {}"
+)
+
 const configRelative = {
   plugins: [
     "./fixtures/plugin-warn-about-foo",
@@ -37,9 +41,22 @@ const configExtendRelative = {
   ],
 }
 
+const configRelativeAndExtendRelative = {
+  extends: [
+    "./fixtures/config-relative-plugin",
+  ],
+  plugins: [
+    "./fixtures/plugin-warn-about-bar",
+  ],
+  rules: {
+    "plugin/warn-about-bar": "always",
+  },
+}
+
 const processorRelative = postcss().use(stylelint({ config: configRelative, configBasedir: __dirname }))
 const processorAbsolute = postcss().use(stylelint({ config: configAbsolute }))
 const processorExtendRelative = postcss().use(stylelint({ config: configExtendRelative, configBasedir: __dirname }))
+const processorRelativeAndExtendRelative = postcss().use(stylelint({ config: configRelativeAndExtendRelative, configBasedir: __dirname }))
 
 test("plugin runs", t => {
   let planned = 0
@@ -90,6 +107,22 @@ test("config extending another config that invokes a plugin with a relative path
     })
     .catch(logError)
   planned += 3
+
+  t.plan(planned)
+})
+
+test("config with its own plugins extending another config that invokes a plugin with a relative path", t => {
+  let planned = 0
+
+  processorRelativeAndExtendRelative.process(cssWithFooAndBar)
+    .then(result => {
+      t.equal(result.warnings().length, 2)
+      t.equal(result.warnings()[0].text, "found .bar (plugin/warn-about-bar)")
+      t.equal(result.warnings()[1].text, "found .foo (plugin/warn-about-foo)")
+      t.ok(result.warnings()[0].node)
+    })
+    .catch(logError)
+  planned += 4
 
   t.plan(planned)
 })

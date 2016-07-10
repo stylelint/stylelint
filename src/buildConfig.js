@@ -2,6 +2,7 @@ import {
   assign,
   merge,
   omit,
+  union,
 } from "lodash"
 import { configurationError } from "./utils"
 import cosmiconfig from "cosmiconfig"
@@ -160,7 +161,11 @@ function extendConfig(config, configDir) {
   const resultPromise = extendLookups.reduce((mergeConfigs, extendLookup) => {
     return mergeConfigs.then(mergedConfig => {
       return loadExtendedConfig(mergedConfig, configDir, extendLookup).then(extendedConfig => {
-        return merge({}, mergedConfig, extendedConfig)
+        const pluginMerger = {}
+        if (mergedConfig.plugins || extendedConfig.plugins) {
+          pluginMerger.plugins = union(mergedConfig.plugins, extendedConfig.plugins)
+        }
+        return merge({}, mergedConfig, extendedConfig, pluginMerger)
       })
     })
   }, Promise.resolve(origConfig))
