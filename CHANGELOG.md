@@ -24,6 +24,7 @@
 - Changed: `unit-*` rules now check `@media` values too.
 - Changed: `keyframe-declaration-no-important` now checks vendor prefixed `@keyframes` at-rules.
 - Changed: `time-no-imperceptible` now checks vendor prefixed properties.
+- Changed: `selector-attribute-quotes` now checks attribute selectors with whitespace around the operator or inside the brackets.
 - Changed: plugin arrays in extended configs are now concatenated with the main config's plugin array, instead of being overwritten by it. So plugins from the main config and from extended configs will all be loaded.
 - Added: non-standard syntaxes are automatically inferred from file extensions `.scss`, `.less`, and `.sss`.
 - Added: [processors](/docs/user-guide/configuration#processors.md).
