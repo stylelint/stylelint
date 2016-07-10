@@ -23,8 +23,6 @@ export const messages = ruleMessages(ruleName, {
  * @param {number|"tab"} space - Number of whitespaces to expect, or else
  *   keyword "tab" for single `\t`
  * @param {object} [options]
- * @param {array} [options.except = ["block", "value"]] - Do *not* expect extra level of
- *   indentation for nested blocks and multi-line values, respectively
  */
 export default function (space, options = {}) {
   const isTab = space === "tab"
@@ -39,8 +37,8 @@ export default function (space, options = {}) {
       actual: options,
       possible: {
         except: [ "block", "value", "param" ],
-        ignore: [ "value", "param" ],
-        indentInsideParens: [ "once", "twice", "once-at-root-twice-in-block" ],
+        ignore: [ "value", "param", "inside-parens" ],
+        indentInsideParens: [ "twice", "once-at-root-twice-in-block" ],
         indentClosingBrace: [isBoolean],
       },
       optional: true,
@@ -180,14 +178,21 @@ export default function (space, options = {}) {
       // `outsideParens` because function arguments and also non-standard parenthesized stuff like
       // Sass maps are ignored to allow for arbitrary indentation
       let parentheticalDepth = 0
-      styleSearch({ source, target: "\n", outsideParens: !options.indentInsideParens }, (match, matchCount) => {
+      styleSearch({
+        source,
+        target: "\n",
+        outsideParens: optionsHaveIgnored(options, "inside-parens"),
+      }, (match, matchCount) => {
         const precedesClosingParenthesis = /^[ \t]*\)/.test(source.slice(match.startIndex + 1))
 
-        if (!options.indentInsideParens && (precedesClosingParenthesis || match.insideParens)) { return }
+        if (
+          optionsHaveIgnored(options, "inside-parens")
+          && (precedesClosingParenthesis || match.insideParens)
+        ) { return }
 
         let expectedIndentLevel = newlineIndentLevel
         // Modififications for parenthetical content
-        if (options.indentInsideParens && match.insideParens) {
+        if (!optionsHaveIgnored(options, "inside-parens") && match.insideParens) {
           // If the first match in is within parentheses, reduce the parenthesis penalty
           if (matchCount === 1) parentheticalDepth -= 1
           const followsOpeningParenthesis = /\([ \t]*$/.test(source.slice(0, match.startIndex))
@@ -196,11 +201,6 @@ export default function (space, options = {}) {
           if (precedesClosingParenthesis) { parentheticalDepth -= 1 }
 
           switch (options.indentInsideParens) {
-            case "once":
-              if (precedesClosingParenthesis && !options.indentClosingBrace) {
-                expectedIndentLevel -= 1
-              }
-              break
             case "twice":
               if (!precedesClosingParenthesis || options.indentClosingBrace) {
                 expectedIndentLevel += 1
@@ -217,6 +217,10 @@ export default function (space, options = {}) {
                 expectedIndentLevel += 1
               }
               break
+            default:
+              if (precedesClosingParenthesis && !options.indentClosingBrace) {
+                expectedIndentLevel -= 1
+              }
           }
         }
 

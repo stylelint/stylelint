@@ -19,7 +19,7 @@ Specify indentation.
 
 ### `2`
 
-Always indent at-rules, rules, comments, declarations, and multi-line values by 2 spaces.
+Always indent at-rules, rules, comments, declarations, inside parentheses and multi-line values by 2 spaces.
 
 The following patterns are considered warnings:
 
@@ -74,6 +74,17 @@ a {
 (min-resolution: 120dpi) {}
 ```
 
+```css
+a {
+  color: rgb(
+  255,
+  255,
+  255
+  );
+  top: 0;
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -109,14 +120,6 @@ a {
   (min-resolution: 120dpi) {}
 ```
 
-## Optional options
-
-### `indentInsideParens: "once"|"twice"|"once-at-root-twice-in-block"`
-
-By default, indentation within function arguments and other parentheses are ignored. If you would like to enforce indentation inside parentheses, use this option.
-
-`"once"` means you expect one extra indentation (of your specified type) after newlines inside parentheses, and expect the closing parenthesis to have no extra indentation. For example:
-
 ```css
 a {
   color: rgb(
@@ -127,6 +130,14 @@ a {
   top: 0;
 }
 ```
+
+## Optional options
+
+### `indentInsideParens: "twice"|"once-at-root-twice-in-block"`
+
+By default, *one extra* indentation (of your specified type) is expected after newlines inside parentheses, and the closing parenthesis is expected to have no extra indentation.
+
+If you would like to change the quantity of extra indentation inside parentheses, use this option.
 
 `"twice"` means you expect two extra indentations (of your specified type) after newlines inside parentheses, and expect the closing parenthesis to have one extra indentation. For example:
 
@@ -197,11 +208,11 @@ a {
   }
 ```
 
-### `except: ["block", "value", "param"]`
+### `except: ["block", "param", "value"]`
 
 Do *not* indent for these things.
 
-For example, with `2`:
+For example, with `2`.
 
 The following patterns are considered warnings:
 
@@ -229,13 +240,47 @@ top right;
 }
 ```
 
-### `ignore: ["value", "param"]`
+### `ignore: ["inside-parens", "param", "value"]`
+
+#### `"inside-parens"`
+
+Ignore the indentation inside parentheses.
+
+For example, with `2`.
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  color: rgb(
+255,
+  255,
+    255
+  );
+  top: 0;
+}
+```
+
+#### `"param"`
+
+Ignore the indentation of at-rule params.
+
+For example, with `2`.
+
+The following patterns are *not* considered warnings:
+
+```css
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+    (min-resolution: 120dpi) {
+}
+```
 
 #### `"value"`
 
 Ignore the indentation of values.
 
-For example, with `2`:
+For example, with `2`.
 
 The following patterns are *not* considered warnings:
 
@@ -245,20 +290,5 @@ a {
 top right,
   bottom left,
     bottom right;
-}
-```
-
-#### `"param"`
-
-Ignore the indentation of at-rule params.
-
-For example, with `2`:
-
-The following patterns are *not* considered warnings:
-
-```css
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-    (min-resolution: 120dpi) {
 }
 ```
