@@ -13,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (property, value) => `Unexpected value "${value}" for property "${property}"`,
 })
 
-export default function (blacklist) {
+function rule(blacklist) {
   return (root, result) => {
 
     result.warn((
@@ -49,3 +49,7 @@ export default function (blacklist) {
     })
   }
 }
+
+rule.primaryOptionArray = true
+
+export default rule

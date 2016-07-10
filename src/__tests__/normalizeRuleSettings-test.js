@@ -36,12 +36,12 @@ test("rules whose primary option IS NOT an array", t => {
 
 test("rules whose primary option CAN BE an array", t => {
   t.deepEqual(
-    normalizeRuleSettings([ "calc", "rgba" ], "function-whitelist"),
+    normalizeRuleSettings([ "calc", "rgba" ], "function-whitelist", true),
     [[ "calc", "rgba" ]],
     "solo primary option array is nested within an array"
   )
   t.deepEqual(
-    normalizeRuleSettings([ [ "calc", "rgba" ], { "severity": "warning" } ], "function-whitelist"),
+    normalizeRuleSettings([ [ "calc", "rgba" ], { "severity": "warning" } ], "function-whitelist", true),
     [ [ "calc", "rgba" ], { "severity": "warning" } ],
     "nested primary option array returns same"
   )
@@ -51,12 +51,12 @@ test("rules whose primary option CAN BE an array", t => {
     "string as first primary option returns same"
   )
   t.deepEqual(
-    normalizeRuleSettings([ { foo: 1 }, { foo: 2 } ], "declaration-block-properties-order"),
+    normalizeRuleSettings([ { foo: 1 }, { foo: 2 } ], "declaration-block-properties-order", true),
     [[ { foo: 1 }, { foo: 2 } ]],
     "primary option array with length of 2"
   )
   t.deepEqual(
-    normalizeRuleSettings([ [ { foo: 1 }, { foo: 2 } ], { "severity": "warning" } ], "declaration-block-properties-order"),
+    normalizeRuleSettings([ [ { foo: 1 }, { foo: 2 } ], { "severity": "warning" } ], "declaration-block-properties-order", true),
     [ [ { foo: 1 }, { foo: 2 } ], { "severity": "warning" } ],
     "primary option array with length of 2 and secondary options"
   )

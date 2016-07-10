@@ -64,6 +64,20 @@ export default stylelint.createPlugin(ruleName, function (expectation) {
 })
 ```
 
+## Allow primary option arrays
+
+If your plugin can accept an array as its primary option, you must designate this by setting the property `primaryOptionArray = true` on your rule function. For example:
+
+```js
+function rule(primary, secondary) {
+  return (root, result) => {..}
+}
+rule.primaryOptionArray = true
+export default stylelint.createPlugin(ruleName, rule)
+```
+
+There is one caveat here: If your rule accepts a primary option array, it cannot also accept a primary option object. Whenever possible, if you want your rule to accept a primary option array, you should just make an array the only possibility, instead of allowing for various data structures.
+
 ## External helper modules
 
 In addition to the standard parsers mentioned in the ["Working on rules"](/docs/developer-guide/rules.md) doc, there are other external modules used within stylelint that we recommend using. These include:

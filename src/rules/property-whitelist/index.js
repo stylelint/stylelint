@@ -15,7 +15,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (property) => `Unexpected property "${property}"`,
 })
 
-export default function (whitelist) {
+function rule(whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,
@@ -39,3 +39,7 @@ export default function (whitelist) {
     })
   }
 }
+
+rule.primaryOptionArray = true
+
+export default rule

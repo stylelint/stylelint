@@ -16,7 +16,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (property, unit) => `Unexpected unit "${unit}" for property "${property}"`,
 })
 
-export default function (blacklist) {
+function rule(blacklist) {
   return (root, result) => {
 
     result.warn((
@@ -62,3 +62,7 @@ export default function (blacklist) {
     })
   }
 }
+
+rule.primaryOptionArray = true
+
+export default rule
