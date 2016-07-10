@@ -62,6 +62,7 @@ import functionNameCase from "./function-name-case"
 import functionParenthesesNewlineInside from "./function-parentheses-newline-inside"
 import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
 import functionUrlDataUris from "./function-url-data-uris"
+import functionUrlNoSchemeRelative from "./function-url-no-scheme-relative"
 import functionUrlQuotes from "./function-url-quotes"
 import functionWhitelist from "./function-whitelist"
 import functionWhitespaceAfter from "./function-whitespace-after"
@@ -108,6 +109,7 @@ import selectorAttributeOperatorBlacklist from "./selector-attribute-operator-bl
 import selectorAttributeOperatorSpaceAfter from "./selector-attribute-operator-space-after"
 import selectorAttributeOperatorSpaceBefore from "./selector-attribute-operator-space-before"
 import selectorAttributeOperatorWhitelist from "./selector-attribute-operator-whitelist"
+import selectorAttributeQuotes from "./selector-attribute-quotes"
 import selectorClassPattern from "./selector-class-pattern"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
@@ -216,6 +218,7 @@ export default {
   "function-parentheses-newline-inside": functionParenthesesNewlineInside,
   "function-parentheses-space-inside": functionParenthesesSpaceInside,
   "function-url-data-uris": functionUrlDataUris,
+  "function-url-no-scheme-relative": functionUrlNoSchemeRelative,
   "function-url-quotes": functionUrlQuotes,
   "function-whitelist": functionWhitelist,
   "function-whitespace-after": functionWhitespaceAfter,
@@ -262,6 +265,7 @@ export default {
   "selector-attribute-operator-space-after": selectorAttributeOperatorSpaceAfter,
   "selector-attribute-operator-space-before": selectorAttributeOperatorSpaceBefore,
   "selector-attribute-operator-whitelist": selectorAttributeOperatorWhitelist,
+  "selector-attribute-quotes": selectorAttributeQuotes,
   "selector-class-pattern": selectorClassPattern,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,

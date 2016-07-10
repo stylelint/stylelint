@@ -16,6 +16,10 @@ testRule(rule, {
   }, {
     code: "span a {}",
   }, {
+    code: ".a:not(.b) {}",
+  }, {
+    code: ".a:not(.b, .c) {}",
+  }, {
     code: "div div div div div div div div div div div {}",
     message: "a selector with 11 elements has a lower specificity than a selector with one classname",
   }, {

@@ -32,6 +32,8 @@ testRule(rule, {
   }, {
     code: "@import '1.123.css'",
   }, {
+    code: "@IMPORT '1.123.css'",
+  }, {
     code: "a { background: url(1.123.jpg) }",
   } ],
 

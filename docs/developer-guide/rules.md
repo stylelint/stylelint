@@ -21,8 +21,11 @@ Usually we have some discussion about the rule's purpose, name, and options befo
 - Applicable to standard CSS syntax only.
 - Useful to the majority of users.
 - Has a clear and unambiguous finished state.
+- Has a singular purpose.
+- Is standalone, and doesn't rely on another rule.
+- Does not contain functionality that overlaps with another rule.
 
-Otherwise, it should be a plugin.
+Otherwise, it should be a plugin. However, plugins should also try to adhere to the latter three criteria.
 
 Once you have something to show, you'll create a [pull request](https://github.com/stylelint/stylelint/compare) to continue the conversation.
 

@@ -53,7 +53,7 @@ testRule(rule, {
     code: "a{\n@extend .b;\n@extend .c\n}",
     description: "non-standard nested rule",
   }, {
-    code: "@font-face {}; a{}",
+    code: "@font-face {}; a {}",
     description: "ignore at-rule with block",
   } ],
 

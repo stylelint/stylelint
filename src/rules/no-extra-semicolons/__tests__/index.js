@@ -476,3 +476,25 @@ testRule(rule, {
     column: 1,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [true],
+  syntax: "less",
+
+  accept: [ {
+    code: "@import 'x.css';",
+  }, {
+    code: "a { .mixin(); .mixin2; }",
+  }, {
+    code: "a { .mixin();; .mixin2;; }",
+    description: "ignore less mixins",
+  } ],
+
+  reject: [{
+    code: "a { .mixin();\ncolor: red;; }",
+    message: messages.rejected,
+    line: 2,
+    column: 10,
+  }],
+})

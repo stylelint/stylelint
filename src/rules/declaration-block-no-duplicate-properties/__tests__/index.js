@@ -82,6 +82,12 @@ testRule(rule, {
     code: "a { color: pink; @media { color: orange; .foo { color: black; color: white; } } }",
     description: "double nested again",
     message: messages.rejected("color"),
+  }, {
+    code: "a { -webkit-border-radius: 12px; -webkit-border-radius: 10px; }",
+    message: messages.rejected("-webkit-border-radius"),
+  }, {
+    code: "a { -WEBKIT-border-radius: 12px; -webkit-BORDER-radius: 10px; }",
+    message: messages.rejected("-webkit-BORDER-radius"),
   } ],
 })
 

@@ -33,6 +33,8 @@ testRule(rule, {
   }, {
     code: "@keyframes { 0% { top: 0; } }",
   }, {
+    code: "@-webkit-keyframes { 0% { top: 0; } }",
+  }, {
     code: "@viewport { orientation: landscape; }",
   }, {
     code: "@counter-style win-list { system: fixed; symbols: url(gold-medal.svg) url(silver-medal.svg) ; suffix: ' ';}",
@@ -85,6 +87,16 @@ testRule(rule, {
     message: messages.expected("KEYFRAMES", "keyframes"),
     line: 1,
     column: 45,
+  }, {
+    code: "@-WEBKIT-keyframes { 0% { top: 0; } }",
+    message: messages.expected("-WEBKIT-keyframes", "-webkit-keyframes"),
+    line: 1,
+    column: 1,
+  }, {
+    code: "@-WEBKIT-KEYFRAMES { 0% { top: 0; } }",
+    message: messages.expected("-WEBKIT-KEYFRAMES", "-webkit-keyframes"),
+    line: 1,
+    column: 1,
   } ],
 })
 
@@ -113,6 +125,8 @@ testRule(rule, {
     code: "@PAGE :first { margin: 1cm; }",
   }, {
     code: "@KEYFRAMES { 0% { top: 0; } }",
+  }, {
+    code: "@-WEBKIT-KEYFRAMES { 0% { top: 0; } }",
   }, {
     code: "@VIEWPORT { orientation: landscape; }",
   }, {
@@ -166,5 +180,15 @@ testRule(rule, {
     message: messages.expected("keyframes", "KEYFRAMES"),
     line: 1,
     column: 45,
+  }, {
+    code: "@-webkit-KEYFRAMES { 0% { top: 0; } }",
+    message: messages.expected("-webkit-KEYFRAMES", "-WEBKIT-KEYFRAMES"),
+    line: 1,
+    column: 1,
+  }, {
+    code: "@-webkit-keyframes { 0% { top: 0; } }",
+    message: messages.expected("-webkit-keyframes", "-WEBKIT-KEYFRAMES"),
+    line: 1,
+    column: 1,
   } ],
 })

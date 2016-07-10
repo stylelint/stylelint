@@ -8,6 +8,8 @@ Disallow unknown at-rules.
  * At-rules like this */
 ```
 
+This rule considers at-rules defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
+
 ## Options
 
 ### `true`
@@ -33,8 +35,8 @@ The following patterns are *not* considered warnings:
 ```
 
 ```css
-@font-feature-values Font One { 
-  @styleset {} 
+@font-feature-values Font One {
+  @styleset {}
 }
 ```
 

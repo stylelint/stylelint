@@ -1,12 +1,15 @@
 sudo: false
-
 language: node_js
 node_js:
   - '6'
   - '4'
-
+cache:
+  directories:
+    - node_modules
+before_install:
+- npm update
+- npm prune
 after_success: npm run coveralls
-
 notifications:
   webhooks:
     - https://webhooks.gitter.im/e/d763493612da45967361

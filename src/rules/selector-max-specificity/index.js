@@ -33,6 +33,8 @@ export default function (max) {
       // Using rule.selectors gets us each selector in the eventuality we have a comma separated set
       rule.selectors.forEach(selector => {
         resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {
+          // Return early if selector contains a not pseudo-class
+          if (selector.indexOf(":not(") !== -1) { return }
           // Check if the selector specificity exceeds the allowed maximum
           if (compare(resolvedSelector, maxSpecificityArray) === 1) {
             report({

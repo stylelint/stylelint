@@ -8,6 +8,8 @@ a { width: 100pixels; }
  *  These units */
 ```
 
+This rule considers units defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
+
 ## Options
 
 ### `true`

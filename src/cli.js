@@ -117,11 +117,15 @@ Promise.resolve().then(() => {
     code: stdin,
   }))
 }).then(options => {
+  if (!options.files && !options.code) {
+    cli.showHelp()
+  }
+
   return standalone(options)
 }).then(({ output, errored }) => {
   if (!output) { return }
   process.stdout.write(output)
-  if (errored) { process.exit(2) }
+  if (errored) { process.exitCode = 2 }
 }).catch(err => {
   console.log(err.stack) // eslint-disable-line no-console
   process.exit(err.code || 1)

@@ -44,6 +44,8 @@ testRule(rule, {
   }, {
     code: "@keyframes identifier { }",
   }, {
+    code: "@-webkit-keyframes identifier { }",
+  }, {
     code: "@viewport { }",
   }, {
     code: "@viewport{ }",
@@ -137,6 +139,11 @@ testRule(rule, {
     message: messages.expectedAfter("@unknown"),
     line: 1,
     column: 8,
+  }, {
+    code: "@-webkit-keyframes  ident { };",
+    message: messages.expectedAfter("@-webkit-keyframes"),
+    line: 1,
+    column: 18,
   } ],
 })
 
@@ -251,6 +258,8 @@ testRule(rule, {
   }, {
     code: "@keyframes identifier { }",
   }, {
+    code: "@-webkit-keyframes identifier { }",
+  }, {
     code: "@viewport { }",
   }, {
     code: "@viewport{ }",
@@ -312,5 +321,10 @@ testRule(rule, {
     message: messages.expectedAfter("@unknown"),
     line: 1,
     column: 8,
+  }, {
+    code: "@-webkit-keyframes  ident { };",
+    message: messages.expectedAfter("@-webkit-keyframes"),
+    line: 1,
+    column: 18,
   } ],
 })

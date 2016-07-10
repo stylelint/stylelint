@@ -167,7 +167,7 @@ b {
 
 #### `"after-comment"`
 
-Ignore rules that come after a comment.
+Ignore at-rules that come after a comment.
 
 The following patterns are *not* considered warnings:
 
@@ -235,4 +235,23 @@ The following patterns are *not* considered warnings:
 @import url(y.css);
 
 @media print {}
+```
+
+### `ignoreAtRules: ["array", "of", "at-rules"]`
+
+Ignore specified at-rules.
+
+For example, with `"always"`.
+
+Given:
+
+```js
+["import"]
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+@charset "UTF-8";
+@import {}
 ```
