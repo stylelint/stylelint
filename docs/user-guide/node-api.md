@@ -71,7 +71,7 @@ If you pass a function, it must fit the signature described in the [Developer Gu
 
 ### `ignorePath`
 
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `cwd`. By default, stylelint looks for `.stylelintignore` in the same directory as the configuration file. See [Configuration](/docs/user-guide/configuration.md#stylelintignore).
+A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](/docs/user-guide/configuration.md#stylelintignore).
 
 ### `syntax`
 
