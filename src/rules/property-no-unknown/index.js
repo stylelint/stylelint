@@ -1,7 +1,6 @@
 import {
   isString,
   isArray,
-  isBoolean,
 } from "lodash"
 import {
   isStandardSyntaxProperty,
@@ -18,46 +17,9 @@ export const messages = ruleMessages(ruleName, {
   rejected: (property) => `Unexpected unknown property "${property}"`,
 })
 
-const isPropertyIgnored = (prop, ignore) => {
-  if (isArray(ignore)) {
-    return ignore.indexOf(prop) > -1
-  }
-
-  if (isString(ignore)) {
-    return prop === ignore
-  }
-
-  return false
-}
-
-const isPropertyValid = (prop) => {
-  return properties.indexOf(prop) > -1
-}
-
-const validate = (result, options) => {
-  return function (node) {
-    const prop = node.prop
-
-    if (!isStandardSyntaxProperty(prop)) { return }
-    if (isCustomProperty(prop)) { return }
-    if (isPropertyIgnored(prop, options.ignoreProperties)) { return }
-    if (isPropertyValid(prop)) { return }
-
-    report({
-      message: messages.rejected(node.prop),
-      node,
-      result,
-      ruleName,
-    })
-  }
-}
-
-export default function (enabled, options) {
+export default function (actual, options) {
   return (root, result) => {
-    const validOptions = validateOptions(result, ruleName, {
-      actual: enabled,
-      possible: isBoolean,
-    }, {
+    const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
       possible: {
         ignoreProperties: [isString],
@@ -66,10 +28,24 @@ export default function (enabled, options) {
     })
 
     if (!validOptions) { return }
-    if (!enabled) { return }
-    if (!options) { options = {} }
 
-    root.walkDecls(validate(result, options))
+    root.walkDecls(node => {
+      const { prop } = node
+
+      if (!isStandardSyntaxProperty(prop)) { return }
+      if (isCustomProperty(prop)) { return }
+
+      const ignoreProperties = options && options.ignoreProperties || []
+      if (isArray(ignoreProperties) && ignoreProperties.indexOf(prop) !== -1) { return }
+
+      if (properties.indexOf(prop) !== -1) { return }
+
+      report({
+        message: messages.rejected(node.prop),
+        node,
+        result,
+        ruleName,
+      })
+    })
   }
 }
-
