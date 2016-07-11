@@ -14,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (unit) => `Unexpected unit "${unit}"`,
 })
 
-export default function (blacklistInput) {
+function rule(blacklistInput) {
   const blacklist = [].concat(blacklistInput)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -43,3 +43,7 @@ export default function (blacklistInput) {
     })
   }
 }
+
+rule.primaryOptionArray = true
+
+export default rule

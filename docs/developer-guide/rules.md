@@ -44,6 +44,19 @@ Every rule *must have* a **primary option**.
 - In `"color-hex-case": "upper"`, the primary option is `"upper"`.
 - In `"indentation": [2, { "except": ["block"] }]`, the primary option is `2`.
 
+If your rule can accept an array as its primary option, you must designate this by setting the property `primaryOptionArray = true` on your rule function. For example:
+
+```js
+function rule(primary, secondary) {
+  return (root, result) => {..}
+}
+rule.primaryOptionArray = true
+export default rule
+// or, for plugins: stylelint.createPlugin(ruleName, rule)
+```
+
+There is one caveat here: If your rule accepts a primary option array, it cannot also accept a primary option object. Whenever possible, if you want your rule to accept a primary option array, you should just make an array the only possibility, instead of allowing for various data structures.
+
 #### Secondary
 
 Some rules require extra flexibility to address a variety of use-cases. These can use a **secondary options object**.

@@ -16,7 +16,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedEmptyLineBetween: (first, second) => `Unexpected empty line between property "${first} and property "${second}"`,
 })
 
-export default function (expectation, options) {
+function rule(expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -199,6 +199,10 @@ export default function (expectation, options) {
     }
   }
 }
+
+rule.primaryOptionArray = true
+
+export default rule
 
 function createExpectedOrder(input) {
   const order = {}
