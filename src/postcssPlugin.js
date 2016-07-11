@@ -89,8 +89,9 @@ export default postcss.plugin("stylelint", (options = {}) => {
           throw configurationError(`Undefined rule "${ruleName}"`)
         }
 
+        const rule = ruleDefinitions[ruleName]
         const rawRuleSettings = config.rules[ruleName]
-        const ruleSettings = normalizeRuleSettings(rawRuleSettings, ruleName)
+        const ruleSettings = normalizeRuleSettings(rawRuleSettings, ruleName, rule.primaryOptionArray)
         const primaryOption = ruleSettings[0]
         const secondaryOptions = ruleSettings[1]
 
@@ -102,7 +103,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
         result.stylelint.customMessages[ruleName] = secondaryOptions && secondaryOptions.message
 
         // Run the rule with the primary and secondary options
-        ruleDefinitions[ruleName](primaryOption, secondaryOptions)(root, result)
+        rule(primaryOption, secondaryOptions)(root, result)
       })
     })
   }

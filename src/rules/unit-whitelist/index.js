@@ -15,7 +15,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (unit) => `Unexpected unit "${unit}"`,
 })
 
-export default function (whitelistInput) {
+function rule(whitelistInput) {
   const whitelist = [].concat(whitelistInput)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -51,3 +51,7 @@ export default function (whitelistInput) {
     )
   }
 }
+
+rule.primaryOptionArray = true
+
+export default rule

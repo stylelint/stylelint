@@ -37,6 +37,7 @@
 
 # Head
 
+- Added: plugins can allow primary option arrays by setting `ruleFunction.primaryOptionArray = true`.
 - Fixes: better handling quotes in selector attribute with multiple attributes.
 
 # 6.9.0

@@ -224,6 +224,32 @@ test("slashless plugin causes configuration error", t => {
   t.plan(planned)
 })
 
+test("plugin with primary option array", t => {
+  const config = {
+    plugins: [path.join(__dirname, "fixtures/plugin-primary-array")],
+    rules: {
+      "plugin/primary-array": [ "foo", "bar" ],
+    },
+  }
+  postcss().use((stylelint(config))).process("a {}").then(result => {
+    t.equal(result.warnings().length, 0, "nothing went wrong")
+    t.end()
+  }).catch(logError)
+})
+
+test("plugin with primary option array within options array", t => {
+  const config = {
+    plugins: [path.join(__dirname, "fixtures/plugin-primary-array")],
+    rules: {
+      "plugin/primary-array": [ [ "foo", "bar" ], { something: true } ],
+    },
+  }
+  postcss().use((stylelint(config))).process("a {}").then(result => {
+    t.equal(result.warnings().length, 0, "nothing went wrong")
+    t.end()
+  }).catch(logError)
+})
+
 function logError(err) {
   console.log(err.stack) // eslint-disable-line no-console
 }

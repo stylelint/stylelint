@@ -16,7 +16,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (name) => `Unexpected function "${name}"`,
 })
 
-export default function (blacklist) {
+function rule(blacklist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
@@ -42,3 +42,7 @@ export default function (blacklist) {
     })
   }
 }
+
+rule.primaryOptionArray = true
+
+export default rule

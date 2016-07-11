@@ -14,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
   expected: (first, second) => `Expected "${first}" to come before "${second}"`,
 })
 
-export default function (expectation, options) {
+function rule(expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -157,6 +157,10 @@ export default function (expectation, options) {
     }
   }
 }
+
+rule.primaryOptionArray = true
+
+export default rule
 
 function createExpectedOrder(input) {
   const order = {}
