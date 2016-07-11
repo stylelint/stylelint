@@ -6,8 +6,11 @@
 - Removed: NodeJS `0.12.x` support. `4.2.1 LTS` or greater is now required.
 - Removed: `media-query-parentheses-space-inside` rule. Use the new `media-feature-parentheses-space-inside` rule instead.
 - Removed: `no-missing-eof-newline` rule. Use the new rule `no-missing-end-of-source-newline` instead.
-- Removed: `number-zero-length-no-unit`. Use `length-zero-no-unit` instead.
-- Removed: `property-*-blacklist` and `property-*-whitelist`. Use `declaration-property-*-blacklist` and `declaration-property-*-whitelist` instead.
+- Removed: `number-zero-length-no-unit` rule. Use the `length-zero-no-unit` rule instead.
+- Removed: `property-unit-blacklist` rule. Use the `declaration-property-unit-blacklist` rule instead.
+- Removed: `property-unit-whitelist` rule. Use the `declaration-property-unit-whitelist` rule instead.
+- Removed: `property-value-blacklist` rule. Use the `declaration-property-value-blacklist` rule instead.
+- Removed: `property-value-whitelist` rule. Use the `declaration-property-value-whitelist` rule instead.
 - Removed: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
 - Removed: `"single-where-required"`, `"single-where-recommended"`, `"single-unless-keyword"`, `"double-where-required"`, `"double-where-recommended"` and `"double-unless-keyword"` options for `font-family-name-quotes`. Instead, use the `"always-unless-keyword"`, `always-where-recommended` or `always-where-required` options together with the `string-quotes` rule.
 - Removed: `"single"`, `"double"` and `"none"` options for `function-url-quotes`. Instead, use the `"always"` or `"never"` options together with the `string-quotes` rule.
