@@ -18,6 +18,7 @@
 - Changed: `declaration-block-no-ignored-properties` now detects use of `min-width` and `max-width` with inline, table-row, table-row-group, table-column and table-column-group elements.
 - Changed: `declaration-block-no-ignored-properties` now detects use of `overflow`, `overflow-x` and `overflow-y` with inline elements.
 - Changed: `font-family-name-quotes` treats `-apple-*` and `BlinkMacSystemFont` system fonts as keywords that should never be wrapped in quotes.
+- Changed: `indentation` now checks inside of parentheses by default. If you use the `indentInsideParens: "once"` secondary option, simply remove it from your config. If you do not want to check inside of parentheses, use the new `ignore: ["inside-parens"]` secondary option. The `indentInsideParens: "twice"` and `indentInsideParens: "once-at-root-twice-in-block"` secondary options are unchanged.
 - Changed: files matching ignore patterns no longer receive an "info"-severity message, which was always printed by the string formatter. Instead, the file's stylelint result object receives an `ignored: true` property, which various formatters can use as needed. The standard string formatter prints nothing for ignored files; but in `--verbose` mode, ignored files are included in the filelist.
 - Changed: `comment-word-blacklist` no longer ignores words within copyright  comments
 - Changed: `font-family-name-quotes` now checks the `font` property in addition to the `font-family` property
