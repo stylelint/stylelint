@@ -19,6 +19,9 @@ testRule(rule, {
   }, {
     code: ".foo { --bg-color: white; }",
     description: "ignore standard CSS variables",
+  }, {
+    code: ".foo { *width: 100px; }",
+    description: "ignore CSS hacks",
   } ],
 
   reject: [ {
@@ -26,6 +29,11 @@ testRule(rule, {
     message: messages.rejected("colr"),
     line: 1,
     column: 8,
+  }, {
+    code: ".foo {\n  colr: blue;\n}",
+    message: messages.rejected("colr"),
+    line: 2,
+    column: 3,
   }, {
     code: ".foo { -moz-align-self: center; }",
     message: messages.rejected("-moz-align-self"),
