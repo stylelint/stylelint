@@ -36,9 +36,9 @@ export default function (actual, options) {
       if (isCustomProperty(prop)) { return }
 
       const ignoreProperties = options && options.ignoreProperties || []
-      if (isArray(ignoreProperties) && ignoreProperties.indexOf(prop) !== -1) { return }
+      if (isArray(ignoreProperties) && ignoreProperties.indexOf(prop.toLowerCase()) !== -1) { return }
 
-      if (properties.indexOf(prop) !== -1) { return }
+      if (properties.indexOf(prop.toLowerCase()) !== -1) { return }
 
       report({
         message: messages.rejected(node.prop),

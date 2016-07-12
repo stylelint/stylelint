@@ -11,6 +11,8 @@ testRule(rule, {
   accept: [ {
     code: ".foo { color: green; }",
   }, {
+    code: ".foo { COLoR: green; }",
+  }, {
     code: ".foo { fill: black; }",
   }, {
     code: ".foo { -webkit-align-self: center; }",
@@ -27,6 +29,11 @@ testRule(rule, {
   reject: [ {
     code: ".foo { colr: blue; }",
     message: messages.rejected("colr"),
+    line: 1,
+    column: 8,
+  }, {
+    code: ".foo { COLR: blue; }",
+    message: messages.rejected("COLR"),
     line: 1,
     column: 8,
   }, {
