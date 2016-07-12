@@ -9,8 +9,8 @@ cache:
   directories:
     - node_modules
 before_install:
-- npm update
 - npm prune
+- npm update
 after_success: npm run coveralls
 notifications:
   webhooks:
