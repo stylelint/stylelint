@@ -46,6 +46,11 @@ testRule(rule, {
     message: messages.rejected("-moz-align-self"),
     line: 1,
     column: 8,
+  }, {
+    code: ".foo { *wdth: 100px; }",
+    message: messages.rejected("wdth"),
+    line: 1,
+    column: 8,
   } ],
 })
 

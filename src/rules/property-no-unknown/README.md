@@ -10,7 +10,7 @@ Disallow unknown properties.
 
 This rule considers properties defined in the [CSS Specifications and browser specific properties](https://github.com/betit/known-css-properties#source) to be known.
 
-This rule ignores variables ($sass, @less, --custom-property).
+This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 ## Options
 
