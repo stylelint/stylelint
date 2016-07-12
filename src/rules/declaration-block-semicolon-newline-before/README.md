@@ -11,6 +11,8 @@ Require a newline or disallow whitespace before the semicolons of declaration bl
  * The newline before this semicolon */
 ```
 
+This rule ignores semicolons that are preceded by Less mixins.
+
 ## Options
 
 `string`: `"always"|"always-multi-line"|"never-multi-line"`
