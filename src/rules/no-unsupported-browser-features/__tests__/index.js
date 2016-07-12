@@ -71,7 +71,7 @@ testRule(rule, {
   reject: [{
     code: "a { background: linear-gradient(black, white); }",
     description: "gradient",
-    message: messages.rejected("\"css-gradients\" is not fully supported by IE 9 and  only partially supported by: Chrome 4,5,6,7,8,9"),
+    message: messages.rejected("\"css-gradients\" is not fully supported by IE 9 and only partially supported by: Chrome 4,5,6,7,8,9"),
     line: 1,
     column: 5,
   }],
