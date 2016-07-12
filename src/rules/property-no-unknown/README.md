@@ -1,14 +1,16 @@
 # property-no-unknown
 
-Disallow unknown property.
+Disallow unknown properties.
 
 ```css
 .foo { heigth: 100%; }
 /**    ↑
- *  These properties */
+ * These properties */
 ```
 
 This rule considers properties defined in the [CSS Specifications and browser specific properties](https://github.com/betit/known-css-properties#source) to be known.
+
+This rule ignores variables ($sass, @less, --custom-property).
 
 ## Options
 
@@ -51,36 +53,6 @@ The following patterns are *not* considered warnings:
 ```css
 .foo {
   align-self: center;
-}
-```
-
-```css
-.foo {
-  --bg-color: white;
-}
-```
-
-```css
-.foo {
-  $bgColor: white;
-}
-```
-
-```css
-.foo {
-  @bgColor: white;
-}
-```
-
-```css
-.foo {
-  #{$prop}-color: black;
-}
-```
-
-```css
-.foo {
-  @{prop}-color: black;
 }
 ```
 
