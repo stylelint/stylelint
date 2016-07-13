@@ -70,7 +70,7 @@
     "coveralls": "^2.11.9",
     "eslint": "3.0.0",
     "eslint-config-stylelint": "^3.0.0",
-    "known-css-properties": "^0.0.2",
+    "known-css-properties": "^0.0.3",
     "npm-run-all": "^2.1.0",
     "npmpub": "^3.0.1",
     "nyc": "^7.0.0",
