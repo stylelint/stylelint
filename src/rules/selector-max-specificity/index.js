@@ -35,15 +35,21 @@ export default function (max) {
         resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {
           // Return early if selector contains a not pseudo-class
           if (selector.indexOf(":not(") !== -1) { return }
+          // Return early if selector contains a matches
+          if (selector.indexOf(":matches(") !== -1) { return }
           // Check if the selector specificity exceeds the allowed maximum
-          if (compare(resolvedSelector, maxSpecificityArray) === 1) {
-            report({
-              ruleName,
-              result,
-              node: rule,
-              message: messages.expected(resolvedSelector, max),
-              word: selector,
-            })
+          try {
+            if (compare(resolvedSelector, maxSpecificityArray) === 1) {
+              report({
+                ruleName,
+                result,
+                node: rule,
+                message: messages.expected(resolvedSelector, max),
+                word: selector,
+              })
+            }
+          } catch (e) {
+            result.warn("Cannot parse selector", { node : rule })
           }
         })
       })

@@ -3,6 +3,8 @@ import {
   ruleName,
 } from ".."
 import rules from "../../../rules"
+import stylelint from "../../.."
+import test from "tape"
 import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
@@ -19,6 +21,10 @@ testRule(rule, {
     code: ".a:not(.b) {}",
   }, {
     code: ".a:not(.b, .c) {}",
+  }, {
+    code: ".a:matches(.b) {}",
+  }, {
+    code: ".a:matches(.b, .c) {}",
   }, {
     code: "div div div div div div div div div div div {}",
     message: "a selector with 11 elements has a lower specificity than a selector with one classname",
@@ -176,4 +182,27 @@ testRule(rule, {
     code: "#hello @{test} {}",
     description: "ignore rules with variable interpolation",
   }],
+})
+
+test("cannot parse selector warning", t => {
+  const config = {
+    rules: {
+      "selector-max-specificity": ["0,3,0"],
+    },
+  }
+  let planned = 0
+
+  stylelint.lint({
+    code: ".a:unknown(.b, .d) { }",
+    config,
+  }).then(function (data) {
+    const invalidOptionWarnings = data.results[0].warnings
+    t.equal(invalidOptionWarnings.length, 1)
+    t.equal(invalidOptionWarnings[0].text, "Cannot parse selector")
+    t.equal(invalidOptionWarnings[0].line, 1)
+    t.equal(invalidOptionWarnings[0].column, 1)
+  })
+  planned += 4
+
+  t.plan(planned)
 })
