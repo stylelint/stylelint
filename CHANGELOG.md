@@ -1,4 +1,4 @@
-# 7.0.0
+# Head
 
 - Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration#processors.md) processors. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
 - Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. (If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`.)
@@ -35,16 +35,13 @@
 - Changed: `selector-attribute-quotes` now checks attribute selectors with whitespace around the operator or inside the brackets.
 - Changed: `time-no-imperceptible` now checks vendor prefixed properties.
 - Changed: `unit-*` rules now check `@media` values too.
+- Added: plugins can allow primary option arrays by setting `ruleFunction.primaryOptionArray = true`.
 - Added: [processors](/docs/user-guide/configuration#processors.md).
 - Added: `media-feature-parentheses-space-inside` rule.
 - Added: `no-missing-end-of-source-newline` rule.
-- Fixed: `no-unknown-animations` now classifies vendor prefixed `@keyframes` at-rules as known.
-
-# Head
-
 - Added: `property-no-unknown` rule.
-- Added: plugins can allow primary option arrays by setting `ruleFunction.primaryOptionArray = true`.
-- Fixes: better handling quotes in selector attribute with multiple attributes.
+- Fixed: Better handling quotes in selector attribute with multiple attributes.
+- Fixed: `no-unknown-animations` now classifies vendor prefixed `@keyframes` at-rules as known.
 
 # 6.9.0
 
