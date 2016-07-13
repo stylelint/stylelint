@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: missing `known-css-properties` dependency.
+
 # 7.0.0
 
 - Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration#processors.md) processors. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
