@@ -1,4 +1,4 @@
-# Head
+# 7.0.1
 
 - Fixed: missing `known-css-properties` dependency.
 
