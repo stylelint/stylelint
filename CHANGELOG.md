@@ -1,4 +1,4 @@
-# Head
+# 7.0.0
 
 - Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration#processors.md) processors. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
 - Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. (If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`.)
