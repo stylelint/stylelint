@@ -8,6 +8,8 @@ a { color: pink; top: 0; }
  * The space after this semicolon */
 ```
 
+This rule ignores semicolons that are preceded by Less mixins.
+
 ## Options
 
 `string`: `"always"|"never"|"always-single-line"|"never-single-line"`

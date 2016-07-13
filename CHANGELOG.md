@@ -42,6 +42,7 @@
 
 # Head
 
+- Added: `property-no-unknown` rule.
 - Added: plugins can allow primary option arrays by setting `ruleFunction.primaryOptionArray = true`.
 - Fixes: better handling quotes in selector attribute with multiple attributes.
 

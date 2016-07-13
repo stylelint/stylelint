@@ -100,6 +100,7 @@ import numberNoTrailingZeros from "./number-no-trailing-zeros"
 import propertyBlacklist from "./property-blacklist"
 import propertyCase from "./property-case"
 import propertyNoVendorPrefix from "./property-no-vendor-prefix"
+import propertyNoUnknown from "./property-no-unknown"
 import propertyWhitelist from "./property-whitelist"
 import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
@@ -256,6 +257,7 @@ export default {
   "property-blacklist": propertyBlacklist,
   "property-case": propertyCase,
   "property-no-vendor-prefix": propertyNoVendorPrefix,
+  "property-no-unknown": propertyNoUnknown,
   "property-whitelist": propertyWhitelist,
   "root-no-standard-properties": rootNoStandardProperties,
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,

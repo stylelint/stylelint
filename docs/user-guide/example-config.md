@@ -108,6 +108,7 @@ You might want to learn a little about [how rules are named and how they work to
     "number-no-trailing-zeros": true,
     "property-blacklist": string|[],
     "property-case": "lower"|"upper",
+    "property-no-unknown": true,
     "property-no-vendor-prefix": true,
     "property-whitelist": string|[],
     "root-no-standard-properties": true,
