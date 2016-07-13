@@ -1,8 +1,8 @@
 import {
   blockString,
   hasBlock,
-  report,
   rawNodeString,
+  report,
   ruleMessages,
   validateOptions,
   whitespaceChecker,

@@ -1,6 +1,3 @@
-import { compare } from "specificity"
-import resolvedNestedSelector from "postcss-resolve-nested-selector"
-
 import {
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
@@ -8,6 +5,8 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { compare } from "specificity"
+import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 export const ruleName = "selector-max-specificity"
 

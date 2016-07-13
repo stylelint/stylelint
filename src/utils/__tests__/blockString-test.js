@@ -1,6 +1,6 @@
-import test from "tape"
-import postcss from "postcss"
 import blockString from "../blockString"
+import postcss from "postcss"
+import test from "tape"
 
 test("blockString rules", t => {
   t.equal(postcssCheck("a { color: pink; }"), "{ color: pink; }")

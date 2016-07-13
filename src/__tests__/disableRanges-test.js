@@ -1,9 +1,9 @@
-import test from "tape"
+import disableRanges from "../disableRanges"
+import less from "postcss-less"
 import { noop } from "lodash"
 import postcss from "postcss"
 import scss from "postcss-scss"
-import less from "postcss-less"
-import disableRanges from "../disableRanges"
+import test from "tape"
 
 test("disableRanges registers disable/enable commands without rules", t => {
   let planCount = 0

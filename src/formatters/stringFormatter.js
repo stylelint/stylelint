@@ -1,9 +1,9 @@
+import table, { getBorderCharacters } from "table"
+import _ from "lodash"
 import chalk from "chalk"
 import path from "path"
-import _ from "lodash"
-import symbols from "log-symbols"
 import stringWidth from "string-width"
-import table, { getBorderCharacters } from "table"
+import symbols from "log-symbols"
 import utils from "postcss-reporter/lib/util"
 
 const MARGIN_WIDTHS = 9
@@ -52,7 +52,7 @@ function getMessageWidth(columnWidths) {
     return columnWidths[3]
   }
 
-  const availableWidth = process.stdout.columns || 80
+  const availableWidth = process.stdout.columns < 80 ? 80 : process.stdout.columns
   const fullWidth = _.sum(_.values(columnWidths))
 
   // If there is no reason to wrap the text, we won't align the last column to the right

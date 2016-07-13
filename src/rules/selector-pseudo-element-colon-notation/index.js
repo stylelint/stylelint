@@ -1,12 +1,12 @@
-import _ from "lodash"
 import {
   isStandardSyntaxRule,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
+import _ from "lodash"
 import { levelOneAndTwoPseudoElements } from "../../reference/keywordSets"
+import styleSearch from "style-search"
 
 export const ruleName = "selector-pseudo-element-colon-notation"
 

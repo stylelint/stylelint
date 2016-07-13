@@ -1,7 +1,7 @@
 import { assign } from "lodash"
-import isWhitespace from "./isWhitespace"
-import isSingleLineString from "./isSingleLineString"
 import configurationError from "./configurationError"
+import isSingleLineString from "./isSingleLineString"
+import isWhitespace from "./isWhitespace"
 
 /**
  * Create a whitespaceChecker, which exposes the following functions:
@@ -153,18 +153,6 @@ export default function (targetWhitespace, expectation, messages) {
 
     if (!isValue(oneCharBefore)) { return }
 
-    if (targetWhitespace === "newline") {
-      // If index is preceeded by a Windows CR-LF ...
-      if (oneCharBefore === "\n" && twoCharsBefore === "\r") {
-        if (activeArgs.onlyOneChar || !isWhitespace(source[index - 3])) { return }
-      }
-
-      // If index is followed by a Unix LF ...
-      if (oneCharBefore === "\n" && twoCharsBefore !== "\r") {
-        if (activeArgs.onlyOneChar || !isWhitespace(twoCharsBefore)) { return }
-      }
-    }
-
     if (targetWhitespace === "space" && oneCharBefore === " ") {
       if (activeArgs.onlyOneChar || !isWhitespace(twoCharsBefore)) { return }
     }
@@ -176,7 +164,6 @@ export default function (targetWhitespace, expectation, messages) {
     const { source, index, err } = activeArgs
     const expectedChar = (function () {
       if (targetWhitespace === "newline") { return "\n" }
-      if (targetWhitespace === "space") { return " " }
     }())
     let i = index - 1
     while (source[i] !== expectedChar) {

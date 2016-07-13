@@ -1,16 +1,19 @@
-import postcss from "postcss"
-import multimatch from "multimatch"
-import globjoin from "globjoin"
 import _ from "lodash"
-import path from "path"
-import { configurationError } from "./utils"
-import ruleDefinitions from "./rules"
-import disableRanges from "./disableRanges"
 import buildConfig from "./buildConfig"
+import { configurationError } from "./utils"
+import disableRanges from "./disableRanges"
+import ignore from "ignore"
+import multimatch from "multimatch"
 import normalizeRuleSettings from "./normalizeRuleSettings"
+import path from "path"
+import postcss from "postcss"
+import ruleDefinitions from "./rules"
 
 export default postcss.plugin("stylelint", (options = {}) => {
-  let configPromise
+  // The Node API (standalone.js) will pass in its own _configPromise
+  let configPromise = options._configPromise
+  let ignorePatternsFilter
+
   return (root, result) => {
     if (!configPromise) {
       configPromise = buildConfig(options)
@@ -22,7 +25,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
     result.stylelint.ruleSeverities = {}
     result.stylelint.customMessages = {}
 
-    return configPromise.then(({ config, configDir }) => {
+    return configPromise.then(({ config }) => {
       if (!config) {
         throw configurationError("No configuration provided")
       }
@@ -31,14 +34,18 @@ export default postcss.plugin("stylelint", (options = {}) => {
         throw configurationError("No rules found within configuration. Have you provided a \"rules\" property?")
       }
 
-      if (config.ignoreFiles) {
-        const absoluteIgnoreFiles = [].concat(config.ignoreFiles).map(glob => {
-          if (path.isAbsolute(glob)) return glob
-          return globjoin(configDir, glob)
-        })
+      if (!ignorePatternsFilter && config.ignorePatterns) {
+        ignorePatternsFilter = ignore().add(config.ignorePatterns).createFilter()
+      }
+
+      if (ignorePatternsFilter || config.ignoreFiles) {
         const sourcePath = _.get(root, "source.input.file", "")
-        if (multimatch(sourcePath, absoluteIgnoreFiles).length) {
-          result.warn("This file is ignored", { severity: "info" })
+        const filepathRelativeToCwd = path.relative(process.cwd(), sourcePath)
+        if (
+          (ignorePatternsFilter && !ignorePatternsFilter(filepathRelativeToCwd))
+          || (config.ignoreFiles && multimatch(sourcePath, config.ignoreFiles).length)
+        ) {
+          result.stylelint.ignored = true
           return
         }
       }
@@ -57,13 +64,12 @@ export default postcss.plugin("stylelint", (options = {}) => {
               )
             }
             if (!_.includes(plugin.ruleName, "/")) {
-              result.warn((
-                "Plugin rules that aren't namespaced have been deprecated, " +
-                "and in 7.0 they will be disallowed."
-              ), {
-                stylelintType: "deprecation",
-                stylelintReference: "http://stylelint.io/developer-guide/plugins/",
-              })
+              throw configurationError(
+                "stylelint v7+ requires plugin rules to be namspaced, " +
+                "i.e. only `plugin-namespace/plugin-rule-name` plugin rule names are supported. " +
+                `The plugin rule "${plugin.ruleName}" does not do this, so will not work. ` +
+                "Please file an issue with the plugin."
+              )
             }
             ruleDefinitions[plugin.ruleName] = plugin.rule
           })

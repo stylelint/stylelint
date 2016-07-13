@@ -1,5 +1,5 @@
-import test from "tape"
 import blurFunctionArguments from "../blurFunctionArguments"
+import test from "tape"
 
 test("blurFunctionArguments", t => {
   t.equal(blurFunctionArguments("abc abc", "url"), "abc abc")

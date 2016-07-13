@@ -1,11 +1,15 @@
-import { vendor } from "postcss"
-import { isObject, isEmpty, find } from "lodash"
 import {
+  find,
+  isEmpty,
+  isObject,
+} from "lodash"
+import {
+  matchesStringOrRegExp,
   report,
   ruleMessages,
   validateOptions,
-  matchesStringOrRegExp,
 } from "../../utils"
+import { vendor } from "postcss"
 
 export const ruleName = "declaration-property-value-blacklist"
 

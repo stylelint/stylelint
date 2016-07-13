@@ -1,11 +1,11 @@
 const doiuse = require("doiuse")
-import Result from "postcss/lib/result"
-import { isString } from "lodash"
 import {
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import Result from "postcss/lib/result"
+import { isString } from "lodash"
 
 export const ruleName = "no-unsupported-browser-features"
 

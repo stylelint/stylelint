@@ -1,15 +1,20 @@
-import { testRule } from "../../../testUtils"
+import {
+  messages,
+  ruleName,
+} from ".."
 import rules from "../../../rules"
-import { ruleName, messages } from ".."
+import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
 
   accept: [ {
     code: "a { transition-delay: 0.2s; }",
+  }, {
+    code: "a { -webkit-transition-delay: 0.2s; }",
   }, {
     code: "a { tRaNsItIoN-dElAy: 0.2s; }",
   }, {
@@ -23,6 +28,8 @@ testRule(rule, {
   }, {
     code: "a { transition-duration: 0.15s; }",
   }, {
+    code: "a { -webkit-transition-duration: 0.15s; }",
+  }, {
     code: "a { transition-duration: 2.8s; }",
   }, {
     code: "a { transition-duration: 330ms; }",
@@ -30,6 +37,8 @@ testRule(rule, {
     code: "a { transition-duration: 4700ms; }",
   }, {
     code: "a { transition: foo 0.8s linear; }",
+  }, {
+    code: "a { -webkit-transition: foo 0.8s linear; }",
   }, {
     code: "a { tRaNsItIoN: foo 0.8s linear; }",
   }, {
@@ -39,6 +48,8 @@ testRule(rule, {
   }, {
     code: "a { animation-delay: 0.2s; }",
   }, {
+    code: "a { -webkit-animation-delay: 0.2s; }",
+  }, {
     code: "a { animation-delay: 3s; }",
   }, {
     code: "a { animation-delay: 200ms; }",
@@ -46,6 +57,8 @@ testRule(rule, {
     code: "a { animation-delay: 5000ms; }",
   }, {
     code: "a { animation-duration: 0.15s; }",
+  },  {
+    code: "a { -webkitanimation-duration: 0.15s; }",
   }, {
     code: "a { animation-duration: 2.8s; }",
   }, {
@@ -54,6 +67,8 @@ testRule(rule, {
     code: "a { animation-duration: 4700ms; }",
   }, {
     code: "a { animation: foo 0.8s linear; }",
+  },  {
+    code: "a { -webkit-animation: foo 0.8s linear; }",
   }, {
     code: "a { animation: foo 0.8s 200ms ease-in-out; }",
   }, {
@@ -67,6 +82,11 @@ testRule(rule, {
     message: messages.rejected("0.006s"),
     line: 1,
     column: 23,
+  }, {
+    code: "a { -webkit-transition-delay: 0.006s; }",
+    message: messages.rejected("0.006s"),
+    line: 1,
+    column: 31,
   }, {
     code: "a { tRaNsItIoN-dElAy: 0.006s; }",
     message: messages.rejected("0.006s"),
@@ -98,6 +118,11 @@ testRule(rule, {
     line: 1,
     column: 26,
   }, {
+    code: "a { -webkit-transition-duration: 0.009s; }",
+    message: messages.rejected("0.009s"),
+    line: 1,
+    column: 34,
+  }, {
     code: "a { transition-duration: 80ms; }",
     message: messages.rejected("80ms"),
     line: 1,
@@ -107,6 +132,11 @@ testRule(rule, {
     message: messages.rejected("0.008s"),
     line: 1,
     column: 21,
+  }, {
+    code: "a { -webkit-transition: foo 0.008s linear; }",
+    message: messages.rejected("0.008s"),
+    line: 1,
+    column: 29,
   }, {
     code: "a { tRaNsItIoN: foo 0.008s linear; }",
     message: messages.rejected("0.008s"),
@@ -128,6 +158,11 @@ testRule(rule, {
     line: 1,
     column: 22,
   }, {
+    code: "a { -webkit-animation-delay: 0.006s; }",
+    message: messages.rejected("0.006s"),
+    line: 1,
+    column: 30,
+  }, {
     code: "a { animation-delay: 3ms; }",
     message: messages.rejected("3ms"),
     line: 1,
@@ -138,6 +173,11 @@ testRule(rule, {
     line: 1,
     column: 25,
   }, {
+    code: "a { -webkit-animation-duration: 0.009s; }",
+    message: messages.rejected("0.009s"),
+    line: 1,
+    column: 33,
+  }, {
     code: "a { animation-duration: 80ms; }",
     message: messages.rejected("80ms"),
     line: 1,
@@ -147,6 +187,11 @@ testRule(rule, {
     message: messages.rejected("0.008s"),
     line: 1,
     column: 20,
+  },  {
+    code: "a { -webkit-animation: foo 0.008s linear; }",
+    message: messages.rejected("0.008s"),
+    line: 1,
+    column: 28,
   }, {
     code: "a { animation: foo 0.8s 20ms ease-in-out; }",
     message: messages.rejected("20ms"),

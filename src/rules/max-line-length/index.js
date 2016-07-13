@@ -1,11 +1,11 @@
-import { isNumber } from "lodash"
 import {
   optionsHaveIgnored,
-  ruleMessages,
-  styleSearch,
   report,
+  ruleMessages,
   validateOptions,
 } from "../../utils"
+import { isNumber } from "lodash"
+import styleSearch from "style-search"
 
 export const ruleName = "max-line-length"
 
@@ -37,7 +37,7 @@ export default function (maxLength, options) {
     checkNewline({ endIndex: 0 })
 
     // Check subsequent lines
-    styleSearch({ source: rootString, target: ["\n"], checkComments: true }, checkNewline)
+    styleSearch({ source: rootString, target: ["\n"], comments: "check" }, checkNewline)
 
     function complain(index) {
       report({

@@ -1,5 +1,3 @@
-import postcss from "postcss"
-import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   report,
@@ -10,6 +8,8 @@ import {
   longhandTimeProperties,
   shorthandTimeProperties,
 } from "../../reference/keywordSets"
+import postcss from "postcss"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "time-no-imperceptible"
 
@@ -25,13 +25,13 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-      if (longhandTimeProperties.has(decl.prop.toLowerCase())) {
+      if (longhandTimeProperties.has(postcss.vendor.unprefixed(decl.prop.toLowerCase()))) {
         if (isImperceptibleTime(decl.value)) {
           complain(messages.rejected(decl.value), decl)
         }
       }
 
-      if (shorthandTimeProperties.has(decl.prop.toLowerCase())) {
+      if (shorthandTimeProperties.has(postcss.vendor.unprefixed(decl.prop.toLowerCase()))) {
         const valueList = postcss.list.space(decl.value)
         for (const value of valueList) {
           if (isImperceptibleTime(value)) {

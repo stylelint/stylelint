@@ -1,5 +1,5 @@
-import test from "tape"
 import blurInterpolation from "../blurInterpolation"
+import test from "tape"
 
 test("blurInterpolation", t => {
   t.equal(blurInterpolation("#{$selector}"), " $selector ")

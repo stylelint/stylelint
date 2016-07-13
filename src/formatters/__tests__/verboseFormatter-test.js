@@ -1,8 +1,7 @@
+import { prepareFormatterOutput } from "./stringFormatter-test"
 import { stripIndent } from "common-tags"
 import test from "tape"
 import verboseFormatter from "../verboseFormatter"
-
-import { prepareFormatterOutput } from "./stringFormatter-test"
 
 test("no warnings", t => {
 
@@ -54,6 +53,82 @@ test("one warnings (of severity 'error')", t => {
      severity level "error": 1
       bar: 1
     `)
+  t.end()
+})
+
+test("0 stdout column", t => {
+
+  const stdoutColumn = process.stdout.columns
+  process.stdout.columns = 0
+
+  const results = [{
+    "source":  "path/to/file.css",
+    "errored": true,
+    "warnings":[{
+      "line": 1,
+      "column": 2,
+      "rule": "bar",
+      "severity": "error",
+      "text": "Unexpected foo",
+    }],
+    "deprecations": [],
+    "invalidOptionWarnings":[],
+  }]
+
+  const output = prepareFormatterOutput(results, verboseFormatter)
+
+  t.equal(output, stripIndent`
+    path/to/file.css
+     1:2  ×  Unexpected foo  bar
+
+    1 source checked
+     path/to/file.css
+
+    1 problem found
+     severity level "error": 1
+      bar: 1
+    `)
+
+  process.stdout.columns = stdoutColumn
+
+  t.end()
+})
+
+test("less than 80 stdout column", t => {
+
+  const stdoutColumn = process.stdout.columns
+  process.stdout.columns = 79
+
+  const results = [{
+    "source":  "path/to/file.css",
+    "errored": true,
+    "warnings":[{
+      "line": 1,
+      "column": 2,
+      "rule": "bar",
+      "severity": "error",
+      "text": "Unexpected foo",
+    }],
+    "deprecations": [],
+    "invalidOptionWarnings":[],
+  }]
+
+  const output = prepareFormatterOutput(results, verboseFormatter)
+
+  t.equal(output, stripIndent`
+    path/to/file.css
+     1:2  ×  Unexpected foo  bar
+
+    1 source checked
+     path/to/file.css
+
+    1 problem found
+     severity level "error": 1
+      bar: 1
+    `)
+
+  process.stdout.columns = stdoutColumn
+
   t.end()
 })
 
@@ -148,27 +223,19 @@ test("one ignored file", t => {
 
   const results = [{
     "source": "file.css",
-    "warnings":[{
-      "column": null,
-      "severity": "info",
-      "text": "This file is ignored",
-    }],
+    "warnings":[],
     "deprecations": [],
     "invalidOptionWarnings": [],
+    "ignored": true,
   }]
 
   const output = prepareFormatterOutput(results, verboseFormatter)
 
   t.equal(output, stripIndent`
-    file.css
-          i  This file is ignored
+    0 of 1 source checked
+     file.css (ignored)
 
-    1 source checked
-     file.css
-
-    1 problem found
-     severity level "info": 1
-      undefined: 1
+    0 problems found
     `)
   t.end()
 })

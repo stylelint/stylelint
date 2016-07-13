@@ -1,4 +1,3 @@
-import { get } from "lodash"
 import {
   isKeyframeSelector,
   isStandardSyntaxRule,
@@ -10,6 +9,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { get } from "lodash"
 
 export const ruleName = "selector-no-type"
 

@@ -31,7 +31,6 @@ import customPropertyPattern from "./custom-property-pattern"
 import declarationBangSpaceAfter from "./declaration-bang-space-after"
 import declarationBangSpaceBefore from "./declaration-bang-space-before"
 import declarationBlockNoDuplicateProperties from "./declaration-block-no-duplicate-properties"
-import noEmptySource from "./no-empty-source"
 import declarationBlockNoIgnoredProperties from "./declaration-block-no-ignored-properties"
 import declarationBlockNoShorthandPropertyOverrides from "./declaration-block-no-shorthand-property-overrides"
 import declarationBlockPropertiesOrder from "./declaration-block-properties-order"
@@ -77,35 +76,31 @@ import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
 import mediaFeatureColonSpaceBefore from "./media-feature-colon-space-before"
 import mediaFeatureNameNoVendorPrefix from "./media-feature-name-no-vendor-prefix"
 import mediaFeatureNoMissingPunctuation from "./media-feature-no-missing-punctuation"
+import mediaFeatureParenthesesSpaceInside from "./media-feature-parentheses-space-inside"
 import mediaFeatureRangeOperatorSpaceAfter from "./media-feature-range-operator-space-after"
 import mediaFeatureRangeOperatorSpaceBefore from "./media-feature-range-operator-space-before"
 import mediaQueryListCommaNewlineAfter from "./media-query-list-comma-newline-after"
 import mediaQueryListCommaNewlineBefore from "./media-query-list-comma-newline-before"
 import mediaQueryListCommaSpaceAfter from "./media-query-list-comma-space-after"
 import mediaQueryListCommaSpaceBefore from "./media-query-list-comma-space-before"
-import mediaQueryParenthesesSpaceInside from "./media-query-parentheses-space-inside"
 import noBrowserHacks from "./no-browser-hacks"
 import noDescendingSpecificity from "./no-descending-specificity"
 import noDuplicateSelectors from "./no-duplicate-selectors"
+import noEmptySource from "./no-empty-source"
 import noEolWhitespace from "./no-eol-whitespace"
 import noExtraSemicolons from "./no-extra-semicolons"
 import noIndistinguishableColors from "./no-indistinguishable-colors"
 import noInvalidDoubleSlashComments from "./no-invalid-double-slash-comments"
-import noMissingEofNewline from "./no-missing-eof-newline"
+import noMissingEndOfSourceNewline from "./no-missing-end-of-source-newline"
 import noSupportedBrowserFeatures from "./no-unsupported-browser-features"
 import noUnknownAnimations from "./no-unknown-animations"
 import numberLeadingZero from "./number-leading-zero"
 import numberMaxPrecision from "./number-max-precision"
 import numberNoTrailingZeros from "./number-no-trailing-zeros"
-import numberZeroLengthNoUnit from "./number-zero-length-no-unit"
 import propertyBlacklist from "./property-blacklist"
 import propertyCase from "./property-case"
-import propertyNoVendorPrefix from "./property-no-vendor-prefix"
 import propertyNoUnknown from "./property-no-unknown"
-import propertyUnitBlacklist from "./property-unit-blacklist"
-import propertyUnitWhitelist from "./property-unit-whitelist"
-import propertyValueBlacklist from "./property-value-blacklist"
-import propertyValueWhitelist from "./property-value-whitelist"
+import propertyNoVendorPrefix from "./property-no-vendor-prefix"
 import propertyWhitelist from "./property-whitelist"
 import rootNoStandardProperties from "./root-no-standard-properties"
 import ruleNestedEmptyLineBefore from "./rule-nested-empty-line-before"
@@ -124,8 +119,8 @@ import selectorListCommaNewlineAfter from "./selector-list-comma-newline-after"
 import selectorListCommaNewlineBefore from "./selector-list-comma-newline-before"
 import selectorListCommaSpaceAfter from "./selector-list-comma-space-after"
 import selectorListCommaSpaceBefore from "./selector-list-comma-space-before"
-import selectorMaxEmptyLines from "./selector-max-empty-lines"
 import selectorMaxCompoundSelectors from "./selector-max-compound-selectors"
+import selectorMaxEmptyLines from "./selector-max-empty-lines"
 import selectorMaxSpecificity from "./selector-max-specificity"
 import selectorNoAttribute from "./selector-no-attribute"
 import selectorNoCombinator from "./selector-no-combinator"
@@ -238,13 +233,13 @@ export default {
   "media-feature-colon-space-before": mediaFeatureColonSpaceBefore,
   "media-feature-name-no-vendor-prefix": mediaFeatureNameNoVendorPrefix,
   "media-feature-no-missing-punctuation": mediaFeatureNoMissingPunctuation,
+  "media-feature-parentheses-space-inside": mediaFeatureParenthesesSpaceInside,
   "media-feature-range-operator-space-after": mediaFeatureRangeOperatorSpaceAfter,
   "media-feature-range-operator-space-before": mediaFeatureRangeOperatorSpaceBefore,
   "media-query-list-comma-newline-after": mediaQueryListCommaNewlineAfter,
   "media-query-list-comma-newline-before": mediaQueryListCommaNewlineBefore,
   "media-query-list-comma-space-after": mediaQueryListCommaSpaceAfter,
   "media-query-list-comma-space-before": mediaQueryListCommaSpaceBefore,
-  "media-query-parentheses-space-inside": mediaQueryParenthesesSpaceInside,
   "no-browser-hacks": noBrowserHacks,
   "no-descending-specificity": noDescendingSpecificity,
   "no-duplicate-selectors": noDuplicateSelectors,
@@ -253,21 +248,16 @@ export default {
   "no-extra-semicolons": noExtraSemicolons,
   "no-indistinguishable-colors": noIndistinguishableColors,
   "no-invalid-double-slash-comments": noInvalidDoubleSlashComments,
-  "no-missing-eof-newline": noMissingEofNewline,
+  "no-missing-end-of-source-newline": noMissingEndOfSourceNewline,
   "no-unknown-animations": noUnknownAnimations,
   "no-unsupported-browser-features": noSupportedBrowserFeatures,
   "number-leading-zero": numberLeadingZero,
   "number-max-precision": numberMaxPrecision,
   "number-no-trailing-zeros": numberNoTrailingZeros,
-  "number-zero-length-no-unit": numberZeroLengthNoUnit,
   "property-blacklist": propertyBlacklist,
   "property-case": propertyCase,
-  "property-no-vendor-prefix": propertyNoVendorPrefix,
   "property-no-unknown": propertyNoUnknown,
-  "property-unit-blacklist": propertyUnitBlacklist,
-  "property-unit-whitelist": propertyUnitWhitelist,
-  "property-value-blacklist": propertyValueBlacklist,
-  "property-value-whitelist": propertyValueWhitelist,
+  "property-no-vendor-prefix": propertyNoVendorPrefix,
   "property-whitelist": propertyWhitelist,
   "root-no-standard-properties": rootNoStandardProperties,
   "rule-nested-empty-line-before": ruleNestedEmptyLineBefore,
@@ -286,8 +276,8 @@ export default {
   "selector-list-comma-newline-before": selectorListCommaNewlineBefore,
   "selector-list-comma-space-after": selectorListCommaSpaceAfter,
   "selector-list-comma-space-before": selectorListCommaSpaceBefore,
-  "selector-max-empty-lines": selectorMaxEmptyLines,
   "selector-max-compound-selectors": selectorMaxCompoundSelectors,
+  "selector-max-empty-lines": selectorMaxEmptyLines,
   "selector-max-specificity": selectorMaxSpecificity,
   "selector-no-attribute": selectorNoAttribute,
   "selector-no-combinator": selectorNoCombinator,

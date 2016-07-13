@@ -1,7 +1,7 @@
-import { stripIndent } from "common-tags"
 import chalk from "chalk"
-import test from "tape"
 import stringFormatter from "../stringFormatter"
+import { stripIndent } from "common-tags"
+import test from "tape"
 
 const symbolConversions = new Map()
 symbolConversions.set("ℹ", "i")
@@ -65,21 +65,15 @@ test("one ignored file", t => {
 
   const results = [{
     "source": "file.css",
-    "warnings":[{
-      "column": null,
-      "severity": "info",
-      "text": "This file is ignored",
-    }],
+    "warnings":[],
     "deprecations": [],
     "invalidOptionWarnings": [],
+    "ignored": true,
   }]
 
   const output = prepareFormatterOutput(results, stringFormatter)
 
-  t.equal(output, stripIndent`
-    file.css
-          i  This file is ignored
-    `)
+  t.equal(output, "")
   t.end()
 })
 

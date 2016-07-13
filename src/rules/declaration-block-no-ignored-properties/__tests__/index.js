@@ -1,12 +1,15 @@
-import { testRule } from "../../../testUtils"
+import {
+  messages,
+  ruleName,
+} from ".."
 import rules from "../../../rules"
-import { ruleName, messages } from ".."
+import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
 
   accept: [ {
     code: "a { display: inline; }",
@@ -109,11 +112,36 @@ testRule(rule, {
     column: 22,
     description: "display: inline rules out width, height, margin-top and margin-bottom, and float",
   }, {
+    code: "a { display: inline; min-width: 100px; }",
+    message: messages.rejected("min-width", "display: inline"),
+    line: 1,
+    column: 22,
+    description: "display: inline rules out min-width",
+  }, {
+    code: "a { display: inline; max-width: 100px; }",
+    message: messages.rejected("max-width", "display: inline"),
+    line: 1,
+    column: 22,
+    description: "display: inline rules out max-width",
+  }, {
     code: "a { display: inline; height: 100px; }",
     message: messages.rejected("height", "display: inline"),
     line: 1,
     column: 22,
     description: "display: inline rules out width, height, margin-top and margin-bottom, and float",
+  }, {
+    code: "a { display: inline; min-height: 100px; }",
+    message: messages.rejected("min-height", "display: inline"),
+    line: 1,
+    column: 22,
+    description: "display: inline rules out min-height",
+  },
+  {
+    code: "a { display: inline; max-height: 100px; }",
+    message: messages.rejected("max-height", "display: inline"),
+    line: 1,
+    column: 22,
+    description: "display: inline rules out max-height",
   }, {
     code: "a { display: inline; margin: 100px; }",
     message: messages.rejected("margin", "display: inline"),
@@ -133,17 +161,23 @@ testRule(rule, {
     column: 22,
     description: "display: inline rules out width, height, margin-top and margin-bottom, and float",
   }, {
-    code: "a { display: inline; float: left; }",
-    message: messages.rejected("float", "display: inline"),
+    code: "a { display: inline; overflow: scroll; }",
+    message: messages.rejected("overflow", "display: inline"),
     line: 1,
     column: 22,
-    description: "display: inline rules out width, height, margin-top and margin-bottom, and float",
+    description: "display: inline rules out overflow",
   }, {
-    code: "a { display: inline-block; float: left; }",
-    message: messages.rejected("float", "display: inline-block"),
+    code: "a { display: inline; overflow-x: scroll; }",
+    message: messages.rejected("overflow-x", "display: inline"),
     line: 1,
-    column: 28,
-    description: "display: inline-block rules out float",
+    column: 22,
+    description: "display: inline rules out overflow-x",
+  }, {
+    code: "a { display: inline; overflow-y: scroll; }",
+    message: messages.rejected("overflow-y", "display: inline"),
+    line: 1,
+    column: 22,
+    description: "display: inline rules out overflow-x",
   }, {
     code: "a { display: block; vertical-align: baseline; }",
     message: messages.rejected("vertical-align", "display: block"),
@@ -270,6 +304,87 @@ testRule(rule, {
     line: 1,
     column: 25,
     description: "display: table-* rules out margin",
+  }, {
+    code: "a { display: table-row; width: 10px; }",
+    message: messages.rejected("width", "display: table-row"),
+    line: 1,
+    column: 25,
+    description: "display: table-row rules out width",
+  },
+  {
+    code: "a { display: table-row; min-width: 10px; }",
+    message: messages.rejected("min-width", "display: table-row"),
+    line: 1,
+    column: 25,
+    description: "display: table-row rules out min-width",
+  },
+  {
+    code: "a { display: table-row; max-width: 10px; }",
+    message: messages.rejected("max-width", "display: table-row"),
+    line: 1,
+    column: 25,
+    description: "display: table-row rules out max-width",
+  },
+  {
+    code: "a { display: table-row-group; width: 10px; }",
+    message: messages.rejected("width", "display: table-row-group"),
+    line: 1,
+    column: 31,
+    description: "display: table-row-group rules out width",
+  },
+  {
+    code: "a { display: table-row-group; min-width: 10px; }",
+    message: messages.rejected("min-width", "display: table-row-group"),
+    line: 1,
+    column: 31,
+    description: "display: table-row-group rules out min-width",
+  },
+  {
+    code: "a { display: table-row-group; max-width: 10px; }",
+    message: messages.rejected("max-width", "display: table-row-group"),
+    line: 1,
+    column: 31,
+    description: "display: table-row-group rules out max-width",
+  }, {
+    code: "a { display: table-column; height: 10px; }",
+    message: messages.rejected("height", "display: table-column"),
+    line: 1,
+    column: 28,
+    description: "display: table-column rules out height",
+  },
+  {
+    code: "a { display: table-column; min-height: 10px; }",
+    message: messages.rejected("min-height", "display: table-column"),
+    line: 1,
+    column: 28,
+    description: "display: table-column rules out min-width",
+  },
+  {
+    code: "a { display: table-column; max-height: 10px; }",
+    message: messages.rejected("max-height", "display: table-column"),
+    line: 1,
+    column: 28,
+    description: "display: table-column rules out max-width",
+  }, {
+    code: "a { display: table-column-group; height: 10px; }",
+    message: messages.rejected("height", "display: table-column-group"),
+    line: 1,
+    column: 34,
+    description: "display: table-column-group rules out height",
+  },
+  {
+    code: "a { display: table-column-group; min-height: 10px; }",
+    message: messages.rejected("min-height", "display: table-column-group"),
+    line: 1,
+    column: 34,
+    description: "display: table-column-group rules out min-height",
+  },
+  {
+    code: "a { display: table-column-group; max-height: 10px; }",
+    message: messages.rejected("max-height", "display: table-column-group"),
+    line: 1,
+    column: 34,
+    description: "display: table-column-group rules out max-height",
   }, {
     code: "a { position: static; top: 1px; }",
     message: messages.rejected("top", "position: static"),

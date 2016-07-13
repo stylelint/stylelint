@@ -26,7 +26,7 @@ The stylelint community also maintains a [handful of plugins](/docs/user-guide/c
 
 ## How do I lint SCSS, Less, or other non-standard syntax?
 
-stylelint can *parse* any the following non-standard syntaxes: SCSS, Less and SugarSS. Refer to the [docs](/docs/user-guide/css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse one of these syntaxes.
+stylelint can *parse* any the following non-standard syntaxes: SCSS, Less and SugarSS. Non-standard syntaxes are automatically inferred from file extensions `.scss`, `.less`, and `.sss`; or else you can specify the syntax yourself. Refer to the [docs](/docs/user-guide/css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse one of these syntaxes.
 
 ## Should I lint before or after processing my stylesheets through PostCSS plugins or other processors?
 
@@ -34,7 +34,7 @@ We [recommend](/docs/user-guide/css-processors.md) linting your source files bef
 
 ## How do I lint styles within `<style>` tags?
 
-stylelint can *extract and lint* any styles within `<style>` tags. This can be done via the [Node API](/docs/user-guide/node-api.md#extractStyleTagsFromHtml) and the [CLI](/docs/user-guide/cli.md).
+[Create a processor](/docs/developer-guide/processors.md) or [use an existing one](/docs/user-guide/configuration.md#processors) that extracts CSS from your HTML's `<style>` tags and feeds it into stylelint.
 
 ## How do I automatically fix stylistic warnings?
 

@@ -1,14 +1,14 @@
-import _ from "lodash"
-import valueParser from "postcss-value-parser"
 import {
   declarationValueIndex,
   isStandardSyntaxFunction,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import _ from "lodash"
+import styleSearch from "style-search"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "function-comma-space-after"
 
@@ -69,7 +69,7 @@ export function functionCommaSpaceChecker({ locationChecker, root, result, check
       styleSearch({
         source: functionArguments,
         target: ",",
-        outsideFunctionalNotation: true,
+        functionArguments: "skip",
       }, (match) => {
         locationChecker({
           source: functionArguments,

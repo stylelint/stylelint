@@ -1,7 +1,7 @@
 import {
+  hasBlock,
   report,
   ruleMessages,
-  hasBlock,
   validateOptions,
 } from "../../utils"
 

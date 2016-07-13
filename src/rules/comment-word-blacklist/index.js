@@ -1,10 +1,11 @@
-import { isString } from "lodash"
 import {
+  containsString,
+  matchesStringOrRegExp,
   report,
   ruleMessages,
   validateOptions,
-  matchesStringOrRegExp,
 } from "../../utils"
+import { isString } from "lodash"
 
 export const ruleName = "comment-word-blacklist"
 
@@ -25,10 +26,10 @@ export default function (blacklist) {
       const rawComment = comment.toString()
       const firstFourChars = rawComment.substr(0, 4)
 
-      // Return early if sourcemap or copyright comment
-      if (firstFourChars === "/*# " || firstFourChars === "/*! ") { return }
+      // Return early if sourcemap
+      if (firstFourChars === "/*# ") { return }
 
-      const matchesWord = matchesStringOrRegExp(text, blacklist)
+      const matchesWord = matchesStringOrRegExp(text, blacklist) || containsString(text, blacklist)
 
       if (!matchesWord) { return }
 

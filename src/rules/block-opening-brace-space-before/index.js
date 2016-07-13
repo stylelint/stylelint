@@ -1,16 +1,15 @@
-import { isString } from "lodash"
-
 import {
+  beforeBlockString,
   blockString,
   hasBlock,
   hasEmptyBlock,
-  beforeBlockString,
   optionsHaveIgnoredAtRule,
   report,
   ruleMessages,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import { isString } from "lodash"
 
 export const ruleName = "block-opening-brace-space-before"
 

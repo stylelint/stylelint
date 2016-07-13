@@ -1,11 +1,11 @@
 import {
   declarationValueIndex,
-  styleSearch,
   report,
   ruleMessages,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "declaration-bang-space-after"
 

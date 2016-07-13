@@ -46,12 +46,7 @@ Linting all the `.scss` files in the `foo` directory, using the `syntax` option:
 stylelint "foo/**/*.scss" --syntax scss
 ```
 
-The above can be slightly altered to read Less or SugarSS syntax: `--syntax less`, `--syntax sugarss`.
-
-Extract `<style>` tags from html and lint:
-```shell
-stylelint "foo/**/*.html" --extract
-```
+The above can be slightly altered to read Less or SugarSS syntax: `--syntax less`, `--syntax sugarss`. Also, you may not need to provide a `--syntax` option: non-standard syntaxes can be automatically inferred from file extensions `.less`, `.scss`, and `.sss`.
 
 ## Syntax errors
 

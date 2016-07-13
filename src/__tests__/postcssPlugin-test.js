@@ -1,6 +1,7 @@
-import test from "tape"
+import { configurationError } from "../utils"
 import path from "path"
 import postcssPlugin from "../postcssPlugin"
+import test from "tape"
 
 test("`configFile` option with absolute path", t => {
   const config = {
@@ -18,5 +19,26 @@ test("`configFile` with bad path", t => {
   t.plan(1)
   postcssPlugin.process("a {}", { configFile: "./herby.json" }).catch(err => {
     t.equal(err.code, "ENOENT")
+  })
+})
+
+test("`configFile` option without rules", t => {
+  const config = {
+    configFile: path.join(__dirname, "fixtures/config-without-rules.json"),
+  }
+  t.plan(1)
+  postcssPlugin.process("a {}", config).catch(err => {
+    t.deepEqual(err, configurationError("No rules found within configuration. Have you provided a \"rules\" property?"))
+  })
+})
+
+test("`configFile` option with undefined rule", t => {
+  const config = {
+    configFile: path.join(__dirname, "fixtures/config-with-undefined-rule.json"),
+  }
+  const ruleName = "unknown-rule"
+  t.plan(1)
+  postcssPlugin.process("a {}", config).catch(err => {
+    t.deepEqual(err, configurationError(`Undefined rule "${ruleName}"`))
   })
 })

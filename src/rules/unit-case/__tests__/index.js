@@ -1,6 +1,9 @@
-import { testRule } from "../../../testUtils"
+import {
+  messages,
+  ruleName,
+} from ".."
 import rules from "../../../rules"
-import { ruleName, messages } from ".."
+import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
 
@@ -80,6 +83,15 @@ testRule(rule, {
   }, {
     code: "a { margin: 13xpx; }",
     description: "work with unknown units",
+  }, {
+    code: "@media (min-width: 10px) {}",
+    description: "check @media",
+  }, {
+    code: "@media (min-width: 10px)\n  and (max-width: 20px) {}",
+    description: "check complex @media",
+  }, {
+    code: "@media not screen and (min-width: 100px) {}",
+    description: "negation @media",
   } ],
 
   reject: [ {
@@ -133,6 +145,30 @@ testRule(rule, {
     description: "work with unknown units",
     line: 1,
     column: 13,
+  }, {
+    code: "@media (min-width: 13PX) {}",
+    message: messages.expected("PX", "px"),
+    description: "@media",
+    line: 1,
+    column: 20,
+  }, {
+    code: "@media (min-width: 10px)\n  and (max-width: 20PX) {}",
+    message: messages.expected("PX", "px"),
+    description: "complex @media",
+    line: 2,
+    column: 19,
+  }, {
+    code: "@media (width < 10.01REM) {}",
+    message: messages.expected("REM", "rem"),
+    description: "media feature range",
+    line: 1,
+    column: 17,
+  }, {
+    code: "@media not screen and (min-width: 100PX) {}",
+    message: messages.expected("PX", "px"),
+    description: "negation @media",
+    line: 1,
+    column: 35,
   } ],
 })
 

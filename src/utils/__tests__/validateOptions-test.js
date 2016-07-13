@@ -1,5 +1,5 @@
-import test from "tape"
 import sinon from "sinon"
+import test from "tape"
 import validateOptions from "../validateOptions"
 
 function mockResult() {

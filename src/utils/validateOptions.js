@@ -1,4 +1,4 @@
-import { isPlainObject, isFunction } from "lodash"
+import _ from "lodash"
 
 const ignoredOptions = [
   "severity",
@@ -47,7 +47,7 @@ export default function (result, ruleName, ...optionDescriptions) {
     }
 
     // If `possible` is a function ...
-    if (isFunction(possible)) {
+    if (_.isFunction(possible)) {
       if (!possible(actual)) {
         complain(`Invalid option "${JSON.stringify(actual)}" for rule ${ruleName}`)
       }
@@ -55,7 +55,7 @@ export default function (result, ruleName, ...optionDescriptions) {
     }
 
     // If `possible` is an array instead of an object ...
-    if (!isPlainObject(possible)) {
+    if (!_.isPlainObject(possible)) {
       [].concat(actual).forEach(a => {
         if (isValid(possible, a)) { return }
         complain(`Invalid option value "${a}" for rule "${ruleName}"`)
@@ -64,7 +64,7 @@ export default function (result, ruleName, ...optionDescriptions) {
     }
 
     // If possible is an object ...
-    if (!isPlainObject(actual)) {
+    if (!_.isPlainObject(actual)) {
       complain(
         `Invalid option value ${JSON.stringify(actual)} for rule "${ruleName}": ` +
         "should be an object"
@@ -93,6 +93,7 @@ export default function (result, ruleName, ...optionDescriptions) {
       result.warn(message, {
         stylelintType: "invalidOption",
       })
+      _.set(result, "stylelint.stylelintError", true)
     }
   }
 }

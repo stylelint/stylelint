@@ -1,14 +1,14 @@
 import {
+  animationNameKeywords,
+  basicKeywords,
+} from "../../reference/keywordSets"
+import {
   declarationValueIndex,
   findAnimationName,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import {
-  animationNameKeywords,
-  basicKeywords,
-} from "../../reference/keywordSets"
 
 export const ruleName = "no-unknown-animations"
 
@@ -22,7 +22,7 @@ export default function (actual) {
     if (!validOptions) { return }
 
     const declaredAnimations = new Set()
-    root.walkAtRules(/keyframes/i, atRule => {
+    root.walkAtRules(/(-(moz|webkit)-)?keyframes/i, atRule => {
       declaredAnimations.add(atRule.params)
     })
 

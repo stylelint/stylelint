@@ -1,7 +1,7 @@
-import postcss from "postcss"
-import test from "tape"
 import path from "path"
+import postcss from "postcss"
 import stylelint from ".."
+import test from "tape"
 
 const cssWithFoo = (
 ".foo {}"
@@ -9,6 +9,10 @@ const cssWithFoo = (
 
 const cssWithoutFoo = (
 ".bar {}"
+)
+
+const cssWithFooAndBar = (
+".foo {}\n.bar {}"
 )
 
 const configRelative = {
@@ -37,9 +41,22 @@ const configExtendRelative = {
   ],
 }
 
+const configRelativeAndExtendRelative = {
+  extends: [
+    "./fixtures/config-relative-plugin",
+  ],
+  plugins: [
+    "./fixtures/plugin-warn-about-bar",
+  ],
+  rules: {
+    "plugin/warn-about-bar": "always",
+  },
+}
+
 const processorRelative = postcss().use(stylelint({ config: configRelative, configBasedir: __dirname }))
 const processorAbsolute = postcss().use(stylelint({ config: configAbsolute }))
 const processorExtendRelative = postcss().use(stylelint({ config: configExtendRelative, configBasedir: __dirname }))
+const processorRelativeAndExtendRelative = postcss().use(stylelint({ config: configRelativeAndExtendRelative, configBasedir: __dirname }))
 
 test("plugin runs", t => {
   let planned = 0
@@ -90,6 +107,22 @@ test("config extending another config that invokes a plugin with a relative path
     })
     .catch(logError)
   planned += 3
+
+  t.plan(planned)
+})
+
+test("config with its own plugins extending another config that invokes a plugin with a relative path", t => {
+  let planned = 0
+
+  processorRelativeAndExtendRelative.process(cssWithFooAndBar)
+    .then(result => {
+      t.equal(result.warnings().length, 2)
+      t.equal(result.warnings()[0].text, "found .bar (plugin/warn-about-bar)")
+      t.equal(result.warnings()[1].text, "found .foo (plugin/warn-about-foo)")
+      t.ok(result.warnings()[0].node)
+    })
+    .catch(logError)
+  planned += 4
 
   t.plan(planned)
 })
@@ -171,23 +204,22 @@ test("module providing an array of plugins", t => {
   t.plan(planned)
 })
 
-test("deprecation warning for slashless plugin rule names", t => {
+test("slashless plugin causes configuration error", t => {
+  let planned = 0
+
   const config = {
     plugins: [path.join(__dirname, "fixtures/plugin-slashless-warn-about-foo")],
     rules: {
-      "slashless-warn-about-foo": "always",
+      "slashless-warn-about-foo": true,
     },
   }
 
-  let planned = 0
-
-  postcss().use(stylelint(config)).process(".foo {}").then(result => {
-    t.equal(result.warnings().length, 2)
-    t.equal(result.warnings()[0].text, "Plugin rules that aren't namespaced have been deprecated, and in 7.0 they will be disallowed.")
-    t.equal(result.warnings()[0].stylelintType, "deprecation")
-    t.equal(result.warnings()[1].text, "found .foo (slashless-warn-about-foo)")
-  }).catch(logError)
-  planned += 4
+  postcss().use(stylelint(config)).process(".foo {}").then(() => {
+    t.ok(false, "should not be here!")
+  }).catch(err => {
+    t.equal(err.message.indexOf("stylelint v7+ requires plugin rules to be namspaced"), 0)
+  })
+  planned += 1
 
   t.plan(planned)
 })

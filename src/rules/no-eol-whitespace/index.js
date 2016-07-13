@@ -1,9 +1,9 @@
 import {
-  ruleMessages,
-  styleSearch,
   report,
+  ruleMessages,
   validateOptions,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "no-eol-whitespace"
 
@@ -19,7 +19,11 @@ export default function (actual) {
     if (!validOptions) { return }
 
     const rootString = root.toString()
-    styleSearch({ source: rootString, target: [ "\n", "\r" ], checkComments: true }, match => {
+    styleSearch({
+      source: rootString,
+      target: [ "\n", "\r" ],
+      comments: "check",
+    }, match => {
       if (whitespacesToReject.indexOf(rootString[match.startIndex - 1]) !== -1) {
         report({
           message: messages.rejected,

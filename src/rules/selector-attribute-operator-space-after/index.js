@@ -3,10 +3,10 @@ import {
   parseSelector,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "selector-attribute-operator-space-after"
 

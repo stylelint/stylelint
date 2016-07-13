@@ -1,8 +1,8 @@
-import test from "tape"
+import nodeContextLookup from "../nodeContextLookup"
+import path from "path"
 import postcss from "postcss"
 import postcssImport from "postcss-import"
-import path from "path"
-import nodeContextLookup from "../nodeContextLookup"
+import test from "tape"
 
 test("nodeContextLookup checking media context", t => {
   const testLookup = nodeContextLookup()

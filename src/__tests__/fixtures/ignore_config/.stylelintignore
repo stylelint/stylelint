@@ -1,4 +1,0 @@
-# Paths are resolved absolutely to this directory
-
-../**/*.css
-!../**/invalid-hex.css

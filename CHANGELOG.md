@@ -1,3 +1,45 @@
+# 7.0.0
+
+- Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration#processors.md) processors. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+- Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. (If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`.)
+- Removed: `--verbose` CLI flag. Use `--formatter verbose` instead.
+- Removed: NodeJS `0.12.x` support. `4.2.1 LTS` or greater is now required.
+- Removed: `media-query-parentheses-space-inside` rule. Use the new `media-feature-parentheses-space-inside` rule instead.
+- Removed: `no-missing-eof-newline` rule. Use the new rule `no-missing-end-of-source-newline` instead.
+- Removed: `number-zero-length-no-unit` rule. Use the `length-zero-no-unit` rule instead.
+- Removed: `property-unit-blacklist` rule. Use the `declaration-property-unit-blacklist` rule instead.
+- Removed: `property-unit-whitelist` rule. Use the `declaration-property-unit-whitelist` rule instead.
+- Removed: `property-value-blacklist` rule. Use the `declaration-property-value-blacklist` rule instead.
+- Removed: `property-value-whitelist` rule. Use the `declaration-property-value-whitelist` rule instead.
+- Removed: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+- Removed: `"single-where-required"`, `"single-where-recommended"`, `"single-unless-keyword"`, `"double-where-required"`, `"double-where-recommended"` and `"double-unless-keyword"` options for `font-family-name-quotes`. Instead, use the `"always-unless-keyword"`, `always-where-recommended` or `always-where-required` options together with the `string-quotes` rule.
+- Removed: `"single"`, `"double"` and `"none"` options for `function-url-quotes`. Instead, use the `"always"` or `"never"` options together with the `string-quotes` rule.
+- Removed: `"hierarchicalSelectors"` option for `indentation`.  If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+- Removed: `stylelint.utils.cssWordIsVariable()`.
+- Removed: `stylelint.utils.styleSearch()`. Use the external [style-search](https://github.com/davidtheclark/style-search) module instead.
+- Changed: invalid configuration sets result's `stylelintError` to `true`, which in turn causes CLI to exit with a non-zero code.
+- Changed: non-standard syntaxes are automatically inferred from file extensions `.scss`, `.less`, and `.sss`.
+- Changed: `.stylelintignore` now uses `.gitignore` syntax, and stylelint looks for it in `process.cwd()`.
+- Changed: files matching ignore patterns no longer receive an "info"-severity message, which was always printed by the string formatter. Instead, the file's stylelint result object receives an `ignored: true` property, which various formatters can use as needed. The standard `string` formatter prints nothing for ignored files; but when the `verbose` formatter is used, ignored files are included in the filelist.
+- Changed: plugin arrays in extended configs are now concatenated with the main config's plugin array, instead of being overwritten by it. So plugins from the main config and from extended configs will all be loaded.
+- Changed: `-v` flag to display version number.
+- Changed: `comment-word-blacklist` no longer ignores words within copyright comments.
+- Changed: `comment-word-blacklist` will now identify strings within comments, rather than just at the beginning of, when the string option is used.
+- Changed: `declaration-block-no-ignored-properties` now detects use of `min-width` and `max-width` with `inline`, `table-row`, `table-row-group`, `table-column` and `table-column-group` elements.
+- Changed: `declaration-block-no-ignored-properties` now detects use of `overflow`, `overflow-x` and `overflow-y` with `inline` elements.
+- Changed: `declaration-block-no-ignored-properties` now ignores the combination of `float` and `display: inline-block | inline`.
+- Changed: `font-family-name-quotes` now checks the `font` property in addition to the `font-family` property.
+- Changed: `font-family-name-quotes` treats `-apple-*` and `BlinkMacSystemFont` system fonts as keywords that should never be wrapped in quotes.
+- Changed: `indentation` now checks inside of parentheses by default. If you use the `indentInsideParens: "once"` secondary option, simply remove it from your config. If you do not want to check inside of parentheses, use the new `ignore: ["inside-parens"]` secondary option. The `indentInsideParens: "twice"` and `indentInsideParens: "once-at-root-twice-in-block"` secondary options are unchanged.
+- Changed: `keyframe-declaration-no-important` now checks vendor prefixed `@keyframes` at-rules.
+- Changed: `selector-attribute-quotes` now checks attribute selectors with whitespace around the operator or inside the brackets.
+- Changed: `time-no-imperceptible` now checks vendor prefixed properties.
+- Changed: `unit-*` rules now check `@media` values too.
+- Added: [processors](/docs/user-guide/configuration#processors.md).
+- Added: `media-feature-parentheses-space-inside` rule.
+- Added: `no-missing-end-of-source-newline` rule.
+- Fixed: `no-unknown-animations` now classifies vendor prefixed `@keyframes` at-rules as known.
+
 # Head
 
 - Added: `property-no-unknown` rule.

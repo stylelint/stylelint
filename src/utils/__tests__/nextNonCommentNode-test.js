@@ -1,6 +1,6 @@
-import test from "tape"
-import postcss from "postcss"
 import nextNonCommentNode from "../nextNonCommentNode"
+import postcss from "postcss"
+import test from "tape"
 
 test("nextNonCommentNode", t => {
   let planned = 0

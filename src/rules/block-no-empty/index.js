@@ -1,6 +1,6 @@
 import {
-  hasEmptyBlock,
   beforeBlockString,
+  hasEmptyBlock,
   report,
   ruleMessages,
   validateOptions,

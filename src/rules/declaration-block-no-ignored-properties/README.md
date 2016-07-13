@@ -12,8 +12,7 @@ Certain property value pairs rule out other property value pairs, causing them t
 
 The rule warns when it finds:
 
-- `display: inline` used with `width`, `height`, `margin`, `margin-top`, `margin-bottom`, `float`, `overflow` (and all variants).
-- `display: inline-block` used with `float`.
+- `display: inline` used with `width`, `height`, `margin`, `margin-top`, `margin-bottom`, `overflow` (and all variants).
 - `display: list-item` used with `vertical-align`.
 - `display: block` used with `vertical-align`.
 - `display: flex` used with `vertical-align`.
@@ -50,12 +49,6 @@ a { display: inline; margin: 10px; }
 ```
 
 `display: inline` causes `margin` to be ignored.
-
-```css
-a { display: inline-block; float: left; }
-```
-
-`display: inline-block` causes `float` to be ignored.
 
 ```css
 a { display: block; vertical-align: baseline; }
@@ -100,12 +93,6 @@ a { display: inline-block; width: 100px; }
 ```
 
 Although `display: inline` causes `width` to be ignored, `inline-block` works with `width`.
-
-```css
-a { display: block; float: left; }
-```
-
-Although `display: inline-block` causes `float` to be ignored, `block` works with `float`.
 
 ```css
 a { display: table-cell; vertical-align: baseline; }

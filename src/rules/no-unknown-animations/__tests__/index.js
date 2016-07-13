@@ -1,12 +1,15 @@
-import { testRule } from "../../../testUtils"
+import {
+  messages,
+  ruleName,
+} from ".."
 import rules from "../../../rules"
-import { ruleName, messages } from ".."
+import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
 
   accept: [ {
     code: "@keyframes foo {} a { animation-name: foo; }",
@@ -66,6 +69,9 @@ testRule(rule, {
     code: "@keyframes foo {} a { animation: foo 2s linear; }",
     description: "animation shorthand",
   }, {
+    code: "@-webkit-keyframes foo {} a { animation: foo 2s linear; }",
+    description: "vendor keyframe at-rule",
+  }, {
     code: "@keyframes foo {} a { animation: foo 1s ease 0.2s 1 both; }",
     description: "animation shorthand",
   }, {
@@ -124,6 +130,12 @@ testRule(rule, {
     message: messages.rejected("foo"),
     line: 1,
     column: 42,
+  }, {
+    code: "@-webkit-keyframes bar {} .baz { animation-name: foo; }",
+    description: "no matching declaration with animation-name",
+    message: messages.rejected("foo"),
+    line: 1,
+    column: 50,
   }, {
     code: "@kEyFrAmEs bar {} .baz { animation-name: foo; }",
     description: "no matching declaration with animation-name",

@@ -1,10 +1,10 @@
 import {
-  isString,
   isArray,
+  isString,
 } from "lodash"
 import {
-  isStandardSyntaxProperty,
   isCustomProperty,
+  isStandardSyntaxProperty,
   report,
   ruleMessages,
   validateOptions,

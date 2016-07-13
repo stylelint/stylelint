@@ -1,6 +1,6 @@
 import _ from "lodash"
-import stringFormatter from "./stringFormatter"
 import chalk from "chalk"
+import stringFormatter from "./stringFormatter"
 
 export default function (results) {
   let output = stringFormatter(results)
@@ -8,15 +8,23 @@ export default function (results) {
   if (output === "") { output = "\n" }
 
   const sourceWord = (results.length > 1) ? "sources" : "source"
-  output += chalk.underline(`${results.length} ${sourceWord} checked\n`)
+  const ignoredCount = results.filter(result => result.ignored).length
+  const checkedDisplay = (ignoredCount)
+    ? `${results.length - ignoredCount} of ${results.length}`
+    : results.length
+  output += chalk.underline(`${checkedDisplay} ${sourceWord} checked\n`)
   results.forEach(result => {
     let formatting = "green"
     if (result.errored) {
       formatting = "red"
     } else if (result.warnings.length) {
       formatting = "yellow"
+    } else if (result.ignored) {
+      formatting = "gray"
     }
-    output += _.get(chalk, formatting)(` ${result.source}\n`)
+    let sourceText = `${result.source}`
+    if (result.ignored) { sourceText += " (ignored)" }
+    output += _.get(chalk, formatting)(` ${sourceText}\n`)
   })
 
   const warnings = _.flatten(results.map(r => r.warnings))

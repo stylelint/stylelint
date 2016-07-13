@@ -1,12 +1,15 @@
-import { testRule } from "../../../testUtils"
+import {
+  messages,
+  ruleName,
+} from ".."
 import rules from "../../../rules"
-import { ruleName, messages } from ".."
+import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
 
   accept: [ {
     code: "a::before { content: 'one'; }",

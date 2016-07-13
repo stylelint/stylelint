@@ -1,6 +1,6 @@
 import {
-  isStandardSyntaxDeclaration,
   declarationValueIndex,
+  isStandardSyntaxDeclaration,
   report,
   ruleMessages,
   validateOptions,

@@ -1,5 +1,3 @@
-import _ from "lodash"
-import { vendor } from "postcss"
 import {
   isCustomProperty,
   isStandardSyntaxProperty,
@@ -7,13 +5,13 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import _ from "lodash"
+import { vendor } from "postcss"
 
 export const ruleName = "declaration-block-properties-order"
 
 export const messages = ruleMessages(ruleName, {
   expected: (first, second) => `Expected "${first}" to come before "${second}"`,
-  expectedEmptyLineBetween: (first, second) => `Expected an empty line between property "${first}" and property "${second}"`,
-  rejectedEmptyLineBetween: (first, second) => `Unexpected empty line between property "${first} and property "${second}"`,
 })
 
 function rule(expectation, options) {
@@ -44,7 +42,6 @@ function rule(expectation, options) {
 
     function checkNode(node) {
       const allPropData = []
-      let lastKnownSeparatedGroup = 1
 
       node.each(child => {
         // If the child has nested nodes with child
@@ -103,45 +100,6 @@ function rule(expectation, options) {
 
         const firstPropIsUnspecified = !firstPropData.orderData
         const secondPropIsUnspecified = !secondPropData.orderData
-
-        // Now check newlines between ...
-        const firstPropSeparatedGroup = (!firstPropIsUnspecified)
-          ? firstPropData.orderData.separatedGroup
-          : lastKnownSeparatedGroup
-        const secondPropSeparatedGroup = (!secondPropIsUnspecified)
-          ? secondPropData.orderData.separatedGroup
-          : lastKnownSeparatedGroup
-
-        if (firstPropSeparatedGroup !== secondPropSeparatedGroup && !secondPropIsUnspecified) {
-          // Get an array of just the property groups, remove any solo properties
-          const groups = _.reject(expectation, _.isString)
-
-          // secondProp seperatedGroups start at 2 so we minus 2 to get the 1st item
-          // from our groups array
-          const emptyLineBefore = _.get(groups[secondPropSeparatedGroup - 2], "emptyLineBefore")
-          if (emptyLineBefore) {
-            result.warn((
-              "The 'emptyLineBefore' option for 'declaration-block-properties-order' has been deprecated, "
-                + "and will be removed in '7.0'. If you use this option please consider "
-                + "creating a plugin for the community."
-            ), {
-              stylelintType: "deprecation",
-              stylelintReference: "http://stylelint.io/user-guide/release-planning/",
-            })
-          }
-          if (!hasEmptyLineBefore(secondPropData.node) && emptyLineBefore === "always") {
-            complain({
-              message: messages.expectedEmptyLineBetween(secondPropData.name, firstPropData.name),
-              node: secondPropData.node,
-            })
-          } else if (hasEmptyLineBefore(secondPropData.node) && emptyLineBefore === "never") {
-            complain({
-              message: messages.rejectedEmptyLineBetween(secondPropData.name, firstPropData.name),
-              node: secondPropData.node,
-            })
-          }
-        }
-        lastKnownSeparatedGroup = secondPropSeparatedGroup
 
         // Now check actual known properties ...
         if (!firstPropIsUnspecified && !secondPropIsUnspecified) {
@@ -206,10 +164,9 @@ export default rule
 
 function createExpectedOrder(input) {
   const order = {}
-  let separatedGroup = 1
   let expectedPosition = 0
 
-  appendGroup(input, 1)
+  appendGroup(input)
 
   function appendGroup(items) {
     items.forEach(item => appendItem(item, false))
@@ -221,13 +178,8 @@ function createExpectedOrder(input) {
       // to make that flexibility work;
       // otherwise, it will always ascend
       if (!inFlexibleGroup) { expectedPosition += 1 }
-      order[item] = { separatedGroup, expectedPosition }
+      order[item] = { expectedPosition }
       return
-    }
-
-    // If item is not a string, it's a group ...
-    if (item.emptyLineBefore) {
-      separatedGroup += 1
     }
 
     if (!item.order || item.order === "strict") {
@@ -256,15 +208,6 @@ function getOrderData(expectedOrder, propName) {
   return orderData
 }
 
-function hasEmptyLineBefore(decl) {
-  if (/\r?\n\s*\r?\n/.test(decl.raw("before"))) { return true }
-  const prevNode = decl.prev()
-  if (!prevNode) { return false }
-  if (prevNode.type !== "comment") { return false }
-  if (/\r?\n\s*\r?\n/.test(prevNode.raw("before"))) { return true }
-  return false
-}
-
 function checkAlpabeticalOrder(firstPropData, secondPropData) {
   // If unprefixed prop names are the same, compare the prefixed versions
   if (firstPropData.unprefixedName === secondPropData.unprefixedName) {
@@ -276,30 +219,26 @@ function checkAlpabeticalOrder(firstPropData, secondPropData) {
 
 function validatePrimaryOption(actualOptions) {
 
+  // Return true early if alphabetical
   if (actualOptions === "alphabetical") { return true }
 
+  // Otherwise, begin checking array options
   if (!Array.isArray(actualOptions)) { return false }
 
   // Every item in the array must be a string or an object
   // with a "properties" property
-  if (actualOptions.every(item => {
+  if (!actualOptions.every(item => {
     if (_.isString(item)) { return true }
     return _.isPlainObject(item) && !_.isUndefined(item.properties)
-  })) { return true }
+  })) { return false }
 
   const objectItems = actualOptions.filter(_.isPlainObject)
 
-  // Every object-item's "emptyLineBefore" must be "always" or "never"
-  if (objectItems.every(item => {
-    if (_.isUndefined(item.emptyLineBefore)) { return true }
-    return _.includes([ "always", "never" ], item.emptyLineBefore)
-  })) { return true }
+  // Every object-item's "order" property must be "strict" or "flexible"
+  if (!objectItems.every(item => {
+    if (_.isUndefined(item.order)) { return true }
+    return _.includes([ "strict", "flexible" ], item.order)
+  })) { return false }
 
-  // Every object-item's "type" property must be "strict" or "flexible"
-  if (objectItems.every(item => {
-    if (_.isUndefined(item.type)) { return true }
-    return _.includes([ "string", "flexible" ], item.type)
-  })) { return true }
-
-  return false
+  return true
 }

@@ -1,6 +1,6 @@
 import {
-  ruleMessages,
   report,
+  ruleMessages,
   validateOptions,
 } from "../../utils"
 

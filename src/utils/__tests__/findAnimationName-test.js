@@ -1,5 +1,5 @@
-import test from "tape"
 import findAnimationName from "../findAnimationName"
+import test from "tape"
 
 test("findAnimationName", t => {
   t.deepEqual(

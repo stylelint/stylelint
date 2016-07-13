@@ -1,6 +1,12 @@
-import { mergeTestDescriptions, testRule } from "../../../testUtils"
+import {
+  mergeTestDescriptions,
+  testRule,
+} from "../../../testUtils"
+import {
+  messages,
+  ruleName,
+} from ".."
 import rules from "../../../rules"
-import { ruleName, messages } from ".."
 
 const rule = rules[ruleName]
 

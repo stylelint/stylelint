@@ -1,6 +1,9 @@
-import { testRule } from "../../../testUtils"
+import {
+  messages,
+  ruleName,
+} from ".."
 import rules from "../../../rules"
-import { ruleName, messages } from ".."
+import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
 
@@ -79,6 +82,12 @@ testRule(rule, {
   }, {
     code: "a { margin: calc(100% - #{margin * 2}); }",
     description: "work with interpolation",
+  }, {
+    code: "@media (min-width: 10em) {}",
+    description: "@media",
+  }, {
+    code: "@media (min-width: 10em)\n  and (max-width: 20em) {}",
+    description: "complex @media",
   } ],
 
   reject: [ {
@@ -136,5 +145,23 @@ testRule(rule, {
     message: messages.rejected("px"),
     line: 1,
     column: 37,
+  }, {
+    code: "@media (min-width: 13px) {}",
+    message: messages.rejected("px"),
+    description: "@media",
+    line: 1,
+    column: 20,
+  }, {
+    code: "@media (min-width: 10em)\n  and (max-width: 20px) {}",
+    message: messages.rejected("px"),
+    description: "complex @media",
+    line: 2,
+    column: 19,
+  }, {
+    code: "@media (width < 10.01px) {}",
+    message: messages.rejected("px"),
+    description: "media feature range",
+    line: 1,
+    column: 17,
   } ],
 })

@@ -1,7 +1,7 @@
-import test from "tape"
+import beforeBlockString from "../beforeBlockString"
 import postcss from "postcss"
 import sugarss from "sugarss"
-import beforeBlockString from "../beforeBlockString"
+import test from "tape"
 
 test("beforeBlockString rules", t => {
   t.equal(postcssCheck("a {}"), "a ")

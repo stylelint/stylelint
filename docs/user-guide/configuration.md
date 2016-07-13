@@ -215,9 +215,28 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 }
 ```
 
+### `processors`
+
+Processors are functions that hook into stylelint's pipeline, modifying code on its way into stylelint and modifying results on their way out.
+
+*Processors can only be used with the CLI and the Node API, not with the PostCSS plugin.* (The PostCSS plugin will ignore them.)
+
+Processors can enable stylelint to lint the CSS within non-stylesheet files. For example, you could lint the CSS within `<style>` tags in HTML, or within strings in JavaScript.
+
+To use one, add a `"processors"` array to your config, containing "locaters" identifying the processors you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
+
+```json
+{
+  "processors": ["stylelint-html-processor"],
+  "rules": {..},
+}
+```
+
 ### `ignoreFiles`
 
 Provide a glob or array of globs to ignore specific files.
+
+(An alternative method is to use a `.stylelintignore` file, described below.)
 
 If the globs are absolute paths, they are used as is. If they are relative, they are analyzed relative to
 
@@ -236,10 +255,10 @@ The default severity level for all rules that do not have a severity specified i
 
 ## `.stylelintignore`
 
-Like `ignoreFiles` in the configuration object, you can specify a list of files or patterns that will be ignored.
+You can use a `.stylelintignore` file (or point to another ignore patterns file) to ignore specific files.
 
-You must include only one pattern per line. And the patterns are the same globs as for `ignoreFiles`, above, analyzed relative to the same location.
+(An alternative method is to use a `config.ignoreFiles`, described above.)
 
-stylelint will check for the `.stylelintignore` file in the config's `configBasedir` (if it's provided), the config's own directory, or `process.cwd()`.
+The patterns in your `.stylelintignore` file must match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). (Behind the scenes, [`node-ignore`](https://github.com/kaelzhang/node-ignore) parses your patterns.) One implication of this is that *your patterns in `.stylelintignore` are always analyzed relative to `process.cwd()`.*
 
-You can also specify an absolute path for your ignore patterns file using the `--ignore-path` (in the CLI) and `ignorePath` (in JS) options.
+stylelint will look for a `.stylelintignore` file in `process.cwd()`. You can also specify an path to your ignore patterns file (absolute or relative to `process.cwd()`) using the `--ignore-path` (in the CLI) and `ignorePath` (in JS) options.

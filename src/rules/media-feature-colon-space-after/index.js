@@ -2,10 +2,10 @@ import {
   atRuleParamIndex,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "media-feature-colon-space-after"
 

@@ -1,6 +1,6 @@
-import test from "tape"
-import sinon from "sinon"
 import report from "../report"
+import sinon from "sinon"
+import test from "tape"
 
 test("without disabledRanges", t => {
   const v = {

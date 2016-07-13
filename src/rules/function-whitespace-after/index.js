@@ -2,9 +2,9 @@ import {
   isWhitespace,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "function-whitespace-after"
 
@@ -29,7 +29,11 @@ export default function (expectation) {
     root.walkDecls(decl => {
       const declString = decl.toString()
 
-      styleSearch({ source: declString, target: ")", withinFunctionalNotation: true }, match => {
+      styleSearch({
+        source: declString,
+        target: ")",
+        functionArguments: "only",
+      }, match => {
         checkClosingParen(declString, match.startIndex, decl)
       })
     })

@@ -1,9 +1,9 @@
 import {
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "color-no-hex"
 

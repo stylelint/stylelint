@@ -2,11 +2,11 @@ import {
   isWhitespace,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
-import valueParser from "postcss-value-parser"
 import balancedMatch from "balanced-match"
+import styleSearch from "style-search"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "function-calc-no-unspaced-operator"
 
@@ -46,7 +46,7 @@ export default function (actual) {
           const styleSearchOptions = {
             source: expression,
             target: symbol,
-            outsideFunctionalNotation: true,
+            functionArguments: "skip",
           }
 
           styleSearch(styleSearchOptions, match => {

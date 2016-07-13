@@ -1,12 +1,12 @@
-import _ from "lodash"
 import {
   isStandardSyntaxRule,
   parseSelector,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "../../utils"
+import _ from "lodash"
+import styleSearch from "style-search"
 
 export const ruleName = "selector-pseudo-class-parentheses-space-inside"
 

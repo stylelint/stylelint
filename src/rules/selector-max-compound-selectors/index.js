@@ -1,6 +1,3 @@
-import resolvedNestedSelector from "postcss-resolve-nested-selector"
-import selectorParser from "postcss-selector-parser"
-
 import {
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
@@ -8,6 +5,8 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import resolvedNestedSelector from "postcss-resolve-nested-selector"
+import selectorParser from "postcss-selector-parser"
 
 export const ruleName = "selector-max-compound-selectors"
 

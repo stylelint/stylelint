@@ -1,5 +1,5 @@
-import test from "tape"
 import isKeyframeSelector from "../isKeyframeSelector"
+import test from "tape"
 
 test("isKeyframeSelector", t => {
   t.ok(isKeyframeSelector("to"), "to keyword")

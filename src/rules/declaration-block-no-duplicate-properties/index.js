@@ -1,4 +1,3 @@
-import { isString } from "lodash"
 import {
   isCustomProperty,
   isStandardSyntaxProperty,
@@ -8,6 +7,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { isString } from "lodash"
 
 export const ruleName = "declaration-block-no-duplicate-properties"
 

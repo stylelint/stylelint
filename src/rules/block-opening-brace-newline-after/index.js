@@ -1,8 +1,8 @@
 import {
+  beforeBlockString,
   blockString,
   hasBlock,
   hasEmptyBlock,
-  beforeBlockString,
   nextNonCommentNode,
   rawNodeString,
   report,

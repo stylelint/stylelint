@@ -1,12 +1,15 @@
-import colorguard from "colorguard"
-import { isArray, isNumber } from "lodash"
-import Result from "postcss/lib/result"
+import {
+  isArray,
+  isNumber,
+} from "lodash"
 import {
   isValidHex,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import Result from "postcss/lib/result"
+import colorguard from "colorguard"
 
 export const ruleName = "no-indistinguishable-colors"
 

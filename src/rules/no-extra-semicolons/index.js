@@ -1,9 +1,9 @@
 import {
-  ruleMessages,
-  styleSearch,
   report,
+  ruleMessages,
   validateOptions,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "no-extra-semicolons"
 

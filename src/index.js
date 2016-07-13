@@ -1,23 +1,19 @@
-import postcssPlugin from "./postcssPlugin"
-import standalone from "./standalone"
-import createPlugin from "./createPlugin"
-import rules from "./rules"
 import {
-  cssWordIsVariable, // Deprecated
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 } from "./utils"
+import createPlugin from "./createPlugin"
 import createRuleTester from "./testUtils/createRuleTester"
+import postcssPlugin from "./postcssPlugin"
+import rules from "./rules"
+import standalone from "./standalone"
 
 const stylelint = postcssPlugin
 
 stylelint.utils = {
-  cssWordIsVariable, // Deprecated
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
 }
 

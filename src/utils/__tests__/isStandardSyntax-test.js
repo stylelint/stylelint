@@ -1,5 +1,5 @@
-import test from "tape"
 import isStandardSyntaxUrl from "../isStandardSyntaxUrl"
+import test from "tape"
 
 test("isStandardSyntaxValue", t => {
   t.ok(

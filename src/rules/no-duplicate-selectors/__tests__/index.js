@@ -1,16 +1,19 @@
-import { testRule } from "../../../testUtils"
-import rules from "../../../rules"
+import {
+  messages,
+  ruleName,
+} from ".."
+import path from "path"
 import postcss from "postcss"
 import postcssImport from "postcss-import"
-import path from "path"
+import rules from "../../../rules"
 import test from "tape"
-import { ruleName, messages } from ".."
+import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [null],
+  config: [true],
 
   accept: [ {
     code: "a {} b {} c {} d, e, f {}",

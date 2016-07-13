@@ -1,6 +1,6 @@
-import autoprefixer from "autoprefixer"
-import Prefixes from "autoprefixer/lib/prefixes"
 import Browsers from "autoprefixer/lib/browsers"
+import Prefixes from "autoprefixer/lib/prefixes"
+import autoprefixer from "autoprefixer"
 
 /**
  * Use Autoprefixer's secret powers to determine whether or

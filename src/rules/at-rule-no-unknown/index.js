@@ -1,11 +1,11 @@
-import { isString } from "lodash"
-import { vendor } from "postcss"
 import {
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
 import { atRules } from "../../reference/keywordSets"
+import { isString } from "lodash"
+import { vendor } from "postcss"
 
 export const ruleName = "at-rule-no-unknown"
 

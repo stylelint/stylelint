@@ -1,13 +1,15 @@
-import path from "path"
-import fs from "fs"
-import cosmiconfig from "cosmiconfig"
-import resolveFrom from "resolve-from"
 import {
   assign,
   merge,
   omit,
+  union,
 } from "lodash"
 import { configurationError } from "./utils"
+import cosmiconfig from "cosmiconfig"
+import fs from "fs"
+import globjoin from "globjoin"
+import path from "path"
+import resolveFrom from "resolve-from"
 
 const IGNORE_FILENAME = ".stylelintignore"
 const FILE_NOT_FOUND_ERROR_CODE = "ENOENT"
@@ -15,7 +17,7 @@ const FILE_NOT_FOUND_ERROR_CODE = "ENOENT"
 /**
  * - Accept a raw config or look up `.stylelintrc` (using cosmiconfig).
  * - Add patterns from `.stylelintignore` to the config's `ignoreFiles`.
- * - Resolve plugin names to absolute paths.
+ * - Resolve plugin and processor names to absolute paths.
  * - Resolve extends by finding, augmenting, and merging
  *   extended configs
  *
@@ -88,7 +90,7 @@ export default function (options) {
 
 /**
  * Given a configuration object, return a new augmented version with
- * - Plugins resolved to absolute paths
+ * - Plugins and processors resolved to absolute paths
  * - Extended configs merged in
  *
  * @param {object} config
@@ -99,12 +101,12 @@ export default function (options) {
  * @param {string} [options.ignorePath] - See above.
  * @return {object}
  */
-export function augmentConfig(config, configDir, options = {}) {
+function augmentConfig(config, configDir, options = {}) {
   const start = (options.addIgnorePatterns)
-    ? addIgnoreFiles(config, configDir, options.ignorePath)
+    ? addIgnores(config, configDir, options.ignorePath)
     : Promise.resolve(config)
   return start.then(configWithIgnorePatterns => {
-    const absolutizedConfig = absolutizePlugins(configWithIgnorePatterns, configDir)
+    const absolutizedConfig = absolutizeExtras(configWithIgnorePatterns, configDir)
     if (absolutizedConfig.extends) {
       return extendConfig(absolutizedConfig, configDir)
     }
@@ -112,41 +114,48 @@ export function augmentConfig(config, configDir, options = {}) {
   })
 }
 
-export function addIgnoreFiles(config, configDir, ignorePath) {
-  return findIgnorePatterns(configDir, ignorePath).then(ignorePatterns => {
-    config.ignoreFiles = [].concat(ignorePatterns, config.ignoreFiles || [])
-    return config
-  })
-}
+function addIgnores(config, configDir, ignorePath) {
+  // Absoluteize config.ignoreFiles
+  if (config.ignoreFiles) {
+    config.ignoreFiles = [].concat(config.ignoreFiles).map(glob => {
+      if (path.isAbsolute(glob)) return glob
+      return globjoin(configDir, glob)
+    })
+  }
 
-function findIgnorePatterns(configDir, ignorePath) {
-  let defaultedIgnorePath = path.resolve(configDir, IGNORE_FILENAME)
+  let defaultedIgnorePath = path.resolve(process.cwd(), IGNORE_FILENAME)
   if (ignorePath) {
     defaultedIgnorePath = (path.isAbsolute(ignorePath))
       ? ignorePath
       : path.resolve(process.cwd(), ignorePath)
   }
+
   return new Promise((resolve, reject) => {
     fs.readFile(defaultedIgnorePath, "utf8", (err, data) => {
       if (err) {
         // If the file's not found, great, we'll just give an empty array
-        if (err.code === FILE_NOT_FOUND_ERROR_CODE) { return resolve([]) }
+        if (err.code === FILE_NOT_FOUND_ERROR_CODE) { return resolve(config) }
         return reject(err)
       }
-      const ignorePatterns = data.split(/\r?\n/g)
-        .filter(val => val.trim() !== "")     // Remove empty lines
-        .filter(val => val.trim()[0] !== "#") // Remove comments
-      resolve(ignorePatterns)
+      // Add an ignorePatterns property to the config, containing the
+      // .gitignore-patterned globs loaded from .stylelintignore
+      config.ignorePatterns = data
+      resolve(config)
     })
   })
 }
 
-// Replace all plugin lookups with absolute paths
-function absolutizePlugins(config, configDir) {
-  if (!config.plugins) { return config }
-  return assign({}, config, {
-    plugins: config.plugins.map(lookup => getModulePath(configDir, lookup)),
-  })
+// Replace all plugin and processor lookups with absolute paths
+function absolutizeExtras(config, configDir) {
+  if (!config.plugins && !config.processors) { return config }
+  const result = assign({}, config)
+  if (config.plugins) {
+    result.plugins = [].concat(config.plugins).map(lookup => getModulePath(configDir, lookup))
+  }
+  if (config.processors) {
+    result.processors = [].concat(config.processors).map(lookup => getModulePath(configDir, lookup))
+  }
+  return result
 }
 
 function extendConfig(config, configDir) {
@@ -155,7 +164,11 @@ function extendConfig(config, configDir) {
   const resultPromise = extendLookups.reduce((mergeConfigs, extendLookup) => {
     return mergeConfigs.then(mergedConfig => {
       return loadExtendedConfig(mergedConfig, configDir, extendLookup).then(extendedConfig => {
-        return merge({}, mergedConfig, extendedConfig)
+        const pluginMerger = {}
+        if (mergedConfig.plugins || extendedConfig.plugins) {
+          pluginMerger.plugins = union(mergedConfig.plugins, extendedConfig.plugins)
+        }
+        return merge({}, mergedConfig, extendedConfig, pluginMerger)
       })
     })
   }, Promise.resolve(origConfig))

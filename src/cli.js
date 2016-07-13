@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
+import {
+  assign,
+} from "lodash"
+import getStdin from "get-stdin"
 import meow from "meow"
 import path from "path"
-import { assign, includes } from "lodash"
-import getStdin from "get-stdin"
 import resolveFrom from "resolve-from"
 import standalone from "./standalone"
 
@@ -12,19 +14,16 @@ const minimistOptions = {
     config: false,
     f: "string",
     q: false,
-    v: false,
   },
   alias: {
-    e: "extract",
     f: "formatter",
     h: "help",
     i: "ignore-path",
     q: "quiet",
     s: "syntax",
-    v: "verbose",
+    v: "version",
   },
 }
-const syntaxOptions = [ "scss", "less", "sugarss" ]
 
 const meowOptions = {
   help: [
@@ -39,29 +38,31 @@ const meowOptions = {
     "  You can also pass no input and use stdin, instead.",
     "",
     "Options",
-    "  --config            Path to a specific configuration file (JSON, YAML, or CommonJS),",
-    "                      or the name of a module in `node_modules` that points to one.",
-    "                      If no `--config` argument is provided, stylelint will search for",
-    "                      configuration  files in the following places, in this order:",
-    "                        - a `stylelint` property in `package.json`",
-    "                        - a `.stylelintrc` file (with or without filename extension:",
-    "                          `.json`, `.yaml`, and `.js` are available)",
-    "                        - a `stylelint.config.js` file exporting a JS object",
-    "                      The search will begin in the working directory and move up the",
-    "                      directory tree until a configuration file is found.",
-    "  --version           Get the currently installed version of stylelint.",
-    "  --custom-formatter  Path to a JS file exporting a custom formatting function",
-    "  --stdin-filename    Specify a filename to assign stdin input",
-    "  -f, --formatter     Specify a formatter: \"json\", \"string\" or \"verbose\". Default is \"string\".",
-    "  -i, --ignore-path   Specify a to a file containing patterns describing files",
-    "                      to ignore. The path can be absolute or relative to `cwd`.",
-    "                      By default, stylelint looks for `.stylelintignore` in the",
-    "                      same directory as the configuration file.",
-    "  -q, --quiet         Only register warnings for rules with an \"error\"-level severity",
-    "                      (ignore \"warning\"-level)",
-    "  -s, --syntax        Specify a non-standard syntax that should be used to ",
-    "                      parse source stylesheets. Options: \"scss\", \"less\", \"sugarss\"",
-    "  -e, --extract       Extract and lint CSS from style tags in HTML structures",
+    "  --config             Path to a specific configuration file (JSON, YAML, or CommonJS),",
+    "                       or the name of a module in `node_modules` that points to one.",
+    "                       If no `--config` argument is provided, stylelint will search for",
+    "                       configuration  files in the following places, in this order:",
+    "                         - a `stylelint` property in `package.json`",
+    "                         - a `.stylelintrc` file (with or without filename extension:",
+    "                           `.json`, `.yaml`, and `.js` are available)",
+    "                         - a `stylelint.config.js` file exporting a JS object",
+    "                       The search will begin in the working directory and move up the",
+    "                       directory tree until a configuration file is found.",
+    "  -v, --version        Get the currently installed version of stylelint.",
+    "  --custom-formatter   Path to a JS file exporting a custom formatting function",
+    "  --stdin-filename     Specify a filename to assign stdin input",
+    "  -f, --formatter      Specify a formatter: \"json\", \"string\" or \"verbose\". Default is \"string\".",
+    "  --color, --no-color  Force enabling/disabling of color",
+    "  -i, --ignore-path    Specify a to a file containing patterns describing files",
+    "                       to ignore. The path can be absolute or relative to `process.cwd()`.",
+    "                       By default, stylelint looks for `.stylelintignore` in `process.cwd()`",
+    "  -q, --quiet          Only register warnings for rules with an \"error\"-level severity",
+    "                       (ignore \"warning\"-level)",
+    "  -s, --syntax         Specify a non-standard syntax that should be used to ",
+    "                       parse source stylesheets. Options: \"scss\", \"less\", \"sugarss\".",
+    "                       If you do not specify a syntax, non-standard syntaxes will be",
+    "                       automatically inferred by the file extensions",
+    "                       `.scss`, `.less`, and `.sss`.",
   ],
   pkg: "../package.json",
 }
@@ -71,12 +72,6 @@ const cli = meow(meowOptions, minimistOptions)
 let formatter = cli.flags.formatter
 if (cli.flags.customFormatter) {
   formatter = require(path.join(process.cwd(), cli.flags.customFormatter))
-} else if (cli.flags.verbose) {
-  formatter = "verbose"
-  console.log( // eslint-disable-line no-console
-    "The '-v' and '--verbose' flags have been deprecated, and will be removed in '7.0'. " +
-    "Use '-f verbose' or '--formatter verbose' instead."
-  )
 }
 
 const optionsBase = {
@@ -88,12 +83,8 @@ if (cli.flags.quiet) {
   optionsBase.configOverrides.quiet =  cli.flags.quiet
 }
 
-if (cli.flags.syntax && includes(syntaxOptions, cli.flags.syntax)) {
+if (cli.flags.syntax) {
   optionsBase.syntax = cli.flags.syntax
-}
-
-if (cli.flags.extract) {
-  optionsBase.extractStyleTagsFromHtml = cli.flags.extract
 }
 
 if (cli.flags.config) {

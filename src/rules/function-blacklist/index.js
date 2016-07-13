@@ -1,7 +1,3 @@
-import { isString } from "lodash"
-import { vendor } from "postcss"
-import valueParser from "postcss-value-parser"
-
 import {
   declarationValueIndex,
   isStandardSyntaxFunction,
@@ -10,6 +6,9 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { isString } from "lodash"
+import valueParser from "postcss-value-parser"
+import { vendor } from "postcss"
 
 export const ruleName = "function-blacklist"
 

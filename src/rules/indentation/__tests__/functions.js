@@ -1,6 +1,9 @@
-import { testRule } from "../../../testUtils"
+import {
+  messages,
+  ruleName,
+} from ".."
 import rules from "../../../rules"
-import { ruleName, messages } from ".."
+import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
 
@@ -14,64 +17,6 @@ testRule(rule, {
     "  color: rgb(0, 0, 0);\n" +
     "}",
   }, {
-    code: ".foo {\n" +
-    "  color: rgb(\n" +
-    "    0,\n" +
-    "    0,\n" +
-    "    0\n" +
-    "  );\n" +
-    "}",
-  }, {
-    code: ".foo {\n" +
-    "  color: rgb(\n" +
-    "      0,\n" +
-    "      0,\n" +
-    "      0\n" +
-    "    );\n" +
-    "}",
-  }, {
-    code: ".foo {\n" +
-    "  color: rgb(\n" +
-    "0,\n" +
-    "0,\n" +
-    "0\n" +
-    "    );\n" +
-    "}",
-  }, {
-    code: ".foo {\n" +
-    "  color: bar(\n" +
-    "    rgb(\n" +
-    "      0,\n" +
-    "      0,\n" +
-    "      0\n" +
-    "    )\n" +
-    "  );\n" +
-    "}",
-  }, {
-    code: ".foo {\n" +
-    "  color: bar(\n" +
-    "      rgb(\n" +
-    "        0,\n" +
-    "        0,\n" +
-    "        0\n" +
-    "      )\n" +
-    "    );\n" +
-    "}",
-  }, {
-    code: "$tooltip-default-settings: (\n" +
-    "    tooltip-gutter: 8px 10px,\n" +
-    "  tooltip-border: 1px solid,\n" +
-    ");",
-    description: "Sass maps ignored",
-  } ],
-})
-
-testRule(rule, {
-  ruleName,
-  config: [ 2, { indentInsideParens: "once" } ],
-  skipBasicChecks: true,
-
-  accept: [ {
     code: ".foo {\n" +
     "  color: rgb(\n" +
     "    0,\n" +
@@ -154,7 +99,65 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ "tab", { indentInsideParens: "once", "indentClosingBrace": false } ],
+  config: [ 2, { ignore: ["inside-parens"] } ],
+  skipBasicChecks: true,
+
+  accept: [ {
+    code: ".foo {\n" +
+    "  color: rgb(\n" +
+    "    0,\n" +
+    "    0,\n" +
+    "    0\n" +
+    "  );\n" +
+    "}",
+  }, {
+    code: ".foo {\n" +
+    "  color: rgb(\n" +
+    "      0,\n" +
+    "      0,\n" +
+    "      0\n" +
+    "    );\n" +
+    "}",
+  }, {
+    code: ".foo {\n" +
+    "  color: rgb(\n" +
+    "0,\n" +
+    "0,\n" +
+    "0\n" +
+    "    );\n" +
+    "}",
+  }, {
+    code: ".foo {\n" +
+    "  color: bar(\n" +
+    "    rgb(\n" +
+    "      0,\n" +
+    "      0,\n" +
+    "      0\n" +
+    "    )\n" +
+    "  );\n" +
+    "}",
+  }, {
+    code: ".foo {\n" +
+    "  color: bar(\n" +
+    "      rgb(\n" +
+    "        0,\n" +
+    "        0,\n" +
+    "        0\n" +
+    "      )\n" +
+    "    );\n" +
+    "}",
+  }, {
+    code: "$tooltip-default-settings: (\n" +
+    "    tooltip-gutter: 8px 10px,\n" +
+    "  tooltip-border: 1px solid,\n" +
+    ");",
+    description: "Sass maps ignored",
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "tab", { "indentClosingBrace": false } ],
   skipBasicChecks: true,
 
   accept: [{
@@ -384,7 +387,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ 2, { indentInsideParens: "once" } ],
+  config: [2],
   syntax: "less",
   skipBasicChecks: true,
 

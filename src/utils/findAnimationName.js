@@ -1,13 +1,13 @@
-import postcssValueParser from "postcss-value-parser"
+import {
+  animationShorthandKeywords,
+  basicKeywords,
+} from "../reference/keywordSets"
 import {
   getUnitFromValueNode,
   isStandardSyntaxValue,
   isVariable,
 } from "./"
-import {
-  basicKeywords,
-  animationShorthandKeywords,
-} from "../reference/keywordSets"
+import postcssValueParser from "postcss-value-parser"
 
 /**
  * Get the font-families within a `font` shorthand property value.

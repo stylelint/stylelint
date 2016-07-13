@@ -3,10 +3,10 @@ import {
   isStandardSyntaxProperty,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "value-list-comma-space-after"
 
@@ -46,7 +46,11 @@ export function valueListCommaWhitespaceChecker({ locationChecker, root, result,
       !isStandardSyntaxDeclaration(decl)
       || !isStandardSyntaxProperty(decl.prop)
     ) { return }
-    styleSearch({ source: decl.toString(), target: ",", outsideFunctionalNotation: true }, match => {
+    styleSearch({
+      source: decl.toString(),
+      target: ",",
+      functionArguments: "skip",
+    }, match => {
       checkComma(decl.toString(), match.startIndex, decl)
     })
   })

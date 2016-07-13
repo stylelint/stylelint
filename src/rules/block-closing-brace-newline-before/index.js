@@ -1,4 +1,3 @@
-import { startsWith } from "lodash"
 import {
   blockString,
   hasBlock,
@@ -8,6 +7,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { startsWith } from "lodash"
 
 export const ruleName = "block-closing-brace-newline-before"
 

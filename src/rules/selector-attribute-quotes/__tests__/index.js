@@ -1,10 +1,11 @@
-import { testRule } from "../../../testUtils"
+import {
+  messages,
+  ruleName,
+} from ".."
 import rules from "../../../rules"
-import { ruleName, messages } from ".."
+import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
-
-// All commented tests should uncomment after resolve issue https://github.com/postcss/postcss-selector-parser/issues/71
 
 testRule(rule, {
   ruleName,
@@ -19,13 +20,13 @@ testRule(rule, {
     code: "a[ target=\"_blank\" ] { }",
   }, {
     code: "[class|=\"top\"] { }",
-  }, /* {
+  }, {
     code: "[class |= \"top\"] { }",
-  }, */ {
+  }, {
     code: "[title~=\'text\'] { }",
-  }, /* {
+  }, {
     code: "[data-attribute=\'component\'] { }",
-  }, */ {
+  }, {
     code: "[frame=\"hsides\" i] { }",
   }, {
     code: "[frame=\'hsides\' i] { }",
@@ -40,7 +41,7 @@ testRule(rule, {
     column: 9,
   }, {
     code: "a[ title=flower ] { }",
-    message: messages.expected("flower "),
+    message: messages.expected("flower"),
     line: 1,
     column: 10,
   }, {
@@ -50,7 +51,7 @@ testRule(rule, {
     column: 9,
   }, {
     code: "[class ^= top] { }",
-    message: messages.expected(" top"),
+    message: messages.expected("top"),
     line: 1,
     column: 10,
   }, {
@@ -87,22 +88,22 @@ testRule(rule, {
     message: messages.rejected("_blank"),
     line: 1,
     column: 10,
-  }, /* {
+  }, {
     code: "a[ target=\"_blank\" ] { }",
-    message: messages.rejected("_blank "),
+    message: messages.rejected("_blank"),
     line: 1,
     column: 11,
-  }, */ {
+  }, {
     code: "[class|=\"top\"] { }",
     message: messages.rejected("top"),
     line: 1,
     column: 9,
-  }, /* {
+  }, {
     code: "[class |= \"top\"] { }",
-    message: messages.rejected(" \"top\""),
+    message: messages.rejected("top"),
     line: 1,
     column: 10,
-  }, */ {
+  }, {
     code: "[title~=\'text\'] { }",
     message: messages.rejected("text"),
     line: 1,

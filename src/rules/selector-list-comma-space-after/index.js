@@ -2,10 +2,10 @@ import {
   isStandardSyntaxRule,
   report,
   ruleMessages,
-  styleSearch,
   validateOptions,
   whitespaceChecker,
 } from "../../utils"
+import styleSearch from "style-search"
 
 export const ruleName = "selector-list-comma-space-after"
 
@@ -43,7 +43,11 @@ export function selectorListCommaWhitespaceChecker({ locationChecker, root, resu
   root.walkRules(rule => {
     if (!isStandardSyntaxRule(rule)) { return }
     const selector = rule.selector
-    styleSearch({ source: selector, target: ",", outsideFunctionalNotation: true }, match => {
+    styleSearch({
+      source: selector,
+      target: ",",
+      functionArguments: "skip",
+    }, match => {
       checkDelimiter(selector, match.startIndex, rule)
     })
   })

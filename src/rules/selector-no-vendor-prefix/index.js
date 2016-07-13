@@ -1,10 +1,10 @@
 import {
+  isAutoprefixable,
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
   parseSelector,
   report,
   ruleMessages,
-  isAutoprefixable,
   validateOptions,
 } from "../../utils"
 
