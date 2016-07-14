@@ -10,6 +10,8 @@ test("getUnitFromValueNode", t => {
   t.equal(getUnitFromValueNode(valueParser("1PX").nodes[0]), "PX")
   t.equal(getUnitFromValueNode(valueParser("100%").nodes[0]), "%")
   t.equal(getUnitFromValueNode(valueParser("100").nodes[0]), "")
+  t.equal(getUnitFromValueNode(valueParser("0\\0").nodes[0]), "")
+  t.equal(getUnitFromValueNode(valueParser("10px\\9").nodes[0]), "px")
   t.equal(getUnitFromValueNode(valueParser("#fff").nodes[0]), null)
   t.equal(getUnitFromValueNode(valueParser("#000").nodes[0]), null)
   t.equal(getUnitFromValueNode(valueParser("\"100\"").nodes[0]), null)
