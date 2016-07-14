@@ -133,6 +133,9 @@ testRule(rule, {
   }, {
     code: "@media (min-width: 10px)\n  and (max-width: 20px) {}",
     description: "complex @media",
+  }, {
+    code: "@media screen and (min-width:0\\0) {}",
+    description: "ignore media query hack",
   } ],
 
   reject: [ {

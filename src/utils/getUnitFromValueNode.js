@@ -15,6 +15,9 @@ export default function (node) {
   if (!node || (node && !node.value)) { return null }
 
   const value = blurInterpolation(node.value, "")
+    // ignore hack unit
+    .replace("\\0", "")
+    .replace("\\9", "")
 
   if (node.type !== "word"
     || !isStandardSyntaxValue(value)

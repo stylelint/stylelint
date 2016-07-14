@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: rules `unit-*` correctly handles browser hacks.
+
 # 7.0.1
 
 - Fixed: missing `known-css-properties` dependency.
