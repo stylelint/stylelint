@@ -1,6 +1,7 @@
 # Head
 
-- Fixed: rules `unit-*` correctly handles browser hacks.
+- Fixed: `at-rule-blacklist`, `at-rule-whitelist`, `comment-word-blacklist`, `selector-attribute-operator-blacklist`, `selector-attribute-operator-whitelist` now accept array as first option.
+- Fixed: `unit-*` rules now ignore CSS hacks.
 
 # 7.0.1
 

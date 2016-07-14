@@ -13,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (operator) => `Unexpected operator "${operator}"`,
 })
 
-export default function (blacklistInput) {
+function rule(blacklistInput) {
   const blacklist = [].concat(blacklistInput)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -32,8 +32,6 @@ export default function (blacklistInput) {
         selectorTree.walkAttributes(attributeNode => {
           const operator = attributeNode.operator
 
-          if (!operator) { return }
-
           if (!operator || (operator && blacklist.indexOf(operator) === -1)) { return }
 
           report({
@@ -48,3 +46,7 @@ export default function (blacklistInput) {
     })
   }
 }
+
+rule.primaryOptionArray = true
+
+export default rule
