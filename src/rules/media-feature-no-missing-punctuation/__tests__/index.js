@@ -2,6 +2,7 @@ import {
   messages,
   ruleName,
 } from ".."
+import scss from "postcss-scss"
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -50,6 +51,8 @@ testRule(rule, {
   }, {
     code: "@media (color) {}",
   }, {
+    code: "@media screen and (max-width:calc(100% - 42px)) {}"
+  }, {
     code: "@non-media (min-width 300px) {}",
     description: "ignore at-rules contain media in name",
   }, {
@@ -92,4 +95,14 @@ testRule(rule, {
     line: 3,
     column: 7,
   } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [true],
+  syntax: scss,
+
+  accept: [{
+    code: "@media screen and (max-width:($var - 42px)) {}",
+  }],
 })
