@@ -12,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (name) => `Unexpected at-rule "${name}"`,
 })
 
-export default function (blacklistInput) {
+function rule(blacklistInput) {
   // To allow for just a string as a parameter (not only arrays of strings)
   const blacklist = [].concat(blacklistInput)
   return (root, result) => {
@@ -35,3 +35,7 @@ export default function (blacklistInput) {
     })
   }
 }
+
+rule.primaryOptionArray = true
+
+export default rule
