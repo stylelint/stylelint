@@ -1,4 +1,8 @@
 import {
+    get,
+    isBoolean,
+} from "lodash"
+import {
   isKeyframeSelector,
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
@@ -9,7 +13,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import { get } from "lodash"
+import resolveNestedSelector from "postcss-resolve-nested-selector"
 
 export const ruleName = "selector-no-type"
 
@@ -23,11 +27,13 @@ export default function (on, options) {
       actual: options,
       possible: {
         ignore: [ "descendant", "compounded" ],
+        resolveNestedSelectors: isBoolean,
       },
       optional: true,
     })
     if (!validOptions) { return }
 
+    const shouldResolveNestedSelectors = get(options, "resolveNestedSelectors")
     const ignoreDescendant = optionsHaveIgnored(options, "descendant")
     const ignoreCompounded = optionsHaveIgnored(options, "compounded")
 
@@ -39,6 +45,16 @@ export default function (on, options) {
       if (!isStandardSyntaxSelector(selector)) { return }
       if (selectors.some(s => isKeyframeSelector(s))) { return }
 
+      if (shouldResolveNestedSelectors) {
+        resolveNestedSelector(selector, rule).forEach(selector => {
+          checkSelector(selector, rule)
+        })
+      } else {
+        checkSelector(selector, rule)
+      }
+    })
+
+    function checkSelector(selector, rule) {
       parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkTags(tag => {
 
@@ -57,7 +73,7 @@ export default function (on, options) {
           })
         })
       })
-    })
+    }
   }
 }
 

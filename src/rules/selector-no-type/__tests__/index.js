@@ -107,7 +107,20 @@ testRule(rule, {
   }, {
     code: "div.foo {}",
     message: messages.rejected,
+  }, {
+    code: ".foo { div { } }",
+    message: messages.rejected,
   } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignore: ["descendant"], resolveNestedSelectors: true } ],
+  skipBasicChecks: true,
+
+  accept: [{
+    code: ".foo { div { } }",
+  }],
 })
 
 testRule(rule, {
