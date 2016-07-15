@@ -1,3 +1,7 @@
+# Head
+
+- Fixed: bug causing rules in extended configs to be merged with, rather than replaced by, the extending config.
+
 # 7.0.2
 
 - Fixed: `at-rule-blacklist`, `at-rule-whitelist`, `comment-word-blacklist`, `selector-attribute-operator-blacklist`, `selector-attribute-operator-whitelist` now accept array as first option.

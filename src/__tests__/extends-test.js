@@ -8,44 +8,46 @@ import test from "tape"
 const fixturesPath = path.join(__dirname, "fixtures")
 
 test("standalone with extending configuration and configBasedir", t => {
-  let planned = 0
+  t.test("basic extending", st => {
+    standalone({
+      code: "a {}",
+      config: configExtendingOne,
+      configBasedir: path.join(__dirname, "fixtures"),
+    }).then(({ output, results }) => {
+      st.equal(typeof output, "string")
+      st.equal(results.length, 1)
+      st.equal(results[0].warnings.length, 1)
+      st.equal(results[0].warnings[0].rule, "block-no-empty")
+    }).catch(logError)
+    st.end()
+  })
 
-  standalone({
-    code: "a {}",
-    config: configExtendingOne,
-    configBasedir: path.join(__dirname, "fixtures"),
-  }).then(({ output, results }) => {
-    t.equal(typeof output, "string")
-    t.equal(results.length, 1)
-    t.equal(results[0].warnings.length, 1)
-    t.equal(results[0].warnings[0].rule, "block-no-empty")
-  }).catch(logError)
-  planned += 4
+  t.test("recursive extending", st => {
+    standalone({
+      code: "a {}",
+      config: configExtendingAnotherExtend,
+      configBasedir: path.join(__dirname, "fixtures"),
+    }).then(({ output, results }) => {
+      st.equal(typeof output, "string")
+      st.equal(results.length, 1)
+      st.equal(results[0].warnings.length, 1)
+      st.equal(results[0].warnings[0].rule, "block-no-empty")
+    }).catch(logError)
+    st.end()
+  })
 
-  // Recursive extending
-  standalone({
-    code: "a {}",
-    config: configExtendingAnotherExtend,
-    configBasedir: path.join(__dirname, "fixtures"),
-  }).then(({ output, results }) => {
-    t.equal(typeof output, "string")
-    t.equal(results.length, 1)
-    t.equal(results[0].warnings.length, 1)
-    t.equal(results[0].warnings[0].rule, "block-no-empty")
-  }).catch(logError)
-  planned += 4
+  t.test("extending with overrides", st => {
+    standalone({
+      code: "a {}",
+      config: configExtendingThreeWithOverride,
+      configBasedir: path.join(__dirname, "fixtures"),
+    }).then(({ results }) => {
+      st.equal(results[0].warnings.length, 0)
+    }).catch(logError)
+    st.end()
+  })
 
-  // Extending with overrides
-  standalone({
-    code: "a {}",
-    config: configExtendingThreeWithOverride,
-    configBasedir: path.join(__dirname, "fixtures"),
-  }).then(({ results }) => {
-    t.equal(results[0].warnings.length, 0)
-  }).catch(logError)
-  planned += 1
-
-  t.plan(planned)
+  t.end()
 })
 
 test("standalone with extending configuration and no configBasedir", t => {
@@ -73,8 +75,8 @@ test("standalone extending a config that is overridden", t => {
     },
   }).then(({ results }) => {
     t.equal(results[0].warnings.length, 0)
+    t.end()
   }).catch(logError)
-  t.plan(1)
 })
 
 function logError(err) { console.log(err.stack) } // eslint-disable-line no-console

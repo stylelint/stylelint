@@ -124,7 +124,7 @@ test("buildConfig extends", t => {
         "color-no-invalid-hex": true,
       },
     }, "extends deeply, merging rules and plugins")
-  })
+  }).catch(logError)
   planned += 1
 
   t.plan(planned)
@@ -147,7 +147,7 @@ test("buildConfig config with plugins extends with plugins", t => {
         "plugin/warn-about-bar": "always",
       },
     }, "extends, and merges plugins")
-  })
+  }).catch(logError)
   planned += 1
 
   t.plan(planned)
@@ -180,6 +180,26 @@ test("buildConfig throws as needed", t => {
   planned += 1
 
   t.plan(planned)
+})
+
+test("buildConfig extends rules by replacing the prior rule config completely, not merging", t => {
+  buildConfig({
+    extends: [path.join(__dirname, "./fixtures/config-at-rule-empty-line-before")],
+    rules: {
+      "at-rule-empty-line-before": [ "always", {
+        expect: ["blockless-group"],
+      } ],
+    },
+  }).then(({ config }) => {
+    t.deepEqual(config, {
+      rules: {
+        "at-rule-empty-line-before": [ "always", {
+          expect: ["blockless-group"],
+        } ],
+      },
+    })
+    t.end()
+  }).catch(logError)
 })
 
 function logError(err) { console.log(err.stack) } // eslint-disable-line
