@@ -107,20 +107,7 @@ testRule(rule, {
   }, {
     code: "div.foo {}",
     message: messages.rejected,
-  }, {
-    code: ".foo { div { } }",
-    message: messages.rejected,
   } ],
-})
-
-testRule(rule, {
-  ruleName,
-  config: [ true, { ignore: ["descendant"], resolveNestedSelectors: true } ],
-  skipBasicChecks: true,
-
-  accept: [{
-    code: ".foo { div { } }",
-  }],
 })
 
 testRule(rule, {
@@ -171,6 +158,24 @@ testRule(rule, {
   accept: [
     { code: "// Comment\n.c {}" },
   ],
+
+  reject: [ {
+    code: ".foo { div {} }",
+    description: "nested descendant",
+    message: messages.rejected,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignore: ["descendant"] } ],
+  skipBasicChecks: true,
+  syntax: "scss",
+
+  accept: [{
+    code: ".foo { div {} }",
+    description: "nested descendant",
+  }],
 })
 
 testRule(rule, {
@@ -182,4 +187,22 @@ testRule(rule, {
   accept: [
     { code: "// Comment\n.c {}" },
   ],
+
+  reject: [ {
+    code: ".foo { div {} }",
+    description: "nested descendant",
+    message: messages.rejected,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignore: ["descendant"] } ],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [{
+    code: ".foo { div {} }",
+    description: "nested descendant",
+  }],
 })

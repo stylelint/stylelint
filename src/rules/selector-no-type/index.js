@@ -27,13 +27,11 @@ export default function (on, options) {
       actual: options,
       possible: {
         ignore: [ "descendant", "compounded" ],
-        resolveNestedSelectors: isBoolean,
       },
       optional: true,
     })
     if (!validOptions) { return }
 
-    const shouldResolveNestedSelectors = get(options, "resolveNestedSelectors")
     const ignoreDescendant = optionsHaveIgnored(options, "descendant")
     const ignoreCompounded = optionsHaveIgnored(options, "compounded")
 
@@ -45,7 +43,7 @@ export default function (on, options) {
       if (!isStandardSyntaxSelector(selector)) { return }
       if (selectors.some(s => isKeyframeSelector(s))) { return }
 
-      if (shouldResolveNestedSelectors) {
+      if (ignoreDescendant) {
         resolveNestedSelector(selector, rule).forEach(selector => {
           checkSelector(selector, rule)
         })

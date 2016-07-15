@@ -50,10 +50,6 @@ The following patterns are *not* considered warnings:
 
 ## Optional options
 
-### `resolveNestedSelectors: true | false` (default: `false`)
-
-This option will resolve nested selectors before checking any rules.
-
 ### `ignore: ["compounded", "descendant"]`
 
 #### `"compounded"`
