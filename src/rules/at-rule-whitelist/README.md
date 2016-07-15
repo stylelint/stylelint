@@ -10,7 +10,7 @@ Specify a whitelist of allowed at-rules.
 
 ## Options
 
-`array|string`: `"["array", "of", "unprefixed", "at-rules"]|"at-rule"`
+`array|string`: `["array", "of", "unprefixed", "at-rules"]|"at-rule"`
 
 Given:
 

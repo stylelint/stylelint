@@ -10,7 +10,7 @@ a[target="_blank"] { }
 
 ## Options
 
-`array|string`: `"["array", "of", "operators"]|"operator"`
+`array|string`: `["array", "of", "operators"]|"operator"`
 
 Given:
 
