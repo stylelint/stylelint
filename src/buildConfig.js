@@ -160,21 +160,18 @@ function absolutizeExtras(config, configDir) {
 
 function extendConfig(config, configDir) {
   const extendLookups = [].concat(config.extends)
-  const origConfig = omit(config, "extends")
-  const resultPromise = extendLookups.reduce((mergeConfigs, extendLookup) => {
-    return mergeConfigs.then(mergedConfig => {
-      return loadExtendedConfig(mergedConfig, configDir, extendLookup).then(extendedConfig => {
-        const pluginMerger = {}
-        if (mergedConfig.plugins || extendedConfig.plugins) {
-          pluginMerger.plugins = union(mergedConfig.plugins, extendedConfig.plugins)
-        }
-        return merge({}, mergedConfig, extendedConfig, pluginMerger)
+  const original = omit(config, "extends")
+
+  const resultPromise = extendLookups.reduce((result, extendLookup) => {
+    return result.then(merged => {
+      return loadExtendedConfig(merged, configDir, extendLookup).then(extended => {
+        return mergeConfigs(merged, extended)
       })
     })
-  }, Promise.resolve(origConfig))
+  }, Promise.resolve(original))
 
-  return resultPromise.then(mergedConfig => {
-    return merge({}, mergedConfig, origConfig)
+  return resultPromise.then(merged => {
+    return mergeConfigs(merged, original)
   })
 }
 
@@ -204,4 +201,16 @@ function getModulePath(basedir, lookup) {
 
 function stripIgnoreFiles(config) {
   return omit(config, "ignoreFiles")
+}
+
+function mergeConfigs(a, b) {
+  const pluginMerger = {}
+  if (a.plugins || b.plugins) {
+    pluginMerger.plugins = union(a.plugins, b.plugins)
+  }
+  const rulesMerger = {}
+  if (a.rules || b.rules) {
+    rulesMerger.rules = assign({}, a.rules, b.rules)
+  }
+  return assign({}, b, a, pluginMerger, rulesMerger)
 }
