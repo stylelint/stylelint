@@ -196,6 +196,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 - [`media-feature-colon-space-after`](../../src/rules/media-feature-colon-space-after/README.md): Require a single space or disallow whitespace after the colon in media features.
 - [`media-feature-colon-space-before`](../../src/rules/media-feature-colon-space-before/README.md): Require a single space or disallow whitespace before the colon in media features.
+- [`media-feature-name-case`](../../src/rules/media-feature-name-case/README.md): Specify lowercase or uppercase for media feature names.
 - [`media-feature-name-no-vendor-prefix`](../../src/rules/media-feature-name-no-vendor-prefix/README.md): Disallow vendor prefixes for media feature names.
 - [`media-feature-no-missing-punctuation`](../../src/rules/media-feature-no-missing-punctuation/README.md): Disallow missing punctuation for non-boolean media features.
 - [`media-feature-parentheses-space-inside`](../../src/rules/media-feature-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within media features.
