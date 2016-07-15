@@ -159,11 +159,11 @@ testRule(rule, {
     { code: "// Comment\n.c {}" },
   ],
 
-  reject: [ {
+  reject: [{
     code: ".foo { div {} }",
     description: "nested descendant",
     message: messages.rejected,
-  } ],
+  }],
 })
 
 testRule(rule, {
@@ -188,11 +188,11 @@ testRule(rule, {
     { code: "// Comment\n.c {}" },
   ],
 
-  reject: [ {
+  reject: [{
     code: ".foo { div {} }",
     description: "nested descendant",
     message: messages.rejected,
-  } ],
+  }],
 })
 
 testRule(rule, {

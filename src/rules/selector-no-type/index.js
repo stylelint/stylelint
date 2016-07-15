@@ -1,8 +1,4 @@
 import {
-    get,
-    isBoolean,
-} from "lodash"
-import {
   isKeyframeSelector,
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
@@ -13,6 +9,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { get } from "lodash"
 import resolveNestedSelector from "postcss-resolve-nested-selector"
 
 export const ruleName = "selector-no-type"
