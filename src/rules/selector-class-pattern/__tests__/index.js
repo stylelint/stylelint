@@ -25,6 +25,9 @@ const basicAZTests = {
     code: "a /* .foo */ {}",
   }, {
     code: ":root { --custom-property-set: {} }",
+  }, {
+    code: "@keyframes a { 0%, 48.59% {} }",
+    message: "Keyframes with decimal percentages",
   } ],
 
   reject: [ {

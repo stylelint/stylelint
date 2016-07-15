@@ -1,4 +1,5 @@
 import {
+  isKeyframeSelector,
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
   parseSelector,
@@ -35,10 +36,11 @@ export default function (pattern, options) {
       : pattern
 
     root.walkRules(rule => {
-      if (!isStandardSyntaxRule(rule)) { return }
+      const { selector, selectors } = rule
 
-      const { selector } = rule
+      if (!isStandardSyntaxRule(rule)) { return }
       if (!isStandardSyntaxSelector(selector)) { return }
+      if (selectors.some(s => isKeyframeSelector(s))) { return }
 
       // Only bother resolving selectors that have an interpolating &
       if (shouldResolveNestedSelectors && hasInterpolatingAmpersand(selector)) {
