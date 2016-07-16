@@ -1,6 +1,7 @@
 # Head
 
 - Fixed: bug causing rules in extended configs to be merged with, rather than replaced by, the extending config.
+- Fixed: bug where fractional keyframes yielded false positives in `selector-class-pattern`
 
 # 7.0.2
 
