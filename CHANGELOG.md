@@ -2,6 +2,7 @@
 
 - Fixed: bug causing rules in extended configs to be merged with, rather than replaced by, the extending config.
 - Fixed: bug where fractional keyframes yielded false positives in `selector-class-pattern`
+- Fixed: `selector-no-type` with secondary option `ignore: ["descendant"]` will now resolve nested selectors.
 
 # 7.0.2
 
