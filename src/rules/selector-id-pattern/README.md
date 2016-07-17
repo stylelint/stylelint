@@ -16,7 +16,7 @@ A string will be translated into a RegExp — `new RegExp(yourString)` — so *
 
 The selector value *after `#`* will be checked. No need to include `#` in your pattern.
 
-Given:
+Given the string:
 
 ```js
 "foo-[a-z]+"

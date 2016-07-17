@@ -14,7 +14,7 @@ a { --foo-bar: 1px; }
 
 A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
 
-Given:
+Given the string:
 
 ```js
 "foo-.+"
