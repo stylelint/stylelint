@@ -10,13 +10,17 @@ Specify a pattern for id selectors.
 
 ## Options
 
-`regex` or `string`
+`regex|string`
 
 A string will be translated into a RegExp — `new RegExp(yourString)` — so *be sure to escape properly*.
 
 The selector value *after `#`* will be checked. No need to include `#` in your pattern.
 
-### E.g. `/foo-[a-z]+/`
+Given the string:
+
+```js
+"foo-[a-z]+"
+```
 
 The following patterns are considered warnings:
 
