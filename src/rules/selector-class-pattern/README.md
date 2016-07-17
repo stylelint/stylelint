@@ -12,13 +12,17 @@ This rule ignores non-ouputting Less mixin definitions and called Less mixins.
 
 ## Options
 
-`regex` or `string`
+`regex|string`
 
 A string will be translated into a RegExp — `new RegExp(yourString)` — so *be sure to escape properly*.
 
 The selector value *after `.`* will be checked. No need to include `.` in your pattern.
 
-### E.g. `/foo-[a-z]+/`
+Given:
+
+```js
+"foo-[a-z]+"
+```
 
 The following patterns are considered warnings:
 
@@ -68,7 +72,13 @@ div > #zing + .foo-bar {}
 
 This option will resolve nested selectors with `&` interpolation.
 
-### E.g. `/^[A-Z]+$/`
+For example, with `true`.
+
+Given:
+
+```js
+"^[A-Z]+$"
+```
 
 The following patterns are considered warnings:
 

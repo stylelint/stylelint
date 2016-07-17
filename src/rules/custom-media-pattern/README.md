@@ -10,11 +10,15 @@ Specify a pattern for custom media query names.
 
 ## Options
 
-`regex` or `string`
+`regex|string`
 
 A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
 
-### E.g. `/foo-.+/`
+Given:
+
+```js
+"foo-.+"
+```
 
 The following patterns are considered warnings:
 
