@@ -79,6 +79,12 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 13,
+  }, {
+    code: ".foo { div {} }",
+    description: "nested descendant",
+    message: messages.rejected,
+    line: 1,
+    column: 8,
   } ],
 })
 
@@ -96,6 +102,9 @@ testRule(rule, {
   }, {
     code: "#bar div.foo {}",
     description: "compounded and descendant",
+  }, {
+    code: ".foo { div {} }",
+    description: "nested descendant",
   } ],
 
   reject: [ {
@@ -158,6 +167,25 @@ testRule(rule, {
   accept: [
     { code: "// Comment\n.c {}" },
   ],
+
+  reject: [{
+    code: "@for $n from 1 through 5 { .foo-#{$n} { div { content: \"#{$n}\"; } } }",
+    description: "ignore sass interpolation inside @for for nested descendant",
+    line: 1,
+    column: 41,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignore: ["descendant"] } ],
+  skipBasicChecks: true,
+  syntax: "scss",
+
+  accept: [{
+    code: "@for $n from 1 through 5 { .foo-#{$n} { div { content: \"#{$n}\"; } } }",
+    description: "ignore sass interpolation inside @for for nested descendant",
+  }],
 })
 
 testRule(rule, {
@@ -169,4 +197,23 @@ testRule(rule, {
   accept: [
     { code: "// Comment\n.c {}" },
   ],
+
+  reject: [{
+    code: ".for(@n: 1) when (@n <= 5) { .foo-@{n} { div { content: \"@{n}\"; } } .for (@n + 1); }",
+    description: "ignore less interpolation inside @for for nested descendant",
+    line: 1,
+    column: 42,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignore: ["descendant"] } ],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [{
+    code: ".for(@n: 1) when (@n <= 5) { .foo-@{n} { div { content: \"@{n}\"; } } .for (@n + 1); }",
+    description: "ignore less interpolation inside @for for nested descendant",
+  }],
 })
