@@ -74,7 +74,7 @@ This option will resolve nested selectors with `&` interpolation.
 
 For example, with `true`.
 
-Given:
+Given the string:
 
 ```js
 "^[A-Z]+$"
