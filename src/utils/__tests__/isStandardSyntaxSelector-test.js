@@ -14,6 +14,7 @@ test("isStandardSyntaxSelector", t => {
   t.ok(isStandardSyntaxSelector("a, b"), "list")
   t.notOk(isStandardSyntaxSelector("#{50% - $n}"), "SCSS interpolation (id)")
   t.notOk(isStandardSyntaxSelector(".n-#{$n}"), "SCSS interpolation (class)")
+  t.notOk(isStandardSyntaxSelector(":n-#{$n}"), "SCSS interpolation (pseudo)")
   t.notOk(isStandardSyntaxSelector(".n-@{n}"), "Less interpolation")
   t.notOk(isStandardSyntaxSelector("%foo"), "SCSS placeholder")
   t.end()
