@@ -12,7 +12,7 @@ Visit the [Specificity Calculator](https://specificity.keegan.st) for visual rep
 
 This rule ignores selectors with variable interpolation (`#{$var}`, `@{var}`, `$(var)`).
 
-This rule ignores selectors containing pseudo-classes with functional notation like `:unknown()`.
+This rule ignores selectors containing the `:not()` or `:matches()` pseudo-classes.
 
 This rule resolves nested selectors before calculating the specificity of a selector.
 
