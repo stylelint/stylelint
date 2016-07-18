@@ -1,9 +1,9 @@
 # Head
 
 - Fixed: bug causing rules in extended configs to be merged with, rather than replaced by, the extending config.
-- Fixed: bug where fractional keyframes yielded false positives in `selector-class-pattern`
+- Fixed: `selector-class-pattern` now ignores fractional keyframes selectors.
+- Fixed: `selector-max-specificity` now ignores selectors containing the `matches()` pseudo-class, and warns if the underlying `specificity` module cannot parse the selector.
 - Fixed: `selector-no-type` with secondary option `ignore: ["descendant"]` will now resolve nested selectors.
-- Fixed: `selector-max-specificity` now ignores selectors `:not()` and `:matches()` and for other pseudo-classes with functional notation like `:unknown()`, adds a PostCSS warning if the underlying `specificity` module cannot parse selector. 
 
 # 7.0.2
 
