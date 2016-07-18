@@ -1,10 +1,13 @@
+# HEAD
+
+- Added: `custom-property-empty-line-before` rule.
+
 # 7.0.3
 
 - Fixed: bug causing rules in extended configs to be merged with, rather than replaced by, the extending config.
 - Fixed: `selector-class-pattern` now ignores fractional keyframes selectors.
 - Fixed: `selector-max-specificity` now ignores selectors containing the `matches()` pseudo-class, and warns if the underlying `specificity` module cannot parse the selector.
 - Fixed: `selector-no-type` with secondary option `ignore: ["descendant"]` will now resolve nested selectors.
-- Added: `custom-property-no-empty-line-before` rule.
 
 # 7.0.2
 

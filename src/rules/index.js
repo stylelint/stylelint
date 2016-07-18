@@ -26,7 +26,7 @@ import commentEmptyLineBefore from "./comment-empty-line-before"
 import commentWhitespaceInside from "./comment-whitespace-inside"
 import commentWordBlacklist from "./comment-word-blacklist"
 import customMediaPattern from "./custom-media-pattern"
-import customPropertyNoEmptyLineBefore from "./custom-property-no-empty-line-before"
+import customPropertyEmptyLineBefore from "./custom-property-empty-line-before"
 import customPropertyNoOutsideRoot from "./custom-property-no-outside-root"
 import customPropertyPattern from "./custom-property-pattern"
 import declarationBangSpaceAfter from "./declaration-bang-space-after"
@@ -184,8 +184,8 @@ export default {
   "comment-whitespace-inside": commentWhitespaceInside,
   "comment-word-blacklist": commentWordBlacklist,
   "custom-media-pattern": customMediaPattern,
+  "custom-property-empty-line-before": customPropertyEmptyLineBefore,
   "custom-property-no-outside-root": customPropertyNoOutsideRoot,
-  "custom-property-no-empty-line-before": customPropertyNoEmptyLineBefore,
   "custom-property-pattern": customPropertyPattern,
   "declaration-bang-space-after": declarationBangSpaceAfter,
   "declaration-bang-space-before": declarationBangSpaceBefore,

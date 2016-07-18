@@ -35,7 +35,7 @@ You might want to learn a little about [how rules are named and how they work to
     "comment-whitespace-inside": "always"|"never",
     "comment-word-blacklist": string|[],
     "custom-media-pattern": string,
-    "custom-property-no-empty-line-before": true,
+    "custom-property-empty-line-before": "always"|"never",
     "custom-property-no-outside-root": true,
     "custom-property-pattern": string,
     "declaration-bang-space-after": "always"|"never",
