@@ -46,6 +46,8 @@ testRule(rule, {
     code: ".foo.bar, .foo.bar:focus { @mixin: foo; } .baz.bar, .baz.bar:focus {}",
   }, {
     code: ".selector, { }",
+  }, {
+    code: ".a:not(.b) .c:matches(.d, .e) .f:unknown(.g, .h) {} .a {}",
   } ],
 
   reject: [ {
