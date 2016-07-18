@@ -15,7 +15,7 @@
 
 # 7.0.0
 
-- Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration#processors.md) processors. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+- Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration.md#processors) processors. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
 - Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. (If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`.)
 - Removed: `--verbose` CLI flag. Use `--formatter verbose` instead.
 - Removed: NodeJS `0.12.x` support. `4.2.1 LTS` or greater is now required.
@@ -51,7 +51,7 @@
 - Changed: `time-no-imperceptible` now checks vendor prefixed properties.
 - Changed: `unit-*` rules now check `@media` values too.
 - Added: plugins can allow primary option arrays by setting `ruleFunction.primaryOptionArray = true`.
-- Added: [processors](/docs/user-guide/configuration#processors.md).
+- Added: [processors](/docs/user-guide/configuration.md#processors).
 - Added: `media-feature-parentheses-space-inside` rule.
 - Added: `no-missing-end-of-source-newline` rule.
 - Added: `property-no-unknown` rule.
