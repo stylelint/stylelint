@@ -1,4 +1,4 @@
-# Head
+# 7.0.3
 
 - Fixed: bug causing rules in extended configs to be merged with, rather than replaced by, the extending config.
 - Fixed: `selector-class-pattern` now ignores fractional keyframes selectors.
