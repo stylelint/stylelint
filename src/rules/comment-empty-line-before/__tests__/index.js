@@ -16,10 +16,10 @@ const alwaysTests = {
     description: "first node ignored",
   }, {
     code: "a { color: pink; /** comment */\ntop: 0; }",
-    description: "inline comment ignored",
+    description: "shared-line comment ignored",
   }, {
     code: "a {} /** comment */",
-    description: "inline comment ignored",
+    description: "shared-line comment ignored",
   }, {
     code: "a {}\n\n/** comment */",
   }, {
@@ -125,7 +125,7 @@ testRule(rule, {
     description: "first node ignored and CRLF",
   }, {
     code: "a { color: pink; /** comment */\ntop: 0; }",
-    description: "inline comment ignored",
+    description: "shared-line comment ignored",
   }, {
     code: "a {} /** comment */",
   }, {
