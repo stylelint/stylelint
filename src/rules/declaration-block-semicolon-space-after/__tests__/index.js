@@ -55,6 +55,34 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: ["never"],
+
+  accept: [ {
+    code: "color: pink;",
+    description: "declaration on root",
+  }, {
+    code: "a { color: pink;}",
+  }, {
+    code: "a::before { content: \";a\";}",
+  }, {
+    code: "a { color: pink;top: 0;}",
+  } ],
+
+  reject: [ {
+    code: "a { color: pink;\n top: 0;  }",
+    message: messages.rejectedAfter(),
+    line: 1,
+    column: 17,
+  },  {
+    code: "a { color: pink; top: 0; }",
+    message: messages.rejectedAfter(),
+    line: 1,
+    column: 17,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: ["always-single-line"],
 
   accept: [ {
