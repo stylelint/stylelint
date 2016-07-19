@@ -44,8 +44,6 @@ With stylelint, it's easy to start linting your CSS:
 
 3. Lint!
 
-Be sure to [specify the syntax](/docs/user-guide/css-processors.md#parsing-non-standard-syntax) if you're using non-standard syntax (e.g. SCSS, SugarSS or Less).
-
 ## Guides
 
 You'll find more detailed information on using stylelint and tailoring it to your needs in our guides:
