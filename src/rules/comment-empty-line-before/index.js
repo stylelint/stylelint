@@ -58,7 +58,7 @@ export default function (expectation, options) {
 
       const before = comment.raw("before")
 
-      // Ignore inline comments
+      // Ignore shared-line comments
       if (before.indexOf("\n") === -1) { return }
 
       const expectEmptyLineBefore = (() => {

@@ -10,7 +10,7 @@ a { background: orange; color: pink; }
 
 The trailing semicolon is the *last* semicolon in a declaration block and it is optional.
 
-This rule will ignore Less mixins, trailing inline double-slash comments, and declaration blocks containing nested (at-)rules.
+This rule will ignore Less mixins, trailing `//` comments, and declaration blocks containing nested (at-)rules.
 
 ## Options
 
