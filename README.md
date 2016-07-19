@@ -8,7 +8,7 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
 
 ## Features
 
-- **Over one hundred and forty rules:** Including those that:
+- **Over one hundred and fifty rules:** Including those that:
   - **Catch errors**: e.g. invalid hex colors, indistinguishable colors, or overriding shorthand properties.
   - **Enforce best practices**: e.g. keeping specificity low or disallowing vendor prefixes in your source code.
   - **Control what languages features can be used**: e.g. whitelisting specific units, properties and functions, or disallowing certain selector types.
