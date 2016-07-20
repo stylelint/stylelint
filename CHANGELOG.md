@@ -1,3 +1,7 @@
+# HEAD
+
+- Added: `custom-property-empty-line-before` rule.
+
 # 7.0.3
 
 - Fixed: bug causing rules in extended configs to be merged with, rather than replaced by, the extending config.
