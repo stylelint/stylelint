@@ -1,6 +1,7 @@
 # HEAD
 
 - Added: `custom-property-empty-line-before` rule.
+- Fixed: `no-descending-specificity` message to correctly show which selector should come first.
 
 # 7.0.3
 

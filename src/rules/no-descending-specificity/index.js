@@ -16,7 +16,7 @@ import resolvedNestedSelector from "postcss-resolve-nested-selector"
 export const ruleName = "no-descending-specificity"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (a, b) => `Expected selector "${b}" to come before selector "${a}"`,
+  rejected: (b, a) => `Expected selector "${b}" to come before selector "${a}"`,
 })
 
 export default function (actual) {
