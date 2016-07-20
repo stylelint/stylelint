@@ -40,7 +40,42 @@ testRule(rule, {
     line: 1,
     column: 3,
   }, {
+    code: "a {\r\n}",
+    message: messages.rejected,
+    line: 1,
+    column: 3,
+  }, {
+    code: "a {\n\n}",
+    message: messages.rejected,
+    line: 1,
+    column: 3,
+  }, {
+    code: "a {\t}",
+    message: messages.rejected,
+    line: 1,
+    column: 3,
+  }, {
+    code: "a {\t\t}",
+    message: messages.rejected,
+    line: 1,
+    column: 3,
+  }, {
     code: "@media print {}",
+    message: messages.rejected,
+    line: 1,
+    column: 14,
+  }, {
+    code: "@media print {\n}",
+    message: messages.rejected,
+    line: 1,
+    column: 14,
+  }, {
+    code: "@media print {\r\n}",
+    message: messages.rejected,
+    line: 1,
+    column: 14,
+  }, {
+    code: "@media print {\t}",
     message: messages.rejected,
     line: 1,
     column: 14,
