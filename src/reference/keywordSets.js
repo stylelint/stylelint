@@ -93,10 +93,23 @@ export const fontWeightAbsoluteKeywords = new Set([
   "bold",
 ])
 
+export const fontWeightNumericKeywords = new Set([
+  "100",
+  "200",
+  "300",
+  "400",
+  "500",
+  "600",
+  "700",
+  "800",
+  "900",
+])
+
 export const fontWeightKeywords = uniteSets(
   basicKeywords,
   fontWeightRelativeKeywords,
-  fontWeightAbsoluteKeywords
+  fontWeightAbsoluteKeywords,
+  fontWeightNumericKeywords
 )
 
 export const animationNameKeywords = uniteSets(basicKeywords, [

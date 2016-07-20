@@ -213,6 +213,26 @@ test("findFontFamily", t => {
     ]
   )
   t.deepEqual(
+    findFontFamily("italic 1000 12px /30px Lucida Grande, Arial, sans-serif"),
+    [
+      {
+        sourceIndex: 23,
+        type: "word",
+        value: "Lucida Grande",
+      },
+      {
+        sourceIndex: 38,
+        type: "word",
+        value: "Arial",
+      },
+      {
+        sourceIndex: 45,
+        type: "word",
+        value: "sans-serif",
+      },
+    ]
+  )
+  t.deepEqual(
     findFontFamily("italic bold 12px/30px Lucida Grande, Arial, sans-serif"),
     [
       {
