@@ -233,6 +233,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 ### Comment
 
 - [`comment-empty-line-before`](../../src/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments.
+- [`comment-no-empty`](../../src/rules/comment-no-empty/README.md):  Disallow empty comments.
 - [`comment-whitespace-inside`](../../src/rules/comment-whitespace-inside/README.md): Require or disallow whitespace on the inside of comment markers.
 - [`comment-word-blacklist`](../../src/rules/comment-word-blacklist/README.md): Specify a blacklist of disallowed words within comments.
 
