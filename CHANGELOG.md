@@ -2,6 +2,7 @@
 
 - Added: `custom-property-empty-line-before` rule.
 - Fixed: `no-descending-specificity` message to correctly show which selector should come first.
+- Fixed: `selector-combinator-space-after` and `selector-combinator-space-before` now ignore operators within parenthetical non-standard constructs.
 
 # 7.0.3
 

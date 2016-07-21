@@ -44,7 +44,7 @@ export function selectorCombinatorSpaceChecker({ locationChecker, root, result, 
       styleSearch({
         source: selector,
         target: _.toArray(nonSpaceCombinators),
-        functionArguments: "skip",
+        parentheticals: "skip",
       }, match => {
 
         const { endIndex, startIndex, target } = match
