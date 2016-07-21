@@ -166,6 +166,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`selector-pseudo-class-case`](../../src/rules/selector-pseudo-class-case/README.md): Specify lowercase or uppercase for pseudo-class selectors.
 - [`selector-pseudo-class-no-unknown`](../../src/rules/selector-pseudo-class-no-unknown/README.md): Disallow unknown pseudo-class selectors.
 - [`selector-pseudo-class-parentheses-space-inside`](../../src/rules/selector-pseudo-class-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors.
+- [`selector-pseudo-class-whitelist`](../../src/rules/selector-pseudo-class-whitelist/README.md): Specify a whitelist of allowed pseudo-class selectors.
 - [`selector-pseudo-element-case`](../../src/rules/selector-pseudo-element-case/README.md): Specify lowercase or uppercase for pseudo-element selectors.
 - [`selector-pseudo-element-colon-notation`](../../src/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
 - [`selector-pseudo-element-no-unknown`](../../src/rules/selector-pseudo-element-no-unknown/README.md): Disallow unknown pseudo-element selectors.

@@ -133,6 +133,7 @@ import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
 import selectorPseudoClassCase from "./selector-pseudo-class-case"
 import selectorPseudoClassNoUnknown from "./selector-pseudo-class-no-unknown"
 import selectorPseudoClassParenthesesSpaceInside from "./selector-pseudo-class-parentheses-space-inside"
+import selectorPseudoClassWhitelist from "./selector-pseudo-class-whitelist"
 import selectorPseudoElementCase from "./selector-pseudo-element-case"
 import selectorPseudoElementColonNotation from "./selector-pseudo-element-colon-notation"
 import selectorPseudoElementNoUnknown from "./selector-pseudo-element-no-unknown"
@@ -291,6 +292,7 @@ export default {
   "selector-pseudo-class-case": selectorPseudoClassCase,
   "selector-pseudo-class-no-unknown": selectorPseudoClassNoUnknown,
   "selector-pseudo-class-parentheses-space-inside": selectorPseudoClassParenthesesSpaceInside,
+  "selector-pseudo-class-whitelist": selectorPseudoClassWhitelist,
   "selector-pseudo-element-case": selectorPseudoElementCase,
   "selector-pseudo-element-colon-notation": selectorPseudoElementColonNotation,
   "selector-pseudo-element-no-unknown": selectorPseudoElementNoUnknown,

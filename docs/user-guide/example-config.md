@@ -142,6 +142,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-pseudo-class-case": "lower"|"upper",
     "selector-pseudo-class-no-unknown": true,
     "selector-pseudo-class-parentheses-space-inside": "always"|"never",
+    "selector-pseudo-class-whitelist": string|[],
     "selector-pseudo-element-case": "lower"|"upper",
     "selector-pseudo-element-colon-notation": "single"|"double",
     "selector-pseudo-element-no-unknown": true,
