@@ -81,35 +81,9 @@ a {
 
 ## Optional options
 
-### `except: ["first-nested", "after-comment", "after-custom-property"]`
+### `except: ["after-comment", "after-custom-property", "first-nested"]`
 
-### `first-nested`
-
-Reverse the primary option for custom properties that are nested and the first child of their parent node.
-
-For example, with `"always"`:
-
-The following patterns are considered warnings:
-
-```css
-a {
-
-  --custom-prop: value;
-
-  --custom-prop2: value;
-}
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-a {
-  --custom-prop: value;
-
-  --custom-prop2: value;
-}
-```
-### `after-comment`
+#### `"after-comment"`
 
 Reverse the primary option for custom properties that come after a comment.
 
@@ -138,7 +112,8 @@ a {
 }
 
 ```
-### `after-custom-property`
+
+#### `"after-custom-property"`
 
 Reverse the primary option for custom properties that come after another custom property.
 
@@ -161,6 +136,33 @@ The following patterns are *not* considered warnings:
 a {
 
   --custom-prop: value;
+  --custom-prop2: value;
+}
+```
+
+#### `"first-nested"`
+
+Reverse the primary option for custom properties that are nested and the first child of their parent node.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+a {
+
+  --custom-prop: value;
+
+  --custom-prop2: value;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  --custom-prop: value;
+
   --custom-prop2: value;
 }
 ```
