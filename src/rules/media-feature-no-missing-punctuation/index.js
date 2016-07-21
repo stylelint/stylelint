@@ -1,5 +1,6 @@
 import {
   atRuleParamIndex,
+  isStandardSyntaxMediaFeature,
   report,
   ruleMessages,
   validateOptions,
@@ -32,6 +33,9 @@ export default function (actual) {
 
     root.walkAtRules(/^media$/i, atRule => {
       execall(/\((.*?)\)/g, atRule.params).forEach(mediaFeatureMatch => {
+
+        if (!isStandardSyntaxMediaFeature(mediaFeatureMatch.match)) { return }
+
         const splitMediaFeature = mediaFeatureMatch.sub[0].trim().split(/\s+/)
         if (splitMediaFeature.length === 1) { return }
 
