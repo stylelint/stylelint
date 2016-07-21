@@ -130,6 +130,7 @@ import selectorNoQualifyingType from "./selector-no-qualifying-type"
 import selectorNoType from "./selector-no-type"
 import selectorNoUniversal from "./selector-no-universal"
 import selectorNoVendorPrefix from "./selector-no-vendor-prefix"
+import selectorPseudoClassBlacklist from "./selector-pseudo-class-blacklist"
 import selectorPseudoClassCase from "./selector-pseudo-class-case"
 import selectorPseudoClassNoUnknown from "./selector-pseudo-class-no-unknown"
 import selectorPseudoClassParenthesesSpaceInside from "./selector-pseudo-class-parentheses-space-inside"
@@ -289,6 +290,7 @@ export default {
   "selector-no-type": selectorNoType,
   "selector-no-universal": selectorNoUniversal,
   "selector-no-vendor-prefix": selectorNoVendorPrefix,
+  "selector-pseudo-class-blacklist": selectorPseudoClassBlacklist,
   "selector-pseudo-class-case": selectorPseudoClassCase,
   "selector-pseudo-class-no-unknown": selectorPseudoClassNoUnknown,
   "selector-pseudo-class-parentheses-space-inside": selectorPseudoClassParenthesesSpaceInside,
