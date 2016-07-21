@@ -1,9 +1,13 @@
-import { isRegExp, isString } from "lodash"
 import {
+  isCustomProperty,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import {
+  isRegExp,
+  isString }
+from "lodash"
 
 export const ruleName = "custom-property-pattern"
 
@@ -25,7 +29,7 @@ export default function (pattern) {
 
     root.walkDecls(decl => {
       const { prop } = decl
-      if (prop.slice(0, 2) !== "--") { return }
+      if (!isCustomProperty(prop)) { return }
       if (regexpPattern.test(prop.slice(2))) { return }
 
       report({

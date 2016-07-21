@@ -1,4 +1,5 @@
 import {
+  isCustomProperty,
   report,
   ruleMessages,
   validateOptions,
@@ -20,7 +21,7 @@ export default function (actual) {
       if (rule.selector.toLowerCase().trim() === ":root") { return }
 
       rule.walkDecls(decl => {
-        if (decl.prop.substr(0, 2) !== "--") { return }
+        if (!isCustomProperty(decl.prop)) { return }
         report({
           message: messages.rejected,
           node: decl,
