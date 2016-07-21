@@ -45,6 +45,7 @@ import declarationBlockTrailingSemicolon from "./declaration-block-trailing-semi
 import declarationColonNewlineAfter from "./declaration-colon-newline-after"
 import declarationColonSpaceAfter from "./declaration-colon-space-after"
 import declarationColonSpaceBefore from "./declaration-colon-space-before"
+import declarationEmptyLineBefore from "./declaration-empty-line-before"
 import declarationNoImportant from "./declaration-no-important"
 import declarationPropertyUnitBlacklist from "./declaration-property-unit-blacklist"
 import declarationPropertyUnitWhitelist from "./declaration-property-unit-whitelist"
@@ -207,6 +208,7 @@ export default {
   "declaration-colon-newline-after": declarationColonNewlineAfter,
   "declaration-colon-space-after": declarationColonSpaceAfter,
   "declaration-colon-space-before": declarationColonSpaceBefore,
+  "declaration-empty-line-before": declarationEmptyLineBefore,
   "declaration-no-important": declarationNoImportant,
   "declaration-property-unit-blacklist": declarationPropertyUnitBlacklist,
   "declaration-property-unit-whitelist": declarationPropertyUnitWhitelist,

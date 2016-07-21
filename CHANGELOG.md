@@ -2,6 +2,8 @@
 
 - Added: `block-closing-brace-empty-line-before` rule.
 - Added: `custom-property-empty-line-before` rule.
+- Added: `declaration-empty-line-before` rule.
+- Added: `media-feature-name-case` rule.
 - Added: `selector-pseudo-class-blacklist` rule.
 - Added: `selector-pseudo-class-whitelist` rule.
 - Added: `media-feature-name-case` rule.
