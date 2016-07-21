@@ -1,4 +1,4 @@
-# custom-property-empty-lines-before
+# custom-property-empty-line-before
 
 Require or disallow an empty line before custom properties.
 
@@ -14,7 +14,9 @@ a {
 
 ## Options
 
-### `always`
+`string`: `"always"|"never"`
+
+### `"always"`
 
 The following patterns are considered warnings:
 
@@ -38,7 +40,7 @@ a {
 }
 ```
 
-### `never`
+### `"never"`
 
 The following patterns are considered warnings:
 
@@ -65,6 +67,13 @@ The following patterns are *not* considered warnings:
 ```css
 a {
   top: 10px;
+  --custom-prop: value;
+  --custom-prop2: value;
+}
+```
+
+```css
+a {
   --custom-prop: value;
   --custom-prop2: value;
 }
@@ -83,7 +92,7 @@ For example, with `"always"`:
 The following patterns are considered warnings:
 
 ```css
-.foo {
+a {
 
   --custom-prop: value;
 
@@ -94,7 +103,7 @@ The following patterns are considered warnings:
 The following patterns are *not* considered warnings:
 
 ```css
-.foo {
+a {
   --custom-prop: value;
 
   --custom-prop2: value;
@@ -109,7 +118,7 @@ For example, with `"always"`:
 The following patterns are considered warnings:
 
 ```css
-.foo {
+a {
 
   --custom-prop: value;
   /* comment */
@@ -121,8 +130,8 @@ The following patterns are considered warnings:
 The following patterns are *not* considered warnings:
 
 ```css
-.foo {
-  
+a {
+
   --custom-prop: value;
   /* comment */
   --custom-prop2: value;
@@ -138,7 +147,7 @@ For example, with `"always"`:
 The following patterns are considered warnings:
 
 ```css
-.foo {
+a {
 
   --custom-prop: value;
 
@@ -149,7 +158,7 @@ The following patterns are considered warnings:
 The following patterns are *not* considered warnings:
 
 ```css
-.foo {
+a {
 
   --custom-prop: value;
   --custom-prop2: value;
