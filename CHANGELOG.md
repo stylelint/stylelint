@@ -3,6 +3,7 @@
 - Added: `block-closing-brace-empty-line-before` rule.
 - Added: `custom-property-empty-line-before` rule.
 - Added: `selector-pseudo-class-whitelist` rule.
+- Fixed: `media-feature-no-missing-punctuation` now ignores media features containing complex values e.g. `(min-width: ($var - 20px))` and `(min-width: calc(100% - 20px))`.
 - Fixed: `no-descending-specificity` message to correctly show which selector should come first.
 
 # 7.0.3

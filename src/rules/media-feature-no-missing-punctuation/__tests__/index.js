@@ -55,6 +55,12 @@ testRule(rule, {
   }, {
     code: "@media-non (min-width 300px) {}",
     description: "ignore at-rules contain media in name",
+  }, {
+    code: "@media screen and (max-width:calc(100% - 42px)) {}",
+    description: "ignore non-standard complex values",
+  }, {
+    code: "@media screen and (max-width:($var - 42px)) {}",
+    description: "ignore non-standard complex SCSS values",
   } ],
 
   reject: [ {
