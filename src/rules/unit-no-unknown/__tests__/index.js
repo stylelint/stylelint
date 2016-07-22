@@ -298,7 +298,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ true, { ignoreUnits: ["pix"] } ],
+  config: [ true, { ignoreUnits: [ "pix", "/^my-/" ] } ],
 
   accept: [ {
     code: "a { margin: 10px; }",
@@ -308,9 +308,15 @@ testRule(rule, {
     code: "a { margin: 10pIx; }",
   }, {
     code: "a { margin: 10PIX; }",
+  }, {
+    code: "a { margin: 10my-unit; }",
+  }, {
+    code: "a { margin: 10my-other-unit; }",
   } ],
 
-  reject: [{
+  reject: [ {
     code: "a { margin: 10pixels; }",
-  }],
+  }, {
+    code: "a { margin: 10not-my-unit; }",
+  } ],
 })

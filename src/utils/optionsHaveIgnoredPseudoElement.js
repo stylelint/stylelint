@@ -5,14 +5,13 @@ import matchesStringOrRegExp from "./matchesStringOrRegExp"
  * matches the passed in Node.
  *
  * @param {object} options
- * @param {Node} postcss node
+ * @param {Node} postcss-selector-parser node
  * @return {boolean} If `true`, a match was found
  */
-export default function optionsHaveIgnoredAtRule(options, statementNode) {
+export default function optionsHaveIgnoredPseudoElement(options, pseudoElementNode) {
   return !!(
     options &&
-    options.ignoreAtRules &&
-    statementNode.type === "atrule" &&
-    matchesStringOrRegExp(statementNode.name.toLowerCase(), options.ignoreAtRules)
+    options.ignorePseudoElements &&
+    matchesStringOrRegExp(pseudoElementNode.value.slice(2).toLowerCase(), options.ignorePseudoElements)
   )
 }

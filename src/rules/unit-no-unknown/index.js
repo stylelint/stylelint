@@ -2,6 +2,7 @@ import {
   atRuleParamIndex,
   declarationValueIndex,
   getUnitFromValueNode,
+  optionsHaveIgnoredUnit,
   report,
   ruleMessages,
   validateOptions,
@@ -34,12 +35,11 @@ export default function (actual, options) {
         if (valueNode.type === "function" && valueNode.value.toLowerCase() === "url") { return false }
 
         const unit = getUnitFromValueNode(valueNode)
+        if (!unit) { return }
 
-        if (!unit || (unit && units.has(unit.toLowerCase()))) { return }
+        if (optionsHaveIgnoredUnit(options, unit)) { return }
 
-        const ignoreUnits = options && options.ignoreUnits || []
-
-        if (ignoreUnits.indexOf(unit.toLowerCase()) !== -1) { return }
+        if (units.has(unit.toLowerCase())) { return }
 
         report({
           index: getIndex(node) + valueNode.sourceIndex,

@@ -56,34 +56,30 @@ a {
 
 ## Optional options
 
-### `ignoreUnits: ["array", "of", "units"]`
-
-Allow unknown units.
+### `ignoreTypes: ["/regex/", "string"]`
 
 Given:
 
 ```js
-["pixels"]
-```
-
-The following patterns are considered warnings:
-
-```css
-a {
-  width: 10pix;
-}
+["/^my-/", "custom"]
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
 a {
-  width: 10px;
+  width: 10custom;
 }
 ```
 
 ```css
 a {
-  width: 10pixels;
+  width: 10my-unit;
+}
+```
+
+```css
+a {
+  width: 10my-other-unit;
 }
 ```

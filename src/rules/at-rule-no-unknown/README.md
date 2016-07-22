@@ -42,32 +42,24 @@ The following patterns are *not* considered warnings:
 
 ## Optional options
 
-### `ignoreAtRules: ["array", "of", "at-rules"]`
-
-Allow unknown at-rules.
+### `ignoreAtRules: ["/regex/", "string"]`
 
 Given:
 
 ```js
-["unknown"]
-```
-
-The following patterns are considered warnings:
-
-```css
-@unknown-at-rule {}
+["/^my-/", "custom"]
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-@media (max-width: 960px) { }
+@my-at-rule "x.css";
 ```
 
 ```css
-@unknown {}
+@my-other-at-rule {}
 ```
 
 ```css
-@UNKNOWN {}
+@custom {}
 ```
