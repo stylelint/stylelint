@@ -1,5 +1,6 @@
 # HEAD
 
+- Added: `block-closing-brace-empty-line-before` rule.
 - Added: `custom-property-empty-line-before` rule.
 - Added: `selector-pseudo-class-whitelist` rule.
 - Fixed: `no-descending-specificity` message to correctly show which selector should come first.
