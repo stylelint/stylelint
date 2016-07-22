@@ -1,4 +1,4 @@
-# custom-property-empty-lines-before
+# custom-property-empty-line-before
 
 Require or disallow an empty line before custom properties.
 
@@ -14,7 +14,9 @@ a {
 
 ## Options
 
-### `always`
+`string`: `"always"|"never"`
+
+### `"always"`
 
 The following patterns are considered warnings:
 
@@ -38,7 +40,7 @@ a {
 }
 ```
 
-### `never`
+### `"never"`
 
 The following patterns are considered warnings:
 
@@ -65,6 +67,13 @@ The following patterns are *not* considered warnings:
 ```css
 a {
   top: 10px;
+  --custom-prop: value;
+  --custom-prop2: value;
+}
+```
+
+```css
+a {
   --custom-prop: value;
   --custom-prop2: value;
 }
@@ -72,35 +81,9 @@ a {
 
 ## Optional options
 
-### `except: ["first-nested", "after-comment", "after-custom-property"]`
+### `except: ["after-comment", "after-custom-property", "first-nested"]`
 
-### `first-nested`
-
-Reverse the primary option for custom properties that are nested and the first child of their parent node.
-
-For example, with `"always"`:
-
-The following patterns are considered warnings:
-
-```css
-.foo {
-
-  --custom-prop: value;
-
-  --custom-prop2: value;
-}
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-.foo {
-  --custom-prop: value;
-
-  --custom-prop2: value;
-}
-```
-### `after-comment`
+#### `"after-comment"`
 
 Reverse the primary option for custom properties that come after a comment.
 
@@ -109,7 +92,7 @@ For example, with `"always"`:
 The following patterns are considered warnings:
 
 ```css
-.foo {
+a {
 
   --custom-prop: value;
   /* comment */
@@ -121,15 +104,16 @@ The following patterns are considered warnings:
 The following patterns are *not* considered warnings:
 
 ```css
-.foo {
-  
+a {
+
   --custom-prop: value;
   /* comment */
   --custom-prop2: value;
 }
 
 ```
-### `after-custom-property`
+
+#### `"after-custom-property"`
 
 Reverse the primary option for custom properties that come after another custom property.
 
@@ -138,7 +122,7 @@ For example, with `"always"`:
 The following patterns are considered warnings:
 
 ```css
-.foo {
+a {
 
   --custom-prop: value;
 
@@ -149,9 +133,36 @@ The following patterns are considered warnings:
 The following patterns are *not* considered warnings:
 
 ```css
-.foo {
+a {
 
   --custom-prop: value;
+  --custom-prop2: value;
+}
+```
+
+#### `"first-nested"`
+
+Reverse the primary option for custom properties that are nested and the first child of their parent node.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+a {
+
+  --custom-prop: value;
+
+  --custom-prop2: value;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  --custom-prop: value;
+
   --custom-prop2: value;
 }
 ```
