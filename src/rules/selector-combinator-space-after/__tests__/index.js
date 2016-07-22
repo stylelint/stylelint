@@ -217,3 +217,20 @@ testRule(rule, {
     column: 16,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  syntax: "less",
+  config: ["always"],
+
+  accept:[{
+    code: ".a when (@size>=60) and (@size<102) {}",
+    description: "ignore constructs",
+  }],
+
+  reject: [{
+    code: "a+  a {}",
+    description: "two spaces after + combinator",
+    message: messages.expectedAfter("+"),
+  }],
+})
