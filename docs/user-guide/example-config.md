@@ -85,6 +85,7 @@ You might want to learn a little about [how rules are named and how they work to
     "max-nesting-depth": int,
     "media-feature-colon-space-after": "always"|"never",
     "media-feature-colon-space-before": "always"|"never",
+    "media-feature-name-case": "lower"|"upper",
     "media-feature-name-no-vendor-prefix": true,
     "media-feature-no-missing-punctuation": true,
     "media-feature-parentheses-space-inside": "always"|"never",
