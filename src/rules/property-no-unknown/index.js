@@ -1,14 +1,12 @@
 import {
-  isArray,
-  isString,
-} from "lodash"
-import {
   isCustomProperty,
   isStandardSyntaxProperty,
+  optionsHaveIgnoredProperty,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { isString } from "lodash"
 import { all as properties } from "known-css-properties"
 
 export const ruleName = "property-no-unknown"
@@ -29,20 +27,19 @@ export default function (actual, options) {
 
     if (!validOptions) { return }
 
-    root.walkDecls(node => {
-      const { prop } = node
+    root.walkDecls(decl => {
+      const { prop } = decl
 
       if (!isStandardSyntaxProperty(prop)) { return }
       if (isCustomProperty(prop)) { return }
 
-      const ignoreProperties = options && options.ignoreProperties || []
-      if (isArray(ignoreProperties) && ignoreProperties.indexOf(prop.toLowerCase()) !== -1) { return }
+      if (optionsHaveIgnoredProperty(options, prop)) { return }
 
       if (properties.indexOf(prop.toLowerCase()) !== -1) { return }
 
       report({
-        message: messages.rejected(node.prop),
-        node,
+        message: messages.rejected(prop),
+        node: decl,
         result,
         ruleName,
       })

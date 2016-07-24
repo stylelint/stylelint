@@ -58,34 +58,30 @@ The following patterns are *not* considered warnings:
 
 ## Optional options
 
-### `ignoreProperties: ["array", "of", "properties"]`
-
-Allow unknown properties.
+### `ignoreProperties: ["/regex/", "string"]`
 
 Given:
 
 ```js
-["-moz-overflow-scrolling"]
-```
-
-The following patterns are considered warnings:
-
-```css
-.foo {
-  overflow-scrolling: auto;
-}
+["/^my-/", "custom"]
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
 .foo {
-  -webkit-overflow-scrolling: auto;
+  my-property: 10px;
 }
 ```
 
 ```css
 .foo {
-  -moz-overflow-scrolling: auto;
+  my-other-property: 10px;
+}
+```
+
+```css
+.foo {
+  custom: 10px;
 }
 ```

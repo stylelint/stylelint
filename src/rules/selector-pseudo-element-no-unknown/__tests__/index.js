@@ -122,7 +122,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ true, { ignorePseudoElements: ["pseudo"] } ],
+  config: [ true, { ignorePseudoElements: [ "pseudo", "/^my-/" ] } ],
 
   accept: [ {
     code: "a:before { }",
@@ -134,12 +134,21 @@ testRule(rule, {
     code: "a::pSeUdO { }",
   }, {
     code: "a::PSEUDO { }",
+  }, {
+    code: "a::my-pseudo { }",
+  }, {
+    code: "a::MY-other-pseudo { }",
   } ],
 
-  reject: [{
+  reject: [ {
     code: "a::element { }",
     message: messages.rejected("::element"),
     line: 1,
     column: 2,
-  }],
+  }, {
+    code: "a::not-my-pseudo { }",
+    message: messages.rejected("::not-my-pseudo"),
+    line: 1,
+    column: 2,
+  } ],
 })

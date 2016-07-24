@@ -72,7 +72,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ true, { ignoreAtRules: ["unknown"] } ],
+  config: [ true, { ignoreAtRules: [ "unknown", "/^my-/" ] } ],
   skipBasicChecks: true,
 
   accept: [ {
@@ -83,6 +83,10 @@ testRule(rule, {
     code: "@uNkNoWn { }",
   }, {
     code: "@UNKNOWN { }",
+  }, {
+    code: "@my-at-rule { }",
+  }, {
+    code: "@MY-other-at-rule { }",
   } ],
 
   reject: [ {
@@ -95,5 +99,10 @@ testRule(rule, {
     message: messages.rejected("@unknown-at-rule"),
     line: 1,
     column: 12,
+  }, {
+    code: "@not-my-at-rule {}",
+    message: messages.rejected("@not-my-at-rule"),
+    line: 1,
+    column: 1,
   } ],
 })

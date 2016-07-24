@@ -87,18 +87,27 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ true, { ignoreProperties: ["-moz-overflow-scrolling"] } ],
+  config: [ true, { ignoreProperties: [ "-moz-overflow-scrolling", "/^my-/" ] } ],
 
   accept: [ {
     code: ".foo { -webkit-overflow-scrolling: auto; }",
   }, {
     code: ".foo { -moz-overflow-scrolling: auto; }",
+  }, {
+    code: ".foo { my-property: 1; }",
+  }, {
+    code: ".foo { my-other-property: 1; }",
   } ],
 
-  reject: [{
+  reject: [ {
     code: ".foo { overflow-scrolling: auto; }",
     message: messages.rejected("overflow-scrolling"),
     line: 1,
     column: 8,
-  }],
+  }, {
+    code: ".foo { not-my-property: 1; }",
+    message: messages.rejected("not-my-property"),
+    line: 1,
+    column: 8,
+  } ],
 })

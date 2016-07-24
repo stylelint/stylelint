@@ -1,4 +1,5 @@
 import {
+  optionsHaveIgnoredAtRule,
   report,
   ruleMessages,
   validateOptions,
@@ -26,16 +27,15 @@ export default function (actual, options) {
     if (!validOptions) { return }
 
     root.walkAtRules(atRule => {
-      const nameAtRule = atRule.name
+      const { name } = atRule
 
-      if (vendor.prefix(nameAtRule) || atRules.has(nameAtRule.toLowerCase())) { return }
+      // Return early if at-rule is to be ignored
+      if (optionsHaveIgnoredAtRule(options, atRule)) { return }
 
-      const ignoredAtRules = options && options.ignoreAtRules || []
-
-      if (ignoredAtRules.indexOf(nameAtRule.toLowerCase()) !== -1) { return }
+      if (vendor.prefix(name) || atRules.has(name.toLowerCase())) { return }
 
       report({
-        message: messages.rejected(`@${nameAtRule}`),
+        message: messages.rejected(`@${name}`),
         node: atRule,
         ruleName,
         result,

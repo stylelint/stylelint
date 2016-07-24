@@ -120,7 +120,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ true, { ignoreTypes: ["unknown"] } ],
+  config: [ true, { ignoreTypes: [ "unknown", "/^my-/" ] } ],
   skipBasicChecks: true,
 
   accept: [ {
@@ -129,12 +129,21 @@ testRule(rule, {
     code: "uNkNoWn {}",
   }, {
     code: "UNKNOWN {}",
+  }, {
+    code: "my-type {}",
+  }, {
+    code: "my-other-type {}",
   } ],
 
-  reject: [{
+  reject: [ {
     code: "tag {}",
     message: messages.rejected("tag"),
     line: 1,
     column: 1,
-  }],
+  }, {
+    code: "not-my-type {}",
+    message: messages.rejected("not-my-type"),
+    line: 1,
+    column: 1,
+  } ],
 })

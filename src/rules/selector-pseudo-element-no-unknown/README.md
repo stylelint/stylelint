@@ -50,36 +50,24 @@ input::-moz-placeholder { }
 
 ## Optional options
 
-### `ignorePseudoElements: ["array", "of", "pseudo-elements"]`
-
-Allow unknown pseudo-element selectors.
+### `ignorePseudoElements: ["/regex/", "string"]`
 
 Given:
 
 ```js
-["pseudo"]
-```
-
-The following patterns are considered warnings:
-
-```css
-a::element { }
+["/^my-/", "pseudo-element"]
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a:before { }
+a::pseudo-element { }
 ```
 
 ```css
-a::before { }
+a::my-pseudo { }
 ```
 
 ```css
-a::pseudo { }
-```
-
-```css
-input::-moz-placeholder { }
+a::my-other-pseudo { }
 ```

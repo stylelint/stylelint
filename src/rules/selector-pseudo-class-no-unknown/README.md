@@ -50,20 +50,12 @@ input:-moz-placeholder { }
 
 ## Optional options
 
-### `ignorePseudoClasses: ["array", "of", "pseudo-classes"]`
-
-Allow unknown pseudo-class selectors.
+### `ignorePseudoClasses: ["/regex/", "string"]`
 
 Given:
 
 ```js
-["pseudo-class"]
-```
-
-The following patterns are considered warnings:
-
-```css
-a:unknown { }
+["/^my-/", "pseudo-class"]
 ```
 
 The following patterns are *not* considered warnings:
@@ -73,13 +65,9 @@ a:pseudo-class { }
 ```
 
 ```css
-a:hover { }
+a:my-pseudo { }
 ```
 
 ```css
-:not(p) { }
-```
-
-```css
-input:-moz-placeholder { }
+a:my-other-pseudo { }
 ```

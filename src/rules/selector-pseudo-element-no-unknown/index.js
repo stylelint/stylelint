@@ -1,6 +1,7 @@
 import {
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
+  optionsHaveIgnoredPseudoElement,
   parseSelector,
   report,
   ruleMessages,
@@ -29,29 +30,31 @@ export default function (actual, options) {
 
     root.walkRules(rule => {
       if (!isStandardSyntaxRule(rule)) { return }
-      const selector = rule.selector
+      const { selector } = rule
 
-      if (selector.indexOf("::") === -1) { return }
+      // Return early before parse if no pseudos for performance
+      if (selector.indexOf(":") === -1) { return }
 
       parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkPseudos(pseudoNode => {
-          const pseudoElement = pseudoNode.value
+          const { value } = pseudoNode
 
-          if (!isStandardSyntaxSelector(pseudoElement)) { return }
+          if (!isStandardSyntaxSelector(value)) { return }
 
           // Ignore pseudo-classes
-          if (pseudoElement.indexOf("::") === -1) { return }
+          if (value.slice(0, 2) !== "::") { return }
 
-          const pseudoElementName = pseudoElement.replace(/:+/, "")
+          if (optionsHaveIgnoredPseudoElement(options, pseudoNode)) { return }
 
-          if (vendor.prefix(pseudoElementName) || pseudoElements.has(pseudoElementName.toLowerCase())) { return }
+          const name = value.slice(2)
 
-          const ignorePseudoElements = options && options.ignorePseudoElements || []
-
-          if (ignorePseudoElements.indexOf(pseudoElementName.toLowerCase()) !== -1) { return }
+          if (
+            vendor.prefix(name)
+            || pseudoElements.has(name.toLowerCase())
+          ) { return }
 
           report({
-            message: messages.rejected(pseudoElement),
+            message: messages.rejected(value),
             node: rule,
             index: pseudoNode.sourceIndex,
             ruleName,

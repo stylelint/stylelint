@@ -40,32 +40,24 @@ li > a { }
 
 ## Optional options
 
-### `ignoreTypes: ["array", "of", "types"]`
-
-Allow unknown type selectors.
+### `ignoreTypes: ["/regex/", "string"]`
 
 Given:
 
 ```js
-["unknown"]
-```
-
-The following patterns are considered warnings:
-
-```css
-tag
+["/^my-/", "custom-type"]
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-unknown { }
+custom-type { }
 ```
 
 ```css
-UNKNOWN { }
+my-type { }
 ```
 
 ```css
-unknown > a { }
+my-other-type { }
 ```

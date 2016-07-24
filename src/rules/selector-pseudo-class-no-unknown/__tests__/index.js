@@ -101,7 +101,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ true, { ignorePseudoClasses: ["unknown"] } ],
+  config: [ true, { ignorePseudoClasses: [ "unknown", "/^my-/" ] } ],
   skipBasicChecks: true,
 
   accept: [ {
@@ -110,12 +110,21 @@ testRule(rule, {
     code: "a:uNkNoWn { }",
   }, {
     code: "a:UNKNOWN { }",
+  }, {
+    code: "a:my-pseudo { }",
+  }, {
+    code: "a:MY-other-pseudo { }",
   } ],
 
-  reject: [{
+  reject: [ {
     code: "a:pseudo-class { }",
     message: messages.rejected(":pseudo-class"),
     line: 1,
     column: 2,
-  }],
+  }, {
+    code: "a:not-my-pseudo { }",
+    message: messages.rejected(":not-my-pseudo"),
+    line: 1,
+    column: 2,
+  } ],
 })
