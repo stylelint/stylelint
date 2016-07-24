@@ -1,5 +1,6 @@
 import {
   hasBlock,
+  hasEmptyLine,
   optionsHaveException,
   optionsHaveIgnored,
   optionsHaveIgnoredAtRule,
@@ -51,12 +52,7 @@ export default function (expectation, options) {
       if (optionsHaveIgnored(options, "after-comment")
         && atRule.prev() && atRule.prev().type === "comment") { return }
 
-      const before = atRule.raw("before")
-      const emptyLineBefore = before && (
-        before.indexOf("\n\n") !== -1
-        || before.indexOf("\r\n\r\n") !== -1
-        || before.indexOf("\n\r\n") !== -1
-      )
+      const hasEmptyLineBefore = hasEmptyLine(atRule.raw("before"))
 
       let expectEmptyLineBefore = (expectation === "always") ? true : false
 
@@ -72,7 +68,7 @@ export default function (expectation, options) {
       }
 
       // Return if the expectation is met
-      if (expectEmptyLineBefore === emptyLineBefore) { return }
+      if (expectEmptyLineBefore === hasEmptyLineBefore) { return }
 
       const message = expectEmptyLineBefore ? messages.expected : messages.rejected
 

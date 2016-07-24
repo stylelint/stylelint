@@ -1,4 +1,5 @@
 import {
+  hasEmptyLine,
   isSingleLineString,
   isStandardSyntaxRule,
   optionsHaveException,
@@ -78,13 +79,10 @@ export function checkRuleEmptyLineBefore({ rule, expectation, options, result, m
     expectEmptyLineBefore = !expectEmptyLineBefore
   }
 
-  const before = rule.raw("before")
-  const emptyLineBefore = before && before.indexOf("\n\n") !== -1
-    || before.indexOf("\r\n\r\n") !== -1
-    || before.indexOf("\n\r\n") !== -1
+  const hasEmptyLineBefore = hasEmptyLine(rule.raw("before"))
 
   // Return if the expectation is met
-  if (expectEmptyLineBefore === emptyLineBefore) { return }
+  if (expectEmptyLineBefore === hasEmptyLineBefore) { return }
 
   const message = expectEmptyLineBefore ? messages.expected : messages.rejected
 

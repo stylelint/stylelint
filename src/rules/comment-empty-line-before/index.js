@@ -1,4 +1,5 @@
 import {
+  hasEmptyLine,
   optionsHaveException,
   optionsHaveIgnored,
   report,
@@ -70,9 +71,7 @@ export default function (expectation, options) {
         return expectation === "always"
       })()
 
-      const hasEmptyLineBefore = before.indexOf("\n\n") !== -1
-        || before.indexOf("\r\n\r\n") !== -1
-        || before.indexOf("\n\r\n") !== -1
+      const hasEmptyLineBefore = hasEmptyLine(before)
 
       // Return if the expectation is met
       if (expectEmptyLineBefore === hasEmptyLineBefore) { return }
