@@ -33,6 +33,7 @@ You might want to learn a little about [how rules are named and how they work to
     "color-no-hex": true,
     "color-no-invalid-hex": true,
     "comment-empty-line-before": "always"|"never",
+    "comment-no-empty": true,
     "comment-whitespace-inside": "always"|"never",
     "comment-word-blacklist": string|[],
     "custom-media-pattern": string,

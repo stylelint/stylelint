@@ -24,6 +24,7 @@ import colorNamed from "./color-named"
 import colorNoHex from "./color-no-hex"
 import colorNoInvalidHex from "./color-no-invalid-hex"
 import commentEmptyLineBefore from "./comment-empty-line-before"
+import commentNoEmpty from "./comment-no-empty"
 import commentWhitespaceInside from "./comment-whitespace-inside"
 import commentWordBlacklist from "./comment-word-blacklist"
 import customMediaPattern from "./custom-media-pattern"
@@ -186,6 +187,7 @@ export default {
   "color-no-hex": colorNoHex,
   "color-no-invalid-hex": colorNoInvalidHex,
   "comment-empty-line-before": commentEmptyLineBefore,
+  "comment-no-empty": commentNoEmpty,
   "comment-whitespace-inside": commentWhitespaceInside,
   "comment-word-blacklist": commentWordBlacklist,
   "custom-media-pattern": customMediaPattern,
