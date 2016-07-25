@@ -95,6 +95,8 @@ Complex, overlapping disabling & enabling patterns are supported:
 /* stylelint-enable foo */
 ```
 
+**Caveat:** Comments within *selector and value lists* are currently ignored.
+
 #### Severities: error & warning
 
 By default, all rules have an `"error"`-level severity. You can change this default by adding a `defaultSeverity` property to your configuration (see below).

@@ -14,6 +14,8 @@ If the comment is the very first node in a stylesheet then it is ignored. Shared
 
 If you're using a custom syntax which support single-line comments with `//`, those are ignored as well.
 
+**Caveat:** Comments within *selector and value lists* are currently ignored.
+
 ## Options
 
 `string`: `"always"|"never"`

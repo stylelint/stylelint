@@ -8,6 +8,8 @@ Specify a blacklist of disallowed words within comments.
  * These three words */
 ```
 
+**Caveat:** Comments within *selector and value lists* are currently ignored.
+
 ## Options
 
 `array|string`: `["array", "of", "words", "or", "/regex/"]|"word"|"/regex/"`
