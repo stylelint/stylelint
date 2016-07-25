@@ -17,6 +17,10 @@ const nodeTypesToCheck = new Set([
   "div",
 ])
 
+function isNumbery(x) {
+  return ((x.trim().length !== 0) && (Number(x) == x))
+}
+
 function joinValueNodes(firstNode, secondNode, charactersBetween) {
   firstNode.value = firstNode.value + charactersBetween + secondNode.value
 
@@ -63,6 +67,9 @@ export default function findFontFamily(value) {
     // Ignore anything come after a <font-size>/, because it's a line-height
     if (nodes[index - 1] && nodes[index - 1].value === "/"
       && nodes[index - 2] && isValidFontSize(nodes[index - 2].value)) { return }
+
+    // Ignore number values
+    if (isNumbery(valueLowerCase)) { return }
 
     // Detect when a space or comma is dividing a list of font-families, and save the joining character.
     if ((valueNode.type === "space" || (valueNode.type === "div" && valueNode.value !== ","))

@@ -60,6 +60,8 @@ testRule(rule, {
     code: "a { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }",
   }, {
     code: "a { fonts: \"Arial\", sans-serif; }",
+  }, {
+    code: "a { font: italic 300 16px/30px \"Arial\", serif; }",
   } ]),
 
   reject: [ {
@@ -96,6 +98,21 @@ testRule(rule, {
   }, {
     code: "a { font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', sans-serif; }",
     message: messages.rejected("BlinkMacSystemFont"),
+  }, {
+    code: "a { font: italic 300 16px/30px Arial, serif; }",
+    message: messages.expected("Arial"),
+    line: 1,
+    column: 32,
+  }, {
+    code: "a { font: italic 1000 16px/30px Arial, serif; }",
+    message: messages.expected("Arial"),
+    line: 1,
+    column: 33,
+  }, {
+    code: "a { font: italic 892 16px/30px Arial, serif; }",
+    message: messages.expected("Arial"),
+    line: 1,
+    column: 32,
   } ],
 })
 
