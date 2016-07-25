@@ -4,7 +4,6 @@ import {
   isCustomProperty,
   isSingleLineString,
   isStandardSyntaxDeclaration,
-  isStandardSyntaxProperty,
   optionsHaveException,
   optionsHaveIgnored,
   report,
@@ -47,7 +46,6 @@ export default function (expectation, options) {
       const { prop, parent } = decl
 
       if (!isStandardSyntaxDeclaration(decl)) { return }
-      if (!isStandardSyntaxProperty(prop)) { return }
       if (isCustomProperty(prop)) { return }
 
       // Optionally ignore nodes inside single-line blocks
@@ -77,7 +75,7 @@ export default function (expectation, options) {
       if (optionsHaveException(options, "after-declaration")
         && decl.prev()
         && decl.prev().prop
-        && isStandardSyntaxProperty(decl.prev().prop)
+        && isStandardSyntaxDeclaration(decl.prev())
         && !isCustomProperty(decl.prev().prop)) {
         expectEmptyLineBefore = !expectEmptyLineBefore
       }

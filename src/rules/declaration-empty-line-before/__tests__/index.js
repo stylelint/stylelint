@@ -81,6 +81,78 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: ["always"],
+  syntax: "scss",
+
+  accept: [ {
+    code: "a {\n\n #{var}: 15px;\n}",
+  }, {
+    code: "a{\n\n #{var}: 15px;\r\n\r\n prop#{var2}: 5px;}",
+  }, {
+    code: "a{\n\n top: 15px;\n\r\n #{var}: 5px;}",
+  } ],
+
+  reject: [ {
+    code: "a { #{var}: 15px; }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a{\n\n top: 15px; \n #{var}: 5px;}",
+    message: messages.expected,
+    line: 4,
+    column: 2,
+  }, {
+    code: "a{\r\n\r\n #{var}: 15px;\r\n prop#{var2}: 5px;}",
+    message: messages.expected,
+    line: 4,
+    column: 2,
+  }, {
+    code: "a{\n $var: 15px;\n #{var}: 15px;}",
+    message: messages.expected,
+    line: 3,
+    column: 2,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["always"],
+  syntax: "less",
+
+  accept: [ {
+    code: "a {\n\n @{var}: 15px;\n}",
+  }, {
+    code: "a{\n\n @{var}: 15px;\r\n\r\n prop@{var2}: 5px;}",
+  }, {
+    code: "a{\n\n top: 15px;\n\r\n @{var}: 5px;}",
+  } ],
+
+  reject: [ {
+    code: "a { @{var}: 15px; }",
+    message: messages.expected,
+    line: 1,
+    column: 5,
+  }, {
+    code: "a{\n\n top: 15px; \n @{var}: 5px;}",
+    message: messages.expected,
+    line: 4,
+    column: 2,
+  }, {
+    code: "a{\r\n\r\n @{var}: 15px;\r\n prop@{var2}: 5px;}",
+    message: messages.expected,
+    line: 4,
+    column: 2,
+  }, {
+    code: "a{\n $var: 15px;\n @{var}: 15px;}",
+    message: messages.expected,
+    line: 3,
+    column: 2,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: [ "always", { ignore: ["inside-single-line-block"] } ],
 
   accept: [ {
@@ -166,6 +238,54 @@ testRule(rule, {
     column: 2,
   }, {
     code: "a {\n\n top: 15px;\r\n\r\n bottom: 5px;}",
+    message: messages.rejected,
+    line: 5,
+    column: 2,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "always", { except: ["after-declaration"] } ],
+  syntax: "scss",
+
+  accept: [ {
+    code: "a {\n\n #{$var}: 15px;\n}",
+  }, {
+    code: "a {\n\n top:15px; \n #{$var}: 5px; }",
+  } ],
+
+  reject: [ {
+    code: "a {\n\n top:15px;\n\n #{$var}: 5px; }",
+    message: messages.rejected,
+    line: 5,
+    column: 2,
+  }, {
+    code: "a {\n\n prop#{$var}erty: 15px;\r\n\r\n #{$var2}: 5px; }",
+    message: messages.rejected,
+    line: 5,
+    column: 2,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "always", { except: ["after-declaration"] } ],
+  syntax: "less",
+
+  accept: [ {
+    code: "a {\n\n @{var}: 15px;\n}",
+  }, {
+    code: "a {\n\n top:15px; \n @{var}: 5px; }",
+  } ],
+
+  reject: [ {
+    code: "a {\n\n top:15px;\n\n @{var}: 5px; }",
+    message: messages.rejected,
+    line: 5,
+    column: 2,
+  }, {
+    code: "a {\n\n prop@{var}erty: 15px;\r\n\r\n @{var2}: 5px; }",
     message: messages.rejected,
     line: 5,
     column: 2,
