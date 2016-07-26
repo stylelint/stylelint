@@ -2,6 +2,7 @@ import {
   blockString,
   hasBlock,
   hasEmptyBlock,
+  hasEmptyLine,
   isSingleLineString,
   report,
   ruleMessages,
@@ -51,11 +52,10 @@ export default function (expectation) {
       ) ? true : false
 
       // Check for at least one empty line
-      const emptyLineBefore = before.indexOf("\n\n") !== -1
-        || before.indexOf("\n\r\n") !== -1
+      const hasEmptyLineBefore = hasEmptyLine(before)
 
       // Return if the expectation is met
-      if (expectEmptyLineBefore === emptyLineBefore) { return }
+      if (expectEmptyLineBefore === hasEmptyLineBefore) { return }
 
       const message = expectEmptyLineBefore ? messages.expected : messages.rejected
       report({

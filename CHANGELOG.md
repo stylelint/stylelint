@@ -2,9 +2,10 @@
 
 - Added: `block-closing-brace-empty-line-before` rule.
 - Added: `custom-property-empty-line-before` rule.
+- Added: `declaration-empty-line-before` rule.
+- Added: `media-feature-name-case` rule.
 - Added: `selector-pseudo-class-blacklist` rule.
 - Added: `selector-pseudo-class-whitelist` rule.
-- Added: `media-feature-name-case` rule.
 - Added: regex support to the `ignore*` secondary options of the `*-no-unknown` rules.
 - Fixed: `media-feature-no-missing-punctuation` now ignores media features containing complex values e.g. `(min-width: ($var - 20px))` and `(min-width: calc(100% - 20px))`.
 - Fixed: `no-descending-specificity` message to correctly show which selector should come first.

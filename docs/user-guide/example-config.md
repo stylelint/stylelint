@@ -55,6 +55,7 @@ You might want to learn a little about [how rules are named and how they work to
     "declaration-colon-newline-after": "always"|"always-multi-line",
     "declaration-colon-space-after": "always"|"never"|"always-single-line",
     "declaration-colon-space-before": "always"|"never",
+    "declaration-empty-line-before": "always"|"never",
     "declaration-no-important": true,
     "declaration-property-unit-blacklist": {},
     "declaration-property-unit-whitelist": {},
