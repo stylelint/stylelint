@@ -1,3 +1,4 @@
+import { hasInterpolation } from "../utils"
 /**
  * Check whether a media feature is standard
  *
@@ -13,7 +14,7 @@ export default function (mediaFeature) {
   if (mediaFeature.indexOf("(") !== -1) { return false }
 
   // SCSS or Less interpolation
-  if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(mediaFeature)) { return false }
+  if (hasInterpolation(mediaFeature)) { return false }
 
   return true
 }
