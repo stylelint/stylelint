@@ -499,6 +499,56 @@ export const atRules = new Set([
   "viewport",
 ])
 
+// https://drafts.csswg.org/mediaqueries/#descdef-media-update
+export const deprecatedMediaFeatureNames = new Set([
+  "device-aspect-ratio",
+  "device-height",
+  "device-width",
+  "max-device-aspect-ratio",
+  "max-device-height",
+  "max-device-width",
+  "min-device-aspect-ratio",
+  "min-device-height",
+  "min-device-width",
+])
+
+// https://drafts.csswg.org/mediaqueries/#descdef-media-update
+export const mediaFeatureNames = uniteSets(deprecatedMediaFeatureNames, [
+  "any-hover",
+  "any-pointer",
+  "aspect-ratio",
+  "color",
+  "color-gamut",
+  "color-index",
+  "grid",
+  "height",
+  "hover",
+  "max-aspect-ratio",
+  "max-color",
+  "max-color-index",
+  "max-height",
+  "max-monochrome",
+  "max-resolution",
+  "max-width",
+  "min-aspect-ratio",
+  "min-color",
+  "min-color-index",
+  "min-height",
+  "min-monochrome",
+  "min-resolution",
+  "min-width",
+  "monochrome",
+  "orientation",
+  "overflow-block",
+  "overflow-inline",
+  "pointer",
+  "resolution",
+  "scan",
+  "scripting",
+  "update",
+  "width",
+])
+
 function uniteSets(...sets) {
   return new Set(sets.reduce((result, set) => {
     return result.concat(_.toArray(set))
