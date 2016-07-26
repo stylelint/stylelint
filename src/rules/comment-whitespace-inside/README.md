@@ -10,6 +10,8 @@ Require or disallow whitespace on the inside of comment markers.
 
 Any number of asterisks are allowed at the beginning or end of the comment. So `/** comment **/` is treated the same way as `/* comment */`.
 
+**Caveat:** Comments within *selector and value lists* are currently ignored.
+
 ## Options
 
 `string`: `"always"|"never"`

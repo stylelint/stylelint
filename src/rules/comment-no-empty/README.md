@@ -8,6 +8,8 @@ Disallow empty comments.
  * Comments like this */
 ```
 
+**Caveat:** Comments within *selector and value lists* are currently ignored.
+
 ## Options
 
 ### `true`
