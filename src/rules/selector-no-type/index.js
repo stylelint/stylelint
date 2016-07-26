@@ -1,15 +1,19 @@
 import {
+  get,
+  isString,
+} from "lodash"
+import {
   isKeyframeSelector,
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
   isStandardSyntaxTypeSelector,
   optionsHaveIgnored,
+  optionsHaveIgnoredType,
   parseSelector,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import { get } from "lodash"
 import resolveNestedSelector from "postcss-resolve-nested-selector"
 
 export const ruleName = "selector-no-type"
@@ -24,6 +28,7 @@ export default function (on, options) {
       actual: options,
       possible: {
         ignore: [ "descendant", "compounded" ],
+        ignoreTypes: [isString],
       },
       optional: true,
     })
@@ -54,6 +59,8 @@ export default function (on, options) {
         selectorAST.walkTags(tag => {
 
           if (!isStandardSyntaxTypeSelector(tag)) { return }
+
+          if (optionsHaveIgnoredType(options, tag)) { return }
 
           if (ignoreDescendant && hasCombinatorBefore(tag)) { return }
 

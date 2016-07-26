@@ -217,3 +217,13 @@ testRule(rule, {
     description: "ignore less interpolation inside @for for nested descendant",
   }],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignoreTypes: ["fieldset"] } ],
+  skipBasicChecks: true,
+
+  accept: [{
+    code: "fieldset .a-button { color: pink; }",
+  }],
+})

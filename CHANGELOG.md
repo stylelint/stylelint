@@ -12,6 +12,7 @@
 - Fixed: `selector-combinator-space-after` and `selector-combinator-space-before` now ignore operators within parenthetical non-standard constructs.
 - Added: `comment-no-empty` rule.
 - Fixed: `font-family-name-quotes` now ignores if font-weight in font short hand is a number
+- Added: `ignoreTypes` support to `selector-no-type` to whitelist allowed types for selectors.
 
 # 7.0.3
 
