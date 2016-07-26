@@ -166,3 +166,17 @@ a {
   --custom-prop2: value;
 }
 ```
+
+### `ignore: ["inside-single-line-block"]`
+
+#### `"inside-single-line-block"`
+
+Ignore custom properties that are inside single-line blocks.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered warnings:
+
+```css
+a { --custom-prop: value; --custom-prop2: value; }
+```

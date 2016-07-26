@@ -69,6 +69,24 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: [ "always", { ignore: ["inside-single-line-block"] } ],
+
+  accept: [ {
+    code: "a { --custom-prop: value; }",
+  }, {
+    code: "a {\n\n --custom-prop: value;\n}",
+  } ],
+
+  reject: [{
+    code: "a {\n --custom-prop: value;\n}",
+    message: messages.expected,
+    line: 2,
+    column: 2,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
   config: [ "always", { except: ["first-nested"] } ],
 
   accept: [ {
