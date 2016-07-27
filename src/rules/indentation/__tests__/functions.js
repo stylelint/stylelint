@@ -336,6 +336,11 @@ testRule(rule, {
     "  0\n" +
     "  );",
     description: "sass-list",
+  }, {
+    code: "$some-list: (\r\n" +
+    "  0\r\n" +
+    "  );",
+    description: "sass-list with windows newlines",
   } ],
 
   reject: [ {
