@@ -75,6 +75,8 @@ testRule(rule, {
     code: "a {\n/* comment */ --custom-prop: value;\n}",
   }, {
     code: "a {\n/* comment */\n--custom-prop: value;\n}",
+  }, {
+    code: "a {\r\n/* comment */\r\nn--custom-prop: value;\r\n}",
   } ],
 
   reject: [{

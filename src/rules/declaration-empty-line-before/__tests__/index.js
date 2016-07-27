@@ -177,6 +177,8 @@ testRule(rule, {
     code: "a {\n/* comment */ top: 15px;\n}",
   }, {
     code: "a {\n/* comment */\ntop: 15px;\n}",
+  }, {
+    code: "a {\r\n/* comment */\r\nntop: 15px;\r\n}",
   } ],
 
   reject: [{
