@@ -1,7 +1,11 @@
 import {
+  blockString,
   hasEmptyLine,
   isCustomProperty,
+  isSingleLineString,
+  isStandardSyntaxDeclaration,
   optionsHaveException,
+  optionsHaveIgnored,
   report,
   ruleMessages,
   validateOptions,
@@ -30,51 +34,62 @@ export default function (expectation, options) {
           "after-comment",
           "after-custom-property",
         ],
+        ignore: [
+          "inside-single-line-block",
+        ],
       },
       optional: true,
     })
     if (!validOptions) { return }
-    root.walkRules(rule => {
 
-      rule.walkDecls(decl => {
-        const { prop } = decl
-        if (!isCustomProperty(prop)) { return }
+    root.walkDecls(decl => {
+      const { prop, parent } = decl
 
-        let expectEmptyLineBefore = (expectation === "always") ? true : false
+      if (!isStandardSyntaxDeclaration(decl)) { return }
+      if (!isCustomProperty(prop)) { return }
 
-        // Optionally reverse the expectation for the first nested node
-        if (optionsHaveException(options, "first-nested")
-          && decl === decl.parent.first) {
-          expectEmptyLineBefore = !expectEmptyLineBefore
-        }
+      // Optionally ignore nodes inside single-line blocks
+      if (
+        optionsHaveIgnored(options, "inside-single-line-block")
+        && isSingleLineString(blockString(parent))
+      ) {
+        return
+      }
 
-        // Optionally ignore the expectation if a comment precedes this node
-        if (optionsHaveException(options, "after-comment")
-          && decl.prev()
-          && decl.prev().type === "comment") {
-          expectEmptyLineBefore = !expectEmptyLineBefore
-        }
+      let expectEmptyLineBefore = (expectation === "always") ? true : false
 
-        // Optionally ignore the expectation if a custom property precedes this node
-        if (optionsHaveException(options, "after-custom-property")
-          && decl.prev()
-          && decl.prev().prop
-          && isCustomProperty(decl.prev().prop)) {
-          expectEmptyLineBefore = !expectEmptyLineBefore
-        }
+      // Optionally reverse the expectation for the first nested node
+      if (optionsHaveException(options, "first-nested")
+        && decl === parent.first) {
+        expectEmptyLineBefore = !expectEmptyLineBefore
+      }
 
-        const hasEmptyLineBefore = hasEmptyLine(decl.raws["before"])
+      // Optionally reverse the expectation if a comment precedes this node
+      if (optionsHaveException(options, "after-comment")
+        && decl.prev()
+        && decl.prev().type === "comment") {
+        expectEmptyLineBefore = !expectEmptyLineBefore
+      }
 
-        // Return if the expectation is met
-        if (expectEmptyLineBefore === hasEmptyLineBefore) { return }
+      // Optionally reverse the expectation if a custom property precedes this node
+      if (optionsHaveException(options, "after-custom-property")
+        && decl.prev()
+        && decl.prev().prop
+        && isCustomProperty(decl.prev().prop)) {
+        expectEmptyLineBefore = !expectEmptyLineBefore
+      }
 
-        const message = expectEmptyLineBefore ? messages.expected : messages.rejected
-        report({
-          message,
-          node: decl,
-          result,
-          ruleName,
-        })
+      const hasEmptyLineBefore = hasEmptyLine(decl.raws["before"])
+
+      // Return if the expectation is met
+      if (expectEmptyLineBefore === hasEmptyLineBefore) { return }
+
+      const message = expectEmptyLineBefore ? messages.expected : messages.rejected
+      report({
+        message,
+        node: decl,
+        result,
+        ruleName,
       })
     })
   }
