@@ -171,6 +171,24 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: [ "always", { ignore: ["after-comment"] } ],
+
+  accept: [ {
+    code: "a {\n/* comment */ top: 15px;\n}",
+  }, {
+    code: "a {\n/* comment */\ntop: 15px;\n}",
+  } ],
+
+  reject: [{
+    code: "a {\n top: 15px;\n}",
+    message: messages.expected,
+    line: 2,
+    column: 2,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
   config: [ "always", { except: ["first-nested"] } ],
 
   accept: [ {

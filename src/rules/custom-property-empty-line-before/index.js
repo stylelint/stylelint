@@ -35,6 +35,7 @@ export default function (expectation, options) {
           "after-custom-property",
         ],
         ignore: [
+          "after-comment",
           "inside-single-line-block",
         ],
       },
@@ -47,6 +48,15 @@ export default function (expectation, options) {
 
       if (!isStandardSyntaxDeclaration(decl)) { return }
       if (!isCustomProperty(prop)) { return }
+
+      // Optionally ignore the node if a comment precedes it
+      if (
+        optionsHaveIgnored(options, "after-comment")
+        && decl.prev()
+        && decl.prev().type === "comment"
+      ) {
+        return
+      }
 
       // Optionally ignore nodes inside single-line blocks
       if (
