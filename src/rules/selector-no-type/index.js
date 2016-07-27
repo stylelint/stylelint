@@ -8,7 +8,7 @@ import {
   isStandardSyntaxSelector,
   isStandardSyntaxTypeSelector,
   optionsHasKeyword,
-  optionsHaveIgnoredType,
+  optionsMatches,
   parseSelector,
   report,
   ruleMessages,
@@ -60,7 +60,7 @@ export default function (on, options) {
 
           if (!isStandardSyntaxTypeSelector(tag)) { return }
 
-          if (optionsHaveIgnoredType(options, tag)) { return }
+          if (optionsMatches(options, "ignoreTypes", tag)) { return }
 
           if (ignoreDescendant && hasCombinatorBefore(tag)) { return }
 

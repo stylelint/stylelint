@@ -2,7 +2,7 @@ import {
   isCustomProperty,
   isStandardSyntaxProperty,
   optionsHasKeyword,
-  optionsHaveIgnoredProperty,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -48,12 +48,12 @@ export default function (on, options) {
 
         if (child.type !== "decl") { return }
 
+        // Return early if the property is to be ignored
+        if (optionsMatches(options, "ignoreProperties", child)) { return }
+
         const { prop } = child
         if (!isStandardSyntaxProperty(prop)) { return }
         if (isCustomProperty(prop)) { return }
-
-        // Return early if the property is to be ignored
-        if (optionsHaveIgnoredProperty(options, prop)) { return }
 
         // Ignore the src property as commonly duplicated in at-fontface
         if (prop.toLowerCase() === "src") { return }

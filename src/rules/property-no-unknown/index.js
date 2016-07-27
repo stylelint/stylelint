@@ -1,7 +1,7 @@
 import {
   isCustomProperty,
   isStandardSyntaxProperty,
-  optionsHaveIgnoredProperty,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -30,10 +30,10 @@ export default function (actual, options) {
     root.walkDecls(decl => {
       const { prop } = decl
 
+      if (optionsMatches(options, "ignoreProperties", decl)) { return }
+
       if (!isStandardSyntaxProperty(prop)) { return }
       if (isCustomProperty(prop)) { return }
-
-      if (optionsHaveIgnoredProperty(options, prop)) { return }
 
       if (properties.indexOf(prop.toLowerCase()) !== -1) { return }
 

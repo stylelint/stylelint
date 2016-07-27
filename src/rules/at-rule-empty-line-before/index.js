@@ -2,7 +2,7 @@ import {
   hasBlock,
   hasEmptyLine,
   optionsHasKeyword,
-  optionsHaveIgnoredAtRule,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -38,7 +38,7 @@ export default function (expectation, options) {
       if (atRule === root.first) { return }
 
       // Return early if at-rule is to be ignored
-      if (optionsHaveIgnoredAtRule(options, atRule)) { return }
+      if (optionsMatches(options, "ignoreAtRules", atRule)) { return }
 
       // Optionally ignore the expectation if the node is blockless
       if (optionsHasKeyword(options, "ignore", "blockless-group") && !hasBlock(atRule)) { return }
