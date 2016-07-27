@@ -220,10 +220,25 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ true, { ignoreTypes: ["fieldset"] } ],
+  config: [ true, { ignoreTypes: [ "fieldset", "/^my-/" ] } ],
   skipBasicChecks: true,
 
-  accept: [{
-    code: "fieldset .a-button { color: pink; }",
-  }],
+  accept: [ {
+    code: "fieldset {}",
+  }, {
+    code: "my-type {}",
+  }, {
+    code: "my-other-type {}",
+  } ],
+
+  reject: [ {
+    code: "a {}",
+    line: 1,
+    column: 1,
+  }, {
+    code: "not-my-type {}",
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  } ],
 })
