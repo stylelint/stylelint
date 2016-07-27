@@ -48,6 +48,15 @@ testRule(rule, {
   }, {
     code: "a { animation: spin-blue 2s linear; }",
     description: "ignore keyframe animation name that includes colors",
+  }, {
+    code: "a { animation: blue 2s linear; }",
+    description: "ignore keyframe animation name that are colors",
+  }, {
+    code: "a { font-family: blue; }",
+    description: "ignore font family names that are colors",
+  }, {
+    code: "a { font: 10px/14px Brown, sans-serif; }",
+    description: "ignore font family names that are colors",
   } ],
 
   reject: [ {
