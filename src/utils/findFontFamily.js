@@ -4,6 +4,7 @@ import {
   fontShorthandKeywords,
 } from "../reference/keywordSets"
 import {
+  isNumbery,
   isStandardSyntaxValue,
   isValidFontSize,
   isVariable,
@@ -16,10 +17,6 @@ const nodeTypesToCheck = new Set([
   "space",
   "div",
 ])
-
-function isNumbery(x) {
-  return ((x.trim().length !== 0) && (Number(x) == x))
-}
 
 function joinValueNodes(firstNode, secondNode, charactersBetween) {
   firstNode.value = firstNode.value + charactersBetween + secondNode.value

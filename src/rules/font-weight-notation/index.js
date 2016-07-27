@@ -1,5 +1,6 @@
 import {
   declarationValueIndex,
+  isNumbery,
   isStandardSyntaxValue,
   isVariable,
   optionsHaveIgnored,
@@ -25,10 +26,6 @@ const INHERIT_KEYWORD = "inherit"
 const INITIAL_KEYWORD = "initial"
 const NORMAL_KEYWORD = "normal"
 const WEIGHTS_WITH_KEYWORD_EQUIVALENTS = [ "400", "700" ]
-
-function isNumbery(x) {
-  return Number(x) == x
-}
 
 export default function (expectation, options) {
   return (root, result) => {
