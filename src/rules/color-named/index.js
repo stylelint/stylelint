@@ -5,6 +5,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { acceptCustomIdents } from "../../reference/propertySets"
 import { colorFunctionNames } from "../../reference/keywordSets"
 import namedColorData from "../../reference/namedColorData"
 import valueParser from "postcss-value-parser"
@@ -37,6 +38,8 @@ export default function (expectation) {
     const namedColors = Object.keys(namedColorData)
 
     root.walkDecls(decl => {
+      if (acceptCustomIdents.has(decl.prop)) { return }
+
       valueParser(decl.value).walk(node => {
         const { value, type, sourceIndex } = node
 
