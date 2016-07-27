@@ -79,3 +79,25 @@ The following patterns are *not* considered warnings:
 ```css
 #bar ul.foo {}
 ```
+
+### `ignoreTypes: ["/regex/", "string"]`
+
+Given:
+
+```js
+["/^my-/", "fieldset"]
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+fieldset { }
+```
+
+```css
+my-type { }
+```
+
+```css
+my-other-type { }
+```
