@@ -1,6 +1,6 @@
 import {
   hasBlock,
-  optionsHaveIgnored,
+  optionsHasKeyword,
   report,
   ruleMessages,
   validateOptions,
@@ -14,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function (max, options) {
-  const ignoreAtRulesWithoutDeclarationBlocks = optionsHaveIgnored(options, "at-rules-without-declaration-blocks")
+  const ignoreAtRulesWithoutDeclarationBlocks = optionsHasKeyword(options, "ignore", "at-rules-without-declaration-blocks")
 
   return (root, result) => {
     validateOptions(result, ruleName, {

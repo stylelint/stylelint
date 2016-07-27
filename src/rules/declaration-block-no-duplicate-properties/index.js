@@ -1,7 +1,7 @@
 import {
   isCustomProperty,
   isStandardSyntaxProperty,
-  optionsHaveIgnored,
+  optionsHasKeyword,
   optionsHaveIgnoredProperty,
   report,
   ruleMessages,
@@ -62,7 +62,7 @@ export default function (on, options) {
 
         if (indexDuplicate !== -1) {
           if (
-            optionsHaveIgnored(options, "consecutive-duplicates")
+            optionsHasKeyword(options, "ignore", "consecutive-duplicates")
             && indexDuplicate === decls.length - 1
           ) {
             return

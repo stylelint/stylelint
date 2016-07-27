@@ -3,7 +3,7 @@ import {
   isNumbery,
   isStandardSyntaxValue,
   isVariable,
-  optionsHaveIgnored,
+  optionsHasKeyword,
   report,
   ruleMessages,
   validateOptions,
@@ -77,7 +77,7 @@ export default function (expectation, options) {
         || weightValue.toLowerCase() === INITIAL_KEYWORD
       ) { return }
 
-      if (optionsHaveIgnored(options, "relative") &&
+      if (optionsHasKeyword(options, "ignore", "relative") &&
         fontWeightRelativeKeywords.has(weightValue.toLowerCase())) { return }
 
       const weightValueOffset = decl.value.indexOf(weightValue)

@@ -1,8 +1,7 @@
 import {
   hasBlock,
   hasEmptyLine,
-  optionsHaveException,
-  optionsHaveIgnored,
+  optionsHasKeyword,
   optionsHaveIgnoredAtRule,
   report,
   ruleMessages,
@@ -42,14 +41,14 @@ export default function (expectation, options) {
       if (optionsHaveIgnoredAtRule(options, atRule)) { return }
 
       // Optionally ignore the expectation if the node is blockless
-      if (optionsHaveIgnored(options, "blockless-group") && !hasBlock(atRule)) { return }
+      if (optionsHasKeyword(options, "ignore", "blockless-group") && !hasBlock(atRule)) { return }
 
       // Optionally ignore the expectation if the node is nested
       const isNested = atRule.parent !== root
-      if (optionsHaveIgnored(options, "all-nested") && isNested) { return }
+      if (optionsHasKeyword(options, "ignore", "all-nested") && isNested) { return }
 
       // Optionally ignore the expectation if a comment precedes this node
-      if (optionsHaveIgnored(options, "after-comment")
+      if (optionsHasKeyword(options, "ignore", "after-comment")
         && atRule.prev() && atRule.prev().type === "comment") { return }
 
       const hasEmptyLineBefore = hasEmptyLine(atRule.raw("before"))
@@ -60,7 +59,7 @@ export default function (expectation, options) {
 
       // Reverse the expectation if any exceptions apply
       if (
-        (optionsHaveException(options, "all-nested") && isNested)
+        (optionsHasKeyword(options, "except", "all-nested") && isNested)
         || getsFirstNestedException()
         || getsBlocklessGroupException()
       ) {
@@ -81,7 +80,7 @@ export default function (expectation, options) {
 
       function getsBlocklessGroupException() {
         return (
-          optionsHaveException(options, "blockless-group")
+          optionsHasKeyword(options, "except", "blockless-group")
           && previousNode && previousNode.type === "atrule"
           && !hasBlock(previousNode)
           && !hasBlock(atRule)
@@ -90,7 +89,7 @@ export default function (expectation, options) {
 
       function getsFirstNestedException() {
         return (
-          optionsHaveException(options, "first-nested")
+          optionsHasKeyword(options, "except", "first-nested")
           && isNested
           && atRule === atRule.parent.first
         )
