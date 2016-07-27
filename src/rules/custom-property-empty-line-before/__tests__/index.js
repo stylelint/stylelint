@@ -69,6 +69,26 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: [ "always", { ignore: ["after-comment"] } ],
+
+  accept: [ {
+    code: "a {\n/* comment */ --custom-prop: value;\n}",
+  }, {
+    code: "a {\n/* comment */\n--custom-prop: value;\n}",
+  }, {
+    code: "a {\r\n/* comment */\r\nn--custom-prop: value;\r\n}",
+  } ],
+
+  reject: [{
+    code: "a {\n --custom-prop: value;\n}",
+    message: messages.expected,
+    line: 2,
+    column: 2,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
   config: [ "always", { ignore: ["inside-single-line-block"] } ],
 
   accept: [ {

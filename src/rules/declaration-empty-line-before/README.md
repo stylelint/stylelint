@@ -174,7 +174,22 @@ a {
 }
 ```
 
-### `ignore: ["inside-single-line-block"]`
+### `ignore: ["after-comment", "inside-single-line-block"]`
+
+#### `"after-comment"`
+
+Ignore declarations that are preceded by comments.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  /* comment */
+  bottom: 15px;
+}
+```
 
 #### `"inside-single-line-block"`
 

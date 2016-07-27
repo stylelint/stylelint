@@ -167,7 +167,22 @@ a {
 }
 ```
 
-### `ignore: ["inside-single-line-block"]`
+### `ignore: ["after-comment", "inside-single-line-block"]`
+
+#### `"after-comment"`
+
+Ignore custom properties that are preceded by comments.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  /* comment */
+  --custom-prop: value;
+}
+```
 
 #### `"inside-single-line-block"`
 
