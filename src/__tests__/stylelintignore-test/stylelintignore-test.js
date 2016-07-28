@@ -18,13 +18,10 @@ test("standalone with .stylelintignore file ignoring one file", t => {
       ],
     },
   }).then(({ results }) => {
-    t.equal(results.length, 2, "two files found")
-    t.ok(results[0].source.indexOf("empty-block.css") !== -1, "empty-block.css found")
-    t.equal(results[0].warnings.length, 0, "empty-block.css not linted")
-    t.ok(results[0].ignored, "empty-block.css marked as ignored")
-    t.ok(results[1].source.indexOf("invalid-hex.css") !== -1, "color-no-invalid-hex.css found")
-    t.equal(results[1].warnings.length, 1, "color-no-invalid-hex.css linted")
-    t.notOk(results[1].ignored, "color-no-invalid-hex.css not marked as ignored")
+    t.equal(results.length, 1, "one file found")
+    t.ok(results[0].source.indexOf("invalid-hex.css") !== -1, "color-no-invalid-hex.css found")
+    t.equal(results[0].warnings.length, 1, "color-no-invalid-hex.css linted")
+    t.notOk(results[0].ignored, "color-no-invalid-hex.css not marked as ignored")
 
     process.chdir(existingCwd)
     t.end()

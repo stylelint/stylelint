@@ -1,6 +1,7 @@
 import * as formatters from "./formatters"
 import _ from "lodash"
 import buildConfig from "./buildConfig"
+import getIgnoredFilter from "./utils/getIgnoredFilter.js"
 import globby from "globby"
 import lessSyntax from "postcss-less"
 import needlessDisables from "./needlessDisables"
@@ -70,6 +71,7 @@ export default function ({
     let errored = false
 
     let initialisedPostcss
+    const isFileValid = getIgnoredFilter(config.ignorePatterns, config.ignoreFiles)
 
     function prepareReturnValue(results) {
       const returnValue = {
@@ -84,6 +86,15 @@ export default function ({
     }
 
     if (!files) {
+      if (codeFilename && !isFileValid(codeFilename)) {
+        const results = []
+        const output = chosenFormatter(results)
+        return {
+          output,
+          results,
+          errored,
+        }
+      }
       return lintString(code, codeFilename).then(result => {
         const results = [result]
         return prepareReturnValue(results)
@@ -96,7 +107,7 @@ export default function ({
         err.code = 80
         throw err
       }
-      const promises = input.map(filepath => lintFile(filepath))
+      const promises = input.filter(isFileValid).map(filepath => lintFile(filepath))
       return Promise.all(promises).then(results => {
         return prepareReturnValue(results)
       })
