@@ -80,6 +80,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 - [`value-list-comma-newline-before`](../../src/rules/value-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of value lists.
 - [`value-list-comma-space-after`](../../src/rules/value-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of value lists.
 - [`value-list-comma-space-before`](../../src/rules/value-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of value lists.
+- [`value-list-max-empty-lines`](../../src/rules/value-list-max-empty-lines/README.md): Limit the number of adjacent empty lines within value lists.
 
 ### Custom property
 
