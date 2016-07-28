@@ -8,6 +8,8 @@ Specify lowercase or uppercase for media feature names.
  * These media feature names */
 ```
 
+**Caveat:** Media feature names within a range context are currently ignored.
+
 ## Options
 
 `string`: `"lower"|"upper"`

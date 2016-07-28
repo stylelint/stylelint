@@ -34,6 +34,18 @@ testRule(rule, {
   }, {
     code: "@media (--VIEWPORT-MEDIUM) { }",
     description: "ignore css variables",
+  }, {
+    code: "@media (WIDTH < 100px) { }",
+    description: "ignore range context",
+  }, {
+    code: "@media (WIDTH = 100px) { }",
+    description: "ignore range context",
+  }, {
+    code: "@media (WIDTH <= 100px) { }",
+    description: "ignore range context",
+  }, {
+    code: "@media (10px >= WIDTH <= 100px) { }",
+    description: "ignore complex range context",
   } ],
 
   reject: [ {
