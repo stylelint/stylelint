@@ -88,6 +88,81 @@ testRule(rule, {
     code: "@media print {\n" +
     "  * { color: pink; }\n" +
     "}",
+  }, {
+    code: "/* anything\r\n" +
+    "    goes\r\n" +
+    "\t\t\twithin a comment */\r\n" +
+    "",
+  }, {
+    code: "a {\r\n" +
+    "  top: 0;\r\n" +
+    "}\r\n" +
+    "b { top: 1px; bottom: 4px; }",
+  }, {
+    code: "a {\r\n" +
+    "  top: 0;\r\n" +
+    "} b { top: 1px; }",
+  }, {
+    code: "a {\r\n" +
+    "  color: pink;\r\n" +
+    "}",
+  }, {
+    code: "a { color: pink;\r\n" +
+    "}",
+  }, {
+    code: "a {\r\n" +
+    "  color: pink;\r\n" +
+    "} b { top: 0; }",
+  }, {
+    code: "a { color: pink;\r\n" +
+    "  top: 0; background: orange;\r\n" +
+    "}",
+  }, {
+    code: "a {\r\n" +
+    "  color: pink;\r\n" +
+    "}\r\n" +
+    "\r\n" +
+    "\r\n" +
+    "b {\r\n" +
+    "  color: orange\r\n" +
+    "}",
+  }, {
+    code: "a {\r\n" +
+    "  color: pink;}",
+  }, {
+    code: "a {\r\n" +
+    "  background-position: top left,\r\n" +
+    "    top right,\r\n" +
+    "    bottom left;\r\n" +
+    "  color: pink;\r\n" +
+    "}",
+  }, {
+    code: "a {\r\n" +
+    "  background-position: top left,\r\n" +
+    "    top right,\r\n" +
+    "    bottom left\r\n" +
+    "  ;\r\n" +
+    "}",
+  }, {
+    code: "a {\r\n" +
+    "  background-position: top left,\r\n" +
+    "    top right,\r\n" +
+    "\r\n" +
+    "    bottom left\r\n" +
+    "  ;\r\n" +
+    "}",
+
+    description: "weird empty line",
+  }, {
+    code: "a {\r\n" +
+    "  *top: 1px;\r\n" +
+    "}",
+  }, {
+    code: "* { top: 0; }",
+  }, {
+    code: "@media print {\r\n" +
+    "  * { color: pink; }\r\n" +
+    "}",
   } ],
 
   reject: [ {
@@ -194,6 +269,113 @@ testRule(rule, {
   }, {
     code: "@media print {\n" +
     "   * { color: pink; }\n" +
+    "}",
+
+    message: messages.expected("2 spaces"),
+  }, {
+    code: "\ta {\r\n" +
+    "  color: pink;\r\n" +
+    "}",
+
+    message: messages.expected("0 spaces"),
+    line: 1,
+    column: 2,
+  }, {
+    code: "a {\r\n" +
+    "  color: pink;\r\n" +
+    "  }",
+
+    message: messages.expected("0 spaces"),
+    line: 3,
+    column: 3,
+  }, {
+    code: "a,\r\n" +
+    "b {\r\n" +
+    "  color: pink;\r\n" +
+    "  }",
+
+    message: messages.expected("0 spaces"),
+    line: 4,
+    column: 3,
+  }, {
+    code: "a { color: pink;\r\n" +
+    "  }",
+
+    message: messages.expected("0 spaces"),
+    line: 2,
+    column: 3,
+  }, {
+    code: "a {\r\n" +
+    "  color: pink\r\n" +
+    "}\r\n" +
+    " b {\r\n" +
+    "  color: orange\r\n" +
+    "}",
+
+    message: messages.expected("0 spaces"),
+    line: 4,
+    column: 2,
+  }, {
+    code: "a {\r\n" +
+    "  color: pink\r\n" +
+    "}\r\n" +
+    "b {\r\n" +
+    "  color: orange\r\n" +
+    " }",
+
+    message: messages.expected("0 spaces"),
+    line: 6,
+    column: 2,
+  }, {
+    code: "a {\r\n" +
+    "color: pink;\r\n" +
+    "}",
+
+    message: messages.expected("2 spaces"),
+    line: 2,
+    column: 1,
+  }, {
+    code: "a {\r\n" +
+    "\tcolor: pink;\r\n" +
+    "}",
+
+    message: messages.expected("2 spaces"),
+    line: 2,
+    column: 2,
+  }, {
+    code: "a {\r\n" +
+    "  color: pink;\r\n" +
+    " background: orange;\r\n" +
+    "}",
+
+    message: messages.expected("2 spaces"),
+    line: 3,
+    column: 2,
+  }, {
+    code: "a {\r\n" +
+    "  background-position: top left,\r\n" +
+    "  top right,\r\n" +
+    "    bottom left;\r\n" +
+    "  color: pink;\r\n" +
+    "}",
+
+    message: messages.expected("4 spaces"),
+    line: 3,
+    column: 3,
+  }, {
+    code: "a {\r\n" +
+    "  background-position: top left,\r\n" +
+    "    top right,\r\n" +
+    "  bottom left;\r\n" +
+    "  color: pink;\r\n" +
+    "}",
+
+    message: messages.expected("4 spaces"),
+    line: 4,
+    column: 3,
+  }, {
+    code: "@media print {\r\n" +
+    "   * { color: pink; }\r\n" +
     "}",
 
     message: messages.expected("2 spaces"),

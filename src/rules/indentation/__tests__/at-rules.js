@@ -27,6 +27,22 @@ testRule(rule, {
     "@media screen {\n" +
     "  b { color: orange; }\n" +
     "}",
+  }, {
+    code: "@media print {\r\n" +
+    "  a {\r\n" +
+    "    color: pink;\r\n" +
+    "  }\r\n" +
+    "}",
+  }, {
+    code: "@media print {\r\n" +
+    "  a {\r\n" +
+    "    color: pink;\r\n" +
+    "  }\r\n" +
+    "}\r\n" +
+    "\r\n" +
+    "@media screen {\r\n" +
+    "  b { color: orange; }\r\n" +
+    "}",
   } ],
 
   reject: [ {
@@ -75,6 +91,57 @@ testRule(rule, {
     "  a {\n" +
     "    color: pink;\n" +
     "  }\n" +
+    "\t}",
+
+    message: messages.expected("0 spaces"),
+    line: 5,
+    column: 2,
+  }, {
+    code: "\r\n" +
+    "  @media print {\r\n" +
+    "  a {\r\n" +
+    "    color: pink;\r\n" +
+    "  }\r\n" +
+    "}",
+
+    message: messages.expected("0 spaces"),
+    line: 2,
+    column: 3,
+  }, {
+    code: "@media print {\r\n" +
+    "a {\r\n" +
+    "    color: pink;\r\n" +
+    "  }\r\n" +
+    "}",
+
+    message: messages.expected("2 spaces"),
+    line: 2,
+    column: 1,
+  }, {
+    code: "@media print {\r\n" +
+    "  a {\r\n" +
+    "  color: pink;\r\n" +
+    "  }\r\n" +
+    "}",
+
+    message: messages.expected("4 spaces"),
+    line: 3,
+    column: 3,
+  }, {
+    code: "@media print {\r\n" +
+    "  a {\r\n" +
+    "    color: pink;\r\n" +
+    "}\r\n" +
+    "}",
+
+    message: messages.expected("2 spaces"),
+    line: 4,
+    column: 1,
+  }, {
+    code: "@media print {\r\n" +
+    "  a {\r\n" +
+    "    color: pink;\r\n" +
+    "  }\r\n" +
     "\t}",
 
     message: messages.expected("0 spaces"),
