@@ -48,6 +48,42 @@ testRule(rule, {
     "    transparentize($gray-dark, 0.1) 100%\n" +
     "  );",
     description: "nested parenthetical inside multiline value",
+  }, {
+    code: ".foo {\r\n" +
+    "  color: rgb(0, 0, 0);\r\n" +
+    "}",
+  }, {
+    code: ".foo {\r\n" +
+    "  color: rgb(\r\n" +
+    "    0,\r\n" +
+    "    0,\r\n" +
+    "    0\r\n" +
+    "  );\r\n" +
+    "  top: 0;\r\n" +
+    "}",
+  }, {
+    code: "$some-list: (\r\n" +
+    "  0,\r\n" +
+    "  0,\r\n" +
+    "  0\r\n" +
+    ");",
+    description: "sass-list",
+  }, {
+    code: "$colors: (\r\n" +
+    "  primary: (\r\n" +
+    "    base: $route;\r\n" +
+    "    contrast: $white\r\n" +
+    "  )\r\n" +
+    ");",
+    description: "nested Sass map",
+  }, {
+    code: "background:\r\n" +
+    "  linear-gradient(\r\n" +
+    "    to bottom,\r\n" +
+    "    transparentize($gray-dark, 1) 0%,\r\n" +
+    "    transparentize($gray-dark, 0.1) 100%\r\n" +
+    "  );",
+    description: "nested parenthetical inside multiline value",
   } ],
 
   reject: [ {
@@ -89,6 +125,50 @@ testRule(rule, {
     "  0,\n" +
     "  0,\n" +
     "  0\n" +
+    "  );",
+    description: "sass-list",
+    message: messages.expected("0 spaces"),
+    line: 5,
+    column: 3,
+  }, {
+    code: ".foo {\r\n" +
+    "  color: rgb(\r\n" +
+    "    0,\r\n" +
+    "0,\r\n" +
+    "    0\r\n" +
+    "  );\r\n" +
+    "  top: 0;\r\n" +
+    "}",
+    message: messages.expected("4 spaces"),
+    line: 4,
+    column: 1,
+  }, {
+    code: ".foo {\r\n" +
+    "  color: rgb(\r\n" +
+    "    0,\r\n" +
+    "    0,\r\n" +
+    "    0\r\n" +
+    "    );\r\n" +
+    "  top: 0;\r\n" +
+    "}",
+    message: messages.expected("2 spaces"),
+    line: 6,
+    column: 5,
+  }, {
+    code: "$some-list: (\r\n" +
+    "  0,\r\n" +
+    "  0,\r\n" +
+    " 0\r\n" +
+    ");",
+    description: "sass-list",
+    message: messages.expected("2 spaces"),
+    line: 4,
+    column: 2,
+  }, {
+    code: "$some-list: (\r\n" +
+    "  0,\r\n" +
+    "  0,\r\n" +
+    "  0\r\n" +
     "  );",
     description: "sass-list",
     message: messages.expected("0 spaces"),
@@ -203,6 +283,22 @@ testRule(rule, {
     "    0\n" +
     "  );",
     description: "sass-list",
+  }, {
+    code: ".foo {\r\n" +
+    "  color: rgb(\r\n" +
+    "      0,\r\n" +
+    "      0,\r\n" +
+    "      0\r\n" +
+    "    );\r\n" +
+    "  top: 0;\r\n" +
+    "}",
+  }, {
+    code: "$some-list: (\r\n" +
+    "    0,\r\n" +
+    "    0,\r\n" +
+    "    0\r\n" +
+    "  );",
+    description: "sass-list",
   } ],
 
   reject: [ {
@@ -249,6 +345,26 @@ testRule(rule, {
     message: messages.expected("2 spaces"),
     line: 5,
     column: 2,
+  }, {
+    code: "$some-list: (\r\n" +
+    "    0,\r\n" +
+    "    0,\r\n" +
+    "   0\r\n" +
+    "  );",
+    description: "sass-list",
+    message: messages.expected("4 spaces"),
+    line: 4,
+    column: 4,
+  }, {
+    code: "$some-list: (\r\n" +
+    "    0,\r\n" +
+    "    0,\r\n" +
+    "    0\r\n" +
+    " );",
+    description: "sass-list",
+    message: messages.expected("2 spaces"),
+    line: 5,
+    column: 2,
   } ],
 })
 
@@ -271,6 +387,22 @@ testRule(rule, {
     "  0,\n" +
     "  0,\n" +
     "  0\n" +
+    ");",
+    description: "sass-list",
+  }, {
+    code: ".foo {\r\n" +
+    "  color: rgb(\r\n" +
+    "      0,\r\n" +
+    "      0,\r\n" +
+    "      0\r\n" +
+    "    );\r\n" +
+    "  top: 0;\r\n" +
+    "}",
+  }, {
+    code: "$some-list: (\r\n" +
+    "  0,\r\n" +
+    "  0,\r\n" +
+    "  0\r\n" +
     ");",
     description: "sass-list",
   } ],
@@ -309,6 +441,40 @@ testRule(rule, {
     message: messages.expected("0 spaces"),
     line: 5,
     column: 3,
+  }, {
+    code: ".foo {\r\n" +
+    "  color: rgb(\r\n" +
+    "      0,\r\n" +
+    "    0,\r\n" +
+    "      0\r\n" +
+    "    );\r\n" +
+    "  top: 0;\r\n" +
+    "}",
+    message: messages.expected("6 spaces"),
+    line: 4,
+    column: 5,
+  }, {
+    code: ".foo {\r\n" +
+    "  color: rgb(\r\n" +
+    "      0,\r\n" +
+    "      0,\r\n" +
+    "      0\r\n" +
+    "     );\r\n" +
+    "  top: 0;\r\n" +
+    "}",
+    message: messages.expected("4 spaces"),
+    line: 6,
+    column: 6,
+  }, {
+    code: "$some-list: (\r\n" +
+    "  0,\r\n" +
+    "  0,\r\n" +
+    "  0\r\n" +
+    "  );",
+    description: "sass-list",
+    message: messages.expected("0 spaces"),
+    line: 5,
+    column: 3,
   } ],
 })
 
@@ -338,9 +504,10 @@ testRule(rule, {
     description: "sass-list",
   }, {
     code: "$some-list: (\r\n" +
+    "  0,\r\n" +
     "  0\r\n" +
     "  );",
-    description: "sass-list with windows newlines",
+    description: "sass-list",
   } ],
 
   reject: [ {
@@ -387,6 +554,50 @@ testRule(rule, {
     message: messages.expected("2 spaces"),
     line: 5,
     column: 1,
+  }, {
+    code: ".foo {\r\n" +
+    "  color: rgb(\r\n" +
+    "      0,\r\n" +
+    "    0,\r\n" +
+    "      0\r\n" +
+    "      );\r\n" +
+    "  top: 0;\r\n" +
+    "  }",
+    message: messages.expected("6 spaces"),
+    line: 4,
+    column: 5,
+  }, {
+    code: ".foo {\r\n" +
+    "  color: rgb(\r\n" +
+    "      0,\r\n" +
+    "      0,\r\n" +
+    "      0\r\n" +
+    "     );\r\n" +
+    "  top: 0;\r\n" +
+    "  }",
+    message: messages.expected("6 spaces"),
+    line: 6,
+    column: 6,
+  }, {
+    code: "$some-list: (\r\n" +
+    "  0,\r\n" +
+    "  0,\r\n" +
+    " 0\r\n" +
+    "  );",
+    description: "sass-list",
+    message: messages.expected("2 spaces"),
+    line: 4,
+    column: 2,
+  }, {
+    code: "$some-list: (\r\n" +
+    "  0,\r\n" +
+    "  0,\r\n" +
+    "  0\r\n" +
+    ");",
+    description: "sass-list",
+    message: messages.expected("2 spaces"),
+    line: 5,
+    column: 1,
   } ],
 })
 
@@ -396,7 +607,7 @@ testRule(rule, {
   syntax: "less",
   skipBasicChecks: true,
 
-  accept: [{
+  accept: [ {
     code: ".foo {\n" +
     "  .mixin(\n" +
     "    @foo,\n" +
@@ -405,5 +616,14 @@ testRule(rule, {
     "  );\n" +
     "}",
     description: "Less mixin with multi-line arguments",
-  }],
+  }, {
+    code: ".foo {\r\n" +
+    "  .mixin(\r\n" +
+    "    @foo,\r\n" +
+    "    @bar,\r\n" +
+    "    @baz\r\n" +
+    "  );\r\n" +
+    "}",
+    description: "Less mixin with multi-line arguments",
+  } ],
 })

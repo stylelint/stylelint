@@ -195,7 +195,12 @@ export default function (space, options = {}) {
         if (!optionsHaveIgnored(options, "inside-parens") && match.insideParens) {
           // If the first match in is within parentheses, reduce the parenthesis penalty
           if (matchCount === 1) parentheticalDepth -= 1
-          const followsOpeningParenthesis = /\([ \t]*$/.test(source.slice(0, match.startIndex))
+          // Account for windows line endings
+          let newlineIndex = match.startIndex
+          if (source[match.startIndex - 1] === "\r") {
+            newlineIndex--
+          }
+          const followsOpeningParenthesis = /\([ \t]*$/.test(source.slice(0, newlineIndex))
           if (followsOpeningParenthesis) { parentheticalDepth += 1 }
           expectedIndentLevel += parentheticalDepth
           if (precedesClosingParenthesis) { parentheticalDepth -= 1 }
