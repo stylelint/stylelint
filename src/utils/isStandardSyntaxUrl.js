@@ -1,3 +1,4 @@
+import { hasInterpolation } from "../utils"
 /**
  * Check whether a URL is standard
  *
@@ -7,7 +8,7 @@
 export default function (url) {
 
   // SCSS or Less interpolation
-  if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(url)) { return false }
+  if (hasInterpolation(url)) { return false }
 
   // Inside `'` and `"` work only interpolation
   if (url[0] === "'" && url[url.length - 1] === "'"

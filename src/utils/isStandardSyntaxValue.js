@@ -1,3 +1,4 @@
+import { hasInterpolation } from "../utils"
 /**
  * Check whether a value is standard
  *
@@ -13,7 +14,7 @@ export default function (value) {
   if (value[0] === "@") { return false }
 
   // SCSS or Less interpolation
-  if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(value)) { return false }
+  if (hasInterpolation(value)) { return false }
 
   return true
 }

@@ -1,3 +1,4 @@
+import { hasInterpolation } from "../utils"
 /**
  * Check whether a selector is standard
  *
@@ -7,7 +8,7 @@
 export default function (selector) {
 
   // SCSS or Less interpolation
-  if (/#{.+?}|@{.+?}|\$\(.+?\)/.test(selector)) { return false }
+  if (hasInterpolation(selector)) { return false }
 
   // SCSS placeholder selectors
   if (selector.indexOf("%") === 0) { return false }
