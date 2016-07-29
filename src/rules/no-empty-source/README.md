@@ -10,6 +10,10 @@ Disallow empty sources.
 
 A source containing only whitespace is considered empty.
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css
