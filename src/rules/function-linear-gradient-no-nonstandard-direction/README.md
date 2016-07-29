@@ -16,6 +16,10 @@ A valid and standard direction value is one of the following:
 
 A common mistake (matching outdated non-standard syntax) is to use just a side-or-corner without the preceding `to`.
 
+## Options
+
+### `true`
+
 The following patterns are considered warnings:
 
 ```css
