@@ -14,6 +14,7 @@
 - Fixed: `font-family-name-quotes` now ignores if font-weight in font short hand is a number
 - Added: `ignoreTypes` support to `selector-no-type` to whitelist allowed types for selectors.
 - Fixed: `color-named` now ignores declarations that accept *custom idents*.
+- Fixed: `indentation` now correctly handles Windows line endings within parentheticals.
 
 # 7.0.3
 
