@@ -77,10 +77,6 @@ export default function (actual, options) {
             || nonStandardHtmlTags.has(tagNameLowerCase)
           ) { return }
 
-          const ignoreTypes = options && options.ignoreTypes || []
-
-          if (ignoreTypes.indexOf(tagNameLowerCase) !== -1) { return }
-
           report({
             message: messages.rejected(tagName),
             node: rule,
