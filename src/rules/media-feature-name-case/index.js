@@ -1,5 +1,6 @@
 import {
   atRuleParamIndex,
+  isRangeContextMediaFeature,
   isStandardSyntaxMediaFeatureName,
   report,
   ruleMessages,
@@ -26,19 +27,21 @@ export default function (expectation) {
 
     root.walkAtRules(/^media$/i, atRule => {
       mediaParser(atRule.params).walk(/^media-feature$/i, mediaFeatureNode => {
-        if (!isStandardSyntaxMediaFeatureName(mediaFeatureNode.value)) { return }
 
-        const mediaFeatureName = mediaFeatureNode.value
+        const { parent, sourceIndex, value } = mediaFeatureNode
+
+        if (isRangeContextMediaFeature(parent.value)) { return }
+        if (!isStandardSyntaxMediaFeatureName(value)) { return }
 
         const expectedFeatureName = expectation === "lower"
-          ? mediaFeatureName.toLowerCase()
-          : mediaFeatureName.toUpperCase()
+          ? value.toLowerCase()
+          : value.toUpperCase()
 
-        if (mediaFeatureName === expectedFeatureName) { return }
+        if (value === expectedFeatureName) { return }
 
         report({
-          index: atRuleParamIndex(atRule) + mediaFeatureNode.sourceIndex,
-          message: messages.expected(mediaFeatureName, expectedFeatureName),
+          index: atRuleParamIndex(atRule) + sourceIndex,
+          message: messages.expected(value, expectedFeatureName),
           node: atRule,
           ruleName,
           result,
