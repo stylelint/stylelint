@@ -1,5 +1,6 @@
 # HEAD
 
+- Added: `ignore: ["empty-lines"]` option to `no-eol-whitespace`.
 - Added: `block-closing-brace-empty-line-before` rule.
 - Added: `custom-property-empty-line-before` rule.
 - Added: `declaration-empty-line-before` rule.

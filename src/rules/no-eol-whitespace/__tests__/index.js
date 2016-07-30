@@ -221,3 +221,37 @@ testRule(rule, {
     column: 23,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [ true, { ignore: ["empty-lines"] } ],
+  skipBasicChecks: true,
+
+  accept: [ {
+    code: "a {}\n     \nb {}",
+    description: "empty line with spaces",
+  }, {
+    code: "a {}\r\n\t\r\nb {}",
+    description: "empty line with a tab and CRLF",
+  }, {
+    code: "a {}\n  \t\nb {}",
+    description: "empty line with spaces and a tab",
+  }, {
+    code: " \n",
+    description: "no nodes with space before newline",
+  } ],
+
+  reject: [ {
+    code: "a { color: pink; \n}",
+    description: "typical rejection #1",
+    message: messages.rejected,
+    line: 1,
+    column: 17,
+  }, {
+    code: "a { color: pink; }\t\n",
+    description: "typical rejection #2",
+    message: messages.rejected,
+    line: 1,
+    column: 19,
+  } ],
+})
