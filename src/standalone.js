@@ -135,14 +135,17 @@ export default function ({
     function lintString(code, filepath) {
       const postcssProcessOptions = {}
       if (filepath) {
-        if (isFileIgnored(filepath)) {
+        if (isFileIgnored(path.resolve(filepath))) {
           return new Promise((resolve) => {
             resolve({
-              source: filepath,
-              warnings: [],
-              ignored: true,
+              root: { source: { input: { file: filepath } } },
+              messages: [],
+              stylelint: {
+                stylelintError: null,
+                ignored: true,
+              },
             })
-          })
+          }).then(handleResult)
         }
 
         postcssProcessOptions.from = filepath
