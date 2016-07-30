@@ -4,6 +4,7 @@
 - Added: `custom-property-empty-line-before` rule.
 - Added: `declaration-empty-line-before` rule.
 - Added: `media-feature-name-case` rule.
+- Added: `selector-nested-pattern` rule.
 - Added: `selector-pseudo-class-blacklist` rule.
 - Added: `selector-pseudo-class-whitelist` rule.
 - Added: regex support to the `ignore*` secondary options of the `*-no-unknown` rules.
