@@ -2,7 +2,7 @@ import _ from "lodash"
 import buildConfig from "./buildConfig"
 import { configurationError } from "./utils"
 import disableRanges from "./disableRanges"
-import getIgnoredFilter from "./utils/getIgnoredFilter.js"
+import getIsFileIgnored from "./utils/getIsFileIgnored.js"
 import normalizeRuleSettings from "./normalizeRuleSettings"
 import postcss from "postcss"
 import ruleDefinitions from "./rules"
@@ -32,9 +32,9 @@ export default postcss.plugin("stylelint", (options = {}) => {
       }
 
       if (config.ignorePatterns || config.ignoreFiles) {
-        const isFileValid = getIgnoredFilter(config.ignorePatterns, config.ignoreFiles)
+        const isFileIgnored = getIsFileIgnored(config.ignorePatterns, config.ignoreFiles)
         const sourcePath = _.get(root, "source.input.file", "")
-        if (!isFileValid(sourcePath)) {
+        if (isFileIgnored(sourcePath)) {
           result.stylelint.ignored = true
           return
         }
