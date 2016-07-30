@@ -39,3 +39,30 @@ a { color: pink; }
 /* something
  * something else */
 ```
+
+## Optional options
+
+### `ignore: ["empty-lines"]`
+
+#### `"empty-lines"`
+
+Allow end-of-line whitespace for lines that are only whitespace, "empty" lines.
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  color: pink;
+··
+  background: orange;
+}
+```
+
+```css
+····
+```
+
+```css
+a { color: pink; }
+····
+```
