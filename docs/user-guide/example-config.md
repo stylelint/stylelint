@@ -136,6 +136,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-max-empty-lines": int,
     "selector-max-compound-selectors": int,
     "selector-max-specificity": string,
+    "selector-nested-pattern": string,
     "selector-no-attribute": true,
     "selector-no-combinator": true,
     "selector-no-id": true,

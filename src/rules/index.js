@@ -127,6 +127,7 @@ import selectorListCommaSpaceBefore from "./selector-list-comma-space-before"
 import selectorMaxCompoundSelectors from "./selector-max-compound-selectors"
 import selectorMaxEmptyLines from "./selector-max-empty-lines"
 import selectorMaxSpecificity from "./selector-max-specificity"
+import selectorNestedPattern from "./selector-nested-pattern"
 import selectorNoAttribute from "./selector-no-attribute"
 import selectorNoCombinator from "./selector-no-combinator"
 import selectorNoId from "./selector-no-id"
@@ -291,6 +292,7 @@ export default {
   "selector-max-compound-selectors": selectorMaxCompoundSelectors,
   "selector-max-empty-lines": selectorMaxEmptyLines,
   "selector-max-specificity": selectorMaxSpecificity,
+  "selector-nested-pattern": selectorNestedPattern,
   "selector-no-attribute": selectorNoAttribute,
   "selector-no-combinator": selectorNoCombinator,
   "selector-no-id": selectorNoId,
