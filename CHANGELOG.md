@@ -11,6 +11,7 @@
 - Fixed: `no-descending-specificity` message to correctly show which selector should come first.
 - Fixed: `selector-combinator-space-after` and `selector-combinator-space-before` now ignore operators within parenthetical non-standard constructs.
 - Added: `comment-no-empty` rule.
+- Added `ignore: ["blockless-after-same-name-blockless"]` option to `at-rule-empty-line-before`.
 - Fixed: `font-family-name-quotes` now ignores if font-weight in font short hand is a number
 - Added: `ignoreTypes` support to `selector-no-type` to whitelist allowed types for selectors.
 - Fixed: `color-named` now ignores declarations that accept *custom idents*.

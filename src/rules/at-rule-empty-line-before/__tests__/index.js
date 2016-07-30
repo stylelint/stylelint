@@ -7,6 +7,7 @@ import {
   ruleName,
 } from ".."
 import rules from "../../../rules"
+import { stripIndent } from "common-tags"
 
 const rule = rules[ruleName]
 
@@ -556,3 +557,50 @@ testRule(rule, {
     column: 7,
   }],
 })
+
+testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
+  ruleName,
+  config: [ "always", {
+    ignore: ["blockless-after-same-name-blockless"],
+  } ],
+
+  accept: [ {
+    code: stripIndent`
+      @charset "UTF-8";
+
+      @import url(x.css);
+      @import url(y.css);`,
+  }, {
+    code: stripIndent`
+      a {
+
+        @extends .foo;
+        @extends .bar;
+
+        @include loop;
+        @include doo;
+      }`,
+  } ],
+
+  reject: [ {
+    code: stripIndent`
+      @charset "UTF-8";
+      @import url(x.css);
+      @import url(y.css);`,
+    message: messages.expected,
+    line: 2,
+    column: 1,
+  }, {
+    code: stripIndent`
+      a {
+
+        @extends .foo;
+        @extends .bar;
+        @include loop;
+        @include doo;
+      }`,
+    message: messages.expected,
+    line: 5,
+    column: 3,
+  } ],
+}))

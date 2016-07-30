@@ -26,7 +26,8 @@ export default function (expectation, options) {
       actual: options,
       possible: {
         except: [ "blockless-group", "first-nested", "all-nested" ],
-        ignore: [ "blockless-group", "after-comment", "all-nested" ],
+        ignore: [ "blockless-group", "after-comment", "all-nested",
+          "blockless-after-same-name-blockless" ],
         ignoreAtRules: [isString],
       },
       optional: true,
@@ -43,6 +44,14 @@ export default function (expectation, options) {
 
       // Optionally ignore the expectation if the node is blockless
       if (optionsHaveIgnored(options, "blockless-group") && !hasBlock(atRule)) { return }
+
+      // Optionally ignore the expection if the node is blockless
+      // and following another blockless at-rule with the same name
+      if (optionsHaveIgnored(options, "blockless-after-same-name-blockless")
+        && !hasBlock(atRule)
+        && atRule.prev() && !hasBlock(atRule.prev())
+        && atRule.prev().type === "atrule"
+        && atRule.prev().name == atRule.name) { return }
 
       // Optionally ignore the expectation if the node is nested
       const isNested = atRule.parent !== root
