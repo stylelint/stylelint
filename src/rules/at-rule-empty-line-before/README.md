@@ -163,7 +163,7 @@ b {
 }
 ```
 
-### `ignore: ["after-comment", "blockless-group", "all-nested"]`
+### `ignore: ["after-comment", "blockless-group", "all-nested", "blockless-after-same-name-blockless"]`
 
 #### `"after-comment"`
 
@@ -235,6 +235,35 @@ The following patterns are *not* considered warnings:
 @import url(y.css);
 
 @media print {}
+```
+
+#### `"blockless-after-same-name-blockless"`
+
+Ignore blockless at-rules that follow another blockless at-rule with the same name.
+
+This means that you can group your blockless at-rules by name.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered warnings:
+
+```css
+
+@charset "UTF-8";
+
+@import url(x.css);
+@import url(y.css);
+```
+
+```css
+a {
+
+  @extends .foo;
+  @extends .bar;
+
+  @include loop;
+  @include doo;
+}
 ```
 
 ### `ignoreAtRules: ["array", "of", "at-rules"]`
