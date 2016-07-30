@@ -158,9 +158,9 @@ test("unknown syntax option", t => {
     code: "",
     config: { rules: { "block-no-empty": "wahoo" } },
   }).then()
-  .catch(err => {
-    t.equal(err.message, "You must use a valid syntax option, either: scss, less or sugarss")
-  })
+    .catch(err => {
+      t.equal(err.message, "You must use a valid syntax option, either: scss, less or sugarss")
+    })
 
   t.plan(1)
 })
@@ -171,9 +171,9 @@ test("unknown formatter option", t => {
     code: "",
     config: { rules: { "block-no-empty": "wahoo" } },
   }).then()
-  .catch(err => {
-    t.equal(err.message, "You must use a valid formatter option, either: json, string or verbose")
-  })
+    .catch(err => {
+      t.equal(err.message, "You must use a valid formatter option, either: json, string or verbose")
+    })
 
   t.plan(1)
 })
