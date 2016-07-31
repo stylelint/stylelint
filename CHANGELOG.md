@@ -1,5 +1,7 @@
 # Head
 
+- Added: `--report-needless-disables` and `reportNeedlessDisables` option.
+- Added: `--ignore-disables` and `ignoreDisables` option.
 - Added: `value-list-max-empty-lines` rule.
 
 # 7.1.0

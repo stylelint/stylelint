@@ -3,6 +3,7 @@ import _ from "lodash"
 import buildConfig from "./buildConfig"
 import globby from "globby"
 import lessSyntax from "postcss-less"
+import needlessDisables from "./needlessDisables"
 import path from "path"
 import postcss from "postcss"
 import { readFile } from "fs"
@@ -24,7 +25,9 @@ export default function ({
   configFile,
   configBasedir,
   configOverrides,
+  ignoreDisables,
   ignorePath,
+  reportNeedlessDisables,
   syntax,
   formatter = "json",
 } = {}) {
@@ -68,15 +71,22 @@ export default function ({
 
     let initialisedPostcss
 
+    function prepareReturnValue(results) {
+      const returnValue = {
+        results,
+        errored,
+        output: chosenFormatter(results),
+      }
+      if (reportNeedlessDisables) {
+        returnValue.needlessDisables = needlessDisables(results)
+      }
+      return returnValue
+    }
+
     if (!files) {
       return lintString(code, codeFilename).then(result => {
         const results = [result]
-        const output = chosenFormatter(results)
-        return {
-          output,
-          results,
-          errored,
-        }
+        return prepareReturnValue(results)
       })
     }
 
@@ -88,12 +98,7 @@ export default function ({
       }
       const promises = input.map(filepath => lintFile(filepath))
       return Promise.all(promises).then(results => {
-        const output = chosenFormatter(results)
-        return {
-          output,
-          results,
-          errored,
-        }
+        return prepareReturnValue(results)
       })
     })
 
@@ -114,6 +119,8 @@ export default function ({
             configFile,
             configBasedir,
             configOverrides,
+            // If we are reporting needless disables, we have to ignore them
+            ignoreDisables: reportNeedlessDisables ? true : ignoreDisables,
             ignorePath,
             _configPromise: Promise.resolve({ config, configDir }),
           }))

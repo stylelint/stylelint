@@ -1,7 +1,7 @@
 {
   "name": "stylelint",
   "version": "7.1.0",
-  "description": "Modern CSS linter",
+  "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css",
     "csslint",

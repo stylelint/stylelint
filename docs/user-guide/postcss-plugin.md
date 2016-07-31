@@ -43,6 +43,12 @@ A partial stylelint configuration object whose properties will override the exis
 
 The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to *both* load a `.stylelintrc` file *and* override specific parts of it, `configOverrides` does just that.
 
+### `ignoreDisables`
+
+If `true`, all disable comments (e.g. `/* stylelint-disable block-no-empty */`) will be ignored.
+
+You can use this option to see what your linting results would be like without those exceptions.
+
 ### `ignorePath`
 
 A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](/docs/user-guide/configuration.md#stylelintignore).

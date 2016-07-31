@@ -5,6 +5,7 @@ import {
 } from "lodash"
 import getStdin from "get-stdin"
 import meow from "meow"
+import needlessDisablesStringFormatter from "./formatters/needlessDisablesStringFormatter"
 import path from "path"
 import resolveFrom from "resolve-from"
 import standalone from "./standalone"
@@ -19,51 +20,86 @@ const minimistOptions = {
     f: "formatter",
     h: "help",
     i: "ignore-path",
+    id: "ignore-disables",
     q: "quiet",
+    rd: "report-needless-disables",
     s: "syntax",
     v: "version",
   },
 }
 
 const meowOptions = {
-  help: [
-    "Usage",
-    "  stylelint [input] [options]",
-    "",
-    "Input",
-    "  Files(s) or glob(s).",
-    "  If an input argument is wrapped in quotation marks, it will be passed to node-glob",
-    "  for cross-platform glob support.",
-    "  `node_modules` and `bower_components` are always ignored.",
-    "  You can also pass no input and use stdin, instead.",
-    "",
-    "Options",
-    "  --config             Path to a specific configuration file (JSON, YAML, or CommonJS),",
-    "                       or the name of a module in `node_modules` that points to one.",
-    "                       If no `--config` argument is provided, stylelint will search for",
-    "                       configuration  files in the following places, in this order:",
-    "                         - a `stylelint` property in `package.json`",
-    "                         - a `.stylelintrc` file (with or without filename extension:",
-    "                           `.json`, `.yaml`, and `.js` are available)",
-    "                         - a `stylelint.config.js` file exporting a JS object",
-    "                       The search will begin in the working directory and move up the",
-    "                       directory tree until a configuration file is found.",
-    "  -v, --version        Get the currently installed version of stylelint.",
-    "  --custom-formatter   Path to a JS file exporting a custom formatting function",
-    "  --stdin-filename     Specify a filename to assign stdin input",
-    "  -f, --formatter      Specify a formatter: \"json\", \"string\" or \"verbose\". Default is \"string\".",
-    "  --color, --no-color  Force enabling/disabling of color",
-    "  -i, --ignore-path    Specify a to a file containing patterns describing files",
-    "                       to ignore. The path can be absolute or relative to `process.cwd()`.",
-    "                       By default, stylelint looks for `.stylelintignore` in `process.cwd()`",
-    "  -q, --quiet          Only register warnings for rules with an \"error\"-level severity",
-    "                       (ignore \"warning\"-level)",
-    "  -s, --syntax         Specify a non-standard syntax that should be used to ",
-    "                       parse source stylesheets. Options: \"scss\", \"less\", \"sugarss\".",
-    "                       If you do not specify a syntax, non-standard syntaxes will be",
-    "                       automatically inferred by the file extensions",
-    "                       `.scss`, `.less`, and `.sss`.",
-  ],
+  help: `
+    Usage: stylelint [input] [options]
+
+    Input: Files(s), glob(s), or nothing to use stdin.
+
+      If an input argument is wrapped in quotation marks, it will be passed to
+      node-glob for cross-platform glob support. node_modules and
+      bower_components are always ignored. You can also pass no input and use
+      stdin, instead.
+
+    Options:
+
+      --config
+
+        Path to a specific configuration file (JSON, YAML, or CommonJS), or the
+        name of a module in node_modules that points to one. If no --config
+        argument is provided, stylelint will search for configuration files in
+        the following places, in this order:
+          - a stylelint property in package.json
+          - a .stylelintrc file (with or without filename extension:
+            .json, .yaml, and .js are available)
+          - a stylelint.config.js file exporting a JS object
+        The search will begin in the working directory and move up the directory
+        tree until a configuration file is found.
+
+      --ignore-path, -i
+
+        Path to a file containing patterns that describe files to ignore. The
+        path can be absolute or relative to process.cwd(). By default, stylelint
+        looks for .stylelintignore in process.cwd().
+
+      --syntax, -s
+
+        Specify a non-standard syntax. Options: "scss", "less", "sugarss".
+        If you do not specify a syntax, non-standard syntaxes will be
+        automatically inferred by the file extensions .scss, .less, and .sss.
+
+      --stdin-filename
+
+        A filename to assign stdin input.
+
+      --ignore-disables, --id
+
+        Ignore styleline-disable comments.
+
+      --formatter, -f               [default: "string"]
+
+        The output formatter: "json", "string" or "verbose".
+
+      --custom-formatter
+
+        Path to a JS file exporting a custom formatting function.
+
+      --quiet, -q
+
+        Only register warnings for rules with an "error"-level severity (ignore
+        "warning"-level).
+
+      --color
+      --no-color
+
+        Force enabling/disabling of color.
+
+      --report-needless-disables, --rd
+
+        Report stylelint-disable comments that are not blocking a lint warning.
+
+      --version, -v
+
+        Show the currently installed version of stylelint.
+  `,
   pkg: "../package.json",
 }
 
@@ -106,6 +142,15 @@ if (cli.flags.ignorePath) {
   optionsBase.ignorePath = cli.flags.ignorePath
 }
 
+if (cli.flags.ignoreDisables) {
+  optionsBase.ignoreDisables = cli.flags.ignoreDisables
+}
+
+const { reportNeedlessDisables } = cli.flags
+if (reportNeedlessDisables) {
+  optionsBase.reportNeedlessDisables = reportNeedlessDisables
+}
+
 Promise.resolve().then(() => {
   // Add input/code into options
   if (cli.input.length) {
@@ -122,7 +167,12 @@ Promise.resolve().then(() => {
   }
 
   return standalone(options)
-}).then(({ output, errored }) => {
+}).then(({ output, errored, needlessDisables }) => {
+  if (reportNeedlessDisables) {
+    process.stdout.write(needlessDisablesStringFormatter(needlessDisables))
+    return
+  }
+
   if (!output) { return }
   process.stdout.write(output)
   if (errored) { process.exitCode = 2 }

@@ -83,6 +83,9 @@ export default postcss.plugin("stylelint", (options = {}) => {
 
       // First check for disabled ranges, adding them to the result object
       disableRanges(root, result)
+      if (options.ignoreDisables) {
+        result.stylelint.ignoreDisables = true
+      }
 
       Object.keys(config.rules).forEach(ruleName => {
         if (!ruleDefinitions[ruleName]) {
