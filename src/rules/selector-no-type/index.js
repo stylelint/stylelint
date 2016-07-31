@@ -7,8 +7,8 @@ import {
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
   isStandardSyntaxTypeSelector,
-  optionsHaveIgnored,
-  optionsHaveIgnoredType,
+  optionsHasKeyword,
+  optionsMatches,
   parseSelector,
   report,
   ruleMessages,
@@ -34,8 +34,8 @@ export default function (on, options) {
     })
     if (!validOptions) { return }
 
-    const ignoreDescendant = optionsHaveIgnored(options, "descendant")
-    const ignoreCompounded = optionsHaveIgnored(options, "compounded")
+    const ignoreDescendant = optionsHasKeyword(options, "ignore", "descendant")
+    const ignoreCompounded = optionsHasKeyword(options, "ignore", "compounded")
 
     root.walkRules(rule => {
 
@@ -60,7 +60,7 @@ export default function (on, options) {
 
           if (!isStandardSyntaxTypeSelector(tag)) { return }
 
-          if (optionsHaveIgnoredType(options, tag)) { return }
+          if (optionsMatches(options, "ignoreTypes", tag)) { return }
 
           if (ignoreDescendant && hasCombinatorBefore(tag)) { return }
 

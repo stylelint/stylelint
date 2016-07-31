@@ -3,7 +3,7 @@ import {
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
   isStandardSyntaxTypeSelector,
-  optionsHaveIgnoredType,
+  optionsMatches,
   parseSelector,
   report,
   ruleMessages,
@@ -67,7 +67,7 @@ export default function (actual, options) {
         selectorTree.walkTags(tagNode => {
           if (!isStandardSyntaxTypeSelector(tagNode)) { return }
 
-          if (optionsHaveIgnoredType(options, tagNode)) { return }
+          if (optionsMatches(options, "ignoreTypes", tagNode)) { return }
 
           const tagName = tagNode.value
           const tagNameLowerCase = tagName.toLowerCase()

@@ -1,7 +1,7 @@
 import {
   blockString,
   hasBlock,
-  optionsHaveIgnoredAtRule,
+  optionsMatches,
   rawNodeString,
   report,
   ruleMessages,
@@ -47,7 +47,7 @@ export default function (expectation, options) {
 
     function check(statement) {
       if (!hasBlock(statement)) { return }
-      if (optionsHaveIgnoredAtRule(options, statement)) { return }
+      if (optionsMatches(options, "ignoreAtRules", statement)) { return }
 
       const nextNode = statement.next()
       if (!nextNode) { return }

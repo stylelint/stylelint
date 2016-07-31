@@ -1,5 +1,5 @@
 import {
-  optionsHaveIgnored,
+  optionsHasKeyword,
   report,
   ruleMessages,
   validateOptions,
@@ -31,7 +31,7 @@ export default function (maxLength, options) {
     // so they do not throw the game
     const rootString = root.toString().replace(/url\(.*\)/ig, "url()")
 
-    const ignoreNonComments = optionsHaveIgnored(options, "non-comments")
+    const ignoreNonComments = optionsHasKeyword(options, "ignore", "non-comments")
 
     // Check first line
     checkNewline({ endIndex: 0 })

@@ -1,7 +1,7 @@
 import {
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
-  optionsHaveIgnoredPseudoElement,
+  optionsMatches,
   parseSelector,
   report,
   ruleMessages,
@@ -44,7 +44,7 @@ export default function (actual, options) {
           // Ignore pseudo-classes
           if (value.slice(0, 2) !== "::") { return }
 
-          if (optionsHaveIgnoredPseudoElement(options, pseudoNode)) { return }
+          if (optionsMatches(options, "ignorePseudoElements", pseudoNode)) { return }
 
           const name = value.slice(2)
 

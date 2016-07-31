@@ -1,7 +1,6 @@
 import {
   hasEmptyLine,
-  optionsHaveException,
-  optionsHaveIgnored,
+  optionsHasKeyword,
   report,
   ruleMessages,
   validateOptions,
@@ -45,14 +44,14 @@ export default function (expectation, options) {
       // Optionally ignore stylelint commands
       if (
         comment.text.indexOf(stylelintCommandPrefix) === 0
-        && optionsHaveIgnored(options, "stylelint-commands")
+        && optionsHasKeyword(options, "ignore", "stylelint-commands")
       ) { return }
 
       // Optionally ignore newlines between comments
       const prev = comment.prev()
       if (
         prev && prev.type === "comment"
-        && optionsHaveIgnored(options, "between-comments")
+        && optionsHasKeyword(options, "ignore", "between-comments")
       ) { return }
 
       if (comment.raws.inline || comment.inline) { return }
@@ -64,7 +63,7 @@ export default function (expectation, options) {
 
       const expectEmptyLineBefore = (() => {
         if (
-          optionsHaveException(options, "first-nested")
+          optionsHasKeyword(options, "except", "first-nested")
           && comment.parent !== root
           && comment === comment.parent.first
         ) { return false }
