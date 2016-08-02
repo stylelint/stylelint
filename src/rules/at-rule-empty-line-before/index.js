@@ -76,14 +76,14 @@ export default function (expectation, options) {
 
       // Optionally reverse the expectation if any exceptions apply
       if (
-        (optionsHaveException(options, "all-nested")
-          && isNested)
-        || optionsHaveException(options, "first-nested")
-          && isFirstNested()
-        || optionsHaveException(options, "blockless-group")
-          && isBlocklessAfterBlockless()
-        || optionsHaveException(options, "blockless-after-same-name-blockless")
-          && isBlocklessAfterSameNameBlockless()
+        ((optionsHaveException(options, "all-nested")
+          && isNested))
+        || (optionsHaveException(options, "first-nested")
+          && isFirstNested())
+        || (optionsHaveException(options, "blockless-group")
+          && isBlocklessAfterBlockless())
+        || (optionsHaveException(options, "blockless-after-same-name-blockless")
+          && isBlocklessAfterSameNameBlockless())
       ) {
         expectEmptyLineBefore = !expectEmptyLineBefore
       }
