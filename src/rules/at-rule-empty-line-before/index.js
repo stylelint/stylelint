@@ -26,10 +26,10 @@ export default function (expectation, options) {
       actual: options,
       possible: {
         except: [
+          "all-nested",
           "blockless-after-same-name-blockless",
           "blockless-group",
           "first-nested",
-          "all-nested",
         ],
         ignore: [
           "after-comment",
