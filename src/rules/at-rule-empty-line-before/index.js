@@ -25,9 +25,18 @@ export default function (expectation, options) {
     }, {
       actual: options,
       possible: {
-        except: [ "blockless-group", "first-nested", "all-nested" ],
-        ignore: [ "blockless-group", "after-comment", "all-nested",
-          "blockless-after-same-name-blockless" ],
+        except: [
+          "blockless-after-same-name-blockless",
+          "blockless-group",
+          "first-nested",
+          "all-nested",
+        ],
+        ignore: [
+          "after-comment",
+          "all-nested",
+          "blockless-after-same-name-blockless",
+          "blockless-group",
+        ],
         ignoreAtRules: [isString],
       },
       optional: true,
@@ -43,35 +52,38 @@ export default function (expectation, options) {
       if (optionsHaveIgnoredAtRule(options, atRule)) { return }
 
       // Optionally ignore the expectation if the node is blockless
-      if (optionsHaveIgnored(options, "blockless-group") && !hasBlock(atRule)) { return }
+      if (optionsHaveIgnored(options, "blockless-group")
+        && !hasBlock(atRule)) { return }
+
+      const isNested = atRule.parent !== root
+      const previousNode = atRule.prev()
 
       // Optionally ignore the expection if the node is blockless
       // and following another blockless at-rule with the same name
       if (optionsHaveIgnored(options, "blockless-after-same-name-blockless")
-        && !hasBlock(atRule)
-        && atRule.prev() && !hasBlock(atRule.prev())
-        && atRule.prev().type === "atrule"
-        && atRule.prev().name == atRule.name) { return }
+        && isBlocklessAfterSameNameBlockless()) { return }
 
       // Optionally ignore the expectation if the node is nested
-      const isNested = atRule.parent !== root
-      if (optionsHaveIgnored(options, "all-nested") && isNested) { return }
+      if (optionsHaveIgnored(options, "all-nested")
+        && isNested) { return }
 
       // Optionally ignore the expectation if a comment precedes this node
       if (optionsHaveIgnored(options, "after-comment")
-        && atRule.prev() && atRule.prev().type === "comment") { return }
+        && isAfterComment()) { return }
 
       const hasEmptyLineBefore = hasEmptyLine(atRule.raw("before"))
-
       let expectEmptyLineBefore = (expectation === "always") ? true : false
 
-      const previousNode = atRule.prev()
-
-      // Reverse the expectation if any exceptions apply
+      // Optionally reverse the expectation if any exceptions apply
       if (
-        (optionsHaveException(options, "all-nested") && isNested)
-        || getsFirstNestedException()
-        || getsBlocklessGroupException()
+        (optionsHaveException(options, "all-nested")
+          && isNested)
+        || optionsHaveException(options, "first-nested")
+          && isFirstNested()
+        || optionsHaveException(options, "blockless-group")
+          && isBlocklessAfterBlockless()
+        || optionsHaveException(options, "blockless-after-same-name-blockless")
+          && isBlocklessAfterSameNameBlockless()
       ) {
         expectEmptyLineBefore = !expectEmptyLineBefore
       }
@@ -88,19 +100,33 @@ export default function (expectation, options) {
         ruleName,
       })
 
-      function getsBlocklessGroupException() {
+      function isAfterComment() {
         return (
-          optionsHaveException(options, "blockless-group")
-          && previousNode && previousNode.type === "atrule"
+          previousNode
+          && previousNode.type === "comment"
+        )
+      }
+
+      function isBlocklessAfterBlockless() {
+        return (
+          previousNode && previousNode.type === "atrule"
           && !hasBlock(previousNode)
           && !hasBlock(atRule)
         )
       }
 
-      function getsFirstNestedException() {
+      function isBlocklessAfterSameNameBlockless() {
         return (
-          optionsHaveException(options, "first-nested")
-          && isNested
+          !hasBlock(atRule)
+          && previousNode && !hasBlock(previousNode)
+          && previousNode.type === "atrule"
+          && previousNode.name == atRule.name
+        )
+      }
+
+      function isFirstNested() {
+        return (
+          isNested
           && atRule === atRule.parent.first
         )
       }

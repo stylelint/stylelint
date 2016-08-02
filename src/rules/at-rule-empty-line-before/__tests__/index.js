@@ -604,3 +604,95 @@ testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
     column: 3,
   } ],
 }))
+
+testRule(rule, mergeTestDescriptions(sharedAlwaysTests, {
+  ruleName,
+  config: [ "always", {
+    except: ["blockless-after-same-name-blockless"],
+  } ],
+
+  accept: [ {
+    code: stripIndent`
+      @charset "UTF-8";
+
+      @import url(x.css);
+      @import url(y.css);`,
+  }, {
+    code: stripIndent`
+      a {
+
+        @extends .foo;
+        @extends .bar;
+
+        @include loop;
+        @include doo;
+      }`,
+  } ],
+
+  reject: [ {
+    code: stripIndent`
+      @charset "UTF-8";
+      @import url(x.css);
+      @import url(y.css);`,
+    message: messages.expected,
+    line: 2,
+    column: 1,
+  }, {
+    code: stripIndent`
+      a {
+
+        @extends .foo;
+        @extends .bar;
+        @include loop;
+        @include doo;
+      }`,
+    message: messages.expected,
+    line: 5,
+    column: 3,
+  } ],
+}))
+
+testRule(rule, mergeTestDescriptions(sharedNeverTests, {
+  ruleName,
+  config: [ "never", {
+    except: ["blockless-after-same-name-blockless"],
+  } ],
+
+  accept: [ {
+    code: stripIndent`
+      @charset "UTF-8";
+      @import url(x.css);
+      
+      @import url(y.css);`,
+  }, {
+    code: stripIndent`
+      a {
+        @extends .foo;
+
+        @extends .bar;
+        @include loop;
+
+        @include doo;
+      }`,
+  } ],
+
+  reject: [ {
+    code: stripIndent`
+      @charset "UTF-8";
+      @import url(x.css);
+      @import url(y.css);`,
+    message: messages.expected,
+    line: 3,
+    column: 1,
+  }, {
+    code: stripIndent`
+      a {
+        @extends .bar;
+        @include loop;
+        @include doo;
+      }`,
+    message: messages.expected,
+    line: 4,
+    column: 3,
+  } ],
+}))
