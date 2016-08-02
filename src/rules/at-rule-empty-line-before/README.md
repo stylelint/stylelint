@@ -64,7 +64,7 @@ a {}
 
 ## Optional options
 
-### `except: ["all-nested", "blockless-group", "first-nested"]`
+### `except: ["all-nested", "blockless-after-same-name-blockless", "blockless-group", "first-nested"]`
 
 ### `"all-nested"`
 
@@ -99,6 +99,34 @@ a {
 b {
   color: pink;
   @extend foo;
+}
+```
+
+#### `"blockless-after-same-name-blockless"`
+
+Reverse the primary option for blockless at-rules that follow another blockless at-rule with the same name.
+
+This means that you can group your blockless at-rules by name.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered warnings:
+
+```css
+@charset "UTF-8";
+
+@import url(x.css);
+@import url(y.css);
+```
+
+```css
+a {
+
+  @extends .foo;
+  @extends .bar;
+
+  @include loop;
+  @include doo;
 }
 ```
 
@@ -163,7 +191,7 @@ b {
 }
 ```
 
-### `ignore: ["after-comment", "blockless-group", "all-nested", "blockless-after-same-name-blockless"]`
+### `ignore: ["after-comment", "all-nested", "blockless-after-same-name-blockless", "blockless-group",]`
 
 #### `"after-comment"`
 
@@ -214,29 +242,6 @@ b {
 }
 ```
 
-#### `"blockless-group"`
-
-Ignore at-rules within a blockless group.
-
-For example, with `"always"`:
-
-The following patterns are *not* considered warnings:
-
-```css
-@import url(x.css);
-
-@import url(y.css);
-
-@media print {}
-```
-
-```css
-@import url(x.css);
-@import url(y.css);
-
-@media print {}
-```
-
 #### `"blockless-after-same-name-blockless"`
 
 Ignore blockless at-rules that follow another blockless at-rule with the same name.
@@ -264,6 +269,29 @@ a {
   @include loop;
   @include doo;
 }
+```
+
+#### `"blockless-group"`
+
+Ignore at-rules within a blockless group.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered warnings:
+
+```css
+@import url(x.css);
+
+@import url(y.css);
+
+@media print {}
+```
+
+```css
+@import url(x.css);
+@import url(y.css);
+
+@media print {}
 ```
 
 ### `ignoreAtRules: ["array", "of", "at-rules"]`
