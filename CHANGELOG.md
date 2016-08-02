@@ -1,4 +1,4 @@
-# Head
+# 7.1.0
 
 - Added: `block-closing-brace-empty-line-before` rule.
 - Added: `comment-no-empty` rule.
