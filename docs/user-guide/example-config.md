@@ -44,6 +44,7 @@ You might want to learn a little about [how rules are named and how they work to
     "declaration-bang-space-before": "always"|"never",
     "declaration-block-no-duplicate-properties": true,
     "declaration-block-no-ignored-properties": true,
+    "declaration-block-no-redundant-longhand-properties": true,
     "declaration-block-no-shorthand-property-overrides": true,
     "declaration-block-properties-order": "alphabetical"|[],
     "declaration-block-semicolon-newline-after": "always"|"always-multi-line"|"never-multi-line",
