@@ -169,6 +169,7 @@ You might want to learn a little about [how rules are named and how they work to
     "value-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
     "value-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
     "value-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
+    "value-list-max-empty-lines": int,
     "value-no-vendor-prefix": true
   }
 }

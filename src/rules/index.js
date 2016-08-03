@@ -160,6 +160,7 @@ import valueListCommaNewlineAfter from "./value-list-comma-newline-after"
 import valueListCommaNewlineBefore from "./value-list-comma-newline-before"
 import valueListCommaSpaceAfter from "./value-list-comma-space-after"
 import valueListCommaSpaceBefore from "./value-list-comma-space-before"
+import valueListMaxEmptyLines from "./value-list-max-empty-lines"
 import valueNoVendorPrefix from "./value-no-vendor-prefix"
 
 export default {
@@ -325,5 +326,6 @@ export default {
   "value-list-comma-newline-before": valueListCommaNewlineBefore,
   "value-list-comma-space-after": valueListCommaSpaceAfter,
   "value-list-comma-space-before": valueListCommaSpaceBefore,
+  "value-list-max-empty-lines": valueListMaxEmptyLines,
   "value-no-vendor-prefix": valueNoVendorPrefix,
 }

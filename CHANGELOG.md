@@ -1,3 +1,7 @@
+# Head
+
+- Added: `value-list-max-empty-lines` rule.
+
 # 7.1.0
 
 - Added: `block-closing-brace-empty-line-before` rule.
