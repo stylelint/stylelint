@@ -52,6 +52,9 @@ testRule(rule, {
     code: "a { animation: blue 2s linear; }",
     description: "ignore keyframe animation name that are colors",
   }, {
+    code: "a { composes: blue relative from 'index.css'; }",
+    description: "ignore composes name that are colors",
+  }, {
     code: "a { font-family: blue; }",
     description: "ignore font family names that are colors",
   }, {
