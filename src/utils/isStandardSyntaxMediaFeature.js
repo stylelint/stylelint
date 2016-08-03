@@ -16,5 +16,8 @@ export default function (mediaFeature) {
   // SCSS or Less interpolation
   if (hasInterpolation(mediaFeature)) { return false }
 
+  // SCSS variables
+  if (/\$.+?/.test(mediaFeature)) { return false }
+
   return true
 }

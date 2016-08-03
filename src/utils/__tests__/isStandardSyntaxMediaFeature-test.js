@@ -8,6 +8,7 @@ test("isStandardSyntaxMediaFeature", t => {
   t.ok(isStandardSyntaxMediaFeature("(color)"), "boolean context")
   t.notOk(isStandardSyntaxMediaFeature("(min-width: calc(100% - 20px))"), "complex value")
   t.notOk(isStandardSyntaxMediaFeature("(min-width: ($var - 10px))"), "complex SCSS value")
+  t.notOk(isStandardSyntaxMediaFeature("(max-width: $content-size + $side * 2)"), "complex SCSS value")
   t.notOk(isStandardSyntaxMediaFeature("(min-width#{$value}: 10px)"), "scss interpolation")
   t.notOk(isStandardSyntaxMediaFeature("(@{value}min-width : 10px)"), "Less interpolation")
   t.end()
