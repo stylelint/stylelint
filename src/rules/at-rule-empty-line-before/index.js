@@ -2,8 +2,6 @@ import {
   hasBlock,
   hasEmptyLine,
   optionsMatches,
-  optionsMatches,
-  optionsMatches,
   report,
   ruleMessages,
   validateOptions,

@@ -5,7 +5,6 @@ import {
   isSingleLineString,
   isStandardSyntaxDeclaration,
   optionsMatches,
-  optionsMatches,
   report,
   ruleMessages,
   validateOptions,

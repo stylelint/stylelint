@@ -8,7 +8,6 @@ import {
   isStandardSyntaxSelector,
   isStandardSyntaxTypeSelector,
   optionsMatches,
-  optionsMatches,
   parseSelector,
   report,
   ruleMessages,

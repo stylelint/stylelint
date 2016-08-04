@@ -2,7 +2,6 @@ import {
   beforeBlockString,
   hasBlock,
   optionsMatches,
-  optionsMatches,
   report,
   ruleMessages,
   validateOptions,

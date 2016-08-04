@@ -3,7 +3,6 @@ import {
   isSingleLineString,
   isStandardSyntaxRule,
   optionsMatches,
-  optionsMatches,
   report,
   ruleMessages,
   validateOptions,

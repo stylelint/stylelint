@@ -1,7 +1,6 @@
 import {
   hasEmptyLine,
   optionsMatches,
-  optionsMatches,
   report,
   ruleMessages,
   validateOptions,

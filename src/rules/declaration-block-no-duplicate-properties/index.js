@@ -2,7 +2,6 @@ import {
   isCustomProperty,
   isStandardSyntaxProperty,
   optionsMatches,
-  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
