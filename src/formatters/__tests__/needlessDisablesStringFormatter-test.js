@@ -19,6 +19,10 @@ test("needlessDisables formatter stringified", t => {
         { start: 99, end: 102 },
       ],
     },
+    {
+      sourc: "baz",
+      ranges: [],
+    },
   ]))
 
   let expected = stripIndent`

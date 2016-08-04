@@ -95,6 +95,8 @@ const meowOptions = {
       --report-needless-disables, --rd
 
         Report stylelint-disable comments that are not blocking a lint warning.
+        If you provide the argument "error", the process will exit with code 2
+        if needless disables are found.
 
       --version, -v
 
@@ -170,6 +172,7 @@ Promise.resolve().then(() => {
 }).then(({ output, errored, needlessDisables }) => {
   if (reportNeedlessDisables) {
     process.stdout.write(needlessDisablesStringFormatter(needlessDisables))
+    if (reportNeedlessDisables === "error") { process.exitCode = 2 }
     return
   }
 
