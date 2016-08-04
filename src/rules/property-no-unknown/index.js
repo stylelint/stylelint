@@ -1,7 +1,7 @@
 import {
   isCustomProperty,
   isStandardSyntaxProperty,
-  optionsHaveIgnoredProperty,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -33,7 +33,7 @@ export default function (actual, options) {
       if (!isStandardSyntaxProperty(prop)) { return }
       if (isCustomProperty(prop)) { return }
 
-      if (optionsHaveIgnoredProperty(options, prop)) { return }
+      if (optionsMatches(options, "ignoreProperties", prop)) { return }
 
       if (properties.indexOf(prop.toLowerCase()) !== -1) { return }
 

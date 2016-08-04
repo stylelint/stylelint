@@ -2,7 +2,7 @@ import {
   atRuleParamIndex,
   declarationValueIndex,
   getUnitFromValueNode,
-  optionsHaveIgnoredUnit,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -37,7 +37,7 @@ export default function (actual, options) {
         const unit = getUnitFromValueNode(valueNode)
         if (!unit) { return }
 
-        if (optionsHaveIgnoredUnit(options, unit)) { return }
+        if (optionsMatches(options, "ignoreUnits", unit)) { return }
 
         if (units.has(unit.toLowerCase())) { return }
 

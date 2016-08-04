@@ -1,8 +1,8 @@
 import {
   isCustomProperty,
   isStandardSyntaxProperty,
-  optionsHaveIgnored,
-  optionsHaveIgnoredProperty,
+  optionsMatches,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -53,7 +53,7 @@ export default function (on, options) {
         if (isCustomProperty(prop)) { return }
 
         // Return early if the property is to be ignored
-        if (optionsHaveIgnoredProperty(options, prop)) { return }
+        if (optionsMatches(options, "ignoreProperties", prop)) { return }
 
         // Ignore the src property as commonly duplicated in at-fontface
         if (prop.toLowerCase() === "src") { return }
@@ -62,7 +62,7 @@ export default function (on, options) {
 
         if (indexDuplicate !== -1) {
           if (
-            optionsHaveIgnored(options, "consecutive-duplicates")
+            optionsMatches(options, "ignore", "consecutive-duplicates")
             && indexDuplicate === decls.length - 1
           ) {
             return

@@ -1,9 +1,9 @@
 import {
   hasBlock,
   hasEmptyLine,
-  optionsHaveException,
-  optionsHaveIgnored,
-  optionsHaveIgnoredAtRule,
+  optionsMatches,
+  optionsMatches,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -49,10 +49,10 @@ export default function (expectation, options) {
       if (atRule === root.first) { return }
 
       // Return early if at-rule is to be ignored
-      if (optionsHaveIgnoredAtRule(options, atRule)) { return }
+      if (optionsMatches(options, "ignoreAtRules", atRule.name)) { return }
 
       // Optionally ignore the expectation if the node is blockless
-      if (optionsHaveIgnored(options, "blockless-group")
+      if (optionsMatches(options, "ignore", "blockless-group")
         && !hasBlock(atRule)) { return }
 
       const isNested = atRule.parent !== root
@@ -60,15 +60,15 @@ export default function (expectation, options) {
 
       // Optionally ignore the expection if the node is blockless
       // and following another blockless at-rule with the same name
-      if (optionsHaveIgnored(options, "blockless-after-same-name-blockless")
+      if (optionsMatches(options, "ignore", "blockless-after-same-name-blockless")
         && isBlocklessAfterSameNameBlockless()) { return }
 
       // Optionally ignore the expectation if the node is nested
-      if (optionsHaveIgnored(options, "all-nested")
+      if (optionsMatches(options, "ignore", "all-nested")
         && isNested) { return }
 
       // Optionally ignore the expectation if a comment precedes this node
-      if (optionsHaveIgnored(options, "after-comment")
+      if (optionsMatches(options, "ignore", "after-comment")
         && isAfterComment()) { return }
 
       const hasEmptyLineBefore = hasEmptyLine(atRule.raw("before"))
@@ -76,13 +76,13 @@ export default function (expectation, options) {
 
       // Optionally reverse the expectation if any exceptions apply
       if (
-        ((optionsHaveException(options, "all-nested")
+        ((optionsMatches(options, "except", "all-nested")
           && isNested))
-        || (optionsHaveException(options, "first-nested")
+        || (optionsMatches(options, "except", "first-nested")
           && isFirstNested())
-        || (optionsHaveException(options, "blockless-group")
+        || (optionsMatches(options, "except", "blockless-group")
           && isBlocklessAfterBlockless())
-        || (optionsHaveException(options, "blockless-after-same-name-blockless")
+        || (optionsMatches(options, "except", "blockless-after-same-name-blockless")
           && isBlocklessAfterSameNameBlockless())
       ) {
         expectEmptyLineBefore = !expectEmptyLineBefore

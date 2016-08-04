@@ -4,8 +4,8 @@ import {
   isCustomProperty,
   isSingleLineString,
   isStandardSyntaxDeclaration,
-  optionsHaveException,
-  optionsHaveIgnored,
+  optionsMatches,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -51,7 +51,7 @@ export default function (expectation, options) {
 
       // Optionally ignore the node if a comment precedes it
       if (
-        optionsHaveIgnored(options, "after-comment")
+        optionsMatches(options, "ignore", "after-comment")
         && decl.prev()
         && decl.prev().type === "comment"
       ) {
@@ -60,7 +60,7 @@ export default function (expectation, options) {
 
       // Optionally ignore nodes inside single-line blocks
       if (
-        optionsHaveIgnored(options, "inside-single-line-block")
+        optionsMatches(options, "ignore", "inside-single-line-block")
         && isSingleLineString(blockString(parent))
       ) {
         return
@@ -69,20 +69,20 @@ export default function (expectation, options) {
       let expectEmptyLineBefore = (expectation === "always") ? true : false
 
       // Optionally reverse the expectation for the first nested node
-      if (optionsHaveException(options, "first-nested")
+      if (optionsMatches(options, "except", "first-nested")
         && decl === parent.first) {
         expectEmptyLineBefore = !expectEmptyLineBefore
       }
 
       // Optionally reverse the expectation if a comment precedes this node
-      if (optionsHaveException(options, "after-comment")
+      if (optionsMatches(options, "except", "after-comment")
         && decl.prev()
         && decl.prev().type === "comment") {
         expectEmptyLineBefore = !expectEmptyLineBefore
       }
 
       // Optionally reverse the expectation if a custom property precedes this node
-      if (optionsHaveException(options, "after-custom-property")
+      if (optionsMatches(options, "except", "after-custom-property")
         && decl.prev()
         && decl.prev().prop
         && isCustomProperty(decl.prev().prop)) {
