@@ -152,19 +152,6 @@ test("configuration error sets errored to true", t => {
   t.plan(1)
 })
 
-test("unknown syntax option", t => {
-  standalone({
-    syntax: "unknown",
-    code: "",
-    config: { rules: { "block-no-empty": "wahoo" } },
-  }).then()
-    .catch(err => {
-      t.equal(err.message, "You must use a valid syntax option, either: scss, less or sugarss")
-    })
-
-  t.plan(1)
-})
-
 test("unknown formatter option", t => {
   standalone({
     formatter: "unknown",
