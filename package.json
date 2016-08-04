@@ -77,7 +77,6 @@
     "eslint": "~3.2.0",
     "eslint-config-stylelint": "^3.0.0",
     "htmlparser2": "^3.9.0",
-    "jscodeshift": "^0.3.27",
     "npm-run-all": "^2.1.0",
     "npmpub": "^3.0.1",
     "nyc": "^7.0.0",
@@ -101,11 +100,7 @@
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist",
     "prepublish": "npm run build",
-    "release": "npmpub",
-    "codemod-imports": "jscodeshift -t transformImports.js src/rules --ignore-pattern '(__tests__/*.js|*.md)'",
-    "codemod-method-calls": "jscodeshift -t transformMethodCalls.js src/rules --ignore-pattern '(__tests__/*.js|*.md)'",
-    "codemod-fixup": "eslint . --ignore-path .gitignore --fix",
-    "codemod": "npm-run-all codemod-imports codemod-method-calls codemod-fixup"
+    "release": "npmpub"
   },
   "babel": {
     "presets": [
