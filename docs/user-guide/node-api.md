@@ -69,6 +69,20 @@ Specify the formatter that you would like to use to format your results.
 
 If you pass a function, it must fit the signature described in the [Developer Guide](/docs/developer-guide/formatters.md).
 
+### `ignoreDisables`
+
+If `true`, all disable comments (e.g. `/* stylelint-disable block-no-empty */`) will be ignored.
+
+You can use this option to see what your linting results would be like without those exceptions.
+
+### `reportNeedlessDisables`
+
+If `true`, `ignoreDisables` will also be set to `true` and the returned data will contain a `needlessDisables` property, whose value is an array of objects, one for each source, with tells you which stylelint-disable comments are not blocking a lint warning.
+
+Use this report to clean up your codebase, keeping only the stylelint-disable comments that serve a purpose.
+
+*The recommended way to use this option is through the CLI.* It will output a clean report to the console.
+
 ### `ignorePath`
 
 A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](/docs/user-guide/configuration.md#stylelintignore).

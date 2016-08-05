@@ -41,7 +41,7 @@ export default function ({
   // line number that the complaint pertains to
   const startLine = line || node.positionBy({ index }).line
 
-  if (result.stylelint.disabledRanges) {
+  if (result.stylelint.disabledRanges && !result.stylelint.ignoreDisables) {
     const ranges = result.stylelint.disabledRanges[ruleName] || result.stylelint.disabledRanges.all
     for (const range of ranges) {
       if (
