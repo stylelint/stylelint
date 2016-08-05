@@ -8,6 +8,7 @@ test("getUnitFromValueNode", t => {
   t.equal(getUnitFromValueNode(valueParser("1px").nodes[0]), "px")
   t.equal(getUnitFromValueNode(valueParser("1pX").nodes[0]), "pX")
   t.equal(getUnitFromValueNode(valueParser("1PX").nodes[0]), "PX")
+  t.equal(getUnitFromValueNode(valueParser(".1s").nodes[0]), "s")
   t.equal(getUnitFromValueNode(valueParser("100%").nodes[0]), "%")
   t.equal(getUnitFromValueNode(valueParser("100").nodes[0]), "")
   t.equal(getUnitFromValueNode(valueParser("0\\0").nodes[0]), "")

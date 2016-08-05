@@ -18,6 +18,8 @@ export default function (node) {
     // ignore hack unit
     .replace("\\0", "")
     .replace("\\9", "")
+    // ignore decimal place
+    .replace(".", "")
 
   if (node.type !== "word"
     || !isStandardSyntaxValue(value)

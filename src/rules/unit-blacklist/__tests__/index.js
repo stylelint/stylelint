@@ -111,6 +111,11 @@ testRule(rule, {
     line: 1,
     column: 12,
   }, {
+    code: "a { line-height: .1px; }",
+    message: messages.rejected("px"),
+    line: 1,
+    column: 18,
+  }, {
     code: "a { border-left: 1px solid #ccc; }",
     message: messages.rejected("px"),
     line: 1,
