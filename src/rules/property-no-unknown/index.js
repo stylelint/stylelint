@@ -6,8 +6,9 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import { isString } from "lodash"
+import _ from "lodash"
 import { all as properties } from "known-css-properties"
+import { vendor } from "postcss"
 
 export const ruleName = "property-no-unknown"
 
@@ -20,15 +21,20 @@ export default function (actual, options) {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
       possible: {
-        ignoreProperties: [isString],
+        ignoreProperties: [_.isString],
+        checkPrefixed: _.isBoolean,
       },
       optional: true,
     })
 
     if (!validOptions) { return }
 
+    const shouldCheckPrefixed = _.get(options, "checkPrefixed")
+
     root.walkDecls(decl => {
       const { prop } = decl
+
+      if (!shouldCheckPrefixed && vendor.prefix(prop)) { return }
 
       if (!isStandardSyntaxProperty(prop)) { return }
       if (isCustomProperty(prop)) { return }
