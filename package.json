@@ -69,7 +69,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.1.18",
-    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-es2015": "^6.13.1",
     "babel-tape-runner": "^2.0.0",
     "benchmark": "^2.1.0",
     "common-tags": "^1.3.0",
