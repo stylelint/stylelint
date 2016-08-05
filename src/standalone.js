@@ -2,13 +2,9 @@ import * as formatters from "./formatters"
 import _ from "lodash"
 import buildConfig from "./buildConfig"
 import globby from "globby"
-import lessSyntax from "postcss-less"
-import path from "path"
 import postcss from "postcss"
 import { readFile } from "fs"
-import scssSyntax from "postcss-scss"
 import stylelintPostcssPlugin from "./postcssPlugin"
-import sugarss from "sugarss"
 
 const ignoredGlobs = [
   "!**/node_modules/**",
@@ -25,7 +21,6 @@ export default function ({
   configBasedir,
   configOverrides,
   ignorePath,
-  syntax,
   formatter = "json",
 } = {}) {
   const isValidCode = typeof code === "string"
@@ -128,15 +123,8 @@ export default function ({
         postcssProcessOptions.from = filepath
       }
 
-      const fileExtension = path.extname(filepath || "")
-      if (syntax === "scss" || !syntax && fileExtension === ".scss") {
-        postcssProcessOptions.syntax = scssSyntax
-      } else if (syntax === "less" || !syntax && fileExtension === ".less") {
-        postcssProcessOptions.syntax = lessSyntax
-      } else if (syntax === "sugarss" || !syntax && fileExtension === ".sss") {
-        postcssProcessOptions.syntax = sugarss
-      } else if (syntax) {
-        throw new Error("You must use a valid syntax option, either: scss, less or sugarss")
+      if (config.parser) {
+        postcssProcessOptions.syntax = require(config.parser)
       }
 
       codeProcessors.forEach(codeProcessor => {

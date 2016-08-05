@@ -79,4 +79,22 @@ test("standalone extending a config that is overridden", t => {
   }).catch(logError)
 })
 
+test("standalone extending a config and changing parser", t => {
+  standalone({
+    code: ".one\n  color: black\n  top: 0px\n.two",
+    config: {
+      extends: [
+        `${fixturesPath}/config-scss-parser`,
+      ],
+      parser: "sugarss",
+    },
+  }).then(({ output, results }) => {
+    t.equal(typeof output, "string")
+    t.equal(results.length, 1)
+    t.equal(results[0].warnings.length, 1)
+    t.equal(results[0].warnings[0].rule, "length-zero-no-unit")
+    t.end()
+  }).catch(logError)
+})
+
 function logError(err) { console.log(err.stack) } // eslint-disable-line no-console

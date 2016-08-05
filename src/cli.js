@@ -58,11 +58,6 @@ const meowOptions = {
     "                       By default, stylelint looks for `.stylelintignore` in `process.cwd()`",
     "  -q, --quiet          Only register warnings for rules with an \"error\"-level severity",
     "                       (ignore \"warning\"-level)",
-    "  -s, --syntax         Specify a non-standard syntax that should be used to ",
-    "                       parse source stylesheets. Options: \"scss\", \"less\", \"sugarss\".",
-    "                       If you do not specify a syntax, non-standard syntaxes will be",
-    "                       automatically inferred by the file extensions",
-    "                       `.scss`, `.less`, and `.sss`.",
   ],
   pkg: "../package.json",
 }
@@ -81,10 +76,6 @@ const optionsBase = {
 
 if (cli.flags.quiet) {
   optionsBase.configOverrides.quiet =  cli.flags.quiet
-}
-
-if (cli.flags.syntax) {
-  optionsBase.syntax = cli.flags.syntax
 }
 
 if (cli.flags.config) {

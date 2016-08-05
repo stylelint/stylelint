@@ -1,0 +1,6 @@
+{
+  "parser": "postcss-scss",
+  "rules": {
+    "length-zero-no-unit": true
+  }
+}
