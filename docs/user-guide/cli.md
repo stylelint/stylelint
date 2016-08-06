@@ -61,4 +61,4 @@ The CLI can exit the process with the following exit codes:
 - 1: Something unknown went wrong.
 - 2: At least one rule with an "error"-level severity triggered at least one warning.
 - 78: There was some problem with the configuration file.
-- 80: A file glob was passed both it found no files.
+- 80: A file glob was passed, but it found no files.
