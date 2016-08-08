@@ -3,6 +3,7 @@
 - Added: `--report-needless-disables` and `reportNeedlessDisables` option.
 - Added: `--ignore-disables` and `ignoreDisables` option.
 - Added: `value-list-max-empty-lines` rule.
+- Fixed: `no-unknown-animations` and `unit-blacklist` now handle numbers without leading zeros.
 
 # 7.1.0
 

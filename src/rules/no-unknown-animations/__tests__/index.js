@@ -104,6 +104,9 @@ testRule(rule, {
   }, {
     code: "@keyframes FOO {} a { animation: FOO 100MS CUBIC-BEZIER(0.1, 0.7, 1.0, 0.1); }",
     description: "ignores CUBIC-BEZIER() function",
+  }, {
+    code: "@keyframes foo {} a { animation: foo .1s ease .2s 1 both; }",
+    description: "animation shorthand",
   } ],
 
   reject: [ {
