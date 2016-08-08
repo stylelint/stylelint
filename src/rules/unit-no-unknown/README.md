@@ -56,7 +56,7 @@ a {
 
 ## Optional options
 
-### `ignoreTypes: ["/regex/", "string"]`
+### `ignoreUnits: ["/regex/", "string"]`
 
 Given:
 
