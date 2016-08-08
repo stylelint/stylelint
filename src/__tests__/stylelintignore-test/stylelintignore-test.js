@@ -10,7 +10,7 @@ test("standalone with .stylelintignore file ignoring one file", t => {
   const existingCwd = process.cwd()
   process.chdir(__dirname)
   standalone({
-    files: [`${fixturesPath}/*.css`],
+    files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
     config: {
       extends: [
         `${fixturesPath}/config-block-no-empty`,
