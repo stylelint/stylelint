@@ -3,7 +3,7 @@ import {
   blockString,
   hasBlock,
   hasEmptyBlock,
-  optionsHaveIgnoredAtRule,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -53,7 +53,7 @@ export default function (expectation, options) {
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
       // Return early if at-rule is to be ignored
-      if (optionsHaveIgnoredAtRule(options, statement)) { return }
+      if (optionsMatches(options, "ignoreAtRules", statement.name)) { return }
 
       const source = beforeBlockString(statement)
       const beforeBraceNoRaw = beforeBlockString(statement, { noRawBefore: true })

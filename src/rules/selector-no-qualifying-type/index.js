@@ -2,7 +2,7 @@ import {
   isKeyframeRule,
   isStandardSyntaxRule,
   isStandardSyntaxSelector,
-  optionsHaveIgnored,
+  optionsMatches,
   parseSelector,
   report,
   ruleMessages,
@@ -73,15 +73,15 @@ export default (enabled, options) => {
           const index = selector.sourceIndex
 
           selectorNodes.forEach((selectorNode) => {
-            if (selectorNode.type === "id" && !optionsHaveIgnored(options, "id")) {
+            if (selectorNode.type === "id" && !optionsMatches(options, "ignore", "id")) {
               complain(index)
             }
 
-            if (selectorNode.type === "class" && !optionsHaveIgnored(options, "class")) {
+            if (selectorNode.type === "class" && !optionsMatches(options, "ignore", "class")) {
               complain(index)
             }
 
-            if (selectorNode.type === "attribute" && !optionsHaveIgnored(options, "attribute")) {
+            if (selectorNode.type === "attribute" && !optionsMatches(options, "ignore", "attribute")) {
               complain(index)
             }
           })

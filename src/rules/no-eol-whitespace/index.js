@@ -1,6 +1,6 @@
 import {
   isOnlyWhitespace,
-  optionsHaveIgnored,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -37,7 +37,7 @@ export default function (on, options) {
       // If the character before newline is not whitespace, ignore
       if (!whitespacesToReject.has(rootString[match.startIndex - 1])) { return }
 
-      if (optionsHaveIgnored(options, "empty-lines")) {
+      if (optionsMatches(options, "ignore", "empty-lines")) {
         // If there is only whitespace between the previous newline and
         // this newline, ignore
         const lineBefore = rootString.substring(match.startIndex + 1,

@@ -1,5 +1,5 @@
 import {
-  optionsHaveIgnoredAtRule,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -30,7 +30,7 @@ export default function (actual, options) {
       const { name } = atRule
 
       // Return early if at-rule is to be ignored
-      if (optionsHaveIgnoredAtRule(options, atRule)) { return }
+      if (optionsMatches(options, "ignoreAtRules", atRule.name)) { return }
 
       if (vendor.prefix(name) || atRules.has(name.toLowerCase())) { return }
 

@@ -1,8 +1,7 @@
 import {
   beforeBlockString,
   hasBlock,
-  optionsHaveException,
-  optionsHaveIgnored,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -129,7 +128,7 @@ export default function (space, options = {}) {
       // blocks are taken down one from their calculated level
       // (all blocks are the same level as their parents)
       if (
-        optionsHaveException(options, "block")
+        optionsMatches(options, "except", "block")
         && (node.type === "rule" || node.type === "atrule")
         && hasBlock(node)
       ) {
@@ -141,10 +140,10 @@ export default function (space, options = {}) {
 
     function checkValue(decl, declLevel) {
       if (decl.value.indexOf("\n") === -1) { return }
-      if (optionsHaveIgnored(options, "value")) { return }
+      if (optionsMatches(options, "ignore", "value")) { return }
 
       const declString = decl.toString()
-      const valueLevel = (optionsHaveException(options, "value"))
+      const valueLevel = (optionsMatches(options, "except", "value"))
         ? declLevel
         : declLevel + 1
 
@@ -163,11 +162,11 @@ export default function (space, options = {}) {
     }
 
     function checkAtRuleParams(atRule, ruleLevel) {
-      if (optionsHaveIgnored(options, "param")) { return }
+      if (optionsMatches(options, "ignore", "param")) { return }
 
       // @nest rules should be treated like regular rules, not expected
       // to have their params (selectors) indented
-      const paramLevel = (optionsHaveException(options, "param") || atRule.name === "nest")
+      const paramLevel = (optionsMatches(options, "except", "param") || atRule.name === "nest")
         ? ruleLevel
         : ruleLevel + 1
       checkMultilineBit(beforeBlockString(atRule).trim(), paramLevel, atRule)
@@ -181,18 +180,18 @@ export default function (space, options = {}) {
       styleSearch({
         source,
         target: "\n",
-        outsideParens: optionsHaveIgnored(options, "inside-parens"),
+        outsideParens: optionsMatches(options, "ignore", "inside-parens"),
       }, (match, matchCount) => {
         const precedesClosingParenthesis = /^[ \t]*\)/.test(source.slice(match.startIndex + 1))
 
         if (
-          optionsHaveIgnored(options, "inside-parens")
+          optionsMatches(options, "ignore", "inside-parens")
           && (precedesClosingParenthesis || match.insideParens)
         ) { return }
 
         let expectedIndentLevel = newlineIndentLevel
         // Modififications for parenthetical content
-        if (!optionsHaveIgnored(options, "inside-parens") && match.insideParens) {
+        if (!optionsMatches(options, "ignore", "inside-parens") && match.insideParens) {
           // If the first match in is within parentheses, reduce the parenthesis penalty
           if (matchCount === 1) parentheticalDepth -= 1
           // Account for windows line endings
