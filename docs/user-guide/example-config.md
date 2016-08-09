@@ -130,6 +130,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-class-pattern": string,
     "selector-combinator-space-after": "always"|"never",
     "selector-combinator-space-before": "always"|"never",
+    "selector-descendant-combinator-no-non-space": true,
     "selector-id-pattern": string,
     "selector-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
     "selector-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
