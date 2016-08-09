@@ -229,7 +229,7 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 34,
-  },  {
+  }, {
     code: "@font-face { font-family: 'foo'; src: url( 'data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=' ); }",
     message: messages.rejected,
     line: 1,

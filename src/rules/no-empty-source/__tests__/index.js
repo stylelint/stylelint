@@ -48,7 +48,7 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 1,
-  },  {
+  }, {
     code: "\r\n",
     description: "source with newline",
     message: messages.rejected,

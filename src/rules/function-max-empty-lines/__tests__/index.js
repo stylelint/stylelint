@@ -21,7 +21,7 @@ testRule(rule, {
     code: "a { transform: translate\n\n(1, 1); }",
   }, {
     code: "a { transform: translate\r\n\r\n(1, 1); }",
-  },  {
+  }, {
     code: "a { transform: translate(1, 1)\n\n; }",
   }, {
     code: "a { transform: translate(1, 1)\r\n\r\n; }",
