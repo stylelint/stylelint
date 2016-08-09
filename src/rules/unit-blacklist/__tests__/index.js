@@ -30,6 +30,10 @@ testRule(rule, {
   }, {
     code: "a { line-height: 1.2REM; }",
   }, {
+    code: "a { font-size: .5rem; }",
+  }, {
+    code: "a { font-size: 0.5rem; }",
+  }, {
     code: "a { margin: 0 10em 5rem 2in; }",
   }, {
     code: "a { background-position: top right, 1em 5vh; }",
@@ -112,6 +116,11 @@ testRule(rule, {
     column: 12,
   }, {
     code: "a { line-height: .1px; }",
+    message: messages.rejected("px"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { line-height: 0.1px; }",
     message: messages.rejected("px"),
     line: 1,
     column: 18,

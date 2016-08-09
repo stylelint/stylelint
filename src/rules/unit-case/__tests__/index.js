@@ -18,6 +18,10 @@ testRule(rule, {
   }, {
     code: "a { font-size: 100%; }",
   }, {
+    code: "a { font-size: .5rem; }",
+  }, {
+    code: "a { font-size: 0.5rem; }",
+  }, {
     code: "a { width: 10px; }",
   }, {
     code: "a { margin: 0 10em 5rem 2in; }",
@@ -114,6 +118,16 @@ testRule(rule, {
     message: messages.expected("PX", "px"),
     line: 1,
     column: 18,
+  }, {
+    code: "a { font-size: .5REM; }",
+    message: messages.expected("REM", "rem"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { font-size: 0.5REM; }",
+    message: messages.expected("REM", "rem"),
+    line: 1,
+    column: 16,
   }, {
     code: "a { margin: calc(10px + 10PX); }",
     message: messages.expected("PX", "px"),
@@ -282,6 +296,10 @@ testRule(rule, {
   }, {
     code: "a { font-size: 100%; }",
   }, {
+    code: "a { font-size: .5REM; }",
+  }, {
+    code: "a { font-size: 0.5REM; }",
+  }, {
     code: "a { width: 10PX; }",
   }, {
     code: "a { margin: 0 10EM 5REM 2IN; }",
@@ -358,6 +376,16 @@ testRule(rule, {
     message: messages.expected("px", "PX"),
     line: 1,
     column: 12,
+  }, {
+    code: "a { font-size: .5rem; }",
+    message: messages.expected("rem", "REM"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { font-size: 0.5rem; }",
+    message: messages.expected("rem", "REM"),
+    line: 1,
+    column: 16,
   }, {
     code: "a { margin: 10PX 10px; }",
     message: messages.expected("px", "PX"),
