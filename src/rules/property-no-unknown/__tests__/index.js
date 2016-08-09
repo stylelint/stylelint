@@ -25,6 +25,9 @@ testRule(rule, {
     code: ".foo { --bg-color: white; }",
     description: "ignore standard CSS variables",
   }, {
+    code: ".foo { -moz-align-self: center; }",
+    description: "ignore vendor prefixes",
+  }, {
     code: ".foo { *width: 100px; }",
     description: "ignore CSS hacks",
   } ],
@@ -44,11 +47,6 @@ testRule(rule, {
     message: messages.rejected("colr"),
     line: 2,
     column: 3,
-  }, {
-    code: ".foo { -moz-align-self: center; }",
-    message: messages.rejected("-moz-align-self"),
-    line: 1,
-    column: 8,
   }, {
     code: ".foo { *wdth: 100px; }",
     message: messages.rejected("wdth"),
@@ -87,7 +85,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ true, { ignoreProperties: [ "-moz-overflow-scrolling", "/^my-/" ] } ],
+  config: [ true, { ignoreProperties: [ "-moz-overflow-scrolling", "/^my-/" ], checkPrefixed: true } ],
 
   accept: [ {
     code: ".foo { -webkit-overflow-scrolling: auto; }",
@@ -107,6 +105,29 @@ testRule(rule, {
   }, {
     code: ".foo { not-my-property: 1; }",
     message: messages.rejected("not-my-property"),
+    line: 1,
+    column: 8,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ true, { checkPrefixed: true } ],
+
+  accept: [ {
+    code: ".foo { -webkit-overflow-scrolling: auto; }",
+  }, {
+    code: ".foo { -moz-box-flex: 0; }",
+  } ],
+
+  reject: [ {
+    code: ".foo { -moz-overflow-scrolling: auto; }",
+    message: messages.rejected("-moz-overflow-scrolling"),
+    line: 1,
+    column: 8,
+  }, {
+    code: ".foo { -moz-align-self: center; }",
+    message: messages.rejected("-moz-align-self"),
     line: 1,
     column: 8,
   } ],
