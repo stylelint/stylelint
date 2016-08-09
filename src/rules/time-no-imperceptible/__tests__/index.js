@@ -57,7 +57,7 @@ testRule(rule, {
     code: "a { animation-delay: 5000ms; }",
   }, {
     code: "a { animation-duration: 0.15s; }",
-  },  {
+  }, {
     code: "a { -webkitanimation-duration: 0.15s; }",
   }, {
     code: "a { animation-duration: 2.8s; }",
@@ -67,7 +67,7 @@ testRule(rule, {
     code: "a { animation-duration: 4700ms; }",
   }, {
     code: "a { animation: foo 0.8s linear; }",
-  },  {
+  }, {
     code: "a { -webkit-animation: foo 0.8s linear; }",
   }, {
     code: "a { animation: foo 0.8s 200ms ease-in-out; }",
@@ -187,7 +187,7 @@ testRule(rule, {
     message: messages.rejected("0.008s"),
     line: 1,
     column: 20,
-  },  {
+  }, {
     code: "a { -webkit-animation: foo 0.008s linear; }",
     message: messages.rejected("0.008s"),
     line: 1,

@@ -23,7 +23,7 @@ testRule(rule, {
   }, {
     code: "@-wEbKiT-kEyFrAmEs { 0% { top: 0; } }",
     message: messages.rejected("-wEbKiT-kEyFrAmEs"),
-  },  {
+  }, {
     code: "@-WEBKIT-KEYFRAMES { 0% { top: 0; } }",
     message: messages.rejected("-WEBKIT-KEYFRAMES"),
   }, {

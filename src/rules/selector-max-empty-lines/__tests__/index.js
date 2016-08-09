@@ -255,7 +255,7 @@ testRule(rule, {
     code: "a\r\n[itemprop=url] { }",
   }, {
     code: "a[\nitemprop=url] { }",
-  },  {
+  }, {
     code: "a[\r\nitemprop=url] { }",
   }, {
     code: "a[itemprop\n=url] { }",
@@ -602,7 +602,7 @@ testRule(rule, {
     message: messages.expected(0),
     line: 2,
     column: 5,
-  },  {
+  }, {
     code: ".foo\r\n.bar\r\n\r\n> .other\r\n\r\n{ }",
     message: messages.expected(0),
     line: 2,
@@ -998,11 +998,11 @@ testRule(rule, {
     code: "a\r\n\r\n[itemprop=url] { }",
   }, {
     code: "a[\nitemprop=url] { }",
-  },  {
+  }, {
     code: "a[\r\nitemprop=url] { }",
   }, {
     code: "a[\n\nitemprop=url] { }",
-  },  {
+  }, {
     code: "a[\r\n\r\nitemprop=url] { }",
   }, {
     code: "a[itemprop\n=url] { }",
@@ -1507,7 +1507,7 @@ testRule(rule, {
     message: messages.expected(1),
     line: 2,
     column: 5,
-  },  {
+  }, {
     code: ".foo\r\n.bar\r\n\r\n\r\n> .other\r\n\r\n{ }",
     message: messages.expected(1),
     line: 2,
@@ -1517,7 +1517,7 @@ testRule(rule, {
     message: messages.expected(1),
     line: 3,
     column: 5,
-  },  {
+  }, {
     code: ".foo\r\n\r\n.bar\r\n\r\n\r\n> .other\r\n\r\n\r\n{ }",
     message: messages.expected(1),
     line: 3,

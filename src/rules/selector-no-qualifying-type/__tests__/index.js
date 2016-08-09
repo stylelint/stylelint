@@ -33,7 +33,7 @@ testRule(rule, {
     code: "p { }",
   }, {
     code: "div, p { }",
-  },  {
+  }, {
     code: ".class, p { }",
   }, {
     code: "div, .class { }",
@@ -436,7 +436,7 @@ testRule(rule, {
     code: "p { }",
   }, {
     code: "div, p { }",
-  },  {
+  }, {
     code: ".class, p { }",
   }, {
     code: "div, .class { }",
@@ -791,7 +791,7 @@ testRule(rule, {
     code: "p { }",
   }, {
     code: "div, p { }",
-  },  {
+  }, {
     code: ".class, p { }",
   }, {
     code: "div, .class { }",
@@ -1158,7 +1158,7 @@ testRule(rule, {
     code: "p { }",
   }, {
     code: "div, p { }",
-  },  {
+  }, {
     code: ".class, p { }",
   }, {
     code: "div, .class { }",

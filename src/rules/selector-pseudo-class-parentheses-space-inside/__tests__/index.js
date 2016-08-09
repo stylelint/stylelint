@@ -67,7 +67,7 @@ testRule(rule, {
     message: messages.expectedOpening,
     line: 1,
     column: 19,
-  },  {
+  }, {
     code: "section:not( :has( h1, h2) ) { }",
     message: messages.expectedClosing,
     line: 1,

@@ -17,7 +17,7 @@ testRule(rule, {
     code: "a::before { background: url('func(foo,bar,baz)'); }",
   }, {
     code: "a { background-size: 0,\n  0,\n  0; }",
-  },  {
+  }, {
     code: "a { transform: translate(1 ,\n1); }",
   }, {
     code: "a { transform: translate(1 ,\n\n1); }",

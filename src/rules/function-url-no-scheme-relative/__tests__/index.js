@@ -60,7 +60,7 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 21,
-  },  {
+  }, {
     code: "a { background: url(//www.google.com/file.jpg); }",
     message: messages.rejected,
     line: 1,

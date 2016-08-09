@@ -317,7 +317,7 @@ testRule(rule, {
     message: messages.expectedBefore("="),
     line: 1,
     column: 8,
-  },  {
+  }, {
     code: "[target=\" _blank \"] { }",
     message: messages.expectedBefore("="),
     line: 1,
@@ -327,7 +327,7 @@ testRule(rule, {
     message: messages.expectedBefore("="),
     line: 1,
     column: 9,
-  },  {
+  }, {
     code: "[ target= \"_blank\"] { }",
     message: messages.expectedBefore("="),
     line: 1,
@@ -472,7 +472,7 @@ testRule(rule, {
     message: messages.expectedBefore("="),
     line: 1,
     column: 8,
-  },  {
+  }, {
     code: "[target= _blank] .foo { }",
     message: messages.expectedBefore("="),
     line: 1,
@@ -492,7 +492,7 @@ testRule(rule, {
     message: messages.expectedBefore("="),
     line: 1,
     column: 15,
-  },  {
+  }, {
     code: "li[aria-hidden=false]:nth-child( 1 ) { }",
     message: messages.expectedBefore("="),
     line: 1,

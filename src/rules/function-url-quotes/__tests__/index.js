@@ -45,7 +45,7 @@ testRule(rule, {
     },
   }, {
     code: "@document url(\"http://www.w3.org/\");",
-  },  {
+  }, {
     code: "@document url( \"http://www.w3.org/\" );",
   }, {
     code: "@document url-prefix(\"http://www.w3.org/\");",

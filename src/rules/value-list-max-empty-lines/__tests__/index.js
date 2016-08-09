@@ -19,7 +19,7 @@ testRule(rule, {
     code: "a { padding:\n\n10px 10px 10px 10px }",
   }, {
     code: "a { padding:\r\n10px 10px 10px 10px }",
-  },  {
+  }, {
     code: "a { padding:\r\n\r\n10px 10px 10px 10px }",
   }, {
     code: "a { padding: 10px 10px 10px 10px\n }",

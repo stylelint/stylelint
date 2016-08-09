@@ -666,10 +666,10 @@ testRule(rule, {
   }, {
     code: "a { font-size: var(--some-fs-block); }",
     description: "ignore css variable includes value keyword",
-  },  {
+  }, {
     code: "a { font-size: vAr(--some-fs-block); }",
     description: "ignore css variable includes value keyword",
-  },  {
+  }, {
     code: "a { font-size: VAR(--some-fs-block); }",
     description: "ignore css variable includes value keyword",
   }, {

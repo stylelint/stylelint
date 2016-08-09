@@ -17,7 +17,7 @@ testRule(rule, {
     code: "@keyframes important { from { margin: 1px; } }",
   }, {
     code: "@-webkit-keyframes important { from { margin: 1px; } }",
-  },  {
+  }, {
     code: "@-WEBKIT-KEYFRAMES important { from { margin: 1px; } }",
   }, {
     code: "@non-keyframes important { from { margin: 1px !important; } }",

@@ -92,7 +92,7 @@ testRule(rule, {
     code: "/* tOdO: comment */",
   }, {
     code: "/* Todo: comment */",
-  },  {
+  }, {
     code: "/*! Todo: comment */",
   }, {
     code: "/*# Todo: comment */",

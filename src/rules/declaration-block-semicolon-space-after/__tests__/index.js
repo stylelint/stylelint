@@ -73,7 +73,7 @@ testRule(rule, {
     message: messages.rejectedAfter(),
     line: 1,
     column: 17,
-  },  {
+  }, {
     code: "a { color: pink; top: 0; }",
     message: messages.rejectedAfter(),
     line: 1,
