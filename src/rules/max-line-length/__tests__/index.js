@@ -126,3 +126,32 @@ testRule(rule, {
     column: 36,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [ 20, { ignore: "comments" } ],
+
+  accept: [ {
+    code: "/* comment that is too long */",
+  }, {
+    code: "       /* comment that is too long */",
+  }, {
+    code: "/* short */ a { color: 0; }",
+  }, {
+    code: "a {}\n/* comment that is too long\n*/ a { color: 0; top: 0; }",
+  }, {
+    code: "/**\n comment that is too long #1\n comment that is too long #2 */",
+  } ],
+
+  reject: [ {
+    code: "a { color: 0; } /* comment that is too long */",
+    message: messages.expected(20),
+    line: 1,
+    column: 46,
+  }, {
+    code: "a { /* this comment is too long for the max length */ }",
+    message: messages.expected(20),
+    line: 1,
+    column: 55,
+  } ],
+})
