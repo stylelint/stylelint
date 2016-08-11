@@ -11,7 +11,9 @@ testRule(rule, {
   ruleName,
   config: [true],
 
-  accept: [ {
+  accept: [  {
+    code: ":root { --foo { color: pink; } }",
+  }, {
     code: ":root { --foo: 0; }",
   }, {
     code: ":rOoT { --foo: 0; }",
