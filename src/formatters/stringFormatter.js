@@ -63,7 +63,7 @@ function getMessageWidth(columnWidths) {
   return availableWidth - (fullWidth - columnWidths[3] + MARGIN_WIDTHS)
 }
 
-function formatter(messages, source) {
+function formatter(messages, source, opts = {}) {
   if (!messages.length) return ""
 
   const orderedMessages = _.sortBy(
@@ -93,6 +93,8 @@ function formatter(messages, source) {
     output += chalk.underline(logFrom(source)) + "\n"
   }
 
+  const tokens = opts.noUnicode ? { warning: "warning", error: "error" } : symbols
+
   const cleanedMessages = orderedMessages.map(
     (message) => {
       const location = utils.getLocation(message)
@@ -100,7 +102,7 @@ function formatter(messages, source) {
       const row = [
         location.line || "",
         location.column || "",
-        symbols[severity] ? chalk[levelColors[severity]](symbols[severity]) : severity,
+        tokens[severity] ? chalk[levelColors[severity]](tokens[severity]) : severity,
         message
           .text
           // Remove all control characters (newline, tab and etc)
@@ -122,7 +124,7 @@ function formatter(messages, source) {
       columns: {
         0: { alignment: "right", width: columnWidths[0], paddingRight: 0 },
         1: { alignment: "left", width: columnWidths[1] },
-        2: { alignment: "center", width: columnWidths[2] },
+        2: { alignment: "left", width: columnWidths[2] },
         3: { alignment: "left", width: getMessageWidth(columnWidths), wrapWord: true },
         4: { alignment: "left", width: columnWidths[4], paddingRight: 0 },
       },
@@ -136,12 +138,12 @@ function formatter(messages, source) {
   return output
 }
 
-export default function (results) {
+export default function (results, opts) {
   let output = invalidOptionsFormatter(results)
   output += deprecationsFormatter(results)
 
   output = results.reduce((output, result) => {
-    output += formatter(result.warnings, result.source)
+    output += formatter(result.warnings, result.source, opts)
     return output
   }, output)
 

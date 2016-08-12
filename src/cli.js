@@ -25,6 +25,7 @@ const minimistOptions = {
     rd: "report-needless-disables",
     s: "syntax",
     v: "version",
+    nu: "no-unicode",
   },
 }
 
@@ -98,6 +99,11 @@ const meowOptions = {
         If you provide the argument "error", the process will exit with code 2
         if needless disables are found.
 
+      --no-unicode, ---nu
+
+        Disables Unicode characters when linting with "string" formatter. Replaces
+        Unicode warning/error characters with words "warning" and "error".
+
       --version, -v
 
         Show the currently installed version of stylelint.
@@ -151,6 +157,10 @@ if (cli.flags.ignoreDisables) {
 const { reportNeedlessDisables } = cli.flags
 if (reportNeedlessDisables) {
   optionsBase.reportNeedlessDisables = reportNeedlessDisables
+}
+
+if (cli.flags.noUnicode) {
+  optionsBase.noUnicode = cli.flags.noUnicode
 }
 
 Promise.resolve().then(() => {

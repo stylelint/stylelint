@@ -25,6 +25,37 @@ test("no warnings", t => {
   t.end()
 })
 
+test("returning no unicode", t => {
+  const results = [{
+    "source":  "path/to/file.css",
+    "errored": true,
+    "warnings":[ {
+      "line": 1,
+      "column": 2,
+      "rule": "bar",
+      "severity": "error",
+      "text": "Unexpected foo",
+    }, {
+      "line": 3,
+      "column": 3,
+      "rule": "foo",
+      "severity": "warning",
+      "text": "Missing unit for foobar",
+    } ],
+    "deprecations": [],
+    "invalidOptionWarnings":[],
+  }]
+
+  const output = prepareFormatterOutput(results, stringFormatter, { noUnicode: true })
+
+  t.equal(output, stripIndent`
+    path/to/file.css
+     1:2  error    Unexpected foo           bar
+     3:3  warning  Missing unit for foobar  foo
+  `)
+  t.end()
+})
+
 test("condensing of deprecations and invalid option warnings", t => {
 
   const results = [ {
@@ -77,9 +108,9 @@ test("one ignored file", t => {
   t.end()
 })
 
-export function prepareFormatterOutput(results, formatter) {
+export function prepareFormatterOutput(results, formatter, opts = {}) {
 
-  let output = chalk.stripColor(formatter(results)).trim()
+  let output = chalk.stripColor(formatter(results, opts)).trim()
 
   for (const [ nix, win ] of symbolConversions.entries()) {
     output = output.replace(new RegExp(nix, "g"), win)
