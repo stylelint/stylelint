@@ -27,6 +27,7 @@ export default function ({
   configOverrides,
   ignoreDisables,
   ignorePath,
+  noUnicode,
   reportNeedlessDisables,
   syntax,
   formatter = "json",
@@ -42,6 +43,7 @@ export default function ({
     configBasedir,
     configOverrides,
     ignorePath,
+    noUnicode,
   }).then(({ config, configDir }) => {
 
     // Prepare processors
@@ -71,11 +73,11 @@ export default function ({
 
     let initialisedPostcss
 
-    function prepareReturnValue(results) {
+    function prepareReturnValue(results, opts) {
       const returnValue = {
         results,
         errored,
-        output: chosenFormatter(results),
+        output: chosenFormatter(results, opts),
       }
       if (reportNeedlessDisables) {
         returnValue.needlessDisables = needlessDisables(results)
@@ -86,7 +88,11 @@ export default function ({
     if (!files) {
       return lintString(code, codeFilename).then(result => {
         const results = [result]
-        return prepareReturnValue(results)
+        const opts = {
+          noUnicode,
+        }
+
+        return prepareReturnValue(results, opts)
       })
     }
 
@@ -98,7 +104,11 @@ export default function ({
       }
       const promises = input.map(filepath => lintFile(filepath))
       return Promise.all(promises).then(results => {
-        return prepareReturnValue(results)
+        const opts = {
+          noUnicode,
+        }
+
+        return prepareReturnValue(results, opts)
       })
     })
 
