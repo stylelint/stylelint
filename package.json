@@ -79,7 +79,7 @@
     "htmlparser2": "^3.9.0",
     "npm-run-all": "^2.1.0",
     "npmpub": "^3.0.1",
-    "nyc": "^7.0.0",
+    "nyc": "^8.0.0",
     "postcss-import": "^8.0.2",
     "remark-cli": "^1.0.0",
     "remark-lint": "^4.0.0",
