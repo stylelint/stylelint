@@ -52,6 +52,10 @@ testRule(rule, {
   }, {
     code: "a { margin: 1vmax; }",
   }, {
+    code: "a { font-size: .5rem; }",
+  }, {
+    code: "a { font-size: 0.5rem; }",
+  }, {
     code: "a { margin: 1vmin 1vmax; }",
   }, {
     code: "a { margin: 0 10em 5rem 2in; }",
@@ -148,6 +152,16 @@ testRule(rule, {
     message: messages.rejected("xpx"),
     line: 1,
     column: 13,
+  }, {
+    code: "a { font-size: .5remm; }",
+    message: messages.rejected("remm"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { font-size: 0.5remm; }",
+    message: messages.rejected("remm"),
+    line: 1,
+    column: 16,
   }, {
     code: "a { color: rgb(255pix, 0, 51); }",
     message: messages.rejected("pix"),

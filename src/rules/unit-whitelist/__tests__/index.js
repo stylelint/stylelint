@@ -28,6 +28,10 @@ testRule(rule, {
   }, {
     code: "a { font-size: 1.2em; }",
   }, {
+    code: "a { font-size: .5em; }",
+  }, {
+    code: "a { font-size: 0.5em; }",
+  }, {
     code: "a { margin: 0 10em 5em 2px; }",
   }, {
     code: "a { background-position: top right, 10px 20px; }",
@@ -108,6 +112,16 @@ testRule(rule, {
     message: messages.rejected("VMIN"),
     line: 1,
     column: 12,
+  }, {
+    code: "a { line-height: .1rem; }",
+    message: messages.rejected("rem"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { line-height: 0.1rem; }",
+    message: messages.rejected("rem"),
+    line: 1,
+    column: 18,
   }, {
     code: "a { border-left: 1rem solid #ccc; }",
     message: messages.rejected("rem"),
