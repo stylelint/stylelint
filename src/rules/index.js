@@ -79,6 +79,7 @@ import maxNestingDepth from "./max-nesting-depth"
 import mediaFeatureColonSpaceAfter from "./media-feature-colon-space-after"
 import mediaFeatureColonSpaceBefore from "./media-feature-colon-space-before"
 import mediaFeatureNameCase from "./media-feature-name-case"
+import mediaFeatureNameNoUnknown from "./media-feature-name-no-unknown"
 import mediaFeatureNameNoVendorPrefix from "./media-feature-name-no-vendor-prefix"
 import mediaFeatureNoMissingPunctuation from "./media-feature-no-missing-punctuation"
 import mediaFeatureParenthesesSpaceInside from "./media-feature-parentheses-space-inside"
@@ -245,6 +246,7 @@ export default {
   "media-feature-colon-space-after": mediaFeatureColonSpaceAfter,
   "media-feature-colon-space-before": mediaFeatureColonSpaceBefore,
   "media-feature-name-case": mediaFeatureNameCase,
+  "media-feature-name-no-unknown": mediaFeatureNameNoUnknown,
   "media-feature-name-no-vendor-prefix": mediaFeatureNameNoVendorPrefix,
   "media-feature-no-missing-punctuation": mediaFeatureNoMissingPunctuation,
   "media-feature-parentheses-space-inside": mediaFeatureParenthesesSpaceInside,
