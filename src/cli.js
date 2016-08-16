@@ -118,7 +118,7 @@ const optionsBase = {
 }
 
 if (cli.flags.quiet) {
-  optionsBase.configOverrides.quiet =  cli.flags.quiet
+  optionsBase.configOverrides.quiet = cli.flags.quiet
 }
 
 if (cli.flags.syntax) {

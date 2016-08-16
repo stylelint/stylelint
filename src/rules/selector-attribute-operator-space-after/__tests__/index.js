@@ -730,7 +730,7 @@ testRule(rule, {
     code: "[ target ] { content: \" \" }",
   } ],
 
-  reject: [  {
+  reject: [ {
     code: "[target= _blank] { }",
     message: messages.rejectedAfter("="),
     line: 1,

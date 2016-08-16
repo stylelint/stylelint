@@ -19,7 +19,7 @@ import balancedMatch from "balanced-match"
  */
 export default function (source, functionName, blurChar = "`") {
   const nameWithParen = `${functionName.toLowerCase()}(`
-  const lowerCaseSource =  source.toLowerCase()
+  const lowerCaseSource = source.toLowerCase()
   if (!_.includes(lowerCaseSource, nameWithParen)) { return source }
 
   const functionNameLength = functionName.length

@@ -27,7 +27,7 @@ function getOffsetByNode(node) {
 
     if (string[i] === "\n") {
       column = 1
-      line  += 1
+      line += 1
     } else {
       column += 1
     }
