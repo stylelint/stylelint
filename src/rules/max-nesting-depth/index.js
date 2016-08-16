@@ -15,6 +15,7 @@ export const messages = ruleMessages(ruleName, {
 
 export default function (max, options) {
   const ignoreAtRulesWithoutDeclarationBlocks = optionsMatches(options, "ignore", "at-rules-without-declaration-blocks")
+  const isIgnoreAtRule = (node) => (node.type === "atrule" && optionsMatches(options, "ignoreAtRules", node.name))
 
   return (root, result) => {
     validateOptions(result, ruleName, {
@@ -25,6 +26,7 @@ export default function (max, options) {
       actual: options,
       possible: {
         ignore: ["at-rules-without-declaration-blocks"],
+        ignoreAtRules: [_.isString],
       },
     })
 
@@ -32,6 +34,7 @@ export default function (max, options) {
     root.walkAtRules(checkStatement)
 
     function checkStatement(statement) {
+      if (isIgnoreAtRule(statement)) { return }
       if (!hasBlock(statement)) { return }
       const depth = nestingDepth(statement)
       if (depth > max) {
@@ -48,6 +51,8 @@ export default function (max, options) {
   function nestingDepth(node, level) {
     level = level || 0
     const { parent } = node
+
+    if (isIgnoreAtRule(parent)) { return 0 }
 
     // The nesting depth level's computation has finished
     // when this function, recursively called, receives

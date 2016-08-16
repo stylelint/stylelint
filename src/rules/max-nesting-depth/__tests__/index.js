@@ -86,3 +86,29 @@ testRule(rule, {
     message: messages.expected(1),
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [ 1, { ignoreAtRules: [ "media", "/^my-/" ] } ],
+
+  accept: [ {
+    code: "a { @media print { b { c { top: 0; }}}}",
+  }, {
+    code: "a { b { @media print { c { top: 0; }}}}",
+  }, {
+    code: "a { @my-at-rule print { b { c { top: 0; }}}}",
+  }, {
+    code: "a { @my-other-at-rule print { b { c { top: 0; }}}}",
+  } ],
+
+  reject: [ {
+    code: "a { @import print { b { top: 0; }}}",
+    message: messages.expected(1),
+  }, {
+    code: "a { @my_at_rule print { b { top: 0; }}}",
+    message: messages.expected(1),
+  }, {
+    code:"a { b { c { top: 0; }}}",
+    message: messages.expected(1),
+  } ],
+})
