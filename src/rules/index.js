@@ -68,6 +68,7 @@ import functionParenthesesSpaceInside from "./function-parentheses-space-inside"
 import functionUrlDataUris from "./function-url-data-uris"
 import functionUrlNoSchemeRelative from "./function-url-no-scheme-relative"
 import functionUrlQuotes from "./function-url-quotes"
+import functionUrlSchemeWhitelist from "./function-url-scheme-whitelist"
 import functionWhitelist from "./function-whitelist"
 import functionWhitespaceAfter from "./function-whitespace-after"
 import indentation from "./indentation"
@@ -235,6 +236,7 @@ export default {
   "function-url-data-uris": functionUrlDataUris,
   "function-url-no-scheme-relative": functionUrlNoSchemeRelative,
   "function-url-quotes": functionUrlQuotes,
+  "function-url-scheme-whitelist": functionUrlSchemeWhitelist,
   "function-whitelist": functionWhitelist,
   "function-whitespace-after": functionWhitespaceAfter,
   "indentation": indentation, // eslint-disable-line object-shorthand
