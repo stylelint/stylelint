@@ -144,6 +144,7 @@ export default function ({
                 stylelintError: null,
                 ignored: true,
               },
+              standaloneIgnored: true,
             })
           }).then(handleResult)
         }

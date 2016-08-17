@@ -22,6 +22,7 @@ test("standalone with extending config and ignoreFiles glob ignoring single glob
     t.ok(results[1].source.indexOf("invalid-hex.css") !== -1, "invalid-hex.css found")
     t.equal(results[1].warnings.length, 0, "invalid-hex.css not linted")
     t.ok(results[1].ignored, "invalid-hex.css marked as ignored")
+    t.ok(results[1]._postcssResult.standaloneIgnored, "not parsed by standalone")
     t.end()
   }).catch(logError)
 })
@@ -40,8 +41,10 @@ test("standalone with absolute ignoreFiles glob path", t => {
     t.equal(results.length, 2, "two files found")
     t.equal(results[0].warnings.length, 0, "first not linted")
     t.ok(results[0].ignored, "first marked as ignored")
+    t.ok(results[0]._postcssResult.standaloneIgnored, "first not parsed by standalone")
     t.equal(results[1].warnings.length, 0, "second has no warnings")
     t.notOk(results[1].ignored, "second not marked as ignored")
+    t.notOk(results[1]._postcssResult.standaloneIgnored, "second parsed by standalone")
     t.end()
   }).catch(logError)
 })
@@ -65,9 +68,11 @@ test("standalone with extending config with ignoreFiles glob ignoring one by neg
     t.ok(results[0].source.indexOf("empty-block.css") !== -1)
     t.equal(results[0].warnings.length, 0)
     t.ok(results[0].ignored)
+    t.ok(results[0]._postcssResult.standaloneIgnored)
     t.ok(results[1].source.indexOf("invalid-hex.css") !== -1)
     t.equal(results[1].warnings.length, 1)
     t.notOk(results[1].ignored)
+    t.notOk(results[1]._postcssResult.standaloneIgnored)
     t.end()
   }).catch(logError)
 })
@@ -85,6 +90,7 @@ test("standalone with specified `ignorePath` file ignoring one file", t => {
   }).then(({ results }) => {
     t.equal(results[0].warnings.length, 0, "no warnings registered")
     t.ok(results[0].ignored, "marked as ignored")
+    t.ok(results[0]._postcssResult.standaloneIgnored, "not parsed by standalone")
     t.end()
   }).catch(logError)
 })
@@ -122,9 +128,10 @@ test("standalone using codeFilename and ignoreFiles together", t => {
   }).then(({ results }) => {
     t.equal(results[0].warnings.length, 0)
     t.ok(results[0].ignored)
+    t.ok(results[0]._postcssResult.standaloneIgnored)
   }).catch(logError)
 
-  t.plan(2)
+  t.plan(3)
 })
 
 test("standalone using codeFilename and ignoreFiles with configBasedir", t => {
@@ -139,9 +146,10 @@ test("standalone using codeFilename and ignoreFiles with configBasedir", t => {
   }).then(({ results }) => {
     t.equal(results[0].warnings.length, 0)
     t.ok(results[0].ignored)
+    t.ok(results[0]._postcssResult.standaloneIgnored)
   }).catch(logError)
 
-  t.plan(2)
+  t.plan(3)
 })
 
 function logError(err) { console.log(err.stack) } // eslint-disable-line no-console
