@@ -1,7 +1,7 @@
 import {
   declarationValueIndex,
   isStandardSyntaxValue,
-  optionsHaveIgnoredProperty,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
@@ -50,7 +50,7 @@ export default function (expectation, options) {
       if (acceptCustomIdents.has(decl.prop)) { return }
 
       // Return early if the property is to be ignored
-      if (optionsHaveIgnoredProperty(options, decl.prop)) { return }
+      if (optionsMatches(options, "ignoreProperties", decl.prop)) { return }
 
       valueParser(decl.value).walk(node => {
         const { value, type, sourceIndex } = node
