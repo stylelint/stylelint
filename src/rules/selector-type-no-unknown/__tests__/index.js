@@ -62,6 +62,9 @@ testRule(rule, {
   }, {
     code: "@include keyframes(identifier) { 0% {} 100% {} }",
     description: "non-standard usage of keyframe selectors",
+  }, {
+    code: "a { --custom-property-set: {}; }",
+    description: "custom property set",
   } ],
 
   reject: [ {
