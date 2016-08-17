@@ -1,7 +1,6 @@
 export const acceptCustomIdents = new Set([
   "animation",
   "animation-name",
-  "composes",
   "font",
   "font-family",
   "counter-increment",

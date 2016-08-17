@@ -105,3 +105,21 @@ a { color: $blue; }
 ```less
 a { color: @blue; }
 ```
+
+## Optional options
+
+### `ignoreProperties: ["/regex/", "string"]`
+
+Given:
+
+```js
+["composes"]
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+.foo {
+  composes: red from './index.css';
+}
+```

@@ -52,9 +52,6 @@ testRule(rule, {
     code: "a { animation: blue 2s linear; }",
     description: "ignore keyframe animation name that are colors",
   }, {
-    code: "a { composes: blue relative from 'index.css'; }",
-    description: "ignore composes name that are colors",
-  }, {
     code: "a { font-family: blue; }",
     description: "ignore font family names that are colors",
   }, {
@@ -250,6 +247,56 @@ testRule(rule, {
     line: 1,
     column: 12,
   }, {
+    code: "a { color: rgb(\n0 ,\n 0 ,\r\n 0) }",
+    message: messages.expected("black", "rgb(0,0,0)"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { background: #302, rgb(\n0 ,\n 0 ,\r\n 0) }",
+    message: messages.expected("black", "rgb(0,0,0)"),
+    line: 1,
+    column: 23,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "never", { ignoreProperties: ["composes"] } ],
+  skipBasicChecks: true,
+
+  accept: [ {
+    code: "p { composes: blue from 'src/index.css'; }",
+  }, {
+    code: "p { composes: grey blue from 'src/index.css'; }",
+  }, {
+    code: "p { composes: relative grey blue from 'src/index.css'; }",
+  } ],
+
+  reject: [ {
+    code: "a { color: rebeccapurple; }",
+    message: messages.rejected("rebeccapurple"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { background: #00c, red, #fff; }",
+    message: messages.rejected("red"),
+    line: 1,
+    column: 23,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "always-where-possible", { ignoreProperties: ["/composes\-/"] } ],
+  skipBasicChecks: true,
+
+  accept: [ {
+    code: "p { composes: blue from 'src/index.css'; }",
+  }, {
+    code: "p { composes: relative grey blue from 'src/index.css'; }",
+  } ],
+
+  reject: [ {
     code: "a { color: rgb(\n0 ,\n 0 ,\r\n 0) }",
     message: messages.expected("black", "rgb(0,0,0)"),
     line: 1,
