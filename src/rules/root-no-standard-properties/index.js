@@ -25,7 +25,7 @@ export default function (actual) {
       function checkSelector(selectorAST) {
         if (ignoreRule(selectorAST)) { return }
 
-        rule.walkDecls(function (decl) {
+        rule.each(function (decl) {
 
           const { prop } = decl
           if (!isStandardSyntaxProperty(prop)) { return }
