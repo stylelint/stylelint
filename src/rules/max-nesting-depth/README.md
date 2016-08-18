@@ -147,3 +147,73 @@ a {
   }
 }
 ```
+
+### `ignoreAtRules: ["/regex/", "string"]`
+
+Ignore the specified at-rules.
+
+For example, with `1` and given:
+
+```js
+["/^my-/", "media"]
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { 
+  @media print {      /* 1 */
+    b {               /* 2 */
+      c { top: 0; }   /* 3 */
+    }
+  }
+}
+```
+
+```css
+a { 
+  b {                 /* 1 */
+    @media print {    /* 2 */
+      c { top: 0; }   /* 3 */
+    }
+  }
+}
+```
+
+```css
+a { 
+  @my-at-rule print {  /* 1 */
+    b {                /* 2 */
+      c { top: 0; }    /* 3 */
+    }
+  }
+}
+```
+
+```css
+a { 
+  @my-other-at-rule print {  /* 1 */
+    b {                      /* 2 */
+      c { top: 0; }          /* 3 */
+    }
+  }
+}
+```
+
+The following patterns are considered warnings:
+
+```css
+a { 
+  @import print {       /* 1 */
+    b { top: 0; }       /* 2 */
+  }
+}
+```
+
+```css
+a { 
+  @my_at_rule print {   /* 1 */
+    b { top: 0; }       /* 2 */
+  }
+}
+```
