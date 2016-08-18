@@ -21,7 +21,7 @@ export default function (maxLength, options) {
     }, {
       actual: options,
       possible: {
-        ignore: ["non-comments"],
+        ignore: [ "non-comments", "comments" ],
       },
       optional: true,
     })
@@ -32,6 +32,7 @@ export default function (maxLength, options) {
     const rootString = root.toString().replace(/url\(.*\)/ig, "url()")
 
     const ignoreNonComments = optionsMatches(options, "ignore", "non-comments")
+    const ignoreComments = optionsMatches(options, "ignore", "comments")
 
     // Check first line
     checkNewline({ endIndex: 0 })
@@ -62,6 +63,16 @@ export default function (maxLength, options) {
       if (nextNewlineIndex - match.endIndex <= maxLength) { return }
 
       const complaintIndex = nextNewlineIndex - 1
+
+      if (ignoreComments) {
+        if (match.insideComment) { return }
+
+        // This trimming business is to notice when the line starts a
+        // comment but that comment is indented, e.g.
+        //       /* something here */
+        const nextTwoChars = rootString.slice(match.endIndex).trim().slice(0, 2)
+        if (nextTwoChars === "/*" || nextTwoChars === "//") { return }
+      }
 
       if (ignoreNonComments) {
         if (match.insideComment) {

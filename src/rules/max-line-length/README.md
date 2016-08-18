@@ -74,3 +74,37 @@ a { color: pink; background: orange; }
  */
 a { color: pink; /* this comment is also long but not on its own line */ }
 ```
+
+### `ignore: ["comments"]`
+
+Only enforce the line-length limit for lines that are not comments.
+
+This also applies to comments that are between code on the same line.
+
+For example, with a maximum length of `30`.
+
+The following patterns are considered warnings:
+
+```css
+a { color: pink; } /* comment that is too long */
+```
+
+```css
+a { /* this comment is too long for the max length */ }
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+/* comment that is too long for my rule*/
+a { color: pink; }
+```
+
+```css
+/*
+ * comment that is too long the max length
+ * comment that is too long the max length 
+ *
+ */
+a { color: pink; }
+```
