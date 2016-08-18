@@ -4,6 +4,7 @@
 - Added: `--ignore-disables` and `ignoreDisables` option.
 - Added: `value-list-max-empty-lines` rule.
 - Added: `media-feature-name-no-unknown` rule.
+- Added: `ignore: ["comments"]` option to `max-line-length`.
 - Added: `ignoreAtRules` option to `max-nesting-depth`.
 - Fixed: no longer parsing ignored files before ignoring them.
 - Fixed: `no-unknown-animations` and `unit-blacklist` now handle numbers without leading zeros.
