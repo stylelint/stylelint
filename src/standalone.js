@@ -1,6 +1,7 @@
 import * as formatters from "./formatters"
 import _ from "lodash"
 import buildConfig from "./buildConfig"
+import getIsFileIgnored from "./utils/getIsFileIgnored.js"
 import globby from "globby"
 import lessSyntax from "postcss-less"
 import needlessDisables from "./needlessDisables"
@@ -71,6 +72,8 @@ export default function ({
 
     let initialisedPostcss
 
+    const isFileIgnored = getIsFileIgnored(config.ignorePatterns, config.ignoreFiles)
+
     function prepareReturnValue(results) {
       const returnValue = {
         results,
@@ -132,6 +135,20 @@ export default function ({
     function lintString(code, filepath) {
       const postcssProcessOptions = {}
       if (filepath) {
+        if (isFileIgnored(path.resolve(filepath))) {
+          return new Promise((resolve) => {
+            resolve({
+              root: { source: { input: { file: filepath } } },
+              messages: [],
+              stylelint: {
+                stylelintError: null,
+                ignored: true,
+              },
+              standaloneIgnored: true,
+            })
+          }).then(handleResult)
+        }
+
         postcssProcessOptions.from = filepath
       }
 

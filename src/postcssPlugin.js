@@ -2,17 +2,14 @@ import _ from "lodash"
 import buildConfig from "./buildConfig"
 import { configurationError } from "./utils"
 import disableRanges from "./disableRanges"
-import ignore from "ignore"
-import multimatch from "multimatch"
+import getIsFileIgnored from "./utils/getIsFileIgnored.js"
 import normalizeRuleSettings from "./normalizeRuleSettings"
-import path from "path"
 import postcss from "postcss"
 import ruleDefinitions from "./rules"
 
 export default postcss.plugin("stylelint", (options = {}) => {
   // The Node API (standalone.js) will pass in its own _configPromise
   let configPromise = options._configPromise
-  let ignorePatternsFilter
 
   return (root, result) => {
     if (!configPromise) {
@@ -34,17 +31,10 @@ export default postcss.plugin("stylelint", (options = {}) => {
         throw configurationError("No rules found within configuration. Have you provided a \"rules\" property?")
       }
 
-      if (!ignorePatternsFilter && config.ignorePatterns) {
-        ignorePatternsFilter = ignore().add(config.ignorePatterns).createFilter()
-      }
-
-      if (ignorePatternsFilter || config.ignoreFiles) {
+      if (config.ignorePatterns || config.ignoreFiles) {
+        const isFileIgnored = getIsFileIgnored(config.ignorePatterns, config.ignoreFiles)
         const sourcePath = _.get(root, "source.input.file", "")
-        const filepathRelativeToCwd = path.relative(process.cwd(), sourcePath)
-        if (
-          (ignorePatternsFilter && !ignorePatternsFilter(filepathRelativeToCwd))
-          || (config.ignoreFiles && multimatch(sourcePath, config.ignoreFiles).length)
-        ) {
+        if (isFileIgnored(sourcePath)) {
           result.stylelint.ignored = true
           return
         }
