@@ -19,7 +19,10 @@ export default function (on, options) {
     const validOptions = validateOptions(result, ruleName, { actual: on }, {
       actual: options,
       possible: {
-        ignore: ["consecutive-duplicates"],
+        ignore: [
+          "consecutive-duplicates",
+          "consecutive-duplicates-with-different-values",
+        ],
         ignoreProperties: [isString],
       },
       optional: true,
@@ -39,6 +42,7 @@ export default function (on, options) {
 
     function checkRulesInNode(node) {
       const decls = []
+      const values = []
 
       node.each(child => {
         if (child.nodes && child.nodes.length) {
@@ -48,6 +52,8 @@ export default function (on, options) {
         if (child.type !== "decl") { return }
 
         const { prop } = child
+        const { value } = child
+
         if (!isStandardSyntaxProperty(prop)) { return }
         if (isCustomProperty(prop)) { return }
 
@@ -60,6 +66,31 @@ export default function (on, options) {
         const indexDuplicate = decls.indexOf(prop.toLowerCase())
 
         if (indexDuplicate !== -1) {
+
+          if (optionsMatches(options, "ignore", "consecutive-duplicates-with-different-values")) {
+            // if duplicates are not consecutive
+            if (indexDuplicate !== decls.length - 1) {
+              report({
+                message: messages.rejected(prop),
+                node: child,
+                result,
+                ruleName,
+              })
+              return
+            }
+            // if values of consecutive duplicates are equal
+            if (value === values[indexDuplicate]) {
+              report({
+                message: messages.rejected(value),
+                node: child,
+                result,
+                ruleName,
+              })
+              return
+            }
+            return
+          }
+
           if (
             optionsMatches(options, "ignore", "consecutive-duplicates")
             && indexDuplicate === decls.length - 1
@@ -76,6 +107,7 @@ export default function (on, options) {
         }
 
         decls.push(prop.toLowerCase())
+        values.push(value.toLowerCase())
       })
     }
   }

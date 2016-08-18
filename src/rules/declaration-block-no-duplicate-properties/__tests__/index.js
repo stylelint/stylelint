@@ -123,6 +123,22 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: [ true, { ignore: ["consecutive-duplicates-with-different-values"] } ],
+  skipBasicChecks: true,
+
+  accept: [{ code: "p { font-size: 16px; font-size: 1rem; font-weight: 400; }" }],
+
+  reject: [ {
+    code: "p { font-size: 16px; font-weight: 400; font-size: 1rem; }",
+    message: messages.rejected("font-size"),
+  }, {
+    code: "p { font-size: 16px; font-size: 16px; font-weight: 400; }",
+    message: messages.rejected("16px"),
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
   config: [ true, { ignoreProperties: ["color"] } ],
   skipBasicChecks: true,
 
