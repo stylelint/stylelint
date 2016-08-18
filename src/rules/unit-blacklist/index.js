@@ -2,11 +2,13 @@ import {
   atRuleParamIndex,
   declarationValueIndex,
   getUnitFromValueNode,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import { isString } from "lodash"
+import _ from "lodash"
+import validateObjectWithStringArrayProps from "../../utils/validateObjectWithStringArrayProps"
 import valueParser from "postcss-value-parser"
 
 export const ruleName = "unit-blacklist"
@@ -15,12 +17,18 @@ export const messages = ruleMessages(ruleName, {
   rejected: (unit) => `Unexpected unit "${unit}"`,
 })
 
-function rule(blacklistInput) {
+function rule(blacklistInput, options) {
   const blacklist = [].concat(blacklistInput)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
-      possible: [isString],
+      possible: [_.isString],
+    }, {
+      optional: true,
+      actual: options,
+      possible: {
+        ignoreProperties: validateObjectWithStringArrayProps,
+      },
     })
     if (!validOptions) { return }
 
@@ -32,6 +40,8 @@ function rule(blacklistInput) {
         const unit = getUnitFromValueNode(valueNode)
 
         if (!unit || (unit && blacklist.indexOf(unit.toLowerCase()) === -1)) { return }
+
+        if (options && optionsMatches(options["ignoreProperties"], unit.toLowerCase(), node.prop)) { return }
 
         report({
           index: getIndex(node) + valueNode.sourceIndex,

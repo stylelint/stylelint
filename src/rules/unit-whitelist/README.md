@@ -53,3 +53,48 @@ a { height: 100PX; }
 ```css
 a { transform: rotate(30deg); }
 ```
+
+## Optional secondary options
+
+### `ignoreProperties: { unit: ["property", "/regex/"] }`
+
+Ignore units in the values of declarations with the specified properties.
+
+For example, with `["px", "em"]`.
+
+Given:
+
+```js
+{
+  "rem": [ "line-height", "/^border/" ],
+  "%": [ "width" ]  
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a { line-height: 0.1rem; }
+```
+
+```css
+a { border-bottom-width: 6rem; }
+```
+
+```css
+a { width: 100%; }
+```
+
+The following patterns are considered warnings:
+
+```css
+a { margin: 0 20rem; }
+```
+
+```css
+a { -moz-border-radius-topright: 20rem; }
+```
+
+```css
+a { height: 100%; }
+```

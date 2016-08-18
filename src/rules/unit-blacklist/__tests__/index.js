@@ -196,3 +196,45 @@ testRule(rule, {
     column: 18,
   }],
 })
+
+testRule(rule, {
+  ruleName,
+
+  config: [ [ "px", "vmin" ], { ignoreProperties: { "px": [ "font-size", "margin", "/^border/" ],
+                                                  "vmin": [ "width", "height" ] } } ],
+
+  accept: [ {
+    code: "a { font-size: 13px; }",
+  }, {
+    code: "a { font-size: 13pX; }",
+  }, {
+    code: "a { margin: 0 20px; }",
+  }, {
+    code: "a { margin: 0 0 0 20Px; }",
+  }, {
+    code: "a { width: 100vmin; }",
+  }, {
+    code: "a { height: 99vmIn; }",
+  }, {
+    code: "a { border: 1px solid purple; }",
+  }, {
+    code: "a { border-bottom-width: 6px; }",
+  } ],
+
+  reject: [ {
+    code: "a { line-height: .1px; }",
+    message: messages.rejected("px"),
+    line: 1,
+    column: 18,
+  }, {
+    code: "a { background-image: linear-gradient(to right, white calc(100vh - 5vmin), silver); }",
+    message: messages.rejected("vmin"),
+    line: 1,
+    column: 68,
+  }, {
+    code: "a { -moz-border-radius-topright: 40px; }",
+    message: messages.rejected("px"),
+    line: 1,
+    column: 34,
+  } ],
+})

@@ -1,6 +1,7 @@
 # Head
 
 -   Added: `--config-basedir` option to CLI.
+-   Added: `ignoreProperties` option to `unit-blacklist` and `unit-whitelist`
 -   Added: `ignore: ["consecutive-duplicates-with-different-values"]` option to `declaration-block-no-duplicate-properties`.
 -   Added: `--report-needless-disables` and `reportNeedlessDisables` option.
 -   Added: `--ignore-disables` and `ignoreDisables` option.
