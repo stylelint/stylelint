@@ -63,6 +63,15 @@ testRule(rule, {
     code: "a { background: url(@image); }",
     description: "ignore variable",
   }, {
+    code: "a { background: url(http://#{$host}/path); }",
+    description: "ignore interpolation",
+  }, {
+    code: "a { background: url(http://@{host}/path); }",
+    description: "ignore interpolation",
+  }, {
+    code: "a { background: url(http://$(host)/path); }",
+    description: "ignore interpolation",
+  }, {
     code: "a { background: url(var(--image)); }",
     description: "ignore variable",
   }, {

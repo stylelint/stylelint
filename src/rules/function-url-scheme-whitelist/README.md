@@ -12,7 +12,7 @@ A [url scheme](https://url.spec.whatwg.org/#syntax-url-scheme) consists of alpha
 
 This rule ignores url arguments without an existing url scheme.
 
-This rule ignores url arguments that are variables (`$sass`, `@less`, `--custom-property`).
+This rule ignores url arguments with variables or variable interpolation (`$sass`, `@less`, `--custom-property`, `#{$var}`, `@{var}`, `$(var)`).
 
 ## Options
 
