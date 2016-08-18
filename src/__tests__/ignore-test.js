@@ -22,7 +22,7 @@ test("standalone with extending config and ignoreFiles glob ignoring single glob
     t.ok(results[1].source.indexOf("invalid-hex.css") !== -1, "invalid-hex.css found")
     t.equal(results[1].warnings.length, 0, "invalid-hex.css not linted")
     t.ok(results[1].ignored, "invalid-hex.css marked as ignored")
-    t.ok(results[1]._postcssResult.standaloneIgnored, "not parsed by standalone")
+    t.ok(results[1]._postcssResult.standaloneIgnored, "invalid-hex.css not parsed by standalone")
     t.end()
   }).catch(logError)
 })
@@ -91,6 +91,27 @@ test("standalone with specified `ignorePath` file ignoring one file", t => {
     t.equal(results[0].warnings.length, 0, "no warnings registered")
     t.ok(results[0].ignored, "marked as ignored")
     t.ok(results[0]._postcssResult.standaloneIgnored, "not parsed by standalone")
+    t.end()
+  }).catch(logError)
+})
+
+test("standalone using ignoreFiles with input files that would cause a postcss syntax error", t => {
+  standalone({
+    files: [`${fixturesPath}/standaloneNoParsing/*`],
+    config: {
+      ignoreFiles: ["**/*.scss"],
+      rules: {
+        "block-no-empty": true,
+      },
+    },
+  }).then(({ results }) => {
+    t.equal(results.length, 2, "two files found")
+    t.ok(results[0].source.indexOf("no-syntax-error.css") !== -1, "no-syntax-error.css found")
+    t.equal(results[0].warnings.length, 0, "no-syntax-error.css linted")
+    t.ok(results[1].source.indexOf("syntax-error-ignored.scss") !== -1, "syntax-error-ignored.scss found")
+    t.equal(results[1].warnings.length, 0, "syntax-error-ignored.scss not linted")
+    t.ok(results[1].ignored, "syntax-error-ignored.scss marked as ignored")
+    t.ok(results[1]._postcssResult.standaloneIgnored, "syntax-error-ignored.scss not parsed by standalone")
     t.end()
   }).catch(logError)
 })
