@@ -41,16 +41,17 @@ export default function (options) {
     if (options.rules) return options
     return null
   })()
-  const configBasedir = options.configBasedir || process.cwd()
+  const configBasedir = options.configBasedir || false
 
   if (rawConfig) {
-    return augmentConfig(rawConfig, configBasedir, {
+    const configDir = configBasedir || process.cwd()
+    return augmentConfig(rawConfig, configDir, {
       addIgnorePatterns: true,
       ignorePath: options.ignorePath,
     }).then(augmentedConfig => {
       return {
         config: merge(augmentedConfig, options.configOverrides),
-        configDir: configBasedir,
+        configDir,
       }
     })
   }
@@ -72,7 +73,7 @@ export default function (options) {
 
   return cosmiconfig("stylelint", cosmiconfigOptions).then(result => {
     if (!result) throw configurationError("No configuration found")
-    rootConfigDir = path.dirname(result.filepath)
+    rootConfigDir = configBasedir || path.dirname(result.filepath)
     return augmentConfig(result.config, rootConfigDir, {
       addIgnorePatterns: true,
       ignorePath: options.ignorePath,
