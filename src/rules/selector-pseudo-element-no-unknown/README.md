@@ -19,33 +19,33 @@ All vendor-prefixes pseudo-element selectors are ignored.
 The following patterns are considered warnings:
 
 ```css
-a::pseudo { }
+a::pseudo {}
 ```
 
 ```css
-a::PSEUDO { }
+a::PSEUDO {}
 ```
 
 ```css
-a::element { }
+a::element {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a:before { }
+a:before {}
 ```
 
 ```css
-a::before { }
+a::before {}
 ```
 
 ```css
-::selection { }
+::selection {}
 ```
 
 ```css
-input::-moz-placeholder { }
+input::-moz-placeholder {}
 ```
 
 ## Optional options
@@ -61,13 +61,13 @@ Given:
 The following patterns are *not* considered warnings:
 
 ```css
-a::pseudo-element { }
+a::pseudo-element {}
 ```
 
 ```css
-a::my-pseudo { }
+a::my-pseudo {}
 ```
 
 ```css
-a::my-other-pseudo { }
+a::my-other-pseudo {}
 ```

@@ -3,8 +3,8 @@
 Require or disallow quotes for attribute values.
 
 ```css
-a[target="_blank"] { }
-/**      ↑      ↑
+[target="_blank"] {}
+/**     ↑      ↑
  * These quotes */
 ```
 
@@ -19,33 +19,33 @@ Attribute values *must always* be quoted.
 The following patterns are considered warnings:
 
 ```css
-a[title=flower] { }
+[title=flower] {}
 ```
 
 ```css
-[class^=top] { }
+[class^=top] {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-[title] { }
+[title] {}
 ```
 
 ```css
-a[target="_blank"] { }
+[target="_blank"] {}
 ```
 
 ```css
-[class|="top"] { }
+[class|="top"] {}
 ```
 
 ```css
-[title~='text'] { }
+[title~='text'] {}
 ```
 
 ```css
-[data-attribute='component'] { }
+[data-attribute='component'] {}
 ```
 
 ### `"never"`
@@ -55,31 +55,31 @@ Attribute values *must never* be quoted.
 The following patterns are considered warnings:
 
 ```css
-a[target="_blank"] { }
+[target="_blank"] {}
 ```
 
 ```css
-[class|="top"] { }
+[class|="top"] {}
 ```
 
 ```css
-[title~='text'] { }
+[title~='text'] {}
 ```
 
 ```css
-[data-attribute='component'] { }
+[data-attribute='component'] {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-[title] { }
+[title] {}
 ```
 
 ```css
-[title=flower] { }
+[title=flower] {}
 ```
 
 ```css
-[class^=top] { }
+[class^=top] {}
 ```

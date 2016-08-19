@@ -19,33 +19,33 @@ All vendor-prefixes pseudo-class selectors are ignored.
 The following patterns are considered warnings:
 
 ```css
-a:unknown { }
+a:unknown {}
 ```
 
 ```css
-a:UNKNOWN { }
+a:UNKNOWN {}
 ```
 
 ```css
-a:hoverr { }
+a:hoverr {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a:hover { }
+a:hover {}
 ```
 
 ```css
-a:focus { }
+a:focus {}
 ```
 
 ```css
-:not(p) { }
+:not(p) {}
 ```
 
 ```css
-input:-moz-placeholder { }
+input:-moz-placeholder {}
 ```
 
 ## Optional options
@@ -61,13 +61,13 @@ Given:
 The following patterns are *not* considered warnings:
 
 ```css
-a:pseudo-class { }
+a:pseudo-class {}
 ```
 
 ```css
-a:my-pseudo { }
+a:my-pseudo {}
 ```
 
 ```css
-a:my-other-pseudo { }
+a:my-other-pseudo {}
 ```

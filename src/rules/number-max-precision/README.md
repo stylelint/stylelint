@@ -3,7 +3,7 @@
 Limit the number of decimal places allowed in numbers.
 
 ```css
-.foo { top: 3.245634px; }
+a { top: 3.245634px; }
 /**           ↑
  * These decimal places */
 ```
@@ -17,23 +17,23 @@ For example, with `2`:
 The following patterns are considered warnings:
 
 ```css
-.foo { top: 3.245px; }
+a { top: 3.245px; }
 ```
 
 ```css
-.foo { top: 3.245634px; }
+a { top: 3.245634px; }
 ```
 
 ```css
-@media (min-width: 3.234em) { ... }
+@media (min-width: 3.234em) {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-.foo { top: 3.24px; }
+a { top: 3.24px; }
 ```
 
 ```css
-@media (min-width: 3.23em) { ... }
+@media (min-width: 3.23em) {}
 ```

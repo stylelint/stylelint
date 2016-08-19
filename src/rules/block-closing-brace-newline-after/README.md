@@ -148,9 +148,9 @@ Given:
 The following patterns are *not* considered warnings:
 
 ```css
-@if ... {
+@if ($var) {
   color: pink;
-} @else if ... {
+} @else if ($var2) {
   color: red;
 } @else {
   color: blue;
@@ -158,5 +158,5 @@ The following patterns are *not* considered warnings:
 ```
 
 ```css
-@if ... { color: pink; } @else { color: blue; }
+@if ($var) { color: pink; } @else { color: blue; }
 ```

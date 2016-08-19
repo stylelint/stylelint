@@ -3,8 +3,8 @@
 Specify a whitelist of allowed attribute operators.
 
 ```css
-a[target="_blank"] { }
-/**     ↑
+[target="_blank"] {}
+/**    ↑
  * These operators */
 ```
 
@@ -21,27 +21,27 @@ Given:
 The following patterns are considered warnings:
 
 ```css
-[class*="test"] { }
+[class*="test"] {}
 ```
 
 ```css
-[title~="flower"] { }
+[title~="flower"] {}
 ```
 
 ```css
-[class^="top"] { }
+[class^="top"] {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a[target] { }
+[target] {}
 ```
 
 ```css
-a[target="_blank"] { }
+[target="_blank"] {}
 ```
 
 ```css
-[class|="top"] { }
+[class|="top"] {}
 ```

@@ -23,7 +23,7 @@ Defaults to the doiuse default, which is `"> 1%, last 2 versions, Firefox ESR, O
 The following patterns are considered warnings:
 
 ```css
-.foo { opacity: 0.5; }
+a { opacity: 0.5; }
 ```
 
 As IE8 (which as of this writing had *just over* 1% global usage) does not support `opacity`:

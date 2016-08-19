@@ -59,11 +59,11 @@ Allow compounded type selectors -- i.e. type selectors chained with other select
 The following patterns are *not* considered warnings:
 
 ```css
-ul.foo {}
+a.foo {}
 ```
 
 ```css
-ul#bar {}
+a#bar {}
 ```
 
 #### `"descendant"`
@@ -73,11 +73,11 @@ Allow descendant type selectors.
 The following patterns are *not* considered warnings:
 
 ```css
-.foo ul {}
+.foo a {}
 ```
 
 ```css
-#bar ul.foo {}
+#bar a.foo {}
 ```
 
 ### `ignoreTypes: ["/regex/", "string"]`
@@ -85,19 +85,19 @@ The following patterns are *not* considered warnings:
 Given:
 
 ```js
-["/^my-/", "fieldset"]
+["/^my-/", "custom"]
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-fieldset { }
+custom {}
 ```
 
 ```css
-my-type { }
+my-type {}
 ```
 
 ```css
-my-other-type { }
+my-other-type {}
 ```

@@ -6,7 +6,7 @@ Require or disallow an empty line before custom properties.
 a {
   top: 10px;
                           /* ← */
-  --custom-prop2: value;  /* ↑ */   
+  --foo: pink;  /* ↑ */   
 }                         /* ↑ */
 /**                          ↑
  *                   This line */
@@ -23,8 +23,8 @@ The following patterns are considered warnings:
 ```css
 a {
   top: 10px;
-  --custom-prop: value;
-  --custom-prop2: value;
+  --foo: pink;
+  --bar: red;
 }
 ```
 
@@ -34,9 +34,9 @@ The following patterns are *not* considered warnings:
 a {
   top: 10px;
 
-  --custom-prop: value;
+  --foo: pink;
 
-  --custom-prop2: value;
+  --bar: red;
 }
 ```
 
@@ -48,17 +48,17 @@ The following patterns are considered warnings:
 a {
   top: 10px;
 
-  --custom-prop: value;
+  --foo: pink;
 
-  --custom-prop2: value;
+  --bar: red;
 }
 ```
 
 ```css
 a {
 
-  --custom-prop: value;
-  --custom-prop2: value;
+  --foo: pink;
+  --bar: red;
 }
 ```
 
@@ -67,15 +67,15 @@ The following patterns are *not* considered warnings:
 ```css
 a {
   top: 10px;
-  --custom-prop: value;
-  --custom-prop2: value;
+  --foo: pink;
+  --bar: red;
 }
 ```
 
 ```css
 a {
-  --custom-prop: value;
-  --custom-prop2: value;
+  --foo: pink;
+  --bar: red;
 }
 ```
 
@@ -94,10 +94,10 @@ The following patterns are considered warnings:
 ```css
 a {
 
-  --custom-prop: value;
+  --foo: pink;
   /* comment */
 
-  --custom-prop2: value;
+  --bar: red;
 }
 ```
 
@@ -106,9 +106,9 @@ The following patterns are *not* considered warnings:
 ```css
 a {
 
-  --custom-prop: value;
+  --foo: pink;
   /* comment */
-  --custom-prop2: value;
+  --bar: red;
 }
 
 ```
@@ -124,9 +124,9 @@ The following patterns are considered warnings:
 ```css
 a {
 
-  --custom-prop: value;
+  --foo: pink;
 
-  --custom-prop2: value;
+  --bar: red;
 }
 ```
 
@@ -135,8 +135,8 @@ The following patterns are *not* considered warnings:
 ```css
 a {
 
-  --custom-prop: value;
-  --custom-prop2: value;
+  --foo: pink;
+  --bar: red;
 }
 ```
 
@@ -151,9 +151,9 @@ The following patterns are considered warnings:
 ```css
 a {
 
-  --custom-prop: value;
+  --foo: pink;
 
-  --custom-prop2: value;
+  --bar: red;
 }
 ```
 
@@ -161,9 +161,9 @@ The following patterns are *not* considered warnings:
 
 ```css
 a {
-  --custom-prop: value;
+  --foo: pink;
 
-  --custom-prop2: value;
+  --bar: red;
 }
 ```
 
@@ -180,7 +180,7 @@ The following patterns are *not* considered warnings:
 ```css
 a {
   /* comment */
-  --custom-prop: value;
+  --foo: pink;
 }
 ```
 
@@ -193,5 +193,5 @@ For example, with `"always"`:
 The following patterns are *not* considered warnings:
 
 ```css
-a { --custom-prop: value; --custom-prop2: value; }
+a { --foo: pink; --bar: red; }
 ```

@@ -3,7 +3,7 @@
 Disallow qualifying a selector by type.
 
 ```css
-    a.class {}
+    a.foo {}
 /** ↑
  * This type selector is qualifying the class */
 ```
@@ -17,13 +17,13 @@ A type selector is "qualifying" when it is compounded with (chained to) another 
 The following patterns are considered warnings:
 
 ```css
-div.class {
+a.foo {
   margin: 0
 }
 ```
 
 ```css
-div#id {
+a#foo {
   margin: 0
 }
 ```
@@ -37,13 +37,13 @@ input[type='button'] {
 The following patterns are *not* considered warnings:
 
 ```css
-.class {
+.foo {
   margin: 0
 }
 ```
 
 ```css
-#id {
+#foo {
   margin: 0
 }
 ```
@@ -77,7 +77,7 @@ Allow class selectors qualified by type.
 The following patterns are *not* considered warnings:
 
 ```css
-div.class {
+a.foo {
   margin: 0
 }
 ```
@@ -89,7 +89,7 @@ Allow id selectors qualified by type.
 The following patterns are *not* considered warnings:
 
 ```css
-div#id {
+a#foo {
   margin: 0
 }
 ```

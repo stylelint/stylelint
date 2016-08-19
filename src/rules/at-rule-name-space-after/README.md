@@ -23,16 +23,16 @@ The following patterns are considered warnings:
 ```
 
 ```css
-@media(min-width: 700px) { }
+@media(min-width: 700px) {}
 ```
 
 ```css
-@media  (min-width: 700px) { }
+@media  (min-width: 700px) {}
 ```
 
 ```css
 @media 
-(min-width: 700px) { }
+(min-width: 700px) {}
 ```
 
 The following patterns are *not* considered warnings:
@@ -46,7 +46,7 @@ The following patterns are *not* considered warnings:
 ```
 
 ```css
-@media (min-width: 700px) { }
+@media (min-width: 700px) {}
 ```
 
 ### `"always-single-line"`
@@ -60,11 +60,11 @@ The following patterns are considered warnings:
 ```
 
 ```css
-@media(min-width: 700px) { }
+@media(min-width: 700px) {}
 ```
 
 ```css
-@media  (min-width: 700px) { }
+@media  (min-width: 700px) {}
 ```
 
 The following patterns are *not* considered warnings:
@@ -78,21 +78,21 @@ The following patterns are *not* considered warnings:
 ```
 
 ```css
-@media (min-width: 700px) { }
+@media (min-width: 700px) {}
 ```
 
 ```css
 @media 
-(min-width: 700px) { }
+(min-width: 700px) {}
 ```
 
 ```css
 @media(min-width: 700px) and
-  (orientation: portrait) { }
+  (orientation: portrait) {}
 ```
 
 ```css
 @media
   (min-width: 700px) and
-  (orientation: portrait) { }
+  (orientation: portrait) {}
 ```

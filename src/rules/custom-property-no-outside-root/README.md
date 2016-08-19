@@ -3,7 +3,7 @@
 Disallow custom properties outside of `:root` rules.
 
 ```css
-    a { --foo-bar: 1px; }
+    a { --foo: 1px; }
 /** ↑   ↑
  * These selectors and these types of custom properties */
 ```
@@ -15,15 +15,15 @@ Disallow custom properties outside of `:root` rules.
 The following patterns are considered warnings:
 
 ```css
-a { --foo-bar: 1px; }
+a { --foo: 1px; }
 ```
 
 ```css
-:root, a { --foo-bar: 1px; }
+:root, a { --foo: 1px; }
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-:root { --foo-bar: 1px; }
+:root { --foo: 1px; }
 ```

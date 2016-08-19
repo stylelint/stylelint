@@ -36,7 +36,7 @@ Given:
 The following patterns are considered warnings:
 
 ```css
-div { whitespace: pre; }
+a { whitespace: pre; }
 ```
 
 ```css
@@ -62,7 +62,7 @@ a { color: pink; }
 ```
 
 ```css
-div { whitespace: nowrap; }
+a { whitespace: nowrap; }
 ```
 
 ```css

@@ -3,7 +3,7 @@
 Specify a pattern for custom properties.
 
 ```css
-a { --foo-bar: 1px; }
+a { --foo-: 1px; }
 /**   ↑
  * The pattern of this */
 ```

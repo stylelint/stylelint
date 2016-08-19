@@ -4,7 +4,7 @@ Require or disallow an empty line before declarations.
 
 ```css
 a {
-  --custom-prop: value;
+  --foo: pink;
              /* ← */
   top: 15px; /* ↑ */   
 }            /* ↑ */
@@ -22,7 +22,7 @@ The following patterns are considered warnings:
 
 ```css
 a {
-  --custom-prop: value;
+  --foo: pink;
   top: 5px;
 }
 ```
@@ -38,7 +38,7 @@ The following patterns are *not* considered warnings:
 
 ```css
 a {
-  --custom-prop: value;
+  --foo: pink;
 
   top: 5px;
 }
@@ -59,7 +59,7 @@ The following patterns are considered warnings:
 
 ```css
 a {
-  --custom-prop: value;
+  --foo: pink;
 
   bottom: 15px;
 }
@@ -78,7 +78,7 @@ The following patterns are *not* considered warnings:
 
 ```css
 a {
-  --custom-prop: value;
+  --foo: pink;
   bottom: 15px;
 }
 ```

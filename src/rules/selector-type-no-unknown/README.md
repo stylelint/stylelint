@@ -17,25 +17,25 @@ This rule considers tags defined in the HTML and SVG Specifications to be known.
 The following patterns are considered warnings:
 
 ```css
-unknown { }
+unknown {}
 ```
 
 ```css
-tag { }
+tag {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-input { }
+input {}
 ```
 
 ```css
-ul li { }
+ul li {}
 ```
 
 ```css
-li > a { }
+li > a {}
 ```
 
 ## Optional options
@@ -51,13 +51,13 @@ Given:
 The following patterns are *not* considered warnings:
 
 ```css
-custom-type { }
+custom-type {}
 ```
 
 ```css
-my-type { }
+my-type {}
 ```
 
 ```css
-my-other-type { }
+my-other-type {}
 ```

@@ -35,11 +35,15 @@ a { top: calc(calc(1em * 2) / 3); }
 ```
 
 ```css
-margin-top: calc(var(--some-variable) +
-  var(--some-other-variable));
+a {
+  top: calc(var(--foo) +
+    var(--bar));
+}
 ```
 
 ```css
-margin-top: calc(var(--some-variable)
-  + var(--some-other-variable));
+a {
+  top: calc(var(--foo)
+    + var(--bar));
+}
 ```

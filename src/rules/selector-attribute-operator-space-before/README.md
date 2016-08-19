@@ -3,8 +3,8 @@
 Require a single space or disallow whitespace before operators within attribute selectors.
 
 ```css
-.foo[target =_blank]
-/**        ↑    
+[target =_blank]
+/**     ↑    
  * The space before operator */
 ```
 

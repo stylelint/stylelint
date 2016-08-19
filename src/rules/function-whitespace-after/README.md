@@ -54,14 +54,14 @@ a { padding: calc(1 * 2px), calc(2 * 5px); }
 
 ```scss
 /* notice the )}, with no space after the closing parenthesis */
-h1 {
+a {
   max-height: #{($line-height) * ($lines-to-show)}em;
 }
 ```
 
 ```less
 /* notice the )}, with no space after the closing parenthesis */
-h1 {
+a {
   max-height: ((@line-height) * (@lines-to-show))em;
 }
 ```

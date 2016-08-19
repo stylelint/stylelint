@@ -27,7 +27,7 @@ For example, with `"0,2,0"`:
 The following patterns are considered warnings:
 
 ```css
-#id {}
+#foo {}
 ```
 
 ```css
