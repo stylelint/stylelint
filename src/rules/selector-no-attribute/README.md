@@ -3,7 +3,7 @@
 Disallow attribute selectors.
 
 ```css
-   a[rel="external"] {}
+    [rel="external"] {}
 /** ↑
  * This type of selector */
 ```
@@ -19,12 +19,12 @@ The following patterns are considered warnings:
 ```
 
 ```css
-a[rel="external"] {}
+[rel="external"] {}
 ```
 
 ```css
 a,
-.foo[type="text"] {}
+[type="text"] {}
 ```
 
 ```css
@@ -34,17 +34,13 @@ a > [foo] {}
 The following patterns are *not* considered warnings:
 
 ```css
+a {}
+```
+
+```css
 .foo {}
 ```
 
 ```css
-#foo {}
-```
-
-```css
-.bar > #foo {}
-```
-
-```css
-#foo.bar {}
+#bar {}
 ```

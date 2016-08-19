@@ -3,7 +3,7 @@
 Specify a pattern for the selectors of rules nested within rules.
 
 ```css
-    .foo {
+    a {
       color: orange;
       &:hover { color: pink; }
     } ↑
@@ -30,19 +30,19 @@ Given the string:
 The following patterns are considered warnings:
 
 ```css
-.foo {
+a {
   .bar {}
 }
 ```
 
 ```css
-.foo {
+a {
   .bar:hover {}
 }
 ```
 
 ```css
-.foo {
+a {
   &:hover,
   &:focus {}
 }
@@ -51,19 +51,19 @@ The following patterns are considered warnings:
 The following patterns are *not* considered warnings:
 
 ```css
-.foo {
+a {
   &:hover {}
 }
 ```
 
 ```css
-.foo {
+a {
   &:focus {}
 }
 ```
 
 ```css
-.foo {
+a {
   &:hover {}
   &:focus {}
 }

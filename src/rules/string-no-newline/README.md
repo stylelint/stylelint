@@ -27,12 +27,12 @@ a {
 ```
 
 ```css
-a[title="something
+[title="something
 is probably wrong"] {}  
 ```
 
 ```css
-.foo {
+a {
   font-family: "Times
     New
     Roman";
@@ -54,12 +54,12 @@ a {
 ```
 
 ```css
-a[title="nothing\
+[title="nothing\
   is wrong"] {}  
 ```
 
 ```css
-.foo {
+a {
   font-family: "Times New Roman";
 }  
 ```

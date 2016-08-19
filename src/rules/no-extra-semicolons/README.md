@@ -26,30 +26,30 @@ The following patterns are considered warnings:
 ```
 
 ```css
-.foo {
+a {
   color: pink;;
 }
 ```
 
 ```css
-.foo {
+a {
   ;color: pink;
 }
 ```
 
 ```css
-.foo {
+a {
   color: pink;
   ;
 }
 ```
 
 ```css
-.foo {
+a {
   color: red;
 }
 ;
-.bar {
+b {
   color: white;
 }
 ```
@@ -61,7 +61,7 @@ The following patterns are *not* considered warnings:
 ```
 
 ```css
-.foo {
+a {
   color: pink;
 }
 ```

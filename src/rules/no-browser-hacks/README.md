@@ -25,7 +25,7 @@ Defaults to the browserslist default, which targets modern browsers.
 The following patterns are considered warnings:
 
 ```css
-.foo { color/*\**/: pink\9; }
+a { color/*\**/: pink\9; }
 ```
 
 As this hack targets IE7-8.

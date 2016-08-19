@@ -161,7 +161,7 @@ For example, with `1` and given:
 The following patterns are *not* considered warnings:
 
 ```css
-a { 
+a {
   @media print {      /* 1 */
     b {               /* 2 */
       c { top: 0; }   /* 3 */
@@ -171,7 +171,7 @@ a {
 ```
 
 ```css
-a { 
+a {
   b {                 /* 1 */
     @media print {    /* 2 */
       c { top: 0; }   /* 3 */
@@ -181,7 +181,7 @@ a {
 ```
 
 ```css
-a { 
+a {
   @my-at-rule print {  /* 1 */
     b {                /* 2 */
       c { top: 0; }    /* 3 */
@@ -191,7 +191,7 @@ a {
 ```
 
 ```css
-a { 
+a {
   @my-other-at-rule print {  /* 1 */
     b {                      /* 2 */
       c { top: 0; }          /* 3 */
@@ -203,7 +203,7 @@ a {
 The following patterns are considered warnings:
 
 ```css
-a { 
+a {
   @import print {       /* 1 */
     b { top: 0; }       /* 2 */
   }
@@ -211,8 +211,8 @@ a {
 ```
 
 ```css
-a { 
-  @my_at_rule print {   /* 1 */
+a {
+  @not-my-at-rule print {   /* 1 */
     b { top: 0; }       /* 2 */
   }
 }

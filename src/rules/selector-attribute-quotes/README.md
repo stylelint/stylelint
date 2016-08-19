@@ -3,8 +3,8 @@
 Require or disallow quotes for attribute values.
 
 ```css
-a[target="_blank"] { }
-/**      ↑      ↑
+[target="_blank"] { }
+/**     ↑      ↑
  * These quotes */
 ```
 
@@ -19,7 +19,7 @@ Attribute values *must always* be quoted.
 The following patterns are considered warnings:
 
 ```css
-a[title=flower] { }
+[title=flower] { }
 ```
 
 ```css
@@ -33,7 +33,7 @@ The following patterns are *not* considered warnings:
 ```
 
 ```css
-a[target="_blank"] { }
+[target="_blank"] { }
 ```
 
 ```css
@@ -55,7 +55,7 @@ Attribute values *must never* be quoted.
 The following patterns are considered warnings:
 
 ```css
-a[target="_blank"] { }
+[target="_blank"] { }
 ```
 
 ```css

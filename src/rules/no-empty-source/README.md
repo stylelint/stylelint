@@ -31,7 +31,7 @@ The following patterns are considered warnings:
 The following patterns are *not* considered warnings:
 
 ```css
-.class { }
+a { }
 ```
 
 ```css

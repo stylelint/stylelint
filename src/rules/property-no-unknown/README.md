@@ -3,8 +3,8 @@
 Disallow unknown properties.
 
 ```css
-.foo { heigth: 100%; }
-/**    ↑
+a { heigth: 100%; }
+/** ↑
  * These properties */
 ```
 
@@ -22,13 +22,13 @@ Use option `checkPrefixed` described below to turn on checking of vendor-prefixe
 The following patterns are considered warnings:
 
 ```css
-.foo {
+a {
   colr: blue;
 }
 ```
 
 ```css
-.foo {
+a {
   my-property: 1;
 }
 ```
@@ -36,31 +36,31 @@ The following patterns are considered warnings:
 The following patterns are *not* considered warnings:
 
 ```css
-.foo {
+a {
   color: green;
 }
 ```
 
 ```css
-.foo {
+a {
   fill: black;
 }
 ```
 
 ```css
-.foo {
+a {
   -moz-align-self: center;
 }
 ```
 
 ```css
-.foo {
+a {
   -webkit-align-self: center;
 }
 ```
 
 ```css
-.foo {
+a {
   align-self: center;
 }
 ```
@@ -78,19 +78,19 @@ Given:
 The following patterns are *not* considered warnings:
 
 ```css
-.foo {
+a {
   my-property: 10px;
 }
 ```
 
 ```css
-.foo {
+a {
   my-other-property: 10px;
 }
 ```
 
 ```css
-.foo {
+a {
   custom: 10px;
 }
 ```
@@ -103,13 +103,13 @@ For example with `true`:
 The following patterns are *not* considered warnings:
 
 ```css
-.foo {
+a {
   -webkit-overflow-scrolling: auto;
 }
 ```
 
 ```css
-.foo {
+a {
   -moz-box-flex: 0;
 }
 ```
@@ -117,13 +117,13 @@ The following patterns are *not* considered warnings:
 The following patterns are considered  warnings:
 
 ```css
-.foo {
+a {
   -moz-align-self: center;
 }
 ```
 
 ```css
-.foo {
+a {
   -moz-overflow-scrolling: center;
 }
 ```

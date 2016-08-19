@@ -35,7 +35,7 @@ Given:
 The following patterns are considered warnings:
 
 ```css
-div { position: fixed; }
+a { position: fixed; }
 ```
 
 ```css
@@ -65,7 +65,7 @@ a { -webkit-animation-timing-function: ease-in-out; }
 The following patterns are *not* considered warnings:
 
 ```css
-div { position: relative; }
+a { position: relative; }
 ```
 
 ```css

@@ -3,7 +3,7 @@
 Disallow duplicate selectors within a stylesheet.
 
 ```css
-    .foo {} .ba {} .foo {}
+    .foo {} .bar {} .foo {}
 /** ↑              ↑
  * These duplicates */
 ```

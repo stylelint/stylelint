@@ -3,9 +3,9 @@
 Limit the number of adjacent empty lines within selectors.
 
 ```css
-.foo,
+a,
               /* ← */
-.bar {        /* ↑ */
+b {        /* ↑ */
   color: red; /* ↑ */
 }             /* ↑ */
 /**              ↑
@@ -21,35 +21,35 @@ For example, with `0`:
 The following patterns are considered warnings:
 
 ```css
-.foo
+a
 
-.bar {
+b {
   color: red;
 }
 ```
 
 ```css
-.foo,
+a,
 
-.bar {
+b {
   color: red;
 }
 ```
 
 ```css
-.foo
+a
 
 >
-.bar {
+b {
   color: red;
 }
 ```
 
 ```css
-.foo
+a
 >
 
-.bar {
+b {
   color: red;
 }
 ```
@@ -57,35 +57,35 @@ The following patterns are considered warnings:
 The following patterns are *not* considered warnings:
 
 ```css
-.foo .bar {
+a b {
   color: red;
 }
 ```
 
 ```css
-.foo
-.bar {
+a
+b {
   color: red;
 }
 ```
 
 ```css
-.foo,
-.bar {
+a,
+b {
   color: red;
 }
 ```
 
 ```css
-.foo > .bar {
+a > b {
   color: red;
 }
 ```
 
 ```css
-.foo 
-> 
-.bar {
+a
+>
+b {
   color: red;
 }
 ```

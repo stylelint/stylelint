@@ -31,7 +31,7 @@ a { color: pink; }
 ```
 
 ```css
-.foo, #bar { color: pink; }
+a, b { color: pink; }
 ```
 
 ```css
