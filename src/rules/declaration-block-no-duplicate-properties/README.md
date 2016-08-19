@@ -62,6 +62,42 @@ p {
 }
 ```
 
+### `ignore: ["consecutive-duplicates-with-different-values"]`
+
+Ignore consecutive duplicated properties with different values.
+
+Including duplicate properties (fallbacks) is useful to deal with older browsers support for CSS properties. E.g. using 'px' units when 'rem' isn't available.
+
+The following patterns are considered warnings:
+
+```css
+/* properties with the same value */
+p {
+  font-size: 16px;  
+  font-size: 16px;
+  font-weight: 400;
+}
+```
+
+```css
+/* nonconsecutive duplicates */
+p {
+  font-size: 16px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+p {
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+```
+
 ### `ignoreProperties: ["/regex/", "non-regex"]`
 
 Ignore duplicates of specific properties.
