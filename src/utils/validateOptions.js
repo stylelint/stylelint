@@ -80,9 +80,8 @@ export default function (result, ruleName, ...optionDescriptions) {
         return
       }
 
-      const actualOptionValue = actual[optionName]
-
-      ;[].concat(actualOptionValue).forEach(a => {
+      const actualOptionValue = actual[optionName];
+      [].concat(actualOptionValue).forEach(a => {
         if (isValid(possible[optionName], a)) { return }
         complain(`Invalid value "${a}" for option "${optionName}" of rule "${ruleName}"`)
       })
