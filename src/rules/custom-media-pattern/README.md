@@ -3,7 +3,7 @@
 Specify a pattern for custom media query names.
 
 ```css
-@custom-media --narrow-window (max-width: 30em);
+@custom-media --foo (max-width: 30em);
 /**             ↑
  * The pattern of this */
 ```
@@ -23,11 +23,11 @@ Given the string:
 The following patterns are considered warnings:
 
 ```css
-@custom-media --big-dog (min-width: 30em);
+@custom-media --bar (min-width: 30em);
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-@custom-media --foo-big-dog (min-width: 30em);
+@custom-media --foo-bar (min-width: 30em);
 ```

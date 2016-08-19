@@ -36,14 +36,14 @@ a { top: calc(calc(1em * 2) / 3); }
 
 ```css
 a {
-  top: calc(var(--some-variable) +
-    var(--some-other-variable));
+  top: calc(var(--foo) +
+    var(--bar));
 }
 ```
 
 ```css
 a {
-  top: calc(var(--some-variable)
-    + var(--some-other-variable));
+  top: calc(var(--foo)
+    + var(--bar));
 }
 ```

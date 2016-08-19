@@ -95,7 +95,7 @@ a { color: rgb(0, 0, 0); }
 ```
 
 ```css
-a { color: var(--foo-color-white); }
+a { color: var(--white); }
 ```
 
 ```scss
