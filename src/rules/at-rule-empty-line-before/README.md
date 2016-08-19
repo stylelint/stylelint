@@ -62,7 +62,7 @@ a {}
 @media {}
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `except: ["all-nested", "blockless-after-same-name-blockless", "blockless-group", "first-nested"]`
 

@@ -40,7 +40,7 @@ a { color: pink; }
  * something else */
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignore: ["empty-lines"]`
 

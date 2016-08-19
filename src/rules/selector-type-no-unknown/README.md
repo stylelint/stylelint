@@ -38,7 +38,7 @@ ul li { }
 li > a { }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignoreTypes: ["/regex/", "string"]`
 

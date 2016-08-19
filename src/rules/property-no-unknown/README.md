@@ -65,7 +65,7 @@ The following patterns are *not* considered warnings:
 }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignoreProperties: ["/regex/", "string"]`
 

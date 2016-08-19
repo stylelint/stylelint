@@ -66,7 +66,7 @@ div > #zing + .foo-bar {}
 }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `resolveNestedSelectors: true | false` (default: `false`)
 

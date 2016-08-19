@@ -28,7 +28,7 @@ The following patterns are considered warnings:
 
 As IE8 (which as of this writing had *just over* 1% global usage) does not support `opacity`:
 
-## Optional Options
+## Optional secondary options
 
 These options are passed directly to doiuse.
 

@@ -79,7 +79,7 @@ a {
 }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `except: ["after-comment", "after-custom-property", "first-nested"]`
 

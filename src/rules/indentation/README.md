@@ -131,7 +131,7 @@ a {
 }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `indentInsideParens: "twice"|"once-at-root-twice-in-block"`
 

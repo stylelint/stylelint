@@ -66,7 +66,7 @@ a {}
 a {} /* comment */
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `except: ["first-nested"]`
 

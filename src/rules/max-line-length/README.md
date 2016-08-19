@@ -45,7 +45,7 @@ a {
 }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignore: ["non-comments"]`
 

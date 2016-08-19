@@ -50,7 +50,7 @@ The following patterns are *not* considered warnings:
 @media (-webkit-min-device-pixel-ratio: 2) { }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignoreMediaFeatureNames: ["/regex/", "string"]`
 

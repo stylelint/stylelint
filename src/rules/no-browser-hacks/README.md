@@ -30,7 +30,7 @@ The following patterns are considered warnings:
 
 As this hack targets IE7-8.
 
-## Optional Options
+## Optional secondary options
 
 ### `browsers: "browserslist string"`
 

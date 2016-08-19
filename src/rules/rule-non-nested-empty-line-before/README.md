@@ -108,7 +108,7 @@ b
 {}
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignore: ["after-comment"]`
 
@@ -133,7 +133,7 @@ b
 {}
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `except: ["after-single-line-comment"]`
 
