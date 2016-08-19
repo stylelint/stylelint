@@ -110,16 +110,30 @@ a { color: @blue; }
 
 ### `ignoreProperties: ["/regex/", "string"]`
 
+For example with `"never"`.
+
 Given:
 
 ```js
-["composes"]
+["/^my-/", "composes"]
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-.foo {
+a {
+  my-property: red;
+}
+```
+
+```css
+a {
+  my-other-property: red;
+}
+```
+
+```css
+a {
   composes: red from './index.css';
 }
 ```

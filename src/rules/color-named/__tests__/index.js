@@ -261,15 +261,17 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [ "never", { ignoreProperties: ["composes"] } ],
+  config: [ "never", { ignoreProperties: [ "composes", "/^my-/" ] } ],
   skipBasicChecks: true,
 
   accept: [ {
-    code: "p { composes: blue from 'src/index.css'; }",
+    code: "a { composes: blue from 'src/index.css'; }",
   }, {
-    code: "p { composes: grey blue from 'src/index.css'; }",
+    code: "a { composes: grey blue from 'src/index.css'; }",
   }, {
-    code: "p { composes: relative grey blue from 'src/index.css'; }",
+    code: "a { my-property: red; }",
+  }, {
+    code: "a { my-other-property: blue; }",
   } ],
 
   reject: [ {
@@ -278,33 +280,9 @@ testRule(rule, {
     line: 1,
     column: 12,
   }, {
-    code: "a { background: #00c, red, #fff; }",
+    code: "a { not-my-property: red; }",
     message: messages.rejected("red"),
     line: 1,
-    column: 23,
-  } ],
-})
-
-testRule(rule, {
-  ruleName,
-  config: [ "always-where-possible", { ignoreProperties: ["/composes\-/"] } ],
-  skipBasicChecks: true,
-
-  accept: [ {
-    code: "p { composes: blue from 'src/index.css'; }",
-  }, {
-    code: "p { composes: relative grey blue from 'src/index.css'; }",
-  } ],
-
-  reject: [ {
-    code: "a { color: rgb(\n0 ,\n 0 ,\r\n 0) }",
-    message: messages.expected("black", "rgb(0,0,0)"),
-    line: 1,
-    column: 12,
-  }, {
-    code: "a { background: #302, rgb(\n0 ,\n 0 ,\r\n 0) }",
-    message: messages.expected("black", "rgb(0,0,0)"),
-    line: 1,
-    column: 23,
+    column: 22,
   } ],
 })
