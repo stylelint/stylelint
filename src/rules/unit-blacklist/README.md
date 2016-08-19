@@ -10,7 +10,7 @@ a { width: 100px; }
 
 ## Options
 
-`array`: `"["array", "of", "units"]"`
+`array|string`: `["array", "of", "units"]|"unit"`
 
 Given:
 

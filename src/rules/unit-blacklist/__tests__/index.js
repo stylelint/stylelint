@@ -179,3 +179,20 @@ testRule(rule, {
     column: 17,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+
+  config: ["px"],
+
+  accept: [{
+    code: "a { line-height: 1em; }",
+  }],
+
+  reject: [{
+    code: "a { line-height: 1px; }",
+    message: messages.rejected("px"),
+    line: 1,
+    column: 18,
+  }],
+})
