@@ -49,3 +49,20 @@ testRule(rule, {
     column: 7,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+
+  config: ["*="],
+
+  accept: [{
+    code: "a[target=\"_blank\"] { }",
+  }],
+
+  reject: [{
+    code: "[title*=\"foo\"] { }",
+    message: messages.rejected("*="),
+    line: 1,
+    column: 7,
+  }],
+})
