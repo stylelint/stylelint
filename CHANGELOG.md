@@ -8,6 +8,7 @@
 - Added: `ignoreAtRules` option to `max-nesting-depth`.
 - Fixed: no longer parsing ignored files before ignoring them.
 - Fixed: `no-unknown-animations` and `unit-blacklist` now handle numbers without leading zeros.
+- Fixed: `root-no-standard-properties` now handles custom property sets.
 
 # 7.1.0
 

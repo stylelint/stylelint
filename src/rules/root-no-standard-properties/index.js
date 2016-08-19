@@ -25,15 +25,17 @@ export default function (actual) {
       function checkSelector(selectorAST) {
         if (ignoreRule(selectorAST)) { return }
 
-        rule.walkDecls(function (decl) {
+        rule.each(function (node) {
 
-          const { prop } = decl
+          if (node.type !== "decl") { return }
+
+          const { prop } = node
           if (!isStandardSyntaxProperty(prop)) { return }
           if (isCustomProperty(prop)) { return }
 
           report({
             message: messages.rejected(prop),
-            node: decl,
+            node,
             result,
             ruleName,
           })

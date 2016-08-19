@@ -52,6 +52,12 @@ testRule(rule, {
   }, {
     code: "div, a:not(div a:root) { --foo: pink; }",
     description: "negation pseudo-class",
+  }, {
+    code: ":root { --foo: { color: pink; }; }",
+    description: "custom property set",
+  }, {
+    code: ":root { a { color: pink; } }",
+    description: "nested rule",
   } ],
 
   reject: [ {
