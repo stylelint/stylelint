@@ -65,3 +65,7 @@ If you're using SUITCSS, you'll probably want to use [their shareable config](ht
 ## How do I change the default severity to "warning" so stylelint doesn't break my build?
 
 Use the [`defaultSeverity`](/docs/user-guide/configuration.md#defaultSeverity) configuration option.
+
+## Can I bundle more than one sharable config within a npm package?
+
+Yes, see [`stylelint-config-niksy`](https://github.com/niksy/stylelint-config-niksy) as an example of how this can be done.
