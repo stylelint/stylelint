@@ -65,7 +65,7 @@ a {
 }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignoreProperties: ["/regex/", "string"]`
 

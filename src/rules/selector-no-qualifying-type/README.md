@@ -54,7 +54,7 @@ input {
 }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignore: ["attribute", "class", "id"]`
 

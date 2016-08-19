@@ -34,7 +34,7 @@ The following patterns are *not* considered warnings:
 a { color: black; background: #FFF; }
 ```
 
-## Optional Options
+## Optional secondary options
 
 The options below directly correspond to the css-colorguard options.
 

@@ -90,7 +90,7 @@ a {
 }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `except: ["after-comment", "after-declaration", "first-nested"]`
 

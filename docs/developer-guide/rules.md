@@ -59,7 +59,7 @@ There is one caveat here: If your rule accepts a primary option array, it cannot
 
 #### Secondary
 
-Some rules require extra flexibility to address a variety of use-cases. These can use a **secondary options object**.
+Some rules require extra flexibility to address a variety of use-cases. These can use an **optional secondary options object**.
 
 - In `"color-hex-case": "upper"`, there is no secondary options object.
 - In `"indentation": [2, { "except": ["block"] }]`, the secondary options object is `{ "except": ["block"] }`.

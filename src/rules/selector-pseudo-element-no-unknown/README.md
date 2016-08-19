@@ -48,7 +48,7 @@ a::before {}
 input::-moz-placeholder {}
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignorePseudoElements: ["/regex/", "string"]`
 

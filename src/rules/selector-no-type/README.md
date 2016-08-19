@@ -48,7 +48,7 @@ The following patterns are *not* considered warnings:
 #foo.bar {}
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignore: ["compounded", "descendant"]`
 

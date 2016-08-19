@@ -346,7 +346,7 @@ a {
 }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `unspecified: "top"|"bottom"|"bottomAlphabetical"|"ignore"`
 

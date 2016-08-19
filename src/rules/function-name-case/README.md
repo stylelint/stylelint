@@ -98,7 +98,7 @@ a {
 }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignoreFunctions: ["/regex/", "non-regex"]`
 

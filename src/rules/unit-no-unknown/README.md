@@ -54,7 +54,7 @@ a {
 }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignoreUnits: ["/regex/", "string"]`
 

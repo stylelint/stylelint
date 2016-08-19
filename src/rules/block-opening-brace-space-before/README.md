@@ -150,7 +150,7 @@ a{
 color: pink;}
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignoreAtRules: ["/regex/", "non-regex"]`
 

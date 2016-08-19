@@ -30,7 +30,7 @@ a { color/*\**/: pink\9; }
 
 As this hack targets IE7-8.
 
-## Optional Options
+## Optional secondary options
 
 ### `browsers: "browserslist string"`
 

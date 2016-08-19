@@ -98,7 +98,7 @@ a {
 }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignoreKeywords: ["/regex/", "non-regex"]`
 

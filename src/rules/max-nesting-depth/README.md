@@ -94,7 +94,7 @@ a .foo__foo .bar .baz {}
 }
 ```
 
-## Optional Options
+## Optional secondary options
 
 ### `ignore: ["at-rules-without-declaration-blocks"]`
 

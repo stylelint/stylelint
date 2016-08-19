@@ -131,7 +131,7 @@ a { color: pink;
 }b { color: red; }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignoreAtRules: ["/regex/", "non-regex"]`
 

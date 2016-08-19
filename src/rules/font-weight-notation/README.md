@@ -70,7 +70,7 @@ a { font-weight: bold; }
 a { font: italic normal 20px; }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignore: ["relative"]`
 
