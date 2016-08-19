@@ -91,13 +91,13 @@ Given:
 The following patterns are *not* considered warnings:
 
 ```css
-custom { }
+custom {}
 ```
 
 ```css
-my-type { }
+my-type {}
 ```
 
 ```css
-my-other-type { }
+my-other-type {}
 ```

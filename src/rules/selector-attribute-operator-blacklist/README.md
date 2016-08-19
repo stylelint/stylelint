@@ -3,7 +3,7 @@
 Specify a blacklist of disallowed attribute operators.
 
 ```css
-[target="_blank"] { }
+[target="_blank"] {}
 /**    ↑
  * These operators */
 ```
@@ -21,19 +21,19 @@ Given:
 The following patterns are considered warnings:
 
 ```css
-[class*="test"] { }
+[class*="test"] {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-[target] { }
+[target] {}
 ```
 
 ```css
-[target="_blank"] { }
+[target="_blank"] {}
 ```
 
 ```css
-[class|="top"] { }
+[class|="top"] {}
 ```

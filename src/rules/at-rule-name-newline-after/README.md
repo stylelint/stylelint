@@ -25,7 +25,7 @@ The following patterns are considered warnings:
 
 ```css
 @media (min-width: 700px) and
-  (orientation: landscape) { }
+  (orientation: landscape) {}
 ```
 
 The following patterns are *not* considered warnings:
@@ -43,13 +43,13 @@ The following patterns are *not* considered warnings:
 
 ```css
 @media
-  (min-width: 700px) and (orientation: landscape) { }
+  (min-width: 700px) and (orientation: landscape) {}
 ```
 
 ```css
 @media
   (min-width: 700px) and
-  (orientation: landscape) { }
+  (orientation: landscape) {}
 ```
 
 ### `"always-multi-line"`
@@ -65,7 +65,7 @@ The following patterns are considered warnings:
 
 ```css
 @media (min-width: 700px) and
- (orientation: landscape) { }
+ (orientation: landscape) {}
 ```
 
 The following patterns are *not* considered warnings:
@@ -84,11 +84,11 @@ The following patterns are *not* considered warnings:
 ```
 
 ```css
-@media (min-width: 700px) and (orientation: landscape) { }
+@media (min-width: 700px) and (orientation: landscape) {}
 ```
 
 ```css
 @media
   (min-width: 700px) and
-  (orientation: landscape) { }
+  (orientation: landscape) {}
 ```

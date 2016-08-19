@@ -3,7 +3,7 @@
 Specify lowercase or uppercase for media feature names.
 
 ```css
-@media (min-width: 700px) { }
+@media (min-width: 700px) {}
 /**     ↑
  * These media feature names */
 ```
@@ -19,11 +19,11 @@ Specify lowercase or uppercase for media feature names.
 The following patterns are considered warnings:
 
 ```css
-@media (MIN-WIDTH: 700px) { }
+@media (MIN-WIDTH: 700px) {}
 ```
 
 ```css
-@media not all and (MONOCHROME) { }
+@media not all and (MONOCHROME) {}
 ```
 
 ```css
@@ -33,11 +33,11 @@ The following patterns are considered warnings:
 The following patterns are *not* considered warnings:
 
 ```css
-@media (min-width: 700px) { }
+@media (min-width: 700px) {}
 ```
 
 ```css
-@media not all and (monochrome) { }
+@media not all and (monochrome) {}
 ```
 
 ```css
@@ -49,11 +49,11 @@ The following patterns are *not* considered warnings:
 The following patterns are considered warnings:
 
 ```css
-@media (min-width: 700px) { }
+@media (min-width: 700px) {}
 ```
 
 ```css
-@media not all and (monochrome) { }
+@media not all and (monochrome) {}
 ```
 
 ```css
@@ -63,11 +63,11 @@ The following patterns are considered warnings:
 The following patterns are *not* considered warnings:
 
 ```css
-@media (MIN-WIDTH: 700px) { }
+@media (MIN-WIDTH: 700px) {}
 ```
 
 ```css
-@media not all and (MONOCHROME) { }
+@media not all and (MONOCHROME) {}
 ```
 
 ```css
