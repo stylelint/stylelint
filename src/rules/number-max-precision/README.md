@@ -25,7 +25,7 @@ a { top: 3.245634px; }
 ```
 
 ```css
-@media (min-width: 3.234em) { ... }
+@media (min-width: 3.234em) {}
 ```
 
 The following patterns are *not* considered warnings:
@@ -35,5 +35,5 @@ a { top: 3.24px; }
 ```
 
 ```css
-@media (min-width: 3.23em) { ... }
+@media (min-width: 3.23em) {}
 ```
