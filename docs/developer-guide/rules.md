@@ -172,6 +172,12 @@ Take the form of:
 
 - Use complete CSS patterns i.e. avoid ellipses (`...`)
 - Use standard CSS syntax (and use `css` code fences) by default.
+- Use the minimum amount of code possible to communicate the patten e.g. if the rule targets selectors then use an empty rule e.g. `{}`.
+- Use `{}`, rather than `{ }` for empty rules.
+- Use the `a` type selector by default.
+- Use the `@media` at-rules by default.
+- Use the `color` property by default.
+- Use *foo*, *bar* and *baz* for names e.g. `.foo`, `#bar` `--baz`
 
 ### Wire up the rule
 
