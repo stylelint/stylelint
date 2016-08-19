@@ -68,4 +68,4 @@ Use the [`defaultSeverity`](/docs/user-guide/configuration.md#defaultSeverity) c
 
 ## Can I bundle more than one sharable config within a npm package?
 
-Yes, see [`stylelint-config-niksy`](https://github.com/niksy/stylelint-config-niksy) as an example of how this can be done.
+A user can `require()` any file in your npm package, so all you need to do is document which paths point to configs (e.g. `require('my-package/config-2')`).
