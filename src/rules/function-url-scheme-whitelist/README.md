@@ -10,13 +10,15 @@ a { background-image: url('http://www.example.com/file.jpg'); }
 
 A [url scheme](https://url.spec.whatwg.org/#syntax-url-scheme) consists of alphanumeric, `+`, `-`, and `.` characters. It can appear at the start of a url and is followed by `:`.
 
+This rule treats url schemes as case insensitive (`https` and `HTTPS` are the same).
+
 This rule ignores url arguments without an existing url scheme.
 
 This rule ignores url arguments with variables or variable interpolation (`$sass`, `@less`, `--custom-property`, `#{$var}`, `@{var}`, `$(var)`).
 
 ## Options
 
-`array|string`: `["array", "of", "schemes"]`
+`array|string`: `["array", "of", "schemes"]|"scheme"`
 
 Given:
 
@@ -38,6 +40,10 @@ The following patterns are *not* considered warnings:
 
 ```css
 a { background-image: url('https://www.example.com/file.jpg'); }
+```
+
+```css
+a { background-image: url('HTTPS://www.example.com/file.jpg'); }
 ```
 
 ```css

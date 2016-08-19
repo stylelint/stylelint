@@ -54,6 +54,9 @@ testRule(rule, {
   }, {
     code: "@font-face { font-family: 'foo'; src: url('/path/to/foo.ttf'); }",
   }, {
+    code: "a { background: url(HTTPS://example.com/file.jpg); }",
+    description: "ignore case",
+  }, {
     code: "a { background: some-url(); }",
     description: "ignore contain url function",
   }, {
@@ -142,5 +145,71 @@ testRule(rule, {
     message: messages.rejected("data"),
     line: 1,
     column: 27,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [""],
+
+  accept: [ {
+    code: "a { background: url('/path/to/file.jpg'); }",
+  }, {
+    code: "a { background: url(//www.example.com/file.jpg); }",
+  }, {
+    code: "a { background: url(\"//www.example.com/file.jpg\"); }",
+  }, {
+    code: "a { background: url(example.com:3000); }",
+  } ],
+
+  reject: [ {
+    code: "a { background: url('https://www.example.com/file.jpg'); }",
+    message: messages.rejected("https"),
+    line: 1,
+    column: 21,
+  }, {
+    code: "a { background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }",
+    message: messages.rejected("data"),
+    line: 1,
+    column: 27,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: ["https"],
+
+  accept: [{
+    code: "a { background: url(https://example.com/file.jpg); }",
+  }],
+
+  reject: [{
+    code: "a { background: url(http://example.com/file.jpg); }",
+    message: messages.rejected("http"),
+    line: 1,
+    column: 21,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [["HTTPS"]],
+
+  accept: [ {
+    code: "a { background: url(https://example.com/file.jpg); }",
+  }, {
+    code: "a { background: url(HTTPS://example.com/file.jpg); }",
+  } ],
+
+  reject: [ {
+    code: "a { background: url(http://example.com/file.jpg); }",
+    message: messages.rejected("http"),
+    line: 1,
+    column: 21,
+  }, {
+    code: "a { background: url(HTTP://example.com/file.jpg); }",
+    message: messages.rejected("http"),
+    line: 1,
+    column: 21,
   } ],
 })

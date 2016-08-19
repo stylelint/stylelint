@@ -1,4 +1,5 @@
 import {
+  containsString,
   functionArgumentsSearch,
   isStandardSyntaxUrl,
   report,
@@ -11,7 +12,7 @@ import { parse } from "url"
 export const ruleName = "function-url-scheme-whitelist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (scheme) => `Unexpected url scheme ${scheme}:`,
+  rejected: (scheme) => `Unexpected url scheme "${scheme}:"`,
 })
 
 export default function (whitelist) {
@@ -30,6 +31,8 @@ export default function (whitelist) {
         const url = parse(urlString)
         if (url.protocol === null) { return }
 
+        const scheme = url.protocol.toLowerCase().slice(0, -1) // strip trailing `:`
+
         // The URL spec does not require a scheme to be followed by `//`, but checking
         // for it allows this rule to differentiate <scheme>:<hostname> urls from
         // <hostname>:<port> urls. `data:` scheme urls are an exception to this rule.
@@ -37,12 +40,15 @@ export default function (whitelist) {
         const expectedSlashes = urlString.slice(slashIndex, slashIndex + 2)
         const isSchemeLessUrl = (
           expectedSlashes !== "//" &&
-          url.protocol !== "data:"
+          scheme !== "data"
         )
         if (isSchemeLessUrl) { return }
 
-        const scheme = url.protocol.slice(0, -1) // strip trailing `:`
-        if (whitelist.includes(scheme)) { return }
+        const whitelistLowerCase = typeof whitelist === "string"
+          ? whitelist.toLowerCase()
+          : whitelist.join("|").toLowerCase().split("|")
+
+        if (containsString(scheme, whitelistLowerCase)) { return }
 
         report({
           message: messages.rejected(scheme),
