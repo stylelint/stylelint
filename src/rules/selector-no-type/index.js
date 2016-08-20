@@ -45,8 +45,11 @@ export default function (on, options) {
       if (selectors.some(s => isKeyframeSelector(s))) { return }
 
       if (ignoreDescendant) {
-        resolveNestedSelector(selector, rule).forEach(selector => {
-          checkSelector(selector, rule)
+        // Resolve each selector within the list before checking
+        selectors.forEach(selector => {
+          resolveNestedSelector(selector, rule).forEach(selector => {
+            checkSelector(selector, rule)
+          })
         })
       } else {
         checkSelector(selector, rule)
