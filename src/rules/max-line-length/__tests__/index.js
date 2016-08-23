@@ -31,6 +31,10 @@ testRule(rule, {
     code: "a {\n  background: uRl(\n  somethingsomethingsomethingsomething\n  );\n}",
   }, {
     code: "a {\n  background: URL(\n  somethingsomethingsomethingsomething\n  );\n}",
+  }, {
+    code: "a { margin: 0 2px; }\r\n",
+  }, {
+    code: "a { margin: 0 2px; }\r\na { margin: 4px 0; }\n",
   } ],
 
   reject: [ {
@@ -63,6 +67,11 @@ testRule(rule, {
     message: messages.expected(20),
     line: 1,
     column: 38,
+  }, {
+    code: "a { margin: 0 2rem; }\r\n",
+    message: messages.expected(20),
+    line: 1,
+    column: 21,
   } ],
 })
 

@@ -51,7 +51,8 @@ export default function (maxLength, options) {
     }
 
     function checkNewline(match) {
-      let nextNewlineIndex = rootString.indexOf("\n", match.endIndex)
+      const endOfLineIndicator = (rootString.indexOf("\r\n", match.endIndex) !== -1) ? "\r\n" : "\n"
+      let nextNewlineIndex = rootString.indexOf(endOfLineIndicator, match.endIndex)
 
       // Accommodate last line
       if (nextNewlineIndex === -1) {
