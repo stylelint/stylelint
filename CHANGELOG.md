@@ -16,7 +16,8 @@
 -   Fixed: `no-unknown-animations` and `unit-blacklist` now handle numbers without leading zeros.
 -   Fixed: `root-no-standard-properties` now handles custom property sets.
 -   Fixed: `selector-no-type` `ignore: ["descendant"]` option now correctly handles descendants within a selector list.
--   Fixed: `configFile` and `configBasedir` can now be used together
+-   Fixed: `configFile` and `configBasedir` can now be used together.
+-   Fixed: `max-line-length` now correctly handles Windows line endings.
 
 # 7.1.0
 
