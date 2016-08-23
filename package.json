@@ -81,7 +81,7 @@
     "npmpub": "^3.0.1",
     "nyc": "^8.1.0",
     "postcss-import": "^8.0.2",
-    "remark-cli": "^1.0.0",
+    "remark-cli": "^2.0.0",
     "remark-lint": "^5.0.0",
     "request": "^2.69.0",
     "rimraf": "^2.5.2",
