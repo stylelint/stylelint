@@ -106,7 +106,7 @@ a { color: $blue; }
 a { color: @blue; }
 ```
 
-## Optional options
+## Optional secondary options
 
 ### `ignoreProperties: ["/regex/", "string"]`
 
