@@ -11,6 +11,7 @@
 - Fixed: no longer parsing ignored files before ignoring them.
 - Fixed: `no-unknown-animations` and `unit-blacklist` now handle numbers without leading zeros.
 - Fixed: `root-no-standard-properties` now handles custom property sets.
+- Fixed: `selector-no-type` `ignore: ["descendant"]` option now correctly handles descendants within a selector list.
 
 # 7.1.0
 

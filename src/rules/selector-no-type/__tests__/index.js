@@ -85,6 +85,12 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 8,
+  }, {
+    code: ".foo { .baz, div {} }",
+    description: "nested selector list of descendants",
+    message: messages.rejected,
+    line: 1,
+    column: 14,
   } ],
 })
 
@@ -105,6 +111,9 @@ testRule(rule, {
   }, {
     code: ".foo { div {} }",
     description: "nested descendant",
+  }, {
+    code: ".foo { div, a {} }",
+    description: "nested selector list of descendants",
   } ],
 
   reject: [ {
