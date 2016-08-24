@@ -28,7 +28,7 @@ The following patterns are considered warnings:
 @media (-o-max-device-pixel-ratio: 1/1) {}
 ```
 
-The following patterns are *not* considered warnings
+The following patterns are *not* considered warnings:
 
 ```css
 @media (min-resolution: 96dpi) {}
