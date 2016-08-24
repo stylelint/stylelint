@@ -24,7 +24,6 @@
   "files": [
     "CONTRIBUTING.md",
     "dist",
-    "src",
     "docs",
     "!**/__tests__"
   ],
