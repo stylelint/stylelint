@@ -1,12 +1,14 @@
 import {
   declarationValueIndex,
   isStandardSyntaxValue,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
 import { acceptCustomIdents } from "../../reference/propertySets"
 import { colorFunctionNames } from "../../reference/keywordSets"
+import { isString } from "lodash"
 import namedColorData from "../../reference/namedColorData"
 import valueParser from "postcss-value-parser"
 
@@ -24,7 +26,7 @@ export const messages = ruleMessages(ruleName, {
 // Todo tested on case insensivity
 const NODE_TYPES = [ "word", "function" ]
 
-export default function (expectation) {
+export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -32,13 +34,23 @@ export default function (expectation) {
         "never",
         "always-where-possible",
       ],
+    }, {
+      actual: options,
+      possible: {
+        ignoreProperties: [isString],
+      },
+      optional: true,
     })
+
     if (!validOptions) { return }
 
     const namedColors = Object.keys(namedColorData)
 
     root.walkDecls(decl => {
       if (acceptCustomIdents.has(decl.prop)) { return }
+
+      // Return early if the property is to be ignored
+      if (optionsMatches(options, "ignoreProperties", decl.prop)) { return }
 
       valueParser(decl.value).walk(node => {
         const { value, type, sourceIndex } = node

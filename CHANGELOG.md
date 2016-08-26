@@ -8,6 +8,7 @@
 - Added: `ignore: ["comments"]` option to `max-line-length`.
 - Added: `ignoreAtRules` option to `max-nesting-depth`.
 - Added: `function-url-scheme-whitelist` rule.
+- Added: `ignoreProperties` option to `color-named`.
 - Fixed: no longer parsing ignored files before ignoring them.
 - Fixed: `no-unknown-animations` and `unit-blacklist` now handle numbers without leading zeros.
 - Fixed: `root-no-standard-properties` now handles custom property sets.

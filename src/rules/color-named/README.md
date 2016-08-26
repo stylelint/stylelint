@@ -105,3 +105,35 @@ a { color: $blue; }
 ```less
 a { color: @blue; }
 ```
+
+## Optional secondary options
+
+### `ignoreProperties: ["/regex/", "string"]`
+
+For example with `"never"`.
+
+Given:
+
+```js
+["/^my-/", "composes"]
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  my-property: red;
+}
+```
+
+```css
+a {
+  my-other-property: red;
+}
+```
+
+```css
+a {
+  composes: red from './index.css';
+}
+```

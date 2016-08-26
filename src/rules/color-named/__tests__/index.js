@@ -258,3 +258,31 @@ testRule(rule, {
     column: 23,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [ "never", { ignoreProperties: [ "composes", "/^my-/" ] } ],
+  skipBasicChecks: true,
+
+  accept: [ {
+    code: "a { composes: blue from 'src/index.css'; }",
+  }, {
+    code: "a { composes: grey blue from 'src/index.css'; }",
+  }, {
+    code: "a { my-property: red; }",
+  }, {
+    code: "a { my-other-property: blue; }",
+  } ],
+
+  reject: [ {
+    code: "a { color: rebeccapurple; }",
+    message: messages.rejected("rebeccapurple"),
+    line: 1,
+    column: 12,
+  }, {
+    code: "a { not-my-property: red; }",
+    message: messages.rejected("red"),
+    line: 1,
+    column: 22,
+  } ],
+})
