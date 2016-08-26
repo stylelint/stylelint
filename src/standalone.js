@@ -42,6 +42,7 @@ export default function ({
     configFile,
     configBasedir,
     configOverrides,
+    codeFilename,
     ignorePath,
   }).then(({ config, configDir }) => {
 

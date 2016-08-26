@@ -66,6 +66,8 @@ export default function (options) {
 
   if (options.configFile) {
     cosmiconfigOptions.configPath = path.resolve(process.cwd(), options.configFile)
+  } else if(options.codeFilename) {
+    cosmiconfigOptions.cwd = path.dirname(options.codeFilename)
   }
 
   let rootConfigDir
