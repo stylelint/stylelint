@@ -13,7 +13,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
 
   return (root, result) => {
     if (!configPromise) {
-      if(!options.codeFilename && root.source.input.file) {
+      if (!options.codeFilename && root.source.input.file) {
         options.codeFilename = root.source.input.file
       }
       configPromise = buildConfig(options)
