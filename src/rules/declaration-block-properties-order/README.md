@@ -61,11 +61,10 @@ a {
 
 Within an order array, you can include
 
-- unprefixed property names
-- group objects with these properties:
-
-  - `order ("strict"|"flexible")`: If `"strict"` (the default), the properties in this group must come in the order specified. If `"flexible"`, the properties can be in any order as long as they are grouped correctly.
-  - `properties (array of strings)`: The properties in this group.
+-   unprefixed property names
+-   group objects with these properties:
+    -   `order ("strict"|"flexible")`: If `"strict"` (the default), the properties in this group must come in the order specified. If `"flexible"`, the properties can be in any order as long as they are grouped correctly.
+    -   `properties (array of strings)`: The properties in this group.
 
 There are some important details to keep in mind:
 

@@ -81,7 +81,8 @@
     "nyc": "^8.1.0",
     "postcss-import": "^8.0.2",
     "remark-cli": "^2.0.0",
-    "remark-lint": "^5.0.0",
+    "remark-preset-lint-consistent": "^1.0.0",
+    "remark-preset-lint-recommended": "^1.0.0",
     "request": "^2.69.0",
     "rimraf": "^2.5.2",
     "sinon": "^1.16.1",
@@ -118,19 +119,9 @@
     }
   },
   "remarkConfig": {
-    "plugins": {
-      "lint": {
-        "list-item-content-indent": false,
-        "list-item-indent": "space",
-        "list-item-spacing": false,
-        "maximum-heading-length": false,
-        "maximum-line-length": false,
-        "no-duplicate-headings": false,
-        "no-emphasis-as-heading": false,
-        "no-heading-punctuation": false,
-        "no-missing-blank-lines": false,
-        "no-multiple-toplevel-headings": false
-      }
-    }
+    "presets": [
+      "lint-recommended",
+      "lint-consistent"
+    ]
   }
 }

@@ -12,19 +12,19 @@ Certain property value pairs rule out other property value pairs, causing them t
 
 The rule warns when it finds:
 
-- `display: inline` used with `width`, `height`, `margin`, `margin-top`, `margin-bottom`, `overflow` (and all variants).
-- `display: list-item` used with `vertical-align`.
-- `display: block` used with `vertical-align`.
-- `display: flex` used with `vertical-align`.
-- `display: table` used with `vertical-align`.
-- `display: table-*` used with `margin` (and all variants).
-- `display: table-*` (except `table-cell`) used with `vertical-align`.
-- `display: table-(row|row-group)` used with `width`, `min-width` or `max-width`.
-- `display: table-(column|column-group)` used with `height`, `min-height` or `max-height`.
-- `float: left` and `float: right` used with `vertical-align`.
-- `position: static` used with `top`, `right`, `bottom`, or `left`.
-- `position: absolute` used with `float`, `clear` or `vertical-align`.
-- `position: fixed` used with `float`, `clear` or `vertical-align`.
+-   `display: inline` used with `width`, `height`, `margin`, `margin-top`, `margin-bottom`, `overflow` (and all variants).
+-   `display: list-item` used with `vertical-align`.
+-   `display: block` used with `vertical-align`.
+-   `display: flex` used with `vertical-align`.
+-   `display: table` used with `vertical-align`.
+-   `display: table-*` used with `margin` (and all variants).
+-   `display: table-*` (except `table-cell`) used with `vertical-align`.
+-   `display: table-(row|row-group)` used with `width`, `min-width` or `max-width`.
+-   `display: table-(column|column-group)` used with `height`, `min-height` or `max-height`.
+-   `float: left` and `float: right` used with `vertical-align`.
+-   `position: static` used with `top`, `right`, `bottom`, or `left`.
+-   `position: absolute` used with `float`, `clear` or `vertical-align`.
+-   `position: fixed` used with `float`, `clear` or `vertical-align`.
 
 ## Options
 

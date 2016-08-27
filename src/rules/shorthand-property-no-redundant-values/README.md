@@ -10,12 +10,12 @@ a { margin: 1px 1px 1px 1px; }
 
 This rule warns you when you use redundant values in the following shorthand properties:
 
-- `margin`
-- `padding`
-- `border-color`
-- `border-radius`
-- `border-style`
-- `border-width`
+-   `margin`
+-   `padding`
+-   `border-color`
+-   `border-radius`
+-   `border-style`
+-   `border-width`
 
 ## Options
 

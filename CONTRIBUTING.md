@@ -10,10 +10,10 @@ We are committed to making participation in this project a harassment-free exper
 
 Examples of unacceptable behavior by participants include:
 
-- The use of sexualized language or imagery
-- Personal attacks
-- Publishing other's private information, such as physical or electronic addresses, without explicit permission
-- Public or private harassment
+-   The use of sexualized language or imagery
+-   Personal attacks
+-   Publishing other's private information, such as physical or electronic addresses, without explicit permission
+-   Public or private harassment
 
 This code of conduct applies both within project spaces and in public spaces when an individual is representing the project or its community.
 

@@ -6,9 +6,9 @@ The linter *expects a configuration object*. You can either craft your own confi
 
 Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig). Starting from the current working directory, it will look for the following possible sources, in this order:
 
-- a `stylelint` property in `package.json`
-- a `.stylelintrc` file
-- a `stylelint.config.js` file exporting a JS object
+-   a `stylelint` property in `package.json`
+-   a `.stylelintrc` file
+-   a `stylelint.config.js` file exporting a JS object
 
 The `.stylelintrc` file (without extension) can be in JSON or YAML format. Alternately, you can add a filename extension to designate JSON, YAML, or JS format: `.stylelintrc.json`, `.stylelintrc.yaml`, `.stylelintrc.js`. You may want to use an extension so that your text editor can better interpret the file, and help with syntax checking and highlighting.
 
@@ -26,9 +26,9 @@ Rules determine what the linter looks for and complains about. There are [over 1
 
 The `rules` property is *an object whose keys are rule names and values are rule configurations*. Each rule configuration fits one of the following formats:
 
-- a single value (the primary option)
-- an array with two values (`[primary option, secondary options]`)
-- `null` (to turn the rule off)
+-   a single value (the primary option)
+-   an array with two values (`[primary option, secondary options]`)
+-   `null` (to turn the rule off)
 
 ```json
 {
@@ -103,8 +103,8 @@ By default, all rules have an `"error"`-level severity. You can change this defa
 
 To adjust any specific rule's severity, use the secondary option `severity`. The available values for `severity` are:
 
-- `"warning"`
-- `"error"`
+-   `"warning"`
+-   `"error"`
 
 ```js
 // error-level severity examples
@@ -177,9 +177,9 @@ Or starting with `stylelint-config-standard`, then layering `myExtendableConfig`
 
 The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d, so can fit whatever format works with Node's `require.resolve()` algorithm. That means the a "locater" can be:
 
-- The name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
-- An absolute path to a file (which makes sense if you're creating a JS object in a Node context and passing it in) with a `.js` or `.json` extension.
-- A relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
+-   The name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
+-   An absolute path to a file (which makes sense if you're creating a JS object in a Node context and passing it in) with a `.js` or `.json` extension.
+-   A relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
 *Because of `extends`, you can create and use shareable stylelint configurations.* Use the `stylelint-config` keyword within your `package.json` if publishing your config to npm.
 
@@ -242,9 +242,9 @@ Provide a glob or array of globs to ignore specific files.
 
 If the globs are absolute paths, they are used as is. If they are relative, they are analyzed relative to
 
-- `configBasedir`, if it's provided;
-- the config's filepath, if the config is a file that stylelint found a loaded;
-- or `process.cwd()`.
+-   `configBasedir`, if it's provided;
+-   the config's filepath, if the config is a file that stylelint found a loaded;
+-   or `process.cwd()`.
 
 The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
 
@@ -252,8 +252,8 @@ The `ignoreFiles` property is stripped from extended configs: only the root-leve
 
 The default severity level for all rules that do not have a severity specified in their secondary options. The available values for `severity` are:
 
-- `"warning"`
-- `"error"`
+-   `"warning"`
+-   `"error"`
 
 ## `.stylelintignore`
 

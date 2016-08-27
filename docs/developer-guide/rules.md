@@ -18,12 +18,12 @@ First, open [an issue](https://github.com/stylelint/stylelint/issues/new) and le
 
 Usually we have some discussion about the rule's purpose, name, and options before it's ready for development. We also discuss whether the rule meets the following criteria for inclusion in stylelint:
 
-- Applicable to standard CSS syntax only.
-- Useful to the majority of users.
-- Has a clear and unambiguous finished state.
-- Has a singular purpose.
-- Is standalone, and doesn't rely on another rule.
-- Does not contain functionality that overlaps with another rule.
+-   Applicable to standard CSS syntax only.
+-   Useful to the majority of users.
+-   Has a clear and unambiguous finished state.
+-   Has a singular purpose.
+-   Is standalone, and doesn't rely on another rule.
+-   Does not contain functionality that overlaps with another rule.
 
 Otherwise, it should be a plugin. However, plugins should also try to adhere to the latter three criteria.
 
@@ -41,8 +41,8 @@ We take care to ensure that all the rules are named accurately and consistently.
 
 Every rule *must have* a **primary option**.
 
-- In `"color-hex-case": "upper"`, the primary option is `"upper"`.
-- In `"indentation": [2, { "except": ["block"] }]`, the primary option is `2`.
+-   In `"color-hex-case": "upper"`, the primary option is `"upper"`.
+-   In `"indentation": [2, { "except": ["block"] }]`, the primary option is `2`.
 
 If your rule can accept an array as its primary option, you must designate this by setting the property `primaryOptionArray = true` on your rule function. For example:
 
@@ -61,8 +61,8 @@ There is one caveat here: If your rule accepts a primary option array, it cannot
 
 Some rules require extra flexibility to address a variety of use-cases. These can use an **optional secondary options object**.
 
-- In `"color-hex-case": "upper"`, there is no secondary options object.
-- In `"indentation": [2, { "except": ["block"] }]`, the secondary options object is `{ "except": ["block"] }`.
+-   In `"color-hex-case": "upper"`, there is no secondary options object.
+-   In `"indentation": [2, { "except": ["block"] }]`, the secondary options object is `{ "except": ["block"] }`.
 
 The most typical secondary options are `"ignore": []` and `"except": []`; but anything is possible.
 
@@ -80,8 +80,8 @@ A rule's secondary option can be anything if you're not ignoring or making excep
 
 Messages usually take one of these forms:
 
-- "Expected \[something\] \[in some context\]".
-- "Unexpected \[something\] \[in some context\]."
+-   "Expected \[something\] \[in some context\]".
+-   "Unexpected \[something\] \[in some context\]."
 
 Look at the messages of other rules to glean more conventions and patterns.
 
@@ -101,8 +101,8 @@ In particular, you will definitely want to use `validateOptions()` so that users
 
 Each rule must be accompanied by tests that contain:
 
-- All patterns that are considered warnings.
-- All patterns that should *not* be considered warnings.
+-   All patterns that are considered warnings.
+-   All patterns that should *not* be considered warnings.
 
 It is easy to write stylelint tests, so *write as many as you can stand to*.
 
@@ -112,21 +112,21 @@ Please run through this checklist and ensure each point is covered by your tests
 
 ##### Best practices
 
-- Ensure you are testing errors in multiple positions, not the same place every time.
-- Ensure you use realistic (if simple) CSS, and avoid the use of ellipses.
-- Ensure you use standard CSS syntax by default, and only swap parsers when testing a specific piece of non-standard syntax.
+-   Ensure you are testing errors in multiple positions, not the same place every time.
+-   Ensure you use realistic (if simple) CSS, and avoid the use of ellipses.
+-   Ensure you use standard CSS syntax by default, and only swap parsers when testing a specific piece of non-standard syntax.
 
 ##### Commonly overlooked edge-cases
 
-- How does your rule handle variables (`$sass`, `@less`, or `var(--custom-property)`)?
-- How does your rule handle CSS strings (e.g. `content: "anything goes";`)?
-- How does your rule handle CSS comments (e.g. `/* anything goes */`)?
-- How does your rule handle `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
-- How does your rule handle vendor prefixes (e.g. `@-webkit-keyframes name {}`)?
-- How does your rule handle case sensitivity (e.g. `@KEYFRAMES name {}`)?
-- How does your rule handle a pseudo-class *combined* with a pseudo-element (e.g. `a:hover::before`)?
-- How does your rule handle nesting (e.g. do you resolve `& a {}`, or check it as is?)?
-- How does your rule handle whitespace and punctuation (e.g. comparing `rgb(0,0,0)` with `rgb(0, 0, 0)`)?
+-   How does your rule handle variables (`$sass`, `@less`, or `var(--custom-property)`)?
+-   How does your rule handle CSS strings (e.g. `content: "anything goes";`)?
+-   How does your rule handle CSS comments (e.g. `/* anything goes */`)?
+-   How does your rule handle `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
+-   How does your rule handle vendor prefixes (e.g. `@-webkit-keyframes name {}`)?
+-   How does your rule handle case sensitivity (e.g. `@KEYFRAMES name {}`)?
+-   How does your rule handle a pseudo-class *combined* with a pseudo-element (e.g. `a:hover::before`)?
+-   How does your rule handle nesting (e.g. do you resolve `& a {}`, or check it as is?)?
+-   How does your rule handle whitespace and punctuation (e.g. comparing `rgb(0,0,0)` with `rgb(0, 0, 0)`)?
 
 #### Running tests
 
@@ -148,14 +148,14 @@ To run tests in a single file only (which you'll want to do during development),
 
 Each rule must be accompanied by a README, fitting the following format:
 
-1. Rule name.
-2. Single line description.
-3. Prototypical code example.
-4. Expanded description (if necessary).
-5. Options.
-6. Example patterns that are considered warnings (for each option value).
-7. Example patterns that are *not* considered warnings (for each option value).
-8. Optional options (if applicable).
+1.  Rule name.
+2.  Single line description.
+3.  Prototypical code example.
+4.  Expanded description (if necessary).
+5.  Options.
+6.  Example patterns that are considered warnings (for each option value).
+7.  Example patterns that are *not* considered warnings (for each option value).
+8.  Optional options (if applicable).
 
 Look at the READMEs of other rules to glean more conventional patterns.
 
@@ -163,30 +163,30 @@ Look at the READMEs of other rules to glean more conventional patterns.
 
 Take the form of:
 
-- "Disallow ..." (for `no` rules).
-- "Limit ..." (for `max` rules).
-- "Require ..." (for rules that accept `"always"` and `"never"` options).
-- "Specify ..." (for everything else).
+-   "Disallow ..." (for `no` rules).
+-   "Limit ..." (for `max` rules).
+-   "Require ..." (for rules that accept `"always"` and `"never"` options).
+-   "Specify ..." (for everything else).
 
 #### Example patterns
 
-- Use complete CSS patterns i.e. avoid ellipses (`...`)
-- Use standard CSS syntax (and use `css` code fences) by default.
-- Use the minimum amount of code possible to communicate the patten e.g. if the rule targets selectors then use an empty rule e.g. `{}`.
-- Use `{}`, rather than `{ }` for empty rules.
-- Use the `a` type selector by default.
-- Use the `@media` at-rules by default.
-- Use the `color` property by default.
-- Use *foo*, *bar* and *baz* for names e.g. `.foo`, `#bar` `--baz`
+-   Use complete CSS patterns i.e. avoid ellipses (`...`)
+-   Use standard CSS syntax (and use `css` code fences) by default.
+-   Use the minimum amount of code possible to communicate the patten e.g. if the rule targets selectors then use an empty rule e.g. `{}`.
+-   Use `{}`, rather than `{ }` for empty rules.
+-   Use the `a` type selector by default.
+-   Use the `@media` at-rules by default.
+-   Use the `color` property by default.
+-   Use *foo*, *bar* and *baz* for names e.g. `.foo`, `#bar` `--baz`
 
 ### Wire up the rule
 
 The final step is to add references to the new rule in the following places:
 
-- [The rules `index.js` file](https://github.com/stylelint/stylelint/blob/master/src/rules/index.js)
-- [The CHANGELOG](/CHANGELOG.md)
-- [The list of rules](/docs/user-guide/rules.md)
-- [The example config](/docs/user-guide/example-config.md)
+-   [The rules `index.js` file](https://github.com/stylelint/stylelint/blob/master/src/rules/index.js)
+-   [The CHANGELOG](/CHANGELOG.md)
+-   [The list of rules](/docs/user-guide/rules.md)
+-   [The example config](/docs/user-guide/example-config.md)
 
 ## Adding options to existing rules
 
@@ -194,18 +194,18 @@ First, open an issue about the option you wish to add. We'll discuss its functio
 
 Once we've agreed on the direction, you can work on a pull request. Here are the steps you'll need to take:
 
-1. Change the rule's validation to allow for the new option.
-2. Add to the rule some logic (as little as possible) to make the option work.
-3. Add new unit tests to test the option.
-4. Add documentation about the new option.
-5. Add a note to the CHANGELOG about your addition.
+1.  Change the rule's validation to allow for the new option.
+2.  Add to the rule some logic (as little as possible) to make the option work.
+3.  Add new unit tests to test the option.
+4.  Add documentation about the new option.
+5.  Add a note to the CHANGELOG about your addition.
 
 ## Fixing bugs
 
 Fixing bugs is usually very easy. Here is a process that works:
 
-1. Write failing unit tests that exemplify the bug.
-2. Fiddle with the rule until those new tests pass.
-3. Add a note to the CHANGELOG about your fix.
+1.  Write failing unit tests that exemplify the bug.
+2.  Fiddle with the rule until those new tests pass.
+3.  Add a note to the CHANGELOG about your fix.
 
 That's it! **If you are unable to figure out how to fix the bug yourself, it is still *extremely* helpful to submit a pull request with your failing test cases.** It means that somebody else can jump right in and help out with the rule's logic.
