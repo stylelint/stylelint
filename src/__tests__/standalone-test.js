@@ -68,15 +68,6 @@ test("standalone without input css and file(s) should throw error", t => {
   t.end()
 })
 
-test("standalone without input css and file(s) should throw error", t => {
-  t.throws(
-    () => standalone({ config: configBlockNoEmpty }),
-    new Error("You must pass stylelint a `files` glob or a `code` string, though not both")
-  )
-
-  t.end()
-})
-
 test("standalone with non-existent-file should throw error with code 80", t => {
   let planned = 0
 
