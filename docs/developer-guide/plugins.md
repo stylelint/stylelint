@@ -38,9 +38,9 @@ A few of stylelint's internal utilities are exposed publicly in `stylelint.utils
 
 You will want to use:
 
-- `report`: Report your linting warnings. *Do not use `node.warn()` directly.* If you use `report`, your plugin will respect disabled ranges and other possible future features of stylelint, so it will fit in better with the standard rules.
-- `ruleMessages`: Tailor your messages to look like the messages of other stylelint rules.
-- `validateOptions`: Help your user's out by checking that the options they've submitted are valid.
+-   `report`: Report your linting warnings. *Do not use `node.warn()` directly.* If you use `report`, your plugin will respect disabled ranges and other possible future features of stylelint, so it will fit in better with the standard rules.
+-   `ruleMessages`: Tailor your messages to look like the messages of other stylelint rules.
+-   `validateOptions`: Help your user's out by checking that the options they've submitted are valid.
 
 **`stylelint.util.styleSearch` is deprecated and will be removed in v7. Use the external module [style-search](https://github.com/davidtheclark/style-search) instead.**
 
@@ -72,9 +72,9 @@ If your plugin can accept an array as its primary option, you must designate thi
 
 In addition to the standard parsers mentioned in the ["Working on rules"](/docs/developer-guide/rules.md) doc, there are other external modules used within stylelint that we recommend using. These include:
 
-- [normalize-selector](https://github.com/getify/normalize-selector) - Normalize CSS selectors.
-- [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector) - Given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
-- [style-search](https://github.com/davidtheclark/style-search) - Search CSS (and CSS-like) strings, with sensitivity to whether matches occur inside strings, comments, and functions.
+-   [normalize-selector](https://github.com/getify/normalize-selector) - Normalize CSS selectors.
+-   [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector) - Given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
+-   [style-search](https://github.com/davidtheclark/style-search) - Search CSS (and CSS-like) strings, with sensitivity to whether matches occur inside strings, comments, and functions.
 
 Have a look through [stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/src/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into a external module.
 
@@ -88,5 +88,5 @@ To make a single module provide multiple rules, simply export an array of plugin
 
 ## Sharing plugins and plugin packs
 
-- Use the `stylelint-plugin` keyword within your `package.json`.
-- Once your plugin is published, please send us a Pull Request to add your plugin to [the list](/docs/user-guide/plugins.md).
+-   Use the `stylelint-plugin` keyword within your `package.json`.
+-   Once your plugin is published, please send us a Pull Request to add your plugin to [the list](/docs/user-guide/plugins.md).

@@ -8,19 +8,19 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
 
 ## Features
 
-- **Over one hundred and fifty rules:** Including those that:
-  - **Catch errors**: e.g. invalid hex colors, indistinguishable colors, or overriding shorthand properties.
-  - **Enforce best practices**: e.g. keeping specificity low or disallowing vendor prefixes in your source code.
-  - **Control what languages features can be used**: e.g. whitelisting specific units, properties and functions, or disallowing certain selector types.
-  - **Enforce code style conventions**: e.g. checking the spacing around the colon in declarations or specifying patterns for class selectors.
-- **Support for the latest CSS syntax:** Including custom properties, range context for media features, calc() and nesting.
-- **Understands *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and *experimental support* for Less.
-- **Completely unopinionated:** Only enable the rules you want, and configure them with options that tailor the linter to your needs.
-- **Support for plugins:** It's easy to create your own rules and add them to the linter.
-- **Automatically fix some stylistic warnings:** By using [stylefmt](https://github.com/morishitter/stylefmt) which supports stylelint configuration files.
-- **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config.
-- **Options validator:** So that you can be confident that your config is valid.
-- **Growing community**: Used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [Github](https://github.com/primer/stylelint-config-primer), [Wikimedia](https://github.com/wikimedia/stylelint-config-wikimedia), [GSA](https://github.com/18F/stylelint-rules/), and [WordPress](https://github.com/ntwb/stylelint-config-wordpress/) among others.
+-   **Over one hundred and fifty rules:** Including those that:
+    -   **Catch errors**: e.g. invalid hex colors, indistinguishable colors, or overriding shorthand properties.
+    -   **Enforce best practices**: e.g. keeping specificity low or disallowing vendor prefixes in your source code.
+    -   **Control what languages features can be used**: e.g. whitelisting specific units, properties and functions, or disallowing certain selector types.
+    -   **Enforce code style conventions**: e.g. checking the spacing around the colon in declarations or specifying patterns for class selectors.
+-   **Support for the latest CSS syntax:** Including custom properties, range context for media features, calc() and nesting.
+-   **Understands *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and *experimental support* for Less.
+-   **Completely unopinionated:** Only enable the rules you want, and configure them with options that tailor the linter to your needs.
+-   **Support for plugins:** It's easy to create your own rules and add them to the linter.
+-   **Automatically fix some stylistic warnings:** By using [stylefmt](https://github.com/morishitter/stylefmt) which supports stylelint configuration files.
+-   **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config.
+-   **Options validator:** So that you can be confident that your config is valid.
+-   **Growing community**: Used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [Github](https://github.com/primer/stylelint-config-primer), [Wikimedia](https://github.com/wikimedia/stylelint-config-wikimedia), [GSA](https://github.com/18F/stylelint-rules/), and [WordPress](https://github.com/ntwb/stylelint-config-wordpress/) among others.
 
 ## Example output
 
@@ -30,39 +30,38 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
 
 With stylelint, it's easy to start linting your CSS:
 
-1. Decide how you want to use stylelint:
-   - [via the stylelint CLI](/docs/user-guide/cli.md)
-   - [via a plugin for your build tool](/docs/user-guide/complementary-tools.md#build-tool-plugins) (gulp, webpack etc)
-   - [via a plugin for your text editor](/docs/user-guide/complementary-tools.md#editor-plugins) (atom, sublime text etc)
-   - [via the stylelint Node API](/docs/user-guide/node-api.md)
-   - [via the stylelint PostCSS plugin](/docs/user-guide/postcss-plugin.md)
-2. Create your [configuration object](/docs/user-guide/configuration.md) by either extending a shared config or crafting your own:
-   - To extend a shared config, we recommend using [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard). It includes over 80 of stylelint's rules with sensible defaults. (You can always override specific rules after extending the config.) We update the config with each new release of stylelint. Alternately, you can [search for](https://www.npmjs.com/browse/keyword/stylelint-config) a community config and [extend](/docs/user-guide/configuration.md#extends) that instead.
-   - To craft your own config, first [learn about how rules are named and how they work together](/docs/user-guide/about-rules.md), then either:
-     - Start small and only learn about [the rules](/docs/user-guide/rules.md) you want to turn on and enforce. *All of the rules are off by default*, and so you can start small, growing your config over time as you have a chance to explore more of the rules.
-     - Or copy-paste [this example configuration](/docs/user-guide/example-config.md), which lists all of stylelint's rules and their primary options. Then you can edit the options of each rule to your liking, and remove (or turn off with `null`) the rules that you don't care to enforce.
-
-3. Lint!
+1.  Decide how you want to use stylelint:
+    -   [via the stylelint CLI](/docs/user-guide/cli.md)
+    -   [via a plugin for your build tool](/docs/user-guide/complementary-tools.md#build-tool-plugins) (gulp, webpack etc)
+    -   [via a plugin for your text editor](/docs/user-guide/complementary-tools.md#editor-plugins) (atom, sublime text etc)
+    -   [via the stylelint Node API](/docs/user-guide/node-api.md)
+    -   [via the stylelint PostCSS plugin](/docs/user-guide/postcss-plugin.md)
+2.  Create your [configuration object](/docs/user-guide/configuration.md) by either extending a shared config or crafting your own:
+    -   To extend a shared config, we recommend using [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard). It includes over 80 of stylelint's rules with sensible defaults. (You can always override specific rules after extending the config.) We update the config with each new release of stylelint. Alternately, you can [search for](https://www.npmjs.com/browse/keyword/stylelint-config) a community config and [extend](/docs/user-guide/configuration.md#extends) that instead.
+    -   To craft your own config, first [learn about how rules are named and how they work together](/docs/user-guide/about-rules.md), then either:
+        -   Start small and only learn about [the rules](/docs/user-guide/rules.md) you want to turn on and enforce. *All of the rules are off by default*, and so you can start small, growing your config over time as you have a chance to explore more of the rules.
+        -   Or copy-paste [this example configuration](/docs/user-guide/example-config.md), which lists all of stylelint's rules and their primary options. Then you can edit the options of each rule to your liking, and remove (or turn off with `null`) the rules that you don't care to enforce.
+3.  Lint!
 
 ## Guides
 
 You'll find more detailed information on using stylelint and tailoring it to your needs in our guides:
 
-- [User guide](docs/user-guide.md) - Usage, configuration, FAQ and complementary tools.
-- [Developer guide](docs/developer-guide.md) - Contributing to stylelint and writing your own plugins & formatters.
+-   [User guide](docs/user-guide.md) - Usage, configuration, FAQ and complementary tools.
+-   [Developer guide](docs/developer-guide.md) - Contributing to stylelint and writing your own plugins & formatters.
 
 ## Help out
 
 There is always a lot of work to do, and already well over 100 rules to maintain. So please help out in any way that you can:
 
-- Create, enhance, and debug rules (see our guide to ["Working on rules"](docs/developer-guide/rules.md)).
-- Improve documentation.
-- Chime in on any open issue or pull request.
-- Open new issues about your ideas for making stylelint better, and pull requests to show us how your idea works.
-- Add new tests to *absolutely anything*.
-- Work on [improving performance of rules](docs/developer-guide/benchmarks.md).
-- Create or contribute to ecosystem tools, like the plugins for Atom and Sublime Text.
-- Spread the word.
+-   Create, enhance, and debug rules (see our guide to ["Working on rules"](docs/developer-guide/rules.md)).
+-   Improve documentation.
+-   Chime in on any open issue or pull request.
+-   Open new issues about your ideas for making stylelint better, and pull requests to show us how your idea works.
+-   Add new tests to *absolutely anything*.
+-   Work on [improving performance of rules](docs/developer-guide/benchmarks.md).
+-   Create or contribute to ecosystem tools, like the plugins for Atom and Sublime Text.
+-   Spread the word.
 
 We communicate via [issues](https://github.com/stylelint/stylelint/issues) and [pull requests](https://github.com/stylelint/stylelint/pulls).
 
@@ -70,6 +69,6 @@ There is also [stackoverflow](http://stackoverflow.com/questions/tagged/stylelin
 
 ## Important documents
 
-- [Changelog](CHANGELOG.md)
-- [Contributing Guidelines](CONTRIBUTING.md)
-- [License](https://raw.githubusercontent.com/stylelint/stylelint/master/LICENSE)
+-   [Changelog](CHANGELOG.md)
+-   [Contributing Guidelines](CONTRIBUTING.md)
+-   [License](https://raw.githubusercontent.com/stylelint/stylelint/master/LICENSE)

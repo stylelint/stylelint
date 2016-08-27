@@ -6,9 +6,9 @@ There is a schema for describing tests, and a function for creating "rule tester
 
 When developing plugins, you can use the following rule testers or create your own.
 
-- stylelint-test-rule-tape
-- stylelint-test-rule-mocha
-- stylelint-test-rule-ava
+-   stylelint-test-rule-tape
+-   stylelint-test-rule-mocha
+-   stylelint-test-rule-ava
 
 The rule tester used within the stylelint codebase is at `src/testUtils/testRule.js`. (It is the same as `stylelint-test-rule-tape`.)
 
@@ -31,25 +31,25 @@ Each test group object describes a set of test-cases for a certain rule with a c
 
 Required properties:
 
-- `ruleName` {string}: The name of the rule. Used in generated test-case descriptions.
-- `config` {any}: The rule's configuration for this test group. Should match the rule configuration format you'd use in `.stylelintrc`.
-- `accept` {array}: An array of objects describing test cases that *should not violate the rule*. Each object has these properties:
-  - `code` {string}: The source CSS to check.
-  - `description` {string}: *Optional.* A description of the case.
-  - `only` {boolean}: If `true`, run only this test case.
-- `reject` {array}: An array of objects describing test cases that *should violate the rule once*. Each object has these properties:
-  - `code` {string}: The source CSS to check.
-  - `message` {string}: The message of the expected violation.
-  - `line` {number}: *Optional but recommended.* The expected line number of the violation. If this is left out, the line won't be checked.
-  - `column` {number}: *Optional but recommended.* The expected column number of the violation. If this is left out, the column won't be checked.
-  - `description` {string}: *Optional.* A description of the case.
-  - `only` {boolean}: If `true`, run only this test case.
+-   `ruleName` {string}: The name of the rule. Used in generated test-case descriptions.
+-   `config` {any}: The rule's configuration for this test group. Should match the rule configuration format you'd use in `.stylelintrc`.
+-   `accept` {array}: An array of objects describing test cases that *should not violate the rule*. Each object has these properties:
+    -   `code` {string}: The source CSS to check.
+    -   `description` {string}: *Optional.* A description of the case.
+    -   `only` {boolean}: If `true`, run only this test case.
+-   `reject` {array}: An array of objects describing test cases that *should violate the rule once*. Each object has these properties:
+    -   `code` {string}: The source CSS to check.
+    -   `message` {string}: The message of the expected violation.
+    -   `line` {number}: *Optional but recommended.* The expected line number of the violation. If this is left out, the line won't be checked.
+    -   `column` {number}: *Optional but recommended.* The expected column number of the violation. If this is left out, the column won't be checked.
+    -   `description` {string}: *Optional.* A description of the case.
+    -   `only` {boolean}: If `true`, run only this test case.
 
 Optional properties:
 
-- `syntax` {"css"|"less"|"scss"|"sugarss"}: Defaults to `"css"`. Other settings use special parsers.
-- `skipBasicChecks` {boolean}: Defaults to `false`. If `true`, a few rudimentary checks (that should almost always be included) will not be performed. You can check those out in `src/testUtils/basicChecks.js`.
-- `preceedingPlugins` {array}: An array of PostCSS plugins that should be run before the CSS is tested.
+-   `syntax` {"css"|"less"|"scss"|"sugarss"}: Defaults to `"css"`. Other settings use special parsers.
+-   `skipBasicChecks` {boolean}: Defaults to `false`. If `true`, a few rudimentary checks (that should almost always be included) will not be performed. You can check those out in `src/testUtils/basicChecks.js`.
+-   `preceedingPlugins` {array}: An array of PostCSS plugins that should be run before the CSS is tested.
 
 ## Creating a rule tester
 
@@ -63,28 +63,28 @@ Pass in an `equalityCheck` function. Given some information, this checker should
 
 The `equalityCheck` function should accept two arguments:
 
-- `processCss` {Promise}: A Promise that resolves with an array of comparisons that you need to check (documented below).
-- `context` {object}: An object that contains additional information you may need:
-  - `caseDescription` {string}: A description of the test case as  whole. It will end up printing like something this:
-  ```bash
-  > rule: value-list-comma-space-before
-  > config: "always-single-line"
-  > code: "a { background-size: 0 ,0;\n}"
-  ```
-  - `comparisonCount` {number}: The number of comparisons that will need to be performed (e.g. useful for tape).
-  - `completeAssertionDescription` {string}: While each individual comparison may have its own description, this is a description of the whole assertion (e.g. useful for Mocha).
-  - `only` {boolean}: If `true`, the test runner should only run this test case (e.g. `test.only` in tape, `describe.only` in Mocha).
+-   `processCss` {Promise}: A Promise that resolves with an array of comparisons that you need to check (documented below).
+-   `context` {object}: An object that contains additional information you may need:
+    -   `caseDescription` {string}: A description of the test case as  whole. It will end up printing like something this:
+    ```bash
+    > rule: value-list-comma-space-before
+    > config: "always-single-line"
+    > code: "a { background-size: 0 ,0;\n}"
+    ```
+    -   `comparisonCount` {number}: The number of comparisons that will need to be performed (e.g. useful for tape).
+    -   `completeAssertionDescription` {string}: While each individual comparison may have its own description, this is a description of the whole assertion (e.g. useful for Mocha).
+    -   `only` {boolean}: If `true`, the test runner should only run this test case (e.g. `test.only` in tape, `describe.only` in Mocha).
 
 `processCss` is a Promise that resolves with an array of comparisons. Each comparison has the following properties:
 
-- `actual` {any}: Some actual value.
-- `expected` {any}: Some expected value.
-- `description` {string}: A (possibly empty) description of the comparison.
+-   `actual` {any}: Some actual value.
+-   `expected` {any}: Some expected value.
+-   `description` {string}: A (possibly empty) description of the comparison.
 
 Within the `equalityCheck` function, you need to ensure that you do the following:
 
-- Set up the test case.
-- When `processCss` resolves, loop through every comparison.
-- For each comparison, make an assertion checking that `actual === expected`.
+-   Set up the test case.
+-   When `processCss` resolves, loop through every comparison.
+-   For each comparison, make an assertion checking that `actual === expected`.
 
 A `testRule` function (as described above) is returned.

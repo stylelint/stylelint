@@ -6,11 +6,10 @@ The rules have been designed to work in conjunction with one another so that str
 
 ## About rule names
 
-- Made of lowercase words separated by hyphens.
-- Split into two parts:
-
-  - The first describes what [*thing*](http://apps.workflower.fi/vocabs/css/en) the rule applies to.
-  - The second describes what the rule is checking.
+-   Made of lowercase words separated by hyphens.
+-   Split into two parts:
+    -   The first describes what [*thing*](http://apps.workflower.fi/vocabs/css/en) the rule applies to.
+    -   The second describes what the rule is checking.
 
 ```js
 "number-leading-zero"
@@ -18,7 +17,7 @@ The rules have been designed to work in conjunction with one another so that str
 // the thing  what the rule is checking
 ```
 
-- Except when the rule applies to the whole stylesheet:
+-   Except when the rule applies to the whole stylesheet:
 
 ```js
 "no-eol-whitespace"
@@ -33,10 +32,9 @@ Most rules allow you to choose whether you want to require *or* disallow somethi
 
 For example, whether numbers *must* or *must not* have a leading zero:
 
-- `number-leading-zero`: `string - "always"|"never"`
-
-  - `"always"` - there *must always* be a leading zero.
-  - `"never"` - there *must never* be a leading zero.
+-   `number-leading-zero`: `string -   "always"|"never"`
+    -   `"always"` -   there *must always* be a leading zero.
+    -   `"never"` -   there *must never* be a leading zero.
 
 ```css
 a { line-height: 0.5; }
@@ -48,7 +46,7 @@ However, some rules *just disallow* something. `*-no-*` is used to identify thes
 
 For example, whether empty blocks should be disallowed:
 
-- `block-no-empty` - blocks *must not* be empty.
+-   `block-no-empty` -   blocks *must not* be empty.
 
 ```css
 a {   }
@@ -64,7 +62,7 @@ Notice how, for a rule like this, it does not make sense to have an option to en
 
 For example, specifying the maximum number of digits after the "." in a number:
 
-- `number-max-precision`: `int`
+-   `number-max-precision`: `int`
 
 ```css
 a { font-size: 1.333em; }
@@ -78,12 +76,12 @@ Whitespace rules allow you to specify whether an empty line, a single space, a n
 
 The whitespace rules combine two sets of keywords:
 
-1. `before`, `after` and `inside` are used to specify where the whitespace (if any) is expected.
-2. `empty-line`, `space` and `newline` are used to specify whether a single empty line, a single space, a single newline or no space is expected there.
+1.  `before`, `after` and `inside` are used to specify where the whitespace (if any) is expected.
+2.  `empty-line`, `space` and `newline` are used to specify whether a single empty line, a single space, a single newline or no space is expected there.
 
 For example, specifying if a single empty line or no space must come before all the comments in a stylesheet:
 
-- `comment-empty-line-before`: `string` - `"always"|"never"`
+-   `comment-empty-line-before`: `string` -   `"always"|"never"`
 
 ```css
 a {}
@@ -96,11 +94,11 @@ a {}
 
 Additionally, some whitespace rule make use of another set of keywords:
 
-1. `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` or `range-operator` are used if a specific piece of punctuation in the *thing* is being targetted.
+1.  `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` or `range-operator` are used if a specific piece of punctuation in the *thing* is being targetted.
 
 For example, specifying if a single space or no space must come after a comma in a function:
 
-- `function-comma-space-after`: `string` - `"always"|"never"`
+-   `function-comma-space-after`: `string` -   `"always"|"never"`
 
 ```css
 a { transform: translate(1, 1) }
@@ -110,7 +108,7 @@ a { transform: translate(1, 1) }
 
 The plural of the punctuation is used for `inside` rules. For example, specifying if a single space or no space must be inside the parentheses of a function:
 
-- `function-parentheses-space-inside`: `string` - `"always"|"never"`
+-   `function-parentheses-space-inside`: `string` -   `"always"|"never"`
 
 ```css
 a { transform: translate( 1, 1 ); }
@@ -141,10 +139,10 @@ Some *things* (e.g. declaration blocks and value lists) can span more than one l
 
 For example, this is the complete set of `value-list-comma-*` rules and their options:
 
-- `value-list-comma-space-after`: `"always"|"never"|"always-single-line"|"never-single-line"`
-- `value-list-comma-space-before`: `"always"|"never"|"always-single-line"|"never-single-line"`
-- `value-list-comma-newline-after`: `"always"|"always-multi-line|"never-multi-line"`
-- `value-list-comma-newline-before`: `"always"|"always-multi-line"|"never-multi-line"`
+-   `value-list-comma-space-after`: `"always"|"never"|"always-single-line"|"never-single-line"`
+-   `value-list-comma-space-before`: `"always"|"never"|"always-single-line"|"never-single-line"`
+-   `value-list-comma-newline-after`: `"always"|"always-multi-line|"never-multi-line"`
+-   `value-list-comma-newline-before`: `"always"|"always-multi-line"|"never-multi-line"`
 
 Where `*-multi-line` and `*-single-line` are in reference to the value list (the *thing*). For example, given:
 

@@ -6,9 +6,9 @@ Sometimes an upcoming release needs a little extra planning (and help from the s
 
 In `7.0.0` we will be removing:
 
-- the `emptyLineBefore` option from the `declaration-block-properties-order` rule.
-- the `hierarchicalSelectors` option from the `indentation` rule.
-- the `-e` and `--extract` CLI flags and the `extractStyleTagsFromHtml` node API option.
+-   the `emptyLineBefore` option from the `declaration-block-properties-order` rule.
+-   the `hierarchicalSelectors` option from the `indentation` rule.
+-   the `-e` and `--extract` CLI flags and the `extractStyleTagsFromHtml` node API option.
 
 This is to ensure that development on the linter remains sustainable.
 
