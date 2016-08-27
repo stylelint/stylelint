@@ -120,8 +120,8 @@
   },
   "remarkConfig": {
     "presets": [
-      "remark-preset-lint-recommended",
-      "remark-preset-lint-consistent"
+      "lint-recommended",
+      "lint-consistent"
     ]
   }
 }
