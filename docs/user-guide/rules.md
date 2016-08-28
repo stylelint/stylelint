@@ -123,6 +123,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 -   [`declaration-block-no-duplicate-properties`](../../src/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks.
 -   [`declaration-block-no-ignored-properties`](../../src/rules/declaration-block-no-ignored-properties/README.md): Disallow property values that are ignored due to another property value in the same rule.
+-   [`declaration-block-no-redundant-longhand-properties`](../../src/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow longhand properties that can be combined into one shorthand property.
 -   [`declaration-block-no-shorthand-property-overrides`](../../src/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties within declaration blocks.
 -   [`declaration-block-properties-order`](../../src/rules/declaration-block-properties-order/README.md): Specify the order of properties within declaration blocks.
 -   [`declaration-block-semicolon-newline-after`](../../src/rules/declaration-block-semicolon-newline-after/README.md): Require a newline or disallow whitespace after the semicolons of declaration blocks.
