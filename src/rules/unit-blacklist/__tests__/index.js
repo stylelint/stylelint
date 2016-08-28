@@ -200,8 +200,15 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
 
-  config: [ [ "px", "vmin" ], { ignoreProperties: { "px": [ "font-size", "margin", "/^border/" ],
-                                                  "vmin": [ "width", "height" ] } } ],
+  config: [
+    [ "px", "vmin" ],
+    {
+      ignoreProperties: {
+        "px": [ "font-size", "margin", "/^border/" ],
+        "vmin": [ "width", "height" ],
+      },
+    },
+  ],
 
   accept: [ {
     code: "a { font-size: 13px; }",

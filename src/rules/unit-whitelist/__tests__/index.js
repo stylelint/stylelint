@@ -198,8 +198,15 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
 
-  config: [ [ "px", "em" ], { ignoreProperties: { "rem": [ "line-height", "margin", "/^border/" ],
-                                                    "%": [ "width", "height" ] } } ],
+  config: [
+    [ "px", "em" ],
+    {
+      ignoreProperties: {
+        "rem": [ "line-height", "margin", "/^border/" ],
+        "%": [ "width", "height" ],
+      },
+    },
+  ],
 
   accept: [ {
     code: "a { line-height: 0.1rem; }",

@@ -41,7 +41,7 @@ function rule(blacklistInput, options) {
 
         if (!unit || (unit && blacklist.indexOf(unit.toLowerCase()) === -1)) { return }
 
-        if (options && optionsMatches(options["ignoreProperties"], unit.toLowerCase(), node.prop)) { return }
+        if (options && optionsMatches(options.ignoreProperties, unit.toLowerCase(), node.prop)) { return }
 
         report({
           index: getIndex(node) + valueNode.sourceIndex,
