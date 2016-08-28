@@ -11,6 +11,7 @@ import {
   validateOptions,
 } from "../../utils"
 import _ from "lodash"
+import { pseudoElements } from "../../reference/keywordSets"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 export const ruleName = "no-descending-specificity"
@@ -45,16 +46,16 @@ export default function (actual) {
 
     function checkSelector(selectorNode, rule, sourceIndex, comparisonContext) {
       const selector = selectorNode.toString()
-      const lastNonPseudoSelectorNode = lastCompoundSelectorWithoutPseudo(selectorNode)
+      const referenceSelectorNode = lastCompoundSelectorWithoutPseudoClasses(selectorNode)
       const selectorSpecificity = calculate(selector)[0].specificityArray
       const entry = { selector, specificity: selectorSpecificity }
 
-      if (!comparisonContext.has(lastNonPseudoSelectorNode)) {
-        comparisonContext.set(lastNonPseudoSelectorNode, [entry])
+      if (!comparisonContext.has(referenceSelectorNode)) {
+        comparisonContext.set(referenceSelectorNode, [entry])
         return
       }
 
-      const priorComparableSelectors = comparisonContext.get(lastNonPseudoSelectorNode)
+      const priorComparableSelectors = comparisonContext.get(referenceSelectorNode)
 
       priorComparableSelectors.forEach(priorEntry => {
         if (compare(selectorSpecificity, priorEntry.specificity) === -1) {
@@ -73,14 +74,14 @@ export default function (actual) {
   }
 }
 
-function lastCompoundSelectorWithoutPseudo(selectorNode) {
+function lastCompoundSelectorWithoutPseudoClasses(selectorNode) {
   const nodesAfterLastCombinator = _.last(selectorNode.nodes[0].split(node => {
     return node.type === "combinator"
   }))
 
-  const nodesWithoutPseudos = nodesAfterLastCombinator.filter(node => {
-    return node.type !== "pseudo"
-  })
+  const nodesWithoutPseudoClasses = nodesAfterLastCombinator.filter(node => {
+    return node.type !== "pseudo" || pseudoElements.has(node.value.replace(/:/g, ""))
+  }).join("")
 
-  return nodesWithoutPseudos.toString()
+  return nodesWithoutPseudoClasses.toString()
 }

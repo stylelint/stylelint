@@ -10,6 +10,7 @@
 -   Added: `ignoreAtRules` option to `max-nesting-depth`.
 -   Added: `function-url-scheme-whitelist` rule.
 -   Added: `ignoreProperties` option to `color-named`.
+-   Fixed: `no-descending-specificity` treats selectors with pseudo-elements as distinct from their counterparts without pseudo-classes, because they actually target different elements.
 -   Fixed: no longer parsing ignored files before ignoring them.
 -   Fixed: `selector-pseudo-class-no-unknown` now understands the Shadow DOM selectors of `host` and `host-context`.
 -   Fixed: `selector-pseudo-element-no-unknown` now understands the Shadow DOM selector of `slotted`.

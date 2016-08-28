@@ -39,6 +39,14 @@ testRule(rule, {
   }, {
     code: "a:hover {} a:hover::before {}",
   }, {
+    code: "a:hover::before {} a:hover {}",
+  }, {
+    code: "a:not(.foo):hover {} a::before {}",
+  }, {
+    code: "a::before {} a:not(.foo):hover {} ",
+  }, {
+    code: "a::before {} a {} a:hover a:hover::before {} ",
+  }, {
     code: ".m:hover {} .b {}",
   }, {
     code: ".menu:hover {} .burger {}",
@@ -91,20 +99,15 @@ testRule(rule, {
     line: 1,
     column: 31,
   }, {
-    code: "a::before {} a {} ",
-    description: "pseudo-element first",
-    message: messages.rejected("a", "a::before"),
-    line: 1,
-    column: 14,
-  }, {
     code: "a:hover {} a {} ",
     description: "pseudo-class first",
     message: messages.rejected("a", "a:hover"),
     line: 1,
     column: 12,
   }, {
-    code: "a:hover::before {} a:hover {} ",
-    message: messages.rejected("a:hover", "a:hover::before"),
+    code: "a:hover::before {} a::before {} a {} a:hover ",
+    description: "pseudo-element with pseudo-class",
+    message: messages.rejected("a::before", "a:hover::before"),
     line: 1,
     column: 20,
   } ],
