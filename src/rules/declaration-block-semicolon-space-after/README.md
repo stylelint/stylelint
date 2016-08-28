@@ -10,6 +10,8 @@ a { color: pink; top: 0; }
 
 This rule ignores semicolons that are preceded by Less mixins.
 
+This rule ignores the last semicolon of declaration blocks. Use the `block-closing-brace-*-before` rules to control the whitespace between the last semicolon and the closing brace instead.
+
 ## Options
 
 `string`: `"always"|"never"|"always-single-line"|"never-single-line"`
