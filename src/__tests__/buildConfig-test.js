@@ -107,6 +107,32 @@ test(
   t.plan(planned)
 })
 
+test(
+  "buildConfig finds config (via options.configFile), resolves plugin names into absolute paths, " +
+  "interpreting relative paths relative to configBasedir", t => {
+  let planned = 0
+
+  const optionsA = {
+    configFile: path.join(__dirname, "./fixtures/config-relative-plugin-nested.json"),
+    configBasedir: path.join(__dirname, "./fixtures/nested-plugin"),
+  }
+  buildConfig(optionsA).then(({ config, configDir }) => {
+    t.deepEqual(config, {
+      plugins: [
+        path.join(__dirname, "./fixtures/nested-plugin/plugin-nested-warn-about-foo.js"),
+      ],
+      rules: {
+        "plugin/warn-about-foo": "always",
+      },
+    }, "returns config")
+    t.equal(configDir, path.join(__dirname, "./fixtures/nested-plugin"
+    ), "uses configBasedir as configDir")
+  }).catch(logError)
+  planned += 2
+
+  t.plan(planned)
+})
+
 test("buildConfig extends", t => {
   let planned = 0
 
