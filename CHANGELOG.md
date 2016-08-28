@@ -1,4 +1,4 @@
-# Head
+# 7.2.0
 
 -   Added: `--report-needless-disables` and `reportNeedlessDisables` option.
 -   Added: `--ignore-disables` and `ignoreDisables` option.
