@@ -1,4 +1,4 @@
-<!-- Please answer the following questions: -->
+<!-- Please answer the following questions. Issues that don't use this template will be closed. -->
 
 > Describe the issue. Is it a bug or a feature request (new rule, new option, etc.)?
 
