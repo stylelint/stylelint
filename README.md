@@ -4,8 +4,6 @@
 
 A mighty, modern CSS linter that helps you enforce consistent conventions and avoid errors in your stylesheets.
 
-**Upgrading? Please read our [CHANGELOG](CHANGELOG.md) to learn what changes to expect in the latest version, whether that's new features, bug fixes, renamed rules, or whatever else.**
-
 ## Features
 
 -   **Over one hundred and fifty rules:** Including those that:
@@ -50,25 +48,24 @@ You'll find more detailed information on using stylelint and tailoring it to you
 -   [User guide](docs/user-guide.md) - Usage, configuration, FAQ and complementary tools.
 -   [Developer guide](docs/developer-guide.md) - Contributing to stylelint and writing your own plugins & formatters.
 
+## Need help?
+
+If you're looking for help or have a support question, then check out our [FAQ](docs/user-guide/faq.md) first. If the answer to your problem isn't there, then go to [stackoverflow](http://stackoverflow.com/questions/tagged/stylelint). stackoverflow is a huge Question and Answer community, and tagging your post there with "stylelint" will catch the stylelint team's attention.
+
+If you think you've found a bug or if you have feature request, then create a [new GitHub issue](https://github.com/stylelint/stylelint/issues/new). Be sure to follow the issue template, answering each question, as this helps us greatly in understanding your problem or request.
+
+Upgrading? Please read our [CHANGELOG](CHANGELOG.md) to learn what changes to expect in the latest version, whether that's new features, bug fixes, renamed rules, or whatever else.
+
 ## Help out
 
-There is always a lot of work to do, and already well over 100 rules to maintain. So please help out in any way that you can:
+There is always a lot of work to do, and already well over 150 rules to maintain. So please help out in any way that you can:
 
+-   Chime in on any open [issue](https://github.com/stylelint/stylelint/issues) or [pull request](https://github.com/stylelint/stylelint/pulls).
 -   Create, enhance, and debug rules (see our guide to ["Working on rules"](docs/developer-guide/rules.md)).
--   Improve documentation.
--   Chime in on any open issue or pull request.
--   Open new issues about your ideas for making stylelint better, and pull requests to show us how your idea works.
+-   Improve [documentation](docs/).
 -   Add new tests to *absolutely anything*.
 -   Work on [improving performance of rules](docs/developer-guide/benchmarks.md).
--   Create or contribute to ecosystem tools, like the plugins for Atom and Sublime Text.
--   Spread the word.
+-   Open new issues about your ideas for making stylelint better, and pull requests to show us how your idea works.
+-   Create or contribute to ecosystem tools, like the plugins for [Atom](https://github.com/AtomLinter/linter-stylelint) and [Sublime Text](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint).
 
-We communicate via [issues](https://github.com/stylelint/stylelint/issues) and [pull requests](https://github.com/stylelint/stylelint/pulls).
-
-There is also [stackoverflow](http://stackoverflow.com/questions/tagged/stylelint), which is our preferred QA forum. Tag your post with "stylelint".
-
-## Important documents
-
--   [Changelog](CHANGELOG.md)
--   [Contributing Guidelines](CONTRIBUTING.md)
--   [License](https://raw.githubusercontent.com/stylelint/stylelint/master/LICENSE)
+[License](https://raw.githubusercontent.com/stylelint/stylelint/master/LICENSE)
