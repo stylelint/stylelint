@@ -1,27 +1,27 @@
 # Head
 
--   Added: `--config-basedir` option to CLI.
--   Added: `ignoreProperties` option to `unit-blacklist` and `unit-whitelist`
--   Added: `ignore: ["consecutive-duplicates-with-different-values"]` option to `declaration-block-no-duplicate-properties`.
 -   Added: `--report-needless-disables` and `reportNeedlessDisables` option.
 -   Added: `--ignore-disables` and `ignoreDisables` option.
+-   Added: `--config-basedir` option to CLI.
 -   Added: `declaration-block-no-redundant-longhand-properties` rule.
--   Added: `value-list-max-empty-lines` rule.
+-   Added: `function-url-scheme-whitelist` rule.
 -   Added: `media-feature-name-no-unknown` rule.
+-   Added: `selector-descendant-combinator-no-non-space` rule.
+-   Added: `value-list-max-empty-lines` rule.
+-   Added: `ignoreProperties` option to `color-named`.
+-   Added: `ignore: ["consecutive-duplicates-with-different-values"]` option to `declaration-block-no-duplicate-properties`.
 -   Added: `ignore: ["comments"]` option to `max-line-length`.
 -   Added: `ignoreAtRules` option to `max-nesting-depth`.
--   Added: `function-url-scheme-whitelist` rule.
--   Added: `selector-descendant-combinator-no-non-space` rule.
--   Added: `ignoreProperties` option to `color-named`.
--   Fixed: `no-descending-specificity` treats selectors with pseudo-elements as distinct from their counterparts without pseudo-classes, because they actually target different elements.
+-   Added: `ignoreProperties` option to `unit-blacklist` and `unit-whitelist`
 -   Fixed: no longer parsing ignored files before ignoring them.
--   Fixed: `selector-pseudo-class-no-unknown` now understands the Shadow DOM selectors of `host` and `host-context`.
--   Fixed: `selector-pseudo-element-no-unknown` now understands the Shadow DOM selector of `slotted`.
+-   Fixed: `configFile` and `configBasedir` can now be used together.
+-   Fixed: `max-line-length` now correctly handles Windows line endings.
+-   Fixed: `no-descending-specificity` treats selectors with pseudo-elements as distinct from their counterparts without pseudo-classes, because they actually target different elements.
 -   Fixed: `no-unknown-animations` and `unit-blacklist` now handle numbers without leading zeros.
 -   Fixed: `root-no-standard-properties` now handles custom property sets.
 -   Fixed: `selector-no-type` `ignore: ["descendant"]` option now correctly handles descendants within a selector list.
--   Fixed: `configFile` and `configBasedir` can now be used together.
--   Fixed: `max-line-length` now correctly handles Windows line endings.
+-   Fixed: `selector-pseudo-class-no-unknown` now understands the Shadow DOM selectors of `host` and `host-context`.
+-   Fixed: `selector-pseudo-element-no-unknown` now understands the Shadow DOM selector of `slotted`.
 
 # 7.1.0
 
