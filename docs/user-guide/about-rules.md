@@ -118,7 +118,9 @@ a { transform: translate( 1, 1 ); }
 
 ## Rules work together
 
-The `*-before` and `*-after` whitespace rules can be used together to enforce strict conventions.
+The whitespace rules can be used together to enforce strict conventions.
+
+### `*-newline/space-before` and `*-newline/space-after`
 
 Say you want to enforce no space before and a single space after the colon in every declaration:
 
@@ -158,7 +160,7 @@ b {
 
 There is only a single-line value list in this example. The selector is multi-line, as is the declaration block and, as such, also the rule. But the value list isn't and that is what the `*-multi-line` and `*-single-line` refer to in the context of this rule.
 
-### Example A
+#### Example A
 
 Say you only want to allow single-line value lists. And you want to enforce no space before and a single space after the commas:
 
@@ -176,7 +178,7 @@ You can enforce that with:
 "value-list-comma-space-before": "never",
 ```
 
-### Example B
+#### Example B
 
 Say you want to allow both single-line and multi-line value lists. You want there to be a single space after the commas in the single-line lists and no space before the commas in both the single-line and multi-line lists:
 
@@ -197,7 +199,7 @@ You can enforce that with:
 "value-list-comma-space-before": "never",
 ```
 
-### Example C
+#### Example C
 
 Say you want to allow both single-line and multi-line value lists. You want there to be no space before the commas in the single-line lists and always a space after the commas in both lists:
 
@@ -218,7 +220,7 @@ You can enforce that with:
 "value-list-comma-space-before": "never-single-line",
 ```
 
-### Example D
+#### Example D
 
 Lastly, the rules are flexible enough to enforce entirely different conventions for single-line and multi-line lists. Say you want to allow both single-line and multi-line value lists. You want the single-line lists to have a single space before and after the colons. Whereas you want the multi-line lists to have a single newline before the commas, but no space after:
 
@@ -238,4 +240,86 @@ You can enforce that with:
 "value-list-comma-newline-before": "always-multi-line",
 "value-list-comma-space-after": "always-single-line",
 "value-list-comma-space-before": "always-single-line",
+```
+
+### `*-empty-line-before` and `*-max-empty-lines`
+
+These rules work together to control where empty lines are allowed.
+
+Each *thing* is responsible for pushing itself away from the *preceding thing*, rather than pushing the *subsequent thing* away. This consistency is to avoid conflicts, and is why there aren't any `*-empty-line-after` rules in stylelint.
+
+Say you want to enforce the following:
+
+```css
+a {
+  background: green;
+  color: red;
+
+  @media (min-width: 30em) {
+    color: blue;
+  }
+}
+
+b {
+  --custom-property: green;
+
+  background: pink;
+  color: red;
+}
+```
+
+You can do that with:
+
+```js
+"at-rule-empty-line-before": ["always", {
+  except: ["first-nested"]
+}],
+"custom-property-empty-line-before": [ "always", {
+  except: [
+    "after-custom-property",
+    "first-nested",
+  ]
+}],
+"declaration-empty-line-before": ["always", {
+  except: [
+    "after-declaration",
+    "first-nested",
+  ]
+}],
+"block-closing-brace-empty-line-before": "never",
+"rule-non-nested-empty-line-before": ["always-multi-line"]
+```
+
+We recommend that you set your primary option (e.g. `"always"` or `"never"`) to whatever is your most common occurrence and define your exceptions with the `except` optional secondary options. There are many values for the `except` option e.g. `first-nested`, `after-comment` etc.
+
+The `*-empty-line-before` rules control whether there must never be an empty line or whether there must be *one or more* empty lines before a *thing*. The `*-max-empty-lines` rules complement this by controlling *the number* of empty lines within *things*. The `max-empty-lines` rule is used to set a limit across the entire source. A *stricter* limit can then be set within *things* using the likes of `function-max-empty-lines`, `selector-max-empty-lines` and `value-list-max-empty-lines`.
+
+For example, say you want to enforce the following:
+
+```css
+a,
+b {
+  box-shadow:
+    inset 0 2px 0 #dcffa6,
+    0 2px 5px #000;
+}
+
+c {
+  transform:
+    translate(
+      1,
+      1
+    );
+}
+```
+
+i.e. a maximum of 1 empty line within the whole source, but no empty lines within functions, selector lists and value lists.
+
+You can do that with:
+
+```js
+"function-max-empty-lines": 0,
+"max-empty-lines": 1
+"selector-list-max-empty-lines": 0,
+"value-list-max-empty-lines": 0
 ```
