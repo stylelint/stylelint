@@ -69,3 +69,7 @@ Use the [`defaultSeverity`](/docs/user-guide/configuration.md#defaultSeverity) c
 ## Can I bundle more than one sharable config within a npm package?
 
 A user can `require()` any file in your npm package, so all you need to do is document which paths point to configs (e.g. `require('my-package/config-2')`).
+
+## How can I control the whitespace after the open brace of the block?
+
+Refer to [this](/docs/user-guide/about-rules.md#-empty-line-before-and--max-empty-lines) section of the docs that explains how the `*-empty-line-before` rules work.
