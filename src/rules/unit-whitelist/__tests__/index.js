@@ -194,3 +194,45 @@ testRule(rule, {
     column: 18,
   }],
 })
+
+testRule(rule, {
+  ruleName,
+
+  config: [ [ "px", "em" ], { ignoreProperties: { "rem": [ "line-height", "margin", "/^border/" ],
+                                                    "%": [ "width", "height" ] } } ],
+
+  accept: [ {
+    code: "a { line-height: 0.1rem; }",
+  }, {
+    code: "a { line-height: 0.1rEm; }",
+  }, {
+    code: "a { margin: 0 20rem; }",
+  }, {
+    code: "a { margin: 0 0 0 20reM; }",
+  }, {
+    code: "a { width: 100%; }",
+  }, {
+    code: "a { height: 50%; }",
+  }, {
+    code: "a { border: 1rem solid purple; }",
+  }, {
+    code: "a { border-bottom-width: 6rem; }",
+  } ],
+
+  reject: [ {
+    code: "a { font-size: 80%; }",
+    message: messages.rejected("%"),
+    line: 1,
+    column: 16,
+  }, {
+    code: "a { background-image: linear-gradient(to right, white calc(100px - 5rem), silver); }",
+    message: messages.rejected("rem"),
+    line: 1,
+    column: 68,
+  }, {
+    code: "a { -moz-border-radius-topright: 40rem; }",
+    message: messages.rejected("rem"),
+    line: 1,
+    column: 34,
+  } ],
+})
