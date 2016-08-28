@@ -6,7 +6,7 @@ const fixturesPath = path.join(__dirname, "fixtures")
 
 test("standalone with extending config and ignoreFiles glob ignoring single glob", t => {
   standalone({
-    files: [`${fixturesPath}/*.css`],
+    files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
     config: {
       ignoreFiles: "**/invalid-hex.css",
       extends: [
@@ -51,7 +51,7 @@ test("standalone with absolute ignoreFiles glob path", t => {
 
 test("standalone with extending config with ignoreFiles glob ignoring one by negation", t => {
   standalone({
-    files: [`${fixturesPath}/*.css`],
+    files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
     config: {
       ignoreFiles: [
         "**/*.css",
@@ -119,7 +119,7 @@ test("standalone using ignoreFiles with input files that would cause a postcss s
 test("standalone extending a config that ignores files", t => {
   let planned = 0
   standalone({
-    files: [`${fixturesPath}/*.css`],
+    files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
     config: {
       extends: [
         `${fixturesPath}/config-extending-and-ignoring`,
