@@ -122,6 +122,7 @@ import selectorAttributeQuotes from "./selector-attribute-quotes"
 import selectorClassPattern from "./selector-class-pattern"
 import selectorCombinatorSpaceAfter from "./selector-combinator-space-after"
 import selectorCombinatorSpaceBefore from "./selector-combinator-space-before"
+import selectorDescendantCombinatorNoNonSpace from "./selector-descendant-combinator-no-non-space"
 import selectorIdPattern from "./selector-id-pattern"
 import selectorListCommaNewlineAfter from "./selector-list-comma-newline-after"
 import selectorListCommaNewlineBefore from "./selector-list-comma-newline-before"
@@ -291,6 +292,7 @@ export default {
   "selector-class-pattern": selectorClassPattern,
   "selector-combinator-space-after": selectorCombinatorSpaceAfter,
   "selector-combinator-space-before": selectorCombinatorSpaceBefore,
+  "selector-descendant-combinator-no-non-space": selectorDescendantCombinatorNoNonSpace,
   "selector-id-pattern": selectorIdPattern,
   "selector-list-comma-newline-after": selectorListCommaNewlineAfter,
   "selector-list-comma-newline-before": selectorListCommaNewlineBefore,

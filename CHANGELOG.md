@@ -11,6 +11,7 @@
 -   Added: `ignore: ["comments"]` option to `max-line-length`.
 -   Added: `ignoreAtRules` option to `max-nesting-depth`.
 -   Added: `function-url-scheme-whitelist` rule.
+-   Added: `selector-descendant-combinator-no-non-space` rule.
 -   Added: `ignoreProperties` option to `color-named`.
 -   Fixed: `no-descending-specificity` treats selectors with pseudo-elements as distinct from their counterparts without pseudo-classes, because they actually target different elements.
 -   Fixed: no longer parsing ignored files before ignoring them.
