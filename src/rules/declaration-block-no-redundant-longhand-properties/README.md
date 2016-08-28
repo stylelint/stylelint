@@ -24,20 +24,20 @@ This rule will only warn if you've used the longhand equivalent of *all* the pro
 
 This rule warns when the following shorthand properties can be used:
 
-- `padding`
-- `margin`
-- `background`
-- `font`
-- `border`
-- `border-top`
-- `border-bottom`
-- `border-left`
-- `border-right`
-- `border-width`
-- `border-style`
-- `border-color`
-- `border-radius`
-- `transition`
+-   `padding`
+-   `margin`
+-   `background`
+-   `font`
+-   `border`
+-   `border-top`
+-   `border-bottom`
+-   `border-left`
+-   `border-right`
+-   `border-width`
+-   `border-style`
+-   `border-color`
+-   `border-radius`
+-   `transition`
 
 ## Options
 
