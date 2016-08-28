@@ -54,6 +54,12 @@ const meowOptions = {
         The search will begin in the working directory and move up the directory
         tree until a configuration file is found.
 
+      --config-basedir
+
+        An absolute path to the directory that relative paths defining "extends"
+        and "plugins" are *relative to*. Only necessary if these values are
+        relative paths.
+
       --ignore-path, -i
 
         Path to a file containing patterns that describe files to ignore. The
@@ -134,6 +140,12 @@ if (cli.flags.config) {
   // in `process.cwd()`.
   optionsBase.configFile = resolveFrom(process.cwd(), cli.flags.config)
     || path.join(process.cwd(), cli.flags.config)
+}
+
+if (cli.flags.configBasedir) {
+  optionsBase.configBasedir = (path.isAbsolute(cli.flags.configBasedir))
+    ? cli.flags.configBasedir
+    : path.resolve(process.cwd(), cli.flags.configBasedir)
 }
 
 if (cli.flags.stdinFilename) {
