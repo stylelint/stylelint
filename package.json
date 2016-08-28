@@ -25,6 +25,7 @@
     "CONTRIBUTING.md",
     "dist",
     "docs",
+    "src/rules/**/*.md",
     "!**/__tests__"
   ],
   "engines": {
