@@ -10,6 +10,8 @@
 -   Added: `function-url-scheme-whitelist` rule.
 -   Added: `ignoreProperties` option to `color-named`.
 -   Fixed: no longer parsing ignored files before ignoring them.
+-   Fixed: `selector-pseudo-class-no-unknown` now understands the Shadow DOM selectors of `host` and `host-context`.
+-   Fixed: `selector-pseudo-element-no-unknown` now understands the Shadow DOM selector of `slotted`.
 -   Fixed: `no-unknown-animations` and `unit-blacklist` now handle numbers without leading zeros.
 -   Fixed: `root-no-standard-properties` now handles custom property sets.
 -   Fixed: `selector-no-type` `ignore: ["descendant"]` option now correctly handles descendants within a selector list.

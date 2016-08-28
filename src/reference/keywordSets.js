@@ -183,6 +183,7 @@ export const levelThreePseudoElements = new Set([
   "marker",
   "placeholder",
   "shadow",
+  "slotted",
   "content",
 ])
 
@@ -224,6 +225,8 @@ export const otherPseudoClasses = new Set([
   "fullscreen",
   "future",
   "has",
+  "host",
+  "host-context",
   "hover",
   "indeterminate",
   "in-range",
