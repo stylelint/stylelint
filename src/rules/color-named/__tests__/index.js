@@ -286,3 +286,32 @@ testRule(rule, {
     column: 22,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [ "never", { ignore: ["inside-function"] } ],
+
+  accept: [ {
+    code: "a { color: #000; }",
+  }, {
+    code: "a { color: gray(70%); }",
+  }, {
+    code: "a { background-image: url(red); }",
+  }, {
+    code: "a { color: map-get($colour, blue(60%)); }",
+  }, {
+    code: "a { color: map-get($colour, blue); }",
+  } ],
+
+  reject: [ {
+    code: "a { background: url(red) no-repeat rebeccapurple; }",
+    message: messages.rejected("rebeccapurple"),
+    line: 1,
+    column: 36,
+  }, {
+    code: "a { color: red; }",
+    message: messages.rejected("red"),
+    line: 1,
+    column: 12,
+  } ],
+})
