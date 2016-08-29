@@ -89,7 +89,6 @@ stylelint follows [semantic versioning](http://semver.org). However, due to the 
     -   A new formatter is created.
 
 -   Major release (likely to break your lint build)
-    -   [`stylelint-config=standard`](https://github.com/stylelint/stylelint-config-standard) is updated.
     -   A new option to an existing rule that results in stylelint reporting more errors by default.
     -   An existing rule is removed.
     -   An existing formatter is removed.
