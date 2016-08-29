@@ -1,3 +1,7 @@
+# 8.0.0
+
+-   Added: stylelint semantic version policy
+
 # 7.7.0
 
 -   Added: `stylelint.formatters` exposed in public Node API ([#2190](https://github.com/stylelint/stylelint/pull/2190)).
