@@ -74,12 +74,11 @@ There is always a lot of work to do, and already well over 150 rules to maintain
 stylelint follows [semantic versioning](http://semver.org). However, due to the nature of stylelint as a code quality tool, it's not always clear when a minor or major version bump occurs. To help clarify this for everyone, we've defined the following semantic versioning policy for stylelint:
 
 -   Patch release (intended to not break your lint build)
--   A bug fix in a rule that results in stylelint reporting fewer errors.
+    -   A bug fix in a rule that results in stylelint reporting fewer errors.
     -   A bug fix to the CLI or core (including formatters).
     -   Improvements to documentation.
     -   Non-user-facing changes such as refactoring code, adding, deleting, or modifying tests, and increasing test coverage.
     -   Re-releasing after a failed release (i.e., publishing a release that doesn't work for anyone).
-
 
 -   Minor release (might break your lint build)
     -   A bug fix in a rule that results in stylelint reporting more errors.
@@ -89,6 +88,7 @@ stylelint follows [semantic versioning](http://semver.org). However, due to the 
     -   A new CLI capability is created.
     -   New capabilities to the public API are added (new classes, new methods, new arguments to existing methods, etc.).
     -   A new formatter is created.
+
 -   Major release (likely to break your lint build)
     -   [`stylelint-config=standard`](https://github.com/stylelint/stylelint-config-standard) is updated.
     -   A new option to an existing rule that results in stylelint reporting more errors by default.
