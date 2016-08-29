@@ -119,6 +119,9 @@
       "template-curly-spacing": 2
     }
   },
+  "greenkeeper": {
+    "label": "PR: review needed"
+  },
   "remarkConfig": {
     "presets": [
       "lint-recommended",
