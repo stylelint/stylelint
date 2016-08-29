@@ -89,7 +89,7 @@ stylelint follows [semantic versioning](http://semver.org). However, due to the 
     -   A new formatter is created.
 
 -   Major release (likely to break your lint build)
-    -   A new option to an existing rule that results in stylelint reporting more errors by default.
+    -   A change in the documented behaviour of an existing rule results in stylelint reporting more errors by default.
     -   An existing rule is removed.
     -   An existing formatter is removed.
     -   Part of the public API is removed or changed in an incompatible way.
