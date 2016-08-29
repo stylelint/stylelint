@@ -80,3 +80,33 @@ test("needlessDisables complex case", t => {
     t.end()
   }).catch(t.end)
 })
+
+test("needlessDisables ignored case", t => {
+  const config = {
+    rules: {
+      "block-no-empty": true,
+    },
+  }
+
+  standalone({
+    config,
+    files: [
+      fixture("disabled-ranges-1.css"),
+      fixture("ignored-file.css"),
+    ],
+    ignoreDisables: true,
+    ignorePath: fixture(".stylelintignore"),
+  }).then(({ results }) => {
+    t.deepEqual(needlessDisables(results), [
+      {
+        source: fixture("disabled-ranges-1.css"),
+        ranges: [
+          { start: 1, end: 3 },
+          { start: 5, end: 7 },
+          { start: 10, end: 10 },
+        ],
+      },
+    ])
+    t.end()
+  }).catch(t.end)
+})

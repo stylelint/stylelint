@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: `--ignore-path` and `--report-needless-disables` no longer fails when used together.
+
 # 7.2.0
 
 -   Added: `--report-needless-disables` and `reportNeedlessDisables` option.
