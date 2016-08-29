@@ -61,7 +61,7 @@ export default function (space, options = {}) {
       const inspectBefore = (root.first === node) || before.indexOf("\n") !== -1
 
       // Cut out any * hacks from `before`
-      before = (before[before.length - 1] === "*")
+      before = (before[before.length - 1] === "*" || before[before.length - 1] === "_")
         ? before.slice(0, before.length - 1)
         : before
 
