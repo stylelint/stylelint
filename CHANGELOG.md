@@ -1,6 +1,6 @@
 # 8.0.0
 
--   Added: stylelint semantic version policy
+-   Changed: stylelint [semantic version policy](README.md#semantic-versioning-policy). We now recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds.
 
 # Head
 
