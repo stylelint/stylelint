@@ -1,3 +1,7 @@
+# 8.0.0
+
+-   Added: stylelint semantic version policy
+
 # 7.2.0
 
 -   Added: `--report-needless-disables` and `reportNeedlessDisables` option.
