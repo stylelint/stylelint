@@ -70,7 +70,7 @@ There is always a lot of work to do, and already well over 150 rules to maintain
 
 ## Semantic Versioning Policy
 
-stylelint follows [semantic versioning](http://semver.org). However, due to the nature of stylelint as a code quality tool, it's not always clear when a minor or major version bump occurs. To help clarify this for everyone, we've defined the following semantic versioning policy for stylelint:
+stylelint follows [semantic versioning](http://semver.org). However, due to the nature of stylelint as a code quality tool, it's not always clear when a minor or major version bump occurs. To help clarify this for everyone, based on ESLint's [semantic versioning policy](https://github.com/eslint/eslint#semantic-versioning-policy) we've defined the following semantic versioning policy for stylelint:
 
 -   Patch release (intended to not break your lint build)
     -   A bug fix in a rule that results in stylelint reporting fewer errors.
