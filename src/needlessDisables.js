@@ -7,6 +7,8 @@ export default function (results) {
     const unused = { source: result.source, ranges: [] }
     const rangeData = _.cloneDeep(result._postcssResult.stylelint.disabledRanges)
 
+    if (!rangeData) { return }
+
     result.warnings.forEach(warning => {
       const { rule } = warning
 
