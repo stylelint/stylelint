@@ -1,6 +1,7 @@
 # Head
 
 -   Fixed: `--ignore-path` and `--report-needless-disables` no longer fails when used together.
+-   Fixed: the `indentation` rule now correctly handles `_` hacks on property names.
 
 # 7.2.0
 

@@ -83,6 +83,10 @@ testRule(rule, {
     "  *top: 1px;\n" +
     "}",
   }, {
+    code: "a {\n" +
+    "  _top: 1px;\n" +
+    "}",
+  }, {
     code: "* { top: 0; }",
   }, {
     code: "@media print {\n" +
@@ -156,6 +160,10 @@ testRule(rule, {
   }, {
     code: "a {\r\n" +
     "  *top: 1px;\r\n" +
+    "}",
+  }, {
+    code: "a {\r\n" +
+    "  _top: 1px;\r\n" +
     "}",
   }, {
     code: "* { top: 0; }",
