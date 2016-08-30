@@ -1,5 +1,6 @@
 import {
   atRuleParamIndex,
+  isCustomMediaQuery,
   isRangeContextMediaFeature,
   isStandardSyntaxMediaFeatureName,
   optionsMatches,
@@ -34,8 +35,10 @@ export default function (actual, options) {
       mediaParser(atRule.params).walk(/^media-feature$/i, mediaFeatureNode => {
         const { parent, sourceIndex, value } = mediaFeatureNode
 
-        if (isRangeContextMediaFeature(parent.value)) { return }
-        if (!isStandardSyntaxMediaFeatureName(value)) { return }
+        if (isRangeContextMediaFeature(parent.value)
+          || !isStandardSyntaxMediaFeatureName(value)
+          || isCustomMediaQuery(value)
+        ) { return }
 
         if (optionsMatches(options, "ignoreMediaFeatureNames", value)) { return }
 
