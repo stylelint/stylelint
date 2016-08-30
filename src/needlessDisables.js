@@ -4,6 +4,9 @@ export default function (results) {
   const report = []
 
   results.forEach(result => {
+    // File with `CssSyntaxError` have not `_postcssResult`
+    if (!result._postcssResult) { return }
+
     const unused = { source: result.source, ranges: [] }
     const rangeData = _.cloneDeep(result._postcssResult.stylelint.disabledRanges)
 
