@@ -6,9 +6,6 @@
  */
 export default function (mediaFeatureName) {
 
-  // Custom media queries
-  if (mediaFeatureName[0] === "-" && mediaFeatureName[1] === "-") { return false }
-
   // SCSS interpolation
   if (/#{.+?}|\$.+?/.test(mediaFeatureName)) { return false }
 
