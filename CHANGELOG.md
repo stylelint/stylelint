@@ -1,5 +1,6 @@
 # Head
 
+-   Fixed: `block-no-single-line` now ignores empty blocks.
 -   Fixed: `--ignore-path` and `--report-needless-disables` no longer fails when used together.
 -   Fixed: the `indentation` rule now correctly handles `_` hacks on property names.
 

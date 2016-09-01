@@ -10,12 +10,9 @@ const rule = rules[ruleName]
 testRule(rule, {
   ruleName,
   config: [true],
-  skipBasicChecks: true,
 
   accept: [ {
-    code: "",
-  }, {
-    code: "@import \"foo.css\";",
+    code: "a { }",
   }, {
     code: "a {\ncolor: pink; }",
     description: "multi-line declaration block with newline at start",
