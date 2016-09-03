@@ -178,7 +178,7 @@ testRule(rule, {
   }, {
     code: "a {\n/* comment */\ntop: 15px;\n}",
   }, {
-    code: "a {\r\n/* comment */\r\nntop: 15px;\r\n}",
+    code: "a {\r\n/* comment */\r\ntop: 15px;\r\n}",
   } ],
 
   reject: [{
@@ -187,6 +187,37 @@ testRule(rule, {
     line: 2,
     column: 2,
   }],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "always", { ignore: ["after-declaration"] } ],
+
+  accept: [ {
+    code: "\ntop: 15px; top: 15px;\n",
+  }, {
+    code: "\r\ntop: 15px; top: 15px;\r\n",
+  }, {
+    code: "\ntop: 15px;\ntop: 15px;\n",
+  }, {
+    code: "\r\ntop: 15px;\r\ntop: 15px;\r\n",
+  }, {
+    code: "\ntop: 15px;\n\ntop: 15px;\n",
+  }, {
+    code: "\r\ntop: 15px;\r\n\r\ntop: 15px;\r\n",
+  } ],
+
+  reject: [ {
+    code: "a {\n top: 15px;\n}",
+    message: messages.expected,
+    line: 2,
+    column: 2,
+  }, {
+    code: "a {\r\n top: 15px;\r\n}",
+    message: messages.expected,
+    line: 2,
+    column: 2,
+  } ],
 })
 
 testRule(rule, {

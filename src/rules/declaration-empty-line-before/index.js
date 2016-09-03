@@ -35,6 +35,7 @@ export default function (expectation, options) {
         ],
         ignore: [
           "after-comment",
+          "after-declaration",
           "inside-single-line-block",
         ],
       },
@@ -53,6 +54,15 @@ export default function (expectation, options) {
         optionsMatches(options, "ignore", "after-comment")
         && decl.prev()
         && decl.prev().type === "comment"
+      ) {
+        return
+      }
+
+      // Optionally ignore the node if a declaration precedes it
+      if (
+        optionsMatches(options, "ignore", "after-declaration")
+        && decl.prev()
+        && decl.prev().type === "decl"
       ) {
         return
       }
