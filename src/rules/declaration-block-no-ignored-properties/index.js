@@ -130,10 +130,15 @@ export default function (actual) {
 
     if (!validOptions) { return }
 
+    const uniqueDecls = {}
     root.walkDecls((decl, index) => {
-      const { prop, value } = decl
+      uniqueDecls[decl.prop] = decl 
+    })
+    
+    Object.keys(uniqueDecls).forEach((prop, index) => {
+      const decl = uniqueDecls[prop]
       const unprefixedProp = vendor.unprefixed(prop)
-      const unprefixedValue = vendor.unprefixed(value)
+      const unprefixedValue = vendor.unprefixed(decl.value)
 
       ignored.forEach(ignore => {
         const matchProperty = matchesStringOrRegExp(unprefixedProp.toLowerCase(), ignore.property)
