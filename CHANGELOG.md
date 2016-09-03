@@ -1,3 +1,7 @@
+# Head
+
+-    Added: `ignore: ["after-declaration"]` option to `declaration-empty-line-before`.
+
 # 7.3.1
 
 -   Fixed: regression in 7.3.0 which caused a "Cannot read property 'length' of undefined" error on a certain selector.
