@@ -145,6 +145,12 @@ testRule(rule, {
     code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\" + $variable); }",
   }, {
     code: "a { background: url(\"/images/my_image@2x.png\") }",
+  }, {
+    code: "@-moz-document url-prefix() {}",
+  }, {
+    code: "a { background: url() }",
+  }, {
+    code: "a { background: url(\"\") }",
   } ],
 
   reject: [ {

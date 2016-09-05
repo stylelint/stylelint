@@ -54,6 +54,9 @@ export default function (expectation) {
     }
 
     function checkArgs(args, node, index, functionName) {
+      // skip empty brackets
+      if (args === "") { return }
+
       const leftTrimmedArgs = args.trimLeft()
       if (!isStandardSyntaxUrl(leftTrimmedArgs)) { return }
       const complaintIndex = index + args.length - leftTrimmedArgs.length
