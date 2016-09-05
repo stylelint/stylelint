@@ -40,6 +40,12 @@ testRule(rule, {
     code: ".a {} /* stylelint-disable-line block-no-empty */",
   }, {
     code: ".a {} /* stylelint-disable-line block-no-empty */\n b {}",
+  }, {
+    code: ":root {\n --x { color: pink; };\n --y { color: red; };\n }",
+    description: "Allow a trailing semicolon after the closing brace of a block",
+  }, {
+    code: ".foo {\n --my-theme: { color: red; };\n --toolbar-theme: { color: green; };\n }",
+    description: "Make sure trailing semicolon works well for blocks outside :root",
   } ],
 
   reject: [ {
@@ -77,6 +83,22 @@ testRule(rule, {
     message: messages.expectedAfter(),
     line: 1,
     column: 6,
+  }, {
+    code: ":root {\n --x { color: pink; } ;\n --y { color: red; };\n }",
+    message: messages.expectedAfter(),
+    line: 2,
+    column: 22,
+  }, {
+    code: ":root {\n --x { color: pink; }; \n --y { color: red; };\n }",
+    message: messages.expectedAfter(),
+    line: 2,
+    column: 23,
+  }, {
+    code: ".foo {\n --my-theme: { color: red; }; \n --toolbar-theme: { color: green; };\n }",
+    description: "Make sure trailing semicolon works well for blocks outside :root",
+    message: messages.expectedAfter(),
+    line: 2,
+    column: 30,
   } ],
 })
 

@@ -46,15 +46,24 @@ export default function (expectation) {
       if (!nextNode) { return }
       if (!hasBlock(statement)) { return }
 
+      let reportIndex = statement.toString().length
+      let source = rawNodeString(nextNode)
+
+      // Skip a semicolon at the beginning, if any
+      if (source && source[0] === ";") {
+        source = source.slice(1)
+        reportIndex++
+      }
+
       checker.after({
-        source: rawNodeString(nextNode),
+        source,
         index: -1,
         lineCheckStr: blockString(statement),
         err: msg => {
           report({
             message: msg,
             node: statement,
-            index: statement.toString().length,
+            index: reportIndex,
             result,
             ruleName,
           })
