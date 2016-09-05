@@ -92,9 +92,9 @@ testRule(rule, {
   }, {
     code: "a { display: inline; &::before { width: 100px; } }",
   }, {
-      code: "a { display: inline; display: inline-block; width: 100px; }",
+    code: "a { display: inline; display: inline-block; width: 100px; }",
   }, {
-      code: "a { display: inline; width: 100px; display: inline-block; }",
+    code: "a { display: inline; width: 100px; display: inline-block; }",
   } ],
 
   reject: [ {

@@ -131,10 +131,10 @@ export default function (actual) {
     if (!validOptions) { return }
 
     const uniqueDecls = {}
-    root.walkDecls((decl, index) => {
-      uniqueDecls[decl.prop] = decl 
+    root.walkDecls((decl) => {
+      uniqueDecls[decl.prop] = decl
     })
-    
+
     Object.keys(uniqueDecls).forEach((prop, index) => {
       const decl = uniqueDecls[prop]
       const unprefixedProp = vendor.unprefixed(prop)
