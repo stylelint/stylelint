@@ -42,3 +42,16 @@ test("`configFile` option with undefined rule", t => {
     t.deepEqual(err, configurationError(`Undefined rule "${ruleName}"`))
   })
 })
+
+test("lookup configuration file by css file's path", t => {
+  const config = {
+    from: path.join(__dirname, "fixtures/lookupConfig/a.css"),
+  }
+  t.plan(2)
+  postcssPlugin.process("a {}", config).then(result => {
+    const warnings = result.warnings()
+    t.equal(warnings.length, 1)
+    t.ok(warnings[0].text.indexOf("block-no-empty") !== -1)
+  })
+})
+
