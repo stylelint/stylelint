@@ -26,6 +26,8 @@ const FILE_NOT_FOUND_ERROR_CODE = "ENOENT"
  *   are for the options object, not a config.
  * @param {object} [options.config]
  * @param {object} [options.configFile] - Specify a configuration file (path) instead
+ * @param {object} [options.configLookup] - Specify a directory to start the search
+ *   configuration file from.
  * @param {object} [options.configBasedir] - Specify a base directory that things should be
  *   considered relative to.
  * @param {object} [options.configOverrides] - An object to merge on top of the
@@ -44,7 +46,7 @@ export default function (options) {
   const configBasedir = options.configBasedir || false
 
   if (rawConfig) {
-    const configDir = configBasedir || process.cwd()
+    const configDir = configBasedir || (options.filepath ? path.dirname(options.filepath) : process.cwd())
     return augmentConfig(rawConfig, configDir, {
       addIgnorePatterns: true,
       ignorePath: options.ignorePath,
@@ -67,6 +69,8 @@ export default function (options) {
 
   if (options.configFile) {
     cosmiconfigOptions.configPath = path.resolve(process.cwd(), options.configFile)
+  } else if (options.configLookup) {
+    cosmiconfigOptions.cwd = path.resolve(process.cwd(), options.configLookup)
   }
 
   let rootConfigDir
@@ -119,7 +123,7 @@ function addIgnores(config, configDir, ignorePath) {
   // Absoluteize config.ignoreFiles
   if (config.ignoreFiles) {
     config.ignoreFiles = [].concat(config.ignoreFiles).map(glob => {
-      if (path.isAbsolute(glob)) return glob
+      if (path.isAbsolute(glob.replace(/^\!/, ""))) return glob
       return globjoin(configDir, glob)
     })
   }

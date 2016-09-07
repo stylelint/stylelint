@@ -37,13 +37,72 @@ export default function ({
     throw new Error("You must pass stylelint a `files` glob or a `code` string, though not both")
   }
 
-  return buildConfig({
-    config,
-    configFile,
-    configBasedir,
-    configOverrides,
-    ignorePath,
-  }).then(({ config, configDir }) => {
+  let chosenFormatter = formatter
+
+  if (typeof chosenFormatter === "string") {
+    if (_.includes(Object.keys(formatters), chosenFormatter)) {
+      chosenFormatter = formatters[chosenFormatter]
+    } else {
+      return Promise.reject(new Error("You must use a valid formatter option, either: json, string or verbose"))
+    }
+  }
+
+  let errored = false
+
+  function getConfig(filepath) {
+    return buildConfig({
+      config,
+      configFile,
+      configBasedir,
+      configOverrides,
+      ignorePath,
+      configLookup: (filepath && path.dirname(filepath)),
+    })
+  }
+
+  function prepareReturnValue(results) {
+    const returnValue = {
+      results,
+      errored,
+      output: chosenFormatter(results),
+    }
+    if (reportNeedlessDisables) {
+      returnValue.needlessDisables = needlessDisables(results)
+    }
+    return returnValue
+  }
+
+  if (!files) {
+    return getConfig(codeFilename)
+      .then(({ config, configDir }) => lintString(code, codeFilename, config, configDir))
+      .then(result => prepareReturnValue([result]))
+  }
+
+  return globby([].concat(files, ignoredGlobs)).then(input => {
+    if (!input.length) {
+      const err = new Error("Files glob patterns specified did not match any files")
+      err.code = 80
+      throw err
+    }
+    const promises = input.map(filepath => lintFile(filepath))
+    return Promise.all(promises).then(results => {
+      return prepareReturnValue(results)
+    })
+  })
+
+  function lintFile(filepath) {
+    return Promise.all([
+      new Promise((resolve, reject) => {
+        readFile(filepath, "utf8", (err, code) => {
+          if (err) { return reject(err) }
+          resolve(code)
+        })
+      }),
+      getConfig(filepath),
+    ]).then(([ code, { config, configDir } ]) => lintString(code, filepath, config, configDir))
+  }
+
+  function lintString(code, filepath, config, configDir) {
 
     // Prepare processors
     const codeProcessors = []
@@ -58,187 +117,122 @@ export default function ({
       })
     }
 
-    let chosenFormatter = formatter
-
-    if (typeof chosenFormatter === "string") {
-      if (_.includes(Object.keys(formatters), chosenFormatter)) {
-        chosenFormatter = formatters[chosenFormatter]
-      } else {
-        throw new Error("You must use a valid formatter option, either: json, string or verbose")
-      }
-    }
-
-    let errored = false
-
-    let initialisedPostcss
-
-    const isFileIgnored = getIsFileIgnored(config.ignorePatterns, config.ignoreFiles)
-
-    function prepareReturnValue(results) {
-      const returnValue = {
-        results,
-        errored,
-        output: chosenFormatter(results),
-      }
-      if (reportNeedlessDisables) {
-        returnValue.needlessDisables = needlessDisables(results)
-      }
-      return returnValue
-    }
-
-    if (!files) {
-      return lintString(code, codeFilename).then(result => {
-        const results = [result]
-        return prepareReturnValue(results)
-      })
-    }
-
-    return globby([].concat(files, ignoredGlobs)).then(input => {
-      if (!input.length) {
-        const err = new Error("Files glob patterns specified did not match any files")
-        err.code = 80
-        throw err
-      }
-      const promises = input.map(filepath => lintFile(filepath))
-      return Promise.all(promises).then(results => {
-        return prepareReturnValue(results)
-      })
+    codeProcessors.forEach(codeProcessor => {
+      code = codeProcessor(code, filepath)
     })
 
-    function lintFile(filepath) {
-      return new Promise((resolve, reject) => {
-        readFile(filepath, "utf8", (err, code) => {
-          if (err) { return reject(err) }
-          resolve(code)
-        })
-      }).then(code => lintString(code, filepath))
-    }
-
-    function getPostcss() {
-      if (!initialisedPostcss) {
-        initialisedPostcss = postcss()
-          .use(stylelintPostcssPlugin({
-            config,
-            configFile,
-            configBasedir,
-            configOverrides,
-            // If we are reporting needless disables, we have to ignore them
-            ignoreDisables: reportNeedlessDisables ? true : ignoreDisables,
-            ignorePath,
-            _configPromise: Promise.resolve({ config, configDir }),
-          }))
+    const postcssProcessOptions = {}
+    if (filepath) {
+      const isFileIgnored = getIsFileIgnored(config.ignorePatterns, config.ignoreFiles)
+      if (isFileIgnored(path.resolve(filepath))) {
+        return new Promise((resolve) => {
+          resolve({
+            root: { source: { input: { file: filepath } } },
+            messages: [],
+            stylelint: {
+              stylelintError: null,
+              ignored: true,
+            },
+            standaloneIgnored: true,
+          })
+        }).then(handleResult)
       }
 
-      return initialisedPostcss
+      postcssProcessOptions.from = filepath
     }
 
-    function lintString(code, filepath) {
-      const postcssProcessOptions = {}
-      if (filepath) {
-        if (isFileIgnored(path.resolve(filepath))) {
-          return new Promise((resolve) => {
-            resolve({
-              root: { source: { input: { file: filepath } } },
-              messages: [],
-              stylelint: {
-                stylelintError: null,
-                ignored: true,
-              },
-              standaloneIgnored: true,
-            })
-          }).then(handleResult)
+    const fileExtension = path.extname(filepath || "")
+    if (syntax === "scss" || !syntax && fileExtension === ".scss") {
+      postcssProcessOptions.syntax = scssSyntax
+    } else if (syntax === "less" || !syntax && fileExtension === ".less") {
+      postcssProcessOptions.syntax = lessSyntax
+    } else if (syntax === "sugarss" || !syntax && fileExtension === ".sss") {
+      postcssProcessOptions.syntax = sugarss
+    } else if (syntax) {
+      throw new Error("You must use a valid syntax option, either: scss, less or sugarss")
+    }
+
+    return postcss()
+      .use(stylelintPostcssPlugin({
+        config,
+        configFile,
+        configBasedir,
+        configOverrides,
+        // If we are reporting needless disables, we have to ignore them
+        ignoreDisables: reportNeedlessDisables ? true : ignoreDisables,
+        ignorePath,
+        _configPromise: Promise.resolve({ config, configDir }),
+      }))
+      .process(code, postcssProcessOptions)
+      .then(handleResult)
+      .catch(cssSyntaxError)
+
+    function handleResult(postcssResult) {
+      const source = (!postcssResult.root.source)
+        ? undefined
+        : postcssResult.root.source.input.file || postcssResult.root.source.input.id
+
+      if (postcssResult.stylelint.stylelintError) { errored = true }
+
+      // Strip out deprecation warnings from the messages
+      const deprecations = _.remove(postcssResult.messages, { stylelintType: "deprecation" }).map(d => {
+        return {
+          text: d.text,
+          reference: d.stylelintReference,
         }
-
-        postcssProcessOptions.from = filepath
-      }
-
-      const fileExtension = path.extname(filepath || "")
-      if (syntax === "scss" || !syntax && fileExtension === ".scss") {
-        postcssProcessOptions.syntax = scssSyntax
-      } else if (syntax === "less" || !syntax && fileExtension === ".less") {
-        postcssProcessOptions.syntax = lessSyntax
-      } else if (syntax === "sugarss" || !syntax && fileExtension === ".sss") {
-        postcssProcessOptions.syntax = sugarss
-      } else if (syntax) {
-        throw new Error("You must use a valid syntax option, either: scss, less or sugarss")
-      }
-
-      codeProcessors.forEach(codeProcessor => {
-        code = codeProcessor(code, filepath)
       })
 
-      return getPostcss()
-        .process(code, postcssProcessOptions)
-        .then(handleResult)
-        .catch(cssSyntaxError)
+      // Also strip out invalid options
+      const invalidOptionWarnings = _.remove(postcssResult.messages, { stylelintType: "invalidOption" }).map(w => {
+        return { text: w.text }
+      })
 
-      function handleResult(postcssResult) {
-        const source = (!postcssResult.root.source)
-          ? undefined
-          : postcssResult.root.source.input.file || postcssResult.root.source.input.id
-
-        if (postcssResult.stylelint.stylelintError) { errored = true }
-
-        // Strip out deprecation warnings from the messages
-        const deprecations = _.remove(postcssResult.messages, { stylelintType: "deprecation" }).map(d => {
+      // This defines the stylelint result object that formatters receive
+      let stylelintResult = {
+        source,
+        deprecations,
+        invalidOptionWarnings,
+        errored: postcssResult.stylelint.stylelintError,
+        warnings: postcssResult.messages.map(message => {
           return {
-            text: d.text,
-            reference: d.stylelintReference,
+            line: message.line,
+            column: message.column,
+            rule: message.rule,
+            severity: message.severity,
+            text: message.text,
           }
-        })
-
-        // Also strip out invalid options
-        const invalidOptionWarnings = _.remove(postcssResult.messages, { stylelintType: "invalidOption" }).map(w => {
-          return { text: w.text }
-        })
-
-        // This defines the stylelint result object that formatters receive
-        let stylelintResult = {
-          source,
-          deprecations,
-          invalidOptionWarnings,
-          errored: postcssResult.stylelint.stylelintError,
-          warnings: postcssResult.messages.map(message => {
-            return {
-              line: message.line,
-              column: message.column,
-              rule: message.rule,
-              severity: message.severity,
-              text: message.text,
-            }
-          }),
-          ignored: postcssResult.stylelint.ignored,
-          _postcssResult: postcssResult,
-        }
-
-        resultProcessors.forEach(resultProcessor => {
-          // Result processors might just mutate the result object,
-          // or might return a new one
-          const returned = resultProcessor(stylelintResult, filepath)
-          if (returned) { stylelintResult = returned }
-        })
-
-        return stylelintResult
+        }),
+        ignored: postcssResult.stylelint.ignored,
+        _postcssResult: postcssResult,
       }
 
-      function cssSyntaxError(error) {
-        if (error.name !== "CssSyntaxError") { throw error }
+      resultProcessors.forEach(resultProcessor => {
+        // Result processors might just mutate the result object,
+        // or might return a new one
+        const returned = resultProcessor(stylelintResult, filepath)
+        if (returned) { stylelintResult = returned }
+      })
 
-        errored = true
-        return {
-          source: error.file || "<input css 1>",
-          deprecations: [],
-          invalidOptionWarnings: [],
-          errored: true,
-          warnings: [{
-            line: error.line,
-            column: error.column,
-            rule: error.name,
-            severity: "error",
-            text: error.reason + " (" + error.name + ")",
-          }],
-        }
+      return stylelintResult
+    }
+
+    function cssSyntaxError(error) {
+      if (error.name !== "CssSyntaxError") { throw error }
+
+      errored = true
+      return {
+        source: error.file || "<input css 1>",
+        deprecations: [],
+        invalidOptionWarnings: [],
+        errored: true,
+        warnings: [{
+          line: error.line,
+          column: error.column,
+          rule: error.name,
+          severity: "error",
+          text: error.reason + " (" + error.name + ")",
+        }],
       }
     }
-  })
+  }
 }
