@@ -1,5 +1,6 @@
 import {
   atRuleParamIndex,
+  isCustomMediaQuery,
   isRangeContextMediaFeature,
   isStandardSyntaxMediaFeatureName,
   report,
@@ -30,8 +31,10 @@ export default function (expectation) {
 
         const { parent, sourceIndex, value } = mediaFeatureNode
 
-        if (isRangeContextMediaFeature(parent.value)) { return }
-        if (!isStandardSyntaxMediaFeatureName(value)) { return }
+        if (isRangeContextMediaFeature(parent.value)
+          || !isStandardSyntaxMediaFeatureName(value)
+          || isCustomMediaQuery(value)
+        ) { return }
 
         const expectedFeatureName = expectation === "lower"
           ? value.toLowerCase()
