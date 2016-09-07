@@ -228,4 +228,18 @@ test("buildConfig extends rules by replacing the prior rule config completely, n
   }).catch(logError)
 })
 
+test("lookup configuration from file's path", t => {
+  buildConfig({
+    configLookup: path.join(__dirname, "./fixtures/lookupConfig/"),
+  }).then(({ config }) => {
+    t.deepEqual(config, {
+      rules: {
+        "block-no-empty": true,
+        "color-no-invalid-hex": true,
+      },
+    })
+    t.end()
+  }).catch(logError)
+})
+
 function logError(err) { console.log(err.stack) } // eslint-disable-line
