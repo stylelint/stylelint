@@ -48,10 +48,11 @@ test("lookup configuration file by css file's path", t => {
     from: path.join(__dirname, "fixtures/lookupConfig/a.css"),
   }
   t.plan(2)
-  postcssPlugin.process("a {}", config).then(result => {
+  postcssPlugin.process("a {color: #zzzzzz}", config).then(result => {
     const warnings = result.warnings()
     t.equal(warnings.length, 1)
-    t.ok(warnings[0].text.indexOf("block-no-empty") !== -1)
+    t.ok(warnings[0].text.indexOf("color-no-invalid-hex") !== -1)
+    t.ok(warnings[1].text.indexOf("block-no-empty") !== -1)
   })
 })
 
