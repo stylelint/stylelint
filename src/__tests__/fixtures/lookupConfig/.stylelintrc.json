@@ -1,4 +1,5 @@
 {
+  "extends": "../config-color-no-invalid-hex.json",
   "rules": {
     "block-no-empty": true
   }
