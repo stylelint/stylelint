@@ -1,5 +1,6 @@
 # Head
 
+-   Added: `processors` can accept options objects.
 -   Added: `ignore: ["inside-function"]` option to `color-named`.
 -   Fixed: `declaration-block-no-ignored-properties` now uses the value of the last occurrence of a triggering property.
 -   Fixed: `block-no-single-line` now ignores empty blocks.

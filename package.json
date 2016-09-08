@@ -76,7 +76,6 @@
     "coveralls": "^2.11.9",
     "eslint": "~3.5.0",
     "eslint-config-stylelint": "^4.0.0",
-    "htmlparser2": "^3.9.0",
     "npm-run-all": "^3.0.0",
     "npmpub": "^3.0.1",
     "nyc": "^8.1.0",
