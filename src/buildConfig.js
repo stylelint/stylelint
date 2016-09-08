@@ -197,7 +197,8 @@ function loadExtendedConfig(config, configDir, extendLookup) {
 }
 
 function getModulePath(basedir, lookup) {
-  const path = resolveFrom(basedir, lookup)
+  // if `resolveFrom` fail and `lookup` is id, try resolve from `process.cwd()`
+  const path = resolveFrom(basedir, lookup) || (!/[\/\\]/.test(lookup) && resolveFrom(process.cwd(), lookup))
   if (path) return path
   throw configurationError(
     `Could not find "${lookup}". Do you need a \`configBasedir\`?`
