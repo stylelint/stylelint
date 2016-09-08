@@ -46,7 +46,7 @@ export default function (options) {
   const configBasedir = options.configBasedir || false
 
   if (rawConfig) {
-    const configDir = configBasedir || (options.filepath ? path.dirname(options.filepath) : process.cwd())
+    const configDir = configBasedir || (options.configFile ? path.dirname(path.resolve(process.cwd(), options.configFile)) : process.cwd())
     return augmentConfig(rawConfig, configDir, {
       addIgnorePatterns: true,
       ignorePath: options.ignorePath,
