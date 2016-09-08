@@ -3,6 +3,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "./utils"
+import buildConfig from "./buildConfig"
 import createPlugin from "./createPlugin"
 import createRuleTester from "./testUtils/createRuleTester"
 import postcssPlugin from "./postcssPlugin"
@@ -18,6 +19,7 @@ stylelint.utils = {
 }
 
 stylelint.lint = standalone
+stylelint.buildConfig = buildConfig
 stylelint.rules = rules
 stylelint.createPlugin = createPlugin
 stylelint.createRuleTester = createRuleTester
