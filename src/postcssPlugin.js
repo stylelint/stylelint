@@ -4,7 +4,6 @@ import { configurationError } from "./utils"
 import disableRanges from "./disableRanges"
 import getIsFileIgnored from "./utils/getIsFileIgnored.js"
 import normalizeRuleSettings from "./normalizeRuleSettings"
-import path from "path"
 import postcss from "postcss"
 import ruleDefinitions from "./rules"
 
@@ -13,12 +12,9 @@ export default postcss.plugin("stylelint", (options = {}) => {
   let configPromise = options._configPromise
 
   return (root, result) => {
+    const sourcePath = _.get(root, "source.input.file", "")
     if (!configPromise) {
-      if (!options.configLookup && root.source.input.file) {
-        configPromise = buildConfig(Object.assign({ configLookup: path.dirname(root.source.input.file) }, options))
-      } else {
-        configPromise = buildConfig(options)
-      }
+      configPromise = buildConfig(Object.assign(options, { sourcePath }))
     }
 
     // result.stylelint is the namespace for passing stylelint-related
@@ -38,7 +34,6 @@ export default postcss.plugin("stylelint", (options = {}) => {
 
       if (config.ignorePatterns || config.ignoreFiles) {
         const isFileIgnored = getIsFileIgnored(config.ignorePatterns, config.ignoreFiles)
-        const sourcePath = _.get(root, "source.input.file", "")
         if (isFileIgnored(sourcePath)) {
           result.stylelint.ignored = true
           return

@@ -26,8 +26,7 @@ const FILE_NOT_FOUND_ERROR_CODE = "ENOENT"
  *   are for the options object, not a config.
  * @param {object} [options.config]
  * @param {object} [options.configFile] - Specify a configuration file (path) instead
- * @param {object} [options.configLookup] - Specify a directory to start the search
- *   configuration file from.
+ * @param {object} [options.sourcePath] - Specify a source file (path) instead
  * @param {object} [options.configBasedir] - Specify a base directory that things should be
  *   considered relative to.
  * @param {object} [options.configOverrides] - An object to merge on top of the
@@ -69,8 +68,8 @@ export default function (options) {
 
   if (options.configFile) {
     cosmiconfigOptions.configPath = path.resolve(process.cwd(), options.configFile)
-  } else if (options.configLookup) {
-    cosmiconfigOptions.cwd = path.resolve(process.cwd(), options.configLookup)
+  } else if (options.sourcePath) {
+    cosmiconfigOptions.cwd = path.dirname(path.resolve(process.cwd(), options.sourcePath))
   }
 
   let rootConfigDir

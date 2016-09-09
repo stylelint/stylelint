@@ -230,7 +230,7 @@ test("buildConfig extends rules by replacing the prior rule config completely, n
 
 test("lookup configuration from file's path", t => {
   buildConfig({
-    configLookup: path.join(__dirname, "./fixtures/lookupConfig/"),
+    sourcePath: path.join(__dirname, "./fixtures/lookupConfig/noop.css"),
   }).then(({ config }) => {
     t.deepEqual(config, {
       rules: {

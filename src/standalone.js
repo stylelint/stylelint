@@ -49,14 +49,14 @@ export default function ({
 
   let errored = false
 
-  function getConfig(filepath) {
+  function getConfig(sourcePath) {
     return buildConfig({
       config,
       configFile,
       configBasedir,
       configOverrides,
       ignorePath,
-      configLookup: (filepath && path.dirname(filepath)),
+      sourcePath,
     })
   }
 
