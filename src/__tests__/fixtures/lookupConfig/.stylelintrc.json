@@ -1,5 +1,5 @@
 {
-  "extends": "../config-color-no-invalid-hex.json",
+  "extends": ["../config-color-no-invalid-hex.json", "./stylelint-config-editconfig"],
   "rules": {
     "block-no-empty": true
   }

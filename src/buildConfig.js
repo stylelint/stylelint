@@ -49,6 +49,7 @@ export default function (options) {
     return augmentConfig(rawConfig, configDir, {
       addIgnorePatterns: true,
       ignorePath: options.ignorePath,
+      sourcePath: options.sourcePath,
     }).then(augmentedConfig => {
       return {
         config: merge(augmentedConfig, options.configOverrides),
@@ -80,6 +81,7 @@ export default function (options) {
     return augmentConfig(result.config, rootConfigDir, {
       addIgnorePatterns: true,
       ignorePath: options.ignorePath,
+      sourcePath: options.sourcePath,
     })
   }).then(augmentedConfig => {
     const finalConfig = (options.configOverrides)
@@ -112,7 +114,9 @@ function augmentConfig(config, configDir, options = {}) {
   return start.then(configWithIgnorePatterns => {
     const absolutizedConfig = absolutizeExtras(configWithIgnorePatterns, configDir)
     if (absolutizedConfig.extends) {
-      return extendConfig(absolutizedConfig, configDir)
+      return extendConfig(absolutizedConfig, configDir, {
+        sourcePath: options.sourcePath,
+      })
     }
     return Promise.resolve(absolutizedConfig)
   })
@@ -162,13 +166,18 @@ function absolutizeExtras(config, configDir) {
   return result
 }
 
-function extendConfig(config, configDir) {
+function extendConfig(config, configDir, options) {
   const extendLookups = [].concat(config.extends)
   const original = omit(config, "extends")
 
   const resultPromise = extendLookups.reduce((result, extendLookup) => {
     return result.then(merged => {
       return loadExtendedConfig(merged, configDir, extendLookup).then(extended => {
+        if (typeof extended === "function") {
+          extended = extended(options)
+        }
+        return extended
+      }).then(extended => {
         return mergeConfigs(merged, extended)
       })
     })
@@ -205,7 +214,7 @@ function getModulePath(basedir, lookup) {
 }
 
 function stripIgnoreFiles(config) {
-  return omit(config, "ignoreFiles")
+  return "ignoreFiles" in config ? omit(config, "ignoreFiles") : config
 }
 
 function mergeConfigs(a, b) {
