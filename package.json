@@ -51,7 +51,7 @@
     "multimatch": "^2.1.0",
     "normalize-selector": "^0.2.0",
     "postcss": "^5.0.20",
-    "postcss-less": "^0.14.0",
+    "postcss-less": "^0.15.0",
     "postcss-media-query-parser": "^0.2.0",
     "postcss-reporter": "^1.3.0",
     "postcss-resolve-nested-selector": "^0.1.1",
