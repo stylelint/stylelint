@@ -5,6 +5,10 @@ Plugins are rules and sets of rules built by the community that support methodol
 ## Methodologies
 
 -   [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors (incorporates [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter)).
+   
+## Validators
+
+-   [`stylelint-csstree-validator`](https://github.com/csstree/stylelint-validator): Validate CSS values to match W3C specs and browsers extensions.
 
 ## Non-standard syntax
 
