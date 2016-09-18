@@ -5,6 +5,8 @@
 -   Fixed: When config.ignoreFiles has a absolute path non glob (eg: `!/proj/*`). No wrong convert.
 -   Added: if `resolveFrom` fail and `lookup` is id, try resolve from `process.cwd()`
 -   Added: extend configs can be a function now.
+-   Added: API for configuration file/object. `stylelint.buildConfig`
+-   Added: `ignore: ["inside-function"]` option to `color-named`.
 -   Fixed: `block-no-single-line` now ignores empty blocks.
 -   Fixed: `--ignore-path` and `--report-needless-disables` no longer fails when used together.
 -   Fixed: the `indentation` rule now correctly handles `_` hacks on property names.
