@@ -38,6 +38,7 @@ export default function (expectation, options) {
       actual: options,
       possible: {
         ignoreProperties: [isString],
+        ignore: ["inside-function"],
       },
       optional: true,
     })
@@ -54,6 +55,8 @@ export default function (expectation, options) {
 
       valueParser(decl.value).walk(node => {
         const { value, type, sourceIndex } = node
+
+        if (optionsMatches(options, "ignore", "inside-function") && type === "function") { return false }
 
         if (!isStandardSyntaxValue(value)) { return }
         // Return early if neither a word nor a function
