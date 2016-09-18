@@ -5,8 +5,8 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import execall from "execall"
 import { mediaFeaturePunctuation } from "../../reference/punctuationSets"
+import mediaParser from "postcss-media-query-parser"
 
 export const ruleName = "media-feature-no-missing-punctuation"
 
@@ -32,14 +32,14 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkAtRules(/^media$/i, atRule => {
-      execall(/\((.*?)\)/g, atRule.params).forEach(mediaFeatureMatch => {
+      mediaParser(atRule.params).walk(/^media-feature$/i, mediaFeatureNode => {
+        const parent = mediaFeatureNode.parent.value
 
-        if (!isStandardSyntaxMediaFeature(mediaFeatureMatch.match)) { return }
+        if (!isStandardSyntaxMediaFeature(parent)) { return }
 
-        const splitMediaFeature = mediaFeatureMatch.sub[0].trim().split(/\s+/)
+        const splitMediaFeature = parent.slice(1, -1).trim().split(/\s+/)
         if (splitMediaFeature.length === 1) { return }
 
-        // Ignore the last one
         for (let i = 0, l = splitMediaFeature.length - 1; i < l; i++) {
           const mediaFeaturePart = splitMediaFeature[i]
 
@@ -58,7 +58,7 @@ export default function (actual) {
             ruleName,
             message: messages.rejected,
             node: atRule,
-            index: atRuleParamIndex(atRule) + mediaFeatureMatch.index,
+            index: atRuleParamIndex(atRule) + mediaFeatureNode.sourceIndex - 1,
           })
         }
       })

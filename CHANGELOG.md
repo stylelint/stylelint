@@ -5,6 +5,7 @@
 -   Fixed: `block-no-single-line` now ignores empty blocks.
 -   Fixed: `--ignore-path` and `--report-needless-disables` no longer fails when used together.
 -   Fixed: the `indentation` rule now correctly handles `_` hacks on property names.
+-   Fixed: `media-feature-no-missing-punctuation` no longer delivers false positives for SCSS operators.
 
 # 7.2.0
 
