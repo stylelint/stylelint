@@ -1,8 +1,8 @@
-# Head
+# 7.3.0
 
--   Fixed: `block-closing-brace-newline-after` and `block-closing-brace-space-after` now allow a trailing semicolon after the closing brace of a block.
 -   Added: `processors` can accept options objects.
 -   Added: `ignore: ["inside-function"]` option to `color-named`.
+-   Fixed: `block-closing-brace-newline-after` and `block-closing-brace-space-after` now allow a trailing semicolon after the closing brace of a block.
 -   Fixed: `declaration-block-no-ignored-properties` now uses the value of the last occurrence of a triggering property.
 -   Fixed: `block-no-single-line` now ignores empty blocks.
 -   Fixed: `--ignore-path` and `--report-needless-disables` no longer fails when used together.
