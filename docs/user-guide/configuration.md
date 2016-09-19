@@ -74,11 +74,20 @@ Or you can turn off individual rules:
 /* stylelint-enable */
 ```
 
-And you can turn off rules for individual lines only, after which you do not need to explicitly re-enable them:
+You can turn off rules for individual lines only with a `/* stylelint-disable-line */` comment, after which you do not need to explicitly re-enable them:
 
 ```css
 #id { /* stylelint-disable-line */
   color: pink !important; /* stylelint-disable-line declaration-no-important */
+}
+```
+
+You can also turn off rules for *the next line only* with a `/* stylelint-disable-next-line */` comment, after which you do not need to explicitly re-enable them:
+
+```css
+#id {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: pink !important;
 }
 ```
 

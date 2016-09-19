@@ -169,6 +169,52 @@ test("disableRanges disabling single lines", t => {
   t.plan(planCount)
 })
 
+test("disableRanges disabling next lines", t => {
+  let planCount = 0
+
+  testDisableRanges("/* stylelint-disable-next-line */\na {} ", result => {
+    t.deepEqual(result.stylelint.disabledRanges, {
+      all: [{
+        start: 2,
+        end: 2,
+      }],
+    }, "disabling all rules")
+  })
+  planCount += 1
+
+  testDisableRanges("/* stylelint-disable-next-line block-no-empty */\na {}", result => {
+    t.deepEqual(result.stylelint.disabledRanges, {
+      all: [],
+      "block-no-empty": [{
+        start: 2,
+        end: 2,
+      }],
+    }, "disabling a single rule")
+  })
+  planCount += 1
+
+  testDisableRanges(`
+    b {}
+
+    /* stylelint-disable-next-line block-no-empty, blergh */
+    a {}`, result => {
+    t.deepEqual(result.stylelint.disabledRanges, {
+      all: [],
+      "block-no-empty": [{
+        start: 5,
+        end: 5,
+      }],
+      "blergh": [{
+        start: 5,
+        end: 5,
+      }],
+    }, "disabling multiple specific rules")
+  })
+  planCount += 1
+
+  t.plan(planCount)
+})
+
 test("SCSS // line-disabling comment", t => {
   let planCount = 0
 
