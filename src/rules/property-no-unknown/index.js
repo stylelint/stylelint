@@ -1,5 +1,6 @@
 import {
   isCustomProperty,
+  isStandardSyntaxDeclaration,
   isStandardSyntaxProperty,
   optionsMatches,
   report,
@@ -34,10 +35,11 @@ export default function (actual, options) {
     root.walkDecls(decl => {
       const { prop } = decl
 
-      if (!shouldCheckPrefixed && vendor.prefix(prop)) { return }
-
       if (!isStandardSyntaxProperty(prop)) { return }
+      if (!isStandardSyntaxDeclaration(decl)) { return }
       if (isCustomProperty(prop)) { return }
+
+      if (!shouldCheckPrefixed && vendor.prefix(prop)) { return }
 
       if (optionsMatches(options, "ignoreProperties", prop)) { return }
 
