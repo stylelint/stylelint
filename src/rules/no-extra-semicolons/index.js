@@ -1,4 +1,6 @@
 import {
+  hasEmptyBlock,
+  isCustomPropertySet,
   report,
   ruleMessages,
   validateOptions,
@@ -41,24 +43,40 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    if (root.raws.after) {
-      const rawAfterRoot = root.raws.after
-      styleSearch({ source: rawAfterRoot, target: ";" }, match => {
+    const rawAfterRoot = root.raws.after
+
+    if (rawAfterRoot && rawAfterRoot.trim().length !== 0) {
+      styleSearch({ source: rawAfterRoot, target: ";" }, (match) => {
         complain(root.toString().length - rawAfterRoot.length + match.startIndex)
       })
     }
 
     root.walk((node) => {
-      if (node.raws.before) {
-        const rawBeforeNode = node.raws.before
-        styleSearch({ source: rawBeforeNode, target: ";" }, match => {
+      const rawBeforeNode = node.raws.before
+
+      if (rawBeforeNode && rawBeforeNode.trim().length !== 0) {
+        let allowedSemi = 0
+
+        // Forbid semicolon before first custom properties sets
+        if (isCustomPropertySet(node) && node.parent.index(node) > 0) { allowedSemi = 1 }
+
+        styleSearch({ source: rawBeforeNode, target: ";" }, (match, count) => {
+          if (count === allowedSemi) { return }
+
           complain(getOffsetByNode(node) - rawBeforeNode.length + match.startIndex)
         })
       }
 
-      if (node.raws.after) {
-        const rawAfterNode = node.raws.after
-        styleSearch({ source: rawAfterNode, target: ";" }, match => {
+      const rawAfterNode = node.raws.after
+
+      if (rawAfterNode && rawAfterNode.trim().length !== 0) {
+        let allowedSemi = 0
+
+        if (!hasEmptyBlock(node) && isCustomPropertySet(node.nodes[node.nodes.length - 1])) { allowedSemi = 1 }
+
+        styleSearch({ source: rawAfterNode, target: ";" }, (match, count) => {
+          if (count === allowedSemi) { return }
+
           const index = getOffsetByNode(node)
             + node.toString().length - 1
             - rawAfterNode.length
