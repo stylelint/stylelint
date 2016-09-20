@@ -18,7 +18,7 @@ export default function (decl) {
   if (prop[0] === "@" && prop[1] !== "{") { return false }
 
   // SCSS nested properties (e.g. border: { style: solid; color: red; })
-  if (parent.selector[parent.selector.length - 1] === ":" && parent.selector.substring(0, 2) !== "--") { return false }
+  if (parent.selector && parent.selector[parent.selector.length - 1] === ":" && parent.selector.substring(0, 2) !== "--") { return false }
 
   return true
 }
