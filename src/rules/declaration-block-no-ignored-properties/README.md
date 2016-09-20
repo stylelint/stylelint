@@ -8,7 +8,7 @@ a { display: inline; width: 100px; }
  *       This property */
 ```
 
-Certain property value pairs rule out other property value pairs, causing them to be ignored by the browser. For example, when en element has display: inline, any further declarations about width, height and margin-top properties will be ignored. Sometimes this is confusing: maybe you forgot that your margin-top will have no effect because the element has display: inline, so you spend a while struggling to figure out what you've done wrong. This rule protects against that confusion by ensuring that within a single rule you don't use property values that are ruled out by other property values in that same rule.
+Certain property value pairs rule out other property value pairs, causing them to be ignored by the browser. For example, when an element has display: inline, any further declarations about width, height and margin-top properties will be ignored. Sometimes this is confusing: maybe you forgot that your margin-top will have no effect because the element has display: inline, so you spend a while struggling to figure out what you've done wrong. This rule protects against that confusion by ensuring that within a single rule you don't use property values that are ruled out by other property values in that same rule.
 
 The rule warns when it finds:
 

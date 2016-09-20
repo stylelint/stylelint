@@ -1,114 +1,67 @@
-import configHtmlProcessor from "./fixtures/config-html-processor"
 import path from "path"
 import standalone from "../standalone"
 import test from "tape"
 
 const fixturesPath = path.join(__dirname, "./fixtures")
 
-test("standalone with HTML style tag extraction from code string", t => {
-  let planned = 0
+test("processor transforms input and output", t => {
+  const code = "one\ntwo\n```start\na {}\nb { color: pink }\n```end\nthree"
   standalone({
-    code: "<script>\n</script>\n\n<style>\na {}\n</style>",
-    config: configHtmlProcessor,
-    configBasedir: fixturesPath,
-  }).then(({ output, results }) => {
-    t.equal(typeof output, "string")
-    t.equal(results.length, 1)
-    t.equal(results[0].warnings.length, 1)
-    t.equal(results[0].warnings[0].rule, "block-no-empty")
-    t.equal(results[0].warnings[0].line, 5)
-    t.equal(results[0].warnings[0].column, 3)
-  }).catch(logError)
-  planned += 6
-
-  t.plan(planned)
-})
-
-test("standalone HTML style tag extraction that has complex structure", t => {
-  let planned = 0
-  standalone({
-    code: "<style>\na {}\n</style>\n\n<script>\n</script>\n\n<style>\n  a {}\n</style>",
-    config: configHtmlProcessor,
-    configBasedir: fixturesPath,
-  }).then(({ output, results }) => {
-    t.equal(typeof output, "string")
-    t.equal(results.length, 1)
-    t.equal(results[0].warnings.length, 2)
-    t.equal(results[0].warnings[0].rule, "block-no-empty")
-    t.equal(results[0].warnings[0].line, 2)
-    t.equal(results[0].warnings[0].column, 3)
-    t.equal(results[0].warnings[1].rule, "block-no-empty")
-    t.equal(results[0].warnings[1].line, 9)
-    t.equal(results[0].warnings[1].column, 3)
-  }).catch(logError)
-  planned += 9
-
-  t.plan(planned)
-})
-
-test("standalone with HTMLstyle tag extraction from file", t => {
-  let planned = 0
-
-  standalone({
-    files: [`${fixturesPath}/invalid-hex.html`],
+    code,
     config: {
-      // Try a processors array
-      processors: ["./processor-html"],
-      rules: {
-        "color-no-invalid-hex": true,
-      },
+      extends: "./config-block-no-empty",
+      processors: "./processor-fenced-blocks",
     },
     configBasedir: fixturesPath,
-  }).then(({ output, results }) => {
-    t.equal(typeof output, "string")
-    t.equal(results.length, 1)
-    t.equal(results[0].warnings.length, 1)
-    t.equal(results[0].warnings[0].rule, "color-no-invalid-hex")
-    t.equal(results[0].warnings[0].line, 12)
-    t.equal(results[0].warnings[0].column, 10)
-  }).catch(logError)
-  planned += 6
-
-  t.plan(planned)
+  }).then(({ results }) => {
+    t.equal(results.length, 1, "number of results")
+    t.equal(results[0].warnings.length, 1, "number of warnings")
+    t.equal(results[0].warnings[0].rule, "block-no-empty", "warning rule")
+    t.equal(results[0].warnings[0].line, 2, "warning line")
+    t.equal(results[0].warnings[0].column, 3, "warning column")
+    t.equal(results[0].specialMessage, "was processed", "special message")
+    t.end()
+  }).catch(t.end)
 })
 
-test("standalone with HTMLextraction accepts HTML with no style tag", t => {
-  let planned = 0
-
+test("processor accepts options", t => {
+  const code = "one\ntwo\n```start\na {}\nb { color: pink }\n```end\nthree"
   standalone({
-    code: "<script>\n</script>",
-    config: configHtmlProcessor,
+    code,
+    config: {
+      extends: "./config-block-no-empty",
+      processors: [
+        [ "./processor-fenced-blocks", { specialMessage: "options worked" } ],
+      ],
+    },
     configBasedir: fixturesPath,
-  }).then(({ output, results }) => {
-    t.equal(typeof output, "string")
-    t.equal(results.length, 1)
-    t.equal(results[0].warnings.length, 0)
-  }).catch(logError)
-  planned += 3
-
-  t.plan(planned)
+  }).then(({ results }) => {
+    t.equal(results[0].specialMessage, "options worked", "special message")
+    t.end()
+  }).catch(t.end)
 })
 
-test("standalone with HTML extraction accepts plain CSS", t => {
-  let planned = 0
-
+test("multiple processors", t => {
+  const code = "one\ntwo\n```start\na {}\nb { color: pink }\n```end\nthree???startc {}???end" +
+    "\n\n???start```start\na {}\nb { color: pink }\n```end???end"
   standalone({
-    code: "a { }",
-    config: configHtmlProcessor,
+    code,
+    config: {
+      extends: "./config-block-no-empty",
+      processors: [
+        "./processor-triple-question-marks",
+        [ "./processor-fenced-blocks", { specialMessage: "options worked" } ],
+      ],
+    },
     configBasedir: fixturesPath,
-  }).then(({ output, results }) => {
-    t.equal(typeof output, "string")
-    t.equal(results.length, 1)
-    t.equal(results[0].warnings.length, 1)
-    t.equal(results[0].warnings[0].rule, "block-no-empty")
-    t.equal(results[0].warnings[0].line, 1)
-    t.equal(results[0].warnings[0].column, 3)
-  }).catch(logError)
-  planned += 6
-
-  t.plan(planned)
+  }).then(({ results }) => {
+    t.equal(results.length, 1, "number of results")
+    t.equal(results[0].warnings.length, 1, "number of warnings")
+    t.equal(results[0].warnings[0].rule, "block-no-empty", "warning rule")
+    t.equal(results[0].warnings[0].line, 2, "warning line")
+    t.equal(results[0].warnings[0].column, 3, "warning column")
+    t.equal(results[0].specialMessage, "options worked", "special message")
+    t.equal(results[0].tripleQuestionMarkBlocksFound, true, "tripleQuestionMarkBlocksFound")
+    t.end()
+  }).catch(t.end)
 })
-
-function logError(err) {
-  console.log(err.stack) // eslint-disable-line no-console
-}

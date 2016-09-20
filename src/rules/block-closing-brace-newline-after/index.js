@@ -62,17 +62,26 @@ export default function (expectation, options) {
       const nodeToCheck = (nextNodeIsSingleLineComment) ? nextNode.next() : nextNode
       if (!nodeToCheck) { return }
 
+      let reportIndex = statement.toString().length
+      let source = rawNodeString(nodeToCheck)
+
+      // Skip a semicolon at the beginning, if any
+      if (source && source[0] === ";") {
+        source = source.slice(1)
+        reportIndex++
+      }
+
       // Only check one after, because there might be other
       // spaces handled by the indentation rule
       checker.afterOneOnly({
-        source: rawNodeString(nodeToCheck),
+        source,
         index: -1,
         lineCheckStr: blockString(statement),
         err: msg => {
           report({
             message: msg,
             node: statement,
-            index: statement.toString().length,
+            index: reportIndex,
             result,
             ruleName,
           })

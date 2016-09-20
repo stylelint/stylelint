@@ -2,6 +2,7 @@ import {
   beforeBlockString,
   blockString,
   hasBlock,
+  hasEmptyBlock,
   isSingleLineString,
   report,
   ruleMessages,
@@ -24,7 +25,7 @@ export default function (actual) {
     root.walkAtRules(check)
 
     function check(statement) {
-      if (!hasBlock(statement)) { return }
+      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
       if (!isSingleLineString(blockString(statement))) { return }
 
       report({

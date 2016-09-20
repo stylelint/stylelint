@@ -108,6 +108,26 @@ a { color: @blue; }
 
 ## Optional secondary options
 
+### `ignore: ["inside-function"]`
+
+Ignore colors that are inside a function.
+
+For example, with `"never"`.
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  color: map-get($colour, blue);
+}
+```
+
+```css
+a {
+  background-image: url(red);
+}
+```
+
 ### `ignoreProperties: ["/regex/", "string"]`
 
 For example with `"never"`.

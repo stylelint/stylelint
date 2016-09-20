@@ -1,8 +1,16 @@
-# Head
+# HEAD
+-   Added: `ignore: ["after-declaration"]` option to `declaration-empty-line-before`.
 
+# 7.3.0
+
+-   Added: `processors` can accept options objects.
+-   Added: `ignore: ["inside-function"]` option to `color-named`.
+-   Fixed: `block-closing-brace-newline-after` and `block-closing-brace-space-after` now allow a trailing semicolon after the closing brace of a block.
+-   Fixed: `declaration-block-no-ignored-properties` now uses the value of the last occurrence of a triggering property.
+-   Fixed: `block-no-single-line` now ignores empty blocks.
 -   Fixed: `--ignore-path` and `--report-needless-disables` no longer fails when used together.
 -   Fixed: the `indentation` rule now correctly handles `_` hacks on property names.
--   Added: `ignore: ["after-declaration"]` option to `declaration-empty-line-before`.
+-   Fixed: the `property-no-unknown` rule now ignores SCSS nested properties.
 
 # 7.2.0
 

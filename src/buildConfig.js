@@ -154,7 +154,7 @@ function absolutizeExtras(config, configDir) {
     result.plugins = [].concat(config.plugins).map(lookup => getModulePath(configDir, lookup))
   }
   if (config.processors) {
-    result.processors = [].concat(config.processors).map(lookup => getModulePath(configDir, lookup))
+    result.processors = absolutizeProcessors(config.processors, configDir)
   }
   return result
 }
@@ -214,4 +214,20 @@ function mergeConfigs(a, b) {
     rulesMerger.rules = assign({}, a.rules, b.rules)
   }
   return assign({}, b, a, pluginMerger, rulesMerger)
+}
+
+function absolutizeProcessors(processors, configDir) {
+  if (!Array.isArray(processors)) {
+    return getModulePath(configDir, processors)
+  }
+
+  return processors.map(item => {
+    if (!Array.isArray(item)) {
+      return getModulePath(configDir, item)
+    }
+    return [
+      getModulePath(configDir, item[0]),
+      item[1],
+    ]
+  })
 }

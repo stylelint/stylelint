@@ -8,6 +8,18 @@ a { color: pink; }
  * The space after this brace */
 ```
 
+This rule allows a trailing semicolon after the closing brace of a block. For example,
+
+```css
+:root {
+  --toolbar-theme: {
+    background-color: hsl(120, 70%, 95%);
+  };
+/* ↑
+ * This semicolon */
+}
+```
+
 ## Options
 
 `string`: `"always"|"never"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line"`
