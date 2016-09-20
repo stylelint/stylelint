@@ -184,7 +184,6 @@ Take the form of:
 The final step is to add references to the new rule in the following places:
 
 -   [The rules `index.js` file](https://github.com/stylelint/stylelint/blob/master/src/rules/index.js)
--   [The CHANGELOG](/CHANGELOG.md)
 -   [The list of rules](/docs/user-guide/rules.md)
 -   [The example config](/docs/user-guide/example-config.md)
 
@@ -198,7 +197,6 @@ Once we've agreed on the direction, you can work on a pull request. Here are the
 2.  Add to the rule some logic (as little as possible) to make the option work.
 3.  Add new unit tests to test the option.
 4.  Add documentation about the new option.
-5.  Add a note to the CHANGELOG about your addition.
 
 ## Fixing bugs
 
@@ -206,6 +204,5 @@ Fixing bugs is usually very easy. Here is a process that works:
 
 1.  Write failing unit tests that exemplify the bug.
 2.  Fiddle with the rule until those new tests pass.
-3.  Add a note to the CHANGELOG about your fix.
 
 That's it! **If you are unable to figure out how to fix the bug yourself, it is still *extremely* helpful to submit a pull request with your failing test cases.** It means that somebody else can jump right in and help out with the rule's logic.
