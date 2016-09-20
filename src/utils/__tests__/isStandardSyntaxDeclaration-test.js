@@ -6,7 +6,7 @@ import test from "tape"
 
 test("isStandardSyntaxDeclaration", t => {
 
-  t.plan(21)
+  t.plan(22)
 
   rules("a { a: b }", decl => {
     t.ok(isStandardSyntaxDeclaration(decl), "standard prop and value")
@@ -19,6 +19,9 @@ test("isStandardSyntaxDeclaration", t => {
   })
   rules("a { a : calc(b + c) }", decl => {
     t.ok(isStandardSyntaxDeclaration(decl), "standard prop and calc value")
+  })
+  rules("@page { size: A4 }", decl => {
+    t.ok(isStandardSyntaxDeclaration(decl), "does not break @selector")
   })
   scssRules("a { #{$var}: 10px; }", decl => {
     t.ok(isStandardSyntaxDeclaration(decl), "property with scss variable interpolation (only)")

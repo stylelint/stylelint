@@ -1,3 +1,5 @@
+-   Fixed: regression of 7.3.0 which caused a "Cannot read property 'length' of undefined" error on certain selector.
+
 # 7.3.0
 
 -   Added: `processors` can accept options objects.
