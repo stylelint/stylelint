@@ -44,7 +44,6 @@ export default function ({
     configOverrides,
     ignorePath,
   }).then(({ config, configDir }) => {
-
     // Prepare processors
     const codeProcessors = []
     const resultProcessors = []

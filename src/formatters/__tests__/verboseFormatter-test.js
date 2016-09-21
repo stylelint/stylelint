@@ -4,7 +4,6 @@ import test from "tape"
 import verboseFormatter from "../verboseFormatter"
 
 test("no warnings", t => {
-
   const results = [{
     "source":  "path/to/file.css",
     "errored": false,
@@ -25,7 +24,6 @@ test("no warnings", t => {
 })
 
 test("one warnings (of severity 'error')", t => {
-
   const results = [{
     "source":  "path/to/file.css",
     "errored": true,
@@ -57,7 +55,6 @@ test("one warnings (of severity 'error')", t => {
 })
 
 test("0 stdout column", t => {
-
   const stdoutColumn = process.stdout.columns
   process.stdout.columns = 0
 
@@ -95,7 +92,6 @@ test("0 stdout column", t => {
 })
 
 test("less than 80 stdout column", t => {
-
   const stdoutColumn = process.stdout.columns
   process.stdout.columns = 79
 
@@ -133,7 +129,6 @@ test("less than 80 stdout column", t => {
 })
 
 test("two of the same warnings of 'error' and one of 'warning' across two files", t => {
-
   const results = [ {
     "source":  "path/to/file.css",
     "errored": true,
@@ -190,7 +185,6 @@ test("two of the same warnings of 'error' and one of 'warning' across two files"
 })
 
 test("lineless syntax error", t => {
-
   const results = [{
     "source":  "path/to/file.css",
     "errored": false,
@@ -220,7 +214,6 @@ test("lineless syntax error", t => {
 })
 
 test("one ignored file", t => {
-
   const results = [{
     "source": "file.css",
     "warnings":[],

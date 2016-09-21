@@ -3,7 +3,6 @@ import postcss from "postcss"
 import test from "tape"
 
 test("atRuleParamIndex", t => {
-
   t.plan(4)
 
   atRules("@media (color) {}", atRule => {

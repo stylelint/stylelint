@@ -5,7 +5,6 @@
  * @return {boolean} If `true`, the declaration is standard
  */
 export default function (decl) {
-
   const { prop, parent } = decl
 
   // Declarations belong in a declaration block

@@ -37,7 +37,6 @@ export default function (on, options) {
     const ignoreCompounded = optionsMatches(options, "ignore", "compounded")
 
     root.walkRules(rule => {
-
       const { selector, selectors } = rule
 
       if (!isStandardSyntaxRule(rule)) { return }
@@ -59,7 +58,6 @@ export default function (on, options) {
     function checkSelector(selector, rule) {
       parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkTags(tag => {
-
           if (!isStandardSyntaxTypeSelector(tag)) { return }
 
           if (optionsMatches(options, "ignoreTypes", tag.value)) { return }

@@ -25,7 +25,6 @@ export default function (actual) {
     })
 
     root.walkAtRules(atRule => {
-
       // Ignore @imports
       if (atRule.name.toLowerCase() === "import") { return }
 

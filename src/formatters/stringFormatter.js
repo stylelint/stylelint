@@ -78,7 +78,6 @@ function formatter(messages, source) {
   const columnWidths = { 0: 1, 1: 1, 2: 1, 3: 1, 4: 1 }
 
   const calculateWidths = function (columns) {
-
     _.forOwn(columns, (value, key) => {
       const normalisedValue = value ? value.toString() : value
       columnWidths[key] = Math.max(columnWidths[key], stringWidth(normalisedValue))

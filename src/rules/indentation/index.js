@@ -46,7 +46,6 @@ export default function (space, options = {}) {
 
     // Cycle through all nodes using walk.
     root.walk(node => {
-
       const nodeLevel = indentationLevel(node)
       const expectedWhitespace = repeat(indentChar, nodeLevel)
 

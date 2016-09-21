@@ -2,7 +2,6 @@ import jsonFormatter from "../jsonFormatter"
 import test from "tape"
 
 test("json formatter", t => {
-
   const results = [{
     "source":  "path/to/file.css",
     "errored": true,

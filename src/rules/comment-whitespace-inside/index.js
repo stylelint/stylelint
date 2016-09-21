@@ -26,7 +26,6 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkComments(function (comment) {
-
       if (comment.raws.inline || comment.inline) { return }
 
       const rawComment = comment.toString()

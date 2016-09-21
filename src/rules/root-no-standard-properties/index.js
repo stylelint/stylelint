@@ -26,7 +26,6 @@ export default function (actual) {
         if (ignoreRule(selectorAST)) { return }
 
         rule.each(function (node) {
-
           if (node.type !== "decl") { return }
 
           const { prop } = node

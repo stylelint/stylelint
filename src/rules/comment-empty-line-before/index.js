@@ -37,7 +37,6 @@ export default function (expectation, options) {
     if (!validOptions) { return }
 
     root.walkComments(comment => {
-
       // Ignore the first node
       if (comment === root.first) { return }
 

@@ -42,7 +42,6 @@ export default function (expectation, options) {
     if (!validOptions) { return }
 
     root.walkAtRules(atRule => {
-
       // Ignore the first node
       if (atRule === root.first) { return }
 

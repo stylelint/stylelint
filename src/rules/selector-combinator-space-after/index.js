@@ -46,7 +46,6 @@ export function selectorCombinatorSpaceChecker({ locationChecker, root, result, 
         target: _.toArray(nonSpaceCombinators),
         parentheticals: "skip",
       }, match => {
-
         const { endIndex, startIndex, target } = match
 
         // Catch ~= in attribute selectors

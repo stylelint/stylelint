@@ -37,7 +37,6 @@ function rule(blacklist) {
           result,
           ruleName,
         })
-
       })
     })
   }

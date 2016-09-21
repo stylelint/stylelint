@@ -5,7 +5,6 @@ import scss from "postcss-scss"
 import test from "tape"
 
 test("isStandardSyntaxAtRule", t => {
-
   t.plan(12)
 
   atRules("@charset UTF-8;", atRule => {
