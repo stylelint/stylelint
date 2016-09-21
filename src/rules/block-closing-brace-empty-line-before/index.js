@@ -32,7 +32,6 @@ export default function (expectation) {
     root.walkAtRules(check)
 
     function check(statement) {
-
       // Return early if blockless or has empty block
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 

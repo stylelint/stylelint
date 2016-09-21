@@ -6,7 +6,6 @@ import { hasInterpolation } from "../utils"
  * @return {boolean} If `true`, the property is standard
  */
 export default function (property) {
-
   // SCSS var (e.g. $var: x), list (e.g. $list: (x)) or map (e.g. $map: (key:value))
   if (property[0] === "$") { return false }
 

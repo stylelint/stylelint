@@ -20,7 +20,6 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function (expectation) {
-
   const checker = whitespaceChecker("space", expectation, messages)
 
   return function (root, result) {

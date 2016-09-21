@@ -31,7 +31,6 @@ export default function (expectation) {
       ) { return }
 
       parseSelector(rule.selector, result, rule, selectorTree => {
-
         selectorTree.walkAttributes(attributeNode => {
           if (!attributeNode.operator) { return }
 

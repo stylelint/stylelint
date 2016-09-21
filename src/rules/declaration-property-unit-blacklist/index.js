@@ -28,7 +28,6 @@ export default function (blacklist) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-
       const { prop, value } = decl
       const unprefixedProp = vendor.unprefixed(prop)
 

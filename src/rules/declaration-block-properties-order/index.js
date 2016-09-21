@@ -218,7 +218,6 @@ function checkAlpabeticalOrder(firstPropData, secondPropData) {
 }
 
 function validatePrimaryOption(actualOptions) {
-
   // Return true early if alphabetical
   if (actualOptions === "alphabetical") { return true }
 

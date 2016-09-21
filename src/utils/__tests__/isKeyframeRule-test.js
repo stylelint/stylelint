@@ -3,7 +3,6 @@ import postcss from "postcss"
 import test from "tape"
 
 test("isKeyframeRule", t => {
-
   t.plan(11)
 
   rules("@keyframes identifier { to {} }", rule => {

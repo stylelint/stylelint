@@ -33,7 +33,6 @@ export default function (actual) {
 
     root.walkAtRules(/^media$/i, atRule => {
       execall(/\((.*?)\)/g, atRule.params).forEach(mediaFeatureMatch => {
-
         if (!isStandardSyntaxMediaFeature(mediaFeatureMatch.match)) { return }
 
         const splitMediaFeature = mediaFeatureMatch.sub[0].trim().split(/\s+/)

@@ -28,7 +28,6 @@ export default function (expectation) {
 
     root.walkAtRules(/^media$/i, atRule => {
       mediaParser(atRule.params).walk(/^media-feature$/i, mediaFeatureNode => {
-
         const { parent, sourceIndex, value } = mediaFeatureNode
 
         if (isRangeContextMediaFeature(parent.value)

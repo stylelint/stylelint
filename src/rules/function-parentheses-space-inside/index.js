@@ -35,7 +35,6 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-
       if (decl.value.indexOf("(") === -1) { return }
 
       valueParser(decl.value).walk(valueNode => {

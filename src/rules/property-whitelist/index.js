@@ -24,7 +24,6 @@ function rule(whitelist) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-
       const { prop } = decl
       if (!isStandardSyntaxProperty(prop)) { return }
       if (isCustomProperty(prop)) { return }

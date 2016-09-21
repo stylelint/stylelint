@@ -26,7 +26,6 @@ export default function (blacklist) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-
       const { prop, value } = decl
       const unprefixedProp = vendor.unprefixed(prop)
       const propBlacklist = find(blacklist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
