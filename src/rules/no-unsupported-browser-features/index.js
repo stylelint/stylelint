@@ -51,7 +51,6 @@ export default function (on, options) {
 }
 
 function cleanDoiuseWarningText(warningText) {
-
   // Get index of feature Id
   const featureIdIndex = warningText.lastIndexOf("(")
 

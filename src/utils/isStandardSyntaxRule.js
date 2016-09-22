@@ -7,7 +7,6 @@ import _ from "lodash"
  * @return {boolean} If `true`, the rule is standard
  */
 export default function (rule) {
-
   // Get full selector
   const selector = _.get(rule, "raws.selector.raw", rule.selector)
 

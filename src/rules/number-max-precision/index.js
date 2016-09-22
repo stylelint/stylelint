@@ -41,7 +41,6 @@ export default function (precision) {
     })
 
     function check(source, node) {
-
       const sanitizedSource = blurComments(blurFunctionArguments(source, "url"))
       const decimalNumberMatches = execall(/(\d*\.(\d+))/g, sanitizedSource)
       if (!decimalNumberMatches.length) { return }

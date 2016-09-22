@@ -4,6 +4,7 @@ const COMMAND_PREFIX = "stylelint-"
 const disableCommand = COMMAND_PREFIX + "disable"
 const enableCommand = COMMAND_PREFIX + "enable"
 const disableLineCommand = COMMAND_PREFIX + "disable-line"
+const disableNextLineCommand = COMMAND_PREFIX + "disable-next-line"
 const ALL_RULES = "all"
 
 // Run it like a plugin ...
@@ -20,23 +21,33 @@ export default function (root, result) {
   return result
 
   function processDisableLineCommand(comment) {
-    getCommandRules(disableLineCommand, comment.text).forEach(ruleToDisable => {
-      if (currentlyDisabledRules.has(ALL_RULES)) {
-        throw comment.error("All rules have already been disabled", { plugin: "stylelint" })
-      }
-      if (currentlyDisabledRules.has(ruleToDisable)) {
-        throw comment.error(`"${ruleToDisable}" has already been disabled`, { plugin: "stylelint" })
-      }
-      if (ruleToDisable === ALL_RULES) {
-        Object.keys(disabledRanges).forEach(ruleName => {
-          startDisabledRange(comment, ruleName)
-          endDisabledRange(comment, ruleName)
-        })
-      } else {
-        startDisabledRange(comment, ruleToDisable)
-        endDisabledRange(comment, ruleToDisable)
-      }
+    getCommandRules(disableLineCommand, comment.text).forEach(ruleName => {
+      disableLine(comment.source.start.line, ruleName, comment)
     })
+  }
+
+  function processDisableNextLineCommand(comment) {
+    getCommandRules(disableNextLineCommand, comment.text).forEach(ruleName => {
+      disableLine(comment.source.start.line + 1, ruleName, comment)
+    })
+  }
+
+  function disableLine(line, ruleName, comment) {
+    if (currentlyDisabledRules.has(ALL_RULES)) {
+      throw comment.error("All rules have already been disabled", { plugin: "stylelint" })
+    }
+    if (currentlyDisabledRules.has(ruleName)) {
+      throw comment.error(`"${ruleName}" has already been disabled`, { plugin: "stylelint" })
+    }
+    if (ruleName === ALL_RULES) {
+      Object.keys(disabledRanges).forEach(disabledRuleName => {
+        startDisabledRange(line, disabledRuleName)
+        endDisabledRange(line, disabledRuleName)
+      })
+    } else {
+      startDisabledRange(line, ruleName)
+      endDisabledRange(line, ruleName)
+    }
   }
 
   function processDisableCommand(comment) {
@@ -53,10 +64,10 @@ export default function (root, result) {
 
       if (ruleToDisable === ALL_RULES) {
         Object.keys(disabledRanges).forEach(ruleName => {
-          startDisabledRange(comment, ruleName)
+          startDisabledRange(comment.source.start.line, ruleName)
         })
       } else {
-        startDisabledRange(comment, ruleToDisable)
+        startDisabledRange(comment.source.start.line, ruleToDisable)
       }
       currentlyDisabledRules.add(ruleToDisable)
     })
@@ -70,7 +81,7 @@ export default function (root, result) {
         }
         Object.keys(disabledRanges).forEach(ruleName => {
           if (!_.get(_.last(disabledRanges[ruleName]), "end")) {
-            endDisabledRange(comment, ruleName)
+            endDisabledRange(comment.source.end.line, ruleName)
           }
         })
         currentlyDisabledRules.clear()
@@ -84,12 +95,12 @@ export default function (root, result) {
         } else {
           disabledRanges[ruleToEnable].push(_.clone(_.last(disabledRanges[ALL_RULES])))
         }
-        endDisabledRange(comment, ruleToEnable)
+        endDisabledRange(comment.source.end.line, ruleToEnable)
         return
       }
 
       if (currentlyDisabledRules.has(ruleToEnable)) {
-        endDisabledRange(comment, ruleToEnable)
+        endDisabledRange(comment.source.end.line, ruleToEnable)
         currentlyDisabledRules.delete(ruleToEnable)
         return
       }
@@ -106,6 +117,8 @@ export default function (root, result) {
 
     if (text.indexOf(disableLineCommand) === 0) {
       processDisableLineCommand(comment)
+    } else if (text.indexOf(disableNextLineCommand) === 0) {
+      processDisableNextLineCommand(comment)
     } else if (text.indexOf(disableCommand) === 0) {
       processDisableCommand(comment)
     } else if (text.indexOf(enableCommand) === 0) {
@@ -119,17 +132,17 @@ export default function (root, result) {
     return rules
   }
 
-  function startDisabledRange(comment, ruleName) {
-    const rangeObj = { start: comment.source.start.line }
+  function startDisabledRange(line, ruleName) {
+    const rangeObj = { start: line }
     ensureRuleRanges(ruleName)
     disabledRanges[ruleName].push(rangeObj)
   }
 
-  function endDisabledRange(comment, ruleName) {
+  function endDisabledRange(line, ruleName) {
     const lastRangeForRule = _.last(disabledRanges[ruleName])
     if (!lastRangeForRule) { return }
     // Add an `end` prop to the last range of that rule
-    lastRangeForRule.end = comment.source.end.line
+    lastRangeForRule.end = line
   }
 
   function ensureRuleRanges(ruleName) {

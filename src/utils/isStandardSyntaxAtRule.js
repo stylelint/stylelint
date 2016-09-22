@@ -5,7 +5,6 @@
  * @return {boolean} If `true`, the declaration is standard
  */
 export default function (atRule) {
-
   // Ignore scss `@content` inside mixins
   if (!atRule.nodes && atRule.params === "") { return false }
 

@@ -10,7 +10,6 @@ symbolConversions.set("⚠", "‼")
 symbolConversions.set("✖", "×")
 
 test("no warnings", t => {
-
   const results = [{
     "source":  "path/to/file.css",
     "errored": false,
@@ -26,7 +25,6 @@ test("no warnings", t => {
 })
 
 test("condensing of deprecations and invalid option warnings", t => {
-
   const results = [ {
     "source": "file.css",
     "deprecations": [{
@@ -62,7 +60,6 @@ test("condensing of deprecations and invalid option warnings", t => {
 })
 
 test("one ignored file", t => {
-
   const results = [{
     "source": "file.css",
     "warnings":[],
@@ -78,7 +75,6 @@ test("one ignored file", t => {
 })
 
 export function prepareFormatterOutput(results, formatter) {
-
   let output = chalk.stripColor(formatter(results)).trim()
 
   for (const [ nix, win ] of symbolConversions.entries()) {
