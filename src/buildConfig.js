@@ -174,7 +174,7 @@ function extendConfig(config, configDir, options) {
     return result.then(merged => {
       return loadExtendedConfig(merged, configDir, extendLookup).then(extended => {
         if (typeof extended === "function") {
-          extended = extended(options)
+          extended = extended(merged, options)
         }
         return extended
       }).then(extended => {

@@ -103,7 +103,6 @@ export default function ({
   }
 
   function lintString(code, filepath, config, configDir) {
-
     // Prepare processors
     const codeProcessors = []
     const resultProcessors = []

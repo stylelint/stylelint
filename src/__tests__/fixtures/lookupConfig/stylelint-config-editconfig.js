@@ -1,5 +1,5 @@
 const editorconfig = require("editorconfig")
-module.exports = function (config) {
+module.exports = function (merged, config) {
   if (config.sourcePath) {
     return editorconfig.parse(config.sourcePath).then(editorconfig => {
       return {
