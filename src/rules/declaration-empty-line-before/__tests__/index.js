@@ -178,7 +178,7 @@ testRule(rule, {
   }, {
     code: "a {\n/* comment */\ntop: 15px;\n}",
   }, {
-    code: "a {\r\n/* comment */\r\nntop: 15px;\r\n}",
+    code: "a {\r\n/* comment */\r\ntop: 15px;\r\n}",
   } ],
 
   reject: [{
@@ -187,6 +187,57 @@ testRule(rule, {
     line: 2,
     column: 2,
   }],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "always", { ignore: ["after-declaration"] } ],
+
+  accept: [ {
+    code: "a {\n\n top: 15px; bottom: 5px;\n}",
+  }, {
+    code: "a {\r\n\r\n top: 15px; bottom: 5px;\r\n}",
+  }, {
+    code: "a {\n\n top: 15px;\n bottom: 5px;\n}",
+  }, {
+    code: "a {\r\n\r\n top: 15px;\r\n bottom: 5px;\r\n}",
+  }, {
+    code: "a {\n\n top: 15px;\n\n bottom: 5px;\n}",
+  }, {
+    code: "a {\r\n\r\n top: 15px;\r\n\r\n bottom: 5px;\r\n}",
+  } ],
+
+  reject: [ {
+    code: "a{\n @extends .class;\n top: 15px;\n}",
+    message: messages.expected,
+    line: 3,
+    column: 2,
+  }, {
+    code: "a{\r\n @extends .class;\r\n top: 15px;\r\n}",
+    message: messages.expected,
+    line: 3,
+    column: 2,
+  }, {
+    code: "a{\n @include mixin;\n top: 15px;\n}",
+    message: messages.expected,
+    line: 3,
+    column: 2,
+  }, {
+    code: "a{\r\n @include mixin;\r\n top: 15px;\r\n}",
+    message: messages.expected,
+    line: 3,
+    column: 2,
+  }, {
+    code: "a {\n top: 15px;\n}",
+    message: messages.expected,
+    line: 2,
+    column: 2,
+  }, {
+    code: "a {\r\n top: 15px;\r\n}",
+    message: messages.expected,
+    line: 2,
+    column: 2,
+  } ],
 })
 
 testRule(rule, {
