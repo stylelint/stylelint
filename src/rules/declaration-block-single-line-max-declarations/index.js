@@ -23,7 +23,6 @@ export default function (quantity) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-
       if (!isSingleLineString(blockString(rule))) { return }
       if (!rule.nodes) { return }
 

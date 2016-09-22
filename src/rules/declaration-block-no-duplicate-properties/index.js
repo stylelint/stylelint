@@ -66,7 +66,6 @@ export default function (on, options) {
         const indexDuplicate = decls.indexOf(prop.toLowerCase())
 
         if (indexDuplicate !== -1) {
-
           if (optionsMatches(options, "ignore", "consecutive-duplicates-with-different-values")) {
             // if duplicates are not consecutive
             if (indexDuplicate !== decls.length - 1) {

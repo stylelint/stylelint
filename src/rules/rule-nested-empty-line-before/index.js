@@ -39,7 +39,6 @@ export default function (expectation, options) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-
       if (!isStandardSyntaxRule(rule)) { return }
 
       // Only attend to nested rule sets

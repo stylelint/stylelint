@@ -26,7 +26,6 @@ export default function (actual) {
       if (!isStandardSyntaxSelector(selector)) { return }
       parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkIds(idNode => {
-
           if (idNode.parent.parent.type === "pseudo") { return }
 
           report({

@@ -52,6 +52,11 @@ testRule(rule, {
     message: messages.rejected("wdth"),
     line: 1,
     column: 8,
+  }, {
+    code: ".foo { --custom-property-set: { colr: blue; } }",
+    message: messages.rejected("colr"),
+    line: 1,
+    column: 33,
   } ],
 })
 
@@ -66,6 +71,9 @@ testRule(rule, {
   }, {
     code: ".foo { #{$prop}: black; }",
     description: "ignore property interpolation",
+  }, {
+    code: ".foo { border: { style: solid; } }",
+    description: "ignore nested properties",
   } ],
 })
 

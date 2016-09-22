@@ -108,10 +108,13 @@ export default function ({
     const codeProcessors = []
     const resultProcessors = []
     if (config.processors) {
-      config.processors.forEach(processorPath => {
-        let processor = require(processorPath)
+      [].concat(config.processors).forEach(processorConfig => {
+        processorConfig = [].concat(processorConfig)
+        const processorLookup = processorConfig[0]
+        const processorOptions = processorConfig[1]
+        let processor = require(processorLookup)
         processor = processor.default || processor
-        const initializedProcessor = processor()
+        const initializedProcessor = processor(processorOptions)
         if (initializedProcessor.code) { codeProcessors.push(initializedProcessor.code) }
         if (initializedProcessor.result) { resultProcessors.push(initializedProcessor.result) }
       })

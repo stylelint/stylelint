@@ -39,7 +39,6 @@ export default function (expectation) {
 
 export function declarationColonSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
   root.walkDecls(decl => {
-
     if (!isStandardSyntaxDeclaration(decl)) { return }
 
     // Get the raw prop, and only the prop

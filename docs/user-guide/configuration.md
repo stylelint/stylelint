@@ -74,11 +74,20 @@ Or you can turn off individual rules:
 /* stylelint-enable */
 ```
 
-And you can turn off rules for individual lines only, after which you do not need to explicitly re-enable them:
+You can turn off rules for individual lines only with a `/* stylelint-disable-line */` comment, after which you do not need to explicitly re-enable them:
 
 ```css
 #id { /* stylelint-disable-line */
   color: pink !important; /* stylelint-disable-line declaration-no-important */
+}
+```
+
+You can also turn off rules for *the next line only* with a `/* stylelint-disable-next-line */` comment, after which you do not need to explicitly re-enable them:
+
+```css
+#id {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: pink !important;
 }
 ```
 
@@ -223,7 +232,7 @@ Processors are functions that hook into stylelint's pipeline, modifying code on 
 
 *Processors can only be used with the CLI and the Node API, not with the PostCSS plugin.* (The PostCSS plugin will ignore them.)
 
-Processors can enable stylelint to lint the CSS within non-stylesheet files. For example, you could lint the CSS within `<style>` tags in HTML, or within strings in JavaScript.
+Processors can enable stylelint to lint the CSS within non-stylesheet files. For example, you could lint the CSS within `<style>` tags in HTML, code blocks in markdown, or strings in JavaScript.
 
 To use one, add a `"processors"` array to your config, containing "locaters" identifying the processors you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
 
@@ -231,6 +240,18 @@ To use one, add a `"processors"` array to your config, containing "locaters" ide
 {
   "processors": ["stylelint-html-processor"],
   "rules": {..},
+}
+```
+
+If your processor has options, make that item an array whose first item is the "locator" and second item is the options object.
+
+```json
+{
+  "processors": [
+    "stylelint-html-processor",
+    [ "some-other-processor", { "optionOne": true, "optionTwo": false } ]
+  ],
+  "rules": {..}
 }
 ```
 

@@ -3,7 +3,6 @@ import postcss from "postcss"
 import test from "tape"
 
 test("declarationValueIndex", t => {
-
   t.plan(5)
 
   rules("a { a: b }", decl => {

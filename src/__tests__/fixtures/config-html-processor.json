@@ -1,4 +1,0 @@
-{
-  "extends": "./config-block-no-empty",
-  "processors": "./processor-html"
-}

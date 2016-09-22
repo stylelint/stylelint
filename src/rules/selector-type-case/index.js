@@ -27,7 +27,6 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-
       const { selector, selectors } = rule
 
       if (!isStandardSyntaxRule(rule)) { return }
@@ -36,7 +35,6 @@ export default function (expectation) {
 
       parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkTags(tag => {
-
           if (!isStandardSyntaxTypeSelector(tag)) { return }
 
           const { sourceIndex, value } = tag

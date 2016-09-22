@@ -25,7 +25,6 @@ export default function (actual) {
     if (!validOptions) { return }
 
     root.walkAtRules(atRule => {
-
       const nextNode = atRule.next()
       if (!nextNode) { return }
       if (hasBlock(atRule)) { return }
