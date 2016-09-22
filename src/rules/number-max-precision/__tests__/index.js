@@ -35,6 +35,9 @@ testRule(rule, {
     code: "@IMPORT '1.123.css'",
   }, {
     code: "a { background: url(1.123.jpg) }",
+  }, {
+    code: "a { my-string: \"1.2345\"; }",
+    description: "ignore all strings rather than only in 'content'",
   } ],
 
   reject: [ {

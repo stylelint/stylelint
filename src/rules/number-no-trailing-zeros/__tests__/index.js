@@ -42,6 +42,15 @@ testRule(rule, {
   }, {
     code: "a { background: URL(data:image/svg+xml;...1.0); }",
     description: "data URI containing trailing zero",
+  }, {
+    code: "a { margin: 0.5em /* 1.600em */ 0.7em; }",
+    description: "should ignore comments",
+  }, {
+    code: "a::before { content: \".90em\"; }",
+    description: "should ignore strings",
+  }, {
+    code: "a { my-string: \"1.00\"; }",
+    description: "ignore all strings rather than only in 'content'",
   } ],
 
   reject: [ {
