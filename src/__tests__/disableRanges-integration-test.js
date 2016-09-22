@@ -29,6 +29,8 @@ testRule(blockNoEmpty, {
   }, {
     code: "a {} /* stylelint-disable-line */ ",
   }, {
+    code: "/* stylelint-disable-next-line */\na {}",
+  }, {
     code: "b { color: pink;}\n/* stylelint-disable */\na {}",
   } ],
 
@@ -43,6 +45,15 @@ testRule(blockNoEmpty, {
     message: blockNoEmptyMessages.rejected,
   }, {
     code: "/* stylelint-disable-line */\na {}",
+    message: blockNoEmptyMessages.rejected,
+  }, {
+    code: "/* stylelint-disable-next-line */\na{}\nb {}",
+    message: blockNoEmptyMessages.rejected,
+  }, {
+    code: "/* stylelint-disable-next-line */ a{}",
+    message: blockNoEmptyMessages.rejected,
+  }, {
+    code: "a {}\n/* stylelint-disable-next-line */",
     message: blockNoEmptyMessages.rejected,
   } ],
 })
@@ -68,7 +79,9 @@ testRule(blockNoEmpty, {
   }, {
     code: `/* stylelint-disable-line ${blockNoEmptyName} */ a {}`,
   }, {
-    code: `a {} /* stylelint-disable-line ${blockNoEmptyName} */ `,
+    code: `a {} /* stylelint-disable-line ${blockNoEmptyName} */`,
+  }, {
+    code: `/* stylelint-disable-next-line ${blockNoEmptyName} */\na {}`,
   } ],
 
   reject: [ {
@@ -159,6 +172,11 @@ testRule(maxLineLength, {
     code: `
       .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); } /* stylelint-disable-line max-line-length */
     `,
+  }, {
+    code: `
+      /* stylelint-disable-next-line max-line-length */
+      .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
+    `,
   } ],
 
   reject: [ {
@@ -188,6 +206,14 @@ testRule(maxLineLength, {
       /* stylelint-disable max-line-length */
       .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
       /* stylelint-enable max-line-length */
+      .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
+    `,
+
+    message: maxLineLengthMessages.expected(80),
+  }, {
+    code: `
+      /* stylelint-disable-next-line max-line-length */
+      .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
       .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
     `,
 
