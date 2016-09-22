@@ -6,7 +6,6 @@ import { hasInterpolation } from "../utils"
  * @return {boolean} If `true`, the selector is standard
  */
 export default function (selector) {
-
   // SCSS or Less interpolation
   if (hasInterpolation(selector)) { return false }
 

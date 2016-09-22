@@ -6,7 +6,6 @@ import { hasInterpolation } from "../utils"
  * @return {boolean} If `true`, the media feature is standard
  */
 export default function (mediaFeature) {
-
   // Remove outside parens
   mediaFeature = mediaFeature.slice(1, -1)
 

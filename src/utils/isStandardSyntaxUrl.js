@@ -6,7 +6,6 @@ import { hasInterpolation } from "../utils"
  * @return {boolean} If `true`, the url is standard
  */
 export default function (url) {
-
   // SCSS or Less interpolation
   if (hasInterpolation(url)) { return false }
 

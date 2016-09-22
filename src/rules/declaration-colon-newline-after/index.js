@@ -27,7 +27,6 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkDecls(decl => {
-
       if (!isStandardSyntaxDeclaration(decl)) { return }
 
       // Get the raw prop, and only the prop

@@ -36,7 +36,6 @@ export default function (expectation, options) {
     if (!validOptions) { return }
 
     root.walkRules(rule => {
-
       if (!isStandardSyntaxRule(rule)) { return }
 
       // Ignore nested rule sets
@@ -51,7 +50,6 @@ export default function (expectation, options) {
 }
 
 export function checkRuleEmptyLineBefore({ rule, expectation, options, result, messages, checkedRuleName }) {
-
   let expectEmptyLineBefore = (expectation.indexOf("always") !== -1) ? true : false
 
   // Optionally ignore the expectation if a comment precedes this node

@@ -12,7 +12,6 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function (expectation) {
-
   const erroneousQuote = (expectation === "single") ? "\"" : "'"
 
   return (root, result) => {

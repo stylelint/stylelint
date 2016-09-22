@@ -5,7 +5,6 @@ import scss from "postcss-scss"
 import test from "tape"
 
 test("isStandardSyntaxDeclaration", t => {
-
   t.plan(22)
 
   rules("a { a: b }", decl => {

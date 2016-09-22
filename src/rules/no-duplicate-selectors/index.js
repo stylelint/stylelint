@@ -31,7 +31,6 @@ export default function (actual) {
     const selectorContextLookup = nodeContextLookup()
 
     root.walkRules(rule => {
-
       if (isKeyframeRule(rule)) { return }
 
       const contextSelectorSet = selectorContextLookup.getContext(rule, findAtRuleContext(rule))

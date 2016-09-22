@@ -15,7 +15,6 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function (expectation) {
-
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
