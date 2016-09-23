@@ -1,5 +1,7 @@
 import configBlockNoEmpty from "./fixtures/config-block-no-empty"
 import path from "path"
+import ruleDefinitions from "../rules"
+import sinon from "sinon"
 import standalone from "../standalone"
 import test from "tape"
 
@@ -167,6 +169,29 @@ test("unknown formatter option", t => {
     })
 
   t.plan(1)
+})
+
+test("standalone with deprecations", t => {
+  let planned = 0
+
+  sinon.stub(ruleDefinitions, "block-no-empty", () => {
+    return (root, result) => {
+      result.warn(("Some deprecation"), {
+        stylelintType: "deprecation",
+      })
+    }
+  })
+
+  standalone({ code: "a {}", config: configBlockNoEmpty }).then(({ output, results }) => {
+    t.ok(output.indexOf("Some deprecation") !== -1)
+    t.equal(results.length, 1)
+    t.equal(results[0].deprecations.length, 1)
+    t.equal(results[0].deprecations[0].text, "Some deprecation")
+    ruleDefinitions["block-no-empty"].restore()
+  }).catch(logError)
+  planned += 4
+
+  t.plan(planned)
 })
 
 function logError(err) { console.log(err.stack) } // eslint-disable-line no-console

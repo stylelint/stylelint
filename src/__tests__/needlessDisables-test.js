@@ -56,6 +56,8 @@ test("needlessDisables complex case", t => {
     files: [
       fixture("disabled-ranges-1.css"),
       fixture("disabled-ranges-2.css"),
+      // ignore files contain `CssSyntaxError`
+      fixture("disabled-ranges-3.css"),
     ],
     ignoreDisables: true,
   }).then(({ results }) => {
