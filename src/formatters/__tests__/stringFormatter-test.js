@@ -26,7 +26,6 @@ test("no warnings", t => {
 })
 
 test("warnings", t => {
-
   const results = [{
     "source":  "path/to/file.css",
     "errored": true,
@@ -52,7 +51,6 @@ test("warnings", t => {
 })
 
 test("warnings without stdout `TTY`", t => {
-
   const oldTTY = process.stdout.isTTY
   process.stdout.isTTY = false
 
