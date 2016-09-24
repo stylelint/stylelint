@@ -1,11 +1,11 @@
-import disableRanges from "../disableRanges"
+import assignDisabledRanges from "../assignDisabledRanges"
 import less from "postcss-less"
 import { noop } from "lodash"
 import postcss from "postcss"
 import scss from "postcss-scss"
 import test from "tape"
 
-test("disableRanges registers disable/enable commands without rules", t => {
+test("assignDisabledRanges registers disable/enable commands without rules", t => {
   let planCount = 0
 
   testDisableRanges("a {}", result => {
@@ -221,7 +221,7 @@ test("SCSS // line-disabling comment", t => {
   const scssSource = `a {
     color: pink !important; // stylelint-disable-line declaration-no-important
   }`
-  postcss().use(disableRanges).process(scssSource, { syntax: scss }).then(result => {
+  postcss().use(assignDisabledRanges).process(scssSource, { syntax: scss }).then(result => {
     t.deepEqual(result.stylelint.disabledRanges, {
       all: [],
       "declaration-no-important": [{
@@ -241,7 +241,7 @@ test("Less // line-disabling comment", t => {
   const lessSource = `a {
     color: pink !important; // stylelint-disable-line declaration-no-important
   }`
-  postcss().use(disableRanges).process(lessSource, { syntax: less }).then(result => {
+  postcss().use(assignDisabledRanges).process(lessSource, { syntax: less }).then(result => {
     t.deepEqual(result.stylelint.disabledRanges, {
       all: [],
       "declaration-no-important": [{
@@ -388,7 +388,7 @@ test("disabledRanges errors", t => {
 
 function testDisableRanges(source, cb, errorHandler = logError) {
   postcss()
-    .use(disableRanges)
+    .use(assignDisabledRanges)
     .process(source)
     .then(cb)
     .catch(errorHandler)

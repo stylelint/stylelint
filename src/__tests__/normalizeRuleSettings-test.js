@@ -41,6 +41,11 @@ test("rules whose primary option CAN BE an array", t => {
     "solo primary option array is nested within an array"
   )
   t.deepEqual(
+    normalizeRuleSettings([[ "calc", "rgba" ]], "function-whitelist", true),
+    [[ "calc", "rgba" ]],
+    "primary option array in an array"
+  )
+  t.deepEqual(
     normalizeRuleSettings([ [ "calc", "rgba" ], { "severity": "warning" } ], "function-whitelist", true),
     [ [ "calc", "rgba" ], { "severity": "warning" } ],
     "nested primary option array returns same"

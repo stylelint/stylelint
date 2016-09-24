@@ -36,7 +36,7 @@
     "balanced-match": "^0.4.0",
     "chalk": "^1.1.1",
     "colorguard": "^1.2.0",
-    "cosmiconfig": "^1.1.0",
+    "cosmiconfig": "davidtheclark/cosmiconfig#v2",
     "doiuse": "^2.4.1",
     "execall": "^1.0.0",
     "get-stdin": "^5.0.0",
@@ -69,13 +69,17 @@
   },
   "devDependencies": {
     "babel-cli": "^6.1.18",
-    "babel-preset-es2015": "^6.13.1",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-flow-strip-types": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-es2017": "^6.14.0",
     "babel-tape-runner": "^2.0.0",
     "benchmark": "^2.1.0",
     "common-tags": "^1.3.0",
     "coveralls": "^2.11.9",
     "eslint": "~3.7.0",
     "eslint-config-stylelint": "^5.0.0",
+    "flow-bin": "^0.32.0",
     "npm-run-all": "^3.0.0",
     "npmpub": "^3.0.1",
     "nyc": "^8.1.0",
@@ -94,6 +98,7 @@
     "lint:js": "eslint . --ignore-path .gitignore",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
+    "flow": "flow",
     "pretest": "npm run lint",
     "tape": "babel-tape-runner \"src/**/__tests__/**/*.js\"",
     "test": "nyc npm run tape",
@@ -104,11 +109,16 @@
   },
   "babel": {
     "presets": [
-      "es2015"
+      "es2015",
+      "es2017"
+    ],
+    "plugins": [
+      "transform-flow-strip-types"
     ]
   },
   "eslintConfig": {
     "extends": "stylelint",
+    "parser": "babel-eslint",
     "rules": {
       "arrow-spacing": 2,
       "no-var": 2,

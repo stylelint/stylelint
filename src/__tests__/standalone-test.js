@@ -49,17 +49,13 @@ test("standalone with input file(s)", t => {
 })
 
 test("standalone with input css", t => {
-  let planned = 0
-
   standalone({ code: "a {}", config: configBlockNoEmpty }).then(({ output, results }) => {
     t.equal(typeof output, "string")
     t.equal(results.length, 1)
     t.equal(results[0].warnings.length, 1)
     t.equal(results[0].warnings[0].rule, "block-no-empty")
-  }).catch(logError)
-  planned += 4
-
-  t.plan(planned)
+    t.end()
+  }).catch(t.end)
 })
 
 test("standalone without input css and file(s) should throw error", t => {
@@ -71,20 +67,21 @@ test("standalone without input css and file(s) should throw error", t => {
 })
 
 test("standalone with non-existent-file should throw error with code 80", t => {
-  let planned = 0
-
   const expectedError = new Error("Files glob patterns specified did not match any files")
   expectedError.code = 80
 
   standalone({
     files: `${fixturesPath}/non-existent-file.css`,
     config: configBlockNoEmpty,
-  }).catch((actualError) => {
-    t.deepEqual(actualError, expectedError)
   })
-  planned += 1
-
-  t.plan(planned)
+    .then(() => {
+      t.fail("should not have succeeded")
+      t.end()
+    })
+    .catch((actualError) => {
+      t.deepEqual(actualError, expectedError)
+      t.end()
+    })
 })
 
 test("standalone passing code with syntax error", t => {
@@ -105,9 +102,8 @@ test("standalone passing code with syntax error", t => {
       "syntax error severity is error")
     t.ok(result.warnings[0].text.indexOf(" (CssSyntaxError)" !== -1),
       "(CssSyntaxError) in warning text")
-  }).catch(logError)
-
-  t.plan(8)
+    t.end()
+  }).catch(t.end)
 })
 
 test("standalone passing file with syntax error", t => {
@@ -129,9 +125,8 @@ test("syntax error sets errored to true", t => {
     config: { rules: { "block-no-empty": true } },
   }).then(({ errored }) => {
     t.ok(errored, "errored is true")
-  }).catch(logError)
-
-  t.plan(1)
+    t.end()
+  }).catch(t.end)
 })
 
 test("configuration error sets errored to true", t => {
@@ -140,9 +135,8 @@ test("configuration error sets errored to true", t => {
     config: { rules: { "block-no-empty": "wahoo" } },
   }).then(({ errored }) => {
     t.ok(errored, "errored is true")
-  }).catch(logError)
-
-  t.plan(1)
+    t.end()
+  }).catch(t.end)
 })
 
 test("unknown syntax option", t => {
@@ -150,12 +144,15 @@ test("unknown syntax option", t => {
     syntax: "unknown",
     code: "",
     config: { rules: { "block-no-empty": "wahoo" } },
-  }).then()
+  })
+    .then(() => {
+      t.fail("should not have succeeded")
+      t.end()
+    })
     .catch(err => {
       t.equal(err.message, "You must use a valid syntax option, either: scss, less or sugarss")
+      t.end()
     })
-
-  t.plan(1)
 })
 
 test("unknown formatter option", t => {
@@ -163,17 +160,18 @@ test("unknown formatter option", t => {
     formatter: "unknown",
     code: "",
     config: { rules: { "block-no-empty": "wahoo" } },
-  }).then()
+  })
+    .then(() => {
+      t.fail("should not have succeeded")
+      t.end()
+    })
     .catch(err => {
       t.equal(err.message, "You must use a valid formatter option, either: json, string or verbose")
+      t.end()
     })
-
-  t.plan(1)
 })
 
 test("standalone with deprecations", t => {
-  let planned = 0
-
   sinon.stub(ruleDefinitions, "block-no-empty", () => {
     return (root, result) => {
       result.warn(("Some deprecation"), {
@@ -188,10 +186,25 @@ test("standalone with deprecations", t => {
     t.equal(results[0].deprecations.length, 1)
     t.equal(results[0].deprecations[0].text, "Some deprecation")
     ruleDefinitions["block-no-empty"].restore()
-  }).catch(logError)
-  planned += 4
+    t.end()
+  }).catch(t.end)
+})
 
-  t.plan(planned)
+test("standalone with different configs per file", t => {
+  standalone({
+    files: [path.join(__dirname, "./fixtures/config-per-file/**/*.css")],
+  }).then(({ results }) => {
+    const resultA = results.find((result) => result.source.indexOf("a.css") !== -1)
+    const resultB = results.find((result) => result.source.indexOf("b.css") !== -1)
+    const resultC = results.find((result) => result.source.indexOf("c.css") !== -1)
+    const resultD = results.find((result) => result.source.indexOf("d.css") !== -1)
+    t.equal(resultA.warnings.length, 0, "no warnings for A")
+    t.equal(resultB.warnings.length, 1, "one warning for B")
+    t.ok(resultB.warnings[0].text.indexOf("Unexpected empty block") !== -1, "correct warning for B")
+    t.equal(resultC.warnings.length, 0, "no warnings for C")
+    t.equal(resultD.warnings.length, 0, "no warnings for D")
+    t.end()
+  }).catch(t.end)
 })
 
 function logError(err) { console.log(err.stack) } // eslint-disable-line no-console

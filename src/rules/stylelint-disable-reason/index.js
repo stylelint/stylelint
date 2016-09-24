@@ -48,7 +48,7 @@ export default function (expectation) {
         }
 
         if (!prevIsCommentAndValid && !prevDisableLineIsCommentAndValid) {
-          const disableRanges = result.stylelint.disabledRanges
+          const disabledRanges = result.stylelint.disabledRanges
           result.stylelint.disabledRanges = false
 
           report({
@@ -57,7 +57,7 @@ export default function (expectation) {
             result,
             ruleName,
           })
-          result.stylelint.disabledRanges = disableRanges
+          result.stylelint.disabledRanges = disabledRanges
         }
       } else if (expectation === "always-after") {
         const next = comment.next()
@@ -66,7 +66,7 @@ export default function (expectation) {
           && !isDisableCommand(next.text)
 
         if (!nextIsCommentAndValid) {
-          const disableRanges = result.stylelint.disabledRanges
+          const disabledRanges = result.stylelint.disabledRanges
           result.stylelint.disabledRanges = false
 
           report({
@@ -75,7 +75,7 @@ export default function (expectation) {
             result,
             ruleName,
           })
-          result.stylelint.disabledRanges = disableRanges
+          result.stylelint.disabledRanges = disabledRanges
         }
       }
     })

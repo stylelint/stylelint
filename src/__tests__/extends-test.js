@@ -18,8 +18,8 @@ test("standalone with extending configuration and configBasedir", t => {
       st.equal(results.length, 1)
       st.equal(results[0].warnings.length, 1)
       st.equal(results[0].warnings[0].rule, "block-no-empty")
-    }).catch(logError)
-    st.end()
+      st.end()
+    }).catch(st.end)
   })
 
   t.test("recursive extending", st => {
@@ -32,8 +32,8 @@ test("standalone with extending configuration and configBasedir", t => {
       st.equal(results.length, 1)
       st.equal(results[0].warnings.length, 1)
       st.equal(results[0].warnings[0].rule, "block-no-empty")
-    }).catch(logError)
-    st.end()
+      st.end()
+    }).catch(st.end)
   })
 
   t.test("extending with overrides", st => {
@@ -43,25 +43,24 @@ test("standalone with extending configuration and configBasedir", t => {
       configBasedir: path.join(__dirname, "fixtures"),
     }).then(({ results }) => {
       st.equal(results[0].warnings.length, 0)
-    }).catch(logError)
-    st.end()
+      st.end()
+    }).catch(st.end)
   })
 
   t.end()
 })
 
 test("standalone with extending configuration and no configBasedir", t => {
-  let planned = 0
-
   standalone({
     code: "a {}",
     config: configExtendingOne,
+  }).then(() => {
+    t.fail("should have failed")
+    t.end()
   }).catch(err => {
     t.equal(err.code, 78)
+    t.end()
   })
-  planned += 1
-
-  t.plan(planned)
 })
 
 test("standalone extending a config that is overridden", t => {
@@ -76,7 +75,23 @@ test("standalone extending a config that is overridden", t => {
   }).then(({ results }) => {
     t.equal(results[0].warnings.length, 0)
     t.end()
-  }).catch(logError)
+  }).catch(t.end)
 })
 
-function logError(err) { console.log(err.stack) } // eslint-disable-line no-console
+test("standalone extending a config from process.cwd", t => {
+  const actualCwd = process.cwd()
+  process.chdir(__dirname)
+  standalone({
+    code: "a { b: \"c\" }",
+    config: {
+      extends: ["./fixtures/config-string-quotes-single"],
+    },
+  }).then(({ results }) => {
+    t.equal(results[0].warnings.length, 1)
+    process.chdir(actualCwd)
+    t.end()
+  }).catch((err) => {
+    process.chdir(actualCwd)
+    t.end(err)
+  })
+})
