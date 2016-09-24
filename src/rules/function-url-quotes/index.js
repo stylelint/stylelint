@@ -10,11 +10,15 @@ import {
 export const ruleName = "function-url-quotes"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (f = "url") => `Expected quotes around ${f} argument`,
-  rejected: (f = "url") => `Unexpected quotes around ${f} argument`,
+  expected: () => "Expected quotes",
+  rejected: () => "Unexpected quotes",
 })
 
-export default function (expectation) {
+const defaultOptions = {
+  except: [],
+}
+
+export default function (expectation, options = defaultOptions) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -22,6 +26,11 @@ export default function (expectation) {
         "always",
         "never",
       ],
+    }, {
+      actual: options,
+      possible: {
+        except: ["empty"],
+      },
     })
     if (!validOptions) { return }
 
@@ -54,8 +63,8 @@ export default function (expectation) {
     }
 
     function checkArgs(args, node, index, functionName) {
-      // skip empty brackets
-      if (args === "") { return }
+      const argumentIsEmpty = args === ""
+      if (argumentIsEmpty && options.except.includes("empty")) { return }
 
       const leftTrimmedArgs = args.trimLeft()
       if (!isStandardSyntaxUrl(leftTrimmedArgs)) { return }

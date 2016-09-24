@@ -146,10 +146,6 @@ testRule(rule, {
   }, {
     code: "a { background: url(\"/images/my_image@2x.png\") }",
   }, {
-    code: "@-moz-document url-prefix() {}",
-  }, {
-    code: "a { background: url() }",
-  }, {
     code: "a { background: url(\"\") }",
   } ],
 
@@ -430,5 +426,16 @@ testRule(rule, {
     message: messages.rejected(),
     line: 1,
     column: 21,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "always", { except: ["empty"] } ],
+
+  accept: [ {
+    code: "@-moz-document url-prefix() {}",
+  }, {
+    code: "a { background: url() }",
   } ],
 })
