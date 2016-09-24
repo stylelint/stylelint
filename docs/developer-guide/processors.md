@@ -32,3 +32,8 @@ Processors can enable stylelint to lint the CSS within non-stylesheet files. For
 -   In the `result` processor function, modify the line/column position of each warning using your sourcemap.
 
 *Processor options must be JSON-friendly*, because users will need to include them in `.stylelintrc` files.
+
+## Sharing processors
+
+-   Use the `stylelint-processor` keyword within your `package.json`.
+-   Once your processor is published, please send us a Pull Request to add your processor to [the list](/docs/user-guide/processors.md).
