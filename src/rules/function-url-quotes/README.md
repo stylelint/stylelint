@@ -31,8 +31,7 @@ The following patterns are considered warnings:
 ```
 
 ```css
-@-moz-document url-prefix() {
-}
+@-moz-document url-prefix() {}
 ```
 
 The following patterns are *not* considered warnings:
@@ -54,8 +53,7 @@ a { background: url('x.jpg'); }
 ```
 
 ```css
-@-moz-document url-prefix('') {
-}
+@-moz-document url-prefix('') {}
 ```
 
 ### `"never"`
@@ -93,11 +91,13 @@ a { background: url(x.jpg); }
 ## Optional secondary options
 
 ### `except: ["empty"]`
-Do not require quotes if argument is empty
+
+Reverse the primary option if the function has no arguments.
+
+For example, with `"always"`.
 
 The following pattern is *not* considered warnings:
 
 ```css
-@-moz-document url-prefix() {
-}
+@-moz-document url-prefix() {}
 ```
