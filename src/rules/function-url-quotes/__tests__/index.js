@@ -438,4 +438,35 @@ testRule(rule, {
   }, {
     code: "a { background: url() }",
   } ],
+
+  reject: [{
+    code: "@import url(foo.css);",
+    message: messages.expected(),
+    line: 1,
+    column: 13,
+  }],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "never", { except: ["empty"] } ],
+
+  accept: [ {
+    code: "@-moz-document url-prefix(\"\") {}",
+  }, {
+    code: "a { background: url(\"\") }",
+  }, {
+    code: "@import url(foo.css);",
+  } ],
+
+  reject: [ {
+    code: "@-moz-document url-prefix() {}",
+  }, {
+    code: "a { background: url() }",
+  }, {
+    code: "@import url(\"foo.css\");",
+    message: messages.rejected(),
+    line: 1,
+    column: 13,
+  } ],
 })
