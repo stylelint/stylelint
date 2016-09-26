@@ -107,6 +107,12 @@ testRule(rule, {
   }, {
     code: "@keyframes foo {} a { animation: foo .1s ease .2s 1 both; }",
     description: "animation shorthand",
+  }, {
+    code: "@keyframes foo {} @keyframes bar {} a { animation-name: foo, bar; }",
+    description: "multiple animation names",
+  }, {
+    code: "@keyframes foo {} a { animation-name: none, foo; }",
+    description: "multiple animation names and keyword none",
   } ],
 
   reject: [ {
@@ -169,5 +175,17 @@ testRule(rule, {
     message: messages.rejected("BAZ"),
     line: 1,
     column: 16,
+  }, {
+    code: "@keyframes foo {} a { animation-name: foo, bar; }",
+    description: "multiple animation names",
+    message: messages.rejected("bar"),
+    line: 1,
+    column: 44,
+  }, {
+    code: "@keyframes foo {} a { animation-name: none, bar; }",
+    description: "multiple animation names",
+    message: messages.rejected("bar"),
+    line: 1,
+    column: 45,
   } ],
 })
