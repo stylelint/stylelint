@@ -4,6 +4,7 @@
 -   [About rules](/docs/user-guide/about-rules.md): An explanation of rule names and how rules work together.
 -   [Rules](/docs/user-guide/rules.md): A list of stylelint's rules.
 -   [Plugins](/docs/user-guide/plugins.md): A list of community plugins.
+-   [Processors](/docs/user-guide/processors.md): A list of community processors.
 -   [Example config](/docs/user-guide/example-config.md): An example config that you can use as a blueprint for your own.
 -   [The CLI](/docs/user-guide/cli.md): Examples and exit codes for using the CLI.
 -   [The Node API](/docs/user-guide/node-api.md): Options and examples for using the Node API.
