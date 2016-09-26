@@ -53,6 +53,7 @@ export default postcss.plugin("stylelint", (options = {}) => {
                 "with stylelint v3+. Please file an issue with the plugin."
               )
             }
+
             if (!_.includes(plugin.ruleName, "/")) {
               throw configurationError(
                 "stylelint v7+ requires plugin rules to be namspaced, " +

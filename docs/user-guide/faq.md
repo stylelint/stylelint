@@ -1,5 +1,21 @@
 # FAQ
 
+## How do I disable a rule?
+
+You can disable a rule by setting its config value to `null`.
+
+For example, to use `stylelint-config-standard` without the `at-rule-empty-line-before` rule:
+```json
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "at-rule-empty-line-before": null
+  }
+}
+```
+
+You can also disable a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/configuration.md#rules) for more information.
+
 ## How do I lint from the command line?
 
 Refer to the [CLI section](/docs/user-guide/cli.md) of the docs.

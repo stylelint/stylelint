@@ -174,7 +174,7 @@ a {
 }
 ```
 
-### `ignore: ["after-comment", "inside-single-line-block"]`
+### `ignore: ["after-comment", "after-declaration", "inside-single-line-block"]`
 
 #### `"after-comment"`
 
@@ -188,6 +188,42 @@ The following patterns are *not* considered warnings:
 a {
   /* comment */
   bottom: 15px;
+}
+```
+
+#### `"after-declaration"`
+
+Ignore declarations that are preceded by declarations, to allow for multiple declaration sets in the same block.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+
+  bottom: 15px;
+  top: 15px;
+}
+```
+
+```css
+a {
+
+  bottom: 15px;
+
+  top: 15px;
+}
+```
+
+```css
+a {
+
+  color: orange;
+  text-decoration: none;
+
+  bottom: 15px;
+  top: 15px;
 }
 ```
 

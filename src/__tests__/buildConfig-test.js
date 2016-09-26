@@ -1,5 +1,7 @@
 import buildConfig from "../buildConfig"
+import fs from "fs"
 import path from "path"
+import sinon from "sinon"
 import test from "tape"
 
 test("buildConfig with config as argument object", t => {
@@ -228,6 +230,118 @@ test("buildConfig extends rules by replacing the prior rule config completely, n
   }).catch(logError)
 })
 
+test("buildConfig correctly handles `ignoreFiles`", t => {
+  const cwd = process.cwd()
+  process.chdir(__dirname)
+
+  buildConfig({
+    ignoreFiles: [
+      "/ignore.css",
+      "ignore-too.css",
+    ],
+    rules: {},
+  }).then(({ config }) => {
+    t.deepEqual(config, {
+      ignoreFiles: [
+        "/ignore.css",
+        path.join(__dirname, "ignore-too.css"),
+      ],
+      rules: {},
+    })
+    process.chdir(cwd)
+    t.end()
+  }).catch(logError)
+})
+
+  buildConfig({
+    rules: {
+      "at-rule-empty-line-before": [ "always", {
+        expect: ["blockless-group"],
+      } ],
+    },
+  }).then(({ config }) => {
+    t.deepEqual(config, {
+      ignorePath: path.join(__dirname, "./fixtures/ignore.txt"),
+      ignorePatterns: "# Ignore file patterns are always relative to process.cwd()\n\nsrc/__tests__/fixtures/empty-block.css\n",
+      rules: {
+        "at-rule-empty-line-before": [ "always", {
+          expect: ["blockless-group"],
+        } ],
+      },
+    })
+    t.end()
+  })
+    .catch(logError)
+})
+
+test("buildConfig have not `ignorePatterns` if `ignorePath` not found", t => {
+  buildConfig({
+    ignorePath: "/nonexistent.js",
+    rules: {
+      "at-rule-empty-line-before": [ "always", {
+        expect: ["blockless-group"],
+      } ],
+    },
+  }).then(({ config }) => {
+    t.deepEqual(config, {
+      ignorePath: "/nonexistent.js",
+      rules: {
+        "at-rule-empty-line-before": [ "always", {
+          expect: ["blockless-group"],
+        } ],
+      },
+    })
+    t.end()
+  })
+    .catch(logError)
+})
+
+test("buildConfig throw error if we have file system problem with `ignorePath`", t => {
+  let planned = 0
+
+  const fsStub = sinon.stub(fs, "readFile")
+  fsStub.yields(new Error("Some file system error"))
+
+  buildConfig({
+    ignorePath: "/nonexistent-ignore.js",
+    rules: {
+      "at-rule-empty-line-before": [ "always", {
+        expect: ["blockless-group"],
+      } ],
+    },
+  }).catch(err => {
+    t.equal(err.message, "Some file system error")
+    fsStub.restore()
+  })
+  planned += 1
+
+  t.plan(planned)
+})
+
+test("buildConfig loads processors", t => {
+  buildConfig({
+    configBasedir: __dirname,
+    processors: "./fixtures/processor-fenced-blocks.js",
+    rules: {
+      "at-rule-empty-line-before": [ "always", {
+        expect: ["blockless-group"],
+      } ],
+    },
+  }).then(({ config }) => {
+    t.deepEqual(config, {
+      configBasedir: __dirname,
+      processors: path.join(__dirname, "./fixtures/processor-fenced-blocks.js"),
+      rules: {
+        "at-rule-empty-line-before": [ "always", {
+          expect: ["blockless-group"],
+        } ],
+      },
+    })
+    t.end()
+  })
+    .catch(logError)
+})
+
 test("lookup configuration from file's path", t => {
   buildConfig({
     sourcePath: path.join(__dirname, "./fixtures/lookupConfig/noop.css"),
@@ -243,6 +357,25 @@ test("lookup configuration from file's path", t => {
     })
     t.end()
   }).catch(logError)
+})
+
+test("buildConfig throw error if processor not found", t => {
+  let planned = 0
+
+  buildConfig({
+    processors: ["stylelint-nonexistent-processor"],
+    rules: {
+      "at-rule-empty-line-before": [ "always", {
+        expect: ["blockless-group"],
+      } ],
+    },
+  }).catch(err => {
+    t.equal(err.message, "Could not find \"stylelint-nonexistent-processor\". Do you need a `configBasedir`?",
+      "when a processor is not found")
+  })
+  planned += 1
+
+  t.plan(planned)
 })
 
 function logError(err) { console.log(err.stack) } // eslint-disable-line
