@@ -253,7 +253,9 @@ test("buildConfig correctly handles `ignoreFiles`", t => {
   }).catch(logError)
 })
 
+test("buildConfig have `ignorePatterns` if `ignorePath` found", t => {
   buildConfig({
+    ignorePath: path.join(__dirname, "./fixtures/ignore.txt"),
     rules: {
       "at-rule-empty-line-before": [ "always", {
         expect: ["blockless-group"],
