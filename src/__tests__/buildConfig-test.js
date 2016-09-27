@@ -352,9 +352,11 @@ test("lookup configuration from file's path", t => {
       rules: {
         "block-no-empty": true,
         "color-no-invalid-hex": true,
-        indentation: 2,
-        "no-eol-whitespace": true,
-        "no-missing-end-of-source-newline": true,
+        indentation: [ 2, {
+          indentInsideParens: "once-at-root-twice-in-block",
+        } ],
+        "no-eol-whitespace": [true],
+        "no-missing-end-of-source-newline": false,
       },
     })
     t.end()
