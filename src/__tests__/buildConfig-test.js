@@ -356,7 +356,7 @@ test("lookup configuration from file's path", t => {
           indentInsideParens: "once-at-root-twice-in-block",
         } ],
         "no-eol-whitespace": [true],
-        "no-missing-end-of-source-newline": false,
+        "no-missing-end-of-source-newline": null,
       },
     })
     t.end()

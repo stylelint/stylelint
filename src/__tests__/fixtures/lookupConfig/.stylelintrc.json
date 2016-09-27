@@ -4,6 +4,6 @@
     "indentation": ["inherit", {"indentInsideParens": "once-at-root-twice-in-block"}],
     "no-eol-whitespace": ["inherit"],
     "block-no-empty": true,
-    "no-missing-end-of-source-newline": false
+    "no-missing-end-of-source-newline": null
   }
 }
