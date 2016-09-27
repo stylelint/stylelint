@@ -344,6 +344,25 @@ test("buildConfig loads processors", t => {
     .catch(logError)
 })
 
+test("lookup configuration from file's path", t => {
+  buildConfig({
+    sourcePath: path.join(__dirname, "./fixtures/lookupConfig/noop.css"),
+  }).then(({ config }) => {
+    t.deepEqual(config, {
+      rules: {
+        "block-no-empty": true,
+        "color-no-invalid-hex": true,
+        indentation: [ 2, {
+          indentInsideParens: "once-at-root-twice-in-block",
+        } ],
+        "no-eol-whitespace": true,
+        "no-missing-end-of-source-newline": null,
+      },
+    })
+    t.end()
+  }).catch(logError)
+})
+
 test("buildConfig throw error if processor not found", t => {
   let planned = 0
 

@@ -79,3 +79,16 @@ test("`ignoreFiles` options is not empty and file not ignored", t => {
     t.notOk(result.stylelint.ignored)
   })
 })
+
+test("lookup configuration file by css file's path", t => {
+  const config = {
+    from: path.join(__dirname, "fixtures/lookupConfig/a.css"),
+  }
+  t.plan(2)
+  postcssPlugin.process("a {color: #zzzzzz}\n", config).then(result => {
+    const warnings = result.warnings()
+    t.equal(warnings.length, 1)
+    t.ok(warnings[0].text.indexOf("color-no-invalid-hex") !== -1)
+    t.ok(warnings[1].text.indexOf("block-no-empty") !== -1)
+  })
+})

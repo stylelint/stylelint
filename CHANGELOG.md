@@ -1,3 +1,12 @@
+# Head
+
+-   Fixed: When look for configuration file, starting from source file path, not `process.cwd()`.
+-   Fixed: If no `configFile` is passed, and the `config` object passed uses relative paths for `extends` or `plugins`, you are going to have to pass a `configBasedir`. If not, you do not need this.
+-   Fixed: When config.ignoreFiles has a absolute path non glob (eg: `!/proj/*`). No wrong convert.
+-   Added: if `resolveFrom` fail and `lookup` is id, try resolve from `process.cwd()`
+-   Added: extend configs can be a function now.
+-   Added: API for configuration file/object. `stylelint.buildConfig`
+
 # 7.3.1
 
 -   Fixed: regression in 7.3.0 which caused a "Cannot read property 'length' of undefined" error on a certain selector.

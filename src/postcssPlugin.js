@@ -12,8 +12,9 @@ export default postcss.plugin("stylelint", (options = {}) => {
   let configPromise = options._configPromise
 
   return (root, result) => {
+    const sourcePath = _.get(root, "source.input.file", "")
     if (!configPromise) {
-      configPromise = buildConfig(options)
+      configPromise = buildConfig(Object.assign(options, { sourcePath }))
     }
 
     // result.stylelint is the namespace for passing stylelint-related
@@ -33,7 +34,6 @@ export default postcss.plugin("stylelint", (options = {}) => {
 
       if (config.ignorePatterns || config.ignoreFiles) {
         const isFileIgnored = getIsFileIgnored(config.ignorePatterns, config.ignoreFiles)
-        const sourcePath = _.get(root, "source.input.file", "")
         if (isFileIgnored(sourcePath)) {
           result.stylelint.ignored = true
           return

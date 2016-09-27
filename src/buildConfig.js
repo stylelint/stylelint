@@ -26,6 +26,7 @@ const FILE_NOT_FOUND_ERROR_CODE = "ENOENT"
  *   are for the options object, not a config.
  * @param {object} [options.config]
  * @param {object} [options.configFile] - Specify a configuration file (path) instead
+ * @param {object} [options.sourcePath] - Specify a source file (path) instead
  * @param {object} [options.configBasedir] - Specify a base directory that things should be
  *   considered relative to.
  * @param {object} [options.configOverrides] - An object to merge on top of the
@@ -44,10 +45,11 @@ export default function (options) {
   const configBasedir = options.configBasedir || false
 
   if (rawConfig) {
-    const configDir = configBasedir || process.cwd()
+    const configDir = configBasedir || (options.configFile ? path.dirname(path.resolve(process.cwd(), options.configFile)) : process.cwd())
     return augmentConfig(rawConfig, configDir, {
       addIgnorePatterns: true,
       ignorePath: options.ignorePath,
+      sourcePath: options.sourcePath,
     }).then(augmentedConfig => {
       return {
         config: merge(augmentedConfig, options.configOverrides),
@@ -67,6 +69,8 @@ export default function (options) {
 
   if (options.configFile) {
     cosmiconfigOptions.configPath = path.resolve(process.cwd(), options.configFile)
+  } else if (options.sourcePath) {
+    cosmiconfigOptions.cwd = path.dirname(path.resolve(process.cwd(), options.sourcePath))
   }
 
   let rootConfigDir
@@ -77,6 +81,7 @@ export default function (options) {
     return augmentConfig(result.config, rootConfigDir, {
       addIgnorePatterns: true,
       ignorePath: options.ignorePath,
+      sourcePath: options.sourcePath,
     })
   }).then(augmentedConfig => {
     const finalConfig = (options.configOverrides)
@@ -109,7 +114,9 @@ function augmentConfig(config, configDir, options = {}) {
   return start.then(configWithIgnorePatterns => {
     const absolutizedConfig = absolutizeExtras(configWithIgnorePatterns, configDir)
     if (absolutizedConfig.extends) {
-      return extendConfig(absolutizedConfig, configDir)
+      return extendConfig(absolutizedConfig, configDir, {
+        sourcePath: options.sourcePath,
+      })
     }
     return Promise.resolve(absolutizedConfig)
   })
@@ -119,7 +126,7 @@ function addIgnores(config, configDir, ignorePath) {
   // Absoluteize config.ignoreFiles
   if (config.ignoreFiles) {
     config.ignoreFiles = [].concat(config.ignoreFiles).map(glob => {
-      if (path.isAbsolute(glob)) return glob
+      if (path.isAbsolute(glob.replace(/^\!/, ""))) return glob
       return globjoin(configDir, glob)
     })
   }
@@ -159,13 +166,18 @@ function absolutizeExtras(config, configDir) {
   return result
 }
 
-function extendConfig(config, configDir) {
+function extendConfig(config, configDir, options) {
   const extendLookups = [].concat(config.extends)
   const original = omit(config, "extends")
 
   const resultPromise = extendLookups.reduce((result, extendLookup) => {
     return result.then(merged => {
       return loadExtendedConfig(merged, configDir, extendLookup).then(extended => {
+        if (typeof extended === "function") {
+          extended = extended(merged, options)
+        }
+        return extended
+      }).then(extended => {
         return mergeConfigs(merged, extended)
       })
     })
@@ -193,7 +205,8 @@ function loadExtendedConfig(config, configDir, extendLookup) {
 }
 
 function getModulePath(basedir, lookup) {
-  const path = resolveFrom(basedir, lookup)
+  // if `resolveFrom` fail and `lookup` is id, try resolve from `process.cwd()`
+  const path = resolveFrom(basedir, lookup) || (!/[\/\\]/.test(lookup) && resolveFrom(process.cwd(), lookup))
   if (path) return path
   throw configurationError(
     `Could not find "${lookup}". Do you need a \`configBasedir\`?`
@@ -201,7 +214,7 @@ function getModulePath(basedir, lookup) {
 }
 
 function stripIgnoreFiles(config) {
-  return omit(config, "ignoreFiles")
+  return "ignoreFiles" in config ? omit(config, "ignoreFiles") : config
 }
 
 function mergeConfigs(a, b) {
