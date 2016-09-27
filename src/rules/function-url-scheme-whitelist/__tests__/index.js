@@ -69,7 +69,7 @@ testRule(rule, {
     code: "a { background: url(http://#{$host}/path); }",
     description: "ignore interpolation",
   }, {
-    code: "a { background: url(http://@{host}/path); }",
+    code: "a { background: url('http://@{host}/path'); }",
     description: "ignore interpolation",
   }, {
     code: "a { background: url(http://$(host)/path); }",
