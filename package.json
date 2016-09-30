@@ -60,7 +60,7 @@
     "postcss-value-parser": "^3.1.1",
     "resolve-from": "^2.0.0",
     "specificity": "^0.2.1",
-    "string-width": "^1.0.1",
+    "string-width": "^2.0.0",
     "style-search": "^0.1.0",
     "stylehacks": "^2.3.0",
     "sugarss": "^0.1.2",
