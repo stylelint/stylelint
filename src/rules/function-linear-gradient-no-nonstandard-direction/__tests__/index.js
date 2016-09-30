@@ -45,6 +45,12 @@ testRule(rule, {
     code: ".foo { background: linear-gradient(black, white); }",
   }, {
     code: ".foo { background: linear-gradient(rgba(255, 255, 255, 0.5) 0%, #000); }",
+  }, {
+    code: ".foo { background: -webkit-linear-gradient(top, #fff, #000); }",
+  }, {
+    code: ".foo { background: -moz-linear-gradient(top, #fff, #000); }",
+  }, {
+    code: ".foo { background: -o-linear-gradient(top, #fff, #000); }",
   } ],
 
   reject: [ {
@@ -82,6 +88,15 @@ testRule(rule, {
     message: messages.rejected,
   }, {
     code: ".foo { background: linear-gradient(1.577, #fff, #000; )}",
+    message: messages.rejected,
+  }, {
+    code: ".foo { background: -webkit-linear-gradient(to bottom, #fff, #000 ); }",
+    message: messages.rejected,
+  }, {
+    code: ".foo { background: -moz-linear-gradient(to bottom, #fff, #000 ); }",
+    message: messages.rejected,
+  }, {
+    code: ".foo { background: -o-linear-gradient(to bottom, #fff, #000 ); }",
     message: messages.rejected,
   } ],
 })
