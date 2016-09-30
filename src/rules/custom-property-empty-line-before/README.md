@@ -6,7 +6,7 @@ Require or disallow an empty line before custom properties.
 a {
   top: 10px;
                           /* ← */
-  --foo: pink;  /* ↑ */   
+  --foo: pink;            /* ↑ */
 }                         /* ↑ */
 /**                          ↑
  *                   This line */
