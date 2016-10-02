@@ -71,6 +71,15 @@ testRule(rule, {
   }, {
     code: "@IMPORT 'testfile.0.3.css'",
     description: "ignore @import at-rules",
+  }, {
+    code: "a { margin: 0.5em /*.6em*/ 0.7em; }",
+    description: "should ignore comments",
+  }, {
+    code: "a::before { content: \".9em\"; }",
+    description: "should ignore strings",
+  }, {
+    code: "a { my-string: \".1\"; }",
+    description: "ignore all strings rather than only in 'content'",
   } ],
 
   reject: [ {
@@ -78,43 +87,43 @@ testRule(rule, {
     description: "unitless fractional value without leading zero",
     message: messages.expected,
     line: 1,
-    column: 17,
+    column: 18,
   }, {
     code: "a { line-height: -.5; }",
     description: "negative unitless fractional value without leading zero",
     message: messages.expected,
     line: 1,
-    column: 18,
+    column: 19,
   }, {
     code: "a { margin: .5px; }",
     description: "fractional value with units without leading zero",
     message: messages.expected,
     line: 1,
-    column: 12,
+    column: 13,
   }, {
     code: "a { margin: 1px .5px; }",
     description: "fractional value without leading zero in the middle of a list",
     message: messages.expected,
     line: 1,
-    column: 16,
+    column: 17,
   }, {
     code: "a { transform: translate(.4px, 2px); }",
     description: "fractional value without leading zero at the beginning  of a function",
     message: messages.expected,
     line: 1,
-    column: 25,
+    column: 26,
   }, {
     code: "a { transform: translate(2px, .4px); }",
     description: "fractional value without leading zero in the middle of a function",
     message: messages.expected,
     line: 1,
-    column: 30,
+    column: 31,
   }, {
     code: "@media (min-width: .01em)",
     description: "media feature",
     message: messages.expected,
     line: 1,
-    column: 19,
+    column: 20,
   } ],
 })
 
@@ -217,5 +226,11 @@ testRule(rule, {
     message: messages.rejected,
     line: 1,
     column: 31,
+  }, {
+    code: "a { line-height: 000.5; }",
+    description: "multiple leading zeros",
+    message: messages.rejected,
+    line: 1,
+    column: 18,
   } ],
 })

@@ -1,14 +1,13 @@
 import {
-  beforeBlockString,
-  blurComments,
-  blurFunctionArguments,
-  hasBlock,
+  atRuleParamIndex,
+  declarationValueIndex,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import execall from "execall"
+
 import { isNumber } from "lodash"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "number-max-precision"
 
@@ -24,35 +23,39 @@ export default function (precision) {
     })
     if (!validOptions) { return }
 
-    root.walkDecls(decl => {
-      // Don't bother with strings
-      if (decl.prop.toLowerCase() === "content") { return }
-      check(decl.toString(), decl)
-    })
-
     root.walkAtRules(atRule => {
-      // Ignore @imports
       if (atRule.name.toLowerCase() === "import") { return }
 
-      const source = (hasBlock(atRule))
-        ? beforeBlockString(atRule, { noRawBefore: true })
-        : atRule.toString()
-      check(source, atRule)
+      check(atRule, atRule.params, atRuleParamIndex)
     })
 
-    function check(source, node) {
-      const sanitizedSource = blurComments(blurFunctionArguments(source, "url"))
-      const decimalNumberMatches = execall(/(\d*\.(\d+))/g, sanitizedSource)
-      if (!decimalNumberMatches.length) { return }
+    root.walkDecls(decl =>
+      check(decl, decl.value, declarationValueIndex)
+    )
 
-      decimalNumberMatches.forEach(match => {
-        if (match.sub[1].length <= precision) { return }
+    function check(node, value, getIndex) {
+      // Get out quickly if there are no periods
+      if (value.indexOf(".") === -1) { return }
+
+      valueParser(value).walk(valueNode => {
+        // Ignore `url` function
+        if (valueNode.type === "function" && valueNode.value.toLowerCase() === "url") { return false }
+
+        // Ignore strings, comments, etc
+        if (valueNode.type !== "word") { return }
+
+        const match = /\d*\.(\d+)/.exec(valueNode.value)
+
+        if (match === null) { return }
+
+        if (match[1].length <= precision) { return }
+
         report({
           result,
           ruleName,
           node,
-          index: match.index,
-          message: messages.expected(parseFloat(match.sub[0]), precision),
+          index: getIndex(node) + valueNode.sourceIndex + match.index,
+          message: messages.expected(parseFloat(match[0]), precision),
         })
       })
     }

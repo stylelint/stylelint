@@ -1,13 +1,11 @@
 import {
-  beforeBlockString,
-  blurFunctionArguments,
-  hasBlock,
+  atRuleParamIndex,
+  declarationValueIndex,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
-import _ from "lodash"
-import execall from "execall"
+import valueParser from "postcss-value-parser"
 
 export const ruleName = "number-leading-zero"
 
@@ -27,40 +25,49 @@ export default function (expectation) {
     })
     if (!validOptions) { return }
 
-    root.walkDecls(decl => {
-      check(decl.toString(), decl)
-    })
-
     root.walkAtRules(atRule => {
       if (atRule.name.toLowerCase() === "import") { return }
 
-      const source = (hasBlock(atRule))
-        ? beforeBlockString(atRule, { noRawBefore: true })
-        : atRule.toString()
-      check(source, atRule)
+      check(atRule, atRule.params, atRuleParamIndex)
     })
 
-    function check(source, node) {
-      // Get out quickly if there are no periods
-      if (source.indexOf(".") === -1) { return }
+    root.walkDecls(decl =>
+      check(decl, decl.value, declarationValueIndex)
+    )
 
-      // Check leading zero
-      if (expectation === "always") {
-        const errors = matchesLackingLeadingZero(source)
-        if (!_.isEmpty(errors)) {
-          errors.forEach(error => {
-            complain(messages.expected, node, error.index)
-          })
+    function check(node, value, getIndex) {
+      // Get out quickly if there are no periods
+      if (value.indexOf(".") === -1) { return }
+
+      valueParser(value).walk(valueNode => {
+        // Ignore `url` function
+        if (valueNode.type === "function" && valueNode.value.toLowerCase() === "url") { return false }
+
+        // Ignore strings, comments, etc
+        if (valueNode.type !== "word") { return }
+
+        // Check leading zero
+        if (expectation === "always") {
+          const match = /(?:\D|^)(\.\d+)/.exec(valueNode.value)
+
+          if (match === null) { return }
+
+          // The regexp above consists of 2 capturing groups (or capturing parentheses).
+          // We need the index of the second group. This makes sanse when we have "-.5" as an input
+          // for regex. And we need the index of ".5".
+          const capturingGroupIndex = match[0].length - match[1].length
+          complain(messages.expected, node, getIndex(node) + valueNode.sourceIndex + match.index + capturingGroupIndex)
         }
-      }
-      if (expectation === "never") {
-        const errors = matchesContainingLeadingZero(source)
-        if (!_.isEmpty(errors)) {
-          errors.forEach(error => {
-            complain(messages.rejected, node, error.index + 1)
-          })
+
+        if (expectation === "never") {
+          const match = /(?:\D|^)(0+\.\d+)/.exec(valueNode.value)
+
+          if (match === null) { return }
+
+          const capturingGroupIndex = match[0].length - match[1].length
+          complain(messages.rejected, node, getIndex(node) + valueNode.sourceIndex + match.index + capturingGroupIndex)
         }
-      }
+      })
     }
 
     function complain(message, node, index) {
@@ -73,12 +80,4 @@ export default function (expectation) {
       })
     }
   }
-}
-
-function matchesLackingLeadingZero(source) {
-  return execall(/(?:\D|^)(\.\d+)/g, blurFunctionArguments(source, "url"))
-}
-
-function matchesContainingLeadingZero(source) {
-  return execall(/(?:\D|^)(0\.\d+)/g, blurFunctionArguments(source, "url"))
 }
