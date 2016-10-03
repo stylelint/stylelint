@@ -1,14 +1,11 @@
 import {
-  animationNameKeywords,
-  basicKeywords,
-} from "../../reference/keywordSets"
-import {
   declarationValueIndex,
   findAnimationName,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { animationNameKeywords } from "../../reference/keywordSets"
 
 export const ruleName = "no-unknown-animations"
 
@@ -27,33 +24,24 @@ export default function (actual) {
     })
 
     root.walkDecls(decl => {
-      if (decl.prop.toLowerCase() === "animation-name"
-        && !animationNameKeywords.has(decl.value.toLowerCase())
-      ) {
-        checkAnimationName(decl.value, decl)
-      }
-
-      if (decl.prop.toLowerCase() === "animation") {
+      if (decl.prop.toLowerCase() === "animation" || decl.prop.toLowerCase() === "animation-name") {
         const animationNames = findAnimationName(decl.value)
+
         if (animationNames.length === 0) { return }
 
         animationNames.forEach((animationNameNode) => {
-          if (basicKeywords.has(animationNameNode.value.toLowerCase())) { return }
+          if (animationNameKeywords.has(animationNameNode.value.toLowerCase())) { return }
+          if (declaredAnimations.has(animationNameNode.value)) { return }
 
-          checkAnimationName(animationNameNode.value, decl, animationNameNode.sourceIndex)
+          report({
+            result,
+            ruleName,
+            message: messages.rejected(animationNameNode.value),
+            node: decl,
+            index: declarationValueIndex(decl) + animationNameNode.sourceIndex,
+          })
         })
       }
     })
-
-    function checkAnimationName(animationName, decl, offset = 0) {
-      if (declaredAnimations.has(animationName)) { return }
-      report({
-        result,
-        ruleName,
-        message: messages.rejected(animationName),
-        node: decl,
-        index: declarationValueIndex(decl) + offset,
-      })
-    }
   }
 }
