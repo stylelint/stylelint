@@ -4,6 +4,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { vendor } from "postcss"
 
 export const ruleName = "function-linear-gradient-no-nonstandard-direction"
 
@@ -11,8 +12,12 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected nonstandard direction",
 })
 
-function isStandardDirection(source) {
-  const matches = source.match(/^to (top|left|bottom|right)(?: (top|left|bottom|right))?$/)
+function isStandardDirection(source, withToPrefix) {
+  const regexp = withToPrefix ?
+    /^to (top|left|bottom|right)(?: (top|left|bottom|right))?$/ :
+       /^(top|left|bottom|right)(?: (top|left|bottom|right))?$/
+
+  const matches = source.match(regexp)
   if (!matches) { return false }
   if (matches.length === 2) { return true }
   // Cannot repeat side-or-corner, e.g. "to top top"
@@ -41,7 +46,8 @@ export default function (actual) {
         // cf. https://drafts.csswg.org/css-images-3/#linear-gradient-syntax
         if (!/left|right|top|bottom/.test(firstArg)) { return }
 
-        if (!isStandardDirection(firstArg)) {
+        const withToPrefix = !vendor.prefix(decl.value)
+        if (!isStandardDirection(firstArg, withToPrefix)) {
           complain()
           return
         }
