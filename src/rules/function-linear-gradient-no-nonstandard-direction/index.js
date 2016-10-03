@@ -4,6 +4,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import { vendor } from "postcss"
 
 export const ruleName = "function-linear-gradient-no-nonstandard-direction"
 
@@ -45,7 +46,7 @@ export default function (actual) {
         // cf. https://drafts.csswg.org/css-images-3/#linear-gradient-syntax
         if (!/left|right|top|bottom/.test(firstArg)) { return }
 
-        const withToPrefix = !/^-webkit-|-moz-|-o-/.test(decl.value)
+        const withToPrefix = !vendor.prefix(decl.value)
         if (!isStandardDirection(firstArg, withToPrefix)) {
           complain()
           return
