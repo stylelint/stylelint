@@ -7,6 +7,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import _ from "lodash"
 
 export const ruleName = "function-url-quotes"
 
@@ -69,7 +70,7 @@ export default function (expectation, options) {
       const hasQuotes = leftTrimmedArgs[0] === "'" || leftTrimmedArgs[0] === "\""
 
       const trimmedArg = args.trim()
-      const isEmptyArgument = [ "", "''", "\"\"" ].includes(trimmedArg)
+      const isEmptyArgument = _.includes([ "", "''", "\"\"" ], trimmedArg)
       if (optionsMatches(options, "except", "empty") && isEmptyArgument) {
         shouldHasQuotes = !shouldHasQuotes
       }
