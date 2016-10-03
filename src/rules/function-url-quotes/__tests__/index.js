@@ -439,12 +439,22 @@ testRule(rule, {
     code: "a { background: url() }",
   } ],
 
-  reject: [{
+  reject: [ {
     code: "@import url(foo.css);",
     message: messages.expected(),
     line: 1,
     column: 13,
-  }],
+  }, {
+    code: "@import url('');",
+    message: messages.rejected(),
+    line: 1,
+    column: 13,
+  }, {
+    code: "@import url(\"\");",
+    message: messages.rejected(),
+    line: 1,
+    column: 13,
+  } ],
 })
 
 testRule(rule, {
@@ -456,6 +466,8 @@ testRule(rule, {
   }, {
     code: "a { background: url(\"\") }",
   }, {
+    code: "a { background: url('') }",
+  }, {
     code: "@import url(foo.css);",
   } ],
 
@@ -465,6 +477,11 @@ testRule(rule, {
     code: "a { background: url() }",
   }, {
     code: "@import url(\"foo.css\");",
+    message: messages.rejected(),
+    line: 1,
+    column: 13,
+  }, {
+    code: "@import url('foo.css');",
     message: messages.rejected(),
     line: 1,
     column: 13,

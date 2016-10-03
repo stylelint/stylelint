@@ -69,7 +69,7 @@ export default function (expectation, options) {
       const hasQuotes = leftTrimmedArgs[0] === "'" || leftTrimmedArgs[0] === "\""
 
       const trimmedArg = args.trim()
-      const isEmptyArgument = [ "", "'", "\"\"" ].includes(trimmedArg)
+      const isEmptyArgument = [ "", "''", "\"\"" ].includes(trimmedArg)
       if (optionsMatches(options, "except", "empty") && isEmptyArgument) {
         shouldHasQuotes = !shouldHasQuotes
       }
