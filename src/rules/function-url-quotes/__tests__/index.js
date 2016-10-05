@@ -145,6 +145,8 @@ testRule(rule, {
     code: "@font-face { font-family: 'foo'; src: url($variable + \"foo.ttf\" + $variable); }",
   }, {
     code: "a { background: url(\"/images/my_image@2x.png\") }",
+  }, {
+    code: "a { background: url(\"\") }",
   } ],
 
   reject: [ {
@@ -424,5 +426,64 @@ testRule(rule, {
     message: messages.rejected(),
     line: 1,
     column: 21,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "always", { except: ["empty"] } ],
+
+  accept: [ {
+    code: "@-moz-document url-prefix() {}",
+  }, {
+    code: "a { background: url() }",
+  } ],
+
+  reject: [ {
+    code: "@import url(foo.css);",
+    message: messages.expected(),
+    line: 1,
+    column: 13,
+  }, {
+    code: "@import url('');",
+    message: messages.rejected(),
+    line: 1,
+    column: 13,
+  }, {
+    code: "@import url(\"\");",
+    message: messages.rejected(),
+    line: 1,
+    column: 13,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [ "never", { except: ["empty"] } ],
+
+  accept: [ {
+    code: "@-moz-document url-prefix(\"\") {}",
+  }, {
+    code: "a { background: url(\"\") }",
+  }, {
+    code: "a { background: url('') }",
+  }, {
+    code: "@import url(foo.css);",
+  } ],
+
+  reject: [ {
+    code: "@-moz-document url-prefix() {}",
+  }, {
+    code: "a { background: url() }",
+  }, {
+    code: "@import url(\"foo.css\");",
+    message: messages.rejected(),
+    line: 1,
+    column: 13,
+  }, {
+    code: "@import url('foo.css');",
+    message: messages.rejected(),
+    line: 1,
+    column: 13,
   } ],
 })

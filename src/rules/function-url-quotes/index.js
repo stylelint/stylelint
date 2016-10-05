@@ -2,19 +2,21 @@ import {
   atRuleParamIndex,
   functionArgumentsSearch,
   isStandardSyntaxUrl,
+  optionsMatches,
   report,
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import _ from "lodash"
 
 export const ruleName = "function-url-quotes"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (f = "url") => `Expected quotes around ${f} argument`,
-  rejected: (f = "url") => `Unexpected quotes around ${f} argument`,
+  expected: () => "Expected quotes",
+  rejected: () => "Unexpected quotes",
 })
 
-export default function (expectation) {
+export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -22,6 +24,12 @@ export default function (expectation) {
         "always",
         "never",
       ],
+    }, {
+      actual: options,
+      possible: {
+        except: ["empty"],
+      },
+      optional: true,
     })
     if (!validOptions) { return }
 
@@ -54,19 +62,25 @@ export default function (expectation) {
     }
 
     function checkArgs(args, node, index, functionName) {
+      let shouldHasQuotes = expectation === "always"
+
       const leftTrimmedArgs = args.trimLeft()
       if (!isStandardSyntaxUrl(leftTrimmedArgs)) { return }
       const complaintIndex = index + args.length - leftTrimmedArgs.length
       const hasQuotes = leftTrimmedArgs[0] === "'" || leftTrimmedArgs[0] === "\""
-      switch (expectation) {
-        case "always":
-          if (hasQuotes) { return }
-          complain(messages.expected(functionName), node, complaintIndex)
-          return
-        case "never":
-          if (!hasQuotes) { return }
-          complain(messages.rejected(functionName), node, complaintIndex)
-          return
+
+      const trimmedArg = args.trim()
+      const isEmptyArgument = _.includes([ "", "''", "\"\"" ], trimmedArg)
+      if (optionsMatches(options, "except", "empty") && isEmptyArgument) {
+        shouldHasQuotes = !shouldHasQuotes
+      }
+
+      if (shouldHasQuotes) {
+        if (hasQuotes) { return }
+        complain(messages.expected(functionName), node, complaintIndex)
+      } else {
+        if (!hasQuotes) { return }
+        complain(messages.rejected(functionName), node, complaintIndex)
       }
     }
 

@@ -30,6 +30,10 @@ The following patterns are considered warnings:
 @font-face { font-family: 'foo'; src: url(foo.ttf); }
 ```
 
+```css
+@-moz-document url-prefix() {}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -46,6 +50,10 @@ a { background: url('x.jpg'); }
 
 ```css
 @font-face { font-family: "foo"; src: url("foo.ttf"); }
+```
+
+```css
+@-moz-document url-prefix('') {}
 ```
 
 ### `"never"`
@@ -78,4 +86,18 @@ a { background: url(x.jpg); }
 
 ```css
 @font-face { font-family: 'foo'; src: url(foo.ttf); }
+```
+
+## Optional secondary options
+
+### `except: ["empty"]`
+
+Reverse the primary option if the function has no arguments.
+
+For example, with `"always"`.
+
+The following pattern is *not* considered warnings:
+
+```css
+@-moz-document url-prefix() {}
 ```
