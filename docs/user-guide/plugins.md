@@ -5,6 +5,7 @@ Plugins are rules and sets of rules built by the community that support methodol
 ## Code style
 
 -   [`stylelint-declaration-block-order`](https://github.com/hudochenkov/stylelint-declaration-block-order): Specify the order of groups of at-rules, nested rules, custom properties, declarations and dollar variables in declaration blocks.
+-   [`stylelint-property-groups-structure`](https://github.com/hudochenkov/stylelint-property-groups-structure): Require or disallow an empty line before user-defined property groups and specify the order of the properties within these groups (incorporates the `declaration-block-properties-order` rule).
 
 ## Methodologies
 
