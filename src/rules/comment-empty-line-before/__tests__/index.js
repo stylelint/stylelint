@@ -169,6 +169,7 @@ testRule(rule, {
   ruleName,
   config: ["never"],
   syntax: "sugarss",
+  skipBasicChecks: true,
 
   accept: [{
     code: "a\n  color: pink\n\n  // single-line comment\n  top: 0",
