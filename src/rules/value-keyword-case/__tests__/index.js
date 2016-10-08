@@ -182,6 +182,12 @@ testRule(rule, {
     code: "ol { list-style-type: upper-alpha; }",
   }, {
     code: "ol { list-style-type: CUSTOM-COUNTER-STYLE; }",
+  }, {
+    code: "a { color: InactiveCaptionText; }",
+    description: "system color",
+  }, {
+    code: "a { color: ThreeDShadow; }",
+    description: "another system color",
   } ],
 
   reject: [ {
@@ -779,6 +785,12 @@ testRule(rule, {
     code: "ol { list-style-type: UPPER-ALPHA; }",
   }, {
     code: "ol { list-style-type: custom-counter-style; }",
+  }, {
+    code: "a { color: InactiveCaptionText; }",
+    description: "system color",
+  }, {
+    code: "a { color: ThreeDShadow; }",
+    description: "another system color",
   } ],
 
   reject: [ {

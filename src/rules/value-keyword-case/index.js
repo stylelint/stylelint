@@ -9,6 +9,7 @@ import {
   gridRowKeywords,
   listStyleShorthandKeywords,
   listStyleTypeKeywords,
+  systemColors,
 } from "../../reference/keywordSets"
 import {
   declarationValueIndex,
@@ -60,8 +61,12 @@ export default function (expectation, options) {
       const { prop, value } = decl
 
       valueParser(value).walk((node) => {
-        // Ignore keywords within `url` and `var` function
         const valueLowerCase = node.value.toLowerCase()
+
+        // Ignore system colors
+        if (systemColors.has(valueLowerCase)) { return }
+
+        // Ignore keywords within `url` and `var` function
         if (
           node.type === "function" && (
             valueLowerCase === "url"
