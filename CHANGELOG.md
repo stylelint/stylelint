@@ -1,3 +1,18 @@
+# Head
+
+-   Added: each stylesheet lookups configuration from its own path. Different files can now use different configurations during the same linting process.
+-   Added: relative path extends, plugins, and processors try to load from `process.cwd()` if they aren't found relative to the invoking configuration.
+-   Added: `/* stylelint-disable-next-line */` comments.
+-   Added: `media-feature-name-blacklist` rule.
+-   Added: `media-feature-name-whitelist` rule.
+-   Added: `ignore: ["after-declaration"]` option to `declaration-empty-line-before`.
+-   Added: `except: ["empty"]` option to `function-url-quotes`.
+-   Fixed: `function-linear-gradient-no-nonstandard-direction` no longer warns when vendor-prefixed linear-gradient properties are used correctly.
+-   Fixed: `no-extra-semicolons` now ignores the semicolon that comes after the closing brace of a custom property set.
+-   Fixed: `no-unknown-animations` no longer delivers false positives when there are multiple animation names.
+-   Fixed: `number-*` rules now ignore numbers in comments and strings.
+-   Fixed: `value-keyword-case` now ignores system color keywords.
+
 # 7.3.1
 
 -   Fixed: regression in 7.3.0 which caused a "Cannot read property 'length' of undefined" error on a certain selector.
