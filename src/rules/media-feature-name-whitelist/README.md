@@ -1,4 +1,4 @@
-﻿# media-feature-name-whitelist
+# media-feature-name-whitelist
 
 Specify a whitelist of allowed media feature names.
 

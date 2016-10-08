@@ -1,4 +1,4 @@
-﻿# media-feature-name-blacklist
+# media-feature-name-blacklist
 
 Specify a blacklist of disallowed media feature names.
 
