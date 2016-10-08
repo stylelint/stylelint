@@ -24,7 +24,7 @@ test("standalone with extending config and ignoreFiles glob ignoring single glob
     t.ok(results[1].ignored, "invalid-hex.css marked as ignored")
     t.ok(results[1]._postcssResult.standaloneIgnored, "invalid-hex.css not parsed by standalone")
     t.end()
-  }).catch(logError)
+  }).catch(t.end)
 })
 
 test("standalone with absolute ignoreFiles glob path", t => {
@@ -46,7 +46,7 @@ test("standalone with absolute ignoreFiles glob path", t => {
     t.notOk(results[1].ignored, "second not marked as ignored")
     t.notOk(results[1]._postcssResult.standaloneIgnored, "second parsed by standalone")
     t.end()
-  }).catch(logError)
+  }).catch(t.end)
 })
 
 test("standalone with extending config with ignoreFiles glob ignoring one by negation", t => {
@@ -74,7 +74,7 @@ test("standalone with extending config with ignoreFiles glob ignoring one by neg
     t.notOk(results[1].ignored)
     t.notOk(results[1]._postcssResult.standaloneIgnored)
     t.end()
-  }).catch(logError)
+  }).catch(t.end)
 })
 
 test("standalone with specified `ignorePath` file ignoring one file", t => {
@@ -92,7 +92,7 @@ test("standalone with specified `ignorePath` file ignoring one file", t => {
     t.ok(results[0].ignored, "marked as ignored")
     t.ok(results[0]._postcssResult.standaloneIgnored, "not parsed by standalone")
     t.end()
-  }).catch(logError)
+  }).catch(t.end)
 })
 
 test("standalone using ignoreFiles with input files that would cause a postcss syntax error", t => {
@@ -113,11 +113,10 @@ test("standalone using ignoreFiles with input files that would cause a postcss s
     t.ok(results[1].ignored, "syntax-error-ignored.scss marked as ignored")
     t.ok(results[1]._postcssResult.standaloneIgnored, "syntax-error-ignored.scss not parsed by standalone")
     t.end()
-  }).catch(logError)
+  }).catch(t.end)
 })
 
 test("standalone extending a config that ignores files", t => {
-  let planned = 0
   standalone({
     files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
     config: {
@@ -133,9 +132,8 @@ test("standalone extending a config that ignores files", t => {
     t.equal(results[0].warnings.length, 1)
     t.ok(results[1].source.indexOf("invalid-hex.css") !== -1)
     t.equal(results[1].warnings.length, 0)
-  }).catch(logError)
-  planned += 5
-  t.plan(planned)
+    t.end()
+  }).catch(t.end)
 })
 
 test("standalone using codeFilename and ignoreFiles together", t => {
@@ -150,9 +148,8 @@ test("standalone using codeFilename and ignoreFiles together", t => {
     t.equal(results[0].warnings.length, 0)
     t.ok(results[0].ignored)
     t.ok(results[0]._postcssResult.standaloneIgnored)
-  }).catch(logError)
-
-  t.plan(3)
+    t.end()
+  }).catch(t.end)
 })
 
 test("standalone using codeFilename and ignoreFiles with configBasedir", t => {
@@ -168,9 +165,6 @@ test("standalone using codeFilename and ignoreFiles with configBasedir", t => {
     t.equal(results[0].warnings.length, 0)
     t.ok(results[0].ignored)
     t.ok(results[0]._postcssResult.standaloneIgnored)
-  }).catch(logError)
-
-  t.plan(3)
+    t.end()
+  }).catch(t.end)
 })
-
-function logError(err) { console.log(err.stack) } // eslint-disable-line no-console

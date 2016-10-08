@@ -65,3 +65,32 @@ test("multiple processors", t => {
     t.end()
   }).catch(t.end)
 })
+
+test("loading processors (and extend) from process.cwd", t => {
+  const actualCwd = process.cwd()
+  process.chdir(path.join(__dirname, ".."))
+
+  const code = "one\ntwo\n```start\na {}\nb { color: pink }\n```end\nthree???startc {}???end" +
+    "\n\n???start```start\na {}\nb { color: pink }\n```end???end"
+  standalone({
+    code,
+    config: {
+      extends: "./__tests__/fixtures/config-block-no-empty",
+      processors: [
+        "./__tests__/fixtures/processor-triple-question-marks",
+        [ "./__tests__/fixtures/processor-fenced-blocks", { specialMessage: "options worked" } ],
+      ],
+    },
+  }).then(({ results }) => {
+    t.equal(results.length, 1, "number of results")
+    t.equal(results[0].warnings.length, 1, "number of warnings")
+    t.equal(results[0].specialMessage, "options worked", "special message")
+    t.equal(results[0].tripleQuestionMarkBlocksFound, true, "tripleQuestionMarkBlocksFound")
+
+    process.chdir(actualCwd)
+    t.end()
+  }).catch((err) => {
+    process.chdir(actualCwd)
+    t.end(err)
+  })
+})

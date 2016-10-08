@@ -57,13 +57,11 @@ b {
 `)
 
 test("integration test expecting warnings", t => {
-  t.plan(15)
-
   postcss()
     .use(stylelint(config))
     .process(css)
     .then(checkResult)
-    .catch(logError)
+    .catch(t.end)
 
   function checkResult(result) {
     const { messages } = result
@@ -92,6 +90,8 @@ test("integration test expecting warnings", t => {
     // function-blacklist - array primary option
     t.equal(messages[5].text, "Unexpected function \"calc\" (function-blacklist)")
     t.equal(messages[5].severity, "error")
+
+    t.end()
   }
 })
 
@@ -102,16 +102,15 @@ const less = (
 `)
 
 test("Less integration test", t => {
-  t.plan(1)
-
   postcss()
     .use(stylelint({ rules: {} }))
     .process(less, { syntax: lessSyntax })
     .then(checkResult)
-    .catch(logError)
+    .catch(t.end)
 
   function checkResult(result) {
     t.equal(result.messages.length, 0)
+    t.end()
   }
 })
 
@@ -122,19 +121,14 @@ const scss = (
 `)
 
 test("Scss integration test", t => {
-  t.plan(1)
-
   postcss()
     .use(stylelint({ rules: {} }))
     .process(scss, { syntax: scssSyntax })
     .then(checkResult)
-    .catch(logError)
+    .catch(t.end)
 
   function checkResult(result) {
     t.equal(result.messages.length, 0)
+    t.end()
   }
 })
-
-function logError(err) {
-  console.log(err.stack) // eslint-disable-line no-console
-}

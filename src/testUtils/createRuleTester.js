@@ -1,6 +1,6 @@
 import _ from "lodash"
+import assignDisabledRanges from "../assignDisabledRanges"
 import basicChecks from "./basicChecks"
-import disableRanges from "../disableRanges"
 import lessSyntax from "postcss-less"
 import normalizeRuleSettings from "../normalizeRuleSettings"
 import postcss from "postcss"
@@ -150,7 +150,7 @@ function processGroup(rule, schema, equalityCheck) {
     }
 
     const processor = postcss()
-    processor.use(disableRanges)
+    processor.use(assignDisabledRanges)
 
     if (schema.preceedingPlugins) {
       schema.preceedingPlugins.forEach(processor.use)

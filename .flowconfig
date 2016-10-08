@@ -1,0 +1,11 @@
+[ignore]
+.*/node_modules/postcss-import/.*
+.*/fixtures/.*
+
+[include]
+flow-declarations.js
+
+[libs]
+
+[options]
+module.ignore_non_literal_requires=true

@@ -1,0 +1,3 @@
+extends: ../../config-relative-plugin
+rules:
+  block-no-empty: true

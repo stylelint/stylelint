@@ -5,21 +5,23 @@ import {
 } from "./utils"
 import createPlugin from "./createPlugin"
 import createRuleTester from "./testUtils/createRuleTester"
+import createStylelint from "./createStylelint"
 import postcssPlugin from "./postcssPlugin"
 import rules from "./rules"
 import standalone from "./standalone"
 
-const stylelint = postcssPlugin
+const api = postcssPlugin
 
-stylelint.utils = {
+api.utils = {
   report,
   ruleMessages,
   validateOptions,
 }
 
-stylelint.lint = standalone
-stylelint.rules = rules
-stylelint.createPlugin = createPlugin
-stylelint.createRuleTester = createRuleTester
+api.lint = standalone
+api.rules = rules
+api.createPlugin = createPlugin
+api.createRuleTester = createRuleTester
+api.createLinter = createStylelint
 
-module.exports = stylelint
+module.exports = api

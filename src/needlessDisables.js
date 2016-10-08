@@ -1,6 +1,13 @@
+/* flow */
+import {
+  stylelint$needlessDisablesReport,
+  stylelint$result,
+} from "./flow-declarations"
 import _ from "lodash"
 
-export default function (results) {
+export default function (
+  results: Array<stylelint$result>
+): stylelint$needlessDisablesReport {
   const report = []
 
   results.forEach(result => {
@@ -64,7 +71,17 @@ export default function (results) {
   return report
 }
 
-function isWarningInRange(warning, range) {
+function isWarningInRange(
+  warning: {
+    rule: string,
+    line: number,
+  },
+  range: {
+    rules?: Array<string>,
+    start: number,
+    end?: number,
+  },
+): boolean {
   const { rule, line } = warning
   return range.start <= line
     && (range.end >= line || range.end === undefined)

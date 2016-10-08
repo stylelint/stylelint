@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+/* @flow */
 import {
   assign,
 } from "lodash"
@@ -118,7 +118,7 @@ if (cli.flags.customFormatter) {
   formatter = require(path.join(process.cwd(), cli.flags.customFormatter))
 }
 
-const optionsBase = {
+const optionsBase: Object = {
   formatter,
   configOverrides: {},
 }

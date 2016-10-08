@@ -14,5 +14,5 @@ test("`defaultSeverity` option set to warning", t => {
     t.ok(warnings[0].text.indexOf("block-no-empty") !== -1)
     t.equal(warnings[0].severity, "warning")
     t.end()
-  })
+  }).catch(t.end)
 })

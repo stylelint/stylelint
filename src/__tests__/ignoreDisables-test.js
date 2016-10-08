@@ -25,7 +25,7 @@ test("ignoreDisables with postcssPlugins", t => {
     t.ok(warnings[0].text.indexOf("block-no-empty") !== 1)
     t.ok(warnings[1].text.indexOf("block-no-empty") !== 1)
     t.end()
-  }).catch(t.threw)
+  }).catch(t.end)
 })
 
 test("ignoreDisables with standalone", t => {
@@ -39,5 +39,5 @@ test("ignoreDisables with standalone", t => {
     t.ok(warnings[0].text.indexOf("block-no-empty") !== 1)
     t.ok(warnings[1].text.indexOf("block-no-empty") !== 1)
     t.end()
-  })
+  }).catch(t.end)
 })
