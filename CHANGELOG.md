@@ -1,6 +1,6 @@
 # 7.4.0
 
--   Added: each stylesheet lookups configuration from its own path. Different files can now use different configurations during the same linting process.
+-   Added: each stylesheet looks up configuration from its own path. Different files can now use different configurations during the same linting process.
 -   Added: relative path extends, plugins, and processors try to load from `process.cwd()` if they aren't found relative to the invoking configuration.
 -   Added: `/* stylelint-disable-next-line */` comments.
 -   Added: `media-feature-name-blacklist` rule.
