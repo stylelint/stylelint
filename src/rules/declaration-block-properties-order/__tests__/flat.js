@@ -11,6 +11,7 @@ testRule(rule, {
   ruleName,
 
   config: [[
+    "my",
     "transform",
     "font-smoothing",
     "top",
@@ -29,6 +30,8 @@ testRule(rule, {
     code: "a { -moz-transform: scale(1); -webkit-transform: scale(1); transform: scale(1); }",
   }, {
     code: "a { -webkit-font-smoothing: antialiased; top: 0; color: pink; }",
+  }, {
+    code: "a { my-property: 2em; -webkit-font-smoothing: antialiased; }",
   }, {
     code: "a { top: 0; color: pink; width: 0; }",
   }, {
@@ -73,6 +76,9 @@ testRule(rule, {
   }, {
     code: "a { color: pink; -webkit-font-smoothing: antialiased; }",
     message: messages.expected("-webkit-font-smoothing", "color"),
+  }, {
+    code: "a { my-property: 2em; -webkit-font-smoothing: antialiased; my-other-property: 1em; }",
+    message: messages.expected("my-other-property", "-webkit-font-smoothing"),
   }, {
     code: "a { color: pink; border: 1px solid; }",
     message: messages.expected("border", "color"),

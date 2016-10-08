@@ -183,6 +183,70 @@ a {
 Given:
 
 ```js
+["my", "font-smoothing", "color"]
+```
+
+Where `font-smoothing` is the unprefixed version of proprietary browser property `-webkit-font-smoothing` and `my` is a user-defined shorthand property.
+
+The following patterns are considered warnings:
+
+```css
+a {
+  color: pink;
+  -webkit-font-smoothing: antialiased;
+}
+```
+
+```css
+a {
+  -webkit-font-smoothing: antialiased;
+  my-property: 2em;
+}
+```
+
+```css
+a {
+  my-property: 2em;
+  color: pink;
+  my-other-property: 1em;
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {
+  -webkit-font-smoothing: antialiased;
+  color: pink;
+}
+```
+
+```css
+a {
+  my-property: 2em;
+  -webkit-font-smoothing: antialiased;
+}
+```
+
+```css
+a {
+  my-property: 2em;
+  my-other-property: 1em;
+  color: pink;
+}
+```
+
+```css
+a {
+  my-other-property: 1em;
+  my-property: 2em;
+  color: pink;
+}
+```
+
+Given:
+
+```js
 ["padding", "padding-top", "padding-right", "padding-bottom", "padding-left", "color"]
 ```
 
