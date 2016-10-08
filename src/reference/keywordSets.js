@@ -552,6 +552,38 @@ export const mediaFeatureNames = uniteSets(deprecatedMediaFeatureNames, [
   "width",
 ])
 
+// https://www.w3.org/TR/CSS22/ui.html#system-colors
+export const systemColors = new Set([
+  "activeborder",
+  "activecaption",
+  "appworkspace",
+  "background",
+  "buttonface",
+  "buttonhighlight",
+  "buttonshadow",
+  "buttontext",
+  "captiontext",
+  "graytext",
+  "highlight",
+  "highlighttext",
+  "inactiveborder",
+  "inactivecaption",
+  "inactivecaptiontext",
+  "infobackground",
+  "infotext",
+  "menu",
+  "menutext",
+  "scrollbar",
+  "threeddarkshadow",
+  "threedface",
+  "threedhighlight",
+  "threedlightshadow",
+  "threedshadow",
+  "window",
+  "windowframe",
+  "windowtext",
+])
+
 function uniteSets(...sets) {
   return new Set(sets.reduce((result, set) => {
     return result.concat(_.toArray(set))
