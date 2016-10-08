@@ -36,7 +36,7 @@
     "balanced-match": "^0.4.0",
     "chalk": "^1.1.1",
     "colorguard": "^1.2.0",
-    "cosmiconfig": "^1.1.0",
+    "cosmiconfig": "^2.0.0",
     "doiuse": "^2.4.1",
     "execall": "^1.0.0",
     "get-stdin": "^5.0.0",
