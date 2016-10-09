@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: regression where using `null` for rules that take an array for their primary option would trigger a validation warning.
+
 # 7.4.0
 
 -   Added: each stylesheet looks up configuration from its own path. Different files can now use different configurations during the same linting process.
