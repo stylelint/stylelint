@@ -269,3 +269,23 @@ test("validateOptions with a function for 'possible'", t => {
 
   t.end()
 })
+
+test("validateOptions for null instead of array", t => {
+  const result = mockResult()
+  validateOptions(result, "no-dancing", {
+    actual: null,
+    possible: [(v) => typeof v === "string"],
+  })
+  t.notOk(result.warn.called)
+  t.end()
+})
+
+test("validateOptions for arrayed null instead of array", t => {
+  const result = mockResult()
+  validateOptions(result, "no-dancing", {
+    actual: [null],
+    possible: [(v) => typeof v === "string"],
+  })
+  t.notOk(result.warn.called)
+  t.end()
+})

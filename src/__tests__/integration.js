@@ -1,4 +1,5 @@
 import lessSyntax from "postcss-less"
+import path from "path"
 import postcss from "postcss"
 import scssSyntax from "postcss-scss"
 import stylelint from "../"
@@ -131,4 +132,19 @@ test("Scss integration test", t => {
     t.equal(result.messages.length, 0)
     t.end()
   }
+})
+
+test("integration test null option", t => {
+  stylelint.lint({
+    config: {
+      extends: [path.join(__dirname, "fixtures/config-no-pixels")],
+      rules: {
+        "unit-blacklist": null,
+      },
+    },
+    code: "a { top: 10px; }",
+  }).then(({ results }) => {
+    t.equal(results[0].invalidOptionWarnings.length, 0, "no invalid option warnings")
+    t.end()
+  }).catch(t.end)
 })
