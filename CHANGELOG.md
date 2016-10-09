@@ -1,4 +1,4 @@
-# Head
+# 7.4.1
 
 -   Fixed: regression where using `null` for rules that take an array for their primary option would trigger a validation warning.
 
