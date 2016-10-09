@@ -87,10 +87,10 @@ function lintPostcssResult(
     }
 
     const ruleSettings = config.rules[ruleName]
+    if (ruleSettings === null || ruleSettings[0] === null) { return }
+
     const primaryOption = ruleSettings[0]
     const secondaryOptions = ruleSettings[1]
-
-    if (primaryOption === null) { return }
 
     // Log the rule's severity in the PostCSS result
     const defaultSeverity = config.defaultSeverity || "error"

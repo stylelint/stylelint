@@ -2,10 +2,10 @@ import normalizeRuleSettings from "../normalizeRuleSettings"
 import test from "tape"
 
 test("rules whose primary option IS NOT an array", t => {
-  t.deepEqual(normalizeRuleSettings(null, "foo"), [null],
-    "solo null returns arrayed null")
-  t.deepEqual(normalizeRuleSettings([null], "foo"), [null],
-    "arrayed null returns arrayed null")
+  t.equal(normalizeRuleSettings(null, "foo"), null,
+    "solo null returns null")
+  t.equal(normalizeRuleSettings([null], "foo"), null,
+    "arrayed null returns null")
   t.deepEqual(normalizeRuleSettings(2, "foo"), [2],
     "solo number returns arrayed number")
   t.deepEqual(normalizeRuleSettings([2], "foo"), [2],
@@ -37,10 +37,10 @@ test("rules whose primary option IS NOT an array", t => {
 })
 
 test("rules whose primary option CAN BE an array", t => {
-  t.deepEqual(normalizeRuleSettings(null, "foo"), [null],
-    "solo null returns arrayed null")
-  t.deepEqual(normalizeRuleSettings([null], "foo"), [null],
-    "arrayed null returns arrayed null")
+  t.equal(normalizeRuleSettings(null, "foo"), null,
+    "solo null returns null")
+  t.equal(normalizeRuleSettings([null], "foo"), null,
+    "arrayed null returns null")
   t.deepEqual(
     normalizeRuleSettings([ "calc", "rgba" ], "function-whitelist", true),
     [[ "calc", "rgba" ]],
