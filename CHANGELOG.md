@@ -1,3 +1,7 @@
+# 7.4.2
+
+-   Fixed: regression where using `null` to turn off a rule caused errors.
+
 # 7.4.1
 
 -   Fixed: regression where using `null` for rules that take an array for their primary option would trigger a validation warning.
