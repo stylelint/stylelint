@@ -6,22 +6,28 @@ import {
 import _ from "lodash"
 
 // Rule settings can take a number of forms, e.g.
-// - "rule-name": null
-// - "rule-name": [null]
-// - "rule-name": primaryOption
-// - "rule-name": [primaryOption]
-// - "rule-name": [primaryOption, secondaryOption]
+// a. "rule-name": null
+// b. "rule-name": [null, ...]
+// c. "rule-name": primaryOption
+// d. "rule-name": [primaryOption]
+// e. "rule-name": [primaryOption, secondaryOption]
 // Where primaryOption can be anything: primitive, Object, or Array.
 //
 // This function normalizes all the possibilities into the
 // standard form: [primaryOption, secondaryOption]
+// Except in the cases with null, a & b, in which case
+// null is returned
 export default function (
   rawSettings: stylelint$configRuleSettings,
   ruleName: string,
   primaryOptionArray?: boolean,
-): Array<stylelint$configRulePrimaryOption | [stylelint$configRulePrimaryOption, Object]> {
+): ?Array<stylelint$configRulePrimaryOption | [stylelint$configRulePrimaryOption, Object]> {
+  if (rawSettings === null) { return null }
+
   if (!Array.isArray(rawSettings)) { return [rawSettings] }
   // Everything below is an array ...
+
+  if (rawSettings[0] === null) { return null }
 
   // This cursed rule needs a special case
   if (ruleName === "declaration-block-properties-order") {

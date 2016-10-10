@@ -145,6 +145,23 @@ test("integration test null option", t => {
     code: "a { top: 10px; }",
   }).then(({ results }) => {
     t.equal(results[0].invalidOptionWarnings.length, 0, "no invalid option warnings")
+    t.equal(results[0].warnings.length, 0, "no warnings")
+    t.end()
+  }).catch(t.end)
+})
+
+test("integration test [null] option", t => {
+  stylelint.lint({
+    config: {
+      extends: [path.join(__dirname, "fixtures/config-no-pixels")],
+      rules: {
+        "unit-blacklist": [null],
+      },
+    },
+    code: "a { top: 10px; }",
+  }).then(({ results }) => {
+    t.equal(results[0].invalidOptionWarnings.length, 0, "no invalid option warnings")
+    t.equal(results[0].warnings.length, 0, "no warnings")
     t.end()
   }).catch(t.end)
 })
