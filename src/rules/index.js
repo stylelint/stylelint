@@ -136,6 +136,7 @@ import selectorMaxSpecificity from "./selector-max-specificity"
 import selectorNestedPattern from "./selector-nested-pattern"
 import selectorNoAttribute from "./selector-no-attribute"
 import selectorNoCombinator from "./selector-no-combinator"
+import selectorNoEmpty from "./selector-no-empty"
 import selectorNoId from "./selector-no-id"
 import selectorNoQualifyingType from "./selector-no-qualifying-type"
 import selectorNoType from "./selector-no-type"
@@ -307,6 +308,7 @@ export default {
   "selector-max-specificity": selectorMaxSpecificity,
   "selector-nested-pattern": selectorNestedPattern,
   "selector-no-attribute": selectorNoAttribute,
+  "selector-no-empty": selectorNoEmpty,
   "selector-no-combinator": selectorNoCombinator,
   "selector-no-id": selectorNoId,
   "selector-no-qualifying-type": selectorNoQualifyingType,

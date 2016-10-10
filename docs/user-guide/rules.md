@@ -165,6 +165,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`selector-nested-pattern`](../../src/rules/selector-nested-pattern/README.md): Specify a pattern for the selectors of rules nested within rules.
 -   [`selector-no-attribute`](../../src/rules/selector-no-attribute/README.md): Disallow attribute selectors.
 -   [`selector-no-combinator`](../../src/rules/selector-no-combinator/README.md): Disallow combinators in selectors.
+-   [`selector-no-empty`](../../src/rules/selector-no-empty/README.md): Disallow empty selectors.
 -   [`selector-no-id`](../../src/rules/selector-no-id/README.md): Disallow id selectors.
 -   [`selector-no-qualifying-type`](../../src/rules/selector-no-qualifying-type/README.md): Disallow qualifying a selector by type.
 -   [`selector-no-type`](../../src/rules/selector-no-type/README.md): Disallow type selectors.
