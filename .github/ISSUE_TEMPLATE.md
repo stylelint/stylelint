@@ -61,8 +61,6 @@ test.css
 Here are the best ways to help resolve your issue:
 1. Figure out what needs to be done, propose it, and then write the code and submit a PR.
 2. If your issue is a bug, consider at least submitting a PR with failing tests.
--->
 
-<!--
 Note: GitHub issues are for stylelint bugs and enhancements, if you're looking for help or support with stylelint then stackoverflow is our preferred question and answer forum - http://stackoverflow.com/questions/tagged/stylelint
 -->
