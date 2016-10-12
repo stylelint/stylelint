@@ -27,7 +27,7 @@ export default function (actual) {
       let index = beforeBlockString(statement, { noRawBefore: true }).length
 
       // For empty blocks when using SugarSS parser
-      if (statement.raw("between") === undefined) {
+      if (statement.raws.between === undefined) {
         index--
       }
 
