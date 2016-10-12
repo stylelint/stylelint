@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: SugarSS no longer reports wrong column number in `block-no-empty`.
+
 # 7.4.2
 
 -   Fixed: regression where using `null` to turn off a rule caused errors.
