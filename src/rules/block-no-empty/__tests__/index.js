@@ -89,14 +89,19 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [undefined],
+  config: [true],
   skipBasicChecks: true,
   syntax: "sugarss",
 
-  reject: [{
+  reject: [ {
     code: ".a",
     message: messages.rejected,
     line: 1,
     column: 2,
-  }],
+  }, {
+    code: ".a\n  padding: 25px\n  .a\n",
+    message: messages.rejected,
+    line: 3,
+    column: 4,
+  } ],
 })

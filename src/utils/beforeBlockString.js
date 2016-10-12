@@ -15,15 +15,15 @@ export default function (statement, { noRawBefore } = {}) {
   if (statement.type !== "rule" && statement.type !== "atrule") { return result }
 
   if (!noRawBefore) {
-    result += statement.raw("before")
+    result += statement.raws.before
   }
   if (statement.type === "rule") {
     result += statement.selector
   } else {
-    result += "@" + statement.name + statement.raw("afterName") + statement.params
+    result += "@" + statement.name + statement.raws.afterName + statement.params
   }
 
-  const between = statement.raw("between")
+  const between = statement.raws.between
 
   if (between !== undefined) {
     result += between
