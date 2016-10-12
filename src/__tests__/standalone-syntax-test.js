@@ -83,11 +83,7 @@ test("standalone with syntax set by extension", t => {
       syntax: "scss",
     }).then(({ results }) => {
       st.equal(results.length, 3, "correct number of files")
-      const sssResult = results.find(r => path.extname(r.source) === ".sss")
-      const lessResult = results.find(r => path.extname(r.source) === ".less")
       const scssResult = results.find(r => path.extname(r.source) === ".scss")
-      st.equal(sssResult._postcssResult.opts.syntax, scss)
-      st.equal(lessResult._postcssResult.opts.syntax, scss)
       st.equal(scssResult._postcssResult.opts.syntax, scss)
       st.end()
     }).catch(st.end)
@@ -100,12 +96,8 @@ test("standalone with syntax set by extension", t => {
       syntax: "less",
     }).then(({ results }) => {
       st.equal(results.length, 3, "correct number of files")
-      const sssResult = results.find(r => path.extname(r.source) === ".sss")
       const lessResult = results.find(r => path.extname(r.source) === ".less")
-      const scssResult = results.find(r => path.extname(r.source) === ".scss")
-      st.equal(sssResult._postcssResult.opts.syntax, less)
       st.equal(lessResult._postcssResult.opts.syntax, less)
-      st.equal(scssResult._postcssResult.opts.syntax, less)
       st.end()
     }).catch(st.end)
   })
@@ -118,11 +110,7 @@ test("standalone with syntax set by extension", t => {
     }).then(({ results }) => {
       st.equal(results.length, 3, "correct number of files")
       const sssResult = results.find(r => path.extname(r.source) === ".sss")
-      const lessResult = results.find(r => path.extname(r.source) === ".less")
-      const scssResult = results.find(r => path.extname(r.source) === ".scss")
       st.equal(sssResult._postcssResult.opts.syntax, sugarss)
-      st.equal(lessResult._postcssResult.opts.syntax, sugarss)
-      st.equal(scssResult._postcssResult.opts.syntax, sugarss)
       st.end()
     }).catch(st.end)
   })
