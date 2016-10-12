@@ -34,3 +34,26 @@ testRule(rule, {
     column: 19,
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [true],
+  skipBasicChecks: true,
+  syntax: "sugarss",
+
+  accept: [{
+    code: "a\n",
+  }],
+
+  reject: [ {
+    code: "a",
+    message: messages.rejected,
+    line: 1,
+    column: 1,
+  }, {
+    code: "body\n  padding: 5% 2% 5%",
+    message: messages.rejected,
+    line: 2,
+    column: 17,
+  } ],
+})

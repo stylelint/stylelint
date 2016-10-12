@@ -15,16 +15,15 @@ export default function (actual) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) { return }
 
-    const sourceCss = root.toString()
-    if (sourceCss === "") { return }
-    if (sourceCss.slice(-1) !== "\n") {
-      report({
-        message: messages.rejected,
-        node: root,
-        index: root.toString().length - 1,
-        result,
-        ruleName,
-      })
-    }
+    const sourceCss = root.source.input.css
+    if (sourceCss === "" || sourceCss.slice(-1) === "\n") { return }
+
+    report({
+      message: messages.rejected,
+      node: root,
+      index: sourceCss.length - 1,
+      result,
+      ruleName,
+    })
   }
 }
