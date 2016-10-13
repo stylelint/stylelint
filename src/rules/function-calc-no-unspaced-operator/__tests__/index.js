@@ -77,6 +77,12 @@ testRule(rule, {
     code: "a { top: calc(2rem + @fh+d*sf-as); }",
     description: "Less variable with symbols",
   }, {
+    code: "a { top: calc(100% - #{$foo}); }",
+    description: "Scss interpolation",
+  }, {
+    code: "a { top: calc(100% - #{map-get($container-max-widths, xl)}); }",
+    description: "Scss interpolation with function",
+  }, {
     code: "a { top: rem-calc(10px+ 10px); }",
     description: "ignore function have calc in name",
   }, {
@@ -282,5 +288,28 @@ testRule(rule, {
     message: messages.expectedOperatorBeforeSign("-"),
     line: 1,
     column: 28,
+  } ],
+})
+
+testRule(rule, {
+  ruleName,
+  config: [true],
+  syntax: "scss",
+
+  reject: [ {
+    code: "a { top: calc(100%- #{$foo}); }",
+    message: messages.expectedBefore("-"),
+    line: 1,
+    column: 19,
+  }, {
+    code: "a { top: calc(100% *#{$foo}); }",
+    message: messages.expectedAfter("*"),
+    line: 1,
+    column: 20,
+  }, {
+    code: "a { top: calc(100% -#{$foo}); }",
+    message: messages.expectedOperatorBeforeSign("-"),
+    line: 1,
+    column: 20,
   } ],
 })
