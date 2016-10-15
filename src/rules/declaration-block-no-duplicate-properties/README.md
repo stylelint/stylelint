@@ -34,7 +34,7 @@ a { color: pink; }
 a { color: pink; background: orange; }
 ```
 
-## Options
+## Optional secondary options
 
 ### `ignore: ["consecutive-duplicates"]`
 
