@@ -224,33 +224,41 @@ test("standalone with config locatable from process.cwd not file", t => {
     process.chdir(actualCwd)
     t.end(err)
   })
+})
 
-test("Setting `processors` inside `config` object should load the processors", t => {
+test("Setting `plugins` inside `config` object should load the specified plugins", t => {
   standalone({
-    code: "a { b: \"c\" }",
+    code: ".bar {}",
     configBasedir: __dirname,
     config: {
-      processors: ["./fixtures/processor-invalid-transformation"],
-      rules: [],
+      plugins: ["./fixtures/plugin-warn-about-bar"],
+      rules: {
+        "plugin/warn-about-bar": "always",
+      },
     },
   }).then(({ results }) => {
-    t.equal(results[0].errored, true)
+    t.equal(results[0].warnings.length, 1)
+    t.equal(results[0].warnings[0].text, "found .bar (plugin/warn-about-bar)")
     t.end()
   }).catch(t.end)
 })
 
-test("Setting `processors` inside `configOverrides` object should override the one set in `config` object", t => {
+test("Setting `plugins` inside `configOverrides` object should overrides the ones set in `config` object", t => {
   standalone({
-    code: "a { b: \"c\" }",
+    code: ".bar {}",
     configBasedir: __dirname,
     config: {
-      rules: [],
+      plugins: [],
+      rules: {
+        "plugin/warn-about-bar": "always",
+      },
     },
     configOverrides: {
-      processors: ["./fixtures/processor-invalid-transformation"],
+      plugins: ["./fixtures/plugin-warn-about-bar"],
     },
   }).then(({ results }) => {
-    t.equal(results[0].errored, true)
+    t.equal(results[0].warnings.length, 1)
+    t.equal(results[0].warnings[0].text, "found .bar (plugin/warn-about-bar)")
     t.end()
   }).catch(t.end)
 })
