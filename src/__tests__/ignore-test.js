@@ -27,6 +27,35 @@ test("standalone with extending config and ignoreFiles glob ignoring single glob
   }).catch(t.end)
 })
 
+test("same as above with no configBasedir, ignore-files path relative to process.cwd", t => {
+  const actualCwd = process.cwd()
+  process.chdir(__dirname)
+  standalone({
+    files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
+    config: {
+      ignoreFiles: "fixtures/invalid-hex.css",
+      extends: [
+        `${fixturesPath}/config-block-no-empty.json`,
+        `${fixturesPath}/config-color-no-invalid-hex`,
+      ],
+    },
+  }).then(({ results }) => {
+    t.equal(results.length, 2, "two files found")
+    t.ok(results[0].source.indexOf("empty-block.css") !== -1, "empty-block.css found")
+    t.equal(results[0].warnings.length, 1, "empty-block.css linted")
+    t.ok(results[1].source.indexOf("invalid-hex.css") !== -1, "invalid-hex.css found")
+    t.equal(results[1].warnings.length, 0, "invalid-hex.css not linted")
+    t.ok(results[1].ignored, "invalid-hex.css marked as ignored")
+    t.ok(results[1]._postcssResult.standaloneIgnored, "invalid-hex.css not parsed by standalone")
+
+    process.chdir(actualCwd)
+    t.end()
+  }).catch((err) => {
+    process.chdir(actualCwd)
+    t.end(err)
+  })
+})
+
 test("standalone with absolute ignoreFiles glob path", t => {
   standalone({
     files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
