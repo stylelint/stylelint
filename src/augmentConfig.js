@@ -38,14 +38,15 @@ function augmentConfigBasic(
 // will be resolved and added by the parent config.
 function augmentConfigExtended(
   stylelint: Object,
-  cosmiconfigResult: ?{
+  cosmiconfigResultArg: ?{
     config: stylelint$config,
     filepath: string,
   },
-): Promise<{
+): Promise<?{
   config: stylelint$config,
   filepath: string,
 }> {
+  const cosmiconfigResult = cosmiconfigResultArg // Lock in for Flow
   if (!cosmiconfigResult) return Promise.resolve(null)
 
   const configDir = path.dirname(cosmiconfigResult.filepath || "")
@@ -60,11 +61,12 @@ function augmentConfigExtended(
 
 function augmentConfigFull(
   stylelint: stylelint$internalApi,
-  cosmiconfigResult: ?{
+  cosmiconfigResultArg: ?{
     config: stylelint$config,
     filepath: string,
   },
 ): Promise<stylelint$configAugmented> {
+  const cosmiconfigResult = cosmiconfigResultArg // Lock in for Flow
   if (!cosmiconfigResult) return Promise.resolve(null)
 
   const { config, filepath } = cosmiconfigResult
