@@ -41,7 +41,7 @@ If no `config` or `configFile` is passed, stylelint will look for a `.stylelintr
 
 An absolute path to the directory that relative paths defining `extends` and `plugins` are *relative to*.
 
-If the `config` object passed uses relative paths for `extends` or `plugins`, you are going to have to pass a `configBasedir`. If not, you do not need this.
+If the `config` object passed uses relative paths, e.g. for `extends` or `plugins`, you are going to have to pass a `configBasedir`. If not, you do not need this.
 
 ### `configFile`
 

@@ -35,7 +35,7 @@ An absolute path to the directory that relative paths defining `extends` and `pl
 This is only necessary if you passed an object directly through the `config` property. If you used
 `configFile`, this option is not necessary.
 
-If the `config` object passed uses relative paths for `extends` or `plugins`, you are going to have to pass a `configBasedir`. If not, you do not need this.
+If the `config` object passed uses relative paths, e.g. for `extends` or `plugins`, you are going to have to pass a `configBasedir`. If not, you do not need this.
 
 ### `configOverrides`
 

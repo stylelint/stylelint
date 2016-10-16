@@ -5,6 +5,7 @@ import type {
 } from "./flow-declarations"
 import { augmentConfigFull } from "./augmentConfig"
 import { configurationError } from "./utils"
+import path from "path"
 
 export default function (
   stylelint: stylelint$internalApi,
@@ -24,7 +25,9 @@ export default function (
     // we need to manually run the transform
     const augmentedResult = augmentConfigFull(stylelint, {
       config: stylelint._options.config,
-      filepath: process.cwd(),
+      // Add the extra path part so that we can get the directory without being
+      // confused
+      filepath: path.join(process.cwd(), "argument-config"),
     })
     stylelint._specifiedConfigCache.set(stylelint._options.config, augmentedResult)
     return augmentedResult
