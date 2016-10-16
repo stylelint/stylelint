@@ -1,5 +1,7 @@
 # Head
 
+-   Fixed: if no config is found relative to the stylesheet, look for one relative to `process.cwd()`.
+-   Fixed: lookup `ignoreFiles` globs relative to `process.cwd()` if config is directly passed as a JS object and no `configBasedir` is provided.
 -   Fixed: SugarSS no longer reports wrong column number in `block-no-empty`.
 
 # 7.4.2
