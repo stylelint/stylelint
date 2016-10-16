@@ -35,6 +35,11 @@ export default function (
 
   return stylelint._fullExplorer.load(searchPath, stylelint._options.configFile)
     .then((config) => {
+      // If no config was found, try looking from process.cwd
+      if (!config) return stylelint._fullExplorer.load(process.cwd())
+      return config
+    })
+    .then((config) => {
       if (!config) {
         const ending = (searchPath) ? ` for ${searchPath}` : ""
         throw configurationError(`No configuration provided${ending}`)

@@ -207,4 +207,23 @@ test("standalone with different configs per file", t => {
   }).catch(t.end)
 })
 
+test("standalone with config locatable from process.cwd not file", t => {
+  const actualCwd = process.cwd()
+  process.chdir(path.join(__dirname, "./fixtures/getConfigForFile/a/b"))
+  standalone({
+    files: [path.join(__dirname, "./fixtures/empty-block.css")],
+  }).then(({ results }) => {
+    const result = results[0]
+    t.equal(result.warnings.length, 2, "two warning")
+    t.ok(result.warnings[0].text.indexOf("Unexpected empty block") !== -1, "first correct warning")
+    t.ok(result.warnings[1].text.indexOf("foo") !== -1, "second correct warning")
+
+    process.chdir(actualCwd)
+    t.end()
+  }).catch((err) => {
+    process.chdir(actualCwd)
+    t.end(err)
+  })
+})
+
 function logError(err) { console.log(err.stack) } // eslint-disable-line no-console
