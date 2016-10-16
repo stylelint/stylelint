@@ -224,6 +224,35 @@ test("standalone with config locatable from process.cwd not file", t => {
     process.chdir(actualCwd)
     t.end(err)
   })
+
+test("Setting `processors` inside `config` object should load the processors", t => {
+  standalone({
+    code: "a { b: \"c\" }",
+    configBasedir: __dirname,
+    config: {
+      processors: ["./fixtures/processor-invalid-transformation"],
+      rules: [],
+    },
+  }).then(({ results }) => {
+    t.equal(results[0].errored, true)
+    t.end()
+  }).catch(t.end)
+})
+
+test("Setting `processors` inside `configOverrides` object should override the one set in `config` object", t => {
+  standalone({
+    code: "a { b: \"c\" }",
+    configBasedir: __dirname,
+    config: {
+      rules: [],
+    },
+    configOverrides: {
+      processors: ["./fixtures/processor-invalid-transformation"],
+    },
+  }).then(({ results }) => {
+    t.equal(results[0].errored, true)
+    t.end()
+  }).catch(t.end)
 })
 
 function logError(err) { console.log(err.stack) } // eslint-disable-line no-console

@@ -17,6 +17,7 @@ import rules from "./rules"
 const DEFAULT_IGNORE_FILENAME = ".stylelintignore"
 const FILE_NOT_FOUND_ERROR_CODE = "ENOENT"
 
+// - Merges config and configOverrides
 // - Makes all paths absolute
 // - Merges extends
 function augmentConfigBasic(
@@ -26,10 +27,13 @@ function augmentConfigBasic(
 ): Promise<stylelint$config> {
   return Promise.resolve()
     .then(() => {
-      return absolutizePaths(config, configDir)
+      return _.merge(config, stylelint._options.configOverrides)
     })
     .then((augmentedConfig) => {
       return extendConfig(stylelint, augmentedConfig, configDir)
+    })
+    .then((augmentedConfig) => {
+      return absolutizePaths(augmentedConfig, configDir)
     })
 }
 
@@ -74,9 +78,9 @@ function augmentConfigFull(
   const configDir = stylelint._options.configBasedir
     || path.dirname(filepath || "")
 
-  return addIgnorePatterns(stylelint, config, configDir)
+  return augmentConfigBasic(stylelint, config, configDir)
     .then((augmentedConfig) => {
-      return augmentConfigBasic(stylelint, augmentedConfig, configDir)
+      return addIgnorePatterns(stylelint, augmentedConfig, configDir)
     })
     .then((augmentedConfig) => {
       return addPluginFunctions(augmentedConfig)
@@ -85,15 +89,10 @@ function augmentConfigFull(
       return addProcessorFunctions(augmentedConfig)
     })
     .then((augmentedConfig) => {
-      const configWithOverrides = _.merge(augmentedConfig, stylelint._options.configOverrides)
-
-      if (!configWithOverrides.rules) {
+      if (!augmentedConfig.rules) {
         throw configurationError("No rules found within configuration. Have you provided a \"rules\" property?")
       }
 
-      return configWithOverrides
-    })
-    .then((augmentedConfig) => {
       return normalizeAllRuleSettings(augmentedConfig)
     })
     .then((augmentedConfig) => {
