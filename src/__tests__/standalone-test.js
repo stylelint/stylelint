@@ -226,4 +226,24 @@ test("standalone with config locatable from process.cwd not file", t => {
   })
 })
 
+test("Setting `plugins` inside `configOverrides` object should overrides the ones set in `config` object", t => {
+  standalone({
+    code: ".bar {}",
+    configBasedir: __dirname,
+    config: {
+      plugins: [],
+      rules: {
+        "plugin/warn-about-bar": "always",
+      },
+    },
+    configOverrides: {
+      plugins: ["./fixtures/plugin-warn-about-bar"],
+    },
+  }).then(({ results }) => {
+    t.equal(results[0].warnings.length, 1)
+    t.equal(results[0].warnings[0].text, "found .bar (plugin/warn-about-bar)")
+    t.end()
+  }).catch(t.end)
+})
+
 function logError(err) { console.log(err.stack) } // eslint-disable-line no-console
