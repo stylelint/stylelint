@@ -226,23 +226,6 @@ test("standalone with config locatable from process.cwd not file", t => {
   })
 })
 
-test("Setting `plugins` inside `config` object should load the specified plugins", t => {
-  standalone({
-    code: ".bar {}",
-    configBasedir: __dirname,
-    config: {
-      plugins: ["./fixtures/plugin-warn-about-bar"],
-      rules: {
-        "plugin/warn-about-bar": "always",
-      },
-    },
-  }).then(({ results }) => {
-    t.equal(results[0].warnings.length, 1)
-    t.equal(results[0].warnings[0].text, "found .bar (plugin/warn-about-bar)")
-    t.end()
-  }).catch(t.end)
-})
-
 test("Setting `plugins` inside `configOverrides` object should overrides the ones set in `config` object", t => {
   standalone({
     code: ".bar {}",
