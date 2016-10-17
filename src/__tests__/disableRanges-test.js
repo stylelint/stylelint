@@ -1,6 +1,5 @@
 import assignDisabledRanges from "../assignDisabledRanges"
 import less from "postcss-less"
-import { noop } from "lodash"
 import postcss from "postcss"
 import scss from "postcss-scss"
 import test from "tape"
@@ -19,35 +18,36 @@ test("assignDisabledRanges registers disable/enable commands without rules", t =
         start: 1,
       }],
     })
-  })
+  }, (err) => t.fail(err))
   planCount += 1
 
   testDisableRanges(
-    "a {}\n" +
-    "/* stylelint-disable */\n" +
-    "b {}\n" +
-    "/* stylelint-enable */\n" +
-    ".foo {}",
+    `a {}
+    /* stylelint-disable */
+    b {}
+    /* stylelint-enable */
+    .foo {}`,
     result => {
       t.deepEqual(result.stylelint.disabledRanges, {
         all: [
           { start: 2, end: 4 },
         ],
       })
-    }
+    },
+    (err) => t.fail(err)
   )
   planCount += 1
 
   testDisableRanges(
-    "a {}\n" +
-    "/* stylelint-disable */\n" +
-    "b {}\n" +
-    "/* stylelint-enable */\n" +
-    ".foo {}\n" +
-    "/* stylelint-disable */\n" +
-    "b {}\n" +
-    "/* stylelint-enable */\n" +
-    ".foo {}",
+    `a {}
+    /* stylelint-disable */
+    b {}
+    /* stylelint-enable */
+    .foo {}
+    /* stylelint-disable */
+    b {}
+    /* stylelint-enable */
+    .foo {}`,
     result => {
       t.deepEqual(result.stylelint.disabledRanges, {
         all: [
@@ -55,7 +55,7 @@ test("assignDisabledRanges registers disable/enable commands without rules", t =
           { start: 6, end: 8 },
         ],
       })
-    }
+    }, (err) => t.fail(err)
   )
   planCount += 1
 
@@ -70,19 +70,19 @@ test("disableRanges registers disable/enable commands with rules", t => {
       all: [],
       "foo-bar": [{ start: 1 }],
     })
-  })
+  }, (err) => t.fail(err))
   planCount += 1
 
   testDisableRanges(
-    "a {}\n" +
-    "/* stylelint-disable foo-bar */\n" +
-    "b {}\n" +
-    "/* stylelint-enable */\n" +
-    ".foo {}\n" +
-    "/* stylelint-disable foo-bar,baz-maz */\n" +
-    "b {}\n" +
-    "/* stylelint-enable */\n" +
-    ".foo {}",
+    `a {}
+    /* stylelint-disable foo-bar */
+    b {}
+    /* stylelint-enable */
+    .foo {}
+    /* stylelint-disable foo-bar,baz-maz */
+    b {}
+    /* stylelint-enable */
+    .foo {}`,
     result => {
       t.deepEqual(result.stylelint.disabledRanges, {
         all: [],
@@ -94,7 +94,8 @@ test("disableRanges registers disable/enable commands with rules", t => {
           { start: 6, end: 8 },
         ],
       })
-    }
+    },
+    (err) => t.fail(err)
   )
   planCount += 1
 
@@ -108,7 +109,8 @@ test("disableRanges registers disable/enable commands with rules", t => {
         "hoo-hah": [{ start: 1 }],
         "slime": [{ start: 1 }],
       })
-    }
+    },
+    (err) => t.fail(err)
   )
   planCount += 1
 
@@ -120,7 +122,8 @@ test("disableRanges registers disable/enable commands with rules", t => {
         all: [],
         "selector-combinator-space-before": [{ start: 1 }],
       })
-    }
+    },
+    (err) => t.fail(err)
   )
   planCount += 1
 
@@ -137,7 +140,7 @@ test("disableRanges disabling single lines", t => {
         end: 1,
       }],
     }, "disabling all rules")
-  })
+  }, (err) => t.fail(err))
   planCount += 1
 
   testDisableRanges("a {} /* stylelint-disable-line block-no-empty */", result => {
@@ -148,7 +151,7 @@ test("disableRanges disabling single lines", t => {
         end: 1,
       }],
     }, "disabling a single rule")
-  })
+  }, (err) => t.fail(err))
   planCount += 1
 
   testDisableRanges("b {}\n\na {} /* stylelint-disable-line block-no-empty, blergh */", result => {
@@ -163,7 +166,7 @@ test("disableRanges disabling single lines", t => {
         end: 3,
       }],
     }, "disabling multiple specific rules")
-  })
+  }, (err) => t.fail(err))
   planCount += 1
 
   t.plan(planCount)
@@ -179,7 +182,7 @@ test("disableRanges disabling next lines", t => {
         end: 2,
       }],
     }, "disabling all rules")
-  })
+  }, (err) => t.fail(err))
   planCount += 1
 
   testDisableRanges("/* stylelint-disable-next-line block-no-empty */\na {}", result => {
@@ -190,7 +193,7 @@ test("disableRanges disabling next lines", t => {
         end: 2,
       }],
     }, "disabling a single rule")
-  })
+  }, (err) => t.fail(err))
   planCount += 1
 
   testDisableRanges(`
@@ -209,7 +212,7 @@ test("disableRanges disabling next lines", t => {
         end: 5,
       }],
     }, "disabling multiple specific rules")
-  })
+  }, (err) => t.fail(err))
   planCount += 1
 
   t.plan(planCount)
@@ -273,7 +276,8 @@ test("Nesting disabledRanges", t => {
         baz: [{ start: 3, end: 6 }],
         hop: [{ start: 3, end: 5 }],
       })
-    }
+    },
+    (err) => t.fail(err)
   )
   planCount += 1
 
@@ -290,7 +294,8 @@ test("Nesting disabledRanges", t => {
           { start: 3, end: 4 },
         ],
       })
-    }
+    },
+    (err) => t.fail(err)
   )
   planCount += 1
 
@@ -305,7 +310,8 @@ test("Nesting disabledRanges", t => {
         bar: [{ start: 2, end: 3 }],
         baz: [{ start: 2, end: 3 }],
       })
-    }
+    },
+    (err) => t.fail(err)
   )
   planCount += 1
 
@@ -323,7 +329,28 @@ test("Nesting disabledRanges", t => {
           { start: 4 },
         ],
       })
-    }
+    },
+    (err) => t.fail(err)
+  )
+  planCount += 1
+
+  testDisableRanges(
+    `/* stylelint-disable */
+    /* stylelint-enable bar */
+    /* stylelint-enable foo */
+    /* stylelint-disable foo */
+    /* stylelint-enable */`,
+    result => {
+      t.deepEqual(result.stylelint.disabledRanges, {
+        all: [{ start: 1, end: 5 }],
+        foo: [
+          { start: 1, end: 3 },
+          { start: 4, end: 5 },
+        ],
+        bar: [{ start: 1, end: 2 }],
+      })
+    },
+    (err) => t.fail(err)
   )
   planCount += 1
 
@@ -336,7 +363,7 @@ test("disabledRanges errors", t => {
   testDisableRanges(
     `/* stylelint-disable */
     a {} /* stylelint-disable-line */`,
-    noop,
+    () => t.fail("should have errored"),
     err => {
       t.equal(err.reason, "All rules have already been disabled")
     }
@@ -346,7 +373,7 @@ test("disabledRanges errors", t => {
   testDisableRanges(
     `/* stylelint-disable */
     a {} /* stylelint-disable-line foo */`,
-    noop,
+    () => t.fail("should have errored"),
     err => {
       t.equal(err.reason, "All rules have already been disabled")
     }
@@ -356,31 +383,61 @@ test("disabledRanges errors", t => {
   testDisableRanges(
     `/* stylelint-disable foo */
     a {} /* stylelint-disable-line foo */`,
-    noop,
+    () => t.fail("should have errored"),
     err => {
       t.equal(err.reason, "\"foo\" has already been disabled")
     }
   )
   planCount += 1
 
-  testDisableRanges("/* stylelint-disable */ /* stylelint-disable */", noop, err => {
-    t.equal(err.reason, "All rules have already been disabled")
-  })
+  testDisableRanges(
+    "/* stylelint-disable */ /* stylelint-disable */",
+    () => t.fail("should have errored"),
+    err => {
+      t.equal(err.reason, "All rules have already been disabled")
+    }
+  )
   planCount += 1
 
-  testDisableRanges("/* stylelint-disable foo */ /* stylelint-disable foo*/", noop, err => {
-    t.equal(err.reason, "\"foo\" has already been disabled")
-  })
+  testDisableRanges(
+    "/* stylelint-disable foo */ /* stylelint-disable foo*/",
+    () => t.fail("should have errored"),
+    err => {
+      t.equal(err.reason, "\"foo\" has already been disabled")
+    }
+  )
   planCount += 1
 
-  testDisableRanges("/* stylelint-enable */", noop, err => {
-    t.equal(err.reason, "No rules have been disabled")
-  })
+  testDisableRanges(
+    "/* stylelint-enable */",
+    () => t.fail("should have errored"),
+    err => {
+      t.equal(err.reason, "No rules have been disabled")
+    }
+  )
   planCount += 1
 
-  testDisableRanges("/* stylelint-enable foo */", noop, err => {
-    t.equal(err.reason, "\"foo\" has not been disabled")
-  })
+  testDisableRanges(
+    "/* stylelint-enable foo */",
+    () => t.fail("should have errored"),
+    err => {
+      t.equal(err.reason, "\"foo\" has not been disabled")
+    }
+  )
+  planCount += 1
+
+  testDisableRanges(
+    `/* stylelint-disable */
+    /* stylelint-enable bar */
+    /* stylelint-enable foo */
+    /* stylelint-disable foo */
+    /* stylelint-enable bar */
+    /* stylelint-enable */`,
+    () => t.fail("should have errored"),
+    err => {
+      t.equal(err.reason, "\"bar\" has not been disabled")
+    }
+  )
   planCount += 1
 
   t.plan(planCount)

@@ -14,8 +14,6 @@ export default function (root, result) {
   const disabledRanges = result.stylelint.disabledRanges = {
     all: [],
   }
-  const currentlyDisabledRules = new Set()
-
   root.walkComments(checkComment)
 
   return result
@@ -33,10 +31,10 @@ export default function (root, result) {
   }
 
   function disableLine(line, ruleName, comment) {
-    if (currentlyDisabledRules.has(ALL_RULES)) {
+    if (ruleIsDisabled(ALL_RULES)) {
       throw comment.error("All rules have already been disabled", { plugin: "stylelint" })
     }
-    if (currentlyDisabledRules.has(ruleName)) {
+    if (ruleIsDisabled(ruleName)) {
       throw comment.error(`"${ruleName}" has already been disabled`, { plugin: "stylelint" })
     }
     if (ruleName === ALL_RULES) {
@@ -52,24 +50,20 @@ export default function (root, result) {
 
   function processDisableCommand(comment) {
     getCommandRules(disableCommand, comment.text).forEach(ruleToDisable => {
-      const alreadyDisabled = currentlyDisabledRules.has(ruleToDisable)
-      // If all rules have already been disabled and we're trying to do it again ...
-      if (ruleToDisable === ALL_RULES && alreadyDisabled) {
-        throw comment.error("All rules have already been disabled", { plugin: "stylelint" })
-      }
-      // If all rules have already been disabled or this specific rule has been ...
-      if (alreadyDisabled) {
-        throw comment.error(`"${ruleToDisable}" has already been disabled`, { plugin: "stylelint" })
-      }
-
       if (ruleToDisable === ALL_RULES) {
+        if (ruleIsDisabled(ALL_RULES)) {
+          throw comment.error("All rules have already been disabled", { plugin: "stylelint" })
+        }
         Object.keys(disabledRanges).forEach(ruleName => {
           startDisabledRange(comment.source.start.line, ruleName)
         })
-      } else {
-        startDisabledRange(comment.source.start.line, ruleToDisable)
+        return
       }
-      currentlyDisabledRules.add(ruleToDisable)
+
+      if (ruleIsDisabled(ruleToDisable)) {
+        throw comment.error(`"${ruleToDisable}" has already been disabled`, { plugin: "stylelint" })
+      }
+      startDisabledRange(comment.source.start.line, ruleToDisable)
     })
   }
 
@@ -84,11 +78,10 @@ export default function (root, result) {
             endDisabledRange(comment.source.end.line, ruleName)
           }
         })
-        currentlyDisabledRules.clear()
         return
       }
 
-      if (currentlyDisabledRules.has(ALL_RULES) && !currentlyDisabledRules.has(ruleToEnable)) {
+      if (ruleIsDisabled(ALL_RULES) && disabledRanges[ruleToEnable] === undefined) {
         // Get a starting point from the where all rules were disabled
         if (!disabledRanges[ruleToEnable]) {
           disabledRanges[ruleToEnable] = _.cloneDeep(disabledRanges.all)
@@ -99,9 +92,8 @@ export default function (root, result) {
         return
       }
 
-      if (currentlyDisabledRules.has(ruleToEnable)) {
+      if (ruleIsDisabled(ruleToEnable)) {
         endDisabledRange(comment.source.end.line, ruleToEnable)
-        currentlyDisabledRules.delete(ruleToEnable)
         return
       }
 
@@ -149,5 +141,12 @@ export default function (root, result) {
     if (!disabledRanges[ruleName]) {
       disabledRanges[ruleName] = _.cloneDeep(disabledRanges.all)
     }
+  }
+
+  function ruleIsDisabled(ruleName) {
+    if (disabledRanges[ruleName] === undefined) return false
+    if (_.last(disabledRanges[ruleName]) === undefined) return false
+    if (_.get(_.last(disabledRanges[ruleName]), "end") === undefined) return true
+    return false
   }
 }
