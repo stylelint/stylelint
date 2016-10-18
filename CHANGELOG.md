@@ -6,6 +6,7 @@
 -   Fixed: SugarSS no longer reports wrong column number in `block-no-empty`.
 -   Fixed: `configOverrides` work with `plugins`, `extends`, and `processors`.
 -   Fixed: a bug causing inaccuracy in nested `stylelint-disable` and `stylelint-enable` comments.
+-   Fixed: false positives for some camel-case SVG keywords in `value-keyword-case`.
 
 # 7.4.2
 
