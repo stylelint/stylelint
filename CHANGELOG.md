@@ -7,6 +7,7 @@
 -   Fixed: `configOverrides` work with `plugins`, `extends`, and `processors`.
 -   Fixed: a bug causing inaccuracy in nested `stylelint-disable` and `stylelint-enable` comments.
 -   Fixed: false positives for some camel-case SVG keywords in `value-keyword-case`.
+-   Fixed: false positives for SCSS interpolation in `function-calc-no-unspaced-operator`.
 
 # 7.4.2
 
