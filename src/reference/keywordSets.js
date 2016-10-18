@@ -280,9 +280,16 @@ export const timeProperties = uniteSets(
 
 export const camelCaseKeywords = new Set([
   "optimizeSpeed",
+  "optimizeQuality",
   "optimizeLegibility",
   "geometricPrecision",
   "currentColor",
+  "crispEdges",
+  "visiblePainted",
+  "visibleFill",
+  "visibleStroke",
+  "sRGB",
+  "linearRGB",
 ])
 
 // https://developer.mozilla.org/docs/Web/CSS/counter-increment
