@@ -98,7 +98,7 @@ export default function (actual) {
 }
 
 function blurVariables(source) {
-  return source.replace(/[\$@][^\)\s]+/g, "0")
+  return source.replace(/[\$@][^\)\s]+|#{.+?}/g, "0")
 }
 
 function newlineBefore(str, startIndex) {
