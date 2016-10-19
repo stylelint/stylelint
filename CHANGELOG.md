@@ -8,6 +8,7 @@
 -   Fixed: a bug causing inaccuracy in nested `stylelint-disable` and `stylelint-enable` comments.
 -   Fixed: false positives for some camel-case SVG keywords in `value-keyword-case`.
 -   Fixed: false positives for SCSS interpolation in `function-calc-no-unspaced-operator`.
+-   Fixed: `no-descending-specificity` now ignores custom property sets.
 
 # 7.4.2
 
