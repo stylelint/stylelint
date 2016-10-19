@@ -1,4 +1,4 @@
-# Head
+# 7.5.0
 
 -   Added: `selector-no-empty` rule.
 -   Fixed: if no config is found relative to the stylesheet, look for one relative to `process.cwd()`.
