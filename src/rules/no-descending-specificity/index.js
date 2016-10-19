@@ -4,6 +4,7 @@ import {
 } from "specificity"
 import {
   findAtRuleContext,
+  isCustomPropertySet,
   nodeContextLookup,
   parseSelector,
   report,
@@ -28,6 +29,9 @@ export default function (actual) {
     const selectorContextLookup = nodeContextLookup()
 
     root.walkRules(rule => {
+      // Ignore custom property set `--foo: {};`
+      if (isCustomPropertySet(rule)) { return }
+
       const comparisonContext = selectorContextLookup.getContext(rule, findAtRuleContext(rule))
 
       rule.selectors.forEach(selector => {

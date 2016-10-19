@@ -56,6 +56,8 @@ testRule(rule, {
     code: ".selector, { }",
   }, {
     code: ".a:not(.b) .c:matches(.d, .e) .f:unknown(.g, .h) {} .a {}",
+  }, {
+    code: ":root { --foo: {}; }",
   } ],
 
   reject: [ {
