@@ -106,7 +106,7 @@ function formatter(messages, source) {
           .replace(/[\x01-\x1A]+/g, " ") // eslint-disable-line
           .replace(/\.$/, "")
           .replace(new RegExp(_.escapeRegExp("(" + message.rule + ")") + "$"), ""),
-        chalk.gray(message.rule || ""),
+        chalk.dim(message.rule || ""),
       ]
 
       calculateWidths(row)
@@ -129,7 +129,7 @@ function formatter(messages, source) {
     }
     )
     .split("\n")
-    .map((el) => el.replace(/(\d+)\s+(\d+)/, (m, p1, p2) => chalk.gray(p1 + ":" + p2)))
+    .map((el) => el.replace(/(\d+)\s+(\d+)/, (m, p1, p2) => chalk.dim(p1 + ":" + p2)))
     .join("\n")
 
   return output
