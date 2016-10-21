@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: the `string` and `verbose` formatters now use `dim` instead of `gray` for greater compatibility with different terminal color schemes.
+
 # 7.5.0
 
 -   Added: `selector-no-empty` rule.
