@@ -20,7 +20,7 @@ export default function (results) {
     } else if (result.warnings.length) {
       formatting = "yellow"
     } else if (result.ignored) {
-      formatting = "gray"
+      formatting = "dim"
     }
     let sourceText = `${result.source}`
     if (result.ignored) { sourceText += " (ignored)" }
@@ -37,7 +37,7 @@ export default function (results) {
     const warningsByRule = _.groupBy(warningList, "rule")
     output += ` severity level "${severityLevel}": ${warningList.length}\n`
     _.forOwn(warningsByRule, (list, rule) => {
-      output += chalk.gray(`  ${rule}: ${list.length}\n`)
+      output += chalk.dim(`  ${rule}: ${list.length}\n`)
     })
   })
 
