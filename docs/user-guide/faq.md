@@ -72,11 +72,11 @@ Yes, you can either use the [`message` secondary option](/docs/user-guide/config
 
 ## How should I lint my CSS that follows a BEM-like methodology?
 
-You'll want to make use of the [stylelint-selector-bem-pattern](https://github.com/davidtheclark/stylelint-selector-bem-pattern) plugin.
+Use the [stylelint-selector-bem-pattern](https://github.com/davidtheclark/stylelint-selector-bem-pattern) plugin to ensure your selectors conform to a chosen BEM-flavor pattern.
 
-You can also take advantage of `selector-*` rules to ban certain categories of selectors (e.g. id selectors) and control specificity.
+You can also take advantage of the `selector-*` rules to ban certain types of selectors (e.g. id selectors) and control specificity.
 
-If you're using SUITCSS, you'll probably want to use [their shareable config](https://github.com/suitcss/stylelint-config-suitcss).
+If you're using SUITCSS, you might want to use [their shareable config](https://github.com/suitcss/stylelint-config-suitcss).
 
 ## How do I configure the `*-pattern` rules for common CSS naming conventions like kebab-case?
 
