@@ -1,1 +1,3 @@
-.gitignore
+dist
+.nyc_output
+decls

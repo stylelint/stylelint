@@ -1,9 +1,4 @@
 /* @flow */
-import {
-  stylelint$config,
-  stylelint$internalApi,
-} from "./flow-declarations"
-import PostcssResult from "postcss/lib/result"
 import _ from "lodash"
 import assignDisabledRanges from "./assignDisabledRanges"
 import { configurationError } from "./utils"
@@ -17,9 +12,9 @@ export default function (
     code?: string,
     codeFilename?: string,
     filePath?: string,
-    existingPostcssResult?: PostcssResult,
+    existingPostcssResult?: Object,
   } = {},
-): Promise<PostcssResult> {
+): Promise<Object> {
   if (!options.filePath && options.code === undefined && !options.existingPostcssResult) {
     return Promise.reject("You must provide filePath, code, or existingPostcssResult")
   }
@@ -60,7 +55,7 @@ export default function (
 
 function lintPostcssResult(
   stylelint: stylelint$internalApi,
-  postcssResult: PostcssResult,
+  postcssResult: Object,
   config: stylelint$config,
 ): Promise<> {
   postcssResult.stylelint = postcssResult.stylelint || {}
@@ -80,9 +75,9 @@ function lintPostcssResult(
   const performRules = []
 
   Object.keys(config.rules).forEach((ruleName) => {
-    const ruleFunction = ruleDefinitions[ruleName] || config.pluginFunctions[ruleName]
+    const ruleFunction = ruleDefinitions[ruleName] || _.get(config, [ "pluginFunctions", ruleName ])
 
-    if (!ruleFunction) {
+    if (ruleFunction === undefined) {
       throw configurationError(`Undefined rule ${ruleName}`)
     }
 
@@ -95,7 +90,7 @@ function lintPostcssResult(
     // Log the rule's severity in the PostCSS result
     const defaultSeverity = config.defaultSeverity || "error"
     postcssResult.stylelint.ruleSeverities[ruleName] = _.get(secondaryOptions, "severity", defaultSeverity)
-    postcssResult.stylelint.customMessages[ruleName] = secondaryOptions && secondaryOptions.message
+    postcssResult.stylelint.customMessages[ruleName] = _.get(secondaryOptions, "message")
 
     const performRule = Promise.resolve().then(() => {
       ruleFunction(primaryOption, secondaryOptions)(postcssRoot, postcssResult)

@@ -1,3 +1,4 @@
+/* @flow */
 import _ from "lodash"
 
 const COMMAND_PREFIX = "stylelint-"
@@ -7,30 +8,44 @@ const disableLineCommand = COMMAND_PREFIX + "disable-line"
 const disableNextLineCommand = COMMAND_PREFIX + "disable-next-line"
 const ALL_RULES = "all"
 
+type disabledRangeObject = {
+  [ruleName: string]: Array<{
+    start: number,
+    end?: number,
+  }>
+}
+
 // Run it like a plugin ...
-export default function (root, result) {
+export default function (root: Object, result: Object) {
   result.stylelint = result.stylelint || {}
 
-  const disabledRanges = result.stylelint.disabledRanges = {
+  // Most of the functions below work via side effects mutating
+  // this object
+  const disabledRanges: disabledRangeObject = {
     all: [],
   }
+  result.stylelint.disabledRanges = disabledRanges
   root.walkComments(checkComment)
 
   return result
 
-  function processDisableLineCommand(comment) {
+  function processDisableLineCommand(comment: postcss$comment) {
     getCommandRules(disableLineCommand, comment.text).forEach(ruleName => {
       disableLine(comment.source.start.line, ruleName, comment)
     })
   }
 
-  function processDisableNextLineCommand(comment) {
+  function processDisableNextLineCommand(comment: postcss$comment) {
     getCommandRules(disableNextLineCommand, comment.text).forEach(ruleName => {
       disableLine(comment.source.start.line + 1, ruleName, comment)
     })
   }
 
-  function disableLine(line, ruleName, comment) {
+  function disableLine(
+    line: number,
+    ruleName: string,
+    comment: postcss$comment
+  ) {
     if (ruleIsDisabled(ALL_RULES)) {
       throw comment.error("All rules have already been disabled", { plugin: "stylelint" })
     }
@@ -48,7 +63,7 @@ export default function (root, result) {
     }
   }
 
-  function processDisableCommand(comment) {
+  function processDisableCommand(comment: postcss$comment) {
     getCommandRules(disableCommand, comment.text).forEach(ruleToDisable => {
       if (ruleToDisable === ALL_RULES) {
         if (ruleIsDisabled(ALL_RULES)) {
@@ -67,7 +82,7 @@ export default function (root, result) {
     })
   }
 
-  function processEnableCommand(comment) {
+  function processEnableCommand(comment: postcss$comment) {
     getCommandRules(enableCommand, comment.text).forEach(ruleToEnable => {
       if (ruleToEnable === ALL_RULES) {
         if (_.values(disabledRanges).every(ranges => _.isEmpty(ranges) || !!_.last(ranges.end))) {
@@ -101,7 +116,7 @@ export default function (root, result) {
     })
   }
 
-  function checkComment(comment) {
+  function checkComment(comment: postcss$comment) {
     const { text } = comment
 
     // Ignore comments that are not relevant commands
@@ -118,32 +133,35 @@ export default function (root, result) {
     }
   }
 
-  function getCommandRules(command, fullText) {
+  function getCommandRules(
+    command: string,
+    fullText: string
+  ): Array<string> {
     const rules = _.compact(fullText.slice(command.length).split(",")).map(r => r.trim())
     if (_.isEmpty(rules)) { return [ALL_RULES] }
     return rules
   }
 
-  function startDisabledRange(line, ruleName) {
+  function startDisabledRange(line: number, ruleName: string) {
     const rangeObj = { start: line }
     ensureRuleRanges(ruleName)
     disabledRanges[ruleName].push(rangeObj)
   }
 
-  function endDisabledRange(line, ruleName) {
+  function endDisabledRange(line: number, ruleName: string) {
     const lastRangeForRule = _.last(disabledRanges[ruleName])
     if (!lastRangeForRule) { return }
     // Add an `end` prop to the last range of that rule
     lastRangeForRule.end = line
   }
 
-  function ensureRuleRanges(ruleName) {
+  function ensureRuleRanges(ruleName: string) {
     if (!disabledRanges[ruleName]) {
       disabledRanges[ruleName] = _.cloneDeep(disabledRanges.all)
     }
   }
 
-  function ruleIsDisabled(ruleName) {
+  function ruleIsDisabled(ruleName: string): boolean {
     if (disabledRanges[ruleName] === undefined) return false
     if (_.last(disabledRanges[ruleName]) === undefined) return false
     if (_.get(_.last(disabledRanges[ruleName]), "end") === undefined) return true
