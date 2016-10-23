@@ -3,10 +3,6 @@ import {
   augmentConfigExtended,
   augmentConfigFull,
 } from "./augmentConfig"
-import {
-  stylelint$internalApi,
-  stylelint$options,
-} from "./flow-declarations"
 import _ from "lodash"
 import cosmiconfig from "cosmiconfig"
 import createStylelintResult from "./createStylelintResult"

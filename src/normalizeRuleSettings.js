@@ -1,8 +1,4 @@
 /* @flow */
-import {
-  stylelint$configRulePrimaryOption,
-  stylelint$configRuleSettings,
-} from "./flow-declarations"
 import _ from "lodash"
 
 // Rule settings can take a number of forms, e.g.
@@ -21,7 +17,7 @@ export default function (
   rawSettings: stylelint$configRuleSettings,
   ruleName: string,
   primaryOptionArray?: boolean,
-): ?Array<stylelint$configRulePrimaryOption | [stylelint$configRulePrimaryOption, Object]> {
+): ?Array<any | [any, Object]> {
   if (rawSettings === null) { return null }
 
   if (!Array.isArray(rawSettings)) { return [rawSettings] }

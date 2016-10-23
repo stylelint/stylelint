@@ -1,10 +1,4 @@
 /* @flow */
-import type {
-  stylelint$config,
-  stylelint$configAugmented,
-  stylelint$configProcessors,
-  stylelint$internalApi,
-} from "./flow-declarations"
 import _ from "lodash"
 import { configurationError } from "./utils"
 import fs from "fs"
@@ -21,7 +15,7 @@ const FILE_NOT_FOUND_ERROR_CODE = "ENOENT"
 // - Makes all paths absolute
 // - Merges extends
 function augmentConfigBasic(
-  stylelint: Object,
+  stylelint: stylelint$internalApi,
   config: stylelint$config,
   configDir: string,
 ): Promise<stylelint$config> {
@@ -41,7 +35,7 @@ function augmentConfigBasic(
 // but do not need the full treatment. Things like pluginFunctions
 // will be resolved and added by the parent config.
 function augmentConfigExtended(
-  stylelint: Object,
+  stylelint: stylelint$internalApi,
   cosmiconfigResultArg: ?{
     config: stylelint$config,
     filepath: string,
@@ -69,7 +63,10 @@ function augmentConfigFull(
     config: stylelint$config,
     filepath: string,
   },
-): Promise<stylelint$configAugmented> {
+): Promise<?{
+  config: stylelint$config,
+  filepath: string
+}> {
   const cosmiconfigResult = cosmiconfigResultArg // Lock in for Flow
   if (!cosmiconfigResult) return Promise.resolve(null)
 
@@ -80,7 +77,7 @@ function augmentConfigFull(
 
   return augmentConfigBasic(stylelint, config, configDir)
     .then((augmentedConfig) => {
-      return addIgnorePatterns(stylelint, augmentedConfig, configDir)
+      return addIgnorePatterns(stylelint, augmentedConfig)
     })
     .then((augmentedConfig) => {
       return addPluginFunctions(augmentedConfig)
@@ -124,8 +121,10 @@ function addIgnorePatterns(
       }
       // Add an ignorePatterns property to the config, containing the
       // .gitignore-patterned globs loaded from .stylelintignore
-      config.ignorePatterns = data
-      resolve(config)
+      const augmentedConfig: stylelint$config = Object.assign({}, config, {
+        ignorePatterns: data,
+      })
+      resolve(augmentedConfig)
     })
   })
 }
@@ -183,7 +182,11 @@ function absolutizeProcessors(
   processors: stylelint$configProcessors,
   configDir: string,
 ): stylelint$configProcessors {
-  return [].concat(processors).map((item) => {
+  const normalizedProcessors = (Array.isArray(processors))
+    ? processors
+    : [processors]
+
+  return normalizedProcessors.map((item) => {
     if (typeof item === "string") {
       return getModulePath(configDir, item)
     }
@@ -196,16 +199,20 @@ function absolutizeProcessors(
 }
 
 function extendConfig(
-  stylelint: Object,
+  stylelint: stylelint$internalApi,
   config: stylelint$config,
-  configDir: stylelint$config,
+  configDir: string,
 ): Promise<stylelint$config> {
-  if (!config.extends) return Promise.resolve(config)
+  if (config.extends === undefined) return Promise.resolve(config)
+  const normalizedExtends = (Array.isArray(config.extends))
+    ? config.extends
+    : [config.extends]
 
   const originalWithoutExtends = _.omit(config, "extends")
-  const loadExtends = [].concat(config.extends).reduce((resultPromise, extendLookup) => {
+  const loadExtends = normalizedExtends.reduce((resultPromise, extendLookup) => {
     return resultPromise.then((resultConfig) => {
       return loadExtendedConfig(stylelint, resultConfig, configDir, extendLookup).then((extendResult) => {
+        if (!extendResult) return resultConfig
         return mergeConfigs(resultConfig, extendResult.config)
       })
     })
@@ -217,11 +224,14 @@ function extendConfig(
 }
 
 function loadExtendedConfig(
-  stylelint: Object,
+  stylelint: stylelint$internalApi,
   config: stylelint$config,
   configDir: string,
   extendLookup: string,
-): Promise<stylelint$config> {
+): Promise<?{
+  config: stylelint$config,
+  filepath: string,
+}> {
   const extendPath = getModulePath(configDir, extendLookup)
   return stylelint._extendExplorer.load(null, extendPath)
 }
@@ -238,12 +248,24 @@ function mergeConfigs(
 ): stylelint$config {
   const pluginMerger = {}
   if (a.plugins || b.plugins) {
-    pluginMerger.plugins = _.union(a.plugins, b.plugins)
+    pluginMerger.plugins = []
+    if (a.plugins) {
+      pluginMerger.plugins = pluginMerger.plugins.concat(a.plugins)
+    }
+    if (b.plugins) {
+      pluginMerger.plugins = _.uniq(pluginMerger.plugins.concat(b.plugins))
+    }
   }
 
   const processorMerger = {}
   if (a.processors || b.processors) {
-    processorMerger.processors = _.union(a.processors, b.processors)
+    processorMerger.processors = []
+    if (a.processors) {
+      processorMerger.processors = processorMerger.processors.concat(a.processors)
+    }
+    if (b.processors) {
+      processorMerger.processors = _.uniq(processorMerger.processors.concat(b.processors))
+    }
   }
 
   const rulesMerger = {}
@@ -251,21 +273,32 @@ function mergeConfigs(
     rulesMerger.rules = Object.assign({}, a.rules, b.rules)
   }
 
-  return Object.assign({}, b, a, pluginMerger, rulesMerger)
+  const result = Object.assign({}, a, b, processorMerger, pluginMerger, rulesMerger)
+  return result
 }
 
 function addPluginFunctions(
-  config: stylelint$configAugmented,
-): stylelint$configAugmented {
+  config: stylelint$config,
+): stylelint$config {
   if (!config.plugins) return config
 
-  const pluginFunctions = config.plugins.reduce((result, pluginLookup) => {
+  const normalizedPlugins = (Array.isArray(config.plugins))
+    ? config.plugins
+    : [config.plugins]
+
+  const pluginFunctions = normalizedPlugins.reduce((result, pluginLookup) => {
     let pluginImport = require(pluginLookup)
     // Handle either ES6 or CommonJS modules
     pluginImport = pluginImport.default || pluginImport
 
-    ;[].concat(pluginImport).forEach((plugin) => {
-      if (!plugin.ruleName) {
+    // A plugin can export either a single rule definition
+    // or an array of them
+    const normalizedPluginImport = (Array.isArray(pluginImport))
+      ? pluginImport
+      : [pluginImport]
+
+    normalizedPluginImport.forEach((pluginRuleDefinition) => {
+      if (!pluginRuleDefinition.ruleName) {
         throw configurationError(
           "stylelint v3+ requires plugins to expose a ruleName. " +
           `The plugin "${pluginLookup}" is not doing this, so will not work ` +
@@ -273,16 +306,16 @@ function addPluginFunctions(
         )
       }
 
-      if (!_.includes(plugin.ruleName, "/")) {
+      if (!_.includes(pluginRuleDefinition.ruleName, "/")) {
         throw configurationError(
           "stylelint v7+ requires plugin rules to be namspaced, " +
           "i.e. only `plugin-namespace/plugin-rule-name` plugin rule names are supported. " +
-          `The plugin rule "${plugin.ruleName}" does not do this, so will not work. ` +
+          `The plugin rule "${pluginRuleDefinition.ruleName}" does not do this, so will not work. ` +
           "Please file an issue with the plugin."
         )
       }
 
-      result[plugin.ruleName] = plugin.rule
+      result[pluginRuleDefinition.ruleName] = pluginRuleDefinition.rule
     })
 
     return result
@@ -293,8 +326,8 @@ function addPluginFunctions(
 }
 
 function normalizeAllRuleSettings(
-  config: stylelint$configAugmented,
-): stylelint$configAugmented {
+  config: stylelint$config,
+): stylelint$config {
   const normalizedRules = {}
   Object.keys(config.rules).forEach((ruleName) => {
     const rawRuleSettings = config.rules[ruleName]
@@ -320,8 +353,8 @@ function normalizeAllRuleSettings(
 // - Push the processor's code and result processors to their respective arrays
 const processorCache = new Map()
 function addProcessorFunctions(
-  config: stylelint$configAugmented
-): stylelint$configAugmented {
+  config: stylelint$config
+): stylelint$config {
   if (!config.processors) return config
 
   const codeProcessors = []

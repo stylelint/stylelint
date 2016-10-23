@@ -1,8 +1,4 @@
 /* flow */
-import {
-  stylelint$needlessDisablesReport,
-  stylelint$result,
-} from "./flow-declarations"
 import _ from "lodash"
 
 export default function (

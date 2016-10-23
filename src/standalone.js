@@ -1,11 +1,5 @@
 /* @flow */
 import * as formatters from "./formatters"
-import {
-  stylelint$result,
-  stylelint$standaloneOptions,
-  stylelint$standaloneReturnValue,
-} from "./flow-declarations"
-import CssSyntaxError from "postcss/lib/css-syntax-error"
 import createStylelint from "./createStylelint"
 import globby from "globby"
 import needlessDisables from "./needlessDisables"
@@ -26,7 +20,7 @@ export default function ({
   ignoreDisables,
   ignorePath,
   reportNeedlessDisables,
-  formatter = "json",
+  formatter,
   syntax,
 }: stylelint$standaloneOptions = {}): Promise<stylelint$standaloneReturnValue> {
   const isValidCode = typeof code === "string"
@@ -34,12 +28,16 @@ export default function ({
     throw new Error("You must pass stylelint a `files` glob or a `code` string, though not both")
   }
 
-  const chosenFormatter: Function = (typeof formatter === "string")
-    ? formatters[formatter]
-    : formatter
-
-  if (!chosenFormatter) {
-    return Promise.reject(new Error("You must use a valid formatter option, either: json, string or verbose"))
+  let formatterFunction: Function
+  if (typeof formatter === "string") {
+    formatterFunction = formatters[formatter]
+    if (formatterFunction === undefined) {
+      return Promise.reject(new Error("You must use a valid formatter option: 'json', 'string', 'verbose', or a function"))
+    }
+  } else if (typeof formatter === "function") {
+    formatterFunction = formatter
+  } else {
+    formatterFunction = formatters.json
   }
 
   const stylelint = createStylelint({
@@ -85,12 +83,12 @@ export default function ({
     .then(prepareReturnValue)
 
   function prepareReturnValue(
-    stylelintResults: stylelint$result,
+    stylelintResults: Array<stylelint$result>,
   ): stylelint$standaloneReturnValue {
     const errored = stylelintResults.some((result) => result.errored)
     const returnValue: stylelint$standaloneReturnValue = {
       errored,
-      output: chosenFormatter(stylelintResults),
+      output: formatterFunction(stylelintResults),
       results: stylelintResults,
     }
     if (reportNeedlessDisables) {
@@ -113,7 +111,7 @@ function handleError(error) {
 // and other tools like editor plugins can decide how to
 // present them, as well
 function convertCssSyntaxErrorToResult(
-  error: CssSyntaxError,
+  error: Object,
 ): stylelint$result {
   if (error.name !== "CssSyntaxError") { throw error }
 

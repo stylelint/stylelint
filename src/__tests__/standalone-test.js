@@ -166,7 +166,7 @@ test("unknown formatter option", t => {
       t.end()
     })
     .catch(err => {
-      t.equal(err.message, "You must use a valid formatter option, either: json, string or verbose")
+      t.ok(err.message.indexOf("You must use a valid formatter option") === 0)
       t.end()
     })
 })

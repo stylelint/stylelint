@@ -1,9 +1,4 @@
 /* @flow */
-import {
-  stylelint$internalApi,
-  stylelint$syntaxes,
-} from "./flow-declarations"
-import PostcssResult from "postcss/lib/result"
 import fs from "fs"
 import lessSyntax from "postcss-less"
 import path from "path"
@@ -22,7 +17,7 @@ export default function (
     codeProcessors?: Array<Function>,
     syntax?: stylelint$syntaxes,
   } = {}
-): Promise<?PostcssResult> {
+): Promise<?Object> {
   const cached = stylelint._postcssResultCache.get(options.filePath)
   if (cached) return Promise.resolve(cached)
 

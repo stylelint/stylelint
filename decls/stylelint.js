@@ -1,30 +1,27 @@
-import PostcssResult from "postcss/lib/result"
-
-export type stylelint$configExtend = string | Array<string>
-export type stylelint$configPlugin = string | Array<string>
+export type stylelint$configExtends = string | Array<string>
+export type stylelint$configPlugins = string | Array<string>
 export type stylelint$configProcessors = string | Array<string | [string, Object]>
 export type stylelint$configIgnoreFiles = string | Array<string>
 
-export type stylelint$configRuleSettings = any | Array<any | [any, Object]>
+export type stylelint$configRuleSettings = any | [any, Object]
 export type stylelint$configRules = {
   [ruleName: string]: stylelint$configRuleSettings,
 }
 
 export type stylelint$config = {
-  extends?: stylelint$configExtend,
-  plugins?: stylelint$configPlugin,
+  extends?: stylelint$configExtends,
+  plugins?: stylelint$configPlugins,
+  pluginFunctions?: {
+    [pluginName: string]: Function
+  },
   processors?: stylelint$configProcessors,
-  ignoreFiles?: stylelint$configIgnoreFiles,
-  rules: stylelint$configRules,
-}
-
-export type stylelint$configAugmented = {
-  extends?: Array<string>,
-  plugins?: Array<string>,
-  pluginFunctions?: Array<Function>,
-  processors?: Array<string | [string, Object]>,
   processorFunctions?: Array<Function>,
+  ignoreFiles?: stylelint$configIgnoreFiles,
+  ignorePatterns?: string,
   rules: stylelint$configRules,
+  codeProcessors: Array<Function>,
+  resultProcessors: Array<Function>,
+  quiet?: boolean
 }
 
 export type stylelint$syntaxes = "scss" | "less" | "sugarss"
@@ -42,12 +39,16 @@ export type stylelint$options = {
 
 export type stylelint$internalApi = {
   _options: stylelint$options,
-  _explorer: { load: Function },
+  _extendExplorer: { load: Function },
+  _fullExplorer: { load: Function },
   _configCache: Map<string, Object>,
-  _postcssResultCache?: Map<string, Object>,
+  _specifiedConfigCache: Map<string, Object>,
+  _postcssResultCache: Map<string, Object>,
 
   _augmentConfig: Function,
   _getPostcssResult: Function,
+  _lintSource: Function,
+  _createStylelintResult: Function,
   _createEmptyPostcssResult?: Function,
 
   getConfigForFile: Function,
@@ -75,7 +76,7 @@ export type stylelint$result = {
   errored?: boolean,
   warnings: Array<stylelint$warning>,
   ignored?: boolean,
-  _postcssResult?: PostcssResult,
+  _postcssResult?: Object,
 }
 
 export type stylelint$needlessDisablesReport = Array<{

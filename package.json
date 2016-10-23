@@ -79,6 +79,7 @@
     "coveralls": "^2.11.9",
     "eslint": "~3.8.0",
     "eslint-config-stylelint": "^5.0.0",
+    "eslint-plugin-flowtype": "^2.21.0",
     "flow-bin": "^0.33.0",
     "npm-run-all": "^3.0.0",
     "npmpub": "^3.0.1",
@@ -95,7 +96,7 @@
   "scripts": {
     "benchmark-rule": "babel-node scripts/benchmark-rule.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "lint:js": "eslint . --ignore-path .gitignore",
+    "lint:js": "eslint .",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
     "flow": "flow",
@@ -117,8 +118,14 @@
     ]
   },
   "eslintConfig": {
-    "extends": "stylelint",
+    "extends": [
+      "stylelint",
+      "plugin:flowtype/recommended"
+    ],
     "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ],
     "rules": {
       "arrow-spacing": 2,
       "no-var": 2,

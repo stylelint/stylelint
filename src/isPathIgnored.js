@@ -2,7 +2,6 @@
 import ignore from "ignore"
 import multimatch from "multimatch"
 import path from "path"
-import type { stylelint$internalApi } from "./flow-declarations"
 
 // To find out if a path is ignored, we need to load the config,
 // which may have an ignoreFiles property,

@@ -1,8 +1,4 @@
 /* @flow */
-import type {
-  stylelint$configAugmented,
-  stylelint$internalApi,
-} from "./flow-declarations"
 import { augmentConfigFull } from "./augmentConfig"
 import { configurationError } from "./utils"
 import path from "path"
@@ -10,26 +6,28 @@ import path from "path"
 export default function (
   stylelint: stylelint$internalApi,
   searchPath?: string,
-): Promise<{
-  config: stylelint$configAugmented,
+): Promise<?{
+  config: stylelint$config,
   filepath: string
 }> {
   searchPath = searchPath || process.cwd()
 
-  if (stylelint._options.config) {
-    const cached = stylelint._specifiedConfigCache.get(stylelint._options.config)
+  const optionsConfig = stylelint._options.config
+
+  if (optionsConfig !== undefined) {
+    const cached = stylelint._specifiedConfigCache.get(optionsConfig)
     if (cached) return cached
 
     // stylelint._fullExplorer (cosmiconfig) is already configured to
     // run augmentConfigFull; but since we're making up the result here,
     // we need to manually run the transform
     const augmentedResult = augmentConfigFull(stylelint, {
-      config: stylelint._options.config,
+      config: optionsConfig,
       // Add the extra path part so that we can get the directory without being
       // confused
       filepath: path.join(process.cwd(), "argument-config"),
     })
-    stylelint._specifiedConfigCache.set(stylelint._options.config, augmentedResult)
+    stylelint._specifiedConfigCache.set(optionsConfig, augmentedResult)
     return augmentedResult
   }
 
