@@ -21,7 +21,9 @@ testRule(rule, {
     code: "@media screen and ( color ), projection and ( color ) {}",
   }, {
     code: "@media ( grid ) and ( max-width: 15em ) {}",
-  } ],
+  }, {
+    code: "@media ( max-width: /*comment*/ ) {}" 
+  }],
 
   reject: [ {
     code: "@media (max-width: 300px ) {}",
@@ -30,6 +32,11 @@ testRule(rule, {
     column: 9,
   }, {
     code: "@mEdIa (max-width: 300px ) {}",
+    message: messages.expectedOpening,
+    line: 1,
+    column: 9,
+  }, {
+    code: "@MEDIA (max-width: /*comment*/ ) {}",
     message: messages.expectedOpening,
     line: 1,
     column: 9,
@@ -43,6 +50,11 @@ testRule(rule, {
     message: messages.expectedClosing,
     line: 1,
     column: 25,
+  }, {
+    code: "@media ( max-width: /*comment*/) {}",
+    message: messages.expectedClosing,
+    line: 1,
+    column: 32
   }, {
     code: "@media screen and (color ), projection and ( color ) {}",
     message: messages.expectedOpening,
@@ -82,6 +94,8 @@ testRule(rule, {
   }, {
     code: "@MEDIA (max-width: 300px) {}",
   }, {
+    code: "@MEDIA (max-width: /*comment*/) {}",
+  }, {
     code: "@media screen and (color), projection and (color) {}",
   }, {
     code: "@media (grid) and (max-width: 15em) {}",
@@ -98,6 +112,11 @@ testRule(rule, {
     line: 1,
     column: 25,
   }, {
+    code: "@MEDIA (max-width: /*comment*/ ) {}",
+    message: messages.rejectedClosing,
+    line: 1,
+    column: 31
+  }, {
     code: "@MEDIA (max-width: 300px ) {}",
     message: messages.rejectedClosing,
     line: 1,
@@ -107,6 +126,11 @@ testRule(rule, {
     message: messages.rejectedOpening,
     line: 1,
     column: 9,
+  }, {
+    code: "@media ( max-width: /*comment*/) {}",
+    message: messages.rejectedOpening,
+    line: 1,
+    column: 9
   }, {
     code: "@media screen and (color ), projection and (color) {}",
     message: messages.rejectedClosing,
