@@ -23,7 +23,7 @@ testRule(rule, {
     code: "@media ( grid ) and ( max-width: 15em ) {}",
   }, {
     code: "@media ( max-width: /*comment*/ ) {}" 
-  }],
+  } ],
 
   reject: [ {
     code: "@media (max-width: 300px ) {}",
