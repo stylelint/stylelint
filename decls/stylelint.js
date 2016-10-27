@@ -35,6 +35,7 @@ export type stylelint$options = {
   ignorePath?: string,
   reportNeedlessDisables?: boolean,
   syntax?: stylelint$syntaxes,
+  customSyntax?: string,
 }
 
 export type stylelint$internalApi = {
@@ -109,5 +110,6 @@ export type stylelint$standaloneOptions = {
   ignorePath?: string,
   reportNeedlessDisables?: boolean,
   syntax?: stylelint$syntaxes,
+  customSyntax?: string,
   formatter?: "json" | "string" | "verbose" | Function,
 }

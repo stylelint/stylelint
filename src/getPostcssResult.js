@@ -16,6 +16,7 @@ export default function (
     filePath?: string,
     codeProcessors?: Array<Function>,
     syntax?: stylelint$syntaxes,
+    customSyntax?: string
   } = {}
 ): Promise<?Object> {
   const cached = stylelint._postcssResultCache.get(options.filePath)
@@ -34,21 +35,39 @@ export default function (
 
   return getCode
     .then((code) => {
+      const { customSyntax } = stylelint._options
       let { syntax } = stylelint._options
-      const fileExtension = path.extname(options.filePath || "")
-      if (syntax === "scss" || !syntax && fileExtension === ".scss") {
-        syntax = scssSyntax
-      } else if (syntax === "less" || !syntax && fileExtension === ".less") {
-        syntax = lessSyntax
-      } else if (syntax === "sugarss" || !syntax && fileExtension === ".sss") {
-        syntax = sugarssSyntax
-      } else if (syntax) {
-        throw new Error("You must use a valid syntax option, either: scss, less or sugarss")
+      if (customSyntax) {
+        try {
+          syntax = require(customSyntax)
+        } catch (e) {
+          throw new Error(`Cannot resolve custom syntax module ${customSyntax}`)
+        }
+      } else {
+        const fileExtension = path.extname(options.filePath || "")
+        if (syntax === "scss" || !syntax && fileExtension === ".scss") {
+          syntax = scssSyntax
+        } else if (syntax === "less" || !syntax && fileExtension === ".less") {
+          syntax = lessSyntax
+        } else if (syntax === "sugarss" || !syntax && fileExtension === ".sss") {
+          syntax = sugarssSyntax
+        } else if (syntax) {
+          throw new Error("You must use a valid syntax option, either: scss, less or sugarss")
+        }
       }
 
-      const postcssOptions = {
-        syntax,
-        from: options.filePath,
+      const postcssOptions = {}
+
+      postcssOptions.from = options.filePath
+
+      /*
+       * PostCSS allows for syntaxes that only contain a parser, however,
+       * it then expects the syntax to be set as the `parser` option rather than `syntax.
+       */
+      if (syntax && !syntax.stringify) {
+        postcssOptions.parser = syntax
+      } else {
+        postcssOptions.syntax = syntax
       }
 
       const source = (options.code)

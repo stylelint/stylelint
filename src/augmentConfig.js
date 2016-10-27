@@ -1,11 +1,10 @@
 /* @flow */
+import { configurationError, getModulePath } from "./utils"
 import _ from "lodash"
-import { configurationError } from "./utils"
 import fs from "fs"
 import globjoin from "globjoin"
 import normalizeRuleSettings from "./normalizeRuleSettings"
 import path from "path"
-import resolveFrom from "resolve-from"
 import rules from "./rules"
 
 const DEFAULT_IGNORE_FILENAME = ".stylelintignore"
@@ -156,24 +155,6 @@ function absolutizePaths(
   }
 
   return config
-}
-
-// First try to resolve from the provided directory,
-// then try to resolve from process.cwd.
-function getModulePath(
-  basedir: string,
-  lookup: string,
-): string {
-  let path = resolveFrom(basedir, lookup)
-  if (!path) {
-    path = resolveFrom(process.cwd(), lookup)
-  }
-  if (!path) {
-    throw configurationError(
-      `Could not find "${lookup}". Do you need a \`configBasedir\`?`
-    )
-  }
-  return path
 }
 
 // Processors are absolutized in their own way because

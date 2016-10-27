@@ -133,3 +133,70 @@ test("standalone with syntax set by extension", t => {
 
   t.end()
 })
+
+test("standalone with path to custom parser", t => {
+  const config = {
+    rules: {
+      "block-no-empty": true,
+    },
+  }
+
+  standalone({
+    config,
+    customSyntax: `${fixturesPath}/custom-parser`,
+    code: ".foo { width: 200px }\n.bar {",
+    formatter: stringFormatter,
+  }).then(({ results }) => {
+    const [{ warnings }] = results
+    const [{ line, column, rule }] = warnings
+    t.ok(line === 2)
+    t.ok(column === 6)
+    t.ok(rule === "block-no-empty")
+    t.end()
+  }).catch(t.end)
+})
+
+test("standalone with path to custom syntax", t => {
+  const config = {
+    rules: {
+      "block-no-empty": true,
+    },
+  }
+
+  standalone({
+    config,
+    customSyntax: `${fixturesPath}/custom-syntax`,
+    code: "$foo: bar; // foo;\nb {}",
+    formatter: stringFormatter,
+  }).then(({ results }) => {
+    const [{ warnings }] = results
+    const [{ line, column, rule }] = warnings
+    t.ok(line === 2)
+    t.ok(column === 3)
+    t.ok(rule === "block-no-empty")
+    t.end()
+  }).catch(t.end)
+})
+
+test("standalone should use customSyntax when both customSyntax and syntax are set", t => {
+  const config = {
+    rules: {
+      "block-no-empty": true,
+    },
+  }
+
+  standalone({
+    config,
+    syntax: "less",
+    customSyntax: `${fixturesPath}/custom-syntax`,
+    code: "$foo: bar; // foo;\nb {}",
+    formatter: stringFormatter,
+  }).then(({ results }) => {
+    const [{ warnings }] = results
+    const [{ line, column, rule }] = warnings
+    t.ok(line === 2)
+    t.ok(column === 3)
+    t.ok(rule === "block-no-empty")
+    t.end()
+  }).catch(t.end)
+})

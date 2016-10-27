@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 /* @flow */
-import {
-  assign,
-} from "lodash"
+import { assign } from "lodash"
+import { getModulePath } from "./utils"
 import getStdin from "get-stdin"
 import meow from "meow"
 import needlessDisablesStringFormatter from "./formatters/needlessDisablesStringFormatter"
@@ -72,6 +71,10 @@ const meowOptions = {
         If you do not specify a syntax, non-standard syntaxes will be
         automatically inferred by the file extensions .scss, .less, and .sss.
 
+      --custom-syntax
+
+        Module name or path to a JS file exporting a PostCSS-compatible syntax.
+
       --stdin-filename
 
         A filename to assign stdin input.
@@ -132,6 +135,10 @@ if (cli.flags.quiet) {
 
 if (cli.flags.syntax) {
   optionsBase.syntax = cli.flags.syntax
+}
+
+if (cli.flags.customSyntax) {
+  optionsBase.customSyntax = getModulePath(process.cwd(), cli.flags.customSyntax)
 }
 
 if (cli.flags.config) {
