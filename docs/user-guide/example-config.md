@@ -63,6 +63,7 @@ You might want to learn a little about [how rules are named and how they work to
     "declaration-property-value-blacklist": {},
     "declaration-property-value-whitelist": {},
     "font-family-name-quotes": "always-where-required"|"always-where-recommended"|"always-unless-keyword",
+    "font-family-no-duplicate-names": true,    
     "font-weight-notation": "numeric"|"named",
     "function-blacklist": string|[],
     "function-calc-no-unspaced-operator": true,
