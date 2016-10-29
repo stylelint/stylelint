@@ -22,7 +22,7 @@ testRule(rule, {
   }, {
     code: "@media ( grid ) and ( max-width: 15em ) {}",
   }, {
-    code: "@media ( max-width: /*comment*/ ) {}" 
+    code: "@media ( max-width: /*comment*/ ) {}",
   } ],
 
   reject: [ {
@@ -54,7 +54,7 @@ testRule(rule, {
     code: "@media ( max-width: /*comment*/) {}",
     message: messages.expectedClosing,
     line: 1,
-    column: 32
+    column: 31,
   }, {
     code: "@media screen and (color ), projection and ( color ) {}",
     message: messages.expectedOpening,
@@ -115,7 +115,7 @@ testRule(rule, {
     code: "@MEDIA (max-width: /*comment*/ ) {}",
     message: messages.rejectedClosing,
     line: 1,
-    column: 31
+    column: 31,
   }, {
     code: "@MEDIA (max-width: 300px ) {}",
     message: messages.rejectedClosing,
@@ -130,7 +130,7 @@ testRule(rule, {
     code: "@media ( max-width: /*comment*/) {}",
     message: messages.rejectedOpening,
     line: 1,
-    column: 9
+    column: 9,
   }, {
     code: "@media screen and (color ), projection and (color) {}",
     message: messages.rejectedClosing,

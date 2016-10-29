@@ -4,6 +4,7 @@ import {
   ruleMessages,
   validateOptions,
 } from "../../utils"
+import _ from "lodash"
 import styleSearch from "style-search"
 
 export const ruleName = "media-feature-parentheses-space-inside"
@@ -27,7 +28,9 @@ export default function (expectation) {
     if (!validOptions) { return }
 
     root.walkAtRules(/^media$/i, atRule => {
-      const params = atRule.params
+      // If there are comments in the params, the complete string
+      // will be at atRule.raws.params.raw
+      const params = _.get(atRule, "raws.params.raw", atRule.params)
       const indexBoost = atRuleParamIndex(atRule)
 
       styleSearch({ source: params, target: "(" }, match => {
