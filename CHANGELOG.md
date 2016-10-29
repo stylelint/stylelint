@@ -1,5 +1,6 @@
 # Head
 
+-   Fixed: `media-feature-parentheses-space-inside` handles comments within the parentheses.
 -   Fixed: the `string` and `verbose` formatters now use `dim` instead of `gray` for greater compatibility with different terminal color schemes.
 
 # 7.5.0
