@@ -6,6 +6,7 @@
 
 [libs]
 ./decls/lodash.js
+./decls/jest.js
 ./decls/stylelint.js
 ./decls/postcss.js
 

@@ -1,16 +1,20 @@
-sudo: false
 language: node_js
-node_js:
-  - '7'
-  - '6'
-  - '4'
+sudo: false
 cache:
   directories:
     - node_modules
-before_install:
-- npm prune
-- npm update
-after_success: npm run coveralls
 notifications:
   webhooks:
     - https://webhooks.gitter.im/e/d763493612da45967361
+matrix:
+  include:
+    - node_js: '6'
+      script: npm run lint && npm run flow
+    - node_js: '6'
+      script: npm run test-system
+    - node_js: '7'
+      script: npm run test
+    - node_js: '6'
+      script: npm run test
+    - node_js: '4'
+      script: npm run test
