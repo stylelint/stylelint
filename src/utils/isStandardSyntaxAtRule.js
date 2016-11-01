@@ -4,7 +4,7 @@
  * @param {atRule} postcss at-rule node
  * @return {boolean} If `true`, the declaration is standard
  */
-export default function (atRule) {
+export default function (atRule: postcss$atRule) {
   // Ignore scss `@content` inside mixins
   if (!atRule.nodes && atRule.params === "") { return false }
 
