@@ -19,6 +19,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 ### Font family
 
 -   [`font-family-name-quotes`](../../src/rules/font-family-name-quotes/README.md): Specify whether or not quotation marks should be used around font family names.
+-   [`font-family-no-duplicate-names`](../../src/rules/font-family-no-duplicate-names/README.md): Disallow duplicate font family names.
 
 ### Font weight
 

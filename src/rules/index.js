@@ -54,6 +54,7 @@ import declarationPropertyUnitWhitelist from "./declaration-property-unit-whitel
 import declarationPropertyValueBlacklist from "./declaration-property-value-blacklist"
 import declarationPropertyValueWhitelist from "./declaration-property-value-whitelist"
 import fontFamilyNameQuotes from "./font-family-name-quotes"
+import fontFamilyNoDuplicateNames from "./font-family-no-duplicate-names"
 import fontWeightNotation from "./font-weight-notation"
 import functionBlacklist from "./function-blacklist"
 import functionCalcNoUnspacedOperator from "./function-calc-no-unspaced-operator"
@@ -227,6 +228,7 @@ export default {
   "declaration-property-value-blacklist": declarationPropertyValueBlacklist,
   "declaration-property-value-whitelist": declarationPropertyValueWhitelist,
   "font-family-name-quotes": fontFamilyNameQuotes,
+  "font-family-no-duplicate-names": fontFamilyNoDuplicateNames,
   "font-weight-notation": fontWeightNotation,
   "function-blacklist": functionBlacklist,
   "function-calc-no-unspaced-operator": functionCalcNoUnspacedOperator,
