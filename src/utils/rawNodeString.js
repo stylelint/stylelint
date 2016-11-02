@@ -6,8 +6,8 @@
  */
 export default function (node) {
   let result = ""
-  if (node.raw("before")) {
-    result += node.raw("before")
+  if (node.raws.before) {
+    result += node.raws.before
   }
   result += node.toString()
   return result

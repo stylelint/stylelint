@@ -49,8 +49,8 @@ export default function (space, options = {}) {
       const nodeLevel = indentationLevel(node)
       const expectedWhitespace = repeat(indentChar, nodeLevel)
 
-      let before = node.raw("before")
-      const after = node.raw("after")
+      let before = node.raws.before
+      const after = node.raws.after
 
       // Only inspect the spaces before the node
       // if this is the first node in root

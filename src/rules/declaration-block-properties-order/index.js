@@ -69,7 +69,7 @@ function rule(expectation, options) {
           name: prop,
           unprefixedName: unprefixedPropName,
           orderData: (alphabetical) ? null : getOrderData(expectedOrder, unprefixedPropName),
-          before: child.raw("before"),
+          before: child.raws.before,
           index: allPropData.length,
           node: child,
         }

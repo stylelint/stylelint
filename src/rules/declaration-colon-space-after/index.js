@@ -42,7 +42,7 @@ export function declarationColonSpaceChecker({ locationChecker, root, result, ch
     if (!isStandardSyntaxDeclaration(decl)) { return }
 
     // Get the raw prop, and only the prop
-    const endOfPropIndex = declarationValueIndex(decl) + decl.raw("between").length - 1
+    const endOfPropIndex = declarationValueIndex(decl) + decl.raws.between.length - 1
 
     // The extra characters tacked onto the end ensure that there is a character to check
     // after the colon. Otherwise, with `background:pink` the character after the

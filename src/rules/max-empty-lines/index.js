@@ -38,7 +38,7 @@ export default function (max) {
     // which adds to extra characters at the end, which messes up our
     // warning position
     root.walkComments(comment => {
-      const source = comment.raw("left") + comment.text + comment.raw("right")
+      const source = comment.raws.left + comment.text + comment.raws.right
       styleSearch({ source, target: "\n" }, match => {
         checkMatch(source, match.endIndex, comment, 2)
       })
