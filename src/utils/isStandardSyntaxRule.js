@@ -1,4 +1,5 @@
 import _ from "lodash"
+import { isCustomPropertySet } from "../utils"
 
 /**
  * Check whether a rule is standard
@@ -11,7 +12,7 @@ export default function (rule) {
   const selector = _.get(rule, "raws.selector.raw", rule.selector)
 
   // Custom property set (e.g. --custom-property-set: {})
-  if (_.endsWith(selector, ":")) { return false }
+  if (isCustomPropertySet(rule)) { return false }
 
   // Called Less mixin (e.g. a { .mixin() })
   if (rule.ruleWithoutBody) { return false }
