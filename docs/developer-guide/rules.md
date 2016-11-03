@@ -115,6 +115,7 @@ Please run through this checklist and ensure each point is covered by your tests
 -   Ensure you are testing errors in multiple positions, not the same place every time.
 -   Ensure you use realistic (if simple) CSS, and avoid the use of ellipses.
 -   Ensure you use standard CSS syntax by default, and only swap parsers when testing a specific piece of non-standard syntax.
+-   When accessing raw strings from the PostCSS AST, use `node.raws` instead of `node.raw()`. This will ensure string corresponds exactly to the original.
 
 ##### Commonly overlooked edge-cases
 
