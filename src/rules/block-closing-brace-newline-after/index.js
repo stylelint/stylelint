@@ -55,7 +55,7 @@ export default function (expectation, options) {
       // Allow an end-of-line comment x spaces after the brace
       const nextNodeIsSingleLineComment = (
         nextNode.type === "comment"
-        && !/[^ ]/.test(nextNode.raw("before"))
+        && !/[^ ]/.test(nextNode.raws.before)
         && nextNode.toString().indexOf("\n") === -1
       )
 

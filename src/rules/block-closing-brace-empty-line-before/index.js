@@ -36,7 +36,7 @@ export default function (expectation) {
       if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
 
       // Get whitespace after ""}", ignoring extra semicolon
-      const before = statement.raw("after").replace(/;+/, "")
+      const before = statement.raws.after.replace(/;+/, "")
       if (before === undefined) { return }
 
       // Calculate index

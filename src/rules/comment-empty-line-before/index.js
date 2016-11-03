@@ -55,7 +55,7 @@ export default function (expectation, options) {
 
       if (comment.raws.inline || comment.inline) { return }
 
-      const before = comment.raw("before")
+      const before = comment.raws.before
 
       // Ignore shared-line comments
       if (before.indexOf("\n") === -1) { return }

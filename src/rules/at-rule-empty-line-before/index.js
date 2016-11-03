@@ -68,7 +68,7 @@ export default function (expectation, options) {
       if (optionsMatches(options, "ignore", "after-comment")
         && isAfterComment()) { return }
 
-      const hasEmptyLineBefore = hasEmptyLine(atRule.raw("before"))
+      const hasEmptyLineBefore = hasEmptyLine(atRule.raws.before)
       let expectEmptyLineBefore = (expectation === "always") ? true : false
 
       // Optionally reverse the expectation if any exceptions apply

@@ -76,7 +76,7 @@ export function checkRuleEmptyLineBefore({ rule, expectation, options, result, m
     expectEmptyLineBefore = !expectEmptyLineBefore
   }
 
-  const hasEmptyLineBefore = hasEmptyLine(rule.raw("before"))
+  const hasEmptyLineBefore = hasEmptyLine(rule.raws.before)
 
   // Return if the expectation is met
   if (expectEmptyLineBefore === hasEmptyLineBefore) { return }
