@@ -8,7 +8,7 @@ In `8.0.0` we will be removing:
 
 -   the `declaration-block-properties-order` rule.
 
-The `declaration-block-properties-order` rule will be replaced by [`stylelint-order`](https://github.com/hudochenkov/stylelint-order), a community plugin pack of ordering rules. One that contains rules for ordering properties, property groups and _other things_ within declaration blocks. Please consider contributing to `stylelint-order` to ensure it is robust and handles your particular use-case. This will provide a smoother transition to `8.0.0`, once it is ready.
+The `declaration-block-properties-order` rule will be replaced by [`stylelint-order`](https://github.com/hudochenkov/stylelint-order), a community plugin pack of ordering rules. One that contains rules for ordering properties, property groups and *other things* within declaration blocks. Please consider contributing to `stylelint-order` to ensure it is robust and handles your particular use-case. This will provide a smoother transition to `8.0.0`, once it is ready.
 
 ## `7.0.0`
 
