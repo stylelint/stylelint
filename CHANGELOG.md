@@ -1,5 +1,6 @@
 # Head
 
+-   Deprecated: `declaration-block-properties-order` rule. Use the community [`stylelint-order`](https://github.com/hudochenkov/stylelint-order) plugin pack instead. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
 -   Added: `font-family-no-duplicate-names` rule.
 -   Fixed: `media-feature-parentheses-space-inside` handles comments within the parentheses.
 -   Fixed: the `string` and `verbose` formatters now use `dim` instead of `gray` for greater compatibility with different terminal color schemes.
