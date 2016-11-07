@@ -64,7 +64,11 @@ It's your responsibility as the configuration author to resolve these conflicts.
 
 ## What is the difference between a plugin and a rule?
 
-Rules focus on *standard css* and aim to be valuable to the majority of users. Whereas plugins are rules and sets of rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases.
+A rule must meet the [criteria](/docs/developer-guide/rules.md) set out in the developer guide, including being applicable to only standard CSS syntax, and having a clear and unambiguous finished state. Whereas a plugin is a rule or sets of rules built by the community that don't adhere to the criteria. It might support a particular methodology or toolset, or apply to *non-standard* constructs and features, or be for specific use cases. 
+
+For example, we've found that rules to enforce property order, property groupings, etc., work better as plugins, because there are so many different opinions about what to enforce, and how. When you write or use a plugin, you can make sure to enforce your own particular preferences, exactly; but a rule that tries to address too many divergent use-cases becomes a mess. 
+
+Plugins are easy to incorporate into your configuration.
 
 ## Can I customise stylelint's messages?
 
