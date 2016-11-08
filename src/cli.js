@@ -115,7 +115,7 @@ const cli = meow(meowOptions, minimistOptions)
 
 let formatter = cli.flags.formatter
 if (cli.flags.customFormatter) {
-  let customFormatter = path.isAbsolute(cli.flags.customFormatter)
+  const customFormatter = path.isAbsolute(cli.flags.customFormatter)
     ? cli.flags.customFormatter
     : path.join(process.cwd(), cli.flags.customFormatter)
   formatter = require(customFormatter)
