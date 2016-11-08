@@ -12,3 +12,12 @@ export type postcss$comment = {
   },
   error(message: string, options: { plugin: string }): void,
 }
+
+export type postcss$atRule = {
+  name: string,
+  params: string,
+  raw: Function,
+  raws: {
+    afterName: string,
+  },
+}
