@@ -4,6 +4,7 @@
 -   Fixed: `media-feature-parentheses-space-inside` handles comments within the parentheses.
 -   Fixed: the `string` and `verbose` formatters now use `dim` instead of `gray` for greater compatibility with different terminal color schemes.
 -   Fixed: CLI now understands absolute paths for the `--custom-formatter` option.
+-   Fixed: `selector-no-qualifying-type` now ignores SCSS `%placeholders`.
 
 # 7.5.0
 
