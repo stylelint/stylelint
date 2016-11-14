@@ -2,13 +2,12 @@ import needlessDisables from "../needlessDisables"
 import path from "path"
 import standalone from "../standalone"
 import { stripIndent } from "common-tags"
-import test from "tape"
 
 function fixture(name) {
   return path.join(__dirname, "./fixtures/needlessDisables", name)
 }
 
-test("needlessDisables simple case", t => {
+it("needlessDisables simple case", () => {
   const config = {
     rules: { "block-no-empty": true },
   }
@@ -28,22 +27,21 @@ test("needlessDisables simple case", t => {
     }
     `
 
-  standalone({
+  return standalone({
     config,
     code: css,
     ignoreDisables: true,
   }).then(({ results }) => {
     const report = needlessDisables(results)
-    t.equal(report.length, 1)
-    t.deepEqual(report[0].ranges, [
+    expect(report.length).toBe(1)
+    expect(report[0].ranges).toEqual([
       { start: 7, end: 9 },
       { start: 11, end: 11 },
     ])
-    t.end()
-  }).catch(t.end)
+  })
 })
 
-test("needlessDisables complex case", t => {
+it("needlessDisables complex case", () => {
   const config = {
     rules: {
       "block-no-empty": true,
@@ -51,7 +49,7 @@ test("needlessDisables complex case", t => {
     },
   }
 
-  standalone({
+  return standalone({
     config,
     files: [
       fixture("disabled-ranges-1.css"),
@@ -61,7 +59,7 @@ test("needlessDisables complex case", t => {
     ],
     ignoreDisables: true,
   }).then(({ results }) => {
-    t.deepEqual(needlessDisables(results), [
+    expect(needlessDisables(results)).toEqual([
       {
         source: fixture("disabled-ranges-1.css"),
         ranges: [
@@ -79,18 +77,17 @@ test("needlessDisables complex case", t => {
         ],
       },
     ])
-    t.end()
-  }).catch(t.end)
+  })
 })
 
-test("needlessDisables ignored case", t => {
+it("needlessDisables ignored case", () => {
   const config = {
     rules: {
       "block-no-empty": true,
     },
   }
 
-  standalone({
+  return standalone({
     config,
     files: [
       fixture("disabled-ranges-1.css"),
@@ -99,7 +96,7 @@ test("needlessDisables ignored case", t => {
     ignoreDisables: true,
     ignorePath: fixture(".stylelintignore"),
   }).then(({ results }) => {
-    t.deepEqual(needlessDisables(results), [
+    expect(needlessDisables(results)).toEqual([
       {
         source: fixture("disabled-ranges-1.css"),
         ranges: [
@@ -109,6 +106,5 @@ test("needlessDisables ignored case", t => {
         ],
       },
     ])
-    t.end()
-  }).catch(t.end)
+  })
 })
