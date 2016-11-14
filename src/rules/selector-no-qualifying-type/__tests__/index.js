@@ -1613,6 +1613,8 @@ testRule(rule, {
     code: "#{$selector}.class { }",
   }, {
     code: "a.class#{$selector}.class { }",
+  }, {
+    code: "%foo { &.bar { } }",
   } ],
 
   reject: [ {

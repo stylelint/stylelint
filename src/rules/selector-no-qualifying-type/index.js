@@ -58,6 +58,7 @@ export default (enabled, options) => {
     root.walkRules(rule => {
       if (!isStandardSyntaxRule(rule)) { return }
       if (isKeyframeRule(rule)) { return }
+      // Increasing performance
       if (!isStandardSyntaxSelector(rule.selector)) { return }
       if (!isSelectorCharacters(rule.selector)) { return }
 
@@ -89,6 +90,8 @@ export default (enabled, options) => {
       }
 
       resolvedNestedSelector(rule.selector, rule).forEach(resolvedSelector => {
+        if (!isStandardSyntaxSelector(resolvedSelector)) { return }
+
         parseSelector(resolvedSelector, result, rule, checkSelector)
       })
 
