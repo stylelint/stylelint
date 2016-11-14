@@ -56,7 +56,6 @@ export default function (expectation) {
             })
           },
         })
-        break
       }
     })
   }
