@@ -25,8 +25,9 @@ export default function (whitelist) {
 
     root.walkDecls(function (decl) {
       functionArgumentsSearch(decl.toString().toLowerCase(), "url", (args, index) => {
-        const urlString = trim(args, " '\"")
-        if (!isStandardSyntaxUrl(urlString)) { return }
+        const unspacedUrlString = trim(args, " ")
+        if (!isStandardSyntaxUrl(unspacedUrlString)) { return }
+        const urlString = trim(unspacedUrlString, "'\"")
 
         const url = parse(urlString)
         if (url.protocol === null) { return }
