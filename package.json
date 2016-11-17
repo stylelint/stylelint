@@ -87,6 +87,7 @@
     "npmpub": "^3.0.1",
     "nyc": "^9.0.1",
     "postcss-import": "^8.0.2",
+    "postcss-safe-parser": "^2.0.0",
     "remark-cli": "^2.0.0",
     "remark-preset-lint-consistent": "^1.0.0",
     "remark-preset-lint-recommended": "^1.0.0",

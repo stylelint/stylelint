@@ -46,7 +46,11 @@ Linting all the `.scss` files in the `foo` directory, using the `syntax` option:
 stylelint "foo/**/*.scss" --syntax scss
 ```
 
-The above can be slightly altered to read Less or SugarSS syntax: `--syntax less`, `--syntax sugarss`. Also, you may not need to provide a `--syntax` option: non-standard syntaxes can be automatically inferred from file extensions `.less`, `.scss`, and `.sss`.
+In addition to `--syntax scss`, stylelint supports `--syntax less` and `--syntax sugarss` by default. If you're using one of the default syntaxes, you may not need to provide a `--syntax` option: non-standard syntaxes can be automatically inferred from the following file extensions: `.less`, `.scss`, and `.sss`.
+
+Additionally, stylelint can accept a custom [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). To use a custom syntax, supply a syntax module name or path to the syntax file: `--custom-syntax custom-syntax` or `--custom-syntax ./path/to/custom-syntax`.
+
+Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed above.
 
 ## Syntax errors
 

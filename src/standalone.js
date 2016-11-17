@@ -22,6 +22,7 @@ export default function ({
   reportNeedlessDisables,
   formatter,
   syntax,
+  customSyntax,
 }: stylelint$standaloneOptions = {}): Promise<stylelint$standaloneReturnValue> {
   const isValidCode = typeof code === "string"
   if (!files && !isValidCode || files && (code || isValidCode)) {
@@ -49,6 +50,7 @@ export default function ({
     ignorePath,
     reportNeedlessDisables,
     syntax,
+    customSyntax,
   })
 
   if (!files) {

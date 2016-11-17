@@ -155,6 +155,22 @@ test("unknown syntax option", t => {
     })
 })
 
+test("unknown custom syntax option", t => {
+  standalone({
+    customSyntax: "unknown-module",
+    code: "",
+    config: { rules: { "block-no-empty": "wahoo" } },
+  })
+    .then(() => {
+      t.fail("should not have succeeded")
+      t.end()
+    })
+    .catch(err => {
+      t.equal(err.message, "Cannot resolve custom syntax module unknown-module")
+      t.end()
+    })
+})
+
 test("unknown formatter option", t => {
   standalone({
     formatter: "unknown",

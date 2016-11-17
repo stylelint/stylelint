@@ -89,11 +89,20 @@ A path to a file containing patterns describing files to ignore. The path can be
 
 ### `syntax`
 
-Options: `"scss"|"less"|"sugarss"`.
+Options: `"scss"|"less"|"sugarss"`
 
 Specify a non-standard syntax that should be used to parse source stylesheets.
 
 If you do not specify a syntax, non-standard syntaxes will be automatically inferred by the file extensions `.scss`, `.less`, and `.sss`.
+
+See the [`customSyntax`](#customsyntax) option below if you would like to use stylelint with a custom syntax.
+
+### `customSyntax`
+
+An absolute path to a custom [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes) module.
+
+Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed for the `syntax` option above.
+
 
 ## The returned promise
 
