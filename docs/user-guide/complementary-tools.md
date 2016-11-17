@@ -1,5 +1,9 @@
 # Complementary tools
 
+## Analysis platform engines
+
+-   [codeclimate-stylelint](https://github.com/gilbarbara/codeclimate-stylelint): Code Climate engine for stylelint
+
 ## Autocorrect
 
 -   [stylefmt](https://github.com/morishitter/stylefmt): Automatically formats CSS and SCSS source code based on your stylelint configuration.
