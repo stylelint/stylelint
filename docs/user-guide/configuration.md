@@ -207,7 +207,7 @@ Once the plugin is declared, within your `"rules"` object *you'll need to add op
   ],
   "rules": {
     "plugin/special-rule": "everything"
-  },
+  }
 }
 ```
 
@@ -222,7 +222,7 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
     "some-rule-set/first-rule": "everything",
     "some-rule-set/second-rule": "nothing",
     "some-rule-set/third-rule": "everything"
-  },
+  }
 }
 ```
 
@@ -239,7 +239,7 @@ To use one, add a `"processors"` array to your config, containing "locaters" ide
 ```json
 {
   "processors": ["stylelint-html-processor"],
-  "rules": {..},
+  "rules": {..}
 }
 ```
 
