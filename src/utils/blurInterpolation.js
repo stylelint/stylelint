@@ -1,3 +1,4 @@
+/* @flow */
 /**
  * Replace all of the characters that are interpolation with some innocuous character.
  *
@@ -7,6 +8,9 @@
  * @param {string} source
  * @return {string} - The result string, with the interpolation characters "blurred"
  */
-export default function (source, blurChar = " ") {
+export default function (
+  source: string,
+  blurChar: string = " "
+): string {
   return source.replace(/[#@{}]+/g, blurChar)
 }
