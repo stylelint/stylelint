@@ -1,3 +1,4 @@
+/* @flow */
 import beforeBlockString from "./beforeBlockString"
 import hasBlock from "./hasBlock"
 import rawNodeString from "./rawNodeString"
@@ -11,7 +12,9 @@ import rawNodeString from "./rawNodeString"
  * @param {Rule|AtRule} statement - postcss rule or at-rule node
  * @return {string|undefined}
  */
-export default function (statement) {
-  if (!hasBlock(statement)) { return }
+export default function (
+  statement: postcss$rule | postcss$atRule
+): string | boolean {
+  if (!hasBlock(statement)) { return false }
   return rawNodeString(statement).slice(beforeBlockString(statement).length)
 }
