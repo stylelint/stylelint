@@ -1,4 +1,4 @@
-# Head
+# 7.6.0
 
 -   Added: option `customSyntax` (for Node API) and `--custom-syntax` (for CLI).
 -   Added: `font-family-no-duplicate-names` rule.
