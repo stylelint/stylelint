@@ -1,41 +1,53 @@
 import nextNonCommentNode from "../nextNonCommentNode"
 import postcss from "postcss"
-import test from "tape"
 
-test("nextNonCommentNode", t => {
-  let planned = 0
+describe("nextNonCommentNode", () => {
+  let caseA
+  let caseB
+  let aNode
+  let bNode
+  let colorNode
 
-  const caseA = "a {} /* x */ b {}"
-  postcss().process(caseA).then(result => {
-    let aNode
-    let bNode
-    result.root.walkRules(rule => {
-      if (rule.selector === "a") {
-        aNode = rule
-      }
-      if (rule.selector === "b") {
-        bNode = rule
-      }
-    })
-    t.equal(nextNonCommentNode(aNode.next()), bNode, "starting with comment")
-    t.equal(nextNonCommentNode(bNode.next()), null, "starting with nonexistent next")
+  beforeEach(() => {
+    aNode = undefined
+    bNode = undefined
+    colorNode = undefined
+    caseA = "a {} /* x */ b {}"
+    caseB = "a { /* x */ color: pink; /* y */ }"
   })
-  planned += 2
 
-  const caseB = "a { /* x */ color: pink; /* y */ }"
-  postcss().process(caseB).then(result => {
-    let aNode
-    let colorNode
-    result.root.walkRules(rule => {
-      aNode = rule
+  it("next node is a selector preceded by a comment", () => {
+    return postcss().process(caseA).then(result => {
+      result.root.walkRules(rule => {
+        if (rule.selector === "a") { aNode = rule }
+        if (rule.selector === "b") { bNode = rule }
+      })
+      expect(nextNonCommentNode(aNode.next())).toBe(bNode)
     })
-    result.root.walkDecls(decl => {
-      colorNode = decl
-    })
-    t.equal(nextNonCommentNode(aNode.first), colorNode)
-    t.equal(nextNonCommentNode(colorNode.next()), null)
   })
-  planned += 2
 
-  t.plan(planned)
+  it("next node does not exist", () => {
+    return postcss().process(caseA).then(result => {
+      result.root.walkRules(rule => {
+        if (rule.selector === "a") { aNode = rule }
+        if (rule.selector === "b") { bNode = rule }
+      })
+      expect(nextNonCommentNode(bNode.next())).toBe(null)
+    })
+  })
+
+  it("next node is a declaration preceded by a comment", () => {
+    return postcss().process(caseB).then(result => {
+      result.root.walkRules(rule => { aNode = rule })
+      result.root.walkDecls(rule => { colorNode = rule })
+      expect(nextNonCommentNode(aNode.first)).toBe(colorNode)
+    })
+  })
+
+  it("next node is null preceded by a comment", () => {
+    return postcss().process(caseB).then(result => {
+      result.root.walkDecls(rule => { colorNode = rule })
+      expect(nextNonCommentNode(colorNode.next())).toBe(null)
+    })
+  })
 })

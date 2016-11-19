@@ -1,23 +1,52 @@
 import isStandardSyntaxMediaFeatureName from "../isStandardSyntaxMediaFeatureName"
-import test from "tape"
 
-test("isStandardSyntaxMediaFeatureName", t => {
-  t.ok(isStandardSyntaxMediaFeatureName("min-width"), "keyword")
-  t.ok(isStandardSyntaxMediaFeatureName("-webkit-min-device-pixel-ratio"), "keyword")
-  t.ok(isStandardSyntaxMediaFeatureName("--viewport-medium"), "custom media query")
-  t.notOk(isStandardSyntaxMediaFeatureName("$sass-variable"), "scss var")
-  t.notOk(isStandardSyntaxMediaFeatureName("min-width + $value"), "scss var")
-  t.notOk(isStandardSyntaxMediaFeatureName("$value + min-width"), "scss var")
-  t.notOk(isStandardSyntaxMediaFeatureName("'min-width + $value'"), "scss var")
-  t.notOk(isStandardSyntaxMediaFeatureName("'$value + min-width'"), "scss var")
-  t.notOk(isStandardSyntaxMediaFeatureName("\"min-width + $value\""), "scss var")
-  t.notOk(isStandardSyntaxMediaFeatureName("\"$value + min-width\""), "scss var")
-  t.notOk(isStandardSyntaxMediaFeatureName("min-width#{$value}"), "scss interpolation")
-  t.notOk(isStandardSyntaxMediaFeatureName("#{$value}min-width"), "scss interpolation")
-  t.notOk(isStandardSyntaxMediaFeatureName("'min-width#{$value}'"), "scss interpolation")
-  t.notOk(isStandardSyntaxMediaFeatureName("'#{$value}min-width'"), "scss interpolation")
-  t.notOk(isStandardSyntaxMediaFeatureName("\"min-width#{$value}\""), "scss interpolation")
-  t.notOk(isStandardSyntaxMediaFeatureName("\"#{$value}min-width\""), "scss interpolation")
-
-  t.end()
+describe("isStandardSyntaxMediaFeatureName", () => {
+  it("keyword", () => {
+    expect(isStandardSyntaxMediaFeatureName("min-width")).toBeTruthy()
+  })
+  it("keyword", () => {
+    expect(isStandardSyntaxMediaFeatureName("-webkit-min-device-pixel-ratio")).toBeTruthy()
+  })
+  it("custom media query", () => {
+    expect(isStandardSyntaxMediaFeatureName("--viewport-medium")).toBeTruthy()
+  })
+  it("scss var", () => {
+    expect(isStandardSyntaxMediaFeatureName("$sass-variable")).toBeFalsy()
+  })
+  it("scss var", () => {
+    expect(isStandardSyntaxMediaFeatureName("min-width + $value")).toBeFalsy()
+  })
+  it("scss var", () => {
+    expect(isStandardSyntaxMediaFeatureName("$value + min-width")).toBeFalsy()
+  })
+  it("scss var", () => {
+    expect(isStandardSyntaxMediaFeatureName("'min-width + $value'")).toBeFalsy()
+  })
+  it("scss var", () => {
+    expect(isStandardSyntaxMediaFeatureName("'$value + min-width'")).toBeFalsy()
+  })
+  it("scss var", () => {
+    expect(isStandardSyntaxMediaFeatureName("\"min-width + $value\"")).toBeFalsy()
+  })
+  it("scss var", () => {
+    expect(isStandardSyntaxMediaFeatureName("\"$value + min-width\"")).toBeFalsy()
+  })
+  it("scss interpolation", () => {
+    expect(isStandardSyntaxMediaFeatureName("min-width#{$value}")).toBeFalsy()
+  })
+  it("scss interpolation", () => {
+    expect(isStandardSyntaxMediaFeatureName("#{$value}min-width")).toBeFalsy()
+  })
+  it("scss interpolation", () => {
+    expect(isStandardSyntaxMediaFeatureName("'min-width#{$value}'")).toBeFalsy()
+  })
+  it("scss interpolation", () => {
+    expect(isStandardSyntaxMediaFeatureName("'#{$value}min-width'")).toBeFalsy()
+  })
+  it("scss interpolation", () => {
+    expect(isStandardSyntaxMediaFeatureName("\"min-width#{$value}\"")).toBeFalsy()
+  })
+  it("scss interpolation", () => {
+    expect(isStandardSyntaxMediaFeatureName("\"#{$value}min-width\"")).toBeFalsy()
+  })
 })

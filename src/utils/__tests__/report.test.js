@@ -1,8 +1,7 @@
 import report from "../report"
 import sinon from "sinon"
-import test from "tape"
 
-test("without disabledRanges", t => {
+it("without disabledRanges", () => {
   const v = {
     ruleName: "foo",
     result: {
@@ -15,12 +14,11 @@ test("without disabledRanges", t => {
   }
   report(v)
   const spyArgs = v.result.warn.args[0]
-  t.equal(spyArgs[0], "bar")
-  t.equal(spyArgs[1].node, v.node)
-  t.end()
+  expect(spyArgs[0]).toBe("bar")
+  expect(spyArgs[1].node).toBe(v.node)
 })
 
-test("with irrelevant general disabledRange", t => {
+it("with irrelevant general disabledRange", () => {
   const v = {
     ruleName: "foo",
     result: {
@@ -38,12 +36,11 @@ test("with irrelevant general disabledRange", t => {
   }
   report(v)
   const spyArgs = v.result.warn.args[0]
-  t.equal(spyArgs[0], "bar")
-  t.equal(spyArgs[1].node, v.node)
-  t.end()
+  expect(spyArgs[0]).toBe("bar")
+  expect(spyArgs[1].node).toBe(v.node)
 })
 
-test("with relevant general disabledRange", t => {
+it("with relevant general disabledRange", () => {
   const v = {
     ruleName: "foo",
     result: {
@@ -60,11 +57,10 @@ test("with relevant general disabledRange", t => {
     },
   }
   report(v)
-  t.notOk(v.result.warn.called)
-  t.end()
+  expect(v.result.warn.called).toBeFalsy()
 })
 
-test("with irrelevant rule-specific disabledRange", t => {
+it("with irrelevant rule-specific disabledRange", () => {
   const v = {
     ruleName: "foo",
     result: {
@@ -83,12 +79,11 @@ test("with irrelevant rule-specific disabledRange", t => {
   }
   report(v)
   const spyArgs = v.result.warn.args[0]
-  t.equal(spyArgs[0], "bar")
-  t.equal(spyArgs[1].node, v.node)
-  t.end()
+  expect(spyArgs[0]).toBe("bar")
+  expect(spyArgs[1].node).toBe(v.node)
 })
 
-test("with relevant rule-specific disabledRange", t => {
+it("with relevant rule-specific disabledRange", () => {
   const v = {
     ruleName: "foo",
     result: {
@@ -106,11 +101,10 @@ test("with relevant rule-specific disabledRange", t => {
     },
   }
   report(v)
-  t.notOk(v.result.warn.called)
-  t.end()
+  expect(v.result.warn.called).toBeFalsy()
 })
 
-test("with relevant general disabledRange, among others", t => {
+it("with relevant general disabledRange, among others", () => {
   const v = {
     ruleName: "foo",
     result: {
@@ -130,11 +124,10 @@ test("with relevant general disabledRange, among others", t => {
     },
   }
   report(v)
-  t.notOk(v.result.warn.called)
-  t.end()
+  expect(v.result.warn.called).toBeFalsy()
 })
 
-test("with relevant rule-specific disabledRange, among others", t => {
+it("with relevant rule-specific disabledRange, among others", () => {
   const v = {
     ruleName: "foo",
     result: {
@@ -155,11 +148,10 @@ test("with relevant rule-specific disabledRange, among others", t => {
     },
   }
   report(v)
-  t.notOk(v.result.warn.called)
-  t.end()
+  expect(v.result.warn.called).toBeFalsy()
 })
 
-test("with quiet mode on and rule severity of 'warning'", t => {
+it("with quiet mode on and rule severity of 'warning'", () => {
   const v = {
     ruleName: "foo",
     result: {
@@ -177,11 +169,10 @@ test("with quiet mode on and rule severity of 'warning'", t => {
     },
   }
   report(v)
-  t.notOk(v.result.warn.called)
-  t.end()
+  expect(v.result.warn.called).toBeFalsy()
 })
 
-test("with quiet mode on and rule severity of 'error'", t => {
+it("with quiet mode on and rule severity of 'error'", () => {
   const v = {
     ruleName: "foo",
     result: {
@@ -199,6 +190,5 @@ test("with quiet mode on and rule severity of 'error'", t => {
     },
   }
   report(v)
-  t.ok(v.result.warn.called)
-  t.end()
+  expect(v.result.warn.called).toBeTruthy()
 })

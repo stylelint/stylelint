@@ -1,9 +1,7 @@
 import blurComments from "../blurComments"
-import test from "tape"
 
-test("blurComments", t => {
-  t.equal(blurComments("abc"), "abc")
-  t.equal(blurComments("/* abc */"), "`")
-  t.equal(blurComments("a { b:c } /*abc*/", "#"), "a { b:c } #")
-  t.end()
+it("blurComments", () => {
+  expect(blurComments("abc")).toBe("abc")
+  expect(blurComments("/* abc */")).toBe("`")
+  expect(blurComments("a { b:c } /*abc*/", "#")).toBe("a { b:c } #")
 })

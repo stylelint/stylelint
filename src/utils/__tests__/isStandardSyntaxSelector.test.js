@@ -1,21 +1,49 @@
 import isStandardSyntaxSelector from "../isStandardSyntaxSelector"
-import test from "tape"
 
-test("isStandardSyntaxSelector", t => {
-  t.ok(isStandardSyntaxSelector("a"), "type")
-  t.ok(isStandardSyntaxSelector(".a"), "class")
-  t.ok(isStandardSyntaxSelector("[a=a]"), "attribute")
-  t.ok(isStandardSyntaxSelector("*"), "universal")
-  t.ok(isStandardSyntaxSelector("a:last-child"), "pseudo-class")
-  t.ok(isStandardSyntaxSelector("a:not(.b)"), "pseudo-class with function")
-  t.ok(isStandardSyntaxSelector("a::after"), "pseudo-element")
-  t.ok(isStandardSyntaxSelector("a.b"), "compound")
-  t.ok(isStandardSyntaxSelector("a > b"), "complex")
-  t.ok(isStandardSyntaxSelector("a, b"), "list")
-  t.notOk(isStandardSyntaxSelector("#{50% - $n}"), "SCSS interpolation (id)")
-  t.notOk(isStandardSyntaxSelector(".n-#{$n}"), "SCSS interpolation (class)")
-  t.notOk(isStandardSyntaxSelector(":n-#{$n}"), "SCSS interpolation (pseudo)")
-  t.notOk(isStandardSyntaxSelector(".n-@{n}"), "Less interpolation")
-  t.notOk(isStandardSyntaxSelector("%foo"), "SCSS placeholder")
-  t.end()
+describe("isStandardSyntaxSelector", () => {
+  it("type", () => {
+    expect(isStandardSyntaxSelector("a")).toBeTruthy()
+  })
+  it("class", () => {
+    expect(isStandardSyntaxSelector(".a")).toBeTruthy()
+  })
+  it("attribute", () => {
+    expect(isStandardSyntaxSelector("[a=a]")).toBeTruthy()
+  })
+  it("universal", () => {
+    expect(isStandardSyntaxSelector("*")).toBeTruthy()
+  })
+  it("pseudo-class", () => {
+    expect(isStandardSyntaxSelector("a:last-child")).toBeTruthy()
+  })
+  it("pseudo-class with function", () => {
+    expect(isStandardSyntaxSelector("a:not(.b)")).toBeTruthy()
+  })
+  it("pseudo-element", () => {
+    expect(isStandardSyntaxSelector("a::after")).toBeTruthy()
+  })
+  it("compound", () => {
+    expect(isStandardSyntaxSelector("a.b")).toBeTruthy()
+  })
+  it("complex", () => {
+    expect(isStandardSyntaxSelector("a > b")).toBeTruthy()
+  })
+  it("list", () => {
+    expect(isStandardSyntaxSelector("a, b")).toBeTruthy()
+  })
+  it("SCSS interpolation (id)", () => {
+    expect(isStandardSyntaxSelector("#{50% - $n}")).toBeFalsy()
+  })
+  it("SCSS interpolation (class)", () => {
+    expect(isStandardSyntaxSelector(".n-#{$n}")).toBeFalsy()
+  })
+  it("SCSS interpolation (pseudo)", () => {
+    expect(isStandardSyntaxSelector(":n-#{$n}")).toBeFalsy()
+  })
+  it("Less interpolation", () => {
+    expect(isStandardSyntaxSelector(".n-@{n}")).toBeFalsy()
+  })
+  it("SCSS placeholder", () => {
+    expect(isStandardSyntaxSelector("%foo")).toBeFalsy()
+  })
 })

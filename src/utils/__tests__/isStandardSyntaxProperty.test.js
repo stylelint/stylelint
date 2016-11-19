@@ -1,13 +1,25 @@
 import isStandardSyntaxProperty from "../isStandardSyntaxProperty"
-import test from "tape"
 
-test("isStandardSyntaxProperty", t => {
-  t.ok(isStandardSyntaxProperty("top"), "single word")
-  t.ok(isStandardSyntaxProperty("--custom-property"), "custom property")
-  t.ok(isStandardSyntaxProperty("border-top-left-radius"), "hyphenated words")
-  t.ok(isStandardSyntaxProperty("-webkit-appearance"), "vendor prefix")
-  t.notOk(isStandardSyntaxProperty("$sass-variable"), "sass variable")
-  t.notOk(isStandardSyntaxProperty("#{$Attr}-color"), "sass interpolation")
-  t.notOk(isStandardSyntaxProperty("@{Attr}-color"), "less variable")
-  t.end()
+describe("isStandardSyntaxProperty", () => {
+  it("single word", () => {
+    expect(isStandardSyntaxProperty("top")).toBeTruthy()
+  })
+  it("custom property", () => {
+    expect(isStandardSyntaxProperty("--custom-property")).toBeTruthy()
+  })
+  it("hyphenated words", () => {
+    expect(isStandardSyntaxProperty("border-top-left-radius")).toBeTruthy()
+  })
+  it("vendor prefix", () => {
+    expect(isStandardSyntaxProperty("-webkit-appearance")).toBeTruthy()
+  })
+  it("sass variable", () => {
+    expect(isStandardSyntaxProperty("$sass-variable")).toBeFalsy()
+  })
+  it("sass interpolation", () => {
+    expect(isStandardSyntaxProperty("#{$Attr}-color")).toBeFalsy()
+  })
+  it("less variable", () => {
+    expect(isStandardSyntaxProperty("@{Attr}-color")).toBeFalsy()
+  })
 })

@@ -1,54 +1,36 @@
 import matchesStringOrRegExp from "../matchesStringOrRegExp"
-import test from "tape"
 
-test("matchesStringOrRegExp comparing with string comparisonValues", t => {
-  t.deepEqual(matchesStringOrRegExp("bar", "bar"),
-    { match: "bar", pattern: "bar" })
-  t.notOk(matchesStringOrRegExp("bar", "/bar something"))
-  t.deepEqual(matchesStringOrRegExp("/bar something", "/bar something"),
-    { match: "/bar something", pattern: "/bar something" })
-  t.deepEqual(matchesStringOrRegExp("bar something/", "bar something/"),
-    { match: "bar something/", pattern: "bar something/" })
-  t.notOk(matchesStringOrRegExp("bar something/", "bar something//"))
+it("matchesStringOrRegExp comparing with string comparisonValues", () => {
+  expect(matchesStringOrRegExp("bar", "bar")).toEqual({ match: "bar", pattern: "bar" })
+  expect(matchesStringOrRegExp("bar", "/bar something")).toBeFalsy()
+  expect(matchesStringOrRegExp("/bar something", "/bar something")).toEqual({ match: "/bar something", pattern: "/bar something" })
+  expect(matchesStringOrRegExp("bar something/", "bar something/")).toEqual({ match: "bar something/", pattern: "bar something/" })
+  expect(matchesStringOrRegExp("bar something/", "bar something//")).toBeFalsy()
 
-  t.deepEqual(matchesStringOrRegExp([ "foo", "bar" ], "bar"),
-    { match: "bar", pattern: "bar" })
-  t.notOk(matchesStringOrRegExp([ "foo", "baz" ], "bar"))
+  expect(matchesStringOrRegExp([ "foo", "bar" ], "bar")).toEqual({ match: "bar", pattern: "bar" })
+  expect(matchesStringOrRegExp([ "foo", "baz" ], "bar")).toBeFalsy()
 
-  t.deepEqual(matchesStringOrRegExp("bar", [ "foo", "bar" ]),
-    { match: "bar", pattern: "bar" })
-  t.notOk(matchesStringOrRegExp("bar", [ "foo", "baz" ]))
+  expect(matchesStringOrRegExp("bar", [ "foo", "bar" ])).toEqual({ match: "bar", pattern: "bar" })
+  expect(matchesStringOrRegExp("bar", [ "foo", "baz" ])).toBeFalsy()
 
-  t.deepEqual(matchesStringOrRegExp([ "foo", "baz" ], [ "foo", "bar" ]),
-    { match: "foo", pattern: "foo" })
-  t.notOk(matchesStringOrRegExp([ "bar", "hooha" ], [ "foo", "baz" ]))
-
-  t.end()
+  expect(matchesStringOrRegExp([ "foo", "baz" ], [ "foo", "bar" ])).toEqual({ match: "foo", pattern: "foo" })
+  expect(matchesStringOrRegExp([ "bar", "hooha" ], [ "foo", "baz" ])).toBeFalsy()
 })
 
-test("matchesStringOrRegExp comparing with a RegExp comparisonValue", t => {
-  t.deepEqual(matchesStringOrRegExp(".foo", "/\\.foo$/"),
-    { match: ".foo", pattern: "/\\.foo$/" })
-  t.deepEqual(matchesStringOrRegExp("bar .foo", "/\\.foo$/"),
-    { match: "bar .foo", pattern: "/\\.foo$/" })
-  t.notOk(matchesStringOrRegExp("bar .foo bar", "/\\.foo$/"))
-  t.notOk(matchesStringOrRegExp("foo", "/\\.foo$/"))
+it("matchesStringOrRegExp comparing with a RegExp comparisonValue", () => {
+  expect(matchesStringOrRegExp(".foo", "/\\.foo$/")).toEqual({ match: ".foo", pattern: "/\\.foo$/" })
+  expect(matchesStringOrRegExp("bar .foo", "/\\.foo$/")).toEqual({ match: "bar .foo", pattern: "/\\.foo$/" })
+  expect(matchesStringOrRegExp("bar .foo bar", "/\\.foo$/")).toBeFalsy()
+  expect(matchesStringOrRegExp("foo", "/\\.foo$/")).toBeFalsy()
 
-  t.deepEqual(matchesStringOrRegExp([ ".foo", "bar" ], "/\\.foo$/"),
-    { match: ".foo", pattern: "/\\.foo$/" })
-  t.notOk(matchesStringOrRegExp([ "foo", "baz" ], "/\\.foo$/"))
+  expect(matchesStringOrRegExp([ ".foo", "bar" ], "/\\.foo$/")).toEqual({ match: ".foo", pattern: "/\\.foo$/" })
+  expect(matchesStringOrRegExp([ "foo", "baz" ], "/\\.foo$/")).toBeFalsy()
 
-  t.deepEqual(matchesStringOrRegExp(".foo", [ "/\\.foo$/", "/^bar/" ]),
-    { match: ".foo", pattern: "/\\.foo$/" })
-  t.deepEqual(matchesStringOrRegExp("bar", [ "/\\.foo$/", "/^bar/" ]),
-    { match: "bar", pattern: "/^bar/" })
-  t.notOk(matchesStringOrRegExp("ebarz", [ "/\\.foo$/", "/^bar/" ]))
+  expect(matchesStringOrRegExp(".foo", [ "/\\.foo$/", "/^bar/" ])).toEqual({ match: ".foo", pattern: "/\\.foo$/" })
+  expect(matchesStringOrRegExp("bar", [ "/\\.foo$/", "/^bar/" ])).toEqual({ match: "bar", pattern: "/^bar/" })
+  expect(matchesStringOrRegExp("ebarz", [ "/\\.foo$/", "/^bar/" ])).toBeFalsy()
 
-  t.deepEqual(matchesStringOrRegExp([ ".foo", "ebarz" ], [ "/\\.foo$/", "/^bar/" ]),
-    { match: ".foo", pattern: "/\\.foo$/" })
-  t.deepEqual(matchesStringOrRegExp([ "bar", "foo" ], [ "/\\.foo$/", "/^bar/" ]),
-    { match: "bar", pattern: "/^bar/" })
-  t.notOk(matchesStringOrRegExp([ "ebarz", "foo" ], [ "/\\.foo$/", "/^bar/" ]))
-
-  t.end()
+  expect(matchesStringOrRegExp([ ".foo", "ebarz" ], [ "/\\.foo$/", "/^bar/" ])).toEqual({ match: ".foo", pattern: "/\\.foo$/" })
+  expect(matchesStringOrRegExp([ "bar", "foo" ], [ "/\\.foo$/", "/^bar/" ])).toEqual({ match: "bar", pattern: "/^bar/" })
+  expect(matchesStringOrRegExp([ "ebarz", "foo" ], [ "/\\.foo$/", "/^bar/" ])).toBeFalsy()
 })

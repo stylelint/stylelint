@@ -1,28 +1,29 @@
 import ruleMessages from "../ruleMessages"
-import test from "tape"
 
-test("ruleMessages with simple messages", t => {
-  t.deepEqual(
-    ruleMessages("foo", {
-      good: "GOOD",
-      bad: "BAD",
-    }),
-    {
-      good: "GOOD (foo)",
-      bad: "BAD (foo)",
-    })
-  t.end()
+it("ruleMessages with simple messages", () => {
+  expect(ruleMessages("foo", {
+    good: "GOOD",
+    bad: "BAD",
+  })).toEqual({
+    good: "GOOD (foo)",
+    bad: "BAD (foo)",
+  })
 })
 
-test("ruleMessages with message functions", t => {
+it("ruleMessages with message functions", () => {
+  let withRuleName
+  let result
   const fooOriginal = {
     good: x => `GOOD ${x}`,
     bad: (x, y, z) => `GOOD ${x} [${y} and ${z}]`,
   }
   const fooWithRuleName = ruleMessages("bar", fooOriginal)
 
-  t.equal(fooWithRuleName.good("baz"), fooOriginal.good("baz") + " (bar)")
-  t.equal(fooWithRuleName.bad("baz", 2, "hoohah"), fooOriginal.bad("baz", 2, "hoohah") + " (bar)")
+  withRuleName = fooWithRuleName.good("baz")
+  result = fooOriginal.good("baz") + " (bar)"
+  expect(withRuleName).toBe(result)
 
-  t.end()
+  withRuleName = fooWithRuleName.bad("baz", 2, "hoohah")
+  result = fooOriginal.bad("baz", 2, "hoohah") + " (bar)"
+  expect(withRuleName).toBe(result)
 })

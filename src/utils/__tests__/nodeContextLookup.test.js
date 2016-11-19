@@ -2,13 +2,11 @@ import nodeContextLookup from "../nodeContextLookup"
 import path from "path"
 import postcss from "postcss"
 import postcssImport from "postcss-import"
-import test from "tape"
 
-test("nodeContextLookup checking media context", t => {
+it("nodeContextLookup checking media context", () => {
   const testLookup = nodeContextLookup()
 
-  t.plan(8)
-  postcss([postcssImport()])
+  return postcss([postcssImport()])
     .process("@import 'fixtures/one.css'; @import 'fixtures/two.css';", {
       from: path.join(__dirname, "fake.css"),
     })
@@ -19,36 +17,51 @@ test("nodeContextLookup checking media context", t => {
       })
 
       // a-d are in one file; e-h in another
-      t.equal(
-        testLookup.getContext(rulesBySelector.a, rulesBySelector.a.parent),
+      expect(
+        testLookup.getContext(rulesBySelector.a, rulesBySelector.a.parent)
+      ).toBe(
         testLookup.getContext(rulesBySelector.b, rulesBySelector.b.parent)
       )
-      t.notEqual(
-        testLookup.getContext(rulesBySelector.a, rulesBySelector.a.parent),
+
+      expect(
+        testLookup.getContext(rulesBySelector.a, rulesBySelector.a.parent)
+      ).not.toBe(
         testLookup.getContext(rulesBySelector.c, rulesBySelector.c.parent)
       )
-      t.notEqual(
-        testLookup.getContext(rulesBySelector.a, rulesBySelector.a.parent),
+
+      expect(
+        testLookup.getContext(rulesBySelector.a, rulesBySelector.a.parent)
+      ).not.toBe(
         testLookup.getContext(rulesBySelector.e, rulesBySelector.e.parent)
       )
-      t.equal(
-        testLookup.getContext(rulesBySelector.c, rulesBySelector.c.parent),
+
+      expect(
+        testLookup.getContext(rulesBySelector.c, rulesBySelector.c.parent)
+      ).toBe(
         testLookup.getContext(rulesBySelector.d, rulesBySelector.d.parent)
       )
-      t.notEqual(
-        testLookup.getContext(rulesBySelector.c, rulesBySelector.c.parent),
+
+      expect(
+        testLookup.getContext(rulesBySelector.c, rulesBySelector.c.parent)
+      ).not.toBe(
         testLookup.getContext(rulesBySelector.g, rulesBySelector.g.parent)
       )
-      t.equal(
-        testLookup.getContext(rulesBySelector.e, rulesBySelector.e.parent),
+
+      expect(
+        testLookup.getContext(rulesBySelector.e, rulesBySelector.e.parent)
+      ).toBe(
         testLookup.getContext(rulesBySelector.f, rulesBySelector.f.parent)
       )
-      t.notEqual(
-        testLookup.getContext(rulesBySelector.f, rulesBySelector.f.parent),
+
+      expect(
+        testLookup.getContext(rulesBySelector.f, rulesBySelector.f.parent)
+      ).not.toBe(
         testLookup.getContext(rulesBySelector.g, rulesBySelector.g.parent)
       )
-      t.equal(
-        testLookup.getContext(rulesBySelector.g, rulesBySelector.g.parent),
+
+      expect(
+        testLookup.getContext(rulesBySelector.g, rulesBySelector.g.parent)
+      ).toBe(
         testLookup.getContext(rulesBySelector.h, rulesBySelector.h.parent)
       )
     })

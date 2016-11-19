@@ -1,18 +1,16 @@
 import isCounterIncrementCustomIdentValue from "../isCounterIncrementCustomIdentValue"
-import test from "tape"
 
-test("isCustomIdents", t => {
-  t.ok(isCounterIncrementCustomIdentValue("counter"))
-  t.ok(isCounterIncrementCustomIdentValue("cOuNtEr"))
-  t.ok(isCounterIncrementCustomIdentValue("COUNTER"))
-  t.ok(isCounterIncrementCustomIdentValue("counter-name"))
-  t.ok(isCounterIncrementCustomIdentValue("counter1"))
-  t.ok(isCounterIncrementCustomIdentValue("counter2"))
-  t.notOk(isCounterIncrementCustomIdentValue("none"))
-  t.notOk(isCounterIncrementCustomIdentValue("inherit"))
-  t.notOk(isCounterIncrementCustomIdentValue("initial"))
-  t.notOk(isCounterIncrementCustomIdentValue("unset"))
-  t.notOk(isCounterIncrementCustomIdentValue("-1"))
-  t.notOk(isCounterIncrementCustomIdentValue("1"))
-  t.end()
+it("isCustomIdents", () => {
+  expect(isCounterIncrementCustomIdentValue("counter")).toBeTruthy()
+  expect(isCounterIncrementCustomIdentValue("cOuNtEr")).toBeTruthy()
+  expect(isCounterIncrementCustomIdentValue("COUNTER")).toBeTruthy()
+  expect(isCounterIncrementCustomIdentValue("counter-name")).toBeTruthy()
+  expect(isCounterIncrementCustomIdentValue("counter1")).toBeTruthy()
+  expect(isCounterIncrementCustomIdentValue("counter2")).toBeTruthy()
+  expect(isCounterIncrementCustomIdentValue("none")).toBeFalsy()
+  expect(isCounterIncrementCustomIdentValue("inherit")).toBeFalsy()
+  expect(isCounterIncrementCustomIdentValue("initial")).toBeFalsy()
+  expect(isCounterIncrementCustomIdentValue("unset")).toBeFalsy()
+  expect(isCounterIncrementCustomIdentValue("-1")).toBeFalsy()
+  expect(isCounterIncrementCustomIdentValue("1")).toBeFalsy()
 })

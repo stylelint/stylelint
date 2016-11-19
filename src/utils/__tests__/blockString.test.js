@@ -1,19 +1,16 @@
 import blockString from "../blockString"
 import postcss from "postcss"
-import test from "tape"
 
-test("blockString rules", t => {
-  t.equal(postcssCheck("a { color: pink; }"), "{ color: pink; }")
-  t.equal(postcssCheck("a {\n\tcolor: pink;\n\ttop: 0;\n}"), "{\n\tcolor: pink;\n\ttop: 0;\n}")
-  t.end()
+it("blockString rules", () => {
+  expect(postcssCheck("a { color: pink; }")).toBe("{ color: pink; }")
+  expect(postcssCheck("a {\n\tcolor: pink;\n\ttop: 0;\n}")).toBe("{\n\tcolor: pink;\n\ttop: 0;\n}")
 })
 
-test("blockString at-rules", t => {
-  t.equal(postcssCheck("@media print { a { color: pink; } }"), "{ a { color: pink; } }")
-  t.equal(
-    postcssCheck("@keyframes foo {\n  0% {\n  top: 0;\n}\n\n  100% {\n  top: 10px;\n}\n}\n"),
-    "{\n  0% {\n  top: 0;\n}\n\n  100% {\n  top: 10px;\n}\n}")
-  t.end()
+it("blockString at-rules", () => {
+  expect(postcssCheck("@media print { a { color: pink; } }")).toBe("{ a { color: pink; } }")
+  expect(
+    postcssCheck("@keyframes foo {\n  0% {\n  top: 0;\n}\n\n  100% {\n  top: 10px;\n}\n}\n")
+  ).toBe("{\n  0% {\n  top: 0;\n}\n\n  100% {\n  top: 10px;\n}\n}")
 })
 
 function postcssCheck(cssString) {

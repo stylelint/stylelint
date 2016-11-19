@@ -1,14 +1,36 @@
 import isStandardSyntaxMediaFeature from "../isStandardSyntaxMediaFeature"
-import test from "tape"
 
-test("isStandardSyntaxMediaFeature", t => {
-  t.ok(isStandardSyntaxMediaFeature("(min-width: 10px)"), "prefix on range features")
-  t.ok(isStandardSyntaxMediaFeature("(width <= 3rem)"), "range context")
-  t.ok(isStandardSyntaxMediaFeature("(400px < width < 1000px)"), "nested range context")
-  t.ok(isStandardSyntaxMediaFeature("(color)"), "boolean context")
-  t.notOk(isStandardSyntaxMediaFeature("(min-width: calc(100% - 20px))"), "complex value")
-  t.notOk(isStandardSyntaxMediaFeature("(min-width: ($var - 10px))"), "complex SCSS value")
-  t.notOk(isStandardSyntaxMediaFeature("(min-width#{$value}: 10px)"), "scss interpolation")
-  t.notOk(isStandardSyntaxMediaFeature("(@{value}min-width : 10px)"), "Less interpolation")
-  t.end()
+describe("isStandardSyntaxMediaFeature", () => {
+  it("prefix on range features", () => {
+    const css = "(min-width: 10px)"
+    expect(isStandardSyntaxMediaFeature(css)).toBeTruthy()
+  })
+  it("range context", () => {
+    const css = "(width <= 3rem)"
+    expect(isStandardSyntaxMediaFeature(css)).toBeTruthy()
+  })
+  it("nested range context", () => {
+    const css = "(400px < width < 1000px)"
+    expect(isStandardSyntaxMediaFeature(css)).toBeTruthy()
+  })
+  it("boolean context", () => {
+    const css = "(color)"
+    expect(isStandardSyntaxMediaFeature(css)).toBeTruthy()
+  })
+  it("complex value", () => {
+    const css = "(min-width: calc(100% - 20px))"
+    expect(isStandardSyntaxMediaFeature(css)).toBeFalsy()
+  })
+  it("complex SCSS value", () => {
+    const css = "(min-width: ($var - 10px))"
+    expect(isStandardSyntaxMediaFeature(css)).toBeFalsy()
+  })
+  it("SCSS interpolation", () => {
+    const css = "(min-width#{$value}: 10px)"
+    expect(isStandardSyntaxMediaFeature(css)).toBeFalsy()
+  })
+  it("Less interpolation", () => {
+    const css = "(@{value}min-width : 10px)"
+    expect(isStandardSyntaxMediaFeature(css)).toBeFalsy()
+  })
 })

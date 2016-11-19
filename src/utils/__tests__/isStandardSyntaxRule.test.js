@@ -1,83 +1,122 @@
+/* @flow */
 import isStandardSyntaxRule from "../isStandardSyntaxRule"
 import less from "postcss-less"
 import postcss from "postcss"
-import test from "tape"
 
-test("isStandardSyntaxRule", t => {
-  t.plan(20)
-
-  rules("a {}", rule => {
-    t.ok(isStandardSyntaxRule(rule), "type")
+describe("isStandardSyntaxRule", () => {
+  it("type", () => {
+    return rules("a {}", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeTruthy()
+    })
   })
-  rules("a:last-child {}", rule => {
-    t.ok(isStandardSyntaxRule(rule), "pseudo-class")
+  it("pseudo-class", () => {
+    return rules("a:last-child {}", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeTruthy()
+    })
   })
-  rules("a:not(.a) {}", rule => {
-    t.ok(isStandardSyntaxRule(rule), "pseudo-class not")
+  it("pseudo-class not", () => {
+    return rules("a:not(.a) {}", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeTruthy()
+    })
   })
-  rules("a::after {}", rule => {
-    t.ok(isStandardSyntaxRule(rule), "pseudo-element")
+  it("pseudo-element", () => {
+    return rules("a::after {}", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeTruthy()
+    })
   })
-  rules(":--custom-selector {}", rule => {
-    t.ok(isStandardSyntaxRule(rule), "custom-selector")
+  it("custom-selector", () => {
+    return rules(":--custom-selector {}", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeTruthy()
+    })
   })
-  rules(":--custom-selector:--custom-selector {}", rule => {
-    t.ok(isStandardSyntaxRule(rule), "compound custom-selectors")
+  it("compound custom-selectors", () => {
+    return rules(":--custom-selector:--custom-selector {}", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeTruthy()
+    })
   })
-
-  rules("--custom-property-set: {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "custom-property-set")
+  it("custom-property-set", () => {
+    return rules("--custom-property-set: {}", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeFalsy()
+    })
   })
-
-  lessRules(".mixin-name(@var);", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called Less class parametric mixin")
+  it("called Less class parametric mixin", () => {
+    lessRules(".mixin-name(@var);", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeFalsy()
+    })
   })
-  lessRules(".mixin-name() {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "non-ouputting Less class mixin definition")
+  it("non-ouputting parametric Less class mixin definition", () => {
+    lessRules(".mixin-name() {}", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeFalsy()
+    })
   })
-  lessRules(".mixin-name(@a, @b) {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "non-ouputting parametric Less class mixin definition")
+  it("non-ouputting Less class mixin definition", () => {
+    lessRules(".mixin-name(@a, @b) {}", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeFalsy()
+    })
   })
-  lessRules(".mixin-name3(@a, @b) {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "non-ouputting parametric Less class mixin definition ending in number")
+  it("non-ouputting parametric Less class mixin definition ending in number", () => {
+    lessRules(".mixin-name3(@a, @b) {}", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeFalsy()
+    })
   })
-  lessRules("#mixin-name() {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "non-ouputting Less id mixin definition")
+  it("non-ouputting Less id mixin definition", () => {
+    lessRules("#mixin-name() {}", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeFalsy()
+    })
   })
-  lessRules("#mixin-name;", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called Less id mixin")
+  it("called Less id mixin", () => {
+    lessRules("#mixin-name;", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeFalsy()
+    })
   })
-  lessRules("#mixin-name;", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called Less id mixin")
+  it("called namespaced Less mixin (child)", () => {
+    lessRules("#namespace > .mixin-name;", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeFalsy()
+    })
   })
-  lessRules("#namespace > .mixin-name;", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called namespaced Less mixin (child)")
+  it("called namespaced Less mixin (descendant)", () => {
+    lessRules("#namespace .mixin-name;", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeFalsy()
+    })
   })
-  lessRules("#namespace .mixin-name;", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called namespaced Less mixin (descendant)")
+  it("called namespaced Less mixin (compound)", () => {
+    lessRules("#namespace.mixin-name;", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeFalsy()
+    })
   })
-  lessRules("#namespace.mixin-name;", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called namespaced Less mixin (compound)")
+  it("less mixin", () => {
+    lessRules(".box-shadow(@style, @c) when (iscolor(@c)) {}", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeFalsy()
+    })
   })
-  lessRules(".box-shadow(@style, @c) when (iscolor(@c)) {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "less mixin")
+  it("less extend", () => {
+    lessRules("&:extend(.inline);", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeFalsy()
+    })
   })
-  lessRules("&:extend(.inline);", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "less extend")
-  })
-  lessRules("@foo: {};", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "less detached rulesets")
+  it("less detached rulesets", () => {
+    lessRules("@foo: {};", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeTruthy()
+    })
   })
 })
 
-function rules(css, cb) {
-  postcss().process(css).then(result => {
-    result.root.walkRules(cb)
+function rules(
+  css: string,
+  cb: Function
+): Promise<postcss$result> {
+  return postcss().process(css)
+  .then(result => {
+    return result.root.walkRules(cb)
   })
 }
 
-function lessRules(css, cb) {
-  postcss().process(css, { syntax: less }).then(result => {
-    result.root.walkRules(cb)
+function lessRules(
+  css: string,
+  cb: Function
+): Promise<postcss$result> {
+  return postcss().process(css, { syntax: less })
+  .then(result => {
+    return result.root.walkRules(cb)
   })
 }

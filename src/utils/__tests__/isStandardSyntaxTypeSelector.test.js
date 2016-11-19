@@ -1,47 +1,57 @@
+/* @flow */
 import isStandardSyntaxTypeSelector from "../isStandardSyntaxTypeSelector"
 import postcss from "postcss"
 import selectorParser from "postcss-selector-parser"
-import test from "tape"
 
-test("isStandardSyntaxTypeSelector", t => {
-  t.plan(8)
-
-  rules("a {}", func => {
-    t.ok(isStandardSyntaxTypeSelector(func), "tag")
+describe("isStandardSyntaxTypeSelector", () => {
+  it("tag", () => {
+    return rules("a {}", func => {
+      expect(isStandardSyntaxTypeSelector(func)).toBeTruthy()
+    })
   })
-
-  rules(".foo:nth-child(n) {}", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "nth-child pseudo selector")
+  it("nth-child pseudo selector", () => {
+    return rules(".foo:nth-child(n) {}", func => {
+      expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
+    })
   })
-
-  rules(".foo:nth-last-child(n) {}", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "nth-last-child pseudo selector")
+  it("nth-last-child pseudo selector", () => {
+    return rules(".foo:nth-last-child(n) {}", func => {
+      expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
+    })
   })
-
-  rules(".foo:nth-of-type(n) {}", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "nth-of-type pseudo selector")
+  it("nth-of-type pseudo selector", () => {
+    return rules(".foo:nth-of-type(n) {}", func => {
+      expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
+    })
   })
-
-  rules(":lang(en) {}", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "lang pseudo selector")
+  it("lang pseudo selector", () => {
+    return rules(":lang(en) {}", func => {
+      expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
+    })
   })
-
-  rules(":dir(ltr) {}", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "dir pseudo selector")
+  it("dir pseudo selector", () => {
+    return rules(":dir(ltr) {}", func => {
+      expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
+    })
   })
-
-  rules(".foo { &-bar {} }", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "nesting selector")
+  it("nesting selector", () => {
+    return rules(".foo { &-bar {} }", func => {
+      expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
+    })
   })
-
-  rules(".foo { &__bar {} }", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "nesting selector")
+  it("nesting selector", () => {
+    return rules(".foo { &__bar {} }", func => {
+      expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
+    })
   })
 })
 
-function rules(css, cb) {
-  postcss().process(css).then(result => {
-    result.root.walkRules(rule => {
+function rules(
+  css: string,
+  cb: Function
+): Promise<postcss$result> {
+  return postcss().process(css).then(result => {
+    return result.root.walkRules(rule => {
       selectorParser(selectorAST => {
         selectorAST.walkTags(tag => {
           cb(tag)

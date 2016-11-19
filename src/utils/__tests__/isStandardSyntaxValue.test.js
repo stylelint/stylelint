@@ -1,15 +1,28 @@
 import isStandardSyntaxValue from "../isStandardSyntaxValue"
-import test from "tape"
 
-test("isStandardSyntaxValue", t => {
-  t.ok(isStandardSyntaxValue("initial"), "keyword")
-  t.ok(isStandardSyntaxValue("currentColor"), "svg keyword")
-  t.ok(isStandardSyntaxValue("10px"), "dimension")
-  t.ok(isStandardSyntaxValue("45deg"), "angle")
-  t.notOk(isStandardSyntaxValue("$sass-variable"), "scss var")
-  t.notOk(isStandardSyntaxValue("@less-variable"), "less var")
-  t.notOk(isStandardSyntaxValue("#{$var}"), "scss interpolation")
-  t.notOk(isStandardSyntaxValue("@{var}"), "less interpolation")
-
-  t.end()
+describe("isStandardSyntaxValue", () => {
+  it("keyword", () => {
+    expect(isStandardSyntaxValue("initial")).toBeTruthy()
+  })
+  it("svg keyword", () => {
+    expect(isStandardSyntaxValue("currentColor")).toBeTruthy()
+  })
+  it("dimension", () => {
+    expect(isStandardSyntaxValue("10px")).toBeTruthy()
+  })
+  it("angle", () => {
+    expect(isStandardSyntaxValue("45deg")).toBeTruthy()
+  })
+  it("scss var", () => {
+    expect(isStandardSyntaxValue("$sass-variable")).toBeFalsy()
+  })
+  it("less var", () => {
+    expect(isStandardSyntaxValue("@less-variable")).toBeFalsy()
+  })
+  it("scss interpolation", () => {
+    expect(isStandardSyntaxValue("#{$var}")).toBeFalsy()
+  })
+  it("less interpolation", () => {
+    expect(isStandardSyntaxValue("@{var}")).toBeFalsy()
+  })
 })
