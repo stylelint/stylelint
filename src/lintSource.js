@@ -74,14 +74,16 @@ function lintPostcssResult(
   // rules down the line.
   const performRules = []
 
-  Object.keys(config.rules).forEach((ruleName) => {
+  const rules = (config.rules) ? Object.keys(config.rules) : []
+
+  rules.forEach((ruleName) => {
     const ruleFunction = ruleDefinitions[ruleName] || _.get(config, [ "pluginFunctions", ruleName ])
 
     if (ruleFunction === undefined) {
       throw configurationError(`Undefined rule ${ruleName}`)
     }
 
-    const ruleSettings = config.rules[ruleName]
+    const ruleSettings = _.get(config, [ "rules", ruleName ])
     if (ruleSettings === null || ruleSettings[0] === null) { return }
 
     const primaryOption = ruleSettings[0]

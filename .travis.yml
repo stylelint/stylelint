@@ -11,7 +11,7 @@ matrix:
     - node_js: '6'
       script: npm run lint && npm run flow
     - node_js: '6'
-      script: npm run test-system
+      script: npm run jest
     - node_js: '7'
       script: npm run test
     - node_js: '6'

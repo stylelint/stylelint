@@ -82,7 +82,7 @@
     "eslint-config-stylelint": "^5.0.0",
     "eslint-plugin-flowtype": "^2.21.0",
     "flow-bin": "^0.35.0",
-    "jest": "^17.0.1",
+    "jest": "^17.0.3",
     "npm-run-all": "^3.0.0",
     "npmpub": "^3.0.1",
     "nyc": "^9.0.1",
@@ -99,14 +99,15 @@
   },
   "scripts": {
     "jest": "jest",
-    "test-system": "npm run jest",
+    "jest-src": "npm run jest -- --testPathPattern /src/",
+    "jest-system": "npm run jest -- --testPathPattern /system-tests/",
     "benchmark-rule": "babel-node scripts/benchmark-rule.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint:js": "eslint .",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
     "flow": "flow",
-    "tape": "babel-tape-runner \"src/**/__tests__/**/*.js\"",
+    "tape": "babel-tape-runner \"src/**/__tests__/**/*-test.js\" \"src/rules/**/__tests__/*.js\"",
     "test": "nyc npm run tape",
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist",
@@ -123,7 +124,9 @@
     ]
   },
   "jest": {
+    "testEnvironment": "node",
     "testPathDirs": [
+      "src",
       "system-tests"
     ],
     "testRegex": ".*\\.test\\.js$"

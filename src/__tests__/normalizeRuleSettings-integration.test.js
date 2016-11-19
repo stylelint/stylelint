@@ -1,9 +1,8 @@
 import path from "path"
 import standalone from "../standalone"
-import test from "tape"
 
-test("[normalized rule settings] primary option array", t => {
-  standalone({
+it("[normalized rule settings] primary option array", () => {
+  return standalone({
     code: "a:focus {}",
     config: {
       rules: {
@@ -11,13 +10,12 @@ test("[normalized rule settings] primary option array", t => {
       },
     },
   }).then(({ results }) => {
-    t.equal(results[0].warnings[0].rule, "selector-pseudo-class-blacklist")
-    t.end()
-  }).catch(t.end)
+    expect(results[0].warnings[0].rule).toBe("selector-pseudo-class-blacklist")
+  })
 })
 
-test("[normalized rule settings] primary option array in array", t => {
-  standalone({
+it("[normalized rule settings] primary option array in array", () => {
+  return standalone({
     code: "a:focus {}",
     config: {
       rules: {
@@ -25,13 +23,12 @@ test("[normalized rule settings] primary option array in array", t => {
       },
     },
   }).then(({ results }) => {
-    t.equal(results[0].warnings[0].rule, "selector-pseudo-class-blacklist")
-    t.end()
-  }).catch(t.end)
+    expect(results[0].warnings[0].rule).toBe("selector-pseudo-class-blacklist")
+  })
 })
 
-test("[normalized rule settings] no-array primary, primary option null", t => {
-  standalone({
+it("[normalized rule settings] no-array primary, primary option null", () => {
+  return standalone({
     code: "a:focus {}",
     config: {
       extends: [path.join(__dirname, "fixtures/config-block-no-empty.json")],
@@ -40,13 +37,12 @@ test("[normalized rule settings] no-array primary, primary option null", t => {
       },
     },
   }).then(({ results }) => {
-    t.equal(results[0].warnings.length, 0)
-    t.end()
-  }).catch(t.end)
+    expect(results[0].warnings.length).toBe(0)
+  })
 })
 
-test("[normalized rule settings] no-array primary, primary option null in array", t => {
-  standalone({
+it("[normalized rule settings] no-array primary, primary option null in array", () => {
+  return standalone({
     code: "a:focus {}",
     config: {
       extends: [path.join(__dirname, "fixtures/config-block-no-empty.json")],
@@ -55,13 +51,12 @@ test("[normalized rule settings] no-array primary, primary option null in array"
       },
     },
   }).then(({ results }) => {
-    t.equal(results[0].warnings.length, 0)
-    t.end()
-  }).catch(t.end)
+    expect(results[0].warnings.length).toBe(0)
+  })
 })
 
-test("[normalized rule settings] array primary, primary option null", t => {
-  standalone({
+it("[normalized rule settings] array primary, primary option null", () => {
+  return standalone({
     code: "a { top: 10px; }",
     config: {
       extends: [path.join(__dirname, "fixtures/config-no-pixels.json")],
@@ -70,13 +65,12 @@ test("[normalized rule settings] array primary, primary option null", t => {
       },
     },
   }).then(({ results }) => {
-    t.equal(results[0].warnings.length, 0)
-    t.end()
-  }).catch(t.end)
+    expect(results[0].warnings.length).toBe(0)
+  })
 })
 
-test("[normalized rule settings] array primary, primary option null in array", t => {
-  standalone({
+it("[normalized rule settings] array primary, primary option null in array", () => {
+  return standalone({
     code: "a { top: 10px; }",
     config: {
       extends: [path.join(__dirname, "fixtures/config-no-pixels.json")],
@@ -85,7 +79,6 @@ test("[normalized rule settings] array primary, primary option null in array", t
       },
     },
   }).then(({ results }) => {
-    t.equal(results[0].invalidOptionWarnings.length, 0)
-    t.end()
-  }).catch(t.end)
+    expect(results[0].invalidOptionWarnings.length).toBe(0)
+  })
 })

@@ -18,9 +18,9 @@ export type stylelint$config = {
   processorFunctions?: Array<Function>,
   ignoreFiles?: stylelint$configIgnoreFiles,
   ignorePatterns?: string,
-  rules: stylelint$configRules,
-  codeProcessors: Array<Function>,
-  resultProcessors: Array<Function>,
+  rules?: stylelint$configRules,
+  codeProcessors?: Array<Function>,
+  resultProcessors?: Array<Function>,
   quiet?: boolean
 }
 

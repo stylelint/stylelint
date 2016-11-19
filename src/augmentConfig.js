@@ -310,8 +310,9 @@ function normalizeAllRuleSettings(
   config: stylelint$config,
 ): stylelint$config {
   const normalizedRules = {}
+  if (!config.rules) return config
   Object.keys(config.rules).forEach((ruleName) => {
-    const rawRuleSettings = config.rules[ruleName]
+    const rawRuleSettings = _.get(config, [ "rules", ruleName ])
     const rule = rules[ruleName] || _.get(config, [ "pluginFunctions", ruleName ])
     if (!rule) {
       throw configurationError(`Undefined rule ${ruleName}`)
