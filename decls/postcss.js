@@ -20,4 +20,11 @@ export type postcss$atRule = {
   raws: {
     afterName: string,
   },
+  type: string,
+}
+
+export type postcss$rule = {
+  raws: Object,
+  selector: string,
+  type: string,
 }
