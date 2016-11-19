@@ -2,8 +2,6 @@ import declarationValueIndex from "../declarationValueIndex"
 import postcss from "postcss"
 
 it("declarationValueIndex", () => {
-  t.plan(5)
-
   rules("a { a: b }", decl => {
     expect(declarationValueIndex(decl)).toBe(3)
   })

@@ -3,8 +3,6 @@ import postcss from "postcss"
 import selectorParser from "postcss-selector-parser"
 
 it("isStandardSyntaxTypeSelector", () => {
-  t.plan(8)
-
   rules("a {}", func => {
     expect(isStandardSyntaxTypeSelector(func)).toBeTruthy()
   })

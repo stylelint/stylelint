@@ -13,7 +13,6 @@ it("findAtRuleContext", () => {
     d {}
   `
 
-  t.plan(4)
   postcss().process(css).then(result => {
     result.root.walkRules(rule => {
       switch (rule.selector) {

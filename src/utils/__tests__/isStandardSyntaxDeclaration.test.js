@@ -4,8 +4,6 @@ import postcss from "postcss"
 import scss from "postcss-scss"
 
 it("isStandardSyntaxDeclaration", () => {
-  t.plan(22)
-
   rules("a { a: b }", decl => {
     expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })

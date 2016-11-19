@@ -2,8 +2,6 @@ import nextNonCommentNode from "../nextNonCommentNode"
 import postcss from "postcss"
 
 it("nextNonCommentNode", () => {
-  let planned = 0
-
   const caseA = "a {} /* x */ b {}"
   postcss().process(caseA).then(result => {
     let aNode
@@ -19,7 +17,6 @@ it("nextNonCommentNode", () => {
     expect(nextNonCommentNode(aNode.next())).toBe(bNode)
     expect(nextNonCommentNode(bNode.next())).toBe(null)
   })
-  planned += 2
 
   const caseB = "a { /* x */ color: pink; /* y */ }"
   postcss().process(caseB).then(result => {
@@ -34,7 +31,4 @@ it("nextNonCommentNode", () => {
     expect(nextNonCommentNode(aNode.first)).toBe(colorNode)
     expect(nextNonCommentNode(colorNode.next())).toBe(null)
   })
-  planned += 2
-
-  t.plan(planned)
 })

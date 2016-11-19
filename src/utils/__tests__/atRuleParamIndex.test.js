@@ -2,8 +2,6 @@ import atRuleParamIndex from "../atRuleParamIndex"
 import postcss from "postcss"
 
 it("atRuleParamIndex", () => {
-  t.plan(4)
-
   atRules("@media (color) {}", atRule => {
     expect(atRuleParamIndex(atRule)).toBe(7)
   })

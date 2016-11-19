@@ -3,8 +3,6 @@ import postcss from "postcss"
 import valueParser from "postcss-value-parser"
 
 it("isStandardSyntaxFunction", () => {
-  t.plan(4)
-
   rules("a { prop: calc(a + b) }", func => {
     expect(isStandardSyntaxFunction(func)).toBeTruthy()
   })

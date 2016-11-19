@@ -2,8 +2,6 @@ import isCustomPropertySet from "../isCustomPropertySet"
 import postcss from "postcss"
 
 it("customPropertySet", () => {
-  t.plan(2)
-
   customPropertySet("--foo: {};", customPropertySet => {
     expect(isCustomPropertySet(customPropertySet)).toBeTruthy()
   })

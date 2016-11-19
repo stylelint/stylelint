@@ -6,7 +6,6 @@ import postcssImport from "postcss-import"
 it("nodeContextLookup checking media context", () => {
   const testLookup = nodeContextLookup()
 
-  t.plan(8)
   postcss([postcssImport()])
     .process("@import 'fixtures/one.css'; @import 'fixtures/two.css';", {
       from: path.join(__dirname, "fake.css"),

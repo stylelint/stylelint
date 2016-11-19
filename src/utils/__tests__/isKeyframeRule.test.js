@@ -2,8 +2,6 @@ import isKeyframeRule from "../isKeyframeRule"
 import postcss from "postcss"
 
 it("isKeyframeRule", () => {
-  t.plan(11)
-
   rules("@keyframes identifier { to {} }", rule => {
     expect(isKeyframeRule(rule)).toBeTruthy()
   })

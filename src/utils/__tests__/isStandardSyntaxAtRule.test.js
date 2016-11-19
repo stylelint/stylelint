@@ -4,8 +4,6 @@ import postcss from "postcss"
 import scss from "postcss-scss"
 
 it("isStandardSyntaxAtRule", () => {
-  t.plan(12)
-
   atRules("@charset UTF-8;", atRule => {
     expect(isStandardSyntaxAtRule(atRule)).toBeTruthy()
   })
