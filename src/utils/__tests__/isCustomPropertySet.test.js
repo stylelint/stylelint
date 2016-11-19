@@ -1,16 +1,15 @@
 import isCustomPropertySet from "../isCustomPropertySet"
 import postcss from "postcss"
-import test from "tape"
 
-test("customPropertySet", t => {
+it("customPropertySet", () => {
   t.plan(2)
 
   customPropertySet("--foo: {};", customPropertySet => {
-    t.ok(isCustomPropertySet(customPropertySet), "empty custom property set")
+    expect(isCustomPropertySet(customPropertySet)).toBeTruthy()
   })
 
   customPropertySet("--foo: red;", customPropertySet => {
-    t.notOk(isCustomPropertySet(customPropertySet), "custom var")
+    expect(isCustomPropertySet(customPropertySet)).toBeFalsy()
   })
 })
 

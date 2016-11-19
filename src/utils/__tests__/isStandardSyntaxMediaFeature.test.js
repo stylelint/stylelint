@@ -1,14 +1,12 @@
 import isStandardSyntaxMediaFeature from "../isStandardSyntaxMediaFeature"
-import test from "tape"
 
-test("isStandardSyntaxMediaFeature", t => {
-  t.ok(isStandardSyntaxMediaFeature("(min-width: 10px)"), "prefix on range features")
-  t.ok(isStandardSyntaxMediaFeature("(width <= 3rem)"), "range context")
-  t.ok(isStandardSyntaxMediaFeature("(400px < width < 1000px)"), "nested range context")
-  t.ok(isStandardSyntaxMediaFeature("(color)"), "boolean context")
-  t.notOk(isStandardSyntaxMediaFeature("(min-width: calc(100% - 20px))"), "complex value")
-  t.notOk(isStandardSyntaxMediaFeature("(min-width: ($var - 10px))"), "complex SCSS value")
-  t.notOk(isStandardSyntaxMediaFeature("(min-width#{$value}: 10px)"), "scss interpolation")
-  t.notOk(isStandardSyntaxMediaFeature("(@{value}min-width : 10px)"), "Less interpolation")
-  t.end()
+it("isStandardSyntaxMediaFeature", () => {
+  expect(isStandardSyntaxMediaFeature("(min-width: 10px)")).toBeTruthy()
+  expect(isStandardSyntaxMediaFeature("(width <= 3rem)")).toBeTruthy()
+  expect(isStandardSyntaxMediaFeature("(400px < width < 1000px)")).toBeTruthy()
+  expect(isStandardSyntaxMediaFeature("(color)")).toBeTruthy()
+  expect(isStandardSyntaxMediaFeature("(min-width: calc(100% - 20px))")).toBeFalsy()
+  expect(isStandardSyntaxMediaFeature("(min-width: ($var - 10px))")).toBeFalsy()
+  expect(isStandardSyntaxMediaFeature("(min-width#{$value}: 10px)")).toBeFalsy()
+  expect(isStandardSyntaxMediaFeature("(@{value}min-width : 10px)")).toBeFalsy()
 })

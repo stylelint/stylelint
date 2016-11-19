@@ -2,58 +2,57 @@ import isStandardSyntaxAtRule from "../isStandardSyntaxAtRule"
 import less from "postcss-less"
 import postcss from "postcss"
 import scss from "postcss-scss"
-import test from "tape"
 
-test("isStandardSyntaxAtRule", t => {
+it("isStandardSyntaxAtRule", () => {
   t.plan(12)
 
   atRules("@charset UTF-8;", atRule => {
-    t.ok(isStandardSyntaxAtRule(atRule), "non nested at-rules without quotes")
+    expect(isStandardSyntaxAtRule(atRule)).toBeTruthy()
   })
 
   atRules("@charset 'UTF-8';", atRule => {
-    t.ok(isStandardSyntaxAtRule(atRule), "non nested at-rules with `'` quotes")
+    expect(isStandardSyntaxAtRule(atRule)).toBeTruthy()
   })
 
   atRules("@charset \"UTF-8\";", atRule => {
-    t.ok(isStandardSyntaxAtRule(atRule), "non nested at-rules with `\"` quotes")
+    expect(isStandardSyntaxAtRule(atRule)).toBeTruthy()
   })
 
   atRules("@charset\'UTF-8\';", atRule => {
-    t.ok(isStandardSyntaxAtRule(atRule), "non nested at-rules with `'` quotes and without space after name")
+    expect(isStandardSyntaxAtRule(atRule)).toBeTruthy()
   })
 
   atRules("@charset\"UTF-8\";", atRule => {
-    t.ok(isStandardSyntaxAtRule(atRule), "non nested at-rules with `\"` quotes and without space after name")
+    expect(isStandardSyntaxAtRule(atRule)).toBeTruthy()
   })
 
   atRules("@import url(\"fineprint.css\") print;", atRule => {
-    t.ok(isStandardSyntaxAtRule(atRule), "non nested at-rules with function and without space after name")
+    expect(isStandardSyntaxAtRule(atRule)).toBeTruthy()
   })
 
   atRules("@media (min-width: 100px) {};", atRule => {
-    t.ok(isStandardSyntaxAtRule(atRule), "nested at-rules")
+    expect(isStandardSyntaxAtRule(atRule)).toBeTruthy()
   })
 
   atRules("@media\n(min-width: 100px) {};", atRule => {
-    t.ok(isStandardSyntaxAtRule(atRule), "nested at-rules with newline after name")
+    expect(isStandardSyntaxAtRule(atRule)).toBeTruthy()
   })
 
   atRules("@media\r\n(min-width: 100px) {};", atRule => {
-    t.ok(isStandardSyntaxAtRule(atRule), "nested at-rules with newline after name")
+    expect(isStandardSyntaxAtRule(atRule)).toBeTruthy()
   })
 
   atRules("@media(min-width: 100px) {};", atRule => {
-    t.ok(isStandardSyntaxAtRule(atRule), "nested at-rules without space after name")
+    expect(isStandardSyntaxAtRule(atRule)).toBeTruthy()
   })
 
   scssAtRules("@mixin mixin() { @content; };", atRule => {
     if (atRule.name === "mixin") { return }
-    t.notOk(isStandardSyntaxAtRule(atRule), "ignore `@content` inside mixins")
+    expect(isStandardSyntaxAtRule(atRule)).toBeFalsy()
   })
 
   lessAtRules("@detached-ruleset: { background: red; }; .top { @detached-ruleset(); }", atRule => {
-    t.notOk(isStandardSyntaxAtRule(atRule), "ignore passing rulesets to mixins")
+    expect(isStandardSyntaxAtRule(atRule)).toBeFalsy()
   })
 })
 

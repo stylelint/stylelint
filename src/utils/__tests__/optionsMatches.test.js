@@ -1,31 +1,26 @@
 import optionsMatches from "../optionsMatches"
-import test from "tape"
 
-test("optionsMatches matches a string", t => {
-  t.ok(optionsMatches({ foo: "bar" }, "foo", "bar"))
-  t.ok(optionsMatches({ foo: "bar" }, "foo", "BAR"))
+it("optionsMatches matches a string", () => {
+  expect(optionsMatches({ foo: "bar" }, "foo", "bar")).toBeTruthy()
+  expect(optionsMatches({ foo: "bar" }, "foo", "BAR")).toBeTruthy()
 
-  t.notOk(optionsMatches("not an object", "foo", "bar"))
-  t.notOk(optionsMatches({ baz: "bar" }, "foo", "bar"))
-  t.notOk(optionsMatches({ foo: "100" }, "foo", 100))
-  t.notOk(optionsMatches({ foo: "baz" }, "foo", "bar"))
+  expect(optionsMatches("not an object", "foo", "bar")).toBeFalsy()
+  expect(optionsMatches({ baz: "bar" }, "foo", "bar")).toBeFalsy()
+  expect(optionsMatches({ foo: "100" }, "foo", 100)).toBeFalsy()
+  expect(optionsMatches({ foo: "baz" }, "foo", "bar")).toBeFalsy()
 
-  t.ok(optionsMatches({ foo: [ "baz", "bar" ] }, "foo", "bar"))
-  t.notOk(optionsMatches({ foo: [ "baz", "qux" ] }, "foo", "bar"))
-
-  t.end()
+  expect(optionsMatches({ foo: [ "baz", "bar" ] }, "foo", "bar")).toBeTruthy()
+  expect(optionsMatches({ foo: [ "baz", "qux" ] }, "foo", "bar")).toBeFalsy()
 })
 
-test("optionsMatches matches a RegExp", t => {
-  t.ok(optionsMatches({ foo: "/\\.bar/" }, "foo", ".bar"))
-  t.notOk(optionsMatches({ foo: "/\\.baz$/" }, "foo", ".bar"))
+it("optionsMatches matches a RegExp", () => {
+  expect(optionsMatches({ foo: "/\\.bar/" }, "foo", ".bar")).toBeTruthy()
+  expect(optionsMatches({ foo: "/\\.baz$/" }, "foo", ".bar")).toBeFalsy()
 
-  t.ok(optionsMatches({ foo: "/[a-z]+/" }, "foo", "BAR"), "input to lower case")
-  t.notOk(optionsMatches({ foo: "/[A-Z]+/" }, "foo", "BAR"), "input to lower case")
+  expect(optionsMatches({ foo: "/[a-z]+/" }, "foo", "BAR")).toBeTruthy()
+  expect(optionsMatches({ foo: "/[A-Z]+/" }, "foo", "BAR")).toBeFalsy()
 
-  t.ok(optionsMatches({ foo: [ "/\\.bar$/", ".baz" ] }, "foo", ".bar"))
-  t.ok(optionsMatches({ foo: [ "/\\.bar$/", ".baz" ] }, "foo", ".baz"))
-  t.notOk(optionsMatches({ foo: [ "/\\.bar$/", "qux" ] }, "foo", ".baz"))
-
-  t.end()
+  expect(optionsMatches({ foo: [ "/\\.bar$/", ".baz" ] }, "foo", ".bar")).toBeTruthy()
+  expect(optionsMatches({ foo: [ "/\\.bar$/", ".baz" ] }, "foo", ".baz")).toBeTruthy()
+  expect(optionsMatches({ foo: [ "/\\.bar$/", "qux" ] }, "foo", ".baz")).toBeFalsy()
 })

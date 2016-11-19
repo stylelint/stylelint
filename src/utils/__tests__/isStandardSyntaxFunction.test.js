@@ -1,25 +1,24 @@
 import isStandardSyntaxFunction from "../isStandardSyntaxFunction"
 import postcss from "postcss"
-import test from "tape"
 import valueParser from "postcss-value-parser"
 
-test("isStandardSyntaxFunction", t => {
+it("isStandardSyntaxFunction", () => {
   t.plan(4)
 
   rules("a { prop: calc(a + b) }", func => {
-    t.ok(isStandardSyntaxFunction(func), "calc")
+    expect(isStandardSyntaxFunction(func)).toBeTruthy()
   })
 
   rules("a { prop: url('x.css') }", func => {
-    t.ok(isStandardSyntaxFunction(func), "url")
+    expect(isStandardSyntaxFunction(func)).toBeTruthy()
   })
 
   rules("a { $list: (list) }", func => {
-    t.notOk(isStandardSyntaxFunction(func), "scss list")
+    expect(isStandardSyntaxFunction(func)).toBeFalsy()
   })
 
   rules("a { $map: (key: value) }", func => {
-    t.notOk(isStandardSyntaxFunction(func), "scss map")
+    expect(isStandardSyntaxFunction(func)).toBeFalsy()
   })
 })
 

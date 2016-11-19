@@ -2,74 +2,73 @@ import isStandardSyntaxDeclaration from "../isStandardSyntaxDeclaration"
 import less from "postcss-less"
 import postcss from "postcss"
 import scss from "postcss-scss"
-import test from "tape"
 
-test("isStandardSyntaxDeclaration", t => {
+it("isStandardSyntaxDeclaration", () => {
   t.plan(22)
 
   rules("a { a: b }", decl => {
-    t.ok(isStandardSyntaxDeclaration(decl), "standard prop and value")
+    expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })
   rules("a { a: $b }", decl => {
-    t.ok(isStandardSyntaxDeclaration(decl), "standard prop and scss var")
+    expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })
   rules("a { --custom-property: x }", decl => {
-    t.ok(isStandardSyntaxDeclaration(decl), "custom-property")
+    expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })
   rules("a { a : calc(b + c) }", decl => {
-    t.ok(isStandardSyntaxDeclaration(decl), "standard prop and calc value")
+    expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })
   rules("@page { size: A4 }", decl => {
-    t.ok(isStandardSyntaxDeclaration(decl), "does not break @selector")
+    expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })
   scssRules("a { #{$var}: 10px; }", decl => {
-    t.ok(isStandardSyntaxDeclaration(decl), "property with scss variable interpolation (only)")
+    expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })
   scssRules("a { prop#{$var}: 10px; }", decl => {
-    t.ok(isStandardSyntaxDeclaration(decl), "property with scss variable interpolation (end)")
+    expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })
   scssRules("a { prop#{$var}erty: 10px; }", decl => {
-    t.ok(isStandardSyntaxDeclaration(decl), "property with scss variable interpolation (middle)")
+    expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })
   scssRules("a { --custom-property-set: { color: blue; } }", decl => {
-    t.ok(isStandardSyntaxDeclaration(decl), "custom property set")
+    expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })
   lessRules("a { @{var}: 10px; }", decl => {
-    t.ok(isStandardSyntaxDeclaration(decl), "property with less variable interpolation (only)")
+    expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })
   lessRules("a { prop@{var}: 10px; }", decl => {
-    t.ok(isStandardSyntaxDeclaration(decl), "property with less variable interpolation (end)")
+    expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })
   lessRules("a { prop@{var}erty: 10px; }", decl => {
-    t.ok(isStandardSyntaxDeclaration(decl), "property with less variable interpolation (middle)")
+    expect(isStandardSyntaxDeclaration(decl)).toBeTruthy()
   })
 
   scssRules("$var: b", decl => {
-    t.notOk(isStandardSyntaxDeclaration(decl), "scss var")
+    expect(isStandardSyntaxDeclaration(decl)).toBeFalsy()
   })
   scssRules("$list: (key: value, key2: value2)", decl => {
-    t.notOk(isStandardSyntaxDeclaration(decl), "scss list")
+    expect(isStandardSyntaxDeclaration(decl)).toBeFalsy()
   })
   scssRules("$map: (value, value2)", decl => {
-    t.notOk(isStandardSyntaxDeclaration(decl), "scss map")
+    expect(isStandardSyntaxDeclaration(decl)).toBeFalsy()
   })
   scssRules("a { $var: b }", decl => {
-    t.notOk(isStandardSyntaxDeclaration(decl), "nested scss var")
+    expect(isStandardSyntaxDeclaration(decl)).toBeFalsy()
   })
   scssRules("a { $list: (key: value, key2: value2) }", decl => {
-    t.notOk(isStandardSyntaxDeclaration(decl), "nested scss list")
+    expect(isStandardSyntaxDeclaration(decl)).toBeFalsy()
   })
   scssRules("a { border: { style: solid; color: red; } }", decl => {
-    t.notOk(isStandardSyntaxDeclaration(decl), "scss nested property")
+    expect(isStandardSyntaxDeclaration(decl)).toBeFalsy()
   })
   scssRules("a { $map: (value, value2) }", decl => {
-    t.notOk(isStandardSyntaxDeclaration(decl), "nested scss map")
+    expect(isStandardSyntaxDeclaration(decl)).toBeFalsy()
   })
   lessRules("@var: b", decl => {
-    t.notOk(isStandardSyntaxDeclaration(decl), "less var")
+    expect(isStandardSyntaxDeclaration(decl)).toBeFalsy()
   })
   lessRules("a { @var: b }", decl => {
-    t.notOk(isStandardSyntaxDeclaration(decl), "nested less var")
+    expect(isStandardSyntaxDeclaration(decl)).toBeFalsy()
   })
 })
 

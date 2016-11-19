@@ -1,24 +1,23 @@
 import declarationValueIndex from "../declarationValueIndex"
 import postcss from "postcss"
-import test from "tape"
 
-test("declarationValueIndex", t => {
+it("declarationValueIndex", () => {
   t.plan(5)
 
   rules("a { a: b }", decl => {
-    t.equal(declarationValueIndex(decl), 3)
+    expect(declarationValueIndex(decl)).toBe(3)
   })
   rules("a { a :b }", decl => {
-    t.equal(declarationValueIndex(decl), 3)
+    expect(declarationValueIndex(decl)).toBe(3)
   })
   rules("a { a:b }", decl => {
-    t.equal(declarationValueIndex(decl), 2)
+    expect(declarationValueIndex(decl)).toBe(2)
   })
   rules("a { a  : b }", decl => {
-    t.equal(declarationValueIndex(decl), 5)
+    expect(declarationValueIndex(decl)).toBe(5)
   })
   rules("a { a:\nb }", decl => {
-    t.equal(declarationValueIndex(decl), 3)
+    expect(declarationValueIndex(decl)).toBe(3)
   })
 })
 

@@ -1,8 +1,7 @@
 import findAtRuleContext from "../findAtRuleContext"
 import postcss from "postcss"
-import test from "tape"
 
-test("findAtRuleContext", t => {
+it("findAtRuleContext", () => {
   const css = `
     a {}
     @media print {
@@ -19,16 +18,16 @@ test("findAtRuleContext", t => {
     result.root.walkRules(rule => {
       switch (rule.selector) {
         case "a":
-          t.equal(findAtRuleContext(rule), null)
+          expect(findAtRuleContext(rule)).toBe(null)
           break
         case "b":
-          t.equal(findAtRuleContext(rule).params, "print")
+          expect(findAtRuleContext(rule).params).toBe("print")
           break
         case "c":
-          t.equal(findAtRuleContext(rule).params, "(min-width: 900px)")
+          expect(findAtRuleContext(rule).params).toBe("(min-width: 900px)")
           break
         case "d":
-          t.equal(findAtRuleContext(rule), null)
+          expect(findAtRuleContext(rule)).toBe(null)
           break
         default:
       }

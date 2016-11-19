@@ -1,71 +1,68 @@
 import sinon from "sinon"
-import test from "tape"
 import validateOptions from "../validateOptions"
 
 function mockResult() {
   return { warn: sinon.spy() }
 }
 
-test("validateOptions for primary options", t => {
+it("validateOptions for primary options", () => {
   const result = mockResult()
 
   validateOptions(result, "foo", {
     possible: [ "a", "b", "c" ],
     actual: "a",
   })
-  t.notOk(result.warn.calledOnce, "passing string equivalence")
+  expect(result.warn.calledOnce).toBeFalsy()
   result.warn.reset()
 
   validateOptions(result, "foo", {
     possible: [ "a", "b", "c" ],
     actual: "d",
   })
-  t.ok(result.warn.calledOnce, "failing string equivalence")
-  t.ok(result.warn.calledWith("Invalid option value \"d\" for rule \"foo\""))
+  expect(result.warn.calledOnce).toBeTruthy()
+  expect(result.warn.calledWith("Invalid option value \"d\" for rule \"foo\"")).toBeTruthy()
   result.warn.reset()
 
   validateOptions(result, "foo", {
     possible: [ true, false ],
     actual: false,
   })
-  t.notOk(result.warn.calledOnce, "passing boolean equivalence")
+  expect(result.warn.calledOnce).toBeFalsy()
   result.warn.reset()
 
   validateOptions(result, "foo", {
     possible: [ true, false ],
     actual: "a",
   })
-  t.ok(result.warn.calledOnce, "failing boolean equivalence")
-  t.ok(result.warn.calledWith("Invalid option value \"a\" for rule \"foo\""))
+  expect(result.warn.calledOnce).toBeTruthy()
+  expect(result.warn.calledWith("Invalid option value \"a\" for rule \"foo\"")).toBeTruthy()
   result.warn.reset()
 
   validateOptions(result, "bar", {
     possible: [ "a", x => x > 2, "c" ],
     actual: 3,
   })
-  t.notOk(result.warn.calledOnce, "passing evaluation")
+  expect(result.warn.calledOnce).toBeFalsy()
   result.warn.reset()
 
   validateOptions(result, "bar", {
     possible: [ "a", x => x > 2, "c" ],
     actual: 1,
   })
-  t.ok(result.warn.calledOnce, "failing evaluation")
-  t.ok(result.warn.calledWith("Invalid option value \"1\" for rule \"bar\""))
+  expect(result.warn.calledOnce).toBeTruthy()
+  expect(result.warn.calledWith("Invalid option value \"1\" for rule \"bar\"")).toBeTruthy()
   result.warn.reset()
 
   validateOptions(result, "foo", {
     possible: [ true, false ],
     actual: undefined,
   })
-  t.ok(result.warn.calledOnce, "undefined `actual` with `possible` values and no `optional` option")
-  t.ok(result.warn.calledWith("Expected option value for rule \"foo\""))
+  expect(result.warn.calledOnce).toBeTruthy()
+  expect(result.warn.calledWith("Expected option value for rule \"foo\"")).toBeTruthy()
   result.warn.reset()
-
-  t.end()
 })
 
-test("validateOptions for secondary options objects", t => {
+it("validateOptions for secondary options objects", () => {
   const result = mockResult()
 
   const schema = {
@@ -77,31 +74,35 @@ test("validateOptions for secondary options objects", t => {
     possible: schema,
     actual: { foo: "always", bar: 2 },
   })
-  t.notOk(result.warn.called)
+  expect(result.warn.called).toBeFalsy()
   result.warn.reset()
 
   validateOptions(result, "foo", {
     possible: schema,
     actual: { foo: "never", bar: "tab" },
   })
-  t.notOk(result.warn.called)
+  expect(result.warn.called).toBeFalsy()
   result.warn.reset()
 
   validateOptions(result, "bar", {
     possible: schema,
     actual: { foo: "neveer", bar: false },
   })
-  t.ok(result.warn.calledTwice)
-  t.ok(result.warn.calledWith("Invalid value \"neveer\" for option \"foo\" of rule \"bar\""))
-  t.ok(result.warn.calledWith("Invalid value \"false\" for option \"bar\" of rule \"bar\""))
+  expect(result.warn.calledTwice).toBeTruthy()
+  expect(
+    result.warn.calledWith("Invalid value \"neveer\" for option \"foo\" of rule \"bar\"")
+  ).toBeTruthy()
+  expect(
+    result.warn.calledWith("Invalid value \"false\" for option \"bar\" of rule \"bar\"")
+  ).toBeTruthy()
   result.warn.reset()
 
   validateOptions(result, "bar", {
     possible: schema,
     actual: { foo: "never", barr: 1 },
   })
-  t.ok(result.warn.calledOnce)
-  t.ok(result.warn.calledWith("Invalid option name \"barr\" for rule \"bar\""))
+  expect(result.warn.calledOnce).toBeTruthy()
+  expect(result.warn.calledWith("Invalid option name \"barr\" for rule \"bar\"")).toBeTruthy()
   result.warn.reset()
 
   validateOptions(result, "foo", {
@@ -109,21 +110,21 @@ test("validateOptions for secondary options objects", t => {
     actual: undefined,
     optional: true,
   })
-  t.notOk(result.warn.calledOnce, "undefined `actual` with `possible` values and an `optional` option")
+  expect(result.warn.calledOnce).toBeFalsy()
   result.warn.reset()
 
   validateOptions(result, "foo", {
     possible: schema,
     actual: 2,
   })
-  t.ok(result.warn.calledOnce, "possible is actual but actual is non-object")
-  t.ok(result.warn.calledWith("Invalid option value 2 for rule \"foo\": should be an object"))
+  expect(result.warn.calledOnce).toBeTruthy()
+  expect(
+    result.warn.calledWith("Invalid option value 2 for rule \"foo\": should be an object")
+  ).toBeTruthy()
   result.warn.reset()
-
-  t.end()
 })
 
-test("validateOptions for secondary options objects with subarrays", t => {
+it("validateOptions for secondary options objects with subarrays", () => {
   const result = mockResult()
 
   const schema = {
@@ -134,53 +135,55 @@ test("validateOptions for secondary options objects with subarrays", t => {
     possible: schema,
     actual: { bar: [ "one", "three" ] },
   })
-  t.notOk(result.warn.called)
+  expect(result.warn.called).toBeFalsy()
   result.warn.reset()
 
   validateOptions(result, "foo", {
     possible: schema,
     actual: { bar: [ "one", "three", "floor" ] },
   })
-  t.ok(result.warn.calledOnce)
-  t.ok(result.warn.calledWith("Invalid value \"floor\" for option \"bar\" of rule \"foo\""))
+  expect(result.warn.calledOnce).toBeTruthy()
+  expect(
+    result.warn.calledWith("Invalid value \"floor\" for option \"bar\" of rule \"foo\"")
+  ).toBeTruthy()
   result.warn.reset()
-
-  t.end()
 })
 
-test("validateOptions for `*-no-*` rule with no valid options", t => {
+it("validateOptions for `*-no-*` rule with no valid options", () => {
   const result = mockResult()
 
   validateOptions(result, "no-dancing", {
     actual: undefined,
   })
-  t.notOk(result.warn.called, "with empty array as `possible`")
+  expect(result.warn.called).toBeFalsy()
   result.warn.reset()
 
   validateOptions(result, "no-dancing", {
     actual: undefined,
   })
-  t.notOk(result.warn.called, "with `possible` left undefined")
+  expect(result.warn.called).toBeFalsy()
   result.warn.reset()
 
   validateOptions(result, "no-dancing", {
     actual: "foo",
   })
-  t.ok(result.warn.calledOnce)
-  t.ok(result.warn.calledWith("Unexpected option value \"foo\" for rule \"no-dancing\""))
+  expect(result.warn.calledOnce).toBeTruthy()
+  expect(
+    result.warn.calledWith("Unexpected option value \"foo\" for rule \"no-dancing\"")
+  ).toBeTruthy()
   result.warn.reset()
 
   validateOptions(result, "no-dancing", {
     actual: false,
   })
-  t.ok(result.warn.calledOnce)
-  t.ok(result.warn.calledWith("Unexpected option value \"false\" for rule \"no-dancing\""))
+  expect(result.warn.calledOnce).toBeTruthy()
+  expect(
+    result.warn.calledWith("Unexpected option value \"false\" for rule \"no-dancing\"")
+  ).toBeTruthy()
   result.warn.reset()
-
-  t.end()
 })
 
-test("validateOptions for multiple actual/possible pairs, checking return value", t => {
+it("validateOptions for multiple actual/possible pairs, checking return value", () => {
   const result = mockResult()
 
   const validOptions = validateOptions(result, "foo", {
@@ -190,8 +193,8 @@ test("validateOptions for multiple actual/possible pairs, checking return value"
     possible: [ "three", "four" ],
     actual: "three",
   })
-  t.equal(validOptions, true)
-  t.notOk(result.warn.called)
+  expect(validOptions).toBe(true)
+  expect(result.warn.called).toBeFalsy()
   result.warn.reset()
 
   const invalidOptions = validateOptions(result, "foo", {
@@ -201,16 +204,14 @@ test("validateOptions for multiple actual/possible pairs, checking return value"
     possible: [ "three", "four" ],
     actual: "threee",
   })
-  t.equal(invalidOptions, false)
-  t.ok(result.warn.calledTwice)
-  t.ok(result.warn.calledWith("Invalid option value \"onne\" for rule \"foo\""))
-  t.ok(result.warn.calledWith("Invalid option value \"threee\" for rule \"foo\""))
+  expect(invalidOptions).toBe(false)
+  expect(result.warn.calledTwice).toBeTruthy()
+  expect(result.warn.calledWith("Invalid option value \"onne\" for rule \"foo\"")).toBeTruthy()
+  expect(result.warn.calledWith("Invalid option value \"threee\" for rule \"foo\"")).toBeTruthy()
   result.warn.reset()
-
-  t.end()
 })
 
-test("validateOptions with a function for 'possible'", t => {
+it("validateOptions with a function for 'possible'", () => {
   const result = mockResult()
   const schema = x => {
     if (x === "bar") { return true }
@@ -223,16 +224,16 @@ test("validateOptions with a function for 'possible'", t => {
     possible: schema,
     actual: "bar",
   })
-  t.equal(validExplicitlyNamedString, true, "explicitly named string passes")
-  t.notOk(result.warn.called)
+  expect(validExplicitlyNamedString).toBe(true)
+  expect(result.warn.called).toBeFalsy()
   result.warn.reset()
 
   const validArrayOfStrings = validateOptions(result, "foo", {
     possible: schema,
     actual: [ "one", "two", "three" ],
   })
-  t.equal(validArrayOfStrings, true, "array of strings passes")
-  t.notOk(result.warn.called)
+  expect(validArrayOfStrings).toBe(true)
+  expect(result.warn.called).toBeFalsy()
   result.warn.reset()
 
   const validArrayOfObjects = validateOptions(result, "foo", {
@@ -242,8 +243,8 @@ test("validateOptions with a function for 'possible'", t => {
       { properties: [ "two", "three" ] },
     ],
   })
-  t.equal(validArrayOfObjects, true, "array of objects passes")
-  t.notOk(result.warn.called)
+  expect(validArrayOfObjects).toBe(true)
+  expect(result.warn.called).toBeFalsy()
   result.warn.reset()
 
   const validArrayOfObjectsAndStrings = validateOptions(result, "foo", {
@@ -254,38 +255,34 @@ test("validateOptions with a function for 'possible'", t => {
       "four",
     ],
   })
-  t.equal(validArrayOfObjectsAndStrings, true, "array of mixed objects and strings passes")
-  t.notOk(result.warn.called)
+  expect(validArrayOfObjectsAndStrings).toBe(true)
+  expect(result.warn.called).toBeFalsy()
   result.warn.reset()
 
   const invalidObject = validateOptions(result, "foo", {
     possible: schema,
     actual: { properties: ["one"] },
   })
-  t.equal(invalidObject, false, "invalid object fails")
-  t.ok(result.warn.calledOnce)
-  t.equal(result.warn.args[0][0], "Invalid option \"{\"properties\":[\"one\"]}\" for rule foo")
+  expect(invalidObject).toBe(false)
+  expect(result.warn.calledOnce).toBeTruthy()
+  expect(result.warn.args[0][0]).toBe("Invalid option \"{\"properties\":[\"one\"]}\" for rule foo")
   result.warn.reset()
-
-  t.end()
 })
 
-test("validateOptions for null instead of array", t => {
+it("validateOptions for null instead of array", () => {
   const result = mockResult()
   validateOptions(result, "no-dancing", {
     actual: null,
     possible: [(v) => typeof v === "string"],
   })
-  t.notOk(result.warn.called)
-  t.end()
+  expect(result.warn.called).toBeFalsy()
 })
 
-test("validateOptions for arrayed null instead of array", t => {
+it("validateOptions for arrayed null instead of array", () => {
   const result = mockResult()
   validateOptions(result, "no-dancing", {
     actual: [null],
     possible: [(v) => typeof v === "string"],
   })
-  t.notOk(result.warn.called)
-  t.end()
+  expect(result.warn.called).toBeFalsy()
 })

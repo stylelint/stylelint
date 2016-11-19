@@ -1,10 +1,8 @@
 import isOnlyWhitespace from "../isOnlyWhitespace"
-import test from "tape"
 
-test("isOnlyWhitespace", t => {
-  t.ok(isOnlyWhitespace("\r\n \t \n   "))
-  t.notOk(isOnlyWhitespace("   s"))
-  t.notOk(isOnlyWhitespace("s\t"))
-  t.notOk(isOnlyWhitespace("\n  .\t"))
-  t.end()
+it("isOnlyWhitespace", () => {
+  expect(isOnlyWhitespace("\r\n \t \n   ")).toBeTruthy()
+  expect(isOnlyWhitespace("   s")).toBeFalsy()
+  expect(isOnlyWhitespace("s\t")).toBeFalsy()
+  expect(isOnlyWhitespace("\n  .\t")).toBeFalsy()
 })

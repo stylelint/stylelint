@@ -1,18 +1,16 @@
 import blurInterpolation from "../blurInterpolation"
-import test from "tape"
 
-test("blurInterpolation", t => {
-  t.equal(blurInterpolation("#{$selector}"), " $selector ")
-  t.equal(blurInterpolation("#{$selector}", "`"), "`$selector`")
-  t.equal(blurInterpolation("#{$selector * 10px}"), " $selector * 10px ")
-  t.equal(blurInterpolation("#{$font-size}/#{$line-height}"), " $font-size / $line-height ")
-  t.equal(blurInterpolation("url(#{$selector * 10px})"), "url( $selector * 10px )")
-  t.equal(blurInterpolation("calc(#{$selector} * 2)"), "calc( $selector  * 2)")
-  t.equal(blurInterpolation(
-    "filter: progid:DXImageTransform.Microsoft.gradient(enabled='false', startColorstr='#{ie-hex-str($green)}', endColorstr='#{ie-hex-str($translucent-red)}');"),
+it("blurInterpolation", () => {
+  expect(blurInterpolation("#{$selector}")).toBe(" $selector ")
+  expect(blurInterpolation("#{$selector}", "`")).toBe("`$selector`")
+  expect(blurInterpolation("#{$selector * 10px}")).toBe(" $selector * 10px ")
+  expect(blurInterpolation("#{$font-size}/#{$line-height}")).toBe(" $font-size / $line-height ")
+  expect(blurInterpolation("url(#{$selector * 10px})")).toBe("url( $selector * 10px )")
+  expect(blurInterpolation("calc(#{$selector} * 2)")).toBe("calc( $selector  * 2)")
+  expect(blurInterpolation(
+    "filter: progid:DXImageTransform.Microsoft.gradient(enabled='false', startColorstr='#{ie-hex-str($green)}', endColorstr='#{ie-hex-str($translucent-red)}');")).toBe(
     "filter: progid:DXImageTransform.Microsoft.gradient(enabled='false', startColorstr=' ie-hex-str($green) ', endColorstr=' ie-hex-str($translucent-red) ');"
   )
-  t.equal(blurInterpolation("\"I ate #{5 + 10} pies!\""), "\"I ate  5 + 10  pies!\"")
-  t.equal(blurInterpolation("@{variable}"), " variable ")
-  t.end()
+  expect(blurInterpolation("\"I ate #{5 + 10} pies!\"")).toBe("\"I ate  5 + 10  pies!\"")
+  expect(blurInterpolation("@{variable}")).toBe(" variable ")
 })

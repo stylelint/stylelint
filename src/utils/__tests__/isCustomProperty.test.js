@@ -1,13 +1,11 @@
 import isCustomProperty from "../isCustomProperty"
-import test from "tape"
 
-test("isCustomProperty", t => {
-  t.ok(isCustomProperty("--custom-property"))
-  t.notOk(isCustomProperty("border-top-left-radius"))
-  t.notOk(isCustomProperty("-webkit-appearance"))
-  t.notOk(isCustomProperty("$sass-variable"))
-  t.notOk(isCustomProperty("@less-variable"))
-  t.notOk(isCustomProperty("var(--something)"))
-  t.notOk(isCustomProperty("var(  --something  )"))
-  t.end()
+it("isCustomProperty", () => {
+  expect(isCustomProperty("--custom-property")).toBeTruthy()
+  expect(isCustomProperty("border-top-left-radius")).toBeFalsy()
+  expect(isCustomProperty("-webkit-appearance")).toBeFalsy()
+  expect(isCustomProperty("$sass-variable")).toBeFalsy()
+  expect(isCustomProperty("@less-variable")).toBeFalsy()
+  expect(isCustomProperty("var(--something)")).toBeFalsy()
+  expect(isCustomProperty("var(  --something  )")).toBeFalsy()
 })

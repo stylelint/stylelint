@@ -1,13 +1,11 @@
 import isValidFontSize from "../isValidFontSize"
-import test from "tape"
 
-test("isValidFontSize", t => {
-  t.ok(isValidFontSize("10px"))
-  t.ok(isValidFontSize("20%"))
-  t.notOk(isValidFontSize("20"))
-  t.ok(isValidFontSize("small"))
-  t.ok(isValidFontSize("smaller"))
-  t.notOk(isValidFontSize("smallest"))
-  t.notOk(isValidFontSize(null))
-  t.end()
+it("isValidFontSize", () => {
+  expect(isValidFontSize("10px")).toBeTruthy()
+  expect(isValidFontSize("20%")).toBeTruthy()
+  expect(isValidFontSize("20")).toBeFalsy()
+  expect(isValidFontSize("small")).toBeTruthy()
+  expect(isValidFontSize("smaller")).toBeTruthy()
+  expect(isValidFontSize("smallest")).toBeFalsy()
+  expect(isValidFontSize(null)).toBeFalsy()
 })

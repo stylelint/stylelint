@@ -1,17 +1,15 @@
 import hasEmptyLine from "../hasEmptyLine"
-import test from "tape"
 
-test("hasEmptyLine", t => {
-  t.ok(hasEmptyLine("\n\n"))
-  t.ok(hasEmptyLine("\r\n\r\n"))
-  t.ok(hasEmptyLine("\n\n\n\n"))
-  t.ok(hasEmptyLine("\r\n\r\n\r\n\r\n"))
-  t.ok(hasEmptyLine("   \n\n"))
-  t.ok(hasEmptyLine("\n\n   \n\n"))
-  t.notOk(hasEmptyLine(""))
-  t.notOk(hasEmptyLine(" "))
-  t.notOk(hasEmptyLine("\t"))
-  t.notOk(hasEmptyLine("\n"))
-  t.notOk(hasEmptyLine("\r\n"))
-  t.end()
+it("hasEmptyLine", () => {
+  expect(hasEmptyLine("\n\n")).toBeTruthy()
+  expect(hasEmptyLine("\r\n\r\n")).toBeTruthy()
+  expect(hasEmptyLine("\n\n\n\n")).toBeTruthy()
+  expect(hasEmptyLine("\r\n\r\n\r\n\r\n")).toBeTruthy()
+  expect(hasEmptyLine("   \n\n")).toBeTruthy()
+  expect(hasEmptyLine("\n\n   \n\n")).toBeTruthy()
+  expect(hasEmptyLine("")).toBeFalsy()
+  expect(hasEmptyLine(" ")).toBeFalsy()
+  expect(hasEmptyLine("\t")).toBeFalsy()
+  expect(hasEmptyLine("\n")).toBeFalsy()
+  expect(hasEmptyLine("\r\n")).toBeFalsy()
 })

@@ -1,72 +1,69 @@
 import isStandardSyntaxRule from "../isStandardSyntaxRule"
 import less from "postcss-less"
 import postcss from "postcss"
-import test from "tape"
 
-test("isStandardSyntaxRule", t => {
-  t.plan(20)
-
+it("isStandardSyntaxRule", () => {
   rules("a {}", rule => {
-    t.ok(isStandardSyntaxRule(rule), "type")
+    expect(isStandardSyntaxRule(rule)).toBeTruthy()
   })
   rules("a:last-child {}", rule => {
-    t.ok(isStandardSyntaxRule(rule), "pseudo-class")
+    expect(isStandardSyntaxRule(rule)).toBeTruthy()
   })
   rules("a:not(.a) {}", rule => {
-    t.ok(isStandardSyntaxRule(rule), "pseudo-class not")
+    expect(isStandardSyntaxRule(rule)).toBeTruthy()
   })
   rules("a::after {}", rule => {
-    t.ok(isStandardSyntaxRule(rule), "pseudo-element")
+    expect(isStandardSyntaxRule(rule)).toBeTruthy()
   })
   rules(":--custom-selector {}", rule => {
-    t.ok(isStandardSyntaxRule(rule), "custom-selector")
+    expect(isStandardSyntaxRule(rule)).toBeTruthy()
   })
   rules(":--custom-selector:--custom-selector {}", rule => {
-    t.ok(isStandardSyntaxRule(rule), "compound custom-selectors")
+    expect(isStandardSyntaxRule(rule)).toBeTruthy()
   })
 
   rules("--custom-property-set: {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "custom-property-set")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
 
   lessRules(".mixin-name(@var);", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called Less class parametric mixin")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
   lessRules(".mixin-name() {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "non-ouputting Less class mixin definition")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
   lessRules(".mixin-name(@a, @b) {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "non-ouputting parametric Less class mixin definition")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
   lessRules(".mixin-name3(@a, @b) {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "non-ouputting parametric Less class mixin definition ending in number")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
   lessRules("#mixin-name() {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "non-ouputting Less id mixin definition")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
   lessRules("#mixin-name;", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called Less id mixin")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
   lessRules("#mixin-name;", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called Less id mixin")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
   lessRules("#namespace > .mixin-name;", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called namespaced Less mixin (child)")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
   lessRules("#namespace .mixin-name;", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called namespaced Less mixin (descendant)")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
   lessRules("#namespace.mixin-name;", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called namespaced Less mixin (compound)")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
   lessRules(".box-shadow(@style, @c) when (iscolor(@c)) {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "less mixin")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
   lessRules("&:extend(.inline);", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "less extend")
+    expect(isStandardSyntaxRule(rule)).toBeFalsy()
   })
   lessRules("@foo: {};", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "less detached rulesets")
+    expect(isStandardSyntaxRule(rule)).toBeTruthy()
   })
 })
 

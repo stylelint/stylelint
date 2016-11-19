@@ -1,8 +1,7 @@
 import nextNonCommentNode from "../nextNonCommentNode"
 import postcss from "postcss"
-import test from "tape"
 
-test("nextNonCommentNode", t => {
+it("nextNonCommentNode", () => {
   let planned = 0
 
   const caseA = "a {} /* x */ b {}"
@@ -17,8 +16,8 @@ test("nextNonCommentNode", t => {
         bNode = rule
       }
     })
-    t.equal(nextNonCommentNode(aNode.next()), bNode, "starting with comment")
-    t.equal(nextNonCommentNode(bNode.next()), null, "starting with nonexistent next")
+    expect(nextNonCommentNode(aNode.next())).toBe(bNode)
+    expect(nextNonCommentNode(bNode.next())).toBe(null)
   })
   planned += 2
 
@@ -32,8 +31,8 @@ test("nextNonCommentNode", t => {
     result.root.walkDecls(decl => {
       colorNode = decl
     })
-    t.equal(nextNonCommentNode(aNode.first), colorNode)
-    t.equal(nextNonCommentNode(colorNode.next()), null)
+    expect(nextNonCommentNode(aNode.first)).toBe(colorNode)
+    expect(nextNonCommentNode(colorNode.next())).toBe(null)
   })
   planned += 2
 

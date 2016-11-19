@@ -1,27 +1,28 @@
-import test from "tape"
 import validateObjectWithStringArrayProps from "../validateObjectWithStringArrayProps"
 
-test("validateObjectWithStringArrayProps", t => {
-  t.ok(validateObjectWithStringArrayProps({ prop: ["val"] }))
-  t.ok(validateObjectWithStringArrayProps({ prop: [ "val1", "val2", "val3" ] }))
-  t.ok(validateObjectWithStringArrayProps({
+it("validateObjectWithStringArrayProps", () => {
+  expect(validateObjectWithStringArrayProps({ prop: ["val"] })).toBeTruthy()
+  expect(validateObjectWithStringArrayProps({ prop: [ "val1", "val2", "val3" ] })).toBeTruthy()
+  expect(validateObjectWithStringArrayProps({
     prop1: ["val1"],
     prop2: [ "val21", "val22" ],
     prop3: [ "val31", "val32", "val33" ],
-  }))
+  })).toBeTruthy()
 
-  t.notOk(validateObjectWithStringArrayProps({ prop: 1 }))
-  t.notOk(validateObjectWithStringArrayProps({ prop: "string" }))
-  t.notOk(validateObjectWithStringArrayProps({ prop: null }))
-  t.notOk(validateObjectWithStringArrayProps({ prop: { } }))
+  expect(validateObjectWithStringArrayProps({ prop: 1 })).toBeFalsy()
+  expect(validateObjectWithStringArrayProps({ prop: "string" })).toBeFalsy()
+  expect(validateObjectWithStringArrayProps({ prop: null })).toBeFalsy()
+  expect(validateObjectWithStringArrayProps({ prop: { } })).toBeFalsy()
 
-  t.notOk(validateObjectWithStringArrayProps({ prop: [ "1", 1 ] }))
-  t.notOk(validateObjectWithStringArrayProps({ prop: [ "null", null ] }))
-  t.notOk(validateObjectWithStringArrayProps({ prop: [ "object", { } ] }))
+  expect(validateObjectWithStringArrayProps({ prop: [ "1", 1 ] })).toBeFalsy()
+  expect(validateObjectWithStringArrayProps({ prop: [ "null", null ] })).toBeFalsy()
+  expect(validateObjectWithStringArrayProps({ prop: [ "object", { } ] })).toBeFalsy()
 
-  t.notOk(validateObjectWithStringArrayProps({ prop1: ["1"], prop2: [ "1", 1 ] }))
-  t.notOk(validateObjectWithStringArrayProps({ prop1: ["1"], prop2: [ "null", null ] }))
-  t.notOk(validateObjectWithStringArrayProps({ prop1: ["1"], prop2: [ "object", { } ] }))
-
-  t.end()
+  expect(validateObjectWithStringArrayProps({ prop1: ["1"], prop2: [ "1", 1 ] })).toBeFalsy()
+  expect(
+    validateObjectWithStringArrayProps({ prop1: ["1"], prop2: [ "null", null ] })
+  ).toBeFalsy()
+  expect(
+    validateObjectWithStringArrayProps({ prop1: ["1"], prop2: [ "object", { } ] })
+  ).toBeFalsy()
 })

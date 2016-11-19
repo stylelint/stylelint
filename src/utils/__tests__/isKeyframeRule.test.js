@@ -1,40 +1,39 @@
 import isKeyframeRule from "../isKeyframeRule"
 import postcss from "postcss"
-import test from "tape"
 
-test("isKeyframeRule", t => {
+it("isKeyframeRule", () => {
   t.plan(11)
 
   rules("@keyframes identifier { to {} }", rule => {
-    t.ok(isKeyframeRule(rule), "to")
+    expect(isKeyframeRule(rule)).toBeTruthy()
   })
   rules("@kEyFrAmEs identifier { to {} }", rule => {
-    t.ok(isKeyframeRule(rule), "to")
+    expect(isKeyframeRule(rule)).toBeTruthy()
   })
   rules("@KEYFRAMES identifier { to {} }", rule => {
-    t.ok(isKeyframeRule(rule), "to")
+    expect(isKeyframeRule(rule)).toBeTruthy()
   })
   rules("@keyframes identifier { from {} }", rule => {
-    t.ok(isKeyframeRule(rule), "from")
+    expect(isKeyframeRule(rule)).toBeTruthy()
   })
   rules("@keyframes identifier { 50% {} }", rule => {
-    t.ok(isKeyframeRule(rule), "50%")
+    expect(isKeyframeRule(rule)).toBeTruthy()
   })
 
   rules("a {}", rule => {
-    t.notOk(isKeyframeRule(rule), "rule")
+    expect(isKeyframeRule(rule)).toBeFalsy()
   })
   rules("a { & b {} }", rule => {
-    t.notOk(isKeyframeRule(rule), "rule and direct nested rule")
+    expect(isKeyframeRule(rule)).toBeFalsy()
   })
   rules("a { @nest b & {} }", rule => {
-    t.notOk(isKeyframeRule(rule), "@nest nested rule")
+    expect(isKeyframeRule(rule)).toBeFalsy()
   })
   rules("@media print { a {} }", rule => {
-    t.notOk(isKeyframeRule(rule), "@media")
+    expect(isKeyframeRule(rule)).toBeFalsy()
   })
   rules("@supports (animation-name: test) { a {} }", rule => {
-    t.notOk(isKeyframeRule(rule), "@supports")
+    expect(isKeyframeRule(rule)).toBeFalsy()
   })
 })
 

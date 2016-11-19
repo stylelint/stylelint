@@ -1,15 +1,12 @@
 import isStandardSyntaxValue from "../isStandardSyntaxValue"
-import test from "tape"
 
-test("isStandardSyntaxValue", t => {
-  t.ok(isStandardSyntaxValue("initial"), "keyword")
-  t.ok(isStandardSyntaxValue("currentColor"), "svg keyword")
-  t.ok(isStandardSyntaxValue("10px"), "dimension")
-  t.ok(isStandardSyntaxValue("45deg"), "angle")
-  t.notOk(isStandardSyntaxValue("$sass-variable"), "scss var")
-  t.notOk(isStandardSyntaxValue("@less-variable"), "less var")
-  t.notOk(isStandardSyntaxValue("#{$var}"), "scss interpolation")
-  t.notOk(isStandardSyntaxValue("@{var}"), "less interpolation")
-
-  t.end()
+it("isStandardSyntaxValue", () => {
+  expect(isStandardSyntaxValue("initial")).toBeTruthy()
+  expect(isStandardSyntaxValue("currentColor")).toBeTruthy()
+  expect(isStandardSyntaxValue("10px")).toBeTruthy()
+  expect(isStandardSyntaxValue("45deg")).toBeTruthy()
+  expect(isStandardSyntaxValue("$sass-variable")).toBeFalsy()
+  expect(isStandardSyntaxValue("@less-variable")).toBeFalsy()
+  expect(isStandardSyntaxValue("#{$var}")).toBeFalsy()
+  expect(isStandardSyntaxValue("@{var}")).toBeFalsy()
 })

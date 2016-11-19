@@ -1,21 +1,20 @@
 import atRuleParamIndex from "../atRuleParamIndex"
 import postcss from "postcss"
-import test from "tape"
 
-test("atRuleParamIndex", t => {
+it("atRuleParamIndex", () => {
   t.plan(4)
 
   atRules("@media (color) {}", atRule => {
-    t.equal(atRuleParamIndex(atRule), 7)
+    expect(atRuleParamIndex(atRule)).toBe(7)
   })
   atRules("@media  (color) {}", atRule => {
-    t.equal(atRuleParamIndex(atRule), 8)
+    expect(atRuleParamIndex(atRule)).toBe(8)
   })
   atRules("@import\n'x.css');", atRule => {
-    t.equal(atRuleParamIndex(atRule), 8)
+    expect(atRuleParamIndex(atRule)).toBe(8)
   })
   atRules("@document url-prefix(http://www.w3.org/Style/)", atRule => {
-    t.equal(atRuleParamIndex(atRule), 10)
+    expect(atRuleParamIndex(atRule)).toBe(10)
   })
 })
 

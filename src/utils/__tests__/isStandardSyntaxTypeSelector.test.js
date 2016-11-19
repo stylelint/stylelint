@@ -1,41 +1,40 @@
 import isStandardSyntaxTypeSelector from "../isStandardSyntaxTypeSelector"
 import postcss from "postcss"
 import selectorParser from "postcss-selector-parser"
-import test from "tape"
 
-test("isStandardSyntaxTypeSelector", t => {
+it("isStandardSyntaxTypeSelector", () => {
   t.plan(8)
 
   rules("a {}", func => {
-    t.ok(isStandardSyntaxTypeSelector(func), "tag")
+    expect(isStandardSyntaxTypeSelector(func)).toBeTruthy()
   })
 
   rules(".foo:nth-child(n) {}", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "nth-child pseudo selector")
+    expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
   })
 
   rules(".foo:nth-last-child(n) {}", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "nth-last-child pseudo selector")
+    expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
   })
 
   rules(".foo:nth-of-type(n) {}", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "nth-of-type pseudo selector")
+    expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
   })
 
   rules(":lang(en) {}", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "lang pseudo selector")
+    expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
   })
 
   rules(":dir(ltr) {}", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "dir pseudo selector")
+    expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
   })
 
   rules(".foo { &-bar {} }", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "nesting selector")
+    expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
   })
 
   rules(".foo { &__bar {} }", func => {
-    t.notOk(isStandardSyntaxTypeSelector(func), "nesting selector")
+    expect(isStandardSyntaxTypeSelector(func)).toBeFalsy()
   })
 })
 

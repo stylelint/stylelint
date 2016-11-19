@@ -1,50 +1,42 @@
 import beforeBlockString from "../beforeBlockString"
 import postcss from "postcss"
 import sugarss from "sugarss"
-import test from "tape"
 
-test("beforeBlockString rules", t => {
-  t.equal(postcssCheck("a {}"), "a ")
-  t.equal(postcssCheck("\na\n{}"), "\na\n")
-  t.equal(postcssCheck("\n\na,\nb,\n\tspan > .foo\n{}"), "\n\na,\nb,\n\tspan > .foo\n")
-  t.end()
+it("beforeBlockString rules", () => {
+  expect(postcssCheck("a {}")).toBe("a ")
+  expect(postcssCheck("\na\n{}")).toBe("\na\n")
+  expect(postcssCheck("\n\na,\nb,\n\tspan > .foo\n{}")).toBe("\n\na,\nb,\n\tspan > .foo\n")
 })
 
-test("beforeBlockString at-rules", t => {
-  t.equal(postcssCheck("@media print {}"), "@media print ")
-  t.equal(postcssCheck("\n@media print, screen\n\t{}"), "\n@media print, screen\n\t")
-  t.equal(postcssCheck("@supports (animation-name: test) {}"), "@supports (animation-name: test) ")
-  t.equal(postcssCheck(
+it("beforeBlockString at-rules", () => {
+  expect(postcssCheck("@media print {}")).toBe("@media print ")
+  expect(postcssCheck("\n@media print, screen\n\t{}")).toBe("\n@media print, screen\n\t")
+  expect(postcssCheck("@supports (animation-name: test) {}")).toBe("@supports (animation-name: test) ")
+  expect(postcssCheck(
     "@document url(http://www.w3.org/),\n " +
       "url-prefix(http://www.w3.org/Style/),\n" +
       "domain(mozilla.org),\n" +
-      "regexp(\"https:.*\") {}"),
-    "@document url(http://www.w3.org/),\n " +
-      "url-prefix(http://www.w3.org/Style/),\n" +
-      "domain(mozilla.org),\n" +
-      "regexp(\"https:.*\") ")
-  t.end()
+      "regexp(\"https:.*\") {}")).toBe("@document url(http://www.w3.org/),\n " +
+    "url-prefix(http://www.w3.org/Style/),\n" +
+    "domain(mozilla.org),\n" +
+    "regexp(\"https:.*\") ")
 })
 
-test("beforeBlockString with noRawBefore", t => {
-  t.equal(postcssCheck({ noRawBefore: true }, "\na {}"), "a ")
-  t.equal(postcssCheck({ noRawBefore: true }, "\n@media print {}"), "@media print ")
-  t.end()
+it("beforeBlockString with noRawBefore", () => {
+  expect(postcssCheck({ noRawBefore: true }, "\na {}")).toBe("a ")
+  expect(postcssCheck({ noRawBefore: true }, "\n@media print {}")).toBe("@media print ")
 })
 
-test("beforeBlockString with declaration directly at root", t => {
-  t.equal(postcssCheck("foo: bar;"), "")
-  t.end()
+it("beforeBlockString with declaration directly at root", () => {
+  expect(postcssCheck("foo: bar;")).toBe("")
 })
 
-test("beforeBlockString with comment after selector", t => {
-  t.equal(postcssCheck("a /* x */\n{}"), "a /* x */\n")
-  t.end()
+it("beforeBlockString with comment after selector", () => {
+  expect(postcssCheck("a /* x */\n{}")).toBe("a /* x */\n")
 })
 
-test("beforeBlockString without brackets using SugarSS parser", t => {
-  t.equal(postcssCheck({ noRawBefore: true }, ".a", sugarss), ".a")
-  t.end()
+it("beforeBlockString without brackets using SugarSS parser", () => {
+  expect(postcssCheck({ noRawBefore: true }, ".a", sugarss)).toBe(".a")
 })
 
 function postcssCheck(options = {}, cssString, parser = postcss) {
