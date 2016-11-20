@@ -34,21 +34,11 @@ describe("declarationValueIndex", () => {
   })
 })
 
-/* This will be removed */
-// function delayPromise(delay) {
-//   return (data) => {
-//     return new Promise((resolve) => {
-//       setTimeout(() => (resolve(data)), delay)
-//     })
-//   }
-// }
-
 function rules(
   css: string,
   cb: Function
 ): Promise<postcss$result> {
   return postcss().process(css)
-  // .then(delayPromise(1000))
   .then(result => {
     return result.root.walkDecls(cb)
   })
