@@ -1,3 +1,9 @@
+export type postcss$result = {
+  root: {
+    walkDecls: Function
+  }
+}
+
 export type postcss$comment = {
   text: string,
   source: {
