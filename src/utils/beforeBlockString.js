@@ -15,7 +15,7 @@ export default function (
   statement: Object,
   { noRawBefore }: { noRawBefore: ?boolean} = {}
 ): string {
-  let result: string = ""
+  let result = ""
   let rule: postcss$rule
   let atRule: postcss$atRule
 
@@ -24,8 +24,8 @@ export default function (
 
   if (!rule && !atRule) { return result }
 
-  const before: string = statement.raws.before
-  const between: string = statement.raws.between
+  const before = statement.raws.before
+  const between = statement.raws.between
 
   if (!noRawBefore) { result += before }
   if (rule) { result += rule.selector }

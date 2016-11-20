@@ -22,19 +22,19 @@ export default function (
   source: string,
   functionName: string,
   blurChar: string = "`"
-) {
-  const nameWithParen: string = `${functionName.toLowerCase()}(`
-  const lowerCaseSource: string = source.toLowerCase()
+): string {
+  const nameWithParen = `${functionName.toLowerCase()}(`
+  const lowerCaseSource = source.toLowerCase()
   if (!_.includes(lowerCaseSource, nameWithParen)) { return source }
 
   const functionNameLength: number = functionName.length
 
-  let result: string = source
-  let searchStartIndex: number = 0
+  let result = source
+  let searchStartIndex = 0
   while (lowerCaseSource.indexOf(nameWithParen, searchStartIndex) !== -1) {
-    const openingParenIndex: number = lowerCaseSource.indexOf(nameWithParen, searchStartIndex) + functionNameLength
-    const closingParenIndex: number = balancedMatch("(", ")", lowerCaseSource.slice(openingParenIndex)).end + openingParenIndex
-    const argumentsLength: number = closingParenIndex - openingParenIndex - 1
+    const openingParenIndex = lowerCaseSource.indexOf(nameWithParen, searchStartIndex) + functionNameLength
+    const closingParenIndex = balancedMatch("(", ")", lowerCaseSource.slice(openingParenIndex)).end + openingParenIndex
+    const argumentsLength = closingParenIndex - openingParenIndex - 1
     result = result.slice(0, openingParenIndex + 1) + _.repeat(blurChar, argumentsLength) + result.slice(closingParenIndex)
     searchStartIndex = closingParenIndex
   }
