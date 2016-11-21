@@ -4,7 +4,7 @@ import postcss from "postcss"
 import test from "tape"
 
 test("isStandardSyntaxRule", t => {
-  t.plan(19)
+  t.plan(13)
 
   rules("a {}", rule => {
     t.ok(isStandardSyntaxRule(rule), "type")
@@ -29,7 +29,7 @@ test("isStandardSyntaxRule", t => {
     t.notOk(isStandardSyntaxRule(rule), "custom-property-set")
   })
 
-  lessRules(".mixin-name(@var);", rule => {
+  lessRules(".mixin-name(@var) {}", rule => {
     t.notOk(isStandardSyntaxRule(rule), "called Less class parametric mixin")
   })
   lessRules(".mixin-name() {}", rule => {
@@ -42,22 +42,25 @@ test("isStandardSyntaxRule", t => {
     t.notOk(isStandardSyntaxRule(rule), "non-ouputting parametric Less class mixin definition ending in number")
   })
   lessRules("#mixin-name() {}", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "non-ouputting Less id mixin definition")
+    t.notOk(isStandardSyntaxRule(rule), "non-ouputting Less id mixin definition with parenthesis")
   })
-  lessRules("#mixin-name;", rule => {
+  lessRules("a { #mixin-name; }", rule => {
     t.notOk(isStandardSyntaxRule(rule), "called Less id mixin")
   })
-  lessRules("#mixin-name;", rule => {
-    t.notOk(isStandardSyntaxRule(rule), "called Less id mixin")
+  lessRules("a { #mixin-name(); }", rule => {
+    t.notOk(isStandardSyntaxRule(rule), "called Less id mixin with parenthesis")
   })
-  lessRules("#namespace > .mixin-name;", rule => {
+  lessRules("a { #namespace > .mixin-name; }", rule => {
     t.notOk(isStandardSyntaxRule(rule), "called namespaced Less mixin (child)")
   })
-  lessRules("#namespace .mixin-name;", rule => {
+  lessRules("a { #namespace .mixin-name(); } ", rule => {
     t.notOk(isStandardSyntaxRule(rule), "called namespaced Less mixin (descendant)")
   })
   lessRules("#namespace.mixin-name;", rule => {
     t.notOk(isStandardSyntaxRule(rule), "called namespaced Less mixin (compound)")
+  })
+  lessRules("#namespace.mixin-name();", rule => {
+    t.notOk(isStandardSyntaxRule(rule), "called namespaced Less mixin (compound) with parenthesis")
   })
   lessRules(".box-shadow(@style, @c) when (iscolor(@c)) {}", rule => {
     t.notOk(isStandardSyntaxRule(rule), "less mixin")
