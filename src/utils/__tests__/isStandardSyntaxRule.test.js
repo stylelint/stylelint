@@ -94,8 +94,10 @@ describe("isStandardSyntaxRule", () => {
       expect(isStandardSyntaxRule(rule)).toBeFalsy()
     })
   })
-  lessRules("@foo: {};", rule => {
-    expect(isStandardSyntaxRule(rule)).toBeTruthy()
+  it("less detached rulesets", () => {
+    lessRules("@foo: {};", rule => {
+      expect(isStandardSyntaxRule(rule)).toBeTruthy()
+    })
   })
 })
 
