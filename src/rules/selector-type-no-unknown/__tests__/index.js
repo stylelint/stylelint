@@ -123,6 +123,18 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
+  config: [true],
+  skipBasicChecks: true,
+  syntax: "less",
+
+  accept: [{
+    code: "@foo: {};",
+    description: "less detached rulesets",
+  }],
+})
+
+testRule(rule, {
+  ruleName,
   config: [ true, { ignoreTypes: [ "unknown", "/^my-/" ] } ],
   skipBasicChecks: true,
 

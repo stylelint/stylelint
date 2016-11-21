@@ -267,8 +267,11 @@ testRule(rule, {
   syntax: "less",
   config: ["always"],
 
-  accept: [{
+  accept: [ {
     code: "a {}\n.mixin-call() {}",
     description: "ignore non-ouputting Less class mixin definition",
-  }],
+  }, {
+    code: "@foo: {};\n@bar: {};",
+    description: "ignore non-ouputting Less class mixin definition",
+  } ],
 })

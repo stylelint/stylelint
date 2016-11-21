@@ -4,7 +4,7 @@ import postcss from "postcss"
 import test from "tape"
 
 test("isStandardSyntaxRule", t => {
-  t.plan(19)
+  t.plan(20)
 
   rules("a {}", rule => {
     t.ok(isStandardSyntaxRule(rule), "type")
@@ -64,6 +64,9 @@ test("isStandardSyntaxRule", t => {
   })
   lessRules("&:extend(.inline);", rule => {
     t.notOk(isStandardSyntaxRule(rule), "less extend")
+  })
+  lessRules("@foo: {};", rule => {
+    t.notOk(isStandardSyntaxRule(rule), "less detached rulesets")
   })
 })
 
