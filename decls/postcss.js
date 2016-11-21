@@ -1,3 +1,9 @@
+export type postcss$result = {
+  root: {
+    walkDecls: Function
+  }
+}
+
 export type postcss$comment = {
   text: string,
   source: {
@@ -20,4 +26,11 @@ export type postcss$atRule = {
   raws: {
     afterName: string,
   },
+  type: string,
+}
+
+export type postcss$rule = {
+  raws: Object,
+  selector: string,
+  type: string,
 }

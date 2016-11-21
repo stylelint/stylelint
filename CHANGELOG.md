@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: false positives related to LESS detached rulesets.
+
 # 7.6.0
 
 -   Added: option `customSyntax` (for Node API) and `--custom-syntax` (for CLI).

@@ -1,3 +1,4 @@
+/* @flow */
 /**
  * Given a CSS statement, return the string before the block.
  * For rules, this is the selector list (and surrounding whitespace).
@@ -10,24 +11,26 @@
  * @param {boolean} [options.noRawBefore] - Leave out the `before` string
  * @return {string}
  */
-export default function (statement, { noRawBefore } = {}) {
+export default function (
+  statement: Object,
+  { noRawBefore }: { noRawBefore: ?boolean} = {}
+): string {
   let result = ""
-  if (statement.type !== "rule" && statement.type !== "atrule") { return result }
+  let rule: postcss$rule
+  let atRule: postcss$atRule
 
-  if (!noRawBefore) {
-    result += statement.raws.before
-  }
-  if (statement.type === "rule") {
-    result += statement.selector
-  } else {
-    result += "@" + statement.name + statement.raws.afterName + statement.params
-  }
+  if (statement.type === "rule") { rule = statement }
+  if (statement.type === "atrule") { atRule = statement }
 
+  if (!rule && !atRule) { return result }
+
+  const before = statement.raws.before
   const between = statement.raws.between
 
-  if (between !== undefined) {
-    result += between
-  }
+  if (!noRawBefore) { result += before }
+  if (rule) { result += rule.selector }
+  if (atRule) { result += "@" + atRule.name + atRule.raws.afterName + atRule.params }
+  if (between !== undefined) { result += between }
 
   return result
 }
