@@ -1,11 +1,25 @@
 import isStandardSyntaxProperty from "../isStandardSyntaxProperty"
 
-it("isStandardSyntaxProperty", () => {
-  expect(isStandardSyntaxProperty("top")).toBeTruthy()
-  expect(isStandardSyntaxProperty("--custom-property")).toBeTruthy()
-  expect(isStandardSyntaxProperty("border-top-left-radius")).toBeTruthy()
-  expect(isStandardSyntaxProperty("-webkit-appearance")).toBeTruthy()
-  expect(isStandardSyntaxProperty("$sass-variable")).toBeFalsy()
-  expect(isStandardSyntaxProperty("#{$Attr}-color")).toBeFalsy()
-  expect(isStandardSyntaxProperty("@{Attr}-color")).toBeFalsy()
+describe("isStandardSyntaxProperty", () => {
+  it("single word", () => {
+    expect(isStandardSyntaxProperty("top")).toBeTruthy()
+  })
+  it("custom property", () => {
+    expect(isStandardSyntaxProperty("--custom-property")).toBeTruthy()
+  })
+  it("hyphenated words", () => {
+    expect(isStandardSyntaxProperty("border-top-left-radius")).toBeTruthy()
+  })
+  it("vendor prefix", () => {
+    expect(isStandardSyntaxProperty("-webkit-appearance")).toBeTruthy()
+  })
+  it("sass variable", () => {
+    expect(isStandardSyntaxProperty("$sass-variable")).toBeFalsy()
+  })
+  it("sass interpolation", () => {
+    expect(isStandardSyntaxProperty("#{$Attr}-color")).toBeFalsy()
+  })
+  it("less variable", () => {
+    expect(isStandardSyntaxProperty("@{Attr}-color")).toBeFalsy()
+  })
 })
