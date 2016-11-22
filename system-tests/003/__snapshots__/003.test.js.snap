@@ -1,0 +1,12 @@
+exports[`test 003 1`] = `
+Array [
+  Object {
+    "deprecations": Array [],
+    "errored": undefined,
+    "ignored": undefined,
+    "invalidOptionWarnings": Array [],
+    "source": "003/stylesheet.css",
+    "warnings": Array [],
+  },
+]
+`;
