@@ -207,7 +207,7 @@ describe("extending config with ignoreFiles glob ignoring one by negation", () =
   })
 })
 
-describe.only("specified `ignorePath` file ignoring one file", () => {
+describe("specified `ignorePath` file ignoring one file", () => {
   let results
   let actualCwd
 
