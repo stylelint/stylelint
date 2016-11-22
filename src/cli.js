@@ -107,6 +107,10 @@ const meowOptions = {
         If you provide the argument "error", the process will exit with code 2
         if needless disables are found.
 
+      --allow-empty-input
+
+        Prevent a non-zero exit code when there is no input.
+
       --version, -v
 
         Show the currently installed version of stylelint.
@@ -170,7 +174,12 @@ if (cli.flags.ignoreDisables) {
   optionsBase.ignoreDisables = cli.flags.ignoreDisables
 }
 
-const { reportNeedlessDisables } = cli.flags
+const { allowEmptyInput, reportNeedlessDisables } = cli.flags
+
+if (allowEmptyInput) {
+  optionsBase.allowEmptyInput = allowEmptyInput
+}
+
 if (reportNeedlessDisables) {
   optionsBase.reportNeedlessDisables = reportNeedlessDisables
 }
