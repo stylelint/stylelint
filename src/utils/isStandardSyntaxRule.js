@@ -27,5 +27,8 @@ export default function (rule) {
   // Non-outputting Less mixin definition (e.g. .mixin() {})
   if (_.endsWith(selector, ")") && !_.includes(selector, ":")) { return false }
 
+  // Ignore Scss nested properties
+  if (selector.slice(-1) === ":") { return false }
+
   return true
 }
