@@ -65,7 +65,7 @@
     "stylehacks": "^2.3.0",
     "sugarss": "^0.2.0",
     "svg-tags": "^1.0.0",
-    "table": "^3.7.8"
+    "table": "^4.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.1.18",
