@@ -1,4 +1,4 @@
-import table, { getBorderCharacters } from "table"
+import { getBorderCharacters, table } from "table"
 import _ from "lodash"
 import chalk from "chalk"
 import path from "path"
