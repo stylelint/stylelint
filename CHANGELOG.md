@@ -1,6 +1,6 @@
 # Head
 
--   Fixed: false positives related to LESS detached rulesets.
+- Fixed: false positives related to LESS detached rulesets ([#2089](https://github.com/stylelint/stylelint/pull/2089))
 
 # 7.6.0
 
