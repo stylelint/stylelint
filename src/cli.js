@@ -24,6 +24,7 @@ const minimistOptions = {
     rd: "report-needless-disables",
     s: "syntax",
     v: "version",
+    aei: "allow-empty-input",
   },
 }
 
@@ -101,6 +102,10 @@ const meowOptions = {
 
         Force enabling/disabling of color.
 
+      --allow-empty-input, -aei
+
+        If no files match glob pattern, exits without throwing an error.
+
       --report-needless-disables, --rd
 
         Report stylelint-disable comments that are not blocking a lint warning.
@@ -168,6 +173,10 @@ if (cli.flags.ignorePath) {
 
 if (cli.flags.ignoreDisables) {
   optionsBase.ignoreDisables = cli.flags.ignoreDisables
+}
+
+if (cli.flags.allowEmptyInput) {
+  optionsBase.allowEmptyInput = cli.flags.allowEmptyInput
 }
 
 const { reportNeedlessDisables } = cli.flags
