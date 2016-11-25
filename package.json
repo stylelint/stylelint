@@ -81,7 +81,7 @@
     "eslint": "~3.10.0",
     "eslint-config-stylelint": "^5.0.0",
     "eslint-plugin-flowtype": "^2.21.0",
-    "flow-bin": "^0.35.0",
+    "flow-bin": "^0.36.0",
     "jest": "^17.0.3",
     "npm-run-all": "^3.0.0",
     "npmpub": "^3.0.1",
