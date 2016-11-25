@@ -31,6 +31,10 @@ testRule(rule, {
     code: "/*! copyright */",
   }, {
     code: "/*# sourcemap */",
+  }, {
+    code: "/*!\ncopyright */",
+  }, {
+    code: "/*#\nsourcemap */",
   } ],
 
   reject: [ {

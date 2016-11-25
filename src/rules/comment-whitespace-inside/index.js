@@ -32,7 +32,7 @@ export default function (expectation) {
       const firstFourChars = rawComment.substr(0, 4)
 
       // Return early if sourcemap or copyright comment
-      if (firstFourChars === "/*# " || firstFourChars === "/*! ") { return }
+      if (/^\/\*[#!]\s/.test(firstFourChars)) { return }
 
       const leftMatches = rawComment.match(/(^\/\*+)(\s)?/)
       const rightMatches = rawComment.match(/(\s)?(\*+\/)$/)
