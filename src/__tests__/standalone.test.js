@@ -90,6 +90,28 @@ it("standalone with non-existent-file should throw error with code 80", () => {
   })
 })
 
+describe("standalone with non-existent-file and allow-empty-input", () => {
+  it("should not throw error", () => {
+    expect(() => standalone({
+      files: `${fixturesPath}/non-existent-file.css`,
+      allowEmptyInput: true,
+    })).not.toThrow()
+  })
+
+  it("should resolve empty results", () => {
+    return standalone({
+      files: `${fixturesPath}/non-existent-file.css`,
+      allowEmptyInput: true,
+    }).then(data => {
+      expect(data).toEqual({
+        errored: false,
+        output: "[]",
+        results: [],
+      })
+    })
+  })
+})
+
 describe("standalone passing code with syntax error", () => {
   let results
 
