@@ -16,13 +16,6 @@ Array [
       },
       Object {
         "column": 3,
-        "line": 1,
-        "rule": "comment-whitespace-inside",
-        "severity": "error",
-        "text": "Expected whitespace after \"/*\" (comment-whitespace-inside)",
-      },
-      Object {
-        "column": 3,
         "line": 5414,
         "rule": "declaration-block-no-duplicate-properties",
         "severity": "error",
