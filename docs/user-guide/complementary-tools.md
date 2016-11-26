@@ -1,5 +1,7 @@
 # Complementary tools
 
+A list of complementary tools built and maintained by the community.
+
 ## Analysis platform engines
 
 -   [codeclimate-stylelint](https://github.com/gilbarbara/codeclimate-stylelint): Code Climate engine for stylelint
@@ -24,4 +26,4 @@
 
 ## Editors
 
--   [WebStorm](https://blog.jetbrains.com/webstorm/2016/09/webstorm-2016-3-eap-163-4830-stylelint-usages-for-default-exports-and-more/): stylelint integration is supported from version 2016.3 onwards.
+-   [WebStorm](https://blog.jetbrains.com/webstorm/2016/09/webstorm-2016-3-eap-163-4830-stylelint-usages-for-default-exports-and-more/): Version 2016.3 onwards has built-in support for stylelint.
