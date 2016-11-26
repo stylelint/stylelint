@@ -34,7 +34,7 @@ export default function (max) {
           checkSelector(childNode, rule)
         }
 
-        // Compund selectors are separated by combinators, so increase count when meeting one
+        // Compound selectors are separated by combinators, so increase count when meeting one
         if (childNode.type === "combinator") { compoundCount++ }
       })
 

@@ -170,10 +170,13 @@ testRule(rule, {
   config: [1],
   syntax: "scss",
 
-  accept: [{
+  accept: [ {
     code: "#hello #{$test} {}",
     description: "ignore rules with variable interpolation",
-  }],
+  }, {
+    code: ".foo { margin: { left: 5px; top: 10px; }; }",
+    description: "nested properties",
+  } ],
 })
 
 testRule(rule, {
