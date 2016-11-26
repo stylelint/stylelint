@@ -19,11 +19,19 @@ export default function (
     return Promise.reject("You must provide filePath, code, or existingPostcssResult")
   }
 
-  const inputFilePath = (options.code !== undefined)
+  const isCodeNotFile = options.code !== undefined
+
+  const inputFilePath = (isCodeNotFile)
     ? options.codeFilename
     : options.filePath
 
-  return stylelint.isPathIgnored(inputFilePath).then((isIgnored) => {
+  const getIsIgnored = stylelint.isPathIgnored(inputFilePath)
+    .catch((err) => {
+      if (isCodeNotFile && err.code === "ENOENT") return false
+      throw err
+    })
+
+  return getIsIgnored.then((isIgnored) => {
     if (isIgnored) {
       const postcssResult = options.existingPostcssResult || createEmptyPostcssResult(inputFilePath)
       postcssResult.stylelint = postcssResult.stylelint || {}
@@ -33,7 +41,14 @@ export default function (
     }
 
     const configSearchPath = stylelint._options.configFile || inputFilePath
-    return stylelint.getConfigForFile(configSearchPath).then(({ config }) => {
+
+    const getConfig = stylelint.getConfigForFile(configSearchPath)
+      .catch((err) => {
+        if (isCodeNotFile && err.code === "ENOENT") return stylelint.getConfigForFile(process.cwd())
+        throw err
+      })
+
+    return getConfig.then(({ config }) => {
       const { existingPostcssResult } = options
       if (existingPostcssResult) {
         return lintPostcssResult(stylelint, existingPostcssResult, config)
