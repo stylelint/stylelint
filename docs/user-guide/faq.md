@@ -5,6 +5,7 @@
 You can disable a rule by setting its config value to `null`.
 
 For example, to use `stylelint-config-standard` without the `at-rule-empty-line-before` rule:
+
 ```json
 {
   "extends": "stylelint-config-standard",
@@ -14,7 +15,7 @@ For example, to use `stylelint-config-standard` without the `at-rule-empty-line-
 }
 ```
 
-You can also disable a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/configuration.md#rules) for more information.
+You can also disable a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](/docs/user-guide/configuration.md#rules) for more information.
 
 ## How do I lint from the command line?
 
@@ -101,7 +102,7 @@ All these patterns disallow CSS identifiers that start with a digit, two hyphens
 
 ## How do I change the default severity to "warning" so stylelint doesn't break my build?
 
-Use the [`defaultSeverity`](/docs/user-guide/configuration.md#defaultSeverity) configuration option.
+Use the [`defaultSeverity`](/docs/user-guide/configuration.md#defaultseverity) configuration option.
 
 ## Can I bundle more than one sharable config within a npm package?
 
