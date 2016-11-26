@@ -627,3 +627,17 @@ testRule(rule, {
     description: "Less mixin with multi-line arguments",
   } ],
 })
+
+testRule(rule, {
+  ruleName,
+  config: [4],
+  syntax: "scss",
+  skipBasicChecks: true,
+
+  accept: [{
+    code: "$b__char__bse_icons: (\n" +
+    "    back-small:'\1438' // 'ᐸ'\n" +
+    ");\n",
+    description: "Less mixin with multi-line arguments",
+  }],
+})
