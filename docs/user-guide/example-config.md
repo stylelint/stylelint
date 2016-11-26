@@ -1,8 +1,8 @@
 # Example config
 
-This example config lists all of the [rules](/docs/user-guide/rules.md) and their primary options. You can remove ([or turn off](/docs/user-guide/configuration.md#rules)) the rules you don't want and edit the primary option of each rule to your liking.
+This example config lists all of the [rules](rules.md) and their primary options. You can remove ([or turn off](configuration.md#rules)) the rules you don't want and edit the primary option of each rule to your liking.
 
-You might want to learn a little about [how rules are named and how they work together](/docs/user-guide/about-rules.md), to get a better idea of what each rule does.
+You might want to learn a little about [how rules are named and how they work together](about-rules.md), to get a better idea of what each rule does.
 
 ```json
 {
@@ -63,7 +63,7 @@ You might want to learn a little about [how rules are named and how they work to
     "declaration-property-value-blacklist": {},
     "declaration-property-value-whitelist": {},
     "font-family-name-quotes": "always-where-required"|"always-where-recommended"|"always-unless-keyword",
-    "font-family-no-duplicate-names": true,    
+    "font-family-no-duplicate-names": true,
     "font-weight-notation": "numeric"|"named",
     "function-blacklist": string|[],
     "function-calc-no-unspaced-operator": true,
@@ -102,7 +102,7 @@ You might want to learn a little about [how rules are named and how they work to
     "media-query-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
     "media-query-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
     "media-query-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
-    "media-query-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",  
+    "media-query-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
     "no-browser-hacks": true,
     "no-descending-specificity": true,
     "no-duplicate-selectors": true,

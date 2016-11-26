@@ -36,4 +36,4 @@ Processors can enable stylelint to lint the CSS within non-stylesheet files. For
 ## Sharing processors
 
 -   Use the `stylelint-processor` keyword within your `package.json`.
--   Once your processor is published, please send us a Pull Request to add your processor to [the list](/docs/user-guide/processors.md).
+-   Once your processor is published, please send us a Pull Request to add your processor to [the list](../user-guide/processors.md).

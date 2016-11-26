@@ -12,7 +12,7 @@ This rule uses [css-colorguard](https://github.com/SlexAxton/css-colorguard), wh
 
 In CSS, nearly identical colors often occur because that color was guessed at or eye-dropped at different times, by different people, with different software, etc.; and the intent was always to use the same color, but unfortunately things didn't turn out that way. Instead of having 5 shades of pale light blue, for example, you probably wanted just one,
 
-For more details about how css-colorguard works, please read [that module's documentation]([css-colorguard](https://github.com/SlexAxton/css-colorguard)).
+For more details about how css-colorguard works, please read [that module's documentation](https://github.com/SlexAxton/css-colorguard).
 
 Bugs and feature requests should be reported on the [css-colorguard issue tracker](https://github.com/SlexAxton/css-colorguard/issues).
 

@@ -1,8 +1,8 @@
 # Rules
 
-Rules determine what the linter looks for and complains about. All the rules are turned off by default and none have default values for their options. The rules follow a consistent naming convention and have been designed to work in conjunction with one another, you can read more about this in the ["About rules"](/docs/user-guide/about-rules.md) section.
+Rules determine what the linter looks for and complains about. All the rules are turned off by default and none have default values for their options. The rules follow a consistent naming convention and have been designed to work in conjunction with one another, you can read more about this in the ["About rules"](about-rules.md) section.
 
-In addition to these rules there are [plugins](/docs/user-guide/plugins.md), which are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases. Don't forget to look at the list of [plugins](/docs/user-guide/plugins.md) for more ways to lint.
+In addition to these rules there are [plugins](plugins.md), which are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases. Don't forget to look at the list of [plugins](plugins.md) for more ways to lint.
 
 ## List of rules
 

@@ -44,6 +44,6 @@ will be removed in `7.0.0`. This is an opportunity for the community to develop 
 
 The `indentation` rule will only check the more common use-case of block-level indentation. As such, the `hierarchicalSelectors` option will be removed. If you use the `hierarchicalSelectors` option please consider creating a plugin for this specific code style and sharing it with the community.
 
-The `-e` and `--extract` flags and the `extractStyleTagsFromHtml` node API option will be replaced by an extensible processor system. If you currently use these flags or this option to extract CSS code from HTML files, please consider [building a processor](/docs/developer-guide/processors.md) for the community.
+The `-e` and `--extract` flags and the `extractStyleTagsFromHtml` node API option will be replaced by an extensible processor system. If you currently use these flags or this option to extract CSS code from HTML files, please consider [building a processor](../developer-guide/processors.md) for the community.
 
 All being well, the community will, if there is a need, create these plugins and processors while the stylelint team focuses on developing `7.0.0`. This will provide a smoother transition to `7.0.0`, once it is ready.

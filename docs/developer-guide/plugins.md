@@ -1,8 +1,8 @@
 # Writing plugins
 
-Plugins are rules and sets of rules built by the community. 
+Plugins are rules and sets of rules built by the community.
 
-We recommend familiarising yourself and adhering to stylelint's [conventions for writing rules](/docs/developer-guide/rules.md), including those for names, options, messages, tests and docs.
+We recommend familiarising yourself and adhering to stylelint's [conventions for writing rules](rules.md), including those for names, options, messages, tests and docs.
 
 ## The anatomy of a plugin
 
@@ -32,7 +32,7 @@ Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`
 
 `stylelint.createPlugin(ruleName, ruleFunction)` ensures that your plugin will be setup properly alongside other rules.
 
-In order for your plugin rule to work with the [standard configuration format](/docs/user-guide/configuration.md#rules), `ruleFunction` should accept 2 arguments: the primary option and, optionally, an secondary options object.
+In order for your plugin rule to work with the [standard configuration format](../user-guide/configuration.md#rules), `ruleFunction` should accept 2 arguments: the primary option and, optionally, an secondary options object.
 
 `ruleFunction` should return a function that is essentially a little [PostCSS plugin](https://github.com/postcss/postcss/blob/master/docs/writing-a-plugin.md): it takes 2 arguments: the PostCSS Root (the parsed AST), and the PostCSS LazyResult. You'll have to [learn about the PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md).
 
@@ -68,11 +68,11 @@ export default stylelint.createPlugin(ruleName, function (expectation) {
 
 ## Allow primary option arrays
 
-If your plugin can accept an array as its primary option, you must designate this by setting the property `primaryOptionArray = true` on your rule function. For more information, check out the ["Working on rules"](/docs/developer-guide/rules.md#primary) doc.
+If your plugin can accept an array as its primary option, you must designate this by setting the property `primaryOptionArray = true` on your rule function. For more information, check out the ["Working on rules"](rules.md#primary) doc.
 
 ## External helper modules
 
-In addition to the standard parsers mentioned in the ["Working on rules"](/docs/developer-guide/rules.md) doc, there are other external modules used within stylelint that we recommend using. These include:
+In addition to the standard parsers mentioned in the ["Working on rules"](rules.md) doc, there are other external modules used within stylelint that we recommend using. These include:
 
 -   [normalize-selector](https://github.com/getify/normalize-selector): Normalize CSS selectors.
 -   [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector): Given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
@@ -91,4 +91,4 @@ To make a single module provide multiple rules, simply export an array of plugin
 ## Sharing plugins and plugin packs
 
 -   Use the `stylelint-plugin` keyword within your `package.json`.
--   Once your plugin is published, please send us a Pull Request to add your plugin to [the list](/docs/user-guide/plugins.md).
+-   Once your plugin is published, please send us a Pull Request to add your plugin to [the list](../user-guide/plugins.md).

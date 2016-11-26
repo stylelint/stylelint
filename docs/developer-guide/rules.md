@@ -31,7 +31,7 @@ Otherwise, it should be a plugin. However, plugins should also try to adhere to 
 
 ### Naming a rule
 
-Have a look at the [rules user guide](/docs/user-guide/about-rules.md) to familiarize yourself the rule naming conventions.
+Have a look at the [rules user guide](../user-guide/about-rules.md) to familiarize yourself the rule naming conventions.
 
 We take care to ensure that all the rules are named accurately and consistently. Our goals in that effort are to ensure that rules are easy to find and understand, and to prevent us from wanting to change the name later.
 
@@ -72,7 +72,7 @@ A rule's secondary option can be anything if you're not ignoring or making excep
 
 ##### Keyword `"ignore"` and `"except"`
 
-`"ignore"` and `"except"` accept an array of predefined keyword options e.g. `["relative", "first-nested", "descendant"]`. 
+`"ignore"` and `"except"` accept an array of predefined keyword options e.g. `["relative", "first-nested", "descendant"]`.
 
 -   Use `"ignore"` when you want the rule to simply skip-over a particular pattern.
 -   Use `"except"` when you want to invert the primary option for a particular pattern.
@@ -190,8 +190,8 @@ Take the form of:
 The final step is to add references to the new rule in the following places:
 
 -   [The rules `index.js` file](https://github.com/stylelint/stylelint/blob/master/src/rules/index.js)
--   [The list of rules](/docs/user-guide/rules.md)
--   [The example config](/docs/user-guide/example-config.md)
+-   [The list of rules](../user-guide/rules.md)
+-   [The example config](../user-guide/example-config.md)
 
 Once you have something to show, you'll create a [pull request](https://github.com/stylelint/stylelint/compare) to continue the conversation.
 
