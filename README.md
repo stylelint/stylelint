@@ -64,7 +64,7 @@ There is always a lot of work to do, and already well over 150 rules to maintain
 -   Create, enhance, and debug rules (see our guide to ["Working on rules"](docs/developer-guide/rules.md)).
 -   Improve [documentation](docs/).
 -   Add new tests to *absolutely anything*.
--   Work on [improving performance of rules](docs/developer-guide/benchmarks.md).
+-   Work on [improving performance of rules](docs/developer-guide/rules.md#improving-the-performance-of-new-and-existing-rules).
 -   Open new issues about your ideas for making stylelint better, and pull requests to show us how your idea works.
 -   Create or contribute to ecosystem tools, like the plugins for [Atom](https://github.com/AtomLinter/linter-stylelint) and [Sublime Text](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint).
 
