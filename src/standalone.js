@@ -23,6 +23,7 @@ export default function ({
   formatter,
   syntax,
   customSyntax,
+  allowEmptyInput,
 }: stylelint$standaloneOptions = {}): Promise<stylelint$standaloneReturnValue> {
   const isValidCode = typeof code === "string"
   if (!files && !isValidCode || files && (code || isValidCode)) {
@@ -67,9 +68,13 @@ export default function ({
   return globby([].concat(files, alwaysIgnoredGlobs))
     .then((filePaths) => {
       if (!filePaths.length) {
-        const err: Object = new Error("Files glob patterns specified did not match any files")
-        err.code = 80
-        throw err
+        if (allowEmptyInput === undefined || !allowEmptyInput) {
+          const err: Object = new Error("Files glob patterns specified did not match any files")
+          err.code = 80
+          throw err
+        } else {
+          return Promise.all([])
+        }
       }
 
       const getStylelintResults = filePaths.map((filePath) => {

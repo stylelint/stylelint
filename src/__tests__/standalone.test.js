@@ -90,6 +90,34 @@ it("standalone with non-existent-file should throw error with code 80", () => {
   })
 })
 
+it("standalone with non-existent-file and allowEmptyInput false should throw error with code 80", () => {
+  const expectedError = new Error("Files glob patterns specified did not match any files")
+  expectedError.code = 80
+
+  return standalone({
+    files: `${fixturesPath}/non-existent-file.css`,
+    config: configBlockNoEmpty,
+    allowEmptyInput: false,
+  }).then(() => {
+    throw new Error("should not have succeeded")
+  }).catch((actualError) => {
+    expect(actualError).toEqual(expectedError)
+  })
+})
+
+it("standalone with non-existent-file and allowEmptyInput true", () => {
+  return standalone({
+    files: `${fixturesPath}/non-existent-file.css`,
+    config: configBlockNoEmpty,
+    allowEmptyInput: true,
+  }).then(({ output, results, errored }) => {
+    expect(typeof output).toBe("string")
+    expect(results.length).toBe(0)
+    expect(errored).toBe(false)
+    expect(output).toBe("[]")
+  })
+})
+
 describe("standalone passing code with syntax error", () => {
   let results
 
