@@ -107,7 +107,7 @@
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
     "flow": "flow",
-    "test": "npm run jest",
+    "test": "jest -i",
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist",
     "prepublish": "npm run build",

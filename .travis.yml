@@ -9,13 +9,13 @@ matrix:
       script: npm run lint && npm run flow
       env: CI=lint+flow
     - node_js: '7'
-      script: npm run test
+      script: npm run test -- -i
       env: CI=test
     - node_js: '6'
-      script: npm run test
+      script: npm run test -- -i
       env: CI=test
     - node_js: '4'
-      script: npm run test
+      script: npm run test -- -i
       env: CI=test
 before_install:
   - npm prune
