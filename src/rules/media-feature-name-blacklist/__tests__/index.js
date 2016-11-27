@@ -3,7 +3,6 @@
   ruleName,
   } from ".."
 import rules from "../../../rules"
-import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
 

@@ -74,7 +74,6 @@
     "babel-plugin-transform-flow-strip-types": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-es2017": "^6.14.0",
-    "babel-tape-runner": "^2.0.0",
     "benchmark": "^2.1.0",
     "common-tags": "^1.3.0",
     "coveralls": "^2.11.9",
@@ -99,16 +98,16 @@
   },
   "scripts": {
     "jest": "jest",
-    "jest-src": "npm run jest -- --testPathPattern /src/",
+    "jest-src": "npm run jest -- --testPathPattern /src/__tests__/",
     "jest-system": "npm run jest -- --testPathPattern /system-tests/",
+    "jest-rules": "npm run jest -- --testPathPattern /src/rules/",
     "benchmark-rule": "babel-node scripts/benchmark-rule.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint:js": "eslint .",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
     "flow": "flow",
-    "tape": "babel-tape-runner \"src/**/__tests__/**/*-test.js\" \"src/rules/**/__tests__/*.js\"",
-    "test": "nyc npm run tape",
+    "test": "npm run jest",
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist",
     "prepublish": "npm run build",
@@ -129,7 +128,10 @@
       "src",
       "system-tests"
     ],
-    "testRegex": ".*\\.test\\.js$"
+    "testRegex": "__tests__/.*\\.test\\.js$|src/rules/.*/__tests__/.*\\.js$",
+    "setupFiles": [
+      "./jest-setup.js"
+    ]
   },
   "greenkeeper": {
     "label": "PR: review needed"
