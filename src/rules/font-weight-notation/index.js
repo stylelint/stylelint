@@ -7,7 +7,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 import { fontWeightKeywords, fontWeightRelativeKeywords } from "../../reference/keywordSets"
-import { includes } from "lodash"
+const _ = require("lodash")
 const postcss = require("postcss")
 
 export const ruleName = "font-weight-notation"
@@ -88,7 +88,7 @@ module.exports = function (expectation, options) {
 
       if (expectation === "named-where-possible") {
         if (isNumbery(weightValue)) {
-          if (includes(WEIGHTS_WITH_KEYWORD_EQUIVALENTS, weightValue)) {
+          if (_.includes(WEIGHTS_WITH_KEYWORD_EQUIVALENTS, weightValue)) {
             complain(messages.expected("named"))
           }
           return

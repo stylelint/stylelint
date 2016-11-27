@@ -2,7 +2,7 @@ const optionsMatches = require("../../utils/optionsMatches")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isNumber } from "lodash"
+const _ = require("lodash")
 const styleSearch = require("style-search")
 
 export const ruleName = "max-line-length"
@@ -15,7 +15,7 @@ module.exports = function (maxLength, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: maxLength,
-      possible: isNumber,
+      possible: _.isNumber,
     }, {
       actual: options,
       possible: {

@@ -1,4 +1,3 @@
-import { assign } from "lodash"
 const configurationError = require("./configurationError")
 const isSingleLineString = require("./isSingleLineString")
 const isWhitespace = require("./isWhitespace")
@@ -163,7 +162,7 @@ module.exports = function (targetWhitespace, expectation, messages) {
   }
 
   function beforeAllowingIndentation(obj) {
-    before(assign({}, obj, { allowIndentation: true }))
+    before(Object.assign({}, obj, { allowIndentation: true }))
   }
 
   function expectBefore() {
@@ -231,7 +230,7 @@ module.exports = function (targetWhitespace, expectation, messages) {
   }
 
   function afterOneOnly(obj) {
-    after(assign({}, obj, { onlyOneChar: true }))
+    after(Object.assign({}, obj, { onlyOneChar: true }))
   }
 
   function expectAfter() {

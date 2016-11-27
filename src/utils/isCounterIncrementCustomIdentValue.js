@@ -1,5 +1,5 @@
 import { counterIncrementKeywords } from "../reference/keywordSets"
-import { isFinite } from "lodash"
+const _ = require("lodash")
 
 /**
  * Check value is a custom ident
@@ -11,7 +11,7 @@ import { isFinite } from "lodash"
 module.exports = function (value) {
   const valueLowerCase = value.toLowerCase()
 
-  if (counterIncrementKeywords.has(valueLowerCase) || isFinite(parseInt(valueLowerCase))) {
+  if (counterIncrementKeywords.has(valueLowerCase) || _.isFinite(parseInt(valueLowerCase))) {
     return false
   }
 

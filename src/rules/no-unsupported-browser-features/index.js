@@ -3,7 +3,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const Result = require("postcss/lib/result")
-import { isString } from "lodash"
+const _ = require("lodash")
 
 export const ruleName = "no-unsupported-browser-features"
 
@@ -17,8 +17,8 @@ module.exports = function (on, options) {
       optional: true,
       actual: options,
       possible: {
-        browsers: [isString],
-        ignore: [isString],
+        browsers: [_.isString],
+        ignore: [_.isString],
       },
     })
     if (!validOptions) {

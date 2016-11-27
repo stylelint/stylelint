@@ -3,7 +3,7 @@ const parseSelector = require("../../utils/parseSelector")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isString } from "lodash"
+const _ = require("lodash")
 
 export const ruleName = "selector-attribute-operator-blacklist"
 
@@ -16,7 +16,7 @@ function rule(blacklistInput) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
-      possible: [isString],
+      possible: [_.isString],
     })
     if (!validOptions) {
       return

@@ -1,4 +1,4 @@
-import { isNumber, repeat } from "lodash"
+const _ = require("lodash")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
@@ -16,7 +16,7 @@ module.exports = function (max) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: max,
-      possible: isNumber,
+      possible: _.isNumber,
     })
     if (!validOptions) {
       return

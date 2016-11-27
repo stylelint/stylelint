@@ -2,7 +2,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const Result = require("postcss/lib/result")
-import { isString } from "lodash"
+const _ = require("lodash")
 const stylehacks = require("stylehacks")
 
 export const ruleName = "no-browser-hacks"
@@ -17,7 +17,7 @@ module.exports = function (on, options) {
       optional: true,
       actual: options,
       possible: {
-        browsers: [isString],
+        browsers: [_.isString],
       },
     })
     if (!validOptions) {

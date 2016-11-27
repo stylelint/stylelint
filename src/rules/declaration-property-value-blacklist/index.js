@@ -1,4 +1,4 @@
-import { find, isEmpty, isObject } from "lodash"
+const _ = require("lodash")
 const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
@@ -15,7 +15,7 @@ module.exports = function (blacklist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
-      possible: [isObject],
+      possible: [_.isObject],
     })
     if (!validOptions) {
       return
@@ -26,9 +26,9 @@ module.exports = function (blacklist) {
         value = decl.value
 
       const unprefixedProp = vendor.unprefixed(prop)
-      const propBlacklist = find(blacklist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
+      const propBlacklist = _.find(blacklist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
 
-      if (isEmpty(propBlacklist)) {
+      if (_.isEmpty(propBlacklist)) {
         return
       }
 

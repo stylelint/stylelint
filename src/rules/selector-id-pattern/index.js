@@ -1,4 +1,4 @@
-import { isRegExp, isString } from "lodash"
+const _ = require("lodash")
 const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
 const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
 const parseSelector = require("../../utils/parseSelector")
@@ -16,13 +16,13 @@ module.exports = function (pattern) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: pattern,
-      possible: [ isRegExp, isString ],
+      possible: [ _.isRegExp, _.isString ],
     })
     if (!validOptions) {
       return
     }
 
-    const normalizedPattern = isString(pattern) ? new RegExp(pattern) : pattern
+    const normalizedPattern = _.isString(pattern) ? new RegExp(pattern) : pattern
 
     root.walkRules(rule => {
       if (!isStandardSyntaxRule(rule)) {

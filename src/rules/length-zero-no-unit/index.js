@@ -4,7 +4,7 @@ const hasBlock = require("../../utils/hasBlock")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { findIndex, findLastIndex, range } from "lodash"
+const _ = require("lodash")
 import { lengthUnits } from "../../reference/keywordSets"
 const styleSearch = require("style-search")
 const valueParser = require("postcss-value-parser")
@@ -54,7 +54,7 @@ module.exports = function (actual) {
           return
         }
 
-        const prevValueBreakIndex = findLastIndex(value.substr(0, index), char => {
+        const prevValueBreakIndex = _.findLastIndex(value.substr(0, index), char => {
           return [ " ", ",", ")", "(", "#" ].indexOf(char) !== -1
         })
 
@@ -66,7 +66,7 @@ module.exports = function (actual) {
         // If no prev break was found, this value starts at 0
         const valueWithZeroStart = prevValueBreakIndex === -1 ? 0 : prevValueBreakIndex + 1
 
-        const nextValueBreakIndex = findIndex(value.substr(valueWithZeroStart), char => {
+        const nextValueBreakIndex = _.findIndex(value.substr(valueWithZeroStart), char => {
           return [ " ", ",", ")" ].indexOf(char) !== -1
         })
 
@@ -82,7 +82,7 @@ module.exports = function (actual) {
 
         // Add the indexes to ignorableIndexes so the same value will not
         // be checked multiple times.
-        range(valueWithZeroStart, valueWithZeroEnd).forEach(i => ignorableIndexes.add(i))
+        _.range(valueWithZeroStart, valueWithZeroEnd).forEach(i => ignorableIndexes.add(i))
 
         // Only pay attention if the value parses to 0
         // and units with lengths

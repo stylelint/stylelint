@@ -4,7 +4,7 @@ const optionsMatches = require("../../utils/optionsMatches")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isString } from "lodash"
+const _ = require("lodash")
 
 export const ruleName = "at-rule-empty-line-before"
 
@@ -23,7 +23,7 @@ module.exports = function (expectation, options) {
       possible: {
         except: [ "all-nested", "blockless-after-same-name-blockless", "blockless-group", "first-nested" ],
         ignore: [ "after-comment", "all-nested", "blockless-after-same-name-blockless", "blockless-group" ],
-        ignoreAtRules: [isString],
+        ignoreAtRules: [_.isString],
       },
       optional: true,
     })

@@ -1,4 +1,4 @@
-import { get } from "lodash"
+const _ = require("lodash")
 
 /**
  * Report a violation.
@@ -54,7 +54,7 @@ module.exports = function (_ref) {
     }
   }
 
-  const severity = get(result.stylelint, [ "ruleSeverities", ruleName ], "ignore")
+  const severity = _.get(result.stylelint, [ "ruleSeverities", ruleName ], "ignore")
 
   if (!result.stylelint.stylelintError && severity === "error") {
     result.stylelint.stylelintError = true
@@ -74,6 +74,6 @@ module.exports = function (_ref) {
     warningProperties.word = word
   }
 
-  const warningMessage = get(result.stylelint, [ "customMessages", ruleName ], message)
+  const warningMessage = _.get(result.stylelint, [ "customMessages", ruleName ], message)
   result.warn(warningMessage, warningProperties)
 }

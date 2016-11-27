@@ -2,7 +2,7 @@ const isCustomProperty = require("../../utils/isCustomProperty")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isRegExp, isString } from "lodash"
+const _ = require("lodash")
 
 export const ruleName = "custom-property-pattern"
 
@@ -14,13 +14,13 @@ module.exports = function (pattern) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: pattern,
-      possible: [ isRegExp, isString ],
+      possible: [ _.isRegExp, _.isString ],
     })
     if (!validOptions) {
       return
     }
 
-    const regexpPattern = isString(pattern) ? new RegExp(pattern) : pattern
+    const regexpPattern = _.isString(pattern) ? new RegExp(pattern) : pattern
 
     root.walkDecls(decl => {
       const prop = decl.prop

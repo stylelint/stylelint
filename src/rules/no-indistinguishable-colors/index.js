@@ -1,4 +1,4 @@
-import { isArray, isNumber } from "lodash"
+const _ = require("lodash")
 const isValidHex = require("../../utils/isValidHex")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
@@ -19,8 +19,8 @@ module.exports = function (on, options) {
       actual: options,
       possible: {
         ignore: isValidHex,
-        threshold: x => isNumber(x) && x >= 0 && x <= 100,
-        whitelist: x => isArray(x) && x.every(isValidHex),
+        threshold: x => _.isNumber(x) && x >= 0 && x <= 100,
+        whitelist: x => _.isArray(x) && x.every(isValidHex),
       },
     })
     if (!validOptions) {

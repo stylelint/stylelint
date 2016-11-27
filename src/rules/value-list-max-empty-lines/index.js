@@ -1,4 +1,4 @@
-import { isNumber, repeat } from "lodash"
+const _ = require("lodash")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
@@ -16,7 +16,7 @@ module.exports = function (max) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: max,
-      possible: isNumber,
+      possible: _.isNumber,
     })
     if (!validOptions) {
       return
@@ -24,8 +24,8 @@ module.exports = function (max) {
 
     root.walkDecls(decl => {
       const value = decl.value
-      const repeatLFNewLines = repeat("\n", maxAdjacentNewlines)
-      const repeatCRLFNewLines = repeat("\r\n", maxAdjacentNewlines)
+      const repeatLFNewLines = _.repeat("\n", maxAdjacentNewlines)
+      const repeatCRLFNewLines = _.repeat("\r\n", maxAdjacentNewlines)
 
       styleSearch({ source: value, target: "\n" }, match => {
         if (value.substr(match.startIndex + 1, maxAdjacentNewlines) === repeatLFNewLines || value.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeatCRLFNewLines) {

@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 /* @flow */
-import { assign } from "lodash"
 const getModulePath = require("./utils/getModulePath")
 const getStdin = require("get-stdin")
 const meow = require("meow")
@@ -184,11 +183,11 @@ if (reportNeedlessDisables) {
 Promise.resolve().then(() => {
   // Add input/code into options
   if (cli.input.length) {
-    return assign({}, optionsBase, {
+    return Object.assign({}, optionsBase, {
       files: cli.input,
     })
   }
-  return getStdin().then(stdin => assign({}, optionsBase, {
+  return getStdin().then(stdin => Object.assign({}, optionsBase, {
     code: stdin,
   }))
 }).then(options => {

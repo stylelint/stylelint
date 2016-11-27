@@ -6,7 +6,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
-import { isString } from "lodash"
+const _ = require("lodash")
 
 export const ruleName = "block-closing-brace-newline-after"
 
@@ -27,7 +27,7 @@ module.exports = function (expectation, options) {
     }, {
       actual: options,
       possible: {
-        ignoreAtRules: [isString],
+        ignoreAtRules: [_.isString],
       },
       optional: true,
     })

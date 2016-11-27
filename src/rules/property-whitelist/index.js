@@ -4,7 +4,7 @@ const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isString } from "lodash"
+const _ = require("lodash")
 import { vendor } from "postcss"
 
 export const ruleName = "property-whitelist"
@@ -17,7 +17,7 @@ function rule(whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,
-      possible: [isString],
+      possible: [_.isString],
     })
     if (!validOptions) {
       return

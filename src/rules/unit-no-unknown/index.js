@@ -5,7 +5,7 @@ const optionsMatches = require("../../utils/optionsMatches")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isString } from "lodash"
+const _ = require("lodash")
 import { units } from "../../reference/keywordSets"
 const valueParser = require("postcss-value-parser")
 
@@ -20,7 +20,7 @@ module.exports = function (actual, options) {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
       possible: {
-        ignoreUnits: [isString],
+        ignoreUnits: [_.isString],
       },
       optional: true,
     })

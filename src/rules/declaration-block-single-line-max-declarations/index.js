@@ -4,7 +4,7 @@ const isSingleLineString = require("../../utils/isSingleLineString")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isNumber } from "lodash"
+const _ = require("lodash")
 
 export const ruleName = "declaration-block-single-line-max-declarations"
 
@@ -16,7 +16,7 @@ module.exports = function (quantity) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: quantity,
-      possible: [isNumber],
+      possible: [_.isNumber],
     })
     if (!validOptions) {
       return

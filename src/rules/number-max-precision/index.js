@@ -4,7 +4,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 
-import { isNumber } from "lodash"
+const _ = require("lodash")
 const valueParser = require("postcss-value-parser")
 
 export const ruleName = "number-max-precision"
@@ -17,7 +17,7 @@ module.exports = function (precision) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: precision,
-      possible: [isNumber],
+      possible: [_.isNumber],
     })
     if (!validOptions) {
       return

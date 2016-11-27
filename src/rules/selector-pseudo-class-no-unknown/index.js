@@ -6,7 +6,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 import { pseudoClasses, pseudoElements } from "../../reference/keywordSets"
-import { isString } from "lodash"
+const _ = require("lodash")
 import { vendor } from "postcss"
 
 export const ruleName = "selector-pseudo-class-no-unknown"
@@ -20,7 +20,7 @@ module.exports = function (actual, options) {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
       possible: {
-        ignorePseudoClasses: [isString],
+        ignorePseudoClasses: [_.isString],
       },
       optional: true,
     })

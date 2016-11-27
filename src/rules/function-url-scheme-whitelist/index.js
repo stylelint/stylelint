@@ -4,7 +4,7 @@ const isStandardSyntaxUrl = require("../../utils/isStandardSyntaxUrl")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isString, trim } from "lodash"
+const _ = require("lodash")
 import { parse } from "url"
 
 export const ruleName = "function-url-scheme-whitelist"
@@ -17,7 +17,7 @@ module.exports = function (whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,
-      possible: [isString],
+      possible: [_.isString],
     })
     if (!validOptions) {
       return
@@ -25,11 +25,11 @@ module.exports = function (whitelist) {
 
     root.walkDecls(function (decl) {
       functionArgumentsSearch(decl.toString().toLowerCase(), "url", (args, index) => {
-        const unspacedUrlString = trim(args, " ")
+        const unspacedUrlString = _.trim(args, " ")
         if (!isStandardSyntaxUrl(unspacedUrlString)) {
           return
         }
-        const urlString = trim(unspacedUrlString, "'\"")
+        const urlString = _.trim(unspacedUrlString, "'\"")
 
         const url = parse(urlString)
         if (url.protocol === null) {

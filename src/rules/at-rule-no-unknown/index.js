@@ -3,7 +3,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 import { atRules } from "../../reference/keywordSets"
-import { isString } from "lodash"
+const _ = require("lodash")
 import { vendor } from "postcss"
 
 export const ruleName = "at-rule-no-unknown"
@@ -17,7 +17,7 @@ module.exports = function (actual, options) {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
       possible: {
-        ignoreAtRules: [isString],
+        ignoreAtRules: [_.isString],
       },
       optional: true,
     })

@@ -4,7 +4,7 @@ const optionsMatches = require("../../utils/optionsMatches")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isString } from "lodash"
+const _ = require("lodash")
 
 export const ruleName = "declaration-block-no-duplicate-properties"
 
@@ -18,7 +18,7 @@ module.exports = function (on, options) {
       actual: options,
       possible: {
         ignore: [ "consecutive-duplicates", "consecutive-duplicates-with-different-values" ],
-        ignoreProperties: [isString],
+        ignoreProperties: [_.isString],
       },
       optional: true,
     })

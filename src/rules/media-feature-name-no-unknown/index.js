@@ -6,7 +6,7 @@ const optionsMatches = require("../../utils/optionsMatches")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isString } from "lodash"
+const _ = require("lodash")
 import { mediaFeatureNames } from "../../reference/keywordSets"
 const mediaParser = require("postcss-media-query-parser")
 import { vendor } from "postcss"
@@ -22,7 +22,7 @@ module.exports = function (actual, options) {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
       possible: {
-        ignoreMediaFeatureNames: [isString],
+        ignoreMediaFeatureNames: [_.isString],
       },
       optional: true,
     })

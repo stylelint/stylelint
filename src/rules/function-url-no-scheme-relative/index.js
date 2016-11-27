@@ -3,7 +3,7 @@ const isStandardSyntaxUrl = require("../../utils/isStandardSyntaxUrl")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { trim } from "lodash"
+const _ = require("lodash")
 
 export const ruleName = "function-url-no-scheme-relative"
 
@@ -20,7 +20,7 @@ module.exports = function (actual) {
 
     root.walkDecls(function (decl) {
       functionArgumentsSearch(decl.toString().toLowerCase(), "url", (args, index) => {
-        const url = trim(args, " '\"")
+        const url = _.trim(args, " '\"")
 
         if (!isStandardSyntaxUrl(url) || url.indexOf("//") !== 0) {
           return

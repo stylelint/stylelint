@@ -4,7 +4,7 @@ const nodeContextLookup = require("../../utils/nodeContextLookup")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { includes, union } from "lodash"
+const _ = require("lodash")
 const normalizeSelector = require("normalize-selector")
 const resolvedNestedSelector = require("postcss-resolve-nested-selector")
 
@@ -34,7 +34,7 @@ module.exports = function (actual) {
 
       const contextSelectorSet = selectorContextLookup.getContext(rule, findAtRuleContext(rule))
       const resolvedSelectors = rule.selectors.reduce((result, selector) => {
-        return union(result, resolvedNestedSelector(selector, rule))
+        return _.union(result, resolvedNestedSelector(selector, rule))
       }, [])
       const normalizedSelectorList = resolvedSelectors.map(normalizeSelector)
 
@@ -61,7 +61,7 @@ module.exports = function (actual) {
 
       // Or complain if one selector list contains the same selector more than one
       rule.selectors.forEach((selector, i) => {
-        if (includes(normalizedSelectorList.slice(0, i), normalizeSelector(selector))) {
+        if (_.includes(normalizedSelectorList.slice(0, i), normalizeSelector(selector))) {
           report({
             result,
             ruleName,

@@ -8,7 +8,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const htmlTags = require("html-tags")
-import { isString } from "lodash"
+const _ = require("lodash")
 const svgTags = require("svg-tags")
 
 export const ruleName = "selector-type-no-unknown"
@@ -25,7 +25,7 @@ module.exports = function (actual, options) {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
       possible: {
-        ignoreTypes: [isString],
+        ignoreTypes: [_.isString],
       },
       optional: true,
     })

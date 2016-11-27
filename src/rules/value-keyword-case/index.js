@@ -7,7 +7,7 @@ const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isString } from "lodash"
+const _ = require("lodash")
 const valueParser = require("postcss-value-parser")
 
 export const ruleName = "value-keyword-case"
@@ -32,7 +32,7 @@ module.exports = function (expectation, options) {
     }, {
       actual: options,
       possible: {
-        ignoreKeywords: [isString],
+        ignoreKeywords: [_.isString],
       },
       optional: true,
     })

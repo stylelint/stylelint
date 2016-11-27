@@ -1,4 +1,4 @@
-import { isEqual, isString, transform } from "lodash"
+const _ = require("lodash")
 const optionsMatches = require("../../utils/optionsMatches")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
@@ -16,7 +16,7 @@ module.exports = function (actual, options) {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
       possible: {
-        ignoreShorthands: [isString],
+        ignoreShorthands: [_.isString],
       },
       optional: true,
     })
@@ -57,7 +57,7 @@ module.exports = function (actual, options) {
         shorthandProperties.forEach(shorthandProperty => {
           (longhandDeclarations[shorthandProperty] || (longhandDeclarations[shorthandProperty] = [])).push(prop)
 
-          if (!isEqual(shorthandData[shorthandProperty].sort(), longhandDeclarations[shorthandProperty].sort())) {
+          if (!_.isEqual(shorthandData[shorthandProperty].sort(), longhandDeclarations[shorthandProperty].sort())) {
             return
           }
 

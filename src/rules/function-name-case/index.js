@@ -5,7 +5,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 import { camelCaseFunctionNames } from "../../reference/keywordSets"
-import { isString } from "lodash"
+const _ = require("lodash")
 const valueParser = require("postcss-value-parser")
 
 export const ruleName = "function-name-case"
@@ -27,7 +27,7 @@ module.exports = function (expectation, options) {
     }, {
       actual: options,
       possible: {
-        ignoreFunctions: [isString],
+        ignoreFunctions: [_.isString],
       },
       optional: true,
     })

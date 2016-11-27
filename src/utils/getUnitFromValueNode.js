@@ -1,5 +1,5 @@
 const blurInterpolation = require("./blurInterpolation")
-import { isFinite } from "lodash"
+const _ = require("lodash")
 const isStandardSyntaxValue = require("./isStandardSyntaxValue")
 const valueParser = require("postcss-value-parser")
 
@@ -22,7 +22,7 @@ module.exports = function (node) {
   // ignore decimal place
   .replace(".", "")
 
-  if (node.type !== "word" || !isStandardSyntaxValue(value) || !isFinite(parseInt(value)) || node.value[0] === "#") {
+  if (node.type !== "word" || !isStandardSyntaxValue(value) || !_.isFinite(parseInt(value)) || node.value[0] === "#") {
     return null
   }
 

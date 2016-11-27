@@ -6,7 +6,7 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 import { acceptCustomIdents } from "../../reference/propertySets"
 import { colorFunctionNames } from "../../reference/keywordSets"
-import { isString } from "lodash"
+const _ = require("lodash")
 const namedColorData = require("../../reference/namedColorData")
 const valueParser = require("postcss-value-parser")
 
@@ -28,7 +28,7 @@ module.exports = function (expectation, options) {
     }, {
       actual: options,
       possible: {
-        ignoreProperties: [isString],
+        ignoreProperties: [_.isString],
         ignore: ["inside-function"],
       },
       optional: true,

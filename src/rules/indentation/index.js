@@ -4,7 +4,7 @@ const optionsMatches = require("../../utils/optionsMatches")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isBoolean, isNumber, repeat } from "lodash"
+const _ = require("lodash")
 const styleSearch = require("style-search")
 
 export const ruleName = "indentation"
@@ -21,20 +21,20 @@ module.exports = function (space) {
   const options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {}
 
   const isTab = space === "tab"
-  const indentChar = isTab ? "\t" : repeat(" ", space)
+  const indentChar = isTab ? "\t" : _.repeat(" ", space)
   const warningWord = isTab ? "tab" : "space"
 
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: space,
-      possible: [ isNumber, "tab" ],
+      possible: [ _.isNumber, "tab" ],
     }, {
       actual: options,
       possible: {
         except: [ "block", "value", "param" ],
         ignore: [ "value", "param", "inside-parens" ],
         indentInsideParens: [ "twice", "once-at-root-twice-in-block" ],
-        indentClosingBrace: [isBoolean],
+        indentClosingBrace: [_.isBoolean],
       },
       optional: true,
     })
@@ -45,7 +45,7 @@ module.exports = function (space) {
     // Cycle through all nodes using walk.
     root.walk(node => {
       const nodeLevel = indentationLevel(node)
-      const expectedWhitespace = repeat(indentChar, nodeLevel)
+      const expectedWhitespace = _.repeat(indentChar, nodeLevel)
 
       let before = node.raws.before
       const after = node.raws.after
@@ -78,7 +78,7 @@ module.exports = function (space) {
       // otherwise there's no indentation involved.
       // And check `indentClosingBrace` to see if it should be indented an extra level.
       const closingBraceLevel = options.indentClosingBrace ? nodeLevel + 1 : nodeLevel
-      if (hasBlock(node) && after && after.indexOf("\n") !== -1 && after.slice(after.lastIndexOf("\n") + 1) !== repeat(indentChar, closingBraceLevel)) {
+      if (hasBlock(node) && after && after.indexOf("\n") !== -1 && after.slice(after.lastIndexOf("\n") + 1) !== _.repeat(indentChar, closingBraceLevel)) {
         report({
           message: messages.expected(legibleExpectation(closingBraceLevel)),
           node,
@@ -234,7 +234,7 @@ module.exports = function (space) {
         }
         const afterNewlineSpace = afterNewlineSpaceMatches[1]
 
-        if (afterNewlineSpace !== repeat(indentChar, expectedIndentLevel)) {
+        if (afterNewlineSpace !== _.repeat(indentChar, expectedIndentLevel)) {
           report({
             message: messages.expected(legibleExpectation(expectedIndentLevel)),
             node,

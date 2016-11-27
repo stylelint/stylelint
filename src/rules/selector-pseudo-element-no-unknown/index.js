@@ -5,7 +5,7 @@ const parseSelector = require("../../utils/parseSelector")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { isString } from "lodash"
+const _ = require("lodash")
 import { pseudoElements } from "../../reference/keywordSets"
 import { vendor } from "postcss"
 
@@ -20,7 +20,7 @@ module.exports = function (actual, options) {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
       possible: {
-        ignorePseudoElements: [isString],
+        ignorePseudoElements: [_.isString],
       },
       optional: true,
     })

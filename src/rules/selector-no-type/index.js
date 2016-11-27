@@ -1,4 +1,4 @@
-import { get, isString } from "lodash"
+const _ = require("lodash")
 const isKeyframeSelector = require("../../utils/isKeyframeSelector")
 const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
 const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
@@ -22,7 +22,7 @@ module.exports = function (on, options) {
       actual: options,
       possible: {
         ignore: [ "descendant", "compounded" ],
-        ignoreTypes: [isString],
+        ignoreTypes: [_.isString],
       },
       optional: true,
     })
@@ -107,5 +107,5 @@ function isCompounded(node) {
 
 function isCombinator(node) {
   if (!node) return false
-  return get(node, "type") === "combinator"
+  return _.get(node, "type") === "combinator"
 }

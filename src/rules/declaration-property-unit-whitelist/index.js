@@ -4,7 +4,7 @@ const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { find, isObject } from "lodash"
+const _ = require("lodash")
 const valueParser = require("postcss-value-parser")
 import { vendor } from "postcss"
 
@@ -18,7 +18,7 @@ module.exports = function (whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,
-      possible: [isObject],
+      possible: [_.isObject],
     })
     if (!validOptions) {
       return
@@ -30,7 +30,7 @@ module.exports = function (whitelist) {
 
       const unprefixedProp = vendor.unprefixed(prop)
 
-      const propWhitelist = find(whitelist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
+      const propWhitelist = _.find(whitelist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
 
       if (!propWhitelist) {
         return

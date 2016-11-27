@@ -5,7 +5,7 @@ const isSingleLineString = require("../../utils/isSingleLineString")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { startsWith } from "lodash"
+const _ = require("lodash")
 
 export const ruleName = "block-closing-brace-newline-before"
 
@@ -54,7 +54,7 @@ module.exports = function (expectation) {
       // the last declaration and the closing brace. We can
       // ignore any other whitespace between them, because that
       // will be checked by the indentation rule.
-      if (!startsWith(after, "\n") && !startsWith(after, "\r\n")) {
+      if (!_.startsWith(after, "\n") && !_.startsWith(after, "\r\n")) {
         if (expectation === "always") {
           complain(messages.expectedBefore)
         } else if (blockIsMultiLine && expectation === "always-multi-line") {
