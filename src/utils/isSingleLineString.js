@@ -5,6 +5,6 @@
  * @param {string} input
  * @return {boolean}
  */
-export default function (input) {
+module.exports = function (input) {
   return !/[\n\r]/.test(input)
 }

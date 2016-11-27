@@ -1,5 +1,10 @@
-import { atRuleParamIndex, declarationValueIndex, getUnitFromValueNode, report, ruleMessages, validateOptions } from "../../utils"
-import valueParser from "postcss-value-parser"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const getUnitFromValueNode = require("../../utils/getUnitFromValueNode")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "unit-case"
 
@@ -7,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

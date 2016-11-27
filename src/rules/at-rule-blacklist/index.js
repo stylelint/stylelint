@@ -1,4 +1,6 @@
-import { report, ruleMessages, validateOptions } from "../../utils"
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString } from "lodash"
 import { vendor } from "postcss"
 
@@ -39,4 +41,4 @@ function rule(blacklistInput) {
 
 rule.primaryOptionArray = true
 
-export default rule
+module.exports = rule

@@ -1,7 +1,7 @@
 /* flow */
-import _ from "lodash"
+const _ = require("lodash")
 
-export default function (results/*: Array<stylelint$result>*/)/*: stylelint$needlessDisablesReport*/ {
+module.exports = function (results/*: Array<stylelint$result>*/)/*: stylelint$needlessDisablesReport*/ {
   const report = []
 
   results.forEach(result => {

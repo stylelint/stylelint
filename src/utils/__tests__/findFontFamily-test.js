@@ -1,5 +1,5 @@
-import findFontFamily from "../findFontFamily"
-import test from "tape"
+const findFontFamily = require("../findFontFamily")
+const test = require("tape")
 
 test("findFontFamily", t => {
   t.deepEqual(findFontFamily("inherit"), [{

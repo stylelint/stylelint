@@ -1,5 +1,10 @@
-import { declarationValueIndex, isSingleLineString, isStandardSyntaxFunction, report, ruleMessages, validateOptions } from "../../utils"
-import valueParser from "postcss-value-parser"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const isSingleLineString = require("../../utils/isSingleLineString")
+const isStandardSyntaxFunction = require("../../utils/isStandardSyntaxFunction")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "function-parentheses-newline-inside"
 
@@ -12,7 +17,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedClosingMultiLine: "Unexpected whitespace before \")\" in a multi-line function",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

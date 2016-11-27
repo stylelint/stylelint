@@ -8,7 +8,7 @@
  *   and values are either message strings or functions that return message strings
  * @return {object} New message object, whose messages will be marked with the rule name
  */
-export default function (ruleName, messages) {
+module.exports = function (ruleName, messages) {
   return Object.keys(messages).reduce((newMessages, messageId) => {
     const messageText = messages[messageId]
     if (typeof messageText === "string") {

@@ -1,8 +1,8 @@
-import configExtendingAnotherExtend from "./fixtures/config-extending-another-extend.json"
-import configExtendingOne from "./fixtures/config-extending-one"
-import configExtendingThreeWithOverride from "./fixtures/config-extending-three-with-override"
-import path from "path"
-import standalone from "../standalone"
+const configExtendingAnotherExtend = require("./fixtures/config-extending-another-extend.json")
+const configExtendingOne = require("./fixtures/config-extending-one")
+const configExtendingThreeWithOverride = require("./fixtures/config-extending-three-with-override")
+const path = require("path")
+const standalone = require("../standalone")
 
 const fixturesPath = path.join(__dirname, "fixtures")
 

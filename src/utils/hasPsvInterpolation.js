@@ -4,7 +4,7 @@
  * @param {string} string
  * @return {boolean} If `true`, a string has postcss-simple-vars interpolation
  */
-export default function (string) {
+module.exports = function (string) {
   if (/\$\(.+?\)/.test(string)) {
     return true
   }

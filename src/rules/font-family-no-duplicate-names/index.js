@@ -1,4 +1,8 @@
-import { declarationValueIndex, findFontFamily, report, ruleMessages, validateOptions } from "../../utils"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const findFontFamily = require("../../utils/findFontFamily")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { fontFamilyKeywords } from "../../reference/keywordSets"
 
 export const ruleName = "font-family-no-duplicate-names"
@@ -9,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
 
 const isFamilyNameKeyword = node => !node.quote && fontFamilyKeywords.has(node.value.toLowerCase())
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

@@ -1,7 +1,10 @@
-import { isWhitespace, report, ruleMessages, validateOptions } from "../../utils"
-import balancedMatch from "balanced-match"
-import styleSearch from "style-search"
-import valueParser from "postcss-value-parser"
+const isWhitespace = require("../../utils/isWhitespace")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const balancedMatch = require("balanced-match")
+const styleSearch = require("style-search")
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "function-calc-no-unspaced-operator"
 
@@ -11,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
   expectedOperatorBeforeSign: operator => `Expected an operator before sign "${operator}"`,
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

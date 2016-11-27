@@ -1,7 +1,7 @@
-import chalk from "chalk"
-import configBlockNoEmpty from "./fixtures/config-block-no-empty"
-import standalone from "../standalone"
-import stringFormatter from "../formatters/stringFormatter"
+const chalk = require("chalk")
+const configBlockNoEmpty = require("./fixtures/config-block-no-empty")
+const standalone = require("../standalone")
+const stringFormatter = require("../formatters/stringFormatter")
 
 it("standalone with input css and alternate formatter specified by keyword", () => {
   return standalone({ code: "a {}", config: configBlockNoEmpty, formatter: "string" }).then((_ref) => {

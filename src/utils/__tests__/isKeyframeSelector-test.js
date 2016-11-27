@@ -1,5 +1,5 @@
-import isKeyframeSelector from "../isKeyframeSelector"
-import test from "tape"
+const isKeyframeSelector = require("../isKeyframeSelector")
+const test = require("tape")
 
 test("isKeyframeSelector", t => {
   t.ok(isKeyframeSelector("to"), "to keyword")

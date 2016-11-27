@@ -1,5 +1,5 @@
-import findAnimationName from "../findAnimationName"
-import test from "tape"
+const findAnimationName = require("../findAnimationName")
+const test = require("tape")
 
 test("findAnimationName", t => {
   t.deepEqual(findAnimationName("inherit"), [{

@@ -1,5 +1,10 @@
-import { isStandardSyntaxRule, parseSelector, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
-import styleSearch from "style-search"
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
+const styleSearch = require("style-search")
 
 export const ruleName = "selector-attribute-operator-space-after"
 
@@ -8,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfter: operator => `Unexpected whitespace after "${operator}"`,
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const checker = whitespaceChecker("space", expectation, messages)
     const validOptions = validateOptions(result, ruleName, {

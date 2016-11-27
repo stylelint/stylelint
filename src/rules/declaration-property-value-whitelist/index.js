@@ -1,5 +1,8 @@
 import { find, isEmpty, isObject } from "lodash"
-import { matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
+const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { vendor } from "postcss"
 
 export const ruleName = "declaration-property-value-whitelist"
@@ -8,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (property, value) => `Unexpected value "${value}" for property "${property}"`,
 })
 
-export default function (whitelist) {
+module.exports = function (whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,

@@ -1,4 +1,4 @@
-import _ from "lodash"
+const _ = require("lodash")
 
 export const nonLengthUnits = new Set([
 // Relative length units

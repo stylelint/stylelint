@@ -1,6 +1,11 @@
-import { beforeBlockString, hasBlock, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+const beforeBlockString = require("../../utils/beforeBlockString")
+const hasBlock = require("../../utils/hasBlock")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isBoolean, isNumber, repeat } from "lodash"
-import styleSearch from "style-search"
+const styleSearch = require("style-search")
 
 export const ruleName = "indentation"
 export const messages = ruleMessages(ruleName, {
@@ -12,7 +17,7 @@ export const messages = ruleMessages(ruleName, {
  *   keyword "tab" for single `\t`
  * @param {object} [options]
  */
-export default function (space) {
+module.exports = function (space) {
   const options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {}
 
   const isTab = space === "tab"

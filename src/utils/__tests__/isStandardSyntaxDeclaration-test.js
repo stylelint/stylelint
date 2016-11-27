@@ -1,8 +1,8 @@
-import isStandardSyntaxDeclaration from "../isStandardSyntaxDeclaration"
-import less from "postcss-less"
-import postcss from "postcss"
-import scss from "postcss-scss"
-import test from "tape"
+const isStandardSyntaxDeclaration = require("../isStandardSyntaxDeclaration")
+const less = require("postcss-less")
+const postcss = require("postcss")
+const scss = require("postcss-scss")
+const test = require("tape")
 
 test("isStandardSyntaxDeclaration", t => {
   t.plan(22)

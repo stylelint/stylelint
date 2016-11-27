@@ -8,7 +8,7 @@
  *
  * For a usage example, see `selector-no-descending-specificity`.
  */
-export default function () {
+module.exports = function () {
   const contextMap = new Map()
 
   return {

@@ -1,4 +1,6 @@
-import { ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
 
 import { selectorAttributeOperatorSpaceChecker } from "../selector-attribute-operator-space-after"
 
@@ -9,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedBefore: operator => `Unexpected whitespace before "${operator}"`,
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {

@@ -4,6 +4,6 @@
  * @param {string} char - A single character
  * @return {boolean}
  */
-export default function (char) {
+module.exports = function (char) {
   return [ " ", "\n", "\t", "\r", "\f" ].indexOf(char) !== -1
 }

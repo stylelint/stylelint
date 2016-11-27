@@ -1,11 +1,12 @@
 /* @flow */
-import { configurationError, getModulePath } from "./utils"
-import _ from "lodash"
-import fs from "fs"
-import globjoin from "globjoin"
-import normalizeRuleSettings from "./normalizeRuleSettings"
-import path from "path"
-import rules from "./rules"
+const configurationError = require("./utils/configurationError")
+const getModulePath = require("./utils/getModulePath")
+const _ = require("lodash")
+const fs = require("fs")
+const globjoin = require("globjoin")
+const normalizeRuleSettings = require("./normalizeRuleSettings")
+const path = require("path")
+const rules = require("./rules")
 
 const DEFAULT_IGNORE_FILENAME = ".stylelintignore"
 const FILE_NOT_FOUND_ERROR_CODE = "ENOENT"

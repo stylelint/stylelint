@@ -1,4 +1,4 @@
-import stylelint from "../../"
+const stylelint = require("../../")
 
 const ruleName = "plugin/primary-array"
 
@@ -17,4 +17,4 @@ function rule(primary) {
 
 rule.primaryOptionArray = true
 
-export default stylelint.createPlugin(ruleName, rule)
+module.exports = stylelint.createPlugin(ruleName, rule)

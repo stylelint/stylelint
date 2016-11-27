@@ -1,14 +1,14 @@
 /* @flow */
-import fs from "fs"
-import lessSyntax from "postcss-less"
-import path from "path"
-import postcss from "postcss"
-import scssSyntax from "postcss-scss"
-import sugarssSyntax from "sugarss"
+const fs = require("fs")
+const lessSyntax = require("postcss-less")
+const path = require("path")
+const postcss = require("postcss")
+const scssSyntax = require("postcss-scss")
+const sugarssSyntax = require("sugarss")
 
 const postcssProcessor = postcss()
 
-export default function (stylelint/*: stylelint$internalApi*/)/*: Promise<?Object>*/ {
+module.exports = function (stylelint/*: stylelint$internalApi*/)/*: Promise<?Object>*/ {
   const options/*: {
                   code?: string,
                   codeFilename?: string,

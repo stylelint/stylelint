@@ -1,7 +1,15 @@
-import { isKeyframeSelector, isStandardSyntaxRule, isStandardSyntaxSelector, isStandardSyntaxTypeSelector, optionsMatches, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
-import htmlTags from "html-tags"
+const isKeyframeSelector = require("../../utils/isKeyframeSelector")
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
+const isStandardSyntaxTypeSelector = require("../../utils/isStandardSyntaxTypeSelector")
+const optionsMatches = require("../../utils/optionsMatches")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const htmlTags = require("html-tags")
 import { isString } from "lodash"
-import svgTags from "svg-tags"
+const svgTags = require("svg-tags")
 
 export const ruleName = "selector-type-no-unknown"
 
@@ -12,7 +20,7 @@ export const messages = ruleMessages(ruleName, {
 // htmlTags includes only "standard" tags. So we augment it with older tags etc.
 const nonStandardHtmlTags = new Set([ "acronym", "applet", "basefont", "big", "blink", "center", "content", "dir", "font", "frame", "frameset", "hgroup", "isindex", "keygen", "listing", "marquee", "noembed", "plaintext", "spacer", "strike", "tt", "xmp" ])
 
-export default function (actual, options) {
+module.exports = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,

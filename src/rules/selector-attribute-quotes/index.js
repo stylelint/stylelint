@@ -1,4 +1,8 @@
-import { isStandardSyntaxRule, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "selector-attribute-quotes"
 
@@ -7,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: value => `Unexpected quotes around "${value}"`,
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

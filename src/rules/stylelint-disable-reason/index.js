@@ -1,4 +1,6 @@
-import { report, ruleMessages, validateOptions } from "../../utils"
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "stylelint-disable-reason"
 
@@ -10,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
 const stylelintDisableCommand = "stylelint-disable"
 const stylelintDisableLineCommand = "stylelint-disable-line"
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return function (root, result) {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

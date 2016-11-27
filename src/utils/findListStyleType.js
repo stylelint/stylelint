@@ -1,6 +1,6 @@
 import { isStandardSyntaxValue, isVariable } from "./"
 import { listStyleImageKeywords, listStylePositionKeywords, listStyleTypeKeywords } from "../reference/keywordSets"
-import postcssValueParser from "postcss-value-parser"
+const postcssValueParser = require("postcss-value-parser")
 
 /**
  * Get the list-style-type within a `list-style` shorthand property value.
@@ -8,7 +8,7 @@ import postcssValueParser from "postcss-value-parser"
  * @param {string} value
  * @return {object} Collection list-style-type nodes
  */
-export default function findListStyleType(value) {
+module.exports = function findListStyleType(value) {
   const listStyleTypes = []
 
   const valueNodes = postcssValueParser(value)

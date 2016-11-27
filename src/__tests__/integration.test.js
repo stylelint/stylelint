@@ -1,8 +1,8 @@
-import lessSyntax from "postcss-less"
-import path from "path"
-import postcss from "postcss"
-import scssSyntax from "postcss-scss"
-import stylelint from "../"
+const lessSyntax = require("postcss-less")
+const path = require("path")
+const postcss = require("postcss")
+const scssSyntax = require("postcss-scss")
+const stylelint = require("../")
 
 const config = {
   rules: {

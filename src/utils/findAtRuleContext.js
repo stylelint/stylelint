@@ -6,7 +6,7 @@
  * @param {Rule} rule
  * @return {AtRule|null}
  */
-export default function findAtRuleContext(rule) {
+module.exports = function findAtRuleContext(rule) {
   const parent = rule.parent
 
   if (parent.type === "root") {

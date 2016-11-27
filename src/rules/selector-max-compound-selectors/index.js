@@ -1,6 +1,10 @@
-import { isStandardSyntaxRule, isStandardSyntaxSelector, report, ruleMessages, validateOptions } from "../../utils"
-import resolvedNestedSelector from "postcss-resolve-nested-selector"
-import selectorParser from "postcss-selector-parser"
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const resolvedNestedSelector = require("postcss-resolve-nested-selector")
+const selectorParser = require("postcss-selector-parser")
 
 export const ruleName = "selector-max-compound-selectors"
 
@@ -8,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   expected: (selector, max) => `Expected "${selector}" to have no more than ${max} compound selectors`,
 })
 
-export default function (max) {
+module.exports = function (max) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: max,

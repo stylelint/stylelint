@@ -1,5 +1,8 @@
-import { isWhitespace, report, ruleMessages, validateOptions } from "../../utils"
-import styleSearch from "style-search"
+const isWhitespace = require("../../utils/isWhitespace")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const styleSearch = require("style-search")
 
 export const ruleName = "function-whitespace-after"
 
@@ -10,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
 
 const ACCEPTABLE_AFTER_CLOSING_PAREN = new Set([ ")", ",", "}", ":", undefined ])
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

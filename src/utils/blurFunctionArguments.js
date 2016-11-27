@@ -1,6 +1,6 @@
 /* @flow */
-import _ from "lodash"
-import balancedMatch from "balanced-match"
+const _ = require("lodash")
+const balancedMatch = require("balanced-match")
 
 /**
  * Replace all of the characters that are arguments to a certain
@@ -18,7 +18,7 @@ import balancedMatch from "balanced-match"
  * @param {[string]} blurChar="`"
  * @return {string} - The result string, with the function arguments "blurred"
  */
-export default function (source/*: string*/, functionName/*: string*/)/*: string*/ {
+module.exports = function (source/*: string*/, functionName/*: string*/)/*: string*/ {
   const blurChar/*: string*/ = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "`"
 
   const nameWithParen = `${functionName.toLowerCase()}(`

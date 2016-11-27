@@ -1,5 +1,12 @@
-import { isKeyframeRule, isStandardSyntaxRule, isStandardSyntaxSelector, optionsMatches, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
-import resolvedNestedSelector from "postcss-resolve-nested-selector"
+const isKeyframeRule = require("../../utils/isKeyframeRule")
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
+const optionsMatches = require("../../utils/optionsMatches")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const resolvedNestedSelector = require("postcss-resolve-nested-selector")
 
 export const ruleName = "selector-no-qualifying-type"
 
@@ -31,7 +38,7 @@ function getRightNodes(node) {
   return result
 }
 
-export default ((enabled, options) => {
+module.exports = ((enabled, options) => {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: enabled,

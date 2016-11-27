@@ -4,6 +4,6 @@
  * @param {string} media feature
  * @return {boolean} If `true`, media feature is a range context one
  */
-export default function (mediaFeature) {
+module.exports = function (mediaFeature) {
   return mediaFeature.indexOf("=") !== -1 || mediaFeature.indexOf("<") !== -1 || mediaFeature.indexOf(">") !== -1
 }

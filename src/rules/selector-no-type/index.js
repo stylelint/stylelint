@@ -1,6 +1,14 @@
 import { get, isString } from "lodash"
-import { isKeyframeSelector, isStandardSyntaxRule, isStandardSyntaxSelector, isStandardSyntaxTypeSelector, optionsMatches, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
-import resolveNestedSelector from "postcss-resolve-nested-selector"
+const isKeyframeSelector = require("../../utils/isKeyframeSelector")
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
+const isStandardSyntaxTypeSelector = require("../../utils/isStandardSyntaxTypeSelector")
+const optionsMatches = require("../../utils/optionsMatches")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const resolveNestedSelector = require("postcss-resolve-nested-selector")
 
 export const ruleName = "selector-no-type"
 
@@ -8,7 +16,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected type selector",
 })
 
-export default function (on, options) {
+module.exports = function (on, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual: on }, {
       actual: options,

@@ -1,4 +1,10 @@
-import { blockString, nextNonCommentNode, rawNodeString, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
+const blockString = require("../../utils/blockString")
+const nextNonCommentNode = require("../../utils/nextNonCommentNode")
+const rawNodeString = require("../../utils/rawNodeString")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
 
 export const ruleName = "declaration-block-semicolon-newline-after"
 
@@ -8,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfterMultiLine: () => "Unexpected newline after \";\" in a multi-line declaration block",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
 
   return (root, result) => {

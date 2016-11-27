@@ -1,4 +1,9 @@
-import { findFontFamily, isStandardSyntaxValue, isVariable, report, ruleMessages, validateOptions } from "../../utils"
+const findFontFamily = require("../../utils/findFontFamily")
+const isStandardSyntaxValue = require("../../utils/isStandardSyntaxValue")
+const isVariable = require("../../utils/isVariable")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { fontFamilyKeywords } from "../../reference/keywordSets"
 
 export const ruleName = "font-family-name-quotes"
@@ -34,7 +39,7 @@ function quotesRequired(family) {
   })
 }
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

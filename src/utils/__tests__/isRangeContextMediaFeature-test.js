@@ -1,5 +1,5 @@
-import isRangeContextMediaFeature from "../isRangeContextMediaFeature"
-import test from "tape"
+const isRangeContextMediaFeature = require("../isRangeContextMediaFeature")
+const test = require("tape")
 
 test("isRangeContextMediaFeature", t => {
   t.ok(isRangeContextMediaFeature("(width = 10px)"))

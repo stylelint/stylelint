@@ -1,4 +1,4 @@
-import postcssPlugin from "../postcssPlugin"
+const postcssPlugin = require("../postcssPlugin")
 
 it("`defaultSeverity` option set to warning", () => {
   const config = {

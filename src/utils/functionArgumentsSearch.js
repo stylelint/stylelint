@@ -1,5 +1,5 @@
-import balancedMatch from "balanced-match"
-import styleSearch from "style-search"
+const balancedMatch = require("balanced-match")
+const styleSearch = require("style-search")
 
 /**
  * Search a CSS string for functions by name.
@@ -13,7 +13,7 @@ import styleSearch from "style-search"
  *   matching function found, with the function's "argument(s) string"
  *   and its starting index as the arguments
  */
-export default function (source, functionName, callback) {
+module.exports = function (source, functionName, callback) {
   styleSearch({
     source,
     target: functionName,

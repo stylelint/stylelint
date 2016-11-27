@@ -1,5 +1,5 @@
-import findListStyleType from "../findListStyleType"
-import test from "tape"
+const findListStyleType = require("../findListStyleType")
+const test = require("tape")
 
 test("findListStyleType", t => {
   t.deepEqual(findListStyleType("inherit"), [{

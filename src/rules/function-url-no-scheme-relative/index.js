@@ -1,4 +1,8 @@
-import { functionArgumentsSearch, isStandardSyntaxUrl, report, ruleMessages, validateOptions } from "../../utils"
+const functionArgumentsSearch = require("../../utils/functionArgumentsSearch")
+const isStandardSyntaxUrl = require("../../utils/isStandardSyntaxUrl")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { trim } from "lodash"
 
 export const ruleName = "function-url-no-scheme-relative"
@@ -7,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected scheme-relative url",
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

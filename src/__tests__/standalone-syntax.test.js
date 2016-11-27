@@ -1,10 +1,10 @@
-import chalk from "chalk"
-import less from "postcss-less"
-import path from "path"
-import scss from "postcss-scss"
-import standalone from "../standalone"
-import stringFormatter from "../formatters/stringFormatter"
-import sugarss from "sugarss"
+const chalk = require("chalk")
+const less = require("postcss-less")
+const path = require("path")
+const scss = require("postcss-scss")
+const standalone = require("../standalone")
+const stringFormatter = require("../formatters/stringFormatter")
+const sugarss = require("sugarss")
 
 const fixturesPath = path.join(__dirname, "fixtures")
 

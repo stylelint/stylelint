@@ -1,7 +1,10 @@
-import { declarationValueIndex, report, ruleMessages, validateOptions } from "../../utils"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { longhandTimeProperties, shorthandTimeProperties } from "../../reference/keywordSets"
-import postcss from "postcss"
-import valueParser from "postcss-value-parser"
+const postcss = require("postcss")
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "time-no-imperceptible"
 
@@ -11,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
 
 const MINIMUM_MILLISECONDS = 100
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

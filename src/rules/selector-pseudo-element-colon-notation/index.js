@@ -1,7 +1,10 @@
-import { isStandardSyntaxRule, report, ruleMessages, validateOptions } from "../../utils"
-import _ from "lodash"
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const _ = require("lodash")
 import { levelOneAndTwoPseudoElements } from "../../reference/keywordSets"
-import styleSearch from "style-search"
+const styleSearch = require("style-search")
 
 export const ruleName = "selector-pseudo-element-colon-notation"
 
@@ -9,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   expected: q => `Expected ${q} colon pseudo-element notation`,
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

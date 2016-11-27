@@ -1,6 +1,6 @@
-import isCustomPropertySet from "../isCustomPropertySet"
-import postcss from "postcss"
-import test from "tape"
+const isCustomPropertySet = require("../isCustomPropertySet")
+const postcss = require("postcss")
+const test = require("tape")
 
 test("customPropertySet", t => {
   t.plan(2)

@@ -5,6 +5,6 @@
  * @param {string} value
  * @return {boolean} If `true`, value is a number
  */
-export default function (value) {
+module.exports = function (value) {
   return value.trim().length !== 0 && Number(value) == value
 }

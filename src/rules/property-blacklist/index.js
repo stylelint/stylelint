@@ -1,4 +1,9 @@
-import { isCustomProperty, isStandardSyntaxProperty, matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
+const isCustomProperty = require("../../utils/isCustomProperty")
+const isStandardSyntaxProperty = require("../../utils/isStandardSyntaxProperty")
+const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString } from "lodash"
 import { vendor } from "postcss"
 
@@ -43,4 +48,4 @@ function rule(blacklist) {
 
 rule.primaryOptionArray = true
 
-export default rule
+module.exports = rule

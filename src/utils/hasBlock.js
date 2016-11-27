@@ -4,6 +4,6 @@
  * @param {Rule|AtRule} statement - postcss rule or at-rule node
  * @return {boolean} True if `statement` has a block (empty or otherwise)
  */
-export default function (statement) {
+module.exports = function (statement) {
   return statement.nodes !== undefined
 }

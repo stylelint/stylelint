@@ -2,13 +2,13 @@
 
 /* @flow */
 import { assign } from "lodash"
-import { getModulePath } from "./utils"
-import getStdin from "get-stdin"
-import meow from "meow"
-import needlessDisablesStringFormatter from "./formatters/needlessDisablesStringFormatter"
-import path from "path"
-import resolveFrom from "resolve-from"
-import standalone from "./standalone"
+const getModulePath = require("./utils/getModulePath")
+const getStdin = require("get-stdin")
+const meow = require("meow")
+const needlessDisablesStringFormatter = require("./formatters/needlessDisablesStringFormatter")
+const path = require("path")
+const resolveFrom = require("resolve-from")
+const standalone = require("./standalone")
 
 const minimistOptions = {
   default: {

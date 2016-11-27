@@ -1,5 +1,5 @@
-import matchesStringOrRegExp from "../matchesStringOrRegExp"
-import test from "tape"
+const matchesStringOrRegExp = require("../matchesStringOrRegExp")
+const test = require("tape")
 
 test("matchesStringOrRegExp comparing with string comparisonValues", t => {
   t.deepEqual(matchesStringOrRegExp("bar", "bar"), { match: "bar", pattern: "bar" })

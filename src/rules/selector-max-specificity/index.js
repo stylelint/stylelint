@@ -1,6 +1,10 @@
-import { isStandardSyntaxRule, isStandardSyntaxSelector, report, ruleMessages, validateOptions } from "../../utils"
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { compare } from "specificity"
-import resolvedNestedSelector from "postcss-resolve-nested-selector"
+const resolvedNestedSelector = require("postcss-resolve-nested-selector")
 
 export const ruleName = "selector-max-specificity"
 
@@ -8,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   expected: (selector, specificity) => `Expected "${selector}" to have a specificity no more than "${specificity}"`,
 })
 
-export default function (max) {
+module.exports = function (max) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: max,

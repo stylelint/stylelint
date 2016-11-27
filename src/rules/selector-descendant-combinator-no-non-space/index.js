@@ -1,4 +1,8 @@
-import { isStandardSyntaxRule, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { nonSpaceCombinators } from "../../reference/punctuationSets"
 
 export const ruleName = "selector-descendant-combinator-no-non-space"
@@ -7,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: nonSpaceCharacter => `Unexpected "${nonSpaceCharacter}"`,
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

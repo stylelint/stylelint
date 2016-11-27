@@ -1,4 +1,8 @@
-import { hasEmptyLine, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+const hasEmptyLine = require("../../utils/hasEmptyLine")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "comment-empty-line-before"
 
@@ -9,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
 
 const stylelintCommandPrefix = "stylelint-"
 
-export default function (expectation, options) {
+module.exports = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

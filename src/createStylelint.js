@@ -1,17 +1,17 @@
 /* @flow */
 import { augmentConfigExtended, augmentConfigFull } from "./augmentConfig"
-import _ from "lodash"
-import cosmiconfig from "cosmiconfig"
-import createStylelintResult from "./createStylelintResult"
-import getConfigForFile from "./getConfigForFile"
-import getPostcssResult from "./getPostcssResult"
-import isPathIgnored from "./isPathIgnored"
-import lintSource from "./lintSource"
+const _ = require("lodash")
+const cosmiconfig = require("cosmiconfig")
+const createStylelintResult = require("./createStylelintResult")
+const getConfigForFile = require("./getConfigForFile")
+const getPostcssResult = require("./getPostcssResult")
+const isPathIgnored = require("./isPathIgnored")
+const lintSource = require("./lintSource")
 
 // The stylelint "internal API" is passed among functions
 // so that methods on a stylelint instance can invoke
 // each other while sharing options and caches
-export default function ()/*: stylelint$internalApi*/ {
+module.exports = function ()/*: stylelint$internalApi*/ {
   const options/*: stylelint$options*/ = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
 
   const stylelint/*: Object*/ = { _options: options }

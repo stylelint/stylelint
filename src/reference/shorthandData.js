@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   "margin": [ "margin-top", "margin-bottom", "margin-left", "margin-right" ],
   "padding": [ "padding-top", "padding-bottom", "padding-left", "padding-right" ],
   "background": [ "background-image", "background-size", "background-position", "background-repeat", "background-origin", "background-clip", "background-attachment", "background-color" ],

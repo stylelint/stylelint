@@ -1,10 +1,10 @@
 import { getBorderCharacters, table } from "table"
-import _ from "lodash"
-import chalk from "chalk"
-import path from "path"
-import stringWidth from "string-width"
-import symbols from "log-symbols"
-import utils from "postcss-reporter/lib/util"
+const _ = require("lodash")
+const chalk = require("chalk")
+const path = require("path")
+const stringWidth = require("string-width")
+const symbols = require("log-symbols")
+const utils = require("postcss-reporter/lib/util")
 
 const MARGIN_WIDTHS = 9
 
@@ -118,7 +118,7 @@ function formatter(messages, source) {
   return output
 }
 
-export default function (results) {
+module.exports = function (results) {
   let output = invalidOptionsFormatter(results)
   output += deprecationsFormatter(results)
 

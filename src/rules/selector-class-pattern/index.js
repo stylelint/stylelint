@@ -1,6 +1,12 @@
-import { isKeyframeSelector, isStandardSyntaxRule, isStandardSyntaxSelector, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
-import _ from "lodash"
-import resolveNestedSelector from "postcss-resolve-nested-selector"
+const isKeyframeSelector = require("../../utils/isKeyframeSelector")
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const _ = require("lodash")
+const resolveNestedSelector = require("postcss-resolve-nested-selector")
 
 export const ruleName = "selector-class-pattern"
 
@@ -8,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
   expected: selectorValue => `Expected class selector ".${selectorValue}" to match specified pattern`,
 })
 
-export default function (pattern, options) {
+module.exports = function (pattern, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: pattern,

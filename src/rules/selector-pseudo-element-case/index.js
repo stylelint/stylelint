@@ -1,4 +1,9 @@
-import { isStandardSyntaxRule, isStandardSyntaxSelector, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { levelOneAndTwoPseudoElements } from "../../reference/keywordSets"
 
 export const ruleName = "selector-pseudo-element-case"
@@ -7,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

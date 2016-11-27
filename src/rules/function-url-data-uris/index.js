@@ -1,5 +1,9 @@
-import { isStandardSyntaxValue, isVariable, report, ruleMessages, validateOptions } from "../../utils"
-import valueParser from "postcss-value-parser"
+const isStandardSyntaxValue = require("../../utils/isStandardSyntaxValue")
+const isVariable = require("../../utils/isVariable")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "function-url-data-uris"
 
@@ -8,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected data URI",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

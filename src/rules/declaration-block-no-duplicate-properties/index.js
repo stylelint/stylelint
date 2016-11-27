@@ -1,4 +1,9 @@
-import { isCustomProperty, isStandardSyntaxProperty, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+const isCustomProperty = require("../../utils/isCustomProperty")
+const isStandardSyntaxProperty = require("../../utils/isStandardSyntaxProperty")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString } from "lodash"
 
 export const ruleName = "declaration-block-no-duplicate-properties"
@@ -7,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: property => `Unexpected duplicate "${property}"`,
 })
 
-export default function (on, options) {
+module.exports = function (on, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual: on }, {
       actual: options,

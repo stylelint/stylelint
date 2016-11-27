@@ -1,11 +1,11 @@
-import { hasInterpolation } from "../utils"
+const hasInterpolation = require("../utils/hasInterpolation")
 /**
  * Check whether a value is standard
  *
  * @param {string} value
  * @return {boolean} If `true`, the value is a variable
  */
-export default function (value) {
+module.exports = function (value) {
   // SCSS variable
   if (value[0] === "$") {
     return false

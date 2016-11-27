@@ -1,5 +1,5 @@
-import isStandardSyntaxProperty from "../isStandardSyntaxProperty"
-import test from "tape"
+const isStandardSyntaxProperty = require("../isStandardSyntaxProperty")
+const test = require("tape")
 
 test("isStandardSyntaxProperty", t => {
   t.ok(isStandardSyntaxProperty("top"), "single word")

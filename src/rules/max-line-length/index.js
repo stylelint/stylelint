@@ -1,6 +1,9 @@
-import { optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isNumber } from "lodash"
-import styleSearch from "style-search"
+const styleSearch = require("style-search")
 
 export const ruleName = "max-line-length"
 
@@ -8,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
   expected: l => `Expected line length to be no more than ${l} characters`,
 })
 
-export default function (maxLength, options) {
+module.exports = function (maxLength, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: maxLength,

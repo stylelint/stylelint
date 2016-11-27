@@ -1,5 +1,5 @@
-import isStandardSyntaxMediaFeatureName from "../isStandardSyntaxMediaFeatureName"
-import test from "tape"
+const isStandardSyntaxMediaFeatureName = require("../isStandardSyntaxMediaFeatureName")
+const test = require("tape")
 
 test("isStandardSyntaxMediaFeatureName", t => {
   t.ok(isStandardSyntaxMediaFeatureName("min-width"), "keyword")

@@ -1,5 +1,9 @@
-import { isCustomProperty, isStandardSyntaxProperty, report, ruleMessages, validateOptions } from "../../utils"
-import _ from "lodash"
+const isCustomProperty = require("../../utils/isCustomProperty")
+const isStandardSyntaxProperty = require("../../utils/isStandardSyntaxProperty")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const _ = require("lodash")
 import { vendor } from "postcss"
 
 export const ruleName = "declaration-block-properties-order"
@@ -181,7 +185,7 @@ function rule(expectation, options) {
 
 rule.primaryOptionArray = true
 
-export default rule
+module.exports = rule
 
 function createExpectedOrder(input) {
   const order = {}

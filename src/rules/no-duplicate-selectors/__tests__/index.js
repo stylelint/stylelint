@@ -1,10 +1,10 @@
 import { messages, ruleName } from ".."
-import path from "path"
-import postcss from "postcss"
-import postcssImport from "postcss-import"
-import rules from "../../../rules"
-import test from "tape"
-import { testRule } from "../../../testUtils"
+const path = require("path")
+const postcss = require("postcss")
+const postcssImport = require("postcss-import")
+const rules = require("../../../rules")
+const test = require("tape")
+const testRule = require("../../../testUtils/testRule")
 
 const rule = rules[ruleName]
 

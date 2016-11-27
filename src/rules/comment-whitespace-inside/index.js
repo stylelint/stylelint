@@ -1,4 +1,7 @@
-import { isWhitespace, report, ruleMessages, validateOptions } from "../../utils"
+const isWhitespace = require("../../utils/isWhitespace")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "comment-whitespace-inside"
 
@@ -9,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedClosing: "Unexpected whitespace before \"*/\"",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return function (root, result) {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

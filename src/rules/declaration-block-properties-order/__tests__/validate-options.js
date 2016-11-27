@@ -1,5 +1,5 @@
-import stylelint from "../../.."
-import test from "tape"
+const stylelint = require("../../..")
+const test = require("tape")
 
 test("valid default order", t => {
   const config = {

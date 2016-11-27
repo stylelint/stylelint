@@ -1,6 +1,6 @@
-import path from "path"
-import pluginWarnAboutFoo from "./fixtures/plugin-warn-about-foo"
-import stylelint from ".."
+const path = require("path")
+const pluginWarnAboutFoo = require("./fixtures/plugin-warn-about-foo")
+const stylelint = require("..")
 
 it("createLinter().getConfigForFile augmented config loads", () => {
   const linter = stylelint.createLinter()

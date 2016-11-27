@@ -1,6 +1,6 @@
-import selectorParser from "postcss-selector-parser"
+const selectorParser = require("postcss-selector-parser")
 
-export default function (selector, result, node, cb) {
+module.exports = function (selector, result, node, cb) {
   try {
     selectorParser(cb).process(selector)
   } catch (e) {

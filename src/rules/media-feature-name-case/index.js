@@ -1,5 +1,11 @@
-import { atRuleParamIndex, isCustomMediaQuery, isRangeContextMediaFeature, isStandardSyntaxMediaFeatureName, report, ruleMessages, validateOptions } from "../../utils"
-import mediaParser from "postcss-media-query-parser"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const isCustomMediaQuery = require("../../utils/isCustomMediaQuery")
+const isRangeContextMediaFeature = require("../../utils/isRangeContextMediaFeature")
+const isStandardSyntaxMediaFeatureName = require("../../utils/isStandardSyntaxMediaFeatureName")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const mediaParser = require("postcss-media-query-parser")
 
 export const ruleName = "media-feature-name-case"
 
@@ -7,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

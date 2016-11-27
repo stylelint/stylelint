@@ -1,4 +1,4 @@
-import _ from "lodash"
+const _ = require("lodash")
 
 const ignoredOptions = [ "severity", "message" ]
 
@@ -22,7 +22,7 @@ const ignoredOptions = [ "severity", "message" ]
  *    - `optional` (optional): If this is `true`, `actual` can be undefined.
  * @return {boolean} Whether or not the options are valid (true = valid)
  */
-export default function (result, ruleName) {
+module.exports = function (result, ruleName) {
   let noErrors = true
 
   for (var _len = arguments.length, optionDescriptions = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {

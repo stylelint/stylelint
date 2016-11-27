@@ -1,4 +1,11 @@
-import { beforeBlockString, blockString, hasBlock, hasEmptyBlock, isSingleLineString, report, ruleMessages, validateOptions } from "../../utils"
+const beforeBlockString = require("../../utils/beforeBlockString")
+const blockString = require("../../utils/blockString")
+const hasBlock = require("../../utils/hasBlock")
+const hasEmptyBlock = require("../../utils/hasEmptyBlock")
+const isSingleLineString = require("../../utils/isSingleLineString")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "block-no-single-line"
 
@@ -6,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected single-line block",
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

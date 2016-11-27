@@ -1,5 +1,5 @@
-import isOnlyWhitespace from "../isOnlyWhitespace"
-import test from "tape"
+const isOnlyWhitespace = require("../isOnlyWhitespace")
+const test = require("tape")
 
 test("isOnlyWhitespace", t => {
   t.ok(isOnlyWhitespace("\r\n \t \n   "))

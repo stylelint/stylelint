@@ -1,6 +1,6 @@
-import hasBlock from "../hasBlock"
-import postcss from "postcss"
-import test from "tape"
+const hasBlock = require("../hasBlock")
+const postcss = require("postcss")
+const test = require("tape")
 
 test("hasBlock", t => {
   t.ok(postcssCheck("a {}"), "empty rule")

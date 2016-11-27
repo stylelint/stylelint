@@ -1,7 +1,7 @@
 import { assign } from "lodash"
-import configurationError from "./configurationError"
-import isSingleLineString from "./isSingleLineString"
-import isWhitespace from "./isWhitespace"
+const configurationError = require("./configurationError")
+const isSingleLineString = require("./isSingleLineString")
+const isWhitespace = require("./isWhitespace")
 
 /**
  * Create a whitespaceChecker, which exposes the following functions:
@@ -31,7 +31,7 @@ import isWhitespace from "./isWhitespace"
  * @param {function} [messages.rejectedBeforeMultiLine]
  * @return {object} The checker, with its exposed checking functions
  */
-export default function (targetWhitespace, expectation, messages) {
+module.exports = function (targetWhitespace, expectation, messages) {
   // Keep track of active arguments in order to avoid passing
   // too much stuff around, making signatures long and confusing.
   // This variable gets reset anytime a checking function is called.

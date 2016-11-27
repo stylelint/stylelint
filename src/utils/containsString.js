@@ -12,7 +12,7 @@
  *   - `match`: the `input` value that had a match
  *   - `pattern`: the `comparison` pattern that had a match
  */
-export default function containsString(input, comparison) {
+module.exports = function containsString(input, comparison) {
   if (!Array.isArray(comparison)) {
     return testAgainstString(input, comparison)
   }

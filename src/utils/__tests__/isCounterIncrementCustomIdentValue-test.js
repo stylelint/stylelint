@@ -1,5 +1,5 @@
-import isCounterIncrementCustomIdentValue from "../isCounterIncrementCustomIdentValue"
-import test from "tape"
+const isCounterIncrementCustomIdentValue = require("../isCounterIncrementCustomIdentValue")
+const test = require("tape")
 
 test("isCustomIdents", t => {
   t.ok(isCounterIncrementCustomIdentValue("counter"))

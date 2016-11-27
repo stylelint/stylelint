@@ -1,5 +1,5 @@
-import isStandardSyntaxValue from "../isStandardSyntaxValue"
-import test from "tape"
+const isStandardSyntaxValue = require("../isStandardSyntaxValue")
+const test = require("tape")
 
 test("isStandardSyntaxValue", t => {
   t.ok(isStandardSyntaxValue("initial"), "keyword")

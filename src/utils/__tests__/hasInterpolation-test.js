@@ -1,5 +1,5 @@
-import hasInterpolation from "../hasInterpolation"
-import test from "tape"
+const hasInterpolation = require("../hasInterpolation")
+const test = require("tape")
 
 test("hasInterpolation", t => {
   t.ok(hasInterpolation("(min-width#{$value}: 10px)"), "SCSS interpolation")

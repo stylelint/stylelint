@@ -1,6 +1,6 @@
-import getUnitFromValueNode from "../getUnitFromValueNode"
-import test from "tape"
-import valueParser from "postcss-value-parser"
+const getUnitFromValueNode = require("../getUnitFromValueNode")
+const test = require("tape")
+const valueParser = require("postcss-value-parser")
 
 test("getUnitFromValueNode", t => {
   t.equal(getUnitFromValueNode(), null)

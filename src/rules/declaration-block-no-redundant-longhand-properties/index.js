@@ -1,6 +1,9 @@
 import { isEqual, isString, transform } from "lodash"
-import { optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
-import shorthandData from "../../reference/shorthandData"
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const shorthandData = require("../../reference/shorthandData")
 
 export const ruleName = "declaration-block-no-redundant-longhand-properties"
 
@@ -8,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
   expected: props => `Expected shorthand property "${props}"`,
 })
 
-export default function (actual, options) {
+module.exports = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,

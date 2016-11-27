@@ -1,4 +1,6 @@
-import { hasLessInterpolation, hasPsvInterpolation, hasScssInterpolation } from "../utils"
+const hasLessInterpolation = require("../utils/hasLessInterpolation")
+const hasPsvInterpolation = require("../utils/hasPsvInterpolation")
+const hasScssInterpolation = require("../utils/hasScssInterpolation")
 
 /**
  * Check whether a URL is standard
@@ -6,7 +8,7 @@ import { hasLessInterpolation, hasPsvInterpolation, hasScssInterpolation } from 
  * @param {string} url
  * @return {boolean} If `true`, the url is standard
  */
-export default function (url) {
+module.exports = function (url) {
   if (url.length === 0) {
     return true
   }

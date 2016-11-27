@@ -1,5 +1,5 @@
-import functionArgumentsSearch from "../functionArgumentsSearch"
-import test from "tape"
+const functionArgumentsSearch = require("../functionArgumentsSearch")
+const test = require("tape")
 
 test("passes function arguments to callback", t => {
   functionArgumentsSearch("calc(1 + 3)", "calc", (expression, expressionIndex) => {

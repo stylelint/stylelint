@@ -1,7 +1,10 @@
-import { report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
-import _ from "lodash"
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
+const _ = require("lodash")
 import { nonSpaceCombinators } from "../../reference/punctuationSets"
-import styleSearch from "style-search"
+const styleSearch = require("style-search")
 
 export const ruleName = "selector-combinator-space-after"
 
@@ -10,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfter: combinator => `Unexpected whitespace after "${combinator}"`,
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {

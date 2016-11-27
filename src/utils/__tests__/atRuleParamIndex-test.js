@@ -1,6 +1,6 @@
-import atRuleParamIndex from "../atRuleParamIndex"
-import postcss from "postcss"
-import test from "tape"
+const atRuleParamIndex = require("../atRuleParamIndex")
+const postcss = require("postcss")
+const test = require("tape")
 
 test("atRuleParamIndex", t => {
   t.plan(4)

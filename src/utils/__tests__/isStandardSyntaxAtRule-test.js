@@ -1,8 +1,8 @@
-import isStandardSyntaxAtRule from "../isStandardSyntaxAtRule"
-import less from "postcss-less"
-import postcss from "postcss"
-import scss from "postcss-scss"
-import test from "tape"
+const isStandardSyntaxAtRule = require("../isStandardSyntaxAtRule")
+const less = require("postcss-less")
+const postcss = require("postcss")
+const scss = require("postcss-scss")
+const test = require("tape")
 
 test("isStandardSyntaxAtRule", t => {
   t.plan(12)

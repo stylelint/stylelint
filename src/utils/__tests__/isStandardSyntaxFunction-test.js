@@ -1,7 +1,7 @@
-import isStandardSyntaxFunction from "../isStandardSyntaxFunction"
-import postcss from "postcss"
-import test from "tape"
-import valueParser from "postcss-value-parser"
+const isStandardSyntaxFunction = require("../isStandardSyntaxFunction")
+const postcss = require("postcss")
+const test = require("tape")
+const valueParser = require("postcss-value-parser")
 
 test("isStandardSyntaxFunction", t => {
   t.plan(4)

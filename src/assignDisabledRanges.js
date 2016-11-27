@@ -1,5 +1,5 @@
 /* @flow */
-import _ from "lodash"
+const _ = require("lodash")
 
 const COMMAND_PREFIX = "stylelint-"
 const disableCommand = COMMAND_PREFIX + "disable"
@@ -15,7 +15,7 @@ const ALL_RULES = "all"
     end?: number,
   }>
 }*/
-export default function (root/*: Object*/, result/*: Object*/) {
+module.exports = function (root/*: Object*/, result/*: Object*/) {
   result.stylelint = result.stylelint || {}
 
   // Most of the functions below work via side effects mutating

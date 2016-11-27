@@ -1,5 +1,5 @@
-import hasEmptyLine from "../hasEmptyLine"
-import test from "tape"
+const hasEmptyLine = require("../hasEmptyLine")
+const test = require("tape")
 
 test("hasEmptyLine", t => {
   t.ok(hasEmptyLine("\n\n"))

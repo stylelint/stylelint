@@ -1,5 +1,5 @@
-import test from "tape"
-import validateObjectWithStringArrayProps from "../validateObjectWithStringArrayProps"
+const test = require("tape")
+const validateObjectWithStringArrayProps = require("../validateObjectWithStringArrayProps")
 
 test("validateObjectWithStringArrayProps", t => {
   t.ok(validateObjectWithStringArrayProps({ prop: ["val"] }))

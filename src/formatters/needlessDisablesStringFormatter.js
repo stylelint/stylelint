@@ -1,12 +1,12 @@
-import chalk from "chalk"
-import path from "path"
+const chalk = require("chalk")
+const path = require("path")
 
 function logFrom(fromValue) {
   if (fromValue.charAt(0) === "<") return fromValue
   return path.relative(process.cwd(), fromValue).split(path.sep).join("/")
 }
 
-export default function (report) {
+module.exports = function (report) {
   let output = ""
 
   report.forEach(sourceReport => {

@@ -6,7 +6,7 @@ import { keyframeSelectorKeywords } from "../reference/keywordSets"
  * @param {string} selector
  * @return {boolean} If `true`, the selector is a keyframe selector
  */
-export default function (selector) {
+module.exports = function (selector) {
   if (keyframeSelectorKeywords.has(selector)) {
     return true
   }

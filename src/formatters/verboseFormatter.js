@@ -1,8 +1,8 @@
-import _ from "lodash"
-import chalk from "chalk"
-import stringFormatter from "./stringFormatter"
+const _ = require("lodash")
+const chalk = require("chalk")
+const stringFormatter = require("./stringFormatter")
 
-export default function (results) {
+module.exports = function (results) {
   let output = stringFormatter(results)
 
   if (output === "") {

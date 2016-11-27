@@ -1,6 +1,6 @@
-import findAtRuleContext from "../findAtRuleContext"
-import postcss from "postcss"
-import test from "tape"
+const findAtRuleContext = require("../findAtRuleContext")
+const postcss = require("postcss")
+const test = require("tape")
 
 test("findAtRuleContext", t => {
   const css = `

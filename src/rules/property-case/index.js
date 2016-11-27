@@ -1,4 +1,8 @@
-import { isCustomProperty, isStandardSyntaxProperty, report, ruleMessages, validateOptions } from "../../utils"
+const isCustomProperty = require("../../utils/isCustomProperty")
+const isStandardSyntaxProperty = require("../../utils/isStandardSyntaxProperty")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "property-case"
 
@@ -6,7 +10,7 @@ export const messages = ruleMessages(ruleName, {
   expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

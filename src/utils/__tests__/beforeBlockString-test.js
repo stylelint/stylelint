@@ -1,7 +1,7 @@
-import beforeBlockString from "../beforeBlockString"
-import postcss from "postcss"
-import sugarss from "sugarss"
-import test from "tape"
+const beforeBlockString = require("../beforeBlockString")
+const postcss = require("postcss")
+const sugarss = require("sugarss")
+const test = require("tape")
 
 test("beforeBlockString rules", t => {
   t.equal(postcssCheck("a {}"), "a ")

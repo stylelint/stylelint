@@ -1,4 +1,11 @@
-import { blockString, hasBlock, hasEmptyBlock, hasEmptyLine, isSingleLineString, report, ruleMessages, validateOptions } from "../../utils"
+const blockString = require("../../utils/blockString")
+const hasBlock = require("../../utils/hasBlock")
+const hasEmptyBlock = require("../../utils/hasEmptyBlock")
+const hasEmptyLine = require("../../utils/hasEmptyLine")
+const isSingleLineString = require("../../utils/isSingleLineString")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "block-closing-brace-empty-line-before"
 
@@ -7,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected empty line before closing brace",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

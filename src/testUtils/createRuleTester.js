@@ -1,11 +1,11 @@
-import _ from "lodash"
-import assignDisabledRanges from "../assignDisabledRanges"
-import basicChecks from "./basicChecks"
-import lessSyntax from "postcss-less"
-import normalizeRuleSettings from "../normalizeRuleSettings"
-import postcss from "postcss"
-import scssSyntax from "postcss-scss"
-import sugarss from "sugarss"
+const _ = require("lodash")
+const assignDisabledRanges = require("../assignDisabledRanges")
+const basicChecks = require("./basicChecks")
+const lessSyntax = require("postcss-less")
+const normalizeRuleSettings = require("../normalizeRuleSettings")
+const postcss = require("postcss")
+const scssSyntax = require("postcss-scss")
+const sugarss = require("sugarss")
 
 /**
  * Create a stylelint rule testing function.
@@ -92,7 +92,7 @@ function checkCaseForOnly(caseType, testCase) {
   onlyTest = { case: testCase, type: caseType }
 }
 
-export default function (equalityCheck) {
+module.exports = function (equalityCheck) {
   return function (rule, schema) {
     const alreadyHadOnlyTest = !!onlyTest
     if (schema.accept) {

@@ -2,7 +2,7 @@ import blockNoEmpty, { messages as blockNoEmptyMessages, ruleName as blockNoEmpt
 import maxLineLength, { messages as maxLineLengthMessages, ruleName as maxLineLengthName } from "../rules/max-line-length"
 import selectorCombinatorSpaceBefore, { messages as selectorCombinatorSpaceBeforeMessages, ruleName as selectorCombinatorSpaceBeforeName } from "../rules/selector-combinator-space-before"
 import stringQuotes, { messages as stringQuotesMessages, ruleName as stringQuotesName } from "../rules/string-quotes"
-import testRule from "../testUtils/testRule.js"
+const testRule = require("../testUtils/testRule.js")
 
 // disabling all rules
 testRule(blockNoEmpty, {

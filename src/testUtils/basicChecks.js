@@ -1,5 +1,5 @@
 // These should pass for *almost* every rule
-export default [ {
+module.exports = [ {
   code: "",
   description: "empty stylesheet",
 }, {

@@ -1,5 +1,5 @@
-import isStandardSyntaxUrl from "../isStandardSyntaxUrl"
-import test from "tape"
+const isStandardSyntaxUrl = require("../isStandardSyntaxUrl")
+const test = require("tape")
 
 test("isStandardSyntaxUrl", t => {
   t.ok(isStandardSyntaxUrl(""), "empty")

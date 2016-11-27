@@ -1,6 +1,6 @@
-import report from "../report"
-import sinon from "sinon"
-import test from "tape"
+const report = require("../report")
+const sinon = require("sinon")
+const test = require("tape")
 
 test("without disabledRanges", t => {
   const v = {

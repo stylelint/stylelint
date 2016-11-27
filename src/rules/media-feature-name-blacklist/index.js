@@ -1,6 +1,13 @@
-import { atRuleParamIndex, isCustomMediaQuery, isRangeContextMediaFeature, isStandardSyntaxMediaFeatureName, matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const isCustomMediaQuery = require("../../utils/isCustomMediaQuery")
+const isRangeContextMediaFeature = require("../../utils/isRangeContextMediaFeature")
+const isStandardSyntaxMediaFeatureName = require("../../utils/isStandardSyntaxMediaFeatureName")
+const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString } from "lodash"
-import mediaParser from "postcss-media-query-parser"
+const mediaParser = require("postcss-media-query-parser")
 
 export const ruleName = "media-feature-name-blacklist"
 
@@ -8,7 +15,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: name => `Unexpected media feature name "${name}"`,
 })
 
-export default function (blacklist) {
+module.exports = function (blacklist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,

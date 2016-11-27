@@ -1,6 +1,6 @@
-import declarationValueIndex from "../declarationValueIndex"
-import postcss from "postcss"
-import test from "tape"
+const declarationValueIndex = require("../declarationValueIndex")
+const postcss = require("postcss")
+const test = require("tape")
 
 test("declarationValueIndex", t => {
   t.plan(5)

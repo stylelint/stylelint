@@ -1,4 +1,12 @@
-import { blockString, hasEmptyLine, isCustomProperty, isSingleLineString, isStandardSyntaxDeclaration, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+const blockString = require("../../utils/blockString")
+const hasEmptyLine = require("../../utils/hasEmptyLine")
+const isCustomProperty = require("../../utils/isCustomProperty")
+const isSingleLineString = require("../../utils/isSingleLineString")
+const isStandardSyntaxDeclaration = require("../../utils/isStandardSyntaxDeclaration")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "declaration-empty-line-before"
 
@@ -7,7 +15,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected empty line before declaration",
 })
 
-export default function (expectation, options) {
+module.exports = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

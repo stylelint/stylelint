@@ -1,5 +1,5 @@
-import isCustomMediaQuery from "../isCustomMediaQuery"
-import test from "tape"
+const isCustomMediaQuery = require("../isCustomMediaQuery")
+const test = require("tape")
 
 test("isCustomMediaQuery", t => {
   t.ok(isCustomMediaQuery("--custom-media-query"))

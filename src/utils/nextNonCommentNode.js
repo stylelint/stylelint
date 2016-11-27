@@ -6,7 +6,7 @@
  * @return {undefined|Node} The next non-comment node,
  *   or `null` if that doesn't not exist.
  */
-export default function nextNonCommentNode(startNode) {
+module.exports = function nextNonCommentNode(startNode) {
   if (!startNode || !startNode.next) return null
 
   if (startNode.type === "comment") {

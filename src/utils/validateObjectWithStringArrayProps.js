@@ -1,4 +1,4 @@
-import _ from "lodash"
+const _ = require("lodash")
 
 /**
  * Check whether the variable is an object and all it's properties are arrays of string values:
@@ -13,7 +13,7 @@ import _ from "lodash"
  * @return {boolean} If `true`, all object's properties are arrays of string values
  */
 
-export default function (value) {
+module.exports = function (value) {
   if (!_.isPlainObject(value)) {
     return false
   }

@@ -1,4 +1,4 @@
-import standalone from "../standalone"
+const standalone = require("../standalone")
 
 it("standalone with input css and quiet mode", () => {
   const config = {

@@ -1,4 +1,8 @@
-import { blockString, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
+const blockString = require("../../utils/blockString")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
 
 export const ruleName = "declaration-block-semicolon-newline-before"
 
@@ -8,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedBeforeMultiLine: () => "Unexpected whitespace before \";\" in a multi-line declaration block",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
 
   return function (root, result) {

@@ -1,7 +1,13 @@
-import { atRuleParamIndex, declarationValueIndex, getUnitFromValueNode, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const getUnitFromValueNode = require("../../utils/getUnitFromValueNode")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString } from "lodash"
 import { units } from "../../reference/keywordSets"
-import valueParser from "postcss-value-parser"
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "unit-no-unknown"
 
@@ -9,7 +15,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: unit => `Unexpected unknown unit "${unit}"`,
 })
 
-export default function (actual, options) {
+module.exports = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,

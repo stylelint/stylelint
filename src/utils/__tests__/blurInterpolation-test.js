@@ -1,5 +1,5 @@
-import blurInterpolation from "../blurInterpolation"
-import test from "tape"
+const blurInterpolation = require("../blurInterpolation")
+const test = require("tape")
 
 test("blurInterpolation", t => {
   t.equal(blurInterpolation("#{$selector}"), " $selector ")

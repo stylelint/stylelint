@@ -1,4 +1,11 @@
-import { isKeyframeSelector, isStandardSyntaxRule, isStandardSyntaxSelector, isStandardSyntaxTypeSelector, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
+const isKeyframeSelector = require("../../utils/isKeyframeSelector")
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
+const isStandardSyntaxTypeSelector = require("../../utils/isStandardSyntaxTypeSelector")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "selector-type-case"
 
@@ -6,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

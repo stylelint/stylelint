@@ -1,4 +1,13 @@
-import { beforeBlockString, blockString, hasBlock, hasEmptyBlock, nextNonCommentNode, rawNodeString, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
+const beforeBlockString = require("../../utils/beforeBlockString")
+const blockString = require("../../utils/blockString")
+const hasBlock = require("../../utils/hasBlock")
+const hasEmptyBlock = require("../../utils/hasEmptyBlock")
+const nextNonCommentNode = require("../../utils/nextNonCommentNode")
+const rawNodeString = require("../../utils/rawNodeString")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
 
 export const ruleName = "block-opening-brace-newline-after"
 
@@ -8,7 +17,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfterMultiLine: () => "Unexpected whitespace after \"{\" of a multi-line block",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
 
   return (root, result) => {

@@ -1,7 +1,14 @@
 import { animationNameKeywords, animationShorthandKeywords, camelCaseKeywords, fontFamilyKeywords, fontShorthandKeywords, gridAreaKeywords, gridColumnKeywords, gridRowKeywords, listStyleShorthandKeywords, listStyleTypeKeywords, systemColors } from "../../reference/keywordSets"
-import { declarationValueIndex, getUnitFromValueNode, isCounterIncrementCustomIdentValue, isStandardSyntaxValue, matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const getUnitFromValueNode = require("../../utils/getUnitFromValueNode")
+const isCounterIncrementCustomIdentValue = require("../../utils/isCounterIncrementCustomIdentValue")
+const isStandardSyntaxValue = require("../../utils/isStandardSyntaxValue")
+const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString } from "lodash"
-import valueParser from "postcss-value-parser"
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "value-keyword-case"
 
@@ -17,7 +24,7 @@ camelCaseKeywords.forEach(func => {
   mapLowercaseKeywordsToCamelCase.set(func.toLowerCase(), func)
 })
 
-export default function (expectation, options) {
+module.exports = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

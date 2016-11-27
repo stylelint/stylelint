@@ -1,7 +1,7 @@
-import isStandardSyntaxTypeSelector from "../isStandardSyntaxTypeSelector"
-import postcss from "postcss"
-import selectorParser from "postcss-selector-parser"
-import test from "tape"
+const isStandardSyntaxTypeSelector = require("../isStandardSyntaxTypeSelector")
+const postcss = require("postcss")
+const selectorParser = require("postcss-selector-parser")
+const test = require("tape")
 
 test("isStandardSyntaxTypeSelector", t => {
   t.plan(8)

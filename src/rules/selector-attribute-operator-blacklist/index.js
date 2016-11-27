@@ -1,4 +1,8 @@
-import { isStandardSyntaxRule, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString } from "lodash"
 
 export const ruleName = "selector-attribute-operator-blacklist"
@@ -49,4 +53,4 @@ function rule(blacklistInput) {
 
 rule.primaryOptionArray = true
 
-export default rule
+module.exports = rule

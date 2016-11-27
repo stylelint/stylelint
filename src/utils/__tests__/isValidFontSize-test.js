@@ -1,5 +1,5 @@
-import isValidFontSize from "../isValidFontSize"
-import test from "tape"
+const isValidFontSize = require("../isValidFontSize")
+const test = require("tape")
 
 test("isValidFontSize", t => {
   t.ok(isValidFontSize("10px"))

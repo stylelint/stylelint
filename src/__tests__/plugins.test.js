@@ -1,6 +1,6 @@
-import path from "path"
-import postcss from "postcss"
-import stylelint from ".."
+const path = require("path")
+const postcss = require("postcss")
+const stylelint = require("..")
 
 const cssWithFoo = ".foo {}"
 

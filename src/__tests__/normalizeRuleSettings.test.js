@@ -1,4 +1,4 @@
-import normalizeRuleSettings from "../normalizeRuleSettings"
+const normalizeRuleSettings = require("../normalizeRuleSettings")
 
 describe("rules whose primary option IS NOT an array", () => {
   it("solo null returns null", () => {

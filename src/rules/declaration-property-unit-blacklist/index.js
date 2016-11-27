@@ -1,6 +1,11 @@
-import { declarationValueIndex, getUnitFromValueNode, matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const getUnitFromValueNode = require("../../utils/getUnitFromValueNode")
+const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { find, isObject } from "lodash"
-import valueParser from "postcss-value-parser"
+const valueParser = require("postcss-value-parser")
 import { vendor } from "postcss"
 
 export const ruleName = "declaration-property-unit-blacklist"
@@ -9,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (property, unit) => `Unexpected unit "${unit}" for property "${property}"`,
 })
 
-export default function (blacklist) {
+module.exports = function (blacklist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,

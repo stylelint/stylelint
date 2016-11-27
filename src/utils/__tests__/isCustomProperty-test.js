@@ -1,5 +1,5 @@
-import isCustomProperty from "../isCustomProperty"
-import test from "tape"
+const isCustomProperty = require("../isCustomProperty")
+const test = require("tape")
 
 test("isCustomProperty", t => {
   t.ok(isCustomProperty("--custom-property"))

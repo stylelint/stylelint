@@ -1,5 +1,5 @@
 /* @flow */
-import _ from "lodash"
+const _ = require("lodash")
 
 // Rule settings can take a number of forms, e.g.
 // a. "rule-name": null
@@ -13,7 +13,7 @@ import _ from "lodash"
 // standard form: [primaryOption, secondaryOption]
 // Except in the cases with null, a & b, in which case
 // null is returned
-export default function (rawSettings/*: stylelint$configRuleSettings*/, ruleName/*: string*/, primaryOptionArray/*:: ?: boolean*/)/*: ?Array<any | [any, Object]>*/ {
+module.exports = function (rawSettings/*: stylelint$configRuleSettings*/, ruleName/*: string*/, primaryOptionArray/*:: ?: boolean*/)/*: ?Array<any | [any, Object]>*/ {
   if (rawSettings === null) {
     return null
   }

@@ -1,4 +1,9 @@
-import { isCustomProperty, isStandardSyntaxProperty, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
+const isCustomProperty = require("../../utils/isCustomProperty")
+const isStandardSyntaxProperty = require("../../utils/isStandardSyntaxProperty")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "root-no-standard-properties"
 
@@ -6,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: property => `Unexpected standard property "${property}"`,
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

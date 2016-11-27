@@ -1,5 +1,5 @@
 /* @flow */
-export default function (statement/*: Object*/)/*: string*/ {
+module.exports = function (statement/*: Object*/)/*: string*/ {
   const _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {}
 
   const noRawBefore = _ref.noRawBefore

@@ -1,5 +1,5 @@
-import _ from "lodash"
-import { isCustomPropertySet } from "../utils"
+const _ = require("lodash")
+const isCustomPropertySet = require("../utils/isCustomPropertySet")
 
 /**
  * Check whether a rule is standard
@@ -7,7 +7,7 @@ import { isCustomPropertySet } from "../utils"
  * @param {Rule} postcss rule node
  * @return {boolean} If `true`, the rule is standard
  */
-export default function (rule) {
+module.exports = function (rule) {
   // Get full selector
   const selector = _.get(rule, "raws.selector.raw", rule.selector)
 

@@ -1,7 +1,7 @@
-import chalk from "chalk"
-import needlessDisablesStringFormatter from "../needlessDisablesStringFormatter"
+const chalk = require("chalk")
+const needlessDisablesStringFormatter = require("../needlessDisablesStringFormatter")
 import { stripIndent } from "common-tags"
-import test from "tape"
+const test = require("tape")
 
 test("needlessDisables formatter stringified", t => {
   const actual = chalk.stripColor(needlessDisablesStringFormatter([ {

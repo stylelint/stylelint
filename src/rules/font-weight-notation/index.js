@@ -1,7 +1,14 @@
-import { declarationValueIndex, isNumbery, isStandardSyntaxValue, isVariable, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const isNumbery = require("../../utils/isNumbery")
+const isStandardSyntaxValue = require("../../utils/isStandardSyntaxValue")
+const isVariable = require("../../utils/isVariable")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { fontWeightKeywords, fontWeightRelativeKeywords } from "../../reference/keywordSets"
 import { includes } from "lodash"
-import postcss from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "font-weight-notation"
 
@@ -15,7 +22,7 @@ const INITIAL_KEYWORD = "initial"
 const NORMAL_KEYWORD = "normal"
 const WEIGHTS_WITH_KEYWORD_EQUIVALENTS = [ "400", "700" ]
 
-export default function (expectation, options) {
+module.exports = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

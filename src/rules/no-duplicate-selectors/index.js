@@ -1,7 +1,12 @@
-import { findAtRuleContext, isKeyframeRule, nodeContextLookup, report, ruleMessages, validateOptions } from "../../utils"
+const findAtRuleContext = require("../../utils/findAtRuleContext")
+const isKeyframeRule = require("../../utils/isKeyframeRule")
+const nodeContextLookup = require("../../utils/nodeContextLookup")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { includes, union } from "lodash"
-import normalizeSelector from "normalize-selector"
-import resolvedNestedSelector from "postcss-resolve-nested-selector"
+const normalizeSelector = require("normalize-selector")
+const resolvedNestedSelector = require("postcss-resolve-nested-selector")
 
 export const ruleName = "no-duplicate-selectors"
 
@@ -9,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: selector => `Unexpected duplicate selector "${selector}"`,
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

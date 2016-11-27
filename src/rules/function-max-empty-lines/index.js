@@ -1,6 +1,8 @@
 import { isNumber, repeat } from "lodash"
-import { report, ruleMessages, validateOptions } from "../../utils"
-import styleSearch from "style-search"
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const styleSearch = require("style-search")
 
 export const ruleName = "function-max-empty-lines"
 
@@ -8,7 +10,7 @@ export const messages = ruleMessages(ruleName, {
   expected: max => `Expected no more than ${max} empty line(s)`,
 })
 
-export default function (max) {
+module.exports = function (max) {
   const maxAdjacentNewlines = max + 1
 
   return (root, result) => {

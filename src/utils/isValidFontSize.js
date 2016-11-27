@@ -1,5 +1,5 @@
 import { fontSizeKeywords, lengthUnits } from "../reference/keywordSets"
-import valueParser from "postcss-value-parser"
+const valueParser = require("postcss-value-parser")
 
 /**
  * Check if a word is a font-size value.
@@ -7,7 +7,7 @@ import valueParser from "postcss-value-parser"
  * @param {string} word
  * @return {boolean}
  */
-export default function (word) {
+module.exports = function (word) {
   if (!word) {
     return false
   }

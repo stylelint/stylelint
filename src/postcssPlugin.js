@@ -1,9 +1,9 @@
 /* @flow */
-import _ from "lodash"
-import createStylelint from "./createStylelint"
-import postcss from "postcss"
+const _ = require("lodash")
+const createStylelint = require("./createStylelint")
+const postcss = require("postcss")
 
-export default postcss.plugin("stylelint", function () {
+module.exports = postcss.plugin("stylelint", function () {
   const options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
 
   const tailoredOptions/*: Object*/ = options.rules ? { config: options } : options

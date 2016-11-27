@@ -1,5 +1,9 @@
-import { atRuleParamIndex, declarationValueIndex, report, ruleMessages, validateOptions } from "../../utils"
-import valueParser from "postcss-value-parser"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "number-leading-zero"
 
@@ -8,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected leading zero",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

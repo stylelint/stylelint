@@ -21,7 +21,7 @@ import { get } from "lodash"
  * @param {Node} [violation.word] - Word that should be passed to result.warn()
  * @param {number} [violation.line] - Line number of the violation
  */
-export default function (_ref) {
+module.exports = function (_ref) {
   let ruleName = _ref.ruleName,
     result = _ref.result,
     message = _ref.message,

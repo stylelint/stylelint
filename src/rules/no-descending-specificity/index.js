@@ -1,8 +1,14 @@
 import { calculate, compare } from "specificity"
-import { findAtRuleContext, isCustomPropertySet, nodeContextLookup, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
-import _ from "lodash"
+const findAtRuleContext = require("../../utils/findAtRuleContext")
+const isCustomPropertySet = require("../../utils/isCustomPropertySet")
+const nodeContextLookup = require("../../utils/nodeContextLookup")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const _ = require("lodash")
 import { pseudoElements } from "../../reference/keywordSets"
-import resolvedNestedSelector from "postcss-resolve-nested-selector"
+const resolvedNestedSelector = require("postcss-resolve-nested-selector")
 
 export const ruleName = "no-descending-specificity"
 
@@ -10,7 +16,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (b, a) => `Expected selector "${b}" to come before selector "${a}"`,
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

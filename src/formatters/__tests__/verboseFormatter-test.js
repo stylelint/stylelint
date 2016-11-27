@@ -1,7 +1,7 @@
 import { prepareFormatterOutput } from "./stringFormatter-test"
 import { stripIndent } from "common-tags"
-import test from "tape"
-import verboseFormatter from "../verboseFormatter"
+const test = require("tape")
+const verboseFormatter = require("../verboseFormatter")
 
 test("no warnings", t => {
   const results = [{

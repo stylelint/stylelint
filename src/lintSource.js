@@ -1,12 +1,12 @@
 /* @flow */
-import _ from "lodash"
-import assignDisabledRanges from "./assignDisabledRanges"
-import { configurationError } from "./utils"
-import ruleDefinitions from "./rules"
+const _ = require("lodash")
+const assignDisabledRanges = require("./assignDisabledRanges")
+const configurationError = require("./utils/configurationError")
+const ruleDefinitions = require("./rules")
 
 // Run stylelint on a PostCSS Result, either one that is provided
 // or one that we create
-export default function (stylelint/*: stylelint$internalApi*/)/*: Promise<Object>*/ {
+module.exports = function (stylelint/*: stylelint$internalApi*/)/*: Promise<Object>*/ {
   const options/*: {
                   code?: string,
                   codeFilename?: string,

@@ -1,6 +1,6 @@
-import hasEmptyBlock from "../hasEmptyBlock"
-import postcss from "postcss"
-import test from "tape"
+const hasEmptyBlock = require("../hasEmptyBlock")
+const postcss = require("postcss")
+const test = require("tape")
 
 test("hasEmptyBlock", t => {
   t.ok(postcssCheck("a {}"), "empty rule")

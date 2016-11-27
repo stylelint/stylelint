@@ -1,6 +1,6 @@
 import { basicKeywords, fontFamilyKeywords, fontShorthandKeywords } from "../reference/keywordSets"
 import { isNumbery, isStandardSyntaxValue, isValidFontSize, isVariable } from "./"
-import postcssValueParser from "postcss-value-parser"
+const postcssValueParser = require("postcss-value-parser")
 
 const nodeTypesToCheck = new Set([ "word", "string", "space", "div" ])
 
@@ -16,7 +16,7 @@ function joinValueNodes(firstNode, secondNode, charactersBetween) {
  * @param {string} value
  * @return {object} Collection font-family nodes
  */
-export default function findFontFamily(value) {
+module.exports = function findFontFamily(value) {
   const fontFamilies = []
 
   const valueNodes = postcssValueParser(value)

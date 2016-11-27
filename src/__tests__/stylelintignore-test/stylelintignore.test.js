@@ -1,5 +1,5 @@
-import path from "path"
-import standalone from "../../standalone"
+const path = require("path")
+const standalone = require("../../standalone")
 
 describe("standalone with .stylelintignore file ignoring one file", () => {
   let actualCwd

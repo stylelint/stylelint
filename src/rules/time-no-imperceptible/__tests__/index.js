@@ -1,6 +1,6 @@
 import { messages, ruleName } from ".."
-import rules from "../../../rules"
-import { testRule } from "../../../testUtils"
+const rules = require("../../../rules")
+const testRule = require("../../../testUtils/testRule")
 
 const rule = rules[ruleName]
 

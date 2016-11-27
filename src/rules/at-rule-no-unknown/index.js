@@ -1,4 +1,7 @@
-import { optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { atRules } from "../../reference/keywordSets"
 import { isString } from "lodash"
 import { vendor } from "postcss"
@@ -9,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: atRule => `Unexpected unknown at-rule "${atRule}"`,
 })
 
-export default function (actual, options) {
+module.exports = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,

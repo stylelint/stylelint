@@ -1,5 +1,7 @@
-import { report, ruleMessages, validateOptions } from "../../utils"
-import styleSearch from "style-search"
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const styleSearch = require("style-search")
 
 export const ruleName = "color-no-hex"
 
@@ -7,7 +9,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: hex => `Unexpected hex color "${hex}"`,
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

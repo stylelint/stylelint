@@ -1,4 +1,7 @@
-import { hasBlock, report, ruleMessages, validateOptions } from "../../utils"
+const hasBlock = require("../../utils/hasBlock")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "declaration-block-trailing-semicolon"
 
@@ -7,7 +10,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected trailing semicolon",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

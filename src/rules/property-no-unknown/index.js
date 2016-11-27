@@ -1,5 +1,11 @@
-import { isCustomProperty, isStandardSyntaxDeclaration, isStandardSyntaxProperty, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
-import _ from "lodash"
+const isCustomProperty = require("../../utils/isCustomProperty")
+const isStandardSyntaxDeclaration = require("../../utils/isStandardSyntaxDeclaration")
+const isStandardSyntaxProperty = require("../../utils/isStandardSyntaxProperty")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const _ = require("lodash")
 import { all as properties } from "known-css-properties"
 import { vendor } from "postcss"
 
@@ -9,7 +15,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: property => `Unexpected unknown property "${property}"`,
 })
 
-export default function (actual, options) {
+module.exports = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,

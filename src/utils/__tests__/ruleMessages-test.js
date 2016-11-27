@@ -1,5 +1,5 @@
-import ruleMessages from "../ruleMessages"
-import test from "tape"
+const ruleMessages = require("../ruleMessages")
+const test = require("tape")
 
 test("ruleMessages with simple messages", t => {
   t.deepEqual(ruleMessages("foo", {

@@ -1,4 +1,7 @@
-import { atRuleParamIndex, report, ruleMessages, validateOptions } from "../../utils"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isRegExp, isString } from "lodash"
 
 export const ruleName = "custom-media-pattern"
@@ -7,7 +10,7 @@ export const messages = ruleMessages(ruleName, {
   expected: "Expected custom media query name to match specified pattern",
 })
 
-export default function (pattern) {
+module.exports = function (pattern) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: pattern,

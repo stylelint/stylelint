@@ -1,4 +1,9 @@
-import { containsString, functionArgumentsSearch, isStandardSyntaxUrl, report, ruleMessages, validateOptions } from "../../utils"
+const containsString = require("../../utils/containsString")
+const functionArgumentsSearch = require("../../utils/functionArgumentsSearch")
+const isStandardSyntaxUrl = require("../../utils/isStandardSyntaxUrl")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString, trim } from "lodash"
 import { parse } from "url"
 
@@ -8,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: scheme => `Unexpected url scheme "${scheme}:"`,
 })
 
-export default function (whitelist) {
+module.exports = function (whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,

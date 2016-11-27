@@ -1,5 +1,5 @@
 import { mergeTestDescriptions } from "../"
-import test from "tape"
+const test = require("tape")
 
 test("merge objects", t => {
   t.deepEqual(mergeTestDescriptions({}, {}), {}, "empty object")

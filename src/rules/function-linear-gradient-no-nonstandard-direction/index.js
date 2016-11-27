@@ -1,4 +1,7 @@
-import { functionArgumentsSearch, report, ruleMessages, validateOptions } from "../../utils"
+const functionArgumentsSearch = require("../../utils/functionArgumentsSearch")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { vendor } from "postcss"
 
 export const ruleName = "function-linear-gradient-no-nonstandard-direction"
@@ -24,7 +27,7 @@ function isStandardDirection(source, withToPrefix) {
   return false
 }
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

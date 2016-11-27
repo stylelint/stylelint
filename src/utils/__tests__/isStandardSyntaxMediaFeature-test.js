@@ -1,5 +1,5 @@
-import isStandardSyntaxMediaFeature from "../isStandardSyntaxMediaFeature"
-import test from "tape"
+const isStandardSyntaxMediaFeature = require("../isStandardSyntaxMediaFeature")
+const test = require("tape")
 
 test("isStandardSyntaxMediaFeature", t => {
   t.ok(isStandardSyntaxMediaFeature("(min-width: 10px)"), "prefix on range features")

@@ -1,6 +1,6 @@
 import { mergeTestDescriptions, testRule } from "../../../testUtils"
 import { messages, ruleName } from ".."
-import rules from "../../../rules"
+const rules = require("../../../rules")
 
 const rule = rules[ruleName]
 

@@ -1,6 +1,6 @@
-import sinon from "sinon"
-import test from "tape"
-import validateOptions from "../validateOptions"
+const sinon = require("sinon")
+const test = require("tape")
+const validateOptions = require("../validateOptions")
 
 function mockResult() {
   return { warn: sinon.spy() }

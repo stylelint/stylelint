@@ -1,5 +1,10 @@
 import { isRegExp, isString } from "lodash"
-import { isStandardSyntaxRule, isStandardSyntaxSelector, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "selector-id-pattern"
 
@@ -7,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   expected: selectorValue => `Expected id selector "#${selectorValue}" to match specified pattern`,
 })
 
-export default function (pattern) {
+module.exports = function (pattern) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: pattern,

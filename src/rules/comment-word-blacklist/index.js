@@ -1,4 +1,8 @@
-import { containsString, matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
+const containsString = require("../../utils/containsString")
+const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString } from "lodash"
 
 export const ruleName = "comment-word-blacklist"
@@ -45,4 +49,4 @@ function rule(blacklist) {
 
 rule.primaryOptionArray = true
 
-export default rule
+module.exports = rule

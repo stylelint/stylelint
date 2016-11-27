@@ -1,6 +1,9 @@
-import { atRuleParamIndex, report, ruleMessages, validateOptions } from "../../utils"
-import _ from "lodash"
-import styleSearch from "style-search"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const _ = require("lodash")
+const styleSearch = require("style-search")
 
 export const ruleName = "media-feature-parentheses-space-inside"
 
@@ -11,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedClosing: "Unexpected whitespace before \")\"",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

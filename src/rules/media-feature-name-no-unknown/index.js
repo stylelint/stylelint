@@ -1,7 +1,14 @@
-import { atRuleParamIndex, isCustomMediaQuery, isRangeContextMediaFeature, isStandardSyntaxMediaFeatureName, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const isCustomMediaQuery = require("../../utils/isCustomMediaQuery")
+const isRangeContextMediaFeature = require("../../utils/isRangeContextMediaFeature")
+const isStandardSyntaxMediaFeatureName = require("../../utils/isStandardSyntaxMediaFeatureName")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString } from "lodash"
 import { mediaFeatureNames } from "../../reference/keywordSets"
-import mediaParser from "postcss-media-query-parser"
+const mediaParser = require("postcss-media-query-parser")
 import { vendor } from "postcss"
 
 export const ruleName = "media-feature-name-no-unknown"
@@ -10,7 +17,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: mediaFeatureName => `Unexpected unknown media feature name "${mediaFeatureName}"`,
 })
 
-export default function (actual, options) {
+module.exports = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,

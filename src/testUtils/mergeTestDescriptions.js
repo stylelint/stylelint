@@ -1,6 +1,6 @@
-import _ from "lodash"
+const _ = require("lodash")
 
-export default function () {
+module.exports = function () {
   for (var _len = arguments.length, objs = Array(_len), _key = 0; _key < _len; _key++) {
     objs[_key] = arguments[_key]
   }

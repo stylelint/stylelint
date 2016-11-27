@@ -1,7 +1,12 @@
-import { declarationValueIndex, isStandardSyntaxFunction, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
-import _ from "lodash"
-import styleSearch from "style-search"
-import valueParser from "postcss-value-parser"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const isStandardSyntaxFunction = require("../../utils/isStandardSyntaxFunction")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
+const _ = require("lodash")
+const styleSearch = require("style-search")
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "function-comma-space-after"
 
@@ -12,7 +17,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfterSingleLine: () => "Unexpected whitespace after \",\" in a single-line function",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {

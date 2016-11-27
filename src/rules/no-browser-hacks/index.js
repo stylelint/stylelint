@@ -1,7 +1,9 @@
-import { report, ruleMessages, validateOptions } from "../../utils"
-import Result from "postcss/lib/result"
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const Result = require("postcss/lib/result")
 import { isString } from "lodash"
-import stylehacks from "stylehacks"
+const stylehacks = require("stylehacks")
 
 export const ruleName = "no-browser-hacks"
 
@@ -9,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (type, hack) => `Unexpected ${type} hack "${hack}"`,
 })
 
-export default function (on, options) {
+module.exports = function (on, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual: on }, {
       optional: true,

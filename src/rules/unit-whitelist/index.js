@@ -1,7 +1,13 @@
-import { atRuleParamIndex, declarationValueIndex, getUnitFromValueNode, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
-import _ from "lodash"
-import validateObjectWithStringArrayProps from "../../utils/validateObjectWithStringArrayProps"
-import valueParser from "postcss-value-parser"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const getUnitFromValueNode = require("../../utils/getUnitFromValueNode")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const _ = require("lodash")
+const validateObjectWithStringArrayProps = require("../../utils/validateObjectWithStringArrayProps")
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "unit-whitelist"
 
@@ -60,4 +66,4 @@ function rule(whitelistInput, options) {
 
 rule.primaryOptionArray = true
 
-export default rule
+module.exports = rule

@@ -1,5 +1,5 @@
-import optionsMatches from "../optionsMatches"
-import test from "tape"
+const optionsMatches = require("../optionsMatches")
+const test = require("tape")
 
 test("optionsMatches matches a string", t => {
   t.ok(optionsMatches({ foo: "bar" }, "foo", "bar"))

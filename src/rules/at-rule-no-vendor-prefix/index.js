@@ -1,4 +1,8 @@
-import { isAutoprefixable, isStandardSyntaxAtRule, report, ruleMessages, validateOptions } from "../../utils"
+const isAutoprefixable = require("../../utils/isAutoprefixable")
+const isStandardSyntaxAtRule = require("../../utils/isStandardSyntaxAtRule")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "at-rule-no-vendor-prefix"
 
@@ -6,7 +10,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: p => `Unexpected vendor-prefixed at-rule "@${p}"`,
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return function (root, result) {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

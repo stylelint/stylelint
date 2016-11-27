@@ -1,6 +1,6 @@
-import isKeyframeRule from "../isKeyframeRule"
-import postcss from "postcss"
-import test from "tape"
+const isKeyframeRule = require("../isKeyframeRule")
+const postcss = require("postcss")
+const test = require("tape")
 
 test("isKeyframeRule", t => {
   t.plan(11)

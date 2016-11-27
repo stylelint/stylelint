@@ -1,4 +1,9 @@
-import { beforeBlockString, blockString, isSingleLineString, report, ruleMessages, validateOptions } from "../../utils"
+const beforeBlockString = require("../../utils/beforeBlockString")
+const blockString = require("../../utils/blockString")
+const isSingleLineString = require("../../utils/isSingleLineString")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isNumber } from "lodash"
 
 export const ruleName = "declaration-block-single-line-max-declarations"
@@ -7,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   expected: quantity => `Expected no more than ${quantity} declaration(s)`,
 })
 
-export default function (quantity) {
+module.exports = function (quantity) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: quantity,

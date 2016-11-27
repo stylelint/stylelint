@@ -1,4 +1,9 @@
-import { hasBlock, hasEmptyLine, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+const hasBlock = require("../../utils/hasBlock")
+const hasEmptyLine = require("../../utils/hasEmptyLine")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString } from "lodash"
 
 export const ruleName = "at-rule-empty-line-before"
@@ -8,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected empty line before at-rule",
 })
 
-export default function (expectation, options) {
+module.exports = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

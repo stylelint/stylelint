@@ -1,6 +1,6 @@
-import nextNonCommentNode from "../nextNonCommentNode"
-import postcss from "postcss"
-import test from "tape"
+const nextNonCommentNode = require("../nextNonCommentNode")
+const postcss = require("postcss")
+const test = require("tape")
 
 test("nextNonCommentNode", t => {
   let planned = 0

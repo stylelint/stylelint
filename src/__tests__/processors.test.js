@@ -1,5 +1,5 @@
-import path from "path"
-import standalone from "../standalone"
+const path = require("path")
+const standalone = require("../standalone")
 
 const fixturesPath = path.join(__dirname, "./fixtures")
 

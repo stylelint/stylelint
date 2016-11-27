@@ -1,6 +1,6 @@
-import execall from "execall"
+const execall = require("execall")
 
-export default function () {
+module.exports = function () {
   const options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
 
   const specialMessage = options.specialMessage || "was processed"

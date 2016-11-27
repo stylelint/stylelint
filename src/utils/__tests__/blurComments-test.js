@@ -1,5 +1,5 @@
-import blurComments from "../blurComments"
-import test from "tape"
+const blurComments = require("../blurComments")
+const test = require("tape")
 
 test("blurComments", t => {
   t.equal(blurComments("abc"), "abc")

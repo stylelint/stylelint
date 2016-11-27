@@ -1,5 +1,5 @@
-import isNumbery from "../isNumbery"
-import test from "tape"
+const isNumbery = require("../isNumbery")
+const test = require("tape")
 
 test("isNumbery", t => {
   t.ok(isNumbery("1"))

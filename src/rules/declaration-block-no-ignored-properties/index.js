@@ -1,4 +1,7 @@
-import { matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
+const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { vendor } from "postcss"
 
 export const ruleName = "declaration-block-no-ignored-properties"
@@ -65,7 +68,7 @@ const ignored = [ {
   ignoredProperties: [ "float", "clear", "vertical-align" ],
 } ]
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
 

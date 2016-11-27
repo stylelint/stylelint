@@ -1,7 +1,7 @@
-import assignDisabledRanges from "../assignDisabledRanges"
-import less from "postcss-less"
-import postcss from "postcss"
-import scss from "postcss-scss"
+const assignDisabledRanges = require("../assignDisabledRanges")
+const less = require("postcss-less")
+const postcss = require("postcss")
+const scss = require("postcss-scss")
 
 it("no disabling", () => {
   return testDisableRanges("a {}").then(result => {

@@ -1,5 +1,9 @@
-import { atRuleParamIndex, isStandardSyntaxMediaFeature, report, ruleMessages, validateOptions } from "../../utils"
-import execall from "execall"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const isStandardSyntaxMediaFeature = require("../../utils/isStandardSyntaxMediaFeature")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const execall = require("execall")
 import { mediaFeaturePunctuation } from "../../reference/punctuationSets"
 
 export const ruleName = "media-feature-no-missing-punctuation"
@@ -20,7 +24,7 @@ function startsWithPunctuation(str) {
   return isPunctuation(str[0]) || isPunctuation(str.slice(0, 2))
 }
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

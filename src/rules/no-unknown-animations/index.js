@@ -1,4 +1,8 @@
-import { declarationValueIndex, findAnimationName, report, ruleMessages, validateOptions } from "../../utils"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const findAnimationName = require("../../utils/findAnimationName")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { animationNameKeywords } from "../../reference/keywordSets"
 
 export const ruleName = "no-unknown-animations"
@@ -7,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: animationName => `Unexpected unknown animation name "${animationName}"`,
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

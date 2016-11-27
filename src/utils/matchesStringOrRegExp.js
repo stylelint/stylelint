@@ -13,7 +13,7 @@
  *   - `match`: the `input` value that had a match
  *   - `pattern`: the `comparison` pattern that had a match
  */
-export default function matchesStringOrRegExp(input, comparison) {
+module.exports = function matchesStringOrRegExp(input, comparison) {
   if (!Array.isArray(input)) {
     return testAgainstStringOrArray(input, comparison)
   }

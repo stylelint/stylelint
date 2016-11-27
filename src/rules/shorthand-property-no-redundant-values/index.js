@@ -1,6 +1,10 @@
-import { isStandardSyntaxDeclaration, isStandardSyntaxProperty, report, ruleMessages, validateOptions } from "../../utils"
-import shorthandData from "../../reference/shorthandData"
-import valueParser from "postcss-value-parser"
+const isStandardSyntaxDeclaration = require("../../utils/isStandardSyntaxDeclaration")
+const isStandardSyntaxProperty = require("../../utils/isStandardSyntaxProperty")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const shorthandData = require("../../reference/shorthandData")
+const valueParser = require("postcss-value-parser")
 import { vendor } from "postcss"
 
 export const ruleName = "shorthand-property-no-redundant-values"
@@ -55,7 +59,7 @@ function canCondenseToThreeValues(top, right, bottom, left) {
   return right === left
 }
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

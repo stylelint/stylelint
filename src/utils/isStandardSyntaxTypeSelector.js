@@ -7,7 +7,7 @@
 
 import { aNPlusBNotationPseudoClasses, linguisticPseudoClasses } from "../reference/keywordSets"
 
-export default function (node) {
+module.exports = function (node) {
   // postcss-selector-parser includes the arguments to nth-child() functions
   // as "tags", so we need to ignore them ourselves.
   // The fake-tag's "parent" is actually a selector node, whose parent

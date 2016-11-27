@@ -1,8 +1,8 @@
-import configBlockNoEmpty from "./fixtures/config-block-no-empty"
-import path from "path"
-import ruleDefinitions from "../rules"
-import sinon from "sinon"
-import standalone from "../standalone"
+const configBlockNoEmpty = require("./fixtures/config-block-no-empty")
+const path = require("path")
+const ruleDefinitions = require("../rules")
+const sinon = require("sinon")
+const standalone = require("../standalone")
 
 const fixturesPath = path.join(__dirname, "fixtures")
 

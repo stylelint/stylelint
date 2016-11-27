@@ -1,5 +1,5 @@
-import isSingleLineString from "../isSingleLineString"
-import test from "tape"
+const isSingleLineString = require("../isSingleLineString")
+const test = require("tape")
 
 const multiLineTemplate = `foo
 bar`

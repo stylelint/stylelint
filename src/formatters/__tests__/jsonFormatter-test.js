@@ -1,5 +1,5 @@
-import jsonFormatter from "../jsonFormatter"
-import test from "tape"
+const jsonFormatter = require("../jsonFormatter")
+const test = require("tape")
 
 test("json formatter", t => {
   const results = [{

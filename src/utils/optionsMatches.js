@@ -1,4 +1,4 @@
-import matchesStringOrRegExp from "./matchesStringOrRegExp"
+const matchesStringOrRegExp = require("./matchesStringOrRegExp")
 
 /**
  * Check if an options object's propertyName contains a user-defined string or
@@ -9,6 +9,6 @@ import matchesStringOrRegExp from "./matchesStringOrRegExp"
  * @param {string} input - The needle
  * @return {boolean} If `true`, a match was found
  */
-export default function optionsMatches(options, propertyName, input) {
+module.exports = function optionsMatches(options, propertyName, input) {
   return !!(options && options[propertyName] && typeof input === "string" && matchesStringOrRegExp(input.toLowerCase(), options[propertyName]))
 }

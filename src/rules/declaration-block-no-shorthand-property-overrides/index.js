@@ -1,5 +1,7 @@
-import { report, ruleMessages, validateOptions } from "../../utils"
-import shorthandData from "../../reference/shorthandData"
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const shorthandData = require("../../reference/shorthandData")
 
 export const ruleName = "declaration-block-no-shorthand-property-overrides"
 
@@ -7,7 +9,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (shorthand, original) => `Unexpected shorthand "${shorthand}" after "${original}"`,
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

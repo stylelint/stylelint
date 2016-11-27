@@ -1,4 +1,12 @@
-import { beforeBlockString, blockString, hasBlock, hasEmptyBlock, optionsMatches, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
+const beforeBlockString = require("../../utils/beforeBlockString")
+const blockString = require("../../utils/blockString")
+const hasBlock = require("../../utils/hasBlock")
+const hasEmptyBlock = require("../../utils/hasEmptyBlock")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
 import { isString } from "lodash"
 
 export const ruleName = "block-opening-brace-space-before"
@@ -12,7 +20,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedBeforeMultiLine: () => "Unexpected whitespace before \"{\" of a multi-line block",
 })
 
-export default function (expectation, options) {
+module.exports = function (expectation, options) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {

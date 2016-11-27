@@ -1,5 +1,5 @@
-import isStandardSyntaxSelector from "../isStandardSyntaxSelector"
-import test from "tape"
+const isStandardSyntaxSelector = require("../isStandardSyntaxSelector")
+const test = require("tape")
 
 test("isStandardSyntaxSelector", t => {
   t.ok(isStandardSyntaxSelector("a"), "type")

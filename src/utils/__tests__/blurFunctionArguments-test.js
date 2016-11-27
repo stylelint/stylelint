@@ -1,5 +1,5 @@
-import blurFunctionArguments from "../blurFunctionArguments"
-import test from "tape"
+const blurFunctionArguments = require("../blurFunctionArguments")
+const test = require("tape")
 
 test("blurFunctionArguments", t => {
   t.equal(blurFunctionArguments("abc abc", "url"), "abc abc")

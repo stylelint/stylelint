@@ -1,5 +1,5 @@
-import isValidHex from "../isValidHex"
-import test from "tape"
+const isValidHex = require("../isValidHex")
+const test = require("tape")
 
 test("isValidHex", t => {
   t.ok(isValidHex("#333"))

@@ -1,4 +1,10 @@
-import { hasBlock, nextNonCommentNode, rawNodeString, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
+const hasBlock = require("../../utils/hasBlock")
+const nextNonCommentNode = require("../../utils/nextNonCommentNode")
+const rawNodeString = require("../../utils/rawNodeString")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
 
 export const ruleName = "at-rule-semicolon-newline-after"
 
@@ -6,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected newline after \";\"",
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   const checker = whitespaceChecker("newline", actual, messages)
 
   return (root, result) => {

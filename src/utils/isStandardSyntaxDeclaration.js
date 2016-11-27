@@ -4,7 +4,7 @@
  * @param {Decl} postcss declaration node
  * @return {boolean} If `true`, the declaration is standard
  */
-export default function (decl) {
+module.exports = function (decl) {
   const prop = decl.prop,
     parent = decl.parent
 

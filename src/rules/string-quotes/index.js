@@ -1,5 +1,7 @@
-import { report, ruleMessages, validateOptions } from "../../utils"
-import styleSearch from "style-search"
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const styleSearch = require("style-search")
 
 export const ruleName = "string-quotes"
 
@@ -7,7 +9,7 @@ export const messages = ruleMessages(ruleName, {
   expected: q => `Expected ${q} quotes`,
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const erroneousQuote = expectation === "single" ? "\"" : "'"
 
   return (root, result) => {

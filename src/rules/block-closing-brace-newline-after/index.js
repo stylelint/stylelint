@@ -1,4 +1,11 @@
-import { blockString, hasBlock, optionsMatches, rawNodeString, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
+const blockString = require("../../utils/blockString")
+const hasBlock = require("../../utils/hasBlock")
+const optionsMatches = require("../../utils/optionsMatches")
+const rawNodeString = require("../../utils/rawNodeString")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
 import { isString } from "lodash"
 
 export const ruleName = "block-closing-brace-newline-after"
@@ -11,7 +18,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfterMultiLine: () => "Unexpected whitespace after \"}\" of a multi-line block",
 })
 
-export default function (expectation, options) {
+module.exports = function (expectation, options) {
   const checker = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {

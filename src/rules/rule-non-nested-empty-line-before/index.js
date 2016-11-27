@@ -1,4 +1,10 @@
-import { hasEmptyLine, isSingleLineString, isStandardSyntaxRule, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+const hasEmptyLine = require("../../utils/hasEmptyLine")
+const isSingleLineString = require("../../utils/isSingleLineString")
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "rule-non-nested-empty-line-before"
 
@@ -7,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected empty line before non-nested rule",
 })
 
-export default function (expectation, options) {
+module.exports = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

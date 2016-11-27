@@ -1,4 +1,6 @@
-import { isStandardSyntaxRule, ruleMessages, validateOptions } from "../../utils"
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 import { checkRuleEmptyLineBefore } from "../rule-non-nested-empty-line-before"
 
@@ -9,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected empty line before nested rule",
 })
 
-export default function (expectation, options) {
+module.exports = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

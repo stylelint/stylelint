@@ -1,5 +1,5 @@
-import createRuleTester from "./createRuleTester"
-import test from "tape"
+const createRuleTester = require("./createRuleTester")
+const test = require("tape")
 
 // This code is included here instead of using stylelint-test-rule-tape
 // because tests performs significantly faster this way
@@ -19,4 +19,4 @@ function assertEquality(processCss, context) {
   })
 }
 
-export default createRuleTester(assertEquality)
+module.exports = createRuleTester(assertEquality)

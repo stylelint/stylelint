@@ -1,6 +1,6 @@
 import { animationShorthandKeywords, basicKeywords } from "../reference/keywordSets"
 import { getUnitFromValueNode, isStandardSyntaxValue, isVariable } from "./"
-import postcssValueParser from "postcss-value-parser"
+const postcssValueParser = require("postcss-value-parser")
 
 /**
  * Get the font-families within a `font` shorthand property value.
@@ -8,7 +8,7 @@ import postcssValueParser from "postcss-value-parser"
  * @param {string} value
  * @return {object} Collection font-family nodes
  */
-export default function findAnimationName(value) {
+module.exports = function findAnimationName(value) {
   const animationNames = []
 
   const valueNodes = postcssValueParser(value)

@@ -8,7 +8,7 @@ import { isFinite } from "lodash"
  * @return {boolean} If `true`, value is a custom ident
  */
 
-export default function (value) {
+module.exports = function (value) {
   const valueLowerCase = value.toLowerCase()
 
   if (counterIncrementKeywords.has(valueLowerCase) || isFinite(parseInt(valueLowerCase))) {

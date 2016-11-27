@@ -1,8 +1,8 @@
-import ignore from "ignore"
-import multimatch from "multimatch"
-import path from "path"
+const ignore = require("ignore")
+const multimatch = require("multimatch")
+const path = require("path")
 
-export default function getIsFileIgnored(ignorePatterns, ignoreFiles) {
+module.exports = function getIsFileIgnored(ignorePatterns, ignoreFiles) {
   const ignorePatternsFilter = ignore().add(ignorePatterns).createFilter()
 
   return file => {

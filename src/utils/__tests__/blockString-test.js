@@ -1,6 +1,6 @@
-import blockString from "../blockString"
-import postcss from "postcss"
-import test from "tape"
+const blockString = require("../blockString")
+const postcss = require("postcss")
+const test = require("tape")
 
 test("blockString rules", t => {
   t.equal(postcssCheck("a { color: pink; }"), "{ color: pink; }")

@@ -1,4 +1,8 @@
-import { isStandardSyntaxAtRule, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
+const isStandardSyntaxAtRule = require("../../utils/isStandardSyntaxAtRule")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
 
 export const ruleName = "at-rule-name-space-after"
 
@@ -6,7 +10,7 @@ export const messages = ruleMessages(ruleName, {
   expectedAfter: name => `Expected single space after at-rule name \"${name}\"`,
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {

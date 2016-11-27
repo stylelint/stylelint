@@ -1,7 +1,7 @@
 /* @flow */
-import _ from "lodash"
+const _ = require("lodash")
 
-export default function (stylelint/*: stylelint$internalApi*/, postcssResult/*: Object*/, filePath/*:: ?: string*/)/*: Promise<stylelint$result>*/ {
+module.exports = function (stylelint/*: stylelint$internalApi*/, postcssResult/*: Object*/, filePath/*:: ?: string*/)/*: Promise<stylelint$result>*/ {
   const source = !postcssResult.root.source ? undefined : postcssResult.root.source.input.file || postcssResult.root.source.input.id
 
   // Strip out deprecation warnings from the messages

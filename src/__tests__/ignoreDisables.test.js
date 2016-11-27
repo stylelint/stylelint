@@ -1,5 +1,5 @@
-import postcssPlugin from "../postcssPlugin"
-import standalone from "../standalone"
+const postcssPlugin = require("../postcssPlugin")
+const standalone = require("../standalone")
 import { stripIndent } from "common-tags"
 
 const config = {

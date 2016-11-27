@@ -1,6 +1,6 @@
-import execall from "execall"
+const execall = require("execall")
 
-export default function () {
+module.exports = function () {
   let found = false
   return {
     code(input) {

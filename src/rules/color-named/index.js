@@ -1,9 +1,14 @@
-import { declarationValueIndex, isStandardSyntaxValue, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const isStandardSyntaxValue = require("../../utils/isStandardSyntaxValue")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { acceptCustomIdents } from "../../reference/propertySets"
 import { colorFunctionNames } from "../../reference/keywordSets"
 import { isString } from "lodash"
-import namedColorData from "../../reference/namedColorData"
-import valueParser from "postcss-value-parser"
+const namedColorData = require("../../reference/namedColorData")
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "color-named"
 
@@ -15,7 +20,7 @@ export const messages = ruleMessages(ruleName, {
 // Todo tested on case insensivity
 const NODE_TYPES = [ "word", "function" ]
 
-export default function (expectation, options) {
+module.exports = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

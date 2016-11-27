@@ -1,5 +1,5 @@
-import containsString from "../containsString"
-import test from "tape"
+const containsString = require("../containsString")
+const test = require("tape")
 
 test("containsString comparing with string comparison values", t => {
   t.deepEqual(containsString("bar", "bar"), { match: "bar", pattern: "bar" })

@@ -1,4 +1,6 @@
-import { ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
 
 import { selectorListCommaWhitespaceChecker } from "../selector-list-comma-space-after"
 
@@ -10,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedBeforeMultiLine: () => "Unexpected whitespace before \",\" in a multi-line list",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {

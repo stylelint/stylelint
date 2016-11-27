@@ -1,8 +1,8 @@
 import { messages, ruleName } from ".."
-import rules from "../../../rules"
-import stylelint from "../../.."
-import test from "tape"
-import { testRule } from "../../../testUtils"
+const rules = require("../../../rules")
+const stylelint = require("../../..")
+const test = require("tape")
+const testRule = require("../../../testUtils/testRule")
 
 const rule = rules[ruleName]
 

@@ -1,4 +1,10 @@
-import { isStandardSyntaxRule, isStandardSyntaxSelector, optionsMatches, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
+const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
+const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
+const optionsMatches = require("../../utils/optionsMatches")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { pseudoClasses, pseudoElements } from "../../reference/keywordSets"
 import { isString } from "lodash"
 import { vendor } from "postcss"
@@ -9,7 +15,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: selector => `Unexpected unknown pseudo-class selector "${selector}"`,
 })
 
-export default function (actual, options) {
+module.exports = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,

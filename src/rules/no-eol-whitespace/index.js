@@ -1,5 +1,9 @@
-import { isOnlyWhitespace, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
-import styleSearch from "style-search"
+const isOnlyWhitespace = require("../../utils/isOnlyWhitespace")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const styleSearch = require("style-search")
 
 export const ruleName = "no-eol-whitespace"
 
@@ -9,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
 
 const whitespacesToReject = new Set([ " ", "\t" ])
 
-export default function (on, options) {
+module.exports = function (on, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: on,

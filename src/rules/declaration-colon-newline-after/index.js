@@ -1,4 +1,9 @@
-import { declarationValueIndex, isStandardSyntaxDeclaration, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const isStandardSyntaxDeclaration = require("../../utils/isStandardSyntaxDeclaration")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
 
 export const ruleName = "declaration-colon-newline-after"
 
@@ -7,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   expectedAfterMultiLine: () => "Expected newline after \":\" with a multi-line declaration",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {

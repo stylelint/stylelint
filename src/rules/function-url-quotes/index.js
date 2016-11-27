@@ -1,5 +1,11 @@
-import { atRuleParamIndex, functionArgumentsSearch, isStandardSyntaxUrl, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
-import _ from "lodash"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const functionArgumentsSearch = require("../../utils/functionArgumentsSearch")
+const isStandardSyntaxUrl = require("../../utils/isStandardSyntaxUrl")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const _ = require("lodash")
 
 export const ruleName = "function-url-quotes"
 
@@ -8,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: () => "Unexpected quotes",
 })
 
-export default function (expectation, options) {
+module.exports = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

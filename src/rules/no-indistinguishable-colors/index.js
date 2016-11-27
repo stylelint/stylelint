@@ -1,7 +1,10 @@
 import { isArray, isNumber } from "lodash"
-import { isValidHex, report, ruleMessages, validateOptions } from "../../utils"
-import Result from "postcss/lib/result"
-import colorguard from "colorguard"
+const isValidHex = require("../../utils/isValidHex")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const Result = require("postcss/lib/result")
+const colorguard = require("colorguard")
 
 export const ruleName = "no-indistinguishable-colors"
 
@@ -9,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: (a, b) => `Unexpected indistinguishable colors "${a}" and "${b}"`,
 })
 
-export default function (on, options) {
+module.exports = function (on, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual: on }, {
       optional: true,

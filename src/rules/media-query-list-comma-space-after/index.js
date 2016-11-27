@@ -1,5 +1,9 @@
-import { atRuleParamIndex, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
-import styleSearch from "style-search"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
+const styleSearch = require("style-search")
 
 export const ruleName = "media-query-list-comma-space-after"
 
@@ -10,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfterSingleLine: () => "Unexpected whitespace after \",\" in a single-line list",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {

@@ -1,5 +1,9 @@
-import { hasBlock, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
-import _ from "lodash"
+const hasBlock = require("../../utils/hasBlock")
+const optionsMatches = require("../../utils/optionsMatches")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const _ = require("lodash")
 
 export const ruleName = "max-nesting-depth"
 
@@ -7,7 +11,7 @@ export const messages = ruleMessages(ruleName, {
   expected: depth => `Expected nesting depth to be no more than ${depth}`,
 })
 
-export default function (max, options) {
+module.exports = function (max, options) {
   const ignoreAtRulesWithoutDeclarationBlocks = optionsMatches(options, "ignore", "at-rules-without-declaration-blocks")
   const isIgnoreAtRule = node => node.type === "atrule" && optionsMatches(options, "ignoreAtRules", node.name)
 

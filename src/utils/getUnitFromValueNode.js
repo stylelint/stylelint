@@ -1,7 +1,7 @@
-import blurInterpolation from "./blurInterpolation"
+const blurInterpolation = require("./blurInterpolation")
 import { isFinite } from "lodash"
-import isStandardSyntaxValue from "./isStandardSyntaxValue"
-import valueParser from "postcss-value-parser"
+const isStandardSyntaxValue = require("./isStandardSyntaxValue")
+const valueParser = require("postcss-value-parser")
 
 /**
  * Get unit from value node
@@ -11,7 +11,7 @@ import valueParser from "postcss-value-parser"
  * @param {node} node
  * @return {string|null}
  */
-export default function (node) {
+module.exports = function (node) {
   if (!node || node && !node.value) {
     return null
   }

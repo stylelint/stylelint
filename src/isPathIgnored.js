@@ -1,14 +1,14 @@
 /* @flow */
-import ignore from "ignore"
-import multimatch from "multimatch"
-import path from "path"
+const ignore = require("ignore")
+const multimatch = require("multimatch")
+const path = require("path")
 
 // To find out if a path is ignored, we need to load the config,
 // which may have an ignoreFiles property,
 // and will have incorporated any .stylelintignore file that was found
 // into its ignorePatterns property. We then check the path
 // against these.
-export default function (stylelint/*: stylelint$internalApi*/, filePathArg/*:: ?: string*/)/*: Promise<boolean>*/ {
+module.exports = function (stylelint/*: stylelint$internalApi*/, filePathArg/*:: ?: string*/)/*: Promise<boolean>*/ {
   const filePath = filePathArg // to please Flow
   if (!filePath) {
     return Promise.resolve(false)

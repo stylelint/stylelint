@@ -1,6 +1,6 @@
-import needlessDisables from "../needlessDisables"
-import path from "path"
-import standalone from "../standalone"
+const needlessDisables = require("../needlessDisables")
+const path = require("path")
+const standalone = require("../standalone")
 import { stripIndent } from "common-tags"
 
 function fixture(name) {

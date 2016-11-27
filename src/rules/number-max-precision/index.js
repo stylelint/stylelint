@@ -1,7 +1,11 @@
-import { atRuleParamIndex, declarationValueIndex, report, ruleMessages, validateOptions } from "../../utils"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 import { isNumber } from "lodash"
-import valueParser from "postcss-value-parser"
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "number-max-precision"
 
@@ -9,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   expected: (number, precision) => `Expected "${number}" to be "${number.toFixed(precision)}"`,
 })
 
-export default function (precision) {
+module.exports = function (precision) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: precision,

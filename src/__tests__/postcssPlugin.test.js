@@ -1,6 +1,6 @@
-import { configurationError } from "../utils"
-import path from "path"
-import postcssPlugin from "../postcssPlugin"
+const configurationError = require("../utils/configurationError")
+const path = require("path")
+const postcssPlugin = require("../postcssPlugin")
 
 it("`config` option is `null`", () => {
   return postcssPlugin.process("a {}").then(() => {

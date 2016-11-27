@@ -1,4 +1,9 @@
-import { declarationValueIndex, isStandardSyntaxDeclaration, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const isStandardSyntaxDeclaration = require("../../utils/isStandardSyntaxDeclaration")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
 
 export const ruleName = "declaration-colon-space-after"
 
@@ -8,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   expectedAfterSingleLine: () => "Expected single space after \":\" with a single-line declaration",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {

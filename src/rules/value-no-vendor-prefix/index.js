@@ -1,5 +1,10 @@
-import { isAutoprefixable, isStandardSyntaxDeclaration, isStandardSyntaxProperty, report, ruleMessages, validateOptions } from "../../utils"
-import styleSearch from "style-search"
+const isAutoprefixable = require("../../utils/isAutoprefixable")
+const isStandardSyntaxDeclaration = require("../../utils/isStandardSyntaxDeclaration")
+const isStandardSyntaxProperty = require("../../utils/isStandardSyntaxProperty")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const styleSearch = require("style-search")
 
 export const ruleName = "value-no-vendor-prefix"
 
@@ -9,7 +14,7 @@ export const messages = ruleMessages(ruleName, {
 
 const valuePrefixes = [ "-webkit-", "-moz-", "-ms-", "-o-" ]
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

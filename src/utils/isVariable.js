@@ -4,6 +4,6 @@
  * @param {string} word
  * @return {boolean} If `true`, the word is a variable
  */
-export default function (word) {
+module.exports = function (word) {
   return word.toLowerCase().slice(0, 4) === "var("
 }

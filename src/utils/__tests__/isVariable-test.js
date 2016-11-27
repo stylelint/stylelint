@@ -1,5 +1,5 @@
-import isVariable from "../isVariable"
-import test from "tape"
+const isVariable = require("../isVariable")
+const test = require("tape")
 
 test("isVariable", t => {
   t.ok(isVariable("var(--something)"))

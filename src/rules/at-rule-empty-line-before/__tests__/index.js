@@ -1,6 +1,6 @@
 import { mergeTestDescriptions, testRule } from "../../../testUtils"
 import { messages, ruleName } from ".."
-import rules from "../../../rules"
+const rules = require("../../../rules")
 import { stripIndent } from "common-tags"
 
 const rule = rules[ruleName]

@@ -1,7 +1,12 @@
-import { declarationValueIndex, isStandardSyntaxFunction, matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const isStandardSyntaxFunction = require("../../utils/isStandardSyntaxFunction")
+const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { camelCaseFunctionNames } from "../../reference/keywordSets"
 import { isString } from "lodash"
-import valueParser from "postcss-value-parser"
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "function-name-case"
 
@@ -14,7 +19,7 @@ camelCaseFunctionNames.forEach(func => {
   mapLowercaseFunctionNamesToCamelCase.set(func.toLowerCase(), func)
 })
 
-export default function (expectation, options) {
+module.exports = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,

@@ -1,9 +1,9 @@
 /* @flow */
 import { augmentConfigFull } from "./augmentConfig"
-import { configurationError } from "./utils"
-import path from "path"
+const configurationError = require("./utils/configurationError")
+const path = require("path")
 
-export default function (stylelint/*: stylelint$internalApi*/, searchPath/*:: ?: string*/)/*: Promise<?{
+module.exports = function (stylelint/*: stylelint$internalApi*/, searchPath/*:: ?: string*/)/*: Promise<?{
                                                                                                config: stylelint$config,
                                                                                                filepath: string
                                                                                              }>*/ {

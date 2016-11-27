@@ -1,6 +1,11 @@
-import { declarationValueIndex, isStandardSyntaxFunction, matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
+const declarationValueIndex = require("../../utils/declarationValueIndex")
+const isStandardSyntaxFunction = require("../../utils/isStandardSyntaxFunction")
+const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString } from "lodash"
-import valueParser from "postcss-value-parser"
+const valueParser = require("postcss-value-parser")
 import { vendor } from "postcss"
 
 export const ruleName = "function-blacklist"
@@ -46,4 +51,4 @@ function rule(blacklist) {
 
 rule.primaryOptionArray = true
 
-export default rule
+module.exports = rule

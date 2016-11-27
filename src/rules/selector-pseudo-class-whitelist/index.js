@@ -1,4 +1,9 @@
-import { isStandardSyntaxSelector, matchesStringOrRegExp, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
+const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
+const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
+const parseSelector = require("../../utils/parseSelector")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { isString } from "lodash"
 import { vendor } from "postcss"
 
@@ -59,4 +64,4 @@ function rule(whitelist) {
 
 rule.primaryOptionArray = true
 
-export default rule
+module.exports = rule

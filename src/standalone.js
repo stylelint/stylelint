@@ -1,12 +1,12 @@
 /* @flow */
 import * as formatters from "./formatters"
-import createStylelint from "./createStylelint"
-import globby from "globby"
-import needlessDisables from "./needlessDisables"
+const createStylelint = require("./createStylelint")
+const globby = require("globby")
+const needlessDisables = require("./needlessDisables")
 
 const alwaysIgnoredGlobs = [ "!**/node_modules/**", "!**/bower_components/**" ]
 
-export default function ()/*: Promise<stylelint$standaloneReturnValue>*/ {
+module.exports = function ()/*: Promise<stylelint$standaloneReturnValue>*/ {
   const _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
 
   let files = _ref.files,

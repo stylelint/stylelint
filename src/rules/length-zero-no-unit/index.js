@@ -1,8 +1,13 @@
-import { beforeBlockString, blurComments, hasBlock, report, ruleMessages, validateOptions } from "../../utils"
+const beforeBlockString = require("../../utils/beforeBlockString")
+const blurComments = require("../../utils/blurComments")
+const hasBlock = require("../../utils/hasBlock")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 import { findIndex, findLastIndex, range } from "lodash"
 import { lengthUnits } from "../../reference/keywordSets"
-import styleSearch from "style-search"
-import valueParser from "postcss-value-parser"
+const styleSearch = require("style-search")
+const valueParser = require("postcss-value-parser")
 
 export const ruleName = "length-zero-no-unit"
 
@@ -10,7 +15,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected unit",
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

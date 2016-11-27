@@ -1,4 +1,8 @@
-import { beforeBlockString, hasEmptyBlock, report, ruleMessages, validateOptions } from "../../utils"
+const beforeBlockString = require("../../utils/beforeBlockString")
+const hasEmptyBlock = require("../../utils/hasEmptyBlock")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
 
 export const ruleName = "block-no-empty"
 
@@ -6,7 +10,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected empty block",
 })
 
-export default function (actual) {
+module.exports = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {

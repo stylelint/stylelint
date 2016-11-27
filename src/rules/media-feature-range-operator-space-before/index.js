@@ -1,4 +1,8 @@
-import { atRuleParamIndex, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
+const atRuleParamIndex = require("../../utils/atRuleParamIndex")
+const report = require("../../utils/report")
+const ruleMessages = require("../../utils/ruleMessages")
+const validateOptions = require("../../utils/validateOptions")
+const whitespaceChecker = require("../../utils/whitespaceChecker")
 
 import { findMediaOperator } from "../media-feature-range-operator-space-after"
 
@@ -9,7 +13,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedBefore: () => "Unexpected whitespace before range operator",
 })
 
-export default function (expectation) {
+module.exports = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {

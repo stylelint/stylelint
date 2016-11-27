@@ -1,10 +1,12 @@
-import { report, ruleMessages, validateOptions } from "./utils"
-import createPlugin from "./createPlugin"
-import createRuleTester from "./testUtils/createRuleTester"
-import createStylelint from "./createStylelint"
-import postcssPlugin from "./postcssPlugin"
-import rules from "./rules"
-import standalone from "./standalone"
+const report = require("./utils/report")
+const ruleMessages = require("./utils/ruleMessages")
+const validateOptions = require("./utils/validateOptions")
+const createPlugin = require("./createPlugin")
+const createRuleTester = require("./testUtils/createRuleTester")
+const createStylelint = require("./createStylelint")
+const postcssPlugin = require("./postcssPlugin")
+const rules = require("./rules")
+const standalone = require("./standalone")
 
 const api = postcssPlugin
 

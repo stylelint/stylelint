@@ -1,6 +1,6 @@
-import Browsers from "autoprefixer/lib/browsers"
-import Prefixes from "autoprefixer/lib/prefixes"
-import autoprefixer from "autoprefixer"
+const Browsers = require("autoprefixer/lib/browsers")
+const Prefixes = require("autoprefixer/lib/prefixes")
+const autoprefixer = require("autoprefixer")
 
 /**
  * Use Autoprefixer's secret powers to determine whether or
@@ -17,7 +17,7 @@ const prefixes = new Prefixes(autoprefixer.data.prefixes, new Browsers(autoprefi
  * Most identifier types have to be looked up in a unique way,
  * so we're exposing special functions for each.
  */
-export default {
+module.exports = {
 
   atRuleName(identifier) {
     return prefixes.remove[`@${identifier.toLowerCase()}`]

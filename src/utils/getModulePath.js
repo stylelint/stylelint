@@ -1,7 +1,7 @@
 import { configurationError } from "."
-import resolveFrom from "resolve-from"
+const resolveFrom = require("resolve-from")
 
-export default function (basedir/*: string*/, lookup/*: string*/)/*: string*/ {
+module.exports = function (basedir/*: string*/, lookup/*: string*/)/*: string*/ {
   // First try to resolve from the provided directory,
   // then try to resolve from process.cwd.
   let path = resolveFrom(basedir, lookup)
