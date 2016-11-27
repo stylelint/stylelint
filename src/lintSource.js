@@ -6,8 +6,8 @@ import ruleDefinitions from "./rules"
 
 // Run stylelint on a PostCSS Result, either one that is provided
 // or one that we create
-export default function (stylelint /* : stylelint$internalApi*/) /* : Promise<Object>*/ {
-  const options /* : {
+export default function (stylelint/*: stylelint$internalApi*/)/*: Promise<Object>*/ {
+  const options/*: {
                   code?: string,
                   codeFilename?: string,
                   filePath?: string,
@@ -63,7 +63,7 @@ export default function (stylelint /* : stylelint$internalApi*/) /* : Promise<Ob
   })
 }
 
-function lintPostcssResult(stylelint /* : stylelint$internalApi*/, postcssResult /* : Object*/, config /* : stylelint$config*/) /* : Promise<>*/ {
+function lintPostcssResult(stylelint/*: stylelint$internalApi*/, postcssResult/*: Object*/, config/*: stylelint$config*/)/*: Promise<>*/ {
   postcssResult.stylelint = postcssResult.stylelint || {}
   postcssResult.stylelint.ruleSeverities = {}
   postcssResult.stylelint.customMessages = {}
@@ -111,7 +111,7 @@ function lintPostcssResult(stylelint /* : stylelint$internalApi*/, postcssResult
   return Promise.all(performRules)
 }
 
-function createEmptyPostcssResult(filePath /* :: ?: string*/) /* : Object*/ {
+function createEmptyPostcssResult(filePath/*:: ?: string*/)/*: Object*/ {
   return {
     root: {
       source: {

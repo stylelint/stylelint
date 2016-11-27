@@ -1,12 +1,12 @@
 /* @flow */
-export default function (statement /* : Object*/) /* : string*/ {
+export default function (statement/*: Object*/)/*: string*/ {
   const _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {}
 
   const noRawBefore = _ref.noRawBefore
 
   let result = ""
-  let rule /* : postcss$rule*/
-  let atRule /* : postcss$atRule*/
+  let rule/*: postcss$rule*/
+  let atRule/*: postcss$atRule*/
 
   if (statement.type === "rule") {
     rule = statement

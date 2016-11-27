@@ -6,7 +6,7 @@ import postcss from "postcss"
 export default postcss.plugin("stylelint", function () {
   const options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
 
-  const tailoredOptions /* : Object*/ = options.rules ? { config: options } : options
+  const tailoredOptions/*: Object*/ = options.rules ? { config: options } : options
 
   const stylelint = createStylelint(tailoredOptions)
   return (root, result) => {

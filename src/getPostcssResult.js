@@ -8,8 +8,8 @@ import sugarssSyntax from "sugarss"
 
 const postcssProcessor = postcss()
 
-export default function (stylelint /* : stylelint$internalApi*/) /* : Promise<?Object>*/ {
-  const options /* : {
+export default function (stylelint/*: stylelint$internalApi*/)/*: Promise<?Object>*/ {
+  const options/*: {
                   code?: string,
                   codeFilename?: string,
                   filePath?: string,
@@ -84,7 +84,7 @@ export default function (stylelint /* : stylelint$internalApi*/) /* : Promise<?O
   })
 }
 
-function readFile(filePath /* : string*/) /* : Promise<string>*/ {
+function readFile(filePath/*: string*/)/*: Promise<string>*/ {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, "utf8", (err, content) => {
       if (err) {

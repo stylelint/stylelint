@@ -13,7 +13,7 @@ const FILE_NOT_FOUND_ERROR_CODE = "ENOENT"
 // - Merges config and configOverrides
 // - Makes all paths absolute
 // - Merges extends
-function augmentConfigBasic(stylelint /* : stylelint$internalApi*/, config /* : stylelint$config*/, configDir /* : string*/) /* : Promise<stylelint$config>*/ {
+function augmentConfigBasic(stylelint/*: stylelint$internalApi*/, config/*: stylelint$config*/, configDir/*: string*/)/*: Promise<stylelint$config>*/ {
   return Promise.resolve().then(() => {
     return _.merge(config, stylelint._options.configOverrides)
   }).then(augmentedConfig => {
@@ -26,10 +26,10 @@ function augmentConfigBasic(stylelint /* : stylelint$internalApi*/, config /* : 
 // Extended configs need to be run through augmentConfigBasic
 // but do not need the full treatment. Things like pluginFunctions
 // will be resolved and added by the parent config.
-function augmentConfigExtended(stylelint /* : stylelint$internalApi*/, cosmiconfigResultArg /* : ?{
+function augmentConfigExtended(stylelint/*: stylelint$internalApi*/, cosmiconfigResultArg/*: ?{
                                                                                                config: stylelint$config,
                                                                                                filepath: string,
-                                                                                             }*/) /* : Promise<?{
+                                                                                             }*/)/*: Promise<?{
                                                                                                     config: stylelint$config,
                                                                                                     filepath: string,
                                                                                                   }>*/ {
@@ -46,10 +46,10 @@ function augmentConfigExtended(stylelint /* : stylelint$internalApi*/, cosmiconf
   })
 }
 
-function augmentConfigFull(stylelint /* : stylelint$internalApi*/, cosmiconfigResultArg /* : ?{
+function augmentConfigFull(stylelint/*: stylelint$internalApi*/, cosmiconfigResultArg/*: ?{
                                                                                            config: stylelint$config,
                                                                                            filepath: string,
-                                                                                         }*/) /* : Promise<?{
+                                                                                         }*/)/*: Promise<?{
                                                                                                 config: stylelint$config,
                                                                                                 filepath: string
                                                                                               }>*/ {
@@ -83,7 +83,7 @@ function augmentConfigFull(stylelint /* : stylelint$internalApi*/, cosmiconfigRe
 
 // Load a file ignore ignore patterns, if there is one;
 // then add them to the config as an ignorePatterns property
-function addIgnorePatterns(stylelint /* : stylelint$internalApi*/, config /* : stylelint$config*/) /* : Promise<stylelint$config>*/ {
+function addIgnorePatterns(stylelint/*: stylelint$internalApi*/, config/*: stylelint$config*/)/*: Promise<stylelint$config>*/ {
   const ignoreFilePath = stylelint._options.ignorePath || DEFAULT_IGNORE_FILENAME
   const absoluteIgnoreFilePath = path.isAbsolute(ignoreFilePath) ? ignoreFilePath : path.resolve(process.cwd(), ignoreFilePath)
 
@@ -99,7 +99,7 @@ function addIgnorePatterns(stylelint /* : stylelint$internalApi*/, config /* : s
       }
       // Add an ignorePatterns property to the config, containing the
       // .gitignore-patterned globs loaded from .stylelintignore
-      const augmentedConfig /* : stylelint$config*/ = Object.assign({}, config, {
+      const augmentedConfig/*: stylelint$config*/ = Object.assign({}, config, {
         ignorePatterns: data,
       })
       resolve(augmentedConfig)
@@ -112,7 +112,7 @@ function addIgnorePatterns(stylelint /* : stylelint$internalApi*/, config /* : s
 // - plugins
 // - processors
 // (extends handled elsewhere)
-function absolutizePaths(config /* : stylelint$config*/, configDir /* : string*/) /* : stylelint$config*/ {
+function absolutizePaths(config/*: stylelint$config*/, configDir/*: string*/)/*: stylelint$config*/ {
   if (config.ignoreFiles) {
     config.ignoreFiles = [].concat(config.ignoreFiles).map(glob => {
       if (path.isAbsolute(glob.replace(/^!/, ""))) return glob
@@ -135,7 +135,7 @@ function absolutizePaths(config /* : stylelint$config*/, configDir /* : string*/
 
 // Processors are absolutized in their own way because
 // they can be and return a string or an array
-function absolutizeProcessors(processors /* : stylelint$configProcessors*/, configDir /* : string*/) /* : stylelint$configProcessors*/ {
+function absolutizeProcessors(processors/*: stylelint$configProcessors*/, configDir/*: string*/)/*: stylelint$configProcessors*/ {
   const normalizedProcessors = Array.isArray(processors) ? processors : [processors]
 
   return normalizedProcessors.map(item => {
@@ -147,7 +147,7 @@ function absolutizeProcessors(processors /* : stylelint$configProcessors*/, conf
   })
 }
 
-function extendConfig(stylelint /* : stylelint$internalApi*/, config /* : stylelint$config*/, configDir /* : string*/) /* : Promise<stylelint$config>*/ {
+function extendConfig(stylelint/*: stylelint$internalApi*/, config/*: stylelint$config*/, configDir/*: string*/)/*: Promise<stylelint$config>*/ {
   if (config.extends === undefined) return Promise.resolve(config)
   const normalizedExtends = Array.isArray(config.extends) ? config.extends : [config.extends]
 
@@ -166,7 +166,7 @@ function extendConfig(stylelint /* : stylelint$internalApi*/, config /* : stylel
   })
 }
 
-function loadExtendedConfig(stylelint /* : stylelint$internalApi*/, config /* : stylelint$config*/, configDir /* : string*/, extendLookup /* : string*/) /* : Promise<?{
+function loadExtendedConfig(stylelint/*: stylelint$internalApi*/, config/*: stylelint$config*/, configDir/*: string*/, extendLookup/*: string*/)/*: Promise<?{
                                                                                                                                                        config: stylelint$config,
                                                                                                                                                        filepath: string,
                                                                                                                                                      }>*/ {
@@ -180,7 +180,7 @@ function loadExtendedConfig(stylelint /* : stylelint$internalApi*/, config /* : 
 //   merge any given rule's settings. If b contains the same rule as a,
 //   b's rule settings will override a's rule settings entirely.
 // - Everything else is merged via Object.assign
-function mergeConfigs(a /* : stylelint$config*/, b /* : stylelint$config*/) /* : stylelint$config*/ {
+function mergeConfigs(a/*: stylelint$config*/, b/*: stylelint$config*/)/*: stylelint$config*/ {
   const pluginMerger = {}
   if (a.plugins || b.plugins) {
     pluginMerger.plugins = []
@@ -212,7 +212,7 @@ function mergeConfigs(a /* : stylelint$config*/, b /* : stylelint$config*/) /* :
   return result
 }
 
-function addPluginFunctions(config /* : stylelint$config*/) /* : stylelint$config*/ {
+function addPluginFunctions(config/*: stylelint$config*/)/*: stylelint$config*/ {
   if (!config.plugins) return config
 
   const normalizedPlugins = Array.isArray(config.plugins) ? config.plugins : [config.plugins]
@@ -245,7 +245,7 @@ function addPluginFunctions(config /* : stylelint$config*/) /* : stylelint$confi
   return config
 }
 
-function normalizeAllRuleSettings(config /* : stylelint$config*/) /* : stylelint$config*/ {
+function normalizeAllRuleSettings(config/*: stylelint$config*/)/*: stylelint$config*/ {
   const normalizedRules = {}
   if (!config.rules) return config
   Object.keys(config.rules).forEach(ruleName => {
@@ -271,7 +271,7 @@ function normalizeAllRuleSettings(config /* : stylelint$config*/) /* : stylelint
 //   provided options
 // - Push the processor's code and result processors to their respective arrays
 const processorCache = new Map()
-function addProcessorFunctions(config /* : stylelint$config*/) /* : stylelint$config*/ {
+function addProcessorFunctions(config/*: stylelint$config*/)/*: stylelint$config*/ {
   if (!config.processors) return config
 
   const codeProcessors = []

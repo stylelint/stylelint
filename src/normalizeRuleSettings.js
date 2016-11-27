@@ -13,7 +13,7 @@ import _ from "lodash"
 // standard form: [primaryOption, secondaryOption]
 // Except in the cases with null, a & b, in which case
 // null is returned
-export default function (rawSettings /* : stylelint$configRuleSettings*/, ruleName /* : string*/, primaryOptionArray /* :: ?: boolean*/) /* : ?Array<any | [any, Object]>*/ {
+export default function (rawSettings/*: stylelint$configRuleSettings*/, ruleName/*: string*/, primaryOptionArray/*:: ?: boolean*/)/*: ?Array<any | [any, Object]>*/ {
   if (rawSettings === null) {
     return null
   }

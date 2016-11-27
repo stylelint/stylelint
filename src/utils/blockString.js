@@ -12,7 +12,7 @@ import rawNodeString from "./rawNodeString"
  * @param {Rule|AtRule} statement - postcss rule or at-rule node
  * @return {string|undefined}
  */
-export default function (statement /* : postcss$rule | postcss$atRule*/) /* : string | boolean*/ {
+export default function (statement/*: postcss$rule | postcss$atRule*/)/*: string | boolean*/ {
   if (!hasBlock(statement)) {
     return false
   }

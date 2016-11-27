@@ -3,7 +3,7 @@ import { augmentConfigFull } from "./augmentConfig"
 import { configurationError } from "./utils"
 import path from "path"
 
-export default function (stylelint /* : stylelint$internalApi*/, searchPath /* :: ?: string*/) /* : Promise<?{
+export default function (stylelint/*: stylelint$internalApi*/, searchPath/*:: ?: string*/)/*: Promise<?{
                                                                                                config: stylelint$config,
                                                                                                filepath: string
                                                                                              }>*/ {
