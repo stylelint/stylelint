@@ -71,9 +71,12 @@
     "babel-cli": "^6.1.18",
     "babel-eslint": "^7.0.0",
     "babel-jest": "^17.0.2",
+    "babel-plugin-syntax-trailing-function-commas": "^6.13.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.19.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "babel-plugin-transform-es2015-parameters": "^6.18.0",
+    "babel-plugin-transform-es2015-spread": "^6.8.0",
     "babel-plugin-transform-flow-strip-types": "^6.14.0",
-    "babel-preset-es2015": "^6.14.0",
-    "babel-preset-es2017": "^6.14.0",
     "babel-tape-runner": "^2.0.0",
     "benchmark": "^2.1.0",
     "common-tags": "^1.3.0",
@@ -116,11 +119,11 @@
     "release": "npmpub"
   },
   "babel": {
-    "presets": [
-      "es2015",
-      "es2017"
-    ],
     "plugins": [
+      "transform-es2015-destructuring",
+      "transform-es2015-parameters",
+      "transform-es2015-spread",
+      "syntax-trailing-function-commas",
       "transform-flow-strip-types"
     ]
   },

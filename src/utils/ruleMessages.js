@@ -11,9 +11,13 @@
 export default function (ruleName, messages) {
   return Object.keys(messages).reduce((newMessages, messageId) => {
     const messageText = messages[messageId]
-    newMessages[messageId] = (typeof messageText === "string")
-      ? `${messageText} (${ruleName})`
-      : (...args) => `${messageText(...args)} (${ruleName})`
+    if (typeof messageText === "string") {
+      newMessages[messageId] = `${messageText} (${ruleName})`
+    } else {
+      newMessages[messageId] = function () {
+        return `${messageText.apply(null, arguments)} (${ruleName})`
+      }
+    }
     return newMessages
   }, {})
 }
