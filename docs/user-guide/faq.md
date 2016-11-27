@@ -5,6 +5,7 @@
 You can disable a rule by setting its config value to `null`.
 
 For example, to use `stylelint-config-standard` without the `at-rule-empty-line-before` rule:
+
 ```json
 {
   "extends": "stylelint-config-standard",
@@ -14,11 +15,11 @@ For example, to use `stylelint-config-standard` without the `at-rule-empty-line-
 }
 ```
 
-You can also disable a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/configuration.md#rules) for more information.
+You can also disable a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](configuration.md#rules) for more information.
 
 ## How do I lint from the command line?
 
-Refer to the [CLI section](/docs/user-guide/cli.md) of the docs.
+Refer to the [CLI section](cli.md) of the docs.
 
 The CLI can also be used from within [npm run scripts](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
 
@@ -28,17 +29,17 @@ The CLI can also be used from within [npm run scripts](http://blog.keithcirkel.c
 
 ## How do I lint using my task runner of choice?
 
-The stylelint community maintains a [handful of plugins](/docs/user-guide/complementary-tools.md#build-tool-plugins) for popular task runners, including ones for gulp, webpack, Broccoli and Grunt. Refer to their individual READMEs to get started.
+The stylelint community maintains a [handful of plugins](complementary-tools.md#build-tool-plugins) for popular task runners, including ones for gulp, webpack, Broccoli and Grunt. Refer to their individual READMEs to get started.
 
 If there isn't a dedicated stylelint plugin for your task runner of choice, you can use stylelint as a PostCSS plugin and make use of PostCSS's [numerous](https://github.com/postcss/postcss#runners) task runner plugins.
 
-There are also examples of using the PostCSS plugin via the PostCSS JS API within the [docs](/docs/user-guide/postcss-plugin.md).
+There are also examples of using the PostCSS plugin via the PostCSS JS API within the [docs](postcss-plugin.md).
 
 However, using stylelint as a PostCSS plugin limits your reporting options to [postcss-reporter](https://github.com/postcss/postcss-reporter/). We recommend using the stylelint CLI or Node API, instead, for better reporting.
 
 ## How do I lint within my text editor?
 
-The stylelint community also maintains a [handful of plugins](/docs/user-guide/complementary-tools.md#editor-plugins) for popular editors. Refer to their individual READMEs to get started.
+The stylelint community also maintains a [handful of plugins](complementary-tools.md#editor-plugins) for popular editors. Refer to their individual READMEs to get started.
 
 ## How do I lint SCSS, Less, or other non-standard syntax?
 
@@ -46,15 +47,15 @@ stylelint can *parse* any the following non-standard syntaxes by default: SCSS, 
 
 Additionally, stylelint can accept any [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes) when using the CLI or Node API. Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed above.
 
-Refer to the [docs](/docs/user-guide/css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse non-standard syntaxes.
+Refer to the [docs](css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse non-standard syntaxes.
 
 ## Should I lint before or after processing my stylesheets through PostCSS plugins or other processors?
 
-We [recommend](/docs/user-guide/css-processors.md) linting your source files before any transformations.
+We [recommend](css-processors.md) linting your source files before any transformations.
 
 ## How do I lint styles within `<style>` tags?
 
-[Create a processor](/docs/developer-guide/processors.md) or [use an existing one](/docs/user-guide/configuration.md#processors) that extracts CSS from your HTML's `<style>` tags and feeds it into stylelint.
+[Create a processor](../developer-guide/processors.md) or [use an existing one](configuration.md#processors) that extracts CSS from your HTML's `<style>` tags and feeds it into stylelint.
 
 ## How do I automatically fix stylistic warnings?
 
@@ -68,15 +69,15 @@ It's your responsibility as the configuration author to resolve these conflicts.
 
 ## What is the difference between a plugin and a rule?
 
-A rule must meet the [criteria](/docs/developer-guide/rules.md) set out in the developer guide, including being applicable to only standard CSS syntax, and having a clear and unambiguous finished state. Whereas a plugin is a rule or sets of rules built by the community that don't adhere to the criteria. It might support a particular methodology or toolset, or apply to *non-standard* constructs and features, or be for specific use cases. 
+A rule must meet the [criteria](../developer-guide/rules.md) set out in the developer guide, including being applicable to only standard CSS syntax, and having a clear and unambiguous finished state. Whereas a plugin is a rule or sets of rules built by the community that don't adhere to the criteria. It might support a particular methodology or toolset, or apply to *non-standard* constructs and features, or be for specific use cases.
 
-For example, we've found that rules to enforce property order, property groupings, etc., work better as plugins, because there are so many different opinions about what to enforce, and how. When you write or use a plugin, you can make sure to enforce your own particular preferences, exactly; but a rule that tries to address too many divergent use-cases becomes a mess. 
+For example, we've found that rules to enforce property order, property groupings, etc., work better as plugins, because there are so many different opinions about what to enforce, and how. When you write or use a plugin, you can make sure to enforce your own particular preferences, exactly; but a rule that tries to address too many divergent use-cases becomes a mess.
 
 Plugins are easy to incorporate into your configuration.
 
 ## Can I customise stylelint's messages?
 
-Yes, you can either use the [`message` secondary option](/docs/user-guide/configuration.md#custom-messages) or [write your own formatter](/docs/developer-guide/formatters.md).
+Yes, you can either use the [`message` secondary option](configuration.md#custom-messages) or [write your own formatter](../developer-guide/formatters.md).
 
 ## How should I lint my CSS that follows a BEM-like methodology?
 
@@ -101,7 +102,7 @@ All these patterns disallow CSS identifiers that start with a digit, two hyphens
 
 ## How do I change the default severity to "warning" so stylelint doesn't break my build?
 
-Use the [`defaultSeverity`](/docs/user-guide/configuration.md#defaultSeverity) configuration option.
+Use the [`defaultSeverity`](configuration.md#defaultseverity) configuration option.
 
 ## Can I bundle more than one sharable config within a npm package?
 
@@ -109,7 +110,7 @@ A user can `require()` any file in your npm package, so all you need to do is do
 
 ## How can I control the whitespace after the open brace of the block?
 
-Refer to [this](/docs/user-guide/about-rules.md#-empty-line-before-and--max-empty-lines) section of the docs that explains how the `*-empty-line-before` rules work.
+Refer to [this](about-rules.md#-empty-line-before-and--max-empty-lines) section of the docs that explains how the `*-empty-line-before` rules work.
 
 ## How do I "pin" to a particular branch, pull request or fork of stylelint in my `package.json`?
 

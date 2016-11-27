@@ -17,7 +17,7 @@ By default, the linter can *parse* any the following non-standard syntaxes by us
 -   Less (using [`postcss-less`](https://github.com/webschik/postcss-less))
 -   SugarSS (using [`sugarss`](https://github.com/postcss/sugarss))
 
-*Non-standard syntaxes can automatically be inferred from the following file extensions: `.less`, `.scss`, and `.sss`.* If you would need to specify your non-standard syntax, though, both the [CLI](/docs/user-guide/cli.md) and the [Node API](/docs/user-guide/node-api.md) expose a `syntax` option.
+*Non-standard syntaxes can automatically be inferred from the following file extensions: `.less`, `.scss`, and `.sss`.* If you would need to specify your non-standard syntax, though, both the [CLI](cli.md) and the [Node API](node-api.md) expose a `syntax` option.
 
 -   If you're using the CLI, use the `syntax` flag like so:  `stylelint ... --syntax scss`.
 -   If you're using the Node API, pass in the `syntax` option like so: `stylelint.lint({ syntax: "sugarss", ... })`.
@@ -27,7 +27,7 @@ Additionally, stylelint can accept a custom [PostCSS-compatible syntax](https://
 -   If you're using the CLI, use the `custom-syntax` flag like so:  `stylelint ... --custom-syntax custom-syntax-module` or `stylelint ... --custom-syntax ./path/to/custom-syntax-module`.
 -   If you're using the Node API, pass in the `customSyntax` option like so: `stylelint.lint({ customSyntax: path.join(process.cwd(), './path/to/custom-syntax-module') , ... })`.
 
-If you're using the linter as a [PostCSS Plugin](/docs/user-guide/postcss-plugin.md), you'll need to use the special parser directly with PostCSS's `syntax` option like so:
+If you're using the linter as a [PostCSS Plugin](postcss-plugin.md), you'll need to use the special parser directly with PostCSS's `syntax` option like so:
 
 ```js
 var postcss = require("postcss")

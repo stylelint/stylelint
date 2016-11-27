@@ -38,7 +38,7 @@ With stylelint, it's easy to start linting your CSS:
     -   To extend a shared config, we recommend using [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard). It includes over 80 of stylelint's rules with sensible defaults. (You can always override specific rules after extending the config.) We update the config with each new release of stylelint. Alternately, you can [search for](https://www.npmjs.com/browse/keyword/stylelint-config) a community config and [extend](/docs/user-guide/configuration.md#extends) that instead.
     -   To craft your own config, first [learn about how rules are named and how they work together](/docs/user-guide/about-rules.md), then either:
         -   Start small and only learn about [the rules](/docs/user-guide/rules.md) you want to turn on and enforce. *All of the rules are off by default*, and so you can start small, growing your config over time as you have a chance to explore more of the rules.
-        -   Or copy-paste [this example configuration](/docs/user-guide/example-config.md), which lists all of stylelint's rules and their primary options. Then you can edit the options of each rule to your liking, and remove (or turn off with `null`) the rules that you don't care to enforce.
+        -   Or copy-paste [this example configuration](docs/user-guide/example-config.md), which lists all of stylelint's rules and their primary options. Then you can edit the options of each rule to your liking, and remove (or turn off with `null`) the rules that you don't care to enforce.
 3.  Lint!
 
 ## Guides
@@ -64,7 +64,7 @@ There is always a lot of work to do, and already well over 150 rules to maintain
 -   Create, enhance, and debug rules (see our guide to ["Working on rules"](docs/developer-guide/rules.md)).
 -   Improve [documentation](docs/).
 -   Add new tests to *absolutely anything*.
--   Work on [improving performance of rules](docs/developer-guide/benchmarks.md).
+-   Work on [improving performance of rules](docs/developer-guide/rules.md#improving-the-performance-of-new-and-existing-rules).
 -   Open new issues about your ideas for making stylelint better, and pull requests to show us how your idea works.
 -   Create or contribute to ecosystem tools, like the plugins for [Atom](https://github.com/AtomLinter/linter-stylelint) and [Sublime Text](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint).
 

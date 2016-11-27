@@ -10,13 +10,15 @@ If you like stylelint and open source software (since you're reading this, you a
 
 Also: we hope that your participation in the project isn't a one-off. *We'd love to add more members to the organization and see more regulars pop up in issues and pull requests!*
 
-## Creating new rules
+## Creating a new rule
 
-### Let everyone know
+First, open [an issue](https://github.com/stylelint/stylelint/issues/new) with your idea for the new rule.
 
-First, open [an issue](https://github.com/stylelint/stylelint/issues/new) and let everyone else know that you intend to create a new rule.
+Usually we have some discussion about the rule's purpose, name, options, and suitability as a rule.
 
-Usually we have some discussion about the rule's purpose, name, and options before it's ready for development. We also discuss whether the rule meets the following criteria for inclusion in stylelint:
+### Criteria for inclusion
+
+We discuss whether the rule meets the following criteria for inclusion in stylelint:
 
 -   Applicable to standard CSS syntax only.
 -   Useful to the majority of users.
@@ -27,15 +29,15 @@ Usually we have some discussion about the rule's purpose, name, and options befo
 
 Otherwise, it should be a plugin. However, plugins should also try to adhere to the latter three criteria.
 
-Once you have something to show, you'll create a [pull request](https://github.com/stylelint/stylelint/compare) to continue the conversation.
+### Naming a rule
 
-### Come up with a name
-
-Have a look at the [rules user guide](/docs/user-guide/about-rules.md) to familiarize yourself the rule naming conventions.
+Have a look at the [rules user guide](../user-guide/about-rules.md) to familiarize yourself the rule naming conventions.
 
 We take care to ensure that all the rules are named accurately and consistently. Our goals in that effort are to ensure that rules are easy to find and understand, and to prevent us from wanting to change the name later.
 
-### Determine options
+*Rules are named to encourage explicit, rather than implicit, options.* For example, `color-hex-case: "upper"|"lower"` rather than `color-hex-uppercase: "always"|"never"`. As `color-hex-uppercase: "never"` *implies* always lowercase, whereas `color-hex-case: "lower"` makes it *explicit*.
+
+### Determining options
 
 #### Primary
 
@@ -66,19 +68,22 @@ Some rules require extra flexibility to address a variety of use-cases. These ca
 
 The most typical secondary options are `"ignore": []` and `"except": []`; but anything is possible.
 
-`"ignore"` and `"except"` accept an array of predefined keyword options e.g. `["relative", "first-nested", "descendant"]`. Use `"ignore"` when you want the rule to simply skip-over a particular pattern, and use `"except"` when you want to invert the primary option for a particular pattern.
-
-Use a more specific secondary option name when accepting a *user-defined* list of things to ignore. For example, use `"ignoreAtRules": []` if a rule checks at-rules and you want to allow a user to specify which particular at-rule types to ignore.
-
 A rule's secondary option can be anything if you're not ignoring or making exceptions. As an example, `resolveNestedSelectors: true|false` is used within some `selector-*` rules to change how the rule processes nested selectors.
 
-#### Be explicit
+##### Keyword `"ignore"` and `"except"`
 
-*Use explicit, rather than implicit, options.* For example, `color-hex-case: "upper"|"lower"` rather than `color-hex-uppercase: "always"|"never"`. As `color-hex-uppercase: "never"` *implies* always lowercase, whereas `color-hex-case: "lower"` makes it *explicit*.
+`"ignore"` and `"except"` accept an array of predefined keyword options e.g. `["relative", "first-nested", "descendant"]`.
+
+-   Use `"ignore"` when you want the rule to simply skip-over a particular pattern.
+-   Use `"except"` when you want to invert the primary option for a particular pattern.
+
+##### User-defined `"ignore*"`
+
+Use a more specific secondary option name when accepting a *user-defined* list of things to ignore. This takes the form of `"ignore<Things>": []` e.g. use `"ignoreAtRules": []` if a rule checks at-rules and you want to allow a user to specify which particular at-rule types to ignore.
 
 ### Determine warning messages
 
-Messages usually take one of these forms:
+Messages take one of these forms:
 
 -   "Expected \[something\] \[in some context\]".
 -   "Unexpected \[something\] \[in some context\]."
@@ -89,7 +94,7 @@ Look at the messages of other rules to glean more conventions and patterns.
 
 *When writing the rule, always look to other similar rules for conventions and patterns to start from and mimic.*
 
-You will use the simple [PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes.
+You will use the simple [PostCSS API](http://api.postcss.org/) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes.
 
 Depending on the rule, we also recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
@@ -137,7 +142,7 @@ You can run the tests via:
 npm test
 ```
 
-However, this runs all 10,000+ unit tests and also linting.
+However, this runs all 25,000+ unit tests and also linting.
 
 To run tests in a single file only (which you'll want to do during development), you'll need to use `babel-tape-runner` (because the codebase is ES6). For example, to run the test for the `color-hex-case` rule:
 
@@ -185,12 +190,14 @@ Take the form of:
 The final step is to add references to the new rule in the following places:
 
 -   [The rules `index.js` file](https://github.com/stylelint/stylelint/blob/master/src/rules/index.js)
--   [The list of rules](/docs/user-guide/rules.md)
--   [The example config](/docs/user-guide/example-config.md)
+-   [The list of rules](../user-guide/rules.md)
+-   [The example config](../user-guide/example-config.md)
+
+Once you have something to show, you'll create a [pull request](https://github.com/stylelint/stylelint/compare) to continue the conversation.
 
 ## Adding options to existing rules
 
-First, open an issue about the option you wish to add. We'll discuss its functionality and name there.
+First, open [an issue](https://github.com/stylelint/stylelint/issues/new) about the option you wish to add. We'll discuss its functionality and name there.
 
 Once we've agreed on the direction, you can work on a pull request. Here are the steps you'll need to take:
 
@@ -199,7 +206,7 @@ Once we've agreed on the direction, you can work on a pull request. Here are the
 3.  Add new unit tests to test the option.
 4.  Add documentation about the new option.
 
-## Fixing bugs
+## Fixing bugs in existing rules
 
 Fixing bugs is usually very easy. Here is a process that works:
 
@@ -207,3 +214,47 @@ Fixing bugs is usually very easy. Here is a process that works:
 2.  Fiddle with the rule until those new tests pass.
 
 That's it! **If you are unable to figure out how to fix the bug yourself, it is still *extremely* helpful to submit a pull request with your failing test cases.** It means that somebody else can jump right in and help out with the rule's logic.
+
+## Improving the performance of new and existing rules
+
+There's a simple way to run benchmarks on any given rule with any valid config for it:
+
+```shell
+npm run benchmark-rule -- [rule-name] [config]
+```
+
+If the `config` argument is anything other than a string or a boolean, it must be valid JSON wrapped in quotation marks.
+
+```shell
+npm run benchmark-rule -- selector-combinator-space-after never
+```
+
+```shell
+npm run benchmark-rule -- selector-combinator-space-after always
+```
+
+```shell
+npm run benchmark-rule -- selector-no-combinator true
+```
+
+```shell
+npm run benchmark-rule -- block-opening-brace-space-before "[\"always\", {\"ignoreAtRules\": [\"else\"]}]"
+```
+
+The script loads Bootstrap's CSS (from its CDN) and runs it through the configured rule.
+
+It will end up printing some simple stats like this:
+
+```shell
+Warnings: 1441
+Mean: 74.17598357142856 ms
+Deviation: 16.63969674310928 ms
+```
+
+What can you do with this? **When writing new rules or refactoring existing rules, use these measurements to determine the efficiency of your code.**
+
+A stylelint rule can repeat it's core logic many, many times (e.g. checking every value node of every declaration in a vast CSS codebase). So it's worth paying attention to performance and doing what we can to improve it!
+
+**This is a great way to contribute if you just want a quick little project.** Try picking a rule and seeing if there's anything you can do to speed it up.
+
+Make sure to include benchmark measurements in your PR's!

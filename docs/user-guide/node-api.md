@@ -33,7 +33,7 @@ This can be useful, for example, when making a text editor plugin that passes in
 
 ### `config`
 
-A [stylelint configuration object](/docs/user-guide/configuration.md).
+A [stylelint configuration object](configuration.md).
 
 If no `config` or `configFile` is passed, stylelint will look for a `.stylelintrc` configuration file.
 
@@ -45,7 +45,7 @@ If the `config` object passed uses relative paths, e.g. for `extends` or `plugin
 
 ### `configFile`
 
-The path to a JSON, YAML, or JS file  that contains your [stylelint configuration object](/docs/user-guide/configuration.md).
+The path to a JSON, YAML, or JS file  that contains your [stylelint configuration object](configuration.md).
 
 It should be either absolute or relative to the directory that your process is running from (`process.cwd()`). We'd recommend absolute.
 
@@ -67,7 +67,7 @@ Options: `"json"|"string"|"verbose"`, or a function. Default is `"json"`.
 
 Specify the formatter that you would like to use to format your results.
 
-If you pass a function, it must fit the signature described in the [Developer Guide](/docs/developer-guide/formatters.md).
+If you pass a function, it must fit the signature described in the [Developer Guide](../developer-guide/formatters.md).
 
 ### `ignoreDisables`
 
@@ -85,7 +85,7 @@ Use this report to clean up your codebase, keeping only the stylelint-disable co
 
 ### `ignorePath`
 
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](/docs/user-guide/configuration.md#stylelintignore).
+A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](configuration.md#stylelintignore).
 
 ### `syntax`
 
