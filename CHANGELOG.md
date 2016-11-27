@@ -4,6 +4,7 @@
 -   Fixed: false positives related to LESS detached rulesets ([#2089](https://github.com/stylelint/stylelint/pull/2089))
 -   Fixed: `comment-whitespace-inside` no longer complains about `/*!` comments with non-space whitespace (e.g. newlines) ([#2121](https://github.com/stylelint/stylelint/pull/2121))
 -   Fixed: `selector-max-compound-selectors` ignores SCSS nested declarations ([#2102](https://github.com/stylelint/stylelint/pull/2102))
+-   Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node API to error if a non-existent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128))
 
 # 7.6.0
 
