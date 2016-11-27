@@ -1,13 +1,4 @@
-import {
-  isKeyframeRule,
-  isStandardSyntaxRule,
-  isStandardSyntaxSelector,
-  optionsMatches,
-  parseSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isKeyframeRule, isStandardSyntaxRule, isStandardSyntaxSelector, optionsMatches, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
 export const ruleName = "selector-no-qualifying-type"
@@ -16,9 +7,7 @@ export const messages = ruleMessages(ruleName, {
   rejected: "Unexpected qualifying type selector",
 })
 
-const selectorCharacters = [
-  "#", ".", "[",
-]
+const selectorCharacters = [ "#", ".", "[" ]
 
 function isSelectorCharacters(value) {
   return selectorCharacters.some(char => value.indexOf(char) !== -1)
@@ -28,12 +17,13 @@ function getRightNodes(node) {
   const result = []
   let rightNode = node
 
-  while ((rightNode = rightNode.next())) {
-    if (rightNode.type === "combinator") { break }
-    if (rightNode.type !== "id"
-      && rightNode.type !== "class"
-      && rightNode.type !== "attribute"
-    ) { continue }
+  while (rightNode = rightNode.next()) {
+    if (rightNode.type === "combinator") {
+      break
+    }
+    if (rightNode.type !== "id" && rightNode.type !== "class" && rightNode.type !== "attribute") {
+      continue
+    }
 
     result.push(rightNode)
   }
@@ -41,7 +31,7 @@ function getRightNodes(node) {
   return result
 }
 
-export default (enabled, options) => {
+export default ((enabled, options) => {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: enabled,
@@ -53,14 +43,24 @@ export default (enabled, options) => {
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      if (!isStandardSyntaxRule(rule)) { return }
-      if (isKeyframeRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
+      if (isKeyframeRule(rule)) {
+        return
+      }
       // Increasing performance
-      if (!isStandardSyntaxSelector(rule.selector)) { return }
-      if (!isSelectorCharacters(rule.selector)) { return }
+      if (!isStandardSyntaxSelector(rule.selector)) {
+        return
+      }
+      if (!isSelectorCharacters(rule.selector)) {
+        return
+      }
 
       function checkSelector(selectorAST) {
         selectorAST.walkTags(selector => {
@@ -73,7 +73,7 @@ export default (enabled, options) => {
           const selectorNodes = getRightNodes(selector)
           const index = selector.sourceIndex
 
-          selectorNodes.forEach((selectorNode) => {
+          selectorNodes.forEach(selectorNode => {
             if (selectorNode.type === "id" && !optionsMatches(options, "ignore", "id")) {
               complain(index)
             }
@@ -90,7 +90,9 @@ export default (enabled, options) => {
       }
 
       resolvedNestedSelector(rule.selector, rule).forEach(resolvedSelector => {
-        if (!isStandardSyntaxSelector(resolvedSelector)) { return }
+        if (!isStandardSyntaxSelector(resolvedSelector)) {
+          return
+        }
 
         parseSelector(resolvedSelector, result, rule, checkSelector)
       })
@@ -106,4 +108,4 @@ export default (enabled, options) => {
       }
     })
   }
-}
+})

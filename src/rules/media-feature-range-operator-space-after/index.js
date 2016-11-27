@@ -1,10 +1,4 @@
-import {
-  atRuleParamIndex,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { atRuleParamIndex, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 export const ruleName = "media-feature-range-operator-space-after"
 
@@ -20,12 +14,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(/^media$/i, atRule => {
       findMediaOperator(atRule, checkAfterOperator)
@@ -52,7 +45,9 @@ export default function (expectation) {
 }
 
 export function findMediaOperator(atRule, cb) {
-  if (atRule.name.toLowerCase() !== "media") { return }
+  if (atRule.name.toLowerCase() !== "media") {
+    return
+  }
 
   const params = atRule.params
   let match

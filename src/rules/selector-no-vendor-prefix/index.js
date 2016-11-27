@@ -1,12 +1,4 @@
-import {
-  isAutoprefixable,
-  isStandardSyntaxRule,
-  isStandardSyntaxSelector,
-  parseSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isAutoprefixable, isStandardSyntaxRule, isStandardSyntaxSelector, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "selector-no-vendor-prefix"
 
@@ -17,12 +9,19 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      if (!isStandardSyntaxRule(rule)) { return }
-      const { selector } = rule
-      if (!isStandardSyntaxSelector(selector)) { return }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
+      const selector = rule.selector
+
+      if (!isStandardSyntaxSelector(selector)) {
+        return
+      }
       parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkPseudos(pseudoNode => {
           if (isAutoprefixable.selector(pseudoNode.value)) {

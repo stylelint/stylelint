@@ -1,11 +1,4 @@
-import {
-  isCustomProperty,
-  isStandardSyntaxProperty,
-  optionsMatches,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isCustomProperty, isStandardSyntaxProperty, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
 import { isString } from "lodash"
 
 export const ruleName = "declaration-block-no-duplicate-properties"
@@ -19,15 +12,14 @@ export default function (on, options) {
     const validOptions = validateOptions(result, ruleName, { actual: on }, {
       actual: options,
       possible: {
-        ignore: [
-          "consecutive-duplicates",
-          "consecutive-duplicates-with-different-values",
-        ],
+        ignore: [ "consecutive-duplicates", "consecutive-duplicates-with-different-values" ],
         ignoreProperties: [isString],
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     // In order to accommodate nested blocks (postcss-nested),
     // we need to run a shallow loop (instead of eachDecl() or eachRule(),
@@ -49,19 +41,29 @@ export default function (on, options) {
           checkRulesInNode(child)
         }
 
-        if (child.type !== "decl") { return }
+        if (child.type !== "decl") {
+          return
+        }
 
-        const { prop } = child
-        const { value } = child
+        const prop = child.prop
+        const value = child.value
 
-        if (!isStandardSyntaxProperty(prop)) { return }
-        if (isCustomProperty(prop)) { return }
+        if (!isStandardSyntaxProperty(prop)) {
+          return
+        }
+        if (isCustomProperty(prop)) {
+          return
+        }
 
         // Return early if the property is to be ignored
-        if (optionsMatches(options, "ignoreProperties", prop)) { return }
+        if (optionsMatches(options, "ignoreProperties", prop)) {
+          return
+        }
 
         // Ignore the src property as commonly duplicated in at-fontface
-        if (prop.toLowerCase() === "src") { return }
+        if (prop.toLowerCase() === "src") {
+          return
+        }
 
         const indexDuplicate = decls.indexOf(prop.toLowerCase())
 
@@ -90,10 +92,7 @@ export default function (on, options) {
             return
           }
 
-          if (
-            optionsMatches(options, "ignore", "consecutive-duplicates")
-            && indexDuplicate === decls.length - 1
-          ) {
+          if (optionsMatches(options, "ignore", "consecutive-duplicates") && indexDuplicate === decls.length - 1) {
             return
           }
 

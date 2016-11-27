@@ -1,19 +1,7 @@
-import blockNoEmpty, {
-  messages as blockNoEmptyMessages,
-  ruleName as blockNoEmptyName,
-} from "../rules/block-no-empty"
-import maxLineLength, {
-  messages as maxLineLengthMessages,
-  ruleName as maxLineLengthName,
-} from "../rules/max-line-length"
-import selectorCombinatorSpaceBefore, {
-  messages as selectorCombinatorSpaceBeforeMessages,
-  ruleName as selectorCombinatorSpaceBeforeName,
-} from "../rules/selector-combinator-space-before"
-import stringQuotes, {
-  messages as stringQuotesMessages,
-  ruleName as stringQuotesName,
-} from "../rules/string-quotes"
+import blockNoEmpty, { messages as blockNoEmptyMessages, ruleName as blockNoEmptyName } from "../rules/block-no-empty"
+import maxLineLength, { messages as maxLineLengthMessages, ruleName as maxLineLengthName } from "../rules/max-line-length"
+import selectorCombinatorSpaceBefore, { messages as selectorCombinatorSpaceBeforeMessages, ruleName as selectorCombinatorSpaceBeforeName } from "../rules/selector-combinator-space-before"
+import stringQuotes, { messages as stringQuotesMessages, ruleName as stringQuotesName } from "../rules/string-quotes"
 import testRule from "../testUtils/testRule.js"
 
 // disabling all rules

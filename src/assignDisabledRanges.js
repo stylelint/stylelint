@@ -8,20 +8,19 @@ const disableLineCommand = COMMAND_PREFIX + "disable-line"
 const disableNextLineCommand = COMMAND_PREFIX + "disable-next-line"
 const ALL_RULES = "all"
 
-type disabledRangeObject = {
+// Run it like a plugin ...
+/* :: type disabledRangeObject = {
   [ruleName: string]: Array<{
     start: number,
     end?: number,
   }>
-}
-
-// Run it like a plugin ...
-export default function (root: Object, result: Object) {
+}*/
+export default function (root /* : Object*/, result /* : Object*/) {
   result.stylelint = result.stylelint || {}
 
   // Most of the functions below work via side effects mutating
   // this object
-  const disabledRanges: disabledRangeObject = {
+  const disabledRanges /* : disabledRangeObject*/ = {
     all: [],
   }
   result.stylelint.disabledRanges = disabledRanges
@@ -29,23 +28,19 @@ export default function (root: Object, result: Object) {
 
   return result
 
-  function processDisableLineCommand(comment: postcss$comment) {
+  function processDisableLineCommand(comment /* : postcss$comment*/) {
     getCommandRules(disableLineCommand, comment.text).forEach(ruleName => {
       disableLine(comment.source.start.line, ruleName, comment)
     })
   }
 
-  function processDisableNextLineCommand(comment: postcss$comment) {
+  function processDisableNextLineCommand(comment /* : postcss$comment*/) {
     getCommandRules(disableNextLineCommand, comment.text).forEach(ruleName => {
       disableLine(comment.source.start.line + 1, ruleName, comment)
     })
   }
 
-  function disableLine(
-    line: number,
-    ruleName: string,
-    comment: postcss$comment
-  ) {
+  function disableLine(line /* : number*/, ruleName /* : string*/, comment /* : postcss$comment*/) {
     if (ruleIsDisabled(ALL_RULES)) {
       throw comment.error("All rules have already been disabled", { plugin: "stylelint" })
     }
@@ -63,7 +58,7 @@ export default function (root: Object, result: Object) {
     }
   }
 
-  function processDisableCommand(comment: postcss$comment) {
+  function processDisableCommand(comment /* : postcss$comment*/) {
     getCommandRules(disableCommand, comment.text).forEach(ruleToDisable => {
       if (ruleToDisable === ALL_RULES) {
         if (ruleIsDisabled(ALL_RULES)) {
@@ -82,7 +77,7 @@ export default function (root: Object, result: Object) {
     })
   }
 
-  function processEnableCommand(comment: postcss$comment) {
+  function processEnableCommand(comment /* : postcss$comment*/) {
     getCommandRules(enableCommand, comment.text).forEach(ruleToEnable => {
       if (ruleToEnable === ALL_RULES) {
         if (_.values(disabledRanges).every(ranges => _.isEmpty(ranges) || !!_.last(ranges.end))) {
@@ -116,11 +111,14 @@ export default function (root: Object, result: Object) {
     })
   }
 
-  function checkComment(comment: postcss$comment) {
-    const { text } = comment
+  function checkComment(comment /* : postcss$comment*/) {
+    const text = comment.text
 
     // Ignore comments that are not relevant commands
-    if (text.indexOf(COMMAND_PREFIX) !== 0) { return result }
+
+    if (text.indexOf(COMMAND_PREFIX) !== 0) {
+      return result
+    }
 
     if (text.indexOf(disableLineCommand) === 0) {
       processDisableLineCommand(comment)
@@ -133,35 +131,36 @@ export default function (root: Object, result: Object) {
     }
   }
 
-  function getCommandRules(
-    command: string,
-    fullText: string
-  ): Array<string> {
+  function getCommandRules(command /* : string*/, fullText /* : string*/) /* : Array<string>*/ {
     const rules = _.compact(fullText.slice(command.length).split(",")).map(r => r.trim())
-    if (_.isEmpty(rules)) { return [ALL_RULES] }
+    if (_.isEmpty(rules)) {
+      return [ALL_RULES]
+    }
     return rules
   }
 
-  function startDisabledRange(line: number, ruleName: string) {
+  function startDisabledRange(line /* : number*/, ruleName /* : string*/) {
     const rangeObj = { start: line }
     ensureRuleRanges(ruleName)
     disabledRanges[ruleName].push(rangeObj)
   }
 
-  function endDisabledRange(line: number, ruleName: string) {
+  function endDisabledRange(line /* : number*/, ruleName /* : string*/) {
     const lastRangeForRule = _.last(disabledRanges[ruleName])
-    if (!lastRangeForRule) { return }
+    if (!lastRangeForRule) {
+      return
+    }
     // Add an `end` prop to the last range of that rule
     lastRangeForRule.end = line
   }
 
-  function ensureRuleRanges(ruleName: string) {
+  function ensureRuleRanges(ruleName /* : string*/) {
     if (!disabledRanges[ruleName]) {
       disabledRanges[ruleName] = _.cloneDeep(disabledRanges.all)
     }
   }
 
-  function ruleIsDisabled(ruleName: string): boolean {
+  function ruleIsDisabled(ruleName /* : string*/) /* : boolean*/ {
     if (disabledRanges[ruleName] === undefined) return false
     if (_.last(disabledRanges[ruleName]) === undefined) return false
     if (_.get(_.last(disabledRanges[ruleName]), "end") === undefined) return true

@@ -19,7 +19,9 @@ export default function (source, functionName, callback) {
     target: functionName,
     functionNames: "check",
   }, match => {
-    if (source[match.endIndex] !== "(") { return }
+    if (source[match.endIndex] !== "(") {
+      return
+    }
     const parensMatch = balancedMatch("(", ")", source.substr(match.startIndex))
     callback(parensMatch.body, match.endIndex + 1)
   })

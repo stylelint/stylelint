@@ -1,20 +1,11 @@
-﻿import {
-  atRuleParamIndex,
-  isCustomMediaQuery,
-  isRangeContextMediaFeature,
-  isStandardSyntaxMediaFeatureName,
-  matchesStringOrRegExp,
-  report,
-  ruleMessages,
-  validateOptions,
-  } from "../../utils"
+import { atRuleParamIndex, isCustomMediaQuery, isRangeContextMediaFeature, isStandardSyntaxMediaFeatureName, matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
 import { isString } from "lodash"
 import mediaParser from "postcss-media-query-parser"
 
 export const ruleName = "media-feature-name-whitelist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (name) => `Unexpected media feature name "${name}"`,
+  rejected: name => `Unexpected media feature name "${name}"`,
 })
 
 export default function (whitelist) {
@@ -23,18 +14,23 @@ export default function (whitelist) {
       actual: whitelist,
       possible: [isString],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(/^media$/i, atRule => {
       mediaParser(atRule.params).walk(/^media-feature$/i, mediaFeatureNode => {
-        const { parent, sourceIndex, value } = mediaFeatureNode
+        const parent = mediaFeatureNode.parent,
+          sourceIndex = mediaFeatureNode.sourceIndex,
+          value = mediaFeatureNode.value
 
-        if (isRangeContextMediaFeature(parent.value)
-          || !isStandardSyntaxMediaFeatureName(value)
-          || isCustomMediaQuery(value)
-        ) { return }
+        if (isRangeContextMediaFeature(parent.value) || !isStandardSyntaxMediaFeatureName(value) || isCustomMediaQuery(value)) {
+          return
+        }
 
-        if (matchesStringOrRegExp(value.toLowerCase(), whitelist)) { return }
+        if (matchesStringOrRegExp(value.toLowerCase(), whitelist)) {
+          return
+        }
 
         report({
           index: atRuleParamIndex(atRule) + sourceIndex,

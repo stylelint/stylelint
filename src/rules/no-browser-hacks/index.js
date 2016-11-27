@@ -1,8 +1,4 @@
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { report, ruleMessages, validateOptions } from "../../utils"
 import Result from "postcss/lib/result"
 import { isString } from "lodash"
 import stylehacks from "stylehacks"
@@ -22,7 +18,9 @@ export default function (on, options) {
         browsers: [isString],
       },
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const stylehacksOptions = { lint: true }
     if (options && options.browsers) {

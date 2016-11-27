@@ -1,11 +1,13 @@
 import execall from "execall"
 
-export default function (options = {}) {
+export default function () {
+  const options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
+
   const specialMessage = options.specialMessage || "was processed"
   return {
     code(input) {
       const blocks = execall(/```start([\s\S]+?)```end/g, input)
-      const toLint = blocks.map((match) => match.sub[0]).join("\n\n")
+      const toLint = blocks.map(match => match.sub[0]).join("\n\n")
       return toLint
     },
     result(stylelintResult) {

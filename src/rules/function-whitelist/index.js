@@ -1,11 +1,4 @@
-import {
-  declarationValueIndex,
-  isStandardSyntaxFunction,
-  matchesStringOrRegExp,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { declarationValueIndex, isStandardSyntaxFunction, matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
 import { isString } from "lodash"
 import valueParser from "postcss-value-parser"
 import { vendor } from "postcss"
@@ -13,7 +6,7 @@ import { vendor } from "postcss"
 export const ruleName = "function-whitelist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (name) => `Unexpected function "${name}"`,
+  rejected: name => `Unexpected function "${name}"`,
 })
 
 function rule(whitelistInput) {
@@ -23,13 +16,22 @@ function rule(whitelistInput) {
       actual: whitelist,
       possible: [isString],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
     root.walkDecls(decl => {
-      const { value } = decl
+      const value = decl.value
+
       valueParser(value).walk(function (node) {
-        if (node.type !== "function") { return }
-        if (!isStandardSyntaxFunction(node)) { return }
-        if (matchesStringOrRegExp(vendor.unprefixed(node.value).toLowerCase(), whitelist)) { return }
+        if (node.type !== "function") {
+          return
+        }
+        if (!isStandardSyntaxFunction(node)) {
+          return
+        }
+        if (matchesStringOrRegExp(vendor.unprefixed(node.value).toLowerCase(), whitelist)) {
+          return
+        }
         report({
           message: messages.rejected(node.value),
           node: decl,

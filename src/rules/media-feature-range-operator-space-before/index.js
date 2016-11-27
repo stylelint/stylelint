@@ -1,10 +1,4 @@
-import {
-  atRuleParamIndex,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { atRuleParamIndex, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 import { findMediaOperator } from "../media-feature-range-operator-space-after"
 
@@ -20,12 +14,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(/^media$/i, atRule => {
       findMediaOperator(atRule, checkBeforeOperator)

@@ -1,10 +1,4 @@
-import {
-  isStandardSyntaxRule,
-  parseSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isStandardSyntaxRule, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
 import { nonSpaceCombinators } from "../../reference/punctuationSets"
 
 export const ruleName = "selector-descendant-combinator-no-non-space"
@@ -16,19 +10,27 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      if (!isStandardSyntaxRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
 
-      const { selector } = rule
+      const selector = rule.selector
 
       parseSelector(selector, result, rule, fullSelector => {
         fullSelector.walkCombinators(combinatorNode => {
-          const { value } = combinatorNode
+          const value = combinatorNode.value
 
-          if (nonSpaceCombinators.has(value)) { return }
-          if (value === " ") { return }
+          if (nonSpaceCombinators.has(value)) {
+            return
+          }
+          if (value === " ") {
+            return
+          }
 
           report({
             result,

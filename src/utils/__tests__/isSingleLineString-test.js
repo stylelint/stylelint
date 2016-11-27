@@ -1,10 +1,8 @@
 import isSingleLineString from "../isSingleLineString"
 import test from "tape"
 
-const multiLineTemplate = (
-`foo
+const multiLineTemplate = `foo
 bar`
-)
 
 test("isSingleLineString", t => {
   t.ok(isSingleLineString("foo"))

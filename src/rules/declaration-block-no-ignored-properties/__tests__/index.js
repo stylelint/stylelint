@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -139,8 +136,7 @@ testRule(rule, {
     line: 1,
     column: 22,
     description: "display: inline rules out min-height",
-  },
-  {
+  }, {
     code: "a { display: inline; max-height: 100px; }",
     message: messages.rejected("max-height", "display: inline"),
     line: 1,
@@ -314,36 +310,31 @@ testRule(rule, {
     line: 1,
     column: 25,
     description: "display: table-row rules out width",
-  },
-  {
+  }, {
     code: "a { display: table-row; min-width: 10px; }",
     message: messages.rejected("min-width", "display: table-row"),
     line: 1,
     column: 25,
     description: "display: table-row rules out min-width",
-  },
-  {
+  }, {
     code: "a { display: table-row; max-width: 10px; }",
     message: messages.rejected("max-width", "display: table-row"),
     line: 1,
     column: 25,
     description: "display: table-row rules out max-width",
-  },
-  {
+  }, {
     code: "a { display: table-row-group; width: 10px; }",
     message: messages.rejected("width", "display: table-row-group"),
     line: 1,
     column: 31,
     description: "display: table-row-group rules out width",
-  },
-  {
+  }, {
     code: "a { display: table-row-group; min-width: 10px; }",
     message: messages.rejected("min-width", "display: table-row-group"),
     line: 1,
     column: 31,
     description: "display: table-row-group rules out min-width",
-  },
-  {
+  }, {
     code: "a { display: table-row-group; max-width: 10px; }",
     message: messages.rejected("max-width", "display: table-row-group"),
     line: 1,
@@ -355,15 +346,13 @@ testRule(rule, {
     line: 1,
     column: 28,
     description: "display: table-column rules out height",
-  },
-  {
+  }, {
     code: "a { display: table-column; min-height: 10px; }",
     message: messages.rejected("min-height", "display: table-column"),
     line: 1,
     column: 28,
     description: "display: table-column rules out min-width",
-  },
-  {
+  }, {
     code: "a { display: table-column; max-height: 10px; }",
     message: messages.rejected("max-height", "display: table-column"),
     line: 1,
@@ -375,15 +364,13 @@ testRule(rule, {
     line: 1,
     column: 34,
     description: "display: table-column-group rules out height",
-  },
-  {
+  }, {
     code: "a { display: table-column-group; min-height: 10px; }",
     message: messages.rejected("min-height", "display: table-column-group"),
     line: 1,
     column: 34,
     description: "display: table-column-group rules out min-height",
-  },
-  {
+  }, {
     code: "a { display: table-column-group; max-height: 10px; }",
     message: messages.rejected("max-height", "display: table-column-group"),
     line: 1,

@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -183,11 +180,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
   config: [ "always", {
-    except: [
-      "first-nested",
-      "after-comment",
-      "after-custom-property",
-    ] } ],
+    except: [ "first-nested", "after-comment", "after-custom-property" ] } ],
 
   accept: [{ code: "a {\n --custom-prop: value; \n --custom-prop2: value; \n /* comment */ \n --custom-prop3: value;\n\n @extends 'x';\n\n --custom-prop4: value; \n & b {\n prop: value;\n } \n\n --custom-prop5: value; \n }" }],
 
@@ -317,11 +310,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
   config: [ "never", {
-    except: [
-      "first-nested",
-      "after-comment",
-      "after-custom-property",
-    ] } ],
+    except: [ "first-nested", "after-comment", "after-custom-property" ] } ],
 
   accept: [{ code: "a {\n\n --custom-prop: value; \n\n --custom-prop2: value; \n /* comment */ \n\n --custom-prop3: value;\n\n @extends 'x';\n --custom-prop4: value; \n & b {\n prop: value;\n } \n --custom-prop5: value; \n }" }],
 

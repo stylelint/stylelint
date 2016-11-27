@@ -1,10 +1,4 @@
-import {
-  isOnlyWhitespace,
-  optionsMatches,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isOnlyWhitespace, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "no-eol-whitespace"
@@ -26,7 +20,9 @@ export default function (on, options) {
         ignore: ["empty-lines"],
       },
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const rootString = root.toString()
     styleSearch({
@@ -35,14 +31,17 @@ export default function (on, options) {
       comments: "check",
     }, match => {
       // If the character before newline is not whitespace, ignore
-      if (!whitespacesToReject.has(rootString[match.startIndex - 1])) { return }
+      if (!whitespacesToReject.has(rootString[match.startIndex - 1])) {
+        return
+      }
 
       if (optionsMatches(options, "ignore", "empty-lines")) {
         // If there is only whitespace between the previous newline and
         // this newline, ignore
-        const lineBefore = rootString.substring(match.startIndex + 1,
-          rootString.lastIndexOf("\n", match.startIndex - 1))
-        if (isOnlyWhitespace(lineBefore)) { return }
+        const lineBefore = rootString.substring(match.startIndex + 1, rootString.lastIndexOf("\n", match.startIndex - 1))
+        if (isOnlyWhitespace(lineBefore)) {
+          return
+        }
       }
 
       report({

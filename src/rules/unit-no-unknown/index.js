@@ -1,12 +1,4 @@
-import {
-  atRuleParamIndex,
-  declarationValueIndex,
-  getUnitFromValueNode,
-  optionsMatches,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { atRuleParamIndex, declarationValueIndex, getUnitFromValueNode, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
 import { isString } from "lodash"
 import { units } from "../../reference/keywordSets"
 import valueParser from "postcss-value-parser"
@@ -14,7 +6,7 @@ import valueParser from "postcss-value-parser"
 export const ruleName = "unit-no-unknown"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (unit) => `Unexpected unknown unit "${unit}"`,
+  rejected: unit => `Unexpected unknown unit "${unit}"`,
 })
 
 export default function (actual, options) {
@@ -27,19 +19,29 @@ export default function (actual, options) {
       optional: true,
     })
 
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     function check(node, value, getIndex) {
       valueParser(value).walk(function (valueNode) {
         // Ignore wrong units within `url` function
-        if (valueNode.type === "function" && valueNode.value.toLowerCase() === "url") { return false }
+        if (valueNode.type === "function" && valueNode.value.toLowerCase() === "url") {
+          return false
+        }
 
         const unit = getUnitFromValueNode(valueNode)
-        if (!unit) { return }
+        if (!unit) {
+          return
+        }
 
-        if (optionsMatches(options, "ignoreUnits", unit)) { return }
+        if (optionsMatches(options, "ignoreUnits", unit)) {
+          return
+        }
 
-        if (units.has(unit.toLowerCase())) { return }
+        if (units.has(unit.toLowerCase())) {
+          return
+        }
 
         report({
           index: getIndex(node) + valueNode.sourceIndex,
@@ -51,11 +53,7 @@ export default function (actual, options) {
       })
     }
 
-    root.walkAtRules(/^media$/i, atRule =>
-      check(atRule, atRule.params, atRuleParamIndex)
-    )
-    root.walkDecls(decl =>
-      check(decl, decl.value, declarationValueIndex)
-    )
+    root.walkAtRules(/^media$/i, atRule => check(atRule, atRule.params, atRuleParamIndex))
+    root.walkDecls(decl => check(decl, decl.value, declarationValueIndex))
   }
 }

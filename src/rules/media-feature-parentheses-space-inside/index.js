@@ -1,9 +1,4 @@
-import {
-  atRuleParamIndex,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { atRuleParamIndex, report, ruleMessages, validateOptions } from "../../utils"
 import _ from "lodash"
 import styleSearch from "style-search"
 
@@ -20,12 +15,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(/^media$/i, atRule => {
       // If there are comments in the params, the complete string

@@ -1,12 +1,4 @@
-import {
-  blockString,
-  nextNonCommentNode,
-  rawNodeString,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { blockString, nextNonCommentNode, rawNodeString, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 export const ruleName = "declaration-block-semicolon-newline-after"
 
@@ -22,25 +14,29 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "always-multi-line",
-        "never-multi-line",
-      ],
+      possible: [ "always", "always-multi-line", "never-multi-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
       // Ignore last declaration if there's no trailing semicolon
       const parentRule = decl.parent
-      if (!parentRule.raws.semicolon && parentRule.last === decl) { return }
+      if (!parentRule.raws.semicolon && parentRule.last === decl) {
+        return
+      }
 
       const nextNode = decl.next()
-      if (!nextNode) { return }
+      if (!nextNode) {
+        return
+      }
 
       // Allow end-of-line comment
       const nodeToCheck = nextNonCommentNode(nextNode)
-      if (!nodeToCheck) { return }
+      if (!nodeToCheck) {
+        return
+      }
 
       checker.afterOneOnly({
         source: rawNodeString(nodeToCheck),

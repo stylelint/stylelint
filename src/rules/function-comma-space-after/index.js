@@ -1,11 +1,4 @@
-import {
-  declarationValueIndex,
-  isStandardSyntaxFunction,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { declarationValueIndex, isStandardSyntaxFunction, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import _ from "lodash"
 import styleSearch from "style-search"
 import valueParser from "postcss-value-parser"
@@ -24,14 +17,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-single-line",
-        "never-single-line",
-      ],
+      possible: [ "always", "never", "always-single-line", "never-single-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     functionCommaSpaceChecker({
       root,
@@ -42,17 +32,28 @@ export default function (expectation) {
   }
 }
 
-export function functionCommaSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
+export function functionCommaSpaceChecker(_ref) {
+  let locationChecker = _ref.locationChecker,
+    root = _ref.root,
+    result = _ref.result,
+    checkedRuleName = _ref.checkedRuleName
+
   root.walkDecls(decl => {
     const declValue = _.get(decl, "raws.value.raw", decl.value)
 
     valueParser(declValue).walk(valueNode => {
-      if (valueNode.type !== "function") { return }
+      if (valueNode.type !== "function") {
+        return
+      }
 
-      if (!isStandardSyntaxFunction(valueNode)) { return }
+      if (!isStandardSyntaxFunction(valueNode)) {
+        return
+      }
 
       // Ignore `url()` arguments, which may contain data URIs or other funky stuff
-      if (valueNode.value.toLowerCase() === "url") { return }
+      if (valueNode.value.toLowerCase() === "url") {
+        return
+      }
 
       const functionArguments = (() => {
         let result = valueParser.stringify(valueNode)
@@ -70,15 +71,12 @@ export function functionCommaSpaceChecker({ locationChecker, root, result, check
         source: functionArguments,
         target: ",",
         functionArguments: "skip",
-      }, (match) => {
+      }, match => {
         locationChecker({
           source: functionArguments,
           index: match.startIndex,
-          err: (message) => {
-            const index = declarationValueIndex(decl) +
-              valueNode.value.length + 1 +
-              valueNode.sourceIndex +
-              match.startIndex
+          err: message => {
+            const index = declarationValueIndex(decl) + valueNode.value.length + 1 + valueNode.sourceIndex + match.startIndex
             report({
               index,
               message,

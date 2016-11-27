@@ -213,9 +213,15 @@ test("validateOptions for multiple actual/possible pairs, checking return value"
 test("validateOptions with a function for 'possible'", t => {
   const result = mockResult()
   const schema = x => {
-    if (x === "bar") { return true }
-    if (!Array.isArray(x)) { return false }
-    if (x.every(item => typeof item === "string" || !!item.properties)) { return true }
+    if (x === "bar") {
+      return true
+    }
+    if (!Array.isArray(x)) {
+      return false
+    }
+    if (x.every(item => typeof item === "string" || !!item.properties)) {
+      return true
+    }
     return false
   }
 
@@ -237,10 +243,7 @@ test("validateOptions with a function for 'possible'", t => {
 
   const validArrayOfObjects = validateOptions(result, "foo", {
     possible: schema,
-    actual: [
-      { properties: ["one"] },
-      { properties: [ "two", "three" ] },
-    ],
+    actual: [ { properties: ["one"] }, { properties: [ "two", "three" ] } ],
   })
   t.equal(validArrayOfObjects, true, "array of objects passes")
   t.notOk(result.warn.called)
@@ -248,11 +251,7 @@ test("validateOptions with a function for 'possible'", t => {
 
   const validArrayOfObjectsAndStrings = validateOptions(result, "foo", {
     possible: schema,
-    actual: [
-      { properties: ["one"] },
-      { properties: [ "two", "three" ] },
-      "four",
-    ],
+    actual: [ { properties: ["one"] }, { properties: [ "two", "three" ] }, "four" ],
   })
   t.equal(validArrayOfObjectsAndStrings, true, "array of mixed objects and strings passes")
   t.notOk(result.warn.called)
@@ -274,7 +273,7 @@ test("validateOptions for null instead of array", t => {
   const result = mockResult()
   validateOptions(result, "no-dancing", {
     actual: null,
-    possible: [(v) => typeof v === "string"],
+    possible: [v => typeof v === "string"],
   })
   t.notOk(result.warn.called)
   t.end()
@@ -284,7 +283,7 @@ test("validateOptions for arrayed null instead of array", t => {
   const result = mockResult()
   validateOptions(result, "no-dancing", {
     actual: [null],
-    possible: [(v) => typeof v === "string"],
+    possible: [v => typeof v === "string"],
   })
   t.notOk(result.warn.called)
   t.end()

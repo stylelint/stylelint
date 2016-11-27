@@ -1,12 +1,5 @@
-import {
-  isNumber,
-  repeat,
-} from "lodash"
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isNumber, repeat } from "lodash"
+import { report, ruleMessages, validateOptions } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "max-empty-lines"
@@ -23,7 +16,9 @@ export default function (max) {
       actual: max,
       possible: isNumber,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const rootString = root.toString()
     const repeatLFNewLines = repeat("\n", maxAdjacentNewlines)
@@ -44,15 +39,19 @@ export default function (max) {
       })
     })
 
-    function checkMatch(source, matchEndIndex, node, offset = 0) {
+    function checkMatch(source, matchEndIndex, node) {
+      const offset = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0
+
       let violationIndex = false
       if (source.substr(matchEndIndex, maxAdjacentNewlines) === repeatLFNewLines) {
         violationIndex = matchEndIndex + maxAdjacentNewlines
       } else if (source.substr(matchEndIndex, maxAdjacentNewlines * 2) === repeatCRLFNewLines) {
-        violationIndex = matchEndIndex + (maxAdjacentNewlines * 2)
+        violationIndex = matchEndIndex + maxAdjacentNewlines * 2
       }
 
-      if (!violationIndex) { return }
+      if (!violationIndex) {
+        return
+      }
 
       report({
         message: messages.expected(max),

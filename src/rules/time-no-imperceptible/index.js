@@ -1,13 +1,5 @@
-import {
-  declarationValueIndex,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
-import {
-  longhandTimeProperties,
-  shorthandTimeProperties,
-} from "../../reference/keywordSets"
+import { declarationValueIndex, report, ruleMessages, validateOptions } from "../../utils"
+import { longhandTimeProperties, shorthandTimeProperties } from "../../reference/keywordSets"
 import postcss from "postcss"
 import valueParser from "postcss-value-parser"
 
@@ -22,7 +14,9 @@ const MINIMUM_MILLISECONDS = 100
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
       if (longhandTimeProperties.has(postcss.vendor.unprefixed(decl.prop.toLowerCase()))) {
@@ -45,12 +39,18 @@ export default function (actual) {
       const parsedTime = valueParser.unit(time)
       if (!parsedTime) return false
       const absoluteTime = Math.abs(parsedTime.number)
-      if (parsedTime.unit.toLowerCase() === "ms" && absoluteTime <= MINIMUM_MILLISECONDS) { return true }
-      if (parsedTime.unit.toLowerCase() === "s" && absoluteTime * 1000 <= MINIMUM_MILLISECONDS) { return true }
+      if (parsedTime.unit.toLowerCase() === "ms" && absoluteTime <= MINIMUM_MILLISECONDS) {
+        return true
+      }
+      if (parsedTime.unit.toLowerCase() === "s" && absoluteTime * 1000 <= MINIMUM_MILLISECONDS) {
+        return true
+      }
       return false
     }
 
-    function complain(message, decl, offset = 0) {
+    function complain(message, decl) {
+      const offset = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0
+
       report({
         result,
         ruleName,

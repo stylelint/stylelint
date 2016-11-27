@@ -1,8 +1,4 @@
-import {
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import { valueListCommaWhitespaceChecker } from "../value-list-comma-space-after"
 
 export const ruleName = "value-list-comma-newline-before"
@@ -18,13 +14,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "always-multi-line",
-        "never-multi-line",
-      ],
+      possible: [ "always", "always-multi-line", "never-multi-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     valueListCommaWhitespaceChecker({
       root,

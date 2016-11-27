@@ -1,13 +1,4 @@
-import {
-  blockString,
-  hasBlock,
-  optionsMatches,
-  rawNodeString,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { blockString, hasBlock, optionsMatches, rawNodeString, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import { isString } from "lodash"
 
 export const ruleName = "block-closing-brace-newline-after"
@@ -25,13 +16,7 @@ export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "always-single-line",
-        "never-single-line",
-        "always-multi-line",
-        "never-multi-line",
-      ],
+      possible: [ "always", "always-single-line", "never-single-line", "always-multi-line", "never-multi-line" ],
     }, {
       actual: options,
       possible: {
@@ -39,28 +24,34 @@ export default function (expectation, options) {
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     // Check both kinds of statements: rules and at-rules
     root.walkRules(check)
     root.walkAtRules(check)
 
     function check(statement) {
-      if (!hasBlock(statement)) { return }
-      if (optionsMatches(options, "ignoreAtRules", statement.name)) { return }
+      if (!hasBlock(statement)) {
+        return
+      }
+      if (optionsMatches(options, "ignoreAtRules", statement.name)) {
+        return
+      }
 
       const nextNode = statement.next()
-      if (!nextNode) { return }
+      if (!nextNode) {
+        return
+      }
 
       // Allow an end-of-line comment x spaces after the brace
-      const nextNodeIsSingleLineComment = (
-        nextNode.type === "comment"
-        && !/[^ ]/.test(nextNode.raws.before)
-        && nextNode.toString().indexOf("\n") === -1
-      )
+      const nextNodeIsSingleLineComment = nextNode.type === "comment" && !/[^ ]/.test(nextNode.raws.before) && nextNode.toString().indexOf("\n") === -1
 
-      const nodeToCheck = (nextNodeIsSingleLineComment) ? nextNode.next() : nextNode
-      if (!nodeToCheck) { return }
+      const nodeToCheck = nextNodeIsSingleLineComment ? nextNode.next() : nextNode
+      if (!nodeToCheck) {
+        return
+      }
 
       let reportIndex = statement.toString().length
       let source = rawNodeString(nodeToCheck)

@@ -1,8 +1,4 @@
-import {
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import { declarationBangSpaceChecker } from "../declaration-bang-space-after"
 
 export const ruleName = "declaration-bang-space-before"
@@ -17,12 +13,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     declarationBangSpaceChecker({
       root,

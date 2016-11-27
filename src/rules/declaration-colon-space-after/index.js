@@ -1,11 +1,4 @@
-import {
-  declarationValueIndex,
-  isStandardSyntaxDeclaration,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { declarationValueIndex, isStandardSyntaxDeclaration, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 export const ruleName = "declaration-colon-space-after"
 
@@ -20,13 +13,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-single-line",
-      ],
+      possible: [ "always", "never", "always-single-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     declarationColonSpaceChecker({
       root,
@@ -37,9 +28,16 @@ export default function (expectation) {
   }
 }
 
-export function declarationColonSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
+export function declarationColonSpaceChecker(_ref) {
+  let locationChecker = _ref.locationChecker,
+    root = _ref.root,
+    result = _ref.result,
+    checkedRuleName = _ref.checkedRuleName
+
   root.walkDecls(decl => {
-    if (!isStandardSyntaxDeclaration(decl)) { return }
+    if (!isStandardSyntaxDeclaration(decl)) {
+      return
+    }
 
     // Get the raw prop, and only the prop
     const endOfPropIndex = declarationValueIndex(decl) + decl.raws.between.length - 1
@@ -49,7 +47,9 @@ export function declarationColonSpaceChecker({ locationChecker, root, result, ch
     const propPlusColon = decl.toString().slice(0, endOfPropIndex) + "xxx"
 
     for (let i = 0, l = propPlusColon.length; i < l; i++) {
-      if (propPlusColon[i] !== ":") { continue }
+      if (propPlusColon[i] !== ":") {
+        continue
+      }
       locationChecker({
         source: propPlusColon,
         index: i,

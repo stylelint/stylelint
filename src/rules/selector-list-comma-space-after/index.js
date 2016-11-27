@@ -1,10 +1,4 @@
-import {
-  isStandardSyntaxRule,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { isStandardSyntaxRule, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "selector-list-comma-space-after"
@@ -21,14 +15,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-single-line",
-        "never-single-line",
-      ],
+      possible: [ "always", "never", "always-single-line", "never-single-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     selectorListCommaWhitespaceChecker({
       root,
@@ -39,9 +30,16 @@ export default function (expectation) {
   }
 }
 
-export function selectorListCommaWhitespaceChecker({ locationChecker, root, result, checkedRuleName }) {
+export function selectorListCommaWhitespaceChecker(_ref) {
+  let locationChecker = _ref.locationChecker,
+    root = _ref.root,
+    result = _ref.result,
+    checkedRuleName = _ref.checkedRuleName
+
   root.walkRules(rule => {
-    if (!isStandardSyntaxRule(rule)) { return }
+    if (!isStandardSyntaxRule(rule)) {
+      return
+    }
     const selector = rule.selector
     styleSearch({
       source: selector,
@@ -53,14 +51,13 @@ export function selectorListCommaWhitespaceChecker({ locationChecker, root, resu
   })
 
   function checkDelimiter(source, index, node) {
-    locationChecker({ source, index, err: m =>
-      report({
-        message: m,
-        node,
-        index,
-        result,
-        ruleName: checkedRuleName,
-      }),
+    locationChecker({ source, index, err: m => report({
+      message: m,
+      node,
+      index,
+      result,
+      ruleName: checkedRuleName,
+    }),
     })
   }
 }

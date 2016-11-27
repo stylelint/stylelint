@@ -12,38 +12,15 @@ test("isStandardSyntaxUrl", t => {
   t.ok(isStandardSyntaxUrl("./some/path/to/file.png"), "url with single-dot path segment")
   t.ok(isStandardSyntaxUrl("../some/path/to/file.png"), "url with double-dot path segment")
   t.ok(isStandardSyntaxUrl("https://www.domain.com:8080/file.jpg"), "url with port")
-  t.ok(
-    isStandardSyntaxUrl(
-      "data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7"
-    ),
-    "url with local scheme"
-  )
+  t.ok(isStandardSyntaxUrl("data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7"), "url with local scheme")
 
-  t.ok(
-    isStandardSyntaxUrl("http://domain.com:8080/path/to$to/file$2x.ext?$1=$2"),
-    "URL with protocol(http) and `$` character without quotes"
-  )
-  t.ok(
-    isStandardSyntaxUrl("'http://domain.com:8080/path$path/to$to/$file$2x.ext?$1$2=$1$2'"),
-    "URL with protocol(http) and `$` character in single quotes"
-  )
-  t.ok(
-    isStandardSyntaxUrl("\"http://domain.com:8080/path$path/to$to/$file$2x.ext?$1$2=$1$2\""),
-    "URL with protocol(http) and `$` character in double quotes"
-  )
+  t.ok(isStandardSyntaxUrl("http://domain.com:8080/path/to$to/file$2x.ext?$1=$2"), "URL with protocol(http) and `$` character without quotes")
+  t.ok(isStandardSyntaxUrl("'http://domain.com:8080/path$path/to$to/$file$2x.ext?$1$2=$1$2'"), "URL with protocol(http) and `$` character in single quotes")
+  t.ok(isStandardSyntaxUrl("\"http://domain.com:8080/path$path/to$to/$file$2x.ext?$1$2=$1$2\""), "URL with protocol(http) and `$` character in double quotes")
 
-  t.ok(
-    isStandardSyntaxUrl("http://domain.com:8080/path/to@to/file@2x.ext?@1=@2"),
-    "URL with protocol(http) and `@` character without quotes"
-  )
-  t.ok(
-    isStandardSyntaxUrl("'http://domain.com:8080/path$path/to@to/$file@2x.ext?@1$2=$1@2'"),
-    "URL with protocol(http) and `@` character in single quotes"
-  )
-  t.ok(
-    isStandardSyntaxUrl("\"http://domain.com:8080/path$path/to@to/$file@2x.ext?@1$2=$1@2\""),
-    "URL with protocol(http) and `@` character in double quotes"
-  )
+  t.ok(isStandardSyntaxUrl("http://domain.com:8080/path/to@to/file@2x.ext?@1=@2"), "URL with protocol(http) and `@` character without quotes")
+  t.ok(isStandardSyntaxUrl("'http://domain.com:8080/path$path/to@to/$file@2x.ext?@1$2=$1@2'"), "URL with protocol(http) and `@` character in single quotes")
+  t.ok(isStandardSyntaxUrl("\"http://domain.com:8080/path$path/to@to/$file@2x.ext?@1$2=$1@2\""), "URL with protocol(http) and `@` character in double quotes")
 
   t.ok(isStandardSyntaxUrl("\"$url/path\""), "url with dollar at the start and double quotes")
   t.ok(isStandardSyntaxUrl("\"some/$url/path\""), "url with dollar in the middle and double quotes")

@@ -1,11 +1,4 @@
-import {
-  isAutoprefixable,
-  isStandardSyntaxDeclaration,
-  isStandardSyntaxProperty,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isAutoprefixable, isStandardSyntaxDeclaration, isStandardSyntaxProperty, report, ruleMessages, validateOptions } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "value-no-vendor-prefix"
@@ -19,21 +12,25 @@ const valuePrefixes = [ "-webkit-", "-moz-", "-ms-", "-o-" ]
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
-      if (
-        !isStandardSyntaxDeclaration(decl)
-        || !isStandardSyntaxProperty(decl.prop)
-        || decl.value[0] !== "-"
-      ) { return }
+      if (!isStandardSyntaxDeclaration(decl) || !isStandardSyntaxProperty(decl.prop) || decl.value[0] !== "-") {
+        return
+      }
 
-      const { prop, value } = decl
+      const prop = decl.prop,
+        value = decl.value
 
       // Search the full declaration in order to get an accurate index
+
       styleSearch({ source: value.toLowerCase(), target: valuePrefixes }, match => {
         const fullIdentifier = /^(-[a-z-]+)\b/i.exec(value.slice(match.startIndex))[1]
-        if (!isAutoprefixable.propertyValue(prop, fullIdentifier)) { return }
+        if (!isAutoprefixable.propertyValue(prop, fullIdentifier)) {
+          return
+        }
 
         report({
           message: messages.rejected(fullIdentifier),

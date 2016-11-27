@@ -1,8 +1,4 @@
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { report, ruleMessages, validateOptions } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "string-quotes"
@@ -12,17 +8,16 @@ export const messages = ruleMessages(ruleName, {
 })
 
 export default function (expectation) {
-  const erroneousQuote = (expectation === "single") ? "\"" : "'"
+  const erroneousQuote = expectation === "single" ? "\"" : "'"
 
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "single",
-        "double",
-      ],
+      possible: [ "single", "double" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const cssString = root.toString()
     styleSearch({ source: cssString, target: erroneousQuote }, match => {

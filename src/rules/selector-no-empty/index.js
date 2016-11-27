@@ -1,8 +1,4 @@
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "selector-no-empty"
 
@@ -13,7 +9,9 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
       let index = 0
@@ -21,7 +19,9 @@ export default function (actual) {
       rule.selector.split(",").forEach(item => {
         index += item.length + 1
 
-        if (item.trim() !== "") { return }
+        if (item.trim() !== "") {
+          return
+        }
 
         report({
           message: messages.rejected,
@@ -34,4 +34,3 @@ export default function (actual) {
     })
   }
 }
-

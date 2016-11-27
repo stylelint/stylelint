@@ -1,10 +1,4 @@
-import {
-  isStandardSyntaxRule,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { isStandardSyntaxRule, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "selector-list-comma-newline-after"
@@ -20,20 +14,20 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "always-multi-line",
-        "never-multi-line",
-      ],
+      possible: [ "always", "always-multi-line", "never-multi-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      if (!isStandardSyntaxRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
       // Get raw selector so we can allow end-of-line comments, e.g.
       // a, /* comment */
       // b {}
-      const selector = (rule.raws.selector) ? rule.raws.selector.raw : rule.selector
+      const selector = rule.raws.selector ? rule.raws.selector.raw : rule.selector
       styleSearch({
         source: selector,
         target: ",",
@@ -43,24 +37,23 @@ export default function (expectation) {
 
         // If there's a // comment, that means there has to be a newline
         // ending the comment so we're fine
-        if (nextThreeChars === " //") { return }
+        if (nextThreeChars === " //") {
+          return
+        }
 
         // If there is a space and then a comment begins, look for the newline
         // after that comment
-        const indextoCheckAfter = (nextThreeChars === " /*")
-          ? selector.indexOf("*/", match.endIndex) + 1
-          : match.startIndex
+        const indextoCheckAfter = nextThreeChars === " /*" ? selector.indexOf("*/", match.endIndex) + 1 : match.startIndex
         checker.afterOneOnly({
           source: selector,
           index: indextoCheckAfter,
-          err: m =>
-            report({
-              message: m,
-              node: rule,
-              index: match.startIndex,
-              result,
-              ruleName,
-            }),
+          err: m => report({
+            message: m,
+            node: rule,
+            index: match.startIndex,
+            result,
+            ruleName,
+          }),
         })
       })
     })

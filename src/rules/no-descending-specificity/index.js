@@ -1,16 +1,5 @@
-import {
-  calculate,
-  compare,
-} from "specificity"
-import {
-  findAtRuleContext,
-  isCustomPropertySet,
-  nodeContextLookup,
-  parseSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { calculate, compare } from "specificity"
+import { findAtRuleContext, isCustomPropertySet, nodeContextLookup, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
 import _ from "lodash"
 import { pseudoElements } from "../../reference/keywordSets"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
@@ -24,20 +13,26 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const selectorContextLookup = nodeContextLookup()
 
     root.walkRules(rule => {
       // Ignore custom property set `--foo: {};`
-      if (isCustomPropertySet(rule)) { return }
+      if (isCustomPropertySet(rule)) {
+        return
+      }
 
       const comparisonContext = selectorContextLookup.getContext(rule, findAtRuleContext(rule))
 
       rule.selectors.forEach(selector => {
         const trimSelector = selector.trim()
         // Ignore `.selector, { }`
-        if (trimSelector === "") { return }
+        if (trimSelector === "") {
+          return
+        }
 
         // The edge-case of duplicate selectors will act acceptably
         const index = rule.selector.indexOf(trimSelector)

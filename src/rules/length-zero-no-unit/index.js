@@ -1,16 +1,5 @@
-import {
-  beforeBlockString,
-  blurComments,
-  hasBlock,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
-import {
-  findIndex,
-  findLastIndex,
-  range,
-} from "lodash"
+import { beforeBlockString, blurComments, hasBlock, report, ruleMessages, validateOptions } from "../../utils"
+import { findIndex, findLastIndex, range } from "lodash"
 import { lengthUnits } from "../../reference/keywordSets"
 import styleSearch from "style-search"
 import valueParser from "postcss-value-parser"
@@ -24,16 +13,16 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
       check(blurComments(decl.toString()), decl)
     })
 
     root.walkAtRules(atRule => {
-      const source = (hasBlock(atRule))
-        ? beforeBlockString(atRule, { noRawBefore: true })
-        : atRule.toString()
+      const source = hasBlock(atRule) ? beforeBlockString(atRule, { noRawBefore: true }) : atRule.toString()
       check(source, atRule)
     })
 
@@ -56,33 +45,35 @@ export default function (actual) {
         //
         // This check prevents that from happening: we build and check against a
         // Set containing all the indexes that are part of a value already validated.
-        if (ignorableIndexes.has(index)) { return }
+        if (ignorableIndexes.has(index)) {
+          return
+        }
 
         const prevValueBreakIndex = findLastIndex(value.substr(0, index), char => {
           return [ " ", ",", ")", "(", "#" ].indexOf(char) !== -1
         })
 
         // Ignore hex colors
-        if (value[prevValueBreakIndex] === "#") { return }
+        if (value[prevValueBreakIndex] === "#") {
+          return
+        }
 
         // If no prev break was found, this value starts at 0
-        const valueWithZeroStart = (prevValueBreakIndex === -1)
-          ? 0
-          : prevValueBreakIndex + 1
+        const valueWithZeroStart = prevValueBreakIndex === -1 ? 0 : prevValueBreakIndex + 1
 
         const nextValueBreakIndex = findIndex(value.substr(valueWithZeroStart), char => {
           return [ " ", ",", ")" ].indexOf(char) !== -1
         })
 
         // If no next break was found, this value ends at the end of the string
-        const valueWithZeroEnd = (nextValueBreakIndex === -1)
-          ? value.length
-          : nextValueBreakIndex + valueWithZeroStart
+        const valueWithZeroEnd = nextValueBreakIndex === -1 ? value.length : nextValueBreakIndex + valueWithZeroStart
 
         const valueWithZero = value.slice(valueWithZeroStart, valueWithZeroEnd)
         const parsedValue = valueParser.unit(valueWithZero)
 
-        if (!parsedValue || (parsedValue && !parsedValue.unit)) { return }
+        if (!parsedValue || parsedValue && !parsedValue.unit) {
+          return
+        }
 
         // Add the indexes to ignorableIndexes so the same value will not
         // be checked multiple times.
@@ -90,9 +81,9 @@ export default function (actual) {
 
         // Only pay attention if the value parses to 0
         // and units with lengths
-        if (parseFloat(valueWithZero, 10) !== 0
-          || !lengthUnits.has(parsedValue.unit.toLowerCase())
-        ) { return }
+        if (parseFloat(valueWithZero, 10) !== 0 || !lengthUnits.has(parsedValue.unit.toLowerCase())) {
+          return
+        }
 
         report({
           message: messages.rejected,

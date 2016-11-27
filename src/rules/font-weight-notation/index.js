@@ -1,17 +1,5 @@
-import {
-  declarationValueIndex,
-  isNumbery,
-  isStandardSyntaxValue,
-  isVariable,
-  optionsMatches,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
-import {
-  fontWeightKeywords,
-  fontWeightRelativeKeywords,
-} from "../../reference/keywordSets"
+import { declarationValueIndex, isNumbery, isStandardSyntaxValue, isVariable, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+import { fontWeightKeywords, fontWeightRelativeKeywords } from "../../reference/keywordSets"
 import { includes } from "lodash"
 import postcss from "postcss"
 
@@ -39,7 +27,9 @@ export default function (expectation, options) {
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
       if (decl.prop.toLowerCase() === "font-weight") {
@@ -59,11 +49,7 @@ export default function (expectation, options) {
       const hasNumericFontWeight = valueList.some(isNumbery)
 
       for (const value of postcss.list.space(decl.value)) {
-        if (
-          (value.toLowerCase() === NORMAL_KEYWORD && !hasNumericFontWeight)
-          || isNumbery(value)
-          || value.toLowerCase() !== NORMAL_KEYWORD && fontWeightKeywords.has(value.toLowerCase())
-        ) {
+        if (value.toLowerCase() === NORMAL_KEYWORD && !hasNumericFontWeight || isNumbery(value) || value.toLowerCase() !== NORMAL_KEYWORD && fontWeightKeywords.has(value.toLowerCase())) {
           checkWeight(value, decl)
           return
         }
@@ -71,14 +57,19 @@ export default function (expectation, options) {
     }
 
     function checkWeight(weightValue, decl) {
-      if (!isStandardSyntaxValue(weightValue)) { return }
-      if (isVariable(weightValue)) { return }
-      if (weightValue.toLowerCase() === INHERIT_KEYWORD
-        || weightValue.toLowerCase() === INITIAL_KEYWORD
-      ) { return }
+      if (!isStandardSyntaxValue(weightValue)) {
+        return
+      }
+      if (isVariable(weightValue)) {
+        return
+      }
+      if (weightValue.toLowerCase() === INHERIT_KEYWORD || weightValue.toLowerCase() === INITIAL_KEYWORD) {
+        return
+      }
 
-      if (optionsMatches(options, "ignore", "relative") &&
-        fontWeightRelativeKeywords.has(weightValue.toLowerCase())) { return }
+      if (optionsMatches(options, "ignore", "relative") && fontWeightRelativeKeywords.has(weightValue.toLowerCase())) {
+        return
+      }
 
       const weightValueOffset = decl.value.indexOf(weightValue)
 
@@ -95,9 +86,7 @@ export default function (expectation, options) {
           }
           return
         }
-        if (!fontWeightKeywords.has(weightValue.toLowerCase())
-          && weightValue.toLowerCase() !== NORMAL_KEYWORD
-        ) {
+        if (!fontWeightKeywords.has(weightValue.toLowerCase()) && weightValue.toLowerCase() !== NORMAL_KEYWORD) {
           return complain(messages.invalidNamed(weightValue))
         }
         return

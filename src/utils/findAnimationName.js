@@ -1,12 +1,5 @@
-import {
-  animationShorthandKeywords,
-  basicKeywords,
-} from "../reference/keywordSets"
-import {
-  getUnitFromValueNode,
-  isStandardSyntaxValue,
-  isVariable,
-} from "./"
+import { animationShorthandKeywords, basicKeywords } from "../reference/keywordSets"
+import { getUnitFromValueNode, isStandardSyntaxValue, isVariable } from "./"
 import postcssValueParser from "postcss-value-parser"
 
 /**
@@ -25,21 +18,33 @@ export default function findAnimationName(value) {
     return [valueNodes.nodes[0]]
   }
 
-  valueNodes.walk((valueNode) => {
-    if (valueNode.type === "function") { return false }
-    if (valueNode.type !== "word") { return }
+  valueNodes.walk(valueNode => {
+    if (valueNode.type === "function") {
+      return false
+    }
+    if (valueNode.type !== "word") {
+      return
+    }
 
     const valueLowerCase = valueNode.value.toLowerCase()
 
     // Ignore non standard syntax
-    if (!isStandardSyntaxValue(valueLowerCase)) { return }
+    if (!isStandardSyntaxValue(valueLowerCase)) {
+      return
+    }
     // Ignore variables
-    if (isVariable(valueLowerCase)) { return }
+    if (isVariable(valueLowerCase)) {
+      return
+    }
     // Ignore keywords for other font parts
-    if (animationShorthandKeywords.has(valueLowerCase)) { return }
+    if (animationShorthandKeywords.has(valueLowerCase)) {
+      return
+    }
     // Ignore numbers with units
     const unit = getUnitFromValueNode(valueNode)
-    if (unit || unit === "") { return }
+    if (unit || unit === "") {
+      return
+    }
 
     animationNames.push(valueNode)
   })

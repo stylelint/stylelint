@@ -1,10 +1,4 @@
-import {
-  isAutoprefixable,
-  isStandardSyntaxAtRule,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isAutoprefixable, isStandardSyntaxAtRule, report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "at-rule-no-vendor-prefix"
 
@@ -15,16 +9,24 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return function (root, result) {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(atRule => {
-      if (!isStandardSyntaxAtRule(atRule)) { return }
+      if (!isStandardSyntaxAtRule(atRule)) {
+        return
+      }
 
-      const { name } = atRule
+      const name = atRule.name
 
-      if (name[0] !== "-") { return }
+      if (name[0] !== "-") {
+        return
+      }
 
-      if (!isAutoprefixable.atRuleName(name)) { return }
+      if (!isAutoprefixable.atRuleName(name)) {
+        return
+      }
 
       report({
         message: messages.rejected(name),

@@ -1,12 +1,4 @@
-import {
-  atRuleParamIndex,
-  functionArgumentsSearch,
-  isStandardSyntaxUrl,
-  optionsMatches,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { atRuleParamIndex, functionArgumentsSearch, isStandardSyntaxUrl, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
 import _ from "lodash"
 
 export const ruleName = "function-url-quotes"
@@ -20,10 +12,7 @@ export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     }, {
       actual: options,
       possible: {
@@ -31,7 +20,9 @@ export default function (expectation, options) {
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(checkStatement)
     root.walkRules(checkStatement)
@@ -65,7 +56,9 @@ export default function (expectation, options) {
       let shouldHasQuotes = expectation === "always"
 
       const leftTrimmedArgs = args.trimLeft()
-      if (!isStandardSyntaxUrl(leftTrimmedArgs)) { return }
+      if (!isStandardSyntaxUrl(leftTrimmedArgs)) {
+        return
+      }
       const complaintIndex = index + args.length - leftTrimmedArgs.length
       const hasQuotes = leftTrimmedArgs[0] === "'" || leftTrimmedArgs[0] === "\""
 
@@ -76,10 +69,14 @@ export default function (expectation, options) {
       }
 
       if (shouldHasQuotes) {
-        if (hasQuotes) { return }
+        if (hasQuotes) {
+          return
+        }
         complain(messages.expected(functionName), node, complaintIndex)
       } else {
-        if (!hasQuotes) { return }
+        if (!hasQuotes) {
+          return
+        }
         complain(messages.rejected(functionName), node, complaintIndex)
       }
     }

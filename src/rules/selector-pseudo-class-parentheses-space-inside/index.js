@@ -1,10 +1,4 @@
-import {
-  isStandardSyntaxRule,
-  parseSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isStandardSyntaxRule, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
 import _ from "lodash"
 import styleSearch from "style-search"
 
@@ -21,20 +15,25 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      if (!isStandardSyntaxRule(rule)) { return }
-      if (rule.selector.indexOf("(") === -1) { return }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
+      if (rule.selector.indexOf("(") === -1) {
+        return
+      }
 
       parseSelector(rule.selector, result, rule, selectorTree => {
         selectorTree.walkPseudos(pseudoNode => {
-          if (_.get(pseudoNode, "parent.parent.type") === "pseudo") { return }
+          if (_.get(pseudoNode, "parent.parent.type") === "pseudo") {
+            return
+          }
 
           const pseudoSelectorString = pseudoNode.toString()
 

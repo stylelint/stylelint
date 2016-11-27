@@ -1,9 +1,4 @@
-import {
-  functionArgumentsSearch,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { functionArgumentsSearch, report, ruleMessages, validateOptions } from "../../utils"
 import { vendor } from "postcss"
 
 export const ruleName = "function-linear-gradient-no-nonstandard-direction"
@@ -13,22 +8,28 @@ export const messages = ruleMessages(ruleName, {
 })
 
 function isStandardDirection(source, withToPrefix) {
-  const regexp = withToPrefix ?
-    /^to (top|left|bottom|right)(?: (top|left|bottom|right))?$/ :
-       /^(top|left|bottom|right)(?: (top|left|bottom|right))?$/
+  const regexp = withToPrefix ? /^to (top|left|bottom|right)(?: (top|left|bottom|right))?$/ : /^(top|left|bottom|right)(?: (top|left|bottom|right))?$/
 
   const matches = source.match(regexp)
-  if (!matches) { return false }
-  if (matches.length === 2) { return true }
+  if (!matches) {
+    return false
+  }
+  if (matches.length === 2) {
+    return true
+  }
   // Cannot repeat side-or-corner, e.g. "to top top"
-  if (matches.length === 3 && matches[1] !== matches[2]) { return true }
+  if (matches.length === 3 && matches[1] !== matches[2]) {
+    return true
+  }
   return false
 }
 
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
       functionArgumentsSearch(decl.toString().toLowerCase(), "linear-gradient", (expression, expressionIndex) => {
@@ -36,7 +37,9 @@ export default function (actual) {
 
         // If the first character is a number, we can assume the user intends an angle
         if (/[\d\.]/.test(firstArg[0])) {
-          if (/^[\d\.]+(?:deg|grad|rad|turn)$/.test(firstArg)) { return }
+          if (/^[\d\.]+(?:deg|grad|rad|turn)$/.test(firstArg)) {
+            return
+          }
           complain()
           return
         }
@@ -44,7 +47,9 @@ export default function (actual) {
         // The first argument may not be a direction: it may be an angle,
         // or a color stop (in which case user gets default direction, "to bottom")
         // cf. https://drafts.csswg.org/css-images-3/#linear-gradient-syntax
-        if (!/left|right|top|bottom/.test(firstArg)) { return }
+        if (!/left|right|top|bottom/.test(firstArg)) {
+          return
+        }
 
         const withToPrefix = !vendor.prefix(decl.value)
         if (!isStandardDirection(firstArg, withToPrefix)) {

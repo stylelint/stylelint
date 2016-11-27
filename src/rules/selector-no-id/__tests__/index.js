@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -100,6 +97,5 @@ testRule(rule, {
   }, {
     code: ".for(@n: 1) when (@n <= 10) { .n-@{n} #foo { } .for(@n + 1) }",
     description: "ignore Less interpolation + id inside .for",
-  },
-  ],
+  } ],
 })

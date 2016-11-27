@@ -17,8 +17,7 @@ test("customPropertySet", t => {
 function customPropertySet(css, cb) {
   postcss().process(css).then(result => {
     result.root.walk(cb)
+  }).catch(error => {
+    console.log(error) // eslint-disable-line no-console
   })
-    .catch(error => {
-      console.log(error) // eslint-disable-line no-console
-    })
 }

@@ -1,10 +1,4 @@
-import {
-  atRuleParamIndex,
-  isStandardSyntaxMediaFeature,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { atRuleParamIndex, isStandardSyntaxMediaFeature, report, ruleMessages, validateOptions } from "../../utils"
 import execall from "execall"
 import { mediaFeaturePunctuation } from "../../reference/punctuationSets"
 
@@ -29,14 +23,20 @@ function startsWithPunctuation(str) {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(/^media$/i, atRule => {
       execall(/\((.*?)\)/g, atRule.params).forEach(mediaFeatureMatch => {
-        if (!isStandardSyntaxMediaFeature(mediaFeatureMatch.match)) { return }
+        if (!isStandardSyntaxMediaFeature(mediaFeatureMatch.match)) {
+          return
+        }
 
         const splitMediaFeature = mediaFeatureMatch.sub[0].trim().split(/\s+/)
-        if (splitMediaFeature.length === 1) { return }
+        if (splitMediaFeature.length === 1) {
+          return
+        }
 
         // Ignore the last one
         for (let i = 0, l = splitMediaFeature.length - 1; i < l; i++) {
@@ -46,11 +46,19 @@ export default function (actual) {
           // it ends with punctuation,
           // the next part is punctuation,
           // or the next part begins with punctuation
-          if (isPunctuation(mediaFeaturePart)) { continue }
-          if (endsWithPunctuation(mediaFeaturePart)) { continue }
+          if (isPunctuation(mediaFeaturePart)) {
+            continue
+          }
+          if (endsWithPunctuation(mediaFeaturePart)) {
+            continue
+          }
           const nextPart = splitMediaFeature[i + 1]
-          if (isPunctuation(nextPart)) { continue }
-          if (startsWithPunctuation(nextPart)) { continue }
+          if (isPunctuation(nextPart)) {
+            continue
+          }
+          if (startsWithPunctuation(nextPart)) {
+            continue
+          }
 
           return report({
             result,

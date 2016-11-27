@@ -1,10 +1,4 @@
-import {
-  declarationValueIndex,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { declarationValueIndex, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "declaration-bang-space-after"
@@ -19,12 +13,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     declarationBangSpaceChecker({
       root,
@@ -35,12 +28,19 @@ export default function (expectation) {
   }
 }
 
-export function declarationBangSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
+export function declarationBangSpaceChecker(_ref) {
+  let locationChecker = _ref.locationChecker,
+    root = _ref.root,
+    result = _ref.result,
+    checkedRuleName = _ref.checkedRuleName
+
   root.walkDecls(function (decl) {
     const indexOffset = declarationValueIndex(decl)
     const declString = decl.toString()
     const valueString = decl.toString().slice(indexOffset)
-    if (valueString.indexOf("!") == -1) { return }
+    if (valueString.indexOf("!") == -1) {
+      return
+    }
 
     styleSearch({ source: valueString, target: "!" }, match => {
       check(declString, match.startIndex + indexOffset, decl)
@@ -48,14 +48,13 @@ export function declarationBangSpaceChecker({ locationChecker, root, result, che
   })
 
   function check(source, index, node) {
-    locationChecker({ source, index, err: m =>
-      report({
-        message: m,
-        node,
-        index,
-        result,
-        ruleName: checkedRuleName,
-      }),
+    locationChecker({ source, index, err: m => report({
+      message: m,
+      node,
+      index,
+      result,
+      ruleName: checkedRuleName,
+    }),
     })
   }
 }

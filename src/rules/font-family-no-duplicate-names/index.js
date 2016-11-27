@@ -1,24 +1,20 @@
-﻿import {
-  declarationValueIndex,
-  findFontFamily,
-  report,
-  ruleMessages,
-  validateOptions,
-  } from "../../utils"
+import { declarationValueIndex, findFontFamily, report, ruleMessages, validateOptions } from "../../utils"
 import { fontFamilyKeywords } from "../../reference/keywordSets"
 
 export const ruleName = "font-family-no-duplicate-names"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (name) => `Unexpected duplicate name ${name}`,
+  rejected: name => `Unexpected duplicate name ${name}`,
 })
 
-const isFamilyNameKeyword = (node) => !node.quote && fontFamilyKeywords.has(node.value.toLowerCase())
+const isFamilyNameKeyword = node => !node.quote && fontFamilyKeywords.has(node.value.toLowerCase())
 
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(/^font(-family)?$/i, decl => {
       const keywords = new Set()
@@ -26,7 +22,9 @@ export default function (actual) {
 
       const fontFamilies = findFontFamily(decl.value)
 
-      if (fontFamilies.length === 0) { return }
+      if (fontFamilies.length === 0) {
+        return
+      }
 
       fontFamilies.forEach(fontFamilyNode => {
         if (isFamilyNameKeyword(fontFamilyNode)) {
@@ -63,4 +61,3 @@ export default function (actual) {
     }
   }
 }
-

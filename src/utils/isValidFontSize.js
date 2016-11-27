@@ -1,7 +1,4 @@
-import {
-  fontSizeKeywords,
-  lengthUnits,
-} from "../reference/keywordSets"
+import { fontSizeKeywords, lengthUnits } from "../reference/keywordSets"
 import valueParser from "postcss-value-parser"
 
 /**
@@ -11,16 +8,27 @@ import valueParser from "postcss-value-parser"
  * @return {boolean}
  */
 export default function (word) {
-  if (!word) { return false }
+  if (!word) {
+    return false
+  }
 
-  if (fontSizeKeywords.has(word)) { return true }
+  if (fontSizeKeywords.has(word)) {
+    return true
+  }
 
   const numberUnit = valueParser.unit(word)
-  if (!numberUnit) { return false }
+  if (!numberUnit) {
+    return false
+  }
 
-  const { unit } = numberUnit
-  if (unit === "%") { return true }
-  if (lengthUnits.has(unit.toLowerCase())) { return true }
+  const unit = numberUnit.unit
+
+  if (unit === "%") {
+    return true
+  }
+  if (lengthUnits.has(unit.toLowerCase())) {
+    return true
+  }
 
   return false
 }

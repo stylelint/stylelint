@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -108,7 +105,7 @@ testRule(rule, {
     code: "a { @my_at_rule print { b { top: 0; }}}",
     message: messages.expected(1),
   }, {
-    code:"a { b { c { top: 0; }}}",
+    code: "a { b { c { top: 0; }}}",
     message: messages.expected(1),
   } ],
 })

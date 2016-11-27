@@ -8,7 +8,9 @@ it("standalone with input css and quiet mode", () => {
     },
   }
 
-  return standalone({ code: "a {}", config }).then(({ results }) => {
+  return standalone({ code: "a {}", config }).then((_ref) => {
+    const results = _ref.results
+
     expect(results[0].warnings).toEqual([])
   })
 })

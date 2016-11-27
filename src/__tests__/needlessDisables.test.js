@@ -31,13 +31,12 @@ it("needlessDisables simple case", () => {
     config,
     code: css,
     ignoreDisables: true,
-  }).then(({ results }) => {
+  }).then((_ref) => {
+    const results = _ref.results
+
     const report = needlessDisables(results)
     expect(report.length).toBe(1)
-    expect(report[0].ranges).toEqual([
-      { start: 7, end: 9 },
-      { start: 11, end: 11 },
-    ])
+    expect(report[0].ranges).toEqual([ { start: 7, end: 9 }, { start: 11, end: 11 } ])
   })
 })
 
@@ -51,32 +50,20 @@ it("needlessDisables complex case", () => {
 
   return standalone({
     config,
-    files: [
-      fixture("disabled-ranges-1.css"),
-      fixture("disabled-ranges-2.css"),
-      // ignore files contain `CssSyntaxError`
-      fixture("disabled-ranges-3.css"),
-    ],
+    files: [ fixture("disabled-ranges-1.css"), fixture("disabled-ranges-2.css"),
+    // ignore files contain `CssSyntaxError`
+      fixture("disabled-ranges-3.css") ],
     ignoreDisables: true,
-  }).then(({ results }) => {
-    expect(needlessDisables(results)).toEqual([
-      {
-        source: fixture("disabled-ranges-1.css"),
-        ranges: [
-          { start: 1, end: 3 },
-          { start: 5, end: 7 },
-          { start: 10, end: 10 },
-        ],
-      },
-      {
-        source: fixture("disabled-ranges-2.css"),
-        ranges: [
-          { start: 5, end: 5 },
-          { start: 6, end: 6 },
-          { start: 8 },
-        ],
-      },
-    ])
+  }).then((_ref2) => {
+    const results = _ref2.results
+
+    expect(needlessDisables(results)).toEqual([ {
+      source: fixture("disabled-ranges-1.css"),
+      ranges: [ { start: 1, end: 3 }, { start: 5, end: 7 }, { start: 10, end: 10 } ],
+    }, {
+      source: fixture("disabled-ranges-2.css"),
+      ranges: [ { start: 5, end: 5 }, { start: 6, end: 6 }, { start: 8 } ],
+    } ])
   })
 })
 
@@ -89,22 +76,15 @@ it("needlessDisables ignored case", () => {
 
   return standalone({
     config,
-    files: [
-      fixture("disabled-ranges-1.css"),
-      fixture("ignored-file.css"),
-    ],
+    files: [ fixture("disabled-ranges-1.css"), fixture("ignored-file.css") ],
     ignoreDisables: true,
     ignorePath: fixture(".stylelintignore"),
-  }).then(({ results }) => {
-    expect(needlessDisables(results)).toEqual([
-      {
-        source: fixture("disabled-ranges-1.css"),
-        ranges: [
-          { start: 1, end: 3 },
-          { start: 5, end: 7 },
-          { start: 10, end: 10 },
-        ],
-      },
-    ])
+  }).then((_ref3) => {
+    const results = _ref3.results
+
+    expect(needlessDisables(results)).toEqual([{
+      source: fixture("disabled-ranges-1.css"),
+      ranges: [ { start: 1, end: 3 }, { start: 5, end: 7 }, { start: 10, end: 10 } ],
+    }])
   })
 })

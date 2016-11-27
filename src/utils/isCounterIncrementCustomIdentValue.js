@@ -11,7 +11,9 @@ import { isFinite } from "lodash"
 export default function (value) {
   const valueLowerCase = value.toLowerCase()
 
-  if (counterIncrementKeywords.has(valueLowerCase) || isFinite(parseInt(valueLowerCase))) { return false }
+  if (counterIncrementKeywords.has(valueLowerCase) || isFinite(parseInt(valueLowerCase))) {
+    return false
+  }
 
   return true
 }

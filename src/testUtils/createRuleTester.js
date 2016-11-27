@@ -82,9 +82,13 @@ import sugarss from "sugarss"
 let onlyTest
 
 function checkCaseForOnly(caseType, testCase) {
-  if (!testCase.only) { return }
+  if (!testCase.only) {
+    return
+  }
   /* istanbul ignore next */
-  if (onlyTest) { throw new Error("Cannot use `only` on multiple test cases") }
+  if (onlyTest) {
+    throw new Error("Cannot use `only` on multiple test cases")
+  }
   onlyTest = { case: testCase, type: caseType }
 }
 
@@ -115,12 +119,13 @@ export default function (equalityCheck) {
 }
 
 function processGroup(rule, schema, equalityCheck) {
-  const { ruleName } = schema
+  const ruleName = schema.ruleName
+
   const ruleOptions = normalizeRuleSettings(schema.config)
   const rulePrimaryOptions = ruleOptions[0]
   const ruleSecondaryOptions = ruleOptions[1]
 
-  let printableConfig = (rulePrimaryOptions) ? JSON.stringify(rulePrimaryOptions) : ""
+  let printableConfig = rulePrimaryOptions ? JSON.stringify(rulePrimaryOptions) : ""
   if (printableConfig && ruleSecondaryOptions) {
     printableConfig += ", " + JSON.stringify(ruleSecondaryOptions)
   }
@@ -156,19 +161,18 @@ function processGroup(rule, schema, equalityCheck) {
       schema.preceedingPlugins.forEach(processor.use)
     }
 
-    return processor.use(rule(rulePrimaryOptions, ruleSecondaryOptions))
-      .process(code, postcssProcessOptions)
+    return processor.use(rule(rulePrimaryOptions, ruleSecondaryOptions)).process(code, postcssProcessOptions)
   }
 
   // Apply the basic positive checks unless
   // explicitly told not to
-  const passingTestCases = (schema.skipBasicChecks)
-    ? schema.accept
-    : basicChecks.concat(schema.accept)
+  const passingTestCases = schema.skipBasicChecks ? schema.accept : basicChecks.concat(schema.accept)
 
   if (passingTestCases && passingTestCases.length) {
     passingTestCases.forEach(acceptedCase => {
-      if (!acceptedCase) { return }
+      if (!acceptedCase) {
+        return
+      }
       const assertionDescription = spaceJoin(acceptedCase.description, "should be accepted")
       const resultPromise = postcssProcess(acceptedCase.code).then(postcssResult => {
         const warnings = postcssResult.warnings()
@@ -248,6 +252,10 @@ function processGroup(rule, schema, equalityCheck) {
   }
 }
 
-function spaceJoin(...args) {
+function spaceJoin() {
+  for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key]
+  }
+
   return _.compact(args).join(" ")
 }

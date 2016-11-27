@@ -1,8 +1,4 @@
-import {
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 import { selectorListCommaWhitespaceChecker } from "../selector-list-comma-space-after"
 
@@ -20,14 +16,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-single-line",
-        "never-single-line",
-      ],
+      possible: [ "always", "never", "always-single-line", "never-single-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     selectorListCommaWhitespaceChecker({
       root,

@@ -1,9 +1,5 @@
 const doiuse = require("doiuse")
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { report, ruleMessages, validateOptions } from "../../utils"
 import Result from "postcss/lib/result"
 import { isString } from "lodash"
 
@@ -23,7 +19,9 @@ export default function (on, options) {
         ignore: [isString],
       },
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const doiuseOptions = {}
 

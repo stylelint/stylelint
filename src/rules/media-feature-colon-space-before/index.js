@@ -1,8 +1,4 @@
-import {
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 import { mediaFeatureColonSpaceChecker } from "../media-feature-colon-space-after"
 
@@ -18,12 +14,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     mediaFeatureColonSpaceChecker({
       root,

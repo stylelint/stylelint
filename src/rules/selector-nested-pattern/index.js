@@ -1,14 +1,5 @@
-import {
-  isRegExp,
-  isString,
-} from "lodash"
-import {
-  isStandardSyntaxRule,
-  isStandardSyntaxSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isRegExp, isString } from "lodash"
+import { isStandardSyntaxRule, isStandardSyntaxSelector, report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "selector-nested-pattern"
 
@@ -22,18 +13,29 @@ export default function (pattern) {
       actual: pattern,
       possible: [ isRegExp, isString ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const normalizedPattern = isString(pattern) ? new RegExp(pattern) : pattern
 
     root.walkRules(rule => {
-      if (rule.parent.type !== "rule") { return }
-      if (!isStandardSyntaxRule(rule)) { return }
+      if (rule.parent.type !== "rule") {
+        return
+      }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
 
-      const { selector } = rule
-      if (!isStandardSyntaxSelector(selector)) { return }
+      const selector = rule.selector
 
-      if (normalizedPattern.test(selector)) { return }
+      if (!isStandardSyntaxSelector(selector)) {
+        return
+      }
+
+      if (normalizedPattern.test(selector)) {
+        return
+      }
 
       report({
         result,

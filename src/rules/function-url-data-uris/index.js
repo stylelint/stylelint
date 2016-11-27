@@ -1,10 +1,4 @@
-import {
-  isStandardSyntaxValue,
-  isVariable,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isStandardSyntaxValue, isVariable, report, ruleMessages, validateOptions } from "../../utils"
 import valueParser from "postcss-value-parser"
 
 export const ruleName = "function-url-data-uris"
@@ -18,33 +12,30 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(function (decl) {
       valueParser(decl.value).walk(valueNode => {
-        if (valueNode.type !== "function"
-          || valueNode.value.toLowerCase() !== "url"
-          || !valueNode.nodes.length > 0
-        ) { return }
+        if (valueNode.type !== "function" || valueNode.value.toLowerCase() !== "url" || !valueNode.nodes.length > 0) {
+          return
+        }
 
         const urlValueNode = valueNode.nodes[0]
 
-        if (!urlValueNode.value
-          || !isStandardSyntaxValue(urlValueNode.value)
-          || isVariable(urlValueNode.value)
-        ) { return }
+        if (!urlValueNode.value || !isStandardSyntaxValue(urlValueNode.value) || isVariable(urlValueNode.value)) {
+          return
+        }
 
         const valueContainDataUris = urlValueNode.value.toLowerCase().indexOf("data:") === 0
         const needUrlDataUris = expectation === "always"
 
-        if (valueContainDataUris && needUrlDataUris
-          || !valueContainDataUris && !needUrlDataUris
-        ) { return }
+        if (valueContainDataUris && needUrlDataUris || !valueContainDataUris && !needUrlDataUris) {
+          return
+        }
 
         const message = needUrlDataUris ? messages.expected : messages.rejected
 

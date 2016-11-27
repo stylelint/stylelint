@@ -1,16 +1,5 @@
-import {
-  beforeBlockString,
-  hasBlock,
-  optionsMatches,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
-import {
-  isBoolean,
-  isNumber,
-  repeat,
-} from "lodash"
+import { beforeBlockString, hasBlock, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
+import { isBoolean, isNumber, repeat } from "lodash"
 import styleSearch from "style-search"
 
 export const ruleName = "indentation"
@@ -23,10 +12,12 @@ export const messages = ruleMessages(ruleName, {
  *   keyword "tab" for single `\t`
  * @param {object} [options]
  */
-export default function (space, options = {}) {
+export default function (space) {
+  const options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {}
+
   const isTab = space === "tab"
-  const indentChar = (isTab) ? "\t" : repeat(" ", space)
-  const warningWord = (isTab) ? "tab" : "space"
+  const indentChar = isTab ? "\t" : repeat(" ", space)
+  const warningWord = isTab ? "tab" : "space"
 
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -42,7 +33,9 @@ export default function (space, options = {}) {
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     // Cycle through all nodes using walk.
     root.walk(node => {
@@ -57,12 +50,10 @@ export default function (space, options = {}) {
       // or there is a newline in the `before` string.
       // (If there is no newline before a node,
       // there is no "indentation" to check.)
-      const inspectBefore = (root.first === node) || before.indexOf("\n") !== -1
+      const inspectBefore = root.first === node || before.indexOf("\n") !== -1
 
       // Cut out any * hacks from `before`
-      before = (before[before.length - 1] === "*" || before[before.length - 1] === "_")
-        ? before.slice(0, before.length - 1)
-        : before
+      before = before[before.length - 1] === "*" || before[before.length - 1] === "_" ? before.slice(0, before.length - 1) : before
 
       // Inspect whitespace in the `before` string that is
       // *after* the *last* newline character,
@@ -81,13 +72,8 @@ export default function (space, options = {}) {
       // Only inspect `after` strings that start with a newline;
       // otherwise there's no indentation involved.
       // And check `indentClosingBrace` to see if it should be indented an extra level.
-      const closingBraceLevel = (options.indentClosingBrace) ? nodeLevel + 1 : nodeLevel
-      if (
-        hasBlock(node)
-        && after
-        && after.indexOf("\n") !== -1
-        && after.slice(after.lastIndexOf("\n") + 1) !== repeat(indentChar, closingBraceLevel)
-      ) {
+      const closingBraceLevel = options.indentClosingBrace ? nodeLevel + 1 : nodeLevel
+      if (hasBlock(node) && after && after.indexOf("\n") !== -1 && after.slice(after.lastIndexOf("\n") + 1) !== repeat(indentChar, closingBraceLevel)) {
         report({
           message: messages.expected(legibleExpectation(closingBraceLevel)),
           node,
@@ -113,8 +99,12 @@ export default function (space, options = {}) {
       }
     })
 
-    function indentationLevel(node, level = 0) {
-      if (node.parent.type === "root") { return level }
+    function indentationLevel(node) {
+      const level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0
+
+      if (node.parent.type === "root") {
+        return level
+      }
 
       let calculatedLevel
 
@@ -126,11 +116,7 @@ export default function (space, options = {}) {
       // If options.except includes "block",
       // blocks are taken down one from their calculated level
       // (all blocks are the same level as their parents)
-      if (
-        optionsMatches(options, "except", "block")
-        && (node.type === "rule" || node.type === "atrule")
-        && hasBlock(node)
-      ) {
+      if (optionsMatches(options, "except", "block") && (node.type === "rule" || node.type === "atrule") && hasBlock(node)) {
         calculatedLevel--
       }
 
@@ -138,13 +124,15 @@ export default function (space, options = {}) {
     }
 
     function checkValue(decl, declLevel) {
-      if (decl.value.indexOf("\n") === -1) { return }
-      if (optionsMatches(options, "ignore", "value")) { return }
+      if (decl.value.indexOf("\n") === -1) {
+        return
+      }
+      if (optionsMatches(options, "ignore", "value")) {
+        return
+      }
 
       const declString = decl.toString()
-      const valueLevel = (optionsMatches(options, "except", "value"))
-        ? declLevel
-        : declLevel + 1
+      const valueLevel = optionsMatches(options, "except", "value") ? declLevel : declLevel + 1
 
       checkMultilineBit(declString, valueLevel, decl)
     }
@@ -161,18 +149,20 @@ export default function (space, options = {}) {
     }
 
     function checkAtRuleParams(atRule, ruleLevel) {
-      if (optionsMatches(options, "ignore", "param")) { return }
+      if (optionsMatches(options, "ignore", "param")) {
+        return
+      }
 
       // @nest rules should be treated like regular rules, not expected
       // to have their params (selectors) indented
-      const paramLevel = (optionsMatches(options, "except", "param") || atRule.name === "nest")
-        ? ruleLevel
-        : ruleLevel + 1
+      const paramLevel = optionsMatches(options, "except", "param") || atRule.name === "nest" ? ruleLevel : ruleLevel + 1
       checkMultilineBit(beforeBlockString(atRule).trim(), paramLevel, atRule)
     }
 
     function checkMultilineBit(source, newlineIndentLevel, node) {
-      if (source.indexOf("\n") === -1) { return }
+      if (source.indexOf("\n") === -1) {
+        return
+      }
       // `outsideParens` because function arguments and also non-standard parenthesized stuff like
       // Sass maps are ignored to allow for arbitrary indentation
       let parentheticalDepth = 0
@@ -183,10 +173,9 @@ export default function (space, options = {}) {
       }, (match, matchCount) => {
         const precedesClosingParenthesis = /^[ \t]*\)/.test(source.slice(match.startIndex + 1))
 
-        if (
-          optionsMatches(options, "ignore", "inside-parens")
-          && (precedesClosingParenthesis || match.insideParens)
-        ) { return }
+        if (optionsMatches(options, "ignore", "inside-parens") && (precedesClosingParenthesis || match.insideParens)) {
+          return
+        }
 
         let expectedIndentLevel = newlineIndentLevel
         // Modififications for parenthetical content
@@ -199,9 +188,13 @@ export default function (space, options = {}) {
             newlineIndex--
           }
           const followsOpeningParenthesis = /\([ \t]*$/.test(source.slice(0, newlineIndex))
-          if (followsOpeningParenthesis) { parentheticalDepth += 1 }
+          if (followsOpeningParenthesis) {
+            parentheticalDepth += 1
+          }
           expectedIndentLevel += parentheticalDepth
-          if (precedesClosingParenthesis) { parentheticalDepth -= 1 }
+          if (precedesClosingParenthesis) {
+            parentheticalDepth -= 1
+          }
 
           switch (options.indentInsideParens) {
             case "twice":
@@ -231,7 +224,9 @@ export default function (space, options = {}) {
         // check that the whitespace characters (excluding newlines) before the first
         // non-whitespace character equal the expected indentation
         const afterNewlineSpaceMatches = /^([ \t]*)\S/.exec(source.slice(match.startIndex + 1))
-        if (!afterNewlineSpaceMatches) { return }
+        if (!afterNewlineSpaceMatches) {
+          return
+        }
         const afterNewlineSpace = afterNewlineSpaceMatches[1]
 
         if (afterNewlineSpace !== repeat(indentChar, expectedIndentLevel)) {
@@ -248,10 +243,8 @@ export default function (space, options = {}) {
   }
 
   function legibleExpectation(level) {
-    const count = (isTab) ? level : level * space
-    const quantifiedWarningWord = (count === 1)
-      ? warningWord
-      : warningWord + "s"
+    const count = isTab ? level : level * space
+    const quantifiedWarningWord = count === 1 ? warningWord : warningWord + "s"
     return `${count} ${quantifiedWarningWord}`
   }
 }

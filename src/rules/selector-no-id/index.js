@@ -1,12 +1,4 @@
-import {
-  isKeyframeRule,
-  isStandardSyntaxRule,
-  isStandardSyntaxSelector,
-  parseSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isKeyframeRule, isStandardSyntaxRule, isStandardSyntaxSelector, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "selector-no-id"
 
@@ -17,16 +9,27 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      if (!isStandardSyntaxRule(rule)) { return }
-      if (isKeyframeRule(rule)) { return }
-      const { selector } = rule
-      if (!isStandardSyntaxSelector(selector)) { return }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
+      if (isKeyframeRule(rule)) {
+        return
+      }
+      const selector = rule.selector
+
+      if (!isStandardSyntaxSelector(selector)) {
+        return
+      }
       parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkIds(idNode => {
-          if (idNode.parent.parent.type === "pseudo") { return }
+          if (idNode.parent.parent.type === "pseudo") {
+            return
+          }
 
           report({
             message: messages.rejected,

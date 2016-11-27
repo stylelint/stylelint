@@ -43,17 +43,12 @@ function testAgainstStringOrArray(value, comparison) {
 }
 
 function testAgainstString(value, comparison) {
-  const comparisonIsRegex = comparison[0] === "/"
-    && comparison[comparison.length - 1] === "/"
+  const comparisonIsRegex = comparison[0] === "/" && comparison[comparison.length - 1] === "/"
 
   if (comparisonIsRegex) {
     const valueMatches = new RegExp(comparison.slice(1, -1)).test(value)
-    return (valueMatches)
-      ? { match: value, pattern: comparison }
-      : false
+    return valueMatches ? { match: value, pattern: comparison } : false
   }
 
-  return (value === comparison)
-    ? { match: value, pattern: comparison }
-    : false
+  return value === comparison ? { match: value, pattern: comparison } : false
 }

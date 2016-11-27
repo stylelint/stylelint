@@ -1,11 +1,4 @@
-import {
-  declarationValueIndex,
-  isStandardSyntaxDeclaration,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { declarationValueIndex, isStandardSyntaxDeclaration, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 export const ruleName = "declaration-colon-newline-after"
 
@@ -19,15 +12,16 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "always-multi-line",
-      ],
+      possible: [ "always", "always-multi-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
-      if (!isStandardSyntaxDeclaration(decl)) { return }
+      if (!isStandardSyntaxDeclaration(decl)) {
+        return
+      }
 
       // Get the raw prop, and only the prop
       const endOfPropIndex = declarationValueIndex(decl) + decl.raws.between.length - 1
@@ -37,10 +31,10 @@ export default function (expectation) {
       const propPlusColon = decl.toString().slice(0, endOfPropIndex) + "xxx"
 
       for (let i = 0, l = propPlusColon.length; i < l; i++) {
-        if (propPlusColon[i] !== ":") { continue }
-        const indexToCheck = (propPlusColon.substr(propPlusColon[i], 3) === "/*")
-          ? propPlusColon.indexOf("*/", i) + 1
-          : i
+        if (propPlusColon[i] !== ":") {
+          continue
+        }
+        const indexToCheck = propPlusColon.substr(propPlusColon[i], 3) === "/*" ? propPlusColon.indexOf("*/", i) + 1 : i
 
         checker.afterOneOnly({
           source: propPlusColon,

@@ -62,15 +62,17 @@ export default function (targetWhitespace, expectation, messages) {
    *   With this option, the checker will see if a newline *begins* the whitespace before
    *   the `index`.
    */
-  function before({
-    source,
-    index,
-    err,
-    errTarget,
-    lineCheckStr,
-    onlyOneChar = false,
-    allowIndentation = false,
-  }) {
+  function before(_ref) {
+    let source = _ref.source,
+      index = _ref.index,
+      err = _ref.err,
+      errTarget = _ref.errTarget,
+      lineCheckStr = _ref.lineCheckStr
+    const _ref$onlyOneChar = _ref.onlyOneChar
+    const onlyOneChar = _ref$onlyOneChar === undefined ? false : _ref$onlyOneChar
+    const _ref$allowIndentation = _ref.allowIndentation
+    const allowIndentation = _ref$allowIndentation === undefined ? false : _ref$allowIndentation
+
     activeArgs = { source, index, err, errTarget, onlyOneChar, allowIndentation }
     switch (expectation) {
       case "always":
@@ -80,19 +82,27 @@ export default function (targetWhitespace, expectation, messages) {
         rejectBefore()
         break
       case "always-single-line":
-        if (!isSingleLineString(lineCheckStr || source)) { return }
+        if (!isSingleLineString(lineCheckStr || source)) {
+          return
+        }
         expectBefore(messages.expectedBeforeSingleLine)
         break
       case "never-single-line":
-        if (!isSingleLineString(lineCheckStr || source)) { return }
+        if (!isSingleLineString(lineCheckStr || source)) {
+          return
+        }
         rejectBefore(messages.rejectedBeforeSingleLine)
         break
       case "always-multi-line":
-        if (isSingleLineString(lineCheckStr || source)) { return }
+        if (isSingleLineString(lineCheckStr || source)) {
+          return
+        }
         expectBefore(messages.expectedBeforeMultiLine)
         break
       case "never-multi-line":
-        if (isSingleLineString(lineCheckStr || source)) { return }
+        if (isSingleLineString(lineCheckStr || source)) {
+          return
+        }
         rejectBefore(messages.rejectedBeforeMultiLine)
         break
       default:
@@ -106,7 +116,15 @@ export default function (targetWhitespace, expectation, messages) {
    * Parameters are pretty much the same as for `before()`, above, just substitute
    * the word "after" for "before".
    */
-  function after({ source, index, err, errTarget, lineCheckStr, onlyOneChar = false }) {
+  function after(_ref2) {
+    let source = _ref2.source,
+      index = _ref2.index,
+      err = _ref2.err,
+      errTarget = _ref2.errTarget,
+      lineCheckStr = _ref2.lineCheckStr
+    const _ref2$onlyOneChar = _ref2.onlyOneChar
+    const onlyOneChar = _ref2$onlyOneChar === undefined ? false : _ref2$onlyOneChar
+
     activeArgs = { source, index, err, errTarget, onlyOneChar }
     switch (expectation) {
       case "always":
@@ -116,19 +134,27 @@ export default function (targetWhitespace, expectation, messages) {
         rejectAfter()
         break
       case "always-single-line":
-        if (!isSingleLineString(lineCheckStr || source)) { return }
+        if (!isSingleLineString(lineCheckStr || source)) {
+          return
+        }
         expectAfter(messages.expectedAfterSingleLine)
         break
       case "never-single-line":
-        if (!isSingleLineString(lineCheckStr || source)) { return }
+        if (!isSingleLineString(lineCheckStr || source)) {
+          return
+        }
         rejectAfter(messages.rejectedAfterSingleLine)
         break
       case "always-multi-line":
-        if (isSingleLineString(lineCheckStr || source)) { return }
+        if (isSingleLineString(lineCheckStr || source)) {
+          return
+        }
         expectAfter(messages.expectedAfterMultiLine)
         break
       case "never-multi-line":
-        if (isSingleLineString(lineCheckStr || source)) { return }
+        if (isSingleLineString(lineCheckStr || source)) {
+          return
+        }
         rejectAfter(messages.rejectedAfterMultiLine)
         break
       default:
@@ -140,30 +166,46 @@ export default function (targetWhitespace, expectation, messages) {
     before(assign({}, obj, { allowIndentation: true }))
   }
 
-  function expectBefore(messageFunc = messages.expectedBefore) {
+  function expectBefore() {
+    const messageFunc = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : messages.expectedBefore
+
     if (activeArgs.allowIndentation) {
       expectBeforeAllowingIndentation(messageFunc)
       return
     }
 
-    const { source, index } = activeArgs
+    const _activeArgs = activeArgs
+    const source = _activeArgs.source,
+      index = _activeArgs.index
+
     const oneCharBefore = source[index - 1]
     const twoCharsBefore = source[index - 2]
 
-    if (!isValue(oneCharBefore)) { return }
+    if (!isValue(oneCharBefore)) {
+      return
+    }
 
     if (targetWhitespace === "space" && oneCharBefore === " ") {
-      if (activeArgs.onlyOneChar || !isWhitespace(twoCharsBefore)) { return }
+      if (activeArgs.onlyOneChar || !isWhitespace(twoCharsBefore)) {
+        return
+      }
     }
 
     activeArgs.err(messageFunc(activeArgs.errTarget ? activeArgs.errTarget : source[index]))
   }
 
-  function expectBeforeAllowingIndentation(messageFunc = messages.expectedBefore) {
-    const { source, index, err } = activeArgs
-    const expectedChar = (function () {
-      if (targetWhitespace === "newline") { return "\n" }
-    }())
+  function expectBeforeAllowingIndentation() {
+    const messageFunc = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : messages.expectedBefore
+    const _activeArgs2 = activeArgs
+    const source = _activeArgs2.source,
+      index = _activeArgs2.index,
+      err = _activeArgs2.err
+
+    const expectedChar = function () {
+      if (targetWhitespace === "newline") {
+        return "\n"
+      }
+    }()
     let i = index - 1
     while (source[i] !== expectedChar) {
       if (source[i] === "\t" || source[i] === " ") {
@@ -175,8 +217,12 @@ export default function (targetWhitespace, expectation, messages) {
     }
   }
 
-  function rejectBefore(messageFunc = messages.rejectedBefore) {
-    const { source, index } = activeArgs
+  function rejectBefore() {
+    const messageFunc = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : messages.rejectedBefore
+    const _activeArgs3 = activeArgs
+    const source = _activeArgs3.source,
+      index = _activeArgs3.index
+
     const oneCharBefore = source[index - 1]
 
     if (isValue(oneCharBefore) && isWhitespace(oneCharBefore)) {
@@ -188,35 +234,50 @@ export default function (targetWhitespace, expectation, messages) {
     after(assign({}, obj, { onlyOneChar: true }))
   }
 
-  function expectAfter(messageFunc = messages.expectedAfter) {
-    const { source, index } = activeArgs
+  function expectAfter() {
+    const messageFunc = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : messages.expectedAfter
+    const _activeArgs4 = activeArgs
+    const source = _activeArgs4.source,
+      index = _activeArgs4.index
 
     const oneCharAfter = source[index + 1]
     const twoCharsAfter = source[index + 2]
 
-    if (!isValue(oneCharAfter)) { return }
+    if (!isValue(oneCharAfter)) {
+      return
+    }
 
     if (targetWhitespace === "newline") {
       // If index is followed by a Windows CR-LF ...
       if (oneCharAfter === "\r" && twoCharsAfter === "\n") {
-        if (activeArgs.onlyOneChar || !isWhitespace(source[index + 3])) { return }
+        if (activeArgs.onlyOneChar || !isWhitespace(source[index + 3])) {
+          return
+        }
       }
 
       // If index is followed by a Unix LF ...
       if (oneCharAfter === "\n") {
-        if (activeArgs.onlyOneChar || !isWhitespace(twoCharsAfter)) { return }
+        if (activeArgs.onlyOneChar || !isWhitespace(twoCharsAfter)) {
+          return
+        }
       }
     }
 
     if (targetWhitespace === "space" && oneCharAfter === " ") {
-      if (activeArgs.onlyOneChar || !isWhitespace(twoCharsAfter)) { return }
+      if (activeArgs.onlyOneChar || !isWhitespace(twoCharsAfter)) {
+        return
+      }
     }
 
     activeArgs.err(messageFunc(activeArgs.errTarget ? activeArgs.errTarget : source[index]))
   }
 
-  function rejectAfter(messageFunc = messages.rejectedAfter) {
-    const { source, index } = activeArgs
+  function rejectAfter() {
+    const messageFunc = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : messages.rejectedAfter
+    const _activeArgs5 = activeArgs
+    const source = _activeArgs5.source,
+      index = _activeArgs5.index
+
     const oneCharAfter = source[index + 1]
 
     if (isValue(oneCharAfter) && isWhitespace(oneCharAfter)) {

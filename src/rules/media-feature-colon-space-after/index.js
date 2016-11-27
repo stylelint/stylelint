@@ -1,10 +1,4 @@
-import {
-  atRuleParamIndex,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { atRuleParamIndex, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "media-feature-colon-space-after"
@@ -19,12 +13,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     mediaFeatureColonSpaceChecker({
       root,
@@ -35,9 +28,14 @@ export default function (expectation) {
   }
 }
 
-export function mediaFeatureColonSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
+export function mediaFeatureColonSpaceChecker(_ref) {
+  let locationChecker = _ref.locationChecker,
+    root = _ref.root,
+    result = _ref.result,
+    checkedRuleName = _ref.checkedRuleName
+
   root.walkAtRules(/^media$/i, atRule => {
-    const { params } = atRule
+    const params = atRule.params
 
     styleSearch({ source: params, target: ":" }, match => {
       checkColon(params, match.startIndex, atRule)
@@ -45,14 +43,13 @@ export function mediaFeatureColonSpaceChecker({ locationChecker, root, result, c
   })
 
   function checkColon(source, index, node) {
-    locationChecker({ source, index, err: m =>
-      report({
-        message: m,
-        node,
-        index: index + atRuleParamIndex(node),
-        result,
-        ruleName: checkedRuleName,
-      }),
+    locationChecker({ source, index, err: m => report({
+      message: m,
+      node,
+      index: index + atRuleParamIndex(node),
+      result,
+      ruleName: checkedRuleName,
+    }),
     })
   }
 }

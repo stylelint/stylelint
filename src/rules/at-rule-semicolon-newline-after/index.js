@@ -1,12 +1,4 @@
-import {
-  hasBlock,
-  nextNonCommentNode,
-  rawNodeString,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { hasBlock, nextNonCommentNode, rawNodeString, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 export const ruleName = "at-rule-semicolon-newline-after"
 
@@ -22,16 +14,24 @@ export default function (actual) {
       actual,
       possible: ["always"],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(atRule => {
       const nextNode = atRule.next()
-      if (!nextNode) { return }
-      if (hasBlock(atRule)) { return }
+      if (!nextNode) {
+        return
+      }
+      if (hasBlock(atRule)) {
+        return
+      }
 
       // Allow an end-of-line comment
       const nodeToCheck = nextNonCommentNode(nextNode)
-      if (!nodeToCheck) { return }
+      if (!nodeToCheck) {
+        return
+      }
 
       checker.afterOneOnly({
         source: rawNodeString(nodeToCheck),

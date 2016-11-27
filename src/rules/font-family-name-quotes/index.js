@@ -1,23 +1,20 @@
-import {
-  findFontFamily,
-  isStandardSyntaxValue,
-  isVariable,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { findFontFamily, isStandardSyntaxValue, isVariable, report, ruleMessages, validateOptions } from "../../utils"
 import { fontFamilyKeywords } from "../../reference/keywordSets"
 
 export const ruleName = "font-family-name-quotes"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (family) => `Expected quotes around "${family}"`,
-  rejected: (family) => `Unexpected quotes around "${family}"`,
+  expected: family => `Expected quotes around "${family}"`,
+  rejected: family => `Unexpected quotes around "${family}"`,
 })
 
 function isSystemFontKeyword(font) {
-  if (font.indexOf("-apple-") === 0) { return true }
-  if (font === "BlinkMacSystemFont") { return true }
+  if (font.indexOf("-apple-") === 0) {
+    return true
+  }
+  if (font === "BlinkMacSystemFont") {
+    return true
+  }
   return false
 }
 
@@ -32,9 +29,7 @@ function quotesRecommended(family) {
 // (regexes from https://mathiasbynens.be/notes/unquoted-font-family)
 function quotesRequired(family) {
   return family.split(/\s+/).some(word => {
-    return (
-      /^(-?\d|--)/.test(word)
-      || !/^[-_a-zA-Z0-9\u00A0-\u10FFFF]+$/.test(word)
+    return (/^(-?\d|--)/.test(word) || !/^[-_a-zA-Z0-9\u00A0-\u10FFFF]+$/.test(word)
     )
   })
 }
@@ -43,18 +38,18 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always-where-required",
-        "always-where-recommended",
-        "always-unless-keyword",
-      ],
+      possible: [ "always-where-required", "always-where-recommended", "always-unless-keyword" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(/^font(-family)?$/i, decl => {
       const fontFamilies = findFontFamily(decl.value)
 
-      if (fontFamilies.length === 0) { return }
+      if (fontFamilies.length === 0) {
+        return
+      }
 
       fontFamilies.forEach(fontFamilyNode => {
         let rawFamily = fontFamilyNode.value
@@ -68,8 +63,12 @@ export default function (expectation) {
     })
 
     function checkFamilyName(rawFamily, decl) {
-      if (!isStandardSyntaxValue(rawFamily)) { return }
-      if (isVariable(rawFamily)) { return }
+      if (!isStandardSyntaxValue(rawFamily)) {
+        return
+      }
+      if (isVariable(rawFamily)) {
+        return
+      }
 
       const hasQuotes = rawFamily[0] === "'" || rawFamily[0] === "\""
 

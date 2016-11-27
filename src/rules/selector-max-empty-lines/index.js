@@ -1,12 +1,5 @@
-import {
-  isNumber,
-  repeat,
-} from "lodash"
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isNumber, repeat } from "lodash"
+import { report, ruleMessages, validateOptions } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "selector-max-empty-lines"
@@ -23,21 +16,22 @@ export default function (max) {
       actual: max,
       possible: isNumber,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      const selector = (rule.raws.selector) ? rule.raws.selector.raw : rule.selector
+      const selector = rule.raws.selector ? rule.raws.selector.raw : rule.selector
       const repeatLFNewLines = repeat("\n", maxAdjacentNewlines)
       const repeatCRLFNewLines = repeat("\r\n", maxAdjacentNewlines)
 
       styleSearch({ source: selector, target: "\n" }, match => {
-        if (
-          selector.substr(match.startIndex + 1, maxAdjacentNewlines) === repeatLFNewLines
-          || selector.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeatCRLFNewLines
-        ) {
+        if (selector.substr(match.startIndex + 1, maxAdjacentNewlines) === repeatLFNewLines || selector.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeatCRLFNewLines) {
           // Put index at `\r` if it's CRLF, otherwise leave it at `\n`
           let index = match.startIndex
-          if (selector[index - 1] === "\r") { index -= 1 }
+          if (selector[index - 1] === "\r") {
+            index -= 1
+          }
 
           report({
             message: messages.expected(max),

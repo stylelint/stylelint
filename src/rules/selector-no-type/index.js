@@ -1,18 +1,5 @@
-import {
-  get,
-  isString,
-} from "lodash"
-import {
-  isKeyframeSelector,
-  isStandardSyntaxRule,
-  isStandardSyntaxSelector,
-  isStandardSyntaxTypeSelector,
-  optionsMatches,
-  parseSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { get, isString } from "lodash"
+import { isKeyframeSelector, isStandardSyntaxRule, isStandardSyntaxSelector, isStandardSyntaxTypeSelector, optionsMatches, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
 import resolveNestedSelector from "postcss-resolve-nested-selector"
 
 export const ruleName = "selector-no-type"
@@ -31,17 +18,26 @@ export default function (on, options) {
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const ignoreDescendant = optionsMatches(options, "ignore", "descendant")
     const ignoreCompounded = optionsMatches(options, "ignore", "compounded")
 
     root.walkRules(rule => {
-      const { selector, selectors } = rule
+      const selector = rule.selector,
+        selectors = rule.selectors
 
-      if (!isStandardSyntaxRule(rule)) { return }
-      if (!isStandardSyntaxSelector(selector)) { return }
-      if (selectors.some(s => isKeyframeSelector(s))) { return }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
+      if (!isStandardSyntaxSelector(selector)) {
+        return
+      }
+      if (selectors.some(s => isKeyframeSelector(s))) {
+        return
+      }
 
       if (ignoreDescendant) {
         // Resolve each selector within the list before checking
@@ -58,13 +54,21 @@ export default function (on, options) {
     function checkSelector(selector, rule) {
       parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkTags(tag => {
-          if (!isStandardSyntaxTypeSelector(tag)) { return }
+          if (!isStandardSyntaxTypeSelector(tag)) {
+            return
+          }
 
-          if (optionsMatches(options, "ignoreTypes", tag.value)) { return }
+          if (optionsMatches(options, "ignoreTypes", tag.value)) {
+            return
+          }
 
-          if (ignoreDescendant && hasCombinatorBefore(tag)) { return }
+          if (ignoreDescendant && hasCombinatorBefore(tag)) {
+            return
+          }
 
-          if (ignoreCompounded && isCompounded(tag)) { return }
+          if (ignoreCompounded && isCompounded(tag)) {
+            return
+          }
 
           report({
             message: messages.rejected,
@@ -80,13 +84,16 @@ export default function (on, options) {
 }
 
 function hasCombinatorBefore(node) {
-  return node.parent.nodes.slice(0, node.parent.nodes.indexOf(node))
-    .some(isCombinator)
+  return node.parent.nodes.slice(0, node.parent.nodes.indexOf(node)).some(isCombinator)
 }
 
 function isCompounded(node) {
-  if (node.prev() && !isCombinator(node.prev())) { return true }
-  if (node.next() && !isCombinator(node.next())) { return true }
+  if (node.prev() && !isCombinator(node.prev())) {
+    return true
+  }
+  if (node.next() && !isCombinator(node.next())) {
+    return true
+  }
   return false
 }
 

@@ -1,12 +1,4 @@
-import {
-  blockString,
-  hasBlock,
-  rawNodeString,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { blockString, hasBlock, rawNodeString, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 export const ruleName = "block-closing-brace-space-after"
 
@@ -25,16 +17,11 @@ export default function (expectation) {
   return function (root, result) {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-single-line",
-        "never-single-line",
-        "always-multi-line",
-        "never-multi-line",
-      ],
+      possible: [ "always", "never", "always-single-line", "never-single-line", "always-multi-line", "never-multi-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     // Check both kinds of statements: rules and at-rules
     root.walkRules(check)
@@ -42,8 +29,12 @@ export default function (expectation) {
 
     function check(statement) {
       const nextNode = statement.next()
-      if (!nextNode) { return }
-      if (!hasBlock(statement)) { return }
+      if (!nextNode) {
+        return
+      }
+      if (!hasBlock(statement)) {
+        return
+      }
 
       let reportIndex = statement.toString().length
       let source = rawNodeString(nextNode)

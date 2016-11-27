@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -173,9 +170,7 @@ testRule(rule, {
   skipBasicChecks: true,
   syntax: "scss",
 
-  accept: [
-    { code: "// Comment\n.c {}" },
-  ],
+  accept: [{ code: "// Comment\n.c {}" }],
 
   reject: [{
     code: "@for $n from 1 through 5 { .foo-#{$n} { div { content: \"#{$n}\"; } } }",
@@ -203,9 +198,7 @@ testRule(rule, {
   skipBasicChecks: true,
   syntax: "less",
 
-  accept: [
-    { code: "// Comment\n.c {}" },
-  ],
+  accept: [{ code: "// Comment\n.c {}" }],
 
   reject: [{
     code: ".for(@n: 1) when (@n <= 5) { .foo-@{n} { div { content: \"@{n}\"; } } .for (@n + 1); }",

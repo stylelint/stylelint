@@ -1,12 +1,4 @@
-import {
-  hasEmptyLine,
-  isSingleLineString,
-  isStandardSyntaxRule,
-  optionsMatches,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { hasEmptyLine, isSingleLineString, isStandardSyntaxRule, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "rule-non-nested-empty-line-before"
 
@@ -19,12 +11,7 @@ export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-multi-line",
-        "never-multi-line",
-      ],
+      possible: [ "always", "never", "always-multi-line", "never-multi-line" ],
     }, {
       actual: options,
       possible: {
@@ -33,53 +20,66 @@ export default function (expectation, options) {
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      if (!isStandardSyntaxRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
 
       // Ignore nested rule sets
-      if (rule.parent !== root) { return }
+      if (rule.parent !== root) {
+        return
+      }
 
       // Ignore the first node
-      if (rule === root.first) { return }
+      if (rule === root.first) {
+        return
+      }
 
       checkRuleEmptyLineBefore({ rule, expectation, options, result, messages, checkedRuleName: ruleName })
     })
   }
 }
 
-export function checkRuleEmptyLineBefore({ rule, expectation, options, result, messages, checkedRuleName }) {
-  let expectEmptyLineBefore = (expectation.indexOf("always") !== -1) ? true : false
+export function checkRuleEmptyLineBefore(_ref) {
+  let rule = _ref.rule,
+    expectation = _ref.expectation,
+    options = _ref.options,
+    result = _ref.result,
+    messages = _ref.messages,
+    checkedRuleName = _ref.checkedRuleName
+
+  let expectEmptyLineBefore = expectation.indexOf("always") !== -1 ? true : false
 
   // Optionally ignore the expectation if a comment precedes this node
-  if (optionsMatches(options, "ignore", "after-comment")
-    && rule.prev() && rule.prev().type === "comment") { return }
+  if (optionsMatches(options, "ignore", "after-comment") && rule.prev() && rule.prev().type === "comment") {
+    return
+  }
 
   // Ignore if the expectation is for multiple and the rule is single-line
-  if (expectation.indexOf("multi-line") !== -1
-    && isSingleLineString(rule.toString())) { return }
+  if (expectation.indexOf("multi-line") !== -1 && isSingleLineString(rule.toString())) {
+    return
+  }
 
   // Optionally reverse the expectation for the first nested node
-  if (optionsMatches(options, "except", "first-nested")
-    && rule === rule.parent.first) {
+  if (optionsMatches(options, "except", "first-nested") && rule === rule.parent.first) {
     expectEmptyLineBefore = !expectEmptyLineBefore
   }
 
   // Optionally reverse the expectation for single line comments
-  if (
-    optionsMatches(options, "except", "after-single-line-comment")
-    && rule.prev()
-    && rule.prev().type === "comment"
-    && isSingleLineString(rule.prev().toString())
-  ) {
+  if (optionsMatches(options, "except", "after-single-line-comment") && rule.prev() && rule.prev().type === "comment" && isSingleLineString(rule.prev().toString())) {
     expectEmptyLineBefore = !expectEmptyLineBefore
   }
 
   const hasEmptyLineBefore = hasEmptyLine(rule.raws.before)
 
   // Return if the expectation is met
-  if (expectEmptyLineBefore === hasEmptyLineBefore) { return }
+  if (expectEmptyLineBefore === hasEmptyLineBefore) {
+    return
+  }
 
   const message = expectEmptyLineBefore ? messages.expected : messages.rejected
 

@@ -1,13 +1,4 @@
-import {
-  beforeBlockString,
-  blockString,
-  hasBlock,
-  hasEmptyBlock,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { beforeBlockString, blockString, hasBlock, hasEmptyBlock, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 export const ruleName = "block-opening-brace-space-after"
 
@@ -25,16 +16,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-single-line",
-        "never-single-line",
-        "always-multi-line",
-        "never-multi-line",
-      ],
+      possible: [ "always", "never", "always-single-line", "never-single-line", "always-multi-line", "never-multi-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     // Check both kinds of statements: rules and at-rules
     root.walkRules(check)
@@ -42,7 +28,9 @@ export default function (expectation) {
 
     function check(statement) {
       // Return early if blockless or has an empty block
-      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
+      if (!hasBlock(statement) || hasEmptyBlock(statement)) {
+        return
+      }
 
       checker.after({
         source: blockString(statement),

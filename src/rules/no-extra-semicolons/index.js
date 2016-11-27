@@ -1,10 +1,4 @@
-import {
-  hasEmptyBlock,
-  isCustomPropertySet,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { hasEmptyBlock, isCustomPropertySet, report, ruleMessages, validateOptions } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "no-extra-semicolons"
@@ -41,27 +35,33 @@ function getOffsetByNode(node) {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const rawAfterRoot = root.raws.after
 
     if (rawAfterRoot && rawAfterRoot.trim().length !== 0) {
-      styleSearch({ source: rawAfterRoot, target: ";" }, (match) => {
+      styleSearch({ source: rawAfterRoot, target: ";" }, match => {
         complain(root.toString().length - rawAfterRoot.length + match.startIndex)
       })
     }
 
-    root.walk((node) => {
+    root.walk(node => {
       const rawBeforeNode = node.raws.before
 
       if (rawBeforeNode && rawBeforeNode.trim().length !== 0) {
         let allowedSemi = 0
 
         // Forbid semicolon before first custom properties sets
-        if (isCustomPropertySet(node) && node.parent.index(node) > 0) { allowedSemi = 1 }
+        if (isCustomPropertySet(node) && node.parent.index(node) > 0) {
+          allowedSemi = 1
+        }
 
         styleSearch({ source: rawBeforeNode, target: ";" }, (match, count) => {
-          if (count === allowedSemi) { return }
+          if (count === allowedSemi) {
+            return
+          }
 
           complain(getOffsetByNode(node) - rawBeforeNode.length + match.startIndex)
         })
@@ -72,15 +72,16 @@ export default function (actual) {
       if (rawAfterNode && rawAfterNode.trim().length !== 0) {
         let allowedSemi = 0
 
-        if (!hasEmptyBlock(node) && isCustomPropertySet(node.nodes[node.nodes.length - 1])) { allowedSemi = 1 }
+        if (!hasEmptyBlock(node) && isCustomPropertySet(node.nodes[node.nodes.length - 1])) {
+          allowedSemi = 1
+        }
 
         styleSearch({ source: rawAfterNode, target: ";" }, (match, count) => {
-          if (count === allowedSemi) { return }
+          if (count === allowedSemi) {
+            return
+          }
 
-          const index = getOffsetByNode(node)
-            + node.toString().length - 1
-            - rawAfterNode.length
-            + match.startIndex
+          const index = getOffsetByNode(node) + node.toString().length - 1 - rawAfterNode.length + match.startIndex
           complain(index)
         })
       }

@@ -1,7 +1,4 @@
-﻿import {
-  messages,
-  ruleName,
-  } from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -9,13 +6,7 @@ const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [[
-    "max-width",
-    "--wide-viewport",
-    "width",
-    "/^my-/",
-    "color",
-  ]],
+  config: [[ "max-width", "--wide-viewport", "width", "/^my-/", "color" ]],
 
   accept: [ {
     code: "@media (min-width: 50em) { }",
@@ -73,9 +64,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [[
-    "feature-name",
-  ]],
+  config: [["feature-name"]],
   syntax: "less",
 
   accept: [ {
@@ -87,10 +76,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [[
-    "feature-name",
-    "width",
-  ]],
+  config: [[ "feature-name", "width" ]],
   syntax: "scss",
 
   accept: [ {

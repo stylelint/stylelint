@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -10,18 +7,10 @@ const rule = rules[ruleName]
 testRule(rule, {
   ruleName,
 
-  config: [[
-    "height",
-    "width",
-    {
-      order: "strict",
-      properties: [
-        "color",
-        "font-size",
-        "font-weight",
-      ],
-    },
-  ]],
+  config: [[ "height", "width", {
+    order: "strict",
+    properties: [ "color", "font-size", "font-weight" ],
+  } ]],
 
   accept: [ {
     code: "a { height: 1px; width: 2px; color: pink; font-size: 2px; font-weight: bold; }",
@@ -60,23 +49,13 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
 
-  config: [[
-    {
-      order: "strict",
-      properties: [
-        "width",
-        "height",
-      ],
-    },
-    {
-      order: "strict",
-      properties: [
-        "color",
-        "font-size",
-        "font-weight",
-      ],
-    },
-  ]],
+  config: [[ {
+    order: "strict",
+    properties: [ "width", "height" ],
+  }, {
+    order: "strict",
+    properties: [ "color", "font-size", "font-weight" ],
+  } ]],
 
   accept: [{
     code: "a { width: 2px; height: 1px; color: pink; font-size: 2px; font-weight: bold; }",

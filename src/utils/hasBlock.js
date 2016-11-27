@@ -5,7 +5,5 @@
  * @return {boolean} True if `statement` has a block (empty or otherwise)
  */
 export default function (statement) {
-  return (
-    statement.nodes !== undefined
-  )
+  return statement.nodes !== undefined
 }

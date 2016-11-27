@@ -1,13 +1,5 @@
-import {
-  isArray,
-  isNumber,
-} from "lodash"
-import {
-  isValidHex,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isArray, isNumber } from "lodash"
+import { isValidHex, report, ruleMessages, validateOptions } from "../../utils"
 import Result from "postcss/lib/result"
 import colorguard from "colorguard"
 
@@ -28,7 +20,9 @@ export default function (on, options) {
         whitelist: x => isArray(x) && x.every(isValidHex),
       },
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const colorguardResult = new Result()
     colorguard(options)(root, colorguardResult)

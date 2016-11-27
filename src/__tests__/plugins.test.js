@@ -2,22 +2,14 @@ import path from "path"
 import postcss from "postcss"
 import stylelint from ".."
 
-const cssWithFoo = (
-".foo {}"
-)
+const cssWithFoo = ".foo {}"
 
-const cssWithoutFoo = (
-".bar {}"
-)
+const cssWithoutFoo = ".bar {}"
 
-const cssWithFooAndBar = (
-".foo {}\n.bar {}"
-)
+const cssWithFooAndBar = ".foo {}\n.bar {}"
 
 const configRelative = {
-  plugins: [
-    "./fixtures/plugin-warn-about-foo",
-  ],
+  plugins: ["./fixtures/plugin-warn-about-foo"],
   rules: {
     "plugin/warn-about-foo": "always",
     "block-no-empty": true,
@@ -25,9 +17,7 @@ const configRelative = {
 }
 
 const configAbsolute = {
-  plugins: [
-    path.join(__dirname, "./fixtures/plugin-warn-about-foo"),
-  ],
+  plugins: [path.join(__dirname, "./fixtures/plugin-warn-about-foo")],
   rules: {
     "plugin/warn-about-foo": "always",
     "block-no-empty": true,
@@ -35,18 +25,12 @@ const configAbsolute = {
 }
 
 const configExtendRelative = {
-  extends: [
-    "./fixtures/config-relative-plugin",
-  ],
+  extends: ["./fixtures/config-relative-plugin"],
 }
 
 const configRelativeAndExtendRelative = {
-  extends: [
-    "./fixtures/config-relative-plugin",
-  ],
-  plugins: [
-    "./fixtures/plugin-warn-about-bar",
-  ],
+  extends: ["./fixtures/config-relative-plugin"],
+  plugins: ["./fixtures/plugin-warn-about-bar"],
   rules: {
     "plugin/warn-about-bar": "always",
   },
@@ -182,13 +166,11 @@ it("slashless plugin causes configuration error", () => {
     },
   }
 
-  return postcss().use(stylelint(config)).process(".foo {}")
-    .then(() => {
-      throw new Error("should not have succeeded")
-    })
-    .catch(err => {
-      expect(err.message.indexOf("stylelint v7+ requires plugin rules to be namspaced")).toBe(0)
-    })
+  return postcss().use(stylelint(config)).process(".foo {}").then(() => {
+    throw new Error("should not have succeeded")
+  }).catch(err => {
+    expect(err.message.indexOf("stylelint v7+ requires plugin rules to be namspaced")).toBe(0)
+  })
 })
 
 it("plugin with primary option array", () => {
@@ -198,7 +180,7 @@ it("plugin with primary option array", () => {
       "plugin/primary-array": [ "foo", "bar" ],
     },
   }
-  return postcss().use((stylelint(config))).process("a {}").then(result => {
+  return postcss().use(stylelint(config)).process("a {}").then(result => {
     expect(result.warnings().length).toBe(0)
   })
 })
@@ -210,7 +192,7 @@ it("plugin with primary option array within options array", () => {
       "plugin/primary-array": [ [ "foo", "bar" ], { something: true } ],
     },
   }
-  return postcss().use((stylelint(config))).process("a {}").then(result => {
+  return postcss().use(stylelint(config)).process("a {}").then(result => {
     expect(result.warnings().length).toBe(0)
   })
 })
@@ -236,10 +218,7 @@ describe("loading a plugin from process.cwd", () => {
   })
 
   beforeEach(() => {
-    return postcss()
-      .use((stylelint(config)))
-      .process(".foo {}")
-      .then(data => result = data)
+    return postcss().use(stylelint(config)).process(".foo {}").then(data => result = data)
   })
 
   it("error is caught", () => {

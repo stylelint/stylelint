@@ -1,8 +1,4 @@
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "keyframe-declaration-no-important"
 
@@ -13,11 +9,15 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(/^(-(moz|webkit)-)?keyframes$/i, atRuleKeyframes => {
       atRuleKeyframes.walkDecls(decl => {
-        if (!decl.important) { return }
+        if (!decl.important) {
+          return
+        }
         report({
           message: messages.rejected,
           node: decl,

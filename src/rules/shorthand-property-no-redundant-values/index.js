@@ -1,10 +1,4 @@
-import {
-  isStandardSyntaxDeclaration,
-  isStandardSyntaxProperty,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isStandardSyntaxDeclaration, isStandardSyntaxProperty, report, ruleMessages, validateOptions } from "../../utils"
 import shorthandData from "../../reference/shorthandData"
 import valueParser from "postcss-value-parser"
 import { vendor } from "postcss"
@@ -17,28 +11,18 @@ export const messages = ruleMessages(ruleName, {
 
 const shorthandableProperties = new Set(Object.keys(shorthandData))
 
-const ignoredCharacters = [
-  "+", "-", "*", "/", "(", ")",
-  "$", "@", "--", "var(",
-]
+const ignoredCharacters = [ "+", "-", "*", "/", "(", ")", "$", "@", "--", "var(" ]
 
-const ignoredShorthandProperties = new Set([
-  "background",
-  "font",
-  "border",
-  "border-top",
-  "border-bottom",
-  "border-left",
-  "border-right",
-  "list-style",
-  "transition",
-])
+const ignoredShorthandProperties = new Set([ "background", "font", "border", "border-top", "border-bottom", "border-left", "border-right", "list-style", "transition" ])
 
 function isIgnoredCharacters(value) {
   return ignoredCharacters.some(char => value.indexOf(char) !== -1)
 }
 
-function canCondense(top, right, bottom = null, left = null) {
+function canCondense(top, right) {
+  const bottom = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null
+  const left = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null
+
   const lowerTop = top.toLowerCase()
   const lowerRight = right.toLowerCase()
   const lowerBottom = bottom && bottom.toLowerCase()
@@ -56,7 +40,9 @@ function canCondense(top, right, bottom = null, left = null) {
 }
 
 function canCondenseToOneValue(top, right, bottom, left) {
-  if (top !== right) { return false }
+  if (top !== right) {
+    return false
+  }
 
   return top === bottom && (bottom === left || !left) || !bottom && !left
 }
@@ -72,41 +58,48 @@ function canCondenseToThreeValues(top, right, bottom, left) {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
-      if (
-        !isStandardSyntaxDeclaration(decl)
-        || !isStandardSyntaxProperty(decl.prop)
-      ) { return }
+      if (!isStandardSyntaxDeclaration(decl) || !isStandardSyntaxProperty(decl.prop)) {
+        return
+      }
 
-      const { prop, value } = decl
+      const prop = decl.prop,
+        value = decl.value
+
       const normalizedProp = vendor.unprefixed(prop.toLowerCase())
 
       // Ignore not shorthandable properties, and math operations
-      if (
-        isIgnoredCharacters(value)
-        || !shorthandableProperties.has(normalizedProp)
-        || ignoredShorthandProperties.has(normalizedProp)
-      ) { return }
+      if (isIgnoredCharacters(value) || !shorthandableProperties.has(normalizedProp) || ignoredShorthandProperties.has(normalizedProp)) {
+        return
+      }
 
       const valuesToShorthand = []
 
-      valueParser(value).walk((valueNode) => {
-        if (valueNode.type !== "word") { return }
+      valueParser(value).walk(valueNode => {
+        if (valueNode.type !== "word") {
+          return
+        }
 
         valuesToShorthand.push(valueParser.stringify(valueNode))
       })
 
-      if (valuesToShorthand.length <= 1
-        || valuesToShorthand.length > 4
-      ) { return }
+      if (valuesToShorthand.length <= 1 || valuesToShorthand.length > 4) {
+        return
+      }
 
-      const shortestForm = canCondense(...valuesToShorthand)
-      const shortestFormString = shortestForm.filter((value) => { return value }).join(" ")
+      const shortestForm = canCondense.apply(undefined, valuesToShorthand)
+      const shortestFormString = shortestForm.filter(value => {
+        return value
+      }).join(" ")
       const valuesFormString = valuesToShorthand.join(" ")
 
-      if (shortestFormString.toLowerCase() === valuesFormString.toLowerCase()) { return }
+      if (shortestFormString.toLowerCase() === valuesFormString.toLowerCase()) {
+        return
+      }
 
       report({
         message: messages.rejected(value, shortestFormString),

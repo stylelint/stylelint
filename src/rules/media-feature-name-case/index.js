@@ -1,12 +1,4 @@
-import {
-  atRuleParamIndex,
-  isCustomMediaQuery,
-  isRangeContextMediaFeature,
-  isStandardSyntaxMediaFeatureName,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { atRuleParamIndex, isCustomMediaQuery, isRangeContextMediaFeature, isStandardSyntaxMediaFeatureName, report, ruleMessages, validateOptions } from "../../utils"
 import mediaParser from "postcss-media-query-parser"
 
 export const ruleName = "media-feature-name-case"
@@ -19,27 +11,27 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "lower",
-        "upper",
-      ],
+      possible: [ "lower", "upper" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(/^media$/i, atRule => {
       mediaParser(atRule.params).walk(/^media-feature$/i, mediaFeatureNode => {
-        const { parent, sourceIndex, value } = mediaFeatureNode
+        const parent = mediaFeatureNode.parent,
+          sourceIndex = mediaFeatureNode.sourceIndex,
+          value = mediaFeatureNode.value
 
-        if (isRangeContextMediaFeature(parent.value)
-          || !isStandardSyntaxMediaFeatureName(value)
-          || isCustomMediaQuery(value)
-        ) { return }
+        if (isRangeContextMediaFeature(parent.value) || !isStandardSyntaxMediaFeatureName(value) || isCustomMediaQuery(value)) {
+          return
+        }
 
-        const expectedFeatureName = expectation === "lower"
-          ? value.toLowerCase()
-          : value.toUpperCase()
+        const expectedFeatureName = expectation === "lower" ? value.toLowerCase() : value.toUpperCase()
 
-        if (value === expectedFeatureName) { return }
+        if (value === expectedFeatureName) {
+          return
+        }
 
         report({
           index: atRuleParamIndex(atRule) + sourceIndex,

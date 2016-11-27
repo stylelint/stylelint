@@ -5,7 +5,7 @@ export default function () {
   return {
     code(input) {
       const blocks = execall(/\?\?\?start([\s\S]+?)\?\?\?end/g, input)
-      const toLint = blocks.map((match) => match.sub[0]).join("\n\n")
+      const toLint = blocks.map(match => match.sub[0]).join("\n\n")
       if (toLint.length > 0) {
         found = true
       }

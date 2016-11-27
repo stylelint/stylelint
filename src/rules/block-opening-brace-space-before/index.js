@@ -1,14 +1,4 @@
-import {
-  beforeBlockString,
-  blockString,
-  hasBlock,
-  hasEmptyBlock,
-  optionsMatches,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { beforeBlockString, blockString, hasBlock, hasEmptyBlock, optionsMatches, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import { isString } from "lodash"
 
 export const ruleName = "block-opening-brace-space-before"
@@ -27,14 +17,7 @@ export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-single-line",
-        "never-single-line",
-        "always-multi-line",
-        "never-multi-line",
-      ],
+      possible: [ "always", "never", "always-single-line", "never-single-line", "always-multi-line", "never-multi-line" ],
     }, {
       actual: options,
       possible: {
@@ -42,7 +25,9 @@ export default function (expectation, options) {
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     // Check both kinds of statements: rules and at-rules
     root.walkRules(check)
@@ -50,16 +35,22 @@ export default function (expectation, options) {
 
     function check(statement) {
       // Return early if blockless or has an empty block
-      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
+      if (!hasBlock(statement) || hasEmptyBlock(statement)) {
+        return
+      }
 
       // Return early if at-rule is to be ignored
-      if (optionsMatches(options, "ignoreAtRules", statement.name)) { return }
+      if (optionsMatches(options, "ignoreAtRules", statement.name)) {
+        return
+      }
 
       const source = beforeBlockString(statement)
       const beforeBraceNoRaw = beforeBlockString(statement, { noRawBefore: true })
 
       let index = beforeBraceNoRaw.length - 1
-      if (beforeBraceNoRaw[index - 1] === "\r") { index -= 1 }
+      if (beforeBraceNoRaw[index - 1] === "\r") {
+        index -= 1
+      }
 
       checker.before({
         source,

@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -119,10 +116,8 @@ testRule(rule, {
   ruleName,
   config: { position: ["fixed"] },
   skipBasicChecks: true,
-  accept: [
-    {
-      code: "a { font-size: 1em; }",
-      description: "irrelevant CSS",
-    },
-  ],
+  accept: [{
+    code: "a { font-size: 1em; }",
+    description: "irrelevant CSS",
+  }],
 })

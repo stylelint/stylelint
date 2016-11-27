@@ -1,14 +1,10 @@
-import {
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import { atRuleNameSpaceChecker } from "../at-rule-name-space-after"
 
 export const ruleName = "at-rule-name-newline-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: (name) => `Expected newline after at-rule name \"${name}\"`,
+  expectedAfter: name => `Expected newline after at-rule name \"${name}\"`,
 })
 
 export default function (expectation) {
@@ -16,12 +12,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "always-multi-line",
-      ],
+      possible: [ "always", "always-multi-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     atRuleNameSpaceChecker({
       root,

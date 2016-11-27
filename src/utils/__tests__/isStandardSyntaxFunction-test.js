@@ -27,7 +27,9 @@ function rules(css, cb) {
   postcss().process(css).then(result => {
     result.root.walkDecls(decl => {
       valueParser(decl.value).walk(valueNode => {
-        if (valueNode.type !== "function") { return }
+        if (valueNode.type !== "function") {
+          return
+        }
         cb(valueNode)
       })
     })

@@ -14,12 +14,16 @@ import _ from "lodash"
  */
 
 export default function (value) {
-  if (!_.isPlainObject(value)) { return false }
+  if (!_.isPlainObject(value)) {
+    return false
+  }
 
   return Object.keys(value).every(key => {
-    if (!_.isArray(value[key])) { return false }
+    if (!_.isArray(value[key])) {
+      return false
+    }
 
     // Make sure the array items are strings
-    return value[key].every(item => (_.isString(item)))
+    return value[key].every(item => _.isString(item))
   })
 }

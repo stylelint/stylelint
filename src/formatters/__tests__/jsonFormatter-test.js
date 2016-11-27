@@ -3,9 +3,9 @@ import test from "tape"
 
 test("json formatter", t => {
   const results = [{
-    "source":  "path/to/file.css",
+    "source": "path/to/file.css",
     "errored": true,
-    "warnings":[{
+    "warnings": [{
       "line": 1,
       "column": 2,
       "rule": "bar",
@@ -13,7 +13,7 @@ test("json formatter", t => {
       "text": "Unexpected foo",
     }],
     "deprecations": [],
-    "invalidOptionWarnings":[],
+    "invalidOptionWarnings": [],
   }]
 
   t.deepEqual(JSON.parse(jsonFormatter(results)), results)

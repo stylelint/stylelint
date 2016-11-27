@@ -1,18 +1,12 @@
 /* @flow */
 import _ from "lodash"
 
-export default function (
-  stylelint: stylelint$internalApi,
-  postcssResult: Object,
-  filePath?: string,
-): Promise<stylelint$result> {
-  const source = (!postcssResult.root.source)
-    ? undefined
-    : postcssResult.root.source.input.file || postcssResult.root.source.input.id
+export default function (stylelint /* : stylelint$internalApi*/, postcssResult /* : Object*/, filePath /* :: ?: string*/) /* : Promise<stylelint$result>*/ {
+  const source = !postcssResult.root.source ? undefined : postcssResult.root.source.input.file || postcssResult.root.source.input.id
 
   // Strip out deprecation warnings from the messages
   const deprecationMessages = _.remove(postcssResult.messages, { stylelintType: "deprecation" })
-  const deprecations = deprecationMessages.map((deprecationMessage) => {
+  const deprecations = deprecationMessages.map(deprecationMessage => {
     return {
       text: deprecationMessage.text,
       reference: deprecationMessage.stylelintReference,
@@ -21,7 +15,7 @@ export default function (
 
   // Also strip out invalid options
   const invalidOptionMessages = _.remove(postcssResult.messages, { stylelintType: "invalidOption" })
-  const invalidOptionWarnings = invalidOptionMessages.map((invalidOptionMessage) => {
+  const invalidOptionWarnings = invalidOptionMessages.map(invalidOptionMessage => {
     return {
       text: invalidOptionMessage.text,
     }
@@ -33,7 +27,7 @@ export default function (
     deprecations,
     invalidOptionWarnings,
     errored: postcssResult.stylelint.stylelintError,
-    warnings: postcssResult.messages.map((message) => {
+    warnings: postcssResult.messages.map(message => {
       return {
         line: message.line,
         column: message.column,
@@ -46,13 +40,17 @@ export default function (
     _postcssResult: postcssResult,
   }
 
-  return stylelint.getConfigForFile(filePath).then(({ config }) => {
+  return stylelint.getConfigForFile(filePath).then((_ref) => {
+    const config = _ref.config
+
     if (config.resultProcessors) {
-      config.resultProcessors.forEach((resultProcessor) => {
+      config.resultProcessors.forEach(resultProcessor => {
         // Result processors might just mutate the result object,
         // or might return a new one
         const returned = resultProcessor(stylelintResult, source)
-        if (returned) { stylelintResult = returned }
+        if (returned) {
+          stylelintResult = returned
+        }
       })
     }
 

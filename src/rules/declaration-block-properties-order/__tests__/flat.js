@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -10,15 +7,7 @@ const rule = rules[ruleName]
 testRule(rule, {
   ruleName,
 
-  config: [[
-    "my",
-    "transform",
-    "font-smoothing",
-    "top",
-    "transition",
-    "border",
-    "color",
-  ]],
+  config: [[ "my", "transform", "font-smoothing", "top", "transition", "border", "color" ]],
 
   accept: [ {
     code: "a { color: pink; }",
@@ -104,16 +93,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
 
-  config: [[
-    "padding",
-    "padding-top",
-    "padding-right",
-    "padding-left",
-    "border",
-    "border-top",
-    "border-right",
-    "color",
-  ]],
+  config: [[ "padding", "padding-top", "padding-right", "padding-left", "border", "border-top", "border-right", "color" ]],
 
   accept: [ {
     code: "a { padding: 1px; color: pink; }",
@@ -148,10 +128,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
 
-  config: [ [
-    "height",
-    "color",
-  ], { unspecified: "top" } ],
+  config: [ [ "height", "color" ], { unspecified: "top" } ],
 
   accept: [ {
     code: "a { top: 0; height: 1px; color: pink; }",
@@ -171,10 +148,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
 
-  config: [ [
-    "height",
-    "color",
-  ], { unspecified: "bottom" } ],
+  config: [ [ "height", "color" ], { unspecified: "bottom" } ],
 
   accept: [ {
     code: "a { height: 1px; color: pink; bottom: 0; }",
@@ -194,10 +168,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
 
-  config: [ [
-    "all",
-    "compose",
-  ], { unspecified: "bottomAlphabetical" } ],
+  config: [ [ "all", "compose" ], { unspecified: "bottomAlphabetical" } ],
 
   accept: [ {
     code: "a { all: initial; compose: b; }",
@@ -219,10 +190,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
 
-  config: [[
-    "left",
-    "margin",
-  ]],
+  config: [[ "left", "margin" ]],
 
   skipBasicChecks: true,
 

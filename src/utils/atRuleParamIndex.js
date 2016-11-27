@@ -1,11 +1,5 @@
 /* @flow */
-/**
- * Get the index of a media query's params
- *
- * @param {AtRule} atRule
- * @return {int} The index
- */
-export default function (atRule: postcss$atRule): number {
+export default function (atRule /* : postcss$atRule*/) /* : number*/ {
   // Initial 1 is for the `@`
   let index = 1 + atRule.name.length
   if (atRule.raws.afterName) {

@@ -1,12 +1,4 @@
-import {
-  isCustomProperty,
-  isStandardSyntaxDeclaration,
-  isStandardSyntaxProperty,
-  optionsMatches,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isCustomProperty, isStandardSyntaxDeclaration, isStandardSyntaxProperty, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
 import _ from "lodash"
 import { all as properties } from "known-css-properties"
 import { vendor } from "postcss"
@@ -14,7 +6,7 @@ import { vendor } from "postcss"
 export const ruleName = "property-no-unknown"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (property) => `Unexpected unknown property "${property}"`,
+  rejected: property => `Unexpected unknown property "${property}"`,
 })
 
 export default function (actual, options) {
@@ -28,22 +20,36 @@ export default function (actual, options) {
       optional: true,
     })
 
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const shouldCheckPrefixed = _.get(options, "checkPrefixed")
 
     root.walkDecls(decl => {
-      const { prop } = decl
+      const prop = decl.prop
 
-      if (!isStandardSyntaxProperty(prop)) { return }
-      if (!isStandardSyntaxDeclaration(decl)) { return }
-      if (isCustomProperty(prop)) { return }
+      if (!isStandardSyntaxProperty(prop)) {
+        return
+      }
+      if (!isStandardSyntaxDeclaration(decl)) {
+        return
+      }
+      if (isCustomProperty(prop)) {
+        return
+      }
 
-      if (!shouldCheckPrefixed && vendor.prefix(prop)) { return }
+      if (!shouldCheckPrefixed && vendor.prefix(prop)) {
+        return
+      }
 
-      if (optionsMatches(options, "ignoreProperties", prop)) { return }
+      if (optionsMatches(options, "ignoreProperties", prop)) {
+        return
+      }
 
-      if (properties.indexOf(prop.toLowerCase()) !== -1) { return }
+      if (properties.indexOf(prop.toLowerCase()) !== -1) {
+        return
+      }
 
       report({
         message: messages.rejected(prop),

@@ -1,15 +1,5 @@
-import {
-  findAtRuleContext,
-  isKeyframeRule,
-  nodeContextLookup,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
-import {
-  includes,
-  union,
-} from "lodash"
+import { findAtRuleContext, isKeyframeRule, nodeContextLookup, report, ruleMessages, validateOptions } from "../../utils"
+import { includes, union } from "lodash"
 import normalizeSelector from "normalize-selector"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
@@ -22,7 +12,9 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     // The top level of this map will be rule sources.
     // Each source maps to another map, which maps rule parents to a set of selectors.
@@ -31,7 +23,9 @@ export default function (actual) {
     const selectorContextLookup = nodeContextLookup()
 
     root.walkRules(rule => {
-      if (isKeyframeRule(rule)) { return }
+      if (isKeyframeRule(rule)) {
+        return
+      }
 
       const contextSelectorSet = selectorContextLookup.getContext(rule, findAtRuleContext(rule))
       const resolvedSelectors = rule.selectors.reduce((result, selector) => {
@@ -48,7 +42,7 @@ export default function (actual) {
         // If the selector isn't nested we can use its raw value; otherwise,
         // we have to approximate something for the message -- which is close enough
         const isNestedSelector = resolvedSelectors.join(",") !== rule.selectors.join(",")
-        const selectorForMessage = (isNestedSelector) ? resolvedSelectors.join(", ") : rule.selector
+        const selectorForMessage = isNestedSelector ? resolvedSelectors.join(", ") : rule.selector
         return report({
           result,
           ruleName,

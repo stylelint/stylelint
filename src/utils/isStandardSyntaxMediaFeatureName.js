@@ -6,7 +6,9 @@
  */
 export default function (mediaFeatureName) {
   // SCSS interpolation
-  if (/#{.+?}|\$.+?/.test(mediaFeatureName)) { return false }
+  if (/#{.+?}|\$.+?/.test(mediaFeatureName)) {
+    return false
+  }
 
   return true
 }

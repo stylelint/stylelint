@@ -1,8 +1,4 @@
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { report, ruleMessages, validateOptions } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "color-hex-case"
@@ -15,25 +11,28 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "lower",
-        "upper",
-      ],
+      possible: [ "lower", "upper" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
       const declString = decl.toString()
       styleSearch({ source: declString, target: "#" }, match => {
         const hexMatch = /^#[0-9A-Za-z]+/.exec(declString.substr(match.startIndex))
-        if (!hexMatch) { return }
+        if (!hexMatch) {
+          return
+        }
 
         const hexValue = hexMatch[0]
         const hexValueLower = hexValue.toLowerCase()
         const hexValueUpper = hexValue.toUpperCase()
         const expectedHex = expectation === "lower" ? hexValueLower : hexValueUpper
 
-        if (hexValue === expectedHex) { return }
+        if (hexValue === expectedHex) {
+          return
+        }
 
         report({
           message: messages.expected(hexValue, expectedHex),

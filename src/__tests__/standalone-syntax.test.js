@@ -20,7 +20,9 @@ it("standalone with scss syntax", () => {
     code: "$foo: bar; // foo;\nb {}",
     syntax: "scss",
     formatter: stringFormatter,
-  }).then(({ output }) => {
+  }).then((_ref) => {
+    const output = _ref.output
+
     const strippedOutput = chalk.stripColor(output)
     expect(typeof output).toBe("string")
     expect(strippedOutput.indexOf("2:3")).not.toBe(-1)
@@ -40,7 +42,9 @@ it("standalone with sugarss syntax", () => {
     code: ".one\n  color: black\n  top: 0px\n.two",
     syntax: "sugarss",
     formatter: stringFormatter,
-  }).then(({ output }) => {
+  }).then((_ref2) => {
+    const output = _ref2.output
+
     const strippedOutput = chalk.stripColor(output)
     expect(typeof output).toBe("string")
     expect(strippedOutput.indexOf("3:9")).not.toBe(-1)
@@ -60,7 +64,9 @@ it("standalone with Less syntax", () => {
     code: "@foo: bar; // foo;\nb {}",
     syntax: "less",
     formatter: stringFormatter,
-  }).then(({ output }) => {
+  }).then((_ref3) => {
+    const output = _ref3.output
+
     const strippedOutput = chalk.stripColor(output)
     expect(typeof output).toBe("string")
     expect(strippedOutput.indexOf("2:3")).not.toBe(-1)
@@ -79,7 +85,7 @@ describe("standalone with syntax set by extension", () => {
         files: `${fixturesPath}/extension-sensitive.*`,
         config: { rules: { "block-no-empty": true } },
         syntax: "scss",
-      }).then((data) => results = data.results)
+      }).then(data => results = data.results)
     })
 
     it("correct number of files", () => {
@@ -98,7 +104,7 @@ describe("standalone with syntax set by extension", () => {
         files: `${fixturesPath}/extension-sensitive.*`,
         config: { rules: { "block-no-empty": true } },
         syntax: "less",
-      }).then((data) => results = data.results)
+      }).then(data => results = data.results)
     })
 
     it("correct number of files", () => {
@@ -117,7 +123,7 @@ describe("standalone with syntax set by extension", () => {
         files: `${fixturesPath}/extension-sensitive.*`,
         config: { rules: { "block-no-empty": true } },
         syntax: "sugarss",
-      }).then((data) => results = data.results)
+      }).then(data => results = data.results)
     })
 
     it("correct number of files", () => {
@@ -135,7 +141,7 @@ describe("standalone with syntax set by extension", () => {
       return standalone({
         files: `${fixturesPath}/extension-sensitive.*`,
         config: { rules: { "block-no-empty": true } },
-      }).then((data) => results = data.results)
+      }).then(data => results = data.results)
     })
 
     it("correct number of files", () => {
@@ -165,7 +171,9 @@ it("standalone with path to custom parser", () => {
     customSyntax: `${fixturesPath}/custom-parser`,
     code: ".foo { width: 200px }\n.bar {",
     formatter: stringFormatter,
-  }).then(({ results }) => {
+  }).then((_ref4) => {
+    const results = _ref4.results
+
     expect(results.length).toBe(1)
     expect(results[0].warnings.length).toBe(1)
     expect(results[0].warnings[0].line).toBe(2)
@@ -186,7 +194,9 @@ it("standalone with path to custom syntax", () => {
     customSyntax: `${fixturesPath}/custom-syntax`,
     code: "$foo: bar; // foo;\nb {}",
     formatter: stringFormatter,
-  }).then(({ results }) => {
+  }).then((_ref5) => {
+    const results = _ref5.results
+
     expect(results.length).toBe(1)
     expect(results[0].warnings.length).toBe(1)
     expect(results[0].warnings[0].line).toBe(2)
@@ -208,7 +218,9 @@ it("standalone should use customSyntax when both customSyntax and syntax are set
     customSyntax: `${fixturesPath}/custom-syntax`,
     code: "$foo: bar; // foo;\nb {}",
     formatter: stringFormatter,
-  }).then(({ results }) => {
+  }).then((_ref6) => {
+    const results = _ref6.results
+
     expect(results.length).toBe(1)
     expect(results[0].warnings.length).toBe(1)
     expect(results[0].warnings[0].line).toBe(2)

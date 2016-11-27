@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -10,13 +7,7 @@ const rule = rules[ruleName]
 testRule(rule, {
   ruleName,
 
-  config: [[
-    "rotate",
-    "rgb",
-    "radial-gradient",
-    "lightness",
-    "color",
-  ]],
+  config: [[ "rotate", "rgb", "radial-gradient", "lightness", "color" ]],
 
   accept: [ {
     code: "a { color: pink; }",

@@ -5,7 +5,7 @@ import stylelint from ".."
 it("createLinter().getConfigForFile augmented config loads", () => {
   const linter = stylelint.createLinter()
   const filepath = path.join(__dirname, "fixtures/getConfigForFile/a/b/foo.css")
-  return linter.getConfigForFile(filepath).then((result) => {
+  return linter.getConfigForFile(filepath).then(result => {
     expect(result).toEqual({
       config: {
         plugins: [path.join(__dirname, "/fixtures/plugin-warn-about-foo.js")],
@@ -24,25 +24,12 @@ it("createLinter().getConfigForFile augmented config loads", () => {
 
 it("createLinter().isPathIgnored", () => {
   const config = {
-    ignoreFiles: [
-      "**/*.css",
-      "!**/invalid-hex.css",
-    ],
+    ignoreFiles: [ "**/*.css", "!**/invalid-hex.css" ],
     rules: { "block-no-empty": true },
   }
   const linter = stylelint.createLinter({ config })
 
-  return Promise.all([
-    linter.isPathIgnored("a.css"),
-    linter.isPathIgnored("foo/bar/baz.css"),
-    linter.isPathIgnored("foo/bar/baz.scss"),
-    linter.isPathIgnored("foo/invalid-hex.css"),
-  ]).then((results) => {
-    expect(results).toEqual([
-      true,
-      true,
-      false,
-      false,
-    ])
+  return Promise.all([ linter.isPathIgnored("a.css"), linter.isPathIgnored("foo/bar/baz.css"), linter.isPathIgnored("foo/bar/baz.scss"), linter.isPathIgnored("foo/invalid-hex.css") ]).then(results => {
+    expect(results).toEqual([ true, true, false, false ])
   })
 })

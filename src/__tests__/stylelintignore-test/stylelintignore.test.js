@@ -19,10 +19,7 @@ describe("standalone with .stylelintignore file ignoring one file", () => {
     return standalone({
       files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
       config: {
-        extends: [
-          `${fixturesPath}/config-block-no-empty`,
-          `${fixturesPath}/config-color-no-invalid-hex`,
-        ],
+        extends: [ `${fixturesPath}/config-block-no-empty`, `${fixturesPath}/config-color-no-invalid-hex` ],
       },
     }).then(data => results = data.results)
   })

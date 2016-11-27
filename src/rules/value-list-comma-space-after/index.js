@@ -1,11 +1,4 @@
-import {
-  isStandardSyntaxDeclaration,
-  isStandardSyntaxProperty,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { isStandardSyntaxDeclaration, isStandardSyntaxProperty, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "value-list-comma-space-after"
@@ -22,14 +15,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-single-line",
-        "never-single-line",
-      ],
+      possible: [ "always", "never", "always-single-line", "never-single-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     valueListCommaWhitespaceChecker({
       root,
@@ -40,12 +30,16 @@ export default function (expectation) {
   }
 }
 
-export function valueListCommaWhitespaceChecker({ locationChecker, root, result, checkedRuleName }) {
+export function valueListCommaWhitespaceChecker(_ref) {
+  let locationChecker = _ref.locationChecker,
+    root = _ref.root,
+    result = _ref.result,
+    checkedRuleName = _ref.checkedRuleName
+
   root.walkDecls(decl => {
-    if (
-      !isStandardSyntaxDeclaration(decl)
-      || !isStandardSyntaxProperty(decl.prop)
-    ) { return }
+    if (!isStandardSyntaxDeclaration(decl) || !isStandardSyntaxProperty(decl.prop)) {
+      return
+    }
     styleSearch({
       source: decl.toString(),
       target: ",",

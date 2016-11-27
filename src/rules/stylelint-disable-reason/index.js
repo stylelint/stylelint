@@ -1,8 +1,4 @@
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "stylelint-disable-reason"
 
@@ -18,33 +14,27 @@ export default function (expectation) {
   return function (root, result) {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always-before",
-        "always-after",
-      ],
+      possible: [ "always-before", "always-after" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkComments(function (comment) {
-      if (comment.text.indexOf(stylelintDisableCommand) !== 0) { return }
+      if (comment.text.indexOf(stylelintDisableCommand) !== 0) {
+        return
+      }
 
       if (expectation === "always-before") {
         const prev = comment.prev()
-        const prevIsCommentAndValid = prev
-          && prev.type === "comment"
-          && !isDisableCommand(prev.text)
+        const prevIsCommentAndValid = prev && prev.type === "comment" && !isDisableCommand(prev.text)
 
         let prevDisableLineIsCommentAndValid = false
 
-        if (comment.text.indexOf(stylelintDisableLineCommand) === 0
-          && !prevIsCommentAndValid
-          && prev
-        ) {
+        if (comment.text.indexOf(stylelintDisableLineCommand) === 0 && !prevIsCommentAndValid && prev) {
           const friendlyPrev = prev.prev()
 
-          prevDisableLineIsCommentAndValid = friendlyPrev
-            && friendlyPrev.type === "comment"
-            && !isDisableCommand(friendlyPrev.text)
+          prevDisableLineIsCommentAndValid = friendlyPrev && friendlyPrev.type === "comment" && !isDisableCommand(friendlyPrev.text)
         }
 
         if (!prevIsCommentAndValid && !prevDisableLineIsCommentAndValid) {
@@ -61,9 +51,7 @@ export default function (expectation) {
         }
       } else if (expectation === "always-after") {
         const next = comment.next()
-        const nextIsCommentAndValid = next
-          && next.type === "comment"
-          && !isDisableCommand(next.text)
+        const nextIsCommentAndValid = next && next.type === "comment" && !isDisableCommand(next.text)
 
         if (!nextIsCommentAndValid) {
           const disabledRanges = result.stylelint.disabledRanges

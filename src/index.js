@@ -1,8 +1,4 @@
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-} from "./utils"
+import { report, ruleMessages, validateOptions } from "./utils"
 import createPlugin from "./createPlugin"
 import createRuleTester from "./testUtils/createRuleTester"
 import createStylelint from "./createStylelint"

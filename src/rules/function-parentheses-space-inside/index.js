@@ -1,11 +1,4 @@
-import {
-  declarationValueIndex,
-  isSingleLineString,
-  isStandardSyntaxFunction,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { declarationValueIndex, isSingleLineString, isStandardSyntaxFunction, report, ruleMessages, validateOptions } from "../../utils"
 import valueParser from "postcss-value-parser"
 
 export const ruleName = "function-parentheses-space-inside"
@@ -25,22 +18,25 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-single-line",
-        "never-single-line",
-      ],
+      possible: [ "always", "never", "always-single-line", "never-single-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
-      if (decl.value.indexOf("(") === -1) { return }
+      if (decl.value.indexOf("(") === -1) {
+        return
+      }
 
       valueParser(decl.value).walk(valueNode => {
-        if (valueNode.type !== "function") { return }
+        if (valueNode.type !== "function") {
+          return
+        }
 
-        if (!isStandardSyntaxFunction(valueNode)) { return }
+        if (!isStandardSyntaxFunction(valueNode)) {
+          return
+        }
 
         const functionString = valueParser.stringify(valueNode)
         const isSingleLine = isSingleLineString(functionString)

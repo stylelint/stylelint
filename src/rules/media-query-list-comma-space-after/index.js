@@ -1,10 +1,4 @@
-import {
-  atRuleParamIndex,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { atRuleParamIndex, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "media-query-list-comma-space-after"
@@ -21,14 +15,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-single-line",
-        "never-single-line",
-      ],
+      possible: [ "always", "never", "always-single-line", "never-single-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
     mediaQueryListCommaWhitespaceChecker({
       root,
       result,
@@ -38,7 +29,12 @@ export default function (expectation) {
   }
 }
 
-export function mediaQueryListCommaWhitespaceChecker({ locationChecker, root, result, checkedRuleName }) {
+export function mediaQueryListCommaWhitespaceChecker(_ref) {
+  let locationChecker = _ref.locationChecker,
+    root = _ref.root,
+    result = _ref.result,
+    checkedRuleName = _ref.checkedRuleName
+
   root.walkAtRules(/^media$/i, atRule => {
     const params = atRule.params
     styleSearch({ source: params, target: "," }, match => {
@@ -47,14 +43,13 @@ export function mediaQueryListCommaWhitespaceChecker({ locationChecker, root, re
   })
 
   function checkComma(source, index, node) {
-    locationChecker({ source, index, err: m =>
-      report({
-        message: m,
-        node,
-        index: index + atRuleParamIndex(node),
-        result,
-        ruleName: checkedRuleName,
-      }),
+    locationChecker({ source, index, err: m => report({
+      message: m,
+      node,
+      index: index + atRuleParamIndex(node),
+      result,
+      ruleName: checkedRuleName,
+    }),
     })
   }
 }

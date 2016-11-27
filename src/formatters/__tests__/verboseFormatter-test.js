@@ -5,11 +5,11 @@ import verboseFormatter from "../verboseFormatter"
 
 test("no warnings", t => {
   const results = [{
-    "source":  "path/to/file.css",
+    "source": "path/to/file.css",
     "errored": false,
     "warnings": [],
     "deprecations": [],
-    "invalidOptionWarnings":[],
+    "invalidOptionWarnings": [],
   }]
 
   const output = prepareFormatterOutput(results, verboseFormatter)
@@ -25,9 +25,9 @@ test("no warnings", t => {
 
 test("one warnings (of severity 'error')", t => {
   const results = [{
-    "source":  "path/to/file.css",
+    "source": "path/to/file.css",
     "errored": true,
-    "warnings":[{
+    "warnings": [{
       "line": 1,
       "column": 2,
       "rule": "bar",
@@ -35,7 +35,7 @@ test("one warnings (of severity 'error')", t => {
       "text": "Unexpected foo",
     }],
     "deprecations": [],
-    "invalidOptionWarnings":[],
+    "invalidOptionWarnings": [],
   }]
 
   const output = prepareFormatterOutput(results, verboseFormatter)
@@ -59,9 +59,9 @@ test("0 stdout column", t => {
   process.stdout.columns = 0
 
   const results = [{
-    "source":  "path/to/file.css",
+    "source": "path/to/file.css",
     "errored": true,
-    "warnings":[{
+    "warnings": [{
       "line": 1,
       "column": 2,
       "rule": "bar",
@@ -69,7 +69,7 @@ test("0 stdout column", t => {
       "text": "Unexpected foo",
     }],
     "deprecations": [],
-    "invalidOptionWarnings":[],
+    "invalidOptionWarnings": [],
   }]
 
   const output = prepareFormatterOutput(results, verboseFormatter)
@@ -96,9 +96,9 @@ test("less than 80 stdout column", t => {
   process.stdout.columns = 79
 
   const results = [{
-    "source":  "path/to/file.css",
+    "source": "path/to/file.css",
     "errored": true,
-    "warnings":[{
+    "warnings": [{
       "line": 1,
       "column": 2,
       "rule": "bar",
@@ -106,7 +106,7 @@ test("less than 80 stdout column", t => {
       "text": "Unexpected foo",
     }],
     "deprecations": [],
-    "invalidOptionWarnings":[],
+    "invalidOptionWarnings": [],
   }]
 
   const output = prepareFormatterOutput(results, verboseFormatter)
@@ -130,9 +130,9 @@ test("less than 80 stdout column", t => {
 
 test("two of the same warnings of 'error' and one of 'warning' across two files", t => {
   const results = [ {
-    "source":  "path/to/file.css",
+    "source": "path/to/file.css",
     "errored": true,
-    "warnings":[ {
+    "warnings": [ {
       "line": 1,
       "column": 2,
       "rule": "bar",
@@ -146,11 +146,11 @@ test("two of the same warnings of 'error' and one of 'warning' across two files"
       "text": "Unexpected foo",
     } ],
     "deprecations": [],
-    "invalidOptionWarnings":[],
+    "invalidOptionWarnings": [],
   }, {
-    "source":  "file2.css",
+    "source": "file2.css",
     "errored": true,
-    "warnings":[{
+    "warnings": [{
       "line": 3,
       "column": 1,
       "rule": "baz",
@@ -158,7 +158,7 @@ test("two of the same warnings of 'error' and one of 'warning' across two files"
       "text": "Expected cat",
     }],
     "deprecations": [],
-    "invalidOptionWarnings":[],
+    "invalidOptionWarnings": [],
   } ]
 
   const output = prepareFormatterOutput(results, verboseFormatter)
@@ -186,15 +186,15 @@ test("two of the same warnings of 'error' and one of 'warning' across two files"
 
 test("lineless syntax error", t => {
   const results = [{
-    "source":  "path/to/file.css",
+    "source": "path/to/file.css",
     "errored": false,
-    "warnings":[{
+    "warnings": [{
       "rule": "SyntaxError",
       "severity": "error",
       "text": "Unexpected foo",
     }],
     "deprecations": [],
-    "invalidOptionWarnings":[],
+    "invalidOptionWarnings": [],
   }]
 
   const output = prepareFormatterOutput(results, verboseFormatter)
@@ -216,7 +216,7 @@ test("lineless syntax error", t => {
 test("one ignored file", t => {
   const results = [{
     "source": "file.css",
-    "warnings":[],
+    "warnings": [],
     "deprecations": [],
     "invalidOptionWarnings": [],
     "ignored": true,

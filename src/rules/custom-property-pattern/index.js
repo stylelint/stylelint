@@ -1,13 +1,5 @@
-import {
-  isCustomProperty,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
-import {
-  isRegExp,
-  isString }
-from "lodash"
+import { isCustomProperty, report, ruleMessages, validateOptions } from "../../utils"
+import { isRegExp, isString } from "lodash"
 
 export const ruleName = "custom-property-pattern"
 
@@ -21,16 +13,21 @@ export default function (pattern) {
       actual: pattern,
       possible: [ isRegExp, isString ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
-    const regexpPattern = (isString(pattern))
-      ? new RegExp(pattern)
-      : pattern
+    const regexpPattern = isString(pattern) ? new RegExp(pattern) : pattern
 
     root.walkDecls(decl => {
-      const { prop } = decl
-      if (!isCustomProperty(prop)) { return }
-      if (regexpPattern.test(prop.slice(2))) { return }
+      const prop = decl.prop
+
+      if (!isCustomProperty(prop)) {
+        return
+      }
+      if (regexpPattern.test(prop.slice(2))) {
+        return
+      }
 
       report({
         message: messages.expected,

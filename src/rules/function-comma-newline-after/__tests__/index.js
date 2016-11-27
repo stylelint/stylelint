@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -86,8 +83,7 @@ testRule(rule, {
     line: 2,
     column: 4,
   }, {
-    code: "a {\n  transform: translate(\n    1px,  /* comment (with trailing space) */  \n" +
-      "    1px\n  );\n}",
+    code: "a {\n  transform: translate(\n    1px,  /* comment (with trailing space) */  \n" + "    1px\n  );\n}",
     description: "eol comments",
   } ],
 })
@@ -201,8 +197,7 @@ testRule(rule, {
     line: 2,
     column: 4,
   }, {
-    code: "a {\n  transform: translate(\n    1px,  /* comment (with trailing space) */  \n" +
-      "    1px\n  );\n}",
+    code: "a {\n  transform: translate(\n    1px,  /* comment (with trailing space) */  \n" + "    1px\n  );\n}",
     description: "eol comments",
   } ],
 })

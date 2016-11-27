@@ -10,5 +10,5 @@ import { hasBlock } from "../utils"
 export default function (rule) {
   const selector = _.get(rule, "raws.selector.raw", rule.selector)
 
-  return (rule.type === "rule" && hasBlock(rule) && selector.slice(0, 2) === "--" && selector.slice(-1) === ":")
+  return rule.type === "rule" && hasBlock(rule) && selector.slice(0, 2) === "--" && selector.slice(-1) === ":"
 }

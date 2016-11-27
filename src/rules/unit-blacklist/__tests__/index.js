@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -10,10 +7,7 @@ const rule = rules[ruleName]
 testRule(rule, {
   ruleName,
 
-  config: [[
-    "px",
-    "vmin",
-  ]],
+  config: [[ "px", "vmin" ]],
 
   accept: [ {
     code: "a { line-height: 1; }",
@@ -200,15 +194,12 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
 
-  config: [
-    [ "px", "vmin" ],
-    {
-      ignoreProperties: {
-        "px": [ "font-size", "margin", "/^border/" ],
-        "vmin": [ "width", "height" ],
-      },
+  config: [ [ "px", "vmin" ], {
+    ignoreProperties: {
+      "px": [ "font-size", "margin", "/^border/" ],
+      "vmin": [ "width", "height" ],
     },
-  ],
+  } ],
 
   accept: [ {
     code: "a { font-size: 13px; }",

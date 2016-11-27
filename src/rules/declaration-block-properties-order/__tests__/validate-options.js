@@ -5,9 +5,7 @@ test("valid default order", t => {
   const config = {
     rules: {
       "declaration-block-properties-order": [{
-        properties: [
-          "color",
-        ],
+        properties: ["color"],
       }],
     },
   }
@@ -26,9 +24,7 @@ test("valid 'strict' order", t => {
     rules: {
       "declaration-block-properties-order": [{
         order: "strict",
-        properties: [
-          "color",
-        ],
+        properties: ["color"],
       }],
     },
   }
@@ -47,9 +43,7 @@ test("valid 'flexible' order", t => {
     rules: {
       "declaration-block-properties-order": [{
         order: "flexible",
-        properties: [
-          "color",
-        ],
+        properties: ["color"],
       }],
     },
   }
@@ -66,14 +60,9 @@ test("valid 'flexible' order", t => {
 test("valid order with a group and one outside property before the group", t => {
   const config = {
     rules: {
-      "declaration-block-properties-order": [
-        "height",
-        {
-          properties: [
-            "color",
-          ],
-        },
-      ],
+      "declaration-block-properties-order": [ "height", {
+        properties: ["color"],
+      } ],
     },
   }
   stylelint.lint({
@@ -90,14 +79,9 @@ test("valid order with a group and one outside property before the group", t => 
 test("valid order with a group and one outside property after the group", t => {
   const config = {
     rules: {
-      "declaration-block-properties-order": [
-        {
-          properties: [
-            "color",
-          ],
-        },
-        "height",
-      ],
+      "declaration-block-properties-order": [ {
+        properties: ["color"],
+      }, "height" ],
     },
   }
   stylelint.lint({
@@ -114,15 +98,9 @@ test("valid order with a group and one outside property after the group", t => {
 test("valid order with a group and two outside properties before the group", t => {
   const config = {
     rules: {
-      "declaration-block-properties-order": [
-        "height",
-        "width",
-        {
-          properties: [
-            "color",
-          ],
-        },
-      ],
+      "declaration-block-properties-order": [ "height", "width", {
+        properties: ["color"],
+      } ],
     },
   }
   stylelint.lint({
@@ -139,19 +117,11 @@ test("valid order with a group and two outside properties before the group", t =
 test("valid order with groups and one outside property before groups", t => {
   const config = {
     rules: {
-      "declaration-block-properties-order": [
-        "height",
-        {
-          properties: [
-            "color",
-          ],
-        },
-        {
-          properties: [
-            "width",
-          ],
-        },
-      ],
+      "declaration-block-properties-order": [ "height", {
+        properties: ["color"],
+      }, {
+        properties: ["width"],
+      } ],
     },
   }
   stylelint.lint({
@@ -170,9 +140,7 @@ test("invalid option order option", t => {
     rules: {
       "declaration-block-properties-order": [{
         order: "unknown-keyword",
-        properties: [
-          "color",
-        ],
+        properties: ["color"],
       }],
     },
   }
@@ -182,10 +150,7 @@ test("invalid option order option", t => {
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
     t.equal(invalidOptionWarnings.length, 1)
-    t.equal(
-      invalidOptionWarnings[0].text,
-      "Invalid option \"[{\"order\":\"unknown-keyword\",\"properties\":[\"color\"]}]\" for rule declaration-block-properties-order"
-    )
+    t.equal(invalidOptionWarnings[0].text, "Invalid option \"[{\"order\":\"unknown-keyword\",\"properties\":[\"color\"]}]\" for rule declaration-block-properties-order")
     t.end()
   }).catch(t.end)
 })
@@ -204,10 +169,7 @@ test("invalid object lacks 'properties' property", t => {
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
     t.equal(invalidOptionWarnings.length, 1)
-    t.equal(
-      invalidOptionWarnings[0].text,
-      "Invalid option \"[{\"order\":\"flexible\"}]\" for rule declaration-block-properties-order"
-    )
+    t.equal(invalidOptionWarnings[0].text, "Invalid option \"[{\"order\":\"flexible\"}]\" for rule declaration-block-properties-order")
     t.end()
   }).catch(t.end)
 })
@@ -216,9 +178,7 @@ test("invalid object outside of array", t => {
   const config = {
     rules: {
       "declaration-block-properties-order": {
-        properties: [
-          "color",
-        ],
+        properties: ["color"],
       },
     },
   }
@@ -228,10 +188,7 @@ test("invalid object outside of array", t => {
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
     t.equal(invalidOptionWarnings.length, 1)
-    t.equal(
-      invalidOptionWarnings[0].text,
-      "Invalid option \"{\"properties\":[\"color\"]}\" for rule declaration-block-properties-order"
-    )
+    t.equal(invalidOptionWarnings[0].text, "Invalid option \"{\"properties\":[\"color\"]}\" for rule declaration-block-properties-order")
     t.end()
   }).catch(t.end)
 })

@@ -1,11 +1,5 @@
-import {
-  mergeTestDescriptions,
-  testRule,
-} from "../../../testUtils"
-import {
-  messages,
-  ruleName,
-} from ".."
+import { mergeTestDescriptions, testRule } from "../../../testUtils"
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 
 const rule = rules[ruleName]
@@ -123,7 +117,7 @@ testRule(rule, {
   syntax: "scss",
   config: [ /^[A-Z]+$/, { resolveNestedSelectors: true } ],
 
-  accept:[ {
+  accept: [ {
     code: "@for $n from 1 through 5 { .A#{$n} { } }",
     description: "ignore sass interpolation inside @for",
   }, {
@@ -140,7 +134,7 @@ testRule(rule, {
   syntax: "less",
   config: [/^[A-Z]+$/],
 
-  accept:[ {
+  accept: [ {
     code: ".mixin-name() { }",
     description: "ignore non-ouputting Less class mixin definition",
   }, {

@@ -1,14 +1,6 @@
 /* @flow */
-/**
- * Replace all comments with some innocuous character.
- *
- * @param {string} source
- * @param {[string]} blurChar="`"
- * @return {string} - The result string, with comments replaced
- */
-export default function (
-  source: string,
-  blurChar: string = "`"
-): string {
+export default function (source /* : string*/) /* : string*/ {
+  const blurChar /* : string*/ = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "`"
+
   return source.replace(/\/\*.*\*\//g, blurChar)
 }

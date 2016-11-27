@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -14,34 +11,29 @@ testRule(rule, {
   accept: [ {
     code: "/* comment */",
   }, {
-    code: "/*# bad-word */", // ignore sourcemaps
-  } ],
+    code: "/*# bad-word */" } ],
 
   reject: [ {
     code: "/* Comment with bad-word  */",
     message: messages.rejected("bad-word"),
     line: 1,
     column: 1,
-  },
-  {
+  }, {
     code: "/* bad-word */",
     message: messages.rejected("bad-word"),
     line: 1,
     column: 1,
-  },
-  {
+  }, {
     code: "/*** bad-word ***/",
     message: messages.rejected("bad-word"),
     line: 1,
     column: 1,
-  },
-  {
+  }, {
     code: "/*! bad-word */",
     message: messages.rejected("bad-word"),
     line: 1,
     column: 1,
-  },
-  {
+  }, {
     code: "/** bad-word **/",
     message: messages.rejected("bad-word"),
     line: 1,
@@ -51,10 +43,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [[
-    "/^TODO:/",
-    "bad-word",
-  ]],
+  config: [[ "/^TODO:/", "bad-word" ]],
 
   accept: [ {
     code: "/* comment */",
@@ -183,10 +172,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
   syntax: "scss",
-  config: [[
-    "/^TODO:/",
-    "bad-word",
-  ]],
+  config: [[ "/^TODO:/", "bad-word" ]],
 
   accept: [ {
     code: "// comment",
@@ -221,10 +207,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
   syntax: "less",
-  config: [[
-    "/^TODO:/",
-    "bad-word",
-  ]],
+  config: [[ "/^TODO:/", "bad-word" ]],
 
   accept: [ {
     code: "// comment",

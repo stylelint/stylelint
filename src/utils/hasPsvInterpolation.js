@@ -5,7 +5,9 @@
  * @return {boolean} If `true`, a string has postcss-simple-vars interpolation
  */
 export default function (string) {
-  if (/\$\(.+?\)/.test(string)) { return true }
+  if (/\$\(.+?\)/.test(string)) {
+    return true
+  }
 
   return false
 }

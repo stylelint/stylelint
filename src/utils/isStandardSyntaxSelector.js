@@ -7,10 +7,14 @@ import { hasInterpolation } from "../utils"
  */
 export default function (selector) {
   // SCSS or Less interpolation
-  if (hasInterpolation(selector)) { return false }
+  if (hasInterpolation(selector)) {
+    return false
+  }
 
   // SCSS placeholder selectors
-  if (selector.indexOf("%") === 0) { return false }
+  if (selector.indexOf("%") === 0) {
+    return false
+  }
 
   return true
 }

@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -223,7 +220,7 @@ testRule(rule, {
   syntax: "less",
   config: ["always"],
 
-  accept:[{
+  accept: [{
     code: ".a when (@size>=60) and (@size<102) {}",
     description: "ignore constructs",
   }],

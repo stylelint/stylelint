@@ -1,9 +1,4 @@
-import {
-  hasBlock,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { hasBlock, report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "declaration-block-trailing-semicolon"
 
@@ -16,22 +11,29 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(atRule => {
-      if (atRule.parent === root) { return }
-      if (atRule !== atRule.parent.last) { return }
-      if (hasBlock(atRule)) { return }
+      if (atRule.parent === root) {
+        return
+      }
+      if (atRule !== atRule.parent.last) {
+        return
+      }
+      if (hasBlock(atRule)) {
+        return
+      }
       checkLastNode(atRule)
     })
 
     root.walkDecls(decl => {
-      if (decl !== decl.parent.last) { return }
+      if (decl !== decl.parent.last) {
+        return
+      }
       checkLastNode(decl)
     })
 
@@ -39,11 +41,15 @@ export default function (expectation) {
       let message
 
       if (expectation === "always") {
-        if (node.parent.raws.semicolon) { return }
+        if (node.parent.raws.semicolon) {
+          return
+        }
         message = messages.expected
       }
       if (expectation === "never") {
-        if (!node.parent.raws.semicolon) { return }
+        if (!node.parent.raws.semicolon) {
+          return
+        }
         message = messages.rejected
       }
 

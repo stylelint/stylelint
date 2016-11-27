@@ -1,9 +1,4 @@
-import {
-  optionsMatches,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
 import { atRules } from "../../reference/keywordSets"
 import { isString } from "lodash"
 import { vendor } from "postcss"
@@ -11,7 +6,7 @@ import { vendor } from "postcss"
 export const ruleName = "at-rule-no-unknown"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (atRule) => `Unexpected unknown at-rule "${atRule}"`,
+  rejected: atRule => `Unexpected unknown at-rule "${atRule}"`,
 })
 
 export default function (actual, options) {
@@ -24,15 +19,22 @@ export default function (actual, options) {
       optional: true,
     })
 
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(atRule => {
-      const { name } = atRule
+      const name = atRule.name
 
       // Return early if at-rule is to be ignored
-      if (optionsMatches(options, "ignoreAtRules", atRule.name)) { return }
 
-      if (vendor.prefix(name) || atRules.has(name.toLowerCase())) { return }
+      if (optionsMatches(options, "ignoreAtRules", atRule.name)) {
+        return
+      }
+
+      if (vendor.prefix(name) || atRules.has(name.toLowerCase())) {
+        return
+      }
 
       report({
         message: messages.rejected(`@${name}`),

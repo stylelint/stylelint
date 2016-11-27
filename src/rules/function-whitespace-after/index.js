@@ -1,9 +1,4 @@
-import {
-  isWhitespace,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isWhitespace, report, ruleMessages, validateOptions } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "function-whitespace-after"
@@ -19,12 +14,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
       const declString = decl.toString()
@@ -43,10 +37,18 @@ export default function (expectation) {
       if (expectation === "always") {
         // Allow for the next character to be a single empty space,
         // another closing parenthesis, a comma, or the end of the value
-        if (nextChar === " ") { return }
-        if (nextChar === "\n") { return }
-        if (source.substr(index + 1, 2) === "\r\n") { return }
-        if (ACCEPTABLE_AFTER_CLOSING_PAREN.has(nextChar)) { return }
+        if (nextChar === " ") {
+          return
+        }
+        if (nextChar === "\n") {
+          return
+        }
+        if (source.substr(index + 1, 2) === "\r\n") {
+          return
+        }
+        if (ACCEPTABLE_AFTER_CLOSING_PAREN.has(nextChar)) {
+          return
+        }
         report({
           message: messages.expected,
           node,

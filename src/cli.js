@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 /* @flow */
 import { assign } from "lodash"
 import { getModulePath } from "./utils"
@@ -123,13 +124,11 @@ const cli = meow(meowOptions, minimistOptions)
 
 let formatter = cli.flags.formatter
 if (cli.flags.customFormatter) {
-  const customFormatter = path.isAbsolute(cli.flags.customFormatter)
-    ? cli.flags.customFormatter
-    : path.join(process.cwd(), cli.flags.customFormatter)
+  const customFormatter = path.isAbsolute(cli.flags.customFormatter) ? cli.flags.customFormatter : path.join(process.cwd(), cli.flags.customFormatter)
   formatter = require(customFormatter)
 }
 
-const optionsBase: Object = {
+const optionsBase /* : Object*/ = {
   formatter,
   configOverrides: {},
 }
@@ -153,14 +152,11 @@ if (cli.flags.config) {
   //   c. relative path relative to `process.cwd()`.
   // If none of the above work, we'll try a relative path starting
   // in `process.cwd()`.
-  optionsBase.configFile = resolveFrom(process.cwd(), cli.flags.config)
-    || path.join(process.cwd(), cli.flags.config)
+  optionsBase.configFile = resolveFrom(process.cwd(), cli.flags.config) || path.join(process.cwd(), cli.flags.config)
 }
 
 if (cli.flags.configBasedir) {
-  optionsBase.configBasedir = (path.isAbsolute(cli.flags.configBasedir))
-    ? cli.flags.configBasedir
-    : path.resolve(process.cwd(), cli.flags.configBasedir)
+  optionsBase.configBasedir = path.isAbsolute(cli.flags.configBasedir) ? cli.flags.configBasedir : path.resolve(process.cwd(), cli.flags.configBasedir)
 }
 
 if (cli.flags.stdinFilename) {
@@ -179,7 +175,8 @@ if (cli.flags.allowEmptyInput) {
   optionsBase.allowEmptyInput = cli.flags.allowEmptyInput
 }
 
-const { reportNeedlessDisables } = cli.flags
+const reportNeedlessDisables = cli.flags.reportNeedlessDisables
+
 if (reportNeedlessDisables) {
   optionsBase.reportNeedlessDisables = reportNeedlessDisables
 }
@@ -200,16 +197,26 @@ Promise.resolve().then(() => {
   }
 
   return standalone(options)
-}).then(({ output, errored, needlessDisables }) => {
+}).then((_ref) => {
+  let output = _ref.output,
+    errored = _ref.errored,
+    needlessDisables = _ref.needlessDisables
+
   if (reportNeedlessDisables) {
     process.stdout.write(needlessDisablesStringFormatter(needlessDisables))
-    if (reportNeedlessDisables === "error") { process.exitCode = 2 }
+    if (reportNeedlessDisables === "error") {
+      process.exitCode = 2
+    }
     return
   }
 
-  if (!output) { return }
+  if (!output) {
+    return
+  }
   process.stdout.write(output)
-  if (errored) { process.exitCode = 2 }
+  if (errored) {
+    process.exitCode = 2
+  }
 }).catch(err => {
   console.log(err.stack) // eslint-disable-line no-console
   process.exit(err.code || 1)

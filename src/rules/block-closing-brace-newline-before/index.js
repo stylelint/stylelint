@@ -1,12 +1,4 @@
-import {
-  blockString,
-  hasBlock,
-  hasEmptyBlock,
-  isSingleLineString,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { blockString, hasBlock, hasEmptyBlock, isSingleLineString, report, ruleMessages, validateOptions } from "../../utils"
 import { startsWith } from "lodash"
 
 export const ruleName = "block-closing-brace-newline-before"
@@ -21,13 +13,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "always-multi-line",
-        "never-multi-line",
-      ],
+      possible: [ "always", "always-multi-line", "never-multi-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     // Check both kinds of statements: rules and at-rules
     root.walkRules(check)
@@ -35,17 +25,23 @@ export default function (expectation) {
 
     function check(statement) {
       // Return early if blockless or has empty block
-      if (!hasBlock(statement) || hasEmptyBlock(statement)) { return }
+      if (!hasBlock(statement) || hasEmptyBlock(statement)) {
+        return
+      }
 
       // Ignore extra semicolon
       const after = (statement.raws.after || "").replace(/;+/, "")
-      if (after === undefined) { return }
+      if (after === undefined) {
+        return
+      }
 
       const blockIsMultiLine = !isSingleLineString(blockString(statement))
       const statementString = statement.toString()
 
       let index = statementString.length - 2
-      if (statementString[index - 1] === "\r") { index -= 1 }
+      if (statementString[index - 1] === "\r") {
+        index -= 1
+      }
 
       // We're really just checking whether a
       // newline *starts* the block's final space -- between

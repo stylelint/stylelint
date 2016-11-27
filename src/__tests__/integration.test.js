@@ -7,19 +7,11 @@ import stylelint from "../"
 const config = {
   rules: {
     "block-opening-brace-newline-after": "always",
-    "declaration-block-properties-order": [
-      {
-        properties: [
-          "content",
-        ],
-      },
-      {
-        properties: [
-          "display",
-          "height",
-        ],
-      },
-    ],
+    "declaration-block-properties-order": [ {
+      properties: ["content"],
+    }, {
+      properties: [ "display", "height" ],
+    } ],
     "declaration-property-unit-blacklist": {
       "width": [ "px", "em" ],
     },
@@ -33,8 +25,7 @@ const config = {
   },
 }
 
-const css = (
-`
+const css = `
 a { background: pink; }
 
 b {
@@ -54,16 +45,13 @@ b {
   color: #mmm;
   height: calc(1rem - 100%)
 }
-`)
+`
 
 describe("integration test expecting warnings", () => {
   let result
 
   beforeEach(() => {
-    return postcss()
-      .use(stylelint(config))
-      .process(css)
-      .then(data => result = data)
+    return postcss().use(stylelint(config)).process(css).then(data => result = data)
   })
 
   it("number and type", () => {
@@ -101,33 +89,25 @@ describe("integration test expecting warnings", () => {
 })
 
 it("Less integration test", () => {
-  const less = (
-  `.foo(@bar) {
+  const less = `.foo(@bar) {
       color: @bar;
   }
-  `)
+  `
 
-  return postcss()
-    .use(stylelint({ rules: {} }))
-    .process(less, { syntax: lessSyntax })
-    .then((result) => {
-      expect(result.messages.length).toBe(0)
-    })
+  return postcss().use(stylelint({ rules: {} })).process(less, { syntax: lessSyntax }).then(result => {
+    expect(result.messages.length).toBe(0)
+  })
 })
 
 it("Scss integration test", () => {
-  const scss = (
-    `.foo-#{variable} {
+  const scss = `.foo-#{variable} {
       color: $color;
   }
-  `)
+  `
 
-  return postcss()
-    .use(stylelint({ rules: {} }))
-    .process(scss, { syntax: scssSyntax })
-    .then((result) => {
-      expect(result.messages.length).toBe(0)
-    })
+  return postcss().use(stylelint({ rules: {} })).process(scss, { syntax: scssSyntax }).then(result => {
+    expect(result.messages.length).toBe(0)
+  })
 })
 
 describe("integration test null option", () => {

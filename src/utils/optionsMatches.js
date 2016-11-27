@@ -10,10 +10,5 @@ import matchesStringOrRegExp from "./matchesStringOrRegExp"
  * @return {boolean} If `true`, a match was found
  */
 export default function optionsMatches(options, propertyName, input) {
-  return !!(
-    options &&
-    options[propertyName] &&
-    typeof input === "string" &&
-    matchesStringOrRegExp(input.toLowerCase(), options[propertyName])
-  )
+  return !!(options && options[propertyName] && typeof input === "string" && matchesStringOrRegExp(input.toLowerCase(), options[propertyName]))
 }

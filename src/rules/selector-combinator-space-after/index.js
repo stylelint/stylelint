@@ -1,9 +1,4 @@
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 import _ from "lodash"
 import { nonSpaceCombinators } from "../../reference/punctuationSets"
 import styleSearch from "style-search"
@@ -20,12 +15,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     selectorCombinatorSpaceChecker({
       root,
@@ -36,7 +30,12 @@ export default function (expectation) {
   }
 }
 
-export function selectorCombinatorSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
+export function selectorCombinatorSpaceChecker(_ref) {
+  let locationChecker = _ref.locationChecker,
+    root = _ref.root,
+    result = _ref.result,
+    checkedRuleName = _ref.checkedRuleName
+
   root.walkRules(rule => {
     // Check each selector individually, instead of all as one string,
     // in case some that aren't the first begin with combinators (nesting syntax)
@@ -46,13 +45,20 @@ export function selectorCombinatorSpaceChecker({ locationChecker, root, result, 
         target: _.toArray(nonSpaceCombinators),
         parentheticals: "skip",
       }, match => {
-        const { endIndex, startIndex, target } = match
+        const endIndex = match.endIndex,
+          startIndex = match.startIndex,
+          target = match.target
 
         // Catch ~= in attribute selectors
-        if (target === "~" && selector[endIndex] === "=") { return }
+
+        if (target === "~" && selector[endIndex] === "=") {
+          return
+        }
 
         // Catch escaped combinator-like character
-        if (selector[startIndex - 1] === "\\") { return }
+        if (selector[startIndex - 1] === "\\") {
+          return
+        }
 
         check(selector, startIndex, rule)
       })
@@ -60,14 +66,13 @@ export function selectorCombinatorSpaceChecker({ locationChecker, root, result, 
   })
 
   function check(source, index, node) {
-    locationChecker({ source, index, err: m =>
-      report({
-        message: m,
-        node,
-        index,
-        result,
-        ruleName: checkedRuleName,
-      }),
+    locationChecker({ source, index, err: m => report({
+      message: m,
+      node,
+      index,
+      result,
+      ruleName: checkedRuleName,
+    }),
     })
   }
 }

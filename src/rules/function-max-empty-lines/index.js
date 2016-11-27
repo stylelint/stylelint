@@ -1,12 +1,5 @@
-import {
-  isNumber,
-  repeat,
-} from "lodash"
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isNumber, repeat } from "lodash"
+import { report, ruleMessages, validateOptions } from "../../utils"
 import styleSearch from "style-search"
 
 export const ruleName = "function-max-empty-lines"
@@ -23,10 +16,14 @@ export default function (max) {
       actual: max,
       possible: isNumber,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
-      if (decl.value.indexOf("(") === -1) { return }
+      if (decl.value.indexOf("(") === -1) {
+        return
+      }
 
       const declString = decl.toString()
       const repeatLFNewLines = repeat("\n", maxAdjacentNewlines)
@@ -37,13 +34,12 @@ export default function (max) {
         target: "\n",
         functionArguments: "only",
       }, match => {
-        if (
-          declString.substr(match.startIndex + 1, maxAdjacentNewlines) === repeatLFNewLines
-          || declString.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeatCRLFNewLines
-        ) {
+        if (declString.substr(match.startIndex + 1, maxAdjacentNewlines) === repeatLFNewLines || declString.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeatCRLFNewLines) {
           // Put index at `\r` if it's CRLF, otherwise leave it at `\n`
           let index = match.startIndex
-          if (declString[index - 1] === "\r") { index -= 1 }
+          if (declString[index - 1] === "\r") {
+            index -= 1
+          }
 
           report({
             message: messages.expected(max),

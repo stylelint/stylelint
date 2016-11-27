@@ -1,11 +1,5 @@
-import {
-  mergeTestDescriptions,
-  testRule,
-} from "../../../testUtils"
-import {
-  messages,
-  ruleName,
-} from ".."
+import { mergeTestDescriptions, testRule } from "../../../testUtils"
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 
 const rule = rules[ruleName]
@@ -55,7 +49,7 @@ testRule(rule, {
   syntax: "scss",
   config: [/^[A-Z]+$/],
 
-  accept:[ {
+  accept: [ {
     code: "@for $n from 1 through 5 { #a#{$n} { } }",
     description: "ignore sass interpolation inside @for",
   }, {

@@ -10,10 +10,14 @@ export default function (mediaFeature) {
   mediaFeature = mediaFeature.slice(1, -1)
 
   // Parentheticals used for non-standard operations e.g. ($var - 10)
-  if (mediaFeature.indexOf("(") !== -1) { return false }
+  if (mediaFeature.indexOf("(") !== -1) {
+    return false
+  }
 
   // SCSS or Less interpolation
-  if (hasInterpolation(mediaFeature)) { return false }
+  if (hasInterpolation(mediaFeature)) {
+    return false
+  }
 
   return true
 }

@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -366,11 +363,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
   config: [ "always", {
-    except: [
-      "first-nested",
-      "after-comment",
-      "after-declaration",
-    ] } ],
+    except: [ "first-nested", "after-comment", "after-declaration" ] } ],
 
   accept: [{ code: "a {\n top: 15px; \n bottom: 5px; \n /* comment */ \n prop: 15px;\n\n @extends 'x';\n\n prop: 15px; \n & b {\n prop: 15px;\n } \n\n prop: 15px; \n }" }],
 })
@@ -525,11 +518,7 @@ testRule(rule, {
 testRule(rule, {
   ruleName,
   config: [ "never", {
-    except: [
-      "first-nested",
-      "after-comment",
-      "after-declaration",
-    ] } ],
+    except: [ "first-nested", "after-comment", "after-declaration" ] } ],
 
   accept: [{ code: "a {\n\n top: 15px; \n\n bottom: 5px; \n /* comment */ \n\n prop: 15px;\n\n @extends 'x';\n prop: 15px; \n & b {\n\n prop: 15px;\n } \n prop: 15px; \n }" }],
 

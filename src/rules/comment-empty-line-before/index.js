@@ -1,10 +1,4 @@
-import {
-  hasEmptyLine,
-  optionsMatches,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { hasEmptyLine, optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "comment-empty-line-before"
 
@@ -19,60 +13,60 @@ export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     }, {
       actual: options,
       possible: {
         except: ["first-nested"],
-        ignore: [
-          "stylelint-commands",
-          "between-comments",
-        ],
+        ignore: [ "stylelint-commands", "between-comments" ],
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkComments(comment => {
       // Ignore the first node
-      if (comment === root.first) { return }
+      if (comment === root.first) {
+        return
+      }
 
       // Optionally ignore stylelint commands
-      if (
-        comment.text.indexOf(stylelintCommandPrefix) === 0
-        && optionsMatches(options, "ignore", "stylelint-commands")
-      ) { return }
+      if (comment.text.indexOf(stylelintCommandPrefix) === 0 && optionsMatches(options, "ignore", "stylelint-commands")) {
+        return
+      }
 
       // Optionally ignore newlines between comments
       const prev = comment.prev()
-      if (
-        prev && prev.type === "comment"
-        && optionsMatches(options, "ignore", "between-comments")
-      ) { return }
+      if (prev && prev.type === "comment" && optionsMatches(options, "ignore", "between-comments")) {
+        return
+      }
 
-      if (comment.raws.inline || comment.inline) { return }
+      if (comment.raws.inline || comment.inline) {
+        return
+      }
 
       const before = comment.raws.before
 
       // Ignore shared-line comments
-      if (before.indexOf("\n") === -1) { return }
+      if (before.indexOf("\n") === -1) {
+        return
+      }
 
       const expectEmptyLineBefore = (() => {
-        if (
-          optionsMatches(options, "except", "first-nested")
-          && comment.parent !== root
-          && comment === comment.parent.first
-        ) { return false }
+        if (optionsMatches(options, "except", "first-nested") && comment.parent !== root && comment === comment.parent.first) {
+          return false
+        }
         return expectation === "always"
       })()
 
       const hasEmptyLineBefore = hasEmptyLine(before)
 
       // Return if the expectation is met
-      if (expectEmptyLineBefore === hasEmptyLineBefore) { return }
+      if (expectEmptyLineBefore === hasEmptyLineBefore) {
+        return
+      }
 
       const message = expectEmptyLineBefore ? messages.expected : messages.rejected
 

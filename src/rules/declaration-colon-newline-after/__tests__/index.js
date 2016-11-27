@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -12,10 +9,7 @@ testRule(rule, {
   config: ["always"],
 
   accept: [ {
-    code: "a {\n" +
-    "  color:\n" +
-    "    pink\n" +
-    "}",
+    code: "a {\n" + "  color:\n" + "    pink\n" + "}",
 
     description: "newline and spaces after",
   }, {
@@ -73,15 +67,9 @@ testRule(rule, {
   config: ["always-multi-line"],
 
   accept: [ {
-    code: "a {\n" +
-    "  color: pink\n" +
-    "}",
+    code: "a {\n" + "  color: pink\n" + "}",
   }, {
-    code: "a {\n" +
-    "  box-shadow:\n" +
-    "    0 0 0 1px #5b9dd9\n" +
-    "    0 0 2px 1px rgba(30, 140, 190, 0.8);\n" +
-    "}",
+    code: "a {\n" + "  box-shadow:\n" + "    0 0 0 1px #5b9dd9\n" + "    0 0 2px 1px rgba(30, 140, 190, 0.8);\n" + "}",
   }, {
     code: "$map\n: (\nkey: value,\nkey2 :value2)",
     description: "SCSS map with newlines",
@@ -99,19 +87,13 @@ testRule(rule, {
   } ],
 
   reject: [ {
-    code: "a {\n" +
-    "  box-shadow: 0 0 0 1px #5b9dd9\n" +
-    "    0 0 2px 1px rgba(30, 140, 190, 0.8);\n" +
-    "}",
+    code: "a {\n" + "  box-shadow: 0 0 0 1px #5b9dd9\n" + "    0 0 2px 1px rgba(30, 140, 190, 0.8);\n" + "}",
 
     message: messages.expectedAfterMultiLine(),
     line: 2,
     column: 13,
   }, {
-    code: "a {\n" +
-    "  box-shadow:0 0 0 1px #5b9dd9\n" +
-    "    0 0 2px 1px rgba(30, 140, 190, 0.8);\n" +
-    "}",
+    code: "a {\n" + "  box-shadow:0 0 0 1px #5b9dd9\n" + "    0 0 2px 1px rgba(30, 140, 190, 0.8);\n" + "}",
 
     message: messages.expectedAfterMultiLine(),
     line: 2,

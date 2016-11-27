@@ -1,17 +1,10 @@
-import {
-  beforeBlockString,
-  blockString,
-  isSingleLineString,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { beforeBlockString, blockString, isSingleLineString, report, ruleMessages, validateOptions } from "../../utils"
 import { isNumber } from "lodash"
 
 export const ruleName = "declaration-block-single-line-max-declarations"
 
 export const messages = ruleMessages(ruleName, {
-  expected: (quantity) => `Expected no more than ${quantity} declaration(s)`,
+  expected: quantity => `Expected no more than ${quantity} declaration(s)`,
 })
 
 export default function (quantity) {
@@ -20,15 +13,23 @@ export default function (quantity) {
       actual: quantity,
       possible: [isNumber],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      if (!isSingleLineString(blockString(rule))) { return }
-      if (!rule.nodes) { return }
+      if (!isSingleLineString(blockString(rule))) {
+        return
+      }
+      if (!rule.nodes) {
+        return
+      }
 
       const decls = rule.nodes.filter(node => node.type === "decl")
 
-      if (decls.length <= quantity) { return }
+      if (decls.length <= quantity) {
+        return
+      }
 
       report({
         message: messages.expected(quantity),

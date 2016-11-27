@@ -7,8 +7,11 @@
  * @return {AtRule|null}
  */
 export default function findAtRuleContext(rule) {
-  const { parent } = rule
-  if (parent.type === "root") { return null }
+  const parent = rule.parent
+
+  if (parent.type === "root") {
+    return null
+  }
   if (parent.type === "atrule") {
     return parent
   }

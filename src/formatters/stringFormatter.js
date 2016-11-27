@@ -18,7 +18,9 @@ function deprecationsFormatter(results) {
   const allDeprecationWarnings = _.flatMap(results, "deprecations")
   const uniqueDeprecationWarnings = _.uniqBy(allDeprecationWarnings, "text")
 
-  if (!uniqueDeprecationWarnings || !uniqueDeprecationWarnings.length) { return "" }
+  if (!uniqueDeprecationWarnings || !uniqueDeprecationWarnings.length) {
+    return ""
+  }
 
   return uniqueDeprecationWarnings.reduce((output, warning) => {
     output += chalk.yellow("Deprecation Warning: ")
@@ -66,12 +68,8 @@ function getMessageWidth(columnWidths) {
 function formatter(messages, source) {
   if (!messages.length) return ""
 
-  const orderedMessages = _.sortBy(
-    messages,
-    (m) => m.line ? 2 : 1, // positionless first
-    (m) => m.line,
-    (m) => m.column
-  )
+  const orderedMessages = _.sortBy(messages, m => m.line ? 2 : 1, // positionless first
+  m => m.line, m => m.column)
 
   // Create a list of column widths, needed to calculate
   // the size of the message column and if needed wrap it.
@@ -92,45 +90,30 @@ function formatter(messages, source) {
     output += chalk.underline(logFrom(source)) + "\n"
   }
 
-  const cleanedMessages = orderedMessages.map(
-    (message) => {
-      const location = utils.getLocation(message)
-      const severity = message.severity
-      const row = [
-        location.line || "",
-        location.column || "",
-        symbols[severity] ? chalk[levelColors[severity]](symbols[severity]) : severity,
-        message
-          .text
-          // Remove all control characters (newline, tab and etc)
-          .replace(/[\x01-\x1A]+/g, " ") // eslint-disable-line
-          .replace(/\.$/, "")
-          .replace(new RegExp(_.escapeRegExp("(" + message.rule + ")") + "$"), ""),
-        chalk.dim(message.rule || ""),
-      ]
+  const cleanedMessages = orderedMessages.map(message => {
+    const location = utils.getLocation(message)
+    const severity = message.severity
+    const row = [ location.line || "", location.column || "", symbols[severity] ? chalk[levelColors[severity]](symbols[severity]) : severity, message.text
+    // Remove all control characters (newline, tab and etc)
+    .replace(/[\x01-\x1A]+/g, " ") // eslint-disable-line
+    .replace(/\.$/, "").replace(new RegExp(_.escapeRegExp("(" + message.rule + ")") + "$"), ""), chalk.dim(message.rule || "") ]
 
-      calculateWidths(row)
+    calculateWidths(row)
 
-      return row
-    })
+    return row
+  })
 
-  output += table(
-    cleanedMessages,
-    {
-      border: getBorderCharacters("void"),
-      columns: {
-        0: { alignment: "right", width: columnWidths[0], paddingRight: 0 },
-        1: { alignment: "left", width: columnWidths[1] },
-        2: { alignment: "center", width: columnWidths[2] },
-        3: { alignment: "left", width: getMessageWidth(columnWidths), wrapWord: true },
-        4: { alignment: "left", width: columnWidths[4], paddingRight: 0 },
-      },
-      drawHorizontalLine: () => false,
-    }
-    )
-    .split("\n")
-    .map((el) => el.replace(/(\d+)\s+(\d+)/, (m, p1, p2) => chalk.dim(p1 + ":" + p2)))
-    .join("\n")
+  output += table(cleanedMessages, {
+    border: getBorderCharacters("void"),
+    columns: {
+      0: { alignment: "right", width: columnWidths[0], paddingRight: 0 },
+      1: { alignment: "left", width: columnWidths[1] },
+      2: { alignment: "center", width: columnWidths[2] },
+      3: { alignment: "left", width: getMessageWidth(columnWidths), wrapWord: true },
+      4: { alignment: "left", width: columnWidths[4], paddingRight: 0 },
+    },
+    drawHorizontalLine: () => false,
+  }).split("\n").map(el => el.replace(/(\d+)\s+(\d+)/, (m, p1, p2) => chalk.dim(p1 + ":" + p2))).join("\n")
 
   return output
 }

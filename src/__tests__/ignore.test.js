@@ -12,13 +12,10 @@ describe("extending config and ignoreFiles glob ignoring single glob", () => {
       files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
       config: {
         ignoreFiles: "**/invalid-hex.css",
-        extends: [
-          "./config-block-no-empty",
-          "./config-color-no-invalid-hex",
-        ],
+        extends: [ "./config-block-no-empty", "./config-color-no-invalid-hex" ],
       },
       configBasedir: path.join(__dirname, "fixtures"),
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("two files found", () => {
@@ -68,12 +65,9 @@ describe("same as above with no configBasedir, ignore-files path relative to pro
       files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
       config: {
         ignoreFiles: "fixtures/invalid-hex.css",
-        extends: [
-          `${fixturesPath}/config-block-no-empty.json`,
-          `${fixturesPath}/config-color-no-invalid-hex`,
-        ],
+        extends: [ `${fixturesPath}/config-block-no-empty.json`, `${fixturesPath}/config-color-no-invalid-hex` ],
       },
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("two files found", () => {
@@ -118,7 +112,7 @@ describe("absolute ignoreFiles glob path", () => {
         },
       },
       configBasedir: path.join(__dirname, "fixtures"),
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("two files found", () => {
@@ -157,17 +151,11 @@ describe("extending config with ignoreFiles glob ignoring one by negation", () =
     return standalone({
       files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
       config: {
-        ignoreFiles: [
-          "**/*.css",
-          "!**/invalid-hex.css",
-        ],
-        extends: [
-          `${fixturesPath}/config-block-no-empty`,
-          `${fixturesPath}/config-color-no-invalid-hex`,
-        ],
+        ignoreFiles: [ "**/*.css", "!**/invalid-hex.css" ],
+        extends: [ `${fixturesPath}/config-block-no-empty`, `${fixturesPath}/config-color-no-invalid-hex` ],
       },
       configBasedir: path.join(__dirname, "fixtures"),
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("two files found", () => {
@@ -229,7 +217,7 @@ describe("specified `ignorePath` file ignoring one file", () => {
         },
       },
       ignorePath: path.join(__dirname, "fixtures/ignore.txt"),
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("no warnings registered", () => {
@@ -255,7 +243,7 @@ describe("using ignoreFiles with input files that would cause a postcss syntax e
           "block-no-empty": true,
         },
       },
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("two files found", () => {
@@ -294,12 +282,10 @@ describe("extending a config that ignores files", () => {
     return standalone({
       files: [ `${fixturesPath}/empty-block.css`, `${fixturesPath}/invalid-hex.css` ],
       config: {
-        extends: [
-          `${fixturesPath}/config-extending-and-ignoring`,
-        ],
+        extends: [`${fixturesPath}/config-extending-and-ignoring`],
       },
       configBasedir: path.join(__dirname, "fixtures"),
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("found correct files", () => {
@@ -334,7 +320,7 @@ describe("using codeFilename and ignoreFiles together", () => {
         ignoreFiles: ["**/foo.css"],
         rules: { "block-no-empty": true },
       },
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("no warnings", () => {
@@ -362,7 +348,7 @@ describe("using codeFilename and ignoreFiles with configBasedir", () => {
         rules: { "block-no-empty": true },
       },
       configBasedir: __dirname,
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("no warnings", () => {

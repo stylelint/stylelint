@@ -1,9 +1,4 @@
-import {
-  isAutoprefixable,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isAutoprefixable, report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "media-feature-name-no-vendor-prefix"
 
@@ -14,11 +9,16 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(/^media$/i, atRule => {
-      const { params } = atRule
-      if (!isAutoprefixable.mediaFeatureName(params)) { return }
+      const params = atRule.params
+
+      if (!isAutoprefixable.mediaFeatureName(params)) {
+        return
+      }
       const matches = atRule.toString().match(/[a-z-]+device-pixel-ratio/ig)
       matches.forEach(match => {
         report({

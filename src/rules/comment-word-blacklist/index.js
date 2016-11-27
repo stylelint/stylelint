@@ -1,16 +1,10 @@
-import {
-  containsString,
-  matchesStringOrRegExp,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { containsString, matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
 import { isString } from "lodash"
 
 export const ruleName = "comment-word-blacklist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (pattern) => `Unexpected word matching pattern "${pattern}"`,
+  rejected: pattern => `Unexpected word matching pattern "${pattern}"`,
 })
 
 function rule(blacklist) {
@@ -19,7 +13,9 @@ function rule(blacklist) {
       actual: blacklist,
       possible: [isString],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkComments(comment => {
       const text = comment.text
@@ -27,11 +23,15 @@ function rule(blacklist) {
       const firstFourChars = rawComment.substr(0, 4)
 
       // Return early if sourcemap
-      if (firstFourChars === "/*# ") { return }
+      if (firstFourChars === "/*# ") {
+        return
+      }
 
       const matchesWord = matchesStringOrRegExp(text, blacklist) || containsString(text, blacklist)
 
-      if (!matchesWord) { return }
+      if (!matchesWord) {
+        return
+      }
 
       report({
         message: messages.rejected(matchesWord.pattern),

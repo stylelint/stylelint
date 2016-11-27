@@ -1,10 +1,4 @@
-import {
-  isCustomProperty,
-  isStandardSyntaxProperty,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isCustomProperty, isStandardSyntaxProperty, report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "property-case"
 
@@ -16,20 +10,26 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "lower",
-        "upper",
-      ],
+      possible: [ "lower", "upper" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
-      const { prop } = decl
-      if (!isStandardSyntaxProperty(prop)) { return }
-      if (isCustomProperty(prop)) { return }
+      const prop = decl.prop
+
+      if (!isStandardSyntaxProperty(prop)) {
+        return
+      }
+      if (isCustomProperty(prop)) {
+        return
+      }
 
       const expectedProp = expectation === "lower" ? prop.toLowerCase() : prop.toUpperCase()
-      if (prop === expectedProp) { return }
+      if (prop === expectedProp) {
+        return
+      }
 
       report({
         message: messages.expected(prop, expectedProp),

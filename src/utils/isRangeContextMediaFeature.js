@@ -5,9 +5,5 @@
  * @return {boolean} If `true`, media feature is a range context one
  */
 export default function (mediaFeature) {
-  return (
-    mediaFeature.indexOf("=") !== -1
-    || mediaFeature.indexOf("<") !== -1
-    || mediaFeature.indexOf(">") !== -1
-  )
+  return mediaFeature.indexOf("=") !== -1 || mediaFeature.indexOf("<") !== -1 || mediaFeature.indexOf(">") !== -1
 }

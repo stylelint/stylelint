@@ -1,12 +1,4 @@
-import {
-  isStandardSyntaxRule,
-  isStandardSyntaxSelector,
-  optionsMatches,
-  parseSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isStandardSyntaxRule, isStandardSyntaxSelector, optionsMatches, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
 import { isString } from "lodash"
 import { pseudoElements } from "../../reference/keywordSets"
 import { vendor } from "postcss"
@@ -14,7 +6,7 @@ import { vendor } from "postcss"
 export const ruleName = "selector-pseudo-element-no-unknown"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (selector) => `Unexpected unknown pseudo-element selector "${selector}"`,
+  rejected: selector => `Unexpected unknown pseudo-element selector "${selector}"`,
 })
 
 export default function (actual, options) {
@@ -26,32 +18,44 @@ export default function (actual, options) {
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      if (!isStandardSyntaxRule(rule)) { return }
-      const { selector } = rule
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
+      const selector = rule.selector
 
       // Return early before parse if no pseudos for performance
-      if (selector.indexOf(":") === -1) { return }
+
+      if (selector.indexOf(":") === -1) {
+        return
+      }
 
       parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkPseudos(pseudoNode => {
-          const { value } = pseudoNode
+          const value = pseudoNode.value
 
-          if (!isStandardSyntaxSelector(value)) { return }
+          if (!isStandardSyntaxSelector(value)) {
+            return
+          }
 
           // Ignore pseudo-classes
-          if (value.slice(0, 2) !== "::") { return }
+          if (value.slice(0, 2) !== "::") {
+            return
+          }
 
-          if (optionsMatches(options, "ignorePseudoElements", pseudoNode.value.slice(2))) { return }
+          if (optionsMatches(options, "ignorePseudoElements", pseudoNode.value.slice(2))) {
+            return
+          }
 
           const name = value.slice(2)
 
-          if (
-            vendor.prefix(name)
-            || pseudoElements.has(name.toLowerCase())
-          ) { return }
+          if (vendor.prefix(name) || pseudoElements.has(name.toLowerCase())) {
+            return
+          }
 
           report({
             message: messages.rejected(value),

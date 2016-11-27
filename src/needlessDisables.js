@@ -1,22 +1,24 @@
 /* flow */
 import _ from "lodash"
 
-export default function (
-  results: Array<stylelint$result>
-): stylelint$needlessDisablesReport {
+export default function (results /* : Array<stylelint$result>*/) /* : stylelint$needlessDisablesReport*/ {
   const report = []
 
   results.forEach(result => {
     // File with `CssSyntaxError` have not `_postcssResult`
-    if (!result._postcssResult) { return }
+    if (!result._postcssResult) {
+      return
+    }
 
     const unused = { source: result.source, ranges: [] }
     const rangeData = _.cloneDeep(result._postcssResult.stylelint.disabledRanges)
 
-    if (!rangeData) { return }
+    if (!rangeData) {
+      return
+    }
 
     result.warnings.forEach(warning => {
-      const { rule } = warning
+      const rule = warning.rule
 
       const ruleRanges = rangeData[rule]
       if (ruleRanges) {
@@ -67,19 +69,16 @@ export default function (
   return report
 }
 
-function isWarningInRange(
-  warning: {
-    rule: string,
-    line: number,
-  },
-  range: {
-    rules?: Array<string>,
-    start: number,
-    end?: number,
-  },
-): boolean {
-  const { rule, line } = warning
-  return range.start <= line
-    && (range.end >= line || range.end === undefined)
-    && (!range.rules || range.rules.indexOf(rule) !== -1)
+function isWarningInRange(warning /* : {
+                                      rule: string,
+                                      line: number,
+                                    }*/, range /* : {
+                                                   rules?: Array<string>,
+                                                   start: number,
+                                                   end?: number,
+                                                 }*/) /* : boolean*/ {
+  const rule = warning.rule,
+    line = warning.line
+
+  return range.start <= line && (range.end >= line || range.end === undefined) && (!range.rules || range.rules.indexOf(rule) !== -1)
 }

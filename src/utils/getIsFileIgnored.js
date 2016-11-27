@@ -5,11 +5,8 @@ import path from "path"
 export default function getIsFileIgnored(ignorePatterns, ignoreFiles) {
   const ignorePatternsFilter = ignore().add(ignorePatterns).createFilter()
 
-  return (file) => {
+  return file => {
     const filepathRelativeToCwd = path.relative(process.cwd(), file)
-    return (
-      (ignorePatternsFilter && !ignorePatternsFilter(filepathRelativeToCwd))
-      || (ignoreFiles && multimatch(file, ignoreFiles).length)
-    )
+    return ignorePatternsFilter && !ignorePatternsFilter(filepathRelativeToCwd) || ignoreFiles && multimatch(file, ignoreFiles).length
   }
 }

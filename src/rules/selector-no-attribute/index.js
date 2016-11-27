@@ -1,11 +1,4 @@
-import {
-  isStandardSyntaxRule,
-  isStandardSyntaxSelector,
-  parseSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isStandardSyntaxRule, isStandardSyntaxSelector, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "selector-no-attribute"
 
@@ -16,12 +9,19 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      if (!isStandardSyntaxRule(rule)) { return }
-      const { selector } = rule
-      if (!isStandardSyntaxSelector(selector)) { return }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
+      const selector = rule.selector
+
+      if (!isStandardSyntaxSelector(selector)) {
+        return
+      }
       parseSelector(selector, result, rule, selectorAST => {
         selectorAST.walkAttributes(attribute => {
           report({

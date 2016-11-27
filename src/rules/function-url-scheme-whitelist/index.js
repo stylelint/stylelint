@@ -1,18 +1,11 @@
-import {
-  containsString,
-  functionArgumentsSearch,
-  isStandardSyntaxUrl,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { containsString, functionArgumentsSearch, isStandardSyntaxUrl, report, ruleMessages, validateOptions } from "../../utils"
 import { isString, trim } from "lodash"
 import { parse } from "url"
 
 export const ruleName = "function-url-scheme-whitelist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (scheme) => `Unexpected url scheme "${scheme}:"`,
+  rejected: scheme => `Unexpected url scheme "${scheme}:"`,
 })
 
 export default function (whitelist) {
@@ -21,16 +14,22 @@ export default function (whitelist) {
       actual: whitelist,
       possible: [isString],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(function (decl) {
       functionArgumentsSearch(decl.toString().toLowerCase(), "url", (args, index) => {
         const unspacedUrlString = trim(args, " ")
-        if (!isStandardSyntaxUrl(unspacedUrlString)) { return }
+        if (!isStandardSyntaxUrl(unspacedUrlString)) {
+          return
+        }
         const urlString = trim(unspacedUrlString, "'\"")
 
         const url = parse(urlString)
-        if (url.protocol === null) { return }
+        if (url.protocol === null) {
+          return
+        }
 
         const scheme = url.protocol.toLowerCase().slice(0, -1) // strip trailing `:`
 
@@ -39,17 +38,16 @@ export default function (whitelist) {
         // <hostname>:<port> urls. `data:` scheme urls are an exception to this rule.
         const slashIndex = url.protocol.length
         const expectedSlashes = urlString.slice(slashIndex, slashIndex + 2)
-        const isSchemeLessUrl = (
-          expectedSlashes !== "//" &&
-          scheme !== "data"
-        )
-        if (isSchemeLessUrl) { return }
+        const isSchemeLessUrl = expectedSlashes !== "//" && scheme !== "data"
+        if (isSchemeLessUrl) {
+          return
+        }
 
-        const whitelistLowerCase = typeof whitelist === "string"
-          ? whitelist.toLowerCase()
-          : whitelist.join("|").toLowerCase().split("|")
+        const whitelistLowerCase = typeof whitelist === "string" ? whitelist.toLowerCase() : whitelist.join("|").toLowerCase().split("|")
 
-        if (containsString(scheme, whitelistLowerCase)) { return }
+        if (containsString(scheme, whitelistLowerCase)) {
+          return
+        }
 
         report({
           message: messages.rejected(scheme),

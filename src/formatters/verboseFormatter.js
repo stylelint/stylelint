@@ -5,13 +5,13 @@ import stringFormatter from "./stringFormatter"
 export default function (results) {
   let output = stringFormatter(results)
 
-  if (output === "") { output = "\n" }
+  if (output === "") {
+    output = "\n"
+  }
 
-  const sourceWord = (results.length > 1) ? "sources" : "source"
+  const sourceWord = results.length > 1 ? "sources" : "source"
   const ignoredCount = results.filter(result => result.ignored).length
-  const checkedDisplay = (ignoredCount)
-    ? `${results.length - ignoredCount} of ${results.length}`
-    : results.length
+  const checkedDisplay = ignoredCount ? `${results.length - ignoredCount} of ${results.length}` : results.length
   output += chalk.underline(`${checkedDisplay} ${sourceWord} checked\n`)
   results.forEach(result => {
     let formatting = "green"
@@ -23,13 +23,15 @@ export default function (results) {
       formatting = "dim"
     }
     let sourceText = `${result.source}`
-    if (result.ignored) { sourceText += " (ignored)" }
+    if (result.ignored) {
+      sourceText += " (ignored)"
+    }
     output += _.get(chalk, formatting)(` ${sourceText}\n`)
   })
 
   const warnings = _.flatten(results.map(r => r.warnings))
   const warningsBySeverity = _.groupBy(warnings, "severity")
-  const problemWord = (warnings.length === 1) ? "problem" : "problems"
+  const problemWord = warnings.length === 1 ? "problem" : "problems"
 
   output += chalk.underline(`\n${warnings.length} ${problemWord} found\n`)
 

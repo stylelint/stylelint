@@ -63,7 +63,10 @@ describe("standalone with two file-specific globs", () => {
 })
 
 it("standalone with input css", () => {
-  return standalone({ code: "a {}", config: configBlockNoEmpty }).then(({ output, results }) => {
+  return standalone({ code: "a {}", config: configBlockNoEmpty }).then((_ref) => {
+    let output = _ref.output,
+      results = _ref.results
+
     expect(typeof output).toBe("string")
     expect(results.length).toBe(1)
     expect(results[0].warnings.length).toBe(1)
@@ -85,7 +88,7 @@ it("standalone with non-existent-file should throw error with code 80", () => {
     config: configBlockNoEmpty,
   }).then(() => {
     throw new Error("should not have succeeded")
-  }).catch((actualError) => {
+  }).catch(actualError => {
     expect(actualError).toEqual(expectedError)
   })
 })
@@ -100,7 +103,7 @@ it("standalone with non-existent-file and allowEmptyInput false should throw err
     allowEmptyInput: false,
   }).then(() => {
     throw new Error("should not have succeeded")
-  }).catch((actualError) => {
+  }).catch(actualError => {
     expect(actualError).toEqual(expectedError)
   })
 })
@@ -110,7 +113,11 @@ it("standalone with non-existent-file and allowEmptyInput true", () => {
     files: `${fixturesPath}/non-existent-file.css`,
     config: configBlockNoEmpty,
     allowEmptyInput: true,
-  }).then(({ output, results, errored }) => {
+  }).then((_ref2) => {
+    let output = _ref2.output,
+      results = _ref2.results,
+      errored = _ref2.errored
+
     expect(typeof output).toBe("string")
     expect(results.length).toBe(0)
     expect(errored).toBe(false)
@@ -163,7 +170,9 @@ it("standalone passing file with syntax error", () => {
     code: "a { color: 'red; }",
     codeFilename: path.join(__dirname, "syntax-error.css"),
     config: { rules: { "block-no-empty": true } },
-  }).then(({ results }) => {
+  }).then((_ref3) => {
+    const results = _ref3.results
+
     expect(results[0].source.indexOf("syntax-error.css")).not.toBe(-1)
   })
 })
@@ -172,7 +181,9 @@ it("syntax error sets errored to true", () => {
   return standalone({
     code: "a { color: 'red; }",
     config: { rules: { "block-no-empty": true } },
-  }).then(({ errored }) => {
+  }).then((_ref4) => {
+    const errored = _ref4.errored
+
     expect(errored).toBe(true)
   })
 })
@@ -181,7 +192,9 @@ describe("configuration error sets errored to true", () => {
   return standalone({
     code: "a { color: 'red'; }",
     config: { rules: { "block-no-empty": "wahoo" } },
-  }).then(({ errored }) => {
+  }).then((_ref5) => {
+    const errored = _ref5.errored
+
     expect(errored).toBe(true)
   })
 })
@@ -228,7 +241,7 @@ describe("standalone with deprecations", () => {
   beforeEach(() => {
     ruleDefinitionsStub = sinon.stub(ruleDefinitions, "block-no-empty", () => {
       return (root, result) => {
-        result.warn(("Some deprecation"), {
+        result.warn("Some deprecation", {
           stylelintType: "deprecation",
         })
       }
@@ -265,27 +278,27 @@ it("standalone with different configs per file", () => {
   })
 
   it("no warnings for A", () => {
-    const resultA = results.find((result) => result.source.indexOf("a.css") !== -1)
+    const resultA = results.find(result => result.source.indexOf("a.css") !== -1)
     expect(resultA.warnings.length, 0)
   })
 
   it("one warning for B", () => {
-    const resultB = results.find((result) => result.source.indexOf("b.css") !== -1)
+    const resultB = results.find(result => result.source.indexOf("b.css") !== -1)
     expect(resultB.warnings.length, 1)
   })
 
   it("correct warning for B", () => {
-    const resultB = results.find((result) => result.source.indexOf("b.css") !== -1)
+    const resultB = results.find(result => result.source.indexOf("b.css") !== -1)
     expect(resultB.warnings[0].text.indexOf("Unexpected empty block")).not.toBe(-1)
   })
 
   it("no warnings for C", () => {
-    const resultC = results.find((result) => result.source.indexOf("c.css") !== -1)
+    const resultC = results.find(result => result.source.indexOf("c.css") !== -1)
     expect(resultC.warnings.length, 0)
   })
 
   it("no warnings for D", () => {
-    const resultD = results.find((result) => result.source.indexOf("d.css") !== -1)
+    const resultD = results.find(result => result.source.indexOf("d.css") !== -1)
     expect(resultD.warnings.length, 0)
   })
 })
@@ -334,7 +347,9 @@ it("Setting `plugins` inside `configOverrides` object should overrides the ones 
     configOverrides: {
       plugins: ["./fixtures/plugin-warn-about-bar"],
     },
-  }).then(({ results }) => {
+  }).then((_ref6) => {
+    const results = _ref6.results
+
     expect(results[0].warnings.length).toBe(1)
     expect(results[0].warnings[0].text).toBe("found .bar (plugin/warn-about-bar)")
   })
@@ -363,7 +378,9 @@ describe("nonexistent codeFilename with loaded config", () => {
     return standalone({
       code: "a {}",
       codeFilename: "does-not-exist.css",
-    }).then(({ results }) => {
+    }).then((_ref7) => {
+      const results = _ref7.results
+
       expect(results[0].warnings.length).toBe(1)
     })
   })

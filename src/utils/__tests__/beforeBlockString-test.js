@@ -14,15 +14,7 @@ test("beforeBlockString at-rules", t => {
   t.equal(postcssCheck("@media print {}"), "@media print ")
   t.equal(postcssCheck("\n@media print, screen\n\t{}"), "\n@media print, screen\n\t")
   t.equal(postcssCheck("@supports (animation-name: test) {}"), "@supports (animation-name: test) ")
-  t.equal(postcssCheck(
-    "@document url(http://www.w3.org/),\n " +
-      "url-prefix(http://www.w3.org/Style/),\n" +
-      "domain(mozilla.org),\n" +
-      "regexp(\"https:.*\") {}"),
-    "@document url(http://www.w3.org/),\n " +
-      "url-prefix(http://www.w3.org/Style/),\n" +
-      "domain(mozilla.org),\n" +
-      "regexp(\"https:.*\") ")
+  t.equal(postcssCheck("@document url(http://www.w3.org/),\n " + "url-prefix(http://www.w3.org/Style/),\n" + "domain(mozilla.org),\n" + "regexp(\"https:.*\") {}"), "@document url(http://www.w3.org/),\n " + "url-prefix(http://www.w3.org/Style/),\n" + "domain(mozilla.org),\n" + "regexp(\"https:.*\") ")
   t.end()
 })
 
@@ -47,7 +39,11 @@ test("beforeBlockString without brackets using SugarSS parser", t => {
   t.end()
 })
 
-function postcssCheck(options = {}, cssString, parser = postcss) {
+function postcssCheck() {
+  const options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
+  let cssString = arguments[1]
+  const parser = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : postcss
+
   if (typeof options === "string") {
     cssString = options
   }

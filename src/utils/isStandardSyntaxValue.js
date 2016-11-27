@@ -7,13 +7,19 @@ import { hasInterpolation } from "../utils"
  */
 export default function (value) {
   // SCSS variable
-  if (value[0] === "$") { return false }
+  if (value[0] === "$") {
+    return false
+  }
 
   // Less variable
-  if (value[0] === "@") { return false }
+  if (value[0] === "@") {
+    return false
+  }
 
   // SCSS or Less interpolation
-  if (hasInterpolation(value)) { return false }
+  if (hasInterpolation(value)) {
+    return false
+  }
 
   return true
 }

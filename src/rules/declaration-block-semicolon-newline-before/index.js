@@ -1,10 +1,4 @@
-import {
-  blockString,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { blockString, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 export const ruleName = "declaration-block-semicolon-newline-before"
 
@@ -20,17 +14,17 @@ export default function (expectation) {
   return function (root, result) {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "always-multi-line",
-        "never-multi-line",
-      ],
+      possible: [ "always", "always-multi-line", "never-multi-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(function (decl) {
       const parentRule = decl.parent
-      if (!parentRule.raws.semicolon && parentRule.last === decl) { return }
+      if (!parentRule.raws.semicolon && parentRule.last === decl) {
+        return
+      }
 
       const declString = decl.toString()
 

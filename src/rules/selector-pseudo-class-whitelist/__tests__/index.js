@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -9,12 +6,7 @@ const rule = rules[ruleName]
 
 testRule(rule, {
   ruleName,
-  config: [[
-    "hover",
-    "nth-child",
-    "root",
-    "placeholder",
-  ]],
+  config: [[ "hover", "nth-child", "root", "placeholder" ]],
   skipBasicChecks: true,
 
   accept: [ {
@@ -74,9 +66,7 @@ testRule(rule, {
 
 testRule(rule, {
   ruleName,
-  config: [[
-    "/^nth/",
-  ]],
+  config: [["/^nth/"]],
   skipBasicChecks: true,
 
   accept: [ {

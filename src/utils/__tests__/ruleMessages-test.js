@@ -2,15 +2,13 @@ import ruleMessages from "../ruleMessages"
 import test from "tape"
 
 test("ruleMessages with simple messages", t => {
-  t.deepEqual(
-    ruleMessages("foo", {
-      good: "GOOD",
-      bad: "BAD",
-    }),
-    {
-      good: "GOOD (foo)",
-      bad: "BAD (foo)",
-    })
+  t.deepEqual(ruleMessages("foo", {
+    good: "GOOD",
+    bad: "BAD",
+  }), {
+    good: "GOOD (foo)",
+    bad: "BAD (foo)",
+  })
   t.end()
 })
 

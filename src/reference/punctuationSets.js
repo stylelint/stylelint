@@ -1,14 +1,3 @@
-export const mediaFeaturePunctuation = new Set([
-  ":",
-  "=",
-  ">",
-  ">=",
-  "<",
-  "<=",
-])
+export const mediaFeaturePunctuation = new Set([ ":", "=", ">", ">=", "<", "<=" ])
 
-export const nonSpaceCombinators = new Set([
-  ">",
-  "+",
-  "~",
-])
+export const nonSpaceCombinators = new Set([ ">", "+", "~" ])

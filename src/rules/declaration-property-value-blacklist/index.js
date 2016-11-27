@@ -1,14 +1,5 @@
-import {
-  find,
-  isEmpty,
-  isObject,
-} from "lodash"
-import {
-  matchesStringOrRegExp,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { find, isEmpty, isObject } from "lodash"
+import { matchesStringOrRegExp, report, ruleMessages, validateOptions } from "../../utils"
 import { vendor } from "postcss"
 
 export const ruleName = "declaration-property-value-blacklist"
@@ -23,16 +14,24 @@ export default function (blacklist) {
       actual: blacklist,
       possible: [isObject],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(decl => {
-      const { prop, value } = decl
+      const prop = decl.prop,
+        value = decl.value
+
       const unprefixedProp = vendor.unprefixed(prop)
       const propBlacklist = find(blacklist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
 
-      if (isEmpty(propBlacklist)) { return }
+      if (isEmpty(propBlacklist)) {
+        return
+      }
 
-      if (!matchesStringOrRegExp(value, propBlacklist)) { return }
+      if (!matchesStringOrRegExp(value, propBlacklist)) {
+        return
+      }
 
       report({
         message: messages.rejected(prop, value),

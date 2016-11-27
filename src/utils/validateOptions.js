@@ -1,9 +1,6 @@
 import _ from "lodash"
 
-const ignoredOptions = [
-  "severity",
-  "message",
-]
+const ignoredOptions = [ "severity", "message" ]
 
 /**
  * Validate a rule's options.
@@ -25,10 +22,14 @@ const ignoredOptions = [
  *    - `optional` (optional): If this is `true`, `actual` can be undefined.
  * @return {boolean} Whether or not the options are valid (true = valid)
  */
-export default function (result, ruleName, ...optionDescriptions) {
+export default function (result, ruleName) {
   let noErrors = true
 
-  optionDescriptions.forEach((optionDescription) => {
+  for (var _len = arguments.length, optionDescriptions = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+    optionDescriptions[_key - 2] = arguments[_key]
+  }
+
+  optionDescriptions.forEach(optionDescription => {
     validate(optionDescription, ruleName, complain)
   })
 
@@ -43,16 +44,25 @@ export default function (result, ruleName, ...optionDescriptions) {
   return noErrors
 }
 
-function validate({ possible, actual, optional }, ruleName, complain) {
-  if (actual === null || _.isEqual(actual, [null])) { return }
+function validate(_ref, ruleName, complain) {
+  let possible = _ref.possible,
+    actual = _ref.actual,
+    optional = _ref.optional
 
-  const nothingPossible = possible === undefined
-    || (Array.isArray(possible) && possible.length === 0)
+  if (actual === null || _.isEqual(actual, [null])) {
+    return
+  }
 
-  if (nothingPossible && actual === true) { return }
+  const nothingPossible = possible === undefined || Array.isArray(possible) && possible.length === 0
+
+  if (nothingPossible && actual === true) {
+    return
+  }
 
   if (actual === undefined) {
-    if (nothingPossible || optional) { return }
+    if (nothingPossible || optional) {
+      return
+    }
     complain(`Expected option value for rule "${ruleName}"`)
     return
   } else if (nothingPossible) {
@@ -71,7 +81,9 @@ function validate({ possible, actual, optional }, ruleName, complain) {
   // If `possible` is an array instead of an object ...
   if (!_.isPlainObject(possible)) {
     [].concat(actual).forEach(a => {
-      if (isValid(possible, a)) { return }
+      if (isValid(possible, a)) {
+        return
+      }
       complain(`Invalid option value "${a}" for rule "${ruleName}"`)
     })
     return
@@ -79,25 +91,24 @@ function validate({ possible, actual, optional }, ruleName, complain) {
 
   // If possible is an object ...
   if (!_.isPlainObject(actual)) {
-    complain(
-      `Invalid option value ${JSON.stringify(actual)} for rule "${ruleName}": ` +
-      "should be an object"
-    )
+    complain(`Invalid option value ${JSON.stringify(actual)} for rule "${ruleName}": ` + "should be an object")
     return
   }
 
   Object.keys(actual).forEach(optionName => {
-    if (ignoredOptions.indexOf(optionName) !== -1) { return }
+    if (ignoredOptions.indexOf(optionName) !== -1) {
+      return
+    }
 
     if (!possible[optionName]) {
       complain(`Invalid option name "${optionName}" for rule "${ruleName}"`)
       return
     }
 
-    const actualOptionValue = actual[optionName]
-
-    ;[].concat(actualOptionValue).forEach(a => {
-      if (isValid(possible[optionName], a)) { return }
+    const actualOptionValue = actual[optionName];[].concat(actualOptionValue).forEach(a => {
+      if (isValid(possible[optionName], a)) {
+        return
+      }
       complain(`Invalid value "${a}" for option "${optionName}" of rule "${ruleName}"`)
     })
   })
@@ -107,7 +118,11 @@ function isValid(possible, actual) {
   const possibleList = [].concat(possible)
   for (let i = 0, l = possibleList.length; i < l; i++) {
     const possibility = possibleList[i]
-    if (typeof possibility === "function" && possibility(actual)) { return true }
-    if (actual === possibility) { return true }
+    if (typeof possibility === "function" && possibility(actual)) {
+      return true
+    }
+    if (actual === possibility) {
+      return true
+    }
   }
 }

@@ -10,7 +10,9 @@ export default function (report) {
   let output = ""
 
   report.forEach(sourceReport => {
-    if (!sourceReport.ranges || sourceReport.ranges.length === 0) { return }
+    if (!sourceReport.ranges || sourceReport.ranges.length === 0) {
+      return
+    }
     output += "\n"
     output += chalk.underline(logFrom(sourceReport.source)) + "\n"
     sourceReport.ranges.forEach(range => {

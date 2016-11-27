@@ -1,30 +1,25 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
 
-const variablePositiveTests = [
-  {
-    code: "a { font-family: $sassy-font-family; }",
-    description: "ignores Sass variables",
-  }, {
-    code: "a { font-family: @less-666; }",
-    description: "ignores Less variables",
-  }, {
-    code: "a { font-family: var(--ff1); }",
-    description: "ignores custom properties",
-  }, {
-    code: "$font-family: map-get($font-stacks, default); $default-font-family: pink",
-    description: "ignores Sass variable containing font-family in name",
-  }, {
-    code: "@font-family: map-get(@font-stacks, default); @default-font-family: pink",
-    description: "ignores Less variable containing font-family in name",
-  },
-]
+const variablePositiveTests = [ {
+  code: "a { font-family: $sassy-font-family; }",
+  description: "ignores Sass variables",
+}, {
+  code: "a { font-family: @less-666; }",
+  description: "ignores Less variables",
+}, {
+  code: "a { font-family: var(--ff1); }",
+  description: "ignores custom properties",
+}, {
+  code: "$font-family: map-get($font-stacks, default); $default-font-family: pink",
+  description: "ignores Sass variable containing font-family in name",
+}, {
+  code: "@font-family: map-get(@font-stacks, default); @default-font-family: pink",
+  description: "ignores Less variable containing font-family in name",
+} ]
 
 testRule(rule, {
   ruleName,

@@ -1,8 +1,4 @@
-import {
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "at-rule-name-case"
 
@@ -14,18 +10,20 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "lower",
-        "upper",
-      ],
+      possible: [ "lower", "upper" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkAtRules(atRule => {
-      const { name } = atRule
+      const name = atRule.name
+
       const expectedName = expectation === "lower" ? name.toLowerCase() : name.toUpperCase()
 
-      if (name === expectedName) { return }
+      if (name === expectedName) {
+        return
+      }
 
       report({
         message: messages.expected(name, expectedName),

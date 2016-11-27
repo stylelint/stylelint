@@ -13,36 +13,44 @@ import _ from "lodash"
 // standard form: [primaryOption, secondaryOption]
 // Except in the cases with null, a & b, in which case
 // null is returned
-export default function (
-  rawSettings: stylelint$configRuleSettings,
-  ruleName: string,
-  primaryOptionArray?: boolean,
-): ?Array<any | [any, Object]> {
-  if (rawSettings === null) { return null }
+export default function (rawSettings /* : stylelint$configRuleSettings*/, ruleName /* : string*/, primaryOptionArray /* :: ?: boolean*/) /* : ?Array<any | [any, Object]>*/ {
+  if (rawSettings === null) {
+    return null
+  }
 
-  if (!Array.isArray(rawSettings)) { return [rawSettings] }
+  if (!Array.isArray(rawSettings)) {
+    return [rawSettings]
+  }
   // Everything below is an array ...
 
-  if (rawSettings[0] === null) { return null }
+  if (rawSettings[0] === null) {
+    return null
+  }
 
   // This cursed rule needs a special case
   if (ruleName === "declaration-block-properties-order") {
-    if (rawSettings[0] === "alphabetical") { return rawSettings }
-    if (typeof rawSettings[0] === "string") { return [rawSettings] }
+    if (rawSettings[0] === "alphabetical") {
+      return rawSettings
+    }
+    if (typeof rawSettings[0] === "string") {
+      return [rawSettings]
+    }
   }
 
-  if (!primaryOptionArray) { return rawSettings }
+  if (!primaryOptionArray) {
+    return rawSettings
+  }
   // Everything below is a rule that CAN have an array for a primary option ...
   // (they might also have something else, e.g. rule-properties-order can
   // have the string "alphabetical")
 
-  if (rawSettings.length === 1 && Array.isArray(rawSettings[0])) { return rawSettings }
+  if (rawSettings.length === 1 && Array.isArray(rawSettings[0])) {
+    return rawSettings
+  }
 
-  if (
-    rawSettings.length === 2
-    && !_.isPlainObject(rawSettings[0])
-    && _.isPlainObject(rawSettings[1])
-  ) { return rawSettings }
+  if (rawSettings.length === 2 && !_.isPlainObject(rawSettings[0]) && _.isPlainObject(rawSettings[1])) {
+    return rawSettings
+  }
 
   return [rawSettings]
 }

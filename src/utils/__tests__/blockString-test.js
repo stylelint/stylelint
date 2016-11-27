@@ -10,9 +10,7 @@ test("blockString rules", t => {
 
 test("blockString at-rules", t => {
   t.equal(postcssCheck("@media print { a { color: pink; } }"), "{ a { color: pink; } }")
-  t.equal(
-    postcssCheck("@keyframes foo {\n  0% {\n  top: 0;\n}\n\n  100% {\n  top: 10px;\n}\n}\n"),
-    "{\n  0% {\n  top: 0;\n}\n\n  100% {\n  top: 10px;\n}\n}")
+  t.equal(postcssCheck("@keyframes foo {\n  0% {\n  top: 0;\n}\n\n  100% {\n  top: 10px;\n}\n}\n"), "{\n  0% {\n  top: 0;\n}\n\n  100% {\n  top: 10px;\n}\n}")
   t.end()
 })
 

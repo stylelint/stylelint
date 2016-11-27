@@ -1,13 +1,5 @@
-import {
-  atRuleParamIndex,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
-import {
-  isRegExp,
-  isString,
-} from "lodash"
+import { atRuleParamIndex, report, ruleMessages, validateOptions } from "../../utils"
+import { isRegExp, isString } from "lodash"
 
 export const ruleName = "custom-media-pattern"
 
@@ -21,18 +13,22 @@ export default function (pattern) {
       actual: pattern,
       possible: [ isRegExp, isString ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
-    const regexpPattern = (isString(pattern))
-      ? new RegExp(pattern)
-      : pattern
+    const regexpPattern = isString(pattern) ? new RegExp(pattern) : pattern
 
     root.walkAtRules(atRule => {
-      if (atRule.name.toLowerCase() !== "custom-media") { return }
+      if (atRule.name.toLowerCase() !== "custom-media") {
+        return
+      }
 
       const customMediaName = atRule.params.match(/^--(\S+)\b/)[1]
 
-      if (regexpPattern.test(customMediaName)) { return }
+      if (regexpPattern.test(customMediaName)) {
+        return
+      }
 
       report({
         message: messages.expected,

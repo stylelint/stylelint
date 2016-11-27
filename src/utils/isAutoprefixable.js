@@ -11,10 +11,7 @@ import autoprefixer from "autoprefixer"
  * vendor prefixes.
  */
 
-const prefixes = new Prefixes(
-  autoprefixer.data.prefixes,
-  new Browsers(autoprefixer.data.browsers, [])
-)
+const prefixes = new Prefixes(autoprefixer.data.prefixes, new Browsers(autoprefixer.data.browsers, []))
 
 /**
  * Most identifier types have to be looked up in a unique way,
@@ -41,8 +38,7 @@ export default {
   },
 
   propertyValue(prop, value) {
-    const possiblePrefixableValues = prefixes.remove[prop.toLowerCase()]
-      && prefixes.remove[prop.toLowerCase()].values
+    const possiblePrefixableValues = prefixes.remove[prop.toLowerCase()] && prefixes.remove[prop.toLowerCase()].values
     return possiblePrefixableValues && possiblePrefixableValues.some(valueObj => {
       return value.toLowerCase() === valueObj.prefixed
     })

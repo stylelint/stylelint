@@ -117,10 +117,7 @@ test("with relevant general disabledRange, among others", t => {
       warn: sinon.spy(),
       stylelint: {
         disabledRanges: {
-          all: [
-            { start: 1, end: 3 },
-            { start: 5, end: 8 },
-          ],
+          all: [ { start: 1, end: 3 }, { start: 5, end: 8 } ],
         },
       },
     },
@@ -142,10 +139,7 @@ test("with relevant rule-specific disabledRange, among others", t => {
       stylelint: {
         disabledRanges: {
           all: [],
-          foo: [
-            { start: 1, end: 3, rules: ["foo"] },
-            { start: 5, end: 8, rules: ["foo"] },
-          ],
+          foo: [ { start: 1, end: 3, rules: ["foo"] }, { start: 5, end: 8, rules: ["foo"] } ],
         },
       },
     },

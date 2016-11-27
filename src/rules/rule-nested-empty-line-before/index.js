@@ -1,8 +1,4 @@
-import {
-  isStandardSyntaxRule,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isStandardSyntaxRule, ruleMessages, validateOptions } from "../../utils"
 
 import { checkRuleEmptyLineBefore } from "../rule-non-nested-empty-line-before"
 
@@ -17,32 +13,28 @@ export default function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-multi-line",
-        "never-multi-line",
-      ],
+      possible: [ "always", "never", "always-multi-line", "never-multi-line" ],
     }, {
       actual: options,
       possible: {
-        ignore: [
-          "after-comment",
-        ],
-        except: [
-          "first-nested",
-          "after-comment",
-        ],
+        ignore: ["after-comment"],
+        except: [ "first-nested", "after-comment" ],
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      if (!isStandardSyntaxRule(rule)) { return }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
 
       // Only attend to nested rule sets
-      if (rule.parent === root) { return }
+      if (rule.parent === root) {
+        return
+      }
 
       checkRuleEmptyLineBefore({ rule, expectation, options, result, messages, checkedRuleName: ruleName })
     })

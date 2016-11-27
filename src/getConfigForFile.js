@@ -3,13 +3,10 @@ import { augmentConfigFull } from "./augmentConfig"
 import { configurationError } from "./utils"
 import path from "path"
 
-export default function (
-  stylelint: stylelint$internalApi,
-  searchPath?: string,
-): Promise<?{
-  config: stylelint$config,
-  filepath: string
-}> {
+export default function (stylelint /* : stylelint$internalApi*/, searchPath /* :: ?: string*/) /* : Promise<?{
+                                                                                               config: stylelint$config,
+                                                                                               filepath: string
+                                                                                             }>*/ {
   searchPath = searchPath || process.cwd()
 
   const optionsConfig = stylelint._options.config
@@ -31,17 +28,15 @@ export default function (
     return augmentedResult
   }
 
-  return stylelint._fullExplorer.load(searchPath, stylelint._options.configFile)
-    .then((config) => {
-      // If no config was found, try looking from process.cwd
-      if (!config) return stylelint._fullExplorer.load(process.cwd())
-      return config
-    })
-    .then((config) => {
-      if (!config) {
-        const ending = (searchPath) ? ` for ${searchPath}` : ""
-        throw configurationError(`No configuration provided${ending}`)
-      }
-      return config
-    })
+  return stylelint._fullExplorer.load(searchPath, stylelint._options.configFile).then(config => {
+    // If no config was found, try looking from process.cwd
+    if (!config) return stylelint._fullExplorer.load(process.cwd())
+    return config
+  }).then(config => {
+    if (!config) {
+      const ending = searchPath ? ` for ${searchPath}` : ""
+      throw configurationError(`No configuration provided${ending}`)
+    }
+    return config
+  })
 }

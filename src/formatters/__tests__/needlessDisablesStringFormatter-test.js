@@ -4,26 +4,16 @@ import { stripIndent } from "common-tags"
 import test from "tape"
 
 test("needlessDisables formatter stringified", t => {
-  const actual = chalk.stripColor(needlessDisablesStringFormatter([
-    {
-      source: "foo",
-      ranges: [
-        { start: 1, end: 3 },
-        { start: 7 },
-      ],
-    },
-    {
-      source: "bar",
-      ranges: [
-        { start: 19, end: 33 },
-        { start: 99, end: 102 },
-      ],
-    },
-    {
-      sourc: "baz",
-      ranges: [],
-    },
-  ]))
+  const actual = chalk.stripColor(needlessDisablesStringFormatter([ {
+    source: "foo",
+    ranges: [ { start: 1, end: 3 }, { start: 7 } ],
+  }, {
+    source: "bar",
+    ranges: [ { start: 19, end: 33 }, { start: 99, end: 102 } ],
+  }, {
+    sourc: "baz",
+    ranges: [],
+  } ]))
 
   let expected = stripIndent`
     foo

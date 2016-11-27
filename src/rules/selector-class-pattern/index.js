@@ -1,12 +1,4 @@
-import {
-  isKeyframeSelector,
-  isStandardSyntaxRule,
-  isStandardSyntaxSelector,
-  parseSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isKeyframeSelector, isStandardSyntaxRule, isStandardSyntaxSelector, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
 import _ from "lodash"
 import resolveNestedSelector from "postcss-resolve-nested-selector"
 
@@ -28,19 +20,26 @@ export default function (pattern, options) {
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const shouldResolveNestedSelectors = _.get(options, "resolveNestedSelectors")
-    const normalizedPattern = (_.isString(pattern))
-      ? new RegExp(pattern)
-      : pattern
+    const normalizedPattern = _.isString(pattern) ? new RegExp(pattern) : pattern
 
     root.walkRules(rule => {
-      const { selector, selectors } = rule
+      const selector = rule.selector,
+        selectors = rule.selectors
 
-      if (!isStandardSyntaxRule(rule)) { return }
-      if (!isStandardSyntaxSelector(selector)) { return }
-      if (selectors.some(s => isKeyframeSelector(s))) { return }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
+      if (!isStandardSyntaxSelector(selector)) {
+        return
+      }
+      if (selectors.some(s => isKeyframeSelector(s))) {
+        return
+      }
 
       // Only bother resolving selectors that have an interpolating &
       if (shouldResolveNestedSelectors && hasInterpolatingAmpersand(selector)) {
@@ -54,8 +53,12 @@ export default function (pattern, options) {
 
     function checkSelector(fullSelector, rule) {
       fullSelector.walkClasses(classNode => {
-        const { value, sourceIndex } = classNode
-        if (normalizedPattern.test(value)) { return }
+        const value = classNode.value,
+          sourceIndex = classNode.sourceIndex
+
+        if (normalizedPattern.test(value)) {
+          return
+        }
         report({
           result,
           ruleName,
@@ -73,13 +76,20 @@ export default function (pattern, options) {
 // stands on its own as a simple selector
 function hasInterpolatingAmpersand(selector) {
   for (let i = 0, l = selector.length; i < l; i++) {
-    if (selector[i] !== "&") { continue }
-    if (!_.isUndefined(selector[i - 1]) && !isCombinator(selector[i - 1])) { return true }
-    if (!_.isUndefined(selector[i + 1]) && !isCombinator(selector[i + 1])) { return true }
+    if (selector[i] !== "&") {
+      continue
+    }
+    if (!_.isUndefined(selector[i - 1]) && !isCombinator(selector[i - 1])) {
+      return true
+    }
+    if (!_.isUndefined(selector[i + 1]) && !isCombinator(selector[i + 1])) {
+      return true
+    }
   }
   return false
 }
 
 function isCombinator(x) {
-  return /[\s+>~]/.test(x)
+  return (/[\s+>~]/.test(x)
+  )
 }

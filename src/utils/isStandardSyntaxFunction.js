@@ -6,7 +6,9 @@
  */
 export default function (node) {
   // Function nodes without names are things in parentheses like Sass lists
-  if (!node.value) { return false }
+  if (!node.value) {
+    return false
+  }
 
   return true
 }

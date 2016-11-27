@@ -1,10 +1,4 @@
-import {
-  isCustomProperty,
-  isStandardSyntaxProperty,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isCustomProperty, isStandardSyntaxProperty, report, ruleMessages, validateOptions } from "../../utils"
 import _ from "lodash"
 import { vendor } from "postcss"
 
@@ -26,10 +20,12 @@ function rule(expectation, options) {
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const alphabetical = expectation === "alphabetical"
-    const expectedOrder = (alphabetical) ? null : createExpectedOrder(expectation)
+    const expectedOrder = alphabetical ? null : createExpectedOrder(expectation)
     // By default, ignore unspecified properties
     const unspecified = _.get(options, ["unspecified"], "ignore")
 
@@ -51,11 +47,18 @@ function rule(expectation, options) {
           checkNode(child)
         }
 
-        if (child.type !== "decl") { return }
+        if (child.type !== "decl") {
+          return
+        }
 
-        const { prop } = child
-        if (!isStandardSyntaxProperty(prop)) { return }
-        if (isCustomProperty(prop)) { return }
+        const prop = child.prop
+
+        if (!isStandardSyntaxProperty(prop)) {
+          return
+        }
+        if (isCustomProperty(prop)) {
+          return
+        }
 
         let unprefixedPropName = vendor.unprefixed(prop)
 
@@ -68,7 +71,7 @@ function rule(expectation, options) {
         const propData = {
           name: prop,
           unprefixedName: unprefixedPropName,
-          orderData: (alphabetical) ? null : getOrderData(expectedOrder, unprefixedPropName),
+          orderData: alphabetical ? null : getOrderData(expectedOrder, unprefixedPropName),
           before: child.raws.before,
           index: allPropData.length,
           node: child,
@@ -78,13 +81,15 @@ function rule(expectation, options) {
         allPropData.push(propData)
 
         // Skip first decl
-        if (!previousPropData) { return }
+        if (!previousPropData) {
+          return
+        }
 
-        const isCorrectOrder = (alphabetical)
-          ? checkAlpabeticalOrder(previousPropData, propData)
-          : checkOrder(previousPropData, propData)
+        const isCorrectOrder = alphabetical ? checkAlpabeticalOrder(previousPropData, propData) : checkOrder(previousPropData, propData)
 
-        if (isCorrectOrder) { return }
+        if (isCorrectOrder) {
+          return
+        }
 
         complain({
           message: messages.expected(propData.name, previousPropData.name),
@@ -110,10 +115,7 @@ function rule(expectation, options) {
           // If first prop is unspecified, look for a specified prop before it to
           // compare to the current prop
           const priorSpecifiedPropData = _.findLast(allPropData.slice(0, -1), d => !!d.orderData)
-          if (
-            priorSpecifiedPropData && priorSpecifiedPropData.orderData
-            && priorSpecifiedPropData.orderData.expectedPosition > secondPropData.orderData.expectedPosition
-          ) {
+          if (priorSpecifiedPropData && priorSpecifiedPropData.orderData && priorSpecifiedPropData.orderData.expectedPosition > secondPropData.orderData.expectedPosition) {
             complain({
               message: messages.expected(secondPropData.name, priorSpecifiedPropData.name),
               node: secondPropData.node,
@@ -124,30 +126,49 @@ function rule(expectation, options) {
 
         // Now deal with unspecified props ...
         // Starting with bottomAlphabetical as it requires more specific conditionals
-        if (unspecified === "bottomAlphabetical" && !firstPropIsUnspecified &&
-          secondPropIsUnspecified) { return true }
-
-        if (unspecified === "bottomAlphabetical" &&
-          secondPropIsUnspecified &&
-          firstPropIsUnspecified) {
-          if (checkAlpabeticalOrder(firstPropData, secondPropData)) { return true }
-          else { return false }
+        if (unspecified === "bottomAlphabetical" && !firstPropIsUnspecified && secondPropIsUnspecified) {
+          return true
         }
-        if (unspecified === "bottomAlphabetical" && firstPropIsUnspecified) { return false }
 
-        if (firstPropIsUnspecified && secondPropIsUnspecified) { return true }
+        if (unspecified === "bottomAlphabetical" && secondPropIsUnspecified && firstPropIsUnspecified) {
+          if (checkAlpabeticalOrder(firstPropData, secondPropData)) {
+            return true
+          } else {
+            return false
+          }
+        }
+        if (unspecified === "bottomAlphabetical" && firstPropIsUnspecified) {
+          return false
+        }
 
-        if (unspecified === "ignore" && (firstPropIsUnspecified || secondPropIsUnspecified)) { return true }
+        if (firstPropIsUnspecified && secondPropIsUnspecified) {
+          return true
+        }
 
-        if (unspecified === "top" && firstPropIsUnspecified) { return true }
-        if (unspecified === "top" && secondPropIsUnspecified) { return false }
+        if (unspecified === "ignore" && (firstPropIsUnspecified || secondPropIsUnspecified)) {
+          return true
+        }
 
-        if (unspecified === "bottom" && secondPropIsUnspecified) { return true }
-        if (unspecified === "bottom" && firstPropIsUnspecified) { return false }
+        if (unspecified === "top" && firstPropIsUnspecified) {
+          return true
+        }
+        if (unspecified === "top" && secondPropIsUnspecified) {
+          return false
+        }
+
+        if (unspecified === "bottom" && secondPropIsUnspecified) {
+          return true
+        }
+        if (unspecified === "bottom" && firstPropIsUnspecified) {
+          return false
+        }
       }
     }
 
-    function complain({ message, node }) {
+    function complain(_ref) {
+      let message = _ref.message,
+        node = _ref.node
+
       report({
         message,
         node,
@@ -177,7 +198,9 @@ function createExpectedOrder(input) {
       // In flexible groups, the expectedPosition does not ascend
       // to make that flexibility work;
       // otherwise, it will always ascend
-      if (!inFlexibleGroup) { expectedPosition += 1 }
+      if (!inFlexibleGroup) {
+        expectedPosition += 1
+      }
       order[item] = { expectedPosition }
       return
     }
@@ -219,25 +242,37 @@ function checkAlpabeticalOrder(firstPropData, secondPropData) {
 
 function validatePrimaryOption(actualOptions) {
   // Return true early if alphabetical
-  if (actualOptions === "alphabetical") { return true }
+  if (actualOptions === "alphabetical") {
+    return true
+  }
 
   // Otherwise, begin checking array options
-  if (!Array.isArray(actualOptions)) { return false }
+  if (!Array.isArray(actualOptions)) {
+    return false
+  }
 
   // Every item in the array must be a string or an object
   // with a "properties" property
   if (!actualOptions.every(item => {
-    if (_.isString(item)) { return true }
+    if (_.isString(item)) {
+      return true
+    }
     return _.isPlainObject(item) && !_.isUndefined(item.properties)
-  })) { return false }
+  })) {
+    return false
+  }
 
   const objectItems = actualOptions.filter(_.isPlainObject)
 
   // Every object-item's "order" property must be "strict" or "flexible"
   if (!objectItems.every(item => {
-    if (_.isUndefined(item.order)) { return true }
+    if (_.isUndefined(item.order)) {
+      return true
+    }
     return _.includes([ "strict", "flexible" ], item.order)
-  })) { return false }
+  })) {
+    return false
+  }
 
   return true
 }

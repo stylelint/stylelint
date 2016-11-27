@@ -1,7 +1,4 @@
-import {
-  messages,
-  ruleName,
-} from ".."
+import { messages, ruleName } from ".."
 import rules from "../../../rules"
 import { testRule } from "../../../testUtils"
 
@@ -34,14 +31,7 @@ testRule(rule, {
     code: "a { box-sizing: #$type-box; }",
     description: "ignore sass-like interpolation",
   }, {
-    code: "@font-face {\n" +
-      "font-family: dashicons;\n" +
-      "src: url(data:application/font-woff;charset=utf-8;base64, ABCDEF==) format(\"woff\"),\n" +
-          "url(../fonts/dashicons.ttf) format(\"truetype\"),\n" +
-          "url(../fonts/dashicons.svg#dashicons) format(\"svg\");\n" +
-      "font-weight: normal;\n" +
-      "font-style: normal;\n" +
-    "}",
+    code: "@font-face {\n" + "font-family: dashicons;\n" + "src: url(data:application/font-woff;charset=utf-8;base64, ABCDEF==) format(\"woff\"),\n" + "url(../fonts/dashicons.ttf) format(\"truetype\"),\n" + "url(../fonts/dashicons.svg#dashicons) format(\"svg\");\n" + "font-weight: normal;\n" + "font-style: normal;\n" + "}",
   } ],
 
   reject: [ {

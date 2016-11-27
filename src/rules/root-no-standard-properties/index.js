@@ -1,11 +1,4 @@
-import {
-  isCustomProperty,
-  isStandardSyntaxProperty,
-  parseSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isCustomProperty, isStandardSyntaxProperty, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "root-no-standard-properties"
 
@@ -16,21 +9,34 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      if (rule.selector.toLowerCase().indexOf(":root") === -1) { return }
+      if (rule.selector.toLowerCase().indexOf(":root") === -1) {
+        return
+      }
       parseSelector(rule.selector, result, rule, checkSelector)
 
       function checkSelector(selectorAST) {
-        if (ignoreRule(selectorAST)) { return }
+        if (ignoreRule(selectorAST)) {
+          return
+        }
 
         rule.each(function (node) {
-          if (node.type !== "decl") { return }
+          if (node.type !== "decl") {
+            return
+          }
 
-          const { prop } = node
-          if (!isStandardSyntaxProperty(prop)) { return }
-          if (isCustomProperty(prop)) { return }
+          const prop = node.prop
+
+          if (!isStandardSyntaxProperty(prop)) {
+            return
+          }
+          if (isCustomProperty(prop)) {
+            return
+          }
 
           report({
             message: messages.rejected(prop),
@@ -48,11 +54,7 @@ function ignoreRule(selectorAST) {
   let ignore = false
   selectorAST.walk(selectorNode => {
     // ignore `:root` selector inside a `:not()` selector
-    if (selectorNode.value
-      && selectorNode.value.toLowerCase() === ":root"
-      && selectorNode.parent.parent.value
-      && selectorNode.parent.parent.value.toLowerCase() === ":not"
-    ) {
+    if (selectorNode.value && selectorNode.value.toLowerCase() === ":root" && selectorNode.parent.parent.value && selectorNode.parent.parent.value.toLowerCase() === ":not") {
       ignore = true
     }
   })

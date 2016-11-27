@@ -1,9 +1,4 @@
-import {
-  optionsMatches,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { optionsMatches, report, ruleMessages, validateOptions } from "../../utils"
 import { isNumber } from "lodash"
 import styleSearch from "style-search"
 
@@ -25,7 +20,9 @@ export default function (maxLength, options) {
       },
       optional: true,
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     // Collapse all urls into something nice and short,
     // so they do not throw the game
@@ -63,18 +60,24 @@ export default function (maxLength, options) {
 
       // If the line's length is less than or equal to the specified
       // max, ignore it ... So anything below is liable to be complained about
-      if (nextNewlineIndex - match.endIndex <= maxLength) { return }
+      if (nextNewlineIndex - match.endIndex <= maxLength) {
+        return
+      }
 
       const complaintIndex = nextNewlineIndex - 1
 
       if (ignoreComments) {
-        if (match.insideComment) { return }
+        if (match.insideComment) {
+          return
+        }
 
         // This trimming business is to notice when the line starts a
         // comment but that comment is indented, e.g.
         //       /* something here */
         const nextTwoChars = rootString.slice(match.endIndex).trim().slice(0, 2)
-        if (nextTwoChars === "/*" || nextTwoChars === "//") { return }
+        if (nextTwoChars === "/*" || nextTwoChars === "//") {
+          return
+        }
       }
 
       if (ignoreNonComments) {
@@ -86,7 +89,9 @@ export default function (maxLength, options) {
         // comment but that comment is indented, e.g.
         //       /* something here */
         const nextTwoChars = rootString.slice(match.endIndex).trim().slice(0, 2)
-        if (nextTwoChars !== "/*" && nextTwoChars !== "//") { return }
+        if (nextTwoChars !== "/*" && nextTwoChars !== "//") {
+          return
+        }
         return complain(complaintIndex)
       }
 

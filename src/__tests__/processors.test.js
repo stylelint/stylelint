@@ -15,7 +15,7 @@ describe("processor transforms input and output", () => {
         processors: "./processor-fenced-blocks",
       },
       configBasedir: fixturesPath,
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("number of results", () => {
@@ -52,12 +52,10 @@ describe("processor accepts options", () => {
       code,
       config: {
         extends: "./config-block-no-empty",
-        processors: [
-          [ "./processor-fenced-blocks", { specialMessage: "options worked" } ],
-        ],
+        processors: [[ "./processor-fenced-blocks", { specialMessage: "options worked" } ]],
       },
       configBasedir: fixturesPath,
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("special message", () => {
@@ -69,19 +67,15 @@ describe("multiple processors", () => {
   let results
 
   beforeEach(() => {
-    const code = "one\ntwo\n```start\na {}\nb { color: pink }\n```end\nthree???startc {}???end" +
-      "\n\n???start```start\na {}\nb { color: pink }\n```end???end"
+    const code = "one\ntwo\n```start\na {}\nb { color: pink }\n```end\nthree???startc {}???end" + "\n\n???start```start\na {}\nb { color: pink }\n```end???end"
     return standalone({
       code,
       config: {
         extends: "./config-block-no-empty",
-        processors: [
-          "./processor-triple-question-marks",
-          [ "./processor-fenced-blocks", { specialMessage: "options worked" } ],
-        ],
+        processors: [ "./processor-triple-question-marks", [ "./processor-fenced-blocks", { specialMessage: "options worked" } ] ],
       },
       configBasedir: fixturesPath,
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("number of results", () => {
@@ -127,19 +121,15 @@ describe("loading processors (and extend) from process.cwd", () => {
   })
 
   beforeEach(() => {
-    const code = "one\ntwo\n```start\na {}\nb { color: pink }\n```end\nthree???startc {}???end" +
-      "\n\n???start```start\na {}\nb { color: pink }\n```end???end"
+    const code = "one\ntwo\n```start\na {}\nb { color: pink }\n```end\nthree???startc {}???end" + "\n\n???start```start\na {}\nb { color: pink }\n```end???end"
 
     return standalone({
       code,
       config: {
         extends: "./__tests__/fixtures/config-block-no-empty",
-        processors: [
-          "./__tests__/fixtures/processor-triple-question-marks",
-          [ "./__tests__/fixtures/processor-fenced-blocks", { specialMessage: "options worked" } ],
-        ],
+        processors: [ "./__tests__/fixtures/processor-triple-question-marks", [ "./__tests__/fixtures/processor-fenced-blocks", { specialMessage: "options worked" } ] ],
       },
-    }).then((data) => results = data.results)
+    }).then(data => results = data.results)
   })
 
   it("number of results", () => {

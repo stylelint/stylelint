@@ -5,9 +5,7 @@
  * @return {boolean} If `true`, the rule is a keyframe one
  */
 export default function (rule) {
-  const { parent } = rule
-  return (
-    parent.type === "atrule"
-    && parent.name.toLowerCase() === "keyframes"
-  )
+  const parent = rule.parent
+
+  return parent.type === "atrule" && parent.name.toLowerCase() === "keyframes"
 }

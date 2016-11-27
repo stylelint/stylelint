@@ -1,11 +1,4 @@
-import {
-  blockString,
-  rawNodeString,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { blockString, rawNodeString, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 export const ruleName = "declaration-block-semicolon-space-after"
 
@@ -22,22 +15,23 @@ export default function (expectation) {
   return function (root, result) {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-        "always-single-line",
-        "never-single-line",
-      ],
+      possible: [ "always", "never", "always-single-line", "never-single-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkDecls(function (decl) {
       // Ignore last declaration if there's no trailing semicolon
       const parentRule = decl.parent
-      if (!parentRule.raws.semicolon && parentRule.last === decl) { return }
+      if (!parentRule.raws.semicolon && parentRule.last === decl) {
+        return
+      }
 
       const nextDecl = decl.next()
-      if (!nextDecl) { return }
+      if (!nextDecl) {
+        return
+      }
 
       checker.after({
         source: rawNodeString(nextDecl),

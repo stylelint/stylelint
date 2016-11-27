@@ -1,10 +1,4 @@
-import {
-  isStandardSyntaxRule,
-  isStandardSyntaxSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isStandardSyntaxRule, isStandardSyntaxSelector, report, ruleMessages, validateOptions } from "../../utils"
 import { compare } from "specificity"
 import resolvedNestedSelector from "postcss-resolve-nested-selector"
 
@@ -24,19 +18,29 @@ export default function (max) {
         return pattern.test(max)
       }],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     const maxSpecificityArray = ("0," + max).split(",").map(parseFloat)
     root.walkRules(rule => {
-      if (!isStandardSyntaxRule(rule)) { return }
-      if (!isStandardSyntaxSelector(rule.selector)) { return }
+      if (!isStandardSyntaxRule(rule)) {
+        return
+      }
+      if (!isStandardSyntaxSelector(rule.selector)) {
+        return
+      }
       // Using rule.selectors gets us each selector in the eventuality we have a comma separated set
       rule.selectors.forEach(selector => {
         resolvedNestedSelector(selector, rule).forEach(resolvedSelector => {
           // Return early if selector contains a not pseudo-class
-          if (selector.indexOf(":not(") !== -1) { return }
+          if (selector.indexOf(":not(") !== -1) {
+            return
+          }
           // Return early if selector contains a matches
-          if (selector.indexOf(":matches(") !== -1) { return }
+          if (selector.indexOf(":matches(") !== -1) {
+            return
+          }
           // Check if the selector specificity exceeds the allowed maximum
           try {
             if (compare(resolvedSelector, maxSpecificityArray) === 1) {
@@ -49,7 +53,7 @@ export default function (max) {
               })
             }
           } catch (e) {
-            result.warn("Cannot parse selector", { node : rule })
+            result.warn("Cannot parse selector", { node: rule })
           }
         })
       })

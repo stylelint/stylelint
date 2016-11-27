@@ -1,9 +1,4 @@
-import {
-  isWhitespace,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isWhitespace, report, ruleMessages, validateOptions } from "../../utils"
 import balancedMatch from "balanced-match"
 import styleSearch from "style-search"
 import valueParser from "postcss-value-parser"
@@ -19,7 +14,9 @@ export const messages = ruleMessages(ruleName, {
 export default function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     function complain(message, node, index) {
       report({ message, node, index, result, ruleName })
@@ -27,14 +24,13 @@ export default function (actual) {
 
     root.walkDecls(decl => {
       valueParser(decl.value).walk(node => {
-        if (node.type !== "function" || node.value.toLowerCase() !== "calc") { return }
+        if (node.type !== "function" || node.value.toLowerCase() !== "calc") {
+          return
+        }
 
         const parensMatch = balancedMatch("(", ")", valueParser.stringify(node))
         const rawExpression = parensMatch.body
-        const expressionIndex = decl.source.start.column
-          + decl.prop.length
-          + decl.raws.between.length
-          + node.sourceIndex
+        const expressionIndex = decl.source.start.column + decl.prop.length + decl.raws.between.length + node.sourceIndex
         const expression = blurVariables(rawExpression)
 
         checkSymbol("+")
@@ -60,32 +56,31 @@ export default function (actual) {
               const expressionBeforeSign = expression.substr(0, index)
 
               // Ignore signs that directly follow a opening bracket
-              if (expressionBeforeSign[expressionBeforeSign.length - 1] === "(") { return }
+              if (expressionBeforeSign[expressionBeforeSign.length - 1] === "(") {
+                return
+              }
 
               // Ignore signs at the beginning of the expression
-              if (/^\s*$/.test(expressionBeforeSign)) { return }
+              if (/^\s*$/.test(expressionBeforeSign)) {
+                return
+              }
 
               // Otherwise, ensure that there is a real operator preceeding them
-              if (/[\*/+-]\s*$/.test(expressionBeforeSign)) { return }
+              if (/[\*/+-]\s*$/.test(expressionBeforeSign)) {
+                return
+              }
 
               // And if not, complain
               complain(messages.expectedOperatorBeforeSign(symbol), decl, expressionIndex + index)
               return
             }
 
-            const beforeOk = (
-              (expression[index - 1] === " " && !isWhitespace(expression[index - 2]))
-              || newlineBefore(expression, index - 1)
-            )
+            const beforeOk = expression[index - 1] === " " && !isWhitespace(expression[index - 2]) || newlineBefore(expression, index - 1)
             if (!beforeOk) {
               complain(messages.expectedBefore(symbol), decl, expressionIndex + index)
             }
 
-            const afterOk = (
-              (expression[index + 1] === " " && !isWhitespace(expression[index + 2]))
-              || expression[index + 1] === "\n"
-              || expression.substr(index + 1, 2) === "\r\n"
-            )
+            const afterOk = expression[index + 1] === " " && !isWhitespace(expression[index + 2]) || expression[index + 1] === "\n" || expression.substr(index + 1, 2) === "\r\n"
 
             if (!afterOk) {
               complain(messages.expectedAfter(symbol), decl, expressionIndex + index)

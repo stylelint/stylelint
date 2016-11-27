@@ -1,18 +1,11 @@
-import {
-  isStandardSyntaxSelector,
-  matchesStringOrRegExp,
-  parseSelector,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isStandardSyntaxSelector, matchesStringOrRegExp, parseSelector, report, ruleMessages, validateOptions } from "../../utils"
 import { isString } from "lodash"
 import { vendor } from "postcss"
 
 export const ruleName = "selector-pseudo-class-whitelist"
 
 export const messages = ruleMessages(ruleName, {
-  rejected: (selector) => `Unexpected pseudo-class "${selector}"`,
+  rejected: selector => `Unexpected pseudo-class "${selector}"`,
 })
 
 function rule(whitelist) {
@@ -21,24 +14,35 @@ function rule(whitelist) {
       actual: whitelist,
       possible: [isString],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkRules(rule => {
-      const { selector } = rule
+      const selector = rule.selector
 
-      if (!isStandardSyntaxSelector(selector)) { return }
-      if (selector.indexOf(":") === -1) { return }
+      if (!isStandardSyntaxSelector(selector)) {
+        return
+      }
+      if (selector.indexOf(":") === -1) {
+        return
+      }
 
       parseSelector(selector, result, rule, selectorTree => {
         selectorTree.walkPseudos(pseudoNode => {
-          const { value } = pseudoNode
+          const value = pseudoNode.value
 
           // Ignore pseudo-elements
-          if (value.slice(0, 2) === "::") { return }
+
+          if (value.slice(0, 2) === "::") {
+            return
+          }
 
           const name = value.slice(1)
 
-          if (matchesStringOrRegExp(vendor.unprefixed(name).toLowerCase(), whitelist)) { return }
+          if (matchesStringOrRegExp(vendor.unprefixed(name).toLowerCase(), whitelist)) {
+            return
+          }
 
           report({
             index: pseudoNode.sourceIndex,

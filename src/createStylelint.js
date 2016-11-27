@@ -1,8 +1,5 @@
 /* @flow */
-import {
-  augmentConfigExtended,
-  augmentConfigFull,
-} from "./augmentConfig"
+import { augmentConfigExtended, augmentConfigFull } from "./augmentConfig"
 import _ from "lodash"
 import cosmiconfig from "cosmiconfig"
 import createStylelintResult from "./createStylelintResult"
@@ -14,10 +11,10 @@ import lintSource from "./lintSource"
 // The stylelint "internal API" is passed among functions
 // so that methods on a stylelint instance can invoke
 // each other while sharing options and caches
-export default function (
-  options: stylelint$options = {},
-): stylelint$internalApi {
-  const stylelint: Object = { _options: options }
+export default function () /* : stylelint$internalApi*/ {
+  const options /* : stylelint$options*/ = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
+
+  const stylelint /* : Object*/ = { _options: options }
 
   // Two separate explorers so they can each have their own transform
   // function whose results are cached by cosmiconfig

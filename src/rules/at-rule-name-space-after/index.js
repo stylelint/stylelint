@@ -1,15 +1,9 @@
-import {
-  isStandardSyntaxAtRule,
-  report,
-  ruleMessages,
-  validateOptions,
-  whitespaceChecker,
-} from "../../utils"
+import { isStandardSyntaxAtRule, report, ruleMessages, validateOptions, whitespaceChecker } from "../../utils"
 
 export const ruleName = "at-rule-name-space-after"
 
 export const messages = ruleMessages(ruleName, {
-  expectedAfter: (name) => `Expected single space after at-rule name \"${name}\"`,
+  expectedAfter: name => `Expected single space after at-rule name \"${name}\"`,
 })
 
 export default function (expectation) {
@@ -17,12 +11,11 @@ export default function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "always-single-line",
-      ],
+      possible: [ "always", "always-single-line" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     atRuleNameSpaceChecker({
       root,
@@ -33,15 +26,18 @@ export default function (expectation) {
   }
 }
 
-export function atRuleNameSpaceChecker({ locationChecker, root, result, checkedRuleName }) {
-  root.walkAtRules(atRule => {
-    if (!isStandardSyntaxAtRule(atRule)) { return }
+export function atRuleNameSpaceChecker(_ref) {
+  let locationChecker = _ref.locationChecker,
+    root = _ref.root,
+    result = _ref.result,
+    checkedRuleName = _ref.checkedRuleName
 
-    checkColon(
-      `@${atRule.name}${atRule.raws.afterName}${atRule.params}`,
-      atRule.name.length,
-      atRule
-    )
+  root.walkAtRules(atRule => {
+    if (!isStandardSyntaxAtRule(atRule)) {
+      return
+    }
+
+    checkColon(`@${atRule.name}${atRule.raws.afterName}${atRule.params}`, atRule.name.length, atRule)
   })
 
   function checkColon(source, index, node) {

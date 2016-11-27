@@ -48,7 +48,9 @@ test("isStandardSyntaxAtRule", t => {
   })
 
   scssAtRules("@mixin mixin() { @content; };", atRule => {
-    if (atRule.name === "mixin") { return }
+    if (atRule.name === "mixin") {
+      return
+    }
     t.notOk(isStandardSyntaxAtRule(atRule), "ignore `@content` inside mixins")
   })
 

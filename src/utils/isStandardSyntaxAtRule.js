@@ -4,12 +4,16 @@
  * @param {atRule} postcss at-rule node
  * @return {boolean} If `true`, the declaration is standard
  */
-export default function (atRule: postcss$atRule): boolean {
+export default function (atRule /* : postcss$atRule*/) /* : boolean*/ {
   // Ignore scss `@content` inside mixins
-  if (!atRule.nodes && atRule.params === "") { return false }
+  if (!atRule.nodes && atRule.params === "") {
+    return false
+  }
 
   // Ignore detached ruleset `@detached-ruleset: { background: red; }; .top { @detached-ruleset(); }`
-  if (!atRule.nodes && atRule.raws.afterName === "" && atRule.params[0] === "(") { return false }
+  if (!atRule.nodes && atRule.raws.afterName === "" && atRule.params[0] === "(") {
+    return false
+  }
 
   return true
 }

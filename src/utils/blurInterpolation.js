@@ -1,16 +1,6 @@
 /* @flow */
-/**
- * Replace all of the characters that are interpolation with some innocuous character.
- *
- * For example:
- * blurFunctionArguments("abc url(abc) abc", "url") === "abc url(```) abc"
- *
- * @param {string} source
- * @return {string} - The result string, with the interpolation characters "blurred"
- */
-export default function (
-  source: string,
-  blurChar: string = " "
-): string {
+export default function (source /* : string*/) /* : string*/ {
+  const blurChar /* : string*/ = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : " "
+
   return source.replace(/[#@{}]+/g, blurChar)
 }

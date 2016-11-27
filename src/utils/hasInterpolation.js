@@ -1,8 +1,4 @@
-import {
-  hasLessInterpolation,
-  hasPsvInterpolation,
-  hasScssInterpolation,
-} from "../utils"
+import { hasLessInterpolation, hasPsvInterpolation, hasScssInterpolation } from "../utils"
 /**
  * Check whether a string has interpolation
  *
@@ -11,7 +7,9 @@ import {
  */
 export default function (string) {
   // SCSS or Less interpolation
-  if (hasLessInterpolation(string) || hasScssInterpolation(string) || hasPsvInterpolation(string)) { return true }
+  if (hasLessInterpolation(string) || hasScssInterpolation(string) || hasPsvInterpolation(string)) {
+    return true
+  }
 
   return false
 }

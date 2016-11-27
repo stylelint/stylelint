@@ -21,15 +21,15 @@ import { get } from "lodash"
  * @param {Node} [violation.word] - Word that should be passed to result.warn()
  * @param {number} [violation.line] - Line number of the violation
  */
-export default function ({
-  ruleName,
-  result,
-  message,
-  line,
-  node,
-  index,
-  word,
-}) {
+export default function (_ref) {
+  let ruleName = _ref.ruleName,
+    result = _ref.result,
+    message = _ref.message,
+    line = _ref.line,
+    node = _ref.node,
+    index = _ref.index,
+    word = _ref.word
+
   result.stylelint = result.stylelint || {}
 
   // In quiet mode, mere warnings are ignored
@@ -45,13 +45,12 @@ export default function ({
     const ranges = result.stylelint.disabledRanges[ruleName] || result.stylelint.disabledRanges.all
     for (const range of ranges) {
       if (
-        // If the violation is within a disabledRange,
-        // and that disabledRange's rules include this one,
-        // do not register a warning
-        range.start <= startLine
-        && (range.end >= startLine || range.end === undefined)
-        && (!range.rules || range.rules.indexOf(ruleName) !== -1)
-      ) { return }
+      // If the violation is within a disabledRange,
+      // and that disabledRange's rules include this one,
+      // do not register a warning
+      range.start <= startLine && (range.end >= startLine || range.end === undefined) && (!range.rules || range.rules.indexOf(ruleName) !== -1)) {
+        return
+      }
     }
   }
 
@@ -65,9 +64,15 @@ export default function ({
     severity,
     rule: ruleName,
   }
-  if (node) { warningProperties.node = node }
-  if (index) { warningProperties.index = index }
-  if (word) { warningProperties.word = word }
+  if (node) {
+    warningProperties.node = node
+  }
+  if (index) {
+    warningProperties.index = index
+  }
+  if (word) {
+    warningProperties.word = word
+  }
 
   const warningMessage = get(result.stylelint, [ "customMessages", ruleName ], message)
   result.warn(warningMessage, warningProperties)

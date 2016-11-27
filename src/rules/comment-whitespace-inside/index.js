@@ -1,9 +1,4 @@
-import {
-  isWhitespace,
-  report,
-  ruleMessages,
-  validateOptions,
-} from "../../utils"
+import { isWhitespace, report, ruleMessages, validateOptions } from "../../utils"
 
 export const ruleName = "comment-whitespace-inside"
 
@@ -18,21 +13,24 @@ export default function (expectation) {
   return function (root, result) {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
-      possible: [
-        "always",
-        "never",
-      ],
+      possible: [ "always", "never" ],
     })
-    if (!validOptions) { return }
+    if (!validOptions) {
+      return
+    }
 
     root.walkComments(function (comment) {
-      if (comment.raws.inline || comment.inline) { return }
+      if (comment.raws.inline || comment.inline) {
+        return
+      }
 
       const rawComment = comment.toString()
       const firstFourChars = rawComment.substr(0, 4)
 
       // Return early if sourcemap or copyright comment
-      if (/^\/\*[#!]\s/.test(firstFourChars)) { return }
+      if (/^\/\*[#!]\s/.test(firstFourChars)) {
+        return
+      }
 
       const leftMatches = rawComment.match(/(^\/\*+)(\s)?/)
       const rightMatches = rawComment.match(/(\s)?(\*+\/)$/)
