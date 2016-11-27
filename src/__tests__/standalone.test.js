@@ -339,3 +339,32 @@ it("Setting `plugins` inside `configOverrides` object should overrides the ones 
     expect(results[0].warnings[0].text).toBe("found .bar (plugin/warn-about-bar)")
   })
 })
+
+describe("nonexistent codeFilename with loaded config", () => {
+  let actualCwd
+
+  beforeAll(() => {
+    actualCwd = process.cwd()
+    process.chdir(path.join(__dirname, "./fixtures/getConfigForFile/a/b"))
+  })
+
+  afterAll(() => {
+    process.chdir(actualCwd)
+  })
+
+  it("does not cause error", () => {
+    return standalone({
+      code: "a {}",
+      codeFilename: "does-not-exist.css",
+    })
+  })
+
+  it("does load config from process.cwd", () => {
+    return standalone({
+      code: "a {}",
+      codeFilename: "does-not-exist.css",
+    }).then(({ results }) => {
+      expect(results[0].warnings.length).toBe(1)
+    })
+  })
+})
