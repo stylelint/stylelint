@@ -6,8 +6,6 @@ import path from "path"
 import postcss from "postcss"
 import postcssImport from "postcss-import"
 import rules from "../../../rules"
-import test from "tape"
-import { testRule } from "../../../testUtils"
 
 const rule = rules[ruleName]
 
@@ -89,26 +87,22 @@ testRule(rule, {
   } ],
 })
 
-test("with postcss-import and duplicates within a file", t => {
-  t.plan(1)
-  postcss([ postcssImport(), rule() ])
+it("with postcss-import and duplicates within a file, a warning strikes", () => {
+  return postcss([ postcssImport(), rule() ])
     .process("@import 'fixtures/using-foo-twice.css';", {
       from: path.join(__dirname, "test.css"),
     })
     .then(result => {
-      const warnings = result.warnings()
-      t.equal(warnings.length, 1, "a warning strikes")
+      expect(result.warnings().length).toBe(1)
     })
 })
 
-test("with postcss-import and duplicates across files", t => {
-  t.plan(1)
-  postcss([ postcssImport(), rule() ])
+it("with postcss-import and duplicates across files, no warnings", () => {
+  return postcss([ postcssImport(), rule() ])
     .process("@import 'fixtures/using-foo.css'; @import 'fixtures/also-using-foo.css';", {
       from: path.join(__dirname, "test.css"),
     })
     .then(result => {
-      const warnings = result.warnings()
-      t.equal(warnings.length, 0, "no warnings")
+      expect(result.warnings().length).toBe(0)
     })
 })

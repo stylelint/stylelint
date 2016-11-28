@@ -1,11 +1,8 @@
 import {
-  mergeTestDescriptions,
-  testRule,
-} from "../../../testUtils"
-import {
   messages,
   ruleName,
 } from ".."
+import { mergeTestDescriptions } from "../../../testUtils"
 import rules from "../../../rules"
 import { stripIndent } from "common-tags"
 
@@ -662,7 +659,7 @@ testRule(rule, mergeTestDescriptions(sharedNeverTests, {
     code: stripIndent`
       @charset "UTF-8";
       @import url(x.css);
-      
+
       @import url(y.css);`,
   }, {
     code: stripIndent`

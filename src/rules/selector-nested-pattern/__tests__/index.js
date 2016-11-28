@@ -1,11 +1,8 @@
 import {
-  mergeTestDescriptions,
-  testRule,
-} from "../../../testUtils"
-import {
   messages,
   ruleName,
 } from ".."
+import { mergeTestDescriptions } from "../../../testUtils"
 import rules from "../../../rules"
 import { stripIndent } from "common-tags"
 

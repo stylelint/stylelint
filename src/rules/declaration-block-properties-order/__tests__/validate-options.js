@@ -1,7 +1,6 @@
 import stylelint from "../../.."
-import test from "tape"
 
-test("valid default order", t => {
+it("valid default order", () => {
   const config = {
     rules: {
       "declaration-block-properties-order": [{
@@ -11,17 +10,16 @@ test("valid default order", t => {
       }],
     },
   }
-  stylelint.lint({
+  return stylelint.lint({
     code: "",
     config,
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
-    t.equal(invalidOptionWarnings.length, 0)
-    t.end()
-  }).catch(t.end)
+    expect(invalidOptionWarnings.length).toBe(0)
+  })
 })
 
-test("valid 'strict' order", t => {
+it("valid 'strict' order", () => {
   const config = {
     rules: {
       "declaration-block-properties-order": [{
@@ -32,17 +30,16 @@ test("valid 'strict' order", t => {
       }],
     },
   }
-  stylelint.lint({
+  return stylelint.lint({
     code: "",
     config,
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
-    t.equal(invalidOptionWarnings.length, 0)
-    t.end()
-  }).catch(t.end)
+    expect(invalidOptionWarnings.length).toBe(0)
+  })
 })
 
-test("valid 'flexible' order", t => {
+it("valid 'flexible' order", () => {
   const config = {
     rules: {
       "declaration-block-properties-order": [{
@@ -53,17 +50,16 @@ test("valid 'flexible' order", t => {
       }],
     },
   }
-  stylelint.lint({
+  return stylelint.lint({
     code: "",
     config,
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
-    t.equal(invalidOptionWarnings.length, 0)
-    t.end()
-  }).catch(t.end)
+    expect(invalidOptionWarnings.length).toBe(0)
+  })
 })
 
-test("valid order with a group and one outside property before the group", t => {
+it("valid order with a group and one outside property before the group", () => {
   const config = {
     rules: {
       "declaration-block-properties-order": [
@@ -76,18 +72,16 @@ test("valid order with a group and one outside property before the group", t => 
       ],
     },
   }
-  stylelint.lint({
+  return stylelint.lint({
     code: "",
     config,
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
-    t.equal(invalidOptionWarnings.length, 0)
+    expect(invalidOptionWarnings.length).toBe(0)
   })
-
-  t.plan(1)
 })
 
-test("valid order with a group and one outside property after the group", t => {
+it("valid order with a group and one outside property after the group", () => {
   const config = {
     rules: {
       "declaration-block-properties-order": [
@@ -100,18 +94,16 @@ test("valid order with a group and one outside property after the group", t => {
       ],
     },
   }
-  stylelint.lint({
+  return stylelint.lint({
     code: "",
     config,
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
-    t.equal(invalidOptionWarnings.length, 0)
+    expect(invalidOptionWarnings.length).toBe(0)
   })
-
-  t.plan(1)
 })
 
-test("valid order with a group and two outside properties before the group", t => {
+it("valid order with a group and two outside properties before the group", () => {
   const config = {
     rules: {
       "declaration-block-properties-order": [
@@ -125,18 +117,16 @@ test("valid order with a group and two outside properties before the group", t =
       ],
     },
   }
-  stylelint.lint({
+  return stylelint.lint({
     code: "",
     config,
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
-    t.equal(invalidOptionWarnings.length, 0)
+    expect(invalidOptionWarnings.length).toBe(0)
   })
-
-  t.plan(1)
 })
 
-test("valid order with groups and one outside property before groups", t => {
+it("valid order with groups and one outside property before groups", () => {
   const config = {
     rules: {
       "declaration-block-properties-order": [
@@ -154,18 +144,16 @@ test("valid order with groups and one outside property before groups", t => {
       ],
     },
   }
-  stylelint.lint({
+  return stylelint.lint({
     code: "",
     config,
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
-    t.equal(invalidOptionWarnings.length, 0)
+    expect(invalidOptionWarnings.length).toBe(0)
   })
-
-  t.plan(1)
 })
 
-test("invalid option order option", t => {
+it("invalid option order option", () => {
   const config = {
     rules: {
       "declaration-block-properties-order": [{
@@ -176,21 +164,19 @@ test("invalid option order option", t => {
       }],
     },
   }
-  stylelint.lint({
+  return stylelint.lint({
     code: "",
     config,
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
-    t.equal(invalidOptionWarnings.length, 1)
-    t.equal(
-      invalidOptionWarnings[0].text,
+    expect(invalidOptionWarnings.length).toBe(1)
+    expect(invalidOptionWarnings[0].text).toBe(
       "Invalid option \"[{\"order\":\"unknown-keyword\",\"properties\":[\"color\"]}]\" for rule declaration-block-properties-order"
     )
-    t.end()
-  }).catch(t.end)
+  })
 })
 
-test("invalid object lacks 'properties' property", t => {
+it("invalid object lacks 'properties' property", () => {
   const config = {
     rules: {
       "declaration-block-properties-order": [{
@@ -198,21 +184,19 @@ test("invalid object lacks 'properties' property", t => {
       }],
     },
   }
-  stylelint.lint({
+  return stylelint.lint({
     code: "",
     config,
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
-    t.equal(invalidOptionWarnings.length, 1)
-    t.equal(
-      invalidOptionWarnings[0].text,
+    expect(invalidOptionWarnings.length).toBe(1)
+    expect(invalidOptionWarnings[0].text).toBe(
       "Invalid option \"[{\"order\":\"flexible\"}]\" for rule declaration-block-properties-order"
     )
-    t.end()
-  }).catch(t.end)
+  })
 })
 
-test("invalid object outside of array", t => {
+it("invalid object outside of array", () => {
   const config = {
     rules: {
       "declaration-block-properties-order": {
@@ -222,16 +206,14 @@ test("invalid object outside of array", t => {
       },
     },
   }
-  stylelint.lint({
+  return stylelint.lint({
     code: "",
     config,
   }).then(function (data) {
     const invalidOptionWarnings = data.results[0].invalidOptionWarnings
-    t.equal(invalidOptionWarnings.length, 1)
-    t.equal(
-      invalidOptionWarnings[0].text,
+    expect(invalidOptionWarnings.length).toBe(1)
+    expect(invalidOptionWarnings[0].text).toBe(
       "Invalid option \"{\"properties\":[\"color\"]}\" for rule declaration-block-properties-order"
     )
-    t.end()
-  }).catch(t.end)
+  })
 })
