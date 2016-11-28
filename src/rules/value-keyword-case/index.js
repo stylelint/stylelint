@@ -1,4 +1,4 @@
-import { animationNameKeywords, animationShorthandKeywords, camelCaseKeywords, fontFamilyKeywords, fontShorthandKeywords, gridAreaKeywords, gridColumnKeywords, gridRowKeywords, listStyleShorthandKeywords, listStyleTypeKeywords, systemColors } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 const declarationValueIndex = require("../../utils/declarationValueIndex")
 const getUnitFromValueNode = require("../../utils/getUnitFromValueNode")
 const isCounterIncrementCustomIdentValue = require("../../utils/isCounterIncrementCustomIdentValue")
@@ -20,7 +20,7 @@ export const messages = ruleMessages(ruleName, {
 const ignoredCharacters = new Set([ "+", "-", "/", "*", "%" ])
 
 const mapLowercaseKeywordsToCamelCase = new Map()
-camelCaseKeywords.forEach(func => {
+keywordSets.camelCaseKeywords.forEach(func => {
   mapLowercaseKeywordsToCamelCase.set(func.toLowerCase(), func)
 })
 
@@ -48,7 +48,7 @@ module.exports = function (expectation, options) {
         const valueLowerCase = node.value.toLowerCase()
 
         // Ignore system colors
-        if (systemColors.has(valueLowerCase)) {
+        if (keywordSets.systemColors.has(valueLowerCase)) {
           return
         }
 
@@ -64,34 +64,34 @@ module.exports = function (expectation, options) {
           return
         }
 
-        if (prop === "animation" && !animationShorthandKeywords.has(valueLowerCase) && !animationNameKeywords.has(valueLowerCase)) {
+        if (prop === "animation" && !keywordSets.animationShorthandKeywords.has(valueLowerCase) && !keywordSets.animationNameKeywords.has(valueLowerCase)) {
           return
         }
-        if (prop === "animation-name" && !animationNameKeywords.has(valueLowerCase)) {
+        if (prop === "animation-name" && !keywordSets.animationNameKeywords.has(valueLowerCase)) {
           return
         }
-        if (prop === "font" && !fontShorthandKeywords.has(valueLowerCase) && !fontFamilyKeywords.has(valueLowerCase)) {
+        if (prop === "font" && !keywordSets.fontShorthandKeywords.has(valueLowerCase) && !keywordSets.fontFamilyKeywords.has(valueLowerCase)) {
           return
         }
-        if (prop === "font-family" && !fontFamilyKeywords.has(valueLowerCase)) {
+        if (prop === "font-family" && !keywordSets.fontFamilyKeywords.has(valueLowerCase)) {
           return
         }
         if (prop === "counter-increment" && isCounterIncrementCustomIdentValue(valueLowerCase)) {
           return
         }
-        if (prop === "grid-row" && !gridRowKeywords.has(valueLowerCase)) {
+        if (prop === "grid-row" && !keywordSets.gridRowKeywords.has(valueLowerCase)) {
           return
         }
-        if (prop === "grid-column" && !gridColumnKeywords.has(valueLowerCase)) {
+        if (prop === "grid-column" && !keywordSets.gridColumnKeywords.has(valueLowerCase)) {
           return
         }
-        if (prop === "grid-area" && !gridAreaKeywords.has(valueLowerCase)) {
+        if (prop === "grid-area" && !keywordSets.gridAreaKeywords.has(valueLowerCase)) {
           return
         }
-        if (prop === "list-style" && !listStyleShorthandKeywords.has(valueLowerCase) && !listStyleTypeKeywords.has(valueLowerCase)) {
+        if (prop === "list-style" && !keywordSets.listStyleShorthandKeywords.has(valueLowerCase) && !keywordSets.listStyleTypeKeywords.has(valueLowerCase)) {
           return
         }
-        if (prop === "list-style-type" && !listStyleTypeKeywords.has(valueLowerCase)) {
+        if (prop === "list-style-type" && !keywordSets.listStyleTypeKeywords.has(valueLowerCase)) {
           return
         }
 

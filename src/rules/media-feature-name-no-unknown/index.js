@@ -7,7 +7,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
-import { mediaFeatureNames } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 const mediaParser = require("postcss-media-query-parser")
 import { vendor } from "postcss"
 
@@ -45,7 +45,7 @@ module.exports = function (actual, options) {
           return
         }
 
-        if (vendor.prefix(value) || mediaFeatureNames.has(value.toLowerCase())) {
+        if (vendor.prefix(value) || keywordSets.mediaFeatureNames.has(value.toLowerCase())) {
           return
         }
 

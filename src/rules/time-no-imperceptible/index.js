@@ -2,7 +2,7 @@ const declarationValueIndex = require("../../utils/declarationValueIndex")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { longhandTimeProperties, shorthandTimeProperties } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 const postcss = require("postcss")
 const valueParser = require("postcss-value-parser")
 
@@ -22,13 +22,13 @@ module.exports = function (actual) {
     }
 
     root.walkDecls(decl => {
-      if (longhandTimeProperties.has(postcss.vendor.unprefixed(decl.prop.toLowerCase()))) {
+      if (keywordSets.longhandTimeProperties.has(postcss.vendor.unprefixed(decl.prop.toLowerCase()))) {
         if (isImperceptibleTime(decl.value)) {
           complain(messages.rejected(decl.value), decl)
         }
       }
 
-      if (shorthandTimeProperties.has(postcss.vendor.unprefixed(decl.prop.toLowerCase()))) {
+      if (keywordSets.shorthandTimeProperties.has(postcss.vendor.unprefixed(decl.prop.toLowerCase()))) {
         const valueList = postcss.list.space(decl.value)
         for (const value of valueList) {
           if (isImperceptibleTime(value)) {

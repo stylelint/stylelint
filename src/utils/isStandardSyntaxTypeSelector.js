@@ -5,7 +5,7 @@
  * @return {boolean} If `true`, the type selector is standard
  */
 
-import { aNPlusBNotationPseudoClasses, linguisticPseudoClasses } from "../reference/keywordSets"
+const keywordSets = require("../reference/keywordSets")
 
 module.exports = function (node) {
   // postcss-selector-parser includes the arguments to nth-child() functions
@@ -18,7 +18,7 @@ module.exports = function (node) {
 
   if (parentValue) {
     const normalisedParentName = parentValue.toLowerCase().replace(/:+/, "")
-    if (parentType === "pseudo" && (aNPlusBNotationPseudoClasses.has(normalisedParentName) || linguisticPseudoClasses.has(normalisedParentName))) {
+    if (parentType === "pseudo" && (keywordSets.aNPlusBNotationPseudoClasses.has(normalisedParentName) || keywordSets.linguisticPseudoClasses.has(normalisedParentName))) {
       return false
     }
   }

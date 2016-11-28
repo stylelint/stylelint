@@ -1,4 +1,4 @@
-import { counterIncrementKeywords } from "../reference/keywordSets"
+const keywordSets = require("../reference/keywordSets")
 const _ = require("lodash")
 
 /**
@@ -11,7 +11,7 @@ const _ = require("lodash")
 module.exports = function (value) {
   const valueLowerCase = value.toLowerCase()
 
-  if (counterIncrementKeywords.has(valueLowerCase) || _.isFinite(parseInt(valueLowerCase))) {
+  if (keywordSets.counterIncrementKeywords.has(valueLowerCase) || _.isFinite(parseInt(valueLowerCase))) {
     return false
   }
 

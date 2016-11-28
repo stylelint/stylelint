@@ -5,7 +5,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 import { acceptCustomIdents } from "../../reference/propertySets"
-import { colorFunctionNames } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 const _ = require("lodash")
 const namedColorData = require("../../reference/namedColorData")
 const valueParser = require("postcss-value-parser")
@@ -79,7 +79,7 @@ module.exports = function (expectation, options) {
         }
 
         // First by checking for alternative color function representations ...
-        if (type === "function" && colorFunctionNames.has(value.toLowerCase())) {
+        if (type === "function" && keywordSets.colorFunctionNames.has(value.toLowerCase())) {
           // Remove all spaces to match what's in `representations`
           const normalizedFunctionString = valueParser.stringify(node).replace(/\s+/g, "")
           let namedColor

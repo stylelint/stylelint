@@ -3,7 +3,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
-import { levelOneAndTwoPseudoElements } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 const styleSearch = require("style-search")
 
 export const ruleName = "selector-pseudo-element-colon-notation"
@@ -34,7 +34,7 @@ module.exports = function (expectation) {
       }
 
       // match only level 1 and 2 pseudo elements
-      const pseudoElementsWithColons = _.toArray(levelOneAndTwoPseudoElements).map(x => `:${x}`)
+      const pseudoElementsWithColons = _.toArray(keywordSets.levelOneAndTwoPseudoElements).map(x => `:${x}`)
       styleSearch({ source: selector.toLowerCase(), target: pseudoElementsWithColons }, match => {
         const prevCharIsColon = selector[match.startIndex - 1] === ":"
 

@@ -1,6 +1,8 @@
 const _ = require("lodash")
 
-export const nonLengthUnits = new Set([
+const keywordSets = {}
+
+keywordSets.nonLengthUnits = new Set([
 // Relative length units
   "%",
 // Time length units
@@ -12,7 +14,7 @@ export const nonLengthUnits = new Set([
 // Resolution
   "dpi", "dpcm", "dppx" ])
 
-export const lengthUnits = new Set([
+keywordSets.lengthUnits = new Set([
 // Relative length units
   "em", "ex", "ch", "rem",
 // Viewport-percentage lengths
@@ -20,108 +22,108 @@ export const lengthUnits = new Set([
 // Absolute length units
   "px", "mm", "cm", "in", "pt", "pc", "q" ])
 
-export const units = uniteSets(nonLengthUnits, lengthUnits)
+keywordSets.units = uniteSets(keywordSets.nonLengthUnits, keywordSets.lengthUnits)
 
-export const colorFunctionNames = new Set([ "rgb", "rgba", "hsl", "hsla", "hwb", "gray" ])
+keywordSets.colorFunctionNames = new Set([ "rgb", "rgba", "hsl", "hsla", "hwb", "gray" ])
 
-export const camelCaseFunctionNames = new Set([ "translateX", "translateY", "translateZ", "scaleX", "scaleY", "scaleZ", "rotateX", "rotateY", "rotateZ", "skewX", "skewY" ])
+keywordSets.camelCaseFunctionNames = new Set([ "translateX", "translateY", "translateZ", "scaleX", "scaleY", "scaleZ", "rotateX", "rotateY", "rotateZ", "skewX", "skewY" ])
 
-export const basicKeywords = new Set([ "initial", "inherit", "unset" ])
+keywordSets.basicKeywords = new Set([ "initial", "inherit", "unset" ])
 
-export const fontFamilyKeywords = uniteSets(basicKeywords, [ "serif", "sans-serif", "cursive", "fantasy", "monospace" ])
+keywordSets.fontFamilyKeywords = uniteSets(keywordSets.basicKeywords, [ "serif", "sans-serif", "cursive", "fantasy", "monospace" ])
 
-export const fontWeightRelativeKeywords = new Set([ "bolder", "lighter" ])
+keywordSets.fontWeightRelativeKeywords = new Set([ "bolder", "lighter" ])
 
-export const fontWeightAbsoluteKeywords = new Set(["bold"])
+keywordSets.fontWeightAbsoluteKeywords = new Set(["bold"])
 
-export const fontWeightNumericKeywords = new Set([ "100", "200", "300", "400", "500", "600", "700", "800", "900" ])
+keywordSets.fontWeightNumericKeywords = new Set([ "100", "200", "300", "400", "500", "600", "700", "800", "900" ])
 
-export const fontWeightKeywords = uniteSets(basicKeywords, fontWeightRelativeKeywords, fontWeightAbsoluteKeywords, fontWeightNumericKeywords)
+keywordSets.fontWeightKeywords = uniteSets(keywordSets.basicKeywords, keywordSets.fontWeightRelativeKeywords, keywordSets.fontWeightAbsoluteKeywords, keywordSets.fontWeightNumericKeywords)
 
-export const animationNameKeywords = uniteSets(basicKeywords, ["none"])
+keywordSets.animationNameKeywords = uniteSets(keywordSets.basicKeywords, ["none"])
 
-export const animationTimingFunctionKeywords = uniteSets(basicKeywords, [ "linear", "ease", "ease-in", "ease-in-out", "ease-out", "step-start", "step-end", "steps", "cubic-bezier" ])
+keywordSets.animationTimingFunctionKeywords = uniteSets(keywordSets.basicKeywords, [ "linear", "ease", "ease-in", "ease-in-out", "ease-out", "step-start", "step-end", "steps", "cubic-bezier" ])
 
-export const animationIterationCountKeywords = new Set(["infinite"])
+keywordSets.animationIterationCountKeywords = new Set(["infinite"])
 
-export const animationDirectionKeywords = uniteSets(basicKeywords, [ "normal", "reverse", "alternate", "alternate-reverse" ])
+keywordSets.animationDirectionKeywords = uniteSets(keywordSets.basicKeywords, [ "normal", "reverse", "alternate", "alternate-reverse" ])
 
-export const animationFillModeKeywords = new Set([ "none", "forwards", "backwards", "both" ])
+keywordSets.animationFillModeKeywords = new Set([ "none", "forwards", "backwards", "both" ])
 
-export const animationPlayStateKeywords = uniteSets(basicKeywords, [ "running", "paused" ])
+keywordSets.animationPlayStateKeywords = uniteSets(keywordSets.basicKeywords, [ "running", "paused" ])
 
 // cf. https://developer.mozilla.org/en-US/docs/Web/CSS/animation
-export const animationShorthandKeywords = uniteSets(basicKeywords, animationNameKeywords, animationTimingFunctionKeywords, animationIterationCountKeywords, animationDirectionKeywords, animationFillModeKeywords, animationPlayStateKeywords)
+keywordSets.animationShorthandKeywords = uniteSets(keywordSets.basicKeywords, keywordSets.animationNameKeywords, keywordSets.animationTimingFunctionKeywords, keywordSets.animationIterationCountKeywords, keywordSets.animationDirectionKeywords, keywordSets.animationFillModeKeywords, keywordSets.animationPlayStateKeywords)
 
 // These are the ones that can have single-colon notation
-export const levelOneAndTwoPseudoElements = new Set([ "before", "after", "first-line", "first-letter" ])
+keywordSets.levelOneAndTwoPseudoElements = new Set([ "before", "after", "first-line", "first-letter" ])
 
 // These are the ones that require double-colon notation
-export const levelThreePseudoElements = new Set([ "before", "after", "first-line", "first-letter", "selection", "spelling-error", "grammar-error", "backdrop", "marker", "placeholder", "shadow", "slotted", "content" ])
+keywordSets.levelThreePseudoElements = new Set([ "before", "after", "first-line", "first-letter", "selection", "spelling-error", "grammar-error", "backdrop", "marker", "placeholder", "shadow", "slotted", "content" ])
 
-export const pseudoElements = uniteSets(levelOneAndTwoPseudoElements, levelThreePseudoElements)
+keywordSets.pseudoElements = uniteSets(keywordSets.levelOneAndTwoPseudoElements, keywordSets.levelThreePseudoElements)
 
-export const aNPlusBNotationPseudoClasses = new Set([ "nth-child", "nth-column", "nth-last-child", "nth-last-column", "nth-last-of-type", "nth-of-type" ])
+keywordSets.aNPlusBNotationPseudoClasses = new Set([ "nth-child", "nth-column", "nth-last-child", "nth-last-column", "nth-last-of-type", "nth-of-type" ])
 
-export const linguisticPseudoClasses = new Set([ "dir", "lang" ])
+keywordSets.linguisticPseudoClasses = new Set([ "dir", "lang" ])
 
-export const otherPseudoClasses = new Set([ "active", "any-link", "blank", "checked", "contains", "current", "default", "disabled", "drop", "empty", "enabled", "first-child", "first-of-type", "focus", "focus-within", "fullscreen", "future", "has", "host", "host-context", "hover", "indeterminate", "in-range", "invalid", "last-child", "last-of-type", "link", "matches", "not", "only-child", "only-of-type", "optional", "out-of-range", "past", "placeholder-shown", "read-only", "read-write", "required", "root", "scope", "target", "user-error", "user-invalid", "val", "valid", "visited" ])
+keywordSets.otherPseudoClasses = new Set([ "active", "any-link", "blank", "checked", "contains", "current", "default", "disabled", "drop", "empty", "enabled", "first-child", "first-of-type", "focus", "focus-within", "fullscreen", "future", "has", "host", "host-context", "hover", "indeterminate", "in-range", "invalid", "last-child", "last-of-type", "link", "matches", "not", "only-child", "only-of-type", "optional", "out-of-range", "past", "placeholder-shown", "read-only", "read-write", "required", "root", "scope", "target", "user-error", "user-invalid", "val", "valid", "visited" ])
 
-export const pseudoClasses = uniteSets(aNPlusBNotationPseudoClasses, linguisticPseudoClasses, otherPseudoClasses)
+keywordSets.pseudoClasses = uniteSets(keywordSets.aNPlusBNotationPseudoClasses, keywordSets.linguisticPseudoClasses, keywordSets.otherPseudoClasses)
 
-export const shorthandTimeProperties = new Set([ "transition", "animation" ])
+keywordSets.shorthandTimeProperties = new Set([ "transition", "animation" ])
 
-export const longhandTimeProperties = new Set([ "transition-duration", "transition-delay", "animation-duration", "animation-delay" ])
+keywordSets.longhandTimeProperties = new Set([ "transition-duration", "transition-delay", "animation-duration", "animation-delay" ])
 
-export const timeProperties = uniteSets(shorthandTimeProperties, longhandTimeProperties)
+keywordSets.timeProperties = uniteSets(keywordSets.shorthandTimeProperties, keywordSets.longhandTimeProperties)
 
-export const camelCaseKeywords = new Set([ "optimizeSpeed", "optimizeQuality", "optimizeLegibility", "geometricPrecision", "currentColor", "crispEdges", "visiblePainted", "visibleFill", "visibleStroke", "sRGB", "linearRGB" ])
+keywordSets.camelCaseKeywords = new Set([ "optimizeSpeed", "optimizeQuality", "optimizeLegibility", "geometricPrecision", "currentColor", "crispEdges", "visiblePainted", "visibleFill", "visibleStroke", "sRGB", "linearRGB" ])
 
 // https://developer.mozilla.org/docs/Web/CSS/counter-increment
-export const counterIncrementKeywords = uniteSets(basicKeywords, ["none"])
+keywordSets.counterIncrementKeywords = uniteSets(keywordSets.basicKeywords, ["none"])
 
-export const gridRowKeywords = uniteSets(basicKeywords, [ "auto", "span" ])
+keywordSets.gridRowKeywords = uniteSets(keywordSets.basicKeywords, [ "auto", "span" ])
 
-export const gridColumnKeywords = uniteSets(basicKeywords, [ "auto", "span" ])
+keywordSets.gridColumnKeywords = uniteSets(keywordSets.basicKeywords, [ "auto", "span" ])
 
-export const gridAreaKeywords = uniteSets(basicKeywords, [ "auto", "span" ])
+keywordSets.gridAreaKeywords = uniteSets(keywordSets.basicKeywords, [ "auto", "span" ])
 
 // https://developer.mozilla.org/ru/docs/Web/CSS/list-style-type
-export const listStyleTypeKeywords = uniteSets(basicKeywords, [ "none", "disc", "circle", "square", "decimal", "cjk-decimal", "decimal-leading-zero", "lower-roman", "upper-roman", "lower-greek", "lower-alpha", "lower-latin", "upper-alpha", "upper-latin", "arabic-indic", "armenian", "bengali", "cambodian", "cjk-earthly-branch", "cjk-ideographic", "devanagari", "ethiopic-numeric", "georgian", "gujarati", "gurmukhi", "hebrew", "hiragana", "hiragana-iroha", "japanese-formal", "japanese-informal", "kannada", "katakana", "katakana-iroha", "khmer", "korean-hangul-formal", "korean-hanja-formal", "korean-hanja-informal", "lao", "lower-armenian", "malayalam", "mongolian", "myanmar", "oriya", "persian", "simp-chinese-formal", "simp-chinese-informal", "tamil", "telugu", "thai", "tibetan", "trad-chinese-formal", "trad-chinese-informal", "upper-armenian", "disclosure-open", "disclosure-closed",
+keywordSets.listStyleTypeKeywords = uniteSets(keywordSets.basicKeywords, [ "none", "disc", "circle", "square", "decimal", "cjk-decimal", "decimal-leading-zero", "lower-roman", "upper-roman", "lower-greek", "lower-alpha", "lower-latin", "upper-alpha", "upper-latin", "arabic-indic", "armenian", "bengali", "cambodian", "cjk-earthly-branch", "cjk-ideographic", "devanagari", "ethiopic-numeric", "georgian", "gujarati", "gurmukhi", "hebrew", "hiragana", "hiragana-iroha", "japanese-formal", "japanese-informal", "kannada", "katakana", "katakana-iroha", "khmer", "korean-hangul-formal", "korean-hanja-formal", "korean-hanja-informal", "lao", "lower-armenian", "malayalam", "mongolian", "myanmar", "oriya", "persian", "simp-chinese-formal", "simp-chinese-informal", "tamil", "telugu", "thai", "tibetan", "trad-chinese-formal", "trad-chinese-informal", "upper-armenian", "disclosure-open", "disclosure-closed",
 // Non-standard extensions (without prefixe)
   "ethiopic-halehame", "ethiopic-halehame-am", "ethiopic-halehame-ti-er", "ethiopic-halehame-ti-et", "hangul", "hangul-consonant", "urdu" ])
 
-export const listStylePositionKeywords = uniteSets(basicKeywords, [ "inside", "outside" ])
+keywordSets.listStylePositionKeywords = uniteSets(keywordSets.basicKeywords, [ "inside", "outside" ])
 
-export const listStyleImageKeywords = uniteSets(basicKeywords, ["none"])
+keywordSets.listStyleImageKeywords = uniteSets(keywordSets.basicKeywords, ["none"])
 
-export const listStyleShorthandKeywords = uniteSets(basicKeywords, listStyleTypeKeywords, listStylePositionKeywords, listStyleImageKeywords)
+keywordSets.listStyleShorthandKeywords = uniteSets(keywordSets.basicKeywords, keywordSets.listStyleTypeKeywords, keywordSets.listStylePositionKeywords, keywordSets.listStyleImageKeywords)
 
-export const fontStyleKeywords = uniteSets(basicKeywords, [ "normal", "italic", "oblique" ])
+keywordSets.fontStyleKeywords = uniteSets(keywordSets.basicKeywords, [ "normal", "italic", "oblique" ])
 
-export const fontVariantKeywords = uniteSets(basicKeywords, [ "normal", "none", "historical-forms", "none", "common-ligatures", "no-common-ligatures", "discretionary-ligatures", "no-discretionary-ligatures", "historical-ligatures", "no-historical-ligatures", "contextual", "no-contextual", "small-caps", "small-caps", "all-small-caps", "petite-caps", "all-petite-caps", "unicase", "titling-caps", "lining-nums", "oldstyle-nums", "proportional-nums", "tabular-nums", "diagonal-fractions", "stacked-fractions", "ordinal", "slashed-zero", "jis78", "jis83", "jis90", "jis04", "simplified", "traditional", "full-width", "proportional-width", "ruby" ])
+keywordSets.fontVariantKeywords = uniteSets(keywordSets.basicKeywords, [ "normal", "none", "historical-forms", "none", "common-ligatures", "no-common-ligatures", "discretionary-ligatures", "no-discretionary-ligatures", "historical-ligatures", "no-historical-ligatures", "contextual", "no-contextual", "small-caps", "small-caps", "all-small-caps", "petite-caps", "all-petite-caps", "unicase", "titling-caps", "lining-nums", "oldstyle-nums", "proportional-nums", "tabular-nums", "diagonal-fractions", "stacked-fractions", "ordinal", "slashed-zero", "jis78", "jis83", "jis90", "jis04", "simplified", "traditional", "full-width", "proportional-width", "ruby" ])
 
-export const fontStretchKeywords = uniteSets(basicKeywords, [ "semi-condensed", "condensed", "extra-condensed", "ultra-condensed", "semi-expanded", "expanded", "extra-expanded", "ultra-expanded" ])
+keywordSets.fontStretchKeywords = uniteSets(keywordSets.basicKeywords, [ "semi-condensed", "condensed", "extra-condensed", "ultra-condensed", "semi-expanded", "expanded", "extra-expanded", "ultra-expanded" ])
 
-export const fontSizeKeywords = uniteSets(basicKeywords, [ "xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large", "larger", "smaller" ])
+keywordSets.fontSizeKeywords = uniteSets(keywordSets.basicKeywords, [ "xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large", "larger", "smaller" ])
 
-export const lineHeightKeywords = uniteSets(basicKeywords, ["normal"])
+keywordSets.lineHeightKeywords = uniteSets(keywordSets.basicKeywords, ["normal"])
 
-export const fontShorthandKeywords = uniteSets(basicKeywords, fontStyleKeywords, fontVariantKeywords, fontWeightKeywords, fontStretchKeywords, fontSizeKeywords, lineHeightKeywords, fontFamilyKeywords)
+keywordSets.fontShorthandKeywords = uniteSets(keywordSets.basicKeywords, keywordSets.fontStyleKeywords, keywordSets.fontVariantKeywords, keywordSets.fontWeightKeywords, keywordSets.fontStretchKeywords, keywordSets.fontSizeKeywords, keywordSets.lineHeightKeywords, keywordSets.fontFamilyKeywords)
 
-export const keyframeSelectorKeywords = new Set([ "from", "to" ])
+keywordSets.keyframeSelectorKeywords = new Set([ "from", "to" ])
 
 // https://developer.mozilla.org/en/docs/Web/CSS/At-rule
-export const atRules = new Set([ "apply", "annotation", "character-variant", "charset", "counter-style", "custom-media", "custom-selector", "document", "font-face", "font-feature-values", "import", "keyframes", "media", "namespace", "nest", "ornaments", "page", "styleset", "stylistic", "supports", "swash", "viewport" ])
+keywordSets.atRules = new Set([ "apply", "annotation", "character-variant", "charset", "counter-style", "custom-media", "custom-selector", "document", "font-face", "font-feature-values", "import", "keyframes", "media", "namespace", "nest", "ornaments", "page", "styleset", "stylistic", "supports", "swash", "viewport" ])
 
 // https://drafts.csswg.org/mediaqueries/#descdef-media-update
-export const deprecatedMediaFeatureNames = new Set([ "device-aspect-ratio", "device-height", "device-width", "max-device-aspect-ratio", "max-device-height", "max-device-width", "min-device-aspect-ratio", "min-device-height", "min-device-width" ])
+keywordSets.deprecatedMediaFeatureNames = new Set([ "device-aspect-ratio", "device-height", "device-width", "max-device-aspect-ratio", "max-device-height", "max-device-width", "min-device-aspect-ratio", "min-device-height", "min-device-width" ])
 
 // https://drafts.csswg.org/mediaqueries/#descdef-media-update
-export const mediaFeatureNames = uniteSets(deprecatedMediaFeatureNames, [ "any-hover", "any-pointer", "aspect-ratio", "color", "color-gamut", "color-index", "grid", "height", "hover", "max-aspect-ratio", "max-color", "max-color-index", "max-height", "max-monochrome", "max-resolution", "max-width", "min-aspect-ratio", "min-color", "min-color-index", "min-height", "min-monochrome", "min-resolution", "min-width", "monochrome", "orientation", "overflow-block", "overflow-inline", "pointer", "resolution", "scan", "scripting", "update", "width" ])
+keywordSets.mediaFeatureNames = uniteSets(keywordSets.deprecatedMediaFeatureNames, [ "any-hover", "any-pointer", "aspect-ratio", "color", "color-gamut", "color-index", "grid", "height", "hover", "max-aspect-ratio", "max-color", "max-color-index", "max-height", "max-monochrome", "max-resolution", "max-width", "min-aspect-ratio", "min-color", "min-color-index", "min-height", "min-monochrome", "min-resolution", "min-width", "monochrome", "orientation", "overflow-block", "overflow-inline", "pointer", "resolution", "scan", "scripting", "update", "width" ])
 
 // https://www.w3.org/TR/CSS22/ui.html#system-colors
-export const systemColors = new Set([ "activeborder", "activecaption", "appworkspace", "background", "buttonface", "buttonhighlight", "buttonshadow", "buttontext", "captiontext", "graytext", "highlight", "highlighttext", "inactiveborder", "inactivecaption", "inactivecaptiontext", "infobackground", "infotext", "menu", "menutext", "scrollbar", "threeddarkshadow", "threedface", "threedhighlight", "threedlightshadow", "threedshadow", "window", "windowframe", "windowtext" ])
+keywordSets.systemColors = new Set([ "activeborder", "activecaption", "appworkspace", "background", "buttonface", "buttonhighlight", "buttonshadow", "buttontext", "captiontext", "graytext", "highlight", "highlighttext", "inactiveborder", "inactivecaption", "inactivecaptiontext", "infobackground", "infotext", "menu", "menutext", "scrollbar", "threeddarkshadow", "threedface", "threedhighlight", "threedlightshadow", "threedshadow", "window", "windowframe", "windowtext" ])
 
 function uniteSets() {
   for (var _len = arguments.length, sets = Array(_len), _key = 0; _key < _len; _key++) {

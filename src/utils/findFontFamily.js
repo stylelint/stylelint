@@ -1,4 +1,4 @@
-import { basicKeywords, fontFamilyKeywords, fontShorthandKeywords } from "../reference/keywordSets"
+const keywordSets = require("../reference/keywordSets")
 import { isNumbery, isStandardSyntaxValue, isValidFontSize, isVariable } from "./"
 const postcssValueParser = require("postcss-value-parser")
 
@@ -22,7 +22,7 @@ module.exports = function findFontFamily(value) {
   const valueNodes = postcssValueParser(value)
 
   // Handle `inherit`, `initial` and etc
-  if (valueNodes.nodes.length === 1 && basicKeywords.has(valueNodes.nodes[0].value.toLowerCase())) {
+  if (valueNodes.nodes.length === 1 && keywordSets.basicKeywords.has(valueNodes.nodes[0].value.toLowerCase())) {
     return [valueNodes.nodes[0]]
   }
 
@@ -50,7 +50,7 @@ module.exports = function findFontFamily(value) {
     }
 
     // Ignore keywords for other font parts
-    if (fontShorthandKeywords.has(valueLowerCase) && !fontFamilyKeywords.has(valueLowerCase)) {
+    if (keywordSets.fontShorthandKeywords.has(valueLowerCase) && !keywordSets.fontFamilyKeywords.has(valueLowerCase)) {
       return
     }
 

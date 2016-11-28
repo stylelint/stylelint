@@ -2,7 +2,7 @@ const optionsMatches = require("../../utils/optionsMatches")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { atRules } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 const _ = require("lodash")
 import { vendor } from "postcss"
 
@@ -35,7 +35,7 @@ module.exports = function (actual, options) {
         return
       }
 
-      if (vendor.prefix(name) || atRules.has(name.toLowerCase())) {
+      if (vendor.prefix(name) || keywordSets.atRules.has(name.toLowerCase())) {
         return
       }
 

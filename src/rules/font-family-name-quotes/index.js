@@ -4,7 +4,7 @@ const isVariable = require("../../utils/isVariable")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { fontFamilyKeywords } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 
 export const ruleName = "font-family-name-quotes"
 
@@ -82,7 +82,7 @@ module.exports = function (expectation) {
 
       // Disallow quotes around (case-insensitive) keywords
       // and system font keywords in all cases
-      if (fontFamilyKeywords.has(family.toLowerCase()) || isSystemFontKeyword(family)) {
+      if (keywordSets.fontFamilyKeywords.has(family.toLowerCase()) || isSystemFontKeyword(family)) {
         if (hasQuotes) {
           return complain(messages.rejected(family), family, decl)
         }

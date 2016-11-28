@@ -3,7 +3,7 @@ const findAnimationName = require("../../utils/findAnimationName")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { animationNameKeywords } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 
 export const ruleName = "no-unknown-animations"
 
@@ -32,7 +32,7 @@ module.exports = function (actual) {
         }
 
         animationNames.forEach(animationNameNode => {
-          if (animationNameKeywords.has(animationNameNode.value.toLowerCase())) {
+          if (keywordSets.animationNameKeywords.has(animationNameNode.value.toLowerCase())) {
             return
           }
           if (declaredAnimations.has(animationNameNode.value)) {

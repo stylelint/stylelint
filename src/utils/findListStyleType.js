@@ -1,5 +1,5 @@
 import { isStandardSyntaxValue, isVariable } from "./"
-import { listStyleImageKeywords, listStylePositionKeywords, listStyleTypeKeywords } from "../reference/keywordSets"
+const keywordSets = require("../reference/keywordSets")
 const postcssValueParser = require("postcss-value-parser")
 
 /**
@@ -14,7 +14,7 @@ module.exports = function findListStyleType(value) {
   const valueNodes = postcssValueParser(value)
 
   // Handle `inherit`, `initial` and etc
-  if (valueNodes.nodes.length === 1 && listStyleTypeKeywords.has(valueNodes.nodes[0].value.toLowerCase())) {
+  if (valueNodes.nodes.length === 1 && keywordSets.listStyleTypeKeywords.has(valueNodes.nodes[0].value.toLowerCase())) {
     return [valueNodes.nodes[0]]
   }
 
@@ -37,7 +37,7 @@ module.exports = function findListStyleType(value) {
       return
     }
     // Ignore keywords for other font parts
-    if (listStylePositionKeywords.has(valueLowerCase) || listStyleImageKeywords.has(valueLowerCase)) {
+    if (keywordSets.listStylePositionKeywords.has(valueLowerCase) || keywordSets.listStyleImageKeywords.has(valueLowerCase)) {
       return
     }
 

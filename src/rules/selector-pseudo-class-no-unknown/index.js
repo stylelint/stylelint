@@ -5,7 +5,7 @@ const parseSelector = require("../../utils/parseSelector")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { pseudoClasses, pseudoElements } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 const _ = require("lodash")
 import { vendor } from "postcss"
 
@@ -59,7 +59,7 @@ module.exports = function (actual, options) {
 
           const name = value.slice(1)
 
-          if (vendor.prefix(name) || pseudoClasses.has(name.toLowerCase()) || pseudoElements.has(name.toLowerCase())) {
+          if (vendor.prefix(name) || keywordSets.pseudoClasses.has(name.toLowerCase()) || keywordSets.pseudoElements.has(name.toLowerCase())) {
             return
           }
 

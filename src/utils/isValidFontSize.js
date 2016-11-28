@@ -1,4 +1,4 @@
-import { fontSizeKeywords, lengthUnits } from "../reference/keywordSets"
+const keywordSets = require("../reference/keywordSets")
 const valueParser = require("postcss-value-parser")
 
 /**
@@ -12,7 +12,7 @@ module.exports = function (word) {
     return false
   }
 
-  if (fontSizeKeywords.has(word)) {
+  if (keywordSets.fontSizeKeywords.has(word)) {
     return true
   }
 
@@ -26,7 +26,7 @@ module.exports = function (word) {
   if (unit === "%") {
     return true
   }
-  if (lengthUnits.has(unit.toLowerCase())) {
+  if (keywordSets.lengthUnits.has(unit.toLowerCase())) {
     return true
   }
 

@@ -4,7 +4,7 @@ const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { camelCaseFunctionNames } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 const _ = require("lodash")
 const valueParser = require("postcss-value-parser")
 
@@ -15,7 +15,7 @@ export const messages = ruleMessages(ruleName, {
 })
 
 const mapLowercaseFunctionNamesToCamelCase = new Map()
-camelCaseFunctionNames.forEach(func => {
+keywordSets.camelCaseFunctionNames.forEach(func => {
   mapLowercaseFunctionNamesToCamelCase.set(func.toLowerCase(), func)
 })
 

@@ -7,7 +7,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
-import { pseudoElements } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 const resolvedNestedSelector = require("postcss-resolve-nested-selector")
 
 export const ruleName = "no-descending-specificity"
@@ -85,7 +85,7 @@ function lastCompoundSelectorWithoutPseudoClasses(selectorNode) {
   }))
 
   const nodesWithoutPseudoClasses = nodesAfterLastCombinator.filter(node => {
-    return node.type !== "pseudo" || pseudoElements.has(node.value.replace(/:/g, ""))
+    return node.type !== "pseudo" || keywordSets.pseudoElements.has(node.value.replace(/:/g, ""))
   }).join("")
 
   return nodesWithoutPseudoClasses.toString()

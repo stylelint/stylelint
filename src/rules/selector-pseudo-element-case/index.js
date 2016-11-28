@@ -4,7 +4,7 @@ const parseSelector = require("../../utils/parseSelector")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { levelOneAndTwoPseudoElements } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 
 export const ruleName = "selector-pseudo-element-case"
 
@@ -41,7 +41,7 @@ module.exports = function (expectation) {
             return
           }
 
-          if (pseudoElement.indexOf("::") === -1 && !levelOneAndTwoPseudoElements.has(pseudoElement.toLowerCase().slice(1))) {
+          if (pseudoElement.indexOf("::") === -1 && !keywordSets.levelOneAndTwoPseudoElements.has(pseudoElement.toLowerCase().slice(1))) {
             return
           }
 

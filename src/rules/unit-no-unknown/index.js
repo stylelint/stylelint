@@ -6,7 +6,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
-import { units } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 const valueParser = require("postcss-value-parser")
 
 export const ruleName = "unit-no-unknown"
@@ -45,7 +45,7 @@ module.exports = function (actual, options) {
           return
         }
 
-        if (units.has(unit.toLowerCase())) {
+        if (keywordSets.units.has(unit.toLowerCase())) {
           return
         }
 

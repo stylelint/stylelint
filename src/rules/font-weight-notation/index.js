@@ -6,7 +6,7 @@ const optionsMatches = require("../../utils/optionsMatches")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { fontWeightKeywords, fontWeightRelativeKeywords } from "../../reference/keywordSets"
+const keywordSets = require("../../reference/keywordSets")
 const _ = require("lodash")
 const postcss = require("postcss")
 
@@ -56,7 +56,7 @@ module.exports = function (expectation, options) {
       const hasNumericFontWeight = valueList.some(isNumbery)
 
       for (const value of postcss.list.space(decl.value)) {
-        if (value.toLowerCase() === NORMAL_KEYWORD && !hasNumericFontWeight || isNumbery(value) || value.toLowerCase() !== NORMAL_KEYWORD && fontWeightKeywords.has(value.toLowerCase())) {
+        if (value.toLowerCase() === NORMAL_KEYWORD && !hasNumericFontWeight || isNumbery(value) || value.toLowerCase() !== NORMAL_KEYWORD && keywordSets.fontWeightKeywords.has(value.toLowerCase())) {
           checkWeight(value, decl)
           return
         }
@@ -74,7 +74,7 @@ module.exports = function (expectation, options) {
         return
       }
 
-      if (optionsMatches(options, "ignore", "relative") && fontWeightRelativeKeywords.has(weightValue.toLowerCase())) {
+      if (optionsMatches(options, "ignore", "relative") && keywordSets.fontWeightRelativeKeywords.has(weightValue.toLowerCase())) {
         return
       }
 
@@ -93,7 +93,7 @@ module.exports = function (expectation, options) {
           }
           return
         }
-        if (!fontWeightKeywords.has(weightValue.toLowerCase()) && weightValue.toLowerCase() !== NORMAL_KEYWORD) {
+        if (!keywordSets.fontWeightKeywords.has(weightValue.toLowerCase()) && weightValue.toLowerCase() !== NORMAL_KEYWORD) {
           return complain(messages.invalidNamed(weightValue))
         }
         return

@@ -1,4 +1,4 @@
-import { keyframeSelectorKeywords } from "../reference/keywordSets"
+const keywordSets = require("../reference/keywordSets")
 
 /**
  * Check whether a string is a keyframe selector.
@@ -7,7 +7,7 @@ import { keyframeSelectorKeywords } from "../reference/keywordSets"
  * @return {boolean} If `true`, the selector is a keyframe selector
  */
 module.exports = function (selector) {
-  if (keyframeSelectorKeywords.has(selector)) {
+  if (keywordSets.keyframeSelectorKeywords.has(selector)) {
     return true
   }
 
