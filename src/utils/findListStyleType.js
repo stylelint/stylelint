@@ -1,4 +1,5 @@
-import { isStandardSyntaxValue, isVariable } from "./"
+const isStandardSyntaxValue = require("./isStandardSyntaxValue")
+const isVariable = require("./isVariable")
 const keywordSets = require("../reference/keywordSets")
 const postcssValueParser = require("postcss-value-parser")
 

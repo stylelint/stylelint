@@ -1,5 +1,8 @@
 const keywordSets = require("../reference/keywordSets")
-import { isNumbery, isStandardSyntaxValue, isValidFontSize, isVariable } from "./"
+const isNumbery = require("./isNumbery")
+const isStandardSyntaxValue = require("./isStandardSyntaxValue")
+const isValidFontSize = require("./isValidFontSize")
+const isVariable = require("./isVariable")
 const postcssValueParser = require("postcss-value-parser")
 
 const nodeTypesToCheck = new Set([ "word", "string", "space", "div" ])

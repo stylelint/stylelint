@@ -1,5 +1,7 @@
 const keywordSets = require("../reference/keywordSets")
-import { getUnitFromValueNode, isStandardSyntaxValue, isVariable } from "./"
+const getUnitFromValueNode = require("./getUnitFromValueNode")
+const isStandardSyntaxValue = require("./isStandardSyntaxValue")
+const isVariable = require("./isVariable")
 const postcssValueParser = require("postcss-value-parser")
 
 /**
