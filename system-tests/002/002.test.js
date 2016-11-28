@@ -1,6 +1,5 @@
-"use strict"
-
 /* @flow */
+"use strict"
 const systemTestUtils = require("../systemTestUtils")
 const stylelint = require("../../lib")
 
