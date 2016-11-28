@@ -7,13 +7,13 @@ const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const postcss = require("postcss")
 
-export const ruleName = "property-blacklist"
+const ruleName = "property-blacklist"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: property => `Unexpected property "${property}"`,
 })
 
-function rule(blacklist) {
+const rule = function(blacklist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
@@ -48,4 +48,7 @@ function rule(blacklist) {
 
 rule.primaryOptionArray = true
 
+
+rule.ruleName = ruleName
+rule.messages = messages
 module.exports = rule

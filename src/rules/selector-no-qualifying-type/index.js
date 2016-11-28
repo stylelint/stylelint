@@ -8,9 +8,9 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const resolvedNestedSelector = require("postcss-resolve-nested-selector")
 
-export const ruleName = "selector-no-qualifying-type"
+const ruleName = "selector-no-qualifying-type"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: "Unexpected qualifying type selector",
 })
 
@@ -38,7 +38,7 @@ function getRightNodes(node) {
   return result
 }
 
-module.exports = ((enabled, options) => {
+const rule = function (enabled, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: enabled,
@@ -115,4 +115,8 @@ module.exports = ((enabled, options) => {
       }
     })
   }
-})
+}
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

@@ -9,13 +9,13 @@ const _ = require("lodash")
 const validateObjectWithStringArrayProps = require("../../utils/validateObjectWithStringArrayProps")
 const valueParser = require("postcss-value-parser")
 
-export const ruleName = "unit-whitelist"
+const ruleName = "unit-whitelist"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: unit => `Unexpected unit "${unit}"`,
 })
 
-function rule(whitelistInput, options) {
+const rule = function(whitelistInput, options) {
   const whitelist = [].concat(whitelistInput)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -66,4 +66,7 @@ function rule(whitelistInput, options) {
 
 rule.primaryOptionArray = true
 
+
+rule.ruleName = ruleName
+rule.messages = messages
 module.exports = rule

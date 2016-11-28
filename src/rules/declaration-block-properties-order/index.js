@@ -6,13 +6,13 @@ const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const postcss = require("postcss")
 
-export const ruleName = "declaration-block-properties-order"
+const ruleName = "declaration-block-properties-order"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: (first, second) => `Expected "${first}" to come before "${second}"`,
 })
 
-function rule(expectation, options) {
+const rule = function(expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -185,6 +185,9 @@ function rule(expectation, options) {
 
 rule.primaryOptionArray = true
 
+
+rule.ruleName = ruleName
+rule.messages = messages
 module.exports = rule
 
 function createExpectedOrder(input) {

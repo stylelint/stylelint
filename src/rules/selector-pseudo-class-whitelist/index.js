@@ -7,13 +7,13 @@ const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const postcss = require("postcss")
 
-export const ruleName = "selector-pseudo-class-whitelist"
+const ruleName = "selector-pseudo-class-whitelist"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: selector => `Unexpected pseudo-class "${selector}"`,
 })
 
-function rule(whitelist) {
+const rule = function(whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,
@@ -64,4 +64,7 @@ function rule(whitelist) {
 
 rule.primaryOptionArray = true
 
+
+rule.ruleName = ruleName
+rule.messages = messages
 module.exports = rule

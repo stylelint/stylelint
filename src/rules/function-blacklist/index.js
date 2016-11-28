@@ -8,13 +8,13 @@ const _ = require("lodash")
 const valueParser = require("postcss-value-parser")
 const postcss = require("postcss")
 
-export const ruleName = "function-blacklist"
+const ruleName = "function-blacklist"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: name => `Unexpected function "${name}"`,
 })
 
-function rule(blacklist) {
+const rule = function(blacklist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
@@ -51,4 +51,7 @@ function rule(blacklist) {
 
 rule.primaryOptionArray = true
 
+
+rule.ruleName = ruleName
+rule.messages = messages
 module.exports = rule

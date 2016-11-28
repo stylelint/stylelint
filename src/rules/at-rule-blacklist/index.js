@@ -4,13 +4,13 @@ const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const postcss = require("postcss")
 
-export const ruleName = "at-rule-blacklist"
+const ruleName = "at-rule-blacklist"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: name => `Unexpected at-rule "${name}"`,
 })
 
-function rule(blacklistInput) {
+const rule = function(blacklistInput) {
   // To allow for just a string as a parameter (not only arrays of strings)
   const blacklist = [].concat(blacklistInput)
   return (root, result) => {
@@ -41,4 +41,7 @@ function rule(blacklistInput) {
 
 rule.primaryOptionArray = true
 
+
+rule.ruleName = ruleName
+rule.messages = messages
 module.exports = rule

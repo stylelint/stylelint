@@ -5,13 +5,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 
-export const ruleName = "selector-attribute-operator-blacklist"
+const ruleName = "selector-attribute-operator-blacklist"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: operator => `Unexpected operator "${operator}"`,
 })
 
-function rule(blacklistInput) {
+const rule = function(blacklistInput) {
   const blacklist = [].concat(blacklistInput)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -53,4 +53,7 @@ function rule(blacklistInput) {
 
 rule.primaryOptionArray = true
 
+
+rule.ruleName = ruleName
+rule.messages = messages
 module.exports = rule
