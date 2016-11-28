@@ -7,7 +7,7 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const keywordSets = require("../../reference/keywordSets")
 const _ = require("lodash")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "selector-pseudo-class-no-unknown"
 
@@ -59,7 +59,7 @@ module.exports = function (actual, options) {
 
           const name = value.slice(1)
 
-          if (vendor.prefix(name) || keywordSets.pseudoClasses.has(name.toLowerCase()) || keywordSets.pseudoElements.has(name.toLowerCase())) {
+          if (postcss.vendor.prefix(name) || keywordSets.pseudoClasses.has(name.toLowerCase()) || keywordSets.pseudoElements.has(name.toLowerCase())) {
             return
           }
 

@@ -6,7 +6,7 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const valueParser = require("postcss-value-parser")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "function-blacklist"
 
@@ -33,7 +33,7 @@ function rule(blacklist) {
         if (!isStandardSyntaxFunction(node)) {
           return
         }
-        if (!matchesStringOrRegExp(vendor.unprefixed(node.value).toLowerCase(), blacklist)) {
+        if (!matchesStringOrRegExp(postcss.vendor.unprefixed(node.value).toLowerCase(), blacklist)) {
           return
         }
 

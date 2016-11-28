@@ -9,7 +9,7 @@ const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const keywordSets = require("../../reference/keywordSets")
 const mediaParser = require("postcss-media-query-parser")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "media-feature-name-no-unknown"
 
@@ -45,7 +45,7 @@ module.exports = function (actual, options) {
           return
         }
 
-        if (vendor.prefix(value) || keywordSets.mediaFeatureNames.has(value.toLowerCase())) {
+        if (postcss.vendor.prefix(value) || keywordSets.mediaFeatureNames.has(value.toLowerCase())) {
           return
         }
 

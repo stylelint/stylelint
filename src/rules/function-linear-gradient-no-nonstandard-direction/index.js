@@ -2,7 +2,7 @@ const functionArgumentsSearch = require("../../utils/functionArgumentsSearch")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "function-linear-gradient-no-nonstandard-direction"
 
@@ -54,7 +54,7 @@ module.exports = function (actual) {
           return
         }
 
-        const withToPrefix = !vendor.prefix(decl.value)
+        const withToPrefix = !postcss.vendor.prefix(decl.value)
         if (!isStandardDirection(firstArg, withToPrefix)) {
           complain()
           return

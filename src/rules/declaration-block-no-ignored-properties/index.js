@@ -2,7 +2,7 @@ const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "declaration-block-no-ignored-properties"
 
@@ -83,8 +83,8 @@ module.exports = function (actual) {
 
     Object.keys(uniqueDecls).forEach((prop, index) => {
       const decl = uniqueDecls[prop]
-      const unprefixedProp = vendor.unprefixed(prop)
-      const unprefixedValue = vendor.unprefixed(decl.value)
+      const unprefixedProp = postcss.vendor.unprefixed(prop)
+      const unprefixedValue = postcss.vendor.unprefixed(decl.value)
 
       ignored.forEach(ignore => {
         const matchProperty = matchesStringOrRegExp(unprefixedProp.toLowerCase(), ignore.property)

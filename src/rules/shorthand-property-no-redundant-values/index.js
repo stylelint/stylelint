@@ -5,7 +5,7 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const shorthandData = require("../../reference/shorthandData")
 const valueParser = require("postcss-value-parser")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "shorthand-property-no-redundant-values"
 
@@ -74,7 +74,7 @@ module.exports = function (actual) {
       const prop = decl.prop,
         value = decl.value
 
-      const normalizedProp = vendor.unprefixed(prop.toLowerCase())
+      const normalizedProp = postcss.vendor.unprefixed(prop.toLowerCase())
 
       // Ignore not shorthandable properties, and math operations
       if (isIgnoredCharacters(value) || !shorthandableProperties.has(normalizedProp) || ignoredShorthandProperties.has(normalizedProp)) {

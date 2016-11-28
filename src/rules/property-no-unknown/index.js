@@ -7,7 +7,7 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 import { all as properties } from "known-css-properties"
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "property-no-unknown"
 
@@ -45,7 +45,7 @@ module.exports = function (actual, options) {
         return
       }
 
-      if (!shouldCheckPrefixed && vendor.prefix(prop)) {
+      if (!shouldCheckPrefixed && postcss.vendor.prefix(prop)) {
         return
       }
 

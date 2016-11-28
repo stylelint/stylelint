@@ -6,7 +6,7 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const valueParser = require("postcss-value-parser")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "declaration-property-unit-blacklist"
 
@@ -28,7 +28,7 @@ module.exports = function (blacklist) {
       const prop = decl.prop,
         value = decl.value
 
-      const unprefixedProp = vendor.unprefixed(prop)
+      const unprefixedProp = postcss.vendor.unprefixed(prop)
 
       const propBlacklist = _.find(blacklist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
 

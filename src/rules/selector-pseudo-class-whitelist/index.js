@@ -5,7 +5,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "selector-pseudo-class-whitelist"
 
@@ -45,7 +45,7 @@ function rule(whitelist) {
 
           const name = value.slice(1)
 
-          if (matchesStringOrRegExp(vendor.unprefixed(name).toLowerCase(), whitelist)) {
+          if (matchesStringOrRegExp(postcss.vendor.unprefixed(name).toLowerCase(), whitelist)) {
             return
           }
 

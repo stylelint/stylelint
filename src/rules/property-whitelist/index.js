@@ -5,7 +5,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "property-whitelist"
 
@@ -32,7 +32,7 @@ function rule(whitelist) {
       if (isCustomProperty(prop)) {
         return
       }
-      if (matchesStringOrRegExp(vendor.unprefixed(prop), whitelist)) {
+      if (matchesStringOrRegExp(postcss.vendor.unprefixed(prop), whitelist)) {
         return
       }
 

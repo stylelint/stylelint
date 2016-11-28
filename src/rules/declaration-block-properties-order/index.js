@@ -4,7 +4,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "declaration-block-properties-order"
 
@@ -64,7 +64,7 @@ function rule(expectation, options) {
           return
         }
 
-        let unprefixedPropName = vendor.unprefixed(prop)
+        let unprefixedPropName = postcss.vendor.unprefixed(prop)
 
         // Hack to allow -moz-osx-font-smoothing to be understood
         // just like -webkit-font-smoothing

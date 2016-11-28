@@ -6,7 +6,7 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const valueParser = require("postcss-value-parser")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "function-whitelist"
 
@@ -34,7 +34,7 @@ function rule(whitelistInput) {
         if (!isStandardSyntaxFunction(node)) {
           return
         }
-        if (matchesStringOrRegExp(vendor.unprefixed(node.value).toLowerCase(), whitelist)) {
+        if (matchesStringOrRegExp(postcss.vendor.unprefixed(node.value).toLowerCase(), whitelist)) {
           return
         }
         report({

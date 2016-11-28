@@ -3,7 +3,7 @@ const matchesStringOrRegExp = require("../../utils/matchesStringOrRegExp")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "declaration-property-value-whitelist"
 
@@ -25,7 +25,7 @@ module.exports = function (whitelist) {
       const prop = decl.prop,
         value = decl.value
 
-      const unprefixedProp = vendor.unprefixed(prop)
+      const unprefixedProp = postcss.vendor.unprefixed(prop)
       const propWhitelist = _.find(whitelist, (list, propIdentifier) => matchesStringOrRegExp(unprefixedProp, propIdentifier))
 
       if (_.isEmpty(propWhitelist)) {

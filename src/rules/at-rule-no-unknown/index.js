@@ -4,7 +4,7 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const keywordSets = require("../../reference/keywordSets")
 const _ = require("lodash")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "at-rule-no-unknown"
 
@@ -35,7 +35,7 @@ module.exports = function (actual, options) {
         return
       }
 
-      if (vendor.prefix(name) || keywordSets.atRules.has(name.toLowerCase())) {
+      if (postcss.vendor.prefix(name) || keywordSets.atRules.has(name.toLowerCase())) {
         return
       }
 

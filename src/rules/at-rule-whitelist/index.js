@@ -2,7 +2,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "at-rule-whitelist"
 
@@ -25,7 +25,7 @@ function rule(whitelistInput) {
     root.walkAtRules(atRule => {
       const name = atRule.name
 
-      if (whitelist.indexOf(vendor.unprefixed(name).toLowerCase()) !== -1) {
+      if (whitelist.indexOf(postcss.vendor.unprefixed(name).toLowerCase()) !== -1) {
         return
       }
 

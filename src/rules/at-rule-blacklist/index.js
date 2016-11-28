@@ -2,7 +2,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
-import { vendor } from "postcss"
+const postcss = require("postcss")
 
 export const ruleName = "at-rule-blacklist"
 
@@ -25,7 +25,7 @@ function rule(blacklistInput) {
     root.walkAtRules(atRule => {
       const name = atRule.name
 
-      if (blacklist.indexOf(vendor.unprefixed(name).toLowerCase()) === -1) {
+      if (blacklist.indexOf(postcss.vendor.unprefixed(name).toLowerCase()) === -1) {
         return
       }
 
