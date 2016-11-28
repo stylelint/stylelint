@@ -7,14 +7,14 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 
-export const ruleName = "function-url-quotes"
+const ruleName = "function-url-quotes"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: () => "Expected quotes",
   rejected: () => "Unexpected quotes",
 })
 
-module.exports = function (expectation, options) {
+const rule = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -98,3 +98,7 @@ module.exports = function (expectation, options) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

@@ -4,13 +4,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const styleSearch = require("style-search")
 
-export const ruleName = "color-no-invalid-hex"
+const ruleName = "color-no-invalid-hex"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: hex => `Unexpected invalid hex color "${hex}"`,
 })
 
-module.exports = function (actual) {
+const rule = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {
@@ -49,3 +49,7 @@ module.exports = function (actual) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

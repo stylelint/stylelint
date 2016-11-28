@@ -6,9 +6,9 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 
-export const ruleName = "block-closing-brace-space-after"
+const ruleName = "block-closing-brace-space-after"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected single space after \"}\"",
   rejectedAfter: () => "Unexpected whitespace after \"}\"",
   expectedAfterSingleLine: () => "Expected single space after \"}\" of a single-line block",
@@ -17,7 +17,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfterMultiLine: () => "Unexpected whitespace after \"}\" of a multi-line block",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
 
   return function (root, result) {
@@ -68,3 +68,7 @@ module.exports = function (expectation) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

@@ -4,14 +4,14 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 
-export const ruleName = "selector-attribute-quotes"
+const ruleName = "selector-attribute-quotes"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: value => `Expected quotes around "${value}"`,
   rejected: value => `Unexpected quotes around "${value}"`,
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -59,3 +59,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

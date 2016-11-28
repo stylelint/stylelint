@@ -5,14 +5,14 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const valueParser = require("postcss-value-parser")
 
-export const ruleName = "function-url-data-uris"
+const ruleName = "function-url-data-uris"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: "Expected a data URI",
   rejected: "Unexpected data URI",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -53,3 +53,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

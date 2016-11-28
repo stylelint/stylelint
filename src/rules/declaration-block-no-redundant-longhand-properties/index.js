@@ -5,13 +5,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const shorthandData = require("../../reference/shorthandData")
 
-export const ruleName = "declaration-block-no-redundant-longhand-properties"
+const ruleName = "declaration-block-no-redundant-longhand-properties"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: props => `Expected shorthand property "${props}"`,
 })
 
-module.exports = function (actual, options) {
+const rule = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
@@ -72,3 +72,7 @@ module.exports = function (actual, options) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

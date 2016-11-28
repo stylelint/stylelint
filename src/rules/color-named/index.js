@@ -10,9 +10,9 @@ const _ = require("lodash")
 const namedColorData = require("../../reference/namedColorData")
 const valueParser = require("postcss-value-parser")
 
-export const ruleName = "color-named"
+const ruleName = "color-named"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: (named, original) => `Expected "${original}" to be "${named}"`,
   rejected: named => `Unexpected named color "${named}"`,
 })
@@ -20,7 +20,7 @@ export const messages = ruleMessages(ruleName, {
 // Todo tested on case insensivity
 const NODE_TYPES = [ "word", "function" ]
 
-module.exports = function (expectation, options) {
+const rule = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -116,3 +116,7 @@ module.exports = function (expectation, options) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

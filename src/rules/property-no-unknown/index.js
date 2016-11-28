@@ -9,13 +9,13 @@ const _ = require("lodash")
 import { all as properties } from "known-css-properties"
 const postcss = require("postcss")
 
-export const ruleName = "property-no-unknown"
+const ruleName = "property-no-unknown"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: property => `Unexpected unknown property "${property}"`,
 })
 
-module.exports = function (actual, options) {
+const rule = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
@@ -66,3 +66,7 @@ module.exports = function (actual, options) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

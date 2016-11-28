@@ -6,13 +6,13 @@ const validateOptions = require("../../utils/validateOptions")
 const resolvedNestedSelector = require("postcss-resolve-nested-selector")
 const selectorParser = require("postcss-selector-parser")
 
-export const ruleName = "selector-max-compound-selectors"
+const ruleName = "selector-max-compound-selectors"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: (selector, max) => `Expected "${selector}" to have no more than ${max} compound selectors`,
 })
 
-module.exports = function (max) {
+const rule = function (max) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: max,
@@ -75,3 +75,7 @@ module.exports = function (max) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

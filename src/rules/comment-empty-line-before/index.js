@@ -4,16 +4,16 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 
-export const ruleName = "comment-empty-line-before"
+const ruleName = "comment-empty-line-before"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: "Expected empty line before comment",
   rejected: "Unexpected empty line before comment",
 })
 
 const stylelintCommandPrefix = "stylelint-"
 
-module.exports = function (expectation, options) {
+const rule = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -83,3 +83,7 @@ module.exports = function (expectation, options) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

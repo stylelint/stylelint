@@ -5,13 +5,13 @@ const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const styleSearch = require("style-search")
 
-export const ruleName = "max-line-length"
+const ruleName = "max-line-length"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: l => `Expected line length to be no more than ${l} characters`,
 })
 
-module.exports = function (maxLength, options) {
+const rule = function (maxLength, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: maxLength,
@@ -108,3 +108,7 @@ module.exports = function (maxLength, options) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

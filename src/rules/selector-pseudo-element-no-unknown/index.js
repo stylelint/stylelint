@@ -9,13 +9,13 @@ const _ = require("lodash")
 const keywordSets = require("../../reference/keywordSets")
 const postcss = require("postcss")
 
-export const ruleName = "selector-pseudo-element-no-unknown"
+const ruleName = "selector-pseudo-element-no-unknown"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: selector => `Unexpected unknown pseudo-element selector "${selector}"`,
 })
 
-module.exports = function (actual, options) {
+const rule = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
@@ -75,3 +75,7 @@ module.exports = function (actual, options) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

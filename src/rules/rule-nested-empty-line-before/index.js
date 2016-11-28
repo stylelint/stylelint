@@ -4,14 +4,14 @@ const validateOptions = require("../../utils/validateOptions")
 
 import { checkRuleEmptyLineBefore } from "../rule-non-nested-empty-line-before"
 
-export const ruleName = "rule-nested-empty-line-before"
+const ruleName = "rule-nested-empty-line-before"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: "Expected empty line before nested rule",
   rejected: "Unexpected empty line before nested rule",
 })
 
-module.exports = function (expectation, options) {
+const rule = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -42,3 +42,7 @@ module.exports = function (expectation, options) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

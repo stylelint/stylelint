@@ -3,13 +3,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const styleSearch = require("style-search")
 
-export const ruleName = "color-hex-length"
+const ruleName = "color-hex-length"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -73,3 +73,7 @@ function longer(hex) {
   }
   return hexVariant
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

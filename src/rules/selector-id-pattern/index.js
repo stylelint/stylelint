@@ -6,13 +6,13 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 
-export const ruleName = "selector-id-pattern"
+const ruleName = "selector-id-pattern"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: selectorValue => `Expected id selector "#${selectorValue}" to match specified pattern`,
 })
 
-module.exports = function (pattern) {
+const rule = function (pattern) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: pattern,
@@ -59,3 +59,7 @@ module.exports = function (pattern) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

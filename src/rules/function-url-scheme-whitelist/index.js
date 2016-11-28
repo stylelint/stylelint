@@ -7,13 +7,13 @@ const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 import { parse } from "url"
 
-export const ruleName = "function-url-scheme-whitelist"
+const ruleName = "function-url-scheme-whitelist"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: scheme => `Unexpected url scheme "${scheme}:"`,
 })
 
-module.exports = function (whitelist) {
+const rule = function (whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,
@@ -65,3 +65,7 @@ module.exports = function (whitelist) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

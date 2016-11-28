@@ -9,13 +9,13 @@ const keywordSets = require("../../reference/keywordSets")
 const styleSearch = require("style-search")
 const valueParser = require("postcss-value-parser")
 
-export const ruleName = "length-zero-no-unit"
+const ruleName = "length-zero-no-unit"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: "Unexpected unit",
 })
 
-module.exports = function (actual) {
+const rule = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {
@@ -101,3 +101,7 @@ module.exports = function (actual) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

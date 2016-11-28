@@ -6,15 +6,15 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const styleSearch = require("style-search")
 
-export const ruleName = "value-no-vendor-prefix"
+const ruleName = "value-no-vendor-prefix"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: value => `Unexpected vendor-prefix "${value}"`,
 })
 
 const valuePrefixes = [ "-webkit-", "-moz-", "-ms-", "-o-" ]
 
-module.exports = function (actual) {
+const rule = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {
@@ -48,3 +48,7 @@ module.exports = function (actual) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

@@ -6,13 +6,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 
-export const ruleName = "declaration-block-single-line-max-declarations"
+const ruleName = "declaration-block-single-line-max-declarations"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: quantity => `Expected no more than ${quantity} declaration(s)`,
 })
 
-module.exports = function (quantity) {
+const rule = function (quantity) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: quantity,
@@ -46,3 +46,7 @@ module.exports = function (quantity) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

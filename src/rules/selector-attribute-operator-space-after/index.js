@@ -6,14 +6,14 @@ const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 const styleSearch = require("style-search")
 
-export const ruleName = "selector-attribute-operator-space-after"
+const ruleName = "selector-attribute-operator-space-after"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedAfter: operator => `Expected single space after "${operator}"`,
   rejectedAfter: operator => `Unexpected whitespace after "${operator}"`,
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return (root, result) => {
     const checker = whitespaceChecker("space", expectation, messages)
     const validOptions = validateOptions(result, ruleName, {
@@ -81,3 +81,7 @@ export function selectorAttributeOperatorSpaceChecker(_ref) {
     }
   })
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

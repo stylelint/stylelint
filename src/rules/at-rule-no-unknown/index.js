@@ -6,13 +6,13 @@ const keywordSets = require("../../reference/keywordSets")
 const _ = require("lodash")
 const postcss = require("postcss")
 
-export const ruleName = "at-rule-no-unknown"
+const ruleName = "at-rule-no-unknown"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: atRule => `Unexpected unknown at-rule "${atRule}"`,
 })
 
-module.exports = function (actual, options) {
+const rule = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
@@ -48,3 +48,7 @@ module.exports = function (actual, options) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

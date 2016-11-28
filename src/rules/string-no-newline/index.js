@@ -3,13 +3,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const styleSearch = require("style-search")
 
-export const ruleName = "string-no-newline"
+const ruleName = "string-no-newline"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: "Unexpected newline in string",
 })
 
-module.exports = function (actual) {
+const rule = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {
@@ -38,3 +38,7 @@ module.exports = function (actual) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

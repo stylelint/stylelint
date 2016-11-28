@@ -6,13 +6,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const valueParser = require("postcss-value-parser")
 
-export const ruleName = "unit-case"
+const ruleName = "unit-case"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -55,3 +55,7 @@ module.exports = function (expectation) {
     root.walkDecls(decl => check(decl, decl.value, declarationValueIndex))
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

@@ -2,13 +2,13 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 
-export const ruleName = "comment-no-empty"
+const ruleName = "comment-no-empty"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: "Unexpected empty comment",
 })
 
-module.exports = function (actual) {
+const rule = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {
@@ -33,3 +33,7 @@ module.exports = function (actual) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

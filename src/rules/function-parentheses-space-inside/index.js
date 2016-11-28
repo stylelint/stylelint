@@ -6,9 +6,9 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const valueParser = require("postcss-value-parser")
 
-export const ruleName = "function-parentheses-space-inside"
+const ruleName = "function-parentheses-space-inside"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedOpening: "Expected single space after \"(\"",
   rejectedOpening: "Unexpected whitespace after \"(\"",
   expectedClosing: "Expected single space before \")\"",
@@ -19,7 +19,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedClosingSingleLine: "Unexpected whitespace before \")\" in a single-line function",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -99,3 +99,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

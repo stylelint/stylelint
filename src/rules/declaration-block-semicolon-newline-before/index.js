@@ -4,15 +4,15 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 
-export const ruleName = "declaration-block-semicolon-newline-before"
+const ruleName = "declaration-block-semicolon-newline-before"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedBefore: () => "Expected newline before \";\"",
   expectedBeforeMultiLine: () => "Expected newline before \";\" in a multi-line declaration block",
   rejectedBeforeMultiLine: () => "Unexpected whitespace before \";\" in a multi-line declaration block",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
 
   return function (root, result) {
@@ -49,3 +49,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

@@ -3,13 +3,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const styleSearch = require("style-search")
 
-export const ruleName = "string-quotes"
+const ruleName = "string-quotes"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: q => `Expected ${q} quotes`,
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const erroneousQuote = expectation === "single" ? "\"" : "'"
 
   return (root, result) => {
@@ -33,3 +33,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

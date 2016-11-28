@@ -6,9 +6,9 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const keywordSets = require("../../reference/keywordSets")
 
-export const ruleName = "font-family-name-quotes"
+const ruleName = "font-family-name-quotes"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: family => `Expected quotes around "${family}"`,
   rejected: family => `Unexpected quotes around "${family}"`,
 })
@@ -39,7 +39,7 @@ function quotesRequired(family) {
   })
 }
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -130,3 +130,7 @@ module.exports = function (expectation) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

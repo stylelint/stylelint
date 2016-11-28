@@ -6,13 +6,13 @@ const validateOptions = require("../../utils/validateOptions")
 const Result = require("postcss/lib/result")
 const colorguard = require("colorguard")
 
-export const ruleName = "no-indistinguishable-colors"
+const ruleName = "no-indistinguishable-colors"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: (a, b) => `Unexpected indistinguishable colors "${a}" and "${b}"`,
 })
 
-module.exports = function (on, options) {
+const rule = function (on, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual: on }, {
       optional: true,
@@ -41,3 +41,7 @@ module.exports = function (on, options) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

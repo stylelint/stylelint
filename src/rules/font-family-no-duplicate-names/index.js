@@ -5,15 +5,15 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const keywordSets = require("../../reference/keywordSets")
 
-export const ruleName = "font-family-no-duplicate-names"
+const ruleName = "font-family-no-duplicate-names"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: name => `Unexpected duplicate name ${name}`,
 })
 
 const isFamilyNameKeyword = node => !node.quote && keywordSets.fontFamilyKeywords.has(node.value.toLowerCase())
 
-module.exports = function (actual) {
+const rule = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {
@@ -65,3 +65,7 @@ module.exports = function (actual) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

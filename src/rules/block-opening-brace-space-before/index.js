@@ -9,9 +9,9 @@ const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 const _ = require("lodash")
 
-export const ruleName = "block-opening-brace-space-before"
+const ruleName = "block-opening-brace-space-before"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedBefore: () => "Expected single space before \"{\"",
   rejectedBefore: () => "Unexpected whitespace before \"{\"",
   expectedBeforeSingleLine: () => "Expected single space before \"{\" of a single-line block",
@@ -20,7 +20,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedBeforeMultiLine: () => "Unexpected whitespace before \"{\" of a multi-line block",
 })
 
-module.exports = function (expectation, options) {
+const rule = function (expectation, options) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -77,3 +77,7 @@ module.exports = function (expectation, options) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

@@ -4,9 +4,9 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const postcss = require("postcss")
 
-export const ruleName = "declaration-block-no-ignored-properties"
+const ruleName = "declaration-block-no-ignored-properties"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: (ignored, cause) => `Unexpected "${ignored}" with "${cause}"`,
 })
 
@@ -68,7 +68,7 @@ const ignored = [ {
   ignoredProperties: [ "float", "clear", "vertical-align" ],
 } ]
 
-module.exports = function (actual) {
+const rule = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
 
@@ -112,3 +112,7 @@ module.exports = function (actual) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

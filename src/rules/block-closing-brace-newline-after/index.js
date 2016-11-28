@@ -8,9 +8,9 @@ const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 const _ = require("lodash")
 
-export const ruleName = "block-closing-brace-newline-after"
+const ruleName = "block-closing-brace-newline-after"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected newline after \"}\"",
   expectedAfterSingleLine: () => "Expected newline after \"}\" of a single-line block",
   rejectedAfterSingleLine: () => "Unexpected whitespace after \"}\" of a single-line block",
@@ -18,7 +18,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedAfterMultiLine: () => "Unexpected whitespace after \"}\" of a multi-line block",
 })
 
-module.exports = function (expectation, options) {
+const rule = function (expectation, options) {
   const checker = whitespaceChecker("newline", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -88,3 +88,7 @@ module.exports = function (expectation, options) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

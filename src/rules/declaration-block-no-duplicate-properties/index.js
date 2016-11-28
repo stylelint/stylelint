@@ -6,13 +6,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 
-export const ruleName = "declaration-block-no-duplicate-properties"
+const ruleName = "declaration-block-no-duplicate-properties"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: property => `Unexpected duplicate "${property}"`,
 })
 
-module.exports = function (on, options) {
+const rule = function (on, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual: on }, {
       actual: options,
@@ -115,3 +115,7 @@ module.exports = function (on, options) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

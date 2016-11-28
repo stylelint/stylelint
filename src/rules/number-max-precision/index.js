@@ -7,13 +7,13 @@ const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const valueParser = require("postcss-value-parser")
 
-export const ruleName = "number-max-precision"
+const ruleName = "number-max-precision"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: (number, precision) => `Expected "${number}" to be "${number.toFixed(precision)}"`,
 })
 
-module.exports = function (precision) {
+const rule = function (precision) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: precision,
@@ -71,3 +71,7 @@ module.exports = function (precision) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

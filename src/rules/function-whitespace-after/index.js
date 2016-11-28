@@ -4,16 +4,16 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const styleSearch = require("style-search")
 
-export const ruleName = "function-whitespace-after"
+const ruleName = "function-whitespace-after"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: "Expected whitespace after \")\"",
   rejected: "Unexpected whitespace after \")\"",
 })
 
 const ACCEPTABLE_AFTER_CLOSING_PAREN = new Set([ ")", ",", "}", ":", undefined ])
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -73,3 +73,7 @@ module.exports = function (expectation) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

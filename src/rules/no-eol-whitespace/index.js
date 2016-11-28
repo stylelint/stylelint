@@ -5,15 +5,15 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const styleSearch = require("style-search")
 
-export const ruleName = "no-eol-whitespace"
+const ruleName = "no-eol-whitespace"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: "Unexpected whitespace at end of line",
 })
 
 const whitespacesToReject = new Set([ " ", "\t" ])
 
-module.exports = function (on, options) {
+const rule = function (on, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: on,
@@ -58,3 +58,7 @@ module.exports = function (on, options) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

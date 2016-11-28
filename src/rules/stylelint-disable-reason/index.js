@@ -2,9 +2,9 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 
-export const ruleName = "stylelint-disable-reason"
+const ruleName = "stylelint-disable-reason"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedBefore: "Expected comment reason before `stylelint-disable` comment",
   expectedAfter: "Expected comment reason after `stylelint-disable` comment",
 })
@@ -12,7 +12,7 @@ export const messages = ruleMessages(ruleName, {
 const stylelintDisableCommand = "stylelint-disable"
 const stylelintDisableLineCommand = "stylelint-disable-line"
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return function (root, result) {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -75,3 +75,7 @@ module.exports = function (expectation) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

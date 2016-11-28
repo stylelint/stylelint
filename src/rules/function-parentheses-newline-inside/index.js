@@ -6,9 +6,9 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const valueParser = require("postcss-value-parser")
 
-export const ruleName = "function-parentheses-newline-inside"
+const ruleName = "function-parentheses-newline-inside"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedOpening: "Expected newline after \"(\"",
   expectedClosing: "Expected newline before \")\"",
   expectedOpeningMultiLine: "Expected newline after \"(\" in a multi-line function",
@@ -17,7 +17,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedClosingMultiLine: "Unexpected whitespace before \")\" in a multi-line function",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -92,3 +92,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

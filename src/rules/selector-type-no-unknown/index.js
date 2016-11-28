@@ -11,16 +11,16 @@ const htmlTags = require("html-tags")
 const _ = require("lodash")
 const svgTags = require("svg-tags")
 
-export const ruleName = "selector-type-no-unknown"
+const ruleName = "selector-type-no-unknown"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: selector => `Unexpected unknown type selector "${selector}"`,
 })
 
 // htmlTags includes only "standard" tags. So we augment it with older tags etc.
 const nonStandardHtmlTags = new Set([ "acronym", "applet", "basefont", "big", "blink", "center", "content", "dir", "font", "frame", "frameset", "hgroup", "isindex", "keygen", "listing", "marquee", "noembed", "plaintext", "spacer", "strike", "tt", "xmp" ])
 
-module.exports = function (actual, options) {
+const rule = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
@@ -76,3 +76,7 @@ module.exports = function (actual, options) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

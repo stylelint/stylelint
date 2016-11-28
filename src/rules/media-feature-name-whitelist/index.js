@@ -9,13 +9,13 @@ const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const mediaParser = require("postcss-media-query-parser")
 
-export const ruleName = "media-feature-name-whitelist"
+const ruleName = "media-feature-name-whitelist"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: name => `Unexpected media feature name "${name}"`,
 })
 
-module.exports = function (whitelist) {
+const rule = function (whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,
@@ -50,3 +50,7 @@ module.exports = function (whitelist) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

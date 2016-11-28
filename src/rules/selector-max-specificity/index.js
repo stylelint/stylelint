@@ -6,13 +6,13 @@ const validateOptions = require("../../utils/validateOptions")
 import { compare } from "specificity"
 const resolvedNestedSelector = require("postcss-resolve-nested-selector")
 
-export const ruleName = "selector-max-specificity"
+const ruleName = "selector-max-specificity"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: (selector, specificity) => `Expected "${selector}" to have a specificity no more than "${specificity}"`,
 })
 
-module.exports = function (max) {
+const rule = function (max) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: max,
@@ -64,3 +64,7 @@ module.exports = function (max) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

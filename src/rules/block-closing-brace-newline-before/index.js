@@ -7,15 +7,15 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 
-export const ruleName = "block-closing-brace-newline-before"
+const ruleName = "block-closing-brace-newline-before"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedBefore: "Expected newline before \"}\"",
   expectedBeforeMultiLine: "Expected newline before \"}\" of a multi-line block",
   rejectedBeforeMultiLine: "Unexpected whitespace before \"}\" of a multi-line block",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -77,3 +77,7 @@ module.exports = function (expectation) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

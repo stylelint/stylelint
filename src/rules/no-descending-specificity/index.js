@@ -10,13 +10,13 @@ const _ = require("lodash")
 const keywordSets = require("../../reference/keywordSets")
 const resolvedNestedSelector = require("postcss-resolve-nested-selector")
 
-export const ruleName = "no-descending-specificity"
+const ruleName = "no-descending-specificity"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: (b, a) => `Expected selector "${b}" to come before selector "${a}"`,
 })
 
-module.exports = function (actual) {
+const rule = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {
@@ -90,3 +90,7 @@ function lastCompoundSelectorWithoutPseudoClasses(selectorNode) {
 
   return nodesWithoutPseudoClasses.toString()
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

@@ -10,9 +10,9 @@ const keywordSets = require("../../reference/keywordSets")
 const _ = require("lodash")
 const postcss = require("postcss")
 
-export const ruleName = "font-weight-notation"
+const ruleName = "font-weight-notation"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: type => `Expected ${type} font-weight notation`,
   invalidNamed: name => `Unexpected invalid font-weight name "${name}"`,
 })
@@ -22,7 +22,7 @@ const INITIAL_KEYWORD = "initial"
 const NORMAL_KEYWORD = "normal"
 const WEIGHTS_WITH_KEYWORD_EQUIVALENTS = [ "400", "700" ]
 
-module.exports = function (expectation, options) {
+const rule = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -111,3 +111,7 @@ module.exports = function (expectation, options) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

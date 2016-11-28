@@ -3,15 +3,15 @@ const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 import { mediaQueryListCommaWhitespaceChecker } from "../media-query-list-comma-space-after"
 
-export const ruleName = "media-query-list-comma-newline-after"
+const ruleName = "media-query-list-comma-newline-after"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected newline after \",\"",
   expectedAfterMultiLine: () => "Expected newline after \",\" in a multi-line list",
   rejectedAfterMultiLine: () => "Unexpected whitespace after \",\" in a multi-line list",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
 
   return (root, result) => {
@@ -33,3 +33,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

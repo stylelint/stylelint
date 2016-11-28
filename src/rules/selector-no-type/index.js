@@ -10,13 +10,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const resolveNestedSelector = require("postcss-resolve-nested-selector")
 
-export const ruleName = "selector-no-type"
+const ruleName = "selector-no-type"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: "Unexpected type selector",
 })
 
-module.exports = function (on, options) {
+const rule = function (on, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual: on }, {
       actual: options,
@@ -109,3 +109,7 @@ function isCombinator(node) {
   if (!node) return false
   return _.get(node, "type") === "combinator"
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

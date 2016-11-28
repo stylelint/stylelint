@@ -4,16 +4,16 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 
-export const ruleName = "media-feature-range-operator-space-after"
+const ruleName = "media-feature-range-operator-space-after"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected single space after range operator",
   rejectedAfter: () => "Unexpected whitespace after range operator",
 })
 
 const rangeOperatorRegex = /[^><](>=?|<=?|=)/g
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -59,3 +59,7 @@ export function findMediaOperator(atRule, cb) {
     cb(match, params, atRule)
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

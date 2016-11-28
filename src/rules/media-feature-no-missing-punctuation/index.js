@@ -6,9 +6,9 @@ const validateOptions = require("../../utils/validateOptions")
 const execall = require("execall")
 import { mediaFeaturePunctuation } from "../../reference/punctuationSets"
 
-export const ruleName = "media-feature-no-missing-punctuation"
+const ruleName = "media-feature-no-missing-punctuation"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: "Unexpected missing punctuation",
 })
 
@@ -24,7 +24,7 @@ function startsWithPunctuation(str) {
   return isPunctuation(str[0]) || isPunctuation(str.slice(0, 2))
 }
 
-module.exports = function (actual) {
+const rule = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {
@@ -76,3 +76,7 @@ module.exports = function (actual) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

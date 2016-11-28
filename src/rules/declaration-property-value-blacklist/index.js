@@ -5,13 +5,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const postcss = require("postcss")
 
-export const ruleName = "declaration-property-value-blacklist"
+const ruleName = "declaration-property-value-blacklist"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: (property, value) => `Unexpected value "${value}" for property "${property}"`,
 })
 
-module.exports = function (blacklist) {
+const rule = function (blacklist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
@@ -45,3 +45,7 @@ module.exports = function (blacklist) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

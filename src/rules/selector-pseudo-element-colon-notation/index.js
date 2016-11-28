@@ -6,13 +6,13 @@ const _ = require("lodash")
 const keywordSets = require("../../reference/keywordSets")
 const styleSearch = require("style-search")
 
-export const ruleName = "selector-pseudo-element-colon-notation"
+const ruleName = "selector-pseudo-element-colon-notation"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: q => `Expected ${q} colon pseudo-element notation`,
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -56,3 +56,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

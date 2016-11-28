@@ -6,16 +6,16 @@ const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 const styleSearch = require("style-search")
 
-export const ruleName = "value-list-comma-space-after"
+const ruleName = "value-list-comma-space-after"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected single space after \",\"",
   rejectedAfter: () => "Unexpected whitespace after \",\"",
   expectedAfterSingleLine: () => "Expected single space after \",\" in a single-line list",
   rejectedAfterSingleLine: () => "Unexpected whitespace after \",\" in a single-line list",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -70,3 +70,7 @@ export function valueListCommaWhitespaceChecker(_ref) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

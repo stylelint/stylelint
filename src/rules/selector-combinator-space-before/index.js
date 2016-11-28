@@ -4,14 +4,14 @@ const whitespaceChecker = require("../../utils/whitespaceChecker")
 
 import { selectorCombinatorSpaceChecker } from "../selector-combinator-space-after"
 
-export const ruleName = "selector-combinator-space-before"
+const ruleName = "selector-combinator-space-before"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedBefore: combinator => `Expected single space before "${combinator}"`,
   rejectedBefore: combinator => `Unexpected whitespace before "${combinator}"`,
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -30,3 +30,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

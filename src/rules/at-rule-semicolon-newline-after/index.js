@@ -6,13 +6,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 
-export const ruleName = "at-rule-semicolon-newline-after"
+const ruleName = "at-rule-semicolon-newline-after"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected newline after \";\"",
 })
 
-module.exports = function (actual) {
+const rule = function (actual) {
   const checker = whitespaceChecker("newline", actual, messages)
 
   return (root, result) => {
@@ -55,3 +55,7 @@ module.exports = function (actual) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

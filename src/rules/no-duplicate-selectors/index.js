@@ -8,13 +8,13 @@ const _ = require("lodash")
 const normalizeSelector = require("normalize-selector")
 const resolvedNestedSelector = require("postcss-resolve-nested-selector")
 
-export const ruleName = "no-duplicate-selectors"
+const ruleName = "no-duplicate-selectors"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: selector => `Unexpected duplicate selector "${selector}"`,
 })
 
-module.exports = function (actual) {
+const rule = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {
@@ -73,3 +73,7 @@ module.exports = function (actual) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

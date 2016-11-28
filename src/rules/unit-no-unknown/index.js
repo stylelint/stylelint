@@ -9,13 +9,13 @@ const _ = require("lodash")
 const keywordSets = require("../../reference/keywordSets")
 const valueParser = require("postcss-value-parser")
 
-export const ruleName = "unit-no-unknown"
+const ruleName = "unit-no-unknown"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: unit => `Unexpected unknown unit "${unit}"`,
 })
 
-module.exports = function (actual, options) {
+const rule = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
@@ -63,3 +63,7 @@ module.exports = function (actual, options) {
     root.walkDecls(decl => check(decl, decl.value, declarationValueIndex))
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

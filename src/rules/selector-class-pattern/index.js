@@ -8,13 +8,13 @@ const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const resolveNestedSelector = require("postcss-resolve-nested-selector")
 
-export const ruleName = "selector-class-pattern"
+const ruleName = "selector-class-pattern"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: selectorValue => `Expected class selector ".${selectorValue}" to match specified pattern`,
 })
 
-module.exports = function (pattern, options) {
+const rule = function (pattern, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: pattern,
@@ -99,3 +99,7 @@ function isCombinator(x) {
   return (/[\s+>~]/.test(x)
   )
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

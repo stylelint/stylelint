@@ -4,13 +4,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 
-export const ruleName = "custom-media-pattern"
+const ruleName = "custom-media-pattern"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: "Expected custom media query name to match specified pattern",
 })
 
-module.exports = function (pattern) {
+const rule = function (pattern) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: pattern,
@@ -43,3 +43,7 @@ module.exports = function (pattern) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

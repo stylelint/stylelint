@@ -6,14 +6,14 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 
-export const ruleName = "rule-non-nested-empty-line-before"
+const ruleName = "rule-non-nested-empty-line-before"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: "Expected empty line before non-nested rule",
   rejected: "Unexpected empty line before non-nested rule",
 })
 
-module.exports = function (expectation, options) {
+const rule = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -96,3 +96,7 @@ export function checkRuleEmptyLineBefore(_ref) {
     ruleName: checkedRuleName,
   })
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

@@ -7,9 +7,9 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 
-export const ruleName = "block-opening-brace-newline-before"
+const ruleName = "block-opening-brace-newline-before"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedBefore: () => "Expected newline before \"{\"",
   expectedBeforeSingleLine: () => "Expected newline before \"{\" of a single-line block",
   rejectedBeforeSingleLine: () => "Unexpected whitespace before \"{\" of a single-line block",
@@ -17,7 +17,7 @@ export const messages = ruleMessages(ruleName, {
   rejectedBeforeMultiLine: () => "Unexpected whitespace before \"{\" of a multi-line block",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("newline", expectation, messages)
 
   return (root, result) => {
@@ -64,3 +64,7 @@ module.exports = function (expectation) {
     }
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

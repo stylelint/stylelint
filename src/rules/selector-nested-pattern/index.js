@@ -5,13 +5,13 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 
-export const ruleName = "selector-nested-pattern"
+const ruleName = "selector-nested-pattern"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: selector => `Expected nested selector "${selector}" to match specified pattern`,
 })
 
-module.exports = function (pattern) {
+const rule = function (pattern) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: pattern,
@@ -50,3 +50,7 @@ module.exports = function (pattern) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

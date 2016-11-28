@@ -10,9 +10,9 @@ const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const valueParser = require("postcss-value-parser")
 
-export const ruleName = "value-keyword-case"
+const ruleName = "value-keyword-case"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: (actual, expected) => `Expected "${actual}" to be "${expected}"`,
 })
 
@@ -24,7 +24,7 @@ keywordSets.camelCaseKeywords.forEach(func => {
   mapLowercaseKeywordsToCamelCase.set(func.toLowerCase(), func)
 })
 
-module.exports = function (expectation, options) {
+const rule = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -127,3 +127,7 @@ module.exports = function (expectation, options) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

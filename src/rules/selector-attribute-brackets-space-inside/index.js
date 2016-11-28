@@ -5,16 +5,16 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const styleSearch = require("style-search")
 
-export const ruleName = "selector-attribute-brackets-space-inside"
+const ruleName = "selector-attribute-brackets-space-inside"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedOpening: "Expected single space after \"[\"",
   rejectedOpening: "Unexpected whitespace after \"[\"",
   expectedClosing: "Expected single space before \"]\"",
   rejectedClosing: "Unexpected whitespace before \"]\"",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -72,3 +72,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

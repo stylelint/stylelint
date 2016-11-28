@@ -4,16 +4,16 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 
-export const ruleName = "declaration-block-semicolon-space-before"
+const ruleName = "declaration-block-semicolon-space-before"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedBefore: () => "Expected single space before \";\"",
   rejectedBefore: () => "Unexpected whitespace before \";\"",
   expectedBeforeSingleLine: () => "Expected single space before \";\" in a single-line declaration block",
   rejectedBeforeSingleLine: () => "Unexpected whitespace before \";\" in a single-line declaration block",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
 
   return (root, result) => {
@@ -51,3 +51,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

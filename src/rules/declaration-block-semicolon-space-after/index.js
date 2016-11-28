@@ -5,16 +5,16 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 
-export const ruleName = "declaration-block-semicolon-space-after"
+const ruleName = "declaration-block-semicolon-space-after"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected single space after \";\"",
   rejectedAfter: () => "Unexpected whitespace after \";\"",
   expectedAfterSingleLine: () => "Expected single space after \";\" in a single-line declaration block",
   rejectedAfterSingleLine: () => "Unexpected whitespace after \";\" in a single-line declaration block",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
 
   return function (root, result) {
@@ -55,3 +55,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

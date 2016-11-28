@@ -3,16 +3,16 @@ const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 import { valueListCommaWhitespaceChecker } from "../value-list-comma-space-after"
 
-export const ruleName = "value-list-comma-space-before"
+const ruleName = "value-list-comma-space-before"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedBefore: () => "Expected single space before \",\"",
   rejectedBefore: () => "Unexpected whitespace before \",\"",
   expectedBeforeSingleLine: () => "Unexpected whitespace before \",\" in a single-line list",
   rejectedBeforeSingleLine: () => "Unexpected whitespace before \",\" in a single-line list",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -31,3 +31,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

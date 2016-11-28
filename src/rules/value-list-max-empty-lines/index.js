@@ -4,13 +4,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const styleSearch = require("style-search")
 
-export const ruleName = "value-list-max-empty-lines"
+const ruleName = "value-list-max-empty-lines"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: max => `Expected no more than ${max} empty line(s)`,
 })
 
-module.exports = function (max) {
+const rule = function (max) {
   const maxAdjacentNewlines = max + 1
 
   return (root, result) => {
@@ -47,3 +47,7 @@ module.exports = function (max) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

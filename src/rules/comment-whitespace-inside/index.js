@@ -3,16 +3,16 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 
-export const ruleName = "comment-whitespace-inside"
+const ruleName = "comment-whitespace-inside"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedOpening: "Expected whitespace after \"/*\"",
   rejectedOpening: "Unexpected whitespace after \"/*\"",
   expectedClosing: "Expected whitespace before \"*/\"",
   rejectedClosing: "Unexpected whitespace before \"*/\"",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   return function (root, result) {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -68,3 +68,7 @@ module.exports = function (expectation) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

@@ -7,9 +7,9 @@ const shorthandData = require("../../reference/shorthandData")
 const valueParser = require("postcss-value-parser")
 const postcss = require("postcss")
 
-export const ruleName = "shorthand-property-no-redundant-values"
+const ruleName = "shorthand-property-no-redundant-values"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: (unexpected, expected) => `Unexpected longhand value '${unexpected}' instead of '${expected}'`,
 })
 
@@ -59,7 +59,7 @@ function canCondenseToThreeValues(top, right, bottom, left) {
   return right === left
 }
 
-module.exports = function (actual) {
+const rule = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {
@@ -114,3 +114,7 @@ module.exports = function (actual) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

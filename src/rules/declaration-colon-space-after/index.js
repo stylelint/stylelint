@@ -5,15 +5,15 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 
-export const ruleName = "declaration-colon-space-after"
+const ruleName = "declaration-colon-space-after"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected single space after \":\"",
   rejectedAfter: () => "Unexpected whitespace after \":\"",
   expectedAfterSingleLine: () => "Expected single space after \":\" with a single-line declaration",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -73,3 +73,7 @@ export function declarationColonSpaceChecker(_ref) {
     }
   })
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

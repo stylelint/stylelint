@@ -8,13 +8,13 @@ const _ = require("lodash")
 const valueParser = require("postcss-value-parser")
 const postcss = require("postcss")
 
-export const ruleName = "declaration-property-unit-whitelist"
+const ruleName = "declaration-property-unit-whitelist"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: (property, unit) => `Unexpected unit "${unit}" for property "${property}"`,
 })
 
-module.exports = function (whitelist) {
+const rule = function (whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,
@@ -62,3 +62,7 @@ module.exports = function (whitelist) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

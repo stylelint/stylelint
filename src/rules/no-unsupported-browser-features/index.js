@@ -5,13 +5,13 @@ const validateOptions = require("../../utils/validateOptions")
 const Result = require("postcss/lib/result")
 const _ = require("lodash")
 
-export const ruleName = "no-unsupported-browser-features"
+const ruleName = "no-unsupported-browser-features"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: details => `Unexpected browser feature ${details}`,
 })
 
-module.exports = function (on, options) {
+const rule = function (on, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual: on }, {
       optional: true,
@@ -65,3 +65,7 @@ function cleanDoiuseWarningText(warningText) {
 
   return `${featureId} is ${browserSupport}`
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

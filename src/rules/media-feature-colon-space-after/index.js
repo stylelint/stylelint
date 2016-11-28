@@ -5,14 +5,14 @@ const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
 const styleSearch = require("style-search")
 
-export const ruleName = "media-feature-colon-space-after"
+const ruleName = "media-feature-colon-space-after"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedAfter: () => "Expected single space after \":\"",
   rejectedAfter: () => "Unexpected whitespace after \":\"",
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -57,3 +57,7 @@ export function mediaFeatureColonSpaceChecker(_ref) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

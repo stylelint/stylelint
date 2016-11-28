@@ -7,8 +7,8 @@ const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 const styleSearch = require("style-search")
 
-export const ruleName = "indentation"
-export const messages = ruleMessages(ruleName, {
+const ruleName = "indentation"
+const messages = ruleMessages(ruleName, {
   expected: x => `Expected indentation of ${x}`,
 })
 
@@ -17,7 +17,7 @@ export const messages = ruleMessages(ruleName, {
  *   keyword "tab" for single `\t`
  * @param {object} [options]
  */
-module.exports = function (space) {
+const rule = function (space) {
   const options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {}
 
   const isTab = space === "tab"
@@ -253,3 +253,7 @@ module.exports = function (space) {
     return `${count} ${quantifiedWarningWord}`
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

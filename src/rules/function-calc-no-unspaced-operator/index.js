@@ -6,15 +6,15 @@ const balancedMatch = require("balanced-match")
 const styleSearch = require("style-search")
 const valueParser = require("postcss-value-parser")
 
-export const ruleName = "function-calc-no-unspaced-operator"
+const ruleName = "function-calc-no-unspaced-operator"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedBefore: operator => `Expected single space before "${operator}" operator`,
   expectedAfter: operator => `Expected single space after "${operator}" operator`,
   expectedOperatorBeforeSign: operator => `Expected an operator before sign "${operator}"`,
 })
 
-module.exports = function (actual) {
+const rule = function (actual) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual })
     if (!validOptions) {
@@ -107,3 +107,7 @@ function newlineBefore(str, startIndex) {
   }
   return false
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

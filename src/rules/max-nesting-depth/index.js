@@ -5,13 +5,13 @@ const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
 
-export const ruleName = "max-nesting-depth"
+const ruleName = "max-nesting-depth"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expected: depth => `Expected nesting depth to be no more than ${depth}`,
 })
 
-module.exports = function (max, options) {
+const rule = function (max, options) {
   const ignoreAtRulesWithoutDeclarationBlocks = optionsMatches(options, "ignore", "at-rules-without-declaration-blocks")
   const isIgnoreAtRule = node => node.type === "atrule" && optionsMatches(options, "ignoreAtRules", node.name)
 
@@ -77,3 +77,7 @@ module.exports = function (max, options) {
     return nestingDepth(parent, level + 1)
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

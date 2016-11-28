@@ -11,13 +11,13 @@ const keywordSets = require("../../reference/keywordSets")
 const mediaParser = require("postcss-media-query-parser")
 const postcss = require("postcss")
 
-export const ruleName = "media-feature-name-no-unknown"
+const ruleName = "media-feature-name-no-unknown"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: mediaFeatureName => `Unexpected unknown media feature name "${mediaFeatureName}"`,
 })
 
-module.exports = function (actual, options) {
+const rule = function (actual, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual }, {
       actual: options,
@@ -60,3 +60,7 @@ module.exports = function (actual, options) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

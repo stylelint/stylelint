@@ -6,14 +6,14 @@ const _ = require("lodash")
 import { nonSpaceCombinators } from "../../reference/punctuationSets"
 const styleSearch = require("style-search")
 
-export const ruleName = "selector-combinator-space-after"
+const ruleName = "selector-combinator-space-after"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   expectedAfter: combinator => `Expected single space after "${combinator}"`,
   rejectedAfter: combinator => `Unexpected whitespace after "${combinator}"`,
 })
 
-module.exports = function (expectation) {
+const rule = function (expectation) {
   const checker = whitespaceChecker("space", expectation, messages)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -79,3 +79,7 @@ export function selectorCombinatorSpaceChecker(_ref) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule

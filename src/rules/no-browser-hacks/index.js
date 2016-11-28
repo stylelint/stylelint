@@ -5,13 +5,13 @@ const Result = require("postcss/lib/result")
 const _ = require("lodash")
 const stylehacks = require("stylehacks")
 
-export const ruleName = "no-browser-hacks"
+const ruleName = "no-browser-hacks"
 
-export const messages = ruleMessages(ruleName, {
+const messages = ruleMessages(ruleName, {
   rejected: (type, hack) => `Unexpected ${type} hack "${hack}"`,
 })
 
-module.exports = function (on, options) {
+const rule = function (on, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, { actual: on }, {
       optional: true,
@@ -44,3 +44,7 @@ module.exports = function (on, options) {
     })
   }
 }
+
+rule.ruleName = ruleName
+rule.messages = messages
+module.exports = rule
