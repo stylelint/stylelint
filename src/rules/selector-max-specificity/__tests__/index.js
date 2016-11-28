@@ -1,4 +1,4 @@
-import { messages, ruleName } from ".."
+const messages = require("..").messages\nconst ruleName = require("..").ruleName
 const rules = require("../../../rules")
 const stylelint = require("../../..")
 const test = require("tape")

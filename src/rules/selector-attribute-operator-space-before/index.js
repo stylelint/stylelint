@@ -1,8 +1,7 @@
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
-
-import { selectorAttributeOperatorSpaceChecker } from "../selector-attribute-operator-space-after"
+const selectorAttributeOperatorSpaceChecker = require("../selectorAttributeOperatorSpaceChecker")
 
 const ruleName = "selector-attribute-operator-space-before"
 

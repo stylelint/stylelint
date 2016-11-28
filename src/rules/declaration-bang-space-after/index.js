@@ -1,9 +1,7 @@
-const declarationValueIndex = require("../../utils/declarationValueIndex")
-const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
-const styleSearch = require("style-search")
+const declarationBangSpaceChecker = require("../declarationBangSpaceChecker")
 
 const ruleName = "declaration-bang-space-after"
 
@@ -28,37 +26,6 @@ const rule = function (expectation) {
       result,
       locationChecker: checker.after,
       checkedRuleName: ruleName,
-    })
-  }
-}
-
-export function declarationBangSpaceChecker(_ref) {
-  let locationChecker = _ref.locationChecker,
-    root = _ref.root,
-    result = _ref.result,
-    checkedRuleName = _ref.checkedRuleName
-
-  root.walkDecls(function (decl) {
-    const indexOffset = declarationValueIndex(decl)
-    const declString = decl.toString()
-    const valueString = decl.toString().slice(indexOffset)
-    if (valueString.indexOf("!") == -1) {
-      return
-    }
-
-    styleSearch({ source: valueString, target: "!" }, match => {
-      check(declString, match.startIndex + indexOffset, decl)
-    })
-  })
-
-  function check(source, index, node) {
-    locationChecker({ source, index, err: m => report({
-      message: m,
-      node,
-      index,
-      result,
-      ruleName: checkedRuleName,
-    }),
     })
   }
 }

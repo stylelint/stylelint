@@ -1,12 +1,12 @@
-import blockNoEmpty, { messages as blockNoEmptyMessages, ruleName as blockNoEmptyName } from "../rules/block-no-empty"
-import maxLineLength, { messages as maxLineLengthMessages, ruleName as maxLineLengthName } from "../rules/max-line-length"
-import selectorCombinatorSpaceBefore, { messages as selectorCombinatorSpaceBeforeMessages, ruleName as selectorCombinatorSpaceBeforeName } from "../rules/selector-combinator-space-before"
-import stringQuotes, { messages as stringQuotesMessages, ruleName as stringQuotesName } from "../rules/string-quotes"
+const blockNoEmpty = require("../rules/block-no-empty")
+const maxLineLength = require("../rules/max-line-length")
+const selectorCombinatorSpaceBefore = require("../rules/selector-combinator-space-before")
+const stringQuotes = require("../rules/string-quotes")
 const testRule = require("../testUtils/testRule.js")
 
 // disabling all rules
 testRule(blockNoEmpty, {
-  ruleName: blockNoEmptyName,
+  ruleName: blockNoEmpty.ruleName,
   config: [undefined],
   skipBasicChecks: true,
 
@@ -24,70 +24,70 @@ testRule(blockNoEmpty, {
 
   reject: [ {
     code: "a {}",
-    message: blockNoEmptyMessages.rejected,
+    message: blockNoEmpty.messages.rejected,
   }, {
     code: "a {}\n/* stylelint-disable */",
-    message: blockNoEmptyMessages.rejected,
+    message: blockNoEmpty.messages.rejected,
   }, {
     code: "a {}\n/* stylelint-disable-line */",
-    message: blockNoEmptyMessages.rejected,
+    message: blockNoEmpty.messages.rejected,
   }, {
     code: "/* stylelint-disable-line */\na {}",
-    message: blockNoEmptyMessages.rejected,
+    message: blockNoEmpty.messages.rejected,
   }, {
     code: "/* stylelint-disable-next-line */\na{}\nb {}",
-    message: blockNoEmptyMessages.rejected,
+    message: blockNoEmpty.messages.rejected,
   }, {
     code: "/* stylelint-disable-next-line */ a{}",
-    message: blockNoEmptyMessages.rejected,
+    message: blockNoEmpty.messages.rejected,
   }, {
     code: "a {}\n/* stylelint-disable-next-line */",
-    message: blockNoEmptyMessages.rejected,
+    message: blockNoEmpty.messages.rejected,
   } ],
 })
 
 testRule(selectorCombinatorSpaceBefore, {
-  ruleName: selectorCombinatorSpaceBeforeName,
+  ruleName: selectorCombinatorSpaceBefore.ruleName,
   config: ["always"],
   skipBasicChecks: true,
 
   reject: [{
     code: "a> b {}",
-    message: selectorCombinatorSpaceBeforeMessages.expectedBefore(">"),
+    message: selectorCombinatorSpaceBefore.messages.expectedBefore(">"),
   }],
 })
 
 testRule(blockNoEmpty, {
-  ruleName: blockNoEmptyName,
+  ruleName: blockNoEmpty.ruleName,
   config: [undefined],
   skipBasicChecks: true,
 
   accept: [ {
-    code: `/* stylelint-disable ${blockNoEmptyName} */\na {}`,
+    code: `/* stylelint-disable ${blockNoEmpty.ruleName} */\na {}`,
   }, {
-    code: `/* stylelint-disable-line ${blockNoEmptyName} */ a {}`,
+    code: `/* stylelint-disable-line ${blockNoEmpty.ruleName} */ a {}`,
   }, {
-    code: `a {} /* stylelint-disable-line ${blockNoEmptyName} */`,
+    code: `a {} /* stylelint-disable-line ${blockNoEmpty.ruleName} */`,
   }, {
-    code: `/* stylelint-disable-next-line ${blockNoEmptyName} */\na {}`,
+    code: `/* stylelint-disable-next-line ${blockNoEmpty.ruleName} */\na {}`,
   } ],
 
   reject: [ {
     code: "/* stylelint-disable declaration-no-important */\na {}",
-    message: blockNoEmptyMessages.rejected,
+    message: blockNoEmpty.messages.rejected,
   }, {
     code: "/* stylelint-disable-line declaration-no-important */\na {}",
-    message: blockNoEmptyMessages.rejected,
+    message: blockNoEmpty.messages.rejected,
   }, {
-    code: `/* stylelint-disable-line ${blockNoEmptyName} */ a {}\nb {}`,
-    message: blockNoEmptyMessages.rejected,
+    code: `/* stylelint-disable-line ${blockNoEmpty.ruleName} */ a {}\nb {}`,
+    message: blockNoEmpty.messages.rejected,
     line: 2,
     column: 3,
   } ],
 })
 
 testRule(selectorCombinatorSpaceBefore, {
-  ruleName: selectorCombinatorSpaceBeforeName,
+  ruleName: selectorCombinatorSpaceBefore.ruleName,
   config: ["always"],
   skipBasicChecks: true,
 
@@ -101,15 +101,15 @@ testRule(selectorCombinatorSpaceBefore, {
 
   reject: [ {
     code: "/* stylelint-disable declaration-no-important */ a> b {}",
-    message: selectorCombinatorSpaceBeforeMessages.expectedBefore(">"),
+    message: selectorCombinatorSpaceBefore.messages.expectedBefore(">"),
   }, {
     code: "/* stylelint-disable-line declaration-no-important */\na> b {}",
-    message: selectorCombinatorSpaceBeforeMessages.expectedBefore(">"),
+    message: selectorCombinatorSpaceBefore.messages.expectedBefore(">"),
   } ],
 })
 
 testRule(blockNoEmpty, {
-  ruleName: blockNoEmptyName,
+  ruleName: blockNoEmpty.ruleName,
   config: [undefined],
   skipBasicChecks: true,
 
@@ -131,12 +131,12 @@ testRule(blockNoEmpty, {
       a {}
     `,
 
-    message: blockNoEmptyMessages.rejected,
+    message: blockNoEmpty.messages.rejected,
   }],
 })
 
 testRule(maxLineLength, {
-  ruleName: maxLineLengthName,
+  ruleName: maxLineLength.ruleName,
   config: [80],
   skipBasicChecks: true,
 
@@ -174,21 +174,21 @@ testRule(maxLineLength, {
       /* stylelint-enable block-no-empty */
     `,
 
-    message: maxLineLengthMessages.expected(80),
+    message: maxLineLength.messages.expected(80),
   }, {
     code: `
       /* stylelint-disable-line */
       .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
     `,
 
-    message: maxLineLengthMessages.expected(80),
+    message: maxLineLength.messages.expected(80),
   }, {
     code: `
       .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
       /* stylelint-disable-line */
     `,
 
-    message: maxLineLengthMessages.expected(80),
+    message: maxLineLength.messages.expected(80),
   }, {
     code: `
       /* stylelint-disable max-line-length */
@@ -197,7 +197,7 @@ testRule(maxLineLength, {
       .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
     `,
 
-    message: maxLineLengthMessages.expected(80),
+    message: maxLineLength.messages.expected(80),
   }, {
     code: `
       /* stylelint-disable-next-line max-line-length */
@@ -205,12 +205,12 @@ testRule(maxLineLength, {
       .abracadabracadabra { background: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba (255, 255, 255, 1)); }
     `,
 
-    message: maxLineLengthMessages.expected(80),
+    message: maxLineLength.messages.expected(80),
   } ],
 })
 
 testRule(stringQuotes, {
-  ruleName: stringQuotesName,
+  ruleName: stringQuotes.ruleName,
   config: ["single"],
   skipBasicChecks: true,
 
@@ -235,7 +235,7 @@ testRule(stringQuotes, {
       /* stylelint-enable block-no-empty */
     `,
 
-    message: stringQuotesMessages.expected("single"),
+    message: stringQuotes.messages.expected("single"),
   }, {
     code: `
       /* stylelint-disable string-quotes */
@@ -244,6 +244,6 @@ testRule(stringQuotes, {
       .foo { content: "horse"; }
     `,
 
-    message: stringQuotesMessages.expected("single"),
+    message: stringQuotes.messages.expected("single"),
   } ],
 })

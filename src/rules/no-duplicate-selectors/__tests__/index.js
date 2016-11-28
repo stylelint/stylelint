@@ -1,4 +1,4 @@
-import { messages, ruleName } from ".."
+const messages = require("..").messages\nconst ruleName = require("..").ruleName
 const path = require("path")
 const postcss = require("postcss")
 const postcssImport = require("postcss-import")

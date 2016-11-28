@@ -1,7 +1,7 @@
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
-import { valueListCommaWhitespaceChecker } from "../value-list-comma-space-after"
+const valueListCommaWhitespaceChecker = require("../valueListCommaWhitespaceChecker")
 
 const ruleName = "value-list-comma-newline-after"
 

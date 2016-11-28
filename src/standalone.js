@@ -1,5 +1,5 @@
 /* @flow */
-import * as formatters from "./formatters"
+const formatters = require("./formatters")
 const createStylelint = require("./createStylelint")
 const globby = require("globby")
 const needlessDisables = require("./needlessDisables")

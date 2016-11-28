@@ -5,7 +5,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
-import { parse } from "url"
+const parse = require("url").parse
 
 const ruleName = "function-url-scheme-whitelist"
 

@@ -1,5 +1,5 @@
-import { prepareFormatterOutput } from "./stringFormatter-test"
-import { stripIndent } from "common-tags"
+const prepareFormatterOutput = require("./prepareFormatterOutput")
+const stripIndent = require("common-tags").stripIndent
 const test = require("tape")
 const verboseFormatter = require("../verboseFormatter")
 

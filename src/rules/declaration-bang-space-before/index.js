@@ -1,7 +1,7 @@
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
-import { declarationBangSpaceChecker } from "../declaration-bang-space-after"
+const declarationBangSpaceChecker = require("../declarationBangSpaceChecker")
 
 const ruleName = "declaration-bang-space-before"
 

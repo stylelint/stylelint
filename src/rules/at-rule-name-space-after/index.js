@@ -1,8 +1,7 @@
-const isStandardSyntaxAtRule = require("../../utils/isStandardSyntaxAtRule")
-const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
+const atRuleNameSpaceChecker = require("../atRuleNameSpaceChecker")
 
 const ruleName = "at-rule-name-space-after"
 
@@ -26,36 +25,6 @@ const rule = function (expectation) {
       result,
       locationChecker: checker.after,
       checkedRuleName: ruleName,
-    })
-  }
-}
-
-export function atRuleNameSpaceChecker(_ref) {
-  let locationChecker = _ref.locationChecker,
-    root = _ref.root,
-    result = _ref.result,
-    checkedRuleName = _ref.checkedRuleName
-
-  root.walkAtRules(atRule => {
-    if (!isStandardSyntaxAtRule(atRule)) {
-      return
-    }
-
-    checkColon(`@${atRule.name}${atRule.raws.afterName}${atRule.params}`, atRule.name.length, atRule)
-  })
-
-  function checkColon(source, index, node) {
-    locationChecker({
-      source,
-      index,
-      err: m => report({
-        message: m,
-        node,
-        index,
-        result,
-        ruleName: checkedRuleName,
-      }),
-      errTarget: `@${node.name}`,
     })
   }
 }

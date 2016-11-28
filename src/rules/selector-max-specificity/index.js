@@ -1,9 +1,9 @@
+const specificity = require("specificity")
 const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
 const isStandardSyntaxSelector = require("../../utils/isStandardSyntaxSelector")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { compare } from "specificity"
 const resolvedNestedSelector = require("postcss-resolve-nested-selector")
 
 const ruleName = "selector-max-specificity"
@@ -47,7 +47,7 @@ const rule = function (max) {
           }
           // Check if the selector specificity exceeds the allowed maximum
           try {
-            if (compare(resolvedSelector, maxSpecificityArray) === 1) {
+            if (specificity.compare(resolvedSelector, maxSpecificityArray) === 1) {
               report({
                 ruleName,
                 result,

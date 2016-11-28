@@ -1,7 +1,7 @@
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
-import { atRuleNameSpaceChecker } from "../at-rule-name-space-after"
+const atRuleNameSpaceChecker = require("../atRuleNameSpaceChecker")
 
 const ruleName = "at-rule-name-newline-after"
 

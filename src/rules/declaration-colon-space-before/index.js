@@ -1,7 +1,7 @@
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
-import { declarationColonSpaceChecker } from "../declaration-colon-space-after"
+const declarationColonSpaceChecker = require("../declarationColonSpaceChecker")
 
 const ruleName = "declaration-colon-space-before"
 

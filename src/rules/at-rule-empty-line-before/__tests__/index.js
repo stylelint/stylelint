@@ -1,8 +1,8 @@
 const mergeTestDescriptions = reqiure("../../../testUtils/mergeTestDescriptions")
 const testRule = require("../../../testUtils/testRule")
-import { messages, ruleName } from ".."
+const messages = require("..").messages\nconst ruleName = require("..").ruleName
 const rules = require("../../../rules")
-import { stripIndent } from "common-tags"
+const stripIndent = require("common-tags").stripIndent
 
 const rule = rules[ruleName]
 

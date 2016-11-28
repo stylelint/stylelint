@@ -6,7 +6,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const _ = require("lodash")
-import { all as properties } from "known-css-properties"
+const properties = require("known-css-properties").all
 const postcss = require("postcss")
 
 const ruleName = "property-no-unknown"

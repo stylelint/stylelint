@@ -1,4 +1,4 @@
-import { configurationError } from "."
+const configurationError = require("./configurationError")
 const resolveFrom = require("resolve-from")
 
 module.exports = function (basedir/*: string*/, lookup/*: string*/)/*: string*/ {

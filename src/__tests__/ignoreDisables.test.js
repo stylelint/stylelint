@@ -1,6 +1,6 @@
 const postcssPlugin = require("../postcssPlugin")
 const standalone = require("../standalone")
-import { stripIndent } from "common-tags"
+const stripIndent = require("common-tags").stripIndent
 
 const config = {
   rules: { "block-no-empty": true },

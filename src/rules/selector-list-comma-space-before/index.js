@@ -1,8 +1,7 @@
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
-
-import { selectorListCommaWhitespaceChecker } from "../selector-list-comma-space-after"
+const selectorListCommaWhitespaceChecker = require("../selectorListCommaWhitespaceChecker")
 
 const ruleName = "selector-list-comma-space-before"
 

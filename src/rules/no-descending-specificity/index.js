@@ -1,4 +1,4 @@
-import { calculate, compare } from "specificity"
+const specificity = require("specificity")
 const findAtRuleContext = require("../../utils/findAtRuleContext")
 const isCustomPropertySet = require("../../utils/isCustomPropertySet")
 const nodeContextLookup = require("../../utils/nodeContextLookup")
@@ -52,7 +52,7 @@ const rule = function (actual) {
     function checkSelector(selectorNode, rule, sourceIndex, comparisonContext) {
       const selector = selectorNode.toString()
       const referenceSelectorNode = lastCompoundSelectorWithoutPseudoClasses(selectorNode)
-      const selectorSpecificity = calculate(selector)[0].specificityArray
+      const selectorSpecificity = specificity.calculate(selector)[0].specificityArray
       const entry = { selector, specificity: selectorSpecificity }
 
       if (!comparisonContext.has(referenceSelectorNode)) {
@@ -63,7 +63,7 @@ const rule = function (actual) {
       const priorComparableSelectors = comparisonContext.get(referenceSelectorNode)
 
       priorComparableSelectors.forEach(priorEntry => {
-        if (compare(selectorSpecificity, priorEntry.specificity) === -1) {
+        if (specificity.compare(selectorSpecificity, priorEntry.specificity) === -1) {
           report({
             ruleName,
             result,

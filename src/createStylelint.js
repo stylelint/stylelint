@@ -1,5 +1,5 @@
 /* @flow */
-import { augmentConfigExtended, augmentConfigFull } from "./augmentConfig"
+const augmentConfig = require("./augmentConfig")
 const _ = require("lodash")
 const cosmiconfig = require("cosmiconfig")
 const createStylelintResult = require("./createStylelintResult")
@@ -21,11 +21,11 @@ module.exports = function ()/*: stylelint$internalApi*/ {
   stylelint._fullExplorer = cosmiconfig("stylelint", {
     argv: false,
     rcExtensions: true,
-    transform: _.partial(augmentConfigFull, stylelint),
+    transform: _.partial(augmentConfig.augmentConfigFull, stylelint),
   })
   stylelint._extendExplorer = cosmiconfig(null, {
     argv: false,
-    transform: _.partial(augmentConfigExtended, stylelint),
+    transform: _.partial(augmentConfig.augmentConfigExtended, stylelint),
   })
 
   stylelint._specifiedConfigCache = new Map()

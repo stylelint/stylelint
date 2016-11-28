@@ -1,4 +1,4 @@
-import { getBorderCharacters, table } from "table"
+const table = require("table")
 const _ = require("lodash")
 const chalk = require("chalk")
 const path = require("path")
@@ -103,8 +103,8 @@ function formatter(messages, source) {
     return row
   })
 
-  output += table(cleanedMessages, {
-    border: getBorderCharacters("void"),
+  output += table.table(cleanedMessages, {
+    border: table.getBorderCharacters("void"),
     columns: {
       0: { alignment: "right", width: columnWidths[0], paddingRight: 0 },
       1: { alignment: "left", width: columnWidths[1] },

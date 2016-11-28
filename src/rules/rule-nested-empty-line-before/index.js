@@ -1,8 +1,7 @@
 const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-
-import { checkRuleEmptyLineBefore } from "../rule-non-nested-empty-line-before"
+const checkRuleEmptyLineBefore = require("../checkRuleEmptyLineBefore")
 
 const ruleName = "rule-nested-empty-line-before"
 

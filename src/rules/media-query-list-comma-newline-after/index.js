@@ -1,7 +1,7 @@
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
-import { mediaQueryListCommaWhitespaceChecker } from "../media-query-list-comma-space-after"
+const mediaQueryListCommaWhitespaceChecker = require("../mediaQueryListCommaWhitespaceChecker")
 
 const ruleName = "media-query-list-comma-newline-after"
 

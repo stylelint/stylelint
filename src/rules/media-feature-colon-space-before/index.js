@@ -1,8 +1,7 @@
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
-
-import { mediaFeatureColonSpaceChecker } from "../media-feature-colon-space-after"
+const mediaFeatureColonSpaceChecker = require("../mediaFeatureColonSpaceChecker")
 
 const ruleName = "media-feature-colon-space-before"
 

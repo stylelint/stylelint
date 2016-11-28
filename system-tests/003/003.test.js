@@ -1,6 +1,6 @@
 /* @flow */
-import * as systemTestUtils from "../systemTestUtils"
-import stylelint from "../../src"
+const systemTestUtils = require("../systemTestUtils")
+const stylelint = require("../../src")
 
 it("003", () => {
   return stylelint.lint({

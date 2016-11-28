@@ -305,4 +305,4 @@ function addProcessorFunctions(config/*: stylelint$config*/)/*: stylelint$config
   return config
 }
 
-export { augmentConfigExtended, augmentConfigFull }
+module.exports = { augmentConfigExtended, augmentConfigFull }

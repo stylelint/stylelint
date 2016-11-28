@@ -1,4 +1,4 @@
-import { mergeTestDescriptions } from "../"
+const mergeTestDescriptions = require("../mergeTestDescriptions")
 const test = require("tape")
 
 test("merge objects", t => {

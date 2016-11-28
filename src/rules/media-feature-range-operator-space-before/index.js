@@ -3,8 +3,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
-
-import { findMediaOperator } from "../media-feature-range-operator-space-after"
+const findMediaOperator = require("../findMediaOperator")
 
 const ruleName = "media-feature-range-operator-space-before"
 

@@ -4,7 +4,7 @@ const optionsMatches = require("../../utils/optionsMatches")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { acceptCustomIdents } from "../../reference/propertySets"
+const propertySets = require("../../reference/propertySets")
 const keywordSets = require("../../reference/keywordSets")
 const _ = require("lodash")
 const namedColorData = require("../../reference/namedColorData")
@@ -41,7 +41,7 @@ const rule = function (expectation, options) {
     const namedColors = Object.keys(namedColorData)
 
     root.walkDecls(decl => {
-      if (acceptCustomIdents.has(decl.prop)) {
+      if (propertySets.acceptCustomIdents.has(decl.prop)) {
         return
       }
 

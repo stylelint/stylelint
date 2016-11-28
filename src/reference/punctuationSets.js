@@ -1,3 +1,7 @@
-export const mediaFeaturePunctuation = new Set([ ":", "=", ">", ">=", "<", "<=" ])
+const punctuationSets = {}
 
-export const nonSpaceCombinators = new Set([ ">", "+", "~" ])
+punctuationSets.mediaFeaturePunctuation = new Set([ ":", "=", ">", ">=", "<", "<=" ])
+
+punctuationSets.nonSpaceCombinators = new Set([ ">", "+", "~" ])
+
+module.exports = punctuationSets

@@ -4,7 +4,7 @@ const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const execall = require("execall")
-import { mediaFeaturePunctuation } from "../../reference/punctuationSets"
+const punctuationSets = require("../../reference/punctuationSets")
 
 const ruleName = "media-feature-no-missing-punctuation"
 
@@ -13,7 +13,7 @@ const messages = ruleMessages(ruleName, {
 })
 
 function isPunctuation(str) {
-  return mediaFeaturePunctuation.has(str)
+  return punctuationSets.mediaFeaturePunctuation.has(str)
 }
 
 function endsWithPunctuation(str) {

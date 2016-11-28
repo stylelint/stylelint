@@ -1,8 +1,7 @@
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
 const whitespaceChecker = require("../../utils/whitespaceChecker")
-
-import { selectorCombinatorSpaceChecker } from "../selector-combinator-space-after"
+const selectorCombinatorSpaceChecker = require("../selectorCombinatorSpaceChecker")
 
 const ruleName = "selector-combinator-space-before"
 

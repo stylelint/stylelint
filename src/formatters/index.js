@@ -1,3 +1,5 @@
-export { default as json } from "./jsonFormatter"
-export { default as string } from "./stringFormatter"
-export { default as verbose } from "./verboseFormatter"
+module.exports = {
+  json: require("./jsonFormatter"),
+  string: require("./stringFormatter"),
+  verbose: require("./verboseFormatter"),
+}

@@ -1,5 +1,5 @@
 /* @flow */
-import { augmentConfigFull } from "./augmentConfig"
+const augmentConfigFull = require("./augmentConfig").augmentConfigFull
 const configurationError = require("./utils/configurationError")
 const path = require("path")
 

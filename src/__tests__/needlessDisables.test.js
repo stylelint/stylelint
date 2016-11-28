@@ -1,7 +1,7 @@
 const needlessDisables = require("../needlessDisables")
 const path = require("path")
 const standalone = require("../standalone")
-import { stripIndent } from "common-tags"
+const stripIndent = require("common-tags").stripIndent
 
 function fixture(name) {
   return path.join(__dirname, "./fixtures/needlessDisables", name)

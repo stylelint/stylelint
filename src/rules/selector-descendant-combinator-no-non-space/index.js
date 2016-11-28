@@ -3,7 +3,7 @@ const parseSelector = require("../../utils/parseSelector")
 const report = require("../../utils/report")
 const ruleMessages = require("../../utils/ruleMessages")
 const validateOptions = require("../../utils/validateOptions")
-import { nonSpaceCombinators } from "../../reference/punctuationSets"
+const punctuationSets = require("../../reference/punctuationSets")
 
 const ruleName = "selector-descendant-combinator-no-non-space"
 
@@ -29,7 +29,7 @@ const rule = function (actual) {
         fullSelector.walkCombinators(combinatorNode => {
           const value = combinatorNode.value
 
-          if (nonSpaceCombinators.has(value)) {
+          if (punctuationSets.nonSpaceCombinators.has(value)) {
             return
           }
           if (value === " ") {
