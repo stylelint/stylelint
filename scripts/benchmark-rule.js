@@ -1,3 +1,5 @@
+"use strict"
+
 /* eslint-disable no-console */
 const Benchmark = require("benchmark")
 const chalk = require("chalk")
