@@ -59,6 +59,9 @@ testRule(rule, {
     code: "a { top: calc(-1px * -1)}",
     description: "sign after operator and at start",
   }, {
+    code: "a { top: calc(-var(--foo) - 2rem); }",
+    description: "var with a minus in front",
+  }, {
     code: "a { top: calc(    +1px)}",
     description: "multiple spaces before sign at start",
   }, {
