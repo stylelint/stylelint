@@ -63,14 +63,11 @@ describe("standalone with two file-specific globs", () => {
 })
 
 it("standalone with input css", () => {
-  return standalone({ code: "a {}", config: configBlockNoEmpty }).then((_ref) => {
-    let output = _ref.output,
-      results = _ref.results
-
-    expect(typeof output).toBe("string")
-    expect(results.length).toBe(1)
-    expect(results[0].warnings.length).toBe(1)
-    expect(results[0].warnings[0].rule).toBe("block-no-empty")
+  return standalone({ code: "a {}", config: configBlockNoEmpty }).then((linted) => {
+    expect(typeof linted.output).toBe("string")
+    expect(linted.results.length).toBe(1)
+    expect(linted.results[0].warnings.length).toBe(1)
+    expect(linted.results[0].warnings[0].rule).toBe("block-no-empty")
   })
 })
 
@@ -113,15 +110,11 @@ it("standalone with non-existent-file and allowEmptyInput true", () => {
     files: `${fixturesPath}/non-existent-file.css`,
     config: configBlockNoEmpty,
     allowEmptyInput: true,
-  }).then((_ref2) => {
-    let output = _ref2.output,
-      results = _ref2.results,
-      errored = _ref2.errored
-
-    expect(typeof output).toBe("string")
-    expect(results.length).toBe(0)
-    expect(errored).toBe(false)
-    expect(output).toBe("[]")
+  }).then((linted) => {
+    expect(typeof linted.output).toBe("string")
+    expect(linted.results.length).toBe(0)
+    expect(linted.errored).toBe(false)
+    expect(linted.output).toBe("[]")
   })
 })
 
@@ -170,10 +163,8 @@ it("standalone passing file with syntax error", () => {
     code: "a { color: 'red; }",
     codeFilename: path.join(__dirname, "syntax-error.css"),
     config: { rules: { "block-no-empty": true } },
-  }).then((_ref3) => {
-    const results = _ref3.results
-
-    expect(results[0].source.indexOf("syntax-error.css")).not.toBe(-1)
+  }).then((linted) => {
+    expect(linted.results[0].source.indexOf("syntax-error.css")).not.toBe(-1)
   })
 })
 
@@ -181,10 +172,8 @@ it("syntax error sets errored to true", () => {
   return standalone({
     code: "a { color: 'red; }",
     config: { rules: { "block-no-empty": true } },
-  }).then((_ref4) => {
-    const errored = _ref4.errored
-
-    expect(errored).toBe(true)
+  }).then((linted) => {
+    expect(linted.errored).toBe(true)
   })
 })
 
@@ -192,10 +181,8 @@ describe("configuration error sets errored to true", () => {
   return standalone({
     code: "a { color: 'red'; }",
     config: { rules: { "block-no-empty": "wahoo" } },
-  }).then((_ref5) => {
-    const errored = _ref5.errored
-
-    expect(errored).toBe(true)
+  }).then((linted) => {
+    expect(linted.errored).toBe(true)
   })
 })
 
@@ -347,11 +334,9 @@ it("Setting `plugins` inside `configOverrides` object should overrides the ones 
     configOverrides: {
       plugins: ["./fixtures/plugin-warn-about-bar"],
     },
-  }).then((_ref6) => {
-    const results = _ref6.results
-
-    expect(results[0].warnings.length).toBe(1)
-    expect(results[0].warnings[0].text).toBe("found .bar (plugin/warn-about-bar)")
+  }).then((linted) => {
+    expect(linted.results[0].warnings.length).toBe(1)
+    expect(linted.results[0].warnings[0].text).toBe("found .bar (plugin/warn-about-bar)")
   })
 })
 
@@ -378,10 +363,8 @@ describe("nonexistent codeFilename with loaded config", () => {
     return standalone({
       code: "a {}",
       codeFilename: "does-not-exist.css",
-    }).then((_ref7) => {
-      const results = _ref7.results
-
-      expect(results[0].warnings.length).toBe(1)
+    }).then((linted) => {
+      expect(linted.results[0].warnings.length).toBe(1)
     })
   })
 })

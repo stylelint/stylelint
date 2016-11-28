@@ -4,8 +4,8 @@ const standalone = require("../standalone")
 const stringFormatter = require("../formatters/stringFormatter")
 
 it("standalone with input css and alternate formatter specified by keyword", () => {
-  return standalone({ code: "a {}", config: configBlockNoEmpty, formatter: "string" }).then((_ref) => {
-    const output = _ref.output
+  return standalone({ code: "a {}", config: configBlockNoEmpty, formatter: "string" }).then((linted) => {
+    const output = linted.output
 
     const strippedOutput = chalk.stripColor(output)
     expect(typeof output).toBe("string")
@@ -15,8 +15,8 @@ it("standalone with input css and alternate formatter specified by keyword", () 
 })
 
 it("standalone with input css and alternate formatter function", () => {
-  return standalone({ code: "a {}", config: configBlockNoEmpty, formatter: stringFormatter }).then((_ref2) => {
-    const output = _ref2.output
+  return standalone({ code: "a {}", config: configBlockNoEmpty, formatter: stringFormatter }).then((linted) => {
+    const output = linted.output
 
     const strippedOutput = chalk.stripColor(output)
     expect(typeof output).toBe("string")

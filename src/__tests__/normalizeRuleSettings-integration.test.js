@@ -9,10 +9,8 @@ it("[normalized rule settings] primary option array", () => {
         "selector-pseudo-class-blacklist": ["focus"],
       },
     },
-  }).then((_ref) => {
-    const results = _ref.results
-
-    expect(results[0].warnings[0].rule).toBe("selector-pseudo-class-blacklist")
+  }).then((linted) => {
+    expect(linted.results[0].warnings[0].rule).toBe("selector-pseudo-class-blacklist")
   })
 })
 
@@ -24,10 +22,8 @@ it("[normalized rule settings] primary option array in array", () => {
         "selector-pseudo-class-blacklist": [["focus"]],
       },
     },
-  }).then((_ref2) => {
-    const results = _ref2.results
-
-    expect(results[0].warnings[0].rule).toBe("selector-pseudo-class-blacklist")
+  }).then((linted) => {
+    expect(linted.results[0].warnings[0].rule).toBe("selector-pseudo-class-blacklist")
   })
 })
 
@@ -40,10 +36,8 @@ it("[normalized rule settings] no-array primary, primary option null", () => {
         "block-no-empty": null,
       },
     },
-  }).then((_ref3) => {
-    const results = _ref3.results
-
-    expect(results[0].warnings.length).toBe(0)
+  }).then((linted) => {
+    expect(linted.results[0].warnings.length).toBe(0)
   })
 })
 
@@ -56,10 +50,8 @@ it("[normalized rule settings] no-array primary, primary option null in array", 
         "block-no-empty": [null],
       },
     },
-  }).then((_ref4) => {
-    const results = _ref4.results
-
-    expect(results[0].warnings.length).toBe(0)
+  }).then((linted) => {
+    expect(linted.results[0].warnings.length).toBe(0)
   })
 })
 
@@ -72,10 +64,8 @@ it("[normalized rule settings] array primary, primary option null", () => {
         "unit-blacklist": null,
       },
     },
-  }).then((_ref5) => {
-    const results = _ref5.results
-
-    expect(results[0].warnings.length).toBe(0)
+  }).then((linted) => {
+    expect(linted.results[0].warnings.length).toBe(0)
   })
 })
 
@@ -88,9 +78,7 @@ it("[normalized rule settings] array primary, primary option null in array", () 
         "unit-blacklist": [null],
       },
     },
-  }).then((_ref6) => {
-    const results = _ref6.results
-
-    expect(results[0].invalidOptionWarnings.length).toBe(0)
+  }).then((linted) => {
+    expect(linted.results[0].invalidOptionWarnings.length).toBe(0)
   })
 })

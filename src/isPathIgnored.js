@@ -14,8 +14,8 @@ module.exports = function (stylelint/* : stylelint$internalApi*/, filePathArg/* 
     return Promise.resolve(false)
   }
 
-  return stylelint.getConfigForFile(filePath).then((_ref) => {
-    const config = _ref.config
+  return stylelint.getConfigForFile(filePath).then((result) => {
+    const config = result.config
 
     const absoluteFilePath = path.isAbsolute(filePath) ? filePath : path.resolve(process.cwd(), filePath)
 

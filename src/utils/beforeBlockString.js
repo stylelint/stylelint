@@ -1,9 +1,5 @@
 /* @flow */
-module.exports = function (statement/* : Object*/)/* : string*/ {
-  const _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {}
-
-  const noRawBefore = _ref.noRawBefore
-
+module.exports = function (statement/* : Object*/, options/* : Object*/)/* : string*/ {
   let result = ""
   let rule/* : postcss$rule*/
   let atRule/* : postcss$atRule*/
@@ -22,7 +18,7 @@ module.exports = function (statement/* : Object*/)/* : string*/ {
   const before = statement.raws.before
   const between = statement.raws.between
 
-  if (!noRawBefore) {
+  if (!options.noRawBefore) {
     result += before
   }
   if (rule) {

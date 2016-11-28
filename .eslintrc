@@ -6,7 +6,6 @@
   "env": {
     "jest": true
   },
-  "parser": "babel-eslint",
   "plugins": [
     "flowtype"
   ],

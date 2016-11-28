@@ -2,13 +2,8 @@ const declarationValueIndex = require("../../utils/declarationValueIndex")
 const isStandardSyntaxDeclaration = require("../../utils/isStandardSyntaxDeclaration")
 const report = require("../../utils/report")
 
-module.exports = function (_ref) {
-  let locationChecker = _ref.locationChecker,
-    root = _ref.root,
-    result = _ref.result,
-    checkedRuleName = _ref.checkedRuleName
-
-  root.walkDecls(decl => {
+module.exports = function (opts) {
+  opts.root.walkDecls(decl => {
     if (!isStandardSyntaxDeclaration(decl)) {
       return
     }
@@ -24,7 +19,7 @@ module.exports = function (_ref) {
       if (propPlusColon[i] !== ":") {
         continue
       }
-      locationChecker({
+      opts.locationChecker({
         source: propPlusColon,
         index: i,
         lineCheckStr: decl.value,
@@ -33,8 +28,8 @@ module.exports = function (_ref) {
             message: m,
             node: decl,
             index: decl.prop.toString().length + 1,
-            result,
-            ruleName: checkedRuleName,
+            result: opts.result,
+            ruleName: opts.checkedRuleName,
           })
         },
       })

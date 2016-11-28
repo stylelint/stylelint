@@ -3,13 +3,8 @@ const isStandardSyntaxProperty = require("../../utils/isStandardSyntaxProperty")
 const report = require("../../utils/report")
 const styleSearch = require("style-search")
 
-module.exports = function (_ref) {
-  let locationChecker = _ref.locationChecker,
-    root = _ref.root,
-    result = _ref.result,
-    checkedRuleName = _ref.checkedRuleName
-
-  root.walkDecls(decl => {
+module.exports = function (opts) {
+  opts.root.walkDecls(decl => {
     if (!isStandardSyntaxDeclaration(decl) || !isStandardSyntaxProperty(decl.prop)) {
       return
     }
@@ -23,7 +18,7 @@ module.exports = function (_ref) {
   })
 
   function checkComma(source, index, node) {
-    locationChecker({
+    opts.locationChecker({
       source,
       index,
       err: m => {
@@ -31,8 +26,8 @@ module.exports = function (_ref) {
           message: m,
           node,
           index,
-          result,
-          ruleName: checkedRuleName,
+          result: opts.result,
+          ruleName: opts.checkedRuleName,
         })
       },
     })

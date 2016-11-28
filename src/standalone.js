@@ -6,23 +6,21 @@ const needlessDisables = require("./needlessDisables")
 
 const alwaysIgnoredGlobs = [ "!**/node_modules/**", "!**/bower_components/**" ]
 
-module.exports = function ()/* : Promise<stylelint$standaloneReturnValue>*/ {
-  const _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
-
-  let files = _ref.files,
-    code = _ref.code,
-    codeFilename = _ref.codeFilename,
-    config = _ref.config,
-    configFile = _ref.configFile,
-    configBasedir = _ref.configBasedir,
-    configOverrides = _ref.configOverrides,
-    ignoreDisables = _ref.ignoreDisables,
-    ignorePath = _ref.ignorePath,
-    reportNeedlessDisables = _ref.reportNeedlessDisables,
-    formatter = _ref.formatter,
-    syntax = _ref.syntax,
-    customSyntax = _ref.customSyntax,
-    allowEmptyInput = _ref.allowEmptyInput
+module.exports = function (options)/* : Promise<stylelint$standaloneReturnValue>*/ {
+  const files = options.files
+  const code = options.code
+  const codeFilename = options.codeFilename
+  const config = options.config
+  const configFile = options.configFile
+  const configBasedir = options.configBasedir
+  const configOverrides = options.configOverrides
+  const ignoreDisables = options.ignoreDisables
+  const ignorePath = options.ignorePath
+  const reportNeedlessDisables = options.reportNeedlessDisables
+  const formatter = options.formatter
+  const syntax = options.syntax
+  const customSyntax = options.customSyntax
+  const allowEmptyInput = options.allowEmptyInput
 
   const isValidCode = typeof code === "string"
   if (!files && !isValidCode || files && (code || isValidCode)) {

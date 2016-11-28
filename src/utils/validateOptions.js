@@ -25,9 +25,7 @@ const ignoredOptions = [ "severity", "message" ]
 module.exports = function (result, ruleName) {
   let noErrors = true
 
-  for (var _len = arguments.length, optionDescriptions = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-    optionDescriptions[_key - 2] = arguments[_key]
-  }
+  const optionDescriptions = Array.from(arguments).slice(2)
 
   optionDescriptions.forEach(optionDescription => {
     validate(optionDescription, ruleName, complain)
@@ -44,10 +42,10 @@ module.exports = function (result, ruleName) {
   return noErrors
 }
 
-function validate(_ref, ruleName, complain) {
-  let possible = _ref.possible,
-    actual = _ref.actual,
-    optional = _ref.optional
+function validate(opts, ruleName, complain) {
+  const possible = opts.possible
+  const actual = opts.actual
+  const optional = opts.optional
 
   if (actual === null || _.isEqual(actual, [null])) {
     return

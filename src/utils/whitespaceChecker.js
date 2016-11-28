@@ -61,16 +61,14 @@ module.exports = function (targetWhitespace, expectation, messages) {
    *   With this option, the checker will see if a newline *begins* the whitespace before
    *   the `index`.
    */
-  function before(_ref) {
-    let source = _ref.source,
-      index = _ref.index,
-      err = _ref.err,
-      errTarget = _ref.errTarget,
-      lineCheckStr = _ref.lineCheckStr
-    const _ref$onlyOneChar = _ref.onlyOneChar
-    const onlyOneChar = _ref$onlyOneChar === undefined ? false : _ref$onlyOneChar
-    const _ref$allowIndentation = _ref.allowIndentation
-    const allowIndentation = _ref$allowIndentation === undefined ? false : _ref$allowIndentation
+  function before(args) {
+    const source = args.source
+    const index = args.index
+    const err = args.err
+    const errTarget = args.errTarget
+    const lineCheckStr = args.lineCheckStr
+    const onlyOneChar = args.onlyOneChar === undefined ? false : args.onlyOneChar
+    const allowIndentation = args.allowIndentation === undefined ? false : args.allowIndentation
 
     activeArgs = { source, index, err, errTarget, onlyOneChar, allowIndentation }
     switch (expectation) {
@@ -115,14 +113,13 @@ module.exports = function (targetWhitespace, expectation, messages) {
    * Parameters are pretty much the same as for `before()`, above, just substitute
    * the word "after" for "before".
    */
-  function after(_ref2) {
-    let source = _ref2.source,
-      index = _ref2.index,
-      err = _ref2.err,
-      errTarget = _ref2.errTarget,
-      lineCheckStr = _ref2.lineCheckStr
-    const _ref2$onlyOneChar = _ref2.onlyOneChar
-    const onlyOneChar = _ref2$onlyOneChar === undefined ? false : _ref2$onlyOneChar
+  function after(args) {
+    const source = args.source
+    const index = args.index
+    const err = args.err
+    const errTarget = args.errTarget
+    const lineCheckStr = args.lineCheckStr
+    const onlyOneChar = args.onlyOneChar === undefined ? false : args.onlyOneChar
 
     activeArgs = { source, index, err, errTarget, onlyOneChar }
     switch (expectation) {

@@ -8,12 +8,8 @@ function assertEquality(processCss, context) {
   testFn(context.caseDescription, t => {
     t.plan(context.comparisonCount)
     processCss.then(comparisons => {
-      comparisons.forEach((_ref) => {
-        let actual = _ref.actual,
-          expected = _ref.expected,
-          description = _ref.description
-
-        t.equal(actual, expected, description)
+      comparisons.forEach((comparison) => {
+        t.equal(comparison.actual, comparison.expected, comparison.description)
       })
     })
   })

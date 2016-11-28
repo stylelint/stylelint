@@ -31,10 +31,8 @@ it("needlessDisables simple case", () => {
     config,
     code: css,
     ignoreDisables: true,
-  }).then((_ref) => {
-    const results = _ref.results
-
-    const report = needlessDisables(results)
+  }).then((linted) => {
+    const report = needlessDisables(linted.results)
     expect(report.length).toBe(1)
     expect(report[0].ranges).toEqual([ { start: 7, end: 9 }, { start: 11, end: 11 } ])
   })
@@ -54,10 +52,8 @@ it("needlessDisables complex case", () => {
     // ignore files contain `CssSyntaxError`
       fixture("disabled-ranges-3.css") ],
     ignoreDisables: true,
-  }).then((_ref2) => {
-    const results = _ref2.results
-
-    expect(needlessDisables(results)).toEqual([ {
+  }).then((linted) => {
+    expect(needlessDisables(linted.results)).toEqual([ {
       source: fixture("disabled-ranges-1.css"),
       ranges: [ { start: 1, end: 3 }, { start: 5, end: 7 }, { start: 10, end: 10 } ],
     }, {
@@ -79,10 +75,8 @@ it("needlessDisables ignored case", () => {
     files: [ fixture("disabled-ranges-1.css"), fixture("ignored-file.css") ],
     ignoreDisables: true,
     ignorePath: fixture(".stylelintignore"),
-  }).then((_ref3) => {
-    const results = _ref3.results
-
-    expect(needlessDisables(results)).toEqual([{
+  }).then((linted) => {
+    expect(needlessDisables(linted.results)).toEqual([{
       source: fixture("disabled-ranges-1.css"),
       ranges: [ { start: 1, end: 3 }, { start: 5, end: 7 }, { start: 10, end: 10 } ],
     }])

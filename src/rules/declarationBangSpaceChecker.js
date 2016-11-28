@@ -2,13 +2,8 @@ const declarationValueIndex = require("../../utils/declarationValueIndex")
 const report = require("../../utils/report")
 const styleSearch = require("style-search")
 
-module.exports = function (_ref) {
-  let locationChecker = _ref.locationChecker,
-    root = _ref.root,
-    result = _ref.result,
-    checkedRuleName = _ref.checkedRuleName
-
-  root.walkDecls(function (decl) {
+module.exports = function (opts) {
+  opts.root.walkDecls(function (decl) {
     const indexOffset = declarationValueIndex(decl)
     const declString = decl.toString()
     const valueString = decl.toString().slice(indexOffset)
@@ -22,12 +17,12 @@ module.exports = function (_ref) {
   })
 
   function check(source, index, node) {
-    locationChecker({ source, index, err: m => report({
+    opts.locationChecker({ source, index, err: m => report({
       message: m,
       node,
       index,
-      result,
-      ruleName: checkedRuleName,
+      result: opts.result,
+      ruleName: opts.checkedRuleName,
     }),
     })
   }

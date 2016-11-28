@@ -5,13 +5,8 @@ const _ = require("lodash")
 const styleSearch = require("style-search")
 const valueParser = require("postcss-value-parser")
 
-module.exports = function (_ref) {
-  let locationChecker = _ref.locationChecker,
-    root = _ref.root,
-    result = _ref.result,
-    checkedRuleName = _ref.checkedRuleName
-
-  root.walkDecls(decl => {
+module.exports = function (opts) {
+  opts.root.walkDecls(decl => {
     const declValue = _.get(decl, "raws.value.raw", decl.value)
 
     valueParser(declValue).walk(valueNode => {
@@ -45,7 +40,7 @@ module.exports = function (_ref) {
         target: ",",
         functionArguments: "skip",
       }, match => {
-        locationChecker({
+        opts.locationChecker({
           source: functionArguments,
           index: match.startIndex,
           err: message => {
@@ -54,8 +49,8 @@ module.exports = function (_ref) {
               index,
               message,
               node: decl,
-              result,
-              ruleName: checkedRuleName,
+              result: opts.result,
+              ruleName: opts.checkedRuleName,
             })
           },
         })

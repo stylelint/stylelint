@@ -24,7 +24,7 @@ function getRightNodes(node) {
   const result = []
   let rightNode = node
 
-  while (rightNode = rightNode.next()) {
+  while ((rightNode = rightNode.next())) {
     if (rightNode.type === "combinator") {
       break
     }

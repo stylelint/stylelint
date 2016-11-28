@@ -169,13 +169,10 @@ const rule = function (expectation, options) {
       }
     }
 
-    function complain(_ref) {
-      let message = _ref.message,
-        node = _ref.node
-
+    function complain(opts) {
       report({
-        message,
-        node,
+        message: opts.message,
+        node: opts.node,
         result,
         ruleName,
       })

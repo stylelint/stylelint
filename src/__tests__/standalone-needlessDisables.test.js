@@ -16,8 +16,8 @@ it("standalone with input css and `reportNeedlessDisables`", () => {
     code: "/* stylelint-disable color-named */\na {}",
     config,
     reportNeedlessDisables: true,
-  }).then((_ref) => {
-    const needlessDisables = _ref.needlessDisables
+  }).then((linted) => {
+    const needlessDisables = linted.needlessDisables
 
     expect(typeof needlessDisables).toBe("object")
     expect(needlessDisables.length).toBe(1)
@@ -41,8 +41,8 @@ it("standalone with input file(s) and `reportNeedlessDisables`", () => {
     files: path.join(fixturesPath, "empty-block-with-disables.css"),
     config,
     reportNeedlessDisables: true,
-  }).then((_ref2) => {
-    const needlessDisables = _ref2.needlessDisables
+  }).then((linted) => {
+    const needlessDisables = linted.needlessDisables
 
     expect(typeof needlessDisables).toBe("object")
     expect(needlessDisables.length).toBe(1)

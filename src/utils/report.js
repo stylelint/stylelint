@@ -21,14 +21,14 @@ const _ = require("lodash")
  * @param {Node} [violation.word] - Word that should be passed to result.warn()
  * @param {number} [violation.line] - Line number of the violation
  */
-module.exports = function (_ref) {
-  let ruleName = _ref.ruleName,
-    result = _ref.result,
-    message = _ref.message,
-    line = _ref.line,
-    node = _ref.node,
-    index = _ref.index,
-    word = _ref.word
+module.exports = function (violation) {
+  const ruleName = violation.ruleName
+  const result = violation.result
+  const message = violation.message
+  const line = violation.line
+  const node = violation.node
+  const index = violation.index
+  const word = violation.word
 
   result.stylelint = result.stylelint || {}
 

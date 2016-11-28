@@ -11,14 +11,11 @@ it("basic extending", () => {
     code: "a {}",
     config: configExtendingOne,
     configBasedir: path.join(__dirname, "fixtures"),
-  }).then((_ref) => {
-    let output = _ref.output,
-      results = _ref.results
-
-    expect(typeof output, "string")
-    expect(results.length, 1)
-    expect(results[0].warnings.length, 1)
-    expect(results[0].warnings[0].rule, "block-no-empty")
+  }).then((linted) => {
+    expect(typeof linted.output).toBe("string")
+    expect(linted.results.length).toBe(1)
+    expect(linted.results[0].warnings.length).toBe(1)
+    expect(linted.results[0].warnings[0].rule).toBe("block-no-empty")
   })
 })
 
@@ -27,14 +24,11 @@ it("recursive extending", () => {
     code: "a {}",
     config: configExtendingAnotherExtend,
     configBasedir: path.join(__dirname, "fixtures"),
-  }).then((_ref2) => {
-    let output = _ref2.output,
-      results = _ref2.results
-
-    expect(typeof output).toBe("string")
-    expect(results.length).toBe(1)
-    expect(results[0].warnings.length).toBe(1)
-    expect(results[0].warnings[0].rule).toBe("block-no-empty")
+  }).then((linted) => {
+    expect(typeof linted.output).toBe("string")
+    expect(linted.results.length).toBe(1)
+    expect(linted.results[0].warnings.length).toBe(1)
+    expect(linted.results[0].warnings[0].rule).toBe("block-no-empty")
   })
 })
 
@@ -43,10 +37,8 @@ it("extending with overrides", () => {
     code: "a {}",
     config: configExtendingThreeWithOverride,
     configBasedir: path.join(__dirname, "fixtures"),
-  }).then((_ref3) => {
-    const results = _ref3.results
-
-    expect(results[0].warnings.length).toBe(0)
+  }).then((linted) => {
+    expect(linted.results[0].warnings.length).toBe(0)
   })
 })
 
@@ -68,10 +60,8 @@ it("extending a config that is overridden", () => {
       extends: [`${fixturesPath}/config-string-quotes-single`],
       rules: { "string-quotes": "double" },
     },
-  }).then((_ref4) => {
-    const results = _ref4.results
-
-    expect(results[0].warnings.length).toBe(0)
+  }).then((linted) => {
+    expect(linted.results[0].warnings.length).toBe(0)
   })
 })
 
@@ -93,10 +83,8 @@ describe("extending a config from process.cwd", () => {
       config: {
         extends: ["./fixtures/config-string-quotes-single"],
       },
-    }).then((_ref5) => {
-      const results = _ref5.results
-
-      expect(results[0].warnings.length).toBe(1)
+    }).then((linted) => {
+      expect(linted.results[0].warnings.length).toBe(1)
     })
   })
 })

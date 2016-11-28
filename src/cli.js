@@ -196,24 +196,20 @@ Promise.resolve().then(() => {
   }
 
   return standalone(options)
-}).then((_ref) => {
-  let output = _ref.output,
-    errored = _ref.errored,
-    needlessDisables = _ref.needlessDisables
-
+}).then((linted) => {
   if (reportNeedlessDisables) {
-    process.stdout.write(needlessDisablesStringFormatter(needlessDisables))
+    process.stdout.write(needlessDisablesStringFormatter(linted.needlessDisables))
     if (reportNeedlessDisables === "error") {
       process.exitCode = 2
     }
     return
   }
 
-  if (!output) {
+  if (!linted.output) {
     return
   }
-  process.stdout.write(output)
-  if (errored) {
+  process.stdout.write(linted.output)
+  if (linted.errored) {
     process.exitCode = 2
   }
 }).catch(err => {

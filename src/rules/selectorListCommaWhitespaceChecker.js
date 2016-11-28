@@ -2,13 +2,8 @@ const isStandardSyntaxRule = require("../../utils/isStandardSyntaxRule")
 const report = require("../../utils/report")
 const styleSearch = require("style-search")
 
-module.exports = function (_ref) {
-  let locationChecker = _ref.locationChecker,
-    root = _ref.root,
-    result = _ref.result,
-    checkedRuleName = _ref.checkedRuleName
-
-  root.walkRules(rule => {
+module.exports = function (opts) {
+  opts.root.walkRules(rule => {
     if (!isStandardSyntaxRule(rule)) {
       return
     }
@@ -23,12 +18,12 @@ module.exports = function (_ref) {
   })
 
   function checkDelimiter(source, index, node) {
-    locationChecker({ source, index, err: m => report({
+    opts.locationChecker({ source, index, err: m => report({
       message: m,
       node,
       index,
-      result,
-      ruleName: checkedRuleName,
+      result: opts.result,
+      ruleName: opts.checkedRuleName,
     }),
     })
   }

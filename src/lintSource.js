@@ -43,8 +43,8 @@ module.exports = function (stylelint/* : stylelint$internalApi*/)/* : Promise<Ob
       throw err
     })
 
-    return getConfig.then((_ref) => {
-      const config = _ref.config
+    return getConfig.then((result) => {
+      const config = result.config
       const existingPostcssResult = options.existingPostcssResult
 
       if (existingPostcssResult) {

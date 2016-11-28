@@ -40,8 +40,8 @@ module.exports = function (stylelint/* : stylelint$internalApi*/, postcssResult/
     _postcssResult: postcssResult,
   }
 
-  return stylelint.getConfigForFile(filePath).then((_ref) => {
-    const config = _ref.config
+  return stylelint.getConfigForFile(filePath).then((result) => {
+    const config = result.config
 
     if (config.resultProcessors) {
       config.resultProcessors.forEach(resultProcessor => {

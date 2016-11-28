@@ -20,11 +20,9 @@ it("standalone with scss syntax", () => {
     code: "$foo: bar; // foo;\nb {}",
     syntax: "scss",
     formatter: stringFormatter,
-  }).then((_ref) => {
-    const output = _ref.output
-
-    const strippedOutput = chalk.stripColor(output)
-    expect(typeof output).toBe("string")
+  }).then((linted) => {
+    const strippedOutput = chalk.stripColor(linted.output)
+    expect(typeof linted.output).toBe("string")
     expect(strippedOutput.indexOf("2:3")).not.toBe(-1)
     expect(strippedOutput.indexOf("block-no-empty")).not.toBe(-1)
   })
@@ -42,11 +40,9 @@ it("standalone with sugarss syntax", () => {
     code: ".one\n  color: black\n  top: 0px\n.two",
     syntax: "sugarss",
     formatter: stringFormatter,
-  }).then((_ref2) => {
-    const output = _ref2.output
-
-    const strippedOutput = chalk.stripColor(output)
-    expect(typeof output).toBe("string")
+  }).then((linted) => {
+    const strippedOutput = chalk.stripColor(linted.output)
+    expect(typeof linted.output).toBe("string")
     expect(strippedOutput.indexOf("3:9")).not.toBe(-1)
     expect(strippedOutput.indexOf("length-zero-no-unit")).not.toBe(-1)
   })
@@ -64,11 +60,9 @@ it("standalone with Less syntax", () => {
     code: "@foo: bar; // foo;\nb {}",
     syntax: "less",
     formatter: stringFormatter,
-  }).then((_ref3) => {
-    const output = _ref3.output
-
-    const strippedOutput = chalk.stripColor(output)
-    expect(typeof output).toBe("string")
+  }).then((linted) => {
+    const strippedOutput = chalk.stripColor(linted.output)
+    expect(typeof linted.output).toBe("string")
     expect(strippedOutput.indexOf("2:3")).not.toBe(-1)
     expect(strippedOutput.indexOf("block-no-empty")).not.toBe(-1)
   })
@@ -171,8 +165,8 @@ it("standalone with path to custom parser", () => {
     customSyntax: `${fixturesPath}/custom-parser`,
     code: ".foo { width: 200px }\n.bar {",
     formatter: stringFormatter,
-  }).then((_ref4) => {
-    const results = _ref4.results
+  }).then((linted) => {
+    const results = linted.results
 
     expect(results.length).toBe(1)
     expect(results[0].warnings.length).toBe(1)
@@ -194,8 +188,8 @@ it("standalone with path to custom syntax", () => {
     customSyntax: `${fixturesPath}/custom-syntax`,
     code: "$foo: bar; // foo;\nb {}",
     formatter: stringFormatter,
-  }).then((_ref5) => {
-    const results = _ref5.results
+  }).then((linted) => {
+    const results = linted.results
 
     expect(results.length).toBe(1)
     expect(results[0].warnings.length).toBe(1)
@@ -218,8 +212,8 @@ it("standalone should use customSyntax when both customSyntax and syntax are set
     customSyntax: `${fixturesPath}/custom-syntax`,
     code: "$foo: bar; // foo;\nb {}",
     formatter: stringFormatter,
-  }).then((_ref6) => {
-    const results = _ref6.results
+  }).then((linted) => {
+    const results = linted.results
 
     expect(results.length).toBe(1)
     expect(results[0].warnings.length).toBe(1)

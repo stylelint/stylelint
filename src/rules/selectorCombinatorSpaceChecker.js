@@ -3,13 +3,8 @@ const _ = require("lodash")
 const punctuationSets = require("../../reference/punctuationSets")
 const styleSearch = require("style-search")
 
-module.exports = function (_ref) {
-  let locationChecker = _ref.locationChecker,
-    root = _ref.root,
-    result = _ref.result,
-    checkedRuleName = _ref.checkedRuleName
-
-  root.walkRules(rule => {
+module.exports = function (opts) {
+  opts.root.walkRules(rule => {
     // Check each selector individually, instead of all as one string,
     // in case some that aren't the first begin with combinators (nesting syntax)
     rule.selectors.forEach(selector => {
@@ -39,12 +34,12 @@ module.exports = function (_ref) {
   })
 
   function check(source, index, node) {
-    locationChecker({ source, index, err: m => report({
+    opts.locationChecker({ source, index, err: m => report({
       message: m,
       node,
       index,
-      result,
-      ruleName: checkedRuleName,
+      result: opts.result,
+      ruleName: opts.checkedRuleName,
     }),
     })
   }
