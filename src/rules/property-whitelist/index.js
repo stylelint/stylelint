@@ -13,7 +13,7 @@ const messages = ruleMessages(ruleName, {
   rejected: property => `Unexpected property "${property}"`,
 })
 
-const rule = function(whitelist) {
+const rule = function (whitelist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: whitelist,
@@ -47,7 +47,6 @@ const rule = function(whitelist) {
 }
 
 rule.primaryOptionArray = true
-
 
 rule.ruleName = ruleName
 rule.messages = messages

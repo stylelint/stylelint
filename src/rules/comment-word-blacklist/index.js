@@ -11,7 +11,7 @@ const messages = ruleMessages(ruleName, {
   rejected: pattern => `Unexpected word matching pattern "${pattern}"`,
 })
 
-const rule = function(blacklist) {
+const rule = function (blacklist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
@@ -48,7 +48,6 @@ const rule = function(blacklist) {
 }
 
 rule.primaryOptionArray = true
-
 
 rule.ruleName = ruleName
 rule.messages = messages

@@ -10,7 +10,7 @@ const messages = ruleMessages(ruleName, {
   rejected: name => `Unexpected at-rule "${name}"`,
 })
 
-const rule = function(whitelistInput) {
+const rule = function (whitelistInput) {
   // To allow for just a string as a parameter (not only arrays of strings)
   const whitelist = [].concat(whitelistInput)
   return (root, result) => {
@@ -40,7 +40,6 @@ const rule = function(whitelistInput) {
 }
 
 rule.primaryOptionArray = true
-
 
 rule.ruleName = ruleName
 rule.messages = messages

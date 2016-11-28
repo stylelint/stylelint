@@ -8,8 +8,8 @@ const sugarssSyntax = require("sugarss")
 
 const postcssProcessor = postcss()
 
-module.exports = function (stylelint/*: stylelint$internalApi*/)/*: Promise<?Object>*/ {
-  const options/*: {
+module.exports = function (stylelint/* : stylelint$internalApi*/)/* : Promise<?Object>*/ {
+  const options/* : {
                   code?: string,
                   codeFilename?: string,
                   filePath?: string,
@@ -84,7 +84,7 @@ module.exports = function (stylelint/*: stylelint$internalApi*/)/*: Promise<?Obj
   })
 }
 
-function readFile(filePath/*: string*/)/*: Promise<string>*/ {
+function readFile(filePath/* : string*/)/* : Promise<string>*/ {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, "utf8", (err, content) => {
       if (err) {

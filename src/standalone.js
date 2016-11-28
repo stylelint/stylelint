@@ -6,7 +6,7 @@ const needlessDisables = require("./needlessDisables")
 
 const alwaysIgnoredGlobs = [ "!**/node_modules/**", "!**/bower_components/**" ]
 
-module.exports = function ()/*: Promise<stylelint$standaloneReturnValue>*/ {
+module.exports = function ()/* : Promise<stylelint$standaloneReturnValue>*/ {
   const _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
 
   let files = _ref.files,
@@ -29,7 +29,7 @@ module.exports = function ()/*: Promise<stylelint$standaloneReturnValue>*/ {
     throw new Error("You must pass stylelint a `files` glob or a `code` string, though not both")
   }
 
-  let formatterFunction/*: Function*/
+  let formatterFunction/* : Function*/
   if (typeof formatter === "string") {
     formatterFunction = formatters[formatter]
     if (formatterFunction === undefined) {
@@ -64,7 +64,7 @@ module.exports = function ()/*: Promise<stylelint$standaloneReturnValue>*/ {
   return globby([].concat(files, alwaysIgnoredGlobs)).then(filePaths => {
     if (!filePaths.length) {
       if (allowEmptyInput === undefined || !allowEmptyInput) {
-        const err/*: Object*/ = new Error("Files glob patterns specified did not match any files")
+        const err/* : Object*/ = new Error("Files glob patterns specified did not match any files")
         err.code = 80
         throw err
       } else {
@@ -81,9 +81,9 @@ module.exports = function ()/*: Promise<stylelint$standaloneReturnValue>*/ {
     return Promise.all(getStylelintResults)
   }).then(prepareReturnValue)
 
-  function prepareReturnValue(stylelintResults/*: Array<stylelint$result>*/)/*: stylelint$standaloneReturnValue*/ {
+  function prepareReturnValue(stylelintResults/* : Array<stylelint$result>*/)/* : stylelint$standaloneReturnValue*/ {
     const errored = stylelintResults.some(result => result.errored)
-    const returnValue/*: stylelint$standaloneReturnValue*/ = {
+    const returnValue/* : stylelint$standaloneReturnValue*/ = {
       errored,
       output: formatterFunction(stylelintResults),
       results: stylelintResults,
@@ -107,7 +107,7 @@ function handleError(error) {
 // we can control their appearance in the formatted output
 // and other tools like editor plugins can decide how to
 // present them, as well
-function convertCssSyntaxErrorToResult(error/*: Object*/)/*: stylelint$result*/ {
+function convertCssSyntaxErrorToResult(error/* : Object*/)/* : stylelint$result*/ {
   if (error.name !== "CssSyntaxError") {
     throw error
   }

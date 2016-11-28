@@ -1,7 +1,7 @@
 /* flow */
 const _ = require("lodash")
 
-module.exports = function (results/*: Array<stylelint$result>*/)/*: stylelint$needlessDisablesReport*/ {
+module.exports = function (results/* : Array<stylelint$result>*/)/* : stylelint$needlessDisablesReport*/ {
   const report = []
 
   results.forEach(result => {
@@ -69,14 +69,14 @@ module.exports = function (results/*: Array<stylelint$result>*/)/*: stylelint$ne
   return report
 }
 
-function isWarningInRange(warning/*: {
+function isWarningInRange(warning/* : {
                                       rule: string,
                                       line: number,
-                                    }*/, range/*: {
+                                    }*/, range/* : {
                                                    rules?: Array<string>,
                                                    start: number,
                                                    end?: number,
-                                                 }*/)/*: boolean*/ {
+                                                 }*/)/* : boolean*/ {
   const rule = warning.rule,
     line = warning.line
 

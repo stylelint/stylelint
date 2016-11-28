@@ -127,7 +127,7 @@ if (cli.flags.customFormatter) {
   formatter = require(customFormatter)
 }
 
-const optionsBase/*: Object*/ = {
+const optionsBase/* : Object*/ = {
   formatter,
   configOverrides: {},
 }

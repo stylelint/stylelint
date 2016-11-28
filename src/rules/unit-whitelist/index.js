@@ -15,7 +15,7 @@ const messages = ruleMessages(ruleName, {
   rejected: unit => `Unexpected unit "${unit}"`,
 })
 
-const rule = function(whitelistInput, options) {
+const rule = function (whitelistInput, options) {
   const whitelist = [].concat(whitelistInput)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -65,7 +65,6 @@ const rule = function(whitelistInput, options) {
 }
 
 rule.primaryOptionArray = true
-
 
 rule.ruleName = ruleName
 rule.messages = messages

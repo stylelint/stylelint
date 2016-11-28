@@ -11,7 +11,7 @@ const messages = ruleMessages(ruleName, {
   rejected: operator => `Unexpected operator "${operator}"`,
 })
 
-const rule = function(blacklistInput) {
+const rule = function (blacklistInput) {
   const blacklist = [].concat(blacklistInput)
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
@@ -52,7 +52,6 @@ const rule = function(blacklistInput) {
 }
 
 rule.primaryOptionArray = true
-
 
 rule.ruleName = ruleName
 rule.messages = messages

@@ -14,7 +14,7 @@ const messages = ruleMessages(ruleName, {
   rejected: name => `Unexpected function "${name}"`,
 })
 
-const rule = function(blacklist) {
+const rule = function (blacklist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
@@ -50,7 +50,6 @@ const rule = function(blacklist) {
 }
 
 rule.primaryOptionArray = true
-
 
 rule.ruleName = ruleName
 rule.messages = messages

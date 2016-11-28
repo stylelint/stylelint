@@ -12,7 +12,7 @@ const messages = ruleMessages(ruleName, {
   expected: (first, second) => `Expected "${first}" to come before "${second}"`,
 })
 
-const rule = function(expectation, options) {
+const rule = function (expectation, options) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: expectation,
@@ -184,7 +184,6 @@ const rule = function(expectation, options) {
 }
 
 rule.primaryOptionArray = true
-
 
 rule.ruleName = ruleName
 rule.messages = messages

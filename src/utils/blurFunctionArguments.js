@@ -18,8 +18,8 @@ const balancedMatch = require("balanced-match")
  * @param {[string]} blurChar="`"
  * @return {string} - The result string, with the function arguments "blurred"
  */
-module.exports = function (source/*: string*/, functionName/*: string*/)/*: string*/ {
-  const blurChar/*: string*/ = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "`"
+module.exports = function (source/* : string*/, functionName/* : string*/)/* : string*/ {
+  const blurChar/* : string*/ = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "`"
 
   const nameWithParen = `${functionName.toLowerCase()}(`
   const lowerCaseSource = source.toLowerCase()
@@ -27,7 +27,7 @@ module.exports = function (source/*: string*/, functionName/*: string*/)/*: stri
     return source
   }
 
-  const functionNameLength/*: number*/ = functionName.length
+  const functionNameLength/* : number*/ = functionName.length
 
   let result = source
   let searchStartIndex = 0

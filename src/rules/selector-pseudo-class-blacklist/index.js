@@ -13,7 +13,7 @@ const messages = ruleMessages(ruleName, {
   rejected: selector => `Unexpected pseudo-class "${selector}"`,
 })
 
-const rule = function(blacklist) {
+const rule = function (blacklist) {
   return (root, result) => {
     const validOptions = validateOptions(result, ruleName, {
       actual: blacklist,
@@ -63,7 +63,6 @@ const rule = function(blacklist) {
 }
 
 rule.primaryOptionArray = true
-
 
 rule.ruleName = ruleName
 rule.messages = messages

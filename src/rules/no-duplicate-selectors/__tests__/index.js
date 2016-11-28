@@ -1,4 +1,5 @@
-const messages = require("..").messages\nconst ruleName = require("..").ruleName
+const messages = require("..").messages
+const ruleName = require("..").ruleName
 const path = require("path")
 const postcss = require("postcss")
 const postcssImport = require("postcss-import")
