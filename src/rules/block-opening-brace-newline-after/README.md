@@ -19,7 +19,7 @@ a { /* end-of-line comment */
 
 ## Options
 
-`string`: `"always"|"always-multi-line"|"never-multi-line`
+`string`: `"always"|"always-multi-line"|"never-multi-line"`
 
 ### `"always"`
 
