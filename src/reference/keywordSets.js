@@ -126,9 +126,7 @@ keywordSets.mediaFeatureNames = uniteSets(keywordSets.deprecatedMediaFeatureName
 keywordSets.systemColors = new Set([ "activeborder", "activecaption", "appworkspace", "background", "buttonface", "buttonhighlight", "buttonshadow", "buttontext", "captiontext", "graytext", "highlight", "highlighttext", "inactiveborder", "inactivecaption", "inactivecaptiontext", "infobackground", "infotext", "menu", "menutext", "scrollbar", "threeddarkshadow", "threedface", "threedhighlight", "threedlightshadow", "threedshadow", "window", "windowframe", "windowtext" ])
 
 function uniteSets() {
-  for (var _len = arguments.length, sets = Array(_len), _key = 0; _key < _len; _key++) {
-    sets[_key] = arguments[_key]
-  }
+  const sets = Array.from(arguments)
 
   return new Set(sets.reduce((result, set) => {
     return result.concat(_.toArray(set))

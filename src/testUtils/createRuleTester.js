@@ -253,9 +253,5 @@ function processGroup(rule, schema, equalityCheck) {
 }
 
 function spaceJoin() {
-  for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-    args[_key] = arguments[_key]
-  }
-
-  return _.compact(args).join(" ")
+  return _.compact(Array.from(arguments)).join(" ")
 }

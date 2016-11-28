@@ -1,4 +1,4 @@
-const mergeTestDescriptions = reqiure("../../../testUtils/mergeTestDescriptions")
+const mergeTestDescriptions = require("../../../testUtils/mergeTestDescriptions")
 const testRule = require("../../../testUtils/testRule")
 const messages = require("..").messages
 const ruleName = require("..").ruleName

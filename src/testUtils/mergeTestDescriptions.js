@@ -1,11 +1,11 @@
 const _ = require("lodash")
 
 module.exports = function () {
-  for (var _len = arguments.length, objs = Array(_len), _key = 0; _key < _len; _key++) {
-    objs[_key] = arguments[_key]
-  }
+  const mergeWithArgs = [{}]
+  Array.from(arguments).forEach((arg) => mergeWithArgs.push(arg))
+  mergeWithArgs.push(mergeCustomizer)
 
-  return _.mergeWith.apply(_, [{}].concat(objs, [mergeCustomizer]))
+  return _.mergeWith.apply(_, mergeWithArgs)
 }
 
 function mergeCustomizer(objValue, srcValue) {

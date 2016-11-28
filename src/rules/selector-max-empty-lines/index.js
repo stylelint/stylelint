@@ -24,8 +24,8 @@ const rule = function (max) {
 
     root.walkRules(rule => {
       const selector = rule.raws.selector ? rule.raws.selector.raw : rule.selector
-      const repeatLFNewLines = repeat("\n", maxAdjacentNewlines)
-      const repeatCRLFNewLines = repeat("\r\n", maxAdjacentNewlines)
+      const repeatLFNewLines = _.repeat("\n", maxAdjacentNewlines)
+      const repeatCRLFNewLines = _.repeat("\r\n", maxAdjacentNewlines)
 
       styleSearch({ source: selector, target: "\n" }, match => {
         if (selector.substr(match.startIndex + 1, maxAdjacentNewlines) === repeatLFNewLines || selector.substr(match.startIndex + 1, maxAdjacentNewlines * 2) === repeatCRLFNewLines) {

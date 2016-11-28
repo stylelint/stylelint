@@ -15,10 +15,7 @@ module.exports = function () {
     getContext(node) {
       const nodeSource = node.source.input.from
       const baseContext = creativeGetMap(contextMap, nodeSource)
-
-      for (var _len = arguments.length, subContexts = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        subContexts[_key - 1] = arguments[_key]
-      }
+      const subContexts = Array.from(arguments).slice(1)
 
       return subContexts.reduce((result, context) => {
         return creativeGetMap(result, context)

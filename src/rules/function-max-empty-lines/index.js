@@ -28,8 +28,8 @@ const rule = function (max) {
       }
 
       const declString = decl.toString()
-      const repeatLFNewLines = repeat("\n", maxAdjacentNewlines)
-      const repeatCRLFNewLines = repeat("\r\n", maxAdjacentNewlines)
+      const repeatLFNewLines = _.repeat("\n", maxAdjacentNewlines)
+      const repeatCRLFNewLines = _.repeat("\r\n", maxAdjacentNewlines)
 
       styleSearch({
         source: declString,

@@ -24,7 +24,7 @@ const rule = function (actual, options) {
       return
     }
 
-    const longhandProperties = transform(shorthandData, (result, values, key) => {
+    const longhandProperties = _.transform(shorthandData, (result, values, key) => {
       if (optionsMatches(options, "ignoreShorthands", key)) {
         return
       }
