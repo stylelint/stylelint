@@ -101,7 +101,7 @@ var postcss = require("postcss")
 var stylelint = require("stylelint")
 
 // CSS to be processed
-var css = fs.readFileSync("src/app.css", "utf8")
+var css = fs.readFileSync("lib/app.css", "utf8")
 
 postcss(
   processors: [
@@ -114,7 +114,7 @@ postcss(
     require("postcss-reporter")({ clearMessages: true })
   ]
 )
-  .process(css, { from: 'src/app.css', to: 'app.css' })
+  .process(css, { from: 'lib/app.css', to: 'app.css' })
   .then(function (result) {
     fs.writeFileSync('app.css', result.css);
     if ( result.map ) fs.writeFileSync('app.css.map', result.map);

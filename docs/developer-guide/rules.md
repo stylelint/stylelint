@@ -98,7 +98,7 @@ You will use the simple [PostCSS API](http://api.postcss.org/) to navigate and a
 
 Depending on the rule, we also recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
-stylelint has a number of [utility functions](https://github.com/stylelint/stylelint/tree/master/src/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!)
+stylelint has a number of [utility functions](https://github.com/stylelint/stylelint/tree/master/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!)
 
 In particular, you will definitely want to use `validateOptions()` so that users are warned about invalid options. (Looking at other rules for examples of options validation will help a lot.)
 
@@ -147,7 +147,7 @@ However, this runs all 25,000+ unit tests and also linting.
 To run tests in a single file only (which you'll want to do during development), you'll need to use `babel-tape-runner` (because the codebase is ES6). For example, to run the test for the `color-hex-case` rule:
 
 ```console
-./node_modules/.bin/babel-tape-runner src/rules/color-hex-case/__tests__/index.js
+./node_modules/.bin/babel-tape-runner lib/rules/color-hex-case/__tests__/index.js
 ```
 
 ### Write the README
@@ -189,7 +189,7 @@ Take the form of:
 
 The final step is to add references to the new rule in the following places:
 
--   [The rules `index.js` file](https://github.com/stylelint/stylelint/blob/master/src/rules/index.js)
+-   [The rules `index.js` file](https://github.com/stylelint/stylelint/blob/master/lib/rules/index.js)
 -   [The list of rules](../user-guide/rules.md)
 -   [The example config](../user-guide/example-config.md)
 

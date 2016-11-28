@@ -10,7 +10,7 @@ When developing plugins, you can use the following rule testers or create your o
 -   stylelint-test-rule-mocha
 -   stylelint-test-rule-ava
 
-The rule tester used within the stylelint codebase is at `src/testUtils/testRule.js`. (It is the same as `stylelint-test-rule-tape`.)
+The rule tester used within the stylelint codebase is at `lib/testUtils/testRule.js`. (It is the same as `stylelint-test-rule-tape`.)
 
 ## Using a rule tester
 
@@ -48,7 +48,7 @@ Required properties:
 Optional properties:
 
 -   `syntax` {"css"|"less"|"scss"|"sugarss"}: Defaults to `"css"`. Other settings use special parsers.
--   `skipBasicChecks` {boolean}: Defaults to `false`. If `true`, a few rudimentary checks (that should almost always be included) will not be performed. You can check those out in `src/testUtils/basicChecks.js`.
+-   `skipBasicChecks` {boolean}: Defaults to `false`. If `true`, a few rudimentary checks (that should almost always be included) will not be performed. You can check those out in `lib/testUtils/basicChecks.js`.
 -   `preceedingPlugins` {array}: An array of PostCSS plugins that should be run before the CSS is tested.
 
 ## Creating a rule tester

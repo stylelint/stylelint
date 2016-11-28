@@ -1,6 +1,6 @@
 /* @flow */
 const systemTestUtils = require("../systemTestUtils")
-const stylelint = require("../../src")
+const stylelint = require("../../lib")
 
 it("002", () => {
   return stylelint.lint({

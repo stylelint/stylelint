@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 const Benchmark = require("benchmark")
 const chalk = require("chalk")
-const normalizeRuleSettings = require("../src/normalizeRuleSettings")
+const normalizeRuleSettings = require("../lib/normalizeRuleSettings")
 const postcss = require("postcss")
 const request = require("request")
-const rules = require("../src/rules")
+const rules = require("../lib/rules")
 
 const ruleName = process.argv[2]
 const ruleOptions = process.argv[3]

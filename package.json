@@ -25,7 +25,7 @@
     "CONTRIBUTING.md",
     "dist",
     "docs",
-    "src/rules/**/*.md",
+    "lib/rules/**/*.md",
     "!**/__tests__"
   ],
   "engines": {
@@ -102,7 +102,7 @@
   },
   "scripts": {
     "jest": "jest",
-    "jest-src": "npm run jest -- --testPathPattern /src/",
+    "jest-src": "npm run jest -- --testPathPattern /lib/",
     "jest-system": "npm run jest -- --testPathPattern /system-tests/",
     "benchmark-rule": "babel-node scripts/benchmark-rule.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
@@ -110,10 +110,9 @@
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
     "flow": "flow",
-    "tape": "babel-tape-runner \"src/**/__tests__/**/*-test.js\" \"src/rules/**/__tests__/*.js\"",
+    "tape": "babel-tape-runner \"lib/**/__tests__/**/*-test.js\" \"lib/rules/**/__tests__/*.js\"",
     "test": "nyc npm run tape",
     "prebuild": "rimraf dist",
-    "build": "babel src --out-dir dist",
     "prepublish": "npm run build",
     "release": "npmpub"
   },
@@ -129,7 +128,7 @@
   "jest": {
     "testEnvironment": "node",
     "testPathDirs": [
-      "src",
+      "lib",
       "system-tests"
     ],
     "testRegex": ".*\\.test\\.js$"

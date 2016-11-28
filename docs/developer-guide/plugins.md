@@ -78,7 +78,7 @@ In addition to the standard parsers mentioned in the ["Working on rules"](rules.
 -   [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector): Given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
 -   [style-search](https://github.com/davidtheclark/style-search): Search CSS (and CSS-like) strings, with sensitivity to whether matches occur inside strings, comments, and functions.
 
-Have a look through [stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/src/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into a external module.
+Have a look through [stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into a external module.
 
 ## Testing plugins
 
