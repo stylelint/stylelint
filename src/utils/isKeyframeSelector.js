@@ -7,10 +7,13 @@ import { keyframeSelectorKeywords } from "../reference/keywordSets"
  * @return {boolean} If `true`, the selector is a keyframe selector
  */
 export default function (selector) {
-  if (keyframeSelectorKeywords.has(selector)) { return true }
+  const simpleSelectors = selector.split(",")
+  for (const simpleSelector of simpleSelectors) {
+    if (keyframeSelectorKeywords.has(simpleSelector)) { return true }
 
-  // Percentages
-  if (/^(?:\d+\.?\d*|\d*\.?\d+)%$/.test(selector)) { return true }
+    // Percentages
+    if (/^(?:\d+\.?\d*|\d*\.?\d+)%$/.test(simpleSelector)) { return true }
+  }
 
   return false
 }
