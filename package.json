@@ -19,13 +19,12 @@
     "type": "git",
     "url": "https://github.com/stylelint/stylelint.git"
   },
-  "main": "dist/index.js",
-  "bin": "dist/cli.js",
+  "main": "lib/index.js",
+  "bin": "bin/stylelint",
   "files": [
     "CONTRIBUTING.md",
-    "dist",
     "docs",
-    "lib/rules/**/*.md",
+    "lib",
     "!**/__tests__"
   ],
   "engines": {
