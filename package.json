@@ -87,6 +87,7 @@
     "request": "^2.69.0",
     "sinon": "^1.16.1",
     "strip-ansi": "^3.0.1",
+    "tap-parser": "^3.0.4",
     "tape": "^4.2.0"
   },
   "scripts": {
