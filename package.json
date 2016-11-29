@@ -99,7 +99,7 @@
     "tape": "^4.2.0"
   },
   "scripts": {
-    "jest": "jest",
+    "jest": "jest -i",
     "jest-src": "npm run jest -- --testPathPattern /src/",
     "jest-system": "npm run jest -- --testPathPattern /system-tests/",
     "benchmark-rule": "babel-node scripts/benchmark-rule.js",
