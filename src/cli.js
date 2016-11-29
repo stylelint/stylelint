@@ -212,5 +212,5 @@ Promise.resolve().then(() => {
   if (errored) { process.exitCode = 2 }
 }).catch(err => {
   console.log(err.stack) // eslint-disable-line no-console
-  process.exit(err.code || 1)
+  process.exit(parseInt(err.code) || 1)
 })
