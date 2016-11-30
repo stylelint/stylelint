@@ -10,17 +10,23 @@ const child_process = require("child_process")
 const tapParser = require("tap-out")
 const cliCursor = require("cli-cursor")
 
+const ruleNames = process.argv.slice(2)
+const fileGlobs = (ruleNames.length > 0)
+  ? ruleNames.map((ruleName) => path.join(__dirname, `../lib/rules/${ruleName}/__tests__/*.js`))
+  : path.join(__dirname, "../lib/rules/**/__tests__/*.js")
+
 // These numbers were arrived at by guess-and-check,
 // seeing which combo seemed to produce the fastest
 // results
-const CHUNK_COUNT = 20
-const q = queue(10)
+const CHUNK_SIZE = 5
+const CHUNK_CONCURRENCY = 10
+
+const q = queue(CHUNK_CONCURRENCY)
 
 cliCursor.hide()
 console.log(chalk.bold.dim("Testing ...\n"))
 
-globby(path.join(__dirname, "../lib/rules/**/__tests__/*.js")).then((paths) => {
-  const chunkSize = Math.ceil(paths.length / CHUNK_COUNT)
+globby(fileGlobs).then((paths) => {
   let exitCode = 0
 
   let totalTests = 0
@@ -42,8 +48,10 @@ globby(path.join(__dirname, "../lib/rules/**/__tests__/*.js")).then((paths) => {
   updateDots()
   const dotInterval = setInterval(updateDots, 300)
 
-  for (let i = 0; i < CHUNK_COUNT; i++) {
-    const chunkPaths = paths.slice(i * chunkSize, (i + 1) * chunkSize)
+  const chunkCount = Math.ceil(paths.length / CHUNK_SIZE)
+
+  for (let i = 0; i < chunkCount; i++) {
+    const chunkPaths = paths.slice(i * CHUNK_SIZE, (i + 1) * CHUNK_SIZE)
 
     const parser = tapParser()
     const comments = {}
@@ -103,8 +111,8 @@ globby(path.join(__dirname, "../lib/rules/**/__tests__/*.js")).then((paths) => {
     if (fails.length > 0) {
       console.log(chalk.red.underline("\nfailures"))
       fails.forEach((fail) => {
-        console.log(`\n${fail.comment}\n`)
-        console.log(chalk.bold(`  ${fail.assertion.name}`))
+        console.log(`\n${fail.comment}`)
+        console.log(`  ${fail.assertion.name}`)
         console.log(chalk.green(`  expected: ${fail.assertion.error.expected}`))
         console.log(chalk.red(`  actual: ${fail.assertion.error.actual}`))
       })

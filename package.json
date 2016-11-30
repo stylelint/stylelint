@@ -94,6 +94,7 @@
   },
   "scripts": {
     "jest": "jest",
+    "jest-ci": "jest -i",
     "jest-src": "npm run jest -- --testPathPattern /lib/",
     "jest-system": "npm run jest -- --testPathPattern /system-tests/",
     "benchmark-rule": "node scripts/benchmark-rule.js",
@@ -102,7 +103,7 @@
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
     "flow": "flow",
-    "tape": "node scripts/tape.js",
+    "tape": "node scripts/rules-tape.js",
     "test": "nyc npm run tape",
     "release": "npmpub"
   },
