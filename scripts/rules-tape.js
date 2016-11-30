@@ -80,11 +80,12 @@ globby(fileGlobs).then((paths) => {
       failures.push(failure)
     })
     parser.on("error", (err) => {
-      throw err
+      console.error(err)
+      process.exit(1)
     })
 
     q.defer((done) => {
-      const tapeProcess = child_process.spawn("tape", chunkPaths)
+      const tapeProcess = child_process.spawn("tape", chunkPaths, { shell: true })
       tapeProcess.on("error", done)
       tapeProcess.stdout.pipe(parser)
       tapeProcess.on("close", (code) => {
@@ -102,8 +103,10 @@ globby(fileGlobs).then((paths) => {
   q.awaitAll((err) => {
     clearInterval(dotInterval)
     if (err) return console.error(err.stack)
-    process.stdout.clearLine()
-    process.stdout.cursorTo(0)
+    if (!process.env.CI) {
+      process.stdout.clearLine()
+      process.stdout.cursorTo(0)
+    }
     console.log(chalk.green(`ok: ${totalPasses}`))
     console.log(chalk.red(`not ok: ${totalFails}`))
     console.log(chalk.bold(`total: ${totalTests}`))
