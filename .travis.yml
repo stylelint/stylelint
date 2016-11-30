@@ -9,7 +9,7 @@ matrix:
       script: npm run lint && npm run flow
       env: CI=lint+flow
     - node_js: '6'
-      script: npm run jest
+      script: npm run jest-ci
       env: CI=jest
     - node_js: '7'
       script: npm run test

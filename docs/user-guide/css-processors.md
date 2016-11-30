@@ -39,7 +39,7 @@ postcss([
   require("reporter")
 ])
   .process(css, {
-    from: "src/app.css",
+    from: "lib/app.css",
     syntax: scss
   })
 })

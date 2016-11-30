@@ -1,20 +1,22 @@
-import _ from "lodash"
-import path from "path"
-import stripAnsi from "strip-ansi"
+"use strict"
 
-export function caseFilePath(caseNumber, fileName) {
+const _ = require("lodash")
+const path = require("path")
+const stripAnsi = require("strip-ansi")
+
+function caseFilePath(caseNumber, fileName) {
   return path.join(__dirname, caseNumber, fileName)
 }
 
-export function caseStylesheetGlob(caseNumber) {
+function caseStylesheetGlob(caseNumber) {
   return caseFilePath(caseNumber, "stylesheet.*")
 }
 
-export function caseConfig(caseNumber, ext = "json") {
+function caseConfig(caseNumber, ext = "json") {
   return caseFilePath(caseNumber, `config.${ext}`)
 }
 
-export function prepResults(results) {
+function prepResults(results) {
   return results.map((result) => {
     // The _postcssResult object is not part of our API and is huge
     const preppedResult = _.omit(result, "_postcssResult")
@@ -26,6 +28,14 @@ export function prepResults(results) {
   })
 }
 
-export function stripColors(input) {
+function stripColors(input) {
   return stripAnsi(input)
+}
+
+module.exports = {
+  caseFilePath,
+  caseStylesheetGlob,
+  caseConfig,
+  prepResults,
+  stripColors,
 }
