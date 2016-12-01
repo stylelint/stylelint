@@ -6,6 +6,7 @@
 -   Fixed: `comment-whitespace-inside` no longer complains about `/*!` comments with non-space whitespace (e.g. newlines) ([#2121](https://github.com/stylelint/stylelint/pull/2121)).
 -   Fixed: `selector-max-compound-selectors` ignores SCSS nested declarations ([#2102](https://github.com/stylelint/stylelint/pull/2102)).
 -   Fixed: `selector-pseudo-class-no-unknown` no longer reports false positives for custom selectors ([#2147](https://github.com/stylelint/stylelint/pull/2147)).
+-   Fixed: unknown unprefixed variants no longer cause syntax errors in `media-feature-name-no-vendor-prefix` ([#2152](https://github.com/stylelint/stylelint/pull/2152))
 
 
 # 7.6.0
