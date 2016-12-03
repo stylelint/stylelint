@@ -114,7 +114,7 @@
       "lib",
       "system-tests"
     ],
-    "testRegex": ".*\\.test\\.js$"
+    "testRegex": "__tests__/.*\\.test\\.js$|rules/.*/__tests__/.*\\.js$"
   },
   "greenkeeper": {
     "label": "PR: review needed"
