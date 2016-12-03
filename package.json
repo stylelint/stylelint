@@ -20,8 +20,9 @@
     "url": "https://github.com/stylelint/stylelint.git"
   },
   "main": "lib/index.js",
-  "bin": "bin/stylelint",
+  "bin": "bin/stylelint.js",
   "files": [
+    "bin",
     "CONTRIBUTING.md",
     "docs",
     "lib",
