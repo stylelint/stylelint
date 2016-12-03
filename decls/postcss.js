@@ -21,10 +21,14 @@ export type postcss$atRule = {
     afterName: string,
   },
   type: string,
+  parent: Object,
+  nodes: Array<Object>
 }
 
 export type postcss$rule = {
   raws: Object,
   selector: string,
   type: string,
+  parent: Object,
+  nodes: Array<Object>,
 }
