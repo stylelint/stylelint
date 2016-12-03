@@ -9,6 +9,9 @@
   "env": {
     "jest": true
   },
+  "globals": {
+    "testRule": true,
+  },
   "rules": {
     "arrow-spacing": 2,
     "no-var": 2,

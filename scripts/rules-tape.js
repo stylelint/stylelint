@@ -24,7 +24,7 @@ const CHUNK_CONCURRENCY = 10
 const q = queue(CHUNK_CONCURRENCY)
 
 cliCursor.hide()
-console.log(chalk.bold.dim("Testing ...\n"))
+console.log(chalk.bold.dim("Testing rules ...\n"))
 
 globby(fileGlobs).then((paths) => {
   let exitCode = 0
