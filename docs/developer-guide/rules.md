@@ -195,7 +195,7 @@ The final step is to add references to the new rule in the following places:
 
 Once you have something to show, you'll create a [pull request](https://github.com/stylelint/stylelint/compare) to continue the conversation.
 
-## Adding options to existing rules
+## Adding a option to an existing rule
 
 First, open [an issue](https://github.com/stylelint/stylelint/issues/new) about the option you wish to add. We'll discuss its functionality and name there.
 
@@ -206,7 +206,7 @@ Once we've agreed on the direction, you can work on a pull request. Here are the
 3.  Add new unit tests to test the option.
 4.  Add documentation about the new option.
 
-## Fixing bugs in existing rules
+## Fixing a bug in an existing rule
 
 Fixing bugs is usually very easy. Here is a process that works:
 
@@ -215,7 +215,7 @@ Fixing bugs is usually very easy. Here is a process that works:
 
 That's it! **If you are unable to figure out how to fix the bug yourself, it is still *extremely* helpful to submit a pull request with your failing test cases.** It means that somebody else can jump right in and help out with the rule's logic.
 
-## Improving the performance of new and existing rules
+## Improving the performance of a new or an existing rule
 
 There's a simple way to run benchmarks on any given rule with any valid config for it:
 
