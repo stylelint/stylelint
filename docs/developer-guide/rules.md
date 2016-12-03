@@ -144,10 +144,10 @@ npm test
 
 However, this runs all 25,000+ unit tests and also linting.
 
-To run tests in a single file only (which you'll want to do during development), you'll need to use `babel-tape-runner` (because the codebase is ES6). For example, to run the test for the `color-hex-case` rule:
+The `npm run test:tape` command accepts an optional list of rules. You can use this to run tests for just a chosen set of rules (which you'll want to do during development). For examples, to run the tests for just the `color-hex-case` and `color-hex-length` rules:
 
 ```console
-./node_modules/.bin/babel-tape-runner lib/rules/color-hex-case/__tests__/index.js
+npm run test:tape color-hex-case color-hex-length
 ```
 
 ### Write the README

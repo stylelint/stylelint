@@ -78,7 +78,6 @@
     "jest": "^17.0.3",
     "npm-run-all": "^3.0.0",
     "npmpub": "^3.0.1",
-    "nyc": "^10.0.0",
     "postcss-import": "^9.0.0",
     "postcss-safe-parser": "^2.0.0",
     "remark-cli": "^2.0.0",
@@ -93,21 +92,22 @@
     "tape": "^4.2.0"
   },
   "scripts": {
-    "jest": "jest",
-    "jest-ci": "jest -i",
-    "jest-src": "npm run jest -- --testPathPattern /lib/",
-    "jest-system": "npm run jest -- --testPathPattern /system-tests/",
     "benchmark-rule": "node scripts/benchmark-rule.js",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "flow": "flow",
     "lint:js": "eslint .",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
-    "flow": "flow",
-    "tape": "node scripts/rules-tape.js",
-    "test": "nyc npm run tape",
-    "release": "npmpub"
+    "pretest": "npm-run-all --serial lint flow",
+    "release": "npmpub",
+    "test:jest": "jest",
+    "test:tape": "node scripts/rules-tape.js",
+    "test": "npm-run-all --serial test:*",
+    "watch": "npm run test:jest -- --watch"
   },
   "jest": {
+    "setupFiles": [
+      "./jest-setup.js"
+    ],
     "testEnvironment": "node",
     "testPathDirs": [
       "lib",
