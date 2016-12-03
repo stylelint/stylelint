@@ -79,7 +79,7 @@
     "npm-run-all": "^3.0.0",
     "npmpub": "^3.0.1",
     "nyc": "^10.0.0",
-    "postcss-import": "^8.0.2",
+    "postcss-import": "^9.0.0",
     "postcss-safe-parser": "^2.0.0",
     "remark-cli": "^2.0.0",
     "remark-preset-lint-consistent": "^1.0.0",
