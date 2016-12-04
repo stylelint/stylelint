@@ -36,7 +36,7 @@
     "balanced-match": "^0.4.0",
     "chalk": "^1.1.1",
     "colorguard": "^1.2.0",
-    "cosmiconfig": "^2.0.0",
+    "cosmiconfig": "^2.1.1",
     "doiuse": "^2.4.1",
     "execall": "^1.0.0",
     "get-stdin": "^5.0.0",
@@ -87,10 +87,7 @@
     "remark-validate-links": "^5.0.0",
     "request": "^2.69.0",
     "sinon": "^1.16.1",
-    "strip-ansi": "^3.0.1",
-    "tap-out": "^1.4.2",
-    "tap-parser": "^3.0.4",
-    "tape": "^4.2.0"
+    "strip-ansi": "^3.0.1"
   },
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
@@ -101,7 +98,6 @@
     "pretest": "npm-run-all --serial lint flow",
     "release": "npmpub",
     "test:jest": "jest",
-    "test:tape": "node scripts/rules-tape.js",
     "test": "npm-run-all --serial test:*",
     "watch": "npm run test:jest -- --watch"
   },
@@ -114,7 +110,7 @@
       "lib",
       "system-tests"
     ],
-    "testRegex": ".*\\.test\\.js$"
+    "testRegex": ".*\\.test\\.js$|rules/.*/__tests__/.*\\.js$"
   },
   "greenkeeper": {
     "label": "PR: review needed"
