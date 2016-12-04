@@ -19,4 +19,4 @@ install:
 test_script:
   - node --version
   - npm --version
-  - cmd: "npm run test:jest -- --runInBand --testPathPattern \\lib && npm run test:tape"
+  - cmd: "npm run test:jest -- --runInBand --testPathPattern \\lib"
