@@ -9,13 +9,13 @@ matrix:
       script: npm run pretest
       env: CI=pretest
     - node_js: '7'
-      script: npm run test:jest -- --runInBand && npm run test:tape
+      script: npm run test:jest -- --runInBand
       env: CI=tests 7
     - node_js: '6'
-      script: npm run test:jest -- --runInBand --testPathPattern .*lib/.* && npm run test:tape
+      script: npm run test:jest -- --runInBand --testPathPattern .*lib/.*
       env: CI=tests 6
     - node_js: '4'
-      script: npm run test:jest -- --runInBand --testPathPattern .*lib/.* && npm run test:tape
+      script: npm run test:jest -- --runInBand --testPathPattern .*lib/.*
       env: CI=tests 4
 before_install:
   - npm prune
