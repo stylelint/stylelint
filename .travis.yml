@@ -17,9 +17,14 @@ matrix:
     - node_js: '4'
       script: npm run test:jest -- --runInBand --testPathPattern .*lib/.*
       env: CI=tests 4
+    - node_js: '7'
+      script: npm run test:jest -- --runInBand --testPathPattern .*lib/.* --coverage --collectCoverageFrom '.*lib/.*'
+      env: CI=coverage
 before_install:
   - npm prune
   - npm update
+-after_success:
+  - if [ "$CI" = "coverage" ]; then cat ./coverage/lcov.info | ./node_modules/.bin/coveralls; fi
 notifications:
   webhooks:
     - https://webhooks.gitter.im/e/d763493612da45967361

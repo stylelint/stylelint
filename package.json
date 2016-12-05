@@ -101,6 +101,22 @@
     "watch": "npm run test:jest -- --watch"
   },
   "jest": {
+    "coverageDirectory": "./.coverage/",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/system-tests/"
+    ],
+    "coverageReporters": [
+      "lcov"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 75,
+        "functions": 75,
+        "lines": 75,
+        "statements": 75
+      }
+    },
     "setupFiles": [
       "./jest-setup.js"
     ],
