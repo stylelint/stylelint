@@ -100,6 +100,14 @@
     "test": "npm-run-all --serial test:*",
     "watch": "npm run test:jest -- --watch"
   },
+  "eslintConfig": {
+    "extends": [
+      "stylelint"
+    ],
+    "globals": {
+      "testRule": true
+    }
+  },
   "jest": {
     "setupFiles": [
       "./jest-setup.js"
