@@ -24,7 +24,7 @@ before_install:
   - npm prune
   - npm update
 -after_success:
-  - if [ "$CI" = "coverage" ]; then cat ./coverage/lcov.info | ./node_modules/.bin/coveralls; fi
+  - if [ "$CI" = "coverage" ]; then cat ./.coverage/lcov.info | ./node_modules/.bin/coveralls; fi
 notifications:
   webhooks:
     - https://webhooks.gitter.im/e/d763493612da45967361
