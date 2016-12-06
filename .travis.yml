@@ -18,7 +18,7 @@ matrix:
       script: npm run test:jest -- --runInBand --testPathPattern .*lib/.*
       env: CI=tests 4
     - node_js: '7'
-      script: npm run test:jest -- --runInBand --testPathPattern .*lib/.* --coverage --collectCoverageFrom '.*lib/.*'
+      script: npm run test:jest -- --runInBand --testPathPattern .*lib/.* --coverage --collectCoverageFrom lib/**/*.js
       env: CI=coverage
 before_install:
   - npm prune

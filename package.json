@@ -101,6 +101,9 @@
     "watch": "npm run test:jest -- --watch"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+  ],
     "coverageDirectory": "./.coverage/",
     "coveragePathIgnorePatterns": [
       "/node_modules/",
