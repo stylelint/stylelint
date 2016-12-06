@@ -21,6 +21,18 @@ matrix:
       script: npm run test:jest -- --runInBand --testPathPattern .*lib/.* --coverage --collectCoverageFrom lib/**/*.js
       env: CI=coverage
       sudo: required
+    - node_js: '6'
+      script: npm run test:jest -- --runInBand --testPathPattern .*lib/.* --coverage --collectCoverageFrom lib/**/*.js
+      env: CI=coverage
+      sudo: required
+    - node_js: '5'
+      script: npm run test:jest -- --runInBand --testPathPattern .*lib/.* --coverage --collectCoverageFrom lib/**/*.js
+      env: CI=coverage
+      sudo: required
+    - node_js: '4'
+      script: npm run test:jest -- --runInBand --testPathPattern .*lib/.* --coverage --collectCoverageFrom lib/**/*.js
+      env: CI=coverage
+      sudo: required
 before_install:
   - npm prune
   - npm update
