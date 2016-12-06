@@ -98,7 +98,7 @@
     "pretest": "npm-run-all --serial lint flow",
     "release": "npmpub",
     "test": "jest",
-    "watch": "npm run jest -- --watch"
+    "watch": "jest --watch"
   },
   "jest": {
     "setupFiles": [
