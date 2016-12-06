@@ -115,3 +115,27 @@ Refer to [this](about-rules.md#-empty-line-before-and--max-empty-lines) section 
 ## How do I "pin" to a particular branch, pull request or fork of stylelint in my `package.json`?
 
 Use [`npm-git-install`](https://github.com/lzrski/npm-git-install) to work around [a current limitation](https://github.com/npm/npm/issues/3055) of `npm`.
+
+## If I extend a configuration, will the options for each rule be merged or overridden?
+
+In most cases rules will be merged but **secondary options will be overriden**.
+
+There is no way at the moment to disable specific secondary option in a rule. As example look at `ignoreAtRules` below.
+
+```json
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "rules": {
+    "at-rule-no-unknown": [true, {
+      "ignoreAtRules": [
+        "at-root",
+        "value"
+      ]
+    }]
+  }
+}
+```
+
+If you want to disable only `"ignoreAtRules": ["value"]`, you have to overrides the whole `"ignoreAtRules"` array. More details can be found in [#1646](https://github.com/stylelint/stylelint/issues/1646#issuecomment-232779957), [#2170](https://github.com/stylelint/stylelint/issues/2170) issues.
