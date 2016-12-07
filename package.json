@@ -73,7 +73,7 @@
     "coveralls": "^2.11.9",
     "d3-queue": "^3.0.3",
     "eslint": "~3.11.0",
-    "eslint-config-stylelint": "^5.0.0",
+    "eslint-config-stylelint": "^6.0.0",
     "flow-bin": "^0.36.0",
     "jest": "^17.0.3",
     "npm-run-all": "^3.0.0",
@@ -91,14 +91,22 @@
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
     "flow": "flow",
+    "jest": "jest",
     "lint:js": "eslint .",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
     "pretest": "npm-run-all --serial lint flow",
     "release": "npmpub",
-    "test:jest": "jest",
-    "test": "npm-run-all --serial test:*",
-    "watch": "npm run test:jest -- --watch"
+    "test": "jest",
+    "watch": "jest --watch"
+  },
+  "eslintConfig": {
+    "extends": [
+      "stylelint"
+    ],
+    "globals": {
+      "testRule": true
+    }
   },
   "jest": {
     "collectCoverageFrom": [
