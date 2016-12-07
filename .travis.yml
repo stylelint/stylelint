@@ -22,7 +22,7 @@ matrix:
       env: CI=coverage
       sudo: required
     - node_js: '7'
-      script: node --max_old_space_size=2000 node_modules/.bin/jest --testPathPattern .*lib/.* --coverage --collectCoverageFrom lib/**/*.js
+      script: node --max_old_space_size=2000 node_modules/.bin/jest --runInBand --testPathPattern .*lib/.* --coverage --collectCoverageFrom lib/**/*.js
       env: CI=coverage
       sudo: required
 before_install:
