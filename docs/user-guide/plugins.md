@@ -5,6 +5,7 @@ Plugins are rules and sets of rules built by the community that support methodol
 ## Code style
 
 -   [`stylelint-order`](https://github.com/hudochenkov/stylelint-order): A plugin pack of rules for specifying the ordering of things e.g. properties within declaration blocks.
+-   [`stylelint-declaration-strict-value`](https://github.com/AndyOGo/stylelint-declaration-strict-value): A [stylelint](https://github.com/stylelint/stylelint) plugin that enforces either variables (`$sass`, `@less`, `var(--cssnext)`), functions or custom CSS keywords (`inherit`, `none`, etc.) for property's values.
 
 ## Methodologies
 
