@@ -73,7 +73,7 @@
     "coveralls": "^2.11.9",
     "d3-queue": "^3.0.3",
     "eslint": "~3.11.0",
-    "eslint-config-stylelint": "^5.0.0",
+    "eslint-config-stylelint": "^6.0.0",
     "flow-bin": "^0.36.0",
     "jest": "^17.0.3",
     "npm-run-all": "^3.0.0",
@@ -99,6 +99,14 @@
     "release": "npmpub",
     "test": "jest",
     "watch": "jest --watch"
+  },
+  "eslintConfig": {
+    "extends": [
+      "stylelint"
+    ],
+    "globals": {
+      "testRule": true
+    }
   },
   "jest": {
     "setupFiles": [
