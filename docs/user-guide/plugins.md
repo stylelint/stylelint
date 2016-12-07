@@ -19,3 +19,4 @@ Plugins are rules and sets of rules built by the community that support methodol
 ## Validators
 
 -   [`stylelint-csstree-validator`](https://github.com/csstree/stylelint-validator): Validate CSS values to match W3C specs and browsers extensions.
+-   [`stylelint-config-amp`](https://github.com/tinovyatkin/stylelint-config-amp): Enforces CSS restrictions of Accelerated Mobile Pages.
