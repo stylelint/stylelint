@@ -110,7 +110,7 @@ A user can `require()` any file in your npm package, so all you need to do is do
 
 ## How can I control the whitespace after the open brace of the block?
 
-Refer to [this](about-rules.md#-empty-line-before-and--max-empty-lines) section of the docs that explains how the `*-empty-line-before` rules work.
+Refer to [this](about-rules.md#-empty-line-before-and--max-empty-lines-rules) section of the docs that explains how the `*-empty-line-before` rules work.
 
 ## If I use `extends` within my configuration object, will the options for each rule be merged or overridden?
 
