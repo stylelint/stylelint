@@ -2,7 +2,8 @@
 
 -   Added: `allow-empty-input` flag to CLI ([#2117](https://github.com/stylelint/stylelint/pull/2117)).
 -   Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node API to error if a non-existent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128)).
--   Fixed: the `node_modules` and `bower_components` directories are correctly ignored by default when stylelint is used as a PostCSS plugin ([#2171](https://github.com/stylelint/stylelint/pull/)). 
+-   Fixed: a boolean CLI flag (e.g. `--quiet`) placed before an input glob no longer causes the input to be ignored ([#2186](https://github.com/stylelint/stylelint/pull/2186)).
+-   Fixed: the `node_modules` and `bower_components` directories are correctly ignored by default when stylelint is used as a PostCSS plugin ([#2171](https://github.com/stylelint/stylelint/pull/2171)). 
 -   Fixed: false positives related to LESS detached rulesets ([#2089](https://github.com/stylelint/stylelint/pull/2089)).
 -   Fixed: `comment-whitespace-inside` no longer complains about `/*!` comments with non-space whitespace (e.g. newlines) ([#2121](https://github.com/stylelint/stylelint/pull/2121)).
 -   Fixed: `selector-max-compound-selectors` ignores SCSS nested declarations ([#2102](https://github.com/stylelint/stylelint/pull/2102)).
