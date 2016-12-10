@@ -112,30 +112,12 @@ A user can `require()` any file in your npm package, so all you need to do is do
 
 Refer to [this](about-rules.md#-empty-line-before-and--max-empty-lines) section of the docs that explains how the `*-empty-line-before` rules work.
 
-## How do I "pin" to a particular branch, pull request or fork of stylelint in my `package.json`?
+## If I use `extends` within my configuration object, will the options for each rule be merged or overridden?
 
-Use [`npm-git-install`](https://github.com/lzrski/npm-git-install) to work around [a current limitation](https://github.com/npm/npm/issues/3055) of `npm`.
+They will be overridden.
 
-## If I extend a configuration, will the options for each rule be merged or overridden?
+The `extends` mechanism is [detailed within the configuration docs](configuration.md#extends):
 
-In most cases rules will be merged but **secondary options will be overriden**.
+> When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
 
-There is no way at the moment to disable specific secondary option in a rule. As example look at `ignoreAtRules` below.
-
-```json
-{
-  "extends": [
-    "stylelint-config-standard"
-  ],
-  "rules": {
-    "at-rule-no-unknown": [true, {
-      "ignoreAtRules": [
-        "at-root",
-        "value"
-      ]
-    }]
-  }
-}
-```
-
-If you want to disable only `"ignoreAtRules": ["value"]`, you have to overrides the whole `"ignoreAtRules"` array. More details can be found in [#1646](https://github.com/stylelint/stylelint/issues/1646#issuecomment-232779957), [#2170](https://github.com/stylelint/stylelint/issues/2170) issues.
+The reason for this design is documented in [#1646](https://github.com/stylelint/stylelint/issues/1646#issuecomment-232779957).
