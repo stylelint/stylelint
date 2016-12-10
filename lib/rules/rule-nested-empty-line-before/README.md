@@ -154,9 +154,9 @@ The following patterns are *not* considered warnings:
 
 ### `except: ["after-rule"]`
 
-Reverse the primary option if the rule is the first after a property.
+Reverse the primary option if the rule comes after rule.
 
-For example, with `"never"`:
+For example, with `"always"`:
 
 The following patterns are considered warnings:
 
