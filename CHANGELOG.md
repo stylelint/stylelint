@@ -1,5 +1,6 @@
 # Head
 
+-   Added: `stylelint.formatters` exposed in public Node API ([#2190](https://github.com/stylelint/stylelint/pull/2190)).
 -   Added: `allow-empty-input` flag to CLI ([#2117](https://github.com/stylelint/stylelint/pull/2117)).
 -   Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node API to error if a non-existent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128)).
 -   Fixed: a boolean CLI flag (e.g. `--quiet`) placed before an input glob no longer causes the input to be ignored ([#2186](https://github.com/stylelint/stylelint/pull/2186)).
