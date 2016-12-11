@@ -31,3 +31,7 @@ A formatter is a function that accepts *an array of these stylelint result objec
   ignored: false // This is `true` if the file's path matches a provided ignore pattern
 }
 ```
+
+## `stylelint.formatters`
+
+stylelint's internal formatters are exposed publicly in `stylelint.formatters`.
