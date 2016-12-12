@@ -154,7 +154,7 @@ The following patterns are *not* considered warnings:
 
 ### `except: ["after-rule"]`
 
-Reverse the primary option if the rule comes after rule.
+Reverse the primary option if the rule comes after another rule.
 
 For example, with `"always"`:
 
