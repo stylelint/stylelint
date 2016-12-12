@@ -27,7 +27,7 @@ Given:
 {
   "transform": ["/scale3d/", "/rotate3d/", "/translate3d/"],
   "position": ["fixed"],
-  "color": ["/^green/"]
+  "color": ["/^green/"],
   "/^animation/": ["/ease/"]
 }
 ```
