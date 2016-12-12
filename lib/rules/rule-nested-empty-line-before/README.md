@@ -152,6 +152,35 @@ The following patterns are *not* considered warnings:
 }
 ```
 
+### `except: ["after-rule"]`
+
+Reverse the primary option if the rule comes after another rule.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+@media {
+  color: red;
+  a {}
+  b {}
+  c {}
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+@media {
+  color: red;
+
+  a {}
+  b {}
+  c {}
+}
+```
+
 ### `ignore: ["after-comment"]`
 
 Ignore rules that come after a comment.
