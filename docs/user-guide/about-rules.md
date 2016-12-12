@@ -134,7 +134,7 @@ You can enforce that with:
 
 ```js
 "declaration-colon-space-after": "always",
-"declaration-colon-space-before": "never",
+"declaration-colon-space-before": "never"
 ```
 
 Some *things* (e.g. declaration blocks and value lists) can span more than one line. In these cases `newline` rules and extra options can be used to provide flexibility.
@@ -175,7 +175,7 @@ You can enforce that with:
 
 ```js
 "value-list-comma-space-after": "always",
-"value-list-comma-space-before": "never",
+"value-list-comma-space-before": "never"
 ```
 
 #### Example B
@@ -196,7 +196,7 @@ You can enforce that with:
 ```js
 "value-list-comma-newline-after": "always-multi-line",
 "value-list-comma-space-after": "always-single-line",
-"value-list-comma-space-before": "never",
+"value-list-comma-space-before": "never"
 ```
 
 #### Example C
@@ -217,7 +217,7 @@ You can enforce that with:
 ```js
 "value-list-comma-newline-before": "always-multi-line",
 "value-list-comma-space-after": "always",
-"value-list-comma-space-before": "never-single-line",
+"value-list-comma-space-before": "never-single-line"
 ```
 
 #### Example D
@@ -239,7 +239,7 @@ You can enforce that with:
 "value-list-comma-newline-after": "never-multi-line",
 "value-list-comma-newline-before": "always-multi-line",
 "value-list-comma-space-after": "always-single-line",
-"value-list-comma-space-before": "always-single-line",
+"value-list-comma-space-before": "always-single-line"
 ```
 
 ### `*-empty-line-before` and `*-max-empty-lines` rules
@@ -272,18 +272,18 @@ You can do that with:
 
 ```js
 "at-rule-empty-line-before": ["always", {
-  except: ["first-nested"]
+  "except": ["first-nested"]
 }],
 "custom-property-empty-line-before": [ "always", {
-  except: [
+  "except": [
     "after-custom-property",
-    "first-nested",
+    "first-nested"
   ]
 }],
 "declaration-empty-line-before": ["always", {
-  except: [
+  "except": [
     "after-declaration",
-    "first-nested",
+    "first-nested"
   ]
 }],
 "block-closing-brace-empty-line-before": "never",
@@ -319,7 +319,7 @@ You can do that with:
 
 ```js
 "function-max-empty-lines": 0,
-"max-empty-lines": 1
+"max-empty-lines": 1,
 "selector-list-max-empty-lines": 0,
 "value-list-max-empty-lines": 0
 ```
