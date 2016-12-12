@@ -352,7 +352,7 @@ Say you want to disallow the value `none` for the `border` properties. You can d
 
 #### color
 
-Most `<color>` values are *functions*. As such, they can be (dis)allow using either the `function-blacklist` or `function-whitelist` rules. There are two other color representations that aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
+Most `<color>` values are *functions*. As such, they can be (dis)allowed using either the `function-blacklist` or `function-whitelist` rules. There are two other color representations that aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
 
 Say you want to enforce using a named color *if one exists for your chosen color* and use `hwb` color if one does not, e.g:
 
