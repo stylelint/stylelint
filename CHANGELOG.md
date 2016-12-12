@@ -1,6 +1,7 @@
 # Head
 
 -   Added: `stylelint.formatters` exposed in public Node API ([#2190](https://github.com/stylelint/stylelint/pull/2190)).
+-   Added: `stylelint.utils.checkAgainstRule` for checking CSS against a standard stylelint rule *within your own rule* ([#2173](https://github.com/stylelint/stylelint/pull/2173)).
 -   Added: `allow-empty-input` flag to CLI ([#2117](https://github.com/stylelint/stylelint/pull/2117)).
 -   Added: `except: ["after-rule"]` option to `rule-nested-empty-line-before` ([#2188](https://github.com/stylelint/stylelint/pull/2188)).
 -   Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node API to error if a non-existent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128)).
