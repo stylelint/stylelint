@@ -118,9 +118,9 @@ a { transform: translate( 1, 1 ); }
 
 ## Rules work together
 
-The whitespace rules can be used together to enforce strict conventions.
+The rules can be used together to enforce strict conventions.
 
-### `*-newline/space-before` and `*-newline/space-after`
+### `*-newline/space-before` and `*-newline/space-after` rules
 
 Say you want to enforce no space before and a single space after the colon in every declaration:
 
@@ -242,7 +242,7 @@ You can enforce that with:
 "value-list-comma-space-before": "always-single-line",
 ```
 
-### `*-empty-line-before` and `*-max-empty-lines`
+### `*-empty-line-before` and `*-max-empty-lines` rules
 
 These rules work together to control where empty lines are allowed.
 
@@ -322,4 +322,67 @@ You can do that with:
 "max-empty-lines": 1
 "selector-list-max-empty-lines": 0,
 "value-list-max-empty-lines": 0
+```
+
+### `*-whitelist`, `*-blacklist`, `color-named` and applicable `*-no-*` rules
+
+These rules work together to (dis)allow language features and constructs.
+
+There are `*-whitelist` and `*-blacklist` rules that target the main constructs of the CSS language: at-rules, functions, declarations (i.e. property-value pairs), properties and units. These rules can be used to (dis)allow any language features that makes use of these constructs (e.g. `@media`, `rgb()`). However, there are features not caught by these `*-whitelist` and `*-blacklist` rules (or are, but would require complex regex to configure). There are individual rules, usually a `*-no-*` rule (e.g. `color-no-hex` and `selector-no-id`), to disallow each of these features.
+
+Say you want to disallow the `@debug` language extension. You can do that using either the `at-rule-blacklist` or `at-rule-whitelist` rules because the `@debug` language extension uses the at-rule construct e.g.
+
+```js
+"at-rule-blacklist": ["debug"]
+```
+
+Say you want to, for whatever reason, disallow the whole at-rule construct. You can do that using:
+
+```js
+"at-rule-whitelist": []
+```
+
+Say you want to disallow the value `none` for the `border` properties. You can do that using either the `declaration-property-value-blacklist` or `declaration-property-value-whitelist` e.g.
+
+```js
+"declaration-property-value-blacklist": [{
+  "/^border/": ["none"]
+}]
+```
+
+#### color
+
+Most `<color>` values are *functions*. As such, they can be (dis)allowed using either the `function-blacklist` or `function-whitelist` rules. There are two other color representations that aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
+
+Say you want to enforce using a named color *if one exists for your chosen color* and use `hwb` color if one does not, e.g:
+
+```css
+a {
+  background: hwb(235, 0%, 0%); /* there is no named color equivalent for this color */
+  color: black;
+}
+```
+
+If you're taking a whitelisting approach, you can do that with:
+
+```js
+"color-named": "always-where-possible",
+"color-no-hex": true,
+"function-whitelist": ["hwb"]
+```
+
+Or, if you're taking a blacklisting approach:
+
+```js
+"color-named": "always-where-possible",
+"color-no-hex": true,
+"function-blacklist": ["/^rgb/", "/^hsl/", "gray"]
+```
+
+This approach scales to when language extensions (that use the two built-in extendable syntactic constructs of at-rules and functions) are used. For example, say you want to disallow all standard color presentations in favour of using a custom color representation function, e.g. `my-color(red with a dash of green / 5%)`. You can do that with:
+
+```js
+"color-named": "never",
+"color-no-hex": true,
+"function-whitelist": ["my-color"]
 ```
