@@ -38,13 +38,61 @@ In order for your plugin rule to work with the [standard configuration format](.
 
 ## `stylelint.utils`
 
-Three of stylelint's internal utilities are exposed publicly in `stylelint.utils` and should be used:
+stylelint exposes some utilities that are useful. *For details about the APIs of these functions, please look at comments in the source code and examples in the standard rules.*
 
--   `report`: Report your linting warnings. *Do not use `node.warn()` directly.* If you use `report`, your plugin will respect disabled ranges and other possible future features of stylelint, so it will fit in better with the standard rules.
--   `ruleMessages`: Tailor your messages to look like the messages of other stylelint rules.
--   `validateOptions`: Help your user's out by checking that the options they've submitted are valid.
+### `stylelint.utils.report`
 
-For details about the APIs of these functions, please look at comments in the source code and examples in the standard rules.
+Adds warnings from your plugin to the list of warnings that stylelint will report to the user.
+
+*Do not use PostCSS's `node.warn()` method directly.* When you use `stylelint.utils.report`, your plugin will respect disabled ranges and other possible future features of stylelint, providing a better user-experience, one that better fits the standard rules.
+
+### `stylelint.utils.ruleMessages`
+
+Tailors your messages to the format of standard stylelint rules.
+
+### `stylelint.utils.validateOptions`
+
+Validates the options for your rule.
+
+### `stylelint.utils.checkAgainstRule`
+
+Checks CSS against a standard stylelint rule *within your own rule*. This function provides power and flexibility for plugins authors who wish to modify, constrain, or extend the functionality of existing stylelint rules.
+
+Accepts an options object and a callback that is invoked with warnings from the specified rule. The options are:
+-   `ruleName`: The name of the rule you are invoking.
+-   `ruleSettings`: Settings for the rule you are invoking, formatting in the same way they would be in a `.stylelintrc` configuration object.
+-   `root`: The root node to run this rule against.
+
+Use the warning to create a *new* warning *from your plugin rule* that you report with `stylelint.utils.report`.
+
+For example, imagine you want to create a plugin that runs `at-rule-no-unknown` with a built-in list of exceptions for at-rules provided by your preprocessor-of-choice:
+
+```js
+const allowableAtRules = [..]
+
+function myPluginRule(primaryOption, secondaryOptions) {
+  return (root, result) => {
+    const defaultedOptions = Object.assign({}, secondaryOptions, {
+      ignoreAtRules: allowableAtRules.concat(options.ignoreAtRules || []),
+    })
+
+    stylelint.utils.checkAgainstRule({
+      ruleName: 'at-rule-no-unknown',
+      ruleSettings: [primaryOption, defaultedOptions],
+      root: root
+    }, (warning) => {
+      stylelint.utils.report({
+        message: myMessage,   
+        ruleName: myRuleName,     
+        result: result,        
+        node: warning.node,
+        line: warning.line,
+        column: warning.column,
+      })
+    })
+  }
+}
+```
 
 ## `stylelint.rules`
 
