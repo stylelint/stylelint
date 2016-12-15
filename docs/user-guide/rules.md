@@ -123,10 +123,8 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 ### Declaration block
 
 -   [`declaration-block-no-duplicate-properties`](../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks.
--   [`declaration-block-no-ignored-properties`](../../lib/rules/declaration-block-no-ignored-properties/README.md): Disallow property values that are ignored due to another property value in the same rule.
 -   [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow longhand properties that can be combined into one shorthand property.
 -   [`declaration-block-no-shorthand-property-overrides`](../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties within declaration blocks.
--   [`declaration-block-properties-order`](../../lib/rules/declaration-block-properties-order/README.md): Specify the order of properties within declaration blocks.
 -   [`declaration-block-semicolon-newline-after`](../../lib/rules/declaration-block-semicolon-newline-after/README.md): Require a newline or disallow whitespace after the semicolons of declaration blocks.
 -   [`declaration-block-semicolon-newline-before`](../../lib/rules/declaration-block-semicolon-newline-before/README.md): Require a newline or disallow whitespace before the semicolons of declaration blocks.
 -   [`declaration-block-semicolon-space-after`](../../lib/rules/declaration-block-semicolon-space-after/README.md): Require a single space or disallow whitespace after the semicolons of declaration blocks.
@@ -142,7 +140,6 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`block-closing-brace-space-after`](../../lib/rules/block-closing-brace-space-after/README.md): Require a single space or disallow whitespace after the closing brace of blocks.
 -   [`block-closing-brace-space-before`](../../lib/rules/block-closing-brace-space-before/README.md): Require a single space or disallow whitespace before the closing brace of blocks.
 -   [`block-no-empty`](../../lib/rules/block-no-empty/README.md): Disallow empty blocks.
--   [`block-no-single-line`](../../lib/rules/block-no-single-line/README.md): Disallow single-line blocks.
 -   [`block-opening-brace-newline-after`](../../lib/rules/block-opening-brace-newline-after/README.md): Require a newline after the opening brace of blocks.
 -   [`block-opening-brace-newline-before`](../../lib/rules/block-opening-brace-newline-before/README.md): Require a newline or disallow whitespace before the opening brace of blocks.
 -   [`block-opening-brace-space-after`](../../lib/rules/block-opening-brace-space-after/README.md): Require a single space or disallow whitespace after the opening brace of blocks.
@@ -166,7 +163,6 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`selector-nested-pattern`](../../lib/rules/selector-nested-pattern/README.md): Specify a pattern for the selectors of rules nested within rules.
 -   [`selector-no-attribute`](../../lib/rules/selector-no-attribute/README.md): Disallow attribute selectors.
 -   [`selector-no-combinator`](../../lib/rules/selector-no-combinator/README.md): Disallow combinators in selectors.
--   [`selector-no-empty`](../../lib/rules/selector-no-empty/README.md): Disallow empty selectors.
 -   [`selector-no-id`](../../lib/rules/selector-no-id/README.md): Disallow id selectors.
 -   [`selector-no-qualifying-type`](../../lib/rules/selector-no-qualifying-type/README.md): Disallow qualifying a selector by type.
 -   [`selector-no-type`](../../lib/rules/selector-no-type/README.md): Disallow type selectors.
@@ -210,7 +206,6 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`media-feature-name-no-unknown`](../../lib/rules/media-feature-name-no-unknown/README.md): Disallow unknown media feature names.
 -   [`media-feature-name-no-vendor-prefix`](../../lib/rules/media-feature-name-no-vendor-prefix/README.md): Disallow vendor prefixes for media feature names.
 -   [`media-feature-name-whitelist`](../../lib/rules/media-feature-name-whitelist/README.md): Specify a whitelist of allowed media feature names.
--   [`media-feature-no-missing-punctuation`](../../lib/rules/media-feature-no-missing-punctuation/README.md): Disallow missing punctuation for non-boolean media features.
 -   [`media-feature-parentheses-space-inside`](../../lib/rules/media-feature-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within media features.
 -   [`media-feature-range-operator-space-after`](../../lib/rules/media-feature-range-operator-space-after/README.md): Require a single space or disallow whitespace after the range operator in media features.
 -   [`media-feature-range-operator-space-before`](../../lib/rules/media-feature-range-operator-space-before/README.md): Require a single space or disallow whitespace before the range operator in media features.
