@@ -1,5 +1,7 @@
 # selector-no-empty
 
+***Deprecated: this rule is outside the scope of stylelint's functionality. See [this comment](https://github.com/stylelint/stylelint/issues/2047#issuecomment-261382105) for details.***
+
 Disallow empty selectors.
 
 ```css
