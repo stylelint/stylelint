@@ -13,7 +13,7 @@
 -   Fixed: `selector-pseudo-class-no-unknown` no longer reports false positives for custom selectors ([#2147](https://github.com/stylelint/stylelint/pull/2147)).
 -   Fixed: unknown unprefixed variants no longer cause syntax errors in `media-feature-name-no-vendor-prefix` ([#2152](https://github.com/stylelint/stylelint/pull/2152))
 -   Fixed: bug where some Node errors in special cases did not cause the CLI to exit with a non-zero code ([#2140](https://github.com/stylelint/stylelint/pull/2140))
-
+-   Fixed: `color-named` now ignores SCSS maps, so map property names can be color names ([#2182](https://github.com/stylelint/stylelint/pull/2182))
 
 # 7.6.0
 
