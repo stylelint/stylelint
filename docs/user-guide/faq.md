@@ -91,7 +91,7 @@ If you're using SUITCSS, you might want to use [their shareable config](https://
 
 ```css
   a { color: red; }
-/** ↑                      ↑
+/** ↑
  * Declaration blocks like this */
 ```
 
@@ -112,27 +112,19 @@ a {
 }
 ```
 
-But not this:
+But not these patterns:
 
 ```css
 a { color: red;
 }
-```
 
-This:
-
-```css
 a {
 color: red; }
-```
 
-Or this:
-
-```css
 a { color: red; }
 ```
 
-To allow single line blocks, use the `"always-multi-line"` option for both rules.
+To allow single-line blocks but enforce newlines with multi-line blocks, use the `"always-multi-line"` option for both rules.
 
 
 ## How do I configure the `*-pattern` rules for common CSS naming conventions like kebab-case?
