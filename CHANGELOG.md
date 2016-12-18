@@ -1,4 +1,4 @@
-# Head
+# 7.7.0
 
 -   Added: `stylelint.formatters` exposed in public Node API ([#2190](https://github.com/stylelint/stylelint/pull/2190)).
 -   Added: `stylelint.utils.checkAgainstRule` for checking CSS against a standard stylelint rule *within your own rule* ([#2173](https://github.com/stylelint/stylelint/pull/2173)).
