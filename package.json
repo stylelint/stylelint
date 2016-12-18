@@ -4,7 +4,9 @@
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css",
-    "csslint",
+    "less",
+    "scss",
+    "sugarss",
     "lint",
     "linter",
     "stylelint"
