@@ -88,7 +88,8 @@
     "remark-validate-links": "^5.0.0",
     "request": "^2.69.0",
     "sinon": "^1.16.1",
-    "strip-ansi": "^3.0.1"
+    "strip-ansi": "^3.0.1",
+    "stylelint-config-standard": "^15.0.1"
   },
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
@@ -100,6 +101,7 @@
     "pretest": "npm-run-all --serial lint flow",
     "release": "npmpub",
     "test": "jest",
+    "failing": "./bin/stylelint.js 'failing.css'",
     "watch": "jest --watch"
   },
   "eslintConfig": {
