@@ -50,7 +50,7 @@
     "lodash": "^4.0.0",
     "log-symbols": "^1.0.2",
     "meow": "^3.3.0",
-    "multimatch": "^2.1.0",
+    "micromatch": "^2.3.11",
     "normalize-selector": "^0.2.0",
     "postcss": "^5.0.20",
     "postcss-less": "^0.14.0",
