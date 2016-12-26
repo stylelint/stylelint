@@ -64,9 +64,11 @@ a {}
 
 ## Optional secondary options
 
-### `except: ["all-nested", "blockless-after-same-name-blockless", "blockless-group", "first-nested"]`
+### `except: ["inside-block", "blockless-after-same-name-blockless", "blockless-group", "first-nested"]`
 
-### `"all-nested"`
+### `"inside-block"`
+
+***Note: This option was previously called `all-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
 
 Reverse the primary option for at-rules that are nested.
 
@@ -191,7 +193,7 @@ b {
 }
 ```
 
-### `ignore: ["after-comment", "all-nested", "blockless-after-same-name-blockless", "blockless-group",]`
+### `ignore: ["after-comment", "inside-block", "blockless-after-same-name-blockless", "blockless-group",]`
 
 #### `"after-comment"`
 
@@ -210,7 +212,9 @@ The following patterns are *not* considered warnings:
 @media {}
 ```
 
-#### `"all-nested"`
+#### `"inside-block"`
+
+***Note: This option was previously called `all-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
 
 Ignore at-rules that are nested.
 
