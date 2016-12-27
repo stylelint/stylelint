@@ -93,9 +93,11 @@ a {
 }
 ```
 
-### `ignore: ["between-comments", "stylelint-commands"]`
+### `ignore: ["after-comment", "stylelint-commands"]`
 
-#### `"between-comments"`
+#### `"after-comment"`
+
+***Note: This option was previously called `between-comments`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
 
 Don't require an empty line between comments.
 
