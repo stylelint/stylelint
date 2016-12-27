@@ -64,7 +64,7 @@ a {}
 
 ## Optional secondary options
 
-### `except: ["inside-block", "blockless-after-same-name-blockless", "blockless-group", "first-nested"]`
+### `except: ["inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless", "first-nested"]`
 
 ### `"inside-block"`
 
@@ -132,7 +132,9 @@ a {
 }
 ```
 
-#### `"blockless-group"`
+#### `"blockless-after-blockless"`
+
+***Note: This option was previously called `blockless-group`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
 
 Reverse the primary option for at-rules within a blockless group.
 
@@ -193,7 +195,7 @@ b {
 }
 ```
 
-### `ignore: ["after-comment", "inside-block", "blockless-after-same-name-blockless", "blockless-group",]`
+### `ignore: ["after-comment", "inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless",]`
 
 #### `"after-comment"`
 
@@ -275,7 +277,9 @@ a {
 }
 ```
 
-#### `"blockless-group"`
+#### `"blockless-after-blockless"`
+
+***Note: This option was previously called `blockless-group`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
 
 Ignore at-rules within a blockless group.
 
