@@ -93,7 +93,7 @@ a {
 }
 ```
 
-### `ignore: ["after-comment", "stylelint-commands"]`
+### `ignore: ["after-comment", "stylelint-command"]`
 
 #### `"after-comment"`
 
@@ -126,7 +126,10 @@ a {
 }
 ```
 
-#### `"stylelint-commands"`
+#### `"stylelint-command"`
+
+***Note: This option was previously called `stylelint-commands`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+
 
 Ignore comments that deliver commands to stylelint, e.g. `/* stylelint-disable color-no-hex */`.
 
