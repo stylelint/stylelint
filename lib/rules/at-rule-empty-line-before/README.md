@@ -220,7 +220,7 @@ The following patterns are *not* considered warnings:
 
 ***Note: This option was previously called `all-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
 
-Ignore at-rules that are nested.
+Ignore at-rules that are inside a declaration block.
 
 For example, with `"always"`:
 
@@ -283,7 +283,7 @@ a {
 
 ***Note: This option was previously called `blockless-group`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
 
-Ignore at-rules within a blockless group.
+Ignore blockless at-rules that follow another blockless at-rule.
 
 For example, with `"always"`:
 
