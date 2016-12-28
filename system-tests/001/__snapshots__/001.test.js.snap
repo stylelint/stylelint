@@ -31,6 +31,10 @@ Array [
         "text": "\'media-feature-no-missing-punctuation\' has been deprecated and in 8.0 will be removed.",
       },
       Object {
+        "reference": "http://stylelint.io/user-guide/rules/rule-nested-empty-line-before/",
+        "text": "\'rule-nested-empty-line-before\'s\' \"first-nested\" option has been deprecated and in 8.0 will be removed. Instead use the \"after-opening-brace\" option.",
+      },
+      Object {
         "reference": "http://stylelint.io/user-guide/rules/selector-no-empty/",
         "text": "\'selector-no-empty\' has been deprecated and in 8.0 will be removed.",
       },
