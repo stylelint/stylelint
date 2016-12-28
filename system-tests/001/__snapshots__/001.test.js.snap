@@ -15,6 +15,10 @@ Array [
         "text": "\'comment-empty-line-before\'s\' \"stylelint-commands\" option has been deprecated and in 8.0 will be removed. Instead use the \"stylelint-command\" option.",
       },
       Object {
+        "reference": "http://stylelint.io/user-guide/rules/custom-property-empty-line-before/",
+        "text": "\'custom-property-empty-line-before\'s\' \"first-nested\" option has been deprecated and in 8.0 will be removed. Instead use the \"after-opening-brace\" option.",
+      },
+      Object {
         "reference": "http://stylelint.io/user-guide/rules/declaration-block-no-ignored-properties/",
         "text": "\'declaration-block-no-ignored-properties\' has been deprecated and in 8.0 will be removed.",
       },
