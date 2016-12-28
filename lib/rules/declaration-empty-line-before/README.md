@@ -6,7 +6,7 @@ Require or disallow an empty line before declarations.
 a {
   --foo: pink;
              /* ← */
-  top: 15px; /* ↑ */   
+  top: 15px; /* ↑ */
 }            /* ↑ */
 /**             ↑
  *      This line */
@@ -92,7 +92,7 @@ a {
 
 ## Optional secondary options
 
-### `except: ["after-comment", "after-declaration", "first-nested"]`
+### `except: ["after-comment", "after-declaration", "after-opening-brace"]`
 
 #### `"after-comment"`
 
@@ -147,7 +147,9 @@ a {
 }
 ```
 
-#### `"first-nested"`
+#### `"after-opening-brace"`
+
+***Note: This option was previously called `first-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
 
 Reverse the primary option for declarations that are nested and the first child of their parent node.
 
