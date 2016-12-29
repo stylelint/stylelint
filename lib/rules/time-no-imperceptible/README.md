@@ -1,5 +1,7 @@
 # time-no-imperceptible
 
+***Deprecated: this rule is outside the scope of stylelint's functionality. See [the release planning docs](https://stylelint.io/user-guide/release-planning/) for details.***
+
 Disallow `animation` and `transition` less than or equal to 100ms.
 
 ```css

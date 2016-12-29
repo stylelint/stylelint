@@ -1,10 +1,12 @@
 # no-browser-hacks
 
+***Deprecated: this rule is outside the scope of stylelint's functionality. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+
 Disallow browser hacks that are irrelevant to the browsers you are targeting.
 
 ```css
 h1 { _color: white; }
-/**  ↑                 
+/**  ↑
  * Hacks like this */
 ```
 

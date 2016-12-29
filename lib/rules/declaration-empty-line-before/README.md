@@ -6,7 +6,7 @@ Require or disallow an empty line before declarations.
 a {
   --foo: pink;
              /* ← */
-  top: 15px; /* ↑ */   
+  top: 15px; /* ↑ */
 }            /* ↑ */
 /**             ↑
  *      This line */

@@ -1,10 +1,12 @@
 # selector-no-empty
 
+***Deprecated: this rule is outside the scope of stylelint's functionality. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+
 Disallow empty selectors.
 
 ```css
   a, , b {}
-/** ↑ 
+/** ↑
  * An empty selector */
 ```
 

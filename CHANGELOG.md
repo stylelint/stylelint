@@ -1,10 +1,21 @@
 # Head
 
+
+-   Deprecated: `block-no-single-line`. Use `block-opening-brace-newline-after` and `block-closing-brace-newline-before` rules with the option `"always"` instead. See [the FAQs for an example](docs/user-guide/faq.md#how-do-i-disallow-single-line-blocks).
+-   Deprecated: `declaration-block-no-ignored-properties`. If you use this rule, please consider creating a plugin for the community. See the [release planning](docs/user-guide/release-planning.md) document for more details.
+-   Deprecated: `declaration-block-properties-order`. Use the community [`stylelint-order`](https://github.com/hudochenkov/stylelint-order) plugin pack instead. See the [release planning](docs/user-guide/release-planning.md) document for more details.
+-   Deprecated: `media-feature-no-missing-punctuation`. If you use this rule, please consider creating a plugin for the community. See the [release planning](docs/user-guide/release-planning.md) document for more details.
+-   Deprecated: `selector-no-empty`. If you use this rule, please consider creating a plugin for the community. See the [release planning](docs/user-guide/release-planning.md) document for more details.
+-   Deprecated: `"all-nested"` option for `at-rule-empty-line-before`. Use the `"inside-block"` option instead.
+-   Deprecated: `"blockless-group"` option for `at-rule-empty-line-before`. Use the `"blockless-after-blockless"` option instead.
+-   Deprecated: `"between-comments"` option for `comment-empty-line-before`. Use the `"after-comment"` option instead.
+-   Deprecated: `"stylelint-commands"` option for `comment-empty-line-before`. Use the `"stylelint-command"` option instead.
+-   Deprecated: `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`. Use the `"blockless-at-rules"` option instead.
 -   Added: `time-min-milliseconds` rule, to replace `time-no-imperceptible` ([#2289](https://github.com/stylelint/stylelint/pull/2289)).
 -   Added: `except: ["after-same-name"]` option to `at-rule-empty-line-before` ([#2225](https://github.com/stylelint/stylelint/pull/2225)).
--   Fixed: `selector-pseudo-class-no-unknown` no longer warns for proprietary webkit pseudo-classes ([#2264](https://github.com/stylelint/stylelint/pull/2264)).
 -   Fixed: `configOverrides` now work with `extends` ([#2295](https://github.com/stylelint/stylelint/pull/2295)).
 -   Fixed: `max-line-length` no longer reports incorrect column positions for lines with `url()` or `import` ([#2287](https://github.com/stylelint/stylelint/pull/2287)).
+-   Fixed: `selector-pseudo-class-no-unknown` no longer warns for proprietary webkit pseudo-classes ([#2264](https://github.com/stylelint/stylelint/pull/2264)).
 
 # 7.7.1
 
