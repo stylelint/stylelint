@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: ensure only absolute filepaths to passed to processors ([#2207](https://github.com/stylelint/stylelint/pull/2207)).
+
 # 7.7.0
 
 -   Added: `stylelint.formatters` exposed in public Node API ([#2190](https://github.com/stylelint/stylelint/pull/2190)).
