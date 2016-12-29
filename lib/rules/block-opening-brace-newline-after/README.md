@@ -17,6 +17,8 @@ a { /* end-of-line comment */
 }
 ```
 
+Refer to [the FAQ](../../../docs/user-guide/faq.md#how-do-i-disallow-single-line-blocks) for more information on using this rule with [`block-opening-brace-newline-before`](../block-opening-brace-newline-before/README.md) to disallow single-line rules.
+
 ## Options
 
 `string`: `"always"|"always-multi-line"|"never-multi-line"`

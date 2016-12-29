@@ -1,7 +1,12 @@
 exports[`test 003 1`] = `
 Array [
   Object {
-    "deprecations": Array [],
+    "deprecations": Array [
+      Object {
+        "reference": "http://stylelint.io/user-guide/rules/declaration-block-properties-order/",
+        "text": "\'declaration-block-properties-order\'has been deprecated and in 8.0 will be removed. Instead use the community \'stylelint-order\' plugin pack.",
+      },
+    ],
     "errored": undefined,
     "ignored": undefined,
     "invalidOptionWarnings": Array [],

@@ -1,5 +1,7 @@
 # declaration-block-properties-order
 
+***Deprecated: instead use the community [`stylelint-order`](https://github.com/hudochenkov/stylelint-order) plugin pack.***
+
 Specify the order of properties within declaration blocks.
 
 ```css
