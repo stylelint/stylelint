@@ -50,7 +50,25 @@ The following patterns are *not* considered warnings:
 
 ## Optional secondary options
 
-### `ignore: ["compounded", "descendant"]`
+### `ignore: ["child", "compounded", "descendant"]`
+
+#### `"child"`
+
+Allow child selectors.
+
+The following patterns are *not* considered warnings:
+
+```css
+a > foo {}
+```
+
+```css
+a > #bar {}
+```
+
+```css
+#bar > a {}
+```
 
 #### `"compounded"`
 
