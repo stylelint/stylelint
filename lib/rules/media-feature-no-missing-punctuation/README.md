@@ -1,5 +1,7 @@
 # media-feature-no-missing-punctuation
 
+***Deprecated: this rule is outside the scope of stylelint's functionality. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+
 Disallow missing punctuation for non-boolean media features.
 
 ```css

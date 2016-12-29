@@ -1,5 +1,7 @@
 # declaration-block-no-ignored-properties
 
+***Deprecated: this rule is outside the scope of stylelint's functionality. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+
 Disallow property values that are ignored due to another property value in the same rule.
 
 ```css

@@ -1,7 +1,16 @@
 exports[`test 002 1`] = `
 Array [
   Object {
-    "deprecations": Array [],
+    "deprecations": Array [
+      Object {
+        "reference": "http://stylelint.io/user-guide/rules/declaration-block-no-ignored-properties/",
+        "text": "\'declaration-block-no-ignored-properties\' has been deprecated and in 8.0 will be removed.",
+      },
+      Object {
+        "reference": "http://stylelint.io/user-guide/rules/media-feature-no-missing-punctuation/",
+        "text": "\'media-feature-no-missing-punctuation\' has been deprecated and in 8.0 will be removed.",
+      },
+    ],
     "errored": undefined,
     "ignored": undefined,
     "invalidOptionWarnings": Array [],

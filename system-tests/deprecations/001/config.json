@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "block-no-single-line": true,
+    "declaration-block-no-ignored-properties": true,
+    "declaration-block-properties-order": ["foo", "bar"],
+    "media-feature-no-missing-punctuation": true,
+    "selector-no-empty": true
+  }
+}

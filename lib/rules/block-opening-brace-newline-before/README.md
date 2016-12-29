@@ -9,6 +9,8 @@ Require a newline or disallow whitespace before the opening brace of blocks.
  * The newline before this brace */
 ```
 
+Refer to [the FAQ](../../../docs/user-guide/faq.md#how-do-i-disallow-single-line-blocks) for more information on using this rule with [`block-opening-brace-newline-after`](../block-opening-brace-newline-after/README.md) to disallow single-line rules.
+
 ## Options
 
 `string`: `"always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line"`
