@@ -1,6 +1,6 @@
 # Head
 
--   Fixed: ensure only absolute filepaths to passed to processors ([#2207](https://github.com/stylelint/stylelint/pull/2207)).
+-   Fixed: ensure only absolute filepaths are passed to processors ([#2207](https://github.com/stylelint/stylelint/pull/2207)).
 
 # 7.7.0
 
