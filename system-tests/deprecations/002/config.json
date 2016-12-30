@@ -1,0 +1,42 @@
+{
+  "rules": {
+    "at-rule-empty-line-before": [
+      "never",
+      {
+        "except": [
+          "all-nested",
+          "blockless-group",
+          "first-nested"
+        ]
+      }
+    ],
+    "comment-empty-line-before": [
+      "never",
+      {
+        "except": ["first-nested"],
+        "ignore": [
+          "between-comments",
+          "stylelint-commands"
+        ]
+      }
+    ],
+    "custom-property-empty-line-before": [
+      "never",
+      {
+        "except": ["first-nested"]
+      }
+    ],
+    "declaration-empty-line-before": [
+      "never",
+      {
+        "except": ["first-nested"]
+      }
+    ],
+    "rule-nested-empty-line-before": [
+      "never",
+      {
+        "except": ["first-nested"]
+      }
+    ]
+  }
+}
