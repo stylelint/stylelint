@@ -81,7 +81,7 @@ a {
 
 ## Optional secondary options
 
-### `except: ["after-comment", "after-custom-property", "first-nested"]`
+### `except: ["after-comment", "after-custom-property", "after-opening-brace"]`
 
 #### `"after-comment"`
 
@@ -140,7 +140,9 @@ a {
 }
 ```
 
-#### `"first-nested"`
+#### `"after-opening-brace"`
+
+***Note: This option was previously called `first-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
 
 Reverse the primary option for custom properties that are nested and the first child of their parent node.
 

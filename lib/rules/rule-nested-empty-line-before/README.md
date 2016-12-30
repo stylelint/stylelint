@@ -121,7 +121,9 @@ The following patterns are *not* considered warnings:
 
 ## Optional secondary options
 
-### `except: ["first-nested"]`
+### `except: ["after-opening-brace"]`
+
+***Note: This option was previously called `first-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
 
 Reverse the primary option if the rule is the first in a block.
 

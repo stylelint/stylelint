@@ -64,7 +64,7 @@ a {}
 
 ## Optional secondary options
 
-### `except: ["after-same-name", "all-nested", "blockless-after-same-name-blockless", "blockless-group", "first-nested"]`
+### `except: ["after-same-name", "inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless", "first-nested"]`
 
 #### `"after-same-name"`
 
@@ -97,7 +97,9 @@ a {
 }
 ```
 
-### `"all-nested"`
+#### `"inside-block"`
+
+***Note: This option was previously called `all-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
 
 Reverse the primary option for at-rules that are nested.
 
@@ -161,7 +163,9 @@ a {
 }
 ```
 
-#### `"blockless-group"`
+#### `"blockless-after-blockless"`
+
+***Note: This option was previously called `blockless-group`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
 
 Reverse the primary option for at-rules within a blockless group.
 
@@ -222,7 +226,7 @@ b {
 }
 ```
 
-### `ignore: ["after-comment", "all-nested", "blockless-after-same-name-blockless", "blockless-group",]`
+### `ignore: ["after-comment", "inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless"]`
 
 #### `"after-comment"`
 
@@ -241,9 +245,11 @@ The following patterns are *not* considered warnings:
 @media {}
 ```
 
-#### `"all-nested"`
+#### `"inside-block"`
 
-Ignore at-rules that are nested.
+***Note: This option was previously called `all-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+
+Ignore at-rules that are inside a declaration block.
 
 For example, with `"always"`:
 
@@ -302,9 +308,11 @@ a {
 }
 ```
 
-#### `"blockless-group"`
+#### `"blockless-after-blockless"`
 
-Ignore at-rules within a blockless group.
+***Note: This option was previously called `blockless-group`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+
+Ignore blockless at-rules that follow another blockless at-rule.
 
 For example, with `"always"`:
 
