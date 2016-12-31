@@ -17,6 +17,7 @@
     "Richard Hallows"
   ],
   "license": "MIT",
+  "homepage": "http://stylelint.io",
   "repository": {
     "type": "git",
     "url": "https://github.com/stylelint/stylelint.git"
