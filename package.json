@@ -79,7 +79,7 @@
     "eslint-config-stylelint": "^6.0.0",
     "flow-bin": "^0.37.0",
     "jest": "^18.0.0",
-    "npm-run-all": "^3.0.0",
+    "npm-run-all": "^4.0.0",
     "npmpub": "^3.0.1",
     "postcss-import": "^9.0.0",
     "postcss-safe-parser": "^2.0.0",
