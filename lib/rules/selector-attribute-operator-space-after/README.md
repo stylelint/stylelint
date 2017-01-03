@@ -14,7 +14,7 @@ Require a single space or disallow whitespace after operators within attribute s
 
 ### `"always"`
 
-There *must always* be a single after after the operator.
+There *must always* be a single space after the operator.
 
 The following patterns are considered warnings:
 
@@ -74,7 +74,7 @@ The following patterns are *not* considered warnings:
 
 ### `"never"`
 
-There *must never* be a single after after the operator.
+There *must never* be a single space after the operator.
 
 The following patterns are considered warnings:
 
