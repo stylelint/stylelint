@@ -264,5 +264,5 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`no-indistinguishable-colors`](../../lib/rules/no-indistinguishable-colors/README.md): Disallow colors that are suspiciously close to being identical.
 -   [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
 -   [`no-missing-end-of-source-newline`](../../lib/rules/no-missing-end-of-source-newline/README.md): Disallow missing end-of-source newlines.
--   [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow animation names that do not correspond to a `@keyframes` declaration.
+-   [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
 -   [`no-unsupported-browser-features`](../../lib/rules/no-unsupported-browser-features/README.md): Disallow features that are unsupported by the browsers that you are targeting.
