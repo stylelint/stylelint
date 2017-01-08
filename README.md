@@ -30,15 +30,15 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
 With stylelint, it's easy to start linting your CSS:
 
 1.  Decide how you want to use stylelint:
-    -   [via the stylelint CLI](/docs/user-guide/cli.md)
-    -   [via a plugin for your build tool](/docs/user-guide/complementary-tools.md#build-tool-plugins) (gulp, webpack etc)
-    -   [via a plugin for your text editor](/docs/user-guide/complementary-tools.md#editor-plugins) (atom, sublime text etc)
-    -   [via the stylelint Node API](/docs/user-guide/node-api.md)
-    -   [via the stylelint PostCSS plugin](/docs/user-guide/postcss-plugin.md)
-2.  Create your [configuration object](/docs/user-guide/configuration.md) by either extending a shared config or crafting your own:
-    -   To extend a shared config, we recommend using [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard). It includes over 80 of stylelint's rules with sensible defaults. (You can always override specific rules after extending the config.) We update the config with each new release of stylelint. Alternately, you can [search for](https://www.npmjs.com/browse/keyword/stylelint-config) a community config and [extend](/docs/user-guide/configuration.md#extends) that instead.
-    -   To craft your own config, first [learn about how rules are named and how they work together](/docs/user-guide/about-rules.md), then either:
-        -   Start small and only learn about [the rules](/docs/user-guide/rules.md) you want to turn on and enforce. *All of the rules are off by default*, and so you can start small, growing your config over time as you have a chance to explore more of the rules.
+    -   [via the stylelint CLI](docs/user-guide/cli.md)
+    -   [via a plugin for your build tool](docs/user-guide/complementary-tools.md#build-tool-plugins) (gulp, webpack etc)
+    -   [via a plugin for your text editor](docs/user-guide/complementary-tools.md#editor-plugins) (atom, sublime text etc)
+    -   [via the stylelint Node API](docs/user-guide/node-api.md)
+    -   [via the stylelint PostCSS plugin](docs/user-guide/postcss-plugin.md)
+2.  Create your [configuration object](docs/user-guide/configuration.md) by either extending a shared config or crafting your own:
+    -   To extend a shared config, we recommend using [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard). It includes over 80 of stylelint's rules with sensible defaults. (You can always override specific rules after extending the config.) We update the config with each new release of stylelint. Alternately, you can [search for](https://www.npmjs.com/browse/keyword/stylelint-config) a community config and [extend](docs/user-guide/configuration.md#extends) that instead.
+    -   To craft your own config, first [learn about how rules are named and how they work together](docs/user-guide/about-rules.md), then either:
+        -   Start small and only learn about [the rules](docs/user-guide/rules.md) you want to turn on and enforce. *All of the rules are off by default*, and so you can start small, growing your config over time as you have a chance to explore more of the rules.
         -   Or copy-paste [this example configuration](docs/user-guide/example-config.md), which lists all of stylelint's rules and their primary options. Then you can edit the options of each rule to your liking, and remove (or turn off with `null`) the rules that you don't care to enforce.
 3.  Lint!
 
