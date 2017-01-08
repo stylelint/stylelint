@@ -8,7 +8,7 @@ a { display: -webkit-flex; }
  *  These prefixes */
 ```
 
-This rule will only warn for prefixed _standard_ values, and not for prefixed _proprietary_ or _unknown_ ones.
+This rule will only warn for prefixed *standard* values, and not for prefixed *proprietary* or *unknown* ones.
 
 ## Options
 
