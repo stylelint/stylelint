@@ -1,6 +1,6 @@
 # no-unknown-animations
 
-Disallow animation names that do not correspond to a `@keyframes` declaration.
+Disallow unknown animations.
 
 ```css
 a { animation-name: fancy-slide; }
@@ -11,6 +11,8 @@ a { animation: fancy-slide 2s linear; }
 /**                    ↑
  *           And this one */
 ```
+
+This rule considers the identifiers of `@keyframes` rules defined within the same source to be known.
 
 ## Options
 
