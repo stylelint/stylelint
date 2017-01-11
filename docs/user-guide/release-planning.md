@@ -6,9 +6,47 @@ Sometimes an upcoming release needs a little extra planning (and help from the s
 
 In `8.0.0` we will be removing:
 
+-   the `block-no-single-line` rule.
+-   the `custom-property-no-outside-root` rule.
+-   the `declaration-block-no-ignored-properties` rule.
 -   the `declaration-block-properties-order` rule.
+-   the `no-browser-hacks` rule.
+-   the `no-indistinguishable-colors` rule.
+-   the `no-unsupported-browser-features` rule.
+-   the `root-no-standard-properties` rule.
+-   the `selector-root-no-composition` rule.
+-   the `stylelint-disable-reason` rule.
 
-The `declaration-block-properties-order` rule will be replaced by [`stylelint-order`](https://github.com/hudochenkov/stylelint-order), a community plugin pack of ordering rules. One that contains rules for ordering properties, property groups and *other things* within declaration blocks. Please consider contributing to `stylelint-order` to ensure it is robust and handles your particular use-case. This will provide a smoother transition to `8.0.0`, once it is ready.
+The `declaration-block-properties-order` rule will be replaced by [`stylelint-order`](https://github.com/hudochenkov/stylelint-order), a community plugin pack of ordering rules. One that contains rules for ordering properties, property groups and *other things* within declaration blocks. Please consider contributing to `stylelint-order` to ensure it is robust and handles your particular use-case in time for `8.0.0`.
+
+The `block-no-single-line` rule can be achieved using:
+
+```
+{
+  "block-opening-brace-newline-after": ["always"],
+  "block-closing-brace-newline-before": ["always"]
+}
+```
+
+There is little to do here other than update your config and check that this approach works for you.
+
+The following three rules wrap existing PostCSS linting tools:
+
+-   `no-browser-hacks` wraps [stylehacks](https://github.com/ben-eb/stylehacks).
+-   `no-indistinguishable-colors` wraps [colorguard](https://github.com/SlexAxton/css-colorguard).
+-   `no-unsupported-browser-features` wraps [doiuse](https://github.com/anandthakker/doiuse).
+
+You can use the tool directly in your task runner of choice. However, if you find stylelint adds a feature (e.g. ignoring of files, `stylelint-disable` commands etc) that perhaps the tool itself lacks, then please consider converting the rule to a plugin for the community.
+
+If you have a need for any of the remaining rules:
+
+-   the `custom-property-no-outside-root` rule.
+-   the `declaration-block-no-ignored-properties` rule.
+-   the `root-no-standard-properties` rule.
+-   the `selector-root-no-composition` rule.
+-   the `stylelint-disable-reason` rule.
+
+Please consider converting it to a plugin and sharing it with the community.
 
 ## `7.0.0`
 
