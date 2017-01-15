@@ -98,6 +98,8 @@ a {
 
 Reverse the primary option for declarations that come after a comment.
 
+Shared-line comments do not trigger this option.
+
 For example, with `"always"`:
 
 The following patterns are considered warnings:
@@ -110,11 +112,27 @@ a {
 }
 ```
 
+```css
+a {
+  bottom: 5px; /* comment */
+  top: 5px;
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
 a {
   /* comment */
+  top: 5px;
+}
+
+```
+
+```css
+a {
+  bottom: 5px; /* comment */
+
   top: 5px;
 }
 
@@ -124,6 +142,8 @@ a {
 
 Reverse the primary option for declarations that come after another declaration.
 
+Shared-line comments do not affect this option.
+
 For example, with `"always"`:
 
 The following patterns are considered warnings:
@@ -137,12 +157,29 @@ a {
 }
 ```
 
+```css
+a {
+
+  bottom: 15px; /* comment */
+
+  top: 5px;
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
 a {
 
   bottom: 15px;
+  top: 5px;
+}
+```
+
+```css
+a {
+
+  bottom: 15px; /* comment */
   top: 5px;
 }
 ```

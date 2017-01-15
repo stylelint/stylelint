@@ -185,6 +185,20 @@ The following patterns are *not* considered warnings:
 
 Ignore rules that come after a comment.
 
+Shared-line comments do not trigger this option.
+
+For example, with `"always"`:
+
+
+The following patterns are considered warnings:
+
+```css
+@media {
+  b {} /* comment */
+  a {}
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -197,6 +211,14 @@ The following patterns are *not* considered warnings:
 ```css
 @media {
   /* comment */
+
+  a {}
+}
+```
+
+```css
+@media {
+  b {} /* comment */
 
   a {}
 }

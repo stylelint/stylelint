@@ -87,6 +87,8 @@ a {
 
 Reverse the primary option for custom properties that come after a comment.
 
+Shared-line comments do not trigger this option.
+
 For example, with `"always"`:
 
 The following patterns are considered warnings:
@@ -101,6 +103,14 @@ a {
 }
 ```
 
+```css
+a {
+
+  --foo: pink; /* comment */    
+  --bar: red;
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -110,13 +120,23 @@ a {
   /* comment */
   --bar: red;
 }
+```
 
+```css
+a {
+
+  --foo: pink; /* comment */  
+
+  --bar: red;
+}
 ```
 
 #### `"after-custom-property"`
 
 Reverse the primary option for custom properties that come after another custom property.
 
+Shared-line comments do not affect this option.
+
 For example, with `"always"`:
 
 The following patterns are considered warnings:
@@ -130,12 +150,29 @@ a {
 }
 ```
 
+```css
+a {
+
+  --foo: pink; /* comment */
+
+  --bar: red;
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
 a {
 
   --foo: pink;
+  --bar: red;
+}
+```
+
+```css
+a {
+
+  --foo: pink; /* comment */
   --bar: red;
 }
 ```
