@@ -114,23 +114,36 @@ b
 
 Ignore rules that come after a comment.
 
+Shared-line comments do not trigger this option.
+
+For example, with "always":
+
+The following patterns are considered warnings:
+
+```css
+a {} /* comment */
+b {}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
-a
-{}
+a {}
 /* comment */
-b
-{}
+b {}
 ```
 
 ```css
-a
-{}
+a {}
 /* comment */
 
-b
-{}
+b {}
+```
+
+```css
+a {} /* comment */
+
+b {}
 ```
 
 ## Optional secondary options

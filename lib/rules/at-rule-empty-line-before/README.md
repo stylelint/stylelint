@@ -108,6 +108,8 @@ Reverse the primary option for blockless at-rules that follow another blockless 
 
 This means that you can group your blockless at-rules by name.
 
+Shared-line comments do not affect this option.
+
 For example, with `"always"`:
 
 The following patterns are *not* considered warnings:
@@ -116,6 +118,13 @@ The following patterns are *not* considered warnings:
 @charset "UTF-8";
 
 @import url(x.css);
+@import url(y.css);
+```
+
+```css
+@charset "UTF-8";
+
+@import url(x.css); /* comment */
 @import url(y.css);
 ```
 
@@ -134,6 +143,8 @@ a {
 
 Reverse the primary option for at-rules within a blockless group.
 
+Shared-line comments do not affect this option.
+
 For example, with `"always"`:
 
 The following patterns are considered warnings:
@@ -150,6 +161,13 @@ The following patterns are *not* considered warnings:
 
 ```css
 @import url(x.css);
+@import url(y.css);
+
+@media print {}
+```
+
+```css
+@import url(x.css); /* comment */
 @import url(y.css);
 
 @media print {}
@@ -197,6 +215,8 @@ b {
 
 Ignore at-rules that come after a comment.
 
+Shared-line comments do not trigger this option.
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -206,6 +226,12 @@ The following patterns are *not* considered warnings:
 
 ```css
 /* comment */
+
+@media {}
+```
+
+```css
+@media {} /* comment */
 
 @media {}
 ```
