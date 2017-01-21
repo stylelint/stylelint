@@ -98,7 +98,7 @@ a .foo__foo .bar .baz {}
 
 ### `ignore: ["blockless-at-rules"]`
 
-***Note: This option was previously called `at-rules-without-declaration-blocks`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+***Note: This option was previously called `at-rules-without-declaration-blocks`.***
 
 Ignore at-rules that only wrap other rules, and do not themselves have declaration blocks.
 
