@@ -92,7 +92,7 @@ a {
 
 ## Optional secondary options
 
-### `except: ["after-comment", "after-declaration", "after-opening-brace"]`
+### `except: ["after-comment", "after-declaration", "first-nested"]`
 
 #### `"after-comment"`
 
@@ -147,9 +147,7 @@ a {
 }
 ```
 
-#### `"after-opening-brace"`
-
-***Note: This option was previously called `first-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+#### `"first-nested"`
 
 Reverse the primary option for declarations that are nested and the first child of their parent node.
 

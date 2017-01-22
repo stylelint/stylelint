@@ -68,9 +68,7 @@ a {} /* comment */
 
 ## Optional secondary options
 
-### `except: ["after-opening-brace"]`
-
-***Note: This option was previously called `first-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+### `except: ["first-nested"]`
 
 Reverse the primary option for comments that are nested and the first child of their parent node.
 

@@ -64,7 +64,7 @@ a {}
 
 ## Optional secondary options
 
-### `except: ["inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless", "after-opening-brace"]`
+### `except: ["inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless", "first-nested"]`
 
 ### `"inside-block"`
 
@@ -159,9 +159,7 @@ The following patterns are *not* considered warnings:
 @media print {}
 ```
 
-#### `"after-opening-brace"`
-
-***Note: This option was previously called `first-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+#### `"first-nested"`
 
 Reverse the primary option for at-rules that are nested and the first child of their parent node.
 
