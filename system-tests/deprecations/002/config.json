@@ -32,6 +32,12 @@
         "except": ["first-nested"]
       }
     ],
+    "max-nesting-depth": [
+      1,
+      {
+        "ignore": ["at-rules-without-declaration-blocks"]
+      }
+    ],
     "rule-nested-empty-line-before": [
       "never",
       {
