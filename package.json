@@ -77,7 +77,7 @@
     "d3-queue": "^3.0.3",
     "eslint": "~3.13.0",
     "eslint-config-stylelint": "^6.0.0",
-    "flow-bin": "^0.37.0",
+    "flow-bin": "^0.38.0",
     "jest": "^18.0.0",
     "npm-run-all": "^4.0.0",
     "npmpub": "^3.0.1",
