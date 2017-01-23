@@ -3,6 +3,15 @@
 -   Changed: stylelint [semantic version policy](README.md#semantic-versioning-policy). We now recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds.
 -   Fixed: `selector-no-type` no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with `ignore: ["descendant"]` ([#2200](https://github.com/stylelint/stylelint/pull/2200)).
 
+# Head
+
+-   Added: `except: ["after-same-name"]` option to `at-rule-empty-line-before` ([#2225](https://github.com/stylelint/stylelint/pull/2225)).
+-   Fixed: `selector-pseudo-class-no-unknown` no longer warns for proprietary webkit pseudo-classes ([#2264](https://github.com/stylelint/stylelint/pull/2264)).
+
+# 7.7.1
+
+-   Fixed: ensure only absolute filepaths are passed to processors ([#2207](https://github.com/stylelint/stylelint/pull/2207)).
+
 # 7.7.0
 
 -   Added: `stylelint.formatters` exposed in public Node API ([#2190](https://github.com/stylelint/stylelint/pull/2190)).

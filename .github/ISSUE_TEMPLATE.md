@@ -56,6 +56,13 @@ e.g. "The following warnings were flagged:"
 test.css
 1:21    Expected 2 spaces (indentation)
 ```
+<!--
+Before posting, please check that your issue:
+1. Hasn't already been resolved in:
+  - the next release (https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md)
+  - an upcoming major milestone (https://github.com/stylelint/stylelint/milestones)
+2. Hasn't already been discussed (https://github.com/stylelint/stylelint/search)
+-->
 
 <!--
 Here are the best ways to help resolve your issue:

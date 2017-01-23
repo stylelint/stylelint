@@ -64,7 +64,38 @@ a {}
 
 ## Optional secondary options
 
-### `except: ["all-nested", "blockless-after-same-name-blockless", "blockless-group", "first-nested"]`
+### `except: ["after-same-name", "all-nested", "blockless-after-same-name-blockless", "blockless-group", "first-nested"]`
+
+#### `"after-same-name"`
+
+Reverse the primary option for at-rules that follow another at-rule with the same name.
+
+This means that you can group your at-rules by name.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered warnings:
+
+```css
+@charset "UTF-8";
+
+@import url(x.css);
+@import url(y.css);
+
+@media (min-width: 100px) {}
+@media (min-width: 200px) {}
+```
+
+```css
+a {
+
+  @extends .foo;
+  @extends .bar;
+
+  @include x;
+  @include y {}
+}
+```
 
 ### `"all-nested"`
 
