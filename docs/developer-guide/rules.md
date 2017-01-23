@@ -72,7 +72,7 @@ A rule's secondary option can be anything if you're not ignoring or making excep
 
 ##### Keyword `"ignore"` and `"except"`
 
-`"ignore"` and `"except"` accept an array of predefined keyword options e.g. `["relative", "after-opening-brace", "descendant"]`.
+`"ignore"` and `"except"` accept an array of predefined keyword options e.g. `["relative", "first-nested", "descendant"]`.
 
 -   Use `"ignore"` when you want the rule to simply skip-over a particular pattern.
 -   Use `"except"` when you want to invert the primary option for a particular pattern.

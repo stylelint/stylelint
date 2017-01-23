@@ -272,25 +272,25 @@ You can do that with:
 
 ```js
 "at-rule-empty-line-before": ["always", {
-  "except": ["after-opening-brace"]
+  "except": ["first-nested"]
 }],
 "custom-property-empty-line-before": [ "always", {
   "except": [
     "after-custom-property",
-    "after-opening-brace"
+    "first-nested"
   ]
 }],
 "declaration-empty-line-before": ["always", {
   "except": [
     "after-declaration",
-    "after-opening-brace"
+    "first-nested"
   ]
 }],
 "block-closing-brace-empty-line-before": "never",
 "rule-non-nested-empty-line-before": ["always-multi-line"]
 ```
 
-We recommend that you set your primary option (e.g. `"always"` or `"never"`) to whatever is your most common occurrence and define your exceptions with the `except` optional secondary options. There are many values for the `except` option e.g. `after-opening-brace`, `after-comment` etc.
+We recommend that you set your primary option (e.g. `"always"` or `"never"`) to whatever is your most common occurrence and define your exceptions with the `except` optional secondary options. There are many values for the `except` option e.g. `first-nested`, `after-comment` etc.
 
 The `*-empty-line-before` rules control whether there must never be an empty line or whether there must be *one or more* empty lines before a *thing*. The `*-max-empty-lines` rules complement this by controlling *the number* of empty lines within *things*. The `max-empty-lines` rule is used to set a limit across the entire source. A *stricter* limit can then be set within *things* using the likes of `function-max-empty-lines`, `selector-max-empty-lines` and `value-list-max-empty-lines`.
 
