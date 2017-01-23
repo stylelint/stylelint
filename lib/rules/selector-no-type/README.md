@@ -59,15 +59,11 @@ Allow child selectors.
 The following patterns are *not* considered warnings:
 
 ```css
-a > foo {}
-```
-
-```css
-a > #bar {}
-```
-
-```css
 #bar > a {}
+```
+
+```css
+#bar > a.foo {}
 ```
 
 #### `"compounded"`
