@@ -1,5 +1,7 @@
 # stylelint-disable-reason
 
+***Deprecated: this rule is outside the scope of stylelint's functionality. See [the release planning docs](https://stylelint.io/user-guide/release-planning/) for details.***
+
 Require a reason comment before or after `stylelint-disable` comments.
 
 ```css

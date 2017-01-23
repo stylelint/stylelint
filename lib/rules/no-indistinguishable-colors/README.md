@@ -1,5 +1,7 @@
 # no-indistinguishable-colors
 
+***Deprecated: this rule is outside the scope of stylelint's functionality. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+
 Disallow colors that are suspiciously close to being identical.
 
 ```css

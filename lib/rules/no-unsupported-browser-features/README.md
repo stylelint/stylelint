@@ -1,10 +1,12 @@
 # no-unsupported-browser-features
 
+***Deprecated: this rule is outside the scope of stylelint's functionality. See [the release planning docs](https://stylelint.io/user-guide/release-planning/) for details.***
+
 Disallow features that are unsupported by the browsers that you are targeting.
 
 ```css
 .foo { opacity: 1; }
-/**    ↑                 
+/**    ↑
  * Features like this, which is unsupported in IE 8 */
 ```
 
