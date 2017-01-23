@@ -22,6 +22,38 @@ Array [
         "reference": "http://stylelint.io/user-guide/rules/selector-no-empty/",
         "text": "\'selector-no-empty\' has been deprecated and in 8.0 will be removed.",
       },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/no-browser-hacks/",
+        "text": "\'no-browser-hacks\' has been deprecated and in 8.0 will be removed.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/no-indistinguishable-colors/",
+        "text": "\'no-indistinguishable-colors\' has been deprecated and in 8.0 will be removed.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/no-unsupported-browser-features/",
+        "text": "\'no-unsupported-browser-features\' has been deprecated and in 8.0 will be removed.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/stylelint-disable-reason/",
+        "text": "\'stylelint-disable-reason\' has been deprecated and in 8.0 will be removed.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/custom-property-no-outside-root/",
+        "text": "\'custom-property-no-outside-root\' has been deprecated and in 8.0 will be removed.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/root-no-standard-properties/",
+        "text": "\'root-no-standard-properties\' has been deprecated and in 8.0 will be removed.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-root-no-composition/",
+        "text": "\'selector-root-no-composition\' has been deprecated and in 8.0 will be removed.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/time-no-imperceptible/",
+        "text": "\'time-no-imperceptible\' has been deprecated and in 8.0 will be removed.",
+      },
     ],
     "errored": true,
     "ignored": undefined,
