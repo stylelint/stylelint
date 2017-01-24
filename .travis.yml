@@ -3,7 +3,6 @@ sudo: false
 cache:
   directories:
     - node_modules
-    - .eslintcache
 matrix:
   include:
     - node_js: '7'
