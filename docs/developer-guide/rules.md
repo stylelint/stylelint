@@ -21,7 +21,7 @@ Usually we have some discussion about the rule's purpose, name, options, and sui
 We discuss whether the rule meets the following criteria for inclusion in stylelint:
 
 -   Applicable to standard CSS syntax only.
--   Useful to the majority of users.
+-   Generally useful; not tied to idiosyncratic patterns.
 -   Has a clear and unambiguous finished state.
 -   Has a singular purpose.
 -   Is standalone, and doesn't rely on another rule.

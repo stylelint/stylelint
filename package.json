@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "7.7.0",
+  "version": "7.7.1",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css",
@@ -17,6 +17,7 @@
     "Richard Hallows"
   ],
   "license": "MIT",
+  "homepage": "http://stylelint.io",
   "repository": {
     "type": "git",
     "url": "https://github.com/stylelint/stylelint.git"
@@ -74,11 +75,11 @@
     "common-tags": "^1.3.0",
     "coveralls": "^2.11.9",
     "d3-queue": "^3.0.3",
-    "eslint": "~3.12.0",
+    "eslint": "~3.14.0",
     "eslint-config-stylelint": "^6.0.0",
-    "flow-bin": "^0.37.0",
+    "flow-bin": "^0.38.0",
     "jest": "^18.0.0",
-    "npm-run-all": "^3.0.0",
+    "npm-run-all": "^4.0.0",
     "npmpub": "^3.0.1",
     "postcss-import": "^9.0.0",
     "postcss-safe-parser": "^2.0.0",

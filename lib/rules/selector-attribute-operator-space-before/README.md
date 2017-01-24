@@ -74,7 +74,7 @@ The following patterns are *not* considered warnings:
 
 ### `"never"`
 
-There *must never* be a single before after the operator.
+There *must never* be a single space before the operator.
 
 The following patterns are considered warnings:
 
