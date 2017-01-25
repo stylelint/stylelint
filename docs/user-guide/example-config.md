@@ -167,6 +167,7 @@ You might want to learn a little about [how rules are named and how they work to
     "string-no-newline": true,
     "string-quotes": "single"|"double",
     "stylelint-disable-reason": "always-before"|"always-after",
+    "time-min-milliseconds": int,
     "time-no-imperceptible": true,
     "unit-blacklist": string|[],
     "unit-case": "lower"|"upper",
