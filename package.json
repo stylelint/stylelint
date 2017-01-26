@@ -95,7 +95,7 @@
     "benchmark-rule": "node scripts/benchmark-rule.js",
     "flow": "flow",
     "jest": "jest",
-    "lint:js": "eslint .",
+    "lint:js": "eslint . --cache",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
     "pretest": "npm-run-all --serial lint flow",
