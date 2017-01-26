@@ -52,7 +52,26 @@ The `rules` property is *an object whose keys are rule names and values are rule
 }
 ```
 
-Specifying a primary option will turn a rule on.
+Specifying a primary option will turn a rule on. A complete list of primary rule options can be found in the [example configuration](example-config.md).
+
+To turn a rule off (when extending a configuration) you can set the value of the rule to `null`:
+
+```
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "at-rule-empty-line-before": null
+  }
+}
+```
+
+Many rules have secondary options which provide further customization. To set secondary options, a two-member array is used:
+
+```js
+"selector-pseudo-class-no-unknown": [true, {
+  "ignorePseudoClasses": ["global"]
+}]
+```
 
 #### Turning rules off from within your CSS
 
