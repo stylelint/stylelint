@@ -4,14 +4,7 @@ Array [
     "deprecations": Array [],
     "errored": true,
     "ignored": undefined,
-    "invalidOptionWarnings": Array [
-      Object {
-        "text": "Unexpected option value \"always\" for rule \"selector-pseudo-element-no-unknown\"",
-      },
-      Object {
-        "text": "Unexpected option value \"always\" for rule \"value-no-vendor-prefix\"",
-      },
-    ],
+    "invalidOptionWarnings": Array [],
     "source": "005/stylesheet.css",
     "warnings": Array [
       Object {
@@ -18536,6 +18529,13 @@ Array [
         "text": "Expected single colon pseudo-element notation (selector-pseudo-element-colon-notation)",
       },
       Object {
+        "column": 2,
+        "line": 214,
+        "rule": "selector-pseudo-element-no-unknown",
+        "severity": "error",
+        "text": "Unexpected unknown pseudo-element selector \"::pseudo\" (selector-pseudo-element-no-unknown)",
+      },
+      Object {
         "column": 1,
         "line": 215,
         "rule": "selector-root-no-composition",
@@ -19182,6 +19182,13 @@ Array [
         "rule": "value-list-max-empty-lines",
         "severity": "error",
         "text": "Expected no more than 0 empty line(s) (value-list-max-empty-lines)",
+      },
+      Object {
+        "column": 14,
+        "line": 252,
+        "rule": "value-no-vendor-prefix",
+        "severity": "error",
+        "text": "Unexpected vendor-prefix \"-webkit-flex\" (value-no-vendor-prefix)",
       },
     ],
   },

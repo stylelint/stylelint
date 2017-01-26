@@ -168,7 +168,7 @@
     "selector-pseudo-class-whitelist": ["hover", "/^nth-/"],
     "selector-pseudo-element-case": "lower",
     "selector-pseudo-element-colon-notation": "single",
-    "selector-pseudo-element-no-unknown": "always",
+    "selector-pseudo-element-no-unknown": true,
     "selector-root-no-composition": true,
     "selector-type-case": "lower",
     "selector-type-no-unknown": true,
@@ -187,6 +187,6 @@
     "value-list-comma-space-after": "always",
     "value-list-comma-space-before": "always",
     "value-list-max-empty-lines": 0,
-    "value-no-vendor-prefix": "always"
+    "value-no-vendor-prefix": true
   }
 }
