@@ -1,6 +1,6 @@
 # time-min-milliseconds
 
-Limit the minimum number of milliseconds for time values.
+Specify the minimum number of milliseconds for time values.
 
 ```css
 a { animation: slip-n-slide 150ms linear; }
@@ -12,7 +12,7 @@ This rule checks `transition-duration`, `transition-delay`, `animation-duration`
 
 ## Options
 
-`int`: Minimum number milliseconds for time values.
+`int`: Minimum number of milliseconds for time values.
 
 For example, with `100`:
 
@@ -31,7 +31,7 @@ a { transition: background-color 6ms linear; }
 ```
 
 ```css
-a { animation: horse-dance 1s linear 0.01s; }
+a { animation-delay: 0.01s; }
 ```
 
 The following patterns are *not* considered warnings:
@@ -49,5 +49,5 @@ a { transition: background-color 600ms linear; }
 ```
 
 ```css
-a { animation: horse-dance 1s linear 1.3s; }
+a { animation-delay: 1s; }
 ```
