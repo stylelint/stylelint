@@ -62,6 +62,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 ### Time
 
+-   [`time-min-milliseconds`](../../lib/rules/time-min-milliseconds/README.md): Specify the minimum number of milliseconds for time values.
 -   [`time-no-imperceptible`](../../lib/rules/time-no-imperceptible/README.md): Disallow `animation` and `transition` less than or equal to 100ms.
 
 ### Unit
