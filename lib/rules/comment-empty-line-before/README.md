@@ -97,7 +97,7 @@ a {
 
 #### `"after-comment"`
 
-***Note: This option was previously called `between-comments`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+***Note: This option was previously called `between-comments`. See [the release planning docs](https://stylelint.io/user-guide/release-planning/) for details.***
 
 Don't require an empty line after a comment.
 
@@ -128,7 +128,7 @@ a {
 
 #### `"stylelint-command"`
 
-***Note: This option was previously called `stylelint-commands`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+***Note: This option was previously called `stylelint-commands`. See [the release planning docs](https://stylelint.io/user-guide/release-planning/) for details.***
 
 Ignore comments that deliver commands to stylelint, e.g. `/* stylelint-disable color-no-hex */`.
 

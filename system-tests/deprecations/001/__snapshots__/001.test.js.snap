@@ -3,23 +3,23 @@ Array [
   Object {
     "deprecations": Array [
       Object {
-        "reference": "http://stylelint.io/user-guide/rules/block-no-single-line/",
+        "reference": "https://stylelint.io/user-guide/rules/block-no-single-line/",
         "text": "\'block-no-single-line\' has been deprecated and in 8.0 will be removed. Instead use \'block-opening-brace-newline-after\' and \'block-closing-brace-newline-before\' with the \"always\" option.",
       },
       Object {
-        "reference": "http://stylelint.io/user-guide/rules/declaration-block-no-ignored-properties/",
+        "reference": "https://stylelint.io/user-guide/rules/declaration-block-no-ignored-properties/",
         "text": "\'declaration-block-no-ignored-properties\' has been deprecated and in 8.0 will be removed.",
       },
       Object {
-        "reference": "http://stylelint.io/user-guide/rules/declaration-block-properties-order/",
+        "reference": "https://stylelint.io/user-guide/rules/declaration-block-properties-order/",
         "text": "\'declaration-block-properties-order\'has been deprecated and in 8.0 will be removed. Instead use the community \'stylelint-order\' plugin pack.",
       },
       Object {
-        "reference": "http://stylelint.io/user-guide/rules/media-feature-no-missing-punctuation/",
+        "reference": "https://stylelint.io/user-guide/rules/media-feature-no-missing-punctuation/",
         "text": "\'media-feature-no-missing-punctuation\' has been deprecated and in 8.0 will be removed.",
       },
       Object {
-        "reference": "http://stylelint.io/user-guide/rules/selector-no-empty/",
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-empty/",
         "text": "\'selector-no-empty\' has been deprecated and in 8.0 will be removed.",
       },
       Object {
