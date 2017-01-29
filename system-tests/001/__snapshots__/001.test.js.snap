@@ -1,7 +1,24 @@
 exports[`test 001 1`] = `
 Array [
   Object {
-    "deprecations": Array [],
+    "deprecations": Array [
+      Object {
+        "reference": "http://stylelint.io/user-guide/rules/comment-empty-line-before/",
+        "text": "\'comment-empty-line-before\'s\' \"stylelint-commands\" option has been deprecated and in 8.0 will be removed. Instead use the \"stylelint-command\" option.",
+      },
+      Object {
+        "reference": "http://stylelint.io/user-guide/rules/declaration-block-no-ignored-properties/",
+        "text": "\'declaration-block-no-ignored-properties\' has been deprecated and in 8.0 will be removed.",
+      },
+      Object {
+        "reference": "http://stylelint.io/user-guide/rules/media-feature-no-missing-punctuation/",
+        "text": "\'media-feature-no-missing-punctuation\' has been deprecated and in 8.0 will be removed.",
+      },
+      Object {
+        "reference": "http://stylelint.io/user-guide/rules/selector-no-empty/",
+        "text": "\'selector-no-empty\' has been deprecated and in 8.0 will be removed.",
+      },
+    ],
     "errored": true,
     "ignored": undefined,
     "invalidOptionWarnings": Array [],
