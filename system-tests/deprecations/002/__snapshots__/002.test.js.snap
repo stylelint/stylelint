@@ -15,10 +15,6 @@ Array [
         "text": "\'comment-empty-line-before\'s\' \"between-comments\" option has been deprecated and in 8.0 will be removed. Instead use the \"after-comment\" option.",
       },
       Object {
-        "reference": "http://stylelint.io/user-guide/rules/comment-empty-line-before/",
-        "text": "\'comment-empty-line-before\'s\' \"stylelint-commands\" option has been deprecated and in 8.0 will be removed. Instead use the \"stylelint-command\" option.",
-      },
-      Object {
         "reference": "http://stylelint.io/user-guide/rules/max-nesting-depth/",
         "text": "\'max-nesting-depth\'s\' \"at-rules-without-declaration-blocks\" option has been deprecated and in 8.0 will be removed. Instead use the \"blockless-at-rules\" option.",
       },
