@@ -8,7 +8,7 @@ a { animation: slip-n-slide 150ms linear; }
  *                  This time */
 ```
 
-This rule checks `transition-duration`, `transition-delay`, `animation-duration`, `animation-delay`, and those times as they manifest in the `transition` and `animation` shorthands.
+This rule checks positive numbers in `transition-duration`, `transition-delay`, `animation-duration`, `animation-delay`, and those times as they manifest in the `transition` and `animation` shorthands.
 
 ## Options
 
