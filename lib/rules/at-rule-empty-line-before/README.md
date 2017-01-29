@@ -99,7 +99,7 @@ a {
 
 #### `"inside-block"`
 
-***Note: This option was previously called `all-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+***Note: This option was previously called `all-nested`.***
 
 Reverse the primary option for at-rules that are nested.
 
@@ -165,7 +165,7 @@ a {
 
 #### `"blockless-after-blockless"`
 
-***Note: This option was previously called `blockless-group`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+***Note: This option was previously called `blockless-group`.***
 
 Reverse the primary option for at-rules within a blockless group.
 
@@ -247,7 +247,7 @@ The following patterns are *not* considered warnings:
 
 #### `"inside-block"`
 
-***Note: This option was previously called `all-nested`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+***Note: This option was previously called `all-nested`.***
 
 Ignore at-rules that are inside a declaration block.
 
@@ -310,7 +310,7 @@ a {
 
 #### `"blockless-after-blockless"`
 
-***Note: This option was previously called `blockless-group`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+***Note: This option was previously called `blockless-group`.***
 
 Ignore blockless at-rules that follow another blockless at-rule.
 

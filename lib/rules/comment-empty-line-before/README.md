@@ -97,7 +97,7 @@ a {
 
 #### `"after-comment"`
 
-***Note: This option was previously called `between-comments`. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+***Note: This option was previously called `between-comments`.***
 
 Don't require an empty line after a comment.
 

@@ -1,6 +1,6 @@
 # no-browser-hacks
 
-***Deprecated: this rule is outside the scope of stylelint's functionality. See [the release planning docs](http://stylelint.io/user-guide/release-planning/) for details.***
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
 
 Disallow browser hacks that are irrelevant to the browsers you are targeting.
 

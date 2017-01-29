@@ -1,6 +1,6 @@
 # root-no-standard-properties
 
-***Deprecated: this rule is outside the scope of stylelint's functionality. See [the release planning docs](https://stylelint.io/user-guide/release-planning/) for details.***
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
 
 Disallow standard properties inside `:root` rules.
 
