@@ -3,10 +3,6 @@ Array [
   Object {
     "deprecations": Array [
       Object {
-        "reference": "http://stylelint.io/user-guide/rules/comment-empty-line-before/",
-        "text": "\'comment-empty-line-before\'s\' \"stylelint-commands\" option has been deprecated and in 8.0 will be removed. Instead use the \"stylelint-command\" option.",
-      },
-      Object {
         "reference": "http://stylelint.io/user-guide/rules/declaration-block-no-ignored-properties/",
         "text": "\'declaration-block-no-ignored-properties\' has been deprecated and in 8.0 will be removed.",
       },
