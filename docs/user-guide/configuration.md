@@ -56,7 +56,7 @@ Specifying a primary option will turn a rule on. A complete list of primary rule
 
 To turn a rule off (when extending a configuration) you can set the value of the rule to `null`:
 
-```
+```json
 {
   "extends": "stylelint-config-standard",
   "rules": {
