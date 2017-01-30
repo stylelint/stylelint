@@ -1,6 +1,6 @@
 # selector-root-no-composition
 
-***Deprecated: this rule is outside the scope of stylelint's functionality. See [the release planning docs](https://stylelint.io/user-guide/release-planning/) for details.***
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
 
 Disallow the composition of `:root` in selectors.
 

@@ -1,6 +1,6 @@
 # stylelint-disable-reason
 
-***Deprecated: this rule is outside the scope of stylelint's functionality. See [the release planning docs](https://stylelint.io/user-guide/release-planning/) for details.***
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
 
 Require a reason comment before or after `stylelint-disable` comments.
 

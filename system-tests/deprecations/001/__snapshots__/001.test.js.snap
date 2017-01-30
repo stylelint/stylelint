@@ -52,7 +52,7 @@ Array [
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/time-no-imperceptible/",
-        "text": "\'time-no-imperceptible\' has been deprecated and in 8.0 will be removed.",
+        "text": "\'time-no-imperceptible\' has been deprecated and in 8.0 will be removed. Instead use \'time-min-milliseconds\' with \'100\' as its primary option.",
       },
     ],
     "errored": true,
