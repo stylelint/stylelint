@@ -3,19 +3,19 @@ Array [
   Object {
     "deprecations": Array [
       Object {
-        "reference": "http://stylelint.io/user-guide/rules/at-rule-empty-line-before/",
+        "reference": "https://stylelint.io/user-guide/rules/at-rule-empty-line-before/",
         "text": "\'at-rule-empty-line-before\'s\' \"all-nested\" option has been deprecated and in 8.0 will be removed. Instead use the \"inside-block\" option.",
       },
       Object {
-        "reference": "http://stylelint.io/user-guide/rules/at-rule-empty-line-before/",
+        "reference": "https://stylelint.io/user-guide/rules/at-rule-empty-line-before/",
         "text": "\'at-rule-empty-line-before\'s\' \"blockless-group\" option has been deprecated and in 8.0 will be removed. Instead use the \"blockless-after-blockless\" option.",
       },
       Object {
-        "reference": "http://stylelint.io/user-guide/rules/comment-empty-line-before/",
+        "reference": "https://stylelint.io/user-guide/rules/comment-empty-line-before/",
         "text": "\'comment-empty-line-before\'s\' \"between-comments\" option has been deprecated and in 8.0 will be removed. Instead use the \"after-comment\" option.",
       },
       Object {
-        "reference": "http://stylelint.io/user-guide/rules/max-nesting-depth/",
+        "reference": "https://stylelint.io/user-guide/rules/max-nesting-depth/",
         "text": "\'max-nesting-depth\'s\' \"at-rules-without-declaration-blocks\" option has been deprecated and in 8.0 will be removed. Instead use the \"blockless-at-rules\" option.",
       },
     ],
