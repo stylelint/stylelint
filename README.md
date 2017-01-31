@@ -5,6 +5,8 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/wwajr0886e00g8je/branch/master?svg=true)](https://ci.appveyor.com/project/stylelint/stylelint/branch/master)
 [![NPM Downloads](https://img.shields.io/npm/dm/stylelint.svg)](https://www.npmjs.org/package/stylelint)
 [![Bountysource](https://www.bountysource.com/badge/tracker?tracker_id=9282518)](https://www.bountysource.com/trackers/9282518-stylelint?utm_source=9282518&utm_medium=shield&utm_campaign=TRACKER_BADGE)
+[![Code Climate](https://lima.codeclimate.com/repos/588fd23246e87530aa00185f/badges/af300ac24dac8d18dc60/gpa.svg)](https://lima.codeclimate.com/repos/588fd23246e87530aa00185f/feed)
+[![Test Coverage](https://lima.codeclimate.com/repos/588fd23246e87530aa00185f/badges/af300ac24dac8d18dc60/coverage.svg)](https://lima.codeclimate.com/repos/588fd23246e87530aa00185f/coverage)
 
 A mighty, modern CSS linter that helps you enforce consistent conventions and avoid errors in your stylesheets.
 
