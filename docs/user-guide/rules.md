@@ -188,8 +188,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 ### Rule
 
--   [`rule-nested-empty-line-before`](../../lib/rules/rule-nested-empty-line-before/README.md): Require or disallow an empty line before nested rules.
--   [`rule-non-nested-empty-line-before`](../../lib/rules/rule-non-nested-empty-line-before/README.md): Require or disallow an empty line before non-nested rules.
+-   [`rule-empty-line-before`](../../lib/rules/rule-empty-line-before/README.md): Require or disallow an empty line before rules.
 
 ### Media feature
 

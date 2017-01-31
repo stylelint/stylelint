@@ -10,6 +10,14 @@ Array [
         "reference": "https://stylelint.io/user-guide/rules/media-feature-no-missing-punctuation/",
         "text": "\'media-feature-no-missing-punctuation\' has been deprecated and in 8.0 will be removed.",
       },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/rule-nested-empty-line-before/",
+        "text": "\'rule-nested-empty-line-before\' has been deprecated and in 8.0 will be removed. Instead use \'rule-empty-line-before\'.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/rule-non-nested-empty-line-before/",
+        "text": "\'rule-non-nested-empty-line-before\' has been deprecated and in 8.0 will be removed. Instead use \'rule-empty-line-before\'.",
+      },
     ],
     "errored": undefined,
     "ignored": undefined,

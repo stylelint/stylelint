@@ -1,17 +1,16 @@
-# rule-nested-empty-line-before
+# rule-empty-line-before
 
-***Deprecated: instead use the [rule-empty-line-before](../rule-empty-line-before/README.md).***
-
-Require or disallow an empty line before nested rules.
+Require or disallow an empty line before rules.
 
 ```css
-@media {
-       /* ← */
-  a {} /* ↑ */
-}      /* ↑ */
-/**       ↑
+a {}
+      /* ← */
+b {}  /* ↑ */
+/**      ↑
  * This line */
 ```
+
+If the rule is the very first node in a stylesheet then it is ignored.
 
 ## Options
 
@@ -24,22 +23,20 @@ There *must always* be an empty line before rules.
 The following patterns are considered warnings:
 
 ```css
-@media { a {} }
+a {} b {}
 ```
 
 ```css
-@media {
-  a {}
-}
+a {}
+b {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-@media {
+a {}
 
-  a {}
-}
+b {}
 ```
 
 ### `"never"`
@@ -49,22 +46,20 @@ There *must never* be an empty line before rules.
 The following patterns are considered warnings:
 
 ```css
-@media { a {} }
-```
+a {}
 
-```css
-@media {
-
-  a {}
-}
+b {}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-@media {
-  a {}
-}
+a {} b {}
+```
+
+```css
+a {}
+b {}
 ```
 
 ### `"always-multi-line"`
@@ -74,24 +69,20 @@ There *must always* be an empty line before multi-line rules.
 The following patterns are considered warnings:
 
 ```css
-@media {
-  a {
-    color: pink;
-    top: 0;
-  }
-}
+a
+{}
+b
+{}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-@media {
+a
+{}
 
-  a {
-    color: pink;
-    top: 0;
-  }
-}
+b
+{}
 ```
 
 ### `"never-multi-line"`
@@ -101,12 +92,61 @@ There *must never* be an empty line before multi-line rules.
 The following patterns are considered warnings:
 
 ```css
+a
+{}
+
+b
+{}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a
+{}
+b
+{}
+```
+
+## Optional secondary options
+
+### `except: ["after-single-line-comment", "inside-block-and-after-rule", "first-nested"]`
+
+#### `"after-single-line-comment"`
+
+Reverse the primary option if the rule comes after a single-line comment.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+/* comment */
+
+a {}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+/* comment */
+a {}
+```
+
+#### `"inside-block-and-after-rule"`
+
+Reverse the primary option if the rule is inside a block and comes after another rule.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
 @media {
 
-  a {
-    color: pink;
-    top: 0;
-  }
+  a {}
+
+  b {}
 }
 ```
 
@@ -114,16 +154,12 @@ The following patterns are *not* considered warnings:
 
 ```css
 @media {
-  a {
-    color: pink;
-    top: 0;
-  }
+  a {}
+  b {}
 }
 ```
 
-## Optional secondary options
-
-### `except: ["first-nested"]`
+#### `"first-nested"`
 
 Reverse the primary option if the rule is the first in a block.
 
@@ -137,8 +173,6 @@ The following patterns are considered warnings:
   a {}
 
   b {}
-
-  c {}
 }
 ```
 
@@ -149,57 +183,41 @@ The following patterns are *not* considered warnings:
   a {}
 
   b {}
-
-  c {}
 }
 ```
 
-### `except: ["after-rule"]`
+### `ignore: ["after-comment", "inside-block"]`
 
-Reverse the primary option if the rule comes after another rule.
-
-For example, with `"always"`:
-
-The following patterns are considered warnings:
-
-```css
-@media {
-  color: red;
-  a {}
-  b {}
-  c {}
-}
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-@media {
-  color: red;
-
-  a {}
-  b {}
-  c {}
-}
-```
-
-### `ignore: ["after-comment"]`
+#### `"after-comment"`
 
 Ignore rules that come after a comment.
 
+For example, with `"always"`:
+
+The following patterns are *not* considered warnings:
+
+```css
+/* comment */
+a {}
+```
+
+#### `"inside-block"`
+
+Ignore rules that are inside a block.
+
+For example, with `"always"`:
+
 The following patterns are *not* considered warnings:
 
 ```css
 @media {
-  /* comment */
   a {}
 }
 ```
 
 ```css
 @media {
-  /* comment */
-
   a {}
+  b {}
 }
 ```
