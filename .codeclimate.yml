@@ -4,6 +4,18 @@ prepare:
       path: .eslintrc.base.json
 
 engines:
+ duplication:
+   enabled: true
+   checks:
+     Similar code:
+       enabled: false
+   config:
+     languages:
+       javascript:
+         mass_threshold: 65
+   exclude_paths:
+     - "**/__tests__/**/*"
+     - "system-tests/**/*"
  eslint:
    enabled: true
    channel: "eslint-3"
