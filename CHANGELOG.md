@@ -1,16 +1,28 @@
 # Head
 
-
--   Deprecated: `block-no-single-line`. Use `block-opening-brace-newline-after` and `block-closing-brace-newline-before` rules with the option `"always"` instead. See [the FAQs for an example](docs/user-guide/faq.md#how-do-i-disallow-single-line-blocks).
--   Deprecated: `declaration-block-no-ignored-properties`. If you use this rule, please consider creating a plugin for the community. See the [release planning](docs/user-guide/release-planning.md) document for more details.
--   Deprecated: `declaration-block-properties-order`. Use the community [`stylelint-order`](https://github.com/hudochenkov/stylelint-order) plugin pack instead. See the [release planning](docs/user-guide/release-planning.md) document for more details.
--   Deprecated: `media-feature-no-missing-punctuation`. If you use this rule, please consider creating a plugin for the community. See the [release planning](docs/user-guide/release-planning.md) document for more details.
--   Deprecated: `selector-no-empty`. If you use this rule, please consider creating a plugin for the community. See the [release planning](docs/user-guide/release-planning.md) document for more details.
--   Deprecated: `"all-nested"` option for `at-rule-empty-line-before`. Use the `"inside-block"` option instead.
--   Deprecated: `"blockless-group"` option for `at-rule-empty-line-before`. Use the `"blockless-after-blockless"` option instead.
--   Deprecated: `"between-comments"` option for `comment-empty-line-before`. Use the `"after-comment"` option instead.
--   Deprecated: `"stylelint-commands"` option for `comment-empty-line-before`. Use the `"stylelint-command"` option instead.
--   Deprecated: `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`. Use the `"blockless-at-rules"` option instead.
+-   Deprecated: 13 rules ([#2197](https://github.com/stylelint/stylelint/pull/2197) & [#2285](https://github.com/stylelint/stylelint/pull/2285)).
+    -   `block-no-single-line`. Use `block-opening-brace-newline-after` and `block-closing-brace-newline-before` rules with the option `"always"` instead.
+    -   `declaration-block-properties-order`. Use the [`stylelint-order`](https://github.com/hudochenkov/stylelint-order) plugin pack instead.
+    -   `time-no-imperceptible`. Use the new `time-min-milliseconds` rule with `100` as its primary option.
+    -   It is beyond the scope of stylelint's core package to effectively validate against the CSS spec. Please investigate [csstree](https://github.com/csstree/csstree) and [css-values](https://github.com/ben-eb/css-values) for this functionality, and contribute to those projects and to stylelint plugins wrapping them. csstree already has a [stylelint plugin](https://github.com/csstree/stylelint-validator), and css-values needs one to be developed. The following rules are deprecated for this reason.
+        -   `media-feature-no-missing-punctuation`.
+        -   `selector-no-empty`.
+    -   A plugin is a better package for a rule that wraps a third-party library. The following rules are deprecated for this reason. We encourage users to create and help maintain plugins for these rules.
+        -   `no-browser-hacks`
+        -   `no-indistinguishable-colors`
+        -   `no-unsupported-browser-features`
+    -   The following rules did not seem useful. If you liked these rules, please create plugins for them.
+        -   `custom-property-no-outside-root`
+        -   `root-no-standard-properties`
+        -   `selector-root-no-composition`.
+    -   The following rules did not work well.
+        -   `stylelint-disable-reason`. Please consider contributing to [#2292](https://github.com/stylelint/stylelint/issues/2292) for a replacement.
+        -   `declaration-block-no-ignored-properties` could not reliably account for *replaced elements*.    
+-   Deprecated: 4 options ([#2213](https://github.com/stylelint/stylelint/pull/2213)).
+    -   `"all-nested"` option for `at-rule-empty-line-before`. Use the `"inside-block"` option instead.
+    -   `"blockless-group"` option for `at-rule-empty-line-before`. Use the `"blockless-after-blockless"` option instead.
+    -   `"between-comments"` option for `comment-empty-line-before`. Use the `"after-comment"` option instead.
+    -   `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`. Use the `"blockless-at-rules"` option instead.
 -   Added: `time-min-milliseconds` rule, to replace `time-no-imperceptible` ([#2289](https://github.com/stylelint/stylelint/pull/2289)).
 -   Added: `except: ["after-same-name"]` option to `at-rule-empty-line-before` ([#2225](https://github.com/stylelint/stylelint/pull/2225)).
 -   Fixed: `configOverrides` now work with `extends` ([#2295](https://github.com/stylelint/stylelint/pull/2295)).
@@ -163,7 +175,7 @@
 
 # 7.0.0
 
--   Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration.md#processors) processors. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+-   Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration.md#processors) processors.
 -   Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. (If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`.)
 -   Removed: `--verbose` CLI flag. Use `--formatter verbose` instead.
 -   Removed: NodeJS `0.12.x` support. `4.2.1 LTS` or greater is now required.
@@ -174,10 +186,10 @@
 -   Removed: `property-unit-whitelist` rule. Use the `declaration-property-unit-whitelist` rule instead.
 -   Removed: `property-value-blacklist` rule. Use the `declaration-property-value-blacklist` rule instead.
 -   Removed: `property-value-whitelist` rule. Use the `declaration-property-value-whitelist` rule instead.
--   Removed: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+-   Removed: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community.
 -   Removed: `"single-where-required"`, `"single-where-recommended"`, `"single-unless-keyword"`, `"double-where-required"`, `"double-where-recommended"` and `"double-unless-keyword"` options for `font-family-name-quotes`. Instead, use the `"always-unless-keyword"`, `always-where-recommended` or `always-where-required` options together with the `string-quotes` rule.
 -   Removed: `"single"`, `"double"` and `"none"` options for `function-url-quotes`. Instead, use the `"always"` or `"never"` options together with the `string-quotes` rule.
--   Removed: `"hierarchicalSelectors"` option for `indentation`.  If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+-   Removed: `"hierarchicalSelectors"` option for `indentation`.  If you use this option, please consider creating a plugin for the community.
 -   Removed: `stylelint.utils.cssWordIsVariable()`.
 -   Removed: `stylelint.utils.styleSearch()`. Use the external [style-search](https://github.com/davidtheclark/style-search) module instead.
 -   Changed: invalid configuration sets result's `stylelintError` to `true`, which in turn causes CLI to exit with a non-zero code.
@@ -221,7 +233,7 @@
 
 # 6.8.0
 
--   Deprecated: `-e` and `--extract` CLI flags, and the `extractStyleTagsFromHtml` node API option. If you use these flags or option, please consider creating a processor for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+-   Deprecated: `-e` and `--extract` CLI flags, and the `extractStyleTagsFromHtml` node API option. If you use these flags or option, please consider creating a processor for the community.
 -   Added: `at-rule-no-unknown` rule.
 -   Added: `no-empty-source` rule.
 -   Added: `except: ["after-single-line-comment"]` option for `rule-non-nested-empty-line-before`.
@@ -273,10 +285,10 @@
 
 # 6.5.1
 
--   Deprecated: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+-   Deprecated: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community.
 -   Deprecated: `"single-where-required"`, `"single-where-recommended"`, `"single-unless-keyword"`, `"double-where-required"`, `"double-where-recommended"` and `"double-unless-keyword"` options for `font-family-name-quotes`. Instead, use the `"always-unless-keyword"`, `always-where-recommended` or `always-where-required` options together with the `string-quotes` rule.
 -   Deprecated: `"single"`, `"double"` and `"none"` options for `function-url-quotes`. Instead, use the `"always"` or `"never"` options together with the `string-quotes` rule.
--   Deprecated: `"hierarchicalSelectors"` option for `indentation`.  If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+-   Deprecated: `"hierarchicalSelectors"` option for `indentation`.  If you use this option, please consider creating a plugin for the community.
 -   Fixed: the string formatter no longer errors on non-rule errors.
 -   Fixed: `selector-list-comma-*` rules now ignore Less mixins.
 -   Fixed: `selector-max-compound-selectors` no longer errors on Less mixins.
