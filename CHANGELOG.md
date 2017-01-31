@@ -1,23 +1,23 @@
 # Head
 
 -   Deprecated: 13 rules ([#2197](https://github.com/stylelint/stylelint/pull/2197) & [#2285](https://github.com/stylelint/stylelint/pull/2285)).
-    -   It is beyond the scope of stylelint's core package to effectively validate against the CSS spec. Please investigate [csstree](https://github.com/csstree/csstree) and [css-values](https://github.com/ben-eb/css-values) for this functionality, and contribute to those projects. csstree already has a [stylelint plugin](https://github.com/csstree/stylelint-validator), and css-values needs one to be developed.
+    -   `block-no-single-line`. Use `block-opening-brace-newline-after` and `block-closing-brace-newline-before` rules with the option `"always"` instead.
+    -   `declaration-block-properties-order`. Use the [`stylelint-order`](https://github.com/hudochenkov/stylelint-order) plugin pack instead.
+    -   `time-no-imperceptible`. Use the new `time-min-milliseconds` rule with `100` as its primary option.
+    -   It is beyond the scope of stylelint's core package to effectively validate against the CSS spec. Please investigate [csstree](https://github.com/csstree/csstree) and [css-values](https://github.com/ben-eb/css-values) for this functionality, and contribute to those projects and to stylelint plugins wrapping them. csstree already has a [stylelint plugin](https://github.com/csstree/stylelint-validator), and css-values needs one to be developed. The following rules are deprecated for this reason.
         -   `media-feature-no-missing-punctuation`.
         -   `selector-no-empty`.
-    -   Rules that simply wrap a third-party library. We encourage users to create and help maintain plugins for these rules.
+    -   A plugin is a better package for a rule that wraps a third-party library. The following rules are deprecated for this reason. We encourage users to create and help maintain plugins for these rules.
         -   `no-browser-hacks`
         -   `no-indistinguishable-colors`
         -   `no-unsupported-browser-features`
-    -   Rules that did not seem useful. If you liked these rules, please create plugins for them.
+    -   The following rules did not seem useful. If you liked these rules, please create plugins for them.
         -   `custom-property-no-outside-root`
         -   `root-no-standard-properties`
         -   `selector-root-no-composition`.
-    -   Rules that did not work well.
-        -   `stylelint-disable-reason`. Please consider contributing to #2292 for a replacement.
-        -   `declaration-block-no-ignored-properties` could not reliably account for *replaced elements*.
-    -   `block-no-single-line`. Use `block-opening-brace-newline-after` and `block-closing-brace-newline-before` rules with the option `"always"` instead.
-    -   `declaration-block-properties-order`. Use the community [`stylelint-order`](https://github.com/hudochenkov/stylelint-order) plugin pack instead.
-    -   `time-no-imperceptible`. Use the new `time-min-milliseconds` rule with `100` as its primary option.
+    -   The following rules did not work well.
+        -   `stylelint-disable-reason`. Please consider contributing to [#2292](https://github.com/stylelint/stylelint/issues/2292) for a replacement.
+        -   `declaration-block-no-ignored-properties` could not reliably account for *replaced elements*.    
 -   Deprecated: 4 options ([#2213](https://github.com/stylelint/stylelint/pull/2213)).
     -   `"all-nested"` option for `at-rule-empty-line-before`. Use the `"inside-block"` option instead.
     -   `"blockless-group"` option for `at-rule-empty-line-before`. Use the `"blockless-after-blockless"` option instead.
