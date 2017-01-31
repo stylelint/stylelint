@@ -21,6 +21,8 @@ engines:
    channel: "eslint-3"
    config:
      config: ".eslintrc.cc.json"
+ nodesecurity:
+   enabled: true
 
 ratings:
  paths:
