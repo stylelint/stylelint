@@ -94,10 +94,11 @@
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
     "flow": "flow",
-    "jest": "jest",
+    "jest": "jest --coverage",
     "lint:js": "eslint . --cache",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
+    "preci": "npm-run-all --serial lint:md flow",
     "pretest": "npm-run-all --serial lint flow",
     "release": "npmpub",
     "test": "jest",

@@ -3,3 +3,4 @@ node_modules
 .nyc_output
 .eslintcache
 .eslintrc.base.json
+coverage/

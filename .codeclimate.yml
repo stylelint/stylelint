@@ -44,6 +44,7 @@ ratings:
  - "**.js"
 
 exclude_paths:
+  - "coverage/"
   - "decls/"
   - "node_modules/"
   - "scripts/"
