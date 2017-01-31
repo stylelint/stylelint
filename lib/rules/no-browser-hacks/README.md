@@ -10,7 +10,7 @@ h1 { _color: white; }
  * Hacks like this */
 ```
 
-If you are uncertain what "browser hacks" are, ["An Introduction to Browser-Specific Hacks"](http://www.sitepoint.com/browser-specific-css-hacks/) explains it well.
+If you are uncertain what "browser hacks" are, ["An Introduction to Browser-Specific Hacks"](https://www.sitepoint.com/browser-specific-css-hacks/) explains it well.
 
 This rule uses [stylehacks](https://github.com/ben-eb/stylehacks) to detect the hacks. Then, in the spirit of stylelint, it tells you that you've done something wrong. If instead you would like to automatically remove browser hacks, use [stylehacks](https://github.com/ben-eb/stylehacks) directly.
 

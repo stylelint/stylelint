@@ -88,7 +88,7 @@ declare var xtest: typeof it;
 declare function expect(value: any): JestExpectType;
 
 // TODO handle return type
-// http://jasmine.github.io/2.4/introduction.html#section-Spies
+// https://jasmine.github.io/2.4/introduction.html#section-Spies
 declare function spyOn(value: mixed, method: string): Object;
 
 declare var jest: {
