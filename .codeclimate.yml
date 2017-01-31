@@ -21,6 +21,21 @@ engines:
    channel: "eslint-3"
    config:
      config: ".eslintrc.cc.json"
+ markdownlint:
+   enabled: true
+   checks:
+    # Line length
+    MD013:
+      enabled: false
+    # Multiple top level headers in the same document
+    MD025:
+      enabled: false
+    # Trailing punctuation in header
+    MD026:
+      enabled: false
+    # Spaces after list markers
+    MD030:
+      enabled: false
  nodesecurity:
    enabled: true
 
