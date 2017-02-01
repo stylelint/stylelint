@@ -1,6 +1,6 @@
 prepare:
   fetch:
-    - url: https://raw.githubusercontent.com/stylelint/eslint-config-stylelint/master/eslintrc.json
+    - url: https://raw.githubusercontent.com/stylelint/eslint-config-stylelint/6.0.0/eslintrc.json
       path: .eslintrc.base.json
 
 engines:
