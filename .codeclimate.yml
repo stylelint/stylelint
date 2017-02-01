@@ -4,38 +4,11 @@ prepare:
       path: .eslintrc.base.json
 
 engines:
- duplication:
-   enabled: true
-   checks:
-     Similar code:
-       enabled: false
-   config:
-     languages:
-       javascript:
-         mass_threshold: 65
-   exclude_paths:
-     - "**/__tests__/**/*"
-     - "system-tests/**/*"
  eslint:
    enabled: true
    channel: "eslint-3"
    config:
      config: ".eslintrc.cc.json"
- markdownlint:
-   enabled: true
-   checks:
-    # Line length
-    MD013:
-      enabled: false
-    # Multiple top level headers in the same document
-    MD025:
-      enabled: false
-    # Trailing punctuation in header
-    MD026:
-      enabled: false
-    # Spaces after list markers
-    MD030:
-      enabled: false
  nodesecurity:
    enabled: true
 
