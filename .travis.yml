@@ -9,8 +9,8 @@ cache:
 matrix:
   include:
     - node_js: '7'
-      script: npm run preci
-      env: CI=preci
+      script: npm run pretest
+      env: CI=pretest
     - node_js: '7'
       script: npm run jest -- --coverage --runInBand
       env: CI='tests 7'
