@@ -21,7 +21,7 @@ You can also disable a rule for specific sections of your CSS. Refer to the rule
 
 Refer to the [CLI section](cli.md) of the docs.
 
-The CLI can also be used from within [npm run scripts](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
+The CLI can also be used from within [npm run scripts](https://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
 
 ## How do I lint using Git pre-commit hooks?
 
