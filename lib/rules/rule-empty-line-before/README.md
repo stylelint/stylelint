@@ -69,20 +69,20 @@ There *must always* be an empty line before multi-line rules.
 The following patterns are considered warnings:
 
 ```css
-a
-{}
-b
-{}
+a {
+}
+b {
+}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a
-{}
+a {
+}
 
-b
-{}
+b {
+}
 ```
 
 ### `"never-multi-line"`
@@ -92,20 +92,20 @@ There *must never* be an empty line before multi-line rules.
 The following patterns are considered warnings:
 
 ```css
-a
-{}
+a {
+}
 
-b
-{}
+b {
+}
 ```
 
 The following patterns are *not* considered warnings:
 
 ```css
-a
-{}
-b
-{}
+a {
+}
+b {
+}
 ```
 
 ## Optional secondary options
