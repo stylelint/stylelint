@@ -15,6 +15,7 @@ engines:
 ratings:
  paths:
  - "**.js"
+ - "npm-shrinkwrap.json"
 
 exclude_paths:
   - "coverage/"
