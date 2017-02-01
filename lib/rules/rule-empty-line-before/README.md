@@ -110,7 +110,28 @@ b
 
 ## Optional secondary options
 
-### `except: ["after-single-line-comment", "inside-block-and-after-rule", "first-nested"]`
+### `except: ["after-rule", "after-single-line-comment", "inside-block-and-after-rule", "first-nested"]`
+
+#### `"after-rule"`
+
+Reverse the primary option if the rule comes after another rule.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+a {}
+
+b {}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+a {}
+b {}
+```
 
 #### `"after-single-line-comment"`
 
