@@ -45,3 +45,21 @@ a { font: 1em "Arial", "sans-serif", sans-serif; }
 ```css
 a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif; }
 ```
+
+## Optional secondary options
+
+### `ignoreFontFamilyNames: ["monospace"]`
+
+Given:
+
+```js
+["monospace"]
+```
+
+The following patterns is *not* considered a warning:
+
+```css
+font-family: monospace, monospace
+```
+
+Note that the value may be a string or a regular expression.
