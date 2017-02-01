@@ -63,6 +63,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 ### Time
 
 -   [`time-min-milliseconds`](../../lib/rules/time-min-milliseconds/README.md): Specify the minimum number of milliseconds for time values.
+-   [`time-no-imperceptible`](../../lib/rules/time-no-imperceptible/README.md): Disallow `animation` and `transition` less than or equal to 100ms (deprecated).
 
 ### Unit
 
@@ -87,6 +88,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 ### Custom property
 
 -   [`custom-property-empty-line-before`](../../lib/rules/custom-property-empty-line-before/README.md): Require or disallow an empty line before custom properties.
+-   [`custom-property-no-outside-root`](../../lib/rules/custom-property-no-outside-root/README.md): Disallow custom properties outside of `:root` rules (deprecated).
 -   [`custom-property-pattern`](../../lib/rules/custom-property-pattern/README.md): Specify a pattern for custom properties.
 
 ### Shorthand property
@@ -122,8 +124,10 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 ### Declaration block
 
 -   [`declaration-block-no-duplicate-properties`](../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks.
+-   [`declaration-block-no-ignored-properties`](../../lib/rules/declaration-block-no-ignored-properties/README.md): Disallow property values that are ignored due to another property value in the same rule (deprecated).
 -   [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow longhand properties that can be combined into one shorthand property.
 -   [`declaration-block-no-shorthand-property-overrides`](../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties within declaration blocks.
+-   [`declaration-block-properties-order`](../../lib/rules/declaration-block-properties-order/README.md): Specify the order of properties within declaration blocks (deprecated).
 -   [`declaration-block-semicolon-newline-after`](../../lib/rules/declaration-block-semicolon-newline-after/README.md): Require a newline or disallow whitespace after the semicolons of declaration blocks.
 -   [`declaration-block-semicolon-newline-before`](../../lib/rules/declaration-block-semicolon-newline-before/README.md): Require a newline or disallow whitespace before the semicolons of declaration blocks.
 -   [`declaration-block-semicolon-space-after`](../../lib/rules/declaration-block-semicolon-space-after/README.md): Require a single space or disallow whitespace after the semicolons of declaration blocks.
@@ -139,6 +143,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`block-closing-brace-space-after`](../../lib/rules/block-closing-brace-space-after/README.md): Require a single space or disallow whitespace after the closing brace of blocks.
 -   [`block-closing-brace-space-before`](../../lib/rules/block-closing-brace-space-before/README.md): Require a single space or disallow whitespace before the closing brace of blocks.
 -   [`block-no-empty`](../../lib/rules/block-no-empty/README.md): Disallow empty blocks.
+-   [`block-no-single-line`](../../lib/rules/block-no-single-line/README.md): Disallow single-line blocks (deprecated).
 -   [`block-opening-brace-newline-after`](../../lib/rules/block-opening-brace-newline-after/README.md): Require a newline after the opening brace of blocks.
 -   [`block-opening-brace-newline-before`](../../lib/rules/block-opening-brace-newline-before/README.md): Require a newline or disallow whitespace before the opening brace of blocks.
 -   [`block-opening-brace-space-after`](../../lib/rules/block-opening-brace-space-after/README.md): Require a single space or disallow whitespace after the opening brace of blocks.
@@ -162,6 +167,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`selector-nested-pattern`](../../lib/rules/selector-nested-pattern/README.md): Specify a pattern for the selectors of rules nested within rules.
 -   [`selector-no-attribute`](../../lib/rules/selector-no-attribute/README.md): Disallow attribute selectors.
 -   [`selector-no-combinator`](../../lib/rules/selector-no-combinator/README.md): Disallow combinators in selectors.
+-   [`selector-no-empty`](../../lib/rules/selector-no-empty/README.md): Disallow empty selectors (deprecated).
 -   [`selector-no-id`](../../lib/rules/selector-no-id/README.md): Disallow id selectors.
 -   [`selector-no-qualifying-type`](../../lib/rules/selector-no-qualifying-type/README.md): Disallow qualifying a selector by type.
 -   [`selector-no-type`](../../lib/rules/selector-no-type/README.md): Disallow type selectors.
@@ -175,6 +181,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`selector-pseudo-element-case`](../../lib/rules/selector-pseudo-element-case/README.md): Specify lowercase or uppercase for pseudo-element selectors.
 -   [`selector-pseudo-element-colon-notation`](../../lib/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
 -   [`selector-pseudo-element-no-unknown`](../../lib/rules/selector-pseudo-element-no-unknown/README.md): Disallow unknown pseudo-element selectors.
+-   [`selector-root-no-composition`](../../lib/rules/selector-root-no-composition/README.md): Disallow the composition of `:root` in selectors (deprecated).
 -   [`selector-type-case`](../../lib/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selector.
 -   [`selector-type-no-unknown`](../../lib/rules/selector-type-no-unknown/README.md): Disallow unknown type selectors.
 -   [`selector-max-empty-lines`](../../lib/rules/selector-max-empty-lines/README.md): Limit the number of adjacent empty lines within selectors.
@@ -185,6 +192,10 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`selector-list-comma-newline-before`](../../lib/rules/selector-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of selector lists.
 -   [`selector-list-comma-space-after`](../../lib/rules/selector-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of selector lists.
 -   [`selector-list-comma-space-before`](../../lib/rules/selector-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of selector lists.
+
+### Root rule
+
+-   [`root-no-standard-properties`](../../lib/rules/root-no-standard-properties/README.md): Disallow standard properties inside `:root` rules (deprecated).
 
 ### Rule
 
@@ -200,6 +211,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`media-feature-name-no-unknown`](../../lib/rules/media-feature-name-no-unknown/README.md): Disallow unknown media feature names.
 -   [`media-feature-name-no-vendor-prefix`](../../lib/rules/media-feature-name-no-vendor-prefix/README.md): Disallow vendor prefixes for media feature names.
 -   [`media-feature-name-whitelist`](../../lib/rules/media-feature-name-whitelist/README.md): Specify a whitelist of allowed media feature names.
+-   [`media-feature-no-missing-punctuation`](../../lib/rules/media-feature-no-missing-punctuation/README.md): Disallow missing punctuation for non-boolean media features (deprecated).
 -   [`media-feature-parentheses-space-inside`](../../lib/rules/media-feature-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within media features.
 -   [`media-feature-range-operator-space-after`](../../lib/rules/media-feature-range-operator-space-after/README.md): Require a single space or disallow whitespace after the range operator in media features.
 -   [`media-feature-range-operator-space-before`](../../lib/rules/media-feature-range-operator-space-before/README.md): Require a single space or disallow whitespace before the range operator in media features.
@@ -227,6 +239,10 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`at-rule-semicolon-newline-after`](../../lib/rules/at-rule-semicolon-newline-after/README.md): Require a newline after the semicolon of at-rules.
 -   [`at-rule-whitelist`](../../lib/rules/at-rule-whitelist/README.md): Specify a whitelist of allowed at-rules.
 
+### `stylelint-disable` comment
+
+-   [`stylelint-disable-reason`](../../lib/rules/stylelint-disable-reason/README.md): Require a reason comment before or after `stylelint-disable` comments (deprecated).
+
 ### Comment
 
 -   [`comment-empty-line-before`](../../lib/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments.
@@ -240,11 +256,14 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`max-empty-lines`](../../lib/rules/max-empty-lines/README.md): Limit the number of adjacent empty lines.
 -   [`max-line-length`](../../lib/rules/max-line-length/README.md): Limit the length of a line.
 -   [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md): Limit the depth of nesting.
+-   [`no-browser-hacks`](../../lib/rules/no-browser-hacks/README.md): Disallow browser hacks that are irrelevant to the browsers you are targeting (deprecated).
 -   [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 -   [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 -   [`no-empty-source`](../../lib/rules/no-empty-source/README.md): Disallow empty sources.
 -   [`no-eol-whitespace`](../../lib/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
 -   [`no-extra-semicolons`](../../lib/rules/no-extra-semicolons/README.md): Disallow extra semicolons.
+-   [`no-indistinguishable-colors`](../../lib/rules/no-indistinguishable-colors/README.md): Disallow colors that are suspiciously close to being identical (deprecated).
 -   [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
 -   [`no-missing-end-of-source-newline`](../../lib/rules/no-missing-end-of-source-newline/README.md): Disallow missing end-of-source newlines.
 -   [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
+-   [`no-unsupported-browser-features`](../../lib/rules/no-unsupported-browser-features/README.md): Disallow features that are unsupported by the browsers that you are targeting (deprecated).
