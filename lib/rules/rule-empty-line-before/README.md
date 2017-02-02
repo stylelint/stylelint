@@ -70,8 +70,10 @@ The following patterns are considered warnings:
 
 ```css
 a {
+  color: red;
 }
 b {
+  color: blue;
 }
 ```
 
@@ -79,9 +81,11 @@ The following patterns are *not* considered warnings:
 
 ```css
 a {
+  color: red;
 }
 
 b {
+  color: blue;
 }
 ```
 
@@ -93,9 +97,11 @@ The following patterns are considered warnings:
 
 ```css
 a {
+  color: red;
 }
 
 b {
+  color: blue;
 }
 ```
 
@@ -103,8 +109,10 @@ The following patterns are *not* considered warnings:
 
 ```css
 a {
+  color: red;
 }
 b {
+  color: blue;
 }
 ```
 
