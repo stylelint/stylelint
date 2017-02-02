@@ -53,13 +53,16 @@ a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif; }
 Given:
 
 ```js
-["monospace"]
+["/Regex/", "monospace"]
 ```
 
-The following patterns is *not* considered a warning:
+The following patterns are *not* considered warnings:
 
 ```css
 font-family: monospace, monospace
 ```
 
-Note that the value may be a string or a regular expression.
+```css
+font-family: "Regex Font", "Regex Font", monospace
+```
+
