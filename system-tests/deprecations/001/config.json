@@ -11,6 +11,8 @@
     "stylelint-disable-reason": "always-before",
     "custom-property-no-outside-root": true,
     "root-no-standard-properties": true,
+    "rule-nested-empty-line-before": "always",
+    "rule-non-nested-empty-line-before": "always",
     "selector-root-no-composition": true,
     "time-no-imperceptible": true
   }
