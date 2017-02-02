@@ -1,8 +1,9 @@
 # Head
 
--   Deprecated: 13 rules ([#2197](https://github.com/stylelint/stylelint/pull/2197) & [#2285](https://github.com/stylelint/stylelint/pull/2285)).
+-   Deprecated: 15 rules ([#2197](https://github.com/stylelint/stylelint/pull/2197),  [#2285](https://github.com/stylelint/stylelint/pull/2285) & [#2309](https://github.com/stylelint/stylelint/pull/2309)).
     -   `block-no-single-line`. Use `block-opening-brace-newline-after` and `block-closing-brace-newline-before` rules with the option `"always"` instead.
     -   `declaration-block-properties-order`. Use the [`stylelint-order`](https://github.com/hudochenkov/stylelint-order) plugin pack instead.
+    -   `rule-nested-empty-line-before` and `rule-non-nested-empty-line-before`. Use the new `rule-empty-line-before` rule instead.
     -   `time-no-imperceptible`. Use the new `time-min-milliseconds` rule with `100` as its primary option.
     -   It is beyond the scope of stylelint's core package to effectively validate against the CSS spec. Please investigate [csstree](https://github.com/csstree/csstree) and [css-values](https://github.com/ben-eb/css-values) for this functionality, and contribute to those projects and to stylelint plugins wrapping them. csstree already has a [stylelint plugin](https://github.com/csstree/stylelint-validator), and css-values needs one to be developed. The following rules are deprecated for this reason.
         -   `media-feature-no-missing-punctuation`.
@@ -17,7 +18,7 @@
         -   `selector-root-no-composition`.
     -   The following rules did not work well.
         -   `stylelint-disable-reason`. Please consider contributing to [#2292](https://github.com/stylelint/stylelint/issues/2292) for a replacement.
-        -   `declaration-block-no-ignored-properties` could not reliably account for *replaced elements*.    
+        -   `declaration-block-no-ignored-properties` could not reliably account for *replaced elements*.
 -   Deprecated: 4 options ([#2213](https://github.com/stylelint/stylelint/pull/2213)).
     -   `"all-nested"` option for `at-rule-empty-line-before`. Use the `"inside-block"` option instead.
     -   `"blockless-group"` option for `at-rule-empty-line-before`. Use the `"blockless-after-blockless"` option instead.
