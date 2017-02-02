@@ -1,4 +1,4 @@
-# Head
+# 7.8.0
 
 -   Deprecated: 15 rules ([#2197](https://github.com/stylelint/stylelint/pull/2197),  [#2285](https://github.com/stylelint/stylelint/pull/2285) & [#2309](https://github.com/stylelint/stylelint/pull/2309)).
     -   `block-no-single-line`. Use `block-opening-brace-newline-after` and `block-closing-brace-newline-before` rules with the option `"always"` instead.
