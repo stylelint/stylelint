@@ -1,5 +1,7 @@
 # media-feature-no-missing-punctuation
 
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+
 Disallow missing punctuation for non-boolean media features.
 
 ```css

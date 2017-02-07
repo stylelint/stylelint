@@ -33,7 +33,9 @@ declare class postcss$atRule extends postcss$node {
     before?: string,
     after?: string,
     afterName?: string,
-  };
+  },
+  parent: Object,
+  nodes: Array<Object>,
 }
 
 declare class postcss$rule extends postcss$node {

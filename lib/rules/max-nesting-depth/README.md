@@ -96,7 +96,9 @@ a .foo__foo .bar .baz {}
 
 ## Optional secondary options
 
-### `ignore: ["at-rules-without-declaration-blocks"]`
+### `ignore: ["blockless-at-rules"]`
+
+***Note: This option was previously called `at-rules-without-declaration-blocks`.***
 
 Ignore at-rules that only wrap other rules, and do not themselves have declaration blocks.
 
@@ -109,7 +111,7 @@ As the at-rules have a declarations blocks.
 ```css
 a {
   &:hover { /* 1 */
-    @media (min-width: 500px) { color: pink; } /* 2 */      
+    @media (min-width: 500px) { color: pink; } /* 2 */
   }
 }
 ```
@@ -117,7 +119,7 @@ a {
 ```css
 a {
   @nest > b { /* 1 */
-    .foo { color: pink; } /* 2 */      
+    .foo { color: pink; } /* 2 */
   }
 }
 ```
