@@ -48,12 +48,12 @@ a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif; }
 
 ## Optional secondary options
 
-### `ignoreFontFamilyNames: ["monospace"]`
+### `ignoreFontFamilyNames: ["/regex/", "string"]`
 
 Given:
 
 ```js
-["/Regex/", "monospace"]
+["/^My Font /", "monospace"]
 ```
 
 The following patterns are *not* considered warnings:
@@ -63,6 +63,6 @@ font-family: monospace, monospace
 ```
 
 ```css
-font-family: "Regex Font", "Regex Font", monospace
+font-family: "My Font Family", "My Font Family", monospace
 ```
 
