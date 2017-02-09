@@ -116,7 +116,7 @@ Ignore any line that matches the given regex pattern, regardless of whether it i
 Given:
 
 ```js
-['/^\\@import\\s+/']
+["/^\\@import\\s+/"]
 ```
 
 The following is *not* considered a warning regardless of line length:
