@@ -1,6 +1,7 @@
 # Head
 
--   Fixed: `color-hex-case` no longer reports false positives for id references in `url` functions ([#2338](https://github.com/stylelint/stylelint/pull/2338).
+-   Fixed: `color-hex-case` no longer reports false positives for id references in `url` functions ([#2338](https://github.com/stylelint/stylelint/pull/2338)).
+-   Fixed: `max-line-length` now reports correct column for SCSS comments. ([#2340](https://github.com/stylelint/stylelint/pull/2340)).
 
 # 7.8.0
 
