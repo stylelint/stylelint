@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: `color-hex-case` no longer reports false positives for id references in `url` functions ([#2338](https://github.com/stylelint/stylelint/pull/2338).
+
 # 7.8.0
 
 -   Deprecated: 15 rules ([#2197](https://github.com/stylelint/stylelint/pull/2197),  [#2285](https://github.com/stylelint/stylelint/pull/2285) & [#2309](https://github.com/stylelint/stylelint/pull/2309)).
