@@ -10,7 +10,7 @@ global.testRule = (rule, schema) => {
       rules: {
         [schema.ruleName]: schema.config,
       },
-      suggestFixes: true
+      suggestFixes: true,
     }
 
     let passingTestCases = schema.accept || []
