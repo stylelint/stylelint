@@ -24,8 +24,8 @@ This rule will only warn if you've used the longhand equivalent of *all* the pro
 
 This rule warns when the following shorthand properties can be used:
 
--   `padding`
 -   `margin`
+-   `padding`
 -   `background`
 -   `font`
 -   `border`
@@ -36,8 +36,28 @@ This rule warns when the following shorthand properties can be used:
 -   `border-width`
 -   `border-style`
 -   `border-color`
+-   `list-style`
 -   `border-radius`
 -   `transition`
+-   `animation`
+-   `border-block-end`
+-   `border-block-start`
+-   `border-image`
+-   `border-inline-end`
+-   `border-inline-start`
+-   `column-rule`
+-   `columns`
+-   `flex`
+-   `flex-flow`
+-   `grid`
+-   `grid-area`
+-   `grid-column`
+-   `grid-gap`
+-   `grid-row`
+-   `grid-template`
+-   `outline`
+-   `text-decoration`
+-   `text-emphasis`
 
 ## Options
 
@@ -66,15 +86,6 @@ a {
 }
 ```
 
-```css
-a {
-  -webkit-transition-property: top;
-  -webkit-transition-duration: 2s;  
-  -webkit-transition-timing-function: ease;
-  -webkit-transition-delay: 0.5s;
-}
-```
-
 The following patterns are *not* considered warnings:
 
 ```css
@@ -86,12 +97,6 @@ a {
 ```css
 a {
   font: italic normal bold normal 14px/1.2 serif;
-}
-```
-
-```css
-a {
-  -webkit-transition: top 2s ease 0.5s;
 }
 ```
 
