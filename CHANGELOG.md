@@ -4,6 +4,7 @@
 -   Fixed: `color-hex-case` no longer reports false positives for id references in `url` functions ([#2338](https://github.com/stylelint/stylelint/pull/2338)).
 -   Fixed: `max-line-length` now reports correct column for SCSS comments ([#2340](https://github.com/stylelint/stylelint/pull/2340)).
 -   Fixed: `selector-class-pattern` false positive in SCSS when combining interpolated and nested selectors ([#2344](https://github.com/stylelint/stylelint/pull/2344)).
+-   Fixed: update version of `lodash` dependency to match feature usage, fixing a conflict with Modernizr ([#2353](https://github.com/stylelint/stylelint/pull/2353)).
 
 # 7.8.0
 
