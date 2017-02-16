@@ -32,6 +32,13 @@ a {
 
 ```css
 a {
+  -webkit-transition-property: opacity;
+  -webkit-transition: opacity 1s linear;
+}
+```
+
+```css
+a {
   border-top-width: 1px;
   top: 0;
   bottom: 3px;
@@ -47,4 +54,8 @@ a { padding: 10px; padding-left: 20px; }
 
 ```css
 a { transition-property: opacity; } a { transition: opacity 1s linear; }
+```
+
+```css
+a { transition-property: opacity; -webkit-transition: opacity 1s linear; }
 ```
