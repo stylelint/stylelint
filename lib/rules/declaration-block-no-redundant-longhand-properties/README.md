@@ -86,6 +86,15 @@ a {
 }
 ```
 
+```css
+a {
+  -webkit-transition-property: top;
+  -webkit-transition-duration: 2s;  
+  -webkit-transition-timing-function: ease;
+  -webkit-transition-delay: 0.5s;
+}
+```
+
 The following patterns are *not* considered warnings:
 
 ```css
@@ -97,6 +106,12 @@ a {
 ```css
 a {
   font: italic normal bold normal 14px/1.2 serif;
+}
+```
+
+```css
+a {
+  -webkit-transition: top 2s ease 0.5s;
 }
 ```
 
