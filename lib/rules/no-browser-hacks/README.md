@@ -1,6 +1,6 @@
 # no-browser-hacks
 
-***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+***DEPRECATED! The plugin was deprecated in favor of [`stylelint-no-browser-hacks`](https://github.com/Slamdunk/stylelint-no-browser-hacks).***
 
 Disallow browser hacks that are irrelevant to the browsers you are targeting.
 
