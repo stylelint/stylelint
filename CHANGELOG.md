@@ -1,6 +1,7 @@
 # Head
 
 -   Added: `ignoreFontFamilyName` option to `font-family-no-duplicate` ([#2314](https://github.com/stylelint/stylelint/pull/2314)).
+-   Added: `ignorePattern` option to `max-line-length` ([#2333](https://github.com/stylelint/stylelint/pull/2333)).
 -   Fixed: update version of `lodash` dependency to match feature usage, fixing a conflict with Modernizr ([#2353](https://github.com/stylelint/stylelint/pull/2353)).
 -   Fixed: `color-hex-case` false positives for id references in `url` functions ([#2338](https://github.com/stylelint/stylelint/pull/2338)).
 -   Fixed: `max-line-length` now reports correct column for SCSS comments ([#2340](https://github.com/stylelint/stylelint/pull/2340)).
