@@ -24,7 +24,7 @@ Array [
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/no-browser-hacks/",
-        "text": "\'no-browser-hacks\' has been deprecated and in 8.0 will be removed.",
+        "text": "\'no-browser-hacks\' has been deprecated and in 8.0 will be removed. Use 'stylelint-no-browser-hacks' plugin instead.",
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/no-indistinguishable-colors/",
