@@ -4,6 +4,7 @@
 -   Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](https://github.com/stylelint/stylelint/issues/2350)).
 -   Added: `ignore: ["child"]` option to `selector-no-type` ([#1942](https://github.com/stylelint/stylelint/issues/1942)).
 -   Fixed: `selector-no-type` no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with `ignore: ["descendant"]` ([#2200](https://github.com/stylelint/stylelint/pull/2200)).
+-   Fixed: `declaration-block-no-redundant-longhand-properties` and `declaration-block-no-shorthand-property-overrides` understand more shorthand properties ([#2354](https://github.com/stylelint/stylelint/pull/2354)).
 
 # 7.8.0
 
