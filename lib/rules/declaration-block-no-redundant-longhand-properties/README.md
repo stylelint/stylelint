@@ -58,6 +58,7 @@ This rule warns when the following shorthand properties can be used:
 -   `outline`
 -   `text-decoration`
 -   `text-emphasis`
+-   `mask`
 
 ## Options
 
@@ -89,7 +90,7 @@ a {
 ```css
 a {
   -webkit-transition-property: top;
-  -webkit-transition-duration: 2s;  
+  -webkit-transition-duration: 2s;
   -webkit-transition-timing-function: ease;
   -webkit-transition-delay: 0.5s;
 }
