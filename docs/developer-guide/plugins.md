@@ -38,7 +38,7 @@ In order for your plugin rule to work with the [standard configuration format](.
 
 ### Asynchronous rules
 
-Rules with asynchronous PostCSS plugins are also possible you only need to return a Promise instance.
+Rules with asynchronous PostCSS plugins are also possible! All you need to do is return a Promise instance from your plugin function.
 
 ```js
 // Abbreviated asynchronous example
