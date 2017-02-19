@@ -1,4 +1,4 @@
-# Head
+# 7.9.0
 
 -   Added: `ignoreFontFamilyName` option to `font-family-no-duplicate` ([#2314](https://github.com/stylelint/stylelint/pull/2314)).
 -   Added: `ignorePattern` option to `max-line-length` ([#2333](https://github.com/stylelint/stylelint/pull/2333)).
