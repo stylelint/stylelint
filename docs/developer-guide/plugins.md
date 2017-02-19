@@ -36,6 +36,39 @@ In order for your plugin rule to work with the [standard configuration format](.
 
 `ruleFunction` should return a function that is essentially a little [PostCSS plugin](https://github.com/postcss/postcss/blob/master/docs/writing-a-plugin.md): it takes 2 arguments: the PostCSS Root (the parsed AST), and the PostCSS LazyResult. You'll have to [learn about the PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md).
 
+### Asynchronous rules
+
+Rules with asynchronous PostCSS plugins are also possible! All you need to do is return a Promise instance from your plugin function.
+
+```js
+// Abbreviated asynchronous example
+var stylelint = require("stylelint")
+
+var ruleName = "plugin/foo-bar-async"
+var messages =  stylelint.utils.ruleMessages(ruleName, {
+  expected: "Expected ...",
+})
+
+module.exports = stylelint.createPlugin(ruleName, function(primaryOption, secondaryOptionObject) {
+  return function(postcssRoot, postcssResult) {
+    var validOptions = stylelint.utils.validateOptions(postcssResult, ruleName, { .. })
+    if (!validOptions) { return }
+
+    return new Promise(function(resolve) {
+      // some async operation
+      setTimeout(function() {
+        // ... some logic ...
+        stylelint.utils.report({ .. })
+        resolve()
+      }, 1)
+    })
+  }
+})
+
+module.exports.ruleName = ruleName
+module.exports.messages = messages
+```
+
 ## `stylelint.utils`
 
 stylelint exposes some utilities that are useful. *For details about the APIs of these functions, please look at comments in the source code and examples in the standard rules.*
@@ -82,9 +115,9 @@ function myPluginRule(primaryOption, secondaryOptions) {
       root: root
     }, (warning) => {
       stylelint.utils.report({
-        message: myMessage,   
-        ruleName: myRuleName,     
-        result: result,        
+        message: myMessage,
+        ruleName: myRuleName,
+        result: result,
         node: warning.node,
         line: warning.line,
         column: warning.column,
