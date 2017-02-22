@@ -10,8 +10,6 @@ When developing plugins, you can use the following rule testers or create your o
 -   stylelint-test-rule-mocha
 -   stylelint-test-rule-ava
 
-The rule tester used within the stylelint codebase is at `lib/testUtils/testRule.js`. (It is the same as `stylelint-test-rule-tape`.)
-
 ## Using a rule tester
 
 To use the rule tester of your choice, do the following:

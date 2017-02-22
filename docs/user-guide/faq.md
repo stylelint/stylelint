@@ -21,7 +21,7 @@ You can also disable a rule for specific sections of your CSS. Refer to the rule
 
 Refer to the [CLI section](cli.md) of the docs.
 
-The CLI can also be used from within [npm run scripts](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
+The CLI can also be used from within [npm run scripts](https://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
 
 ## How do I lint using Git pre-commit hooks?
 
@@ -87,6 +87,46 @@ You can also take advantage of the `selector-*` rules to ban certain types of se
 
 If you're using SUITCSS, you might want to use [their shareable config](https://github.com/suitcss/stylelint-config-suitcss).
 
+## How do I disallow single-line blocks?
+
+```css
+  a { color: red; }
+/** ↑
+ * Declaration blocks like this */
+```
+
+Use the `block-opening-brace-newline-after` and `block-opening-brace-newline-before` rules together. For example, this config:
+
+```json
+{
+  "block-opening-brace-newline-after": ["always"],
+  "block-closing-brace-newline-before": ["always"]
+}
+```
+
+Would allow:
+
+```css
+a {
+  color: red;
+}
+```
+
+But not these patterns:
+
+```css
+a { color: red;
+}
+
+a {
+color: red; }
+
+a { color: red; }
+```
+
+To allow single-line blocks but enforce newlines with multi-line blocks, use the `"always-multi-line"` option for both rules.
+
+
 ## How do I configure the `*-pattern` rules for common CSS naming conventions like kebab-case?
 
 Use the regex that corresponds to your chosen convention:
@@ -110,8 +150,14 @@ A user can `require()` any file in your npm package, so all you need to do is do
 
 ## How can I control the whitespace after the open brace of the block?
 
-Refer to [this](about-rules.md#-empty-line-before-and--max-empty-lines) section of the docs that explains how the `*-empty-line-before` rules work.
+Refer to [this](about-rules.md#-empty-line-before-and--max-empty-lines-rules) section of the docs that explains how the `*-empty-line-before` rules work.
 
-## How do I "pin" to a particular branch, pull request or fork of stylelint in my `package.json`?
+## If I use `extends` within my configuration object, will the options for each rule be merged or overridden?
 
-Use [`npm-git-install`](https://github.com/lzrski/npm-git-install) to work around [a current limitation](https://github.com/npm/npm/issues/3055) of `npm`.
+They will be overridden.
+
+The `extends` mechanism is [detailed within the configuration docs](configuration.md#extends):
+
+> When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
+
+The reason for this design is documented in [#1646](https://github.com/stylelint/stylelint/issues/1646#issuecomment-232779957).

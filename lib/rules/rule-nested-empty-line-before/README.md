@@ -1,5 +1,7 @@
 # rule-nested-empty-line-before
 
+***Deprecated: instead use the [rule-empty-line-before](../rule-empty-line-before/README.md).***
+
 Require or disallow an empty line before nested rules.
 
 ```css
@@ -148,6 +150,35 @@ The following patterns are *not* considered warnings:
 
   b {}
 
+  c {}
+}
+```
+
+### `except: ["after-rule"]`
+
+Reverse the primary option if the rule comes after another rule.
+
+For example, with `"always"`:
+
+The following patterns are considered warnings:
+
+```css
+@media {
+  color: red;
+  a {}
+  b {}
+  c {}
+}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+@media {
+  color: red;
+
+  a {}
+  b {}
   c {}
 }
 ```

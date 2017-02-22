@@ -36,7 +36,7 @@ The `rules` property is *an object whose keys are rule names and values are rule
     "block-no-empty": null,
     "color-no-invalid-hex": true,
     "comment-empty-line-before": [ "always", {
-      "ignore": ["stylelint-commands", "between-comments"]
+      "ignore": ["stylelint-command", "after-comment"]
     } ],
     "declaration-colon-space-after": "always",
     "indentation": ["tab", {
@@ -52,7 +52,26 @@ The `rules` property is *an object whose keys are rule names and values are rule
 }
 ```
 
-Specifying a primary option will turn a rule on.
+Specifying a primary option will turn a rule on. A complete list of primary rule options can be found in the [example configuration](example-config.md).
+
+To turn a rule off (when extending a configuration) you can set the value of the rule to `null`:
+
+```json
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "at-rule-empty-line-before": null
+  }
+}
+```
+
+Many rules have secondary options which provide further customization. To set secondary options, a two-member array is used:
+
+```js
+"selector-pseudo-class-no-unknown": [true, {
+  "ignorePseudoClasses": ["global"]
+}]
+```
 
 #### Turning rules off from within your CSS
 
@@ -267,6 +286,8 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 -   the config's filepath, if the config is a file that stylelint found a loaded;
 -   or `process.cwd()`.
 
+`node_modules` and `bower_components` are always ignored.
+
 The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
 
 ### `defaultSeverity`
@@ -285,3 +306,5 @@ You can use a `.stylelintignore` file (or point to another ignore patterns file)
 The patterns in your `.stylelintignore` file must match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). (Behind the scenes, [`node-ignore`](https://github.com/kaelzhang/node-ignore) parses your patterns.) One implication of this is that *your patterns in `.stylelintignore` are always analyzed relative to `process.cwd()`.*
 
 stylelint will look for a `.stylelintignore` file in `process.cwd()`. You can also specify a path to your ignore patterns file (absolute or relative to `process.cwd()`) using the `--ignore-path` (in the CLI) and `ignorePath` (in JS) options.
+
+`node_modules` and `bower_components` are always ignored.

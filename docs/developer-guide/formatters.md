@@ -20,7 +20,7 @@ A formatter is a function that accepts *an array of these stylelint result objec
   deprecations: [ // Array of deprecation warning objects, each like the following ...
     {
       text: "Feature X has been deprecated and will be removed in the next major version.",
-      reference: "http://stylelint.io/docs/feature-x.md"
+      reference: "https://stylelint.io/docs/feature-x.md"
     }
   ],
   invalidOptionWarnings: [ // Array of invalid option warning objects, each like the following ...
@@ -31,3 +31,7 @@ A formatter is a function that accepts *an array of these stylelint result objec
   ignored: false // This is `true` if the file's path matches a provided ignore pattern
 }
 ```
+
+## `stylelint.formatters`
+
+stylelint's internal formatters are exposed publicly in `stylelint.formatters`.
