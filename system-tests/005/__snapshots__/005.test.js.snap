@@ -12718,17 +12718,17 @@ Array [
       },
       Object {
         "column": 5,
-        "line": 154,
-        "rule": "no-browser-hacks",
-        "severity": "error",
-        "text": "Unexpected property hack \\"//\\" (no-browser-hacks)",
-      },
-      Object {
-        "column": 5,
         "line": 145,
         "rule": "no-browser-hacks",
         "severity": "error",
         "text": "Unexpected value hack \\"pink\\\\9\\" (no-browser-hacks)",
+      },
+      Object {
+        "column": 5,
+        "line": 154,
+        "rule": "no-browser-hacks",
+        "severity": "error",
+        "text": "Unexpected property hack \\"//\\" (no-browser-hacks)",
       },
       Object {
         "column": 1,
