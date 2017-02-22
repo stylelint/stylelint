@@ -116,7 +116,7 @@
       "./jest-setup.js"
     ],
     "testEnvironment": "node",
-    "testPathDirs": [
+    "roots": [
       "lib",
       "system-tests"
     ],
