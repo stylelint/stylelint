@@ -115,7 +115,7 @@
     "setupFiles": [
       "./jest-setup.js"
     ],
-    "collectCoverage": true,
+    "collectCoverage": false,
     "collectCoverageFrom": [
           "lib/**/*.js"
       ],

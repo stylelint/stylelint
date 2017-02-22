@@ -9,7 +9,7 @@ matrix:
       script: npm run pretest
       env: CI=pretest
     - node_js: '7'
-      script: npm run jest -- --runInBand --testPathPattern .*lib/.*
+      script: npm run jest -- --runInBand --testPathPattern .*lib/.* --coverage
       env: CI=tests 7
     - node_js: '6'
       script: npm run jest -- --runInBand --testPathPattern .*lib/.*
