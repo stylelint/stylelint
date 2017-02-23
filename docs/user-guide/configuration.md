@@ -286,6 +286,8 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 -   the config's filepath, if the config is a file that stylelint found a loaded;
 -   or `process.cwd()`.
 
+`node_modules` and `bower_components` are always ignored.
+
 The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
 
 ### `defaultSeverity`
@@ -304,3 +306,5 @@ You can use a `.stylelintignore` file (or point to another ignore patterns file)
 The patterns in your `.stylelintignore` file must match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). (Behind the scenes, [`node-ignore`](https://github.com/kaelzhang/node-ignore) parses your patterns.) One implication of this is that *your patterns in `.stylelintignore` are always analyzed relative to `process.cwd()`.*
 
 stylelint will look for a `.stylelintignore` file in `process.cwd()`. You can also specify a path to your ignore patterns file (absolute or relative to `process.cwd()`) using the `--ignore-path` (in the CLI) and `ignorePath` (in JS) options.
+
+`node_modules` and `bower_components` are always ignored.
