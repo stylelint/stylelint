@@ -126,14 +126,10 @@
     "label": "PR: review needed"
   },
   "remarkConfig": {
-    "presets": [
-      "lint-recommended",
-      "lint-consistent"
-    ],
-    "plugins": {
-      "validate-links": {
-        "repository": "stylelint/stylelint"
-      }
-    }
+    "plugins": [
+      "preset-lint-recommended",
+      "preset-lint-consistent",
+      ["validate-links", {"repository": "stylelint/stylelint"}]
+    ]
   }
 }
