@@ -31,7 +31,7 @@
         -   `root-no-standard-properties`
         -   `selector-root-no-composition`.
     -   The following rules did not work well.
-        -   `stylelint-disable-reason`. Please consider contributing to [#2292](https://github.com/stylelint/stylelint/issues/2292) for a replacement.
+        -   `stylelint-disable-reason` could not enforce providing a reason.
         -   `declaration-block-no-ignored-properties` could not reliably account for *replaced elements*.
 -   Deprecated: 4 options ([#2213](https://github.com/stylelint/stylelint/pull/2213)).
     -   `"all-nested"` option for `at-rule-empty-line-before`. Use the `"inside-block"` option instead.
