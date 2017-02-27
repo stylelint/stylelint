@@ -1,0 +1,10 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "declaration-block-properties-order": "alphabetical",
+    "selector-pseudo-element-colon-notation": "double",
+    "selector-pseudo-element-no-unknown": [true, {
+      ignorePseudoElements: ["/global/", ":global", /":global"/]
+    }]
+  }
+}
