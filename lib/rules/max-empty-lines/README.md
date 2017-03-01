@@ -91,12 +91,14 @@ The following patterns are *not* considered warnings:
 ```
 
 ```css
-/**
- * Call me Ishmael.
- *
- *
- *
- * Some years ago -- never mind how log precisely -- ...
- */
-a { color: pink; }
+a { 
+    /**
+    * Comment 
+    *
+    *
+    *
+    * inside the declaration with a lot of empty lines...
+    */
+     color: pink; 
+}
 ```
