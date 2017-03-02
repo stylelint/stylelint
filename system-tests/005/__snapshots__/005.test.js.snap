@@ -10,7 +10,7 @@ Array [
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/custom-property-no-outside-root/",
-        "text": "'custom-property-no-outside-root' has been deprecated and in 8.0 will be removed.",
+        "text": "'custom-property-no-outside-root' has been deprecated and in 8.0 will be removed. Instead use the community 'stylelint-suitcss' plugin pack.",
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/declaration-block-no-ignored-properties/",
@@ -38,7 +38,7 @@ Array [
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/root-no-standard-properties/",
-        "text": "'root-no-standard-properties' has been deprecated and in 8.0 will be removed.",
+        "text": "'root-no-standard-properties' has been deprecated and in 8.0 will be removed. Instead use the community 'stylelint-suitcss' plugin pack.",
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/rule-nested-empty-line-before/",
@@ -54,7 +54,7 @@ Array [
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/selector-root-no-composition/",
-        "text": "'selector-root-no-composition' has been deprecated and in 8.0 will be removed.",
+        "text": "'selector-root-no-composition' has been deprecated and in 8.0 will be removed. Instead use the community 'stylelint-suitcss' plugin pack.",
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/stylelint-disable-reason/",

@@ -1,6 +1,6 @@
 # selector-root-no-composition
 
-***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+***Deprecated: instead use the community [`stylelint-suitcss`](https://github.com/suitcss/stylelint-suitcss) plugin pack***
 
 Disallow the composition of `:root` in selectors.
 
