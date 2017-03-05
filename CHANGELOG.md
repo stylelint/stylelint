@@ -1,10 +1,18 @@
 # Head
 
+-   Added: support for asynchronous plugin rules ([#2351](https://github.com/stylelint/stylelint/pull/2351)).
+-   Added: `at-rule-semicolon-space-before` rule ([#2388](https://github.com/stylelint/stylelint/pull/2388)).
+-   Fixed: more helpful messages when file globs do not match any files ([#2328](https://github.com/stylelint/stylelint/pull/2328)).
+
+# 7.9.0
+
 -   Added: `ignoreFontFamilyName` option to `font-family-no-duplicate` ([#2314](https://github.com/stylelint/stylelint/pull/2314)).
--   Fixed: `color-hex-case` no longer reports false positives for id references in `url` functions ([#2338](https://github.com/stylelint/stylelint/pull/2338)).
+-   Added: `ignorePattern` option to `max-line-length` ([#2333](https://github.com/stylelint/stylelint/pull/2333)).
+-   Fixed: update version of `lodash` dependency to match feature usage, fixing a conflict with Modernizr ([#2353](https://github.com/stylelint/stylelint/pull/2353)).
+-   Fixed: `color-hex-case` false positives for id references in `url` functions ([#2338](https://github.com/stylelint/stylelint/pull/2338)).
 -   Fixed: `max-line-length` now reports correct column for SCSS comments ([#2340](https://github.com/stylelint/stylelint/pull/2340)).
 -   Fixed: `selector-class-pattern` false positive in SCSS when combining interpolated and nested selectors ([#2344](https://github.com/stylelint/stylelint/pull/2344)).
--   Fixed: update version of `lodash` dependency to match feature usage, fixing a conflict with Modernizr ([#2353](https://github.com/stylelint/stylelint/pull/2353)).
+-   Fixed: `selector-type-case` false positive for placeholder selectors ([#2360](https://github.com/stylelint/stylelint/pull/2360)).
 
 # 7.8.0
 
@@ -25,7 +33,7 @@
         -   `root-no-standard-properties`
         -   `selector-root-no-composition`.
     -   The following rules did not work well.
-        -   `stylelint-disable-reason`. Please consider contributing to [#2292](https://github.com/stylelint/stylelint/issues/2292) for a replacement.
+        -   `stylelint-disable-reason` could not enforce providing a reason.
         -   `declaration-block-no-ignored-properties` could not reliably account for *replaced elements*.
 -   Deprecated: 4 options ([#2213](https://github.com/stylelint/stylelint/pull/2213)).
     -   `"all-nested"` option for `at-rule-empty-line-before`. Use the `"inside-block"` option instead.

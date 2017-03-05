@@ -162,7 +162,7 @@ All rules accept a `message` secondary option that, if provided, will be substit
     "message": "Lowercase letters are easier to distinguish from numbers"
   } ],
   "indentation": [ 2, {
-    "ignore": ["block"],
+    "except": ["block"],
     "message": "Please use 2 spaces for indentation. Tabs make The Architect grumpy.",
     "severity": "warning"
   } ]

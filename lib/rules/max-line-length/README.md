@@ -108,3 +108,19 @@ a { color: pink; }
  */
 a { color: pink; }
 ```
+
+### `ignorePattern: ["/regex/"]`
+
+Ignore any line that matches the given regex pattern, regardless of whether it is comment or not.
+
+Given:
+
+```js
+["/^@import\\s+/"]
+```
+
+The following is *not* considered a warning regardless of line length:
+
+```css
+@import "../../../../another/css/or/scss/file/or/something.css";
+```

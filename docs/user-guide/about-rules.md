@@ -56,9 +56,9 @@ a {   }
 
 Notice how, for a rule like this, it does not make sense to have an option to enforce the opposite i.e. that every block *must* be empty.
 
-### Max rules
+### Max and min rules
 
-`*-max-*` is used when a rule is *setting a limit* to something.
+`*-max-*` and `*-min-*` rules are used when a rule is *setting a limit* to something.
 
 For example, specifying the maximum number of digits after the "." in a number:
 
