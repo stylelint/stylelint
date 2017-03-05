@@ -400,7 +400,7 @@
 
 -   Added: `selector-no-qualifying-type` rule.
 -   Fixed: `number-leading-zero` will not check `@import` at-rules.
--   Fixed: `selector-class-pattern` now ignores non-ouputting Less mixin definitions and called Less mixins.
+-   Fixed: `selector-class-pattern` now ignores non-outputting Less mixin definitions and called Less mixins.
 -   Fixed: `value-keyword-case` now accounts for camelCase keywords (e.g. `optimizeSpeed`, `optimizeLegibility` and `geometricPrecision`) when the `lower` option is used.
 -   Fixed: `testUtils` and `stylelint.createRuleTester` module mistakes.
 
@@ -721,11 +721,11 @@
     -   support for YAML `.stylelintrc`
     -   support for `stylelint.config.js`
     -   support for `stylelint` property in `package.json`
-    -   alternate config loading system, which stops at the first config foun
+    -   alternate config loading system, which stops at the first config found
 -   Added: asynchronicity to the PostCSS plugin.
 -   Added: `ignoreFiles` option to config.
 -   Added: `configFile` option to Node.js API.
--   Fixed: `comment-whitespace-inside` now ignores ignores copyright (`/*! `) and sourcemap (`/*# `) comments.
+-   Fixed: `comment-whitespace-inside` now ignores copyright (`/*! `) and sourcemap (`/*# `) comments.
 -   Fixed: `rule-no-duplicate-properties` now ignores the `src` property.
 
 # 2.3.7
