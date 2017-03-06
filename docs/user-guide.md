@@ -11,6 +11,5 @@
 -   [Plugins](user-guide/plugins.md): A list of community plugins.
 -   [Processors](user-guide/processors.md): A list of community processors.
 -   [Complementary tools](user-guide/complementary-tools.md): List of community editor plugins, build tool plugins and other tools.
--   [Release planning](user-guide/release-planning.md): Plans and calls-for-help for upcoming releases.
 -   [FAQ](user-guide/faq.md): Frequently asked questions about using and configuring stylelint.
 -   [Articles](user-guide/articles.md): A collection of articles and tutorials about stylelint.

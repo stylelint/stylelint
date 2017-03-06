@@ -1,5 +1,7 @@
 # time-no-imperceptible
 
+***Deprecated: Instead use the [`time-min-milliseconds`](../time-min-milliseconds/README.md) rule with `100` as its primary option.***
+
 Disallow `animation` and `transition` less than or equal to 100ms.
 
 ```css

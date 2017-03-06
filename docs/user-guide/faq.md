@@ -21,7 +21,7 @@ You can also disable a rule for specific sections of your CSS. Refer to the rule
 
 Refer to the [CLI section](cli.md) of the docs.
 
-The CLI can also be used from within [npm run scripts](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
+The CLI can also be used from within [npm run scripts](https://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
 
 ## How do I lint using Git pre-commit hooks?
 
@@ -86,6 +86,46 @@ Use the [stylelint-selector-bem-pattern](https://github.com/davidtheclark/stylel
 You can also take advantage of the `selector-*` rules to ban certain types of selectors (e.g. id selectors) and control specificity.
 
 If you're using SUITCSS, you might want to use [their shareable config](https://github.com/suitcss/stylelint-config-suitcss).
+
+## How do I disallow single-line blocks?
+
+```css
+  a { color: red; }
+/** ↑
+ * Declaration blocks like this */
+```
+
+Use the `block-opening-brace-newline-after` and `block-opening-brace-newline-before` rules together. For example, this config:
+
+```json
+{
+  "block-opening-brace-newline-after": ["always"],
+  "block-closing-brace-newline-before": ["always"]
+}
+```
+
+Would allow:
+
+```css
+a {
+  color: red;
+}
+```
+
+But not these patterns:
+
+```css
+a { color: red;
+}
+
+a {
+color: red; }
+
+a { color: red; }
+```
+
+To allow single-line blocks but enforce newlines with multi-line blocks, use the `"always-multi-line"` option for both rules.
+
 
 ## How do I configure the `*-pattern` rules for common CSS naming conventions like kebab-case?
 

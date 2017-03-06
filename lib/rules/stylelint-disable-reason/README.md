@@ -1,5 +1,7 @@
 # stylelint-disable-reason
 
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+
 Require a reason comment before or after `stylelint-disable` comments.
 
 ```css

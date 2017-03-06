@@ -1,10 +1,12 @@
 # selector-no-empty
 
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+
 Disallow empty selectors.
 
 ```css
   a, , b {}
-/** ↑ 
+/** ↑
  * An empty selector */
 ```
 
