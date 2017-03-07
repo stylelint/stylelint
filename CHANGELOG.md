@@ -3,6 +3,7 @@
 -   Added: support for asynchronous plugin rules ([#2351](https://github.com/stylelint/stylelint/pull/2351)).
 -   Added: `at-rule-semicolon-space-before` rule ([#2388](https://github.com/stylelint/stylelint/pull/2388)).
 -   Fixed: more helpful messages when file globs do not match any files ([#2328](https://github.com/stylelint/stylelint/pull/2328)).
+-   Fixed: `no-extra-semicolons` false positives for comments are custom property sets ([#2396](https://github.com/stylelint/stylelint/pull/2396)).
 
 # 7.9.0
 
