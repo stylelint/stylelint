@@ -32,7 +32,7 @@ Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`
 
 `stylelint.createPlugin(ruleName, ruleFunction)` ensures that your plugin will be setup properly alongside other rules.
 
-In order for your plugin rule to work with the [standard configuration format](../user-guide/configuration.md#rules), `ruleFunction` should accept 2 arguments: the primary option and, optionally, an secondary options object.
+In order for your plugin rule to work with the [standard configuration format](../user-guide/configuration.md#rules), `ruleFunction` should accept 2 arguments: the primary option and, optionally, a secondary options object.
 
 `ruleFunction` should return a function that is essentially a little [PostCSS plugin](https://github.com/postcss/postcss/blob/master/docs/writing-a-plugin.md): it takes 2 arguments: the PostCSS Root (the parsed AST), and the PostCSS LazyResult. You'll have to [learn about the PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md).
 
@@ -159,7 +159,7 @@ In addition to the standard parsers mentioned in the ["Working on rules"](rules.
 -   [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector): Given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
 -   [style-search](https://github.com/davidtheclark/style-search): Search CSS (and CSS-like) strings, with sensitivity to whether matches occur inside strings, comments, and functions.
 
-Have a look through [stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into a external module.
+Have a look through [stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into an external module.
 
 ## Testing plugins
 

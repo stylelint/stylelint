@@ -178,7 +178,7 @@ Take the form of:
 
 -   Use complete CSS patterns i.e. avoid ellipses (`...`)
 -   Use standard CSS syntax (and use `css` code fences) by default.
--   Use the minimum amount of code possible to communicate the patten e.g. if the rule targets selectors then use an empty rule e.g. `{}`.
+-   Use the minimum amount of code possible to communicate the pattern e.g. if the rule targets selectors then use an empty rule e.g. `{}`.
 -   Use `{}`, rather than `{ }` for empty rules.
 -   Use the `a` type selector by default.
 -   Use the `@media` at-rules by default.
@@ -195,7 +195,7 @@ The final step is to add references to the new rule in the following places:
 
 Once you have something to show, you'll create a [pull request](https://github.com/stylelint/stylelint/compare) to continue the conversation.
 
-## Adding a option to an existing rule
+## Adding an option to an existing rule
 
 First, open [an issue](https://github.com/stylelint/stylelint/issues/new) about the option you wish to add. We'll discuss its functionality and name there.
 
