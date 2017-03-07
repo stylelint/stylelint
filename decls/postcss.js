@@ -32,3 +32,14 @@ export type postcss$rule = {
   parent: Object,
   nodes: Array<Object>,
 }
+
+export type postcss$result = {
+  css: string,
+  root: Object,
+  stylelint: {
+    disabledRanges: disabledRangeObject,
+    ruleSeverities?: Object,
+    customMessages?: Object,
+    quiet?: boolean,
+  },
+}
