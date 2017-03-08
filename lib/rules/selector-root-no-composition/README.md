@@ -1,5 +1,7 @@
 # selector-root-no-composition
 
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+
 Disallow the composition of `:root` in selectors.
 
 ```css

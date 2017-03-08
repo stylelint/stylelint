@@ -21,7 +21,7 @@ You can also disable a rule for specific sections of your CSS. Refer to the rule
 
 Refer to the [CLI section](cli.md) of the docs.
 
-The CLI can also be used from within [npm run scripts](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
+The CLI can also be used from within [npm run scripts](https://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
 
 ## How do I lint using Git pre-commit hooks?
 
@@ -87,6 +87,46 @@ You can also take advantage of the `selector-*` rules to ban certain types of se
 
 If you're using SUITCSS, you might want to use [their shareable config](https://github.com/suitcss/stylelint-config-suitcss).
 
+## How do I disallow single-line blocks?
+
+```css
+  a { color: red; }
+/** ↑
+ * Declaration blocks like this */
+```
+
+Use the `block-opening-brace-newline-after` and `block-opening-brace-newline-before` rules together. For example, this config:
+
+```json
+{
+  "block-opening-brace-newline-after": ["always"],
+  "block-closing-brace-newline-before": ["always"]
+}
+```
+
+Would allow:
+
+```css
+a {
+  color: red;
+}
+```
+
+But not these patterns:
+
+```css
+a { color: red;
+}
+
+a {
+color: red; }
+
+a { color: red; }
+```
+
+To allow single-line blocks but enforce newlines with multi-line blocks, use the `"always-multi-line"` option for both rules.
+
+
 ## How do I configure the `*-pattern` rules for common CSS naming conventions like kebab-case?
 
 Use the regex that corresponds to your chosen convention:
@@ -104,7 +144,7 @@ All these patterns disallow CSS identifiers that start with a digit, two hyphens
 
 Use the [`defaultSeverity`](configuration.md#defaultseverity) configuration option.
 
-## Can I bundle more than one sharable config within a npm package?
+## Can I bundle more than one sharable config within an npm package?
 
 A user can `require()` any file in your npm package, so all you need to do is document which paths point to configs (e.g. `require('my-package/config-2')`).
 

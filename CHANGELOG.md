@@ -1,7 +1,52 @@
 # Head
 
+-   Added: support for asynchronous plugin rules ([#2351](https://github.com/stylelint/stylelint/pull/2351)).
+-   Added: `at-rule-semicolon-space-before` rule ([#2388](https://github.com/stylelint/stylelint/pull/2388)).
+-   Fixed: more helpful messages when file globs do not match any files ([#2328](https://github.com/stylelint/stylelint/pull/2328)).
+-   Fixed: `no-extra-semicolons` false positives for comments are custom property sets ([#2396](https://github.com/stylelint/stylelint/pull/2396)).
+
+# 7.9.0
+
+-   Added: `ignoreFontFamilyName` option to `font-family-no-duplicate` ([#2314](https://github.com/stylelint/stylelint/pull/2314)).
+-   Added: `ignorePattern` option to `max-line-length` ([#2333](https://github.com/stylelint/stylelint/pull/2333)).
+-   Fixed: update version of `lodash` dependency to match feature usage, fixing a conflict with Modernizr ([#2353](https://github.com/stylelint/stylelint/pull/2353)).
+-   Fixed: `color-hex-case` false positives for id references in `url` functions ([#2338](https://github.com/stylelint/stylelint/pull/2338)).
+-   Fixed: `max-line-length` now reports correct column for SCSS comments ([#2340](https://github.com/stylelint/stylelint/pull/2340)).
+-   Fixed: `selector-class-pattern` false positive in SCSS when combining interpolated and nested selectors ([#2344](https://github.com/stylelint/stylelint/pull/2344)).
+-   Fixed: `selector-type-case` false positive for placeholder selectors ([#2360](https://github.com/stylelint/stylelint/pull/2360)).
+
+# 7.8.0
+
+-   Deprecated: 15 rules ([#2197](https://github.com/stylelint/stylelint/pull/2197),  [#2285](https://github.com/stylelint/stylelint/pull/2285) & [#2309](https://github.com/stylelint/stylelint/pull/2309)).
+    -   `block-no-single-line`. Use `block-opening-brace-newline-after` and `block-closing-brace-newline-before` rules with the option `"always"` instead.
+    -   `declaration-block-properties-order`. Use the [`stylelint-order`](https://github.com/hudochenkov/stylelint-order) plugin pack instead.
+    -   `rule-nested-empty-line-before` and `rule-non-nested-empty-line-before`. Use the new `rule-empty-line-before` rule instead.
+    -   `time-no-imperceptible`. Use the new `time-min-milliseconds` rule with `100` as its primary option.
+    -   It is beyond the scope of stylelint's core package to effectively validate against the CSS spec. Please investigate [csstree](https://github.com/csstree/csstree) and [css-values](https://github.com/ben-eb/css-values) for this functionality, and contribute to those projects and to stylelint plugins wrapping them. csstree already has a [stylelint plugin](https://github.com/csstree/stylelint-validator), and css-values needs one to be developed. The following rules are deprecated for this reason.
+        -   `media-feature-no-missing-punctuation`.
+        -   `selector-no-empty`.
+    -   A plugin is a better package for a rule that wraps a third-party library. The following rules are deprecated for this reason. We encourage users to create and help maintain plugins for these rules.
+        -   `no-browser-hacks`
+        -   `no-indistinguishable-colors`
+        -   `no-unsupported-browser-features`
+    -   The following rules did not seem useful. If you liked these rules, please create plugins for them.
+        -   `custom-property-no-outside-root`
+        -   `root-no-standard-properties`
+        -   `selector-root-no-composition`.
+    -   The following rules did not work well.
+        -   `stylelint-disable-reason` could not enforce providing a reason.
+        -   `declaration-block-no-ignored-properties` could not reliably account for *replaced elements*.
+-   Deprecated: 4 options ([#2213](https://github.com/stylelint/stylelint/pull/2213)).
+    -   `"all-nested"` option for `at-rule-empty-line-before`. Use the `"inside-block"` option instead.
+    -   `"blockless-group"` option for `at-rule-empty-line-before`. Use the `"blockless-after-blockless"` option instead.
+    -   `"between-comments"` option for `comment-empty-line-before`. Use the `"after-comment"` option instead.
+    -   `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`. Use the `"blockless-at-rules"` option instead.
+-   Added: `time-min-milliseconds` rule, to replace `time-no-imperceptible` ([#2289](https://github.com/stylelint/stylelint/pull/2289)).
 -   Added: `except: ["after-same-name"]` option to `at-rule-empty-line-before` ([#2225](https://github.com/stylelint/stylelint/pull/2225)).
+-   Fixed: `configOverrides` now work with `extends` ([#2295](https://github.com/stylelint/stylelint/pull/2295)).
+-   Fixed: `max-line-length` no longer reports incorrect column positions for lines with `url()` or `import` ([#2287](https://github.com/stylelint/stylelint/pull/2287)).
 -   Fixed: `selector-pseudo-class-no-unknown` no longer warns for proprietary webkit pseudo-classes ([#2264](https://github.com/stylelint/stylelint/pull/2264)).
+-   Fixed: `unit-no-unknown` accepts `fr` units ([#2308](https://github.com/stylelint/stylelint/pull/2308)).
 
 # 7.7.1
 
@@ -148,7 +193,7 @@
 
 # 7.0.0
 
--   Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration.md#processors) processors. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+-   Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration.md#processors) processors.
 -   Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. (If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`.)
 -   Removed: `--verbose` CLI flag. Use `--formatter verbose` instead.
 -   Removed: NodeJS `0.12.x` support. `4.2.1 LTS` or greater is now required.
@@ -159,10 +204,10 @@
 -   Removed: `property-unit-whitelist` rule. Use the `declaration-property-unit-whitelist` rule instead.
 -   Removed: `property-value-blacklist` rule. Use the `declaration-property-value-blacklist` rule instead.
 -   Removed: `property-value-whitelist` rule. Use the `declaration-property-value-whitelist` rule instead.
--   Removed: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+-   Removed: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community.
 -   Removed: `"single-where-required"`, `"single-where-recommended"`, `"single-unless-keyword"`, `"double-where-required"`, `"double-where-recommended"` and `"double-unless-keyword"` options for `font-family-name-quotes`. Instead, use the `"always-unless-keyword"`, `always-where-recommended` or `always-where-required` options together with the `string-quotes` rule.
 -   Removed: `"single"`, `"double"` and `"none"` options for `function-url-quotes`. Instead, use the `"always"` or `"never"` options together with the `string-quotes` rule.
--   Removed: `"hierarchicalSelectors"` option for `indentation`.  If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+-   Removed: `"hierarchicalSelectors"` option for `indentation`.  If you use this option, please consider creating a plugin for the community.
 -   Removed: `stylelint.utils.cssWordIsVariable()`.
 -   Removed: `stylelint.utils.styleSearch()`. Use the external [style-search](https://github.com/davidtheclark/style-search) module instead.
 -   Changed: invalid configuration sets result's `stylelintError` to `true`, which in turn causes CLI to exit with a non-zero code.
@@ -206,7 +251,7 @@
 
 # 6.8.0
 
--   Deprecated: `-e` and `--extract` CLI flags, and the `extractStyleTagsFromHtml` node API option. If you use these flags or option, please consider creating a processor for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+-   Deprecated: `-e` and `--extract` CLI flags, and the `extractStyleTagsFromHtml` node API option. If you use these flags or option, please consider creating a processor for the community.
 -   Added: `at-rule-no-unknown` rule.
 -   Added: `no-empty-source` rule.
 -   Added: `except: ["after-single-line-comment"]` option for `rule-non-nested-empty-line-before`.
@@ -258,10 +303,10 @@
 
 # 6.5.1
 
--   Deprecated: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+-   Deprecated: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community.
 -   Deprecated: `"single-where-required"`, `"single-where-recommended"`, `"single-unless-keyword"`, `"double-where-required"`, `"double-where-recommended"` and `"double-unless-keyword"` options for `font-family-name-quotes`. Instead, use the `"always-unless-keyword"`, `always-where-recommended` or `always-where-required` options together with the `string-quotes` rule.
 -   Deprecated: `"single"`, `"double"` and `"none"` options for `function-url-quotes`. Instead, use the `"always"` or `"never"` options together with the `string-quotes` rule.
--   Deprecated: `"hierarchicalSelectors"` option for `indentation`.  If you use this option, please consider creating a plugin for the community. See the [release planning](/docs/user-guide/release-planning.md) document for more details.
+-   Deprecated: `"hierarchicalSelectors"` option for `indentation`.  If you use this option, please consider creating a plugin for the community.
 -   Fixed: the string formatter no longer errors on non-rule errors.
 -   Fixed: `selector-list-comma-*` rules now ignore Less mixins.
 -   Fixed: `selector-max-compound-selectors` no longer errors on Less mixins.
@@ -356,7 +401,7 @@
 
 -   Added: `selector-no-qualifying-type` rule.
 -   Fixed: `number-leading-zero` will not check `@import` at-rules.
--   Fixed: `selector-class-pattern` now ignores non-ouputting Less mixin definitions and called Less mixins.
+-   Fixed: `selector-class-pattern` now ignores non-outputting Less mixin definitions and called Less mixins.
 -   Fixed: `value-keyword-case` now accounts for camelCase keywords (e.g. `optimizeSpeed`, `optimizeLegibility` and `geometricPrecision`) when the `lower` option is used.
 -   Fixed: `testUtils` and `stylelint.createRuleTester` module mistakes.
 
@@ -677,11 +722,11 @@
     -   support for YAML `.stylelintrc`
     -   support for `stylelint.config.js`
     -   support for `stylelint` property in `package.json`
-    -   alternate config loading system, which stops at the first config foun
+    -   alternate config loading system, which stops at the first config found
 -   Added: asynchronicity to the PostCSS plugin.
 -   Added: `ignoreFiles` option to config.
 -   Added: `configFile` option to Node.js API.
--   Fixed: `comment-whitespace-inside` now ignores ignores copyright (`/*! `) and sourcemap (`/*# `) comments.
+-   Fixed: `comment-whitespace-inside` now ignores copyright (`/*! `) and sourcemap (`/*# `) comments.
 -   Fixed: `rule-no-duplicate-properties` now ignores the `src` property.
 
 # 2.3.7

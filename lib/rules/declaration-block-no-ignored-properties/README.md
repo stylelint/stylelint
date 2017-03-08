@@ -1,5 +1,7 @@
 # declaration-block-no-ignored-properties
 
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+
 Disallow property values that are ignored due to another property value in the same rule.
 
 ```css

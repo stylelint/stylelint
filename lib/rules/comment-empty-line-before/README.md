@@ -93,11 +93,13 @@ a {
 }
 ```
 
-### `ignore: ["between-comments", "stylelint-commands"]`
+### `ignore: ["after-comment", "stylelint-commands"]`
 
-#### `"between-comments"`
+#### `"after-comment"`
 
-Don't require an empty line between comments.
+***Note: This option was previously called `between-comments`.***
+
+Don't require an empty line after a comment.
 
 For example, with `"always"`:
 

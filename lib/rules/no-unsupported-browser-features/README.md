@@ -1,10 +1,12 @@
 # no-unsupported-browser-features
 
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+
 Disallow features that are unsupported by the browsers that you are targeting.
 
 ```css
 .foo { opacity: 1; }
-/**    ↑                 
+/**    ↑
  * Features like this, which is unsupported in IE 8 */
 ```
 

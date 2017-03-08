@@ -54,7 +54,7 @@ The following patterns are *not* considered warnings:
 
 ### `"always-multi-line"`
 
-There *must always* be a newline after at-rule names in multiline-line at-rule blocks.
+There *must always* be a newline after at-rule names in at-rules with multi-line parameters.
 
 The following patterns are considered warnings:
 
