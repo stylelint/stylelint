@@ -5,6 +5,43 @@ const basicChecks = require("./lib/testUtils/basicChecks")
 const stylelint = require("./lib/standalone")
 
 global.testRule = (rule, schema) => {
+  expect.extend({
+    toHaveDetails(testCase) {
+      if (
+        testCase.message === undefined
+        && testCase.line === undefined
+        && testCase.column === undefined
+      ) {
+        return {
+          message: () => (
+            "Expected to have one of the following details for a test case: message, line, column"
+          ),
+          pass: false,
+        }
+      }
+
+      return {
+        pass: true,
+      }
+    },
+    toHaveMessage(testCase) {
+      if (
+        testCase.message === undefined
+      ) {
+        return {
+          message: () => (
+            "Expected to have a \"message\" for a test case"
+          ),
+          pass: false,
+        }
+      }
+
+      return {
+        pass: true,
+      }
+    },
+  })
+
   describe(schema.ruleName, () => {
     const stylelintConfig = {
       rules: {
@@ -45,6 +82,10 @@ global.testRule = (rule, schema) => {
               syntax: schema.syntax,
             }).then((output) => {
               const warning = output.results[0].warnings[0]
+
+              expect(testCase).toHaveDetails()
+              expect(testCase).toHaveMessage()
+
               if (testCase.message) {
                 expect(_.get(warning, "text")).toBe(testCase.message)
               }
