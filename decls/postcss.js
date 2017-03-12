@@ -54,3 +54,14 @@ declare class postcss$decl extends postcss$node {
     after?: string,
   };
 }
+
+export type postcss$result = {
+  css: string,
+  root: Object,
+  stylelint: {
+    disabledRanges: disabledRangeObject,
+    ruleSeverities?: Object,
+    customMessages?: Object,
+    quiet?: boolean,
+  },
+}

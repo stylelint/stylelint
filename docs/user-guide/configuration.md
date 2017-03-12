@@ -162,7 +162,7 @@ All rules accept a `message` secondary option that, if provided, will be substit
     "message": "Lowercase letters are easier to distinguish from numbers"
   } ],
   "indentation": [ 2, {
-    "ignore": ["block"],
+    "except": ["block"],
     "message": "Please use 2 spaces for indentation. Tabs make The Architect grumpy.",
     "severity": "warning"
   } ]
@@ -203,7 +203,7 @@ Or starting with `stylelint-config-standard`, then layering `myExtendableConfig`
 }
 ```
 
-The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d, so can fit whatever format works with Node's `require.resolve()` algorithm. That means the a "locater" can be:
+The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d, so can fit whatever format works with Node's `require.resolve()` algorithm. That means a "locater" can be:
 
 -   The name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
 -   An absolute path to a file (which makes sense if you're creating a JS object in a Node context and passing it in) with a `.js` or `.json` extension.

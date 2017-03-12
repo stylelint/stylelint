@@ -1,6 +1,10 @@
 # Head
 
 -   Added: support for asynchronous plugin rules ([#2351](https://github.com/stylelint/stylelint/pull/2351)).
+-   Added: `at-rule-semicolon-space-before` rule ([#2388](https://github.com/stylelint/stylelint/pull/2388)).
+-   Fixed: more helpful messages when file globs do not match any files ([#2328](https://github.com/stylelint/stylelint/pull/2328)).
+-   Fixed: `no-extra-semicolons` false positives for comments are custom property sets ([#2396](https://github.com/stylelint/stylelint/pull/2396)).
+-   Fixed: false positives for `attr`, `counter`, `counters` functions and ` counter-reset` property in `value-keyword-case` ([#2407](https://github.com/stylelint/stylelint/pull/2407)).
 
 # 8.0.0
 
@@ -39,7 +43,7 @@
         -   `root-no-standard-properties`
         -   `selector-root-no-composition`.
     -   The following rules did not work well.
-        -   `stylelint-disable-reason`. Please consider contributing to [#2292](https://github.com/stylelint/stylelint/issues/2292) for a replacement.
+        -   `stylelint-disable-reason` could not enforce providing a reason.
         -   `declaration-block-no-ignored-properties` could not reliably account for *replaced elements*.
 -   Deprecated: 4 options ([#2213](https://github.com/stylelint/stylelint/pull/2213)).
     -   `"all-nested"` option for `at-rule-empty-line-before`. Use the `"inside-block"` option instead.
@@ -406,7 +410,7 @@
 
 -   Added: `selector-no-qualifying-type` rule.
 -   Fixed: `number-leading-zero` will not check `@import` at-rules.
--   Fixed: `selector-class-pattern` now ignores non-ouputting Less mixin definitions and called Less mixins.
+-   Fixed: `selector-class-pattern` now ignores non-outputting Less mixin definitions and called Less mixins.
 -   Fixed: `value-keyword-case` now accounts for camelCase keywords (e.g. `optimizeSpeed`, `optimizeLegibility` and `geometricPrecision`) when the `lower` option is used.
 -   Fixed: `testUtils` and `stylelint.createRuleTester` module mistakes.
 
@@ -727,11 +731,11 @@
     -   support for YAML `.stylelintrc`
     -   support for `stylelint.config.js`
     -   support for `stylelint` property in `package.json`
-    -   alternate config loading system, which stops at the first config foun
+    -   alternate config loading system, which stops at the first config found
 -   Added: asynchronicity to the PostCSS plugin.
 -   Added: `ignoreFiles` option to config.
 -   Added: `configFile` option to Node.js API.
--   Fixed: `comment-whitespace-inside` now ignores ignores copyright (`/*! `) and sourcemap (`/*# `) comments.
+-   Fixed: `comment-whitespace-inside` now ignores copyright (`/*! `) and sourcemap (`/*# `) comments.
 -   Fixed: `rule-no-duplicate-properties` now ignores the `src` property.
 
 # 2.3.7

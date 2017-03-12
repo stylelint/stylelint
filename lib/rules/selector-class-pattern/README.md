@@ -8,7 +8,7 @@ Specify a pattern for class selectors.
  * These class selectors */
 ```
 
-This rule ignores non-ouputting Less mixin definitions and called Less mixins.
+This rule ignores non-outputting Less mixin definitions and called Less mixins.
 
 ## Options
 

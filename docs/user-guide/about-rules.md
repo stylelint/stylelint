@@ -56,9 +56,9 @@ a {   }
 
 Notice how, for a rule like this, it does not make sense to have an option to enforce the opposite i.e. that every block *must* be empty.
 
-### Max rules
+### Max and min rules
 
-`*-max-*` is used when a rule is *setting a limit* to something.
+`*-max-*` and `*-min-*` rules are used when a rule is *setting a limit* to something.
 
 For example, specifying the maximum number of digits after the "." in a number:
 
@@ -354,7 +354,7 @@ Say you want to disallow the value `none` for the `border` properties. You can d
 
 Most `<color>` values are *functions*. As such, they can be (dis)allowed using either the `function-blacklist` or `function-whitelist` rules. There are two other color representations that aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
 
-Say you want to enforce using a named color *if one exists for your chosen color* and use `hwb` color if one does not, e.g:
+Say you want to enforce using a named color *if one exists for your chosen color* and use `hwb` color if one does not, e.g.:
 
 ```css
 a {
