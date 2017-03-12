@@ -38,9 +38,7 @@
     "autoprefixer": "^6.0.0",
     "balanced-match": "^0.4.0",
     "chalk": "^1.1.1",
-    "colorguard": "^1.2.0",
     "cosmiconfig": "^2.1.1",
-    "doiuse": "^2.4.1",
     "execall": "^1.0.0",
     "get-stdin": "^5.0.0",
     "globby": "^6.0.0",
@@ -65,7 +63,6 @@
     "specificity": "^0.3.0",
     "string-width": "^2.0.0",
     "style-search": "^0.1.0",
-    "stylehacks": "^2.3.2",
     "sugarss": "^0.2.0",
     "svg-tags": "^1.0.0",
     "table": "^4.0.1"
