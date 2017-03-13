@@ -6,31 +6,13 @@ const stylelint = require("./lib/standalone")
 
 global.testRule = (rule, schema) => {
   expect.extend({
-    toHaveDetails(testCase) {
-      if (
-        testCase.message === undefined
-        && testCase.line === undefined
-        && testCase.column === undefined
-      ) {
-        return {
-          message: () => (
-            "Expected to have one of the following details for a test case: message, line, column"
-          ),
-          pass: false,
-        }
-      }
-
-      return {
-        pass: true,
-      }
-    },
     toHaveMessage(testCase) {
       if (
         testCase.message === undefined
       ) {
         return {
           message: () => (
-            "Expected to have a \"message\" for a test case"
+            "Expected \"reject\" test case to have a \"message\" property"
           ),
           pass: false,
         }
@@ -83,7 +65,6 @@ global.testRule = (rule, schema) => {
             }).then((output) => {
               const warning = output.results[0].warnings[0]
 
-              expect(testCase).toHaveDetails()
               expect(testCase).toHaveMessage()
 
               if (testCase.message) {
