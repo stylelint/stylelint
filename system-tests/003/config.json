@@ -64,6 +64,14 @@
     "selector-list-comma-space-after": "always-single-line",
     "selector-list-comma-space-before": "never",
 
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+
     "indentation": "tab",
     "max-line-length": null,
     "max-empty-lines": 1,

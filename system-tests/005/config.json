@@ -123,6 +123,7 @@
     "property-no-unknown": true,
     "property-no-vendor-prefix": true,
     "property-whitelist": ["display", "animation", "/^background/"],
+    "rule-empty-line-before": "always",
     "selector-attribute-brackets-space-inside": "always",
     "selector-attribute-operator-blacklist": [ "*=" ],
     "selector-attribute-operator-space-after": "always",
