@@ -1,0 +1,6 @@
+{
+  "extends": [".eslintrc.base.json"],
+  "globals": {
+    "testRule": true
+  }
+}

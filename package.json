@@ -98,7 +98,7 @@
     "lint:js": "eslint . --cache",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
-    "pretest": "npm-run-all --serial lint flow",
+    "pretest": "npm-run-all --serial lint:md flow",
     "release": "npmpub",
     "test": "jest",
     "watch": "jest --watch"

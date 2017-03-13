@@ -1,3 +1,6 @@
+addons:
+  code_climate:
+    repo_token: 2983486985576ac8d53c4716ab69217e6bad501f42f69138cc796fda85637a6e
 language: node_js
 sudo: false
 cache:
@@ -9,17 +12,23 @@ matrix:
       script: npm run pretest
       env: CI=pretest
     - node_js: '7'
-      script: npm run jest -- --runInBand
-      env: CI=tests 7
+      script: npm run jest -- --coverage --runInBand
+      env: CI='tests 7'
     - node_js: '6'
       script: npm run jest -- --runInBand --testPathPattern .*lib/.*
-      env: CI=tests 6
+      env: CI='tests 6'
     - node_js: '4'
       script: npm run jest -- --runInBand --testPathPattern .*lib/.*
-      env: CI=tests 4
+      env: CI='tests 4'
 before_install:
   - npm prune
   - npm update
+after_success: |
+  if [ "$CI" == "tests 7" ]
+  then
+    npm install -g codeclimate-test-reporter
+    codeclimate-test-reporter < coverage/lcov.info
+  fi
 notifications:
   webhooks:
     - https://webhooks.gitter.im/e/d763493612da45967361

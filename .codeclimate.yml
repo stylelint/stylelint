@@ -1,0 +1,24 @@
+prepare:
+  fetch:
+    - url: https://raw.githubusercontent.com/stylelint/eslint-config-stylelint/6.0.0/eslintrc.json
+      path: .eslintrc.base.json
+
+engines:
+ eslint:
+   enabled: true
+   channel: "eslint-3"
+   config:
+     config: ".eslintrc.cc.json"
+ nodesecurity:
+   enabled: true
+
+ratings:
+ paths:
+ - "**.js"
+ - "npm-shrinkwrap.json"
+
+exclude_paths:
+  - "coverage/"
+  - "decls/"
+  - "node_modules/"
+  - "scripts/"

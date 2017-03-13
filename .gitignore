@@ -2,3 +2,5 @@ node_modules
 *.log
 coverage
 .eslintcache
+.eslintrc.base.json
+coverage/
