@@ -24,7 +24,7 @@ matrix:
 before_install:
   - npm prune
   - npm update
--after_success:
+after_success:
   - if [ "$CI" = "coverage" ]; then cat ./.coverage/lcov.info | ./node_modules/.bin/coveralls; fi
 notifications:
   webhooks:
