@@ -67,13 +67,13 @@ global.testRule = (rule, schema) => {
 
               expect(testCase).toHaveMessage()
 
-              if (testCase.message) {
+              if (testCase.message !== undefined) {
                 expect(_.get(warning, "text")).toBe(testCase.message)
               }
-              if (testCase.line) {
+              if (testCase.line !== undefined) {
                 expect(_.get(warning, "line")).toBe(testCase.line)
               }
-              if (testCase.column) {
+              if (testCase.column !== undefined) {
                 expect(_.get(warning, "column")).toBe(testCase.column)
               }
             })
