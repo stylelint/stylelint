@@ -73,7 +73,7 @@
   "devDependencies": {
     "benchmark": "^2.1.0",
     "common-tags": "^1.3.0",
-    "coveralls": "^2.11.9",
+    "coveralls": "^2.11.16",
     "d3-queue": "^3.0.3",
     "eslint": "~3.17.0",
     "eslint-config-stylelint": "^6.0.0",
@@ -100,7 +100,7 @@
     "lint": "npm-run-all --parallel lint:*",
     "pretest": "npm-run-all --serial lint flow",
     "release": "npmpub",
-    "test": "jest",
+    "test": "jest --coverage",
     "watch": "jest --watch"
   },
   "eslintConfig": {
@@ -112,6 +112,23 @@
     }
   },
   "jest": {
+    "collectCoverage": false,
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ],
+    "coverageDirectory": "./.coverage/",
+    "coverageReporters": [
+      "lcov",
+      "text-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 75,
+        "functions": 75,
+        "lines": 75,
+        "statements": 75
+      }
+    },
     "setupFiles": [
       "./jest-setup.js"
     ],
