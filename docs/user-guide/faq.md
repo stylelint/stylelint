@@ -144,7 +144,7 @@ All these patterns disallow CSS identifiers that start with a digit, two hyphens
 
 Use the [`defaultSeverity`](configuration.md#defaultseverity) configuration option.
 
-## Can I bundle more than one sharable config within a npm package?
+## Can I bundle more than one sharable config within an npm package?
 
 A user can `require()` any file in your npm package, so all you need to do is document which paths point to configs (e.g. `require('my-package/config-2')`).
 
