@@ -35,7 +35,7 @@ This can be useful, for example, when making a text editor plugin that passes in
 
 A [stylelint configuration object](configuration.md).
 
-If no `config` or `configFile` is passed, stylelint will look for a `.stylelintrc` configuration file.
+If no `config` or `configFile` is passed, stylelint will use a [config lookup algorithm](./configuration.md#loading-the-configuration-object) to find the correct config.
 
 ### `configBasedir`
 
