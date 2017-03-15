@@ -10,3 +10,4 @@ Plugins are rules and sets of rules built by the community that support methodol
 -   [`stylelint-rscss`](https://github.com/rstacruz/stylelint-rscss): Validate [RSCSS](http://rscss.io) conventions.
 -   [`stylelint-scss`](https://github.com/kristerkari/stylelint-scss): Enforce a wide variety of SCSS-syntax specific linting rules (plugin pack).
 -   [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors (incorporates [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter)).
+-   [`stylelint-suitcss`](https://github.com/suitcss/stylelint-suitcss) - A collection of stylelint plugins for SUIT CSS, including deprecated `:root` rules (plugin pack).

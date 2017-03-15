@@ -1,6 +1,6 @@
 # custom-property-no-outside-root
 
-***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+***Deprecated: use the community [`stylelint-suitcss`](https://github.com/suitcss/stylelint-suitcss) plugin pack.***
 
 Disallow custom properties outside of `:root` rules.
 

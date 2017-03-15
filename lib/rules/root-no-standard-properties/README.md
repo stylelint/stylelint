@@ -1,6 +1,6 @@
 # root-no-standard-properties
 
-***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+***Deprecated: instead use the community [`stylelint-suitcss`](https://github.com/suitcss/stylelint-suitcss) plugin pack***
 
 Disallow standard properties inside `:root` rules.
 
