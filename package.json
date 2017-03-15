@@ -27,6 +27,7 @@
   "files": [
     "bin",
     "CONTRIBUTING.md",
+    "decls/*.js",
     "docs",
     "lib",
     "!**/__tests__"

@@ -1,4 +1,4 @@
-// from https://github.com/flowtype/flow-typed
+// https://raw.githubusercontent.com/flowtype/flow-typed/master/definitions/npm/lodash_v4.x.x/flow_v0.38.x-/lodash_v4.x.x.js
 declare module 'lodash' {
   declare type TemplateSettings = {
     escape?: RegExp,
@@ -197,7 +197,7 @@ declare module 'lodash' {
     includes(str: string, value: string, fromIndex?: number): bool;
     invokeMap<T>(array: ?Array<T>, path: ((value: T) => Array<string>|string)|Array<string>|string, ...args?: Array<any>): Array<any>;
     invokeMap<T: Object>(object: T, path: ((value: any) => Array<string>|string)|Array<string>|string, ...args?: Array<any>): Array<any>;
-    keyBy<T, V>(array: ?Array<T>, iteratee?: Iteratee2<T, V>): {[key: V]: T};
+    keyBy<T, V>(array: ?Array<T>, iteratee?: Iteratee2<T, V>): {[key: V]: ?T};
     keyBy<V, T: Object>(object: T, iteratee?: OIteratee<T>): Object;
     map<T, U>(array: ?Array<T>, iteratee?: MapIterator<T, U>): Array<U>;
     map<V, T: Object, U>(object: ?T, iteratee?: OMapIterator<V, T, U>): Array<U>;
@@ -299,7 +299,8 @@ declare module 'lodash' {
     isRegExp(value: any): bool;
     isSafeInteger(value: any): bool;
     isSet(value: any): bool;
-    isString(value: any): bool;
+    isString(value: string): true;
+    isString(value: number|Function|void|null|Object|Array<any>): false;
     isSymbol(value: any): bool;
     isTypedArray(value: any): bool;
     isUndefined(value: any): bool;
