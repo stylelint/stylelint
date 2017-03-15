@@ -3,6 +3,7 @@
 -   Added: support for asynchronous plugin rules ([#2351](https://github.com/stylelint/stylelint/pull/2351)).
 -   Added: `at-rule-semicolon-space-before` rule ([#2388](https://github.com/stylelint/stylelint/pull/2388)).
 -   Added: `ignore: ["comments"]` to `max-empty-lines` ([#2401](https://github.com/stylelint/stylelint/pull/2401)).
+-   Added: duplicate selector first usage line to `no-duplicate-selector` message ([#2415](https://github.com/stylelint/stylelint/pull/2415))
 -   Fixed: more helpful messages when file globs do not match any files ([#2328](https://github.com/stylelint/stylelint/pull/2328)).
 -   Fixed: `no-extra-semicolons` false positives for comments are custom property sets ([#2396](https://github.com/stylelint/stylelint/pull/2396)).
 -   Fixed: false positives for `attr`, `counter`, `counters` functions and ` counter-reset` property in `value-keyword-case` ([#2407](https://github.com/stylelint/stylelint/pull/2407)).
