@@ -22,7 +22,7 @@ export type postcss$atRule = {
   },
   type: string,
   parent: Object,
-  nodes: Array<Object>
+  nodes: Array<Object>,
 }
 
 export type postcss$rule = {

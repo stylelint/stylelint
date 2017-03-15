@@ -1,5 +1,7 @@
 # custom-property-no-outside-root
 
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+
 Disallow custom properties outside of `:root` rules.
 
 ```css

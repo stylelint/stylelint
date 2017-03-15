@@ -1,5 +1,7 @@
 # root-no-standard-properties
 
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+
 Disallow standard properties inside `:root` rules.
 
 ```css

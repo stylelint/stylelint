@@ -1,5 +1,7 @@
 # rule-non-nested-empty-line-before
 
+***Deprecated: instead use the [rule-empty-line-before](../rule-empty-line-before/README.md).***
+
 Require or disallow an empty line before non-nested rules.
 
 ```css
