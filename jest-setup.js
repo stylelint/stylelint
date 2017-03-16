@@ -96,7 +96,9 @@ global.testRule = (rule, schema) => {
               syntax: schema.syntax,
               fix: true,
             }).then((output) => {
-              code = output.results[0]._postcssResult.root.toResult().css
+              const result = output.results[0]._postcssResult
+
+              code = result.root.toString(result.opts.syntax)
 
               if (testCase.same) {
                 expect(code).toEqual(testCase.code)
