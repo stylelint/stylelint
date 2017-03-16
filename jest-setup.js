@@ -81,5 +81,43 @@ global.testRule = (rule, schema) => {
         })
       })
     }
+
+    if (schema.fixingCases && schema.fixingCases.length) {
+      describe("fix", () => {
+        schema.fixingCases.forEach((testCase) => {
+          const spec = (testCase.only) ? it.only : it
+          let code = testCase.code
+
+          // Fix testCase
+          spec(testCase.description || "no description. fix", () => {
+            return stylelint({
+              code,
+              config: stylelintConfig,
+              syntax: schema.syntax,
+              fix: true,
+            }).then((output) => {
+              code = output.results[0]._postcssResult.root.toResult().css
+
+              if (testCase.same) {
+                expect(code).toEqual(testCase.code)
+              } else if (testCase.expected) {
+                expect(code).toEqual(testCase.expected)
+              }
+            })
+          })
+
+          // Lint fixed testCase, it shouldn't show warnings
+          spec(testCase.description || "no description. lint fixed", () => {
+            return stylelint({
+              code,
+              config: stylelintConfig,
+              syntax: schema.syntax,
+            }).then((output) => {
+              expect(output.results[0].warnings).toEqual([])
+            })
+          })
+        })
+      })
+    }
   })
 }
