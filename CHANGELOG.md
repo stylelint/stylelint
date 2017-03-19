@@ -8,6 +8,22 @@
 
 # 8.0.0
 
+-   Removed: the 15 rules deprecated in [`7.8.0`](#780).
+    -   `block-no-single-line`.
+    -   `custom-property-no-outside-root`
+    -   `declaration-block-no-ignored-properties`.
+    -   `declaration-block-properties-order`.
+    -   `media-feature-no-missing-punctuation`.
+    -   `no-browser-hacks`.
+    -   `no-indistinguishable-colors`.
+    -   `no-unsupported-browser-features`.
+    -   `root-no-standard-properties`
+    -   `rule-nested-empty-line-before`.
+    -   `rule-non-nested-empty-line-before`.
+    -   `selector-no-empty`.
+    -   `selector-root-no-composition`.
+    -   `stylelint-disable-reason`.
+    -   `time-no-imperceptible`.
 -   Changed: stylelint [semantic version policy](README.md#semantic-versioning-policy). We now recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds.
 -   Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](https://github.com/stylelint/stylelint/issues/2350)).
 -   Added: `ignore: ["child"]` option to `selector-no-type` ([#1942](https://github.com/stylelint/stylelint/issues/1942)).
