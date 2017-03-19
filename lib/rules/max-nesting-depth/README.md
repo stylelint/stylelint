@@ -98,8 +98,6 @@ a .foo__foo .bar .baz {}
 
 ### `ignore: ["blockless-at-rules"]`
 
-***Note: This option was previously called `at-rules-without-declaration-blocks`.***
-
 Ignore at-rules that only wrap other rules, and do not themselves have declaration blocks.
 
 For example, with `1`:
