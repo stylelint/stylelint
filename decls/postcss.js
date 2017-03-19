@@ -33,6 +33,12 @@ export type postcss$rule = {
   nodes: Array<Object>,
 }
 
+export type postcss$options = {
+  from?: string,
+  parser?: stylelint$syntaxes,
+  syntax?: stylelint$syntaxes,
+}
+
 export type postcss$result = {
   css: string,
   root: Object,
