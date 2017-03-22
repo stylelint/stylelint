@@ -12,6 +12,8 @@ a {
  *      This line */
 ```
 
+This rule only applies to standard property declarations. Use the [`custom-property-empty-line-before`](../custom-property-empty-line-before/README.md) rule for custom property declarations.
+
 ## Options
 
 `string`: `"always"|"never"`
