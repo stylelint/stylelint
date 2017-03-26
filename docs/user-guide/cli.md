@@ -40,6 +40,12 @@ Using `bar/mySpecialConfig.json` as config, with quiet mode on, to lint all `.cs
 stylelint "foo/**/*.css bar/*.css" -q -f json --config bar/mySpecialConfig.json > myJsonReport.json
 ```
 
+Caching processed `.scss` files in order to operate only on changed ones in the `foo` directory, using the `cache` and `cache-location` options:
+
+```
+stylelint "foo/**/*.scss" --cache --cache-location "/Users/user/.stylelintcache/"
+```
+
 Linting all the `.scss` files in the `foo` directory, using the `syntax` option:
 
 ```shell
