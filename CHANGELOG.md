@@ -1,6 +1,7 @@
 # Head
 
 -   Added: support for asynchronous plugin rules ([#2351](https://github.com/stylelint/stylelint/pull/2351)).
+-   Added: `cache` option to store the info about processed files in order to only operate on the changed ones the next time you run stylelint([#2293](https://github.com/stylelint/stylelint/pull/2293)).
 -   Added: `at-rule-semicolon-space-before` rule ([#2388](https://github.com/stylelint/stylelint/pull/2388)).
 -   Added: `ignore: ["comments"]` to `max-empty-lines` ([#2401](https://github.com/stylelint/stylelint/pull/2401)).
 -   Added: duplicate selector first usage line to `no-duplicate-selector` message ([#2415](https://github.com/stylelint/stylelint/pull/2415))
