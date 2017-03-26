@@ -9,7 +9,7 @@
 
 # 8.0.0
 
--   Removed: the 15 rules deprecated in [`7.8.0`](#780).
+-   Removed: the 15 rules deprecated in [`7.8.0`](#780) ([#2422](https://github.com/stylelint/stylelint/issues/2422)).
     -   `block-no-single-line`.
     -   `custom-property-no-outside-root`
     -   `declaration-block-no-ignored-properties`.
@@ -25,12 +25,13 @@
     -   `selector-root-no-composition`.
     -   `stylelint-disable-reason`.
     -   `time-no-imperceptible`.
--   Removed: the 4 options deprecated in [`7.8.0`](#780).
+-   Removed: the 4 options deprecated in [`7.8.0`](#780) ([#2433](https://github.com/stylelint/stylelint/issues/2433)).
     -   `"all-nested"` option for `at-rule-empty-line-before`. 
     -   `"blockless-group"` option for `at-rule-empty-line-before`. 
     -   `"between-comments"` option for `comment-empty-line-before`. 
     -   `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`. 
--   Changed: stylelint [semantic version policy](README.md#semantic-versioning-policy). We now recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds.
+-   Changed: stylelint [semantic version policy](README.md#semantic-versioning-policy). We now recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
+-   Changed: `report-needless-disables` now exits with non-zero code ([#2341](https://github.com/stylelint/stylelint/issues/2341)).
 -   Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](https://github.com/stylelint/stylelint/issues/2350)).
 -   Added: `ignore: ["child"]` option to `selector-no-type` ([#1942](https://github.com/stylelint/stylelint/issues/1942)).
 -   Fixed: `selector-no-type` no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with `ignore: ["descendant"]` ([#2200](https://github.com/stylelint/stylelint/pull/2200)).
