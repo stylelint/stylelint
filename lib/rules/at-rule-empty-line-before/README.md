@@ -99,8 +99,6 @@ a {
 
 #### `"inside-block"`
 
-***Note: This option was previously called `all-nested`.***
-
 Reverse the primary option for at-rules that are nested.
 
 For example, with `"always"`:
@@ -173,8 +171,6 @@ a {
 ```
 
 #### `"blockless-after-blockless"`
-
-***Note: This option was previously called `blockless-group`.***
 
 Reverse the primary option for at-rules within a blockless group.
 
@@ -273,8 +269,6 @@ The following patterns are *not* considered warnings:
 
 #### `"inside-block"`
 
-***Note: This option was previously called `all-nested`.***
-
 Ignore at-rules that are inside a declaration block.
 
 For example, with `"always"`:
@@ -335,8 +329,6 @@ a {
 ```
 
 #### `"blockless-after-blockless"`
-
-***Note: This option was previously called `blockless-group`.***
 
 Ignore blockless at-rules that follow another blockless at-rule.
 
