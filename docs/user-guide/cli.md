@@ -16,6 +16,8 @@ The CLI outputs formatted results into `process.stdout`, which you can read with
 
 ### Examples
 
+When you run commands similar to the examples below, be sure to include the quotation marks around file globs. This ensures that you can use the powers of node-glob (like the `**` globstar) regardless of your shell.
+
 Looking for `.stylelintrc` and linting all `.css` files in the `foo` directory:  
 
 ```shell
@@ -57,6 +59,16 @@ In addition to `--syntax scss`, stylelint supports `--syntax less` and `--syntax
 Additionally, stylelint can accept a custom [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). To use a custom syntax, supply a syntax module name or path to the syntax file: `--custom-syntax custom-syntax` or `--custom-syntax ./path/to/custom-syntax`.
 
 Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed above.
+
+### Recursively linting a directory
+
+To recursively lint a directory, using the `**` globstar:
+
+```shell
+stylelint "foo/**/*.scss"
+```
+
+The quotation marks around the glob are important because they will allow stylelint to interpret the glob, using node-glob, instead of your shell, which might not support all the same features.
 
 ## Syntax errors
 
