@@ -62,13 +62,13 @@ Note, however, that stylelint can provide no guarantee that core rules will work
 
 ### Recursively linting a directory
 
-To recursively lint a directory, run
+To recursively lint a directory, using the `**` globstar:
 
 ```shell
 stylelint "foo/**/*.scss"
 ```
 
-The quotes above are important because stylelint uses node-glob, which recommends passing in glob arguments as strings.
+The quotation marks around the glob are important because they will allow stylelint to interpret the glob, using node-glob, instead of your shell, which might not support all the same features.
 
 ## Syntax errors
 
