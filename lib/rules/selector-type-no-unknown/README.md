@@ -40,6 +40,46 @@ li > a {}
 
 ## Optional secondary options
 
+### `ignore: ["default-namespace"]`
+
+#### `"default-namespace"`
+
+Allow unknown type selectors if they belong to the default namespace.
+
+The following patterns are considered warnings:
+
+```css
+namespace|unknown {}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+unknown {}
+```
+
+### `ignoreNamespaces: ["/regex/", "string"]`
+
+Given:
+
+```js
+["/^my-/", "custom-namespace"]
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+custom-namespace|unknown {}
+```
+
+```css
+my-namespace|unknown {}
+```
+
+```css
+my-other-namespace|unknown {}
+```
+
 ### `ignoreTypes: ["/regex/", "string"]`
 
 Given:
