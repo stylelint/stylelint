@@ -77,6 +77,10 @@ If `true`, all disable comments (e.g. `/* stylelint-disable block-no-empty */`) 
 
 You can use this option to see what your linting results would be like without those exceptions.
 
+### `disableDefaultIgnores`
+
+If `true`, stylelint will not automatically ignore the contents of `node_modules` and `bower_components`. (By default, these directories are automatically ignored.)
+
 ### `reportNeedlessDisables`
 
 If `true`, `ignoreDisables` will also be set to `true` and the returned data will contain a `needlessDisables` property, whose value is an array of objects, one for each source, with tells you which stylelint-disable comments are not blocking a lint warning.
