@@ -4,14 +4,14 @@
 -   Added: `cache` option to store the info about processed files in order to only operate on the changed ones the next time you run stylelint ([#2293](https://github.com/stylelint/stylelint/pull/2293)).
 -   Added: `at-rule-semicolon-space-before` rule ([#2388](https://github.com/stylelint/stylelint/pull/2388)).
 -   Added: `ignore: ["comments"]` to `max-empty-lines` ([#2401](https://github.com/stylelint/stylelint/pull/2401)).
--   Added: duplicate selector first usage line to `no-duplicate-selector` message ([#2415](https://github.com/stylelint/stylelint/pull/2415)).
 -   Added: `ignore: ["default-namespace"]` to `selector-type-no-unknown` ([#2461](https://github.com/stylelint/stylelint/pull/2461)).
 -   Added: `ignoreDefaultNamespaces` option to `selector-type-no-unknown` ([#2461](https://github.com/stylelint/stylelint/pull/2461)).
 -   Fixed: more helpful messages when file globs do not match any files ([#2328](https://github.com/stylelint/stylelint/pull/2328)).
--   Fixed: `no-extra-semicolons` false positives for comments are custom property sets ([#2396](https://github.com/stylelint/stylelint/pull/2396)).
--   Fixed: false positives for `attr`, `counter`, `counters` functions and ` counter-reset` property in `value-keyword-case` ([#2407](https://github.com/stylelint/stylelint/pull/2407)).
 -   Fixed: `decl/` folder of Flow types is shipped with the package, for consumers that use Flow ([#2322](https://github.com/stylelint/stylelint/issues/2322)).
 -   Fixed: `function-url-scheme-whitelist` was working incorrectly if more than one URL scheme were specified ([#2447](https://github.com/stylelint/stylelint/pull/2447)).
+-   Fixed: `no-duplicate-selector` now includes the duplicate selector's first usage line in message ([#2415](https://github.com/stylelint/stylelint/pull/2415)).
+-   Fixed: `no-extra-semicolons` false positives for comments after custom property sets ([#2396](https://github.com/stylelint/stylelint/pull/2396)).
+-   Fixed: `value-keyword-case` false positives for `attr`, `counter`, `counters` functions and ` counter-reset` property ([#2407](https://github.com/stylelint/stylelint/pull/2407)).
 
 # 7.9.0
 
@@ -94,9 +94,9 @@
 -   Fixed: SugarSS no longer reports wrong column number in `block-no-empty`.
 -   Fixed: `configOverrides` work with `plugins`, `extends`, and `processors`.
 -   Fixed: a bug causing inaccuracy in nested `stylelint-disable` and `stylelint-enable` comments.
--   Fixed: false positives for some camel-case SVG keywords in `value-keyword-case`.
--   Fixed: false positives for SCSS interpolation in `function-calc-no-unspaced-operator`.
+-   Fixed: `function-calc-no-unspaced-operator` false positives for SCSS interpolation.
 -   Fixed: `no-descending-specificity` now ignores custom property sets.
+-   Fixed: `value-keyword-case` false positives for some camel-case SVG keywords.
 
 # 7.4.2
 
