@@ -278,7 +278,7 @@ If your processor has options, make that item an array whose first item is the "
 
 Provide a glob or array of globs to ignore specific files.
 
-(An alternative method is to use a `.stylelintignore` file, described below.)
+*Note that this is not an efficient method for ignoring lots of files.* If you want to ignore a lot of files efficiently, use `.stylelintignore` or adjust your files globs.
 
 If the globs are absolute paths, they are used as is. If they are relative, they are analyzed relative to
 
@@ -301,7 +301,7 @@ The default severity level for all rules that do not have a severity specified i
 
 You can use a `.stylelintignore` file (or point to another ignore patterns file) to ignore specific files.
 
-(An alternative method is to use a `config.ignoreFiles`, described above.)
+These files will be excluded from the files glob before the file system is check at all, so it is an efficient method for ignoring lots of files.
 
 The patterns in your `.stylelintignore` file are [`node-glob` globs](https://github.com/isaacs/node-glob), which basically match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). As in `.gitignore`, you can also add comment lines beginning with `#`.
 
