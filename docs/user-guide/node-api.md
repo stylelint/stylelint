@@ -61,7 +61,7 @@ A file glob, or array of file globs. Ultimately passed to [node-glob](https://gi
 
 Relative globs are considered relative to `process.cwd()`.
 
-`node_modules` and `bower_components` are always ignored.
+By default, all `node_modules` and `bower_components` are ignored.
 
 ### `formatter`
 
