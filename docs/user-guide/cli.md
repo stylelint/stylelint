@@ -4,7 +4,7 @@
 
 stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install it using:
 
-```console
+```shell
 npm install -g stylelint
 ```
 
@@ -18,7 +18,7 @@ The CLI outputs formatted results into `process.stdout`, which you can read with
 
 When you run commands similar to the examples below, be sure to include the quotation marks around file globs. This ensures that you can use the powers of node-glob (like the `**` globstar) regardless of your shell.
 
-Looking for `.stylelintrc` and linting all `.css` files in the `foo` directory:  
+Looking for `.stylelintrc` and linting all `.css` files in the `foo` directory:
 
 ```shell
 stylelint "foo/*.css"
@@ -44,7 +44,7 @@ stylelint "foo/**/*.css bar/*.css" -q -f json --config bar/mySpecialConfig.json 
 
 Caching processed `.scss` files in order to operate only on changed ones in the `foo` directory, using the `cache` and `cache-location` options:
 
-```
+```shell
 stylelint "foo/**/*.scss" --cache --cache-location "/Users/user/.stylelintcache/"
 ```
 
