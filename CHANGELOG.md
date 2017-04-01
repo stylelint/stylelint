@@ -1,4 +1,4 @@
-# Head
+# 7.10.0
 
 -   Added: support for asynchronous plugin rules ([#2351](https://github.com/stylelint/stylelint/pull/2351)).
 -   Added: `cache` option to store the info about processed files in order to only operate on the changed ones the next time you run stylelint ([#2293](https://github.com/stylelint/stylelint/pull/2293)).
