@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: scope is kept when using `schema.preceedingPlugins` ([#2455](https://github.com/stylelint/stylelint/pull/2455)).
+
 # 7.10.0
 
 -   Added: support for asynchronous plugin rules ([#2351](https://github.com/stylelint/stylelint/pull/2351)).
