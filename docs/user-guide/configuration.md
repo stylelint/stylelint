@@ -303,8 +303,6 @@ You can use a `.stylelintignore` file (or point to another ignore patterns file)
 
 These files will be excluded from the files glob before the file system is check at all, so it is an efficient method for ignoring lots of files.
 
-The patterns in your `.stylelintignore` file are [`node-glob` globs](https://github.com/isaacs/node-glob), which basically match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). As in `.gitignore`, you can also add comment lines beginning with `#`.
+The patterns in your `.stylelintignore` file must match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). (Behind the scenes, [`node-ignore`](https://github.com/kaelzhang/node-ignore) parses your patterns.) One implication of this is that *your patterns in `.stylelintignore` are always analyzed relative to `process.cwd()`.*
 
-stylelint will look for a `.stylelintignore` file in `process.cwd()`. You can also specify a path to your ignore patterns file (absolute or relative to `process.cwd()`) using the `--ignore-path` (in the CLI) and `ignorePath` (in JS) options. *Your patterns in `.stylelintignore` are always analyzed relative to the location of the `.stylelintignore` file.*
-
-By default, all `node_modules` and `bower_components` are ignored. Default values will be overridden by `.stylelintignore`.
+stylelint will look for a `.stylelintignore` file in `process.cwd()`. You can also specify a path to your ignore patterns file (absolute or relative to `process.cwd()`) using the `--ignore-path` (in the CLI) and `ignorePath` (in JS) options.
