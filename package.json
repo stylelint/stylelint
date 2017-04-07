@@ -54,6 +54,7 @@
     "known-css-properties": "^0.0.7",
     "lodash": "^4.17.4",
     "log-symbols": "^1.0.2",
+    "mathml-tag-names": "^2.0.0",
     "meow": "^3.3.0",
     "micromatch": "^2.3.11",
     "normalize-selector": "^0.2.0",
