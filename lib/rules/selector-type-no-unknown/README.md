@@ -8,7 +8,7 @@ Disallow unknown type selectors.
  * This type selector */
 ```
 
-This rule considers tags defined in the HTML and SVG Specifications to be known.
+This rule considers tags defined in the HTML, SVG, and MathML specifications to be known.
 
 ## Options
 
