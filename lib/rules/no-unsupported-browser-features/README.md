@@ -1,6 +1,6 @@
 # no-unsupported-browser-features
 
-***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).*** Use the [stylelint-no-unsupported-browser-features](https://github.com/ismay/stylelint-no-unsupported-browser-features) plugin instead).
 
 Disallow features that are unsupported by the browsers that you are targeting.
 
