@@ -34,7 +34,7 @@ Array [
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/no-unsupported-browser-features/",
-        "text": "'no-unsupported-browser-features' has been deprecated and in 8.0 will be removed.",
+        "text": "'no-unsupported-browser-features' has been deprecated and in 8.0 will be removed. Use 'stylelint-no-unsupported-browser-features' plugin instead.",
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/stylelint-disable-reason/",

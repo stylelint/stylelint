@@ -1,6 +1,6 @@
 # no-unsupported-browser-features
 
-***Deprecated: See [CHANGELOG](../../../CHANGELOG.md).***
+***DEPRECATED! This rule was deprecated in favor of [`stylelint-no-unsupported-browser-features`](https://github.com/ismay/stylelint-no-unsupported-browser-features).***
 
 Disallow features that are unsupported by the browsers that you are targeting.
 

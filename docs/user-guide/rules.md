@@ -268,4 +268,4 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
 -   [`no-missing-end-of-source-newline`](../../lib/rules/no-missing-end-of-source-newline/README.md): Disallow missing end-of-source newlines.
 -   [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
--   [`no-unsupported-browser-features`](../../lib/rules/no-unsupported-browser-features/README.md): Disallow features that are unsupported by the browsers that you are targeting **(deprecated)**.
+-   [`no-unsupported-browser-features`](../../lib/rules/no-unsupported-browser-features/README.md): Disallow features that are unsupported by the browsers that you are targeting (**deprecated**, use the [stylelint-no-unsupported-browser-features](https://github.com/ismay/stylelint-no-unsupported-browser-features) plugin instead).
