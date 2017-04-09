@@ -1,6 +1,7 @@
 "use strict"
 
 const _ = require("lodash")
+const less = require("postcss-less")
 const basicChecks = require("./lib/testUtils/basicChecks")
 const stylelint = require("./lib/standalone")
 
@@ -107,7 +108,10 @@ global.testRule = (rule, schema) => {
 
 function getOutputCss(output) {
   const result = output.results[0]._postcssResult
-  return result.root.toString(result.opts.syntax)
+  const css = result.root.toString(result.opts.syntax)
+  if (result.opts.syntax === less) {
     // Less needs us to manually strip whitespace at the end of single-line comments ¯\_(ツ)_/¯
-    .replace(/(\n?\s*\/\/.*?)[ \t]*(\r?\n)/g, "$1$2")
+    return css.replace(/(\n?\s*\/\/.*?)[ \t]*(\r?\n)/g, "$1$2")
+  }
+  return css
 }
