@@ -77,7 +77,7 @@ If `true`, all disable comments (e.g. `/* stylelint-disable block-no-empty */`) 
 
 You can use this option to see what your linting results would be like without those exceptions.
 
-## `cache`
+### `cache`
 
 Store the info about processed files in order to only operate on the changed ones the next time you run stylelint. Enabling this option can dramatically improve stylelint's speed, because only changed files will be linted.
 
@@ -85,7 +85,7 @@ By default, the cache is stored in `.stylelintcache` in `process.cwd()`. To chan
 
 **Note:** If you run stylelint with `cache` and then run stylelint without `cache`, the `.stylelintcache` file will be deleted. This is necessary because we have to assume that `.stylelintcache` was invalidated by that second command.
 
-## `cacheLocation`
+### `cacheLocation`
 
 A path to a file or directory to be used for `cache`. Only meaningful alongside `cache`. If no location is specified, `.stylelintcache` will be created in `process.cwd()`.
 
