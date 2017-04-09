@@ -102,6 +102,34 @@ stylelint has a number of [utility functions](https://github.com/stylelint/style
 
 In particular, you will definitely want to use `validateOptions()` so that users are warned about invalid options. (Looking at other rules for examples of options validation will help a lot.)
 
+### Adding autofixing
+
+If you're sure it's possible to automatically fix all or some errors rule reports, you can add fixing functionality using [PostCSS API](http://api.postcss.org/) to modify PostCSS AST (Abstract Syntax Tree).
+
+Add `context` variable to rule parameters:
+
+```js
+function rule(primary, secondary, context) {
+  return (root, result) => {..}
+}
+```
+
+`context` is an object which could have two properties:
+
+-   `fix`(boolean): If `true`, your rule can apply autofixes.
+-   `newline`(string): Line-ending used in current linted file.
+
+If you can write fixing funtionality, then change `root` using PostCSS API and don't report that error:
+
+```js
+if (context.fix) {
+  // Apply fixes using PostCSS API
+  return // Return and don't report a problem
+}
+
+report(...)
+```
+
 ### Write tests
 
 Each rule must be accompanied by tests that contain:

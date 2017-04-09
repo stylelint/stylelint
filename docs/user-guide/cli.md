@@ -70,6 +70,16 @@ stylelint "foo/**/*.scss"
 
 The quotation marks around the glob are important because they will allow stylelint to interpret the glob, using node-glob, instead of your shell, which might not support all the same features.
 
+### Autofixing errors
+
+With `--fix` option stylelint will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported. Not all errors are fixable using this option.
+
+Linting all `.css` files in the `foo` directory. And fixing source files if violated rules support autofixing:
+
+```shell
+stylelint "foo/*.css" --fix
+```
+
 ## Syntax errors
 
 The CLI informs you about syntax errors in your CSS.
