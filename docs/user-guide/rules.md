@@ -232,7 +232,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 -   [`at-rule-blacklist`](../../lib/rules/at-rule-blacklist/README.md): Specify a blacklist of disallowed at-rules.
 -   [`at-rule-empty-line-before`](../../lib/rules/at-rule-empty-line-before/README.md): Require or disallow an empty line before at-rules.
--   [`at-rule-name-case`](../../lib/rules/at-rule-name-case/README.md): Specify lowercase or uppercase for at-rules names. Autofixable.
+-   [`at-rule-name-case`](../../lib/rules/at-rule-name-case/README.md): Specify lowercase or uppercase for at-rules names (Autofixable).
 -   [`at-rule-name-newline-after`](../../lib/rules/at-rule-name-newline-after/README.md): Require a newline after at-rule names.
 -   [`at-rule-name-space-after`](../../lib/rules/at-rule-name-space-after/README.md): Require a single space after at-rule names.
 -   [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md): Disallow unknown at-rules.
@@ -247,7 +247,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 ### Comment
 
--   [`comment-empty-line-before`](../../lib/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments. Autofixable.
+-   [`comment-empty-line-before`](../../lib/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments (Autofixable).
 -   [`comment-no-empty`](../../lib/rules/comment-no-empty/README.md):  Disallow empty comments.
 -   [`comment-whitespace-inside`](../../lib/rules/comment-whitespace-inside/README.md): Require or disallow whitespace on the inside of comment markers.
 -   [`comment-word-blacklist`](../../lib/rules/comment-word-blacklist/README.md): Specify a blacklist of disallowed words within comments.

@@ -72,7 +72,7 @@ The quotation marks around the glob are important because they will allow stylel
 
 ### Autofixing errors
 
-With `--fix` option stylelint will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported. Not all errors are fixable using this option.
+With `--fix` option stylelint will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported.
 
 Linting all `.css` files in the `foo` directory. And fixing source files if violated rules support autofixing:
 

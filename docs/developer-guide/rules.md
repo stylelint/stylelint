@@ -104,7 +104,7 @@ In particular, you will definitely want to use `validateOptions()` so that users
 
 ### Adding autofixing
 
-If you're sure it's possible to automatically fix all or some errors rule reports, you can add fixing functionality using [PostCSS API](http://api.postcss.org/) to modify PostCSS AST (Abstract Syntax Tree).
+Depending on the rule, it might be possible to automatically fix the rule's warnings by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](http://api.postcss.org/).
 
 Add `context` variable to rule parameters:
 
@@ -119,7 +119,7 @@ function rule(primary, secondary, context) {
 -   `fix`(boolean): If `true`, your rule can apply autofixes.
 -   `newline`(string): Line-ending used in current linted file.
 
-If you can write fixing funtionality, then change `root` using PostCSS API and don't report that error:
+If `context.fix` is `true`, then change `root` using PostCSS API and return early before `report()` is called.
 
 ```js
 if (context.fix) {
