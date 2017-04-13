@@ -87,7 +87,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 ### Custom property
 
--   [`custom-property-empty-line-before`](../../lib/rules/custom-property-empty-line-before/README.md): Require or disallow an empty line before custom properties.
+-   [`custom-property-empty-line-before`](../../lib/rules/custom-property-empty-line-before/README.md): Require or disallow an empty line before custom properties (Autofixable).
 -   [`custom-property-no-outside-root`](../../lib/rules/custom-property-no-outside-root/README.md): Disallow custom properties outside of `:root` rules **(deprecated)**.
 -   [`custom-property-pattern`](../../lib/rules/custom-property-pattern/README.md): Specify a pattern for custom properties.
 
