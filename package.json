@@ -33,7 +33,7 @@
     "!**/__tests__"
   ],
   "engines": {
-    "node": ">=4.2.1"
+    "node": ">=6"
   },
   "dependencies": {
     "autoprefixer": "^6.0.0",
