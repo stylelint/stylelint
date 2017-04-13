@@ -1,5 +1,8 @@
 # Head
 
+-   Added: experimental autofixing ([#2467](https://github.com/stylelint/stylelint/pull/2467)). Use `--fix` CLI parameter or `fix: true` Node API options property. Supported rules:
+    -   `at-rule-name-case`
+    -   `comment-empty-line-before`
 -   Fixed: `length-zero-no-unit` now correctly handles newlines and no spaces after colon ([#2477](https://github.com/stylelint/stylelint/pull/2477)).
 -   Fixed: `selector-type-no-unknown` now ignores MathML tags ([#2478](https://github.com/stylelint/stylelint/pull/2478)).
 
