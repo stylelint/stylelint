@@ -12,6 +12,8 @@ a {}
 
 If the at-rule is the very first node in a stylesheet then it is ignored.
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix some of the problems reported by this rule.
+
 ## Options
 
 `string`: `"always"|"never"`
