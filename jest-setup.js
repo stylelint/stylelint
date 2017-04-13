@@ -1,6 +1,7 @@
 "use strict"
 
 const _ = require("lodash")
+const less = require("postcss-less")
 const basicChecks = require("./lib/testUtils/basicChecks")
 const stylelint = require("./lib/standalone")
 
@@ -41,12 +42,20 @@ global.testRule = (rule, schema) => {
         passingTestCases.forEach((testCase) => {
           const spec = (testCase.only) ? it.only : it
           spec(testCase.description || "no description", () => {
-            return stylelint({
+            const options = {
               code: testCase.code,
               config: stylelintConfig,
               syntax: schema.syntax,
-            }).then((output) => {
+            }
+            return stylelint(options).then((output) => {
               expect(output.results[0].warnings).toEqual([])
+              if (!schema.fix) return
+
+              // Check the fix
+              return stylelint(Object.assign({ fix: true }, options)).then((output) => {
+                const fixedCode = getOutputCss(output)
+                expect(fixedCode).toBe(testCase.code)
+              })
             })
           })
         })
@@ -58,11 +67,12 @@ global.testRule = (rule, schema) => {
         schema.reject.forEach((testCase) => {
           const spec = (testCase.only) ? it.only : it
           spec(testCase.description || "no description", () => {
-            return stylelint({
+            const options = {
               code: testCase.code,
               config: stylelintConfig,
               syntax: schema.syntax,
-            }).then((output) => {
+            }
+            return stylelint(options).then((output) => {
               const warning = output.results[0].warnings[0]
 
               expect(testCase).toHaveMessage()
@@ -76,10 +86,32 @@ global.testRule = (rule, schema) => {
               if (testCase.column !== undefined) {
                 expect(_.get(warning, "column")).toBe(testCase.column)
               }
+
+              if (!schema.fix) return
+
+              if (!testCase.fixed) {
+                throw new Error("If using { fix: true } in test schema, all reject cases must have { fixed: .. }")
+              }
+
+              // Check the fix
+              return stylelint(Object.assign({ fix: true }, options)).then((output) => {
+                const fixedCode = getOutputCss(output)
+                expect(fixedCode).toBe(testCase.fixed)
+              })
             })
           })
         })
       })
     }
   })
+}
+
+function getOutputCss(output) {
+  const result = output.results[0]._postcssResult
+  const css = result.root.toString(result.opts.syntax)
+  if (result.opts.syntax === less) {
+    // Less needs us to manually strip whitespace at the end of single-line comments ¯\_(ツ)_/¯
+    return css.replace(/(\n?\s*\/\/.*?)[ \t]*(\r?\n)/g, "$1$2")
+  }
+  return css
 }

@@ -13,24 +13,30 @@ export type postcss$comment = {
   error(message: string, options: { plugin: string }): void,
 }
 
-export type postcss$atRule = {
-  name: string,
-  params: string,
-  raw: Function,
-  raws: {
-    afterName: string,
-  },
-  type: string,
-  parent: Object,
-  nodes: Array<Object>,
+export class postcss$node {
+  name: string;
+  raw: Function;
+  type: string;
+  parent: postcss$node;
+  nodes: Array<postcss$node>;
+  raws: Object
 }
 
-export type postcss$rule = {
-  raws: Object,
-  selector: string,
-  type: string,
-  parent: Object,
-  nodes: Array<Object>,
+export class postcss$atRule extends postcss$node {
+  params: string;
+  raws: {
+    before: string,
+    after: string,
+    afterName: string,
+  };
+}
+
+export class postcss$rule extends postcss$node {
+  selector: string;
+  raws: {
+    before: string,
+    after: string,
+  };
 }
 
 export type postcss$options = {

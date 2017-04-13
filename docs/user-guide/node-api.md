@@ -121,6 +121,10 @@ An absolute path to a custom [PostCSS-compatible syntax](https://github.com/post
 
 Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed for the `syntax` option above.
 
+### `fix`
+
+If `true`, stylelint will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported.
+
 
 ## The returned promise
 
