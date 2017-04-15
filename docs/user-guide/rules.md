@@ -114,7 +114,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`declaration-colon-newline-after`](../../lib/rules/declaration-colon-newline-after/README.md): Require a newline or disallow whitespace after the colon of declarations.
 -   [`declaration-colon-space-after`](../../lib/rules/declaration-colon-space-after/README.md): Require a single space or disallow whitespace after the colon of declarations.
 -   [`declaration-colon-space-before`](../../lib/rules/declaration-colon-space-before/README.md): Require a single space or disallow whitespace before the colon of declarations.
--   [`declaration-empty-line-before`](../../lib/rules/declaration-empty-line-before/README.md): Require or disallow an empty line before declarations.
+-   [`declaration-empty-line-before`](../../lib/rules/declaration-empty-line-before/README.md): Require or disallow an empty line before declarations (Autofixable).
 -   [`declaration-no-important`](../../lib/rules/declaration-no-important/README.md): Disallow `!important` within declarations.
 -   [`declaration-property-unit-blacklist`](../../lib/rules/declaration-property-unit-blacklist/README.md): Specify a blacklist of disallowed property and unit pairs within declarations.
 -   [`declaration-property-unit-whitelist`](../../lib/rules/declaration-property-unit-whitelist/README.md): Specify a whitelist of allowed property and unit pairs within declarations.
