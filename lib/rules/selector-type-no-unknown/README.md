@@ -40,7 +40,27 @@ li > a {}
 
 ## Optional secondary options
 
-### `ignore: ["default-namespace"]`
+### `ignore: ["custom-elements", "default-namespace"]`
+
+#### `"custom-elements"`
+
+Allow custom elements.
+
+The following patterns are considered warnings:
+
+```css
+unknown {}
+```
+
+```css
+x-Foo {}
+```
+
+The following patterns are *not* considered warnings:
+
+```css
+x-foo {}
+```
 
 #### `"default-namespace"`
 
