@@ -27,5 +27,6 @@ before_install:
 after_success:
   - if [ "$CI" = "coverage" ]; then cat ./.coverage/lcov.info | ./node_modules/.bin/coveralls; fi
 notifications:
+  email: false
   webhooks:
     - https://webhooks.gitter.im/e/d763493612da45967361
