@@ -24,12 +24,12 @@ Be careful with regex matching not to accidentally consider quoted string values
 Given:
 
 ```js
-{
+"declaration-property-value-blacklist": [{
   "transform": ["/scale3d/", "/rotate3d/", "/translate3d/"],
   "position": ["fixed"],
   "color": ["/^green/"],
   "/^animation/": ["/ease/"]
-}
+}, { "severity": "warning" }]
 ```
 
 The following patterns are considered warnings:
