@@ -8,6 +8,7 @@
 -   Fixed: `selector-pseudo-class-no-unknown` now checks `@page` at-rules and supports `@page` pseudo-classes ([#2445](https://github.com/stylelint/stylelint/pull/2445)).
 -   Fixed: `selector-type-no-unknown` now ignores valid custom elements ([#2366](https://github.com/stylelint/stylelint/pull/2366)).
 -   Fixed: no error is thrown when linting a string with `cache` enabled ([#2494](https://github.com/stylelint/stylelint/pull/2494)).
+-   Fixed: `selector-type-no-unknown` now ignores the `/deep/` shadow-piercing combinator ([#2508](https://github.com/stylelint/stylelint/pull/2508)).
 
 # 7.10.1
 
