@@ -3,8 +3,8 @@
 Require a single space or disallow whitespace after the combinators of selectors.
 
 ```css
-  a > b + c ~ d e { color: pink; }
-/** ↑   ↑   ↑  ↑
+  a > b + c ~ d e >>> f { color: pink; }
+/** ↑   ↑   ↑  ↑  ↑
  * These are combinators */
 ```
 
