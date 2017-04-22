@@ -9,6 +9,7 @@
 -   Fixed: `selector-type-no-unknown` now ignores valid custom elements ([#2366](https://github.com/stylelint/stylelint/pull/2366)).
 -   Fixed: no error is thrown when linting a string with `cache` enabled ([#2494](https://github.com/stylelint/stylelint/pull/2494)).
 -   Fixed: `selector-type-no-unknown` now ignores the `/deep/` shadow-piercing combinator ([#2508](https://github.com/stylelint/stylelint/pull/2508)).
+-   Fixed: `selector-descendant-combinator-no-non-space` and `selector-combinator-space-before/after` now understand and check `>>>` shadow-piercing combinator ([#2509](https://github.com/stylelint/stylelint/pull/2509)).
 
 # 7.10.1
 
