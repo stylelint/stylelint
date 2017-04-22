@@ -61,7 +61,7 @@ A file glob, or array of file globs. Ultimately passed to [node-glob](https://gi
 
 Relative globs are considered relative to `process.cwd()`.
 
-`node_modules` and `bower_components` are always ignored.
+By default, all `node_modules` and `bower_components` are ignored.
 
 ### `formatter`
 
@@ -76,6 +76,10 @@ If you pass a function, it must fit the signature described in the [Developer Gu
 If `true`, all disable comments (e.g. `/* stylelint-disable block-no-empty */`) will be ignored.
 
 You can use this option to see what your linting results would be like without those exceptions.
+
+### `disableDefaultIgnores`
+
+If `true`, stylelint will not automatically ignore the contents of `node_modules` and `bower_components`. (By default, these directories are automatically ignored.)
 
 ### `reportNeedlessDisables`
 

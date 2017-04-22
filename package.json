@@ -44,7 +44,7 @@
     "globby": "^6.0.0",
     "globjoin": "^0.1.4",
     "html-tags": "^1.1.1",
-    "ignore": "^3.2.0",
+    "ignore": "^3.2.6",
     "known-css-properties": "^0.0.7",
     "lodash": "^4.17.4",
     "log-symbols": "^1.0.2",
@@ -126,7 +126,12 @@
     "plugins": [
       "preset-lint-recommended",
       "preset-lint-consistent",
-      ["validate-links", {"repository": "stylelint/stylelint"}]
+      [
+        "validate-links",
+        {
+          "repository": "stylelint/stylelint"
+        }
+      ]
     ]
   }
 }
