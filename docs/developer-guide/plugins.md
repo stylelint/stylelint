@@ -34,6 +34,8 @@ Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`
 
 In order for your plugin rule to work with the [standard configuration format](../user-guide/configuration.md#rules), `ruleFunction` should accept 2 arguments: the primary option and, optionally, a secondary options object.
 
+If plugin rule supports [autofixing](rules.md#adding-autofixing), then `ruleFunction` should accept third argument: context. Also, it's highly recommended to support `disableFix` option in a secondary options object. Don't do autofixing if user has `disableFix` enabled for your rule.
+
 `ruleFunction` should return a function that is essentially a little [PostCSS plugin](https://github.com/postcss/postcss/blob/master/docs/writing-a-plugin.md): it takes 2 arguments: the PostCSS Root (the parsed AST), and the PostCSS LazyResult. You'll have to [learn about the PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md).
 
 ### Asynchronous rules
