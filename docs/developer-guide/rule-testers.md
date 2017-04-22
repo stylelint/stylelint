@@ -42,12 +42,14 @@ Required properties:
     -   `column` {number}: *Optional but recommended.* The expected column number of the violation. If this is left out, the column won't be checked.
     -   `description` {string}: *Optional.* A description of the case.
     -   `only` {boolean}: If `true`, run only this test case.
+    -   `fixed` {string}: *Required if test schema has `fix` enabled.* Result of autofixing against `code` property.
 
 Optional properties:
 
 -   `syntax` {"css"|"less"|"scss"|"sugarss"}: Defaults to `"css"`. Other settings use special parsers.
 -   `skipBasicChecks` {boolean}: Defaults to `false`. If `true`, a few rudimentary checks (that should almost always be included) will not be performed. You can check those out in `lib/testUtils/basicChecks.js`.
 -   `preceedingPlugins` {array}: An array of PostCSS plugins that should be run before the CSS is tested.
+-   `fix` {boolean}: Defaults to `false`. If `true`, every `reject` test-case will be tested for autofixing functionality. *Required if rule has autofixing.*
 
 ## Creating a rule tester
 
