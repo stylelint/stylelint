@@ -24,7 +24,7 @@ Bugs and feature requests should be reported on the [stylehacks issue tracker](h
 
 Defaults to the browserslist default, which targets modern browsers.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color/*\**/: pink\9; }

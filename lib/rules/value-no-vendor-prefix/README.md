@@ -8,13 +8,13 @@ a { display: -webkit-flex; }
  *  These prefixes */
 ```
 
-This rule will only warn for prefixed *standard* values, and not for prefixed *proprietary* or *unknown* ones.
+This rule will only complain for prefixed *standard* values, and not for prefixed *proprietary* or *unknown* ones.
 
 ## Options
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { display: -webkit-flex; }
@@ -28,7 +28,7 @@ a { max-width: -moz-max-content; }
 a { background: -webkit-linear-gradient(bottom, #000, #fff); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { display: flex; }

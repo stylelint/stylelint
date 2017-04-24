@@ -16,7 +16,7 @@ a { color: pink !important; }
 
 There *must always* be a single space before the bang.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink!important; }
@@ -26,7 +26,7 @@ a { color: pink!important; }
 a { color: pink  ! important; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink !important; }
@@ -40,13 +40,13 @@ a { color:pink ! important; }
 
 There *must never* be whitespace before the bang.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color : pink !important; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink!important; }

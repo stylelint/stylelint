@@ -16,7 +16,7 @@ Require a single space or disallow whitespace before the commas of media query l
 
 There *must always* be a single space before the commas.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media screen and (color),projection and (color) {}
@@ -27,7 +27,7 @@ The following patterns are considered warnings:
 ,projection and (color) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media screen and (color) ,projection and (color) {}
@@ -42,7 +42,7 @@ projection and (color) {}
 
 There *must never* be whitepace before the commas.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media screen and (color) ,projection and (color) {}
@@ -53,7 +53,7 @@ The following patterns are considered warnings:
 , projection and (color) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media screen and (color),projection and (color) {}
@@ -68,13 +68,13 @@ projection and (color) {}
 
 There *must always* be a single space before the commas in single-line media query lists.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media screen and (color),projection and (color) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media screen and (color) ,projection and (color) {}
@@ -94,13 +94,13 @@ The following patterns are *not* considered warnings:
 
 There *must never* be whitepace before the commas in single-line media query lists.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media screen and (color) , projection and (color) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media screen and (color),projection and (color) {}

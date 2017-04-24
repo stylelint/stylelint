@@ -9,19 +9,19 @@ Disallow missing end-of-source newlines.
  * This newline */
 ```
 
-Completely empty files are not considered warnings.
+Completely empty files are not considered violations.
 
 ## Options
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }

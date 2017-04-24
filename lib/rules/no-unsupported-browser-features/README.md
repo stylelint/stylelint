@@ -12,7 +12,7 @@ Disallow features that are unsupported by the browsers that you are targeting.
 
 This rule uses [doiuse](https://github.com/anandthakker/doiuse) to detect browser support. doiuse itself checks your code against the ["Can I use"](http://caniuse.com/) database.
 
-**This is a good rule to use with "warning"-level severity**, because its primary purpose is to warn you that you are using features not all browsers fully support *and therefore ought to provide fallbacks*. But the warning will continue even if you have a fallback in place (it doesn't know); so you probably do not want this rule to break your build. Instead, consider it a friendly reminder to double-check certain spots for fallbacks.
+**This is a good rule to use with "warning"-level severity**, because its primary purpose is to warn you that you are using features not all browsers fully support *and therefore ought to provide fallbacks*. But the violation will continue even if you have a fallback in place (it doesn't know); so you probably do not want this rule to break your build. Instead, consider it a friendly reminder to double-check certain spots for fallbacks.
 
 Bugs and feature requests should be reported on the [doiuse issue tracker](https://github.com/anandthakker/doiuse/issues).
 
@@ -22,7 +22,7 @@ Bugs and feature requests should be reported on the [doiuse issue tracker](https
 
 Defaults to the doiuse default, which is `"> 1%, last 2 versions, Firefox ESR, Opera 12.1"`.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { opacity: 0.5; }
@@ -42,4 +42,4 @@ If you set `browsers: "last 2 versions, ie >=9"` the declaration above is allowe
 
 ### `ignore: [ "array", "of", "features", "to", "ignore" ]`
 
-If you no longer want to be warned about, say, your use of `rem`, you can use `ignore: ["rem"]`.
+If you no longer want to be alerted about, say, your use of `rem`, you can use `ignore: ["rem"]`.

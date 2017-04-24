@@ -18,7 +18,7 @@ b {        /* ↑ */
 
 For example, with `0`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a
@@ -54,7 +54,7 @@ b {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a b {

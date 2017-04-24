@@ -14,7 +14,7 @@ a { top: 3.245634px; }
 
 For example, with `2`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { top: 3.245px; }
@@ -28,7 +28,7 @@ a { top: 3.245634px; }
 @media (min-width: 3.234em) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { top: 3.24px; }

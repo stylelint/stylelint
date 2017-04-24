@@ -20,9 +20,9 @@ a {
 }
 ```
 
-This rule will only warn if you've used the longhand equivalent of *all* the properties that the shorthand will set.
+This rule will only complain if you've used the longhand equivalent of *all* the properties that the shorthand will set.
 
-This rule warns when the following shorthand properties can be used:
+This rule complains when the following shorthand properties can be used:
 
 -   `padding`
 -   `margin`
@@ -43,7 +43,7 @@ This rule warns when the following shorthand properties can be used:
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -75,7 +75,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -120,7 +120,7 @@ Given:
 ["padding", "/border/"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {

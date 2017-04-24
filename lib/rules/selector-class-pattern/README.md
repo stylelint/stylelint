@@ -24,7 +24,7 @@ Given the string:
 "foo-[a-z]+"
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 .foop {}
@@ -38,7 +38,7 @@ The following patterns are considered warnings:
 div > #zing + .foo-BAR {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 .foo-bar {}
@@ -80,7 +80,7 @@ Given the string:
 "^[A-Z]+$"
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 .A {
@@ -88,7 +88,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 .A {

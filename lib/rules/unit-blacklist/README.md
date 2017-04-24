@@ -18,7 +18,7 @@ Given:
 ["px", "em", "deg"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { width: 100px; }
@@ -32,7 +32,7 @@ a { font-size: 10em; }
 a { transform: rotate(30deg); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { font-size: 1.2rem; }
@@ -67,7 +67,7 @@ Given:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { font-size: 13px; }
@@ -81,7 +81,7 @@ a { border-bottom-width: 6px; }
 a { width: 100vmin; }
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { line-height: 12px; }

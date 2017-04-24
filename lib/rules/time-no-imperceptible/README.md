@@ -16,7 +16,7 @@ This rule checks `transition-duration`, `transition-delay`, `animation-duration`
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { animation: 80ms; }
@@ -34,7 +34,7 @@ a { transition: background-color 6ms linear; }
 a { animation: horse-dance 1s linear 0.01s; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { animation: 8s; }

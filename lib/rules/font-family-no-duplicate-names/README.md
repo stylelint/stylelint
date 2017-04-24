@@ -18,7 +18,7 @@ This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntax
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { font-family: 'Times', Times, serif; }
@@ -32,7 +32,7 @@ a { font: 1em "Arial", 'Arial', sans-serif; }
 a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif, sans-serif; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { font-family: Times, serif; }
@@ -56,7 +56,7 @@ Given:
 ["/^My Font /", "monospace"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 font-family: monospace, monospace

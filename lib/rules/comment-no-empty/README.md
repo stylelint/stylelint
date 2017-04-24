@@ -14,7 +14,7 @@ Disallow empty comments.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 /**/
@@ -30,7 +30,7 @@ The following patterns are considered warnings:
  */
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 /* comment */

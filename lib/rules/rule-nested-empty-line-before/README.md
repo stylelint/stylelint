@@ -21,7 +21,7 @@ Require or disallow an empty line before nested rules.
 
 There *must always* be an empty line before rules.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media { a {} }
@@ -33,7 +33,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media {
@@ -46,7 +46,7 @@ The following patterns are *not* considered warnings:
 
 There *must never* be an empty line before rules.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media { a {} }
@@ -59,7 +59,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media {
@@ -71,7 +71,7 @@ The following patterns are *not* considered warnings:
 
 There *must always* be an empty line before multi-line rules.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media {
@@ -82,7 +82,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media {
@@ -98,7 +98,7 @@ The following patterns are *not* considered warnings:
 
 There *must never* be an empty line before multi-line rules.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media {
@@ -110,7 +110,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media {
@@ -129,7 +129,7 @@ Reverse the primary option if the rule is the first in a block.
 
 For example, with `"always"`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media {
@@ -142,7 +142,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media {
@@ -160,7 +160,7 @@ Reverse the primary option if the rule comes after another rule.
 
 For example, with `"always"`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media {
@@ -171,7 +171,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media {
@@ -187,7 +187,7 @@ The following patterns are *not* considered warnings:
 
 Ignore rules that come after a comment.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media {

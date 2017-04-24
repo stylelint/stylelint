@@ -16,7 +16,7 @@ Require a single space or disallow whitespace after operators within attribute s
 
 There *must always* be a single space after the operator.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 [target=_blank] {}
@@ -42,7 +42,7 @@ The following patterns are considered warnings:
 [target ="_blank"] {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 [target] {}
@@ -76,7 +76,7 @@ The following patterns are *not* considered warnings:
 
 There *must never* be a single space after the operator.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 [target= _blank] {}
@@ -102,7 +102,7 @@ The following patterns are considered warnings:
 [target = "_blank"] {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 [target] {}

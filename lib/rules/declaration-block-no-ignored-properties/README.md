@@ -12,7 +12,7 @@ a { display: inline; width: 100px; }
 
 Certain property value pairs rule out other property value pairs, causing them to be ignored by the browser. For example, when an element has display: inline, any further declarations about width, height and margin-top properties will be ignored. Sometimes this is confusing: maybe you forgot that your margin-top will have no effect because the element has display: inline, so you spend a while struggling to figure out what you've done wrong. This rule protects against that confusion by ensuring that within a single rule you don't use property values that are ruled out by other property values in that same rule.
 
-The rule warns when it finds:
+The rule complains when it finds:
 
 -   `display: inline` used with `width`, `height`, `margin`, `margin-top`, `margin-bottom`, `overflow` (and all variants).
 -   `display: list-item` used with `vertical-align`.
@@ -32,7 +32,7 @@ The rule warns when it finds:
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { display: inline; width: 100px; }
@@ -76,7 +76,7 @@ a { float: left; vertical-align: baseline; }
 
 `float: left` causes `vertical-align` to be ignored.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { display: inline: margin-left: 10px; }

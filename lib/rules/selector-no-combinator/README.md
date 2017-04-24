@@ -14,7 +14,7 @@ Combinators are used to combine several different selectors into new and more sp
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a b { color: pink; }
@@ -24,7 +24,7 @@ a b { color: pink; }
 a > b { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }

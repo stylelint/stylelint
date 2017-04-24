@@ -18,7 +18,7 @@ This rule ignores variables inside `url` function (`$sass`, `@less`, `--custom-p
 
 There *must always* be data URIs in url.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { 
@@ -33,7 +33,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -52,7 +52,7 @@ a {
 
 There *must never* be data URIs in url.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -67,7 +67,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {

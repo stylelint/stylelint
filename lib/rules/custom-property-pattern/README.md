@@ -20,13 +20,13 @@ Given the string:
 "foo-.+"
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 :root { --boo-bar: 0; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 :root { --foo-bar: 0; }

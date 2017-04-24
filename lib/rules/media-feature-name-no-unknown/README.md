@@ -18,7 +18,7 @@ Caveat: Media feature names within a [range context](https://www.w3.org/TR/media
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media screen and (unknown) {}
@@ -28,7 +28,7 @@ The following patterns are considered warnings:
 @media screen and (unknown: 10px) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css  
 @media all and (monochrome) {}
@@ -60,7 +60,7 @@ Given:
 ["/^my-/", "custom"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media screen and (my-media-feature-name) {}

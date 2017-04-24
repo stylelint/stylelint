@@ -18,7 +18,7 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 ### `"lower"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @Charset 'UTF-8';
@@ -44,7 +44,7 @@ The following patterns are considered warnings:
 @MEDIA (min-width: 50em) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @charset 'UTF-8';
@@ -56,7 +56,7 @@ The following patterns are *not* considered warnings:
 
 ### `"upper"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @Charset 'UTF-8';
@@ -82,7 +82,7 @@ The following patterns are considered warnings:
 @media (min-width: 50em) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @CHARSET 'UTF-8';

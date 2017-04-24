@@ -16,7 +16,7 @@ This rule ensures that there is either a colon or a range operator in non-boolea
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media (max-width 600px) {}
@@ -26,7 +26,7 @@ The following patterns are considered warnings:
 @media (width   20em) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media (max-width: 600px) {}
