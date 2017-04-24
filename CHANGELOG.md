@@ -1,12 +1,21 @@
 # Head
 
 -   Added: experimental autofixing ([#2467](https://github.com/stylelint/stylelint/pull/2467)). Use `--fix` CLI parameter or `fix: true` Node API options property. Supported rules:
+    -   `at-rule-empty-line-before`
     -   `at-rule-name-case`
     -   `comment-empty-line-before`
+    -   `custom-property-empty-line-before`
+    -   `declaration-empty-line-before`
+    -   `rule-empty-line-before`
+-   Added: `selector-max-class` rule.
+-   Added: `ignore: ["custom-elements"]` option to `selector-type-no-unknown` ([#2366](https://github.com/stylelint/stylelint/pull/2366)).
+-   Fixed: no error is thrown when linting a string with `cache` enabled ([#2494](https://github.com/stylelint/stylelint/pull/2494)).
 -   Fixed: `length-zero-no-unit` now correctly handles newlines and no spaces after colon ([#2477](https://github.com/stylelint/stylelint/pull/2477)).
--   Fixed: `selector-type-no-unknown` now ignores MathML tags ([#2478](https://github.com/stylelint/stylelint/pull/2478)).
+-   Fixed: `selector-descendant-combinator-no-non-space` and `selector-combinator-space-before/after` now understand and check `>>>` shadow-piercing combinator ([#2509](https://github.com/stylelint/stylelint/pull/2509)).
 -   Fixed: `selector-pseudo-class-no-unknown` now checks `@page` at-rules and supports `@page` pseudo-classes ([#2445](https://github.com/stylelint/stylelint/pull/2445)).
--   Fixed: `selector-type-no-unknown` now ignores valid custom elements ([#2366](https://github.com/stylelint/stylelint/pull/2366)).
+-   Fixed: `selector-pseudo-class-no-unknown` now considers `focus-ring`, `playing` and `paused` to be known ([#2507](https://github.com/stylelint/stylelint/pull/2507)).
+-   Fixed: `selector-type-no-unknown` now ignores MathML tags ([#2478](https://github.com/stylelint/stylelint/pull/2478)).
+-   Fixed: `selector-type-no-unknown` now ignores the `/deep/` shadow-piercing combinator ([#2508](https://github.com/stylelint/stylelint/pull/2508)).
 
 # 7.10.1
 

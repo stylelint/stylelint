@@ -5,6 +5,8 @@ const less = require("postcss-less")
 const basicChecks = require("./lib/testUtils/basicChecks")
 const stylelint = require("./lib/standalone")
 
+jest.mock("./lib/utils/getOsEol", () => () => "\n")
+
 global.testRule = (rule, schema) => {
   expect.extend({
     toHaveMessage(testCase) {
