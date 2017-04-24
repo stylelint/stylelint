@@ -1,8 +1,12 @@
 # Head
 
 -   Added: experimental autofixing ([#2467](https://github.com/stylelint/stylelint/pull/2467)). Use `--fix` CLI parameter or `fix: true` Node API options property. Supported rules:
+    -   `at-rule-empty-line-before`
     -   `at-rule-name-case`
     -   `comment-empty-line-before`
+    -   `custom-property-empty-line-before`
+    -   `declaration-empty-line-before`
+    -   `rule-empty-line-before`
 -   Added: `selector-max-class` rule.
 -   Added: `ignore: ["custom-elements"]` option to `selector-type-no-unknown` ([#2366](https://github.com/stylelint/stylelint/pull/2366)).
 -   Fixed: no error is thrown when linting a string with `cache` enabled ([#2494](https://github.com/stylelint/stylelint/pull/2494)).
