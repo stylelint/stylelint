@@ -17,7 +17,7 @@ Require a newline or disallow whitespace before the commas of selector lists.
 
 There *must always* be a newline before the commas.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a, b { color: pink; }
@@ -28,7 +28,7 @@ a,
 b { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a
@@ -44,14 +44,14 @@ a
 
 There *must always* be a newline before the commas in multi-line selector lists.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a,
 b { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a, b { color: pink; }
@@ -72,7 +72,7 @@ b { color: pink; }
 
 There *must never* be whitespace before the commas in multi-line selector lists.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a
@@ -85,7 +85,7 @@ a
 b { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a,b { color: pink; }

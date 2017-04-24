@@ -14,7 +14,7 @@ A type selector is "qualifying" when it is compounded with (chained to) another 
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a.foo {
@@ -34,7 +34,7 @@ input[type='button'] {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 .foo {
@@ -62,7 +62,7 @@ input {
 
 Allow attribute selectors qualified by type.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 input[type='button'] {
@@ -74,7 +74,7 @@ input[type='button'] {
 
 Allow class selectors qualified by type.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a.foo {
@@ -86,7 +86,7 @@ a.foo {
 
 Allow id selectors qualified by type.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a#foo {

@@ -24,13 +24,13 @@ Bugs and feature requests should be reported on the [css-colorguard issue tracke
 
 Defaults to css-colorguard's default threshold of `3`.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: black; background: #010101; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: black; background: #FFF; }
@@ -44,7 +44,7 @@ The options below directly correspond to the css-colorguard options.
 
 Number can be between `0` and `100`. The default is `3`.
 
-The lower the threshold, the more similar colors have to be to trigger a warning. The higher the threshold, the more warnings you will get.
+The lower the threshold, the more similar colors have to be to trigger a violation. The higher the threshold, the more violations you will get.
 
 ### `ignore: ["array", "of", "hexes", "to", "ignore"]`
 
@@ -54,13 +54,13 @@ Given:
 ignore: ["black"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: #020202; background: #010101; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: black; background: #010101; }
@@ -76,7 +76,7 @@ Given:
 whitelist: [ [ "black", "#010101" ] ]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: #020202; background: #010101; }
@@ -86,7 +86,7 @@ a { color: #020202; background: #010101; }
 a { color: black; background: #020202; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: black; background: #010101; }

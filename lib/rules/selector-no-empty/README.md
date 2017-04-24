@@ -16,7 +16,7 @@ Empty selectors (by themselves or within a selector list) invalidate a rule. Thi
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 {}
@@ -34,7 +34,7 @@ The following patterns are considered warnings:
 .a, , .b {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {}

@@ -16,7 +16,7 @@ a { transform: translate(1 ,1) }
 
 There *must always* be a single space before the commas.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: translate(1,1) }
@@ -26,7 +26,7 @@ a { transform: translate(1,1) }
 a { transform: translate(1, 1) }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { transform: translate(1 ,1) }
@@ -40,7 +40,7 @@ a { transform: translate(1 , 1) }
 
 There *must never* be whitespace before the commas.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: translate(1 ,1) }
@@ -50,7 +50,7 @@ a { transform: translate(1 ,1) }
 a { transform: translate(1 , 1) }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { transform: translate(1,1) }
@@ -64,7 +64,7 @@ a { transform: translate(1, 1) }
 
 There *must always* be a single space before the commas in single-line functions.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: translate(1,1) }
@@ -74,7 +74,7 @@ a { transform: translate(1,1) }
 a { transform: translate(1, 1) }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { transform: translate(1 ,1) }
@@ -95,7 +95,7 @@ a {
 
 There *must never* be whitepace before the commas in single-line functions.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: translate(1 ,1) }
@@ -105,7 +105,7 @@ a { transform: translate(1 ,1) }
 a { transform: translate(1 , 1) }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { transform: translate(1,1) }

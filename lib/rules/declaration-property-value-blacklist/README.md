@@ -32,7 +32,7 @@ Given:
 }
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { position: fixed; }
@@ -62,7 +62,7 @@ a { animation-timing-function: ease-in-out; }
 a { -webkit-animation-timing-function: ease-in-out; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { position: relative; }

@@ -17,7 +17,7 @@ Require a newline after at-rule names.
 
 There *must always* be a newline after at-rule names.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @charset "UTF-8";
@@ -28,7 +28,7 @@ The following patterns are considered warnings:
   (orientation: landscape) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @charset
@@ -56,7 +56,7 @@ The following patterns are *not* considered warnings:
 
 There *must always* be a newline after at-rule names in at-rules with multi-line parameters.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @import "x.css" screen and
@@ -68,7 +68,7 @@ The following patterns are considered warnings:
  (orientation: landscape) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @charset "UTF-8";

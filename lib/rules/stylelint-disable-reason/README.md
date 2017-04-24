@@ -23,7 +23,7 @@ a {
 
 There *must always* be a reason comment before the `stylelint-disable` comment.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -52,7 +52,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -84,7 +84,7 @@ a {
 
 There *must always* be a reason comment after the `stylelint-disable` disable comment.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -113,7 +113,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {

@@ -14,7 +14,7 @@ a { top: 0px; }
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { top: 0px }
@@ -24,7 +24,7 @@ a { top: 0px }
 a { top: 0.000em }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { top: 0 } /* no unit */

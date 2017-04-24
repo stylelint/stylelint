@@ -14,7 +14,7 @@ Right now this rule simply checks for prefixed *resolutions*.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media (-webkit-min-device-pixel-ratio: 1) {}
@@ -28,7 +28,7 @@ The following patterns are considered warnings:
 @media (-o-max-device-pixel-ratio: 1/1) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media (min-resolution: 96dpi) {}

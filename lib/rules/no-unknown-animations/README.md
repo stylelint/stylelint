@@ -18,7 +18,7 @@ This rule considers the identifiers of `@keyframes` rules defined within the sam
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { animation-name: fancy-slide; }
@@ -43,7 +43,7 @@ a { animation-name: jump; }
 @keyframes fancy-slide {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { animation-name: fancy-slide; }

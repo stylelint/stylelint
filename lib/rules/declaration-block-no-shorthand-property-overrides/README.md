@@ -14,7 +14,7 @@ In almost every case, this is just an authorial oversight. For more about this b
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -39,7 +39,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { padding: 10px; padding-left: 20px; }

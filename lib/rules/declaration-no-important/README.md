@@ -14,7 +14,7 @@ If you always want `!important` in your declarations, e.g. if you're writing [us
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink !important; }
@@ -28,7 +28,7 @@ a { color: pink ! important; }
 a { color: pink!important; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }

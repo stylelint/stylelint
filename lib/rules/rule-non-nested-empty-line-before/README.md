@@ -22,7 +22,7 @@ If the rule is the very first node in a stylesheet then it is ignored.
 
 There *must always* be an empty line before rules.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {} b {}
@@ -33,7 +33,7 @@ a {}
 b {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {}
@@ -45,7 +45,7 @@ b {}
 
 There *must never* be an empty line before rules.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {}
@@ -53,7 +53,7 @@ a {}
 b {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {} b {}
@@ -68,7 +68,7 @@ b {}
 
 There *must always* be an empty line before multi-line rules.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a
@@ -77,7 +77,7 @@ b
 {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a
@@ -91,7 +91,7 @@ b
 
 There *must never* be an empty line before multi-line rules.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a
@@ -101,7 +101,7 @@ b
 {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a
@@ -116,7 +116,7 @@ b
 
 Ignore rules that come after a comment.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a
@@ -141,7 +141,7 @@ b
 
 For example, with `"always"`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 /* comment */
@@ -150,7 +150,7 @@ a
 {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 /* comment */
