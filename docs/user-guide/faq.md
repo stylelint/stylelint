@@ -57,9 +57,9 @@ We [recommend](css-processors.md) linting your source files before any transform
 
 [Create a processor](../developer-guide/processors.md) or [use an existing one](configuration.md#processors) that extracts CSS from your HTML's `<style>` tags and feeds it into stylelint.
 
-## How do I automatically fix stylistic warnings?
+## How do I automatically fix stylistic violations?
 
-[stylefmt](https://github.com/morishitter/stylefmt) supports stylelint configuration files and can automatically fix a number of stylistic warnings.
+Use the `--fix` CLI flag or the `fix` Node API option to fix a number of stylistic violations with this *experimental* feature.
 
 ## How do I manage conflicts between rules?
 

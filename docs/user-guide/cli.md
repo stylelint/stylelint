@@ -83,7 +83,7 @@ stylelint "foo/*.css" --fix
 ## Syntax errors
 
 The CLI informs you about syntax errors in your CSS.
-It uses the same format as it uses for linting warnings.
+It uses the same format as it uses for linting violations.
 The error name is `CssSyntaxError`.
 
 ## Exit codes
@@ -91,6 +91,6 @@ The error name is `CssSyntaxError`.
 The CLI can exit the process with the following exit codes:
 
 -   1: Something unknown went wrong.
--   2: At least one rule with an "error"-level severity triggered at least one warning.
+-   2: At least one rule with an "error"-level severity triggered at least one violations.
 -   78: There was some problem with the configuration file.
 -   80: A file glob was passed, but it found no files.
