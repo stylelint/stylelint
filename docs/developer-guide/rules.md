@@ -81,7 +81,7 @@ A rule's secondary option can be anything if you're not ignoring or making excep
 
 Use a more specific secondary option name when accepting a *user-defined* list of things to ignore. This takes the form of `"ignore<Things>": []` e.g. use `"ignoreAtRules": []` if a rule checks at-rules and you want to allow a user to specify which particular at-rule types to ignore.
 
-### Determine warning messages
+### Determine violation messages
 
 Messages take one of these forms:
 
@@ -104,7 +104,7 @@ In particular, you will definitely want to use `validateOptions()` so that users
 
 ### Adding autofixing
 
-Depending on the rule, it might be possible to automatically fix the rule's warnings by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](http://api.postcss.org/).
+Depending on the rule, it might be possible to automatically fix the rule's violations by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](http://api.postcss.org/).
 
 Add `context` variable to rule parameters:
 
@@ -134,8 +134,8 @@ report(...)
 
 Each rule must be accompanied by tests that contain:
 
--   All patterns that are considered warnings.
--   All patterns that should *not* be considered warnings.
+-   All patterns that are considered violations.
+-   All patterns that should *not* be considered violations.
 
 It is easy to write stylelint tests, so *write as many as you can stand to*.
 
@@ -187,8 +187,8 @@ Each rule must be accompanied by a README, fitting the following format:
 3.  Prototypical code example.
 4.  Expanded description (if necessary).
 5.  Options.
-6.  Example patterns that are considered warnings (for each option value).
-7.  Example patterns that are *not* considered warnings (for each option value).
+6.  Example patterns that are considered violations (for each option value).
+7.  Example patterns that are *not* considered violations (for each option value).
 8.  Optional options (if applicable).
 
 Look at the READMEs of other rules to glean more conventional patterns.

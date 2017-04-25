@@ -95,7 +95,7 @@ If a directory is specified, a cache file will be created inside the specified f
 
 ### `reportNeedlessDisables`
 
-If `true`, `ignoreDisables` will also be set to `true` and the returned data will contain a `needlessDisables` property, whose value is an array of objects, one for each source, with tells you which stylelint-disable comments are not blocking a lint warning.
+If `true`, `ignoreDisables` will also be set to `true` and the returned data will contain a `needlessDisables` property, whose value is an array of objects, one for each source, with tells you which stylelint-disable comments are not blocking a lint violation.
 
 Use this report to clean up your codebase, keeping only the stylelint-disable comments that serve a purpose.
 
@@ -132,11 +132,11 @@ If `true`, stylelint will fix as many errors as possible. The fixes are made to 
 
 ### `errored`
 
-Boolean. If `true`, at least one rule with an "error"-level severity registered a warning.
+Boolean. If `true`, at least one rule with an "error"-level severity registered a violation.
 
 ### `output`
 
-A string displaying the formatted warnings (using the default formatter or whichever you passed).
+A string displaying the formatted violations (using the default formatter or whichever you passed).
 
 ### `postcssResults`
 
