@@ -255,7 +255,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 ### General / Sheet
 
--   [`indentation`](../../lib/rules/indentation/README.md): Specify indentation.
+-   [`indentation`](../../lib/rules/indentation/README.md): Specify indentation (Autofixable).
 -   [`max-empty-lines`](../../lib/rules/max-empty-lines/README.md): Limit the number of adjacent empty lines.
 -   [`max-line-length`](../../lib/rules/max-line-length/README.md): Limit the length of a line.
 -   [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md): Limit the depth of nesting.
