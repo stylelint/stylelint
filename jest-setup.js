@@ -99,6 +99,7 @@ global.testRule = (rule, schema) => {
               return stylelint(Object.assign({ fix: true }, options)).then((output) => {
                 const fixedCode = getOutputCss(output)
                 expect(fixedCode).toBe(testCase.fixed)
+                expect(fixedCode).not.toBe(testCase.code)
               })
             })
           })
