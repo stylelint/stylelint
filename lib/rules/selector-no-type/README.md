@@ -12,7 +12,7 @@ Disallow type selectors.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {}
@@ -26,7 +26,7 @@ a, .foo {}
 a > [foo] {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 .foo {}
@@ -56,7 +56,7 @@ The following patterns are *not* considered warnings:
 
 Allow compounded type selectors -- i.e. type selectors chained with other selectors.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a.foo {}
@@ -70,7 +70,7 @@ a#bar {}
 
 Allow descendant type selectors.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 .foo a {}
@@ -88,7 +88,7 @@ Given:
 ["/^my-/", "custom"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 custom {}

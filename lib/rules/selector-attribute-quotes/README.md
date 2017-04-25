@@ -16,7 +16,7 @@ Require or disallow quotes for attribute values.
 
 Attribute values *must always* be quoted.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 [title=flower] {}
@@ -26,7 +26,7 @@ The following patterns are considered warnings:
 [class^=top] {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 [title] {}
@@ -52,7 +52,7 @@ The following patterns are *not* considered warnings:
 
 Attribute values *must never* be quoted.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 [target="_blank"] {}
@@ -70,7 +70,7 @@ The following patterns are considered warnings:
 [data-attribute='component'] {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 [title] {}

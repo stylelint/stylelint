@@ -16,7 +16,7 @@ Require a single space or disallow whitespace on the inside of the brackets with
 
 There *must always* be a single space inside the brackets.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 [target] {}
@@ -42,7 +42,7 @@ The following patterns are considered warnings:
 [target=_blank ] {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 [ target ] {}
@@ -56,7 +56,7 @@ The following patterns are *not* considered warnings:
 
 There *must never* be whitespace on the inside the brackets.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 [ target] {}
@@ -82,7 +82,7 @@ The following patterns are considered warnings:
 [ target=_blank ] {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 [target] {}

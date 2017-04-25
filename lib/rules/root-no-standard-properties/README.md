@@ -16,7 +16,7 @@ This rule ignores `$sass` and `@less` variables.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 :root { color: pink; }
@@ -26,7 +26,7 @@ The following patterns are considered warnings:
 a, :root { top: 0; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 :root { --foo: 0; }

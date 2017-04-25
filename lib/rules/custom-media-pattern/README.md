@@ -20,13 +20,13 @@ Given the string:
 "foo-.+"
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @custom-media --bar (min-width: 30em);
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @custom-media --foo-bar (min-width: 30em);

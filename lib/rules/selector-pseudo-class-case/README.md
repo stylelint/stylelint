@@ -14,7 +14,7 @@ Specify lowercase or uppercase for pseudo-class selectors.
 
 ### `"lower"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a:Hover {}
@@ -36,7 +36,7 @@ a:HOVER {}
 :-MS-INPUT-PLACEHOLDER {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a:hover {}
@@ -52,7 +52,7 @@ a:hover {}
 
 ### `"upper"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a:Hover {}
@@ -74,7 +74,7 @@ a:hover {}
 :-ms-input-placeholder {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a:HOVER {}

@@ -14,7 +14,7 @@ Disallow custom properties outside of `:root` rules.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { --foo: 1px; }
@@ -24,7 +24,7 @@ a { --foo: 1px; }
 :root, a { --foo: 1px; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 :root { --foo: 1px; }

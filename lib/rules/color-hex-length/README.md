@@ -14,7 +14,7 @@ a { color: #fff }
 
 ### `"short"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: #ffffff; }
@@ -24,7 +24,7 @@ a { color: #ffffff; }
 a { color: #fffffaa; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: #fff; }
@@ -40,7 +40,7 @@ a { color: #a4a4a4; }
 
 ### `"long"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: #fff; }
@@ -50,7 +50,7 @@ a { color: #fff; }
 a { color: #fffa; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: #ffffff; }

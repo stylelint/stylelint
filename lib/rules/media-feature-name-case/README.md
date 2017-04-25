@@ -16,7 +16,7 @@ Specify lowercase or uppercase for media feature names.
 
 ### `"lower"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media (MIN-WIDTH: 700px) {}
@@ -30,7 +30,7 @@ The following patterns are considered warnings:
 @media (min-width: 700px) and (ORIENTATION: landscape) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media (min-width: 700px) {}
@@ -46,7 +46,7 @@ The following patterns are *not* considered warnings:
 
 ### `"upper"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media (min-width: 700px) {}
@@ -60,7 +60,7 @@ The following patterns are considered warnings:
 @media (MIN-WIDTH: 700px) and (orientation: landscape) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media (MIN-WIDTH: 700px) {}

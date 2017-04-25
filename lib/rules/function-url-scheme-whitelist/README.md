@@ -26,7 +26,7 @@ Given:
 ["https", "data"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { background-image: url('http://www.example.com/file.jpg'); }
@@ -36,7 +36,7 @@ a { background-image: url('http://www.example.com/file.jpg'); }
 a { background-image: url('ftp://www.example.com/file.jpg'); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { background-image: url('https://www.example.com/file.jpg'); }

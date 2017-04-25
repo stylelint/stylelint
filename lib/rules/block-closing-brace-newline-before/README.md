@@ -17,13 +17,13 @@ Require a newline or disallow whitespace before the closing brace of blocks.
 
 There *must always* be a newline before the closing brace.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink;}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink;
@@ -40,14 +40,14 @@ color: pink;
 
 There *must always* be a newline before the closing brace in multi-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
 color: pink;}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }
@@ -62,14 +62,14 @@ a { color: pink;
 
 There *must never* be whitespace before the closing brace in multi-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
 color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }

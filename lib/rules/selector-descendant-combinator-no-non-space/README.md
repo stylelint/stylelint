@@ -14,7 +14,7 @@ This rule ensures that only a single space is used and ensures no tabs, newlines
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 .foo  .bar {}
@@ -25,7 +25,7 @@ The following patterns are considered warnings:
 .bar {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 .foo .bar {}

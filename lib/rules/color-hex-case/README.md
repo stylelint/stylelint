@@ -14,13 +14,13 @@ a { color: #fff }
 
 ### `"lower"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: #FFF; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: #000; }
@@ -32,13 +32,13 @@ a { color: #fff; }
 
 ### `"upper"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: #fff; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: #000; }

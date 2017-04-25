@@ -14,7 +14,7 @@ Specify lowercase or uppercase for pseudo-element selectors.
 
 ### `"lower"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a:Before {}
@@ -44,7 +44,7 @@ a::BEFORE {}
 input::-MOZ-PLACEHOLDER {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a:before {}
@@ -60,7 +60,7 @@ input::-moz-placeholder {}
 
 ### `"upper"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a:Before {}
@@ -90,7 +90,7 @@ a::before {}
 input::-moz-placeholder {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a:BEFORE {}

@@ -14,7 +14,7 @@ Disallow the composition of `:root` in selectors.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a, :root {}
@@ -28,7 +28,7 @@ a, :root {}
 html:root {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 :root {}
