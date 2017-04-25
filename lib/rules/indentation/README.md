@@ -13,6 +13,8 @@ Specify indentation.
  * The indentation at these three points */
 ```
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `int|"tab"`, where `int` is the number of spaces
@@ -188,7 +190,7 @@ a {
 @media print {
   a {
     color: pink;
-  }  
+  }
 }
 ```
 
@@ -204,7 +206,7 @@ a {
 @media print {
   a {
     color: pink;
-    }  
+    }
   }
 ```
 
