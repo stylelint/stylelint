@@ -59,7 +59,7 @@ We [recommend](css-processors.md) linting your source files before any transform
 
 ## How do I automatically fix stylistic violations?
 
-Use the `--fix` CLI flag or the `fix` Node API option to fix a number of stylistic violations with this _experimental_ feature.
+Use the `--fix` CLI flag or the `fix` Node API option to fix a number of stylistic violations with this *experimental* feature.
 
 ## How do I manage conflicts between rules?
 
