@@ -14751,7 +14751,7 @@ Array [
         "line": 84,
         "rule": "no-unsupported-browser-features",
         "severity": "error",
-        "text": "Unexpected browser feature \\"calc\\" is not supported by Opera 12.1, Opera Mini all, UC Browser for Android 11 and only partially supported by Android Browser 4.4 (no-unsupported-browser-features)",
+        "text": "Unexpected browser feature \\"calc\\" is not supported by Opera 12.1, Opera Mini all and only partially supported by Android Browser 4.4 (no-unsupported-browser-features)",
       },
       Object {
         "column": 5,
@@ -14814,7 +14814,7 @@ Array [
         "line": 160,
         "rule": "no-unsupported-browser-features",
         "severity": "error",
-        "text": "Unexpected browser feature \\"kerning-pairs-ligatures\\" is not supported by IE 10,11, Edge 13,14, Opera 12.1, Opera Mini all, IE Mobile 10,11 (no-unsupported-browser-features)",
+        "text": "Unexpected browser feature \\"kerning-pairs-ligatures\\" is not supported by IE 10,11, Edge 14,15, Opera 12.1, Opera Mini all, IE Mobile 10,11 (no-unsupported-browser-features)",
       },
       Object {
         "column": 5,
@@ -14863,7 +14863,7 @@ Array [
         "line": 252,
         "rule": "no-unsupported-browser-features",
         "severity": "error",
-        "text": "Unexpected browser feature \\"flexbox\\" is only partially supported by IE 10,11, IE Mobile 10, UC Browser for Android 11 (no-unsupported-browser-features)",
+        "text": "Unexpected browser feature \\"flexbox\\" is only partially supported by IE 10,11, IE Mobile 10, UC Browser for Android 11.4 (no-unsupported-browser-features)",
       },
       Object {
         "column": 18,
