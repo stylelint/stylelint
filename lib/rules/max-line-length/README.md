@@ -119,7 +119,7 @@ Given:
 ["/^@import\\s+/"]
 ```
 
-The following is *not* considered a violation regardless of line length:
+The following pattern is *not* considered a violation:
 
 ```css
 @import "../../../../another/css/or/scss/file/or/something.css";
