@@ -92,7 +92,7 @@
     "npmpub": "^3.0.1",
     "pify": "^2.3.0",
     "postcss-import": "^9.0.0",
-    "postcss-safe-parser": "^2.0.0",
+    "postcss-safe-parser": "^3.0.0",
     "remark-cli": "^3.0.0",
     "remark-preset-lint-consistent": "^2.0.0",
     "remark-preset-lint-recommended": "^2.0.0",
