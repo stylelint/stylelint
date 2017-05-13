@@ -35,6 +35,7 @@
 -   Fixed: `no-duplicate-selector` now includes the duplicate selector's first usage line in message ([#2415](https://github.com/stylelint/stylelint/pull/2415)).
 -   Fixed: `no-extra-semicolons` false positives for comments after custom property sets ([#2396](https://github.com/stylelint/stylelint/pull/2396)).
 -   Fixed: `value-keyword-case` false positives for `attr`, `counter`, `counters` functions and ` counter-reset` property ([#2407](https://github.com/stylelint/stylelint/pull/2407)).
+-   Fixed: Less mergeable properties are now ignored ([#2570](https://github.com/stylelint/stylelint/pull/2570)).
 
 # 7.9.0
 
