@@ -121,6 +121,7 @@
     }
   },
   "jest": {
+    "clearMocks": true,
     "collectCoverage": false,
     "collectCoverageFrom": [
       "lib/**/*.js"
