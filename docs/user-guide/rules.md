@@ -10,7 +10,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 
 ### Color
 
--   [`color-hex-case`](../../lib/rules/color-hex-case/README.md): Specify lowercase or uppercase for hex colors.
+-   [`color-hex-case`](../../lib/rules/color-hex-case/README.md): Specify lowercase or uppercase for hex colors (Autofixable).
 -   [`color-hex-length`](../../lib/rules/color-hex-length/README.md): Specify short or long notation for hex colors.
 -   [`color-named`](../../lib/rules/color-named/README.md): Require (where possible) or disallow named colors.
 -   [`color-no-hex`](../../lib/rules/color-no-hex/README.md): Disallow hex colors.
