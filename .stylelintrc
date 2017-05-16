@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "selector-pseudo-element-colon-notation": "double",
+    "selector-pseudo-element-no-unknown": [true, {
+      ignorePseudoElements: ["/global/", ":global", /":global"/]
+    }]
+  }
+}
