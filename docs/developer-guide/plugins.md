@@ -28,7 +28,7 @@ module.exports.ruleName = ruleName
 module.exports.messages = messages
 ```
 
-Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`. If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`. This namespace ensures that plugin rules will never clash with core rules. *Make sure you document your plugin's rule name (and namespace) for users, because they will need to use it in their config.*
+Your plugin's rule name MUST be namespaced with `plugin/`, e.g. `plugin/my-awesome-rule-name`. This namespace ensures that plugin rules will never clash with core rules. *Make sure you document your plugin's rule name (and namespace) for users, because they will need to use it in their config.*
 
 `stylelint.createPlugin(ruleName, ruleFunction)` ensures that your plugin will be setup properly alongside other rules.
 
