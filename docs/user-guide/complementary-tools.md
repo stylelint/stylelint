@@ -31,4 +31,4 @@ A list of complementary tools built and maintained by the community.
 
 ## Version Control
 
-- [Pre-commit](https://github.com/awebdeveloper/pre-commit-stylelint) A pre-commit hook for stylelint
+- [Pre-commit](https://github.com/awebdeveloper/pre-commit-stylelint) A git pre-commit hook for stylelint
