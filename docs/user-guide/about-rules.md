@@ -116,6 +116,20 @@ a { transform: translate( 1, 1 ); }
  * The space inside these two parentheses */
 ```
 
+## About rule options
+
+A complete list of primary rule options can be found in the [example configuration.](example-config.md)
+
+To turn a rule off (when extending a configuration) you can set the value of the rule to `null`.
+
+Many rules have secondary options which provide further customization. To set secondary options, a two-member array replaces the primary option primitive. For example:
+
+```js
+"selector-type-no-unknown": [true, {
+  "ignoreTypes": ["date-input-polyfill"]
+}]
+```
+
 ## Rules work together
 
 The rules can be used together to enforce strict conventions.
