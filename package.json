@@ -66,6 +66,7 @@
     "postcss-scss": "^0.4.0",
     "postcss-selector-parser": "^2.1.1",
     "postcss-value-parser": "^3.1.1",
+    "postcss-values-parser": "^1.2.0",
     "resolve-from": "^2.0.0",
     "specificity": "^0.3.0",
     "string-width": "^2.0.0",
