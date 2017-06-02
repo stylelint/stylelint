@@ -33,7 +33,7 @@ If you're using the linter as a [PostCSS Plugin](postcss-plugin.md), you'll need
 ```js
 var postcss = require("postcss")
 var scss = require("postcss-scss")
-// or use "postcss-less" or "sugarss", "postcss-sass", "postcss-html"
+// or use "postcss-less", "sugarss", "postcss-sass", or "postcss-html"
 
 postcss([
   require("stylelint"),
