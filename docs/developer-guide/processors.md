@@ -25,7 +25,7 @@ module.exports = function(options) {
 }
 ```
 
-Processors can enable stylelint to lint the CSS within non-stylesheet files. For example, let's say you want to lint the CSS within `<style>` tags in HTML. If you just feed stylelint your HTML code, you'll run into problems, because PostCSS does not parse HTML. Instead, you can create a processor that does the following:
+Processors can enable stylelint to lint the CSS within non-stylesheet files. For example, let's say you want to lint the CSS within `<style>` tags in HTML. If you just feed stylelint your HTML code, you'll run into problems, because PostCSS does not parse HTML by default. Instead, you can create a processor that does the following:
 
 -   In the `code` processor function, extract CSS from the `<style>` tags in the HTML code. Return a CSS string containing all that extracted CSS, which is what stylelint will inspect.
 -   Build a sourcemap while performing the extraction, so warning positions can be tailored to match the original source HTML.
