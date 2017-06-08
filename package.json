@@ -51,7 +51,7 @@
     "html-tags": "^1.1.1",
     "ignore": "^3.2.0",
     "imurmurhash": "^0.1.4",
-    "known-css-properties": "^0.1.0",
+    "known-css-properties": "^0.2.0",
     "lodash": "^4.17.4",
     "log-symbols": "^1.0.2",
     "mathml-tag-names": "^2.0.0",
