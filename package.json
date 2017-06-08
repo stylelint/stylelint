@@ -23,6 +23,7 @@
     "url": "https://github.com/stylelint/stylelint.git"
   },
   "main": "lib/index.js",
+  "typings": "typings/index.d.ts",
   "bin": "bin/stylelint.js",
   "files": [
     "bin",
