@@ -28,3 +28,7 @@ A list of complementary tools built and maintained by the community.
 ## Editors
 
 -   [WebStorm](https://blog.jetbrains.com/webstorm/2016/09/webstorm-2016-3-eap-163-4830-stylelint-usages-for-default-exports-and-more/): Version 2016.3 onwards has built-in support for stylelint.
+
+## Version Control
+
+-   [Pre-commit](https://github.com/awebdeveloper/pre-commit-stylelint) A git pre-commit hook for stylelint
