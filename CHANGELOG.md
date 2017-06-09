@@ -6,6 +6,7 @@
     -   `comment-empty-line-before`
     -   `custom-property-empty-line-before`
     -   `declaration-empty-line-before`
+    -   `indentation`
     -   `rule-empty-line-before`
 -   Added: `selector-max-class` rule.
 -   Added: `ignore: ["custom-elements"]` option to `selector-type-no-unknown` ([#2366](https://github.com/stylelint/stylelint/pull/2366)).
