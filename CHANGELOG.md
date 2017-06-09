@@ -1,4 +1,4 @@
-# Head
+# 7.11.0
 
 -   Added: experimental autofixing ([#2467](https://github.com/stylelint/stylelint/pull/2467), [#2500](https://github.com/stylelint/stylelint/pull/2500), [#2529](https://github.com/stylelint/stylelint/pull/2529) and [#2577](https://github.com/stylelint/stylelint/pull/2577)). Use `--fix` CLI parameter or `fix: true` Node API options property. Supported rules:
     -   `at-rule-empty-line-before`
