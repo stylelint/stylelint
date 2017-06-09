@@ -82,7 +82,7 @@
     "coveralls": "^2.11.16",
     "cp-file": "^4.1.1",
     "d3-queue": "^3.0.3",
-    "del": "^2.2.2",
+    "del": "^3.0.0",
     "eslint": "~3.19.0",
     "eslint-config-stylelint": "^6.0.0",
     "file-exists-promise": "^1.0.2",
