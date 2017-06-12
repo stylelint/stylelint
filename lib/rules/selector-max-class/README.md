@@ -19,7 +19,7 @@ The `:not()` pseudo-class is also evaluated separately. The rule processes the a
 
 For example, with `2`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 .foo.bar.baz {}
@@ -31,7 +31,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 div {}
