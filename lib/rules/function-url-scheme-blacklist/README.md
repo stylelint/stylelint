@@ -1,6 +1,6 @@
-# function-url-scheme-whitelist
+# function-url-scheme-blacklist
 
-Specify a whitelist of allowed URL schemes.
+Specify a blacklist of disallowed URL schemes.
 
 ```css
 a { background-image: url('http://www.example.com/file.jpg'); }
@@ -23,7 +23,7 @@ This rule ignores URL arguments with variables or variable interpolation (`$sass
 Given:
 
 ```js
-["https", "data"]
+["http", "ftp"]
 ```
 
 The following patterns are considered violations:

@@ -76,6 +76,7 @@ You might want to learn a little about [how rules are named and how they work to
     "function-url-data-uris": "always"|"never",
     "function-url-no-scheme-relative": true,
     "function-url-quotes": "always"|"never",
+    "function-url-scheme-blacklist": string|[],
     "function-url-scheme-whitelist": string|[],
     "function-whitelist": string|[],
     "function-whitespace-after": "always"|"never",
