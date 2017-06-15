@@ -128,7 +128,7 @@ The following pattern is *not* considered a violation:
 Given the following, with a maximum length of `20`.
 
 ```js
-["/https?:\/\/[0-9,a-z]*.*"]
+["/https?:\/\/[0-9,a-z]*.*/"]
 ```
 
 The following pattern is *not* considered a violation:
