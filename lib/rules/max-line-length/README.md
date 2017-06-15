@@ -124,3 +124,15 @@ The following pattern is *not* considered a violation:
 ```css
 @import "../../../../another/css/or/scss/file/or/something.css";
 ```
+
+Given the following, with a maximum length of `20`.
+
+```js
+["/https?:\/\/[0-9,a-z]*.*/"]
+```
+
+The following pattern is *not* considered a violation:
+
+```css
+/* ignore urls https://www.example.com */
+```
