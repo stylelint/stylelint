@@ -1,4 +1,4 @@
-# Head
+# 7.11.1
 
 -   Fixed: `media-feature-name-*list` now accept arrays for their primary options ([#2632](https://github.com/stylelint/stylelint/pull/2632)).
 -   Fixed: `selector-*` now ignore custom property sets ([#2634](https://github.com/stylelint/stylelint/pull/2634)).
