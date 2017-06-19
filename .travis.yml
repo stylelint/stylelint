@@ -5,15 +5,12 @@ cache:
     - node_modules
 matrix:
   include:
-    - node_js: '7'
+    - node_js: '8'
       script: npm run pretest
       env: CI=pretest
     - node_js: '8'
-      script: npm run jest -- --runInBand
-      env: CI=tests 8
-    - node_js: '7'
-      script: npm run jest -- --runInBand
-      env: CI=tests 7
+      script: npm run jest -- --runInBand  --coverage
+      env: CI=coverage
     - node_js: '6'
       script: npm run jest -- --runInBand
       env: CI=tests 6
@@ -21,9 +18,6 @@ matrix:
       script: npm run jest -- --runInBand
       env: CI=tests 4
       sudo: required
-    - node_js: '7'
-      script: npm run jest -- --runInBand  --coverage
-      env: CI=coverage
 before_install:
   - npm prune
   - npm update
