@@ -9,6 +9,7 @@ const del = require("del")
 const cpFile = require("cp-file")
 const systemTestUtils = require("../systemTestUtils")
 const stylelint = require("../../lib")
+const spawn = require("child_process").spawn
 
 describe("fix", () => {
   let tmpDir
@@ -58,5 +59,47 @@ describe("fix", () => {
         expect(fileContent).toBe(result.root.toString(result.opts.syntax))
       })
     })
+  })
+
+  it("should not fix ignored files", () => {
+    const readFile = () => {
+      return pify(fs.readFile)(stylesheetPath, "utf8")
+    }
+
+    const runCli = () => {
+      return new Promise((r, rj) => {
+        const localPath = path.resolve(__dirname)
+        const cliPath = path.join(localPath, "../../lib/cli.js")
+
+        const cliProcess = spawn("node", [
+          cliPath, stylesheetPath,
+          "--ignore-path", "custom-ignore",
+          "--config", "config.json",
+          "--fix",
+        ], { cwd: localPath })
+
+        cliProcess.on("error", function (error) {
+          rj(error)
+        })
+
+        cliProcess.on("close", function (code) {
+          r(code)
+        })
+      })
+    }
+
+    return (readFile()
+      .then((originalContent) => {
+        return (runCli()
+          .then((code) => {
+            expect(code).toEqual(0)
+          })
+          .then(readFile)
+          .then((newContent) => {
+            expect(newContent).toBe(originalContent)
+          })
+        )
+      })
+    )
   })
 })
