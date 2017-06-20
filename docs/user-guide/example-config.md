@@ -138,6 +138,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-max-empty-lines": int,
     "selector-max-id": int,
     "selector-max-specificity": string,
+    "selector-max-universal": int,
     "selector-nested-pattern": string,
     "selector-no-attribute": true,
     "selector-no-combinator": true,
