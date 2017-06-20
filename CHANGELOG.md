@@ -1,3 +1,7 @@
+# Head
+
+-   Added: `selector-max-attribute` rule ([#2628](https://github.com/stylelint/stylelint/pull/2628)).
+
 # 7.11.1
 
 -   Fixed: `media-feature-name-*list` now accept arrays for their primary options ([#2632](https://github.com/stylelint/stylelint/pull/2632)).
