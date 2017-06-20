@@ -48,7 +48,7 @@
     "get-stdin": "^5.0.0",
     "globby": "^6.0.0",
     "globjoin": "^0.1.4",
-    "html-tags": "^1.1.1",
+    "html-tags": "^2.0.0",
     "ignore": "^3.2.0",
     "imurmurhash": "^0.1.4",
     "known-css-properties": "^0.2.0",
