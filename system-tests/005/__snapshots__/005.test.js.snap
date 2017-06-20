@@ -11272,7 +11272,7 @@ Array [
         "line": 107,
         "rule": "function-url-scheme-whitelist",
         "severity": "error",
-        "text": "Unexpected url scheme \\"http:\\" (function-url-scheme-whitelist)",
+        "text": "Unexpected URL scheme \\"http:\\" (function-url-scheme-whitelist)",
       },
       Object {
         "column": 10,
