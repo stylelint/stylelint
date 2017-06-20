@@ -132,6 +132,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
     "selector-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
     "selector-max-empty-lines": int,
+    "selector-max-attribute": int,
     "selector-max-class": int,
     "selector-max-compound-selectors": int,
     "selector-max-specificity": string,
