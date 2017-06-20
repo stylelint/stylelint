@@ -41,6 +41,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`function-url-data-uris`](../../lib/rules/function-url-data-uris/README.md): Require or disallow data URIs for urls.
 -   [`function-url-no-scheme-relative`](../../lib/rules/function-url-no-scheme-relative/README.md): Disallow scheme-relative urls.
 -   [`function-url-quotes`](../../lib/rules/function-url-quotes/README.md): Require or disallow quotes for urls.
+-   [`function-url-scheme-blacklist`](../../lib/rules/function-url-scheme-blacklist/README.md): Specify a blacklist of disallowed url schemes.
 -   [`function-url-scheme-whitelist`](../../lib/rules/function-url-scheme-whitelist/README.md): Specify a whitelist of allowed url schemes.
 -   [`function-whitelist`](../../lib/rules/function-whitelist/README.md): Specify a whitelist of allowed functions.
 -   [`function-whitespace-after`](../../lib/rules/function-whitespace-after/README.md): Require or disallow whitespace after functions.
