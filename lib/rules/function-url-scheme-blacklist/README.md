@@ -18,33 +18,29 @@ This rule ignores URL arguments with variables or variable interpolation (`$sass
 
 ## Options
 
-`array|string`: `["array", "of", "schemes"]|"scheme"`
+`array|string|regex`: `["array", "of", "schemes" or "regex"]|"scheme"|/regex/`
 
 Given:
 
 ```js
-["http", "ftp"]
+["ftp", "/^http/"]
 ```
 
 The following patterns are considered violations:
+
+```css
+a { background-image: url('ftp://www.example.com/file.jpg'); }
+```
 
 ```css
 a { background-image: url('http://www.example.com/file.jpg'); }
 ```
 
 ```css
-a { background-image: url('ftp://www.example.com/file.jpg'); }
-```
-
-The following patterns are *not* considered violations:
-
-```css
 a { background-image: url('https://www.example.com/file.jpg'); }
 ```
 
-```css
-a { background-image: url('HTTPS://www.example.com/file.jpg'); }
-```
+The following patterns are *not* considered violations:
 
 ```css
 a { background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }
