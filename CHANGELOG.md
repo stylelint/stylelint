@@ -1,5 +1,6 @@
 # Head
 
+-   Added: `function-url-scheme-blacklist` rule ([#2626](https://github.com/stylelint/stylelint/pull/2626)).
 -   Added: `selector-max-attribute` rule ([#2628](https://github.com/stylelint/stylelint/pull/2628)).
 
 # 7.11.1
