@@ -80,6 +80,10 @@ Linting all `.css` files in the `foo` directory. And fixing source files if viol
 stylelint "foo/*.css" --fix
 ```
 
+**Note:** It's an _experimental_ feature. It ignores special comments for disabling stylelint within style sheet (e. g. `/* stylelint-disable /*`). It means autofixing will apply regardless of these comments.
+
+If you're using both these special comments and autofixing, please run stylelint twice. On the first run, some violations could be missed, or some violations might be reported incorrectly. It's a temporary solution until stylelint learn to respect these comments.
+
 ## Syntax errors
 
 The CLI informs you about syntax errors in your CSS.
