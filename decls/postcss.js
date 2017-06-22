@@ -39,10 +39,14 @@ export class postcss$rule extends postcss$node {
   };
 }
 
+export type postcss$syntax = {
+  stringify?: Function,
+  parse?: Function,
+}
+
 export type postcss$options = {
   from?: string,
-  parser?: stylelint$syntaxes,
-  syntax?: stylelint$syntaxes,
+  syntax?: postcss$syntax,
 }
 
 export type postcss$result = {
