@@ -86,7 +86,7 @@
     "eslint": "~3.19.0",
     "eslint-config-stylelint": "^6.0.0",
     "file-exists-promise": "^1.0.2",
-    "flow-bin": "^0.46.0",
+    "flow-bin": "^0.47.0",
     "fs-promise": "^2.0.0",
     "jest": "^20.0.1",
     "npm-run-all": "^4.0.0",
