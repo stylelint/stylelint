@@ -1,5 +1,12 @@
 # Head
 
+-   Deprecated: 6 rules, each has been replaced by a more configurable alternative ([#2679](https://github.com/stylelint/stylelint/pull/2679)).
+    -  `function-url-data-uris` rule. Use either `function-url-scheme-blacklist` or `function-url-scheme-whitelist`.
+    -  `selector-no-attribute` rule. Use `selector-max-attribute` with `0` as its primary option.
+    -  `selector-no-combinator` rule. Use `selector-max-combinators` with `0` as its primary option.
+    -  `selector-no-id` rule. Use `selector-max-id` with `0` as its primary option.
+    -  `selector-no-type` rule. Use `selector-max-type` with `0` as its primary option.
+    -  `selector-no-universal` rule. Use `selector-max-universal` with `0` as its primary option.
 -   Added: `function-url-scheme-blacklist` rule ([#2626](https://github.com/stylelint/stylelint/pull/2626)).
 -   Added: `function-url-scheme-whitelist` regex support ([#2662](https://github.com/stylelint/stylelint/pull/2662)).
 -   Added: `selector-max-attribute` rule ([#2628](https://github.com/stylelint/stylelint/pull/2628)).
