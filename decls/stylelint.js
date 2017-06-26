@@ -115,7 +115,7 @@ export type stylelint$standaloneOptions = {
   syntax?: stylelint$syntaxes,
   customSyntax?: string,
   formatter?: "json" | "string" | "verbose" | Function,
-  disableDefaultIgnores?: boolean
+  disableDefaultIgnores?: boolean,
   allowEmptyInput?: boolean,
   fix?: boolean,
 }

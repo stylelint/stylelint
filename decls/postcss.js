@@ -1,5 +1,6 @@
 declare class postcss$node {
   raw: Function,
+  raws: Object,
   type: 'rule' | 'atrule' | 'root' | 'comment' | 'decl';
   parent: Object;
   nodes: Array<Object>;
@@ -18,29 +19,38 @@ declare class postcss$node {
   error(message: string, options: { plugin: string }): void,
 }
 
-export class postcss$node {
-  name: string;
-  raw: Function;
-  type: string;
-  parent: postcss$node;
-  nodes: Array<postcss$node>;
-  raws: Object
-}
-
-export class postcss$atRule extends postcss$node {
-  params: string;
+declare class postcss$comment extends postcss$node {
+  text: string;
   raws: {
-    before: string,
-    after: string,
-    afterName: string,
+    before?: string,
+    after?: string,
   };
 }
 
-export class postcss$rule extends postcss$node {
+declare class postcss$atRule extends postcss$node {
+  name: string;
+  params: string;
+  raws: {
+    before?: string,
+    after?: string,
+    afterName?: string,
+  };
+}
+
+declare class postcss$rule extends postcss$node {
   selector: string;
   raws: {
-    before: string,
-    after: string,
+    before?: string,
+    after?: string,
+  };
+}
+
+declare class postcss$decl extends postcss$node {
+  prop: string;
+  value: string;
+  raws: {
+    before?: string,
+    after?: string,
   };
 }
 
