@@ -14,13 +14,13 @@ This rule considers at-rules defined in the CSS Specifications, up to and includ
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @unknown {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @charset "UTF-8";
@@ -50,7 +50,7 @@ Given:
 ["/^my-/", "custom"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @my-at-rule "x.css";

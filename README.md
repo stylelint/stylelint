@@ -15,7 +15,7 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
 -   **Understands *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and *experimental support* for Less.
 -   **Completely unopinionated:** Only enable the rules you want, and configure them with options that tailor the linter to your needs.
 -   **Support for plugins:** It's easy to create your own rules and add them to the linter.
--   **Automatically fix some stylistic warnings:** By using [stylefmt](https://github.com/morishitter/stylefmt) which supports stylelint configuration files.
+-   **Automatically fixes some stylistic warnings:** Save time by having stylelint fix your code with this *experimental* feature.
 -   **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config.
 -   **Options validator:** So that you can be confident that your config is valid.
 -   **Well tested:** Nearly twenty five thousand tests cover the internals and rules.

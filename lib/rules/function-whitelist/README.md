@@ -20,7 +20,7 @@ Given:
 ["scale", "rgba", "linear-gradient"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: rotate(1); }
@@ -40,7 +40,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { background: red; }

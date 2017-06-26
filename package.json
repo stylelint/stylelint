@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "7.9.0",
+  "version": "7.12.0",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css",
@@ -27,6 +27,7 @@
   "files": [
     "bin",
     "CONTRIBUTING.md",
+    "decls/*.js",
     "docs",
     "lib",
     "!**/__tests__"
@@ -39,18 +40,23 @@
     "balanced-match": "^0.4.0",
     "chalk": "^1.1.1",
     "cosmiconfig": "^2.1.1",
+    "debug": "^2.6.0",
     "execall": "^1.0.0",
+    "file-entry-cache": "^2.0.0",
     "get-stdin": "^5.0.0",
     "globby": "^6.0.0",
     "globjoin": "^0.1.4",
-    "html-tags": "^1.1.1",
+    "html-tags": "^2.0.0",
     "ignore": "^3.2.6",
-    "known-css-properties": "^0.0.7",
+    "imurmurhash": "^0.1.4",
+    "known-css-properties": "^0.2.0",
     "lodash": "^4.17.4",
     "log-symbols": "^1.0.2",
+    "mathml-tag-names": "^2.0.0",
     "meow": "^3.3.0",
     "micromatch": "^2.3.11",
     "normalize-selector": "^0.2.0",
+    "pify": "^2.3.0",
     "postcss": "^5.0.20",
     "postcss-less": "^0.14.0",
     "postcss-media-query-parser": "^0.2.0",
@@ -59,7 +65,7 @@
     "postcss-scss": "^0.4.0",
     "postcss-selector-parser": "^2.1.1",
     "postcss-value-parser": "^3.1.1",
-    "resolve-from": "^2.0.0",
+    "resolve-from": "^3.0.0",
     "specificity": "^0.3.0",
     "string-width": "^2.0.0",
     "style-search": "^0.1.0",
@@ -70,12 +76,16 @@
   "devDependencies": {
     "benchmark": "^2.1.0",
     "common-tags": "^1.3.0",
-    "coveralls": "^2.11.9",
+    "coveralls": "^2.11.16",
+    "cp-file": "^4.1.1",
     "d3-queue": "^3.0.3",
-    "eslint": "~3.17.0",
+    "del": "^3.0.0",
+    "eslint": "~3.19.0",
     "eslint-config-stylelint": "^6.0.0",
-    "flow-bin": "^0.41.0",
-    "jest": "^19.0.1",
+    "file-exists-promise": "^1.0.2",
+    "flow-bin": "^0.46.0",
+    "fs-promise": "^2.0.0",
+    "jest": "^20.0.1",
     "npm-run-all": "^4.0.0",
     "npmpub": "^3.0.1",
     "postcss-import": "^9.0.0",
@@ -85,7 +95,6 @@
     "remark-preset-lint-recommended": "^2.0.0",
     "remark-validate-links": "^6.0.0",
     "request": "^2.69.0",
-    "sinon": "^1.16.1",
     "strip-ansi": "^3.0.1"
   },
   "scripts": {
@@ -97,7 +106,7 @@
     "lint": "npm-run-all --parallel lint:*",
     "pretest": "npm-run-all --serial lint flow",
     "release": "npmpub",
-    "test": "jest",
+    "test": "jest --coverage",
     "watch": "jest --watch"
   },
   "eslintConfig": {
@@ -109,6 +118,24 @@
     }
   },
   "jest": {
+    "clearMocks": true,
+    "collectCoverage": false,
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ],
+    "coverageDirectory": "./.coverage/",
+    "coverageReporters": [
+      "lcov",
+      "text-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 75,
+        "functions": 75,
+        "lines": 75,
+        "statements": 75
+      }
+    },
     "setupFiles": [
       "./jest-setup.js"
     ],

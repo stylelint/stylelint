@@ -1,5 +1,7 @@
 # selector-no-combinator
 
+***Deprecated: Instead use the [`selector-max-combinators`](../selector-max-combinators/README.md) rule with `0` as its primary option.***
+
 Disallow combinators in selectors.
 
 ```css
@@ -14,7 +16,7 @@ Combinators are used to combine several different selectors into new and more sp
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a b { color: pink; }
@@ -24,7 +26,7 @@ a b { color: pink; }
 a > b { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }

@@ -1,5 +1,7 @@
 # selector-no-id
 
+***Deprecated: Instead use the [`selector-max-id`](../selector-max-id/README.md) rule with `0` as its primary option.***
+
 Disallow id selectors.
 
 ```css
@@ -12,7 +14,7 @@ Disallow id selectors.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 #foo {}
@@ -26,7 +28,7 @@ The following patterns are considered warnings:
 #foo.bar {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {}

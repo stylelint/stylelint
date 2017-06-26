@@ -14,7 +14,7 @@ a { color: pink; top: 0; }
 
 For example, with `1`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; top: 3px; }
@@ -25,7 +25,7 @@ a,
 b { color: pink; top: 3px; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }

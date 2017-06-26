@@ -12,7 +12,7 @@ a { color: #333 }
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: #000; }
@@ -26,7 +26,7 @@ a { color: #fff1aa; }
 a { color: #123456aa; }
 ```
 
-Hex values that are not valid also cause warnings:
+Hex values that are not valid also cause violations:
 
 ```css
 a { color: #foobar; }
@@ -36,7 +36,7 @@ a { color: #foobar; }
 a { color: #0000000000000000; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: black; }

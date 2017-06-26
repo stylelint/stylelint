@@ -1,5 +1,7 @@
 # selector-no-universal
 
+***Deprecated: Instead use the [`selector-max-universal`](../selector-max-universal/README.md) rule with `0` as its primary option.***
+
 Disallow the universal selector.
 
 ```css
@@ -12,7 +14,7 @@ Disallow the universal selector.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 * {}
@@ -26,7 +28,7 @@ The following patterns are considered warnings:
 * > [foo] {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {}

@@ -1,14 +1,77 @@
-# Head
+# 7.12.0
+
+-   Deprecated: 6 rules, each has been replaced by a more configurable alternative ([#2679](https://github.com/stylelint/stylelint/pull/2679)).
+    -   `function-url-data-uris` rule. Use either `function-url-scheme-blacklist` or `function-url-scheme-whitelist`.
+    -   `selector-no-attribute` rule. Use `selector-max-attribute` with `0` as its primary option.
+    -   `selector-no-combinator` rule. Use `selector-max-combinators` with `0` as its primary option.
+    -   `selector-no-id` rule. Use `selector-max-id` with `0` as its primary option.
+    -   `selector-no-type` rule. Use `selector-max-type` with `0` as its primary option.
+    -   `selector-no-universal` rule. Use `selector-max-universal` with `0` as its primary option.
+-   Added: `function-url-scheme-blacklist` rule ([#2626](https://github.com/stylelint/stylelint/pull/2626)).
+-   Added: `function-url-scheme-whitelist` regex support ([#2662](https://github.com/stylelint/stylelint/pull/2662)).
+-   Added: `selector-max-attribute` rule ([#2628](https://github.com/stylelint/stylelint/pull/2628)).
+-   Added: `selector-max-combinators` rule ([#2658](https://github.com/stylelint/stylelint/pull/2658)).
+-   Added: `selector-max-id` rule ([#2654](https://github.com/stylelint/stylelint/pull/2654)).
+-   Added: `selector-max-type` rule ([#2665](https://github.com/stylelint/stylelint/pull/2665)).
+-   Added: `selector-max-universal` rule ([#2653](https://github.com/stylelint/stylelint/pull/2653)).
+-   Fixed: `--fix` no longer crashes when used with ignored files ([#2652](https://github.com/stylelint/stylelint/pull/2652)).
+-   Fixed: `max-*` rules now use singular and plural nouns in their messages ([#2663](https://github.com/stylelint/stylelint/pull/2663)).
+
+# 7.11.1
+
+-   Fixed: `media-feature-name-*list` now accept arrays for their primary options ([#2632](https://github.com/stylelint/stylelint/pull/2632)).
+-   Fixed: `selector-*` now ignore custom property sets ([#2634](https://github.com/stylelint/stylelint/pull/2634)).
+-   Fixed: `selector-pseudo-class-no-unknown` now ignores Less `:extend` ([#2625](https://github.com/stylelint/stylelint/pull/2625)).
+
+# 7.11.0
+
+-   Added: experimental autofixing ([#2467](https://github.com/stylelint/stylelint/pull/2467), [#2500](https://github.com/stylelint/stylelint/pull/2500), [#2529](https://github.com/stylelint/stylelint/pull/2529) and [#2577](https://github.com/stylelint/stylelint/pull/2577)). Use `--fix` CLI parameter or `fix: true` Node API options property. Supported rules:
+    -   `at-rule-empty-line-before`
+    -   `at-rule-name-case`
+    -   `color-hex-case`
+    -   `comment-empty-line-before`
+    -   `custom-property-empty-line-before`
+    -   `declaration-empty-line-before`
+    -   `indentation`
+    -   `rule-empty-line-before`
+-   Added: `selector-max-class` rule.
+-   Added: `ignore: ["custom-elements"]` option to `selector-type-no-unknown` ([#2366](https://github.com/stylelint/stylelint/pull/2366)).
+-   Fixed: "Cannot find module 'pify'" regression in node@4 with npm@2 ([#2614](https://github.com/stylelint/stylelint/pull/2614)).
+-   Fixed: no error is thrown when linting a string with `cache` enabled ([#2494](https://github.com/stylelint/stylelint/pull/2494)).
+-   Fixed: Less `:extend` is now ignored ([#2571](https://github.com/stylelint/stylelint/pull/2571)).
+-   Fixed: `function-parentheses-space-inside` now ignores functions without parameters ([#2587](https://github.com/stylelint/stylelint/pull/2587)).
+-   Fixed: `length-zero-no-unit` now correctly handles newlines and no spaces after colon ([#2477](https://github.com/stylelint/stylelint/pull/2477)).
+-   Fixed: `selector-descendant-combinator-no-non-space` and `selector-combinator-space-before/after` now understand and check `>>>` shadow-piercing combinator ([#2509](https://github.com/stylelint/stylelint/pull/2509)).
+-   Fixed: `selector-descendant-combinator-no-non-space` now ignores Less guards ([#2557](https://github.com/stylelint/stylelint/pull/2557)).
+-   Fixed: `selector-pseudo-class-no-unknown` now checks `@page` at-rules and supports `@page` pseudo-classes ([#2445](https://github.com/stylelint/stylelint/pull/2445)).
+-   Fixed: `selector-pseudo-class-no-unknown` now considers `focus-ring`, `playing` and `paused` to be known ([#2507](https://github.com/stylelint/stylelint/pull/2507)).
+-   Fixed: `selector-type-no-unknown` now ignores MathML tags ([#2478](https://github.com/stylelint/stylelint/pull/2478)).
+-   Fixed: `selector-type-no-unknown` now ignores the `/deep/` shadow-piercing combinator ([#2508](https://github.com/stylelint/stylelint/pull/2508)).
+-   Fixed: `value-keyword-case` now ignores variables with signs ([#2558](https://github.com/stylelint/stylelint/pull/2558)).
+
+# 7.10.1
+
+-   Fixed: scope is kept when using `schema.preceedingPlugins` ([#2455](https://github.com/stylelint/stylelint/pull/2455)).
+
+# 7.10.0
 
 -   Changed: `*-empty-line-before` rules consider line as empty if it contains whitespace only ([#2440](https://github.com/stylelint/stylelint/pull/2440)).
 -   Changed: `function-linear-gradient-no-nonstandard-direction` now checks all linear-gradients in a value list ([#2496](https://github.com/stylelint/stylelint/pull/2496)).
 -   Added: `disableDefaultIgnores` option (`--disable-default-ignores` in CLI), to allow linting of `node_modules` and `bower_components` directories ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
 -   Added: more efficient file ignoring with `.stylelintignore` ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
 -   Added: support for asynchronous plugin rules ([#2351](https://github.com/stylelint/stylelint/pull/2351)).
+-   Added: `cache` option to store the info about processed files in order to only operate on the changed ones the next time you run stylelint ([#2293](https://github.com/stylelint/stylelint/pull/2293)).
 -   Added: `at-rule-semicolon-space-before` rule ([#2388](https://github.com/stylelint/stylelint/pull/2388)).
+-   Added: `ignore: ["comments"]` to `max-empty-lines` ([#2401](https://github.com/stylelint/stylelint/pull/2401)).
+-   Added: `ignore: ["default-namespace"]` to `selector-type-no-unknown` ([#2461](https://github.com/stylelint/stylelint/pull/2461)).
+-   Added: `ignoreDefaultNamespaces` option to `selector-type-no-unknown` ([#2461](https://github.com/stylelint/stylelint/pull/2461)).
 -   Fixed: more helpful messages when file globs do not match any files ([#2328](https://github.com/stylelint/stylelint/pull/2328)).
--   Fixed: `no-extra-semicolons` false positives for comments are custom property sets ([#2396](https://github.com/stylelint/stylelint/pull/2396)).
--   Fixed: false positives for `attr`, `counter`, `counters` functions and ` counter-reset` property in `value-keyword-case` ([#2407](https://github.com/stylelint/stylelint/pull/2407)).
+-   Fixed: `decl/` folder of Flow types is shipped with the package, for consumers that use Flow ([#2322](https://github.com/stylelint/stylelint/issues/2322)).
+-   Fixed: `function-url-scheme-whitelist` was working incorrectly if more than one URL scheme were specified ([#2447](https://github.com/stylelint/stylelint/pull/2447)).
+-   Fixed: `no-duplicate-selector` now includes the duplicate selector's first usage line in message ([#2415](https://github.com/stylelint/stylelint/pull/2415)).
+-   Fixed: `no-extra-semicolons` false positives for comments after custom property sets ([#2396](https://github.com/stylelint/stylelint/pull/2396)).
+-   Fixed: `value-keyword-case` false positives for `attr`, `counter`, `counters` functions and ` counter-reset` property ([#2407](https://github.com/stylelint/stylelint/pull/2407)).
+-   Fixed: Less mergeable properties are now ignored ([#2570](https://github.com/stylelint/stylelint/pull/2570)).
 
 # 8.0.0
 
@@ -123,9 +186,9 @@
 -   Fixed: SugarSS no longer reports wrong column number in `block-no-empty`.
 -   Fixed: `configOverrides` work with `plugins`, `extends`, and `processors`.
 -   Fixed: a bug causing inaccuracy in nested `stylelint-disable` and `stylelint-enable` comments.
--   Fixed: false positives for some camel-case SVG keywords in `value-keyword-case`.
--   Fixed: false positives for SCSS interpolation in `function-calc-no-unspaced-operator`.
+-   Fixed: `function-calc-no-unspaced-operator` false positives for SCSS interpolation.
 -   Fixed: `no-descending-specificity` now ignores custom property sets.
+-   Fixed: `value-keyword-case` false positives for some camel-case SVG keywords.
 
 # 7.4.2
 

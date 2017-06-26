@@ -50,7 +50,7 @@ This rule integrates into stylelint's core the functionality of the (now depreca
 
 For example, with `2`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -72,7 +72,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -102,7 +102,7 @@ Ignore at-rules that only wrap other rules, and do not themselves have declarati
 
 For example, with `1`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 As the at-rules have a declarations blocks.
 
@@ -122,7 +122,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 As all of the following `.foo` rules would have a nesting depth of just 1.
 
@@ -158,7 +158,7 @@ For example, with `1` and given:
 ["/^my-/", "media"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -200,7 +200,7 @@ a {
 }
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {

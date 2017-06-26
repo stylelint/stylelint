@@ -21,7 +21,7 @@ Require a newline or disallow whitespace on the inside of the parentheses of fun
 
 There *must always* be a newline inside the parentheses.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: translate(1, 1); }
@@ -33,7 +33,7 @@ a { transform: translate(1,
   ); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -56,14 +56,14 @@ a {
 
 There *must always* be a newline inside the parentheses of multi-line functions.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: translate(1,
   1) }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { transform: translate(1, 1) }
@@ -92,7 +92,7 @@ a {
 
 ### `"never-multi-line"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -111,7 +111,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { transform: translate(1, 1) }

@@ -18,13 +18,13 @@ This rule does not check for space immediately after `)` if the very next charac
 
 There *must always* be whitespace after the function.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: translate(1, 1)scale(3); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { transform: translate(1, 1) scale(3); }
@@ -70,13 +70,13 @@ a {
 
 There *must never* be whitespace after the function.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: translate(1, 1) scale(3); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { transform: translate(1, 1)scale(3); }

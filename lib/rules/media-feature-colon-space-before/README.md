@@ -16,7 +16,7 @@ Require a single space or disallow whitespace before the colon in media features
 
 There *must always* be a single space before the colon.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media (max-width:600px) {}
@@ -26,7 +26,7 @@ The following patterns are considered warnings:
 @media (max-width: 600px) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media (max-width :600px) {}
@@ -40,7 +40,7 @@ The following patterns are *not* considered warnings:
 
 There *must never* be whitespace before the colon.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media (max-width :600px) {}
@@ -50,7 +50,7 @@ The following patterns are considered warnings:
 @media (max-width : 600px) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media (max-width:600px) {}

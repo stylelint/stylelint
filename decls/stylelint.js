@@ -36,6 +36,7 @@ export type stylelint$options = {
   reportNeedlessDisables?: boolean,
   syntax?: stylelint$syntaxes,
   customSyntax?: string,
+  fix?: boolean
 }
 
 export type stylelint$internalApi = {
@@ -100,6 +101,8 @@ export type stylelint$standaloneReturnValue = {
 
 export type stylelint$standaloneOptions = {
   files?: string | Array<string>,
+  cache?: bool,
+  cacheLocation?: string,
   code?: string,
   codeFilename?: string,
   config?: stylelint$config,
@@ -113,4 +116,6 @@ export type stylelint$standaloneOptions = {
   customSyntax?: string,
   formatter?: "json" | "string" | "verbose" | Function,
   disableDefaultIgnores?: boolean
+  allowEmptyInput?: boolean,
+  fix?: boolean,
 }

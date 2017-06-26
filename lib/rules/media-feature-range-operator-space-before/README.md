@@ -3,8 +3,8 @@
 Require a single space or disallow whitespace before the range operator in media features.
 
 ```css
-@media (max-width >= 600px) {}
-/**               ↑
+@media (width >= 600px) {}
+/**           ↑
  * The space before this */
 ```
 
@@ -16,46 +16,46 @@ Require a single space or disallow whitespace before the range operator in media
 
 There *must always* be a single space before the range operator.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
-@media (max-width>=600px) {}
+@media (width>=600px) {}
 ```
 
 ```css
-@media (max-width>= 600px) {}
+@media (width>= 600px) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
-@media (max-width >=600px) {}
+@media (width >=600px) {}
 ```
 
 ```css
-@media (max-width >= 600px) {}
+@media (width >= 600px) {}
 ```
 
 ### `"never"`
 
 There *must never* be whitespace before the range operator.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
-@media (max-width >=600px) {}
+@media (width >=600px) {}
 ```
 
 ```css
-@media (max-width >= 600px) {}
+@media (width >= 600px) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
-@media (max-width>=600px) {}
+@media (width>=600px) {}
 ```
 
 ```css
-@media (max-width>= 600px) {}
+@media (width>= 600px) {}
 ```

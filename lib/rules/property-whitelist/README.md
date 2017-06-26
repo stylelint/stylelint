@@ -22,7 +22,7 @@ Given:
 ["display", "animation", "/^background/"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; }
@@ -39,7 +39,7 @@ a {
 a { borkgrund: orange; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { display: block; }

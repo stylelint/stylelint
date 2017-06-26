@@ -20,6 +20,7 @@ A list of complementary tools built and maintained by the community.
 
 ## Editor plugins
 
+-   [Flycheck](https://github.com/flycheck/flycheck): An Emacs extension that supports stylelint.
 -   [linter-stylelint](https://github.com/AtomLinter/linter-stylelint): An Atom plugin for stylelint.
 -   [SublimeLinter-contrib-stylelint](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint): A Sublime Text plugin for stylelint.
 -   [vscode-stylelint](https://github.com/shinnn/vscode-stylelint): A Visual Studio Code extension for stylelint.
@@ -27,3 +28,7 @@ A list of complementary tools built and maintained by the community.
 ## Editors
 
 -   [WebStorm](https://blog.jetbrains.com/webstorm/2016/09/webstorm-2016-3-eap-163-4830-stylelint-usages-for-default-exports-and-more/): Version 2016.3 onwards has built-in support for stylelint.
+
+## Version Control
+
+-   [Pre-commit](https://github.com/awebdeveloper/pre-commit-stylelint) A git pre-commit hook for stylelint

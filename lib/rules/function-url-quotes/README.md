@@ -16,7 +16,7 @@ a { background: url("x.jpg") }
 
 Urls *must always* be quoted.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @import url(foo.css);
@@ -34,7 +34,7 @@ The following patterns are considered warnings:
 @-moz-document url-prefix() {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { background: url('x.jpg'); }
@@ -60,7 +60,7 @@ a { background: url('x.jpg'); }
 
 Urls *must never* be quoted.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { background: url('x.jpg'); }
@@ -74,7 +74,7 @@ a { background: url('x.jpg'); }
 @font-face { font-family: "foo"; src: url('foo.ttf'); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { background: url(x.jpg); }
@@ -96,7 +96,7 @@ Reverse the primary option if the function has no arguments.
 
 For example, with `"always"`.
 
-The following pattern is *not* considered warnings:
+The following pattern is *not* considered violations:
 
 ```css
 @-moz-document url-prefix() {}

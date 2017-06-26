@@ -1,5 +1,7 @@
 # selector-no-attribute
 
+***Deprecated: Instead use the [`selector-max-attribute`](../selector-max-attribute/README.md) rule with `0` as its primary option.***
+
 Disallow attribute selectors.
 
 ```css
@@ -12,7 +14,7 @@ Disallow attribute selectors.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 [foo] {}
@@ -31,7 +33,7 @@ a,
 a > [foo] {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {}
