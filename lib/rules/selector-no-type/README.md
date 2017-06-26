@@ -1,5 +1,7 @@
 # selector-no-type
 
+***Deprecated: Instead use the [`selector-max-type`](../selector-max-type/README.md) rule with `0` as its primary option.***
+
 Disallow type selectors.
 
 ```css

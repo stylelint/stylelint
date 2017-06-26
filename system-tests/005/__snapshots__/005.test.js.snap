@@ -21,6 +21,10 @@ Array [
         "text": "'declaration-block-properties-order'has been deprecated and in 8.0 will be removed. Instead use the community 'stylelint-order' plugin pack.",
       },
       Object {
+        "reference": "https://stylelint.io/user-guide/rules/function-url-data-uris/",
+        "text": "'function-url-data-uris' has been deprecated and in 8.0 will be removed. Instead use either the 'function-url-scheme-blacklist' or 'function-url-scheme-whitelist' rule.",
+      },
+      Object {
         "reference": "https://stylelint.io/user-guide/rules/media-feature-no-missing-punctuation/",
         "text": "'media-feature-no-missing-punctuation' has been deprecated and in 8.0 will be removed.",
       },
@@ -49,8 +53,28 @@ Array [
         "text": "'rule-non-nested-empty-line-before' has been deprecated and in 8.0 will be removed. Instead use 'rule-empty-line-before'.",
       },
       Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-attribute/",
+        "text": "'selector-no-attribute' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-attribute' with '0' as its primary option.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-combinator/",
+        "text": "'selector-no-combinator' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-combinators' with '0' as its primary option.",
+      },
+      Object {
         "reference": "https://stylelint.io/user-guide/rules/selector-no-empty/",
         "text": "'selector-no-empty' has been deprecated and in 8.0 will be removed.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-id/",
+        "text": "'selector-no-id' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-id' with '0' as its primary option.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-type/",
+        "text": "'selector-no-type' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-type' with '0' as its primary option.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-universal/",
+        "text": "'selector-no-universal' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-universal' with '0' as its primary option.",
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/selector-root-no-composition/",

@@ -38,7 +38,7 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`function-name-case`](../../lib/rules/function-name-case/README.md): Specify lowercase or uppercase for function names.
 -   [`function-parentheses-newline-inside`](../../lib/rules/function-parentheses-newline-inside/README.md): Require a newline or disallow whitespace on the inside of the parentheses of functions.
 -   [`function-parentheses-space-inside`](../../lib/rules/function-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses of functions.
--   [`function-url-data-uris`](../../lib/rules/function-url-data-uris/README.md): Require or disallow data URIs for urls.
+-   [`function-url-data-uris`](../../lib/rules/function-url-data-uris/README.md): Require or disallow data URIs for urls **(deprecated)**.
 -   [`function-url-no-scheme-relative`](../../lib/rules/function-url-no-scheme-relative/README.md): Disallow scheme-relative urls.
 -   [`function-url-quotes`](../../lib/rules/function-url-quotes/README.md): Require or disallow quotes for urls.
 -   [`function-url-scheme-blacklist`](../../lib/rules/function-url-scheme-blacklist/README.md): Specify a blacklist of disallowed url schemes.
@@ -173,13 +173,13 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`selector-max-type`](../../lib/rules/selector-max-type/README.md): Limit the number of type in a selector.
 -   [`selector-max-universal`](../../lib/rules/selector-max-universal/README.md): Limit the number of universal selectors in a selector.
 -   [`selector-nested-pattern`](../../lib/rules/selector-nested-pattern/README.md): Specify a pattern for the selectors of rules nested within rules.
--   [`selector-no-attribute`](../../lib/rules/selector-no-attribute/README.md): Disallow attribute selectors.
--   [`selector-no-combinator`](../../lib/rules/selector-no-combinator/README.md): Disallow combinators in selectors.
+-   [`selector-no-attribute`](../../lib/rules/selector-no-attribute/README.md): Disallow attribute selectors **(deprecated)**.
+-   [`selector-no-combinator`](../../lib/rules/selector-no-combinator/README.md): Disallow combinators in selectors **(deprecated)**.
 -   [`selector-no-empty`](../../lib/rules/selector-no-empty/README.md): Disallow empty selectors **(deprecated)**.
--   [`selector-no-id`](../../lib/rules/selector-no-id/README.md): Disallow id selectors.
+-   [`selector-no-id`](../../lib/rules/selector-no-id/README.md): Disallow id selectors **(deprecated)**.
 -   [`selector-no-qualifying-type`](../../lib/rules/selector-no-qualifying-type/README.md): Disallow qualifying a selector by type.
--   [`selector-no-type`](../../lib/rules/selector-no-type/README.md): Disallow type selectors.
--   [`selector-no-universal`](../../lib/rules/selector-no-universal/README.md): Disallow the universal selector.
+-   [`selector-no-type`](../../lib/rules/selector-no-type/README.md): Disallow type selectors **(deprecated)**.
+-   [`selector-no-universal`](../../lib/rules/selector-no-universal/README.md): Disallow the universal selector **(deprecated)**.
 -   [`selector-no-vendor-prefix`](../../lib/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors.
 -   [`selector-pseudo-class-blacklist`](../../lib/rules/selector-pseudo-class-blacklist/README.md): Specify a blacklist of disallowed pseudo-class selectors.
 -   [`selector-pseudo-class-case`](../../lib/rules/selector-pseudo-class-case/README.md): Specify lowercase or uppercase for pseudo-class selectors.

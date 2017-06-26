@@ -9,6 +9,10 @@ Array [
         "text": "'declaration-block-properties-order'has been deprecated and in 8.0 will be removed. Instead use the community 'stylelint-order' plugin pack.",
       },
       Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-id/",
+        "text": "'selector-no-id' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-id' with '0' as its primary option.",
+      },
+      Object {
         "reference": "https://stylelint.io/user-guide/rules/rule-nested-empty-line-before/",
         "text": "'rule-nested-empty-line-before' has been deprecated and in 8.0 will be removed. Instead use 'rule-empty-line-before'.",
       },
