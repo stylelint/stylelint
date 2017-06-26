@@ -37,6 +37,7 @@
 -   Changed: `report-needless-disables` now exits with non-zero code ([#2341](https://github.com/stylelint/stylelint/issues/2341)).
 -   Changed: `*-empty-line-before` now correctly handle shared-line comments ([#2262](https://github.com/stylelint/stylelint/issues/2262)).
 -   Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](https://github.com/stylelint/stylelint/issues/2350)).
+-   Changed: `max-line-length`'s `ignorePattern` option is now case sensitive ([#2683](https://github.com/stylelint/stylelint/issues/2683)).
 -   Added: `ignore: ["child"]` option to `selector-no-type` ([#1942](https://github.com/stylelint/stylelint/issues/1942)).
 -   Fixed: `selector-no-type` no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with `ignore: ["descendant"]` ([#2200](https://github.com/stylelint/stylelint/pull/2200)).
 -   Fixed: `declaration-block-no-redundant-longhand-properties` and `declaration-block-no-shorthand-property-overrides` understand more shorthand properties ([#2354](https://github.com/stylelint/stylelint/pull/2354)).
