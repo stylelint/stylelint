@@ -56,7 +56,7 @@ The following patterns are *not* considered violations:
 
 ```css
 /* each selector in a selector list is evaluated separately */
-#foo #bar,
+#foo,
 #baz #quux {}
 ```
 
