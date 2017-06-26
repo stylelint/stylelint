@@ -54,6 +54,12 @@ Linting all the `.scss` files in the `foo` directory, using the `syntax` option:
 stylelint "foo/**/*.scss" --syntax scss
 ```
 
+Linting all `.css` files except those within `docker` subfolders, using negation in the input glob:
+
+```shell
+stylelint "**/*.css, !**/docker/**"
+```
+
 In addition to `--syntax scss`, stylelint supports `--syntax less` and `--syntax sugarss` by default. If you're using one of the default syntaxes, you may not need to provide a `--syntax` option: non-standard syntaxes can be automatically inferred from the following file extensions: `.less`, `.scss`, and `.sss`.
 
 Additionally, stylelint can accept a custom [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). To use a custom syntax, supply a syntax module name or path to the syntax file: `--custom-syntax custom-syntax` or `--custom-syntax ./path/to/custom-syntax`.
