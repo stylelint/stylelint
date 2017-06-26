@@ -5,6 +5,7 @@
 -   Added: `selector-max-attribute` rule ([#2628](https://github.com/stylelint/stylelint/pull/2628)).
 -   Added: `selector-max-combinators` rule ([#2658](https://github.com/stylelint/stylelint/pull/2658)).
 -   Added: `selector-max-id` rule ([#2654](https://github.com/stylelint/stylelint/pull/2654)).
+-   Added: `selector-max-type` rule ([#2665](https://github.com/stylelint/stylelint/pull/2665)).
 -   Added: `selector-max-universal` rule ([#2653](https://github.com/stylelint/stylelint/pull/2653)).
 -   Fixed: `max-*` rules now use singular and plural nouns in their messages ([#2663](https://github.com/stylelint/stylelint/pull/2663)).
 
