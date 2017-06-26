@@ -7,6 +7,7 @@
 -   Added: `selector-max-id` rule ([#2654](https://github.com/stylelint/stylelint/pull/2654)).
 -   Added: `selector-max-type` rule ([#2665](https://github.com/stylelint/stylelint/pull/2665)).
 -   Added: `selector-max-universal` rule ([#2653](https://github.com/stylelint/stylelint/pull/2653)).
+-   Fixed: `--fix` no longer crashes when used with ignored files ([#2652](https://github.com/stylelint/stylelint/pull/2652)).
 -   Fixed: `max-*` rules now use singular and plural nouns in their messages ([#2663](https://github.com/stylelint/stylelint/pull/2663)).
 
 # 7.11.1
