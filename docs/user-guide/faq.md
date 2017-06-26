@@ -1,8 +1,8 @@
 # FAQ
 
-## How do I disable a rule?
+## How do I turn off, disable or ignore a rule?
 
-You can disable a rule by setting its config value to `null`.
+You can turn off a rule by setting its config value to `null`.
 
 For example, to use `stylelint-config-standard` without the `at-rule-empty-line-before` rule:
 
@@ -15,7 +15,7 @@ For example, to use `stylelint-config-standard` without the `at-rule-empty-line-
 }
 ```
 
-You can also disable a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](configuration.md#rules) for more information.
+You can also turn off a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](configuration.md#rules) for more information.
 
 ## How do I lint from the command line?
 
