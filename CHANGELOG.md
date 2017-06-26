@@ -4,6 +4,7 @@
 -   Added: `function-url-scheme-whitelist` regex support ([#2662](https://github.com/stylelint/stylelint/pull/2662)).
 -   Added: `selector-max-attribute` rule ([#2628](https://github.com/stylelint/stylelint/pull/2628)).
 -   Added: `selector-max-id` rule ([#2654](https://github.com/stylelint/stylelint/pull/2654)).
+-   Added: `selector-max-universal` rule ([#2653](https://github.com/stylelint/stylelint/pull/2653)).
 -   Fixed: `max-*` rules now use singular and plural nouns in their messages ([#2663](https://github.com/stylelint/stylelint/pull/2663)).
 
 # 7.11.1
