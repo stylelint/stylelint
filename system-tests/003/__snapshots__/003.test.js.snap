@@ -3,7 +3,12 @@
 exports[`003 1`] = `
 Array [
   Object {
-    "deprecations": Array [],
+    "deprecations": Array [
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-id/",
+        "text": "'selector-no-id' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-id' with '0' as its primary option.",
+      },
+    ],
     "errored": undefined,
     "ignored": undefined,
     "invalidOptionWarnings": Array [],
