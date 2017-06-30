@@ -75,11 +75,12 @@
 
 # 8.0.0
 
--   Removed: the 15 rules deprecated in [`7.8.0`](#780) ([#2422](https://github.com/stylelint/stylelint/issues/2422)).
+-   Removed: the 21 rules deprecated in [`7.8.0`](#780) & [`7.12.0`](#7120) ([#2422](https://github.com/stylelint/stylelint/issues/2422) & [#2693](https://github.com/stylelint/stylelint/issues/2693)).
     -   `block-no-single-line`.
     -   `custom-property-no-outside-root`
     -   `declaration-block-no-ignored-properties`.
     -   `declaration-block-properties-order`.
+    -   `function-url-data-uris`.
     -   `media-feature-no-missing-punctuation`.
     -   `no-browser-hacks`.
     -   `no-indistinguishable-colors`.
@@ -87,7 +88,12 @@
     -   `root-no-standard-properties`
     -   `rule-nested-empty-line-before`.
     -   `rule-non-nested-empty-line-before`.
+    -   `selector-no-attribute`.
+    -   `selector-no-combinator`.
     -   `selector-no-empty`.
+    -   `selector-no-id`.
+    -   `selector-no-type`.
+    -   `selector-no-universal`.
     -   `selector-root-no-composition`.
     -   `stylelint-disable-reason`.
     -   `time-no-imperceptible`.
