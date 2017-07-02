@@ -99,6 +99,7 @@
   },
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
+    "dry-release": "npmpub  --dry --verbose",
     "flow": "flow",
     "jest": "jest",
     "lint:js": "eslint . --cache",
