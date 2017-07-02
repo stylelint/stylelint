@@ -73,7 +73,7 @@ There is always a lot of work to do, and already well over 150 rules to maintain
 
 ## Contributors
 
-This project exists thanks to all the people who contribute. [[Contribute]](blob/master/CONTRIBUTING.md).
+This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
 <a href="graphs/contributors"><img src="https://opencollective.com/stylelint/contributors.svg?width=890" /></a>
 
 

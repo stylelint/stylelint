@@ -56,3 +56,4 @@ Thank you to all our sponsors! (please ask your company to also support this ope
 <a href="https://opencollective.com/stylelint/sponsor/7/website" target="_blank"><img src="https://opencollective.com/stylelint/sponsor/7/avatar.svg"></a>
 <a href="https://opencollective.com/stylelint/sponsor/8/website" target="_blank"><img src="https://opencollective.com/stylelint/sponsor/8/avatar.svg"></a>
 <a href="https://opencollective.com/stylelint/sponsor/9/website" target="_blank"><img src="https://opencollective.com/stylelint/sponsor/9/avatar.svg"></a>
+
