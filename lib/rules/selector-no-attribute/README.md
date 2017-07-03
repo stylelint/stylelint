@@ -1,5 +1,7 @@
 # selector-no-attribute
 
+***Deprecated: Instead use the [`selector-max-attribute`](../selector-max-attribute/README.md) rule with `0` as its primary option.***
+
 Disallow attribute selectors.
 
 ```css

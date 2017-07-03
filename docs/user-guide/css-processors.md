@@ -14,7 +14,7 @@ You can run the linter before or after your css processors. Depending on which p
 By default, the linter can *parse* any the following non-standard syntaxes by using special PostCSS parsers:
 
 -   SCSS (using [`postcss-scss`](https://github.com/postcss/postcss-scss))
--   Less (using [`postcss-less`](https://github.com/webschik/postcss-less))
+-   Less (using [`postcss-less`](https://github.com/shellscape/postcss-less))
 -   SugarSS (using [`sugarss`](https://github.com/postcss/sugarss))
 
 *Non-standard syntaxes can automatically be inferred from the following file extensions: `.less`, `.scss`, and `.sss`.* If you would need to specify your non-standard syntax, though, both the [CLI](cli.md) and the [Node API](node-api.md) expose a `syntax` option.
