@@ -82,7 +82,7 @@ Provide multiple points of extensions, including:
 Provide a robust tool with a [comprehensive test suite](docs/developer-guide/rules.md#write-tests), including:
 
 -   High coverage, currently over 95%.
--   A wide range of fixtures for rules, currently over 40000.
+-   A wide range of fixtures for rules, currently over 10000.
 
 ## Consistent
 
@@ -95,4 +95,4 @@ Provide consistency throughout, including:
 
 Provide a fast tool, and the means to test and improve performance, including:
 
--   [Benchmarking](docs/developer-guide/rules.md#improving-the-performance-of-a-new-or-an-existing-rule)of an individual rule's performance.
+-   [Benchmarking](docs/developer-guide/rules.md#improving-the-performance-of-a-new-or-an-existing-rule) of an individual rule's performance.
