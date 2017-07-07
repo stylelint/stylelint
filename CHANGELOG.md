@@ -1,5 +1,6 @@
 # Head
 
+-   Fixed: `selector-combinator-space-*` false positives for CSS namespaced type selectors ([#2715](https://github.com/stylelint/stylelint/pull/2715)).
 -   Fixed: `selector-max-specificity` now ignores nested non-standard selectors ([#2685](https://github.com/stylelint/stylelint/pull/2685)).
 
 # 7.12.0
