@@ -8,8 +8,8 @@ The primary goals are:
 The secondary goals are:
 
 1.  Ensuring the stylelint org's `stylelint-config-*` shareable configs are compatible with the release.
-2.  Updating the online demo at [http://stylelint.io/demo](http://stylelint.io/demo) to use the release.
-3.  Updating the documentation at [http://stylelint.io](http://stylelint.io) to use the release.
+2.  Updating the online demo at [https://stylelint.io/demo](https://stylelint.io/demo) to use the release.
+3.  Updating the documentation at [https://stylelint.io](https://stylelint.io) to use the release.
 4.  Sending out a tweet.
 
 ## Process
@@ -25,7 +25,7 @@ The secondary goals are:
     2.  Increment the `version` number in the `package.json` by hand, according to whether it's a patch, minor or major release.
     3.  Replace `# Head` in `CHANGELOG.md` with this new version number e.g. `# 8.1.2`
     4.  Commit and _push up_ these changes.
-    5.  Go to [http://github.com/stylelint/stylelint](http://github.com/stylelint/stylelint) and confirm these changes are correct and pushed up.
+    5.  Go to [https://github.com/stylelint/stylelint](https://github.com/stylelint/stylelint) and confirm these changes are correct and pushed up.
     6.  Run `npm run dry-release`.
     7.  Run `npm run release`.
     8.  Go to [https://www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint) and confirm the package was published correctly.
@@ -35,11 +35,11 @@ The secondary goals are:
     1.  Run `npm install -S stylelint@latest`
     2.  Run `npm test`
     3.  Commit and _push up_ these changes.
-    1.  Go to [http://stylelint.io/demo](http://stylelint.io/demo) and confirm the update was automatically deployed.
+    1.  Go to [https://stylelint.io/demo](https://stylelint.io/demo) and confirm the update was automatically deployed.
 7.  Update the website documentation by changing the to `stylelint.io` repo:
     1.  Run `npm install -D stylelint@latest`
     2.  Run `npm test`
     3.  Commit and _push up_ these changes.
     4.  Run `npm run deploy`.
-    5.  Go to [http://stylelint.io/](http://stylelint.io/) and confirm the update was deployed correctly.
-8.  Compose a tweet that announces the release, communicates what has changed and links to the appropriate heading in the CHANGELOG on [http://stylelint.io/](http://stylelint.io/).
+    5.  Go to [https://stylelint.io](https://stylelint.io) and confirm the update was deployed correctly.
+8.  Compose a tweet that announces the release, communicates what has changed and links to the appropriate heading in the CHANGELOG on [https://stylelint.io](https://stylelint.io).
