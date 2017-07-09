@@ -86,7 +86,7 @@ Given:
 ["/^my-/", "dir"]
 ```
 
-For example, with `2`.
+For example, with `0`.
 
 The following patterns are *not* considered violations:
 
