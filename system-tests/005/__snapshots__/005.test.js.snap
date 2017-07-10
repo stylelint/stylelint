@@ -14775,7 +14775,7 @@ Array [
         "line": 84,
         "rule": "no-unsupported-browser-features",
         "severity": "error",
-        "text": "Unexpected browser feature \\"calc\\" is not supported by Opera 12.1, Opera Mini all and only partially supported by Android Browser 4.4 (no-unsupported-browser-features)",
+        "text": "Unexpected browser feature \\"calc\\" is not supported by Opera 12.1, Opera Mini all (no-unsupported-browser-features)",
       },
       Object {
         "column": 5,
