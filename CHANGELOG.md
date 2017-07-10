@@ -98,19 +98,19 @@
     -   `stylelint-disable-reason`.
     -   `time-no-imperceptible`.
 -   Removed: the 4 options deprecated in [`7.8.0`](#780) ([#2433](https://github.com/stylelint/stylelint/issues/2433)).
-    -   `"all-nested"` option for `at-rule-empty-line-before`. 
-    -   `"blockless-group"` option for `at-rule-empty-line-before`. 
-    -   `"between-comments"` option for `comment-empty-line-before`. 
-    -   `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`. 
+    -   `"all-nested"` option for `at-rule-empty-line-before`.
+    -   `"blockless-group"` option for `at-rule-empty-line-before`.
+    -   `"between-comments"` option for `comment-empty-line-before`.
+    -   `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`.
 -   Changed: stylelint [semantic version policy](README.md#semantic-versioning-policy). We now recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
 -   Changed: compatibility with `postcss` from `@5` to `@6` ([#2561](https://github.com/stylelint/stylelint/issues/2561)).
 -   Changed: `report-needless-disables` now exits with non-zero code ([#2341](https://github.com/stylelint/stylelint/issues/2341)).
 -   Changed: `*-empty-line-before` now correctly handle shared-line comments ([#2262](https://github.com/stylelint/stylelint/issues/2262)).
 -   Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](https://github.com/stylelint/stylelint/issues/2350)).
 -   Changed: `max-line-length`'s `ignorePattern` option is now case sensitive ([#2683](https://github.com/stylelint/stylelint/issues/2683)).
--   Added: ignore: ["child"] option to selector-max-type ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
+-   Added: `ignore: ["child"]` option to `selector-max-type` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
 -   Fixed: `declaration-block-no-redundant-longhand-properties` and `declaration-block-no-shorthand-property-overrides` understand more shorthand properties ([#2354](https://github.com/stylelint/stylelint/pull/2354)).
--   Fixed: selector-max-type no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with ignore: ["descendant"] ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
+-   Fixed: `selector-max-type` no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with `ignore: ["descendant"]` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
 
 # 7.9.0
 
