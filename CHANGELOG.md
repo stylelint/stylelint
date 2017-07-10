@@ -1,4 +1,4 @@
-# Head
+# 7.13.0
 
 -   Added: `ignoreAttributes` option to `selector-max-attribute` ([#2722](https://github.com/stylelint/stylelint/pull/2722)).
 -   Fixed: `selector-combinator-space-*` false positives for CSS namespaced type selectors ([#2715](https://github.com/stylelint/stylelint/pull/2715)).
