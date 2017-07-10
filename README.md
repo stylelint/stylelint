@@ -2,23 +2,22 @@
 
 [![NPM version](https://img.shields.io/npm/v/stylelint.svg)](https://www.npmjs.org/package/stylelint) [![Build Status](https://travis-ci.org/stylelint/stylelint.svg?branch=master)](https://travis-ci.org/stylelint/stylelint) [![Build status](https://ci.appveyor.com/api/projects/status/wwajr0886e00g8je/branch/master?svg=true)](https://ci.appveyor.com/project/stylelint/stylelint/branch/master) [![NPM Downloads](https://img.shields.io/npm/dm/stylelint.svg)](https://www.npmjs.org/package/stylelint) [![Bountysource](https://www.bountysource.com/badge/tracker?tracker_id=9282518)](https://www.bountysource.com/trackers/9282518-stylelint?utm_source=9282518&utm_medium=shield&utm_campaign=TRACKER_BADGE)
 
-A mighty, modern CSS linter that helps you enforce consistent conventions and avoid errors in your stylesheets.
+A mighty, modern CSS linter and fixer that helps you avoid errors and enforce consistent conventions in your stylesheets.
 
 ## Features
 
 -   **Over one hundred and fifty rules:** Including those that:
-    -   **Catch errors**: e.g. invalid hex colors, indistinguishable colors, or overriding shorthand properties.
-    -   **Enforce best practices**: e.g. keeping specificity low or disallowing vendor prefixes in your source code.
-    -   **Control what languages features can be used**: e.g. whitelisting specific units, properties and functions, or disallowing certain selector types.
-    -   **Enforce code style conventions**: e.g. checking the spacing around the colon in declarations or specifying patterns for class selectors.
--   **Support for the latest CSS syntax:** Including custom properties, range context for media features, calc() and nesting.
+    -   **Catch errors**: e.g. invalid hex colors, duplicate selectors and overriding shorthand properties.
+    -   **Limit language features**: e.g. vendor prefixes, patterns for selectors and specific units, properties, functions and at-rules.
+    -   **Enforce stylistic conventions**: e.g. the whitespace around the colon in declarations and the number of empty lines between rules.
+-   **Support for the latest CSS syntax:** Including custom properties, calc() and nesting.
 -   **Understands *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and *experimental support* for Less.
 -   **Completely unopinionated:** Only enable the rules you want, and configure them with options that tailor the linter to your needs.
 -   **Support for plugins:** It's easy to create your own rules and add them to the linter.
 -   **Automatically fixes some stylistic warnings:** Save time by having stylelint fix your code with this *experimental* feature.
 -   **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config.
 -   **Options validator:** So that you can be confident that your config is valid.
--   **Well tested:** Nearly twenty five thousand tests cover the internals and rules.
+-   **Well tested:** Over ten thousand tests cover the internals and rules.
 -   **Growing community**: Used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [Github](https://github.com/primer/stylelint-config-primer), [Wikimedia](https://github.com/wikimedia/stylelint-config-wikimedia), [GSA](https://github.com/18F/stylelint-rules/), and [WordPress](https://github.com/ntwb/stylelint-config-wordpress/) among others.
 
 ## Example output
@@ -31,12 +30,12 @@ With stylelint, it's easy to start linting your CSS:
 
 1.  Decide how you want to use stylelint:
     -   [via the stylelint CLI](docs/user-guide/cli.md)
-    -   [via a plugin for your build tool](docs/user-guide/complementary-tools.md#build-tool-plugins) (gulp, webpack etc)
-    -   [via a plugin for your text editor](docs/user-guide/complementary-tools.md#editor-plugins) (atom, sublime text etc)
+    -   [via a plugin for your text editor](docs/user-guide/complementary-tools.md#editor-plugins) (atom, vscode etc)
+    -   [via a plugin for your build tool](docs/user-guide/complementary-tools.md#build-tool-plugins) (webpack, gulp etc)
     -   [via the stylelint Node API](docs/user-guide/node-api.md)
     -   [via the stylelint PostCSS plugin](docs/user-guide/postcss-plugin.md)
 2.  Create your [configuration object](docs/user-guide/configuration.md) by either extending a shared config or crafting your own:
-    -   To extend a shared config, we recommend using [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard). It includes over 80 of stylelint's rules with sensible defaults. (You can always override specific rules after extending the config.) We update the config with each new release of stylelint. Alternately, you can [search for](https://www.npmjs.com/browse/keyword/stylelint-config) a community config and [extend](docs/user-guide/configuration.md#extends) that instead.
+    -   To extend a shared config, we suggest using either [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) or [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). The recommended config turns on just the [possible error](docs/user-guide/rules.md#possible-errors) rules. The standard config builds on top of the recommened config by additionally turning on over 60 of stylelint's [stylistic rules](docs/user-guide/rules.md#stylistic-issues) with sensible defaults. You can always override specific rules after extending either config. When using either config, you'll likely want to add (and configure to your specific needs) some of the rules that [limit language features](docs/user-guide/rules.md#limit-language-features). We update the configs with each new release of stylelint, so it's easy to stay up to date. Alternately, you can [search for](https://www.npmjs.com/browse/keyword/stylelint-config) a community config and [extend](docs/user-guide/configuration.md#extends) that instead.
     -   To craft your own config, first [learn about how rules are named and how they work together](docs/user-guide/about-rules.md), then either:
         -   Start small and only learn about [the rules](docs/user-guide/rules.md) you want to turn on and enforce. *All of the rules are off by default*, and so you can start small, growing your config over time as you have a chance to explore more of the rules.
         -   Or copy-paste [this example configuration](docs/user-guide/example-config.md), which lists all of stylelint's rules and their primary options. Then you can edit the options of each rule to your liking, and remove (or turn off with `null`) the rules that you don't care to enforce.
