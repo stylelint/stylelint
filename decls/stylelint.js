@@ -75,6 +75,7 @@ export type stylelint$result = {
   invalidOptionWarnings: Array<{
     text: string,
   }>,
+  parseErrors: Array<stylelint$warning>,
   errored?: boolean,
   warnings: Array<stylelint$warning>,
   ignored?: boolean,
