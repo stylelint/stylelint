@@ -79,7 +79,7 @@ var css = fs.readFileSync("input.css", "utf8")
 
 postcss([
   require("stylelint")({ /* your options */ })
-  require("postcss-reporter")({ clearMessages: true })
+  require("postcss-reporter")({ clearReportedMessages: true })
 ])
   .process(css, {
     from: "input.css",
@@ -111,7 +111,7 @@ postcss(
       ]
     }),
     require("postcss-cssnext")
-    require("postcss-reporter")({ clearMessages: true })
+    require("postcss-reporter")({ clearReportedMessages: true })
   ]
 )
   .process(css, { from: 'lib/app.css', to: 'app.css' })

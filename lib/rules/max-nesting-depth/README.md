@@ -3,7 +3,7 @@
 Limit the allowed nesting depth.
 
 ```css
-a { & > b { top: 0; }
+a { & > b { top: 0; } }
 /** ↑
  * This nesting */
 ```
