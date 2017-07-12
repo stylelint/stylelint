@@ -68,6 +68,8 @@ There is always a lot of work to do, and already well over 150 rules to maintain
 -   Open new issues about your ideas for making stylelint better, and pull requests to show us how your idea works.
 -   Create or contribute to ecosystem tools, like the plugins for [Atom](https://github.com/AtomLinter/linter-stylelint) and [Sublime Text](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint).
 
+Interested in the project vision? Please read our [VISION document](VISION.md).
+
 ## Semantic Versioning Policy
 
 stylelint follows [semantic versioning](http://semver.org). However, due to the nature of stylelint as a code quality tool, it's not always clear when a minor or major version bump occurs. To help clarify this for everyone, based on ESLint's [semantic versioning policy](https://github.com/eslint/eslint#semantic-versioning-policy) we've defined the following semantic versioning policy for stylelint:
