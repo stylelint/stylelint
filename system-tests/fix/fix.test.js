@@ -59,4 +59,25 @@ describe("fix", () => {
       })
     })
   })
+
+  it("doesn't write to ignored file", () => {
+    return stylelint.lint({
+      files: [stylesheetPath],
+      config: {
+        ignoreFiles: stylesheetPath,
+        rules: {
+          "at-rule-name-case": "lower",
+          "comment-empty-line-before": "always",
+          "comment-no-empty": true,
+        },
+      },
+      fix: true,
+    }).then(() => {
+      return pify(fs.readFile)(stylesheetPath, "utf8").then((newFile) => {
+        return pify(fs.readFile)(path.join(__dirname, "stylesheet.css"), "utf8").then((oldFile) => {
+          expect(newFile).toBe(oldFile)
+        })
+      })
+    })
+  })
 })

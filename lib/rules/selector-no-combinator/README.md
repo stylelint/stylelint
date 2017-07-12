@@ -1,5 +1,7 @@
 # selector-no-combinator
 
+***Deprecated: Instead use the [`selector-max-combinators`](../selector-max-combinators/README.md) rule with `0` as its primary option.***
+
 Disallow combinators in selectors.
 
 ```css

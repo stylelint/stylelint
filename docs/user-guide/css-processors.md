@@ -14,7 +14,7 @@ You can run the linter before or after your css processors. Depending on which p
 By default, the linter can *parse* any the following non-standard syntaxes by using special PostCSS parsers:
 
 -   SCSS (using [`postcss-scss`](https://github.com/postcss/postcss-scss))
--   Less (using [`postcss-less`](https://github.com/webschik/postcss-less))
+-   Less (using [`postcss-less`](https://github.com/shellscape/postcss-less))
 -   SugarSS (using [`sugarss`](https://github.com/postcss/sugarss))
 -   HTML, [Markdown](https://daringfireball.net/projects/markdown/syntax), [Vue component](https://vue-loader.vuejs.org/) (using [`postcss-html`](https://github.com/gucong3000/postcss-html))
 

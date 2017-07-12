@@ -229,19 +229,23 @@ First, open [an issue](https://github.com/stylelint/stylelint/issues/new) about 
 
 Once we've agreed on the direction, you can work on a pull request. Here are the steps you'll need to take:
 
-1.  Change the rule's validation to allow for the new option.
-2.  Add to the rule some logic (as little as possible) to make the option work.
-3.  Add new unit tests to test the option.
-4.  Add documentation about the new option.
+1.  Run `npm run watch` to start the interactive testing prompt.
+2.  Use the `p` command to filter the active tests to just the rule you're working on.
+2.  Change the rule's validation to allow for the new option.
+3.  Add to the rule some logic (as little as possible) to make the option work.
+4.  Add new unit tests to test the option.
+5.  Add documentation about the new option.
 
 ## Fixing a bug in an existing rule
 
 Fixing bugs is usually very easy. Here is a process that works:
 
-1.  Write failing unit tests that exemplify the bug.
-2.  Fiddle with the rule until those new tests pass.
+1.  Run `npm run watch` to start the interactive testing prompt.
+2.  Use the `p` command to filter the active tests to just the rule you're working on.
+3.  Write failing unit tests that exemplify the bug.
+4.  Fiddle with the rule until those new tests pass.
 
-That's it! **If you are unable to figure out how to fix the bug yourself, it is still *extremely* helpful to submit a pull request with your failing test cases.** It means that somebody else can jump right in and help out with the rule's logic.
+That's it! **If you are unable to figure out how to fix the bug yourself, it is still helpful to submit a pull request with your failing test cases.** It means that somebody else can jump right in and help out with the rule's logic.
 
 ## Improving the performance of a new or an existing rule
 

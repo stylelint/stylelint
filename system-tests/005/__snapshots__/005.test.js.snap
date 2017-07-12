@@ -21,6 +21,10 @@ Array [
         "text": "'declaration-block-properties-order'has been deprecated and in 8.0 will be removed. Instead use the community 'stylelint-order' plugin pack.",
       },
       Object {
+        "reference": "https://stylelint.io/user-guide/rules/function-url-data-uris/",
+        "text": "'function-url-data-uris' has been deprecated and in 8.0 will be removed. Instead use either the 'function-url-scheme-blacklist' or 'function-url-scheme-whitelist' rule.",
+      },
+      Object {
         "reference": "https://stylelint.io/user-guide/rules/media-feature-no-missing-punctuation/",
         "text": "'media-feature-no-missing-punctuation' has been deprecated and in 8.0 will be removed.",
       },
@@ -49,8 +53,28 @@ Array [
         "text": "'rule-non-nested-empty-line-before' has been deprecated and in 8.0 will be removed. Instead use 'rule-empty-line-before'.",
       },
       Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-attribute/",
+        "text": "'selector-no-attribute' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-attribute' with '0' as its primary option.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-combinator/",
+        "text": "'selector-no-combinator' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-combinators' with '0' as its primary option.",
+      },
+      Object {
         "reference": "https://stylelint.io/user-guide/rules/selector-no-empty/",
         "text": "'selector-no-empty' has been deprecated and in 8.0 will be removed.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-id/",
+        "text": "'selector-no-id' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-id' with '0' as its primary option.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-type/",
+        "text": "'selector-no-type' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-type' with '0' as its primary option.",
+      },
+      Object {
+        "reference": "https://stylelint.io/user-guide/rules/selector-no-universal/",
+        "text": "'selector-no-universal' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-universal' with '0' as its primary option.",
       },
       Object {
         "reference": "https://stylelint.io/user-guide/rules/selector-root-no-composition/",
@@ -7558,49 +7582,49 @@ Array [
         "line": 46,
         "rule": "declaration-block-single-line-max-declarations",
         "severity": "error",
-        "text": "Expected no more than 1 declaration(s) (declaration-block-single-line-max-declarations)",
+        "text": "Expected no more than 1 declaration (declaration-block-single-line-max-declarations)",
       },
       Object {
         "column": 3,
         "line": 47,
         "rule": "declaration-block-single-line-max-declarations",
         "severity": "error",
-        "text": "Expected no more than 1 declaration(s) (declaration-block-single-line-max-declarations)",
+        "text": "Expected no more than 1 declaration (declaration-block-single-line-max-declarations)",
       },
       Object {
         "column": 3,
         "line": 62,
         "rule": "declaration-block-single-line-max-declarations",
         "severity": "error",
-        "text": "Expected no more than 1 declaration(s) (declaration-block-single-line-max-declarations)",
+        "text": "Expected no more than 1 declaration (declaration-block-single-line-max-declarations)",
       },
       Object {
         "column": 3,
         "line": 64,
         "rule": "declaration-block-single-line-max-declarations",
         "severity": "error",
-        "text": "Expected no more than 1 declaration(s) (declaration-block-single-line-max-declarations)",
+        "text": "Expected no more than 1 declaration (declaration-block-single-line-max-declarations)",
       },
       Object {
         "column": 3,
         "line": 66,
         "rule": "declaration-block-single-line-max-declarations",
         "severity": "error",
-        "text": "Expected no more than 1 declaration(s) (declaration-block-single-line-max-declarations)",
+        "text": "Expected no more than 1 declaration (declaration-block-single-line-max-declarations)",
       },
       Object {
         "column": 3,
         "line": 122,
         "rule": "declaration-block-single-line-max-declarations",
         "severity": "error",
-        "text": "Expected no more than 1 declaration(s) (declaration-block-single-line-max-declarations)",
+        "text": "Expected no more than 1 declaration (declaration-block-single-line-max-declarations)",
       },
       Object {
         "column": 3,
         "line": 153,
         "rule": "declaration-block-single-line-max-declarations",
         "severity": "error",
-        "text": "Expected no more than 1 declaration(s) (declaration-block-single-line-max-declarations)",
+        "text": "Expected no more than 1 declaration (declaration-block-single-line-max-declarations)",
       },
       Object {
         "column": 15,
@@ -10810,7 +10834,7 @@ Array [
         "line": 90,
         "rule": "function-max-empty-lines",
         "severity": "error",
-        "text": "Expected no more than 0 empty line(s) (function-max-empty-lines)",
+        "text": "Expected no more than 0 empty lines (function-max-empty-lines)",
       },
       Object {
         "column": 10,
@@ -11272,7 +11296,7 @@ Array [
         "line": 107,
         "rule": "function-url-scheme-whitelist",
         "severity": "error",
-        "text": "Unexpected url scheme \\"http:\\" (function-url-scheme-whitelist)",
+        "text": "Unexpected URL scheme \\"http:\\" (function-url-scheme-whitelist)",
       },
       Object {
         "column": 10,
@@ -11398,7 +11422,7 @@ Array [
         "line": 121,
         "rule": "max-empty-lines",
         "severity": "error",
-        "text": "Expected no more than 2 empty line(s) (max-empty-lines)",
+        "text": "Expected no more than 2 empty lines (max-empty-lines)",
       },
       Object {
         "column": 26,
@@ -14751,7 +14775,7 @@ Array [
         "line": 84,
         "rule": "no-unsupported-browser-features",
         "severity": "error",
-        "text": "Unexpected browser feature \\"calc\\" is not supported by Opera 12.1, Opera Mini all and only partially supported by Android Browser 4.4 (no-unsupported-browser-features)",
+        "text": "Unexpected browser feature \\"calc\\" is not supported by Opera 12.1, Opera Mini all (no-unsupported-browser-features)",
       },
       Object {
         "column": 5,
@@ -17301,7 +17325,7 @@ Array [
         "line": 188,
         "rule": "selector-max-empty-lines",
         "severity": "error",
-        "text": "Expected no more than 0 empty line(s) (selector-max-empty-lines)",
+        "text": "Expected no more than 0 empty lines (selector-max-empty-lines)",
       },
       Object {
         "column": 7,
@@ -19237,14 +19261,14 @@ Array [
         "line": 89,
         "rule": "value-list-max-empty-lines",
         "severity": "error",
-        "text": "Expected no more than 0 empty line(s) (value-list-max-empty-lines)",
+        "text": "Expected no more than 0 empty lines (value-list-max-empty-lines)",
       },
       Object {
         "column": 7,
         "line": 246,
         "rule": "value-list-max-empty-lines",
         "severity": "error",
-        "text": "Expected no more than 0 empty line(s) (value-list-max-empty-lines)",
+        "text": "Expected no more than 0 empty lines (value-list-max-empty-lines)",
       },
       Object {
         "column": 14,

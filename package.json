@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "7.11.1",
+  "version": "7.13.0",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css",
@@ -38,7 +38,7 @@
   "dependencies": {
     "autoprefixer": "^6.0.0",
     "balanced-match": "^0.4.0",
-    "chalk": "^1.1.1",
+    "chalk": "^2.0.1",
     "colorguard": "^1.2.0",
     "cosmiconfig": "^2.1.1",
     "debug": "^2.6.0",
@@ -48,7 +48,7 @@
     "get-stdin": "^5.0.0",
     "globby": "^6.0.0",
     "globjoin": "^0.1.4",
-    "html-tags": "^1.1.1",
+    "html-tags": "^2.0.0",
     "ignore": "^3.2.0",
     "imurmurhash": "^0.1.4",
     "known-css-properties": "^0.2.0",
@@ -99,7 +99,7 @@
     "remark-preset-lint-recommended": "^2.0.0",
     "remark-validate-links": "^6.0.0",
     "request": "^2.69.0",
-    "strip-ansi": "^3.0.1"
+    "strip-ansi": "^4.0.0"
   },
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",

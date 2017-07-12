@@ -1,5 +1,7 @@
 # selector-no-universal
 
+***Deprecated: Instead use the [`selector-max-universal`](../selector-max-universal/README.md) rule with `0` as its primary option.***
+
 Disallow the universal selector.
 
 ```css

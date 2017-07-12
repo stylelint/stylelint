@@ -38,9 +38,10 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`function-name-case`](../../lib/rules/function-name-case/README.md): Specify lowercase or uppercase for function names.
 -   [`function-parentheses-newline-inside`](../../lib/rules/function-parentheses-newline-inside/README.md): Require a newline or disallow whitespace on the inside of the parentheses of functions.
 -   [`function-parentheses-space-inside`](../../lib/rules/function-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses of functions.
--   [`function-url-data-uris`](../../lib/rules/function-url-data-uris/README.md): Require or disallow data URIs for urls.
+-   [`function-url-data-uris`](../../lib/rules/function-url-data-uris/README.md): Require or disallow data URIs for urls **(deprecated)**.
 -   [`function-url-no-scheme-relative`](../../lib/rules/function-url-no-scheme-relative/README.md): Disallow scheme-relative urls.
 -   [`function-url-quotes`](../../lib/rules/function-url-quotes/README.md): Require or disallow quotes for urls.
+-   [`function-url-scheme-blacklist`](../../lib/rules/function-url-scheme-blacklist/README.md): Specify a blacklist of disallowed url schemes.
 -   [`function-url-scheme-whitelist`](../../lib/rules/function-url-scheme-whitelist/README.md): Specify a whitelist of allowed url schemes.
 -   [`function-whitelist`](../../lib/rules/function-whitelist/README.md): Specify a whitelist of allowed functions.
 -   [`function-whitespace-after`](../../lib/rules/function-whitespace-after/README.md): Require or disallow whitespace after functions.
@@ -162,17 +163,23 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`selector-combinator-space-before`](../../lib/rules/selector-combinator-space-before/README.md): Require a single space or disallow whitespace before the combinators of selectors.
 -   [`selector-descendant-combinator-no-non-space`](../../lib/rules/selector-descendant-combinator-no-non-space/README.md): Disallow non-space characters for descendant combinators of selectors.
 -   [`selector-id-pattern`](../../lib/rules/selector-id-pattern/README.md): Specify a pattern for id selectors.
+-   [`selector-max-attribute`](../../lib/rules/selector-max-attribute/README.md): Limit the number of attribute selectors in a selector.
 -   [`selector-max-class`](../../lib/rules/selector-max-class/README.md): Limit the number of classes in a selector.
+-   [`selector-max-combinators`](../../lib/rules/selector-max-combinators/README.md): Limit the number of combinators in a selector.
 -   [`selector-max-compound-selectors`](../../lib/rules/selector-max-compound-selectors/README.md): Limit the number of compound selectors in a selector.
+-   [`selector-max-empty-lines`](../../lib/rules/selector-max-empty-lines/README.md): Limit the number of adjacent empty lines within selectors.
+-   [`selector-max-id`](../../lib/rules/selector-max-id/README.md): Limit the number of id selectors in a selector.
 -   [`selector-max-specificity`](../../lib/rules/selector-max-specificity/README.md): Limit the specificity of selectors.
+-   [`selector-max-type`](../../lib/rules/selector-max-type/README.md): Limit the number of type in a selector.
+-   [`selector-max-universal`](../../lib/rules/selector-max-universal/README.md): Limit the number of universal selectors in a selector.
 -   [`selector-nested-pattern`](../../lib/rules/selector-nested-pattern/README.md): Specify a pattern for the selectors of rules nested within rules.
--   [`selector-no-attribute`](../../lib/rules/selector-no-attribute/README.md): Disallow attribute selectors.
--   [`selector-no-combinator`](../../lib/rules/selector-no-combinator/README.md): Disallow combinators in selectors.
+-   [`selector-no-attribute`](../../lib/rules/selector-no-attribute/README.md): Disallow attribute selectors **(deprecated)**.
+-   [`selector-no-combinator`](../../lib/rules/selector-no-combinator/README.md): Disallow combinators in selectors **(deprecated)**.
 -   [`selector-no-empty`](../../lib/rules/selector-no-empty/README.md): Disallow empty selectors **(deprecated)**.
--   [`selector-no-id`](../../lib/rules/selector-no-id/README.md): Disallow id selectors.
+-   [`selector-no-id`](../../lib/rules/selector-no-id/README.md): Disallow id selectors **(deprecated)**.
 -   [`selector-no-qualifying-type`](../../lib/rules/selector-no-qualifying-type/README.md): Disallow qualifying a selector by type.
--   [`selector-no-type`](../../lib/rules/selector-no-type/README.md): Disallow type selectors.
--   [`selector-no-universal`](../../lib/rules/selector-no-universal/README.md): Disallow the universal selector.
+-   [`selector-no-type`](../../lib/rules/selector-no-type/README.md): Disallow type selectors **(deprecated)**.
+-   [`selector-no-universal`](../../lib/rules/selector-no-universal/README.md): Disallow the universal selector **(deprecated)**.
 -   [`selector-no-vendor-prefix`](../../lib/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors.
 -   [`selector-pseudo-class-blacklist`](../../lib/rules/selector-pseudo-class-blacklist/README.md): Specify a blacklist of disallowed pseudo-class selectors.
 -   [`selector-pseudo-class-case`](../../lib/rules/selector-pseudo-class-case/README.md): Specify lowercase or uppercase for pseudo-class selectors.
@@ -185,7 +192,6 @@ Here are all the rules within stylelint, grouped by the [*thing*](http://apps.wo
 -   [`selector-root-no-composition`](../../lib/rules/selector-root-no-composition/README.md): Disallow the composition of `:root` in selectors **(deprecated)**.
 -   [`selector-type-case`](../../lib/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selector.
 -   [`selector-type-no-unknown`](../../lib/rules/selector-type-no-unknown/README.md): Disallow unknown type selectors.
--   [`selector-max-empty-lines`](../../lib/rules/selector-max-empty-lines/README.md): Limit the number of adjacent empty lines within selectors.
 
 ### Selector list
 

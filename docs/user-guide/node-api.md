@@ -123,8 +123,7 @@ Note, however, that stylelint can provide no guarantee that core rules will work
 
 ### `fix`
 
-If `true`, stylelint will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported.
-
+If `true`, stylelint will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported. See [Autofixing errors](cli.md#autofixing-errors) docs.
 
 ## The returned promise
 
