@@ -1,3 +1,46 @@
+# Head
+
+-   Removed: the 21 rules deprecated in [`7.8.0`](#780) & [`7.12.0`](#7120) ([#2422](https://github.com/stylelint/stylelint/issues/2422) & [#2693](https://github.com/stylelint/stylelint/issues/2693)).
+    -   `block-no-single-line`.
+    -   `custom-property-no-outside-root`
+    -   `declaration-block-no-ignored-properties`.
+    -   `declaration-block-properties-order`.
+    -   `function-url-data-uris`.
+    -   `media-feature-no-missing-punctuation`.
+    -   `no-browser-hacks`.
+    -   `no-indistinguishable-colors`.
+    -   `no-unsupported-browser-features`.
+    -   `root-no-standard-properties`
+    -   `rule-nested-empty-line-before`.
+    -   `rule-non-nested-empty-line-before`.
+    -   `selector-no-attribute`.
+    -   `selector-no-combinator`.
+    -   `selector-no-empty`.
+    -   `selector-no-id`.
+    -   `selector-no-type`.
+    -   `selector-no-universal`.
+    -   `selector-root-no-composition`.
+    -   `stylelint-disable-reason`.
+    -   `time-no-imperceptible`.
+-   Removed: the 4 options deprecated in [`7.8.0`](#780) ([#2433](https://github.com/stylelint/stylelint/issues/2433)).
+    -   `"all-nested"` option for `at-rule-empty-line-before`.
+    -   `"blockless-group"` option for `at-rule-empty-line-before`.
+    -   `"between-comments"` option for `comment-empty-line-before`.
+    -   `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`.
+-   Changed: stylelint [semantic version policy](README.md#semantic-versioning-policy). We now recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
+-   Changed: compatibility with `postcss` from `@5` to `@6` ([#2561](https://github.com/stylelint/stylelint/issues/2561)).
+-   Changed: stylelint now exits with non-zero code on parse errors ([#2713](https://github.com/stylelint/stylelint/issues/2713)).
+-   Changed: `report-needless-disables` now exits with non-zero code ([#2341](https://github.com/stylelint/stylelint/issues/2341)).
+-   Changed: the primary options of the `*-whitelist` & `*-blacklist` rules and the `ignore* []` secondary options are now case sensitive. Use regular expressions with the `i` flag for case insensitivity ([#2709](https://github.com/stylelint/stylelint/issues/2709)).
+-   Changed: `*-empty-line-before` now correctly handle shared-line comments ([#2262](https://github.com/stylelint/stylelint/issues/2262)).
+-   Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](https://github.com/stylelint/stylelint/issues/2350)).
+-   Changed: `max-line-length`'s `ignorePattern` option is now case sensitive ([#2683](https://github.com/stylelint/stylelint/issues/2683)).
+-   Added: `disableDefaultIgnores` option (`--disable-default-ignores` in CLI), to allow linting of `node_modules` and `bower_components` directories ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
+-   Added: more efficient file ignoring with `.stylelintignore` ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
+-   Added: `ignore: ["child"]` option to `selector-max-type` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
+-   Fixed: `declaration-block-no-redundant-longhand-properties` and `declaration-block-no-shorthand-property-overrides` understand more shorthand properties ([#2354](https://github.com/stylelint/stylelint/pull/2354)).
+-   Fixed: `selector-max-type` no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with `ignore: ["descendant"]` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
+
 # 7.13.0
 
 -   Added: `ignoreAttributes` option to `selector-max-attribute` ([#2722](https://github.com/stylelint/stylelint/pull/2722)).
@@ -78,49 +121,6 @@
 -   Fixed: `no-extra-semicolons` false positives for comments after custom property sets ([#2396](https://github.com/stylelint/stylelint/pull/2396)).
 -   Fixed: `value-keyword-case` false positives for `attr`, `counter`, `counters` functions and ` counter-reset` property ([#2407](https://github.com/stylelint/stylelint/pull/2407)).
 -   Fixed: Less mergeable properties are now ignored ([#2570](https://github.com/stylelint/stylelint/pull/2570)).
-
-# 8.0.0
-
--   Removed: the 21 rules deprecated in [`7.8.0`](#780) & [`7.12.0`](#7120) ([#2422](https://github.com/stylelint/stylelint/issues/2422) & [#2693](https://github.com/stylelint/stylelint/issues/2693)).
-    -   `block-no-single-line`.
-    -   `custom-property-no-outside-root`
-    -   `declaration-block-no-ignored-properties`.
-    -   `declaration-block-properties-order`.
-    -   `function-url-data-uris`.
-    -   `media-feature-no-missing-punctuation`.
-    -   `no-browser-hacks`.
-    -   `no-indistinguishable-colors`.
-    -   `no-unsupported-browser-features`.
-    -   `root-no-standard-properties`
-    -   `rule-nested-empty-line-before`.
-    -   `rule-non-nested-empty-line-before`.
-    -   `selector-no-attribute`.
-    -   `selector-no-combinator`.
-    -   `selector-no-empty`.
-    -   `selector-no-id`.
-    -   `selector-no-type`.
-    -   `selector-no-universal`.
-    -   `selector-root-no-composition`.
-    -   `stylelint-disable-reason`.
-    -   `time-no-imperceptible`.
--   Removed: the 4 options deprecated in [`7.8.0`](#780) ([#2433](https://github.com/stylelint/stylelint/issues/2433)).
-    -   `"all-nested"` option for `at-rule-empty-line-before`.
-    -   `"blockless-group"` option for `at-rule-empty-line-before`.
-    -   `"between-comments"` option for `comment-empty-line-before`.
-    -   `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`.
--   Changed: stylelint [semantic version policy](README.md#semantic-versioning-policy). We now recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
--   Changed: compatibility with `postcss` from `@5` to `@6` ([#2561](https://github.com/stylelint/stylelint/issues/2561)).
--   Changed: stylelint now exits with non-zero code on parse errors ([#2713](https://github.com/stylelint/stylelint/issues/2713)).
--   Changed: `report-needless-disables` now exits with non-zero code ([#2341](https://github.com/stylelint/stylelint/issues/2341)).
--   Changed: the primary options of the `*-whitelist` & `*-blacklist` rules and the `ignore* []` secondary options are now case sensitive. Use regular expressions with the `i` flag for case insensitivity ([#2709](https://github.com/stylelint/stylelint/issues/2709)).
--   Changed: `*-empty-line-before` now correctly handle shared-line comments ([#2262](https://github.com/stylelint/stylelint/issues/2262)).
--   Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](https://github.com/stylelint/stylelint/issues/2350)).
--   Changed: `max-line-length`'s `ignorePattern` option is now case sensitive ([#2683](https://github.com/stylelint/stylelint/issues/2683)).
--   Added: `disableDefaultIgnores` option (`--disable-default-ignores` in CLI), to allow linting of `node_modules` and `bower_components` directories ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
--   Added: more efficient file ignoring with `.stylelintignore` ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
--   Added: `ignore: ["child"]` option to `selector-max-type` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
--   Fixed: `declaration-block-no-redundant-longhand-properties` and `declaration-block-no-shorthand-property-overrides` understand more shorthand properties ([#2354](https://github.com/stylelint/stylelint/pull/2354)).
--   Fixed: `selector-max-type` no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with `ignore: ["descendant"]` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
 
 # 7.9.0
 
