@@ -88,7 +88,7 @@ Provide a robust tool with a [comprehensive test suite](docs/developer-guide/rul
 
 Provide consistency throughout, including:
 
--   Consistent [names](docs/developer-guide/rules.md#naming-a-rule), [options](docs/developer-guide/rules.md#determining-options), [violation messages](docs/developer-guide/rules.md#determine-violation-messages), [documentation](https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#write-the-readme) and [treatment](docs/developer-guide/rules.md#write-the-rule) of non-standard syntax within/of rules.
+-   Consistent [names](docs/developer-guide/rules.md#naming-a-rule), [options](docs/developer-guide/rules.md#determining-options), [violation messages](docs/developer-guide/rules.md#determine-violation-messages), [documentation](docs/developer-guide/rules.md#write-the-readme) and [treatment](docs/developer-guide/rules.md#write-the-rule) of non-standard syntax within/of rules.
 -   Consistent [requirements for inclusion](docs/developer-guide/rules.md#criteria-for-inclusion).
 
 ## Performant
