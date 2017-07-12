@@ -30,6 +30,7 @@
     "decls/*.js",
     "docs",
     "lib",
+    "VISION.md",
     "!**/__tests__"
   ],
   "engines": {
