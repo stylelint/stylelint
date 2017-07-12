@@ -46,7 +46,8 @@ The secondary goals are:
 9.  Compose a tweet that announces the release, communicates what has changed and links to the appropriate heading in the CHANGELOG on [https://stylelint.io](https://stylelint.io).
 
 ## New Release Issue Template
-```
+
+```markdown
 - [ ] stylelint release
 - [ ] stylelint-config-recommended update/release
 - [ ] stylelint-config-standard update/release
@@ -54,5 +55,5 @@ The secondary goals are:
 - [ ] stylelint.io update
 - [ ] tweet
 
-cc @stylelint/core 
+cc @stylelint/core
 ```
