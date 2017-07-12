@@ -33,8 +33,10 @@
 -   Changed: `report-needless-disables` now exits with non-zero code ([#2341](https://github.com/stylelint/stylelint/issues/2341)).
 -   Changed: the primary options of the `*-whitelist` & `*-blacklist` rules and the `ignore* []` secondary options are now case sensitive. Use regular expressions with the `i` flag for case insensitivity ([#2709](https://github.com/stylelint/stylelint/issues/2709)).
 -   Changed: `*-empty-line-before` now correctly handle shared-line comments ([#2262](https://github.com/stylelint/stylelint/issues/2262)).
--   Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](https://github.com/stylelint/stylelint/issues/2350)).
+-   Changed: `*-empty-line-before` rules consider line as empty if it contains whitespace only ([#2440](https://github.com/stylelint/stylelint/pull/2440)).
+-   Changed: `function-linear-gradient-no-nonstandard-direction` now checks all linear-gradients in a value list ([#2496](https://github.com/stylelint/stylelint/pull/2496)).
 -   Changed: `max-line-length`'s `ignorePattern` option is now case sensitive ([#2683](https://github.com/stylelint/stylelint/issues/2683)).
+-   Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](https://github.com/stylelint/stylelint/issues/2350)).
 -   Added: `disableDefaultIgnores` option (`--disable-default-ignores` in CLI), to allow linting of `node_modules` and `bower_components` directories ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
 -   Added: more efficient file ignoring with `.stylelintignore` ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
 -   Added: `ignore: ["child"]` option to `selector-max-type` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
@@ -104,10 +106,6 @@
 
 # 7.10.0
 
--   Changed: `*-empty-line-before` rules consider line as empty if it contains whitespace only ([#2440](https://github.com/stylelint/stylelint/pull/2440)).
--   Changed: `function-linear-gradient-no-nonstandard-direction` now checks all linear-gradients in a value list ([#2496](https://github.com/stylelint/stylelint/pull/2496)).
--   Added: `disableDefaultIgnores` option (`--disable-default-ignores` in CLI), to allow linting of `node_modules` and `bower_components` directories ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
--   Added: more efficient file ignoring with `.stylelintignore` ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
 -   Added: support for asynchronous plugin rules ([#2351](https://github.com/stylelint/stylelint/pull/2351)).
 -   Added: `cache` option to store the info about processed files in order to only operate on the changed ones the next time you run stylelint ([#2293](https://github.com/stylelint/stylelint/pull/2293)).
 -   Added: `at-rule-semicolon-space-before` rule ([#2388](https://github.com/stylelint/stylelint/pull/2388)).
@@ -158,7 +156,7 @@
     -   `"blockless-group"` option for `at-rule-empty-line-before`. Use the `"blockless-after-blockless"` option instead.
     -   `"between-comments"` option for `comment-empty-line-before`. Use the `"after-comment"` option instead.
     -   `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`. Use the `"blockless-at-rules"` option instead.
--   Added: `time-min-milliseconds` rule, to replace `time-no-imperceptible` ([#2289](https://github.com/stylelint/stylelint/pull/2289)).r
+-   Added: `time-min-milliseconds` rule, to replace `time-no-imperceptible` ([#2289](https://github.com/stylelint/stylelint/pull/2289)).
 -   Added: `except: ["after-same-name"]` option to `at-rule-empty-line-before` ([#2225](https://github.com/stylelint/stylelint/pull/2225)).
 -   Fixed: `configOverrides` now work with `extends` ([#2295](https://github.com/stylelint/stylelint/pull/2295)).
 -   Fixed: `max-line-length` no longer reports incorrect column positions for lines with `url()` or `import` ([#2287](https://github.com/stylelint/stylelint/pull/2287)).
