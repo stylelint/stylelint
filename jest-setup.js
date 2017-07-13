@@ -1,8 +1,8 @@
 "use strict"
 
 const _ = require("lodash")
-const less = require("postcss-less")
 const basicChecks = require("./lib/testUtils/basicChecks")
+const less = require("postcss-less")
 const stylelint = require("./lib/standalone")
 
 jest.mock("./lib/utils/getOsEol", () => () => "\n")

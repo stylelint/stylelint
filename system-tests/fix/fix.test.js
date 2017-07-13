@@ -1,14 +1,14 @@
 "use strict"
 
+const _ = require("lodash")
+const cpFile = require("cp-file")
+const del = require("del")
+const fs = require("fs")
 const os = require("os")
 const path = require("path")
-const fs = require("fs")
-const _ = require("lodash")
 const pify = require("pify")
-const del = require("del")
-const cpFile = require("cp-file")
-const systemTestUtils = require("../systemTestUtils")
 const stylelint = require("../../lib")
+const systemTestUtils = require("../systemTestUtils")
 
 describe("fix", () => {
   let tmpDir
