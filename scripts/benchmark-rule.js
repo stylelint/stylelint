@@ -18,6 +18,7 @@ if (!ruleName || !ruleOptions) {
 const CSS_URL = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css"
 
 let parsedOptions = ruleOptions
+/* eslint-disable eqeqeq */
 if (
   ruleOptions[0] === "["
   || parsedOptions === "true"
@@ -26,6 +27,7 @@ if (
 ) {
   parsedOptions = JSON.parse(ruleOptions)
 }
+/* eslint-disable eqeqeq */
 const rule = rules[ruleName](...normalizeRuleSettings(parsedOptions))
 const processor = postcss().use(rule)
 
