@@ -115,6 +115,9 @@
     "extends": [
       "stylelint"
     ],
+    "rules": {
+      "no-useless-escape": "off"
+    },
     "globals": {
       "testRule": true
     }
