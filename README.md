@@ -12,7 +12,7 @@ A mighty, modern CSS linter that helps you enforce consistent conventions and av
     -   **Control what languages features can be used**: e.g. whitelisting specific units, properties and functions, or disallowing certain selector types.
     -   **Enforce code style conventions**: e.g. checking the spacing around the colon in declarations or specifying patterns for class selectors.
 -   **Support for the latest CSS syntax:** Including custom properties, range context for media features, calc() and nesting.
--   **Understands *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and *experimental support* for Less.
+-   **Understands *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and LESS.
 -   **Completely unopinionated:** Only enable the rules you want, and configure them with options that tailor the linter to your needs.
 -   **Support for plugins:** It's easy to create your own rules and add them to the linter.
 -   **Automatically fixes some stylistic warnings:** Save time by having stylelint fix your code with this *experimental* feature.
