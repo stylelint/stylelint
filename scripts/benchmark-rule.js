@@ -27,7 +27,7 @@ if (
 ) {
   parsedOptions = JSON.parse(ruleOptions)
 }
-/* eslint-disable eqeqeq */
+/* eslint-enable eqeqeq */
 const rule = rules[ruleName](...normalizeRuleSettings(parsedOptions))
 const processor = postcss().use(rule)
 
