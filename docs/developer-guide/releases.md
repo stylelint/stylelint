@@ -23,7 +23,7 @@ The secondary goals are:
         -   If a CHANGELOG item affects only one rule, then it should lead with its name.
         -   The order of items is: Removed, Changed, Deprecated, Added, Fixed.
         -   The items within each group are ordered by the widest reaching first to the smallest, and then alphabetically by rule name.
-    2.  Increment the `version` number in the `package.json` by hand, according to whether it's a patch, minor or major release.
+    2.  Run `npm --no-git-tag-version version major|minor|patch` to increment the `version` number in `package.json` and `package-lock.json`, according to whether it's a patch, minor or major release.
     3.  Replace `# Head` in `CHANGELOG.md` with this new version number e.g. `# 8.1.2`
     4.  Commit and _push up_ these changes.
     5.  Go to [https://github.com/stylelint/stylelint](https://github.com/stylelint/stylelint) and confirm these changes are correct and pushed up.
