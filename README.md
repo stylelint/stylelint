@@ -11,7 +11,7 @@ A mighty, modern CSS linter and fixer that helps you avoid errors and enforce co
     -   **Limit language features**: e.g. vendor prefixes, patterns for selectors and specific units, properties, functions and at-rules.
     -   **Enforce stylistic conventions**: e.g. the whitespace around the colon in declarations and the number of empty lines between rules.
 -   **Support for the latest CSS syntax:** Including custom properties, calc() and nesting.
--   **Understands *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and *experimental support* for Less.
+-   **Understands *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and Less.
 -   **Completely unopinionated:** Only enable the rules you want, and configure them with options that tailor the linter to your needs.
 -   **Support for plugins:** It's easy to create your own rules and add them to the linter.
 -   **Automatically fixes some stylistic warnings:** Save time by having stylelint fix your code with this *experimental* feature.
