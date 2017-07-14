@@ -1,2 +1,2 @@
-"use strict"
-module.exports = require("./someUnknownFile.js")
+"use strict";
+module.exports = require("./someUnknownFile.js");
