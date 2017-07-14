@@ -16,6 +16,7 @@ This rule alerts you when you use redundant values in the following shorthand pr
 -   `border-radius`
 -   `border-style`
 -   `border-width`
+-   `grid-gap`
 
 ## Options
 

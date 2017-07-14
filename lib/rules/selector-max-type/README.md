@@ -69,7 +69,23 @@ The following patterns are *not* considered violations:
 
 ## Optional secondary options
 
-### `ignore: ["compounded", "descendant"]`
+### `ignore: ["child", "compounded", "descendant"]`
+
+#### `"child"`
+
+Discount child type selectors.
+
+For example, with `2`:
+
+The following patterns are *not* considered violations:
+
+```css
+div span > a {}
+```
+
+```css
+#bar div span > a {}
+```
 
 #### `"compounded"`
 

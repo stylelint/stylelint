@@ -1,8 +1,8 @@
 /* @flow */
 "use strict"
 
-const systemTestUtils = require("../systemTestUtils")
 const stylelint = require("../../lib")
+const systemTestUtils = require("../systemTestUtils")
 
 it("005", () => {
   return stylelint.lint({

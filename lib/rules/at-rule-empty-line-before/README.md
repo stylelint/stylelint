@@ -101,8 +101,6 @@ a {
 
 #### `"inside-block"`
 
-***Note: This option was previously called `all-nested`.***
-
 Reverse the primary option for at-rules that are nested.
 
 For example, with `"always"`:
@@ -143,6 +141,8 @@ Reverse the primary option for blockless at-rules that follow another blockless 
 
 This means that you can group your blockless at-rules by name.
 
+Shared-line comments do not affect this option.
+
 For example, with `"always"`:
 
 The following patterns are *not* considered violations:
@@ -151,6 +151,13 @@ The following patterns are *not* considered violations:
 @charset "UTF-8";
 
 @import url(x.css);
+@import url(y.css);
+```
+
+```css
+@charset "UTF-8";
+
+@import url(x.css); /* comment */
 @import url(y.css);
 ```
 
@@ -167,9 +174,9 @@ a {
 
 #### `"blockless-after-blockless"`
 
-***Note: This option was previously called `blockless-group`.***
-
 Reverse the primary option for at-rules within a blockless group.
+
+Shared-line comments do not affect this option.
 
 For example, with `"always"`:
 
@@ -187,6 +194,13 @@ The following patterns are *not* considered violations:
 
 ```css
 @import url(x.css);
+@import url(y.css);
+
+@media print {}
+```
+
+```css
+@import url(x.css); /* comment */
 @import url(y.css);
 
 @media print {}
@@ -234,6 +248,8 @@ b {
 
 Ignore at-rules that come after a comment.
 
+Shared-line comments do not trigger this option.
+
 The following patterns are *not* considered violations:
 
 ```css
@@ -247,9 +263,13 @@ The following patterns are *not* considered violations:
 @media {}
 ```
 
-#### `"inside-block"`
+```css
+@media {} /* comment */
 
-***Note: This option was previously called `all-nested`.***
+@media {}
+```
+
+#### `"inside-block"`
 
 Ignore at-rules that are inside a declaration block.
 
@@ -311,8 +331,6 @@ a {
 ```
 
 #### `"blockless-after-blockless"`
-
-***Note: This option was previously called `blockless-group`.***
 
 Ignore blockless at-rules that follow another blockless at-rule.
 

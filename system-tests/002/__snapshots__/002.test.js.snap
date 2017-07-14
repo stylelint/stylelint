@@ -3,27 +3,11 @@
 exports[`002 1`] = `
 Array [
   Object {
-    "deprecations": Array [
-      Object {
-        "reference": "https://stylelint.io/user-guide/rules/declaration-block-no-ignored-properties/",
-        "text": "'declaration-block-no-ignored-properties' has been deprecated and in 8.0 will be removed.",
-      },
-      Object {
-        "reference": "https://stylelint.io/user-guide/rules/media-feature-no-missing-punctuation/",
-        "text": "'media-feature-no-missing-punctuation' has been deprecated and in 8.0 will be removed.",
-      },
-      Object {
-        "reference": "https://stylelint.io/user-guide/rules/rule-nested-empty-line-before/",
-        "text": "'rule-nested-empty-line-before' has been deprecated and in 8.0 will be removed. Instead use 'rule-empty-line-before'.",
-      },
-      Object {
-        "reference": "https://stylelint.io/user-guide/rules/rule-non-nested-empty-line-before/",
-        "text": "'rule-non-nested-empty-line-before' has been deprecated and in 8.0 will be removed. Instead use 'rule-empty-line-before'.",
-      },
-    ],
+    "deprecations": Array [],
     "errored": undefined,
     "ignored": undefined,
     "invalidOptionWarnings": Array [],
+    "parseErrors": Array [],
     "source": "002/stylesheet.css",
     "warnings": Array [],
   },
