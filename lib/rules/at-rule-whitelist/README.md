@@ -8,6 +8,8 @@ Specify a whitelist of allowed at-rules.
  * At-rules like this */
 ```
 
+This rule ignores `@import` in Less.
+
 ## Options
 
 `array|string`: `["array", "of", "unprefixed", "at-rules"]|"at-rule"`
