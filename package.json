@@ -86,11 +86,14 @@
     "file-exists-promise": "^1.0.2",
     "flow-bin": "^0.46.0",
     "fs-promise": "^2.0.0",
+    "husky": "^0.14.2",
     "jest": "^20.0.1",
+    "lint-staged": "^4.0.0",
     "npm-run-all": "^4.0.0",
     "npmpub": "^3.0.1",
     "postcss-import": "^10.0.0",
     "postcss-safe-parser": "^3.0.0",
+    "prettier": "^1.5.2",
     "remark-cli": "^3.0.0",
     "remark-preset-lint-consistent": "^2.0.0",
     "remark-preset-lint-recommended": "^2.0.0",
@@ -99,6 +102,7 @@
     "strip-ansi": "^4.0.0"
   },
   "scripts": {
+    "precommit": "lint-staged",
     "benchmark-rule": "node scripts/benchmark-rule.js",
     "dry-release": "npmpub  --dry --verbose",
     "flow": "flow",
@@ -110,6 +114,12 @@
     "release": "npmpub",
     "test": "jest --coverage",
     "watch": "jest --watch"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": [
