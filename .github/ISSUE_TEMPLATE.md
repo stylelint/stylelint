@@ -71,3 +71,6 @@ Here are the best ways to help resolve your issue:
 
 Note: GitHub issues are for stylelint bugs and enhancements, if you're looking for help or support with stylelint then stackoverflow is our preferred question and answer forum - http://stackoverflow.com/questions/tagged/stylelint
 -->
+
+<!-- Love stylelint? Please consider supporting our collective:
+👉  https://opencollective.com/stylelint/donate -->
