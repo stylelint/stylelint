@@ -57,7 +57,7 @@
     "meow": "^3.3.0",
     "micromatch": "^2.3.11",
     "normalize-selector": "^0.2.0",
-    "pify": "^2.3.0",
+    "pify": "^3.0.0",
     "postcss": "^6.0.4",
     "postcss-less": "^1.1.0",
     "postcss-media-query-parser": "^0.2.0",
