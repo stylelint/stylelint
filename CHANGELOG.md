@@ -1,4 +1,4 @@
-# Head
+# 8.0.0
 
 This release is accompanied by:
 
