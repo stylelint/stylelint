@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: `indentation` false positives for Less parametric mixins with rule block/snippet ([#2744](https://github.com/stylelint/stylelint/pull/2744)).
+
 # 8.0.0
 
 This release is accompanied by:
