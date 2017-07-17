@@ -30,11 +30,11 @@ The following patterns are considered violations:
 
 The following patterns are *not* considered violations:
 
-```css  
+```css
 @media all and (monochrome) {}
 ```
 
-```css  
+```css
 @media (min-width: 700px) {}
 ```
 
@@ -64,10 +64,6 @@ The following patterns are *not* considered violations:
 
 ```css
 @media screen and (my-media-feature-name) {}
-```
-
-```css
-@media screen and (MY-MEDIA-FEATURE-NAME) {}
 ```
 
 ```css

@@ -9,6 +9,8 @@ Require a newline after at-rule names.
  * The newline after this at-rule name */
 ```
 
+This rule ignores `@import` in Less.
+
 ## Options
 
 `string`: `"always"|"always-multi-line"`
