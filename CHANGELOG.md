@@ -1,5 +1,6 @@
 # Head
 
+-   Added: autofixing support to `no-missing-end-of-source-newline`
 -   Fixed: `indentation` false positives for Less parametric mixins with rule block/snippet ([#2744](https://github.com/stylelint/stylelint/pull/2744)).
 -   Fixed: `selector-max-specificity` cannot parse selector violation for Less mixins ([#2677](https://github.com/stylelint/stylelint/pull/2677)).
 
