@@ -109,14 +109,14 @@ a { color: pink; }
 a { color: pink; }
 ```
 
-### `ignorePattern: ["/regex/"]`
+### `ignorePattern: "/regex/"`
 
 Ignore any line that matches the given regex pattern, regardless of whether it is comment or not.
 
 Given:
 
 ```js
-["/^@import\\s+/"]
+"/^@import\\s+/"
 ```
 
 The following pattern is *not* considered a violation:

@@ -3,7 +3,7 @@
 Limit the allowed nesting depth.
 
 ```css
-a { & > b { top: 0; }
+a { & > b { top: 0; } }
 /** ↑
  * This nesting */
 ```
@@ -97,8 +97,6 @@ a .foo__foo .bar .baz {}
 ## Optional secondary options
 
 ### `ignore: ["blockless-at-rules"]`
-
-***Note: This option was previously called `at-rules-without-declaration-blocks`.***
 
 Ignore at-rules that only wrap other rules, and do not themselves have declaration blocks.
 

@@ -38,7 +38,6 @@
 
     "declaration-block-no-duplicate-properties": null,
     "declaration-block-no-shorthand-property-overrides": true,
-    "declaration-block-properties-order": "alphabetical",
     "declaration-block-semicolon-newline-after": "always",
     "declaration-block-semicolon-newline-before": "never-multi-line",
     "declaration-block-semicolon-space-after": "always-single-line",
@@ -50,7 +49,6 @@
     "block-closing-brace-newline-before": "always",
     "block-closing-brace-space-after": "never-single-line",
     "block-closing-brace-space-before": "never-single-line",
-    "block-no-single-line": null,
     "block-opening-brace-newline-after": "always-multi-line",
     "block-opening-brace-newline-before": "never-single-line",
     "block-opening-brace-space-after": "never-single-line",
@@ -58,29 +56,21 @@
 
     "selector-combinator-space-after": "always",
     "selector-combinator-space-before": "always",
-    "selector-no-id": true,
+    "selector-max-id": 0,
     "selector-pseudo-element-colon-notation": "double",
-    "selector-root-no-composition": null,
 
     "selector-list-comma-newline-after": "always-multi-line",
     "selector-list-comma-newline-before": "never-multi-line",
     "selector-list-comma-space-after": "always-single-line",
     "selector-list-comma-space-before": "never",
 
-    "rule-nested-empty-line-before": [
+    "rule-empty-line-before": [
       "always",
       {
-        "except": [
-        "first-nested"
-        ],
-        "ignore": [
-          "after-comment"
-        ]
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
       }
     ],
-    "rule-non-nested-empty-line-before": "always",
-
-    "root-no-standard-properties": null,
 
     "indentation": "tab",
     "max-line-length": null,

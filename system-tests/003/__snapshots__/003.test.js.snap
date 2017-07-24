@@ -3,27 +3,11 @@
 exports[`003 1`] = `
 Array [
   Object {
-    "deprecations": Array [
-      Object {
-        "reference": "https://stylelint.io/user-guide/rules/declaration-block-properties-order/",
-        "text": "'declaration-block-properties-order'has been deprecated and in 8.0 will be removed. Instead use the community 'stylelint-order' plugin pack.",
-      },
-      Object {
-        "reference": "https://stylelint.io/user-guide/rules/selector-no-id/",
-        "text": "'selector-no-id' has been deprecated and in 8.0 will be removed. Instead use 'selector-max-id' with '0' as its primary option.",
-      },
-      Object {
-        "reference": "https://stylelint.io/user-guide/rules/rule-nested-empty-line-before/",
-        "text": "'rule-nested-empty-line-before' has been deprecated and in 8.0 will be removed. Instead use 'rule-empty-line-before'.",
-      },
-      Object {
-        "reference": "https://stylelint.io/user-guide/rules/rule-non-nested-empty-line-before/",
-        "text": "'rule-non-nested-empty-line-before' has been deprecated and in 8.0 will be removed. Instead use 'rule-empty-line-before'.",
-      },
-    ],
+    "deprecations": Array [],
     "errored": undefined,
     "ignored": undefined,
     "invalidOptionWarnings": Array [],
+    "parseErrors": Array [],
     "source": "003/stylesheet.css",
     "warnings": Array [],
   },

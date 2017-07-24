@@ -1,5 +1,67 @@
 # Head
 
+-   Fixed: `indentation` false positives for Less parametric mixins with rule block/snippet ([#2744](https://github.com/stylelint/stylelint/pull/2744)).
+-   Fixed: `selector-max-specificity` cannot parse selector violation for Less mixins ([#2677](https://github.com/stylelint/stylelint/pull/2677)).
+
+# 8.0.0
+
+This release is accompanied by:
+
+-   A new [semantic version policy](README.md#semantic-versioning-policy). The use of the tilde (`~`) in `package.json` is now recommended, e.g. `"stylelint": "~8.0.0"`, to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
+-   A new [VISION document](VISION.md), complemented by ([#2704](https://github.com/stylelint/stylelint/pull/2704)):
+    -   The restructuring of the [list of rules](docs/user-guide/rules.md) into three groups:
+        -   [Possible errors](docs/user-guide/rules.md#possible-errors).
+        -   [Limit language features](docs/user-guide/rules.md#limit-language-features).
+        -   [Stylistic issues](docs/user-guide/rules.md#stylistic-issues).
+    -   The release of a new sharable config, [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). This config only turns on the [possible error](docs/user-guide/rules.md#possible-errors) rules.  [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) now builds on top of the recommended config by turning on over 60 additional [stylistic rules](docs/user-guide/rules.md#stylistic-issues).
+
+Changes:
+
+-   Removed: the 21 rules deprecated in [`7.8.0`](#780) & [`7.12.0`](#7120) ([#2422](https://github.com/stylelint/stylelint/issues/2422) & [#2693](https://github.com/stylelint/stylelint/issues/2693)).
+    -   `block-no-single-line`.
+    -   `custom-property-no-outside-root`
+    -   `declaration-block-no-ignored-properties`.
+    -   `declaration-block-properties-order`.
+    -   `function-url-data-uris`.
+    -   `media-feature-no-missing-punctuation`.
+    -   `no-browser-hacks`.
+    -   `no-indistinguishable-colors`.
+    -   `no-unsupported-browser-features`.
+    -   `root-no-standard-properties`
+    -   `rule-nested-empty-line-before`.
+    -   `rule-non-nested-empty-line-before`.
+    -   `selector-no-attribute`.
+    -   `selector-no-combinator`.
+    -   `selector-no-empty`.
+    -   `selector-no-id`.
+    -   `selector-no-type`.
+    -   `selector-no-universal`.
+    -   `selector-root-no-composition`.
+    -   `stylelint-disable-reason`.
+    -   `time-no-imperceptible`.
+-   Removed: the 4 options deprecated in [`7.8.0`](#780) ([#2433](https://github.com/stylelint/stylelint/issues/2433)).
+    -   `"all-nested"` option for `at-rule-empty-line-before`.
+    -   `"blockless-group"` option for `at-rule-empty-line-before`.
+    -   `"between-comments"` option for `comment-empty-line-before`.
+    -   `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`.
+-   Changed: compatibility with `postcss` from `@5` to `@6` ([#2561](https://github.com/stylelint/stylelint/issues/2561)).
+-   Changed: parse errors now trigger exit with non-zero code ([#2713](https://github.com/stylelint/stylelint/issues/2713)).
+-   Changed: `report-needless-disables` now exits with non-zero code ([#2341](https://github.com/stylelint/stylelint/issues/2341)).
+-   Changed: `*-blacklist` and `*-whitelist` (and `ignore* []` secondary options) are now case sensitive. Use regular expressions with the `i` flag for case insensitivity ([#2709](https://github.com/stylelint/stylelint/issues/2709)).
+-   Changed: `*-empty-line-before` now correctly handle shared-line comments ([#2262](https://github.com/stylelint/stylelint/issues/2262)).
+-   Changed: `*-empty-line-before` now consider line as empty if it contains whitespace only ([#2440](https://github.com/stylelint/stylelint/pull/2440)).
+-   Changed: `function-linear-gradient-no-nonstandard-direction` now checks all linear-gradients in a value list ([#2496](https://github.com/stylelint/stylelint/pull/2496)).
+-   Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](https://github.com/stylelint/stylelint/issues/2350)).
+-   Added: `disableDefaultIgnores` option (`--disable-default-ignores` in CLI), to allow linting of `node_modules` and `bower_components` directories ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
+-   Added: more efficient file ignoring with `.stylelintignore` ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
+-   Added: `ignore: ["child"]` option to `selector-max-type` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
+-   Fixed: `declaration-block-no-redundant-longhand-properties` and `declaration-block-no-shorthand-property-overrides` understand more shorthand properties ([#2354](https://github.com/stylelint/stylelint/pull/2354)).
+-   Fixed: `selector-max-type` no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with `ignore: ["descendant"]` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
+
+# 7.13.0
+
+-   Added: `ignoreAttributes` option to `selector-max-attribute` ([#2722](https://github.com/stylelint/stylelint/pull/2722)).
+-   Fixed: `selector-combinator-space-*` false positives for CSS namespaced type selectors ([#2715](https://github.com/stylelint/stylelint/pull/2715)).
 -   Fixed: `selector-max-specificity` now ignores nested non-standard selectors ([#2685](https://github.com/stylelint/stylelint/pull/2685)).
 
 # 7.12.0
