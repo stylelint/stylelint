@@ -27,7 +27,7 @@ Refer to [the FAQ](../../../docs/user-guide/faq.md#how-do-i-disallow-single-line
 
 There *must always* be a newline after the opening brace.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a{ color: pink; }
@@ -45,7 +45,7 @@ a{ /* end-of-line comment
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -68,14 +68,14 @@ a { /* end-of-line comment */
 
 There *must always* be a newline after the opening brace in multi-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a{color: pink;
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }
@@ -90,14 +90,14 @@ color: pink; }
 
 There *must never* be whitespace after the opening brace in multi-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink;
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }

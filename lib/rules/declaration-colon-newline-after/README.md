@@ -20,7 +20,7 @@ a {
 
 There *must always* be a newline after the colon.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color:pink; }
@@ -30,7 +30,7 @@ a { color:pink; }
 a { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -43,7 +43,7 @@ a {
 
 There *must always* be a newline after the colon *if the declaration's value is multi-line*.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -52,7 +52,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {

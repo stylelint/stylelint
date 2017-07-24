@@ -16,7 +16,7 @@ All vendor-prefixed pseudo-element selectors are ignored.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a::pseudo {}
@@ -30,7 +30,7 @@ a::PSEUDO {}
 a::element {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a:before {}
@@ -58,7 +58,7 @@ Given:
 ["/^my-/", "pseudo-element"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a::pseudo-element {}

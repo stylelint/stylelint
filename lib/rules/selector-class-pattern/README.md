@@ -8,7 +8,9 @@ Specify a pattern for class selectors.
  * These class selectors */
 ```
 
-This rule ignores non-ouputting Less mixin definitions and called Less mixins.
+This rule ignores non-outputting Less mixin definitions and called Less mixins.
+
+Escaped selectors (e.g. `.u-size-11\/12\@sm`) are parsed as escaped twice (e.g. `.u-size-11\\/12\\@sm`). Your RegExp should account for that.
 
 ## Options
 
@@ -24,7 +26,7 @@ Given the string:
 "foo-[a-z]+"
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 .foop {}
@@ -38,7 +40,7 @@ The following patterns are considered warnings:
 div > #zing + .foo-BAR {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 .foo-bar {}
@@ -80,7 +82,7 @@ Given the string:
 "^[A-Z]+$"
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 .A {
@@ -88,7 +90,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 .A {

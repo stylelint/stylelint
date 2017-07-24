@@ -16,7 +16,7 @@ Camel case function names, e.g. `translateX`, are accounted for when the `lower`
 
 ### `"lower"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -42,7 +42,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -58,7 +58,7 @@ a {
 
 ### `"upper"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -84,7 +84,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -109,70 +109,10 @@ For example, with `"lower"`.
 Given:
 
 ```js
-["SOME-FUNCTION", "/^get.*$/"]
-```
-
-The following patterns are considered warnings:
-
-```css
-a {
-  color: sOmE-FuNcTiOn();
-}
-```
-
-```css
-a {
-  color: OTHER-SOME-FUNCTION();
-}
-```
-
-```css
-a {
-  color: GetColor();
-}
-```
-
-```css
-a {
-  color: GET_COLOR();
-}
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-a {
-  display: some-function();
-}
-```
-
-```css
-a {
-  display: SOME-FUNCTION();
-}
-```
-
-```css
-a {
-  display: getColor();
-}
-```
-
-```css
-a {
-  display: get_color();
-}
-```
-
-For example, with `"upper"`.
-
-Given:
-
-```js
 ["some-function", "/^get.*$/"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -182,7 +122,7 @@ a {
 
 ```css
 a {
-  color: other-some-function();
+  color: some-other-function();
 }
 ```
 
@@ -198,7 +138,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -206,11 +146,6 @@ a {
 }
 ```
 
-```css
-a {
-  display: SOME-FUNCTION();
-}
-```
 
 ```css
 a {
@@ -223,3 +158,4 @@ a {
   display: get_color();
 }
 ```
+

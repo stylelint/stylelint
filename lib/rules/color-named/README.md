@@ -16,9 +16,9 @@ a { color: black }
 
 Colors *must always*, where possible, be named.
 
-This will warn if a hex (3, 4, 6 and 8 digit), `rgb()`, `rgba()`, `hsl()`, `hsla()`, `hwb()` or `gray()` color can be represented as a named color.
+This will complain if a hex (3, 4, 6 and 8 digit), `rgb()`, `rgba()`, `hsl()`, `hsla()`, `hwb()` or `gray()` color can be represented as a named color.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: #000; }
@@ -56,7 +56,7 @@ a { color: hwb(0, 0%, 100%); }
 a { color: gray(0); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: black; }
@@ -74,7 +74,7 @@ a { color: rgb(0, 0, 0, 0.5); }
 
 Colors *must never* be named.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: black; }
@@ -84,7 +84,7 @@ a { color: black; }
 a { color: white; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: #000; }
@@ -114,7 +114,7 @@ Ignore colors that are inside a function.
 
 For example, with `"never"`.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -138,7 +138,7 @@ Given:
 ["/^my-/", "composes"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {

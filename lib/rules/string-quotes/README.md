@@ -23,7 +23,7 @@ Quotes within comments are ignored.
 
 Strings *must always* be wrapped with single quotes.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { content: "x"; }
@@ -33,7 +33,7 @@ a { content: "x"; }
 a[id="foo"] {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { content: 'x'; }
@@ -47,7 +47,7 @@ a[id='foo'] {}
 
 Strings *must always* be wrapped with double quotes.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { content: 'x'; }
@@ -57,7 +57,7 @@ a { content: 'x'; }
 a[id='foo'] {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { content: "x"; }

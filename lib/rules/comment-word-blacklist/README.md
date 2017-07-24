@@ -22,7 +22,7 @@ Given:
 ["/^TODO:/", "badword"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 /* TODO: */
@@ -36,7 +36,7 @@ The following patterns are considered warnings:
 /* some badword */
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 /* comment */

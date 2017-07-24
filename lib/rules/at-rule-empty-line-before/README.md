@@ -10,7 +10,9 @@ a {}
  *   This line */
 ```
 
-If the at-rule is the very first node in a stylesheet then it is ignored.
+If the at-rule is the very first node in a stylesheet then it is ignored. `@import` in Less will also be ignored.
+
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
 
 ## Options
 
@@ -20,7 +22,7 @@ If the at-rule is the very first node in a stylesheet then it is ignored.
 
 There *must always* be an empty line before at-rules.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {} @media {}
@@ -31,7 +33,7 @@ a {}
 @media {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {}
@@ -43,7 +45,7 @@ a {}
 
 There *must never* be an empty line before at-rules.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {}
@@ -51,7 +53,7 @@ a {}
 @media {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {} @media {}
@@ -74,7 +76,7 @@ This means that you can group your at-rules by name.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @charset "UTF-8";
@@ -99,13 +101,11 @@ a {
 
 #### `"inside-block"`
 
-***Note: This option was previously called `all-nested`.***
-
 Reverse the primary option for at-rules that are nested.
 
 For example, with `"always"`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -121,7 +121,7 @@ b {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -141,14 +141,23 @@ Reverse the primary option for blockless at-rules that follow another blockless 
 
 This means that you can group your blockless at-rules by name.
 
+Shared-line comments do not affect this option.
+
 For example, with `"always"`:
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @charset "UTF-8";
 
 @import url(x.css);
+@import url(y.css);
+```
+
+```css
+@charset "UTF-8";
+
+@import url(x.css); /* comment */
 @import url(y.css);
 ```
 
@@ -165,13 +174,13 @@ a {
 
 #### `"blockless-after-blockless"`
 
-***Note: This option was previously called `blockless-group`.***
-
 Reverse the primary option for at-rules within a blockless group.
+
+Shared-line comments do not affect this option.
 
 For example, with `"always"`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @import url(x.css);
@@ -181,10 +190,17 @@ The following patterns are considered warnings:
 @media print {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @import url(x.css);
+@import url(y.css);
+
+@media print {}
+```
+
+```css
+@import url(x.css); /* comment */
 @import url(y.css);
 
 @media print {}
@@ -196,7 +212,7 @@ Reverse the primary option for at-rules that are nested and the first child of t
 
 For example, with `"always"`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -211,7 +227,7 @@ b {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -232,7 +248,9 @@ b {
 
 Ignore at-rules that come after a comment.
 
-The following patterns are *not* considered warnings:
+Shared-line comments do not trigger this option.
+
+The following patterns are *not* considered violations:
 
 ```css
 /* comment */
@@ -241,19 +259,23 @@ The following patterns are *not* considered warnings:
 
 ```css
 /* comment */
+
+@media {}
+```
+
+```css
+@media {} /* comment */
 
 @media {}
 ```
 
 #### `"inside-block"`
 
-***Note: This option was previously called `all-nested`.***
-
 Ignore at-rules that are inside a declaration block.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -287,7 +309,7 @@ This means that you can group your blockless at-rules by name.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 
@@ -310,13 +332,11 @@ a {
 
 #### `"blockless-after-blockless"`
 
-***Note: This option was previously called `blockless-group`.***
-
 Ignore blockless at-rules that follow another blockless at-rule.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @import url(x.css);
@@ -345,7 +365,7 @@ Given:
 ["import"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @charset "UTF-8";

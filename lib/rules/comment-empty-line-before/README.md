@@ -16,6 +16,8 @@ If you're using a custom syntax which support single-line comments with `//`, th
 
 **Caveat:** Comments within *selector and value lists* are currently ignored.
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
+
 ## Options
 
 `string`: `"always"|"never"`
@@ -24,14 +26,14 @@ If you're using a custom syntax which support single-line comments with `//`, th
 
 There *must always* be an empty line before comments.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {}
 /* comment */
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {}
@@ -47,7 +49,7 @@ a {} /* comment */
 
 There *must never* be an empty line before comments.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {}
@@ -55,7 +57,7 @@ a {}
 /* comment */
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {}
@@ -74,7 +76,7 @@ Reverse the primary option for comments that are nested and the first child of t
 
 For example, with `"always"`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -84,7 +86,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -97,13 +99,11 @@ a {
 
 #### `"after-comment"`
 
-***Note: This option was previously called `between-comments`.***
-
 Don't require an empty line after a comment.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -132,7 +132,7 @@ Ignore comments that deliver commands to stylelint, e.g. `/* stylelint-disable c
 
 For example, with `"always"`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -142,7 +142,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {

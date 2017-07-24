@@ -12,7 +12,7 @@ a { color: pink; }···
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; }·
@@ -22,14 +22,14 @@ a { color: pink; }·
 a { color: pink; }····
 ```
 
-Comment strings are also checked -- so the following is a warning:
+Comment strings are also checked -- so the following is a violation:
 
 ```css
 /* something····
  * something else */
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }
@@ -48,7 +48,7 @@ a { color: pink; }
 
 Allow end-of-line whitespace for lines that are only whitespace, "empty" lines.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {

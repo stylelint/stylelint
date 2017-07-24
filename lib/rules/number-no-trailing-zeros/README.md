@@ -12,7 +12,7 @@ a { top: 0.5000px; bottom: 1.0px; }
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { top: 1.0px }
@@ -22,7 +22,7 @@ a { top: 1.0px }
 a { top: 1.01000px }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { top: 1px }

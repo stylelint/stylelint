@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "at-rule-name-case": "lower",
+    "comment-empty-line-before": "always",
+    "comment-no-empty": true
+  }
+}

@@ -20,12 +20,12 @@ a {
 }
 ```
 
-This rule will only warn if you've used the longhand equivalent of *all* the properties that the shorthand will set.
+This rule will only complain if you've used the longhand equivalent of *all* the properties that the shorthand will set.
 
-This rule warns when the following shorthand properties can be used:
+This rule complains when the following shorthand properties can be used:
 
--   `padding`
 -   `margin`
+-   `padding`
 -   `background`
 -   `font`
 -   `border`
@@ -36,14 +36,35 @@ This rule warns when the following shorthand properties can be used:
 -   `border-width`
 -   `border-style`
 -   `border-color`
+-   `list-style`
 -   `border-radius`
 -   `transition`
+-   `animation`
+-   `border-block-end`
+-   `border-block-start`
+-   `border-image`
+-   `border-inline-end`
+-   `border-inline-start`
+-   `column-rule`
+-   `columns`
+-   `flex`
+-   `flex-flow`
+-   `grid`
+-   `grid-area`
+-   `grid-column`
+-   `grid-gap`
+-   `grid-row`
+-   `grid-template`
+-   `outline`
+-   `text-decoration`
+-   `text-emphasis`
+-   `mask`
 
 ## Options
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -69,13 +90,13 @@ a {
 ```css
 a {
   -webkit-transition-property: top;
-  -webkit-transition-duration: 2s;  
+  -webkit-transition-duration: 2s;
   -webkit-transition-timing-function: ease;
   -webkit-transition-delay: 0.5s;
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -120,7 +141,7 @@ Given:
 ["padding", "/border/"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {

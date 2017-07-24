@@ -14,7 +14,7 @@ Specify lowercase or uppercase for type selectors.
 
 ### `"lower"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 A {}
@@ -24,7 +24,7 @@ A {}
 LI {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {}
@@ -36,7 +36,7 @@ li {}
 
 ### `"upper"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {}
@@ -46,7 +46,7 @@ a {}
 li {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 A {}

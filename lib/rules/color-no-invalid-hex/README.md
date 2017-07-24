@@ -14,7 +14,7 @@ Longhand hex colors can be either 6 or 8 (with alpha channel) hexadecimal charac
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: #00; }
@@ -28,7 +28,7 @@ a { color: #fff1az; }
 a { color: #12345aa; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: #000; }

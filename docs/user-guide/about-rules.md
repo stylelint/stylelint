@@ -287,7 +287,7 @@ You can do that with:
   ]
 }],
 "block-closing-brace-empty-line-before": "never",
-"rule-non-nested-empty-line-before": ["always-multi-line"]
+"rule-empty-line-before": ["always-multi-line"]
 ```
 
 We recommend that you set your primary option (e.g. `"always"` or `"never"`) to whatever is your most common occurrence and define your exceptions with the `except` optional secondary options. There are many values for the `except` option e.g. `first-nested`, `after-comment` etc.
@@ -354,7 +354,7 @@ Say you want to disallow the value `none` for the `border` properties. You can d
 
 Most `<color>` values are *functions*. As such, they can be (dis)allowed using either the `function-blacklist` or `function-whitelist` rules. There are two other color representations that aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
 
-Say you want to enforce using a named color *if one exists for your chosen color* and use `hwb` color if one does not, e.g:
+Say you want to enforce using a named color *if one exists for your chosen color* and use `hwb` color if one does not, e.g.:
 
 ```css
 a {

@@ -35,7 +35,7 @@ This can be useful, for example, when making a text editor plugin that passes in
 
 A [stylelint configuration object](configuration.md).
 
-If no `config` or `configFile` is passed, stylelint will look for a `.stylelintrc` configuration file.
+If no `config` or `configFile` is passed, stylelint will use a [config lookup algorithm](./configuration.md#loading-the-configuration-object) to find the correct config.
 
 ### `configBasedir`
 
@@ -61,7 +61,7 @@ A file glob, or array of file globs. Ultimately passed to [node-glob](https://gi
 
 Relative globs are considered relative to `process.cwd()`.
 
-`node_modules` and `bower_components` are always ignored.
+By default, all `node_modules` and `bower_components` are ignored.
 
 ### `formatter`
 
@@ -77,9 +77,28 @@ If `true`, all disable comments (e.g. `/* stylelint-disable block-no-empty */`) 
 
 You can use this option to see what your linting results would be like without those exceptions.
 
+### `disableDefaultIgnores`
+
+If `true`, stylelint will not automatically ignore the contents of `node_modules` and `bower_components`. (By default, these directories are automatically ignored.)
+### `cache`
+
+Store the info about processed files in order to only operate on the changed ones the next time you run stylelint. Enabling this option can dramatically improve stylelint's speed, because only changed files will be linted.
+
+By default, the cache is stored in `.stylelintcache` in `process.cwd()`. To change this, use the `cacheLocation` option.
+
+**Note:** If you run stylelint with `cache` and then run stylelint without `cache`, the `.stylelintcache` file will be deleted. This is necessary because we have to assume that `.stylelintcache` was invalidated by that second command.
+
+### `cacheLocation`
+
+A path to a file or directory to be used for `cache`. Only meaningful alongside `cache`. If no location is specified, `.stylelintcache` will be created in `process.cwd()`.
+
+If a directory is specified, a cache file will be created inside the specified folder. The name of the file will be based on the hash of `process.cwd()` (e.g. `.cache_hashOfCWD`). This allows stylelint to reuse a single location for a variety of caches from different projects.
+
+**Note:** If the directory of `cacheLocation` does not exist, make sure you add a trailing `/` on \*nix systems or `\` on Windows. Otherwise, the path will be assumed to be a file.
+
 ### `reportNeedlessDisables`
 
-If `true`, `ignoreDisables` will also be set to `true` and the returned data will contain a `needlessDisables` property, whose value is an array of objects, one for each source, with tells you which stylelint-disable comments are not blocking a lint warning.
+If `true`, `ignoreDisables` will also be set to `true` and the returned data will contain a `needlessDisables` property, whose value is an array of objects, one for each source, with tells you which stylelint-disable comments are not blocking a lint violation.
 
 Use this report to clean up your codebase, keeping only the stylelint-disable comments that serve a purpose.
 
@@ -105,6 +124,9 @@ An absolute path to a custom [PostCSS-compatible syntax](https://github.com/post
 
 Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed for the `syntax` option above.
 
+### `fix`
+
+If `true`, stylelint will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported. See [Autofixing errors](cli.md#autofixing-errors) docs.
 
 ## The returned promise
 
@@ -112,11 +134,11 @@ Note, however, that stylelint can provide no guarantee that core rules will work
 
 ### `errored`
 
-Boolean. If `true`, at least one rule with an "error"-level severity registered a warning.
+Boolean. If `true`, at least one rule with an "error"-level severity registered a violation.
 
 ### `output`
 
-A string displaying the formatted warnings (using the default formatter or whichever you passed).
+A string displaying the formatted violations (using the default formatter or whichever you passed).
 
 ### `postcssResults`
 

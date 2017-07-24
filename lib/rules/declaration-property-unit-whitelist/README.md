@@ -26,7 +26,7 @@ Given:
 }
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { font-size: 1.2rem; }
@@ -48,7 +48,7 @@ a { animation-duration: 500ms; }
 a { line-height: 13px; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { font-size: 1em; }

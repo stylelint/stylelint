@@ -18,7 +18,7 @@ This rule ignores semicolons that are preceded by Less mixins.
 
 There *must always* be a single space before the semicolons.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; }
@@ -28,7 +28,7 @@ a { color: pink; }
 a { color: pink; top: 0; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink ; }
@@ -42,7 +42,7 @@ a { color: pink ; top: 0 ; }
 
 There *must never* be whitespace before the semicolons.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink ; }
@@ -52,7 +52,7 @@ a { color: pink ; }
 a { color: pink ; top: 0 ; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }
@@ -66,13 +66,13 @@ a { color: pink; top: 0; }
 
 There *must always* be a single space before the semicolons in single-line declaration blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink ; }
@@ -90,13 +90,13 @@ a { color: pink ; top: 0 ; }
 
 There *must never* be whitespace before the semicolons in single-line declaration blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink ; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }

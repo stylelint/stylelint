@@ -8,6 +8,8 @@ Specify a whitelist of allowed at-rules.
  * At-rules like this */
 ```
 
+This rule ignores `@import` in Less.
+
 ## Options
 
 `array|string`: `["array", "of", "unprefixed", "at-rules"]|"at-rule"`
@@ -18,7 +20,7 @@ Given:
 ["extend", "keyframes"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @import "path/to/file.css";
@@ -30,7 +32,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { @extend placeholder; }

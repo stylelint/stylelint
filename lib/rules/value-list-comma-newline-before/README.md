@@ -17,7 +17,7 @@ Require a newline or disallow whitespace before the commas of value lists.
 
 There *must always* be a newline before the commas.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { background-size: 0,0; }
@@ -28,7 +28,7 @@ a { background-size: 0,
       0; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { background-size: 0
@@ -39,14 +39,14 @@ a { background-size: 0
 
 There *must always* be a newline before the commas in multi-line value lists.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { background-size: 0,
       0; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { background-size: 0, 0; }
@@ -65,14 +65,14 @@ a { background-size: 0
 
 There *must never* be whitespace before the commas in multi-line value lists.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { background-size: 0
       , 0; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { background-size: 0,0; }

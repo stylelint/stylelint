@@ -30,7 +30,7 @@ This rule resolves nested selectors before calculating the specificity of the se
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 b a {}
@@ -61,7 +61,7 @@ b {}
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {}

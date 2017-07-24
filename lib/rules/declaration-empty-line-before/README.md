@@ -12,13 +12,17 @@ a {
  *      This line */
 ```
 
+This rule only applies to standard property declarations. Use the [`custom-property-empty-line-before`](../custom-property-empty-line-before/README.md) rule for custom property declarations.
+
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
+
 ## Options
 
 `string`: `"always"|"never"`
 
 ### `"always"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -34,7 +38,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -55,7 +59,7 @@ a {
 
 ### `"never"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -74,7 +78,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -98,9 +102,11 @@ a {
 
 Reverse the primary option for declarations that come after a comment.
 
+Shared-line comments do not trigger this option.
+
 For example, with `"always"`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -110,11 +116,27 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+```css
+a {
+  bottom: 5px; /* comment */
+  top: 5px;
+}
+```
+
+The following patterns are *not* considered violations:
 
 ```css
 a {
   /* comment */
+  top: 5px;
+}
+
+```
+
+```css
+a {
+  bottom: 5px; /* comment */
+
   top: 5px;
 }
 
@@ -124,9 +146,11 @@ a {
 
 Reverse the primary option for declarations that come after another declaration.
 
+Shared-line comments do not affect this option.
+
 For example, with `"always"`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -137,12 +161,29 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+```css
+a {
+
+  bottom: 15px; /* comment */
+
+  top: 5px;
+}
+```
+
+The following patterns are *not* considered violations:
 
 ```css
 a {
 
   bottom: 15px;
+  top: 5px;
+}
+```
+
+```css
+a {
+
+  bottom: 15px; /* comment */
   top: 5px;
 }
 ```
@@ -153,7 +194,7 @@ Reverse the primary option for declarations that are nested and the first child 
 
 For example, with `"always"`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -164,7 +205,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -182,7 +223,7 @@ Ignore declarations that are preceded by comments.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -197,7 +238,7 @@ Ignore declarations that are preceded by declarations, to allow for multiple dec
 
 For example, with `"always"`:
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -233,7 +274,7 @@ Ignore declarations that are inside single-line blocks.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { bottom: 15px; top: 5px; }

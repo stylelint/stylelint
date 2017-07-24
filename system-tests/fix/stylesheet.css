@@ -1,0 +1,17 @@
+a { @extend placeholder; }
+a {} @media {}
+@Charset 'UTF-8';
+a { color: #000; }
+a {}
+/* comment */
+/**/
+/*comment*/
+/* TODO: */
+@custom-media --bar (min-width: 30em);
+a {
+  & .foo { /* 1 */
+    &__foo { /* 2 */
+      & > .bar {} /* 3 */
+    }
+  }
+}

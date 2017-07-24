@@ -20,7 +20,7 @@ However, for compatibility with existing style sheets, user agents also accept t
 
 Applicable pseudo-elements *must always* use the single colon notation.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a::before { color: pink; }
@@ -38,7 +38,7 @@ a::first-letter { color: pink; }
 a::first-line { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a:before { color: pink; }
@@ -68,7 +68,7 @@ li::marker { font-variant-numeric: tabular-nums; }
 
 Applicable pseudo-elements *must always* use the double colon notation.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a:before { color: pink; }
@@ -86,7 +86,7 @@ a:first-letter { color: pink; }
 a:first-line { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a::before { color: pink; }

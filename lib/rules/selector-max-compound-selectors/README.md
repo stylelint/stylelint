@@ -21,7 +21,7 @@ This rule resolves nested selectors before calculating the depth of a selector.
 
 For example, with `3`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 .foo .bar .baz .lorem {}
@@ -33,7 +33,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 div {}

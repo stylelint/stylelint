@@ -1,8 +1,8 @@
 # FAQ
 
-## How do I disable a rule?
+## How do I turn off, disable or ignore a rule?
 
-You can disable a rule by setting its config value to `null`.
+You can turn off a rule by setting its config value to `null`.
 
 For example, to use `stylelint-config-standard` without the `at-rule-empty-line-before` rule:
 
@@ -15,7 +15,7 @@ For example, to use `stylelint-config-standard` without the `at-rule-empty-line-
 }
 ```
 
-You can also disable a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](configuration.md#rules) for more information.
+You can also turn off a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](configuration.md#rules) for more information.
 
 ## How do I lint from the command line?
 
@@ -57,9 +57,9 @@ We [recommend](css-processors.md) linting your source files before any transform
 
 [Create a processor](../developer-guide/processors.md) or [use an existing one](configuration.md#processors) that extracts CSS from your HTML's `<style>` tags and feeds it into stylelint.
 
-## How do I automatically fix stylistic warnings?
+## How do I automatically fix stylistic violations?
 
-[stylefmt](https://github.com/morishitter/stylefmt) supports stylelint configuration files and can automatically fix a number of stylistic warnings.
+Use the `--fix` CLI flag or the `fix` Node API option to fix a number of stylistic violations with this *experimental* feature.
 
 ## How do I manage conflicts between rules?
 
@@ -144,7 +144,7 @@ All these patterns disallow CSS identifiers that start with a digit, two hyphens
 
 Use the [`defaultSeverity`](configuration.md#defaultseverity) configuration option.
 
-## Can I bundle more than one sharable config within a npm package?
+## Can I bundle more than one sharable config within an npm package?
 
 A user can `require()` any file in your npm package, so all you need to do is document which paths point to configs (e.g. `require('my-package/config-2')`).
 

@@ -16,7 +16,7 @@ a { transform: translate( 1, 1 ); }
 
 There *must always* be a single space inside the parentheses.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: translate(1, 1); }
@@ -26,7 +26,7 @@ a { transform: translate(1, 1); }
 a { transform: translate(1, 1 ); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { transform: translate( 1, 1 ); }
@@ -36,7 +36,7 @@ a { transform: translate( 1, 1 ); }
 
 There *must never* be whitespace on the inside the parentheses.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: translate( 1, 1 ); }
@@ -46,7 +46,7 @@ a { transform: translate( 1, 1 ); }
 a { transform: translate(1, 1 ); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { transform: translate(1, 1); }
@@ -56,7 +56,7 @@ a { transform: translate(1, 1); }
 
 There *must always* be a single space inside the parentheses of single-line functions.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: translate(1, 1) }
@@ -66,7 +66,7 @@ a { transform: translate(1, 1) }
 a { transform: translate(1, 1 ) }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { transform: translate( 1, 1 ) }
@@ -90,7 +90,7 @@ a {
 
 There *must never* be whitespace inside the parentheses of single-line functions.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { transform: translate( 1, 1 ) }
@@ -100,7 +100,7 @@ a { transform: translate( 1, 1 ) }
 a { transform: translate(1, 1 ) }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { transform: translate(1, 1) }

@@ -19,7 +19,7 @@ Use option `checkPrefixed` described below to turn on checking of vendor-prefixe
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -33,7 +33,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -75,7 +75,7 @@ Given:
 ["/^my-/", "custom"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -100,7 +100,7 @@ If `true`, this rule will check vendor-prefixed properties.
 
 For example with `true`:
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -114,7 +114,7 @@ a {
 }
 ```
 
-The following patterns are considered  warnings:
+The following patterns are considered  violations:
 
 ```css
 a {

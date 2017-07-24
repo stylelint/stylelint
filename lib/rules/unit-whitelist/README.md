@@ -18,7 +18,7 @@ Given:
 ["px", "em", "deg"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { width: 100%; }
@@ -32,7 +32,7 @@ a { font-size: 10rem; }
 a { animation: animation-name 5s ease; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { font-size: 1.2em; }
@@ -71,7 +71,7 @@ Given:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { line-height: 0.1rem; }
@@ -85,7 +85,7 @@ a { border-bottom-width: 6rem; }
 a { width: 100%; }
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { margin: 0 20rem; }

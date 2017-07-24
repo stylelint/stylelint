@@ -12,7 +12,7 @@ Disallow empty blocks.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {}
@@ -26,7 +26,7 @@ a { }
 @media print { a {} }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }

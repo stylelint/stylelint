@@ -16,7 +16,7 @@ This rule ignores [`<custom-idents>`](https://developer.mozilla.org/en/docs/Web/
 
 ### `"lower"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -42,7 +42,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -58,7 +58,7 @@ a {
 
 ### `"upper"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -84,7 +84,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -112,7 +112,7 @@ Given:
 ["Block", "/^(f|F)lex$/"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -138,7 +138,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -164,68 +164,3 @@ a {
 }
 ```
 
-For example, with `"upper"`.
-
-Given:
-
-```js
-["Block", "/^(f|F)lex$/"]
-```
-
-The following patterns are considered warnings:
-
-```css
-a {
-  display: bLoCk;
-}
-```
-
-```css
-a {
-  display: block;
-}
-```
-
-```css
-a {
-  display: fLeX;
-}
-```
-
-```css
-a {
-  display: fLEX;
-}
-```
-
-The following patterns are *not* considered warnings:
-
-```css
-a {
-  display: BLOCK;
-}
-```
-
-```css
-a {
-  display: Block;
-}
-```
-
-```css
-a {
-  display: FLEX;
-}
-```
-
-```css
-a {
-  display: Flex;
-}
-```
-
-```css
-a {
-  display: flex;
-}
-```

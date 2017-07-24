@@ -81,7 +81,7 @@ A rule's secondary option can be anything if you're not ignoring or making excep
 
 Use a more specific secondary option name when accepting a *user-defined* list of things to ignore. This takes the form of `"ignore<Things>": []` e.g. use `"ignoreAtRules": []` if a rule checks at-rules and you want to allow a user to specify which particular at-rule types to ignore.
 
-### Determine warning messages
+### Determine violation messages
 
 Messages take one of these forms:
 
@@ -98,16 +98,46 @@ You will use the simple [PostCSS API](http://api.postcss.org/) to navigate and a
 
 Depending on the rule, we also recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
-stylelint has a number of [utility functions](https://github.com/stylelint/stylelint/tree/master/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!)
+stylelint has a number of [utility functions](https://github.com/stylelint/stylelint/tree/master/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!). The rule should make sure of the `isStandardSyntax*` utilities to ignore non-standard syntax.
 
 In particular, you will definitely want to use `validateOptions()` so that users are warned about invalid options. (Looking at other rules for examples of options validation will help a lot.)
+
+The rule should be strict *by default*. The user can make the rule more permissive by using the `"ignore*:"` secondary options.
+
+### Adding autofixing
+
+Depending on the rule, it might be possible to automatically fix the rule's violations by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](http://api.postcss.org/).
+
+Add `context` variable to rule parameters:
+
+```js
+function rule(primary, secondary, context) {
+  return (root, result) => {..}
+}
+```
+
+`context` is an object which could have two properties:
+
+-   `fix`(boolean): If `true`, your rule can apply autofixes.
+-   `newline`(string): Line-ending used in current linted file.
+
+If `context.fix` is `true`, then change `root` using PostCSS API and return early before `report()` is called.
+
+```js
+if (context.fix) {
+  // Apply fixes using PostCSS API
+  return // Return and don't report a problem
+}
+
+report(...)
+```
 
 ### Write tests
 
 Each rule must be accompanied by tests that contain:
 
--   All patterns that are considered warnings.
--   All patterns that should *not* be considered warnings.
+-   All patterns that are considered violations.
+-   All patterns that should *not* be considered violations.
 
 It is easy to write stylelint tests, so *write as many as you can stand to*.
 
@@ -159,8 +189,8 @@ Each rule must be accompanied by a README, fitting the following format:
 3.  Prototypical code example.
 4.  Expanded description (if necessary).
 5.  Options.
-6.  Example patterns that are considered warnings (for each option value).
-7.  Example patterns that are *not* considered warnings (for each option value).
+6.  Example patterns that are considered violations (for each option value).
+7.  Example patterns that are *not* considered violations (for each option value).
 8.  Optional options (if applicable).
 
 Look at the READMEs of other rules to glean more conventional patterns.
@@ -178,7 +208,7 @@ Take the form of:
 
 -   Use complete CSS patterns i.e. avoid ellipses (`...`)
 -   Use standard CSS syntax (and use `css` code fences) by default.
--   Use the minimum amount of code possible to communicate the patten e.g. if the rule targets selectors then use an empty rule e.g. `{}`.
+-   Use the minimum amount of code possible to communicate the pattern e.g. if the rule targets selectors then use an empty rule e.g. `{}`.
 -   Use `{}`, rather than `{ }` for empty rules.
 -   Use the `a` type selector by default.
 -   Use the `@media` at-rules by default.
@@ -195,25 +225,29 @@ The final step is to add references to the new rule in the following places:
 
 Once you have something to show, you'll create a [pull request](https://github.com/stylelint/stylelint/compare) to continue the conversation.
 
-## Adding a option to an existing rule
+## Adding an option to an existing rule
 
 First, open [an issue](https://github.com/stylelint/stylelint/issues/new) about the option you wish to add. We'll discuss its functionality and name there.
 
 Once we've agreed on the direction, you can work on a pull request. Here are the steps you'll need to take:
 
-1.  Change the rule's validation to allow for the new option.
-2.  Add to the rule some logic (as little as possible) to make the option work.
-3.  Add new unit tests to test the option.
-4.  Add documentation about the new option.
+1.  Run `npm run watch` to start the interactive testing prompt.
+2.  Use the `p` command to filter the active tests to just the rule you're working on.
+2.  Change the rule's validation to allow for the new option.
+3.  Add to the rule some logic (as little as possible) to make the option work.
+4.  Add new unit tests to test the option.
+5.  Add documentation about the new option.
 
 ## Fixing a bug in an existing rule
 
 Fixing bugs is usually very easy. Here is a process that works:
 
-1.  Write failing unit tests that exemplify the bug.
-2.  Fiddle with the rule until those new tests pass.
+1.  Run `npm run watch` to start the interactive testing prompt.
+2.  Use the `p` command to filter the active tests to just the rule you're working on.
+3.  Write failing unit tests that exemplify the bug.
+4.  Fiddle with the rule until those new tests pass.
 
-That's it! **If you are unable to figure out how to fix the bug yourself, it is still *extremely* helpful to submit a pull request with your failing test cases.** It means that somebody else can jump right in and help out with the rule's logic.
+That's it! **If you are unable to figure out how to fix the bug yourself, it is still helpful to submit a pull request with your failing test cases.** It means that somebody else can jump right in and help out with the rule's logic.
 
 ## Improving the performance of a new or an existing rule
 
