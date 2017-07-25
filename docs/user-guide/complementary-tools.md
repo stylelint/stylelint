@@ -20,6 +20,7 @@ A list of complementary tools built and maintained by the community.
 
 ## Editor plugins
 
+-   [Ale](https://github.com/w0rp/ale): A Vim plugin that supports stylelint.
 -   [Flycheck](https://github.com/flycheck/flycheck): An Emacs extension that supports stylelint.
 -   [linter-stylelint](https://github.com/AtomLinter/linter-stylelint): An Atom plugin for stylelint.
 -   [SublimeLinter-contrib-stylelint](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint): A Sublime Text plugin for stylelint.
