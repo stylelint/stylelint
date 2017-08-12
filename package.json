@@ -55,7 +55,7 @@
     "log-symbols": "^2.0.0",
     "mathml-tag-names": "^2.0.1",
     "meow": "^3.7.0",
-    "micromatch": "^2.3.11",
+    "micromatch": "^3.0.4",
     "normalize-selector": "^0.2.0",
     "pify": "^3.0.0",
     "postcss": "^6.0.6",

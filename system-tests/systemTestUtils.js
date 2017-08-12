@@ -1,7 +1,7 @@
 "use strict";
 
 const _ = require("lodash");
-const path = require("path");
+const path = require("path").posix;
 const stripAnsi = require("strip-ansi");
 
 function caseFilePath(caseNumber, fileName) {

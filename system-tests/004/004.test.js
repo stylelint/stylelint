@@ -1,6 +1,6 @@
 /* @flow */
 "use strict";
-const path = require("path");
+const path = require("path").posix;
 const spawn = require("child_process").spawn;
 
 // this test ensures that CLI returns exit code which is not 0
