@@ -14,7 +14,7 @@ A source containing only whitespace is considered empty.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 
@@ -28,7 +28,7 @@ The following patterns are considered warnings:
 \n
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {}

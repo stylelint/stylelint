@@ -8,23 +8,25 @@ a { color: #fff }
  * These hex colors */
 ```
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"short"|"long"`
 
 ### `"short"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: #ffffff; }
 ```
 
 ```css
-a { color: #fffffaa; }
+a { color: #ffffffaa; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: #fff; }
@@ -40,7 +42,7 @@ a { color: #a4a4a4; }
 
 ### `"long"`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: #fff; }
@@ -50,12 +52,12 @@ a { color: #fff; }
 a { color: #fffa; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: #ffffff; }
 ```
 
 ```css
-a { color: #fffffaa; }
+a { color: #ffffffaa; }
 ```

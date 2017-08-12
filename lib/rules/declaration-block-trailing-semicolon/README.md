@@ -20,7 +20,7 @@ This rule will ignore Less mixins, trailing `//` comments, and declaration block
 
 There *must always* be a trailing semicolon.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink }
@@ -34,7 +34,7 @@ a { background: orange; color: pink }
 a { @include foo }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }
@@ -52,7 +52,7 @@ a { @include foo; }
 
 There *must never* be a trailing semicolon.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; }
@@ -62,7 +62,7 @@ a { color: pink; }
 a { background: orange; color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink }

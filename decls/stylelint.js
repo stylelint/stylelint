@@ -75,6 +75,7 @@ export type stylelint$result = {
   invalidOptionWarnings: Array<{
     text: string,
   }>,
+  parseErrors: Array<stylelint$warning>,
   errored?: boolean,
   warnings: Array<stylelint$warning>,
   ignored?: boolean,
@@ -115,6 +116,7 @@ export type stylelint$standaloneOptions = {
   syntax?: stylelint$syntaxes,
   customSyntax?: string,
   formatter?: "json" | "string" | "verbose" | Function,
+  disableDefaultIgnores?: boolean,
   allowEmptyInput?: boolean,
-  fix?: booean
+  fix?: boolean,
 }

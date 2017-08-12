@@ -16,7 +16,7 @@ This rule checks positive numbers in `transition-duration`, `transition-delay`, 
 
 For example, with `100`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { animation: 80ms; }
@@ -34,7 +34,7 @@ a { transition: background-color 6ms linear; }
 a { animation-delay: 0.01s; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { animation: 8s; }

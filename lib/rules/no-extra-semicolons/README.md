@@ -14,7 +14,7 @@ This rule ignores semicolons after Less mixins.
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @import "x.css";;
@@ -54,7 +54,7 @@ b {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @import "x.css";

@@ -20,7 +20,7 @@ Any number of asterisks are allowed at the beginning or end of the comment. So `
 
 There *must always* be whitespace inside the markers.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 /*comment*/
@@ -34,7 +34,7 @@ The following patterns are considered warnings:
 /** comment**/
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 /* comment */
@@ -59,7 +59,7 @@ The following patterns are *not* considered warnings:
 
 There *must never* be whitespace on the inside the markers.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 /* comment */
@@ -73,7 +73,7 @@ The following patterns are considered warnings:
 /** comment**/
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 /*comment*/

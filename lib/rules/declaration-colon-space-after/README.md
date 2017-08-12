@@ -16,7 +16,7 @@ a { color: pink }
 
 There *must always* be a single space after the colon.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color :pink }
@@ -26,7 +26,7 @@ a { color :pink }
 a { color:pink }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color : pink }
@@ -40,7 +40,7 @@ a { color: pink }
 
 There *must never* be whitespace after the colon.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color:pink }
@@ -50,7 +50,7 @@ a { color:pink }
 a { color :pink }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color :pink }
@@ -64,7 +64,7 @@ a { color:pink }
 
 There *must always* be a single space after the colon *if the declaration's value is single-line*.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -72,7 +72,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {

@@ -14,7 +14,7 @@ If you are using a preprocessor that allows `//` single-line comments (e.g. Sass
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { // color: pink; }
@@ -24,7 +24,7 @@ a { // color: pink; }
 // a { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { /* color: pink; */ }

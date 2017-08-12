@@ -5,7 +5,7 @@ The linter supports current and future CSS syntax. This includes all standard CS
 You can run the linter before or after your css processors. Depending on which processors you use, each approach has caveats:
 
 1.  *Before*: Some plugins/processors might enable a syntax that isn't compatible with the linter.
-2.  *After*: Some plugins/processors might generate CSS that is invalid against your linter config, causing warnings that do not correspond to your original stylesheets.
+2.  *After*: Some plugins/processors might generate CSS that is invalid against your linter config, causing violations that do not correspond to your original stylesheets.
 
 *In both cases you can either turn off the incompatible linter rule, or stop using the incompatible plugin/processor.* You could also approach plugin/processor authors and request alternate formatting options that will make their plugin/processor compatible with stylelint.
 
@@ -14,8 +14,12 @@ You can run the linter before or after your css processors. Depending on which p
 By default, the linter can *parse* any the following non-standard syntaxes by using special PostCSS parsers:
 
 -   SCSS (using [`postcss-scss`](https://github.com/postcss/postcss-scss))
--   Less (using [`postcss-less`](https://github.com/webschik/postcss-less))
+-   Less (using [`postcss-less`](https://github.com/shellscape/postcss-less))
 -   SugarSS (using [`sugarss`](https://github.com/postcss/sugarss))
+-   HTML,
+[Markdown](https://daringfireball.net/projects/markdown/syntax),
+[Vue component](https://vue-loader.vuejs.org/)
+(using [`postcss-html`](https://github.com/gucong3000/postcss-html))
 
 *Non-standard syntaxes can automatically be inferred from the following file extensions: `.less`, `.scss`, and `.sss`.* If you would need to specify your non-standard syntax, though, both the [CLI](cli.md) and the [Node API](node-api.md) expose a `syntax` option.
 
@@ -32,7 +36,7 @@ If you're using the linter as a [PostCSS Plugin](postcss-plugin.md), you'll need
 ```js
 var postcss = require("postcss")
 var scss = require("postcss-scss")
-// or use "postcss-less" or "sugarss"
+// or use "postcss-less", "sugarss", "postcss-sass", or "postcss-html"
 
 postcss([
   require("stylelint"),

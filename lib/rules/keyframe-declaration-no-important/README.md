@@ -11,11 +11,14 @@ Disallow `!important` within keyframe declarations.
 *     This !important */
 ```
 
+Using `!important` within keyframes declarations is completely ignored in some browsers:  
+[MDN - !important in a keyframe](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes#!important_in_a_keyframe)
+
 ## Options
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @keyframes important1 {
@@ -50,7 +53,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink !important; }

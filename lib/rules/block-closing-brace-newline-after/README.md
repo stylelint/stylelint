@@ -37,7 +37,7 @@ This rule allows a trailing semicolon after the closing brace of a block. For ex
 
 There *must always* be a newline after the closing brace.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; }b { color: red; }
@@ -48,7 +48,7 @@ a { color: pink;
 } b { color: red; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }
@@ -59,13 +59,13 @@ b { color: red; }
 
 There *must always* be a newline after the closing brace in single-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; } b { color: red; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink;
@@ -81,13 +81,13 @@ b { color: red; }
 
 There *must never* be whitespace after the closing brace in single-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; } b { color: red; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }b { color: red; }
@@ -102,14 +102,14 @@ a { color: pink;
 
 There *must always* be a newline after the closing brace in multi-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink;
 }b { color: red; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }b { color: red; }
@@ -125,14 +125,14 @@ b { color: red; }
 
 There *must never* be whitespace after the closing brace in multi-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink;
 } b { color: red; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; } b { color: red; }
@@ -157,7 +157,7 @@ Given:
 ["if", "else"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @if ($var) {

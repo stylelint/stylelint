@@ -24,7 +24,7 @@ b { color: pink; }
 
 There *must always* be a newline after the commas.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a, b { color: pink; }
@@ -35,7 +35,7 @@ a
 , b { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a,
@@ -52,14 +52,14 @@ b { color: pink; }
 
 There *must always* be a newline after the commas in multi-line selector lists.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a
 , b { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a, b { color: pink; }
@@ -80,7 +80,7 @@ b { color: pink; }
 
 There *must never* be whitespace after the commas in multi-line selector lists.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a
@@ -92,7 +92,7 @@ a,
 b { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a,b { color: pink; }

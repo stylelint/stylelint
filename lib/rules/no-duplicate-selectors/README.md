@@ -19,13 +19,13 @@ The same selector *is* allowed to repeat in the following circumstances:
 -   The duplicates are determined to originate in different stylesheets, e.g. you have concatenated or compiled files in a way that produces sourcemaps for PostCSS to read, e.g. postcss-import).
 -   The duplicates are in rules with different parent nodes, e.g. inside and outside of a media query.
 
-This rule resolves nested selectors. So `a b {} a { & b {} }` counts as a warning, because the resolved selectors end up with a duplicate.
+This rule resolves nested selectors. So `a b {} a { & b {} }` counts as a violation, because the resolved selectors end up with a duplicate.
 
 ## Options
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 .foo,
@@ -71,7 +71,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 .foo {}

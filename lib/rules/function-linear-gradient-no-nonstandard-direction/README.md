@@ -20,7 +20,7 @@ A common mistake (matching outdated non-standard syntax) is to use just a side-o
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 .foo { background: linear-gradient(top, #fff, #000); }
@@ -42,7 +42,7 @@ The following patterns are considered warnings:
 .foo { background: linear-gradient(to top top, #fff, #000); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 .foo { background: linear-gradient(to top, #fff, #000); }

@@ -14,7 +14,7 @@ This rule considers tags defined in the HTML, SVG, and MathML specifications to 
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 unknown {}
@@ -24,7 +24,7 @@ unknown {}
 tag {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 input {}
@@ -46,7 +46,7 @@ li > a {}
 
 Allow custom elements.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 unknown {}
@@ -56,7 +56,7 @@ unknown {}
 x-Foo {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 x-foo {}
@@ -66,13 +66,13 @@ x-foo {}
 
 Allow unknown type selectors if they belong to the default namespace.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 namespace|unknown {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 unknown {}
@@ -86,7 +86,7 @@ Given:
 ["/^my-/", "custom-namespace"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 custom-namespace|unknown {}
@@ -108,7 +108,7 @@ Given:
 ["/^my-/", "custom-type"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 custom-type {}

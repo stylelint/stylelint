@@ -14,7 +14,7 @@ This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; color: orange; }
@@ -24,7 +24,7 @@ a { color: pink; color: orange; }
 a { color: pink; background: orange; color: orange }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }
@@ -42,7 +42,7 @@ Ignore consecutive duplicated properties.
 
 They can prove to be useful fallbacks for older browsers.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 p {
@@ -52,7 +52,7 @@ p {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 p {
@@ -68,7 +68,7 @@ Ignore consecutive duplicated properties with different values.
 
 Including duplicate properties (fallbacks) is useful to deal with older browsers support for CSS properties. E.g. using 'px' units when 'rem' isn't available.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 /* properties with the same value */
@@ -88,7 +88,7 @@ p {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 p {
@@ -108,7 +108,7 @@ Given:
 ["color", "/background\-/"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; background: orange; background: white; }
@@ -118,7 +118,7 @@ a { color: pink; background: orange; background: white; }
 a { background: orange; color: pink; background: white; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; color: orange; background-color: orange; background-color: white; }

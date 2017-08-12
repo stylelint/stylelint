@@ -8,7 +8,7 @@ a { margin: 1px 1px 1px 1px; }
  *           These values */
 ```
 
-This rule warns you when you use redundant values in the following shorthand properties:
+This rule alerts you when you use redundant values in the following shorthand properties:
 
 -   `margin`
 -   `padding`
@@ -16,12 +16,13 @@ This rule warns you when you use redundant values in the following shorthand pro
 -   `border-radius`
 -   `border-style`
 -   `border-width`
+-   `grid-gap`
 
 ## Options
 
 ### `true`
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { margin: 1px 1px; }
@@ -43,7 +44,7 @@ a { border-radius: 1px 2px 1px 2px; }
 a { -webkit-border-radius: 1px 1px 1px 1px; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { margin: 1px; }

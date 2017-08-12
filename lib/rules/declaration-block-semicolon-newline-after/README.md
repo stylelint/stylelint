@@ -32,7 +32,7 @@ a {
 
 There *must always* be a newline after the semicolon.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; top: 0; }
@@ -46,7 +46,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -66,7 +66,7 @@ a {
 
 There *must always* be a newline after the semicolon in multi-line rules.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -74,7 +74,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }
@@ -95,7 +95,7 @@ a {
 
 There *must never* be whitespace after the semicolon in multi-line rules.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -104,7 +104,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }

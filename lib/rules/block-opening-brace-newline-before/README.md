@@ -19,7 +19,7 @@ Refer to [the FAQ](../../../docs/user-guide/faq.md#how-do-i-disallow-single-line
 
 There *must always* be a newline before the opening brace.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a{ color: pink; }
@@ -30,7 +30,7 @@ a{ color: pink;
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a
@@ -54,13 +54,13 @@ a /* foo */
 
 There *must always* be a newline before the opening brace in single-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a{ color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a
@@ -76,13 +76,13 @@ color: pink; }
 
 There *must never* be whitespace before the opening brace in single-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a{ color: pink; }
@@ -97,7 +97,7 @@ color: pink; }
 
 There *must always* be a newline before the opening brace in multi-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a{
@@ -109,7 +109,7 @@ a {
 color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a{ color: pink; }
@@ -134,14 +134,14 @@ color: pink; }
 
 There *must never* be whitespace before the opening brace in multi-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
 color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }

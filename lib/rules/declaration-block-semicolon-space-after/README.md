@@ -20,7 +20,7 @@ This rule ignores the last semicolon of declaration blocks. Use the `block-closi
 
 There *must always* be a single space after the semicolon.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink;top: 0; }
@@ -33,7 +33,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink;}
@@ -51,7 +51,7 @@ a { color: pink; top: 0; }
 
 There *must never* be whitespace after the semicolon.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; top: 0; }
@@ -64,7 +64,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink;}
@@ -82,13 +82,13 @@ a { color: pink;top: 0; }
 
 There *must always* be a single space after the semicolon in single-line declaration blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink;top: 0; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; top: 0; }
@@ -105,13 +105,13 @@ a {
 
 There *must never* be whitespace after the semicolon in single-line declaration blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; top: 0; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink;top: 0; }

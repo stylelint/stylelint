@@ -16,7 +16,7 @@ input:not( [type="submit"] ) {}
 
 There *must always* be a single space inside the parentheses.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 input:not([type="submit"]) {}
@@ -26,7 +26,7 @@ input:not([type="submit"]) {}
 input:not([type="submit"] ) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 input:not( [type="submit"] ) {}
@@ -36,7 +36,7 @@ input:not( [type="submit"] ) {}
 
 There *must never* be whitespace on the inside the parentheses.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 input:not( [type="submit"] ) {}
@@ -46,7 +46,7 @@ input:not( [type="submit"] ) {}
 input:not( [type="submit"]) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 input:not([type="submit"]) {}

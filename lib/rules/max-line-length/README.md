@@ -10,7 +10,7 @@ a { color: red }
 
 Lines that exceed the maximum length but contain no whitespace (other than at the beginning of the line) are ignored.
 
-When evaluating the line length, the arguments of any `url(...)` functions are excluded from the calculation, because typically you have no control over the length of these arguments. This means that long `url()` functions should not contribute to warnings.
+When evaluating the line length, the arguments of any `url(...)` functions are excluded from the calculation, because typically you have no control over the length of these arguments. This means that long `url()` functions should not contribute to violations.
 
 ## Options
 
@@ -18,7 +18,7 @@ When evaluating the line length, the arguments of any `url(...)` functions are e
 
 For example, with `20`:
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: 0; top: 0; }
@@ -30,7 +30,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -55,9 +55,9 @@ This does not apply to comments that are stuck in between other stuff, only to l
 
 For example, with a maximum length of `30`.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
-Each have only one warning.
+Each have only one violation.
 
 ```css
 /* This line is too long for my rule */
@@ -83,7 +83,7 @@ This also applies to comments that are between code on the same line.
 
 For example, with a maximum length of `30`.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; } /* comment that is too long */
@@ -93,7 +93,7 @@ a { color: pink; } /* comment that is too long */
 a { /* this comment is too long for the max length */ }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 /* comment that is too long for my rule*/
@@ -109,18 +109,30 @@ a { color: pink; }
 a { color: pink; }
 ```
 
-### `ignorePattern: ["/regex/"]`
+### `ignorePattern: "/regex/"`
 
 Ignore any line that matches the given regex pattern, regardless of whether it is comment or not.
 
 Given:
 
 ```js
-["/^@import\\s+/"]
+"/^@import\\s+/"
 ```
 
-The following is *not* considered a warning regardless of line length:
+The following pattern is *not* considered a violation:
 
 ```css
 @import "../../../../another/css/or/scss/file/or/something.css";
+```
+
+Given the following, with a maximum length of `20`.
+
+```js
+["/https?:\/\/[0-9,a-z]*.*/"]
+```
+
+The following pattern is *not* considered a violation:
+
+```css
+/* ignore urls https://www.example.com */
 ```

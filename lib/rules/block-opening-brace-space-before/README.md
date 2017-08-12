@@ -16,7 +16,7 @@ Require a single space or disallow whitespace before the opening brace of blocks
 
 There *must always* be a single space before the opening brace.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a{ color: pink; }
@@ -27,7 +27,7 @@ a
 { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }
@@ -42,7 +42,7 @@ color: pink; }
 
 There *must never* be whitespace before the opening brace.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; }
@@ -53,7 +53,7 @@ a
 { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a{ color: pink; }
@@ -68,13 +68,13 @@ color: pink; }
 
 There *must always* be a single space before the opening brace in single-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a{ color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }
@@ -89,13 +89,13 @@ color: pink; }
 
 There *must never* be whitespace before the opening brace in single-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a{ color: pink; }
@@ -110,14 +110,14 @@ color: pink; }
 
 There *must always* be a single space before the opening brace in multi-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a{
 color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a{ color: pink; }
@@ -132,14 +132,14 @@ color: pink; }
 
 There *must never* be whitespace before the opening brace in multi-line blocks.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
 color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }
@@ -160,7 +160,7 @@ Given:
 ["/fo/"]
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @for ...

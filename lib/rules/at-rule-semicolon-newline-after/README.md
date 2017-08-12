@@ -9,6 +9,8 @@ Require a newline after the semicolon of at-rules.
  * The newline after these semicolons */
 ```
 
+This rule ignores `@import` in Less.
+
 This rule allows an end-of-line comment followed by a newline. For example:
 
 ```css
@@ -25,7 +27,7 @@ a {}
 
 There *must always* be a newline after the semicolon.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @import url("x.css"); @import url("y.css");
@@ -35,7 +37,7 @@ The following patterns are considered warnings:
 @import url("x.css"); a {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @import url("x.css");

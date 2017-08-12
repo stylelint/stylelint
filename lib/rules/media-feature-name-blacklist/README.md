@@ -20,7 +20,7 @@ Given:
 ["max-width", "/^my-/"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media (max-width: 50em) {}
@@ -30,7 +30,7 @@ The following patterns are considered warnings:
 @media (my-width: 50em) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media (min-width: 50em) {}

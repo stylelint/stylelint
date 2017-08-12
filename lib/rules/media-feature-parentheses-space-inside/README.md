@@ -16,7 +16,7 @@ Require a single space or disallow whitespace on the inside of the parentheses w
 
 There *must always* be a single space inside the parentheses.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media (max-width: 300px) {}
@@ -26,7 +26,7 @@ The following patterns are considered warnings:
 @media (max-width: 300px ) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media ( max-width: 300px ) {}
@@ -36,7 +36,7 @@ The following patterns are *not* considered warnings:
 
 There *must never* be whitespace on the inside the parentheses.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media ( max-width: 300px ) {}
@@ -46,7 +46,7 @@ The following patterns are considered warnings:
 @media ( max-width: 300px) {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media (max-width: 300px) {}

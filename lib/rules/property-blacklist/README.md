@@ -20,7 +20,7 @@ Given:
 [ "text-rendering", "animation", "/^background/" ]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { text-rendering: optimizeLegibility; }
@@ -45,7 +45,7 @@ a { background: pink; }
 a { background-size: cover; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { color: pink; }

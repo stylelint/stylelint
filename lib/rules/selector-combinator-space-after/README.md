@@ -3,8 +3,8 @@
 Require a single space or disallow whitespace after the combinators of selectors.
 
 ```css
-  a > b + c ~ d e { color: pink; }
-/** ↑   ↑   ↑  ↑
+  a > b + c ~ d e >>> f { color: pink; }
+/** ↑   ↑   ↑  ↑  ↑
  * These are combinators */
 ```
 
@@ -22,7 +22,7 @@ Also, `+` and `-` signs within `:nth-*()` arguments are not checked (e.g. `a:nth
 
 There *must always* be a single space after the combinators.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a +b { color: pink; }
@@ -32,7 +32,7 @@ a +b { color: pink; }
 a>b { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a + b { color: pink; }
@@ -46,7 +46,7 @@ a> b { color: pink; }
 
 There *must never* be whitespace after the combinators.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a + b { color: pink; }
@@ -56,7 +56,7 @@ a + b { color: pink; }
 a> b { color: pink; }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a +b { color: pink; }

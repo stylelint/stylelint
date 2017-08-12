@@ -13,6 +13,8 @@ Specify indentation.
  * The indentation at these three points */
 ```
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `int|"tab"`, where `int` is the number of spaces
@@ -21,7 +23,7 @@ Specify indentation.
 
 Always indent at-rules, rules, comments, declarations, inside parentheses and multi-line values by 2 spaces.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media print {
@@ -85,7 +87,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media print {
@@ -176,7 +178,7 @@ If `true`, the closing brace of a block (rule or at-rule) will be expected at th
 
 For example, with `indentClosingBrace: true`.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a {
@@ -188,11 +190,11 @@ a {
 @media print {
   a {
     color: pink;
-  }  
+  }
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -204,7 +206,7 @@ a {
 @media print {
   a {
     color: pink;
-    }  
+    }
   }
 ```
 
@@ -214,7 +216,7 @@ Do *not* indent for these things.
 
 For example, with `2`.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 @media print,
@@ -227,7 +229,7 @@ The following patterns are considered warnings:
 }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media print,
@@ -248,7 +250,7 @@ Ignore the indentation inside parentheses.
 
 For example, with `2`.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {
@@ -267,7 +269,7 @@ Ignore the indentation of at-rule params.
 
 For example, with `2`.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 @media print,
@@ -282,7 +284,7 @@ Ignore the indentation of values.
 
 For example, with `2`.
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a {

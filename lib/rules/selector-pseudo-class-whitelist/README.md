@@ -22,7 +22,7 @@ Given:
 ["hover", "/^nth-/"]
 ```
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a:focus {}
@@ -32,7 +32,7 @@ a:focus {}
 a:first-of-type {}
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a:hover {}

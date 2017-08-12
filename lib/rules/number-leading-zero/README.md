@@ -16,7 +16,7 @@ a { line-height: 0.5; }
 
 There *must always* be a leading zero.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { line-height: .5; }
@@ -26,7 +26,7 @@ a { line-height: .5; }
 a { transform: translate(2px, .4px); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { line-height: 0.5; }
@@ -40,7 +40,7 @@ a { transform: translate(2px, 0.4px); }
 
 There *must never* be a leading zero.
 
-The following patterns are considered warnings:
+The following patterns are considered violations:
 
 ```css
 a { line-height: 0.5; }
@@ -50,7 +50,7 @@ a { line-height: 0.5; }
 a { transform: translate(2px, 0.4px); }
 ```
 
-The following patterns are *not* considered warnings:
+The following patterns are *not* considered violations:
 
 ```css
 a { line-height: .5; }
