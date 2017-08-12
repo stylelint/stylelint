@@ -181,7 +181,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### Color
 
 -   [`color-hex-case`](../../lib/rules/color-hex-case/README.md): Specify lowercase or uppercase for hex colors (Autofixable).
--   [`color-hex-length`](../../lib/rules/color-hex-length/README.md): Specify short or long notation for hex colors.
+-   [`color-hex-length`](../../lib/rules/color-hex-length/README.md): Specify short or long notation for hex colors (Autofixable).
 
 #### Font family
 
@@ -332,4 +332,4 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`max-empty-lines`](../../lib/rules/max-empty-lines/README.md): Limit the number of adjacent empty lines.
 -   [`max-line-length`](../../lib/rules/max-line-length/README.md): Limit the length of a line.
 -   [`no-eol-whitespace`](../../lib/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
--   [`no-missing-end-of-source-newline`](../../lib/rules/no-missing-end-of-source-newline/README.md): Disallow missing end-of-source newlines.
+-   [`no-missing-end-of-source-newline`](../../lib/rules/no-missing-end-of-source-newline/README.md): Disallow missing end-of-source newlines (Autofixable).
