@@ -75,3 +75,25 @@ The following patterns are *not* considered violations:
 /* `[disabled]` is inside `:not()`, so it is evaluated separately */
 [type="text"][name="message"]:not([disabled]) {}
 ```
+
+## Optional secondary options
+
+### `ignoreAttributes: ["/regex/", "string"]`
+
+Given:
+
+```js
+["/^my-/", "dir"]
+```
+
+For example, with `0`.
+
+The following patterns are *not* considered violations:
+
+```css
+[dir] [my-attr] {}
+```
+
+```css
+[dir] [my-other-attr] {}
+```

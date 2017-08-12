@@ -18,12 +18,12 @@ This rule ignores URL arguments with variables or variable interpolation (`$sass
 
 ## Options
 
-`array|string`: `["array", "of", "schemes"]|"scheme"`
+`array|string|regex`: `["array", "of", "schemes" or "regex"]|"scheme"|/regex/`
 
 Given:
 
 ```js
-["https", "data"]
+["data", "/^http/"]
 ```
 
 The following patterns are considered violations:
@@ -33,22 +33,10 @@ a { background-image: url('http://www.example.com/file.jpg'); }
 ```
 
 ```css
-a { background-image: url('ftp://www.example.com/file.jpg'); }
+a { background-image: url('file://file.jpg'); }
 ```
 
 The following patterns are *not* considered violations:
-
-```css
-a { background-image: url('https://www.example.com/file.jpg'); }
-```
-
-```css
-a { background-image: url('HTTPS://www.example.com/file.jpg'); }
-```
-
-```css
-a { background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }
-```
 
 ```css
 a { background-image: url('example.com/file.jpg'); }
@@ -64,4 +52,20 @@ a { background-image: url('//example.com/file.jpg'); }
 
 ```css
 a { background-image: url('./path/to/file.jpg'); }
+```
+
+```css
+a { background-image: url('http://www.example.com/file.jpg'); }
+```
+
+```css
+a { background-image: url('https://www.example.com/file.jpg'); }
+```
+
+```css
+a { background-image: url('HTTPS://www.example.com/file.jpg'); }
+```
+
+```css
+a { background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }
 ```

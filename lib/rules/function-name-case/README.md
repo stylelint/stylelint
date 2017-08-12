@@ -109,66 +109,6 @@ For example, with `"lower"`.
 Given:
 
 ```js
-["SOME-FUNCTION", "/^get.*$/"]
-```
-
-The following patterns are considered violations:
-
-```css
-a {
-  color: sOmE-FuNcTiOn();
-}
-```
-
-```css
-a {
-  color: OTHER-SOME-FUNCTION();
-}
-```
-
-```css
-a {
-  color: GetColor();
-}
-```
-
-```css
-a {
-  color: GET_COLOR();
-}
-```
-
-The following patterns are *not* considered violations:
-
-```css
-a {
-  display: some-function();
-}
-```
-
-```css
-a {
-  display: SOME-FUNCTION();
-}
-```
-
-```css
-a {
-  display: getColor();
-}
-```
-
-```css
-a {
-  display: get_color();
-}
-```
-
-For example, with `"upper"`.
-
-Given:
-
-```js
 ["some-function", "/^get.*$/"]
 ```
 
@@ -182,7 +122,7 @@ a {
 
 ```css
 a {
-  color: other-some-function();
+  color: some-other-function();
 }
 ```
 
@@ -206,11 +146,6 @@ a {
 }
 ```
 
-```css
-a {
-  display: SOME-FUNCTION();
-}
-```
 
 ```css
 a {
@@ -223,3 +158,4 @@ a {
   display: get_color();
 }
 ```
+
