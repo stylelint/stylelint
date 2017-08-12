@@ -21,7 +21,7 @@ a { color: #ffffff; }
 ```
 
 ```css
-a { color: #fffffaa; }
+a { color: #ffffffaa; }
 ```
 
 The following patterns are *not* considered violations:
@@ -57,5 +57,5 @@ a { color: #ffffff; }
 ```
 
 ```css
-a { color: #fffffaa; }
+a { color: #ffffffaa; }
 ```
