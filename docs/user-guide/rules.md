@@ -181,7 +181,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### Color
 
 -   [`color-hex-case`](../../lib/rules/color-hex-case/README.md): Specify lowercase or uppercase for hex colors (Autofixable).
--   [`color-hex-length`](../../lib/rules/color-hex-length/README.md): Specify short or long notation for hex colors.
+-   [`color-hex-length`](../../lib/rules/color-hex-length/README.md): Specify short or long notation for hex colors (Autofixable).
 
 #### Font family
 
