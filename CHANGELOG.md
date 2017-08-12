@@ -4,6 +4,7 @@
 -   Fixed: `selector-max-specificity` cannot parse selector violation for Less mixins ([#2677](https://github.com/stylelint/stylelint/pull/2677)).
 -   Fixed: `no-empty-source` compatability with `postcss-html` custom syntax ([#2798](https://github.com/stylelint/stylelint/issues/2798)).
 -   Fixed: `color-hex-length` false positives for id references in `url` functions ([#2806](https://github.com/stylelint/stylelint/issues/2806)).
+-   Added: support autofixing in `color-hex-length` rule ([#2781](https://github.com/stylelint/stylelint/pull/2791)).
 
 # 8.0.0
 
