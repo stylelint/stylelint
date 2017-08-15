@@ -1,7 +1,7 @@
 # Head
 
 -   Added: more rules now support experimental autofixing. Use `--fix` CLI parameter or `fix: true` Node API options property. Newly supported rules:
-    -   `color-hex-length` ([#2781](https://github.com/stylelint/stylelint/pull/2791)).
+    -   `color-hex-length` ([#2781](https://github.com/stylelint/stylelint/pull/2781)).
     -   `no-missing-end-of-source-newline` ([#2772](https://github.com/stylelint/stylelint/pull/2772)).
 -   Fixed: `color-hex-length` false positives for id references in `url` functions ([#2806](https://github.com/stylelint/stylelint/issues/2806)).
 -   Fixed: `indentation` false positives for Less parametric mixins with rule block/snippet ([#2744](https://github.com/stylelint/stylelint/pull/2744)).
