@@ -6,6 +6,7 @@
 -   Fixed: `color-hex-length` false positives for id references in `url` functions ([#2806](https://github.com/stylelint/stylelint/issues/2806)).
 -   Fixed: `indentation` false positives for Less parametric mixins with rule block/snippet ([#2744](https://github.com/stylelint/stylelint/pull/2744)).
 -   Fixed: `no-empty-source` compatability with `postcss-html` custom syntax ([#2798](https://github.com/stylelint/stylelint/issues/2798)).
+-   Fixed: `no-extra-semicolons` false negatives where instances were not detected when followed by multiple comments ([#2678](https://github.com/stylelint/stylelint/issues/2678)).
 -   Fixed: `selector-max-specificity` cannot parse selector violation for Less mixins ([#2677](https://github.com/stylelint/stylelint/pull/2677)).
 
 # 8.0.0
