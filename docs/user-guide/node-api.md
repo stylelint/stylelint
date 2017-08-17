@@ -169,7 +169,7 @@ stylelint.lint({
   .catch(function(err) {
     // do things with err e.g.
     console.error(err.stack);
-  });;
+  });
 ```
 
 If `myConfig` *does* contain relative paths for `extends` or `plugins`, you *do* have to use `configBasedir`:
