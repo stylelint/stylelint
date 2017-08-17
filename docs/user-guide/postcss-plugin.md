@@ -104,13 +104,13 @@ var stylelint = require("stylelint")
 var css = fs.readFileSync("lib/app.css", "utf8")
 
 postcss(
-  processors: [
+  [
     require("postcss-import")({
       plugins: [
         require("stylelint")({ /* your options */ })
       ]
     }),
-    require("postcss-cssnext")
+    require("postcss-cssnext"),
     require("postcss-reporter")({ clearReportedMessages: true })
   ]
 )
