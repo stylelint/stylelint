@@ -58,7 +58,7 @@ A path to a file containing patterns describing files to ignore. The path can be
 We recommend you lint your CSS before applying any transformations. You can do this by either:
 
 -   creating a separate lint task that is independent of your build one.
--   using the [`plugins` option](https://github.com/postcss/postcss-import#plugins) of [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) to lint the your files before any transformations.
+-   using the [`plugins` option](https://github.com/postcss/postcss-import#plugins) of [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) to lint your files before any transformations.
 -   placing stylelint at the beginning of your plugin pipeline.
 
 You'll also need to use a reporter. *The stylelint plugin registers warnings via PostCSS*. Therefore, you'll want to use it with a PostCSS runner that prints warnings or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
