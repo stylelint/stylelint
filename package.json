@@ -98,7 +98,7 @@
     "remark-cli": "^4.0.0",
     "remark-preset-lint-consistent": "^2.0.0",
     "remark-preset-lint-recommended": "^3.0.0",
-    "remark-validate-links": "^6.1.0",
+    "remark-validate-links": "^7.0.0",
     "request": "^2.81.0",
     "strip-ansi": "^4.0.0"
   },
