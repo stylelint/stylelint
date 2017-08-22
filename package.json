@@ -65,7 +65,7 @@
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^3.0.1",
     "postcss-scss": "^1.0.2",
-    "postcss-selector-parser": "^2.2.3",
+    "postcss-selector-parser": "^3.0.0-rc.0",
     "postcss-value-parser": "^3.3.0",
     "resolve-from": "^4.0.0",
     "specificity": "^0.3.1",
