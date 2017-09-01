@@ -1,12 +1,14 @@
-export type stylelint$configExtends = string | Array<string>
-export type stylelint$configPlugins = string | Array<string>
-export type stylelint$configProcessors = string | Array<string | [string, Object]>
-export type stylelint$configIgnoreFiles = string | Array<string>
+export type stylelint$configExtends = string | Array<string>;
+export type stylelint$configPlugins = string | Array<string>;
+export type stylelint$configProcessors =
+  | string
+  | Array<string | [string, Object]>;
+export type stylelint$configIgnoreFiles = string | Array<string>;
 
-export type stylelint$configRuleSettings = any | [any, Object]
+export type stylelint$configRuleSettings = any | [any, Object];
 export type stylelint$configRules = {
-  [ruleName: string]: stylelint$configRuleSettings,
-}
+  [ruleName: string]: stylelint$configRuleSettings
+};
 
 export type stylelint$config = {
   extends?: stylelint$configExtends,
@@ -22,9 +24,9 @@ export type stylelint$config = {
   codeProcessors?: Array<Function>,
   resultProcessors?: Array<Function>,
   quiet?: boolean
-}
+};
 
-export type stylelint$syntaxes = "scss" | "less" | "sugarss"
+export type stylelint$syntaxes = "scss" | "less" | "sugarss";
 
 export type stylelint$options = {
   config?: stylelint$config,
@@ -37,7 +39,7 @@ export type stylelint$options = {
   syntax?: stylelint$syntaxes,
   customSyntax?: string,
   fix?: boolean
-}
+};
 
 export type stylelint$internalApi = {
   _options: stylelint$options,
@@ -55,32 +57,32 @@ export type stylelint$internalApi = {
 
   getConfigForFile: Function,
   isPathIgnored: Function,
-  lintSource: Function,
-}
+  lintSource: Function
+};
 
 export type stylelint$warning = {
   line: number,
   column: number,
   rule: string,
   severity: string,
-  text: string,
-}
+  text: string
+};
 
 export type stylelint$result = {
   source: string,
   deprecations: Array<{
     text: string,
-    reference: string,
+    reference: string
   }>,
   invalidOptionWarnings: Array<{
-    text: string,
+    text: string
   }>,
   parseErrors: Array<stylelint$warning>,
   errored?: boolean,
   warnings: Array<stylelint$warning>,
   ignored?: boolean,
-  _postcssResult?: Object,
-}
+  _postcssResult?: Object
+};
 
 export type stylelint$needlessDisablesReport = Array<{
   source: string,
@@ -88,21 +90,21 @@ export type stylelint$needlessDisablesReport = Array<{
     source: string,
     ranges: Array<{
       start: number,
-      end?: number,
-    }>,
-  }>,
-}>
+      end?: number
+    }>
+  }>
+}>;
 
 export type stylelint$standaloneReturnValue = {
   results: Array<stylelint$result>,
   errored: boolean,
   output: any,
-  needlessDisables?: stylelint$needlessDisablesReport,
-}
+  needlessDisables?: stylelint$needlessDisablesReport
+};
 
 export type stylelint$standaloneOptions = {
   files?: string | Array<string>,
-  cache?: bool,
+  cache?: boolean,
   cacheLocation?: string,
   code?: string,
   codeFilename?: string,
@@ -118,5 +120,5 @@ export type stylelint$standaloneOptions = {
   formatter?: "json" | "string" | "verbose" | Function,
   disableDefaultIgnores?: boolean,
   allowEmptyInput?: boolean,
-  fix?: boolean,
-}
+  fix?: boolean
+};
