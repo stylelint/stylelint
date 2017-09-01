@@ -1,7 +1,8 @@
 # Head
 
 -   Added: Allow specifying `codeFilename` to `createStylelintResult` for raw code linting standalone API ([#2450](https://github.com/stylelint/stylelint/issues/2450)).
--   Added: more rules now support experimental autofixing. Use `--fix` CLI parameter or `fix: true` Node API options property. Newly supported rules:
+-   Added: `ignorePattern` option (`--ignore-pattern` in CLI), to allow patterns of files to ignored (#2834).
+-   Added: More rules now support experimental autofixing. Use `--fix` CLI parameter or `fix: true` Node API options property. Newly supported rules:
     -   `color-hex-length` ([#2781](https://github.com/stylelint/stylelint/pull/2781)).
     -   `no-missing-end-of-source-newline` ([#2772](https://github.com/stylelint/stylelint/pull/2772)).
 -   Fixed: `color-hex-length` false positives for id references in `url` functions ([#2806](https://github.com/stylelint/stylelint/issues/2806)).
