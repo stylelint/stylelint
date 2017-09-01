@@ -81,7 +81,7 @@
     "cp-file": "^4.2.0",
     "d3-queue": "^3.0.7",
     "del": "^3.0.0",
-    "eslint": "~4.5.0",
+    "eslint": "~4.6.0",
     "eslint-config-stylelint": "^7.0.0",
     "file-exists-promise": "^1.0.2",
     "flow-bin": "^0.53.0",
