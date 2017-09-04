@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "8.0.0",
+  "version": "8.1.0",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css",
@@ -81,10 +81,10 @@
     "cp-file": "^4.2.0",
     "d3-queue": "^3.0.7",
     "del": "^3.0.0",
-    "eslint": "~4.5.0",
+    "eslint": "~4.6.0",
     "eslint-config-stylelint": "^7.0.0",
     "file-exists-promise": "^1.0.2",
-    "flow-bin": "^0.53.0",
+    "flow-bin": "^0.54.0",
     "fs-promise": "^2.0.3",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
@@ -94,7 +94,7 @@
     "postcss-html": "^0.9.0",
     "postcss-import": "^10.0.0",
     "postcss-safe-parser": "^3.0.1",
-    "prettier": "^1.5.3",
+    "prettier": "^1.6.1",
     "remark-cli": "^4.0.0",
     "remark-preset-lint-consistent": "^2.0.0",
     "remark-preset-lint-recommended": "^3.0.0",
@@ -112,6 +112,8 @@
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
     "pretest": "npm-run-all --serial lint flow",
+    "prettier:check": "prettier '**/*.js' --list-different",
+    "prettier:fix": "prettier '**/*.js' --write",
     "release": "npmpub",
     "test": "jest --coverage",
     "watch": "jest --watch"
