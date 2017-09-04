@@ -61,7 +61,7 @@ A file glob, or array of file globs. Ultimately passed to [node-glob](https://gi
 
 Relative globs are considered relative to `process.cwd()`.
 
-`node_modules` and `bower_components` are always ignored.
+By default, all `node_modules` and `bower_components` are ignored.
 
 ### `formatter`
 
@@ -77,6 +77,9 @@ If `true`, all disable comments (e.g. `/* stylelint-disable block-no-empty */`) 
 
 You can use this option to see what your linting results would be like without those exceptions.
 
+### `disableDefaultIgnores`
+
+If `true`, stylelint will not automatically ignore the contents of `node_modules` and `bower_components`. (By default, these directories are automatically ignored.)
 ### `cache`
 
 Store the info about processed files in order to only operate on the changed ones the next time you run stylelint. Enabling this option can dramatically improve stylelint's speed, because only changed files will be linted.
@@ -123,8 +126,7 @@ Note, however, that stylelint can provide no guarantee that core rules will work
 
 ### `fix`
 
-If `true`, stylelint will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported.
-
+If `true`, stylelint will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported. See [Autofixing errors](cli.md#autofixing-errors) docs.
 
 ## The returned promise
 
@@ -167,7 +169,7 @@ stylelint.lint({
   .catch(function(err) {
     // do things with err e.g.
     console.error(err.stack);
-  });;
+  });
 ```
 
 If `myConfig` *does* contain relative paths for `extends` or `plugins`, you *do* have to use `configBasedir`:

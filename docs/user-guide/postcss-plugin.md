@@ -58,14 +58,14 @@ A path to a file containing patterns describing files to ignore. The path can be
 We recommend you lint your CSS before applying any transformations. You can do this by either:
 
 -   creating a separate lint task that is independent of your build one.
--   using the [`plugins` option](https://github.com/postcss/postcss-import#plugins) of [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) to lint the your files before any transformations.
+-   using the [`plugins` option](https://github.com/postcss/postcss-import#plugins) of [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) to lint your files before any transformations.
 -   placing stylelint at the beginning of your plugin pipeline.
 
 You'll also need to use a reporter. *The stylelint plugin registers warnings via PostCSS*. Therefore, you'll want to use it with a PostCSS runner that prints warnings or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
 
 ### Example A
 
-A separate lint task that uses the plugin via the PostCSS JS API to lint Less using [`postcss-less`](https://github.com/webschik/postcss-less).
+A separate lint task that uses the plugin via the PostCSS JS API to lint Less using [`postcss-less`](https://github.com/shellscape/postcss-less).
 
 *Note: the stylelint PostCSS plugin, unlike the stylelint CLI and node API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.*
 
@@ -78,8 +78,8 @@ var postcss = require("postcss")
 var css = fs.readFileSync("input.css", "utf8")
 
 postcss([
-  require("stylelint")({ /* your options */ })
-  require("postcss-reporter")({ clearMessages: true })
+  require("stylelint")({ /* your options */ }),
+  require("postcss-reporter")({ clearReportedMessages: true })
 ])
   .process(css, {
     from: "input.css",
@@ -104,14 +104,14 @@ var stylelint = require("stylelint")
 var css = fs.readFileSync("lib/app.css", "utf8")
 
 postcss(
-  processors: [
+  [
     require("postcss-import")({
       plugins: [
         require("stylelint")({ /* your options */ })
       ]
     }),
-    require("postcss-cssnext")
-    require("postcss-reporter")({ clearMessages: true })
+    require("postcss-cssnext"),
+    require("postcss-reporter")({ clearReportedMessages: true })
   ]
 )
   .process(css, { from: 'lib/app.css', to: 'app.css' })

@@ -8,6 +8,8 @@ a { color: #fff }
  * These hex colors */
 ```
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"short"|"long"`
@@ -21,7 +23,7 @@ a { color: #ffffff; }
 ```
 
 ```css
-a { color: #fffffaa; }
+a { color: #ffffffaa; }
 ```
 
 The following patterns are *not* considered violations:
@@ -57,5 +59,5 @@ a { color: #ffffff; }
 ```
 
 ```css
-a { color: #fffffaa; }
+a { color: #ffffffaa; }
 ```

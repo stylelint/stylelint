@@ -98,9 +98,11 @@ You will use the simple [PostCSS API](http://api.postcss.org/) to navigate and a
 
 Depending on the rule, we also recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
-stylelint has a number of [utility functions](https://github.com/stylelint/stylelint/tree/master/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!)
+stylelint has a number of [utility functions](https://github.com/stylelint/stylelint/tree/master/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!). The rule should make sure of the `isStandardSyntax*` utilities to ignore non-standard syntax.
 
 In particular, you will definitely want to use `validateOptions()` so that users are warned about invalid options. (Looking at other rules for examples of options validation will help a lot.)
+
+The rule should be strict *by default*. The user can make the rule more permissive by using the `"ignore*:"` secondary options.
 
 ### Adding autofixing
 
@@ -229,19 +231,23 @@ First, open [an issue](https://github.com/stylelint/stylelint/issues/new) about 
 
 Once we've agreed on the direction, you can work on a pull request. Here are the steps you'll need to take:
 
-1.  Change the rule's validation to allow for the new option.
-2.  Add to the rule some logic (as little as possible) to make the option work.
-3.  Add new unit tests to test the option.
-4.  Add documentation about the new option.
+1.  Run `npm run watch` to start the interactive testing prompt.
+2.  Use the `p` command to filter the active tests to just the rule you're working on.
+2.  Change the rule's validation to allow for the new option.
+3.  Add to the rule some logic (as little as possible) to make the option work.
+4.  Add new unit tests to test the option.
+5.  Add documentation about the new option.
 
 ## Fixing a bug in an existing rule
 
 Fixing bugs is usually very easy. Here is a process that works:
 
-1.  Write failing unit tests that exemplify the bug.
-2.  Fiddle with the rule until those new tests pass.
+1.  Run `npm run watch` to start the interactive testing prompt.
+2.  Use the `p` command to filter the active tests to just the rule you're working on.
+3.  Write failing unit tests that exemplify the bug.
+4.  Fiddle with the rule until those new tests pass.
 
-That's it! **If you are unable to figure out how to fix the bug yourself, it is still *extremely* helpful to submit a pull request with your failing test cases.** It means that somebody else can jump right in and help out with the rule's logic.
+That's it! **If you are unable to figure out how to fix the bug yourself, it is still helpful to submit a pull request with your failing test cases.** It means that somebody else can jump right in and help out with the rule's logic.
 
 ## Improving the performance of a new or an existing rule
 

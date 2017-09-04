@@ -36,14 +36,14 @@ The `rules` property is *an object whose keys are rule names and values are rule
     "block-no-empty": null,
     "color-no-invalid-hex": true,
     "comment-empty-line-before": [ "always", {
-      "ignore": ["stylelint-command", "after-comment"]
+      "ignore": ["stylelint-commands", "after-comment"]
     } ],
     "declaration-colon-space-after": "always",
     "indentation": ["tab", {
       "except": ["value"]
     }],
     "max-empty-lines": 2,
-    "rule-nested-empty-line-before": [ "always", {
+    "rule-empty-line-before": [ "always", {
       "except": ["first-nested"],
       "ignore": ["after-comment"]
     } ],
@@ -175,7 +175,7 @@ Writing a [custom formatter](../developer-guide/formatters.md) gives you maximum
 
 Your configuration can *extend* an existing configuration (whether your own or a third-party config). When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
 
-You can extend an array of existing configurations, with each item in the array taking precedence over the following (so the first item overrides everything else, the second item overrides everything but the first, the last gets overridden by everything else, etc.).
+You can extend an array of existing configurations, with each item in the array taking precedence over the previous item (so the second item overrides rules in the first, the third item overrides rules in the first and the second, and so on, the last item overrides everything else).
 
 For example, extending the [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) and then changing indentation to tabs and turning off the `number-leading-zero` rule:
 
@@ -278,7 +278,7 @@ If your processor has options, make that item an array whose first item is the "
 
 Provide a glob or array of globs to ignore specific files.
 
-(An alternative method is to use a `.stylelintignore` file, described below.)
+*Note that this is not an efficient method for ignoring lots of files.* If you want to ignore a lot of files efficiently, use `.stylelintignore` or adjust your files globs.
 
 If the globs are absolute paths, they are used as is. If they are relative, they are analyzed relative to
 
@@ -286,7 +286,7 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 -   the config's filepath, if the config is a file that stylelint found a loaded;
 -   or `process.cwd()`.
 
-`node_modules` and `bower_components` are always ignored.
+By default, all `node_modules` and `bower_components` are ignored. Default values will be overridden if `ignoreFiles` is set.
 
 The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
 
@@ -301,10 +301,8 @@ The default severity level for all rules that do not have a severity specified i
 
 You can use a `.stylelintignore` file (or point to another ignore patterns file) to ignore specific files.
 
-(An alternative method is to use a `config.ignoreFiles`, described above.)
+These files will be excluded from the files glob before the file system is check at all, so it is an efficient method for ignoring lots of files.
 
 The patterns in your `.stylelintignore` file must match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). (Behind the scenes, [`node-ignore`](https://github.com/kaelzhang/node-ignore) parses your patterns.) One implication of this is that *your patterns in `.stylelintignore` are always analyzed relative to `process.cwd()`.*
 
 stylelint will look for a `.stylelintignore` file in `process.cwd()`. You can also specify a path to your ignore patterns file (absolute or relative to `process.cwd()`) using the `--ignore-path` (in the CLI) and `ignorePath` (in JS) options.
-
-`node_modules` and `bower_components` are always ignored.
