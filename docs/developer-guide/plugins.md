@@ -163,6 +163,30 @@ In addition to the standard parsers mentioned in the ["Working on rules"](rules.
 
 Have a look through [stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into an external module.
 
+## Peer dependency
+
+To make clear that your plugin requires which versions of stylelint, you have to declare stylelint as a `peerDependency` (**NOT** `dependency`) in your `package.json`. Because, if a user would try to install plugins declared as a `dependency` which each require different versions of stylelint, different versions of stylelint would be installed **unexpectedly** at same time.
+
+### Bad 👎
+
+```json
+{
+  "dependencies": {
+    "stylelint": "^8.0.0"
+  }
+}
+```
+
+### Good 👍
+
+```json
+{
+  "peerDependencies": {
+    "stylelint": "^7.0.0 || ^8.0.0"
+  }
+}
+```
+
 ## Testing plugins
 
 For testing your plugin, you might consider using the same rule-testing function that stylelint uses internally: [`stylelint-test-rule-tape`](https://github.com/stylelint/stylelint-test-rule-tape).
