@@ -78,7 +78,7 @@ var postcss = require("postcss")
 var css = fs.readFileSync("input.css", "utf8")
 
 postcss([
-  require("stylelint")({ /* your options */ })
+  require("stylelint")({ /* your options */ }),
   require("postcss-reporter")({ clearReportedMessages: true })
 ])
   .process(css, {
