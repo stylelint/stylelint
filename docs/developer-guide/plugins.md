@@ -163,21 +163,11 @@ In addition to the standard parsers mentioned in the ["Working on rules"](rules.
 
 Have a look through [stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into an external module.
 
-## Peer dependency
+## Peer dependencies
 
-To make clear that your plugin requires which versions of stylelint, you have to declare stylelint as a `peerDependency` (**NOT** `dependency`) in your `package.json`. Because, if a user would try to install plugins declared as a `dependency` which each require different versions of stylelint, different versions of stylelint would be installed **unexpectedly** at same time.
+You should express, within the `peerDependencies` key (and **not** within the `dependencies` key) of your plugin's `package.json`, what version(s) of stylelint your plugin can be used with. This is to ensure that different versions of stylelint are not unexpectedly installed.
 
-### Bad 👎
-
-```json
-{
-  "dependencies": {
-    "stylelint": "^8.0.0"
-  }
-}
-```
-
-### Good 👍
+For example, to express that your plugin can be used with stylelint versions 7 and 8:
 
 ```json
 {
