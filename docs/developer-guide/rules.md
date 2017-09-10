@@ -251,9 +251,9 @@ That's it! **If you are unable to figure out how to fix the bug yourself, it is 
 
 ## Deprecating a rule
 
-Deprecating rules doesn't happened very often. However, these two steps are important to do:
+Deprecating rules doesn't happen very often. However, these two steps are important to do:
 
-1.  Point the `stylelintReference` link to the specific version of the rule README on GitHub website, so that it is always accessible.
+1.  Point the `stylelintReference` link to the specific version of the rule README on the GitHub website, so that it is always accessible.
 2.  Add the appropriate meta data to mark the rule as deprecated.
 
 ## Improving the performance of a new or an existing rule
