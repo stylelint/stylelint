@@ -12,7 +12,7 @@ Visit the [Specificity Calculator](https://specificity.keegan.st) for visual rep
 
 This rule ignores selectors with variable interpolation (`#{$var}`, `@{var}`, `$(var)`).
 
-This rule ignores selectors containing the `:not()` or `:matches()` pseudo-classes.
+This rule handles selectors containing the `:not()` or `:matches()` pseudo-classes per [spec](https://drafts.csswg.org/selectors/#specificity-rules).
 
 This rule resolves nested selectors before calculating the specificity of a selector.
 
@@ -78,4 +78,44 @@ div {}
     color: blue;
   }
 }
+```
+
+## Optional secondary options
+
+### `ignoreSelectors: ["/regex/", "string"]`
+
+Given:
+
+```js
+["0,1,0", {
+  ignoreSelectors: [":global", ":local", "/my-/"]
+}];
+```
+
+The following patterns are *not* considered violations:
+
+```css
+:global(.foo) .bar {}
+```
+
+```css
+:local(.foo.bar)
+```
+
+```css
+:local(.foo, :global(.bar).baz)
+```
+
+The following patterns are still considered violations:
+
+```css
+:global(.foo) .bar.baz {}
+```
+
+```css
+:local(.foo.bar.baz)
+```
+
+```css
+:local(.foo, :global(.bar), .foo.bar.baz)
 ```
