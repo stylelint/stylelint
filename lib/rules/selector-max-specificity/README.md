@@ -87,7 +87,7 @@ div {}
 Given:
 
 ```js
-["0,1,0", {
+["0,2,0", {
   ignoreSelectors: [":global", ":local", "/my-/"]
 }];
 ```
