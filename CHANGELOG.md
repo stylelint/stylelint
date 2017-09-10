@@ -1,3 +1,7 @@
+# Head
+
+-   Added: `length-zero-no-unit` autofix ([#2861](https://github.com/stylelint/stylelint/issues/2861)).
+
 # 8.1.1
 
 -   Fixed: `--ignore-pattern` in CLI ([#2851](https://github.com/stylelint/stylelint/issues/2851)).
