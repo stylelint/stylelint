@@ -12,8 +12,6 @@ Visit the [Specificity Calculator](https://specificity.keegan.st) for visual rep
 
 This rule ignores selectors with variable interpolation (`#{$var}`, `@{var}`, `$(var)`).
 
-This rule handles selectors containing the `:not()` or `:matches()` pseudo-classes per [spec](https://drafts.csswg.org/selectors/#specificity-rules).
-
 This rule resolves nested selectors before calculating the specificity of a selector.
 
 ## Options
@@ -106,7 +104,7 @@ The following patterns are *not* considered violations:
 :local(.foo, :global(.bar).baz)
 ```
 
-The following patterns are still considered violations:
+The following patterns are considered violations:
 
 ```css
 :global(.foo) .bar.baz {}
