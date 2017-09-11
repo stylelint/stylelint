@@ -98,11 +98,13 @@ You will use the simple [PostCSS API](http://api.postcss.org/) to navigate and a
 
 Depending on the rule, we also recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
-stylelint has a number of [utility functions](https://github.com/stylelint/stylelint/tree/master/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!). The rule should make sure of the `isStandardSyntax*` utilities to ignore non-standard syntax.
-
-In particular, you will definitely want to use `validateOptions()` so that users are warned about invalid options. (Looking at other rules for examples of options validation will help a lot.)
+stylelint has a number of [utility functions](https://github.com/stylelint/stylelint/tree/master/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!). You will definitely want to use `validateOptions()` util so that users are warned about invalid options. (Looking at other rules for examples of options validation will help a lot.). You should also make use of the `isStandardSyntax*` utilities to ignore non-standard syntax.
 
 The rule should be strict *by default*. The user can make the rule more permissive by using the `"ignore*:"` secondary options.
+
+The rule should not include code for methodologies or language extensions. Instead, provide generic secondary options so that the user can ignore these at the *configuration level*. For example, when dealing with specificity, a rule should not account for the `:global` and `:local` psuedo-classes (introduced in the CSS Modules language extension), instead the rule should provide a `ignorePsuedoClasses: []` secondary option. Methodologies come and go quickly, and this approach ensures the code base does not become littered with code for obsolete things.
+
+Only add an option to a rule if it addresses a *requested* use case. Do not add an option to a rule, even for the sake of consistency, if there has been no request. This is to avoid polluting the tool with unused features.
 
 ### Adding autofixing
 

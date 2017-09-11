@@ -1,7 +1,16 @@
+# Head
+
+-   Added: `length-zero-no-unit` autofix ([#2861](https://github.com/stylelint/stylelint/issues/2861)).
+-   Fixed: `unit-no-unknown` false positives for spaceless multiplication and division in `calc()` functions ([#2848](https://github.com/stylelint/stylelint/issues/2848)).
+
+# 8.1.1
+
+-   Fixed: `--ignore-pattern` in CLI ([#2851](https://github.com/stylelint/stylelint/issues/2851)).
+
 # 8.1.0
 
 -   Added: Allow specifying `codeFilename` to `createStylelintResult` for raw code linting standalone API ([#2450](https://github.com/stylelint/stylelint/issues/2450)).
--   Added: `ignorePattern` option (`--ignore-pattern` in CLI), to allow patterns of files to ignored (#2834).
+-   Added: `ignorePattern` option (`--ignore-pattern` in CLI), to allow patterns of files to ignored ([#2834](https://github.com/stylelint/stylelint/issues/2834)).
 -   Added: More rules now support experimental autofixing. Use `--fix` CLI parameter or `fix: true` Node API options property. Newly supported rules:
     -   `color-hex-length` ([#2781](https://github.com/stylelint/stylelint/pull/2781)).
     -   `no-missing-end-of-source-newline` ([#2772](https://github.com/stylelint/stylelint/pull/2772)).

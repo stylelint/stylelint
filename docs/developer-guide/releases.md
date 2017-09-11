@@ -19,10 +19,7 @@ The secondary goals are:
 3.  Locally test `master` in the `stylelint.io` repo.
 4.  Locally test `master` in the `stylelint-demo` repo.
 5.  Both the publishing of the package to npm and the creating a github release are done with [`npmpub`](https://github.com/MoOx/npmpub):
-    1.  Ensure the CHANGELOG is consistently formatted:
-        -   If a CHANGELOG item affects only one rule, then it should lead with its name.
-        -   The order of items is: Removed, Changed, Deprecated, Added, Fixed.
-        -   The items within each group are ordered by the widest reaching first to the smallest, and then alphabetically by rule name.
+    1.  Ensure the CHANGELOG is [consistently formatted](pull-requests.md).
     2.  Run `npm --no-git-tag-version version major|minor|patch` to increment the `version` number in `package.json` and `package-lock.json`, according to whether it's a patch, minor or major release.
     3.  Replace `# Head` in `CHANGELOG.md` with this new version number e.g. `# 8.1.2`
     4.  Commit and _push up_ these changes.
