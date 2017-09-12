@@ -50,6 +50,7 @@ global.testRule = (rule, schema) => {
                 };
                 return stylelint(options).then(output => {
                   expect(output.results[0].warnings).toEqual([]);
+                  expect(output.results[0].parseErrors).toEqual([]);
                   if (!schema.fix) return;
 
                   // Check the fix
@@ -82,6 +83,7 @@ global.testRule = (rule, schema) => {
                 return stylelint(options).then(output => {
                   const warning = output.results[0].warnings[0];
 
+                  expect(output.results[0].parseErrors).toEqual([]);
                   expect(testCase).toHaveMessage();
 
                   if (testCase.message !== undefined) {
