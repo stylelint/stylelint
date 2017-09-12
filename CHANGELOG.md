@@ -1081,7 +1081,7 @@ Changes:
 -   Fixed: nesting support for the `rule-properties-order` rule.
 -   Fixed: whitespace rules accommodate Windows CR-LF line endings.
 
-# [0.1.0][]
+# 0.1.0
 
 -   Added: ability to disable rules via comments in the CSS.
 -   Added: `at-rule-empty-line-before` rule.
