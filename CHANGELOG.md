@@ -1,13 +1,13 @@
-# Head
+# [Head][]
 
 -   Added: `length-zero-no-unit` autofix ([#2861](https://github.com/stylelint/stylelint/issues/2861)).
 -   Fixed: `unit-no-unknown` false positives for spaceless multiplication and division in `calc()` functions ([#2848](https://github.com/stylelint/stylelint/issues/2848)).
 
-# [8.1.1] - 2017-09-04
+# [8.1.1][] - 2017-09-04
 
 -   Fixed: `--ignore-pattern` in CLI ([#2851](https://github.com/stylelint/stylelint/issues/2851)).
 
-# [8.1.0]
+# [8.1.0][]
 
 -   Added: Allow specifying `codeFilename` to `createStylelintResult` for raw code linting standalone API ([#2450](https://github.com/stylelint/stylelint/issues/2450)).
 -   Added: `ignorePattern` option (`--ignore-pattern` in CLI), to allow patterns of files to ignored ([#2834](https://github.com/stylelint/stylelint/issues/2834)).
@@ -21,7 +21,7 @@
 -   Fixed: `no-extra-semicolons` false negatives where instances were not detected when followed by multiple comments ([#2678](https://github.com/stylelint/stylelint/issues/2678)).
 -   Fixed: `selector-max-specificity` cannot parse selector violation for Less mixins ([#2677](https://github.com/stylelint/stylelint/pull/2677)).
 
-# [8.0.0]
+# [8.0.0][]
 
 This release is accompanied by:
 
@@ -76,13 +76,13 @@ Changes:
 -   Fixed: `declaration-block-no-redundant-longhand-properties` and `declaration-block-no-shorthand-property-overrides` understand more shorthand properties ([#2354](https://github.com/stylelint/stylelint/pull/2354)).
 -   Fixed: `selector-max-type` no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with `ignore: ["descendant"]` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
 
-# [7.13.0]
+# [7.13.0][]
 
 -   Added: `ignoreAttributes` option to `selector-max-attribute` ([#2722](https://github.com/stylelint/stylelint/pull/2722)).
 -   Fixed: `selector-combinator-space-*` false positives for CSS namespaced type selectors ([#2715](https://github.com/stylelint/stylelint/pull/2715)).
 -   Fixed: `selector-max-specificity` now ignores nested non-standard selectors ([#2685](https://github.com/stylelint/stylelint/pull/2685)).
 
-# [7.12.0]
+# [7.12.0][]
 
 -   Deprecated: 6 rules, each has been replaced by a more configurable alternative ([#2679](https://github.com/stylelint/stylelint/pull/2679)).
     -   `function-url-data-uris` rule. Use either `function-url-scheme-blacklist` or `function-url-scheme-whitelist`.
@@ -101,13 +101,13 @@ Changes:
 -   Fixed: `--fix` no longer crashes when used with ignored files ([#2652](https://github.com/stylelint/stylelint/pull/2652)).
 -   Fixed: `max-*` rules now use singular and plural nouns in their messages ([#2663](https://github.com/stylelint/stylelint/pull/2663)).
 
-# [7.11.1]
+# [7.11.1][]
 
 -   Fixed: `media-feature-name-*list` now accept arrays for their primary options ([#2632](https://github.com/stylelint/stylelint/pull/2632)).
 -   Fixed: `selector-*` now ignore custom property sets ([#2634](https://github.com/stylelint/stylelint/pull/2634)).
 -   Fixed: `selector-pseudo-class-no-unknown` now ignores Less `:extend` ([#2625](https://github.com/stylelint/stylelint/pull/2625)).
 
-# [7.11.0]
+# [7.11.0][]
 
 -   Added: experimental autofixing ([#2467](https://github.com/stylelint/stylelint/pull/2467), [#2500](https://github.com/stylelint/stylelint/pull/2500), [#2529](https://github.com/stylelint/stylelint/pull/2529) and [#2577](https://github.com/stylelint/stylelint/pull/2577)). Use `--fix` CLI parameter or `fix: true` Node API options property. Supported rules:
     -   `at-rule-empty-line-before`
@@ -133,11 +133,11 @@ Changes:
 -   Fixed: `selector-type-no-unknown` now ignores the `/deep/` shadow-piercing combinator ([#2508](https://github.com/stylelint/stylelint/pull/2508)).
 -   Fixed: `value-keyword-case` now ignores variables with signs ([#2558](https://github.com/stylelint/stylelint/pull/2558)).
 
-# [7.10.1]
+# [7.10.1][]
 
 -   Fixed: scope is kept when using `schema.preceedingPlugins` ([#2455](https://github.com/stylelint/stylelint/pull/2455)).
 
-# [7.10.0]
+# [7.10.0][]
 
 -   Added: support for asynchronous plugin rules ([#2351](https://github.com/stylelint/stylelint/pull/2351)).
 -   Added: `cache` option to store the info about processed files in order to only operate on the changed ones the next time you run stylelint ([#2293](https://github.com/stylelint/stylelint/pull/2293)).
@@ -153,7 +153,7 @@ Changes:
 -   Fixed: `value-keyword-case` false positives for `attr`, `counter`, `counters` functions and ` counter-reset` property ([#2407](https://github.com/stylelint/stylelint/pull/2407)).
 -   Fixed: Less mergeable properties are now ignored ([#2570](https://github.com/stylelint/stylelint/pull/2570)).
 
-# [7.9.0]
+# [7.9.0][]
 
 -   Added: `ignoreFontFamilyName` option to `font-family-no-duplicate` ([#2314](https://github.com/stylelint/stylelint/pull/2314)).
 -   Added: `ignorePattern` option to `max-line-length` ([#2333](https://github.com/stylelint/stylelint/pull/2333)).
@@ -163,7 +163,7 @@ Changes:
 -   Fixed: `selector-class-pattern` false positive in SCSS when combining interpolated and nested selectors ([#2344](https://github.com/stylelint/stylelint/pull/2344)).
 -   Fixed: `selector-type-case` false positive for placeholder selectors ([#2360](https://github.com/stylelint/stylelint/pull/2360)).
 
-# [7.8.0]
+# [7.8.0][]
 
 -   Deprecated: 15 rules ([#2197](https://github.com/stylelint/stylelint/pull/2197),  [#2285](https://github.com/stylelint/stylelint/pull/2285) & [#2309](https://github.com/stylelint/stylelint/pull/2309)).
     -   `block-no-single-line`. Use `block-opening-brace-newline-after` and `block-closing-brace-newline-before` rules with the option `"always"` instead.
@@ -196,11 +196,11 @@ Changes:
 -   Fixed: `selector-pseudo-class-no-unknown` no longer warns for proprietary webkit pseudo-classes ([#2264](https://github.com/stylelint/stylelint/pull/2264)).
 -   Fixed: `unit-no-unknown` accepts `fr` units ([#2308](https://github.com/stylelint/stylelint/pull/2308)).
 
-# [7.7.1]
+# [7.7.1][]
 
 -   Fixed: ensure only absolute filepaths are passed to processors ([#2207](https://github.com/stylelint/stylelint/pull/2207)).
 
-# [7.7.0]
+# [7.7.0][]
 
 -   Added: `stylelint.formatters` exposed in public Node API ([#2190](https://github.com/stylelint/stylelint/pull/2190)).
 -   Added: `stylelint.utils.checkAgainstRule` for checking CSS against a standard stylelint rule *within your own rule* ([#2173](https://github.com/stylelint/stylelint/pull/2173)).
@@ -217,7 +217,7 @@ Changes:
 -   Fixed: `selector-max-compound-selectors` ignores SCSS nested declarations ([#2102](https://github.com/stylelint/stylelint/pull/2102)).
 -   Fixed: `selector-pseudo-class-no-unknown` no longer reports false positives for custom selectors ([#2147](https://github.com/stylelint/stylelint/pull/2147)).
 
-# [7.6.0]
+# [7.6.0][]
 
 -   Added: option `customSyntax` (for Node API) and `--custom-syntax` (for CLI).
 -   Added: `font-family-no-duplicate-names` rule.
@@ -226,7 +226,7 @@ Changes:
 -   Fixed: `media-feature-parentheses-space-inside` handles comments within the parentheses.
 -   Fixed: `selector-no-qualifying-type` now ignores SCSS `%placeholders`.
 
-# [7.5.0]
+# [7.5.0][]
 
 -   Added: `selector-no-empty` rule.
 -   Fixed: if no config is found relative to the stylesheet, look for one relative to `process.cwd()`.
@@ -238,15 +238,15 @@ Changes:
 -   Fixed: `no-descending-specificity` now ignores custom property sets.
 -   Fixed: `value-keyword-case` false positives for some camel-case SVG keywords.
 
-# [7.4.2]
+# [7.4.2][]
 
 -   Fixed: regression where using `null` to turn off a rule caused errors.
 
-# [7.4.1]
+# [7.4.1][]
 
 -   Fixed: regression where using `null` for rules that take an array for their primary option would trigger a validation warning.
 
-# [7.4.0]
+# [7.4.0][]
 
 -   Added: each stylesheet looks up configuration from its own path. Different files can now use different configurations during the same linting process.
 -   Added: relative path extends, plugins, and processors try to load from `process.cwd()` if they aren't found relative to the invoking configuration.
@@ -261,11 +261,11 @@ Changes:
 -   Fixed: `number-*` rules now ignore numbers in comments and strings.
 -   Fixed: `value-keyword-case` now ignores system color keywords.
 
-# [7.3.1]
+# [7.3.1][]
 
 -   Fixed: regression in 7.3.0 which caused a "Cannot read property 'length' of undefined" error on a certain selector.
 
-# [7.3.0]
+# [7.3.0][]
 
 -   Added: `processors` can accept options objects.
 -   Added: `ignore: ["inside-function"]` option to `color-named`.
@@ -276,7 +276,7 @@ Changes:
 -   Fixed: `indentation` now correctly handles `_` hacks on property names.
 -   Fixed: `property-no-unknown` now ignores SCSS nested properties.
 
-# [7.2.0]
+# [7.2.0][]
 
 -   Added: `--report-needless-disables` and `reportNeedlessDisables` option.
 -   Added: `--ignore-disables` and `ignoreDisables` option.
@@ -301,7 +301,7 @@ Changes:
 -   Fixed: `selector-pseudo-class-no-unknown` now understands the Shadow DOM selectors of `host` and `host-context`.
 -   Fixed: `selector-pseudo-element-no-unknown` now understands the Shadow DOM selector of `slotted`.
 
-# [7.1.0]
+# [7.1.0][]
 
 -   Added: `block-closing-brace-empty-line-before` rule.
 -   Added: `comment-no-empty` rule.
@@ -323,23 +323,23 @@ Changes:
 -   Fixed: `no-descending-specificity` message to correctly show which selector should come first.
 -   Fixed: `selector-combinator-space-after` and `selector-combinator-space-before` now ignore operators within parenthetical non-standard constructs.
 
-# [7.0.3]
+# [7.0.3][]
 
 -   Fixed: bug causing rules in extended configs to be merged with, rather than replaced by, the extending config.
 -   Fixed: `selector-class-pattern` now ignores fractional keyframes selectors.
 -   Fixed: `selector-max-specificity` now ignores selectors containing the `matches()` pseudo-class, and warns if the underlying `specificity` module cannot parse the selector.
 -   Fixed: `selector-no-type` with secondary option `ignore: ["descendant"]` will now resolve nested selectors.
 
-# [7.0.2]
+# [7.0.2][]
 
 -   Fixed: `at-rule-blacklist`, `at-rule-whitelist`, `comment-word-blacklist`, `selector-attribute-operator-blacklist`, `selector-attribute-operator-whitelist` now accept array as first option.
 -   Fixed: `unit-*` rules now ignore CSS hacks.
 
-# [7.0.1]
+# [7.0.1][]
 
 -   Fixed: missing `known-css-properties` dependency.
 
-# [7.0.0]
+# [7.0.0][]
 
 -   Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration.md#processors) processors.
 -   Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. (If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`.)
@@ -384,7 +384,7 @@ Changes:
 -   Fixed: Better handling quotes in selector attribute with multiple attributes.
 -   Fixed: `no-unknown-animations` now classifies vendor prefixed `@keyframes` at-rules as known.
 
-# [6.9.0]
+# [6.9.0][]
 
 -   Added: `defaultSeverity` configuration option.
 -   Added: invoking the CLI with no arguments and no stdin (i.e. just `stylelint`) is equivalent to `stylelint --help`.
@@ -397,7 +397,7 @@ Changes:
 -   Fixed: `selector-max-specificity` no longer crashes on selectors containing `:not()` pseudo-classes.
 -   Fixed: `time-no-imperceptible` correctly handles negative time.
 
-# [6.8.0]
+# [6.8.0][]
 
 -   Deprecated: `-e` and `--extract` CLI flags, and the `extractStyleTagsFromHtml` node API option. If you use these flags or option, please consider creating a processor for the community.
 -   Added: `at-rule-no-unknown` rule.
@@ -406,14 +406,14 @@ Changes:
 -   Added: `ignoreProperties: []` option for `declaration-block-no-duplicate-properties`.
 -   Fixed: accuracy of warning positions for empty blocks when using SugarSS parser.
 
-# [6.7.1]
+# [6.7.1][]
 
 -   Fixed: `block-*-brace-*-before` CRLF (`\r\n`) warning positioning.
 -   Fixed: `no-descending-specificity` now does comparison of specificity using ints, rather than strings.
 -   Fixed: `selector-no-type` and `selector-type-case` now ignore non-standard keyframe selectors (e.g. within an SCSS mixin).
 -   Fixed: `selector-type-no-unknown` no longer reports fractional keyframe selectors.
 
-# [6.7.0]
+# [6.7.0][]
 
 -   Added: `ignoreFunctions: []` option for `function-name-case`.
 -   Fixed: rules using `findFontFamily` util correctly interpret `<font-size>/<line-height>` values with unitless line-heights.
@@ -422,7 +422,7 @@ Changes:
 -   Fixed: `selector-max-specificity` no longer reports that a selector with 11 elements or more has a higher specificity than a selector with a single classname.
 -   Fixed: `selector-type-no-unknown` no longer warns for complex keyframe selectors.
 
-# [6.6.0]
+# [6.6.0][]
 
 -   Deprecated: `number-zero-length-no-unit`. Use `length-zero-no-unit` instead.
 -   Deprecated: `property-*-blacklist` and `property-*-whitelist`. Use `declaration-property-*-blacklist` and `declaration-property-*-whitelist` instead.
@@ -449,7 +449,7 @@ Changes:
 -   Fixed: `selector-type-no-unknown` ignores non-standard usage of percentage keyframe selectors (e.g. within an SCSS mixin).
 -   Fixed: `value-keyword-case` now ignores custom idents of properties `animation`, `font`, `list-style`.
 
-# [6.5.1]
+# [6.5.1][]
 
 -   Deprecated: `"emptyLineBefore"` option for `declaration-block-properties-order`. If you use this option, please consider creating a plugin for the community.
 -   Deprecated: `"single-where-required"`, `"single-where-recommended"`, `"single-unless-keyword"`, `"double-where-required"`, `"double-where-recommended"` and `"double-unless-keyword"` options for `font-family-name-quotes`. Instead, use the `"always-unless-keyword"`, `always-where-recommended` or `always-where-required` options together with the `string-quotes` rule.
@@ -461,23 +461,23 @@ Changes:
 -   Fixed: `selector-type-no-unknown` now ignores all *An+B notation* and linguistic pseudo-classes.
 -   Fixed: `selector-type-no-unknown` now ignores obsolete HTML tags and `<hgroup>`.
 
-# [6.5.0]
+# [6.5.0][]
 
 -   Added: `selector-max-compound-selectors` rule.
 -   Fixed: `babel-polyfill` removed so it doesn't clash with other processes using `babel-polyfill`.
 -   Fixed: `selector-type-case` and `selector-type-no-unknown` rules now ignore SCSS placeholder selectors.
 
-# [6.4.2]
+# [6.4.2][]
 
 -   Fixed: `selector-pseudo-class-case`, `selector-pseudo-class-no-unknown`, `selector-pseudo-element-case`, `selector-pseudo-element-no-unknown` rules now ignore SCSS variable interpolation.
 -   Fixed: `selector-type-no-unknown` now ignores nested selectors and keyframe selectors.
 
-# [6.4.1]
+# [6.4.1][]
 
 -   Fixed: `shorthand-property-no-redundant-values` now ignores `background`, `font`, `border`, `border-top`, `border-bottom`, `border-left`, `border-right`, `list-style`, `transition` properties.
 -   Fixed: `unit-no-unknown` now ignores hex colors.
 
-# [6.4.0]
+# [6.4.0][]
 
 -   Added: `keyframe-declaration-no-important` rule.
 -   Added: `selector-attribute-operator-blacklist` rule.
@@ -494,7 +494,7 @@ Changes:
 -   Fixed: `value-keyword-case` now ignores custom idents of properties `animation-name`, `counter-increment`, `font-family`, `grid-row`, `grid-column`, `grid-area`, `list-style-type`.
 -   Fixed: wrong example for `always-multi-line` in rule `block-opening-brace-newline-before` documentation.
 
-# [6.3.3]
+# [6.3.3][]
 
 -   Fixed: `block-closing-brace-newline-before` no longer delivers false positives for extra semicolon.
 -   Fixed: `declaration-block-no-ignored-properties` now detects use of `vertical-align` with block-level elements.
@@ -502,15 +502,15 @@ Changes:
 -   Fixed: `number-zero-length-no-unit` now ignores `deg`, `grad`, `turn` and `rad` units.
 -   Fixed: `selector-no-type` does a better job when ignoring descendant and compound selectors.
 
-# [6.3.2]
+# [6.3.2][]
 
 -   Fixed: `shorthand-property-no-redundant-values` now handles uppercase values properly.
 
-# [6.3.1]
+# [6.3.1][]
 
 -   Fixed: `declaration-block-no-ignored-properties` now longer crashes on nested rules.
 
-# [6.3.0]
+# [6.3.0][]
 
 -   Deprecated: support for plugin rule names that aren't namespaced i.e. only `your-namespace/your-rule-name` rule names are supported. If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`).
 -   Added: support for plugins that provides an array of rules.
@@ -534,18 +534,18 @@ Changes:
 -   Fixed: `selector-class-pattern` and `selector-id-pattern` rules now ignore SCSS variable interpolation.
 -   Fixed: `value-list-comma-*` rules now ignore SCSS maps.
 
-# [6.2.2]
+# [6.2.2][]
 
 -   Deprecated: `stylelint.utils.cssWordIsVariable()` as non-standard syntax utils are now defensive.
 -   Fixed: `declaration-colon-*` rules now ignore SCSS lists.
 -   Fixed: `font-weight-notation` now ignores SCSS interpolation.
 -   Fixed: `rule-nested-empty-line-before` now ignores Less blockless rules (mixin and extend calls).
 
-# [6.2.1]
+# [6.2.1][]
 
 -   Fixed: more problems with exposed `stylelint.createRuleTester`.
 
-# [6.2.0]
+# [6.2.0][]
 
 -   Added: `selector-no-qualifying-type` rule.
 -   Fixed: `number-leading-zero` will not check `@import` at-rules.
@@ -553,11 +553,11 @@ Changes:
 -   Fixed: `value-keyword-case` now accounts for camelCase keywords (e.g. `optimizeSpeed`, `optimizeLegibility` and `geometricPrecision`) when the `lower` option is used.
 -   Fixed: `testUtils` and `stylelint.createRuleTester` module mistakes.
 
-# [6.1.1]
+# [6.1.1][]
 
 -   Fixed: documentation links to `selector-pseudo-class-parentheses-space-inside` and `selector-attribute-brackets-space-inside`.
 
-# [6.1.0]
+# [6.1.0][]
 
 -   Added: support for `.stylelintignore` file.
 -   Added: warning message in output when a file is ignored.
@@ -570,19 +570,19 @@ Changes:
 -   Fixed: parsing problems when using `///`-SassDoc-style comments.
 -   Fixed: `max-empty-lines` places warning at the end of the violating newlines to avoid positioning confusions.
 
-# [6.0.3]
+# [6.0.3][]
 
 -   Fixed: CRLF (`\r\n`) warning positioning in `max-empty-lines` and `function-max-empty-lines`.
 
-# [6.0.2]
+# [6.0.2][]
 
 -   Fixed: `CssSyntaxError` sets `errored` on output to `true`.
 
-# [6.0.1]
+# [6.0.1][]
 
 -   Fixed: `function-name-case` now accounts for camelCase function names (e.g. `translateX`, `scaleX` etc) when the `lower` option is used.
 
-# [6.0.0]
+# [6.0.0][]
 
 -   Changed: `CssSyntaxError` is no longer thrown but reported alongside warnings.
 -   Added: new look for standard formatter and support for arbitrary severity names.
@@ -601,14 +601,14 @@ Changes:
 -   Fixed: `declaration-block-trailing-semicolon` better understands nested at-rules.
 -   Fixed: `number-zero-length-no-unit` now work with `q` unit and ignores `s`, `ms`, `kHz`, `Hz`, `dpcm`, `dppx`, `dpi` units
 
-# [5.4.0]
+# [5.4.0][]
 
 -   Added: `unit-no-unknown` rule.
 -   Fixed: `no-descending-specificity` no longer gets confused when the last part of a selector is a compound selector.
 -   Fixed: regression causing `indentation` to complain about Sass maps.
 -   Fixed: `declaration-block-no-ignored-properties` now ignore `clear` for `position: absolute` and `position: relative` and does not ignore `float` on `display: table-*`.
 
-# [5.3.0]
+# [5.3.0][]
 
 -   Added: (experimental) support for [Less](http://lesscss.org/) syntax.
 -   Added: support for [SugarSS](https://github.com/postcss/sugarss) syntax.
@@ -630,13 +630,13 @@ Changes:
 -   Fixed: `selector-no-id` now ignores keyframe selectors.
 -   Fixed: `unit-blacklist` and `unit-whitelist` now ignores `url` functions.
 
-# [5.2.1]
+# [5.2.1][]
 
 -   Fixed: `function-calc-no-unspaced-operator` now better ignores non-`calc` functions.
 -   Fixed: `no-descending-specificity` no longer delivers false positives after second run in Atom linter.
 -   Fixed: `stylelint-disable-rule` imported correctly.
 
-# [5.2.0]
+# [5.2.0][]
 
 -   Added: `at-rule-semicolon-newline-after` rule.
 -   Added: `no-indistinguishable-colors` rule.
@@ -651,16 +651,16 @@ Changes:
 -   Fixed: `root-no-standard-properties` no longer delivers false positives inside the `:not()` pseudo-selector.
 -   Fixed: `selector-list-comma-*` rules no longer deliver false positives inside functional notation.
 
-# [5.1.0]
+# [5.1.0][]
 
 -   Added: `selector-type-case` rule.
 -   Fixed: no more subtle configuration bug when using extends and plugins together in tangled ways.
 
-# [5.0.1]
+# [5.0.1][]
 
 -   Fixed: `string-no-newline` no longer stumbles when there are comment-starting characters inside strings.
 
-# [5.0.0]
+# [5.0.0][]
 
 -   Removed: `no-indistinguishable-colors` because its dependencies were unusable in Atom. (To be re-evaluated and re-added later.)
 -   Removed: `"warn": true` secondary option. Use `"severity": "warning"`, instead.
@@ -680,12 +680,12 @@ Changes:
 -   Fixed: `indentation` no longer has false positives when there are empty lines within multi-line values.
 -   Fixed: `declaration-colon-*-after` no longer fail to do their job when you want a space or newline after the colon and instead there is no space at all.
 
-# [4.5.1]
+# [4.5.1][]
 
 -   Fixed: `no-unsupported-browser-features` options now optional.
 -   Fixed: `no-duplicate-selectors` now ignores keyframe selectors.
 
-# [4.5.0]
+# [4.5.0][]
 
 -   Deprecated: `"warn": true` secondary option. Use `"severity": "warning"`, instead.
 -   Deprecated: `color-no-named` rule. Use the new `color-named` rule, with the `"never"` option instead.
@@ -728,21 +728,21 @@ Changes:
 -   Fixed: handling of mixed line endings in `rule-nested-empty-line-before`, `rule-non-nested-empty-line-before`, `comment-empty-line-before` and `at-rule-empty-line-before`.
 -   Fixed: `number-leading-zero`, `function-comma-space-*`, and `declaration-colon-*` do not throw false positives in `url()` arguments.
 
-# [4.4.0]
+# [4.4.0][]
 
 -   Added: `ignore: "relative"` option for `font-weight-notation`.
 -   Fixed: `declaration-colon-space/newline-before/after` rules now ignore scss maps.
 -   Fixed: `selector-list-comma-newline-after` allows `//` comments after the comma.
 
-# [4.3.6]
+# [4.3.6][]
 
 -   Fixed: removed `console.log()`s in `property-unit-whitelist`.
 
-# [4.3.5]
+# [4.3.5][]
 
 -   Fixed: removed `console.log()`s in `rule-properties-order`.
 
-# [4.3.4]
+# [4.3.4][]
 
 -   Fixed: option normalization for rules with primary options that are arrays of objects, like `rule-properties-order`.
 -   Fixed: accuracy of warning positions are `//` comments when using SCSS parser.
@@ -753,19 +753,19 @@ Changes:
 -   Fixed: `media-feature-no-missing-punctuation` handles space-padded media features.
 -   Fixed: regression causing CLI `--config` relatives paths that don't start with `./` to be rejected.
 
-# [4.3.3]
+# [4.3.3][]
 
 -   Fixed: again removed `stylelint.utils.ruleTester` because its dependencies broke things.
 
-# [4.3.2]
+# [4.3.2][]
 
 -   Fixed: move `tape` to dependencies to support `testUtils`.
 
-# [4.3.1]
+# [4.3.1][]
 
 -   Fixed: include `testUtils` in npm package whitelist.
 
-# [4.3.0]
+# [4.3.0][]
 
 -   Added: `font-family-name-quotes` rule.
 -   Added: `font-weight-notation` rule.
@@ -791,72 +791,72 @@ Changes:
 -   Fixed: `ignoreFiles` handling of absolute paths.
 -   Fixed: `ignoreFiles` uses the `configBasedir` option to interpret relative paths.
 
-# [4.2.0]
+# [4.2.0][]
 
 -   Added: support for custom messages with a `message` secondary property on any rule.
 -   Fixed: CLI always ignores contents of `node_modules` and `bower_components` directories.
 -   Fixed: bug preventing CLI from understanding absolute paths in `--config` argument.
 -   Fixed: bug causing `indentation` to stumble over declarations with semicolons on their own lines.
 
-# [4.1.0]
+# [4.1.0][]
 
 -   Added: helpful option validation message when object is expected but non-object provided.
 -   Fixed: `selector-no-id` no longer warns about Sass interpolation when multiple interpolations are used in a selector.
 
-# [4.0.0]
+# [4.0.0][]
 
 -   Removed: support for legacy numbered severities.
 -   Added: support for extensions on `.stylelintrc` files (by upgrading cosmiconfig).
 -   Added: `ignore: "non-comments"` option to `max-line-length`.
 -   Fixed: `function-whitespace-after` does not expect space between `)` and `}`, so it handles Sass interpolation better.
 
-# [3.2.3]
+# [3.2.3][]
 
 -   Fixed: `selector-no-vendor-prefix` now handles custom-property-sets.
 
-# [3.2.2]
+# [3.2.2][]
 
 -   Fixed: `selector-no-type` ignores `nth-child` pseudo-classes and `@keyframes` selectors.
 
-# [3.2.1]
+# [3.2.1][]
 
 -   Fixed: `max-line-length` handles `url()` functions better.
 -   Fixed: `block-opening-brace-newline-after` and `declaration-block-semicolon-newline-after` handle end-of-line comments better.
 
-# [3.2.0]
+# [3.2.0][]
 
 -   Added: `legacyNumberedSeverities` config property to force the legacy severity system.
 -   Added: `selector-no-id` ignores Sass-style interpolation.
 -   Fixed: bug causing extended config to override the config that extends it.
 
-# [3.1.4]
+# [3.1.4][]
 
 -   Fixed: stopped hijacking `--config` property in PostCSS and Node.js APIs. Still using it in the CLI.
 
-# [3.1.3]
+# [3.1.3][]
 
 -   Fixed: bug preventing the disabling of rules analyzing the `root` node, including: `max-line-length`, `max-empty-lines`, `no-eol-whitespace`, `no-missing-eof-newline`, and `string-quotes`.
 -   Fixed: bug causing `rule-properties-order` to get confused by properties with an unspecified order.
 
-# [3.1.2]
+# [3.1.2][]
 
 -   Fixed: bug causing an error when `null` was used on rules whose primary options are arrays.
 
-# [3.1.1]
+# [3.1.1][]
 
 -   Fixed: Documentation improvements.
 
-# [3.1.0]
+# [3.1.0][]
 
 -   Added: `stylelint-commands` `ignore` option to `comment-empty-line-before`.
 -   Fixed: v3 regression causing bug in `rule-properties-order` and potentially other rules that accept arrays as primary options.
 -   Fixed: `no-missing-eof-newline` no longer complains about completely empty files.
 
-# [3.0.3]
+# [3.0.3][]
 
 -   Fixed: list of rules within documentation.
 
-# [3.0.0-3.0.2]
+# [3.0.0-3.0.2][]
 
 -   Removed: `nesting-block-opening-brace-space-before` and `nesting-block-opening-brace-newline-before` rules.
 -   Deprecated: numbered severities (0, 1, 2) and will be disabled in `4.0`.
@@ -877,7 +877,7 @@ Changes:
 -   Fixed: `comment-whitespace-inside` now ignores copyright (`/*! `) and sourcemap (`/*# `) comments.
 -   Fixed: `rule-no-duplicate-properties` now ignores the `src` property.
 
-# [2.3.7]
+# [2.3.7][]
 
 -   Fixed: `function-calc-no-unspaced-operator` ignores characters in `$sass` and `@less` variables.
 -   Fixed: `rule-properties-order` allows comments at the top of groups that expect newlines before them.
@@ -885,41 +885,41 @@ Changes:
 -   Fixed: `selector-combinator-space-before` now better handles nested selectors starting with combinators.
 -   Fixed: `rule-properties-order` now deals property with `-moz-osx-font-smoothing`.
 
-# [2.3.6]
+# [2.3.6][]
 
 -   Fixed: improved documentation of CLI globbing possibilities.
 -   Fixed: `rule-properties-order` now accounts for property names containing multiple hyphens.
 -   Fixed: `rule-properties-order` grouping bug.
 
-# [2.3.5]
+# [2.3.5][]
 
 -   Added: error about undefined severities blaming stylelint for the bug.
 -   Fixed: `selector-pseudo-element-colon-notation` typo in rule name resulting in undefined severity.
 
-# [2.3.4]
+# [2.3.4][]
 
 -   Fixed: `dist/` build.
 
-# [2.3.3]
+# [2.3.3][]
 
 -   Fixed: `property-whitelist`, `rule-no-duplicate-properties`, and `rule-properties-order` ignore variables (`$sass`, `@less`, and `--custom-property`).
 -   Fixed: `root-no-standard-properties` ignores `$sass` and `@less` variables.
 -   Fixed: `comment-empty-line-before` and `comment-space-inside` no longer complain about `//` comments.
 
-# [2.3.2]
+# [2.3.2][]
 
 -   Fixed: `number-no-trailing-zeros` no longer flags at-import at-rules.
 
-# [2.3.1]
+# [2.3.1][]
 
 -   Fixed: `selector-no-type` no longer flags the *nesting selector* (`&`).
 
-# [2.3.0]
+# [2.3.0][]
 
 -   Added: `configFile` option to PostCSS plugin.
 -   Fixed: `function-parentheses-newline-inside` and `function-parentheses-space-inside` bug with nested functions.
 
-# [2.2.0]
+# [2.2.0][]
 
 -   Added: `selector-class-pattern` rule.
 -   Added: `selector-id-pattern` rule.
@@ -927,7 +927,7 @@ Changes:
 -   Added: `"always-single-line"` and `"never-single-line"` options to `function-parentheses-space-inside`.
 -   Fixed: CLI `syntax` argument bug.
 
-# [2.1.0]
+# [2.1.0][]
 
 -   Added: `color-no-hex` rule.
 -   Added: `color-no-named` rule.
@@ -952,7 +952,7 @@ Changes:
 -   Fixed: bug when loading plugins from an extended config
 -   Fixed: indentation for function arguments, by ignoring them.
 
-# [2.0.0]
+# [2.0.0][]
 
 -   Changed: plugins are now included and configured via a "locator", rather than either being `required` or being inserted directly into the configuration object as a function.
 -   Added: CLI.
@@ -968,11 +968,11 @@ Changes:
 -   Added: `"always-single-line"` and `"never-single-line"` options to `function-comma-space-after` rule.
 -   Added: `"always-single-line"` and `"never-single-line"` options to `function-comma-space-before` rule.
 
-# [1.2.1]
+# [1.2.1][]
 
 -   Fixed: the `media-query-list-comma-*` rules now only apply to `@media` statements.
 
-# [1.2.0]
+# [1.2.0][]
 
 -   Added: `function-linear-gradient-no-nonstandard-direction` rule.
 -   Added: `rule-properties-order` now by default ignores the order of properties left out of your specified array; and the options `"top"`, `"bottom"`, and `"ignore"` are provided to change that behavior.
@@ -981,7 +981,7 @@ Changes:
 -   Added: support for declarations directly on root (e.g. Sass variable declarations).
 -   Fixed: `declaration-colon-newline-after` `"always-multi-line"` warning message.
 
-# [1.1.0]
+# [1.1.0][]
 
 -   Added: `declaration-colon-newline-after` rule.
 -   Added: the `indentation` rule now checks indentation of multi-line at-rule params, unless there's the `except` option of `param`.
@@ -992,65 +992,65 @@ Changes:
 -   Fixed: the `color-no-invalid-hex` rule no longer flags hashes in `url()` arguments.
 -   Fixed: rules using `node.raw()` instead of `node.raws` to avoid expected errors.
 
-# [1.0.1]
+# [1.0.1][]
 
 -   Fixed: `postcss-selector-parser` updated to improve location accuracy for `selector-no-*` rules.
 
-# [1.0.0]
+# [1.0.0][]
 
 -   Removed: compatibility with PostCSS `4.x`.
 -   Added: compatibility with PostCSS `5.0.2+`.
 -   Fixed: the accuracy of reported line numbers and columns.
 
-# [0.8.0]
+# [0.8.0][]
 
 -   Added: `after-comment` `ignore` option to the `at-rule-empty-line-before` rule.
 -   Fixed: the `indentation` rule now correctly handles `*` hacks on property names.
 -   Fixed: the `media-feature-colon-space-after` and `media-feature-colon-space-before` rules now only apply to `@media` statements.
 -   Fixed: the `rule-no-shorthand-property-overrides` rule message is now consistent with the other messages.
 
-# [0.7.0]
+# [0.7.0][]
 
 -   Added: invalid options cause the rule to abort instead of performing meaningless checks.
 -   Added: special warning for missing required options from `validateOptions()`.
 
-# [0.6.2]
+# [0.6.2][]
 
 -   Fixed: npm package no longer includes test files (reducing package size by 500KB).
 
-# [0.6.1]
+# [0.6.1][]
 
 -   Fixed: the `rule-properties-order` and `rule-no-duplicate-properties` rules now correctly check inside @rules.
 
-# [0.6.0]
+# [0.6.0][]
 
 -   Added: `validateOptions` to `stylelint.utils` for use by authors of custom rules.
 -   Added: `custom-media-pattern` rule.
 -   Added: `number-max-precision` rule.
 
-# [0.5.0]
+# [0.5.0][]
 
 -   Added: validation of all rule options.
 
-# [0.4.1]
+# [0.4.1][]
 
 -   Removed: `ruleTester` from `stylelint.utils` because of the additional dependencies it forces.
 
-# [0.4.0]
+# [0.4.0][]
 
 -   Removed: `jsesc` devDependency.
 -   Added: `rule-no-shorthand-property-overrides` rule.
 -   Added: `ruleTester` to `stylelint.utils` for use by authors of custom rules.
 
-# [0.3.2]
+# [0.3.2][]
 
 -   Fixed: `hierarchicalSelectors` bug in `indentation` rule.
 
-# [0.3.1]
+# [0.3.1][]
 
 -   Fixed: `~=` is no longer mistaken for combinator in `selector-combinator-space-*`.
 
-# [0.3.0]
+# [0.3.0][]
 
 -   Added: exposure of `report`, `ruleMessages`, and `styleSearch` in `stylelint.utils` for use by external plugin rules.
 -   Added: plugin rule support.
@@ -1061,7 +1061,7 @@ Changes:
 -   Fixed: the `property-blacklist` rule message is now consistent with the `property-whitelist` rule.
 -   Fixed: a typo in the `comment-space-inside` rule message.
 
-# [0.2.0]
+# [0.2.0][]
 
 -   Added: `color-hex-case` rule.
 -   Added: `color-hex-length` rule.
@@ -1069,19 +1069,19 @@ Changes:
 -   Fixed: allow for arbitrary whitespace after the newline in the `selector-list-comma-newline-*` rules.
 -   Fixed: `selector-combinator-space-*` no longer checks `:nth-child()` arguments.
 
-# [0.1.2]
+# [0.1.2][]
 
 -   Fixed: nesting support for the `block-opening-brace-newline-before` rule.
 -   Fixed: nesting support for the `block-opening-brace-space-before` rule.
 -   Fixed: nesting support for the `rule-trailing-semicolon` rule.
 
-# [0.1.1]
+# [0.1.1][]
 
 -   Fixed: nesting support for the `rule-no-duplicate-properties` rule.
 -   Fixed: nesting support for the `rule-properties-order` rule.
 -   Fixed: whitespace rules accommodate Windows CR-LF line endings.
 
-# [0.1.0]
+# [0.1.0][]
 
 -   Added: ability to disable rules via comments in the CSS.
 -   Added: `at-rule-empty-line-before` rule.
