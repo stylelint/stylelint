@@ -2,7 +2,7 @@
 
 ## Contributor guides
 
--   [Prerequisites](developer-guide/prerequisites.md): Technical prerequisites to contributing.
+-   [Prerequisites](developer-guide/prerequisites.md): Prerequisites to contributing.
 -   [Rules](developer-guide/rules.md): Working on the built-in rules.
 
 ## Ecosystem guides
