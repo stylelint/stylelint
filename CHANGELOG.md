@@ -1,6 +1,7 @@
 # Head
 
 -   Added: `length-zero-no-unit` autofix ([#2861](https://github.com/stylelint/stylelint/issues/2861)).
+-   Added: Add support for level 4 evaluation context pseudo-classes in   `selector-max-specificity` ([#2857](https://github.com/stylelint/stylelint/issues/2857)).
 -   Fixed: `unit-no-unknown` false positives for spaceless multiplication and division in `calc()` functions ([#2848](https://github.com/stylelint/stylelint/issues/2848)).
 
 # 8.1.1
