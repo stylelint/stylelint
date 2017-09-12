@@ -251,6 +251,13 @@ Fixing bugs is usually very easy. Here is a process that works:
 
 That's it! **If you are unable to figure out how to fix the bug yourself, it is still helpful to submit a pull request with your failing test cases.** It means that somebody else can jump right in and help out with the rule's logic.
 
+## Deprecating a rule
+
+Deprecating rules doesn't happen very often. However, these two steps are important to do:
+
+1.  Point the `stylelintReference` link to the specific version of the rule README on the GitHub website, so that it is always accessible.
+2.  Add the appropriate meta data to mark the rule as deprecated.
+
 ## Improving the performance of a new or an existing rule
 
 There's a simple way to run benchmarks on any given rule with any valid config for it:
