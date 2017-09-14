@@ -87,7 +87,7 @@
     "flow-bin": "^0.54.0",
     "fs-promise": "^2.0.3",
     "husky": "^0.14.3",
-    "jest": "^20.0.4",
+    "jest": "^21.1.0",
     "lint-staged": "^4.0.1",
     "npm-run-all": "^4.0.2",
     "npmpub": "^3.1.0",
