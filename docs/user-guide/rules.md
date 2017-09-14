@@ -294,7 +294,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Rule
 
--   [`rule-empty-line-before`](../../lib/rules/rule-empty-line-before/README.md): Require or disallow an empty line before rules.
+-   [`rule-empty-line-before`](../../lib/rules/rule-empty-line-before/README.md): Require or disallow an empty line before rules (Autofixable).
 
 #### Media feature
 
