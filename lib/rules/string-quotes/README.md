@@ -10,6 +10,8 @@ a[id="foo"] { content: "x"; }
 
 Quotes within comments are ignored.
 
+Also, the quotes in a `charset` @-rule are ignored as using single quotes in this context is incorrect according the [CSS specification](https://www.w3.org/TR/CSS2/syndata.html#x57).
+
 ```css
 /* "This is fine" */
 /* 'And this is also fine' */
