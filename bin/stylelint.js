@@ -2,4 +2,4 @@
 
 "use strict";
 
-require("../lib/cli");
+require("../lib/cli")(process.argv.slice(2));

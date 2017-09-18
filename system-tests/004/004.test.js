@@ -9,7 +9,7 @@ const spawn = require("child_process").spawn;
 
 it("004", done => {
   const localPath = path.resolve(__dirname);
-  const cliPath = path.join(localPath, "../../lib/cli.js");
+  const cliPath = path.join(localPath, "../../bin/stylelint.js");
 
   const cliProcess = spawn("node", [cliPath, `${localPath}/*.css`], {
     cwd: localPath
