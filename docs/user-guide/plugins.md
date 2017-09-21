@@ -4,6 +4,7 @@ Plugins are rules and sets of rules built by the community that support methodol
 
 -   [`stylelint-at-rule-no-children`](https://github.com/adityavm/stylelint-at-rule-no-children): Disallow block rule declarations inside at-rules (with a few exceptions).
 -   [`stylelint-csstree-validator`](https://github.com/csstree/stylelint-validator): Validate CSS values to match W3C specs and browsers extensions.
+-   [`stylelint-declaration-block-no-ignored-properties`](https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties): Disallow property values that are ignored due to another property value in the same rule.
 -   [`stylelint-declaration-strict-value`](https://github.com/AndyOGo/stylelint-declaration-strict-value): Specify properties for which either a variable (`$sass`, `@less`, `var(--cssnext)`), function or custom CSS keyword (`inherit`, `none`, etc.) must be used for its value.
 -   [`stylelint-declaration-use-variable`](https://github.com/sh-waqar/stylelint-declaration-use-variable): Specify properties for which a variable must be used for its value.
 -   [`stylelint-images`](https://github.com/ramasilveyra/stylelint-images): Check your CSS images to improve the performance and avoid common mistakes (plugin pack).
