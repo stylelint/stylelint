@@ -90,6 +90,8 @@ stylelint "foo/*.css" --fix
 
 If you're using both these special comments and autofixing, please run stylelint twice as a temporary solution. On the first run, some violations could be missed, or some violations might be reported incorrectly.
 
+For CSS with standard syntax, stylelint will use [postcss-safe-parser](https://github.com/postcss/postcss-safe-parser) to fix syntax errors.
+
 ## Syntax errors
 
 The CLI informs you about syntax errors in your CSS.
