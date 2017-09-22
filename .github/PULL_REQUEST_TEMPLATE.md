@@ -5,11 +5,11 @@ Each pull request must, with the exception of minor documentation fixes, be asso
 
 If there is an associated open issue, then the next step is to make sure you've read the relevant developer guide:
 
-- Adding a rule: https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#write-the-rule
+- Creating a new rule: https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#creating-a-new-rule
 
-- Adding an option: https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#adding-options-to-existing-rules
+- Adding an option to an existing rule: https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#adding-an-option-to-an-existing-rule
 
-- Fixing a bug: https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#fixing-bugs
+- Fixing a bug in an existing rule: https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#fixing-a-bug-in-an-existing-rule
 
 Once you've done that, then please continue by answering these two questions:  -->
 
