@@ -3,20 +3,24 @@
 environment:
   matrix:
     - nodejs_version: 8
+platform:
+  - x64
 
 version: "{build}"
 build: off
-deploy: off
 
 branches:
     only:
       - master
 
 install:
-  - ps: Install-Product node $env:nodejs_version
+  - ps: Install-Product node $env:nodejs_version $env:platform
   - npm install
 
 test_script:
   - node --version
   - npm --version
-  - cmd: "npm run jest -- --runInBand --testPathPattern \\lib"
+  - npm run jest -- --runInBand --coverage --testPathPattern \lib
+
+deploy_script:
+  - npm run report-coverage
