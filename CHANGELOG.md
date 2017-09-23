@@ -5,6 +5,7 @@
 -   Added: `selector-max-specificity` support for level 4 evaluation context pseudo-classes ([#2857](https://github.com/stylelint/stylelint/issues/2857)).
 -   Fixed: `*-empty-line-before` false positives for CSS in HTML ([#2854](https://github.com/stylelint/stylelint/issues/2854)).
 -   Fixed: `rule-empty-line-before` false positives for `ignore: ["inside-block"]` and CSS in HTML ([#2894](https://github.com/stylelint/stylelint/issues/2894)).
+-   Fixed: `selector-list-comma-newline-after` false positives for shared-line comments separated by more than once space ([#2915](https://github.com/stylelint/stylelint/issues/2915)).
 -   Fixed: `selector-pseudo-class-no-unknown` false positives when using chained pseudo-classes ([#2810](https://github.com/stylelint/stylelint/issues/2810)).
 -   Fixed: `string-quotes` false positives for `@charset` and single quotes ([#2902](https://github.com/stylelint/stylelint/issues/2902)).
 -   Fixed: `unit-no-unknown` false positives for spaceless multiplication and division in `calc()` functions ([#2848](https://github.com/stylelint/stylelint/issues/2848)).
