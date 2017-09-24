@@ -87,11 +87,8 @@ export type stylelint$result = {
 export type stylelint$needlessDisablesReport = Array<{
   source: string,
   ranges: Array<{
-    source: string,
-    ranges: Array<{
-      start: number,
-      end?: number
-    }>
+    start: number,
+    end?: number
   }>
 }>;
 
