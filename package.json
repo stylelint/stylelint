@@ -162,7 +162,10 @@
     "testRegex": ".*\\.test\\.js$|rules/.*/__tests__/.*\\.js$"
   },
   "greenkeeper": {
-    "label": "PR: review needed"
+    "label": "PR: review needed",
+    "ignore": [
+      "micromatch"
+    ]
   },
   "remarkConfig": {
     "plugins": [
