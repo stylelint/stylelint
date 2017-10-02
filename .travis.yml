@@ -34,11 +34,6 @@ matrix:
 
 before_install:
   - npm install -g npm@latest
-  - npm i -g greenkeeper-lockfile@1
-
-before_script: greenkeeper-lockfile-update
-
-after_script: greenkeeper-lockfile-upload
 
 after_success:
   - if [ "$CI" = "coverage" ]; then cat ./.coverage/lcov.info | ./node_modules/.bin/coveralls; fi
