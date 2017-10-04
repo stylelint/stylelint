@@ -171,7 +171,7 @@ Ignore case of the values of the listed properties.
 For example, with `"lower"`.
 
 ```js
-["display"]
+["/^(b|B)ackground$/", "display"]
 ```
 
 The following patterns are considered violations:
@@ -212,4 +212,16 @@ a {
 a {
   display: block;
 }
+```
+
+```css
+  div {
+    background: Red;
+  }
+```
+
+```css
+  div {
+    Background: deepPink;
+  }
 ```
