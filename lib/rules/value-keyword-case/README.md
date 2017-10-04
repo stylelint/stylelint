@@ -193,7 +193,7 @@ The following patterns are *not* considered violations:
 ```css
 a {
   display: bloCk;
-},
+}
 ```
 
 ```css
@@ -215,13 +215,13 @@ a {
 ```
 
 ```css
-  div {
-    background: Red;
-  }
+a {
+  background: Red;
+}
 ```
 
 ```css
-  div {
-    Background: deepPink;
-  }
+a {
+  Background: deepPink;
+}
 ```
