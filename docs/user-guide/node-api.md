@@ -80,6 +80,7 @@ You can use this option to see what your linting results would be like without t
 ### `disableDefaultIgnores`
 
 If `true`, stylelint will not automatically ignore the contents of `node_modules` and `bower_components`. (By default, these directories are automatically ignored.)
+
 ### `cache`
 
 Store the info about processed files in order to only operate on the changed ones the next time you run stylelint. Enabling this option can dramatically improve stylelint's speed, because only changed files will be linted.
