@@ -73,7 +73,6 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### General / Sheet
 
--   [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md): Limit the depth of nesting.
 -   [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 -   [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 -   [`no-empty-source`](../../lib/rules/no-empty-source/README.md): Disallow empty sources.
@@ -175,6 +174,10 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### Comment
 
 -   [`comment-word-blacklist`](../../lib/rules/comment-word-blacklist/README.md): Specify a blacklist of disallowed words within comments.
+
+#### General / Sheet
+
+-   [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md): Limit the depth of nesting.
 
 ### Stylistic issues
 
