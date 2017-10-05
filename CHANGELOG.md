@@ -5,6 +5,7 @@
 -   Added: `selector-max-specificity` support for level 4 evaluation context pseudo-classes ([#2857](https://github.com/stylelint/stylelint/issues/2857)).
 -   Added: `ignoreUnits` option to `number-max-precision` ([#2941](https://github.com/stylelint/stylelint/pull/2941)).
 -   Added: `ignoreSelectors` option to `selector-max-specificity` ([#2857](https://github.com/stylelint/stylelint/pull/2857)).
+-   Added: `ignoreProperties` option to `value-keyword-case` ([#2937](https://github.com/stylelint/stylelint/pull/2937)).
 -   Fixed: `*-empty-line-before` false negatives and positives when two or more `except: [*]` options were triggered ([#2920](https://github.com/stylelint/stylelint/issues/2920)).
 -   Fixed: `*-empty-line-before` false positives for CSS in HTML ([#2854](https://github.com/stylelint/stylelint/issues/2854)).
 -   Fixed: `rule-empty-line-before` false positives for `ignore: ["inside-block"]` and CSS in HTML ([#2894](https://github.com/stylelint/stylelint/issues/2894)).
