@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "8.1.1",
+  "version": "8.2.0",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css",
@@ -172,7 +172,12 @@
     "plugins": [
       "preset-lint-recommended",
       "preset-lint-consistent",
-      ["lint-no-missing-blank-lines", { "exceptTightLists": true }],
+      [
+        "lint-no-missing-blank-lines",
+        {
+          "exceptTightLists": true
+        }
+      ],
       [
         "validate-links",
         {
