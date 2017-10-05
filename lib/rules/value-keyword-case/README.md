@@ -164,3 +164,64 @@ a {
 }
 ```
 
+### `ignoreProperties: ["/regex/", "non-regex"]`
+
+Ignore case of the values of the listed properties.
+
+For example, with `"lower"`.
+
+```js
+["/^(b|B)ackground$/", "display"]
+```
+
+The following patterns are considered violations:
+
+```css
+a {
+  text-align: LEFT;
+}
+```
+
+```css
+a {
+  text-align: Left;
+}
+```
+
+The following patterns are *not* considered violations:
+
+```css
+a {
+  display: bloCk;
+}
+```
+
+```css
+a {
+  display: BloCk;
+}
+```
+
+```css
+a {
+  display: BLOCK;
+}
+```
+
+```css
+a {
+  display: block;
+}
+```
+
+```css
+a {
+  background: Red;
+}
+```
+
+```css
+a {
+  Background: deepPink;
+}
+```
