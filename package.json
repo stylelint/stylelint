@@ -96,6 +96,7 @@
     "postcss-import": "^11.0.0",
     "prettier": "^1.6.1",
     "remark-cli": "^4.0.0",
+    "remark-lint-no-missing-blank-lines": "^1.0.1",
     "remark-preset-lint-consistent": "^2.0.0",
     "remark-preset-lint-recommended": "^3.0.0",
     "remark-validate-links": "^7.0.0",
@@ -171,6 +172,7 @@
     "plugins": [
       "preset-lint-recommended",
       "preset-lint-consistent",
+      ["lint-no-missing-blank-lines", { "exceptTightLists": true }],
       [
         "validate-links",
         {

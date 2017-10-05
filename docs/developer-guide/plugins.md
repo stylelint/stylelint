@@ -94,6 +94,7 @@ Validates the options for your rule.
 Checks CSS against a standard stylelint rule *within your own rule*. This function provides power and flexibility for plugins authors who wish to modify, constrain, or extend the functionality of existing stylelint rules.
 
 Accepts an options object and a callback that is invoked with warnings from the specified rule. The options are:
+
 -   `ruleName`: The name of the rule you are invoking.
 -   `ruleSettings`: Settings for the rule you are invoking, formatting in the same way they would be in a `.stylelintrc` configuration object.
 -   `root`: The root node to run this rule against.

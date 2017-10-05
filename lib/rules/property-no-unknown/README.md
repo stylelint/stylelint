@@ -94,6 +94,7 @@ a {
   custom: 10px;
 }
 ```
+
 ### `checkPrefixed: true | false` (default: `false`)
 
 If `true`, this rule will check vendor-prefixed properties.
