@@ -1,5 +1,6 @@
 # 8.2.0
 
+-   Added: `number-leading-zero` autofix ([#2917](https://github.com/stylelint/stylelint/issues/2917)).
 -   Added: autofix of syntax errors in standard CSS e.g. unclosed braces and brackets ([#2886](https://github.com/stylelint/stylelint/issues/2886)).
 -   Added: `length-zero-no-unit` autofix ([#2861](https://github.com/stylelint/stylelint/issues/2861)).
 -   Added: `selector-max-specificity` support for level 4 evaluation context pseudo-classes ([#2857](https://github.com/stylelint/stylelint/issues/2857)).
