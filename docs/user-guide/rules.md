@@ -33,7 +33,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Shorthand property
 
--   [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values in shorthand properties.
+-   [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values in shorthand properties (Autofixable).
 
 #### Property
 
