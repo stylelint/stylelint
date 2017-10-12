@@ -1,5 +1,6 @@
 # Head
 
+-   Added: `number-leading-zero` autofix ([#2921](https://github.com/stylelint/stylelint/issues/2921)).
 -   Added: `number-no-trailing-zeros` autofix ([#2947](https://github.com/stylelint/stylelint/issues/2947)).
 
 # 8.2.0
