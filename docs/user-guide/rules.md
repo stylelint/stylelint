@@ -209,8 +209,8 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Number
 
--   [`number-leading-zero`](../../lib/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
--   [`number-no-trailing-zeros`](../../lib/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros in numbers.
+-   [`number-leading-zero`](../../lib/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1 (Autofixable).
+-   [`number-no-trailing-zeros`](../../lib/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros in numbers (Autofixable).
 
 #### String
 
@@ -218,7 +218,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Length
 
--   [`length-zero-no-unit`](../../lib/rules/length-zero-no-unit/README.md): Disallow units for zero lengths.
+-   [`length-zero-no-unit`](../../lib/rules/length-zero-no-unit/README.md): Disallow units for zero lengths (Autofixable).
 
 #### Unit
 
