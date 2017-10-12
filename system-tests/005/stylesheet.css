@@ -97,11 +97,11 @@ a {
   width: Calc(5% - 10em);
 }
 a { transform: translate(1, 1); }
-a {
-  background-image: url(image.gif)
+a { 
+  background-image: url(image.gif) 
 }
-a {
-  background: url("//www.google.com/file.jpg");
+a { 
+  background: url("//www.google.com/file.jpg"); 
 }
 @import url(foo.css);
 a { background-image: url('http://www.example.com/file.jpg'); }
@@ -148,7 +148,7 @@ a {}
 .foo,
 .bar,
 .foo {}
-a { color: pink; }
+a { color: pink; } 
 @import "x.css";;
 a { color: black; background: #010101; }
 a { // color: pink; }
@@ -218,8 +218,8 @@ unknown {}
 a { margin: 1px 1px; }
 a {
   content: "first
-    second";
-}
+    second";     
+}  
 a { content: "x"; }
 a {
   /* stylelint-disable no-browser-hacks */
