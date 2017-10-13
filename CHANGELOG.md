@@ -2,8 +2,8 @@
 
 -   Added: `number-leading-zero` autofix ([#2921](https://github.com/stylelint/stylelint/issues/2921)).
 -   Added: `number-no-trailing-zeros` autofix ([#2947](https://github.com/stylelint/stylelint/issues/2947)).
+-   Added: `shorthand-property-no-redundant-values` autofix ([#2956](https://github.com/stylelint/stylelint/issues/2956)).
 -   Fixed: `unit-*` false positives for spaceless multiplication ([#2948](https://github.com/stylelint/stylelint/issues/2948)).
--   Added: `fix-shorthand-property-no-redundant-values` autofix([#2956](https://github.com/stylelint/stylelint/issues/2956))
 
 # 8.2.0
 
