@@ -10,8 +10,8 @@ Rules of thumb:
 Merge process:
 
 1.  Make sure the pull request has the correct number of approvals:
-    -   For simple documentation fixes: one
-    -   For all other pull requests: two
+    -   For simple documentation fixes: one;
+    -   For all other pull requests: two.
 2.  "Squash and merge" commits, ensuring the resulting commit message is consistently formatted:
     -   Sentence case.
     -   Descriptive.
