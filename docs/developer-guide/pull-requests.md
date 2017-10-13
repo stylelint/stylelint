@@ -15,7 +15,7 @@ Merge process:
 2.  "Squash and merge" commits, ensuring the resulting commit message is consistently formatted:
     -   Sentence case.
     -   Descriptive.
-3.  Update the [CHANGELOG](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md) directly via the [GitHub website](https://github.com/stylelint/stylelint/edit/master/CHANGELOG.md) for all merged PRs (except documentation changes).
+3.  Update the [CHANGELOG](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md) directly via the [GitHub website](https://github.com/stylelint/stylelint/edit/master/CHANGELOG.md) for all merged PRs (except documentation changes):
     -   Create a `# Head` heading if one does not exist already.
     -   Prefix the item with either: Removed, Changed, Deprecated, Added, or Fixed.
     -   Order the item within the group by the widest reaching first to the smallest, and then alphabetically by rule name.
