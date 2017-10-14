@@ -100,6 +100,7 @@ You might want to learn a little about [how rules are named and how they work to
     "media-query-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
     "media-query-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
     "no-descending-specificity": true,
+    "no-duplicate-at-import-rules": true,
     "no-duplicate-selectors": true,
     "no-empty-source": true,
     "no-eol-whitespace": true,
