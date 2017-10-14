@@ -7,6 +7,7 @@ Disallow duplicate @import rules within a stylesheet.
 /**         ↑                                              ↑
  * These are duplicates */
 ```
+
 ## Options
 
 ### `true`
