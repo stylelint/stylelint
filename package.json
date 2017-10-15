@@ -28,7 +28,6 @@
     "bin",
     "CONTRIBUTING.md",
     "decls/*.js",
-    "docs",
     "lib",
     "VISION.md",
     "!**/__tests__"
