@@ -6,7 +6,7 @@ A mighty, modern CSS linter and fixer that helps you avoid errors and enforce co
 
 ## Features
 
--   **Over one hundred and fifty built-in rules.** Including ones that:
+-   **Over one hundred and sixty built-in rules.** Including ones that:
     -   **Catch possible errors:** e.g., invalid standard CSS syntax, duplicates, and overrides.
     -   **Limit language features:** e.g.:
         -   Disallow specific units, properties, functions, and at-rules.
