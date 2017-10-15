@@ -1,10 +1,10 @@
 # no-duplicate-at-import-rules
 
-Disallow duplicate @import rules within a stylesheet.
+Disallow duplicate `@import` rules within a stylesheet.
 
 ```css
-    @import "mystyle.css";@import "otherstyle.css";@import "mystyle.css";
-/**         ↑                                              ↑
+    @import "a.css";@import "b.css";@import "a.css";
+/**         ↑                               ↑
  * These are duplicates */
 ```
 
@@ -15,30 +15,34 @@ Disallow duplicate @import rules within a stylesheet.
 The following patterns are considered violations:
 
 ```css
-@import "mystyle.css";
-@import "mystyle.css";
+@import 'a.css';
+@import 'a.css';
 ```
 
 ```css
-@import url("mystyle.css");
-@import url("mystyle.css");
+@import url("a.css");
+@import url("a.css");
 ```
 
 ```css
-@import url("mystyle.css");
-@import url("otherstyle.css");
-@import url("mystyle.css");
+@import "a.css";
+@import 'a.css';
 ```
 
 ```css
-@import url("mystyle.css");
-a { color: red };
-@import url("mystyle.css");
+@import "a.css";
+@import 'b.css';
+@import url(a.css);
 ```
 
 The following patterns are *not* considered violations:
 
 ```css
-@import "mystyle.css";
-@import "otherstyle.css";
+@import "a.css";
+@import "b.css";
+```
+
+```css
+@import url('a.css') projection;
+@import url('a.css') tv;
 ```
