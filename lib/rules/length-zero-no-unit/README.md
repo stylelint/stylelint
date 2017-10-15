@@ -43,3 +43,17 @@ a { top: 2in; }
 ```css
 a { top: 1.001vh }
 ```
+
+## Optional secondary options
+
+### `ignore: ["custom-properties"]`
+
+#### `"custom-properties"`
+
+Ignore units for zero length in custom properties.
+
+The following pattern is *not* considered a violation:
+
+```css
+a { --x: 0px; }
+```
