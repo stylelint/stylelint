@@ -3,8 +3,9 @@
 Disallow duplicate `@import` rules within a stylesheet.
 
 ```css
-    @import "a.css";@import "b.css";@import "a.css";
-/**         ↑                               ↑
+    @import "a.css";
+    @import "a.css";
+/** ↑
  * These are duplicates */
 ```
 
