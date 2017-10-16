@@ -30,5 +30,5 @@ Please help us to help you by [recreating the issue](https://github.com/stylelin
 General rules of thumb:
 
 -   Use the `status: discussion`, `status: needs clarification` or `status: needs investigation` label when first triaging an issue.
--   Use the `help wanted`, a `type` (and `non-standard syntax: *` and `beginner friendly`) labels when a course of action is agreed.
+-   Use the `help wanted`, a `type` (and `non-standard syntax: *` and `good first issue`) labels when a course of action is agreed.
 -   Use the `status: wip` label when your are, or someone has said they are, about to start working on an issue.
