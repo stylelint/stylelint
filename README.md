@@ -6,16 +6,19 @@ A mighty, modern CSS linter and fixer that helps you avoid errors and enforce co
 
 ## Features
 
--   **Over one hundred and fifty rules:** Including those that:
-    -   **Catch errors**: e.g. invalid hex colors, duplicate selectors and overriding shorthand properties.
-    -   **Limit language features**: e.g. vendor prefixes, patterns for selectors and specific units, properties, functions and at-rules.
-    -   **Enforce stylistic conventions**: e.g. the whitespace around the colon in declarations and the number of empty lines between rules.
--   **Support for the latest CSS syntax:** Including custom properties, calc() and nesting.
--   **Understands *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it understands any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and Less.
+-   **Over one hundred and sixty built-in rules.** Including ones that:
+    -   **Catch possible errors:** e.g., invalid standard CSS syntax, duplicates, and overrides.
+    -   **Limit language features:** e.g.:
+        -   Disallow specific units, properties, functions, and at-rules.
+        -   Limit the specificity and quantity of selectors.
+        -   Enforce patterns for selectors and custom properties.
+    -   **Enforce stylistic conventions:** e.g., whitespace, case, notation, and quotes.
+-   **Understands the latest CSS syntax:** Including custom properties, `calc()` and level 4 selectors.
 -   **Completely unopinionated:** Only enable the rules you want, and configure them with options that tailor the linter to your needs.
--   **Support for plugins:** It's easy to create your own rules and add them to the linter.
--   **Automatically fixes some stylistic warnings:** Save time by having stylelint fix your code with this *experimental* feature.
--   **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config.
+-   **Support for plugins:** It's easy to create your own rules and add them to the linter, or make use of plugins written by the community.
+-   **Automatically fixes some stylistic violations:** Save time by having stylelint fix your code with this *experimental* feature.
+-   **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config. Or you can craft your own config and share with your team and/or the community.
+-   **Supports *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it can be configured and extended to understand any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and Less.
 -   **Options validator:** So that you can be confident that your config is valid.
 -   **Well tested:** Over ten thousand tests cover the internals and rules.
 -   **Growing community**: Used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [GitHub](https://github.com/primer/stylelint-config-primer), [Wikimedia](https://github.com/wikimedia/stylelint-config-wikimedia), [GSA](https://github.com/18F/stylelint-rules/), and [WordPress](https://github.com/ntwb/stylelint-config-wordpress/) among others.
@@ -35,7 +38,7 @@ With stylelint, it's easy to start linting your CSS:
     -   [via the stylelint Node API](docs/user-guide/node-api.md)
     -   [via the stylelint PostCSS plugin](docs/user-guide/postcss-plugin.md)
 2.  Create your [configuration object](docs/user-guide/configuration.md) by either extending a shared config or crafting your own:
-    -   To extend a shared config, we suggest using either [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) or [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). The recommended config turns on just the [possible error](docs/user-guide/rules.md#possible-errors) rules. The standard config builds on top of the recommened config by additionally turning on over 60 of stylelint's [stylistic rules](docs/user-guide/rules.md#stylistic-issues) with sensible defaults. You can always override specific rules after extending either config. When using either config, you'll likely want to add (and configure to your specific needs) some of the rules that [limit language features](docs/user-guide/rules.md#limit-language-features). We update the configs with each new release of stylelint, so it's easy to stay up to date. Alternately, you can [search for](https://www.npmjs.com/browse/keyword/stylelint-config) a community config and [extend](docs/user-guide/configuration.md#extends) that instead.
+    -   To extend a shared config, we suggest using either [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) or [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). We update the configs with each new release of stylelint, so it's easy to stay up to date. Both configs are geared towards standard CSS syntax. If you use non-standard syntax (like `@if` etc.) then you might want to use a community config designed for that syntax e.g. [`stylelint-config-recommended-scss`](https://github.com/kristerkari/stylelint-config-recommended-scss). The recommended config turns on just the [possible error](docs/user-guide/rules.md#possible-errors) rules. The standard config builds on top of the recommended config by additionally turning on over 60 of stylelint's [stylistic rules](docs/user-guide/rules.md#stylistic-issues) with sensible defaults. You can always override specific rules after extending either config. When using either config, you'll likely want to add (and configure to your specific needs) some of the rules that [limit language features](docs/user-guide/rules.md#limit-language-features). Alternately, you can [search for another](https://www.npmjs.com/browse/keyword/stylelint-config) community config and [extend](docs/user-guide/configuration.md#extends) that instead.
     -   To craft your own config, first [learn about how rules are named and how they work together](docs/user-guide/about-rules.md), then either:
         -   Start small and only learn about [the rules](docs/user-guide/rules.md) you want to turn on and enforce. *All of the rules are off by default*, and so you can start small, growing your config over time as you have a chance to explore more of the rules.
         -   Or copy-paste [this example configuration](docs/user-guide/example-config.md), which lists all of stylelint's rules and their primary options. Then you can edit the options of each rule to your liking, and remove (or turn off with `null`) the rules that you don't care to enforce.
