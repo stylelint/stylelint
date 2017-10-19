@@ -19,6 +19,7 @@ A mighty, modern CSS linter and fixer that helps you avoid errors and enforce co
 -   **Automatically fixes some stylistic violations:** Save time by having stylelint fix your code with this *experimental* feature.
 -   **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config. Or you can craft your own config and share with your team and/or the community.
 -   **Parses *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it can be configured and extended to understand any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and Less.
+-   **Supports *HTML-like* formats:** e.g. HTML, PHP, Vue component and Markdown.
 -   **Options validator:** So that you can be confident that your config is valid.
 -   **Well tested:** Over ten thousand tests cover the internals and rules.
 -   **Growing community**: Used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [GitHub](https://github.com/primer/stylelint-config-primer), [Wikimedia](https://github.com/wikimedia/stylelint-config-wikimedia), [GSA](https://github.com/18F/stylelint-rules/), and [WordPress](https://github.com/ntwb/stylelint-config-wordpress/) among others.
