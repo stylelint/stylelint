@@ -23,7 +23,7 @@ Single quotes in a charset @-rule are ignored as using single quotes in this con
 /* fine regardless of configuration */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix most of the problems reported by this rule.
 
 ## Options
 
@@ -75,4 +75,27 @@ a { content: "x"; }
 
 ```css
 a[id="foo"] {}
+```
+
+## Optional secondary options
+
+`avoidEscape`: `true|false`, defaults to `true`
+
+Allows strings to use single-quotes or double-quotes so long as the string contains a quote that would have to be escaped otherwise.
+
+The following patterns are considered violations with `"single", { "avoidEscape" : false}`:
+
+```css
+a::before { content: "foo'horse'cow"; }
+@import "foo'horse'cow.css";
+a[foo="foo'horse'cow"] {}
+```
+
+The following patterns are considered violations with `"double", { "avoidEscape" : false}`:
+
+```css
+a::before { content: 'foo"horse"cow'; }
+@import 'foo"horse"cow.css';
+a[foo='foo"horse"cow'] {}
+
 ```
