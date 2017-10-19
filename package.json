@@ -91,7 +91,7 @@
     "lint-staged": "^4.0.1",
     "npm-run-all": "^4.0.2",
     "npmpub": "^3.1.0",
-    "postcss-html": "^0.9.0",
+    "postcss-html": "^0.10.0",
     "postcss-import": "^11.0.0",
     "prettier": "^1.6.1",
     "remark-cli": "^4.0.0",
