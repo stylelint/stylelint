@@ -120,7 +120,7 @@ b {
 
 ## Optional secondary options
 
-### `except: ["after-rule", "after-single-line-comment", "inside-block-and-after-rule", "first-nested"]`
+### `except: ["after-rule", "after-single-line-comment", "inside-block-and-after-rule", "first-nested", "inside-block"]`
 
 #### `"after-rule"`
 
@@ -214,6 +214,36 @@ The following patterns are *not* considered violations:
   a {}
 
   b {}
+}
+```
+
+#### `"inside-block"`
+
+Reverse the primary option if the rule is inside a block.
+
+For example, with `"always"`:
+
+The following patterns are considered violations:
+
+```scss
+a {
+  color: red;
+  
+  b {
+    color: blue;
+  }
+}
+
+```
+
+The following patterns are *not* considered violations:
+
+```scss
+a {
+  color: red;
+  b {
+    color: blue;
+  }
 }
 ```
 
