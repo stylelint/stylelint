@@ -6,21 +6,21 @@ A mighty, modern CSS linter and fixer that helps you avoid errors and enforce co
 
 ## Features
 
--   **Over one hundred and sixty built-in rules:** These are geared towards standard CSS syntax and can:
-    -   **Catch possible errors:** e.g., invalid standard CSS syntax, duplicates, and overrides.
-    -   **Limit language features:** e.g.:
+-   **Over one hundred and sixty [built-in rules](docs/user-guide/rules.md):** Geared towards standard CSS syntax, these can:
+    -   **[Catch](docs/user-guide/rules.md#possible-errors) possible errors:** e.g., invalid standard CSS syntax, duplicates, and overrides.
+    -   **[Limit](docs/user-guide/rules.md#limit-language-features) language features:** e.g.:
         -   Disallow specific units, properties, functions, and at-rules.
         -   Limit the specificity and quantity of selectors.
         -   Enforce patterns for selectors and custom properties.
-    -   **Enforce stylistic conventions:** e.g., whitespace, case, notation, and quotes.
--   **Understands the latest CSS syntax:** Including custom properties, `calc()` and level 4 selectors.
--   **Completely unopinionated:** Only enable the rules you want, and configure them with options that tailor the linter to your needs.
--   **Support for plugins:** It's easy to create your own rules and add them to the linter, or make use of plugins written by the community.
--   **Automatically fixes some stylistic violations:** Save time by having stylelint fix your code with this *experimental* feature.
--   **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config. Or you can craft your own config and share with your team and/or the community.
--   **Parses *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it can be configured and extended to understand any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and Less.
+    -   **[Enforce](docs/user-guide/rules.md#stylistic-issues) stylistic conventions:** e.g., whitespace, case, notation, and quotes.
+-   **Understands the latest CSS syntax:** Including [custom properties](https://www.w3.org/TR/css-variables-1/), [`calc()`](https://www.w3.org/TR/css-values-3/#calc-notation) and [level 4 selectors](https://www.w3.org/TR/selectors4/).
+-   **Completely unopinionated:** Only [enable the rules](docs/user-guide/configuration.md#rules) you want, and configure them with options that tailor the linter to your needs.
+-   **Support for plugins:** It's easy to [create your own rules](docs/developer-guide/plugins.md) and [add them to the linter](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/configuration.md#plugins), or make use of [plugins written by the community](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/plugins.md).
+-   **Automatically fixes some stylistic violations:** Save time by [having stylelint fix your code](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/cli.md#autofixing-errors) with this *experimental* feature.
+-   **Shareable configs:** If you don't want to [craft your own config](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/about-rules.md), you can [extend a shareable config](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/configuration.md#extends). Or you can craft your own config and share with your team and/or the community].
+-   **Parses *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it can [be configured](docs/user-guide/css-processors.md) and extended (e.g. [stylelint-scss](https://github.com/kristerkari/stylelint-scss)) to understand any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and Less.
 -   **Options validator:** So that you can be confident that your config is valid.
--   **Well tested:** Over ten thousand tests cover the internals and rules.
+-   **Well tested:** Over ten thousand tests [cover the internals and rules](https://coveralls.io/github/stylelint/stylelint).
 -   **Growing community**: Used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [GitHub](https://github.com/primer/stylelint-config-primer), [Wikimedia](https://github.com/wikimedia/stylelint-config-wikimedia), [GSA](https://github.com/18F/stylelint-rules/), and [WordPress](https://github.com/ntwb/stylelint-config-wordpress/) among others.
 
 ## Example output
