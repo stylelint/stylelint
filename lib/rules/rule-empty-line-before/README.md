@@ -120,7 +120,7 @@ b {
 
 ## Optional secondary options
 
-### `except: ["after-rule", "after-single-line-comment", "inside-block-and-after-rule", "first-nested", "inside-block"]`
+### `except: ["after-rule", "after-single-line-comment", "inside-block-and-after-rule", "inside-block", "first-nested"]`
 
 #### `"after-rule"`
 
@@ -190,33 +190,6 @@ The following patterns are *not* considered violations:
 }
 ```
 
-#### `"first-nested"`
-
-Reverse the primary option if the rule is the first in a block.
-
-For example, with `"always"`:
-
-The following patterns are considered violations:
-
-```css
-@media {
-
-  a {}
-
-  b {}
-}
-```
-
-The following patterns are *not* considered violations:
-
-```css
-@media {
-  a {}
-
-  b {}
-}
-```
-
 #### `"inside-block"`
 
 Reverse the primary option if the rule is inside a block.
@@ -244,6 +217,33 @@ a {
   b {
     color: blue;
   }
+}
+```
+
+#### `"first-nested"`
+
+Reverse the primary option if the rule is the first in a block.
+
+For example, with `"always"`:
+
+The following patterns are considered violations:
+
+```css
+@media {
+
+  a {}
+
+  b {}
+}
+```
+
+The following patterns are *not* considered violations:
+
+```css
+@media {
+  a {}
+
+  b {}
 }
 ```
 
