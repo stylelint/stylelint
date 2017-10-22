@@ -1,5 +1,6 @@
 # Head
 
+-   Added: `font-family-no-missing-generic-family-keyword` rule ([#2930](https://github.com/stylelint/stylelint/pull/2930)).
 -   Added: `number-leading-zero` autofix ([#2921](https://github.com/stylelint/stylelint/issues/2921)).
 -   Added: `number-no-trailing-zeros` autofix ([#2947](https://github.com/stylelint/stylelint/issues/2947)).
 -   Added: `shorthand-property-no-redundant-values` autofix ([#2956](https://github.com/stylelint/stylelint/issues/2956)).
