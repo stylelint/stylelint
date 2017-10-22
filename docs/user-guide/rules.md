@@ -17,6 +17,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### Font family
 
 -   [`font-family-no-duplicate-names`](../../lib/rules/font-family-no-duplicate-names/README.md): Disallow duplicate font family names.
+-   [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md): Disallow missing generic families in lists of font family names.
 
 #### Function
 
