@@ -84,6 +84,7 @@
     "del": "^3.0.0",
     "eslint": "~4.9.0",
     "eslint-config-stylelint": "^7.0.0",
+    "eslint-plugin-node": "^5.2.1",
     "file-exists-promise": "^1.0.2",
     "flow-bin": "^0.57.2",
     "husky": "^0.14.3",
@@ -126,11 +127,15 @@
   },
   "eslintConfig": {
     "extends": [
+      "plugin:node/recommended",
       "stylelint"
     ],
     "globals": {
       "testRule": true
-    }
+    },
+    "plugins": [
+      "node"
+    ]
   },
   "jest": {
     "clearMocks": true,
