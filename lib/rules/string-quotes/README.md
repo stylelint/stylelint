@@ -77,9 +77,9 @@ a { content: "x"; }
 a[id="foo"] {}
 ```
 
-### Optional secondary options
+## Optional secondary options
 
-`avoidEscape`: `true|false`, defaults to `true`
+### `avoidEscape`: `true|false`, defaults to `true`
 
 Allows strings to use single-quotes or double-quotes so long as the string contains a quote that would have to be escaped otherwise.
 
