@@ -77,62 +77,30 @@ a { content: "x"; }
 a[id="foo"] {}
 ```
 
-## Optional secondary options
+### Optional secondary options
 
 `avoidEscape`: `true|false`, defaults to `true`
 
 Allows strings to use single-quotes or double-quotes so long as the string contains a quote that would have to be escaped otherwise.
 
-### `true`
-The following patterns are considered violations with `"single", { "avoidEscape" : true }`:
+For example, with `"single", { "avoidEscape" : false }`.
+
+The following patterns are considered violations:
+
 ```css
-a { content: "x"; }
-a[id="foo"] {}
+a { content: "x'y'z"; }
 ```
 
-The following patterns are *not* considered violations with `"single", { "avoidEscape" : true }`:
 ```css
-a::before { content: "foo'horse'cow"; }
-@import "foo'horse'cow.css";
-a[foo="foo'horse'cow"] {}
+a[id="foo'bar'baz"] {}
 ```
 
-The following patterns are considered violations with `"double", { "avoidEscape" : true }`:
+The following patterns are *not* considered violations:
+
 ```css
 a { content: 'x'; }
+```
+
+```css
 a[id='foo'] {}
-```
-
-The following patterns are *not* considered violations with `"double", { "avoidEscape" : true }`:
-```css
-a::before { content: 'foo"horse"cow'; }
-@import 'foo"horse"cow.css';
-a[foo='foo"horse"cow'] {}
-```
-
-### `false`
-The following patterns are considered violations with `"single", { "avoidEscape" : false}`:
-```css
-a::before { content: "foo'horse'cow"; }
-@import "foo'horse'cow.css";
-a[foo="foo'horse'cow"] {}
-```
-
-The following patterns are *not* considered violations with `"single", { "avoidEscape" : false}`:
-```css
-a { content: 'x'; }
-a[id='foo'] {}
-```
-
-The following patterns are considered violations with `"double", { "avoidEscape" : false}`:
-```css
-a::before { content: 'foo"horse"cow'; }
-@import 'foo"horse"cow.css';
-a[foo='foo"horse"cow'] {}
-```
-
-The following patterns are *not* considered violations with `"double", { "avoidEscape" : false}`:
-```css
-a { content: "x"; }
-a[id="foo"] {}
 ```
