@@ -6,7 +6,7 @@ A mighty, modern CSS linter and fixer that helps you avoid errors and enforce co
 
 ## Features
 
--   **Over one hundred and sixty built-in rules:** Geared towards standard CSS syntax, these can:
+-   **Over one hundred and sixty built-in rules.** Geared towards standard CSS syntax, these can:
     -   **Catch possible errors:** e.g., invalid standard CSS syntax, duplicates, and overrides.
     -   **Limit language features:** e.g.:
         -   Disallow specific units, properties, functions, and at-rules.
@@ -14,7 +14,7 @@ A mighty, modern CSS linter and fixer that helps you avoid errors and enforce co
         -   Enforce patterns for selectors and custom properties.
     -   **Enforce stylistic conventions:** e.g., whitespace, case, notation, and quotes.
 -   **Understands the latest CSS syntax:** Including custom properties, `calc()` and level 4 selectors.
--   **Completely unopinionated:** Only enable the rules] you want, and configure them with options that tailor the linter to your needs.
+-   **Completely unopinionated:** Only enable the rules you want, and configure them with options that tailor the linter to your needs.
 -   **Support for plugins:** It's easy to create your own rules and add them to the linter, or make use of plugins written by the community.
 -   **Automatically fixes some stylistic violations:** Save time by having stylelint fix your code with this *experimental* feature.
 -   **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config. Or you can craft your own config and share with your team and/or the community.
