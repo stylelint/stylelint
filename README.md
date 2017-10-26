@@ -6,7 +6,7 @@ A mighty, modern CSS linter and fixer that helps you avoid errors and enforce co
 
 ## Features
 
--   **Over one hundred and sixty built-in rules.** Including ones that:
+-   **Over one hundred and sixty built-in rules.** Geared towards standard CSS syntax, these can:
     -   **Catch possible errors:** e.g., invalid standard CSS syntax, duplicates, and overrides.
     -   **Limit language features:** e.g.:
         -   Disallow specific units, properties, functions, and at-rules.
@@ -18,7 +18,7 @@ A mighty, modern CSS linter and fixer that helps you avoid errors and enforce co
 -   **Support for plugins:** It's easy to create your own rules and add them to the linter, or make use of plugins written by the community.
 -   **Automatically fixes some stylistic violations:** Save time by having stylelint fix your code with this *experimental* feature.
 -   **Shareable configs:** If you don't want to craft your own config, you can extend a shareable config. Or you can craft your own config and share with your team and/or the community.
--   **Supports *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it can be configured and extended to understand any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and Less.
+-   **Parses *CSS-like* syntaxes:** The linter is powered by [PostCSS](https://github.com/postcss/postcss), so it can be configured and extended to understand any syntax that PostCSS can parse, including SCSS, [SugarSS](https://github.com/postcss/sugarss), and Less.
 -   **Options validator:** So that you can be confident that your config is valid.
 -   **Well tested:** Over ten thousand tests cover the internals and rules.
 -   **Growing community**: Used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [GitHub](https://github.com/primer/stylelint-config-primer), [Wikimedia](https://github.com/wikimedia/stylelint-config-wikimedia), [GSA](https://github.com/18F/stylelint-rules/), and [WordPress](https://github.com/ntwb/stylelint-config-wordpress/) among others.
