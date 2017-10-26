@@ -215,7 +215,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### String
 
--   [`string-quotes`](../../lib/rules/string-quotes/README.md): Specify single or double quotes around strings.
+-   [`string-quotes`](../../lib/rules/string-quotes/README.md): Specify single or double quotes around strings (Autofixable).
 
 #### Length
 
