@@ -1,5 +1,5 @@
 # Head
-
+-   Added: `string-quotes` autofix ([#2959](https://github.com/stylelint/stylelint/pull/2959)).
 -   Added: `font-family-no-missing-generic-family-keyword` rule ([#2930](https://github.com/stylelint/stylelint/pull/2930)).
 -   Added: `number-leading-zero` autofix ([#2921](https://github.com/stylelint/stylelint/issues/2921)).
 -   Added: `number-no-trailing-zeros` autofix ([#2947](https://github.com/stylelint/stylelint/issues/2947)).
