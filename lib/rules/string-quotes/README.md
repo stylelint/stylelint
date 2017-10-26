@@ -53,6 +53,10 @@ a { content: 'x'; }
 a[id='foo'] {}
 ```
 
+```css
+a { content: "x'y'z"; }
+```
+
 ### `"double"`
 
 Strings *must always* be wrapped with double quotes.
@@ -75,6 +79,10 @@ a { content: "x"; }
 
 ```css
 a[id="foo"] {}
+```
+
+```css
+a { content: 'x"y"z'; }
 ```
 
 ## Optional secondary options
