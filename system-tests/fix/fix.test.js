@@ -93,4 +93,20 @@ describe("fix", () => {
         });
       });
   });
+
+  it("outputs fixed code when input is code string", () => {
+    return stylelint
+      .lint({
+        code: "  a { color: red; }",
+        config: {
+          rules: {
+            indentation: 2
+          }
+        },
+        fix: true
+      })
+      .then(result => {
+        expect(result.output).toBe("a { color: red; }");
+      });
+  });
 });
