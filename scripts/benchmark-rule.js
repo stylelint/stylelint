@@ -29,7 +29,7 @@ if (
   parsedOptions = JSON.parse(ruleOptions);
 }
 /* eslint-enable eqeqeq */
-const rule = rules[ruleName](...normalizeRuleSettings(parsedOptions));
+const rule = rules[ruleName].apply(null, normalizeRuleSettings(parsedOptions));
 const processor = postcss().use(rule);
 
 request(CSS_URL, (error, response, body) => {
