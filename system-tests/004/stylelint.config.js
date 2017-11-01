@@ -1,3 +1,2 @@
 "use strict";
-// eslint-disable-next-line node/no-missing-require
-module.exports = require("./someUnknownFile.js");
+module.exports = require("./someUnknownFile.js"); // eslint-disable-line node/no-missing-require
