@@ -77,6 +77,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### General / Sheet
 
 -   [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
+-   [`no-duplicate-at-import-rules`](../../lib/rules/no-duplicate-at-import-rules/README.md): Disallow duplicate `@import` rules within a stylesheet.
 -   [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 -   [`no-empty-source`](../../lib/rules/no-empty-source/README.md): Disallow empty sources.
 -   [`no-extra-semicolons`](../../lib/rules/no-extra-semicolons/README.md): Disallow extra semicolons.
