@@ -9,6 +9,8 @@ Disallow duplicate `@import` rules within a stylesheet.
  * These are duplicates */
 ```
 
+This rule ignores `@import` in Less.
+
 ## Options
 
 ### `true`
