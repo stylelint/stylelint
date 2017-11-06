@@ -21,7 +21,7 @@ By default, the linter can *parse* any the following non-standard syntaxes by us
 [Vue component](https://vue-loader.vuejs.org/)
 (using [`postcss-html`](https://github.com/gucong3000/postcss-html))
 
-*Non-standard syntaxes can automatically be inferred from the following file extensions, values for the `lang` or `type` attribute on `<style>` tags, and markers for Markdown code fences: `less`, `scss`, and `sss`.* If you would need to specify your non-standard syntax, though, both the [CLI](cli.md) and the [Node API](node-api.md) expose a `syntax` option.
+*Non-standard syntaxes can automatically be inferred from the following file extensions, values for the `lang` or `type` attribute on `<style>` tags, and markers for Markdown code fences: `css`, `less`, `scss`, and `sss`.* If you would need to specify your non-standard syntax, though, both the [CLI](cli.md) and the [Node API](node-api.md) expose a `syntax` option.
 
 -   If you're using the CLI, use the `syntax` flag like so:  `stylelint ... --syntax scss`.
 -   If you're using the Node API, pass in the `syntax` option like so: `stylelint.lint({ syntax: "sugarss", ... })`.
