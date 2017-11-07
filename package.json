@@ -137,7 +137,8 @@
     "clearMocks": true,
     "collectCoverage": false,
     "collectCoverageFrom": [
-      "lib/**/*.js"
+      "lib/**/*.js",
+      "!lib/vendor/**/*.js"
     ],
     "coverageDirectory": "./.coverage/",
     "coverageReporters": [
