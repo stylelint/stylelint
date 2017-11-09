@@ -44,12 +44,12 @@ a { background: linear-gradient(bottom, #000, #fff); }
 
 ## Optional secondary options
 
-### `ignoreValues: ["-webkit-", "-moz-", "-ms-", "-o-"]`
+### `ignoreValues: ["string"]`
 
 Given:
 
 ```js
-["-webkit-", "-moz-"]
+["grab", "max-content"]
 ```
 
 The following patterns are *not* considered violations:
