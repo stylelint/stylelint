@@ -85,7 +85,7 @@
     "eslint": "~4.10.0",
     "eslint-config-stylelint": "^8.0.0",
     "file-exists-promise": "^1.0.2",
-    "flow-bin": "^0.58.0",
+    "flow-bin": "^0.59.0",
     "husky": "^0.14.3",
     "jest": "^21.1.0",
     "lint-staged": "^4.0.1",
