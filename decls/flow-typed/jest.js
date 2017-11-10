@@ -353,6 +353,16 @@ type JestObjectType = {
     options?: Object
   ): JestObjectType,
   /**
+   * Returns the actual module instead of a mock, bypassing all checks on
+   * whether the module should receive a mock implementation or not.
+   */
+  requireActual(moduleName: string): any,
+  /**
+   * Returns a mock module instead of the actual module, bypassing all checks
+   * on whether the module should be required normally or not.
+   */
+  requireMock(moduleName: string): any,
+  /**
    * Resets the module registry - the cache of all required modules. This is
    * useful to isolate modules where local state might conflict between tests.
    */
@@ -548,7 +558,7 @@ declare function spyOn(value: mixed, method: string): Object;
 declare var jest: JestObjectType;
 
 /**
- * The global Jamine object, this is generally not exposed as the public API,
+ * The global Jasmine object, this is generally not exposed as the public API,
  * using features inside here could break in later versions of Jest.
  */
 declare var jasmine: {
