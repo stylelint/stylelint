@@ -54,12 +54,12 @@ global.testRule = (rule, schema) => {
                   if (!schema.fix) return;
 
                   // Check the fix
-                  return stylelint(
-                    Object.assign({ fix: true }, options)
-                  ).then(output => {
-                    const fixedCode = getOutputCss(output);
-                    expect(fixedCode).toBe(testCase.code);
-                  });
+                  return stylelint(Object.assign({ fix: true }, options)).then(
+                    output => {
+                      const fixedCode = getOutputCss(output);
+                      expect(fixedCode).toBe(testCase.code);
+                    }
+                  );
                 });
               });
             });
@@ -105,13 +105,13 @@ global.testRule = (rule, schema) => {
                   }
 
                   // Check the fix
-                  return stylelint(
-                    Object.assign({ fix: true }, options)
-                  ).then(output => {
-                    const fixedCode = getOutputCss(output);
-                    expect(fixedCode).toBe(testCase.fixed);
-                    expect(fixedCode).not.toBe(testCase.code);
-                  });
+                  return stylelint(Object.assign({ fix: true }, options)).then(
+                    output => {
+                      const fixedCode = getOutputCss(output);
+                      expect(fixedCode).toBe(testCase.fixed);
+                      expect(fixedCode).not.toBe(testCase.code);
+                    }
+                  );
                 });
               });
             });
