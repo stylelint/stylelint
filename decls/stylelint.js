@@ -33,6 +33,8 @@ export type stylelint$options = {
   configFile?: string,
   configBasedir?: string,
   configOverrides?: Object,
+  ignoreText?: string,
+  ignorePattern?: array,
   ignoreDisables?: boolean,
   ignorePath?: string,
   reportNeedlessDisables?: boolean,
