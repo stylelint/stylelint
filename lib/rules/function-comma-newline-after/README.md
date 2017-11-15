@@ -89,10 +89,3 @@ a { transform: translate(1, 1) }
 ```css
 a { transform: translate(1 , 1) }
 ```
-
-```css
-a {
-  transform: translate(1
-    ,1)
-}
-```
