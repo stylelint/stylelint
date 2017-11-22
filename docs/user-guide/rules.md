@@ -134,7 +134,6 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`declaration-property-value-blacklist`](../../lib/rules/declaration-property-value-blacklist/README.md): Specify a blacklist of disallowed property and value pairs within declarations.
 -   [`declaration-property-value-whitelist`](../../lib/rules/declaration-property-value-whitelist/README.md): Specify a whitelist of allowed property and value pairs within declarations.
 
-
 #### Declaration block
 
 -   [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declaration within single line declaration blocks.
