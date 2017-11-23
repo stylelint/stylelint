@@ -94,3 +94,46 @@ a { -moz-border-radius-topright: 40px; }
 ```css
 a { height: 100vmin; }
 ```
+
+### `ignoreMediaFeatureNames: { unit: ["property", "/regex/"] }`
+
+Ignore units for specific feature names.
+
+For example, with `["px", "dpi"]`.
+
+Given:
+
+```js
+{
+  "px": [ "min-width", "/height$/" ],
+  "dpi": [ "resolution" ]  
+}
+```
+
+The following patterns are *not* considered violations:
+
+```css
+@media (min-width: 960px) {}
+```
+
+```css
+@media (max-height: 280px) {}
+```
+
+```css
+@media not (resolution: 300dpi) {}
+```
+
+The following patterns are considered violations:
+
+```css
+@media screen and (max-device-width: 500px) {}
+```
+
+```css
+@media all and (min-width: 500px) and (max-width: 200px) {}
+```
+
+```css
+@media print and (max-resolution: 100dpi) {}
+```
