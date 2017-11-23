@@ -34,10 +34,6 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 -   [`unit-no-unknown`](../../lib/rules/unit-no-unknown/README.md): Disallow unknown units.
 
-#### Shorthand property
-
--   [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values in shorthand properties (Autofixable).
-
 #### Property
 
 -   [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md): Disallow unknown properties.
@@ -49,7 +45,6 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### Declaration block
 
 -   [`declaration-block-no-duplicate-properties`](../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks.
--   [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow longhand properties that can be combined into one shorthand property.
 -   [`declaration-block-no-shorthand-property-overrides`](../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties within declaration blocks.
 
 #### Block
@@ -112,6 +107,10 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`unit-blacklist`](../../lib/rules/unit-blacklist/README.md): Specify a blacklist of disallowed units.
 -   [`unit-whitelist`](../../lib/rules/unit-whitelist/README.md): Specify a whitelist of allowed units.
 
+#### Shorthand property
+
+-   [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values in shorthand properties (Autofixable).
+
 #### Value
 
 -   [`value-no-vendor-prefix`](../../lib/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values.
@@ -128,6 +127,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Declaration
 
+-   [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow longhand properties that can be combined into one shorthand property.
 -   [`declaration-no-important`](../../lib/rules/declaration-no-important/README.md): Disallow `!important` within declarations.
 -   [`declaration-property-unit-blacklist`](../../lib/rules/declaration-property-unit-blacklist/README.md): Specify a blacklist of disallowed property and unit pairs within declarations.
 -   [`declaration-property-unit-whitelist`](../../lib/rules/declaration-property-unit-whitelist/README.md): Specify a whitelist of allowed property and unit pairs within declarations.
