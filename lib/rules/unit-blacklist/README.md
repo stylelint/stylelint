@@ -113,27 +113,27 @@ Given:
 The following patterns are *not* considered violations:
 
 ```css
-@media (min-width: 960px) { }
+@media (min-width: 960px) {}
 ```
 
 ```css
-@media (max-height: 280px) { }
+@media (max-height: 280px) {}
 ```
 
 ```css
-@media not (resolution: 300dpi) { }
+@media not (resolution: 300dpi) {}
 ```
 
 The following patterns are considered violations:
 
 ```css
-a { @media screen and (max-device-width: 500px) { } }
+@media screen and (max-device-width: 500px) {}
 ```
 
 ```css
-@media all and (min-width: 500px) and (max-width: 200px) { }
+@media all and (min-width: 500px) and (max-width: 200px) {}
 ```
 
 ```css
-@media print and (max-resolution: 100dpi) { }
+@media print and (max-resolution: 100dpi) {}
 ```
