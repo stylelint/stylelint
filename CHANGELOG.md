@@ -1,6 +1,7 @@
 # 8.3.0
 
--   Added: autofix support for stdin input  ([#2787](https://github.com/stylelint/stylelint/pull/2787)).
+-   Added: autofix support for stdin input ([#2787](https://github.com/stylelint/stylelint/pull/2787)).
+-   Added: support for `<style>` tags and markdown fences in `.vue` and `.html` files ([#2975](https://github.com/stylelint/stylelint/pull/2975)).
 -   Added: `font-family-no-missing-generic-family-keyword` rule ([#2930](https://github.com/stylelint/stylelint/pull/2930)).
 -   Added: `no-duplicate-at-import-rules` rule ([#2963](https://github.com/stylelint/stylelint/pull/2963)).
 -   Added: `number-leading-zero` autofix ([#2921](https://github.com/stylelint/stylelint/issues/2921)).
