@@ -9,10 +9,10 @@
 -   Added: `string-quotes` autofix ([#2959](https://github.com/stylelint/stylelint/pull/2959)).
 -   Added: `ignore: ["custom-properties"]` option to `length-zero-no-unit` ([#2967](https://github.com/stylelint/stylelint/pull/2967)).
 -   Added: `except: ["inside-block"]` option to `rule-empty-line-before` ([#2982](https://github.com/stylelint/stylelint/pull/2982)).
--   Fixed: `comment-empty-line-before` false positives for shared-line comments ([#2986](https://github.com/stylelint/stylelint/issues/2986)).
--   Fixed: `unit-*` false positives for spaceless multiplication ([#2948](https://github.com/stylelint/stylelint/issues/2948)).
 -   Added: `ignoreValues` to `value-no-vendor-prefix` ([#3015](https://github.com/stylelint/stylelint/pull/3015)).
 -   Added: `ignoreMediaFeatureNames` to `unit-blacklist` ([#3027](https://github.com/stylelint/stylelint/pull/3027)).
+-   Fixed: `comment-empty-line-before` false positives for shared-line comments ([#2986](https://github.com/stylelint/stylelint/issues/2986)).
+-   Fixed: `unit-*` false positives for spaceless multiplication ([#2948](https://github.com/stylelint/stylelint/issues/2948)).
 
 # 8.2.0
 
