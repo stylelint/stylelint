@@ -77,7 +77,6 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`no-empty-source`](../../lib/rules/no-empty-source/README.md): Disallow empty sources.
 -   [`no-extra-semicolons`](../../lib/rules/no-extra-semicolons/README.md): Disallow extra semicolons.
 -   [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
--   [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
 
 ### Limit language features
 
@@ -182,6 +181,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### General / Sheet
 
 -   [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md): Limit the depth of nesting.
+-   [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
 
 ### Stylistic issues
 
