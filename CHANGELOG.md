@@ -1,4 +1,4 @@
-# Head
+# 8.3.0
 
 -   Added: autofix support for stdin input  ([#2787](https://github.com/stylelint/stylelint/pull/2787)).
 -   Added: `font-family-no-missing-generic-family-keyword` rule ([#2930](https://github.com/stylelint/stylelint/pull/2930)).
