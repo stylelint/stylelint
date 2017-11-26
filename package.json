@@ -54,7 +54,7 @@
     "lodash": "^4.17.4",
     "log-symbols": "^2.0.0",
     "mathml-tag-names": "^2.0.1",
-    "meow": "^3.7.0",
+    "meow": "^4.0.0",
     "micromatch": "^2.3.11",
     "normalize-selector": "^0.2.0",
     "pify": "^3.0.0",
