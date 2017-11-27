@@ -1,4 +1,4 @@
-# Head
+# 8.3.1
 
 -   Fixed: `font-family-no-missing-generic-family-keyword` false positives for at-font-face ([#3034](https://github.com/stylelint/stylelint/issues/3034)).
 
