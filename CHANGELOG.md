@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: `font-family-no-missing-generic-family-keyword` false positives for at-font-face ([#3034](https://github.com/stylelint/stylelint/issues/3034)).
+
 # 8.3.0
 
 -   Added: autofix support for stdin input ([#2787](https://github.com/stylelint/stylelint/pull/2787)).
