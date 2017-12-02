@@ -1,7 +1,7 @@
 # HEAD
 
--  Fixed: `font-family-no-missing-generic-family-keyword` configuration ([#3039](https://github.com/stylelint/stylelint/pull/3039)).
--  Added: Intentation support for HTML ([#3044](https://github.com/stylelint/stylelint/pull/3044)).
+-   Fixed: `font-family-no-missing-generic-family-keyword` configuration ([#3039](https://github.com/stylelint/stylelint/pull/3039)).
+-   Added: Intentation support for HTML ([#3044](https://github.com/stylelint/stylelint/pull/3044)).
 
 # 8.3.1
 
