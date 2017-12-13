@@ -1,6 +1,7 @@
 # HEAD
 
 -   Added: `except: ["after-closing-brace"]` to `block-closing-brace-empty-line-before` ([#3011](https://github.com/stylelint/stylelint/pull/3011)).
+-   Fixed: unmet peer dependency warning for `postcss-sass` ([#3040](https://github.com/stylelint/stylelint/pull/3040)).
 -   Fixed: false positives for CSS within comments in `*.pcss` files ([#3064](https://github.com/stylelint/stylelint/pull/3064)).
 -   Fixed: `font-family-no-missing-generic-family-keyword` configuration ([#3039](https://github.com/stylelint/stylelint/pull/3039)).
 -   Fixed: `indentation` autofix for HTML ([#3044](https://github.com/stylelint/stylelint/pull/3044)).
