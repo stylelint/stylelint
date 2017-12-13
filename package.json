@@ -59,7 +59,7 @@
     "normalize-selector": "^0.2.0",
     "pify": "^3.0.0",
     "postcss": "^6.0.6",
-    "postcss-html": "^0.11.0",
+    "postcss-html": "^0.12.0",
     "postcss-less": "^1.1.0",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-reporter": "^5.0.0",
