@@ -24,6 +24,9 @@ matrix:
     - node_js: '8'
       script: npm run jest -- --runInBand  --coverage
       env: CI=coverage
+    - node_js: '9'
+      script: npm run jest -- --runInBand
+      env: CI=tests 9
     - node_js: '6'
       script: npm run jest -- --runInBand
       env: CI=tests 6
