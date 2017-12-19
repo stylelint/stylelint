@@ -1,4 +1,4 @@
-// https://raw.githubusercontent.com/flowtype/flow-typed/master/definitions/npm/jest_v20.x.x/flow_v0.39.x-/jest_v20.x.x.js
+// https://raw.githubusercontent.com/flowtype/flow-typed/master/definitions/npm/jest_v21.x.x/flow_v0.39.x-/jest_v21.x.x.js
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
   /**

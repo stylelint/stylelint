@@ -1,4 +1,4 @@
-// https://raw.githubusercontent.com/flowtype/flow-typed/master/definitions/npm/lodash_v4.x.x/flow_v0.47.x-/lodash_v4.x.x.js
+// https://raw.githubusercontent.com/flowtype/flow-typed/master/definitions/npm/lodash_v4.x.x/flow_v0.55.x-/lodash_v4.x.x.js
 declare module "lodash" {
   declare type __CurriedFunction1<A, R, AA: A> = (...r: [AA]) => R;
   declare type CurriedFunction1<A, R> = __CurriedFunction1<A, R, *>;
