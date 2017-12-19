@@ -30,10 +30,6 @@ matrix:
     - node_js: '6'
       script: npm run jest -- --runInBand
       env: CI=tests 6
-    - node_js: '4'
-      script: npm run jest -- --runInBand
-      env: CI=tests 4
-      sudo: required
 
 before_install:
   - npm install -g npm@latest
