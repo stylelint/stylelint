@@ -230,7 +230,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Value
 
--   [`value-keyword-case`](../../lib/rules/value-keyword-case/README.md): Specify lowercase or uppercase for keywords values.
+-   [`value-keyword-case`](../../lib/rules/value-keyword-case/README.md): Specify lowercase or uppercase for keywords values (Autofixable).
 
 #### Value list
 
