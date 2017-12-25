@@ -246,7 +246,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Property
 
--   [`property-case`](../../lib/rules/property-case/README.md): Specify lowercase or uppercase for properties.
+-   [`property-case`](../../lib/rules/property-case/README.md): Specify lowercase or uppercase for properties (Autofixable).
 
 #### Declaration
 

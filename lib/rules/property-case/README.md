@@ -8,6 +8,8 @@ Specify lowercase or uppercase for properties.
  * These properties */
 ```
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix some of the problems reported by this rule.
+
 ## Options
 
 `string`: `"lower"|"upper"`
