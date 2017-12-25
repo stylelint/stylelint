@@ -226,7 +226,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Unit
 
--   [`unit-case`](../../lib/rules/unit-case/README.md): Specify lowercase or uppercase for units.
+-   [`unit-case`](../../lib/rules/unit-case/README.md): Specify lowercase or uppercase for units (Autofixable).
 
 #### Value
 
