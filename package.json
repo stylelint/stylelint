@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "8.1.1",
+  "version": "8.4.0",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css",
@@ -45,27 +45,29 @@
     "execall": "^1.0.0",
     "file-entry-cache": "^2.0.0",
     "get-stdin": "^5.0.1",
-    "globby": "^6.1.0",
+    "globby": "^7.0.0",
     "globjoin": "^0.1.4",
     "html-tags": "^2.0.0",
     "ignore": "^3.3.3",
     "imurmurhash": "^0.1.4",
-    "known-css-properties": "^0.4.0",
+    "known-css-properties": "^0.5.0",
     "lodash": "^4.17.4",
     "log-symbols": "^2.0.0",
     "mathml-tag-names": "^2.0.1",
-    "meow": "^3.7.0",
+    "meow": "^4.0.0",
     "micromatch": "^2.3.11",
     "normalize-selector": "^0.2.0",
     "pify": "^3.0.0",
     "postcss": "^6.0.6",
+    "postcss-html": "^0.12.0",
     "postcss-less": "^1.1.0",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-reporter": "^5.0.0",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^3.0.1",
+    "postcss-sass": "^0.2.0",
     "postcss-scss": "^1.0.2",
-    "postcss-selector-parser": "^2.2.3",
+    "postcss-selector-parser": "^3.1.0",
     "postcss-value-parser": "^3.3.0",
     "resolve-from": "^4.0.0",
     "specificity": "^0.3.1",
@@ -82,24 +84,24 @@
     "cp-file": "^5.0.0",
     "d3-queue": "^3.0.7",
     "del": "^3.0.0",
-    "eslint": "~4.8.0",
-    "eslint-config-stylelint": "^7.0.0",
+    "eslint": "~4.14.0",
+    "eslint-config-stylelint": "^8.0.0",
     "file-exists-promise": "^1.0.2",
-    "flow-bin": "^0.56.0",
-    "fs-promise": "^2.0.3",
+    "flow-bin": "^0.61.0",
     "husky": "^0.14.3",
     "jest": "^21.1.0",
-    "lint-staged": "^4.0.1",
+    "lint-staged": "^6.0.0",
     "npm-run-all": "^4.0.2",
     "npmpub": "^3.1.0",
-    "postcss-html": "^0.9.0",
     "postcss-import": "^11.0.0",
-    "prettier": "^1.6.1",
+    "prettier": "~1.9.2",
     "remark-cli": "^4.0.0",
+    "remark-lint-no-missing-blank-lines": "^1.0.1",
     "remark-preset-lint-consistent": "^2.0.0",
     "remark-preset-lint-recommended": "^3.0.0",
     "remark-validate-links": "^7.0.0",
     "request": "^2.81.0",
+    "signal-exit": "^3.0.2",
     "strip-ansi": "^4.0.0"
   },
   "scripts": {
@@ -136,7 +138,8 @@
     "clearMocks": true,
     "collectCoverage": false,
     "collectCoverageFrom": [
-      "lib/**/*.js"
+      "lib/**/*.js",
+      "!lib/vendor/**/*.js"
     ],
     "coverageDirectory": "./.coverage/",
     "coverageReporters": [
@@ -171,6 +174,12 @@
     "plugins": [
       "preset-lint-recommended",
       "preset-lint-consistent",
+      [
+        "lint-no-missing-blank-lines",
+        {
+          "exceptTightLists": true
+        }
+      ],
       [
         "validate-links",
         {

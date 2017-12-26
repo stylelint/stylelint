@@ -2,6 +2,8 @@
 
 Rules determine what the linter looks for and complains about. All the rules are turned off by default and none have default values for their options. The rules follow a consistent naming convention and have been designed to work in conjunction with one another, you can read more about this in the ["About rules"](about-rules.md) section.
 
+The built-in rules are geared towards standard CSS syntax. With the exception of the `indentation` rule, all the rules will ignore structures that contain non-standard syntax e.g. variable interpolation and mixins.
+
 In addition to these rules there are [plugins](plugins.md), which are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases. Don't forget to look at the list of [plugins](plugins.md) for more ways to lint.
 
 ## List of rules
@@ -17,6 +19,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### Font family
 
 -   [`font-family-no-duplicate-names`](../../lib/rules/font-family-no-duplicate-names/README.md): Disallow duplicate font family names.
+-   [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md): Disallow missing generic families in lists of font family names.
 
 #### Function
 
@@ -31,10 +34,6 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 -   [`unit-no-unknown`](../../lib/rules/unit-no-unknown/README.md): Disallow unknown units.
 
-#### Shorthand property
-
--   [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values in shorthand properties.
-
 #### Property
 
 -   [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md): Disallow unknown properties.
@@ -46,7 +45,6 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### Declaration block
 
 -   [`declaration-block-no-duplicate-properties`](../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks.
--   [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow longhand properties that can be combined into one shorthand property.
 -   [`declaration-block-no-shorthand-property-overrides`](../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties within declaration blocks.
 
 #### Block
@@ -73,13 +71,12 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### General / Sheet
 
--   [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md): Limit the depth of nesting.
 -   [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
+-   [`no-duplicate-at-import-rules`](../../lib/rules/no-duplicate-at-import-rules/README.md): Disallow duplicate `@import` rules within a stylesheet.
 -   [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 -   [`no-empty-source`](../../lib/rules/no-empty-source/README.md): Disallow empty sources.
 -   [`no-extra-semicolons`](../../lib/rules/no-extra-semicolons/README.md): Disallow extra semicolons.
 -   [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
--   [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
 
 ### Limit language features
 
@@ -109,6 +106,10 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`unit-blacklist`](../../lib/rules/unit-blacklist/README.md): Specify a blacklist of disallowed units.
 -   [`unit-whitelist`](../../lib/rules/unit-whitelist/README.md): Specify a whitelist of allowed units.
 
+#### Shorthand property
+
+-   [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values in shorthand properties (Autofixable).
+
 #### Value
 
 -   [`value-no-vendor-prefix`](../../lib/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values.
@@ -125,6 +126,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Declaration
 
+-   [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow longhand properties that can be combined into one shorthand property.
 -   [`declaration-no-important`](../../lib/rules/declaration-no-important/README.md): Disallow `!important` within declarations.
 -   [`declaration-property-unit-blacklist`](../../lib/rules/declaration-property-unit-blacklist/README.md): Specify a blacklist of disallowed property and unit pairs within declarations.
 -   [`declaration-property-unit-whitelist`](../../lib/rules/declaration-property-unit-whitelist/README.md): Specify a whitelist of allowed property and unit pairs within declarations.
@@ -176,6 +178,11 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 -   [`comment-word-blacklist`](../../lib/rules/comment-word-blacklist/README.md): Specify a blacklist of disallowed words within comments.
 
+#### General / Sheet
+
+-   [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md): Limit the depth of nesting.
+-   [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
+
 ### Stylistic issues
 
 #### Color
@@ -206,16 +213,16 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Number
 
--   [`number-leading-zero`](../../lib/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1.
--   [`number-no-trailing-zeros`](../../lib/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros in numbers.
+-   [`number-leading-zero`](../../lib/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1 (Autofixable).
+-   [`number-no-trailing-zeros`](../../lib/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros in numbers (Autofixable).
 
 #### String
 
--   [`string-quotes`](../../lib/rules/string-quotes/README.md): Specify single or double quotes around strings.
+-   [`string-quotes`](../../lib/rules/string-quotes/README.md): Specify single or double quotes around strings (Autofixable).
 
 #### Length
 
--   [`length-zero-no-unit`](../../lib/rules/length-zero-no-unit/README.md): Disallow units for zero lengths.
+-   [`length-zero-no-unit`](../../lib/rules/length-zero-no-unit/README.md): Disallow units for zero lengths (Autofixable).
 
 #### Unit
 

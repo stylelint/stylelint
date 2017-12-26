@@ -8,6 +8,8 @@ a { line-height: 0.5; }
  * This leading zero */
 ```
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"always"|"never"`
