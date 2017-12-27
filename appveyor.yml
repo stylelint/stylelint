@@ -19,4 +19,4 @@ install:
 test_script:
   - node --version
   - npm --version
-  - cmd: "npm run jest -- --runInBand --testPathPattern \\lib"
+  - cmd: "npm run jest -- --testPathPattern \\lib"
