@@ -200,6 +200,10 @@ declare module "lodash" {
     | ((item: T, index: number, array: Array<T>) => U)
     | propertyIterateeShorthand;
 
+  declare type ReadOnlyMapIterator<T, U> =
+    | ((item: T, index: number, array: $ReadOnlyArray<T>) => U)
+    | propertyIterateeShorthand;
+
   declare type OMapIterator<T, O, U> =
     | ((item: T, key: string, object: O) => U)
     | propertyIterateeShorthand;
@@ -425,25 +429,41 @@ declare module "lodash" {
 
     zipObject<K, V>(props?: Array<K>, values?: Array<V>): { [key: K]: V };
     zipObjectDeep(props?: any[], values?: any): Object;
-    //Workaround until (...parameter: T, parameter2: U) works
-    zipWith<T>(a1: NestedArray<T>, iteratee?: Iteratee<T>): Array<T>;
-    zipWith<T>(
-      a1: NestedArray<T>,
-      a2: NestedArray<T>,
-      iteratee?: Iteratee<T>
+
+    zipWith<A>(a1: Array<A>): Array<[A]>;
+    zipWith<T, A>(a1: Array<A>, iteratee: (A) => T): Array<T>;
+
+    zipWith<A, B>(a1: Array<A>, a2: Array<B>): Array<[A, B]>;
+    zipWith<T, A, B>(
+      a1: Array<A>,
+      a2: Array<B>,
+      iteratee: (A, B) => T
     ): Array<T>;
-    zipWith<T>(
-      a1: NestedArray<T>,
-      a2: NestedArray<T>,
-      a3: NestedArray<T>,
-      iteratee?: Iteratee<T>
+
+    zipWith<A, B, C>(
+      a1: Array<A>,
+      a2: Array<B>,
+      a3: Array<C>
+    ): Array<[A, B, C]>;
+    zipWith<T, A, B, C>(
+      a1: Array<A>,
+      a2: Array<B>,
+      a3: Array<C>,
+      iteratee: (A, B, C) => T
     ): Array<T>;
-    zipWith<T>(
-      a1: NestedArray<T>,
-      a2: NestedArray<T>,
-      a3: NestedArray<T>,
-      a4: NestedArray<T>,
-      iteratee?: Iteratee<T>
+
+    zipWith<A, B, C, D>(
+      a1: Array<A>,
+      a2: Array<B>,
+      a3: Array<C>,
+      a4: Array<D>
+    ): Array<[A, B, C, D]>;
+    zipWith<T, A, B, C, D>(
+      a1: Array<A>,
+      a2: Array<B>,
+      a3: Array<C>,
+      a4: Array<D>,
+      iteratee: (A, B, C, D) => T
     ): Array<T>;
 
     // Collection
@@ -538,6 +558,10 @@ declare module "lodash" {
       iteratee?: ValueOnlyIteratee<A>
     ): { [key: V]: ?A };
     map<T, U>(array: ?Array<T>, iteratee?: MapIterator<T, U>): Array<U>;
+    map<T, U>(
+      array: ?$ReadOnlyArray<T>,
+      iteratee?: ReadOnlyMapIterator<T, U>
+    ): Array<U>;
     map<V, T: Object, U>(
       object: ?T,
       iteratee?: OMapIterator<V, T, U>
