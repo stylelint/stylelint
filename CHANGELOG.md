@@ -1,3 +1,7 @@
+# Head
+
+-   Added: `ignoreProperties: []` to `property-no-vendor-prefix` ([#3089](https://github.com/stylelint/stylelint/pull/3089)).
+
 # 8.4.0
 
 -   Added: `except: ["after-closing-brace"]` to `block-closing-brace-empty-line-before` ([#3011](https://github.com/stylelint/stylelint/pull/3011)).
