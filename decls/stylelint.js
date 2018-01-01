@@ -96,6 +96,10 @@ export type stylelint$standaloneReturnValue = {
   results: Array<stylelint$result>,
   errored: boolean,
   output: any,
+  maxWarningsExceeded?: {
+    maxWarnings: number,
+    foundWarnings: number
+  },
   needlessDisables?: stylelint$needlessDisablesReport
 };
 
@@ -112,6 +116,7 @@ export type stylelint$standaloneOptions = {
   ignoreDisables?: boolean,
   ignorePath?: string,
   reportNeedlessDisables?: boolean,
+  maxWarnings?: number,
   syntax?: stylelint$syntaxes,
   customSyntax?: string,
   formatter?: "json" | "string" | "verbose" | Function,
