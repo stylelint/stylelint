@@ -12,20 +12,15 @@ This rule ignores [reference combinators](https://www.w3.org/TR/selectors4/#idre
 
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", "pseudo-elements" or "regex"]|"pseudo-element"|/regex/`
+`array|string|regex`: `["array", "of", "unprefixed", "combinators" or "regex"]|"combinator"|/regex/`
 
 Given:
 
 ```js
-[" ", "/^>/"]
+[">", /\s+/]
 ```
 
 The following patterns are considered violations:
-
-```css
-a
-b {}
-```
 
 ```css
 a + b {}
@@ -38,13 +33,14 @@ a ~ b {}
 The following patterns are *not* considered violations:
 
 ```css
-a b {}
-```
-
-```css
 a > b {}
 ```
 
 ```css
-a >>> b {}
+a b {}
+```
+
+```css
+a
+b {}
 ```
