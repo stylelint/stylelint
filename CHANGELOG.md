@@ -1,6 +1,7 @@
 # Head
 
 -   Added: `ignoreProperties: []` to `property-no-vendor-prefix` ([#3089](https://github.com/stylelint/stylelint/pull/3089)).
+-   Removed: Node.JS 4.x support. Node.js 6.x or greater is now required.
 
 # 8.4.0
 
