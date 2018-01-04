@@ -10,7 +10,9 @@ In addition to these rules there are [plugins](plugins.md), which are rules buil
 
 Here are all the rules within stylelint, grouped first [by category](../../VISION.md) and then by the [*thing*](http://apps.workflower.fi/vocabs/css/en) they apply to.
 
-<!-- TOC -->
+-   [Possible errors](#possible-errors)
+-   [Limit language features](#limit-language-features)
+-   [Stylistic issues](#stylistic-issues)
 
 ### Possible errors
 
