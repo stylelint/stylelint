@@ -8,16 +8,18 @@ Specify a whitelist of allowed combinators.
  * These combinators */
 ```
 
+This rule normalizes the whitespace descendant combinator to be a single space.
+
 This rule ignores [reference combinators](https://www.w3.org/TR/selectors4/#idref-combinators) e.g. `/for/`.
 
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", "combinators" or "regex"]|"combinator"|/regex/`
+`array|string`: `["array", "of", "combinators"]|"combinator"`
 
 Given:
 
 ```js
-[">", /\s+/]
+[">", " "]
 ```
 
 The following patterns are considered violations:
