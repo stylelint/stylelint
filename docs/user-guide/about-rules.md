@@ -4,6 +4,8 @@ We have taken great care to consistently name rules.
 
 The rules have been designed to work in conjunction with one another so that strict conventions can be enforced.
 
+<!-- TOC -->
+
 ## About rule names
 
 -   Made of lowercase words separated by hyphens.

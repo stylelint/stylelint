@@ -8,6 +8,8 @@ stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install 
 npm install -g stylelint
 ```
 
+<!-- TOC -->
+
 ## Usage
 
 `stylelint --help` prints the CLI documentation.
