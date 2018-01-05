@@ -234,6 +234,7 @@ The following patterns are *not* considered violations:
 ```css
 a {
   --foo: pink;
+
   --bar: red;
 }
 ```
