@@ -279,6 +279,7 @@ The following patterns are *not* considered violations:
 ```css
 a {
   bottom: 15px;
+
   top: 5px;
 }
 ```
