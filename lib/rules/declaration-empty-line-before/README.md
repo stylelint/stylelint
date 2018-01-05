@@ -215,7 +215,7 @@ a {
 }
 ```
 
-### `ignore: ["after-comment", "after-declaration", "inside-single-line-block"]`
+### `ignore: ["after-comment", "after-declaration", "first-nested", "inside-single-line-block"]`
 
 #### `"after-comment"`
 
@@ -265,6 +265,22 @@ a {
 
   bottom: 15px;
   top: 15px;
+}
+```
+
+#### `"first-nested"`
+
+Ignore declarations that are nested and the first child of their parent node.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered violations:
+
+```css
+a {
+  bottom: 15px;
+
+  top: 5px;
 }
 ```
 
