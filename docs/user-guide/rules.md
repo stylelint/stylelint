@@ -146,6 +146,8 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`selector-attribute-operator-blacklist`](../../lib/rules/selector-attribute-operator-blacklist/README.md): Specify a blacklist of disallowed attribute operators.
 -   [`selector-attribute-operator-whitelist`](../../lib/rules/selector-attribute-operator-whitelist/README.md): Specify a whitelist of allowed attribute operators.
 -   [`selector-class-pattern`](../../lib/rules/selector-class-pattern/README.md): Specify a pattern for class selectors.
+-   [`selector-combinator-blacklist`](../../lib/rules/selector-combinator-blacklist/README.md): Specify a blacklist of disallowed combinators.
+-   [`selector-combinator-whitelist`](../../lib/rules/selector-combinator-whitelist/README.md): Specify a whitelist of allowed combinators.
 -   [`selector-id-pattern`](../../lib/rules/selector-id-pattern/README.md): Specify a pattern for id selectors.
 -   [`selector-max-attribute`](../../lib/rules/selector-max-attribute/README.md): Limit the number of attribute selectors in a selector.
 -   [`selector-max-class`](../../lib/rules/selector-max-class/README.md): Limit the number of classes in a selector.
