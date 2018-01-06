@@ -107,6 +107,13 @@ Use this report to clean up your codebase, keeping only the stylelint-disable co
 
 *The recommended way to use this option is through the CLI.* It will output a clean report to the console.
 
+### `maxWarnings`
+
+Sets a limit to the number of warnings accepted. Will add a `maxWarningsExceeded` property to the returned data if the number of found warnings exceeds the given limit.  
+The value is an Object (e.g. `{ maxWarnings: 0, foundWarnings: 12 }`).
+
+*The recommended way to use this option is through the CLI.* It will exit with code 2 when `maxWarnings` is exceeded.
+
 ### `ignorePath`
 
 A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](configuration.md#stylelintignore).
