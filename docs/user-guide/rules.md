@@ -161,6 +161,8 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`selector-no-vendor-prefix`](../../lib/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors.
 -   [`selector-pseudo-class-blacklist`](../../lib/rules/selector-pseudo-class-blacklist/README.md): Specify a blacklist of disallowed pseudo-class selectors.
 -   [`selector-pseudo-class-whitelist`](../../lib/rules/selector-pseudo-class-whitelist/README.md): Specify a whitelist of allowed pseudo-class selectors.
+-   [`selector-pseudo-element-blacklist`](../../lib/rules/selector-pseudo-element-blacklist/README.md): Specify a blacklist of disallowed pseudo-element selectors.
+-   [`selector-pseudo-element-whitelist`](../../lib/rules/selector-pseudo-element-whitelist/README.md): Specify a whitelist of allowed pseudo-element selectors.
 
 #### Media feature
 

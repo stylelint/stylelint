@@ -40,7 +40,7 @@ global.testRule = (rule, schema) => {
       describe("accept", () => {
         passingTestCases.forEach(testCase => {
           const spec = testCase.only ? it.only : it;
-          describe(JSON.stringify(schema.config), () => {
+          describe(JSON.stringify(schema.config, replacer), () => {
             describe(JSON.stringify(testCase.code), () => {
               spec(testCase.description || "no description", () => {
                 const options = {
@@ -72,7 +72,7 @@ global.testRule = (rule, schema) => {
       describe("reject", () => {
         schema.reject.forEach(testCase => {
           const spec = testCase.only ? it.only : it;
-          describe(JSON.stringify(schema.config), () => {
+          describe(JSON.stringify(schema.config, replacer), () => {
             describe(JSON.stringify(testCase.code), () => {
               spec(testCase.description || "no description", () => {
                 const options = {
@@ -130,4 +130,8 @@ function getOutputCss(output) {
     return css.replace(/(\n?\s*\/\/.*?)[ \t]*(\r?\n)/g, "$1$2");
   }
   return css;
+}
+
+function replacer(key, value) {
+  return value instanceof RegExp ? `[RegExp] ${value.toString()}` : value;
 }
