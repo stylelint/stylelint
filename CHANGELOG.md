@@ -1,6 +1,7 @@
 # Head
 
--   Removed: Node.JS 4.x support. Node.js 6.x or greater is now required ([#3075](https://github.com/stylelint/stylelint/pull/3075)).
+-   Removed: Node.JS 4.x support. Node.js 6.x or greater is now required ([#3075](https://github.com/stylelint/stylelint/pull/3087)).
+-   Added: `selector-pseudo-element-*list` rules ([#3104](https://github.com/stylelint/stylelint/pull/3087)).
 -   Added: `ignore: ["first-nested"]` to `custom-property-empty-line-before` ([#3104](https://github.com/stylelint/stylelint/pull/3104)).
 -   Added: `ignore: ["first-nested"]` to `declaration-empty-line-before` ([#3103](https://github.com/stylelint/stylelint/pull/3103)).
 -   Added: `ignoreProperties: []` to `property-no-vendor-prefix` ([#3089](https://github.com/stylelint/stylelint/pull/3089)).
