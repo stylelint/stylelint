@@ -6,6 +6,7 @@
 -   Added: `ignore: ["first-nested"]` to `custom-property-empty-line-before` ([#3104](https://github.com/stylelint/stylelint/pull/3104)).
 -   Added: `ignore: ["first-nested"]` to `declaration-empty-line-before` ([#3103](https://github.com/stylelint/stylelint/pull/3103)).
 -   Added: `ignoreProperties: []` to `property-no-vendor-prefix` ([#3089](https://github.com/stylelint/stylelint/pull/3089)).
+-   Added: `selector-combinator-*list rules` ([#3088](https://github.com/stylelint/stylelint/pull/3088)).
 
 # 8.4.0
 
