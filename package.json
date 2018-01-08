@@ -58,7 +58,7 @@
     "micromatch": "^2.3.11",
     "normalize-selector": "^0.2.0",
     "pify": "^3.0.0",
-    "postcss": "^6.0.15",
+    "postcss": "^6.0.16",
     "postcss-html": "^0.12.0",
     "postcss-less": "^1.1.0",
     "postcss-media-query-parser": "^0.2.3",
