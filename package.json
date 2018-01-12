@@ -111,6 +111,7 @@
     "dry-release": "npmpub  --dry --verbose",
     "flow": "flow",
     "jest": "jest",
+    "jest:detectleaks": "jest  --detectLeaks",
     "lint:js": "eslint . --cache",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
