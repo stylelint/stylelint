@@ -84,6 +84,22 @@ export type stylelint$result = {
   _postcssResult?: Object
 };
 
+export type stylelint$cssSyntaxError = {
+  column: number,
+  file?: string,
+  input: {
+    column: number,
+    file?: string,
+    line: number,
+    source: string
+  },
+  line: number,
+  message: string,
+  name: string,
+  reason: string,
+  source: string
+};
+
 export type stylelint$needlessDisablesReport = Array<{
   source: string,
   ranges: Array<{
