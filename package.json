@@ -103,7 +103,8 @@
     "remark-validate-links": "^7.0.0",
     "request": "^2.81.0",
     "signal-exit": "^3.0.2",
-    "strip-ansi": "^4.0.0"
+    "strip-ansi": "^4.0.0",
+    "weak": "^1.0.1"
   },
   "scripts": {
     "precommit": "lint-staged",
@@ -111,6 +112,7 @@
     "dry-release": "npmpub  --dry --verbose",
     "flow": "flow",
     "jest": "jest",
+    "jest:detectleaks": "jest  --detectLeaks",
     "lint:js": "eslint . --cache",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
