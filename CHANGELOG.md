@@ -7,6 +7,7 @@
 -   Added: `ignore: ["first-nested"]` to `declaration-empty-line-before` ([#3103](https://github.com/stylelint/stylelint/pull/3103)).
 -   Added: `ignoreProperties: []` to `property-no-vendor-prefix` ([#3089](https://github.com/stylelint/stylelint/pull/3089)).
 -   Added: `selector-combinator-*list rules` ([#3088](https://github.com/stylelint/stylelint/pull/3088)).
+-   Added: Errors will be thrown in the case of a CSS syntax error ([#3063](https://github.com/stylelint/stylelint/pull/3063)).
 
 # 8.4.0
 
