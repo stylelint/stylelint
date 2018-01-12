@@ -1,4 +1,4 @@
-// https://raw.githubusercontent.com/flowtype/flow-typed/master/definitions/npm/jest_v21.x.x/flow_v0.39.x-/jest_v21.x.x.js
+// https://github.com/flowtype/flow-typed/blob/master/definitions/npm/jest_v22.x.x/flow_v0.39.x-/jest_v22.x.x.js
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
   /**
@@ -308,6 +308,10 @@ type JestObjectType = {
    * mocked function.
    */
   resetAllMocks(): JestObjectType,
+  /**
+   * Restores all mocks back to their original value.
+   */
+  restoreAllMocks(): JestObjectType,
   /**
    * Removes any pending timers from the timer system.
    */
