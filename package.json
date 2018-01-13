@@ -169,7 +169,7 @@
     "testRegex": ".*\\.test\\.js$|rules/.*/__tests__/.*\\.js$"
   },
   "greenkeeper": {
-    "label": "PR: review needed",
+    "label": "PR: greenkeeper",
     "ignore": [
       "micromatch"
     ]
