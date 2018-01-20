@@ -38,3 +38,23 @@ columns: 2; }
 ```css
 a { -webkit-touch-callout: none; }
 ```
+
+## Optional secondary options
+
+### `ignoreProperties: ["/regex/", "string"]`
+
+Given:
+
+```js
+["transform", "columns"]
+```
+
+The following patterns are *not* considered violations:
+
+```css
+a { -webkit-transform: scale(1); }
+```
+
+```css
+a { -moz-columns: 2; }
+```

@@ -206,7 +206,7 @@ a {
 }
 ```
 
-### `ignore: ["after-comment", "inside-single-line-block"]`
+### `ignore: ["after-comment", "first-nested", "inside-single-line-block"]`
 
 #### `"after-comment"`
 
@@ -220,6 +220,22 @@ The following patterns are *not* considered violations:
 a {
   /* comment */
   --foo: pink;
+}
+```
+
+#### `"first-nested"`
+
+Ignore custom properties that are nested and the first child of their parent node.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered violations:
+
+```css
+a {
+  --foo: pink;
+
+  --bar: red;
 }
 ```
 

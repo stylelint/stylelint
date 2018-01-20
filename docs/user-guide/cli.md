@@ -8,6 +8,8 @@ stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install 
 npm install -g stylelint
 ```
 
+<!-- TOC -->
+
 ## Usage
 
 `stylelint --help` prints the CLI documentation.
@@ -22,6 +24,12 @@ Looking for `.stylelintrc` and linting all `.css` files in the `foo` directory:
 
 ```shell
 stylelint "foo/*.css"
+```
+
+Looking for `.stylelintrc` and linting all `<style>` blocks within the `.html` files in the `bar` directory:
+
+```shell
+stylelint "bar/*.html"
 ```
 
 Looking for `.stylelintrc` and linting `stdin`:
@@ -42,25 +50,29 @@ Using `bar/mySpecialConfig.json` as config, with quiet mode on, to lint all `.cs
 stylelint "foo/**/*.css bar/*.css" -q -f json --config bar/mySpecialConfig.json > myJsonReport.json
 ```
 
-Caching processed `.scss` files in order to operate only on changed ones in the `foo` directory, using the `cache` and `cache-location` options:
-
-```shell
-stylelint "foo/**/*.scss" --cache --cache-location "/Users/user/.stylelintcache/"
-```
-
-Linting all the `.scss` files in the `foo` directory, using the `syntax` option:
-
-```shell
-stylelint "foo/**/*.scss" --syntax scss
-```
-
 Linting all `.css` files except those within `docker` subfolders, using negation in the input glob:
 
 ```shell
 stylelint "**/*.css, !**/docker/**"
 ```
 
-In addition to `--syntax scss`, stylelint supports `--syntax less` and `--syntax sugarss` by default. If you're using one of the default syntaxes, you may not need to provide a `--syntax` option: non-standard syntaxes can be automatically inferred from the following file extensions: `.less`, `.scss`, and `.sss`.
+Caching processed `.scss` files in order to operate only on changed ones in the `foo` directory, using the `cache` and `cache-location` options:
+
+```shell
+stylelint "foo/**/*.scss" --cache --cache-location "/Users/user/.stylelintcache/"
+```
+
+Linting all the `.css` files in the `foo` directory, using the `syntax` option:
+
+```shell
+stylelint "foo/**/*.css" --syntax scss
+```
+
+In addition to `--syntax scss`, stylelint supports `--syntax less` and `--syntax sugarss` by default. If you're using one of the default syntaxes, you may not need to provide a `--syntax` option as non-standard syntaxes can be automatically inferred from the following:
+
+-   The following file extensions: `.less`, `.scss`, and `.sss`.
+-   The following values for the `lang` or `type` attribute on `<style>` tags (e.g. `lang="scss"`, `type="text/scss"`): `scss`, `less` and `sugarss`.
+-   The following Markdown code fencing markers (e.g. ```` ```scss ````): `scss`, `less` and `sugarss`.
 
 Additionally, stylelint can accept a custom [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). To use a custom syntax, supply a syntax module name or path to the syntax file: `--custom-syntax custom-syntax` or `--custom-syntax ./path/to/custom-syntax`.
 

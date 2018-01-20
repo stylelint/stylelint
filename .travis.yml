@@ -22,15 +22,14 @@ matrix:
       script: npm run pretest
       env: CI=pretest
     - node_js: '8'
-      script: npm run jest -- --runInBand  --coverage
+      script: npm run jest -- --maxWorkers=2 --coverage
       env: CI=coverage
+    - node_js: '9'
+      script: npm run jest -- --maxWorkers=2
+      env: CI=tests 9
     - node_js: '6'
-      script: npm run jest -- --runInBand
+      script: npm run jest -- --maxWorkers=2
       env: CI=tests 6
-    - node_js: '4'
-      script: npm run jest -- --runInBand
-      env: CI=tests 4
-      sudo: required
 
 before_install:
   - npm install -g npm@latest

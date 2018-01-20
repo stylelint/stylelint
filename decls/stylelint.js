@@ -84,6 +84,22 @@ export type stylelint$result = {
   _postcssResult?: Object
 };
 
+export type stylelint$cssSyntaxError = {
+  column: number,
+  file?: string,
+  input: {
+    column: number,
+    file?: string,
+    line: number,
+    source: string
+  },
+  line: number,
+  message: string,
+  name: string,
+  reason: string,
+  source: string
+};
+
 export type stylelint$needlessDisablesReport = Array<{
   source: string,
   ranges: Array<{
@@ -96,6 +112,10 @@ export type stylelint$standaloneReturnValue = {
   results: Array<stylelint$result>,
   errored: boolean,
   output: any,
+  maxWarningsExceeded?: {
+    maxWarnings: number,
+    foundWarnings: number
+  },
   needlessDisables?: stylelint$needlessDisablesReport
 };
 
@@ -112,6 +132,7 @@ export type stylelint$standaloneOptions = {
   ignoreDisables?: boolean,
   ignorePath?: string,
   reportNeedlessDisables?: boolean,
+  maxWarnings?: number,
   syntax?: stylelint$syntaxes,
   customSyntax?: string,
   formatter?: "json" | "string" | "verbose" | Function,

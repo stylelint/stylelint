@@ -10,6 +10,8 @@ If you like stylelint and open source software (since you're reading this, you a
 
 Also: we hope that your participation in the project isn't a one-off. *We'd love to add more members to the organization and see more regulars pop up in issues and pull requests!*
 
+<!-- TOC -->
+
 ## Creating a new rule
 
 First, open [an issue](https://github.com/stylelint/stylelint/issues/new) with your idea for the new rule.

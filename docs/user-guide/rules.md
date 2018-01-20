@@ -10,6 +10,10 @@ In addition to these rules there are [plugins](plugins.md), which are rules buil
 
 Here are all the rules within stylelint, grouped first [by category](../../VISION.md) and then by the [*thing*](http://apps.workflower.fi/vocabs/css/en) they apply to.
 
+-   [Possible errors](#possible-errors)
+-   [Limit language features](#limit-language-features)
+-   [Stylistic issues](#stylistic-issues)
+
 ### Possible errors
 
 #### Color
@@ -34,10 +38,6 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 -   [`unit-no-unknown`](../../lib/rules/unit-no-unknown/README.md): Disallow unknown units.
 
-#### Shorthand property
-
--   [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values in shorthand properties (Autofixable).
-
 #### Property
 
 -   [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md): Disallow unknown properties.
@@ -49,7 +49,6 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### Declaration block
 
 -   [`declaration-block-no-duplicate-properties`](../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks.
--   [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow longhand properties that can be combined into one shorthand property.
 -   [`declaration-block-no-shorthand-property-overrides`](../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties within declaration blocks.
 
 #### Block
@@ -77,11 +76,11 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### General / Sheet
 
 -   [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
+-   [`no-duplicate-at-import-rules`](../../lib/rules/no-duplicate-at-import-rules/README.md): Disallow duplicate `@import` rules within a stylesheet.
 -   [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 -   [`no-empty-source`](../../lib/rules/no-empty-source/README.md): Disallow empty sources.
 -   [`no-extra-semicolons`](../../lib/rules/no-extra-semicolons/README.md): Disallow extra semicolons.
 -   [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
--   [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
 
 ### Limit language features
 
@@ -111,6 +110,10 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`unit-blacklist`](../../lib/rules/unit-blacklist/README.md): Specify a blacklist of disallowed units.
 -   [`unit-whitelist`](../../lib/rules/unit-whitelist/README.md): Specify a whitelist of allowed units.
 
+#### Shorthand property
+
+-   [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values in shorthand properties (Autofixable).
+
 #### Value
 
 -   [`value-no-vendor-prefix`](../../lib/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values.
@@ -127,6 +130,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Declaration
 
+-   [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow longhand properties that can be combined into one shorthand property.
 -   [`declaration-no-important`](../../lib/rules/declaration-no-important/README.md): Disallow `!important` within declarations.
 -   [`declaration-property-unit-blacklist`](../../lib/rules/declaration-property-unit-blacklist/README.md): Specify a blacklist of disallowed property and unit pairs within declarations.
 -   [`declaration-property-unit-whitelist`](../../lib/rules/declaration-property-unit-whitelist/README.md): Specify a whitelist of allowed property and unit pairs within declarations.
@@ -142,6 +146,8 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`selector-attribute-operator-blacklist`](../../lib/rules/selector-attribute-operator-blacklist/README.md): Specify a blacklist of disallowed attribute operators.
 -   [`selector-attribute-operator-whitelist`](../../lib/rules/selector-attribute-operator-whitelist/README.md): Specify a whitelist of allowed attribute operators.
 -   [`selector-class-pattern`](../../lib/rules/selector-class-pattern/README.md): Specify a pattern for class selectors.
+-   [`selector-combinator-blacklist`](../../lib/rules/selector-combinator-blacklist/README.md): Specify a blacklist of disallowed combinators.
+-   [`selector-combinator-whitelist`](../../lib/rules/selector-combinator-whitelist/README.md): Specify a whitelist of allowed combinators.
 -   [`selector-id-pattern`](../../lib/rules/selector-id-pattern/README.md): Specify a pattern for id selectors.
 -   [`selector-max-attribute`](../../lib/rules/selector-max-attribute/README.md): Limit the number of attribute selectors in a selector.
 -   [`selector-max-class`](../../lib/rules/selector-max-class/README.md): Limit the number of classes in a selector.
@@ -157,6 +163,8 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`selector-no-vendor-prefix`](../../lib/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors.
 -   [`selector-pseudo-class-blacklist`](../../lib/rules/selector-pseudo-class-blacklist/README.md): Specify a blacklist of disallowed pseudo-class selectors.
 -   [`selector-pseudo-class-whitelist`](../../lib/rules/selector-pseudo-class-whitelist/README.md): Specify a whitelist of allowed pseudo-class selectors.
+-   [`selector-pseudo-element-blacklist`](../../lib/rules/selector-pseudo-element-blacklist/README.md): Specify a blacklist of disallowed pseudo-element selectors.
+-   [`selector-pseudo-element-whitelist`](../../lib/rules/selector-pseudo-element-whitelist/README.md): Specify a whitelist of allowed pseudo-element selectors.
 
 #### Media feature
 
@@ -181,6 +189,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### General / Sheet
 
 -   [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md): Limit the depth of nesting.
+-   [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
 
 ### Stylistic issues
 

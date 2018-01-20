@@ -29,10 +29,6 @@ Given:
 The following patterns are considered violations:
 
 ```css
-a { background-image: url('http://www.example.com/file.jpg'); }
-```
-
-```css
 a { background-image: url('file://file.jpg'); }
 ```
 
