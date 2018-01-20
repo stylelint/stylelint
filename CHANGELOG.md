@@ -8,6 +8,7 @@
 -   Added: `ignoreProperties: []` to `property-no-vendor-prefix` ([#3089](https://github.com/stylelint/stylelint/pull/3089)).
 -   Added: `selector-combinator-*list rules` ([#3088](https://github.com/stylelint/stylelint/pull/3088)).
 -   Added: Errors will be thrown in the case of a CSS syntax error ([#3063](https://github.com/stylelint/stylelint/pull/3063)).
+-   Added: (experimental) support for [SASS](http://sass-lang.com/) syntax ([#2503](https://github.com/stylelint/stylelint/pull/2503)).
 
 # 8.4.0
 
