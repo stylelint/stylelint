@@ -40,7 +40,7 @@
     "autoprefixer": "^7.1.2",
     "balanced-match": "^1.0.0",
     "chalk": "^2.0.1",
-    "cosmiconfig": "^3.1.0",
+    "cosmiconfig": "^4.0.0",
     "debug": "^3.0.0",
     "execall": "^1.0.0",
     "file-entry-cache": "^2.0.0",
@@ -57,6 +57,7 @@
     "meow": "^4.0.0",
     "micromatch": "^2.3.11",
     "normalize-selector": "^0.2.0",
+    "opencollective": "^1.0.3",
     "pify": "^3.0.0",
     "postcss": "^6.0.16",
     "postcss-html": "^0.12.0",
@@ -65,7 +66,7 @@
     "postcss-reporter": "^5.0.0",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^3.0.1",
-    "postcss-sass": "^0.2.0",
+    "postcss-sass": "^0.3.0",
     "postcss-scss": "^1.0.2",
     "postcss-selector-parser": "^3.1.0",
     "postcss-value-parser": "^3.3.0",
@@ -84,7 +85,7 @@
     "cp-file": "^5.0.0",
     "d3-queue": "^3.0.7",
     "del": "^3.0.0",
-    "eslint": "~4.15.0",
+    "eslint": "~4.16.0",
     "eslint-config-stylelint": "~8.1.0",
     "file-exists-promise": "^1.0.2",
     "flow-bin": "^0.63.1",
@@ -95,14 +96,15 @@
     "npmpub": "^3.1.0",
     "postcss-import": "^11.0.0",
     "prettier": "~1.10.0",
-    "remark-cli": "^4.0.0",
+    "remark-cli": "^5.0.0",
     "remark-lint-no-missing-blank-lines": "^1.0.1",
     "remark-preset-lint-consistent": "^2.0.0",
     "remark-preset-lint-recommended": "^3.0.0",
     "remark-validate-links": "^7.0.0",
     "request": "^2.81.0",
     "signal-exit": "^3.0.2",
-    "strip-ansi": "^4.0.0"
+    "strip-ansi": "^4.0.0",
+    "weak": "^1.0.1"
   },
   "scripts": {
     "precommit": "lint-staged",
@@ -110,6 +112,7 @@
     "dry-release": "npmpub  --dry --verbose",
     "flow": "flow",
     "jest": "jest",
+    "jest:detectleaks": "jest  --detectLeaks",
     "lint:js": "eslint . --cache",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
@@ -118,7 +121,8 @@
     "prettier:fix": "prettier '**/*.js' --write",
     "release": "npmpub",
     "test": "jest --coverage",
-    "watch": "jest --watch"
+    "watch": "jest --watch",
+    "postinstall": "opencollective postinstall"
   },
   "lint-staged": {
     "*.js": [
@@ -165,7 +169,7 @@
     "testRegex": ".*\\.test\\.js$|rules/.*/__tests__/.*\\.js$"
   },
   "greenkeeper": {
-    "label": "PR: review needed",
+    "label": "PR: greenkeeper",
     "ignore": [
       "micromatch"
     ]
@@ -187,5 +191,10 @@
         }
       ]
     ]
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/stylelint",
+    "logo": "https://opencollective.com/opencollective/logo.txt"
   }
 }
