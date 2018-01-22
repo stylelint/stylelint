@@ -11401,7 +11401,7 @@ Array [
         "line": 135,
         "rule": "media-feature-name-no-vendor-prefix",
         "severity": "error",
-        "text": "Unexpected vendor-prefix (media-feature-name-no-vendor-prefix)",
+        "text": "Unexpected vendor-prefix \\"-webkit-min-device-pixel-ratio\\" (media-feature-name-no-vendor-prefix)",
       },
       Object {
         "column": 9,
