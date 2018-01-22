@@ -109,7 +109,7 @@ Use this report to clean up your codebase, keeping only the stylelint-disable co
 
 ### `maxWarnings`
 
-Sets a limit to the number of warnings accepted. Will add a `maxWarningsExceeded` property to the returned data if the number of found warnings exceeds the given limit.  
+Sets a limit to the number of warnings accepted. Will add a `maxWarningsExceeded` property to the returned data if the number of found warnings exceeds the given limit.
 The value is an Object (e.g. `{ maxWarnings: 0, foundWarnings: 12 }`).
 
 *The recommended way to use this option is through the CLI.* It will exit with code 2 when `maxWarnings` is exceeded.
@@ -120,11 +120,11 @@ A path to a file containing patterns describing files to ignore. The path can be
 
 ### `syntax`
 
-Options: `"scss"|"less"|"sugarss"`
+Options: `"sass"|"scss"|"less"|"sugarss"`
 
 Specify a non-standard syntax that should be used to parse source stylesheets.
 
-If you do not specify a syntax, non-standard syntaxes will be automatically inferred by the file extensions `.scss`, `.less`, and `.sss`.
+If you do not specify a syntax, non-standard syntaxes will be automatically inferred by the file extensions `.sass`, `.scss`, `.less`, and `.sss`.
 
 See the [`customSyntax`](#customsyntax) option below if you would like to use stylelint with a custom syntax.
 

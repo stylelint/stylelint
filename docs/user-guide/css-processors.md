@@ -13,6 +13,7 @@ You can run the linter before or after your css processors. Depending on which p
 
 By default, the linter can *parse* any the following non-standard syntaxes by using special PostCSS parsers:
 
+-   Sass (using [`postcss-sass`](https://github.com/AleshaOleg/postcss-sass))
 -   SCSS (using [`postcss-scss`](https://github.com/postcss/postcss-scss))
 -   Less (using [`postcss-less`](https://github.com/shellscape/postcss-less))
 -   SugarSS (using [`sugarss`](https://github.com/postcss/sugarss))

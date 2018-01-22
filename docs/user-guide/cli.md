@@ -68,9 +68,9 @@ Linting all the `.css` files in the `foo` directory, using the `syntax` option:
 stylelint "foo/**/*.css" --syntax scss
 ```
 
-In addition to `--syntax scss`, stylelint supports `--syntax less` and `--syntax sugarss` by default. If you're using one of the default syntaxes, you may not need to provide a `--syntax` option as non-standard syntaxes can be automatically inferred from the following:
+In addition to `--syntax scss`, stylelint supports `--syntax sass`, `--syntax less`, and `--syntax sugarss` by default. If you're using one of the default syntaxes, you may not need to provide a `--syntax` option as non-standard syntaxes can be automatically inferred from the following:
 
--   The following file extensions: `.less`, `.scss`, and `.sss`.
+-   The following file extensions: `.sass`, `.scss`, `.less`, and `.sss`.
 -   The following values for the `lang` or `type` attribute on `<style>` tags (e.g. `lang="scss"`, `type="text/scss"`): `scss`, `less` and `sugarss`.
 -   The following Markdown code fencing markers (e.g. ```` ```scss ````): `scss`, `less` and `sugarss`.
 
