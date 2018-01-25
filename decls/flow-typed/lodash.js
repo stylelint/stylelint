@@ -1,4 +1,4 @@
-// https://raw.githubusercontent.com/flowtype/flow-typed/master/definitions/npm/lodash_v4.x.x/flow_v0.55.x-/lodash_v4.x.x.js
+// https://raw.githubusercontent.com/flowtype/flow-typed/master/definitions/npm/lodash_v4.x.x/flow_v0.63.x-/lodash_v4.x.x.js
 declare module "lodash" {
   declare type __CurriedFunction1<A, R, AA: A> = (...r: [AA]) => R;
   declare type CurriedFunction1<A, R> = __CurriedFunction1<A, R, *>;
@@ -213,15 +213,18 @@ declare module "lodash" {
     chunk<T>(array?: ?Array<T>, size?: ?number): Array<Array<T>>;
     compact<T, N: ?T>(array?: ?Array<N>): Array<T>;
     concat<T>(base?: ?Array<T>, ...elements: Array<any>): Array<T | any>;
-    difference<T>(array?: ?Array<T>, values?: ?Array<T>): Array<T>;
+    difference<T>(
+      array?: ?$ReadOnlyArray<T>,
+      values?: ?$ReadOnlyArray<T>
+    ): Array<T>;
     differenceBy<T>(
-      array?: ?Array<T>,
-      values?: ?Array<T>,
+      array?: ?$ReadOnlyArray<T>,
+      values?: ?$ReadOnlyArray<T>,
       iteratee?: ?ValueOnlyIteratee<T>
     ): T[];
     differenceWith<T>(
-      array?: ?(T[]),
-      values?: ?(T[]),
+      array?: ?$ReadOnlyArray<T>,
+      values?: ?$ReadOnlyArray<T>,
       comparator?: ?Comparator<T>
     ): T[];
     drop<T>(array?: ?Array<T>, n?: ?number): Array<T>;
@@ -751,8 +754,8 @@ declare module "lodash" {
     curry(func: Function, arity?: number): Function;
     curryRight(func: Function, arity?: number): Function;
     debounce<F: Function>(func: F, wait?: number, options?: DebounceOptions): F;
-    defer(func: Function, ...args?: Array<any>): number;
-    delay(func: Function, wait: number, ...args?: Array<any>): number;
+    defer(func: Function, ...args?: Array<any>): TimeoutID;
+    delay(func: Function, wait: number, ...args?: Array<any>): TimeoutID;
     flip(func: Function): Function;
     memoize<F: Function>(func: F, resolver?: Function): F;
     negate(predicate: Function): Function;
@@ -2317,9 +2320,9 @@ declare module "lodash/fp" {
     curryRightN(arity: number, func: Function): Function;
     debounce(wait: number): <F: Function>(func: F) => F;
     debounce<F: Function>(wait: number, func: F): F;
-    defer(func: Function): number;
-    delay(wait: number): (func: Function) => number;
-    delay(wait: number, func: Function): number;
+    defer(func: Function): TimeoutID;
+    delay(wait: number): (func: Function) => TimeoutID;
+    delay(wait: number, func: Function): TimeoutID;
     flip(func: Function): Function;
     memoize<F: Function>(func: F): F;
     negate(predicate: Function): Function;
