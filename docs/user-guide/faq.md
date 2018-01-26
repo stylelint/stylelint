@@ -45,7 +45,7 @@ The stylelint community also maintains a [handful of plugins](complementary-tool
 
 ## How do I lint SCSS, Less, or other non-standard syntax?
 
-stylelint can *parse* any the following non-standard syntaxes by default: SCSS, Less and SugarSS. Non-standard syntaxes can automatically be inferred from the following file extensions `.scss`, `.less`, and `.sss`; or else you can specify the syntax yourself.
+stylelint can *parse* any the following non-standard syntaxes by default: Sass, Less and SugarSS. Non-standard syntaxes can automatically be inferred from the following file extensions `.sass`, `.scss`, `.less`, and `.sss`; or else you can specify the syntax yourself.
 
 Additionally, stylelint can accept any [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes) when using the CLI or Node API. Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed above.
 
