@@ -111,6 +111,7 @@
     "benchmark-rule": "node scripts/benchmark-rule.js",
     "dry-release": "npmpub  --dry --verbose",
     "flow": "flow",
+    "flow-defs": "npx flow-typed --libdefDir decls/ install jest@22 lodash@4 && mv -fv decls/npm/lodash_v4.x.x.js decls/flow-typed/lodash.js && mv -fv decls/npm/jest_v22.x.x.js decls/flow-typed/jest.js",
     "jest": "jest",
     "jest:detectleaks": "jest  --detectLeaks",
     "lint:js": "eslint . --cache",
