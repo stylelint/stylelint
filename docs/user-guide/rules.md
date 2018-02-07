@@ -210,7 +210,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Font weight
 
--   [`font-weight-notation`](../../lib/rules/font-weight-notation/README.md): Require numeric or named (where possible) `font-weight` values.
+-   [`font-weight-notation`](../../lib/rules/font-weight-notation/README.md): Require numeric or named (where possible) `font-weight` values (Autofixable).
 
 #### Function
 
