@@ -1,4 +1,6 @@
-// https://github.com/flowtype/flow-typed/blob/master/definitions/npm/jest_v22.x.x/flow_v0.39.x-/jest_v22.x.x.js
+// flow-typed signature: 6e1fc0a644aa956f79029fec0709e597
+// flow-typed version: 07ebad4796/jest_v22.x.x/flow_>=v0.39.x
+
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
   /**
