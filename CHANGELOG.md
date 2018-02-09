@@ -10,7 +10,7 @@
 -   Added: Errors will be thrown in the case of a CSS syntax error ([#3063](https://github.com/stylelint/stylelint/pull/3063)).
 -   Added: (experimental) support for [SASS](http://sass-lang.com/) syntax ([#2503](https://github.com/stylelint/stylelint/pull/2503)).
 -   Fixed: Increased unicode range in `font-family-name-quotes` ([#2974](https://github.com/stylelint/stylelint/pull/2974)).
--   Fixed: selector-max-id in nested at-statements ([#3113](https://github.com/stylelint/stylelint/pull/3113)).
+-   Fixed: `selector-max-id` in nested at-statements ([#3113](https://github.com/stylelint/stylelint/pull/3113)).
 
 # 8.4.0
 
