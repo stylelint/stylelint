@@ -1,15 +1,15 @@
 # Head
 
 -   Removed: Node.JS 4.x support. Node.js 6.x or greater is now required ([#3075](https://github.com/stylelint/stylelint/pull/3087)).
+-   Added: (experimental) support for [SASS](http://sass-lang.com/) syntax ([#2503](https://github.com/stylelint/stylelint/pull/2503)).
+-   Added: allow processors to handle PostCSS errors ([#3063](https://github.com/stylelint/stylelint/pull/3063)).
 -   Added: `--max-warnings` CLI flag ([#2942](https://github.com/stylelint/stylelint/pull/2942)).
+-   Added: `selector-combinator-*list` rules ([#3088](https://github.com/stylelint/stylelint/pull/3088)).
 -   Added: `selector-pseudo-element-*list` rules ([#3104](https://github.com/stylelint/stylelint/pull/3087)).
 -   Added: `ignore: ["first-nested"]` to `custom-property-empty-line-before` ([#3104](https://github.com/stylelint/stylelint/pull/3104)).
 -   Added: `ignore: ["first-nested"]` to `declaration-empty-line-before` ([#3103](https://github.com/stylelint/stylelint/pull/3103)).
 -   Added: `ignoreProperties: []` to `property-no-vendor-prefix` ([#3089](https://github.com/stylelint/stylelint/pull/3089)).
--   Added: `selector-combinator-*list rules` ([#3088](https://github.com/stylelint/stylelint/pull/3088)).
--   Added: Errors will be thrown in the case of a CSS syntax error ([#3063](https://github.com/stylelint/stylelint/pull/3063)).
--   Added: (experimental) support for [SASS](http://sass-lang.com/) syntax ([#2503](https://github.com/stylelint/stylelint/pull/2503)).
--   Fixed: Increased unicode range in `font-family-name-quotes` ([#2974](https://github.com/stylelint/stylelint/pull/2974)).
+-   Fixed: `font-family-name-quotes` unicode range increased ([#2974](https://github.com/stylelint/stylelint/pull/2974)).
 -   Fixed: `selector-max-id` in nested at-statements ([#3113](https://github.com/stylelint/stylelint/pull/3113)).
 
 # 8.4.0
