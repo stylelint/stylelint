@@ -107,7 +107,7 @@ According to our policy, any minor update may report more errors than the previo
 ## Contributors
 
 This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
-<a href="graphs/contributors"><img src="https://opencollective.com/stylelint/contributors.svg?width=890" /></a>
+<a href="https://github.com/stylelint/stylelint/graphs/contributors"><img src="https://opencollective.com/stylelint/contributors.svg?width=890" /></a>
 
 
 ## Backers
