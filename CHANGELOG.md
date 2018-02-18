@@ -1,4 +1,4 @@
-# Head
+# 9.0.0
 
 -   Removed: Node.JS 4.x support. Node.js 6.x or greater is now required ([#3075](https://github.com/stylelint/stylelint/pull/3087)).
 -   Added: (experimental) support for [SASS](http://sass-lang.com/) syntax ([#2503](https://github.com/stylelint/stylelint/pull/2503)).
