@@ -242,7 +242,7 @@ b {
 }
 ```
 
-### `ignore: ["after-comment", "inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless"]`
+### `ignore: ["after-comment", "first-nested", "inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless"]`
 
 #### `"after-comment"`
 
@@ -267,6 +267,22 @@ The following patterns are *not* considered violations:
 @media {} /* comment */
 
 @media {}
+```
+
+#### `"first-nested"`
+
+Ignore at-rules that are nested and the first child of their parent node.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered violations:
+
+```css
+@supports {
+  @media {}
+
+  @media {}
+}
 ```
 
 #### `"inside-block"`
