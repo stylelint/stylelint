@@ -1,3 +1,9 @@
+# Head
+
+-   Added: `ignore: ["first-nested"]` to `at-rule-empty-line-before` ([#3179](https://github.com/stylelint/stylelint/pull/3179)).
+-   Added: `ignore: ["first-nested"]` to `rule-empty-line-before` ([#3179](https://github.com/stylelint/stylelint/pull/3179)).
+-   Fixed: unnecessary Open Collective postinstall message ([#3180](https://github.com/stylelint/stylelint/pull/3180)).
+
 # 9.0.0
 
 -   Removed: Node.JS 4.x support. Node.js 6.x or greater is now required ([#3075](https://github.com/stylelint/stylelint/pull/3087)).
