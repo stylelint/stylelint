@@ -58,7 +58,6 @@
     "meow": "^4.0.0",
     "micromatch": "^2.3.11",
     "normalize-selector": "^0.2.0",
-    "opencollective": "^1.0.3",
     "pify": "^3.0.0",
     "postcss": "^6.0.16",
     "postcss-html": "^0.12.0",
@@ -123,8 +122,7 @@
     "prettier:fix": "prettier '**/*.js' --write",
     "release": "npmpub",
     "test": "jest --coverage",
-    "watch": "jest --watch",
-    "postinstall": "opencollective postinstall"
+    "watch": "jest --watch"
   },
   "lint-staged": {
     "*.js": [
@@ -193,10 +191,5 @@
         }
       ]
     ]
-  },
-  "collective": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/stylelint",
-    "logo": "https://opencollective.com/opencollective/logo.txt"
   }
 }
