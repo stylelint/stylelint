@@ -201,7 +201,7 @@ The following patterns are considered violations:
 ```scss
 a {
   color: red;
-  
+
   b {
     color: blue;
   }
@@ -247,7 +247,7 @@ The following patterns are *not* considered violations:
 }
 ```
 
-### `ignore: ["after-comment", "inside-block"]`
+### `ignore: ["after-comment", "first-nested", "inside-block"]`
 
 #### `"after-comment"`
 
@@ -260,6 +260,22 @@ The following patterns are *not* considered violations:
 ```css
 /* comment */
 a {}
+```
+
+#### `"after-comment"`
+
+Ignore rules that are nested and the first child of their parent node.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered violations:
+
+```css
+@media {
+  a {}
+
+  b {}
+}
 ```
 
 #### `"inside-block"`
