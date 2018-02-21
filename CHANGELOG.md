@@ -1,4 +1,4 @@
-# Head
+# 9.1.0
 
 -   Added: `ignore: ["first-nested"]` to `at-rule-empty-line-before` ([#3179](https://github.com/stylelint/stylelint/pull/3179)).
 -   Added: `ignore: ["first-nested"]` to `rule-empty-line-before` ([#3179](https://github.com/stylelint/stylelint/pull/3179)).
