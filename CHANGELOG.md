@@ -1,4 +1,4 @@
-# Head
+# 9.1.1
 
 -   Fixed: missing `signal-exit` dependency ([#3186](https://github.com/stylelint/stylelint/pull/3186)).
 
