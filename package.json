@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "8.4.0",
+  "version": "9.1.1",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css",
@@ -39,7 +39,7 @@
     "node": ">=6"
   },
   "dependencies": {
-    "autoprefixer": "^7.1.2",
+    "autoprefixer": "^8.0.0",
     "balanced-match": "^1.0.0",
     "chalk": "^2.0.1",
     "cosmiconfig": "^4.0.0",
@@ -59,7 +59,6 @@
     "meow": "^4.0.0",
     "micromatch": "^2.3.11",
     "normalize-selector": "^0.2.0",
-    "opencollective": "^1.0.3",
     "pify": "^3.0.0",
     "postcss": "^6.0.16",
     "postcss-html": "^0.12.0",
@@ -73,6 +72,7 @@
     "postcss-selector-parser": "^3.1.0",
     "postcss-value-parser": "^3.3.0",
     "resolve-from": "^4.0.0",
+    "signal-exit": "^3.0.2",
     "specificity": "^0.3.1",
     "string-width": "^2.1.0",
     "style-search": "^0.1.0",
@@ -87,25 +87,24 @@
     "cp-file": "^5.0.0",
     "d3-queue": "^3.0.7",
     "del": "^3.0.0",
-    "eslint": "~4.17.0",
+    "eslint": "~4.18.0",
     "eslint-config-stylelint": "~8.1.0",
     "file-exists-promise": "^1.0.2",
-    "flow-bin": "^0.65.0",
+    "flow-bin": "^0.66.0",
     "flow-typed": "^2.3.0",
     "husky": "^0.14.3",
     "jest": "^22.0.6",
-    "lint-staged": "^6.0.0",
+    "lint-staged": "^7.0.0",
     "npm-run-all": "^4.0.2",
     "npmpub": "^3.1.0",
     "postcss-import": "^11.0.0",
-    "prettier": "~1.10.0",
+    "prettier": "~1.11.0",
     "remark-cli": "^5.0.0",
     "remark-lint-no-missing-blank-lines": "^1.0.1",
     "remark-preset-lint-consistent": "^2.0.0",
     "remark-preset-lint-recommended": "^3.0.0",
     "remark-validate-links": "^7.0.0",
     "request": "^2.81.0",
-    "signal-exit": "^3.0.2",
     "strip-ansi": "^4.0.0",
     "weak": "^1.0.1"
   },
@@ -125,12 +124,11 @@
     "prettier:fix": "prettier '**/*.js' --write",
     "release": "npmpub",
     "test": "jest --coverage",
-    "watch": "jest --watch",
-    "postinstall": "opencollective postinstall"
+    "watch": "jest --watch"
   },
   "lint-staged": {
     "*.js": [
-      "prettier --write",
+      "npm run prettier --write",
       "git add"
     ]
   },
@@ -173,7 +171,6 @@
     "testRegex": ".*\\.test\\.js$|rules/.*/__tests__/.*\\.js$"
   },
   "greenkeeper": {
-    "label": "PR: greenkeeper",
     "ignore": [
       "micromatch"
     ]
@@ -195,10 +192,5 @@
         }
       ]
     ]
-  },
-  "collective": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/stylelint",
-    "logo": "https://opencollective.com/opencollective/logo.txt"
   }
 }
