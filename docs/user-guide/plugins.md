@@ -17,3 +17,4 @@ Plugins are rules and sets of rules built by the community that support methodol
 -   [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors (incorporates [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter)).
 -   [`stylelint-selector-tag-no-without-class`](https://github.com/Moxio/stylelint-selector-tag-no-without-class): Disallow certain tags without a class qualifier in selectors.
 -   [`stylelint-suitcss`](https://github.com/suitcss/stylelint-suitcss): A collection of stylelint plugins for SUIT CSS, including deprecated `:root` rules (plugin pack).
+-   [`stylelint-z-index-value-constraint`](https://github.com/kristerkari/stylelint-z-index-value-constraint): Specify minimum and maximum constraint value for z-index.
