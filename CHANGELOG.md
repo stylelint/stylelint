@@ -1,4 +1,4 @@
-# Head
+# 9.1.2
 
 -   Fixed: parsing of markdown files by updating postcss-html dependency ([#3207](https://github.com/stylelint/stylelint/pull/3207)).
 
