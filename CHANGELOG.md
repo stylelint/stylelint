@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: parsing of markdown files by updating postcss-html dependency ([#3207](https://github.com/stylelint/stylelint/pull/3207)).
+
 # 9.1.1
 
 -   Fixed: missing `signal-exit` dependency ([#3186](https://github.com/stylelint/stylelint/pull/3186)).
