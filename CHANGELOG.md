@@ -1,4 +1,4 @@
-# Head
+# 9.1.3
 
 -   Fixed: invalid HTML causing CssSyntaxError by updating postcss-html dependency ([#3214](https://github.com/stylelint/stylelint/pull/3214)).
 -   Fixed: empty markdown block causing CssSyntaxError by updating postcss-html dependency ([#3214](https://github.com/stylelint/stylelint/pull/3214)).
