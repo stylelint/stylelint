@@ -1,5 +1,5 @@
-// flow-typed signature: 6e1fc0a644aa956f79029fec0709e597
-// flow-typed version: 07ebad4796/jest_v22.x.x/flow_>=v0.39.x
+// flow-typed signature: 18018da6c1a1d95b4ab1c64bb5fe86ca
+// flow-typed version: c1ad61e7d4/jest_v22.x.x/flow_>=v0.39.x
 
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
@@ -112,6 +112,12 @@ type JestPromiseType = {
    */
   resolves: JestExpectType
 };
+
+/**
+ * Jest allows functions and classes to be used as test names in test() and
+ * describe()
+ */
+type JestTestName = string | Function;
 
 /**
  *  Plugin: jest-enzyme
@@ -462,17 +468,17 @@ declare var describe: {
   /**
    * Creates a block that groups together several related tests in one "test suite"
    */
-  (name: string, fn: () => void): void,
+  (name: JestTestName, fn: () => void): void,
 
   /**
    * Only run this describe block
    */
-  only(name: string, fn: () => void): void,
+  only(name: JestTestName, fn: () => void): void,
 
   /**
    * Skip running this describe block
    */
-  skip(name: string, fn: () => void): void
+  skip(name: JestTestName, fn: () => void): void
 };
 
 /** An individual test unit */
@@ -480,54 +486,54 @@ declare var it: {
   /**
    * An individual test unit
    *
-   * @param {string} Name of Test
+   * @param {JestTestName} Name of Test
    * @param {Function} Test
    * @param {number} Timeout for the test, in milliseconds.
    */
   (
-    name: string,
+    name: JestTestName,
     fn?: (done: () => void) => ?Promise<mixed>,
     timeout?: number
   ): void,
   /**
    * Only run this test
    *
-   * @param {string} Name of Test
+   * @param {JestTestName} Name of Test
    * @param {Function} Test
    * @param {number} Timeout for the test, in milliseconds.
    */
   only(
-    name: string,
+    name: JestTestName,
     fn?: (done: () => void) => ?Promise<mixed>,
     timeout?: number
   ): void,
   /**
    * Skip running this test
    *
-   * @param {string} Name of Test
+   * @param {JestTestName} Name of Test
    * @param {Function} Test
    * @param {number} Timeout for the test, in milliseconds.
    */
   skip(
-    name: string,
+    name: JestTestName,
     fn?: (done: () => void) => ?Promise<mixed>,
     timeout?: number
   ): void,
   /**
    * Run the test concurrently
    *
-   * @param {string} Name of Test
+   * @param {JestTestName} Name of Test
    * @param {Function} Test
    * @param {number} Timeout for the test, in milliseconds.
    */
   concurrent(
-    name: string,
+    name: JestTestName,
     fn?: (done: () => void) => ?Promise<mixed>,
     timeout?: number
   ): void
 };
 declare function fit(
-  name: string,
+  name: JestTestName,
   fn: (done: () => void) => ?Promise<mixed>,
   timeout?: number
 ): void;

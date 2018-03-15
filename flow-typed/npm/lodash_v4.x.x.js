@@ -1,5 +1,5 @@
-// flow-typed signature: c2bd6c4724449c7e90898127e704bf59
-// flow-typed version: 3aea57ee9c/lodash_v4.x.x/flow_>=v0.63.x
+// flow-typed signature: 2d6372509af898546ea7b44735f2557d
+// flow-typed version: 8c150a1c24/lodash_v4.x.x/flow_>=v0.63.x
 
 declare module "lodash" {
   declare type __CurriedFunction1<A, R, AA: A> = (...r: [AA]) => R;
@@ -215,20 +215,13 @@ declare module "lodash" {
     chunk<T>(array?: ?Array<T>, size?: ?number): Array<Array<T>>;
     compact<T, N: ?T>(array?: ?Array<N>): Array<T>;
     concat<T>(base?: ?Array<T>, ...elements: Array<any>): Array<T | any>;
-    difference<T>(
-      array?: ?$ReadOnlyArray<T>,
-      values?: ?$ReadOnlyArray<T>
-    ): Array<T>;
+    difference<T>(array?: ?$ReadOnlyArray<T>, values?: ?$ReadOnlyArray<T>): Array<T>;
     differenceBy<T>(
       array?: ?$ReadOnlyArray<T>,
       values?: ?$ReadOnlyArray<T>,
       iteratee?: ?ValueOnlyIteratee<T>
     ): T[];
-    differenceWith<T>(
-      array?: ?$ReadOnlyArray<T>,
-      values?: ?$ReadOnlyArray<T>,
-      comparator?: ?Comparator<T>
-    ): T[];
+    differenceWith<T>(array?: ?$ReadOnlyArray<T>, values?: ?$ReadOnlyArray<T>, comparator?: ?Comparator<T>): T[];
     drop<T>(array?: ?Array<T>, n?: ?number): Array<T>;
     dropRight<T>(array?: ?Array<T>, n?: ?number): Array<T>;
     dropRightWhile<T>(array?: ?Array<T>, predicate?: ?Predicate<T>): Array<T>;
@@ -245,7 +238,7 @@ declare module "lodash" {
       fromIndex?: ?number
     ): number;
     findIndex<T>(
-      array: void | null,
+      array: void | null,
       predicate?: ?Predicate<T>,
       fromIndex?: ?number
     ): -1;
@@ -262,19 +255,16 @@ declare module "lodash" {
     // alias of _.head
     first<T>(array: ?Array<T>): T;
     flatten<T, X>(array?: ?Array<Array<T> | X>): Array<T | X>;
-    flattenDeep<T>(array?: ?(any[])): Array<T>;
-    flattenDepth(array?: ?(any[]), depth?: ?number): any[];
+    flattenDeep<T>(array?: ?any[]): Array<T>;
+    flattenDepth(array?: ?any[], depth?: ?number): any[];
     fromPairs<A, B>(pairs?: ?Array<[A, B]>): { [key: A]: B };
     head<T>(array: ?Array<T>): T;
     indexOf<T>(array: Array<T>, value: T, fromIndex?: number): number;
-    indexOf<T>(array: void | null, value?: ?T, fromIndex?: ?number): -1;
+    indexOf<T>(array: void | null, value?: ?T, fromIndex?: ?number): -1;
     initial<T>(array: ?Array<T>): Array<T>;
     intersection<T>(...arrays?: Array<Array<T>>): Array<T>;
     //Workaround until (...parameter: T, parameter2: U) works
-    intersectionBy<T>(
-      a1?: ?Array<T>,
-      iteratee?: ?ValueOnlyIteratee<T>
-    ): Array<T>;
+    intersectionBy<T>(a1?: ?Array<T>, iteratee?: ?ValueOnlyIteratee<T>): Array<T>;
     intersectionBy<T>(
       a1?: ?Array<T>,
       a2?: ?Array<T>,
@@ -314,71 +304,64 @@ declare module "lodash" {
       comparator?: ?Comparator<T>
     ): Array<T>;
     join<T>(array: Array<T>, separator?: ?string): string;
-    join<T>(array: void | null, separator?: ?string): "";
+    join<T>(array: void | null, separator?: ?string): '';
     last<T>(array: ?Array<T>): T;
     lastIndexOf<T>(array: Array<T>, value?: ?T, fromIndex?: ?number): number;
-    lastIndexOf<T>(array: void | null, value?: ?T, fromIndex?: ?number): -1;
+    lastIndexOf<T>(array: void | null, value?: ?T, fromIndex?: ?number): -1;
     nth<T>(array: T[], n?: ?number): T;
-    nth(array: void | null, n?: ?number): void;
+    nth(array: void | null, n?: ?number): void;
     pull<T>(array: Array<T>, ...values?: Array<?T>): Array<T>;
-    pull<T: void | null>(array: T, ...values?: Array<?any>): T;
+    pull<T: void | null>(array: T, ...values?: Array<?any>): T;
     pullAll<T>(array: Array<T>, values?: ?Array<T>): Array<T>;
-    pullAll<T: void | null>(array: T, values?: ?Array<any>): T;
+    pullAll<T: void | null>(array: T, values?: ?Array<any>): T;
     pullAllBy<T>(
       array: Array<T>,
       values?: ?Array<T>,
       iteratee?: ?ValueOnlyIteratee<T>
     ): Array<T>;
-    pullAllBy<T: void | null>(
+    pullAllBy<T: void | null>(
       array: T,
       values?: ?Array<any>,
       iteratee?: ?ValueOnlyIteratee<any>
     ): T;
-    pullAllWith<T>(array: T[], values?: ?(T[]), comparator?: ?Function): T[];
-    pullAllWith<T: void | null>(
-      array: T,
-      values?: ?Array<any>,
-      comparator?: ?Function
-    ): T;
+    pullAllWith<T>(array: T[], values?: ?T[], comparator?: ?Function): T[];
+    pullAllWith<T: void | null>(array: T, values?: ?Array<any>, comparator?: ?Function): T;
     pullAt<T>(array?: ?Array<T>, ...indexed?: Array<?number>): Array<T>;
     pullAt<T>(array?: ?Array<T>, indexed?: ?Array<number>): Array<T>;
     remove<T>(array?: ?Array<T>, predicate?: ?Predicate<T>): Array<T>;
     reverse<T>(array: Array<T>): Array<T>;
-    reverse<T: void | null>(array: T): T;
+    reverse<T: void | null>(array: T): T;
     slice<T>(array?: ?Array<T>, start?: ?number, end?: ?number): Array<T>;
     sortedIndex<T>(array: Array<T>, value: T): number;
-    sortedIndex<T>(array: void | null, value: ?T): 0;
+    sortedIndex<T>(array: void | null, value: ?T): 0;
     sortedIndexBy<T>(
       array: Array<T>,
       value?: ?T,
       iteratee?: ?ValueOnlyIteratee<T>
     ): number;
     sortedIndexBy<T>(
-      array: void | null,
+      array: void | null,
       value?: ?T,
       iteratee?: ?ValueOnlyIteratee<T>
     ): 0;
     sortedIndexOf<T>(array: Array<T>, value: T): number;
-    sortedIndexOf<T>(array: void | null, value?: ?T): -1;
+    sortedIndexOf<T>(array: void | null, value?: ?T): -1;
     sortedLastIndex<T>(array: Array<T>, value: T): number;
-    sortedLastIndex<T>(array: void | null, value?: ?T): 0;
+    sortedLastIndex<T>(array: void | null, value?: ?T): 0;
     sortedLastIndexBy<T>(
       array: Array<T>,
       value: T,
       iteratee?: ValueOnlyIteratee<T>
     ): number;
     sortedLastIndexBy<T>(
-      array: void | null,
+      array: void | null,
       value?: ?T,
       iteratee?: ?ValueOnlyIteratee<T>
     ): 0;
     sortedLastIndexOf<T>(array: Array<T>, value: T): number;
-    sortedLastIndexOf<T>(array: void | null, value?: ?T): -1;
+    sortedLastIndexOf<T>(array: void | null, value?: ?T): -1;
     sortedUniq<T>(array?: ?Array<T>): Array<T>;
-    sortedUniqBy<T>(
-      array?: ?Array<T>,
-      iteratee?: ?(value: T) => mixed
-    ): Array<T>;
+    sortedUniqBy<T>(array?: ?Array<T>, iteratee?: ?(value: T) => mixed): Array<T>;
     tail<T>(array?: ?Array<T>): Array<T>;
     take<T>(array?: ?Array<T>, n?: ?number): Array<T>;
     takeRight<T>(array?: ?Array<T>, n?: ?number): Array<T>;
@@ -472,7 +455,7 @@ declare module "lodash" {
       a4: Array<T>,
       comparator?: Comparator<T>
     ): Array<T>;
-    zip<A, B>(a1?: ?(A[]), a2?: ?(B[])): Array<[A, B]>;
+    zip<A, B>(a1?: ?A[], a2?: ?B[]): Array<[A, B]>;
     zip<A, B, C>(a1: A[], a2: B[], a3: C[]): Array<[A, B, C]>;
     zip<A, B, C, D>(a1: A[], a2: B[], a3: C[], a4: D[]): Array<[A, B, C, D]>;
     zip<A, B, C, D, E>(
@@ -484,9 +467,9 @@ declare module "lodash" {
     ): Array<[A, B, C, D, E]>;
 
     zipObject<K, V>(props: Array<K>, values?: ?Array<V>): { [key: K]: V };
-    zipObject<K, V>(props: void | null, values?: ?Array<V>): {};
+    zipObject<K, V>(props: void | null, values?: ?Array<V>): {};
     zipObjectDeep(props: any[], values?: ?any): Object;
-    zipObjectDeep(props: void | null, values?: ?any): {};
+    zipObjectDeep(props: void | null, values?: ?any): {};
 
     zipWith<A>(a1?: ?Array<A>): Array<[A]>;
     zipWith<T, A>(a1: Array<A>, iteratee: (A) => T): Array<T>;
@@ -526,15 +509,15 @@ declare module "lodash" {
 
     // Collection
     countBy<T>(array: Array<T>, iteratee?: ?ValueOnlyIteratee<T>): Object;
-    countBy<T>(array: void | null, iteratee?: ?ValueOnlyIteratee<T>): {};
+    countBy<T>(array: void | null, iteratee?: ?ValueOnlyIteratee<T>): {};
     countBy<T: Object>(object: T, iteratee?: ?ValueOnlyIteratee<T>): Object;
     // alias of _.forEach
     each<T>(array: Array<T>, iteratee?: ?Iteratee<T>): Array<T>;
-    each<T: void | null>(array: T, iteratee?: ?Iteratee<any>): T;
+    each<T: void | null>(array: T, iteratee?: ?Iteratee<any>): T;
     each<T: Object>(object: T, iteratee?: ?OIteratee<T>): T;
     // alias of _.forEachRight
     eachRight<T>(array: Array<T>, iteratee?: ?Iteratee<T>): Array<T>;
-    eachRight<T: void | null>(array: T, iteratee?: ?Iteratee<any>): T;
+    eachRight<T: void | null>(array: T, iteratee?: ?Iteratee<any>): T;
     eachRight<T: Object>(object: T, iteratee?: OIteratee<T>): T;
     every<T>(array?: ?Array<T>, iteratee?: ?Iteratee<T>): boolean;
     every<T: Object>(object: T, iteratee?: OIteratee<T>): boolean;
@@ -549,7 +532,7 @@ declare module "lodash" {
       fromIndex?: ?number
     ): T | void;
     find<T>(
-      array: void | null,
+      array: void | null,
       predicate?: ?Predicate<T>,
       fromIndex?: ?number
     ): void;
@@ -594,27 +577,30 @@ declare module "lodash" {
       depth?: number
     ): Array<U>;
     forEach<T>(array: Array<T>, iteratee?: ?Iteratee<T>): Array<T>;
-    forEach<T: void | null>(array: T, iteratee?: ?Iteratee<any>): T;
+    forEach<T: void | null>(array: T, iteratee?: ?Iteratee<any>): T;
     forEach<T: Object>(object: T, iteratee?: ?OIteratee<T>): T;
     forEachRight<T>(array: Array<T>, iteratee?: ?Iteratee<T>): Array<T>;
-    forEachRight<T: void | null>(array: T, iteratee?: ?Iteratee<any>): T;
+    forEachRight<T: void | null>(array: T, iteratee?: ?Iteratee<any>): T;
     forEachRight<T: Object>(object: T, iteratee?: ?OIteratee<T>): T;
     groupBy<V, T>(
       array: $ReadOnlyArray<T>,
       iteratee?: ?ValueOnlyIteratee<T>
     ): { [key: V]: Array<T> };
-    groupBy(array: void | null, iteratee?: ?ValueOnlyIteratee<any>): {};
+    groupBy(
+      array: void | null,
+      iteratee?: ?ValueOnlyIteratee<any>
+    ): {};
     groupBy<V, A, T: { [id: string]: A }>(
       object: T,
       iteratee?: ValueOnlyIteratee<A>
     ): { [key: V]: Array<A> };
     includes<T>(array: Array<T>, value: T, fromIndex?: ?number): boolean;
-    includes<T>(array: void | null, value?: ?T, fromIndex?: ?number): false;
+    includes<T>(array: void | null, value?: ?T, fromIndex?: ?number): false;
     includes<T: Object>(object: T, value: any, fromIndex?: number): boolean;
     includes(str: string, value: string, fromIndex?: number): boolean;
     invokeMap<T>(
       array?: ?Array<T>,
-      path?: ?(value: T) => Array<string> | string | Array<string> | string,
+      path?: ?((value: T) => Array<string> | string) | Array<string> | string,
       ...args?: Array<any>
     ): Array<any>;
     invokeMap<T: Object>(
@@ -626,7 +612,10 @@ declare module "lodash" {
       array: $ReadOnlyArray<T>,
       iteratee?: ?ValueOnlyIteratee<T>
     ): { [key: V]: ?T };
-    keyBy(array: void | null, iteratee?: ?ValueOnlyIteratee<*>): {};
+    keyBy(
+      array: void | null,
+      iteratee?: ?ValueOnlyIteratee<*>
+    ): {};
     keyBy<V, A, I, T: { [id: I]: A }>(
       object: T,
       iteratee?: ?ValueOnlyIteratee<A>
@@ -635,7 +624,7 @@ declare module "lodash" {
     map<T, U>(
       array: ?$ReadOnlyArray<T>,
       iteratee?: ReadOnlyMapIterator<T, U>
-    ): Array<U>;
+    ): Array<U>,
     map<V, T: Object, U>(
       object: ?T,
       iteratee?: OMapIterator<V, T, U>
@@ -678,7 +667,7 @@ declare module "lodash" {
       accumulator?: U
     ): U;
     reduce<T, U>(
-      array: void | null,
+      array: void | null,
       iteratee?: ?(
         accumulator: U,
         value: T,
@@ -686,14 +675,14 @@ declare module "lodash" {
         array: ?Array<T>
       ) => U,
       accumulator?: ?U
-    ): void | null;
+    ): void | null;
     reduce<T: Object, U>(
       object: T,
       iteratee?: (accumulator: U, value: any, key: string, object: T) => U,
       accumulator?: U
     ): U;
     reduceRight<T, U>(
-      array: void | null,
+      array: void | null,
       iteratee?: ?(
         accumulator: U,
         value: T,
@@ -701,7 +690,7 @@ declare module "lodash" {
         array: ?Array<T>
       ) => U,
       accumulator?: ?U
-    ): void | null;
+    ): void | null;
     reduceRight<T, U>(
       array: Array<T>,
       iteratee?: ?(
@@ -730,7 +719,7 @@ declare module "lodash" {
     shuffle<V, T: Object>(object: T): Array<V>;
     size(collection: Array<any> | Object | string): number;
     some<T>(array: ?Array<T>, predicate?: Predicate<T>): boolean;
-    some<T>(array: void | null, predicate?: ?Predicate<T>): false;
+    some<T>(array: void | null, predicate?: ?Predicate<T>): false;
     some<A, T: { [id: string]: A }>(
       object?: ?T,
       predicate?: OPredicate<A, T>
@@ -807,15 +796,15 @@ declare module "lodash" {
     eq(value: any, other: any): boolean;
     gt(value: any, other: any): boolean;
     gte(value: any, other: any): boolean;
-    isArguments(value: void | null): false;
+    isArguments(value: void | null): false;
     isArguments(value: any): boolean;
     isArray(value: Array<any>): true;
     isArray(value: any): false;
     isArrayBuffer(value: ArrayBuffer): true;
     isArrayBuffer(value: any): false;
-    isArrayLike(value: Array<any> | string | { length: number }): true;
+    isArrayLike(value: Array<any> | string | {length: number}): true;
     isArrayLike(value: any): false;
-    isArrayLikeObject(value: { length: number } | Array<any>): true;
+    isArrayLikeObject(value: {length: number} | Array<any>): true;
     isArrayLikeObject(value: any): false;
     isBoolean(value: boolean): true;
     isBoolean(value: any): false;
@@ -825,7 +814,7 @@ declare module "lodash" {
     isDate(value: any): false;
     isElement(value: Element): true;
     isElement(value: any): false;
-    isEmpty(value: void | null | "" | {} | [] | number | boolean): true;
+    isEmpty(value: void | null | '' | {} | [] | number | boolean): true;
     isEmpty(value: any): boolean;
     isEqual(value: any, other: any): boolean;
     isEqualWith<T, U>(
@@ -848,7 +837,7 @@ declare module "lodash" {
     isFunction(value: any): false;
     isInteger(value: number): boolean;
     isInteger(value: any): false;
-    isLength(value: void | null): false;
+    isLength(value: void | null): false;
     isLength(value: any): boolean;
     isMap(value: Map<any, any>): true;
     isMap(value: any): false;
@@ -866,9 +855,9 @@ declare module "lodash" {
     ): boolean;
     isNaN(value: Function | string | void | null | Object): false;
     isNaN(value: number): boolean;
-    isNative(value: number | string | void | null | Object): false;
+    isNative(value: number | string | void | null | Object): false;
     isNative(value: any): boolean;
-    isNil(value: void | null): true;
+    isNil(value: void | null): true;
     isNil(value: any): false;
     isNull(value: null): true;
     isNull(value: any): false;
@@ -876,7 +865,7 @@ declare module "lodash" {
     isNumber(value: any): false;
     isObject(value: Object): true;
     isObject(value: any): false;
-    isObjectLike(value: void | null): false;
+    isObjectLike(value: void | null): false;
     isObjectLike(value: any): boolean;
     isPlainObject(value: Object): true;
     isPlainObject(value: any): false;
@@ -903,18 +892,18 @@ declare module "lodash" {
     lt(value: any, other: any): boolean;
     lte(value: any, other: any): boolean;
     toArray(value: any): Array<any>;
-    toFinite(value: void | null): 0;
+    toFinite(value: void | null): 0;
     toFinite(value: any): number;
-    toInteger(value: void | null): 0;
+    toInteger(value: void | null): 0;
     toInteger(value: any): number;
-    toLength(value: void | null): 0;
+    toLength(value: void | null): 0;
     toLength(value: any): number;
-    toNumber(value: void | null): 0;
+    toNumber(value: void | null): 0;
     toNumber(value: any): number;
     toPlainObject(value: any): Object;
-    toSafeInteger(value: void | null): 0;
+    toSafeInteger(value: void | null): 0;
     toSafeInteger(value: any): number;
-    toString(value: void | null): "";
+    toString(value: void | null): '';
     toString(value: any): string;
 
     // Math
@@ -1052,7 +1041,7 @@ declare module "lodash" {
     at(object?: ?Object, ...paths: Array<string>): Array<any>;
     at(object?: ?Object, paths: Array<string>): Array<any>;
     create<T>(prototype: T, properties: Object): $Supertype<T>;
-    create(prototype: any, properties: void | null): {};
+    create(prototype: any, properties: void | null): {};
     defaults(object?: ?Object, ...sources?: Array<Object>): Object;
     defaultsDeep(object?: ?Object, ...sources?: Array<Object>): Object;
     // alias for _.toPairs
@@ -1120,7 +1109,7 @@ declare module "lodash" {
       predicate?: ?OPredicate<A, T>
     ): string | void;
     findKey<A, T: { [id: string]: A }>(
-      object: void | null,
+      object: void | null,
       predicate?: ?OPredicate<A, T>
     ): void;
     findLastKey<A, T: { [id: string]: A }>(
@@ -1128,17 +1117,17 @@ declare module "lodash" {
       predicate?: ?OPredicate<A, T>
     ): string | void;
     findLastKey<A, T: { [id: string]: A }>(
-      object: void | null,
+      object: void | null,
       predicate?: ?OPredicate<A, T>
     ): void;
     forIn(object: Object, iteratee?: ?OIteratee<*>): Object;
-    forIn(object: void | null, iteratee?: ?OIteratee<*>): null;
+    forIn(object: void | null, iteratee?: ?OIteratee<*>): null;
     forInRight(object: Object, iteratee?: ?OIteratee<*>): Object;
-    forInRight(object: void | null, iteratee?: ?OIteratee<*>): null;
+    forInRight(object: void | null, iteratee?: ?OIteratee<*>): null;
     forOwn(object: Object, iteratee?: ?OIteratee<*>): Object;
-    forOwn(object: void | null, iteratee?: ?OIteratee<*>): null;
+    forOwn(object: void | null, iteratee?: ?OIteratee<*>): null;
     forOwnRight(object: Object, iteratee?: ?OIteratee<*>): Object;
-    forOwnRight(object: void | null, iteratee?: ?OIteratee<*>): null;
+    forOwnRight(object: void | null, iteratee?: ?OIteratee<*>): null;
     functions(object?: ?Object): Array<string>;
     functionsIn(object?: ?Object): Array<string>;
     get(
@@ -1147,15 +1136,15 @@ declare module "lodash" {
       defaultValue?: any
     ): any;
     has(object: Object, path: Array<string> | string): boolean;
-    has(object: Object, path: void | null): false;
+    has(object: Object, path: void | null): false;
     has(object: void | null, path?: ?Array<string> | ?string): false;
     hasIn(object: Object, path: Array<string> | string): boolean;
-    hasIn(object: Object, path: void | null): false;
+    hasIn(object: Object, path: void | null): false;
     hasIn(object: void | null, path?: ?Array<string> | ?string): false;
     invert(object: Object, multiVal?: ?boolean): Object;
-    invert(object: void | null, multiVal?: ?boolean): {};
+    invert(object: void | null, multiVal?: ?boolean): {};
     invertBy(object: Object, iteratee?: ?Function): Object;
-    invertBy(object: void | null, iteratee?: ?Function): {};
+    invertBy(object: void | null, iteratee?: ?Function): {};
     invoke(
       object?: ?Object,
       path?: ?Array<string> | string,
@@ -1165,9 +1154,9 @@ declare module "lodash" {
     keys(object?: ?Object): Array<string>;
     keysIn(object?: ?Object): Array<string>;
     mapKeys(object: Object, iteratee?: ?OIteratee<*>): Object;
-    mapKeys(object: void | null, iteratee?: ?OIteratee<*>): {};
+    mapKeys(object: void | null, iteratee?: ?OIteratee<*>): {};
     mapValues(object: Object, iteratee?: ?OIteratee<*>): Object;
-    mapValues(object: void | null, iteratee?: ?OIteratee<*>): {};
+    mapValues(object: void | null, iteratee?: ?OIteratee<*>): {};
     merge(object?: ?Object, ...sources?: Array<?Object>): Object;
     mergeWith(): {};
     mergeWith<T: Object, A: Object>(
@@ -1225,32 +1214,37 @@ declare module "lodash" {
       object: T,
       predicate?: ?OPredicate<A, T>
     ): Object;
-    omitBy<A, T: void | null>(object: T, predicate?: ?OPredicate<A, T>): {};
+    omitBy<A, T: void | null>(
+      object: T,
+      predicate?: ?OPredicate<A, T>
+    ): {};
     pick(object?: ?Object, ...props: Array<string>): Object;
     pick(object?: ?Object, props: Array<string>): Object;
     pickBy<A, T: { [id: string]: A }>(
       object: T,
       predicate?: ?OPredicate<A, T>
     ): Object;
-    pickBy<A, T: void | null>(object: T, predicate?: ?OPredicate<A, T>): {};
+    pickBy<A, T: void | null>(
+      object: T,
+      predicate?: ?OPredicate<A, T>
+    ): {};
     result(
       object?: ?Object,
       path?: ?Array<string> | string,
       defaultValue?: any
     ): any;
     set(object: Object, path?: ?Array<string> | string, value: any): Object;
-    set<T: void | null>(
+    set<T: void | null>(
       object: T,
       path?: ?Array<string> | string,
-      value?: ?any
-    ): T;
+      value?: ?any): T;
     setWith<T>(
       object: T,
       path?: ?Array<string> | string,
       value: any,
       customizer?: (nsValue: any, key: string, nsObject: T) => any
     ): Object;
-    setWith<T: void | null>(
+    setWith<T: void | null>(
       object: T,
       path?: ?Array<string> | string,
       value?: ?any,
@@ -1264,27 +1258,26 @@ declare module "lodash" {
       accumulator?: any
     ): any;
     transform(
-      collection: void | null,
+      collection: void | null,
       iteratee?: ?OIteratee<*>,
       accumulator?: ?any
     ): {};
     unset(object: Object, path?: ?Array<string> | ?string): boolean;
-    unset(object: void | null, path?: ?Array<string> | ?string): true;
+    unset(object: void | null, path?: ?Array<string> | ?string): true;
     update(object: Object, path: string[] | string, updater: Function): Object;
-    update<T: void | null>(
+    update<T: void | null>(
       object: T,
-      path?: ?(string[]) | ?string,
-      updater?: ?Function
-    ): T;
+      path?: ?string[] | ?string,
+      updater?: ?Function): T;
     updateWith(
       object: Object,
-      path?: ?(string[]) | ?string,
+      path?: ?string[] | ?string,
       updater?: ?Function,
       customizer?: ?Function
     ): Object;
-    updateWith<T: void | null>(
+    updateWith<T: void | null>(
       object: T,
-      path?: ?(string[]) | ?string,
+      path?: ?string[] | ?string,
       updater?: ?Function,
       customizer?: ?Function
     ): T;
@@ -1301,79 +1294,75 @@ declare module "lodash" {
 
     // String
     camelCase(string: string): string;
-    camelCase(string: void | null): "";
+    camelCase(string: void | null): '';
     capitalize(string: string): string;
-    capitalize(string: void | null): "";
+    capitalize(string: void | null): '';
     deburr(string: string): string;
-    deburr(string: void | null): "";
+    deburr(string: void | null): '';
     endsWith(string: string, target?: string, position?: ?number): boolean;
-    endsWith(string: void | null, target?: ?string, position?: ?number): false;
+    endsWith(string: void | null, target?: ?string, position?: ?number): false;
     escape(string: string): string;
-    escape(string: void | null): "";
+    escape(string: void | null): '';
     escapeRegExp(string: string): string;
-    escapeRegExp(string: void | null): "";
+    escapeRegExp(string: void | null): '';
     kebabCase(string: string): string;
-    kebabCase(string: void | null): "";
+    kebabCase(string: void | null): '';
     lowerCase(string: string): string;
-    lowerCase(string: void | null): "";
+    lowerCase(string: void | null): '';
     lowerFirst(string: string): string;
-    lowerFirst(string: void | null): "";
+    lowerFirst(string: void | null): '';
     pad(string?: ?string, length?: ?number, chars?: ?string): string;
     padEnd(string?: ?string, length?: ?number, chars?: ?string): string;
     padStart(string?: ?string, length?: ?number, chars?: ?string): string;
     parseInt(string: string, radix?: ?number): number;
     repeat(string: string, n?: ?number): string;
-    repeat(string: void | null, n?: ?number): "";
+    repeat(string: void | null, n?: ?number): '';
     replace(
       string: string,
       pattern: RegExp | string,
       replacement: ((string: string) => string) | string
     ): string;
     replace(
-      string: void | null,
+      string: void | null,
       pattern?: ?RegExp | ?string,
-      replacement: ?(string: string) => string | ?string
-    ): "";
+      replacement: ?((string: string) => string) | ?string
+    ): '';
     snakeCase(string: string): string;
-    snakeCase(string: void | null): "";
+    snakeCase(string: void | null): '';
     split(
       string?: ?string,
       separator?: ?RegExp | ?string,
       limit?: ?number
     ): Array<string>;
     startCase(string: string): string;
-    startCase(string: void | null): "";
+    startCase(string: void | null): '';
     startsWith(string: string, target?: string, position?: number): boolean;
-    startsWith(
-      string: void | null,
-      target?: ?string,
-      position?: ?number
-    ): false;
+    startsWith(string: void | null, target?: ?string, position?: ?number): false;
     template(string?: ?string, options?: ?TemplateSettings): Function;
     toLower(string: string): string;
-    toLower(string: void | null): "";
+    toLower(string: void | null): '';
     toUpper(string: string): string;
-    toUpper(string: void | null): "";
+    toUpper(string: void | null): '';
     trim(string: string, chars?: string): string;
-    trim(string: void | null, chars?: ?string): "";
+    trim(string: void | null, chars?: ?string): '';
     trimEnd(string: string, chars?: ?string): string;
-    trimEnd(string: void | null, chars?: ?string): "";
+    trimEnd(string: void | null, chars?: ?string): '';
     trimStart(string: string, chars?: ?string): string;
-    trimStart(string: void | null, chars?: ?string): "";
+    trimStart(string: void | null, chars?: ?string): '';
     truncate(string: string, options?: TruncateOptions): string;
-    truncate(string: void | null, options?: ?TruncateOptions): "";
+    truncate(string: void | null, options?: ?TruncateOptions): '';
     unescape(string: string): string;
-    unescape(string: void | null): "";
+    unescape(string: void | null): '';
     upperCase(string: string): string;
-    upperCase(string: void | null): "";
+    upperCase(string: void | null): '';
     upperFirst(string: string): string;
-    upperFirst(string: void | null): "";
+    upperFirst(string: void | null): '';
     words(string?: ?string, pattern?: ?RegExp | ?string): Array<string>;
 
     // Util
     attempt(func: Function, ...args: Array<any>): any;
     bindAll(object: Object, methodNames?: ?Array<string>): Object;
-    bindAll<T: void | null>(object: T, methodNames?: ?Array<string>): T;
+    bindAll<T: void | null>(object: T, methodNames?: ?Array<string>): T;
     bindAll(object: Object, ...methodNames: Array<string>): Object;
     cond(pairs?: ?NestedArray<Function>): Function;
     conforms(source?: ?Object): Function;
@@ -1385,10 +1374,8 @@ declare module "lodash" {
     // NaN is a number instead of its own type, otherwise it would behave like null/void
     defaultTo<T1: number, T2>(value: T1, defaultValue: T2): T1 | T2;
     defaultTo<T1: void | null, T2>(value: T1, defaultValue: T2): T2;
-    flow: $ComposeReverse;
-    flow(funcs?: Array<Function>): Function;
-    flowRight: $Compose;
-    flowRight(funcs?: Array<Function>): Function;
+    flow: ($ComposeReverse & (funcs: Array<Function>) => Function);
+    flowRight: ($Compose & (funcs: Array<Function>) => Function);
     identity<T>(value: T): T;
     iteratee(func?: any): Function;
     matches(source?: ?Object): Function;
@@ -1422,7 +1409,7 @@ declare module "lodash" {
     stubObject(): {};
     stubString(): "";
     stubTrue(): true;
-    times(n?: ?number, ...rest?: Array<void | null>): Array<number>;
+    times(n?: ?number, ...rest?: Array<void | null>): Array<number>;
     times<T>(n: number, iteratee: (i: number) => T): Array<T>;
     toPath(value: any): Array<string>;
     uniqueId(prefix?: ?string): string;
@@ -1666,11 +1653,7 @@ declare module "lodash/fp" {
       values: $ReadOnlyArray<T>,
       comparator: Comparator<T>
     ): (array: $ReadOnlyArray<T>) => T[];
-    differenceWith<T>(
-      values: $ReadOnlyArray<T>,
-      comparator: Comparator<T>,
-      array: $ReadOnlyArray<T>
-    ): T[];
+    differenceWith<T>(values: $ReadOnlyArray<T>, comparator: Comparator<T>, array: $ReadOnlyArray<T>): T[];
     drop<T>(n: number): (array: Array<T>) => Array<T>;
     drop<T>(n: number, array: Array<T>): Array<T>;
     dropLast<T>(n: number): (array: Array<T>) => Array<T>;
@@ -2315,7 +2298,7 @@ declare module "lodash/fp" {
       iteratees: | $ReadOnlyArray<Iteratee<T> | OIteratee<T>>
       | Iteratee<T>
       | OIteratee<T>,
-      collection: $ReadOnlyArray<T> | { [id: any]: T }
+      collection: $ReadOnlyArray<T> | { [id: any]: T },
     ): Array<T>;
 
     // Date
@@ -3148,13 +3131,10 @@ declare module "lodash/fp" {
     defaultTo<T1: number, T2>(defaultValue: T2, value: T1): T1 | T2;
     defaultTo<T1: void | null, T2>(defaultValue: T2): (value: T1) => T2;
     defaultTo<T1: void | null, T2>(defaultValue: T2, value: T1): T2;
-    flow: $ComposeReverse;
-    flow(funcs: Array<Function>): Function;
-    pipe: $ComposeReverse;
-    pipe(funcs: Array<Function>): Function;
-    flowRight: $Compose;
-    flowRight(funcs: Array<Function>): Function;
-    compose: $Compose;
+    flow: ($ComposeReverse & (funcs: Array<Function>) => Function);
+    pipe: ($ComposeReverse & (funcs: Array<Function>) => Function);
+    flowRight: ($Compose & (funcs: Array<Function>) => Function);
+    compose: ($Compose & (funcs: Array<Function>) => Function);
     compose(funcs: Array<Function>): Function;
     identity<T>(value: T): T;
     iteratee(func: any): Function;
@@ -4495,10 +4475,7 @@ declare module "lodash/fp/differenceBy" {
 }
 
 declare module "lodash/fp/differenceWith" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "differenceWith"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "differenceWith">;
 }
 
 declare module "lodash/fp/drop" {
@@ -4514,10 +4491,7 @@ declare module "lodash/fp/dropRight" {
 }
 
 declare module "lodash/fp/dropRightWhile" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "dropRightWhile"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "dropRightWhile">;
 }
 
 declare module "lodash/fp/dropWhile" {
@@ -4545,10 +4519,7 @@ declare module "lodash/fp/findLastIndex" {
 }
 
 declare module "lodash/fp/findLastIndexFrom" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "findLastIndexFrom"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "findLastIndexFrom">;
 }
 
 declare module "lodash/fp/first" {
@@ -4600,17 +4571,11 @@ declare module "lodash/fp/intersection" {
 }
 
 declare module "lodash/fp/intersectionBy" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "intersectionBy"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "intersectionBy">;
 }
 
 declare module "lodash/fp/intersectionWith" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "intersectionWith"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "intersectionWith">;
 }
 
 declare module "lodash/fp/join" {
@@ -4626,10 +4591,7 @@ declare module "lodash/fp/lastIndexOf" {
 }
 
 declare module "lodash/fp/lastIndexOfFrom" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "lastIndexOfFrom"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "lastIndexOfFrom">;
 }
 
 declare module "lodash/fp/nth" {
@@ -4681,24 +4643,15 @@ declare module "lodash/fp/sortedIndexOf" {
 }
 
 declare module "lodash/fp/sortedLastIndex" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "sortedLastIndex"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "sortedLastIndex">;
 }
 
 declare module "lodash/fp/sortedLastIndexBy" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "sortedLastIndexBy"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "sortedLastIndexBy">;
 }
 
 declare module "lodash/fp/sortedLastIndexOf" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "sortedLastIndexOf"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "sortedLastIndexOf">;
 }
 
 declare module "lodash/fp/sortedUniq" {
@@ -4726,10 +4679,7 @@ declare module "lodash/fp/takeLast" {
 }
 
 declare module "lodash/fp/takeRightWhile" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "takeRightWhile"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "takeRightWhile">;
 }
 
 declare module "lodash/fp/takeLastWhile" {
@@ -4781,10 +4731,7 @@ declare module "lodash/fp/xor" {
 }
 
 declare module "lodash/fp/symmetricDifference" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "symmetricDifference"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "symmetricDifference">;
 }
 
 declare module "lodash/fp/xorBy" {
@@ -4792,10 +4739,7 @@ declare module "lodash/fp/xorBy" {
 }
 
 declare module "lodash/fp/symmetricDifferenceBy" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "symmetricDifferenceBy"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "symmetricDifferenceBy">;
 }
 
 declare module "lodash/fp/xorWith" {
@@ -4803,10 +4747,7 @@ declare module "lodash/fp/xorWith" {
 }
 
 declare module "lodash/fp/symmetricDifferenceWith" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "symmetricDifferenceWith"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "symmetricDifferenceWith">;
 }
 
 declare module "lodash/fp/zip" {
@@ -5178,10 +5119,7 @@ declare module "lodash/fp/isArrayLike" {
 }
 
 declare module "lodash/fp/isArrayLikeObject" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "isArrayLikeObject"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "isArrayLikeObject">;
 }
 
 declare module "lodash/fp/isBoolean" {
@@ -5461,10 +5399,7 @@ declare module "lodash/fp/assignWith" {
 }
 
 declare module "lodash/fp/assignInAllWith" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "assignInAllWith"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "assignInAllWith">;
 }
 
 declare module "lodash/fp/extendAllWith" {
@@ -5504,10 +5439,7 @@ declare module "lodash/fp/defaultsDeep" {
 }
 
 declare module "lodash/fp/defaultsDeepAll" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "defaultsDeepAll"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "defaultsDeepAll">;
 }
 
 declare module "lodash/fp/entries" {
@@ -5855,10 +5787,7 @@ declare module "lodash/fp/trimStart" {
 }
 
 declare module "lodash/fp/trimCharsStart" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "trimCharsStart"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "trimCharsStart">;
 }
 
 declare module "lodash/fp/truncate" {
@@ -5934,10 +5863,7 @@ declare module "lodash/fp/matches" {
 }
 
 declare module "lodash/fp/matchesProperty" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "matchesProperty"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "matchesProperty">;
 }
 
 declare module "lodash/fp/propEq" {
@@ -6017,10 +5943,7 @@ declare module "lodash/fp/rangeRight" {
 }
 
 declare module "lodash/fp/rangeStepRight" {
-  declare module.exports: $PropertyType<
-    $Exports<"lodash/fp">,
-    "rangeStepRight"
-  >;
+  declare module.exports: $PropertyType<$Exports<"lodash/fp">, "rangeStepRight">;
 }
 
 declare module "lodash/fp/runInContext" {

@@ -1,9 +1,4 @@
 [ignore]
 .*/node_modules/postcss-import/.*
+.*/node_modules/findup/test/fixture.*
 .*/fixtures/.*
-
-[include]
-
-[libs]
-./decls
-./decls/flow-typed

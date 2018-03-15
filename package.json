@@ -28,11 +28,12 @@
   "files": [
     "bin",
     "CONTRIBUTING.md",
-    "decls/*.js",
     "docs",
     "lib",
     "VISION.md",
-    "!**/__tests__"
+    "!**/__tests__",
+    "flow-typed",
+    "!flow-typed/npm"
   ],
   "engines": {
     "node": ">=6"
@@ -90,6 +91,7 @@
     "eslint-config-stylelint": "~8.1.0",
     "file-exists-promise": "^1.0.2",
     "flow-bin": "^0.66.0",
+    "flow-typed": "^2.3.0",
     "husky": "^0.14.3",
     "jest": "^22.0.6",
     "lint-staged": "^7.0.0",
@@ -111,7 +113,7 @@
     "benchmark-rule": "node scripts/benchmark-rule.js",
     "dry-release": "npmpub  --dry --verbose",
     "flow": "flow",
-    "flow-defs": "npx flow-typed --libdefDir decls/ install jest@22 lodash@4 && mv -fv decls/npm/lodash_v4.x.x.js decls/flow-typed/lodash.js && mv -fv decls/npm/jest_v22.x.x.js decls/flow-typed/jest.js",
+    "flow-defs": "./node_modules/.bin/flow-typed install jest@22 lodash@4",
     "jest": "jest",
     "jest:detectleaks": "jest  --detectLeaks",
     "lint:js": "eslint . --cache",
