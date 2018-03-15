@@ -55,7 +55,7 @@
     "log-symbols": "^2.0.0",
     "mathml-tag-names": "^2.0.1",
     "meow": "^4.0.0",
-    "micromatch": "^3.1.5",
+    "micromatch": "^3.1.9",
     "normalize-selector": "^0.2.0",
     "opencollective": "^1.0.3",
     "pify": "^3.0.0",
