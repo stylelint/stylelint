@@ -18,26 +18,26 @@ For example, with `1`:
 The following patterns are considered violations:
 
 ```css
-a:first:focus { color: pink; }
+a:first:focus {}
 
 ```
 
 ```css
-.foo .bar:first-child:hover { color: pink; }
+.foo .bar:first-child:hover {}
 
 ```
 
 The following patterns are *not* considered violations:
 
 ```css
-a { color: pink; }
+a {}
 ```
 
 ```css
-a:first-child { color: pink; }
+a:first-child {}
 ```
 
 ```css
-.foo .bar:first-child { color: pink; }
+.foo .bar:first-child {}
 ```
 
