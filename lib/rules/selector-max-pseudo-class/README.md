@@ -22,12 +22,10 @@ The following patterns are considered violations:
 
 ```css
 a:first:focus {}
-
 ```
 
 ```css
 .foo .bar:first-child:hover {}
-
 ```
 
 The following patterns are *not* considered violations:
