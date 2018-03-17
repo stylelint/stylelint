@@ -21,7 +21,7 @@ For example, with `1`:
 The following patterns are considered violations:
 
 ```css
-a:first:focus {}
+a:first-child:focus {}
 ```
 
 ```css
