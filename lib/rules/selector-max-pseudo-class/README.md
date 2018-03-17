@@ -1,17 +1,17 @@
 # selector-max-pseudo-class
 
-Limit the number of pseudo classes in a selector.
+Limit the number of pseudo-classes in a selector.
 
 ```css
 .foo .bar:first-child:hover {}
 /*       ↑           ↑
          |           |
-         1           2 -- this selector contains two pseudo classes */
+         1           2 -- this selector contains two pseudo-classes */
 ```
 
 ## Options
 
-`int`: Maximum pseudo classes allowed.
+`int`: Maximum pseudo-classes allowed.
 
 For example, with `1`:
 
