@@ -15,7 +15,7 @@ Once you've done that, then please continue by answering these two questions:  -
 
 > Which issue, if any, is this issue related to?
 
-e.g. "#000" or "None, as it's a documentation fix."
+e.g. "Closes #000" or "None, as it's a documentation fix."
 
 > Is there anything in the PR that needs further explanation?
 
