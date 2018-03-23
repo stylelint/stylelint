@@ -1,5 +1,6 @@
 # Head
 
+-   Fixed: `indentation` false positives for at-root ([#3225](https://github.com/stylelint/stylelint/pull/3225)).
 -   Fixed: `max-empty-lines` false positives for non-CSS blocks ([#3229](https://github.com/stylelint/stylelint/pull/3229)).
 -   Fixed: `string-no-newline` false positives for non-CSS blocks ([#3228](https://github.com/stylelint/stylelint/pull/3228)).
 
