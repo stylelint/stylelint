@@ -141,6 +141,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-max-compound-selectors": int,
     "selector-max-empty-lines": int,
     "selector-max-id": int,
+    "selector-max-pseudo-class": int,
     "selector-max-specificity": string,
     "selector-max-type": int,
     "selector-max-universal": int,
