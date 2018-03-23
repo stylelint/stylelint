@@ -1,6 +1,7 @@
 # Head
 
 -   Fixed: `max-empty-lines` false positives for non-CSS blocks ([#3229](https://github.com/stylelint/stylelint/pull/3229)).
+-   Fixed: `string-no-newline` false positives for non-CSS blocks ([#3228](https://github.com/stylelint/stylelint/pull/3228)).
 
 # 9.1.3
 
