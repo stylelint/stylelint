@@ -1,4 +1,4 @@
-# Head
+# 9.2.0
 
 -   Added: `selector-max-pseudo-class` rule ([#3195](https://github.com/stylelint/stylelint/pull/3195)).
 -   Fixed: false negatives for template literals within script tags by updating postcss-html dependency ([#3238](https://github.com/stylelint/stylelint/pull/3238)).
