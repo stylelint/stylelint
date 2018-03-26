@@ -29,33 +29,49 @@ describe("CLI", () => {
     }
   });
 
-  it("basic", () => {
-    return cli([]).then(() => {
-      expect(process.exitCode).toBe(2);
-      expect(console.log.mock.calls).toHaveLength(1);
-      const lastCallArgs = console.log.mock.calls.pop();
-      expect(lastCallArgs).toHaveLength(1);
-      expect(lastCallArgs.pop()).toMatch("Usage: stylelint [input] [options]");
-    });
-  });
+  it(
+    "basic",
+    () => {
+      return cli([]).then(() => {
+        expect(process.exitCode).toBe(2);
+        expect(console.log.mock.calls).toHaveLength(1);
+        const lastCallArgs = console.log.mock.calls.pop();
+        expect(lastCallArgs).toHaveLength(1);
+        expect(lastCallArgs.pop()).toMatch(
+          "Usage: stylelint [input] [options]"
+        );
+      });
+    },
+    10000
+  );
 
-  it("--help", () => {
-    return Promise.resolve(cli(["--help"])).then(() => {
-      expect(process.exitCode).toBe(0);
-      expect(console.log.mock.calls).toHaveLength(1);
-      const lastCallArgs = console.log.mock.calls.pop();
-      expect(lastCallArgs).toHaveLength(1);
-      expect(lastCallArgs.pop()).toMatch("Usage: stylelint [input] [options]");
-    });
-  });
+  it(
+    "--help",
+    () => {
+      return Promise.resolve(cli(["--help"])).then(() => {
+        expect(process.exitCode).toBe(0);
+        expect(console.log.mock.calls).toHaveLength(1);
+        const lastCallArgs = console.log.mock.calls.pop();
+        expect(lastCallArgs).toHaveLength(1);
+        expect(lastCallArgs.pop()).toMatch(
+          "Usage: stylelint [input] [options]"
+        );
+      });
+    },
+    10000
+  );
 
-  it("--version", () => {
-    return Promise.resolve(cli(["--version"])).then(() => {
-      expect(process.exitCode).toBe(undefined);
-      expect(console.log.mock.calls).toHaveLength(1);
-      const lastCallArgs = console.log.mock.calls.pop();
-      expect(lastCallArgs).toHaveLength(1);
-      expect(lastCallArgs.pop()).toMatch(pkg.version);
-    });
-  });
+  it(
+    "--version",
+    () => {
+      return Promise.resolve(cli(["--version"])).then(() => {
+        expect(process.exitCode).toBe(undefined);
+        expect(console.log.mock.calls).toHaveLength(1);
+        const lastCallArgs = console.log.mock.calls.pop();
+        expect(lastCallArgs).toHaveLength(1);
+        expect(lastCallArgs.pop()).toMatch(pkg.version);
+      });
+    },
+    10000
+  );
 });

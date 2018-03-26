@@ -5,9 +5,6 @@ const basicChecks = require("./lib/testUtils/basicChecks");
 const less = require("postcss-less");
 const stylelint = require("./lib/standalone");
 
-// Temporarily increase timeout
-jest.setTimeout(10000);
-
 jest.mock("./lib/utils/getOsEol", () => () => "\n");
 
 global.testRule = (rule, schema) => {
