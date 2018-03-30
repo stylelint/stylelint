@@ -51,6 +51,7 @@
     "globjoin": "^0.1.4",
     "html-tags": "^2.0.0",
     "ignore": "^3.3.3",
+    "import-lazy": "^3.1.0",
     "imurmurhash": "^0.1.4",
     "known-css-properties": "^0.6.0",
     "lodash": "^4.17.4",
