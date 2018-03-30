@@ -1,10 +1,14 @@
 # 9.2.0
 
 -   Added: `selector-max-pseudo-class` rule ([#3195](https://github.com/stylelint/stylelint/pull/3195)).
+-   Fixed: slow `require('stylelint')` time ([#3242](https://github.com/stylelint/stylelint/pull/3242)).
+-   Fixed: autofix erroneously writing to unchanged files ([#3241](https://github.com/stylelint/stylelint/pull/3241)).
 -   Fixed: false negatives for template literals within script tags by updating postcss-html dependency ([#3238](https://github.com/stylelint/stylelint/pull/3238)).
 -   Fixed: `indentation` false positives for at-root ([#3225](https://github.com/stylelint/stylelint/pull/3225)).
 -   Fixed: `max-empty-lines` false positives for non-CSS blocks ([#3229](https://github.com/stylelint/stylelint/pull/3229)).
+-   Fixed: `no-empty-source` false positives for non-CSS blocks ([#3240](https://github.com/stylelint/stylelint/pull/3240)).
 -   Fixed: `string-no-newline` false positives for non-CSS blocks ([#3228](https://github.com/stylelint/stylelint/pull/3228)).
+
 
 # 9.1.3
 
