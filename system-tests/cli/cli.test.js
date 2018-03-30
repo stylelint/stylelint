@@ -42,7 +42,7 @@ describe("CLI", () => {
         );
       });
     },
-    10000
+    20000
   );
 
   it(
@@ -58,7 +58,7 @@ describe("CLI", () => {
         );
       });
     },
-    10000
+    20000
   );
 
   it(
@@ -72,6 +72,6 @@ describe("CLI", () => {
         expect(lastCallArgs.pop()).toMatch(pkg.version);
       });
     },
-    10000
+    20000
   );
 });
