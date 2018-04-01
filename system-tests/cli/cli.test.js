@@ -3,6 +3,8 @@
 const cli = require("../../lib/cli");
 const pkg = require("../../package.json");
 
+jest.mock("get-stdin");
+
 describe("CLI", () => {
   let processRestore;
   let logRestore;
@@ -30,7 +32,7 @@ describe("CLI", () => {
   });
 
   it("basic", () => {
-    return Promise.resolve(cli([])).then(() => {
+    return cli([]).then(() => {
       expect(process.exitCode).toBe(2);
       expect(console.log.mock.calls).toHaveLength(1);
       const lastCallArgs = console.log.mock.calls.pop();
