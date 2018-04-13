@@ -12,6 +12,11 @@ Processors are community packages that enable stylelint to lint the CSS within n
 
 ## PostCSS syntax
 
-[`postcss-html`](https://github.com/gucong3000/postcss-html) can enable PostCSS to parse the CSS within non-stylesheet files that compatible with HTML,
-[Markdown](https://daringfireball.net/projects/markdown/syntax),
-[Vue component](https://vue-loader.vuejs.org/)
+-   [`postcss-syntax`](https://github.com/gucong3000/postcss-syntax)
+    switch syntax automatically by file extensions.
+-   [`postcss-html`](https://github.com/gucong3000/postcss-html)
+    parsing styles in `<style>` tags of HTML-like files.
+-   [`postcss-markdown`](https://github.com/gucong3000/postcss-markdown)
+    parsing styles in code blocks of Markdown files.
+-   [`postcss-styled`](https://github.com/gucong3000/postcss-styled)
+    parsing CSS in template literals of source files.

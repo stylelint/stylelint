@@ -62,7 +62,6 @@
     "normalize-selector": "^0.2.0",
     "pify": "^3.0.0",
     "postcss": "^6.0.16",
-    "postcss-html": "^0.18.0",
     "postcss-less": "^1.1.5",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-reporter": "^5.0.0",
@@ -71,6 +70,7 @@
     "postcss-sass": "^0.3.0",
     "postcss-scss": "^1.0.2",
     "postcss-selector-parser": "^3.1.0",
+    "postcss-syntax": "^0.1.0",
     "postcss-value-parser": "^3.3.0",
     "resolve-from": "^4.0.0",
     "signal-exit": "^3.0.2",
@@ -80,6 +80,11 @@
     "sugarss": "^1.0.0",
     "svg-tags": "^1.0.0",
     "table": "^4.0.1"
+  },
+  "optionalDependencies": {
+    "postcss-html": "^0.21.0",
+    "postcss-markdown": "^0.21.0",
+    "postcss-styled": "^0.1.0"
   },
   "devDependencies": {
     "benchmark": "^2.1.4",
