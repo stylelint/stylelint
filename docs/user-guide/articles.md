@@ -8,5 +8,6 @@ A collection of articles and tutorials about stylelint.
 -   [How to lint your Sass/CSS properly with Stylelint](http://www.creativenightly.com/2016/02/How-to-lint-your-css-with-stylelint/): Introduction to linting CSS. *(As above, we now recommend using [`gulp-stylelint`](https://github.com/olegskl/gulp-stylelint), rather than the `gulp-postcss` and `postcss-reporter` combination outlined in the article)*
 -   [Improving the Quality of Your CSS with PostCSS](https://www.sitepoint.com/improving-the-quality-of-your-css-with-postcss/): Introduction to various PostCSS linting tools. *(As above, we recommend using [`gulp-stylelint`](https://github.com/olegskl/gulp-stylelint).)*
 -   [Floss your style sheets with Stylelint](https://benfrain.com/floss-your-style-sheets-with-stylelint/): The first article written about stylelint. *(As before, we now recommend using [`gulp-stylelint`](https://github.com/olegskl/gulp-stylelint))*
+-   [How to lint SCSS with stylelint](https://medium.com/@bjankord/how-to-lint-scss-with-stylelint-dc87809a9878): A guide which covers how to lint SCSS with stylelint.
 
 Please send us a Pull Request to add your own article to the list.
