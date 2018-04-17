@@ -41,7 +41,7 @@
   "dependencies": {
     "autoprefixer": "^8.0.0",
     "balanced-match": "^1.0.0",
-    "chalk": "^2.0.1",
+    "chalk": "^2.4.0",
     "cosmiconfig": "^4.0.0",
     "debug": "^3.0.0",
     "execall": "^1.0.0",
