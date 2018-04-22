@@ -23,7 +23,8 @@ export type stylelint$config = {
   rules?: stylelint$configRules,
   codeProcessors?: Array<Function>,
   resultProcessors?: Array<Function>,
-  quiet?: boolean
+  quiet?: boolean,
+  defaultSeverity?: string
 };
 
 export type stylelint$syntaxes = "scss" | "less" | "sugarss";
@@ -131,6 +132,7 @@ export type stylelint$standaloneOptions = {
   configOverrides?: Object,
   ignoreDisables?: boolean,
   ignorePath?: string,
+  ignorePattern?: RegExp,
   reportNeedlessDisables?: boolean,
   maxWarnings?: number,
   syntax?: stylelint$syntaxes,

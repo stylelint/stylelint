@@ -1,5 +1,5 @@
-// flow-typed signature: 18018da6c1a1d95b4ab1c64bb5fe86ca
-// flow-typed version: c1ad61e7d4/jest_v22.x.x/flow_>=v0.39.x
+// flow-typed signature: 17c6ca97e1e560b9bc0d3400f8b2882f
+// flow-typed version: a5bbe16c29/jest_v22.x.x/flow_>=v0.39.x
 
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
@@ -55,6 +55,11 @@ type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   mockImplementationOnce(
     fn: (...args: TArguments) => TReturn
   ): JestMockFn<TArguments, TReturn>,
+  /**
+   * Accepts a string to use in test result output in place of "jest.fn()" to
+   * indicate which mock function is being referenced.
+   */
+  mockName(name: string): JestMockFn<TArguments, TReturn>,
   /**
    * Just a simple sugar function for returning `this`
    */
@@ -126,14 +131,16 @@ type EnzymeMatchersType = {
   toBeChecked(): void,
   toBeDisabled(): void,
   toBeEmpty(): void,
+  toBeEmptyRender(): void,
   toBePresent(): void,
   toContainReact(element: React$Element<any>): void,
+  toExist(): void,
   toHaveClassName(className: string): void,
   toHaveHTML(html: string): void,
-  toHaveProp(propKey: string, propValue?: any): void,
+  toHaveProp: ((propKey: string, propValue?: any) => void) & ((props: Object) => void),
   toHaveRef(refName: string): void,
-  toHaveState(stateKey: string, stateValue?: any): void,
-  toHaveStyle(styleKey: string, styleValue?: any): void,
+  toHaveState: ((stateKey: string, stateValue?: any) => void) & ((state: Object) => void),
+  toHaveStyle: ((styleKey: string, styleValue?: any) => void) & ((style: Object) => void),
   toHaveTagName(tagName: string): void,
   toHaveText(text: string): void,
   toIncludeText(text: string): void,
@@ -142,8 +149,15 @@ type EnzymeMatchersType = {
   toMatchSelector(selector: string): void
 };
 
+// DOM testing library extensions https://github.com/kentcdodds/dom-testing-library#custom-jest-matchers
+type DomTestingLibraryType = {
+  toBeInTheDOM(): void,
+  toHaveTextContent(content: string): void,
+  toHaveAttribute(name: string, expectedValue?: string): void
+};
+
 type JestExpectType = {
-  not: JestExpectType & EnzymeMatchersType,
+  not: JestExpectType & EnzymeMatchersType & DomTestingLibraryType,
   /**
    * If you have a mock function, you can use .lastCalledWith to test what
    * arguments it was last called with.
@@ -397,6 +411,13 @@ type JestObjectType = {
    * Executes only the macro task queue (i.e. all tasks queued by setTimeout()
    * or setInterval() and setImmediate()).
    */
+  advanceTimersByTime(msToRun: number): void,
+  /**
+   * Executes only the macro task queue (i.e. all tasks queued by setTimeout()
+   * or setInterval() and setImmediate()).
+   *
+   * Renamed to `advanceTimersByTime`.
+   */
   runTimersToTime(msToRun: number): void,
   /**
    * Executes only the macro-tasks that are currently pending (i.e., only the
@@ -548,23 +569,69 @@ declare var xit: typeof it;
 /** A disabled individual test */
 declare var xtest: typeof it;
 
+type JestPrettyFormatColors = {
+  comment: { close: string, open: string },
+  content: { close: string, open: string },
+  prop: { close: string, open: string },
+  tag: { close: string, open: string },
+  value: { close: string, open: string },
+};
+
+type JestPrettyFormatIndent = string => string;
+type JestPrettyFormatRefs = Array<any>;
+type JestPrettyFormatPrint = any => string;
+type JestPrettyFormatStringOrNull = string | null;
+
+type JestPrettyFormatOptions = {|
+  callToJSON: boolean,
+  edgeSpacing: string,
+  escapeRegex: boolean,
+  highlight: boolean,
+  indent: number,
+  maxDepth: number,
+  min: boolean,
+  plugins: JestPrettyFormatPlugins,
+  printFunctionName: boolean,
+  spacing: string,
+  theme: {|
+    comment: string,
+    content: string,
+    prop: string,
+    tag: string,
+    value: string,
+  |},
+|};
+
+type JestPrettyFormatPlugin = {
+  print: (
+    val: any,
+    serialize: JestPrettyFormatPrint,
+    indent: JestPrettyFormatIndent,
+    opts: JestPrettyFormatOptions,
+    colors: JestPrettyFormatColors,
+  ) => string,
+  test: any => boolean,
+};
+
+type JestPrettyFormatPlugins = Array<JestPrettyFormatPlugin>;
+
 /** The expect function is used every time you want to test a value */
 declare var expect: {
   /** The object that you want to make assertions against */
-  (value: any): JestExpectType & JestPromiseType & EnzymeMatchersType,
+  (value: any): JestExpectType & JestPromiseType & EnzymeMatchersType & DomTestingLibraryType,
   /** Add additional Jasmine matchers to Jest's roster */
   extend(matchers: { [name: string]: JestMatcher }): void,
   /** Add a module that formats application-specific data structures. */
-  addSnapshotSerializer(serializer: (input: Object) => string): void,
+  addSnapshotSerializer(pluginModule: JestPrettyFormatPlugin): void,
   assertions(expectedAssertions: number): void,
   hasAssertions(): void,
   any(value: mixed): JestAsymmetricEqualityType,
-  anything(): void,
-  arrayContaining(value: Array<mixed>): void,
-  objectContaining(value: Object): void,
+  anything(): any,
+  arrayContaining(value: Array<mixed>): Array<mixed>,
+  objectContaining(value: Object): Object,
   /** Matches any received string that contains the exact expected string. */
-  stringContaining(value: string): void,
-  stringMatching(value: string | RegExp): void
+  stringContaining(value: string): string,
+  stringMatching(value: string | RegExp): string
 };
 
 // TODO handle return type
@@ -581,14 +648,14 @@ declare var jest: JestObjectType;
 declare var jasmine: {
   DEFAULT_TIMEOUT_INTERVAL: number,
   any(value: mixed): JestAsymmetricEqualityType,
-  anything(): void,
-  arrayContaining(value: Array<mixed>): void,
+  anything(): any,
+  arrayContaining(value: Array<mixed>): Array<mixed>,
   clock(): JestClockType,
   createSpy(name: string): JestSpyType,
   createSpyObj(
     baseName: string,
     methodNames: Array<string>
   ): { [methodName: string]: JestSpyType },
-  objectContaining(value: Object): void,
-  stringMatching(value: string): void
+  objectContaining(value: Object): Object,
+  stringMatching(value: string): string
 };
