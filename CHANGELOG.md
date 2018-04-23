@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: `selector-pseudo-class-no-unknown` false positives proprietary webkit pseudo classes when applied to a simple selector ([#3271](https://github.com/stylelint/stylelint/pull/3271)).
+
 # 9.2.0
 
 -   Added: `selector-max-pseudo-class` rule ([#3195](https://github.com/stylelint/stylelint/pull/3195)).
