@@ -262,7 +262,7 @@ The following patterns are *not* considered violations:
 a {}
 ```
 
-#### `"after-comment"`
+#### `"first-nested"`
 
 Ignore rules that are nested and the first child of their parent node.
 
