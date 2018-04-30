@@ -2,6 +2,7 @@
 
 -   Fixed: `selector-pseudo-class-no-unknown` false positives proprietary webkit pseudo classes when applied to a simple selector ([#3271](https://github.com/stylelint/stylelint/pull/3271)).
 -   Fixed: `cache` option hiding CssSyntaxError outputs ([#3258](https://github.com/stylelint/stylelint/pull/3258)).
+-   Fixed: `no-descending-specificity` false positives for Sass nested properties ([#3283](https://github.com/stylelint/stylelint/pull/3283)).
 
 # 9.2.0
 
