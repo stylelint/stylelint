@@ -345,6 +345,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### General / Sheet
 
 -   [`indentation`](../../lib/rules/indentation/README.md): Specify indentation (Autofixable).
+-   [`linebreaks`](../../lib/rules/linebreaks/README.md): Enforces a consistent linebreak style (Autofixable).
 -   [`max-empty-lines`](../../lib/rules/max-empty-lines/README.md): Limit the number of adjacent empty lines.
 -   [`max-line-length`](../../lib/rules/max-line-length/README.md): Limit the length of a line.
 -   [`no-eol-whitespace`](../../lib/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.

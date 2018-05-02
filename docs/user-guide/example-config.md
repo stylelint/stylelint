@@ -83,6 +83,7 @@ You might want to learn a little about [how rules are named and how they work to
     "indentation": int|"tab",
     "keyframe-declaration-no-important": true,
     "length-zero-no-unit": true,
+    "linebreaks": "unix"|"windows",
     "max-empty-lines": int,
     "max-line-length": int,
     "max-nesting-depth": int,
