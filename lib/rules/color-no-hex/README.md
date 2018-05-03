@@ -8,9 +8,23 @@ a { color: #333 }
  * These hex colors */
 ```
 
+The `--fix` option on the command line can automatically fix all of the problems reported by this rule if applicable. See the options below.
+
 ## Options
 
-### `true`
+`boolean`: `true|false`
+
+If `false`, the rule is disabled. If `true`, the rule is enabled, but no fix will be performed.
+
+`string`: `rgb|rgba|hsl|hsla`
+
+### `rgb` | `rgba`
+
+`rgb` and `rgba` are the same. If the color format is an hex with transparency (Like #FFFFFFDC), the output will be in rgba format. Otherwise, it will be rgb. There's no way to force one or another.
+
+### `hsl` | `hsla`
+
+`hsl` and `hsla` are the same. If the color format is an hex with transparency (Like #FFFFFFDC), the output will be in hsla format. Otherwise, it will be hsl. There's no way to force one or another.
 
 The following patterns are considered violations:
 
