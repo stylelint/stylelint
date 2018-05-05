@@ -44,8 +44,14 @@ export type stylelint$options = {
 
 export type stylelint$internalApi = {
   _options: stylelint$options,
-  _extendExplorer: { load: Function },
-  _fullExplorer: { load: Function },
+  _extendExplorer: {
+    search: string => Promise<null | Object>,
+    load: string => Promise<null | Object>
+  },
+  _fullExplorer: {
+    search: string => Promise<null | Object>,
+    load: string => Promise<null | Object>
+  },
   _configCache: Map<string, Object>,
   _specifiedConfigCache: Map<string, Object>,
   _postcssResultCache: Map<string, Object>,
