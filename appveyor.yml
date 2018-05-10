@@ -16,6 +16,9 @@ install:
   - ps: Install-Product node $env:nodejs_version
   - npm install
 
+cache:
+  - node_modules
+
 test_script:
   - node --version
   - npm --version
