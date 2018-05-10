@@ -4,6 +4,8 @@ environment:
   matrix:
     - nodejs_version: 8
 
+clone_depth: 1
+
 version: "{build}"
 build: off
 deploy: off
