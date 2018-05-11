@@ -1,7 +1,7 @@
 sudo: false
 
 git:
-  depth: 1
+  depth: 10
 
 branches:
   only:
