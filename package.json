@@ -85,7 +85,7 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.4.0",
     "coveralls": "^3.0.0",
-    "cp-file": "^5.0.0",
+    "cp-file": "^6.0.0",
     "d3-queue": "^3.0.7",
     "del": "^3.0.0",
     "eslint": "~4.19.0",
