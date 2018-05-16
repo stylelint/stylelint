@@ -17,10 +17,6 @@ By default, the linter can *parse* any the following non-standard syntaxes by us
 -   SCSS (using [`postcss-scss`](https://github.com/postcss/postcss-scss))
 -   Less (using [`postcss-less`](https://github.com/shellscape/postcss-less))
 -   SugarSS (using [`sugarss`](https://github.com/postcss/sugarss))
--   HTML,
-[Markdown](https://daringfireball.net/projects/markdown/syntax),
-[Vue component](https://vue-loader.vuejs.org/)
-(using [`postcss-html`](https://github.com/gucong3000/postcss-html))
 
 *Non-standard syntaxes can automatically be inferred from the following file extensions, values for the `lang` or `type` attribute on `<style>` tags, and markers for Markdown code fences: `css`, `less`, `scss`, and `sss`.* If you would need to specify your non-standard syntax, though, both the [CLI](cli.md) and the [Node API](node-api.md) expose a `syntax` option.
 
@@ -36,8 +32,9 @@ If you're using the linter as a [PostCSS Plugin](postcss-plugin.md), you'll need
 
 ```js
 var postcss = require("postcss")
-var scss = require("postcss-scss")
-// or use "postcss-less", "sugarss", "postcss-sass", or "postcss-html"
+// "postcss-syntax" can automatically switch PostCSS syntax by file extensions
+// or use "postcss-less", "sugarss", "postcss-scss", or any PostCSS-compatible syntax
+var syntax = require("postcss-syntax")
 
 postcss([
   require("stylelint"),
@@ -45,7 +42,7 @@ postcss([
 ])
   .process(css, {
     from: "lib/app.css",
-    syntax: scss
+    syntax: syntax
   })
 })
 ```
