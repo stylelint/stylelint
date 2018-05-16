@@ -4,7 +4,7 @@ about: Is something not working as expected?
 
 ---
 
-<!-- Please answer the following questions. 
+<!-- Please answer the following questions.
 Issues that don't use this template will be closed. -->
 
 **Describe the bug? (A clear and concise description of what the bug is)**
