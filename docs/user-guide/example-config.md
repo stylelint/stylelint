@@ -92,6 +92,7 @@ You might want to learn a little about [how rules are named and how they work to
     "media-feature-name-case": "lower"|"upper",
     "media-feature-name-no-unknown": true,
     "media-feature-name-no-vendor-prefix": true,
+    "media-feature-name-value-whitelist": {},
     "media-feature-name-whitelist": string|[],
     "media-feature-parentheses-space-inside": "always"|"never",
     "media-feature-range-operator-space-after": "always"|"never",
