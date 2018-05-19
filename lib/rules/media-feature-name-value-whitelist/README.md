@@ -28,6 +28,7 @@ expression. For example, `/width$/` will match `max-width` and `min-width`.
 ## Examples
 
 Given
+
 ```json
 {
   "min-width": ["768px"],
