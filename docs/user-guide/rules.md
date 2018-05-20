@@ -97,6 +97,10 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`function-url-scheme-whitelist`](../../lib/rules/function-url-scheme-whitelist/README.md): Specify a whitelist of allowed url schemes.
 -   [`function-whitelist`](../../lib/rules/function-whitelist/README.md): Specify a whitelist of allowed functions.
 
+#### Keyframes
+
+-   [`keyframes-name-pattern`](../../lib/rules/keyframes-name-pattern/README.md): Specify a pattern for keyframe names.
+
 #### Number
 
 -   [`number-max-precision`](../../lib/rules/number-max-precision/README.md): Limit the number of decimal places allowed in numbers.

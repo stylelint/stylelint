@@ -82,6 +82,7 @@ You might want to learn a little about [how rules are named and how they work to
     "function-whitespace-after": "always"|"never",
     "indentation": int|"tab",
     "keyframe-declaration-no-important": true,
+    "keyframes-name-pattern": string,
     "length-zero-no-unit": true,
     "max-empty-lines": int,
     "max-line-length": int,
