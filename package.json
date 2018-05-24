@@ -72,7 +72,7 @@
     "postcss-sass": "^0.3.0",
     "postcss-scss": "^1.0.2",
     "postcss-selector-parser": "^3.1.0",
-    "postcss-syntax": "^0.10.0",
+    "postcss-syntax": "^0.24.0",
     "postcss-value-parser": "^3.3.0",
     "resolve-from": "^4.0.0",
     "signal-exit": "^3.0.2",
