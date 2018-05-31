@@ -1,3 +1,7 @@
+# HEAD
+
+-   Added: `keyframes-name-pattern` rule ([#3321](https://github.com/stylelint/stylelint/pull/3321)).
+
 # 9.2.1
 
 -   Fixed: `cache` option hiding CssSyntaxError outputs ([#3258](https://github.com/stylelint/stylelint/pull/3258)).
