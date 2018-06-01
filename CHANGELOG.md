@@ -3,9 +3,11 @@
 -   Added: `globbyOptions` option ([#3339](https://github.com/stylelint/stylelint/pull/3339)).
 -   Added: `keyframes-name-pattern` rule ([#3321](https://github.com/stylelint/stylelint/pull/3321)).
 -   Added: `selector-pseudo-element-colon-notation` autofix ([#3345](https://github.com/stylelint/stylelint/pull/3345)).
+-   Fixed: `.vue` files throwing errors for `<style lang="stylus">` and `<style lang="postcss">` ([#3331](https://github.com/stylelint/stylelint/pull/3331)).
 -   Fixed: `function-whitespace-after` false positives for "/" ([#3132](https://github.com/stylelint/stylelint/pull/3132)).
 -   Fixed: `length-zero-no-unit` incorrect autofix for at-includes ([#3347](https://github.com/stylelint/stylelint/pull/3347)).
 -   Fixed: `max-nesting-depth` false positives for nested properties ([#3349](https://github.com/stylelint/stylelint/pull/3349)).
+-   Fixed: `no-empty-source` false positives on vue external sources `<style src="*">` tag ([#3331](https://github.com/stylelint/stylelint/pull/3331)).
 
 # 9.2.1
 
