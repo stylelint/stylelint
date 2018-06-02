@@ -128,6 +128,7 @@ export type stylelint$standaloneReturnValue = {
 
 export type stylelint$standaloneOptions = {
   files?: string | Array<string>,
+  globbyOptions?: Object,
   cache?: boolean,
   cacheLocation?: string,
   code?: string,
