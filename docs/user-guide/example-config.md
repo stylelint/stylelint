@@ -151,6 +151,7 @@ You might want to learn a little about [how rules are named and how they work to
     "selector-no-vendor-prefix": true,
     "selector-pseudo-class-blacklist": string|[],
     "selector-pseudo-class-case": "lower"|"upper",
+    "selector-pseudo-class-focus": true,
     "selector-pseudo-class-no-unknown": true,
     "selector-pseudo-class-parentheses-space-inside": "always"|"never",
     "selector-pseudo-class-whitelist": string|[],
