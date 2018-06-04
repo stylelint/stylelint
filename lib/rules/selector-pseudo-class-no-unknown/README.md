@@ -10,7 +10,7 @@ Disallow unknown pseudo-class selectors.
 
 This rule considers pseudo-class selectors defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-All vendor-prefixed pseudo-class selectors are ignored.
+This rule ignores vendor-prefixed pseudo-class selectors.
 
 ## Options
 

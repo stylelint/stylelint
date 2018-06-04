@@ -8,7 +8,7 @@ Specify a whitelist of allowed media feature names.
  * These media feature names */
 ```
 
-**Caveat:** Media feature names within a range context are currently ignored.
+This rule ignores media feature names within a range context.
 
 ## Options
 
