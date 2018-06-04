@@ -2,6 +2,7 @@
 
 -   Added: `keyframes-name-pattern` rule ([#3321](https://github.com/stylelint/stylelint/pull/3321)).
 -   Fixed: `function-whitespace-after` false positives for "/" ([#3132](https://github.com/stylelint/stylelint/pull/3132)).
+-   Fixed: `length-zero-no-unit` incorrect autofix for at-includes ([#3347](https://github.com/stylelint/stylelint/pull/3347)).
 
 # 9.2.1
 
