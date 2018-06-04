@@ -59,7 +59,7 @@ The difference between the `configOverrides` and `config` options is this: If an
 
 ### `files`
 
-A file glob, or array of file globs. Ultimately passed to [node-glob](https://github.com/isaacs/node-glob) to figure out what files you want to lint.
+A file glob, or array of file globs. Ultimately passed to [globby](https://github.com/sindresorhus/globby) to figure out what files you want to lint.
 
 Relative globs are considered relative to `globbyOptions.cwd`.
 
