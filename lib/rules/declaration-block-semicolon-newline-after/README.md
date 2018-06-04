@@ -11,9 +11,12 @@ a {
  * The newline after this semicolon */
 ```
 
-This rule ignores semicolons that are preceded by Less mixins.
+This rule ignores:
 
-This rule ignores the last semicolon of declaration blocks. Use the `block-closing-brace-*-before` rules to control the whitespace between the last semicolon and the closing brace instead.
+-   semicolons that are preceded by Less mixins
+-   the last semicolon of declaration blocks
+
+Use the `block-closing-brace-*-before` rules to control the whitespace between the last semicolon and the closing brace instead.
 
 This rule allows an end-of-line comment followed by a newline. For example,
 

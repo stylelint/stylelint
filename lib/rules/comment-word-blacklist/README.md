@@ -8,7 +8,7 @@ Specify a blacklist of disallowed words within comments.
  * These three words */
 ```
 
-**Caveat:** Comments within *selector and value lists* are currently ignored.
+This rule ignores comments within selector and value lists.
 
 ## Options
 

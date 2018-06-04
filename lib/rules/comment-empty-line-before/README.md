@@ -10,11 +10,12 @@ a {}
 *        This line */
 ```
 
-If the comment is the very first node in a stylesheet then it is ignored. Shared-line comments are also ignored.
+This rule ignores:
 
-If you're using a custom syntax which support single-line comments with `//`, those are ignored as well.
-
-**Caveat:** Comments within *selector and value lists* are currently ignored.
+-   comments that are the very first node in the source
+-   shared-line comments
+-   single-line comments with `//` (when you're using a custom syntax that supports them)
+-   comments within selector and value lists
 
 The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
 

@@ -10,9 +10,11 @@ a { heigth: 100%; }
 
 This rule considers properties defined in the [CSS Specifications and browser specific properties](https://github.com/betit/known-css-properties#source) to be known.
 
-This rule ignores variables (`$sass`, `@less`, `--custom-property`).
+This rule ignores:
 
-This rule ignores vendor-prefixed properties (e.g., `-moz-align-self`, `-webkit-align-self`).
+-   variables (`$sass`, `@less`, `--custom-property`)
+-   vendor-prefixed properties (e.g., `-moz-align-self`, `-webkit-align-self`)
+
 Use option `checkPrefixed` described below to turn on checking of vendor-prefixed properties.
 
 ## Options

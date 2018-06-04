@@ -10,7 +10,7 @@ Disallow unknown pseudo-element selectors.
 
 This rule considers pseudo-element selectors defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-All vendor-prefixed pseudo-element selectors are ignored.
+This rule ignores vendor-prefixed pseudo-element selectors.
 
 ## Options
 

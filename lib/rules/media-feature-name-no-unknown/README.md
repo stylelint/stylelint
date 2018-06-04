@@ -10,9 +10,10 @@ Disallow unknown media feature names.
 
 This rule considers media feature names defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-All vendor-prefixed media feature names are ignored.
+This rule ignores:
 
-Caveat: Media feature names within a [range context](https://www.w3.org/TR/mediaqueries-4/#mq-ranges) are currently ignored.
+-   media feature names within a range context
+-   vendor-prefixed media feature names
 
 ## Options
 
