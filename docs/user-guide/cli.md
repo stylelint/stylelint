@@ -18,7 +18,7 @@ The CLI outputs formatted results into `process.stdout`, which you can read with
 
 ### Examples
 
-When you run commands similar to the examples below, be sure to include the quotation marks around file globs. This ensures that you can use the powers of node-glob (like the `**` globstar) regardless of your shell.
+When you run commands similar to the examples below, be sure to include the quotation marks around file globs. This ensures that you can use the powers of [globby](https://github.com/sindresorhus/globby) (like the `**` globstar) regardless of your shell.
 
 Looking for `.stylelintrc` and linting all `.css` files in the `foo` directory:
 
