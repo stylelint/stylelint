@@ -189,7 +189,10 @@ Each rule must be accompanied by a README, fitting the following format:
 7.  Example patterns that are *not* considered violations (for each option value).
 8.  Optional options (if applicable).
 
-Look at the READMEs of other rules to glean more conventional patterns.
+Look at the READMEs of other rules to glean more conventional patterns. These includes:
+
+-   Aligning the arrows within the prototypical code example with the beginning of the construct being highlighted.
+-   Using "This rule" to refer to the rule e.g. "This rule ignores ..."
 
 #### Single line descriptions
 
