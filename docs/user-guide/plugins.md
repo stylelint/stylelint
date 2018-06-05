@@ -2,6 +2,7 @@
 
 Plugins are rules and sets of rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases. Their *package* names are prefixed with "stylelint". Their *rule* names are namespaced so that they do not clash with stylelint's core rules.
 
+-   [`stylelint-a11y`](https://github.com/YozhikM/stylelint-a11y): Accessibility rules (plugin pack).
 -   [`stylelint-at-rule-no-children`](https://github.com/adityavm/stylelint-at-rule-no-children): Disallow block rule declarations inside at-rules (with a few exceptions).
 -   [`stylelint-color-format`](https://github.com/filipekiss/stylelint-color-format): Convert HEX colors to either RGB or HSL.
 -   [`stylelint-csstree-validator`](https://github.com/csstree/stylelint-validator): Validate CSS values to match W3C specs and browsers extensions.
