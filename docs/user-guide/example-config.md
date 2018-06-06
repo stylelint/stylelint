@@ -97,6 +97,7 @@ You might want to learn a little about [how rules are named and how they work to
     "media-feature-parentheses-space-inside": "always"|"never",
     "media-feature-range-operator-space-after": "always"|"never",
     "media-feature-range-operator-space-before": "always"|"never",
+    "media-prefers-reduced-motion": true,
     "media-query-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
     "media-query-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
     "media-query-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
