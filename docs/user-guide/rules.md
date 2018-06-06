@@ -171,7 +171,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 -   [`media-feature-name-blacklist`](../../lib/rules/media-feature-name-blacklist/README.md): Specify a blacklist of disallowed media feature names.
 -   [`media-feature-name-no-vendor-prefix`](../../lib/rules/media-feature-name-no-vendor-prefix/README.md): Disallow vendor prefixes for media feature names.
--   [`media-feature-name-value-whitelist`](../../lib/rules/media-feature-name-value-whitelist/README.md): Specify a whitelist of allowed media feature and value pairs.
+-   [`media-feature-name-value-whitelist`](../../lib/rules/media-feature-name-value-whitelist/README.md): Specify a whitelist of allowed media feature name and value pairs.
 -   [`media-feature-name-whitelist`](../../lib/rules/media-feature-name-whitelist/README.md): Specify a whitelist of allowed media feature names.
 
 #### Custom media

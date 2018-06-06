@@ -1,14 +1,14 @@
 # media-feature-name-value-whitelist
 
-Specify a whitelist of allowed media feature and value pairs.
+Specify a whitelist of allowed media feature name and value pairs.
 
 ```css
 @media screen and (min-width: 768px) {}
-/**                    ↑        ↑
+/**                ↑          ↑
  *         These features and these values */
 ```
 
-**Caveat:** Media feature names within range or boolean context are ignored.
+This rule ignores media features within range and boolean context.
 
 ## Options
 
@@ -25,9 +25,7 @@ non-matching values.
 If a property or value is surrounded with `/` (e.g. `"/width$/"`), it is interpreted as a regular
 expression. For example, `/width$/` will match `max-width` and `min-width`.
 
-## Examples
-
-Given
+Given:
 
 ```json
 {
