@@ -29,7 +29,7 @@ Given:
 
 ```json
 {
-  "min-width": ["768px"],
+  "min-width": ["768px", "1024px"],
   "/resolution/": ["/dpcm$/"]
 }
 ```
@@ -48,6 +48,10 @@ The following patterns are *not* considered violations:
 
 ```css
 @media screen and (min-width: 768px) {}
+```
+
+```css
+@media screen and (min-width: 1024px) {}
 ```
 
 ```css
