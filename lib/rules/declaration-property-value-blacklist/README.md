@@ -10,10 +10,12 @@ a { text-transform: uppercase; }
 
 ## Options
 
-`object`: `{
+```json
+{
   "unprefixed-property-name": ["array", "of", "values"],
-  "unprefixed-property-name": ["/regex/", "non-regex"]
-}`
+  "/unprefixed-property-name/": ["/regex/", "non-regex"]
+}
+```
 
 If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
 
