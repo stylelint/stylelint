@@ -189,7 +189,19 @@ Each rule must be accompanied by a README, fitting the following format:
 7.  Example patterns that are *not* considered violations (for each option value).
 8.  Optional options (if applicable).
 
-Look at the READMEs of other rules to glean more conventional patterns.
+Look at the READMEs of other rules to glean more conventional patterns. These include:
+
+-   Using "This rule" to refer to the rule e.g. "This rule ignores ..."
+-   Aligning the arrows within the prototypical code example with the beginning of the construct being highlighted.
+-   Aligning the text within the prototypical code example as far to the left as possible.
+
+For example:
+
+```css
+ @media screen and (min-width: 768px) {}
+/**                 ↑          ↑
+  *       These names and values */
+```
 
 #### Single line descriptions
 
