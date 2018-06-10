@@ -16,6 +16,8 @@ This rule ignores:
 -   trailing `//` comments
 -   declaration blocks containing nested (at-)rules
 
+The --fix option on the command line can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"always"|"never"`
