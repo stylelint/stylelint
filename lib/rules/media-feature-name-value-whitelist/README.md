@@ -19,11 +19,12 @@ This rule ignores media features within range and boolean context.
 }
 ```
 
-If a media feature is found, only its whitelisted property values are allowed. The rule reports all
-non-matching values.
+If a media feature name is found in the object, only its whitelisted values are
+allowed. If the media feature name is not included in the object, anything goes.
 
-If a property or value is surrounded with `/` (e.g. `"/width$/"`), it is interpreted as a regular
-expression. For example, `/width$/` will match `max-width` and `min-width`.
+If a name or value is surrounded with `/` (e.g. `"/width$/"`), it is interpreted
+as a regular expression. For example, `/width$/` will match `max-width` and
+`min-width`.
 
 Given:
 
