@@ -5,7 +5,7 @@ Specify a whitelist of allowed media feature name and value pairs.
 ```css
 @media screen and (min-width: 768px) {}
 /**                ↑          ↑
- *         These features and these values */
+ *    These features and values */
 ```
 
 This rule ignores media features within range and boolean context.
