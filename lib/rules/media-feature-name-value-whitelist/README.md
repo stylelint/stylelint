@@ -14,8 +14,8 @@ This rule ignores media features within range and boolean context.
 
 ```json
 {
-  "max-width": ["Array", "of", "values"],
-  "/regex/": ["/regex/", "non-regex"]
+  "unprefixed-media-feature-name": ["array", "of", "values"],
+  "/unprefixed-media-feature-name/": ["/regex/", "non-regex"]
 }
 ```
 
