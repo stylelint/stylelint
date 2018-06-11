@@ -12,7 +12,7 @@ This rule removes vendor prefixes before any checks.
 
 ## Options
 
-`array|string`
+Type: `array|string`
 
 Any `string` surrounded with `"/"` (e.g. `"/^string/"`) is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^background/` will match `background`, `background-size`, `background-color`, etc.
 
