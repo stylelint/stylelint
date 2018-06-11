@@ -15,7 +15,9 @@ The `:not()` pseudo-class is also evaluated separately. The rule processes the a
 
 ## Options
 
-`int`: Maximum classes allowed.
+Type: `int`
+
+Maximum classes allowed.
 
 For example, with `2`:
 

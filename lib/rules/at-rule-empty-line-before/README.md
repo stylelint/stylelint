@@ -19,7 +19,8 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 ## Options
 
-`string`: `"always"|"never"`
+Type: `string`  
+Value: `"always"|"never"`
 
 ### `"always"`
 

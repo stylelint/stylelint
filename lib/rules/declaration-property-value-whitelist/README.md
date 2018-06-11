@@ -8,20 +8,30 @@ a { text-transform: uppercase; }
  * These properties and these values */
 ```
 
+This rule removes vendor prefixes before any checks.
+
 ## Options
 
-`object`: `{
-  "unprefixed-property-name": ["array", "of", "values"],
-  "unprefixed-property-name": ["/regex/", "non-regex"]
-}`
+Type: `object`  
+Structure:   
 
-If a property name is found in the object, only its whitelisted property values are allowed. This rule complains about all non-matching values. (If the property name is not included in the object, anything goes.)
+```json
+{
+  string: array|string
+}
+```
 
-If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
+Each property in the `object` is compared against a declaration's property name. The paired value in the `object` represents the allowed values for that property name.
+
+Any `string` surrounded with `"/"` (e.g. `"/^string/"`) is interpreted as a regular expression.
+
+Regular expressions allow, for example, the easy targeting of shorthand properties: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
 
 The same goes for values. Keep in mind that a regular expression value is matched against the entire value of the declaration, not specific parts of it. For example, a value like `"10px solid rgba( 255 , 0 , 0 , 0.5 )"` will *not* match `"/^solid/"` (notice beginning of the line boundary) but *will* match `"/\\s+solid\\s+/"` or `"/\\bsolid\\b/"`.
 
 Be careful with regex matching not to accidentally consider quoted string values and `url()` arguments. For example, `"/red/"` will match value such as `"1px dotted red"` as well as `"\"foo\""` and `"white url(/mysite.com/red.png)"`.
+
+If a property name is found in the object, only its whitelisted property values are allowed. This rule complains about all non-matching values. (If the property name is not included in the object, anything goes.)
 
 Given:
 

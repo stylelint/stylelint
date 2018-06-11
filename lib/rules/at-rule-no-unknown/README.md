@@ -12,6 +12,9 @@ This rule considers at-rules defined in the CSS Specifications, up to and includ
 
 ## Options
 
+Type: `boolean`  
+Value: `true`
+
 ### `true`
 
 The following patterns are considered violations:

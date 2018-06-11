@@ -16,7 +16,8 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 ## Options
 
-`string`: `"lower"|"upper"`
+Type: `string`  
+Value: `"lower"|"upper"`
 
 ### `"lower"`
 

@@ -14,7 +14,8 @@ This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntax
 
 ## Options
 
-`string`: `"always-where-required"|"always-where-recommended"|"always-unless-keyword"`
+Type: `string`  
+Value: `"always-where-required"|"always-where-recommended"|"always-unless-keyword"`
 
 *Please read the following to understand these options*:
 

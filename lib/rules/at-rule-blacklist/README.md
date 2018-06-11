@@ -10,9 +10,11 @@ Specify a blacklist of disallowed at-rules.
 
 This rule ignores `@import` in Less.
 
+This rule removes vendor prefixes before any checks.
+
 ## Options
 
-`array|string`: `["array", "of", "unprefixed", "at-rules"]|"at-rule"`
+Type: `array|string`
 
 Given:
 
