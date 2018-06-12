@@ -1,15 +1,13 @@
 ---
 name: "\U0001F680 Request a feature"
-about: Do you want to suggest a new feature, rule or option?
+about: "Do you want to suggest a new feature, rule or option?"
 ---
 
-<!--
-Please answer the following. Issues that do not will be closed.
--->
+<!-- Please answer the following. Issues that do not will be closed. -->
 
-> What is the problem?
+> What is the problem you're trying to solve?
 
-e.g. "stylelint does not ..."
+e.g. "The developers on my team use inconsistent values for media queries. This adds unnecessary complexity and ... "
 
 > What solution would you like to see?
 

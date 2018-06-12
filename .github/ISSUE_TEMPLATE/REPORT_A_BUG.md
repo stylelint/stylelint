@@ -1,15 +1,13 @@
 ---
 name: "\U0001F41B Report a bug"
-about: Is something not working as you expect?
+about: "Is something not working as you expect?"
 ---
 
-<!--
-Please answer the following. Issues that do not will be closed.
--->
+<!-- Please answer the following. Issues that do not will be closed. -->
 
 > Clearly describe the bug
 
-e.g. "There are false positives for numbers with two leading zeros when ..."
+e.g. "There are false positives for two leading zeros when ..."
 
 > Which rule, if any, is the bug related to?
 
