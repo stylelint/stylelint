@@ -3,6 +3,7 @@
 -   Added: support for `<style>` tags and `style=""` attributes in XML and XSLT files ([#3386](https://github.com/stylelint/stylelint/pull/3386)).
 -   Added: `globbyOptions` option ([#3339](https://github.com/stylelint/stylelint/pull/3339)).
 -   Added: `keyframes-name-pattern` rule ([#3321](https://github.com/stylelint/stylelint/pull/3321)).
+-   Added: `media-feature-name-value-whitelist` rule ([#3320](https://github.com/stylelint/stylelint/pull/3320)).
 -   Added: `selector-pseudo-element-colon-notation` autofix ([#3345](https://github.com/stylelint/stylelint/pull/3345)).
 -   Fixed: `.vue` files throwing errors for `<style lang="stylus">` and `<style lang="postcss">` ([#3331](https://github.com/stylelint/stylelint/pull/3331)).
 -   Fixed: `function-whitespace-after` false positives for "/" ([#3132](https://github.com/stylelint/stylelint/pull/3132)).
