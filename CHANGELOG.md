@@ -1,5 +1,6 @@
 # HEAD
 
+-   Added: support for `<style>` tags and `style=""` attributes in XML and XSLT files ([#3386](https://github.com/stylelint/stylelint/pull/3386)).
 -   Added: `globbyOptions` option ([#3339](https://github.com/stylelint/stylelint/pull/3339)).
 -   Added: `keyframes-name-pattern` rule ([#3321](https://github.com/stylelint/stylelint/pull/3321)).
 -   Added: `selector-pseudo-element-colon-notation` autofix ([#3345](https://github.com/stylelint/stylelint/pull/3345)).
