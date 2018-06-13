@@ -12,6 +12,7 @@ Plugins are rules and sets of rules built by the community that support methodol
 -   [`stylelint-high-performance-animation`](https://github.com/kristerkari/stylelint-high-performance-animation): Stylelint rule for preventing the use of low performance animation and transition properties.
 -   [`stylelint-images`](https://github.com/ramasilveyra/stylelint-images): Check your CSS images to improve the performance and avoid common mistakes (plugin pack).
 -   [`stylelint-no-browser-hacks`](https://github.com/Slamdunk/stylelint-no-browser-hacks): Disallow browser hacks that are irrelevant to the browsers you are targeting; uses [stylehacks](https://github.com/ben-eb/stylehacks).
+-   [`stylelint-no-indistinguishable-colors`](https://github.com/ierhyna/stylelint-no-indistinguishable-colors): Disallow colors that are suspiciously close to being identical.
 -   [`stylelint-no-unsupported-browser-features`](https://github.com/ismay/stylelint-no-unsupported-browser-features): Disallow features that are unsupported by the browsers that you are targeting.
 -   [`stylelint-order`](https://github.com/hudochenkov/stylelint-order): Specify the ordering of things e.g. properties within declaration blocks (plugin pack).
 -   [`stylelint-react-native`](https://github.com/kristerkari/stylelint-react-native): Enforce React Native specific linting rules (plugin pack).
