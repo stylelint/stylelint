@@ -1,4 +1,4 @@
-# HEAD
+# 9.3.0
 
 -   Added: support for `<style>` tags and `style=""` attributes in XML and XSLT files ([#3386](https://github.com/stylelint/stylelint/pull/3386)).
 -   Added: `globbyOptions` option ([#3339](https://github.com/stylelint/stylelint/pull/3339)).
