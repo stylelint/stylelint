@@ -10,10 +10,12 @@ a { text-transform: uppercase; }
 
 ## Options
 
-`object`: `{
+```json
+{
   "unprefixed-property-name": ["array", "of", "values"],
-  "unprefixed-property-name": ["/regex/", "non-regex"]
-}`
+  "/unprefixed-property-name/": ["/regex/", "non-regex"]
+}
+```
 
 If a property name is found in the object, only its whitelisted property values are allowed. This rule complains about all non-matching values. (If the property name is not included in the object, anything goes.)
 
