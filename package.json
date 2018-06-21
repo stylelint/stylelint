@@ -102,6 +102,7 @@
     "npm-run-all": "^4.0.2",
     "npmpub": "^4.0.1",
     "postcss-import": "^11.0.0",
+    "postcss-markdown": "^0.31.0",
     "prettier": "~1.13.0",
     "remark-cli": "^5.0.0",
     "remark-lint-no-missing-blank-lines": "^1.0.1",
