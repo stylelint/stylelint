@@ -19,11 +19,11 @@ it("004", done => {
     console.log("error running cli:", error); // eslint-disable-line no-console
   });
 
-  let stdout = "";
-  cliProcess.stdout.on("data", data => (stdout += data));
+  let stderr = "";
+  cliProcess.stderr.on("data", data => (stderr += data));
 
   cliProcess.on("close", function(code) {
-    expect(stdout.includes("Cannot find module")).toBeTruthy();
+    expect(stderr.includes("Cannot find module")).toBeTruthy();
     expect(code).not.toEqual(0);
     done();
   });
