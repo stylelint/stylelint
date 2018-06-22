@@ -91,7 +91,7 @@ a
 
 {
  color: pink;
- }
+}
 ```
 
 ### `never-single-line`
@@ -117,13 +117,6 @@ a
 { color: pink; }
 ```
 
-```css
-a
-{
-  color: pink;
-}
-```
-
 ### `never-multi-line`
 
 There must never be an empty line before the opening brace in multi-line blocks.
@@ -144,12 +137,6 @@ a
 {
   color: pink;
 }
-```
-
-```css
-a
-
-{ color: pink; }
 ```
 
 ### `never`
