@@ -160,7 +160,7 @@ A string displaying the formatted violations (using the default formatter or whi
 
 ### `postcssResults`
 
-An array containing all the [PostCSS LazyResults](https://github.com/postcss/postcss/blob/master/docs/api.md#lazyresult-class) that were accumulated during processing.
+An array containing all the [PostCSS LazyResults](http://api.postcss.org/LazyResult.html) that were accumulated during processing.
 
 ### `results`
 
