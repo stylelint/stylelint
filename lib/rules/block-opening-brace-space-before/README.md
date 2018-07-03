@@ -8,6 +8,8 @@ Require a single space or disallow whitespace before the opening brace of blocks
  * The space before this brace */
 ```
 
+The `--fix` option on the command line can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"always"|"never"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line"`
