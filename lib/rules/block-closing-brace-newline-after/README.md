@@ -29,6 +29,8 @@ This rule allows a trailing semicolon after the closing brace of a block. For ex
 }
 ```
 
+The `--fix` option on the command line can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line"`
