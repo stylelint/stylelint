@@ -105,13 +105,30 @@ global.testRule = (rule, schema) => {
                   }
 
                   // Check the fix
-                  return stylelint(Object.assign({ fix: true }, options)).then(
-                    output => {
+                  return stylelint(Object.assign({ fix: true }, options))
+                    .then(output => {
                       const fixedCode = getOutputCss(output);
                       expect(fixedCode).toBe(testCase.fixed);
                       expect(fixedCode).not.toBe(testCase.code);
-                    }
-                  );
+
+                      // If context.fix is true, then check if it returns early before report() is called.
+                      // https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#adding-autofixing
+                      // I commented out because there is a problem with `declaration-block-trailing-semicolon`.
+                      // expect(output.results[0].warnings).toEqual([]);
+                      return fixedCode;
+                    })
+                    .then(fixedCode => {
+                      // Check that there is no error in fixedCode.
+                      return stylelint({
+                        code: fixedCode,
+                        config: stylelintConfig,
+                        syntax: schema.syntax
+                      });
+                    })
+                    .then(output => {
+                      expect(output.results[0].warnings).toEqual([]);
+                      expect(output.results[0].parseErrors).toEqual([]);
+                    });
                 });
               });
             });
