@@ -57,6 +57,7 @@ The following patterns are considered violations:
 ```css
 a { color: pink; }
 ```
+
 The following patterns are *not* considered violations:
 
 ```css
@@ -130,6 +131,7 @@ a
   color: pink;
 }
 ```
+
 The following patterns are *not* considered violations:
 
 ```css
