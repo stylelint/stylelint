@@ -240,11 +240,11 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Unit
 
--   [`unit-case`](../../lib/rules/unit-case/README.md): Specify lowercase or uppercase for units.
+-   [`unit-case`](../../lib/rules/unit-case/README.md): Specify lowercase or uppercase for units (Autofixable).
 
 #### Value
 
--   [`value-keyword-case`](../../lib/rules/value-keyword-case/README.md): Specify lowercase or uppercase for keywords values.
+-   [`value-keyword-case`](../../lib/rules/value-keyword-case/README.md): Specify lowercase or uppercase for keywords values (Autofixable).
 
 #### Value list
 
@@ -260,7 +260,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Property
 
--   [`property-case`](../../lib/rules/property-case/README.md): Specify lowercase or uppercase for properties.
+-   [`property-case`](../../lib/rules/property-case/README.md): Specify lowercase or uppercase for properties (Autofixable).
 
 #### Declaration
 
@@ -300,9 +300,9 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`selector-combinator-space-after`](../../lib/rules/selector-combinator-space-after/README.md): Require a single space or disallow whitespace after the combinators of selectors.
 -   [`selector-combinator-space-before`](../../lib/rules/selector-combinator-space-before/README.md): Require a single space or disallow whitespace before the combinators of selectors.
 -   [`selector-descendant-combinator-no-non-space`](../../lib/rules/selector-descendant-combinator-no-non-space/README.md): Disallow non-space characters for descendant combinators of selectors.
--   [`selector-pseudo-class-case`](../../lib/rules/selector-pseudo-class-case/README.md): Specify lowercase or uppercase for pseudo-class selectors.
+-   [`selector-pseudo-class-case`](../../lib/rules/selector-pseudo-class-case/README.md): Specify lowercase or uppercase for pseudo-class selectors (Autofixable).
 -   [`selector-pseudo-class-parentheses-space-inside`](../../lib/rules/selector-pseudo-class-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors.
--   [`selector-pseudo-element-case`](../../lib/rules/selector-pseudo-element-case/README.md): Specify lowercase or uppercase for pseudo-element selectors.
+-   [`selector-pseudo-element-case`](../../lib/rules/selector-pseudo-element-case/README.md): Specify lowercase or uppercase for pseudo-element selectors (Autofixable).
 -   [`selector-pseudo-element-colon-notation`](../../lib/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements.
 -   [`selector-type-case`](../../lib/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selector.
 
