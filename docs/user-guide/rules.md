@@ -297,7 +297,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`selector-attribute-operator-space-after`](../../lib/rules/selector-attribute-operator-space-after/README.md): Require a single space or disallow whitespace after operators within attribute selectors.
 -   [`selector-attribute-operator-space-before`](../../lib/rules/selector-attribute-operator-space-before/README.md): Require a single space or disallow whitespace before operators within attribute selectors.
 -   [`selector-attribute-quotes`](../../lib/rules/selector-attribute-quotes/README.md): Require or disallow quotes for attribute values.
--   [`selector-combinator-space-after`](../../lib/rules/selector-combinator-space-after/README.md): Require a single space or disallow whitespace after the combinators of selectors.
+-   [`selector-combinator-space-after`](../../lib/rules/selector-combinator-space-after/README.md): Require a single space or disallow whitespace after the combinators of selectors (Autofixable).
 -   [`selector-combinator-space-before`](../../lib/rules/selector-combinator-space-before/README.md): Require a single space or disallow whitespace before the combinators of selectors.
 -   [`selector-descendant-combinator-no-non-space`](../../lib/rules/selector-descendant-combinator-no-non-space/README.md): Disallow non-space characters for descendant combinators of selectors.
 -   [`selector-pseudo-class-case`](../../lib/rules/selector-pseudo-class-case/README.md): Specify lowercase or uppercase for pseudo-class selectors.
