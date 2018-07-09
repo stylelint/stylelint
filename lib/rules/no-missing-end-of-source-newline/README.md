@@ -11,7 +11,7 @@ Disallow missing end-of-source newlines.
 
 Completely empty files are not considered violations.
 
-The `--fix` option on the command line can automatically fix all of the problems reported by this rule.
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
