@@ -1,5 +1,7 @@
 # Head
 
+
+-   Added: `at-rule-semicolon-newline-after` autofix ([#3450](https://github.com/stylelint/stylelint/pull/3450)).
 -   Added: `declaration-block-trailing-semicolon` autofix ([#3382](https://github.com/stylelint/stylelint/pull/3382)).
 -   Added: `block-opening-brace-space-before` autofix ([#3438](https://github.com/stylelint/stylelint/pull/3438)).
 -   Fixed: `media-feature-name-no-unknown` false positives for level 5 names ([#3397](https://github.com/stylelint/stylelint/pull/3397)).
