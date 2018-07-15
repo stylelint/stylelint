@@ -6,10 +6,11 @@
 -   Added: `declaration-block-trailing-semicolon` autofix ([#3382](https://github.com/stylelint/stylelint/pull/3382)).
 -   Added: `property-case` autofix ([#3448](https://github.com/stylelint/stylelint/pull/3448)).
 -   Added: `selector-combinator-space-after` autofix ([#3446](https://github.com/stylelint/stylelint/pull/3446)).
--   Fixed: `media-feature-name-no-unknown` false positives for level 5 names ([#3397](https://github.com/stylelint/stylelint/pull/3397)).
 -   Fixed: `block-opening-brace-newline-after` false positives for nested rule-sets prefixed with comments ([#3383](https://github.com/stylelint/stylelint/pull/3383)).
--   Fixed: `no-descending-specificity` false positives for #{&} ([#3420](https://github.com/stylelint/stylelint/pull/3420)).
+-   Fixed: `font-family-name-quotes` treats the `system-ui` system font as a keyword that should never be wrapped in quotes.
 -   Fixed: `keyframes-name-pattern` support for raw JS RegExp ([#3437](https://github.com/stylelint/stylelint/pull/3437)).
+-   Fixed: `media-feature-name-no-unknown` false positives for level 5 names ([#3397](https://github.com/stylelint/stylelint/pull/3397)).
+-   Fixed: `no-descending-specificity` false positives for #{&} ([#3420](https://github.com/stylelint/stylelint/pull/3420)).
 
 # 9.3.0
 
