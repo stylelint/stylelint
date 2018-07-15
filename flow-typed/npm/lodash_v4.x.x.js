@@ -1,5 +1,5 @@
-// flow-typed signature: 39dba3e38d83a5eb7f2960a897db09d8
-// flow-typed version: a653f6871b/lodash_v4.x.x/flow_>=v0.63.x
+// flow-typed signature: e72b0630b0d5f59be7b98f3b7e446af1
+// flow-typed version: 88076bb9e6/lodash_v4.x.x/flow_>=v0.63.x
 
 declare module "lodash" {
   declare type __CurriedFunction1<A, R, AA: A> = (...r: [AA]) => R;
@@ -1130,7 +1130,7 @@ declare module "lodash" {
     functionsIn(object?: ?Object): Array<string>;
     get(
       object?: ?Object | ?$ReadOnlyArray<any> | void | null,
-      path?: ?$ReadOnlyArray<string> | string,
+      path?: ?$ReadOnlyArray<string | number> | string | number,
       defaultValue?: any
     ): any;
     has(object: Object, path: Array<string> | string): boolean;
@@ -2767,8 +2767,8 @@ declare module "lodash/fp" {
     forOwnRight(iteratee: OIteratee<*>, object: Object): Object;
     functions(object: Object): Array<string>;
     functionsIn(object: Object): Array<string>;
-    get(path: $ReadOnlyArray<string> | string): (object: Object | $ReadOnlyArray<any> | void | null) => any;
-    get(path: $ReadOnlyArray<string> | string, object: Object | $ReadOnlyArray<any> | void | null): any;
+    get(path: $ReadOnlyArray<string | number> | string | number): (object: Object | $ReadOnlyArray<any> | void | null) => any;
+    get(path: $ReadOnlyArray<string | number> | string | number, object: Object | $ReadOnlyArray<any> | void | null): any;
     prop(path: Array<string> | string): (object: Object | Array<any>) => any;
     prop(path: Array<string> | string, object: Object | Array<any>): any;
     path(path: Array<string> | string): (object: Object | Array<any>) => any;
