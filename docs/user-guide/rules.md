@@ -143,7 +143,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Declaration block
 
--   [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declaration within single line declaration blocks.
+-   [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declarations within single line declaration blocks.
 
 #### Selector
 
