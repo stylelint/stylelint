@@ -41,7 +41,6 @@
   "dependencies": {
     "autoprefixer": "^9.0.0",
     "balanced-match": "^1.0.0",
-    "chalk": "^2.4.1",
     "cosmiconfig": "^5.0.0",
     "debug": "^3.0.0",
     "execall": "^1.0.0",
@@ -81,7 +80,8 @@
     "style-search": "^0.1.0",
     "sugarss": "^1.0.0",
     "svg-tags": "^1.0.0",
-    "table": "^4.0.1"
+    "table": "^4.0.1",
+    "turbocolor": "2.3.0"
   },
   "devDependencies": {
     "benchmark": "^2.1.4",

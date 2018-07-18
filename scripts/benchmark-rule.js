@@ -2,11 +2,11 @@
 
 /* eslint-disable no-console */
 const Benchmark = require("benchmark");
-const chalk = require("chalk");
 const normalizeRuleSettings = require("../lib/normalizeRuleSettings");
 const postcss = require("postcss");
 const request = require("request");
 const rules = require("../lib/rules");
+const tc = require("turbocolor");
 
 const ruleName = process.argv[2];
 const ruleOptions = process.argv[3];
@@ -41,10 +41,8 @@ request(CSS_URL, (error, response, body) => {
   });
 
   bench.on("complete", () => {
-    console.log(`${chalk.bold("Mean")}: ${bench.stats.mean * 1000} ms`);
-    console.log(
-      `${chalk.bold("Deviation")}: ${bench.stats.deviation * 1000} ms`
-    );
+    console.log(`${tc.bold("Mean")}: ${bench.stats.mean * 1000} ms`);
+    console.log(`${tc.bold("Deviation")}: ${bench.stats.deviation * 1000} ms`);
   });
 
   bench.run();
@@ -60,9 +58,9 @@ function benchFn(css, done) {
         result.messages
           .filter(m => m.stylelintType === "invalidOption")
           .forEach(m => {
-            console.log(chalk.bold.yellow(`>> ${m.text}`));
+            console.log(tc.bold.yellow(`>> ${m.text}`));
           });
-        console.log(`${chalk.bold("Warnings")}: ${result.warnings().length}`);
+        console.log(`${tc.bold("Warnings")}: ${result.warnings().length}`);
       }
       done();
     })
