@@ -84,7 +84,7 @@ a.foo {
 
 #### `"id"`
 
-Allow id selectors qualified by type.
+Allow ID selectors qualified by type.
 
 The following patterns are *not* considered violations:
 

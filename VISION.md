@@ -34,7 +34,7 @@ Invalid code is best handled by emerging dedicated tools e.g. [csstree](https://
 
 Provide rules to limit what language features can be used, including:
 
--   Enforcing a maximum specificity by limiting the specificity itself or the occurrence of different selector types e.g. class, id, attribute etc.
+-   Enforcing a maximum specificity by limiting the specificity itself or the occurrence of different selector types e.g. class, ID, attribute etc.
 -   Enforcing best practices _at the configuration level_ e.g. disallowing the `all` keyword for transitions as it is not performant.
 -   Enforcing the use of a subset of features to improve consistency across a code base e.g. limiting what units are allowed (`px` or `rem` etc.)
 -   Enforcing specific patterns for selectors and names (e.g. those of custom properties).
