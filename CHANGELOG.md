@@ -12,6 +12,7 @@
 -   Fixed: `font-family-name-quotes` treats the `system-ui` system font as a keyword that should never be wrapped in quotes.
 -   Fixed: `keyframes-name-pattern` support for raw JS RegExp ([#3437](https://github.com/stylelint/stylelint/pull/3437)).
 -   Fixed: `media-feature-name-no-unknown` false positives for level 5 names ([#3397](https://github.com/stylelint/stylelint/pull/3397)).
+-   Fixed: `no-missing-end-of-source-newline` false positives for for style attributes ([#3485](https://github.com/stylelint/stylelint/pull/3485)).
 -   Fixed: `no-descending-specificity` false positives for #{&} ([#3420](https://github.com/stylelint/stylelint/pull/3420)).
 
 # 9.3.0
