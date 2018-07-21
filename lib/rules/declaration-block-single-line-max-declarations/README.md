@@ -1,6 +1,6 @@
 # declaration-block-single-line-max-declarations
 
-Limit the number of declaration within a single line declaration block.
+Limit the number of declarations within a single line declaration block.
 
 ```css
 a { color: pink; top: 0; }

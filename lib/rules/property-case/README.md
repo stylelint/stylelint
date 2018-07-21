@@ -8,6 +8,8 @@ Specify lowercase or uppercase for properties.
  * These properties */
 ```
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"lower"|"upper"`
@@ -41,14 +43,14 @@ a {
 ```
 
 ```css
-a { 
-  -WEBKIT-animation-duration: 3s; 
+a {
+  -WEBKIT-animation-duration: 3s;
 }
 ```
 
 ```css
-@media screen and (orientation: landscape) { 
-  WiDtH: 500px; 
+@media screen and (orientation: landscape) {
+  WiDtH: 500px;
 }
 ```
 
@@ -67,14 +69,14 @@ a {
 ```
 
 ```css
-a { 
-  -webkit-animation-duration: 3s; 
+a {
+  -webkit-animation-duration: 3s;
 }
 ```
 
 ```css
-@media screen and (orientation: landscape) { 
-  width: 500px; 
+@media screen and (orientation: landscape) {
+  width: 500px;
 }
 ```
 
@@ -107,14 +109,14 @@ a {
 ```
 
 ```css
-a { 
-  -WEBKIT-animation-duration: 3s; 
+a {
+  -WEBKIT-animation-duration: 3s;
 }
 ```
 
 ```css
-@media screen and (orientation: landscape) { 
-  WiDtH: 500px; 
+@media screen and (orientation: landscape) {
+  WiDtH: 500px;
 }
 ```
 
@@ -133,13 +135,13 @@ a {
 ```
 
 ```css
-a { 
-  -WEBKIT-ANIMATION-DURATION: 3s; 
+a {
+  -WEBKIT-ANIMATION-DURATION: 3s;
 }
 ```
 
 ```css
-@media screen and (orientation: landscape) { 
-  WIDTH: 500px; 
+@media screen and (orientation: landscape) {
+  WIDTH: 500px;
 }
 ```

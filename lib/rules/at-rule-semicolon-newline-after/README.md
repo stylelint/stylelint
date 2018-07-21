@@ -19,6 +19,8 @@ This rule allows an end-of-line comment followed by a newline. For example:
 a {}
 ```
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"always"`
