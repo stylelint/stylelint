@@ -1,5 +1,6 @@
 # Head
 
+-   Added:  bundled support for styles in template literals ([#3405](https://github.com/stylelint/stylelint/pull/3405)).
 -   Added: `linebreaks` rule ([#3289](https://github.com/stylelint/stylelint/pull/3289)).
 -   Added: `at-rule-semicolon-newline-after` autofix ([#3450](https://github.com/stylelint/stylelint/pull/3450)).
 -   Added: `block-opening-brace-space-before` autofix ([#3438](https://github.com/stylelint/stylelint/pull/3438)).
