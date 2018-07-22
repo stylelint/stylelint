@@ -5,6 +5,7 @@
 -   Added: `at-rule-semicolon-newline-after` autofix ([#3450](https://github.com/stylelint/stylelint/pull/3450)).
 -   Added: `block-closing-brace-newline-after` autofix ([#3443](https://github.com/stylelint/stylelint/pull/3443)).
 -   Added: `block-opening-brace-space-before` autofix ([#3438](https://github.com/stylelint/stylelint/pull/3438)).
+-   Added: `compact` formatter ([#3488](https://github.com/stylelint/stylelint/pull/3488)).
 -   Added: `declaration-block-trailing-semicolon` autofix ([#3382](https://github.com/stylelint/stylelint/pull/3382)).
 -   Added: `declaration-colon-space-before` autofix ([#3445](https://github.com/stylelint/stylelint/pull/3445)).
 -   Added: `property-case` autofix ([#3448](https://github.com/stylelint/stylelint/pull/3448)).
