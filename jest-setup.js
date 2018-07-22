@@ -105,13 +105,31 @@ global.testRule = (rule, schema) => {
                   }
 
                   // Check the fix
-                  return stylelint(Object.assign({ fix: true }, options)).then(
-                    output => {
+                  return stylelint(Object.assign({ fix: true }, options))
+                    .then(output => {
                       const fixedCode = getOutputCss(output);
                       expect(fixedCode).toBe(testCase.fixed);
                       expect(fixedCode).not.toBe(testCase.code);
-                    }
-                  );
+                      return {
+                        fixedCode,
+                        warnings: output.results[0].warnings
+                      };
+                    })
+                    .then(({ fixedCode, warnings }) => {
+                      // Checks whether only errors other than those fixed are reported.
+                      return stylelint({
+                        code: fixedCode,
+                        config: stylelintConfig,
+                        syntax: schema.syntax
+                      }).then(output => ({
+                        output,
+                        warnings
+                      }));
+                    })
+                    .then(({ output, warnings }) => {
+                      expect(output.results[0].warnings).toEqual(warnings);
+                      expect(output.results[0].parseErrors).toEqual([]);
+                    });
                 });
               });
             });
