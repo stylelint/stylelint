@@ -4,6 +4,7 @@
 
 -   [FAQ](user-guide/faq.md): Frequently asked questions about using and configuring stylelint.
 -   [About rules](user-guide/about-rules.md): An explanation of rule names and how rules work together.
+-   [Semantic versioning policy](user-guide/semantic-versioning-policy.md): An explanation of our policy on semantic versioning.
 
 ## Configuration
 
