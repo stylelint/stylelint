@@ -85,7 +85,7 @@ Yes, you can either use the [`message` secondary option](configuration.md#custom
 
 Use the [stylelint-selector-bem-pattern](https://github.com/davidtheclark/stylelint-selector-bem-pattern) plugin to ensure your selectors conform to a chosen BEM-flavor pattern.
 
-You can also take advantage of the `selector-*` rules to ban certain types of selectors (e.g. id selectors) and control specificity.
+You can also take advantage of the `selector-*` rules to ban certain types of selectors (e.g. ID selectors) and control specificity.
 
 If you're using SUITCSS, you might want to use [their shareable config](https://github.com/suitcss/stylelint-config-suitcss).
 
