@@ -1,11 +1,11 @@
 # Head
 
--   Added:  bundled support for styles in template literals ([#3405](https://github.com/stylelint/stylelint/pull/3405)).
+-   Added: bundled support for styles in template literals ([#3405](https://github.com/stylelint/stylelint/pull/3405)).
 -   Added: `linebreaks` rule ([#3289](https://github.com/stylelint/stylelint/pull/3289)).
+-   Added: `compact` formatter ([#3488](https://github.com/stylelint/stylelint/pull/3488)).
 -   Added: `at-rule-semicolon-newline-after` autofix ([#3450](https://github.com/stylelint/stylelint/pull/3450)).
 -   Added: `block-closing-brace-newline-after` autofix ([#3443](https://github.com/stylelint/stylelint/pull/3443)).
 -   Added: `block-opening-brace-space-before` autofix ([#3438](https://github.com/stylelint/stylelint/pull/3438)).
--   Added: `compact` formatter ([#3488](https://github.com/stylelint/stylelint/pull/3488)).
 -   Added: `declaration-block-trailing-semicolon` autofix ([#3382](https://github.com/stylelint/stylelint/pull/3382)).
 -   Added: `declaration-colon-space-before` autofix ([#3445](https://github.com/stylelint/stylelint/pull/3445)).
 -   Added: `property-case` autofix ([#3448](https://github.com/stylelint/stylelint/pull/3448)).
@@ -13,11 +13,11 @@
 -   Added: `selector-combinator-space-before` autofix ([#3457](https://github.com/stylelint/stylelint/pull/3457)).
 -   Added: `selector-list-comma-space-before` autofix ([#3447](https://github.com/stylelint/stylelint/pull/3447)).
 -   Fixed: `block-opening-brace-newline-after` false positives for nested rule-sets prefixed with comments ([#3383](https://github.com/stylelint/stylelint/pull/3383)).
--   Fixed: `font-family-name-quotes` treats the `system-ui` system font as a keyword that should never be wrapped in quotes.
+-   Fixed: `font-family-name-quotes` false positives for `system-ui` system font ([#3463](https://github.com/stylelint/stylelint/pull/3463)).
 -   Fixed: `keyframes-name-pattern` support for raw JS RegExp ([#3437](https://github.com/stylelint/stylelint/pull/3437)).
 -   Fixed: `media-feature-name-no-unknown` false positives for level 5 names ([#3397](https://github.com/stylelint/stylelint/pull/3397)).
--   Fixed: `no-missing-end-of-source-newline` false positives for for style attributes ([#3485](https://github.com/stylelint/stylelint/pull/3485)).
 -   Fixed: `no-descending-specificity` false positives for #{&} ([#3420](https://github.com/stylelint/stylelint/pull/3420)).
+-   Fixed: `no-missing-end-of-source-newline` false positives for style attributes ([#3485](https://github.com/stylelint/stylelint/pull/3485)).
 
 # 9.3.0
 
