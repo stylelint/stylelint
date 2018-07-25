@@ -34,7 +34,7 @@ The secondary goals are:
     2.  Run `npm test`
     3.  Commit and _push up_ these changes.
     1.  Go to [https://stylelint.io/demo](https://stylelint.io/demo) and confirm the update was automatically deployed.
-8.  Update the website documentation by changing the to `stylelint.io` repo:
+8.  Update the website documentation by changing to the `stylelint.io` repo:
     1.  Run `npm install -D stylelint@latest`
     2.  Run `npm test`
     3.  Commit and _push up_ these changes.
