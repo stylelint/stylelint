@@ -10,38 +10,20 @@ It's mighty because it:
 
 -   has over **160 built-in rules** to catch errors, apply limits and enforce stylistic conventions
 -   understands the **latest CSS syntax** including custom properties and level 4 selectors
--   parses **CSS-like syntaxes** like Scss, Sass, Less and SugarSS
--   extracts **embedded styles** from markdown code fences, template literals and style tags & attributes
--   automatically **fixes** some violations to save you time
+-   parses **CSS-like syntaxes** like SCSS, Sass, Less and SugarSS
+-   extracts **embedded styles** from HTML, markdown and CSS-in-JS template literals
+-   automatically **fixes** some violations (*experimental feature*)
 -   supports **plugins** so you can create your own rules or make use of plugins written by the community
--   has **shareable configs** that you can share with your team and/or the community
--   is **well tested** with over 10000 tests
--   is **unopinionated** so you can tailor the linter to your needs
+-   is **well tested** with over 10000 unit tests
+-   supports **shareable configs** that you can extend or create your own of
+-   is **unopinionated** so you can tailor the linter to your exact needs
 -   has a **growing community** and is used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [GitHub](https://github.com/primer/stylelint-config-primer) and [WordPress](https://github.com/ntwb/stylelint-config-wordpress/)
 
 ## Example output
 
-The built-in rules help you:
-
--   **catch possible errors**, for example invalid CSS syntax, duplicates and overrides
--   **limit language features**, for example:
-    -   specific units, properties, functions and at-rules
-    -   the specificity and quantity of selectors
-    -   the patterns for selectors and custom properties
--   **enforce stylistic conventions**, for example whitespace, case, notation and quotes
-
-And produce this kind of output for you:
-
 ![Example](https://github.com/stylelint/stylelint/raw/master/example.png?raw=true)
 
 ## Getting started
-
-You can lint styles in:
-
--   CSS, Scss, Less, Sass and SugarSS files
--   CSS-in-JS template literals, for example styled-components and Emotion
--   HTML style tags and attributes, for example Vue and Web Components
--   Markdown fences
 
 It's easy to get started.
 
@@ -59,27 +41,23 @@ You can either extend a shared configuration or craft your own.
 
 ### Extend a shared configuration
 
-This is the quickest way to get started. We suggest extending either:
+It's the quickest way to get started. We suggest extending either:
 
--   [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended) - possible error rules
--   [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) - possible error and stylistic rules
+-   [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended)
+-   [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard)
 
-The recommended one turns on the [possible error](docs/user-guide/rules.md#possible-errors) rules. The standard config builds on top of it by turning on over 60 of stylelint's [stylistic rules](docs/user-guide/rules.md#stylistic-issues) with sensible defaults.
+The recommended one turns on the [possible error](docs/user-guide/rules.md#possible-errors) rules. The standard config builds on it by turning on over 60 of the [stylistic rules](docs/user-guide/rules.md#stylistic-issues) with sensible defaults. We update these configs with each release of stylelint, so it's easy to stay up to date.
 
-We update these configs with each release of stylelint, so it's easy to stay up to date.
+However, you can use a community config, for example [`stylelint-config-recommended-scss`](https://github.com/kristerkari/stylelint-config-recommended-scss), if you use non-standard syntax like `@if`, `@extends` etc.
 
-If you use non-standard syntax (like `@if` etc.), you can use a community config designed for it, for example [`stylelint-config-recommended-scss`](https://github.com/kristerkari/stylelint-config-recommended-scss).
-
-You can override rules after extending any config.
-
-You'll likely want to add some of the rules that [limit language features](docs/user-guide/rules.md#limit-language-features) as these will be specific to your team/project.
+You can always override rules after extending any config. You may also want to add some rules that [limit language features](docs/user-guide/rules.md#limit-language-features) as these will be specific to your team and/or project.
 
 ### Craft your own config
 
-Alternatively, you can first learn about how rules are [named and how they work together](docs/user-guide/about-rules.md) and then either:
+Alternatively, you can [learn about the rules](docs/user-guide/about-rules.md) and then either:
 
--   start small and only learn about [the rules](docs/user-guide/rules.md) you want to turn on and enforce
--   copy-paste and then adapt [this example configuration](docs/user-guide/example-config.md), which lists all of stylelint's rules and their primary options
+-   start small and add only [the rules](docs/user-guide/rules.md) you want to turn on
+-   copy, paste and adapt [this example configuration](docs/user-guide/example-config.md) which lists all of the rules and their primary options
 
 ## Guides
 
@@ -113,9 +91,7 @@ If you're interested in the project vision, you can read our [VISION document](V
 
 ## Semantic Versioning Policy
 
-We have a [semantic versioning policy](docs/user-guide/semantic-versioning-policy.md). Any minor update may report more errors than the previous release.
-
-As such, we recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds.
+We have a [semantic versioning policy](docs/user-guide/semantic-versioning-policy.md). Any minor update may report more errors than the previous release. As such, we recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds.
 
 ## License
 
