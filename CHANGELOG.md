@@ -13,6 +13,7 @@
 -   Added: `selector-combinator-space-before` autofix ([#3457](https://github.com/stylelint/stylelint/pull/3457)).
 -   Added: `selector-list-comma-space-before` autofix ([#3447](https://github.com/stylelint/stylelint/pull/3447)).
 -   Fixed: `block-opening-brace-newline-after` false positives for nested rule-sets prefixed with comments ([#3383](https://github.com/stylelint/stylelint/pull/3383)).
+-   Fixed: `declaration-block-trailing-semicolon` report of errors with the `--fix` option ([#3493](https://github.com/stylelint/stylelint/pull/3493)).
 -   Fixed: `font-family-name-quotes` false positives for `system-ui` system font ([#3463](https://github.com/stylelint/stylelint/pull/3463)).
 -   Fixed: `keyframes-name-pattern` support for raw JS RegExp ([#3437](https://github.com/stylelint/stylelint/pull/3437)).
 -   Fixed: `media-feature-name-no-unknown` false positives for level 5 names ([#3397](https://github.com/stylelint/stylelint/pull/3397)).
