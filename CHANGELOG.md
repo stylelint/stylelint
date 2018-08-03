@@ -1,3 +1,8 @@
+# Head
+
+-   Added: `block-closing-brace-newline-before` autofix ([#3442](https://github.com/stylelint/stylelint/pull/3442)).
+-   Fixed: `selector-descendant-combinator-no-non-space` false positives for calculations with parenthesis ([#3508](https://github.com/stylelint/stylelint/pull/3508)).
+
 # 9.4.0
 
 -   Added: bundled support for styles in template literals ([#3405](https://github.com/stylelint/stylelint/pull/3405)).
