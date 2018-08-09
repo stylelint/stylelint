@@ -144,7 +144,7 @@ export type stylelint$standaloneOptions = {
   maxWarnings?: number,
   syntax?: stylelint$syntaxes,
   customSyntax?: string,
-  formatter?: "compact" | "json" | "string" | "verbose" | Function,
+  formatter?: "compact" | "json" | "string" | "unix" | "verbose" | Function,
   disableDefaultIgnores?: boolean,
   fix?: boolean
 };
