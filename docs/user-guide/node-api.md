@@ -75,7 +75,7 @@ For more detail usage, see [Globby Guide](https://github.com/sindresorhus/globby
 
 ### `formatter`
 
-Options: `"json"|"string"|"verbose"`, or a function. Default is `"json"`.
+Options: `"compact"|"json"|"string"|"verbose"`, or a function. Default is `"json"`.
 
 Specify the formatter that you would like to use to format your results.
 
@@ -160,7 +160,7 @@ A string displaying the formatted violations (using the default formatter or whi
 
 ### `postcssResults`
 
-An array containing all the [PostCSS LazyResults](https://github.com/postcss/postcss/blob/master/docs/api.md#lazyresult-class) that were accumulated during processing.
+An array containing all the [PostCSS LazyResults](https://api.postcss.org/LazyResult.html) that were accumulated during processing.
 
 ### `results`
 

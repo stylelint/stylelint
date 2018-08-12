@@ -2,16 +2,20 @@
 
 We have taken great care to consistently name rules.
 
-The rules have been designed to work in conjunction with one another so that strict conventions can be enforced.
+The rules have been designed to work together to enforce strict conventions.
 
 <!-- TOC -->
 
 ## About rule names
 
--   Made of lowercase words separated by hyphens.
--   Split into two parts:
-    -   The first describes what [*thing*](http://apps.workflower.fi/vocabs/css/en) the rule applies to.
-    -   The second describes what the rule is checking.
+Rule names are:
+
+-   made up of lowercase words separated by hyphens
+-   split into two parts
+
+The first part describes what [*thing*](http://apps.workflower.fi/vocabs/css/en) the rule applies to. The second part describes what the rule is checking.
+
+For example:
 
 ```js
 "number-leading-zero"
@@ -19,7 +23,9 @@ The rules have been designed to work in conjunction with one another so that str
 // the thing  what the rule is checking
 ```
 
--   Except when the rule applies to the whole stylesheet:
+There is no first part when the rule applies to the whole stylesheet.
+
+For example:
 
 ```js
 "no-eol-whitespace"
@@ -30,13 +36,13 @@ The rules have been designed to work in conjunction with one another so that str
 
 ### No rules
 
-Most rules allow you to choose whether you want to require *or* disallow something.
+Most rules require *or* disallow something.
 
 For example, whether numbers *must* or *must not* have a leading zero:
 
 -   `number-leading-zero`: `string -   "always"|"never"`
-    -   `"always"` -   there *must always* be a leading zero.
-    -   `"never"` -   there *must never* be a leading zero.
+    -   `"always"` -   there *must always* be a leading zero
+    -   `"never"` -   there *must never* be a leading zero
 
 ```css
 a { line-height: 0.5; }
@@ -44,11 +50,11 @@ a { line-height: 0.5; }
  * This leading zero */
 ```
 
-However, some rules *just disallow* something. `*-no-*` is used to identify these rules.
+However, some rules *just disallow* something. These rules include `*-no-*` in their name.
 
 For example, whether empty blocks should be disallowed:
 
--   `block-no-empty` -   blocks *must not* be empty.
+-   `block-no-empty` -   blocks *must not* be empty
 
 ```css
 a {   }
@@ -60,7 +66,7 @@ Notice how, for a rule like this, it does not make sense to have an option to en
 
 ### Max and min rules
 
-`*-max-*` and `*-min-*` rules are used when a rule is *setting a limit* to something.
+`*-max-*` and `*-min-*` rules are used to *set a limit* to something.
 
 For example, specifying the maximum number of digits after the "." in a number:
 
@@ -78,8 +84,8 @@ Whitespace rules allow you to specify whether an empty line, a single space, a n
 
 The whitespace rules combine two sets of keywords:
 
-1.  `before`, `after` and `inside` are used to specify where the whitespace (if any) is expected.
-2.  `empty-line`, `space` and `newline` are used to specify whether a single empty line, a single space, a single newline or no space is expected there.
+-   `before`, `after` and `inside` are used to specify where the whitespace (if any) is expected
+-   `empty-line`, `space` and `newline` are used to specify whether a single empty line, a single space, a single newline or no space is expected there
 
 For example, specifying if a single empty line or no space must come before all the comments in a stylesheet:
 
@@ -96,7 +102,7 @@ a {}
 
 Additionally, some whitespace rule make use of another set of keywords:
 
-1.  `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` or `range-operator` are used if a specific piece of punctuation in the *thing* is being targetted.
+-   `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` or `range-operator` are used if a specific piece of punctuation in the *thing* is being targetted
 
 For example, specifying if a single space or no space must come after a comma in a function:
 

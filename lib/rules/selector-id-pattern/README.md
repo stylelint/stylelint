@@ -1,11 +1,11 @@
 # selector-id-pattern
 
-Specify a pattern for id selectors.
+Specify a pattern for ID selectors.
 
 ```css
 .foo, #bar.baz a, #hoo[disabled] { color: pink; }
 /**   ↑           ↑
- * These id selectors */
+ * These ID selectors */
 ```
 
 ## Options
