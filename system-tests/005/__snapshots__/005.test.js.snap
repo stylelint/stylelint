@@ -10649,7 +10649,7 @@ Array [
       },
       Object {
         "column": 1,
-        "line": 121,
+        "line": 120,
         "rule": "max-empty-lines",
         "severity": "error",
         "text": "Expected no more than 2 empty lines (max-empty-lines)",
