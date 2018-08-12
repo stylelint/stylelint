@@ -1,3 +1,4 @@
+
 # max-empty-lines
 
 Limit the number of adjacent empty lines.
@@ -30,12 +31,12 @@ b {}
 Comment strings are also checked -- so the following is a violation:
 
 ```css
-/**
- * Call me Ishmael.
- *
- *
- *
- * Some years ago -- never mind how log precisely -- ...
+/*
+ Call me Ishmael.
+
+
+
+ Some years ago -- never mind how log precisely -- ...
  */
 ```
 
@@ -67,7 +68,7 @@ Only enforce the adjacent empty lines limit for lines that are not comments.
 
 For example, with `2` adjacent empty lines:
 
-The following patterns are considered violations:
+The following pattern is considered violation:
 
 ```css
 /* horse */
@@ -81,23 +82,24 @@ b {}
 The following patterns are *not* considered violations:
 
 ```css
-/**
- * Call me Ishmael.
- *
- *
- *
- * Some years ago -- never mind how log precisely -- ...
+/*
+ Call me Ishmael.
+
+
+
+ Some years ago -- never mind how log precisely -- ...
  */
 ```
 
 ```css
 a { 
-    /**
-    * Comment 
-    *
-    *
-    *
-    * inside the declaration with a lot of empty lines...
+    /*
+     Comment 
+
+
+
+
+     inside the declaration with a lot of empty lines...
     */
      color: pink; 
 }
