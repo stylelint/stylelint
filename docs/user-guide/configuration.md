@@ -24,7 +24,7 @@ The configuration object can have the following properties.
 
 ### `rules`
 
-Rules determine what the linter looks for and complains about. There are [over 150](rules.md) built into stylelint. *No rules are turned on by default*, so this is where you turn on everything you want to check. All the rules must be explicitly configured as *there are no default values*.
+Rules determine what the linter looks for and complains about. There are [over 160](rules.md) built into stylelint. *No rules are turned on by default*, so this is where you turn on everything you want to check. All the rules must be explicitly configured as *there are no default values*.
 
 The `rules` property is *an object whose keys are rule names and values are rule configurations*. Each rule configuration fits one of the following formats:
 

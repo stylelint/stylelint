@@ -75,7 +75,7 @@ For more detail usage, see [Globby Guide](https://github.com/sindresorhus/globby
 
 ### `formatter`
 
-Options: `"json"|"string"|"verbose"`, or a function. Default is `"json"`.
+Options: `"compact"|"json"|"string"|"verbose"`, or a function. Default is `"json"`.
 
 Specify the formatter that you would like to use to format your results.
 

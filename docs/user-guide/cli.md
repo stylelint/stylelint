@@ -5,7 +5,7 @@
 stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install it using:
 
 ```shell
-npm install -g stylelint
+npm install stylelint --save-dev
 ```
 
 <!-- TOC -->

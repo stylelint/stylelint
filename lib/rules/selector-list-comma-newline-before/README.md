@@ -9,6 +9,8 @@ Require a newline or disallow whitespace before the commas of selector lists.
  * The newline before this comma */
 ```
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"always"|"always-multi-line"|"never-multi-line"`
