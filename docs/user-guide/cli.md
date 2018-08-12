@@ -104,6 +104,10 @@ If you're using both these special comments and autofixing, please run stylelint
 
 For CSS with standard syntax, stylelint will use [postcss-safe-parser](https://github.com/postcss/postcss-safe-parser) to fix syntax errors.
 
+### Troubleshooting configurations
+
+With the `--print-config` option, stylelint outputs the configuration to be used for the file passed. When present, no linting is performed and only config-related options are valid.
+
 ## Syntax errors
 
 The CLI informs you about syntax errors in your CSS.
