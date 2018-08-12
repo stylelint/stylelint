@@ -80,7 +80,7 @@
     "specificity": "^0.4.0",
     "string-width": "^2.1.0",
     "style-search": "^0.1.0",
-    "sugarss": "^1.0.0",
+    "sugarss": "^2.0.0",
     "svg-tags": "^1.0.0",
     "table": "^4.0.1"
   },
