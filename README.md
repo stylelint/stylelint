@@ -11,7 +11,7 @@ It's mighty because it:
 -   has over **160 built-in rules** to catch errors, apply limits and enforce stylistic conventions
 -   understands the **latest CSS syntax** including custom properties and level 4 selectors
 -   parses **CSS-like syntaxes** like SCSS, Sass, Less and SugarSS
--   extracts **embedded styles** from HTML, markdown and CSS-in-JS template literals
+-   extracts **embedded styles** from HTML, markdown and CSS-in-JS object & template literals
 -   automatically **fixes** some violations (*experimental feature*)
 -   supports **plugins** so you can create your own rules or make use of plugins written by the community
 -   is **well tested** with over 10000 unit tests
