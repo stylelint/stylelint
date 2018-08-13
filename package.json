@@ -50,7 +50,7 @@
     "globby": "^8.0.0",
     "globjoin": "^0.1.4",
     "html-tags": "^2.0.0",
-    "ignore": "^4.0.0",
+    "ignore": "^5.0.0",
     "import-lazy": "^3.1.0",
     "imurmurhash": "^0.1.4",
     "known-css-properties": "^0.9.0",
