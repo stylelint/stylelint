@@ -1,11 +1,18 @@
 # Head
 
+-   Added: bundled support for styles in CSS-in-JS object literals ([#3506](https://github.com/stylelint/stylelint/pull/3506)).
 -   Added: `block-closing-brace-newline-before` autofix ([#3442](https://github.com/stylelint/stylelint/pull/3442)).
+-   Added: `block-opening-brace-newline-before` autofix ([#3518](https://github.com/stylelint/stylelint/pull/3518)).
+-   Added: `block-opening-brace-space-after` autofix ([#3520](https://github.com/stylelint/stylelint/pull/3520)).
+-   Added: `block-opening-brace-newline-after` autofix ([#3441](https://github.com/stylelint/stylelint/pull/3441)).
+-   Added: `selector-list-comma-newline-before` autofix ([#3517](https://github.com/stylelint/stylelint/pull/3517)).
+-   Added: `selector-list-comma-space-after` autofix ([#3490](https://github.com/stylelint/stylelint/pull/3490)).
+-   Added: `unix` formatter ([#3524](https://github.com/stylelint/stylelint/pull/3524)).
 -   Fixed: `selector-descendant-combinator-no-non-space` false positives for calculations with parenthesis ([#3508](https://github.com/stylelint/stylelint/pull/3508)).
 
 # 9.4.0
 
--   Added: bundled support for styles in template literals ([#3405](https://github.com/stylelint/stylelint/pull/3405)).
+-   Added: bundled support for styles in CSS-in-JS template literals ([#3405](https://github.com/stylelint/stylelint/pull/3405)).
 -   Added: `linebreaks` rule ([#3289](https://github.com/stylelint/stylelint/pull/3289)).
 -   Added: `compact` formatter ([#3488](https://github.com/stylelint/stylelint/pull/3488)).
 -   Added: `at-rule-semicolon-newline-after` autofix ([#3450](https://github.com/stylelint/stylelint/pull/3450)).
