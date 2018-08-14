@@ -7,6 +7,7 @@
 -   Added: `block-opening-brace-newline-after` autofix ([#3441](https://github.com/stylelint/stylelint/pull/3441)).
 -   Added: `selector-list-comma-newline-before` autofix ([#3517](https://github.com/stylelint/stylelint/pull/3517)).
 -   Added: `selector-list-comma-space-after` autofix ([#3490](https://github.com/stylelint/stylelint/pull/3490)).
+-   Added: `unix` formatter ([#3524](https://github.com/stylelint/stylelint/pull/3524)).
 -   Fixed: `selector-descendant-combinator-no-non-space` false positives for calculations with parenthesis ([#3508](https://github.com/stylelint/stylelint/pull/3508)).
 
 # 9.4.0
