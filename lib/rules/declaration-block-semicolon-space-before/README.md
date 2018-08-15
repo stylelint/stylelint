@@ -10,6 +10,8 @@ a { color: pink; }
 
 This rule ignores semicolons that are preceded by Less mixins.
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"always"|"never"|"always-single-line"|"never-single-line"`
