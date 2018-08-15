@@ -65,7 +65,7 @@
     "postcss-jsx": "^0.33.0",
     "postcss-html": "^0.32.0",
     "postcss-less": "^2.0.0",
-    "postcss-markdown": "^0.32.0",
+    "postcss-markdown": "^0.33.0",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-reporter": "^5.0.0",
     "postcss-resolve-nested-selector": "^0.1.1",
