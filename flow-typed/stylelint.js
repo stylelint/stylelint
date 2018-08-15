@@ -137,6 +137,7 @@ export type stylelint$standaloneOptions = {
   configFile?: string,
   configBasedir?: string,
   configOverrides?: Object,
+  printConfig?: string,
   ignoreDisables?: boolean,
   ignorePath?: string,
   ignorePattern?: RegExp,
