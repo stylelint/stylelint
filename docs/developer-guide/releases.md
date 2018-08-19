@@ -28,7 +28,7 @@ The secondary goals are:
     7.  Run `npm run release`.
     8.  Go to [https://www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint) and confirm the package was published correctly.
     9.  Go to [https://github.com/stylelint/stylelint/releases](https://github.com/stylelint/stylelint/releases) and confirm the release was created correctly.
-6.  If a new version of any `stylelint-config-*` is required, repeat step 3 for that repo.
+6.  If a new version of any `stylelint-config-*` is required, repeat step 5 for that repo.
 7.  Update the online demo by changing to the `stylelint-demo` repo:
     1.  Run `npm install -S stylelint@latest`
     2.  Run `npm test`
