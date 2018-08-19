@@ -7,6 +7,7 @@
 -   Added: `block-opening-brace-space-after` autofix ([#3520](https://github.com/stylelint/stylelint/pull/3520)).
 -   Added: `block-opening-brace-newline-after` autofix ([#3441](https://github.com/stylelint/stylelint/pull/3441)).
 -   Added: `declaration-block-semicolon-newline-after` autofix ([#3545](https://github.com/stylelint/stylelint/pull/3545)).
+-   Added: `declaration-block-semicolon-space-before` autofix ([#3554](https://github.com/stylelint/stylelint/pull/3554)).
 -   Added: `declaration-colon-space-after` autofix ([#3538](https://github.com/stylelint/stylelint/pull/3538)).
 -   Added: `selector-list-comma-newline-before` autofix ([#3517](https://github.com/stylelint/stylelint/pull/3517)).
 -   Added: `selector-list-comma-space-after` autofix ([#3490](https://github.com/stylelint/stylelint/pull/3490)).
