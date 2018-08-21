@@ -46,13 +46,12 @@ This is the quickest way to get started. We suggest you extend either:
 
 The recommended config turns on just the [possible error](docs/user-guide/rules.md#possible-errors) rules. The standard config extends it by turning on 60 [stylistic rules](docs/user-guide/rules.md#stylistic-issues). We suggest you extend the:
 
-- recommended config if you use a pretty printer like [prettier](https://prettier.io/)
-- standard config if you want stylelint to enforce stylistic conventions
+-   recommended config if you use a pretty printer like [prettier](https://prettier.io/)
+-   standard config if you want stylelint to enforce stylistic conventions
 
 You may want to add rules to your config that [limit language features](docs/user-guide/rules.md#limit-language-features) as these will be specific to your team and/or project.
 
-_If you use language extensions, for example `@if` and `@extends`, you can use a community config like [`stylelint-config-recommended-scss`](https://github.com/kristerkari/stylelint-config-recommended-scss) instead._
-
+*If you use language extensions, for example `@if` and `@extends`, you can use a community config like [`stylelint-config-recommended-scss`](https://github.com/kristerkari/stylelint-config-recommended-scss) instead.*
 
 ### Craft your own config
 
@@ -76,8 +75,8 @@ If the answer to your problem isn't there, then post it on [stackoverflow](https
 
 Create a [new issue](https://github.com/stylelint/stylelint/issues/new/choose) if:
 
-- you think you've found a bug
-- you have a feature request
+-   you think you've found a bug
+-   you have a feature request
 
 If you're upgrading, read our [CHANGELOG](CHANGELOG.md) to learn what changes to expect in the latest version.
 

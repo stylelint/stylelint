@@ -62,7 +62,7 @@ Caching processed `.scss` files in order to operate only on changed ones in the 
 stylelint "foo/**/*.scss" --cache --cache-location "/Users/user/.stylelintcache/"
 ```
 
-stylelint will [automatically infer the syntax](css-processors.md##parsing-non-standard-syntax). You can, however, force a specific syntax using the  `--syntax` option. For example, linting all the `.css` files in the `foo` directory _as Scss_:
+stylelint will [automatically infer the syntax](css-processors.md#parsing-non-standard-syntax). You can, however, force a specific syntax using the  `--syntax` option. For example, linting all the `.css` files in the `foo` directory _as Scss_:
 
 ```shell
 stylelint "foo/**/*.css" --syntax scss
