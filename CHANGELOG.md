@@ -1,3 +1,7 @@
+# Head
+
+-   Added: `function-comma-space-after` autofix ([#3555](https://github.com/stylelint/stylelint/pull/3555)).
+
 # 9.5.0
 
 -   Added: bundled support for styles in CSS-in-JS object literals ([#3506](https://github.com/stylelint/stylelint/pull/3506)).
