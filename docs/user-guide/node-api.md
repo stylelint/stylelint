@@ -128,11 +128,11 @@ A path to a file containing patterns describing files to ignore. The path can be
 
 ### `syntax`
 
-Options: `"sass"|"scss"|"less"|"sugarss"`
+Options: `"sass"|"scss"|"less"|"sugarss"|"html"|"styled"|"jsx"`
 
-Specify a non-standard syntax that should be used to parse source stylesheets.
+Force a specific non-standard syntax that should be used to parse source stylesheets.
 
-If you do not specify a syntax, non-standard syntaxes will be automatically inferred by the file extensions `.sass`, `.scss`, `.less`, and `.sss`.
+If you do not specify a syntax, non-standard syntaxes will be automatically inferred.
 
 See the [`customSyntax`](#customsyntax) option below if you would like to use stylelint with a custom syntax.
 

@@ -44,10 +44,10 @@ Using `bar/mySpecialConfig.json` as config to lint all `.css` files in the `foo`
 stylelint "foo/*.css" --config bar/mySpecialConfig.json > myTestReport.txt
 ```
 
-Using `bar/mySpecialConfig.json` as config, with quiet mode on, to lint all `.css` files in the `foo` directory and any of its subdirectories and also all `.css` files in the `bar directory`, then writing the JSON-formatted output to `myJsonReport.json`:
+Using `bar/mySpecialConfig.json` as config, with quiet mode on, to lint all `.css` files in the `foo` directory and any of its subdirectories and also all `.css` files in the `bar directory`:
 
 ```shell
-stylelint "foo/**/*.css bar/*.css" -q -f json --config bar/mySpecialConfig.json > myJsonReport.json
+stylelint "foo/**/*.css bar/*.css" -q -f json --config bar/mySpecialConfig.json
 ```
 
 Linting all `.css` files except those within `docker` subfolders, using negation in the input glob:
@@ -62,21 +62,13 @@ Caching processed `.scss` files in order to operate only on changed ones in the 
 stylelint "foo/**/*.scss" --cache --cache-location "/Users/user/.stylelintcache/"
 ```
 
-Linting all the `.css` files in the `foo` directory, using the `syntax` option:
+stylelint will [automatically infer the syntax](css-processors.md##parsing-non-standard-syntax). You can, however, force a specific syntax using the  `--syntax` option. For example, linting all the `.css` files in the `foo` directory _as Scss_:
 
 ```shell
 stylelint "foo/**/*.css" --syntax scss
 ```
 
-In addition to `--syntax scss`, stylelint supports `--syntax sass`, `--syntax less`, and `--syntax sugarss` by default. If you're using one of the default syntaxes, you may not need to provide a `--syntax` option as non-standard syntaxes can be automatically inferred from the following:
-
--   The following file extensions: `.sass`, `.scss`, `.less`, and `.sss`.
--   The following values for the `lang` or `type` attribute on `<style>` tags (e.g. `lang="scss"`, `type="text/scss"`): `scss`, `less` and `sugarss`.
--   The following Markdown code fencing markers (e.g. ```` ```scss ````): `scss`, `less` and `sugarss`.
-
-Additionally, stylelint can accept a custom [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). To use a custom syntax, supply a syntax module name or path to the syntax file: `--custom-syntax custom-syntax` or `--custom-syntax ./path/to/custom-syntax`.
-
-Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed above.
+stylelint can also accept a custom [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). To use a custom syntax, supply a syntax module name or path to the syntax file: `--custom-syntax custom-syntax` or `--custom-syntax ./path/to/custom-syntax`.
 
 ### Recursively linting a directory
 
@@ -86,7 +78,7 @@ To recursively lint a directory, using the `**` globstar:
 stylelint "foo/**/*.scss"
 ```
 
-The quotation marks around the glob are important because they will allow stylelint to interpret the glob, using node-glob, instead of your shell, which might not support all the same features.
+The quotation marks around the glob are important because they will allow stylelint to interpret the glob, using globby, instead of your shell, which might not support all the same features.
 
 ### Autofixing errors
 

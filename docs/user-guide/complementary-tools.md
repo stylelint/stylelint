@@ -6,10 +6,6 @@ A list of complementary tools built and maintained by the community.
 
 -   [codeclimate-stylelint](https://github.com/gilbarbara/codeclimate-stylelint): Code Climate engine for stylelint
 
-## Autocorrect
-
--   [stylefmt](https://github.com/morishitter/stylefmt): Automatically formats CSS and SCSS source code based on your stylelint configuration.
-
 ## Command Line Tools
 
 -   [stylelint-find-rules](https://github.com/alexilyaev/stylelint-find-rules): Find Stylelint rules that you don't have in your config.
