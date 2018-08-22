@@ -10,10 +10,10 @@ It's mighty because it:
 
 -   has over **160 built-in rules** to catch errors, apply limits and enforce stylistic conventions
 -   understands the **latest CSS syntax** including custom properties and level 4 selectors
--   parses **CSS-like syntaxes** like SCSS, Sass, Less and SugarSS
 -   extracts **embedded styles** from HTML, markdown and CSS-in-JS object & template literals
--   automatically **fixes** some violations (*experimental feature*)
+-   parses **CSS-like syntaxes** like SCSS, Sass, Less and SugarSS
 -   supports **plugins** so you can create your own rules or make use of plugins written by the community
+-   automatically **fixes** some violations (*experimental feature*)
 -   is **well tested** with over 10000 unit tests
 -   supports **shareable configs** that you can extend or create your own of
 -   is **unopinionated** so you can tailor the linter to your exact needs
@@ -35,22 +35,23 @@ First, decide how you want to use stylelint:
 -   [via the Node API](docs/user-guide/node-api.md)
 -   [as a PostCSS plugin](docs/user-guide/postcss-plugin.md)
 
-Then, create your [configuration object](docs/user-guide/configuration.md).
-
-You can either extend a shared configuration or craft your own.
+Then create your [configuration object](docs/user-guide/configuration.md). You can either extend a shared configuration or craft your own.
 
 ### Extend a shared configuration
 
-It's the quickest way to get started. We suggest extending either:
+This is the quickest way to get started. We suggest you extend either:
 
 -   [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended)
 -   [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard)
 
-The recommended one turns on the [possible error](docs/user-guide/rules.md#possible-errors) rules. The standard config builds on it by turning on over 60 of the [stylistic rules](docs/user-guide/rules.md#stylistic-issues) with sensible defaults. We update these configs with each release of stylelint, so it's easy to stay up to date.
+The recommended config turns on just the [possible error](docs/user-guide/rules.md#possible-errors) rules. The standard config extends it by turning on 60 [stylistic rules](docs/user-guide/rules.md#stylistic-issues). We suggest you extend the:
 
-However, you can use a community config, for example [`stylelint-config-recommended-scss`](https://github.com/kristerkari/stylelint-config-recommended-scss), if you use non-standard syntax like `@if`, `@extends` etc.
+-   recommended config if you use a pretty printer like [prettier](https://prettier.io/)
+-   standard config if you want stylelint to enforce stylistic conventions
 
-You can always override rules after extending any config. You may also want to add some rules that [limit language features](docs/user-guide/rules.md#limit-language-features) as these will be specific to your team and/or project.
+You may want to add rules to your config that [limit language features](docs/user-guide/rules.md#limit-language-features) as these will be specific to your team and/or project.
+
+*If you use language extensions, for example `@if` and `@extends`, you can use a community config like [`stylelint-config-recommended-scss`](https://github.com/kristerkari/stylelint-config-recommended-scss) instead.*
 
 ### Craft your own config
 
@@ -68,15 +69,20 @@ You'll find detailed information on customising stylelint in our guides:
 
 ## Need help?
 
-Read our [FAQ](docs/user-guide/faq.md) first. If the answer to your problem isn't there, then post it on [stackoverflow](https://stackoverflow.com/questions/tagged/stylelint).
+Read our [FAQ](docs/user-guide/faq.md) first.
 
-Please create a [new issue](https://github.com/stylelint/stylelint/issues/new/choose) if you think you've found a bug or if you have feature request.
+If the answer to your problem isn't there, then post it on [stackoverflow](https://stackoverflow.com/questions/tagged/stylelint).
+
+Create a [new issue](https://github.com/stylelint/stylelint/issues/new/choose) if:
+
+-   you think you've found a bug
+-   you have a feature request
 
 If you're upgrading, read our [CHANGELOG](CHANGELOG.md) to learn what changes to expect in the latest version.
 
 ## Help out
 
-There is a lot of work to do. Please help out in any way. You can:
+To help out, you can:
 
 -   get involved in any open [issue](https://github.com/stylelint/stylelint/issues) or [pull request](https://github.com/stylelint/stylelint/pulls)
 -   create, enhance and debug rules using our [working on rules](docs/developer-guide/rules.md) guide
@@ -87,7 +93,7 @@ There is a lot of work to do. Please help out in any way. You can:
 -   open [a pull request](https://github.com/stylelint/stylelint/compare) to show us how your idea works
 -   create or contribute to [ecosystem tools](docs/user-guide/complementary-tools.md), for example the plugin for [VS Code](https://github.com/shinnn/vscode-stylelint)
 
-If you're interested in the project vision, you can read our [VISION document](VISION.md).
+Our [VISION document](VISION.md) guides our work.
 
 ## Semantic Versioning Policy
 
