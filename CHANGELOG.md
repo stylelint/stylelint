@@ -2,6 +2,7 @@
 
 -   Added: `function-comma-space-after` autofix ([#3555](https://github.com/stylelint/stylelint/pull/3555)).
 -   Added: `function-parentheses-space-inside` autofix ([#3563](https://github.com/stylelint/stylelint/pull/3563)).
+-   Added: `no-extra-semicolons` autofix ([#3574](https://github.com/stylelint/stylelint/pull/3574)).
 -   Added: `value-list-comma-space-after` autofix ([#3558](https://github.com/stylelint/stylelint/pull/3558)).
 
 # 9.5.0
