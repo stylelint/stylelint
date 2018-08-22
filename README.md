@@ -27,11 +27,11 @@ It's mighty because it:
 
 It's easy to get started.
 
-First, decide if you want to use stylelint:
+First, decide how you want to use stylelint:
 
 -   [on the command line](docs/user-guide/cli.md)
 -   [in your text editor](docs/user-guide/complementary-tools.md#editor-plugins), for example in VS Code
--   [in for your build tool](docs/user-guide/complementary-tools.md#build-tool-plugins), for example in Webpack
+-   [in for your build tool](docs/user-guide/complementary-tools.md#build-tool-plugins), for example in webpack
 -   [via the Node API](docs/user-guide/node-api.md)
 -   [as a PostCSS plugin](docs/user-guide/postcss-plugin.md)
 
