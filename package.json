@@ -78,7 +78,7 @@
     "postcss-value-parser": "^3.3.0",
     "resolve-from": "^4.0.0",
     "signal-exit": "^3.0.2",
-    "specificity": "^0.4.0",
+    "specificity": "^0.4.1",
     "string-width": "^2.1.0",
     "style-search": "^0.1.0",
     "sugarss": "^2.0.0",
