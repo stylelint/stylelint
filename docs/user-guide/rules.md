@@ -264,7 +264,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Declaration
 
--   [`declaration-bang-space-after`](../../lib/rules/declaration-bang-space-after/README.md): Require a single space or disallow whitespace after the bang of declarations.
+-   [`declaration-bang-space-after`](../../lib/rules/declaration-bang-space-after/README.md): Require a single space or disallow whitespace after the bang of declarations (Autofixable).
 -   [`declaration-bang-space-before`](../../lib/rules/declaration-bang-space-before/README.md): Require a single space or disallow whitespace before the bang of declarations (Autofixable).
 -   [`declaration-colon-newline-after`](../../lib/rules/declaration-colon-newline-after/README.md): Require a newline or disallow whitespace after the colon of declarations (Autofixable).
 -   [`declaration-colon-space-after`](../../lib/rules/declaration-colon-space-after/README.md): Require a single space or disallow whitespace after the colon of declarations (Autofixable).
