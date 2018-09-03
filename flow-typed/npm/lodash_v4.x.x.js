@@ -1,5 +1,5 @@
-// flow-typed signature: b5d718f00f6b115d706f046e5c36b6ea
-// flow-typed version: 5240bd2a9a/lodash_v4.x.x/flow_>=v0.63.x
+// flow-typed signature: 1b1fe531123a979fe1c4624ccc62bd5a
+// flow-typed version: dea0770be9/lodash_v4.x.x/flow_>=v0.63.x
 
 declare module "lodash" {
   declare type __CurriedFunction1<A, R, AA: A> = (...r: [AA]) => R;
@@ -262,45 +262,45 @@ declare module "lodash" {
     indexOf<T>(array: Array<T>, value: T, fromIndex?: number): number;
     indexOf<T>(array: void | null, value?: ?T, fromIndex?: ?number): -1;
     initial<T>(array: ?Array<T>): Array<T>;
-    intersection<T>(...arrays?: Array<Array<T>>): Array<T>;
+    intersection<T>(...arrays?: Array<$ReadOnlyArray<T>>): Array<T>;
     //Workaround until (...parameter: T, parameter2: U) works
-    intersectionBy<T>(a1?: ?Array<T>, iteratee?: ?ValueOnlyIteratee<T>): Array<T>;
+    intersectionBy<T>(a1?: ?$ReadOnlyArray<T>, iteratee?: ?ValueOnlyIteratee<T>): Array<T>;
     intersectionBy<T>(
-      a1?: ?Array<T>,
-      a2?: ?Array<T>,
+      a1?: ?$ReadOnlyArray<T>,
+      a2?: ?$ReadOnlyArray<T>,
       iteratee?: ?ValueOnlyIteratee<T>
     ): Array<T>;
     intersectionBy<T>(
-      a1?: ?Array<T>,
-      a2?: ?Array<T>,
-      a3?: ?Array<T>,
+      a1?: ?$ReadOnlyArray<T>,
+      a2?: ?$ReadOnlyArray<T>,
+      a3?: ?$ReadOnlyArray<T>,
       iteratee?: ?ValueOnlyIteratee<T>
     ): Array<T>;
     intersectionBy<T>(
-      a1?: ?Array<T>,
-      a2?: ?Array<T>,
-      a3?: ?Array<T>,
-      a4?: ?Array<T>,
+      a1?: ?$ReadOnlyArray<T>,
+      a2?: ?$ReadOnlyArray<T>,
+      a3?: ?$ReadOnlyArray<T>,
+      a4?: ?$ReadOnlyArray<T>,
       iteratee?: ?ValueOnlyIteratee<T>
     ): Array<T>;
     //Workaround until (...parameter: T, parameter2: U) works
-    intersectionWith<T>(a1?: ?Array<T>, comparator?: ?Comparator<T>): Array<T>;
+    intersectionWith<T>(a1?: ?$ReadOnlyArray<T>, comparator?: ?Comparator<T>): Array<T>;
     intersectionWith<T>(
-      a1?: ?Array<T>,
-      a2?: ?Array<T>,
+      a1?: ?$ReadOnlyArray<T>,
+      a2?: ?$ReadOnlyArray<T>,
       comparator?: ?Comparator<T>
     ): Array<T>;
     intersectionWith<T>(
-      a1?: ?Array<T>,
-      a2?: ?Array<T>,
-      a3?: ?Array<T>,
+      a1?: ?$ReadOnlyArray<T>,
+      a2?: ?$ReadOnlyArray<T>,
+      a3?: ?$ReadOnlyArray<T>,
       comparator?: ?Comparator<T>
     ): Array<T>;
     intersectionWith<T>(
-      a1?: ?Array<T>,
-      a2?: ?Array<T>,
-      a3?: ?Array<T>,
-      a4?: ?Array<T>,
+      a1?: ?$ReadOnlyArray<T>,
+      a2?: ?$ReadOnlyArray<T>,
+      a3?: ?$ReadOnlyArray<T>,
+      a4?: ?$ReadOnlyArray<T>,
       comparator?: ?Comparator<T>
     ): Array<T>;
     join<T>(array: Array<T>, separator?: ?string): string;
@@ -367,45 +367,45 @@ declare module "lodash" {
     takeRight<T>(array?: ?Array<T>, n?: ?number): Array<T>;
     takeRightWhile<T>(array?: ?Array<T>, predicate?: ?Predicate<T>): Array<T>;
     takeWhile<T>(array?: ?Array<T>, predicate?: ?Predicate<T>): Array<T>;
-    union<T>(...arrays?: Array<Array<T>>): Array<T>;
+    union<T>(...arrays?: Array<$ReadOnlyArray<T>>): Array<T>;
     //Workaround until (...parameter: T, parameter2: U) works
-    unionBy<T>(a1?: ?Array<T>, iteratee?: ?ValueOnlyIteratee<T>): Array<T>;
+    unionBy<T>(a1?: ?$ReadOnlyArray<T>, iteratee?: ?ValueOnlyIteratee<T>): Array<T>;
     unionBy<T>(
-      a1?: ?Array<T>,
-      a2: Array<T>,
+      a1?: ?$ReadOnlyArray<T>,
+      a2: $ReadOnlyArray<T>,
       iteratee?: ValueOnlyIteratee<T>
     ): Array<T>;
     unionBy<T>(
-      a1: Array<T>,
-      a2: Array<T>,
-      a3: Array<T>,
+      a1: $ReadOnlyArray<T>,
+      a2: $ReadOnlyArray<T>,
+      a3: $ReadOnlyArray<T>,
       iteratee?: ValueOnlyIteratee<T>
     ): Array<T>;
     unionBy<T>(
-      a1: Array<T>,
-      a2: Array<T>,
-      a3: Array<T>,
-      a4: Array<T>,
+      a1: $ReadOnlyArray<T>,
+      a2: $ReadOnlyArray<T>,
+      a3: $ReadOnlyArray<T>,
+      a4: $ReadOnlyArray<T>,
       iteratee?: ValueOnlyIteratee<T>
     ): Array<T>;
     //Workaround until (...parameter: T, parameter2: U) works
     unionWith<T>(a1?: ?Array<T>, comparator?: ?Comparator<T>): Array<T>;
     unionWith<T>(
-      a1: Array<T>,
-      a2: Array<T>,
+      a1: $ReadOnlyArray<T>,
+      a2: $ReadOnlyArray<T>,
       comparator?: Comparator<T>
     ): Array<T>;
     unionWith<T>(
-      a1: Array<T>,
-      a2: Array<T>,
-      a3: Array<T>,
+      a1: $ReadOnlyArray<T>,
+      a2: $ReadOnlyArray<T>,
+      a3: $ReadOnlyArray<T>,
       comparator?: Comparator<T>
     ): Array<T>;
     unionWith<T>(
-      a1: Array<T>,
-      a2: Array<T>,
-      a3: Array<T>,
-      a4: Array<T>,
+      a1: $ReadOnlyArray<T>,
+      a2: $ReadOnlyArray<T>,
+      a3: $ReadOnlyArray<T>,
+      a4: $ReadOnlyArray<T>,
       comparator?: Comparator<T>
     ): Array<T>;
     uniq<T>(array?: ?Array<T>): Array<T>;
@@ -599,7 +599,7 @@ declare module "lodash" {
     includes<T: Object>(object: T, value: any, fromIndex?: number): boolean;
     includes(str: string, value: string, fromIndex?: number): boolean;
     invokeMap<T>(
-      array?: ?Array<T>,
+      array?: ?$ReadOnlyArray<T>,
       path?: ?((value: T) => Array<string> | string) | Array<string> | string,
       ...args?: Array<any>
     ): Array<any>;
@@ -611,7 +611,7 @@ declare module "lodash" {
     keyBy<T, V>(
       array: $ReadOnlyArray<T>,
       iteratee?: ?ValueOnlyIteratee<T>
-    ): { [key: V]: ?T };
+    ): { [key: V]: T };
     keyBy(
       array: void | null,
       iteratee?: ?ValueOnlyIteratee<*>
@@ -619,7 +619,7 @@ declare module "lodash" {
     keyBy<V, A, I, T: { [id: I]: A }>(
       object: T,
       iteratee?: ?ValueOnlyIteratee<A>
-    ): { [key: V]: ?A };
+    ): { [key: V]: A };
     map<T, U>(array?: ?Array<T>, iteratee?: ?MapIterator<T, U>): Array<U>;
     map<T, U>(
       array: ?$ReadOnlyArray<T>,
@@ -657,7 +657,7 @@ declare module "lodash" {
       predicate?: OPredicate<A, T>
     ): [Array<V>, Array<V>];
     reduce<T, U>(
-      array: Array<T>,
+      array: $ReadOnlyArray<T>,
       iteratee?: (
         accumulator: U,
         value: T,
@@ -692,7 +692,7 @@ declare module "lodash" {
       accumulator?: ?U
     ): void | null;
     reduceRight<T, U>(
-      array: Array<T>,
+      array: $ReadOnlyArray<T>,
       iteratee?: ?(
         accumulator: U,
         value: T,
