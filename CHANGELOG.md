@@ -11,6 +11,7 @@
 -   Added: `value-list-comma-space-before` autofix ([#3597](https://github.com/stylelint/stylelint/pull/3597)).
 -   Fixed: autofix for 5 whitespace rules ([#3621](https://github.com/stylelint/stylelint/pull/3621)).
 -   Fixed: `no-descending-specificity` false positives for CSS Modules functional pseudo-classes ([#3623](https://github.com/stylelint/stylelint/pull/3623)).
+-   Fixed: Fix custom path for `.stylelintignore` ([#3606](https://github.com/stylelint/stylelint/pull/3606)).
 
 # 9.5.0
 
