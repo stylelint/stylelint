@@ -135,6 +135,25 @@ a {
 
 ## Optional secondary options
 
+### `baseIndentLevel: int|"auto"`
+
+By default, the indent level of the CSS code block in non-CSS-like files is determined by the shortest indent of non-empty line. The setting `baseIndentLevel` allows you to define a relative indent level based on CSS code block opening or closing line.
+
+For example, with `[ 2, { baseIndentLevel: 1 } ]`, CSS should be indented 1 levels higher than `<style>` tag:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    a {
+      display: block;
+    }
+  </style>
+</head>
+</html>
+```
+
 ### `indentInsideParens: "twice"|"once-at-root-twice-in-block"`
 
 By default, *one extra* indentation (of your specified type) is expected after newlines inside parentheses, and the closing parenthesis is expected to have no extra indentation.
