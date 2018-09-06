@@ -353,5 +353,5 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`linebreaks`](../../lib/rules/linebreaks/README.md): Specify unix or windows linebreaks (Autofixable).
 -   [`max-empty-lines`](../../lib/rules/max-empty-lines/README.md): Limit the number of adjacent empty lines.
 -   [`max-line-length`](../../lib/rules/max-line-length/README.md): Limit the length of a line.
--   [`no-eol-whitespace`](../../lib/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace.
+-   [`no-eol-whitespace`](../../lib/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace (Autofixable).
 -   [`no-missing-end-of-source-newline`](../../lib/rules/no-missing-end-of-source-newline/README.md): Disallow missing end-of-source newlines (Autofixable).
