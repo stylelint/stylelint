@@ -18,6 +18,7 @@
 -   Added: `value-list-comma-newline-after` autofix ([#3616](https://github.com/stylelint/stylelint/pull/3616)).
 -   Added: `value-list-comma-space-after` autofix ([#3558](https://github.com/stylelint/stylelint/pull/3558)).
 -   Added: `value-list-comma-space-before` autofix ([#3597](https://github.com/stylelint/stylelint/pull/3597)).
+-   Added: `baseIndentLevel` to `indentation` ([#3557](https://github.com/stylelint/stylelint/pull/3557)).
 -   Fixed: autofix for 5 whitespace rules ([#3621](https://github.com/stylelint/stylelint/pull/3621)).
 -   Fixed: `no-descending-specificity` false positives for CSS Modules functional pseudo-classes ([#3623](https://github.com/stylelint/stylelint/pull/)).
 
