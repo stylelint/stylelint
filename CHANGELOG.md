@@ -1,5 +1,6 @@
 # Head
 
+-   Added: `block-closing-brace-empty-line-before` autofix ([#3598](https://github.com/stylelint/stylelint/pull/3617)).
 -   Added: `declaration-bang-space-after` autofix ([#3598](https://github.com/stylelint/stylelint/pull/3598)).
 -   Added: `declaration-bang-space-before` autofix ([#3592](https://github.com/stylelint/stylelint/pull/3592)).
 -   Added: `declaration-colon-newline-after` autofix ([#3588](https://github.com/stylelint/stylelint/pull/3588)).
