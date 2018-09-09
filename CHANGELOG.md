@@ -22,6 +22,7 @@
 -   Added: `baseIndentLevel` to `indentation` ([#3557](https://github.com/stylelint/stylelint/pull/3557)).
 -   Fixed: autofix for 5 whitespace rules ([#3621](https://github.com/stylelint/stylelint/pull/3621)).
 -   Fixed: `linebreaks` TypeError ([#3636](https://github.com/stylelint/stylelint/pull/3636)).
+-   Fixed: `max-empty-lines` incorrect line reporting ([#3530](https://github.com/stylelint/stylelint/pull/3530)).
 -   Fixed: `no-descending-specificity` false positives for CSS Modules functional pseudo-classes ([#](https://github.com/stylelint/stylelint/pull/3623)).
 
 # 9.5.0
