@@ -15,6 +15,7 @@
 -   Added: `media-query-list-comma-space-before` autofix ([#3640](https://github.com/stylelint/stylelint/pull/3640)).
 -   Added: `function-parentheses-space-inside` autofix ([#3563](https://github.com/stylelint/stylelint/pull/3563)).
 -   Added: `selector-attribute-brackets-space-inside` autofix ([#3605](https://github.com/stylelint/stylelint/pull/3605)).
+-   Added: `selector-attribute-operator-space-after` autofix ([#3641](https://github.com/stylelint/stylelint/pull/3641)).
 -   Added: `selector-attribute-operator-space-before` autofix ([#3603](https://github.com/stylelint/stylelint/pull/3603)).
 -   Added: `no-eol-whitespace` autofix ([#3615](https://github.com/stylelint/stylelint/pull/3615)).
 -   Added: `no-extra-semicolons` autofix ([#3574](https://github.com/stylelint/stylelint/pull/3574)).
