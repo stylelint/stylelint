@@ -10,6 +10,7 @@
 -   Added: `media-feature-colon-space-after` autofix ([#3623](https://github.com/stylelint/stylelint/pull/3623)).
 -   Added: `media-feature-colon-space-before` autofix ([#3637](https://github.com/stylelint/stylelint/pull/3637)).
 -   Added: `media-feature-range-operator-space-before` autofix ([#3618](https://github.com/stylelint/stylelint/pull/3618)).
+-   Added: `media-query-list-comma-newline-after` autofix ([#3643](https://github.com/stylelint/stylelint/pull/3643)).
 -   Added: `media-query-list-comma-space-after` autofix ([#3607](https://github.com/stylelint/stylelint/pull/3607)).
 -   Added: `media-query-list-comma-space-before` autofix ([#3640](https://github.com/stylelint/stylelint/pull/3640)).
 -   Added: `function-parentheses-space-inside` autofix ([#3563](https://github.com/stylelint/stylelint/pull/3563)).
