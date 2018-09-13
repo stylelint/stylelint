@@ -43,7 +43,7 @@
     "balanced-match": "^1.0.0",
     "chalk": "^2.4.1",
     "cosmiconfig": "^5.0.0",
-    "debug": "^3.0.0",
+    "debug": "^4.0.0",
     "execall": "^1.0.0",
     "file-entry-cache": "^2.0.0",
     "get-stdin": "^6.0.0",
