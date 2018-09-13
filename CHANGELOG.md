@@ -1,5 +1,6 @@
 # Head
 
+-   Added: `at-rule-name-space-after` autofix ([#3653](https://github.com/stylelint/stylelint/pull/3653)).
 -   Added: `block-closing-brace-empty-line-before` autofix ([#3598](https://github.com/stylelint/stylelint/pull/3617)).
 -   Added: `declaration-bang-space-after` autofix ([#3598](https://github.com/stylelint/stylelint/pull/3598)).
 -   Added: `declaration-bang-space-before` autofix ([#3592](https://github.com/stylelint/stylelint/pull/3592)).
