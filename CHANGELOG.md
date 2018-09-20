@@ -1,17 +1,24 @@
 # Head
 
+-   Added: `at-rule-name-space-after` autofix ([#3653](https://github.com/stylelint/stylelint/pull/3653)).
 -   Added: `block-closing-brace-empty-line-before` autofix ([#3598](https://github.com/stylelint/stylelint/pull/3617)).
 -   Added: `declaration-bang-space-after` autofix ([#3598](https://github.com/stylelint/stylelint/pull/3598)).
 -   Added: `declaration-bang-space-before` autofix ([#3592](https://github.com/stylelint/stylelint/pull/3592)).
 -   Added: `declaration-colon-newline-after` autofix ([#3588](https://github.com/stylelint/stylelint/pull/3588)).
 -   Added: `function-comma-space-after` autofix ([#3555](https://github.com/stylelint/stylelint/pull/3555)).
 -   Added: `function-comma-space-before` autofix ([#3596](https://github.com/stylelint/stylelint/pull/3596)).
+-   Added: `function-name-case` autofix ([#3674](https://github.com/stylelint/stylelint/pull/3674)).
 -   Added: `function-parentheses-newline-inside` autofix ([#3601](https://github.com/stylelint/stylelint/pull/3601)).
 -   Added: `media-feature-colon-space-after` autofix ([#3623](https://github.com/stylelint/stylelint/pull/3623)).
+-   Added: `media-feature-colon-space-before` autofix ([#3637](https://github.com/stylelint/stylelint/pull/3637)).
+-   Added: `media-feature-range-operator-space-after` autofix ([#3639](https://github.com/stylelint/stylelint/pull/3639)).
 -   Added: `media-feature-range-operator-space-before` autofix ([#3618](https://github.com/stylelint/stylelint/pull/3618)).
+-   Added: `media-query-list-comma-newline-after` autofix ([#3643](https://github.com/stylelint/stylelint/pull/3643)).
 -   Added: `media-query-list-comma-space-after` autofix ([#3607](https://github.com/stylelint/stylelint/pull/3607)).
+-   Added: `media-query-list-comma-space-before` autofix ([#3640](https://github.com/stylelint/stylelint/pull/3640)).
 -   Added: `function-parentheses-space-inside` autofix ([#3563](https://github.com/stylelint/stylelint/pull/3563)).
 -   Added: `selector-attribute-brackets-space-inside` autofix ([#3605](https://github.com/stylelint/stylelint/pull/3605)).
+-   Added: `selector-attribute-operator-space-after` autofix ([#3641](https://github.com/stylelint/stylelint/pull/3641)).
 -   Added: `selector-attribute-operator-space-before` autofix ([#3603](https://github.com/stylelint/stylelint/pull/3603)).
 -   Added: `no-eol-whitespace` autofix ([#3615](https://github.com/stylelint/stylelint/pull/3615)).
 -   Added: `no-extra-semicolons` autofix ([#3574](https://github.com/stylelint/stylelint/pull/3574)).
@@ -20,7 +27,10 @@
 -   Added: `value-list-comma-space-before` autofix ([#3597](https://github.com/stylelint/stylelint/pull/3597)).
 -   Added: `baseIndentLevel` to `indentation` ([#3557](https://github.com/stylelint/stylelint/pull/3557)).
 -   Fixed: autofix for 5 whitespace rules ([#3621](https://github.com/stylelint/stylelint/pull/3621)).
--   Fixed: `no-descending-specificity` false positives for CSS Modules functional pseudo-classes ([#3623](https://github.com/stylelint/stylelint/pull/)).
+-   Fixed: `linebreaks` TypeError ([#3636](https://github.com/stylelint/stylelint/pull/3636)).
+-   Fixed: `max-empty-lines` incorrect line reporting ([#3530](https://github.com/stylelint/stylelint/pull/3530)).
+-   Fixed: `media-query-list-comma-newline-after` false positives for trailing comment ([#3657](https://github.com/stylelint/stylelint/pull/3657)).
+-   Fixed: `no-descending-specificity` false positives for CSS Modules functional pseudo-classes ([#](https://github.com/stylelint/stylelint/pull/3623)).
 
 # 9.5.0
 

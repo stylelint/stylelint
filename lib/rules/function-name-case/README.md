@@ -10,6 +10,8 @@ a { width: calc(5% - 10em); }
 
 Camel case function names, e.g. `translateX`, are accounted for when the `lower` option is used.
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"lower"|"upper"`
