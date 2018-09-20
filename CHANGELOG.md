@@ -9,6 +9,7 @@
 -   Added: `function-comma-space-after` autofix ([#3555](https://github.com/stylelint/stylelint/pull/3555)).
 -   Added: `function-comma-space-before` autofix ([#3596](https://github.com/stylelint/stylelint/pull/3596)).
 -   Added: `function-name-case` autofix ([#3674](https://github.com/stylelint/stylelint/pull/3674)).
+-   Added: `function-max-empty-lines` autofix ([#3645](https://github.com/stylelint/stylelint/pull/3645)).
 -   Added: `function-parentheses-newline-inside` autofix ([#3601](https://github.com/stylelint/stylelint/pull/3601)).
 -   Added: `media-feature-colon-space-after` autofix ([#3623](https://github.com/stylelint/stylelint/pull/3623)).
 -   Added: `media-feature-colon-space-before` autofix ([#3637](https://github.com/stylelint/stylelint/pull/3637)).
