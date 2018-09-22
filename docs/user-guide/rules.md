@@ -321,7 +321,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 -   [`media-feature-colon-space-after`](../../lib/rules/media-feature-colon-space-after/README.md): Require a single space or disallow whitespace after the colon in media features (Autofixable).
 -   [`media-feature-colon-space-before`](../../lib/rules/media-feature-colon-space-before/README.md): Require a single space or disallow whitespace before the colon in media features (Autofixable).
--   [`media-feature-name-case`](../../lib/rules/media-feature-name-case/README.md): Specify lowercase or uppercase for media feature names.
+-   [`media-feature-name-case`](../../lib/rules/media-feature-name-case/README.md): Specify lowercase or uppercase for media feature names (Autofixable).
 -   [`media-feature-parentheses-space-inside`](../../lib/rules/media-feature-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within media features.
 -   [`media-feature-range-operator-space-after`](../../lib/rules/media-feature-range-operator-space-after/README.md): Require a single space or disallow whitespace after the range operator in media features (Autofixable).
 -   [`media-feature-range-operator-space-before`](../../lib/rules/media-feature-range-operator-space-before/README.md): Require a single space or disallow whitespace before the range operator in media features (Autofixable).
