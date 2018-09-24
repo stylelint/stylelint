@@ -1,5 +1,6 @@
 # Head
 
+-   Added: suggestions for invalid CLI options ([#3622](https://github.com/stylelint/stylelint/pull/3622)).
 -   Added: `at-rule-name-space-after` autofix ([#3653](https://github.com/stylelint/stylelint/pull/3653)).
 -   Added: `block-closing-brace-empty-line-before` autofix ([#3598](https://github.com/stylelint/stylelint/pull/3617)).
 -   Added: `block-closing-brace-space-before` autofix ([#3673](https://github.com/stylelint/stylelint/pull/3673)).
