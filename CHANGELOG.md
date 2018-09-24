@@ -26,6 +26,7 @@
 -   Added: `selector-attribute-operator-space-after` autofix ([#3641](https://github.com/stylelint/stylelint/pull/3641)).
 -   Added: `selector-attribute-operator-space-before` autofix ([#3603](https://github.com/stylelint/stylelint/pull/3603)).
 -   Added: `selector-pseudo-class-parentheses-space-inside` autofix ([#3646](https://github.com/stylelint/stylelint/pull/3646)).
+-   Added: `selector-type-case` autofix ([#3668](https://github.com/stylelint/stylelint/pull/3668)).
 -   Added: `no-eol-whitespace` autofix ([#3615](https://github.com/stylelint/stylelint/pull/3615)).
 -   Added: `no-extra-semicolons` autofix ([#3574](https://github.com/stylelint/stylelint/pull/3574)).
 -   Added: `value-list-comma-newline-after` autofix ([#3616](https://github.com/stylelint/stylelint/pull/3616)).
