@@ -16,6 +16,7 @@
 -   Added: `function-whitespace-after` autofix ([#3648](https://github.com/stylelint/stylelint/pull/3648)).
 -   Added: `media-feature-colon-space-after` autofix ([#3623](https://github.com/stylelint/stylelint/pull/3623)).
 -   Added: `media-feature-colon-space-before` autofix ([#3637](https://github.com/stylelint/stylelint/pull/3637)).
+-   Added: `media-feature-name-case` autofix ([#3685](https://github.com/stylelint/stylelint/pull/3685)).
 -   Added: `media-feature-range-operator-space-after` autofix ([#3639](https://github.com/stylelint/stylelint/pull/3639)).
 -   Added: `media-feature-range-operator-space-before` autofix ([#3618](https://github.com/stylelint/stylelint/pull/3618)).
 -   Added: `media-query-list-comma-newline-after` autofix ([#3643](https://github.com/stylelint/stylelint/pull/3643)).
