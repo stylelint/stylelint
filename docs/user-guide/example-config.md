@@ -107,6 +107,7 @@ You might want to learn a little about [how rules are named and how they work to
     "no-duplicate-at-import-rules": true,
     "no-duplicate-selectors": true,
     "no-empty-source": true,
+    "no-empty-first-line": true,
     "no-eol-whitespace": true,
     "no-extra-semicolons": true,
     "no-invalid-double-slash-comments": true,
