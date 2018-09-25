@@ -4,6 +4,7 @@ A list of complementary tools built and maintained by the community.
 
 ## Analysis platform engines
 
+-   [codacy-stylelint](https://github.com/codacy/codacy-stylelint): [Codacy](https://www.codacy.com/) engine for stylelint
 -   [codeclimate-stylelint](https://github.com/gilbarbara/codeclimate-stylelint): Code Climate engine for stylelint
 
 ## Command Line Tools
