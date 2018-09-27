@@ -1,4 +1,4 @@
-# Head
+# 9.6.0
 
 -   Added: suggestions for invalid CLI options ([#3622](https://github.com/stylelint/stylelint/pull/3622)).
 -   Added: `no-empty-first-line` rule ([#3650](https://github.com/stylelint/stylelint/pull/3650)).
