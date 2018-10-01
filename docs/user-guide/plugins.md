@@ -11,6 +11,7 @@ Plugins are rules and sets of rules built by the community that support methodol
 -   [`stylelint-declaration-use-variable`](https://github.com/sh-waqar/stylelint-declaration-use-variable): Specify properties for which a variable must be used for its value.
 -   [`stylelint-high-performance-animation`](https://github.com/kristerkari/stylelint-high-performance-animation): Stylelint rule for preventing the use of low performance animation and transition properties.
 -   [`stylelint-images`](https://github.com/ramasilveyra/stylelint-images): Check your CSS images to improve the performance and avoid common mistakes (plugin pack).
+-   [`stylelint-media-use-custom-media`](https://github.com/csstools/stylelint-media-use-custom-media): Enforce usage of custom media queries in CSS
 -   [`stylelint-no-browser-hacks`](https://github.com/Slamdunk/stylelint-no-browser-hacks): Disallow browser hacks that are irrelevant to the browsers you are targeting; uses [stylehacks](https://github.com/ben-eb/stylehacks).
 -   [`stylelint-no-indistinguishable-colors`](https://github.com/ierhyna/stylelint-no-indistinguishable-colors): Disallow colors that are suspiciously close to being identical.
 -   [`stylelint-no-unsupported-browser-features`](https://github.com/ismay/stylelint-no-unsupported-browser-features): Disallow features that are unsupported by the browsers that you are targeting.
