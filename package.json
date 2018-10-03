@@ -115,7 +115,6 @@
     "weak": "^1.0.1"
   },
   "scripts": {
-    "precommit": "lint-staged",
     "benchmark-rule": "node scripts/benchmark-rule.js",
     "dry-release": "npmpub  --dry --verbose",
     "flow": "flow",
@@ -131,6 +130,11 @@
     "release": "npmpub",
     "test": "jest --coverage",
     "watch": "jest --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.js": [
