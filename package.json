@@ -98,7 +98,7 @@
     "file-exists-promise": "^1.0.2",
     "flow-bin": "^0.81.0",
     "flow-typed": "^2.5.1",
-    "husky": "^0.14.3",
+    "husky": "^1.1.0",
     "jest": "^23.4.1",
     "lint-staged": "^7.0.0",
     "npm-run-all": "^4.0.2",
@@ -115,7 +115,6 @@
     "weak": "^1.0.1"
   },
   "scripts": {
-    "precommit": "lint-staged",
     "benchmark-rule": "node scripts/benchmark-rule.js",
     "dry-release": "npmpub  --dry --verbose",
     "flow": "flow",
@@ -131,6 +130,11 @@
     "release": "npmpub",
     "test": "jest --coverage",
     "watch": "jest --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.js": [
