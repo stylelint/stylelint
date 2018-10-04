@@ -94,7 +94,7 @@
     "d3-queue": "^3.0.7",
     "del": "^3.0.0",
     "eslint": "~5.1.0",
-    "eslint-config-stylelint": "~8.2.0",
+    "eslint-config-stylelint": "~8.3.0",
     "file-exists-promise": "^1.0.2",
     "flow-bin": "^0.81.0",
     "flow-typed": "^2.5.1",
