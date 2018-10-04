@@ -16,7 +16,7 @@ Plugins are rules and sets of rules built by the community that support methodol
 -   [`stylelint-no-indistinguishable-colors`](https://github.com/ierhyna/stylelint-no-indistinguishable-colors): Disallow colors that are suspiciously close to being identical.
 -   [`stylelint-no-unsupported-browser-features`](https://github.com/ismay/stylelint-no-unsupported-browser-features): Disallow features that are unsupported by the browsers that you are targeting.
 -   [`stylelint-order`](https://github.com/hudochenkov/stylelint-order): Specify the ordering of things e.g. properties within declaration blocks (plugin pack).
--   [`stylelint-prettier`](https://github.com/BPScott/stylelint-prettier): Runs [Prettier](https://prettier.io/) as a stylelint rule.
+-   [`stylelint-prettier`](https://github.com/prettier/stylelint-prettier): Runs [Prettier](https://prettier.io/) as a stylelint rule.
 -   [`stylelint-react-native`](https://github.com/kristerkari/stylelint-react-native): Enforce React Native specific linting rules (plugin pack).
 -   [`stylelint-rscss`](https://github.com/rstacruz/stylelint-rscss): Validate [RSCSS](http://rscss.io) conventions.
 -   [`stylelint-scss`](https://github.com/kristerkari/stylelint-scss): Enforce a wide variety of SCSS-syntax specific linting rules (plugin pack).
