@@ -1,5 +1,5 @@
-// flow-typed signature: 268d738ecf65f4bcc4a5455efa90619f
-// flow-typed version: 0e8507a159/jest_v23.x.x/flow_>=v0.39.x
+// flow-typed signature: 691597c4a5aab83a3b2e6d9ccd01a97d
+// flow-typed version: 71534a866d/jest_v23.x.x/flow_>=v0.39.x
 
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
@@ -175,11 +175,16 @@ type JestStyledComponentsMatchersType = {
  *  Plugin: jest-enzyme
  */
 type EnzymeMatchersType = {
+  // 5.x
+  toBeEmpty(): void,
+  toBePresent(): void,
+  // 6.x
   toBeChecked(): void,
   toBeDisabled(): void,
-  toBeEmpty(): void,
   toBeEmptyRender(): void,
-  toBePresent(): void,
+  toContainMatchingElement(selector: string): void;
+  toContainMatchingElements(n: number, selector: string): void;
+  toContainExactlyOneMatchingElement(selector: string): void;
   toContainReact(element: React$Element<any>): void,
   toExist(): void,
   toHaveClassName(className: string): void,
@@ -190,9 +195,12 @@ type EnzymeMatchersType = {
   toHaveStyle: ((styleKey: string, styleValue?: any) => void) & ((style: Object) => void),
   toHaveTagName(tagName: string): void,
   toHaveText(text: string): void,
-  toIncludeText(text: string): void,
   toHaveValue(value: any): void,
-  toMatchElement(element: React$Element<any>): void,
+  toIncludeText(text: string): void,
+  toMatchElement(
+    element: React$Element<any>,
+    options?: {| ignoreProps?: boolean |},
+  ): void,
   toMatchSelector(selector: string): void
 };
 
@@ -696,14 +704,14 @@ interface JestExpectType {
   /**
    * This ensures that an Object matches the most recent snapshot.
    */
-  toMatchSnapshot(propertyMatchers?: {[key: string]: JestAsymmetricEqualityType}, name?: string): void,
+  toMatchSnapshot(propertyMatchers?: any, name?: string): void,
   /**
    * This ensures that an Object matches the most recent snapshot.
    */
   toMatchSnapshot(name: string): void,
 
   toMatchInlineSnapshot(snapshot?: string): void,
-  toMatchInlineSnapshot(propertyMatchers?: {[key: string]: JestAsymmetricEqualityType}, snapshot?: string): void,
+  toMatchInlineSnapshot(propertyMatchers?: any, snapshot?: string): void,
   /**
    * Use .toThrow to test that a function throws when it is called.
    * If you want to test that a specific error gets thrown, you can provide an
