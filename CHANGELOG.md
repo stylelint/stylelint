@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: `max-empty-lines` false positives for empty lines before `</style>` ([#3708](https://github.com/stylelint/stylelint/pull/3708)).
+
 # 9.6.0
 
 -   Added: suggestions for invalid CLI options ([#3622](https://github.com/stylelint/stylelint/pull/3622)).
