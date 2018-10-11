@@ -53,7 +53,7 @@
     "ignore": "^4.0.0",
     "import-lazy": "^3.1.0",
     "imurmurhash": "^0.1.4",
-    "known-css-properties": "^0.8.0",
+    "known-css-properties": "^0.9.0",
     "leven": "^2.1.0",
     "lodash": "^4.17.4",
     "log-symbols": "^2.0.0",
