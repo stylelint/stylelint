@@ -16,9 +16,6 @@ cache:
     - $HOME/.npm
     - node_modules
 
-os:
-  - linux
-
 matrix:
   include:
     - node_js: '10'
