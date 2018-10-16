@@ -148,6 +148,65 @@ a {
 }
 ```
 
+### `ignore: ["blockless-pseudoclasses"]`
+
+Ignore pseudoclases that only wrap other rules, and do not themselves have declaration blocks.
+
+For example, with `1`:
+
+The following patterns are considered violations:
+
+As the pseudoclasses have a declarations blocks.
+
+```css
+a {
+  &:hover { /* 1 */
+    b { /* 2 */
+      top: 0;
+    }
+  }
+}
+```
+
+```css
+a {
+  &:nest { /* 1 */
+    &:nest-lvl2 { /* 1 */
+      top: 0;
+      .class { /* 2 */
+        bottom: 0;
+      }
+    }
+  }
+}
+```
+
+The following patterns are *not* considered violations:
+
+As all of the following pseudoclasses rules would have a nesting depth of just 1.
+
+```css
+a {
+  b { /* 1 */
+    &:hover { /* 1 */
+      color: pink;
+    }
+  }
+}
+```
+
+```css
+a {
+  b { /* 1 */
+    &:nest { /* 1 */
+      &:nest-lvl2 { /* 1 */
+        top: 0;
+      }
+    }
+  }
+}
+```
+
 ### `ignoreAtRules: ["/regex/", "string"]`
 
 Ignore the specified at-rules.
