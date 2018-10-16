@@ -11523,18 +11523,18 @@ Array [
         "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
       },
       Object {
-        "column": 4,
-        "line": 5,
-        "rule": "media-feature-parentheses-space-inside",
-        "severity": "error",
-        "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
-      },
-      Object {
         "column": 24,
         "line": 4,
         "rule": "media-feature-parentheses-space-inside",
         "severity": "error",
         "text": "Expected single space before \\")\\" (media-feature-parentheses-space-inside)",
+      },
+      Object {
+        "column": 4,
+        "line": 5,
+        "rule": "media-feature-parentheses-space-inside",
+        "severity": "error",
+        "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
       },
       Object {
         "column": 25,
@@ -11733,18 +11733,18 @@ Array [
         "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
       },
       Object {
-        "column": 44,
-        "line": 141,
-        "rule": "media-feature-parentheses-space-inside",
-        "severity": "error",
-        "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
-      },
-      Object {
         "column": 24,
         "line": 141,
         "rule": "media-feature-parentheses-space-inside",
         "severity": "error",
         "text": "Expected single space before \\")\\" (media-feature-parentheses-space-inside)",
+      },
+      Object {
+        "column": 44,
+        "line": 141,
+        "rule": "media-feature-parentheses-space-inside",
+        "severity": "error",
+        "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
       },
       Object {
         "column": 48,
@@ -11761,18 +11761,18 @@ Array [
         "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
       },
       Object {
-        "column": 44,
-        "line": 142,
-        "rule": "media-feature-parentheses-space-inside",
-        "severity": "error",
-        "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
-      },
-      Object {
         "column": 24,
         "line": 142,
         "rule": "media-feature-parentheses-space-inside",
         "severity": "error",
         "text": "Expected single space before \\")\\" (media-feature-parentheses-space-inside)",
+      },
+      Object {
+        "column": 44,
+        "line": 142,
+        "rule": "media-feature-parentheses-space-inside",
+        "severity": "error",
+        "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
       },
       Object {
         "column": 48,
@@ -11787,6 +11787,13 @@ Array [
         "rule": "media-feature-parentheses-space-inside",
         "severity": "error",
         "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
+      },
+      Object {
+        "column": 24,
+        "line": 143,
+        "rule": "media-feature-parentheses-space-inside",
+        "severity": "error",
+        "text": "Expected single space before \\")\\" (media-feature-parentheses-space-inside)",
       },
       Object {
         "column": 43,
@@ -11794,13 +11801,6 @@ Array [
         "rule": "media-feature-parentheses-space-inside",
         "severity": "error",
         "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
-      },
-      Object {
-        "column": 24,
-        "line": 143,
-        "rule": "media-feature-parentheses-space-inside",
-        "severity": "error",
-        "text": "Expected single space before \\")\\" (media-feature-parentheses-space-inside)",
       },
       Object {
         "column": 47,
@@ -11817,18 +11817,18 @@ Array [
         "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
       },
       Object {
-        "column": 43,
-        "line": 144,
-        "rule": "media-feature-parentheses-space-inside",
-        "severity": "error",
-        "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
-      },
-      Object {
         "column": 24,
         "line": 144,
         "rule": "media-feature-parentheses-space-inside",
         "severity": "error",
         "text": "Expected single space before \\")\\" (media-feature-parentheses-space-inside)",
+      },
+      Object {
+        "column": 43,
+        "line": 144,
+        "rule": "media-feature-parentheses-space-inside",
+        "severity": "error",
+        "text": "Expected single space after \\"(\\" (media-feature-parentheses-space-inside)",
       },
       Object {
         "column": 47,
