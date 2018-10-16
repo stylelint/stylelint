@@ -8,8 +8,6 @@ Require a single space or disallow whitespace before the semicolons at-rules.
  * The space before this semicolon */
 ```
 
-This rule ignores `@import` in Less.
-
 ## Options
 
 `string`: `"always"|"never"`

@@ -8,8 +8,6 @@ Specify lowercase or uppercase for at-rules names.
  * These at-rule names */
 ```
 
-This rule ignores `@import` in Less.
-
 Only lowercase at-rule names are valid in SCSS.
 
 The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix some of the problems reported by this rule.

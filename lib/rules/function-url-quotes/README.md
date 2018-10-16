@@ -8,8 +8,6 @@ a { background: url("x.jpg") }
  *             These quotes */
 ```
 
-This rule ignores `@import` in Less.
-
 ## Options
 
 `string`: `"always"|"never"`
