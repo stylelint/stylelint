@@ -98,7 +98,7 @@ global.testRule = (rule, schema) => {
 
                   if (!schema.fix) return;
 
-                  if (!testCase.fixed && testCase.fixed !== "") {
+                  if (!testCase.fixed && testCase.fixed !== "" && !testCase.unfixable) {
                     throw new Error(
                       "If using { fix: true } in test schema, all reject cases must have { fixed: .. }"
                     );
@@ -108,8 +108,16 @@ global.testRule = (rule, schema) => {
                   return stylelint(Object.assign({ fix: true }, options))
                     .then(output => {
                       const fixedCode = getOutputCss(output);
-                      expect(fixedCode).toBe(testCase.fixed);
-                      expect(fixedCode).not.toBe(testCase.code);
+                      if (!testCase.unfixable) {
+                        expect(fixedCode).toBe(testCase.fixed);
+                        expect(fixedCode).not.toBe(testCase.code);
+                      } else {
+                        // can't fix
+                        if (testCase.fixed) {
+                          expect(fixedCode).toBe(testCase.fixed);
+                        }
+                        expect(fixedCode).toBe(testCase.code);
+                      }
                       return {
                         fixedCode,
                         warnings: output.results[0].warnings
