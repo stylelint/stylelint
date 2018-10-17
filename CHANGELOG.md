@@ -1,5 +1,6 @@
 # Head
 
+-   Added: `media-feature-parentheses-space-inside` autofix ([#3720](https://github.com/stylelint/stylelint/pull/3720)).
 -   Fixed: false negatives for Less at-imports ([#3687](https://github.com/stylelint/stylelint/pull/3687)).
 -   Fixed: `max-empty-lines` false positives for empty lines before `</style>` ([#3708](https://github.com/stylelint/stylelint/pull/3708)).
 
