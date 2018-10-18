@@ -181,6 +181,16 @@ The following patterns are considered violations:
 ```css
 .a {
   .b { /* 1 */
+    &::selection { /* 2 */
+      color: #64FFDA;
+    }
+  }
+}
+```
+
+```css
+.a {
+  .b { /* 1 */
     &:hover {
       &:focus {
         &:otherone {
