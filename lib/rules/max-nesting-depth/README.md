@@ -150,7 +150,7 @@ a {
 
 ### `ignore: ["blockless-pseudo-classes"]`
 
-Ignore pseudoclases that only wrap other rules, and do not themselves have declaration blocks.
+Ignore pseudoclases blocks.
 
 For example, with `1`:
 
