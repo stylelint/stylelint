@@ -156,12 +156,10 @@ For example, with `1`:
 
 The following patterns are considered violations:
 
-As the pseudoclasses have a declarations blocks.
-
 ```css
-a {
-  &:hover { /* 1 */
-    b { /* 2 */
+.a {
+  .b { /* 1 */
+    .c { /* 2 */
       top: 0;
     }
   }
@@ -169,12 +167,27 @@ a {
 ```
 
 ```css
-a {
-  &:nest { /* 1 */
-    &:nest-lvl2 { /* 1 */
-      top: 0;
-      .class { /* 2 */
-        bottom: 0;
+.a {
+  &:hover {
+    .b { /* 1 */
+      .c { /* 2 */
+        top: 0;
+      }
+    }
+  }
+}
+```
+
+```css
+.a {
+  .b { /* 1 */
+    &:hover {
+      &:focus {
+        &:otherone {
+          .c { /* 2 */
+            top: 0;
+          }
+        }
       }
     }
   }
@@ -186,21 +199,58 @@ The following patterns are *not* considered violations:
 As all of the following pseudoclasses rules would have a nesting depth of just 1.
 
 ```css
-a {
-  b { /* 1 */
-    &:hover { /* 1 */
-      color: pink;
+.a {
+  .b { /* 1 */
+    &:hover {
+      top: 0;
     }
   }
 }
 ```
 
 ```css
-a {
-  b { /* 1 */
-    &:nest { /* 1 */
-      &:nest-lvl2 { /* 1 */
+.a {
+  .b { /* 1 */
+    &:nest {
+      &:nest-lvl2 {
         top: 0;
+      }
+    }
+  }
+}
+```
+
+```css
+.a {
+  &:hover {
+    .b { /* 1 */
+      top: 0;
+    }
+  }
+}
+```
+
+```css
+.a {
+  .b { /* 1 */
+    &:hover {
+      &:focus {
+        &:otherone {
+          top: 0;
+        }
+      }
+    }
+  }
+}
+```
+
+```css
+.a {
+  &:nest {
+    &:nest-lvl2 {
+      top: 0;
+      .b { /* 1 */
+        bottom: 0;
       }
     }
   }
