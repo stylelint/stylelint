@@ -148,9 +148,9 @@ a {
 }
 ```
 
-### `ignore: ["blockless-pseudo-classes"]`
+### `ignore: ["pseudo-classes"]`
 
-Ignore pseudoclases blocks.
+Ignore pseudoclases.
 
 For example, with `1`:
 
