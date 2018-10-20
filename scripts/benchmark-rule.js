@@ -19,6 +19,7 @@ const CSS_URL =
   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css";
 
 let parsedOptions = ruleOptions;
+
 /* eslint-disable eqeqeq */
 if (
   ruleOptions[0] === "[" ||
@@ -28,6 +29,7 @@ if (
 ) {
   parsedOptions = JSON.parse(ruleOptions);
 }
+
 /* eslint-enable eqeqeq */
 const rule = rules[ruleName].apply(null, normalizeRuleSettings(parsedOptions));
 const processor = postcss().use(rule);
@@ -51,6 +53,7 @@ request(CSS_URL, (error, response, body) => {
 });
 
 let firstTime = true;
+
 function benchFn(css, done) {
   processor
     .process(css)
@@ -64,6 +67,7 @@ function benchFn(css, done) {
           });
         console.log(`${chalk.bold("Warnings")}: ${result.warnings().length}`);
       }
+
       done();
     })
     .catch(err => {
