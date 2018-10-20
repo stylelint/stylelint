@@ -17,6 +17,7 @@ describe("fix", () => {
   beforeEach(() => {
     tmpDir = os.tmpdir();
     stylesheetPath = path.join(tmpDir, `stylesheet-${_.uniqueId()}.css`);
+
     return cpFile(path.join(__dirname, "stylesheet.css"), stylesheetPath);
   });
 
@@ -36,6 +37,7 @@ describe("fix", () => {
         const cleanedResults = output.results.map(r =>
           Object.assign({}, r, { source: "stylesheet.css" })
         );
+
         expect(systemTestUtils.prepResults(cleanedResults)).toMatchSnapshot();
       });
   });
@@ -49,6 +51,7 @@ describe("fix", () => {
       })
       .then(output => {
         const result = output.results[0]._postcssResult;
+
         expect(result.root.toString(result.opts.syntax)).toMatchSnapshot();
       });
   });
@@ -62,6 +65,7 @@ describe("fix", () => {
       })
       .then(output => {
         const result = output.results[0]._postcssResult;
+
         return pify(fs.readFile)(stylesheetPath, "utf8").then(fileContent => {
           expect(fileContent).toBe(result.root.toString(result.opts.syntax));
         });

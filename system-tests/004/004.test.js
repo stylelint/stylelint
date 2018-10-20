@@ -1,5 +1,6 @@
 /* @flow */
 "use strict";
+
 const path = require("path");
 const spawn = require("child_process").spawn;
 
@@ -20,6 +21,7 @@ it("004", done => {
   });
 
   let stdout = "";
+
   cliProcess.stdout.on("data", data => (stdout += data));
 
   cliProcess.on("close", function(code) {

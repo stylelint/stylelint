@@ -32,6 +32,7 @@ global.testRule = (rule, schema) => {
     };
 
     let passingTestCases = schema.accept || [];
+
     if (!schema.skipBasicChecks) {
       passingTestCases = passingTestCases.concat(basicChecks);
     }
@@ -40,6 +41,7 @@ global.testRule = (rule, schema) => {
       describe("accept", () => {
         passingTestCases.forEach(testCase => {
           const spec = testCase.only ? it.only : it;
+
           describe(JSON.stringify(schema.config, replacer), () => {
             describe(JSON.stringify(testCase.code), () => {
               spec(testCase.description || "no description", () => {
@@ -48,15 +50,18 @@ global.testRule = (rule, schema) => {
                   config: stylelintConfig,
                   syntax: schema.syntax
                 };
+
                 return stylelint(options).then(output => {
                   expect(output.results[0].warnings).toEqual([]);
                   expect(output.results[0].parseErrors).toEqual([]);
+
                   if (!schema.fix) return;
 
                   // Check the fix
                   return stylelint(Object.assign({ fix: true }, options)).then(
                     output => {
                       const fixedCode = getOutputCss(output);
+
                       expect(fixedCode).toBe(testCase.code);
                     }
                   );
@@ -72,6 +77,7 @@ global.testRule = (rule, schema) => {
       describe("reject", () => {
         schema.reject.forEach(testCase => {
           const spec = testCase.only ? it.only : it;
+
           describe(JSON.stringify(schema.config, replacer), () => {
             describe(JSON.stringify(testCase.code), () => {
               spec(testCase.description || "no description", () => {
@@ -80,6 +86,7 @@ global.testRule = (rule, schema) => {
                   config: stylelintConfig,
                   syntax: schema.syntax
                 };
+
                 return stylelint(options).then(output => {
                   const warning = output.results[0].warnings[0];
 
@@ -89,16 +96,22 @@ global.testRule = (rule, schema) => {
                   if (testCase.message !== undefined) {
                     expect(_.get(warning, "text")).toBe(testCase.message);
                   }
+
                   if (testCase.line !== undefined) {
                     expect(_.get(warning, "line")).toBe(testCase.line);
                   }
+
                   if (testCase.column !== undefined) {
                     expect(_.get(warning, "column")).toBe(testCase.column);
                   }
 
                   if (!schema.fix) return;
 
-                  if (!testCase.fixed && testCase.fixed !== "" && !testCase.unfixable) {
+                  if (
+                    !testCase.fixed &&
+                    testCase.fixed !== "" &&
+                    !testCase.unfixable
+                  ) {
                     throw new Error(
                       "If using { fix: true } in test schema, all reject cases must have { fixed: .. }"
                     );
@@ -108,6 +121,7 @@ global.testRule = (rule, schema) => {
                   return stylelint(Object.assign({ fix: true }, options))
                     .then(output => {
                       const fixedCode = getOutputCss(output);
+
                       if (!testCase.unfixable) {
                         expect(fixedCode).toBe(testCase.fixed);
                         expect(fixedCode).not.toBe(testCase.code);
@@ -116,8 +130,10 @@ global.testRule = (rule, schema) => {
                         if (testCase.fixed) {
                           expect(fixedCode).toBe(testCase.fixed);
                         }
+
                         expect(fixedCode).toBe(testCase.code);
                       }
+
                       return {
                         fixedCode,
                         warnings: output.results[0].warnings
@@ -151,10 +167,12 @@ global.testRule = (rule, schema) => {
 function getOutputCss(output) {
   const result = output.results[0]._postcssResult;
   const css = result.root.toString(result.opts.syntax);
+
   if (result.opts.syntax === less) {
     // Less needs us to manually strip whitespace at the end of single-line comments ¯\_(ツ)_/¯
     return css.replace(/(\n?\s*\/\/.*?)[ \t]*(\r?\n)/g, "$1$2");
   }
+
   return css;
 }
 
