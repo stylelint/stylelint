@@ -150,7 +150,7 @@ a {
 
 ### `ignore: ["pseudo-classes"]`
 
-Ignore pseudoclases.
+Ignore pseudo-clases.
 
 For example, with `1`:
 
@@ -199,6 +199,16 @@ The following patterns are considered violations:
           }
         }
       }
+    }
+  }
+}
+```
+
+```css
+.a {
+  .b { /* 1 */
+    &:hover, .c { /* 2 */
+      top: 0;
     }
   }
 }
@@ -262,6 +272,16 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
       .b { /* 1 */
         bottom: 0;
       }
+    }
+  }
+}
+```
+
+```css
+.a {
+  .b { /* 1 */
+    &:hover, &:focus {
+      top: 0;
     }
   }
 }
