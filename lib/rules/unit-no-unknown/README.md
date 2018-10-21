@@ -83,3 +83,43 @@ a {
   width: 10my-other-unit;
 }
 ```
+
+### `ignoreFunctions: ["/regex/", "string"]`
+
+Given:
+
+```js
+["image-set", "/^my-/", "/^YOUR-/i"]
+```
+
+The following patterns are *not* considered violations:
+
+```css
+a {
+  background-image: image-set(
+    '/images/some-image-1x.jpg' 1x,
+    '/images/some-image-2x.jpg' 2x,
+    '/images/some-image-3x.jpg' 3x
+  );
+}
+```
+
+```css
+a {
+  background-image: my-image-set(
+    '/images/some-image-1x.jpg' 1x,
+    '/images/some-image-2x.jpg' 2x,
+    '/images/some-image-3x.jpg' 3x
+  );
+}
+```
+
+```css
+a {
+  background-image: YOUR-image-set(
+    '/images/some-image-1x.jpg' 1x,
+    '/images/some-image-2x.jpg' 2x,
+    '/images/some-image-3x.jpg' 3x
+  );
+}
+```
