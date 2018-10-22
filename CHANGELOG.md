@@ -1,5 +1,6 @@
 # Head
 
+-   Added: allow globally installed configuration ([#3642](https://github.com/stylelint/stylelint/pull/3642)).
 -   Added: `media-feature-parentheses-space-inside` autofix ([#3720](https://github.com/stylelint/stylelint/pull/3720)).
 -   Added: `selector-descendant-combinator-no-non-space` autofix ([#3565](https://github.com/stylelint/stylelint/pull/3565)).
 -   Added: `unit-case` autofix ([#3725](https://github.com/stylelint/stylelint/pull/3725)).
