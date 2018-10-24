@@ -5,6 +5,7 @@
 -   Added: `selector-descendant-combinator-no-non-space` autofix ([#3565](https://github.com/stylelint/stylelint/pull/3565)).
 -   Added: `unit-case` autofix ([#3725](https://github.com/stylelint/stylelint/pull/3725)).
 -   Fixed: false negatives for Less at-imports ([#3687](https://github.com/stylelint/stylelint/pull/3687)).
+-   Fixed: SyntaxError when an empty string is used for a rule's custom message ([#3743](https://github.com/stylelint/stylelint/pull/3743)).
 -   Fixed: `max-empty-lines` false positives for empty lines before `</style>` ([#3708](https://github.com/stylelint/stylelint/pull/3708)).
 -   Fixed: `selector-max-specificity` false positives for functional psuedo-classes ([#3711](https://github.com/stylelint/stylelint/pull/3711)).
 
