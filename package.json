@@ -65,7 +65,7 @@
     "pify": "^4.0.0",
     "postcss": "^7.0.0",
     "postcss-html": "^0.34.0",
-    "postcss-jsx": "^0.34.0",
+    "postcss-jsx": "^0.35.0",
     "postcss-less": "^3.0.1",
     "postcss-markdown": "^0.34.0",
     "postcss-media-query-parser": "^0.2.3",
