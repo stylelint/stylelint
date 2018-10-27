@@ -253,13 +253,13 @@ Processors are functions that hook into stylelint's pipeline, modifying code on 
 
 *Processors can only be used with the CLI and the Node API, not with the PostCSS plugin.* (The PostCSS plugin will ignore them.)
 
-Processors can enable stylelint to lint the CSS within non-stylesheet files. For example, you could lint the CSS within `<style>` tags in HTML, code blocks in Markdown, or strings in JavaScript.
+Processors can enable stylelint to lint, but not autofix, the CSS within non-stylesheet files that aren't supported out-of-the-box by stylelint.
 
 To use one, add a `"processors"` array to your config, containing "locaters" identifying the processors you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
 
 ```json
 {
-  "processors": ["stylelint-html-processor"],
+  "processors": ["stylelint-my-processor"],
   "rules": {..}
 }
 ```
@@ -269,7 +269,7 @@ If your processor has options, make that item an array whose first item is the "
 ```json
 {
   "processors": [
-    "stylelint-html-processor",
+    "stylelint-my-processor",
     [ "some-other-processor", { "optionOne": true, "optionTwo": false } ]
   ],
   "rules": {..}
