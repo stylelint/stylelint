@@ -150,7 +150,7 @@ a {
 
 ### `ignore: ["pseudo-classes"]`
 
-Ignore pseudo-clases.
+Ignore rules where the first selector in each selector list item is a pseudo-class
 
 For example, with `1`:
 
