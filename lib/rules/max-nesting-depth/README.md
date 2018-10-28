@@ -191,22 +191,6 @@ The following patterns are considered violations:
 ```css
 .a {
   .b { /* 1 */
-    &:hover {
-      &:focus {
-        &:otherone {
-          .c { /* 2 */
-            top: 0;
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-```css
-.a {
-  .b { /* 1 */
     &:hover, .c { /* 2 */
       top: 0;
     }
@@ -245,20 +229,6 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
   &:hover {  /* ignored */
     .b { /* 1 */
       top: 0;
-    }
-  }
-}
-```
-
-```css
-.a {
-  .b { /* 1 */
-    &:hover {
-      &:focus {
-        &:otherone {
-          top: 0;
-        }
-      }
     }
   }
 }
