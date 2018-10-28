@@ -168,7 +168,7 @@ The following patterns are considered violations:
 
 ```css
 .a {
-  &:hover {
+  &:hover { /* ignored */
     .b { /* 1 */
       .c { /* 2 */
         top: 0;
