@@ -267,7 +267,7 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
 ```css
 .a {
   &:nest {  /* ignored */
-    &:nest-lvl2 {
+    &:nest-lvl2 {  /* ignored */
       top: 0;
       .b { /* 1 */
         bottom: 0;
