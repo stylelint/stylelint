@@ -232,7 +232,7 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
 .a {
   .b { /* 1 */
     &:nest {
-      &:nest-lvl2 {
+      &:nest-lvl2 {  /* ignored */
         top: 0;
       }
     }
