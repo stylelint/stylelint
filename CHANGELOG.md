@@ -1,4 +1,4 @@
-# Head
+# 9.7.0
 
 -   Added: allow globally installed configuration ([#3642](https://github.com/stylelint/stylelint/pull/3642)).
 -   Added: `media-feature-parentheses-space-inside` autofix ([#3720](https://github.com/stylelint/stylelint/pull/3720)).
