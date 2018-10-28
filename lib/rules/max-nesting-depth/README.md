@@ -242,7 +242,7 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
 
 ```css
 .a {
-  &:hover {
+  &:hover {  /* ignored */
     .b { /* 1 */
       top: 0;
     }
