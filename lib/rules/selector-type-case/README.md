@@ -57,3 +57,25 @@ A {}
 ```css
 LI {}
 ```
+
+## Optional secondary options
+
+### `ignoreTypes: ["/regex/", "non-regex"]`
+
+Given:
+
+```js
+["$childClass", "/(p|P)arent.*/"]
+```
+
+The following patterns are not considered violations:
+
+```css
+myParentClass {
+  color: pink;
+}
+
+$childClass {
+  color: pink;
+}
+```
