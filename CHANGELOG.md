@@ -1,4 +1,4 @@
-# Head
+# 9.7.1
 
 -   Fixed: `at-rule-*` false positives for Less variables and mixins ([#3759](https://github.com/stylelint/stylelint/pull/3759)).
 
