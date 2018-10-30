@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: `at-rule-*` false positives for Less variables and mixins ([#3759](https://github.com/stylelint/stylelint/pull/3759)).
+
 # 9.7.0
 
 -   Added: allow globally installed configuration ([#3642](https://github.com/stylelint/stylelint/pull/3642)).
