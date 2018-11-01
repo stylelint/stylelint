@@ -1,6 +1,7 @@
 # Head
 
 -   Added: `ignoreTypes:[]` to `selector-type-case` ([#3758](https://github.com/stylelint/stylelint/pull/3758)).
+-   Fixed: `at-rule-*` false positives for Less variables and mixins ([#3767](https://github.com/stylelint/stylelint/pull/3767)).
 
 # 9.7.1
 
