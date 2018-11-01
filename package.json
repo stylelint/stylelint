@@ -60,7 +60,7 @@
     "log-symbols": "^2.0.0",
     "mathml-tag-names": "^2.0.1",
     "meow": "^5.0.0",
-    "micromatch": "^2.3.11",
+    "micromatch": "^3.1.10",
     "normalize-selector": "^0.2.0",
     "pify": "^4.0.0",
     "postcss": "^7.0.0",
@@ -80,6 +80,7 @@
     "postcss-value-parser": "^3.3.0",
     "resolve-from": "^4.0.0",
     "signal-exit": "^3.0.2",
+    "slash": "^2.0.0",
     "specificity": "^0.4.1",
     "string-width": "^2.1.0",
     "style-search": "^0.1.0",
@@ -180,11 +181,6 @@
       "system-tests"
     ],
     "testRegex": ".*\\.test\\.js$|rules/.*/__tests__/.*\\.js$"
-  },
-  "greenkeeper": {
-    "ignore": [
-      "micromatch"
-    ]
   },
   "remarkConfig": {
     "plugins": [

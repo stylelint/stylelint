@@ -25,4 +25,4 @@ cache:
 test_script:
   - node --version
   - npm --version
-  - cmd: "npm run jest -- --testPathPattern \\lib"
+  - cmd: "npm run jest"
