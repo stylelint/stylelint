@@ -1,4 +1,4 @@
 # Paths are resolved absolutely to this directory
 
-../fixtures/*.css
-!../fixtures/invalid-hex.css
+fixtures/*.css
+!fixtures/invalid-hex.css
