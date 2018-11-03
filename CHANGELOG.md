@@ -5,6 +5,10 @@
 -   Added: `ignoreFunctions:[]` to `unit-no-unkown` ([#3736](https://github.com/stylelint/stylelint/pull/3736)).
 -   Fixed: `at-rule-*` false positives for Less variables and mixins ([#3767](https://github.com/stylelint/stylelint/pull/3767)).
 
+# 9.7.2
+
+-   Fixed: Error for any `.sass` comments ([#3244](https://github.com/stylelint/stylelint/issues/3244))
+
 # 9.7.1
 
 -   Fixed: `at-rule-*` false positives for Less variables and mixins ([#3759](https://github.com/stylelint/stylelint/pull/3759)).
