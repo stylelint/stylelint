@@ -101,7 +101,6 @@
     "flow-bin": "^0.83.0",
     "flow-typed": "^2.5.1",
     "husky": "^1.1.0",
-    "is-ci-cli": "^1.1.1",
     "jest": "^23.4.1",
     "jest-watch-typeahead": "^0.2.0",
     "lint-staged": "^8.0.0",
@@ -128,13 +127,11 @@
     "lint:js": "eslint . --cache",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
-    "static-analysis": "npm-run-all --serial lint flow",
+    "pretest": "npm-run-all --serial lint flow",
     "prettier:check": "prettier '**/*.js' --list-different",
     "prettier:fix": "prettier '**/*.js' --write",
     "release": "npmpub",
-    "test:coverage": "jest --coverage",
-    "test:full": "npm run static-analysis && npm run test:coverage",
-    "test": "is-ci test:full watch",
+    "test": "jest --coverage",
     "watch": "jest --watch"
   },
   "husky": {
