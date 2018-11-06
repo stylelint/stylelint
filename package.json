@@ -102,6 +102,7 @@
     "flow-typed": "^2.5.1",
     "husky": "^1.1.0",
     "jest": "^23.4.1",
+    "jest-watch-typeahead": "^0.2.0",
     "lint-staged": "^8.0.0",
     "npm-run-all": "^4.0.2",
     "npmpub": "^4.1.0",
@@ -180,7 +181,11 @@
       "lib",
       "system-tests"
     ],
-    "testRegex": ".*\\.test\\.js$|rules/.*/__tests__/.*\\.js$"
+    "testRegex": ".*\\.test\\.js$|rules/.*/__tests__/.*\\.js$",
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
   },
   "remarkConfig": {
     "plugins": [
