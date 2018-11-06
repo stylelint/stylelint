@@ -3,6 +3,7 @@
 -   Added: `ignore: ["pseudo-classes"]` to `max-nesting-depth` ([#3724](https://github.com/stylelint/stylelint/pull/3724)).
 -   Added: `ignoreTypes:[]` to `selector-type-case` ([#3758](https://github.com/stylelint/stylelint/pull/3758)).
 -   Added: `ignoreFunctions:[]` to `unit-no-unkown` ([#3736](https://github.com/stylelint/stylelint/pull/3736)).
+-   Fixed: error for single-line Sass comments ([#3772](https://github.com/stylelint/stylelint/pull/3772)).
 -   Fixed: `at-rule-*` false positives for Less variables and mixins ([#3767](https://github.com/stylelint/stylelint/pull/3767)).
 
 # 9.7.1
