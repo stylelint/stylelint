@@ -148,6 +148,115 @@ a {
 }
 ```
 
+### `ignore: ["pseudo-classes"]`
+
+Ignore rules where the first selector in each selector list item is a pseudo-class
+
+For example, with `1`:
+
+The following patterns are considered violations:
+
+```css
+.a {
+  .b { /* 1 */
+    .c { /* 2 */
+      top: 0;
+    }
+  }
+}
+```
+
+```css
+.a {
+  &:hover { /* ignored */
+    .b { /* 1 */
+      .c { /* 2 */
+        top: 0;
+      }
+    }
+  }
+}
+```
+
+```css
+.a {
+  .b { /* 1 */
+    &::selection { /* 2 */
+      color: #64FFDA;
+    }
+  }
+}
+```
+
+```css
+.a {
+  .b { /* 1 */
+    &:hover, .c { /* 2 */
+      top: 0;
+    }
+  }
+}
+```
+
+The following patterns are *not* considered violations:
+
+As all of the following pseudoclasses rules would have a nesting depth of just 1.
+
+```css
+.a {
+  .b { /* 1 */
+    &:hover { /* ignored */
+      top: 0;
+    }
+  }
+}
+```
+
+```css
+.a {
+  .b { /* 1 */
+    &:nest {
+      &:nest-lvl2 {  /* ignored */
+        top: 0;
+      }
+    }
+  }
+}
+```
+
+```css
+.a {
+  &:hover {  /* ignored */
+    .b { /* 1 */
+      top: 0;
+    }
+  }
+}
+```
+
+```css
+.a {
+  &:nest {  /* ignored */
+    &:nest-lvl2 {  /* ignored */
+      top: 0;
+      .b { /* 1 */
+        bottom: 0;
+      }
+    }
+  }
+}
+```
+
+```css
+.a {
+  .b { /* 1 */
+    &:hover, &:focus {  /* ignored */
+      top: 0;
+    }
+  }
+}
+```
+
 ### `ignoreAtRules: ["/regex/", "string"]`
 
 Ignore the specified at-rules.
