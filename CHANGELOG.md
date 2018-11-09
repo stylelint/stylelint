@@ -1,4 +1,4 @@
-# Head
+# 9.8.0
 
 -   Added: `value-keyword-case` autofix ([#3775](https://github.com/stylelint/stylelint/pull/3775)).
 -   Added: `ignore: ["pseudo-classes"]` to `max-nesting-depth` ([#3724](https://github.com/stylelint/stylelint/pull/3724)).
