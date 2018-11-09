@@ -55,10 +55,6 @@ Refer to the [docs](css-processors.md#parsing-non-standard-syntax) on how to con
 
 We [recommend](css-processors.md) linting your source files before any transformations.
 
-## How do I lint styles within `<style>` tags?
-
-[Create a processor](../developer-guide/processors.md) or [use an existing one](configuration.md#processors) that extracts CSS from your HTML's `<style>` tags and feeds it into stylelint.
-
 ## How do I automatically fix stylistic violations?
 
 Use the `--fix` CLI flag or the `fix` Node API option to fix a number of stylistic violations with this *experimental* feature.
