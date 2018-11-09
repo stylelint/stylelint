@@ -24,7 +24,9 @@ global.testRule = (rule, schema) => {
     }
   });
 
+  /* eslint-disable jest/valid-describe */
   describe(schema.ruleName, () => {
+    /* eslint-enable jest/valid-describe */
     const stylelintConfig = {
       rules: {
         [schema.ruleName]: schema.config
@@ -42,8 +44,10 @@ global.testRule = (rule, schema) => {
         passingTestCases.forEach(testCase => {
           const spec = testCase.only ? it.only : it;
 
+          /* eslint-disable jest/valid-describe */
           describe(JSON.stringify(schema.config, replacer), () => {
             describe(JSON.stringify(testCase.code), () => {
+              /* eslint-enable jest/valid-describe */
               spec(testCase.description || "no description", () => {
                 const options = {
                   code: testCase.code,
@@ -78,8 +82,10 @@ global.testRule = (rule, schema) => {
         schema.reject.forEach(testCase => {
           const spec = testCase.only ? it.only : it;
 
+          /* eslint-disable jest/valid-describe */
           describe(JSON.stringify(schema.config, replacer), () => {
             describe(JSON.stringify(testCase.code), () => {
+              /* eslint-enable jest/valid-describe */
               spec(testCase.description || "no description", () => {
                 const options = {
                   code: testCase.code,
