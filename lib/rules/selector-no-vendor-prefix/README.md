@@ -36,7 +36,7 @@ input::placeholder {}
 
 ## Optional secondary options
 
-### `ignoreProperties: ["/regex/", "non-regex"]`
+### `ignoreSelectors: ["/regex/", "non-regex"]`
 
 Ignore vendor prefixes for selectors.
 
