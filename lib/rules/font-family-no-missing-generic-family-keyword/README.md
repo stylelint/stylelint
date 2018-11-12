@@ -34,12 +34,13 @@ a { font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif; }
 a { font: 1em/1.3 Times, serif; }
 ```
 
-It's also *not* a violation to use a keyword related to property inheritance.
+It's also *not* a violation to use a keyword related to property inheritance or a system font value.
 
 ```css
 a { font: inherit; }
 b { font: initial; }
 i { font: unset; }
+input { font: caption; }
 ```
 
 It's also *not* a violation to use a generic font family anywhere in the list. In other words, the generic font name doesn't need to be the last.
