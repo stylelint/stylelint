@@ -1,3 +1,7 @@
+# Head
+
+-   Fixed: false positives for system fonts in `font-family-no-missing-generic-family-keyword` ([#3794](https://github.com/stylelint/stylelint/pull/3794)).
+
 # 9.8.0
 
 -   Added: `value-keyword-case` autofix ([#3775](https://github.com/stylelint/stylelint/pull/3775)).
