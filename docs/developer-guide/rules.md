@@ -96,7 +96,7 @@ stylelint has a number of [utility functions](https://github.com/stylelint/style
 
 The rule should be strict *by default*. The user can make the rule more permissive by using the `"ignore*:"` secondary options.
 
-The rule should not include code for methodologies or language extensions. Instead, provide generic secondary options so that the user can ignore these at the *configuration level*. For example, when dealing with specificity, a rule should not account for the `:global` and `:local` psuedo-classes (introduced in the CSS Modules language extension), instead the rule should provide a `ignorePsuedoClasses: []` secondary option. Methodologies come and go quickly, and this approach ensures the code base does not become littered with code for obsolete things.
+The rule should not include code for methodologies or language extensions. Instead, provide generic secondary options so that the user can ignore these at the *configuration level*. For example, when dealing with specificity, a rule should not account for the `:global` and `:local` pseudo-classes (introduced in the CSS Modules language extension), instead the rule should provide a `ignorePseudoClasses: []` secondary option. Methodologies come and go quickly, and this approach ensures the code base does not become littered with code for obsolete things.
 
 Only add an option to a rule if it addresses a *requested* use case. Do not add an option to a rule, even for the sake of consistency, if there has been no request. This is to avoid polluting the tool with unused features.
 

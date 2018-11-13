@@ -4,6 +4,7 @@ const _ = require("lodash");
 const basicChecks = require("./lib/testUtils/basicChecks");
 const less = require("postcss-less");
 const stylelint = require("./lib/standalone");
+const util = require("util");
 
 jest.mock("./lib/utils/getOsEol", () => () => "\n");
 
@@ -24,7 +25,7 @@ global.testRule = (rule, schema) => {
     }
   });
 
-  describe(schema.ruleName, () => {
+  describe(`${schema.ruleName}`, () => {
     const stylelintConfig = {
       rules: {
         [schema.ruleName]: schema.config
@@ -42,8 +43,8 @@ global.testRule = (rule, schema) => {
         passingTestCases.forEach(testCase => {
           const spec = testCase.only ? it.only : it;
 
-          describe(JSON.stringify(schema.config, replacer), () => {
-            describe(JSON.stringify(testCase.code), () => {
+          describe(`${util.inspect(schema.config)}`, () => {
+            describe(`${testCase.code}`, () => {
               spec(testCase.description || "no description", () => {
                 const options = {
                   code: testCase.code,
@@ -78,8 +79,8 @@ global.testRule = (rule, schema) => {
         schema.reject.forEach(testCase => {
           const spec = testCase.only ? it.only : it;
 
-          describe(JSON.stringify(schema.config, replacer), () => {
-            describe(JSON.stringify(testCase.code), () => {
+          describe(`${util.inspect(schema.config)}`, () => {
+            describe(`${testCase.code}`, () => {
               spec(testCase.description || "no description", () => {
                 const options = {
                   code: testCase.code,
@@ -174,8 +175,4 @@ function getOutputCss(output) {
   }
 
   return css;
-}
-
-function replacer(key, value) {
-  return value instanceof RegExp ? `[RegExp] ${value.toString()}` : value;
 }
