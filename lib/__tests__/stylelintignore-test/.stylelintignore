@@ -2,3 +2,5 @@
 
 fixtures/*.css
 !fixtures/invalid-hex.css
+
+badsyntax.css
