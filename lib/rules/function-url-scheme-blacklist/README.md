@@ -17,7 +17,7 @@ This rule ignores:
 
 ## Options
 
-`array|string|regex`: `["array", "of", "schemes" or "regex"]|"scheme"|/regex/`
+`array|string|regex`: `["array", "of", /schemes/ or "/regex/"]|"scheme"|/regex/`
 
 Given:
 
