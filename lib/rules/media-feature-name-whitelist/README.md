@@ -12,7 +12,7 @@ This rule ignores media feature names within a range context.
 
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", "media-features" or "regex"]|"media-feature"|/regex/`
+`array|string|regex`: `["array", "of", "unprefixed", /media-features/ or "regex"]|"media-feature"|/regex/`
 
 Given:
 
