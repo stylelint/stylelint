@@ -36,7 +36,7 @@ a { transform: translate( 1, 1 ); }
 
 ### `"never"`
 
-There *must never* be whitespace on the inside the parentheses.
+There *must never* be whitespace on the inside of the parentheses.
 
 The following patterns are considered violations:
 
