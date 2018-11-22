@@ -16,7 +16,7 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 ### `"always"`
 
-There *must always* be a single space inside the parentheses.
+There *must always* be a single space inside of the parentheses.
 
 The following patterns are considered violations:
 
