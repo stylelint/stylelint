@@ -31,7 +31,7 @@ a { font-weight: bold; }
 ```
 
 ```css
-a { font: italic normal 20px; }
+a { font: italic normal 20px sans-serif; }
 ```
 
 The following patterns are *not* considered violations:
@@ -57,7 +57,7 @@ a { font-weight: 700; }
 ```
 
 ```css
-a { font: italic 400 20px; }
+a { font: italic 400 20px sans-serif; }
 ```
 
 The following patterns are *not* considered violations:
@@ -67,7 +67,7 @@ a { font-weight: bold; }
 ```
 
 ```css
-a { font: italic normal 20px; }
+a { font: italic normal 20px sans-serif; }
 ```
 
 ## Optional secondary options
