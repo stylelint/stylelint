@@ -5,7 +5,7 @@ Rules of thumb:
 -   Use the [GitHub review system](https://help.github.com/articles/about-pull-request-reviews/).
 -   Review against the [Developer Guide criteria](rules.md).
 -   Assign one or more of the appropriate [`PR: needs *` labels](https://github.com/stylelint/stylelint/labels) when requesting a change.
--   Resolve conficts by [rebasing](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase), rather than merging the target branch into the pull request branch.
+-   Resolve conflicts by [rebasing](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase), rather than merging the target branch into the pull request branch.
 
 Merge process:
 
