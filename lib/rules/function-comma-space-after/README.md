@@ -95,7 +95,7 @@ a {
 
 ### `"never-single-line"`
 
-There *must never* be whitepace after the commas in single-line functions.
+There *must never* be whitespace after the commas in single-line functions.
 
 The following patterns are considered violations:
 
