@@ -42,7 +42,7 @@ The following patterns are *not* considered violations:
 
 ### `"never"`
 
-There *must never* be whitepace after the commas.
+There *must never* be whitespace after the commas.
 
 The following patterns are considered violations:
 
@@ -94,7 +94,7 @@ The following patterns are *not* considered violations:
 
 ### `"never-single-line"`
 
-There *must never* be whitepace after the commas in single-line media query lists.
+There *must never* be whitespace after the commas in single-line media query lists.
 
 The following patterns are considered violations:
 
