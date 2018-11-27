@@ -1,4 +1,4 @@
-# Head
+# 9.9.0
 
 -   Added: `selector-list-comma-newline-after` autofix ([#3815](https://github.com/stylelint/stylelint/pull/3815)).
 -   Added: `value-list-max-empty-lines` autofix ([#3814](https://github.com/stylelint/stylelint/pull/3814)).
