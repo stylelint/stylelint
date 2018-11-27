@@ -1,5 +1,6 @@
 # Head
 
+-   Added: `value-list-max-empty-lines` autofix ([#3814](https://github.com/stylelint/stylelint/pull/3814)).
 -   Fixed: ignored files are no longer parsed ([#3801](https://github.com/stylelint/stylelint/pull/3801)).
 -   Fixed: false positives for system fonts in `font-family-no-missing-generic-family-keyword` ([#3794](https://github.com/stylelint/stylelint/pull/3794)).
 
