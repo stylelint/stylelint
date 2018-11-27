@@ -2,9 +2,10 @@
 
 -   Added: `selector-list-comma-newline-after` autofix ([#3815](https://github.com/stylelint/stylelint/pull/3815)).
 -   Added: `value-list-max-empty-lines` autofix ([#3814](https://github.com/stylelint/stylelint/pull/3814)).
--   Fixed: Ignore `&:extend` for Less syntax ([#3824](https://github.com/stylelint/stylelint/pull/3824)).
+-   Fixed: ignore `&:extend` for Less syntax ([#3824](https://github.com/stylelint/stylelint/pull/3824)).
 -   Fixed: ignored files are no longer parsed ([#3801](https://github.com/stylelint/stylelint/pull/3801)).
 -   Fixed: false positives for system fonts in `font-family-no-missing-generic-family-keyword` ([#3794](https://github.com/stylelint/stylelint/pull/3794)).
+-   Fixed: CLI `--report-needless-disables` option ([#3819](https://github.com/stylelint/stylelint/pull/3819)).
 
 # 9.8.0
 
