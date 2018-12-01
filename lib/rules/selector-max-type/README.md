@@ -119,7 +119,7 @@ The following patterns are *not* considered violations:
 #bar div span a {}
 ```
 
-#### "next-sibling"
+#### `"next-sibling"`
 
 Discount next-sibling type selectors.
 
@@ -134,8 +134,6 @@ div a + span {}
 ```css
 #bar + div + span + a + span {}
 ```
-
-
 
 ### `ignoreTypes: ["/regex/", "string"]`
 
