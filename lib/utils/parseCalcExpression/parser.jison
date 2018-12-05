@@ -72,6 +72,8 @@ expression
   math_expression
     : CALC LPAREN math_expression RPAREN {
         $$ = $3;
+        $$.source.start = { index: @1.range[0] };
+        $$.source.end = { index: @4.range[1] };
       }
     | math_expression ADD math_expression {
         $$ = {
@@ -109,7 +111,11 @@ expression
           }
         };
       }
-    | LPAREN math_expression RPAREN { $$ = $2; }
+    | LPAREN math_expression RPAREN {
+        $$ = $2;
+        $$.source.start = { index: @1.range[0] };
+        $$.source.end = { index: @3.range[1] };
+      }
     | function { $$ = $1; }
     | css_value { $$ = $1; }
     | value { $$ = $1; }
