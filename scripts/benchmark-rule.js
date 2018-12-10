@@ -75,3 +75,4 @@ function benchFn(css, done) {
       done();
     });
 }
+/* eslint-enable no-console */

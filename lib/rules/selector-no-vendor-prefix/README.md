@@ -33,3 +33,27 @@ input::placeholder {}
 ```css
 :full-screen a {}
 ```
+
+## Optional secondary options
+
+### `ignoreSelectors: ["/regex/", "non-regex"]`
+
+Ignore vendor prefixes for selectors.
+
+Given:
+
+```js
+["::-webkit-input-placeholder", "/-moz-.*/"]
+```
+
+The following patterns are not considered violations:
+
+```css
+input::-webkit-input-placeholder {
+  color: pink;
+}
+
+input::-moz-placeholder {
+  color: pink;
+}
+```

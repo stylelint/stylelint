@@ -11,7 +11,7 @@ As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), 
 stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install it using:
 
 ```console
-npm install stylelint
+npm install stylelint --save-dev
 ```
 
 ## Options
