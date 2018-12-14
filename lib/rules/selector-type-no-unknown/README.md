@@ -78,7 +78,7 @@ The following patterns are *not* considered violations:
 unknown {}
 ```
 
-### `ignoreNamespaces: ["/regex/", "string"]`
+### `ignoreNamespaces: ["/regex/", /regex/, "string"]`
 
 Given:
 
@@ -100,7 +100,7 @@ my-namespace|unknown {}
 my-other-namespace|unknown {}
 ```
 
-### `ignoreTypes: ["/regex/", "string"]`
+### `ignoreTypes: ["/regex/", /regex/, "string"]`
 
 Given:
 
