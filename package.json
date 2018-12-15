@@ -82,7 +82,7 @@
     "signal-exit": "^3.0.2",
     "slash": "^2.0.0",
     "specificity": "^0.4.1",
-    "string-width": "^2.1.0",
+    "string-width": "^3.0.0",
     "style-search": "^0.1.0",
     "sugarss": "^2.0.0",
     "svg-tags": "^1.0.0",
