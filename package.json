@@ -47,7 +47,7 @@
     "execall": "^1.0.0",
     "file-entry-cache": "^2.0.0",
     "get-stdin": "^6.0.0",
-    "global-modules": "^1.0.0",
+    "global-modules": "^2.0.0",
     "globby": "^8.0.0",
     "globjoin": "^0.1.4",
     "html-tags": "^2.0.0",
