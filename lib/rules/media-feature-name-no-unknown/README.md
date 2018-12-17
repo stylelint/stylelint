@@ -53,7 +53,7 @@ The following patterns are *not* considered violations:
 
 ## Optional secondary options
 
-### `ignoreMediaFeatureNames: ["/regex/", "string"]`
+### `ignoreMediaFeatureNames: ["/regex/", /regex/, "string"]`
 
 Given:
 
