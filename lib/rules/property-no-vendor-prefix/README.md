@@ -41,7 +41,7 @@ a { -webkit-touch-callout: none; }
 
 ## Optional secondary options
 
-### `ignoreProperties: ["/regex/", "string"]`
+### `ignoreProperties: ["/regex/", /regex/, "string"]`
 
 Given:
 
