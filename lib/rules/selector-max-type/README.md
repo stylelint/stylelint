@@ -119,7 +119,7 @@ The following patterns are *not* considered violations:
 #bar div span a {}
 ```
 
-### `ignoreTypes: ["/regex/", "string"]`
+### `ignoreTypes: ["/regex/", /regex/, "string"]`
 
 Given:
 
