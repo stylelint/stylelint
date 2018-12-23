@@ -82,3 +82,25 @@ The following patterns are *not* considered violations:
 a { font-weight: 400; }
 a b { font-weight: lighter; }
 ```
+
+### `ignoreFunctions: ["/regex/", "string"]`
+
+Given:
+
+```js
+["weight", "/^my-/", "/^YOUR-/i"]
+```
+
+The following patterns are not considered violations:
+
+```css
+strong {
+  font-weight: weight('light');
+}
+strong {
+  font-weight: my-weight('light');
+}
+strong {
+  font-weight: YoUr-weight('light');
+}
+```
