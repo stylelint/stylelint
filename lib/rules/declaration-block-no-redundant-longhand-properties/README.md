@@ -60,7 +60,7 @@ This rule complains when the following shorthand properties can be used:
 -   `text-emphasis`
 -   `mask`
 
-**Please note** that properties are considered to be redundant if they may be written shorthand according to the specification, **regardless of the behavior of any individual browser**. For example, due to Internet Explorer's implementation of Flexbox, [it may not be possible to use the shorthand property `flex`](https://github.com/philipwalton/flexbugs#flexbug-8), but the longhand form is still considered a violation. 
+**Please note** that properties are considered to be redundant if they may be written shorthand according to the specification, **regardless of the behavior of any individual browser**. For example, due to Internet Explorer's implementation of Flexbox, [it may not be possible to use the shorthand property `flex`](https://github.com/philipwalton/flexbugs#flexbug-8), but the longhand form is still considered a violation.
 
 Flexbox-related properties can be ignored using `ignoreShorthands: ["/flex-/"]` (see below).
 
@@ -137,7 +137,7 @@ a {
 
 ## Optional secondary options
 
-### `ignoreShorthands: ["/regex/", "string"]`
+### `ignoreShorthands: ["/regex/", /regex/, "string"]`
 
 Given:
 

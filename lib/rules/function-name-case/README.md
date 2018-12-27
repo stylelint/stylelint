@@ -102,7 +102,7 @@ a {
 
 ## Optional secondary options
 
-### `ignoreFunctions: ["/regex/", "non-regex"]`
+### `ignoreFunctions: ["/regex-as-string/", /regex/, "non-regex"]`
 
 Ignore case of function names.
 
@@ -160,4 +160,3 @@ a {
   display: get_color();
 }
 ```
-

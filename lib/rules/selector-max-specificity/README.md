@@ -80,7 +80,7 @@ div {}
 
 ## Optional secondary options
 
-### `ignoreSelectors: ["/regex/", "string"]`
+### `ignoreSelectors: ["/regex/", /regex/, "string"]`
 
 Given:
 

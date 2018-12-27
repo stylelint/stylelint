@@ -12,10 +12,10 @@ This rule ignores media features within range and boolean context.
 
 ## Options
 
-```json
+```js
 {
   "unprefixed-media-feature-name": ["array", "of", "values"],
-  "/unprefixed-media-feature-name/": ["/regex/", "non-regex"]
+  "/unprefixed-media-feature-name/": ["/regex/", "non-regex", /real-regex/]
 }
 ```
 

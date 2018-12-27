@@ -111,7 +111,7 @@ a { color: pink; }
 
 ### `ignorePattern: "/regex/"`
 
-Ignore any line that matches the given regex pattern, regardless of whether it is comment or not.
+Ignore any line that matches the given regex pattern, regardless of whether it is comment or not. The regex may be passed as a string (for JSON configuration) by enclosing in forward-slashes, or an ordinary JavaScript RegExp may be used.
 
 Given:
 

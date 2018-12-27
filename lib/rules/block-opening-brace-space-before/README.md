@@ -154,7 +154,7 @@ color: pink;}
 
 ## Optional secondary options
 
-### `ignoreAtRules: ["/regex/", "non-regex"]`
+### `ignoreAtRules: ["/regex/", /regex/, "non-regex"]`
 
 Given:
 

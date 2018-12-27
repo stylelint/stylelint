@@ -42,7 +42,7 @@ The following patterns are *not* considered violations:
 
 ## Optional secondary options
 
-### `ignoreAtRules: ["/regex/", "string"]`
+### `ignoreAtRules: ["/regex/", /regex/, "string"]`
 
 Given:
 

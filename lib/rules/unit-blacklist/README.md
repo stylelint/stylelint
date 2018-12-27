@@ -52,7 +52,7 @@ a { animation: animation-name 5s ease; }
 
 ## Optional secondary options
 
-### `ignoreProperties: { unit: ["property", "/regex/"] }`
+### `ignoreProperties: { unit: ["property", "/regex/", /regex/] }`
 
 Ignore units in the values of declarations with the specified properties.
 
@@ -95,7 +95,7 @@ a { -moz-border-radius-topright: 40px; }
 a { height: 100vmin; }
 ```
 
-### `ignoreMediaFeatureNames: { unit: ["property", "/regex/"] }`
+### `ignoreMediaFeatureNames: { unit: ["property", "/regex/", /regex/] }`
 
 Ignore units for specific feature names.
 
