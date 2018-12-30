@@ -83,7 +83,7 @@ a { font-weight: 400; }
 a b { font-weight: lighter; }
 ```
 
-### `ignoreFunctions: ["/regex/", "string"]`
+### `ignoreFunctions: ["/regex/", /regex/, "string"]`
 
 Given:
 
