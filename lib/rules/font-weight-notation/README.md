@@ -88,7 +88,7 @@ a b { font-weight: lighter; }
 Given:
 
 ```js
-["weight", "/^my-/", "/^YOUR-/i"]
+["weight", /^my-/, "/^YOUR-/i"]
 ```
 
 The following patterns are not considered violations:
