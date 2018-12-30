@@ -91,7 +91,7 @@ Given:
 ["weight", /^my-/, "/^YOUR-/i"]
 ```
 
-The following patterns are not considered violations:
+The following patterns are *not* considered violations:
 
 ```css
 strong {
