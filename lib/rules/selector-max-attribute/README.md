@@ -78,7 +78,7 @@ The following patterns are *not* considered violations:
 
 ## Optional secondary options
 
-### `ignoreAttributes: ["/regex/", "string"]`
+### `ignoreAttributes: ["/regex/", /regex/, "string"]`
 
 Given:
 

@@ -103,7 +103,7 @@ a {
 
 ## Optional secondary options
 
-### `ignoreKeywords: ["/regex/", "non-regex"]`
+### `ignoreKeywords: ["/regex/", /regex/, "non-regex"]`
 
 Ignore case of keywords values.
 
@@ -167,7 +167,7 @@ a {
 }
 ```
 
-### `ignoreProperties: ["/regex/", "non-regex"]`
+### `ignoreProperties: ["/regex/", /regex/, "non-regex"]`
 
 Ignore case of the values of the listed properties.
 

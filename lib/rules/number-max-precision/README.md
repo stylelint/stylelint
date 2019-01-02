@@ -40,7 +40,7 @@ a { top: 3.24px; }
 
 ## Optional secondary options
 
-### `ignoreUnits: ["/regex/", "string"]`
+### `ignoreUnits: ["/regex/", /regex/, "string"]`
 
 Ignore the precision of numbers for values with the specified units.
 

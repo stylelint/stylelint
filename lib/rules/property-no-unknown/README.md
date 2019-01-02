@@ -69,7 +69,7 @@ a {
 
 ## Optional secondary options
 
-### `ignoreProperties: ["/regex/", "string"]`
+### `ignoreProperties: ["/regex/", /regex/, "string"]`
 
 Given:
 

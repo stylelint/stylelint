@@ -47,7 +47,7 @@ stylelint "foo/*.css" --config bar/mySpecialConfig.json > myTestReport.txt
 Using `bar/mySpecialConfig.json` as config, with quiet mode on, to lint all `.css` files in the `foo` directory and any of its subdirectories and also all `.css` files in the `bar directory`:
 
 ```shell
-stylelint "foo/**/*.css bar/*.css" -q -f json --config bar/mySpecialConfig.json
+stylelint "foo/**/*.css" "bar/*.css" -q -f json --config bar/mySpecialConfig.json
 ```
 
 Linting all `.css` files except those within `docker` subfolders, using negation in the input glob:

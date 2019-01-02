@@ -56,7 +56,7 @@ a {
 
 ## Optional secondary options
 
-### `ignoreUnits: ["/regex/", "string"]`
+### `ignoreUnits: ["/regex/", /regex/, "string"]`
 
 Given:
 
@@ -67,8 +67,8 @@ Given:
 The following patterns are *not* considered violations:
 
 ```css
+width: 10custom;
 a {
-  width: 10custom;
 }
 ```
 
@@ -84,7 +84,7 @@ a {
 }
 ```
 
-### `ignoreFunctions: ["/regex/", "string"]`
+### `ignoreFunctions: ["/regex/", /regex/, "string"]`
 
 Given:
 

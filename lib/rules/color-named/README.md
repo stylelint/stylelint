@@ -128,7 +128,7 @@ a {
 }
 ```
 
-### `ignoreProperties: ["/regex/", "string"]`
+### `ignoreProperties: ["/regex/", /regex/, "string"]`
 
 For example with `"never"`.
 
