@@ -1,6 +1,7 @@
 # Head
 
 -   Added: `function-calc-no-invalid` rule ([#3833](https://github.com/stylelint/stylelint/pull/3833)).
+-   Added: `declaration-block-semicolon-space-after` autofix ([#3865](https://github.com/stylelint/stylelint/pull/3865)).
 
 # 9.9.0
 
