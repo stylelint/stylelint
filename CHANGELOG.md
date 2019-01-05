@@ -1,6 +1,7 @@
 # Head
 
 -   Added: support for ordinary regular expressions anywhere a regex string is accepted in rule config ([#3799](https://github.com/stylelint/stylelint/pull/3799)).
+-   Added: `css-in-js` syntax option that will replace the existing `styled` and `jsx` ones ([#3872](https://github.com/stylelint/stylelint/pull/3872)).
 -   Added: `function-calc-no-invalid` rule ([#3833](https://github.com/stylelint/stylelint/pull/3833)).
 -   Added: `ignore: ["next-sibling"]` to `selector-max-type` ([#3832](https://github.com/stylelint/stylelint/pull/3832)).
 -   Added: `declaration-block-semicolon-space-after` autofix ([#3865](https://github.com/stylelint/stylelint/pull/3865)).
