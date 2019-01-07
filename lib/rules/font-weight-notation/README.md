@@ -97,9 +97,15 @@ The following patterns are *not* considered violations:
 strong {
   font-weight: weight('light');
 }
+```
+
+```css
 strong {
   font-weight: my-weight('light');
 }
+```
+
+```css
 strong {
   font-weight: YoUr-weight('light');
 }
