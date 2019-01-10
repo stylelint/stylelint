@@ -5,6 +5,7 @@
 -   Added: `function-calc-no-invalid` rule ([#3833](https://github.com/stylelint/stylelint/pull/3833)).
 -   Added: `ignore: ["next-sibling"]` to `selector-max-type` ([#3832](https://github.com/stylelint/stylelint/pull/3832)).
 -   Added: `declaration-block-semicolon-space-after` autofix ([#3865](https://github.com/stylelint/stylelint/pull/3865)).
+-   Changed: Autofixing will be disabled if it is used with stylelint processors ([#3873](https://github.com/stylelint/stylelint/pull/3873)).
 -   Fixed: `CssSyntaxError` for functions in template literals ([#3869](https://github.com/stylelint/stylelint/pull/3869)).
 
 # 9.9.0
