@@ -97,7 +97,7 @@
     "eslint": "~5.7.0",
     "eslint-config-stylelint": "~11.0.0",
     "file-exists-promise": "^1.0.2",
-    "flow-bin": "^0.89.0",
+    "flow-bin": "^0.90.0",
     "flow-typed": "^2.5.1",
     "husky": "^1.1.0",
     "jest": "^23.4.1",
