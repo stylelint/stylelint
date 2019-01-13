@@ -1,36 +1,36 @@
-# Configuration
+# 配置
 
-The linter *expects a configuration object*. You can either craft your own config or extend an existing one.
+linter *需要一个配置对象*。您可以制作自己的配置或继承现有配置。
 
 <!-- TOC -->
 
-## Loading the configuration object
+## 加载配置对象
 
-Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig). Starting from the current working directory, it will look for the following possible sources, in this order:
+查找和加载配置对象由 [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) 完成。从当前工作目录开始，它将按以下顺序查找以下可能的源：
 
--   a `stylelint` property in `package.json`
--   a `.stylelintrc` file
--   a `stylelint.config.js` file exporting a JS object
+-   `package.json` 中的 `stylelint` 属性
+-   `.stylelintrc` 文件
+-   导出JS对象的 `stylelint.config.js` 文件
 
-The `.stylelintrc` file (without extension) can be in JSON or YAML format. Alternately, you can add a filename extension to designate JSON, YAML, or JS format: `.stylelintrc.json`, `.stylelintrc.yaml`, `.stylelintrc.yml`, `.stylelintrc.js`. You may want to use an extension so that your text editor can better interpret the file, and help with syntax checking and highlighting.
+`.stylelintrc` 文件（没有扩展名）可以是 JSON 或 YAML 格式。或者您可以添加文件扩展名以指定 JSON、YAML 或 JS 格式：`.stylelintrc.json`、`.stylelintrc.yaml`、`.stylelintrc.yml`，`.stylelintrc.js`。您可能希望使用扩展名，以便文本编辑器可以更好地解释文件，并帮助进行语法检查和高亮显示。
 
-Once one of these is found and parsed, the search will stop and that object will be used.
+找到并解析其中一个后，搜索将停止并将使用该对象。
 
-The configuration search can be short-circuited by using either the `config` or `configFile` options.
+可以使用 `config` 或 `configFile` 选项绕过配置搜索。
 
-## The configuration object
+## 配置对象
 
-The configuration object can have the following properties.
+配置对象可以具有以下属性。
 
 ### `rules`
 
-Rules determine what the linter looks for and complains about. There are [over 160](rules.md) built into stylelint. *No rules are turned on by default*, so this is where you turn on everything you want to check. All the rules must be explicitly configured as *there are no default values*.
+规则确定了 linter 寻找和控诉的内容。在 stylelint 中有[超过160条规则](rules.md)。*默认情况下没有打开任何规则*，因此您可以在此处打开所有要检查的内容。必须将所有规则明确配置为*没有默认值*。
 
-The `rules` property is *an object whose keys are rule names and values are rule configurations*. Each rule configuration fits one of the following formats:
+`rules`属性是*一个键作为规则名称，值作为规则配置的对象*。每条规则配置都符合以下格式之一：
 
--   a single value (the primary option)
--   an array with two values (`[primary option, secondary options]`)
--   `null` (to turn the rule off)
+-   单个值（主选项）
+-   包含两个值的数组（`[主选项, 辅助选项]`）
+-   `null`（关闭规则）
 
 ```json
 {
@@ -54,9 +54,9 @@ The `rules` property is *an object whose keys are rule names and values are rule
 }
 ```
 
-Specifying a primary option will turn a rule on. A complete list of primary rule options can be found in the [example configuration](example-config.md).
+指定主选项将启用规则。您可以在[示例配置](example-config.md)中找到主要规则选项的完整列表。
 
-To turn a rule off (when extending a configuration) you can set the value of the rule to `null`:
+要关闭规则（继承配置时），可以将规则的值设置为 `null`：
 
 ```json
 {
@@ -67,7 +67,7 @@ To turn a rule off (when extending a configuration) you can set the value of the
 }
 ```
 
-Many rules have secondary options which provide further customization. To set secondary options, a two-member array is used:
+许多规则都有辅助选项作为进一步配置。要设置辅助选项，请使用两个成员的数组：
 
 ```js
 "selector-pseudo-class-no-unknown": [true, {
@@ -75,9 +75,9 @@ Many rules have secondary options which provide further customization. To set se
 }]
 ```
 
-#### Turning rules off from within your CSS
+#### 在您的CSS中关闭规则
 
-Rules can be temporarily turned off by using special comments in your CSS. For example, you can either turn all the rules off:
+可以通过在CSS中使用特殊注释暂时关闭规则。例如，您可以关闭所有规则：
 
 ```css
 /* stylelint-disable */
@@ -85,7 +85,7 @@ a {}
 /* stylelint-enable */
 ```
 
-Or you can turn off individual rules:
+或者您可以关闭个别规则：
 
 ```css
 /* stylelint-disable selector-no-id, declaration-no-important  */
@@ -95,7 +95,7 @@ Or you can turn off individual rules:
 /* stylelint-enable */
 ```
 
-You can turn off rules for individual lines only with a `/* stylelint-disable-line */` comment, after which you do not need to explicitly re-enable them:
+您可以使用 `/* stylelint-disable-line */` 注释关闭个别行的规则，之后您无需显式重新启用它们：
 
 ```css
 #id { /* stylelint-disable-line */
@@ -103,7 +103,7 @@ You can turn off rules for individual lines only with a `/* stylelint-disable-li
 }
 ```
 
-You can also turn off rules for *the next line only* with a `/* stylelint-disable-next-line */` comment, after which you do not need to explicitly re-enable them:
+您还可以使用 `/* stylelint-disable-next-line */` 注释关闭*下一行*的规则，之后您不需要显式重新启用它们：
 
 ```css
 #id {
@@ -112,7 +112,7 @@ You can also turn off rules for *the next line only* with a `/* stylelint-disabl
 }
 ```
 
-Complex, overlapping disabling & enabling patterns are supported:
+支持复杂，重叠的禁用和启用模式：
 
 ```css
 /* stylelint-disable */
@@ -125,23 +125,23 @@ Complex, overlapping disabling & enabling patterns are supported:
 /* stylelint-enable foo */
 ```
 
-**Caveat:** Comments within *selector and value lists* are currently ignored.
+**警告：** 写在*选择器和值列表*中的注释目前被忽略。
 
-#### Severities: error & warning
+#### 严重性：错误和警告
 
-By default, all rules have an `"error"`-level severity. You can change this default by adding a `defaultSeverity` property to your configuration (see below).
+默认情况下，所有规则都是 `"error"` 级别的严重性。您可以通过在配置中添加 `defaultSeverity` 属性来更改此默认值（请参阅下文）。
 
-To adjust any specific rule's severity, use the secondary option `severity`. The available values for `severity` are:
+要调整任何特定规则的严重性，请使用辅助选项 `severity`。 `severity` 的可用值是：
 
 -   `"warning"`
 -   `"error"`
 
 ```js
-// error-level severity examples
+// 错误级别严重性示例
 { "indentation": 2 }
 { "indentation": [2] }
 
-// warning-level severity examples
+// 警告级别严重性示例
 { "indentation": [2, { "severity": "warning" } ] }
 { "indentation": [2, {
     "except": ["value"],
@@ -150,36 +150,36 @@ To adjust any specific rule's severity, use the secondary option `severity`. The
 }
 ```
 
-Different reporters may use these severity levels in different way, e.g. display them differently, or exit the process differently.
+不同的报告生成器可以用不同的方式使用这些严重性级别，例如以不同方式显示它们，或以不同方式退出进程
 
-#### Custom Messages
+#### 自定义消息
 
-If you want to deliver a custom message when a rule is violated, you can do so in two ways: provide a `message` option for the rule, or write a custom formatter.
+如果要在违反规则时传递自定义消息，可以通过两种方式执行此操作：为规则提供“消息”选项，或编写自定义格式化程序。
 
-All rules accept a `message` secondary option that, if provided, will be substituted for whatever standard message would be provided. For example, the following rule configuration would substitute in a couple of custom message:
+所有规则都接受一个 `message` 辅助选项，如果指定该选项，任何标准消息都将被替为换指定的内容。例如，以下规则配置将替换几个自定义消息：
 
 ```json
 {
   "color-hex-case": [ "lower", {
-    "message": "Lowercase letters are easier to distinguish from numbers"
+    "message": "小写字母更容易与数字区分开来"
   } ],
   "indentation": [ 2, {
     "except": ["block"],
-    "message": "Please use 2 spaces for indentation. Tabs make The Architect grumpy.",
+    "message": "请使用2个空格进行缩进。制表符使建筑师性情乖戾",
     "severity": "warning"
   } ]
 }
 ```
 
-Writing a [custom formatter](../developer-guide/formatters.md) gives you maximum control if you need serious customization.
+如果您需要深度定制，编写[自定义格式化程序](../developer-guide/formatters.md)可以为您提供最大程度的控制。
 
 ### `extends`
 
-Your configuration can *extend* an existing configuration (whether your own or a third-party config). When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
+您的配置可以*继承*现有配置（无论您自己的配置还是第三方配置）。当一个配置继承另一个配置时，它从另一个配置属性开始，然后添加并覆盖其中的内容。
 
-You can extend an array of existing configurations, with each item in the array taking precedence over the previous item (so the second item overrides rules in the first, the third item overrides rules in the first and the second, and so on, the last item overrides everything else).
+您可以继承现有配置的数组，数组中的每个项都优先于前一项（因此第二项将覆盖第一项中的规则，第三项将覆盖第一项和第二项中的规则，依此类推，最后一项覆盖其他所有内容）。
 
-For example, extending the [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) and then changing indentation to tabs and turning off the `number-leading-zero` rule:
+例如，继承 [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard)，然后将缩进更改为制表符并关闭 `number-leading-zero` 规则：
 
 ```json
 {
@@ -191,7 +191,7 @@ For example, extending the [`stylelint-config-standard`](https://github.com/styl
 }
 ```
 
-Or starting with `stylelint-config-standard`, then layering `myExtendableConfig` on top of that, and then overriding the indentation rule:
+或者从 `stylelint-config-standard` 开始，然后在其上层叠 `myExtendableConfig`，然后覆盖缩进规则：
 
 ```json
 {
@@ -205,21 +205,21 @@ Or starting with `stylelint-config-standard`, then layering `myExtendableConfig`
 }
 ```
 
-The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d, so can fit whatever format works with Node's `require.resolve()` algorithm. That means a "locater" can be:
+`"extends"` 的值是一个“定位符”（或者是一个“定位符”数组），最终通过 `require()` 加载，所以可以是任何适用于 Node 的 `require.resolve()` 算法的格式。这意味着“定位符”可以是：
 
--   The name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
--   An absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
--   A relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
+-   `node_modules` 中模块的名称（例如 `stylelint-config-standard`；该模块的 `main` 文件必须是有效的 JSON 配置）
+-   使用 `.js` 或 `.json` 扩展名的文件绝对路径（如果您在 Node.js 上下文中创建 JS 对象并将其传入，则这是有意义的）。
+-   相对于引用配置的使用 `.js` 或 `.json` 扩展名的文件相对路径（例如，如果 configA 具有 `extends: "../configB"`，我们将相对于 configA 查找 `configB`）。
 
-*Because of `extends`, you can create and use shareable stylelint configurations.* Use the `stylelint-config` keyword within your `package.json` if publishing your config to npm.
+*有赖于 `extends`，您可以创建和使用可共享的 stylelint 配置。* 如果您将配置发布到 npm，请在 `package.json` 中使用 `stylelint-config` 关键字。
 
 ### `plugins`
 
-Plugins are rules or sets of rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases.
+插件是社区构建的支持方法、工具集、*非标准* CSS 功能或非常具体的用例的规则或规则集
 
-To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
+要使用插件，请在您的配置中添加一个 `"plugins"` 数组，在其中包含标识您要使用的插件的“定位符”。与上面的 `extends` 一样，“定位符”可以是 npm 模块名称，绝对路径或相对于调用配置文件的路径。
 
-Once the plugin is declared, within your `"rules"` object *you'll need to add options* for the plugin's rule(s), just like any standard rule. You will have to look at the plugin's documentation to know what the rule name should be.
+一旦声明了插件，在您的 `"rules"` 对象中，*您需要为插件的规则添加选项*，就像任何标准规则一样。您需要查看插件的文档才能知道规则名称应该是什么。
 
 ```json
 {
@@ -232,7 +232,7 @@ Once the plugin is declared, within your `"rules"` object *you'll need to add op
 }
 ```
 
-A "plugin" can provide a single rule or a set of rules. If the plugin you use provides a set, just invoke the module in your `"plugins"` configuration value, and use the rules it provides in `"rules"`. For example:
+“插件”可以提供单个规则或规则集。如果您使用的插件提供规则集，只需在 `"plugins"` 配置中调用该模块，并在`"rules"`中使用它提供的规则。例如：
 
 ```json
 {
@@ -278,33 +278,33 @@ If your processor has options, make that item an array whose first item is the "
 
 ### `ignoreFiles`
 
-Provide a glob or array of globs to ignore specific files.
+提供glob或glob数组以忽略特定文件。
 
-*Note that this is not an efficient method for ignoring lots of files.* If you want to ignore a lot of files efficiently, use `.stylelintignore` or adjust your files globs.
+*请注意，这不是忽略大量文件的有效方法。* 如果要有效地忽略大量文件，请使用`.stylelintignore`或调整文件glob。
 
-If the globs are absolute paths, they are used as is. If they are relative, they are analyzed relative to
+如果globs是绝对路径，则它们按原样使用。如果它们是相对路径，则相对于它们进行分析：
 
--   `configBasedir`, if it's provided;
--   the config's filepath, if the config is a file that stylelint found a loaded;
--   or `process.cwd()`.
+-   `configBasedir`，如果提供的话；
+-   配置的文件路径，如果配置是 stylelint 查找加载的文件的话；
+-   或 `process.cwd()`。
 
-By default, all `node_modules` and `bower_components` are ignored. Default values will be overridden if `ignoreFiles` is set.
+默认情况下，忽略所有`node_modules`和`bower_components`。如果设置了`ignoreFiles`，则将覆盖默认值。
 
-The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
+`ignoreFiles`属性从继承配置中删除：只有根级配置可以忽略文件。
 
 ### `defaultSeverity`
 
-The default severity level for all rules that do not have a severity specified in their secondary options. The available values for `severity` are:
+未在辅助选项中指定严重性的所有规则的默认严重性级别。 `severity` 的可用值是：
 
 -   `"warning"`
 -   `"error"`
 
 ## `.stylelintignore`
 
-You can use a `.stylelintignore` file (or point to another ignore patterns file) to ignore specific files.
+您可以使用 `.stylelintignore` 文件（或指向另一个忽略模式文件）来忽略特定文件。
 
-These files will be excluded from the files glob before the file system is check at all, so it is an efficient method for ignoring lots of files.
+在检查文件系统之前，这些文件将从文件glob中排除，因此它是忽略大量文件的有效方法。
 
-The patterns in your `.stylelintignore` file must match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). (Behind the scenes, [`node-ignore`](https://github.com/kaelzhang/node-ignore) parses your patterns.) One implication of this is that *your patterns in `.stylelintignore` are always analyzed relative to `process.cwd()`.*
+`.stylelintignore`文件中的模式必须与 [`.gitignore` 语法](https://git-scm.com/docs/gitignore)匹配。（在幕后，[`node-ignore`](https://github.com/kaelzhang/node-ignore) 解析您的模式。）这意味着您的 *`.stylelintignore` 中的模式总是相对于 `process.cwd()` 进行分析。*
 
-stylelint will look for a `.stylelintignore` file in `process.cwd()`. You can also specify a path to your ignore patterns file (absolute or relative to `process.cwd()`) using the `--ignore-path` (in the CLI) and `ignorePath` (in JS) options.
+stylelint 将在 `process.cwd()` 中查找`.stylelintignore`文件。您还可以使用`--ignore-path`（在CLI中）和 `ignorePath`（在JS中）选项指定忽略模式文件的路径（绝对或相对于`process.cwd()`）。
