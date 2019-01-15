@@ -3,7 +3,9 @@
 Disallow double-slash comments (`//...`) which are not supported by CSS and [could lead to unexpected results](https://stackoverflow.com/a/20192639/130652).
 
 ```css
-a { // color: pink; }
+a {
+  //color: pink;
+}
 /** ↑
  *  This comment */
 ```
@@ -17,19 +19,30 @@ If you are using a preprocessor that allows `//` single-line comments (e.g. Sass
 The following patterns are considered violations:
 
 ```css
-a { // color: pink; }
+a {
+  //color: pink;
+}
 ```
 
 ```css
-// a { color: pink; }
-```
-
-The following patterns are *not* considered violations:
-
-```css
-a { /* color: pink; */ }
+//a { color: pink; }
 ```
 
 ```css
-/* a { color: pink; } */
+// Comment {}
+a {
+  color: pink;
+}
+```
+
+The following patterns are _not_ considered violations:
+
+```css
+a {
+  /* color: pink; */
+}
+```
+
+```css
+/* a { color: pink;  } */
 ```
