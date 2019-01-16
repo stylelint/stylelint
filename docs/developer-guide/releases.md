@@ -24,8 +24,8 @@ The secondary goals are:
     3.  Replace `# Head` in `CHANGELOG.md` with this new version number e.g. `# 8.1.2`
     4.  Commit and _push up_ these changes.
     5.  Go to [https://github.com/stylelint/stylelint](https://github.com/stylelint/stylelint) and confirm these changes are correct and pushed up.
-    6.  Run `npm run dry-release`.
-    7.  Run `npm run release`.
+    6.  Run `npm run release` (the tests should pass, but it will fail to publish)
+    7.  Run `NPM_CONFIG_OTP=123456 npm run release -- --skip-test --skip-cleanup`
     8.  Go to [https://www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint) and confirm the package was published correctly.
     9.  Go to [https://github.com/stylelint/stylelint/releases](https://github.com/stylelint/stylelint/releases) and confirm the release was created correctly.
 6.  If a new version of any `stylelint-config-*` is required, repeat step 5 for that repo.
@@ -33,7 +33,7 @@ The secondary goals are:
     1.  Run `npm install -S stylelint@latest`
     2.  Run `npm test`
     3.  Commit and _push up_ these changes.
-    1.  Go to [https://stylelint.io/demo](https://stylelint.io/demo) and confirm the update was automatically deployed.
+    4.  Go to [https://stylelint.io/demo](https://stylelint.io/demo) and confirm the update was automatically deployed.
 8.  Update the website documentation by changing to the `stylelint.io` repo:
     1.  Run `npm install -D stylelint@latest`
     2.  Run `npm test`
