@@ -22,7 +22,7 @@ The plugin accepts an options object as argument, with the following properties:
 
 A [stylelint configuration object](configuration.md).
 
-If no `config` or `configFile` is passed, stylelint will look for a `.stylelintrc` configuration file.
+If no `config` or `configFile` is passed, stylelint will use a [config lookup algorithm](./configuration.md#loading-the-configuration-object) to find the correct config.
 
 ### `configFile`
 
@@ -91,7 +91,7 @@ postcss([
   .catch(err => console.error(err.stack))
 ```
 
-The same pattern can be used to lint SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.
+The same pattern can be used to lint Less, SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.
 
 ### Example B
 
