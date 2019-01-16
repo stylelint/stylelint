@@ -48,7 +48,7 @@
     "file-entry-cache": "^2.0.0",
     "get-stdin": "^6.0.0",
     "global-modules": "^2.0.0",
-    "globby": "^8.0.0",
+    "globby": "^9.0.0",
     "globjoin": "^0.1.4",
     "html-tags": "^2.0.0",
     "ignore": "^5.0.4",
