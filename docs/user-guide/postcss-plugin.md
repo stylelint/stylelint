@@ -1,86 +1,86 @@
-# The stylelint PostCSS plugin
+# stylelint PostCSS 插件
 
-As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a [PostCSS runner](https://github.com/postcss/postcss#runners) or with the PostCSS JS API directly.
+与任何其他 [PostCSS 插件](https://github.com/postcss/postcss#plugins)一样，您可以使用 stylelint 的 PostCSS 插件，可以使用 [PostCSS 运行器](https://github.com/postcss/postcss#runners)，也可以直接使用 PostCSS JS 应用程序接口。
 
-*However, if a dedicated stylelint task runner plugin [is available](complementary-tools.md) (e.g. [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) or [grunt-stylelint](https://github.com/wikimedia/grunt-stylelint)) we recommend you use that rather than this plugin, as they provide better reporting.*
+*但是，如果专用的 stylelint 任务运行插件[可用](complementary-tools.md)（例如 [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) 或 [grunt-stylelint](https://github.com/wikimedia/grunt-stylelint)）我们建议您使用该插件而不是此插件，因为它们可以提供更好的报告。*
 
 <!-- TOC -->
 
-## Installation
+## 安装
 
-stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install it using:
+stylelint 是一个 [npm 包](https://www.npmjs.com/package/stylelint)。它使用命令安装：
 
 ```console
 npm install stylelint --save-dev
 ```
 
-## Options
+## 选项
 
-The plugin accepts an options object as argument, with the following properties:
+该插件接受选项对象作为参数，具有以下属性：
 
 ### `config`
 
-A [stylelint configuration object](configuration.md).
+[stylelint 配置对象](configuration.md)。
 
-If no `config` or `configFile` is passed, stylelint will use a [config lookup algorithm](./configuration.md#loading-the-configuration-object) to find the correct config.
+如果没有传递 `config` 或 `configFile`，stylelint 将使用[配置查找算法](./configuration.md#加载配置对象)来查找正确的配置。
 
 ### `configFile`
 
-The path to a JSON, YAML, or JS file that contains your [stylelint configuration object](configuration.md).
+包含 [stylelint 配置对象](configuration.md)的 JSON、YAML 或 JS 文件的路径。
 
-It should be either absolute or relative to the directory that your process is running from (`process.cwd()`). We'd recommend absolute.
+它应该是绝对路径或您的进程运行目录（`process.cwd()`）的相对路径。我们建议使用绝对路径。
 
 ### `configBasedir`
 
-An absolute path to the directory that relative paths defining `extends` and `plugins` are *relative to*.
+绝对路径，定义 `extends` 和 `plugins` 的相对路径 *相对于* 的目录。
 
-This is only necessary if you passed an object directly through the `config` property. If you used
-`configFile`, this option is not necessary.
+只有在直接通过 `config` 属性传递对象时才需要这样做。如果您用了 `configFile`，则这个选项不是必需的。
 
-If the `config` object passed uses relative paths, e.g. for `extends` or `plugins`, you are going to have to pass a `configBasedir`. If not, you do not need this.
+如果传递的 `config` 对象使用相对路径，例如用于 `extends` 或 `plugins`，您必须传递 `configBasedir`。如果没有使用相对路径，则不需要这个属性。
 
 ### `configOverrides`
 
-A partial stylelint configuration object whose properties will override the existing config object, whether that config was loaded via the `config` option or a `.stylelintrc` file.
+部分 stylelint 配置对象，其属性将覆盖现有的配置对象，无论该配置是通过 `config` 选项还是 `.stylelintrc` 文件加载的。
 
-The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to *both* load a `.stylelintrc` file *and* override specific parts of it, `configOverrides` does just that.
+`configOverrides` 和 `config` 选项之间的区别在于：如果传递了任何 `config` 对象，则 stylelint 不会去寻找 `.stylelintrc` 文件而只是使用您传递的 `config` 对象；但如果您想加载 `.stylelintrc` 文件 *并且* 覆盖它的特定部分，`configOverrides` 就是做这个的。
 
 ### `ignoreDisables`
 
-If `true`, all disable comments (e.g. `/* stylelint-disable block-no-empty */`) will be ignored.
+如果为 `true`，则将忽略所有禁用注释（例如 `/* stylelint-disable block-no-empty */`）。
 
-You can use this option to see what your linting results would be like without those exceptions.
+您可以使用此选项查看没有这些例外情况时您的检查结果会是什么样的。
 
 ### `ignorePath`
 
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](configuration.md#stylelintignore).
+包含描述要忽略的文件的模式的文件的路径。路径可以是绝对路径或 `process.cwd()` 的相对路径。默认情况下，stylelint 在 `process.cwd()` 中查找 `.stylelintignore`。请参阅[配置](configuration.md#stylelintignore)。
 
-## Usage examples
+## 用法示例
 
-We recommend you lint your CSS before applying any transformations. You can do this by either:
+我们建议您在应用任何转换之前检查 CSS。您可以这样做：
 
--   creating a separate lint task that is independent of your build one.
--   using the [`plugins` option](https://github.com/postcss/postcss-import#plugins) of [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) to lint your files before any transformations.
--   placing stylelint at the beginning of your plugin pipeline.
+-   创建独立的lint任务，该任务独立于构建任务。
+-   使用 [`postcss-import`](https://github.com/postcss/postcss-import) 的 [`plugins` option](https://github.com/postcss/postcss-import#plugins) 或 [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) 在进行任何转换之前检查文件。
+-   将 stylelint 放在插件管道的开头。
 
-You'll also need to use a reporter. *The stylelint plugin registers warnings via PostCSS*. Therefore, you'll want to use it with a PostCSS runner that prints warnings or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
+您还需要一个报告生成器。 *stylelint 插件通过 PostCSS 注册警告* 。因此，您需要用于打印警告的 PostCSS 运行器或插件，其目的是格式化和打印警告（例如 [`postcss-reporter`](https://github.com/postcss/postcss-reporter)）。
 
-### Example A
+### 示例 A
 
-A separate lint task that uses the plugin via the PostCSS JS API to lint Less using [`postcss-less`](https://github.com/shellscape/postcss-less).
+一个单独的检查任务，通过 PostCSS JS 应用程序接口使用[`postcss-less`](https://github.com/shellscape/postcss-less)和本插件来检查 Less。
 
-*Note: the stylelint PostCSS plugin, unlike the stylelint CLI and Node.js API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.*
+*注意：stylelint PostCSS 插件与 stylelint 命令行界面和 Node.js 应用程序接口不同，没有 `syntax` 选项。相反，必须在 [PostCSS 选项](https://github.com/postcss/postcss#options)中设置语法，因为管道中只能有一个解析器/语法。*
 
 ```js
 var fs = require("fs")
 var less = require("postcss-less")
 var postcss = require("postcss")
 
-// CSS to be processed
+// 要处理的CSS
+
 var css = fs.readFileSync("input.css", "utf8")
 
 postcss([
-  require("stylelint")({ /* your options */ }),
+  require("stylelint")({ /* 您的选项 */ }),
   require("postcss-reporter")({ clearReportedMessages: true })
 ])
   .process(css, {
@@ -91,25 +91,25 @@ postcss([
   .catch(err => console.error(err.stack))
 ```
 
-The same pattern can be used to lint Less, SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.
+相同的模式可用于检查 Less、SCSS 或 [SugarSS](https://github.com/postcss/sugarss) 语法。
 
-### Example B
+### 示例 B
 
-A combined lint and build task where the plugin is used via the PostCSS JS API, but within [`postcss-import`](https://github.com/postcss/postcss-import) (using the its `plugins` option) so that the source files are linted before any transformations.
+组合检查和构建任务，其中本插件通过 PostCSS JS 应用程序接口使用，但使用在 [`postcss-import`](https://github.com/postcss/postcss-import) 中（利用其 `plugins` 选项），以便在进行任何转换之前对源文件进行检查。
 
 ```js
 var fs = require("fs")
 var postcss = require("postcss")
 var stylelint = require("stylelint")
 
-// CSS to be processed
+// 要处理的CSS
 var css = fs.readFileSync("lib/app.css", "utf8")
 
 postcss(
   [
     require("postcss-import")({
       plugins: [
-        require("stylelint")({ /* your options */ })
+        require("stylelint")({ /* 您的选项 */ })
       ]
     }),
     require("postcss-cssnext"),
