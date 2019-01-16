@@ -10,6 +10,7 @@
 -   Fixed: `no-descending-specificity` false positives for styled-components ([#3875](https://github.com/stylelint/stylelint/pull/3875)).
 -   Fixed: `no-duplicate-selectors` false positives for styled-components ([#3875](https://github.com/stylelint/stylelint/pull/3875)).
 -   Fixed: `selector-max-universal` false positives for flush comments containing a comma ([#3817](https://github.com/stylelint/stylelint/pull/3817)).
+-   Fixed: `shorthand-property-redundant-values` false positives for negative values ([#3888](https://github.com/stylelint/stylelint/pull/3888)).
 
 # 9.9.0
 
