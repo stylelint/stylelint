@@ -72,7 +72,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Comment
 
--   [`comment-no-empty`](../../lib/rules/comment-no-empty/README.md):  Disallow empty comments.
+-   [`comment-no-empty`](../../lib/rules/comment-no-empty/README.md): Disallow empty comments.
 
 #### General / Sheet
 
