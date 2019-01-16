@@ -1,4 +1,4 @@
-# Head
+# 9.10.0
 
 -   Added: support for ordinary regular expressions anywhere a regex string is accepted in rule config ([#3799](https://github.com/stylelint/stylelint/pull/3799)).
 -   Added: `css-in-js` syntax option that will replace the existing `styled` and `jsx` ones ([#3872](https://github.com/stylelint/stylelint/pull/3872)).
