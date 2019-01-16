@@ -1,8 +1,8 @@
-# The stylelint CLI
+# stylelint 命令行界面
 
-## Installation
+## 安装
 
-stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install it using:
+stylelint 是一个 [npm 包](https://www.npmjs.com/package/stylelint)。它使用命令安装：
 
 ```shell
 npm install stylelint --save-dev
@@ -10,107 +10,107 @@ npm install stylelint --save-dev
 
 <!-- TOC -->
 
-## Usage
+## 用法
 
-`stylelint --help` prints the CLI documentation.
+`stylelint --help` 打印命令行界面文档。
 
-The CLI outputs formatted results into `process.stdout`, which you can read with your human eyes or pipe elsewhere (e.g. write the information to a file).
+命令行界面将格式化结果输出到 `process.stdout`，您可以用人工或其他地方读取（例如将信息写入文件）。
 
-### Examples
+### 例子
 
-When you run commands similar to the examples below, be sure to include the quotation marks around file globs. This ensures that you can use the powers of [globby](https://github.com/sindresorhus/globby) (like the `**` globstar) regardless of your shell.
+当您运行类似于以下示例的命令时，请确保在文件 glob 周围包含引号。这将确保无论您的 shell 如何，都可以使用 [globby](https://github.com/sindresorhus/globby) 的功能（如 `**` glob 星号）。
 
-Looking for `.stylelintrc` and linting all `.css` files in the `foo` directory:
+寻找 `.stylelintrc` 并检查 `foo` 目录中的所有 `.css` 文件：
 
 ```shell
 stylelint "foo/*.css"
 ```
 
-Looking for `.stylelintrc` and linting all `<style>` blocks within the `.html` files in the `bar` directory:
+寻找 `.stylelintrc` 并检查 `bar` 目录中的所有 `.html` 文件中的所有 `<style>` 块：
 
 ```shell
 stylelint "bar/*.html"
 ```
 
-Looking for `.stylelintrc` and linting `stdin`:
+寻找 `.stylelintrc` 和检查 `stdin`（标准输入）：
 
 ```shell
 echo "a { color: pink; }" | stylelint
 ```
 
-Using `bar/mySpecialConfig.json` as config to lint all `.css` files in the `foo` directory, then writing the output to `myTestReport.txt`:
+使用 `bar/mySpecialConfig.json` 作为配置来检查 `foo` 目录中的所有 `.css` 文件，然后将输出写入 `myTestReport.txt`：
 
 ```shell
 stylelint "foo/*.css" --config bar/mySpecialConfig.json > myTestReport.txt
 ```
 
-Using `bar/mySpecialConfig.json` as config, with quiet mode on, to lint all `.css` files in the `foo` directory and any of its subdirectories and also all `.css` files in the `bar directory`:
+使用 `bar/mySpecialConfig.json` 作为配置，打开静默模式，检查 `foo` 及其任何子目录还有 `bar` 目录中的所有 `.css` 文件：
 
 ```shell
 stylelint "foo/**/*.css" "bar/*.css" -q -f json --config bar/mySpecialConfig.json
 ```
 
-Linting all `.css` files except those within `docker` subfolders, using negation in the input glob:
+检查所有 `.css` 文件, 使用 glob 中的否定排除 `docker` 子文件夹中的文件：
 
 ```shell
 stylelint "**/*.css, !**/docker/**"
 ```
 
-Caching processed `.scss` files in order to operate only on changed ones in the `foo` directory, using the `cache` and `cache-location` options:
+使用 `cache` 和 `cache-location` 选项缓存已处理的 `.scss` 文件，以便只对 `foo` 目录中已更改的文件进行操作：
 
 ```shell
 stylelint "foo/**/*.scss" --cache --cache-location "/Users/user/.stylelintcache/"
 ```
 
-stylelint will [automatically infer the syntax](css-processors.md#parsing-non-standard-syntax). You can, however, force a specific syntax using the  `--syntax` option. For example, linting all the `.css` files in the `foo` directory _as Scss_:
+stylelint 将[自动推断语法](css-processors.md#parsing-non-standard-syntax)。但您可以使用 `--syntax` 选项强制使用特定语法。例如，将 `foo` 目录中所有 `.css` 文件 _作为 Scss_ 检查：
 
 ```shell
 stylelint "foo/**/*.css" --syntax scss
 ```
 
-stylelint can also accept a custom [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). To use a custom syntax, supply a syntax module name or path to the syntax file: `--custom-syntax custom-syntax` or `--custom-syntax ./path/to/custom-syntax`.
+stylelint还可以接受自定义 [PostCSS 兼容语法](https://github.com/postcss/postcss#syntaxes)。要使用自定义语法，请提供语法模块名称或语法文件的路径：`--custom-syntax custom-syntax` 或 `--custom-syntax ./path/to/custom-syntax`。
 
-### Recursively linting a directory
+### 递归检查目录
 
-To recursively lint a directory, using the `**` globstar:
+要递归检查目录，使用 `**` glob 星号：
 
 ```shell
 stylelint "foo/**/*.scss"
 ```
 
-The quotation marks around the glob are important because they will allow stylelint to interpret the glob, using globby, instead of your shell, which might not support all the same features.
+glob 周围的引号很重要，因为它们允许 stylelint 使用 globby 而不是 shell 来解释 glob，这可能在功能上不完全相同。
 
-### Autofixing errors
+### 自动修复错误
 
-With `--fix` option stylelint will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported.
+使用 `--fix` 选项，stylelint 将尽可能多地修复错误，修复实际的源文件，报告未修复的错误。
 
-Linting all `.css` files in the `foo` directory. And fixing source files if violated rules support autofixing:
+检查 `foo` 目录中所有的 `.css` 文件。如果违反支持自动修复的规则，则修复源文件：
 
 ```shell
 stylelint "foo/*.css" --fix
 ```
 
-**Note:** It's an _experimental_ feature. It currently does not respect special comments for disabling stylelint within sources (e. g. `/* stylelint-disable */`). Autofixing will be applied regardless of these comments.
+**注意：** 这是一个 _试验性_ 功能。它目前不遵守在源代码中禁用 stylelint 的特殊注释（例如 `/* stylelint-disable */`）。无论这些注释如何，都将应用自动修复。
 
-If you're using both these special comments and autofixing, please run stylelint twice as a temporary solution. On the first run, some violations could be missed, or some violations might be reported incorrectly.
+如果您同时使用这些特殊注释和自动修复，请运行 stylelint 两次作为临时解决方案。在第一次运行时，可能会错过某些违规行为，或者可能会错误地报告某些违规行为。
 
-For CSS with standard syntax, stylelint will use [postcss-safe-parser](https://github.com/postcss/postcss-safe-parser) to fix syntax errors.
+对于具有标准语法的 CSS，stylelint 将使用 [postcss-safe-parser](https://github.com/postcss/postcss-safe-parser) 来修复语法错误。
 
-### Troubleshooting configurations
+### 排除配置故障
 
-With the `--print-config` option, stylelint outputs the configuration to be used for the file passed. When present, no linting is performed and only config-related options are valid.
+使用 `--print-config` 选项，stylelint 会输出要用于文件的配置。如果存在该选项，则不执行检查，此时只有与配置相关的选项有效。
 
-## Syntax errors
+## 语法错误
 
-The CLI informs you about syntax errors in your CSS.
-It uses the same format as it uses for linting violations.
-The error name is `CssSyntaxError`.
+命令行界面会通知您 CSS 中的语法错误。
+它使用与违规检查相同的输出格式。
+错误名称是 `CssSyntaxError`。
 
-## Exit codes
+## 退出代码
 
-The CLI can exit the process with the following exit codes:
+命令行界面会使用以下退出代码退出进程：
 
--   1: Something unknown went wrong.
--   2: At least one rule with an "error"-level severity triggered at least one violations.
--   78: There was some problem with the configuration file.
--   80: A file glob was passed, but it found no files.
+-   1：未知错误。
+-   2：至少有一个具有"error"级别严重性的规则触发了至少一次违规。
+-   78：配置文件有问题。
+-   80：传递了文件glob，但没有找到文件。

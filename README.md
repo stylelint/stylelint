@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/stylelint.svg)](https://www.npmjs.org/package/stylelint) [![Build Status](https://travis-ci.org/stylelint/stylelint.svg?branch=master)](https://travis-ci.org/stylelint/stylelint) [![Build status](https://ci.appveyor.com/api/projects/status/o60hlhki49t2333i/branch/master?svg=true)](https://ci.appveyor.com/project/stylelint/stylelint/branch/master) [![NPM Downloads](https://img.shields.io/npm/dm/stylelint.svg)](https://npmcharts.com/compare/stylelint?minimal=true) [![Backers on Open Collective](https://opencollective.com/stylelint/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/stylelint/sponsors/badge.svg)](#sponsors)
 
-一个强大的，现代的 linter，可以帮助您避免错误并在您的样式中强制执行约定。
+一个强大的，现代的代码检查工具，可以帮助您避免错误并在您的样式中强制执行约定。
 
 ## 特性
 
@@ -16,7 +16,7 @@
 -   自动**修复**一些违规行为（*实验性功能*）
 -   经10000多个单元测试**充分测试**
 -   支持**可共享的配置**，您可以扩展或创建自己的配置
--   是**非倾向性的**，所以您可以根据您的确切需要定制 linter
+-   是**非倾向性的**，所以您可以根据您的确切需要定制代码检查工具
 -   有一个**不断发展的社区**，被用于 [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [GitHub](https://github.com/primer/stylelint-config-primer) 和 [WordPress](https://github.com/ntwb/stylelint-config-wordpress/)
 
 ## 示例输出
