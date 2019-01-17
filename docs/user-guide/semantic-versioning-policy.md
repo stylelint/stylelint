@@ -1,26 +1,26 @@
-# Semantic versioning policy
+# 语义版本控制策略
 
-We follow [semantic versioning](http://semver.org). However, due to the nature of stylelint as a code quality tool, we've defined the following policy for stylelint:
+我们遵循[语义版本控制](http://semver.org)。 但是，由于 stylelint 作为代码质量工具的性质，我们为stylelint定义了以下策略：
 
--   patch release (intended to not break your lint build)
-    -   a bug fix in a rule that results in stylelint reporting fewer errors
-    -   a bug fix to the CLI or core (including formatters)
-    -   improvements to documentation.
-    -   non-user-facing changes such as refactoring code or modifying tests
-    -   re-releasing after a failed release (i.e., publishing a release that doesn't work for anyone)
+-   补丁发布（旨在不破坏你的代码检查构建）
+    -   规则中的 bug 修复导致 stylelint 报告更少的错误
+    -   对命令行界面或核心（包括格式化程序）的 bug 修复
+    -   改进文档。
+    -   非面向用户的更改，例如重构代码或修改测试
+    -   在发布失败后重新发布（即发布对任何人都不起作用的版本）
 
--   minor release (might break your lint build)
-    -   a bug fix in a rule that results in stylelint reporting more errors
-    -   a new rule is created
-    -   a new option to an existing rule that does not result in stylelint reporting more errors by default
-    -   an existing rule is deprecated
-    -   a new CLI capability is created
-    -   a new public API capability is created
-    -   a new formatter is created
+-   次要释放（可能会破坏你的代码检查构建）
+    -   规则中的 bug 修复导致 stylelint 报告更多错误
+    -   创建新规则
+    -   现有规则的新选项，默认情况下不会导致 stylelint 报告更多错误
+    -   已存在的规则被弃用
+    -   创建新的命令行界面功能
+    -   创建新的公共API功能
+    -   创建一个新的格式化程序
 
--   major release (likely to break your lint build)
-    -   a change in the documented behaviour of an existing rule results in stylelint reporting more errors by default
-    -   an existing rule is removed
-    -   an existing formatter is removed
-    -   part of the a CLI is removed or changed in an incompatible way
-    -   part of the public API is removed or changed in an incompatible way
+-   主要发布（可能打破你的代码检查构建）
+    -   对现有规则的记录行为进行更改会导致 stylelint 默认报告更多错误
+    -   删除现有规则
+    -   删除现有的格式化程序
+    -   以不兼容的方式删除或更改命令行界面的一部分
+    -   以不兼容的方式删除或更改部分公共API
