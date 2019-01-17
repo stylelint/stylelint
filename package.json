@@ -141,6 +141,9 @@
     "*.js": [
       "prettier --write",
       "git add"
+    ],
+    "*.md": [
+      "remark --quiet --frail"
     ]
   },
   "eslintConfig": {
