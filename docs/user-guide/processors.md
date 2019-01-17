@@ -2,7 +2,7 @@
 
 Processors are community packages that enable stylelint to extract styles from within non-stylesheet files.
 
-*These processors can only be used with the CLI and the Node API, not with the PostCSS plugin.* (The PostCSS plugin will ignore them.)
+*These processors can only be used with the CLI and the Node.js API, not with the PostCSS plugin.* (The PostCSS plugin will ignore them.)
 
 -   [stylelint-processor-arbitrary-tags](https://github.com/mapbox/stylelint-processor-arbitrary-tags): Lint within user-specified tags.
 

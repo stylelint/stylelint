@@ -32,7 +32,7 @@ First, decide how you want to use stylelint:
 -   [on the command line](docs/user-guide/cli.md)
 -   [in your text editor](docs/user-guide/complementary-tools.md#editor-plugins), for example in VS Code
 -   [in for your build tool](docs/user-guide/complementary-tools.md#build-tool-plugins), for example in webpack
--   [via the Node API](docs/user-guide/node-api.md)
+-   [via the Node.js API](docs/user-guide/node-api.md)
 -   [as a PostCSS plugin](docs/user-guide/postcss-plugin.md)
 
 Then create your [configuration object](docs/user-guide/configuration.md). You can either extend a shared configuration or craft your own.
