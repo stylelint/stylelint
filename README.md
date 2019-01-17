@@ -44,12 +44,12 @@
 -   [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended)
 -   [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard)
 
-建议(recommended)配置仅打开[可能错误](docs/user-guide/rules.md#possible-errors)的规则。标准(standard)配置通过打开60个[风格规则](docs/user-guide/rules.md#stylistic-issues)来扩展它。我们建议您扩展：
+建议(recommended)配置仅打开[可能错误](docs/user-guide/rules.md#可能错误)的规则。标准(standard)配置通过打开60个[风格规则](docs/user-guide/rules.md#风格问题)来扩展它。我们建议您扩展：
 
 -   建议(recommended)配置，如果您使用 [prettier](https://prettier.io/) 之类的美化排版工具
 -   标准(standard)配置，如果您希望 stylelint 强制执行风格约定
 
-您可能希望在配置中添加[限制语言功能](docs/user-guide/rules.md#limit-language-features)的规则，作为您的团队/项目特殊规则。
+您可能希望在配置中添加[限制语言功能](docs/user-guide/rules.md#限制语言功能)的规则，作为您的团队/项目特殊规则。
 
 *如果您使用语言扩展, 例如 `@if` 和 `@extends`, 您可以使用像 [`stylelint-config-recommended-scss`](https://github.com/kristerkari/stylelint-config-recommended-scss) 这样的社区配置代替。*
 
