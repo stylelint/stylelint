@@ -1,13 +1,13 @@
-# Writing formatters
+# 编写格式化程序
 
-A formatter is a function that accepts *an array of these stylelint result objects* and outputs a string:
+格式化程序是一个函数，它接收 *一个这种 stylelint 结果对象组成的数组* 并输出一个字符串：
 
 ```js
-// A stylelint result object
+// 一个 stylelint 结果对象
 {
-  source:  "path/to/file.css", // The filepath or PostCSS identifier like <input css 1>
-  errored: true, // This is `true` if at least one rule with an "error"-level severity triggered a warning
-  warnings: [ // Array of rule violation warning objects, each like the following ...
+  source:  "path/to/file.css", // 文件路径或者 PostCSS 标识符（例如<input css 1>）
+  errored: true, // 如果至少有一个具有“错误”级别严重性的规则触发了警告，则为 `true`
+  warnings: [ // 违反规则的警告对象数组，每个对象如下面这样...
     {
       line: 3,
       column: 12,
@@ -17,21 +17,21 @@ A formatter is a function that accepts *an array of these stylelint result objec
     },
     ..
   ],
-  deprecations: [ // Array of deprecation warning objects, each like the following ...
+  deprecations: [ // 描述警告的对象数组，每个对象如下面这样...
     {
       text: "Feature X has been deprecated and will be removed in the next major version.",
       reference: "https://stylelint.io/docs/feature-x.md"
     }
   ],
-  invalidOptionWarnings: [ // Array of invalid option warning objects, each like the following ...
+  invalidOptionWarnings: [ // 非法选项警告对象数组，每个对象如下面这样...
     {
       text: "Invalid option X for rule Y",
     }
   ],
-  ignored: false // This is `true` if the file's path matches a provided ignore pattern
+  ignored: false // 如果文件的路径匹配一个提供的忽略模式，则为 `true`
 }
 ```
 
 ## `stylelint.formatters`
 
-stylelint's internal formatters are exposed publicly in `stylelint.formatters`.
+styelint的核心格式化器在 `stylelint.formatters` 中暴露给外界

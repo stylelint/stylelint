@@ -74,7 +74,7 @@
 -   [插件](docs/developer-guide/plugins.md) - 构建社区规则以支持方法，工具集，非标准CSS功能或非常具体的用例。
 -   [Processors](docs/user-guide/processors.md) - lint the CSS within non-stylesheet files.
 -   [可继承配置](docs/user-guide/configuration.md#extends) - 继承和共享配置。
--   [格式化工具](docs/developer-guide/formatters.md) - 格式化 stylelint 结果对象。
+-   [格式化程序](docs/developer-guide/formatters.md) - 格式化 stylelint 结果对象。
 -   [自定义语法](docs/user-guide/node-api.md#customsyntax) - 使用任何与 PostCSS 兼容的语法模块。
 
 ## 强大
