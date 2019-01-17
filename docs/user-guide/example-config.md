@@ -1,8 +1,8 @@
-# Example config
+# 示例配置
 
-This example config lists all of the [rules](rules.md) and their primary options. You can remove ([or turn off](configuration.md#rules)) the rules you don't want and edit the primary option of each rule to your liking.
+此示例配置列出了所有[规则](rules.md)及其主选项。您可以删除（[或关闭](configuration.md#rules)）您不想要的规则，并根据自己的喜好编辑每个规则的主选项。
 
-You might want to learn a little about [how rules are named and how they work together](about-rules.md), to get a better idea of what each rule does.
+您可能想要了解[如何命名规则以及它们如何协同工作](about-rules.md)，以便更好地了解每个规则的作用。
 
 ```json
 {
