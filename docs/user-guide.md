@@ -18,7 +18,7 @@
 ## Usage
 
 -   [The CLI](user-guide/cli.md): Examples and exit codes for using the CLI.
--   [The Node API](user-guide/node-api.md): Options and examples for using the Node API.
+-   [The Node.js API](user-guide/node-api.md): Options and examples for using the Node.js API.
 -   [The PostCSS plugin](user-guide/postcss-plugin.md): Options and examples for using the PostCSS plugin.
 -   [Complementary tools](user-guide/complementary-tools.md): List of community editor plugins, build tool plugins and other tools.
 

@@ -17,15 +17,15 @@ stylelint will automatically infer the syntax from the:
 -   value of the `lang` or `type` attribute on a `<style>` tag
 -   marker on Markdown code fence
 
-You can force a specific syntax, though. Both the [CLI](cli.md) and the [Node API](node-api.md) expose a `syntax` option.
+You can force a specific syntax, though. Both the [CLI](cli.md) and the [Node.js API](node-api.md) expose a `syntax` option.
 
 -   If you're using the CLI, use the `syntax` flag like so:  `stylelint ... --syntax scss`.
--   If you're using the Node API, pass in the `syntax` option like so: `stylelint.lint({ syntax: "sugarss", ... })`.
+-   If you're using the Node.js API, pass in the `syntax` option like so: `stylelint.lint({ syntax: "sugarss", ... })`.
 
-stylelint can also accept a custom [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes) when using the CLI or Node API. For custom syntaxes, use the `custom-syntax` and `customSyntax` options, respectively.
+stylelint can also accept a custom [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes) when using the CLI or Node.js API. For custom syntaxes, use the `custom-syntax` and `customSyntax` options, respectively.
 
 -   If you're using the CLI, use the `custom-syntax` flag like so:  `stylelint ... --custom-syntax custom-syntax-module` or `stylelint ... --custom-syntax ./path/to/custom-syntax-module`.
--   If you're using the Node API, pass in the `customSyntax` option like so: `stylelint.lint({ customSyntax: path.join(process.cwd(), './path/to/custom-syntax-module') , ... })`.
+-   If you're using the Node.js API, pass in the `customSyntax` option like so: `stylelint.lint({ customSyntax: path.join(process.cwd(), './path/to/custom-syntax-module') , ... })`.
 
 If you're using the linter as a [PostCSS Plugin](postcss-plugin.md), you should use the special `postcss-syntax` directly with PostCSS's `syntax` option like so:
 

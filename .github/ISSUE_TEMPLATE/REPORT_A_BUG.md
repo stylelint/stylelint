@@ -39,7 +39,7 @@ e.g.
 
 e.g. `9.2.0`
 
-> How are you running stylelint: CLI, PostCSS plugin, Node API?
+> How are you running stylelint: CLI, PostCSS plugin, Node.js API?
 
 e.g. "CLI with `stylelint "**/*.css" --config myconfig.json`"
 

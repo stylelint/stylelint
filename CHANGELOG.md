@@ -188,7 +188,7 @@
 
 # 9.0.0
 
--   Removed: Node.JS 4.x support. Node.js 6.x or greater is now required ([#3075](https://github.com/stylelint/stylelint/pull/3087)).
+-   Removed: Node.js 4.x support. Node.js 6.x or greater is now required ([#3075](https://github.com/stylelint/stylelint/pull/3087)).
 -   Added: (experimental) support for [SASS](http://sass-lang.com/) syntax ([#2503](https://github.com/stylelint/stylelint/pull/2503)).
 -   Added: allow processors to handle PostCSS errors ([#3063](https://github.com/stylelint/stylelint/pull/3063)).
 -   Added: `--max-warnings` CLI flag ([#2942](https://github.com/stylelint/stylelint/pull/2942)).
@@ -254,7 +254,7 @@
 
 -   Added: Allow specifying `codeFilename` to `createStylelintResult` for raw code linting standalone API ([#2450](https://github.com/stylelint/stylelint/issues/2450)).
 -   Added: `ignorePattern` option (`--ignore-pattern` in CLI), to allow patterns of files to ignored ([#2834](https://github.com/stylelint/stylelint/issues/2834)).
--   Added: More rules now support experimental autofixing. Use `--fix` CLI parameter or `fix: true` Node API options property. Newly supported rules:
+-   Added: More rules now support experimental autofixing. Use `--fix` CLI parameter or `fix: true` Node.js API options property. Newly supported rules:
     -   `color-hex-length` ([#2781](https://github.com/stylelint/stylelint/pull/2781)).
     -   `no-missing-end-of-source-newline` ([#2772](https://github.com/stylelint/stylelint/pull/2772)).
 -   Fixed: `*-empty-line-before` false positives shared-line comments and `"first-nested"` option ([#2827](https://github.com/stylelint/stylelint/issues/2827)).
@@ -352,7 +352,7 @@ Changes:
 
 # 7.11.0
 
--   Added: experimental autofixing ([#2467](https://github.com/stylelint/stylelint/pull/2467), [#2500](https://github.com/stylelint/stylelint/pull/2500), [#2529](https://github.com/stylelint/stylelint/pull/2529) and [#2577](https://github.com/stylelint/stylelint/pull/2577)). Use `--fix` CLI parameter or `fix: true` Node API options property. Supported rules:
+-   Added: experimental autofixing ([#2467](https://github.com/stylelint/stylelint/pull/2467), [#2500](https://github.com/stylelint/stylelint/pull/2500), [#2529](https://github.com/stylelint/stylelint/pull/2529) and [#2577](https://github.com/stylelint/stylelint/pull/2577)). Use `--fix` CLI parameter or `fix: true` Node.js API options property. Supported rules:
     -   `at-rule-empty-line-before`
     -   `at-rule-name-case`
     -   `color-hex-case`
@@ -445,14 +445,14 @@ Changes:
 
 # 7.7.0
 
--   Added: `stylelint.formatters` exposed in public Node API ([#2190](https://github.com/stylelint/stylelint/pull/2190)).
+-   Added: `stylelint.formatters` exposed in public Node.js API ([#2190](https://github.com/stylelint/stylelint/pull/2190)).
 -   Added: `stylelint.utils.checkAgainstRule` for checking CSS against a standard stylelint rule *within your own rule* ([#2173](https://github.com/stylelint/stylelint/pull/2173)).
 -   Added: `allow-empty-input` flag to CLI ([#2117](https://github.com/stylelint/stylelint/pull/2117)).
 -   Added: `except: ["after-rule"]` option to `rule-nested-empty-line-before` ([#2188](https://github.com/stylelint/stylelint/pull/2188)).
--   Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node API to error if a non-existent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128)).
+-   Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node.js API to error if a non-existent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128)).
 -   Fixed: a boolean CLI flag (e.g. `--quiet`) placed before an input glob no longer causes the input to be ignored ([#2186](https://github.com/stylelint/stylelint/pull/2186)).
 -   Fixed: the `node_modules` and `bower_components` directories are correctly ignored by default when stylelint is used as a PostCSS plugin ([#2171](https://github.com/stylelint/stylelint/pull/2171)).
--   Fixed: bug where some Node errors in special cases did not cause the CLI to exit with a non-zero code ([#2140](https://github.com/stylelint/stylelint/pull/2140))
+-   Fixed: bug where some Node.js errors in special cases did not cause the CLI to exit with a non-zero code ([#2140](https://github.com/stylelint/stylelint/pull/2140))
 -   Fixed: false positives related to LESS detached rulesets ([#2089](https://github.com/stylelint/stylelint/pull/2089)).
 -   Fixed: `color-named` now ignores SCSS maps, so map property names can be color names ([#2182](https://github.com/stylelint/stylelint/pull/2182)).
 -   Fixed: `comment-whitespace-inside` no longer complains about `/*!` comments with non-space whitespace (e.g. newlines) ([#2121](https://github.com/stylelint/stylelint/pull/2121)).
@@ -462,7 +462,7 @@ Changes:
 
 # 7.6.0
 
--   Added: option `customSyntax` (for Node API) and `--custom-syntax` (for CLI).
+-   Added: option `customSyntax` (for Node.js API) and `--custom-syntax` (for CLI).
 -   Added: `font-family-no-duplicate-names` rule.
 -   Fixed: CLI now understands absolute paths for the `--custom-formatter` option.
 -   Fixed: the `string` and `verbose` formatters now use `dim` instead of `gray` for greater compatibility with different terminal color schemes.
@@ -642,7 +642,7 @@ Changes:
 
 # 6.8.0
 
--   Deprecated: `-e` and `--extract` CLI flags, and the `extractStyleTagsFromHtml` node API option. If you use these flags or option, please consider creating a processor for the community.
+-   Deprecated: `-e` and `--extract` CLI flags, and the `extractStyleTagsFromHtml` Node.js API option. If you use these flags or option, please consider creating a processor for the community.
 -   Added: `at-rule-no-unknown` rule.
 -   Added: `no-empty-source` rule.
 -   Added: `except: ["after-single-line-comment"]` option for `rule-non-nested-empty-line-before`.
@@ -733,7 +733,7 @@ Changes:
 -   Fixed: `font-family-name-quotes`, `media-feature-no-missing-punctuation`, `media-query-list-comma-newline-after`, `media-query-list-comma-newline-before`, `media-query-list-comma-space-after` and `media-query-list-comma-space-before` rules now better ignore SCSS, Less variables and nonstandard at-rules.
 -   Fixed: `no-unknown-animations` now ignores `ease` value.
 -   Fixed: `unit-blacklist`, `unit-case`, `unit-no-unknown`, `unit-whitelist` now better accounts interpolation.
--   Fixed: `unit-no-unknown` no longer breaks Node 0.12 (because we've included the Babel polyfill).
+-   Fixed: `unit-no-unknown` no longer breaks Node.js 0.12 (because we've included the Babel polyfill).
 -   Fixed: `value-keyword-case` now ignores custom idents of properties `animation-name`, `counter-increment`, `font-family`, `grid-row`, `grid-column`, `grid-area`, `list-style-type`.
 -   Fixed: wrong example for `always-multi-line` in rule `block-opening-brace-newline-before` documentation.
 
@@ -1023,7 +1023,7 @@ Changes:
 -   Added: support for regular expression property identification in `property-blacklist`, `property-unit-blacklist`, `property-unit-whitelist`, `property-value-blacklist`, and `property-whitelist`.
 -   Added: better handling of vendor prefixes in `property-unit-blacklist` and `property-unit-whitelist`, e.g. if you enter `animation` it now also checks `-webkit-animation`.
 -   Added: support for using names of modules for the CLI's `--config` argument, not just paths.
--   Added: `codeFilename` option to Node API.
+-   Added: `codeFilename` option to Node.js API.
 -   Added: exposed rules at `stylelint.rules` to make stylelint even more extensible.
 -   Added: brought `stylelint-rule-tester` into this repo, and exposed it at `stylelint.utils.ruleTester`.
 -   Fixed: bug in `rule-properties-order` empty line detection when the two newlines were separated
@@ -1199,13 +1199,13 @@ Changes:
 
 -   Changed: plugins are now included and configured via a "locator", rather than either being `required` or being inserted directly into the configuration object as a function.
 -   Added: CLI.
--   Added: standalone Node API.
--   Added: quiet mode to CLI and Node API.
--   Added: support for formatters, including custom ones, to CLI and Node API.
+-   Added: standalone Node.js API.
+-   Added: quiet mode to CLI and Node.js API.
+-   Added: support for formatters, including custom ones, to CLI and Node.js API.
 -   Added: `string` and `json` formatters.
 -   Added: support for using `.stylelintrc` JSON file.
 -   Added: support for extending existing configs using the `extends` property.
--   Added: support for SCSS syntax parsing to CLI and Node API.
+-   Added: support for SCSS syntax parsing to CLI and Node.js API.
 -   Added: `function-comma-newline-after` rule.
 -   Added: `function-comma-newline-before` rule.
 -   Added: `"always-single-line"` and `"never-single-line"` options to `function-comma-space-after` rule.

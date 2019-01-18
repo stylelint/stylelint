@@ -208,7 +208,7 @@ Or starting with `stylelint-config-standard`, then layering `myExtendableConfig`
 The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d, so can fit whatever format works with Node's `require.resolve()` algorithm. That means a "locater" can be:
 
 -   The name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
--   An absolute path to a file (which makes sense if you're creating a JS object in a Node context and passing it in) with a `.js` or `.json` extension.
+-   An absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
 -   A relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
 *Because of `extends`, you can create and use shareable stylelint configurations.* Use the `stylelint-config` keyword within your `package.json` if publishing your config to npm.
@@ -251,7 +251,7 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 
 Processors are functions that hook into stylelint's pipeline, modifying code on its way into stylelint and modifying results on their way out.
 
-*Processors can only be used with the CLI and the Node API, not with the PostCSS plugin.* (The PostCSS plugin will ignore them.)
+*Processors can only be used with the CLI and the Node.js API, not with the PostCSS plugin.* (The PostCSS plugin will ignore them.)
 
 Processors can enable stylelint to lint, but not autofix, the CSS within non-stylesheet files that aren't supported out-of-the-box by stylelint.
 
