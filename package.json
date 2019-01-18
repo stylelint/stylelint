@@ -155,7 +155,8 @@
     "collectCoverage": false,
     "collectCoverageFrom": [
       "lib/**/*.js",
-      "!lib/vendor/**/*.js"
+      "!lib/vendor/**/*.js",
+      "!lib/utils/parseCalcExpression/parser.js"
     ],
     "coverageDirectory": "./.coverage/",
     "coverageReporters": [
