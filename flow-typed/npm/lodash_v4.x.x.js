@@ -1,5 +1,5 @@
-// flow-typed signature: 485dd3660399d57af4b492ae38a40556
-// flow-typed version: c52db29730/lodash_v4.x.x/flow_>=v0.63.x
+// flow-typed signature: eb76e103c3b8c027ca42ac61026baba8
+// flow-typed version: 6bc9a10e83/lodash_v4.x.x/flow_>=v0.63.x
 
 declare module "lodash" {
   declare type __CurriedFunction1<A, R, AA: A> = (...r: [AA]) => R;
@@ -1068,7 +1068,7 @@ declare module "lodash" {
     at(object?: ?Object, ...paths: Array<string>): Array<any>;
     at(object?: ?Object, paths: Array<string>): Array<any>;
     create(prototype: void | null, properties: void | null): {};
-    create<T>(prototype: T, properties: Object): $Supertype<T>;
+    create<T>(prototype: T, properties: Object): T;
     create(prototype: any, properties: void | null): {};
     defaults(object?: ?Object, ...sources?: Array<?Object>): Object;
     defaultsDeep(object?: ?Object, ...sources?: Array<?Object>): Object;
@@ -2726,7 +2726,7 @@ declare module "lodash/fp" {
     props(paths: Array<string>, object: Object): Array<any>;
     paths(paths: Array<string>): (object: Object) => Array<any>;
     paths(paths: Array<string>, object: Object): Array<any>;
-    create<T>(prototype: T): $Supertype<T>;
+    create<T>(prototype: T): T;
     defaults(source: Object): (object: Object) => Object;
     defaults(source: Object, object: Object): Object;
     defaultsAll(objects: Array<Object>): Object;
