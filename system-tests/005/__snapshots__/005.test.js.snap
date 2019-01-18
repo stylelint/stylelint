@@ -1299,7 +1299,7 @@ Array [
         "text": "Expected newline before \\"}\\" (block-closing-brace-newline-before)",
       },
       Object {
-        "column": 20,
+        "column": 19,
         "line": 154,
         "rule": "block-closing-brace-newline-before",
         "severity": "error",
@@ -2020,7 +2020,7 @@ Array [
         "text": "Expected single space after \\"}\\" (block-closing-brace-space-after)",
       },
       Object {
-        "column": 22,
+        "column": 21,
         "line": 154,
         "rule": "block-closing-brace-space-after",
         "severity": "error",
@@ -5765,7 +5765,7 @@ Array [
         "text": "Expected newline before \\";\\" (declaration-block-semicolon-newline-before)",
       },
       Object {
-        "column": 18,
+        "column": 17,
         "line": 154,
         "rule": "declaration-block-semicolon-newline-before",
         "severity": "error",
@@ -6591,7 +6591,7 @@ Array [
         "text": "Expected single space before \\";\\" (declaration-block-semicolon-space-before)",
       },
       Object {
-        "column": 18,
+        "column": 17,
         "line": 154,
         "rule": "declaration-block-semicolon-space-before",
         "severity": "error",
@@ -7515,7 +7515,7 @@ Array [
         "text": "Expected newline after \\":\\" (declaration-colon-newline-after)",
       },
       Object {
-        "column": 13,
+        "column": 12,
         "line": 154,
         "rule": "declaration-colon-newline-after",
         "severity": "error",
@@ -8362,7 +8362,7 @@ Array [
         "text": "Expected single space before \\":\\" (declaration-colon-space-before)",
       },
       Object {
-        "column": 8,
+        "column": 13,
         "line": 154,
         "rule": "declaration-colon-space-before",
         "severity": "error",
@@ -9774,6 +9774,13 @@ Array [
       },
       Object {
         "column": 5,
+        "line": 154,
+        "rule": "declaration-property-value-whitelist",
+        "severity": "error",
+        "text": "Unexpected value \\"pink\\" for property \\"//color\\" (declaration-property-value-whitelist)",
+      },
+      Object {
+        "column": 5,
         "line": 168,
         "rule": "declaration-property-value-whitelist",
         "severity": "error",
@@ -11077,13 +11084,6 @@ Array [
       Object {
         "column": 40,
         "line": 153,
-        "rule": "max-line-length",
-        "severity": "error",
-        "text": "Expected line length to be no more than 20 characters (max-line-length)",
-      },
-      Object {
-        "column": 21,
-        "line": 154,
         "rule": "max-line-length",
         "severity": "error",
         "text": "Expected line length to be no more than 20 characters (max-line-length)",
@@ -14054,7 +14054,7 @@ Array [
         "line": 154,
         "rule": "property-no-unknown",
         "severity": "error",
-        "text": "Unexpected unknown property \\"//\\" (property-no-unknown)",
+        "text": "Unexpected unknown property \\"//color\\" (property-no-unknown)",
       },
       Object {
         "column": 3,
@@ -14551,7 +14551,7 @@ Array [
         "line": 154,
         "rule": "property-whitelist",
         "severity": "error",
-        "text": "Unexpected property \\"//\\" (property-whitelist)",
+        "text": "Unexpected property \\"//color\\" (property-whitelist)",
       },
       Object {
         "column": 5,

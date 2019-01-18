@@ -151,7 +151,7 @@ a {}
 a { color: pink; } 
 @import "x.css";;
 a { color: black; background: #010101; }
-a { // color: pink; }
+a { //color: pink; }
 a { animation-name: fancy-slide; }
 a { opacity: 0.5; }
 a { line-height: .5; }
