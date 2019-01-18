@@ -54,7 +54,6 @@
     "ignore": "^5.0.4",
     "import-lazy": "^3.1.0",
     "imurmurhash": "^0.1.4",
-    "jison-gho": "^0.6.1-215",
     "known-css-properties": "^0.11.0",
     "leven": "^2.1.0",
     "lodash": "^4.17.4",
