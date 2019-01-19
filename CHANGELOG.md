@@ -4,6 +4,9 @@ All notable changes to this project are documented in this file.
 
 ## [Head][]
 
+-   Fixed: "fatal: Not a git repository" error ([#3915](https://github.com/stylelint/stylelint/pull/3915)).
+-   Fixed: unintended increase in package size ([#3915](https://github.com/stylelint/stylelint/pull/3915)).
+
 ## [9.10.0][]
 
 -   Added: support for ordinary regular expressions anywhere a regex string is accepted in rule config ([#3799](https://github.com/stylelint/stylelint/pull/3799)).
