@@ -1,33 +1,33 @@
-# CSS processors
+# CSS 处理器
 
-The linter supports current and future CSS syntax. This includes all standard CSS but also special features that use standard CSS syntactic structures, e.g. special at-rules, special properties, and special functions. Some CSS-*like* language extensions -- features that use non-standard syntactic structures -- are, as such, supported; however, since there are infinite processing possibilities, the linter cannot support everything.
+代码检查工具支持当前和未来的CSS语法。这包括所有标准 CSS，也包括使用标准 CSS 语法结构的特殊功能，例如特殊的 @规则，特殊属性和特殊功能。一些 *类* CSS语言扩展 -- 使用非标准语法结构的特性 -- 因此受到支持；然而，由于存在无限的处理可能性，因此代码检查工具不能支持所有内容。
 
-You can run the linter before or after your css processors. Depending on which processors you use, each approach has caveats:
+您可以在 css 处理器之前或之后运行代码检查工具。根据您使用的处理器，每种方法都有警告：
 
-1.  *Before*: Some plugins/processors might enable a syntax that isn't compatible with the linter.
-2.  *After*: Some plugins/processors might generate CSS that is invalid against your linter config, causing violations that do not correspond to your original stylesheets.
+1.  *之前*：某些插件/处理器可能启用与代码检查工具不兼容的语法。
+2.  *之后*：某些插件/处理器可能会生成对您的代码检查工具配置不符的 CSS，从而导致与原始样式表不对应的违规。
 
-*In both cases you can either turn off the incompatible linter rule, or stop using the incompatible plugin/processor.* You could also approach plugin/processor authors and request alternate formatting options that will make their plugin/processor compatible with stylelint.
+*在这两种情况下，您可以关闭不兼容的代码检查工具规则，或者停止使用不兼容的插件/处理器。* 您还可以请求插件/处理器作者提供替代的格式化选项以便与 stylelint 兼容。
 
-## Parsing non-standard syntax
+## 解析非标准语法
 
-stylelint will automatically infer the syntax from the:
+stylelint 将根据以下信息自动推断出以下语法：
 
--   file extension
--   value of the `lang` or `type` attribute on a `<style>` tag
--   marker on Markdown code fence
+-   文件扩展名
+-   `<style>` 标签上的 `lang` 或 `type` 属性的值
+-   Markdown代码栏上的标记
 
-You can force a specific syntax, though. Both the [CLI](cli.md) and the [Node.js API](node-api.md) expose a `syntax` option.
+但是，您可以强制使用特定语法。[命令行界面](cli.md)和 [Node.js 应用程序接口](node-api.md)都暴露了`syntax`选项。
 
--   If you're using the CLI, use the `syntax` flag like so:  `stylelint ... --syntax scss`.
--   If you're using the Node.js API, pass in the `syntax` option like so: `stylelint.lint({ syntax: "sugarss", ... })`.
+-   如果您正在使用命令行界面，请使用 `syntax` 标志，如下所示：`stylelint ... --syntax scss`。
+-   如果您正在使用Node.js 应用程序接口，请传递 `syntax` 选项，如下所示：`stylelint.lint({ syntax: "sugarss", ... })`。
 
-stylelint can also accept a custom [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes) when using the CLI or Node.js API. For custom syntaxes, use the `custom-syntax` and `customSyntax` options, respectively.
+使用命令行界面或Node.js 应用程序接口时，stylelint还可以接受自定义 [PostCSS 兼容语法](https://github.com/postcss/postcss#syntaxes)。对于自定义语法，分别使用 `custom-syntax` 和 `customSyntax` 选项。
 
--   If you're using the CLI, use the `custom-syntax` flag like so:  `stylelint ... --custom-syntax custom-syntax-module` or `stylelint ... --custom-syntax ./path/to/custom-syntax-module`.
--   If you're using the Node.js API, pass in the `customSyntax` option like so: `stylelint.lint({ customSyntax: path.join(process.cwd(), './path/to/custom-syntax-module') , ... })`.
+-   如果您正在使用命令行界面，请使用 `custom-syntax` 标志，如下所示：`stylelint ... --custom-syntax custom-syntax-module` 或 `stylelint ... --custom-syntax ./path/to/custom-syntax-module`。
+-   如果您正在使用Node.js 应用程序接口，请传递 `customSyntax` 选项，如下所示：`stylelint.lint({ customSyntax: path.join(process.cwd(), './path/to/custom-syntax-module') , ... })`。
 
-If you're using the linter as a [PostCSS Plugin](postcss-plugin.md), you should use the special `postcss-syntax` directly with PostCSS's `syntax` option like so:
+如果您使用代码检查工具作为[PostCSS插件](postcss-plugin.md)，您应该使用特殊的 `postcss-syntax` 直接使用 PostCSS 的 `syntax` 选项，如下所示：
 
 ```js
 var postcss = require("postcss")
