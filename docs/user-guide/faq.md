@@ -124,7 +124,6 @@ a { color: red; }
 
 To allow single-line blocks but enforce newlines with multi-line blocks, use the `"always-multi-line"` option for both rules.
 
-
 ## How do I configure the `*-pattern` rules for common CSS naming conventions like kebab-case?
 
 Use the regex that corresponds to your chosen convention:
