@@ -1,6 +1,6 @@
 # 语义版本控制策略
 
-我们遵循[语义版本控制](http://semver.org)。 但是，由于 stylelint 作为代码质量工具的性质，我们为stylelint定义了以下策略：
+我们遵循[语义版本控制](http://semver.org)。但是，由于 stylelint 作为代码质量工具的性质，我们为stylelint定义了以下策略：
 
 -   补丁发布（旨在不破坏你的代码检查构建）
     -   规则中的 bug 修复导致 stylelint 报告更少的错误

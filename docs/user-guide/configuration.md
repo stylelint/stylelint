@@ -75,7 +75,7 @@
 }]
 ```
 
-#### 在您的CSS中关闭规则
+#### 在您的 CSS 中关闭规则
 
 可以通过在CSS中使用特殊注释暂时关闭规则。例如，您可以关闭所有规则：
 
@@ -131,7 +131,7 @@ a {}
 
 默认情况下，所有规则都是 `"error"` 级别的严重性。您可以通过在配置中添加 `defaultSeverity` 属性来更改此默认值（请参阅下文）。
 
-要调整任何特定规则的严重性，请使用辅助选项 `severity`。 `severity` 的可用值是：
+要调整任何特定规则的严重性，请使用辅助选项 `severity`。`severity` 的可用值是：
 
 -   `"warning"`
 -   `"error"`
@@ -294,7 +294,7 @@ If your processor has options, make that item an array whose first item is the "
 
 ### `defaultSeverity`
 
-未在辅助选项中指定严重性的所有规则的默认严重性级别。 `severity` 的可用值是：
+未在辅助选项中指定严重性的所有规则的默认严重性级别。`severity` 的可用值是：
 
 -   `"warning"`
 -   `"error"`

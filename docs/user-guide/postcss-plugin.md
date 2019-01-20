@@ -62,7 +62,7 @@ npm install stylelint --save-dev
 -   使用 [`postcss-import`](https://github.com/postcss/postcss-import) 的 [`plugins` option](https://github.com/postcss/postcss-import#plugins) 或 [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) 在进行任何转换之前检查文件。
 -   将 stylelint 放在插件管道的开头。
 
-您还需要一个报告生成器。 *stylelint 插件通过 PostCSS 注册警告* 。因此，您需要用于打印警告的 PostCSS 运行器或插件，其目的是格式化和打印警告（例如 [`postcss-reporter`](https://github.com/postcss/postcss-reporter)）。
+您还需要一个报告生成器。*stylelint 插件通过 PostCSS 注册警告* 。因此，您需要用于打印警告的 PostCSS 运行器或插件，其目的是格式化和打印警告（例如 [`postcss-reporter`](https://github.com/postcss/postcss-reporter)）。
 
 ### 示例 A
 
