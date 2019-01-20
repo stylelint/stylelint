@@ -1,176 +1,176 @@
-# About rules
+# 关于规则
 
-We have taken great care to consistently name rules.
+我们一直非常谨慎地对待规则命名一致性。
 
-The rules have been designed to work together to enforce strict conventions.
+这些规则旨在协同执行严格的约定。
 
 <!-- TOC -->
 
-## About rule names
+## 关于规则名称
 
-Rule names are:
+规则名称是：
 
--   made up of lowercase words separated by hyphens
--   split into two parts
+-   由连字符分隔的小写单词组成
+-   分为两部分
 
-The first part describes what [*thing*](http://apps.workflower.fi/vocabs/css/en) the rule applies to. The second part describes what the rule is checking.
+第一部分描述了规则适用的[*事物*](http://apps.workflower.fi/vocabs/css/en)。第二部分描述了规则检查的内容。
 
-For example:
+例如：
 
 ```js
 "number-leading-zero"
 // ↑          ↑
-// the thing  what the rule is checking
+// 事物       规则检查的内容
 ```
 
-There is no first part when the rule applies to the whole stylesheet.
+当规则适用于整个样式表时，没有第一部分。
 
-For example:
+例如：
 
 ```js
 "no-eol-whitespace"
 "indentation"
 //    ↑
-// what the rules are checking
+// 规则检查的内容
 ```
 
-### No rules
+### 否定规则
 
-Most rules require *or* disallow something.
+大多数规则要求*或*禁止某些内容。
 
-For example, whether numbers *must* or *must not* have a leading zero:
+例如，数字必须*有*或*无*前导零：
 
 -   `number-leading-zero`: `string -   "always"|"never"`
-    -   `"always"` -   there *must always* be a leading zero
-    -   `"never"` -   there *must never* be a leading zero
+    -   `"always"` -   *必须有*前导0
+    -   `"never"` -   *必须无*前导0
 
 ```css
 a { line-height: 0.5; }
 /**              ↑
- * This leading zero */
+ *          这个前导零 */
 ```
 
-However, some rules *just disallow* something. These rules include `*-no-*` in their name.
+然而，有些规则*只是禁止*某些事物。这些规则在其名称中包含 `*-no-*`。
 
-For example, whether empty blocks should be disallowed:
+例如，是否应禁止空块：
 
--   `block-no-empty` -   blocks *must not* be empty
+-   `block-no-empty` -   块*必须不*为空
 
 ```css
 a {   }
 /** ↑
- * Blocks like this */
+ * 像这样的块 */
 ```
 
-Notice how, for a rule like this, it does not make sense to have an option to enforce the opposite i.e. that every block *must* be empty.
+请注意，对于这样的规则，如果有一个强制执行相反的选项，即每个块*必须*为空，则没有意义。
 
-### Max and min rules
+### 最大和最小规则
 
-`*-max-*` and `*-min-*` rules are used to *set a limit* to something.
+`*-max-*` 和 `*-min-*` 规则用于*设置限制*。
 
-For example, specifying the maximum number of digits after the "." in a number:
+例如，用一个数值指定数字中“.”之后的最大位数：
 
 -   `number-max-precision`: `int`
 
 ```css
 a { font-size: 1.333em; }
 /**             ↑
- * The maximum number of digits after this "." */
+ * "." 之后最大的数字位数 */
 ```
 
-### Whitespace rules
+### 空白规则
 
-Whitespace rules allow you to specify whether an empty line, a single space, a newline or no space must be used in some specific part of the stylesheet.
+空格规则允许您指定是否必须在样式表的某个特定部分中使用空行，单个空格，换行符或无空白。
 
-The whitespace rules combine two sets of keywords:
+空白规则组合了两组关键字：
 
--   `before`, `after` and `inside` are used to specify where the whitespace (if any) is expected
--   `empty-line`, `space` and `newline` are used to specify whether a single empty line, a single space, a single newline or no space is expected there
+-   `before`、`after` 和 `inside` 用于指定预期空格（如果有）的位置
+-   `empty-line`、`space` 和 `newline` 用于指定是否需要单个空行，单个空格，单个换行符或无空白
 
-For example, specifying if a single empty line or no space must come before all the comments in a stylesheet:
+例如，指定样式表中的所有注释之前是否必须有一个空行或无空白：
 
 -   `comment-empty-line-before`: `string` -   `"always"|"never"`
 
 ```css
 a {}
-              ←
-/* comment */ ↑
-              ↑
-/**           ↑
- * This empty line  */
+           ←
+/* 注释 */ ↑
+           ↑
+/**        ↑
+ * 这个空行 */
 ```
 
-Additionally, some whitespace rule make use of another set of keywords:
+此外，一些空白规则使用另一组关键字：
 
--   `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` or `range-operator` are used if a specific piece of punctuation in the *thing* is being targeted
+-   `comma`、`colon`、`semicolon`、`opening-brace`、`closing-brace`、`opening-parenthesis`、`closing-parenthesis`、`operator` 或 `range-operator` 用于*事物*中指定的标点具体部位
 
-For example, specifying if a single space or no space must come after a comma in a function:
+例如，指定函数中的逗号后是否必须包含单个空格或无空白：
 
 -   `function-comma-space-after`: `string` -   `"always"|"never"`
 
 ```css
 a { transform: translate(1, 1) }
 /**                       ↑
- * The space after this commas */
+ *               这个逗号之后的空格 */
 ```
 
-The plural of the punctuation is used for `inside` rules. For example, specifying if a single space or no space must be inside the parentheses of a function:
+标点符号的复数用于 `inside` 规则。例如，指定位于函数括号内必须的单个空格或无空白：
 
 -   `function-parentheses-space-inside`: `string` -   `"always"|"never"`
 
 ```css
 a { transform: translate( 1, 1 ); }
 /**                     ↑      ↑
- * The space inside these two parentheses */
+ *                这两个括号内的空格 */
 ```
 
-## Rules work together
+## 规则协同工作
 
-The rules can be used together to enforce strict conventions.
+这些规则可以一起使用以强制执行严格的约定。
 
-### `*-newline/space-before` and `*-newline/space-after` rules
+### `*-newline/space-before` 和 `*-newline/space-after` 和
 
-Say you want to enforce no space before and a single space after the colon in every declaration:
+假设您希望每个生命当中的冒号之前无空白，冒号之后只有一个空格：
 
 ```css
 a { color: pink; }
 /**      ↑
- * No space before and a single space after this colon */
+ * 此冒号前无空白，此冒号后有一个空格 */
 ```
 
-You can enforce that with:
+你可以用以下方法强制执行：
 
 ```js
 "declaration-colon-space-after": "always",
 "declaration-colon-space-before": "never"
 ```
 
-Some *things* (e.g. declaration blocks and value lists) can span more than one line. In these cases `newline` rules and extra options can be used to provide flexibility.
+某些*事物*（例如声明块和值列表）可以跨越多行。在这些情况下，可以使用 `newline` 规则和额外选项来提供灵活性。
 
-For example, this is the complete set of `value-list-comma-*` rules and their options:
+例如，这是一套完整的 `value-list-comma-*` 规则及其选项：
 
 -   `value-list-comma-space-after`: `"always"|"never"|"always-single-line"|"never-single-line"`
 -   `value-list-comma-space-before`: `"always"|"never"|"always-single-line"|"never-single-line"`
 -   `value-list-comma-newline-after`: `"always"|"always-multi-line|"never-multi-line"`
 -   `value-list-comma-newline-before`: `"always"|"always-multi-line"|"never-multi-line"`
 
-Where `*-multi-line` and `*-single-line` are in reference to the value list (the *thing*). For example, given:
+其中 `*-multi-line` 和 `*-single-line` 引用了值列表（*事物*）。例如，给定：
 
 ```css
 a,
 b {
   color: red;
-  font-family: sans, serif, monospace; /* single line value list */
+  font-family: sans, serif, monospace; /* 单行值列表 */
 }              ↑                    ↑
 /**            ↑                    ↑
- *  The value list start here and ends here */
+ *      值列表开始于这里，       结束于这里 */
 ```
 
-There is only a single-line value list in this example. The selector is multi-line, as is the declaration block and, as such, also the rule. But the value list isn't and that is what the `*-multi-line` and `*-single-line` refer to in the context of this rule.
+此示例中只有单行值列表。选择器、声明块和规则是多行的。这就是 `*-multi-line` 和 `*-single-line` 在此规则的上下文中引用的内容。
 
-#### Example A
+#### 示例 A
 
-Say you only want to allow single-line value lists. And you want to enforce no space before and a single space after the commas:
+假设您只想允许单行值列表。并且您希望逗号之前无空白，逗号之后只有一个空格：
 
 ```css
 a {
@@ -179,27 +179,27 @@ a {
 }
 ```
 
-You can enforce that with:
+你可以用以下方法强制执行：
 
 ```js
 "value-list-comma-space-after": "always",
 "value-list-comma-space-before": "never"
 ```
 
-#### Example B
+#### 示例 B
 
-Say you want to allow both single-line and multi-line value lists. You want there to be a single space after the commas in the single-line lists and no space before the commas in both the single-line and multi-line lists:
+假设您要同时允许单行和多行值列表。您希望单行列表中的逗号之后有一个空格，而单行和多行列表中的逗号之前无空白：
 
 ```css
 a {
-  font-family: sans, serif, monospace; /* single-line value list with space after, but no space before */
-  box-shadow: 1px 1px 1px red, /* multi-line value list ... */
-    2px 2px 1px 1px blue inset, /* ... with newline after, ...  */
-    2px 2px 1px 2px blue inset; /* ... but no space before */
+  font-family: sans, serif, monospace; /* 单行值列表，逗号之后有一个空格，但逗号之前无空白 */
+  box-shadow: 1px 1px 1px red, /* 多行值列表，... */
+    2px 2px 1px 1px blue inset, /* ... 逗号之后有一个换行符, ...  */
+    2px 2px 1px 2px blue inset; /* ... 但逗号之前无空白 */
 }
 ```
 
-You can enforce that with:
+你可以用以下方法强制执行：
 
 ```js
 "value-list-comma-newline-after": "always-multi-line",
@@ -207,9 +207,9 @@ You can enforce that with:
 "value-list-comma-space-before": "never"
 ```
 
-#### Example C
+#### 示例 C
 
-Say you want to allow both single-line and multi-line value lists. You want there to be no space before the commas in the single-line lists and always a space after the commas in both lists:
+假设您要同时允许单行和多行值列表。您希望单行列表中的逗号之前无空白，并且两种列表中的逗号后面始终都是空格：
 
 ```css
 a {
@@ -220,7 +220,7 @@ a {
 }
 ```
 
-You can enforce that with:
+你可以用以下方法强制执行：
 
 ```js
 "value-list-comma-newline-before": "always-multi-line",
@@ -228,9 +228,9 @@ You can enforce that with:
 "value-list-comma-space-before": "never-single-line"
 ```
 
-#### Example D
+#### 示例 D
 
-Lastly, the rules are flexible enough to enforce entirely different conventions for single-line and multi-line lists. Say you want to allow both single-line and multi-line value lists. You want the single-line lists to have a single space before and after the colons. Whereas you want the multi-line lists to have a single newline before the commas, but no space after:
+最后，规则足够灵活，可以对单行和多行列表强制执行完全不同的约定。假设您要同时允许单行和多行值列表。您希望单行列表在冒号之前和之后具有单个空格。您希望多行列表在逗号之前有一个换行符，但之后无空白：
 
 ```css
 a {
@@ -241,7 +241,7 @@ a {
 }
 ```
 
-You can enforce that with:
+你可以用以下方法强制执行：
 
 ```js
 "value-list-comma-newline-after": "never-multi-line",
@@ -250,13 +250,13 @@ You can enforce that with:
 "value-list-comma-space-before": "always-single-line"
 ```
 
-### `*-empty-line-before` and `*-max-empty-lines` rules
+### `*-empty-line-before` 和 `*-max-empty-lines` 规则
 
-These rules work together to control where empty lines are allowed.
+这些规则共同控制不同位置允许的空行。
 
-Each *thing* is responsible for pushing itself away from the *preceding thing*, rather than pushing the *subsequent thing* away. This consistency is to avoid conflicts, and is why there aren't any `*-empty-line-after` rules in stylelint.
+每个*事物*负责将自己推动*前面的事物*，而不是推动*后续的事物*。这种一致性是为了避免冲突，这就是为什么 stylelint 中没有任何 `*-empty-line-after` 规则。
 
-Say you want to enforce the following:
+假设您要强制执行以下操作：
 
 ```css
 a {
@@ -276,7 +276,7 @@ b {
 }
 ```
 
-You can do that with:
+你可以这样做：
 
 ```js
 "at-rule-empty-line-before": ["always", {
@@ -298,11 +298,11 @@ You can do that with:
 "rule-empty-line-before": ["always-multi-line"]
 ```
 
-We recommend that you set your primary option (e.g. `"always"` or `"never"`) to whatever is your most common occurrence and define your exceptions with the `except` optional secondary options. There are many values for the `except` option e.g. `first-nested`, `after-comment` etc.
+我们建议您将主要选项（例如 `"always"` 或 `"never"`）设置为最普遍的风格，并使用 `except` 可选的辅助选项定义例外。`except` 选项有很多值，例如 `first-nested`、`after-comment` 等。
 
-The `*-empty-line-before` rules control whether there must never be an empty line or whether there must be *one or more* empty lines before a *thing*. The `*-max-empty-lines` rules complement this by controlling *the number* of empty lines within *things*. The `max-empty-lines` rule is used to set a limit across the entire source. A *stricter* limit can then be set within *things* using the likes of `function-max-empty-lines`, `selector-max-empty-lines` and `value-list-max-empty-lines`.
+`*-empty-line-before` 规则控制在*事物*之前不要或者必须空*一行或多行*空行。`*-max-empty-lines` 规则通过控制*事物*中的*空行数*。`max-empty-lines` 规则用于设置整个源代码的限制。然后可以使用诸如 `function-max-empty-lines`、`selector-max-empty-lines` 和 `value-list-max-empty-lines` 之类的规则来更严格的设置 *事物* 内的空行限制。
 
-For example, say you want to enforce the following:
+例如，假设您要强制执行以下操作：
 
 ```css
 a,
@@ -321,9 +321,9 @@ c {
 }
 ```
 
-i.e. a maximum of 1 empty line within the whole source, but no empty lines within functions, selector lists and value lists.
+即整个源代码中最多有1个空行，但函数，选择器列表和值列表中没有空行。
 
-You can do that with:
+你可以这样做：
 
 ```js
 "function-max-empty-lines": 0,
@@ -332,25 +332,25 @@ You can do that with:
 "value-list-max-empty-lines": 0
 ```
 
-### `*-whitelist`, `*-blacklist`, `color-named` and applicable `*-no-*` rules
+### `*-whitelist`、`*-blacklist`、`color-named` 和可应用 `*-no-*` 规则
 
-These rules work together to (dis)allow language features and constructs.
+这些规则协同工作用以允许（或禁止）语言特征和结构。
 
-There are `*-whitelist` and `*-blacklist` rules that target the main constructs of the CSS language: at-rules, functions, declarations (i.e. property-value pairs), properties and units. These rules can be used to (dis)allow any language features that makes use of these constructs (e.g. `@media`, `rgb()`). However, there are features not caught by these `*-whitelist` and `*-blacklist` rules (or are, but would require complex regex to configure). There are individual rules, usually a `*-no-*` rule (e.g. `color-no-hex` and `selector-no-id`), to disallow each of these features.
+这里有针对 CSS 语言的主要结构的 `*-whitelist` 和 `*-blacklist` 规则：@规则，函数，声明（即属性-值对），属性和单位。这些规则可用于允许（或禁止）使用这些结构的任何语言特性（例如 `@media`、`rgb()`）。但是，有些功能没有被这些 `*-whitelist` 和 `*-blacklist` 规则捕获（或者只需要复杂的正则表达式来配置）。有一些单独的规则，通常是 `*-no-*` 规则（例如 `color-no-hex` 和 `selector-no-id`），以禁止这些功能。
 
-Say you want to disallow the `@debug` language extension. You can do that using either the `at-rule-blacklist` or `at-rule-whitelist` rules because the `@debug` language extension uses the at-rule construct e.g.
+假设你想禁止 `@debug` 语言扩展。您可以使用 `at-rule-blacklist` 或 `at-rule-whitelist` 规则来执行此操作，因为 `@debug` 语言扩展使用 @规则 构造，例如：
 
 ```js
 "at-rule-blacklist": ["debug"]
 ```
 
-Say you want to, for whatever reason, disallow the whole at-rule construct. You can do that using:
+假设您无论出于何种原因，想要禁止全部@规则构造。你可以这样做：
 
 ```js
 "at-rule-whitelist": []
 ```
 
-Say you want to disallow the value `none` for the `border` properties. You can do that using either the `declaration-property-value-blacklist` or `declaration-property-value-whitelist` e.g.
+假设您要禁用 `border` 属性的值 `none`。你可以使用 `declaration-property-value-blacklist` 或 `declaration-property-value-whitelist` 来做到这一点，例如
 
 ```js
 "declaration-property-value-blacklist": [{
@@ -358,20 +358,20 @@ Say you want to disallow the value `none` for the `border` properties. You can d
 }]
 ```
 
-#### color
+#### 颜色
 
-Most `<color>` values are *functions*. As such, they can be (dis)allowed using either the `function-blacklist` or `function-whitelist` rules. There are two other color representations that aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
+大部分 `<颜色>` 值是*函数*。因此，可以使用 `function-blacklist` 或  `function-whitelist` 规则允许（或禁止）它们。还有两种不是函数的颜色表示法：命名颜色和十六进制颜色。允许（或禁止）这两个特定的规则：`color-named` 和 `color-no-hex`。
 
-Say you want to enforce using a named color *if one exists for your chosen color* and use `hwb` color if one does not, e.g.:
+假设您要强制执行 *如果颜色有相应的命名* 则使用命名颜色，否则使用使用 `hwb` 颜色，例如：
 
 ```css
 a {
-  background: hwb(235, 0%, 0%); /* there is no named color equivalent for this color */
+  background: hwb(235, 0%, 0%); /* 此颜色没有相应的命名 */
   color: black;
 }
 ```
 
-If you're taking a whitelisting approach, you can do that with:
+如果你采用白名单方法，你可以这样做：
 
 ```js
 "color-named": "always-where-possible",
@@ -379,7 +379,7 @@ If you're taking a whitelisting approach, you can do that with:
 "function-whitelist": ["hwb"]
 ```
 
-Or, if you're taking a blacklisting approach:
+或者，如果您采用黑名单方法：
 
 ```js
 "color-named": "always-where-possible",
@@ -387,7 +387,7 @@ Or, if you're taking a blacklisting approach:
 "function-blacklist": ["/^rgb/", "/^hsl/", "gray"]
 ```
 
-This approach scales to when language extensions (that use the two built-in extendable syntactic constructs of at-rules and functions) are used. For example, say you want to disallow all standard color presentations in favour of using a custom color representation function, e.g. `my-color(red with a dash of green / 5%)`. You can do that with:
+这种方法可以扩展使用到语言扩展（使用 @规则和函数这两个内置可扩展语法结构）时。例如，假设您要禁止所有标准颜色表示法，而使用自定义颜色表示法，例如 `my-color(red with a dash of green / 5%)`。你可以这样做：
 
 ```js
 "color-named": "never",

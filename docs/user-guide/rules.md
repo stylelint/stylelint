@@ -8,7 +8,7 @@
 
 ## 规则列表
 
-以下是 stylelint 中的所有内置规则，首先[按类别](../../VISION.md)，然后按[*事务*](http://apps.workflower.fi/vocabs/css/en)分组。
+以下是 stylelint 中的所有内置规则，首先[按类别](../../VISION.md)，然后按[*事物*](http://apps.workflower.fi/vocabs/css/en)分组。
 
 -   [可能错误](#可能错误).
 -   [限制语言功能](#限制语言功能).
