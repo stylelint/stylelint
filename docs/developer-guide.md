@@ -1,19 +1,19 @@
-# Developer guide
+# 开发者指南
 
-## Contributor guides
+## 贡献者指南
 
--   [Prerequisites](developer-guide/prerequisites.md): Prerequisites to contributing.
--   [Rules](developer-guide/rules.md): Working on the built-in rules.
+-   [先决条件](developer-guide/prerequisites.md)：贡献的先决条件。
+-   [规则](developer-guide/rules.md)：规则工作。
 
-## Ecosystem guides
+## 生态系统指南
 
--   [Plugins](developer-guide/plugins.md): Writing your own plugins.
+-   [插件](developer-guide/plugins.md)：编写您自己的插件。
 -   [Processors](developer-guide/processors.md): Writing your own processors.
--   [Formatters](developer-guide/formatters.md): Writing your own formatters.
--   [Rule testers](developer-guide/rule-testers.md): Using and writing rule testers.
+-   [格式化程序](developer-guide/formatters.md)：编写您自己的格式化程序。
+-   [规则测试用例](developer-guide/rule-testers.md)：使用和编写规则测试用例。
 
-## Core team guides
+## 核心团队指南
 
--   [Releases](developer-guide/releases.md): Performing releases.
--   [Pull requests](developer-guide/pull-requests.md): Reviewing pull requests.
--   [Issues](developer-guide/issues.md): Managing issues.
+-   [发布](developer-guide/releases.md): 执行发布。
+-   [拉取请求](developer-guide/pull-requests.md)：审核拉取请求。
+-   [问题](developer-guide/issues.md)：管理问题。
