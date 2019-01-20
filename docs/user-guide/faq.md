@@ -27,7 +27,7 @@ The CLI can also be used from within [npm run scripts](https://blog.keithcirkel.
 
 ## How do I lint using Git pre-commit hooks?
 
-[lint-staged](https://github.com/okonet/lint-staged) is a NodeJS script that supports running stylelint against Git staged files.
+[lint-staged](https://github.com/okonet/lint-staged) is a Node.js script that supports running stylelint against Git staged files.
 
 ## How do I lint using my task runner of choice?
 
@@ -123,7 +123,6 @@ a { color: red; }
 ```
 
 To allow single-line blocks but enforce newlines with multi-line blocks, use the `"always-multi-line"` option for both rules.
-
 
 ## How do I configure the `*-pattern` rules for common CSS naming conventions like kebab-case?
 
