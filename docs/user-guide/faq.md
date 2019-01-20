@@ -27,7 +27,7 @@ The CLI can also be used from within [npm run scripts](https://blog.keithcirkel.
 
 ## How do I lint using Git pre-commit hooks?
 
-[lint-staged](https://github.com/okonet/lint-staged) is a NodeJS script that supports running stylelint against Git staged files.
+[lint-staged](https://github.com/okonet/lint-staged) is a Node.js script that supports running stylelint against Git staged files.
 
 ## How do I lint using my task runner of choice?
 
