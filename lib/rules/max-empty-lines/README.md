@@ -86,7 +86,7 @@ The following patterns are *not* considered violations:
 
 
 
- Some years ago -- never mind how log precisely -- ...
+ Some years ago -- never mind how long precisely -- ...
  */
 ```
 
