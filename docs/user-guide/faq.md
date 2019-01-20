@@ -1,12 +1,12 @@
-# FAQ
+# 常见问题
 
 <!-- TOC -->
 
-## How do I turn off, disable or ignore a rule?
+## 如何关闭、禁用或者忽略一个规则？
 
-You can turn off a rule by setting its config value to `null`.
+您可以在配置文件中将配置值设置为 `null`。
 
-For example, to use `stylelint-config-standard` without the `at-rule-empty-line-before` rule:
+比如说，我想使用 `stylelint-config-standard` 配置却又想禁用 `at-rule-empty-line-before` 规则，我可以这样设置：
 
 ```json
 {
@@ -17,75 +17,75 @@ For example, to use `stylelint-config-standard` without the `at-rule-empty-line-
 }
 ```
 
-You can also turn off a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](configuration.md#rules) for more information.
+您也可以在 CSS 文件的某个特定区域内禁用一个规则。想了解更多可以参考[配置指南](configuration.md#rules)的规则部分。
 
-## How do I lint from the command line?
+## 如何通过命令行检查代码？
 
-Refer to the [CLI section](cli.md) of the docs.
+参考文档的[命令行界面部分](cli.md)。
 
-The CLI can also be used from within [npm run scripts](https://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) to use a non-global installation of stylelint.
+命令行界面也可以在 [npm run scripts](https://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) 中使用以使用非全局安装的 stylelint。
 
-## How do I lint using Git pre-commit hooks?
+## 怎样通过 Git 预提交钩子检查代码？
 
-[lint-staged](https://github.com/okonet/lint-staged) is a Node.js script that supports running stylelint against Git staged files.
+[lint-staged](https://github.com/okonet/lint-staged) 是一个 Node.js 脚本，可以在每次 Git 暂存文件时运行 stylelint.
 
-## How do I lint using my task runner of choice?
+## 如何在任务运行器中检查代码？
 
-The stylelint community maintains a [handful of plugins](complementary-tools.md#build-tool-plugins) for popular task runners, including ones for gulp, webpack, Broccoli and Grunt. Refer to their individual READMEs to get started.
+stylelint 社区为热门任务运行者维护[相应插件](complementary-tools.md#构建工具插件)，包括 gulp、webpack、Broccoli 和 Grunt。请参阅他们的自述文档以开始使用。
 
-If there isn't a dedicated stylelint plugin for your task runner of choice, you can use stylelint as a PostCSS plugin and make use of PostCSS's [numerous](https://github.com/postcss/postcss#runners) task runner plugins.
+如果您使用的任务运行器没有对应的 stylelint 插件，您可以将 stylelint 作为 PostCSS 插件使用，从而利用 PostCSS 提供的[大量的](https://github.com/postcss/postcss#runners) 任务运行器插件。
 
-There are also examples of using the PostCSS plugin via the PostCSS JS API within the [docs](postcss-plugin.md).
+这里还有一些通过 PostCSS JS 应用程序接口使用 PostCSS 插件的示例在[文档](postcss-plugin.md)中的。
 
-However, using stylelint as a PostCSS plugin limits your reporting options to [postcss-reporter](https://github.com/postcss/postcss-reporter/). We recommend using the stylelint CLI or Node.js API, instead, for better reporting.
+但是，使用 stylelint 作为 PostCSS 插件会限制您可用的报告选项，只能使用[postcss-reporter](https://github.com/postcss/postcss-reporter/) 所提供的选项。为了有更好的报告选项，我们推荐通过 stylelint Node.js 应用程序接口来使用 stylelint。
 
-## How do I lint within my text editor?
+## 如何在文本编辑器中检查代码？
 
-The stylelint community also maintains a [handful of plugins](complementary-tools.md#editor-plugins) for popular editors. Refer to their individual READMEs to get started.
+stylelint 社区也为流行的文本编辑器提供了很多[相应的插件](complementary-tools.md#编辑器插件)。请参阅他们的自述文档以开始使用。
 
-## How do I lint SCSS, Less, or other non-standard syntax?
+## 如何检查 SCSS、Less 或者其他非标准语法代码？
 
-stylelint can *parse* any the following non-standard syntaxes by default: Sass, Less and SugarSS. Non-standard syntaxes can automatically be inferred from the following file extensions `.sass`, `.scss`, `.less`, and `.sss`; or else you can specify the syntax yourself.
+stylelint 默认地能*解析*如下的非标准语法，包括Sass、Less 和 SugarSS，非标准语法可以从以下文件扩展名 `.sass`、`.scss`、`.less` 和 `.sss` 中自动推断出来。或者您也可以自己指定语法。
 
-Additionally, stylelint can accept any [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes) when using the CLI or Node.js API. Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed above.
+此外，在使用命令行界面或 Node.js 应用程序接口时，stylelint 可以接受任何[PostCSS兼容语法](https://github.com/postcss/postcss#syntaxes)。但请注意，stylelint 无法保证核心规则可以在上面列出的默认值以外的语法中正常工作。
 
-Refer to the [docs](css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse non-standard syntaxes.
+可以参考[文档](css-processors.md#解析非标准语法)来了解如何配置 stylelint 来解析非标准语法。
 
-## Should I lint before or after processing my stylesheets through PostCSS plugins or other processors?
+## 我应该在通过 PostCSS 插件或其他处理器处理样式表之前还是之后进行代码检查？
 
-We [recommend](css-processors.md) linting your source files before any transformations.
+我们[推荐](css-processors.md)在源文件进行任何转换之前检查您的源文件。
 
-## How do I automatically fix stylistic violations?
+## 如何自动修复风格违规？
 
-Use the `--fix` CLI flag or the `fix` Node.js API option to fix a number of stylistic violations with this *experimental* feature.
+使用命令行界面标志 `--fix` 或 Node.js 应用程序接口选项 `fix`，通过这个*实验性*功能来修复许多风格违规。
 
-## How do I manage conflicts between rules?
+## 如何管理规则之间的冲突？
 
-Each rule stands alone, so sometimes it's possible to configure rules such that they conflict with one another. For example, you could turn on two conflicting blacklist and whitelist rules, e.g. `unit-blacklist` and `unit-whitelist`.
+由于每条规则都是独立的，所以有时配置规则时可能会与其他规则产生冲突。比如说，您可以同时启用两个冲突的黑名单和白名单规则，如 `unit-blacklist` 和 `unit-whitelist`。
 
-It's your responsibility as the configuration author to resolve these conflicts.
+而您作为配置文件的作者，要责无旁贷地处理这些规则冲突。
 
-## What is the difference between a plugin and a rule?
+## 插件和规则有什么区别？
 
-A rule must meet the [criteria](../developer-guide/rules.md) set out in the developer guide, including being applicable to only standard CSS syntax, and having a clear and unambiguous finished state. Whereas a plugin is a rule or sets of rules built by the community that don't adhere to the criteria. It might support a particular methodology or toolset, or apply to *non-standard* constructs and features, or be for specific use cases.
+一条规则必须符合开发人员指南中列出的[标准](../developer-guide/rules.md)，其中包括仅规则仅适用于标准 CSS 语法，是否具有一个明确的完成状态。而插件是由社区构建的规则或规则集，不必遵循标准。它可能支持特定的方法或工具集，或适用于*非标准*的构造和功能，或适用于特定用例。
 
-For example, we've found that rules to enforce property order, property groupings, etc., work better as plugins, because there are so many different opinions about what to enforce, and how. When you write or use a plugin, you can make sure to enforce your own particular preferences, exactly; but a rule that tries to address too many divergent use-cases becomes a mess.
+例如，我们发现强制规定属性顺序，属性分组等的规则更适合作为插件，因为大家对于要执行什么，以及如何执行有很多不同的看法。当您在编写或使用一个插件时，您可以确保强制执行您自己的特定偏好；但一个规则如果试图满足太多的不同用例会变得一团糟糕。
 
-Plugins are easy to incorporate into your configuration.
+插件是很容易合并到您的配置中的。
 
-## Can I customise stylelint's messages?
+## 我可以自定义 stylelint 的消息吗？
 
-Yes, you can either use the [`message` secondary option](configuration.md#custom-messages) or [write your own formatter](../developer-guide/formatters.md).
+是的，您可以使用 [`message` 辅助选项](configuration.md#自定义消息)或[编写您自己的格式化程序](../developer-guide/formatters.md)。
 
-## How should I lint my CSS that follows a BEM-like methodology?
+## 如何用 stylelint 来处理遵循类 BEM 模式的 CSS 文件？
 
-Use the [stylelint-selector-bem-pattern](https://github.com/davidtheclark/stylelint-selector-bem-pattern) plugin to ensure your selectors conform to a chosen BEM-flavor pattern.
+您可以使用 [stylelint-selector-bem-pattern](https://github.com/davidtheclark/stylelint-selector-bem-pattern) 插件确保您的选择器符合所选的 BEM 风格模式。
 
-You can also take advantage of the `selector-*` rules to ban certain types of selectors (e.g. ID selectors) and control specificity.
+您还可以利用 `selector- *` 规则来禁止某些类型的选择器（例如ID选择器）和控制特异性。
 
-If you're using SUITCSS, you might want to use [their shareable config](https://github.com/suitcss/stylelint-config-suitcss).
+如果您正在使用 SUITCSS，则可能需要使用[他们的可共享配置](https://github.com/suitcss/stylelint-config-suitcss)。
 
-## How do I disallow single-line blocks?
+## 如何禁用单行代码块？
 
 ```css
   a { color: red; }
@@ -93,7 +93,7 @@ If you're using SUITCSS, you might want to use [their shareable config](https://
  * Declaration blocks like this */
 ```
 
-Use the `block-opening-brace-newline-after` and `block-opening-brace-newline-before` rules together. For example, this config:
+可以一起使用 `block-opening-brace-newline-after` 和 `block-opening-brace-newline-before` 规则，比如如下配置：
 
 ```json
 {
@@ -102,7 +102,7 @@ Use the `block-opening-brace-newline-after` and `block-opening-brace-newline-bef
 }
 ```
 
-Would allow:
+如下样式表可以通过上述规则：
 
 ```css
 a {
@@ -110,7 +110,7 @@ a {
 }
 ```
 
-But not these patterns:
+但是如下样式表却不能通过：
 
 ```css
 a { color: red;
@@ -122,39 +122,39 @@ color: red; }
 a { color: red; }
 ```
 
-To allow single-line blocks but enforce newlines with multi-line blocks, use the `"always-multi-line"` option for both rules.
+如果想允许单行代码块同时在多行代码块中强制使用换行符， 可以设置上述两条规则选项为 `"always-multi-line"`。
 
-## How do I configure the `*-pattern` rules for common CSS naming conventions like kebab-case?
+## 如何用短横线隔开 (kebab-case) 等常见 CSS 命名约定配置 `*-pattern` 规则？
 
-Use the regex that corresponds to your chosen convention:
+使用与您选择的约定相对应的正则表达式：
 
--   kebab-case: `^([a-z][a-z0-9]*)(-[a-z0-9]+)*$`
--   lowerCamelCase: `^[a-z][a-zA-Z0-9]+$`
--   snake\_case: `^([a-z][a-z0-9]*)(_[a-z0-9]+)*$`
--   UpperCamelCase: `^[A-Z][a-zA-Z0-9]+$`
+-   短横线命名(kebab-case): `^([a-z][a-z0-9]*)(-[a-z0-9]+)*$`
+-   小驼峰命名(lowerCamelCase): `^[a-z][a-zA-Z0-9]+$`
+-   蛇形命名(snake\_case): `^([a-z][a-z0-9]*)(_[a-z0-9]+)*$`
+-   大驼峰命名(UpperCamelCase): `^[A-Z][a-zA-Z0-9]+$`
 
-e.g. for lowerCamelCase class selectors, use `"selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"`.
+比如，对于遵循小驼峰拼写式的类选择器，使用 `"selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"`。
 
-All these patterns disallow CSS identifiers that start with a digit, two hyphens, or a hyphen followed by a digit.
+所有这些模式都不允许以数字，两个连字符或后跟数字的连字符开头的CSS标识符。
 
-## How do I change the default severity to "warning" so stylelint doesn't break my build?
+## 如何将默认严重性级别更改为“警告”，以便 stylelint 不会破坏我的构建？
 
-Use the [`defaultSeverity`](configuration.md#defaultseverity) configuration option.
+使用[`defaultSeverity`](configuration.md#defaultseverity)配置选项。
 
-## Can I bundle more than one sharable config within an npm package?
+## 我可以在一个 npm 包中捆绑多个可共享配置吗？
 
-A user can `require()` any file in your npm package, so all you need to do is document which paths point to configs (e.g. `require('my-package/config-2')`).
+用户可能 `require()` 您 npm 包中的任何文件，所以您需要做的就是记录哪些路径指向配置（例如 `require('my-package/config-2')`）`）。
 
-## How can I control the whitespace after the open brace of the block?
+## 如何控制块的开括号后的空白？
 
-Refer to [this](about-rules.md#-empty-line-before-and--max-empty-lines-rules) section of the docs that explains how the `*-empty-line-before` rules work.
+请参阅文档中的[这个部分](about-rules.md#-empty-line-before-和--max-empty-lines-规则)部分，该部分解释了 `* -empty-line-before` 规则如何工作。
 
-## If I use `extends` within my configuration object, will the options for each rule be merged or overridden?
+## 如果我在配置对象中使用 `extends`，那每个规则的选项是会被合并还是覆盖？
 
-They will be overridden.
+它们将会被覆盖。
 
-The `extends` mechanism is [detailed within the configuration docs](configuration.md#extends):
+`extends` 机制在[配置文件中](configuration.md#extends)有更详细的介绍：
 
-> When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
+> 当一个配置继承另一个配置时，它从另一个配置的属性开始，然后添加并覆盖其中的内容。
 
-The reason for this design is documented in [#1646](https://github.com/stylelint/stylelint/issues/1646#issuecomment-232779957).
+这种设计的原因记录在[#1646](https://github.com/stylelint/stylelint/issues/1646#issuecomment-232779957)中。
