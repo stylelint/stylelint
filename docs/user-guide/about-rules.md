@@ -128,9 +128,9 @@ a { transform: translate( 1, 1 ); }
 
 这些规则可以一起使用以强制执行严格的约定。
 
-### `*-newline/space-before` 和 `*-newline/space-after` 和
+### `*-newline/space-before` 和 `*-newline/space-after` 规则
 
-假设您希望每个生命当中的冒号之前无空白，冒号之后只有一个空格：
+假设您希望每个声明当中的冒号之前无空白，冒号之后只有一个空格：
 
 ```css
 a { color: pink; }
@@ -138,7 +138,7 @@ a { color: pink; }
  * 此冒号前无空白，此冒号后有一个空格 */
 ```
 
-你可以用以下方法强制执行：
+您可以用以下方法强制执行：
 
 ```js
 "declaration-colon-space-after": "always",
@@ -179,7 +179,7 @@ a {
 }
 ```
 
-你可以用以下方法强制执行：
+您可以用以下方法强制执行：
 
 ```js
 "value-list-comma-space-after": "always",
@@ -199,7 +199,7 @@ a {
 }
 ```
 
-你可以用以下方法强制执行：
+您可以用以下方法强制执行：
 
 ```js
 "value-list-comma-newline-after": "always-multi-line",
@@ -220,7 +220,7 @@ a {
 }
 ```
 
-你可以用以下方法强制执行：
+您可以用以下方法强制执行：
 
 ```js
 "value-list-comma-newline-before": "always-multi-line",
@@ -241,7 +241,7 @@ a {
 }
 ```
 
-你可以用以下方法强制执行：
+您可以用以下方法强制执行：
 
 ```js
 "value-list-comma-newline-after": "never-multi-line",
@@ -276,7 +276,7 @@ b {
 }
 ```
 
-你可以这样做：
+您可以这样做：
 
 ```js
 "at-rule-empty-line-before": ["always", {
@@ -323,7 +323,7 @@ c {
 
 即整个源代码中最多有1个空行，但函数，选择器列表和值列表中没有空行。
 
-你可以这样做：
+您可以这样做：
 
 ```js
 "function-max-empty-lines": 0,
@@ -338,19 +338,19 @@ c {
 
 这里有针对 CSS 语言的主要结构的 `*-whitelist` 和 `*-blacklist` 规则：@规则，函数，声明（即属性-值对），属性和单位。这些规则可用于允许（或禁止）使用这些结构的任何语言特性（例如 `@media`、`rgb()`）。但是，有些功能没有被这些 `*-whitelist` 和 `*-blacklist` 规则捕获（或者只需要复杂的正则表达式来配置）。有一些单独的规则，通常是 `*-no-*` 规则（例如 `color-no-hex` 和 `selector-no-id`），以禁止这些功能。
 
-假设你想禁止 `@debug` 语言扩展。您可以使用 `at-rule-blacklist` 或 `at-rule-whitelist` 规则来执行此操作，因为 `@debug` 语言扩展使用 @规则 构造，例如：
+假设您想禁止 `@debug` 语言扩展。您可以使用 `at-rule-blacklist` 或 `at-rule-whitelist` 规则来执行此操作，因为 `@debug` 语言扩展使用 @规则 构造，例如：
 
 ```js
 "at-rule-blacklist": ["debug"]
 ```
 
-假设您无论出于何种原因，想要禁止全部@规则构造。你可以这样做：
+假设您无论出于何种原因，想要禁止全部@规则构造。您可以这样做：
 
 ```js
 "at-rule-whitelist": []
 ```
 
-假设您要禁用 `border` 属性的值 `none`。你可以使用 `declaration-property-value-blacklist` 或 `declaration-property-value-whitelist` 来做到这一点，例如
+假设您要禁用 `border` 属性的值 `none`。您可以使用 `declaration-property-value-blacklist` 或 `declaration-property-value-whitelist` 来做到这一点，例如
 
 ```js
 "declaration-property-value-blacklist": [{
@@ -371,7 +371,7 @@ a {
 }
 ```
 
-如果你采用白名单方法，你可以这样做：
+如果您采用白名单方法，您可以这样做：
 
 ```js
 "color-named": "always-where-possible",
@@ -387,7 +387,7 @@ a {
 "function-blacklist": ["/^rgb/", "/^hsl/", "gray"]
 ```
 
-这种方法可以扩展使用到语言扩展（使用 @规则和函数这两个内置可扩展语法结构）时。例如，假设您要禁止所有标准颜色表示法，而使用自定义颜色表示法，例如 `my-color(red with a dash of green / 5%)`。你可以这样做：
+这种方法可以扩展使用到语言扩展（使用 @规则和函数这两个内置可扩展语法结构）时。例如，假设您要禁止所有标准颜色表示法，而使用自定义颜色表示法，例如 `my-color(red with a dash of green / 5%)`。您可以这样做：
 
 ```js
 "color-named": "never",
