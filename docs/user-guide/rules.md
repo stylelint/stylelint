@@ -76,12 +76,12 @@
 
 #### 一般/表
 
--   [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
--   [`no-duplicate-at-import-rules`](../../lib/rules/no-duplicate-at-import-rules/README.md): Disallow duplicate `@import` rules within a stylesheet.
--   [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
--   [`no-empty-source`](../../lib/rules/no-empty-source/README.md): Disallow empty sources.
--   [`no-extra-semicolons`](../../lib/rules/no-extra-semicolons/README.md): Disallow extra semicolons (Autofixable).
--   [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
+-   [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): 禁止在具有较高特异性的选择器后出现被其覆盖的较低特异性的选择器。
+-   [`no-duplicate-at-import-rules`](../../lib/rules/no-duplicate-at-import-rules/README.md)：禁止在样式表中使用重复的 `@import` 规则。
+-   [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md)：禁止样式表中的重复选择器。
+-   [`no-empty-source`](../../lib/rules/no-empty-source/README.md)：禁止空源码。
+-   [`no-extra-semicolons`](../../lib/rules/no-extra-semicolons/README.md)：不允许额外的分号（可自动修复）。
+-   [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md)：禁止 CSS 不支持的双斜杠注释（`//...`）。
 
 ### 限制语言功能
 

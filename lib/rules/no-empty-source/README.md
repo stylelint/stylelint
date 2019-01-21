@@ -1,20 +1,20 @@
 # no-empty-source
 
-Disallow empty sources.
+禁止空源码。
 
 ```css
   ···\n\t
 /**     ↑
- *  This empty source */
+ *  这个空的源码 */
 ```
 
-A source containing only whitespace is considered empty.
+仅包含空白的源码被视为空。
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 
@@ -28,7 +28,7 @@ The following patterns are considered violations:
 \n
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {}

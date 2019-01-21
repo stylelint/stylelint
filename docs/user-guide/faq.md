@@ -122,7 +122,7 @@ color: red; }
 a { color: red; }
 ```
 
-如果想允许单行代码块同时在多行代码块中强制使用换行符， 可以设置上述两条规则选项为 `"always-multi-line"`。
+如果想允许单行代码块同时在多行代码块中强制使用换行符，可以设置上述两条规则选项为 `"always-multi-line"`。
 
 ## 如何用短横线隔开 (kebab-case) 等常见 CSS 命名约定配置 `*-pattern` 规则？
 

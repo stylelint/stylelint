@@ -181,7 +181,7 @@ stylelint.lint({
   files: "all/my/stylesheets/*.css"
 })
   .then(function(data) {
-    // 利用 data.output、 data.errored、
+    // 利用 data.output、data.errored、
     // 还有 data.results 做些什么
   })
   .catch(function(err) {

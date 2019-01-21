@@ -1,31 +1,31 @@
 # no-duplicate-selectors
 
-Disallow duplicate selectors within a stylesheet.
+禁止样式表中的重复选择器。
 
 ```css
     .foo {} .bar {} .foo {}
 /** ↑              ↑
- * These duplicates */
+ *    这些都是重复的 */
 ```
 
-This rule checks for two types of duplication:
+此规则检查两种类型的重复：
 
--   Duplication of a single selector with a rule's selector list, e.g. `a, b, a {}`.
--   Duplication of a selector list within a stylesheet, e.g. `a, b {} a, b {}`. Duplicates are found even if the selectors come in different orders or have different spacing, e.g. `a d, b > c {} b>c, a   d {}`.
+-   规则的选择器列表中单个选择器的重复，例如 `a，b，a {}`。
+-   样式表中重复的选择器列表，例如 `a, b {} a, b {}`。即使选择器具有不同的顺序或具有不同的间隔，重复也会被找到，例如 `a d, b > c {} b>c, a   d {}`。
 
-The same selector *is* allowed to repeat in the following circumstances:
+在以下情况下*允许*相同的选择器重复：
 
--   It is used in different selector lists, e.g. `a {} a, b {}`.
--   The duplicates are determined to originate in different stylesheets, e.g. you have concatenated or compiled files in a way that produces sourcemaps for PostCSS to read, e.g. postcss-import).
--   The duplicates are in rules with different parent nodes, e.g. inside and outside of a media query.
+-   它用于不同的选择器列表，例如 `a {} a, b {}`。
+-   重复项源自不同的样式表，例如您以某种为 PostCSS 生成 sourcemap 的方式连接或编译文件，如 postcss-import。
+-   重复项在具有不同父节点的规则中，例如媒体查询的内部和外部。
 
-This rule resolves nested selectors. So `a b {} a { & b {} }` counts as a violation, because the resolved selectors end up with a duplicate.
+此规则解析嵌套选择器。所以 `a b {} a { & b {} }` 计为违规，因为解析后的选择器最终会出现重复。
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 .foo,
@@ -71,7 +71,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 .foo {}

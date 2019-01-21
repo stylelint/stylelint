@@ -1,36 +1,36 @@
 # no-descending-specificity
 
-Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
+禁止在具有较高特异性的选择器后出现被其覆盖的较低特异性的选择器。
 
 ```css
     #container a { top: 10px; } a { top: 0; }
 /** ↑                           ↑
- * The order of these selectors represents descending specificity */
+ * 这些选择器的顺序代表了降序的特异性 */
 ```
 
-Source order is important in CSS, and when two selectors have the *same* specificity, the one that occurs *last* will take priority. However, the situation is different when one of the selectors has a *higher* specificity. In that case, source order does *not* matter: the selector with higher specificity will win out even if it comes first.
+源码顺序在 CSS 中很重要，当两个选择器具有*相同*特异性时，*最后*出现的选择器将具有优先权。然而，当选择器之一具有*更高*特异性时，情况是不同的。在这种情况下，源码顺序确实*不*重要：具有更高特异性的选择器即使先出现也会胜出。
 
-The clashes of these two mechanisms for prioritization, source order and specificity, can cause some confusion when reading stylesheets. If a selector with higher specificity comes *before* the selector it overrides, we have to think harder to understand it, because it violates the source order expectation. **Stylesheets are most legible when overriding selectors always come *after* the selectors they override.** That way both mechanisms, source order and specificity, work together nicely.
+这两种优先级，源码顺序和特异性机制的冲突在阅读样式表时会引起一些混乱。如果具有更高特异性的选择器出现在它覆盖了的选择器*之前*，我们必然更加难以理解它，因为它违反了源码顺序期望。**当覆盖选择器总是在它们要覆盖的选择器*之后*时，样式表是最清晰的。** 这样，源码顺序和特异性这两种机制可以很好地协同工作。
 
-This rule enforces that practice *as best it can*. (It cannot catch every *actual* overriding selector (because it does not know the DOM structure, for one), but it can catch certain common mistakes.)
+该规则将尽可能*强制执行*。（它不能捕获每个*实际的*覆盖选择器（因为它不知道DOM结构），但是它可以捕获某些常见错误。）
 
-Here's how it works: **This rule looks at the last *compound selector* in every full selector, and then compares it with other selectors in the stylesheet that end in the same way.**
+它的工作原理是：**此规则查看每个完整选择器中的最后一个*复合选择器*，然后将其与样式表中以相同方式结尾的其他选择器进行比较。**
 
-So `.foo .bar` (whose last compound selector is `.bar`) will be compared to `.bar` and `#baz .bar`, but not to `#baz .foo` or `.bar .foo`.
+所以 `.foo .bar`（其最后一个复合选择器是 `.bar`）将与 `.bar` 和 `#baz .bar` 比较，而不是与 `#baz .foo` 或 `.bar .foo`。
 
-And `a > li#wag.pit` (whose last compound selector is `li#wag.pit`) will be compared to `div li#wag.pit` and `a > b > li + li#wag.pit`, but not to `li`, or `li #wag`, etc.
+而 `a > li#wag.pit`（其最后一个复合选择器是 `li#wag.pit`）将与 `div li#wag.pit` 和 `a > b > li + li#wag.pit`比较，而不是与 `li` 或 `li #wag` 等。
 
-There's one other important feature: Selectors targeting pseudo-elements are not considered comparable to similar selectors without the pseudo-element, because they target other elements on the rendered page. For example, `a::before {}` will not be compared to `a:hover {}`, because `a::before` targets a pseudo-element whereas `a:hover` targets the actual `<a>`.
+另外还有一个重要特性：针对伪元素的选择器与没有伪元素的类似选择器被认为是不可比较的，因为它们定位了渲染页面上的不同元素。例如，`a::before {}` 将不会与 `a:hover {}` 进行比较，因为 `a::before` 以伪元素为目标，而 `a:hover` 则以实际的 `<a>` 为目标。
 
-This rule only compares rules that are within the same media context. So `a {} @media print { #baz a {} }` is fine.
+此规则仅比较同一媒体上下文中的规则。所以 `a {} @media print { #baz a {} }` 不违规。
 
-This rule resolves nested selectors before calculating the specificity of the selectors.
+此规则在计算选择器的特异性之前解析嵌套选择器。
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 b a {}
@@ -61,7 +61,7 @@ b {}
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {}

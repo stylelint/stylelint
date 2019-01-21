@@ -1,19 +1,19 @@
 # no-duplicate-at-import-rules
 
-Disallow duplicate `@import` rules within a stylesheet.
+禁止在样式表中使用重复的 `@import` 规则。
 
 ```css
     @import "a.css";
     @import "a.css";
 /** ↑
- * These are duplicates */
+ * 这些都是重复的 */
 ```
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @import 'a.css';
@@ -36,7 +36,7 @@ The following patterns are considered violations:
 @import url(a.css);
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @import "a.css";

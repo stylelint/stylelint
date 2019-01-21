@@ -4,7 +4,7 @@
 
 特性：
 
--   完整 - 覆盖所有标准CSS语法。
+-   完整 - 覆盖所有标准 CSS 语法。
 -   可扩展 - 具有多个扩展点。
 -   可配置 - 没有默认设置和丰富的选项来定制代码检查工具。
 -   强大 - 具有全面的测试覆盖范围和各种功能点。
@@ -71,7 +71,7 @@
 
 提供多个扩展点，包括：
 
--   [插件](docs/developer-guide/plugins.md) - 构建社区规则以支持方法，工具集，非标准CSS功能或非常具体的用例。
+-   [插件](docs/developer-guide/plugins.md) - 构建社区规则以支持方法，工具集，非标准 CSS 功能或非常具体的用例。
 -   [Processors](docs/user-guide/processors.md) - lint the CSS within non-stylesheet files.
 -   [可继承配置](docs/user-guide/configuration.md#extends) - 继承和共享配置。
 -   [格式化程序](docs/developer-guide/formatters.md) - 格式化 stylelint 结果对象。
