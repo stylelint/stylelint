@@ -1,20 +1,20 @@
 # no-eol-whitespace
 
-Disallow end-of-line whitespace.
+禁止行尾空白。
 
 ```css
 a { color: pink; }···
 /**               ↑
- *  This whitespace */
+ *             这个空白 */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix most of the problems reported by this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { color: pink; }·
@@ -24,33 +24,33 @@ a { color: pink; }·
 a { color: pink; }····
 ```
 
-Comment strings are also checked -- so the following is a violation:
+注释字符串也会检查————因此以下是违规：
 
 ```css
-/* something····
- * something else */
+/* 一些注释····
+ * 另一些注释 */
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { color: pink; }
 ```
 
 ```css
-/* something
- * something else */
+/* 一些注释
+ * 另一些注释 */
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignore: ["empty-lines"]`
 
 #### `"empty-lines"`
 
-Allow end-of-line whitespace for lines that are only whitespace, "empty" lines.
+允许行尾空白用于只有空格的行，“空”行。
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {

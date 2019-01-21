@@ -350,10 +350,10 @@
 
 #### 一般/表
 
--   [`indentation`](../../lib/rules/indentation/README.md): Specify indentation (Autofixable).
--   [`linebreaks`](../../lib/rules/linebreaks/README.md): Specify unix or windows linebreaks (Autofixable).
--   [`max-empty-lines`](../../lib/rules/max-empty-lines/README.md): Limit the number of adjacent empty lines.
--   [`max-line-length`](../../lib/rules/max-line-length/README.md): Limit the length of a line.
--   [`no-eol-whitespace`](../../lib/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace (Autofixable).
--   [`no-missing-end-of-source-newline`](../../lib/rules/no-missing-end-of-source-newline/README.md): Disallow missing end-of-source newlines (Autofixable).
--   [`no-empty-first-line`](../../lib/rules/no-empty-first-line/README.md): Disallow empty first lines. (Autofixable).
+-   [`indentation`](../../lib/rules/indentation/README.md)：指定缩进（可自动修复）。
+-   [`linebreaks`](../../lib/rules/linebreaks/README.md)：指定 unix 或 windows 换行符（可自动修复）。
+-   [`max-empty-lines`](../../lib/rules/max-empty-lines/README.md)：限制相邻空行的数量。
+-   [`max-line-length`](../../lib/rules/max-line-length/README.md)：限制行的长度。
+-   [`no-eol-whitespace`](../../lib/rules/no-eol-whitespace/README.md)：禁止行尾空白（可自动修复）。
+-   [`no-missing-end-of-source-newline`](../../lib/rules/no-missing-end-of-source-newline/README.md)：禁止缺少源代码结尾换行符（可自动修复）。
+-   [`no-empty-first-line`](../../lib/rules/no-empty-first-line/README.md)：禁止空第一行（可自动修复）。

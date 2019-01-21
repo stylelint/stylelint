@@ -92,7 +92,7 @@ stylelint "foo/*.css" --fix
 
 **注意：** 这是一个 _试验性_ 功能。它目前不遵守在源代码中禁用 stylelint 的特殊注释（例如 `/* stylelint-disable */`）。无论这些注释如何，都将应用自动修复。
 
-如果您同时使用这些特殊注释和自动修复，请运行 stylelint 两次作为临时解决方案。在第一次运行时，可能会错过某些违规行为，或者可能会错误地报告某些违规行为。
+如果您同时使用这些特殊注释和自动修复，请运行 stylelint 两次作为临时解决方案。在第一次运行时，可能会错过某些违规，或者可能会错误地报告某些违规。
 
 对于具有标准语法的 CSS，stylelint 将使用 [postcss-safe-parser](https://github.com/postcss/postcss-safe-parser) 来修复语法错误。
 

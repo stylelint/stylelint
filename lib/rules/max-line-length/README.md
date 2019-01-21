@@ -1,24 +1,24 @@
 # max-line-length
 
-Limit the length of a line.
+限制行的长度。
 
 ```css
 a { color: red }
 /**            ↑
- *       The end */
+ *           结尾 */
 ```
 
-Lines that exceed the maximum length but contain no whitespace (other than at the beginning of the line) are ignored.
+超出最大长度但不包含空格（除行开头之外）的行将被忽略。
 
-When evaluating the line length, the arguments of any `url(...)` functions are excluded from the calculation, because typically you have no control over the length of these arguments. This means that long `url()` functions should not contribute to violations.
+在计算行长度时，任何 `url(...)` 函数的参数都会从计算中排除，因为通常你无法控制这些参数的长度。这意味着长的 `url(...)` 函数不应该导致违规。
 
-## Options
+## 选项
 
-`int`: Maximum number of characters allowed.
+`int`：允许的最大字符数。
 
-For example, with `20`:
+例如，使用 `20`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { color: 0; top: 0; }
@@ -30,7 +30,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -45,65 +45,65 @@ a {
 }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignore: ["non-comments"]`
 
-Only enforce the line-length limit for lines within comments.
+仅对注释中的行强制执行行长度限制。
 
-This does not apply to comments that are stuck in between other stuff, only to lines that begin at the beginning or in the middle of a comment.
+这不适用于插入其他内容之间的注释，仅适用于从注释的开头或中间开始的行。
 
-For example, with a maximum length of `30`.
+例如，最大长度为 `30`。
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
-Each have only one violation.
+每个只有一次违规。
 
 ```css
-/* This line is too long for my rule */
+/* 这行对我的规则来说太长了 */
 a { color: pink; background: orange; }
-a { color: pink; /* this comment is also long but not on its own line */ }
+a { color: pink; /* 这个注释也很长，但没有自己单独的行 */ }
 ```
 
 ```css
 a { color: pink; background: orange; }
 /**
- * This line is short,
- * but this line is too long for my liking,
- * though this one is fine
+ * 这行很短，
+ * 但这行对我来说太长了，
+ * 虽然这个很好
  */
-a { color: pink; /* this comment is also long but not on its own line */ }
+a { color: pink; /* 这个注释也很长，但没有自己单独的行 */ }
 ```
 
 ### `ignore: ["comments"]`
 
-Only enforce the line-length limit for lines that are not comments.
+仅对非注释的行强制执行行长度限制。
 
-This also applies to comments that are between code on the same line.
+这也适用于同一行代码之间的注释。
 
-For example, with a maximum length of `30`.
+例如，最大长度为 `30`。
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
-a { color: pink; } /* comment that is too long */
+a { color: pink; } /* 这个注释太长了 */
 ```
 
 ```css
-a { /* this comment is too long for the max length */ }
+a { /* 这个注释对于最大长度来说太长了 */ }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
-/* comment that is too long for my rule*/
+/* 对于我的规则来说太长了的注释 */
 a { color: pink; }
 ```
 
 ```css
 /*
- * comment that is too long the max length
- * comment that is too long the max length
+ * 对于最大长度来说太长了的注释
+ * 对于最大长度来说太长了的注释
  *
  */
 a { color: pink; }
@@ -111,27 +111,27 @@ a { color: pink; }
 
 ### `ignorePattern: "/regex/"`
 
-Ignore any line that matches the given regex pattern, regardless of whether it is comment or not. The regex may be passed as a string (for JSON configuration) by enclosing in forward-slashes, or an ordinary JavaScript RegExp may be used.
+忽略与给定正则表达式模式匹配的任何行，无论它是否为注释。正则表达式可以通过用正斜杠括起来作为字符串（用于JSON配置）传递，或者可以使用普通的JavaScript RegExp。
 
-Given:
+给定：
 
 ```js
 "/^@import\\s+/"
 ```
 
-The following pattern is *not* considered a violation:
+以下模式*不*被视为违规：
 
 ```css
 @import "../../../../another/css/or/scss/file/or/something.css";
 ```
 
-Given the following, with a maximum length of `20`.
+给出以下内容，最大长度为 `20`。
 
 ```js
 ["/https?:\/\/[0-9,a-z]*.*/"]
 ```
 
-The following pattern is *not* considered a violation:
+以下模式*不*被视为违规：
 
 ```css
 /* ignore urls https://www.example.com */

@@ -1,21 +1,21 @@
 # linebreaks
 
-Specify unix or windows linebreaks.
+指定 unix 或 windows 换行符。
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。
 
-## Options
+## 选项
 
 `string`: `"unix"|"windows"`
 
 ### `"unix"`
 
-Linebreaks _must always_ be LF (`\n`).
+换行符*必须始终*为 LF（`\n`）。
 
-Lines with CRLF linebreaks are considered violations.
+具有 CRLF 换行符的行被视为违规。
 
 ### `"windows"`
 
-Linebreaks _must always_ be CRLF (`\r\n`).
+换行符*必须始终*为 CRLF（`\r\n`）。
 
-Lines with LF linebreaks are considered violations.
+具有 LF 换行符的行被视为违规。

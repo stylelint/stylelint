@@ -1,29 +1,29 @@
 # no-missing-end-of-source-newline
 
-Disallow missing end-of-source newlines.
+禁止缺少源代码结尾换行符。
 
 ```css
     a { color: pink; }
     \n
 /** ↑
- * This newline */
+ * 这个换行符 */
 ```
 
-Completely empty files are not considered violations.
+空文件不被视为违规。
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { color: pink; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { color: pink; }

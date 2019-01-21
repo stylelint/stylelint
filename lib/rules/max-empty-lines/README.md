@@ -1,7 +1,7 @@
 
 # max-empty-lines
 
-Limit the number of adjacent empty lines.
+限制相邻空行的数量。
 
 ```css
 a {}
@@ -9,16 +9,16 @@ a {}
      /* ← */
 a {} /* ↑ */
 /**     ↑
- * These lines */
+ * 这些行 */
 ```
 
-## Options
+## 选项
 
-`int`: Maximum number of characters allowed.
+`int`：允许的最大相邻空行数。
 
-For example, with `2`:
+例如，使用 `2`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {}
@@ -28,19 +28,19 @@ a {}
 b {}
 ```
 
-Comment strings are also checked -- so the following is a violation:
+注释字符串也会检查————因此以下是违规：
 
 ```css
 /*
- Call me Ishmael.
+ 词曰：
 
 
 
- Some years ago -- never mind how log precisely -- ...
+ 滚滚长江东逝水，浪花淘尽英雄。...
  */
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {}
@@ -60,15 +60,15 @@ a {}
 b {}
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignore: ["comments"]`
 
-Only enforce the adjacent empty lines limit for lines that are not comments.
+仅对不是注释的行强制执行相邻的空行限制。
 
-For example, with `2` adjacent empty lines:
+例如，使用 `2` 相邻的空行：
 
-The following pattern is considered violation:
+以下模式被视为违规：
 
 ```css
 /* horse */
@@ -79,28 +79,28 @@ a {}
 b {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 /*
- Call me Ishmael.
+ 词曰：
 
 
 
- Some years ago -- never mind how log precisely -- ...
+ 滚滚长江东逝水，浪花淘尽英雄。...
  */
 ```
 
 ```css
-a { 
+a {
     /*
-     Comment 
+     注释
 
 
 
 
-     inside the declaration with a lot of empty lines...
+     在声明里面有很多空行...
     */
-     color: pink; 
+     color: pink;
 }
 ```

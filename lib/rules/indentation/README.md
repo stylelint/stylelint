@@ -1,6 +1,6 @@
 # indentation
 
-Specify indentation.
+指定缩进。
 
 ```css
    |@media print {
@@ -10,20 +10,20 @@ Specify indentation.
    | ↑}↑ ↑
    |}↑ ↑ ↑
 /**  ↑ ↑ ↑
- * The indentation at these three points */
+ * 这三点的缩进 */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。
 
-## Options
+## 选项
 
-`int|"tab"`, where `int` is the number of spaces
+`int|"tab"`, 其中 `int` 是空格的数量
 
 ### `2`
 
-Always indent at-rules, rules, comments, declarations, inside parentheses and multi-line values by 2 spaces.
+始终将 @规则、规则、注释、声明、括号内和多行值按 2 个空格缩进。
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media print {
@@ -87,7 +87,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media print {
@@ -133,13 +133,13 @@ a {
 }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `baseIndentLevel: int|"auto"`
 
-By default, the indent level of the CSS code block in non-CSS-like files is determined by the shortest indent of non-empty line. The setting `baseIndentLevel` allows you to define a relative indent level based on CSS code block opening or closing line.
+默认情况下，非类 CSS 文件中 CSS 代码块的缩进级别由非空行的最短缩进行确定。设置 `baseIndentLevel` 允许您根据CSS代码块打开或闭合行定义相对缩进级别。
 
-For example, with `[ 2, { baseIndentLevel: 1 } ]`, CSS should be indented 1 levels higher than `<style>` tag:
+例如，使用 `[2，{baseIndentLevel：1}]`，CSS 应该比 `<style>` 标签缩进高1级：
 
 ```html
 <!DOCTYPE html>
@@ -156,11 +156,11 @@ For example, with `[ 2, { baseIndentLevel: 1 } ]`, CSS should be indented 1 leve
 
 ### `indentInsideParens: "twice"|"once-at-root-twice-in-block"`
 
-By default, *one extra* indentation (of your specified type) is expected after newlines inside parentheses, and the closing parenthesis is expected to have no extra indentation.
+默认情况下，在括号内的换行符后，期望有*一级额外的*缩进（指定类型），并且闭合括号预计不会有额外的缩进。
 
-If you would like to change the quantity of extra indentation inside parentheses, use this option.
+如果要更改括号内的额外缩进数量，请使用此选项。
 
-`"twice"` means you expect two extra indentations (of your specified type) after newlines inside parentheses, and expect the closing parenthesis to have one extra indentation. For example:
+`"twice"` 意味着在括号内的换行符之后会出现两级额外的缩进（指定类型），并期望闭合号有一个额外的缩进。例如：
 
 ```css
 a {
@@ -173,7 +173,7 @@ a {
 }
 ```
 
-`"once-at-root-twice-in-block"` means two things: You want the behavior of `"once"`, as documented above, when the parenthetical expression is part of a node that is an immediate descendent of the root — i.e. not inside a block. And you want the behavior of `"twice"`, as documented above, when the parenthetical expression is part of a node that is inside a block. For example, with a SCSS map:
+`"once-at-root-twice-in-block"` 意味着两件事：如上所述，当括号表达式是根节点的直接后代节点的一部分时————即不在块内，你想要 `"once"` 的行为。如上所述，当括号表达式是块内部节点的一部分时，您需要 `"twice"` 的行为。例如，使用 SCSS 映射：
 
 ```scss
 $foo: (
@@ -193,11 +193,11 @@ a {
 
 ### `indentClosingBrace: true|false`
 
-If `true`, the closing brace of a block (rule or at-rule) will be expected at the same indentation level as the block's inner nodes.
+如果为 `true`，则块（规则或 @规则）的闭合括号将与块的内部节点保持相同的缩进级别。
 
-For example, with `indentClosingBrace: true`.
+例如，使用 `indentClosingBrace: true`。
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -213,7 +213,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -231,11 +231,11 @@ a {
 
 ### `except: ["block", "param", "value"]`
 
-Do *not* indent for these things.
+对这些事物*不*做缩进。
 
-For example, with `2`.
+例如，用 `2`。
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media print,
@@ -248,7 +248,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media print,
@@ -265,11 +265,11 @@ top right;
 
 #### `"inside-parens"`
 
-Ignore the indentation inside parentheses.
+忽略括号内的缩进。
 
-For example, with `2`.
+例如，用 `2`。
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -284,11 +284,11 @@ a {
 
 #### `"param"`
 
-Ignore the indentation of at-rule params.
+忽略 @规则参数的缩进。
 
-For example, with `2`.
+例如，用 `2`。
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media print,
@@ -299,11 +299,11 @@ The following patterns are *not* considered violations:
 
 #### `"value"`
 
-Ignore the indentation of values.
+忽略值的缩进。
 
-For example, with `2`.
+例如，用 `2`。
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
