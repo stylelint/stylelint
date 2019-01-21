@@ -35,7 +35,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are *not* considered violations:
 
 ```css
 a {
