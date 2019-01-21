@@ -1,24 +1,24 @@
 # font-family-no-duplicate-names
 
-Disallow duplicate font family names.
+禁止使用重复的字体族名称。
 
 ```css
 a { font-family: serif, serif; }
 /**              ↑      ↑
- * These font family names */
+ *            这些字体族名称 */
 ```
 
-This rule checks the `font` and `font-family` properties.
+该规则会检测 `font` 和 `font-family`属性。
 
-This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.
+该规则会忽略`$sass`、`@less` 和 `var(--custom-property)` 变量语法。
 
-**Caveat:** This rule will stumble on *unquoted* multi-word font names and *unquoted* font names containing escape sequences. Wrap these font names in quotation marks, and everything should be fine.
+**警告:** 这条规则有时候会被*未加引号*的多字字体名称和*未加引号*的包含转义字符的字体名称触发。只要用引号包住这些字体名称，就能解决这个问题。
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { font-family: 'Times', Times, serif; }
@@ -32,7 +32,7 @@ a { font: 1em "Arial", 'Arial', sans-serif; }
 a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif, sans-serif; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规。
 
 ```css
 a { font-family: Times, serif; }
@@ -46,7 +46,7 @@ a { font: 1em "Arial", "sans-serif", sans-serif; }
 a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif; }
 ```
 
-## Optional secondary options
+## 可选的次选项
 
 ### `ignoreFontFamilyNames: ["/regex/", /regex/, "string"]`
 
@@ -56,7 +56,7 @@ Given:
 ["/^My Font /", "monospace"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规。
 
 ```css
 font-family: monospace, monospace

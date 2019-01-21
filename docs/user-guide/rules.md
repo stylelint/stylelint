@@ -18,11 +18,11 @@
 
 #### 颜色
 
--   [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
+-   [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md)：禁止使用无效的十六进制颜色。
 
 #### 字体族
 
--   [`font-family-no-duplicate-names`](../../lib/rules/font-family-no-duplicate-names/README.md): Disallow duplicate font family names.
+-   [`font-family-no-duplicate-names`](../../lib/rules/font-family-no-duplicate-names/README.md)：禁止使用重复的字体族名称。
 -   [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md): Disallow missing generic families in lists of font family names.
 
 #### 函数
@@ -357,3 +357,4 @@
 -   [`no-eol-whitespace`](../../lib/rules/no-eol-whitespace/README.md)：禁止行尾空白（可自动修复）。
 -   [`no-missing-end-of-source-newline`](../../lib/rules/no-missing-end-of-source-newline/README.md)：禁止缺少源代码结尾换行符（可自动修复）。
 -   [`no-empty-first-line`](../../lib/rules/no-empty-first-line/README.md)：禁止空第一行（可自动修复）。
+

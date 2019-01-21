@@ -1,20 +1,20 @@
 # color-no-invalid-hex
 
-Disallow invalid hex colors.
+禁止使用无效的十六进制颜色。
 
 ```css
 a { color: #y3 }
 /**        ↑
- * These hex colors */
+ * 这些十六进制颜色 */
 ```
 
-Longhand hex colors can be either 6 or 8 (with alpha channel) hexadecimal characters. And their shorthand variants are 3 and 4 characters respectively.
+正常的十六进制颜色可以是 6 位或者 8 位（包含透明度）十六进制值， 而他们对应的简写形式则可以是 3 位或者 4 位十六进制值。
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下的模式被视为违规。
 
 ```css
 a { color: #00; }
@@ -28,7 +28,7 @@ a { color: #fff1az; }
 a { color: #12345aa; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规。
 
 ```css
 a { color: #000; }
