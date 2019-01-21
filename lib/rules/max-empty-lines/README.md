@@ -13,7 +13,7 @@ a {} /* ↑ */
 
 ## Options
 
-`int`: Maximum number of characters allowed.
+`int`: Maximum number of adjacent empty lines allowed.
 
 For example, with `2`:
 
@@ -91,15 +91,15 @@ The following patterns are *not* considered violations:
 ```
 
 ```css
-a { 
+a {
     /*
-     Comment 
+     Comment
 
 
 
 
      inside the declaration with a lot of empty lines...
     */
-     color: pink; 
+     color: pink;
 }
 ```
