@@ -150,7 +150,7 @@ Please run through this checklist and ensure each point is covered by your tests
 
 ##### Commonly overlooked edge-cases
 
--   How does your rule handle variables (`$sass`, `@less`, or `var(--custom-property)`)?
+-   How does your rule handle variables (`$sass`, `@less` or `var(--custom-property)`)?
 -   How does your rule handle CSS strings (e.g. `content: "anything goes";`)?
 -   How does your rule handle CSS comments (e.g. `/* anything goes */`)?
 -   How does your rule handle `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
