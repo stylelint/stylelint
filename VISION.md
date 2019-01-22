@@ -15,9 +15,9 @@
 
 为以下三个方面提供内置规则：
 
--   [可能错误](docs/user-guide/rules.md#可能错误).
--   [限制语言功能](docs/user-guide/rules.md#限制语言功能).
--   [风格问题](docs/user-guide/rules.md#风格问题).
+-   [可能错误](docs/user-guide/rules.md#可能错误)。
+-   [限制语言功能](docs/user-guide/rules.md#限制语言功能)。
+-   [风格问题](docs/user-guide/rules.md#风格问题)。
 
 ### 可能错误
 
