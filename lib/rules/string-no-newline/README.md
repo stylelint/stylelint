@@ -22,13 +22,13 @@ The following patterns are considered violations:
 ```css
 a {
   content: "first
-    second";     
-}  
+    second";
+}
 ```
 
 ```css
 [title="something
-is probably wrong"] {}  
+is probably wrong"] {}
 ```
 
 ```css
@@ -36,30 +36,30 @@ a {
   font-family: "Times
     New
     Roman";
-}  
+}
 ```
 
 The following patterns are *not* considered violations:
 
 ```css
 a {
-  content: "first\Asecond";     
-}  
+  content: "first\Asecond";
+}
 ```
 
 ```css
 a {
-  content: "first\\nsecond";     
-}  
+  content: "first\\nsecond";
+}
 ```
 
 ```css
 [title="nothing\
-  is wrong"] {}  
+  is wrong"] {}
 ```
 
 ```css
 a {
   font-family: "Times New Roman";
-}  
+}
 ```

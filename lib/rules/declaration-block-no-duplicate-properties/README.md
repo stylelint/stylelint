@@ -73,7 +73,7 @@ The following patterns are considered violations:
 ```css
 /* properties with the same value */
 p {
-  font-size: 16px;  
+  font-size: 16px;
   font-size: 16px;
   font-weight: 400;
 }
