@@ -46,7 +46,7 @@ Given:
 ["::-webkit-input-placeholder", "/-moz-.*/"]
 ```
 
-The following patterns are not considered violations:
+The following patterns are *not* considered violations:
 
 ```css
 input::-webkit-input-placeholder {
