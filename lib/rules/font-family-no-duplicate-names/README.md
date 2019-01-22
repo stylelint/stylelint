@@ -32,7 +32,7 @@ a { font: 1em "Arial", 'Arial', sans-serif; }
 a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif, sans-serif; }
 ```
 
-以下模式*不*被视为违规。
+以下模式*不*被视为违规：
 
 ```css
 a { font-family: Times, serif; }
@@ -50,13 +50,13 @@ a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif; }
 
 ### `ignoreFontFamilyNames: ["/regex/", /regex/, "string"]`
 
-Given:
+给定：
 
 ```js
 ["/^My Font /", "monospace"]
 ```
 
-以下模式*不*被视为违规。
+以下模式*不*被视为违规：
 
 ```css
 font-family: monospace, monospace
