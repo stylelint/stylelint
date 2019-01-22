@@ -25,13 +25,13 @@ This rule allows a trailing semicolon after the closing brace of a block. For ex
     background-color: hsl(120, 70%, 95%);
   };
 /* ↑
- * This semicolon */  
+ * This semicolon */
 }
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。
 
-## Options
+## 选项
 
 `string`: `"always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line"`
 
@@ -39,7 +39,7 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 There *must always* be a newline after the closing brace.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { color: pink; }b { color: red; }
@@ -50,7 +50,7 @@ a { color: pink;
 } b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { color: pink; }
@@ -61,13 +61,13 @@ b { color: red; }
 
 There *must always* be a newline after the closing brace in single-line blocks.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { color: pink; } b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { color: pink;
@@ -83,13 +83,13 @@ b { color: red; }
 
 There *must never* be whitespace after the closing brace in single-line blocks.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { color: pink; } b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { color: pink; }b { color: red; }
@@ -104,14 +104,14 @@ a { color: pink;
 
 There *must always* be a newline after the closing brace in multi-line blocks.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { color: pink;
 }b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { color: pink; }b { color: red; }
@@ -127,14 +127,14 @@ b { color: red; }
 
 There *must never* be whitespace after the closing brace in multi-line blocks.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { color: pink;
 } b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { color: pink; } b { color: red; }
@@ -145,7 +145,7 @@ a { color: pink;
 }b { color: red; }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignoreAtRules: ["/regex/", "non-regex"]`
 
@@ -153,13 +153,13 @@ Ignore specified at-rules.
 
 For example, with `"always"` or `"always-multi-line"`.
 
-Given:
+给定：
 
 ```js
 ["if", "else"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @if ($var) {

@@ -8,7 +8,7 @@ a { --foo-: 1px; }
  * The pattern of this */
 ```
 
-## Options
+## 选项
 
 `regex|string`
 
@@ -20,13 +20,13 @@ Given the string:
 "foo-.+"
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 :root { --boo-bar: 0; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 :root { --foo-bar: 0; }

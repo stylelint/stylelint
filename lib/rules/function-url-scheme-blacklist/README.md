@@ -15,17 +15,17 @@ This rule ignores:
 -   URL arguments without an existing URL scheme
 -   URL arguments with variables or variable interpolation (`$sass`, `@less`, `--custom-property`, `#{$var}`, `@{var}`, `$(var)`)
 
-## Options
+## 选项
 
 `array|string|regex`: `["array", "of", /schemes/ or "/regex/"]|"scheme"|/regex/`
 
-Given:
+给定：
 
 ```js
 ["ftp", "/^http/"]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { background-image: url('ftp://www.example.com/file.jpg'); }
@@ -39,7 +39,7 @@ a { background-image: url('http://www.example.com/file.jpg'); }
 a { background-image: url('https://www.example.com/file.jpg'); }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }

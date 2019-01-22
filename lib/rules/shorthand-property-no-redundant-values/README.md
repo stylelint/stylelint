@@ -18,13 +18,13 @@ This rule alerts you when you use redundant values in the following shorthand pr
 -   `border-width`
 -   `grid-gap`
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { margin: 1px 1px; }
@@ -46,7 +46,7 @@ a { border-radius: 1px 2px 1px 2px; }
 a { -webkit-border-radius: 1px 1px 1px 1px; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { margin: 1px; }

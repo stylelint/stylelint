@@ -17,9 +17,9 @@ This rule ignores:
 -   single-line comments with `//` (when you're using a custom syntax that supports them)
 -   comments within selector and value lists
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。 We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
 
-## Options
+## 选项
 
 `string`: `"always"|"never"`
 
@@ -27,14 +27,14 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 There *must always* be an empty line before comments.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {}
 /* comment */
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {}
@@ -50,7 +50,7 @@ a {} /* comment */
 
 There *must never* be an empty line before comments.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {}
@@ -58,7 +58,7 @@ a {}
 /* comment */
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {}
@@ -69,15 +69,15 @@ a {}
 a {} /* comment */
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `except: ["first-nested"]`
 
 Reverse the primary option for comments that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -87,7 +87,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -102,9 +102,9 @@ a {
 
 Don't require an empty line after a comment.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -131,9 +131,9 @@ a {
 
 Ignore comments that deliver commands to stylelint, e.g. `/* stylelint-disable color-no-hex */`.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -143,7 +143,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {

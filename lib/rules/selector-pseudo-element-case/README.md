@@ -8,13 +8,13 @@ Specify lowercase or uppercase for pseudo-element selectors.
  * This is pseudo-element selector */
 ```
 
-## Options
+## 选项
 
 `string`: `"lower"|"upper"`
 
 ### `"lower"`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a:Before {}
@@ -44,7 +44,7 @@ a::BEFORE {}
 input::-MOZ-PLACEHOLDER {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a:before {}
@@ -60,7 +60,7 @@ input::-moz-placeholder {}
 
 ### `"upper"`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a:Before {}
@@ -90,7 +90,7 @@ a::before {}
 input::-moz-placeholder {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a:BEFORE {}

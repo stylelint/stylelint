@@ -12,7 +12,7 @@ This rule ignores non-outputting Less mixin definitions and called Less mixins.
 
 Escaped selectors (e.g. `.u-size-11\/12\@sm`) are parsed as escaped twice (e.g. `.u-size-11\\/12\\@sm`). Your RegExp should account for that.
 
-## Options
+## 选项
 
 `regex|string`
 
@@ -26,7 +26,7 @@ Given the string:
 "foo-[a-z]+"
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 .foop {}
@@ -40,7 +40,7 @@ The following patterns are considered violations:
 div > #zing + .foo-BAR {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 .foo-bar {}
@@ -68,7 +68,7 @@ div > #zing + .foo-bar {}
 }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `resolveNestedSelectors: true | false` (default: `false`)
 
@@ -82,7 +82,7 @@ Given the string:
 "^[A-Z]+$"
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 .A {
@@ -90,7 +90,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 .A {

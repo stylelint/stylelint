@@ -12,9 +12,9 @@ b {}  /* ↑ */
 
 This rule ignores rules that are the very first node in a source.
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。 We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
 
-## Options
+## 选项
 
 `string`: `"always"|"never"|"always-multi-line"|"never-multi-line"`
 
@@ -22,7 +22,7 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 There *must always* be an empty line before rules.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {} b {}
@@ -33,7 +33,7 @@ a {}
 b {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {}
@@ -45,7 +45,7 @@ b {}
 
 There *must never* be an empty line before rules.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {}
@@ -53,7 +53,7 @@ a {}
 b {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {} b {}
@@ -68,7 +68,7 @@ b {}
 
 There *must always* be an empty line before multi-line rules.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -79,7 +79,7 @@ b {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -95,7 +95,7 @@ b {
 
 There *must never* be an empty line before multi-line rules.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -107,7 +107,7 @@ b {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -118,7 +118,7 @@ b {
 }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `except: ["after-rule", "after-single-line-comment", "inside-block-and-after-rule", "inside-block", "first-nested"]`
 
@@ -126,9 +126,9 @@ b {
 
 Reverse the primary option if the rule comes after another rule.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {}
@@ -136,7 +136,7 @@ a {}
 b {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {}
@@ -147,9 +147,9 @@ b {}
 
 Reverse the primary option if the rule comes after a single-line comment.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 /* comment */
@@ -157,7 +157,7 @@ The following patterns are considered violations:
 a {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 /* comment */
@@ -168,9 +168,9 @@ a {}
 
 Reverse the primary option if the rule is inside a block and comes after another rule.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media {
@@ -181,7 +181,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media {
@@ -194,9 +194,9 @@ The following patterns are *not* considered violations:
 
 Reverse the primary option if the rule is inside a block.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```scss
 a {
@@ -209,7 +209,7 @@ a {
 
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```scss
 a {
@@ -224,9 +224,9 @@ a {
 
 Reverse the primary option if the rule is the first in a block.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media {
@@ -237,7 +237,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media {
@@ -253,9 +253,9 @@ The following patterns are *not* considered violations:
 
 Ignore rules that come after a comment.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 /* comment */
@@ -266,9 +266,9 @@ a {}
 
 Ignore rules that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media {
@@ -282,9 +282,9 @@ The following patterns are *not* considered violations:
 
 Ignore rules that are inside a block.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media {

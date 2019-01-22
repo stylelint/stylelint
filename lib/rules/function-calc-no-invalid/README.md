@@ -46,11 +46,11 @@ Disallow an invalid expression within `calc` functions.
 -   `calc()` must not be division by zero.
 -   [The resolved type](https://www.w3.org/TR/css-values-3/#calc-type-checking) must be valid for where the expression is placed.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 .foo {width: calc();}
@@ -72,7 +72,7 @@ The following patterns are considered violations:
 .foo {width: calc(100px + 80);}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 .foo {width: calc(100% - 80px);}

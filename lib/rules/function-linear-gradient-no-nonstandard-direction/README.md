@@ -16,11 +16,11 @@ A valid and standard direction value is one of the following:
 
 A common mistake (matching outdated non-standard syntax) is to use just a side-or-corner without the preceding `to`.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 .foo { background: linear-gradient(top, #fff, #000); }
@@ -42,7 +42,7 @@ The following patterns are considered violations:
 .foo { background: linear-gradient(to top top, #fff, #000); }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 .foo { background: linear-gradient(to top, #fff, #000); }

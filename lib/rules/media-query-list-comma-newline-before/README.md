@@ -9,7 +9,7 @@ Require a newline or disallow whitespace before the commas of media query lists.
  * These commas */
 ```
 
-## Options
+## 选项
 
 `string`: `"always"|"always-multi-line"|"never-multi-line"`
 
@@ -17,7 +17,7 @@ Require a newline or disallow whitespace before the commas of media query lists.
 
 There *must always* be a newline before the commas.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media screen and (color), projection and (color) {}
@@ -28,7 +28,7 @@ The following patterns are considered violations:
 projection and (color) {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media screen and (color)
@@ -45,14 +45,14 @@ projection and (color) {}
 
 There *must always* be a newline before the commas in multi-line media query lists.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media screen and (color),
 projection and (color) {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media screen and (color), projection and (color) {}
@@ -73,7 +73,7 @@ projection and (color) {}
 
 There *must never* be whitespace before the commas in multi-line media query lists.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media screen and (color)
@@ -86,7 +86,7 @@ The following patterns are considered violations:
 projection and (color) {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media screen and (color), projection and (color) {}

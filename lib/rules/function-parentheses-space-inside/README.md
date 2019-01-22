@@ -8,9 +8,9 @@ a { transform: translate( 1, 1 ); }
  * The space inside these two parentheses */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。
 
-## Options
+## 选项
 
 `string`: `"always"|"never"|"always-single-line"|"never-single-line"`
 
@@ -18,7 +18,7 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 There *must always* be a single space inside of the parentheses.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { transform: translate(1, 1); }
@@ -28,7 +28,7 @@ a { transform: translate(1, 1); }
 a { transform: translate(1, 1 ); }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { transform: translate( 1, 1 ); }
@@ -38,7 +38,7 @@ a { transform: translate( 1, 1 ); }
 
 There *must never* be whitespace on the inside of the parentheses.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { transform: translate( 1, 1 ); }
@@ -48,7 +48,7 @@ a { transform: translate( 1, 1 ); }
 a { transform: translate(1, 1 ); }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { transform: translate(1, 1); }
@@ -58,7 +58,7 @@ a { transform: translate(1, 1); }
 
 There *must always* be a single space inside the parentheses of single-line functions.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { transform: translate(1, 1) }
@@ -68,7 +68,7 @@ a { transform: translate(1, 1) }
 a { transform: translate(1, 1 ) }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { transform: translate( 1, 1 ) }
@@ -92,7 +92,7 @@ a {
 
 There *must never* be whitespace inside the parentheses of single-line functions.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { transform: translate( 1, 1 ) }
@@ -102,7 +102,7 @@ a { transform: translate( 1, 1 ) }
 a { transform: translate(1, 1 ) }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { transform: translate(1, 1) }

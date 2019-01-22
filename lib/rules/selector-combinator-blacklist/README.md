@@ -12,17 +12,17 @@ This rule normalizes the whitespace descendant combinator to be a single space.
 
 This rule ignores [reference combinators](https://www.w3.org/TR/selectors4/#idref-combinators) e.g. `/for/`.
 
-## Options
+## 选项
 
 `array|string`: `["array", "of", "combinators"]|"combinator"`
 
-Given:
+给定：
 
 ```js
 [">", " "]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a > b {}
@@ -37,7 +37,7 @@ a
 b {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a + b {}

@@ -14,11 +14,11 @@ a { animation: fancy-slide 2s linear; }
 
 This rule considers the identifiers of `@keyframes` rules defined within the same source to be known.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { animation-name: fancy-slide; }
@@ -43,7 +43,7 @@ a { animation-name: jump; }
 @keyframes fancy-slide {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { animation-name: fancy-slide; }

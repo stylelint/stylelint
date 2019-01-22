@@ -15,23 +15,23 @@ This rule ignores:
 -   URL arguments without an existing URL scheme
 -   URL arguments with variables or variable interpolation (`$sass`, `@less`, `--custom-property`, `#{$var}`, `@{var}`, `$(var)`)
 
-## Options
+## 选项
 
 `array|string|regex`: `["array", "of", /schemes/ or "/regex/"]|"scheme"|/regex/`
 
-Given:
+给定：
 
 ```js
 ["data", "/^http/"]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { background-image: url('file://file.jpg'); }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { background-image: url('example.com/file.jpg'); }

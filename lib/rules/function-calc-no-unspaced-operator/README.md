@@ -10,11 +10,11 @@ a { top: calc(1px + 2px); }
 
 Before the operator, there must be a single whitespace or a newline plus indentation. After the operator, there must be a single whitespace or a newline.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { top: calc(1px+2px); }
@@ -24,7 +24,7 @@ a { top: calc(1px+2px); }
 a { top: calc(1px+ 2px); }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { top: calc(1px + 2px); }

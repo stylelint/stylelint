@@ -8,7 +8,7 @@ Require a single space or disallow whitespace before the semicolons at-rules.
  * The space before this semicolon */
 ```
 
-## Options
+## 选项
 
 `string`: `"always"|"never"`
 

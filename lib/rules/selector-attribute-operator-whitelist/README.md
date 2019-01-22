@@ -8,17 +8,17 @@ Specify a whitelist of allowed attribute operators.
  * These operators */
 ```
 
-## Options
+## 选项
 
 `array|string`: `["array", "of", "operators"]|"operator"`
 
-Given:
+给定：
 
 ```js
 [ "=", "|=" ]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 [class*="test"] {}
@@ -32,7 +32,7 @@ The following patterns are considered violations:
 [class^="top"] {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 [target] {}

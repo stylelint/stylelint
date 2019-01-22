@@ -10,13 +10,13 @@ Limit the number of combinators in a selector.
 
 This rule resolves nested selectors before counting the number of combinators selectors. Each selector in a [selector list](https://www.w3.org/TR/selectors4/#selector-list) is evaluated separately.
 
-## Options
+## 选项
 
 `int`: Maximum combinators selectors allowed.
 
-For example, with `2`:
+例如，使用 `2`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a b ~ c + d {}
@@ -36,7 +36,7 @@ a b {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {}

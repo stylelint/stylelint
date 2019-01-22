@@ -8,19 +8,19 @@ a { transform: scale(1); }
  * These functions */
 ```
 
-## Options
+## 选项
 
 `array|string`: `["array", "of", "unprefixed", /functions/ or "regex"]|"function"|"/regex/"`
 
 If a string is surrounded with `"/"` (e.g. `"/^rgb/"`), it is interpreted as a regular expression.
 
-Given:
+给定：
 
 ```js
 ["scale", "rgba", "linear-gradient"]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { transform: rotate(1); }
@@ -40,7 +40,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { background: red; }

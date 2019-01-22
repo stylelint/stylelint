@@ -8,7 +8,7 @@ Specify a pattern for keyframe names.
  * The pattern of this */
 ```
 
-## Options
+## 选项
 
 `regex|string`
 
@@ -21,7 +21,7 @@ Given the string:
 "foo-.+"
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @keyframes foo {}
@@ -35,7 +35,7 @@ The following patterns are considered violations:
 @keyframes FOO-bar {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @keyframes foo-bar {}

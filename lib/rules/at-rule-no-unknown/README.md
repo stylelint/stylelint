@@ -10,17 +10,17 @@ Disallow unknown at-rules.
 
 This rule considers at-rules defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @unknown {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @charset "UTF-8";
@@ -40,17 +40,17 @@ The following patterns are *not* considered violations:
 }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignoreAtRules: ["/regex/", /regex/, "string"]`
 
-Given:
+给定：
 
 ```js
 ["/^my-/", "custom"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @my-at-rule "x.css";

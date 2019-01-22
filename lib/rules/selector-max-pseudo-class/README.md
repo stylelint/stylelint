@@ -13,13 +13,13 @@ This rule resolves nested selectors before counting the number of pseudo-classes
 
 The content of the `:not()` pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.
 
-## Options
+## 选项
 
 `int`: Maximum pseudo-classes allowed.
 
-For example, with `1`:
+例如，使用 `1`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a:first-child:focus {}
@@ -29,7 +29,7 @@ a:first-child:focus {}
 .foo .bar:first-child:hover {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {}

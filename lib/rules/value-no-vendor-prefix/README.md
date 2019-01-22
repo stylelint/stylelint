@@ -10,11 +10,11 @@ a { display: -webkit-flex; }
 
 This rule will only complain for prefixed *standard* values, and not for prefixed *proprietary* or *unknown* ones.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { display: -webkit-flex; }
@@ -28,7 +28,7 @@ a { max-width: -moz-max-content; }
 a { background: -webkit-linear-gradient(bottom, #000, #fff); }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { display: flex; }
@@ -42,17 +42,17 @@ a { max-width: max-content; }
 a { background: linear-gradient(bottom, #000, #fff); }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignoreValues: ["string"]`
 
-Given:
+给定：
 
 ```js
 ["grab", "max-content"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 cursor: -webkit-grab;

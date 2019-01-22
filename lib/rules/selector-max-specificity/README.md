@@ -14,15 +14,15 @@ This rule ignores selectors with variable interpolation (`#{$var}`, `@{var}`, `$
 
 This rule resolves nested selectors before calculating the specificity of a selector.
 
-## Options
+## 选项
 
 `string`: Maximum specificity allowed.
 
 Format is `"id,class,type"`, as laid out in the [W3C selector spec](https://drafts.csswg.org/selectors/#specificity-rules).
 
-For example, with `"0,2,0"`:
+例如，使用 `"0,2,0"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 #foo {}
@@ -47,7 +47,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 div {}
@@ -78,11 +78,11 @@ div {}
 }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignoreSelectors: ["/regex/", /regex/, "string"]`
 
-Given:
+给定：
 
 ```js
 ["0,2,0", {
@@ -90,7 +90,7 @@ Given:
 }];
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 :global(.foo) .bar {}
@@ -104,7 +104,7 @@ The following patterns are *not* considered violations:
 :local(.foo, :global(.bar).baz)
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 :global(.foo) .bar.baz {}

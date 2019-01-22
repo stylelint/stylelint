@@ -8,17 +8,17 @@ Specify a whitelist of allowed at-rules.
  * At-rules like this */
 ```
 
-## Options
+## 选项
 
 `array|string`: `["array", "of", "unprefixed", "at-rules"]|"at-rule"`
 
-Given:
+给定：
 
 ```js
 ["extend", "keyframes"]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @import "path/to/file.css";
@@ -30,7 +30,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { @extend placeholder; }

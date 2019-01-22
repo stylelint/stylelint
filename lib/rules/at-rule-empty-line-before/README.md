@@ -15,9 +15,9 @@ This rule ignores:
 -   at-rules that are the very first node in the source
 -   `@import` in Less.
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。 We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
 
-## Options
+## 选项
 
 `string`: `"always"|"never"`
 
@@ -25,7 +25,7 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 There *must always* be an empty line before at-rules.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {} @media {}
@@ -36,7 +36,7 @@ a {}
 @media {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {}
@@ -48,7 +48,7 @@ a {}
 
 There *must never* be an empty line before at-rules.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {}
@@ -56,7 +56,7 @@ a {}
 @media {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {} @media {}
@@ -67,7 +67,7 @@ a {}
 @media {}
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `except: ["after-same-name", "inside-block", "blockless-after-same-name-blockless", "blockless-after-blockless", "first-nested"]`
 
@@ -77,9 +77,9 @@ Reverse the primary option for at-rules that follow another at-rule with the sam
 
 This means that you can group your at-rules by name.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @charset "UTF-8";
@@ -106,9 +106,9 @@ a {
 
 Reverse the primary option for at-rules that are nested.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -124,7 +124,7 @@ b {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -146,9 +146,9 @@ This means that you can group your blockless at-rules by name.
 
 Shared-line comments do not affect this option.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @charset "UTF-8";
@@ -181,9 +181,9 @@ Reverse the primary option for at-rules within a blockless group.
 
 Shared-line comments do not affect this option.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @import url(x.css);
@@ -193,7 +193,7 @@ The following patterns are considered violations:
 @media print {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @import url(x.css);
@@ -213,9 +213,9 @@ The following patterns are *not* considered violations:
 
 Reverse the primary option for at-rules that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -230,7 +230,7 @@ b {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -253,7 +253,7 @@ Ignore at-rules that come after a comment.
 
 Shared-line comments do not trigger this option.
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 /* comment */
@@ -276,9 +276,9 @@ The following patterns are *not* considered violations:
 
 Ignore at-rules that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @supports {
@@ -292,9 +292,9 @@ The following patterns are *not* considered violations:
 
 Ignore at-rules that are inside a declaration block.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -326,9 +326,9 @@ Ignore blockless at-rules that follow another blockless at-rule with the same na
 
 This means that you can group your blockless at-rules by name.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 
@@ -353,9 +353,9 @@ a {
 
 Ignore blockless at-rules that follow another blockless at-rule.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @import url(x.css);
@@ -378,13 +378,13 @@ Ignore specified at-rules.
 
 For example, with `"always"`.
 
-Given:
+给定：
 
 ```js
 ["import"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @charset "UTF-8";

@@ -14,15 +14,15 @@ a {
 
 This rule only applies to standard property declarations. Use the [`custom-property-empty-line-before`](../custom-property-empty-line-before/README.md) rule for custom property declarations.
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。 We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
 
-## Options
+## 选项
 
 `string`: `"always"|"never"`
 
 ### `"always"`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -38,7 +38,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -59,7 +59,7 @@ a {
 
 ### `"never"`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -78,7 +78,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -94,7 +94,7 @@ a {
 }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `except: ["after-comment", "after-declaration", "first-nested"]`
 
@@ -104,9 +104,9 @@ Reverse the primary option for declarations that come after a comment.
 
 Shared-line comments do not trigger this option.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -123,7 +123,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -148,9 +148,9 @@ Reverse the primary option for declarations that come after another declaration.
 
 Shared-line comments do not affect this option.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -170,7 +170,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -192,9 +192,9 @@ a {
 
 Reverse the primary option for declarations that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -205,7 +205,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -221,9 +221,9 @@ a {
 
 Ignore declarations that are preceded by comments.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -236,9 +236,9 @@ a {
 
 Ignore declarations that are preceded by declarations, to allow for multiple declaration sets in the same block.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -272,9 +272,9 @@ a {
 
 Ignore declarations that are nested and the first child of their parent node.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -288,9 +288,9 @@ a {
 
 Ignore declarations that are inside single-line blocks.
 
-For example, with `"always"`:
+例如，使用 `"always"`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { bottom: 15px; top: 5px; }

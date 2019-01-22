@@ -12,13 +12,13 @@ b {        /* ↑ */
  *        This empty line */
 ```
 
-## Options
+## 选项
 
 `int`: Maximum number of empty lines.
 
-For example, with `0`:
+例如，使用 `0`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a
@@ -54,7 +54,7 @@ b {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a b {

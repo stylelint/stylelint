@@ -10,11 +10,11 @@ Disallow unknown type selectors.
 
 This rule considers tags defined in the HTML, SVG, and MathML specifications to be known.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 unknown {}
@@ -24,7 +24,7 @@ unknown {}
 tag {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 input {}
@@ -38,7 +38,7 @@ ul li {}
 li > a {}
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignore: ["custom-elements", "default-namespace"]`
 
@@ -46,7 +46,7 @@ li > a {}
 
 Allow custom elements.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 unknown {}
@@ -56,7 +56,7 @@ unknown {}
 x-Foo {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 x-foo {}
@@ -66,13 +66,13 @@ x-foo {}
 
 Allow unknown type selectors if they belong to the default namespace.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 namespace|unknown {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 unknown {}
@@ -80,13 +80,13 @@ unknown {}
 
 ### `ignoreNamespaces: ["/regex/", /regex/, "string"]`
 
-Given:
+给定：
 
 ```js
 ["/^my-/", "custom-namespace"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 custom-namespace|unknown {}
@@ -102,13 +102,13 @@ my-other-namespace|unknown {}
 
 ### `ignoreTypes: ["/regex/", /regex/, "string"]`
 
-Given:
+给定：
 
 ```js
 ["/^my-/", "custom-type"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 custom-type {}

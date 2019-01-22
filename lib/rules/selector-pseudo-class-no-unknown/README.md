@@ -12,11 +12,11 @@ This rule considers pseudo-class selectors defined in the CSS Specifications, up
 
 This rule ignores vendor-prefixed pseudo-class selectors.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a:unknown {}
@@ -30,7 +30,7 @@ a:UNKNOWN {}
 a:hoverr {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a:hover {}
@@ -48,17 +48,17 @@ a:focus {}
 input:-moz-placeholder {}
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignorePseudoClasses: ["/regex/", "string"]`
 
-Given:
+给定：
 
 ```js
 ["/^my-/", "pseudo-class"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a:pseudo-class {}

@@ -10,11 +10,11 @@ Disallow empty comments.
 
 This rule ignores comments within selector and value lists.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 /**/
@@ -30,7 +30,7 @@ The following patterns are considered violations:
  */
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 /* comment */

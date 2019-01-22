@@ -10,19 +10,19 @@ Specify a blacklist of disallowed words within comments.
 
 This rule ignores comments within selector and value lists.
 
-## Options
+## 选项
 
 `array|string|regexp`: `["array", "of", "words", /or/, "/regex/"]|"word"|"/regex/"`
 
 If a string is surrounded with `"/"` (e.g. `"/^TODO:/"`), it is interpreted as a regular expression.
 
-Given:
+给定：
 
 ```js
 ["/^TODO:/", "badword"]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 /* TODO: */
@@ -36,7 +36,7 @@ The following patterns are considered violations:
 /* some badword */
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 /* comment */

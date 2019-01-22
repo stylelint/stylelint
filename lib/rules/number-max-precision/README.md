@@ -8,13 +8,13 @@ a { top: 3.245634px; }
  * These decimal places */
 ```
 
-## Options
+## 选项
 
 `int`: Maximum number of decimal places allowed.
 
-For example, with `2`:
+例如，使用 `2`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { top: 3.245px; }
@@ -28,7 +28,7 @@ a { top: 3.245634px; }
 @media (min-width: 3.234em) {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { top: 3.24px; }
@@ -38,7 +38,7 @@ a { top: 3.24px; }
 @media (min-width: 3.23em) {}
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignoreUnits: ["/regex/", /regex/, "string"]`
 
@@ -46,13 +46,13 @@ Ignore the precision of numbers for values with the specified units.
 
 For example, with `2`.
 
-Given:
+给定：
 
 ```js
 ["/^my-/", "%"]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { top: 3.245px; }
@@ -66,7 +66,7 @@ a { top: 3.245634px; }
 @media (min-width: 3.234em) {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { top: 3.245%; }

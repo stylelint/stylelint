@@ -10,11 +10,11 @@ Disallow qualifying a selector by type.
 
 A type selector is "qualifying" when it is compounded with (chained to) another selector (e.g. a.foo, a#foo). This rule does not regulate type selectors that are combined with other selectors via a combinator (e.g. a > .foo, a #foo).
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a.foo {
@@ -34,7 +34,7 @@ input[type='button'] {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 .foo {
@@ -54,7 +54,7 @@ input {
 }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignore: ["attribute", "class", "id"]`
 
@@ -62,7 +62,7 @@ input {
 
 Allow attribute selectors qualified by type.
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 input[type='button'] {
@@ -74,7 +74,7 @@ input[type='button'] {
 
 Allow class selectors qualified by type.
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a.foo {
@@ -86,7 +86,7 @@ a.foo {
 
 Allow ID selectors qualified by type.
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a#foo {

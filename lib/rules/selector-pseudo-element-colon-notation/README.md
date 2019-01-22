@@ -12,9 +12,9 @@ The `::` notation was chosen for *pseudo-elements* to establish a discrimination
 
 However, for compatibility with existing style sheets, user agents also accept the previous one-colon notation for *pseudo-elements* introduced in CSS levels 1 and 2 (namely, `:first-line`, `:first-letter`, `:before` and `:after`).
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。
 
-## Options
+## 选项
 
 `string`: `"single"|"double"`
 
@@ -22,7 +22,7 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 Applicable pseudo-elements *must always* use the single colon notation.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a::before { color: pink; }
@@ -40,7 +40,7 @@ a::first-letter { color: pink; }
 a::first-line { color: pink; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a:before { color: pink; }
@@ -70,7 +70,7 @@ li::marker { font-variant-numeric: tabular-nums; }
 
 Applicable pseudo-elements *must always* use the double colon notation.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a:before { color: pink; }
@@ -88,7 +88,7 @@ a:first-letter { color: pink; }
 a:first-line { color: pink; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a::before { color: pink; }

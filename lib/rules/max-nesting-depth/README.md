@@ -44,13 +44,13 @@ a {
 
 This rule integrates into stylelint's core the functionality of the (now deprecated) plugin [`stylelint-statement-max-nesting-depth`](https://github.com/davidtheclark/stylelint-statement-max-nesting-depth).
 
-## Options
+## 选项
 
 `int`: Maximum nesting depth allowed.
 
-For example, with `2`:
+例如，使用 `2`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -72,7 +72,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -94,15 +94,15 @@ a .foo__foo .bar .baz {}
 }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignore: ["blockless-at-rules"]`
 
 Ignore at-rules that only wrap other rules, and do not themselves have declaration blocks.
 
-For example, with `1`:
+例如，使用 `1`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 As the at-rules have a declarations blocks.
 
@@ -122,7 +122,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 As all of the following `.foo` rules would have a nesting depth of just 1.
 
@@ -152,9 +152,9 @@ a {
 
 Ignore rules where the first selector in each selector list item is a pseudo-class
 
-For example, with `1`:
+例如，使用 `1`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 .a {
@@ -198,7 +198,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 As all of the following pseudoclasses rules would have a nesting depth of just 1.
 
@@ -261,13 +261,13 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
 
 Ignore the specified at-rules.
 
-For example, with `1` and given:
+例如，使用 `1` 并给定：
 
 ```js
 ["/^my-/", "media"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -309,7 +309,7 @@ a {
 }
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {

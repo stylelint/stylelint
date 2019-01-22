@@ -8,11 +8,11 @@ Disallow vendor prefixes for at-rules.
  * These prefixes */
 ```
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @-webkit-keyframes { 0% { top: 0; } }
@@ -22,7 +22,7 @@ The following patterns are considered violations:
 @-ms-viewport { orientation: landscape; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @keyframes { 0% { top: 0; } }

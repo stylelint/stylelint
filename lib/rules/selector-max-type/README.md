@@ -12,13 +12,13 @@ This rule resolves nested selectors before counting the number of type selectors
 
 The `:not()` pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.
 
-## Options
+## 选项
 
 `int`: Maximum type selectors allowed.
 
-For example, with `2`:
+例如，使用 `2`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 div a span {}
@@ -36,7 +36,7 @@ div a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 div {}
@@ -65,9 +65,9 @@ a span {}
 div a .foo:not(span) {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignore: ["child", "compounded", "descendant", "next-sibling"]`
 
@@ -75,9 +75,9 @@ The following patterns are *not* considered violations:
 
 Discount child type selectors.
 
-For example, with `2`:
+例如，使用 `2`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 div span > a {}
@@ -91,9 +91,9 @@ div span > a {}
 
 Discount compounded type selectors -- i.e. type selectors chained with other selectors.
 
-For example, with `2`:
+例如，使用 `2`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 div span a.foo {}
@@ -107,9 +107,9 @@ div span a#bar {}
 
 Discount descendant type selectors.
 
-For example, with `2`:
+例如，使用 `2`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 .foo div span a {}
@@ -123,9 +123,9 @@ The following patterns are *not* considered violations:
 
 Discount next-sibling type selectors.
 
-For example, with `2`:
+例如，使用 `2`：
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 div a + span {}
@@ -137,7 +137,7 @@ div a + span {}
 
 ### `ignoreTypes: ["/regex/", /regex/, "string"]`
 
-Given:
+给定：
 
 ```js
 ["/^my-/", "custom"]
@@ -145,7 +145,7 @@ Given:
 
 For example, with `2`.
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 div a custom {}

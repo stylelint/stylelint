@@ -8,7 +8,7 @@ Specify a pattern for custom media query names.
  * The pattern of this */
 ```
 
-## Options
+## 选项
 
 `regex|string`
 
@@ -20,13 +20,13 @@ Given the string:
 "foo-.+"
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @custom-media --bar (min-width: 30em);
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @custom-media --foo-bar (min-width: 30em);

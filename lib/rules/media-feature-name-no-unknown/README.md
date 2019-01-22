@@ -15,11 +15,11 @@ This rule ignores:
 -   media feature names within a range context
 -   vendor-prefixed media feature names
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media screen and (unknown) {}
@@ -29,7 +29,7 @@ The following patterns are considered violations:
 @media screen and (unknown: 10px) {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media all and (monochrome) {}
@@ -51,17 +51,17 @@ The following patterns are *not* considered violations:
 @media (-webkit-min-device-pixel-ratio: 2) {}
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignoreMediaFeatureNames: ["/regex/", /regex/, "string"]`
 
-Given:
+给定：
 
 ```js
 ["/^my-/", "custom"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media screen and (my-media-feature-name) {}

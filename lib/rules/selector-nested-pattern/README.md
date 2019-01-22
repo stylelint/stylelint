@@ -13,7 +13,7 @@ Specify a pattern for the selectors of rules nested within rules.
 
 Non-standard selectors (e.g. selectors with Sass or Less interpolation) and selectors of rules nested within at-rules are ignored.
 
-## Options
+## 选项
 
 `regex|string`
 
@@ -27,7 +27,7 @@ Given the string:
 "^&:(?:hover|focus)$"
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -48,7 +48,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {

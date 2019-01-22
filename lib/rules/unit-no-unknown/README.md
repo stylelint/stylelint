@@ -10,11 +10,11 @@ a { width: 100pixels; }
 
 This rule considers units defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -28,7 +28,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -54,17 +54,17 @@ a {
 }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignoreUnits: ["/regex/", /regex/, "string"]`
 
-Given:
+给定：
 
 ```js
 ["/^my-/", "custom"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 width: 10custom;
@@ -86,13 +86,13 @@ a {
 
 ### `ignoreFunctions: ["/regex/", /regex/, "string"]`
 
-Given:
+给定：
 
 ```js
 ["image-set", "/^my-/", "/^YOUR-/i"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {

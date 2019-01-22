@@ -12,13 +12,13 @@ This rule resolves nested selectors before counting the number of attribute sele
 
 The `:not()` pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.
 
-## Options
+## 选项
 
 `int`: Maximum attribute selectors allowed.
 
-For example, with `2`:
+例如，使用 `2`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 [type="number"][name="quality"][data-attribute="value"] {}
@@ -51,7 +51,7 @@ The following patterns are considered violations:
 input:not([type="text"][data-attribute="value"][disabled]) {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 [type="text"] {}
@@ -76,11 +76,11 @@ The following patterns are *not* considered violations:
 [type="text"][name="message"]:not([disabled]) {}
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignoreAttributes: ["/regex/", /regex/, "string"]`
 
-Given:
+给定：
 
 ```js
 ["/^my-/", "dir"]
@@ -88,7 +88,7 @@ Given:
 
 For example, with `0`.
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 [dir] [my-attr] {}

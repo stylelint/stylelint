@@ -10,7 +10,7 @@ Specify a whitelist of allowed media feature name and value pairs.
 
 This rule ignores media features within range and boolean context.
 
-## Options
+## 选项
 
 ```js
 {
@@ -26,7 +26,7 @@ If a name or value is surrounded with `/` (e.g. `"/width$/"`), it is interpreted
 as a regular expression. For example, `/width$/` will match `max-width` and
 `min-width`.
 
-Given:
+给定：
 
 ```json
 {
@@ -35,7 +35,7 @@ Given:
 }
 ```
 
-The following pattern are considered violations:
+以下模式被视为违规：
 
 ```css
 @media screen and (min-width: 1000px) {}
@@ -45,7 +45,7 @@ The following pattern are considered violations:
 @media screen and (min-resolution: 2dpi) {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media screen and (min-width: 768px) {}

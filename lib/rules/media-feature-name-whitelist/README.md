@@ -10,17 +10,17 @@ Specify a whitelist of allowed media feature names.
 
 This rule ignores media feature names within a range context.
 
-## Options
+## 选项
 
 `array|string|regex`: `["array", "of", "unprefixed", /media-features/ or "regex"]|"media-feature"|/regex/`
 
-Given:
+给定：
 
 ```js
 ["max-width", "/^my-/"]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media (min-width: 50em) {}
@@ -30,7 +30,7 @@ The following patterns are considered violations:
 @media print and (min-resolution: 300dpi) {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media (max-width: 50em) {}

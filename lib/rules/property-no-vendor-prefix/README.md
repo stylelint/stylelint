@@ -10,11 +10,11 @@ a { -webkit-transform: scale(1); }
 
 This rule does not blanketly condemn vendor prefixes. Instead, it uses [Autoprefixer's](https://github.com/postcss/autoprefixer) up-to-date data (from [caniuse.com](http://caniuse.com/)) to know whether a vendor prefix should cause a violation or not. *If you've included a vendor prefixed property that has a standard alternative, one that Autoprefixer could take care of for you, this rule will complain about it*. If, however, you use a non-standard vendor-prefixed property, one that Autoprefixer would ignore and could not provide (such as `-webkit-touch-callout`), this rule will ignore it.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { -webkit-transform: scale(1); }
@@ -24,7 +24,7 @@ a { -webkit-transform: scale(1); }
 a { -moz-columns: 2; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { transform: scale(1); }
@@ -39,17 +39,17 @@ columns: 2; }
 a { -webkit-touch-callout: none; }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignoreProperties: ["/regex/", /regex/, "string"]`
 
-Given:
+给定：
 
 ```js
 ["transform", "columns"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { -webkit-transform: scale(1); }

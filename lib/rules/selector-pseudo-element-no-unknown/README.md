@@ -12,11 +12,11 @@ This rule considers pseudo-element selectors defined in the CSS Specifications, 
 
 This rule ignores vendor-prefixed pseudo-element selectors.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a::pseudo {}
@@ -30,7 +30,7 @@ a::PSEUDO {}
 a::element {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a:before {}
@@ -48,17 +48,17 @@ a::before {}
 input::-moz-placeholder {}
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignorePseudoElements: ["/regex/", "string"]`
 
-Given:
+给定：
 
 ```js
 ["/^my-/", "pseudo-element"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a::pseudo-element {}

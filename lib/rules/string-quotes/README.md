@@ -23,9 +23,9 @@ Single quotes in a charset @-rule are ignored as using single quotes in this con
 /* fine regardless of configuration */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix most of the problems reported by this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的大多数问题。
 
-## Options
+## 选项
 
 `string`: `"single"|"double"`
 
@@ -33,7 +33,7 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 Strings *must always* be wrapped with single quotes.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { content: "x"; }
@@ -43,7 +43,7 @@ a { content: "x"; }
 a[id="foo"] {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { content: 'x'; }
@@ -61,7 +61,7 @@ a { content: "x'y'z"; }
 
 Strings *must always* be wrapped with double quotes.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { content: 'x'; }
@@ -71,7 +71,7 @@ a { content: 'x'; }
 a[id='foo'] {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { content: "x"; }
@@ -85,7 +85,7 @@ a[id="foo"] {}
 a { content: 'x"y"z'; }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `avoidEscape`: `true|false`, defaults to `true`
 
@@ -93,7 +93,7 @@ Allows strings to use single-quotes or double-quotes so long as the string conta
 
 For example, with `"single", { "avoidEscape" : false }`.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { content: "x'y'z"; }
@@ -103,7 +103,7 @@ a { content: "x'y'z"; }
 a[id="foo'bar'baz"] {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { content: 'x'; }

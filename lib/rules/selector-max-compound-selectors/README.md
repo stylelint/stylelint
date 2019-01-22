@@ -15,13 +15,13 @@ This rule resolves nested selectors before calculating the depth of a selector.
 
 `:not()` is considered one compound selector irrespective to the complexity of the selector inside it. The rule *does* process that inner selector, but does so separately, independent of the main selector.
 
-## Options
+## 选项
 
 `int`: Maximum compound selectors allowed.
 
-For example, with `3`:
+例如，使用 `3`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 .foo .bar .baz .lorem {}
@@ -33,7 +33,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 div {}

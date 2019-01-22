@@ -10,11 +10,11 @@ a { color: pink; color: orange; }
 
 This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { color: pink; color: orange; }
@@ -24,7 +24,7 @@ a { color: pink; color: orange; }
 a { color: pink; background: orange; color: orange }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { color: pink; }
@@ -34,7 +34,7 @@ a { color: pink; }
 a { color: pink; background: orange; }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignore: ["consecutive-duplicates"]`
 
@@ -42,7 +42,7 @@ Ignore consecutive duplicated properties.
 
 They can prove to be useful fallbacks for older browsers.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 p {
@@ -52,7 +52,7 @@ p {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 p {
@@ -68,12 +68,12 @@ Ignore consecutive duplicated properties with different values.
 
 Including duplicate properties (fallbacks) is useful to deal with older browsers support for CSS properties. E.g. using 'px' units when 'rem' isn't available.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 /* properties with the same value */
 p {
-  font-size: 16px;  
+  font-size: 16px;
   font-size: 16px;
   font-weight: 400;
 }
@@ -88,7 +88,7 @@ p {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 p {
@@ -102,13 +102,13 @@ p {
 
 Ignore duplicates of specific properties.
 
-Given:
+给定：
 
 ```js
 ["color", "/background\-/"]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { color: pink; background: orange; background: white; }
@@ -118,7 +118,7 @@ a { color: pink; background: orange; background: white; }
 a { background: orange; color: pink; background: white; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { color: pink; color: orange; background-color: orange; background-color: white; }

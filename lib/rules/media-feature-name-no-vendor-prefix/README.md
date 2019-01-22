@@ -10,11 +10,11 @@ Disallow vendor prefixes for media feature names.
 
 Right now this rule simply checks for prefixed *resolutions*.
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media (-webkit-min-device-pixel-ratio: 1) {}
@@ -28,7 +28,7 @@ The following patterns are considered violations:
 @media (-o-max-device-pixel-ratio: 1/1) {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media (min-resolution: 96dpi) {}

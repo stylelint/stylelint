@@ -8,7 +8,7 @@ a { background: url("x.jpg") }
  *             These quotes */
 ```
 
-## Options
+## 选项
 
 `string`: `"always"|"never"`
 
@@ -16,7 +16,7 @@ a { background: url("x.jpg") }
 
 Urls *must always* be quoted.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @import url(foo.css);
@@ -34,7 +34,7 @@ The following patterns are considered violations:
 @-moz-document url-prefix() {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { background: url('x.jpg'); }
@@ -60,7 +60,7 @@ a { background: url('x.jpg'); }
 
 Urls *must never* be quoted.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { background: url('x.jpg'); }
@@ -74,7 +74,7 @@ a { background: url('x.jpg'); }
 @font-face { font-family: "foo"; src: url('foo.ttf'); }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { background: url(x.jpg); }
@@ -88,7 +88,7 @@ a { background: url(x.jpg); }
 @font-face { font-family: 'foo'; src: url(foo.ttf); }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `except: ["empty"]`
 
@@ -96,7 +96,7 @@ Reverse the primary option if the function has no arguments.
 
 For example, with `"always"`.
 
-The following pattern is *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @-moz-document url-prefix() {}

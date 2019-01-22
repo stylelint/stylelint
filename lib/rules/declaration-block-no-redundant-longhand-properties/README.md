@@ -64,11 +64,11 @@ This rule complains when the following shorthand properties can be used:
 
 Flexbox-related properties can be ignored using `ignoreShorthands: ["/flex-/"]` (see below).
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -100,7 +100,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -135,17 +135,17 @@ a {
 }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignoreShorthands: ["/regex/", /regex/, "string"]`
 
-Given:
+给定：
 
 ```js
 ["padding", "/border/"]
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {

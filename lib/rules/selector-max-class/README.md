@@ -13,13 +13,13 @@ This rule resolves nested selectors before counting the number of classes in a s
 
 The `:not()` pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.
 
-## Options
+## 选项
 
 `int`: Maximum classes allowed.
 
-For example, with `2`:
+例如，使用 `2`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 .foo.bar.baz {}
@@ -31,7 +31,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 div {}

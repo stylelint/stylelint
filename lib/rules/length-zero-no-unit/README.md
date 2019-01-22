@@ -10,13 +10,13 @@ a { top: 0px; }
 
 *Lengths* refer to distance measurements. A length is a *dimension*, which is a *number* immediately followed by a *unit identifier*. However, for zero lengths the unit identifier is optional. The length units are: `em`, `ex`, `ch`, `vw`, `vh`, `cm`, `mm`, `in`, `pt`, `pc`, `px`, `rem`, `vmin`, and `vmax`.
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { top: 0px }
@@ -26,7 +26,7 @@ a { top: 0px }
 a { top: 0.000em }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { top: 0 } /* no unit */
@@ -44,7 +44,7 @@ a { top: 2in; }
 a { top: 1.001vh }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignore: ["custom-properties"]`
 

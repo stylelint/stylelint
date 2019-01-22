@@ -13,17 +13,17 @@ This rule ignores:
 -   CSS2 pseudo-elements i.e. those prefixed with a single colon
 -   selectors that use variable interpolation e.g. `::#{$variable} {}`
 
-## Options
+## 选项
 
 `array|string|regex`: `["array", "of", "unprefixed", "pseudo-elements" or "regex"]|"pseudo-element"|/regex/`
 
-Given:
+给定：
 
 ```js
 ["before", "/^my-/i"]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a::after {}
@@ -33,7 +33,7 @@ a::after {}
 a::not-my-pseudo-element {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a::before {}

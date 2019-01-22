@@ -8,17 +8,17 @@ a { width: 100px; }
  *  These units */
 ```
 
-## Options
+## 选项
 
 `array|string`: `["array", "of", "units"]|"unit"`
 
-Given:
+给定：
 
 ```js
 ["px", "em", "deg"]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { width: 100%; }
@@ -32,7 +32,7 @@ a { font-size: 10rem; }
 a { animation: animation-name 5s ease; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { font-size: 1.2em; }
@@ -54,7 +54,7 @@ a { height: 100PX; }
 a { transform: rotate(30deg); }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignoreProperties: { unit: ["property", "/regex/", /regex/] }`
 
@@ -62,16 +62,16 @@ Ignore units in the values of declarations with the specified properties.
 
 For example, with `["px", "em"]`.
 
-Given:
+给定：
 
 ```js
 {
   "rem": [ "line-height", "/^border/" ],
-  "%": [ "width" ]  
+  "%": [ "width" ]
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { line-height: 0.1rem; }
@@ -85,7 +85,7 @@ a { border-bottom-width: 6rem; }
 a { width: 100%; }
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { margin: 0 20rem; }

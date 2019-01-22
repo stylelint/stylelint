@@ -10,19 +10,19 @@ a { display: block; }
 
 This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
-## Options
+## 选项
 
 `array|string`: `["array", "of", "unprefixed", /properties/ or "regex"]|"property"|"/regex/"`|/regex/
 
 If a string is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^background/` will match `background`, `background-size`, `background-color`, etc.
 
-Given:
+给定：
 
 ```js
 ["display", "animation", "/^background/"]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { color: pink; }
@@ -39,7 +39,7 @@ a {
 a { borkgrund: orange; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { display: block; }

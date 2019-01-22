@@ -16,7 +16,7 @@ Valid font-weight names are `normal`, `bold`, `bolder`, and `lighter`.
 
 This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.
 
-## Options
+## 选项
 
 `string`: `"numeric"|"named-where-possible"`
 
@@ -24,7 +24,7 @@ This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntax
 
 `font-weight` values *must always* be numbers.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { font-weight: bold; }
@@ -34,7 +34,7 @@ a { font-weight: bold; }
 a { font: italic normal 20px sans-serif; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { font-weight: 700; }
@@ -50,7 +50,7 @@ a { font: italic 400 20px; }
 
 This means that only `400` and `700` will be rejected, because those are the only numbers with keyword equivalents (`normal` and `bold`).
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { font-weight: 700; }
@@ -60,7 +60,7 @@ a { font-weight: 700; }
 a { font: italic 400 20px sans-serif; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { font-weight: bold; }
@@ -70,13 +70,13 @@ a { font-weight: bold; }
 a { font: italic normal 20px sans-serif; }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignore: ["relative"]`
 
 Ignore the [*relative*](https://drafts.csswg.org/css-fonts/#font-weight-prop) keyword names of `bolder` and `lighter`.
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { font-weight: 400; }

@@ -8,17 +8,17 @@ a { width: 100px; }
  *  These units */
 ```
 
-## Options
+## 选项
 
 `array|string`: `["array", "of", "units"]|"unit"`
 
-Given:
+给定：
 
 ```js
 ["px", "em", "deg"]
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { width: 100px; }
@@ -32,7 +32,7 @@ a { font-size: 10em; }
 a { transform: rotate(30deg); }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { font-size: 1.2rem; }
@@ -50,7 +50,7 @@ a { height: 100vmin; }
 a { animation: animation-name 5s ease; }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `ignoreProperties: { unit: ["property", "/regex/", /regex/] }`
 
@@ -58,16 +58,16 @@ Ignore units in the values of declarations with the specified properties.
 
 For example, with `["px", "vmin"]`.
 
-Given:
+给定：
 
 ```js
 {
   "px": [ "font-size", "/^border/" ],
-  "vmin": [ "width" ]  
+  "vmin": [ "width" ]
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { font-size: 13px; }
@@ -81,7 +81,7 @@ a { border-bottom-width: 6px; }
 a { width: 100vmin; }
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { line-height: 12px; }
@@ -101,16 +101,16 @@ Ignore units for specific feature names.
 
 For example, with `["px", "dpi"]`.
 
-Given:
+给定：
 
 ```js
 {
   "px": [ "min-width", "/height$/" ],
-  "dpi": [ "resolution" ]  
+  "dpi": [ "resolution" ]
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media (min-width: 960px) {}
@@ -124,7 +124,7 @@ The following patterns are *not* considered violations:
 @media not (resolution: 300dpi) {}
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media screen and (max-device-width: 500px) {}

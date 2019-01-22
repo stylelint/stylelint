@@ -4,7 +4,7 @@ Disallow scheme-relative urls.
 
 ```css
 a { background-image: url('//www.google.com/file.jpg'); }
-/**                        ↑ 
+/**                        ↑
  *  This scheme-relative url */
 ```
 
@@ -12,34 +12,34 @@ A [scheme-relative url](https://url.spec.whatwg.org/#syntax-url-scheme-relative)
 
 This rule ignores url arguments that are variables (`$sass`, `@less`, `--custom-property`).
 
-## Options
+## 选项
 
 ### `true`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
-a { 
-  background: url("//www.google.com/file.jpg"); 
+a {
+  background: url("//www.google.com/file.jpg");
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
-a { 
-  background: url("../file.jpg"); 
-}
-```
-
-```css
-a { 
-  background: url("http://www.google.com/file.jpg"); 
+a {
+  background: url("../file.jpg");
 }
 ```
 
 ```css
-a { 
-  background: url("/path/to/file.jpg"); 
+a {
+  background: url("http://www.google.com/file.jpg");
+}
+```
+
+```css
+a {
+  background: url("/path/to/file.jpg");
 }
 ```

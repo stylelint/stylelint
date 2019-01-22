@@ -8,7 +8,7 @@ a { width: 100px; }
  * These properties and these units */
 ```
 
-## Options
+## 选项
 
 `object`: `{
   "unprefixed-property-name": ["array", "of", "units"]
@@ -16,7 +16,7 @@ a { width: 100px; }
 
 If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
 
-Given:
+给定：
 
 ```js
 {
@@ -25,7 +25,7 @@ Given:
 }
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { font-size: 1em; }
@@ -43,7 +43,7 @@ a { -webkit-animation: animation-name 5s ease; }
 a { animation-duration: 5s; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { font-size: 1.2rem; }

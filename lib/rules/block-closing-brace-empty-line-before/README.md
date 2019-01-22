@@ -11,15 +11,15 @@ a {
  * This line */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+[命令行](../../../docs/user-guide/cli.md#自动修复错误)中的 `--fix` 选项可以自动修复此规则报告的所有问题。
 
-## Options
+## 选项
 
 `string`: `"always-multi-line"|"never"`
 
 ### `always-multi-line`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -27,7 +27,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -42,7 +42,7 @@ a { color: pink; }
 
 ### `never`
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a {
@@ -51,7 +51,7 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a {
@@ -63,15 +63,15 @@ a {
 a { color: pink; }
 ```
 
-## Optional secondary options
+## 可选的辅助选项
 
 ### `except: ["after-closing-brace"]`
 
 When a rule is nested, `after-closing-brace` brace will reverse the primary option.
 
-For example, with `"never"` and `except: ["after-closing-brace"]`:
+例如，使用 `"never"` 和 `except: ["after-closing-brace"]`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media print {
@@ -100,7 +100,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media print {
@@ -139,9 +139,9 @@ The following patterns are *not* considered violations:
 }
 ```
 
-For example, with `"always-multi-line"` and `except: ["after-closing-brace"]`:
+例如，使用 `"always-multi-line"` 和 `except: ["after-closing-brace"]`：
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 @media print {
@@ -176,7 +176,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 @media print {

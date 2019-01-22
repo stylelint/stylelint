@@ -8,7 +8,7 @@ a { text-transform: uppercase; }
  * These properties and these values */
 ```
 
-## Options
+## 选项
 
 `object`: `{
   "unprefixed-property-name": ["array", "of", "values"],
@@ -23,7 +23,7 @@ The same goes for values. Keep in mind that a regular expression value is matche
 
 Be careful with regex matching not to accidentally consider quoted string values and `url()` arguments. For example, `"/red/"` will match value such as `"1px dotted red"` as well as `"\"foo\""` and `"white url(/mysite.com/red.png)"`.
 
-Given:
+给定：
 
 ```js
 {
@@ -33,7 +33,7 @@ Given:
 }
 ```
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 a { whitespace: pre; }
@@ -55,7 +55,7 @@ a { color: pink; }
 a { background-color: pink; }
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 a { color: pink; }

@@ -8,7 +8,7 @@ Require or disallow quotes for attribute values.
  * These quotes */
 ```
 
-## Options
+## 选项
 
 `string`: `"always"|"never"`
 
@@ -16,7 +16,7 @@ Require or disallow quotes for attribute values.
 
 Attribute values *must always* be quoted.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 [title=flower] {}
@@ -26,7 +26,7 @@ The following patterns are considered violations:
 [class^=top] {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 [title] {}
@@ -52,7 +52,7 @@ The following patterns are *not* considered violations:
 
 Attribute values *must never* be quoted.
 
-The following patterns are considered violations:
+以下模式被视为违规：
 
 ```css
 [target="_blank"] {}
@@ -70,7 +70,7 @@ The following patterns are considered violations:
 [data-attribute='component'] {}
 ```
 
-The following patterns are *not* considered violations:
+以下模式*不*被视为违规：
 
 ```css
 [title] {}
