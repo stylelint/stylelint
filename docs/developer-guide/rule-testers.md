@@ -46,7 +46,7 @@ Required properties:
 
 Optional properties:
 
--   `syntax` {"css"|"less"|"scss"|"sugarss"}: Defaults to `"css"`. Other settings use special parsers.
+-   `syntax` {"css"|"css-in-js"|"html"|"less"|"markdown"|"sass"|"scss"|"sugarss"}: Defaults to `"css"`. Other settings use special parsers.
 -   `skipBasicChecks` {boolean}: Defaults to `false`. If `true`, a few rudimentary checks (that should almost always be included) will not be performed. You can check those out in `lib/testUtils/basicChecks.js`.
 -   `preceedingPlugins` {array}: An array of PostCSS plugins that should be run before the CSS is tested.
 -   `fix` {boolean}: Defaults to `false`. If `true`, every `reject` test-case will be tested for autofixing functionality. *Required if rule has autofixing.*
