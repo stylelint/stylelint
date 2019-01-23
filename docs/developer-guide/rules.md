@@ -221,7 +221,7 @@ Take the form of:
 -   Use the `a` type selector by default.
 -   Use the `@media` at-rules by default.
 -   Use the `color` property by default.
--   Use *foo*, *bar* and *baz* for names e.g. `.foo`, `#bar` `--baz`
+-   Use *foo*, *bar* and *baz* for names e.g. `.foo`, `#bar`, `--baz`
 
 ### Wire up the rule
 
