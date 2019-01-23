@@ -172,7 +172,7 @@ However, this runs all 25,000+ unit tests and also linting.
 
 You can use the interactive testing prompt to run tests for just a chosen set of rules (which you'll want to do during development). For example, to run the tests for just the `color-hex-case` and `color-hex-length` rules:
 
-1.  Use `npm run watch` to start the prompt.
+1.  Run `npm run watch` to start the interactive testing prompt.
 2.  Press `p` to filter by a filename regex pattern.
 3.  Enter `color-hex-case|color-hex-length` i.e. each rule name separated by the pipe symbol (`|`).
 
@@ -241,10 +241,10 @@ Once we've agreed on the direction, you can work on a pull request. Here are the
 
 1.  Run `npm run watch` to start the interactive testing prompt.
 2.  Use the `p` command to filter the active tests to just the rule you're working on.
-2.  Change the rule's validation to allow for the new option.
-3.  Add to the rule some logic (as little as possible) to make the option work.
-4.  Add new unit tests to test the option.
-5.  Add documentation about the new option.
+3.  Change the rule's validation to allow for the new option.
+4.  Add to the rule some logic (as little as possible) to make the option work.
+5.  Add new unit tests to test the option.
+6.  Add documentation about the new option.
 
 ## Fixing a bug in an existing rule
 
