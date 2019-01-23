@@ -79,8 +79,8 @@ Use a more specific secondary option name when accepting a *user-defined* list o
 
 Messages take one of these forms:
 
--   "Expected \[something\] \[in some context\]".
--   "Unexpected \[something\] \[in some context\]."
+-   "Expected \[something\] \[in some context\]"
+-   "Unexpected \[something\] \[in some context\]"
 
 Look at the messages of other rules to glean more conventions and patterns.
 
