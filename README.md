@@ -88,7 +88,7 @@ To help out, you can:
 -   create, enhance and debug rules using our [working on rules](docs/developer-guide/rules.md) guide
 -   improve the [documentation](docs/)
 -   add new tests to *absolutely anything*
--   improve the [performance of rules](docs/developer-guide/rules.md#improving-the-performance-of-a-new-or-an-existing-rule)
+-   improve the [performance of rules](docs/developer-guide/rules.md#improving-the-performance-of-a-rule)
 -   open [new issues](https://github.com/stylelint/stylelint/issues/new/choose) about your ideas for making stylelint better
 -   open [a pull request](https://github.com/stylelint/stylelint/compare) to show us how your idea works
 -   create or contribute to [ecosystem tools](docs/user-guide/complementary-tools.md), for example the plugin for [VS Code](https://github.com/shinnn/vscode-stylelint)

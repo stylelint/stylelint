@@ -95,4 +95,4 @@ Provide consistency throughout, including:
 
 Provide a fast tool, and the means to test and improve performance, including:
 
--   [Benchmarking](docs/developer-guide/rules.md#improving-the-performance-of-a-new-or-an-existing-rule) of an individual rule's performance.
+-   [Benchmarking](docs/developer-guide/rules.md#improving-the-performance-of-a-rule) of an individual rule's performance.

@@ -264,7 +264,7 @@ Deprecating rules doesn't happen very often. However, these two steps are import
 1.  Point the `stylelintReference` link to the specific version of the rule README on the GitHub website, so that it is always accessible.
 2.  Add the appropriate meta data to mark the rule as deprecated.
 
-## Improving the performance of a new or an existing rule
+## Improving the performance of a rule
 
 There's a simple way to run benchmarks on any given rule with any valid config for it:
 
