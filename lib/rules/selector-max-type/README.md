@@ -1,6 +1,6 @@
 # selector-max-type
 
-Limit the number of type selectors in a selector.
+Limit the number of type in a selector.
 
 ```css
     a {}

@@ -160,7 +160,7 @@ Where `*-multi-line` and `*-single-line` are in reference to the value list (the
 a,
 b {
   color: red;
-  font-family: sans, serif, monospace; /* single line value list */
+  font-family: sans, serif, monospace; /* single-line value list */
 }              ↑                    ↑
 /**            ↑                    ↑
  *  The value list start here and ends here */

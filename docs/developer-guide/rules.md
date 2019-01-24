@@ -181,7 +181,7 @@ You can use the interactive testing prompt to run tests for just a chosen set of
 Each rule must be accompanied by a README, fitting the following format:
 
 1.  Rule name.
-2.  Single line description.
+2.  Single-line description.
 3.  Prototypical code example.
 4.  Expanded description (if necessary).
 5.  Options.
@@ -203,7 +203,7 @@ For example:
   *       These names and values */
 ```
 
-#### Single line descriptions
+#### Single-line descriptions
 
 Take the form of:
 
