@@ -92,7 +92,7 @@ a { background: url(x.jpg); }
 
 ### `except: ["empty"]`
 
-Reverse the primary option if the function has no arguments.
+Reverse the primary option for functions that has no arguments.
 
 For example, with `"always"`.
 

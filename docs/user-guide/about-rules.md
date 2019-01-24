@@ -104,7 +104,7 @@ Additionally, some whitespace rule make use of another set of keywords:
 
 -   `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` or `range-operator` are used if a specific piece of punctuation in the *thing* is being targeted
 
-For example, specifying if a single space or no space must come after a comma in a function:
+For example, specifying if a single space or no space must follow a comma in a function:
 
 -   `function-comma-space-after`: `string` -   `"always"|"never"`
 
