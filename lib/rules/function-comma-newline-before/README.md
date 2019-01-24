@@ -87,7 +87,7 @@ a {
 
 ### `"never-multi-line"`
 
-There *must never* be a whitespace before the commas in multi-line functions.
+There *must never* be whitespace before the commas in multi-line functions.
 
 The following patterns are considered violations:
 
