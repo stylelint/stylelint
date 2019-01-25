@@ -5,7 +5,7 @@ Disallow unknown properties.
 ```css
 a { heigth: 100%; }
 /** ↑
- * These properties */
+ * This propertie */
 ```
 
 This rule considers properties defined in the [CSS Specifications and browser specific properties](https://github.com/betit/known-css-properties#source) to be known.

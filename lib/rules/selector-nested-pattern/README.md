@@ -8,7 +8,7 @@ Specify a pattern for the selectors of rules nested within rules.
       &:hover { color: pink; }
     } ↑
 /**   ↑
- * These nested selectors */
+ * This nested selector */
 ```
 
 Non-standard selectors (e.g. selectors with Sass or Less interpolation) and selectors of rules nested within at-rules are ignored.

@@ -5,7 +5,7 @@ Specify lowercase or uppercase for hex colors.
 ```css
 a { color: #fff }
 /**        ↑
- * These hex colors */
+ * This hex color */
 ```
 
 The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.

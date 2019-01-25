@@ -5,7 +5,7 @@ Require or disallow quotes for attribute values.
 ```css
 [target="_blank"] {}
 /**     ↑      ↑
- * These quotes */
+ * This quote */
 ```
 
 ## Options

@@ -5,7 +5,7 @@ Disallow invalid hex colors.
 ```css
 a { color: #y3 }
 /**        ↑
- * These hex colors */
+ * This hex color */
 ```
 
 Longhand hex colors can be either 6 or 8 (with alpha channel) hexadecimal characters. And their shorthand variants are 3 and 4 characters respectively.

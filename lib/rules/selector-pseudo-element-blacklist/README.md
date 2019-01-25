@@ -5,7 +5,7 @@ Specify a blacklist of disallowed pseudo-element selectors.
 ```css
  a::before {}
 /** ↑
- * These pseudo-element selectors */
+ * This pseudo-element selector */
 ```
 
 This rule ignores:

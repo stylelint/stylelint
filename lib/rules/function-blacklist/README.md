@@ -5,7 +5,7 @@ Specify a blacklist of disallowed functions.
 ```css
 a { transform: scale(1); }
 /**            ↑
- * These functions */
+ * This function */
 ```
 
 ## Options
