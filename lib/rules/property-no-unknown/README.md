@@ -117,7 +117,7 @@ a {
 }
 ```
 
-The following patterns are considered  violations:
+The following patterns are considered violations:
 
 ```css
 a {

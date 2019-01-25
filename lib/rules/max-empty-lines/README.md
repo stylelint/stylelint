@@ -67,7 +67,7 @@ Only enforce the adjacent empty lines limit for lines that are not comments.
 
 For example, with `2` adjacent empty lines:
 
-The following pattern is considered violation:
+The following patterns are considered violations:
 
 ```css
 /* horse */

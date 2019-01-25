@@ -96,7 +96,7 @@ Reverse the primary option for functions that has no arguments.
 
 For example, with `"always"`.
 
-The following pattern is *not* considered violations:
+The following patterns are *not* considered violations:
 
 ```css
 @-moz-document url-prefix() {}

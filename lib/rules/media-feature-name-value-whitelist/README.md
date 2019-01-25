@@ -35,7 +35,7 @@ Given:
 }
 ```
 
-The following pattern are considered violations:
+The following patterns are considered violations:
 
 ```css
 @media screen and (min-width: 1000px) {}
