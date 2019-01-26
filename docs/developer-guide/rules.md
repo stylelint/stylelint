@@ -215,7 +215,7 @@ Take the form of:
 #### Example patterns
 
 -   Use complete CSS patterns i.e. avoid ellipses (`...`)
--   Use standard CSS syntax (and use `css` code fences) by default.
+-   Use standard CSS syntax (and use `css` [GFM fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/)) by default.
 -   Use the minimum amount of code possible to communicate the pattern e.g. if the rule targets selectors then use an empty rule e.g. `{}`.
 -   Use `{}`, rather than `{ }` for empty rules.
 -   Use the `a` type selector by default.

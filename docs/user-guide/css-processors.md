@@ -14,8 +14,8 @@ You can run the linter before or after your CSS processors. Depending on which p
 stylelint will automatically infer the syntax from the:
 
 -   file extension
--   value of the `lang` or `type` attribute on a `<style>` tag
--   marker on Markdown code fence
+-   `type` or `lang` attribute on `<style>` tags in HTML (and HTML-like)
+-   [info string](https://github.github.com/gfm/#info-string) on [GFM fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/) in Markdown
 
 You can force a specific syntax, though. Both the [CLI](cli.md) and the [Node.js API](node-api.md) expose a `syntax` option.
 
