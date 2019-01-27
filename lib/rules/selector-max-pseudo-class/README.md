@@ -5,7 +5,7 @@ Limit the number of pseudo-classes in a selector.
 ```css
 .foo .bar:first-child:hover {}
 /*       ↑           ↑
-         |           |
+         ↑           ↑
          1           2 -- this selector contains two pseudo-classes */
 ```
 
