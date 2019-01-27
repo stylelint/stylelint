@@ -3,8 +3,8 @@
 Specify a blacklist of disallowed pseudo-element selectors.
 
 ```css
- a::before {}
-/** ↑
+  a::before {}
+/**  ↑
  * This pseudo-element selector */
 ```
 

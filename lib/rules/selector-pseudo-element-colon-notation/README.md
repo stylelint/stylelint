@@ -3,8 +3,8 @@
 Specify single or double colon notation for applicable pseudo-elements.
 
 ```css
-   a::before { color:pink; }
-/** ↑
+    a::before {}
+/**  ↑
  * This notation */
 ```
 
