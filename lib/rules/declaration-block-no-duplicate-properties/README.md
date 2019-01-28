@@ -66,7 +66,7 @@ p {
 
 Ignore consecutive duplicated properties with different values.
 
-Including duplicate properties (fallbacks) is useful to deal with older browsers support for CSS properties. E.g. using 'px' units when 'rem' isn't available.
+Including duplicate properties (fallbacks) is useful to deal with older browsers support for CSS properties. E.g. using `px` units when `rem` isn't available.
 
 The following patterns are considered violations:
 
