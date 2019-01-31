@@ -17,7 +17,7 @@ Non-standard selectors (e.g. selectors with Sass or Less interpolation) and sele
 
 `regex|string`
 
-A string will be translated into a RegExp — `new RegExp(yourString)` — so *be sure to escape properly*.
+A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
 
 The selector value will be checked in its entirety. If you'd like to allow for combinators and commas, you must incorporate them into your pattern.
 
