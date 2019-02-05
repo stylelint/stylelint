@@ -107,7 +107,9 @@ a {
 
 This option will also disallow duplicate selectors within selector lists.
 
-For example, with `true`, the following patterns are considered violations:
+For example, with `true`.
+
+The following patterns are considered violations:
 
 ```css
 input, textarea {
