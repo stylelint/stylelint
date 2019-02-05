@@ -105,7 +105,7 @@ a {
 
 ### `disallowInList: true | false` (default: `false`)
 
-This option will dissallow duplication selectors within a group selectors
+This option will also disallow duplicate selectors within selector lists.
 
 For example, with `true`, the following patterns are considered violations:
 
