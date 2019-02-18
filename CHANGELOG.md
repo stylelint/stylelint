@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## [Head][]
+
+-   Fixed: `feature-name-no-unknown` false positives for `prefers-color-scheme` ([#3951](https://github.com/stylelint/stylelint/pull/3951)).
+
 ## [9.10.1][]
 
 -   Fixed: "fatal: Not a git repository" error ([#3915](https://github.com/stylelint/stylelint/pull/3915)).
@@ -1415,6 +1419,7 @@ Changes:
 -   Added: `value-list-comma-space-before` rule.
 -   Added: `value-no-vendor-prefix` rule.
 
+[Head]: https://github.com/stylelint/stylelint/compare/9.10.0...HEAD
 [9.10.1]: https://github.com/stylelint/stylelint/compare/9.10.0...9.10.1
 [9.10.0]: https://github.com/stylelint/stylelint/compare/9.9.0...9.10.0
 [9.9.0]: https://github.com/stylelint/stylelint/compare/9.8.0...9.9.0
