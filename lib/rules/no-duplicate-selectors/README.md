@@ -100,3 +100,24 @@ a {
   & c {}
 }
 ```
+
+## Optional secondary options
+
+### `disallowInList: true | false` (default: `false`)
+
+This option will also disallow duplicate selectors within selector lists.
+
+For example, with `true`.
+
+The following patterns are considered violations:
+
+```css
+input, textarea {
+  border: 2px;
+}
+
+textarea {
+  border: 1px;
+}
+
+```
