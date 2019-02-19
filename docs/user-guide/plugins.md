@@ -28,3 +28,4 @@ Plugins are rules and sets of rules built by the community that support methodol
 -   [`stylelint-suitcss`](https://github.com/suitcss/stylelint-suitcss): A collection of stylelint plugins for SUIT CSS, including deprecated `:root` rules (plugin pack).
 -   [`stylelint-value-no-unknown-custom-properties`](https://github.com/csstools/stylelint-value-no-unknown-custom-properties): Disallow unknown custom properties.
 -   [`stylelint-z-index-value-constraint`](https://github.com/kristerkari/stylelint-z-index-value-constraint): Specify minimum and maximum constraint value for z-index.
+-   [`stylelint-itcss`](https://github.com/KamiKillertO/stylelint-itcss): A set of rules to enforce ITCSS architecture.
