@@ -124,6 +124,22 @@ a { color: red; }
 
 To allow single-line blocks but enforce newlines with multi-line blocks, use the `"always-multi-line"` option for both rules.
 
+## How do I whitelist only performant `transition` values?
+
+Use the `declaration-property-value-whitelist` rule to enforce this best practise at the configuration level:
+
+```json
+{
+  "rules": {
+    "declaration-property-value-whitelist": {
+      "/^transition/": ["/^opacity/", "/^transform/"]
+    }
+  }
+}
+```
+
+Or use the [`stylelint-high-performance-animation` plugin](https://github.com/kristerkari/stylelint-high-performance-animation).
+
 ## How do I configure the `*-pattern` rules for common CSS naming conventions like kebab-case?
 
 Use the regex that corresponds to your chosen convention:
