@@ -4,6 +4,7 @@ All notable changes to this project are documented in this file.
 
 ## [Head][]
 
+-   Added: `disallowInList` to `no-duplicate-selectors` ([#3936](https://github.com/stylelint/stylelint/pull/3936)).
 -   Fixed: `feature-name-no-unknown` false positives for `prefers-color-scheme` ([#3951](https://github.com/stylelint/stylelint/pull/3951)).
 
 ## [9.10.1][]
