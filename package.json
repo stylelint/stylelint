@@ -124,7 +124,7 @@
     "lint:js": "eslint . --cache --max-warnings=0",
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
-    "pretest": "npm-run-all --serial lint flow",
+    "pretest": "npm-run-all --serial lint flow prettier:check",
     "prettier:check": "prettier '**/*.js' --list-different",
     "prettier:fix": "prettier '**/*.js' --write",
     "release": "npmpub",
