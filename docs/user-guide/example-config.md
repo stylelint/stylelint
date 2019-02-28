@@ -64,6 +64,7 @@ You might want to learn a little about [how rules are named and how they work to
     "font-family-no-missing-generic-family-keyword": true,
     "font-weight-notation": "numeric"|"named",
     "function-blacklist": string|[],
+    "function-calc-no-invalid": true,
     "function-calc-no-unspaced-operator": true,
     "function-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
     "function-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
