@@ -283,10 +283,6 @@ npm run benchmark-rule -- selector-combinator-space-after always
 ```
 
 ```shell
-npm run benchmark-rule -- selector-no-combinator true
-```
-
-```shell
 npm run benchmark-rule -- block-opening-brace-space-before "[\"always\", {\"ignoreAtRules\": [\"else\"]}]"
 ```
 
