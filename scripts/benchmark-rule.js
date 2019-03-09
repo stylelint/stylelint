@@ -69,7 +69,7 @@ let firstTime = true;
 
 function benchFn(css, done) {
   processor
-    .process(css)
+    .process(css, { from: undefined })
     .then(result => {
       if (firstTime) {
         firstTime = false;
