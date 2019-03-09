@@ -7,13 +7,14 @@ const normalizeRuleSettings = require("../lib/normalizeRuleSettings");
 const postcss = require("postcss");
 const request = require("request");
 const requireRule = require("../lib/requireRule");
-const rules = require("../lib/rules");
 
 const ruleName = process.argv[2];
 const ruleOptions = process.argv[3];
 const ruleContext = process.argv[4];
 
-if (!rules.includes(ruleName)) {
+const ruleFunc = requireRule(ruleName);
+
+if (!ruleFunc) {
   throw new Error("You must specify a valid rule name");
 }
 
@@ -43,7 +44,7 @@ const primary = ruleSettings[0];
 const secondary = ruleSettings[1] || null;
 const context = ruleContext ? JSON.parse(ruleContext) : {};
 
-const rule = requireRule(ruleName).apply(null, [primary, secondary, context]);
+const rule = ruleFunc.apply(null, [primary, secondary, context]);
 
 const processor = postcss().use(rule);
 
