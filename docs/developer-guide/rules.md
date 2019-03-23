@@ -227,7 +227,7 @@ Take the form of:
 
 The final step is to add references to the new rule in the following places:
 
--   [The rules `index.js` file](https://github.com/stylelint/stylelint/blob/master/lib/rules/index.js)
+-   [The rules `index.js` file](../../lib/rules/index.js)
 -   [The list of rules](../user-guide/rules.md)
 -   [The example config](../user-guide/example-config.md)
 
