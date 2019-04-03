@@ -227,7 +227,7 @@ Take the form of:
 
 The final step is to add references to the new rule in the following places:
 
--   [The rules `index.js` file](https://github.com/stylelint/stylelint/blob/master/lib/rules/index.js)
+-   [The rules `index.js` file](../../lib/rules/index.js)
 -   [The list of rules](../user-guide/rules.md)
 -   [The example config](../user-guide/example-config.md)
 
@@ -269,10 +269,10 @@ Deprecating rules doesn't happen very often. However, these two steps are import
 There's a simple way to run benchmarks on any given rule with any valid config for it:
 
 ```shell
-npm run benchmark-rule -- [rule-name] [config]
+npm run benchmark-rule -- ruleName ruleOptions [ruleContext]
 ```
 
-If the `config` argument is anything other than a string or a boolean, it must be valid JSON wrapped in quotation marks.
+If the `ruleOptions` argument is anything other than a string or a boolean, it must be valid JSON wrapped in quotation marks.
 
 ```shell
 npm run benchmark-rule -- selector-combinator-space-after never
@@ -283,11 +283,13 @@ npm run benchmark-rule -- selector-combinator-space-after always
 ```
 
 ```shell
-npm run benchmark-rule -- selector-no-combinator true
+npm run benchmark-rule -- block-opening-brace-space-before "[\"always\", {\"ignoreAtRules\": [\"else\"]}]"
 ```
 
+If the `ruleContext` argument is specified, the sames procedure would apply:
+
 ```shell
-npm run benchmark-rule -- block-opening-brace-space-before "[\"always\", {\"ignoreAtRules\": [\"else\"]}]"
+npm run benchmark-rule -- block-opening-brace-space-before "[\"always\", {\"ignoreAtRules\": [\"else\"]}]" "{\"fix\": \"true\"}"
 ```
 
 The script loads Bootstrap's CSS (from its CDN) and runs it through the configured rule.

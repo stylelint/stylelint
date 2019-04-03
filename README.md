@@ -8,10 +8,10 @@ A mighty, modern linter that helps you avoid errors and enforce conventions in y
 
 It's mighty because it:
 
--   has over **170 built-in rules** to catch errors, apply limits and enforce stylistic conventions
 -   understands the **latest CSS syntax** including custom properties and level 4 selectors
 -   extracts **embedded styles** from HTML, markdown and CSS-in-JS object & template literals
 -   parses **CSS-like syntaxes** like SCSS, Sass, Less and SugarSS
+-   has over **170 built-in rules** to catch errors, apply limits and enforce stylistic conventions
 -   supports **plugins** so you can create your own rules or make use of plugins written by the community
 -   automatically **fixes** some violations (*experimental feature*)
 -   is **well tested** with over 10000 unit tests

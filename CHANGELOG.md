@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented in this file.
 
+## [Head][]
+
+-   Added: `disallowInList` to `no-duplicate-selectors` ([#3936](https://github.com/stylelint/stylelint/pull/3936)).
+-   Added: `at-rule-property-requirelist` rule ([#3997](https://github.com/stylelint/stylelint/pull/3997)).
+-   Changed: Apply rules in the order defined in `lib/rules/index.js` ([#3923](https://github.com/stylelint/stylelint/pull/3923)).
+-   Fixed: `color-no-invalid-hex` false negatives for CSS-in-JS ([#3957](https://github.com/stylelint/stylelint/pull/3957)).
+-   Fixed: `feature-name-no-unknown` false positives for `prefers-color-scheme` ([#3951](https://github.com/stylelint/stylelint/pull/3951)).
+-   Fixed: `function-calc-no-invalid` false positives for negative numbers ([#3921](https://github.com/stylelint/stylelint/pull/3921)).
+-   Fixed: `no-descending-specificity` false positives for vendor prefixed pseudo-elements ([#3929](https://github.com/stylelint/stylelint/issues/3929)).
+-   Fixed: `selector-max-*` false negatives for nested at-rules ([#3959](https://github.com/stylelint/stylelint/pull/3959)).
+
 ## [9.10.1][]
 
 -   Fixed: "fatal: Not a git repository" error ([#3915](https://github.com/stylelint/stylelint/pull/3915)).
@@ -1415,6 +1426,7 @@ Changes:
 -   Added: `value-list-comma-space-before` rule.
 -   Added: `value-no-vendor-prefix` rule.
 
+[Head]: https://github.com/stylelint/stylelint/compare/9.10.0...HEAD
 [9.10.1]: https://github.com/stylelint/stylelint/compare/9.10.0...9.10.1
 [9.10.0]: https://github.com/stylelint/stylelint/compare/9.9.0...9.10.0
 [9.9.0]: https://github.com/stylelint/stylelint/compare/9.8.0...9.9.0

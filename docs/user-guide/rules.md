@@ -187,6 +187,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 -   [`at-rule-blacklist`](../../lib/rules/at-rule-blacklist/README.md): Specify a blacklist of disallowed at-rules.
 -   [`at-rule-no-vendor-prefix`](../../lib/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for at-rules.
+-   [`at-rule-property-requirelist`](../../lib/rules/at-rule-property-requirelist/README.md): Specify a requirelist of properties for an at-rule.
 -   [`at-rule-whitelist`](../../lib/rules/at-rule-whitelist/README.md): Specify a whitelist of allowed at-rules.
 
 #### Comment
