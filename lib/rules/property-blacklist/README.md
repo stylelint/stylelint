@@ -5,7 +5,7 @@ Specify a blacklist of disallowed properties.
 ```css
 a { text-rendering: optimizeLegibility; }
 /** ↑
- * This propertie */
+ * This property */
 ```
 
 ## Options

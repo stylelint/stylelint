@@ -177,7 +177,7 @@ a {
 
 #### `"blockless-after-blockless"`
 
-Reverse the primary option for at-rules that follow another at-rule.
+Reverse the primary option for blockless at-rules that follow another blockless at-rule.
 
 Shared-line comments do not affect this option.
 
