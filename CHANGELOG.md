@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## [Head][]
 
 -   Added: `disallowInList` to `no-duplicate-selectors` ([#3936](https://github.com/stylelint/stylelint/pull/3936)).
+-   Added: `at-rule-property-requirelist` rule ([#3997](https://github.com/stylelint/stylelint/pull/3997)).
 -   Fixed: `color-no-invalid-hex` false negatives for CSS-in-JS ([#3957](https://github.com/stylelint/stylelint/pull/3957)).
 -   Fixed: `feature-name-no-unknown` false positives for `prefers-color-scheme` ([#3951](https://github.com/stylelint/stylelint/pull/3951)).
 -   Fixed: `no-descending-specificity` false positives for vendor prefixed pseudo-elements ([#3929](https://github.com/stylelint/stylelint/issues/3929)).
