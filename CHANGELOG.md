@@ -4,6 +4,7 @@ All notable changes to this project are documented in this file.
 
 ## [Head][]
 
+-   Removed: support for node@6 ([#4006](https://github.com/stylelint/stylelint/pull/4006)).
 -   Changed: rules are now applied in the order defined in `lib/rules/index.js` ([#3923](https://github.com/stylelint/stylelint/pull/3923)).
 -   Added: `at-rule-property-requirelist` rule ([#3997](https://github.com/stylelint/stylelint/pull/3997)).
 -   Added: `disallowInList` to `no-duplicate-selectors` ([#3936](https://github.com/stylelint/stylelint/pull/3936)).
