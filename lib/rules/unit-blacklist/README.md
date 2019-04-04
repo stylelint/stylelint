@@ -63,7 +63,7 @@ Given:
 ```js
 {
   "px": [ "font-size", "/^border/" ],
-  "vmin": [ "width" ]  
+  "vmin": [ "width" ]
 }
 ```
 
@@ -106,7 +106,7 @@ Given:
 ```js
 {
   "px": [ "min-width", "/height$/" ],
-  "dpi": [ "resolution" ]  
+  "dpi": [ "resolution" ]
 }
 ```
 

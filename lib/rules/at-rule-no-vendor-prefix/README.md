@@ -5,7 +5,7 @@ Disallow vendor prefixes for at-rules.
 ```css
     @-webkit-keyframes { 0% { top: 0; } }
 /**  ↑
- * These prefixes */
+ * This prefix */
 ```
 
 ## Options

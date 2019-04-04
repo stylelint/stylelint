@@ -104,7 +104,7 @@ a {
 
 #### `"inside-block"`
 
-Reverse the primary option for at-rules that are nested.
+Reverse the primary option for at-rules that are inside a block.
 
 For example, with `"always"`:
 
@@ -177,7 +177,7 @@ a {
 
 #### `"blockless-after-blockless"`
 
-Reverse the primary option for at-rules within a blockless group.
+Reverse the primary option for blockless at-rules that follow another blockless at-rule.
 
 Shared-line comments do not affect this option.
 
@@ -249,7 +249,7 @@ b {
 
 #### `"after-comment"`
 
-Ignore at-rules that come after a comment.
+Ignore at-rules that follow a comment.
 
 Shared-line comments do not trigger this option.
 
@@ -290,7 +290,7 @@ The following patterns are *not* considered violations:
 
 #### `"inside-block"`
 
-Ignore at-rules that are inside a declaration block.
+Ignore at-rules that are inside a block.
 
 For example, with `"always"`:
 

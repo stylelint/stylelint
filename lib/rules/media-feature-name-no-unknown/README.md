@@ -5,7 +5,7 @@ Disallow unknown media feature names.
 ```css
 @media (min-width: 700px) {}
 /**     ↑
- * These media feature names */
+ * This media feature name */
 ```
 
 This rule considers media feature names defined in the CSS Specifications, up to and including Editor's Drafts, to be known.

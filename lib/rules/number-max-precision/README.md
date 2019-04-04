@@ -5,7 +5,7 @@ Limit the number of decimal places allowed in numbers.
 ```css
 a { top: 3.245634px; }
 /**           ↑
- * These decimal places */
+ * This decimal place */
 ```
 
 ## Options

@@ -5,7 +5,7 @@ Specify lowercase or uppercase for function names.
 ```css
 a { width: calc(5% - 10em); }
 /**        ↑
- * These functions */
+ * This function */
 ```
 
 Camel case function names, e.g. `translateX`, are accounted for when the `lower` option is used.

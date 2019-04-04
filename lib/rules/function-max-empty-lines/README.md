@@ -21,7 +21,7 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 ## Options
 
-`int`: Maximum number of characters allowed.
+`int`: Maximum number of adjacent empty lines allowed.
 
 For example, with `0`:
 

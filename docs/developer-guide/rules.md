@@ -79,8 +79,8 @@ Use a more specific secondary option name when accepting a *user-defined* list o
 
 Messages take one of these forms:
 
--   "Expected \[something\] \[in some context\]".
--   "Unexpected \[something\] \[in some context\]."
+-   "Expected \[something\] \[in some context\]"
+-   "Unexpected \[something\] \[in some context\]"
 
 Look at the messages of other rules to glean more conventions and patterns.
 
@@ -150,7 +150,7 @@ Please run through this checklist and ensure each point is covered by your tests
 
 ##### Commonly overlooked edge-cases
 
--   How does your rule handle variables (`$sass`, `@less`, or `var(--custom-property)`)?
+-   How does your rule handle variables (`$sass`, `@less` or `var(--custom-property)`)?
 -   How does your rule handle CSS strings (e.g. `content: "anything goes";`)?
 -   How does your rule handle CSS comments (e.g. `/* anything goes */`)?
 -   How does your rule handle `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
@@ -172,7 +172,7 @@ However, this runs all 25,000+ unit tests and also linting.
 
 You can use the interactive testing prompt to run tests for just a chosen set of rules (which you'll want to do during development). For example, to run the tests for just the `color-hex-case` and `color-hex-length` rules:
 
-1.  Use `npm run watch` to start the prompt.
+1.  Run `npm run watch` to start the interactive testing prompt.
 2.  Press `p` to filter by a filename regex pattern.
 3.  Enter `color-hex-case|color-hex-length` i.e. each rule name separated by the pipe symbol (`|`).
 
@@ -181,7 +181,7 @@ You can use the interactive testing prompt to run tests for just a chosen set of
 Each rule must be accompanied by a README, fitting the following format:
 
 1.  Rule name.
-2.  Single line description.
+2.  Single-line description.
 3.  Prototypical code example.
 4.  Expanded description (if necessary).
 5.  Options.
@@ -203,7 +203,7 @@ For example:
   *       These names and values */
 ```
 
-#### Single line descriptions
+#### Single-line descriptions
 
 Take the form of:
 
@@ -215,13 +215,13 @@ Take the form of:
 #### Example patterns
 
 -   Use complete CSS patterns i.e. avoid ellipses (`...`)
--   Use standard CSS syntax (and use `css` code fences) by default.
+-   Use standard CSS syntax (and use `css` [GFM fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/)) by default.
 -   Use the minimum amount of code possible to communicate the pattern e.g. if the rule targets selectors then use an empty rule e.g. `{}`.
 -   Use `{}`, rather than `{ }` for empty rules.
 -   Use the `a` type selector by default.
 -   Use the `@media` at-rules by default.
 -   Use the `color` property by default.
--   Use *foo*, *bar* and *baz* for names e.g. `.foo`, `#bar` `--baz`
+-   Use *foo*, *bar* and *baz* for names e.g. `.foo`, `#bar`, `--baz`
 
 ### Wire up the rule
 
@@ -241,10 +241,10 @@ Once we've agreed on the direction, you can work on a pull request. Here are the
 
 1.  Run `npm run watch` to start the interactive testing prompt.
 2.  Use the `p` command to filter the active tests to just the rule you're working on.
-2.  Change the rule's validation to allow for the new option.
-3.  Add to the rule some logic (as little as possible) to make the option work.
-4.  Add new unit tests to test the option.
-5.  Add documentation about the new option.
+3.  Change the rule's validation to allow for the new option.
+4.  Add to the rule some logic (as little as possible) to make the option work.
+5.  Add new unit tests to test the option.
+6.  Add documentation about the new option.
 
 ## Fixing a bug in an existing rule
 
@@ -264,7 +264,7 @@ Deprecating rules doesn't happen very often. However, these two steps are import
 1.  Point the `stylelintReference` link to the specific version of the rule README on the GitHub website, so that it is always accessible.
 2.  Add the appropriate meta data to mark the rule as deprecated.
 
-## Improving the performance of a new or an existing rule
+## Improving the performance of a rule
 
 There's a simple way to run benchmarks on any given rule with any valid config for it:
 

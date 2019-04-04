@@ -5,7 +5,7 @@ Require (where possible) or disallow named colors.
 ```css
 a { color: black }
 /**        ↑
- * These named colors */
+ * This named color */
 ```
 
 ## Options

@@ -3,8 +3,8 @@
 Disallow unknown pseudo-class selectors.
 
 ```css
-    a:hover {}
-/**    ↑
+  a:hover {}
+/** ↑
  * This pseudo-class selector */
 ```
 

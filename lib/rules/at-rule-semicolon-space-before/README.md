@@ -1,6 +1,6 @@
 # at-rule-semicolon-space-before
 
-Require a single space or disallow whitespace before the semicolons at-rules.
+Require a single space or disallow whitespace before the semicolons of at-rules.
 
 ```css
 @import "components/buttons";

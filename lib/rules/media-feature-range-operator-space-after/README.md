@@ -5,7 +5,7 @@ Require a single space or disallow whitespace after the range operator in media 
 ```css
 @media (width >= 600px) {}
 /**           ↑
- * The space after this */
+ * The space after this operator */
 ```
 
 The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.

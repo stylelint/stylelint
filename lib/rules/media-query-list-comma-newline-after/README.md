@@ -73,7 +73,7 @@ projection and (color) {}
 
 ### `"never-multi-line"`
 
-There *must never* be a white after the commas in multi-line media query lists.
+There *must never* be whitespace after the commas in multi-line media query lists.
 
 The following patterns are considered violations:
 

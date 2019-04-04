@@ -5,7 +5,7 @@ Specify a whitelist of allowed properties.
 ```css
 a { display: block; }
 /** ↑
- * These properties */
+ * This property */
 ```
 
 This rule ignores variables (`$sass`, `@less`, `--custom-property`).
