@@ -23,15 +23,45 @@ a { }
 ```
 
 ```css
-@media print { a {} }
+@media print {
+  a {}
+}
 ```
 
 The following patterns are *not* considered violations:
 
 ```css
-a { color: pink; }
+a {
+  /* foo */
+}
 ```
 
 ```css
-@media print { a { color: pink; } }
+@media print {
+  a {
+    color: pink;
+  }
+}
+```
+
+## Optional secondary options
+
+### `ignore: ["comments"]`
+
+Exclude comments from being treated as content inside of a block.
+
+The following patterns are considered violations:
+
+```css
+a {
+  /* foo */
+}
+```
+
+```css
+@media print {
+  a {
+    /* foo */
+  }
+}
 ```
