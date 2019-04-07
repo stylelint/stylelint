@@ -22,17 +22,13 @@ matrix:
       script: npm run pretest
       env: CI=pretest
       os: linux
-    - node_js: '8'
+    - node_js: '10'
       script: npm run jest -- --maxWorkers=2 --coverage
       env: CI=coverage
       os: linux
-    - node_js: '10'
+    - node_js: '8'
       script: npm run jest -- --maxWorkers=2
-      env: CI=tests 10
-      os: linux
-    - node_js: '6'
-      script: npm run jest -- --maxWorkers=2
-      env: CI=tests 6
+      env: CI=tests 8
       os: linux
     - node_js: '10'
       script: npm run jest -- --testPathPattern \\lib
