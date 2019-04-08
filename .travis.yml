@@ -18,22 +18,27 @@ cache:
 
 matrix:
   include:
-    - node_js: '10'
+    - name: "Linux: Node.js 10.x Pre-test"
+      node_js: '10'
       script: npm run pretest
       env: CI=pretest
       os: linux
-    - node_js: '10'
+    - name: "Linux: Node.js 10.x Tests & Coverage"
+      node_js: '10'
       script: npm run jest -- --maxWorkers=2 --coverage
       env: CI=coverage
       os: linux
-    - node_js: '8'
+    - name: "Linux: Node.js 8.x Tests"
+      node_js: '8'
       script: npm run jest -- --maxWorkers=2
       env: CI=tests 8
       os: linux
-    - node_js: '10'
+    - name: "Windows: Node.js 10.x Tests"
+      node_js: '10'
       script: npm run jest -- --testPathPattern \\lib
       os: windows
-    - node_js: '8'
+    - name: "Windows: Node.js 8.x Tests"
+      node_js: '8'
       script: npm run jest -- --testPathPattern \\lib
       os: windows
 
