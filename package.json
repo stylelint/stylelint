@@ -118,7 +118,7 @@
     "benchmark-rule": "node scripts/benchmark-rule.js",
     "dry-release": "npmpub  --dry --verbose",
     "flow": "flow",
-    "flow-defs": "./node_modules/.bin/flow-typed install jest@23 lodash@4",
+    "flow-defs": "./node_modules/.bin/flow-typed install jest@24 lodash@4",
     "jest": "jest",
     "jest:detectleaks": "jest  --detectLeaks",
     "lint:js": "eslint . --cache --max-warnings=0",
