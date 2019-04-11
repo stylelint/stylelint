@@ -6,7 +6,7 @@ Require a newline or disallow whitespace before the commas of media query lists.
     @media screen and (color)
     , projection and (color) {}
 /** ↑
- * These commas */
+ * This comma */
 ```
 
 ## Options

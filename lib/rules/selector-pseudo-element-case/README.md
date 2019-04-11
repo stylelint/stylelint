@@ -3,9 +3,9 @@
 Specify lowercase or uppercase for pseudo-element selectors.
 
 ```css
-    a::before {}
-/**    ↑
- * This is pseudo-element selector */
+  a::before {}
+/**  ↑
+ * This pseudo-element selector */
 ```
 
 ## Options

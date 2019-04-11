@@ -5,7 +5,7 @@ Specify a whitelist of allowed pseudo-class selectors.
 ```css
   a:hover {}
 /** ↑
- * These pseudo-class selectors */
+ * This pseudo-class selector */
 ```
 
 This rule ignores selectors that use variable interpolation e.g. `:#{$variable} {}`.

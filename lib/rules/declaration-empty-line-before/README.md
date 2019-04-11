@@ -100,7 +100,7 @@ a {
 
 #### `"after-comment"`
 
-Reverse the primary option for declarations that come after a comment.
+Reverse the primary option for declarations that follow a comment.
 
 Shared-line comments do not trigger this option.
 
@@ -144,7 +144,7 @@ a {
 
 #### `"after-declaration"`
 
-Reverse the primary option for declarations that come after another declaration.
+Reverse the primary option for declarations that follow another declaration.
 
 Shared-line comments do not affect this option.
 
@@ -219,7 +219,7 @@ a {
 
 #### `"after-comment"`
 
-Ignore declarations that are preceded by comments.
+Ignore declarations that follow a comment.
 
 For example, with `"always"`:
 
@@ -234,7 +234,7 @@ a {
 
 #### `"after-declaration"`
 
-Ignore declarations that are preceded by declarations, to allow for multiple declaration sets in the same block.
+Ignore declarations that follow another declaration.
 
 For example, with `"always"`:
 

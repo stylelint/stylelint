@@ -6,7 +6,7 @@ Require a newline or disallow whitespace before the commas of value lists.
   a { background-size: 0
     , 0; }
 /** ↑
- * The newline before these commas */
+ * The newline before this comma */
 ```
 
 ## Options

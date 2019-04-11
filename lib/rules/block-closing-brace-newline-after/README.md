@@ -25,7 +25,7 @@ This rule allows a trailing semicolon after the closing brace of a block. For ex
     background-color: hsl(120, 70%, 95%);
   };
 /* ↑
- * This semicolon */  
+ * This semicolon */
 }
 ```
 

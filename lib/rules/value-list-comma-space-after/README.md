@@ -5,7 +5,7 @@ Require a single space or disallow whitespace after the commas of value lists.
 ```css
 a { background-size: 0, 0; }
 /**                   ↑
- * The space after these commas */
+ * The space after this comma */
 ```
 
 The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix most of the problems reported by this rule.

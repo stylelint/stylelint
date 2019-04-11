@@ -1,6 +1,6 @@
 # max-nesting-depth
 
-Limit the allowed nesting depth.
+Limit the depth of nesting.
 
 ```css
 a { & > b { top: 0; } }

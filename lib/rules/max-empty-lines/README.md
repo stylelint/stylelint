@@ -1,4 +1,3 @@
-
 # max-empty-lines
 
 Limit the number of adjacent empty lines.
@@ -14,7 +13,7 @@ a {} /* ↑ */
 
 ## Options
 
-`int`: Maximum number of characters allowed.
+`int`: Maximum number of adjacent empty lines allowed.
 
 For example, with `2`:
 
@@ -68,7 +67,7 @@ Only enforce the adjacent empty lines limit for lines that are not comments.
 
 For example, with `2` adjacent empty lines:
 
-The following pattern is considered violation:
+The following patterns are considered violations:
 
 ```css
 /* horse */
@@ -87,20 +86,20 @@ The following patterns are *not* considered violations:
 
 
 
- Some years ago -- never mind how log precisely -- ...
+ Some years ago -- never mind how long precisely -- ...
  */
 ```
 
 ```css
-a { 
+a {
     /*
-     Comment 
+     Comment
 
 
 
 
      inside the declaration with a lot of empty lines...
     */
-     color: pink; 
+     color: pink;
 }
 ```

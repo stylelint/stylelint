@@ -5,7 +5,7 @@ Specify a blacklist of disallowed media feature names.
 ```css
 @media (min-width: 700px) {}
 /**     ↑
- * These media feature names */
+ * This media feature name */
 ```
 
 **Caveat:** Media feature names within a range context are currently ignored.

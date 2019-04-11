@@ -4,7 +4,7 @@ Require a single space or disallow whitespace before operators within attribute 
 
 ```css
 [target =_blank]
-/**     ↑    
+/**     ↑
  * The space before operator */
 ```
 

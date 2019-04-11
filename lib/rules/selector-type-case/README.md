@@ -68,7 +68,7 @@ Given:
 ["$childClass", "/(p|P)arent.*/"]
 ```
 
-The following patterns are not considered violations:
+The following patterns are *not* considered violations:
 
 ```css
 myParentClass {

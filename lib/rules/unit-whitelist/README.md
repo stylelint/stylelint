@@ -67,7 +67,7 @@ Given:
 ```js
 {
   "rem": [ "line-height", "/^border/" ],
-  "%": [ "width" ]  
+  "%": [ "width" ]
 }
 ```
 

@@ -4,7 +4,7 @@ Disallow scheme-relative urls.
 
 ```css
 a { background-image: url('//www.google.com/file.jpg'); }
-/**                        ↑ 
+/**                        ↑
  *  This scheme-relative url */
 ```
 
@@ -19,27 +19,27 @@ This rule ignores url arguments that are variables (`$sass`, `@less`, `--custom-
 The following patterns are considered violations:
 
 ```css
-a { 
-  background: url("//www.google.com/file.jpg"); 
+a {
+  background: url("//www.google.com/file.jpg");
 }
 ```
 
 The following patterns are *not* considered violations:
 
 ```css
-a { 
-  background: url("../file.jpg"); 
+a {
+  background: url("../file.jpg");
 }
 ```
 
 ```css
-a { 
-  background: url("http://www.google.com/file.jpg"); 
+a {
+  background: url("http://www.google.com/file.jpg");
 }
 ```
 
 ```css
-a { 
-  background: url("/path/to/file.jpg"); 
+a {
+  background: url("/path/to/file.jpg");
 }
 ```

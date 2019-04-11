@@ -5,6 +5,7 @@ Plugins are rules and sets of rules built by the community that support methodol
 -   [`stylelint-8-point-grid`](https://github.com/dcrtantuco/stylelint-8-point-grid): Validate CSS with 8-point grid guideline
 -   [`stylelint-a11y`](https://github.com/YozhikM/stylelint-a11y): Accessibility rules (plugin pack).
 -   [`stylelint-at-rule-no-children`](https://github.com/adityavm/stylelint-at-rule-no-children): Disallow block rule declarations inside at-rules (with a few exceptions).
+-   [`stylelint-color-control`](https://github.com/csstools/stylelint-color-control): Control color usage in CSS.
 -   [`stylelint-color-format`](https://github.com/filipekiss/stylelint-color-format): Convert HEX colors to either RGB or HSL.
 -   [`stylelint-csstree-validator`](https://github.com/csstree/stylelint-validator): Validate CSS values to match W3C specs and browsers extensions.
 -   [`stylelint-declaration-block-no-ignored-properties`](https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties): Disallow property values that are ignored due to another property value in the same rule.
@@ -26,6 +27,8 @@ Plugins are rules and sets of rules built by the community that support methodol
 -   [`stylelint-selector-no-empty`](https://github.com/ssivanatarajan/stylelint-selector-no-empty): Disallow empty Selectors.
 -   [`stylelint-selector-tag-no-without-class`](https://github.com/Moxio/stylelint-selector-tag-no-without-class): Disallow certain tags without a class qualifier in selectors.
 -   [`stylelint-suitcss`](https://github.com/suitcss/stylelint-suitcss): A collection of stylelint plugins for SUIT CSS, including deprecated `:root` rules (plugin pack).
+-   [`stylelint-use-logical`](https://github.com/csstools/stylelint-use-logical): Enforce usage of logical properties and values in CSS.
+-   [`stylelint-use-nesting`](https://github.com/csstools/stylelint-use-nesting): Enforce nesting when it is possible in CSS.
 -   [`stylelint-value-no-unknown-custom-properties`](https://github.com/csstools/stylelint-value-no-unknown-custom-properties): Disallow unknown custom properties.
 -   [`stylelint-z-index-value-constraint`](https://github.com/kristerkari/stylelint-z-index-value-constraint): Specify minimum and maximum constraint value for z-index.
 -   [`stylelint-itcss`](https://github.com/KamiKillertO/stylelint-itcss): A set of rules to enforce ITCSS architecture.

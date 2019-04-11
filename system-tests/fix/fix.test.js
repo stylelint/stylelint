@@ -113,4 +113,24 @@ describe("fix", () => {
         expect(result.output).toBe("a { color: red; }");
       });
   });
+
+  it("apply indentation autofix at last", () => {
+    return stylelint
+      .lint({
+        code:
+          "a {\nbox-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);\n}",
+        config: {
+          rules: {
+            indentation: 2,
+            "value-list-comma-newline-after": "always"
+          }
+        },
+        fix: true
+      })
+      .then(result => {
+        expect(result.output).toBe(
+          "a {\n  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1),\n    0 0 0 1px rgba(0, 0, 0, 0.2),\n    inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);\n}"
+        );
+      });
+  });
 });

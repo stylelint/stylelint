@@ -5,7 +5,7 @@ Specify lowercase or uppercase for at-rules names.
 ```css
    @media (min-width: 10px) {}
 /** ↑
- * These at-rule names */
+ * This at-rule name */
 ```
 
 Only lowercase at-rule names are valid in SCSS.

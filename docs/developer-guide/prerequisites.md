@@ -2,7 +2,7 @@
 
 ## Technical
 
--   [Node.js](https://nodejs.org/en/) 4.2.1+.
+-   [Node.js](https://nodejs.org/en/) 8.15.1+.
 -   Latest [npm](https://www.npmjs.com/).
 
 ## Rules of thumb

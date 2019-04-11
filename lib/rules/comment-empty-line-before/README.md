@@ -100,7 +100,7 @@ a {
 
 #### `"after-comment"`
 
-Don't require an empty line after a comment.
+Ignore comments that follow another comment.
 
 For example, with `"always"`:
 

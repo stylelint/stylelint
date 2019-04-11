@@ -16,7 +16,7 @@ Escaped selectors (e.g. `.u-size-11\/12\@sm`) are parsed as escaped twice (e.g. 
 
 `regex|string`
 
-A string will be translated into a RegExp — `new RegExp(yourString)` — so *be sure to escape properly*.
+A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
 
 The selector value *after `.`* will be checked. No need to include `.` in your pattern.
 
