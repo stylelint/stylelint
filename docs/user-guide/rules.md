@@ -196,6 +196,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### General / Sheet
 
+-   [`max-lines`](../../lib/rules/max-lines/README.md): Limit the number of lines.
 -   [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md): Limit the depth of nesting.
 -   [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
 

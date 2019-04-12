@@ -89,6 +89,7 @@ You might want to learn a little about [how rules are named and how they work to
     "linebreaks": "unix"|"windows",
     "max-empty-lines": int,
     "max-line-length": int,
+    "max-lines": int,
     "max-nesting-depth": int,
     "media-feature-colon-space-after": "always"|"never",
     "media-feature-colon-space-before": "always"|"never",
