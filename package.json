@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "9.10.1",
+  "version": "10.0.0",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css",

@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## [Head][]
+## [10.0.0][]
 
 -   Removed: Node.js 6.x support. Node.js 8.15.1 or greater is now required ([#4006](https://github.com/stylelint/stylelint/pull/4006)).
 -   Removed: `styled` and `jsx` syntax options that were replaced with `css-in-js` in v9.10.0 ([#4007](https://github.com/stylelint/stylelint/pull/4007)).
@@ -1432,7 +1432,7 @@ Changes:
 -   Added: `value-list-comma-space-before` rule.
 -   Added: `value-no-vendor-prefix` rule.
 
-[Head]: https://github.com/stylelint/stylelint/compare/9.10.0...HEAD
+[10.0.0]: https://github.com/stylelint/stylelint/compare/9.10.0...10.0.0
 [9.10.1]: https://github.com/stylelint/stylelint/compare/9.10.0...9.10.1
 [9.10.0]: https://github.com/stylelint/stylelint/compare/9.9.0...9.10.0
 [9.9.0]: https://github.com/stylelint/stylelint/compare/9.8.0...9.9.0
