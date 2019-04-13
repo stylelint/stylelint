@@ -6,8 +6,8 @@ All notable changes to this project are documented in this file.
 
 -   Removed: Node.js 6.x support. Node.js 8.15.1 or greater is now required ([#4006](https://github.com/stylelint/stylelint/pull/4006)).
 -   Removed: `styled` and `jsx` syntax options that were replaced with `css-in-js` in v9.10.0 ([#4007](https://github.com/stylelint/stylelint/pull/4007)).
--   Changed: rules are now applied in the order defined in `lib/rules/index.js` ([#3923](https://github.com/stylelint/stylelint/pull/3923)).
 -   Changed: throws error if glob matches no files, use the `--allow-empty-input` flag for the old behaviour ([#3965](https://github.com/stylelint/stylelint/pull/3965)).
+-   Changed: rules are now applied in the order defined in `lib/rules/index.js` ([#3923](https://github.com/stylelint/stylelint/pull/3923)).
 -   Added: `at-rule-property-requirelist` rule ([#3997](https://github.com/stylelint/stylelint/pull/3997)).
 -   Added: `disallowInList` to `no-duplicate-selectors` ([#3936](https://github.com/stylelint/stylelint/pull/3936)).
 -   Added: `ignore: ["comments"]` to `block-no-empty` ([#4008](https://github.com/stylelint/stylelint/pull/4008)).
@@ -17,6 +17,7 @@ All notable changes to this project are documented in this file.
 -   Fixed: `function-calc-no-invalid` false positives for negative numbers ([#3921](https://github.com/stylelint/stylelint/pull/3921)).
 -   Fixed: `no-descending-specificity` false positives for vendor prefixed pseudo-elements ([#3929](https://github.com/stylelint/stylelint/issues/3929)).
 -   Fixed: `selector-max-*` false negatives for nested at-rules ([#3959](https://github.com/stylelint/stylelint/pull/3959)).
+-   Fixed: `value-keyword-case` autofix for single-line comments within maps ([#4019](https://github.com/stylelint/stylelint/pull/4019)).
 
 ## [9.10.1][]
 
