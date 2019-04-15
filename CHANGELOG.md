@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## [Head][]
+
+-   Fixed: `--allow-empty-input` CLI flag ([#4029](https://github.com/stylelint/stylelint/pull/4029)).
+
 ## [10.0.0][]
 
 -   Removed: Node.js 6.x support. Node.js 8.15.1 or greater is now required ([#4006](https://github.com/stylelint/stylelint/pull/4006)).
@@ -1432,6 +1436,7 @@ Changes:
 -   Added: `value-list-comma-space-before` rule.
 -   Added: `value-no-vendor-prefix` rule.
 
+[Head]: https://github.com/stylelint/stylelint/compare/10.0.0...HEAD
 [10.0.0]: https://github.com/stylelint/stylelint/compare/9.10.0...10.0.0
 [9.10.1]: https://github.com/stylelint/stylelint/compare/9.10.0...9.10.1
 [9.10.0]: https://github.com/stylelint/stylelint/compare/9.9.0...9.10.0
