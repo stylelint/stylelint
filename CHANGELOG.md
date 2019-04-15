@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## [Head][]
 
 -   Fixed: `--allow-empty-input` CLI flag ([#4029](https://github.com/stylelint/stylelint/pull/4029)).
+-   Fixed: `function-linear-gradient-no-nonstandard-direction` false positives for dollar variables ([#4027](https://github.com/stylelint/stylelint/pull/4027)).
 
 ## [10.0.0][]
 
