@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file.
 
 -   Fixed: minimum Node.js engine reduced to 8.7.0 ([#4032](https://github.com/stylelint/stylelint/pull/4032)).
 -   Fixed: `--allow-empty-input` CLI flag ([#4029](https://github.com/stylelint/stylelint/pull/4029)).
+-   Fixed: `color-no-invalid-hex` false positives for hashes in URLs ([#4035](https://github.com/stylelint/stylelint/pull/4035)).
 -   Fixed: `function-linear-gradient-no-nonstandard-direction` false positives for dollar variables ([#4027](https://github.com/stylelint/stylelint/pull/4027)).
 
 ## [10.0.0][]
