@@ -36,7 +36,7 @@
     "!flow-typed/npm"
   ],
   "engines": {
-    "node": ">=8.15.1"
+    "node": ">=8.7.0"
   },
   "dependencies": {
     "autoprefixer": "^9.5.1",
