@@ -50,7 +50,7 @@
     "global-modules": "^2.0.0",
     "globby": "^9.2.0",
     "globjoin": "^0.1.4",
-    "html-tags": "^2.0.0",
+    "html-tags": "^3.0.0",
     "ignore": "^5.0.6",
     "import-lazy": "^3.1.0",
     "imurmurhash": "^0.1.4",
