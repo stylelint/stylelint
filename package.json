@@ -57,7 +57,7 @@
     "known-css-properties": "^0.13.0",
     "leven": "^3.1.0",
     "lodash": "^4.17.11",
-    "log-symbols": "^2.2.0",
+    "log-symbols": "^3.0.0",
     "mathml-tag-names": "^2.1.0",
     "meow": "^5.0.0",
     "micromatch": "^4.0.0",
