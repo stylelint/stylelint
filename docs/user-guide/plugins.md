@@ -32,3 +32,5 @@ Plugins are rules and sets of rules built by the community that support methodol
 -   [`stylelint-value-no-unknown-custom-properties`](https://github.com/csstools/stylelint-value-no-unknown-custom-properties): Disallow unknown custom properties.
 -   [`stylelint-z-index-value-constraint`](https://github.com/kristerkari/stylelint-z-index-value-constraint): Specify minimum and maximum constraint value for z-index.
 -   [`stylelint-itcss`](https://github.com/KamiKillertO/stylelint-itcss): A set of rules to enforce ITCSS architecture.
+-   [`stylelint-plugin-ecss`](https://github.com/tyankatsu0105/stylelint-plugin-ecss): A set of rules to enforce [`Enduring CSS`](http://ecss.io/) architecture.
+
