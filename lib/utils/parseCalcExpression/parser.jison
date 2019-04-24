@@ -50,8 +50,8 @@
 "("                                                   return 'LPAREN';
 ")"                                                   return 'RPAREN';
 
-#\{([\s\S]*?)\}                                       return 'UNKNOWN'; // scss variable
-@\{([\s\S]*?)\}                                       return 'UNKNOWN'; // less variable
+#\{([\s\S]*?)\}                                       return 'UNKNOWN'; // scss interpolation
+@\{([\s\S]*?)\}                                       return 'UNKNOWN'; // less interpolation
 
 \S[^\s()*/+-]*                                        return 'UNKNOWN';
 
