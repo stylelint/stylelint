@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## [Head][]
+
+-   Fixed: `function-calc-no-invalid` false positives for interpolation ([#4046](https://github.com/stylelint/stylelint/pull/4046)).
+
 ## [10.0.1][]
 
 -   Fixed: minimum Node.js engine reduced to 8.7.0 ([#4032](https://github.com/stylelint/stylelint/pull/4032)).
@@ -1439,6 +1443,7 @@ Changes:
 -   Added: `value-list-comma-space-before` rule.
 -   Added: `value-no-vendor-prefix` rule.
 
+[Head]: https://github.com/stylelint/stylelint/compare/10.0.1...HEAD
 [10.0.1]: https://github.com/stylelint/stylelint/compare/10.0.0...10.0.1
 [10.0.0]: https://github.com/stylelint/stylelint/compare/9.10.1...10.0.0
 [9.10.1]: https://github.com/stylelint/stylelint/compare/9.10.0...9.10.1
