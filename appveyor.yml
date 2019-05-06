@@ -4,6 +4,7 @@ environment:
   matrix:
     - nodejs_version: 8
     - nodejs_version: 10
+    - nodejs_version: 12
 
 clone_depth: 10
 
