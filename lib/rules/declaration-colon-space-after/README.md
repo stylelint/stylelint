@@ -45,11 +45,11 @@ There *must never* be whitespace after the colon.
 The following patterns are considered violations:
 
 ```css
-a { color:pink }
+a { color : pink }
 ```
 
 ```css
-a { color :pink }
+a { color: pink }
 ```
 
 The following patterns are *not* considered violations:
