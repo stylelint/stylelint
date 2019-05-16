@@ -33,4 +33,5 @@ Plugins are rules and sets of rules built by the community that support methodol
 -   [`stylelint-z-index-value-constraint`](https://github.com/kristerkari/stylelint-z-index-value-constraint): Specify minimum and maximum constraint value for z-index.
 -   [`stylelint-itcss`](https://github.com/KamiKillertO/stylelint-itcss): A set of rules to enforce ITCSS architecture.
 -   [`stylelint-plugin-ecss`](https://github.com/tyankatsu0105/stylelint-plugin-ecss): A set of rules to enforce [`Enduring CSS`](http://ecss.io/) architecture.
+-   [`stylelint-force-app-name-prefix`](https://github.com/SunHuawei/stylelint-force-app-name-prefix/): Force css rules to have app name as prefix.
 
