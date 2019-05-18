@@ -9,8 +9,6 @@ Require a newline after the semicolon of at-rules.
  * The newline after these semicolons */
 ```
 
-This rule ignores `@import` in Less.
-
 This rule allows an end-of-line comment followed by a newline. For example:
 
 ```css

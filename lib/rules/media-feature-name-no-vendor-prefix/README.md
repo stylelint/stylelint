@@ -5,7 +5,7 @@ Disallow vendor prefixes for media feature names.
 ```css
 @media (-webkit-min-device-pixel-ratio: 1) {}
 /**      ↑
- * These prefixes */
+ * This prefixe */
 ```
 
 Right now this rule simply checks for prefixed *resolutions*.

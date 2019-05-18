@@ -6,8 +6,10 @@ Require a newline or disallow whitespace before the commas of functions.
   a { transform: translate(1
     , 1) }
 /** ↑
- * These commas */
+ * This comma */
 ```
+
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
@@ -85,7 +87,7 @@ a {
 
 ### `"never-multi-line"`
 
-There *must never* be a whitespace before the commas in multi-line functions.
+There *must never* be whitespace before the commas in multi-line functions.
 
 The following patterns are considered violations:
 

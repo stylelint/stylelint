@@ -5,12 +5,12 @@ Specify a blacklist of disallowed functions.
 ```css
 a { transform: scale(1); }
 /**            ↑
- * These functions */
+ * This function */
 ```
 
 ## Options
 
-`array|string`: `["array", "of", "unprefixed", "functions" or "regex"]|"function"|"/regex/"`
+`array|string`: `["array", "of", "unprefixed", /functions/ or "regex"]|"function"|"/regex/"`
 
 If a string is surrounded with `"/"` (e.g. `"/^rgb/"`), it is interpreted as a regular expression.
 

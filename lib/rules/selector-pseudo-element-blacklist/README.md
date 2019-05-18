@@ -3,9 +3,9 @@
 Specify a blacklist of disallowed pseudo-element selectors.
 
 ```css
- a::before {}
-/** ↑
- * These pseudo-element selectors */
+  a::before {}
+/**  ↑
+ * This pseudo-element selector */
 ```
 
 This rule ignores:

@@ -14,6 +14,7 @@ function caseStylesheetGlob(caseNumber) {
 
 function caseConfig(caseNumber, ext) {
   ext = ext || "json";
+
   return caseFilePath(caseNumber, `config.${ext}`);
 }
 

@@ -5,7 +5,7 @@ Limit the number of decimal places allowed in numbers.
 ```css
 a { top: 3.245634px; }
 /**           ↑
- * These decimal places */
+ * This decimal place */
 ```
 
 ## Options
@@ -40,7 +40,7 @@ a { top: 3.24px; }
 
 ## Optional secondary options
 
-### `ignoreUnits: ["/regex/", "string"]`
+### `ignoreUnits: ["/regex/", /regex/, "string"]`
 
 Ignore the precision of numbers for values with the specified units.
 

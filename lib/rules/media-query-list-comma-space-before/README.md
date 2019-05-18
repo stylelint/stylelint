@@ -5,7 +5,7 @@ Require a single space or disallow whitespace before the commas of media query l
 ```css
 @media screen and (color) ,projection and (color) {}
 /**                       ↑
- *             These commas */
+ * The space before this comma */
 ```
 
 The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
@@ -42,7 +42,7 @@ projection and (color) {}
 
 ### `"never"`
 
-There *must never* be whitepace before the commas.
+There *must never* be whitespace before the commas.
 
 The following patterns are considered violations:
 
@@ -94,7 +94,7 @@ The following patterns are *not* considered violations:
 
 ### `"never-single-line"`
 
-There *must never* be whitepace before the commas in single-line media query lists.
+There *must never* be whitespace before the commas in single-line media query lists.
 
 The following patterns are considered violations:
 

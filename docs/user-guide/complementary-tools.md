@@ -4,6 +4,7 @@ A list of complementary tools built and maintained by the community.
 
 ## Analysis platform engines
 
+-   [codacy-stylelint](https://github.com/codacy/codacy-stylelint): [Codacy](https://www.codacy.com/) engine for stylelint
 -   [codeclimate-stylelint](https://github.com/gilbarbara/codeclimate-stylelint): Code Climate engine for stylelint
 
 ## Command Line Tools
@@ -16,7 +17,7 @@ A list of complementary tools built and maintained by the community.
 -   [ember-cli-stylelint](https://github.com/billybonks/ember-cli-stylelint): An Ember CLI plugin for stylelint.
 -   [grunt-stylelint](https://github.com/wikimedia/grunt-stylelint): A Grunt plugin for stylelint.
 -   [gulp-stylelint](https://github.com/olegskl/gulp-stylelint): A gulp plugin for stylelint.
--   [stylelint-webpack-plugin](https://github.com/vieron/stylelint-webpack-plugin): A webpack plugin for stylelint.
+-   [stylelint-webpack-plugin](https://github.com/webpack-contrib/stylelint-webpack-plugin): A webpack plugin for stylelint.
 
 ## Editor plugins
 
@@ -24,7 +25,7 @@ A list of complementary tools built and maintained by the community.
 -   [Flycheck](https://github.com/flycheck/flycheck): An Emacs extension that supports stylelint.
 -   [linter-stylelint](https://github.com/AtomLinter/linter-stylelint): An Atom plugin for stylelint.
 -   [SublimeLinter-stylelint](https://github.com/SublimeLinter/SublimeLinter-stylelint): A Sublime Text plugin for stylelint.
--   [SublimeLinter-contrib-stylelint_d](https://github.com/jo-sm/SublimeLinter-contrib-stylelint_d): A Sublime Text plugin for stylelint that run's on deamon.
+-   [SublimeLinter-contrib-stylelint_d](https://github.com/jo-sm/SublimeLinter-contrib-stylelint_d): A Sublime Text plugin for stylelint that run's on daemon.
 -   [vscode-stylelint](https://github.com/shinnn/vscode-stylelint): A Visual Studio Code extension for stylelint.
 
 ## Editors

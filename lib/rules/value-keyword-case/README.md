@@ -10,9 +10,12 @@ Specify lowercase or uppercase for keywords values.
 
 This rule ignores [`<custom-idents>`](https://developer.mozilla.org/en/docs/Web/CSS/custom-ident) of known properties. Values which are paired with non-properties (e.g. `$vars` and custom properties), and do not conform to the primary option, can be ignored using the `ignoreValues: []` secondary option.
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"lower"|"upper"`
+
 
 ### `"lower"`
 
@@ -100,7 +103,7 @@ a {
 
 ## Optional secondary options
 
-### `ignoreKeywords: ["/regex/", "non-regex"]`
+### `ignoreKeywords: ["/regex/", /regex/, "non-regex"]`
 
 Ignore case of keywords values.
 
@@ -164,7 +167,7 @@ a {
 }
 ```
 
-### `ignoreProperties: ["/regex/", "non-regex"]`
+### `ignoreProperties: ["/regex/", /regex/, "non-regex"]`
 
 Ignore case of the values of the listed properties.
 

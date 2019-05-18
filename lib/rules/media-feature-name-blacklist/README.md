@@ -5,14 +5,14 @@ Specify a blacklist of disallowed media feature names.
 ```css
 @media (min-width: 700px) {}
 /**     ↑
- * These media feature names */
+ * This media feature name */
 ```
 
 **Caveat:** Media feature names within a range context are currently ignored.
 
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", "media-features" or "regex"]|"media-feature"|/regex/`
+`array|string|regex`: `["array", "of", "unprefixed", /media-features/ or "regex"]|"media-feature"|/regex/`
 
 Given:
 

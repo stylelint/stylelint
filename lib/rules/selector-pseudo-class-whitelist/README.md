@@ -5,14 +5,14 @@ Specify a whitelist of allowed pseudo-class selectors.
 ```css
   a:hover {}
 /** ↑
- * These pseudo-class selectors */
+ * This pseudo-class selector */
 ```
 
 This rule ignores selectors that use variable interpolation e.g. `:#{$variable} {}`.
 
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", "pseudo-classes" or "regex"]|"pseudo-class"|/regex/`
+`array|string|regex`: `["array", "of", "unprefixed", /pseudo-classes/ or "/regex/"]|"pseudo-class"|/regex/`
 
 If a string is surrounded with `"/"` (e.g. `"/^nth-/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^nth-/` will match `nth-child`, `nth-last-child`, `nth-of-type`, etc.
 

@@ -124,7 +124,7 @@ b {
 
 #### `"after-rule"`
 
-Reverse the primary option if the rule comes after another rule.
+Reverse the primary option for rules that follow another rule.
 
 For example, with `"always"`:
 
@@ -145,7 +145,7 @@ b {}
 
 #### `"after-single-line-comment"`
 
-Reverse the primary option if the rule comes after a single-line comment.
+Reverse the primary option for rules that follow a single-line comment.
 
 For example, with `"always"`:
 
@@ -166,7 +166,7 @@ a {}
 
 #### `"inside-block-and-after-rule"`
 
-Reverse the primary option if the rule is inside a block and comes after another rule.
+Reverse the primary option for rules that are inside a block and follow another rule.
 
 For example, with `"always"`:
 
@@ -192,7 +192,7 @@ The following patterns are *not* considered violations:
 
 #### `"inside-block"`
 
-Reverse the primary option if the rule is inside a block.
+Reverse the primary option for rules that are inside a block.
 
 For example, with `"always"`:
 
@@ -222,7 +222,7 @@ a {
 
 #### `"first-nested"`
 
-Reverse the primary option if the rule is the first in a block.
+Reverse the primary option for rules that are nested and the first child of their parent node.
 
 For example, with `"always"`:
 
@@ -251,7 +251,7 @@ The following patterns are *not* considered violations:
 
 #### `"after-comment"`
 
-Ignore rules that come after a comment.
+Ignore rules that follow a comment.
 
 For example, with `"always"`:
 

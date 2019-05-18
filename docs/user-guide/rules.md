@@ -27,6 +27,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Function
 
+-   [`function-calc-no-invalid`](../../lib/rules/function-calc-no-invalid/README.md): Disallow an invalid expression within `calc` functions.
 -   [`function-calc-no-unspaced-operator`](../../lib/rules/function-calc-no-unspaced-operator/README.md): Disallow an unspaced operator within `calc` functions.
 -   [`function-linear-gradient-no-nonstandard-direction`](../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow direction values in `linear-gradient()` calls that are not valid according to the [standard syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#Syntax).
 
@@ -49,7 +50,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 #### Declaration block
 
 -   [`declaration-block-no-duplicate-properties`](../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks.
--   [`declaration-block-no-shorthand-property-overrides`](../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties within declaration blocks.
+-   [`declaration-block-no-shorthand-property-overrides`](../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
 
 #### Block
 
@@ -71,13 +72,13 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Comment
 
--   [`comment-no-empty`](../../lib/rules/comment-no-empty/README.md):  Disallow empty comments.
+-   [`comment-no-empty`](../../lib/rules/comment-no-empty/README.md): Disallow empty comments.
 
 #### General / Sheet
 
 -   [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 -   [`no-duplicate-at-import-rules`](../../lib/rules/no-duplicate-at-import-rules/README.md): Disallow duplicate `@import` rules within a stylesheet.
--   [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
+-   [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors within a stylesheet.
 -   [`no-empty-source`](../../lib/rules/no-empty-source/README.md): Disallow empty sources.
 -   [`no-extra-semicolons`](../../lib/rules/no-extra-semicolons/README.md): Disallow extra semicolons (Autofixable).
 -   [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
@@ -93,8 +94,8 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 -   [`function-blacklist`](../../lib/rules/function-blacklist/README.md): Specify a blacklist of disallowed functions.
 -   [`function-url-no-scheme-relative`](../../lib/rules/function-url-no-scheme-relative/README.md): Disallow scheme-relative urls.
--   [`function-url-scheme-blacklist`](../../lib/rules/function-url-scheme-blacklist/README.md): Specify a blacklist of disallowed url schemes.
--   [`function-url-scheme-whitelist`](../../lib/rules/function-url-scheme-whitelist/README.md): Specify a whitelist of allowed url schemes.
+-   [`function-url-scheme-blacklist`](../../lib/rules/function-url-scheme-blacklist/README.md): Specify a blacklist of disallowed URL schemes.
+-   [`function-url-scheme-whitelist`](../../lib/rules/function-url-scheme-whitelist/README.md): Specify a whitelist of allowed URL schemes.
 -   [`function-whitelist`](../../lib/rules/function-whitelist/README.md): Specify a whitelist of allowed functions.
 
 #### Keyframes
@@ -143,7 +144,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Declaration block
 
--   [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declarations within single line declaration blocks.
+-   [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declarations within a single-line declaration block.
 
 #### Selector
 
@@ -157,7 +158,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`selector-max-class`](../../lib/rules/selector-max-class/README.md): Limit the number of classes in a selector.
 -   [`selector-max-combinators`](../../lib/rules/selector-max-combinators/README.md): Limit the number of combinators in a selector.
 -   [`selector-max-compound-selectors`](../../lib/rules/selector-max-compound-selectors/README.md): Limit the number of compound selectors in a selector.
--   [`selector-max-empty-lines`](../../lib/rules/selector-max-empty-lines/README.md): Limit the number of adjacent empty lines within selectors.
+-   [`selector-max-empty-lines`](../../lib/rules/selector-max-empty-lines/README.md): Limit the number of adjacent empty lines within selectors (Autofixable).
 -   [`selector-max-id`](../../lib/rules/selector-max-id/README.md): Limit the number of ID selectors in a selector.
 -   [`selector-max-pseudo-class`](../../lib/rules/selector-max-pseudo-class/README.md): Limit the number of pseudo-classes in a selector.
 -   [`selector-max-specificity`](../../lib/rules/selector-max-specificity/README.md): Limit the specificity of selectors.
@@ -186,6 +187,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 -   [`at-rule-blacklist`](../../lib/rules/at-rule-blacklist/README.md): Specify a blacklist of disallowed at-rules.
 -   [`at-rule-no-vendor-prefix`](../../lib/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for at-rules.
+-   [`at-rule-property-requirelist`](../../lib/rules/at-rule-property-requirelist/README.md): Specify a requirelist of properties for an at-rule.
 -   [`at-rule-whitelist`](../../lib/rules/at-rule-whitelist/README.md): Specify a whitelist of allowed at-rules.
 
 #### Comment
@@ -210,20 +212,20 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Font weight
 
--   [`font-weight-notation`](../../lib/rules/font-weight-notation/README.md): Require numeric or named (where possible) `font-weight` values.
+-   [`font-weight-notation`](../../lib/rules/font-weight-notation/README.md): Require numeric or named (where possible) `font-weight` values. Also, when named values are expected, require only valid names.
 
 #### Function
 
--   [`function-comma-newline-after`](../../lib/rules/function-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of functions.
--   [`function-comma-newline-before`](../../lib/rules/function-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of functions.
+-   [`function-comma-newline-after`](../../lib/rules/function-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of functions (Autofixable).
+-   [`function-comma-newline-before`](../../lib/rules/function-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of functions (Autofixable).
 -   [`function-comma-space-after`](../../lib/rules/function-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of functions (Autofixable).
 -   [`function-comma-space-before`](../../lib/rules/function-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of functions (Autofixable).
--   [`function-max-empty-lines`](../../lib/rules/function-max-empty-lines/README.md): Limit the number of adjacent empty lines within functions.
--   [`function-name-case`](../../lib/rules/function-name-case/README.md): Specify lowercase or uppercase for function names.
+-   [`function-max-empty-lines`](../../lib/rules/function-max-empty-lines/README.md): Limit the number of adjacent empty lines within functions (Autofixable).
+-   [`function-name-case`](../../lib/rules/function-name-case/README.md): Specify lowercase or uppercase for function names (Autofixable).
 -   [`function-parentheses-newline-inside`](../../lib/rules/function-parentheses-newline-inside/README.md): Require a newline or disallow whitespace on the inside of the parentheses of functions (Autofixable).
 -   [`function-parentheses-space-inside`](../../lib/rules/function-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses of functions (Autofixable).
 -   [`function-url-quotes`](../../lib/rules/function-url-quotes/README.md): Require or disallow quotes for urls.
--   [`function-whitespace-after`](../../lib/rules/function-whitespace-after/README.md): Require or disallow whitespace after functions.
+-   [`function-whitespace-after`](../../lib/rules/function-whitespace-after/README.md): Require or disallow whitespace after functions (Autofixable).
 
 #### Number
 
@@ -240,11 +242,11 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 #### Unit
 
--   [`unit-case`](../../lib/rules/unit-case/README.md): Specify lowercase or uppercase for units.
+-   [`unit-case`](../../lib/rules/unit-case/README.md): Specify lowercase or uppercase for units (Autofixable).
 
 #### Value
 
--   [`value-keyword-case`](../../lib/rules/value-keyword-case/README.md): Specify lowercase or uppercase for keywords values.
+-   [`value-keyword-case`](../../lib/rules/value-keyword-case/README.md): Specify lowercase or uppercase for keywords values (Autofixable).
 
 #### Value list
 
@@ -252,7 +254,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`value-list-comma-newline-before`](../../lib/rules/value-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of value lists.
 -   [`value-list-comma-space-after`](../../lib/rules/value-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of value lists (Autofixable).
 -   [`value-list-comma-space-before`](../../lib/rules/value-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of value lists (Autofixable).
--   [`value-list-max-empty-lines`](../../lib/rules/value-list-max-empty-lines/README.md): Limit the number of adjacent empty lines within value lists.
+-   [`value-list-max-empty-lines`](../../lib/rules/value-list-max-empty-lines/README.md): Limit the number of adjacent empty lines within value lists (Autofixable).
 
 #### Custom property
 
@@ -275,7 +277,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 -   [`declaration-block-semicolon-newline-after`](../../lib/rules/declaration-block-semicolon-newline-after/README.md): Require a newline or disallow whitespace after the semicolons of declaration blocks (Autofixable).
 -   [`declaration-block-semicolon-newline-before`](../../lib/rules/declaration-block-semicolon-newline-before/README.md): Require a newline or disallow whitespace before the semicolons of declaration blocks.
--   [`declaration-block-semicolon-space-after`](../../lib/rules/declaration-block-semicolon-space-after/README.md): Require a single space or disallow whitespace after the semicolons of declaration blocks.
+-   [`declaration-block-semicolon-space-after`](../../lib/rules/declaration-block-semicolon-space-after/README.md): Require a single space or disallow whitespace after the semicolons of declaration blocks (Autofixable).
 -   [`declaration-block-semicolon-space-before`](../../lib/rules/declaration-block-semicolon-space-before/README.md): Require a single space or disallow whitespace before the semicolons of declaration blocks (Autofixable).
 -   [`declaration-block-trailing-semicolon`](../../lib/rules/declaration-block-trailing-semicolon/README.md): Require or disallow a trailing semicolon within declaration blocks (Autofixable).
 
@@ -285,7 +287,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`block-closing-brace-newline-after`](../../lib/rules/block-closing-brace-newline-after/README.md): Require a newline or disallow whitespace after the closing brace of blocks (Autofixable).
 -   [`block-closing-brace-newline-before`](../../lib/rules/block-closing-brace-newline-before/README.md): Require a newline or disallow whitespace before the closing brace of blocks (Autofixable).
 -   [`block-closing-brace-space-after`](../../lib/rules/block-closing-brace-space-after/README.md): Require a single space or disallow whitespace after the closing brace of blocks.
--   [`block-closing-brace-space-before`](../../lib/rules/block-closing-brace-space-before/README.md): Require a single space or disallow whitespace before the closing brace of blocks.
+-   [`block-closing-brace-space-before`](../../lib/rules/block-closing-brace-space-before/README.md): Require a single space or disallow whitespace before the closing brace of blocks (Autofixable).
 -   [`block-opening-brace-newline-after`](../../lib/rules/block-opening-brace-newline-after/README.md): Require a newline after the opening brace of blocks (Autofixable).
 -   [`block-opening-brace-newline-before`](../../lib/rules/block-opening-brace-newline-before/README.md): Require a newline or disallow whitespace before the opening brace of blocks (Autofixable).
 -   [`block-opening-brace-space-after`](../../lib/rules/block-opening-brace-space-after/README.md): Require a single space or disallow whitespace after the opening brace of blocks (Autofixable).
@@ -299,16 +301,16 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`selector-attribute-quotes`](../../lib/rules/selector-attribute-quotes/README.md): Require or disallow quotes for attribute values.
 -   [`selector-combinator-space-after`](../../lib/rules/selector-combinator-space-after/README.md): Require a single space or disallow whitespace after the combinators of selectors (Autofixable).
 -   [`selector-combinator-space-before`](../../lib/rules/selector-combinator-space-before/README.md): Require a single space or disallow whitespace before the combinators of selectors (Autofixable).
--   [`selector-descendant-combinator-no-non-space`](../../lib/rules/selector-descendant-combinator-no-non-space/README.md): Disallow non-space characters for descendant combinators of selectors.
--   [`selector-pseudo-class-case`](../../lib/rules/selector-pseudo-class-case/README.md): Specify lowercase or uppercase for pseudo-class selectors.
--   [`selector-pseudo-class-parentheses-space-inside`](../../lib/rules/selector-pseudo-class-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors.
+-   [`selector-descendant-combinator-no-non-space`](../../lib/rules/selector-descendant-combinator-no-non-space/README.md): Disallow non-space characters for descendant combinators of selectors (Autofixable).
+-   [`selector-pseudo-class-case`](../../lib/rules/selector-pseudo-class-case/README.md): Specify lowercase or uppercase for pseudo-class selectors (Autofixable).
+-   [`selector-pseudo-class-parentheses-space-inside`](../../lib/rules/selector-pseudo-class-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors (Autofixable).
 -   [`selector-pseudo-element-case`](../../lib/rules/selector-pseudo-element-case/README.md): Specify lowercase or uppercase for pseudo-element selectors (Autofixable).
 -   [`selector-pseudo-element-colon-notation`](../../lib/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements (Autofixable).
--   [`selector-type-case`](../../lib/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selector.
+-   [`selector-type-case`](../../lib/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selectors (Autofixable).
 
 #### Selector list
 
--   [`selector-list-comma-newline-after`](../../lib/rules/selector-list-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of selector lists.
+-   [`selector-list-comma-newline-after`](../../lib/rules/selector-list-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of selector lists (Autofixable).
 -   [`selector-list-comma-newline-before`](../../lib/rules/selector-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of selector lists (Autofixable).
 -   [`selector-list-comma-space-after`](../../lib/rules/selector-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of selector lists (Autofixable).
 -   [`selector-list-comma-space-before`](../../lib/rules/selector-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of selector lists (Autofixable).
@@ -321,8 +323,8 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 
 -   [`media-feature-colon-space-after`](../../lib/rules/media-feature-colon-space-after/README.md): Require a single space or disallow whitespace after the colon in media features (Autofixable).
 -   [`media-feature-colon-space-before`](../../lib/rules/media-feature-colon-space-before/README.md): Require a single space or disallow whitespace before the colon in media features (Autofixable).
--   [`media-feature-name-case`](../../lib/rules/media-feature-name-case/README.md): Specify lowercase or uppercase for media feature names.
--   [`media-feature-parentheses-space-inside`](../../lib/rules/media-feature-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within media features.
+-   [`media-feature-name-case`](../../lib/rules/media-feature-name-case/README.md): Specify lowercase or uppercase for media feature names (Autofixable).
+-   [`media-feature-parentheses-space-inside`](../../lib/rules/media-feature-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within media features (Autofixable).
 -   [`media-feature-range-operator-space-after`](../../lib/rules/media-feature-range-operator-space-after/README.md): Require a single space or disallow whitespace after the range operator in media features (Autofixable).
 -   [`media-feature-range-operator-space-before`](../../lib/rules/media-feature-range-operator-space-before/README.md): Require a single space or disallow whitespace before the range operator in media features (Autofixable).
 
@@ -340,12 +342,12 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`at-rule-name-newline-after`](../../lib/rules/at-rule-name-newline-after/README.md): Require a newline after at-rule names.
 -   [`at-rule-name-space-after`](../../lib/rules/at-rule-name-space-after/README.md): Require a single space after at-rule names (Autofixable).
 -   [`at-rule-semicolon-newline-after`](../../lib/rules/at-rule-semicolon-newline-after/README.md): Require a newline after the semicolon of at-rules (Autofixable).
--   [`at-rule-semicolon-space-before`](../../lib/rules/at-rule-semicolon-space-before/README.md): Require a single space or disallow whitespace before the semicolons of at rules.
+-   [`at-rule-semicolon-space-before`](../../lib/rules/at-rule-semicolon-space-before/README.md): Require a single space or disallow whitespace before the semicolons of at-rules.
 
 #### Comment
 
 -   [`comment-empty-line-before`](../../lib/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments (Autofixable).
--   [`comment-whitespace-inside`](../../lib/rules/comment-whitespace-inside/README.md): Require or disallow whitespace on the inside of comment markers.
+-   [`comment-whitespace-inside`](../../lib/rules/comment-whitespace-inside/README.md): Require or disallow whitespace on the inside of comment markers (Autofixable).
 
 #### General / Sheet
 
@@ -355,3 +357,4 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`max-line-length`](../../lib/rules/max-line-length/README.md): Limit the length of a line.
 -   [`no-eol-whitespace`](../../lib/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace (Autofixable).
 -   [`no-missing-end-of-source-newline`](../../lib/rules/no-missing-end-of-source-newline/README.md): Disallow missing end-of-source newlines (Autofixable).
+-   [`no-empty-first-line`](../../lib/rules/no-empty-first-line/README.md): Disallow empty first lines (Autofixable).

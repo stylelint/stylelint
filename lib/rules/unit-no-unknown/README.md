@@ -33,19 +33,19 @@ The following patterns are *not* considered violations:
 ```css
 a {
   width: 10px;
-}  
+}
 ```
 
 ```css
 a {
   width: 10Px;
-}  
+}
 ```
 
 ```css
 a {
   width: 10pX;
-}  
+}
 ```
 
 ```css
@@ -56,7 +56,7 @@ a {
 
 ## Optional secondary options
 
-### `ignoreUnits: ["/regex/", "string"]`
+### `ignoreUnits: ["/regex/", /regex/, "string"]`
 
 Given:
 
@@ -67,8 +67,8 @@ Given:
 The following patterns are *not* considered violations:
 
 ```css
+width: 10custom;
 a {
-  width: 10custom;
 }
 ```
 
@@ -81,5 +81,45 @@ a {
 ```css
 a {
   width: 10my-other-unit;
+}
+```
+
+### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+
+Given:
+
+```js
+["image-set", "/^my-/", "/^YOUR-/i"]
+```
+
+The following patterns are *not* considered violations:
+
+```css
+a {
+  background-image: image-set(
+    '/images/some-image-1x.jpg' 1x,
+    '/images/some-image-2x.jpg' 2x,
+    '/images/some-image-3x.jpg' 3x
+  );
+}
+```
+
+```css
+a {
+  background-image: my-image-set(
+    '/images/some-image-1x.jpg' 1x,
+    '/images/some-image-2x.jpg' 2x,
+    '/images/some-image-3x.jpg' 3x
+  );
+}
+```
+
+```css
+a {
+  background-image: YoUr-image-set(
+    '/images/some-image-1x.jpg' 1x,
+    '/images/some-image-2x.jpg' 2x,
+    '/images/some-image-3x.jpg' 3x
+  );
 }
 ```

@@ -87,7 +87,7 @@ a {
 
 #### `"after-comment"`
 
-Reverse the primary option for custom properties that come after a comment.
+Reverse the primary option for custom properties that follow a comment.
 
 Shared-line comments do not trigger this option.
 
@@ -135,7 +135,7 @@ a {
 
 #### `"after-custom-property"`
 
-Reverse the primary option for custom properties that come after another custom property.
+Reverse the primary option for custom properties that follow another custom property.
 
 Shared-line comments do not affect this option.
 
@@ -210,7 +210,7 @@ a {
 
 #### `"after-comment"`
 
-Ignore custom properties that are preceded by comments.
+Ignore custom properties that follow a comment.
 
 For example, with `"always"`:
 

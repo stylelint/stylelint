@@ -5,7 +5,7 @@ Specify lowercase or uppercase for properties.
 ```css
     a { width: 1px; }
 /**     ↑
- * These properties */
+ * This property */
 ```
 
 The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.

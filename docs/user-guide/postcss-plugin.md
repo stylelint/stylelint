@@ -1,6 +1,6 @@
 # The stylelint PostCSS plugin
 
-As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a PostCSS runner or with the PostCSS JS API directly.
+As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a [PostCSS runner](https://github.com/postcss/postcss#runners) or with the PostCSS JS API directly.
 
 *However, if a dedicated stylelint task runner plugin [is available](complementary-tools.md) (e.g. [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) or [grunt-stylelint](https://github.com/wikimedia/grunt-stylelint)) we recommend you use that rather than this plugin, as they provide better reporting.*
 
@@ -11,7 +11,7 @@ As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), 
 stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install it using:
 
 ```console
-npm install stylelint
+npm install stylelint --save-dev
 ```
 
 ## Options
@@ -22,7 +22,7 @@ The plugin accepts an options object as argument, with the following properties:
 
 A [stylelint configuration object](configuration.md).
 
-If no `config` or `configFile` is passed, stylelint will look for a `.stylelintrc` configuration file.
+If no `config` or `configFile` is passed, stylelint will use a [config lookup algorithm](./configuration.md#loading-the-configuration-object) to find the correct config.
 
 ### `configFile`
 
@@ -69,7 +69,7 @@ You'll also need to use a reporter. *The stylelint plugin registers warnings via
 
 A separate lint task that uses the plugin via the PostCSS JS API to lint Less using [`postcss-less`](https://github.com/shellscape/postcss-less).
 
-*Note: the stylelint PostCSS plugin, unlike the stylelint CLI and node API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.*
+*Note: the stylelint PostCSS plugin, unlike the stylelint CLI and Node.js API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.*
 
 ```js
 var fs = require("fs")
@@ -91,7 +91,7 @@ postcss([
   .catch(err => console.error(err.stack))
 ```
 
-The same pattern can be used to lint SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.
+The same pattern can be used to lint Less, SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.
 
 ### Example B
 

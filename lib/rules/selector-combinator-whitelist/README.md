@@ -5,7 +5,7 @@ Specify a whitelist of allowed combinators.
 ```css
   a + b {}
 /** ↑
- * These combinators */
+ * This combinator */
 ```
 
 This rule normalizes the whitespace descendant combinator to be a single space.

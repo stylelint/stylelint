@@ -5,7 +5,7 @@ Limit the number of classes in a selector.
 ```css
 div .foo.bar[data-val] > a.baz {}
 /*  ↑   ↑                 ↑
-    |   |                 |
+    ↑   ↑                 ↑
     1   2                 3  -- this selector contains three classes */
 ```
 

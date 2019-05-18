@@ -5,7 +5,7 @@ Specify a blacklist of disallowed attribute operators.
 ```css
 [target="_blank"] {}
 /**    ↑
- * These operators */
+ * This operator */
 ```
 
 ## Options

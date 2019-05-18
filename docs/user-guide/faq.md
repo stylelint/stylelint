@@ -27,7 +27,7 @@ The CLI can also be used from within [npm run scripts](https://blog.keithcirkel.
 
 ## How do I lint using Git pre-commit hooks?
 
-[lint-staged](https://github.com/okonet/lint-staged) is a NodeJS script that supports running stylelint against Git staged files.
+[lint-staged](https://github.com/okonet/lint-staged) is a Node.js script that supports running stylelint against Git staged files.
 
 ## How do I lint using my task runner of choice?
 
@@ -37,7 +37,7 @@ If there isn't a dedicated stylelint plugin for your task runner of choice, you 
 
 There are also examples of using the PostCSS plugin via the PostCSS JS API within the [docs](postcss-plugin.md).
 
-However, using stylelint as a PostCSS plugin limits your reporting options to [postcss-reporter](https://github.com/postcss/postcss-reporter/). We recommend using the stylelint CLI or Node API, instead, for better reporting.
+However, using stylelint as a PostCSS plugin limits your reporting options to [postcss-reporter](https://github.com/postcss/postcss-reporter/). We recommend using the stylelint CLI or Node.js API, instead, for better reporting.
 
 ## How do I lint within my text editor?
 
@@ -47,7 +47,7 @@ The stylelint community also maintains a [handful of plugins](complementary-tool
 
 stylelint can *parse* any the following non-standard syntaxes by default: Sass, Less and SugarSS. Non-standard syntaxes can automatically be inferred from the following file extensions `.sass`, `.scss`, `.less`, and `.sss`; or else you can specify the syntax yourself.
 
-Additionally, stylelint can accept any [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes) when using the CLI or Node API. Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed above.
+Additionally, stylelint can accept any [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes) when using the CLI or Node.js API. Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed above.
 
 Refer to the [docs](css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse non-standard syntaxes.
 
@@ -55,13 +55,9 @@ Refer to the [docs](css-processors.md#parsing-non-standard-syntax) on how to con
 
 We [recommend](css-processors.md) linting your source files before any transformations.
 
-## How do I lint styles within `<style>` tags?
-
-[Create a processor](../developer-guide/processors.md) or [use an existing one](configuration.md#processors) that extracts CSS from your HTML's `<style>` tags and feeds it into stylelint.
-
 ## How do I automatically fix stylistic violations?
 
-Use the `--fix` CLI flag or the `fix` Node API option to fix a number of stylistic violations with this *experimental* feature.
+Use the `--fix` CLI flag or the `fix` Node.js API option to fix a number of stylistic violations with this *experimental* feature.
 
 ## How do I manage conflicts between rules?
 
@@ -128,6 +124,21 @@ a { color: red; }
 
 To allow single-line blocks but enforce newlines with multi-line blocks, use the `"always-multi-line"` option for both rules.
 
+## How do I whitelist only performant `transition` values?
+
+Use the `declaration-property-value-whitelist` rule to enforce this best practise at the configuration level:
+
+```json
+{
+  "rules": {
+    "declaration-property-value-whitelist": {
+      "/^transition/": ["/^opacity/", "/^transform/"]
+    }
+  }
+}
+```
+
+Or use the [`stylelint-high-performance-animation` plugin](https://github.com/kristerkari/stylelint-high-performance-animation).
 
 ## How do I configure the `*-pattern` rules for common CSS naming conventions like kebab-case?
 

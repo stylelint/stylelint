@@ -69,7 +69,7 @@ The following patterns are *not* considered violations:
 
 ## Optional secondary options
 
-### `ignore: ["child", "compounded", "descendant"]`
+### `ignore: ["child", "compounded", "descendant", "next-sibling"]`
 
 #### `"child"`
 
@@ -119,7 +119,23 @@ The following patterns are *not* considered violations:
 #bar div span a {}
 ```
 
-### `ignoreTypes: ["/regex/", "string"]`
+#### `"next-sibling"`
+
+Discount next-sibling type selectors.
+
+For example, with `2`:
+
+The following patterns are *not* considered violations:
+
+```css
+div a + span {}
+```
+
+```css
+#bar + div + span + a + span {}
+```
+
+### `ignoreTypes: ["/regex/", /regex/, "string"]`
 
 Given:
 

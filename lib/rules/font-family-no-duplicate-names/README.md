@@ -48,7 +48,7 @@ a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif; }
 
 ## Optional secondary options
 
-### `ignoreFontFamilyNames: ["/regex/", "string"]`
+### `ignoreFontFamilyNames: ["/regex/", /regex/, "string"]`
 
 Given:
 
@@ -65,4 +65,3 @@ font-family: monospace, monospace
 ```css
 font-family: "My Font Family", "My Font Family", monospace
 ```
-

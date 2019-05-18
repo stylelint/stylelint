@@ -12,8 +12,7 @@ Specify a pattern for keyframe names.
 
 `regex|string`
 
-A string will be translated into a RegExp — `new RegExp(yourString)` — so *be
-sure to escape properly*.
+A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
 
 Given the string:
 

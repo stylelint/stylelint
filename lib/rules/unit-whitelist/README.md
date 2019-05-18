@@ -56,7 +56,7 @@ a { transform: rotate(30deg); }
 
 ## Optional secondary options
 
-### `ignoreProperties: { unit: ["property", "/regex/"] }`
+### `ignoreProperties: { unit: ["property", "/regex/", /regex/] }`
 
 Ignore units in the values of declarations with the specified properties.
 
@@ -67,7 +67,7 @@ Given:
 ```js
 {
   "rem": [ "line-height", "/^border/" ],
-  "%": [ "width" ]  
+  "%": [ "width" ]
 }
 ```
 

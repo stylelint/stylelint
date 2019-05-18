@@ -5,10 +5,12 @@ Specify lowercase or uppercase for function names.
 ```css
 a { width: calc(5% - 10em); }
 /**        ↑
- * These functions */
+ * This function */
 ```
 
 Camel case function names, e.g. `translateX`, are accounted for when the `lower` option is used.
+
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
@@ -100,7 +102,7 @@ a {
 
 ## Optional secondary options
 
-### `ignoreFunctions: ["/regex/", "non-regex"]`
+### `ignoreFunctions: ["/regex-as-string/", /regex/, "non-regex"]`
 
 Ignore case of function names.
 
@@ -158,4 +160,3 @@ a {
   display: get_color();
 }
 ```
-

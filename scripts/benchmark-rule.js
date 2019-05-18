@@ -6,19 +6,27 @@ const chalk = require("chalk");
 const normalizeRuleSettings = require("../lib/normalizeRuleSettings");
 const postcss = require("postcss");
 const request = require("request");
-const rules = require("../lib/rules");
+const requireRule = require("../lib/requireRule");
 
 const ruleName = process.argv[2];
 const ruleOptions = process.argv[3];
+const ruleContext = process.argv[4];
 
-if (!ruleName || !ruleOptions) {
-  throw new Error("You must specify a rule name and rule options");
+const ruleFunc = requireRule(ruleName);
+
+if (!ruleFunc) {
+  throw new Error("You must specify a valid rule name");
+}
+
+if (!ruleOptions) {
+  throw new Error("You must specify rule options");
 }
 
 const CSS_URL =
   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css";
 
 let parsedOptions = ruleOptions;
+
 /* eslint-disable eqeqeq */
 if (
   ruleOptions[0] === "[" ||
@@ -28,8 +36,16 @@ if (
 ) {
   parsedOptions = JSON.parse(ruleOptions);
 }
+
 /* eslint-enable eqeqeq */
-const rule = rules[ruleName].apply(null, normalizeRuleSettings(parsedOptions));
+const ruleSettings = normalizeRuleSettings(parsedOptions);
+
+const primary = ruleSettings[0];
+const secondary = ruleSettings[1] || null;
+const context = ruleContext ? JSON.parse(ruleContext) : {};
+
+const rule = ruleFunc.apply(null, [primary, secondary, context]);
+
 const processor = postcss().use(rule);
 
 request(CSS_URL, (error, response, body) => {
@@ -51,9 +67,10 @@ request(CSS_URL, (error, response, body) => {
 });
 
 let firstTime = true;
+
 function benchFn(css, done) {
   processor
-    .process(css)
+    .process(css, { from: undefined })
     .then(result => {
       if (firstTime) {
         firstTime = false;
@@ -64,6 +81,7 @@ function benchFn(css, done) {
           });
         console.log(`${chalk.bold("Warnings")}: ${result.warnings().length}`);
       }
+
       done();
     })
     .catch(err => {
@@ -71,3 +89,4 @@ function benchFn(css, done) {
       done();
     });
 }
+/* eslint-enable no-console */

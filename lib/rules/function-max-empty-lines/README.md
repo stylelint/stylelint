@@ -7,7 +7,7 @@ a {
   transform:
     translate(
                 /* ← */
-      1,        /* ↑ */ 
+      1,        /* ↑ */
                 /* ← */
       1         /* ↑ */
                 /* ← */
@@ -17,9 +17,11 @@ a {
  *            These lines */
 ```
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
-`int`: Maximum number of characters allowed.
+`int`: Maximum number of adjacent empty lines allowed.
 
 For example, with `0`:
 
@@ -62,9 +64,9 @@ The following patterns are *not* considered violations:
 
 ```css
 a {
-  transform: 
+  transform:
     translate(
-      1, 
+      1,
       1
     );
 }

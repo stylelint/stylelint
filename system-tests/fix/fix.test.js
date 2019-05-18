@@ -17,6 +17,7 @@ describe("fix", () => {
   beforeEach(() => {
     tmpDir = os.tmpdir();
     stylesheetPath = path.join(tmpDir, `stylesheet-${_.uniqueId()}.css`);
+
     return cpFile(path.join(__dirname, "stylesheet.css"), stylesheetPath);
   });
 
@@ -36,6 +37,7 @@ describe("fix", () => {
         const cleanedResults = output.results.map(r =>
           Object.assign({}, r, { source: "stylesheet.css" })
         );
+
         expect(systemTestUtils.prepResults(cleanedResults)).toMatchSnapshot();
       });
   });
@@ -49,6 +51,7 @@ describe("fix", () => {
       })
       .then(output => {
         const result = output.results[0]._postcssResult;
+
         expect(result.root.toString(result.opts.syntax)).toMatchSnapshot();
       });
   });
@@ -62,6 +65,7 @@ describe("fix", () => {
       })
       .then(output => {
         const result = output.results[0]._postcssResult;
+
         return pify(fs.readFile)(stylesheetPath, "utf8").then(fileContent => {
           expect(fileContent).toBe(result.root.toString(result.opts.syntax));
         });
@@ -107,6 +111,26 @@ describe("fix", () => {
       })
       .then(result => {
         expect(result.output).toBe("a { color: red; }");
+      });
+  });
+
+  it("apply indentation autofix at last", () => {
+    return stylelint
+      .lint({
+        code:
+          "a {\nbox-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);\n}",
+        config: {
+          rules: {
+            indentation: 2,
+            "value-list-comma-newline-after": "always"
+          }
+        },
+        fix: true
+      })
+      .then(result => {
+        expect(result.output).toBe(
+          "a {\n  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1),\n    0 0 0 1px rgba(0, 0, 0, 0.2),\n    inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);\n}"
+        );
       });
   });
 });

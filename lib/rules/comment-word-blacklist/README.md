@@ -8,11 +8,11 @@ Specify a blacklist of disallowed words within comments.
  * These three words */
 ```
 
-This rule ignores comments within selector and value lists.
+**Caveat:** Comments within *selector and value lists* are currently ignored.
 
 ## Options
 
-`array|string`: `["array", "of", "words", "or", "/regex/"]|"word"|"/regex/"`
+`array|string|regexp`: `["array", "of", "words", /or/, "/regex/"]|"word"|"/regex/"`
 
 If a string is surrounded with `"/"` (e.g. `"/^TODO:/"`), it is interpreted as a regular expression.
 

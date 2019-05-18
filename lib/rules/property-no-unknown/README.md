@@ -5,7 +5,7 @@ Disallow unknown properties.
 ```css
 a { heigth: 100%; }
 /** ↑
- * These properties */
+ * This property */
 ```
 
 This rule considers properties defined in the [CSS Specifications and browser specific properties](https://github.com/betit/known-css-properties#source) to be known.
@@ -69,7 +69,7 @@ a {
 
 ## Optional secondary options
 
-### `ignoreProperties: ["/regex/", "string"]`
+### `ignoreProperties: ["/regex/", /regex/, "string"]`
 
 Given:
 
@@ -117,7 +117,7 @@ a {
 }
 ```
 
-The following patterns are considered  violations:
+The following patterns are considered violations:
 
 ```css
 a {

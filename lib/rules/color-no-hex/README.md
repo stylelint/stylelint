@@ -5,7 +5,7 @@ Disallow hex colors.
 ```css
 a { color: #333 }
 /**        ↑
- * These hex colors */
+ * This hex color */
 ```
 
 ## Options

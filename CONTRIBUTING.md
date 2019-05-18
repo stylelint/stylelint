@@ -16,22 +16,3 @@ The [developer guide](docs/developer-guide.md) outlines how to get started contr
 
 We also welcome financial contributions in full transparency on our [open collective](https://opencollective.com/stylelint).
 Anyone can file an expense. If the expense makes sense for the development of the community, it will be "merged" in the ledger of our open collective by the core contributors and the person who filed the expense will be reimbursed.
-
-## Credits
-
-### Contributors
-
-Thank you to all the people who have already contributed to stylelint!
-<a href="graphs/contributors"><img src="https://opencollective.com/stylelint/contributors.svg?width=890" /></a>
-
-### Backers
-
-Thank you to all our backers! [[Become a backer](https://opencollective.com/stylelint#backer)]
-
-<a href="https://opencollective.com/stylelint#backers" target="_blank"><img src="https://opencollective.com/stylelint/backers.svg?width=890"></a>
-
-### Sponsors
-
-Thank you to all our sponsors! (please ask your company to also support this open source project by [becoming a sponsor](https://opencollective.com/stylelint#sponsor))
-
-<a href="https://opencollective.com/stylelint/sponsor/0/website" target="_blank"><img src="https://opencollective.com/stylelint/sponsor/0/avatar.svg"></a>

@@ -8,6 +8,8 @@ Specify lowercase or uppercase for type selectors.
  * This is type selector */
 ```
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"lower"|"upper"`
@@ -54,4 +56,26 @@ A {}
 
 ```css
 LI {}
+```
+
+## Optional secondary options
+
+### `ignoreTypes: ["/regex/", "non-regex"]`
+
+Given:
+
+```js
+["$childClass", "/(p|P)arent.*/"]
+```
+
+The following patterns are *not* considered violations:
+
+```css
+myParentClass {
+  color: pink;
+}
+
+$childClass {
+  color: pink;
+}
 ```

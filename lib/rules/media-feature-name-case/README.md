@@ -5,10 +5,12 @@ Specify lowercase or uppercase for media feature names.
 ```css
 @media (min-width: 700px) {}
 /**     ↑
- * These media feature names */
+ * This media feature name */
 ```
 
 This rule ignores media feature names within a range context.
+
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

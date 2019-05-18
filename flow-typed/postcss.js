@@ -62,15 +62,15 @@ declare function postcss$parser(
 declare function postcss$stringifier(postcss$node, builder: Function): void;
 
 export type postcss$syntax = {
-  stringify?: postcss$stringifier,
-  parse?: postcss$parser
+  stringify?: typeof postcss$stringifier,
+  parse?: typeof postcss$parser
 };
 
 export type postcss$options = {
   from?: string,
   to?: string,
-  parser?: postcss$parser,
-  stringifier?: postcss$stringifier,
+  parser?: typeof postcss$parser,
+  stringifier?: typeof postcss$stringifier,
   syntax?: postcss$syntax,
   map?: Object
 };

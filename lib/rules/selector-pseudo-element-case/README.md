@@ -3,9 +3,9 @@
 Specify lowercase or uppercase for pseudo-element selectors.
 
 ```css
-    a::before {}
-/**    ↑
- * This is pseudo-element selector */
+  a::before {}
+/**  ↑
+ * This pseudo-element selector */
 ```
 
 The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.

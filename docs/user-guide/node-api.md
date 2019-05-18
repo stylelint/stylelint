@@ -1,6 +1,6 @@
-# The stylelint Node API
+# The stylelint Node.js API
 
-The stylelint module includes a `lint()` function that provides the Node API.
+The stylelint module includes a `lint()` function that provides the Node.js API.
 
 ```js
 stylelint.lint(options)
@@ -39,17 +39,20 @@ A [stylelint configuration object](configuration.md).
 
 If no `config` or `configFile` is passed, stylelint will use a [config lookup algorithm](./configuration.md#loading-the-configuration-object) to find the correct config.
 
+### `configFile`
+
+The path to a JSON, YAML, or JS file that contains your [stylelint configuration object](configuration.md).
+
+It should be either absolute or relative to the directory that your process is running from (`process.cwd()`). We'd recommend absolute.
+
 ### `configBasedir`
 
 An absolute path to the directory that relative paths defining `extends` and `plugins` are *relative to*.
 
+This is only necessary if you passed an object directly through the `config` property. If you used
+`configFile`, this option is not necessary.
+
 If the `config` object passed uses relative paths, e.g. for `extends` or `plugins`, you are going to have to pass a `configBasedir`. If not, you do not need this.
-
-### `configFile`
-
-The path to a JSON, YAML, or JS file  that contains your [stylelint configuration object](configuration.md).
-
-It should be either absolute or relative to the directory that your process is running from (`process.cwd()`). We'd recommend absolute.
 
 ### `configOverrides`
 
@@ -128,7 +131,7 @@ A path to a file containing patterns describing files to ignore. The path can be
 
 ### `syntax`
 
-Options: `"sass"|"scss"|"less"|"sugarss"|"html"|"styled"|"jsx"`
+Options: `"css-in-js"|"html"|"less"|"markdown"|"sass"|"scss"|"sugarss"`
 
 Force a specific non-standard syntax that should be used to parse source stylesheets.
 
@@ -221,4 +224,4 @@ stylelint.lint({
 }).then(function() { .. });
 ```
 
-The same pattern can be used to read Less or [SugarSS](https://github.com/postcss/sugarss) syntax.
+The same pattern can be used to lint Less, SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.

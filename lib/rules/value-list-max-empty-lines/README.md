@@ -13,9 +13,11 @@ a {
  *       This empty line */
 ```
 
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
-`int`: Maximum number of empty lines.
+`int`: Maximum number of adjacent empty lines allowed.
 
 For example, with `0`:
 
@@ -33,7 +35,7 @@ a {
 
 ```css
 a {
-  padding: 
+  padding:
     10px
     10px
     10px

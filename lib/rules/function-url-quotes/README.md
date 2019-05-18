@@ -8,8 +8,6 @@ a { background: url("x.jpg") }
  *             These quotes */
 ```
 
-This rule ignores `@import` in Less.
-
 ## Options
 
 `string`: `"always"|"never"`
@@ -94,11 +92,11 @@ a { background: url(x.jpg); }
 
 ### `except: ["empty"]`
 
-Reverse the primary option if the function has no arguments.
+Reverse the primary option for functions that have no arguments.
 
 For example, with `"always"`.
 
-The following pattern is *not* considered violations:
+The following patterns are *not* considered violations:
 
 ```css
 @-moz-document url-prefix() {}

@@ -5,12 +5,12 @@ Specify a blacklist of disallowed properties.
 ```css
 a { text-rendering: optimizeLegibility; }
 /** ↑
- * These properties */
+ * This property */
 ```
 
 ## Options
 
-`array|string`: `["array", "of", "unprefixed", "properties" or "regex"]|"property"|"/regex/"`
+`array|string`: `["array", "of", "unprefixed", /properties/ or "regex"]|"property"|"/regex/"`|/regex/
 
 If a string is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^background/` will match `background`, `background-size`, `background-color`, etc.
 
