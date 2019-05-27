@@ -34,4 +34,4 @@ Plugins are rules and sets of rules built by the community that support methodol
 -   [`stylelint-itcss`](https://github.com/KamiKillertO/stylelint-itcss): A set of rules to enforce ITCSS architecture.
 -   [`stylelint-plugin-ecss`](https://github.com/tyankatsu0105/stylelint-plugin-ecss): A set of rules to enforce [`Enduring CSS`](http://ecss.io/) architecture.
 -   [`stylelint-force-app-name-prefix`](https://github.com/SunHuawei/stylelint-force-app-name-prefix/): Force rules to have app name as prefix.
-
+-   [`stylelint-no-unused-selectors`](https://github.com/nodaguti/stylelint-no-unused-selectors): Disallow unused selectors, i.e., selectors that are not referenced from documents.
