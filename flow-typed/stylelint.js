@@ -110,6 +110,7 @@ export type stylelint$cssSyntaxError = {
 export type stylelint$needlessDisablesReport = Array<{
   source: string,
   ranges: Array<{
+    unusedRule: string,
     start: number,
     end?: number
   }>
