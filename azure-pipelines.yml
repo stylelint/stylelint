@@ -1,0 +1,152 @@
+trigger:
+  - master
+  - /^greenkeeper/.*$/
+
+jobs:
+  - job: Lint
+    pool:
+      vmImage: ubuntu-16.04
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: ^10.13.0
+        displayName: "Install Node.js"
+      - task: Npm@1
+        inputs:
+          command: custom
+          customCommand: i -g npm@latest
+        displayName: "Install latest NPM"
+      - script: |
+          node -v
+          npm -v
+        displayName: "Print versions"
+      - task: Npm@1
+        inputs:
+          command: install
+        displayName: "Install dependencies"
+      - script: npm run pretest
+        displayName: "Run lint"
+
+  - job: Linux
+    pool:
+      vmImage: ubuntu-16.04
+    strategy:
+      maxParallel: 3
+      matrix:
+        node-12:
+          node_version: ^12.0.0
+        node-10:
+          node_version: ^10.13.0
+          coverage: '--coverage'
+        node-8:
+          node_version: ^8.9.0
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: $(node_version)
+        displayName: "Install Node.js $(node_version)"
+      - task: Npm@1
+        inputs:
+          command: custom
+          customCommand: i -g npm@latest
+        displayName: "Install latest NPM"
+      - script: |
+          node -v
+          npm -v
+        displayName: "Print versions"
+      - task: Npm@1
+        inputs:
+          command: install
+        displayName: "Install dependencies"
+      - script: npm run jest -- --ci --reporters="default" --reporters="jest-junit" $(coverage)
+        displayName: "Run tests"
+      - task: PublishTestResults@2
+        inputs:
+          testRunTitle: "Linux with Node.js $(node_version)"
+          testResultsFiles: "**/junit.xml"
+        condition: succeededOrFailed()
+        displayName: "Publish test results"
+      - script: cat ./.coverage/lcov.info | ./node_modules/.bin/coveralls
+        condition: and(succeededOrFailed(), eq(variables['coverage'], '--coverage'))
+        displayName: "Submit coverage data to codecov"
+
+  - job: macOS
+    pool:
+      vmImage: macOS-10.14
+    strategy:
+      maxParallel: 3
+      matrix:
+        node-12:
+          node_version: ^12.0.0
+        node-10:
+          node_version: ^10.13.0
+        node-8:
+          node_version: ^8.9.0
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: $(node_version)
+        displayName: "Install Node.js $(node_version)"
+      - task: Npm@1
+        inputs:
+          command: custom
+          customCommand: i -g npm@latest
+        displayName: "Install latest NPM"
+      - script: |
+          node -v
+          npm -v
+        displayName: "Print versions"
+      - task: Npm@1
+        inputs:
+          command: install
+        displayName: "Install dependencies"
+      - script: npm run jest -- --ci --reporters="default" --reporters="jest-junit"
+        displayName: "Run tests"
+      - task: PublishTestResults@2
+        inputs:
+          testRunTitle: "Linux with Node.js $(node_version)"
+          testResultsFiles: "**/junit.xml"
+        condition: succeededOrFailed()
+        displayName: "Publish test results"
+
+  - job: Windows
+    pool:
+      vmImage: windows-2019
+    strategy:
+      maxParallel: 3
+      matrix:
+        node-12:
+          node_version: ^12.0.0
+        node-10:
+          node_version: ^10.13.0
+        node-8:
+          node_version: ^8.9.0
+    steps:
+      - script: "git config --global core.autocrlf input"
+        displayName: "Config git core.autocrlf"
+      - checkout: self
+      - task: NodeTool@0
+        inputs:
+          versionSpec: $(node_version)
+        displayName: "Install Node.js $(node_version)"
+      - task: Npm@1
+        inputs:
+          command: custom
+          customCommand: i -g npm@latest
+        displayName: "Install latest NPM"
+      - script: |
+          node -v
+          npm -v
+        displayName: "Print versions"
+      - task: Npm@1
+        inputs:
+          command: install
+        displayName: "Install dependencies"
+      - script: npm run jest -- --ci --reporters="default" --reporters="jest-junit"
+        displayName: "Run tests"
+      - task: PublishTestResults@2
+        inputs:
+          testRunTitle: "Linux with Node.js $(node_version)"
+          testResultsFiles: "**/junit.xml"
+        condition: succeededOrFailed()
+        displayName: "Publish test results"
