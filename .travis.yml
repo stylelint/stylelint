@@ -27,6 +27,9 @@ matrix:
     - node_js: '8'
       script: npm run jest -- --maxWorkers=2
       env: CI=tests 8
+    - node_js: '12'
+      script: npm run jest -- --maxWorkers=2
+      env: CI=tests 12
 
 before_install:
   - npm install -g npm@latest
