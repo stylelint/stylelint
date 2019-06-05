@@ -16,3 +16,7 @@ The [developer guide](docs/developer-guide.md) outlines how to get started contr
 
 We also welcome financial contributions in full transparency on our [open collective](https://opencollective.com/stylelint).
 Anyone can file an expense. If the expense makes sense for the development of the community, it will be "merged" in the ledger of our open collective by the core contributors and the person who filed the expense will be reimbursed.
+
+## Issue triage [![Open Source Helpers](https://www.codetriage.com/stylelint/stylelint/badges/users.svg)](https://www.codetriage.com/stylelint/stylelint)
+
+You can triage issues which may include reproducing bug reports or asking for vital information, such as version numbers or reproduction instructions. If you would like to start triaging issues, one easy way to get started is to [subscribe to stylelint on CodeTriage](https://www.codetriage.com/stylelint/stylelint).
