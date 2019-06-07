@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## [Head][]
+## [10.1.0][]
 
 -   Added: `selector-max-empty-lines` autofix ([#3717](https://github.com/stylelint/stylelint/pull/3717)).
 -   Added: rule names for `--report-needless-disables` output ([#4071](https://github.com/stylelint/stylelint/pull/4071)).
@@ -1448,7 +1448,7 @@ Changes:
 -   Added: `value-list-comma-space-before` rule.
 -   Added: `value-no-vendor-prefix` rule.
 
-[Head]: https://github.com/stylelint/stylelint/compare/10.0.1...HEAD
+[10.1.0]: https://github.com/stylelint/stylelint/compare/10.0.1...10.1.0
 [10.0.1]: https://github.com/stylelint/stylelint/compare/10.0.0...10.0.1
 [10.0.0]: https://github.com/stylelint/stylelint/compare/9.10.1...10.0.0
 [9.10.1]: https://github.com/stylelint/stylelint/compare/9.10.0...9.10.1
