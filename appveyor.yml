@@ -4,7 +4,6 @@ environment:
   matrix:
     - nodejs_version: 8
     - nodejs_version: 10
-    - nodejs_version: 12
 
 clone_depth: 10
 
@@ -16,13 +15,8 @@ branches:
     only:
       - master
 
-platform:
-  - x86
-
 install:
-  # Workaround from https://github.com/appveyor/ci/issues/2921#issuecomment-486727727
-  # https://www.appveyor.com/docs/lang/nodejs-iojs/#installing-any-version-of-nodejs-or-iojs
-  - ps: Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:nodejs_version) $env:PLATFORM
+  - ps: Install-Product node $env:nodejs_version
   - npm install
 
 cache:
