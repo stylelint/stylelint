@@ -53,7 +53,7 @@ stylelint "foo/**/*.css" "bar/*.css" -q -f json --config bar/mySpecialConfig.jso
 Linting all `.css` files except those within `docker` subfolders, using negation in the input glob:
 
 ```shell
-stylelint "**/*.css, !**/docker/**"
+stylelint "**/*.css" "!**/docker/**"
 ```
 
 Caching processed `.scss` files in order to operate only on changed ones in the `foo` directory, using the `cache` and `cache-location` options:
