@@ -1,5 +1,5 @@
-// flow-typed signature: 833075a5cefc49eb523160a5fca9d8b6
-// flow-typed version: 325925f1b7/jest_v24.x.x/flow_>=v0.39.x
+// flow-typed signature: f5997c5ee181aaeba6fc2d2a2158feb3
+// flow-typed version: cefb07e7f4/jest_v24.x.x/flow_>=v0.39.x
 
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
@@ -127,8 +127,8 @@ type JestMatcherResult = {
 };
 
 type JestMatcher = (
-  actual: any,
-  expected: any
+  received: any,
+  ...actual: Array<any>
 ) => JestMatcherResult | Promise<JestMatcherResult>;
 
 type JestPromiseType = {
@@ -215,6 +215,7 @@ type EnzymeMatchersType = {
 // DOM testing library extensions https://github.com/kentcdodds/dom-testing-library#custom-jest-matchers
 type DomTestingLibraryType = {
   toBeDisabled(): void,
+  toBeEnabled(): void,
   toBeEmpty(): void,
   toBeInTheDocument(): void,
   toBeVisible(): void,
