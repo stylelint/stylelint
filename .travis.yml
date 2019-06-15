@@ -15,7 +15,6 @@ cache:
   directories:
     - $HOME/.npm
     - node_modules
-
 matrix:
   include:
     - name: "Linux: Node.js 10.x Pre-test"
@@ -33,6 +32,15 @@ matrix:
       script: npm run jest -- --maxWorkers=2
       env: CI=tests 8
       os: linux
+    - name: "Linux: Node.js 12.x Tests"
+      node_js: '12'
+      script: npm run jest -- --maxWorkers=2
+      env: CI=tests 12
+      os: linux
+    - name: "Windows: Node.js 12.x Tests"
+      node_js: '12'
+      script: npm run jest -- --testPathPattern \\lib
+      os: windows
     - name: "Windows: Node.js 10.x Tests"
       node_js: '10'
       script: npm run jest -- --testPathPattern \\lib

@@ -2,9 +2,27 @@
 
 All notable changes to this project are documented in this file.
 
-## [Head][]
+## [10.1.0][]
 
--   Removed: support for node@6 ([#4006](https://github.com/stylelint/stylelint/pull/4006)).
+-   Added: `selector-max-empty-lines` autofix ([#3717](https://github.com/stylelint/stylelint/pull/3717)).
+-   Added: rule names for `--report-needless-disables` output ([#4071](https://github.com/stylelint/stylelint/pull/4071)).
+-   Added: `--output-file` CLI flag ([#4085](https://github.com/stylelint/stylelint/pull/4085)).
+-   Fixed: `function-calc-no-invalid` false positives for interpolation ([#4046](https://github.com/stylelint/stylelint/pull/4046)).
+-   Fixed: `declaration-block-semicolon-space-before` autofix with `!important` annotations ([#4016](https://github.com/stylelint/stylelint/issues/4016)).
+-   Fixed: `selector-pseudo-class-no-unknown` false positives for `defined` ([#4081](https://github.com/stylelint/stylelint/pull/4081)).
+
+## [10.0.1][]
+
+-   Fixed: minimum Node.js engine reduced to 8.7.0 ([#4032](https://github.com/stylelint/stylelint/pull/4032)).
+-   Fixed: `--allow-empty-input` CLI flag ([#4029](https://github.com/stylelint/stylelint/pull/4029)).
+-   Fixed: `color-no-invalid-hex` false positives for hashes in URLs ([#4035](https://github.com/stylelint/stylelint/pull/4035)).
+-   Fixed: `function-linear-gradient-no-nonstandard-direction` false positives for dollar variables ([#4027](https://github.com/stylelint/stylelint/pull/4027)).
+
+## [10.0.0][]
+
+-   Removed: Node.js 6.x support. Node.js 8.15.1 or greater is now required ([#4006](https://github.com/stylelint/stylelint/pull/4006)).
+-   Removed: `styled` and `jsx` syntax options that were replaced with `css-in-js` in v9.10.0 ([#4007](https://github.com/stylelint/stylelint/pull/4007)).
+-   Changed: throws error if glob matches no files, use the `--allow-empty-input` flag for the old behaviour ([#3965](https://github.com/stylelint/stylelint/pull/3965)).
 -   Changed: rules are now applied in the order defined in `lib/rules/index.js` ([#3923](https://github.com/stylelint/stylelint/pull/3923)).
 -   Added: `at-rule-property-requirelist` rule ([#3997](https://github.com/stylelint/stylelint/pull/3997)).
 -   Added: `disallowInList` to `no-duplicate-selectors` ([#3936](https://github.com/stylelint/stylelint/pull/3936)).
@@ -15,6 +33,7 @@ All notable changes to this project are documented in this file.
 -   Fixed: `function-calc-no-invalid` false positives for negative numbers ([#3921](https://github.com/stylelint/stylelint/pull/3921)).
 -   Fixed: `no-descending-specificity` false positives for vendor prefixed pseudo-elements ([#3929](https://github.com/stylelint/stylelint/issues/3929)).
 -   Fixed: `selector-max-*` false negatives for nested at-rules ([#3959](https://github.com/stylelint/stylelint/pull/3959)).
+-   Fixed: `value-keyword-case` autofix for single-line comments within maps ([#4019](https://github.com/stylelint/stylelint/pull/4019)).
 
 ## [9.10.1][]
 
@@ -1429,7 +1448,9 @@ Changes:
 -   Added: `value-list-comma-space-before` rule.
 -   Added: `value-no-vendor-prefix` rule.
 
-[Head]: https://github.com/stylelint/stylelint/compare/9.10.0...HEAD
+[10.1.0]: https://github.com/stylelint/stylelint/compare/10.0.1...10.1.0
+[10.0.1]: https://github.com/stylelint/stylelint/compare/10.0.0...10.0.1
+[10.0.0]: https://github.com/stylelint/stylelint/compare/9.10.1...10.0.0
 [9.10.1]: https://github.com/stylelint/stylelint/compare/9.10.0...9.10.1
 [9.10.0]: https://github.com/stylelint/stylelint/compare/9.9.0...9.10.0
 [9.9.0]: https://github.com/stylelint/stylelint/compare/9.8.0...9.9.0

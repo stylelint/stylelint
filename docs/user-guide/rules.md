@@ -158,7 +158,7 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`selector-max-class`](../../lib/rules/selector-max-class/README.md): Limit the number of classes in a selector.
 -   [`selector-max-combinators`](../../lib/rules/selector-max-combinators/README.md): Limit the number of combinators in a selector.
 -   [`selector-max-compound-selectors`](../../lib/rules/selector-max-compound-selectors/README.md): Limit the number of compound selectors in a selector.
--   [`selector-max-empty-lines`](../../lib/rules/selector-max-empty-lines/README.md): Limit the number of adjacent empty lines within selectors.
+-   [`selector-max-empty-lines`](../../lib/rules/selector-max-empty-lines/README.md): Limit the number of adjacent empty lines within selectors (Autofixable).
 -   [`selector-max-id`](../../lib/rules/selector-max-id/README.md): Limit the number of ID selectors in a selector.
 -   [`selector-max-pseudo-class`](../../lib/rules/selector-max-pseudo-class/README.md): Limit the number of pseudo-classes in a selector.
 -   [`selector-max-specificity`](../../lib/rules/selector-max-specificity/README.md): Limit the specificity of selectors.

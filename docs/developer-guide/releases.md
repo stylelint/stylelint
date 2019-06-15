@@ -14,6 +14,8 @@ The secondary goals are:
 
 ## Process
 
+Before starting, ensure you [have a GitHub token in place](https://github.com/MoOx/npmpub#requirements) for the automatic GitHub release.
+
 1.  Create a [new issue](https://github.com/stylelint/stylelint/issues/new) announcing the planned release, e.g. `Release 8.11.1` and include the [template checklist](#new-release-issue-template).
 2.  Locally test `master` in the `stylelint-config-*` shareable configs repos.
 3.  Locally test `master` in the `stylelint.io` repo.

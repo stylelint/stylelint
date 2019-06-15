@@ -110,6 +110,7 @@ export type stylelint$cssSyntaxError = {
 export type stylelint$needlessDisablesReport = Array<{
   source: string,
   ranges: Array<{
+    unusedRule: string,
     start: number,
     end?: number
   }>
@@ -147,5 +148,6 @@ export type stylelint$standaloneOptions = {
   customSyntax?: string,
   formatter?: "compact" | "json" | "string" | "unix" | "verbose" | Function,
   disableDefaultIgnores?: boolean,
-  fix?: boolean
+  fix?: boolean,
+  allowEmptyInput: boolean
 };

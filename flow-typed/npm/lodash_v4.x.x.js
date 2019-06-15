@@ -1,7 +1,8 @@
-// flow-typed signature: eb76e103c3b8c027ca42ac61026baba8
-// flow-typed version: 6bc9a10e83/lodash_v4.x.x/flow_>=v0.63.x
+// flow-typed signature: 978ec408ef4dc26808325571d235d3ca
+// flow-typed version: 9f33da9d84/lodash_v4.x.x/flow_>=v0.63.x
 
 declare module "lodash" {
+  declare type Path = $ReadOnlyArray<string | number> | string | number;
   declare type __CurriedFunction1<A, R, AA: A> = (...r: [AA]) => R;
   declare type CurriedFunction1<A, R> = __CurriedFunction1<A, R, *>;
 
@@ -264,7 +265,7 @@ declare module "lodash" {
     ): -1;
     // alias of _.head
     first<T>(array: ?$ReadOnlyArray<T>): T;
-    flatten<T, X>(array?: ?Array<Array<T> | X>): Array<T | X>;
+    flatten<T, X>(array?: ?$ReadOnlyArray<$ReadOnlyArray<T> | X>): Array<T | X>;
     flattenDeep<T>(array?: ?(any[])): Array<T>;
     flattenDepth(array?: ?(any[]), depth?: ?number): any[];
     fromPairs<A, B>(pairs?: ?Array<[A, B]>): { [key: A]: B };
@@ -390,8 +391,8 @@ declare module "lodash" {
       iteratee?: ?ValueOnlyIteratee<T>
     ): Array<T>;
     tail<T>(array?: ?Array<T>): Array<T>;
-    take<T>(array?: ?Array<T>, n?: ?number): Array<T>;
-    takeRight<T>(array?: ?Array<T>, n?: ?number): Array<T>;
+    take<T>(array?: ?$ReadOnlyArray<T>, n?: ?number): Array<T>;
+    takeRight<T>(array?: ?$ReadOnlyArray<T>, n?: ?number): Array<T>;
     takeRightWhile<T>(array?: ?Array<T>, predicate?: ?Predicate<T>): Array<T>;
     takeWhile<T>(array?: ?Array<T>, predicate?: ?Predicate<T>): Array<T>;
     union<T>(...arrays?: Array<$ReadOnlyArray<T>>): Array<T>;
@@ -485,15 +486,15 @@ declare module "lodash" {
       a4: Array<T>,
       comparator?: Comparator<T>
     ): Array<T>;
-    zip<A, B>(a1?: ?(A[]), a2?: ?(B[])): Array<[A, B]>;
-    zip<A, B, C>(a1: A[], a2: B[], a3: C[]): Array<[A, B, C]>;
-    zip<A, B, C, D>(a1: A[], a2: B[], a3: C[], a4: D[]): Array<[A, B, C, D]>;
+    zip<A, B>(a1?: ?($ReadOnlyArray<A>), a2?: ?($ReadOnlyArray<B>)): Array<[A, B]>;
+    zip<A, B, C>(a1: $ReadOnlyArray<A>, a2: $ReadOnlyArray<B>, a3: $ReadOnlyArray<C>): Array<[A, B, C]>;
+    zip<A, B, C, D>(a1: $ReadOnlyArray<A>, a2: $ReadOnlyArray<B>, a3: $ReadOnlyArray<C>, a4: $ReadOnlyArray<D>): Array<[A, B, C, D]>;
     zip<A, B, C, D, E>(
-      a1: A[],
-      a2: B[],
-      a3: C[],
-      a4: D[],
-      a5: E[]
+      a1: $ReadOnlyArray<A>,
+      a2: $ReadOnlyArray<B>,
+      a3: $ReadOnlyArray<C>,
+      a4: $ReadOnlyArray<D>,
+      a5: $ReadOnlyArray<E>
     ): Array<[A, B, C, D, E]>;
 
     zipObject<K, V>(props: Array<K>, values?: ?Array<V>): { [key: K]: V };
@@ -634,12 +635,12 @@ declare module "lodash" {
     includes(str: string, value: string, fromIndex?: number): boolean;
     invokeMap<T>(
       array?: ?$ReadOnlyArray<T>,
-      path?: ?((value: T) => Array<string> | string) | Array<string> | string,
+      path?: ?((value: T) => Path) | Path,
       ...args?: Array<any>
     ): Array<any>;
     invokeMap<T: Object>(
       object: T,
-      path: ((value: any) => Array<string> | string) | Array<string> | string,
+      path: ((value: any) => Path) | Path,
       ...args?: Array<any>
     ): Array<any>;
     keyBy<T, V>(
@@ -674,7 +675,7 @@ declare module "lodash" {
       iteratees?: ?$ReadOnlyArray<Iteratee<T>> | ?string,
       orders?: ?$ReadOnlyArray<"asc" | "desc"> | ?string
     ): Array<T>;
-    orderBy<V, T: Object>(
+    orderBy<V, T: {}>(
       object: T,
       iteratees?: $ReadOnlyArray<OIteratee<*>> | string,
       orders?: $ReadOnlyArray<"asc" | "desc"> | string
@@ -1160,22 +1161,22 @@ declare module "lodash" {
     functionsIn(object?: ?Object): Array<string>;
     get(
       object?: ?Object | ?$ReadOnlyArray<any> | void | null,
-      path?: ?$ReadOnlyArray<string | number> | string | number,
+      path?: ?Path,
       defaultValue?: any
     ): any;
-    has(object: Object, path: Array<string> | string): boolean;
+    has(object: Object, path: Path): boolean;
     has(object: Object, path: void | null): false;
-    has(object: void | null, path?: ?Array<string> | ?string): false;
-    hasIn(object: Object, path: Array<string> | string): boolean;
+    has(object: void | null, path?: ?Path): false;
+    hasIn(object: Object, path: Path): boolean;
     hasIn(object: Object, path: void | null): false;
-    hasIn(object: void | null, path?: ?Array<string> | ?string): false;
+    hasIn(object: void | null, path?: ?Path): false;
     invert(object: Object, multiVal?: ?boolean): Object;
     invert(object: void | null, multiVal?: ?boolean): {};
     invertBy(object: Object, iteratee?: ?Function): Object;
     invertBy(object: void | null, iteratee?: ?Function): {};
     invoke(
       object?: ?Object,
-      path?: ?Array<string> | string,
+      path?: ?Path,
       ...args?: Array<any>
     ): any;
     keys<K>(object?: ?{ [key: K]: any }): Array<K>;
@@ -1252,24 +1253,24 @@ declare module "lodash" {
     pickBy<A, T>(object: void | null, predicate?: ?OPredicate<A, T>): {};
     result(
       object?: ?Object,
-      path?: ?Array<string> | string,
+      path?: ?Path,
       defaultValue?: any
     ): any;
-    set(object: Object, path?: ?Array<string> | string, value: any): Object;
+    set(object: Object, path?: ?Path, value: any): Object;
     set<T: void | null>(
       object: T,
-      path?: ?Array<string> | string,
+      path?: ?Path,
       value?: ?any
     ): T;
     setWith<T>(
       object: T,
-      path?: ?Array<string> | string,
+      path?: ?Path,
       value: any,
       customizer?: (nsValue: any, key: string, nsObject: T) => any
     ): Object;
     setWith<T: void | null>(
       object: T,
-      path?: ?Array<string> | string,
+      path?: ?Path,
       value?: ?any,
       customizer?: ?(nsValue: any, key: string, nsObject: T) => any
     ): T;
@@ -1285,23 +1286,23 @@ declare module "lodash" {
       iteratee?: ?OIteratee<*>,
       accumulator?: ?any
     ): {};
-    unset(object: void | null, path?: ?Array<string> | ?string): true;
-    unset(object: Object, path?: ?Array<string> | ?string): boolean;
-    update(object: Object, path: string[] | string, updater: Function): Object;
+    unset(object: void | null, path?: ?Path): true;
+    unset(object: Object, path?: ?Path): boolean;
+    update(object: Object, path: Path, updater: Function): Object;
     update<T: void | null>(
       object: T,
-      path?: ?(string[]) | ?string,
+      path?: ?Path,
       updater?: ?Function
     ): T;
     updateWith(
       object: Object,
-      path?: ?(string[]) | ?string,
+      path?: ?Path,
       updater?: ?Function,
       customizer?: ?Function
     ): Object;
     updateWith<T: void | null>(
       object: T,
-      path?: ?(string[]) | ?string,
+      path?: ?Path,
       updater?: ?Function,
       customizer?: ?Function
     ): T;
@@ -1407,8 +1408,8 @@ declare module "lodash" {
     identity<T>(value: T): T;
     iteratee(func?: any): Function;
     matches(source?: ?Object): Function;
-    matchesProperty(path?: ?Array<string> | string, srcValue: any): Function;
-    method(path?: ?Array<string> | string, ...args?: Array<any>): Function;
+    matchesProperty(path?: ?Path, srcValue: any): Function;
+    method(path?: ?Path, ...args?: Array<any>): Function;
     methodOf(object?: ?Object, ...args?: Array<any>): Function;
     mixin<T: Function | Object>(
       object?: T,
@@ -1424,7 +1425,7 @@ declare module "lodash" {
     overEvery(predicates: Array<Function>): Function;
     overSome(...predicates: Array<Function>): Function;
     overSome(predicates: Array<Function>): Function;
-    property(path?: ?Array<string> | string): Function;
+    property(path?: ?Path): Function;
     propertyOf(object?: ?Object): Function;
     range(start: number, end: number, step?: number): Array<number>;
     range(end: number, step?: number): Array<number>;
@@ -1451,6 +1452,7 @@ declare module "lodash" {
 }
 
 declare module "lodash/fp" {
+  declare type Path = $ReadOnlyArray<string | number> | string | number;
   declare type __CurriedFunction1<A, R, AA: A> = (...r: [AA]) => R;
   declare type CurriedFunction1<A, R> = __CurriedFunction1<A, R, *>;
 
@@ -1888,10 +1890,10 @@ declare module "lodash/fp" {
     sortedUniq<T>(array: Array<T>): Array<T>;
     sortedUniqBy<T>(iteratee: ValueOnlyIteratee<T>, array: Array<T>): Array<T>;
     tail<T>(array: Array<T>): Array<T>;
-    take<T>(n: number): (array: Array<T>) => Array<T>;
-    take<T>(n: number, array: Array<T>): Array<T>;
-    takeRight<T>(n: number): (array: Array<T>) => Array<T>;
-    takeRight<T>(n: number, array: Array<T>): Array<T>;
+    take<T>(n: number): (array: $ReadOnlyArray<T>) => Array<T>;
+    take<T>(n: number, array: $ReadOnlyArray<T>): Array<T>;
+    takeRight<T>(n: number): (array: $ReadOnlyArray<T>) => Array<T>;
+    takeRight<T>(n: number, array: $ReadOnlyArray<T>): Array<T>;
     takeLast<T>(n: number): (array: Array<T>) => Array<T>;
     takeLast<T>(n: number, array: Array<T>): Array<T>;
     takeRightWhile<T>(predicate: Predicate<T>): (array: Array<T>) => Array<T>;
@@ -2183,14 +2185,14 @@ declare module "lodash/fp" {
     ): (collection: Array<T>) => boolean;
     includesFrom<T>(value: T, fromIndex: number, collection: Array<T>): boolean;
     invokeMap<T>(
-      path: ((value: T) => Array<string> | string) | Array<string> | string
+      path: ((value: T) => Path) | Path
     ): (collection: Array<T> | { [id: any]: T }) => Array<any>;
     invokeMap<T>(
-      path: ((value: T) => Array<string> | string) | Array<string> | string,
+      path: ((value: T) => Path) | Path,
       collection: Array<T> | { [id: any]: T }
     ): Array<any>;
     invokeArgsMap<T>(
-      path: ((value: T) => Array<string> | string) | Array<string> | string
+      path: ((value: T) => Path) | Path
     ): ((
       collection: Array<T> | { [id: any]: T }
     ) => (args: Array<any>) => Array<any>) &
@@ -2199,11 +2201,11 @@ declare module "lodash/fp" {
         args: Array<any>
       ) => Array<any>);
     invokeArgsMap<T>(
-      path: ((value: T) => Array<string> | string) | Array<string> | string,
+      path: ((value: T) => Path) | Path,
       collection: Array<T> | { [id: any]: T }
     ): (args: Array<any>) => Array<any>;
     invokeArgsMap<T>(
-      path: ((value: T) => Array<string> | string) | Array<string> | string,
+      path: ((value: T) => Path) | Path,
       collection: Array<T> | { [id: any]: T },
       args: Array<any>
     ): Array<any>;
@@ -2796,84 +2798,84 @@ declare module "lodash/fp" {
     functions(object: Object): Array<string>;
     functionsIn(object: Object): Array<string>;
     get(
-      path: $ReadOnlyArray<string | number> | string | number
+      path: Path
     ): (object: Object | $ReadOnlyArray<any> | void | null) => any;
     get(
-      path: $ReadOnlyArray<string | number> | string | number,
+      path: Path,
       object: Object | $ReadOnlyArray<any> | void | null
     ): any;
-    prop(path: Array<string> | string): (object: Object | Array<any>) => any;
-    prop(path: Array<string> | string, object: Object | Array<any>): any;
-    path(path: Array<string> | string): (object: Object | Array<any>) => any;
-    path(path: Array<string> | string, object: Object | Array<any>): any;
+    prop(path: Path): (object: Object | Array<any>) => any;
+    prop(path: Path, object: Object | Array<any>): any;
+    path(path: Path): (object: Object | Array<any>) => any;
+    path(path: Path, object: Object | Array<any>): any;
     getOr(
       defaultValue: any
     ): ((
-      path: Array<string> | string
+      path: Path
     ) => (object: Object | Array<any>) => any) &
       ((
-        path: Array<string> | string,
+        path: Path,
         object: Object | $ReadOnlyArray<any> | void | null
       ) => any);
     getOr(
       defaultValue: any,
-      path: Array<string> | string
+      path: Path
     ): (object: Object | $ReadOnlyArray<any> | void | null) => any;
     getOr(
       defaultValue: any,
-      path: Array<string> | string,
+      path: Path,
       object: Object | $ReadOnlyArray<any> | void | null
     ): any;
     propOr(
       defaultValue: any
     ): ((
-      path: Array<string> | string
+      path: Path
     ) => (object: Object | Array<any>) => any) &
-      ((path: Array<string> | string, object: Object | Array<any>) => any);
+      ((path: Path, object: Object | Array<any>) => any);
     propOr(
       defaultValue: any,
-      path: Array<string> | string
+      path: Path
     ): (object: Object | Array<any>) => any;
     propOr(
       defaultValue: any,
-      path: Array<string> | string,
+      path: Path,
       object: Object | Array<any>
     ): any;
     pathOr(
       defaultValue: any
     ): ((
-      path: Array<string> | string
+      path: Path
     ) => (object: Object | Array<any>) => any) &
-      ((path: Array<string> | string, object: Object | Array<any>) => any);
+      ((path: Path, object: Object | Array<any>) => any);
     pathOr(
       defaultValue: any,
-      path: Array<string> | string
+      path: Path
     ): (object: Object | Array<any>) => any;
     pathOr(
       defaultValue: any,
-      path: Array<string> | string,
+      path: Path,
       object: Object | Array<any>
     ): any;
-    has(path: Array<string> | string): (object: Object) => boolean;
-    has(path: Array<string> | string, object: Object): boolean;
-    hasIn(path: Array<string> | string): (object: Object) => boolean;
-    hasIn(path: Array<string> | string, object: Object): boolean;
+    has(path: Path): (object: Object) => boolean;
+    has(path: Path, object: Object): boolean;
+    hasIn(path: Path): (object: Object) => boolean;
+    hasIn(path: Path, object: Object): boolean;
     invert(object: Object): Object;
     invertObj(object: Object): Object;
     invertBy(iteratee: Function): (object: Object) => Object;
     invertBy(iteratee: Function, object: Object): Object;
-    invoke(path: Array<string> | string): (object: Object) => any;
-    invoke(path: Array<string> | string, object: Object): any;
+    invoke(path: Path): (object: Object) => any;
+    invoke(path: Path, object: Object): any;
     invokeArgs(
-      path: Array<string> | string
+      path: Path
     ): ((object: Object) => (args: Array<any>) => any) &
       ((object: Object, args: Array<any>) => any);
     invokeArgs(
-      path: Array<string> | string,
+      path: Path,
       object: Object
     ): (args: Array<any>) => any;
     invokeArgs(
-      path: Array<string> | string,
+      path: Path,
       object: Object,
       args: Array<any>
     ): any;
@@ -2952,50 +2954,50 @@ declare module "lodash/fp" {
       predicate: OPredicate<A>
     ): (object: T) => Object;
     pickBy<A, T: { [id: any]: A }>(predicate: OPredicate<A>, object: T): Object;
-    result(path: Array<string> | string): (object: Object) => any;
-    result(path: Array<string> | string, object: Object): any;
+    result(path: Path): (object: Object) => any;
+    result(path: Path, object: Object): any;
     set(
-      path: Array<string> | string
+      path: Path
     ): ((value: any) => (object: Object) => Object) &
       ((value: any, object: Object) => Object);
-    set(path: Array<string> | string, value: any): (object: Object) => Object;
-    set(path: Array<string> | string, value: any, object: Object): Object;
+    set(path: Path, value: any): (object: Object) => Object;
+    set(path: Path, value: any, object: Object): Object;
     assoc(
-      path: Array<string> | string
+      path: Path
     ): ((value: any) => (object: Object) => Object) &
       ((value: any, object: Object) => Object);
-    assoc(path: Array<string> | string, value: any): (object: Object) => Object;
-    assoc(path: Array<string> | string, value: any, object: Object): Object;
+    assoc(path: Path, value: any): (object: Object) => Object;
+    assoc(path: Path, value: any, object: Object): Object;
     assocPath(
-      path: Array<string> | string
+      path: Path
     ): ((value: any) => (object: Object) => Object) &
       ((value: any, object: Object) => Object);
     assocPath(
-      path: Array<string> | string,
+      path: Path,
       value: any
     ): (object: Object) => Object;
-    assocPath(path: Array<string> | string, value: any, object: Object): Object;
+    assocPath(path: Path, value: any, object: Object): Object;
     setWith<T>(
       customizer: (nsValue: any, key: string, nsObject: T) => any
     ): ((
-      path: Array<string> | string
+      path: Path
     ) => ((value: any) => (object: T) => Object) &
       ((value: any, object: T) => Object)) &
-      ((path: Array<string> | string, value: any) => (object: T) => Object) &
-      ((path: Array<string> | string, value: any, object: T) => Object);
+      ((path: Path, value: any) => (object: T) => Object) &
+      ((path: Path, value: any, object: T) => Object);
     setWith<T>(
       customizer: (nsValue: any, key: string, nsObject: T) => any,
-      path: Array<string> | string
+      path: Path
     ): ((value: any) => (object: T) => Object) &
       ((value: any, object: T) => Object);
     setWith<T>(
       customizer: (nsValue: any, key: string, nsObject: T) => any,
-      path: Array<string> | string,
+      path: Path,
       value: any
     ): (object: T) => Object;
     setWith<T>(
       customizer: (nsValue: any, key: string, nsObject: T) => any,
-      path: Array<string> | string,
+      path: Path,
       value: any,
       object: T
     ): Object;
@@ -3016,45 +3018,45 @@ declare module "lodash/fp" {
       accumulator: any,
       collection: Object | $ReadOnlyArray<any>
     ): any;
-    unset(path: Array<string> | string): (object: Object) => Object;
-    unset(path: Array<string> | string, object: Object): Object;
-    dissoc(path: Array<string> | string): (object: Object) => Object;
-    dissoc(path: Array<string> | string, object: Object): Object;
-    dissocPath(path: Array<string> | string): (object: Object) => Object;
-    dissocPath(path: Array<string> | string, object: Object): Object;
+    unset(path: Path): (object: Object) => Object;
+    unset(path: Path, object: Object): Object;
+    dissoc(path: Path): (object: Object) => Object;
+    dissoc(path: Path, object: Object): Object;
+    dissocPath(path: Path): (object: Object) => Object;
+    dissocPath(path: Path, object: Object): Object;
     update(
-      path: string[] | string
+      path: Path
     ): ((updater: Function) => (object: Object) => Object) &
       ((updater: Function, object: Object) => Object);
     update(
-      path: string[] | string,
+      path: Path,
       updater: Function
     ): (object: Object) => Object;
-    update(path: string[] | string, updater: Function, object: Object): Object;
+    update(path: Path, updater: Function, object: Object): Object;
     updateWith(
       customizer: Function
     ): ((
-      path: string[] | string
+      path: Path
     ) => ((updater: Function) => (object: Object) => Object) &
       ((updater: Function, object: Object) => Object)) &
       ((
-        path: string[] | string,
+        path: Path,
         updater: Function
       ) => (object: Object) => Object) &
-      ((path: string[] | string, updater: Function, object: Object) => Object);
+      ((path: Path, updater: Function, object: Object) => Object);
     updateWith(
       customizer: Function,
-      path: string[] | string
+      path: Path
     ): ((updater: Function) => (object: Object) => Object) &
       ((updater: Function, object: Object) => Object);
     updateWith(
       customizer: Function,
-      path: string[] | string,
+      path: Path,
       updater: Function
     ): (object: Object) => Object;
     updateWith(
       customizer: Function,
-      path: string[] | string,
+      path: Path,
       updater: Function,
       object: Object
     ): Object;
@@ -3176,13 +3178,13 @@ declare module "lodash/fp" {
     iteratee(func: any): Function;
     matches(source: Object): (object: Object) => boolean;
     matches(source: Object, object: Object): boolean;
-    matchesProperty(path: Array<string> | string): (srcValue: any) => Function;
-    matchesProperty(path: Array<string> | string, srcValue: any): Function;
-    propEq(path: Array<string> | string): (srcValue: any) => Function;
-    propEq(path: Array<string> | string, srcValue: any): Function;
-    pathEq(path: Array<string> | string): (srcValue: any) => Function;
-    pathEq(path: Array<string> | string, srcValue: any): Function;
-    method(path: Array<string> | string): Function;
+    matchesProperty(path: Path): (srcValue: any) => Function;
+    matchesProperty(path: Path, srcValue: any): Function;
+    propEq(path: Path): (srcValue: any) => Function;
+    propEq(path: Path, srcValue: any): Function;
+    pathEq(path: Path): (srcValue: any) => Function;
+    pathEq(path: Path, srcValue: any): Function;
+    method(path: Path): Function;
     methodOf(object: Object): Function;
     mixin<T: Function | Object>(
       object: T
@@ -3207,11 +3209,11 @@ declare module "lodash/fp" {
     overSome(predicates: Array<Function>): Function;
     anyPass(predicates: Array<Function>): Function;
     property(
-      path: Array<string> | string
+      path: Path
     ): (object: Object | Array<any>) => any;
-    property(path: Array<string> | string, object: Object | Array<any>): any;
-    propertyOf(object: Object): (path: Array<string> | string) => Function;
-    propertyOf(object: Object, path: Array<string> | string): Function;
+    property(path: Path, object: Object | Array<any>): any;
+    propertyOf(object: Object): (path: Path) => Function;
+    propertyOf(object: Object, path: Path): Function;
     range(start: number): (end: number) => Array<number>;
     range(start: number, end: number): Array<number>;
     rangeStep(
