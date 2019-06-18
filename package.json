@@ -78,7 +78,6 @@
     "postcss-syntax": "^0.36.2",
     "postcss-value-parser": "^3.3.1",
     "resolve-from": "^5.0.0",
-    "signal-exit": "^3.0.2",
     "slash": "^3.0.0",
     "specificity": "^0.4.1",
     "string-width": "^4.1.0",
@@ -164,7 +163,6 @@
     "collectCoverage": false,
     "collectCoverageFrom": [
       "lib/**/*.js",
-      "!lib/vendor/**/*.js",
       "!lib/utils/parseCalcExpression/parser.js"
     ],
     "coverageDirectory": "./.coverage/",
