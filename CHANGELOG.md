@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## [Head][]
+
+-   Fixed: `block-no-empty` crash for `@import` statements ([#4110](https://github.com/stylelint/stylelint/pull/4110)).
+
 ## [10.1.0][]
 
 -   Added: `selector-max-empty-lines` autofix ([#3717](https://github.com/stylelint/stylelint/pull/3717)).
@@ -1448,6 +1452,7 @@ Changes:
 -   Added: `value-list-comma-space-before` rule.
 -   Added: `value-no-vendor-prefix` rule.
 
+[Head]: https://github.com/stylelint/stylelint/compare/10.1.0...HEAD
 [10.1.0]: https://github.com/stylelint/stylelint/compare/10.0.1...10.1.0
 [10.0.1]: https://github.com/stylelint/stylelint/compare/10.0.0...10.0.1
 [10.0.0]: https://github.com/stylelint/stylelint/compare/9.10.1...10.0.0
