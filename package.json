@@ -99,7 +99,7 @@
     "file-exists-promise": "^1.0.2",
     "flow-bin": "^0.100.0",
     "flow-typed": "^2.5.1",
-    "husky": "^2.0.0",
+    "husky": "^3.0.0",
     "jest": "^24.7.1",
     "jest-watch-typeahead": "^0.3.0",
     "lint-staged": "^8.1.5",
