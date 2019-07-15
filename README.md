@@ -105,8 +105,7 @@ We have a [semantic versioning policy](docs/user-guide/semantic-versioning-polic
 
 ## Contributors
 
-This project exists thanks to all these people. [Contribute](CONTRIBUTING.md).
-<a href="https://github.com/stylelint/stylelint/graphs/contributors"><img src="https://opencollective.com/stylelint/contributors.svg?width=890" /></a>
+This project exists thanks to [all these people](https://github.com/stylelint/stylelint/graphs/contributors). [Contribute](CONTRIBUTING.md).
 
 ## Backers
 
