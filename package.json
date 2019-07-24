@@ -137,18 +137,13 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "*.js": [
-        "prettier --write",
-        "eslint --max-warnings=0 --fix",
-        "git add"
-      ],
-      "*.md": [
-        "remark --quiet --frail"
-      ]
-    },
-    "ignore": [
-      "lib/utils/parseCalcExpression/parser.js"
+    "*.js": [
+      "prettier --write",
+      "eslint --max-warnings=0 --fix",
+      "git add"
+    ],
+    "*.md": [
+      "remark --quiet --frail"
     ]
   },
   "eslintConfig": {
