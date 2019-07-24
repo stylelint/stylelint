@@ -16,8 +16,7 @@ Merge process:
     -   Sentence case.
     -   Descriptive.
 3.  Update the [CHANGELOG](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md) directly via the [GitHub website](https://github.com/stylelint/stylelint/edit/master/CHANGELOG.md) for all merged PRs (except documentation changes):
-    -   Create a `## [Head]` heading if one does not exist already.
-    -   Create a compare URL for `[Head]` heading if one does not exist already. e.g. `[Head]: https://github.com/stylelint/stylelint/compare/9.10.0...HEAD`
+    -   Create a `## Head` heading if one does not exist already.
     -   Prefix the item with either: Removed, Changed, Deprecated, Added, or Fixed.
     -   Order the item within the group by the widest reaching first to the smallest, and then alphabetically by rule name.
     -   Suffix the item with the relevant pull request number, using the complete GitHub URL so that it works on [the website](https://stylelint.io/CHANGELOG/).
