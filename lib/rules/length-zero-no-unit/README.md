@@ -1,6 +1,6 @@
 # length-zero-no-unit
 
-Disallow units for zero lengths.
+Disallow units for zero lengths. Ignores `calc` value in favor of `function-calc-no-invalid` rule.
 
 ```css
 a { top: 0px; }
