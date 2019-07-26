@@ -4,7 +4,7 @@ exports[`003 1`] = `
 Array [
   Object {
     "deprecations": Array [],
-    "errored": undefined,
+    "errored": false,
     "ignored": undefined,
     "invalidOptionWarnings": Array [],
     "parseErrors": Array [],
