@@ -1,6 +1,6 @@
-# length-zero-no-unit
+  # length-zero-no-unit
 
-Disallow units for zero lengths. Ignores `calc` value in favor of `function-calc-no-invalid` rule.
+Disallow units for zero lengths. This rule ignores lengths within math functions (e.g `calc`) in favor of the [`function-calc-no-invalid`](../function-calc-no-invalid/README.md) rule.
 
 ```css
 a { top: 0px; }
