@@ -89,72 +89,91 @@ global.testRule = (rule, schema) => {
                 };
 
                 return stylelint(options).then(output => {
-                  const warning = output.results[0].warnings[0];
-
-                  expect(output.results[0].parseErrors).toEqual([]);
-                  expect(testCase).toHaveMessage();
-
-                  if (testCase.message !== undefined) {
-                    expect(_.get(warning, "text")).toBe(testCase.message);
-                  }
-
-                  if (testCase.line !== undefined) {
-                    expect(_.get(warning, "line")).toBe(testCase.line);
-                  }
-
-                  if (testCase.column !== undefined) {
-                    expect(_.get(warning, "column")).toBe(testCase.column);
-                  }
-
-                  if (!schema.fix) return;
+                  const actualWarnings = output.results[0].warnings;
 
                   if (
-                    !testCase.fixed &&
-                    testCase.fixed !== "" &&
-                    !testCase.unfixable
+                    schema.fix &&
+                    testCase.warnings &&
+                    testCase.warnings.length > 1
                   ) {
                     throw new Error(
-                      "If using { fix: true } in test schema, all reject cases must have { fixed: .. }"
+                      "Several expected warnings can not be used with { fix: true } in schema yet"
                     );
                   }
 
-                  // Check the fix
-                  return stylelint(Object.assign({ fix: true }, options))
-                    .then(output => {
-                      const fixedCode = getOutputCss(output);
+                  if (testCase.warnings) {
+                    expect(actualWarnings).toHaveLength(
+                      testCase.warnings.length
+                    );
+                  }
 
-                      if (!testCase.unfixable) {
-                        expect(fixedCode).toBe(testCase.fixed);
-                        expect(fixedCode).not.toBe(testCase.code);
-                      } else {
-                        // can't fix
-                        if (testCase.fixed) {
-                          expect(fixedCode).toBe(testCase.fixed);
+                  (testCase.warnings || [testCase]).forEach((expected, i) => {
+                    const warning = actualWarnings[i];
+
+                    expect(expected).toHaveMessage();
+
+                    if (expected.message !== undefined) {
+                      expect(_.get(warning, "text")).toBe(expected.message);
+                    }
+
+                    if (expected.line !== undefined) {
+                      expect(_.get(warning, "line")).toBe(expected.line);
+                    }
+
+                    if (expected.column !== undefined) {
+                      expect(_.get(warning, "column")).toBe(expected.column);
+                    }
+
+                    if (!schema.fix) return;
+
+                    if (
+                      !expected.fixed &&
+                      expected.fixed !== "" &&
+                      !expected.unfixable
+                    ) {
+                      throw new Error(
+                        "If using { fix: true } in test schema, all reject cases must have { fixed: .. }"
+                      );
+                    }
+
+                    // Check the fix
+                    return stylelint(Object.assign({ fix: true }, options))
+                      .then(output => {
+                        const fixedCode = getOutputCss(output);
+
+                        if (!expected.unfixable) {
+                          expect(fixedCode).toBe(expected.fixed);
+                          expect(fixedCode).not.toBe(testCase.code);
+                        } else {
+                          // can't fix
+                          if (expected.fixed) {
+                            expect(fixedCode).toBe(expected.fixed);
+                          }
+
+                          expect(fixedCode).toBe(testCase.code);
                         }
 
-                        expect(fixedCode).toBe(testCase.code);
-                      }
-
-                      return {
-                        fixedCode,
-                        warnings: output.results[0].warnings
-                      };
-                    })
-                    .then(({ fixedCode, warnings }) => {
-                      // Checks whether only errors other than those fixed are reported.
-                      return stylelint({
-                        code: fixedCode,
-                        config: stylelintConfig,
-                        syntax: schema.syntax
-                      }).then(output => ({
-                        output,
-                        warnings
-                      }));
-                    })
-                    .then(({ output, warnings }) => {
-                      expect(output.results[0].warnings).toEqual(warnings);
-                      expect(output.results[0].parseErrors).toEqual([]);
-                    });
+                        return {
+                          fixedCode,
+                          warnings: output.results[0].warnings
+                        };
+                      })
+                      .then(({ fixedCode, warnings }) => {
+                        // Checks whether only errors other than those fixed are reported.
+                        return stylelint({
+                          code: fixedCode,
+                          config: stylelintConfig,
+                          syntax: schema.syntax
+                        }).then(output => ({
+                          output,
+                          warnings
+                        }));
+                      })
+                      .then(({ output, warnings }) => {
+                        expect(output.results[0].warnings).toEqual(warnings);
+                        expect(output.results[0].parseErrors).toEqual([]);
+                      });
+                  });
                 });
               });
             });
