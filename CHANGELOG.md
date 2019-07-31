@@ -8,6 +8,7 @@ All notable changes to this project are documented in this file.
 -   Changed: `--report-needless-disables` CLI flag now reports needless disables and runs linting ([#4151](https://github.com/stylelint/stylelint/pull/4151)).
 -   Added: `ignore: ["selectors-within-list"]` to `no-descending-specificity` ([#4176](https://github.com/stylelint/stylelint/pull/4176)).
 -   Fixed: `block-no-empty` crash for `@import` statements ([#4110](https://github.com/stylelint/stylelint/pull/4110)).
+-   Fixed: `indentation` false positives for <style> tag with multiline attributes ([#4177](https://github.com/stylelint/stylelint/pull/4177)).
 -   Fixed: `no-duplicate-selectors` false positives for selectors in the same selector list ([#4173](https://github.com/stylelint/stylelint/pull/4173)).
 -   Fixed: `max-line-length` false positives for multi-line url() ([#4169](https://github.com/stylelint/stylelint/pull/4169)).
 -   Fixed: `no-unit-unknown` false positives for at-variables (Less) starting with numbers ([#4163](https://github.com/stylelint/stylelint/pull/4163)).
