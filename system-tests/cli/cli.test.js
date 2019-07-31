@@ -92,4 +92,26 @@ describe("CLI", () => {
       );
     });
   });
+
+  it("--report-needless-disables", () => {
+    return Promise.resolve(
+      cli([
+        "--report-needless-disables",
+        "--config",
+        path.join(__dirname, "config.json"),
+        path.join(__dirname, "stylesheet.css")
+      ])
+    ).then(() => {
+      expect(process.exitCode).toBe(2);
+      expect(process.stdout.write).toHaveBeenCalledTimes(2);
+      expect(process.stdout.write).toHaveBeenNthCalledWith(
+        1,
+        expect.stringContaining("unused rule: color-named")
+      );
+      expect(process.stdout.write).toHaveBeenNthCalledWith(
+        2,
+        expect.stringContaining("Unexpected empty block")
+      );
+    });
+  });
 });
