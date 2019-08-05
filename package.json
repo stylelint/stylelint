@@ -76,7 +76,7 @@
     "postcss-scss": "^2.0.0",
     "postcss-selector-parser": "^3.1.0",
     "postcss-syntax": "^0.36.2",
-    "postcss-value-parser": "^3.3.1",
+    "postcss-value-parser": "^4.0.2",
     "resolve-from": "^5.0.0",
     "signal-exit": "^3.0.2",
     "slash": "^3.0.0",
