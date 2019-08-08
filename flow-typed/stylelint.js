@@ -138,6 +138,7 @@ export type stylelint$standaloneOptions = {
   configFile?: string,
   configBasedir?: string,
   configOverrides?: Object,
+  disableGlobbing?: boolean,
   printConfig?: string,
   ignoreDisables?: boolean,
   ignorePath?: string,
