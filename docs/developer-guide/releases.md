@@ -23,9 +23,7 @@ Before starting, ensure you [have a GitHub token in place](https://github.com/Mo
 5.  Both the publishing of the package to npm and the creating a github release are done with [`npmpub`](https://github.com/MoOx/npmpub):
     1.  Ensure the CHANGELOG is [consistently formatted](pull-requests.md).
     2.  Run `npm --no-git-tag-version version major|minor|patch` to increment the `version` number in `package.json` and `package-lock.json`, according to whether it's a patch, minor or major release.
-    3.  Update the following places related to `[Head]` in `CHANGELOG.md`.
-        -   Replace `## [Head]` with this new version number e.g. `## [8.1.2]`
-        -   Replace `[Head]: https://github.com/stylelint/stylelint/compare/{version}...HEAD` with this new version number e.g. `[8.1.2]: https://{...omitted...}/compare/8.1.1...8.1.2`
+    3.  Replace `## Head` with this new version number e.g. `## 8.1.2`.
     4.  Commit and _push up_ these changes.
     5.  Go to [https://github.com/stylelint/stylelint](https://github.com/stylelint/stylelint) and confirm these changes are correct and pushed up.
     6.  Run `npm run release` (the tests should pass, but it will fail to publish)
