@@ -105,3 +105,24 @@ a {}
   #baz a {}
 }
 ```
+
+### `ignore: ["selectors-within-list"]`
+
+Ignores selectors within list of selectors.
+
+The following patterns are considered violations:
+
+```css
+b a {}
+h1 {}
+h2 {}
+h3 {}
+a {}
+```
+
+The following patterns are *not* considered violations:
+
+```css
+b a {}
+h1, h2, h3, a {}
+```
