@@ -91,6 +91,8 @@ global.testRule = (rule, schema) => {
                 return stylelint(options).then(output => {
                   const actualWarnings = output.results[0].warnings;
 
+                  expect(output.results[0].parseErrors).toEqual([]);
+
                   if (testCase.warnings) {
                     expect(actualWarnings).toHaveLength(
                       testCase.warnings.length
