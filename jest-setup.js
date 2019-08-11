@@ -91,19 +91,20 @@ global.testRule = (rule, schema) => {
                 return stylelint(options).then(output => {
                   const actualWarnings = output.results[0].warnings;
 
-                  if (
-                    schema.fix &&
-                    testCase.warnings &&
-                    testCase.warnings.length > 1
-                  ) {
-                    throw new Error(
-                      "Several expected warnings can not be used with { fix: true } in schema yet"
-                    );
-                  }
-
                   if (testCase.warnings) {
                     expect(actualWarnings).toHaveLength(
                       testCase.warnings.length
+                    );
+                  }
+
+                  if (
+                    schema.fix &&
+                    !testCase.fixed &&
+                    testCase.fixed !== "" &&
+                    !testCase.unfixable
+                  ) {
+                    throw new Error(
+                      "If using { fix: true } in test schema, all reject cases must have { fixed: .. }"
                     );
                   }
 
@@ -123,57 +124,47 @@ global.testRule = (rule, schema) => {
                     if (expected.column !== undefined) {
                       expect(_.get(warning, "column")).toBe(expected.column);
                     }
+                  });
 
-                    if (!schema.fix) return;
+                  if (!schema.fix) return;
 
-                    if (
-                      !expected.fixed &&
-                      expected.fixed !== "" &&
-                      !expected.unfixable
-                    ) {
-                      throw new Error(
-                        "If using { fix: true } in test schema, all reject cases must have { fixed: .. }"
-                      );
-                    }
+                  // Check the fix
+                  return stylelint(Object.assign({ fix: true }, options))
+                    .then(output => {
+                      const fixedCode = getOutputCss(output);
 
-                    // Check the fix
-                    return stylelint(Object.assign({ fix: true }, options))
-                      .then(output => {
-                        const fixedCode = getOutputCss(output);
-
-                        if (!expected.unfixable) {
-                          expect(fixedCode).toBe(expected.fixed);
-                          expect(fixedCode).not.toBe(testCase.code);
-                        } else {
-                          // can't fix
-                          if (expected.fixed) {
-                            expect(fixedCode).toBe(expected.fixed);
-                          }
-
-                          expect(fixedCode).toBe(testCase.code);
+                      if (!testCase.unfixable) {
+                        expect(fixedCode).toBe(testCase.fixed);
+                        expect(fixedCode).not.toBe(testCase.code);
+                      } else {
+                        // can't fix
+                        if (testCase.fixed) {
+                          expect(fixedCode).toBe(testCase.fixed);
                         }
 
-                        return {
-                          fixedCode,
-                          warnings: output.results[0].warnings
-                        };
-                      })
-                      .then(({ fixedCode, warnings }) => {
-                        // Checks whether only errors other than those fixed are reported.
-                        return stylelint({
-                          code: fixedCode,
-                          config: stylelintConfig,
-                          syntax: schema.syntax
-                        }).then(output => ({
-                          output,
-                          warnings
-                        }));
-                      })
-                      .then(({ output, warnings }) => {
-                        expect(output.results[0].warnings).toEqual(warnings);
-                        expect(output.results[0].parseErrors).toEqual([]);
-                      });
-                  });
+                        expect(fixedCode).toBe(testCase.code);
+                      }
+
+                      return {
+                        fixedCode,
+                        warnings: output.results[0].warnings
+                      };
+                    })
+                    .then(({ fixedCode, warnings }) => {
+                      // Checks whether only errors other than those fixed are reported.
+                      return stylelint({
+                        code: fixedCode,
+                        config: stylelintConfig,
+                        syntax: schema.syntax
+                      }).then(output => ({
+                        output,
+                        warnings
+                      }));
+                    })
+                    .then(({ output, warnings }) => {
+                      expect(output.results[0].warnings).toEqual(warnings);
+                      expect(output.results[0].parseErrors).toEqual([]);
+                    });
                 });
               });
             });
