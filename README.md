@@ -103,9 +103,13 @@ We have a [semantic versioning policy](docs/user-guide/semantic-versioning-polic
 
 [The MIT License](https://raw.githubusercontent.com/stylelint/stylelint/master/LICENSE).
 
+## Contributing Guidelines
+
+Check out the [Contributing Guidelines](CONTRIBUTING.md).
+
 ## Contributors
 
-This project exists thanks to [all these people](https://github.com/stylelint/stylelint/graphs/contributors). [Contribute](CONTRIBUTING.md).
+Without [all these wonderful people](https://github.com/stylelint/stylelint/graphs/contributors) this project won't cease to exist.
 
 ## Backers
 
