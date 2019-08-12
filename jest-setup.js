@@ -89,26 +89,18 @@ global.testRule = (rule, schema) => {
                 };
 
                 return stylelint(options).then(output => {
-                  const warning = output.results[0].warnings[0];
+                  const actualWarnings = output.results[0].warnings;
 
                   expect(output.results[0].parseErrors).toEqual([]);
-                  expect(testCase).toHaveMessage();
 
-                  if (testCase.message !== undefined) {
-                    expect(_.get(warning, "text")).toBe(testCase.message);
+                  if (testCase.warnings) {
+                    expect(actualWarnings).toHaveLength(
+                      testCase.warnings.length
+                    );
                   }
-
-                  if (testCase.line !== undefined) {
-                    expect(_.get(warning, "line")).toBe(testCase.line);
-                  }
-
-                  if (testCase.column !== undefined) {
-                    expect(_.get(warning, "column")).toBe(testCase.column);
-                  }
-
-                  if (!schema.fix) return;
 
                   if (
+                    schema.fix &&
                     !testCase.fixed &&
                     testCase.fixed !== "" &&
                     !testCase.unfixable
@@ -117,6 +109,26 @@ global.testRule = (rule, schema) => {
                       "If using { fix: true } in test schema, all reject cases must have { fixed: .. }"
                     );
                   }
+
+                  (testCase.warnings || [testCase]).forEach((expected, i) => {
+                    const warning = actualWarnings[i];
+
+                    expect(expected).toHaveMessage();
+
+                    if (expected.message !== undefined) {
+                      expect(_.get(warning, "text")).toBe(expected.message);
+                    }
+
+                    if (expected.line !== undefined) {
+                      expect(_.get(warning, "line")).toBe(expected.line);
+                    }
+
+                    if (expected.column !== undefined) {
+                      expect(_.get(warning, "column")).toBe(expected.column);
+                    }
+                  });
+
+                  if (!schema.fix) return;
 
                   // Check the fix
                   return stylelint(Object.assign({ fix: true }, options))
