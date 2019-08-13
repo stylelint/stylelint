@@ -109,7 +109,7 @@ Check out the [Contributing Guidelines](CONTRIBUTING.md).
 
 ## Contributors
 
-Without [all these wonderful people](https://github.com/stylelint/stylelint/graphs/contributors) this project won't cease to exist.
+Without [all these wonderful people](https://github.com/stylelint/stylelint/graphs/contributors) this project would cease to exist.
 
 ## Backers
 
