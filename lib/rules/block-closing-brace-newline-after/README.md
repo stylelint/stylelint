@@ -174,3 +174,37 @@ The following patterns are *not* considered violations:
 ```css
 @if ($var) { color: pink; } @else { color: blue; }
 ```
+
+## Optional secondary options
+
+### `ignoreBeforeAtRules: ["/regex/", "non-regex"]`
+
+Ignore whitespace suggestions before these at-rules.
+
+For example, with `"always"` or `"always-multi-line"`.
+
+Given:
+
+```js
+["else"]
+```
+
+The following patterns are *not* considered violations:
+
+```css
+@if ($var) {
+  color: pink;
+} @else if ($var2) {
+  color: red;
+} @else {
+  color: blue;
+}
+```
+
+```css
+@media (width < 28em) {
+  background: red;
+} @else {
+  background: green;
+}
+```
