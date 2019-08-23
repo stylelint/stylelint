@@ -1,6 +1,6 @@
 # Reporting Security Issues
 
-If you discover a security issue in webpack, please report it by sending an
+If you discover a security issue in stylelint, please report it by sending an
 email to .
 
 This will allow us to assess the risk, and make a fix available before we add a
