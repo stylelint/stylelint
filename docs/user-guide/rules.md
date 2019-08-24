@@ -358,3 +358,4 @@ Here are all the rules within stylelint, grouped first [by category](../../VISIO
 -   [`no-eol-whitespace`](../../lib/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace (Autofixable).
 -   [`no-missing-end-of-source-newline`](../../lib/rules/no-missing-end-of-source-newline/README.md): Disallow missing end-of-source newlines (Autofixable).
 -   [`no-empty-first-line`](../../lib/rules/no-empty-first-line/README.md): Disallow empty first lines (Autofixable).
+-   [`unicode-bom`](../../lib/rules/unicode-bom/README.md): Require or disallow Unicode BOM.

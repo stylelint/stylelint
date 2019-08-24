@@ -170,6 +170,7 @@ You might want to learn a little about [how rules are named and how they work to
     "string-no-newline": true,
     "string-quotes": "single"|"double",
     "time-min-milliseconds": int,
+    "unicode-bom": "always"|"never",
     "unit-blacklist": string|[],
     "unit-case": "lower"|"upper",
     "unit-no-unknown": true,
