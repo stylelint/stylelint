@@ -135,3 +135,34 @@ describe("fix", () => {
       });
   });
 });
+
+describe("fix with BOM", () => {
+  let tmpDir;
+  let stylesheetPath;
+
+  beforeEach(() => {
+    tmpDir = os.tmpdir();
+    stylesheetPath = path.join(tmpDir, `stylesheet-with-bom.css`);
+
+    return cpFile(path.join(__dirname, "stylesheet.css"), stylesheetPath);
+  });
+
+  afterEach(() => {
+    return del(stylesheetPath, { force: true });
+  });
+
+  // eslint-disable-next-line jest/no-disabled-tests
+  it.skip("doesn't strip BOM", () => {
+    return stylelint
+      .lint({
+        files: [stylesheetPath],
+        configFile: systemTestUtils.caseConfig("fix"),
+        fix: true
+      })
+      .then(() => {
+        return readFileAsync(stylesheetPath, "utf8").then(fileContent => {
+          expect(fileContent.startsWith("\uFEFF")).toBe(true);
+        });
+      });
+  });
+});
