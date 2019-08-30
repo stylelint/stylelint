@@ -8,6 +8,8 @@ Disallow empty comments.
  * Comments like this */
 ```
 
+This rule ignores SCSS-like comments.
+
 **Caveat:** Comments within *selector and value lists* are currently ignored.
 
 ## Options
