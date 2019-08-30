@@ -92,12 +92,9 @@ global.testRule = (rule, schema) => {
                   const actualWarnings = output.results[0].warnings;
 
                   expect(output.results[0].parseErrors).toEqual([]);
-
-                  if (testCase.warnings) {
-                    expect(actualWarnings).toHaveLength(
-                      testCase.warnings.length
-                    );
-                  }
+                  expect(actualWarnings).toHaveLength(
+                    testCase.warnings ? testCase.warnings.length : 1
+                  );
 
                   if (
                     schema.fix &&
