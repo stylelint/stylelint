@@ -25,6 +25,8 @@ All notable changes to this project are documented in this file.
 -   Added: `--output-file` CLI flag ([#4085](https://github.com/stylelint/stylelint/pull/4085)).
 -   Fixed: `function-calc-no-invalid` false positives for interpolation ([#4046](https://github.com/stylelint/stylelint/pull/4046)).
 -   Fixed: `declaration-block-semicolon-space-before` autofix with `!important` annotations ([#4016](https://github.com/stylelint/stylelint/issues/4016)).
+-   Fixed: `no-eol-whitespace` autofix for within comments ([#4224](https://github.com/stylelint/stylelint/pull/4224)).
+-   Fixed: `no-eol-whitespace` false negatives for last line without trailing EOL ([#4224](https://github.com/stylelint/stylelint/pull/4224)).
 -   Fixed: `selector-pseudo-class-no-unknown` false positives for `defined` ([#4081](https://github.com/stylelint/stylelint/pull/4081)).
 
 ## 10.0.1
