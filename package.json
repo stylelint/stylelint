@@ -62,7 +62,6 @@
     "meow": "^5.0.0",
     "micromatch": "^4.0.0",
     "normalize-selector": "^0.2.0",
-    "pify": "^4.0.1",
     "postcss": "^7.0.14",
     "postcss-html": "^0.36.0",
     "postcss-jsx": "^0.36.3",

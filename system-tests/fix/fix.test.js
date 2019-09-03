@@ -6,9 +6,10 @@ const del = require("del");
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
-const pify = require("pify");
 const stylelint = require("../../lib");
 const systemTestUtils = require("../systemTestUtils");
+const { promisify } = require("util");
+const readFileAsync = promisify(fs.readFile);
 
 describe("fix", () => {
   let tmpDir;
@@ -66,7 +67,7 @@ describe("fix", () => {
       .then(output => {
         const result = output.results[0]._postcssResult;
 
-        return pify(fs.readFile)(stylesheetPath, "utf8").then(fileContent => {
+        return readFileAsync(stylesheetPath, "utf8").then(fileContent => {
           expect(fileContent).toBe(result.root.toString(result.opts.syntax));
         });
       });
@@ -87,8 +88,8 @@ describe("fix", () => {
         fix: true
       })
       .then(() => {
-        return pify(fs.readFile)(stylesheetPath, "utf8").then(newFile => {
-          return pify(fs.readFile)(
+        return readFileAsync(stylesheetPath, "utf8").then(newFile => {
+          return readFileAsync(
             path.join(__dirname, "stylesheet.css"),
             "utf8"
           ).then(oldFile => {

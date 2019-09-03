@@ -5,9 +5,10 @@ const del = require("del");
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
-const pify = require("pify");
 const spawn = require("child_process").spawn;
 const systemTestUtils = require("../systemTestUtils");
+const { promisify } = require("util");
+const readFileAsync = promisify(fs.readFile);
 
 describe("outputFile", () => {
   let tmpDir;
@@ -45,7 +46,7 @@ describe("outputFile", () => {
     childProcess.stdout.on("data", data => (stdout += data));
 
     childProcess.on("close", function() {
-      return pify(fs.readFile)(directionPath, "utf-8").then(content => {
+      return readFileAsync(directionPath, "utf-8").then(content => {
         expect(content).toEqual(systemTestUtils.stripColors(stdout));
         expect(content).toMatchSnapshot();
         done();
