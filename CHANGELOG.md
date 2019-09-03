@@ -10,7 +10,7 @@ All notable changes to this project are documented in this file.
 -   Added: `ignore: ["selectors-within-list"]` to `no-descending-specificity` ([#4176](https://github.com/stylelint/stylelint/pull/4176)).
 -   Added: `selector-*` support for all logical combinations (:matches, :has) ([#4179](https://github.com/stylelint/stylelint/pull/4179)).
 -   Fixed: `block-no-empty` crash for `@import` statements ([#4110](https://github.com/stylelint/stylelint/pull/4110)).
--   Fixed: `indentation` false positives for <style> tag with multiline attributes ([#4177](https://github.com/stylelint/stylelint/pull/4177)).
+-   Fixed: `indentation` false positives for `<style>` tag with multiline attributes ([#4177](https://github.com/stylelint/stylelint/pull/4177)).
 -   Fixed: `length-zero-no-unit` false positives for inside calc function ([#4175](https://github.com/stylelint/stylelint/pull/4175)).
 -   Fixed: `no-duplicate-selectors` false positives for selectors in the same selector list ([#4173](https://github.com/stylelint/stylelint/pull/4173)).
 -   Fixed: `max-line-length` false positives for multi-line url() ([#4169](https://github.com/stylelint/stylelint/pull/4169)).
