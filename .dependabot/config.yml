@@ -1,0 +1,16 @@
+# https://dependabot.com/docs/config-file/
+version: 1
+update_configs:
+  - package_manager: "javascript"
+    directory: "/"
+    update_schedule: "monthly"
+    default_labels:
+      - "dependabot"
+    ignored_updates:
+      - match:
+          dependency_name: "flow-bin"
+    automerged_updates:
+      - match:
+          dependency_type: "all"
+          update_type: "in_range"
+    version_requirement_updates: "widen_ranges"
