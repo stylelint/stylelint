@@ -6,7 +6,7 @@ git:
 branches:
   only:
     - master
-    - /^greenkeeper/.*$/
+    - /^dependabot/.*$/
 
 language: node_js
 
