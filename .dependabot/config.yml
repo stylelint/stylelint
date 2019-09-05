@@ -9,8 +9,4 @@ update_configs:
     ignored_updates:
       - match:
           dependency_name: "flow-bin"
-    automerged_updates:
-      - match:
-          dependency_type: "all"
-          update_type: "in_range"
     version_requirement_updates: "widen_ranges"
