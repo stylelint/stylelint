@@ -73,7 +73,7 @@
     "postcss-safe-parser": "^4.0.1",
     "postcss-sass": "^0.4.1",
     "postcss-scss": "^2.0.0",
-    "postcss-selector-parser": "^3.1.0",
+    "postcss-selector-parser": "^5.0.0",
     "postcss-syntax": "^0.36.2",
     "postcss-value-parser": "^4.0.2",
     "resolve-from": "^5.0.0",
