@@ -130,3 +130,25 @@ a {
   -moz-overflow-scrolling: center;
 }
 ```
+
+### `ignorePropertiesOf: ["/regex/", /regex/, "string"]`
+
+Some CSS extensions allow arbitrary child properties of certain selectors and pseudo-classes, which shouldn't be checked against this rule. One such example is [ICSS](https://github.com/css-modules/icss), which defines the `:export` and `:import` pseudo-classes, where the property names can be any valid CSS declaration value.
+
+Given:
+
+```js
+[":export", "/^:import/"]
+```
+
+The following patterns are *not* considered violations:
+
+```css
+:export {
+  myProperty: blue;
+}
+
+:import("path/to/file.css") {
+  localAlias: keyFromDep;
+}
+```
