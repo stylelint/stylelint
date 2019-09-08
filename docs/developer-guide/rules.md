@@ -304,7 +304,7 @@ Deviation: 16.63969674310928 ms
 
 What can you do with this? **When writing new rules or refactoring existing rules, use these measurements to determine the efficiency of your code.**
 
-A stylelint rule can repeat it's core logic many, many times (e.g. checking every value node of every declaration in a vast CSS codebase). So it's worth paying attention to performance and doing what we can to improve it!
+A stylelint rule can repeat its core logic many, many times (e.g. checking every value node of every declaration in a vast CSS codebase). So it's worth paying attention to performance and doing what we can to improve it!
 
 **This is a great way to contribute if you just want a quick little project.** Try picking a rule and seeing if there's anything you can do to speed it up.
 
