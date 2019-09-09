@@ -36,6 +36,7 @@ export type stylelint$options = {
   configOverrides?: Object,
   ignoreDisables?: boolean,
   ignorePath?: string,
+  reportInvalidScopeDisables?: boolean,
   reportNeedlessDisables?: boolean,
   syntax?: stylelint$syntaxes,
   customSyntax?: string,
@@ -107,7 +108,7 @@ export type stylelint$cssSyntaxError = {
   source: string
 };
 
-export type stylelint$needlessDisablesReport = Array<{
+export type stylelint$disableOptionsReport = Array<{
   source: string,
   ranges: Array<{
     unusedRule: string,
@@ -124,7 +125,8 @@ export type stylelint$standaloneReturnValue = {
     maxWarnings: number,
     foundWarnings: number
   },
-  needlessDisables?: stylelint$needlessDisablesReport
+  needlessDisables?: stylelint$disableOptionsReport,
+  invalidScopeDisables?: stylelint$disableOptionsReport
 };
 
 export type stylelint$standaloneOptions = {
@@ -143,6 +145,7 @@ export type stylelint$standaloneOptions = {
   ignorePath?: string,
   ignorePattern?: RegExp,
   reportNeedlessDisables?: boolean,
+  reportInvalidScopeDisables?: boolean,
   maxWarnings?: number,
   syntax?: stylelint$syntaxes,
   customSyntax?: string,
