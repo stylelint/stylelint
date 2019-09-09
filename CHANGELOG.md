@@ -12,6 +12,7 @@ All notable changes to this project are documented in this file.
 -   Added: `selector-*` support for all logical combinations (:matches, :has) ([#4179](https://github.com/stylelint/stylelint/pull/4179)).
 -   Added: `selector-pseudo-element-case` autofix ([#3672](https://github.com/stylelint/stylelint/pull/3672)).
 -   Added: `unicode-bom` rule ([#4225](https://github.com/stylelint/stylelint/pull/4225)).
+-   Added: `--reportInvalidScopeDisables` CLI flag ([#4181](https://github.com/stylelint/stylelint/pull/4181)).
 -   Fixed: `block-no-empty` crash for `@import` statements ([#4110](https://github.com/stylelint/stylelint/pull/4110)).
 -   Fixed: `indentation` false positives for `<style>` tag with multiline attributes ([#4177](https://github.com/stylelint/stylelint/pull/4177)).
 -   Fixed: `length-zero-no-unit` false positives for inside calc function ([#4175](https://github.com/stylelint/stylelint/pull/4175)).
