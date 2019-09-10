@@ -8,6 +8,7 @@ const path = require("path");
 const spawn = require("child_process").spawn;
 const systemTestUtils = require("../systemTestUtils");
 const { promisify } = require("util");
+const { replaceBackslashes } = require("../systemTestUtils");
 const readFileAsync = promisify(fs.readFile);
 
 describe("outputFile", () => {
@@ -32,7 +33,7 @@ describe("outputFile", () => {
       "node",
       [
         cliPath,
-        `${localPath}/*.css`,
+        replaceBackslashes(`${localPath}/*.css`),
         "--config=config.json",
         `--output-file=${directionPath}`
       ],
