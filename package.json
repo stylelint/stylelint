@@ -28,6 +28,7 @@
   "files": [
     "bin",
     "CONTRIBUTING.md",
+    "SECURITY.md",
     "docs",
     "lib",
     "VISION.md",
