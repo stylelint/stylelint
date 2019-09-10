@@ -86,7 +86,8 @@
     "style-search": "^0.1.0",
     "sugarss": "^2.0.0",
     "svg-tags": "^1.0.0",
-    "table": "^5.2.3"
+    "table": "^5.2.3",
+    "v8-compile-cache": "^2.1.0"
   },
   "devDependencies": {
     "benchmark": "^2.1.4",
