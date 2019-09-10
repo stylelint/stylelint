@@ -2,6 +2,9 @@
 version: 1
 update_configs:
   - package_manager: "javascript"
+    directory: "/"
+    update_schedule: "monthly"
     ignored_updates:
       - match:
           dependency_name: "flow-bin"
+    version_requirement_updates: "widen_ranges"
