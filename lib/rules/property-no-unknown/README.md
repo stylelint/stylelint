@@ -131,11 +131,11 @@ a {
 }
 ```
 
-### `ignorePropertiesOf: ["/regex/", /regex/, "string"]`
+### `ignoreSelectors: ["/regex/", /regex/, "string"]`
 
-Some CSS extensions allow arbitrary child properties of certain selectors and pseudo-classes, which shouldn't be checked against this rule. One such example is [ICSS](https://github.com/css-modules/icss), which defines the `:export` and `:import` pseudo-classes, where the property names can be any valid CSS declaration value.
+Some CSS extensions allow arbitrary child properties of certain selectors and pseudo-classes, which shouldn't be checked against a whitelist of known properties. One such example is [ICSS](https://github.com/css-modules/icss), which defines `:export` and `:import` pseudo-classes allowing any valid CSS property name to be nested in their declaration blocks.
 
-Given:
+Given a config with `ignoreSelectors` set to:
 
 ```js
 [":export", "/^:import/"]
