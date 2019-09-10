@@ -118,6 +118,14 @@ Use this report to clean up your codebase, keeping only the stylelint-disable co
 
 *The recommended way to use this option is through the CLI.* It will output a clean report to the console.
 
+### `reportInvalidScopeDisables`
+
+If `true`, the returned data will contain a `invalidScopeDisables` property, whose value is an array of objects, one for each source, with tells you which rule in `stylelint-disable <rule>` comment don't exist within the configuration object.
+
+Use this report to clean up your codebase, keeping only the stylelint-disable comments that serve a purpose.
+
+*The recommended way to use this option is through the CLI.* It will output a clean report to the console.
+
 ### `maxWarnings`
 
 Sets a limit to the number of warnings accepted. Will add a `maxWarningsExceeded` property to the returned data if the number of found warnings exceeds the given limit.
