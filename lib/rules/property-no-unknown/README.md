@@ -97,6 +97,24 @@ a {
 }
 ```
 
+### `ignoreSelectors: ["/regex/", /regex/, "string"]`
+
+Skips checking properties of the given selectors against this rule.
+
+Given:
+
+```js
+[":root"]
+```
+
+The following patterns are *not* considered violations:
+
+```css
+:root {
+  my-property: blue;
+}
+```
+
 ### `checkPrefixed: true | false` (default: `false`)
 
 If `true`, this rule will check vendor-prefixed properties.
@@ -128,27 +146,5 @@ a {
 ```css
 a {
   -moz-overflow-scrolling: center;
-}
-```
-
-### `ignoreSelectors: ["/regex/", /regex/, "string"]`
-
-Some CSS extensions allow arbitrary child properties of certain selectors and pseudo-classes, which shouldn't be checked against a whitelist of known properties. One such example is [ICSS](https://github.com/css-modules/icss), which defines `:export` and `:import` pseudo-classes allowing any valid CSS property name to be nested in their declaration blocks.
-
-Given a config with `ignoreSelectors` set to:
-
-```js
-[":export", "/^:import/"]
-```
-
-The following patterns are *not* considered violations:
-
-```css
-:export {
-  myProperty: blue;
-}
-
-:import("path/to/file.css") {
-  localAlias: keyFromDep;
 }
 ```
