@@ -20,6 +20,7 @@ All notable changes to this project are documented in this file.
 -   Fixed: `max-line-length` false positives for multi-line url() ([#4169](https://github.com/stylelint/stylelint/pull/4169)).
 -   Fixed: `no-unit-unknown` false positives for at-variables (Less) starting with numbers ([#4163](https://github.com/stylelint/stylelint/pull/4163)).
 -   Fixed: `property-no-unknown` for overflowX for CSS-in-JS ([#4184](https://github.com/stylelint/stylelint/pull/4184)).
+-   Fixed: `*-max-empty-lines` to only report one violation per function, selector, value list ([#4260](https://github.com/stylelint/stylelint/pull/4260)).
 -   Fixed: Babel user configuration interfering with CSS-in-JS parser ([#4164](https://github.com/stylelint/stylelint/pull/4164)).
 -   Fixed: PostCSS plugin ignoring .stylelintignore ([#4186](https://github.com/stylelint/stylelint/pull/4186)).
 
