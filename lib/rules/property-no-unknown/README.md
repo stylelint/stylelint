@@ -97,6 +97,24 @@ a {
 }
 ```
 
+### `ignoreSelectors: ["/regex/", /regex/, "string"]`
+
+Skips checking properties of the given selectors against this rule.
+
+Given:
+
+```js
+[":root"]
+```
+
+The following patterns are *not* considered violations:
+
+```css
+:root {
+  my-property: blue;
+}
+```
+
 ### `checkPrefixed: true | false` (default: `false`)
 
 If `true`, this rule will check vendor-prefixed properties.
