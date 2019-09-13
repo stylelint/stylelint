@@ -9,6 +9,7 @@ All notable changes to this project are documented in this file.
 -   Changed: Display a violation at 1:1 for each file instead of throwing an error on unrecognised rules ([#4237](https://github.com/stylelint/stylelint/pull/4237)).
 -   Added: `max-empty-lines` autofix ([#3667](https://github.com/stylelint/stylelint/pull/3667)).
 -   Added: `ignore: ["selectors-within-list"]` to `no-descending-specificity` ([#4176](https://github.com/stylelint/stylelint/pull/4176)).
+-   Added: `ignoreSelectors: []` to `property-no-unknown` ([#4275](https://github.com/stylelint/stylelint/pull/4275)).
 -   Added: `selector-*` support for all logical combinations (:matches, :has) ([#4179](https://github.com/stylelint/stylelint/pull/4179)).
 -   Added: `selector-pseudo-element-case` autofix ([#3672](https://github.com/stylelint/stylelint/pull/3672)).
 -   Added: `unicode-bom` rule ([#4225](https://github.com/stylelint/stylelint/pull/4225)).
