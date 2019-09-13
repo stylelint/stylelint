@@ -57,6 +57,7 @@ All notable changes to this project are documented in this file.
 -   Fixed: `function-calc-no-invalid` false positives for negative numbers ([#3921](https://github.com/stylelint/stylelint/pull/3921)).
 -   Fixed: `no-descending-specificity` false positives for vendor prefixed pseudo-elements ([#3929](https://github.com/stylelint/stylelint/issues/3929)).
 -   Fixed: `selector-max-*` false negatives for nested at-rules ([#3959](https://github.com/stylelint/stylelint/pull/3959)).
+-   Fixed: Logical combinations pseudo-classes in `selector-max-universal` are now evaluated separately ([#4263](https://github.com/stylelint/stylelint/pull/4263)).
 -   Fixed: `value-keyword-case` autofix for single-line comments within maps ([#4019](https://github.com/stylelint/stylelint/pull/4019)).
 
 ## 9.10.1
