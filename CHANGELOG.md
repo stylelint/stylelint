@@ -7,6 +7,7 @@ All notable changes to this project are documented in this file.
 -   Changed: always return `stylelintError` as a boolean ([#4174](https://github.com/stylelint/stylelint/pull/4174)).
 -   Changed: `--report-needless-disables` CLI flag now reports needless disables and runs linting ([#4151](https://github.com/stylelint/stylelint/pull/4151)).
 -   Changed: Display a violation at 1:1 for each file instead of throwing an error on unrecognised rules ([#4237](https://github.com/stylelint/stylelint/pull/4237)).
+-   Deprecated: `createRuleTester` API ([#4279](https://github.com/stylelint/stylelint/pull/4279)).
 -   Added: `max-empty-lines` autofix ([#3667](https://github.com/stylelint/stylelint/pull/3667)).
 -   Added: `ignore: ["selectors-within-list"]` to `no-descending-specificity` ([#4176](https://github.com/stylelint/stylelint/pull/4176)).
 -   Added: `ignoreSelectors: []` to `property-no-unknown` ([#4275](https://github.com/stylelint/stylelint/pull/4275)).
