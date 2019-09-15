@@ -1,45 +1,45 @@
-"use strict";
+'use strict';
 
-const _ = require("lodash");
-const path = require("path");
-const stripAnsi = require("strip-ansi");
+const _ = require('lodash');
+const path = require('path');
+const stripAnsi = require('strip-ansi');
 
 function caseFilePath(caseNumber, fileName) {
-  return path.join(__dirname, caseNumber, fileName);
+	return path.join(__dirname, caseNumber, fileName);
 }
 
 function caseStylesheetGlob(caseNumber) {
-  return caseFilePath(caseNumber, "stylesheet.*");
+	return caseFilePath(caseNumber, 'stylesheet.*');
 }
 
 function caseConfig(caseNumber, ext) {
-  ext = ext || "json";
+	ext = ext || 'json';
 
-  return caseFilePath(caseNumber, `config.${ext}`);
+	return caseFilePath(caseNumber, `config.${ext}`);
 }
 
 function prepResults(results) {
-  return results.map(result => {
-    // The _postcssResult object is not part of our API and is huge
-    const preppedResult = _.omit(result, "_postcssResult");
+	return results.map((result) => {
+		// The _postcssResult object is not part of our API and is huge
+		const preppedResult = _.omit(result, '_postcssResult');
 
-    // The `source` of each file will not be the same on different machines or platforms
-    preppedResult.source = path
-      .relative(__dirname, result.source)
-      .replace(new RegExp(`\\${path.sep}`, "g"), "/");
+		// The `source` of each file will not be the same on different machines or platforms
+		preppedResult.source = path
+			.relative(__dirname, result.source)
+			.replace(new RegExp(`\\${path.sep}`, 'g'), '/');
 
-    return preppedResult;
-  });
+		return preppedResult;
+	});
 }
 
 function stripColors(input) {
-  return stripAnsi(input);
+	return stripAnsi(input);
 }
 
 module.exports = {
-  caseFilePath,
-  caseStylesheetGlob,
-  caseConfig,
-  prepResults,
-  stripColors
+	caseFilePath,
+	caseStylesheetGlob,
+	caseConfig,
+	prepResults,
+	stripColors,
 };
