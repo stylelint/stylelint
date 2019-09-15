@@ -1,3 +1,3 @@
-"use strict";
+'use strict';
 
-module.exports = require("./someUnknownFile.js"); // eslint-disable-line node/no-missing-require
+module.exports = require('./someUnknownFile.js'); // eslint-disable-line node/no-missing-require
