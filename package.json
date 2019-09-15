@@ -28,6 +28,7 @@
   "files": [
     "bin",
     "CONTRIBUTING.md",
+    "SECURITY.md",
     "docs",
     "lib",
     "VISION.md",
@@ -62,7 +63,6 @@
     "meow": "^5.0.0",
     "micromatch": "^4.0.0",
     "normalize-selector": "^0.2.0",
-    "pify": "^4.0.1",
     "postcss": "^7.0.14",
     "postcss-html": "^0.36.0",
     "postcss-jsx": "^0.36.3",
@@ -86,7 +86,8 @@
     "style-search": "^0.1.0",
     "sugarss": "^2.0.0",
     "svg-tags": "^1.0.0",
-    "table": "^5.2.3"
+    "table": "^5.2.3",
+    "v8-compile-cache": "^2.1.0"
   },
   "devDependencies": {
     "benchmark": "^2.1.4",
@@ -94,7 +95,7 @@
     "coveralls": "^3.0.3",
     "cp-file": "^7.0.0",
     "del": "^5.0.0",
-    "eslint": "~6.2.0",
+    "eslint": "~6.3.0",
     "eslint-config-stylelint": "~11.1.0",
     "file-exists-promise": "^1.0.2",
     "flow-bin": "^0.100.0",
@@ -103,8 +104,8 @@
     "jest": "^24.7.1",
     "jest-watch-typeahead": "^0.4.0",
     "lint-staged": "^9.0.0",
+    "np": "^5.0.3",
     "npm-run-all": "^4.1.5",
-    "npmpub": "^4.1.0",
     "postcss-import": "^12.0.1",
     "prettier": "~1.18.2",
     "remark-cli": "^7.0.0",
@@ -116,7 +117,6 @@
   },
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
-    "dry-release": "npmpub  --dry --verbose",
     "flow": "flow",
     "flow-defs": "./node_modules/.bin/flow-typed install jest@24 lodash@4",
     "jest": "jest",
@@ -127,7 +127,7 @@
     "pretest": "npm-run-all --serial lint flow prettier:check",
     "prettier:check": "prettier '**/*.js' --list-different",
     "prettier:fix": "prettier '**/*.js' --write",
-    "release": "npmpub",
+    "release": "np",
     "test": "jest --coverage",
     "watch": "jest --watch"
   },

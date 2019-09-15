@@ -6,17 +6,25 @@ All notable changes to this project are documented in this file.
 
 -   Changed: always return `stylelintError` as a boolean ([#4174](https://github.com/stylelint/stylelint/pull/4174)).
 -   Changed: `--report-needless-disables` CLI flag now reports needless disables and runs linting ([#4151](https://github.com/stylelint/stylelint/pull/4151)).
+-   Changed: Display a violation at 1:1 for each file instead of throwing an error on unrecognised rules ([#4237](https://github.com/stylelint/stylelint/pull/4237)).
+-   Deprecated: `createRuleTester` API ([#4279](https://github.com/stylelint/stylelint/pull/4279)).
 -   Added: `max-empty-lines` autofix ([#3667](https://github.com/stylelint/stylelint/pull/3667)).
 -   Added: `ignore: ["selectors-within-list"]` to `no-descending-specificity` ([#4176](https://github.com/stylelint/stylelint/pull/4176)).
+-   Added: `ignoreSelectors: []` to `property-no-unknown` ([#4275](https://github.com/stylelint/stylelint/pull/4275)).
 -   Added: `selector-*` support for all logical combinations (:matches, :has) ([#4179](https://github.com/stylelint/stylelint/pull/4179)).
+-   Added: `selector-pseudo-element-case` autofix ([#3672](https://github.com/stylelint/stylelint/pull/3672)).
+-   Added: `unicode-bom` rule ([#4225](https://github.com/stylelint/stylelint/pull/4225)).
+-   Added: `--reportInvalidScopeDisables` CLI flag ([#4181](https://github.com/stylelint/stylelint/pull/4181)).
 -   Fixed: `block-no-empty` crash for `@import` statements ([#4110](https://github.com/stylelint/stylelint/pull/4110)).
--   Fixed: `indentation` false positives for <style> tag with multiline attributes ([#4177](https://github.com/stylelint/stylelint/pull/4177)).
+-   Fixed: `indentation` false positives for `<style>` tag with multiline attributes ([#4177](https://github.com/stylelint/stylelint/pull/4177)).
 -   Fixed: `length-zero-no-unit` false positives for inside calc function ([#4175](https://github.com/stylelint/stylelint/pull/4175)).
 -   Fixed: `no-duplicate-selectors` false positives for selectors in the same selector list ([#4173](https://github.com/stylelint/stylelint/pull/4173)).
 -   Fixed: `max-line-length` false positives for multi-line url() ([#4169](https://github.com/stylelint/stylelint/pull/4169)).
 -   Fixed: `no-unit-unknown` false positives for at-variables (Less) starting with numbers ([#4163](https://github.com/stylelint/stylelint/pull/4163)).
 -   Fixed: `property-no-unknown` for overflowX for CSS-in-JS ([#4184](https://github.com/stylelint/stylelint/pull/4184)).
+-   Fixed: `*-max-empty-lines` to only report one violation per function, selector, value list ([#4260](https://github.com/stylelint/stylelint/pull/4260)).
 -   Fixed: Babel user configuration interfering with CSS-in-JS parser ([#4164](https://github.com/stylelint/stylelint/pull/4164)).
+-   Fixed: PostCSS plugin ignoring .stylelintignore ([#4186](https://github.com/stylelint/stylelint/pull/4186)).
 
 ## 10.1.0
 
@@ -51,6 +59,7 @@ All notable changes to this project are documented in this file.
 -   Fixed: `function-calc-no-invalid` false positives for negative numbers ([#3921](https://github.com/stylelint/stylelint/pull/3921)).
 -   Fixed: `no-descending-specificity` false positives for vendor prefixed pseudo-elements ([#3929](https://github.com/stylelint/stylelint/issues/3929)).
 -   Fixed: `selector-max-*` false negatives for nested at-rules ([#3959](https://github.com/stylelint/stylelint/pull/3959)).
+-   Fixed: Logical combinations pseudo-classes in `selector-max-universal` are now evaluated separately ([#4263](https://github.com/stylelint/stylelint/pull/4263)).
 -   Fixed: `value-keyword-case` autofix for single-line comments within maps ([#4019](https://github.com/stylelint/stylelint/pull/4019)).
 
 ## 9.10.1
