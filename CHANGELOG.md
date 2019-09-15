@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 11.0.0
 
 -   Changed: `--report-needless-disables` CLI flag now reports needless disables and runs linting ([#4151](https://github.com/stylelint/stylelint/pull/4151)).
 -   Changed: display a violation at 1:1 for each file instead of throwing an error on unrecognised rules ([#4237](https://github.com/stylelint/stylelint/pull/4237)).
