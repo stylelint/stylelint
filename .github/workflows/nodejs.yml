@@ -4,22 +4,22 @@ on: [push]
 
 jobs:
   test:
-    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    name: Test on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        node_version: [8, 10, 12]
+        node-version: [8.x, 10.x, 12.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
     - uses: actions/checkout@v1
 
-    - name: Use Node.js ${{ matrix.node_version }}
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        version: ${{ matrix.node_version }}
+        node-version: ${{ matrix.node-version }}
 
     - name: npm install, and test
       run: |
