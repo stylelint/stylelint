@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [10]
         os: [ubuntu-latest]
 
     steps:
@@ -35,7 +35,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [8, 10, 12]
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
