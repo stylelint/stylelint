@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "10.1.0",
+  "version": "11.0.0",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css",
@@ -147,11 +147,17 @@
     ]
   },
   "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2019
+    },
     "extends": [
       "stylelint"
     ],
     "globals": {
       "testRule": true
+    },
+    "rules": {
+      "no-mixed-spaces-and-tabs": 0
     }
   },
   "jest": {
