@@ -8,7 +8,7 @@ const path = require('path');
 const spawn = require('child_process').spawn;
 const systemTestUtils = require('../systemTestUtils');
 const { promisify } = require('util');
-const { replaceBackslashes } = require("../systemTestUtils");
+const { replaceBackslashes } = require('../systemTestUtils');
 const readFileAsync = promisify(fs.readFile);
 
 describe('outputFile', () => {
@@ -31,7 +31,12 @@ describe('outputFile', () => {
 	it('writes the result file ', (done) => {
 		const childProcess = spawn(
 			'node',
-			[cliPath, replaceBackslashes(`${localPath}/*.css`), '--config=config.json', `--output-file=${directionPath}`],
+			[
+				cliPath,
+				replaceBackslashes(`${localPath}/*.css`),
+				'--config=config.json',
+				`--output-file=${directionPath}`,
+			],
 			{
 				cwd: localPath,
 			},

@@ -33,7 +33,7 @@ function prepResults(results) {
 }
 
 function replaceBackslashes(str) {
-  return str.replace(/\\/g, "/");
+	return str.replace(/\\/g, '/');
 }
 
 function stripColors(input) {
@@ -43,8 +43,8 @@ function stripColors(input) {
 module.exports = {
 	caseFilePath,
 	replaceBackslashes,
-  caseStylesheetGlob,
-  caseConfig,
-  prepResults,
-  stripColors,
+	caseStylesheetGlob,
+	caseConfig,
+	prepResults,
+	stripColors,
 };

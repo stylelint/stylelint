@@ -3,7 +3,7 @@
 
 const path = require('path');
 const spawn = require('child_process').spawn;
-const { replaceBackslashes } = require("../systemTestUtils");
+const { replaceBackslashes } = require('../systemTestUtils');
 
 // this test ensures that CLI returns exit code which is not 0
 // when there is a runtime error in configuration javascript file

@@ -9,7 +9,7 @@ const path = require('path');
 const stylelint = require('../../lib');
 const systemTestUtils = require('../systemTestUtils');
 const { promisify } = require('util');
-const { replaceBackslashes } = require("../systemTestUtils");
+const { replaceBackslashes } = require('../systemTestUtils');
 const readFileAsync = promisify(fs.readFile);
 
 describe('fix', () => {
@@ -18,9 +18,7 @@ describe('fix', () => {
 
 	beforeEach(() => {
 		tmpDir = os.tmpdir();
-		stylesheetPath = replaceBackslashes(
-      path.join(tmpDir, `stylesheet-${_.uniqueId()}.css`)
-    );
+		stylesheetPath = replaceBackslashes(path.join(tmpDir, `stylesheet-${_.uniqueId()}.css`));
 
 		return cpFile(path.join(__dirname, 'stylesheet.css'), stylesheetPath);
 	});
@@ -142,9 +140,7 @@ describe('fix with BOM', () => {
 
 	beforeEach(() => {
 		tmpDir = os.tmpdir();
-		stylesheetPath = replaceBackslashes(
-      path.join(tmpDir, `stylesheet-with-bom.css`)
-    );
+		stylesheetPath = replaceBackslashes(path.join(tmpDir, `stylesheet-with-bom.css`));
 
 		return cpFile(path.join(__dirname, 'stylesheet.css'), stylesheetPath);
 	});

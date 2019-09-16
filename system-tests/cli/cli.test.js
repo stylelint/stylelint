@@ -4,7 +4,7 @@
 const cli = require('../../lib/cli');
 const path = require('path');
 const pkg = require('../../package.json');
-const { replaceBackslashes } = require("../systemTestUtils");
+const { replaceBackslashes } = require('../systemTestUtils');
 
 jest.mock('get-stdin');
 
@@ -69,50 +69,50 @@ describe('CLI', () => {
 		});
 	});
 
-  it("--print-config", () => {
-    return Promise.resolve(
-      cli([
-        "--print-config",
-        "--config",
-        path.join(__dirname, "config.json"),
-        replaceBackslashes(path.join(__dirname, "stylesheet.css"))
-      ])
-    ).then(() => {
-      expect(process.exitCode).toBeUndefined();
-      expect(process.stdout.write).toHaveBeenCalledTimes(1);
-      expect(process.stdout.write).toHaveBeenLastCalledWith(
-        JSON.stringify(
-          {
-            rules: {
-              "block-no-empty": [true]
-            }
-          },
-          null,
-          "  "
-        )
-      );
-    });
-  });
+	it('--print-config', () => {
+		return Promise.resolve(
+			cli([
+				'--print-config',
+				'--config',
+				path.join(__dirname, 'config.json'),
+				replaceBackslashes(path.join(__dirname, 'stylesheet.css')),
+			]),
+		).then(() => {
+			expect(process.exitCode).toBeUndefined();
+			expect(process.stdout.write).toHaveBeenCalledTimes(1);
+			expect(process.stdout.write).toHaveBeenLastCalledWith(
+				JSON.stringify(
+					{
+						rules: {
+							'block-no-empty': [true],
+						},
+					},
+					null,
+					'  ',
+				),
+			);
+		});
+	});
 
-  it("--report-needless-disables", () => {
-    return Promise.resolve(
-      cli([
-        "--report-needless-disables",
-        "--config",
-        path.join(__dirname, "config.json"),
-        replaceBackslashes(path.join(__dirname, "stylesheet.css"))
-      ])
-    ).then(() => {
-      expect(process.exitCode).toBe(2);
-      expect(process.stdout.write).toHaveBeenCalledTimes(2);
-      expect(process.stdout.write).toHaveBeenNthCalledWith(
-        1,
-        expect.stringContaining("unused rule: color-named")
-      );
-      expect(process.stdout.write).toHaveBeenNthCalledWith(
-        2,
-        expect.stringContaining("Unexpected empty block")
-      );
-    });
-  });
+	it('--report-needless-disables', () => {
+		return Promise.resolve(
+			cli([
+				'--report-needless-disables',
+				'--config',
+				path.join(__dirname, 'config.json'),
+				replaceBackslashes(path.join(__dirname, 'stylesheet.css')),
+			]),
+		).then(() => {
+			expect(process.exitCode).toBe(2);
+			expect(process.stdout.write).toHaveBeenCalledTimes(2);
+			expect(process.stdout.write).toHaveBeenNthCalledWith(
+				1,
+				expect.stringContaining('unused rule: color-named'),
+			);
+			expect(process.stdout.write).toHaveBeenNthCalledWith(
+				2,
+				expect.stringContaining('Unexpected empty block'),
+			);
+		});
+	});
 });
