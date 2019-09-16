@@ -10,8 +10,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: 10.x
-        os: ubuntu-latest
+        node-version: [10.x]
+        os: [ubuntu-latest]
 
     steps:
     - uses: actions/checkout@v1
