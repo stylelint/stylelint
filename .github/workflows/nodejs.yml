@@ -35,9 +35,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: npm install, and pretest
-      run: |
-        npm install
-        npm run pretest
+      run: npm install && npm run pretest
       env:
         CI: pretest
 
@@ -63,9 +61,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: npm install, and test
-      run: |
-        npm install
-        npm run jest
+      run: npm install && npm run jest
       env:
         CI: true
 
@@ -88,8 +84,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: npm install, and test
-      run: |
-        npm install
-        npm run jest --coverage
+      run: npm install && npm run jest --coverage
       env:
         CI: true
