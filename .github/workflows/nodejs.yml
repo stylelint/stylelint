@@ -36,8 +36,6 @@ jobs:
 
     - name: npm install, and pretest
       run: npm install && npm run pretest
-      env:
-        CI: pretest
 
   test:
     name: Test on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
@@ -61,9 +59,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: npm install, and test
-      run: npm install && npm run jest
-      env:
-        CI: true
+      run: npm install && npm run jest -- --ci
 
   coverage:
     name: Test coverage on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
@@ -84,9 +80,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: npm install, and test
-      run: npm install && npm run jest -- --coverage
-      env:
-        CI: true
+      run: npm install && npm run jest -- --coverage --ci
 
     - name: Coveralls Parallel
       uses: coverallsapp/github-action@master
