@@ -93,7 +93,7 @@ jobs:
       with:
         github-token: ${{ secrets.github_token }}
         parallel: true
-        path-to-lcov: ./coverage/lcov.info
+        path-to-lcov: ./.coverage/lcov.info
 
     - name: Coveralls Finished
       uses: coverallsapp/github-action@master
