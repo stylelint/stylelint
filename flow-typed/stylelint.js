@@ -146,6 +146,7 @@ export type stylelint$standaloneOptions = {
   ignorePattern?: RegExp,
   reportNeedlessDisables?: boolean,
   reportInvalidScopeDisables?: boolean,
+  noglob?: boolean,
   maxWarnings?: number,
   syntax?: stylelint$syntaxes,
   customSyntax?: string,
