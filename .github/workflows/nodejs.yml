@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - github-actions
+      - master
+      - 'dependabot/*'
+  pull_request:
+    branches:
+      - master
 
 jobs:
   lint:
