@@ -3,7 +3,6 @@ name: CI
 on:
   push:
     branches:
-      - github-actions
       - master
       - 'dependabot/*'
     paths:
