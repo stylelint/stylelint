@@ -6,9 +6,15 @@ on:
       - github-actions
       - master
       - 'dependabot/*'
+    paths:
+      - '*'
+      - '!*.md'
   pull_request:
     branches:
       - master
+    paths:
+      - '*'
+      - '!*.md'
 
 jobs:
   lint:
