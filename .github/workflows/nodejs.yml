@@ -3,13 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - master         # Push events on master branch
-      - 'dependabot/*' # Push events on Dependabot branches
-    paths:
-      - '!*.md'
-  pull_request:
-    paths:
-      - '!*.md'
+      - github-actions
 
 jobs:
   lint:
