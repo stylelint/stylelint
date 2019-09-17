@@ -89,7 +89,7 @@ jobs:
         CI: true
 
     - name: Coveralls Parallel
-      uses: coverallsapp/github-action@master
+      uses: vankop/github-action@master
       with:
         github-token: ${{ secrets.github_token }}
         parallel: true
