@@ -84,12 +84,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: npm install, and test
-      run: npm install && npm run jest --coverage
+      run: npm install && npm run jest -- --coverage
       env:
         CI: true
 
     - name: Coveralls Parallel
-      uses: vankop/github-action@master
+      uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.github_token }}
         parallel: true
