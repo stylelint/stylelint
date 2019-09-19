@@ -33,9 +33,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+      run: npm install --global npm@latest
 
     - name: npm install, and pretest
-      run: npm install && npm run pretest
+      run: node -v && npm -v && npm install && npm run pretest
 
   test:
     name: Test on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
