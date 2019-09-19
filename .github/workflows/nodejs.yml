@@ -9,8 +9,6 @@ on:
       - '*'
       - '!*.md'
   pull_request:
-    branches:
-      - master
     paths:
       - '*'
       - '!*.md'
