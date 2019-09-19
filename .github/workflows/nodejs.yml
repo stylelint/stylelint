@@ -38,7 +38,7 @@ jobs:
       run: npm install --global npm@latest && node -v && npm -v
 
     - name: npm install, and pretest
-      run: node -v && npm -v && npm install && npm run pretest
+      run: node -v && npm -v && npm install && npm run pretest && node -v && npm -v
 
   test:
     name: Test on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
@@ -61,8 +61,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Install latest npm
+      run: npm install --global npm@latest && node -v && npm -v
+
     - name: npm install, and test
-      run: npm install && npm run jest -- --ci
+      run: node -v && npm -v && npm install && npm run jest -- --ci && node -v && npm -v
 
   coverage:
     name: Test coverage on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
@@ -82,8 +85,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Install latest npm
+      run: npm install --global npm@latest && node -v && npm -v
+
     - name: npm install, and test
-      run: npm install && npm run jest -- --coverage --ci
+      run: node -v && npm -v && npm install && npm run jest -- --coverage --ci && node -v && npm -v
 
     - name: Coveralls Parallel
       uses: coverallsapp/github-action@master
