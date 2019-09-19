@@ -115,45 +115,47 @@ describe('CLI', () => {
 		});
 	});
 
-	it('--noglob-enabled-right', () => {
-		return Promise.resolve(
-			cli([
-				'--noglob',
-				'--config',
-				path.join(__dirname, 'config.json'),
-				path.join(__dirname, '[style].css'),
-			]),
-		).then(() => {
-			expect(process.exitCode).toBeUndefined();
+	describe('--noglob', () => {
+		it('enabled. file exists', () => {
+			return Promise.resolve(
+				cli([
+					'--noglob',
+					'--config',
+					path.join(__dirname, 'config.json'),
+					path.join(__dirname, '[style].css'),
+				]),
+			).then(() => {
+				expect(process.exitCode).toBeUndefined();
+			});
 		});
-	});
 
-	it('--noglob-enabled-wrong', () => {
-		return Promise.resolve(
-			cli([
-				'--noglob',
-				'--config',
-				path.join(__dirname, 'config.json'),
-				path.join(__dirname, '[AB].css'),
-			]),
-		).then(() => {
-			expect(process.exitCode).toBe(1);
+		it('enabled. file does not exist', () => {
+			return Promise.resolve(
+				cli([
+					'--noglob',
+					'--config',
+					path.join(__dirname, 'config.json'),
+					path.join(__dirname, '[AB].css'),
+				]),
+			).then(() => {
+				expect(process.exitCode).toBe(1);
+			});
 		});
-	});
 
-	it('--noglob-disabled-right', () => {
-		return Promise.resolve(
-			cli(['--config', path.join(__dirname, 'config.json'), path.join(__dirname, '[AB].css')]),
-		).then(() => {
-			expect(process.exitCode).toBeUndefined();
+		it('disable. match files exist', () => {
+			return Promise.resolve(
+				cli(['--config', path.join(__dirname, 'config.json'), path.join(__dirname, '[AB].css')]),
+			).then(() => {
+				expect(process.exitCode).toBeUndefined();
+			});
 		});
-	});
 
-	it('--noglob-disabled-wrong', () => {
-		return Promise.resolve(
-			cli(['--config', path.join(__dirname, 'config.json'), path.join(__dirname, '[style].css')]),
-		).then(() => {
-			expect(process.exitCode).toBe(1);
+		it('disable. match files do not exist', () => {
+			return Promise.resolve(
+				cli(['--config', path.join(__dirname, 'config.json'), path.join(__dirname, '[style].css')]),
+			).then(() => {
+				expect(process.exitCode).toBe(1);
+			});
 		});
 	});
 });
