@@ -26,6 +26,7 @@ Plugins are rules and sets of rules built by the community that support methodol
 -   [`stylelint-prettier`](https://github.com/prettier/stylelint-prettier): Runs [Prettier](https://prettier.io/) as a stylelint rule.
 -   [`stylelint-react-native`](https://github.com/kristerkari/stylelint-react-native): Enforce React Native specific linting rules (plugin pack).
 -   [`stylelint-rscss`](https://github.com/rstacruz/stylelint-rscss): Validate [RSCSS](http://rscss.io) conventions.
+-   [`stylelint-scales`](https://github.com/signal-noise/stylelint-scales): Enforce a variety of scale related linting rules (plugin pack).
 -   [`stylelint-scss`](https://github.com/kristerkari/stylelint-scss): Enforce a wide variety of SCSS-syntax specific linting rules (plugin pack).
 -   [`stylelint-selector-bem-pattern`](https://github.com/davidtheclark/stylelint-selector-bem-pattern): Specify a BEM pattern for selectors (incorporates [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter)).
 -   [`stylelint-selector-no-empty`](https://github.com/ssivanatarajan/stylelint-selector-no-empty): Disallow empty Selectors.
