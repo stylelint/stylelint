@@ -43,7 +43,7 @@ describe('outputFile', () => {
 		childProcess.on('close', function() {
 			return readFileAsync(directionPath, 'utf-8').then((content) => {
 				expect(content).toEqual(systemTestUtils.stripColors(stdout));
-				expect(content).toMatchSnapshot();
+				expect(content.replace('×', '✖')).toMatchSnapshot();
 				done();
 			});
 		});

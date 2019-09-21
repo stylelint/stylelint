@@ -12,6 +12,6 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 
-[*.{md,css}]
+[*.{md,css,yml}]
 indent_style = space
 indent_size = 2
