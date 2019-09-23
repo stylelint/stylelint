@@ -6,7 +6,7 @@ on:
       - master
       - 'dependabot/*'
   pull_request:
-    paths:
+    branches:
       - '**'
 
 jobs:
