@@ -1,4 +1,4 @@
-name: CI
+name: Tests
 
 on:
   push:
@@ -13,7 +13,7 @@ on:
 
 jobs:
   test:
-    name: Test on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
+    name: Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
 
@@ -40,7 +40,7 @@ jobs:
       run: npm install && npm run jest -- --ci
 
   coverage:
-    name: Test coverage on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
+    name: Coverage on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
 
