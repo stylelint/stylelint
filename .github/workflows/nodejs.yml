@@ -7,7 +7,7 @@ on:
       - 'dependabot/*'
   pull_request:
     paths:
-      - '*'
+      - '**'
 
 jobs:
   lint:
