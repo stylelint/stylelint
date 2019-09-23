@@ -4,14 +4,12 @@ on:
   push:
     branches:
       - master
-      - 'dependabot/*'
-    paths:
-      - '*'
-      - '!*.md'
+      - 'dependabot/**'
+    paths-ignore:
+      - '**.md'
   pull_request:
-    paths:
-      - '*'
-      - '!*.md'
+    paths-ignore:
+      - '**.md'
 
 jobs:
   test:
