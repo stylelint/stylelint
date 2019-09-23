@@ -6,6 +6,7 @@ A list of complementary tools built and maintained by the community.
 
 -   [codacy-stylelint](https://github.com/codacy/codacy-stylelint): [Codacy](https://www.codacy.com/) engine for stylelint
 -   [codeclimate-stylelint](https://github.com/gilbarbara/codeclimate-stylelint): Code Climate engine for stylelint
+-   [reviewdog/action-stylelint](https://github.com/reviewdog/action-stylelint): GitHub Action to run stylelint with [reviewdog](https://github.com/reviewdog/reviewdog)
 
 ## Command Line Tools
 
