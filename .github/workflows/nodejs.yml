@@ -11,7 +11,7 @@ on:
 
 jobs:
   lint:
-    name: Lint on ${{ matrix.node-version }} and ${{ matrix.os }}
+    name: Lint on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
 
