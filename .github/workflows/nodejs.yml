@@ -1,19 +1,41 @@
-name: Tests
+name: CI
 
 on:
   push:
     branches:
       - master
       - 'dependabot/**'
-    paths-ignore:
-      - '**.md'
   pull_request:
-    paths-ignore:
-      - '**.md'
+    branches:
+      - '**'
 
 jobs:
+  lint:
+    name: Lint on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [10]
+        os: [ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install latest npm
+      run: npm install --global npm@latest
+
+    - name: npm install, and pretest
+      run: npm install && npm run pretest
+
   test:
-    name: Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
+    name: Test on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
 
