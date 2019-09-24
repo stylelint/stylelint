@@ -4,18 +4,14 @@ on:
   push:
     branches:
       - master
-      - 'dependabot/*'
-    paths:
-      - '*'
-      - '!*.md'
+      - 'dependabot/**'
   pull_request:
-    paths:
-      - '*'
-      - '!*.md'
+    branches:
+      - '**'
 
 jobs:
   lint:
-    name: Lint on ${{ matrix.node-version }} and ${{ matrix.os }}
+    name: Lint on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
 
@@ -66,7 +62,7 @@ jobs:
       run: npm install && npm run jest -- --ci
 
   coverage:
-    name: Test coverage on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
+    name: Coverage on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
 
