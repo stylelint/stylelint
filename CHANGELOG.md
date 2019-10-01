@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+-   Added: `css` syntax option ([#4315](https://github.com/stylelint/stylelint/pull/4315)).
+
 ## 11.0.0
 
 -   Changed: `--report-needless-disables` CLI flag now reports needless disables and runs linting ([#4151](https://github.com/stylelint/stylelint/pull/4151)).
