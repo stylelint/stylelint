@@ -96,6 +96,16 @@ If you're using both these special comments and autofixing, please run stylelint
 
 For CSS with standard syntax, stylelint will use [postcss-safe-parser](https://github.com/postcss/postcss-safe-parser) to fix syntax errors.
 
+### Write Report to a File
+
+With the `--output-file filename` option, stylelint will output the report to the specified `filename` in addition to the standard output.
+
+Logging the stylelint output to `stylelint.log`:
+
+```shell
+stylelint "foo/*.css" --output-file stylelint.log
+```
+
 ### Troubleshooting configurations
 
 With the `--print-config` option, stylelint outputs the configuration to be used for the file passed. When present, no linting is performed and only config-related options are valid.
