@@ -125,8 +125,8 @@
     "lint:md": "remark . --quiet --frail",
     "lint": "npm-run-all --parallel lint:*",
     "pretest": "npm-run-all --serial lint flow prettier:check",
-    "prettier:check": "prettier '**/*.js' --list-different",
-    "prettier:fix": "prettier '**/*.js' --write",
+    "prettier:check": "prettier \"**/*.js\" --list-different",
+    "prettier:fix": "prettier \"**/*.js\" --write",
     "release": "np",
     "test": "jest --coverage",
     "watch": "jest --watch"
