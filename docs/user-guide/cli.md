@@ -98,7 +98,7 @@ For CSS with standard syntax, stylelint will use [postcss-safe-parser](https://g
 
 ### Write Report to a File
 
-With the `--output-file filename` or `-o filename` option, stylelint will output the report to the specified `filename` in addition to the standard output.
+With the `--output-file filename` option, stylelint will output the report to the specified `filename` in addition to the standard output.
 
 Logging the stylelint output to `stylelint.log`:
 
