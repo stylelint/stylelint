@@ -33,8 +33,7 @@
     "lib",
     "VISION.md",
     "!**/__tests__",
-    "flow-typed",
-    "!flow-typed/npm"
+    "types"
   ],
   "engines": {
     "node": ">=8.7.0"
@@ -90,6 +89,9 @@
     "v8-compile-cache": "^2.1.0"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/lodash": "^4.14.141",
+    "@types/node": "^10.14.20",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
     "coveralls": "^3.0.3",
@@ -113,7 +115,8 @@
     "remark-preset-lint-consistent": "^2.0.2",
     "remark-preset-lint-recommended": "^3.0.2",
     "remark-validate-links": "^9.0.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "typescript": "^3.6.3"
   },
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
