@@ -67,6 +67,15 @@ declare module 'stylelint' {
 		fix?: boolean
 	};
 
+	export type GetPostcssOptions = {
+		code?: string,
+		codeFilename?: string,
+		filePath?: string,
+		codeProcessors?: Array<Function>,
+		syntax?: StylelintSyntaxes,
+		customSyntax?: string
+	};
+
 	export type StylelintInternalApi = {
 		_options: StylelintOptions,
 		_extendExplorer: {
@@ -79,7 +88,7 @@ declare module 'stylelint' {
 		},
 		_configCache: Map<string, Object>,
 		_specifiedConfigCache: Map<StylelintConfig, Object>,
-		_postcssResultCache: Map<string, Object>,
+		_postcssResultCache: Map<string, PostcssResult>,
 
 		_augmentConfig: Function,
 		_getPostcssResult: Function,
