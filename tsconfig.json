@@ -24,6 +24,7 @@
 	],
 	"exclude": [
 		"lib/vendor/*.js",
-		"**/*.test.js"
+		"**/*.test.js",
+		"lib/testUtils/**/*.js"
 	]
 }
