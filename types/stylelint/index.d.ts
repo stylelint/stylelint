@@ -29,6 +29,26 @@ declare module 'stylelint' {
 
 	export type StylelintSyntaxes = "scss" | "less" | "sugarss";
 
+	export type DisabledRange = {
+		start: number,
+		strictStart: boolean,
+		end?: number,
+		strictEnd?: boolean
+	};
+
+	export type DisabledRangeObject = {
+		[ruleName: string]: Array<DisabledRange>
+	};
+
+	export type StylelintPostcssResult = {
+		ruleSeverities: Object,
+		customMessages: Object,
+		quiet?: boolean,
+		disabledRanges: DisabledRangeObject,
+		ignored?: boolean,
+		stylelintError?: boolean
+	};
+
 	export type StylelintOptions = {
 		config?: StylelintConfig,
 		configFile?: string,
