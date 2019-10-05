@@ -18,14 +18,14 @@
 	},
 	"include": [
 		"lib/**/*.js",
-		"system-tests/**/*.js",
 		"types",
 		"package.json"
 	],
 	"exclude": [
 		"lib/vendor/*.js",
-		"lib/rules",
 		"**/*.test.js",
-		"lib/testUtils/**/*.js"
+		"lib/testUtils/**/*.js",
+		"lib/rules",
+		"lib/utils"
 	]
 }
