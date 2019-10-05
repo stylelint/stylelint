@@ -106,7 +106,7 @@ declare module 'stylelint' {
 
 		_augmentConfig: Function,
 		_getPostcssResult: (config: GetPostcssOptions) => Promise<Result>,
-		_lintSource: Function,
+		_lintSource: (config: Object) => Promise<PostcssResult>,
 		_createStylelintResult: Function,
 		_createEmptyPostcssResult?: Function,
 

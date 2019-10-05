@@ -90,6 +90,7 @@
   },
   "devDependencies": {
     "@types/cosmiconfig": "^5.0.3",
+    "@types/debug": "^4.1.5",
     "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.141",
     "@types/micromatch": "^3.1.0",
