@@ -54,7 +54,7 @@ declare module 'stylelint' {
 			load: (s: string) => Promise<null | Object>
 		},
 		_configCache: Map<string, Object>,
-		_specifiedConfigCache: Map<string, Object>,
+		_specifiedConfigCache: Map<StylelintConfig, Object>,
 		_postcssResultCache: Map<string, Object>,
 
 		_augmentConfig: Function,

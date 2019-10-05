@@ -9,7 +9,6 @@
 		"strict": true,
 		"noImplicitThis": true,
 		"alwaysStrict": true,
-		"types": ["node", "jest", "lodash", "cosmiconfig"],
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
 		"typeRoots": [
