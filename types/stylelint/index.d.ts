@@ -56,11 +56,12 @@ declare module 'stylelint' {
 	}
 
 	export type StylelintPostcssResult = {
-		ruleSeverities: Object,
-		customMessages: Object,
+		ruleSeverities: {[k: string]: any},
+		customMessages: {[k: string]: any},
 		quiet?: boolean,
 		disabledRanges: DisabledRangeObject,
 		ignored?: boolean,
+		ignoreDisables?: boolean,
 		stylelintError?: boolean
 	};
 
@@ -104,7 +105,7 @@ declare module 'stylelint' {
 		_postcssResultCache: Map<string, PostcssResult>,
 
 		_augmentConfig: Function,
-		_getPostcssResult: Function,
+		_getPostcssResult: (config: GetPostcssOptions) => Promise<Result>,
 		_lintSource: Function,
 		_createStylelintResult: Function,
 		_createEmptyPostcssResult?: Function,
