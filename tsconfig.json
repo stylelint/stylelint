@@ -22,5 +22,8 @@
 		"system-tests/**/*.js",
 		"types",
 		"package.json"
+	],
+	"exclude": [
+		"lib/vendor/*.js"
 	]
 }
