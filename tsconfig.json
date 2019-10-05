@@ -18,13 +18,16 @@
 	},
 	"include": [
 		"lib/**/*.js",
+		"lib/reference",
+		"lib/formatters",
 		"types",
 		"package.json"
 	],
 	"exclude": [
-		"**/*.test.js",
+		"lib/utils",
 		"lib/testUtils",
 		"lib/rules",
-		"lib/utils"
+		"**/*.test.js",
+		"**/__tests__"
 	]
 }
