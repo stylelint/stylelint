@@ -63,7 +63,7 @@ declare module 'stylelint' {
 		_createStylelintResult: Function,
 		_createEmptyPostcssResult?: Function,
 
-		getConfigForFile: Function,
+		getConfigForFile: (s: string) => Promise<{ config: StylelintConfig, filepath: string } | null>,
 		isPathIgnored: Function,
 		lintSource: Function
 	};
