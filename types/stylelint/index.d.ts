@@ -42,6 +42,19 @@ declare module 'stylelint' {
 		[ruleName: string]: Array<DisabledRange>
 	};
 
+	export type RangeType  = {
+		unusedRule: string,
+		end?: number,
+		start: number,
+		used?: boolean
+	}
+
+	export type UnusedRange = {
+		unusedRule: string,
+		start: number,
+		end?: number
+	}
+
 	export type StylelintPostcssResult = {
 		ruleSeverities: Object,
 		customMessages: Object,
