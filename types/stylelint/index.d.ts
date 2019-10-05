@@ -1,4 +1,6 @@
 declare module 'stylelint' {
+	import {Result} from 'postcss';
+
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
 	export type StylelintConfigProcessors =
@@ -49,6 +51,8 @@ declare module 'stylelint' {
 		stylelintError?: boolean
 	};
 
+	export type PostcssResult = Result & {stylelint: StylelintPostcssResult};
+
 	export type StylelintOptions = {
 		config?: StylelintConfig,
 		configFile?: string,
@@ -83,8 +87,8 @@ declare module 'stylelint' {
 		_createStylelintResult: Function,
 		_createEmptyPostcssResult?: Function,
 
-		getConfigForFile: (s: string) => Promise<{ config: StylelintConfig, filepath: string } | null>,
-		isPathIgnored: (s: string) => Promise<boolean>,
+		getConfigForFile: (s?: string) => Promise<{ config: StylelintConfig, filepath: string } | null>,
+		isPathIgnored: (s?: string) => Promise<boolean>,
 		lintSource: Function
 	};
 
@@ -97,7 +101,7 @@ declare module 'stylelint' {
 	};
 
 	export type StylelintResult = {
-		source: string,
+		source?: string,
 		deprecations: Array<{
 			text: string,
 			reference: string
@@ -109,7 +113,7 @@ declare module 'stylelint' {
 		errored?: boolean,
 		warnings: Array<StylelintWarning>,
 		ignored?: boolean,
-		_postcssResult?: Object
+		_postcssResult?: PostcssResult
 	};
 
 	export type StylelintCssSyntaxError = {
@@ -129,7 +133,7 @@ declare module 'stylelint' {
 	};
 
 	export type StylelintDisableOptionsReport = Array<{
-		source: string,
+		source?: string,
 		ranges: Array<{
 			unusedRule: string,
 			start: number,
