@@ -32,3 +32,9 @@ declare module 'postcss-syntax' {
 
 	export = result;
 }
+
+declare module 'postcss/lib/result' {
+	import {Result} from 'postcss';
+
+	export = Result;
+}
