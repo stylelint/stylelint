@@ -89,6 +89,7 @@
     "v8-compile-cache": "^2.1.0"
   },
   "devDependencies": {
+    "@types/cosmiconfig": "^5.0.3",
     "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.141",
     "@types/node": "^10.14.20",
