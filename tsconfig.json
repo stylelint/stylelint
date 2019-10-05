@@ -22,9 +22,8 @@
 		"package.json"
 	],
 	"exclude": [
-		"lib/vendor/*.js",
 		"**/*.test.js",
-		"lib/testUtils/**/*.js",
+		"lib/testUtils",
 		"lib/rules",
 		"lib/utils"
 	]
