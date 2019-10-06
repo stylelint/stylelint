@@ -38,3 +38,7 @@ declare module 'postcss/lib/result' {
 
 	export = Result;
 }
+
+declare module 'postcss-reporter/lib/util' {
+	export function getLocation(message: Object): {line: number, column: number, file?: string};
+}
