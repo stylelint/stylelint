@@ -10,6 +10,30 @@ on:
       - '**'
 
 jobs:
+  lint:
+    name: Lint on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [10]
+        os: [ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install latest npm
+      run: npm install --global npm@latest
+
+    - name: npm install, and pretest
+      run: npm install && npm run pretest
+
   test:
     name: Test on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
 
@@ -18,7 +42,10 @@ jobs:
     strategy:
       matrix:
         node-version: [8, 10, 12]
-        os: [windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        exclude:
+          - os: ubuntu-latest
+            node-version: 10
 
     steps:
     - uses: actions/checkout@v1
@@ -33,3 +60,40 @@ jobs:
 
     - name: npm install, and test
       run: npm install && npm run jest -- --ci
+
+  coverage:
+    name: Coverage on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [10]
+        os: [ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install latest npm
+      run: npm install --global npm@latest
+
+    - name: npm install, and test
+      run: npm install && npm run jest -- --coverage --ci
+
+    - name: Coveralls Parallel
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
+        parallel: true
+        path-to-lcov: ./.coverage/lcov.info
+
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
+        parallel-finished: true
