@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 -   Added: `css` syntax option ([#4315](https://github.com/stylelint/stylelint/pull/4315)).
+-   Fixed: `selector-pseudo-class-no-unknown` false positives for `:is` selector ([#4321](https://github.com/stylelint/stylelint/pull/4321)).
 
 ## 11.0.0
 
