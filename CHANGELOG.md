@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## 11.1.1
+
+-   Fixed: syntax configuration for `--syntax css` ([#4335](https://github.com/stylelint/stylelint/pull/4335)).
+
 ## 11.1.0
 
 -   Added: `css` syntax option ([#4315](https://github.com/stylelint/stylelint/pull/4315)).
