@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 11.1.0
 
 -   Added: `css` syntax option ([#4315](https://github.com/stylelint/stylelint/pull/4315)).
 -   Fixed: `no-eol-whitespace` parsing problems for non-standard syntaxes ([#4313](https://github.com/stylelint/stylelint/pull/4313)).
