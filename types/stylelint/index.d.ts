@@ -1,5 +1,5 @@
 declare module 'stylelint' {
-	import {Result} from 'postcss';
+	import { Result, Warning, WarningOptions } from 'postcss';
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
@@ -29,7 +29,7 @@ declare module 'stylelint' {
 		defaultSeverity?: string
 	};
 
-	export type StylelintSyntaxes = "scss" | "less" | "sugarss";
+	export type StylelintSyntaxes = "css" | "scss" | "less" | "sugarss";
 
 	export type DisabledRange = {
 		start: number,
@@ -65,7 +65,10 @@ declare module 'stylelint' {
 		stylelintError?: boolean
 	};
 
-	export type PostcssResult = Result & {stylelint: StylelintPostcssResult};
+	export type PostcssResult = Result & {
+		stylelint: StylelintPostcssResult,
+		warn(message: string, options?: WarningOptions & {stylelintType?: string}): void;
+	};
 
 	export type StylelintOptions = {
 		config?: StylelintConfig,
@@ -120,7 +123,8 @@ declare module 'stylelint' {
 		column: number,
 		rule: string,
 		severity: string,
-		text: string
+		text: string,
+		stylelintType?: string
 	};
 
 	export type StylelintResult = {
@@ -132,7 +136,7 @@ declare module 'stylelint' {
 		invalidOptionWarnings: Array<{
 			text: string
 		}>,
-		parseErrors: Array<StylelintWarning>,
+		parseErrors: Array<Warning & {stylelintType: string}>,
 		errored?: boolean,
 		warnings: Array<StylelintWarning>,
 		ignored?: boolean,
@@ -199,6 +203,6 @@ declare module 'stylelint' {
 		formatter?: "compact" | "json" | "string" | "unix" | "verbose" | Function,
 		disableDefaultIgnores?: boolean,
 		fix?: boolean,
-		allowEmptyInput: boolean
+		allowEmptyInput?: boolean
 	};
 }
