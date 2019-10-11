@@ -2,9 +2,15 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 11.1.1
+
+-   Fixed: syntax configuration for `--syntax css` ([#4335](https://github.com/stylelint/stylelint/pull/4335)).
+
+## 11.1.0
 
 -   Added: `css` syntax option ([#4315](https://github.com/stylelint/stylelint/pull/4315)).
+-   Fixed: `no-eol-whitespace` parsing problems for non-standard syntaxes ([#4313](https://github.com/stylelint/stylelint/pull/4313)).
+-   Fixed: `selector-pseudo-class-no-unknown` false positives for `:is` selector ([#4321](https://github.com/stylelint/stylelint/pull/4321)).
 
 ## 11.0.0
 
