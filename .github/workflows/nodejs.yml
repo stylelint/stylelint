@@ -59,11 +59,12 @@ jobs:
       run: npm install --global npm@latest
 
     # Workaround until https://github.com/stylelint/stylelint/issues/4337 is fixed
-    - name: Change directory to uppercase drive letter
+    - name: npm install, and test
       if: matrix.os == 'windows-latest'
-      run: cd .. && cd D:\a\stylelint\stylelint
+      run: cd .. && cd D:\a\stylelint\stylelint && npm install && npm run jest -- --ci
 
     - name: npm install, and test
+      if: matrix.os != 'windows-latest'
       run: npm install && npm run jest -- --ci
 
   coverage:
