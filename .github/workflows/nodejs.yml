@@ -61,7 +61,7 @@ jobs:
     # Workaround until https://github.com/stylelint/stylelint/issues/4337 is fixed
     - name: Change directory to uppercase drive letter
       if: matrix.os == 'windows-latest'
-      run: cd .. && cd D%cd:~1%
+      run: cd .. && cd D:\a\stylelint\stylelint
 
     - name: npm install, and test
       run: npm install && npm run jest -- --ci
