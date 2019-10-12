@@ -59,11 +59,11 @@ jobs:
       run: npm install --global npm@latest
 
     # Workaround until https://github.com/stylelint/stylelint/issues/4337 is fixed
-    - name: npm install, and test
+    - name: npm install, and test (Windows)
       if: matrix.os == 'windows-latest'
       run: cd .. && cd D:\a\stylelint\stylelint && npm install && npm run jest -- --ci
 
-    - name: npm install, and test
+    - name: npm install, and test (Unix)
       if: matrix.os != 'windows-latest'
       run: npm install && npm run jest -- --ci
 

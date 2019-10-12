@@ -7,7 +7,7 @@ const stylelint = require('./lib/standalone');
 const util = require('util');
 
 jest.mock('./lib/utils/getOsEol', () => () => '\n');
-//
+
 global.testRule = (rule, schema) => {
 	expect.extend({
 		toHaveMessage(testCase) {
