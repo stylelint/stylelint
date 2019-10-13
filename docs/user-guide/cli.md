@@ -12,9 +12,11 @@ npm install stylelint --save-dev
 
 ## Usage
 
-`stylelint --help` prints the CLI documentation.
+`npm run stylelint --help` prints the CLI documentation.
 
 The CLI outputs formatted results into `process.stdout`, which you can read with your human eyes or pipe elsewhere (e.g. write the information to a file).
+
+You can also use `npx stylelint --help` to check out the help files before adding stylelint as a dependancy.
 
 ### Examples
 
