@@ -31,8 +31,11 @@ jobs:
     - name: Install latest npm
       run: npm install --global npm@latest
 
-    - name: npm install, and pretest
-      run: npm ci && npm run pretest
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Lint
+      run: npm run pretest
 
   test:
     name: Test on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
@@ -58,14 +61,17 @@ jobs:
     - name: Install latest npm
       run: npm install --global npm@latest
 
-    # Workaround until https://github.com/stylelint/stylelint/issues/4337 is fixed
-    - name: npm install, and test (Windows)
-      if: matrix.os == 'windows-latest'
-      run: cd .. && cd D:\a\stylelint\stylelint && npm ci && npm run jest -- --ci
+    - name: Install dependencies
+      run: npm ci
 
-    - name: npm install, and test (Unix)
+    # Workaround until https://github.com/stylelint/stylelint/issues/4337 is fixed
+    - name: Test (Windows)
+      if: matrix.os == 'windows-latest'
+      run: cd .. && cd D:\a\stylelint\stylelint && npm run jest -- --ci
+
+    - name: Test (Unix)
       if: matrix.os != 'windows-latest'
-      run: npm ci && npm run jest -- --ci
+      run: npm run jest -- --ci
 
   coverage:
     name: Coverage on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
@@ -88,8 +94,11 @@ jobs:
     - name: Install latest npm
       run: npm install --global npm@latest
 
-    - name: npm install, and test
-      run: npm ci && npm run jest -- --coverage --ci
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Test with coverage
+      run: npm run jest -- --coverage --ci
 
     - name: Coveralls Parallel
       uses: coverallsapp/github-action@master
