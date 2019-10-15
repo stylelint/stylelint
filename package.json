@@ -113,7 +113,8 @@
     "remark-preset-lint-consistent": "^2.0.3",
     "remark-preset-lint-recommended": "^3.0.3",
     "remark-validate-links": "^9.0.1",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "typescript": "^3.6.3"
   },
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
@@ -123,6 +124,7 @@
     "jest:detectleaks": "jest  --detectLeaks",
     "lint:js": "eslint . --cache --max-warnings=0",
     "lint:md": "remark . --quiet --frail",
+    "lint:types": "tsc || true",
     "lint": "npm-run-all --parallel lint:*",
     "pretest": "npm-run-all --serial lint flow prettier:check",
     "prettier:check": "prettier \"**/*.js\" --list-different",
