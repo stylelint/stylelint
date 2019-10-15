@@ -121,7 +121,7 @@
     "flow": "flow",
     "flow-defs": "./node_modules/.bin/flow-typed install jest@24 lodash@4",
     "jest": "jest",
-    "jest:detectleaks": "jest  --detectLeaks",
+    "jest:detectleaks": "jest --detectLeaks",
     "lint:js": "eslint . --cache --max-warnings=0",
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc || true",
