@@ -9,6 +9,9 @@ on:
     branches:
       - '**'
 
+env:
+  CI: true
+
 jobs:
   lint:
     name: Lint on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
@@ -67,11 +70,11 @@ jobs:
     # Workaround until https://github.com/stylelint/stylelint/issues/4337 is fixed
     - name: Test (Windows)
       if: matrix.os == 'windows-latest'
-      run: cd .. && cd D:\a\stylelint\stylelint && npm run jest -- --ci
+      run: cd .. && cd D:\a\stylelint\stylelint && npm run jest
 
     - name: Test (Unix)
       if: matrix.os != 'windows-latest'
-      run: npm run jest -- --ci
+      run: npm run jest
 
   coverage:
     name: Coverage on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
@@ -98,7 +101,7 @@ jobs:
       run: npm ci
 
     - name: Test with coverage
-      run: npm run jest -- --coverage --ci
+      run: npm run jest -- --coverage
 
     - name: Coveralls Parallel
       uses: coverallsapp/github-action@master
