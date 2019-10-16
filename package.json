@@ -78,7 +78,6 @@
     "postcss-syntax": "^0.36.2",
     "postcss-value-parser": "^4.0.2",
     "resolve-from": "^5.0.0",
-    "signal-exit": "^3.0.2",
     "slash": "^3.0.0",
     "specificity": "^0.4.1",
     "string-width": "^4.1.0",
@@ -87,7 +86,8 @@
     "sugarss": "^2.0.0",
     "svg-tags": "^1.0.0",
     "table": "^5.4.6",
-    "v8-compile-cache": "^2.1.0"
+    "v8-compile-cache": "^2.1.0",
+    "write-file-atomic": "^3.0.1"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.144",
