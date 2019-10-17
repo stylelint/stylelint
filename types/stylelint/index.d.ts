@@ -92,8 +92,7 @@ declare module 'stylelint' {
 		_specifiedConfigCache: Map<StylelintConfig, Object>,
 		_postcssResultCache: Map<string, Result>,
 
-		_augmentConfig: Function,
-		_getPostcssResult: Function,
+		_getPostcssResult: (options?: GetPostcssOptions) => Promise<Result>,
 		_lintSource: Function,
 		_createStylelintResult: Function,
 		_createEmptyPostcssResult?: Function,
