@@ -1,5 +1,5 @@
 declare module 'stylelint' {
-	import {Result} from 'postcss';
+	import {Result, WarningOptions} from 'postcss';
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
@@ -41,15 +41,19 @@ declare module 'stylelint' {
 	};
 
 	export type StylelintPostcssResult = {
-		ruleSeverities: Object,
-		customMessages: Object,
+		ruleSeverities: {[k: string]: any},
+		customMessages: {[k: string]: any},
 		quiet?: boolean,
 		disabledRanges: DisabledRangeObject,
 		ignored?: boolean,
+		ignoreDisables?: boolean,
 		stylelintError?: boolean
 	};
 
-	export type PostcssResult = Result & {stylelint: StylelintPostcssResult};
+	export type PostcssResult = Result & {
+		stylelint: StylelintPostcssResult,
+		warn(message: string, options?: WarningOptions & { stylelintType?: string }): void;
+	};
 
 	export type StylelintOptions = {
 		config?: StylelintConfig,
