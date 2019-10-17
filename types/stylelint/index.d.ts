@@ -29,6 +29,8 @@ declare module 'stylelint' {
 		defaultSeverity?: string
 	};
 
+	export type CosmiconfigResult = { config: StylelintConfig, filepath: string };
+
 	export type DisabledRange = {
 		start: number,
 		strictStart: boolean,
@@ -81,12 +83,12 @@ declare module 'stylelint' {
 	export type StylelintInternalApi = {
 		_options: StylelintOptions,
 		_extendExplorer: {
-			search: (s: string) => Promise<null | Object>,
-			load: (s: string) => Promise<null | Object>
+			search: (s: string) => Promise<null | CosmiconfigResult>,
+			load: (s: string) => Promise<null | CosmiconfigResult>
 		},
 		_fullExplorer: {
-			search: (s: string) => Promise<null | Object>,
-			load: (s: string) => Promise<null | Object>
+			search: (s: string) => Promise<null | CosmiconfigResult>,
+			load: (s: string) => Promise<null | CosmiconfigResult>
 		},
 		_configCache: Map<string, Object>,
 		_specifiedConfigCache: Map<StylelintConfig, Object>,
