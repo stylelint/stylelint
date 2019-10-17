@@ -16376,6 +16376,20 @@ Array [
         "text": "Expected \\"[type=\\"submit\\"]\\" to have no more than 0 attribute selectors (selector-max-attribute)",
       },
       Object {
+        "column": 3,
+        "line": 124,
+        "rule": "selector-max-combinators",
+        "severity": "error",
+        "text": "Expected \\"a .foo\\" to have no more than 0 combinators (selector-max-combinators)",
+      },
+      Object {
+        "column": 5,
+        "line": 125,
+        "rule": "selector-max-combinators",
+        "severity": "error",
+        "text": "Expected \\"a .foo__foo\\" to have no more than 0 combinators (selector-max-combinators)",
+      },
+      Object {
         "column": 7,
         "line": 126,
         "rule": "selector-max-combinators",
@@ -16973,6 +16987,27 @@ b\\" to have no more than 0 combinators (selector-max-combinators)",
         "text": "Expected \\"a\\" to have no more than 0 type selectors (selector-max-type)",
       },
       Object {
+        "column": 1,
+        "line": 123,
+        "rule": "selector-max-type",
+        "severity": "error",
+        "text": "Expected \\"a\\" to have no more than 0 type selectors (selector-max-type)",
+      },
+      Object {
+        "column": 3,
+        "line": 124,
+        "rule": "selector-max-type",
+        "severity": "error",
+        "text": "Expected \\"a .foo\\" to have no more than 0 type selectors (selector-max-type)",
+      },
+      Object {
+        "column": 5,
+        "line": 125,
+        "rule": "selector-max-type",
+        "severity": "error",
+        "text": "Expected \\"a .foo__foo\\" to have no more than 0 type selectors (selector-max-type)",
+      },
+      Object {
         "column": 7,
         "line": 126,
         "rule": "selector-max-type",
@@ -17190,6 +17225,13 @@ b\\" to have no more than 0 combinators (selector-max-combinators)",
         "text": "Expected \\"a
 
 b\\" to have no more than 0 type selectors (selector-max-type)",
+      },
+      Object {
+        "column": 1,
+        "line": 194,
+        "rule": "selector-max-type",
+        "severity": "error",
+        "text": "Expected \\"a\\" to have no more than 0 type selectors (selector-max-type)",
       },
       Object {
         "column": 3,
