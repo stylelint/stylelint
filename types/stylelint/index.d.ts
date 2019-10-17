@@ -29,8 +29,6 @@ declare module 'stylelint' {
 		defaultSeverity?: string
 	};
 
-	export type StylelintSyntaxes = "scss" | "less" | "sugarss";
-
 	export type DisabledRange = {
 		start: number,
 		strictStart: boolean,
@@ -72,7 +70,7 @@ declare module 'stylelint' {
 		codeFilename?: string,
 		filePath?: string,
 		codeProcessors?: Array<Function>,
-		syntax?: StylelintSyntaxes,
+		syntax?: string,
 		customSyntax?: string
 	};
 
@@ -101,67 +99,6 @@ declare module 'stylelint' {
 		lintSource: Function
 	};
 
-	export type StylelintWarning = {
-		line: number,
-		column: number,
-		rule: string,
-		severity: string,
-		text: string
-	};
-
-	export type StylelintResult = {
-		source?: string,
-		deprecations: Array<{
-			text: string,
-			reference: string
-		}>,
-		invalidOptionWarnings: Array<{
-			text: string
-		}>,
-		parseErrors: Array<StylelintWarning>,
-		errored?: boolean,
-		warnings: Array<StylelintWarning>,
-		ignored?: boolean,
-		_postcssResult?: PostcssResult
-	};
-
-	export type StylelintCssSyntaxError = {
-		column: number,
-		file?: string,
-		input: {
-			column: number,
-			file?: string,
-			line: number,
-			source: string
-		},
-		line: number,
-		message: string,
-		name: string,
-		reason: string,
-		source: string
-	};
-
-	export type StylelintDisableOptionsReport = Array<{
-		source?: string,
-		ranges: Array<{
-			unusedRule: string,
-			start: number,
-			end?: number
-		}>
-	}>;
-
-	export type StylelintStandaloneReturnValue = {
-		results: Array<StylelintResult>,
-		errored: boolean,
-		output: any,
-		maxWarningsExceeded?: {
-			maxWarnings: number,
-			foundWarnings: number
-		},
-		needlessDisables?: StylelintDisableOptionsReport,
-		invalidScopeDisables?: StylelintDisableOptionsReport
-	};
-
 	export type StylelintStandaloneOptions = {
 		files?: string | Array<string>,
 		globbyOptions?: Object,
@@ -180,7 +117,7 @@ declare module 'stylelint' {
 		reportNeedlessDisables?: boolean,
 		reportInvalidScopeDisables?: boolean,
 		maxWarnings?: number,
-		syntax?: StylelintSyntaxes,
+		syntax?: string,
 		customSyntax?: string,
 		formatter?: "compact" | "json" | "string" | "unix" | "verbose" | Function,
 		disableDefaultIgnores?: boolean,
