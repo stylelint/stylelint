@@ -90,6 +90,7 @@
     "v8-compile-cache": "^2.1.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.144",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
     "coveralls": "^3.0.7",
@@ -121,7 +122,7 @@
     "flow": "flow",
     "flow-defs": "./node_modules/.bin/flow-typed install jest@24 lodash@4",
     "jest": "jest",
-    "jest:detectleaks": "jest  --detectLeaks",
+    "jest:detectleaks": "jest --detectLeaks",
     "lint:js": "eslint . --cache --max-warnings=0",
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc || true",
