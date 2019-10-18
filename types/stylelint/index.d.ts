@@ -132,6 +132,22 @@ declare module 'stylelint' {
 		allowEmptyInput: boolean
 	};
 
+	export type StylelintCssSyntaxError = {
+		column: number,
+		file?: string,
+		input: {
+			column: number,
+			file?: string,
+			line: number,
+			source: string
+		},
+		line: number,
+		message: string,
+		name: string,
+		reason: string,
+		source: string
+	};
+
 	export type StylelintWarning = {
 		line: number,
 		column: number,
