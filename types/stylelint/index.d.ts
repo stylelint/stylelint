@@ -80,6 +80,8 @@ declare module 'stylelint' {
 		customSyntax?: string
 	};
 
+	export type GetLintSourceOptions = GetPostcssOptions & {existingPostcssResult?: Result};
+
 	export type StylelintInternalApi = {
 		_options: StylelintOptions,
 		_extendExplorer: {
@@ -95,7 +97,7 @@ declare module 'stylelint' {
 		_postcssResultCache: Map<string, Result>,
 
 		_getPostcssResult: (options?: GetPostcssOptions) => Promise<Result>,
-		_lintSource: Function,
+		_lintSource: (options: GetLintSourceOptions) => Promise<PostcssResult>,
 		_createStylelintResult: Function,
 		_createEmptyPostcssResult?: Function,
 
