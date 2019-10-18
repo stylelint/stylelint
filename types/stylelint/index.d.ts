@@ -1,5 +1,5 @@
 declare module 'stylelint' {
-	import {Result, WarningOptions} from 'postcss';
+	import {Result, WarningOptions, Warning} from 'postcss';
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
@@ -129,4 +129,48 @@ declare module 'stylelint' {
 		fix?: boolean,
 		allowEmptyInput: boolean
 	};
+
+	export type StylelintWarning = {
+		line: number,
+		column: number,
+		rule: string,
+		severity: string,
+		text: string,
+		stylelintType?: string
+	};
+
+	export type StylelintResult = {
+		source?: string,
+		deprecations: Array<{
+			text: string,
+			reference: string
+		}>,
+		invalidOptionWarnings: Array<{
+			text: string
+		}>,
+		parseErrors: Array<Warning & {stylelintType: string}>,
+		errored?: boolean,
+		warnings: Array<StylelintWarning>,
+		ignored?: boolean,
+		_postcssResult?: PostcssResult
+	};
+
+	export type UnusedRange = {
+		unusedRule: string,
+		start: number,
+		end?: number
+	}
+
+	export type RangeType = DisabledRange & {used?: boolean}
+
+	export type StylelintDisableReportEntry = {
+		source?: string,
+		ranges: Array<{
+			unusedRule: string,
+			start: number,
+			end?: number
+		}>
+	};
+
+	export type StylelintDisableOptionsReport = Array<StylelintDisableReportEntry>;
 }
