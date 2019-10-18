@@ -90,7 +90,10 @@
     "write-file-atomic": "^3.0.1"
   },
   "devDependencies": {
+    "@types/cosmiconfig": "^5.0.3",
+    "@types/globjoin": "^0.1.0",
     "@types/lodash": "^4.14.144",
+    "@types/micromatch": "^3.1.0",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
     "coveralls": "^3.0.7",
