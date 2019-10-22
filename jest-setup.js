@@ -20,119 +20,103 @@ global.testRule = (rule, schema) => {
 			passingTestCases = passingTestCases.concat(basicChecks);
 		}
 
-		if (passingTestCases && passingTestCases.length) {
-			describe('accept', () => {
-				passingTestCases.forEach((testCase) => {
-					const spec = testCase.only ? it.only : it;
+		setupTestCases({
+			name: 'accept',
+			cases: passingTestCases,
+			schema,
+			comparisons: (testCase) => async () => {
+				const options = {
+					code: testCase.code,
+					config: stylelintConfig,
+					syntax: schema.syntax,
+				};
 
-					describe(`${util.inspect(schema.config)}`, () => {
-						describe(`${util.inspect(testCase.code)}`, () => {
-							spec(testCase.description || 'no description', async () => {
-								const options = {
-									code: testCase.code,
-									config: stylelintConfig,
-									syntax: schema.syntax,
-								};
+				const output = await stylelint(options);
 
-								const output = await stylelint(options);
+				expect(output.results[0].warnings).toEqual([]);
+				expect(output.results[0].parseErrors).toEqual([]);
 
-								expect(output.results[0].warnings).toEqual([]);
-								expect(output.results[0].parseErrors).toEqual([]);
+				if (!schema.fix) return;
 
-								if (!schema.fix) return;
+				// Check that --fix doesn't change code
+				const outputAfterFix = await stylelint({ ...options, fix: true });
+				const fixedCode = getOutputCss(outputAfterFix);
 
-								// Check that --fix doesn't change code
-								const outputAfterFix = await stylelint({ ...options, fix: true });
-								const fixedCode = getOutputCss(outputAfterFix);
+				expect(fixedCode).toBe(testCase.code);
+			},
+		});
 
-								expect(fixedCode).toBe(testCase.code);
-							});
-						});
-					});
+		setupTestCases({
+			name: 'reject',
+			cases: schema.reject,
+			schema,
+			comparisons: (testCase) => async () => {
+				const options = {
+					code: testCase.code,
+					config: stylelintConfig,
+					syntax: schema.syntax,
+				};
+
+				const outputAfterLint = await stylelint(options);
+
+				const actualWarnings = outputAfterLint.results[0].warnings;
+
+				expect(outputAfterLint.results[0].parseErrors).toEqual([]);
+				expect(actualWarnings).toHaveLength(testCase.warnings ? testCase.warnings.length : 1);
+
+				(testCase.warnings || [testCase]).forEach((expected, i) => {
+					const warning = actualWarnings[i];
+
+					expect(expected).toHaveMessage();
+
+					expect(warning.text).toBe(expected.message);
+
+					if (expected.line !== undefined) {
+						expect(warning.line).toBe(expected.line);
+					}
+
+					if (expected.column !== undefined) {
+						expect(warning.column).toBe(expected.column);
+					}
 				});
-			});
-		}
 
-		if (schema.reject && schema.reject.length) {
-			describe('reject', () => {
-				schema.reject.forEach((testCase) => {
-					const spec = testCase.only ? it.only : it;
+				if (!schema.fix) return;
 
-					describe(`${util.inspect(schema.config)}`, () => {
-						describe(`${util.inspect(testCase.code)}`, () => {
-							spec(testCase.description || 'no description', async () => {
-								const options = {
-									code: testCase.code,
-									config: stylelintConfig,
-									syntax: schema.syntax,
-								};
+				// Check that --fix doesn't change code
+				if (schema.fix && !testCase.fixed && testCase.fixed !== '' && !testCase.unfixable) {
+					throw new Error(
+						'If using { fix: true } in test schema, all reject cases must have { fixed: .. }',
+					);
+				}
 
-								const outputAfterLint = await stylelint(options);
+				const outputAfterFix = await stylelint({ ...options, fix: true });
 
-								const actualWarnings = outputAfterLint.results[0].warnings;
+				const fixedCode = getOutputCss(outputAfterFix);
 
-								expect(outputAfterLint.results[0].parseErrors).toEqual([]);
-								expect(actualWarnings).toHaveLength(
-									testCase.warnings ? testCase.warnings.length : 1,
-								);
+				if (!testCase.unfixable) {
+					expect(fixedCode).toBe(testCase.fixed);
+					expect(fixedCode).not.toBe(testCase.code);
+				} else {
+					// can't fix
+					if (testCase.fixed) {
+						expect(fixedCode).toBe(testCase.fixed);
+					}
 
-								(testCase.warnings || [testCase]).forEach((expected, i) => {
-									const warning = actualWarnings[i];
+					expect(fixedCode).toBe(testCase.code);
+				}
 
-									expect(expected).toHaveMessage();
-
-									expect(warning.text).toBe(expected.message);
-
-									if (expected.line !== undefined) {
-										expect(warning.line).toBe(expected.line);
-									}
-
-									if (expected.column !== undefined) {
-										expect(warning.column).toBe(expected.column);
-									}
-								});
-
-								if (!schema.fix) return;
-
-								// Check that --fix doesn't change code
-								if (schema.fix && !testCase.fixed && testCase.fixed !== '' && !testCase.unfixable) {
-									throw new Error(
-										'If using { fix: true } in test schema, all reject cases must have { fixed: .. }',
-									);
-								}
-
-								const outputAfterFix = await stylelint({ ...options, fix: true });
-
-								const fixedCode = getOutputCss(outputAfterFix);
-
-								if (!testCase.unfixable) {
-									expect(fixedCode).toBe(testCase.fixed);
-									expect(fixedCode).not.toBe(testCase.code);
-								} else {
-									// can't fix
-									if (testCase.fixed) {
-										expect(fixedCode).toBe(testCase.fixed);
-									}
-
-									expect(fixedCode).toBe(testCase.code);
-								}
-
-								// Checks whether only errors other than those fixed are reported
-								const outputAfterLintOnFixedCode = await stylelint({
-									...options,
-									code: fixedCode,
-								});
-
-								expect(outputAfterLintOnFixedCode.results[0].warnings).toEqual(
-									outputAfterFix.results[0].warnings,
-								);
-								expect(outputAfterLintOnFixedCode.results[0].parseErrors).toEqual([]);
-							});
-						});
-					});
+				// Checks whether only errors other than those fixed are reported
+				const outputAfterLintOnFixedCode = await stylelint({
+					...options,
+					code: fixedCode,
 				});
-			});
-		}
+
+				expect(outputAfterLintOnFixedCode.results[0].warnings).toEqual(
+					outputAfterFix.results[0].warnings,
+				);
+				expect(outputAfterLintOnFixedCode.results[0].parseErrors).toEqual([]);
+			},
+		});
 	});
 
 	expect.extend({
@@ -150,6 +134,23 @@ global.testRule = (rule, schema) => {
 		},
 	});
 };
+
+function setupTestCases({ name, cases, schema, comparisons }) {
+	if (cases && cases.length) {
+		// eslint-disable-next-line jest/valid-describe
+		describe(name, () => {
+			cases.forEach((testCase) => {
+				const spec = testCase.only ? it.only : it;
+
+				describe(`${util.inspect(schema.config)}`, () => {
+					describe(`${util.inspect(testCase.code)}`, () => {
+						spec(testCase.description || 'no description', comparisons(testCase));
+					});
+				});
+			});
+		});
+	}
+}
 
 function getOutputCss(output) {
 	const result = output.results[0]._postcssResult;
