@@ -1,6 +1,5 @@
 'use strict';
 
-const _ = require('lodash');
 const basicChecks = require('./lib/testUtils/basicChecks');
 const stylelint = require('./lib/standalone');
 const util = require('util');
@@ -61,90 +60,73 @@ global.testRule = (rule, schema) => {
 
 					describe(`${util.inspect(schema.config)}`, () => {
 						describe(`${testCase.code}`, () => {
-							spec(testCase.description || 'no description', () => {
+							spec(testCase.description || 'no description', async () => {
 								const options = {
 									code: testCase.code,
 									config: stylelintConfig,
 									syntax: schema.syntax,
 								};
 
-								return stylelint(options).then((output) => {
-									const actualWarnings = output.results[0].warnings;
+								const outputAfterLint = await stylelint(options);
 
-									expect(output.results[0].parseErrors).toEqual([]);
-									expect(actualWarnings).toHaveLength(
-										testCase.warnings ? testCase.warnings.length : 1,
-									);
+								const actualWarnings = outputAfterLint.results[0].warnings;
 
-									if (
-										schema.fix &&
-										!testCase.fixed &&
-										testCase.fixed !== '' &&
-										!testCase.unfixable
-									) {
-										throw new Error(
-											'If using { fix: true } in test schema, all reject cases must have { fixed: .. }',
-										);
+								expect(outputAfterLint.results[0].parseErrors).toEqual([]);
+								expect(actualWarnings).toHaveLength(
+									testCase.warnings ? testCase.warnings.length : 1,
+								);
+
+								(testCase.warnings || [testCase]).forEach((expected, i) => {
+									const warning = actualWarnings[i];
+
+									expect(expected).toHaveMessage();
+
+									expect(warning.text).toBe(expected.message);
+
+									if (expected.line !== undefined) {
+										expect(warning.line).toBe(expected.line);
 									}
 
-									(testCase.warnings || [testCase]).forEach((expected, i) => {
-										const warning = actualWarnings[i];
-
-										expect(expected).toHaveMessage();
-
-										if (expected.message !== undefined) {
-											expect(_.get(warning, 'text')).toBe(expected.message);
-										}
-
-										if (expected.line !== undefined) {
-											expect(_.get(warning, 'line')).toBe(expected.line);
-										}
-
-										if (expected.column !== undefined) {
-											expect(_.get(warning, 'column')).toBe(expected.column);
-										}
-									});
-
-									if (!schema.fix) return;
-
-									// Check the fix
-									return stylelint(Object.assign({ fix: true }, options))
-										.then((output) => {
-											const fixedCode = getOutputCss(output);
-
-											if (!testCase.unfixable) {
-												expect(fixedCode).toBe(testCase.fixed);
-												expect(fixedCode).not.toBe(testCase.code);
-											} else {
-												// can't fix
-												if (testCase.fixed) {
-													expect(fixedCode).toBe(testCase.fixed);
-												}
-
-												expect(fixedCode).toBe(testCase.code);
-											}
-
-											return {
-												fixedCode,
-												warnings: output.results[0].warnings,
-											};
-										})
-										.then(({ fixedCode, warnings }) => {
-											// Checks whether only errors other than those fixed are reported.
-											return stylelint({
-												code: fixedCode,
-												config: stylelintConfig,
-												syntax: schema.syntax,
-											}).then((output) => ({
-												output,
-												warnings,
-											}));
-										})
-										.then(({ output, warnings }) => {
-											expect(output.results[0].warnings).toEqual(warnings);
-											expect(output.results[0].parseErrors).toEqual([]);
-										});
+									if (expected.column !== undefined) {
+										expect(warning.column).toBe(expected.column);
+									}
 								});
+
+								if (!schema.fix) return;
+
+								// Check the fix
+								if (schema.fix && !testCase.fixed && testCase.fixed !== '' && !testCase.unfixable) {
+									throw new Error(
+										'If using { fix: true } in test schema, all reject cases must have { fixed: .. }',
+									);
+								}
+
+								const outputAfterFix = await stylelint({ ...options, fix: true });
+
+								const fixedCode = getOutputCss(outputAfterFix);
+
+								if (!testCase.unfixable) {
+									expect(fixedCode).toBe(testCase.fixed);
+									expect(fixedCode).not.toBe(testCase.code);
+								} else {
+									// can't fix
+									if (testCase.fixed) {
+										expect(fixedCode).toBe(testCase.fixed);
+									}
+
+									expect(fixedCode).toBe(testCase.code);
+								}
+
+								// Checks whether only errors other than those fixed are reported.
+								const outputAfterLintOnFixedCode = await stylelint({
+									...options,
+									code: fixedCode,
+								});
+
+								expect(outputAfterLintOnFixedCode.results[0].warnings).toEqual(
+									outputAfterFix.results[0].warnings,
+								);
+								expect(outputAfterLintOnFixedCode.results[0].parseErrors).toEqual([]);
 							});
 						});
 					});
