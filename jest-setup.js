@@ -28,26 +28,25 @@ global.testRule = (rule, schema) => {
 
 					describe(`${util.inspect(schema.config)}`, () => {
 						describe(`${testCase.code}`, () => {
-							spec(testCase.description || 'no description', () => {
+							spec(testCase.description || 'no description', async () => {
 								const options = {
 									code: testCase.code,
 									config: stylelintConfig,
 									syntax: schema.syntax,
 								};
 
-								return stylelint(options).then((output) => {
-									expect(output.results[0].warnings).toEqual([]);
-									expect(output.results[0].parseErrors).toEqual([]);
+								const output = await stylelint(options);
 
-									if (!schema.fix) return;
+								expect(output.results[0].warnings).toEqual([]);
+								expect(output.results[0].parseErrors).toEqual([]);
 
-									// Check the fix
-									return stylelint(Object.assign({ fix: true }, options)).then((output) => {
-										const fixedCode = getOutputCss(output);
+								if (!schema.fix) return;
 
-										expect(fixedCode).toBe(testCase.code);
-									});
-								});
+								// Check the fix
+								const outputAfterFix = await stylelint({ ...options, fix: true });
+								const fixedCode = getOutputCss(outputAfterFix);
+
+								expect(fixedCode).toBe(testCase.code);
 							});
 						});
 					});
