@@ -41,7 +41,7 @@ global.testRule = (rule, schema) => {
 
 								if (!schema.fix) return;
 
-								// Check the fix
+								// Check that --fix doesn't change code
 								const outputAfterFix = await stylelint({ ...options, fix: true });
 								const fixedCode = getOutputCss(outputAfterFix);
 
@@ -94,7 +94,7 @@ global.testRule = (rule, schema) => {
 
 								if (!schema.fix) return;
 
-								// Check the fix
+								// Check that --fix doesn't change code
 								if (schema.fix && !testCase.fixed && testCase.fixed !== '' && !testCase.unfixable) {
 									throw new Error(
 										'If using { fix: true } in test schema, all reject cases must have { fixed: .. }',
@@ -117,7 +117,7 @@ global.testRule = (rule, schema) => {
 									expect(fixedCode).toBe(testCase.code);
 								}
 
-								// Checks whether only errors other than those fixed are reported.
+								// Checks whether only errors other than those fixed are reported
 								const outputAfterLintOnFixedCode = await stylelint({
 									...options,
 									code: fixedCode,
