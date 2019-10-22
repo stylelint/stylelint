@@ -26,7 +26,7 @@ global.testRule = (rule, schema) => {
 					const spec = testCase.only ? it.only : it;
 
 					describe(`${util.inspect(schema.config)}`, () => {
-						describe(`${testCase.code}`, () => {
+						describe(`${util.inspect(testCase.code)}`, () => {
 							spec(testCase.description || 'no description', async () => {
 								const options = {
 									code: testCase.code,
@@ -59,7 +59,7 @@ global.testRule = (rule, schema) => {
 					const spec = testCase.only ? it.only : it;
 
 					describe(`${util.inspect(schema.config)}`, () => {
-						describe(`${testCase.code}`, () => {
+						describe(`${util.inspect(testCase.code)}`, () => {
 							spec(testCase.description || 'no description', async () => {
 								const options = {
 									code: testCase.code,
