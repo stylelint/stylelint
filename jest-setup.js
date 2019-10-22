@@ -8,21 +8,6 @@ const util = require('util');
 jest.mock('./lib/utils/getOsEol', () => () => '\n');
 
 global.testRule = (rule, schema) => {
-	expect.extend({
-		toHaveMessage(testCase) {
-			if (testCase.message === undefined) {
-				return {
-					message: () => 'Expected "reject" test case to have a "message" property',
-					pass: false,
-				};
-			}
-
-			return {
-				pass: true,
-			};
-		},
-	});
-
 	describe(`${schema.ruleName}`, () => {
 		const stylelintConfig = {
 			rules: {
@@ -167,6 +152,21 @@ global.testRule = (rule, schema) => {
 				});
 			});
 		}
+	});
+
+	expect.extend({
+		toHaveMessage(testCase) {
+			if (testCase.message === undefined) {
+				return {
+					message: () => 'Expected "reject" test case to have a "message" property',
+					pass: false,
+				};
+			}
+
+			return {
+				pass: true,
+			};
+		},
 	});
 };
 
