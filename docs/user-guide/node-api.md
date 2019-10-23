@@ -60,6 +60,19 @@ A partial stylelint configuration object whose properties will override the exis
 
 The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to *both* load a `.stylelintrc` file *and* override specific parts of it, `configOverrides` does just that.
 
+You may also provide a function for `configOverrides` that takes the loaded config object and either returns a new one and/or modifies the existing one in place:
+
+```js
+const {pickBy} = require('lodash')
+const rules = ['only/this-rule', 'and/that-rule']
+stylelint.lint({
+  files: "all/my/stylesheets/*.css",
+  configOverrides: config => {
+    config.rules = pickBy(config.rules, key => rules.includes(key))
+  }
+})
+```
+
 ### `files`
 
 A file glob, or array of file globs. Ultimately passed to [globby](https://github.com/sindresorhus/globby) to figure out what files you want to lint.
