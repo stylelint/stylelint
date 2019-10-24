@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 -   Fixed: `comment-empty-line-before` false positives for selector lists and shared-line comments ([#4360](https://github.com/stylelint/stylelint/pull/4360)).
+-   Fixed: `font-weight-notation` false positives for `font-weight` ranges in `@font-face` ([#4372](https://github.com/stylelint/stylelint/pull/4372)).
 -   Fixed: `selector-max-*` false negatives for rules with nested rules ([#4357](https://github.com/stylelint/stylelint/pull/4357)).
 -   Fixed: incorrect error message when parsing files with a broken syntax ([#4364](https://github.com/stylelint/stylelint/pull/4364)).
 
