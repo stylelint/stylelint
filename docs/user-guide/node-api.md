@@ -60,7 +60,9 @@ A partial stylelint configuration object whose properties will override the exis
 
 The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to *both* load a `.stylelintrc` file *and* override specific parts of it, `configOverrides` does just that.
 
-You may also provide a function for `configOverrides` that takes the loaded config object and either returns a new one and/or modifies the existing one in place:
+#### `configOverrides` as a function
+
+The `configOverrides` option can be passed as a function that takes the loaded config object and returns a new one and/or modifies the existing object in place:
 
 ```js
 const {pickBy} = require('lodash')
