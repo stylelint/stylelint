@@ -36,3 +36,11 @@ declare module 'postcss-syntax' {
 declare module 'postcss-reporter/lib/util' {
 	export function getLocation(message: Object): {line: number, column: number, file?: string};
 }
+
+declare module 'postcss/lib/result' {
+	import {
+		Result
+	} from 'postcss';
+
+	export = Result;
+}
