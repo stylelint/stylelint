@@ -202,5 +202,20 @@ declare module 'stylelint' {
 		invalidScopeDisables?: StylelintDisableOptionsReport
 	};
 
+	export type StylelintPublicAPI = {
+		lint: Function,
+		rules: {[k: string]: any},
+		formatters: {[k: string]: Function},
+		createPlugin: Function,
+		createRuleTester: Function,
+		createLinter: Function,
+		utils: {
+			report: Function,
+			ruleMessages: Function,
+			validateOptions: Function,
+			checkAgainstRule: Function
+		}
+	};
+
 	export type StylelintDisableOptionsReport = Array<StylelintDisableReportEntry>;
 }
