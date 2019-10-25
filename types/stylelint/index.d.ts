@@ -190,5 +190,17 @@ declare module 'stylelint' {
 		}>
 	};
 
+	export type StylelintStandaloneReturnValue = {
+		results: Array<StylelintResult>,
+		errored: boolean,
+		output: any,
+		maxWarningsExceeded?: {
+			maxWarnings: number,
+			foundWarnings: number
+		},
+		needlessDisables?: StylelintDisableOptionsReport,
+		invalidScopeDisables?: StylelintDisableOptionsReport
+	};
+
 	export type StylelintDisableOptionsReport = Array<StylelintDisableReportEntry>;
 }
