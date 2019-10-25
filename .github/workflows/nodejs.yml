@@ -70,7 +70,10 @@ jobs:
     # Workaround until https://github.com/stylelint/stylelint/issues/4337 is fixed
     - name: Test (Windows)
       if: matrix.os == 'windows-latest'
-      run: cd .. && cd D:\a\stylelint\stylelint && npm run jest
+      run: |
+        cd ..
+        cd D:\a\stylelint\stylelint
+        npm run jest
 
     - name: Test (Unix)
       if: matrix.os != 'windows-latest'
