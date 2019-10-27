@@ -83,7 +83,7 @@ declare module 'stylelint' {
 	export type GetLintSourceOptions = GetPostcssOptions & {existingPostcssResult?: Result};
 
 	export type StylelintInternalApi = {
-		_options: StylelintOptions,
+		_options: StylelintStandaloneOptions,
 		_extendExplorer: {
 			search: (s: string) => Promise<null | CosmiconfigResult>,
 			load: (s: string) => Promise<null | CosmiconfigResult>
@@ -129,7 +129,7 @@ declare module 'stylelint' {
 		formatter?: "compact" | "json" | "string" | "unix" | "verbose" | Function,
 		disableDefaultIgnores?: boolean,
 		fix?: boolean,
-		allowEmptyInput: boolean
+		allowEmptyInput?: boolean
 	};
 
 	export type StylelintCssSyntaxError = {
@@ -188,6 +188,33 @@ declare module 'stylelint' {
 			start: number,
 			end?: number
 		}>
+	};
+
+	export type StylelintStandaloneReturnValue = {
+		results: Array<StylelintResult>,
+		errored: boolean,
+		output: any,
+		maxWarningsExceeded?: {
+			maxWarnings: number,
+			foundWarnings: number
+		},
+		needlessDisables?: StylelintDisableOptionsReport,
+		invalidScopeDisables?: StylelintDisableOptionsReport
+	};
+
+	export type StylelintPublicAPI = {
+		lint: Function,
+		rules: {[k: string]: any},
+		formatters: {[k: string]: Function},
+		createPlugin: Function,
+		createRuleTester: Function,
+		createLinter: Function,
+		utils: {
+			report: Function,
+			ruleMessages: Function,
+			validateOptions: Function,
+			checkAgainstRule: Function
+		}
 	};
 
 	export type StylelintDisableOptionsReport = Array<StylelintDisableReportEntry>;
