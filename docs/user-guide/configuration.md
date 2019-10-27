@@ -290,7 +290,7 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 -   the config's filepath, if the config is a file that stylelint found a loaded;
 -   or `process.cwd()`.
 
-By default, all `node_modules` and `bower_components` are ignored. Default values will be overridden if `ignoreFiles` is set.
+By default, all `node_modules` are ignored. Default values will be overridden if `ignoreFiles` is set.
 
 The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
 
