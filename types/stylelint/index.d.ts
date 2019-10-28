@@ -207,7 +207,6 @@ declare module 'stylelint' {
 		rules: {[k: string]: any},
 		formatters: {[k: string]: Function},
 		createPlugin: Function,
-		createRuleTester: Function,
 		createLinter: Function,
 		utils: {
 			report: Function,
