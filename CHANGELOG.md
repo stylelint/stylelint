@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+-   Removed: ignoring `bower_components` folder by default ([#4384](https://github.com/stylelint/stylelint/pull/4384)).
+-   Removed: `createRuleTester` API ([#4385](https://github.com/stylelint/stylelint/pull/4385)).
 -   Fixed: `comment-empty-line-before` false positives for selector lists and shared-line comments ([#4360](https://github.com/stylelint/stylelint/pull/4360)).
 -   Fixed: `font-weight-notation` false positives for `font-weight` ranges in `@font-face` ([#4372](https://github.com/stylelint/stylelint/pull/4372)).
 -   Fixed: `selector-max-*` false negatives for rules with nested rules ([#4357](https://github.com/stylelint/stylelint/pull/4357)).
