@@ -66,7 +66,7 @@ A file glob, or array of file globs. Ultimately passed to [globby](https://githu
 
 Relative globs are considered relative to `globbyOptions.cwd`.
 
-By default, all `node_modules` and `bower_components` are ignored.
+By default, all `node_modules` are ignored.
 
 ### `globbyOptions`
 
@@ -92,7 +92,7 @@ You can use this option to see what your linting results would be like without t
 
 ### `disableDefaultIgnores`
 
-If `true`, stylelint will not automatically ignore the contents of `node_modules` and `bower_components`. (By default, these directories are automatically ignored.)
+If `true`, stylelint will not automatically ignore the contents of `node_modules`. (By default, this directory are automatically ignored.)
 
 ### `cache`
 

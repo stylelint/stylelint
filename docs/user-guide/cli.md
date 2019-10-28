@@ -172,7 +172,7 @@ Ignore `styleline-disable` comments.
 
 ### `--disable-default-ignores, --di`
 
-Allow linting of `node_modules` and `bower_components`.
+Allow linting of `node_modules`.
 
 ### `--cache`
 
