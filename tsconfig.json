@@ -24,7 +24,6 @@
 		"package.json"
 	],
 	"exclude": [
-		// "lib/utils",
 		"lib/utils/parseCalcExpression",
 		"lib/testUtils",
 		"lib/rules",
