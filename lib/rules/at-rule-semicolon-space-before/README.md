@@ -16,7 +16,7 @@ Require a single space or disallow whitespace before the semicolons of at-rules.
 
 There *must always* be a single space before the semicolons.
 
-The following patterns is considered a violation:
+The following pattern is considered a violation:
 
 ```css
 @import "components/buttons";
@@ -32,7 +32,7 @@ The following pattern is *not* considered a violation:
 
 There *must never* be a single space before the semicolons.
 
-The following patterns is considered a violation:
+The following pattern is considered a violation:
 
 ```css
 @import "components/buttons" ;
