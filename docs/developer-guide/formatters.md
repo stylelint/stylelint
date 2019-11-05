@@ -3,7 +3,9 @@
 A formatter is a function with the following signature:
 
 ```js
-formatter(results, returnValue)
+formatter(results, returnValue) {
+  return 'a string of formatted results'
+}
 ```
 
 Where the first argument (`results`) is an array of stylelint result objects in the form:
