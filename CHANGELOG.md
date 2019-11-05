@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file.
 
 -   Removed: ignoring `bower_components` folder by default ([#4384](https://github.com/stylelint/stylelint/pull/4384)).
 -   Removed: `createRuleTester` API ([#4385](https://github.com/stylelint/stylelint/pull/4385)).
+-   Added: more information for custom formatters ([#4393](https://github.com/stylelint/stylelint/pull/4393)).
 -   Fixed: `comment-empty-line-before` false positives for selector lists and shared-line comments ([#4360](https://github.com/stylelint/stylelint/pull/4360)).
 -   Fixed: `font-family-no-missing-generic-family-keyword` false positives for Sass-variables with namespaces ([#4378](https://github.com/stylelint/stylelint/pull/4378)).
 -   Fixed: `font-weight-notation` false positives for `font-weight` ranges in `@font-face` ([#4372](https://github.com/stylelint/stylelint/pull/4372)).
