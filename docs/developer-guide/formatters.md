@@ -1,6 +1,14 @@
 # Writing formatters
 
-A formatter is a function that accepts *an array of these stylelint result objects* and outputs a string:
+A formatter is a function with the following signature:
+
+```js
+function formatter(results, returnValue) {
+  return "a string of formatted results";
+}
+```
+
+Where the first argument (`results`) is an array of stylelint result objects in the form:
 
 ```js
 // A stylelint result object
@@ -29,6 +37,40 @@ A formatter is a function that accepts *an array of these stylelint result objec
     }
   ],
   ignored: false // This is `true` if the file's path matches a provided ignore pattern
+}
+```
+
+And the second argument (`returnValue`) is an object with one or more of the following keys:
+
+```js
+{
+  errored: false, // `true` if there were any warnings with "error" severity
+  needlessDisables: [ // Present if stylelint was configured with `reportNeedlessDisables: true`
+    {
+      source: "path/to/file.css",
+      ranges: [
+        {
+		      start: 10,
+          unusedRule: "indentation"
+        }
+      ]
+    }
+  ],
+  invalidScopeDisables: [ // Present if stylelint was configured with `reportInvalidScopeDisables: true`
+    {
+      source: "path/to/file.css",
+      ranges: [
+        {
+          start: 1,
+          unusedRule: "color-named"
+        }
+      ]
+    }
+  ],
+  maxWarningsExceeded: { // Present if stylelint was configured with a `maxWarnings` count
+    maxWarnings: 10,
+    foundWarnings: 15
+  }
 }
 ```
 
