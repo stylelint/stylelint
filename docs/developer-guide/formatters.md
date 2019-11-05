@@ -3,8 +3,8 @@
 A formatter is a function with the following signature:
 
 ```js
-formatter(results, returnValue) {
-  return 'a string of formatted results'
+function formatter(results, returnValue) {
+  return "a string of formatted results";
 }
 ```
 
@@ -44,31 +44,30 @@ And the second argument (`returnValue`) is an object with one or more of the fol
 
 ```js
 {
-  // true if there were any warnings with "error" severity
-  errored: false,
-
-  // set if stylelint was configured with {reportNeedlessDisables: true}
-  needlessDisables: [
+  errored: false, // `true` if there were any warnings with "error" severity
+  needlessDisables: [ // Present if stylelint was configured with `reportNeedlessDisables: true`
     {
-      source: "path/to/filename.css",
+      source: "path/to/file.css",
       ranges: [
-        {start: 10, unusedRule: 'indentation'}
+        {
+		      start: 10,
+          unusedRule: "indentation"
+        }
       ]
     }
   ],
-  
-  // set if stylelint was configured with {reportInvalidScopeDisables: true}
-  invalidScopeDisables: [
+  invalidScopeDisables: [ // Present if stylelint was configured with `reportInvalidScopeDisables: true`
     {
-      source: "path/to/filename.css",
+      source: "path/to/file.css",
       ranges: [
-        {start: 1, unusedRule: 'color-named'}
+        {
+          start: 1,
+          unusedRule: "color-named"
+        }
       ]
     }
   ],
-
-  // set if stylelint was configured with a maxWarnings count, e.g. {maxWarnings: 10}
-  maxWarningsExceeded: {
+  maxWarningsExceeded: { // Present if stylelint was configured with a `maxWarnings` count
     maxWarnings: 10,
     foundWarnings: 15
   }
