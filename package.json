@@ -23,6 +23,10 @@
     "type": "git",
     "url": "https://github.com/stylelint/stylelint.git"
   },
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/stylelint"
+  },
   "main": "lib/index.js",
   "bin": "bin/stylelint.js",
   "files": [
