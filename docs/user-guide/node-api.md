@@ -139,7 +139,7 @@ A path to a file containing patterns describing files to ignore. The path can be
 
 ### `syntax`
 
-Options: `"css-in-js"|"html"|"less"|"markdown"|"sass"|"scss"|"sugarss"`
+Options: `"css"|"css-in-js"|"html"|"less"|"markdown"|"sass"|"scss"|"sugarss"`
 
 Force a specific non-standard syntax that should be used to parse source stylesheets.
 
