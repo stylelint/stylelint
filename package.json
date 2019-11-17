@@ -103,7 +103,6 @@
     "@types/micromatch": "^3.1.0",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
-    "coveralls": "^3.0.7",
     "cp-file": "^7.0.0",
     "del": "^5.1.0",
     "eslint": "~6.6.0",
