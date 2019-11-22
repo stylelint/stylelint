@@ -30,7 +30,7 @@ module.exports.ruleName = ruleName
 module.exports.messages = messages
 ```
 
-Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`. If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`. This namespace ensures that plugin rules will never clash with core rules. *Make sure you document your plugin's rule name (and namespace) for users, because they will need to use it in their config.*
+Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`. If your plugin provides only a single rule or you can't think of a good namespace, you can use `plugin/my-rule`. This namespace ensures that plugin rules will never clash with core rules. *Make sure you document your plugin's rule name (and namespace) for users, because they will need to use it in their config.*
 
 `stylelint.createPlugin(ruleName, ruleFunction)` ensures that your plugin will be setup properly alongside other rules.
 
@@ -140,7 +140,7 @@ A typical use-case is to build in more complex conditionals that the rule's opti
 
 All rules share a common signature. They are a function that accepts two arguments: a primary option and a secondary options object. And that functions returns a function that has the signature of a PostCSS plugin, expecting a PostCSS root and result as its arguments.
 
-Here's a simple example of a plugin that runs `color-hex-case` only if there is a special directive `@@check-color-hex-case` somewhere in the stylesheet:
+Here's an example of a plugin that runs `color-hex-case` only if there is a special directive `@@check-color-hex-case` somewhere in the stylesheet:
 
 ```js
 export default stylelint.createPlugin(ruleName, function (expectation) {
@@ -186,7 +186,7 @@ For testing your plugin, you might consider using the same rule-testing function
 
 ## Plugin packs
 
-To make a single module provide multiple rules, simply export an array of plugin objects (rather than a single object).
+To make a single module provide multiple rules, export an array of plugin objects (rather than a single object).
 
 ## Sharing plugins and plugin packs
 

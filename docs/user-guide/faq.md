@@ -71,8 +71,6 @@ A rule must meet the [criteria](../developer-guide/rules.md) set out in the deve
 
 For example, we've found that rules to enforce property order, property groupings, etc., work better as plugins, because there are so many different opinions about what to enforce, and how. When you write or use a plugin, you can make sure to enforce your own particular preferences, exactly; but a rule that tries to address too many divergent use-cases becomes a mess.
 
-Plugins are easy to incorporate into your configuration.
-
 ## Can I customise stylelint's messages?
 
 Yes, you can either use the [`message` secondary option](configuration.md#custom-messages) or [write your own formatter](../developer-guide/formatters.md).
