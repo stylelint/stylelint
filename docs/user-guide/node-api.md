@@ -1,4 +1,4 @@
-# The stylelint Node.js API
+# Node.js API
 
 The stylelint module includes a `lint()` function that provides the Node.js API.
 
