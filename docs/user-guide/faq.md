@@ -1,7 +1,5 @@
 # FAQ
 
-<!-- TOC -->
-
 ## How do I turn off, disable or ignore a rule?
 
 You can turn off a rule by setting its config value to `null`.

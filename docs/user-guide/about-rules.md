@@ -4,8 +4,6 @@ We have taken great care to consistently name rules.
 
 The rules have been designed to work together to enforce strict conventions.
 
-<!-- TOC -->
-
 ## About rule names
 
 Rule names are:

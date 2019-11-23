@@ -2,8 +2,6 @@
 
 Please help us create, enhance, and debug stylelint rules!
 
-<!-- TOC -->
-
 ## Creating a new rule
 
 First, open [an issue](https://github.com/stylelint/stylelint/issues/new) with your idea for the new rule.

@@ -4,8 +4,6 @@ As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), 
 
 *However, if a dedicated stylelint task runner plugin [is available](complementary-tools.md) (e.g. [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) or [grunt-stylelint](https://github.com/wikimedia/grunt-stylelint)) we recommend you use that rather than this plugin, as they provide better reporting.*
 
-<!-- TOC -->
-
 ## Installation
 
 stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install it using:
