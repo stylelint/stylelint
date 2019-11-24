@@ -8,24 +8,35 @@ We recommend familiarising yourself and adhering to stylelint's [conventions for
 
 ```js
 // Abbreviated example
-var stylelint = require("stylelint")
+const stylelint = require('stylelint');
 
-var ruleName = "plugin/foo-bar"
-var messages =  stylelint.utils.ruleMessages(ruleName, {
-  expected: "Expected ...",
-})
+const ruleName = 'plugin/foo-bar';
+const messages = stylelint.utils.ruleMessages(ruleName, {
+    expected: 'Expected ...',
+});
 
-module.exports = stylelint.createPlugin(ruleName, function(primaryOption, secondaryOptionObject) {
-  return function(postcssRoot, postcssResult) {
-    var validOptions = stylelint.utils.validateOptions(postcssResult, ruleName, { .. })
-    if (!validOptions) { return }
-    // ... some logic ...
-    stylelint.utils.report({ .. })
-  }
-})
+module.exports = stylelint.createPlugin(ruleName, function(
+    primaryOption,
+    secondaryOptionObject
+) {
+    return function(postcssRoot, postcssResult) {
+        const validOptions = stylelint.utils.validateOptions(
+            postcssResult,
+            ruleName,
+            { /* .. */ }
+        );
 
-module.exports.ruleName = ruleName
-module.exports.messages = messages
+        if (!validOptions) {
+            return;
+        }
+
+        // ... some logic ...
+        stylelint.utils.report({ /* .. */ });
+    };
+});
+
+module.exports.ruleName = ruleName;
+module.exports.messages = messages;
 ```
 
 Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`. If your plugin provides only a single rule or you can't think of a good namespace, you can use `plugin/my-rule`. This namespace ensures that plugin rules will never clash with core rules. *Make sure you document your plugin's rule name (and namespace) for users, because they will need to use it in their config.*
@@ -44,31 +55,41 @@ Rules with asynchronous PostCSS plugins are also possible! All you need to do is
 
 ```js
 // Abbreviated asynchronous example
-var stylelint = require("stylelint")
+const stylelint = require('stylelint');
 
-var ruleName = "plugin/foo-bar-async"
-var messages =  stylelint.utils.ruleMessages(ruleName, {
-  expected: "Expected ...",
-})
+const ruleName = 'plugin/foo-bar-async';
+const messages = stylelint.utils.ruleMessages(ruleName, {
+    expected: 'Expected ...',
+});
 
-module.exports = stylelint.createPlugin(ruleName, function(primaryOption, secondaryOptionObject) {
-  return function(postcssRoot, postcssResult) {
-    var validOptions = stylelint.utils.validateOptions(postcssResult, ruleName, { .. })
-    if (!validOptions) { return }
+module.exports = stylelint.createPlugin(ruleName, function(
+    primaryOption,
+    secondaryOptionObject
+) {
+    return function(postcssRoot, postcssResult) {
+        const validOptions = stylelint.utils.validateOptions(
+            postcssResult,
+            ruleName,
+            { /* .. */ }
+        );
 
-    return new Promise(function(resolve) {
-      // some async operation
-      setTimeout(function() {
-        // ... some logic ...
-        stylelint.utils.report({ .. })
-        resolve()
-      }, 1)
-    })
-  }
-})
+        if (!validOptions) {
+            return;
+        }
 
-module.exports.ruleName = ruleName
-module.exports.messages = messages
+        return new Promise(function(resolve) {
+            // some async operation
+            setTimeout(function() {
+                // ... some logic ...
+                stylelint.utils.report({ /* .. */ });
+                resolve();
+            }, 1);
+        });
+    };
+});
+
+module.exports.ruleName = ruleName;
+module.exports.messages = messages;
 ```
 
 ## `stylelint.utils`
@@ -104,29 +125,32 @@ Use the warning to create a *new* warning *from your plugin rule* that you repor
 For example, imagine you want to create a plugin that runs `at-rule-no-unknown` with a built-in list of exceptions for at-rules provided by your preprocessor-of-choice:
 
 ```js
-const allowableAtRules = [..]
+const allowableAtRules = [ /* .. */ ];
 
-function myPluginRule(primaryOption, secondaryOptions) {
-  return (root, result) => {
-    const defaultedOptions = Object.assign({}, secondaryOptions, {
-      ignoreAtRules: allowableAtRules.concat(options.ignoreAtRules || []),
-    })
+function myPluginRule(primaryOption, secondaryOptionObject) {
+    return function(postcssRoot, postcssResult) {
+        const defaultedOptions = Object.assign({}, secondaryOptionObject, {
+            ignoreAtRules: allowableAtRules.concat(options.ignoreAtRules || []),
+        });
 
-    stylelint.utils.checkAgainstRule({
-      ruleName: 'at-rule-no-unknown',
-      ruleSettings: [primaryOption, defaultedOptions],
-      root: root
-    }, (warning) => {
-      stylelint.utils.report({
-        message: myMessage,
-        ruleName: myRuleName,
-        result: result,
-        node: warning.node,
-        line: warning.line,
-        column: warning.column,
-      })
-    })
-  }
+        stylelint.utils.checkAgainstRule(
+            {
+                ruleName: 'at-rule-no-unknown',
+                ruleSettings: [primaryOption, defaultedOptions],
+                root: postcssRoot,
+            },
+            (warning) => {
+                stylelint.utils.report({
+                    message: myMessage,
+                    ruleName: myRuleName,
+                    result: postcssResult,
+                    node: warning.node,
+                    line: warning.line,
+                    column: warning.column,
+                });
+            }
+        );
+    };
 }
 ```
 
@@ -141,13 +165,17 @@ All rules share a common signature. They are a function that accepts two argumen
 Here's an example of a plugin that runs `color-hex-case` only if there is a special directive `@@check-color-hex-case` somewhere in the stylesheet:
 
 ```js
-export default stylelint.createPlugin(ruleName, function (expectation) {
-  const runColorHexCase = stylelint.rules["color-hex-case"](expectation)
-  return (root, result) => {
-    if (root.toString().indexOf("@@check-color-hex-case") === -1) return
-    runColorHexCase(root, result)
-  }
-})
+module.exports = stylelint.createPlugin(ruleName, function(expectation) {
+    const runColorHexCase = stylelint.rules['color-hex-case'](expectation);
+
+    return (root, result) => {
+        if (root.toString().indexOf('@@check-color-hex-case') === -1) {
+            return;
+        }
+
+        runColorHexCase(root, result);
+    };
+});
 ```
 
 ## Allow primary option arrays
