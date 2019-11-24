@@ -44,11 +44,15 @@ If your rule can accept an array as its primary option, you must designate this 
 
 ```js
 function rule(primary, secondary) {
-  return (root, result) => {..}
+    return (root, result) => { /* .. */ };
 }
-rule.primaryOptionArray = true
-export default rule
-// or, for plugins: stylelint.createPlugin(ruleName, rule)
+
+rule.primaryOptionArray = true;
+
+module.exports = rule;
+
+// or, for plugins:
+// module.exports = stylelint.createPlugin(ruleName, rule);
 ```
 
 There is one caveat here: If your rule accepts a primary option array, it cannot also accept a primary option object. Whenever possible, if you want your rule to accept a primary option array, you should just make an array the only possibility, instead of allowing for various data structures.
@@ -108,7 +112,7 @@ Add `context` variable to rule parameters:
 
 ```js
 function rule(primary, secondary, context) {
-  return (root, result) => {..}
+    return (root, result) => { /* .. */ };
 }
 ```
 
@@ -121,11 +125,11 @@ If `context.fix` is `true`, then change `root` using PostCSS API and return earl
 
 ```js
 if (context.fix) {
-  // Apply fixes using PostCSS API
-  return // Return and don't report a problem
+    // Apply fixes using PostCSS API
+    return; // Return and don't report a problem
 }
 
-report(...)
+report(...);
 ```
 
 ### Write tests
