@@ -51,7 +51,7 @@ export default rule
 // or, for plugins: stylelint.createPlugin(ruleName, rule)
 ```
 
-There is one caveat here: If your rule accepts a primary option array, it cannot also accept a primary option object. Whenever possible, if you want your rule to accept a primary option array, you should just make an array the only possibility, instead of allowing for various data structures.
+There is one caveat here: If your rule accepts a primary option array, it cannot also accept a primary option object. Whenever possible, if you want your rule to accept a primary option array, you should make an array the only possibility, instead of allowing for various data structures.
 
 #### Secondary
 
@@ -68,7 +68,7 @@ A rule's secondary option can be anything if you're not ignoring or making excep
 
 `"ignore"` and `"except"` accept an array of predefined keyword options e.g. `["relative", "first-nested", "descendant"]`.
 
--   Use `"ignore"` when you want the rule to simply skip-over a particular pattern.
+-   Use `"ignore"` when you want the rule to skip-over a particular pattern.
 -   Use `"except"` when you want to invert the primary option for a particular pattern.
 
 ##### User-defined `"ignore*"`
@@ -88,7 +88,7 @@ Look at the messages of other rules to glean more conventions and patterns.
 
 *When writing the rule, always look to other similar rules for conventions and patterns to start from and mimic.*
 
-You will use the simple [PostCSS API](https://api.postcss.org/) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes.
+You will use the [PostCSS API](https://api.postcss.org/) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes.
 
 Depending on the rule, we also recommend using [postcss-value-parser](https://github.com/TrySound/postcss-value-parser) and [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser). There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
@@ -135,7 +135,7 @@ Each rule must be accompanied by tests that contain:
 -   All patterns that are considered violations.
 -   All patterns that should *not* be considered violations.
 
-It is easy to write stylelint tests, so *write as many as you can stand to*.
+Write as many as you can stand to.
 
 #### Checklist
 
@@ -248,7 +248,7 @@ Once we've agreed on the direction, you can work on a pull request. Here are the
 
 ## Fixing a bug in an existing rule
 
-Fixing bugs is usually very easy. Here is a process that works:
+Here is a process that usually works:
 
 1.  Run `npm run watch` to start the interactive testing prompt.
 2.  Use the `p` command to filter the active tests to just the rule you're working on.
@@ -266,7 +266,7 @@ Deprecating rules doesn't happen very often. However, these two steps are import
 
 ## Improving the performance of a rule
 
-There's a simple way to run benchmarks on any given rule with any valid config for it:
+There's a way to run benchmarks on any given rule with any valid config for it:
 
 ```shell
 npm run benchmark-rule -- ruleName ruleOptions [ruleContext]

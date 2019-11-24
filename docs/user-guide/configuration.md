@@ -234,7 +234,7 @@ Once the plugin is declared, within your `"rules"` object *you'll need to add op
 }
 ```
 
-A "plugin" can provide a single rule or a set of rules. If the plugin you use provides a set, just invoke the module in your `"plugins"` configuration value, and use the rules it provides in `"rules"`. For example:
+A "plugin" can provide a single rule or a set of rules. If the plugin you use provides a set, invoke the module in your `"plugins"` configuration value, and use the rules it provides in `"rules"`. For example:
 
 ```json
 {
