@@ -4,8 +4,6 @@ Plugins are rules and sets of rules built by the community.
 
 We recommend familiarising yourself and adhering to stylelint's [conventions for writing rules](rules.md), including those for names, options, messages, tests and docs.
 
-<!-- TOC -->
-
 ## The anatomy of a plugin
 
 ```js

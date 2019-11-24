@@ -7,8 +7,6 @@ stylelint.lint(options)
   .then(function(resultObject) { .. });
 ```
 
-<!-- TOC -->
-
 ## Installation
 
 stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install it using:

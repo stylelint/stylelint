@@ -2,8 +2,6 @@
 
 The linter *expects a configuration object*. You can either craft your own config or extend an existing one.
 
-<!-- TOC -->
-
 ## Loading the configuration object
 
 Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig). Starting from the current working directory, it will look for the following possible sources, in this order:
