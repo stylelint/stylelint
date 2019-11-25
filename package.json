@@ -37,6 +37,7 @@
     "lib",
     "VISION.md",
     "!**/__tests__",
+    "!lib/testUtils",
     "flow-typed",
     "!flow-typed/npm"
   ],
