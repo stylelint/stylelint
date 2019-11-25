@@ -46,7 +46,7 @@ describe('outputFile', () => {
 
 		childProcess.stdout.on('data', (data) => (stdout += data));
 
-		childProcess.on('close', function() {
+		childProcess.on('close', () => {
 			return readFileAsync(directionPath, 'utf-8').then((content) => {
 				expect(content).toEqual(systemTestUtils.stripColors(stdout));
 				expect(content.replace('×', '✖')).toMatchSnapshot();
