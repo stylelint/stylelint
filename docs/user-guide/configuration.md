@@ -2,8 +2,6 @@
 
 The linter *expects a configuration object*. You can either craft your own config or extend an existing one.
 
-<!-- TOC -->
-
 ## Loading the configuration object
 
 Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig). Starting from the current working directory, it will look for the following possible sources, in this order:
@@ -234,7 +232,7 @@ Once the plugin is declared, within your `"rules"` object *you'll need to add op
 }
 ```
 
-A "plugin" can provide a single rule or a set of rules. If the plugin you use provides a set, just invoke the module in your `"plugins"` configuration value, and use the rules it provides in `"rules"`. For example:
+A "plugin" can provide a single rule or a set of rules. If the plugin you use provides a set, invoke the module in your `"plugins"` configuration value, and use the rules it provides in `"rules"`. For example:
 
 ```json
 {

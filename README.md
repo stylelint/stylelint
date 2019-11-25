@@ -25,8 +25,6 @@ It's mighty because it:
 
 ## Getting started
 
-It's easy to get started.
-
 First, decide how you want to use stylelint:
 
 -   [on the command line](docs/user-guide/cli.md)

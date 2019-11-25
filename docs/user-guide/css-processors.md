@@ -30,16 +30,15 @@ stylelint can also accept a custom [PostCSS-compatible syntax](https://github.co
 If you're using the linter as a [PostCSS Plugin](postcss-plugin.md), you should use the special `postcss-syntax` directly with PostCSS's `syntax` option like so:
 
 ```js
-var postcss = require("postcss")
-var syntax = require("postcss-syntax")
+const postcss = require('postcss');
+const syntax = require('postcss-syntax');
 
 postcss([
-  require("stylelint"),
-  require("reporter")
+  require('stylelint'),
+  require('reporter'),
 ])
   .process(css, {
-    from: "lib/app.css",
-    syntax: syntax
-  })
-})
+      from: 'lib/app.css',
+      syntax: syntax,
+  });
 ```

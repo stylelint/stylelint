@@ -1,10 +1,8 @@
-# The stylelint PostCSS plugin
+# PostCSS plugin
 
 As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a [PostCSS runner](https://github.com/postcss/postcss#runners) or with the PostCSS JS API directly.
 
 *However, if a dedicated stylelint task runner plugin [is available](complementary-tools.md) (e.g. [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) or [grunt-stylelint](https://github.com/wikimedia/grunt-stylelint)) we recommend you use that rather than this plugin, as they provide better reporting.*
-
-<!-- TOC -->
 
 ## Installation
 
@@ -72,23 +70,25 @@ A separate lint task that uses the plugin via the PostCSS JS API to lint Less us
 *Note: the stylelint PostCSS plugin, unlike the stylelint CLI and Node.js API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.*
 
 ```js
-var fs = require("fs")
-var less = require("postcss-less")
-var postcss = require("postcss")
+const fs = require('fs');
+const less = require('postcss-less');
+const postcss = require('postcss');
 
 // CSS to be processed
-var css = fs.readFileSync("input.css", "utf8")
+const css = fs.readFileSync('input.css', 'utf8');
 
 postcss([
-  require("stylelint")({ /* your options */ }),
-  require("postcss-reporter")({ clearReportedMessages: true })
+    require('stylelint')({
+        /* your options */
+    }),
+    require('postcss-reporter')({ clearReportedMessages: true }),
 ])
-  .process(css, {
-    from: "input.css",
-    syntax: less
-  })
-  .then()
-  .catch(err => console.error(err.stack))
+    .process(css, {
+        from: 'input.css',
+        syntax: less,
+    })
+    .then(() => {})
+    .catch((err) => console.error(err.stack));
 ```
 
 The same pattern can be used to lint Less, SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.
@@ -98,28 +98,34 @@ The same pattern can be used to lint Less, SCSS or [SugarSS](https://github.com/
 A combined lint and build task where the plugin is used via the PostCSS JS API, but within [`postcss-import`](https://github.com/postcss/postcss-import) (using the its `plugins` option) so that the source files are linted before any transformations.
 
 ```js
-var fs = require("fs")
-var postcss = require("postcss")
-var stylelint = require("stylelint")
+const fs = require('fs');
+const postcss = require('postcss');
+const stylelint = require('stylelint');
 
 // CSS to be processed
-var css = fs.readFileSync("lib/app.css", "utf8")
+const css = fs.readFileSync('lib/app.css', 'utf8');
 
-postcss(
-  [
-    require("postcss-import")({
-      plugins: [
-        require("stylelint")({ /* your options */ })
-      ]
+postcss([
+    require('postcss-import')({
+        plugins: [
+            require('stylelint')({
+                /* your options */
+            }),
+        ],
     }),
-    require("postcss-cssnext"),
-    require("postcss-reporter")({ clearReportedMessages: true })
-  ]
-)
-  .process(css, { from: 'lib/app.css', to: 'app.css' })
-  .then(function (result) {
-    fs.writeFileSync('app.css', result.css);
-    if ( result.map ) fs.writeFileSync('app.css.map', result.map);
-  })
-  .catch(err => console.error(err.stack))
+    require('postcss-cssnext'),
+    require('postcss-reporter')({ clearReportedMessages: true }),
+])
+    .process(css, {
+        from: 'lib/app.css',
+        to: 'app.css',
+    })
+    .then((result) => {
+        fs.writeFileSync('app.css', result.css);
+
+        if (result.map) {
+            fs.writeFileSync('app.css.map', result.map);
+        }
+    })
+    .catch((err) => console.error(err.stack));
 ```
