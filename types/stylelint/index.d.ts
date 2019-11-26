@@ -26,7 +26,8 @@ declare module 'stylelint' {
 		codeProcessors?: Array<Function>,
 		resultProcessors?: Array<Function>,
 		quiet?: boolean,
-		defaultSeverity?: string
+		defaultSeverity?: string,
+		fix?: boolean,
 	};
 
 	export type CosmiconfigResult = { config: StylelintConfig, filepath: string };
@@ -49,7 +50,8 @@ declare module 'stylelint' {
 		disabledRanges: DisabledRangeObject,
 		ignored?: boolean,
 		ignoreDisables?: boolean,
-		stylelintError?: boolean
+		stylelintError?: boolean,
+		fix?: boolean,
 	};
 
 	export type PostcssResult = Result & {
