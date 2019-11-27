@@ -1,3 +1,2 @@
 .coverage
-flow-typed
 lib/utils/parseCalcExpression/parser.js

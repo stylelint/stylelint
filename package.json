@@ -37,9 +37,7 @@
     "lib",
     "VISION.md",
     "!**/__tests__",
-    "!lib/testUtils",
-    "flow-typed",
-    "!flow-typed/npm"
+    "!lib/testUtils"
   ],
   "engines": {
     "node": ">=8.7.0"
@@ -110,8 +108,6 @@
     "eslint": "~6.6.0",
     "eslint-config-stylelint": "~11.1.0",
     "file-exists-promise": "^1.0.2",
-    "flow-bin": "^0.100.0",
-    "flow-typed": "^2.6.2",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
     "jest-watch-typeahead": "^0.4.2",
@@ -130,15 +126,13 @@
   },
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
-    "flow": "flow",
-    "flow-defs": "./node_modules/.bin/flow-typed install jest@24 lodash@4",
     "jest": "jest",
     "jest:detectleaks": "jest --detectLeaks",
     "lint:js": "eslint . --cache --max-warnings=0",
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc",
     "lint": "npm-run-all --parallel lint:*",
-    "pretest": "npm-run-all --serial lint flow prettier:check",
+    "pretest": "npm-run-all --serial lint prettier:check",
     "prettier:check": "prettier \"**/*.js\" --check",
     "prettier:fix": "prettier \"**/*.js\" --write",
     "release": "np",
