@@ -24,7 +24,8 @@ export type stylelint$config = {
   codeProcessors?: Array<Function>,
   resultProcessors?: Array<Function>,
   quiet?: boolean,
-  defaultSeverity?: string
+  defaultSeverity?: string,
+  fix?: boolean
 };
 
 export type stylelint$syntaxes = "scss" | "less" | "sugarss";
