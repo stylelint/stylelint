@@ -4,6 +4,7 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+-   Removed: types declarations for Flow ([#4451](https://github.com/stylelint/stylelint/pull/4451)).
 -   Added: `unit-no-unknown` support for `x` unit ([#4427](https://github.com/stylelint/stylelint/pull/4427)).
 
 ## 12.0.0
