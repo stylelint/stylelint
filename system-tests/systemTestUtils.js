@@ -11,9 +11,7 @@ function caseStylesheetGlob(caseNumber) {
 	return caseFilePath(caseNumber, 'stylesheet.*');
 }
 
-function caseConfig(caseNumber, ext) {
-	ext = ext || 'json';
-
+function caseConfig(caseNumber, ext = 'json') {
 	return caseFilePath(caseNumber, `config.${ext}`);
 }
 
