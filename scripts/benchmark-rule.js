@@ -43,7 +43,7 @@ const primary = ruleSettings[0];
 const secondary = ruleSettings[1] || null;
 const context = ruleContext ? JSON.parse(ruleContext) : {};
 
-const rule = ruleFunc.apply(null, [primary, secondary, context]);
+const rule = ruleFunc(...[primary, secondary, context]);
 
 const processor = postcss().use(rule);
 
