@@ -12,8 +12,8 @@ describe('CLI', () => {
 	let logRestore;
 
 	beforeAll(() => {
-		processRestore = Object.assign({}, process);
-		logRestore = Object.assign({}, console);
+		processRestore = { ...process };
+		logRestore = { ...console };
 		process.exit = (exitCode) => (process.exitCode = exitCode);
 	});
 
