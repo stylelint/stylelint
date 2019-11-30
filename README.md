@@ -14,7 +14,7 @@ It's mighty because it:
 -   has over **170 built-in rules** to catch errors, apply limits and enforce stylistic conventions
 -   supports **plugins** so you can create your own rules or make use of plugins written by the community
 -   automatically **fixes** some violations (*experimental feature*)
--   is **well tested** with over 10000 unit tests
+-   is **well tested** with over 15000 unit tests
 -   supports **shareable configs** that you can extend or create your own of
 -   is **unopinionated** so you can tailor the linter to your exact needs
 -   has a **growing community** and is used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [GitHub](https://github.com/primer/stylelint-config-primer) and [WordPress](https://github.com/ntwb/stylelint-config-wordpress/)
