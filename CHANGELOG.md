@@ -10,6 +10,10 @@ All notable changes to this project are documented in this file.
 -   Fixed: `value-list-comma-newline-after` false positives for shared-line comments ([#4482](https://github.com/stylelint/stylelint/pull/4482)).
 -   Fixed: consistently check that selectors are standard before passing to the parser ([#4483](https://github.com/stylelint/stylelint/pull/4483)).
 
+## 12.0.1
+
+-   Fixed: `string-no-newline` memory leak for ERB templates ([#4491](https://github.com/stylelint/stylelint/pull/4491)).
+
 ## 12.0.0
 
 -   Removed: ignoring `bower_components` folder by default ([#4384](https://github.com/stylelint/stylelint/pull/4384)).
