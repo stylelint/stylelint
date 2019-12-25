@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## 12.0.1
+
+-   Fixed: `string-no-newline` memory leak for ERB templates ([#4491](https://github.com/stylelint/stylelint/pull/4491)).
+
 ## 12.0.0
 
 -   Removed: ignoring `bower_components` folder by default ([#4384](https://github.com/stylelint/stylelint/pull/4384)).
