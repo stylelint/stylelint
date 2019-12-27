@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 -   Removed: types declarations for Flow ([#4451](https://github.com/stylelint/stylelint/pull/4451)).
+-   Fixed: `selector-type-no-unknown` false positives for SVG tags ([#4495](https://github.com/stylelint/stylelint/pull/4495)).
 -   Added: `unit-no-unknown` support for `x` unit ([#4427](https://github.com/stylelint/stylelint/pull/4427)).
 -   Fixed: `unit-no-unknown` false positives for Sass map keys ([#4450](https://github.com/stylelint/stylelint/pull/4450)).
 -   Fixed: `value-list-comma-newline-after` false positives for shared-line comments ([#4482](https://github.com/stylelint/stylelint/pull/4482)).
