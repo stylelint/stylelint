@@ -1,7 +1,6 @@
 'use strict';
 
 const _ = require('lodash');
-const cpFile = require('cp-file');
 const del = require('del');
 const fs = require('fs');
 const os = require('os');
@@ -9,6 +8,8 @@ const path = require('path');
 const stylelint = require('../../lib');
 const systemTestUtils = require('../systemTestUtils');
 const { promisify } = require('util');
+
+const copyFile = promisify(fs.copyFile);
 const readFileAsync = promisify(fs.readFile);
 
 describe('fix', () => {
@@ -19,7 +20,7 @@ describe('fix', () => {
 		tmpDir = os.tmpdir();
 		stylesheetPath = path.join(tmpDir, `stylesheet-${_.uniqueId()}.css`);
 
-		return cpFile(path.join(__dirname, 'stylesheet.css'), stylesheetPath);
+		return copyFile(path.join(__dirname, 'stylesheet.css'), stylesheetPath);
 	});
 
 	afterEach(() => {
@@ -141,7 +142,7 @@ describe('fix with BOM', () => {
 		tmpDir = os.tmpdir();
 		stylesheetPath = path.join(tmpDir, `stylesheet-with-bom.css`);
 
-		return cpFile(path.join(__dirname, 'stylesheet.css'), stylesheetPath);
+		return copyFile(path.join(__dirname, 'stylesheet.css'), stylesheetPath);
 	});
 
 	afterEach(() => {
