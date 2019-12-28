@@ -176,6 +176,8 @@
       "no-lonely-if": "error",
       "no-mixed-spaces-and-tabs": "off",
       "no-unneeded-ternary": "error",
+      "no-useless-return": "error",
+      "operator-assignment": "error",
       "prefer-object-spread": "error",
       "prefer-regex-literals": "error",
       "prefer-rest-params": "error",
