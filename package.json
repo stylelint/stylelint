@@ -40,7 +40,7 @@
     "!lib/testUtils"
   ],
   "engines": {
-    "node": ">=8.7.0"
+    "node": ">=10"
   },
   "dependencies": {
     "autoprefixer": "^9.7.2",
