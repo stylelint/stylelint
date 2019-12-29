@@ -177,6 +177,12 @@
       "no-mixed-spaces-and-tabs": "off",
       "no-unneeded-ternary": "error",
       "no-useless-return": "error",
+      "no-unused-vars": [
+        "error",
+        {
+          "ignoreRestSiblings": true
+        }
+      ],
       "operator-assignment": "error",
       "prefer-object-spread": "error",
       "prefer-regex-literals": "error",
