@@ -162,7 +162,32 @@
       "testRule": true
     },
     "rules": {
-      "no-mixed-spaces-and-tabs": 0
+      "array-callback-return": "error",
+      "dot-notation": "error",
+      "func-name-matching": "error",
+      "guard-for-in": "error",
+      "no-else-return": [
+        "error",
+        {
+          "allowElseIf": false
+        }
+      ],
+      "no-implicit-coercion": "error",
+      "no-lonely-if": "error",
+      "no-mixed-spaces-and-tabs": "off",
+      "no-unneeded-ternary": "error",
+      "no-useless-return": "error",
+      "no-unused-vars": [
+        "error",
+        {
+          "ignoreRestSiblings": true
+        }
+      ],
+      "operator-assignment": "error",
+      "prefer-object-spread": "error",
+      "prefer-regex-literals": "error",
+      "prefer-rest-params": "error",
+      "prefer-spread": "error"
     }
   },
   "jest": {
