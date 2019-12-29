@@ -187,7 +187,8 @@
       "prefer-object-spread": "error",
       "prefer-regex-literals": "error",
       "prefer-rest-params": "error",
-      "prefer-spread": "error"
+      "prefer-spread": "error",
+      "prefer-template": "error"
     }
   },
   "jest": {
