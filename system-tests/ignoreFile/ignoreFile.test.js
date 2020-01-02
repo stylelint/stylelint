@@ -1,4 +1,3 @@
-/* @flow */
 'use strict';
 
 const stylelint = require('../../lib');

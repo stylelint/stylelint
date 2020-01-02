@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "12.0.0",
+  "version": "12.0.1",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css",
@@ -37,15 +37,13 @@
     "lib",
     "VISION.md",
     "!**/__tests__",
-    "!lib/testUtils",
-    "flow-typed",
-    "!flow-typed/npm"
+    "!lib/testUtils"
   ],
   "engines": {
     "node": ">=8.7.0"
   },
   "dependencies": {
-    "autoprefixer": "^9.7.1",
+    "autoprefixer": "^9.7.2",
     "balanced-match": "^1.0.0",
     "chalk": "^3.0.0",
     "cosmiconfig": "^6.0.0",
@@ -68,7 +66,7 @@
     "meow": "^5.0.0",
     "micromatch": "^4.0.2",
     "normalize-selector": "^0.2.0",
-    "postcss": "^7.0.21",
+    "postcss": "^7.0.23",
     "postcss-html": "^0.36.0",
     "postcss-jsx": "^0.36.3",
     "postcss-less": "^3.1.4",
@@ -95,49 +93,43 @@
     "write-file-atomic": "^3.0.1"
   },
   "devDependencies": {
-    "@types/cosmiconfig": "^5.0.3",
+    "@types/browserslist": "^4.4.0",
     "@types/debug": "^4.1.5",
     "@types/global-modules": "^2.0.0",
     "@types/globjoin": "^0.1.0",
-    "@types/lodash": "^4.14.146",
+    "@types/lodash": "^4.14.149",
     "@types/meow": "^5.0.0",
-    "@types/micromatch": "^3.1.0",
+    "@types/micromatch": "^3.1.1",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
-    "cp-file": "^7.0.0",
     "del": "^5.1.0",
-    "eslint": "~6.6.0",
-    "eslint-config-stylelint": "~11.1.0",
-    "file-exists-promise": "^1.0.2",
-    "flow-bin": "^0.100.0",
-    "flow-typed": "^2.6.2",
-    "husky": "^3.0.9",
+    "eslint": "^6.7.1",
+    "eslint-config-stylelint": "^11.1.0",
+    "got": "^10.2.0",
+    "husky": "^3.1.0",
     "jest": "^24.9.0",
     "jest-watch-typeahead": "^0.4.2",
-    "lint-staged": "^9.4.2",
+    "lint-staged": "^9.5.0",
     "np": "^5.1.3",
     "npm-run-all": "^4.1.5",
     "postcss-import": "^12.0.1",
-    "prettier": "~1.19.1",
+    "prettier": "^1.19.1",
     "remark-cli": "^7.0.1",
     "remark-lint-no-missing-blank-lines": "^1.0.3",
     "remark-preset-lint-consistent": "^2.0.3",
     "remark-preset-lint-recommended": "^3.0.3",
     "remark-validate-links": "^9.0.1",
-    "request": "^2.88.0",
     "typescript": "^3.6.4"
   },
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
-    "flow": "flow",
-    "flow-defs": "./node_modules/.bin/flow-typed install jest@24 lodash@4",
     "jest": "jest",
     "jest:detectleaks": "jest --detectLeaks",
     "lint:js": "eslint . --cache --max-warnings=0",
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc",
     "lint": "npm-run-all --parallel lint:*",
-    "pretest": "npm-run-all --serial lint flow prettier:check",
+    "pretest": "npm-run-all --serial lint prettier:check",
     "prettier:check": "prettier \"**/*.js\" --check",
     "prettier:fix": "prettier \"**/*.js\" --write",
     "release": "np",
@@ -170,7 +162,33 @@
       "testRule": true
     },
     "rules": {
-      "no-mixed-spaces-and-tabs": 0
+      "array-callback-return": "error",
+      "dot-notation": "error",
+      "func-name-matching": "error",
+      "guard-for-in": "error",
+      "no-else-return": [
+        "error",
+        {
+          "allowElseIf": false
+        }
+      ],
+      "no-implicit-coercion": "error",
+      "no-lonely-if": "error",
+      "no-mixed-spaces-and-tabs": "off",
+      "no-unneeded-ternary": "error",
+      "no-useless-return": "error",
+      "no-unused-vars": [
+        "error",
+        {
+          "ignoreRestSiblings": true
+        }
+      ],
+      "operator-assignment": "error",
+      "prefer-object-spread": "error",
+      "prefer-regex-literals": "error",
+      "prefer-rest-params": "error",
+      "prefer-spread": "error",
+      "prefer-template": "error"
     }
   },
   "jest": {
