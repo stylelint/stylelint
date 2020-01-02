@@ -39,9 +39,6 @@
     "!**/__tests__",
     "!lib/testUtils"
   ],
-  "engines": {
-    "node": ">=10"
-  },
   "dependencies": {
     "autoprefixer": "^9.7.2",
     "balanced-match": "^1.0.0",
