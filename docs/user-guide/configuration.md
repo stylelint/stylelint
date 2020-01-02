@@ -2,8 +2,6 @@
 
 The linter *expects a configuration object*. You can either craft your own config or extend an existing one.
 
-<!-- TOC -->
-
 ## Loading the configuration object
 
 Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig). Starting from the current working directory, it will look for the following possible sources, in this order:
@@ -56,6 +54,16 @@ The `rules` property is *an object whose keys are rule names and values are rule
 
 Specifying a primary option will turn a rule on. A complete list of primary rule options can be found in the [example configuration](example-config.md).
 
+Many rules have secondary options which provide further customization. To set secondary options, a two-member array is used:
+
+```js
+"selector-pseudo-class-no-unknown": [true, {
+  "ignorePseudoClasses": ["global"]
+}]
+```
+
+#### Turning rules off
+
 To turn a rule off (when extending a configuration) you can set the value of the rule to `null`:
 
 ```json
@@ -67,15 +75,7 @@ To turn a rule off (when extending a configuration) you can set the value of the
 }
 ```
 
-Many rules have secondary options which provide further customization. To set secondary options, a two-member array is used:
-
-```js
-"selector-pseudo-class-no-unknown": [true, {
-  "ignorePseudoClasses": ["global"]
-}]
-```
-
-#### Turning rules off from within your CSS
+##### Turning rules off from within your CSS
 
 Rules can be temporarily turned off by using special comments in your CSS. For example, you can either turn all the rules off:
 
@@ -232,7 +232,7 @@ Once the plugin is declared, within your `"rules"` object *you'll need to add op
 }
 ```
 
-A "plugin" can provide a single rule or a set of rules. If the plugin you use provides a set, just invoke the module in your `"plugins"` configuration value, and use the rules it provides in `"rules"`. For example:
+A "plugin" can provide a single rule or a set of rules. If the plugin you use provides a set, invoke the module in your `"plugins"` configuration value, and use the rules it provides in `"rules"`. For example:
 
 ```json
 {
@@ -288,7 +288,7 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 -   the config's filepath, if the config is a file that stylelint found a loaded;
 -   or `process.cwd()`.
 
-By default, all `node_modules` and `bower_components` are ignored. Default values will be overridden if `ignoreFiles` is set.
+By default, all `node_modules` are ignored. Default values will be overridden if `ignoreFiles` is set.
 
 The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
 

@@ -2,6 +2,33 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+-   Added: `unit-no-unknown` support for `x` unit ([#4427](https://github.com/stylelint/stylelint/pull/4427)).
+
+## 12.0.0
+
+-   Removed: ignoring `bower_components` folder by default ([#4384](https://github.com/stylelint/stylelint/pull/4384)).
+-   Removed: `createRuleTester` API ([#4385](https://github.com/stylelint/stylelint/pull/4385)).
+-   Added: more information for custom formatters ([#4393](https://github.com/stylelint/stylelint/pull/4393)).
+-   Fixed: `comment-empty-line-before` false positives for selector lists and shared-line comments ([#4360](https://github.com/stylelint/stylelint/pull/4360)).
+-   Fixed: `font-family-no-missing-generic-family-keyword` false positives for Sass-variables with namespaces ([#4378](https://github.com/stylelint/stylelint/pull/4378)).
+-   Fixed: `font-weight-notation` false positives for `font-weight` ranges in `@font-face` ([#4372](https://github.com/stylelint/stylelint/pull/4372)).
+-   Fixed: `length-zero-no-unit` false positives for `line-height`, and for `fr` units ([#4394](https://github.com/stylelint/stylelint/pull/4394)).
+-   Fixed: `length-zero-no-unit` false positives for Less variables ([#4405](https://github.com/stylelint/stylelint/pull/4405)).
+-   Fixed: `selector-max-*` false negatives for rules with nested rules ([#4357](https://github.com/stylelint/stylelint/pull/4357)).
+-   Fixed: incorrect error message when parsing files with a broken syntax ([#4364](https://github.com/stylelint/stylelint/pull/4364)).
+
+## 11.1.1
+
+-   Fixed: syntax configuration for `--syntax css` ([#4335](https://github.com/stylelint/stylelint/pull/4335)).
+
+## 11.1.0
+
+-   Added: `css` syntax option ([#4315](https://github.com/stylelint/stylelint/pull/4315)).
+-   Fixed: `no-eol-whitespace` parsing problems for non-standard syntaxes ([#4313](https://github.com/stylelint/stylelint/pull/4313)).
+-   Fixed: `selector-pseudo-class-no-unknown` false positives for `:is` selector ([#4321](https://github.com/stylelint/stylelint/pull/4321)).
+
 ## 11.0.0
 
 -   Changed: `--report-needless-disables` CLI flag now reports needless disables and runs linting ([#4151](https://github.com/stylelint/stylelint/pull/4151)).

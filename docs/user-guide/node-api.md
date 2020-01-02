@@ -1,13 +1,11 @@
-# The stylelint Node.js API
+# Node.js API
 
 The stylelint module includes a `lint()` function that provides the Node.js API.
 
 ```js
 stylelint.lint(options)
-  .then(function(resultObject) { .. });
+    .then(function(resultObject) { /* .. */ });
 ```
-
-<!-- TOC -->
 
 ## Installation
 
@@ -66,7 +64,7 @@ A file glob, or array of file globs. Ultimately passed to [globby](https://githu
 
 Relative globs are considered relative to `globbyOptions.cwd`.
 
-By default, all `node_modules` and `bower_components` are ignored.
+By default, all `node_modules` are ignored.
 
 ### `globbyOptions`
 
@@ -92,7 +90,7 @@ You can use this option to see what your linting results would be like without t
 
 ### `disableDefaultIgnores`
 
-If `true`, stylelint will not automatically ignore the contents of `node_modules` and `bower_components`. (By default, these directories are automatically ignored.)
+If `true`, stylelint will not automatically ignore the contents of `node_modules`. (By default, this directory are automatically ignored.)
 
 ### `cache`
 
@@ -139,7 +137,7 @@ A path to a file containing patterns describing files to ignore. The path can be
 
 ### `syntax`
 
-Options: `"css-in-js"|"html"|"less"|"markdown"|"sass"|"scss"|"sugarss"`
+Options: `"css"|"css-in-js"|"html"|"less"|"markdown"|"sass"|"scss"|"sugarss"`
 
 Force a specific non-standard syntax that should be used to parse source stylesheets.
 
@@ -187,49 +185,56 @@ It resolves with an object (see [The returned promise](#the-returned-promise)) t
 If `myConfig` contains no relative paths for `extends` or `plugins`, you do not have to use `configBasedir`:
 
 ```js
-stylelint.lint({
-  config: myConfig,
-  files: "all/my/stylesheets/*.css"
-})
-  .then(function(data) {
-    // do things with data.output, data.errored,
-    // and data.results
-  })
-  .catch(function(err) {
-    // do things with err e.g.
-    console.error(err.stack);
-  });
+stylelint
+    .lint({
+        config: myConfig,
+        files: 'all/my/stylesheets/*.css',
+    })
+    .then(function(data) {
+        // do things with data.output, data.errored,
+        // and data.results
+    })
+    .catch(function(err) {
+        // do things with err e.g.
+        console.error(err.stack);
+    });
 ```
 
 If `myConfig` *does* contain relative paths for `extends` or `plugins`, you *do* have to use `configBasedir`:
 
 ```js
-stylelint.lint({
-  config: myConfig,
-  configBasedir: path.join(__dirname, "configs"),
-  files: "all/my/stylesheets/*.css"
-}).then(function() { .. });
+stylelint
+    .lint({
+        config: myConfig,
+        configBasedir: path.join(__dirname, 'configs'),
+        files: 'all/my/stylesheets/*.css',
+    })
+    .then(function() { /* .. */ });
 ```
 
 Maybe you want to use a CSS string instead of a file glob, and you want to use the string formatter instead of the default JSON:
 
 ```js
-stylelint.lint({
-  code: "a { color: pink; }",
-  config: myConfig,
-  formatter: "string"
-}).then(function() { .. });
+stylelint
+    .lint({
+        code: 'a { color: pink; }',
+        config: myConfig,
+        formatter: 'string',
+    })
+    .then(function() { /* .. */ });
 ```
 
 Maybe you want to use my own custom formatter function and parse `.scss` source files:
 
 ```js
-stylelint.lint({
-  config: myConfig,
-  files: "all/my/stylesheets/*.scss",
-  formatter: function(stylelintResults) { .. },
-  syntax: "scss"
-}).then(function() { .. });
+stylelint
+    .lint({
+        config: myConfig,
+        files: 'all/my/stylesheets/*.scss',
+        formatter: function(stylelintResults) { /* .. */ },
+        syntax: 'scss',
+    })
+    .then(function() { /* .. */ });
 ```
 
 The same pattern can be used to lint Less, SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.
