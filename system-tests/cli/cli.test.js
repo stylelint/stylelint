@@ -4,6 +4,7 @@
 const cli = require('../../lib/cli');
 const path = require('path');
 const pkg = require('../../package.json');
+const { replaceBackslashes } = require('../systemTestUtils');
 
 jest.mock('get-stdin');
 
@@ -74,7 +75,7 @@ describe('CLI', () => {
 				'--print-config',
 				'--config',
 				path.join(__dirname, 'config.json'),
-				path.join(__dirname, 'stylesheet.css'),
+				replaceBackslashes(path.join(__dirname, 'stylesheet.css')),
 			]),
 		).then(() => {
 			expect(process.exitCode).toBeUndefined();
@@ -99,7 +100,7 @@ describe('CLI', () => {
 				'--report-needless-disables',
 				'--config',
 				path.join(__dirname, 'config.json'),
-				path.join(__dirname, 'stylesheet.css'),
+				replaceBackslashes(path.join(__dirname, 'stylesheet.css')),
 			]),
 		).then(() => {
 			expect(process.exitCode).toBe(2);

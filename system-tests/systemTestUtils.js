@@ -4,7 +4,7 @@ const path = require('path');
 const stripAnsi = require('strip-ansi');
 
 function caseFilePath(caseNumber, fileName) {
-	return path.join(__dirname, caseNumber, fileName);
+	return replaceBackslashes(path.join(__dirname, caseNumber, fileName));
 }
 
 function caseStylesheetGlob(caseNumber) {
@@ -29,12 +29,17 @@ function prepResults(results) {
 	});
 }
 
+function replaceBackslashes(str) {
+	return str.replace(/\\/g, '/');
+}
+
 function stripColors(input) {
 	return stripAnsi(input);
 }
 
 module.exports = {
 	caseFilePath,
+	replaceBackslashes,
 	caseStylesheetGlob,
 	caseConfig,
 	prepResults,
