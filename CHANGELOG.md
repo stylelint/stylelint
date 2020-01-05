@@ -12,6 +12,7 @@ All notable changes to this project are documented in this file.
 -   Fixed: `unit-no-unknown` false positives for Sass map keys ([#4450](https://github.com/stylelint/stylelint/pull/4450)).
 -   Fixed: `value-list-comma-newline-after` false positives for shared-line comments ([#4482](https://github.com/stylelint/stylelint/pull/4482)).
 -   Fixed: consistently check that selectors are standard before passing to the parser ([#4483](https://github.com/stylelint/stylelint/pull/4483)).
+-   Fixed: overlapping disabled ranges edge case ([#4497](https://github.com/stylelint/stylelint/pull/4497)).
 
 ## 12.0.1
 
