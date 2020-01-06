@@ -162,7 +162,12 @@
       "dot-notation": "error",
       "func-name-matching": "error",
       "guard-for-in": "error",
-      "no-confusing-arrow": "error",
+      "no-confusing-arrow": [
+        "error", 
+        { 
+          "allowParens": false 
+        }
+      ],
       "no-else-return": [
         "error",
         {
