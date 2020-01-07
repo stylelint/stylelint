@@ -4,4 +4,4 @@ update_configs:
   - package_manager: "javascript"
     directory: "/"
     update_schedule: "monthly"
-    version_requirement_updates: "widen_ranges"
+    version_requirement_updates: "increase_versions"
