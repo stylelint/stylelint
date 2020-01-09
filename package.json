@@ -98,7 +98,6 @@
     "@types/global-modules": "^2.0.0",
     "@types/globjoin": "^0.1.0",
     "@types/lodash": "^4.14.149",
-    "@types/meow": "^5.0.0",
     "@types/micromatch": "^3.1.1",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
