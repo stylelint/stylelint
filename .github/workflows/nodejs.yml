@@ -24,21 +24,21 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Install latest npm
-      run: npm install --global npm@latest
+      - name: Install latest npm
+        run: npm install --global npm@latest
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Lint
-      run: npm run pretest
+      - name: Lint
+        run: npm run pretest
 
   test:
     name: Test on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
@@ -54,30 +54,30 @@ jobs:
             node-version: 12
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Install latest npm
-      run: npm install --global npm@latest
+      - name: Install latest npm
+        run: npm install --global npm@latest
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    # Workaround until https://github.com/stylelint/stylelint/issues/4337 is fixed
-    - name: Test (Windows)
-      if: matrix.os == 'windows-latest'
-      run: |
-        cd ..
-        cd D:\a\stylelint\stylelint
-        npm run jest
+      # Workaround until https://github.com/stylelint/stylelint/issues/4337 is fixed
+      - name: Test (Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          cd ..
+          cd D:\a\stylelint\stylelint
+          npm run jest
 
-    - name: Test (Unix)
-      if: matrix.os != 'windows-latest'
-      run: npm run jest
+      - name: Test (Unix)
+        if: matrix.os != 'windows-latest'
+        run: npm run jest
 
   coverage:
     name: Coverage on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
@@ -90,31 +90,31 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Install latest npm
-      run: npm install --global npm@latest
+      - name: Install latest npm
+        run: npm install --global npm@latest
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Test with coverage
-      run: npm run jest -- --coverage
+      - name: Test with coverage
+        run: npm run jest -- --coverage
 
-    - name: Coveralls Parallel
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.github_token }}
-        parallel: true
-        path-to-lcov: ./.coverage/lcov.info
+      - name: Coveralls Parallel
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel: true
+          path-to-lcov: ./.coverage/lcov.info
 
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.github_token }}
-        parallel-finished: true
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true
