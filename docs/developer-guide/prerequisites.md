@@ -2,7 +2,7 @@
 
 ## Technical
 
--   Minimum [Node.js](https://nodejs.org/en/) v8.7.0+, though we do recommend using the latest 8.x, 10.x, or 11.x Node.js releases.
+-   Minimum [Node.js](https://nodejs.org/en/) v10, though we do recommend using the latest LTS release.
 -   Latest [npm](https://www.npmjs.com/).
 
 ## Rules of thumb
