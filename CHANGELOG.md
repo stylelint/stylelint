@@ -10,7 +10,7 @@ All notable changes to this project are documented in this file.
 -   Fixed: `selector-type-no-unknown` false positives for SVG tags ([#4495](https://github.com/stylelint/stylelint/pull/4495)).
 -   Fixed: `--report-invalid-scope-disables` crash when no rules specified ([#4498](https://github.com/stylelint/stylelint/pull/4498)).
 -   Added: `unit-no-unknown` support for `x` unit ([#4427](https://github.com/stylelint/stylelint/pull/4427)).
--   Fixed: `media-feature-parentheses-space-inside` false negatives for multiple spaces ([#4509](https://github.com/stylelint/stylelint/pull/4509)).
+-   Fixed: `media-feature-parentheses-space-inside` false negatives for multiple spaces ([#4513](https://github.com/stylelint/stylelint/pull/4513)).
 -   Fixed: `unit-no-unknown` false positives for Sass map keys ([#4450](https://github.com/stylelint/stylelint/pull/4450)).
 -   Fixed: `value-list-comma-newline-after` false positives for shared-line comments ([#4482](https://github.com/stylelint/stylelint/pull/4482)).
 -   Fixed: consistently check that selectors are standard before passing to the parser ([#4483](https://github.com/stylelint/stylelint/pull/4483)).
