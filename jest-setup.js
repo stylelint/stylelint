@@ -7,6 +7,7 @@ const util = require('util');
 jest.mock('./lib/utils/getOsEol', () => () => '\n');
 
 global.testRule = (rule, schema) => {
+	// eslint-disable-next-line jest/valid-describe
 	describe(`${schema.ruleName}`, () => {
 		const stylelintConfig = {
 			rules: {
@@ -137,7 +138,7 @@ global.testRule = (rule, schema) => {
 
 function setupTestCases({ name, cases, schema, comparisons }) {
 	if (cases && cases.length) {
-		// eslint-disable-next-line jest/valid-describe
+		/* eslint-disable jest/valid-describe */
 		describe(name, () => {
 			cases.forEach((testCase) => {
 				const spec = testCase.only ? it.only : it;
@@ -149,6 +150,7 @@ function setupTestCases({ name, cases, schema, comparisons }) {
 				});
 			});
 		});
+		/* eslint-enable jest/valid-describe */
 	}
 }
 
