@@ -2,9 +2,12 @@
 'use strict';
 
 const cli = require('../../lib/cli');
+const fs = require('fs');
 const path = require('path');
 const pkg = require('../../package.json');
 const { replaceBackslashes } = require('../systemTestUtils');
+
+const expectedHelpText = fs.readFileSync(path.join(__dirname, 'expectedHelp.txt'), 'utf8');
 
 jest.mock('get-stdin');
 
@@ -43,7 +46,7 @@ describe('CLI', () => {
 			const lastCallArgs = console.log.mock.calls.pop();
 
 			expect(lastCallArgs).toHaveLength(1);
-			expect(lastCallArgs.pop()).toMatch('Usage: stylelint [input] [options]');
+			expect(lastCallArgs.pop()).toEqual(expectedHelpText);
 		});
 	});
 
@@ -54,7 +57,7 @@ describe('CLI', () => {
 			const lastCallArgs = console.log.mock.calls.pop();
 
 			expect(lastCallArgs).toHaveLength(1);
-			expect(lastCallArgs.pop()).toMatch('Usage: stylelint [input] [options]');
+			expect(lastCallArgs.pop()).toEqual(expectedHelpText);
 		});
 	});
 
