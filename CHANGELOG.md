@@ -4,6 +4,7 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+-   Removed: Node.js 8.x support. Node.js 10 is now required. We can guarantee stylelint works on the latest Node.js 10 release. ([#4500](https://github.com/stylelint/stylelint/pull/4500)).
 -   Removed: types declarations for Flow ([#4451](https://github.com/stylelint/stylelint/pull/4451)).
 -   Changed: `globby` was updated to v10. Now only forward-slashes (`/`) should be used as directory separator in globs. Refer to [glob pattern syntax](https://github.com/mrmlnc/fast-glob#pattern-syntax). Most of the users wouldn't need to change anything, but Windows users might need to update their globs. ([#4254](https://github.com/stylelint/stylelint/pull/4254)).
 -   Fixed: `selector-type-no-unknown` false positives for SVG tags ([#4495](https://github.com/stylelint/stylelint/pull/4495)).
