@@ -105,7 +105,7 @@
     "del": "^5.1.0",
     "eslint": "^6.7.1",
     "eslint-config-stylelint": "^11.1.0",
-    "got": "^10.2.0",
+    "got": "^10.2.1",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
     "jest-watch-typeahead": "^0.4.2",
