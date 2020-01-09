@@ -63,7 +63,7 @@
     "lodash": "^4.17.15",
     "log-symbols": "^3.0.0",
     "mathml-tag-names": "^2.1.1",
-    "meow": "^5.0.0",
+    "meow": "^6.0.0",
     "micromatch": "^4.0.2",
     "normalize-selector": "^0.2.0",
     "postcss": "^7.0.23",
