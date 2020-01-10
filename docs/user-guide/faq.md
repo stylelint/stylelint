@@ -170,3 +170,7 @@ The `extends` mechanism is [detailed within the configuration docs](configuratio
 > When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
 
 The reason for this design is documented in [#1646](https://github.com/stylelint/stylelint/issues/1646#issuecomment-232779957).
+
+## Why doesn't stylelint report any warnings about invalid syntax in my CSS/Sass/Less/etc. files?
+
+The main aim of stylelint is to help you avoid frequently repeated errors and enforce conventions in your styles. But it's out of stylelint scope to check CSS/Sass/Less/etc. syntax validity. For such purposes please use validator instead.
