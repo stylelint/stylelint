@@ -54,7 +54,7 @@ describe('CLI', () => {
 			const lastCallArgs = console.log.mock.calls.pop();
 
 			expect(lastCallArgs).toHaveLength(1);
-			expect(lastCallArgs.pop()).toMatch('Usage: stylelint [input] [options]');
+			expect(lastCallArgs.pop()).toMatchSnapshot();
 		});
 	});
 
