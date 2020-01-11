@@ -1,7 +1,9 @@
 # https://dependabot.com/docs/config-file/
 version: 1
 update_configs:
-  - package_manager: "javascript"
-    directory: "/"
-    update_schedule: "monthly"
-    version_requirement_updates: "increase_versions"
+  - package_manager: 'javascript'
+    directory: '/'
+    update_schedule: 'monthly'
+    version_requirement_updates: 'increase_versions'
+    default_labels:
+      - 'PR: dependencies'
