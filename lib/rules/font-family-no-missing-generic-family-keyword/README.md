@@ -36,7 +36,7 @@ a { font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif; }
 ```
 
 ```css
-a { font: 1em/1.3 Times, serif Apple Color Emoji; }
+a { font: 1em/1.3 Times, serif, Apple Color Emoji; }
 ```
 
 ```css
