@@ -7,10 +7,10 @@ All notable changes to this project are documented in this file.
 -   Removed: Node.js 8.x support. Node.js 10 is now required. We can guarantee stylelint works on the latest Node.js 10 release. ([#4500](https://github.com/stylelint/stylelint/pull/4500)).
 -   Removed: types declarations for Flow ([#4451](https://github.com/stylelint/stylelint/pull/4451)).
 -   Changed: `globby` was updated to v10. Now only forward-slashes (`/`) should be used as directory separator in globs. Refer to [glob pattern syntax](https://github.com/mrmlnc/fast-glob#pattern-syntax). Most of the users wouldn't need to change anything, but Windows users might need to update their globs. ([#4254](https://github.com/stylelint/stylelint/pull/4254)).
--   Fixed: `selector-type-no-unknown` false positives for SVG tags ([#4495](https://github.com/stylelint/stylelint/pull/4495)).
--   Fixed: `--report-invalid-scope-disables` crash when no rules specified ([#4498](https://github.com/stylelint/stylelint/pull/4498)).
 -   Added: `unit-no-unknown` support for `x` unit ([#4427](https://github.com/stylelint/stylelint/pull/4427)).
+-   Fixed: `--report-invalid-scope-disables` crash when no rules specified ([#4498](https://github.com/stylelint/stylelint/pull/4498)).
 -   Fixed: `media-feature-parentheses-space-inside` false negatives for multiple spaces ([#4513](https://github.com/stylelint/stylelint/pull/4513)).
+-   Fixed: `selector-type-no-unknown` false positives for SVG tags ([#4495](https://github.com/stylelint/stylelint/pull/4495)).
 -   Fixed: `unit-no-unknown` false positives for Sass map keys ([#4450](https://github.com/stylelint/stylelint/pull/4450)).
 -   Fixed: `value-list-comma-newline-after` false positives for shared-line comments ([#4482](https://github.com/stylelint/stylelint/pull/4482)).
 -   Fixed: consistently check that selectors are standard before passing to the parser ([#4483](https://github.com/stylelint/stylelint/pull/4483)).
