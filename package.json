@@ -49,7 +49,7 @@
     "file-entry-cache": "^5.0.1",
     "get-stdin": "^7.0.0",
     "global-modules": "^2.0.0",
-    "globby": "^10.0.2",
+    "globby": "^11.0.0",
     "globjoin": "^0.1.4",
     "html-tags": "^3.1.0",
     "ignore": "^5.1.4",
