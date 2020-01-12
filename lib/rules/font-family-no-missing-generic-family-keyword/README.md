@@ -8,6 +8,11 @@ a { font-family: Arial, sans-serif; }
  * An example of generic family name */
 ```
 
+The generic font family can be:
+
+-   placed anywhere in the font family list
+-   omitted if a keyword related to property inheritance or a system font is used
+
 This rule checks the `font` and `font-family` properties.
 
 ## Options
@@ -31,20 +36,13 @@ a { font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif; }
 ```
 
 ```css
-a { font: 1em/1.3 Times, serif; }
+a { font: 1em/1.3 Times, serif, Apple Color Emoji; }
 ```
-
-It's also *not* a violation to use a keyword related to property inheritance or a system font value.
 
 ```css
 a { font: inherit; }
-b { font: initial; }
-i { font: unset; }
-input { font: caption; }
 ```
 
-It's also *not* a violation to use a generic font family anywhere in the list. In other words, the generic font name doesn't need to be the last.
-
 ```css
-a { font-family: Helvetica Neue, sans-serif, Apple Color Emoji; }
+a { font: caption; }
 ```
