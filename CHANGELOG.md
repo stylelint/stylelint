@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 13.0.0
 
 -   Removed: Node.js 8.x support. Node.js 10 is now required. We can guarantee stylelint works on the latest Node.js 10 release. ([#4500](https://github.com/stylelint/stylelint/pull/4500)).
 -   Removed: types declarations for Flow ([#4451](https://github.com/stylelint/stylelint/pull/4451)).
