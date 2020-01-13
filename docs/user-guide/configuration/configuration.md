@@ -171,7 +171,7 @@ All rules accept a `message` secondary option that, if provided, will be substit
 }
 ```
 
-Writing a [custom formatter](../developer-guide/formatters.md) gives you maximum control if you need serious customization.
+Writing a [custom formatter](../../developer-guide/formatters.md) gives you maximum control if you need serious customization.
 
 ### `extends`
 

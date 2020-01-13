@@ -10,7 +10,7 @@ Disallow non-space characters for descendant combinators of selectors.
 
 This rule ensures that only a single space is used and ensures no tabs, newlines, nor multiple spaces are used for descendant combinators of selectors.
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix most of the problems reported by this rule.
+The `--fix` option on the [command line](../../../docs/user-guide/usage/cli.md#autofixing-errors) can automatically fix most of the problems reported by this rule.
 
 ## Options
 

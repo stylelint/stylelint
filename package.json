@@ -35,7 +35,6 @@
     "SECURITY.md",
     "docs",
     "lib",
-    "VISION.md",
     "!**/__tests__",
     "!lib/testUtils"
   ],

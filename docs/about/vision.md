@@ -15,9 +15,9 @@ One that is:
 
 Provide built-in rules for the following three areas:
 
--   [Possible errors](docs/user-guide/rules.md#possible-errors).
--   [Limit language features](docs/user-guide/rules.md#limit-language-features).
--   [Stylistic issues](docs/user-guide/rules.md#stylistic-issues).
+-   [Possible errors](../user-guide/configuration/rules.md#possible-errors).
+-   [Limit language features](../user-guide/configuration/rules.md#limit-language-features).
+-   [Stylistic issues](../user-guide/configuration/rules.md#stylistic-issues).
 
 ### Possible errors
 
@@ -71,15 +71,15 @@ The built-in stylistic rules can be configured to allow both multi-line and sing
 
 Provide multiple points of extensions, including:
 
--   [Plugins](docs/developer-guide/plugins.md) - build community rules to support methodologies, toolsets, non-standard CSS features, or very specific use cases.
--   [Processors](docs/user-guide/processors.md) - lint the CSS within non-stylesheet files.
--   [Extendable configs](docs/user-guide/configuration.md#extends) - extend and share configurations.
--   [Formatters](docs/developer-guide/formatters.md) - format stylelint result objects.
--   [Custom syntax](docs/user-guide/node-api.md#customsyntax) - use any PostCSS-compatible syntax module.
+-   [Plugins](../developer-guide/plugins.md) - build community rules to support methodologies, toolsets, non-standard CSS features, or very specific use cases.
+-   [Processors](../user-guide/processors.md) - lint the CSS within non-stylesheet files.
+-   [Extendable configs](../user-guide/configuration/configuration.md#extends) - extend and share configurations.
+-   [Formatters](../developer-guide/formatters.md) - format stylelint result objects.
+-   [Custom syntax](../user-guide/usage/node-api.md#customsyntax) - use any PostCSS-compatible syntax module.
 
 ## Robust
 
-Provide a robust tool with a [comprehensive test suite](docs/developer-guide/rules.md#write-tests), including:
+Provide a robust tool with a [comprehensive test suite](../developer-guide/rules.md#write-tests), including:
 
 -   High coverage, currently over 95%.
 -   A wide range of fixtures for rules, currently over 10000.
@@ -88,11 +88,11 @@ Provide a robust tool with a [comprehensive test suite](docs/developer-guide/rul
 
 Provide consistency throughout, including:
 
--   Consistent [names](docs/developer-guide/rules.md#naming-a-rule), [options](docs/developer-guide/rules.md#determining-options), [violation messages](docs/developer-guide/rules.md#determine-violation-messages), [documentation](docs/developer-guide/rules.md#write-the-readme) and [treatment](docs/developer-guide/rules.md#write-the-rule) of non-standard syntax within/of rules.
--   Consistent [requirements for inclusion](docs/developer-guide/rules.md#criteria-for-inclusion).
+-   Consistent [names](../developer-guide/rules.md#naming-a-rule), [options](../developer-guide/rules.md#determining-options), [violation messages](../developer-guide/rules.md#determine-violation-messages), [documentation](../developer-guide/rules.md#write-the-readme) and [treatment](../developer-guide/rules.md#write-the-rule) of non-standard syntax within/of rules.
+-   Consistent [requirements for inclusion](../developer-guide/rules.md#criteria-for-inclusion).
 
 ## Performant
 
 Provide a fast tool, and the means to test and improve performance, including:
 
--   [Benchmarking](docs/developer-guide/rules.md#improving-the-performance-of-a-rule) of an individual rule's performance.
+-   [Benchmarking](../developer-guide/rules.md#improving-the-performance-of-a-rule) of an individual rule's performance.

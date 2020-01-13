@@ -379,12 +379,12 @@ All notable changes to this project are documented in this file.
 This release is accompanied by:
 
 -   A new [semantic version policy](README.md#semantic-versioning-policy). The use of the tilde (`~`) in `package.json` is now recommended, e.g. `"stylelint": "~8.0.0"`, to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
--   A new [VISION document](VISION.md), complemented by ([#2704](https://github.com/stylelint/stylelint/pull/2704)):
-    -   The restructuring of the [list of rules](docs/user-guide/rules.md) into three groups:
-        -   [Possible errors](docs/user-guide/rules.md#possible-errors).
-        -   [Limit language features](docs/user-guide/rules.md#limit-language-features).
-        -   [Stylistic issues](docs/user-guide/rules.md#stylistic-issues).
-    -   The release of a new sharable config, [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). This config only turns on the [possible error](docs/user-guide/rules.md#possible-errors) rules.  [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) now builds on top of the recommended config by turning on over 60 additional [stylistic rules](docs/user-guide/rules.md#stylistic-issues).
+-   A new [VISION document](docs/about/vision.md), complemented by ([#2704](https://github.com/stylelint/stylelint/pull/2704)):
+    -   The restructuring of the [list of rules](docs/user-guide/configuration/rules.md) into three groups:
+        -   [Possible errors](docs/user-guide/configuration/rules.md#possible-errors).
+        -   [Limit language features](docs/user-guide/configuration/rules.md#limit-language-features).
+        -   [Stylistic issues](docs/user-guide/configuration/rules.md#stylistic-issues).
+    -   The release of a new sharable config, [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). This config only turns on the [possible error](docs/user-guide/configuration/rules.md#possible-errors) rules.  [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) now builds on top of the recommended config by turning on over 60 additional [stylistic rules](docs/user-guide/configuration/rules.md#stylistic-issues).
 
 Changes:
 
@@ -694,7 +694,7 @@ Changes:
 
 ## 7.0.0
 
--   Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration.md#processors) processors.
+-   Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration/configuration.md#processors) processors.
 -   Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. (If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`.)
 -   Removed: `--verbose` CLI flag. Use `--formatter verbose` instead.
 -   Removed: NodeJS `0.12.x` support. `4.2.1 LTS` or greater is now required.
@@ -730,7 +730,7 @@ Changes:
 -   Changed: `time-no-imperceptible` now checks vendor prefixed properties.
 -   Changed: `unit-*` rules now check `@media` values too.
 -   Added: plugins can allow primary option arrays by setting `ruleFunction.primaryOptionArray = true`.
--   Added: [processors](/docs/user-guide/configuration.md#processors).
+-   Added: [processors](/docs/user-guide/configuration/configuration.md#processors).
 -   Added: `media-feature-parentheses-space-inside` rule.
 -   Added: `no-missing-end-of-source-newline` rule.
 -   Added: `property-no-unknown` rule.

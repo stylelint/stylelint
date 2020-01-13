@@ -23,7 +23,7 @@ Single quotes in a charset @-rule are ignored as using single quotes in this con
 /* fine regardless of configuration */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix most of the problems reported by this rule.
+The `--fix` option on the [command line](../../../docs/user-guide/usage/cli.md#autofixing-errors) can automatically fix most of the problems reported by this rule.
 
 ## Options
 

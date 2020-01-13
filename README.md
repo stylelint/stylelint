@@ -27,13 +27,13 @@ It's mighty because it:
 
 First, decide how you want to use stylelint:
 
--   [on the command line](docs/user-guide/cli.md)
+-   [on the command line](docs/user-guide/usage/cli.md)
 -   [in your text editor](docs/user-guide/complementary-tools.md#editor-plugins), for example in VS Code
 -   [in for your build tool](docs/user-guide/complementary-tools.md#build-tool-plugins), for example in webpack
--   [via the Node.js API](docs/user-guide/node-api.md)
--   [as a PostCSS plugin](docs/user-guide/postcss-plugin.md)
+-   [via the Node.js API](docs/user-guide/usage/node-api.md)
+-   [as a PostCSS plugin](docs/user-guide/usage/postcss-plugin.md)
 
-Then create your [configuration object](docs/user-guide/configuration.md). You can either extend a shared configuration or craft your own.
+Then create your [configuration object](docs/user-guide/configuration/configuration.md). You can either extend a shared configuration or craft your own.
 
 ### Extend a shared configuration
 
@@ -42,21 +42,21 @@ This is the quickest way to get started. We suggest you extend either:
 -   [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended)
 -   [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard)
 
-The recommended config turns on just the [possible error](docs/user-guide/rules.md#possible-errors) rules. The standard config extends it by turning on 60 [stylistic rules](docs/user-guide/rules.md#stylistic-issues). We suggest you extend the:
+The recommended config turns on just the [possible error](docs/user-guide/configuration/rules.md#possible-errors) rules. The standard config extends it by turning on 60 [stylistic rules](docs/user-guide/configuration/rules.md#stylistic-issues). We suggest you extend the:
 
 -   recommended config if you use a pretty printer like [prettier](https://prettier.io/)
 -   standard config if you want stylelint to enforce stylistic conventions
 
-You may want to add rules to your config that [limit language features](docs/user-guide/rules.md#limit-language-features) as these will be specific to your team and/or project.
+You may want to add rules to your config that [limit language features](docs/user-guide/configuration/rules.md#limit-language-features) as these will be specific to your team and/or project.
 
 *If you use language extensions, for example `@if` and `@extends`, you can use a community config like [`stylelint-config-recommended-scss`](https://github.com/kristerkari/stylelint-config-recommended-scss) instead.*
 
 ### Craft your own config
 
-Alternatively, you can [learn about the rules](docs/user-guide/about-rules.md) and then either:
+Alternatively, you can [learn about the rules](docs/user-guide/configuration/about-rules.md) and then either:
 
--   start small and add only [the rules](docs/user-guide/rules.md) you want to turn on
--   copy, paste and adapt [this example configuration](docs/user-guide/example-config.md) which lists all of the rules and their primary options
+-   start small and add only [the rules](docs/user-guide/configuration/rules.md) you want to turn on
+-   copy, paste and adapt [this example configuration](docs/user-guide/configuration/example-config.md) which lists all of the rules and their primary options
 
 ## Guides
 
@@ -91,11 +91,11 @@ To help out, you can:
 -   open [a pull request](https://github.com/stylelint/stylelint/compare) to show us how your idea works
 -   create or contribute to [ecosystem tools](docs/user-guide/complementary-tools.md), for example the plugin for [VS Code](https://github.com/stylelint/vscode-stylelint)
 
-Our [VISION document](VISION.md) guides our work.
+Our [VISION document](docs/about/vision.md) guides our work.
 
 ## Semantic Versioning Policy
 
-We have a [semantic versioning policy](docs/user-guide/semantic-versioning-policy.md). Any minor update may report more errors than the previous release. As such, we recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds.
+We have a [semantic versioning policy](docs/about/semantic-versioning.md). Any minor update may report more errors than the previous release. As such, we recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds.
 
 ## License
 

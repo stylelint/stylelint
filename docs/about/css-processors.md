@@ -17,7 +17,7 @@ stylelint will automatically infer the syntax from the:
 -   `type` or `lang` attribute on `<style>` tags in HTML (and HTML-like)
 -   [info string](https://github.github.com/gfm/#info-string) on [GFM fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/) in Markdown
 
-You can force a specific syntax, though. Both the [CLI](cli.md) and the [Node.js API](node-api.md) expose a `syntax` option.
+You can force a specific syntax, though. Both the [CLI](../user-guide/usage/cli.md) and the [Node.js API](../user-guide/usage/node-api.md) expose a `syntax` option.
 
 -   If you're using the CLI, use the `syntax` flag like so:  `stylelint ... --syntax scss`.
 -   If you're using the Node.js API, pass in the `syntax` option like so: `stylelint.lint({ syntax: "sugarss", ... })`.
@@ -27,7 +27,7 @@ stylelint can also accept a custom [PostCSS-compatible syntax](https://github.co
 -   If you're using the CLI, use the `custom-syntax` flag like so:  `stylelint ... --custom-syntax custom-syntax-module` or `stylelint ... --custom-syntax ./path/to/custom-syntax-module`.
 -   If you're using the Node.js API, pass in the `customSyntax` option like so: `stylelint.lint({ customSyntax: path.join(process.cwd(), './path/to/custom-syntax-module') , ... })`.
 
-If you're using the linter as a [PostCSS Plugin](postcss-plugin.md), you should use the special `postcss-syntax` directly with PostCSS's `syntax` option like so:
+If you're using the linter as a [PostCSS Plugin](../user-guide/usage/postcss-plugin.md), you should use the special `postcss-syntax` directly with PostCSS's `syntax` option like so:
 
 ```js
 const postcss = require('postcss');

@@ -15,11 +15,11 @@ For example, to use `stylelint-config-standard` without the `at-rule-empty-line-
 }
 ```
 
-You can also turn off a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](configuration.md#rules) for more information.
+You can also turn off a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](configuration/configuration.md#rules) for more information.
 
 ## How do I lint from the command line?
 
-Refer to the [CLI section](cli.md) of the docs.
+Refer to the [CLI section](usage/cli.md) of the docs.
 
 The CLI can also be used from within [npm run scripts](https://michael-kuehnel.de/tooling/2018/03/22/helpers-and-tips-for-npm-run-scripts.html) to use a non-global installation of stylelint.
 
@@ -33,7 +33,7 @@ The stylelint community maintains a [handful of plugins](complementary-tools.md#
 
 If there isn't a dedicated stylelint plugin for your task runner of choice, you can use stylelint as a PostCSS plugin and make use of PostCSS's [numerous](https://github.com/postcss/postcss#runners) task runner plugins.
 
-There are also examples of using the PostCSS plugin via the PostCSS JS API within the [docs](postcss-plugin.md).
+There are also examples of using the PostCSS plugin via the PostCSS JS API within the [docs](usage/postcss-plugin.md).
 
 However, using stylelint as a PostCSS plugin limits your reporting options to [postcss-reporter](https://github.com/postcss/postcss-reporter/). We recommend using the stylelint CLI or Node.js API, instead, for better reporting.
 
@@ -47,11 +47,11 @@ stylelint can *parse* any the following non-standard syntaxes by default: Sass, 
 
 Additionally, stylelint can accept any [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes) when using the CLI or Node.js API. Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed above.
 
-Refer to the [docs](css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse non-standard syntaxes.
+Refer to the [docs](../about/css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse non-standard syntaxes.
 
 ## Should I lint before or after processing my stylesheets through PostCSS plugins or other processors?
 
-We [recommend](css-processors.md) linting your source files before any transformations.
+We [recommend](../about/css-processors.md) linting your source files before any transformations.
 
 ## How do I automatically fix stylistic violations?
 
@@ -71,7 +71,7 @@ For example, we've found that rules to enforce property order, property grouping
 
 ## Can I customise stylelint's messages?
 
-Yes, you can either use the [`message` secondary option](configuration.md#custom-messages) or [write your own formatter](../developer-guide/formatters.md).
+Yes, you can either use the [`message` secondary option](configuration/configuration.md#custom-messages) or [write your own formatter](../developer-guide/formatters.md).
 
 ## How should I lint my CSS that follows a BEM-like methodology?
 
@@ -151,7 +151,7 @@ All these patterns disallow CSS identifiers that start with a digit, two hyphens
 
 ## How do I change the default severity to "warning" so stylelint doesn't break my build?
 
-Use the [`defaultSeverity`](configuration.md#defaultseverity) configuration option.
+Use the [`defaultSeverity`](configuration/configuration.md#defaultseverity) configuration option.
 
 ## Can I bundle more than one sharable config within an npm package?
 
@@ -159,13 +159,13 @@ A user can `require()` any file in your npm package, so all you need to do is do
 
 ## How can I control the whitespace after the open brace of the block?
 
-Refer to [this](about-rules.md#-empty-line-before-and--max-empty-lines-rules) section of the docs that explains how the `*-empty-line-before` rules work.
+Refer to [this](configuration/about-rules.md#-empty-line-before-and--max-empty-lines-rules) section of the docs that explains how the `*-empty-line-before` rules work.
 
 ## If I use `extends` within my configuration object, will the options for each rule be merged or overridden?
 
 They will be overridden.
 
-The `extends` mechanism is [detailed within the configuration docs](configuration.md#extends):
+The `extends` mechanism is [detailed within the configuration docs](configuration/configuration.md#extends):
 
 > When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
 

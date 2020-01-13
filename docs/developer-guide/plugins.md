@@ -43,7 +43,7 @@ Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`
 
 `stylelint.createPlugin(ruleName, ruleFunction)` ensures that your plugin will be setup properly alongside other rules.
 
-In order for your plugin rule to work with the [standard configuration format](../user-guide/configuration.md#rules), `ruleFunction` should accept 2 arguments: the primary option and, optionally, a secondary options object.
+In order for your plugin rule to work with the [standard configuration format](../user-guide/configuration/configuration.md#rules), `ruleFunction` should accept 2 arguments: the primary option and, optionally, a secondary options object.
 
 If your plugin rule supports [autofixing](rules.md#adding-autofixing), then `ruleFunction` should also accept a third argument: context. Also, it's highly recommended to support the `disableFix` option in your secondary options object. Within the rule, don't perform autofixing if the user has passed a `disableFix` option for your rule.
 

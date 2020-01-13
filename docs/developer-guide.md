@@ -13,6 +13,6 @@
 
 ## Core team guides
 
--   [Releases](developer-guide/releases.md): Performing releases.
--   [Pull requests](developer-guide/pull-requests.md): Reviewing pull requests.
--   [Issues](developer-guide/issues.md): Managing issues.
+-   [Releases](maintainer-guide/releases.md): Performing releases.
+-   [Pull requests](maintainer-guide/pull-requests.md): Reviewing pull requests.
+-   [Issues](maintainer-guide/issues.md): Managing issues.
