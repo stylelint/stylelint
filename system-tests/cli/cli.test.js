@@ -29,79 +29,79 @@ describe('CLI', () => {
 		process.stdout.write = jest.fn();
 	});
 
-	it('basic', () => {
-		return cli([]).then(() => {
-			expect(process.exitCode).toBe(2);
-			expect(console.log.mock.calls).toHaveLength(1);
-			const lastCallArgs = console.log.mock.calls.pop();
+	it('basic', async () => {
+		await cli([]);
 
-			expect(lastCallArgs).toHaveLength(1);
-			expect(lastCallArgs.pop()).toMatch('Usage: stylelint [input] [options]');
-		});
+		expect(process.exitCode).toBe(2);
+		expect(console.log.mock.calls).toHaveLength(1);
+		const lastCallArgs = console.log.mock.calls.pop();
+
+		expect(lastCallArgs).toHaveLength(1);
+		expect(lastCallArgs.pop()).toMatch('Usage: stylelint [input] [options]');
 	});
 
-	it('--help', () => {
-		return cli(['--help']).then(() => {
-			expect(process.exitCode).toBe(0);
-			expect(console.log.mock.calls).toHaveLength(1);
-			const lastCallArgs = console.log.mock.calls.pop();
+	it('--help', async () => {
+		await cli(['--help']);
 
-			expect(lastCallArgs).toHaveLength(1);
-			expect(lastCallArgs.pop()).toMatchSnapshot();
-		});
+		expect(process.exitCode).toBe(0);
+		expect(console.log.mock.calls).toHaveLength(1);
+		const lastCallArgs = console.log.mock.calls.pop();
+
+		expect(lastCallArgs).toHaveLength(1);
+		expect(lastCallArgs.pop()).toMatchSnapshot();
 	});
 
-	it('--version', () => {
-		return cli(['--version']).then(() => {
-			expect(process.exitCode).toBeUndefined();
-			expect(console.log.mock.calls).toHaveLength(1);
-			const lastCallArgs = console.log.mock.calls.pop();
+	it('--version', async () => {
+		await cli(['--version']);
 
-			expect(lastCallArgs).toHaveLength(1);
-			expect(lastCallArgs.pop()).toMatch(pkg.version);
-		});
+		expect(process.exitCode).toBeUndefined();
+		expect(console.log.mock.calls).toHaveLength(1);
+		const lastCallArgs = console.log.mock.calls.pop();
+
+		expect(lastCallArgs).toHaveLength(1);
+		expect(lastCallArgs.pop()).toMatch(pkg.version);
 	});
 
-	it('--print-config', () => {
-		return cli([
+	it('--print-config', async () => {
+		await cli([
 			'--print-config',
 			'--config',
 			path.join(__dirname, 'config.json'),
 			replaceBackslashes(path.join(__dirname, 'stylesheet.css')),
-		]).then(() => {
-			expect(process.exitCode).toBeUndefined();
-			expect(process.stdout.write).toHaveBeenCalledTimes(1);
-			expect(process.stdout.write).toHaveBeenLastCalledWith(
-				JSON.stringify(
-					{
-						rules: {
-							'block-no-empty': [true],
-						},
+		]);
+
+		expect(process.exitCode).toBeUndefined();
+		expect(process.stdout.write).toHaveBeenCalledTimes(1);
+		expect(process.stdout.write).toHaveBeenLastCalledWith(
+			JSON.stringify(
+				{
+					rules: {
+						'block-no-empty': [true],
 					},
-					null,
-					'  ',
-				),
-			);
-		});
+				},
+				null,
+				'  ',
+			),
+		);
 	});
 
-	it('--report-needless-disables', () => {
-		return cli([
+	it('--report-needless-disables', async () => {
+		await cli([
 			'--report-needless-disables',
 			'--config',
 			path.join(__dirname, 'config.json'),
 			replaceBackslashes(path.join(__dirname, 'stylesheet.css')),
-		]).then(() => {
-			expect(process.exitCode).toBe(2);
-			expect(process.stdout.write).toHaveBeenCalledTimes(2);
-			expect(process.stdout.write).toHaveBeenNthCalledWith(
-				1,
-				expect.stringContaining('unused rule: color-named'),
-			);
-			expect(process.stdout.write).toHaveBeenNthCalledWith(
-				2,
-				expect.stringContaining('Unexpected empty block'),
-			);
-		});
+		]);
+
+		expect(process.exitCode).toBe(2);
+		expect(process.stdout.write).toHaveBeenCalledTimes(2);
+		expect(process.stdout.write).toHaveBeenNthCalledWith(
+			1,
+			expect.stringContaining('unused rule: color-named'),
+		);
+		expect(process.stdout.write).toHaveBeenNthCalledWith(
+			2,
+			expect.stringContaining('Unexpected empty block'),
+		);
 	});
 });
