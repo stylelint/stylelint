@@ -1,7 +1,7 @@
 # Docs
 
 -   User guide
-    -   [Get started](user-guide/get-started.md)
+    -   [Getting started](user-guide/getting-started.md)
     -   Configuration
         -   [Configuration](user-guide/configuration/configuration.md)
         -   [Example config](user-guide/configuration/example-config.md)

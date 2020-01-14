@@ -1,4 +1,4 @@
-# Get started
+# Getting started
 
 First, decide how you want to use stylelint:
 

@@ -23,7 +23,7 @@ It's mighty because it:
 
 ![Example](https://github.com/stylelint/stylelint/raw/master/example.png?raw=true)
 
-## Get started
+## Getting started
 
 You'll find everything you need to get started in our [docs](docs/toc.md).
 
