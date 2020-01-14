@@ -25,29 +25,24 @@ It's mighty because it:
 
 ## Get started
 
-Everything you need to get started is in our [docs](docs/toc.md).
+You'll find everything you need to get started in our [docs](docs/toc.md).
+
+## Contributors
+
+Without [all these wonderful people](https://github.com/stylelint/stylelint/graphs/contributors) this project would not exist.
+
+## Backers
+
+<a href="https://opencollective.com/stylelint#backers" target="_blank"><img src="https://opencollective.com/stylelint/backers.svg?width=890"></a>
+
+Thank you to all our backers! [Become a backer](https://opencollective.com/stylelint#backer).
+
+## Sponsors
+
+<a href="https://opencollective.com/stylelint/sponsor/0/website" target="_blank"><img src="https://opencollective.com/stylelint/sponsor/0/avatar.svg"></a>
+
+Support this project by [becoming a sponsor](https://opencollective.com/stylelint#sponsor). Your logo will show up here with a link to your website.
 
 ## License
 
 [The MIT License](https://raw.githubusercontent.com/stylelint/stylelint/master/LICENSE).
-
-## Contributing Guidelines
-
-Check out the [Contributing Guidelines](CONTRIBUTING.md).
-
-## Contributors
-
-Without [all these wonderful people](https://github.com/stylelint/stylelint/graphs/contributors) this project would cease to exist.
-
-## Backers
-
-Thank you to all our backers! [Become a backer](https://opencollective.com/stylelint#backer).
-
-<a href="https://opencollective.com/stylelint#backers" target="_blank"><img src="https://opencollective.com/stylelint/backers.svg?width=890"></a>
-
-
-## Sponsors
-
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [Become a sponsor](https://opencollective.com/stylelint#sponsor).
-
-<a href="https://opencollective.com/stylelint/sponsor/0/website" target="_blank"><img src="https://opencollective.com/stylelint/sponsor/0/avatar.svg"></a>
