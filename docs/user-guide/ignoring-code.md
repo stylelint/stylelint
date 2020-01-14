@@ -1,8 +1,8 @@
-# Ignore code
+# Ignoring code
 
 You can ignore sections of code within files or ignore specific files.
 
-## Ignore sections of code
+## Ignoring sections of code
 
 Rules can be temporarily turned off by using special comments in your CSS. For example, you can either turn all the rules off:
 
@@ -54,7 +54,7 @@ Complex, overlapping disabling & enabling patterns are supported:
 
 **Caveat:** Comments within *selector and value lists* are currently ignored.
 
-## Ignore specific files
+## Ignoring specific files
 
 You can use a `.stylelintignore` file (or point to another ignore patterns file) to ignore specific files.
 

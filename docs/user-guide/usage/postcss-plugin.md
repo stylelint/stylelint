@@ -51,7 +51,7 @@ You can use this option to see what your linting results would be like without t
 
 ### `ignorePath`
 
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](../ignore-code.md#ignore-specific-files).
+A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](../ignoring-code.md#ignoring-specific-files).
 
 ## Usage examples
 
