@@ -13,9 +13,9 @@ A linter for CSS and CSS-like languages that is:
 
 Provide built-in rules for the following three areas:
 
--   [Possible errors](../user-guide/rules/list-of.md#possible-errors).
--   [Limit language features](../user-guide/rules/list-of.md#limit-language-features).
--   [Stylistic issues](../user-guide/rules/list-of.md#stylistic-issues).
+-   [Possible errors](../user-guide/rules/list.md#possible-errors).
+-   [Limit language features](../user-guide/rules/list.md#limit-language-features).
+-   [Stylistic issues](../user-guide/rules/list.md#stylistic-issues).
 
 ### Possible errors
 

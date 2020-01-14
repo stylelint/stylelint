@@ -6,7 +6,7 @@
     -   Rules
         -   [About](user-guide/rules/about.md)
         -   [Combining](user-guide/rules/combining.md)
-        -   [List of](user-guide/rules/list-of.md)
+        -   [List](user-guide/rules/list.md)
     -   Usage
         -   [CLI](user-guide/usage/cli.md)
         -   [Node.js API](user-guide/usage/node-api.md)

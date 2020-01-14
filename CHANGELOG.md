@@ -380,11 +380,11 @@ This release is accompanied by:
 
 -   A new [semantic version policy](docs/about/semantic-versioning.md). The use of the tilde (`~`) in `package.json` is now recommended, e.g. `"stylelint": "~8.0.0"`, to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
 -   A new [VISION document](docs/about/vision.md), complemented by ([#2704](https://github.com/stylelint/stylelint/pull/2704)):
-    -   The restructuring of the [list of rules](docs/user-guide/rules/list-of.md) into three groups:
-        -   [Possible errors](docs/user-guide/rules/list-of.md#possible-errors).
-        -   [Limit language features](docs/user-guide/rules/list-of.md#limit-language-features).
-        -   [Stylistic issues](docs/user-guide/rules/list-of.md#stylistic-issues).
-    -   The release of a new sharable config, [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). This config only turns on the [possible error](docs/user-guide/rules/list-of.md#possible-errors) rules.  [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) now builds on top of the recommended config by turning on over 60 additional [stylistic rules](docs/user-guide/rules/list-of.md#stylistic-issues).
+    -   The restructuring of the [list of rules](docs/user-guide/rules/list.md) into three groups:
+        -   [Possible errors](docs/user-guide/rules/list.md#possible-errors).
+        -   [Limit language features](docs/user-guide/rules/list.md#limit-language-features).
+        -   [Stylistic issues](docs/user-guide/rules/list.md#stylistic-issues).
+    -   The release of a new sharable config, [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). This config only turns on the [possible error](docs/user-guide/rules/list.md#possible-errors) rules.  [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) now builds on top of the recommended config by turning on over 60 additional [stylistic rules](docs/user-guide/rules/list.md#stylistic-issues).
 
 Changes:
 

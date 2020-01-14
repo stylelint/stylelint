@@ -230,7 +230,7 @@ Take the form of:
 The final step is to add references to the new rule in the following places:
 
 -   [The rules `index.js` file](../../lib/rules/index.js)
--   [The list of rules](../user-guide/rules/list-of.md)
+-   [The list of rules](../user-guide/rules/list.md)
 
 Once you have something to show, you'll create a [pull request](https://github.com/stylelint/stylelint/compare) to continue the conversation.
 
