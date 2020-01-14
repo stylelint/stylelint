@@ -12,7 +12,6 @@
         -   [The Node.js API](user-guide/usage/node-api.md)
         -   [The PostCSS plugin](user-guide/usage/postcss-plugin.md)
     -   [Complementary tools](user-guide/complementary-tools.md)
-    -   [Articles](user-guide/articles.md)
     -   [FAQ](user-guide/faq.md)
 -   Developer guide
     -   [Prerequisites](developer-guide/prerequisites.md)
