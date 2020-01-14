@@ -6,6 +6,8 @@ The built-in rules are geared towards standard CSS syntax. With the exception of
 
 In addition to these rules there are [plugins](plugins.md), which are rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases. Don't forget to look at the list of [plugins](plugins.md) for more ways to lint.
 
+Read this in other languages: [한국어](./rule.ko-KR.md)
+
 ## List of rules
 
 Here are all the rules within stylelint, grouped first [by category](../../VISION.md) and then by the [*thing*](http://apps.workflower.fi/vocabs/css/en) they apply to.
