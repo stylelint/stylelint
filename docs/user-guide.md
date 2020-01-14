@@ -10,7 +10,6 @@
 
 -   [Configuration](user-guide/configuration/configuration.md): How to configure stylelint.
     -   [Rules](user-guide/configuration/rules.md): A list of stylelint's rules.
-    -   [Processors](user-guide/processors.md): A list of community processors.
 -   [Example config](user-guide/configuration/example-config.md): An example config that you can use as a blueprint for your own.
 -   [CSS processors](about/css-processors.md): How to use the linter with a CSS processor, like SCSS or PostCSS plugins.
 

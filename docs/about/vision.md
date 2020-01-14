@@ -72,7 +72,6 @@ The built-in stylistic rules can be configured to allow both multi-line and sing
 Provide multiple points of extensions, including:
 
 -   [Plugins](../developer-guide/plugins.md) - build community rules to support methodologies, toolsets, non-standard CSS features, or very specific use cases.
--   [Processors](../user-guide/processors.md) - lint the CSS within non-stylesheet files.
 -   [Extendable configs](../user-guide/configuration/configuration.md#extends) - extend and share configurations.
 -   [Formatters](../developer-guide/formatters.md) - format stylelint result objects.
 -   [Custom syntax](../user-guide/usage/node-api.md#customsyntax) - use any PostCSS-compatible syntax module.

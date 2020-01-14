@@ -258,7 +258,9 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 
 ### `processors`
 
-Processors are functions that hook into stylelint's pipeline, modifying code on its way into stylelint and modifying results on their way out.
+Processors are functions built by the community that hook into stylelint's pipeline, modifying code on its way into stylelint and modifying results on their way out. They enable stylelint to extract styles from within non-stylesheet files.
+
+**Their use is discouraged as stylelint now has built-in support for many common non-stylesheet files.**
 
 *Processors can only be used with the CLI and the Node.js API, not with the PostCSS plugin.* (The PostCSS plugin will ignore them.)
 
