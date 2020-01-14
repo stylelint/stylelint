@@ -11,6 +11,7 @@
         -   [The CLI](user-guide/usage/cli.md)
         -   [The Node.js API](user-guide/usage/node-api.md)
         -   [The PostCSS plugin](user-guide/usage/postcss-plugin.md)
+    -   [Ignore code](user-guide/ignore-code.md)
     -   [Integrations](user-guide/integrations.md)
     -   [FAQ](user-guide/faq.md)
 -   Developer guide
