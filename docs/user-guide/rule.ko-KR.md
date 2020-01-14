@@ -12,9 +12,9 @@
 
 다음은 stylelint 내의 모든 규칙 을 [범주](../../VISION.md) 별로 그룹화 한 다음 적용 대상별로 [*그룹화 한 것*](http://apps.workflower.fi/vocabs/css/en) 입니다.
 
--   [오류 가능성](#possible-errors)
--   [언어 기능 제한](#limit-language-features)
--   [문체 이슈](#stylistic-issues)
+-   [오류 가능성](#오류-가능성)
+-   [언어 기능 제한](#언어-기능-제한)
+-   [문체 이슈](#문체-이슈)
 
 ### 오류 가능성
 
@@ -174,7 +174,7 @@
 -   [`selector-pseudo-element-blacklist`](../../lib/rules/selector-pseudo-element-blacklist/README.md): 허용되지 않는 가상 요소 선택자의 블랙리스트를 지정.
 -   [`selector-pseudo-element-whitelist`](../../lib/rules/selector-pseudo-element-whitelist/README.md): 허용되는 가상 요소 선택자의 화이트리스트를 지정.
 
-####  미디어 기능
+#### 미디어 기능
 
 -   [`media-feature-name-blacklist`](../../lib/rules/media-feature-name-blacklist/README.md): 허용되지 않는 미디어 기능 이름의 블랙리스트를 지정.
 -   [`media-feature-name-no-vendor-prefix`](../../lib/rules/media-feature-name-no-vendor-prefix/README.md): 미디어 기능 이름에 대한 벤더(vendor) 접두사를 허용하지 않음.
