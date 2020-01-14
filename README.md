@@ -27,21 +27,6 @@ It's mighty because it:
 
 Everything you need to get started is in our [docs](docs/toc.md).
 
-## Help out
-
-To help out, you can:
-
--   get involved in any open [issue](https://github.com/stylelint/stylelint/issues) or [pull request](https://github.com/stylelint/stylelint/pulls)
--   create, enhance and debug rules using our [working on rules](docs/developer-guide/rules.md) guide
--   improve the [documentation](docs/)
--   add new tests to *absolutely anything*
--   improve the [performance of rules](docs/developer-guide/rules.md#improving-the-performance-of-a-rule)
--   open [new issues](https://github.com/stylelint/stylelint/issues/new/choose) about your ideas for making stylelint better
--   open [a pull request](https://github.com/stylelint/stylelint/compare) to show us how your idea works
--   create or contribute to [ecosystem tools](docs/user-guide/complementary-tools.md), for example the plugin for [VS Code](https://github.com/stylelint/vscode-stylelint)
-
-Our [VISION document](docs/about/vision.md) guides our work.
-
 ## Semantic Versioning Policy
 
 We have a [semantic versioning policy](docs/about/semantic-versioning.md). Any minor update may report more errors than the previous release. As such, we recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds.
