@@ -10,7 +10,7 @@ Also: we hope that your participation in the project isn't a one-off. *We'd love
 
 ## Code contributions
 
-The [developer guide](docs/developer-guide.md) outlines how to get started contributing code.
+The [Developer guide](docs/toc.md) outlines how to get started contributing code.
 
 ## Financial contributions
 

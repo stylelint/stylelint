@@ -15,7 +15,7 @@ You should:
         -   "Add x to y" e.g. "Add ignoreProperties: [] to property-blacklist"
         -   "Fix false positives/negatives for x in y" e.g. "Fix false positives for Less mixins in color-no-hex"
     -   use `*` if the issue applies to a group of rules e.g. "Fix false negatives for SCSS variables in selector-*-pattern"
--   provide a link to the relevant section of the [Developer Guide](../developer-guide.md) when:
+-   provide a link to the relevant section of the documentation when:
     -   adding the `help wanted` label to encourage the original poster to contribute, e.g. [adding an option to an existing rule](../developer-guide/rules.md#adding-an-option-to-an-existing-rule) or [fixing a bug in an existing rule](../developer-guide/rules.md#fixing-a-bug-in-an-existing-rule)
     -   closing an issue because the feature is best part of ecosystem e.g. [a plugin](../developer-guide/plugins.md) or [processor](../developer-guide/processors.md)
 -   use milestones only on issues and not on pull requests and:

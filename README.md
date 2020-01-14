@@ -58,13 +58,6 @@ Alternatively, you can [learn about the rules](docs/user-guide/configuration/abo
 -   start small and add only [the rules](docs/user-guide/configuration/rules.md) you want to turn on
 -   copy, paste and adapt [this example configuration](docs/user-guide/configuration/example-config.md) which lists all of the rules and their primary options
 
-## Guides
-
-You'll find detailed information on customising stylelint in our guides:
-
--   [user guide](docs/user-guide.md) - how to use and configure stylelint
--   [developer guide](docs/developer-guide.md) - how to develop for stylelint
-
 ## Need help?
 
 Read our [FAQ](docs/user-guide/faq.md) first.
