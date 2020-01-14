@@ -2,17 +2,17 @@
 
 -   User guide
     -   [Getting started](user-guide/getting-started.md)
-    -   Configuration
-        -   [Configuration](user-guide/configuration/configuration.md)
-        -   [Example config](user-guide/configuration/example-config.md)
-        -   [About rules](user-guide/configuration/about-rules.md)
-        -   [Rules](user-guide/configuration/rules.md)
+    -   [Configuration](user-guide/configuration.md)
+    -   Rules
+        -   [About](user-guide/rules/about.md)
+        -   [Combining](user-guide/rules/combining.md)
+        -   [List of](user-guide/rules/list-of.md)
     -   Usage
-        -   [The CLI](user-guide/usage/cli.md)
-        -   [The Node.js API](user-guide/usage/node-api.md)
-        -   [The PostCSS plugin](user-guide/usage/postcss-plugin.md)
-    -   [Ignoring code](user-guide/ignoring-code.md)
+        -   [CLI](user-guide/usage/cli.md)
+        -   [Node.js API](user-guide/usage/node-api.md)
+        -   [PostCSS plugin](user-guide/usage/postcss-plugin.md)
     -   [Integrations](user-guide/integrations.md)
+    -   [Ignoring code](user-guide/ignoring-code.md)
     -   [FAQ](user-guide/faq.md)
 -   Developer guide
     -   [Rules](developer-guide/rules.md)
@@ -27,4 +27,4 @@
     -   [Linting](about/linting.md)
     -   [Vision](about/vision.md)
     -   [Rationale](about/rationale.md)
-    -   [Semantic versioning policy](about/semantic-versioning.md)
+    -   [Semantic versioning](about/semantic-versioning.md)

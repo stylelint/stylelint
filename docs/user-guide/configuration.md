@@ -1,8 +1,6 @@
 # Configuration
 
-The linter *expects a configuration object*. You can either craft your own config or extend an existing one.
-
-## Loading the configuration object
+The linter *expects a configuration object*.
 
 Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig). Starting from the current working directory, it will look for the following possible sources, in this order:
 
@@ -10,19 +8,21 @@ Finding and loading of your configuration object is done with [cosmiconfig](http
 -   a `.stylelintrc` file
 -   a `stylelint.config.js` file exporting a JS object
 
-The `.stylelintrc` file (without extension) can be in JSON or YAML format. Alternately, you can add a filename extension to designate JSON, YAML, or JS format: `.stylelintrc.json`, `.stylelintrc.yaml`, `.stylelintrc.yml`, `.stylelintrc.js`. You may want to use an extension so that your text editor can better interpret the file, and help with syntax checking and highlighting.
+The `.stylelintrc` file (without extension) can be in JSON or YAML format. Alternately, you can add a filename extension to designate JSON, YAML, or JS format:
 
-Once one of these is found and parsed, the search will stop and that object will be used.
+-   `.stylelintrc.json`
+-   `.stylelintrc.yaml` / `.stylelintrc.yml`
+-   `.stylelintrc.js`.
 
-The configuration search can be short-circuited by using either the `config` or `configFile` options.
+You may want to use an extension so that your text editor can better interpret the file, and help with syntax checking and highlighting.
 
-## The configuration object
+Once one of these is found and parsed, the search will stop and that object will be used. The configuration search can be short-circuited by using either the `config` or `configFile` options.
 
 The configuration object can have the following properties.
 
-### `rules`
+## `rules`
 
-Rules determine what the linter looks for and complains about. There are [over 170](rules.md) built into stylelint. *No rules are turned on by default*, so this is where you turn on everything you want to check. All the rules must be explicitly configured as *there are no default values*.
+Rules determine what the linter looks for and complains about. There are [over 170](rules/list-of.md) built into stylelint. *No rules are turned on by default*, so this is where you turn on everything you want to check. All the rules must be explicitly configured as *there are no default values*.
 
 The `rules` property is *an object whose keys are rule names and values are rule configurations*. Each rule configuration fits one of the following formats:
 
@@ -52,7 +52,7 @@ The `rules` property is *an object whose keys are rule names and values are rule
 }
 ```
 
-Specifying a primary option will turn a rule on. A complete list of primary rule options can be found in the [example configuration](example-config.md).
+Specifying a primary option will turn a rule on.
 
 Many rules have secondary options which provide further customization. To set secondary options, a two-member array is used:
 
@@ -62,7 +62,7 @@ Many rules have secondary options which provide further customization. To set se
 }]
 ```
 
-#### Turning rules off
+### Turning rules off
 
 To turn a rule off (when extending a configuration) you can set the value of the rule to `null`:
 
@@ -75,7 +75,7 @@ To turn a rule off (when extending a configuration) you can set the value of the
 }
 ```
 
-#### Severities: error & warning
+### Severities: error & warning
 
 By default, all rules have an `"error"`-level severity. You can change this default by adding a `defaultSeverity` property to your configuration (see below).
 
@@ -100,7 +100,7 @@ To adjust any specific rule's severity, use the secondary option `severity`. The
 
 Different reporters may use these severity levels in different way, e.g. display them differently, or exit the process differently.
 
-#### Custom Messages
+### Custom Messages
 
 If you want to deliver a custom message when a rule is violated, you can do so in two ways: provide a `message` option for the rule, or write a custom formatter.
 
@@ -119,9 +119,9 @@ All rules accept a `message` secondary option that, if provided, will be substit
 }
 ```
 
-Writing a [custom formatter](../../developer-guide/formatters.md) gives you maximum control if you need serious customization.
+Writing a [custom formatter](../developer-guide/formatters.md) gives you maximum control if you need serious customization.
 
-### `extends`
+## `extends`
 
 Your configuration can *extend* an existing configuration (whether your own or a third-party config). When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
 
@@ -161,7 +161,7 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 
 *Because of `extends`, you can create and use shareable stylelint configurations.* Use the `stylelint-config` keyword within your `package.json` if publishing your config to npm.
 
-### `plugins`
+## `plugins`
 
 Plugins are rules or sets of rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases.
 
@@ -204,7 +204,7 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 }
 ```
 
-### `processors`
+## `processors`
 
 Processors are functions built by the community that hook into stylelint's pipeline, modifying code on its way into stylelint and modifying results on their way out. They enable stylelint to extract styles from within non-stylesheet files.
 
@@ -235,14 +235,14 @@ If your processor has options, make that item an array whose first item is the "
 }
 ```
 
-### `defaultSeverity`
+## `defaultSeverity`
 
 The default severity level for all rules that do not have a severity specified in their secondary options. The available values for `severity` are:
 
 -   `"warning"`
 -   `"error"`
 
-### `ignoreFiles`
+## `ignoreFiles`
 
 Provide a glob or array of globs to ignore specific files.
 

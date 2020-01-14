@@ -34,13 +34,13 @@ This can be useful, for example, when making a text editor plugin that passes in
 
 ### `config`
 
-A [stylelint configuration object](../configuration/configuration.md).
+A [stylelint configuration object](../configuration.md).
 
-If no `config` or `configFile` is passed, stylelint will use a [config lookup algorithm](./../configuration/configuration.md#loading-the-configuration-object) to find the correct config.
+If no `config` or `configFile` is passed, stylelint will find a config.
 
 ### `configFile`
 
-The path to a JSON, YAML, or JS file that contains your [stylelint configuration object](../configuration/configuration.md).
+The path to a JSON, YAML, or JS file that contains your [stylelint configuration object](../configuration.md).
 
 It should be either absolute or relative to the directory that your process is running from (`process.cwd()`). We'd recommend absolute.
 

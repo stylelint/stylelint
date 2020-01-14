@@ -13,9 +13,9 @@ A linter for CSS and CSS-like languages that is:
 
 Provide built-in rules for the following three areas:
 
--   [Possible errors](../user-guide/configuration/rules.md#possible-errors).
--   [Limit language features](../user-guide/configuration/rules.md#limit-language-features).
--   [Stylistic issues](../user-guide/configuration/rules.md#stylistic-issues).
+-   [Possible errors](../user-guide/rules/list-of.md#possible-errors).
+-   [Limit language features](../user-guide/rules/list-of.md#limit-language-features).
+-   [Stylistic issues](../user-guide/rules/list-of.md#stylistic-issues).
 
 ### Possible errors
 
@@ -43,7 +43,7 @@ Provide rules to enforce a diverse range of stylistic conventions, including:
 Provide multiple points of extensions, including:
 
 -   [Plugins](../developer-guide/plugins.md) - build community rules to support methodologies, toolsets, non-standard CSS features, or very specific use cases.
--   [Extendable configs](../user-guide/configuration/configuration.md#extends) - extend and share configurations.
+-   [Extendable configs](../user-guide/configuration.md#extends) - extend and share configurations.
 -   [Formatters](../developer-guide/formatters.md) - format stylelint result objects.
 -   [Custom syntax](../user-guide/usage/node-api.md#customsyntax) - use any PostCSS-compatible syntax module.
 

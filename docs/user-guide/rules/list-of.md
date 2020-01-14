@@ -1,78 +1,72 @@
-# Rules
+# List of rules
 
-Rules determine what the linter looks for and complains about. All the rules are turned off by default and none have default values for their options. The rules follow a consistent naming convention and have been designed to work in conjunction with one another, you can read more about this in the ["About rules"](about-rules.md) section.
-
-The built-in rules are geared towards standard CSS syntax. With the exception of the `indentation` rule, all the rules will ignore structures that contain non-standard syntax e.g. variable interpolation and mixins.
-
-## List of rules
-
-Here are all the rules within stylelint, grouped first [by category](../../../docs/about/vision.md) and then by the [*thing*](http://apps.workflower.fi/vocabs/css/en) they apply to.
+Grouped first by the following categories and then by the [*thing*](http://apps.workflower.fi/vocabs/css/en) they apply to.
 
 -   [Possible errors](#possible-errors)
 -   [Limit language features](#limit-language-features)
 -   [Stylistic issues](#stylistic-issues)
 
-### Possible errors
+## Possible errors
 
-#### Color
+### Color
 
 -   [`color-no-invalid-hex`](../../../lib/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
 
-#### Font family
+### Font family
 
 -   [`font-family-no-duplicate-names`](../../../lib/rules/font-family-no-duplicate-names/README.md): Disallow duplicate font family names.
 -   [`font-family-no-missing-generic-family-keyword`](../../../lib/rules/font-family-no-missing-generic-family-keyword/README.md): Disallow missing generic families in lists of font family names.
 
-#### Function
+### Function
 
 -   [`function-calc-no-invalid`](../../../lib/rules/function-calc-no-invalid/README.md): Disallow an invalid expression within `calc` functions.
 -   [`function-calc-no-unspaced-operator`](../../../lib/rules/function-calc-no-unspaced-operator/README.md): Disallow an unspaced operator within `calc` functions.
 -   [`function-linear-gradient-no-nonstandard-direction`](../../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow direction values in `linear-gradient()` calls that are not valid according to the [standard syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#Syntax).
 
-#### String
+### String
 
 -   [`string-no-newline`](../../../lib/rules/string-no-newline/README.md): Disallow (unescaped) newlines in strings.
 
-#### Unit
+### Unit
 
 -   [`unit-no-unknown`](../../../lib/rules/unit-no-unknown/README.md): Disallow unknown units.
 
-#### Property
+### Property
 
 -   [`property-no-unknown`](../../../lib/rules/property-no-unknown/README.md): Disallow unknown properties.
 
-#### Keyframe declaration
+### Keyframe declaration
 
 -   [`keyframe-declaration-no-important`](../../../lib/rules/keyframe-declaration-no-important/README.md): Disallow `!important` within keyframe declarations.
 
-#### Declaration block
+### Declaration block
 
 -   [`declaration-block-no-duplicate-properties`](../../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks.
 -   [`declaration-block-no-shorthand-property-overrides`](../../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
 
-#### Block
+### Block
 
 -   [`block-no-empty`](../../../lib/rules/block-no-empty/README.md): Disallow empty blocks.
 
-#### Selector
+### Selector
 
 -   [`selector-pseudo-class-no-unknown`](../../../lib/rules/selector-pseudo-class-no-unknown/README.md): Disallow unknown pseudo-class selectors.
 -   [`selector-pseudo-element-no-unknown`](../../../lib/rules/selector-pseudo-element-no-unknown/README.md): Disallow unknown pseudo-element selectors.
 -   [`selector-type-no-unknown`](../../../lib/rules/selector-type-no-unknown/README.md): Disallow unknown type selectors.
 
-#### Media feature
+### Media feature
 
 -   [`media-feature-name-no-unknown`](../../../lib/rules/media-feature-name-no-unknown/README.md): Disallow unknown media feature names.
 
-#### At-rule
+### At-rule
 
 -   [`at-rule-no-unknown`](../../../lib/rules/at-rule-no-unknown/README.md): Disallow unknown at-rules.
 
-#### Comment
+### Comment
 
 -   [`comment-no-empty`](../../../lib/rules/comment-no-empty/README.md): Disallow empty comments.
 
-#### General / Sheet
+### General / Sheet
 
 -   [`no-descending-specificity`](../../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 -   [`no-duplicate-at-import-rules`](../../../lib/rules/no-duplicate-at-import-rules/README.md): Disallow duplicate `@import` rules within a stylesheet.
@@ -81,14 +75,14 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`no-extra-semicolons`](../../../lib/rules/no-extra-semicolons/README.md): Disallow extra semicolons (Autofixable).
 -   [`no-invalid-double-slash-comments`](../../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
 
-### Limit language features
+## Limit language features
 
-#### Color
+### Color
 
 -   [`color-named`](../../../lib/rules/color-named/README.md): Require (where possible) or disallow named colors.
 -   [`color-no-hex`](../../../lib/rules/color-no-hex/README.md): Disallow hex colors.
 
-#### Function
+### Function
 
 -   [`function-blacklist`](../../../lib/rules/function-blacklist/README.md): Specify a blacklist of disallowed functions.
 -   [`function-url-no-scheme-relative`](../../../lib/rules/function-url-no-scheme-relative/README.md): Disallow scheme-relative urls.
@@ -96,42 +90,42 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`function-url-scheme-whitelist`](../../../lib/rules/function-url-scheme-whitelist/README.md): Specify a whitelist of allowed URL schemes.
 -   [`function-whitelist`](../../../lib/rules/function-whitelist/README.md): Specify a whitelist of allowed functions.
 
-#### Keyframes
+### Keyframes
 
 -   [`keyframes-name-pattern`](../../../lib/rules/keyframes-name-pattern/README.md): Specify a pattern for keyframe names.
 
-#### Number
+### Number
 
 -   [`number-max-precision`](../../../lib/rules/number-max-precision/README.md): Limit the number of decimal places allowed in numbers.
 
-#### Time
+### Time
 
 -   [`time-min-milliseconds`](../../../lib/rules/time-min-milliseconds/README.md): Specify the minimum number of milliseconds for time values.
 
-#### Unit
+### Unit
 
 -   [`unit-blacklist`](../../../lib/rules/unit-blacklist/README.md): Specify a blacklist of disallowed units.
 -   [`unit-whitelist`](../../../lib/rules/unit-whitelist/README.md): Specify a whitelist of allowed units.
 
-#### Shorthand property
+### Shorthand property
 
 -   [`shorthand-property-no-redundant-values`](../../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values in shorthand properties (Autofixable).
 
-#### Value
+### Value
 
 -   [`value-no-vendor-prefix`](../../../lib/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values.
 
-#### Custom property
+### Custom property
 
 -   [`custom-property-pattern`](../../../lib/rules/custom-property-pattern/README.md): Specify a pattern for custom properties.
 
-#### Property
+### Property
 
 -   [`property-blacklist`](../../../lib/rules/property-blacklist/README.md): Specify a blacklist of disallowed properties.
 -   [`property-no-vendor-prefix`](../../../lib/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties.
 -   [`property-whitelist`](../../../lib/rules/property-whitelist/README.md): Specify a whitelist of allowed properties.
 
-#### Declaration
+### Declaration
 
 -   [`declaration-block-no-redundant-longhand-properties`](../../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow longhand properties that can be combined into one shorthand property.
 -   [`declaration-no-important`](../../../lib/rules/declaration-no-important/README.md): Disallow `!important` within declarations.
@@ -140,11 +134,11 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`declaration-property-value-blacklist`](../../../lib/rules/declaration-property-value-blacklist/README.md): Specify a blacklist of disallowed property and value pairs within declarations.
 -   [`declaration-property-value-whitelist`](../../../lib/rules/declaration-property-value-whitelist/README.md): Specify a whitelist of allowed property and value pairs within declarations.
 
-#### Declaration block
+### Declaration block
 
 -   [`declaration-block-single-line-max-declarations`](../../../lib/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declarations within a single-line declaration block.
 
-#### Selector
+### Selector
 
 -   [`selector-attribute-operator-blacklist`](../../../lib/rules/selector-attribute-operator-blacklist/README.md): Specify a blacklist of disallowed attribute operators.
 -   [`selector-attribute-operator-whitelist`](../../../lib/rules/selector-attribute-operator-whitelist/README.md): Specify a whitelist of allowed attribute operators.
@@ -170,49 +164,49 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`selector-pseudo-element-blacklist`](../../../lib/rules/selector-pseudo-element-blacklist/README.md): Specify a blacklist of disallowed pseudo-element selectors.
 -   [`selector-pseudo-element-whitelist`](../../../lib/rules/selector-pseudo-element-whitelist/README.md): Specify a whitelist of allowed pseudo-element selectors.
 
-#### Media feature
+### Media feature
 
 -   [`media-feature-name-blacklist`](../../../lib/rules/media-feature-name-blacklist/README.md): Specify a blacklist of disallowed media feature names.
 -   [`media-feature-name-no-vendor-prefix`](../../../lib/rules/media-feature-name-no-vendor-prefix/README.md): Disallow vendor prefixes for media feature names.
 -   [`media-feature-name-value-whitelist`](../../../lib/rules/media-feature-name-value-whitelist/README.md): Specify a whitelist of allowed media feature name and value pairs.
 -   [`media-feature-name-whitelist`](../../../lib/rules/media-feature-name-whitelist/README.md): Specify a whitelist of allowed media feature names.
 
-#### Custom media
+### Custom media
 
 -   [`custom-media-pattern`](../../../lib/rules/custom-media-pattern/README.md): Specify a pattern for custom media query names.
 
-#### At-rule
+### At-rule
 
 -   [`at-rule-blacklist`](../../../lib/rules/at-rule-blacklist/README.md): Specify a blacklist of disallowed at-rules.
 -   [`at-rule-no-vendor-prefix`](../../../lib/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for at-rules.
 -   [`at-rule-property-requirelist`](../../../lib/rules/at-rule-property-requirelist/README.md): Specify a requirelist of properties for an at-rule.
 -   [`at-rule-whitelist`](../../../lib/rules/at-rule-whitelist/README.md): Specify a whitelist of allowed at-rules.
 
-#### Comment
+### Comment
 
 -   [`comment-word-blacklist`](../../../lib/rules/comment-word-blacklist/README.md): Specify a blacklist of disallowed words within comments.
 
-#### General / Sheet
+### General / Sheet
 
 -   [`max-nesting-depth`](../../../lib/rules/max-nesting-depth/README.md): Limit the depth of nesting.
 -   [`no-unknown-animations`](../../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
 
-### Stylistic issues
+## Stylistic issues
 
-#### Color
+### Color
 
 -   [`color-hex-case`](../../../lib/rules/color-hex-case/README.md): Specify lowercase or uppercase for hex colors (Autofixable).
 -   [`color-hex-length`](../../../lib/rules/color-hex-length/README.md): Specify short or long notation for hex colors (Autofixable).
 
-#### Font family
+### Font family
 
 -   [`font-family-name-quotes`](../../../lib/rules/font-family-name-quotes/README.md): Specify whether or not quotation marks should be used around font family names.
 
-#### Font weight
+### Font weight
 
 -   [`font-weight-notation`](../../../lib/rules/font-weight-notation/README.md): Require numeric or named (where possible) `font-weight` values. Also, when named values are expected, require only valid names.
 
-#### Function
+### Function
 
 -   [`function-comma-newline-after`](../../../lib/rules/function-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of functions (Autofixable).
 -   [`function-comma-newline-before`](../../../lib/rules/function-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of functions (Autofixable).
@@ -225,28 +219,28 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`function-url-quotes`](../../../lib/rules/function-url-quotes/README.md): Require or disallow quotes for urls.
 -   [`function-whitespace-after`](../../../lib/rules/function-whitespace-after/README.md): Require or disallow whitespace after functions (Autofixable).
 
-#### Number
+### Number
 
 -   [`number-leading-zero`](../../../lib/rules/number-leading-zero/README.md): Require or disallow a leading zero for fractional numbers less than 1 (Autofixable).
 -   [`number-no-trailing-zeros`](../../../lib/rules/number-no-trailing-zeros/README.md): Disallow trailing zeros in numbers (Autofixable).
 
-#### String
+### String
 
 -   [`string-quotes`](../../../lib/rules/string-quotes/README.md): Specify single or double quotes around strings (Autofixable).
 
-#### Length
+### Length
 
 -   [`length-zero-no-unit`](../../../lib/rules/length-zero-no-unit/README.md): Disallow units for zero lengths (Autofixable).
 
-#### Unit
+### Unit
 
 -   [`unit-case`](../../../lib/rules/unit-case/README.md): Specify lowercase or uppercase for units (Autofixable).
 
-#### Value
+### Value
 
 -   [`value-keyword-case`](../../../lib/rules/value-keyword-case/README.md): Specify lowercase or uppercase for keywords values (Autofixable).
 
-#### Value list
+### Value list
 
 -   [`value-list-comma-newline-after`](../../../lib/rules/value-list-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of value lists (Autofixable).
 -   [`value-list-comma-newline-before`](../../../lib/rules/value-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of value lists.
@@ -254,15 +248,15 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`value-list-comma-space-before`](../../../lib/rules/value-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of value lists (Autofixable).
 -   [`value-list-max-empty-lines`](../../../lib/rules/value-list-max-empty-lines/README.md): Limit the number of adjacent empty lines within value lists (Autofixable).
 
-#### Custom property
+### Custom property
 
 -   [`custom-property-empty-line-before`](../../../lib/rules/custom-property-empty-line-before/README.md): Require or disallow an empty line before custom properties (Autofixable).
 
-#### Property
+### Property
 
 -   [`property-case`](../../../lib/rules/property-case/README.md): Specify lowercase or uppercase for properties (Autofixable).
 
-#### Declaration
+### Declaration
 
 -   [`declaration-bang-space-after`](../../../lib/rules/declaration-bang-space-after/README.md): Require a single space or disallow whitespace after the bang of declarations (Autofixable).
 -   [`declaration-bang-space-before`](../../../lib/rules/declaration-bang-space-before/README.md): Require a single space or disallow whitespace before the bang of declarations (Autofixable).
@@ -271,7 +265,7 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`declaration-colon-space-before`](../../../lib/rules/declaration-colon-space-before/README.md): Require a single space or disallow whitespace before the colon of declarations (Autofixable).
 -   [`declaration-empty-line-before`](../../../lib/rules/declaration-empty-line-before/README.md): Require or disallow an empty line before declarations (Autofixable).
 
-#### Declaration block
+### Declaration block
 
 -   [`declaration-block-semicolon-newline-after`](../../../lib/rules/declaration-block-semicolon-newline-after/README.md): Require a newline or disallow whitespace after the semicolons of declaration blocks (Autofixable).
 -   [`declaration-block-semicolon-newline-before`](../../../lib/rules/declaration-block-semicolon-newline-before/README.md): Require a newline or disallow whitespace before the semicolons of declaration blocks.
@@ -279,7 +273,7 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`declaration-block-semicolon-space-before`](../../../lib/rules/declaration-block-semicolon-space-before/README.md): Require a single space or disallow whitespace before the semicolons of declaration blocks (Autofixable).
 -   [`declaration-block-trailing-semicolon`](../../../lib/rules/declaration-block-trailing-semicolon/README.md): Require or disallow a trailing semicolon within declaration blocks (Autofixable).
 
-#### Block
+### Block
 
 -   [`block-closing-brace-empty-line-before`](../../../lib/rules/block-closing-brace-empty-line-before/README.md): Require or disallow an empty line before the closing brace of blocks (Autofixable).
 -   [`block-closing-brace-newline-after`](../../../lib/rules/block-closing-brace-newline-after/README.md): Require a newline or disallow whitespace after the closing brace of blocks (Autofixable).
@@ -291,7 +285,7 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`block-opening-brace-space-after`](../../../lib/rules/block-opening-brace-space-after/README.md): Require a single space or disallow whitespace after the opening brace of blocks (Autofixable).
 -   [`block-opening-brace-space-before`](../../../lib/rules/block-opening-brace-space-before/README.md): Require a single space or disallow whitespace before the opening brace of blocks (Autofixable).
 
-#### Selector
+### Selector
 
 -   [`selector-attribute-brackets-space-inside`](../../../lib/rules/selector-attribute-brackets-space-inside/README.md): Require a single space or disallow whitespace on the inside of the brackets within attribute selectors (Autofixable).
 -   [`selector-attribute-operator-space-after`](../../../lib/rules/selector-attribute-operator-space-after/README.md): Require a single space or disallow whitespace after operators within attribute selectors (Autofixable).
@@ -306,18 +300,18 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`selector-pseudo-element-colon-notation`](../../../lib/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements (Autofixable).
 -   [`selector-type-case`](../../../lib/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selectors (Autofixable).
 
-#### Selector list
+### Selector list
 
 -   [`selector-list-comma-newline-after`](../../../lib/rules/selector-list-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of selector lists (Autofixable).
 -   [`selector-list-comma-newline-before`](../../../lib/rules/selector-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of selector lists (Autofixable).
 -   [`selector-list-comma-space-after`](../../../lib/rules/selector-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of selector lists (Autofixable).
 -   [`selector-list-comma-space-before`](../../../lib/rules/selector-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of selector lists (Autofixable).
 
-#### Rule
+### Rule
 
 -   [`rule-empty-line-before`](../../../lib/rules/rule-empty-line-before/README.md): Require or disallow an empty line before rules (Autofixable).
 
-#### Media feature
+### Media feature
 
 -   [`media-feature-colon-space-after`](../../../lib/rules/media-feature-colon-space-after/README.md): Require a single space or disallow whitespace after the colon in media features (Autofixable).
 -   [`media-feature-colon-space-before`](../../../lib/rules/media-feature-colon-space-before/README.md): Require a single space or disallow whitespace before the colon in media features (Autofixable).
@@ -326,14 +320,14 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`media-feature-range-operator-space-after`](../../../lib/rules/media-feature-range-operator-space-after/README.md): Require a single space or disallow whitespace after the range operator in media features (Autofixable).
 -   [`media-feature-range-operator-space-before`](../../../lib/rules/media-feature-range-operator-space-before/README.md): Require a single space or disallow whitespace before the range operator in media features (Autofixable).
 
-#### Media query list
+### Media query list
 
 -   [`media-query-list-comma-newline-after`](../../../lib/rules/media-query-list-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of media query lists (Autofixable).
 -   [`media-query-list-comma-newline-before`](../../../lib/rules/media-query-list-comma-newline-before/README.md): Require a newline or disallow whitespace before the commas of media query lists.
 -   [`media-query-list-comma-space-after`](../../../lib/rules/media-query-list-comma-space-after/README.md): Require a single space or disallow whitespace after the commas of media query lists (Autofixable).
 -   [`media-query-list-comma-space-before`](../../../lib/rules/media-query-list-comma-space-before/README.md): Require a single space or disallow whitespace before the commas of media query lists (Autofixable).
 
-#### At-rule
+### At-rule
 
 -   [`at-rule-empty-line-before`](../../../lib/rules/at-rule-empty-line-before/README.md): Require or disallow an empty line before at-rules (Autofixable).
 -   [`at-rule-name-case`](../../../lib/rules/at-rule-name-case/README.md): Specify lowercase or uppercase for at-rules names (Autofixable).
@@ -342,12 +336,12 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`at-rule-semicolon-newline-after`](../../../lib/rules/at-rule-semicolon-newline-after/README.md): Require a newline after the semicolon of at-rules (Autofixable).
 -   [`at-rule-semicolon-space-before`](../../../lib/rules/at-rule-semicolon-space-before/README.md): Require a single space or disallow whitespace before the semicolons of at-rules.
 
-#### Comment
+### Comment
 
 -   [`comment-empty-line-before`](../../../lib/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments (Autofixable).
 -   [`comment-whitespace-inside`](../../../lib/rules/comment-whitespace-inside/README.md): Require or disallow whitespace on the inside of comment markers (Autofixable).
 
-#### General / Sheet
+### General / Sheet
 
 -   [`indentation`](../../../lib/rules/indentation/README.md): Specify indentation (Autofixable).
 -   [`linebreaks`](../../../lib/rules/linebreaks/README.md): Specify unix or windows linebreaks (Autofixable).
@@ -357,3 +351,190 @@ Here are all the rules within stylelint, grouped first [by category](../../../do
 -   [`no-missing-end-of-source-newline`](../../../lib/rules/no-missing-end-of-source-newline/README.md): Disallow missing end-of-source newlines (Autofixable).
 -   [`no-empty-first-line`](../../../lib/rules/no-empty-first-line/README.md): Disallow empty first lines (Autofixable).
 -   [`unicode-bom`](../../../lib/rules/unicode-bom/README.md): Require or disallow Unicode BOM.
+
+## As JSON
+
+All of the rules and their primary options.
+
+```json
+{
+  "rules": {
+    "at-rule-blacklist": string|[],
+    "at-rule-empty-line-before": "always"|"never",
+    "at-rule-name-case": "lower"|"upper",
+    "at-rule-name-newline-after": "always"|"always-multi-line",
+    "at-rule-name-space-after": "always"|"always-single-line",
+    "at-rule-no-unknown": true,
+    "at-rule-no-vendor-prefix": true,
+    "at-rule-property-requirelist": {},
+    "at-rule-semicolon-newline-after": "always",
+    "at-rule-semicolon-space-before": "always"|"never",
+    "at-rule-whitelist": string|[],
+    "block-closing-brace-empty-line-before": "always-multi-line"|"never",
+    "block-closing-brace-newline-after": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
+    "block-closing-brace-newline-before": "always"|"always-multi-line"|"never-multi-line",
+    "block-closing-brace-space-after": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
+    "block-closing-brace-space-before": "always"|"never"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
+    "block-no-empty": true,
+    "block-opening-brace-newline-after": "always"|"always-multi-line"|"never-multi-line",
+    "block-opening-brace-newline-before": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
+    "block-opening-brace-space-after": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
+    "block-opening-brace-space-before": "always"|"always-single-line"|"never-single-line"|"always-multi-line"|"never-multi-line",
+    "color-hex-case": "lower"|"upper",
+    "color-hex-length": "short"|"long",
+    "color-named": "always-where-possible"|"never",
+    "color-no-hex": true,
+    "color-no-invalid-hex": true,
+    "comment-empty-line-before": "always"|"never",
+    "comment-no-empty": true,
+    "comment-whitespace-inside": "always"|"never",
+    "comment-word-blacklist": string|[],
+    "custom-media-pattern": string,
+    "custom-property-empty-line-before": "always"|"never",
+    "custom-property-pattern": string,
+    "declaration-bang-space-after": "always"|"never",
+    "declaration-bang-space-before": "always"|"never",
+    "declaration-block-no-duplicate-properties": true,
+    "declaration-block-no-redundant-longhand-properties": true,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "declaration-block-semicolon-newline-after": "always"|"always-multi-line"|"never-multi-line",
+    "declaration-block-semicolon-newline-before": "always"|"always-multi-line"|"never-multi-line",
+    "declaration-block-semicolon-space-after": "always"|"never"|"always-single-line"|"never-single-line",
+    "declaration-block-semicolon-space-before": "always"|"never"|"always-single-line"|"never-single-line",
+    "declaration-block-single-line-max-declarations": int,
+    "declaration-block-trailing-semicolon": "always"|"never",
+    "declaration-colon-newline-after": "always"|"always-multi-line",
+    "declaration-colon-space-after": "always"|"never"|"always-single-line",
+    "declaration-colon-space-before": "always"|"never",
+    "declaration-empty-line-before": "always"|"never",
+    "declaration-no-important": true,
+    "declaration-property-unit-blacklist": {},
+    "declaration-property-unit-whitelist": {},
+    "declaration-property-value-blacklist": {},
+    "declaration-property-value-whitelist": {},
+    "font-family-name-quotes": "always-where-required"|"always-where-recommended"|"always-unless-keyword",
+    "font-family-no-duplicate-names": true,
+    "font-family-no-missing-generic-family-keyword": true,
+    "font-weight-notation": "numeric"|"named",
+    "function-blacklist": string|[],
+    "function-calc-no-invalid": true,
+    "function-calc-no-unspaced-operator": true,
+    "function-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
+    "function-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
+    "function-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
+    "function-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
+    "function-linear-gradient-no-nonstandard-direction": true,
+    "function-max-empty-lines": int,
+    "function-name-case": "lower"|"upper",
+    "function-parentheses-newline-inside": "always"|"always-multi-line"|"never-multi-line",
+    "function-parentheses-space-inside": "always"|"never"|"always-single-line"|"never-single-line",
+    "function-url-no-scheme-relative": true,
+    "function-url-quotes": "always"|"never",
+    "function-url-scheme-blacklist": string|[],
+    "function-url-scheme-whitelist": string|[],
+    "function-whitelist": string|[],
+    "function-whitespace-after": "always"|"never",
+    "indentation": int|"tab",
+    "keyframe-declaration-no-important": true,
+    "keyframes-name-pattern": string,
+    "length-zero-no-unit": true,
+    "linebreaks": "unix"|"windows",
+    "max-empty-lines": int,
+    "max-line-length": int,
+    "max-nesting-depth": int,
+    "media-feature-colon-space-after": "always"|"never",
+    "media-feature-colon-space-before": "always"|"never",
+    "media-feature-name-blacklist": string|[],
+    "media-feature-name-case": "lower"|"upper",
+    "media-feature-name-no-unknown": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "media-feature-name-value-whitelist": {},
+    "media-feature-name-whitelist": string|[],
+    "media-feature-parentheses-space-inside": "always"|"never",
+    "media-feature-range-operator-space-after": "always"|"never",
+    "media-feature-range-operator-space-before": "always"|"never",
+    "media-query-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
+    "media-query-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
+    "media-query-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
+    "media-query-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
+    "no-descending-specificity": true,
+    "no-duplicate-at-import-rules": true,
+    "no-duplicate-selectors": true,
+    "no-empty-source": true,
+    "no-empty-first-line": true,
+    "no-eol-whitespace": true,
+    "no-extra-semicolons": true,
+    "no-invalid-double-slash-comments": true,
+    "no-missing-end-of-source-newline": true,
+    "no-unknown-animations": true,
+    "number-leading-zero": "always"|"never",
+    "number-max-precision": int,
+    "number-no-trailing-zeros": true,
+    "property-blacklist": string|[],
+    "property-case": "lower"|"upper",
+    "property-no-unknown": true,
+    "property-no-vendor-prefix": true,
+    "property-whitelist": string|[],
+    "rule-empty-line-before": "always"|"never"|"always-multi-line"|"never-multi-line",
+    "selector-attribute-brackets-space-inside": "always"|"never",
+    "selector-attribute-operator-blacklist": string|[],
+    "selector-attribute-operator-space-after": "always"|"never",
+    "selector-attribute-operator-space-before": "always"|"never",
+    "selector-attribute-operator-whitelist": string|[],
+    "selector-attribute-quotes": "always"|"never",
+    "selector-class-pattern": string,
+    "selector-combinator-blacklist": string|[],
+    "selector-combinator-space-after": "always"|"never",
+    "selector-combinator-space-before": "always"|"never",
+    "selector-combinator-whitelist": string|[],
+    "selector-descendant-combinator-no-non-space": true,
+    "selector-id-pattern": string,
+    "selector-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
+    "selector-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
+    "selector-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
+    "selector-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
+    "selector-max-attribute": int,
+    "selector-max-class": int,
+    "selector-max-combinators": int,
+    "selector-max-compound-selectors": int,
+    "selector-max-empty-lines": int,
+    "selector-max-id": int,
+    "selector-max-pseudo-class": int,
+    "selector-max-specificity": string,
+    "selector-max-type": int,
+    "selector-max-universal": int,
+    "selector-nested-pattern": string,
+    "selector-no-qualifying-type": true,
+    "selector-no-vendor-prefix": true,
+    "selector-pseudo-class-blacklist": string|[],
+    "selector-pseudo-class-case": "lower"|"upper",
+    "selector-pseudo-class-no-unknown": true,
+    "selector-pseudo-class-parentheses-space-inside": "always"|"never",
+    "selector-pseudo-class-whitelist": string|[],
+    "selector-pseudo-element-blacklist": string|[],
+    "selector-pseudo-element-case": "lower"|"upper",
+    "selector-pseudo-element-colon-notation": "single"|"double",
+    "selector-pseudo-element-no-unknown": true,
+    "selector-pseudo-element-whitelist": string|[],
+    "selector-type-case": "lower"|"upper",
+    "selector-type-no-unknown": true,
+    "shorthand-property-no-redundant-values": true,
+    "string-no-newline": true,
+    "string-quotes": "single"|"double",
+    "time-min-milliseconds": int,
+    "unicode-bom": "always"|"never",
+    "unit-blacklist": string|[],
+    "unit-case": "lower"|"upper",
+    "unit-no-unknown": true,
+    "unit-whitelist": string|[],
+    "value-keyword-case": "lower"|"upper",
+    "value-list-comma-newline-after": "always"|"always-multi-line"|"never-multi-line",
+    "value-list-comma-newline-before": "always"|"always-multi-line"|"never-multi-line",
+    "value-list-comma-space-after": "always"|"never"|"always-single-line"|"never-single-line",
+    "value-list-comma-space-before": "always"|"never"|"always-single-line"|"never-single-line",
+    "value-list-max-empty-lines": int,
+    "value-no-vendor-prefix": true
+  }
+}
+```
+

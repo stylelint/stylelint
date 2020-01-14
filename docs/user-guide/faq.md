@@ -15,7 +15,7 @@ For example, to use `stylelint-config-standard` without the `at-rule-empty-line-
 }
 ```
 
-You can also turn off a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](configuration/configuration.md#rules) for more information.
+You can also turn off a rule for specific sections of your CSS. Refer to the rules section of the [configuration guide](configuration.md#rules) for more information.
 
 ## How do I lint from the command line?
 
@@ -69,7 +69,7 @@ For example, we've found that rules to enforce property order, property grouping
 
 ## Can I customise stylelint's messages?
 
-Yes, you can either use the [`message` secondary option](configuration/configuration.md#custom-messages) or [write your own formatter](../developer-guide/formatters.md).
+Yes, you can either use the [`message` secondary option](configuration.md#custom-messages) or [write your own formatter](../developer-guide/formatters.md).
 
 ## How should I lint my CSS that follows a BEM-like methodology?
 
@@ -149,7 +149,7 @@ All these patterns disallow CSS identifiers that start with a digit, two hyphens
 
 ## How do I change the default severity to "warning" so stylelint doesn't break my build?
 
-Use the [`defaultSeverity`](configuration/configuration.md#defaultseverity) configuration option.
+Use the [`defaultSeverity`](configuration.md#defaultseverity) configuration option.
 
 ## Can I bundle more than one sharable config within an npm package?
 
@@ -157,13 +157,13 @@ A user can `require()` any file in your npm package, so all you need to do is do
 
 ## How can I control the whitespace after the open brace of the block?
 
-Refer to [this](configuration/about-rules.md#-empty-line-before-and--max-empty-lines-rules) section of the docs that explains how the `*-empty-line-before` rules work.
+Refer to [this](rules/combining.md#-empty-line-before-and--max-empty-lines-rules) section of the docs that explains how the `*-empty-line-before` rules work.
 
 ## If I use `extends` within my configuration object, will the options for each rule be merged or overridden?
 
 They will be overridden.
 
-The `extends` mechanism is [detailed within the configuration docs](configuration/configuration.md#extends):
+The `extends` mechanism is [detailed within the configuration docs](configuration.md#extends):
 
 > When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
 
