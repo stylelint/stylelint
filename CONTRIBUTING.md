@@ -13,7 +13,7 @@ To help out, you can:
 -   improve the [performance of rules](docs/developer-guide/rules.md#improving-the-performance-of-a-rule)
 -   open [new issues](https://github.com/stylelint/stylelint/issues/new/choose) about your ideas for making stylelint better
 -   open [a pull request](https://github.com/stylelint/stylelint/compare) to show us how your idea works
--   create or contribute to [ecosystem tools](docs/user-guide/integrations.md), for example the plugin for [VS Code](https://github.com/stylelint/vscode-stylelint)
+-   create or contribute to [integrations](docs/user-guide/integrations/editor.md), for example the plugin for [VS Code](https://github.com/stylelint/vscode-stylelint)
 
 Our [vision](docs/about/vision.md) guides our work.
 

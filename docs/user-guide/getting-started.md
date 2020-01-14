@@ -3,8 +3,8 @@
 First, decide how you want to use stylelint:
 
 -   [on the command line](usage/cli.md)
--   [in your text editor](integrations.md#editor-plugins), for example in VS Code
--   [in for your build tool](integrations.md#build-tool-plugins), for example in webpack
+-   [in your text editor](integrations/editor.md), for example in VS Code
+-   [in for your build tool](integrations/task-runner.md), for example in webpack
 -   [via the Node.js API](usage/node-api.md)
 -   [as a PostCSS plugin](usage/postcss-plugin.md)
 

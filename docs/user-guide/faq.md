@@ -29,7 +29,7 @@ The CLI can also be used from within [npm run scripts](https://michael-kuehnel.d
 
 ## How do I lint using my task runner of choice?
 
-The stylelint community maintains a [handful of plugins](integrations.md#build-tool-plugins) for popular task runners, including ones for gulp, webpack, Broccoli and Grunt. Refer to their individual READMEs to get started.
+The stylelint community maintains a [handful of plugins](integrations/task-runner.md) for popular task runners, including ones for gulp, webpack, Broccoli and Grunt. Refer to their individual READMEs to get started.
 
 If there isn't a dedicated stylelint plugin for your task runner of choice, you can use stylelint as a PostCSS plugin and make use of PostCSS's [numerous](https://github.com/postcss/postcss#runners) task runner plugins.
 
@@ -39,7 +39,7 @@ However, using stylelint as a PostCSS plugin limits your reporting options to [p
 
 ## How do I lint within my text editor?
 
-The stylelint community also maintains a [handful of plugins](integrations.md#editor-plugins) for popular editors. Refer to their individual READMEs to get started.
+The stylelint community also maintains a [handful of plugins](integrations/editor.md) for popular editors. Refer to their individual READMEs to get started.
 
 ## How do I lint SCSS, Less, or other non-standard syntax?
 

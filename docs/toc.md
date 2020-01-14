@@ -11,7 +11,10 @@
         -   [CLI](user-guide/usage/cli.md)
         -   [Node.js API](user-guide/usage/node-api.md)
         -   [PostCSS plugin](user-guide/usage/postcss-plugin.md)
-    -   [Integrations](user-guide/integrations.md)
+    -   Integrations
+        -   [Editor](user-guide/integrations/editor.md)
+        -   [Task runner](user-guide/integrations/task-runner.md)
+        -   [Other](user-guide/integrations/other.md)
     -   [Ignoring code](user-guide/ignoring-code.md)
     -   [FAQ](user-guide/faq.md)
 -   Developer guide
