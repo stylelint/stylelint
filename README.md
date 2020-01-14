@@ -27,10 +27,6 @@ It's mighty because it:
 
 Everything you need to get started is in our [docs](docs/toc.md).
 
-## Semantic Versioning Policy
-
-We have a [semantic versioning policy](docs/about/semantic-versioning.md). Any minor update may report more errors than the previous release. As such, we recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds.
-
 ## License
 
 [The MIT License](https://raw.githubusercontent.com/stylelint/stylelint/master/LICENSE).

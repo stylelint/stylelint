@@ -378,7 +378,7 @@ All notable changes to this project are documented in this file.
 
 This release is accompanied by:
 
--   A new [semantic version policy](README.md#semantic-versioning-policy). The use of the tilde (`~`) in `package.json` is now recommended, e.g. `"stylelint": "~8.0.0"`, to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
+-   A new [semantic version policy](docs/about/semantic-versioning.md). The use of the tilde (`~`) in `package.json` is now recommended, e.g. `"stylelint": "~8.0.0"`, to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
 -   A new [VISION document](docs/about/vision.md), complemented by ([#2704](https://github.com/stylelint/stylelint/pull/2704)):
     -   The restructuring of the [list of rules](docs/user-guide/configuration/rules.md) into three groups:
         -   [Possible errors](docs/user-guide/configuration/rules.md#possible-errors).

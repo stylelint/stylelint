@@ -8,6 +8,8 @@ stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install 
 npm install stylelint --save-dev
 ```
 
+We have a [semantic versioning policy](../../about/semantic-versioning.md). Any minor update may report more errors than the previous release. As such, we recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds.
+
 ## Usage
 
 `stylelint --help` prints the CLI documentation.
