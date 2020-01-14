@@ -14,7 +14,6 @@
     -   [Integrations](user-guide/integrations.md)
     -   [FAQ](user-guide/faq.md)
 -   Developer guide
-    -   [Prerequisites](developer-guide/prerequisites.md)
     -   [Rules](developer-guide/rules.md)
     -   [Plugins](developer-guide/plugins.md)
     -   [Formatters](developer-guide/formatters.md)

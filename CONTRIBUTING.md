@@ -23,6 +23,11 @@ Also: we hope that your participation in the project isn't a one-off. *We'd love
 
 ## Code contributions
 
+You'll need:
+
+-   Minimum [Node.js](https://nodejs.org/en/) v10, though we do recommend using the latest LTS release.
+-   Latest [npm](https://www.npmjs.com/).
+
 The [Developer guide](docs/toc.md) outlines how to get started contributing code.
 
 ## Financial contributions
