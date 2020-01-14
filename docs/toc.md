@@ -1,10 +1,7 @@
 # Docs
 
--   About
-    -   [CSS processors](about/css-processors.md)
-    -   [Vision](about/vision.md)
-    -   [Semantic versioning policy](about/semantic-versioning.md)
 -   User guide
+    -   [Get started](user-guide/get-started.md)
     -   Configuration
         -   [Configuration](user-guide/configuration/configuration.md)
         -   [Example config](user-guide/configuration/example-config.md)
@@ -27,3 +24,7 @@
     -   [Issues](maintainer-guide/issues.md)
     -   [Pull requests](maintainer-guide/pull-requests.md)
     -   [Releases](maintainer-guide/releases.md)
+-   About
+    -   [CSS processors](about/css-processors.md)
+    -   [Vision](about/vision.md)
+    -   [Semantic versioning policy](about/semantic-versioning.md)
