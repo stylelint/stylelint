@@ -217,6 +217,15 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 
 Plugins are rules or sets of rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases.
 
+Their *package* names are prefixed with "stylelint". Their *rule* names are namespaced so that they do not clash with stylelint's built-in rules.
+
+Popular plugin packs include:
+
+-   [`stylelint-order`](https://github.com/hudochenkov/stylelint-order): Specify the ordering of things e.g. properties within declaration blocks.
+-   [`stylelint-scss`](https://github.com/kristerkari/stylelint-scss): Enforce a wide variety of SCSS-syntax specific linting rules.
+
+You'll find more in [awesome stylelint](https://github.com/ntwb/awesome-stylelint).
+
 To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
 
 Once the plugin is declared, within your `"rules"` object *you'll need to add options* for the plugin's rule(s), just like any standard rule. You will have to look at the plugin's documentation to know what the rule name should be.

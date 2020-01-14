@@ -217,4 +217,3 @@ To make a single module provide multiple rules, export an array of plugin object
 ## Sharing plugins and plugin packs
 
 -   Use the `stylelint-plugin` keyword within your `package.json`.
--   Once your plugin is published, please send us a Pull Request to add your plugin to [the list](../user-guide/plugins.md).
