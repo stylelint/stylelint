@@ -47,11 +47,9 @@ stylelint can *parse* any the following non-standard syntaxes by default: Sass, 
 
 Additionally, stylelint can accept any [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes) when using the CLI or Node.js API. Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed above.
 
-Refer to the [docs](../about/css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse non-standard syntaxes.
-
 ## Should I lint before or after processing my stylesheets through PostCSS plugins or other processors?
 
-We [recommend](../about/css-processors.md) linting your source files before any transformations.
+We [recommend](../about/rationale.md) linting your source files before any transformations.
 
 ## How do I automatically fix stylistic violations?
 

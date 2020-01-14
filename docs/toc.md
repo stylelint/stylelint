@@ -24,6 +24,7 @@
     -   [Pull requests](maintainer-guide/pull-requests.md)
     -   [Releases](maintainer-guide/releases.md)
 -   About
-    -   [CSS processors](about/css-processors.md)
+    -   [Linting](about/linting.md)
     -   [Vision](about/vision.md)
+    -   [Rationale](about/rationale.md)
     -   [Semantic versioning policy](about/semantic-versioning.md)
