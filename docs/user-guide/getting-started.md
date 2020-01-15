@@ -28,7 +28,4 @@ You may want to add rules to your config that [limit language features](rules/li
 
 ## Craft your own config
 
-Alternatively, you can [learn about the rules](rules/about.md) and then either:
-
--   start small and add only [the rules](rules/list.md) you want to turn on
--   copy, paste and adapt [this lists all of the rules and their primary options](rules/list.md#as-json)
+Alternatively, you can [learn about the rules](rules/about.md) and then start small and add only [the rules](rules/list.md) you want to turn on.
