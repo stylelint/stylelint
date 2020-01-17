@@ -2,7 +2,7 @@
 
 As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a [PostCSS runner](https://github.com/postcss/postcss#runners) or with the PostCSS JS API directly.
 
-*However, if a dedicated stylelint task runner plugin [is available](complementary-tools.md) (e.g. [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) or [grunt-stylelint](https://github.com/wikimedia/grunt-stylelint)) we recommend you use that rather than this plugin, as they provide better reporting.*
+*However, if a dedicated stylelint task runner plugin [is available](../integrations/task-runner.md) (e.g. [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) or [grunt-stylelint](https://github.com/wikimedia/grunt-stylelint)) we recommend you use that rather than this plugin, as they provide better reporting.*
 
 ## Installation
 
@@ -18,13 +18,13 @@ The plugin accepts an options object as argument, with the following properties:
 
 ### `config`
 
-A [stylelint configuration object](configuration.md).
+A [stylelint configuration object](../configuration.md).
 
-If no `config` or `configFile` is passed, stylelint will use a [config lookup algorithm](./configuration.md#loading-the-configuration-object) to find the correct config.
+If no `config` or `configFile` is passed, stylelint will find a config.
 
 ### `configFile`
 
-The path to a JSON, YAML, or JS file that contains your [stylelint configuration object](configuration.md).
+The path to a JSON, YAML, or JS file that contains your [stylelint configuration object](../configuration.md).
 
 It should be either absolute or relative to the directory that your process is running from (`process.cwd()`). We'd recommend absolute.
 
@@ -51,7 +51,7 @@ You can use this option to see what your linting results would be like without t
 
 ### `ignorePath`
 
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](configuration.md#stylelintignore).
+A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](../ignoring-code.md#ignoring-specific-files).
 
 ## Usage examples
 

@@ -3,8 +3,9 @@
 The stylelint module includes a `lint()` function that provides the Node.js API.
 
 ```js
-stylelint.lint(options)
-    .then(function(resultObject) { /* .. */ });
+stylelint.lint(options).then(function(resultObject) {
+  /* .. */
+});
 ```
 
 ## Installation
@@ -19,7 +20,7 @@ npm install stylelint
 
 Options is an object with the following properties.
 
-Though both `files` and `code` are "optional", you *must* have one and *cannot* have both. All other options are optional.
+Though both `files` and `code` are "optional", you _must_ have one and _cannot_ have both. All other options are optional.
 
 ### `code`
 
@@ -33,19 +34,19 @@ This can be useful, for example, when making a text editor plugin that passes in
 
 ### `config`
 
-A [stylelint configuration object](configuration.md).
+A [stylelint configuration object](../configuration.md).
 
-If no `config` or `configFile` is passed, stylelint will use a [config lookup algorithm](./configuration.md#loading-the-configuration-object) to find the correct config.
+If no `config` or `configFile` is passed, stylelint will find a config.
 
 ### `configFile`
 
-The path to a JSON, YAML, or JS file that contains your [stylelint configuration object](configuration.md).
+The path to a JSON, YAML, or JS file that contains your [stylelint configuration object](../configuration.md).
 
 It should be either absolute or relative to the directory that your process is running from (`process.cwd()`). We'd recommend absolute.
 
 ### `configBasedir`
 
-An absolute path to the directory that relative paths defining `extends` and `plugins` are *relative to*.
+An absolute path to the directory that relative paths defining `extends` and `plugins` are _relative to_.
 
 This is only necessary if you passed an object directly through the `config` property. If you used
 `configFile`, this option is not necessary.
@@ -56,7 +57,7 @@ If the `config` object passed uses relative paths, e.g. for `extends` or `plugin
 
 A partial stylelint configuration object whose properties will override the existing config object, whether that config was loaded via the `config` option or a `.stylelintrc` file.
 
-The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to *both* load a `.stylelintrc` file *and* override specific parts of it, `configOverrides` does just that.
+The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to _both_ load a `.stylelintrc` file _and_ override specific parts of it, `configOverrides` does just that.
 
 ### `files`
 
@@ -80,7 +81,7 @@ Options: `"compact"|"json"|"string"|"unix"|"verbose"`, or a function. Default is
 
 Specify the formatter that you would like to use to format your results.
 
-If you pass a function, it must fit the signature described in the [Developer Guide](../developer-guide/formatters.md).
+If you pass a function, it must fit the signature described in the [Developer Guide](../../developer-guide/formatters.md).
 
 ### `ignoreDisables`
 
@@ -114,7 +115,7 @@ If `true`, `ignoreDisables` will also be set to `true` and the returned data wil
 
 Use this report to clean up your codebase, keeping only the stylelint-disable comments that serve a purpose.
 
-*The recommended way to use this option is through the CLI.* It will output a clean report to the console.
+_The recommended way to use this option is through the CLI._ It will output a clean report to the console.
 
 ### `reportInvalidScopeDisables`
 
@@ -122,18 +123,18 @@ If `true`, the returned data will contain a `invalidScopeDisables` property, who
 
 Use this report to clean up your codebase, keeping only the stylelint-disable comments that serve a purpose.
 
-*The recommended way to use this option is through the CLI.* It will output a clean report to the console.
+_The recommended way to use this option is through the CLI._ It will output a clean report to the console.
 
 ### `maxWarnings`
 
 Sets a limit to the number of warnings accepted. Will add a `maxWarningsExceeded` property to the returned data if the number of found warnings exceeds the given limit.
 The value is an Object (e.g. `{ maxWarnings: 0, foundWarnings: 12 }`).
 
-*The recommended way to use this option is through the CLI.* It will exit with code 2 when `maxWarnings` is exceeded.
+_The recommended way to use this option is through the CLI._ It will exit with code 2 when `maxWarnings` is exceeded.
 
 ### `ignorePath`
 
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](configuration.md#stylelintignore).
+A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](../ignoring-code.md#ignoring-specific-files).
 
 ### `syntax`
 
@@ -186,55 +187,63 @@ If `myConfig` contains no relative paths for `extends` or `plugins`, you do not 
 
 ```js
 stylelint
-    .lint({
-        config: myConfig,
-        files: 'all/my/stylesheets/*.css',
-    })
-    .then(function(data) {
-        // do things with data.output, data.errored,
-        // and data.results
-    })
-    .catch(function(err) {
-        // do things with err e.g.
-        console.error(err.stack);
-    });
+  .lint({
+    config: myConfig,
+    files: 'all/my/stylesheets/*.css',
+  })
+  .then(function(data) {
+    // do things with data.output, data.errored,
+    // and data.results
+  })
+  .catch(function(err) {
+    // do things with err e.g.
+    console.error(err.stack);
+  });
 ```
 
-If `myConfig` *does* contain relative paths for `extends` or `plugins`, you *do* have to use `configBasedir`:
+If `myConfig` _does_ contain relative paths for `extends` or `plugins`, you _do_ have to use `configBasedir`:
 
 ```js
 stylelint
-    .lint({
-        config: myConfig,
-        configBasedir: path.join(__dirname, 'configs'),
-        files: 'all/my/stylesheets/*.css',
-    })
-    .then(function() { /* .. */ });
+  .lint({
+    config: myConfig,
+    configBasedir: path.join(__dirname, 'configs'),
+    files: 'all/my/stylesheets/*.css',
+  })
+  .then(function() {
+    /* .. */
+  });
 ```
 
 Maybe you want to use a CSS string instead of a file glob, and you want to use the string formatter instead of the default JSON:
 
 ```js
 stylelint
-    .lint({
-        code: 'a { color: pink; }',
-        config: myConfig,
-        formatter: 'string',
-    })
-    .then(function() { /* .. */ });
+  .lint({
+    code: 'a { color: pink; }',
+    config: myConfig,
+    formatter: 'string',
+  })
+  .then(function() {
+    /* .. */
+  });
 ```
 
 Maybe you want to use my own custom formatter function and parse `.scss` source files:
 
 ```js
 stylelint
-    .lint({
-        config: myConfig,
-        files: 'all/my/stylesheets/*.scss',
-        formatter: function(stylelintResults) { /* .. */ },
-        syntax: 'scss',
-    })
-    .then(function() { /* .. */ });
+  .lint({
+    config: myConfig,
+    files: 'all/my/stylesheets/*.scss',
+    formatter: function(stylelintResults) {
+      /* .. */
+    },
+    syntax: 'scss',
+  })
+  .then(function() {
+    /* .. */
+  });
 ```
 
 The same pattern can be used to lint Less, SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.

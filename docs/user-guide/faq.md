@@ -19,7 +19,7 @@ You can also turn off a rule for specific sections of your CSS. Refer to the rul
 
 ## How do I lint from the command line?
 
-Refer to the [CLI section](cli.md) of the docs.
+Refer to the [CLI section](usage/cli.md) of the docs.
 
 The CLI can also be used from within [npm run scripts](https://michael-kuehnel.de/tooling/2018/03/22/helpers-and-tips-for-npm-run-scripts.html) to use a non-global installation of stylelint.
 
@@ -29,17 +29,17 @@ The CLI can also be used from within [npm run scripts](https://michael-kuehnel.d
 
 ## How do I lint using my task runner of choice?
 
-The stylelint community maintains a [handful of plugins](complementary-tools.md#build-tool-plugins) for popular task runners, including ones for gulp, webpack, Broccoli and Grunt. Refer to their individual READMEs to get started.
+The stylelint community maintains a [handful of plugins](integrations/task-runner.md) for popular task runners, including ones for gulp, webpack, Broccoli and Grunt. Refer to their individual READMEs to get started.
 
 If there isn't a dedicated stylelint plugin for your task runner of choice, you can use stylelint as a PostCSS plugin and make use of PostCSS's [numerous](https://github.com/postcss/postcss#runners) task runner plugins.
 
-There are also examples of using the PostCSS plugin via the PostCSS JS API within the [docs](postcss-plugin.md).
+There are also examples of using the PostCSS plugin via the PostCSS JS API within the [docs](usage/postcss-plugin.md).
 
 However, using stylelint as a PostCSS plugin limits your reporting options to [postcss-reporter](https://github.com/postcss/postcss-reporter/). We recommend using the stylelint CLI or Node.js API, instead, for better reporting.
 
 ## How do I lint within my text editor?
 
-The stylelint community also maintains a [handful of plugins](complementary-tools.md#editor-plugins) for popular editors. Refer to their individual READMEs to get started.
+The stylelint community also maintains a [handful of plugins](integrations/editor.md) for popular editors. Refer to their individual READMEs to get started.
 
 ## How do I lint SCSS, Less, or other non-standard syntax?
 
@@ -47,11 +47,9 @@ stylelint can *parse* any the following non-standard syntaxes by default: Sass, 
 
 Additionally, stylelint can accept any [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes) when using the CLI or Node.js API. Note, however, that stylelint can provide no guarantee that core rules will work with syntaxes other than the defaults listed above.
 
-Refer to the [docs](css-processors.md#parsing-non-standard-syntax) on how to configure stylelint to parse non-standard syntaxes.
-
 ## Should I lint before or after processing my stylesheets through PostCSS plugins or other processors?
 
-We [recommend](css-processors.md) linting your source files before any transformations.
+We [recommend](../about/rationale.md) linting your source files before any transformations.
 
 ## How do I automatically fix stylistic violations?
 
@@ -159,7 +157,7 @@ A user can `require()` any file in your npm package, so all you need to do is do
 
 ## How can I control the whitespace after the open brace of the block?
 
-Refer to [this](about-rules.md#-empty-line-before-and--max-empty-lines-rules) section of the docs that explains how the `*-empty-line-before` rules work.
+Refer to [this](rules/combining.md#-empty-line-before-and--max-empty-lines-rules) section of the docs that explains how the `*-empty-line-before` rules work.
 
 ## If I use `extends` within my configuration object, will the options for each rule be merged or overridden?
 

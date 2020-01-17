@@ -8,6 +8,8 @@ stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install 
 npm install stylelint --save-dev
 ```
 
+We have a [semantic versioning policy](../../about/semantic-versioning.md). Any minor update may report more errors than the previous release. As such, we recommend using the tilde (`~`) in `package.json` e.g. `"stylelint": "~7.2.0"` to guarantee the results of your builds.
+
 ## Usage
 
 `stylelint --help` prints the CLI documentation.
@@ -60,7 +62,7 @@ Caching processed `.scss` files in order to operate only on changed ones in the 
 stylelint "foo/**/*.scss" --cache --cache-location "/Users/user/.stylelintcache/"
 ```
 
-stylelint will [automatically infer the syntax](css-processors.md#parsing-non-standard-syntax). You can, however, force a specific syntax using the  `--syntax` option. For example, linting all the `.css` files in the `foo` directory _as Scss_:
+stylelint will automatically infer the syntax. You can, however, force a specific syntax using the  `--syntax` option. For example, linting all the `.css` files in the `foo` directory _as Scss_:
 
 ```shell
 stylelint "foo/**/*.css" --syntax scss

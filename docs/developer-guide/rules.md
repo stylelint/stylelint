@@ -23,7 +23,7 @@ Otherwise, it should be a plugin. However, plugins should also try to adhere to 
 
 ### Naming a rule
 
-Have a look at the [rules user guide](../user-guide/about-rules.md) to familiarize yourself the rule naming conventions.
+Have a look at the [rules user guide](../user-guide/rules/about.md) to familiarize yourself the rule naming conventions.
 
 We take care to ensure that all the rules are named accurately and consistently. Our goals in that effort are to ensure that rules are easy to find and understand, and to prevent us from wanting to change the name later.
 
@@ -230,8 +230,7 @@ Take the form of:
 The final step is to add references to the new rule in the following places:
 
 -   [The rules `index.js` file](../../lib/rules/index.js)
--   [The list of rules](../user-guide/rules.md)
--   [The example config](../user-guide/example-config.md)
+-   [The list of rules](../user-guide/rules/list.md)
 
 Once you have something to show, you'll create a [pull request](https://github.com/stylelint/stylelint/compare) to continue the conversation.
 
