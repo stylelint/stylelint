@@ -112,6 +112,25 @@ describe('fix', () => {
 			});
 	});
 
+	it('does not modify shorthand object syntax when autofixing', () => {
+		const codeString = `const width = '100px'; const x = <div style={{width}}>Hi</div>`;
+
+		return stylelint
+			.lint({
+				code: codeString,
+				syntax: 'css-in-js',
+				config: {
+					rules: {
+						indentation: 2,
+					},
+				},
+				fix: true,
+			})
+			.then((result) => {
+				expect(result.output).toBe(codeString);
+			});
+	});
+
 	it('apply indentation autofix at last', () => {
 		return stylelint
 			.lint({
