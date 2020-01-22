@@ -139,8 +139,7 @@
   "lint-staged": {
     "*.js": [
       "prettier --write",
-      "eslint --max-warnings=0 --fix",
-      "git add"
+      "eslint --max-warnings=0 --fix"
     ],
     "*.md": [
       "remark --quiet --frail"
