@@ -1,24 +1,33 @@
-# Reviewing pull requests
+# Managing pull requests
 
-Rules of thumb:
+You should:
 
--   Use the [GitHub review system](https://help.github.com/articles/about-pull-request-reviews/).
--   Review against the [Developer Guide criteria](../developer-guide/rules.md).
--   Assign one or more of the appropriate [`PR: needs *` labels](https://github.com/stylelint/stylelint/labels) when requesting a change.
--   Resolve conflicts by [rebasing](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase), rather than merging the target branch into the pull request branch.
+-   use the [GitHub reviews](https://help.github.com/articles/about-pull-request-reviews/)
+-   review against the [Developer guide criteria](../developer-guide/rules.md)
+-   resolve conflicts by [rebasing](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase)
+-   assign _one or more_ [`pr: needs *`](https://github.com/stylelint/stylelint/labels) labels when requesting a change
 
-Merge process:
+You should not use:
 
-1.  Make sure the pull request has the correct number of approvals:
-    -   For simple documentation fixes: one;
-    -   For all other pull requests: two.
-2.  "Squash and merge" commits, ensuring the resulting commit message is consistently formatted:
-    -   Sentence case.
-    -   Descriptive.
-3.  Update the [CHANGELOG](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md) directly via the [GitHub website](https://github.com/stylelint/stylelint/edit/master/CHANGELOG.md) for all merged PRs (except documentation changes):
-    -   Create a `## Head` heading if one does not exist already.
-    -   Prefix the item with either: Removed, Changed, Deprecated, Added, or Fixed.
-    -   Order the item within the group by the widest reaching first to the smallest, and then alphabetically by rule name.
-    -   Suffix the item with the relevant pull request number, using the complete GitHub URL so that it works on [the website](https://stylelint.io/CHANGELOG/).
-    -   If applicable, lead the item with the name of rule e.g. "Fixed: `unit-blacklist` false positives for SCSS nested properties".
-4.  Lastly, post the item as a comment to the pull request.
+-   any other labels
+-   any milestones
+
+## Merging
+
+To merge a pull request, it must have at least:
+
+-   one approval for simple documentation fixes
+-   two approvals for everything else
+
+When merging a PR, you should:
+
+1.  "Squash and merge" commits and ensure the resulting commit message is:
+    -   descriptive
+    -   sentence case
+2.  Update the [changelog](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md) directly via the [GitHub website](https://github.com/stylelint/stylelint/edit/master/CHANGELOG.md) for everything except refactoring and documentation changes:
+    1.  Create a `## Head` heading if one does not exist already.
+    2.  Prefix the item with either: Removed, Changed, Deprecated, Added, or Fixed.
+    3.  Order the item within the group by the widest-reaching first to the smallest, and then alphabetically by rule name.
+    4.  Suffix the item with the relevant pull request number, using the complete GitHub URL so that it works on [the website](https://stylelint.io/CHANGELOG/).
+    5.  If applicable, lead the item with the name of the rule, e.g. "Fixed: `unit-blacklist` false positives for SCSS nested properties".
+3.  Post this update as a comment to the pull request.

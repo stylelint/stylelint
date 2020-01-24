@@ -4,54 +4,9 @@ As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), 
 
 *However, if a dedicated stylelint task runner plugin [is available](../integrations/task-runner.md) (e.g. [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) or [grunt-stylelint](https://github.com/wikimedia/grunt-stylelint)) we recommend you use that rather than this plugin, as they provide better reporting.*
 
-## Installation
-
-stylelint is an [npm package](https://www.npmjs.com/package/stylelint). Install it using:
-
-```console
-npm install stylelint --save-dev
-```
-
 ## Options
 
-The plugin accepts an options object as argument, with the following properties:
-
-### `config`
-
-A [stylelint configuration object](../configuration.md).
-
-If no `config` or `configFile` is passed, stylelint will find a config.
-
-### `configFile`
-
-The path to a JSON, YAML, or JS file that contains your [stylelint configuration object](../configuration.md).
-
-It should be either absolute or relative to the directory that your process is running from (`process.cwd()`). We'd recommend absolute.
-
-### `configBasedir`
-
-An absolute path to the directory that relative paths defining `extends` and `plugins` are *relative to*.
-
-This is only necessary if you passed an object directly through the `config` property. If you used
-`configFile`, this option is not necessary.
-
-If the `config` object passed uses relative paths, e.g. for `extends` or `plugins`, you are going to have to pass a `configBasedir`. If not, you do not need this.
-
-### `configOverrides`
-
-A partial stylelint configuration object whose properties will override the existing config object, whether that config was loaded via the `config` option or a `.stylelintrc` file.
-
-The difference between the `configOverrides` and `config` options is this: If any `config` object is passed, stylelint does not bother looking for a `.stylelintrc` file and instead just uses whatever `config` object you've passed; but if you want to *both* load a `.stylelintrc` file *and* override specific parts of it, `configOverrides` does just that.
-
-### `ignoreDisables`
-
-If `true`, all disable comments (e.g. `/* stylelint-disable block-no-empty */`) will be ignored.
-
-You can use this option to see what your linting results would be like without those exceptions.
-
-### `ignorePath`
-
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. See [Configuration](../ignoring-code.md#ignoring-specific-files).
+The PostCSS plugin uses the [standard options](../options.md), *except the `syntax` and `customSyntax` options*. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.
 
 ## Usage examples
 
@@ -66,8 +21,6 @@ You'll also need to use a reporter. *The stylelint plugin registers warnings via
 ### Example A
 
 A separate lint task that uses the plugin via the PostCSS JS API to lint Less using [`postcss-less`](https://github.com/shellscape/postcss-less).
-
-*Note: the stylelint PostCSS plugin, unlike the stylelint CLI and Node.js API, doesn't have a `syntax` option. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.*
 
 ```js
 const fs = require('fs');

@@ -1,6 +1,6 @@
 # Editor integrations
 
-A list of editor integrations built and maintained by the community.
+Editor integrations built and maintained by the community.
 
 -   [Ale](https://github.com/w0rp/ale): A Vim plugin that supports stylelint.
 -   [Flycheck](https://github.com/flycheck/flycheck): An Emacs extension that supports stylelint.

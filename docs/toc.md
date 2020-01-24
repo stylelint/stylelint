@@ -1,12 +1,15 @@
 # Docs
 
 -   User guide
-    -   [Getting started](user-guide/getting-started.md)
-    -   [Configuration](user-guide/configuration.md)
+    -   [Customize](user-guide/customize.md)
+    -   [Configure](user-guide/configure.md)
     -   Rules
         -   [About](user-guide/rules/about.md)
-        -   [Combining](user-guide/rules/combining.md)
+        -   [Combine](user-guide/rules/combine.md)
+        -   [Regex](user-guide/rules/regex.md)
         -   [List](user-guide/rules/list.md)
+    -   [Options](user-guide/options.md)
+    -   [Errors](user-guide/errors.md)
     -   Usage
         -   [CLI](user-guide/usage/cli.md)
         -   [Node.js API](user-guide/usage/node-api.md)
@@ -15,12 +18,12 @@
         -   [Editor](user-guide/integrations/editor.md)
         -   [Task runner](user-guide/integrations/task-runner.md)
         -   [Other](user-guide/integrations/other.md)
-    -   [Ignoring code](user-guide/ignoring-code.md)
-    -   [FAQ](user-guide/faq.md)
+    -   [Ignore code](user-guide/ignore-code.md)
 -   Developer guide
     -   [Rules](developer-guide/rules.md)
     -   [Plugins](developer-guide/plugins.md)
     -   [Formatters](developer-guide/formatters.md)
+    -   [System tests](developer-guide/system-tests.md)
     -   [Processors](developer-guide/processors.md)
 -   Maintainer guide
     -   [Issues](maintainer-guide/issues.md)
@@ -28,6 +31,6 @@
     -   [Releases](maintainer-guide/releases.md)
 -   About
     -   [Linting](about/linting.md)
-    -   [Vision](about/vision.md)
-    -   [Rationale](about/rationale.md)
+    -   [Syntaxes](about/syntaxes.md)
     -   [Semantic versioning](about/semantic-versioning.md)
+    -   [Vision](about/vision.md)
