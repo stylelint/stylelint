@@ -12,7 +12,7 @@ a { top: 0px; }
 
 This rule ignores lengths within math functions (e.g. `calc`) in favor of the [`function-calc-no-invalid`](../function-calc-no-invalid/README.md) rule.
 
-The `--fix` option on the [command line](../../../docs/user-guide/usage/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix----fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

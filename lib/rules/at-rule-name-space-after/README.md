@@ -8,7 +8,7 @@ Require a single space after at-rule names.
  * The space after at-rule names */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/usage/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix----fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

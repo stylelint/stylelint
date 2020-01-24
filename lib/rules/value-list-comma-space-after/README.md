@@ -8,7 +8,7 @@ a { background-size: 0, 0; }
  * The space after this comma */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/usage/cli.md#autofixing-errors) can automatically fix most of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix----fix) can automatically fix most of the problems reported by this rule.
 
 ## Options
 

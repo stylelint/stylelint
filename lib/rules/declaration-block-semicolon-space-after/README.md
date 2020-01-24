@@ -15,7 +15,7 @@ This rule ignores:
 
 Use the `block-closing-brace-*-before` rules to control the whitespace between the last semicolon and the closing brace instead.
 
-The `--fix` option on the [command line](../../../docs/user-guide/usage/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix----fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

@@ -8,7 +8,7 @@ a { top: 0.5000px; bottom: 1.0px; }
  *        These trailing zeros */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/usage/cli.md#autofixing-errors) can automatically fix some of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix----fix) can automatically fix some of the problems reported by this rule.
 
 ## Options
 

@@ -8,7 +8,7 @@ Require a single space or disallow whitespace after the opening brace of blocks.
  * The space after this brace */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/usage/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix----fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
