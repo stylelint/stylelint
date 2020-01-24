@@ -34,7 +34,8 @@ declare module 'stylelint' {
 		start: number,
 		strictStart: boolean,
 		end?: number,
-		strictEnd?: boolean
+		strictEnd?: boolean,
+		rules?: string[]
 	};
 
 	export type DisabledRangeObject = {
@@ -62,9 +63,16 @@ declare module 'stylelint' {
 		messages: ResultMessage[],
 		opts: undefined
 	};
+
+	export type StylelintWarningOptions = WarningOptions & {
+		stylelintType?: string,
+		severity?: string,
+		rule?: string
+	};
+
 	export type PostcssResult = (Result | EmptyResult) & {
 		stylelint: StylelintPostcssResult,
-		warn(message: string, options?: WarningOptions & { stylelintType?: string }): void;
+		warn(message: string, options?: StylelintWarningOptions): void;
 	};
 
 	export type StylelintOptions = {
