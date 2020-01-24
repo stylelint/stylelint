@@ -3,9 +3,8 @@ declare module 'stylelint' {
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
-	export type StylelintConfigProcessors =
-		| string
-		| Array<string | [string, Object]>;
+	export type StylelintConfigProcessor = string | [string, Object];
+	export type StylelintConfigProcessors = string | Array<StylelintConfigProcessor>;
 	export type StylelintConfigIgnoreFiles = string | Array<string>;
 	export type StylelintConfigRuleSettings = any | [any, Object];
 	export type StylelintConfigRules = {
@@ -35,7 +34,8 @@ declare module 'stylelint' {
 		start: number,
 		strictStart: boolean,
 		end?: number,
-		strictEnd?: boolean
+		strictEnd?: boolean,
+		rules?: string[]
 	};
 
 	export type DisabledRangeObject = {
