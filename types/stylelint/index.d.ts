@@ -35,7 +35,6 @@ declare module 'stylelint' {
 		strictStart: boolean,
 		end?: number,
 		strictEnd?: boolean,
-		rules?: string[]
 	};
 
 	export type DisabledRangeObject = {
