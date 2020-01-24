@@ -1,5 +1,5 @@
 declare module 'stylelint' {
-	import {Result, WarningOptions, Warning} from 'postcss';
+	import {Result, ResultMessage, WarningOptions, Warning} from 'postcss';
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
@@ -51,7 +51,18 @@ declare module 'stylelint' {
 		stylelintError?: boolean
 	};
 
-	export type PostcssResult = Result & {
+	type EmptyResult = {
+		root: {
+			source: {
+				input: {
+					file?: string
+				}
+			}
+		},
+		messages: ResultMessage[],
+		opts: undefined
+	};
+	export type PostcssResult = (Result | EmptyResult) & {
 		stylelint: StylelintPostcssResult,
 		warn(message: string, options?: WarningOptions & { stylelintType?: string }): void;
 	};
