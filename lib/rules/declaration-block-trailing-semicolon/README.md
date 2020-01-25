@@ -16,7 +16,7 @@ This rule ignores:
 -   trailing `//` comments
 -   declaration blocks containing nested (at-)rules
 
-The [`fix` option](../../../docs/user-guide/options.md#fix----fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

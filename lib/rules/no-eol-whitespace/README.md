@@ -8,7 +8,7 @@ a { color: pink; }···
  *  This whitespace */
 ```
 
-The [`fix` option](../../../docs/user-guide/options.md#fix----fix) can automatically fix most of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix most of the problems reported by this rule.
 
 ## Options
 

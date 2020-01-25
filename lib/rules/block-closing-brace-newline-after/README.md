@@ -29,7 +29,7 @@ This rule allows a trailing semicolon after the closing brace of a block. For ex
 }
 ```
 
-The [`fix` option](../../../docs/user-guide/options.md#fix----fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

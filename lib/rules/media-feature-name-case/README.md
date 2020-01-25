@@ -10,7 +10,7 @@ Specify lowercase or uppercase for media feature names.
 
 This rule ignores media feature names within a range context.
 
-The [`fix` option](../../../docs/user-guide/options.md#fix----fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
