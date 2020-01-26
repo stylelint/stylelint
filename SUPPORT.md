@@ -7,7 +7,7 @@ One of our frequently visited documentation sections might answer your query:
 -   [Using regexes to configure rules](docs/user-guide/rules/regex.md)
 -   [Combining rules to enforce your code style](docs/user-guide/rules/combine.md)
 
-If they don't, then post your query on [StackOverflow](https://stackoverflow.com/questions/tagged/stylelint).
+If they don't, then post your query on [Stack Overflow](https://stackoverflow.com/questions/tagged/stylelint).
 
 Only create a [new issue](https://github.com/stylelint/stylelint/issues/new/choose) if:
 

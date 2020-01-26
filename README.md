@@ -28,7 +28,7 @@ It's mighty as it:
 1\. Use [npm](https://docs.npmjs.com/about-npm/) to install stylelint and its [`standard configuration`](https://github.com/stylelint/stylelint-config-standard):
 
 ```shell
-npm install -D stylelint stylelint-config-standard
+npm install --save-dev stylelint stylelint-config-standard
 ```
 
 2\. Create a `.stylelintrc.json` configuration file in the root of your project:

@@ -1,6 +1,6 @@
 # Syntaxes
 
-There are many styling languages, ranging from CSS language extension like SCSS to entirely different notations like CSS-in-JS objects. These styling langages can be then be embedded within other languages, including HTML `<style>` tags, markdown fences and JavaScript variables.
+There are many styling languages, ranging from CSS language extension like SCSS to entirely different notations like CSS-in-JS objects. These styling languages can be then be embedded within other languages, including HTML `<style>` tags, markdown fences and JavaScript variables.
 
 We aim to support all these use cases, but it's a complicated task.
 

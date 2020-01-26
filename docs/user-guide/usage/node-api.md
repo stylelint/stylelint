@@ -69,7 +69,7 @@ It resolves with an object (see [The returned promise](#the-returned-promise)) t
 
 ## Usage examples
 
-## Example A
+### Example A
 
 If `myConfig` contains no relative paths for `extends` or `plugins`, you do not have to use `configBasedir`:
 
@@ -89,7 +89,7 @@ stylelint
   });
 ```
 
-## Example B
+### Example B
 
 If `myConfig` _does_ contain relative paths for `extends` or `plugins`, you _do_ have to use `configBasedir`:
 
@@ -105,7 +105,7 @@ stylelint
   });
 ```
 
-## Example C
+### Example C
 
 Using a CSS string instead of a file glob, and the string formatter instead of the default JSON:
 
@@ -121,7 +121,7 @@ stylelint
   });
 ```
 
-## Example D
+### Example D
 
 Using your own custom formatter function and parse `.scss` source files:
 

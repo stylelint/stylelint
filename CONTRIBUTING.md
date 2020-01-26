@@ -2,7 +2,7 @@
 
 Thank you for wanting to contribute. stylelint *needs* community contributions to continue to improve.
 
-If you like stylelint and open source software (since you're reading this, you almost certainly do), please consider taking some time to pitch in. Not only will you help stylelint thrive, but you may learn a thing or two — about CSS, PostCSS, Node, ES2015, unit testing, open-source software, and more.
+If you like stylelint and open-source software (since you're reading this, you almost certainly do), please consider taking some time to pitch in. Not only will you help stylelint thrive, but you may learn a thing or two — about CSS, PostCSS, Node, ES2015, unit testing, open-source software, and more.
 
 To help out, you can:
 
@@ -29,7 +29,7 @@ To start coding, you'll need:
 Then:
 
 1.  [Fork and clone](https://guides.github.com/activities/forking/) the stylelint repository.
-2.  Install all the dependencies with `npm install`.
+2.  Install all the dependencies with `npm ci`.
 
 ### Run tests
 
@@ -37,11 +37,13 @@ Next, you'll want to run the tests using `npm test`.
 
 However, this runs all 25,000+ unit tests and also linting.
 
-You can use the interactive testing prompt to run tests for just a chosen set of files (which you'll want to do during development). For example, to run the tests for just the `color-hex-case` and `color-hex-length` rules:
+You can use interactive testing prompt to run tests for just a chosen set of files (which you'll want to do during development). For example, to run the tests for just the `color-hex-case` and `color-hex-length` rules:
 
 1.  Run `npm run watch` to start the interactive testing prompt.
 2.  Press `p` to filter by a filename regex pattern.
 3.  Enter `color-hex-case|color-hex-length` i.e. each rule name separated by the pipe symbol (`|`).
+
+You can find more information about testing on the [Jest website](https://jestjs.io/).
 
 ### Write code
 
@@ -49,9 +51,12 @@ With the interactive testing prompt running, you can write the code to fix the b
 
 ### Format code
 
-After writing your code, you'll want to format it correctly. We use [prettier](https://prettier.io/) to do this. You can pretty-print all the files using `npm run prettier:fix`.
+We use [Prettier](https://prettier.io/) (with [a Husky and lint-staged precommit](https://prettier.io/docs/en/precommit.html)) to format your code automatically.
 
-Alternatively, you can use an [editor integration](https://prettier.io/docs/en/editors.html).
+Alternatively, you can:
+
+-   trigger the pretty-printing all the files using `npm run prettier:fix`
+-   use a [Prettier editor integration](https://prettier.io/docs/en/editors.html)
 
 ### Open a pull request
 
