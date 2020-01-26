@@ -1,24 +1,24 @@
 # Docs
 
 -   User guide
-    -   [Customize](user-guide/customize.md)
-    -   [Configure](user-guide/configure.md)
+    -   [Get started](user-guide/get-started.md)
+    -   [Configuration](user-guide/configure.md)
     -   Rules
         -   [About](user-guide/rules/about.md)
         -   [Combine](user-guide/rules/combine.md)
         -   [Regex](user-guide/rules/regex.md)
         -   [List](user-guide/rules/list.md)
-    -   [Options](user-guide/usage/options.md)
-    -   [Errors](user-guide/errors.md)
     -   Usage
         -   [CLI](user-guide/usage/cli.md)
         -   [Node.js API](user-guide/usage/node-api.md)
         -   [PostCSS plugin](user-guide/usage/postcss-plugin.md)
+        -   [Options](user-guide/usage/options.md)
     -   Integrations
         -   [Editor](user-guide/integrations/editor.md)
         -   [Task runner](user-guide/integrations/task-runner.md)
         -   [Other](user-guide/integrations/other.md)
     -   [Ignore code](user-guide/ignore-code.md)
+    -   [Errors](user-guide/errors.md)
 -   Developer guide
     -   [Rules](developer-guide/rules.md)
     -   [Plugins](developer-guide/plugins.md)

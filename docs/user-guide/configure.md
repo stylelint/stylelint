@@ -1,4 +1,4 @@
-# Configuring
+# Configuration
 
 stylelint *expects a configuration object*.
 

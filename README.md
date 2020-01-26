@@ -25,29 +25,7 @@ It's mighty as it:
 
 ## Getting started
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install stylelint and its [`standard configuration`](https://github.com/stylelint/stylelint-config-standard):
-
-```shell
-npm install --save-dev stylelint stylelint-config-standard
-```
-
-2\. Create a `.stylelintrc.json` configuration file in the root of your project:
-
-```json
-{
-  "extends": "stylelint-config-standard"
-}
-```
-
-3\. Run stylelint on, for example, all the CSS files in your project:
-
-```shell
-npx stylelint "**/*.css"
-```
-
-This will lint your CSS for [possible errors](docs/user-guide/rules/list.md#possible-errors) and [stylistic issues](docs/user-guide/rules/list.md#stylistic-issues).
-
-Now that you're up and running, you'll likely want [to customize](docs/user-guide/customize.md) how you configure and use stylelint.
+You'll find steps to [get started with stylelint in our User guide](docs/user-guide/get-started.md).
 
 ## Contributors
 
