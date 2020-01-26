@@ -1,4 +1,4 @@
-# Rules regex
+# Using regex in rules
 
 The following classes of rules support regex:
 
