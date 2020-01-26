@@ -16,7 +16,7 @@ The `.stylelintrc` file (without extension) can be in JSON or YAML format. You c
 -   `.stylelintrc.yaml` / `.stylelintrc.yml`
 -   `.stylelintrc.js`.
 
-You can use the [`--config` or `configFile` option](options.md) to short-circuit the configuration search.
+You can use the [`--config` or `configFile` option](usage/options.md) to short-circuit the configuration search.
 
 The configuration object has the following properties:
 

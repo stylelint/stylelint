@@ -8,7 +8,7 @@
         -   [Combine](user-guide/rules/combine.md)
         -   [Regex](user-guide/rules/regex.md)
         -   [List](user-guide/rules/list.md)
-    -   [Options](user-guide/options.md)
+    -   [Options](user-guide/usage/options.md)
     -   [Errors](user-guide/errors.md)
     -   Usage
         -   [CLI](user-guide/usage/cli.md)

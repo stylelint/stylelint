@@ -10,7 +10,7 @@ stylelint.lint(options).then(function(resultObject) {
 
 ## Options
 
-In addition to the [standard options](../options.md), the Node API accepts:
+In addition to the [standard options](options.md), the Node API accepts:
 
 ### `config`
 

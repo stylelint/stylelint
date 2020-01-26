@@ -2,15 +2,15 @@
 
 Options shared by the:
 
--   [CLI](usage/cli.md)
--   [Node.js API](usage/node-api.md)
--   [PostCSS plugin](usage/postcss-plugin.md)
+-   [CLI](cli.md)
+-   [Node.js API](node-api.md)
+-   [PostCSS plugin](postcss-plugin.md)
 
 ## `configFile`
 
 CLI flag: `--config`
 
-Path to a JSON, YAML, or JS file that contains your [configuration object](configure.md).
+Path to a JSON, YAML, or JS file that contains your [configuration object](../configure.md).
 
 Use this option if you don't want stylelint to search for a configuration file.
 
@@ -46,7 +46,7 @@ Options are:
 -   `unix`
 -   `verbose`
 
-The `formatter` Node.js API option can also accept function, whereas the `--custom-formatter` CLI flag accepts a path to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../developer-guide/formatters.md).
+The `formatter` Node.js API option can also accept function, whereas the `--custom-formatter` CLI flag accepts a path to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../../developer-guide/formatters.md).
 
 ## `cache`
 

@@ -10,7 +10,7 @@ Use `stylelint --help` to print the CLI documentation.
 
 ## Options
 
-In addition to the [standard options](../options.md), the CLI accepts:
+In addition to the [standard options](options.md), the CLI accepts:
 
 ### `--allow-empty-input, --aei`
 

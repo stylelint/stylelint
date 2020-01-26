@@ -6,7 +6,7 @@ As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), 
 
 ## Options
 
-The PostCSS plugin uses the [standard options](../options.md), *except the `syntax` and `customSyntax` options*. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.
+The PostCSS plugin uses the [standard options](options.md), *except the `syntax` and `customSyntax` options*. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.
 
 ## Usage examples
 
