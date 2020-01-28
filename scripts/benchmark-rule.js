@@ -22,7 +22,7 @@ if (!ruleOptions) {
 	throw new Error('You must specify rule options');
 }
 
-const CSS_URL = 'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.css';
+const CSS_URL = 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css';
 
 let parsedOptions = ruleOptions;
 
