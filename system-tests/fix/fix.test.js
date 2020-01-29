@@ -150,6 +150,58 @@ describe('fix', () => {
 				);
 			});
 	});
+
+	it("doesn't fix with stylelint-disable commands", () => {
+		const code = `
+		/* stylelint-disable */
+		a {
+			color: red;
+		}
+		`;
+
+		return stylelint
+			.lint({
+				code,
+				config: {
+					rules: {
+						indentation: 2,
+					},
+				},
+				fix: true,
+			})
+			.then((result) => {
+				expect(result.output).toBe(code);
+			});
+	});
+
+	it("doesn't fix with nested template literals", () => {
+		const code = `
+		import styled, { css } from 'styled-components';
+
+		const Component = styled.div\`
+		  padding: 10px;
+			\${() => css\`
+				color: #b02d00;
+			\`}
+		\`;
+		`;
+
+		return stylelint
+			.lint({
+				code,
+				syntax: 'css-in-js',
+				config: {
+					rules: {
+						indentation: 2,
+					},
+				},
+				fix: true,
+			})
+			.then((result) => {
+				expect(result.errored).toBe(true);
+				expect(result.output).toBe(code);
+			});
+	});
 });
 
 describe('fix with BOM', () => {
