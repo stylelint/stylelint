@@ -58,7 +58,7 @@ Please help us to help you by [recreating the issue](https://github.com/stylelin
 That is best-suited as a plugin:
 
 ```md
-Thank you for your suggestion. I think this is an ideal [a plugin](https://github.com/stylelint/stylelint/blob/master/developer-guide/plugins.md)
+Thank you for your suggestion. I think this is an ideal [a plugin](https://github.com/stylelint/stylelint/blob/master/developer-guide/plugins.md).
 ```
 
 ### Label as ready to implement
@@ -66,19 +66,25 @@ Thank you for your suggestion. I think this is an ideal [a plugin](https://githu
 That adds a new rule:
 
 ```md
-I've labeled the issue as ready to implement. Please consider [contributing](https://github.com/stylelint/stylelint/blob/master/CONTRIBUTING.md) if you have time. There are [steps on how to add a new rule](https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#add-a-rule) in the Developer guide.
+I've labeled the issue as ready to implement. Please consider [contributing](https://github.com/stylelint/stylelint/blob/master/CONTRIBUTING.md) if you have time.
+
+There are [steps on how to add a new rule](https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#add-a-rule) in the Developer guide.
 ```
 
 That adds a new option to a rule:
 
 ```md
-I've labeled the issue as ready to implement. Please consider [contributing](https://github.com/stylelint/stylelint/blob/master/CONTRIBUTING.md) if you have time. There are [steps on how to add a new option](https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#add-an-option-to-a-rule) in the Developer guide.
+I've labeled the issue as ready to implement. Please consider [contributing](https://github.com/stylelint/stylelint/blob/master/CONTRIBUTING.md) if you have time.
+
+There are [steps on how to add a new option](https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#add-an-option-to-a-rule) in the Developer guide.
 ```
 
 That adds a bug in a rule:
 
 ```md
-I've labeled the issue as ready to implement. Please consider [contributing](https://github.com/stylelint/stylelint/blob/master/CONTRIBUTING.md) if you have time. There are [steps on how to fix a bug in a rule](https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#fix-a-bug-in-a-rule) in the Developer guide.
+I've labeled the issue as ready to implement. Please consider [contributing](https://github.com/stylelint/stylelint/blob/master/CONTRIBUTING.md) if you have time.
+
+There are [steps on how to fix a bug in a rule](https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/rules.md#fix-a-bug-in-a-rule) in the Developer guide.
 ```
 
 That is another type of improvement:
