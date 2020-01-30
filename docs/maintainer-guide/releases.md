@@ -21,17 +21,17 @@
     2.  Run `npm test`.
     3.  Commit these changes.
     4.  Push these changes.
-    5.  Confirm the deployment of the update to [https://stylelint.io/demo](https://stylelint.io/demo).
+    5.  Confirm the deployment of the update to [stylelint.io/demo](https://stylelint.io/demo).
 8.  Update the website documentation by changing to the `stylelint.io` repository:
     1.  Run `npm install -D stylelint@latest`.
     2.  Run `npm test`.
     3.  Commit these changes.
     4.  Push these changes.
-    5.  Confirm the deployment of the update to [https://stylelint.io](https://stylelint.io).
+    5.  Confirm the deployment of the update to [stylelint.io](https://stylelint.io).
 9.  Compose a tweet that:
     -   announces the release
     -   communicates what has changed
-    -   links to the appropriate heading in the changelog on [https://stylelint.io](https://stylelint.io).
+    -   links to the appropriate heading in the changelog on [stylelint.io](https://stylelint.io).
 
 ## New release issue template
 
