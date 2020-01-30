@@ -47,7 +47,7 @@ You can find more information about testing on the [Jest website](https://jestjs
 
 ### Write code
 
-With the interactive testing prompt running, you can write the code to fix the bug or add the new feature confident that things are working as expected. You'll find more guidance on how we write code in the [Developer guide](docs/toc.md).
+With the interactive testing prompt running, you can write the code to fix the bug or add the new feature confident that things are working as expected. You'll find more guidance on how we write code in the [Developer guide](docs/developer-guide/rules.md).
 
 ### Format code
 
