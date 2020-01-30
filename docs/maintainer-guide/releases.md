@@ -2,7 +2,7 @@
 
 1.  Create a [new issue](https://github.com/stylelint/stylelint/issues/new) announcing the planned release, e.g. `Release 8.11.1` and include the [template checklist](#new-release-issue-template).
 2.  Locally test `master` in the `stylelint-config-*` shareable config repositories. Install current `master` branch (`npm install stylelint/stylelint#master`) and run tests.
-3.  Locally test `master` in the `stylelint.io` repository.
+3.  Locally test `master` in the [stylelint/stylelint.io](https://github.com/stylelint/stylelint.io) repository.
 4.  Locally test `master` in the `stylelint-demo` repository.
 5.  Publish the package to npm and create a GitHub release using [`np`](https://github.com/sindresorhus/np):
     1.  [Consistently format](pull-requests.md) the [changelog](../../CHANGELOG.md).
