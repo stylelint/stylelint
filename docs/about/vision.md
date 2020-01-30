@@ -25,7 +25,7 @@ Provide rules to catch code that is valid but likely has unintended consequences
 
 Provide rules to limit what language features can be used to enforce:
 
--   a maximum specificity by limiting the overall specificity or the occurrence of different selector types, e.g. class, ID and attribute.
+-   a maximum specificity by limiting the overall specificity or the occurrence of different selector types, e.g. class, ID and attribute
 -   best practice _at the configuration level_, e.g. disallowing the `all` keyword for transitions
 -   the use of a subset of features to improve consistency across a codebase, e.g. limiting what units are allowed
 -   specific patterns for selectors and names, e.g. those of custom properties
