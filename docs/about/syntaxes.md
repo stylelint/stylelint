@@ -11,9 +11,9 @@ We use [PostCSS syntaxes](https://github.com/postcss/postcss#syntaxes) to transf
 
 We need your help to [support and improve](https://github.com/postcss/postcss/blob/master/docs/syntax.md) the following PostCSS syntaxes:
 
--   postcss-html
--   postcss-jsx
--   postcss-less
--   postcss-markdown
--   postcss-sass
--   postcss-scss
+-   [postcss-css-in-js](https://github.com/stylelint/postcss-css-in-js)
+-   [postcss-html](https://github.com/gucong3000/postcss-html)
+-   [postcss-less](https://github.com/webschik/postcss-less)
+-   [postcss-markdown](https://github.com/stylelint/postcss-markdown)
+-   [postcss-sass](https://github.com/AleshaOleg/postcss-sass)
+-   [postcss-scss](https://github.com/postcss/postcss-scss)
