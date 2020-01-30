@@ -13,9 +13,9 @@ A linter for CSS and CSS-like languages that is:
 
 Provide built-in rules for standard CSS syntax that:
 
--   [detect possible errors](../user-guide/rules/list.md#possible-errors).
--   [limit language features](../user-guide/rules/list.md#limit-language-features).
--   [enforce stylistic conventions](../user-guide/rules/list.md#stylistic-issues).
+-   [detect possible errors](../user-guide/rules/list.md#possible-errors)
+-   [limit language features](../user-guide/rules/list.md#limit-language-features)
+-   [enforce stylistic conventions](../user-guide/rules/list.md#stylistic-issues)
 
 ### Possible errors
 
