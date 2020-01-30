@@ -14,7 +14,7 @@ The `.stylelintrc` file (without extension) can be in JSON or YAML format. You c
 
 -   `.stylelintrc.json`
 -   `.stylelintrc.yaml` / `.stylelintrc.yml`
- -   `.stylelintrc.js`
+-   `.stylelintrc.js`
 
 You can use the [`--config` or `configFile` option](usage/options.md) to short-circuit the configuration search.
 
