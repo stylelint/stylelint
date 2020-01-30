@@ -134,7 +134,7 @@ You should use:
 
 -   complete CSS patterns i.e. avoid ellipses (`...`)
 -   standard CSS syntax (and `css` [GFM fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/)) by default
--   the minimum amount of code possible to communicate the pattern, e.g. if the rule targets selectors then use an empty rule, e.g. `{}`.
+-   the minimum amount of code possible to communicate the pattern, e.g. if the rule targets selectors then use an empty rule, e.g. `{}`
 -   `{}`, rather than `{ }` for empty rules
 -   the `a` type selector by default
 -   the `@media` at-rules by default
