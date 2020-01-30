@@ -58,7 +58,7 @@ Please help us to help you by [recreating the issue](https://github.com/stylelin
 That is best-suited as a plugin:
 
 ```md
-Thank you for your suggestion. I think this is an ideal [a plugin](../developer-guide/plugins.md)
+Thank you for your suggestion. I think this is an ideal [a plugin](https://github.com/stylelint/stylelint/blob/master/developer-guide/plugins.md)
 ```
 
 ### Label as ready to implement
