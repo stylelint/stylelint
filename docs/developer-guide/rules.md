@@ -116,7 +116,7 @@ You should:
 
 -   use "this rule" to refer to the rule e.g. "This rule ignores ..."
 -   align the arrows within the prototypical code example with the beginning of the highlighted construct
--   align the text within the prototypical code example as far to the left as possible.
+-   align the text within the prototypical code example as far to the left as possible
 
 For example:
 
