@@ -27,7 +27,7 @@
     2.  Run `npm test`.
     3.  Commit these changes.
     4.  Push these changes.
-    5.  Confirm the deployment of the update to [https://stylelint.io](https://stylelint.io)
+    5.  Confirm the deployment of the update to [https://stylelint.io](https://stylelint.io).
 9.  Compose a tweet that:
     -   announces the release
     -   communicates what has changed
