@@ -20,7 +20,7 @@ Use the [PostCSS API](https://api.postcss.org/) to navigate and analyze the CSS 
 Depending on the rule, we also recommend using:
 
 -   [postcss-value-parser](https://github.com/TrySound/postcss-value-parser)
--   [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser).
+-   [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser)
 
 There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
