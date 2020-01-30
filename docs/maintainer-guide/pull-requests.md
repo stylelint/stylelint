@@ -21,7 +21,7 @@ To merge a pull request, it must have at least:
 
 When merging a PR, you should:
 
-1.  "Squash and merge" commits and ensure the resulting commit message is:
+1.  ["Squash and merge"](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squash-and-merge-your-pull-request-commits) commits and ensure the resulting commit message is:
     -   descriptive
     -   sentence case
 2.  Update the [changelog](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md) directly via the [GitHub website](https://github.com/stylelint/stylelint/edit/master/CHANGELOG.md) for everything except refactoring and documentation changes:
