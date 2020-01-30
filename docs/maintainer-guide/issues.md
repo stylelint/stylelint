@@ -43,7 +43,7 @@ You should:
 
 ## Saved replies
 
-You should use saved replies.
+You should use [saved replies](https://help.github.com/en/github/writing-on-github/working-with-saved-replies).
 
 ### Close an issue
 
