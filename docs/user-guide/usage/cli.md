@@ -20,7 +20,7 @@ The process exits without throwing an error when glob pattern matches no files.
 
 Force enabling/disabling of color.
 
-## `--ignore-pattern, --ip`
+### `--ignore-pattern, --ip`
 
 Pattern of files to ignore (in addition to those in `.stylelintignore`).
 

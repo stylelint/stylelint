@@ -42,7 +42,7 @@ b {
 
 There is only a single-line value list in this example. The selector is multi-line, as is the declaration block and, as such, also the rule. But the value list isn't. The `*-multi-line` and `*-single-line` refer to the value list in the context of this rule.
 
-## Example A
+### Example A
 
 Say you only want to allow single-line value lists. And you want to enforce no space before and a single space after the commas:
 
@@ -60,7 +60,7 @@ You can enforce that with:
 "value-list-comma-space-before": "never"
 ```
 
-## Example B
+### Example B
 
 Say you want to allow both single-line and multi-line value lists. You want there to be a single space after the commas in the single-line lists and no space before the commas in both the single-line and multi-line lists:
 
@@ -81,7 +81,7 @@ You can enforce that with:
 "value-list-comma-space-before": "never"
 ```
 
-## Example C
+### Example C 
 
 Say you want to allow both single-line and multi-line value lists. You want there to be no space before the commas in the single-line lists and always a space after the commas in both lists:
 
@@ -102,7 +102,7 @@ You can enforce that with:
 "value-list-comma-space-before": "never-single-line"
 ```
 
-## Example D
+### Example D
 
 The rules are flexible enough to enforce entirely different conventions for single-line and multi-line lists. Say you want to allow both single-line and multi-line value lists. You want the single-line lists to have a single space before and after the colons. Whereas you want the multi-line lists to have a single newline before the commas, but no space after:
 
@@ -273,7 +273,7 @@ Say you want to disallow the value `none` for the `border` properties. You can d
 }]
 ```
 
-## color
+## `color-*` and `function-*` rules
 
 Most `<color>` values are *functions*. As such, they can be (dis)allowed using either the `function-blacklist` or `function-whitelist` rules. Two other color representations aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
 

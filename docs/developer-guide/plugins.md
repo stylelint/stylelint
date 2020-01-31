@@ -63,7 +63,7 @@ If your plugin rule supports [autofixing](rules.md#add-autofix), then `ruleFunct
 
 You'll have to [learn about the PostCSS API](https://api.postcss.org/).
 
-### Asynchronous rules
+## Asynchronous rules
 
 You can return a `Promise` instance from your plugin function to create an asynchronous rule.
 
