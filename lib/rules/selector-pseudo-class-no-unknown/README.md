@@ -50,7 +50,7 @@ input:-moz-placeholder {}
 
 ## Optional secondary options
 
-### `ignorePseudoClasses: ["/regex/", "string"]`
+### `ignorePseudoElements: ["/regex/", "string"]`
 
 Given:
 
