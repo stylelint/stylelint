@@ -8,8 +8,6 @@ Specify lowercase or uppercase for media feature names.
  * This media feature name */
 ```
 
-This rule ignores media feature names within a range context.
-
 The `--fix` option on the [command line](../../../docs/user-guide/usage/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
 
 ## Options
@@ -32,6 +30,10 @@ The following patterns are considered violations:
 @media (min-width: 700px) and (ORIENTATION: landscape) {}
 ```
 
+```css
+@media (WIDTH > 10em) {}
+```
+
 The following patterns are *not* considered violations:
 
 ```css
@@ -44,6 +46,10 @@ The following patterns are *not* considered violations:
 
 ```css
 @media (min-width: 700px) and (orientation: landscape) {}
+```
+
+```css
+@media (width > 10em) {}
 ```
 
 ### `"upper"`
@@ -62,6 +68,10 @@ The following patterns are considered violations:
 @media (MIN-WIDTH: 700px) and (orientation: landscape) {}
 ```
 
+```css
+@media (10em < width <= 50em) {}
+```
+
 The following patterns are *not* considered violations:
 
 ```css
@@ -74,4 +84,8 @@ The following patterns are *not* considered violations:
 
 ```css
 @media (MIN-WIDTH: 700px) and (ORIENTATION: landscape) {}
+```
+
+```css
+@media (10em < WIDTH <= 50em) {}
 ```

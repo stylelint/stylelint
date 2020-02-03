@@ -8,8 +8,6 @@ Specify a blacklist of disallowed media feature names.
  * This media feature name */
 ```
 
-**Caveat:** Media feature names within a range context are currently ignored.
-
 ## Options
 
 `array|string|regex`: `["array", "of", "unprefixed", /media-features/ or "regex"]|"media-feature"|/regex/`
@@ -30,6 +28,14 @@ The following patterns are considered violations:
 @media (my-width: 50em) {}
 ```
 
+```css
+@media (max-width < 50em) {}
+```
+
+```css
+@media (10em < my-height < 50em) {}
+```
+
 The following patterns are *not* considered violations:
 
 ```css
@@ -38,4 +44,12 @@ The following patterns are *not* considered violations:
 
 ```css
 @media print and (min-resolution: 300dpi) {}
+```
+
+```css
+@media (min-width >= 50em) {}
+```
+
+```css
+@media (10em < width < 50em) {}
 ```
