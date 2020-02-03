@@ -11349,6 +11349,20 @@ Array [
       },
       Object {
         "column": 9,
+        "line": 139,
+        "rule": "media-feature-name-blacklist",
+        "severity": "error",
+        "text": "Unexpected media feature name \\"max-width\\" (media-feature-name-blacklist)",
+      },
+      Object {
+        "column": 9,
+        "line": 140,
+        "rule": "media-feature-name-blacklist",
+        "severity": "error",
+        "text": "Unexpected media feature name \\"max-width\\" (media-feature-name-blacklist)",
+      },
+      Object {
+        "column": 9,
         "line": 133,
         "rule": "media-feature-name-case",
         "severity": "error",
