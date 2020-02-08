@@ -1,6 +1,6 @@
 # Combining rules
 
-The rules can be used together to enforce strict conventions.
+You can combine rules to enforce strict conventions.
 
 ## `*-newline/space-before` and `*-newline/space-after` rules
 
@@ -19,7 +19,7 @@ You can enforce that with:
 "declaration-colon-space-before": "never"
 ```
 
-Some *things* (e.g. declaration blocks and value lists) can span more than one line. In these cases `newline` rules and extra options can be used to provide flexibility.
+Some *things* (e.g. declaration blocks and value lists) can span more than one line. In these cases, `newline` rules and extra options can be used to provide flexibility.
 
 For example, this is the complete set of `value-list-comma-*` rules and their options:
 
@@ -37,12 +37,12 @@ b {
   font-family: sans, serif, monospace; /* single-line value list */
 }              ↑                    ↑
 /**            ↑                    ↑
- *  The value list start here and ends here */
+ *  The value list starts here and ends here */
 ```
 
-There is only a single-line value list in this example. The selector is multi-line, as is the declaration block and, as such, also the rule. But the value list isn't and that is what the `*-multi-line` and `*-single-line` refer to in the context of this rule.
+There is only a single-line value list in this example. The selector is multi-line, as is the declaration block and, as such, also the rule. But the value list isn't. The `*-multi-line` and `*-single-line` refer to the value list in the context of this rule.
 
-## Example A
+### Example A
 
 Say you only want to allow single-line value lists. And you want to enforce no space before and a single space after the commas:
 
@@ -60,7 +60,7 @@ You can enforce that with:
 "value-list-comma-space-before": "never"
 ```
 
-## Example B
+### Example B
 
 Say you want to allow both single-line and multi-line value lists. You want there to be a single space after the commas in the single-line lists and no space before the commas in both the single-line and multi-line lists:
 
@@ -81,7 +81,7 @@ You can enforce that with:
 "value-list-comma-space-before": "never"
 ```
 
-## Example C
+### Example C 
 
 Say you want to allow both single-line and multi-line value lists. You want there to be no space before the commas in the single-line lists and always a space after the commas in both lists:
 
@@ -102,9 +102,9 @@ You can enforce that with:
 "value-list-comma-space-before": "never-single-line"
 ```
 
-## Example D
+### Example D
 
-Lastly, the rules are flexible enough to enforce entirely different conventions for single-line and multi-line lists. Say you want to allow both single-line and multi-line value lists. You want the single-line lists to have a single space before and after the colons. Whereas you want the multi-line lists to have a single newline before the commas, but no space after:
+The rules are flexible enough to enforce entirely different conventions for single-line and multi-line lists. Say you want to allow both single-line and multi-line value lists. You want the single-line lists to have a single space before and after the colons. Whereas you want the multi-line lists to have a single newline before the commas, but no space after:
 
 ```css
 a {
@@ -124,11 +124,52 @@ You can enforce that with:
 "value-list-comma-space-before": "always-single-line"
 ```
 
+### Example E
+
+Say you want to disable single-line blocks:
+
+```css
+  a { color: red; }
+/** ↑
+ * Declaration blocks like this */
+```
+
+Use the `block-opening-brace-newline-after` and `block-opening-brace-newline-before` rules together. For example, this config:
+
+```json
+{
+  "block-opening-brace-newline-after": ["always"],
+  "block-closing-brace-newline-before": ["always"]
+}
+```
+
+Would allow:
+
+```css
+a {
+  color: red;
+}
+```
+
+But not these patterns:
+
+```css
+a { color: red;
+}
+
+a {
+color: red; }
+
+a { color: red; }
+```
+
+To allow single-line blocks but enforce newlines with multi-line blocks, use the `"always-multi-line"` option for both rules.
+
 ## `*-empty-line-before` and `*-max-empty-lines` rules
 
 These rules work together to control where empty lines are allowed.
 
-Each *thing* is responsible for pushing itself away from the *preceding thing*, rather than pushing the *subsequent thing* away. This consistency is to avoid conflicts, and is why there aren't any `*-empty-line-after` rules in stylelint.
+Each *thing* is responsible for pushing itself away from the *preceding thing*, rather than pushing the *subsequent thing* away. This consistency is to avoid conflicts and is why there aren't any `*-empty-line-after` rules in stylelint.
 
 Say you want to enforce the following:
 
@@ -174,7 +215,7 @@ You can do that with:
 
 We recommend that you set your primary option (e.g. `"always"` or `"never"`) to whatever is your most common occurrence and define your exceptions with the `except` optional secondary options. There are many values for the `except` option e.g. `first-nested`, `after-comment` etc.
 
-The `*-empty-line-before` rules control whether there must never be an empty line or whether there must be *one or more* empty lines before a *thing*. The `*-max-empty-lines` rules complement this by controlling *the number* of empty lines within *things*. The `max-empty-lines` rule is used to set a limit across the entire source. A *stricter* limit can then be set within *things* using the likes of `function-max-empty-lines`, `selector-max-empty-lines` and `value-list-max-empty-lines`.
+The `*-empty-line-before` rules control whether there must never be an empty line or whether there must be *one or more* empty lines before a *thing*. The `*-max-empty-lines` rules complement this by controlling *the number* of empty lines within *things*. The `max-empty-lines` rule sets a limit across the entire source. A *stricter* limit can then be set within *things* using the likes of `function-max-empty-lines`, `selector-max-empty-lines` and `value-list-max-empty-lines`.
 
 For example, say you want to enforce the following:
 
@@ -210,7 +251,7 @@ You can do that with:
 
 These rules work together to (dis)allow language features and constructs.
 
-There are `*-whitelist` and `*-blacklist` rules that target the main constructs of the CSS language: at-rules, functions, declarations (i.e. property-value pairs), properties and units. These rules can be used to (dis)allow any language features that makes use of these constructs (e.g. `@media`, `rgb()`). However, there are features not caught by these `*-whitelist` and `*-blacklist` rules (or are, but would require complex regex to configure). There are individual rules, usually a `*-no-*` rule (e.g. `color-no-hex` and `selector-no-id`), to disallow each of these features.
+There are `*-whitelist` and `*-blacklist` rules that target the constructs of the CSS language: at-rules, functions, declarations (i.e. property-value pairs), properties and units. These rules (dis)allow any language features that make use of these constructs (e.g. `@media`, `rgb()`). However, there are features not caught by these `*-whitelist` and `*-blacklist` rules (or are, but would require complex regex to configure). There are individual rules, usually a `*-no-*` rule (e.g. `color-no-hex` and `selector-no-id`), to disallow each of these features.
 
 Say you want to disallow the `@debug` language extension. You can do that using either the `at-rule-blacklist` or `at-rule-whitelist` rules because the `@debug` language extension uses the at-rule construct e.g.
 
@@ -232,9 +273,9 @@ Say you want to disallow the value `none` for the `border` properties. You can d
 }]
 ```
 
-## color
+## `color-*` and `function-*` rules
 
-Most `<color>` values are *functions*. As such, they can be (dis)allowed using either the `function-blacklist` or `function-whitelist` rules. There are two other color representations that aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
+Most `<color>` values are *functions*. As such, they can be (dis)allowed using either the `function-blacklist` or `function-whitelist` rules. Two other color representations aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
 
 Say you want to enforce using a named color *if one exists for your chosen color* and use `hwb` color if one does not, e.g.:
 
@@ -268,3 +309,9 @@ This approach scales to when language extensions (that use the two built-in exte
 "color-no-hex": true,
 "function-whitelist": ["my-color"]
 ```
+
+## Manage conflicts
+
+Each rule stands alone, so sometimes it's possible to configure rules such that they conflict with one another. For example, you could turn on two conflicting blacklist and whitelist rules, e.g. `unit-blacklist` and `unit-whitelist`.
+
+It's your responsibility as the configuration author to resolve these conflicts.

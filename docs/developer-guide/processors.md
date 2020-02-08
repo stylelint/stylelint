@@ -2,7 +2,7 @@
 
 Processors are functions that hook into stylelint's pipeline, modifying code on its way into stylelint and modifying results on their way out.
 
-*Processors can only be used with the CLI and the Node.js API, not with the PostCSS plugin.*
+**Their use is discouraged favor of [PostCSS syntaxes](../about/syntaxes.md).**
 
 Processor modules are functions that accept an options object and return an object with the following the functions, which hook into the processing of each file:
 
@@ -26,10 +26,4 @@ module.exports = function(options) {
 
 ```
 
-Processors can enable stylelint to lint the CSS within non-stylesheet files.
-
-*Processor options must be JSON-friendly*, because users will need to include them in `.stylelintrc` files.
-
-## Sharing processors
-
--   Use the `stylelint-processor` keyword within your `package.json`.
+*Processor options must be JSON-friendly* because users will need to include them in `.stylelintrc` files.
