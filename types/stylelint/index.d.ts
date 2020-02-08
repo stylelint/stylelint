@@ -1,11 +1,10 @@
 declare module 'stylelint' {
-	import {Result, WarningOptions, Warning} from 'postcss';
+	import {Result, ResultMessage, WarningOptions, Warning} from 'postcss';
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
-	export type StylelintConfigProcessors =
-		| string
-		| Array<string | [string, Object]>;
+	export type StylelintConfigProcessor = string | [string, Object];
+	export type StylelintConfigProcessors = string | Array<StylelintConfigProcessor>;
 	export type StylelintConfigIgnoreFiles = string | Array<string>;
 	export type StylelintConfigRuleSettings = any | [any, Object];
 	export type StylelintConfigRules = {
@@ -35,7 +34,8 @@ declare module 'stylelint' {
 		start: number,
 		strictStart: boolean,
 		end?: number,
-		strictEnd?: boolean
+		strictEnd?: boolean,
+		rules?: string[]
 	};
 
 	export type DisabledRangeObject = {
@@ -52,9 +52,27 @@ declare module 'stylelint' {
 		stylelintError?: boolean
 	};
 
-	export type PostcssResult = Result & {
+	type EmptyResult = {
+		root: {
+			source: {
+				input: {
+					file?: string
+				}
+			}
+		},
+		messages: ResultMessage[],
+		opts: undefined
+	};
+
+	export type StylelintWarningOptions = WarningOptions & {
+		stylelintType?: string,
+		severity?: string,
+		rule?: string
+	};
+
+	export type PostcssResult = (Result | EmptyResult) & {
 		stylelint: StylelintPostcssResult,
-		warn(message: string, options?: WarningOptions & { stylelintType?: string }): void;
+		warn(message: string, options?: StylelintWarningOptions): void;
 	};
 
 	export type StylelintOptions = {
