@@ -10,10 +10,7 @@ Disallow unknown media feature names.
 
 This rule considers media feature names defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
-This rule ignores:
-
--   media feature names within a range context
--   vendor-prefixed media feature names
+This rule ignores vendor-prefixed media feature names.
 
 ## Options
 
@@ -27,6 +24,10 @@ The following patterns are considered violations:
 
 ```css
 @media screen and (unknown: 10px) {}
+```
+
+```css
+@media screen and (unknown > 10px) {}
 ```
 
 The following patterns are *not* considered violations:
@@ -69,6 +70,10 @@ The following patterns are *not* considered violations:
 
 ```css
 @media screen and (custom: 10px) {}
+```
+
+```css
+@media screen and (100px < custom < 700px) {}
 ```
 
 ```css
