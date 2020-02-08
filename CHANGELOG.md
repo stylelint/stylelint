@@ -4,6 +4,7 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+-   Fixed: `media-feature-name-*` false negatives for range context ([#4581](https://github.com/stylelint/stylelint/pull/4581)).
 -   Fixed: `indentation` RangeError regression ([#4572](https://github.com/stylelint/stylelint/pull/4572)).
 -   Fixed: `string-quotes` attribute selector autofix ([#4576](https://github.com/stylelint/stylelint/pull/4576)).
 
