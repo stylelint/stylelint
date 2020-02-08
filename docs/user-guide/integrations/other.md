@@ -1,6 +1,6 @@
 # Other integrations
 
-A list of other integrations built and maintained by the community.
+Other integrations built and maintained by the community.
 
 ## Analysis platform engines
 

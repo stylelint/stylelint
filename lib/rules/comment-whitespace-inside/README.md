@@ -12,7 +12,7 @@ Any number of asterisks are allowed at the beginning or end of the comment. So `
 
 **Caveat:** Comments within *selector and value lists* are currently ignored.
 
-The `--fix` option on the [command line](../../../docs/user-guide/usage/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

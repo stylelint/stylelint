@@ -8,8 +8,6 @@ Specify a whitelist of allowed media feature name and value pairs.
  *    These features and values */
 ```
 
-This rule ignores media features within range and boolean context.
-
 ## Options
 
 ```js
@@ -45,6 +43,10 @@ The following patterns are considered violations:
 @media screen and (min-resolution: 2dpi) {}
 ```
 
+```css
+@media screen and (min-width > 1000px) {}
+```
+
 The following patterns are *not* considered violations:
 
 ```css
@@ -65,4 +67,8 @@ The following patterns are *not* considered violations:
 
 ```css
 @media screen and (resolution: 10dpcm) {}
+```
+
+```css
+@media screen and (768px < min-width) {}
 ```

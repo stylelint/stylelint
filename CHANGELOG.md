@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## 13.1.0
+
+-   Fixed: `media-feature-name-*` false negatives for range context ([#4581](https://github.com/stylelint/stylelint/pull/4581)).
+-   Fixed: `indentation` RangeError regression ([#4572](https://github.com/stylelint/stylelint/pull/4572)).
+-   Fixed: `string-quotes` attribute selector autofix ([#4576](https://github.com/stylelint/stylelint/pull/4576)).
+
 ## 13.0.0
 
 -   Removed: Node.js 8.x support. Node.js 10 is now required. We can guarantee stylelint works on the latest Node.js 10 release. ([#4500](https://github.com/stylelint/stylelint/pull/4500)).
@@ -694,7 +700,7 @@ Changes:
 
 ## 7.0.0
 
--   Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configuration.md#processors) processors.
+-   Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configure.md#processors) processors.
 -   Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. (If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`.)
 -   Removed: `--verbose` CLI flag. Use `--formatter verbose` instead.
 -   Removed: NodeJS `0.12.x` support. `4.2.1 LTS` or greater is now required.
@@ -730,7 +736,7 @@ Changes:
 -   Changed: `time-no-imperceptible` now checks vendor prefixed properties.
 -   Changed: `unit-*` rules now check `@media` values too.
 -   Added: plugins can allow primary option arrays by setting `ruleFunction.primaryOptionArray = true`.
--   Added: [processors](/docs/user-guide/configuration.md#processors).
+-   Added: [processors](/docs/user-guide/configure.md#processors).
 -   Added: `media-feature-parentheses-space-inside` rule.
 -   Added: `no-missing-end-of-source-newline` rule.
 -   Added: `property-no-unknown` rule.
