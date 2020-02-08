@@ -41,7 +41,6 @@
 - [ ] stylelint-config-standard update/release
 - [ ] stylelint-demo update
 - [ ] stylelint.io update
-- [ ] vscode-stylelint update
 - [ ] tweet
 
 cc @stylelint/core
