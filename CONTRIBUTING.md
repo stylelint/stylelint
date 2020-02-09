@@ -29,6 +29,7 @@ To start coding, you'll need:
 Then:
 
 1. [Fork and clone](https://guides.github.com/activities/forking/) the stylelint repository.
+
 2. Install all the dependencies with `npm ci`.
 
 ### Run tests
