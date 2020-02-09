@@ -368,15 +368,24 @@ All notable changes to this project are documented in this file.
 ## 8.1.0
 
 - Added: Allow specifying `codeFilename` to `createStylelintResult` for raw code linting standalone API ([#2450](https://github.com/stylelint/stylelint/issues/2450)).
+
 - Added: `ignorePattern` option (`--ignore-pattern` in CLI), to allow patterns of files to ignored ([#2834](https://github.com/stylelint/stylelint/issues/2834)).
+
 - Added: More rules now support experimental autofixing. Use `--fix` CLI parameter or `fix: true` Node.js API options property. Newly supported rules:
+
   - `color-hex-length` ([#2781](https://github.com/stylelint/stylelint/pull/2781)).
   - `no-missing-end-of-source-newline` ([#2772](https://github.com/stylelint/stylelint/pull/2772)).
+
 - Fixed: `*-empty-line-before` false positives shared-line comments and `"first-nested"` option ([#2827](https://github.com/stylelint/stylelint/issues/2827)).
+
 - Fixed: `color-hex-length` false positives for ID references in `url` functions ([#2806](https://github.com/stylelint/stylelint/issues/2806)).
+
 - Fixed: `indentation` false positives for Less parametric mixins with rule block/snippet ([#2744](https://github.com/stylelint/stylelint/pull/2744)).
+
 - Fixed: `no-empty-source` compatability with `postcss-html` custom syntax ([#2798](https://github.com/stylelint/stylelint/issues/2798)).
+
 - Fixed: `no-extra-semicolons` false negatives where instances were not detected when followed by multiple comments ([#2678](https://github.com/stylelint/stylelint/issues/2678)).
+
 - Fixed: `selector-max-specificity` cannot parse selector violation for Less mixins ([#2677](https://github.com/stylelint/stylelint/pull/2677)).
 
 ## 8.0.0
@@ -384,16 +393,21 @@ All notable changes to this project are documented in this file.
 This release is accompanied by:
 
 - A new [semantic version policy](docs/about/semantic-versioning.md). The use of the tilde (`~`) in `package.json` is now recommended, e.g. `"stylelint": "~8.0.0"`, to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
+
 - A new [VISION document](docs/about/vision.md), complemented by ([#2704](https://github.com/stylelint/stylelint/pull/2704)):
+
   - The restructuring of the [list of rules](docs/user-guide/rules/list.md) into three groups:
+
     - [Possible errors](docs/user-guide/rules/list.md#possible-errors).
     - [Limit language features](docs/user-guide/rules/list.md#limit-language-features).
     - [Stylistic issues](docs/user-guide/rules/list.md#stylistic-issues).
+
   - The release of a new sharable config, [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). This config only turns on the [possible error](docs/user-guide/rules/list.md#possible-errors) rules. [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) now builds on top of the recommended config by turning on over 60 additional [stylistic rules](docs/user-guide/rules/list.md#stylistic-issues).
 
 Changes:
 
 - Removed: the 21 rules deprecated in [`7.8.0`](#780) & [`7.12.0`](#7120) ([#2422](https://github.com/stylelint/stylelint/issues/2422) & [#2693](https://github.com/stylelint/stylelint/issues/2693)).
+
   - `block-no-single-line`.
   - `custom-property-no-outside-root`
   - `declaration-block-no-ignored-properties`.
@@ -415,23 +429,38 @@ Changes:
   - `selector-root-no-composition`.
   - `stylelint-disable-reason`.
   - `time-no-imperceptible`.
+
 - Removed: the 4 options deprecated in [`7.8.0`](#780) ([#2433](https://github.com/stylelint/stylelint/issues/2433)).
+
   - `"all-nested"` option for `at-rule-empty-line-before`.
   - `"blockless-group"` option for `at-rule-empty-line-before`.
   - `"between-comments"` option for `comment-empty-line-before`.
   - `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`.
+
 - Changed: compatibility with `postcss` from `@5` to `@6` ([#2561](https://github.com/stylelint/stylelint/issues/2561)).
+
 - Changed: parse errors now trigger exit with non-zero code ([#2713](https://github.com/stylelint/stylelint/issues/2713)).
+
 - Changed: `report-needless-disables` now exits with non-zero code ([#2341](https://github.com/stylelint/stylelint/issues/2341)).
+
 - Changed: `*-blacklist` and `*-whitelist` (and `ignore* []` secondary options) are now case sensitive. Use regular expressions with the `i` flag for case insensitivity ([#2709](https://github.com/stylelint/stylelint/issues/2709)).
+
 - Changed: `*-empty-line-before` now correctly handle shared-line comments ([#2262](https://github.com/stylelint/stylelint/issues/2262)).
+
 - Changed: `*-empty-line-before` now consider line as empty if it contains whitespace only ([#2440](https://github.com/stylelint/stylelint/pull/2440)).
+
 - Changed: `function-linear-gradient-no-nonstandard-direction` now checks all linear-gradients in a value list ([#2496](https://github.com/stylelint/stylelint/pull/2496)).
+
 - Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](https://github.com/stylelint/stylelint/issues/2350)).
+
 - Added: `disableDefaultIgnores` option (`--disable-default-ignores` in CLI), to allow linting of `node_modules` and `bower_components` directories ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
+
 - Added: more efficient file ignoring with `.stylelintignore` ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
+
 - Added: `ignore: ["child"]` option to `selector-max-type` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
+
 - Fixed: `declaration-block-no-redundant-longhand-properties` and `declaration-block-no-shorthand-property-overrides` understand more shorthand properties ([#2354](https://github.com/stylelint/stylelint/pull/2354)).
+
 - Fixed: `selector-max-type` no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with `ignore: ["descendant"]` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
 
 ## 7.13.0
@@ -443,20 +472,30 @@ Changes:
 ## 7.12.0
 
 - Deprecated: 6 rules, each has been replaced by a more configurable alternative ([#2679](https://github.com/stylelint/stylelint/pull/2679)).
+
   - `function-url-data-uris` rule. Use either `function-url-scheme-blacklist` or `function-url-scheme-whitelist`.
   - `selector-no-attribute` rule. Use `selector-max-attribute` with `0` as its primary option.
   - `selector-no-combinator` rule. Use `selector-max-combinators` with `0` as its primary option.
   - `selector-no-id` rule. Use `selector-max-id` with `0` as its primary option.
   - `selector-no-type` rule. Use `selector-max-type` with `0` as its primary option.
   - `selector-no-universal` rule. Use `selector-max-universal` with `0` as its primary option.
+
 - Added: `function-url-scheme-blacklist` rule ([#2626](https://github.com/stylelint/stylelint/pull/2626)).
+
 - Added: `function-url-scheme-whitelist` regex support ([#2662](https://github.com/stylelint/stylelint/pull/2662)).
+
 - Added: `selector-max-attribute` rule ([#2628](https://github.com/stylelint/stylelint/pull/2628)).
+
 - Added: `selector-max-combinators` rule ([#2658](https://github.com/stylelint/stylelint/pull/2658)).
+
 - Added: `selector-max-id` rule ([#2654](https://github.com/stylelint/stylelint/pull/2654)).
+
 - Added: `selector-max-type` rule ([#2665](https://github.com/stylelint/stylelint/pull/2665)).
+
 - Added: `selector-max-universal` rule ([#2653](https://github.com/stylelint/stylelint/pull/2653)).
+
 - Fixed: `--fix` no longer crashes when used with ignored files ([#2652](https://github.com/stylelint/stylelint/pull/2652)).
+
 - Fixed: `max-*` rules now use singular and plural nouns in their messages ([#2663](https://github.com/stylelint/stylelint/pull/2663)).
 
 ## 7.11.1
@@ -468,6 +507,7 @@ Changes:
 ## 7.11.0
 
 - Added: experimental autofixing ([#2467](https://github.com/stylelint/stylelint/pull/2467), [#2500](https://github.com/stylelint/stylelint/pull/2500), [#2529](https://github.com/stylelint/stylelint/pull/2529) and [#2577](https://github.com/stylelint/stylelint/pull/2577)). Use `--fix` CLI parameter or `fix: true` Node.js API options property. Supported rules:
+
   - `at-rule-empty-line-before`
   - `at-rule-name-case`
   - `color-hex-case`
@@ -476,19 +516,33 @@ Changes:
   - `declaration-empty-line-before`
   - `indentation`
   - `rule-empty-line-before`
+
 - Added: `selector-max-class` rule.
+
 - Added: `ignore: ["custom-elements"]` option to `selector-type-no-unknown` ([#2366](https://github.com/stylelint/stylelint/pull/2366)).
+
 - Fixed: "Cannot find module 'pify'" regression in node@4 with npm@2 ([#2614](https://github.com/stylelint/stylelint/pull/2614)).
+
 - Fixed: no error is thrown when linting a string with `cache` enabled ([#2494](https://github.com/stylelint/stylelint/pull/2494)).
+
 - Fixed: Less `:extend` is now ignored ([#2571](https://github.com/stylelint/stylelint/pull/2571)).
+
 - Fixed: `function-parentheses-space-inside` now ignores functions without parameters ([#2587](https://github.com/stylelint/stylelint/pull/2587)).
+
 - Fixed: `length-zero-no-unit` now correctly handles newlines and no spaces after colon ([#2477](https://github.com/stylelint/stylelint/pull/2477)).
+
 - Fixed: `selector-descendant-combinator-no-non-space` and `selector-combinator-space-before/after` now understand and check `>>>` shadow-piercing combinator ([#2509](https://github.com/stylelint/stylelint/pull/2509)).
+
 - Fixed: `selector-descendant-combinator-no-non-space` now ignores Less guards ([#2557](https://github.com/stylelint/stylelint/pull/2557)).
+
 - Fixed: `selector-pseudo-class-no-unknown` now checks `@page` at-rules and supports `@page` pseudo-classes ([#2445](https://github.com/stylelint/stylelint/pull/2445)).
+
 - Fixed: `selector-pseudo-class-no-unknown` now considers `focus-ring`, `playing` and `paused` to be known ([#2507](https://github.com/stylelint/stylelint/pull/2507)).
+
 - Fixed: `selector-type-no-unknown` now ignores MathML tags ([#2478](https://github.com/stylelint/stylelint/pull/2478)).
+
 - Fixed: `selector-type-no-unknown` now ignores the `/deep/` shadow-piercing combinator ([#2508](https://github.com/stylelint/stylelint/pull/2508)).
+
 - Fixed: `value-keyword-case` now ignores variables with signs ([#2558](https://github.com/stylelint/stylelint/pull/2558)).
 
 ## 7.10.1
@@ -524,34 +578,54 @@ Changes:
 ## 7.8.0
 
 - Deprecated: 15 rules ([#2197](https://github.com/stylelint/stylelint/pull/2197), [#2285](https://github.com/stylelint/stylelint/pull/2285) & [#2309](https://github.com/stylelint/stylelint/pull/2309)).
+
   - `block-no-single-line`. Use `block-opening-brace-newline-after` and `block-closing-brace-newline-before` rules with the option `"always"` instead.
+
   - `declaration-block-properties-order`. Use the [`stylelint-order`](https://github.com/hudochenkov/stylelint-order) plugin pack instead.
+
   - `rule-nested-empty-line-before` and `rule-non-nested-empty-line-before`. Use the new `rule-empty-line-before` rule instead.
+
   - `time-no-imperceptible`. Use the new `time-min-milliseconds` rule with `100` as its primary option.
+
   - It is beyond the scope of stylelint's core package to effectively validate against the CSS spec. Please investigate [csstree](https://github.com/csstree/csstree) and [css-values](https://github.com/ben-eb/css-values) for this functionality, and contribute to those projects and to stylelint plugins wrapping them. csstree already has a [stylelint plugin](https://github.com/csstree/stylelint-validator), and css-values needs one to be developed. The following rules are deprecated for this reason.
+
     - `media-feature-no-missing-punctuation`.
     - `selector-no-empty`.
+
   - A plugin is a better package for a rule that wraps a third-party library. The following rules are deprecated for this reason. We encourage users to create and help maintain plugins for these rules.
+
     - `no-browser-hacks`
     - `no-indistinguishable-colors`
     - `no-unsupported-browser-features`
+
   - The following rules did not seem useful. If you liked these rules, please create plugins for them.
+
     - `custom-property-no-outside-root`
     - `root-no-standard-properties`
     - `selector-root-no-composition`.
+
   - The following rules did not work well.
+
     - `stylelint-disable-reason` could not enforce providing a reason.
     - `declaration-block-no-ignored-properties` could not reliably account for _replaced elements_.
+
 - Deprecated: 4 options ([#2213](https://github.com/stylelint/stylelint/pull/2213)).
+
   - `"all-nested"` option for `at-rule-empty-line-before`. Use the `"inside-block"` option instead.
   - `"blockless-group"` option for `at-rule-empty-line-before`. Use the `"blockless-after-blockless"` option instead.
   - `"between-comments"` option for `comment-empty-line-before`. Use the `"after-comment"` option instead.
   - `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`. Use the `"blockless-at-rules"` option instead.
+
 - Added: `time-min-milliseconds` rule, to replace `time-no-imperceptible` ([#2289](https://github.com/stylelint/stylelint/pull/2289)).
+
 - Added: `except: ["after-same-name"]` option to `at-rule-empty-line-before` ([#2225](https://github.com/stylelint/stylelint/pull/2225)).
+
 - Fixed: `configOverrides` now work with `extends` ([#2295](https://github.com/stylelint/stylelint/pull/2295)).
+
 - Fixed: `max-line-length` no longer reports incorrect column positions for lines with `url()` or `import` ([#2287](https://github.com/stylelint/stylelint/pull/2287)).
+
 - Fixed: `selector-pseudo-class-no-unknown` no longer warns for proprietary webkit pseudo-classes ([#2264](https://github.com/stylelint/stylelint/pull/2264)).
+
 - Fixed: `unit-no-unknown` accepts `fr` units ([#2308](https://github.com/stylelint/stylelint/pull/2308)).
 
 ## 7.7.1
@@ -1141,10 +1215,8 @@ Changes:
 - Added: `codeFilename` option to Node.js API.
 - Added: exposed rules at `stylelint.rules` to make stylelint even more extensible.
 - Added: brought `stylelint-rule-tester` into this repo, and exposed it at `stylelint.utils.ruleTester`.
-- Fixed: bug in `rule-properties-order` empty line detection when the two newlines were separated
-  by some other whitespace.
-- Fixed: option parsing bug that caused problems when using the `"alphabetical"` primary option
-  with `rule-properties-order`.
+- Fixed: bug in `rule-properties-order` empty line detection when the two newlines were separated by some other whitespace.
+- Fixed: option parsing bug that caused problems when using the `"alphabetical"` primary option with `rule-properties-order`.
 - Fixed: regard an empty string as a valid CSS code.
 - Fixed: `ignoreFiles` handling of absolute paths.
 - Fixed: `ignoreFiles` uses the `configBasedir` option to interpret relative paths.
@@ -1224,11 +1296,7 @@ Changes:
 - Changed: renamed the `comment-space-inside` rule to `comment-whitespace-inside`.
 - Changed: renamed the `no-multiple-empty-lines` rule to `max-empty-lines` (takes an `int` as option).
 - Changed: `plugins` is now an array instead of an object. And plugins should be created with `stylelint.createPlugin()`.
-- Added: cosmiconfig, which means the following:
-  - support for YAML `.stylelintrc`
-  - support for `stylelint.config.js`
-  - support for `stylelint` property in `package.json`
-  - alternate config loading system, which stops at the first config found
+- Added: cosmiconfig, to support for YAML `.stylelintrc`, `stylelint.config.js`, `stylelint` property in `package.json` and alternate config loading system, which stops at the first config found.
 - Added: asynchronicity to the PostCSS plugin.
 - Added: `ignoreFiles` option to config.
 - Added: `configFile` option to Node.js API.
