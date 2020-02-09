@@ -10,7 +10,7 @@ function formatter(results, returnValue) {
 
 Where the first argument (`results`) is an array of stylelint result objects in the form:
 
-```json
+```js
 // A stylelint result object
 {
   "source": "path/to/file.css", // The filepath or PostCSS identifier like <input css 1>
@@ -44,7 +44,7 @@ Where the first argument (`results`) is an array of stylelint result objects in 
 
 And the second argument (`returnValue`) is an object with one or more of the following keys:
 
-```json
+```js
 {
   "errored": false, // `true` if there were any warnings with "error" severity
   "needlessDisables": [
