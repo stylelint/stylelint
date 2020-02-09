@@ -2,6 +2,7 @@
 
 Require a newline or disallow whitespace after the colon of declarations.
 
+<!-- prettier-ignore -->
 ```css
 a {
   box-shadow:
@@ -20,20 +21,23 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a newline after the colon.
+There _must always_ be a newline after the colon.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color:pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   color:
@@ -43,10 +47,11 @@ a {
 
 ### `"always-multi-line"`
 
-There *must always* be a newline after the colon *if the declaration's value is multi-line*.
+There _must always_ be a newline after the colon _if the declaration's value is multi-line_.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   box-shadow: 0 0 0 1px #5b9dd9,
@@ -54,8 +59,9 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   box-shadow:
@@ -64,6 +70,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;

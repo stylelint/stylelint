@@ -2,6 +2,7 @@
 
 Require a newline or disallow whitespace after the closing brace of blocks.
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 a { color: red; }↑
@@ -11,6 +12,7 @@ a { color: red; }↑
 
 This rule allows an end-of-line comment separated from the closing brace by spaces, as long as the comment contains no newlines. For example,
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;
@@ -19,6 +21,7 @@ a {
 
 This rule allows a trailing semicolon after the closing brace of a block. For example,
 
+<!-- prettier-ignore -->
 ```css
 :root {
   --toolbar-theme: {
@@ -37,21 +40,24 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a newline after the closing brace.
+There _must always_ be a newline after the closing brace.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }b { color: red; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 } b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 b { color: red; }
@@ -59,21 +65,24 @@ b { color: red; }
 
 ### `"always-single-line"`
 
-There *must always* be a newline after the closing brace in single-line blocks.
+There _must always_ be a newline after the closing brace in single-line blocks.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; } b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 } b { color: red; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 b { color: red; }
@@ -81,20 +90,23 @@ b { color: red; }
 
 ### `"never-single-line"`
 
-There *must never* be whitespace after the closing brace in single-line blocks.
+There _must never_ be whitespace after the closing brace in single-line blocks.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; } b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }b { color: red; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 } b { color: red; }
@@ -102,21 +114,24 @@ a { color: pink;
 
 ### `"always-multi-line"`
 
-There *must always* be a newline after the closing brace in multi-line blocks.
+There _must always_ be a newline after the closing brace in multi-line blocks.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 }b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }b { color: red; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 }
@@ -125,21 +140,24 @@ b { color: red; }
 
 ### `"never-multi-line"`
 
-There *must never* be whitespace after the closing brace in multi-line blocks.
+There _must never_ be whitespace after the closing brace in multi-line blocks.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 } b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; } b { color: red; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 }b { color: red; }
@@ -155,12 +173,13 @@ For example, with `"always"` or `"always-multi-line"`.
 
 Given:
 
-```js
+```
 ["if", "else"]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @if ($var) {
   color: pink;
@@ -171,6 +190,7 @@ The following patterns are *not* considered violations:
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 @if ($var) { color: pink; } @else { color: blue; }
 ```

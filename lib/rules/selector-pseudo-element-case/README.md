@@ -2,6 +2,7 @@
 
 Specify lowercase or uppercase for pseudo-element selectors.
 
+<!-- prettier-ignore -->
 ```css
   a::before {}
 /**  ↑
@@ -18,44 +19,54 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:Before {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:bEfOrE {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:BEFORE {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::Before {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::bEfOrE {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::BEFORE {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 input::-MOZ-PLACEHOLDER {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:before {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::before {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 input::-moz-placeholder {}
 ```
@@ -64,44 +75,54 @@ input::-moz-placeholder {}
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:Before {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:bEfOrE {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:BEFORE {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::Before {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::bEfOrE {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::before {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 input::-moz-placeholder {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:BEFORE {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::BEFORE {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 input::-MOZ-PLACEHOLDER {}
 ```

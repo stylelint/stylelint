@@ -2,6 +2,7 @@
 
 Require a single space or disallow whitespace before the semicolons of at-rules.
 
+<!-- prettier-ignore -->
 ```css
 @import "components/buttons";
 /**                         ↑
@@ -14,32 +15,36 @@ Require a single space or disallow whitespace before the semicolons of at-rules.
 
 ### `"always"`
 
-There *must always* be a single space before the semicolons.
+There _must always_ be a single space before the semicolons.
 
 The following pattern is considered a violation:
 
+<!-- prettier-ignore -->
 ```css
 @import "components/buttons";
 ```
 
-The following pattern is *not* considered a violation:
+The following pattern is _not_ considered a violation:
 
+<!-- prettier-ignore -->
 ```css
 @import "components/buttons" ;
 ```
 
 ### `"never"`
 
-There *must never* be a single space before the semicolons.
+There _must never_ be a single space before the semicolons.
 
 The following pattern is considered a violation:
 
+<!-- prettier-ignore -->
 ```css
 @import "components/buttons" ;
 ```
 
-The following pattern is *not* considered a violation:
+The following pattern is _not_ considered a violation:
 
+<!-- prettier-ignore -->
 ```css
 @import "components/buttons";
 ```

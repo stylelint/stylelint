@@ -2,6 +2,7 @@
 
 Disallow `!important` within keyframe declarations.
 
+<!-- prettier-ignore -->
 ```css
 @keyframes important2 {
   from { margin: 10px }
@@ -20,6 +21,7 @@ Using `!important` within keyframes declarations is completely ignored in some b
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @keyframes important1 {
   from {
@@ -31,6 +33,7 @@ The following patterns are considered violations:
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 @keyframes important1 {
   from {
@@ -42,6 +45,7 @@ The following patterns are considered violations:
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 @keyframes important1 {
   from {
@@ -53,12 +57,14 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink !important; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 @keyframes important1 {
   from {

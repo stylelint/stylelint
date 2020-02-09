@@ -2,6 +2,7 @@
 
 Require a single space or disallow whitespace after operators within attribute selectors.
 
+<!-- prettier-ignore -->
 ```css
 [target= _blank]
 /**    ↑
@@ -16,120 +17,146 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a single space after the operator.
+There _must always_ be a single space after the operator.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 [target=_blank] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target =_blank] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target='_blank'] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target="_blank"] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target ='_blank'] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target ="_blank"] {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 [target] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target= _blank] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target= '_blank'] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target= "_blank"] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target = _blank] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target = '_blank'] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target = "_blank"] {}
 ```
 
 ### `"never"`
 
-There *must never* be a single space after the operator.
+There _must never_ be a single space after the operator.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 [target= _blank] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target = _blank] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target= '_blank'] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target= "_blank"] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target = '_blank'] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target = "_blank"] {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 [target] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target=_blank] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target='_blank'] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target="_blank"] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target =_blank] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target ='_blank'] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 [target ="_blank"] {}
 ```

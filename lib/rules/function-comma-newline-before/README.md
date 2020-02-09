@@ -2,6 +2,7 @@
 
 Require a newline or disallow whitespace before the commas of functions.
 
+<!-- prettier-ignore -->
 ```css
   a { transform: translate(1
     , 1) }
@@ -17,25 +18,29 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a newline before the commas.
+There _must always_ be a newline before the commas.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 ,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1,
   1) }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(1
@@ -43,6 +48,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(1
@@ -52,25 +58,29 @@ a {
 
 ### `"always-multi-line"`
 
-There *must always* be a newline before the commas in multi-line functions.
+There _must always_ be a newline before the commas in multi-line functions.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1,
   1) }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 ,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(1
@@ -78,6 +88,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(1
@@ -87,25 +98,29 @@ a {
 
 ### `"never-multi-line"`
 
-There *must never* be whitespace before the commas in multi-line functions.
+There _must never_ be whitespace before the commas in multi-line functions.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 ,
   1) }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 ,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 , 1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(1,

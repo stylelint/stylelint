@@ -2,6 +2,7 @@
 
 Limit the number of classes in a selector.
 
+<!-- prettier-ignore -->
 ```css
 div .foo.bar[data-val] > a.baz {}
 /*  ↑   ↑                 ↑
@@ -21,31 +22,37 @@ For example, with `2`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 .foo.bar.baz {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo .bar {
   & > .baz {}
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 div {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo .bar {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo.bar,
 .lorem.ipsum {} /* each selector in a selector list is evaluated separately */
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo .bar :not(.lorem.ipsum) {} /* `.lorem.ipsum` is inside `:not()`, so it is evaluated separately */
 ```

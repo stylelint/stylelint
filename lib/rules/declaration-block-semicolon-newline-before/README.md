@@ -2,6 +2,7 @@
 
 Require a newline or disallow whitespace before the semicolons of declaration blocks.
 
+<!-- prettier-ignore -->
 ```css
   a {
     color: pink
@@ -19,27 +20,31 @@ This rule ignores semicolons that are preceded by Less mixins.
 
 ### `"always"`
 
-There *must always* be a newline before the semicolons.
+There _must always_ be a newline before the semicolons.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink; top: 0;
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink
 ; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink
@@ -49,26 +54,30 @@ a {
 
 ### `"always-multi-line"`
 
-There *must always* be a newline before the semicolons in multi-line rules.
+There _must always_ be a newline before the semicolons in multi-line rules.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink; top: 0;
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; top: 0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink
@@ -78,10 +87,11 @@ a {
 
 ### `"never-multi-line"`
 
-There *must never* be whitespace before the semicolons in multi-line rules.
+There _must never_ be whitespace before the semicolons in multi-line rules.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink
@@ -89,16 +99,19 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; top: 0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;

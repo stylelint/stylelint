@@ -2,6 +2,7 @@
 
 Require a single space or disallow whitespace after the closing brace of blocks.
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 /**              ↑
@@ -10,6 +11,7 @@ a { color: pink; }
 
 This rule allows a trailing semicolon after the closing brace of a block. For example,
 
+<!-- prettier-ignore -->
 ```css
 :root {
   --toolbar-theme: {
@@ -26,46 +28,53 @@ This rule allows a trailing semicolon after the closing brace of a block. For ex
 
 ### `"always"`
 
-There *must always* be a single space after the closing brace.
+There _must always_ be a single space after the closing brace.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }b { color: red; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; } b { color: red; }
 ```
 
 ### `"never"`
 
-There *must never* be whitespace after the closing brace.
+There _must never_ be whitespace after the closing brace.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; } b { color: red; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }b { color: red; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 }b { color: red; }
@@ -73,20 +82,23 @@ a { color: pink;
 
 ### `"always-single-line"`
 
-There *must always* be a single space after the closing brace in single-line blocks.
+There _must always_ be a single space after the closing brace in single-line blocks.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; } b { color: red; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 }b { color: red; }
@@ -94,20 +106,23 @@ a { color: pink;
 
 ### `"never-single-line"`
 
-There *must never* be whitespace after the closing brace in single-line blocks.
+There _must never_ be whitespace after the closing brace in single-line blocks.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; } b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }b { color: red; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 } b { color: red; }
@@ -115,21 +130,24 @@ a { color: pink;
 
 ### `"always-multi-line"`
 
-There *must always* be a single space after the closing brace in multi-line blocks.
+There _must always_ be a single space after the closing brace in multi-line blocks.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 }b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }b { color: red; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 } b { color: red; }
@@ -137,21 +155,24 @@ a { color: pink;
 
 ### `"never-multi-line"`
 
-There *must never* be whitespace after the closing brace in multi-line blocks.
+There _must never_ be whitespace after the closing brace in multi-line blocks.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 } b { color: red; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; } b { color: red; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;
 }b { color: red; }

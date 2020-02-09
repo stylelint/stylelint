@@ -4,62 +4,66 @@ Plugins are rules and sets of rules built by the community.
 
 We recommend your plugin adheres to [stylelint's conventions](rules.md) for:
 
--   names
--   options
--   messages
--   tests
--   docs
+- names
+- options
+- messages
+- tests
+- docs
 
 ## The anatomy of a plugin
 
 ```js
 // Abbreviated example
-const stylelint = require('stylelint');
+const stylelint = require("stylelint");
 
-const ruleName = 'plugin/foo-bar';
+const ruleName = "plugin/foo-bar";
 const messages = stylelint.utils.ruleMessages(ruleName, {
-    expected: 'Expected ...',
+  expected: "Expected ..."
 });
 
 module.exports = stylelint.createPlugin(ruleName, function(
-    primaryOption,
-    secondaryOptionObject
+  primaryOption,
+  secondaryOptionObject
 ) {
-    return function(postcssRoot, postcssResult) {
-        const validOptions = stylelint.utils.validateOptions(
-            postcssResult,
-            ruleName,
-            { /* .. */ }
-        );
+  return function(postcssRoot, postcssResult) {
+    const validOptions = stylelint.utils.validateOptions(
+      postcssResult,
+      ruleName,
+      {
+        /* .. */
+      }
+    );
 
-        if (!validOptions) {
-            return;
-        }
+    if (!validOptions) {
+      return;
+    }
 
-        // ... some logic ...
-        stylelint.utils.report({ /* .. */ });
-    };
+    // ... some logic ...
+    stylelint.utils.report({
+      /* .. */
+    });
+  };
 });
 
 module.exports.ruleName = ruleName;
 module.exports.messages = messages;
 ```
 
-Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`, to ensure it never clashes with the built-in rules. If your plugin provides only a single rule or you can't think of a good namespace, you can use `plugin/my-rule`. *You should document your plugin's rule name (and namespace) because users need to use them in their config.*
+Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`, to ensure it never clashes with the built-in rules. If your plugin provides only a single rule or you can't think of a good namespace, you can use `plugin/my-rule`. _You should document your plugin's rule name (and namespace) because users need to use them in their config._
 
 Use `stylelint.createPlugin(ruleName, ruleFunction)` to ensure that your plugin is set up properly alongside other rules.
 
 For your plugin rule to work with the [standard configuration format](../user-guide/configure.md#rules), `ruleFunction` should accept 2 arguments:
 
--   the primary option
--   optionally, a secondary options object
+- the primary option
+- optionally, a secondary options object
 
 If your plugin rule supports [autofixing](rules.md#add-autofix), then `ruleFunction` should also accept a third argument: `context`. You should try to support the `disableFix` option in your secondary options object. Within the rule, don't perform autofixing if the user has passed a `disableFix` option for your rule.
 
 `ruleFunction` should return a function that is essentially a little [PostCSS plugin](https://github.com/postcss/postcss/blob/master/docs/writing-a-plugin.md). It takes 2 arguments:
 
--   the PostCSS Root (the parsed AST)
--   the PostCSS LazyResult
+- the PostCSS Root (the parsed AST)
+- the PostCSS LazyResult
 
 You'll have to [learn about the PostCSS API](https://api.postcss.org/).
 
@@ -69,37 +73,41 @@ You can return a `Promise` instance from your plugin function to create an async
 
 ```js
 // Abbreviated asynchronous example
-const stylelint = require('stylelint');
+const stylelint = require("stylelint");
 
-const ruleName = 'plugin/foo-bar-async';
+const ruleName = "plugin/foo-bar-async";
 const messages = stylelint.utils.ruleMessages(ruleName, {
-    expected: 'Expected ...',
+  expected: "Expected ..."
 });
 
 module.exports = stylelint.createPlugin(ruleName, function(
-    primaryOption,
-    secondaryOptionObject
+  primaryOption,
+  secondaryOptionObject
 ) {
-    return function(postcssRoot, postcssResult) {
-        const validOptions = stylelint.utils.validateOptions(
-            postcssResult,
-            ruleName,
-            { /* .. */ }
-        );
+  return function(postcssRoot, postcssResult) {
+    const validOptions = stylelint.utils.validateOptions(
+      postcssResult,
+      ruleName,
+      {
+        /* .. */
+      }
+    );
 
-        if (!validOptions) {
-            return;
-        }
+    if (!validOptions) {
+      return;
+    }
 
-        return new Promise(function(resolve) {
-            // some async operation
-            setTimeout(function() {
-                // ... some logic ...
-                stylelint.utils.report({ /* .. */ });
-                resolve();
-            }, 1);
+    return new Promise(function(resolve) {
+      // some async operation
+      setTimeout(function() {
+        // ... some logic ...
+        stylelint.utils.report({
+          /* .. */
         });
-    };
+        resolve();
+      }, 1);
+    });
+  };
 });
 
 module.exports.ruleName = ruleName;
@@ -114,7 +122,7 @@ stylelint exposes some useful utilities.
 
 Adds violations from your plugin to the list of violations that stylelint will report to the user.
 
-Use `stylelint.utils.report` to ensure your plugin respects disabled ranges and other possible future features of stylelint. *Do not use PostCSS's `node.warn()` method directly.*
+Use `stylelint.utils.report` to ensure your plugin respects disabled ranges and other possible future features of stylelint. _Do not use PostCSS's `node.warn()` method directly._
 
 ### `stylelint.utils.ruleMessages`
 
@@ -126,45 +134,47 @@ Validates the options for your rule.
 
 ### `stylelint.utils.checkAgainstRule`
 
-Checks CSS against a standard stylelint rule *within your own rule*. This function provides power and flexibility for plugins authors who wish to modify, constrain, or extend the functionality of existing stylelint rules.
+Checks CSS against a standard stylelint rule _within your own rule_. This function provides power and flexibility for plugins authors who wish to modify, constrain, or extend the functionality of existing stylelint rules.
 
 It accepts an options object and a callback that is invoked with warnings from the specified rule. The options are:
 
--   `ruleName`: the name of the rule you are invoking
--   `ruleSettings`: settings for the rule you are invoking
--   `root`: the root node to run this rule against
+- `ruleName`: the name of the rule you are invoking
+- `ruleSettings`: settings for the rule you are invoking
+- `root`: the root node to run this rule against
 
-Use the warning to create a *new* warning *from your plugin rule* that you report with `stylelint.utils.report`.
+Use the warning to create a _new_ warning _from your plugin rule_ that you report with `stylelint.utils.report`.
 
 For example, imagine you want to create a plugin that runs `at-rule-no-unknown` with a built-in list of exceptions for at-rules provided by your preprocessor-of-choice:
 
 ```js
-const allowableAtRules = [ /* .. */ ];
+const allowableAtRules = [
+  /* .. */
+];
 
 function myPluginRule(primaryOption, secondaryOptionObject) {
-    return function(postcssRoot, postcssResult) {
-        const defaultedOptions = Object.assign({}, secondaryOptionObject, {
-            ignoreAtRules: allowableAtRules.concat(options.ignoreAtRules || []),
-        });
+  return function(postcssRoot, postcssResult) {
+    const defaultedOptions = Object.assign({}, secondaryOptionObject, {
+      ignoreAtRules: allowableAtRules.concat(options.ignoreAtRules || [])
+    });
 
-        stylelint.utils.checkAgainstRule(
-            {
-                ruleName: 'at-rule-no-unknown',
-                ruleSettings: [primaryOption, defaultedOptions],
-                root: postcssRoot,
-            },
-            (warning) => {
-                stylelint.utils.report({
-                    message: myMessage,
-                    ruleName: myRuleName,
-                    result: postcssResult,
-                    node: warning.node,
-                    line: warning.line,
-                    column: warning.column,
-                });
-            }
-        );
-    };
+    stylelint.utils.checkAgainstRule(
+      {
+        ruleName: "at-rule-no-unknown",
+        ruleSettings: [primaryOption, defaultedOptions],
+        root: postcssRoot
+      },
+      (warning) => {
+        stylelint.utils.report({
+          message: myMessage,
+          ruleName: myRuleName,
+          result: postcssResult,
+          node: warning.node,
+          line: warning.line,
+          column: warning.column
+        });
+      }
+    );
+  };
 }
 ```
 
@@ -180,15 +190,15 @@ Here's an example of a plugin that runs `color-hex-case` only if there is a spec
 
 ```js
 module.exports = stylelint.createPlugin(ruleName, function(expectation) {
-    const runColorHexCase = stylelint.rules['color-hex-case'](expectation);
+  const runColorHexCase = stylelint.rules["color-hex-case"](expectation);
 
-    return (root, result) => {
-        if (root.toString().indexOf('@@check-color-hex-case') === -1) {
-            return;
-        }
+  return (root, result) => {
+    if (root.toString().indexOf("@@check-color-hex-case") === -1) {
+      return;
+    }
 
-        runColorHexCase(root, result);
-    };
+    runColorHexCase(root, result);
+  };
 });
 ```
 
@@ -200,8 +210,8 @@ If your plugin can accept an array as its primary option, you must designate thi
 
 In addition to the standard parsers mentioned in the ["Working on rules"](rules.md) doc, there are other external modules used within stylelint that we recommend using. These include:
 
--   [normalize-selector](https://github.com/getify/normalize-selector): normalize CSS selectors.
--   [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector): given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
+- [normalize-selector](https://github.com/getify/normalize-selector): normalize CSS selectors.
+- [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector): given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
 
 Have a look through [stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into an external module.
 

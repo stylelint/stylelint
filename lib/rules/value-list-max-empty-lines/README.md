@@ -2,6 +2,7 @@
 
 Limit the number of adjacent empty lines within value lists.
 
+<!-- prettier-ignore -->
 ```css
 a {
   box-shadow:
@@ -23,6 +24,7 @@ For example, with `0`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   padding: 10px
@@ -33,6 +35,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   padding:
@@ -44,6 +47,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   box-shadow: inset 0 2px 0 #dcffa6,
@@ -52,6 +56,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   box-shadow:
@@ -61,14 +66,16 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   padding: 10px 10px 10px 10px
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   padding: 10px
@@ -78,6 +85,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   padding:
@@ -88,12 +96,14 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   box-shadow: inset 0 2px 0 #dcffa6, 0 2px 5px #000;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   box-shadow: inset 0 2px 0 #dcffa6,
@@ -101,6 +111,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   box-shadow:

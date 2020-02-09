@@ -2,6 +2,7 @@
 
 Specify a whitelist of allowed pseudo-class selectors.
 
+<!-- prettier-ignore -->
 ```css
   a:hover {}
 /** ↑
@@ -18,30 +19,35 @@ If a string is surrounded with `"/"` (e.g. `"/^nth-/"`), it is interpreted as a 
 
 Given:
 
-```js
+```
 ["hover", "/^nth-/"]
 ```
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:focus {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:first-of-type {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:hover {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:nth-of-type(5) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:nth-child(2) {}
 ```

@@ -2,6 +2,7 @@
 
 Require a single space or disallow whitespace on the inside of the parentheses of functions.
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate( 1, 1 ); }
 /**                     ↑      ↑
@@ -16,69 +17,80 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a single space inside of the parentheses.
+There _must always_ be a single space inside of the parentheses.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1); }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1 ); }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate( 1, 1 ); }
 ```
 
 ### `"never"`
 
-There *must never* be whitespace on the inside of the parentheses.
+There _must never_ be whitespace on the inside of the parentheses.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate( 1, 1 ); }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1 ); }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1); }
 ```
 
 ### `"always-single-line"`
 
-There *must always* be a single space inside the parentheses of single-line functions.
+There _must always_ be a single space inside the parentheses of single-line functions.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1 ) }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate( 1, 1 ) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1,
   1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(
@@ -90,29 +102,34 @@ a {
 
 ### `"never-single-line"`
 
-There *must never* be whitespace inside the parentheses of single-line functions.
+There _must never_ be whitespace inside the parentheses of single-line functions.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate( 1, 1 ) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1 ) }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate( 1,
   1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(

@@ -2,6 +2,7 @@
 
 Disallow unknown pseudo-class selectors.
 
+<!-- prettier-ignore -->
 ```css
   a:hover {}
 /** ↑
@@ -18,32 +19,39 @@ This rule ignores vendor-prefixed pseudo-class selectors.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:unknown {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:UNKNOWN {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:hoverr {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:hover {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:focus {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :not(p) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 input:-moz-placeholder {}
 ```
@@ -54,20 +62,23 @@ input:-moz-placeholder {}
 
 Given:
 
-```js
+```
 ["/^my-/", "pseudo-class"]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:pseudo-class {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:my-pseudo {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:my-other-pseudo {}
 ```

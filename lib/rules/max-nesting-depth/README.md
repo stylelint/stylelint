@@ -2,6 +2,7 @@
 
 Limit the depth of nesting.
 
+<!-- prettier-ignore -->
 ```css
 a { & > b { top: 0; } }
 /** ↑
@@ -10,6 +11,7 @@ a { & > b { top: 0; } }
 
 This rule works by checking rules' and at-rules' actual "nesting depth" against your specified max. Here's how nesting depths works:
 
+<!-- prettier-ignore -->
 ```css
 a {
   & b { /* nesting depth 1 */
@@ -24,8 +26,9 @@ a {
 }
 ```
 
-Note that **root-level at-rules will *not* be included in the nesting depth calculation**, because most users would take for granted that root-level at-rules are "free" (because necessary). So both of the following `.foo` rules have a nesting depth of 2, and will therefore pass if your `max` is less than or equal to 2:
+Note that **root-level at-rules will _not_ be included in the nesting depth calculation**, because most users would take for granted that root-level at-rules are "free" (because necessary). So both of the following `.foo` rules have a nesting depth of 2, and will therefore pass if your `max` is less than or equal to 2:
 
+<!-- prettier-ignore -->
 ```css
 a {
   b { /* 1 */
@@ -52,6 +55,7 @@ For example, with `2`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   & .foo { /* 1 */
@@ -62,6 +66,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   @media print { /* 1 */
@@ -72,8 +77,9 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   & .foo { /* 1 */
@@ -84,6 +90,7 @@ a {
 a .foo__foo .bar .baz {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media print {
   a {
@@ -106,6 +113,7 @@ The following patterns are considered violations:
 
 As the at-rules have a declarations blocks.
 
+<!-- prettier-ignore -->
 ```css
 a {
   &:hover { /* 1 */
@@ -114,6 +122,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   @nest > b { /* 1 */
@@ -122,16 +131,18 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
 As all of the following `.foo` rules would have a nesting depth of just 1.
 
+<!-- prettier-ignore -->
 ```css
 a {
   .foo { color: pink; } /* 1 */
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media print { /* ignored regardless of options */
   a {
@@ -140,6 +151,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   @media print { /* ignored because it's an at-rule without a declaration block of its own */
@@ -156,6 +168,7 @@ For example, with `1`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 .a {
   .b { /* 1 */
@@ -166,6 +179,7 @@ The following patterns are considered violations:
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 .a {
   &:hover { /* ignored */
@@ -178,6 +192,7 @@ The following patterns are considered violations:
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 .a {
   .b { /* 1 */
@@ -188,6 +203,7 @@ The following patterns are considered violations:
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 .a {
   .b { /* 1 */
@@ -198,10 +214,11 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
 As all of the following pseudoclasses rules would have a nesting depth of just 1.
 
+<!-- prettier-ignore -->
 ```css
 .a {
   .b { /* 1 */
@@ -212,6 +229,7 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 .a {
   .b { /* 1 */
@@ -224,6 +242,7 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 .a {
   &:hover {  /* ignored */
@@ -234,6 +253,7 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 .a {
   &:nest {  /* ignored */
@@ -247,6 +267,7 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 .a {
   .b { /* 1 */
@@ -263,12 +284,13 @@ Ignore the specified at-rules.
 
 For example, with `1` and given:
 
-```js
+```
 ["/^my-/", "media"]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   @media print {      /* 1 */
@@ -279,6 +301,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   b {                 /* 1 */
@@ -289,6 +312,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   @my-at-rule print {  /* 1 */
@@ -299,6 +323,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   @my-other-at-rule print {  /* 1 */
@@ -311,6 +336,7 @@ a {
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   @import print {       /* 1 */
@@ -319,6 +345,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   @not-my-at-rule print {   /* 1 */

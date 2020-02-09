@@ -2,6 +2,7 @@
 
 Require a single space after at-rule names.
 
+<!-- prettier-ignore -->
 ```css
 @media (max-width: 600px) {}
 /**   ↑
@@ -16,83 +17,99 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a single space after at-rule names.
+There _must always_ be a single space after at-rule names.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @charset"UTF-8";
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media(min-width: 700px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media  (min-width: 700px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media
 (min-width: 700px) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @charset "UTF-8";
 ```
 
+<!-- prettier-ignore -->
 ```css
 @import url("x.css");
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (min-width: 700px) {}
 ```
 
 ### `"always-single-line"`
 
-There *must always* be a single space after at-rule names in single-line declaration blocks.
+There _must always_ be a single space after at-rule names in single-line declaration blocks.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @charset"UTF-8";
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media(min-width: 700px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media  (min-width: 700px) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @charset "UTF-8";
 ```
 
+<!-- prettier-ignore -->
 ```css
 @import url("x.css");
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (min-width: 700px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media
 (min-width: 700px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media(min-width: 700px) and
   (orientation: portrait) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media
   (min-width: 700px) and
