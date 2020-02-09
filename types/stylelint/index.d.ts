@@ -1,5 +1,5 @@
 declare module 'stylelint' {
-	import {Result, ResultMessage, WarningOptions, Warning} from 'postcss';
+	import {Result, ResultMessage, WarningOptions, Warning, Root as PostcssRoot, NodeSource} from 'postcss';
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
@@ -49,12 +49,15 @@ declare module 'stylelint' {
 		disabledRanges: DisabledRangeObject,
 		ignored?: boolean,
 		ignoreDisables?: boolean,
-		stylelintError?: boolean
+		stylelintError?: boolean,
+		disableWritingFix?: boolean
 	};
 
 	type EmptyResult = {
 		root: {
+			nodes?: undefined,
 			source: {
+				lang?: undefined,
 				input: {
 					file?: string
 				}
