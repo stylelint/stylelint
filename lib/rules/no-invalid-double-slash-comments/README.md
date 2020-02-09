@@ -2,6 +2,7 @@
 
 Disallow double-slash comments (`//...`) which are not supported by CSS and [could lead to unexpected results](https://stackoverflow.com/a/20192639/130652).
 
+<!-- prettier-ignore -->
 ```css
 a {
   //color: pink;
@@ -18,16 +19,19 @@ If you are using a preprocessor that allows `//` single-line comments (e.g. Sass
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   //color: pink;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 //a { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 // Comment {}
 a {
@@ -35,14 +39,16 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   /* color: pink; */
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* a { color: pink;  } */
 ```

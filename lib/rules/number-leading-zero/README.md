@@ -2,6 +2,7 @@
 
 Require or disallow a leading zero for fractional numbers less than 1.
 
+<!-- prettier-ignore -->
 ```css
 a { line-height: 0.5; }
 /**              ↑
@@ -18,48 +19,56 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a leading zero.
+There _must always_ be a leading zero.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { line-height: .5; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(2px, .4px); }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { line-height: 0.5; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(2px, 0.4px); }
 ```
 
 ### `"never"`
 
-There *must never* be a leading zero.
+There _must never_ be a leading zero.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { line-height: 0.5; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(2px, 0.4px); }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { line-height: .5; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(2px, .4px); }
 ```

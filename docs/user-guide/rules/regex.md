@@ -2,9 +2,9 @@
 
 The following classes of rules support regex:
 
--   `*-blacklist`
--   `*-whitelist`
--   `*-pattern`
+- `*-blacklist`
+- `*-whitelist`
+- `*-pattern`
 
 As does the `ignore*` secondary options.
 
@@ -12,10 +12,11 @@ As does the `ignore*` secondary options.
 
 You can use the regex that corresponds to your chosen case convention:
 
--   kebab-case: `^([a-z][a-z0-9]*)(-[a-z0-9]+)*$`
--   lowerCamelCase: `^[a-z][a-zA-Z0-9]+$`
--   snake\_case: `^([a-z][a-z0-9]*)(_[a-z0-9]+)*$`
--   UpperCamelCase: `^[A-Z][a-zA-Z0-9]+$`
+<!-- prettier-ignore -->
+- kebab-case: `^([a-z][a-z0-9]*)(-[a-z0-9]+)*$`
+- lowerCamelCase: `^[a-z][a-zA-Z0-9]+$`
+- snake\_case: `^([a-z][a-z0-9]*)(_[a-z0-9]+)*$`
+- UpperCamelCase: `^[A-Z][a-zA-Z0-9]+$`
 
 For example, for lowerCamelCase class selectors use `"selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"`.
 

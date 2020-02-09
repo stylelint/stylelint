@@ -2,6 +2,7 @@
 
 Disallow extra semicolons.
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;; }
 /**             ↑
@@ -18,27 +19,32 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @import "x.css";;
 ```
 
+<!-- prettier-ignore -->
 ```css
 @import "x.css";
 ;
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   ;color: pink;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;
@@ -46,6 +52,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: red;
@@ -56,12 +63,14 @@ b {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @import "x.css";
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;

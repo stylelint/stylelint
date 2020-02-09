@@ -2,6 +2,7 @@
 
 Limit the specificity of selectors.
 
+<!-- prettier-ignore -->
 ```css
     .foo, #bar.baz span, #hoo { color: pink; }
 /** ↑     ↑              ↑
@@ -24,20 +25,24 @@ For example, with `"0,2,0"`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 #foo {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo .baz .bar {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo .baz {
   & .bar {}
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo {
   color: red;
@@ -47,28 +52,33 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 div {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo div {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo div {
   & div a {}
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo {
   & .baz {}
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo {
   color: red;
@@ -84,36 +94,45 @@ div {}
 
 Given:
 
-```js
-["0,2,0", {
-  ignoreSelectors: [":global", ":local", "/my-/"]
-}];
+```
+[
+  "0,2,0",
+  {
+    ignoreSelectors: [":global", ":local", "/my-/"]
+  }
+]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 :global(.foo) .bar {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :local(.foo.bar)
 ```
 
+<!-- prettier-ignore -->
 ```css
 :local(.foo, :global(.bar).baz)
 ```
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 :global(.foo) .bar.baz {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :local(.foo.bar.baz)
 ```
 
+<!-- prettier-ignore -->
 ```css
 :local(.foo, :global(.bar), .foo.bar.baz)
 ```

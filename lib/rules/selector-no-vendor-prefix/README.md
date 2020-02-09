@@ -2,13 +2,14 @@
 
 Disallow vendor prefixes for selectors.
 
+<!-- prettier-ignore -->
 ```css
 input::-moz-placeholder {}
 /**     ↑
  * This prefix */
 ```
 
-This rule does not blanketly condemn vendor prefixes. Instead, it uses [Autoprefixer's](https://github.com/postcss/autoprefixer) up-to-date data (from [caniuse.com](http://caniuse.com/)) to know whether a vendor prefix should cause a violation or not. *If you've included a vendor prefixed selector that has a standard alternative, one that Autoprefixer could take care of for you, this rule will complain about it*. If, however, you use a non-standard vendor-prefixed selector, one that Autoprefixer would ignore and could not provide, this rule will ignore it.
+This rule does not blanketly condemn vendor prefixes. Instead, it uses [Autoprefixer's](https://github.com/postcss/autoprefixer) up-to-date data (from [caniuse.com](http://caniuse.com/)) to know whether a vendor prefix should cause a violation or not. _If you've included a vendor prefixed selector that has a standard alternative, one that Autoprefixer could take care of for you, this rule will complain about it_. If, however, you use a non-standard vendor-prefixed selector, one that Autoprefixer would ignore and could not provide, this rule will ignore it.
 
 ## Options
 
@@ -16,20 +17,24 @@ This rule does not blanketly condemn vendor prefixes. Instead, it uses [Autopref
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 input::-moz-placeholder {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :-webkit-full-screen a {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 input::placeholder {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :full-screen a {}
 ```
@@ -42,12 +47,13 @@ Ignore vendor prefixes for selectors.
 
 Given:
 
-```js
+```
 ["::-webkit-input-placeholder", "/-moz-.*/"]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 input::-webkit-input-placeholder {
   color: pink;

@@ -2,6 +2,7 @@
 
 Disallow non-space characters for descendant combinators of selectors.
 
+<!-- prettier-ignore -->
 ```css
 .foo .bar .baz {}
 /** ↑    ↑
@@ -18,17 +19,20 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 .foo  .bar {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo
 .bar {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 .foo .bar {}
 ```

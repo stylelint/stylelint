@@ -4,12 +4,12 @@ Please help us create, enhance, and debug our rules!
 
 ## Add a rule
 
-*When writing a rule, always look to other similar rules for [conventions and patterns](../user-guide/rules/about.md) to start from and mimic.*
+_When writing a rule, always look to other similar rules for [conventions and patterns](../user-guide/rules/about.md) to start from and mimic._
 
 The rule should:
 
--   not include code for methodologies or language extensions
--   be strict by default
+- not include code for methodologies or language extensions
+- be strict by default
 
 ### PostCSS API
 
@@ -19,8 +19,8 @@ Use the [PostCSS API](https://api.postcss.org/) to navigate and analyze the CSS 
 
 Depending on the rule, we also recommend using:
 
--   [postcss-value-parser](https://github.com/TrySound/postcss-value-parser)
--   [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser)
+- [postcss-value-parser](https://github.com/TrySound/postcss-value-parser)
+- [postcss-selector-parser](https://github.com/postcss/postcss-selector-parser)
 
 There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
@@ -30,20 +30,22 @@ stylelint has [utility functions](https://github.com/stylelint/stylelint/tree/ma
 
 Use the:
 
--   `validateOptions()` utility to warn users about invalid options
--   `isStandardSyntax*` utilities to ignore non-standard syntax
+- `validateOptions()` utility to warn users about invalid options
+- `isStandardSyntax*` utilities to ignore non-standard syntax
 
 ### Options
 
-Provide secondary options so that the user can ignore non-standard syntax at the *configuration level*. For example, when dealing with specificity, a rule should not account for the `:global` and `:local` pseudo-classes (introduced in the CSS Modules language extension), instead the rule should provide a `ignorePseudoClasses: []` secondary option. Methodologies come and go quickly, and this approach ensures the codebase does not become littered with code for obsolete things.
+Provide secondary options so that the user can ignore non-standard syntax at the _configuration level_. For example, when dealing with specificity, a rule should not account for the `:global` and `:local` pseudo-classes (introduced in the CSS Modules language extension), instead the rule should provide a `ignorePseudoClasses: []` secondary option. Methodologies come and go quickly, and this approach ensures the codebase does not become littered with code for obsolete things.
 
-Only add an option to a rule if it addresses a *requested* use case to avoid polluting the tool with unused features.
+Only add an option to a rule if it addresses a _requested_ use case to avoid polluting the tool with unused features.
 
 If your rule can accept an array as its primary option, you must designate this by setting the property `primaryOptionArray = true` on your rule function. For example:
 
 ```js
 function rule(primary, secondary) {
-    return (root, result) => { /* .. */ };
+  return (root, result) => {
+    /* .. */
+  };
 }
 
 rule.primaryOptionArray = true;
@@ -61,65 +63,69 @@ Add `context` variable to rule parameters:
 
 ```js
 function rule(primary, secondary, context) {
-    return (root, result) => { /* .. */ };
+  return (root, result) => {
+    /* .. */
+  };
 }
 ```
 
 `context` is an object which could have two properties:
 
--   `fix`(boolean): If `true`, your rule can apply autofixes.
--   `newline`(string): Line-ending used in current linted file.
+- `fix`(boolean): If `true`, your rule can apply autofixes.
+- `newline`(string): Line-ending used in current linted file.
 
 If `context.fix` is `true`, then change `root` using PostCSS API and return early before `report()` is called.
 
 ```js
 if (context.fix) {
-    // Apply fixes using PostCSS API
-    return; // Return and don't report a problem
+  // Apply fixes using PostCSS API
+  return; // Return and don't report a problem
 }
 
-report(...);
+report(/* .. */);
 ```
 
 ### Write tests
 
 Each rule must have tests that cover all patterns that:
 
--   are considered violations
--   should *not* be considered violations
+- are considered violations
+- should _not_ be considered violations
 
 Write as many as you can stand to.
 
 You should:
 
--   test errors in multiple positions, not the same place every time
--   use realistic (if simple) CSS, and avoid the use of ellipses
--   use standard CSS syntax by default, and only swap parsers when testing a specific piece of non-standard syntax
+- test errors in multiple positions, not the same place every time
+- use realistic (if simple) CSS, and avoid the use of ellipses
+- use standard CSS syntax by default, and only swap parsers when testing a specific piece of non-standard syntax
 
 #### Commonly overlooked edge-cases
 
 You should ask yourself how does your rule handle:
 
--   variables (`$sass`, `@less` or `var(--custom-property)`)?
--   CSS strings (e.g. `content: "anything goes";`)?
--   CSS comments (e.g. `/* anything goes */`)?
--   `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
--   vendor prefixes (e.g. `@-webkit-keyframes name {}`)?
--   case sensitivity (e.g. `@KEYFRAMES name {}`)?
--   a pseudo-class *combined* with a pseudo-element (e.g. `a:hover::before`)?
--   nesting (e.g. do you resolve `& a {}`, or check it as is?)?
--   whitespace and punctuation (e.g. comparing `rgb(0,0,0)` with `rgb(0, 0, 0)`)?
+- variables (`$sass`, `@less` or `var(--custom-property)`)?
+- CSS strings (e.g. `content: "anything goes";`)?
+- CSS comments (e.g. `/* anything goes */`)?
+- `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
+- vendor prefixes (e.g. `@-webkit-keyframes name {}`)?
+- case sensitivity (e.g. `@KEYFRAMES name {}`)?
+- a pseudo-class _combined_ with a pseudo-element (e.g. `a:hover::before`)?
+- nesting (e.g. do you resolve `& a {}`, or check it as is?)?
+- whitespace and punctuation (e.g. comparing `rgb(0,0,0)` with `rgb(0, 0, 0)`)?
 
 ### Write the README
 
 You should:
 
--   use "this rule" to refer to the rule e.g. "This rule ignores ..."
--   align the arrows within the prototypical code example with the beginning of the highlighted construct
--   align the text within the prototypical code example as far to the left as possible
+- use "this rule" to refer to the rule e.g. "This rule ignores ..."
+- use `<!-- prettier-ignore-->` before `css` code fences
+- align the arrows within the prototypical code example with the beginning of the highlighted construct
+- align the text within the prototypical code example as far to the left as possible
 
 For example:
 
+<!-- prettier-ignore -->
 ```css
  @media screen and (min-width: 768px) {}
 /**                 ↑          ↑
@@ -132,48 +138,48 @@ Look at the READMEs of other rules to glean more conventional patterns.
 
 You should use:
 
--   complete CSS patterns i.e. avoid ellipses (`...`)
--   standard CSS syntax (and `css` [GFM fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/)) by default
--   the minimum amount of code possible to communicate the pattern, e.g. if the rule targets selectors then use an empty rule, e.g. `{}`
--   `{}`, rather than `{ }` for empty rules
--   the `a` type selector by default
--   the `@media` at-rules by default
--   the `color` property by default
--   *foo*, *bar* and *baz* for names, e.g. `.foo`, `#bar`, `--baz`
+- complete CSS patterns i.e. avoid ellipses (`...`)
+- standard CSS syntax (and `css` [GFM fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/)) by default
+- the minimum amount of code possible to communicate the pattern, e.g. if the rule targets selectors then use an empty rule, e.g. `{}`
+- `{}`, rather than `{ }` for empty rules
+- the `a` type selector by default
+- the `@media` at-rules by default
+- the `color` property by default
+- _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
 
 ### Wire up the rule
 
 The final step is to add references to the new rule in the following places:
 
--   [The rules `index.js` file](../../lib/rules/index.js)
--   [The list of rules](../user-guide/rules/list.md)
+- [The rules `index.js` file](../../lib/rules/index.js)
+- [The list of rules](../user-guide/rules/list.md)
 
 ## Add an option to a rule
 
 You should:
 
-1.  Run `npm run watch` to start the interactive testing prompt.
-2.  Use the `p` command to filter the active tests to just the rule you're working on.
-3.  Change the rule's validation to allow for the new option.
-4.  Add new unit tests to test the option.
-5.  Add (as little as possible) logic to the rule to make the tests pass.
-6.  Add documentation about the new option.
+1. Run `npm run watch` to start the interactive testing prompt.
+2. Use the `p` command to filter the active tests to just the rule you're working on.
+3. Change the rule's validation to allow for the new option.
+4. Add new unit tests to test the option.
+5. Add (as little as possible) logic to the rule to make the tests pass.
+6. Add documentation about the new option.
 
 ## Fix a bug in a rule
 
 You should:
 
-1.  Run `npm run watch` to start the interactive testing prompt.
-2.  Use the `p` command to filter the active tests to just the rule you're working on.
-3.  Write failing unit tests that exemplify the bug.
-4.  Fiddle with the rule until those new tests pass.
+1. Run `npm run watch` to start the interactive testing prompt.
+2. Use the `p` command to filter the active tests to just the rule you're working on.
+3. Write failing unit tests that exemplify the bug.
+4. Fiddle with the rule until those new tests pass.
 
 ## Deprecate a rule
 
 Deprecating rules doesn't happen very often. When you do, you must:
 
-1.  Point the `stylelintReference` link to the specific version of the rule README on the GitHub website, so that it is always accessible.
-2.  Add the appropriate meta data to mark the rule as deprecated.
+1. Point the `stylelintReference` link to the specific version of the rule README on the GitHub website, so that it is always accessible.
+2. Add the appropriate meta data to mark the rule as deprecated.
 
 ## Improve the performance of a rule
 

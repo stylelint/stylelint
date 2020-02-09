@@ -2,6 +2,7 @@
 
 Disallow shorthand properties that override related longhand properties.
 
+<!-- prettier-ignore -->
 ```css
 a { background-repeat: repeat; background: green; }
 /**                            ↑
@@ -16,6 +17,7 @@ In almost every case, this is just an authorial oversight. For more about this b
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   padding-left: 10px;
@@ -23,6 +25,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transition-property: opacity;
@@ -30,6 +33,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   -webkit-transition-property: opacity;
@@ -37,6 +41,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   border-top-width: 1px;
@@ -46,16 +51,19 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { padding: 10px; padding-left: 20px; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transition-property: opacity; } a { transition: opacity 1s linear; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transition-property: opacity; -webkit-transition: opacity 1s linear; }
 ```

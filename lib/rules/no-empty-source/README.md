@@ -2,6 +2,7 @@
 
 Disallow empty sources.
 
+<!-- prettier-ignore -->
 ```css
   ···\n\t
 /**     ↑
@@ -16,24 +17,29 @@ A source containing only whitespace is considered empty.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 
 ```
 
+<!-- prettier-ignore -->
 ```css
 \t\t
 ```
 
+<!-- prettier-ignore -->
 ```css
 \n
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* Only comments */
 ```

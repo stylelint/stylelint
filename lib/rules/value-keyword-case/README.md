@@ -2,6 +2,7 @@
 
 Specify lowercase or uppercase for keywords values.
 
+<!-- prettier-ignore -->
 ```css
     a { display: block; }
 /**              ↑
@@ -16,43 +17,48 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 `string`: `"lower"|"upper"`
 
-
 ### `"lower"`
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: Block;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: bLoCk;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: BLOCK;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transition: -WEBKIT-TRANSFORM 2s;
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: block;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transition: -webkit-transform 2s;
@@ -63,38 +69,44 @@ a {
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: Block;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: bLoCk;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: block;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transition: -webkit-transform 2s;
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: BLOCK;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transition: -WEBKIT-TRANSFORM 2s;
@@ -111,56 +123,64 @@ For example, with `"lower"`.
 
 Given:
 
-```js
+```
 ["Block", "/^(f|F)lex$/"]
 ```
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: bLoCk;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: BLOCK;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: fLeX;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: FLEX;
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: block;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: Block;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: flex;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: Flex;
@@ -174,55 +194,63 @@ Ignore case of the values of the listed properties.
 For example, with `"lower"`.
 
 ```js
-["/^(b|B)ackground$/", "display"]
+["/^(b|B)ackground$/", "display"];
 ```
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   text-align: LEFT;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   text-align: Left;
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: bloCk;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: BloCk;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: BLOCK;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   display: block;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   background: Red;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   Background: deepPink;

@@ -2,6 +2,7 @@
 
 Limit the number of combinators in a selector.
 
+<!-- prettier-ignore -->
 ```css
   a > b + c ~ d e { color: pink; }
 /** ↑   ↑   ↑  ↑
@@ -18,16 +19,19 @@ For example, with `2`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a b ~ c + d {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a b ~ c {
   & > d {}
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a b {
   & ~ c {
@@ -36,26 +40,31 @@ a b {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a b {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a b ~ c {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a b {
   & ~ c {}
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* each selector in a selector list is evaluated separately */
 a b,

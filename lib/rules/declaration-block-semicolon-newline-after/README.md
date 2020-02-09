@@ -2,6 +2,7 @@
 
 Require a newline or disallow whitespace after the semicolons of declaration blocks.
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;
@@ -13,13 +14,14 @@ a {
 
 This rule ignores:
 
--   semicolons that are preceded by Less mixins
--   the last semicolon of declaration blocks
+- semicolons that are preceded by Less mixins
+- the last semicolon of declaration blocks
 
 Use the `block-closing-brace-*-before` rules to control the whitespace between the last semicolon and the closing brace instead.
 
 This rule allows an end-of-line comment followed by a newline. For example,
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink; /* end-of-line comment */
@@ -35,14 +37,16 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a newline after the semicolon.
+There _must always_ be a newline after the semicolon.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; top: 0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink; /* end-of-line comment
@@ -51,8 +55,9 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;
@@ -60,6 +65,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink; /* end-of-line comment */
@@ -69,26 +75,30 @@ a {
 
 ### `"always-multi-line"`
 
-There *must always* be a newline after the semicolon in multi-line rules.
+There _must always_ be a newline after the semicolon in multi-line rules.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink; top: 0;
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; top: 0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;
@@ -98,10 +108,11 @@ a {
 
 ### `"never-multi-line"`
 
-There *must never* be whitespace after the semicolon in multi-line rules.
+There _must never_ be whitespace after the semicolon in multi-line rules.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;
@@ -109,16 +120,19 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; top: 0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink

@@ -2,6 +2,7 @@
 
 Specify a blacklist of disallowed functions.
 
+<!-- prettier-ignore -->
 ```css
 a { transform: scale(1); }
 /**            ↑
@@ -16,22 +17,25 @@ If a string is surrounded with `"/"` (e.g. `"/^rgb/"`), it is interpreted as a r
 
 Given:
 
-```js
+```
 ["scale", "rgba", "linear-gradient"]
 ```
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: scale(1); }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: rgba(0, 0, 0, 0.5);
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   background:
@@ -40,8 +44,9 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { background: red; }
 ```

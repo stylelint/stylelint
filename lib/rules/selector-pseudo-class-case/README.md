@@ -2,6 +2,7 @@
 
 Specify lowercase or uppercase for pseudo-class selectors.
 
+<!-- prettier-ignore -->
 ```css
   a:hover {}
 /** ↑
@@ -18,36 +19,44 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:Hover {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:hOvEr {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:HOVER {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :ROOT {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :-MS-INPUT-PLACEHOLDER {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:hover {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :root {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :-ms-input-placeholder {}
 ```
@@ -56,36 +65,44 @@ a:hover {}
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:Hover {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:hOvEr {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:hover {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :root {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :-ms-input-placeholder {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:HOVER {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :ROOT {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 :-MS-INPUT-PLACEHOLDER {}
 ```

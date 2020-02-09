@@ -12,9 +12,9 @@ The chosen [PostCSS syntax](../about/syntaxes.md) successfully parsed, but one o
 
 The construct-specific parsers are:
 
--   `postcss-media-query-parser`
--   `postcss-selector-parser`
--   `postcss-value-parser`
+- `postcss-media-query-parser`
+- `postcss-selector-parser`
+- `postcss-value-parser`
 
 ## Unknown rule error
 

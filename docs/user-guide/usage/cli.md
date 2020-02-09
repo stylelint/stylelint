@@ -98,6 +98,6 @@ stylelint "foo/**/*.css" "bar/*.css" --config bar/mySpecialConfig.json
 
 The CLI can exit the process with the following exit codes:
 
--   `1` - something unknown went wrong
--   `2` - there was at least one rule violation or CLI flag error
--   `78` -  there was some problem with the configuration file
+- `1` - something unknown went wrong
+- `2` - there was at least one rule violation or CLI flag error
+- `78` - there was some problem with the configuration file

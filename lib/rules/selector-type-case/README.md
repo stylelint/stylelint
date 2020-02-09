@@ -2,6 +2,7 @@
 
 Specify lowercase or uppercase for type selectors.
 
+<!-- prettier-ignore -->
 ```css
     a {}
 /** ↑
@@ -18,20 +19,24 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 A {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 LI {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 li {}
 ```
@@ -40,20 +45,24 @@ li {}
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 li {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 A {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 LI {}
 ```
@@ -64,12 +73,13 @@ LI {}
 
 Given:
 
-```js
+```
 ["$childClass", "/(p|P)arent.*/"]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 myParentClass {
   color: pink;

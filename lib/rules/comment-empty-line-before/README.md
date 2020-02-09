@@ -2,6 +2,7 @@
 
 Require or disallow an empty line before comments.
 
+<!-- prettier-ignore -->
 ```css
 a {}
               /* ← */
@@ -12,10 +13,10 @@ a {}
 
 This rule ignores:
 
--   comments that are the very first node in the source
--   shared-line comments
--   single-line comments with `//` (when you're using a custom syntax that supports them)
--   comments within selector and value lists
+- comments that are the very first node in the source
+- shared-line comments
+- single-line comments with `//` (when you're using a custom syntax that supports them)
+- comments within selector and value lists
 
 The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
 
@@ -25,46 +26,52 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be an empty line before comments.
+There _must always_ be an empty line before comments.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 /* comment */
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 
 /* comment */
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {} /* comment */
 ```
 
 ### `"never"`
 
-There *must never* be an empty line before comments.
+There _must never_ be an empty line before comments.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 
 /* comment */
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 /* comment */
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {} /* comment */
 ```
@@ -79,6 +86,7 @@ For example, with `"always"`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -87,8 +95,9 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   /* comment */
@@ -104,8 +113,9 @@ Ignore comments that follow another comment.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   background: pink;
@@ -116,6 +126,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   background: pink;
@@ -135,6 +146,7 @@ For example, with `"always"`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   background: pink;
@@ -143,8 +155,9 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   background: pink;

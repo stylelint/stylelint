@@ -77,7 +77,7 @@ If `myConfig` contains no relative paths for `extends` or `plugins`, you do not 
 stylelint
   .lint({
     config: myConfig,
-    files: 'all/my/stylesheets/*.css',
+    files: "all/my/stylesheets/*.css"
   })
   .then(function(data) {
     // do things with data.output, data.errored,
@@ -97,8 +97,8 @@ If `myConfig` _does_ contain relative paths for `extends` or `plugins`, you _do_
 stylelint
   .lint({
     config: myConfig,
-    configBasedir: path.join(__dirname, 'configs'),
-    files: 'all/my/stylesheets/*.css',
+    configBasedir: path.join(__dirname, "configs"),
+    files: "all/my/stylesheets/*.css"
   })
   .then(function() {
     /* .. */
@@ -112,9 +112,9 @@ Using a CSS string instead of a file glob, and the string formatter instead of t
 ```js
 stylelint
   .lint({
-    code: 'a { color: pink; }',
+    code: "a { color: pink; }",
     config: myConfig,
-    formatter: 'string',
+    formatter: "string"
   })
   .then(function() {
     /* .. */
@@ -129,11 +129,11 @@ Using your own custom formatter function and parse `.scss` source files:
 stylelint
   .lint({
     config: myConfig,
-    files: 'all/my/stylesheets/*.scss',
+    files: "all/my/stylesheets/*.scss",
     formatter: function(stylelintResults) {
       /* .. */
     },
-    syntax: 'scss',
+    syntax: "scss"
   })
   .then(function() {
     /* .. */

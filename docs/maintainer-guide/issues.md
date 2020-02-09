@@ -8,15 +8,15 @@ Use [labels](https://github.com/stylelint/stylelint/labels).
 
 When you first triage an issue, you should:
 
--   add one of the `status: needs *` labels, e.g. `status: need discussion`
--   don't add any other label
+- add one of the `status: needs *` labels, e.g. `status: need discussion`
+- don't add any other label
 
 After triage, you should add:
 
--   _one_ of the non-need `status: *` labels, e.g. `status: ready to implement`
--   _zero or one_ of the `type: *` labels, e.g. `status: new rule`
--   _zero, one or more_ of the `syntax: *` labels, e.g. `syntax: scss`
--   optionally, the `good first issue`, `help wanted`, `priority: high` and `upstream` labels
+- _one_ of the non-need `status: *` labels, e.g. `status: ready to implement`
+- _zero or one_ of the `type: *` labels, e.g. `status: new rule`
+- _zero, one or more_ of the `syntax: *` labels, e.g. `syntax: scss`
+- optionally, the `good first issue`, `help wanted`, `priority: high` and `upstream` labels
 
 ## Milestones
 
@@ -24,8 +24,8 @@ Use [milestones](https://github.com/stylelint/stylelint/milestones).
 
 You should:
 
--   use the `future-major` milestone for issues that introduce breaking changes
--   optionally, create version milestones (e.g. `8.x`) to manage upcoming releases
+- use the `future-major` milestone for issues that introduce breaking changes
+- optionally, create version milestones (e.g. `8.x`) to manage upcoming releases
 
 ## Titles
 
@@ -33,13 +33,13 @@ Rename the title into a consistent format.
 
 You should:
 
--   lead with the [CHANGELOG group names](pull-requests.md), but in the present tense:
-    -   "Remove y", e.g. "Remove unit-blacklist"
-    -   "Deprecate x in y", e.g. "Deprecate resolvedNested option in selector-class-pattern"
-    -   "Add y", e.g. "Add unit-blacklist"
-    -   "Add x to y", e.g. "Add ignoreProperties: [] to property-blacklist"
-    -   "Fix false positives/negatives for x in y", e.g. "Fix false positives for Less mixins in color-no-hex"
--   use `*` if the issue applies to a group of rules, e.g. "Fix false negatives for SCSS variables in selector-*-pattern"
+- lead with the [CHANGELOG group names](pull-requests.md), but in the present tense:
+  - "Remove y", e.g. "Remove unit-blacklist"
+  - "Deprecate x in y", e.g. "Deprecate resolvedNested option in selector-class-pattern"
+  - "Add y", e.g. "Add unit-blacklist"
+  - "Add x to y", e.g. "Add ignoreProperties: [] to property-blacklist"
+  - "Fix false positives/negatives for x in y", e.g. "Fix false positives for Less mixins in color-no-hex"
+- use `*` if the issue applies to a group of rules, e.g. "Fix false negatives for SCSS variables in selector-\*-pattern"
 
 ## Saved replies
 
