@@ -8,15 +8,13 @@ stylelint uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) to fi
 - a `.stylelintrc` file
 - a `stylelint.config.js` file exporting a JS object
 
-The search stops when one of these is found, and stylelint uses that object.
+The search stops when one of these is found, and stylelint uses that object. You can use the [`--config` or `configFile` option](usage/options.md) to short-circuit the search.
 
 The `.stylelintrc` file (without extension) can be in JSON or YAML format. You can add a filename extension to help your text editor provide syntax checking and highlighting:
 
 - `.stylelintrc.json`
 - `.stylelintrc.yaml` / `.stylelintrc.yml`
 - `.stylelintrc.js`
-
-You can use the [`--config` or `configFile` option](usage/options.md) to short-circuit the configuration search.
 
 The configuration object has the following properties:
 
@@ -26,7 +24,17 @@ Rules determine what the linter looks for and complains about. There are [over 1
 
 _No rules are turned on by default and there are no default values. You must explicitly configure each rule to turn it on._
 
-The `rules` property is _an object whose keys are rule names and values are rule configurations_. Each rule configuration fits one of the following formats:
+The `rules` property is _an object whose keys are rule names and values are rule configurations_. For example:
+
+```json
+{
+  "rules": {
+    "color-no-invalid-hex": true
+  }
+}
+```
+
+Each rule configuration fits one of the following formats:
 
 - `null` (to turn the rule off)
 - a single value (the primary option)
@@ -34,21 +42,31 @@ The `rules` property is _an object whose keys are rule names and values are rule
 
 Specifying a primary option turns on a rule.
 
-Many rules provide secondary options for further customization. To set secondary options, use a two-member array:
+Many rules provide secondary options for further customization. To set secondary options, use a two-member array. For example:
 
-```js
-"selector-pseudo-class-no-unknown": [true, {
-  "ignorePseudoClasses": ["global"]
-}]
+```json
+{
+  "rules": {
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ]
+  }
+}
 ```
 
-For example, you can turn off `block-no-empty`, turn on `color-no-invalid-hex`, `max-empty-lines` and `unit-whitelist` with primary options and turn on `comment-empty-line-before` with a primary and secondary option:
+You can add any number of keys in the object. For example, you can:
+
+- turn off `block-no-empty`
+- turn on `comment-empty-line-before` with a primary and secondary option
+- turn on `max-empty-lines` and `unit-whitelist` with primary options
 
 ```json
 {
   "rules": {
     "block-no-empty": null,
-    "color-no-invalid-hex": true,
     "comment-empty-line-before": [
       "always",
       {
@@ -61,7 +79,7 @@ For example, you can turn off `block-no-empty`, turn on `color-no-invalid-hex`, 
 }
 ```
 
-### Custom Messages
+### `message`
 
 You can use the `message` secondary option to deliver a custom message when a rule is violated.
 
@@ -79,7 +97,7 @@ For example, the following rule configuration would substitute in custom message
     2,
     {
       "except": ["block"],
-      "message": "Please use 2 spaces for indentation. Tabs make The Architect grumpy.",
+      "message": "Please use 2 spaces for indentation.",
       "severity": "warning"
     }
   ]
@@ -88,7 +106,7 @@ For example, the following rule configuration would substitute in custom message
 
 Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
 
-### Severities: error & warning
+### `severity`
 
 You can use the `severity` secondary option to adjust any specific rule's severity.
 
@@ -101,13 +119,15 @@ For example:
 
 ```json
 {
-  "indentation": [
-    2,
-    {
-      "except": ["value"],
-      "severity": "warning"
-    }
-  ]
+  "rules": {
+    "indentation": [
+      2,
+      {
+        "except": ["value"],
+        "severity": "warning"
+      }
+    ]
+  }
 }
 ```
 
@@ -129,10 +149,10 @@ You can _extend_ an existing configuration (whether your own or a third-party on
 
 Popular configurations include:
 
-- [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended): turns on just [possible error rules](rules/list.md#possible-errors)
-- [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard): extends recommended one by turning on 60 [stylistic rules](rules/list.md#stylistic-issues)
+- [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended) - turns on just [possible error rules](rules/list.md#possible-errors)
+- [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) - extends recommended one by turning on 60 [stylistic rules](rules/list.md#stylistic-issues)
 
-You'll find more in [awesome stylelint](https://github.com/ntwb/awesome-stylelint#configs).
+You'll find more in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#configs).
 
 When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
 
@@ -173,10 +193,10 @@ Plugins are rules or sets of rules built by the community that support methodolo
 
 Popular plugin packs include:
 
-- [`stylelint-order`](https://github.com/hudochenkov/stylelint-order): specify the ordering of things, e.g. properties within declaration blocks
-- [`stylelint-scss`](https://github.com/kristerkari/stylelint-scss): enforce a wide variety of SCSS-syntax specific linting rules
+- [`stylelint-order`](https://github.com/hudochenkov/stylelint-order) - specify the ordering of things, e.g. properties within declaration blocks
+- [`stylelint-scss`](https://github.com/kristerkari/stylelint-scss) - enforce a wide variety of linting rules for SCSS-like syntax
 
-You'll find more in [awesome stylelint](https://github.com/ntwb/awesome-stylelint#plugins).
+You'll find more in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#plugins).
 
 To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either a:
 
@@ -190,7 +210,7 @@ Once the plugin is declared, within your `"rules"` object _you'll need to add op
 {
   "plugins": ["../special-rule.js"],
   "rules": {
-    "plugin/special-rule": "everything"
+    "plugin-namespace/special-rule": "everything"
   }
 }
 ```
@@ -212,7 +232,7 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 
 Processors are functions built by the community that hook into stylelint's pipeline, modifying code on its way into stylelint and modifying results on their way out.
 
-**We discourage their use in favor of [PostCSS syntaxes](https://github.com/postcss/postcss#syntaxes). stylelint uses some of these syntaxes to support autofix for common non-stylesheet files. Processors can also only be used with the CLI and the Node.js API, not with the PostCSS plugin. (The PostCSS plugin ignores them.)**
+**We discourage their use in favor of using the built-in [syntaxes](../about/syntaxes.md) as processors are incompatible with the [autofix feature](usage/options.md#fix).**
 
 To use one, add a `"processors"` array to your config, containing "locaters" identifying the processors you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
 
@@ -234,6 +254,8 @@ If your processor has options, make that item an array whose first item is the "
   "rules": {}
 }
 ```
+
+Processors can also only be used with the CLI and the Node.js API, not with the PostCSS plugin. (The PostCSS plugin ignores them.)
 
 ## `ignoreFiles`
 

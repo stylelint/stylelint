@@ -30,12 +30,12 @@ Now that you're up and running, you'll likely want to customize stylelint to mee
 
 You'll want to customize your configuration.
 
-For example, you may want to use the:
+For example, you may want to use the popular:
 
 - [`stylelint-config-sass-guidelines` config](https://github.com/bjankord/stylelint-config-sass-guidelines) if you write SCSS
 - [`stylelint-order` plugin](https://github.com/hudochenkov/stylelint-order) if you want to order things like properties
 
-You'll find more [configs](https://github.com/ntwb/awesome-stylelint#configs) and [plugins](https://github.com/ntwb/awesome-stylelint#plugins) listed in [awesome stylelint](https://github.com/ntwb/awesome-stylelint).
+You'll find more [configs](https://github.com/stylelint/awesome-stylelint#configs) and [plugins](https://github.com/stylelint/awesome-stylelint#plugins) listed in [awesome stylelint](https://github.com/stylelint/awesome-stylelint).
 
 To further customize your stylelint configuration, you can adapt your:
 

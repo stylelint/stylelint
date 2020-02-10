@@ -1,8 +1,11 @@
 # Ignoring code
 
-You can ignore sections within files or files entirely.
+You can ignore:
 
-## Sections within files
+- within files
+- files entirely
+
+## Within files
 
 You can temporarily turn off rules using special comments in your CSS. For example, you can either turn all the rules off:
 
@@ -61,7 +64,12 @@ stylelint supports complex, overlapping disabling & enabling patterns:
 
 ## Files entirely
 
-You can use a `.stylelintignore` file to ignore specific files.
+You can use a `.stylelintignore` file to ignore specific files. For example:
+
+```
+**/*.js
+vendor/**/*.css
+```
 
 The patterns in your `.stylelintignore` file must match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). (Behind the scenes, [`node-ignore`](https://github.com/kaelzhang/node-ignore) parses your patterns.) _Your patterns in `.stylelintignore` are always analyzed relative to `process.cwd()`._
 

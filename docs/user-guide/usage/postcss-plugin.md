@@ -2,7 +2,7 @@
 
 As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a [PostCSS runner](https://github.com/postcss/postcss#runners) or with the PostCSS JS API directly.
 
-_However, if a dedicated stylelint task runner plugin [is available](../integrations/task-runner.md) (e.g. [gulp-stylelint](https://github.com/olegskl/gulp-stylelint) or [grunt-stylelint](https://github.com/wikimedia/grunt-stylelint)) we recommend you use that rather than this plugin, as they provide better reporting._
+_However, if a dedicated stylelint task runner plugin [is available](../integrations/task-runner.md) (e.g. [gulp-stylelint](https://github.com/olegskl/gulp-stylelint)) we recommend you use that rather than this plugin, as they provide better reporting._
 
 ## Options
 
@@ -27,8 +27,8 @@ const fs = require("fs");
 const less = require("postcss-less");
 const postcss = require("postcss");
 
-// CSS to be processed
-const css = fs.readFileSync("input.css", "utf8");
+// Code to be processed
+const code = fs.readFileSync("input.less", "utf8");
 
 postcss([
   require("stylelint")({
@@ -36,8 +36,8 @@ postcss([
   }),
   require("postcss-reporter")({ clearReportedMessages: true })
 ])
-  .process(css, {
-    from: "input.css",
+  .process(code, {
+    from: "input.less",
     syntax: less
   })
   .then(() => {})
@@ -66,7 +66,7 @@ postcss([
       })
     ]
   }),
-  require("postcss-cssnext"),
+  require("postcss-preset-env"),
   require("postcss-reporter")({ clearReportedMessages: true })
 ])
   .process(css, {

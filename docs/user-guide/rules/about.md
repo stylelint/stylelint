@@ -17,21 +17,19 @@ Each rule accepts a primary and an optional secondary option.
 
 ### Primary
 
-Every rule _must have_ a **primary option**. For example:
+Every rule _must have_ a primary option. For example, in:
 
-- in `"color-hex-case": "upper"`, the primary option is `"upper"`
-- in `"indentation": [2, { "except": ["block"] }]`, the primary option is `2`
+- `"color-hex-case": "upper"`, the primary option is `"upper"`
+- `"indentation": [2, { "except": ["block"] }]`, the primary option is `2`
 
 ### Secondary
 
-Some rules require extra flexibility to address edge cases. These can use an **optional secondary options object**. For example:
+Some rules require extra flexibility to address edge cases. These can use an optional secondary options object. For example, in:
 
-- in `"color-hex-case": "upper"` there is no secondary options object
-- in `"indentation": [2, { "except": ["block"] }]`, the secondary options object is `{ "except": ["block"] }`
+- `"color-hex-case": "upper"` there is no secondary options object
+- `"indentation": [2, { "except": ["block"] }]`, the secondary options object is `{ "except": ["block"] }`
 
 The most typical secondary options are `"ignore": []` and `"except": []`.
-
-A rule's secondary option can be anything if it doesn't ignore or make exceptions. As an example, `resolveNestedSelectors: true|false` is used within some `selector-*` rules to change how the rule processes nested selectors.
 
 #### Keyword `"ignore"` and `"except"`
 
@@ -42,7 +40,14 @@ The `"ignore"` and `"except"` options accept an array of predefined keyword opti
 
 #### User-defined `"ignore*"`
 
-Some rules accept a _user-defined_ list of things to ignore. This takes the form of `"ignore<Things>": []`, e.g. `"ignoreAtRules": []` is used if a rule checks at-rules.
+Some rules accept a _user-defined_ list of things to ignore. This takes the form of `"ignore<Things>": []`, e.g. `"ignoreAtRules": []`.
+
+The `ignore*` options let users ignore non-standard syntax at the _configuration level_. For example, the:
+
+- `:global` and `:local` pseudo-classes introduced in CSS Modules
+- `@debug` and `@extend` at-rules introduced in SCSS
+
+Methodologies and language extensions come and go quickly, and this approach ensures our codebase does not become littered with code for obsolete things.
 
 ## Names
 

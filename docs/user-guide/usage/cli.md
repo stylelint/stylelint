@@ -1,12 +1,12 @@
 # Command Line Interface (CLI)
 
-You can use stylelint on the command line.
+You can use stylelint on the command line. For example:
 
 ```shell
-stylelint "**/*.css"
+npx stylelint "**/*.css"
 ```
 
-Use `stylelint --help` to print the CLI documentation.
+Use `npx stylelint --help` to print the CLI documentation.
 
 ## Options
 
@@ -42,9 +42,9 @@ Show the currently installed version of stylelint.
 
 ## Usage examples
 
-The CLI expects an input as either a [file glob](https://github.com/sindresorhus/globby) or `process.stdin`. It outputs formatted results into `process.stdout`.
+The CLI expects input as either a [file glob](https://github.com/sindresorhus/globby) or `process.stdin`. It outputs formatted results into `process.stdout`.
 
-Be sure to include quotation marks around file globs.
+_Be sure to include quotation marks around file globs._
 
 ### Example A - recursive
 
@@ -83,15 +83,15 @@ stylelint "foo/**/*.scss" --cache --cache-location "/Users/user/.stylelintcache/
 Linting all `.css` files in the `foo` directory, then writing the output to `myTestReport.txt`:
 
 ```shell
-stylelint "foo/*.css" --config bar/mySpecialConfig.json --output-file myTestReport.txt
+stylelint "foo/*.css" --output-file myTestReport.txt
 ```
 
-### Example F - multiple globs and specifying a config
+### Example F - specifying a config
 
-Using `bar/mySpecialConfig.json` as config to lint all `.css` files in the `foo` directory and any of its subdirectories and also all `.css` files in the `bar directory`:
+Using `bar/mySpecialConfig.json` as config to lint all `.css` files in the `foo` directory and any of its subdirectories:
 
 ```shell
-stylelint "foo/**/*.css" "bar/*.css" --config bar/mySpecialConfig.json
+stylelint "foo/**/*.css" --config bar/mySpecialConfig.json
 ```
 
 ## Exit codes
