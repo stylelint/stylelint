@@ -87,20 +87,22 @@ For example, the following rule configuration would substitute in custom message
 
 ```json
 {
-  "color-hex-case": [
-    "lower",
-    {
-      "message": "Lowercase letters are easier to distinguish from numbers"
-    }
-  ],
-  "indentation": [
-    2,
-    {
-      "except": ["block"],
-      "message": "Please use 2 spaces for indentation.",
-      "severity": "warning"
-    }
-  ]
+  "rules": {
+    "color-hex-case": [
+      "lower",
+      {
+        "message": "Lowercase letters are easier to distinguish from numbers"
+      }
+    ],
+    "indentation": [
+      2,
+      {
+        "except": ["block"],
+        "message": "Please use 2 spaces for indentation.",
+        "severity": "warning"
+      }
+    ]
+  }
 }
 ```
 

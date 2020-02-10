@@ -10,8 +10,8 @@ Other integrations built and maintained by the community.
 
 ## Version Control
 
-- [Pre-commit](https://github.com/awebdeveloper/pre-commit-stylelint) A git pre-commit hook for stylelint
+- [Pre-commit](https://github.com/awebdeveloper/pre-commit-stylelint) - Git pre-commit hook for stylelint
 
 ## Command Line Tools
 
-- [stylelint-find-rules](https://github.com/alexilyaev/stylelint-find-rules) - Find Stylelint rules that you don't have in your config.
+- [stylelint-find-rules](https://github.com/alexilyaev/stylelint-find-rules) - find Stylelint rules that you don't have in your config.

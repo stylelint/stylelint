@@ -72,7 +72,7 @@ An array of objects, one for each source, with tells you which stylelint-disable
 
 ### `invalidScopeDisables`
 
-an array of objects, one for each source, with tells you which rule in `stylelint-disable <rule>` comment don't exist within the configuration object.
+An array of objects, one for each source, with tells you which rule in `stylelint-disable <rule>` comment don't exist within the configuration object.
 
 ## Syntax errors
 
