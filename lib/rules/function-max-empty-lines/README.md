@@ -2,6 +2,7 @@
 
 Limit the number of adjacent empty lines within functions.
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform:
@@ -27,6 +28,7 @@ For example, with `0`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform:
@@ -38,6 +40,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform:
@@ -49,6 +52,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform:
@@ -60,8 +64,9 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform:

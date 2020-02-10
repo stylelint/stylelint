@@ -2,13 +2,14 @@
 
 Disallow vendor prefixes for values.
 
+<!-- prettier-ignore -->
 ```css
 a { display: -webkit-flex; }
 /**          ↑
  *  These prefixes */
 ```
 
-This rule will only complain for prefixed *standard* values, and not for prefixed *proprietary* or *unknown* ones.
+This rule will only complain for prefixed _standard_ values, and not for prefixed _proprietary_ or _unknown_ ones.
 
 ## Options
 
@@ -16,28 +17,34 @@ This rule will only complain for prefixed *standard* values, and not for prefixe
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { display: -webkit-flex; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { max-width: -moz-max-content; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { background: -webkit-linear-gradient(bottom, #000, #fff); }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { display: flex; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { max-width: max-content; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { background: linear-gradient(bottom, #000, #fff); }
 ```
@@ -48,16 +55,18 @@ a { background: linear-gradient(bottom, #000, #fff); }
 
 Given:
 
-```js
+```
 ["grab", "max-content"]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 cursor: -webkit-grab;
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo { max-width: -moz-max-content; }
 ```

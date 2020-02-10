@@ -2,6 +2,7 @@
 
 Require a single space or disallow whitespace before the commas of functions.
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 ,1) }
 /**                        ↑
@@ -16,76 +17,89 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a single space before the commas.
+There _must always_ be a single space before the commas.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1) }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 ,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 , 1) }
 ```
 
 ### `"never"`
 
-There *must never* be whitespace before the commas.
+There _must never_ be whitespace before the commas.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 ,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 , 1) }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1) }
 ```
 
 ### `"always-single-line"`
 
-There *must always* be a single space before the commas in single-line functions.
+There _must always_ be a single space before the commas in single-line functions.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1) }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 ,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 , 1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(1,
@@ -95,28 +109,33 @@ a {
 
 ### `"never-single-line"`
 
-There *must never* be whitespace before the commas in single-line functions.
+There _must never_ be whitespace before the commas in single-line functions.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 ,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1 , 1) }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1,1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(1 ,

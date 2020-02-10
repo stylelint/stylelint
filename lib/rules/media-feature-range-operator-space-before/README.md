@@ -2,6 +2,7 @@
 
 Require a single space or disallow whitespace before the range operator in media features.
 
+<!-- prettier-ignore -->
 ```css
 @media (width >= 600px) {}
 /**           ↑
@@ -16,48 +17,56 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a single space before the range operator.
+There _must always_ be a single space before the range operator.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media (width>=600px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (width>= 600px) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media (width >=600px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (width >= 600px) {}
 ```
 
 ### `"never"`
 
-There *must never* be whitespace before the range operator.
+There _must never_ be whitespace before the range operator.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media (width >=600px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (width >= 600px) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media (width>=600px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (width>= 600px) {}
 ```

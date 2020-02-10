@@ -1,20 +1,20 @@
 # Configuration
 
-stylelint *expects a configuration object*.
+stylelint _expects a configuration object_.
 
 stylelint uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) to find and load your configuration object. Starting from the current working directory, it looks for the following possible sources:
 
--   a `stylelint` property in `package.json`
--   a `.stylelintrc` file
--   a `stylelint.config.js` file exporting a JS object
+- a `stylelint` property in `package.json`
+- a `.stylelintrc` file
+- a `stylelint.config.js` file exporting a JS object
 
 The search stops when one of these is found, and stylelint uses that object.
 
 The `.stylelintrc` file (without extension) can be in JSON or YAML format. You can add a filename extension to help your text editor provide syntax checking and highlighting:
 
--   `.stylelintrc.json`
--   `.stylelintrc.yaml` / `.stylelintrc.yml`
--   `.stylelintrc.js`
+- `.stylelintrc.json`
+- `.stylelintrc.yaml` / `.stylelintrc.yml`
+- `.stylelintrc.js`
 
 You can use the [`--config` or `configFile` option](usage/options.md) to short-circuit the configuration search.
 
@@ -24,13 +24,13 @@ The configuration object has the following properties:
 
 Rules determine what the linter looks for and complains about. There are [over 170 rules](rules/list.md) built into stylelint.
 
-*No rules are turned on by default and there are no default values. You must explicitly configure each rule to turn it on.*
+_No rules are turned on by default and there are no default values. You must explicitly configure each rule to turn it on._
 
-The `rules` property is *an object whose keys are rule names and values are rule configurations*. Each rule configuration fits one of the following formats:
+The `rules` property is _an object whose keys are rule names and values are rule configurations_. Each rule configuration fits one of the following formats:
 
--   `null` (to turn the rule off)
--   a single value (the primary option)
--   an array with two values (`[primary option, secondary options]`)
+- `null` (to turn the rule off)
+- a single value (the primary option)
+- an array with two values (`[primary option, secondary options]`)
 
 Specifying a primary option turns on a rule.
 
@@ -49,9 +49,12 @@ For example, you can turn off `block-no-empty`, turn on `color-no-invalid-hex`, 
   "rules": {
     "block-no-empty": null,
     "color-no-invalid-hex": true,
-    "comment-empty-line-before": [ "always", {
-      "ignore": ["stylelint-commands", "after-comment"]
-    } ],
+    "comment-empty-line-before": [
+      "always",
+      {
+        "ignore": ["stylelint-commands", "after-comment"]
+      }
+    ],
     "max-empty-lines": 2,
     "unit-whitelist": ["em", "rem", "%", "s"]
   }
@@ -66,14 +69,20 @@ For example, the following rule configuration would substitute in custom message
 
 ```json
 {
-  "color-hex-case": [ "lower", {
-    "message": "Lowercase letters are easier to distinguish from numbers"
-  } ],
-  "indentation": [ 2, {
-    "except": ["block"],
-    "message": "Please use 2 spaces for indentation. Tabs make The Architect grumpy.",
-    "severity": "warning"
-  } ]
+  "color-hex-case": [
+    "lower",
+    {
+      "message": "Lowercase letters are easier to distinguish from numbers"
+    }
+  ],
+  "indentation": [
+    2,
+    {
+      "except": ["block"],
+      "message": "Please use 2 spaces for indentation. Tabs make The Architect grumpy.",
+      "severity": "warning"
+    }
+  ]
 }
 ```
 
@@ -85,25 +94,20 @@ You can use the `severity` secondary option to adjust any specific rule's severi
 
 The available values for `severity` are:
 
--   `"warning"`
--   `"error"` (default)
+- `"warning"`
+- `"error"` (default)
 
 For example:
 
-```js
-// error-level severity examples
-{ "indentation": 2 }
-{ "indentation": [2, {
-    "except": ["value"]
-  }]
-}
-
-// warning-level severity examples
-{ "indentation": [2, { "severity": "warning" } ] }
-{ "indentation": [2, {
-    "except": ["value"],
-    "severity": "warning"
-  }]
+```json
+{
+  "indentation": [
+    2,
+    {
+      "except": ["value"],
+      "severity": "warning"
+    }
+  ]
 }
 ```
 
@@ -121,12 +125,12 @@ You can set the default severity level for all rules that do not have a severity
 
 ## `extends`
 
-You can *extend* an existing configuration (whether your own or a third-party one).
+You can _extend_ an existing configuration (whether your own or a third-party one).
 
 Popular configurations include:
 
--   [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended): turns on just [possible error rules](rules/list.md#possible-errors)
--   [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard): extends recommended one by turning on 60 [stylistic rules](rules/list.md#stylistic-issues)
+- [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended): turns on just [possible error rules](rules/list.md#possible-errors)
+- [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard): extends recommended one by turning on 60 [stylistic rules](rules/list.md#stylistic-issues)
 
 You'll find more in [awesome stylelint](https://github.com/ntwb/awesome-stylelint#configs).
 
@@ -150,10 +154,7 @@ For example, with `stylelint-config-standard`, then layer `myExtendableConfig` o
 
 ```json
 {
-  "extends": [
-    "stylelint-config-standard",
-    "./myExtendableConfig"
-  ],
+  "extends": ["stylelint-config-standard", "./myExtendableConfig"],
   "rules": {
     "indentation": "tab"
   }
@@ -162,34 +163,32 @@ For example, with `stylelint-config-standard`, then layer `myExtendableConfig` o
 
 The value of `"extends"` is a "locater" (or an array of "locaters") that is ultimately `require()`d. It can fit whatever format works with Node's `require.resolve()` algorithm. That means a "locater" can be:
 
--   the name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
--   an absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
--   a relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
+- the name of a module in `node_modules` (e.g. `stylelint-config-standard`; that module's `main` file must be a valid JSON configuration)
+- an absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
+- a relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
 ## `plugins`
 
-Plugins are rules or sets of rules built by the community that support methodologies, toolsets, *non-standard* CSS features, or very specific use cases.
+Plugins are rules or sets of rules built by the community that support methodologies, toolsets, _non-standard_ CSS features, or very specific use cases.
 
 Popular plugin packs include:
 
--   [`stylelint-order`](https://github.com/hudochenkov/stylelint-order): specify the ordering of things, e.g. properties within declaration blocks
--   [`stylelint-scss`](https://github.com/kristerkari/stylelint-scss): enforce a wide variety of SCSS-syntax specific linting rules
+- [`stylelint-order`](https://github.com/hudochenkov/stylelint-order): specify the ordering of things, e.g. properties within declaration blocks
+- [`stylelint-scss`](https://github.com/kristerkari/stylelint-scss): enforce a wide variety of SCSS-syntax specific linting rules
 
 You'll find more in [awesome stylelint](https://github.com/ntwb/awesome-stylelint#plugins).
 
 To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either a:
 
--   npm module name
--   absolute path
--   path relative to the invoking configuration file
+- npm module name
+- absolute path
+- path relative to the invoking configuration file
 
-Once the plugin is declared, within your `"rules"` object *you'll need to add options* for the plugin's rule(s), just like any standard rule. Look at the plugin's documentation to know what the rule name should be.
+Once the plugin is declared, within your `"rules"` object _you'll need to add options_ for the plugin's rule(s), just like any standard rule. Look at the plugin's documentation to know what the rule name should be.
 
 ```json
 {
-  "plugins": [
-    "../special-rule.js"
-  ],
+  "plugins": ["../special-rule.js"],
   "rules": {
     "plugin/special-rule": "everything"
   }
@@ -200,9 +199,7 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 
 ```json
 {
-  "plugins": [
-    "../some-rule-set.js"
-  ],
+  "plugins": ["../some-rule-set.js"],
   "rules": {
     "some-rule-set/first-rule": "everything",
     "some-rule-set/second-rule": "nothing",
@@ -215,14 +212,14 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 
 Processors are functions built by the community that hook into stylelint's pipeline, modifying code on its way into stylelint and modifying results on their way out.
 
-**We discourage their use in favour of [PostCSS syntaxes](https://github.com/postcss/postcss#syntaxes). stylelint uses some of these syntaxes to support autofix for common non-stylesheet files. Processors can also only be used with the CLI and the Node.js API, not with the PostCSS plugin. (The PostCSS plugin ignores them.)**
+**We discourage their use in favor of [PostCSS syntaxes](https://github.com/postcss/postcss#syntaxes). stylelint uses some of these syntaxes to support autofix for common non-stylesheet files. Processors can also only be used with the CLI and the Node.js API, not with the PostCSS plugin. (The PostCSS plugin ignores them.)**
 
 To use one, add a `"processors"` array to your config, containing "locaters" identifying the processors you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
 
 ```json
 {
   "processors": ["stylelint-my-processor"],
-  "rules": {..}
+  "rules": {}
 }
 ```
 
@@ -232,9 +229,9 @@ If your processor has options, make that item an array whose first item is the "
 {
   "processors": [
     "stylelint-my-processor",
-    [ "some-other-processor", { "optionOne": true, "optionTwo": false } ]
+    ["some-other-processor", { "optionOne": true, "optionTwo": false }]
   ],
-  "rules": {..}
+  "rules": {}
 }
 ```
 
@@ -243,7 +240,6 @@ If your processor has options, make that item an array whose first item is the "
 You can provide a glob or array of globs to ignore specific files.
 
 For example, you can ignore all JavaScript files:
-
 
 ```json
 {
@@ -255,10 +251,10 @@ stylelint ignores the `node_modules` directory by default. However, this is over
 
 If the globs are absolute paths, they are used as is. If they are relative, they are analyzed relative to
 
--   `configBasedir`, if it's provided;
--   the config's filepath, if the config is a file that stylelint found a loaded;
--   or `process.cwd()`.
+- `configBasedir`, if it's provided;
+- the config's filepath, if the config is a file that stylelint found a loaded;
+- or `process.cwd()`.
 
 The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
 
-*Note that this is not an efficient method for ignoring lots of files.* If you want to ignore a lot of files efficiently, use [`.stylelintignore`](ignore-code.md) or adjust your files globs.
+_Note that this is not an efficient method for ignoring lots of files._ If you want to ignore a lot of files efficiently, use [`.stylelintignore`](ignore-code.md) or adjust your files globs.

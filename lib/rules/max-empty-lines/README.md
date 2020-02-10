@@ -2,6 +2,7 @@
 
 Limit the number of adjacent empty lines.
 
+<!-- prettier-ignore -->
 ```css
 a {}
      /* ← */
@@ -21,6 +22,7 @@ For example, with `2`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 
@@ -31,6 +33,7 @@ b {}
 
 Comment strings are also checked -- so the following is a violation:
 
+<!-- prettier-ignore -->
 ```css
 /*
  Call me Ishmael.
@@ -41,19 +44,22 @@ Comment strings are also checked -- so the following is a violation:
  */
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 b {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {}
 
 b {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {}
 
@@ -71,6 +77,7 @@ For example, with `2` adjacent empty lines:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 /* horse */
 a {}
@@ -80,8 +87,9 @@ a {}
 b {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 /*
  Call me Ishmael.
@@ -92,6 +100,7 @@ The following patterns are *not* considered violations:
  */
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
     /*

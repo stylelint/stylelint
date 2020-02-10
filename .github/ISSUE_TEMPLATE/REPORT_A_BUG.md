@@ -19,7 +19,7 @@ e.g.
 
 ```css
 a {
-  width: 00.10em;
+  width: 00.1em;
 }
 ```
 

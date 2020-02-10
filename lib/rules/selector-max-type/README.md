@@ -2,6 +2,7 @@
 
 Limit the number of type selectors in a selector.
 
+<!-- prettier-ignore -->
 ```css
     a {}
 /** ↑
@@ -20,52 +21,61 @@ For example, with `2`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 div a span {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 div a {
   & span {}
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 div a {
   & > a {}
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 div {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 div a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo div a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 div.foo a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* each selector in a selector list is evaluated separately */
 div,
 a span {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* `span` is inside `:not()`, so it is evaluated separately */
 div a .foo:not(span) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
 ## Optional secondary options
 
@@ -77,12 +87,14 @@ Discount child type selectors.
 
 For example, with `2`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 div span > a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 #bar div span > a {}
 ```
@@ -93,12 +105,14 @@ Discount compounded type selectors -- i.e. type selectors chained with other sel
 
 For example, with `2`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 div span a.foo {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 div span a#bar {}
 ```
@@ -109,12 +123,14 @@ Discount descendant type selectors.
 
 For example, with `2`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 .foo div span a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 #bar div span a {}
 ```
@@ -125,12 +141,14 @@ Discount next-sibling type selectors.
 
 For example, with `2`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 div a + span {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 #bar + div + span + a + span {}
 ```
@@ -139,22 +157,25 @@ div a + span {}
 
 Given:
 
-```js
+```
 ["/^my-/", "custom"]
 ```
 
 For example, with `2`.
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 div a custom {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 div a my-type {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 div a my-other-type {}
 ```

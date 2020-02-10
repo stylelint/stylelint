@@ -6,6 +6,7 @@ You can ignore sections within files or files entirely.
 
 You can temporarily turn off rules using special comments in your CSS. For example, you can either turn all the rules off:
 
+<!-- prettier-ignore -->
 ```css
 /* stylelint-disable */
 a {}
@@ -14,6 +15,7 @@ a {}
 
 Or you can turn off individual rules:
 
+<!-- prettier-ignore -->
 ```css
 /* stylelint-disable selector-no-id, declaration-no-important */
 #id {
@@ -24,14 +26,16 @@ Or you can turn off individual rules:
 
 You can turn off rules for individual lines with a `/* stylelint-disable-line */` comment, after which you do not need to explicitly re-enable them:
 
+<!-- prettier-ignore -->
 ```css
 #id { /* stylelint-disable-line */
   color: pink !important; /* stylelint-disable-line declaration-no-important */
 }
 ```
 
-You can also turn off rules for *the next line only* with a `/* stylelint-disable-next-line */` comment, after which you do not need to explicitly re-enable them:
+You can also turn off rules for _the next line only_ with a `/* stylelint-disable-next-line */` comment, after which you do not need to explicitly re-enable them:
 
+<!-- prettier-ignore -->
 ```css
 #id {
   /* stylelint-disable-next-line declaration-no-important */
@@ -41,6 +45,7 @@ You can also turn off rules for *the next line only* with a `/* stylelint-disabl
 
 stylelint supports complex, overlapping disabling & enabling patterns:
 
+<!-- prettier-ignore -->
 ```css
 /* stylelint-disable */
 /* stylelint-enable foo */
@@ -52,13 +57,13 @@ stylelint supports complex, overlapping disabling & enabling patterns:
 /* stylelint-enable foo */
 ```
 
-**Caveat:** Comments within *selector and value lists* are currently ignored.
+**Caveat:** Comments within _selector and value lists_ are currently ignored.
 
 ## Files entirely
 
 You can use a `.stylelintignore` file to ignore specific files.
 
-The patterns in your `.stylelintignore` file must match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). (Behind the scenes, [`node-ignore`](https://github.com/kaelzhang/node-ignore) parses your patterns.) *Your patterns in `.stylelintignore` are always analyzed relative to `process.cwd()`.*
+The patterns in your `.stylelintignore` file must match [`.gitignore` syntax](https://git-scm.com/docs/gitignore). (Behind the scenes, [`node-ignore`](https://github.com/kaelzhang/node-ignore) parses your patterns.) _Your patterns in `.stylelintignore` are always analyzed relative to `process.cwd()`._
 
 stylelint looks for a `.stylelintignore` file in `process.cwd()`. You can also specify a path to your ignore patterns file (absolute or relative to `process.cwd()`) using the `--ignore-path` (in the CLI) and `ignorePath` (in JS) options.
 

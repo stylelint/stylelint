@@ -2,6 +2,7 @@
 
 Disallow unknown units.
 
+<!-- prettier-ignore -->
 ```css
 a { width: 100pixels; }
 /**           ↑
@@ -16,38 +17,44 @@ This rule considers units defined in the CSS Specifications, up to and including
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   width: 10pixels;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   width: calc(10px + 10pixels);
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   width: 10px;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   width: 10Px;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   width: 10pX;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   width: calc(10px + 10px);
@@ -60,24 +67,27 @@ a {
 
 Given:
 
-```js
+```
 ["/^my-/", "custom"]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 width: 10custom;
 a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   width: 10my-unit;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   width: 10my-other-unit;
@@ -88,12 +98,13 @@ a {
 
 Given:
 
-```js
+```
 ["image-set", "/^my-/", "/^YOUR-/i"]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   background-image: image-set(
@@ -104,6 +115,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   background-image: my-image-set(
@@ -114,6 +126,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   background-image: YoUr-image-set(

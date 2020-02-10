@@ -6,6 +6,7 @@ You can combine rules to enforce strict conventions.
 
 Say you want to enforce no space before and a single space after the colon in every declaration:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 /**      ↑
@@ -14,22 +15,25 @@ a { color: pink; }
 
 You can enforce that with:
 
-```js
-"declaration-colon-space-after": "always",
-"declaration-colon-space-before": "never"
+```json
+{
+  "declaration-colon-space-after": "always",
+  "declaration-colon-space-before": "never"
+}
 ```
 
-Some *things* (e.g. declaration blocks and value lists) can span more than one line. In these cases, `newline` rules and extra options can be used to provide flexibility.
+Some _things_ (e.g. declaration blocks and value lists) can span more than one line. In these cases, `newline` rules and extra options can be used to provide flexibility.
 
 For example, this is the complete set of `value-list-comma-*` rules and their options:
 
--   `value-list-comma-space-after`: `"always"|"never"|"always-single-line"|"never-single-line"`
--   `value-list-comma-space-before`: `"always"|"never"|"always-single-line"|"never-single-line"`
--   `value-list-comma-newline-after`: `"always"|"always-multi-line|"never-multi-line"`
--   `value-list-comma-newline-before`: `"always"|"always-multi-line"|"never-multi-line"`
+- `value-list-comma-space-after`: `"always"|"never"|"always-single-line"|"never-single-line"`
+- `value-list-comma-space-before`: `"always"|"never"|"always-single-line"|"never-single-line"`
+- `value-list-comma-newline-after`: `"always"|"always-multi-line|"never-multi-line"`
+- `value-list-comma-newline-before`: `"always"|"always-multi-line"|"never-multi-line"`
 
-Where `*-multi-line` and `*-single-line` are in reference to the value list (the *thing*). For example, given:
+Where `*-multi-line` and `*-single-line` are in reference to the value list (the _thing_). For example, given:
 
+<!-- prettier-ignore -->
 ```css
 a,
 b {
@@ -46,6 +50,7 @@ There is only a single-line value list in this example. The selector is multi-li
 
 Say you only want to allow single-line value lists. And you want to enforce no space before and a single space after the commas:
 
+<!-- prettier-ignore -->
 ```css
 a {
   font-family: sans, serif, monospace;
@@ -55,15 +60,18 @@ a {
 
 You can enforce that with:
 
-```js
-"value-list-comma-space-after": "always",
-"value-list-comma-space-before": "never"
+```json
+{
+  "value-list-comma-space-after": "always",
+  "value-list-comma-space-before": "never"
+}
 ```
 
 ### Example B
 
 Say you want to allow both single-line and multi-line value lists. You want there to be a single space after the commas in the single-line lists and no space before the commas in both the single-line and multi-line lists:
 
+<!-- prettier-ignore -->
 ```css
 a {
   font-family: sans, serif, monospace; /* single-line value list with space after, but no space before */
@@ -75,16 +83,19 @@ a {
 
 You can enforce that with:
 
-```js
-"value-list-comma-newline-after": "always-multi-line",
-"value-list-comma-space-after": "always-single-line",
-"value-list-comma-space-before": "never"
+```json
+{
+  "value-list-comma-newline-after": "always-multi-line",
+  "value-list-comma-space-after": "always-single-line",
+  "value-list-comma-space-before": "never"
+}
 ```
 
-### Example C 
+### Example C
 
 Say you want to allow both single-line and multi-line value lists. You want there to be no space before the commas in the single-line lists and always a space after the commas in both lists:
 
+<!-- prettier-ignore -->
 ```css
 a {
   font-family: sans, serif, monospace;
@@ -96,16 +107,19 @@ a {
 
 You can enforce that with:
 
-```js
-"value-list-comma-newline-before": "always-multi-line",
-"value-list-comma-space-after": "always",
-"value-list-comma-space-before": "never-single-line"
+```json
+{
+  "value-list-comma-newline-before": "always-multi-line",
+  "value-list-comma-space-after": "always",
+  "value-list-comma-space-before": "never-single-line"
+}
 ```
 
 ### Example D
 
 The rules are flexible enough to enforce entirely different conventions for single-line and multi-line lists. Say you want to allow both single-line and multi-line value lists. You want the single-line lists to have a single space before and after the colons. Whereas you want the multi-line lists to have a single newline before the commas, but no space after:
 
+<!-- prettier-ignore -->
 ```css
 a {
   font-family: sans , serif , monospace; /* single-line list with a single space before and after the comma */
@@ -117,17 +131,20 @@ a {
 
 You can enforce that with:
 
-```js
-"value-list-comma-newline-after": "never-multi-line",
-"value-list-comma-newline-before": "always-multi-line",
-"value-list-comma-space-after": "always-single-line",
-"value-list-comma-space-before": "always-single-line"
+```json
+{
+  "value-list-comma-newline-after": "never-multi-line",
+  "value-list-comma-newline-before": "always-multi-line",
+  "value-list-comma-space-after": "always-single-line",
+  "value-list-comma-space-before": "always-single-line"
+}
 ```
 
 ### Example E
 
 Say you want to disable single-line blocks:
 
+<!-- prettier-ignore -->
 ```css
   a { color: red; }
 /** ↑
@@ -145,6 +162,7 @@ Use the `block-opening-brace-newline-after` and `block-opening-brace-newline-bef
 
 Would allow:
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: red;
@@ -153,6 +171,7 @@ a {
 
 But not these patterns:
 
+<!-- prettier-ignore -->
 ```css
 a { color: red;
 }
@@ -169,10 +188,11 @@ To allow single-line blocks but enforce newlines with multi-line blocks, use the
 
 These rules work together to control where empty lines are allowed.
 
-Each *thing* is responsible for pushing itself away from the *preceding thing*, rather than pushing the *subsequent thing* away. This consistency is to avoid conflicts and is why there aren't any `*-empty-line-after` rules in stylelint.
+Each _thing_ is responsible for pushing itself away from the _preceding thing_, rather than pushing the _subsequent thing_ away. This consistency is to avoid conflicts and is why there aren't any `*-empty-line-after` rules in stylelint.
 
 Say you want to enforce the following:
 
+<!-- prettier-ignore -->
 ```css
 a {
   background: green;
@@ -193,32 +213,38 @@ b {
 
 You can do that with:
 
-```js
-"at-rule-empty-line-before": ["always", {
-   "except": ["first-nested"]
-}],
-"custom-property-empty-line-before": [ "always", {
-    "except": [
-        "after-custom-property",
-        "first-nested"
-    ]
-}],
-"declaration-empty-line-before": ["always", {
-    "except": [
-        "after-declaration",
-        "first-nested"
-    ]
-}],
-"block-closing-brace-empty-line-before": "never",
-"rule-empty-line-before": ["always-multi-line"]
+```json
+{
+  "at-rule-empty-line-before": [
+    "always",
+    {
+      "except": ["first-nested"]
+    }
+  ],
+  "custom-property-empty-line-before": [
+    "always",
+    {
+      "except": ["after-custom-property", "first-nested"]
+    }
+  ],
+  "declaration-empty-line-before": [
+    "always",
+    {
+      "except": ["after-declaration", "first-nested"]
+    }
+  ],
+  "block-closing-brace-empty-line-before": "never",
+  "rule-empty-line-before": ["always-multi-line"]
+}
 ```
 
 We recommend that you set your primary option (e.g. `"always"` or `"never"`) to whatever is your most common occurrence and define your exceptions with the `except` optional secondary options. There are many values for the `except` option e.g. `first-nested`, `after-comment` etc.
 
-The `*-empty-line-before` rules control whether there must never be an empty line or whether there must be *one or more* empty lines before a *thing*. The `*-max-empty-lines` rules complement this by controlling *the number* of empty lines within *things*. The `max-empty-lines` rule sets a limit across the entire source. A *stricter* limit can then be set within *things* using the likes of `function-max-empty-lines`, `selector-max-empty-lines` and `value-list-max-empty-lines`.
+The `*-empty-line-before` rules control whether there must never be an empty line or whether there must be _one or more_ empty lines before a _thing_. The `*-max-empty-lines` rules complement this by controlling _the number_ of empty lines within _things_. The `max-empty-lines` rule sets a limit across the entire source. A _stricter_ limit can then be set within _things_ using the likes of `function-max-empty-lines`, `selector-max-empty-lines` and `value-list-max-empty-lines`.
 
 For example, say you want to enforce the following:
 
+<!-- prettier-ignore -->
 ```css
 a,
 b {
@@ -240,11 +266,13 @@ i.e. a maximum of 1 empty line within the whole source, but no empty lines withi
 
 You can do that with:
 
-```js
-"function-max-empty-lines": 0,
-"max-empty-lines": 1,
-"selector-list-max-empty-lines": 0,
-"value-list-max-empty-lines": 0
+```json
+{
+  "function-max-empty-lines": 0,
+  "max-empty-lines": 1,
+  "selector-list-max-empty-lines": 0,
+  "value-list-max-empty-lines": 0
+}
 ```
 
 ## `*-whitelist`, `*-blacklist`, `color-named` and applicable `*-no-*` rules
@@ -255,30 +283,39 @@ There are `*-whitelist` and `*-blacklist` rules that target the constructs of th
 
 Say you want to disallow the `@debug` language extension. You can do that using either the `at-rule-blacklist` or `at-rule-whitelist` rules because the `@debug` language extension uses the at-rule construct e.g.
 
-```js
-"at-rule-blacklist": ["debug"]
+```json
+{
+  "at-rule-blacklist": ["debug"]
+}
 ```
 
 Say you want to, for whatever reason, disallow the whole at-rule construct. You can do that using:
 
-```js
-"at-rule-whitelist": []
+```json
+{
+  "at-rule-whitelist": []
+}
 ```
 
 Say you want to disallow the value `none` for the `border` properties. You can do that using either the `declaration-property-value-blacklist` or `declaration-property-value-whitelist` e.g.
 
-```js
-"declaration-property-value-blacklist": [{
-  "/^border/": ["none"]
-}]
+```json
+{
+  "declaration-property-value-blacklist": [
+    {
+      "/^border/": ["none"]
+    }
+  ]
+}
 ```
 
 ## `color-*` and `function-*` rules
 
-Most `<color>` values are *functions*. As such, they can be (dis)allowed using either the `function-blacklist` or `function-whitelist` rules. Two other color representations aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
+Most `<color>` values are _functions_. As such, they can be (dis)allowed using either the `function-blacklist` or `function-whitelist` rules. Two other color representations aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
 
-Say you want to enforce using a named color *if one exists for your chosen color* and use `hwb` color if one does not, e.g.:
+Say you want to enforce using a named color _if one exists for your chosen color_ and use `hwb` color if one does not, e.g.:
 
+<!-- prettier-ignore -->
 ```css
 a {
   background: hwb(235, 0%, 0%); /* there is no named color equivalent for this color */
@@ -288,26 +325,32 @@ a {
 
 If you're taking a whitelisting approach, you can do that with:
 
-```js
-"color-named": "always-where-possible",
-"color-no-hex": true,
-"function-whitelist": ["hwb"]
+```json
+{
+  "color-named": "always-where-possible",
+  "color-no-hex": true,
+  "function-whitelist": ["hwb"]
+}
 ```
 
 Or, if you're taking a blacklisting approach:
 
-```js
-"color-named": "always-where-possible",
-"color-no-hex": true,
-"function-blacklist": ["/^rgb/", "/^hsl/", "gray"]
+```json
+{
+  "color-named": "always-where-possible",
+  "color-no-hex": true,
+  "function-blacklist": ["/^rgb/", "/^hsl/", "gray"]
+}
 ```
 
 This approach scales to when language extensions (that use the two built-in extendable syntactic constructs of at-rules and functions) are used. For example, say you want to disallow all standard color presentations in favour of using a custom color representation function, e.g. `my-color(red with a dash of green / 5%)`. You can do that with:
 
-```js
-"color-named": "never",
-"color-no-hex": true,
-"function-whitelist": ["my-color"]
+```json
+{
+  "color-named": "never",
+  "color-no-hex": true,
+  "function-whitelist": ["my-color"]
+}
 ```
 
 ## Manage conflicts

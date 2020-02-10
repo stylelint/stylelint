@@ -8,8 +8,8 @@ You can use a linter with a pretty printer and a validator. There are, however, 
 
 There are two approaches to enforcing stylistic conventions:
 
--   a machine algorithmically pretty prints the code (usually based on a maximum line length)
--   a human initially formats the code, and a machine fixes-up/warns-about any mistakes
+- a machine algorithmically pretty prints the code (usually based on a maximum line length)
+- a human initially formats the code, and a machine fixes-up/warns-about any mistakes
 
 The former is handled by pretty printers, like [prettier](https://github.com/prettier/prettier), whereas the latter is catered for by the built-in stylistic rules.
 
@@ -19,6 +19,7 @@ Additionally, the built-in stylistic rules and plugins are configurable to suppo
 
 Another example is the use of single-line rules for sets of _related_ rules, e.g.
 
+<!-- prettier-ignore -->
 ```css
 /* Single-line related classes */
 .class-1 { top: 0; bottom: 0; }

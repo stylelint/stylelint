@@ -2,6 +2,7 @@
 
 Disallow missing generic families in lists of font family names.
 
+<!-- prettier-ignore -->
 ```css
 a { font-family: Arial, sans-serif; }
 /**                     ↑
@@ -10,8 +11,8 @@ a { font-family: Arial, sans-serif; }
 
 The generic font family can be:
 
--   placed anywhere in the font family list
--   omitted if a keyword related to property inheritance or a system font is used
+- placed anywhere in the font family list
+- omitted if a keyword related to property inheritance or a system font is used
 
 This rule checks the `font` and `font-family` properties.
 
@@ -21,28 +22,34 @@ This rule checks the `font` and `font-family` properties.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { font-family: Helvetica, Arial, Verdana, Tahoma; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { font: 1em/1.3 Times; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { font: 1em/1.3 Times, serif, Apple Color Emoji; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { font: inherit; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { font: caption; }
 ```

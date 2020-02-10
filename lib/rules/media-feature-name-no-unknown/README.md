@@ -2,6 +2,7 @@
 
 Disallow unknown media feature names.
 
+<!-- prettier-ignore -->
 ```css
 @media (min-width: 700px) {}
 /**     ↑
@@ -18,36 +19,44 @@ This rule ignores vendor-prefixed media feature names.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (unknown) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (unknown: 10px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (unknown > 10px) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media all and (monochrome) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (min-width: 700px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (MIN-WIDTH: 700px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (min-width: 700px) and (orientation: landscape) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (-webkit-min-device-pixel-ratio: 2) {}
 ```
@@ -58,24 +67,28 @@ The following patterns are *not* considered violations:
 
 Given:
 
-```js
+```
 ["/^my-/", "custom"]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (my-media-feature-name) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (custom: 10px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (100px < custom < 700px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (min-width: 700px) and (custom: 10px) {}
 ```

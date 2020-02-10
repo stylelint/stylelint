@@ -2,6 +2,7 @@
 
 Require a newline or disallow whitespace on the inside of the parentheses of functions.
 
+<!-- prettier-ignore -->
 ```css
   a {
     transform: translate(
@@ -21,22 +22,25 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a newline inside the parentheses.
+There _must always_ be a newline inside the parentheses.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1); }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1,
   1
   ); }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(
@@ -45,6 +49,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(
@@ -56,25 +61,29 @@ a {
 
 ### `"always-multi-line"`
 
-There *must always* be a newline inside the parentheses of multi-line functions.
+There _must always_ be a newline inside the parentheses of multi-line functions.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1,
   1) }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate( 1, 1 ) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(
@@ -83,6 +92,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(
@@ -96,6 +106,7 @@ a {
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(
@@ -104,6 +115,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   transform: translate(
@@ -113,16 +125,19 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate( 1, 1 ) }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transform: translate(1,
   1) }

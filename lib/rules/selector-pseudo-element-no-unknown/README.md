@@ -2,6 +2,7 @@
 
 Disallow unknown pseudo-element selectors.
 
+<!-- prettier-ignore -->
 ```css
   a::before {}
 /**  ↑
@@ -18,32 +19,39 @@ This rule ignores vendor-prefixed pseudo-element selectors.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a::pseudo {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::PSEUDO {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::element {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:before {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::before {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 ::selection {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 input::-moz-placeholder {}
 ```
@@ -54,20 +62,23 @@ input::-moz-placeholder {}
 
 Given:
 
-```js
+```
 ["/^my-/", "pseudo-element"]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a::pseudo-element {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::my-pseudo {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a::my-other-pseudo {}
 ```

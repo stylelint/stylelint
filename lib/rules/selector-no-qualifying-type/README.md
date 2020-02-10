@@ -2,6 +2,7 @@
 
 Disallow qualifying a selector by type.
 
+<!-- prettier-ignore -->
 ```css
     a.foo {}
 /** ↑
@@ -16,38 +17,44 @@ A type selector is "qualifying" when it is compounded with (chained to) another 
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a.foo {
   margin: 0
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a#foo {
   margin: 0
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 input[type='button'] {
   margin: 0
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 .foo {
   margin: 0
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 #foo {
   margin: 0
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 input {
   margin: 0
@@ -62,8 +69,9 @@ input {
 
 Allow attribute selectors qualified by type.
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 input[type='button'] {
   margin: 0
@@ -74,8 +82,9 @@ input[type='button'] {
 
 Allow class selectors qualified by type.
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a.foo {
   margin: 0
@@ -86,8 +95,9 @@ a.foo {
 
 Allow ID selectors qualified by type.
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a#foo {
   margin: 0

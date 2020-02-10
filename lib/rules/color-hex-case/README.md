@@ -2,6 +2,7 @@
 
 Specify lowercase or uppercase for hex colors.
 
+<!-- prettier-ignore -->
 ```css
 a { color: #fff }
 /**        ↑
@@ -18,16 +19,19 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: #FFF; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: #000; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: #fff; }
 ```
@@ -36,16 +40,19 @@ a { color: #fff; }
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: #fff; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: #000; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: #FFF; }
 ```

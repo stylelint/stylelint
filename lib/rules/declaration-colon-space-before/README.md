@@ -2,6 +2,7 @@
 
 Require a single space or disallow whitespace before the colon of declarations.
 
+<!-- prettier-ignore -->
 ```css
 a { color :pink }
 /**       ↑
@@ -16,48 +17,56 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a single space before the colon.
+There _must always_ be a single space before the colon.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color:pink }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color : pink }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color :pink }
 ```
 
 ### `"never"`
 
-There *must never* be whitespace before the colon.
+There _must never_ be whitespace before the colon.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color : pink }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color :pink }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color:pink }
 ```

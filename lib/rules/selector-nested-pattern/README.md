@@ -2,6 +2,7 @@
 
 Specify a pattern for the selectors of rules nested within rules.
 
+<!-- prettier-ignore -->
 ```css
     a {
       color: orange;
@@ -24,23 +25,26 @@ The selector value will be checked in its entirety. If you'd like to allow for c
 Given the string:
 
 ```js
-"^&:(?:hover|focus)$"
+"^&:(?:hover|focus)$";
 ```
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   .bar {}
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   .bar:hover {}
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   &:hover,
@@ -48,20 +52,23 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   &:hover {}
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   &:focus {}
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   &:hover {}

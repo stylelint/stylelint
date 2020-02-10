@@ -2,6 +2,7 @@
 
 Limit the number of universal selectors in a selector.
 
+<!-- prettier-ignore -->
 ```css
     * {}
 /** ↑
@@ -20,46 +21,55 @@ For example, with `2`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 * * * {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 * * {
   & * {}
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 * * {
   & > * {}
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 * {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 * * {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo * {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 *.foo * {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* each selector in a selector list is evaluated separately */
 *.foo,
 *.bar * {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* `*` is inside `:not()`, so it is evaluated separately */
 * > * .foo:not(*) {}

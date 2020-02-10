@@ -2,6 +2,7 @@
 
 Require a single space or disallow whitespace after the semicolons of declaration blocks.
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; top: 0; }
 /**            ↑
@@ -10,8 +11,8 @@ a { color: pink; top: 0; }
 
 This rule ignores:
 
--   semicolons that are preceded by Less mixins
--   the last semicolon of declaration blocks
+- semicolons that are preceded by Less mixins
+- the last semicolon of declaration blocks
 
 Use the `block-closing-brace-*-before` rules to control the whitespace between the last semicolon and the closing brace instead.
 
@@ -23,14 +24,16 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-There *must always* be a single space after the semicolon.
+There _must always_ be a single space after the semicolon.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;top: 0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;
@@ -38,30 +41,35 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; top: 0; }
 ```
 
 ### `"never"`
 
-There *must never* be whitespace after the semicolon.
+There _must never_ be whitespace after the semicolon.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; top: 0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;
@@ -69,36 +77,42 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;top: 0; }
 ```
 
 ### `"always-single-line"`
 
-There *must always* be a single space after the semicolon in single-line declaration blocks.
+There _must always_ be a single space after the semicolon in single-line declaration blocks.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;top: 0; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; top: 0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;
@@ -108,20 +122,23 @@ a {
 
 ### `"never-single-line"`
 
-There *must never* be whitespace after the semicolon in single-line declaration blocks.
+There _must never_ be whitespace after the semicolon in single-line declaration blocks.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; top: 0; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink;top: 0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;

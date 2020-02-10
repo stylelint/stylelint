@@ -2,6 +2,7 @@
 
 Limit the number of pseudo-classes in a selector.
 
+<!-- prettier-ignore -->
 ```css
 .foo .bar:first-child:hover {}
 /*       ↑           ↑
@@ -21,25 +22,29 @@ For example, with `1`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a:first-child:focus {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo .bar:first-child:hover {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a:first-child {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 .foo .bar:first-child {}
 ```
-
