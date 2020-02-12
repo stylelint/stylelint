@@ -1,5 +1,6 @@
 {
   "rules": {
-    "block-no-empty": true
+    "block-no-empty": true,
+    "no-empty-source": true
   }
 }

@@ -62,6 +62,10 @@ exports[`CLI --help 1`] = `
 
       Module name or path to a JS file exporting a PostCSS-compatible syntax.
 
+    --stdin
+
+      Accept stdin input even if it is empty.
+
     --stdin-filename
 
       A filename to assign stdin input.
