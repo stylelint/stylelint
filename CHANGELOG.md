@@ -4,6 +4,9 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Security: updated to `postcss-selector-parser@6` due to a vulnerability in one of `postcss-selector-parser@3` dependencies.([#4595](https://github.com/stylelint/stylelint/pull/4595)). Due to this update: 
+  - `selector-descendant-combinator-no-non-space` will ignore selectors containing comments
+  - `selector-pseudo-class-parentheses-space-inside` can't autofix pseudo-classes that contain comments
 - Added: `--stdin` CLI flag that accepts stdin input even if it is empty ([#4594](https://github.com/stylelint/stylelint/pull/4594)).
 - Fixed: autofix will ignore sources containing disable comments or nested tagged template literals - this is workaround to make autofix safer to use until we can resolve the [underlying](https://github.com/stylelint/stylelint/issues/4119) [issues](https://github.com/stylelint/stylelint/issues/2643) ([#4573](https://github.com/stylelint/stylelint/pull/4573)).
 
