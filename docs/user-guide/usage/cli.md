@@ -36,6 +36,10 @@ Print the configuration for the given path. stylelint outputs the configuration 
 
 Only register violations for rules with an "error"-level severity (ignore "warning"-level).
 
+### `--stdin`
+
+Accept stdin input even if it is empty.
+
 ### `--version, -v`
 
 Show the currently installed version of stylelint.

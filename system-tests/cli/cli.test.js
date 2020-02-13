@@ -77,6 +77,7 @@ describe('CLI', () => {
 				{
 					rules: {
 						'block-no-empty': [true],
+						'no-empty-source': [true],
 					},
 				},
 				null,
@@ -102,6 +103,18 @@ describe('CLI', () => {
 		expect(process.stdout.write).toHaveBeenNthCalledWith(
 			2,
 			expect.stringContaining('Unexpected empty block'),
+		);
+	});
+
+	it('--stdin', async () => {
+		await cli(['--stdin', '--config', path.join(__dirname, 'config.json')]);
+
+		expect(process.exitCode).toBe(2);
+
+		expect(process.stdout.write).toHaveBeenCalledTimes(1);
+		expect(process.stdout.write).toHaveBeenNthCalledWith(
+			1,
+			expect.stringContaining('Unexpected empty source'),
 		);
 	});
 });
