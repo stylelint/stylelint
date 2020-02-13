@@ -13,6 +13,8 @@ This rule ensures that only a single space is used and ensures no tabs, newlines
 
 The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix most of the problems reported by this rule.
 
+This rule currently ignores selectors containing comments.
+
 ## Options
 
 ### `true`

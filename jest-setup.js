@@ -141,7 +141,7 @@ function setupTestCases({ name, cases, schema, comparisons }) {
 		/* eslint-disable jest/valid-describe */
 		describe(name, () => {
 			cases.forEach((testCase) => {
-				const spec = testCase.only ? it.only : it;
+				const spec = testCase.only ? it.only : testCase.skip ? it.skip : it;
 
 				describe(`${util.inspect(schema.config)}`, () => {
 					describe(`${util.inspect(testCase.code)}`, () => {
