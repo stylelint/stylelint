@@ -4,6 +4,7 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Added: `--stdin` CLI flag that accepts stdin input even if it is empty ([#4594](https://github.com/stylelint/stylelint/pull/4594)).
 - Fixed: autofix will ignore sources containing disable comments or nested tagged template literals - this is workaround to make autofix safer to use until we can resolve the [underlying](https://github.com/stylelint/stylelint/issues/4119) [issues](https://github.com/stylelint/stylelint/issues/2643) ([#4573](https://github.com/stylelint/stylelint/pull/4573)).
 
 ## 13.1.0
