@@ -129,7 +129,7 @@ You should ask yourself how does your rule handle:
 You should:
 
 - only use standard CSS syntax in example code and options
-- use `<!-- prettier-ignore-->` before `css` code fences
+- use `<!-- prettier-ignore -->` before `css` code fences
 - use "this rule" to refer to the rule, e.g. "This rule ignores ..."
 - align the arrows within the prototypical code example with the beginning of the highlighted construct
 - align the text within the prototypical code example as far to the left as possible
