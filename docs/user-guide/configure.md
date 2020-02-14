@@ -8,7 +8,7 @@ stylelint uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) to fi
 - a `.stylelintrc` file
 - a `stylelint.config.js` file exporting a JS object
 
-The search stops when one of these is found, and stylelint uses that object. You can use the [`--config` or `configFile` option](usage/options.md) to short-circuit the search.
+The search stops when one of these is found, and stylelint uses that object. You can use the [`--config` or `configFile` option](usage/options.md#configfile) to short-circuit the search.
 
 The `.stylelintrc` file (without extension) can be in JSON or YAML format. You can add a filename extension to help your text editor provide syntax checking and highlighting:
 
