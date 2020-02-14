@@ -16,7 +16,7 @@ it('004', (done) => {
 		cwd: localPath,
 	});
 
-	cliProcess.on('error', function(error) {
+	cliProcess.on('error', (error) => {
 		console.log('error running cli:', error); // eslint-disable-line no-console
 	});
 
@@ -24,7 +24,7 @@ it('004', (done) => {
 
 	cliProcess.stdout.on('data', (data) => (stdout += data));
 
-	cliProcess.on('close', function(code) {
+	cliProcess.on('close', (code) => {
 		expect(stdout.includes('Cannot find module')).toBeTruthy();
 		expect(code).not.toEqual(0);
 		done();
