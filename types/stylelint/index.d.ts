@@ -49,12 +49,15 @@ declare module 'stylelint' {
 		disabledRanges: DisabledRangeObject,
 		ignored?: boolean,
 		ignoreDisables?: boolean,
-		stylelintError?: boolean
+		stylelintError?: boolean,
+		disableWritingFix?: boolean
 	};
 
 	type EmptyResult = {
 		root: {
+			nodes?: undefined,
 			source: {
+				lang?: undefined,
 				input: {
 					file?: string
 				}

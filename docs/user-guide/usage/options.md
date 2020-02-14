@@ -30,7 +30,7 @@ Automatically fix, where possible, violations reported by rules.
 
 For CSS with standard syntax, stylelint uses [postcss-safe-parser](https://github.com/postcss/postcss-safe-parser) to fix syntax errors.
 
-**Note:** This is an _experimental_ feature. It currently does not respect special comments for disabling stylelint within sources (e. g. `/* stylelint-disable */`). Autofixing is applied regardless of these comments.
+_`fix` is an experimental feature that currently ignores sources with [`/* stylelint-disable */` comments](../ignore-code.md)._
 
 ## `formatter`
 

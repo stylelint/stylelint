@@ -21,6 +21,7 @@
   - [Errors](user-guide/errors.md)
 - Developer guide
   - [Rules](developer-guide/rules.md)
+  - [Syntaxes](developer-guide/syntaxes.md)
   - [Plugins](developer-guide/plugins.md)
   - [Formatters](developer-guide/formatters.md)
   - [System tests](developer-guide/system-tests.md)
