@@ -24,7 +24,7 @@ A partial stylelint configuration object whose properties override the existing 
 
 ### `code`
 
-A CSS string to lint.
+A string to lint.
 
 ### `files`
 
@@ -62,6 +62,18 @@ An array containing all the accumulated [PostCSS LazyResults](https://api.postcs
 
 An array containing all the stylelint result objects (the objects that formatters consume).
 
+### `maxWarningsExceeded`
+
+An object containing the maximum number of warnings and the amount found, e.g. `{ maxWarnings: 0, foundWarnings: 12 }`.
+
+### `needlessDisables`
+
+An array of objects, one for each source, with tells you which stylelint-disable comments are not blocking a lint violation
+
+### `invalidScopeDisables`
+
+An array of objects, one for each source, with tells you which rule in `stylelint-disable <rule>` comment don't exist within the configuration object.
+
 ## Syntax errors
 
 `stylelint.lint()` does not reject the Promise when your CSS contains syntax errors.
@@ -71,12 +83,12 @@ It resolves with an object (see [The returned promise](#the-returned-promise)) t
 
 ### Example A
 
-If `myConfig` contains no relative paths for `extends` or `plugins`, you do not have to use `configBasedir`:
+As `config` contains no relative paths for `extends` or `plugins`, you do not have to use `configBasedir`:
 
 ```js
 stylelint
   .lint({
-    config: myConfig,
+    config: { rules: "color-no-invalid-hex" },
     files: "all/my/stylesheets/*.css"
   })
   .then(function(data) {
@@ -107,14 +119,14 @@ stylelint
 
 ### Example C
 
-Using a CSS string instead of a file glob, and the string formatter instead of the default JSON:
+Using a string instead of a file glob, and the verbose formatter instead of the default JSON:
 
 ```js
 stylelint
   .lint({
     code: "a { color: pink; }",
     config: myConfig,
-    formatter: "string"
+    formatter: "verbose"
   })
   .then(function() {
     /* .. */
@@ -132,12 +144,9 @@ stylelint
     files: "all/my/stylesheets/*.scss",
     formatter: function(stylelintResults) {
       /* .. */
-    },
-    syntax: "scss"
+    }
   })
   .then(function() {
     /* .. */
   });
 ```
-
-The same pattern can be used to lint Less, SCSS or [SugarSS](https://github.com/postcss/sugarss) syntax.

@@ -46,17 +46,17 @@ Options are:
 - `unix`
 - `verbose`
 
-The `formatter` Node.js API option can also accept function, whereas the `--custom-formatter` CLI flag accepts a path to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../../developer-guide/formatters.md).
+The `formatter` Node.js API option can also accept a function, whereas the `--custom-formatter` CLI flag accepts a path to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../../developer-guide/formatters.md).
 
 ## `cache`
 
 CLI flag: `--cache`
 
-Store the info about processed files to only operate on the changed ones the next time you run stylelint. By default, the cache is stored in `./.stylelintcache` in `process.cwd()`.
+Store the results of processed files so that stylelint only operates on the changed ones. By default, the cache is stored in `./.stylelintcache` in `process.cwd()`.
 
 Enabling this option can dramatically improve stylelint's speed because only changed files are linted.
 
-**Note:** If you run stylelint with `cache` and then run stylelint without `cache`, stylelint deletes the `.stylelintcache` because we have to assume that that second command invalidated `.stylelintcache`.
+_If you run stylelint with `cache` and then run stylelint without `cache`, stylelint deletes the `.stylelintcache` because we have to assume that that second command invalidated `.stylelintcache`._
 
 ## `cacheLocation`
 
@@ -66,7 +66,7 @@ Path to a file or directory for the cache location.
 
 If a directory is specified, stylelint creates a cache file inside the specified folder. The name of the file is based on the hash of `process.cwd()` (e.g. `.cache_hashOfCWD`) so that stylelint can reuse a single location for a variety of caches from different projects.
 
-**Note:** If the directory of `cacheLocation` does not exist, make sure you add a trailing `/` on \*nix systems or `\` on Windows. Otherwise, stylelint assumes the path to be a file.
+_If the directory of `cacheLocation` does not exist, make sure you add a trailing `/` on \*nix systems or `\` on Windows. Otherwise, stylelint assumes the path to be a file._
 
 ## `maxWarnings`
 
@@ -74,11 +74,12 @@ CLI flags: `--max-warnings, --mw`
 
 Set a limit to the number of warnings accepted.
 
-It is useful when setting `defaultSeverity` to `"warning"` and expecting the process to fail on warnings (e.g. CI build).
+It is useful when setting [`defaultSeverity`](../configure.md#defaultseverity) to `"warning"` and expecting the process to fail on warnings (e.g. CI build).
 
-For the CLI, the process exits with code `2` if the number of warnings exceeds this value.
+If the number of warnings exceeds this value, the:
 
-For the Node.js API, the returned data contains a `maxWarningsExceeded` property if the number of found warnings exceeds the given limit. The value is an Object (e.g. `{ maxWarnings: 0, foundWarnings: 12 }`).
+- CLI process exits with code `2`
+- Node.js API adds a [`maxWarningsExceeded`](node-api.md#maxwarningsexceeded) property to the returned data
 
 ## `syntax`
 
@@ -107,6 +108,18 @@ Module name or path to a JS file exporting a [PostCSS-compatible syntax](https:/
 
 Note, however, that stylelint can provide no guarantee that core rules work with syntaxes other than the defaults listed for the `syntax` option above.
 
+## `disableDefaultIgnores`
+
+CLI flags: `--disable-default-ignores, --di`
+
+Disable the default ignores. stylelint will not automatically ignore the contents of `node_modules`.
+
+## `ignorePath`
+
+CLI flags: `--ignore-path, -i`
+
+A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`.
+
 ## `ignoreDisables`
 
 CLI flags: `--ignore-disables, --id`
@@ -121,11 +134,10 @@ CLI flags: `--report-needless-disables, --rd`
 
 Produce a report to clean up your codebase, keeping only the stylelint-disable comments that serve a purpose.
 
-For the CLI, the process exits with code `2` if needless disables are found.
+If needless disables are found, the:
 
-For the Node.js API, `ignoreDisables` is also set to `true`, and the returned data contains a `needlessDisables` property, whose value is an array of objects, one for each source, with tells you which stylelint-disable comments are not blocking a lint violation.
-
-Also, report errors for stylelint-disable comments that are not blocking a lint warning.
+- CLI process exits with code `2`
+- Node.js API adds a [`needlessDisables`](node-api.md#needlessdisables) property to the returned data
 
 ## `reportInvalidScopeDisables`
 
@@ -133,21 +145,10 @@ CLI flags: `--report-invalid-scope-disables, --risd`
 
 Produce a report of the stylelint-disable comments that used for rules that don't exist within the configuration object.
 
-For the CLI, the process exits with code `2` if invalid scope disables are found.
+If invalid scope disables are found, the:
 
-For the Node.js API, the returned data contains a `invalidScopeDisables` property, whose value is an array of objects, one for each source, with tells you which rule in `stylelint-disable <rule>` comment don't exist within the configuration object.
-
-## `disableDefaultIgnores`
-
-CLI flags: `--disable-default-ignores, --di`
-
-Disable the default ignores. stylelint will not automatically ignore the contents of `node_modules`.
-
-## `ignorePath`
-
-CLI flags: `--ignore-path, -i`
-
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`.
+- CLI process exits with code `2`
+- Node.js API adds a [`invalidScopeDisables`](node-api.md#invalidscopedisables) property to the returned data
 
 ## `codeFilename`
 

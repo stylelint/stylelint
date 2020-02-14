@@ -2,7 +2,7 @@
 
 You should:
 
-- use the [GitHub reviews](https://help.github.com/articles/about-pull-request-reviews/)
+- use [GitHub reviews](https://help.github.com/articles/about-pull-request-reviews/)
 - review against the [Developer guide criteria](../developer-guide/rules.md)
 - resolve conflicts by [rebasing](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase)
 - assign _one or more_ [`pr: needs *`](https://github.com/stylelint/stylelint/labels) labels when requesting a change

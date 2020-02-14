@@ -13,7 +13,7 @@ It's mighty as it:
 - parses **CSS-like syntaxes** like SCSS, Sass, Less and SugarSS
 - has over **170 built-in rules** to catch errors, apply limits and enforce stylistic conventions
 - supports **plugins** so you can create your own rules or make use of plugins written by the community
-- automatically **fixes** some violations (_experimental feature_)
+- automatically **fixes** the majority of stylistic violations (_experimental feature_)
 - is **well tested** with over 15000 unit tests
 - supports **shareable configs** that you can extend or create
 - is **unopinionated** so that you can customize it to your exact needs
@@ -25,7 +25,7 @@ It's mighty as it:
 
 ## Getting started
 
-You'll find steps to [get started with stylelint in our User guide](docs/user-guide/get-started.md).
+You'll find steps to [get started in our User guide](docs/user-guide/get-started.md).
 
 ## Contributors
 

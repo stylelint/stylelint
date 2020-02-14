@@ -4,18 +4,30 @@ Please help us create, enhance, and debug our rules!
 
 ## Add a rule
 
-_When writing a rule, always look to other similar rules for [conventions and patterns](../user-guide/rules/about.md) to start from and mimic._
+You should:
 
-The rule should:
+1. Get yourself ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
+2. Familiarize yourself with the [conventions and patterns](../user-guide/rules/about.md) for rules.
 
-- not include code for methodologies or language extensions
-- be strict by default
+### Write the rule
 
-### PostCSS API
+When writing the rule, you should:
 
-Use the [PostCSS API](https://api.postcss.org/) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes. Use `node.raws` instead of `node.raw()` when accessing raw strings from the PostCSS AST.
+- make the rule strict by default
+- add secondary `ignore` options to make the rule more permissive
+- not include code specific to language extensions, e.g. SCSS
 
-### Construct-specific parsers
+You should make use of the:
+
+- PostCSS API
+- construct-specific parsers
+- utility functions
+
+#### PostCSS API
+
+Use the [PostCSS API](https://api.postcss.org/) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes. Use `node.raws` instead of `node.raw()` when accessing raw strings from the [PostCSS AST](https://astexplorer.net/#/gist/ef718daf3e03f1d200b03dc5a550ec60/c8cbe9c6809a85894cebf3fb66de46215c377f1a).
+
+#### Construct-specific parsers
 
 Depending on the rule, we also recommend using:
 
@@ -24,7 +36,7 @@ Depending on the rule, we also recommend using:
 
 There are significant benefits to using these parsers instead of regular expressions or `indexOf` searches (even if they aren't always the most performant method).
 
-### Utility functions
+#### Utility functions
 
 stylelint has [utility functions](https://github.com/stylelint/stylelint/tree/master/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!).
 
@@ -33,9 +45,7 @@ Use the:
 - `validateOptions()` utility to warn users about invalid options
 - `isStandardSyntax*` utilities to ignore non-standard syntax
 
-### Options
-
-Provide secondary options so that the user can ignore non-standard syntax at the _configuration level_. For example, when dealing with specificity, a rule should not account for the `:global` and `:local` pseudo-classes (introduced in the CSS Modules language extension), instead the rule should provide a `ignorePseudoClasses: []` secondary option. Methodologies come and go quickly, and this approach ensures the codebase does not become littered with code for obsolete things.
+### Add options
 
 Only add an option to a rule if it addresses a _requested_ use case to avoid polluting the tool with unused features.
 
@@ -118,9 +128,9 @@ You should ask yourself how does your rule handle:
 
 You should:
 
-- use `<!-- prettier-ignore-->` before `css` code fences
-- avoid `scss` and `less` code fences
-- use "this rule" to refer to the rule e.g. "This rule ignores ..."
+- only use standard CSS syntax in example code and options
+- use `<!-- prettier-ignore -->` before `css` code fences
+- use "this rule" to refer to the rule, e.g. "This rule ignores ..."
 - align the arrows within the prototypical code example with the beginning of the highlighted construct
 - align the text within the prototypical code example as far to the left as possible
 
@@ -133,20 +143,17 @@ For example:
   *       These names and values */
 ```
 
-Look at the READMEs of other rules to glean more conventional patterns.
-
-#### Example patterns
-
-You should use:
+When writing examples, you should use:
 
 - complete CSS patterns i.e. avoid ellipses (`...`)
-- standard CSS syntax (and `css` [GFM fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/)) by default
 - the minimum amount of code possible to communicate the pattern, e.g. if the rule targets selectors then use an empty rule, e.g. `{}`
 - `{}`, rather than `{ }` for empty rules
 - the `a` type selector by default
 - the `@media` at-rules by default
 - the `color` property by default
 - _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
+
+Look at the READMEs of other rules to glean more conventional patterns.
 
 ### Wire up the rule
 
@@ -159,21 +166,19 @@ The final step is to add references to the new rule in the following places:
 
 You should:
 
-1. Run `npm run watch` to start the interactive testing prompt.
-2. Use the `p` command to filter the active tests to just the rule you're working on.
-3. Change the rule's validation to allow for the new option.
-4. Add new unit tests to test the option.
-5. Add (as little as possible) logic to the rule to make the tests pass.
-6. Add documentation about the new option.
+1. Get ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
+2. Change the rule's validation to allow for the new option.
+3. Add new unit tests to test the option.
+4. Add (as little as possible) logic to the rule to make the tests pass.
+5. Add documentation about the new option.
 
 ## Fix a bug in a rule
 
 You should:
 
-1. Run `npm run watch` to start the interactive testing prompt.
-2. Use the `p` command to filter the active tests to just the rule you're working on.
-3. Write failing unit tests that exemplify the bug.
-4. Fiddle with the rule until those new tests pass.
+1. Get ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
+2. Write failing unit tests that exemplify the bug.
+3. Fiddle with the rule until those new tests pass.
 
 ## Deprecate a rule
 
