@@ -9,57 +9,43 @@ const { replaceBackslashes } = require('../systemTestUtils');
 jest.mock('get-stdin');
 
 describe('CLI', () => {
-	let processRestore;
-	let logRestore;
-
 	beforeAll(() => {
-		processRestore = { ...process };
-		logRestore = { ...console };
-		process.exit = (exitCode) => (process.exitCode = exitCode);
+		jest.spyOn(process, 'exit').mockImplementation(() => {});
+		jest.spyOn(process.stdout, 'write').mockImplementation(() => {});
+		jest.spyOn(console, 'log').mockImplementation(() => {});
 	});
 
 	afterAll(() => {
-		Object.assign(process, processRestore);
-		Object.assign(console, logRestore);
-	});
-
-	beforeEach(() => {
-		process.exitCode = undefined;
-		console.log = jest.fn();
-		process.stdout.write = jest.fn();
+		jest.restoreAllMocks();
 	});
 
 	it('basic', async () => {
 		await cli([]);
 
-		expect(process.exitCode).toBe(2);
-		expect(console.log.mock.calls).toHaveLength(1);
-		const lastCallArgs = console.log.mock.calls.pop();
+		expect(process.exit).toHaveBeenCalledWith(2);
 
-		expect(lastCallArgs).toHaveLength(1);
-		expect(lastCallArgs.pop()).toMatch('Usage: stylelint [input] [options]');
+		expect(console.log).toHaveBeenCalledTimes(1);
+		expect(console.log).toHaveBeenCalledWith(
+			expect.stringContaining('Usage: stylelint [input] [options]'),
+		);
 	});
 
 	it('--help', async () => {
 		await cli(['--help']);
 
-		expect(process.exitCode).toBe(0);
-		expect(console.log.mock.calls).toHaveLength(1);
-		const lastCallArgs = console.log.mock.calls.pop();
+		expect(process.exit).toHaveBeenCalledWith(0);
 
-		expect(lastCallArgs).toHaveLength(1);
-		expect(lastCallArgs.pop()).toMatchSnapshot();
+		expect(console.log).toHaveBeenCalledTimes(1);
+		expect(console.log.mock.calls[0][0]).toMatchSnapshot();
 	});
 
 	it('--version', async () => {
 		await cli(['--version']);
 
 		expect(process.exitCode).toBeUndefined();
-		expect(console.log.mock.calls).toHaveLength(1);
-		const lastCallArgs = console.log.mock.calls.pop();
 
-		expect(lastCallArgs).toHaveLength(1);
-		expect(lastCallArgs.pop()).toMatch(pkg.version);
+		expect(console.log).toHaveBeenCalledTimes(1);
+		expect(console.log).toHaveBeenCalledWith(expect.stringContaining(pkg.version));
 	});
 
 	it('--print-config', async () => {
@@ -71,6 +57,7 @@ describe('CLI', () => {
 		]);
 
 		expect(process.exitCode).toBeUndefined();
+
 		expect(process.stdout.write).toHaveBeenCalledTimes(1);
 		expect(process.stdout.write).toHaveBeenLastCalledWith(
 			JSON.stringify(
@@ -95,6 +82,7 @@ describe('CLI', () => {
 		]);
 
 		expect(process.exitCode).toBe(2);
+
 		expect(process.stdout.write).toHaveBeenCalledTimes(2);
 		expect(process.stdout.write).toHaveBeenNthCalledWith(
 			1,
