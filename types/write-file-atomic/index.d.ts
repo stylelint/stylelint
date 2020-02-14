@@ -10,7 +10,11 @@ declare namespace writeFile {
 	}
 }
 
-declare function writeFileAsync(filename: string, data: string | Buffer, options?: writeFile.Options): Promise<Error | undefined>;
+declare function writeFileAsync(
+	filename: string,
+	data: string | Buffer,
+	options?: writeFile.Options,
+): Promise<Error | undefined>;
 
 declare module 'write-file-atomic' {
 	export = writeFileAsync;

@@ -124,8 +124,8 @@
     "lint:types": "tsc",
     "lint": "npm-run-all --parallel lint:*",
     "pretest": "npm-run-all --serial lint prettier:check",
-    "prettier:check": "prettier \"**/*.{md,js}\" --check",
-    "prettier:fix": "prettier \"**/*.{md,js}\" --write",
+    "prettier:check": "prettier \"**/*.{md,js,ts}\" --check",
+    "prettier:fix": "prettier \"**/*.{md,js,ts}\" --write",
     "release": "np",
     "test": "jest --coverage",
     "watch": "jest --watch"
@@ -139,6 +139,9 @@
     "*.js": [
       "prettier --write",
       "eslint --max-warnings=0 --fix"
+    ],
+    "*.ts": [
+      "prettier --write"
     ],
     "*.md": [
       "prettier --write",

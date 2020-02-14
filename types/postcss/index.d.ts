@@ -7,11 +7,11 @@ declare module 'postcss/lib/lazy-result' {
 		ResultMessage,
 		ResultOptions,
 		Root,
-		Warning
+		Warning,
 	} from 'postcss';
 
 	class LazyResultImpl extends Promise<Result> implements LazyResult {
-		constructor(p: Processor, code: string, options: {from?: string, syntax: any});
+		constructor(p: Processor, code: string, options: { from?: string; syntax: any });
 
 		content: string;
 		css: string;
@@ -34,13 +34,11 @@ declare module 'postcss-syntax' {
 }
 
 declare module 'postcss-reporter/lib/util' {
-	export function getLocation(message: Object): {line: number, column: number, file?: string};
+	export function getLocation(message: Object): { line: number; column: number; file?: string };
 }
 
 declare module 'postcss/lib/result' {
-	import {
-		Result
-	} from 'postcss';
+	import { Result } from 'postcss';
 
 	export = Result;
 }
