@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::part` pseudo-element ([#4604](https://github.com/stylelint/stylelint/pull/4604)).
+
 ## 13.2.0
 
 - Security: updated to `postcss-selector-parser@6` due to a vulnerability in one of `postcss-selector-parser@3` dependencies ([#4595](https://github.com/stylelint/stylelint/pull/4595)). Due to this update:
