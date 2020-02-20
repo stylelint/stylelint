@@ -13,7 +13,7 @@ e.g. "There are false positives for two leading zeros when ..."
 
 e.g. `number-leading-zero`
 
-> What CSS is needed to reproduce the bug?
+> What code is needed to reproduce the bug?
 
 e.g.
 
