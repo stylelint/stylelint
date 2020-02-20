@@ -2,6 +2,7 @@
 'use strict';
 
 const cli = require('../../lib/cli');
+const os = require('os');
 const path = require('path');
 const pkg = require('../../package.json');
 const { replaceBackslashes } = require('../systemTestUtils');
@@ -104,5 +105,43 @@ describe('CLI', () => {
 			1,
 			expect.stringContaining('Unexpected empty source'),
 		);
+	});
+
+	it('helps windows users with erroneous single quotes in their package.json', async () => {
+		const spy = jest.spyOn(os, 'platform').mockImplementation(() => 'win32');
+
+		return Promise.resolve(cli(["'" + path.join(__dirname, 'stylesheet.css') + "'"])).then(() => {
+			expect(console.log).toHaveBeenNthCalledWith(
+				1,
+				expect.stringContaining(`stylesheet.css'" were found.
+
+Please use escaped double quotes for a file pattern in your package.json, e.g.:
+
+	stylelint \\"file.css\\"
+`),
+			);
+
+			spy.mockRestore();
+		});
+	});
+
+	it('helps windows users with erroneous single quotes', async () => {
+		const spy = jest.spyOn(os, 'platform').mockImplementation(() => 'win32');
+
+		process.env = {};
+
+		return Promise.resolve(cli(["'" + path.join(__dirname, 'stylesheet.css') + "'"])).then(() => {
+			expect(console.log).toHaveBeenNthCalledWith(
+				1,
+				expect.stringContaining(`stylesheet.css'" were found.
+
+Please use double quotes for a file pattern:
+
+	stylelint "file.css"
+`),
+			);
+
+			spy.mockRestore();
+		});
 	});
 });
