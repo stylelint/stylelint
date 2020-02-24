@@ -110,7 +110,7 @@ describe('CLI', () => {
 	it('helps windows users with erroneous single quotes in their package.json', async () => {
 		const spy = jest.spyOn(os, 'platform').mockImplementation(() => 'win32');
 
-		return Promise.resolve(cli(["'" + path.join(__dirname, 'stylesheet.css') + "'"])).then(() => {
+		return Promise.resolve(cli([`'${path.join(__dirname, 'stylesheet.css')}'`])).then(() => {
 			expect(console.log).toHaveBeenNthCalledWith(
 				1,
 				expect.stringContaining(`stylesheet.css'" were found.
@@ -130,7 +130,7 @@ Please use escaped double quotes for a file pattern in your package.json, e.g.:
 
 		process.env = {};
 
-		return Promise.resolve(cli(["'" + path.join(__dirname, 'stylesheet.css') + "'"])).then(() => {
+		return Promise.resolve(cli([`'${path.join(__dirname, 'stylesheet.css')}'`])).then(() => {
 			expect(console.log).toHaveBeenNthCalledWith(
 				1,
 				expect.stringContaining(`stylesheet.css'" were found.
