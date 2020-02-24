@@ -2,6 +2,7 @@
 
 Specify a whitelist of allowed at-rules.
 
+<!-- prettier-ignore -->
 ```css
     @keyframes name {}
 /** ↑
@@ -14,28 +15,32 @@ Specify a whitelist of allowed at-rules.
 
 Given:
 
-```js
+```
 ["extend", "keyframes"]
 ```
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @import "path/to/file.css";
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (max-width: 1024px) {
   a { display: none; }
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { @extend placeholder; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 @keyframes name {
   from { top: 10px; }
@@ -43,6 +48,7 @@ a { @extend placeholder; }
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 @KEYFRAMES name {
   from { top: 10px; }
@@ -50,6 +56,7 @@ a { @extend placeholder; }
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 @-moz-keyframes name {
   from { top: 10px; }

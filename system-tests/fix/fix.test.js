@@ -1,7 +1,6 @@
 'use strict';
 
 const _ = require('lodash');
-const cpFile = require('cp-file');
 const del = require('del');
 const fs = require('fs');
 const os = require('os');
@@ -9,6 +8,9 @@ const path = require('path');
 const stylelint = require('../../lib');
 const systemTestUtils = require('../systemTestUtils');
 const { promisify } = require('util');
+const { replaceBackslashes } = require('../systemTestUtils');
+
+const copyFile = promisify(fs.copyFile);
 const readFileAsync = promisify(fs.readFile);
 
 describe('fix', () => {
@@ -17,9 +19,9 @@ describe('fix', () => {
 
 	beforeEach(() => {
 		tmpDir = os.tmpdir();
-		stylesheetPath = path.join(tmpDir, `stylesheet-${_.uniqueId()}.css`);
+		stylesheetPath = replaceBackslashes(path.join(tmpDir, `stylesheet-${_.uniqueId()}.css`));
 
-		return cpFile(path.join(__dirname, 'stylesheet.css'), stylesheetPath);
+		return copyFile(path.join(__dirname, 'stylesheet.css'), stylesheetPath);
 	});
 
 	afterEach(() => {
@@ -35,9 +37,7 @@ describe('fix', () => {
 			})
 			.then((output) => {
 				// Remove the path to tmpDir
-				const cleanedResults = output.results.map((r) =>
-					Object.assign({}, r, { source: 'stylesheet.css' }),
-				);
+				const cleanedResults = output.results.map((r) => ({ ...r, source: 'stylesheet.css' }));
 
 				expect(systemTestUtils.prepResults(cleanedResults)).toMatchSnapshot();
 			});
@@ -112,6 +112,25 @@ describe('fix', () => {
 			});
 	});
 
+	it('does not modify shorthand object syntax when autofixing', () => {
+		const codeString = `const width = '100px'; const x = <div style={{width}}>Hi</div>`;
+
+		return stylelint
+			.lint({
+				code: codeString,
+				syntax: 'css-in-js',
+				config: {
+					rules: {
+						indentation: 2,
+					},
+				},
+				fix: true,
+			})
+			.then((result) => {
+				expect(result.output).toBe(codeString);
+			});
+	});
+
 	it('apply indentation autofix at last', () => {
 		return stylelint
 			.lint({
@@ -131,6 +150,58 @@ describe('fix', () => {
 				);
 			});
 	});
+
+	it("doesn't fix with stylelint-disable commands", () => {
+		const code = `
+		/* stylelint-disable */
+		a {
+			color: red;
+		}
+		`;
+
+		return stylelint
+			.lint({
+				code,
+				config: {
+					rules: {
+						indentation: 2,
+					},
+				},
+				fix: true,
+			})
+			.then((result) => {
+				expect(result.output).toBe(code);
+			});
+	});
+
+	it("doesn't fix with nested template literals", () => {
+		const code = `
+		import styled, { css } from 'styled-components';
+
+		const Component = styled.div\`
+		  padding: 10px;
+			\${() => css\`
+				color: #b02d00;
+			\`}
+		\`;
+		`;
+
+		return stylelint
+			.lint({
+				code,
+				syntax: 'css-in-js',
+				config: {
+					rules: {
+						indentation: 2,
+					},
+				},
+				fix: true,
+			})
+			.then((result) => {
+				expect(result.errored).toBe(true);
+				expect(result.output).toBe(code);
+			});
+	});
 });
 
 describe('fix with BOM', () => {
@@ -139,9 +210,9 @@ describe('fix with BOM', () => {
 
 	beforeEach(() => {
 		tmpDir = os.tmpdir();
-		stylesheetPath = path.join(tmpDir, `stylesheet-with-bom.css`);
+		stylesheetPath = replaceBackslashes(path.join(tmpDir, `stylesheet-with-bom.css`));
 
-		return cpFile(path.join(__dirname, 'stylesheet.css'), stylesheetPath);
+		return copyFile(path.join(__dirname, 'stylesheet.css'), stylesheetPath);
 	});
 
 	afterEach(() => {

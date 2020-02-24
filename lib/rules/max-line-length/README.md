@@ -2,6 +2,7 @@
 
 Limit the length of a line.
 
+<!-- prettier-ignore -->
 ```css
 a { color: red }
 /**            ↑
@@ -20,18 +21,21 @@ For example, with `20`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: 0; top: 0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   background: linear-gradient(red, blue);
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: 0;
@@ -39,6 +43,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   background: url(a-url-that-is-over-20-characters-long);
@@ -59,12 +64,14 @@ The following patterns are considered violations:
 
 Each have only one violation.
 
+<!-- prettier-ignore -->
 ```css
 /* This line is too long for my rule */
 a { color: pink; background: orange; }
 a { color: pink; /* this comment is also long but not on its own line */ }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; background: orange; }
 /**
@@ -85,21 +92,25 @@ For example, with a maximum length of `30`.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; } /* comment that is too long */
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { /* this comment is too long for the max length */ }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 /* comment that is too long for my rule*/
 a { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 /*
  * comment that is too long the max length
@@ -115,12 +126,13 @@ Ignore any line that matches the given regex pattern, regardless of whether it i
 
 Given:
 
-```js
+```
 "/^@import\\s+/"
 ```
 
-The following pattern is *not* considered a violation:
+The following pattern is _not_ considered a violation:
 
+<!-- prettier-ignore -->
 ```css
 @import "../../../../another/css/or/scss/file/or/something.css";
 ```
@@ -128,11 +140,12 @@ The following pattern is *not* considered a violation:
 Given the following, with a maximum length of `20`.
 
 ```js
-["/https?:\/\/[0-9,a-z]*.*/"]
+["/https?://[0-9,a-z]*.*/"];
 ```
 
-The following pattern is *not* considered a violation:
+The following pattern is _not_ considered a violation:
 
+<!-- prettier-ignore -->
 ```css
 /* ignore urls https://www.example.com */
 ```

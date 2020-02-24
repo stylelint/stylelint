@@ -9,10 +9,13 @@ module.exports = {
 	useTabs: true,
 	overrides: [
 		{
-			files: ['package.json', '*.md', '*.css'],
+			files: ['package.json', '*.md'],
 			options: {
-				useTabs: false,
+				printWidth: 80,
+				singleQuote: false,
 				tabWidth: 2,
+				trailingComma: 'none',
+				useTabs: false,
 			},
 		},
 	],

@@ -2,6 +2,7 @@
 
 Specify lowercase or uppercase for at-rules names.
 
+<!-- prettier-ignore -->
 ```css
    @media (min-width: 10px) {}
 /** ↑
@@ -10,7 +11,7 @@ Specify lowercase or uppercase for at-rules names.
 
 Only lowercase at-rule names are valid in SCSS.
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix some of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix some of the problems reported by this rule.
 
 ## Options
 
@@ -20,36 +21,44 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @Charset 'UTF-8';
 ```
 
+<!-- prettier-ignore -->
 ```css
 @cHarSeT 'UTF-8';
 ```
 
+<!-- prettier-ignore -->
 ```css
 @CHARSET 'UTF-8';
 ```
 
+<!-- prettier-ignore -->
 ```css
 @Media (min-width: 50em) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @mEdIa (min-width: 50em) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @MEDIA (min-width: 50em) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @charset 'UTF-8';
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (min-width: 50em) {}
 ```
@@ -58,36 +67,44 @@ The following patterns are *not* considered violations:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @Charset 'UTF-8';
 ```
 
+<!-- prettier-ignore -->
 ```css
 @cHarSeT 'UTF-8';
 ```
 
+<!-- prettier-ignore -->
 ```css
 @charset 'UTF-8';
 ```
 
+<!-- prettier-ignore -->
 ```css
 @Media (min-width: 50em) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @mEdIa (min-width: 50em) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (min-width: 50em) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @CHARSET 'UTF-8';
 ```
 
+<!-- prettier-ignore -->
 ```css
 @MEDIA (min-width: 50em) {}
 ```

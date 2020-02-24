@@ -2,17 +2,18 @@
 
 Disallow units for zero lengths.
 
+<!-- prettier-ignore -->
 ```css
 a { top: 0px; }
 /**      ↑↑
  * This zero and this type of length unit */
 ```
 
-*Lengths* refer to distance measurements. A length is a *dimension*, which is a *number* immediately followed by a *unit identifier*. However, for zero lengths the unit identifier is optional. The length units are: `em`, `ex`, `ch`, `vw`, `vh`, `cm`, `mm`, `in`, `pt`, `pc`, `px`, `rem`, `vmin`, and `vmax`.
+_Lengths_ refer to distance measurements. A length is a _dimension_, which is a _number_ immediately followed by a _unit identifier_. However, for zero lengths the unit identifier is optional. The length units are: `em`, `ex`, `ch`, `vw`, `vh`, `cm`, `mm`, `in`, `pt`, `pc`, `px`, `rem`, `vmin`, and `vmax`.
 
 This rule ignores lengths within math functions (e.g. `calc`) in favor of the [`function-calc-no-invalid`](../function-calc-no-invalid/README.md) rule.
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
@@ -20,28 +21,34 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { top: 0px }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { top: 0.000em }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { top: 0 } /* no unit */
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { transition-delay: 0s; } /* dimension */
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { top: 2in; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { top: 1.001vh }
 ```
@@ -54,8 +61,9 @@ a { top: 1.001vh }
 
 Ignore units for zero length in custom properties.
 
-The following pattern is *not* considered a violation:
+The following pattern is _not_ considered a violation:
 
+<!-- prettier-ignore -->
 ```css
 a { --x: 0px; }
 ```

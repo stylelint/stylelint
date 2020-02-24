@@ -2,13 +2,14 @@
 
 Specify a blacklist of disallowed words within comments.
 
+<!-- prettier-ignore -->
 ```css
  /* words within comments */
 /** ↑     ↑      ↑
  * These three words */
 ```
 
-**Caveat:** Comments within *selector and value lists* are currently ignored.
+**Caveat:** Comments within _selector and value lists_ are currently ignored.
 
 ## Options
 
@@ -18,26 +19,30 @@ If a string is surrounded with `"/"` (e.g. `"/^TODO:/"`), it is interpreted as a
 
 Given:
 
-```js
+```
 ["/^TODO:/", "badword"]
 ```
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 /* TODO: */
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* TODO: add fallback */
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* some badword */
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 /* comment */
 ```

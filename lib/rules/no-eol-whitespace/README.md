@@ -2,13 +2,14 @@
 
 Disallow end-of-line whitespace.
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }···
 /**               ↑
  *  This whitespace */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix most of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix most of the problems reported by this rule.
 
 ## Options
 
@@ -16,27 +17,32 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }·
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }····
 ```
 
 Comment strings are also checked -- so the following is a violation:
 
+<!-- prettier-ignore -->
 ```css
 /* something····
  * something else */
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* something
  * something else */
@@ -50,8 +56,9 @@ a { color: pink; }
 
 Allow end-of-line whitespace for lines that are only whitespace, "empty" lines.
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   color: pink;
@@ -60,10 +67,12 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 ····
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ····

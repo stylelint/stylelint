@@ -2,6 +2,7 @@
 
 Specify a whitelist of allowed properties.
 
+<!-- prettier-ignore -->
 ```css
 a { display: block; }
 /** ↑
@@ -18,16 +19,18 @@ If a string is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted
 
 Given:
 
-```js
+```
 ["display", "animation", "/^background/"]
 ```
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   animation: my-animation 2s;
@@ -35,20 +38,24 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { borkgrund: orange; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { display: block; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { -webkit-animation: my-animation 2s; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   animation: my-animation 2s;
@@ -57,10 +64,12 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { background: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { background-color: pink; }
 ```

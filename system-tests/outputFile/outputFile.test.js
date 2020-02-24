@@ -8,6 +8,7 @@ const path = require('path');
 const spawn = require('child_process').spawn;
 const systemTestUtils = require('../systemTestUtils');
 const { promisify } = require('util');
+const { replaceBackslashes } = require('../systemTestUtils');
 const readFileAsync = promisify(fs.readFile);
 
 describe('outputFile', () => {
@@ -30,7 +31,12 @@ describe('outputFile', () => {
 	it('writes the result file ', (done) => {
 		const childProcess = spawn(
 			'node',
-			[cliPath, `${localPath}/*.css`, '--config=config.json', `--output-file=${directionPath}`],
+			[
+				cliPath,
+				replaceBackslashes(`${localPath}/*.css`),
+				'--config=config.json',
+				`--output-file=${directionPath}`,
+			],
 			{
 				cwd: localPath,
 			},
@@ -40,7 +46,7 @@ describe('outputFile', () => {
 
 		childProcess.stdout.on('data', (data) => (stdout += data));
 
-		childProcess.on('close', function() {
+		childProcess.on('close', () => {
 			return readFileAsync(directionPath, 'utf-8').then((content) => {
 				expect(content).toEqual(systemTestUtils.stripColors(stdout));
 				expect(content.replace('×', '✖')).toMatchSnapshot();

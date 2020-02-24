@@ -2,6 +2,7 @@
 
 Require a newline or disallow whitespace before the commas of selector lists.
 
+<!-- prettier-ignore -->
 ```css
     a
     , b { color: pink; }
@@ -9,7 +10,7 @@ Require a newline or disallow whitespace before the commas of selector lists.
  * The newline before this comma */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
@@ -17,26 +18,30 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 ### `"always"`
 
-There *must always* be a newline before the commas.
+There _must always_ be a newline before the commas.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a, b { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a,
 b { color: pink; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a
 , b { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a
 ,b { color: pink; }
@@ -44,26 +49,30 @@ a
 
 ### `"always-multi-line"`
 
-There *must always* be a newline before the commas in multi-line selector lists.
+There _must always_ be a newline before the commas in multi-line selector lists.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a,
 b { color: pink; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a, b { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a
 ,b { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a
 ,
@@ -72,27 +81,31 @@ b { color: pink; }
 
 ### `"never-multi-line"`
 
-There *must never* be whitespace before the commas in multi-line selector lists.
+There _must never_ be whitespace before the commas in multi-line selector lists.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a
 , b { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a
 ,
 b { color: pink; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a,b { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a,
 b { color: pink; }

@@ -2,6 +2,7 @@
 
 Disallow duplicate properties within declaration blocks.
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; color: orange; }
 /** ↑            ↑
@@ -16,20 +17,24 @@ This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; color: orange; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; background: orange; color: orange }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; background: orange; }
 ```
@@ -44,6 +49,7 @@ They can prove to be useful fallbacks for older browsers.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 p {
   font-size: 16px;
@@ -52,8 +58,9 @@ p {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 p {
   font-size: 16px;
@@ -70,6 +77,7 @@ Including duplicate properties (fallbacks) is useful to deal with older browsers
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 /* properties with the same value */
 p {
@@ -79,6 +87,7 @@ p {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* nonconsecutive duplicates */
 p {
@@ -88,8 +97,9 @@ p {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 p {
   font-size: 16px;
@@ -104,26 +114,30 @@ Ignore duplicates of specific properties.
 
 Given:
 
-```js
-["color", "/background\-/"]
+```
+["color", "/background-/"]
 ```
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; background: orange; background: white; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { background: orange; color: pink; background: white; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; color: orange; background-color: orange; background-color: white; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: pink; background-color: orange; color: orange; background-color: white; }
 ```

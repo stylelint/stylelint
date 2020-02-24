@@ -2,13 +2,14 @@
 
 Specify short or long notation for hex colors.
 
+<!-- prettier-ignore -->
 ```css
 a { color: #fff }
 /**        ↑
  * This hex color */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
@@ -18,24 +19,29 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: #ffffff; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: #ffffffaa; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: #fff; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: #fffa; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: #a4a4a4; }
 ```
@@ -44,20 +50,24 @@ a { color: #a4a4a4; }
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: #fff; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: #fffa; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { color: #ffffff; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { color: #ffffffaa; }
 ```

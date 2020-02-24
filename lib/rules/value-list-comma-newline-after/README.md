@@ -2,6 +2,7 @@
 
 Require a newline or disallow whitespace after the commas of value lists.
 
+<!-- prettier-ignore -->
 ```css
 a { background-size: 0,
       0; }            ↑
@@ -9,7 +10,7 @@ a { background-size: 0,
  * The newline after this comma */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix most of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix most of the problems reported by this rule.
 
 ## Options
 
@@ -17,21 +18,24 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 ### `"always"`
 
-There *must always* be a newline after the commas.
+There _must always_ be a newline after the commas.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { background-size: 0,0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { background-size: 0
       , 0; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { background-size: 0,
       0; }
@@ -39,25 +43,29 @@ a { background-size: 0,
 
 ### `"always-multi-line"`
 
-There *must always* be a newline after the commas in multi-line value lists.
+There _must always_ be a newline after the commas in multi-line value lists.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { background-size: 0
     , 0; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { background-size: 0, 0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { background-size: 0,0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { background-size: 0,
       0; }
@@ -65,25 +73,29 @@ a { background-size: 0,
 
 ### `"never-multi-line"`
 
-There *must never* be whitespace after the commas in multi-line value lists.
+There _must never_ be whitespace after the commas in multi-line value lists.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { background-size: 0
       , 0; }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { background-size: 0,0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { background-size: 0, 0; }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a { background-size: 0
       ,0; }

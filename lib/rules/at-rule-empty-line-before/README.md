@@ -2,6 +2,7 @@
 
 Require or disallow an empty line before at-rules.
 
+<!-- prettier-ignore -->
 ```css
 a {}
           /* ← */
@@ -12,10 +13,10 @@ a {}
 
 This rule ignores:
 
--   at-rules that are the very first node in the source
--   `@import` in Less.
+- at-rules that are the very first node in the source
+- `@import` in Less.
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
 
 ## Options
 
@@ -23,21 +24,24 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 ### `"always"`
 
-There *must always* be an empty line before at-rules.
+There _must always_ be an empty line before at-rules.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {} @media {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {}
 @media {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 
@@ -46,22 +50,25 @@ a {}
 
 ### `"never"`
 
-There *must never* be an empty line before at-rules.
+There _must never_ be an empty line before at-rules.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {}
 
 @media {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {} @media {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {}
 @media {}
@@ -79,8 +86,9 @@ This means that you can group your at-rules by name.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @charset "UTF-8";
 
@@ -91,6 +99,7 @@ The following patterns are *not* considered violations:
 @media (min-width: 200px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -110,6 +119,7 @@ For example, with `"always"`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -124,8 +134,9 @@ b {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   @extend foo;
@@ -148,8 +159,9 @@ Shared-line comments do not affect this option.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @charset "UTF-8";
 
@@ -157,6 +169,7 @@ The following patterns are *not* considered violations:
 @import url(y.css);
 ```
 
+<!-- prettier-ignore -->
 ```css
 @charset "UTF-8";
 
@@ -164,6 +177,7 @@ The following patterns are *not* considered violations:
 @import url(y.css);
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -185,6 +199,7 @@ For example, with `"always"`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @import url(x.css);
 
@@ -193,8 +208,9 @@ The following patterns are considered violations:
 @media print {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @import url(x.css);
 @import url(y.css);
@@ -202,6 +218,7 @@ The following patterns are *not* considered violations:
 @media print {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @import url(x.css); /* comment */
 @import url(y.css);
@@ -217,6 +234,7 @@ For example, with `"always"`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -230,8 +248,9 @@ b {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   @extend foo;
@@ -253,19 +272,22 @@ Ignore at-rules that follow a comment.
 
 Shared-line comments do not trigger this option.
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 /* comment */
 @media {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* comment */
 
 @media {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media {} /* comment */
 
@@ -278,8 +300,9 @@ Ignore at-rules that are nested and the first child of their parent node.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @supports {
   @media {}
@@ -294,8 +317,9 @@ Ignore at-rules that are inside a block.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   @extend foo;
@@ -328,8 +352,9 @@ This means that you can group your blockless at-rules by name.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 
 @charset "UTF-8";
@@ -338,6 +363,7 @@ The following patterns are *not* considered violations:
 @import url(y.css);
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -355,8 +381,9 @@ Ignore blockless at-rules that follow another blockless at-rule.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @import url(x.css);
 
@@ -365,6 +392,7 @@ The following patterns are *not* considered violations:
 @media print {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @import url(x.css);
 @import url(y.css);
@@ -380,12 +408,13 @@ For example, with `"always"`.
 
 Given:
 
-```js
+```
 ["import"]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @charset "UTF-8";
 @import {}

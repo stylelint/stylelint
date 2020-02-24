@@ -4,114 +4,105 @@
 const cli = require('../../lib/cli');
 const path = require('path');
 const pkg = require('../../package.json');
+const { replaceBackslashes } = require('../systemTestUtils');
 
 jest.mock('get-stdin');
 
 describe('CLI', () => {
-	let processRestore;
-	let logRestore;
-
 	beforeAll(() => {
-		processRestore = Object.assign({}, process);
-		logRestore = Object.assign({}, console);
-		process.exit = (exitCode) => (process.exitCode = exitCode);
+		jest.spyOn(process, 'exit').mockImplementation(() => {});
+		jest.spyOn(process.stdout, 'write').mockImplementation(() => {});
+		jest.spyOn(console, 'log').mockImplementation(() => {});
 	});
 
 	afterAll(() => {
-		Object.assign(process, processRestore);
-		Object.assign(console, logRestore);
+		jest.restoreAllMocks();
 	});
 
-	beforeEach(function() {
-		process.exitCode = undefined;
-		console.log = jest.fn();
-		process.stdout.write = jest.fn();
+	it('basic', async () => {
+		await cli([]);
 
-		if (parseInt(process.versions.node) < 7) {
-			// https://github.com/sindresorhus/get-stdin/issues/13
-			process.nextTick(() => {
-				process.stdin.end();
-			});
-		}
+		expect(process.exit).toHaveBeenCalledWith(2);
+
+		expect(console.log).toHaveBeenCalledTimes(1);
+		expect(console.log).toHaveBeenCalledWith(
+			expect.stringContaining('Usage: stylelint [input] [options]'),
+		);
 	});
 
-	it('basic', () => {
-		return cli([]).then(() => {
-			expect(process.exitCode).toBe(2);
-			expect(console.log.mock.calls).toHaveLength(1);
-			const lastCallArgs = console.log.mock.calls.pop();
+	it('--help', async () => {
+		await cli(['--help']);
 
-			expect(lastCallArgs).toHaveLength(1);
-			expect(lastCallArgs.pop()).toMatch('Usage: stylelint [input] [options]');
-		});
+		expect(process.exit).toHaveBeenCalledWith(0);
+
+		expect(console.log).toHaveBeenCalledTimes(1);
+		expect(console.log.mock.calls[0][0]).toMatchSnapshot();
 	});
 
-	it('--help', () => {
-		return Promise.resolve(cli(['--help'])).then(() => {
-			expect(process.exitCode).toBe(0);
-			expect(console.log.mock.calls).toHaveLength(1);
-			const lastCallArgs = console.log.mock.calls.pop();
+	it('--version', async () => {
+		await cli(['--version']);
 
-			expect(lastCallArgs).toHaveLength(1);
-			expect(lastCallArgs.pop()).toMatch('Usage: stylelint [input] [options]');
-		});
+		expect(process.exitCode).toBeUndefined();
+
+		expect(console.log).toHaveBeenCalledTimes(1);
+		expect(console.log).toHaveBeenCalledWith(expect.stringContaining(pkg.version));
 	});
 
-	it('--version', () => {
-		return Promise.resolve(cli(['--version'])).then(() => {
-			expect(process.exitCode).toBeUndefined();
-			expect(console.log.mock.calls).toHaveLength(1);
-			const lastCallArgs = console.log.mock.calls.pop();
+	it('--print-config', async () => {
+		await cli([
+			'--print-config',
+			'--config',
+			path.join(__dirname, 'config.json'),
+			replaceBackslashes(path.join(__dirname, 'stylesheet.css')),
+		]);
 
-			expect(lastCallArgs).toHaveLength(1);
-			expect(lastCallArgs.pop()).toMatch(pkg.version);
-		});
-	});
+		expect(process.exitCode).toBeUndefined();
 
-	it('--print-config', () => {
-		return Promise.resolve(
-			cli([
-				'--print-config',
-				'--config',
-				path.join(__dirname, 'config.json'),
-				path.join(__dirname, 'stylesheet.css'),
-			]),
-		).then(() => {
-			expect(process.exitCode).toBeUndefined();
-			expect(process.stdout.write).toHaveBeenCalledTimes(1);
-			expect(process.stdout.write).toHaveBeenLastCalledWith(
-				JSON.stringify(
-					{
-						rules: {
-							'block-no-empty': [true],
-						},
+		expect(process.stdout.write).toHaveBeenCalledTimes(1);
+		expect(process.stdout.write).toHaveBeenLastCalledWith(
+			JSON.stringify(
+				{
+					rules: {
+						'block-no-empty': [true],
+						'no-empty-source': [true],
 					},
-					null,
-					'  ',
-				),
-			);
-		});
+				},
+				null,
+				'  ',
+			),
+		);
 	});
 
-	it('--report-needless-disables', () => {
-		return Promise.resolve(
-			cli([
-				'--report-needless-disables',
-				'--config',
-				path.join(__dirname, 'config.json'),
-				path.join(__dirname, 'stylesheet.css'),
-			]),
-		).then(() => {
-			expect(process.exitCode).toBe(2);
-			expect(process.stdout.write).toHaveBeenCalledTimes(2);
-			expect(process.stdout.write).toHaveBeenNthCalledWith(
-				1,
-				expect.stringContaining('unused rule: color-named'),
-			);
-			expect(process.stdout.write).toHaveBeenNthCalledWith(
-				2,
-				expect.stringContaining('Unexpected empty block'),
-			);
-		});
+	it('--report-needless-disables', async () => {
+		await cli([
+			'--report-needless-disables',
+			'--config',
+			path.join(__dirname, 'config.json'),
+			replaceBackslashes(path.join(__dirname, 'stylesheet.css')),
+		]);
+
+		expect(process.exitCode).toBe(2);
+
+		expect(process.stdout.write).toHaveBeenCalledTimes(2);
+		expect(process.stdout.write).toHaveBeenNthCalledWith(
+			1,
+			expect.stringContaining('unused rule: color-named'),
+		);
+		expect(process.stdout.write).toHaveBeenNthCalledWith(
+			2,
+			expect.stringContaining('Unexpected empty block'),
+		);
+	});
+
+	it('--stdin', async () => {
+		await cli(['--stdin', '--config', path.join(__dirname, 'config.json')]);
+
+		expect(process.exitCode).toBe(2);
+
+		expect(process.stdout.write).toHaveBeenCalledTimes(1);
+		expect(process.stdout.write).toHaveBeenNthCalledWith(
+			1,
+			expect.stringContaining('Unexpected empty source'),
+		);
 	});
 });

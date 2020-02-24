@@ -4,7 +4,7 @@ const path = require('path');
 const stripAnsi = require('strip-ansi');
 
 function caseFilePath(caseNumber, fileName) {
-	return path.join(__dirname, caseNumber, fileName);
+	return replaceBackslashes(path.join(__dirname, caseNumber, fileName));
 }
 
 function caseStylesheetGlob(caseNumber) {
@@ -18,7 +18,6 @@ function caseConfig(caseNumber, ext = 'json') {
 function prepResults(results) {
 	return results.map((result) => {
 		// The _postcssResult object is not part of our API and is huge
-		// eslint-disable-next-line no-unused-vars
 		const { _postcssResult, source, ...preppedResult } = result;
 
 		// The `source` of each file will not be the same on different machines or platforms
@@ -30,12 +29,17 @@ function prepResults(results) {
 	});
 }
 
+function replaceBackslashes(str) {
+	return str.replace(/\\/g, '/');
+}
+
 function stripColors(input) {
 	return stripAnsi(input);
 }
 
 module.exports = {
 	caseFilePath,
+	replaceBackslashes,
 	caseStylesheetGlob,
 	caseConfig,
 	prepResults,

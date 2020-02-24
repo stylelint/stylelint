@@ -2,6 +2,7 @@
 
 Disallow (unescaped) newlines in strings.
 
+<!-- prettier-ignore -->
 ```css
 a {
   content: "first
@@ -19,6 +20,7 @@ a {
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   content: "first
@@ -26,11 +28,13 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 [title="something
 is probably wrong"] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   font-family: "Times
@@ -39,25 +43,29 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   content: "first\Asecond";
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   content: "first\\nsecond";
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 [title="nothing\
   is wrong"] {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   font-family: "Times New Roman";

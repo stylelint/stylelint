@@ -2,6 +2,7 @@
 
 Disallow unknown at-rules.
 
+<!-- prettier-ignore -->
 ```css
     @unknown (max-width: 960px) {}
 /** ↑
@@ -16,24 +17,29 @@ This rule considers at-rules defined in the CSS Specifications, up to and includ
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @unknown {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @charset "UTF-8";
 ```
 
+<!-- prettier-ignore -->
 ```css
 @CHARSET "UTF-8";
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (max-width: 960px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @font-feature-values Font One {
   @styleset {}
@@ -46,20 +52,23 @@ The following patterns are *not* considered violations:
 
 Given:
 
-```js
+```
 ["/^my-/", "custom"]
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @my-at-rule "x.css";
 ```
 
+<!-- prettier-ignore -->
 ```css
 @my-other-at-rule {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @custom {}
 ```

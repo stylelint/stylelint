@@ -2,6 +2,7 @@
 
 Require or disallow an empty line before declarations.
 
+<!-- prettier-ignore -->
 ```css
 a {
   --foo: pink;
@@ -14,7 +15,7 @@ a {
 
 This rule only applies to standard property declarations. Use the [`custom-property-empty-line-before`](../custom-property-empty-line-before/README.md) rule for custom property declarations.
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
 
 ## Options
 
@@ -24,6 +25,7 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   --foo: pink;
@@ -31,6 +33,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   bottom: 15px;
@@ -38,8 +41,9 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   --foo: pink;
@@ -48,6 +52,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -61,6 +66,7 @@ a {
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   --foo: pink;
@@ -69,6 +75,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -78,8 +85,9 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   --foo: pink;
@@ -87,6 +95,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   bottom: 15px;
@@ -108,6 +117,7 @@ For example, with `"always"`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   /* comment */
@@ -116,6 +126,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   bottom: 5px; /* comment */
@@ -123,8 +134,9 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   /* comment */
@@ -133,6 +145,7 @@ a {
 
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
   bottom: 5px; /* comment */
@@ -152,6 +165,7 @@ For example, with `"always"`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -161,6 +175,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -170,8 +185,9 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -180,6 +196,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -196,6 +213,7 @@ For example, with `"always"`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -205,8 +223,9 @@ a {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   bottom: 15px;
@@ -223,8 +242,9 @@ Ignore declarations that follow a comment.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   /* comment */
@@ -238,8 +258,9 @@ Ignore declarations that follow another declaration.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -248,6 +269,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -257,6 +279,7 @@ a {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a {
 
@@ -274,8 +297,9 @@ Ignore declarations that are nested and the first child of their parent node.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a {
   bottom: 15px;
@@ -290,8 +314,9 @@ Ignore declarations that are inside single-line blocks.
 
 For example, with `"always"`:
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a { bottom: 15px; top: 5px; }
 ```

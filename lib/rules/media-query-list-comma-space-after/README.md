@@ -2,13 +2,14 @@
 
 Require a single space or disallow whitespace after the commas of media query lists.
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color), projection and (color) {}
 /**                      ↑
  * The space after this comma */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
@@ -16,25 +17,29 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 ### `"always"`
 
-There *must always* be a single space after the commas.
+There _must always_ be a single space after the commas.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color),projection and (color) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color)
 ,projection and (color) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color), projection and (color) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color)
 , projection and (color) {}
@@ -42,25 +47,29 @@ The following patterns are *not* considered violations:
 
 ### `"never"`
 
-There *must never* be whitespace after the commas.
+There _must never_ be whitespace after the commas.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color), projection and (color) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color)
 , projection and (color) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color),projection and (color) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color)
 ,projection and (color) {}
@@ -68,25 +77,29 @@ The following patterns are *not* considered violations:
 
 ### `"always-single-line"`
 
-There *must always* be a single space after the commas in single-line media query lists.
+There _must always_ be a single space after the commas in single-line media query lists.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color),projection and (color) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color), projection and (color) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color)
 , projection and (color) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color)
 ,projection and (color) {}
@@ -94,25 +107,29 @@ The following patterns are *not* considered violations:
 
 ### `"never-single-line"`
 
-There *must never* be whitespace after the commas in single-line media query lists.
+There _must never_ be whitespace after the commas in single-line media query lists.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color), projection and (color) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color),projection and (color) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color)
 ,projection and (color) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media screen and (color)
 , projection and (color) {}

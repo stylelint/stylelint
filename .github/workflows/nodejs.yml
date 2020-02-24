@@ -14,107 +14,92 @@ env:
 
 jobs:
   lint:
-    name: Lint on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
+    name: Lint on Node.js ${{ matrix.node }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        node-version: [12]
+        node: [12]
         os: [ubuntu-latest]
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
 
-    - name: Install latest npm
-      run: npm install --global npm@latest
+      - name: Install latest npm
+        run: npm install --global npm@latest
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Lint
-      run: npm run pretest
+      - name: Lint
+        run: npm run pretest
 
   test:
-    name: Test on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
+    name: Test on Node.js ${{ matrix.node }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
 
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [8, 10, 12]
+        node: [10, 12]
         os: [ubuntu-latest, windows-latest, macos-latest]
         exclude:
           - os: ubuntu-latest
-            node-version: 12
+            node: 12
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
 
-    - name: Install latest npm
-      run: npm install --global npm@latest
+      - name: Install latest npm
+        run: npm install --global npm@latest
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    # Workaround until https://github.com/stylelint/stylelint/issues/4337 is fixed
-    - name: Test (Windows)
-      if: matrix.os == 'windows-latest'
-      run: |
-        cd ..
-        cd D:\a\stylelint\stylelint
-        npm run jest
-
-    - name: Test (Unix)
-      if: matrix.os != 'windows-latest'
-      run: npm run jest
+      - name: Test
+        run: npm run jest
 
   coverage:
-    name: Coverage on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
+    name: Coverage on Node.js ${{ matrix.node }} and ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        node-version: [12]
+        node: [12]
         os: [ubuntu-latest]
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
 
-    - name: Install latest npm
-      run: npm install --global npm@latest
+      - name: Install latest npm
+        run: npm install --global npm@latest
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Test with coverage
-      run: npm run jest -- --coverage
+      - name: Test with coverage
+        run: npm run jest -- --coverage
 
-    - name: Coveralls Parallel
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.github_token }}
-        parallel: true
-        path-to-lcov: ./.coverage/lcov.info
-
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.github_token }}
-        parallel-finished: true
+      - name: Run Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./.coverage/lcov.info

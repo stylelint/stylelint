@@ -2,6 +2,7 @@
 
 Require a newline after the semicolon of at-rules.
 
+<!-- prettier-ignore -->
 ```css
 @import url("x.css");
 @import url("y.css");
@@ -11,13 +12,14 @@ Require a newline after the semicolon of at-rules.
 
 This rule allows an end-of-line comment followed by a newline. For example:
 
+<!-- prettier-ignore -->
 ```css
 @import url("x.css"); /* end-of-line comment */
 
 a {}
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
@@ -25,30 +27,35 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 ### `"always"`
 
-There *must always* be a newline after the semicolon.
+There _must always_ be a newline after the semicolon.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @import url("x.css"); @import url("y.css");
 ```
 
+<!-- prettier-ignore -->
 ```css
 @import url("x.css"); a {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @import url("x.css");
 @import url("y.css");
 ```
 
+<!-- prettier-ignore -->
 ```css
 @import url("x.css"); /* end-of-line comment */
 a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @import url("x.css");
 

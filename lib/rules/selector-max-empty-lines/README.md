@@ -2,6 +2,7 @@
 
 Limit the number of adjacent empty lines within selectors.
 
+<!-- prettier-ignore -->
 ```css
 a,
               /* ← */
@@ -12,7 +13,7 @@ b {        /* ↑ */
  *        This empty line */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
@@ -22,6 +23,7 @@ For example, with `0`:
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a
 
@@ -30,6 +32,7 @@ b {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a,
 
@@ -38,6 +41,7 @@ b {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a
 
@@ -47,6 +51,7 @@ b {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a
 >
@@ -56,14 +61,16 @@ b {
 }
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 a b {
   color: red;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a
 b {
@@ -71,6 +78,7 @@ b {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a,
 b {
@@ -78,12 +86,14 @@ b {
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a > b {
   color: red;
 }
 ```
 
+<!-- prettier-ignore -->
 ```css
 a
 >

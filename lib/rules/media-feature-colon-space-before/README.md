@@ -2,13 +2,14 @@
 
 Require a single space or disallow whitespace before the colon in media features.
 
+<!-- prettier-ignore -->
 ```css
 @media (max-width :600px) {}
 /**               ↑
  * The space before this colon */
 ```
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
@@ -16,48 +17,56 @@ The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofix
 
 ### `"always"`
 
-There *must always* be a single space before the colon.
+There _must always_ be a single space before the colon.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media (max-width:600px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (max-width: 600px) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media (max-width :600px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (max-width : 600px) {}
 ```
 
 ### `"never"`
 
-There *must never* be whitespace before the colon.
+There _must never_ be whitespace before the colon.
 
 The following patterns are considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media (max-width :600px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (max-width : 600px) {}
 ```
 
-The following patterns are *not* considered violations:
+The following patterns are _not_ considered violations:
 
+<!-- prettier-ignore -->
 ```css
 @media (max-width:600px) {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 @media (max-width: 600px) {}
 ```
