@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 13.2.1
 
 - Fixed: `selector-pseudo-element-no-unknown` false positives for `::part` pseudo-element ([#4604](https://github.com/stylelint/stylelint/pull/4604)).
 - Fixed: `value-keyword-case` false positives for longhand `grid-column/row-*` properties ([#4611](https://github.com/stylelint/stylelint/pull/4611)).
