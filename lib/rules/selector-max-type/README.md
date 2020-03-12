@@ -75,8 +75,6 @@ a span {}
 div a .foo:not(span) {}
 ```
 
-The following patterns are _not_ considered violations:
-
 ## Optional secondary options
 
 ### `ignore: ["child", "compounded", "descendant", "next-sibling"]`
