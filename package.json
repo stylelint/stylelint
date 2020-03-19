@@ -70,7 +70,7 @@
     "postcss-media-query-parser": "^0.2.3",
     "postcss-reporter": "^6.0.1",
     "postcss-resolve-nested-selector": "^0.1.1",
-    "postcss-safe-parser": "^4.0.1",
+    "postcss-safe-parser": "^4.0.2",
     "postcss-sass": "^0.4.2",
     "postcss-scss": "^2.0.0",
     "postcss-selector-parser": "^6.0.2",
@@ -89,7 +89,7 @@
     "write-file-atomic": "^3.0.3"
   },
   "devDependencies": {
-    "@types/browserslist": "^4.4.0",
+    "@types/browserslist": "^4.8.0",
     "@types/debug": "^4.1.5",
     "@types/global-modules": "^2.0.0",
     "@types/globjoin": "^0.1.0",
@@ -101,7 +101,7 @@
     "eslint": "^6.8.0",
     "eslint-config-stylelint": "^11.1.0",
     "got": "^10.6.0",
-    "husky": "^4.2.1",
+    "husky": "^4.2.3",
     "jest": "^25.1.0",
     "jest-watch-typeahead": "^0.4.2",
     "lint-staged": "^10.0.8",
