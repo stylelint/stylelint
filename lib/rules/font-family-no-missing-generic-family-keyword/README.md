@@ -53,3 +53,14 @@ a { font: inherit; }
 ```css
 a { font: caption; }
 ```
+
+## Optional secondary options
+
+### `ignoreValues: ["custom-font"]`
+
+Ignore this rule for specific font names that would not have an appropriate generic font family to fall back to. Commonly, this would be used for icon fonts.
+
+<!-- prettier-ignore -->
+```css
+a { font-family: custom-font; }
+```
