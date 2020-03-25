@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `function-calc-no-invalid` false positives for SCSS and Less variables ([#4659](https://github.com/stylelint/stylelint/pull/4659)).
+
 ## 13.2.1
 
 - Fixed: `selector-pseudo-element-no-unknown` false positives for `::part` pseudo-element ([#4604](https://github.com/stylelint/stylelint/pull/4604)).
