@@ -56,9 +56,15 @@ a { font: caption; }
 
 ## Optional secondary options
 
-### `ignoreValues: ["custom-font"]`
+### `ignoreFontFamilies: : ["/regex/", /regex/, "string"]`
 
-Ignore this rule for specific font names that would not have an appropriate generic font family to fall back to. Commonly, this would be used for icon fonts.
+Given:
+
+```
+["custom-icon-font"]
+```
+
+The following pattern is not considered a violation:
 
 <!-- prettier-ignore -->
 ```css
