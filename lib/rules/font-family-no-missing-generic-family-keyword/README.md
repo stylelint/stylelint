@@ -64,7 +64,7 @@ Given:
 ["custom-icon-font"]
 ```
 
-The following pattern is not considered a violation:
+The following pattern is _not_ considered a violation:
 
 <!-- prettier-ignore -->
 ```css
