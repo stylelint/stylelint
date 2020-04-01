@@ -102,7 +102,7 @@
     "eslint-config-stylelint": "^11.1.0",
     "got": "^10.6.0",
     "husky": "^4.2.3",
-    "jest": "^25.1.0",
+    "jest": "^25.2.4",
     "jest-watch-typeahead": "^0.4.2",
     "lint-staged": "^10.0.8",
     "np": "^6.2.0",
