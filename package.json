@@ -39,7 +39,7 @@
     "!lib/testUtils"
   ],
   "dependencies": {
-    "autoprefixer": "^9.7.4",
+    "autoprefixer": "^9.7.5",
     "balanced-match": "^1.0.0",
     "chalk": "^3.0.0",
     "cosmiconfig": "^6.0.0",
