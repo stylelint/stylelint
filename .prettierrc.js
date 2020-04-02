@@ -3,6 +3,7 @@
 // https://prettier.io/docs/en/options.html
 module.exports = {
 	arrowParens: 'always',
+	endOfLine: 'lf',
 	printWidth: 100,
 	singleQuote: true,
 	trailingComma: 'all',
