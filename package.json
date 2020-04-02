@@ -89,6 +89,8 @@
     "write-file-atomic": "^3.0.3"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
     "@types/browserslist": "^4.8.0",
     "@types/debug": "^4.1.5",
     "@types/global-modules": "^2.0.0",
@@ -113,6 +115,7 @@
     "remark-preset-lint-recommended": "^4.0.0",
     "remark-preset-prettier": "^0.4.0",
     "remark-validate-links": "^10.0.0",
+    "semantic-release": "^17.0.4",
     "typescript": "^3.8.3"
   },
   "scripts": {
