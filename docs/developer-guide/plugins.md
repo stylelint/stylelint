@@ -21,11 +21,11 @@ const messages = stylelint.utils.ruleMessages(ruleName, {
   expected: "Expected ..."
 });
 
-module.exports = stylelint.createPlugin(ruleName, function(
+module.exports = stylelint.createPlugin(ruleName, function (
   primaryOption,
   secondaryOptionObject
 ) {
-  return function(postcssRoot, postcssResult) {
+  return function (postcssRoot, postcssResult) {
     const validOptions = stylelint.utils.validateOptions(
       postcssResult,
       ruleName,
@@ -80,11 +80,11 @@ const messages = stylelint.utils.ruleMessages(ruleName, {
   expected: "Expected ..."
 });
 
-module.exports = stylelint.createPlugin(ruleName, function(
+module.exports = stylelint.createPlugin(ruleName, function (
   primaryOption,
   secondaryOptionObject
 ) {
-  return function(postcssRoot, postcssResult) {
+  return function (postcssRoot, postcssResult) {
     const validOptions = stylelint.utils.validateOptions(
       postcssResult,
       ruleName,
@@ -97,9 +97,9 @@ module.exports = stylelint.createPlugin(ruleName, function(
       return;
     }
 
-    return new Promise(function(resolve) {
+    return new Promise(function (resolve) {
       // some async operation
-      setTimeout(function() {
+      setTimeout(function () {
         // ... some logic ...
         stylelint.utils.report({
           /* .. */
@@ -152,7 +152,7 @@ const allowableAtRules = [
 ];
 
 function myPluginRule(primaryOption, secondaryOptionObject) {
-  return function(postcssRoot, postcssResult) {
+  return function (postcssRoot, postcssResult) {
     const defaultedOptions = Object.assign({}, secondaryOptionObject, {
       ignoreAtRules: allowableAtRules.concat(options.ignoreAtRules || [])
     });
@@ -189,7 +189,7 @@ All rules share a common signature. They are a function that accepts two argumen
 Here's an example of a plugin that runs `color-hex-case` only if there is a special directive `@@check-color-hex-case` somewhere in the stylesheet:
 
 ```js
-module.exports = stylelint.createPlugin(ruleName, function(expectation) {
+module.exports = stylelint.createPlugin(ruleName, function (expectation) {
   const runColorHexCase = stylelint.rules["color-hex-case"](expectation);
 
   return (root, result) => {
