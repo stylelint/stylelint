@@ -3,7 +3,7 @@
 The stylelint module includes a `lint()` function that provides the Node.js API.
 
 ```js
-stylelint.lint(options).then(function(resultObject) {
+stylelint.lint(options).then(function (resultObject) {
   /* .. */
 });
 ```
@@ -91,11 +91,11 @@ stylelint
     config: { rules: "color-no-invalid-hex" },
     files: "all/my/stylesheets/*.css"
   })
-  .then(function(data) {
+  .then(function (data) {
     // do things with data.output, data.errored,
     // and data.results
   })
-  .catch(function(err) {
+  .catch(function (err) {
     // do things with err e.g.
     console.error(err.stack);
   });
@@ -112,7 +112,7 @@ stylelint
     configBasedir: path.join(__dirname, "configs"),
     files: "all/my/stylesheets/*.css"
   })
-  .then(function() {
+  .then(function () {
     /* .. */
   });
 ```
@@ -128,7 +128,7 @@ stylelint
     config: myConfig,
     formatter: "verbose"
   })
-  .then(function() {
+  .then(function () {
     /* .. */
   });
 ```
@@ -142,11 +142,11 @@ stylelint
   .lint({
     config: myConfig,
     files: "all/my/stylesheets/*.scss",
-    formatter: function(stylelintResults) {
+    formatter: function (stylelintResults) {
       /* .. */
     }
   })
-  .then(function() {
+  .then(function () {
     /* .. */
   });
 ```

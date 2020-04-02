@@ -11,13 +11,13 @@ Processor modules are functions that accept an options object and return an obje
 
 ```js
 // my-processor.js
-module.exports = function(options) {
+module.exports = function (options) {
   return {
-    code: function(input, filepath) {
+    code: function (input, filepath) {
       // ...
       return transformedCode;
     },
-    result: function(stylelintResult, filepath) {
+    result: function (stylelintResult, filepath) {
       // ...
       return transformedResult;
     }
