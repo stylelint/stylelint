@@ -53,3 +53,27 @@ a { font: inherit; }
 ```css
 a { font: caption; }
 ```
+
+## Optional secondary options
+
+### `ignoreFontFamilies: ["/regex/", /regex/, "string"]`
+
+Given:
+
+```
+["custom-font"]
+```
+
+The following pattern is _not_ considered a violation:
+
+<!-- prettier-ignore -->
+```css
+a { font-family: custom-font; }
+```
+
+The following pattern is considered a violation:
+
+<!-- prettier-ignore -->
+```css
+a { font-family: invalid-custom-font; }
+```
