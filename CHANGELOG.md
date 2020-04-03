@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file.
 
 - Added: `ignoreFontFamilies: []` to `font-family-no-missing-generic-family-keyword` ([#4656](https://github.com/stylelint/stylelint/pull/4656)).
 - Fixed: `function-calc-no-invalid` false positives for SCSS and Less variables ([#4659](https://github.com/stylelint/stylelint/pull/4659)).
+- Fixed: `unit-no-unknown` false positives for `x` unit within vendor-prefixed `image-set` ([#4654](https://github.com/stylelint/stylelint/pull/4654)).
 
 ## 13.2.1
 
