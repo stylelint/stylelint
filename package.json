@@ -250,14 +250,7 @@
   },
   "remarkConfig": {
     "plugins": [
-      "preset-lint-recommended",
-      "remark-preset-prettier",
-      [
-        "validate-links",
-        {
-          "repository": "stylelint/stylelint"
-        }
-      ]
+      "preset-lint-stylelint"
     ]
   }
 }
