@@ -71,7 +71,7 @@
     "postcss-reporter": "^6.0.1",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^4.0.2",
-    "postcss-sass": "^0.4.2",
+    "postcss-sass": "^0.4.4",
     "postcss-scss": "^2.0.0",
     "postcss-selector-parser": "^6.0.2",
     "postcss-syntax": "^0.36.2",
