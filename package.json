@@ -39,6 +39,8 @@
     "!lib/testUtils"
   ],
   "dependencies": {
+    "@stylelint/postcss-css-in-js": "^0.37.0",
+    "@stylelint/postcss-markdown": "^0.36.1",
     "autoprefixer": "^9.7.5",
     "balanced-match": "^1.0.0",
     "chalk": "^4.0.0",
@@ -64,9 +66,7 @@
     "normalize-selector": "^0.2.0",
     "postcss": "^7.0.27",
     "postcss-html": "^0.36.0",
-    "postcss-jsx": "^0.36.4",
     "postcss-less": "^3.1.4",
-    "postcss-markdown": "^0.36.0",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-reporter": "^6.0.1",
     "postcss-resolve-nested-selector": "^0.1.1",
