@@ -2,6 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: babel configuration conflict when using TypeScript ([postcss-css-in-js/#2](https://github.com/stylelint/postcss-css-in-js/pull/2)).
+- Fixed: autofix for nested tagged template literals ([#4119](https://github.com/stylelint/stylelint/pull/4119)).
+
 ## 13.3.0
 
 - Added: `ignoreFontFamilies: []` to `font-family-no-missing-generic-family-keyword` ([#4656](https://github.com/stylelint/stylelint/pull/4656)).
