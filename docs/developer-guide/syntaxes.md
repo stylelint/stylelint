@@ -24,7 +24,7 @@ Fixing bugs in syntaxes can take time. stylelint can work around these bug by tu
 
 stylelint currently turns off autofix for sources that contain:
 
-- nested tagged template literals ([issue #4119](https://github.com/stylelint/stylelint/issues/4119))
+- ~~nested tagged template literals ([issue #4119](https://github.com/stylelint/stylelint/issues/4119))~~
 
 ### Add a workaround
 
