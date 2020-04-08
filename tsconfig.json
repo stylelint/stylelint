@@ -11,9 +11,18 @@
 		"alwaysStrict": true,
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
-		"typeRoots": ["./types", "./node_modules/@types"]
+		"typeRoots": [
+			"./types",
+			"./node_modules/@types"
+		]
 	},
-	"include": ["lib/**/*.js", "lib/reference", "lib/formatters", "types", "package.json"],
+	"include": [
+		"lib/**/*.js",
+		"lib/reference",
+		"lib/formatters",
+		"types",
+		"package.json"
+	],
 	"exclude": [
 		"lib/utils/parseCalcExpression",
 		"lib/testUtils",

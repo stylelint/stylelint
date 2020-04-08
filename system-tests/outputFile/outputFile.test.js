@@ -40,7 +40,7 @@ describe('outputFile', () => {
 				],
 				{
 					cwd: localPath,
-				}
+				},
 			);
 
 			let stdout = '';

@@ -9,7 +9,7 @@ declare function searchFn(
 		functionArguments?: 'skip' | 'check' | 'only';
 		parentheticals?: 'skip' | 'check' | 'only';
 	},
-	callback: (param: { startIndex: number; endIndex: number }) => void
+	callback: (param: { startIndex: number; endIndex: number }) => void,
 ): void;
 
 declare module 'style-search' {

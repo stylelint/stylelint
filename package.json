@@ -43,7 +43,7 @@
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc",
     "release": "np",
-    "pretest": "npm run lint",
+    "pretest": "lint",
     "test": "jest --coverage",
     "watch": "jest --watch"
   },

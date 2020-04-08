@@ -1,6 +1,8 @@
 {
-	"plugins": ["./plugin-warn-about-foo"],
-	"rules": {
-		"plugin/warn-about-foo": "always"
-	}
+  "plugins": [
+    "./plugin-warn-about-foo"
+  ],
+  "rules": {
+    "plugin/warn-about-foo": "always"
+  }
 }

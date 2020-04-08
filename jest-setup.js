@@ -85,7 +85,7 @@ global.testRule = (rule, schema) => {
 				// Check that --fix doesn't change code
 				if (schema.fix && !testCase.fixed && testCase.fixed !== '' && !testCase.unfixable) {
 					throw new Error(
-						'If using { fix: true } in test schema, all reject cases must have { fixed: .. }'
+						'If using { fix: true } in test schema, all reject cases must have { fixed: .. }',
 					);
 				}
 
@@ -112,7 +112,7 @@ global.testRule = (rule, schema) => {
 				});
 
 				expect(outputAfterLintOnFixedCode.results[0].warnings).toEqual(
-					outputAfterFix.results[0].warnings
+					outputAfterFix.results[0].warnings,
 				);
 				expect(outputAfterLintOnFixedCode.results[0].parseErrors).toEqual([]);
 			},
