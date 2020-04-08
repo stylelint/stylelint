@@ -28,29 +28,31 @@ describe('outputFile', () => {
 		del(directionPath, { force: true });
 	});
 
-	it('writes the result file ', (done) => {
-		const childProcess = spawn(
-			'node',
-			[
-				cliPath,
-				replaceBackslashes(`${localPath}/*.css`),
-				'--config=config.json',
-				`--output-file=${directionPath}`,
-			],
-			{
-				cwd: localPath,
-			},
-		);
+	it('writes the result file ', () => {
+		return new Promise((done) => {
+			const childProcess = spawn(
+				'node',
+				[
+					cliPath,
+					replaceBackslashes(`${localPath}/*.css`),
+					'--config=config.json',
+					`--output-file=${directionPath}`,
+				],
+				{
+					cwd: localPath,
+				},
+			);
 
-		let stdout = '';
+			let stdout = '';
 
-		childProcess.stdout.on('data', (data) => (stdout += data));
+			childProcess.stdout.on('data', (data) => (stdout += data));
 
-		childProcess.on('close', () => {
-			return readFileAsync(directionPath, 'utf-8').then((content) => {
-				expect(content).toEqual(systemTestUtils.stripColors(stdout));
-				expect(content.replace('×', '✖')).toMatchSnapshot();
-				done();
+			childProcess.on('close', () => {
+				return readFileAsync(directionPath, 'utf-8').then((content) => {
+					expect(content).toEqual(systemTestUtils.stripColors(stdout));
+					expect(content.replace('×', '✖')).toMatchSnapshot();
+					done();
+				});
 			});
 		});
 	});
