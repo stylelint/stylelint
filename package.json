@@ -43,7 +43,7 @@
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc",
     "release": "np",
-    "pretest": "lint",
+    "pretest": "npm run lint",
     "test": "jest --coverage",
     "watch": "jest --watch"
   },
@@ -156,7 +156,7 @@
     "write-file-atomic": "^3.0.3"
   },
   "devDependencies": {
-    "@stylelint/prettier-config": "^1.0.1",
+    "@stylelint/prettier-config": "^2.0.0",
     "@stylelint/remark-preset": "^1.0.0",
     "@types/browserslist": "^4.8.0",
     "@types/debug": "^4.1.5",
