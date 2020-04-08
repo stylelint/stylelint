@@ -1,6 +1,6 @@
 {
-  "rules": {
-    "block-no-empty": true,
-    "no-empty-source": true
-  }
+	"rules": {
+		"block-no-empty": true,
+		"no-empty-source": true
+	}
 }

@@ -26,7 +26,7 @@ describe('CLI', () => {
 
 		expect(console.log).toHaveBeenCalledTimes(1);
 		expect(console.log).toHaveBeenCalledWith(
-			expect.stringContaining('Usage: stylelint [input] [options]'),
+			expect.stringContaining('Usage: stylelint [input] [options]')
 		);
 	});
 
@@ -68,8 +68,8 @@ describe('CLI', () => {
 					},
 				},
 				null,
-				'  ',
-			),
+				'  '
+			)
 		);
 	});
 
@@ -86,11 +86,11 @@ describe('CLI', () => {
 		expect(process.stdout.write).toHaveBeenCalledTimes(2);
 		expect(process.stdout.write).toHaveBeenNthCalledWith(
 			1,
-			expect.stringContaining('unused rule: color-named'),
+			expect.stringContaining('unused rule: color-named')
 		);
 		expect(process.stdout.write).toHaveBeenNthCalledWith(
 			2,
-			expect.stringContaining('Unexpected empty block'),
+			expect.stringContaining('Unexpected empty block')
 		);
 	});
 
@@ -102,7 +102,7 @@ describe('CLI', () => {
 		expect(process.stdout.write).toHaveBeenCalledTimes(1);
 		expect(process.stdout.write).toHaveBeenNthCalledWith(
 			1,
-			expect.stringContaining('Unexpected empty source'),
+			expect.stringContaining('Unexpected empty source')
 		);
 	});
 });
