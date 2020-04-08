@@ -1,4 +1,4 @@
 {
-  "ignoreFiles": "**/empty-block.css",
-  "extends": "./config-block-no-empty"
+	"ignoreFiles": "**/empty-block.css",
+	"extends": "./config-block-no-empty"
 }

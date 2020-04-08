@@ -1,5 +1,5 @@
 {
-  "rules": {
-    "string-quotes": "single"
-  }
+	"rules": {
+		"string-quotes": "single"
+	}
 }

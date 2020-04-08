@@ -1,4 +1,4 @@
 rules:
   color-named:
-    - "never"
-    - message: "Unacceptable"
+    - 'never'
+    - message: 'Unacceptable'
