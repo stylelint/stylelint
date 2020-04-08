@@ -60,7 +60,7 @@ We use [Prettier](https://prettier.io/) (with [a Husky and lint-staged precommit
 
 Alternatively, you can:
 
-- trigger the pretty-printing all the files using `npm run prettier:fix`
+- trigger the pretty-printing all the files using `npm run format`
 - use a [Prettier editor integration](https://prettier.io/docs/en/editors.html)
 
 ### Open a pull request
