@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 13.3.1
 
 - Fixed: babel configuration conflict when using TypeScript ([postcss-css-in-js/#2](https://github.com/stylelint/postcss-css-in-js/pull/2)).
 - Fixed: autofix for nested tagged template literals ([#4119](https://github.com/stylelint/stylelint/pull/4119)).
