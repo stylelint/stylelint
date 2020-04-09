@@ -81,19 +81,16 @@ And the second argument (`returnValue`) is an object with one or more of the fol
 
 ## Passing arguments
 
-To pass arguments, you can:
-
-- use environmental variables
-- pipe the output from the JSON formatter into another program
-
-For example:
+You can use environmental variables in your formatter. For example, pass `SKIP_WARNINGS`:
 
 ```console
 SKIP_WARNINGS=true stylelint "*.css" --custom-formatter ./my-formatter.js
 ```
 
+Alternatively, you can create a separate formatting program and pipe the output from the built-in JSON formatter into it:
+
 ```console
-stylelint -f json "*.css" | your-program-that-reads-JSON --option
+stylelint -f json "*.css" | my-program-that-reads-JSON --option
 ```
 
 ## `stylelint.formatters`
