@@ -1,5 +1,5 @@
 {
-  "rules": {
-    "comment-no-empty": true
-  }
+	"rules": {
+		"comment-no-empty": true
+	}
 }

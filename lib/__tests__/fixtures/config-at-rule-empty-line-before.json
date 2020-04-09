@@ -1,7 +1,10 @@
 {
-  "rules": {
-    "at-rule-empty-line-before": ["always", {
-      "except": ["blockless-after-blockless", "inside-block"]
-    }]
-  }
+	"rules": {
+		"at-rule-empty-line-before": [
+			"always",
+			{
+				"except": ["blockless-after-blockless", "inside-block"]
+			}
+		]
+	}
 }

@@ -8,25 +8,27 @@ const { replaceBackslashes } = require('../systemTestUtils');
 // when there is a runtime error in configuration javascript file
 // https://github.com/stylelint/stylelint/issues/2115
 
-it('004', (done) => {
-	const localPath = replaceBackslashes(path.resolve(__dirname));
-	const cliPath = path.join(localPath, '../../bin/stylelint.js');
+it('004', () => {
+	return new Promise((done) => {
+		const localPath = replaceBackslashes(path.resolve(__dirname));
+		const cliPath = path.join(localPath, '../../bin/stylelint.js');
 
-	const cliProcess = spawn('node', [cliPath, `${localPath}/*.css`], {
-		cwd: localPath,
-	});
+		const cliProcess = spawn('node', [cliPath, `${localPath}/*.css`], {
+			cwd: localPath,
+		});
 
-	cliProcess.on('error', (error) => {
-		console.log('error running cli:', error); // eslint-disable-line no-console
-	});
+		cliProcess.on('error', (error) => {
+			console.log('error running cli:', error); // eslint-disable-line no-console
+		});
 
-	let stdout = '';
+		let stdout = '';
 
-	cliProcess.stdout.on('data', (data) => (stdout += data));
+		cliProcess.stdout.on('data', (data) => (stdout += data));
 
-	cliProcess.on('close', (code) => {
-		expect(stdout.includes('Cannot find module')).toBeTruthy();
-		expect(code).not.toEqual(0);
-		done();
+		cliProcess.on('close', (code) => {
+			expect(stdout.includes('Cannot find module')).toBeTruthy();
+			expect(code).not.toEqual(0);
+			done();
+		});
 	});
 });

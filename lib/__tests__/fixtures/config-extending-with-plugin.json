@@ -1,6 +1,3 @@
 {
-  "extends": [
-    "./config-extending-two",
-    "./config-relative-plugin"
-  ]
+	"extends": ["./config-extending-two", "./config-relative-plugin"]
 }
