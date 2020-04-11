@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: update postcss-css-in-js with fix for maximum call stack size exceeded error ([#4701](https://github.com/stylelint/stylelint/pull/4701)).
+
 ## 13.3.1
 
 - Fixed: babel configuration conflict when using TypeScript ([postcss-css-in-js/#2](https://github.com/stylelint/postcss-css-in-js/pull/2)).
