@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 13.3.2
 
 - Fixed: update postcss-css-in-js with fix for maximum call stack size exceeded error ([#4701](https://github.com/stylelint/stylelint/pull/4701)).
 
