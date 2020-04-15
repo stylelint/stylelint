@@ -173,6 +173,53 @@ describe('fix', () => {
 				expect(result.output).toBe(code);
 			});
 	});
+
+	it("doesn't fix with scoped stylelint-disable commands", () => {
+		const code = `
+		/* stylelint-disable indentation */
+		a {
+			color: red;
+		}
+		`;
+
+		return stylelint
+			.lint({
+				code,
+				config: {
+					rules: {
+						indentation: 2,
+					},
+				},
+				fix: true,
+			})
+			.then((result) => {
+				expect(result.output).toBe(code);
+			});
+	});
+
+	it("doesn't fix with multiple scoped stylelint-disable commands", () => {
+		const code = `
+		/* stylelint-disable indentation, color-hex-length */
+		a {
+			color: #ffffff;
+		}
+		`;
+
+		return stylelint
+			.lint({
+				code,
+				config: {
+					rules: {
+						indentation: 2,
+						'color-hex-length': 'short',
+					},
+				},
+				fix: true,
+			})
+			.then((result) => {
+				expect(result.output).toBe(code);
+			});
+	});
 });
 
 describe('fix with BOM', () => {
