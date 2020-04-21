@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: autofix will respect scoped disable comments by turning off autofix for the scoped rules for the entire source; this is a continuation of the workaround added in `13.2.0` ([#4705](https://github.com/stylelint/stylelint/pull/4705)).
+
 ## 13.3.2
 
 - Fixed: update postcss-css-in-js with fix for maximum call stack size exceeded error ([#4701](https://github.com/stylelint/stylelint/pull/4701)).
