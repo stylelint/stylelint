@@ -30,7 +30,12 @@ Automatically fix, where possible, violations reported by rules.
 
 For CSS with standard syntax, stylelint uses [postcss-safe-parser](https://github.com/postcss/postcss-safe-parser) to fix syntax errors.
 
-_`fix` is an experimental feature that currently ignores sources with [`/* stylelint-disable */` comments](../ignore-code.md)._
+If a source contains a:
+
+- scoped disable comment, e.g. `/* stylelint-disable indentation */`, any violations reported by the scoped rules will not be automatically fixed anywhere in the source
+- unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of source will not be automatically fixed
+
+This limitation in being tracked in [issue #2643](https://github.com/stylelint/stylelint/issues/2643).
 
 ## `formatter`
 

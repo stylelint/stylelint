@@ -5,6 +5,7 @@ const del = require('del');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
+const stripIndent = require('common-tags').stripIndent;
 const stylelint = require('../../lib');
 const systemTestUtils = require('../systemTestUtils');
 const { promisify } = require('util');
@@ -171,6 +172,107 @@ describe('fix', () => {
 			})
 			.then((result) => {
 				expect(result.output).toBe(code);
+			});
+	});
+
+	it("doesn't fix with scoped stylelint-disable commands", () => {
+		const code = `
+		/* stylelint-disable indentation */
+		a {
+			color: red;
+		}
+		`;
+
+		return stylelint
+			.lint({
+				code,
+				config: {
+					rules: {
+						indentation: 2,
+					},
+				},
+				fix: true,
+			})
+			.then((result) => {
+				expect(result.output).toBe(code);
+			});
+	});
+
+	it("doesn't fix with multiple scoped stylelint-disable commands", () => {
+		const code = `
+		/* stylelint-disable indentation, color-hex-length */
+		a {
+			color: #ffffff;
+		}
+		`;
+
+		return stylelint
+			.lint({
+				code,
+				config: {
+					rules: {
+						indentation: 2,
+						'color-hex-length': 'short',
+					},
+				},
+				fix: true,
+			})
+			.then((result) => {
+				expect(result.output).toBe(code);
+			});
+	});
+
+	it("the color-hex-length rule doesn't fix with scoped stylelint-disable commands", () => {
+		return stylelint
+			.lint({
+				code: stripIndent`
+					/* stylelint-disable color-hex-length */
+					a {
+					color: #ffffff;
+					}
+					`,
+				config: {
+					rules: {
+						indentation: 2,
+						'color-hex-length': 'short',
+					},
+				},
+				fix: true,
+			})
+			.then((result) => {
+				expect(result.output).toBe(stripIndent`
+					/* stylelint-disable color-hex-length */
+					a {
+					  color: #ffffff;
+					}
+					`);
+			});
+	});
+
+	it("the indentation rule doesn't fix with scoped stylelint-disable commands", () => {
+		return stylelint
+			.lint({
+				code: stripIndent`
+					/* stylelint-disable indentation */
+					a {
+					color: #ffffff;
+					}
+					`,
+				config: {
+					rules: {
+						indentation: 2,
+						'color-hex-length': 'short',
+					},
+				},
+				fix: true,
+			})
+			.then((result) => {
+				expect(result.output).toBe(stripIndent`
+					/* stylelint-disable indentation */
+					a {
+					color: #fff;
+					}
+					`);
 			});
 	});
 });
