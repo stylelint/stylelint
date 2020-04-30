@@ -13,12 +13,6 @@
 		"resolveJsonModule": true,
 		"typeRoots": ["./types", "./node_modules/@types"]
 	},
-	"include": ["lib/**/*.js", "lib/reference", "lib/formatters", "types", "package.json"],
-	"exclude": [
-		"lib/utils/parseCalcExpression",
-		"lib/testUtils",
-		"lib/rules",
-		"**/*.test.js",
-		"**/__tests__"
-	]
+	"include": ["lib", "types", "package.json"],
+	"exclude": ["lib/testUtils", "**/*.test.js", "**/__tests__"]
 }
