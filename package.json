@@ -35,6 +35,7 @@
   ],
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
+    "bundle": "browserify bin/stylelint-umd.js --standalone stylelint | terser --compress --mangle -o dist/stylelint-umd.js",
     "format": "prettier . --write",
     "jest": "jest",
     "lint": "npm-run-all --parallel lint:*",
@@ -169,6 +170,7 @@
     "@types/lodash": "^4.14.154",
     "@types/micromatch": "^4.0.1",
     "benchmark": "^2.1.4",
+    "browserify": "^16.5.1",
     "common-tags": "^1.8.0",
     "del": "^5.1.0",
     "eslint": "^7.0.0",
@@ -185,6 +187,7 @@
     "postcss-import": "^12.0.1",
     "prettier": "^2.0.5",
     "remark-cli": "^8.0.0",
+    "terser": "^4.6.13",
     "typescript": "^3.9.2"
   },
   "engines": {
