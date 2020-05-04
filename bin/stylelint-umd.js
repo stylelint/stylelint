@@ -10,12 +10,14 @@ const normalizeRuleSettings = require('../lib/normalizeRuleSettings');
 
 const postcssProcessor = postcss();
 
-async function lint(text, config) {
+async function lint(text, config, parser = null) {
+	const syntax = parser || {
+		parse: postcss.parse,
+		stringify: postcss.stringify,
+	};
+
 	const postcssOptions = {
-		syntax: {
-			parse: postcss.parse,
-			stringify: postcss.stringify,
-		},
+		syntax,
 		from: undefined,
 	};
 
