@@ -83,6 +83,11 @@ a {color: #FFF; }
 				/* Load cached or remote syntax parser */
 				function setSyntax(event) {
 					selectedSyntax = event.target.value === 'css' ? null : event.target.value;
+					if (selectedSyntax === null) {
+						lint();
+						return;
+					}
+
 					if (syntaxCache[selectedSyntax]) {
 						lint();
 					} else {
