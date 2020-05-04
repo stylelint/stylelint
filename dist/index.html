@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<script>
+			/* Use loadJS to load syntax parsers on demand. See https://github.com/filamentgroup/loadJS */
+			/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
+			(function (w) {
+				var loadJS = function (src, cb, ordered) {
+					'use strict';
+					var tmp;
+					var ref = w.document.getElementsByTagName('script')[0];
+					var script = w.document.createElement('script');
+
+					if (typeof cb === 'boolean') {
+						tmp = ordered;
+						ordered = cb;
+						cb = tmp;
+					}
+
+					script.src = src;
+					script.async = !ordered;
+					ref.parentNode.insertBefore(script, ref);
+
+					if (cb && typeof cb === 'function') {
+						script.onload = cb;
+					}
+					return script;
+				};
+				// commonjs
+				if (typeof module !== 'undefined') {
+					module.exports = loadJS;
+				} else {
+					w.loadJS = loadJS;
+				}
+			})(typeof global !== 'undefined' ? global : this);
+		</script>
+
+		<script src="./stylelint.js"></script>
+	</head>
+	<body>
+		<h1>stylelint</h1>
+		<p>Edit code or config to see updated results</p>
+		<label for="syntax">Select syntax:</label>
+		<select name="syntax" id="syntax">
+			<option value="css">css</option>
+			<option value="syntaxCssInJs">css-in-js</option>
+			<option value="syntaxHtml">html</option>
+			<option value="syntaxLess">less</option>
+			<option value="syntaxMarkdown">markdown</option>
+			<option value="syntaxSass">sass</option>
+			<option value="syntaxScss">scss</option>
+			<option value="syntaxSugarss">sugarss</option>
+		</select>
+		<h2>code</h2>
+		<textarea id="code" style="width: 100%; height: 200px;">
+a {color: #FFF; }
+		</textarea
+		>
+		<h2>config</h2>
+		<textarea id="config" style="width: 100%; height: 200px;">
+{
+	"rules": {
+		"color-hex-length": "long",
+		"at-rule-no-vendor-prefix": true
+	}
+}
+		</textarea
+		>
+		<h2>results</h2>
+		<code id="results" style="white-space: pre;"></code>
+		<script>
+			async function main() {
+				const syntaxEl = document.querySelector('#syntax');
+				const codeEl = document.querySelector('#code');
+				const configEl = document.querySelector('#config');
+				const resultsEl = document.querySelector('#results');
+				let syntaxCache = {};
+				let selectedSyntax;
+
+				syntaxEl.addEventListener('change', setSyntax);
+				codeEl.addEventListener('keyup', lint);
+				configEl.addEventListener('keyup', lint);
+
+				/* Load cached or remote syntax parser */
+				function setSyntax(event) {
+					selectedSyntax = event.target.value === 'css' ? null : event.target.value;
+					if (syntaxCache[selectedSyntax]) {
+						lint();
+					} else {
+						resultsEl.textContent = `Loading parser for: ${selectedSyntax}`;
+						loadJS(`./${selectedSyntax}.js`, () => {
+							syntaxCache[selectedSyntax] = window[selectedSyntax];
+							lint();
+						});
+					}
+				}
+
+				async function lint() {
+					try {
+						const results = await stylelint(
+							codeEl.value,
+							JSON.parse(`[${configEl.value}]`)[0],
+							syntaxCache[selectedSyntax],
+						);
+						resultsEl.textContent = JSON.stringify(JSON.parse(results), null, 4);
+					} catch (error) {
+						resultsEl.textContent = error;
+					}
+				}
+
+				lint();
+			}
+
+			main();
+		</script>
+	</body>
+</html>
