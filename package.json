@@ -37,6 +37,7 @@
     "benchmark-rule": "node scripts/benchmark-rule.js",
     "bundle": "browserify bin/stylelint-umd.js --standalone stylelint | terser --compress --mangle -o dist/stylelint.js",
     "bundle:syntaxes": "node scripts/bundle-syntaxes.js",
+    "bundle:with-stats": "browserify ~/d/stylelint/stylelint/bin/stylelint-umd.js --standalone stylelint --full-paths | discify --open",
     "format": "prettier . --write",
     "jest": "jest",
     "lint": "npm-run-all --parallel lint:*",
