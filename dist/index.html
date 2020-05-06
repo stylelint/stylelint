@@ -101,12 +101,13 @@ a {color: #FFF; }
 
 				async function lint() {
 					try {
-						const results = await stylelint(
-							codeEl.value,
-							JSON.parse(`[${configEl.value}]`)[0],
-							syntaxCache[selectedSyntax],
-						);
-						resultsEl.textContent = JSON.stringify(JSON.parse(results), null, 4);
+						const options = {
+							code: codeEl.value,
+							config: JSON.parse(`[${configEl.value}]`)[0],
+							syntax: syntaxCache[selectedSyntax],
+						};
+						const results = await stylelint(options);
+						resultsEl.textContent = JSON.stringify(results, null, 4);
 					} catch (error) {
 						resultsEl.textContent = error;
 					}
