@@ -12,3 +12,4 @@
 lib/utils/parseCalcExpression/parser.js
 scripts/**/*.css
 system-tests/**/*.css
+system-tests/**/*.scss
