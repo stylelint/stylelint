@@ -162,7 +162,7 @@
     "@types/debug": "^4.1.5",
     "@types/global-modules": "^2.0.0",
     "@types/globjoin": "^0.1.0",
-    "@types/lodash": "^4.14.149",
+    "@types/lodash": "^4.14.150",
     "@types/micromatch": "^4.0.1",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
