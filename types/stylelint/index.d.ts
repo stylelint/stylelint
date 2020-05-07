@@ -132,6 +132,10 @@ declare module 'stylelint' {
 		lintSource: Function;
 	};
 
+	export type Formatter = (results: Array<StylelintResult>) => string;
+
+	export type FormatterIdentifier = 'compact' | 'json' | 'string' | 'unix' | 'verbose' | Formatter;
+
 	export type StylelintStandaloneOptions = {
 		files?: string | Array<string>;
 		globbyOptions?: Object;
@@ -152,7 +156,7 @@ declare module 'stylelint' {
 		maxWarnings?: number;
 		syntax?: string;
 		customSyntax?: string;
-		formatter?: 'compact' | 'json' | 'string' | 'unix' | 'verbose' | Function;
+		formatter?: FormatterIdentifier;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean;
 		allowEmptyInput?: boolean;
