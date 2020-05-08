@@ -1,6 +1,7 @@
 .coverage
 lib/vendor
 lib/utils/parseCalcExpression/parser.js
+dist
 
 # Unignore config files like .prettierrc.js, because they're ignored by default
 !.*rc.js

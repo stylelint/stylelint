@@ -10,6 +10,7 @@
 **/fixtures/**/*.vue
 **/fixtures/**/*.html
 **/fixtures/**/*.markdown
+dist
 lib/utils/parseCalcExpression/parser.js
 scripts/**/*.css
 system-tests/**/*.css
