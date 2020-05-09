@@ -91,10 +91,6 @@
         "statements": 75
       }
     },
-    "moduleNameMapper": {
-      "^stylelint$": "<rootDir>/lib/index.js"
-    },
-    "preset": "jest-preset-stylelint",
     "roots": [
       "lib",
       "system-tests"
