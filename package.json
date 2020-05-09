@@ -100,9 +100,6 @@
       "lib",
       "system-tests"
     ],
-    "setupFiles": [
-      "./jest-setup.js"
-    ],
     "testEnvironment": "node",
     "testRegex": ".*\\.test\\.js$|rules/.*/__tests__/.*\\.js$",
     "watchPlugins": [
