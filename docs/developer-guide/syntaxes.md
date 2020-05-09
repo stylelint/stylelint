@@ -31,5 +31,5 @@ stylelint currently turns off autofix for sources that contain:
 To add a new workaround, you should:
 
 1. Add code to [`lib/lintSource.js`](https://github.com/stylelint/stylelint/blob/master/lib/lintSource.js) to detect the incompatible pattern.
-2. Add a corresponding test to [`system-tests/fix/fix.test.js`](https://github.com/stylelint/stylelint/blob/master/system-tests/fix/fix.test.js).
+2. Add a corresponding test to [`lib/__tests__/standalone-fix.test.js`](https://github.com/stylelint/stylelint/blob/master/lib/__tests__/standalone-fix.test.js).
 3. Document the workaround in [`docs/developer-guides/syntaxes.md`](https://github.com/stylelint/stylelint/blob/master/docs/developer-guide/syntaxes.md).

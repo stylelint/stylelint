@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`no-fs - zen garden CSS with standard config 1`] = `
+Object {
+  "errored": true,
+  "output": Array [
+    Object {
+      "deprecations": Array [],
+      "errored": true,
+      "invalidOptionWarnings": Array [],
+      "parseErrors": Array [],
+      "warnings": Array [
+        Object {
+          "column": 25,
+          "line": 102,
+          "rule": "font-family-no-missing-generic-family-keyword",
+          "severity": "error",
+          "text": "Unexpected missing generic font family (font-family-no-missing-generic-family-keyword)",
+        },
+      ],
+    },
+  ],
+  "results": Array [
+    Object {
+      "deprecations": Array [],
+      "errored": true,
+      "ignored": undefined,
+      "invalidOptionWarnings": Array [],
+      "parseErrors": Array [],
+      "warnings": Array [
+        Object {
+          "column": 25,
+          "line": 102,
+          "rule": "font-family-no-missing-generic-family-keyword",
+          "severity": "error",
+          "text": "Unexpected missing generic font family (font-family-no-missing-generic-family-keyword)",
+        },
+      ],
+    },
+  ],
+}
+`;
