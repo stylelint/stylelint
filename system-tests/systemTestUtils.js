@@ -48,10 +48,11 @@ function prepForSnapshot({ results, output, ...rest }) {
 
 	return {
 		// The _postcssResult object is not part of our API and is huge
-		results: results.map(({ _postcssResult, ...rest }) => {
-			delete rest.source;
+		results: results.map((result) => {
+			delete result.source;
+			delete result._postcssResult;
 
-			return rest;
+			return result;
 		}),
 		output,
 		...rest,
