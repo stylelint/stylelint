@@ -1,15 +1,11 @@
 'use strict';
 
 const _ = require('lodash');
-const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { promisify } = require('util');
+const { promises: fs } = require('fs'); // eslint-disable-line node/no-unsupported-features/node-builtins
 
 const replaceBackslashes = require('../lib/testUtils/replaceBackslashes');
-
-const copyFile = promisify(fs.copyFile);
-const readFile = promisify(fs.readFile);
 
 function caseFilePath(caseNumber, fileName = 'stylesheet') {
 	return replaceBackslashes(path.join(__dirname, caseNumber, fileName));
@@ -24,17 +20,17 @@ function caseConfigFile(caseNumber, ext = 'json') {
 }
 
 async function caseConfig(caseNumber) {
-	return JSON.parse(await readFile(caseConfigFile(caseNumber, 'json'), 'utf8'));
+	return JSON.parse(await fs.readFile(caseConfigFile(caseNumber, 'json'), 'utf8'));
 }
 
 async function caseCode(caseNumber, ext = 'css') {
-	return await readFile(`${caseFilePath(caseNumber)}.${ext}`, 'utf8');
+	return await fs.readFile(`${caseFilePath(caseNumber)}.${ext}`, 'utf8');
 }
 
 async function caseFilesForFix(caseNumber, ext = 'css') {
 	const tempPath = replaceBackslashes(path.join(os.tmpdir(), `stylesheet-${_.uniqueId()}.${ext}`));
 
-	await copyFile(path.join(__dirname, caseNumber, `stylesheet.${ext}`), tempPath);
+	await fs.copyFile(path.join(__dirname, caseNumber, `stylesheet.${ext}`), tempPath);
 
 	return tempPath;
 }
