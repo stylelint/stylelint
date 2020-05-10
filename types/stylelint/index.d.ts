@@ -132,7 +132,10 @@ declare module 'stylelint' {
 		lintSource: Function;
 	};
 
-	export type Formatter = (results: Array<StylelintResult>) => string;
+	export type Formatter = (
+		results: Array<StylelintResult>,
+		returnValue?: StylelintStandaloneReturnValue,
+	) => string;
 
 	export type FormatterIdentifier = 'compact' | 'json' | 'string' | 'unix' | 'verbose' | Formatter;
 

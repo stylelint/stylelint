@@ -6,7 +6,7 @@ A formatter is a function with the following signature:
 /**
  * @type {import('stylelint').Formatter}
  */
-function formatter(results) {
+function formatter(results, returnValue) {
   return "a string of formatted results";
 }
 ```
@@ -42,6 +42,43 @@ Where the argument (`results`) is an array of stylelint result objects (type `Ar
     }
   ],
   "ignored": false // This is `true` if the file's path matches a provided ignore pattern
+}
+```
+
+And the second argument (`returnValue`) is an object (type `StylelintStandaloneReturnValue`) with one or more of the following keys:
+
+```js
+{
+ "errored": false, // `true` if there were any warnings with "error" severity
+ "needlessDisables": [
+   // Present if stylelint was configured with `reportNeedlessDisables: true`
+   {
+     "source": "path/to/file.css",
+     "ranges": [
+       {
+         "start": 10,
+         "unusedRule": "indentation"
+       }
+     ]
+   }
+ ],
+ "invalidScopeDisables": [
+   // Present if stylelint was configured with `reportInvalidScopeDisables: true`
+   {
+     "source": "path/to/file.css",
+     "ranges": [
+       {
+         "start": 1,
+         "unusedRule": "color-named"
+       }
+     ]
+   }
+ ],
+ "maxWarningsExceeded": {
+   // Present if stylelint was configured with a `maxWarnings` count
+   "maxWarnings": 10,
+   "foundWarnings": 15
+ }
 }
 ```
 
