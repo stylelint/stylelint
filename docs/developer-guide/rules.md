@@ -25,7 +25,17 @@ You should make use of the:
 
 #### PostCSS API
 
-Use the [PostCSS API](https://api.postcss.org/) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes. Use `node.raws` instead of `node.raw()` when accessing raw strings from the [PostCSS AST](https://astexplorer.net/#/gist/ef718daf3e03f1d200b03dc5a550ec60/c8cbe9c6809a85894cebf3fb66de46215c377f1a).
+Use the [PostCSS API](https://api.postcss.org/) to navigate and analyze the CSS syntax tree. We recommend using the `walk` iterators (e.g. `walkDecls`), rather than using `forEach` to loop through the nodes.
+
+When using array methods on nodes, e.g. `find`, `some`, `filter` etc, you should explicitly check the `type` property of the node before attempting to access other properties. For example:
+
+```js
+const hasProperty = nodes.find(
+  ({ type, prop }) => type === "decl" && prop === propertyName
+);
+```
+
+Use `node.raws` instead of `node.raw()` when accessing raw strings from the [PostCSS AST](https://astexplorer.net/#/gist/ef718daf3e03f1d200b03dc5a550ec60/c8cbe9c6809a85894cebf3fb66de46215c377f1a).
 
 #### Construct-specific parsers
 
