@@ -10,7 +10,7 @@ Object.keys(targets).forEach((target) => {
 
 	if (target.startsWith(`syntax`)) src = `lib/syntaxes/${srcName}.js`;
 
-	run(`node_modules/.bin/parcel build ${src} --target ${target}`);
+	run(`node_modules/.bin/parcel build ${src} --target ${target} --no-minify`);
 });
 
 function run(command) {

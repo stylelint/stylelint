@@ -39,15 +39,29 @@ a {color: #FFF; }
 				const codeEl = document.querySelector('#code');
 				const configEl = document.querySelector('#config');
 				const resultsEl = document.querySelector('#results');
+				let syntaxCache = {};
 				let selectedSyntax;
 
 				syntaxEl.addEventListener('change', setSyntax);
 				codeEl.addEventListener('keyup', lint);
 				configEl.addEventListener('keyup', lint);
 
-				function setSyntax(event) {
+				/* Load cached or remote syntax parser */
+				async function setSyntax(event) {
 					selectedSyntax = event.target.value === 'css' ? null : event.target.value;
-					lint();
+					if (selectedSyntax === null) {
+						lint();
+						return;
+					}
+
+					if (syntaxCache[selectedSyntax]) {
+						lint();
+					} else {
+						resultsEl.textContent = `Loading syntax: ${selectedSyntax}`;
+						const syntax = await import(selectedSyntax);
+						syntaxCache[selectedSyntax] = syntax;
+						lint();
+					}
 				}
 
 				async function lint() {
