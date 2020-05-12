@@ -202,6 +202,7 @@ The following patterns are _not_ considered violations:
 <!-- prettier-ignore -->
 ```css
 @media {
+
   a {}
   b {}
 }

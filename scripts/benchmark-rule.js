@@ -6,13 +6,13 @@ const chalk = require('chalk');
 const got = require('got');
 const normalizeRuleSettings = require('../lib/normalizeRuleSettings');
 const postcss = require('postcss');
-const requireRule = require('../lib/requireRule');
+const rules = require('../lib/rules');
 
 const ruleName = process.argv[2];
 const ruleOptions = process.argv[3];
 const ruleContext = process.argv[4];
 
-const ruleFunc = requireRule(ruleName);
+const ruleFunc = rules[ruleName];
 
 if (!ruleFunc) {
 	throw new Error('You must specify a valid rule name');

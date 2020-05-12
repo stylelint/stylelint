@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fs - valid sanitize.css and their config 1`] = `
+Object {
+  "errored": false,
+  "output": Array [
+    Object {
+      "deprecations": Array [],
+      "errored": false,
+      "invalidOptionWarnings": Array [],
+      "parseErrors": Array [],
+      "warnings": Array [],
+    },
+  ],
+  "results": Array [
+    Object {
+      "deprecations": Array [],
+      "errored": false,
+      "ignored": undefined,
+      "invalidOptionWarnings": Array [],
+      "parseErrors": Array [],
+      "warnings": Array [],
+    },
+  ],
+}
+`;

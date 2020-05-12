@@ -40,7 +40,7 @@ Comment strings are also checked -- so the following is a violation:
 
 
 
- Some years ago -- never mind how log precisely -- ...
+ Some years ago--never mind how long precisely-—...
  */
 ```
 

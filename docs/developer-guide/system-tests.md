@@ -19,5 +19,5 @@ To add a system test, you should:
 
 - add a test-case folder to `system-tests/` incrementing the number from existing test cases
 - add a configuration file and a stylesheet
-- setup the test following the format established by existing tests, and using the `systemTestUtils`
-- take a snapshot of the JSON `results` array
+- add a `fs.test.js` and `no-fs.test.js` following the format established by existing tests, and using the `systemTestUtils`
+- take a snapshot of `output`

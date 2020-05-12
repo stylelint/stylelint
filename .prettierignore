@@ -1,4 +1,5 @@
 .coverage
+.vscode
 **/fixtures/**/*.css
 **/fixtures/**/*.pcss
 **/fixtures/**/*.postcss
@@ -12,3 +13,4 @@
 lib/utils/parseCalcExpression/parser.js
 scripts/**/*.css
 system-tests/**/*.css
+system-tests/**/*.scss

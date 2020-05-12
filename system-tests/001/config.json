@@ -9,6 +9,7 @@
 		],
 		"at-rule-name-case": "lower",
 		"at-rule-name-space-after": "always-single-line",
+		"at-rule-no-unknown": true,
 		"at-rule-semicolon-newline-after": "always",
 		"block-closing-brace-empty-line-before": "never",
 		"block-closing-brace-newline-after": "always",
@@ -45,13 +46,13 @@
 				"ignore": ["consecutive-duplicates-with-different-values"]
 			}
 		],
-		"declaration-block-no-redundant-longhand-properties": true,
 		"declaration-block-no-shorthand-property-overrides": true,
 		"declaration-block-semicolon-newline-after": "always-multi-line",
 		"declaration-block-semicolon-space-after": "always-single-line",
 		"declaration-block-semicolon-space-before": "never",
 		"declaration-block-single-line-max-declarations": 1,
 		"declaration-block-trailing-semicolon": "always",
+		"declaration-colon-newline-after": "always-multi-line",
 		"declaration-colon-space-after": "always-single-line",
 		"declaration-colon-space-before": "never",
 		"declaration-empty-line-before": [
@@ -61,6 +62,13 @@
 				"ignore": ["after-comment", "inside-single-line-block"]
 			}
 		],
+		"font-family-no-duplicate-names": [
+			true,
+			{
+				"ignoreFontFamilyNames": ["monospace"]
+			}
+		],
+		"font-family-no-missing-generic-family-keyword": true,
 		"function-calc-no-unspaced-operator": true,
 		"function-comma-newline-after": "always-multi-line",
 		"function-comma-space-after": "always-single-line",
@@ -85,6 +93,8 @@
 		"media-query-list-comma-newline-after": "always-multi-line",
 		"media-query-list-comma-space-after": "always-single-line",
 		"media-query-list-comma-space-before": "never",
+		"no-duplicate-at-import-rules": true,
+		"no-duplicate-selectors": true,
 		"no-empty-source": true,
 		"no-eol-whitespace": true,
 		"no-extra-semicolons": true,
@@ -118,10 +128,10 @@
 		"selector-pseudo-element-no-unknown": true,
 		"selector-type-case": "lower",
 		"selector-type-no-unknown": true,
-		"shorthand-property-no-redundant-values": true,
 		"string-no-newline": true,
 		"unit-case": "lower",
 		"unit-no-unknown": true,
+		"value-keyword-case": "lower",
 		"value-list-comma-newline-after": "always-multi-line",
 		"value-list-comma-space-after": "always-single-line",
 		"value-list-comma-space-before": "never",
