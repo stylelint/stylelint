@@ -91,12 +91,14 @@
         "statements": 75
       }
     },
+    "moduleNameMapper": {
+      "^stylelint$": "<rootDir>/lib/index.js",
+      "stylelint/lib/utils/getOsEol": "<rootDir>/lib/utils/getOsEol.js"
+    },
+    "preset": "jest-preset-stylelint",
     "roots": [
       "lib",
       "system-tests"
-    ],
-    "setupFiles": [
-      "./jest-setup.js"
     ],
     "testEnvironment": "node",
     "testRegex": ".*\\.test\\.js$|rules/.*/__tests__/.*\\.js$",
@@ -172,6 +174,7 @@
     "got": "^10.7.0",
     "husky": "^4.2.5",
     "jest": "^25.3.0",
+    "jest-preset-stylelint": "^3.0.0",
     "jest-watch-typeahead": "^0.5.0",
     "lint-staged": "^10.1.7",
     "np": "^6.2.1",
