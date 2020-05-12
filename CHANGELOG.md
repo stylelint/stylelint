@@ -7,6 +7,7 @@ All notable changes to this project are documented in this file.
 - Added: `ignore:["delay"]` to `time-min-milliseconds` ([#4743](https://github.com/stylelint/stylelint/pull/4743)).
 - Added: `ignoreFunctions: []` to `value-keyword-case` ([#4733](https://github.com/stylelint/stylelint/pull/4733)).
 - Fixed: improved performance when auto syntax is used ([#4729](https://github.com/stylelint/stylelint/pull/4729)).
+- Fixed: `--report-needless-disables` respects stylelint-disable commands ([#4714](https://github.com/stylelint/stylelint/pull/4714)).
 - Fixed: `at-rule-property-requirelist` TypeError for comments inside of font-face ([#4744](https://github.com/stylelint/stylelint/pull/4744)).
 - Fixed: `declaration-empty-line-before` false positives for inlines styles ([#4726](https://github.com/stylelint/stylelint/pull/4726)).
 - Fixed: `value-keyword-case` false positives regression for mixed-case properties and the `ignoreProperties` option ([#4748](https://github.com/stylelint/stylelint/pull/4748)).
