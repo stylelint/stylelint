@@ -106,7 +106,7 @@ a {color: #FFF; }
 							config: JSON.parse(`[${configEl.value}]`)[0],
 							syntax: syntaxCache[selectedSyntax],
 						};
-						const results = await stylelint(options);
+						const results = await stylelint.lint(options);
 						resultsEl.textContent = JSON.stringify(results, null, 4);
 					} catch (error) {
 						resultsEl.textContent = error;
