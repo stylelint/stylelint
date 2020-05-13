@@ -1,25 +1,25 @@
 'use strict';
 
 const browser = require('../../lib/browser');
-const stylelint = require('../../lib');
+const stylint = require('../../lib');
 const { caseConfig, caseCode, prepForSnapshot } = require('../systemTestUtils');
 
 const CASE_NUMBER = '001';
 
 describe('lint string', () => {
 	let browserResult;
-	let stylelintResult;
+	let stylintResult;
 
 	beforeAll(async () => {
 		const code = await caseCode(CASE_NUMBER);
 		const config = await caseConfig(CASE_NUMBER);
 
-		stylelintResult = prepForSnapshot(await stylelint.lint({ code, config }));
+		stylintResult = prepForSnapshot(await stylint.lint({ code, config }));
 		browserResult = prepForSnapshot(await browser.lint({ code, config }));
 	});
 
 	it('no-fs - valid sanitize.css and their config', async () => {
-		expect(stylelintResult).toMatchSnapshot();
+		expect(stylintResult).toMatchSnapshot();
 	}, 10000);
 
 	it('browser - valid sanitize.css and their config', async () => {
@@ -27,6 +27,6 @@ describe('lint string', () => {
 	}, 10000);
 
 	it('no-fs and browser assertions produce equal results', async () => {
-		expect(browserResult).toEqual(stylelintResult);
+		expect(browserResult).toEqual(stylintResult);
 	}, 10000);
 });
