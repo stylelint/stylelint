@@ -77,6 +77,10 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 ## Limit language features
 
+### Hue
+
+- [`hue-degree-notation`](../../../lib/rules/hue-degree-notation/README.md): Specify number or angle notation for degree hues.
+
 ### Color
 
 - [`color-named`](../../../lib/rules/color-named/README.md): Require (where possible) or disallow named colors.
