@@ -7,7 +7,7 @@ const { caseConfig, caseCode, prepForSnapshot } = require('../systemTestUtils');
 
 const CASE_NUMBER = '002';
 
-describe('lint string', () => {
+describe('no-fs - invalid twbs buttons and their config', () => {
 	let browserResult;
 	let stylintResult;
 
@@ -19,15 +19,11 @@ describe('lint string', () => {
 		browserResult = prepForSnapshot(await browser.lint({ code, config, customSyntax: scss }));
 	});
 
-	it('no-fs - invalid twbs buttons and their config', async () => {
+	it('standalone', async () => {
 		expect(stylintResult).toMatchSnapshot();
 	}, 10000);
 
-	it('browser - invalid twbs buttons and their config', async () => {
-		expect(browserResult).toMatchSnapshot();
-	}, 10000);
-
-	it('browser and no-fs assertions produce equal results', async () => {
+	it('standalone and browser return equal results', async () => {
 		expect(browserResult).toEqual(stylintResult);
 	}, 10000);
 });

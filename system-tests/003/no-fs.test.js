@@ -6,7 +6,7 @@ const { caseConfig, caseCode, prepForSnapshot } = require('../systemTestUtils');
 
 const CASE_NUMBER = '003';
 
-describe('lint string', () => {
+describe('no-fs - zen garden CSS with standard config', () => {
 	let browserResult;
 	let stylintResult;
 
@@ -18,15 +18,11 @@ describe('lint string', () => {
 		browserResult = prepForSnapshot(await browser.lint({ code, config, fix: true }));
 	});
 
-	it('no-fs - zen garden CSS with standard config', async () => {
+	it('standalone', async () => {
 		expect(stylintResult).toMatchSnapshot();
 	}, 10000);
 
-	it('browser - zen garden CSS with standard config', async () => {
-		expect(browserResult).toMatchSnapshot();
-	}, 10000);
-
-	it('no-fs and browser assertions produce equal results', async () => {
+	it('standalone and browser return equal results', async () => {
 		expect(browserResult).toEqual(stylintResult);
 	}, 10000);
 });

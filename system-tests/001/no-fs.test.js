@@ -6,7 +6,7 @@ const { caseConfig, caseCode, prepForSnapshot } = require('../systemTestUtils');
 
 const CASE_NUMBER = '001';
 
-describe('lint string', () => {
+describe('no-fs - valid sanitize.css and their config', () => {
 	let browserResult;
 	let stylintResult;
 
@@ -18,15 +18,11 @@ describe('lint string', () => {
 		browserResult = prepForSnapshot(await browser.lint({ code, config }));
 	});
 
-	it('no-fs - valid sanitize.css and their config', async () => {
+	it('standalone', async () => {
 		expect(stylintResult).toMatchSnapshot();
 	}, 10000);
 
-	it('browser - valid sanitize.css and their config', async () => {
-		expect(browserResult).toMatchSnapshot();
-	}, 10000);
-
-	it('no-fs and browser assertions produce equal results', async () => {
+	it('standalone and browser return equal results', async () => {
 		expect(browserResult).toEqual(stylintResult);
 	}, 10000);
 });
