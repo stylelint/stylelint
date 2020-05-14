@@ -77,9 +77,13 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 ## Limit language features
 
+### Alpha-value
+
+- [`alpha-value-notation`](../../../lib/rules/alpha-value-notation/README.md): Specify percentage or number notation for alpha-values (Autofixable).
+
 ### Hue
 
-- [`hue-degree-notation`](../../../lib/rules/hue-degree-notation/README.md): Specify number or angle notation for degree hues.
+- [`hue-degree-notation`](../../../lib/rules/hue-degree-notation/README.md): Specify number or angle notation for degree hues (Autofixable).
 
 ### Color
 
