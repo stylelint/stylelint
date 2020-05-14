@@ -136,14 +136,6 @@ Produce a report of the stylelint-disable comments that used for rules that don'
 
 If invalid scope disables are found, a [`invalidScopeDisables`](node-api.md#invalidscopedisables) property is added to the returned data
 
-### `codeFilename`
-
-TODO: does this work?
-
-A filename to assign the input.
-
-If using `code` or `stdin` to pass a source string directly, you can use `codeFilename` to associate that code with a particular filename.
-
 ## The returned promise
 
 `stylelint.lint()` returns a Promise that resolves with an object containing the following properties:
