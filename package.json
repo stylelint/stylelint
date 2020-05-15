@@ -36,9 +36,7 @@
   ],
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
-    "bundle": "browserify lib/browser.js --standalone stylelint | terser --compress --mangle -o dist/stylelint.js",
-    "bundle:syntaxes": "node scripts/bundle-syntaxes.js",
-    "bundle:with-stats": "browserify ~/d/stylelint/stylelint/lib/browser.js --standalone stylelint --full-paths | discify --open",
+    "bundle": "node scripts/bundle-esm.js",
     "format": "prettier . --write",
     "jest": "jest",
     "lint": "npm-run-all --parallel lint:*",
@@ -191,6 +189,7 @@
     "postcss-import": "^12.0.1",
     "prettier": "^2.0.5",
     "remark-cli": "^8.0.0",
+    "replace-in-file": "^6.0.0",
     "terser": "^4.6.13",
     "typescript": "^3.9.2"
   },
