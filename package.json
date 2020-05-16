@@ -63,7 +63,8 @@
     ],
     "globals": {
       "testRule": true
-    }
+    },
+    "root": true
   },
   "remarkConfig": {
     "plugins": [
