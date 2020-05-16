@@ -145,7 +145,7 @@ declare module 'stylelint' {
 		printConfig?: string;
 		ignoreDisables?: boolean;
 		ignorePath?: string;
-		ignorePattern?: RegExp;
+		ignorePattern?: string[];
 		reportNeedlessDisables?: boolean;
 		reportInvalidScopeDisables?: boolean;
 		maxWarnings?: number;
