@@ -12,6 +12,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `declaration-block-trailing-semicolon` false positives for CSS-in-JS object notation ([#4749](https://github.com/stylelint/stylelint/pull/4749)).
 - Fixed: `declaration-empty-line-before` false positives for inlines styles ([#4726](https://github.com/stylelint/stylelint/pull/4726)).
 - Fixed: `media-feature-name-*` false positives for `forced-colors` ([#4775](https://github.com/stylelint/stylelint/pull/4775)).
+- Fixed: `value-keyword-case` false positives WebExtension replacement keywords ([#4778](https://github.com/stylelint/stylelint/pull/4778)).
 - Fixed: `value-keyword-case` false positives regression for mixed-case properties and the `ignoreProperties` option ([#4748](https://github.com/stylelint/stylelint/pull/4748)).
 
 ## 13.3.3
