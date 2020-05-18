@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `time-min-milliseconds` TypeError for `ignore: ["delay"]` and shorthand animation ([#4783](https://github.com/stylelint/stylelint/pull/4783)).
+
 ## 13.4.0
 
 - Added: `ignore:["delay"]` to `time-min-milliseconds` ([#4743](https://github.com/stylelint/stylelint/pull/4743)).
