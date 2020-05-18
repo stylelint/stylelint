@@ -173,7 +173,7 @@
     "del": "^5.1.0",
     "eslint": "^7.0.0",
     "eslint-config-stylelint": "^12.0.0",
-    "got": "^11.1.3",
+    "got": "^11.1.4",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "jest-circus": "^26.0.1",
