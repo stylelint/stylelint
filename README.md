@@ -19,8 +19,6 @@ It's mighty as it:
 - is **unopinionated** so that you can customize it to your exact needs
 - has a **growing community** and is used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [GitHub](https://github.com/primer/stylelint-config-primer) and [WordPress](https://github.com/ntwb/stylelint-config-wordpress/)
 
-Minimum NodeJs version supported : v10.13.0
-
 ## Example output
 
 ![Example](https://github.com/stylelint/stylelint/raw/master/example.png?raw=true)
