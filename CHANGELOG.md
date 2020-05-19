@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Added: `alpha-value-notation` rule ([#4770](https://github.com/stylelint/stylelint/pull/4770)).
+- Added: `color-function-notation` rule ([#4760](https://github.com/stylelint/stylelint/pull/4760)).
+- Added: `hue-degree-notation` rule ([#4769](https://github.com/stylelint/stylelint/pull/4769)).
+
 ## 13.4.1
 
 - Fixed: `time-min-milliseconds` TypeError for `ignore: ["delay"]` and shorthand animation ([#4783](https://github.com/stylelint/stylelint/pull/4783)).
