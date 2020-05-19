@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 13.5.0
 
 - Added: `alpha-value-notation` rule ([#4770](https://github.com/stylelint/stylelint/pull/4770)).
 - Added: `color-function-notation` rule ([#4760](https://github.com/stylelint/stylelint/pull/4760)).
