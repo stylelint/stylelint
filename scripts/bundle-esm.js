@@ -33,7 +33,8 @@ function run(command, target) {
 		console.log('target is: ', target); // eslint-disable-line no-console
 
 		// References to require.cache don't get removed from the bundle
-		// do a find and replace. this probably breaks sourcemaps a bit
+		// do a find and replace.
+		// TODO: Remove after merging https://github.com/parcel-bundler/parcel/pull/4621
 		try {
 			console.log(`Replacing require.cache`); // eslint-disable-line no-console
 			const results = replace.sync({
