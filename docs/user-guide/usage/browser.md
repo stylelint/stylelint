@@ -45,7 +45,7 @@ TODO: expand this section
 
 Stylelint's default CSS syntax is available by default.
 
-Syntax bundles can be large. Therefore custom syntaxes (SCSS, Less, CSS-in-JSS, etc) must be loaded manually. Bundles are provided for all officially supported syntaxes. [View the examples for more details](TODO).
+Syntax bundles can be large. Therefore custom syntaxes (SCSS, Less, CSS-in-JSS, etc) must be loaded manually. Bundles are provided for all officially supported syntaxes. [View the examples for more details]() (TODO fix link).
 
 TODO: expand this section
 
