@@ -2,33 +2,36 @@
 
 You can use stylelint in the browser using the experimental ES module (ESM) bundle.
 
-The ESM bundle supports a subset of the [Node API](./node-api.md)'s functionality.
+The ESM bundle supports a subset of the [Node API](./node-api.md)'s functionality. The `code` and `config` options are required values.
 
-If you started with the Node API, then removed all parts that read or write to a filesystem you'd end up with something similar to the ESM bundle. (TODO: make this better)
-
-All code, config and other options must be provided inline. Notably the ESM bundle has _no_ support for config files, ignore files, CLI usage, or automatic loading of plugins, rules or syntaxes. (TODO: verify accuracy of this line)
+Notably the ESM bundle has _no_ support for config files, ignore files, CLI usage, plugins or custom rules. Custom syntaxes are supported by manually passing them in to stylelint.
 
 An example:
 
 ```html
 <html>
-  <head></head>
-  <body>
+  <head>
     <script type="module">
-      import stylelint from "./stylelint.js";
+      import sl from "./stylelint-esm.js";
 
-      const result = await stylelint({
-        code: `a {color: #FFF; }`,
-        config: {
-          rules: {
-            "color-hex-length": "long"
+      async function run() {
+        const options = {
+          code: `a { color: #fff; }`,
+          config: {
+            rules: {
+              "color-hex-length": "long"
+            }
           }
-        }
-      });
+        };
 
-      console.log(result);
+        const result = await sl.lint(options);
+        console.log(result);
+      }
+
+      run();
     </script>
-  </body>
+  </head>
+  <body></body>
 </html>
 ```
 
@@ -40,212 +43,204 @@ TODO: expand this section
 
 ### Syntaxes
 
-Plain css syntax available by default.
+Stylelint's default CSS syntax is available by default.
 
-Syntax bundles can be large. Therefore other syntaxes must be loaded manually (see examples)
-
-No auto-inference. (TODO: maybe provide auto-syntax bundle? let people run auto-inference if they don't care about the bundle size)
-
-Bundles are provided for all officially supported syntaxes
+Syntax bundles can be large. Therefore custom syntaxes (SCSS, Less, CSS-in-JSS, etc) must be loaded manually. Bundles are provided for all officially supported syntaxes. [View the examples for more details](TODO).
 
 TODO: expand this section
 
 ## Options
 
-The supported options are as listed:
+Stylelint's browser bundle supports a subset of the Node API's options. The following options are supported:
 
-### `config`
-
-A [configuration object](../configure.md).
-
-TODO: This is a required option
-
-### `code`
-
-A string to lint.
-
-TODO: This is a required option
-
-### `configOverrides`
-
-TODO: does this work?
-
-A partial stylelint configuration object whose properties override the existing config object, whether stylelint loads the config via the `config` option or a `.stylelintrc` file.
-
-### `fix`
-
-Automatically fix, where possible, violations reported by rules.
-
-For CSS with standard syntax, stylelint uses [postcss-safe-parser](https://github.com/postcss/postcss-safe-parser) to fix syntax errors.
-
-If a source contains a:
-
-- scoped disable comment, e.g. `/* stylelint-disable indentation */`, any violations reported by the scoped rules will not be automatically fixed anywhere in the source
-- unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of source will not be automatically fixed
-
-This limitation in being tracked in [issue #2643](https://github.com/stylelint/stylelint/issues/2643).
-
-### `maxWarnings`
-
-Set a limit to the number of warnings accepted.
-
-If the number of warnings exceeds this value, a [`maxWarningsExceeded`](node-api.md#maxwarningsexceeded) property is added to the returned data
-
-### `syntax`
-
-Specify a syntax.
-
-If you do not specify a syntax, stylelint automatically infer the syntaxes.
-
-Syntax must be an object with:
-
-```
-{
-  parse: function,
-  stringify: function
-}
-```
-
-You must set this option to match the syntax you're parsing.
-
-### `customSyntax`
-
-TODO: for ESM bundle override this instead of syntax option?
-
-Module name or path to a JS file exporting a [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes).
-
-Note, however, that stylelint can provide no guarantee that core rules work with syntaxes other than the defaults listed for the `syntax` option above.
-
-### `ignoreDisables`
-
-Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
-
-You can use this option to see what your linting results would be like without those exceptions.
-
-### `reportNeedlessDisables`
-
-Produce a report to clean up your codebase, keeping only the stylelint-disable comments that serve a purpose.
-
-If needless disables are found, a [`needlessDisables`](node-api.md#needlessdisables) property is added to the returned data
-
-### `reportInvalidScopeDisables`
-
-CLI flags: `--report-invalid-scope-disables, --risd`
-
-Produce a report of the stylelint-disable comments that used for rules that don't exist within the configuration object.
-
-If invalid scope disables are found, a [`invalidScopeDisables`](node-api.md#invalidscopedisables) property is added to the returned data
+- [code]() (required, must be a string)
+- [config](../configure.md) (required, must be an object)
+- [customSyntax](../configure.md) (optional, if used it must be an object)
+- [fix]()
+- [maxWarnings]()
+- [ignoreDisables]()
+- [reportNeedlessDisables]()
+- [reportInvalidScopeDisables]()
 
 ## The returned promise
 
-`stylelint.lint()` returns a Promise that resolves with an object containing the following properties:
-
-### `errored`
-
-Boolean. If `true`, at least one rule with an "error"-level severity registered a violation.
-
-### `output`
-
-A string displaying the formatted violations (using the default formatter or whichever you passed).
-
-### `postcssResults`
-
-An array containing all the accumulated [PostCSS LazyResults](https://api.postcss.org/LazyResult.html).
-
-### `results`
-
-An array containing all the stylelint result objects (the objects that formatters consume).
-
-### `maxWarningsExceeded`
-
-An object containing the maximum number of warnings and the amount found, e.g. `{ maxWarnings: 0, foundWarnings: 12 }`.
-
-### `needlessDisables`
-
-An array of objects, one for each source, with tells you which stylelint-disable comments are not blocking a lint violation
-
-### `invalidScopeDisables`
-
-An array of objects, one for each source, with tells you which rule in `stylelint-disable <rule>` comment don't exist within the configuration object.
-
-## Syntax errors
-
-`stylelint.lint()` does not reject the Promise when your CSS contains syntax errors.
-It resolves with an object (see [The returned promise](#the-returned-promise)) that contains information about the syntax error.
+The return value has the same format as [the Node API's return value]().
 
 ## Usage examples
 
-The ESM bundle
-
 ### Example A - default syntax
 
-```js
-import stylelint from "./stylelint.js";
+Linting a plain CSS string.
 
-const result = await stylelint({
-  code: `a {color: #FFF; }`,
-  config: {
-    rules: {
-      "color-hex-length": "long"
-    }
-  }
-});
+```html
+<html>
+  <head>
+    <script type="module">
+      import sl from "./stylelint-esm.js";
+
+      async function run() {
+        const options = {
+          code: `a { color: #fff; }`,
+          config: {
+            rules: {
+              "color-hex-length": "long"
+            }
+          }
+        };
+
+        const result = await sl.lint(options);
+        console.log(result);
+      }
+
+      run();
+    </script>
+  </head>
+  <body></body>
+</html>
 ```
 
-### Example B - alternate syntax
+### Example B - SCSS syntax
 
-```js
-import { stylelint } from "./stylelint.js";
-import { scss } from "./syntaxes/scss.js";
+Linting an SCSS string, using the `syntax-scss` custom parser.
 
-const result = await stylelint({
-  code: `a {color: #FFF; }`,
-  config: {
-    rules: {
-      "color-hex-length": "long"
-    }
-  },
-  syntax: "scss",
-  customSyntax: scss
-});
+```html
+<html>
+  <head>
+    <title>demo demo demo</title>
+    <script type="module">
+      import sl from "./stylelint-esm.js";
+      import syntaxScss from "./syntax-scss.js";
+
+      async function run() {
+        const options = {
+          code: `a.#{var} { color: #fff; }`,
+          config: {
+            rules: {
+              "color-hex-length": "long"
+            }
+          },
+          customSyntax: syntaxScss
+        };
+
+        const result = await sl.lint(options);
+        console.log(result);
+      }
+
+      run();
+    </script>
+  </head>
+  <body></body>
+</html>
 ```
 
-### Example C - syntax register
+### Example C - loading syntaxes on-demand
 
-```js
-import { stylelint } from "./stylelint.js";
-import { scss } from "./syntaxes/scss.js";
+Load any custom syntax on demand. You can [view this example online](http://stylelint-browser-bundle.netlify.app/).
 
-const result = await stylelint({
-  code: `a {color: #FFF; }`,
-  config: {
-    rules: {
-      "color-hex-length": "long"
-    }
-  },
-  syntax: "scss",
-  register: { syntax: scss }
-});
-```
+```html
+<html>
+  <head> </head>
+  <body>
+    <h1>stylelint</h1>
+    <p>Edit code or config to see updated results</p>
+    <label for="syntax">Select syntax:</label>
+    <select name="syntax" id="syntax">
+      <option value="css">css</option>
+      <option value="./syntax-css-in-js.js">css-in-js</option>
+      <option value="./syntax-html.js">html</option>
+      <option value="./syntax-less.js">less</option>
+      <option value="./syntax-markdown.js">markdown</option>
+      <option value="./syntax-sass.js">sass</option>
+      <option value="./syntax-scss.js">scss</option>
+      <option value="./syntax-sugarss.js">sugarss</option>
+    </select>
+    <h2>code</h2>
+    <textarea id="code" style="width: 100%; height: 200px;">
+a {color: #FFF; }
+		</textarea
+    >
+    <h2>config</h2>
+    <textarea id="config" style="width: 100%; height: 200px;">
+{
+	"rules": {
+		"color-hex-length": "long",
+		"at-rule-no-vendor-prefix": true
+	}
+}
+		</textarea
+    >
+    <h2>results</h2>
+    <code id="results" style="white-space: pre;"></code>
+    <script type="module">
+      import sl from "./stylelint-esm.js";
 
-### Example C - ~syntax~ generic 'add-on' register
+      async function main() {
+        const syntaxEl = document.querySelector("#syntax");
+        const codeEl = document.querySelector("#code");
+        const configEl = document.querySelector("#config");
+        const resultsEl = document.querySelector("#results");
+        let syntaxCache = {};
+        let selectedSyntax;
 
-```js
-import { stylelint } from "./stylelint.js";
-import { scss } from "./syntaxes/scss.js";
-import { myCoolPlugin } from "./my-cool-plugin.js";
+        syntaxEl.addEventListener("change", setSyntax);
+        codeEl.addEventListener("keyup", lint);
+        configEl.addEventListener("keyup", lint);
 
-const result = await stylelint({
-  code: `a {color: #FFF; }`,
-  config: {
-    plugins: ["my-cool-plugin"],
-    rules: {
-      "color-hex-length": "long",
-      "my-cool-plugin/blah": true
-    }
-  },
-  syntax: "scss",
-  syntaxes: [scss],
-  plugins: [myCoolPlugin]
-});
+        /* Load cached or remote syntax parser */
+        async function setSyntax(event) {
+          selectedSyntax =
+            event.target.value === "css" ? null : event.target.value;
+          if (selectedSyntax === null) {
+            lint();
+            return;
+          }
+
+          if (syntaxCache[selectedSyntax]) {
+            lint();
+          } else {
+            resultsEl.textContent = `Loading syntax: ${selectedSyntax}`;
+            const syntax = await import(selectedSyntax);
+            syntaxCache[selectedSyntax] = syntax.default;
+            lint();
+          }
+        }
+
+        async function lint() {
+          let results;
+          try {
+            const options = {
+              code: codeEl.value,
+              config: JSON.parse(`[${configEl.value}]`)[0]
+            };
+
+            if (selectedSyntax && syntaxCache[selectedSyntax]) {
+              options.customSyntax = syntaxCache[selectedSyntax];
+            }
+            results = await sl.lint(options);
+          } catch (error) {
+            resultsEl.textContent = error;
+          }
+
+          try {
+            resultsEl.textContent = JSON.stringify(results, null, 4);
+          } catch (error) {
+            console.log("Stringify error", error); // sometimes results is too large to stringify, throwing a RangeError
+            console.log(
+              "showing results.output instead of full results object"
+            );
+            resultsEl.textContent = JSON.stringify(
+              JSON.parse(results.output),
+              null,
+              4
+            );
+          }
+        }
+
+        lint();
+      }
+
+      main();
+    </script>
+  </body>
+</html>
 ```
