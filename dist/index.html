@@ -1,40 +1,6 @@
 <html>
 	<head>
-		<script>
-			/* Use loadJS to load syntax parsers on demand. See https://github.com/filamentgroup/loadJS */
-			/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
-			(function (w) {
-				var loadJS = function (src, cb, ordered) {
-					'use strict';
-					var tmp;
-					var ref = w.document.getElementsByTagName('script')[0];
-					var script = w.document.createElement('script');
-
-					if (typeof cb === 'boolean') {
-						tmp = ordered;
-						ordered = cb;
-						cb = tmp;
-					}
-
-					script.src = src;
-					script.async = !ordered;
-					ref.parentNode.insertBefore(script, ref);
-
-					if (cb && typeof cb === 'function') {
-						script.onload = cb;
-					}
-					return script;
-				};
-				// commonjs
-				if (typeof module !== 'undefined') {
-					module.exports = loadJS;
-				} else {
-					w.loadJS = loadJS;
-				}
-			})(typeof global !== 'undefined' ? global : this);
-		</script>
-
-		<script src="./stylelint.js"></script>
+		<!-- TODO: remove this from the dist directory -->
 	</head>
 	<body>
 		<h1>stylelint</h1>
@@ -42,13 +8,13 @@
 		<label for="syntax">Select syntax:</label>
 		<select name="syntax" id="syntax">
 			<option value="css">css</option>
-			<option value="syntaxCssInJs">css-in-js</option>
-			<option value="syntaxHtml">html</option>
-			<option value="syntaxLess">less</option>
-			<option value="syntaxMarkdown">markdown</option>
-			<option value="syntaxSass">sass</option>
-			<option value="syntaxScss">scss</option>
-			<option value="syntaxSugarss">sugarss</option>
+			<option value="./syntax-css-in-js.js">css-in-js</option>
+			<option value="./syntax-html.js">html</option>
+			<option value="./syntax-less.js">less</option>
+			<option value="./syntax-markdown.js">markdown</option>
+			<option value="./syntax-sass.js">sass</option>
+			<option value="./syntax-scss.js">scss</option>
+			<option value="./syntax-sugarss.js">sugarss</option>
 		</select>
 		<h2>code</h2>
 		<textarea id="code" style="width: 100%; height: 200px;">
@@ -67,7 +33,9 @@ a {color: #FFF; }
 		>
 		<h2>results</h2>
 		<code id="results" style="white-space: pre;"></code>
-		<script>
+		<script type="module">
+			import sl from './stylelint-esm.js';
+
 			async function main() {
 				const syntaxEl = document.querySelector('#syntax');
 				const codeEl = document.querySelector('#code');
@@ -81,7 +49,7 @@ a {color: #FFF; }
 				configEl.addEventListener('keyup', lint);
 
 				/* Load cached or remote syntax parser */
-				function setSyntax(event) {
+				async function setSyntax(event) {
 					selectedSyntax = event.target.value === 'css' ? null : event.target.value;
 					if (selectedSyntax === null) {
 						lint();
@@ -91,25 +59,35 @@ a {color: #FFF; }
 					if (syntaxCache[selectedSyntax]) {
 						lint();
 					} else {
-						resultsEl.textContent = `Loading parser for: ${selectedSyntax}`;
-						loadJS(`./${selectedSyntax}.js`, () => {
-							syntaxCache[selectedSyntax] = window[selectedSyntax];
-							lint();
-						});
+						resultsEl.textContent = `Loading syntax: ${selectedSyntax}`;
+						const syntax = await import(selectedSyntax);
+						syntaxCache[selectedSyntax] = syntax.default;
+						lint();
 					}
 				}
 
 				async function lint() {
+					let results;
 					try {
 						const options = {
 							code: codeEl.value,
 							config: JSON.parse(`[${configEl.value}]`)[0],
-							syntax: syntaxCache[selectedSyntax],
 						};
-						const results = await stylelint.lint(options);
-						resultsEl.textContent = JSON.stringify(results, null, 4);
+
+						if (selectedSyntax && syntaxCache[selectedSyntax]) {
+							options.customSyntax = syntaxCache[selectedSyntax];
+						}
+						results = await sl.lint(options);
 					} catch (error) {
 						resultsEl.textContent = error;
+					}
+
+					try {
+						resultsEl.textContent = JSON.stringify(results, null, 4);
+					} catch (error) {
+						console.log('Stringify error', error); // sometimes results is too large to stringify, throwing a RangeError
+						console.log('showing results.output instead of full results object');
+						resultsEl.textContent = JSON.stringify(JSON.parse(results.output), null, 4);
 					}
 				}
 
