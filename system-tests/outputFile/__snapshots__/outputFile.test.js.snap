@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`outputFile writes the result file  1`] = `
-"
-stylesheet.css
- 1:3  ✖  Unexpected empty block   block-no-empty
-
-"
-`;

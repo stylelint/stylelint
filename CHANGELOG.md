@@ -2,6 +2,37 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: specify minimum node version in `package.json`'s `engine` field ([#4790](https://github.com/stylelint/stylelint/pull/4790)).
+
+## 13.5.0
+
+- Added: `alpha-value-notation` rule ([#4770](https://github.com/stylelint/stylelint/pull/4770)).
+- Added: `color-function-notation` rule ([#4760](https://github.com/stylelint/stylelint/pull/4760)).
+- Added: `hue-degree-notation` rule ([#4769](https://github.com/stylelint/stylelint/pull/4769)).
+
+## 13.4.1
+
+- Fixed: `time-min-milliseconds` TypeError for `ignore: ["delay"]` and shorthand animation ([#4783](https://github.com/stylelint/stylelint/pull/4783)).
+
+## 13.4.0
+
+- Added: `ignore:["delay"]` to `time-min-milliseconds` ([#4743](https://github.com/stylelint/stylelint/pull/4743)).
+- Added: `ignoreFunctions: []` to `value-keyword-case` ([#4733](https://github.com/stylelint/stylelint/pull/4733)).
+- Fixed: improved performance when auto syntax is used ([#4729](https://github.com/stylelint/stylelint/pull/4729)).
+- Fixed: `--report-needless-disables` respects stylelint-disable commands ([#4714](https://github.com/stylelint/stylelint/pull/4714)).
+- Fixed: `at-rule-property-requirelist` TypeError for comments inside of font-face ([#4744](https://github.com/stylelint/stylelint/pull/4744)).
+- Fixed: `declaration-block-trailing-semicolon` false positives for CSS-in-JS object notation ([#4749](https://github.com/stylelint/stylelint/pull/4749)).
+- Fixed: `declaration-empty-line-before` false positives for inlines styles ([#4726](https://github.com/stylelint/stylelint/pull/4726)).
+- Fixed: `media-feature-name-*` false positives for `forced-colors` ([#4775](https://github.com/stylelint/stylelint/pull/4775)).
+- Fixed: `value-keyword-case` false positives WebExtension replacement keywords ([#4778](https://github.com/stylelint/stylelint/pull/4778)).
+- Fixed: `value-keyword-case` false positives regression for mixed-case properties and the `ignoreProperties` option ([#4748](https://github.com/stylelint/stylelint/pull/4748)).
+
+## 13.3.3
+
+- Fixed: autofix will respect scoped disable comments by turning off autofix for the scoped rules for the entire source; this is a continuation of the workaround added in `13.2.0` ([#4705](https://github.com/stylelint/stylelint/pull/4705)).
+
 ## 13.3.2
 
 - Fixed: update postcss-css-in-js with fix for maximum call stack size exceeded error ([#4701](https://github.com/stylelint/stylelint/pull/4701)).

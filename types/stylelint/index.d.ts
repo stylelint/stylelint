@@ -42,13 +42,17 @@ declare module 'stylelint' {
 		[ruleName: string]: Array<DisabledRange>;
 	};
 
+	export type DisabledWarning = { line: number; rule: string };
+
 	export type StylelintPostcssResult = {
 		ruleSeverities: { [k: string]: any };
 		customMessages: { [k: string]: any };
 		quiet?: boolean;
 		disabledRanges: DisabledRangeObject;
+		disabledWarnings?: DisabledWarning[];
 		ignored?: boolean;
 		ignoreDisables?: boolean;
+		reportNeedlessDisables?: boolean;
 		stylelintError?: boolean;
 		disableWritingFix?: boolean;
 	};
@@ -141,7 +145,7 @@ declare module 'stylelint' {
 		printConfig?: string;
 		ignoreDisables?: boolean;
 		ignorePath?: string;
-		ignorePattern?: RegExp;
+		ignorePattern?: string[];
 		reportNeedlessDisables?: boolean;
 		reportInvalidScopeDisables?: boolean;
 		maxWarnings?: number;

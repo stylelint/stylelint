@@ -58,7 +58,15 @@ Recursively linting all `.css` files in the `foo` directory:
 stylelint "foo/**/*.css"
 ```
 
-### Example B - stdin
+### Example B - multiple file extensions
+
+Linting all `.css`, `.scss`, and `.sass` files:
+
+```shell
+stylelint "**/*.{css,scss,sass}"
+```
+
+### Example C - stdin
 
 Linting `stdin`:
 
@@ -66,7 +74,7 @@ Linting `stdin`:
 echo "a { color: pink; }" | stylelint
 ```
 
-### Example C - negation
+### Example D - negation
 
 Linting all `.css` files except those within `docker` subfolders, using negation in the input glob:
 
@@ -74,7 +82,7 @@ Linting all `.css` files except those within `docker` subfolders, using negation
 stylelint "**/*.css" "!**/docker/**"
 ```
 
-### Example D - caching
+### Example E - caching
 
 Caching processed `.scss` files `foo` directory:
 
@@ -82,7 +90,7 @@ Caching processed `.scss` files `foo` directory:
 stylelint "foo/**/*.scss" --cache --cache-location "/Users/user/.stylelintcache/"
 ```
 
-### Example E - writing a report
+### Example F - writing a report
 
 Linting all `.css` files in the `foo` directory, then writing the output to `myTestReport.txt`:
 
@@ -90,7 +98,7 @@ Linting all `.css` files in the `foo` directory, then writing the output to `myT
 stylelint "foo/*.css" --output-file myTestReport.txt
 ```
 
-### Example F - specifying a config
+### Example G - specifying a config
 
 Using `bar/mySpecialConfig.json` as config to lint all `.css` files in the `foo` directory and any of its subdirectories:
 

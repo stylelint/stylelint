@@ -60,3 +60,18 @@ a { transition: background-color 600ms linear; }
 ```css
 a { animation-delay: 1s; }
 ```
+
+## Optional secondary options
+
+### `ignore: ["delay"]`
+
+Ignore time values for an animation or transition delay.
+
+For example, with a minimum of `200` milliseconds.
+
+The following is _not_ considered a violation:
+
+<!-- prettier-ignore -->
+```css
+a { animation-delay: 100ms; }
+```

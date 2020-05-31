@@ -256,3 +256,65 @@ a {
   Background: deepPink;
 }
 ```
+
+### `ignoreFunctions: ["/regex/", /regex/, "non-regex"]`
+
+Ignore case of the values inside the listed functions.
+
+For example, with `"upper"`.
+
+```js
+["/^(f|F)oo$/", "t"];
+```
+
+The following patterns are considered violations:
+
+<!-- prettier-ignore -->
+```css
+a {
+  display: b(inline);
+}
+```
+
+```css
+a {
+  color: bar(--camelCase);
+}
+```
+
+The following patterns are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+a {
+  display: t(flex);
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  display: t(fLeX);
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  color: t(--camelCase);
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  color: foo(--camelCase);
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  color: Foo(--camelCase);
+}
+```

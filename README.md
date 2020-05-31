@@ -13,11 +13,11 @@ It's mighty as it:
 - parses **CSS-like syntaxes** like SCSS, Sass, Less and SugarSS
 - has over **170 built-in rules** to catch errors, apply limits and enforce stylistic conventions
 - supports **plugins** so you can create your own rules or make use of plugins written by the community
-- automatically **fixes** the majority of stylistic violations (_experimental feature_)
+- automatically **fixes** the majority of stylistic violations
 - is **well tested** with over 15000 unit tests
 - supports **shareable configs** that you can extend or create
 - is **unopinionated** so that you can customize it to your exact needs
-- has a **growing community** and is used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [GitHub](https://github.com/primer/stylelint-config-primer) and [WordPress](https://github.com/ntwb/stylelint-config-wordpress/)
+- has a **growing community** and is used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [GitHub](https://github.com/primer/stylelint-config-primer) and [WordPress](https://github.com/WordPress-Coding-Standards/stylelint-config-wordpress)
 
 ## Example output
 

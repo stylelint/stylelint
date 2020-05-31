@@ -77,10 +77,27 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 ## Limit language features
 
+### Alpha-value
+
+- [`alpha-value-notation`](../../../lib/rules/alpha-value-notation/README.md): Specify percentage or number notation for alpha-values (Autofixable).
+
+### Hue
+
+- [`hue-degree-notation`](../../../lib/rules/hue-degree-notation/README.md): Specify number or angle notation for degree hues (Autofixable).
+
 ### Color
 
+- [`color-function-notation`](../../../lib/rules/color-function-notation/README.md): Specify modern or legacy notation for applicable color-functions (Autofixable).
 - [`color-named`](../../../lib/rules/color-named/README.md): Require (where possible) or disallow named colors.
 - [`color-no-hex`](../../../lib/rules/color-no-hex/README.md): Disallow hex colors.
+
+### Length
+
+- [`length-zero-no-unit`](../../../lib/rules/length-zero-no-unit/README.md): Disallow units for zero lengths (Autofixable).
+
+### Font weight
+
+- [`font-weight-notation`](../../../lib/rules/font-weight-notation/README.md): Require numeric or named (where possible) `font-weight` values. Also, when named values are expected, require only valid names.
 
 ### Function
 
@@ -162,6 +179,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 - [`selector-pseudo-class-blacklist`](../../../lib/rules/selector-pseudo-class-blacklist/README.md): Specify a blacklist of disallowed pseudo-class selectors.
 - [`selector-pseudo-class-whitelist`](../../../lib/rules/selector-pseudo-class-whitelist/README.md): Specify a whitelist of allowed pseudo-class selectors.
 - [`selector-pseudo-element-blacklist`](../../../lib/rules/selector-pseudo-element-blacklist/README.md): Specify a blacklist of disallowed pseudo-element selectors.
+- [`selector-pseudo-element-colon-notation`](../../../lib/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements (Autofixable).
 - [`selector-pseudo-element-whitelist`](../../../lib/rules/selector-pseudo-element-whitelist/README.md): Specify a whitelist of allowed pseudo-element selectors.
 
 ### Media feature
@@ -202,10 +220,6 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 - [`font-family-name-quotes`](../../../lib/rules/font-family-name-quotes/README.md): Specify whether or not quotation marks should be used around font family names.
 
-### Font weight
-
-- [`font-weight-notation`](../../../lib/rules/font-weight-notation/README.md): Require numeric or named (where possible) `font-weight` values. Also, when named values are expected, require only valid names.
-
 ### Function
 
 - [`function-comma-newline-after`](../../../lib/rules/function-comma-newline-after/README.md): Require a newline or disallow whitespace after the commas of functions (Autofixable).
@@ -227,10 +241,6 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 ### String
 
 - [`string-quotes`](../../../lib/rules/string-quotes/README.md): Specify single or double quotes around strings (Autofixable).
-
-### Length
-
-- [`length-zero-no-unit`](../../../lib/rules/length-zero-no-unit/README.md): Disallow units for zero lengths (Autofixable).
 
 ### Unit
 
@@ -297,7 +307,6 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 - [`selector-pseudo-class-case`](../../../lib/rules/selector-pseudo-class-case/README.md): Specify lowercase or uppercase for pseudo-class selectors (Autofixable).
 - [`selector-pseudo-class-parentheses-space-inside`](../../../lib/rules/selector-pseudo-class-parentheses-space-inside/README.md): Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors (Autofixable).
 - [`selector-pseudo-element-case`](../../../lib/rules/selector-pseudo-element-case/README.md): Specify lowercase or uppercase for pseudo-element selectors (Autofixable).
-- [`selector-pseudo-element-colon-notation`](../../../lib/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements (Autofixable).
 - [`selector-type-case`](../../../lib/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selectors (Autofixable).
 
 ### Selector list

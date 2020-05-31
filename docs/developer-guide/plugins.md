@@ -114,6 +114,92 @@ module.exports.ruleName = ruleName;
 module.exports.messages = messages;
 ```
 
+## Testing
+
+You should use [`jest-preset-stylelint`](https://github.com/stylelint/jest-preset-stylelint) to test your plugin. The preset exposes a global `testRule` function that you can use to efficiently test your plugin using a schema.
+
+For example:
+
+```js
+// index.test.js
+const { messages, ruleName } = require(".");
+
+testRule({
+  plugins: ["./index.js"],
+  ruleName,
+  config: true,
+  fix: true,
+
+  accept: [
+    {
+      code: ".class {}"
+    },
+    {
+      code: ".my-class {}"
+    }
+  ],
+
+  reject: [
+    {
+      code: ".myClass {}",
+      fixed: ".my-class {}",
+      message: messages.expected(),
+      line: 1,
+      column: 1
+    }
+  ]
+});
+```
+
+However, if your plugin involves more than just checking syntax you can use stylelint directly.
+
+For example:
+
+```js
+// index.test.js
+const { lint } = require("stylelint");
+
+const config = {
+  plugins: ["./index.js"],
+  rules: {
+    "plugin/at-import-no-unresolveable": [true]
+  }
+};
+
+it("warns for unresolveable import", async () => {
+  const {
+    results: [{ warnings, parseErrors }]
+  } = await lint({
+    files: "fixtures/contains-unresolveable-import.css",
+    config
+  });
+
+  expect(parseErrors).toHaveLength(0);
+  expect(warnings).toHaveLength(1);
+
+  const [{ line, column, text }] = warnings;
+
+  expect(text).toBe(
+    "Unexpected unresolveable import (plugin/at-import-no-unresolveable)"
+  );
+  expect(line).toBe(1);
+  expect(column).toBe(1);
+});
+
+it("doesn't warn for fileless sources", async () => {
+  const {
+    results: [{ warnings, parseErrors }]
+  } = await lint({
+    code: "@import url(unknown.css)",
+    config
+  });
+  expect(parseErrors).toHaveLength(0);
+  expect(warnings).toHaveLength(0);
+});
+```
+
+Alternatively, if you don't want to use Jest you'll find more tools in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#tools).
+
 ## `stylelint.utils`
 
 stylelint exposes some useful utilities.
