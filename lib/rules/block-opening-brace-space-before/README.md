@@ -195,3 +195,24 @@ The following patterns are _not_ considered violations:
 ```css
 @for ...{}
 ```
+
+### `ignoreSelectors: ["/regex/", /regex/, "non-regex"]`
+
+Given:
+
+```
+[":root"]
+```
+
+The following patterns are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+:root
+{}
+```
+
+<!-- prettier-ignore -->
+```css
+:root{}
+```
