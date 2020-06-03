@@ -4,7 +4,7 @@ Specify a whitelist of allowed property and value pairs within declarations.
 
 <!-- prettier-ignore -->
 ```css
-a { text-transform: uppercase; }
+a { background-image: url('http://www.example.com/file.jpg'); }
 /** ↑               ↑
  * These properties and these values */
 ```
@@ -13,84 +13,57 @@ a { text-transform: uppercase; }
 
 `object`: `{"unprefixed-function-name": ["string", "/regex/", /regex/] }`
 
-If a property name is found in the object, only its whitelisted property values are allowed. This rule complains about all non-matching values. (If the property name is not included in the object, anything goes.)
-
-If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
-
-The same goes for values. Keep in mind that a regular expression value is matched against the entire value of the declaration, not specific parts of it. For example, a value like `"10px solid rgba( 255 , 0 , 0 , 0.5 )"` will _not_ match `"/^solid/"` (notice beginning of the line boundary) but _will_ match `"/\\s+solid\\s+/"` or `"/\\bsolid\\b/"`.
-
-Be careful with regex matching not to accidentally consider quoted string values and `url()` arguments. For example, `"/red/"` will match value such as `"1px dotted red"` as well as `"\"red\""` and `"white url(/mysite.com/red.png)"`.
-
 Given:
 
 ```
-{
-  "transform": ["/scale/"],
-  "whitespace": ["nowrap"],
-  "/color/": ["/^green/"]
-}
+["data", "/^http/"]
 ```
 
 The following patterns are considered violations:
 
 <!-- prettier-ignore -->
 ```css
-a { whitespace: pre; }
-```
-
-<!-- prettier-ignore -->
-```css
-a { transform: translate(1, 1); }
-```
-
-<!-- prettier-ignore -->
-```css
-a { -webkit-transform: translate(1, 1); }
-```
-
-<!-- prettier-ignore -->
-```css
-a { color: pink; }
-```
-
-<!-- prettier-ignore -->
-```css
-a { background-color: pink; }
+a { background-image: url('file://file.jpg'); }
 ```
 
 The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-a { color: pink; }
+a { background-image: url('example.com/file.jpg'); }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { whitespace: nowrap; }
+a { background-image: url('/example.com/file.jpg'); }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { transform: scale(1, 1); }
+a { background-image: url('//example.com/file.jpg'); }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { -webkit-transform: scale(1, 1); }
+a { background-image: url('./path/to/file.jpg'); }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { color: green; }
+a { background-image: url('http://www.example.com/file.jpg'); }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { background-color: green; }
+a { background-image: url('https://www.example.com/file.jpg'); }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { background: pink; }
+a { background-image: url('HTTPS://www.example.com/file.jpg'); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs='); }
 ```
