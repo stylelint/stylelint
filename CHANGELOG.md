@@ -7,6 +7,7 @@ All notable changes to this project are documented in this file.
 - Added: `ignoreSelectors[]` to `block-opening-brace-space-before` ([#4640](https://github.com/stylelint/stylelint/pull/4640)).
 - Fixed: workaround CSS-in-JS syntax throws a TypeError in the following conditions: 1. encounter a call or template expression named 'html' and 2. syntax loads via `autoSyntax()`.
 - Fixed: specify minimum node version in `package.json`'s `engine` field ([#4790](https://github.com/stylelint/stylelint/pull/4790)).
+- Fixed: write error information to `stderr` ([#4799](https://github.com/stylelint/stylelint/pull/4799)).
 - Fixed: `alpha-value-notation` number precision errors ([#4802](https://github.com/stylelint/stylelint/pull/4802)).
 - Fixed: `font-family-no-missing-generic-family-keyword` false positives for variables ([#4806](https://github.com/stylelint/stylelint/pull/4806)).
 - Fixed: `no-duplicate-selectors` false positives for universal selector and `disallowInList` ([#4809](https://github.com/stylelint/stylelint/pull/4809)).
