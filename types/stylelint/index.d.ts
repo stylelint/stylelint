@@ -55,6 +55,7 @@ declare module 'stylelint' {
 		reportNeedlessDisables?: boolean;
 		stylelintError?: boolean;
 		disableWritingFix?: boolean;
+		config?: StylelintConfig;
 	};
 
 	type EmptyResult = {
