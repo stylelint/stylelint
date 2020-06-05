@@ -83,6 +83,13 @@ declare module 'stylelint' {
 		warn(message: string, options?: StylelintWarningOptions): void;
 	};
 
+	export type Formatter = (
+		results: Array<StylelintResult>,
+		returnValue?: StylelintStandaloneReturnValue,
+	) => string;
+
+	export type FormatterIdentifier = 'compact' | 'json' | 'string' | 'unix' | 'verbose' | Formatter;
+
 	export type StylelintOptions = {
 		config?: StylelintConfig;
 		configFile?: string;
@@ -152,7 +159,7 @@ declare module 'stylelint' {
 		maxWarnings?: number;
 		syntax?: string;
 		customSyntax?: string;
-		formatter?: 'compact' | 'json' | 'string' | 'unix' | 'verbose' | Function;
+		formatter?: FormatterIdentifier;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean;
 		allowEmptyInput?: boolean;
@@ -231,7 +238,7 @@ declare module 'stylelint' {
 	export type StylelintPublicAPI = {
 		lint: Function;
 		rules: { [k: string]: any };
-		formatters: { [k: string]: Function };
+		formatters: { [k: string]: Formatter };
 		createPlugin: Function;
 		createLinter: Function;
 		utils: {
