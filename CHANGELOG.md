@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `max-empty-lines` TypeError from inline comment with autofix and sugarss syntax ([#4821](https://github.com/stylelint/stylelint/pull/4821)).
+
 ## 13.6.0
 
 - Added: `ignoreSelectors[]` to `block-opening-brace-space-before` ([#4640](https://github.com/stylelint/stylelint/pull/4640)).
