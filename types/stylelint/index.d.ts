@@ -240,7 +240,7 @@ declare module 'stylelint' {
 	export type StylelintPublicAPI = {
 		lint: Function;
 		rules: { [k: string]: any };
-		formatters: { [k: string]: Function };
+		formatters: { [k: string]: Formatter };
 		createPlugin: Function;
 		createLinter: Function;
 		utils: {

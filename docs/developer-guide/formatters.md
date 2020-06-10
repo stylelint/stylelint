@@ -11,7 +11,7 @@ function formatter(results, returnValue) {
 }
 ```
 
-Where the argument (`results`) is an array of stylelint result objects (type `Array<StylelintResult>`) in the form:
+Where the first argument (`results`) is an array of stylelint result objects (type `Array<StylelintResult>`) in the form:
 
 ```js
 // A stylelint result object
