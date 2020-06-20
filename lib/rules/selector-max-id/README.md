@@ -79,7 +79,7 @@ The following patterns are _not_ considered violations:
 
 Ignore selectors inside of specified [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes) that provide [evaluation contexts](https://drafts.csswg.org/selectors-4/#specificity-rules).
 
-For example, with the following config:
+Given:
 
 ```js
 config: [0, { ignoreContextFunctionalPseudoClasses: [":not", /^:(h|H)as$/] }];
@@ -89,23 +89,17 @@ The following patterns are considered violations:
 
 <!-- prettier-ignore -->
 ```css
-a:matches(#foo){
-  color: black;
-}
+a:matches(#foo) {}
 ```
 
 While the following patters are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-a:not(#foo){
-  color: black;
-}
+a:not(#foo) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-a:has(#foo){
-  color: black;
-}
+a:has(#foo) {}
 ```
