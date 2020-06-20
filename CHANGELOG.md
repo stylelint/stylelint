@@ -2,10 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 13.6.1
 
 - Fixed: `max-empty-lines` TypeError from inline comment with autofix and sugarss syntax ([#4821](https://github.com/stylelint/stylelint/pull/4821)).
 - Fixed: `property-no-unknown` false positives for namespaced variables ([#4803](https://github.com/stylelint/stylelint/pull/4803)).
+- Fixed: `selector-type-no-unknown` false positives for idents within `::part` pseudo-elements ([#4828](https://github.com/stylelint/stylelint/pull/4828)).
 
 ## 13.6.0
 
