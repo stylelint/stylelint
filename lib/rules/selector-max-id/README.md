@@ -82,7 +82,7 @@ Ignore selectors inside of specified [functional pseudo-classes](https://drafts.
 Given:
 
 ```js
-[":not", /^:(h|H)as$/]
+[":not", /^:(h|H)as$/];
 ```
 
 The following patterns are considered violations:
