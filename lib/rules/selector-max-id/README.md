@@ -74,3 +74,32 @@ The following patterns are _not_ considered violations:
 /* `#bar` is inside `:not()`, so it is evaluated separately */
 #foo #bar:not(#baz) {}
 ```
+
+### `ignoreContextFunctionalPseudoClasses: ["/regex/", /regex/, "non-regex"]`
+
+Ignore selectors inside of specified [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes) that provide [evaluation contexts](https://drafts.csswg.org/selectors-4/#specificity-rules).
+
+Given:
+
+```js
+[":not", /^:(h|H)as$/];
+```
+
+The following patterns are considered violations:
+
+<!-- prettier-ignore -->
+```css
+a:matches(#foo) {}
+```
+
+While the following patters are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+a:not(#foo) {}
+```
+
+<!-- prettier-ignore -->
+```css
+a:has(#foo) {}
+```
