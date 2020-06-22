@@ -90,6 +90,8 @@ declare module 'stylelint' {
 
 	export type FormatterIdentifier = 'compact' | 'json' | 'string' | 'unix' | 'verbose' | Formatter;
 
+	export type CustomSyntax = string;
+
 	export type StylelintOptions = {
 		config?: StylelintConfig;
 		configFile?: string;
@@ -100,7 +102,7 @@ declare module 'stylelint' {
 		reportInvalidScopeDisables?: boolean;
 		reportNeedlessDisables?: boolean;
 		syntax?: string;
-		customSyntax?: string;
+		customSyntax?: CustomSyntax;
 		fix?: boolean;
 	};
 
@@ -110,7 +112,7 @@ declare module 'stylelint' {
 		filePath?: string;
 		codeProcessors?: Array<Function>;
 		syntax?: string;
-		customSyntax?: string;
+		customSyntax?: CustomSyntax;
 	};
 
 	export type GetLintSourceOptions = GetPostcssOptions & { existingPostcssResult?: Result };
@@ -158,7 +160,7 @@ declare module 'stylelint' {
 		reportInvalidScopeDisables?: boolean;
 		maxWarnings?: number;
 		syntax?: string;
-		customSyntax?: string;
+		customSyntax?: CustomSyntax;
 		formatter?: FormatterIdentifier;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean;
