@@ -49,36 +49,36 @@ And the second argument (`returnValue`) is an object (type `StylelintStandaloneR
 
 ```js
 {
- "errored": false, // `true` if there were any warnings with "error" severity
- "needlessDisables": [
-   // Present if stylelint was configured with `reportNeedlessDisables: true`
-   {
-     "source": "path/to/file.css",
-     "ranges": [
-       {
-         "start": 10,
-         "unusedRule": "indentation"
-       }
-     ]
-   }
- ],
- "invalidScopeDisables": [
-   // Present if stylelint was configured with `reportInvalidScopeDisables: true`
-   {
-     "source": "path/to/file.css",
-     "ranges": [
-       {
-         "start": 1,
-         "unusedRule": "color-named"
-       }
-     ]
-   }
- ],
- "maxWarningsExceeded": {
-   // Present if stylelint was configured with a `maxWarnings` count
-   "maxWarnings": 10,
-   "foundWarnings": 15
- }
+  "errored": false, // `true` if there were any warnings with "error" severity
+  "needlessDisables": [
+    // Present if stylelint was configured with `reportNeedlessDisables: true`
+    {
+      "source": "path/to/file.css",
+      "ranges": [
+        {
+          "start": 10,
+          "unusedRule": "indentation"
+        }
+      ]
+    }
+  ],
+  "invalidScopeDisables": [
+    // Present if stylelint was configured with `reportInvalidScopeDisables: true`
+    {
+      "source": "path/to/file.css",
+      "ranges": [
+        {
+          "start": 1,
+          "unusedRule": "color-named"
+        }
+      ]
+    }
+  ],
+  "maxWarningsExceeded": {
+    // Present if stylelint was configured with a `maxWarnings` count
+    "maxWarnings": 10,
+    "foundWarnings": 15
+  }
 }
 ```
 
