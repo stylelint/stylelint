@@ -174,4 +174,4 @@ stylelint
   });
 ```
 
-Note that the customSyntax option also accepts a string. [Refer to the options documentation for details](./options).
+Note that the customSyntax option also accepts a string. [Refer to the options documentation for details](./options.md).
