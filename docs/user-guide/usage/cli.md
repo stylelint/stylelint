@@ -106,6 +106,14 @@ Using `bar/mySpecialConfig.json` as config to lint all `.css` files in the `foo`
 stylelint "foo/**/*.css" --config bar/mySpecialConfig.json
 ```
 
+### Example H - using a custom syntax
+
+Recursively linting all `.css` files in the `foo` directory using a custom syntax:
+
+```shell
+stylelint "foo/**/*.css" --customSyntax path/to/my-custom-syntax.js
+```
+
 ## Exit codes
 
 The CLI can exit the process with the following exit codes:
