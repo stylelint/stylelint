@@ -165,3 +165,31 @@ a {
   color: pink;
 }
 ```
+
+### `ignoreComments: ["/regex/", /regex/, "string"]`
+
+Ignore comments matching the given regular expressions or strings.
+
+For example, with `"always"` and given:
+
+```
+[/^ignore/, "string-ignore"]
+```
+
+The following comments are _not_ considered violations:
+
+```css
+:root {
+  background: pink;
+  /* ignore this comment because of the regex */
+  color: pink;
+}
+```
+
+```css
+:root {
+  background: pink;
+  /* string-ignore */
+  color: pink;
+}
+```
