@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Added: `ignoreContextFunctionalPseudoClasses` to `selector-max-id` ([#4835](https://github.com/stylelint/stylelint/pull/4835)).
+- Added: `ignoreComments[]` to `comment-empty-line-before` ([#4841](https://github.com/stylelint/stylelint/pull/4841)).
 
 ## 13.6.1
 
