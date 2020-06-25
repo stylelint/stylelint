@@ -275,17 +275,17 @@ You can do that with:
 }
 ```
 
-## `*-whitelist`, `*-blacklist`, `color-named` and applicable `*-no-*` rules
+## `*-whitelist`, `*-disallowed-list`, `color-named` and applicable `*-no-*` rules
 
 These rules work together to (dis)allow language features and constructs.
 
-There are `*-whitelist` and `*-blacklist` rules that target the constructs of the CSS language: at-rules, functions, declarations (i.e. property-value pairs), properties and units. These rules (dis)allow any language features that make use of these constructs (e.g. `@media`, `rgb()`). However, there are features not caught by these `*-whitelist` and `*-blacklist` rules (or are, but would require complex regex to configure). There are individual rules, usually a `*-no-*` rule (e.g. `color-no-hex` and `selector-no-id`), to disallow each of these features.
+There are `*-whitelist` and `*-disallowed-list` rules that target the constructs of the CSS language: at-rules, functions, declarations (i.e. property-value pairs), properties and units. These rules (dis)allow any language features that make use of these constructs (e.g. `@media`, `rgb()`). However, there are features not caught by these `*-whitelist` and `*-disallowed-list` rules (or are, but would require complex regex to configure). There are individual rules, usually a `*-no-*` rule (e.g. `color-no-hex` and `selector-no-id`), to disallow each of these features.
 
-Say you want to disallow the `@debug` language extension. You can do that using either the `at-rule-blacklist` or `at-rule-whitelist` rules because the `@debug` language extension uses the at-rule construct e.g.
+Say you want to disallow the `@debug` language extension. You can do that using either the `at-rule-disallowed-list` or `at-rule-whitelist` rules because the `@debug` language extension uses the at-rule construct e.g.
 
 ```json
 {
-  "at-rule-blacklist": ["debug"]
+  "at-rule-disallowed-list": ["debug"]
 }
 ```
 
@@ -297,11 +297,11 @@ Say you want to, for whatever reason, disallow the whole at-rule construct. You 
 }
 ```
 
-Say you want to disallow the value `none` for the `border` properties. You can do that using either the `declaration-property-value-blacklist` or `declaration-property-value-whitelist` e.g.
+Say you want to disallow the value `none` for the `border` properties. You can do that using either the `declaration-property-value-disallowed-list` or `declaration-property-value-whitelist` e.g.
 
 ```json
 {
-  "declaration-property-value-blacklist": [
+  "declaration-property-value-disallowed-list": [
     {
       "/^border/": ["none"]
     }
@@ -311,7 +311,7 @@ Say you want to disallow the value `none` for the `border` properties. You can d
 
 ## `color-*` and `function-*` rules
 
-Most `<color>` values are _functions_. As such, they can be (dis)allowed using either the `function-blacklist` or `function-whitelist` rules. Two other color representations aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
+Most `<color>` values are _functions_. As such, they can be (dis)allowed using either the `function-disallowed-list` or `function-whitelist` rules. Two other color representations aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
 
 Say you want to enforce using a named color _if one exists for your chosen color_ and use `hwb` color if one does not, e.g.:
 
@@ -333,13 +333,13 @@ If you're taking a whitelisting approach, you can do that with:
 }
 ```
 
-Or, if you're taking a blacklisting approach:
+Or, if you're taking a disallow approach:
 
 ```json
 {
   "color-named": "always-where-possible",
   "color-no-hex": true,
-  "function-blacklist": ["/^rgb/", "/^hsl/", "gray"]
+  "function-disallowed-list": ["/^rgb/", "/^hsl/", "gray"]
 }
 ```
 
@@ -355,6 +355,6 @@ This approach scales to when language extensions (that use the two built-in exte
 
 ## Manage conflicts
 
-Each rule stands alone, so sometimes it's possible to configure rules such that they conflict with one another. For example, you could turn on two conflicting blacklist and whitelist rules, e.g. `unit-blacklist` and `unit-whitelist`.
+Each rule stands alone, so sometimes it's possible to configure rules such that they conflict with one another. For example, you could turn on two conflicting disallowed-list and whitelist rules, e.g. `unit-disallowed-list` and `unit-whitelist`.
 
 It's your responsibility as the configuration author to resolve these conflicts.

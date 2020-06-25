@@ -1,7 +1,7 @@
 {
 	"rules": {
 		"color-no-invalid-hex": true,
-		"declaration-property-unit-blacklist": { "margin": ["px"] },
+		"declaration-property-unit-disallowed-list": { "margin": ["px"] },
 		"function-comma-space-after": ["always-single-line"],
 		"selector-max-specificity": ["0,1,0", { "severity": "warning" }]
 	}
