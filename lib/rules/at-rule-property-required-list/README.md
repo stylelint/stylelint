@@ -1,6 +1,6 @@
-# at-rule-property-requirelist
+# at-rule-property-required-list
 
-Specify a requirelist of properties for an at-rule.
+Specify a list of required properties for an at-rule.
 
 <!-- prettier-ignore -->
 ```css

@@ -198,7 +198,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 - [`at-rule-allowed-list`](../../../lib/rules/at-rule-allowed-list/README.md): Specify a list of allowed at-rules.
 - [`at-rule-disallowed-list`](../../../lib/rules/at-rule-disallowed-list/README.md): Specify a list of disallowed at-rules.
 - [`at-rule-no-vendor-prefix`](../../../lib/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for at-rules.
-- [`at-rule-property-requirelist`](../../../lib/rules/at-rule-property-requirelist/README.md): Specify a requirelist of properties for an at-rule.
+- [`at-rule-property-required-list`](../../../lib/rules/at-rule-property-required-list/README.md): Specify a list of required properties for an at-rule.
 
 ### Comment
 
