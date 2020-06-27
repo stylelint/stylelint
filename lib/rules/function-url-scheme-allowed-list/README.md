@@ -9,6 +9,8 @@ a { background-image: url('http://www.example.com/file.jpg'); }
  *           This URL scheme */
 ```
 
+This rule was previously called, and is aliased as, `function-url-scheme-whitelist`.
+
 A [URL scheme](https://url.spec.whatwg.org/#syntax-url-scheme) consists of alphanumeric, `+`, `-`, and `.` characters. It can appear at the start of a URL and is followed by `:`.
 
 This rule ignores:

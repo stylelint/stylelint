@@ -9,6 +9,8 @@ Specify a list of required properties for an at-rule.
  *  At-rule and required property names */
 ```
 
+This rule was previously called, and is aliased as, `at-rule-requirelist`.
+
 ## Options
 
 `object`: `{ "at-rule-name": ["array", "of", "properties"] }`

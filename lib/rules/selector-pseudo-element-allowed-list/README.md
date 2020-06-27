@@ -9,6 +9,8 @@ Specify a list of allowed pseudo-element selectors.
  * This pseudo-element selector */
 ```
 
+This rule was previously called, and is aliased as, `selector-pseudo-element-whitelist`.
+
 This rule ignores:
 
 - CSS2 pseudo-elements i.e. those prefixed with a single colon

@@ -9,6 +9,8 @@ a { text-rendering: optimizeLegibility; }
  * This property */
 ```
 
+This rule was previously called, and is aliased as, `property-blacklist`.
+
 ## Options
 
 `array|string`: `["array", "of", "unprefixed", /properties/ or "regex"]|"property"|"/regex/"`|/regex/

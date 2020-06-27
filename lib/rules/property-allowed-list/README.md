@@ -9,6 +9,8 @@ a { display: block; }
  * This property */
 ```
 
+This rule was previously called, and is aliased as, `property-whitelist`.
+
 This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 ## Options

@@ -9,6 +9,8 @@ a { width: 100px; }
  *  These units */
 ```
 
+This rule was previously called, and is aliased as, `unit-whitelist`.
+
 ## Options
 
 `array|string`: `["array", "of", "units"]|"unit"`

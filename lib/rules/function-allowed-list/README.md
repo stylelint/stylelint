@@ -9,6 +9,8 @@ a { transform: scale(1); }
  * This function */
 ```
 
+This rule was previously called, and is aliased as, `function-whitelist`.
+
 ## Options
 
 `array|string`: `["array", "of", "unprefixed", /functions/ or "regex"]|"function"|"/regex/"`

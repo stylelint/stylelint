@@ -9,6 +9,8 @@ Specify a list of disallowed attribute operators.
  * This operator */
 ```
 
+This rule was previously called, and is aliased as, `selector-attribute-operator-blacklist`.
+
 ## Options
 
 `array|string`: `["array", "of", "operators"]|"operator"`
