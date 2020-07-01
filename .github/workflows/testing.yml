@@ -1,4 +1,4 @@
-name: CI
+name: Testing
 
 on:
   push:
@@ -13,33 +13,6 @@ env:
   CI: true
 
 jobs:
-  lint:
-    name: Lint on Node.js ${{ matrix.node }} and ${{ matrix.os }}
-
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        node: [12]
-        os: [ubuntu-latest]
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Install latest npm
-        run: npm install --global npm@latest
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Lint
-        run: npm run pretest
-
   test:
     name: Test on Node.js ${{ matrix.node }} and ${{ matrix.os }}
 
