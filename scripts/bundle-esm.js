@@ -1,58 +1,112 @@
 'use strict';
 
-const pkg = require('../package.json');
-const replace = require('replace-in-file');
-const { exec } = require('child_process');
-const targets = pkg.targets;
+/* eslint-disable no-console */
+/* eslint-disable guard-for-in */
+/* eslint-disable node/no-extraneous-require */
 
-Object.keys(targets).forEach((target) => {
-	const srcName = decamelize(target);
-	let src = `lib/${srcName}.js`;
+const defaultConfigContents = require('@parcel/config-default');
+const Parcel = require('@parcel/core').default;
+const { createWorkerFarm } = require('@parcel/core');
 
-	if (target.startsWith(`syntax`)) src = `lib/syntaxes/${srcName}.js`;
+const config = {
+	browser: {
+		target: { distDir: 'dist' },
+		entry: 'lib/browser.js',
+		// dest: 'dist/stylelint-esm.js',
+	},
+	'syntax-css-in-js': {
+		target: { distDir: 'dist' },
+		entry: 'lib/syntaxes/syntax-less.js',
+		// dest: 'dist/syntax-less.js',
+	},
+	'syntax-html': {
+		target: { distDir: 'dist' },
+		entry: 'lib/syntaxes/syntax-html.js',
+	},
+	'syntax-less': {
+		target: { distDir: 'dist' },
+		entry: 'lib/syntaxes/syntax-less.js',
+		// dest: 'dist/syntax-less.js',
+	},
+	'syntax-markdown': {
+		target: { distDir: 'dist' },
+		entry: 'lib/syntaxes/syntax-markdown.js',
+		// dest: 'dist/syntax-markdown.js',
+	},
+	'syntax-sass': {
+		target: { distDir: 'dist' },
+		entry: 'lib/syntaxes/syntax-sass.js',
+		// dest: 'dist/syntax-sass.js',
+	},
+	'syntax-scss': {
+		target: { distDir: 'dist' },
+		entry: 'lib/syntaxes/syntax-scss.js',
+		// dest: 'dist/syntax-scss.js',
+	},
+	'syntax-sugarss': {
+		target: { distDir: 'dist' },
+		entry: 'lib/syntaxes/syntax-sugarss.js',
+		// dest: 'dist/syntax-sugarss.js',
+	},
+};
 
-	run(`node_modules/.bin/parcel build ${src} --target ${target}`, pkg[target]);
-});
+let tasks = [];
+let workerFarm = createWorkerFarm();
 
-function run(command, target) {
-	const task = exec(command, (error, stdout, stderr) => {
-		if (error) {
-			console.log(error.stack); // eslint-disable-line no-console
-			console.log(`Error code: ${error.code}`); // eslint-disable-line no-console
-			console.log(`Signal received: ${error.signal}`); // eslint-disable-line no-console
-		}
+for (const module in config) {
+	let task = async () => {
+		let bundler = new Parcel({
+			entries: config[module].entry,
+			targets: { [module]: config[module].target },
+			defaultConfig: {
+				...defaultConfigContents,
+				filePath: require.resolve('@parcel/config-default'),
+			},
+			defaultEngines: {
+				browsers: ['> 0.25%'],
+			},
+			includeNodeModules: true,
+			isLibrary: false,
+			logLevel: 'verbose',
+			minify: true,
+			mode: 'production',
+			outputFormat: 'esmodule',
+			patchConsole: false,
+			workerFarm,
+		});
 
-		console.log(stdout); // eslint-disable-line no-console
+		return await bundler.run();
+	};
 
-		if (stderr) console.warn(stderr); // eslint-disable-line no-console
-	});
-
-	task.on('exit', (code) => {
-		if (code !== 0) console.log(`Bundle process exited with code ${code}`); // eslint-disable-line no-console
-
-		console.log('target is: ', target); // eslint-disable-line no-console
-
-		// References to require.cache don't get removed from the bundle
-		// do a find and replace.
-		// TODO: Remove after merging https://github.com/parcel-bundler/parcel/pull/4621
-		try {
-			console.log(`Replacing require.cache`); // eslint-disable-line no-console
-			const results = replace.sync({
-				files: target,
-				from: /require.cache/g,
-				to: '{}',
-			});
-
-			console.log('Replacement results:', results); // eslint-disable-line no-console
-		} catch (error) {
-			console.error('Error occurred during replacement:', error); // eslint-disable-line no-console
-		}
-	});
+	tasks.push([module, task]);
 }
 
-function decamelize(str) {
-	return str
-		.replace(/([a-z\d])([A-Z])/g, '$1-$2')
-		.replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1-$2')
-		.toLowerCase();
-}
+(async () => {
+	try {
+		for (const [module, task] of tasks) {
+			const res = await task();
+
+			console.log(res.getBundles()[0].stats);
+			console.log(`bundled ${module}`, res);
+		}
+	} catch (error) {
+		console.error(error);
+	} finally {
+		await workerFarm.end();
+	}
+})();
+
+/* eslint-enable no-console */
+/* eslint-enable guard-for-in */
+/* eslint-enable node/no-extraneous-require */
+
+// tasks = [
+//   async () => {
+//     await new Promise((resolve) => setTimeout(resolve, 1000));
+//     console.log(`waited: 1000ms`);
+//   },
+//   async () => {
+//     await new Promise((resolve) => setTimeout(resolve, 500));
+//     console.log(`waited: 500ms`);
+//   },
+// ];

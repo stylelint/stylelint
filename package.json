@@ -23,7 +23,6 @@
   "license": "MIT",
   "author": "stylelint",
   "main": "lib/index.js",
-  "browser": "dist/stylelint-esm.js",
   "bin": "bin/stylelint.js",
   "files": [
     "bin",
@@ -184,7 +183,7 @@
     "lint-staged": "^10.2.11",
     "np": "^6.2.4",
     "npm-run-all": "^4.1.5",
-    "parcel": "^2.0.0-beta.1",
+    "parcel": "^2.0.0-nightly.318",
     "postcss-import": "^12.0.1",
     "prettier": "^2.0.5",
     "remark-cli": "^8.0.0",
@@ -193,54 +192,5 @@
   },
   "engines": {
     "node": ">=10.13.0"
-  },
-  "syntaxCssInJS": "dist/syntax-css-in-js.js",
-  "syntaxHtml": "dist/syntax-html.js",
-  "syntaxLess": "dist/syntax-less.js",
-  "syntaxMarkdown": "dist/syntax-markdown.js",
-  "syntaxSass": "dist/syntax-sass.js",
-  "syntaxScss": "dist/syntax-scss.js",
-  "syntaxSugarss": "dist/syntax-sugarss.js",
-  "targets": {
-    "browser": {
-      "includeNodeModules": true,
-      "outputFormat": "esmodule",
-      "isLibrary": true
-    },
-    "syntaxCssInJs": {
-      "includeNodeModules": true,
-      "outputFormat": "esmodule",
-      "isLibrary": true
-    },
-    "syntaxHtml": {
-      "includeNodeModules": true,
-      "outputFormat": "esmodule",
-      "isLibrary": true
-    },
-    "syntaxLess": {
-      "includeNodeModules": true,
-      "outputFormat": "esmodule",
-      "isLibrary": true
-    },
-    "syntaxMarkdown": {
-      "includeNodeModules": true,
-      "outputFormat": "esmodule",
-      "isLibrary": true
-    },
-    "syntaxSass": {
-      "includeNodeModules": true,
-      "outputFormat": "esmodule",
-      "isLibrary": true
-    },
-    "syntaxScss": {
-      "includeNodeModules": true,
-      "outputFormat": "esmodule",
-      "isLibrary": true
-    },
-    "syntaxSugarss": {
-      "includeNodeModules": true,
-      "outputFormat": "esmodule",
-      "isLibrary": true
-    }
   }
 }
