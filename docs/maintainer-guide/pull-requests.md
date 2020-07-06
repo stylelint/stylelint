@@ -29,5 +29,5 @@ When merging a PR, you should:
    2. Prefix the item with either: "Removed", "Changed", "Deprecated", "Added", or "Fixed".
    3. Order the item within the group by the widest-reaching first to the smallest, and then alphabetically by rule name.
    4. Suffix the item with the relevant pull request number, using the complete GitHub URL so that it works on [the website](https://stylelint.io/CHANGELOG/).
-   5. If applicable, lead the item with the name of the rule, e.g. "Fixed: `unit-blacklist` false positives for SCSS nested properties".
+   5. If applicable, lead the item with the name of the rule, e.g. "Fixed: `unit-disallowed-list` false positives for SCSS nested properties".
 3. Post this update as a comment to the pull request.
