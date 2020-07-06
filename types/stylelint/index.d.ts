@@ -1,5 +1,5 @@
 declare module 'stylelint' {
-	import { Result, ResultMessage, WarningOptions, Warning } from 'postcss';
+	import { Result, ResultMessage, Syntax, WarningOptions, Warning } from 'postcss';
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
@@ -90,7 +90,7 @@ declare module 'stylelint' {
 
 	export type FormatterIdentifier = 'compact' | 'json' | 'string' | 'unix' | 'verbose' | Formatter;
 
-	export type CustomSyntax = string;
+	export type CustomSyntax = string | Syntax;
 
 	export type StylelintOptions = {
 		config?: StylelintConfig;

@@ -150,3 +150,28 @@ stylelint
     /* .. */
   });
 ```
+
+### Example E
+
+Using a custom syntax:
+
+```js
+stylelint
+  .lint({
+    config: myConfig,
+    files: "all/my/stylesheets/*.css",
+    customSyntax: {
+      parse: (css, opts) => {
+        /* .. */
+      },
+      stringify: (root, builder) => {
+        /* .. */
+      }
+    }
+  })
+  .then(function () {
+    /* .. */
+  });
+```
+
+Note that the customSyntax option also accepts a string. [Refer to the options documentation for details](./options.md).
