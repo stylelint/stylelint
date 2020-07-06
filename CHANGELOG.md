@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Added: syntax object acceptance to `customSyntax` option ([#4839](https://github.com/stylelint/stylelint/pull/4839)).
+- Added: `*-allowed-list`, `*-disallowed-list` and `*-required-list` new names for `*-whitelist`, `*-blacklist` and `*-requirelist` rules, respectively; the rules are aliased as their old names ([#4845](https://github.com/stylelint/stylelint/pull/4845)). 
 - Added: `ignoreContextFunctionalPseudoClasses` to `selector-max-id` ([#4835](https://github.com/stylelint/stylelint/pull/4835)).
 - Added: `ignoreComments[]` to `comment-empty-line-before` ([#4841](https://github.com/stylelint/stylelint/pull/4841)).
 
