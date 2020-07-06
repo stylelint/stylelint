@@ -101,7 +101,7 @@ Specify a syntax. Options:
 - `scss`
 - `sugarss`
 
-If you do not specify a syntax, stylelint automatically infer the syntaxes.
+If you do not specify a syntax, stylelint will automatically infer the syntaxes.
 
 Only use this option if you want to force a specific syntax.
 
@@ -109,9 +109,13 @@ Only use this option if you want to force a specific syntax.
 
 CLI flag: `--custom-syntax`
 
-Module name or path to a JS file exporting a [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes).
+Specify a custom syntax to use on your code. Use this option if you want to force a specific syntax that's not already built into stylelint.
 
-Note, however, that stylelint can provide no guarantee that core rules work with syntaxes other than the defaults listed for the `syntax` option above.
+This option should be a string that resolves to a JS module that exports a [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). The string can be a module name (like `my-module`) or a path to a JS file (like `path/to/my-module.js`).
+
+Using the Node.js API, the `customSyntax` option can also accept a [Syntax object](https://github.com/postcss/postcss/blob/abfaa7122a0f480bc5be0905df3c24a6a51a82d9/lib/postcss.d.ts#L223-L232). Stylelint treats the `parse` property as a required value.
+
+Note that stylelint can provide no guarantee that core rules work with syntaxes other than the defaults listed for the `syntax` option above.
 
 ## `disableDefaultIgnores`
 
