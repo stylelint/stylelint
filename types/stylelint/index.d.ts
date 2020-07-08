@@ -1,5 +1,5 @@
 declare module 'stylelint' {
-	import { Result, ResultMessage, WarningOptions, Warning, Syntax } from 'postcss';
+	import { Result, ResultMessage, Syntax, WarningOptions, Warning } from 'postcss';
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;

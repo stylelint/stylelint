@@ -43,7 +43,7 @@ To further customize your stylelint configuration, you can adapt your:
 - [shared configs](configure.md#extends)
 - [plugins](configure.md#plugins)
 
-We recommend you add [rules that limit language features](rules/list.md#limit-language-features) to your configuration, e.g. [`unit-whitelist`](../../lib/rules/unit-whitelist/README.md), [`selector-class-pattern`](../../lib/rules/selector-class-pattern/README.md) and [`selector-max-id`](../../lib/rules/selector-max-id/README.md). These are powerful rules that you can use to enforce non-stylistic consistency in your code.
+We recommend you add [rules that limit language features](rules/list.md#limit-language-features) to your configuration, e.g. [`unit-allowed-list`](../../lib/rules/unit-allowed-list/README.md), [`selector-class-pattern`](../../lib/rules/selector-class-pattern/README.md) and [`selector-max-id`](../../lib/rules/selector-max-id/README.md). These are powerful rules that you can use to enforce non-stylistic consistency in your code.
 
 ### Your usage
 

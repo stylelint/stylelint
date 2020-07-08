@@ -34,10 +34,10 @@ Rename the title into a consistent format.
 You should:
 
 - lead with the [CHANGELOG group names](pull-requests.md), but in the present tense:
-  - "Remove y", e.g. "Remove unit-blacklist"
+  - "Remove y", e.g. "Remove unit-disallowed-list"
   - "Deprecate x in y", e.g. "Deprecate resolvedNested option in selector-class-pattern"
-  - "Add y", e.g. "Add unit-blacklist"
-  - "Add x to y", e.g. "Add ignoreProperties: [] to property-blacklist"
+  - "Add y", e.g. "Add unit-disallowed-list"
+  - "Add x to y", e.g. "Add ignoreProperties: [] to property-disallowed-list"
   - "Fix false positives/negatives for x in y", e.g. "Fix false positives for Less mixins in color-no-hex"
 - use `*` if the issue applies to a group of rules, e.g. "Fix false negatives for SCSS variables in selector-\*-pattern"
 

@@ -113,7 +113,7 @@
   "dependencies": {
     "@stylelint/postcss-css-in-js": "^0.37.1",
     "@stylelint/postcss-markdown": "^0.36.1",
-    "autoprefixer": "^9.8.0",
+    "autoprefixer": "^9.8.2",
     "balanced-match": "^1.0.0",
     "chalk": "^4.1.0",
     "cosmiconfig": "^6.0.0",
@@ -187,8 +187,7 @@
     "postcss-import": "^12.0.1",
     "prettier": "^2.0.5",
     "remark-cli": "^8.0.0",
-    "replace-in-file": "^6.0.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.6"
   },
   "engines": {
     "node": ">=10.13.0"
