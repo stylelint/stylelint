@@ -11,7 +11,7 @@ a { display: -webkit-flex; }
 
 This rule will only complain for prefixed _standard_ values, and not for prefixed _proprietary_ or _unknown_ ones.
 
-The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 
