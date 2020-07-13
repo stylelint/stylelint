@@ -62,6 +62,16 @@ stylelint supports complex, overlapping disabling & enabling patterns:
 
 **Caveat:** Comments within _selector and value lists_ are currently ignored.
 
+You may also include a description at the end of the comment, after two hyphens:
+
+```css
+/* stylelint-disable -- Reason for disabling stylelint. */
+/* stylelint-disable foo -- Reason for disabling the foo rule. */
+/* stylelint-disable foo, bar -- Reason for disabling the foo and bar rules. */
+```
+
+**Important:** There must be a space on both sides of the hyphens.
+
 ## Files entirely
 
 You can use a `.stylelintignore` file to ignore specific files. For example:

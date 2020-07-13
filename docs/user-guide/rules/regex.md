@@ -2,8 +2,8 @@
 
 The following classes of rules support regex:
 
-- `*-blacklist`
-- `*-whitelist`
+- `*-allowed-list`
+- `*-disallowed-list`
 - `*-pattern`
 
 As does the `ignore*` secondary options.
