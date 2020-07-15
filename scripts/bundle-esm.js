@@ -1,6 +1,6 @@
 'use strict';
 
-/* eslint-disable node/no-extraneous-require -- these are all installed as part of `parcel` */
+/* eslint-disable node/no-extraneous-require */
 
 const bundleReport = require('@parcel/reporter-cli/lib/bundleReport').default;
 const defaultConfigContents = require('@parcel/config-default');
