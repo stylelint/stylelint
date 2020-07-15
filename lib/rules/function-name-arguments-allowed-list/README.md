@@ -1,4 +1,4 @@
-# function-name-arguments-whitelist
+# function-name-arguments-allowed-list
 
 Specify a whitelist of allowed property and value pairs within declarations.
 
