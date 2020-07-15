@@ -4,7 +4,28 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
-- Fixed: specify minimum node version in `package.json`'s `engine` field ([#4790](https://github.com/stylelint/stylelint/pull/4790)).
+- Added: syntax object acceptance to `customSyntax` option ([#4839](https://github.com/stylelint/stylelint/pull/4839)).
+- Added: support for descriptions in stylelint command comments ([#4848](https://github.com/stylelint/stylelint/pull/4848)).
+- Added: `*-allowed-list`, `*-disallowed-list` and `*-required-list` new names for `*-whitelist`, `*-blacklist` and `*-requirelist` rules, respectively; the rules are aliased as their old names ([#4845](https://github.com/stylelint/stylelint/pull/4845)).
+- Added: `ignoreContextFunctionalPseudoClasses` to `selector-max-id` ([#4835](https://github.com/stylelint/stylelint/pull/4835)).
+- Added: `ignoreComments[]` to `comment-empty-line-before` ([#4841](https://github.com/stylelint/stylelint/pull/4841)).
+
+## 13.6.1
+
+- Fixed: `max-empty-lines` TypeError from inline comment with autofix and sugarss syntax ([#4821](https://github.com/stylelint/stylelint/pull/4821)).
+- Fixed: `property-no-unknown` false positives for namespaced variables ([#4803](https://github.com/stylelint/stylelint/pull/4803)).
+- Fixed: `selector-type-no-unknown` false positives for idents within `::part` pseudo-elements ([#4828](https://github.com/stylelint/stylelint/pull/4828)).
+
+## 13.6.0
+
+- Added: `ignoreSelectors[]` to `block-opening-brace-space-before` ([#4640](https://github.com/stylelint/stylelint/pull/4640)).
+- Fixed: false positives for all scope disables in `--report-invalid-scope-disables` ([#4784](https://github.com/stylelint/stylelint/pull/4784)).
+- Fixed: TypeError for CSS-in-JS when encountering a call or template expression named 'html' ([#4797](https://github.com/stylelint/stylelint/pull/4797)).
+- Fixed: writing error information to `stderr` ([#4799](https://github.com/stylelint/stylelint/pull/4799)).
+- Fixed: minimum node version in `package.json`'s `engine` field ([#4790](https://github.com/stylelint/stylelint/pull/4790)).
+- Fixed: `alpha-value-notation` number precision errors ([#4802](https://github.com/stylelint/stylelint/pull/4802)).
+- Fixed: `font-family-no-missing-generic-family-keyword` false positives for variables ([#4806](https://github.com/stylelint/stylelint/pull/4806)).
+- Fixed: `no-duplicate-selectors` false positives for universal selector and `disallowInList` ([#4809](https://github.com/stylelint/stylelint/pull/4809)).
 
 ## 13.5.0
 

@@ -1,5 +1,5 @@
 {
 	"rules": {
-		"unit-blacklist": ["px"]
+		"unit-disallowed-list": ["px"]
 	}
 }

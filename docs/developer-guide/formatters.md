@@ -3,12 +3,15 @@
 A formatter is a function with the following signature:
 
 ```js
+/**
+ * @type {import('stylelint').Formatter}
+ */
 function formatter(results, returnValue) {
   return "a string of formatted results";
 }
 ```
 
-Where the first argument (`results`) is an array of stylelint result objects in the form:
+Where the first argument (`results`) is an array of stylelint result objects (type `Array<StylelintResult>`) in the form:
 
 ```js
 // A stylelint result object
@@ -42,7 +45,7 @@ Where the first argument (`results`) is an array of stylelint result objects in 
 }
 ```
 
-And the second argument (`returnValue`) is an object with one or more of the following keys:
+And the second argument (`returnValue`) is an object (type `StylelintStandaloneReturnValue`) with one or more of the following keys:
 
 ```js
 {

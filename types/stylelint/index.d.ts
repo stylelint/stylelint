@@ -1,5 +1,5 @@
 declare module 'stylelint' {
-	import { Result, ResultMessage, WarningOptions, Warning } from 'postcss';
+	import { Result, ResultMessage, Syntax, WarningOptions, Warning } from 'postcss';
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
@@ -55,6 +55,7 @@ declare module 'stylelint' {
 		reportNeedlessDisables?: boolean;
 		stylelintError?: boolean;
 		disableWritingFix?: boolean;
+		config?: StylelintConfig;
 	};
 
 	type EmptyResult = {
@@ -82,6 +83,15 @@ declare module 'stylelint' {
 		warn(message: string, options?: StylelintWarningOptions): void;
 	};
 
+	export type Formatter = (
+		results: Array<StylelintResult>,
+		returnValue?: StylelintStandaloneReturnValue,
+	) => string;
+
+	export type FormatterIdentifier = 'compact' | 'json' | 'string' | 'unix' | 'verbose' | Formatter;
+
+	export type CustomSyntax = string | Syntax;
+
 	export type StylelintOptions = {
 		config?: StylelintConfig;
 		configFile?: string;
@@ -92,7 +102,7 @@ declare module 'stylelint' {
 		reportInvalidScopeDisables?: boolean;
 		reportNeedlessDisables?: boolean;
 		syntax?: string;
-		customSyntax?: string;
+		customSyntax?: CustomSyntax;
 		fix?: boolean;
 	};
 
@@ -102,7 +112,7 @@ declare module 'stylelint' {
 		filePath?: string;
 		codeProcessors?: Array<Function>;
 		syntax?: string;
-		customSyntax?: string;
+		customSyntax?: CustomSyntax;
 	};
 
 	export type GetLintSourceOptions = GetPostcssOptions & { existingPostcssResult?: Result };
@@ -150,8 +160,8 @@ declare module 'stylelint' {
 		reportInvalidScopeDisables?: boolean;
 		maxWarnings?: number;
 		syntax?: string;
-		customSyntax?: string;
-		formatter?: 'compact' | 'json' | 'string' | 'unix' | 'verbose' | Function;
+		customSyntax?: CustomSyntax;
+		formatter?: FormatterIdentifier;
 		disableDefaultIgnores?: boolean;
 		fix?: boolean;
 		allowEmptyInput?: boolean;
@@ -230,7 +240,7 @@ declare module 'stylelint' {
 	export type StylelintPublicAPI = {
 		lint: Function;
 		rules: { [k: string]: any };
-		formatters: { [k: string]: Function };
+		formatters: { [k: string]: Formatter };
 		createPlugin: Function;
 		createLinter: Function;
 		utils: {
