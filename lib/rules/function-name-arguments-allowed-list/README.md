@@ -1,10 +1,17 @@
 # function-name-arguments-allowed-list
 
-Specify a whitelist of allowed property and value pairs within declarations.
+Specify an list of allowed property and value pairs within declarations.
 
 <!-- prettier-ignore -->
 ```css
 a { background: url('http://www.example.com/file.jpg'); }
+/** ↑               ↑
+ * These properties and these values */
+```
+
+<!-- prettier-ignore -->
+```css
+a { background-image: url('http://www.example.com/file.jpg'); }
 /** ↑               ↑
  * These properties and these values */
 ```
@@ -16,7 +23,7 @@ a { background: url('http://www.example.com/file.jpg'); }
 Given:
 
 ```
-["/^images/", "/^http/"]
+['/^data:/', '/^images/', '/^http/', '/^vendor/']
 ```
 
 The following patterns are considered violations:
