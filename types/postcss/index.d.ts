@@ -27,12 +27,6 @@ declare module 'postcss/lib/lazy-result' {
 	export = LazyResultImpl;
 }
 
-declare module 'postcss-syntax' {
-	var result: any; // TODO TYPES
-
-	export = result;
-}
-
 declare module 'postcss/lib/result' {
 	import { Result } from 'postcss';
 
