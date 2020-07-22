@@ -168,7 +168,7 @@
     "@types/global-modules": "^2.0.0",
     "@types/globjoin": "^0.1.0",
     "@types/imurmurhash": "^0.1.1",
-    "@types/lodash": "^4.14.155",
+    "@types/lodash": "^4.14.157",
     "@types/micromatch": "^4.0.1",
     "@types/postcss-safe-parser": "^4.0.0",
     "@types/style-search": "^0.1.1",
