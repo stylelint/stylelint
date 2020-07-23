@@ -6,4 +6,3 @@ declare module 'postcss-less';
 declare module 'postcss-sass';
 declare module 'postcss-scss';
 declare module 'sugarss';
-declare module 'table';

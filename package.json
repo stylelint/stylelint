@@ -173,6 +173,7 @@
     "@types/postcss-safe-parser": "^4.0.0",
     "@types/style-search": "^0.1.1",
     "@types/svg-tags": "^1.0.0",
+    "@types/table": "^5.0.0",
     "@types/write-file-atomic": "^3.0.1",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
