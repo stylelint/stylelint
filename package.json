@@ -182,7 +182,7 @@
     "eslint-config-stylelint": "^12.0.0",
     "got": "^11.3.0",
     "husky": "^4.2.5",
-    "jest": "^26.0.1",
+    "jest": "^26.1.0",
     "jest-circus": "^26.0.1",
     "jest-preset-stylelint": "^3.0.0",
     "jest-watch-typeahead": "^0.6.0",
