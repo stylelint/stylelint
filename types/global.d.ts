@@ -4,5 +4,4 @@ declare module 'import-lazy';
 declare module 'postcss-html';
 declare module 'postcss-less';
 declare module 'postcss-sass';
-declare module 'postcss-scss';
 declare module 'sugarss';
