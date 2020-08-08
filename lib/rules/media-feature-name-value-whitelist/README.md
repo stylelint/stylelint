@@ -1,4 +1,4 @@
-# media-feature-name-value-allowed-list
+# media-feature-name-value-whitelist
 
 Specify a list of allowed media feature name and value pairs.
 
@@ -8,8 +8,6 @@ Specify a list of allowed media feature name and value pairs.
 /**                ↑          ↑
  *    These features and values */
 ```
-
-This rule was previously called, and is aliased as, `media-feature-name-value-whitelist`.
 
 ## Options
 

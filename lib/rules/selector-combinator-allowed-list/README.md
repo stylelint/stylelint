@@ -9,8 +9,6 @@ Specify a list of allowed combinators.
  * This combinator */
 ```
 
-This rule was previously called, and is aliased as, `selector-combinator-whitelist`.
-
 This rule normalizes the whitespace descendant combinator to be a single space.
 
 This rule ignores [reference combinators](https://www.w3.org/TR/selectors4/#idref-combinators) e.g. `/for/`.

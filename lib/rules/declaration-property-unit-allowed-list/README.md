@@ -9,8 +9,6 @@ a { width: 100px; }
  * These properties and these units */
 ```
 
-This rule was previously called, and is aliased as, `declaration-property-unit-whitelist`.
-
 ## Options
 
 `object`: `{ "unprefixed-property-name": ["array", "of", "units"] }`

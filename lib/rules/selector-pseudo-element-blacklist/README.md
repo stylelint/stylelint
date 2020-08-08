@@ -1,4 +1,4 @@
-# selector-pseudo-element-disallowed-list
+# selector-pseudo-element-blacklist
 
 Specify a list of disallowed pseudo-element selectors.
 
@@ -8,8 +8,6 @@ Specify a list of disallowed pseudo-element selectors.
 /**  ↑
  * This pseudo-element selector */
 ```
-
-This rule was previously called, and is aliased as, `selector-pseudo-element-blacklist`.
 
 This rule ignores:
 

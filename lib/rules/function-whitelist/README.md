@@ -1,4 +1,4 @@
-# function-allowed-list
+# function-whitelist
 
 Specify a list of allowed functions.
 
@@ -8,8 +8,6 @@ a { transform: scale(1); }
 /**            ↑
  * This function */
 ```
-
-This rule was previously called, and is aliased as, `function-whitelist`.
 
 ## Options
 

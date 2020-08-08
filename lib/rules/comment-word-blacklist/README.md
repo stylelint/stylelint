@@ -1,4 +1,4 @@
-# comment-word-disallowed-list
+# comment-word-blacklist
 
 Specify a list of disallowed words within comments.
 
@@ -8,8 +8,6 @@ Specify a list of disallowed words within comments.
 /** ↑     ↑      ↑
  * These three words */
 ```
-
-This rule was previously called, and is aliased as, `comment-word-blacklist`.
 
 **Caveat:** Comments within _selector and value lists_ are currently ignored.
 

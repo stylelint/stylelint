@@ -1,4 +1,4 @@
-# at-rule-allowed-list
+# at-rule-whitelist
 
 Specify a list of allowed at-rules.
 
@@ -8,8 +8,6 @@ Specify a list of allowed at-rules.
 /** ↑
  * At-rules like this */
 ```
-
-This rule was previously called, and is aliased as, `at-rule-whitelist`.
 
 ## Options
 

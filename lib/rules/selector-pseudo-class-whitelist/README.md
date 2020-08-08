@@ -1,4 +1,4 @@
-# selector-pseudo-class-allowed-list
+# selector-pseudo-class-whitelist
 
 Specify a list of allowed pseudo-class selectors.
 
@@ -8,8 +8,6 @@ Specify a list of allowed pseudo-class selectors.
 /** ↑
  * This pseudo-class selector */
 ```
-
-This rule was previously called, and is aliased as, `selector-pseudo-class-whitelist`.
 
 This rule ignores selectors that use variable interpolation e.g. `:#{$variable} {}`.
 

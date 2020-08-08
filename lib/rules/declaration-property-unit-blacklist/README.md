@@ -1,4 +1,4 @@
-# declaration-property-unit-disallowed-list
+# declaration-property-unit-blacklist
 
 Specify a list of disallowed property and unit pairs within declarations.
 
@@ -8,8 +8,6 @@ a { width: 100px; }
 /** ↑         ↑
  * These properties and these units */
 ```
-
-This rule was previously called, and is aliased as, `declaration-property-unit-blacklist`.
 
 ## Options
 

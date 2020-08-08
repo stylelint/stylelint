@@ -1,4 +1,4 @@
-# selector-combinator-disallowed-list
+# selector-combinator-blacklist
 
 Specify a list of disallowed combinators.
 
@@ -8,8 +8,6 @@ Specify a list of disallowed combinators.
 /** ↑
  * This combinator */
 ```
-
-This rule was previously called, and is aliased as, `selector-combinator-blacklist`.
 
 This rule normalizes the whitespace descendant combinator to be a single space.
 

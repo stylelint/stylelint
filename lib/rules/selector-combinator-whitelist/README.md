@@ -1,4 +1,4 @@
-# selector-combinator-allowed-list
+# selector-combinator-whitelist
 
 Specify a list of allowed combinators.
 
@@ -8,8 +8,6 @@ Specify a list of allowed combinators.
 /** ↑
  * This combinator */
 ```
-
-This rule was previously called, and is aliased as, `selector-combinator-whitelist`.
 
 This rule normalizes the whitespace descendant combinator to be a single space.
 

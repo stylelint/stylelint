@@ -1,4 +1,4 @@
-# selector-attribute-operator-allowed-list
+# selector-attribute-operator-whitelist
 
 Specify a list of allowed attribute operators.
 
@@ -8,8 +8,6 @@ Specify a list of allowed attribute operators.
 /**    ↑
  * This operator */
 ```
-
-This rule was previously called, and is aliased as, `selector-attribute-operator-whitelist`.
 
 ## Options
 

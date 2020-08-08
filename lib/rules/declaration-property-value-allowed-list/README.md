@@ -9,8 +9,6 @@ a { text-transform: uppercase; }
  * These properties and these values */
 ```
 
-This rule was previously called, and is aliased as, `declaration-property-value-whitelist`.
-
 ## Options
 
 `object`: `{ "unprefixed-property-name": ["array", "of", "values"], "unprefixed-property-name": ["/regex/", "non-regex"] }`

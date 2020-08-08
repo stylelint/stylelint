@@ -1,4 +1,4 @@
-# property-disallowed-list
+# property-blacklist
 
 Specify a list of disallowed properties.
 
@@ -8,8 +8,6 @@ a { text-rendering: optimizeLegibility; }
 /** ↑
  * This property */
 ```
-
-This rule was previously called, and is aliased as, `property-blacklist`.
 
 ## Options
 

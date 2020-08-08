@@ -1,4 +1,4 @@
-# at-rule-disallowed-list
+# at-rule-blacklist
 
 Specify a list of disallowed at-rules.
 
@@ -8,8 +8,6 @@ Specify a list of disallowed at-rules.
 /** ↑
  * At-rules like this */
 ```
-
-This rule was previously called, and is aliased as, `at-rule-blacklist`.
 
 ## Options
 

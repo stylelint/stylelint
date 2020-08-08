@@ -1,4 +1,4 @@
-# function-disallowed-list
+# function-blacklist
 
 Specify a list of disallowed functions.
 
@@ -8,8 +8,6 @@ a { transform: scale(1); }
 /**            ↑
  * This function */
 ```
-
-This rule was previously called, and is aliased as, `function-blacklist`.
 
 ## Options
 

@@ -1,4 +1,4 @@
-# declaration-property-value-allowed-list
+# declaration-property-value-whitelist
 
 Specify a list of allowed property and value pairs within declarations.
 
@@ -8,8 +8,6 @@ a { text-transform: uppercase; }
 /** ↑               ↑
  * These properties and these values */
 ```
-
-This rule was previously called, and is aliased as, `declaration-property-value-whitelist`.
 
 ## Options
 

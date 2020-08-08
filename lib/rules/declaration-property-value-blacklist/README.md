@@ -1,4 +1,4 @@
-# declaration-property-value-disallowed-list
+# declaration-property-value-blacklist
 
 Specify a list of disallowed property and value pairs within declarations.
 
@@ -8,8 +8,6 @@ a { text-transform: uppercase; }
 /** ↑               ↑
  * These properties and these values */
 ```
-
-This rule was previously called, and is aliased as, `declaration-property-value-blacklist`.
 
 ## Options
 

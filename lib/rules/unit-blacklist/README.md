@@ -1,4 +1,4 @@
-# unit-disallowed-list
+# unit-blacklist
 
 Specify a list of disallowed units.
 
@@ -8,8 +8,6 @@ a { width: 100px; }
 /**           ↑
  *  These units */
 ```
-
-This rule was previously called, and is aliased as, `unit-blacklist`.
 
 ## Options
 

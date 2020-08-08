@@ -1,4 +1,4 @@
-# media-feature-name-disallowed-list
+# media-feature-name-blacklist
 
 Specify a list of disallowed media feature names.
 
@@ -8,8 +8,6 @@ Specify a list of disallowed media feature names.
 /**     ↑
  * This media feature name */
 ```
-
-This rule was previously called, and is aliased as, `media-feature-name-blacklist`.
 
 ## Options
 

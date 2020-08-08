@@ -1,4 +1,4 @@
-# selector-pseudo-element-allowed-list
+# selector-pseudo-element-whitelist
 
 Specify a list of allowed pseudo-element selectors.
 
@@ -8,8 +8,6 @@ Specify a list of allowed pseudo-element selectors.
 /**  ↑
  * This pseudo-element selector */
 ```
-
-This rule was previously called, and is aliased as, `selector-pseudo-element-whitelist`.
 
 This rule ignores:
 

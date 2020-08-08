@@ -1,4 +1,4 @@
-# unit-allowed-list
+# unit-whitelist
 
 Specify a list of allowed units.
 
@@ -8,8 +8,6 @@ a { width: 100px; }
 /**           ↑
  *  These units */
 ```
-
-This rule was previously called, and is aliased as, `unit-whitelist`.
 
 ## Options
 

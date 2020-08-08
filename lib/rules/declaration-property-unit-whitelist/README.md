@@ -1,4 +1,4 @@
-# declaration-property-unit-allowed-list
+# declaration-property-unit-whitelist
 
 Specify a list of allowed property and unit pairs within declarations.
 
@@ -8,8 +8,6 @@ a { width: 100px; }
 /** ↑         ↑
  * These properties and these units */
 ```
-
-This rule was previously called, and is aliased as, `declaration-property-unit-whitelist`.
 
 ## Options
 
