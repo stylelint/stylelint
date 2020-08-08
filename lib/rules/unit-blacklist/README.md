@@ -1,5 +1,7 @@
 # unit-blacklist
 
+**_Deprecated: Instead use the [`unit-disallowed-list`](../unit-disallowed-list/README.md) rule._**
+
 Specify a list of disallowed units.
 
 <!-- prettier-ignore -->

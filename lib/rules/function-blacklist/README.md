@@ -1,5 +1,7 @@
 # function-blacklist
 
+**_Deprecated: Instead use the [`function-disallowed-list`](../function-disallowed-list/README.md) rule._**
+
 Specify a list of disallowed functions.
 
 <!-- prettier-ignore -->

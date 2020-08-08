@@ -1,5 +1,7 @@
 # media-feature-name-value-whitelist
 
+**_Deprecated: Instead use the [`media-feature-name-value-allowed-list`](../media-feature-name-value-allowed-list/README.md) rule._**
+
 Specify a list of allowed media feature name and value pairs.
 
 <!-- prettier-ignore -->

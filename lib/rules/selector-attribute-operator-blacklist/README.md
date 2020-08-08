@@ -1,5 +1,7 @@
 # selector-attribute-operator-blacklist
 
+**_Deprecated: Instead use the [`selector-attribute-operator-disallowed-list`](../selector-attribute-operator-disallowed-list/README.md) rule._**
+
 Specify a list of disallowed attribute operators.
 
 <!-- prettier-ignore -->

@@ -1,5 +1,7 @@
 # function-url-scheme-whitelist
 
+**_Deprecated: Instead use the [`function-url-scheme-allowed-list`](../function-url-scheme-allowed-list/README.md) rule._**
+
 Specify a list of allowed URL schemes.
 
 <!-- prettier-ignore -->

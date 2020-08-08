@@ -1,5 +1,7 @@
 # at-rule-property-requirelist
 
+**_Deprecated: Instead use the [`at-rule-property-required-list`](../at-rule-property-required-list/README.md) rule._**
+
 Specify a list of required properties for an at-rule.
 
 <!-- prettier-ignore -->

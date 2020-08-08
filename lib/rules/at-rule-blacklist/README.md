@@ -1,5 +1,7 @@
 # at-rule-blacklist
 
+**_Deprecated: Instead use the [`at-rule-disallowed-list`](../at-rule-disallowed-list/README.md) rule._**
+
 Specify a list of disallowed at-rules.
 
 <!-- prettier-ignore -->

@@ -1,5 +1,7 @@
 # unit-whitelist
 
+**_Deprecated: Instead use the [`unit-allowed-list`](../unit-allowed-list/README.md) rule._**
+
 Specify a list of allowed units.
 
 <!-- prettier-ignore -->

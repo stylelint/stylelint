@@ -1,5 +1,7 @@
 # function-url-scheme-blacklist
 
+**_Deprecated: Instead use the [`function-url-scheme-disallowed-list`](../function-url-scheme-disallowed-list/README.md) rule._**
+
 Specify a list of disallowed URL schemes.
 
 <!-- prettier-ignore -->

@@ -1,5 +1,7 @@
 # property-blacklist
 
+**_Deprecated: Instead use the [`property-disallowed-list`](../property-disallowed-list/README.md) rule._**
+
 Specify a list of disallowed properties.
 
 <!-- prettier-ignore -->

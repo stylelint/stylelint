@@ -1,5 +1,7 @@
 # declaration-property-value-whitelist
 
+**_Deprecated: Instead use the [`declaration-property-value-allowed-list`](../declaration-property-value-allowed-list/README.md) rule._**
+
 Specify a list of allowed property and value pairs within declarations.
 
 <!-- prettier-ignore -->

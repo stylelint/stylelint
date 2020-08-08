@@ -1,5 +1,7 @@
 # selector-pseudo-element-whitelist
 
+**_Deprecated: Instead use the [`selector-pseudo-element-allowed-list`](../selector-pseudo-element-allowed-list/README.md) rule._**
+
 Specify a list of allowed pseudo-element selectors.
 
 <!-- prettier-ignore -->

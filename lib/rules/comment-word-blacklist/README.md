@@ -1,5 +1,7 @@
 # comment-word-blacklist
 
+**_Deprecated: Instead use the [`comment-word-disallowed-list`](../comment-word-disallowed-list/README.md) rule._**
+
 Specify a list of disallowed words within comments.
 
 <!-- prettier-ignore -->

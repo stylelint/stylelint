@@ -1,5 +1,7 @@
 # declaration-property-unit-whitelist
 
+**_Deprecated: Instead use the [`declaration-property-unit-allowed-list`](../declaration-property-unit-allowed-list/README.md) rule._**
+
 Specify a list of allowed property and unit pairs within declarations.
 
 <!-- prettier-ignore -->

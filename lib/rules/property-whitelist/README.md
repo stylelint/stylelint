@@ -1,5 +1,7 @@
 # property-whitelist
 
+**_Deprecated: Instead use the [`property-allowed-list`](../property-allowed-list/README.md) rule._**
+
 Specify a list of allowed properties.
 
 <!-- prettier-ignore -->

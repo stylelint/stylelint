@@ -1,5 +1,7 @@
 # declaration-property-unit-blacklist
 
+**_Deprecated: Instead use the [`declaration-property-unit-disallowed-list`](../declaration-property-unit-disallowed-list/README.md) rule._**
+
 Specify a list of disallowed property and unit pairs within declarations.
 
 <!-- prettier-ignore -->

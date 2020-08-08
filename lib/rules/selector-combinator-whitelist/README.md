@@ -1,5 +1,7 @@
 # selector-combinator-whitelist
 
+**_Deprecated: Instead use the [`selector-combinator-allowed-list`](../selector-combinator-allowed-list/README.md) rule._**
+
 Specify a list of allowed combinators.
 
 <!-- prettier-ignore -->

@@ -1,5 +1,7 @@
 # at-rule-whitelist
 
+**_Deprecated: Instead use the [`at-rule-allowed-list`](../at-rule-allowed-list/README.md) rule._**
+
 Specify a list of allowed at-rules.
 
 <!-- prettier-ignore -->

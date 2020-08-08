@@ -1,5 +1,7 @@
 # media-feature-name-blacklist
 
+**_Deprecated: Instead use the [`media-feature-name-disallowed-list`](../media-feature-name-disallowed-list/README.md) rule._**
+
 Specify a list of disallowed media feature names.
 
 <!-- prettier-ignore -->
