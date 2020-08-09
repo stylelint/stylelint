@@ -11,6 +11,8 @@ Disallow vendor prefixes for media feature names.
 
 Right now this rule simply checks for prefixed _resolutions_.
 
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 ### `true`

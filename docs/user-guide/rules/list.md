@@ -130,7 +130,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 ### Value
 
-- [`value-no-vendor-prefix`](../../../lib/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values.
+- [`value-no-vendor-prefix`](../../../lib/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values (Autofixable).
 
 ### Custom property
 
@@ -140,7 +140,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 - [`property-allowed-list`](../../../lib/rules/property-allowed-list/README.md): Specify a list of allowed properties.
 - [`property-disallowed-list`](../../../lib/rules/property-disallowed-list/README.md): Specify a list of disallowed properties.
-- [`property-no-vendor-prefix`](../../../lib/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties.
+- [`property-no-vendor-prefix`](../../../lib/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties (Autofixable).
 
 ### Declaration
 
@@ -175,7 +175,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 - [`selector-max-universal`](../../../lib/rules/selector-max-universal/README.md): Limit the number of universal selectors in a selector.
 - [`selector-nested-pattern`](../../../lib/rules/selector-nested-pattern/README.md): Specify a pattern for the selectors of rules nested within rules.
 - [`selector-no-qualifying-type`](../../../lib/rules/selector-no-qualifying-type/README.md): Disallow qualifying a selector by type.
-- [`selector-no-vendor-prefix`](../../../lib/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors.
+- [`selector-no-vendor-prefix`](../../../lib/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors (Autofixable).
 - [`selector-pseudo-class-allowed-list`](../../../lib/rules/selector-pseudo-class-allowed-list/README.md): Specify a list of allowed pseudo-class selectors.
 - [`selector-pseudo-class-disallowed-list`](../../../lib/rules/selector-pseudo-class-disallowed-list/README.md): Specify a list of disallowed pseudo-class selectors.
 - [`selector-pseudo-element-allowed-list`](../../../lib/rules/selector-pseudo-element-allowed-list/README.md): Specify a list of allowed pseudo-element selectors.
@@ -186,7 +186,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 - [`media-feature-name-allowed-list`](../../../lib/rules/media-feature-name-allowed-list/README.md): Specify a list of allowed media feature names.
 - [`media-feature-name-disallowed-list`](../../../lib/rules/media-feature-name-disallowed-list/README.md): Specify a list of disallowed media feature names.
-- [`media-feature-name-no-vendor-prefix`](../../../lib/rules/media-feature-name-no-vendor-prefix/README.md): Disallow vendor prefixes for media feature names.
+- [`media-feature-name-no-vendor-prefix`](../../../lib/rules/media-feature-name-no-vendor-prefix/README.md): Disallow vendor prefixes for media feature names (Autofixable).
 - [`media-feature-name-value-allowed-list`](../../../lib/rules/media-feature-name-value-allowed-list/README.md): Specify a list of allowed media feature name and value pairs.
 
 ### Custom media
@@ -197,7 +197,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 - [`at-rule-allowed-list`](../../../lib/rules/at-rule-allowed-list/README.md): Specify a list of allowed at-rules.
 - [`at-rule-disallowed-list`](../../../lib/rules/at-rule-disallowed-list/README.md): Specify a list of disallowed at-rules.
-- [`at-rule-no-vendor-prefix`](../../../lib/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for at-rules.
+- [`at-rule-no-vendor-prefix`](../../../lib/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for at-rules (Autofixable).
 - [`at-rule-property-required-list`](../../../lib/rules/at-rule-property-required-list/README.md): Specify a list of required properties for an at-rule.
 
 ### Comment
