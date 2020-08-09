@@ -1,5 +1,5 @@
 declare module 'stylelint' {
-	import { Result, ResultMessage, Syntax, WarningOptions, Warning } from 'postcss';
+	import { Result, ResultMessage, Root, Syntax, WarningOptions, Warning } from 'postcss';
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
@@ -105,6 +105,14 @@ declare module 'stylelint' {
 		customSyntax?: CustomSyntax;
 		fix?: boolean;
 	};
+
+	export type StylelintPluginContext = { fix?: boolean; newline?: string };
+
+	export type StylelintRule = (
+		primaryOption: any,
+		secondaryOptions: object,
+		context: StylelintPluginContext,
+	) => (root: Root, result: PostcssResult) => Promise<void> | void;
 
 	export type GetPostcssOptions = {
 		code?: string;
@@ -239,9 +247,12 @@ declare module 'stylelint' {
 
 	export type StylelintPublicAPI = {
 		lint: Function;
-		rules: { [k: string]: any };
+		rules: { [k: string]: StylelintRule };
 		formatters: { [k: string]: Formatter };
-		createPlugin: Function;
+		createPlugin: (
+			ruleName: string,
+			rule: StylelintRule,
+		) => { ruleName: string; rule: StylelintRule };
 		createLinter: Function;
 		utils: {
 			report: Function;
