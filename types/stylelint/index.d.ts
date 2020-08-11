@@ -216,21 +216,22 @@ declare module 'stylelint' {
 		_postcssResult?: PostcssResult;
 	};
 
-	export type UnusedRange = {
-		unusedRule: string;
+	export type DisableReportRange = {
+		rule: string;
 		start: number;
 		end?: number;
+
+		// This is for backwards-compatibility with formatters that were written
+		// when this name was used instead of `rule`. It should be avoided for new
+		// formatters.
+		unusedRule: string;
 	};
 
 	export type RangeType = DisabledRange & { used?: boolean };
 
 	export type StylelintDisableReportEntry = {
 		source?: string;
-		ranges: Array<{
-			unusedRule: string;
-			start: number;
-			end?: number;
-		}>;
+		ranges: Array<DisableReportRange>;
 	};
 
 	export type StylelintStandaloneReturnValue = {
@@ -243,6 +244,7 @@ declare module 'stylelint' {
 		};
 		needlessDisables?: StylelintDisableOptionsReport;
 		invalidScopeDisables?: StylelintDisableOptionsReport;
+		disallowedDisables?: StylelintDisableOptionsReport;
 	};
 
 	export type StylelintPublicAPI = {
