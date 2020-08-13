@@ -242,9 +242,9 @@ declare module 'stylelint' {
 			maxWarnings: number;
 			foundWarnings: number;
 		};
+		reportedDisables: StylelintDisableOptionsReport;
 		needlessDisables?: StylelintDisableOptionsReport;
 		invalidScopeDisables?: StylelintDisableOptionsReport;
-		disallowedDisables?: StylelintDisableOptionsReport;
 	};
 
 	export type StylelintPublicAPI = {
