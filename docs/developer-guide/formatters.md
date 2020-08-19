@@ -57,7 +57,7 @@ And the second argument (`returnValue`) is an object (type `StylelintStandaloneR
       "ranges": [
         {
           "start": 10,
-          "unusedRule": "indentation"
+          "rule": "indentation"
         }
       ]
     }
@@ -69,7 +69,7 @@ And the second argument (`returnValue`) is an object (type `StylelintStandaloneR
       "ranges": [
         {
           "start": 1,
-          "unusedRule": "color-named"
+          "rule": "color-named"
         }
       ]
     }

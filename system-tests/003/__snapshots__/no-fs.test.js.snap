@@ -216,6 +216,7 @@ footer a:visited {
   height: 110px;
 }
 ",
+  "reportedDisables": Array [],
   "results": Array [
     Object {
       "deprecations": Array [],

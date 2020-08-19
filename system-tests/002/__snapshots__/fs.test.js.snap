@@ -34,6 +34,7 @@ Object {
       ],
     },
   ],
+  "reportedDisables": Array [],
   "results": Array [
     Object {
       "deprecations": Array [],

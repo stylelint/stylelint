@@ -135,6 +135,26 @@ For example:
 
 Reporters may use these severity levels to display violations or exit the process differently.
 
+### `reportDisables`
+
+You can set the `reportDisables` secondary option to report any disable comments for this rule, effectively disallowing authors to opt out of it.
+
+For example:
+
+```json
+{
+  "rules": {
+    "indentation": [
+      2,
+      {
+        "except": ["value"],
+        "reportDisables": true
+      }
+    ]
+  }
+}
+```
+
 ## `defaultSeverity`
 
 You can set the default severity level for all rules that do not have a severity specified in their secondary options. For example, you can set the default severity to `"warning"`:
