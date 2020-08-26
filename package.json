@@ -115,7 +115,7 @@
     "autoprefixer": "^9.8.2",
     "balanced-match": "^1.0.0",
     "chalk": "^4.1.0",
-    "cosmiconfig": "^6.0.0",
+    "cosmiconfig": "^7.0.0",
     "debug": "^4.1.1",
     "execall": "^2.0.0",
     "fastest-levenshtein": "^1.0.9",
