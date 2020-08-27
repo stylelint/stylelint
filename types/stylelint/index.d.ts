@@ -36,6 +36,7 @@ declare module 'stylelint' {
 		end?: number;
 		strictEnd?: boolean;
 		rules?: string[];
+		description?: string;
 	};
 
 	export type DisabledRangeObject = {
@@ -53,6 +54,7 @@ declare module 'stylelint' {
 		ignored?: boolean;
 		ignoreDisables?: boolean;
 		reportNeedlessDisables?: boolean;
+		reportDescriptionlessDisables?: boolean;
 		stylelintError?: boolean;
 		disableWritingFix?: boolean;
 		config?: StylelintConfig;
@@ -101,6 +103,7 @@ declare module 'stylelint' {
 		ignorePath?: string;
 		reportInvalidScopeDisables?: boolean;
 		reportNeedlessDisables?: boolean;
+		reportDescriptionlessDisables?: boolean;
 		syntax?: string;
 		customSyntax?: CustomSyntax;
 		fix?: boolean;
@@ -164,6 +167,7 @@ declare module 'stylelint' {
 		ignoreDisables?: boolean;
 		ignorePath?: string;
 		ignorePattern?: string[];
+		reportDescriptionlessDisables?: boolean;
 		reportNeedlessDisables?: boolean;
 		reportInvalidScopeDisables?: boolean;
 		maxWarnings?: number;
@@ -243,6 +247,7 @@ declare module 'stylelint' {
 			foundWarnings: number;
 		};
 		reportedDisables: StylelintDisableOptionsReport;
+		descriptionlessDisables?: StylelintDisableOptionsReport;
 		needlessDisables?: StylelintDisableOptionsReport;
 		invalidScopeDisables?: StylelintDisableOptionsReport;
 	};
