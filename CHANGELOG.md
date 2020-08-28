@@ -15,7 +15,7 @@ All notable changes to this project are documented in this file.
 - Fixed: support for multi-line disable descriptions ([#4895](https://github.com/stylelint/stylelint/pull/4895)).
 - Fixed: `selector-max-*` (except `selector-max-type`) false negatives for `where`, `is`, `nth-child` and `nth-last-child` ([#4842](https://github.com/stylelint/stylelint/pull/4842)).
 - Fixed: `length-zero-no-unit` TypeError for custom properties fallback ([#4860](https://github.com/stylelint/stylelint/pull/4860)).
-- Fixed: false negatives for `where`, `is`, `nth-child` and `nth-last-child` in `selector-max-*` rules (except selector-max-type) ([#4842](https://github.com/stylelint/stylelint/pull/4842)).
+- Fixed: `selector-combinator-space-after` false positives for trailing combinator ([#4878](https://github.com/stylelint/stylelint/pull/4878)).
 
 ## 13.6.1
 
