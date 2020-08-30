@@ -6,15 +6,16 @@ All notable changes to this project are documented in this file.
 
 - Added: syntax object acceptance to `customSyntax` option ([#4839](https://github.com/stylelint/stylelint/pull/4839)).
 - Added: support for descriptions in stylelint command comments ([#4848](https://github.com/stylelint/stylelint/pull/4848)).
+- Added: support for `*.cjs` config files ([#4905](https://github.com/stylelint/stylelint/pull/4905)). 
 - Added: `*-allowed-list`, `*-disallowed-list` and `*-required-list` new names for `*-whitelist`, `*-blacklist` and `*-requirelist` rules, respectively; the rules are aliased as their old names ([#4845](https://github.com/stylelint/stylelint/pull/4845)).
 - Added: `*-no-vendor-prefix` autofix ([#4859](https://github.com/stylelint/stylelint/pull/4859)).
 - Added: `ignoreComments[]` to `comment-empty-line-before` ([#4841](https://github.com/stylelint/stylelint/pull/4841)).
 - Added: `ignoreContextFunctionalPseudoClasses` to `selector-max-id` ([#4835](https://github.com/stylelint/stylelint/pull/4835)).
 - Fixed: inconsistent trailing newlines in CLI error output ([#4876](https://github.com/stylelint/stylelint/pull/4876)).
+- Fixed: support for multi-line disable descriptions ([#4895](https://github.com/stylelint/stylelint/pull/4895)).
 - Fixed: `selector-max-*` (except `selector-max-type`) false negatives for `where`, `is`, `nth-child` and `nth-last-child` ([#4842](https://github.com/stylelint/stylelint/pull/4842)).
 - Fixed: `length-zero-no-unit` TypeError for custom properties fallback ([#4860](https://github.com/stylelint/stylelint/pull/4860)).
-- Fixed: false negatives for `where`, `is`, `nth-child` and `nth-last-child` in `selector-max-*` rules (except selector-max-type) ([#4842](https://github.com/stylelint/stylelint/pull/4842)).
-- Fixed: support for multi-line disable descriptions ([#4895](https://github.com/stylelint/stylelint/pull/4895)).
+- Fixed: `selector-combinator-space-after` false positives for trailing combinator ([#4878](https://github.com/stylelint/stylelint/pull/4878)).
 
 ## 13.6.1
 
