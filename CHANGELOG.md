@@ -4,11 +4,39 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Deprecated: `*-blacklist`, `*-requirelist` and `*-whitelist` rules in favour of the new `*-disallowed-list`, `*-required-list` and `*-disallowed-list` ones ([#4845](https://github.com/stylelint/stylelint/pull/4845)):
+  - `at-rule-blacklist`. Use `at-rule-disallowed-list` instead.
+  - `at-rule-property-requirelist`. Use `at-rule-property-required-list` instead.
+  - `at-rule-whitelist`. Use `at-rule-allowed-list` instead.
+  - `comment-word-blacklist`. Use `comment-word-disallowed-list` instead.
+  - `declaration-property-unit-blacklist`. Use `declaration-property-unit-disallowed-list` instead.
+  - `declaration-property-unit-whitelist`. Use `declaration-property-unit-allowed-list` instead.
+  - `declaration-property-value-blacklist`. Use `declaration-property-value-disallowed-list` instead.
+  - `declaration-property-value-whitelist`. Use `declaration-property-value-allowed-list` instead.
+  - `function-blacklist`. Use `function-disallowed-list` instead.
+  - `function-url-scheme-blacklist`. Use `function-url-scheme-disallowed-list` instead.
+  - `function-url-scheme-whitelist`. Use `function-url-scheme-allowed-list` instead.
+  - `function-whitelist`. Use `function-allowed-list` instead.
+  - `media-feature-name-blacklist`. Use `media-feature-name-disallowed-list` instead.
+  - `media-feature-name-value-whitelist`. Use `media-feature-name-value-allowed-list` instead.
+  - `media-feature-name-whitelist`. Use `media-feature-name-allowed-list` instead.
+  - `property-blacklist`. Use `property-disallowed-list` instead.
+  - `property-whitelist`. Use `property-allowed-list` instead.
+  - `selector-attribute-operator-blacklist`. Use `selector-attribute-operator-disallowed-list` instead.
+  - `selector-attribute-operator-whitelist`. Use `selector-attribute-operator-allowed-list` instead.
+  - `selector-combinator-blacklist`. Use `selector-combinator-disallowed-list` instead.
+  - `selector-combinator-whitelist`. Use `selector-combinator-allowed-list` instead.
+  - `selector-pseudo-class-blacklist`. Use `selector-pseudo-class-disallowed-list` instead.
+  - `selector-pseudo-class-whitelist`. Use `selector-pseudo-class-allowed-list` instead.
+  - `selector-pseudo-element-blacklist`. Use `selector-pseudo-element-disallowed-list` instead.
+  - `selector-pseudo-element-whitelist`. Use `selector-pseudo-element-allowed-list` instead.
+  - `unit-blacklist`. Use `unit-disallowed-list` instead.
+  - `unit-whitelist`. Use `unit-allowed-list` instead.
 - Added: syntax object acceptance to `customSyntax` option ([#4839](https://github.com/stylelint/stylelint/pull/4839)).
 - Added: support for `*.cjs` config files ([#4905](https://github.com/stylelint/stylelint/pull/4905)).
 - Added: support for descriptions in stylelint command comments ([#4848](https://github.com/stylelint/stylelint/pull/4848)).
 - Added: `reportDescriptionlessDisables` flag ([#4907](https://github.com/stylelint/stylelint/pull/4907)).
-- Added: `*-allowed-list`, `*-disallowed-list` and `*-required-list` new names for `*-whitelist`, `*-blacklist` and `*-requirelist` rules, respectively; the rules are aliased as their old names ([#4845](https://github.com/stylelint/stylelint/pull/4845)).
+- Added: `reportDisables` secondary option ([#4897](https://github.com/stylelint/stylelint/pull/4897)).
 - Added: `*-no-vendor-prefix` autofix ([#4859](https://github.com/stylelint/stylelint/pull/4859)).
 - Added: `ignoreComments[]` to `comment-empty-line-before` ([#4841](https://github.com/stylelint/stylelint/pull/4841)).
 - Added: `ignoreContextFunctionalPseudoClasses` to `selector-max-id` ([#4835](https://github.com/stylelint/stylelint/pull/4835)).
