@@ -9,8 +9,6 @@ Specify a list of disallowed words within comments.
  * These three words */
 ```
 
-This rule was previously called, and is aliased as, `comment-word-blacklist`.
-
 **Caveat:** Comments within _selector and value lists_ are currently ignored.
 
 ## Options

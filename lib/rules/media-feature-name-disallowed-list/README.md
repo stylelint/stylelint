@@ -9,8 +9,6 @@ Specify a list of disallowed media feature names.
  * This media feature name */
 ```
 
-This rule was previously called, and is aliased as, `media-feature-name-blacklist`.
-
 ## Options
 
 `array|string|regex`: `["array", "of", "unprefixed", /media-features/ or "regex"]|"media-feature"|/regex/`
