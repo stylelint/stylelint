@@ -6,7 +6,7 @@ All notable changes to this project are documented in this file.
 
 - Added: syntax object acceptance to `customSyntax` option ([#4839](https://github.com/stylelint/stylelint/pull/4839)).
 - Added: support for descriptions in stylelint command comments ([#4848](https://github.com/stylelint/stylelint/pull/4848)).
-- Added: support for `*.cjs` config files ([#4905](https://github.com/stylelint/stylelint/pull/4905)). 
+- Added: support for `*.cjs` config files ([#4905](https://github.com/stylelint/stylelint/pull/4905)).
 - Added: `*-allowed-list`, `*-disallowed-list` and `*-required-list` new names for `*-whitelist`, `*-blacklist` and `*-requirelist` rules, respectively; the rules are aliased as their old names ([#4845](https://github.com/stylelint/stylelint/pull/4845)).
 - Added: `*-no-vendor-prefix` autofix ([#4859](https://github.com/stylelint/stylelint/pull/4859)).
 - Added: `ignoreComments[]` to `comment-empty-line-before` ([#4841](https://github.com/stylelint/stylelint/pull/4841)).
