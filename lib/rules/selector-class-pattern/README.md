@@ -25,6 +25,7 @@ Given the string:
 
 ```js
 "foo-[a-z]+";
+
 ```
 
 The following patterns are considered violations:
@@ -76,8 +77,8 @@ For example, with `true`.
 
 Given the string:
 
-```js
-"^[A-Z]+$";
+```
+"^[A-Z]+$"
 ```
 
 The following patterns are considered violations:
