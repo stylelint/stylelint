@@ -4,7 +4,7 @@ All notable changes to this project are documented in this file.
 
 ## 13.7.0
 
-- Deprecated: `*-blacklist`, `*-requirelist` and `*-whitelist` rules in favour of the new `*-disallowed-list`, `*-required-list` and `*-disallowed-list` ones ([#4845](https://github.com/stylelint/stylelint/pull/4845)):
+- Deprecated: `*-blacklist`, `*-requirelist` and `*-whitelist` rules in favour of the new `*-disallowed-list`, `*-required-list` and `*-allowed-list` ones ([#4845](https://github.com/stylelint/stylelint/pull/4845)):
   - `at-rule-blacklist`. Use `at-rule-disallowed-list` instead.
   - `at-rule-property-requirelist`. Use `at-rule-property-required-list` instead.
   - `at-rule-whitelist`. Use `at-rule-allowed-list` instead.
