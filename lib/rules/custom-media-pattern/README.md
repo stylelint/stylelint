@@ -17,8 +17,8 @@ A string will be translated into a RegExp like so `new RegExp(yourString)` — 
 
 Given the string:
 
-```js
-"foo-.+";
+```
+"foo-.+"
 ```
 
 The following patterns are considered violations:

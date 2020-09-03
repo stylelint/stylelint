@@ -122,6 +122,11 @@ exports[`CLI --help 1`] = `
       Report stylelint-disable comments that used for rules that don't exist within the configuration object.
       The process will exit with code 2 if invalid scope disables are found.
 
+    --report-descriptionless-disables, --rdd
+
+      Report stylelint-disable comments without a description.
+      The process will exit with code 2 if descriptionless disables are found.
+
     --max-warnings, --mw
 
       Number of warnings above which the process will exit with code 2.

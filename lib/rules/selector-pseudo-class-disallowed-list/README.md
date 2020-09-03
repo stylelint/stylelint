@@ -9,8 +9,6 @@ Specify a list of disallowed pseudo-class selectors.
  * This pseudo-class selector */
 ```
 
-This rule was previously called, and is aliased as, `selector-pseudo-class-blacklist`.
-
 This rule ignores selectors that use variable interpolation e.g. `:#{$variable} {}`.
 
 ## Options

@@ -9,8 +9,6 @@ Specify a list of disallowed at-rules.
  * At-rules like this */
 ```
 
-This rule was previously called, and is aliased as, `at-rule-blacklist`.
-
 ## Options
 
 `array|string`: `["array", "of", "unprefixed", "at-rules"]|"at-rule"`

@@ -1,3 +1,20 @@
+declare module 'postcss/lib/comment' {
+	import { Comment, NodeRaws } from 'postcss';
+
+	interface NodeRawsExt extends NodeRaws {
+		// Used by the SCSS parser to indicate `//` comments.
+		inline?: boolean;
+	}
+
+	interface CommentExt extends Comment {
+		// Used by the Less parser to indicate `//` comments.
+		inline?: boolean;
+		raws: NodeRawsExt;
+	}
+
+	export = CommentExt;
+}
+
 declare module 'postcss/lib/lazy-result' {
 	import {
 		LazyResult,
@@ -25,12 +42,6 @@ declare module 'postcss/lib/lazy-result' {
 	}
 
 	export = LazyResultImpl;
-}
-
-declare module 'postcss-syntax' {
-	var result: any; // TODO TYPES
-
-	export = result;
 }
 
 declare module 'postcss/lib/result' {

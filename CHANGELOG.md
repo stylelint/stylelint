@@ -4,12 +4,52 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Fixed: double-slash disable comments when followed by another comment ([#4913](https://github.com/stylelint/stylelint/pull/4913)).
+
+## 13.7.0
+
+- Deprecated: `*-blacklist`, `*-requirelist` and `*-whitelist` rules in favour of the new `*-disallowed-list`, `*-required-list` and `*-allowed-list` ones ([#4845](https://github.com/stylelint/stylelint/pull/4845)):
+  - `at-rule-blacklist`. Use `at-rule-disallowed-list` instead.
+  - `at-rule-property-requirelist`. Use `at-rule-property-required-list` instead.
+  - `at-rule-whitelist`. Use `at-rule-allowed-list` instead.
+  - `comment-word-blacklist`. Use `comment-word-disallowed-list` instead.
+  - `declaration-property-unit-blacklist`. Use `declaration-property-unit-disallowed-list` instead.
+  - `declaration-property-unit-whitelist`. Use `declaration-property-unit-allowed-list` instead.
+  - `declaration-property-value-blacklist`. Use `declaration-property-value-disallowed-list` instead.
+  - `declaration-property-value-whitelist`. Use `declaration-property-value-allowed-list` instead.
+  - `function-blacklist`. Use `function-disallowed-list` instead.
+  - `function-url-scheme-blacklist`. Use `function-url-scheme-disallowed-list` instead.
+  - `function-url-scheme-whitelist`. Use `function-url-scheme-allowed-list` instead.
+  - `function-whitelist`. Use `function-allowed-list` instead.
+  - `media-feature-name-blacklist`. Use `media-feature-name-disallowed-list` instead.
+  - `media-feature-name-value-whitelist`. Use `media-feature-name-value-allowed-list` instead.
+  - `media-feature-name-whitelist`. Use `media-feature-name-allowed-list` instead.
+  - `property-blacklist`. Use `property-disallowed-list` instead.
+  - `property-whitelist`. Use `property-allowed-list` instead.
+  - `selector-attribute-operator-blacklist`. Use `selector-attribute-operator-disallowed-list` instead.
+  - `selector-attribute-operator-whitelist`. Use `selector-attribute-operator-allowed-list` instead.
+  - `selector-combinator-blacklist`. Use `selector-combinator-disallowed-list` instead.
+  - `selector-combinator-whitelist`. Use `selector-combinator-allowed-list` instead.
+  - `selector-pseudo-class-blacklist`. Use `selector-pseudo-class-disallowed-list` instead.
+  - `selector-pseudo-class-whitelist`. Use `selector-pseudo-class-allowed-list` instead.
+  - `selector-pseudo-element-blacklist`. Use `selector-pseudo-element-disallowed-list` instead.
+  - `selector-pseudo-element-whitelist`. Use `selector-pseudo-element-allowed-list` instead.
+  - `unit-blacklist`. Use `unit-disallowed-list` instead.
+  - `unit-whitelist`. Use `unit-allowed-list` instead.
 - Added: syntax object acceptance to `customSyntax` option ([#4839](https://github.com/stylelint/stylelint/pull/4839)).
+- Added: support for `*.cjs` config files ([#4905](https://github.com/stylelint/stylelint/pull/4905)).
 - Added: support for descriptions in stylelint command comments ([#4848](https://github.com/stylelint/stylelint/pull/4848)).
-- Added: `*-allowed-list`, `*-disallowed-list` and `*-required-list` new names for `*-whitelist`, `*-blacklist` and `*-requirelist` rules, respectively; the rules are aliased as their old names ([#4845](https://github.com/stylelint/stylelint/pull/4845)).
-- Added: `ignoreContextFunctionalPseudoClasses` to `selector-max-id` ([#4835](https://github.com/stylelint/stylelint/pull/4835)).
+- Added: `reportDescriptionlessDisables` flag ([#4907](https://github.com/stylelint/stylelint/pull/4907)).
+- Added: `reportDisables` secondary option ([#4897](https://github.com/stylelint/stylelint/pull/4897)).
+- Added: `*-no-vendor-prefix` autofix ([#4859](https://github.com/stylelint/stylelint/pull/4859)).
 - Added: `ignoreComments[]` to `comment-empty-line-before` ([#4841](https://github.com/stylelint/stylelint/pull/4841)).
-- Fixed: false negatives for `where`, `is`, `nth-child` and `nth-last-child` in `selector-max-*` rules (except selector-max-type) ([#4842](https://github.com/stylelint/stylelint/pull/4842)).
+- Added: `ignoreContextFunctionalPseudoClasses` to `selector-max-id` ([#4835](https://github.com/stylelint/stylelint/pull/4835)).
+- Fixed: inconsistent trailing newlines in CLI error output ([#4876](https://github.com/stylelint/stylelint/pull/4876)).
+- Fixed: support for multi-line disable descriptions ([#4895](https://github.com/stylelint/stylelint/pull/4895)).
+- Fixed: support for paths with parentheses ([#4867](https://github.com/stylelint/stylelint/pull/4867)).
+- Fixed: `selector-max-*` (except `selector-max-type`) false negatives for `where`, `is`, `nth-child` and `nth-last-child` ([#4842](https://github.com/stylelint/stylelint/pull/4842)).
+- Fixed: `length-zero-no-unit` TypeError for custom properties fallback ([#4860](https://github.com/stylelint/stylelint/pull/4860)).
+- Fixed: `selector-combinator-space-after` false positives for trailing combinator ([#4878](https://github.com/stylelint/stylelint/pull/4878)).
 
 ## 13.6.1
 

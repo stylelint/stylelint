@@ -19,8 +19,8 @@ The selector value _after `#`_ will be checked. No need to include `#` in your p
 
 Given the string:
 
-```js
-"foo-[a-z]+";
+```
+"foo-[a-z]+"
 ```
 
 The following patterns are considered violations:

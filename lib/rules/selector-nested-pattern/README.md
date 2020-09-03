@@ -24,8 +24,8 @@ The selector value will be checked in its entirety. If you'd like to allow for c
 
 Given the string:
 
-```js
-"^&:(?:hover|focus)$";
+```
+"^&:(?:hover|focus)$"
 ```
 
 The following patterns are considered violations:

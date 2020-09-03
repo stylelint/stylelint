@@ -12,6 +12,7 @@ Object {
       "warnings": Array [],
     },
   ],
+  "reportedDisables": Array [],
   "results": Array [
     Object {
       "deprecations": Array [],

@@ -1,5 +1,5 @@
 declare module 'stylelint' {
-	import { Result, ResultMessage, Syntax, WarningOptions, Warning } from 'postcss';
+	import { Result, ResultMessage, Root, Syntax, WarningOptions, Warning } from 'postcss';
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
@@ -36,6 +36,7 @@ declare module 'stylelint' {
 		end?: number;
 		strictEnd?: boolean;
 		rules?: string[];
+		description?: string;
 	};
 
 	export type DisabledRangeObject = {
@@ -53,6 +54,7 @@ declare module 'stylelint' {
 		ignored?: boolean;
 		ignoreDisables?: boolean;
 		reportNeedlessDisables?: boolean;
+		reportDescriptionlessDisables?: boolean;
 		stylelintError?: boolean;
 		disableWritingFix?: boolean;
 		config?: StylelintConfig;
@@ -101,10 +103,19 @@ declare module 'stylelint' {
 		ignorePath?: string;
 		reportInvalidScopeDisables?: boolean;
 		reportNeedlessDisables?: boolean;
+		reportDescriptionlessDisables?: boolean;
 		syntax?: string;
 		customSyntax?: CustomSyntax;
 		fix?: boolean;
 	};
+
+	export type StylelintPluginContext = { fix?: boolean; newline?: string };
+
+	export type StylelintRule = (
+		primaryOption: any,
+		secondaryOptions: object,
+		context: StylelintPluginContext,
+	) => (root: Root, result: PostcssResult) => Promise<void> | void;
 
 	export type GetPostcssOptions = {
 		code?: string;
@@ -156,6 +167,7 @@ declare module 'stylelint' {
 		ignoreDisables?: boolean;
 		ignorePath?: string;
 		ignorePattern?: string[];
+		reportDescriptionlessDisables?: boolean;
 		reportNeedlessDisables?: boolean;
 		reportInvalidScopeDisables?: boolean;
 		maxWarnings?: number;
@@ -208,21 +220,22 @@ declare module 'stylelint' {
 		_postcssResult?: PostcssResult;
 	};
 
-	export type UnusedRange = {
-		unusedRule: string;
+	export type DisableReportRange = {
+		rule: string;
 		start: number;
 		end?: number;
+
+		// This is for backwards-compatibility with formatters that were written
+		// when this name was used instead of `rule`. It should be avoided for new
+		// formatters.
+		unusedRule: string;
 	};
 
 	export type RangeType = DisabledRange & { used?: boolean };
 
 	export type StylelintDisableReportEntry = {
 		source?: string;
-		ranges: Array<{
-			unusedRule: string;
-			start: number;
-			end?: number;
-		}>;
+		ranges: Array<DisableReportRange>;
 	};
 
 	export type StylelintStandaloneReturnValue = {
@@ -233,15 +246,20 @@ declare module 'stylelint' {
 			maxWarnings: number;
 			foundWarnings: number;
 		};
+		reportedDisables: StylelintDisableOptionsReport;
+		descriptionlessDisables?: StylelintDisableOptionsReport;
 		needlessDisables?: StylelintDisableOptionsReport;
 		invalidScopeDisables?: StylelintDisableOptionsReport;
 	};
 
 	export type StylelintPublicAPI = {
 		lint: Function;
-		rules: { [k: string]: any };
+		rules: { [k: string]: StylelintRule };
 		formatters: { [k: string]: Formatter };
-		createPlugin: Function;
+		createPlugin: (
+			ruleName: string,
+			rule: StylelintRule,
+		) => { ruleName: string; rule: StylelintRule };
 		createLinter: Function;
 		utils: {
 			report: Function;

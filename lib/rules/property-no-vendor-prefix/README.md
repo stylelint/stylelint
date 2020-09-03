@@ -11,6 +11,8 @@ a { -webkit-transform: scale(1); }
 
 This rule does not blanketly condemn vendor prefixes. Instead, it uses [Autoprefixer's](https://github.com/postcss/autoprefixer) up-to-date data (from [caniuse.com](http://caniuse.com/)) to know whether a vendor prefix should cause a violation or not. _If you've included a vendor prefixed property that has a standard alternative, one that Autoprefixer could take care of for you, this rule will complain about it_. If, however, you use a non-standard vendor-prefixed property, one that Autoprefixer would ignore and could not provide (such as `-webkit-touch-callout`), this rule will ignore it.
 
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 ### `true`

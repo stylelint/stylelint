@@ -9,8 +9,6 @@ Specify a list of allowed attribute operators.
  * This operator */
 ```
 
-This rule was previously called, and is aliased as, `selector-attribute-operator-whitelist`.
-
 ## Options
 
 `array|string`: `["array", "of", "operators"]|"operator"`
