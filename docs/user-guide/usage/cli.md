@@ -116,7 +116,7 @@ stylelint "foo/**/*.css" --customSyntax path/to/my-custom-syntax.js
 
 ### Example I - print on success
 
-Ensure output on successful runs
+Ensure output on successful runs:
 ```
 stylelint -f verbose "foo/**/*.css"
 ```
