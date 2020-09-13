@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: use of full file path without converting it to glob ([#4931](https://github.com/stylelint/stylelint/pull/4931)).
+
 ## 13.7.1
 
 - Fixed: double-slash disable comments when followed by another comment ([#4913](https://github.com/stylelint/stylelint/pull/4913)).
