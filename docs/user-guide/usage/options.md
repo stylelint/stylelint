@@ -167,30 +167,30 @@ Produce a report of the `stylelint-disable` comments without a description.
 
 For example, when the configuration `{ block-no-empty: true }` is given, the following patterns are reported:
 
+<!-- prettier-ignore -->
 ```css
 /* stylelint-disable */
-a {
-}
+a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* stylelint-disable-next-line block-no-empty */
-a {
-}
+a {}
 ```
 
 But, the following patterns are _not_ reported:
 
+<!-- prettier-ignore -->
 ```css
 /* stylelint-disable -- This violation is ignorable. */
-a {
-}
+a {}
 ```
 
+<!-- prettier-ignore -->
 ```css
 /* stylelint-disable-next-line block-no-empty -- This violation is ignorable. */
-a {
-}
+a {}
 ```
 
 If descriptionless disables are found, the:
