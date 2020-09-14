@@ -137,7 +137,7 @@ Reporters may use these severity levels to display violations or exit the proces
 
 ### `reportDisables`
 
-You can set the `reportDisables` secondary option to report any disable comments for this rule, effectively disallowing authors to opt out of it.
+You can set the `reportDisables` secondary option to report any `stylelint-disable` comments for this rule, effectively disallowing authors to opt out of it.
 
 For example:
 
@@ -154,6 +154,8 @@ For example:
   }
 }
 ```
+
+The report is included in the [`reportedDisables`](usage/node-api.md#reporteddisables) property to the returned data of Node.js API.
 
 ## `defaultSeverity`
 
