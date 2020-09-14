@@ -179,7 +179,7 @@ a {}
 a {}
 ```
 
-But, the following patterns are _not_ reported:
+But, the following patterns (`stylelint-disable -- <description>`) are _not_ reported:
 
 <!-- prettier-ignore -->
 ```css
