@@ -110,6 +110,7 @@
     ]
   },
   "dependencies": {
+    "@endemolshinegroup/cosmiconfig-typescript-loader": "^3.0.2",
     "@stylelint/postcss-css-in-js": "^0.37.2",
     "@stylelint/postcss-markdown": "^0.36.1",
     "autoprefixer": "^9.8.6",
