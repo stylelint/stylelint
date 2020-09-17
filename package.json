@@ -110,7 +110,6 @@
     ]
   },
   "dependencies": {
-    "@endemolshinegroup/cosmiconfig-typescript-loader": "^3.0.2",
     "@stylelint/postcss-css-in-js": "^0.37.2",
     "@stylelint/postcss-markdown": "^0.36.1",
     "autoprefixer": "^9.8.6",
@@ -195,6 +194,14 @@
     "prettier": "^2.1.1",
     "remark-cli": "^8.0.1",
     "typescript": "^3.9.6"
+  },
+  "peerDependencies": {
+    "@endemolshinegroup/cosmiconfig-typescript-loader": ">=3.0.2"
+  },
+  "peerDependenciesMeta": {
+    "@endemolshinegroup/cosmiconfig-typescript-loader": {
+      "optional": true
+    }
   },
   "engines": {
     "node": ">=10.13.0"
