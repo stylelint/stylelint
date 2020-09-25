@@ -1,5 +1,5 @@
 declare module 'stylelint' {
-	import { Result, ResultMessage, Root, Syntax, WarningOptions, Warning } from 'postcss';
+	import { Comment, Result, ResultMessage, Root, Syntax, WarningOptions, Warning } from 'postcss';
 
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
@@ -31,6 +31,7 @@ declare module 'stylelint' {
 	export type CosmiconfigResult = { config: StylelintConfig; filepath: string };
 
 	export type DisabledRange = {
+		comment: Comment;
 		start: number;
 		strictStart: boolean;
 		end?: number;
