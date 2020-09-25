@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 13.7.2
 
 - Fixed: regression for disable commands and adjacent double-slash comments ([#4950](https://github.com/stylelint/stylelint/pull/4950)).
 - Fixed: use of full file path without converting it to glob ([#4931](https://github.com/stylelint/stylelint/pull/4931)).
