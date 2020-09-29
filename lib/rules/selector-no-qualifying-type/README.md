@@ -103,3 +103,26 @@ a#foo {
   margin: 0
 }
 ```
+
+### Configuration example
+
+If you want to allow `class` selectors, update your rule configuration as follows:
+
+```
+"rules": {
+    "selector-no-qualifying-type": [
+    true,
+    {
+      "ignore": ["class"]
+    }
+  ]
+}
+```
+
+To completely disable the rule:
+
+```
+"rules": {
+  "selector-no-qualifying-type": null
+}
+```
