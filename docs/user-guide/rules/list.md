@@ -230,6 +230,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 - [`comment-word-blacklist`](../../../lib/rules/comment-word-blacklist/README.md): Specify a list of disallowed words within comments. **(deprecated)**
 - [`comment-word-disallowed-list`](../../../lib/rules/comment-word-disallowed-list/README.md): Specify a list of disallowed words within comments.
+- [`comment-pattern`](../../../lib/rules/comment-pattern/README.md): Specify a pattern for comments.
 
 ### General / Sheet
 
