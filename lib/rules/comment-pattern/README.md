@@ -4,22 +4,21 @@ Specify a pattern for comments.
 
 <!-- prettier-ignore -->
 ```css
-                  /*comment*/
-                 /* ↑ */ a { --foo-: 1px; }
-/**                 ↑
+/*  comment */
+/** ↑
  * The pattern of this */
 ```
 
 ## Options
 
-`regex`
+`regex|string`
 
-The pattern to match the comments with.
+A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
 
-Given the regex:
+Given the string:
 
 ```
-/foo .+/
+"foo .+"
 ```
 
 The following patterns are considered violations:
