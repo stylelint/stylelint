@@ -18,7 +18,7 @@ The pattern to match the comments with.
 
 Given the regex:
 
-```js
+```
 /foo .+/
 ```
 
