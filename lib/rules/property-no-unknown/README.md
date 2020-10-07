@@ -143,7 +143,7 @@ The following patterns are _not_ considered violations:
 ```css
 @supports(display: my-property) {
   div {
-      display: my-property
+    display: my-property
   }
 }
 ```
