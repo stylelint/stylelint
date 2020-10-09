@@ -141,7 +141,7 @@ You can use this option to see what your linting results would be like without t
 
 CLI flags: `--report-needless-disables, --rd`
 
-Produce a report to clean up your codebase, keeping only the stylelint-disable comments that serve a purpose.
+Produce a report to clean up your codebase, keeping only the `stylelint-disable` comments that serve a purpose.
 
 If needless disables are found, the:
 
@@ -152,9 +152,48 @@ If needless disables are found, the:
 
 CLI flags: `--report-invalid-scope-disables, --risd`
 
-Produce a report of the stylelint-disable comments that used for rules that don't exist within the configuration object.
+Produce a report of the `stylelint-disable` comments that used for rules that don't exist within the configuration object.
 
 If invalid scope disables are found, the:
+
+- CLI process exits with code `2`
+- Node.js API adds errors to the returned data
+
+## `reportDescriptionlessDisables`
+
+CLI flags: `--report-descriptionless-disables, --rdd`
+
+Produce a report of the `stylelint-disable` comments without a description.
+
+For example, when the configuration `{ block-no-empty: true }` is given, the following patterns are reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable */
+a {}
+```
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable-next-line block-no-empty */
+a {}
+```
+
+But, the following patterns (`stylelint-disable -- <description>`) are _not_ reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable -- This violation is ignorable. */
+a {}
+```
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable-next-line block-no-empty -- This violation is ignorable. */
+a {}
+```
+
+If descriptionless disables are found, the:
 
 - CLI process exits with code `2`
 - Node.js API adds errors to the returned data

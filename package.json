@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "13.7.1",
+  "version": "13.7.2",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css-in-js",
@@ -144,7 +144,7 @@
     "postcss-safe-parser": "^4.0.2",
     "postcss-sass": "^0.4.4",
     "postcss-scss": "^2.1.1",
-    "postcss-selector-parser": "^6.0.2",
+    "postcss-selector-parser": "^6.0.4",
     "postcss-syntax": "^0.36.2",
     "postcss-value-parser": "^4.1.0",
     "resolve-from": "^5.0.0",
@@ -175,7 +175,7 @@
     "@types/postcss-safe-parser": "^4.0.0",
     "@types/style-search": "^0.1.1",
     "@types/svg-tags": "^1.0.0",
-    "@types/table": "^5.0.0",
+    "@types/table": "^6.0.0",
     "@types/write-file-atomic": "^3.0.1",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",

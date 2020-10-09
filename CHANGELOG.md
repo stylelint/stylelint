@@ -6,6 +6,10 @@ All notable changes to this project are documented in this file.
 
 - Added: disable comments that are reported as errors for various reasons are now reported as standard lint errors rather than a separate class of errors that must be handled specially.
 - Deprecated: `StylelintStandaloneReturnValue.reportedDisables`, `.descriptionlessDisables`, `.needlessDisables`, and `.invalidScopeDisables`. `.reportedDisables` will always be empty and the other properties will always be undefined, since these errors now show up in `.results` instead.
+
+## 13.7.2
+
+- Fixed: regression for disable commands and adjacent double-slash comments ([#4950](https://github.com/stylelint/stylelint/pull/4950)).
 - Fixed: use of full file path without converting it to glob ([#4931](https://github.com/stylelint/stylelint/pull/4931)).
 
 ## 13.7.1
