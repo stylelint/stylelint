@@ -185,7 +185,7 @@
     "got": "^11.5.2",
     "husky": "^4.3.0",
     "jest": "^26.4.2",
-    "jest-circus": "^26.4.2",
+    "jest-circus": "^26.5.2",
     "jest-preset-stylelint": "^3.0.0",
     "jest-watch-typeahead": "^0.6.0",
     "lint-staged": "^10.2.13",
