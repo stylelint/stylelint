@@ -1,4 +1,4 @@
-# custom-property-pattern
+# comment-pattern
 
 Specify a pattern for comments.
 
