@@ -21,11 +21,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [10, 12]
+        node: [10, 12, 14]
         os: [ubuntu-latest, windows-latest, macos-latest]
         exclude:
           - os: ubuntu-latest
-            node: 12
+            node: 14
 
     steps:
       - uses: actions/checkout@v2
@@ -51,7 +51,7 @@ jobs:
 
     strategy:
       matrix:
-        node: [12]
+        node: [14]
         os: [ubuntu-latest]
 
     steps:
