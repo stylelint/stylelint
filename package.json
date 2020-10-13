@@ -110,7 +110,7 @@
     ]
   },
   "dependencies": {
-    "@stylelint/postcss-css-in-js": "^0.37.2",
+    "@stylelint/postcss-css-in-js": "git+https://github.com/stylelint/postcss-css-in-js.git#5e963f46645ffd3eeeea30574780acffb1645a97",
     "@stylelint/postcss-markdown": "^0.36.1",
     "autoprefixer": "^9.8.6",
     "balanced-match": "^1.0.0",
@@ -186,7 +186,7 @@
     "husky": "^4.3.0",
     "jest": "^26.4.2",
     "jest-circus": "^26.4.2",
-    "jest-preset-stylelint": "^3.0.0",
+    "jest-preset-stylelint": "git+https://github.com/stylelint/jest-preset-stylelint.git#4627b5b98f572f6a94ba6355801803fd91393a22",
     "jest-watch-typeahead": "^0.6.0",
     "lint-staged": "^10.2.13",
     "np": "^6.5.0",

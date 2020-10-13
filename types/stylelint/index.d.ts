@@ -26,6 +26,7 @@ declare module 'stylelint' {
 		resultProcessors?: Array<Function>;
 		quiet?: boolean;
 		defaultSeverity?: string;
+		unstable_substituteCssInJs?: boolean;
 	};
 
 	export type CosmiconfigResult = { config: StylelintConfig; filepath: string };
