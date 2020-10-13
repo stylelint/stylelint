@@ -129,7 +129,7 @@ The following patterns are _not_ considered violations:
 
 ### `ignoreAtRules: ["/regex/", /regex/, "string"]`
 
-Skips checking properties of the given at-rules.
+Ignores properties nested within specified at-rules.
 
 Given:
 
@@ -141,9 +141,9 @@ The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-@supports(display: my-property) {
-  div {
-    display: my-property
+@supports(display: grid) {
+  a {
+    my-property: 1;
   }
 }
 ```
