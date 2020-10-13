@@ -61,6 +61,9 @@
     "extends": [
       "stylelint"
     ],
+    "rules": {
+      "no-shadow": "error"
+    },
     "globals": {
       "testRule": true
     },
