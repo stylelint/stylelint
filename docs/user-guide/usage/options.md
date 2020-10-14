@@ -146,7 +146,7 @@ Produce a report to clean up your codebase, keeping only the `stylelint-disable`
 If needless disables are found, the:
 
 - CLI process exits with code `2`
-- Node.js API adds a [`needlessDisables`](node-api.md#needlessdisables) property to the returned data
+- Node.js API adds errors to the returned data
 
 ## `reportInvalidScopeDisables`
 
@@ -157,7 +157,7 @@ Produce a report of the `stylelint-disable` comments that used for rules that do
 If invalid scope disables are found, the:
 
 - CLI process exits with code `2`
-- Node.js API adds a [`invalidScopeDisables`](node-api.md#invalidscopedisables) property to the returned data
+- Node.js API adds errors to the returned data
 
 ## `reportDescriptionlessDisables`
 
@@ -196,7 +196,7 @@ a {}
 If descriptionless disables are found, the:
 
 - CLI process exits with code `2`
-- Node.js API adds a [`descriptionlessDisables`](node-api.md#descriptionlessdisables) property to the returned data
+- Node.js API adds errors to the returned data
 
 ## `codeFilename`
 
