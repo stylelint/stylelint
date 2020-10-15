@@ -181,7 +181,7 @@
     "common-tags": "^1.8.0",
     "del": "^6.0.0",
     "eslint": "^7.11.0",
-    "eslint-config-stylelint": "^12.1.0",
+    "eslint-config-stylelint": "^13.0.0",
     "got": "^11.7.0",
     "husky": "^4.3.0",
     "jest": "^26.5.3",
