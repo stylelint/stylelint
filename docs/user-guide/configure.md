@@ -155,7 +155,7 @@ For example:
 }
 ```
 
-The report is included in the [`reportedDisables`](usage/node-api.md#reporteddisables) property to the returned data of Node.js API.
+The report is considered to be a lint error.
 
 ## `defaultSeverity`
 

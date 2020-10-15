@@ -66,22 +66,6 @@ An array containing all the stylelint result objects (the objects that formatter
 
 An object containing the maximum number of warnings and the amount found, e.g. `{ maxWarnings: 0, foundWarnings: 12 }`.
 
-### `reportedDisables`
-
-An array of objects, one for each source, with tells you which `stylelint-disable` comments for rules enabled [`reportDisables`](../configure.md#reportdisables).
-
-### `needlessDisables`
-
-An array of objects, one for each source, with tells you which `stylelint-disable` comments are not blocking a lint violation.
-
-### `invalidScopeDisables`
-
-An array of objects, one for each source, with tells you which rule in a `stylelint-disable <rule>` comment doesn't exist within the configuration object.
-
-### `descriptionlessDisables`
-
-An array of objects, one for each source, with tells you which `stylelint-disable` comments without a description.
-
 ## Syntax errors
 
 `stylelint.lint()` does not reject the Promise when your CSS contains syntax errors.
