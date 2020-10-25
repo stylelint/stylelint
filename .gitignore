@@ -3,3 +3,4 @@ node_modules
 .coverage
 .eslintcache
 yarn.lock
+types-new

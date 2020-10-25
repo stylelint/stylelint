@@ -5,13 +5,16 @@
 		"lib": ["es2017", "dom"],
 		"allowJs": true,
 		"checkJs": true,
-		"noEmit": true,
+		"noEmit": false,
 		"strict": true,
 		"noImplicitThis": true,
 		"alwaysStrict": true,
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
-		"typeRoots": ["./types", "./node_modules/@types"]
+		"typeRoots": ["./types", "./node_modules/@types"],
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"outDir": "types-new"
 	},
 	"include": ["lib", "types", "package.json"],
 	"exclude": ["lib/testUtils", "**/*.test.js", "**/__tests__"]

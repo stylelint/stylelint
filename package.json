@@ -194,7 +194,7 @@
     "postcss-import": "^12.0.1",
     "prettier": "^2.1.2",
     "remark-cli": "^8.0.1",
-    "typescript": "^4.0.3"
+    "typescript": "^4.1.0-dev.20201025"
   },
   "engines": {
     "node": ">=10.13.0"
