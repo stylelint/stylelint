@@ -141,7 +141,7 @@ The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-@supports(display: grid) {
+@supports (display: grid) {
   a {
     my-property: 1;
   }
