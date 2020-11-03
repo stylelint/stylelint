@@ -80,7 +80,7 @@ As `config` contains no relative paths for `extends` or `plugins`, you do not ha
 ```js
 stylelint
   .lint({
-    config: { rules: "color-no-invalid-hex" },
+    config: { rules: { "color-no-invalid-hex": true } },
     files: "all/my/stylesheets/*.css"
   })
   .then(function (data) {
