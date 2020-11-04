@@ -13,6 +13,8 @@ _Lengths_ refer to distance measurements. A length is a _dimension_, which is a 
 
 This rule ignores lengths within math functions (e.g. `calc`) in favor of the [`function-calc-no-invalid`](../function-calc-no-invalid/README.md) rule.
 
+This rule ignores length within first two values in `flex` shorthand (it can be unitless `flex-grow`/`flex-shrink` values instead of `flex-basis` length).
+
 The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
