@@ -209,6 +209,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 - [`media-feature-name-disallowed-list`](../../../lib/rules/media-feature-name-disallowed-list/README.md): Specify a list of disallowed media feature names.
 - [`media-feature-name-no-vendor-prefix`](../../../lib/rules/media-feature-name-no-vendor-prefix/README.md): Disallow vendor prefixes for media feature names (Autofixable).
 - [`media-feature-name-value-allowed-list`](../../../lib/rules/media-feature-name-value-allowed-list/README.md): Specify a list of allowed media feature name and value pairs.
+- [`media-feature-name-value-whitelist`](../../../lib/rules/media-feature-name-value-whitelist/README.md): Specify a list of allowed media feature name and value pairs. **(deprecated)**
 - [`media-feature-name-whitelist`](../../../lib/rules/media-feature-name-whitelist/README.md): Specify a list of allowed media feature names. **(deprecated)**
 
 ### Custom media
@@ -227,6 +228,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 ### Comment
 
+- [`comment-pattern`](../../../lib/rules/comment-pattern/README.md): Specify a pattern for comments.
 - [`comment-word-blacklist`](../../../lib/rules/comment-word-blacklist/README.md): Specify a list of disallowed words within comments. **(deprecated)**
 - [`comment-word-disallowed-list`](../../../lib/rules/comment-word-disallowed-list/README.md): Specify a list of disallowed words within comments.
 

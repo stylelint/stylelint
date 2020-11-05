@@ -127,6 +127,27 @@ The following patterns are _not_ considered violations:
 }
 ```
 
+### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+
+Ignores properties nested within specified at-rules.
+
+Given:
+
+```
+["supports"]
+```
+
+The following patterns are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+@supports (display: grid) {
+  a {
+    my-property: 1;
+  }
+}
+```
+
 ### `checkPrefixed: true | false` (default: `false`)
 
 If `true`, this rule will check vendor-prefixed properties.

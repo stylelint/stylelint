@@ -114,6 +114,14 @@ Recursively linting all `.css` files in the `foo` directory using a custom synta
 stylelint "foo/**/*.css" --customSyntax path/to/my-custom-syntax.js
 ```
 
+### Example I - print on success
+
+Ensure output on successful runs:
+
+```shell
+stylelint -f verbose "foo/**/*.css"
+```
+
 ## Exit codes
 
 The CLI can exit the process with the following exit codes:

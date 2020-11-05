@@ -4,6 +4,19 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Added: disable comments that are reported as errors for various reasons are now reported as standard lint errors rather than a separate class of errors that must be handled specially ([#4973](https://github.com/stylelint/stylelint/pull/4973)).
+- Added: configured pattern in `*-pattern` rules violation message ([#4975](https://github.com/stylelint/stylelint/pull/4975)).
+- Added: `comment-pattern` rule ([#4962](https://github.com/stylelint/stylelint/pull/4962)).
+- Added: `ignoreAtRules[]` to `property-no-unknown` ([#4965](https://github.com/stylelint/stylelint/pull/4965)).
+- Deprecated: `StylelintStandaloneReturnValue.reportedDisables`, `.descriptionlessDisables`, `.needlessDisables`, and `.invalidScopeDisables`. `.reportedDisables` will always be empty and the other properties will always be undefined, since these errors now show up in `.results` instead ([#4973](https://github.com/stylelint/stylelint/pull/4973)).
+
+## 13.7.2
+
+- Fixed: regression for disable commands and adjacent double-slash comments ([#4950](https://github.com/stylelint/stylelint/pull/4950)).
+- Fixed: use of full file path without converting it to glob ([#4931](https://github.com/stylelint/stylelint/pull/4931)).
+
+## 13.7.1
+
 - Fixed: double-slash disable comments when followed by another comment ([#4913](https://github.com/stylelint/stylelint/pull/4913)).
 
 ## 13.7.0
