@@ -11,12 +11,12 @@ Specify a list of disallowed attribute names.
 
 ## Options
 
-`array|string`: `["array", "of", "names"]|"name"`
+`array|string|regex`: `["array", "of", /names/ or "regex"]|"name"|/regex/`
 
 Given:
 
 ```
-["class", "id"]
+["class", "id", "/^data-/"]
 ```
 
 The following patterns are considered violations:
@@ -29,6 +29,11 @@ The following patterns are considered violations:
 <!-- prettier-ignore -->
 ```css
 [id~="bar"] {}
+```
+
+<!-- prettier-ignore -->
+```css
+[data-foo*="bar"] {}
 ```
 
 The following patterns are _not_ considered violations:
