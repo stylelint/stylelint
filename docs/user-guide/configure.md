@@ -7,6 +7,7 @@ stylelint uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) to fi
 - a `stylelint` property in `package.json`
 - a `.stylelintrc` file
 - a `stylelint.config.js` file exporting a JS object
+- a `stylelint.config.cjs` file exporting a JS object. When running stylelint in JavaScript packages that specify `"type":"module"` in their `package.json`
 
 The search stops when one of these is found, and stylelint uses that object. You can use the [`--config` or `configFile` option](usage/options.md#configfile) to short-circuit the search.
 
