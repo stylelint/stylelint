@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`no-fs - valid sanitize.css and their config 1`] = `
+exports[`no-fs - valid sanitize.css and their config standalone 1`] = `
 Object {
   "errored": false,
   "output": Array [
