@@ -111,7 +111,7 @@
   },
   "dependencies": {
     "@stylelint/postcss-css-in-js": "^0.37.2",
-    "@stylelint/postcss-markdown": "^0.36.1",
+    "@stylelint/postcss-markdown": "^0.36.2",
     "autoprefixer": "^9.8.6",
     "balanced-match": "^1.0.0",
     "chalk": "^4.1.0",
@@ -169,7 +169,7 @@
     "@types/global-modules": "^2.0.0",
     "@types/globjoin": "^0.1.0",
     "@types/imurmurhash": "^0.1.1",
-    "@types/lodash": "^4.14.162",
+    "@types/lodash": "^4.14.165",
     "@types/micromatch": "^4.0.1",
     "@types/postcss-less": "^3.1.1",
     "@types/postcss-safe-parser": "^4.0.0",
