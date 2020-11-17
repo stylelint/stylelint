@@ -120,7 +120,7 @@
     "execall": "^2.0.0",
     "fast-glob": "^3.2.4",
     "fastest-levenshtein": "^1.0.12",
-    "file-entry-cache": "^5.0.1",
+    "file-entry-cache": "^6.0.0",
     "get-stdin": "^8.0.0",
     "global-modules": "^2.0.0",
     "globby": "^11.0.1",
