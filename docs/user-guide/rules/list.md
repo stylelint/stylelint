@@ -169,6 +169,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 ### Selector
 
+- [`selector-attribute-name-disallowed-list`](../../../lib/rules/selector-attribute-name-disallowed-list/README.md): Specify a list of disallowed attribute names.
 - [`selector-attribute-operator-allowed-list`](../../../lib/rules/selector-attribute-operator-allowed-list/README.md): Specify a list of allowed attribute operators.
 - [`selector-attribute-operator-blacklist`](../../../lib/rules/selector-attribute-operator-blacklist/README.md): Specify a list of disallowed attribute operators. **(deprecated)**
 - [`selector-attribute-operator-disallowed-list`](../../../lib/rules/selector-attribute-operator-disallowed-list/README.md): Specify a list of disallowed attribute operators.
