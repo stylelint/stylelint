@@ -12,6 +12,11 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 - [`color-no-invalid-hex`](../../../lib/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
 
+### Dashed-ident
+
+- [`dashed-ident-no-missing-reference-function`](../../../lib/rules/dashed-ident-no-missing-reference-function/README.md):
+  Disallow missing reference functions for dashed-idents.
+
 ### Font family
 
 - [`font-family-no-duplicate-names`](../../../lib/rules/font-family-no-duplicate-names/README.md): Disallow duplicate font family names.
