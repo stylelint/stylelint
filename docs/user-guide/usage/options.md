@@ -48,6 +48,7 @@ Options are:
 - `compact`
 - `json` (default for Node API)
 - `string` (default for CLI)
+- `tap`
 - `unix`
 - `verbose`
 
