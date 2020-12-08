@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `selector-attribute-name-disallowed-list` false positives for valueless attribute selectors ([#5060](https://github.com/stylelint/stylelint/pull/5060)).
+
 ## 13.8.0
 
 - Deprecated: `StylelintStandaloneReturnValue.reportedDisables`, `.descriptionlessDisables`, `.needlessDisables`, and `.invalidScopeDisables`. `.reportedDisables` will always be empty and the other properties will always be undefined, since these errors now show up in `.results` instead ([#4973](https://github.com/stylelint/stylelint/pull/4973)).
