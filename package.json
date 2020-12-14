@@ -171,7 +171,7 @@
     "@types/imurmurhash": "^0.1.1",
     "@types/lodash": "^4.14.165",
     "@types/micromatch": "^4.0.1",
-    "@types/postcss-less": "^3.1.1",
+    "@types/postcss-less": "^4.0.0",
     "@types/postcss-safe-parser": "^4.0.0",
     "@types/style-search": "^0.1.1",
     "@types/svg-tags": "^1.0.0",
