@@ -15,3 +15,4 @@ Other integrations built and maintained by the community.
 ## Command Line Tools
 
 - [stylelint-find-rules](https://github.com/alexilyaev/stylelint-find-rules) - find Stylelint rules that you don't have in your config.
+- [putout](https://github.com/coderaiser/putout) - pluggable and configurable code transformer.
