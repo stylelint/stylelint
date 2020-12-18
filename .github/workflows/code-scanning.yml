@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - "!dependabot/**"
+      - '!dependabot/**'
   pull_request:
     # The branches below must be a subset of the branches above
     branches:
@@ -25,7 +25,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1
         with:
-          languages: "javascript"
+          languages: 'javascript'
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v1
