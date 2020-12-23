@@ -124,3 +124,33 @@ a {
   width: calc(10PX * 2);
 }
 ```
+
+## Optional secondary options
+
+### `ignoreUnits: ["/regex/", /regex/, "string"]`
+
+Ignore variable matching the given regular expressions or strings.
+
+For example, with `"lower"` and given:
+
+```
+[/@defaultHeight/, "#"]
+```
+
+The following variable are _not_ considered violations:
+
+```less
+:root {
+  background: pink;
+  /* ignore this variable because of the regex */
+  height: 1px * @defaultHeight;
+}
+```
+
+```less
+:root {
+  background: pink;
+  /* string-ignore */
+  height: 1px + #B();
+}
+```

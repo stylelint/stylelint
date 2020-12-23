@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Fixed: `selector-attribute-name-disallowed-list` false positives for valueless attribute selectors ([#5060](https://github.com/stylelint/stylelint/pull/5060)).
+- Added: `ignoreUnits` to `unit-case` ([#5089](https://github.com/stylelint/stylelint/pull/5089)).
 
 ## 13.8.0
 
