@@ -133,7 +133,7 @@
     "lodash": "^4.17.20",
     "log-symbols": "^4.0.0",
     "mathml-tag-names": "^2.1.3",
-    "meow": "^8.0.0",
+    "meow": "^8.1.0",
     "micromatch": "^4.0.2",
     "normalize-selector": "^0.2.0",
     "postcss": "^7.0.35",
