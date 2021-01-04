@@ -155,7 +155,7 @@
     "style-search": "^0.1.0",
     "sugarss": "^2.0.0",
     "svg-tags": "^1.0.0",
-    "table": "^6.0.4",
+    "table": "^6.0.7",
     "v8-compile-cache": "^2.2.0",
     "write-file-atomic": "^3.0.3"
   },
