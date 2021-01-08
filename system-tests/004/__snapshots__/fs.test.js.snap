@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`no-fs - errored state for reportNeedlessDisables 1`] = `
+Object {
+  "errored": true,
+  "output": Array [
+    Object {
+      "deprecations": Array [],
+      "errored": false,
+      "invalidOptionWarnings": Array [],
+      "parseErrors": Array [],
+      "warnings": Array [
+        Object {
+          "column": 1,
+          "line": 1,
+          "rule": "--report-needless-disables",
+          "severity": "error",
+          "text": "Needless disable for \\"block-no-empty\\"",
+        },
+      ],
+    },
+  ],
+  "reportedDisables": Array [],
+  "results": Array [
+    Object {
+      "deprecations": Array [],
+      "errored": false,
+      "ignored": undefined,
+      "invalidOptionWarnings": Array [],
+      "parseErrors": Array [],
+      "warnings": Array [
+        Object {
+          "column": 1,
+          "line": 1,
+          "rule": "--report-needless-disables",
+          "severity": "error",
+          "text": "Needless disable for \\"block-no-empty\\"",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`no-fs - no errored state 1`] = `
+Object {
+  "errored": false,
+  "output": Array [
+    Object {
+      "deprecations": Array [],
+      "errored": false,
+      "invalidOptionWarnings": Array [],
+      "parseErrors": Array [],
+      "warnings": Array [],
+    },
+  ],
+  "reportedDisables": Array [],
+  "results": Array [
+    Object {
+      "deprecations": Array [],
+      "errored": false,
+      "ignored": undefined,
+      "invalidOptionWarnings": Array [],
+      "parseErrors": Array [],
+      "warnings": Array [],
+    },
+  ],
+}
+`;
