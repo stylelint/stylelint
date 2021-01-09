@@ -5,7 +5,7 @@ const { caseConfigFile, caseFilesForFix, prepForSnapshot } = require('../systemT
 
 const CASE_NUMBER = '004';
 
-it('no-fs - errored state for reportNeedlessDisables', async () => {
+it('fs - errored state for reportNeedlessDisables', async () => {
 	expect(
 		prepForSnapshot(
 			await stylelint.lint({
@@ -17,7 +17,7 @@ it('no-fs - errored state for reportNeedlessDisables', async () => {
 	).toMatchSnapshot();
 }, 10000);
 
-it('no-fs - no errored state', async () => {
+it('fs - no errored state', async () => {
 	expect(
 		prepForSnapshot(
 			await stylelint.lint({
