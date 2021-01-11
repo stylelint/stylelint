@@ -183,7 +183,7 @@
     "eslint": "^7.17.0",
     "eslint-config-stylelint": "^13.1.0",
     "got": "^11.8.1",
-    "husky": "^4.3.6",
+    "husky": "^4.3.7",
     "jest": "^26.6.3",
     "jest-circus": "^26.6.3",
     "jest-preset-stylelint": "^3.0.0",
