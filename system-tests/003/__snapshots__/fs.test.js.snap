@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`no-fs - zen garden CSS with standard config 1`] = `
+exports[`fs - zen garden CSS with standard config 1`] = `
 Object {
   "errored": true,
   "output": Array [
