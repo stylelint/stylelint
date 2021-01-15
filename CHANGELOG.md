@@ -4,11 +4,17 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
-- Added: disable comments that are reported as errors for various reasons are now reported as standard lint errors rather than a separate class of errors that must be handled specially ([#4973](https://github.com/stylelint/stylelint/pull/4973)).
-- Added: configured pattern in `*-pattern` rules violation message ([#4975](https://github.com/stylelint/stylelint/pull/4975)).
-- Added: `comment-pattern` rule ([#4962](https://github.com/stylelint/stylelint/pull/4962)).
-- Added: `ignoreAtRules[]` to `property-no-unknown` ([#4965](https://github.com/stylelint/stylelint/pull/4965)).
+- Fixed: `selector-attribute-name-disallowed-list` false positives for valueless attribute selectors ([#5060](https://github.com/stylelint/stylelint/pull/5060)).
+
+## 13.8.0
+
 - Deprecated: `StylelintStandaloneReturnValue.reportedDisables`, `.descriptionlessDisables`, `.needlessDisables`, and `.invalidScopeDisables`. `.reportedDisables` will always be empty and the other properties will always be undefined, since these errors now show up in `.results` instead ([#4973](https://github.com/stylelint/stylelint/pull/4973)).
+- Added: disable comments that are reported as errors for various reasons are now reported as standard lint errors rather than a separate class of errors that must be handled specially ([#4973](https://github.com/stylelint/stylelint/pull/4973)).
+- Added: `comment-pattern` rule ([#4962](https://github.com/stylelint/stylelint/pull/4962)).
+- Added: `selector-attribute-name-disallowed-list` rule ([#4992](https://github.com/stylelint/stylelint/pull/4992)).
+- Added: `ignoreAtRules[]` to `property-no-unknown` ([#4965](https://github.com/stylelint/stylelint/pull/4965)).
+- Fixed: `*-notation` false negatives for dollar variables ([#5031](https://github.com/stylelint/stylelint/pull/5031)).
+- Fixed: `*-pattern` missing configured pattern in violation messages ([#4975](https://github.com/stylelint/stylelint/pull/4975)).
 
 ## 13.7.2
 
