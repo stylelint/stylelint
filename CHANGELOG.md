@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Added: TAP formatter ([#5062](https://github.com/stylelint/stylelint/pull/5062)).
+- Fixed: incorrect exit code when using `--report` options ([#5079](https://github.com/stylelint/stylelint/pull/5079)).
 - Fixed: `selector-attribute-name-disallowed-list` false positives for valueless attribute selectors ([#5060](https://github.com/stylelint/stylelint/pull/5060)).
 
 ## 13.8.0
