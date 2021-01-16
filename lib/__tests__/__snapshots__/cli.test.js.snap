@@ -96,7 +96,7 @@ exports[`CLI --help 1`] = `
 
     --formatter, -f               [default: \\"string\\"]
 
-      The output formatter: \\"compact\\", \\"json\\", \\"string\\", \\"unix\\" or \\"verbose\\".
+      The output formatter: \\"compact\\", \\"json\\", \\"string\\", \\"tap\\", \\"unix\\" or \\"verbose\\".
 
     --custom-formatter
 

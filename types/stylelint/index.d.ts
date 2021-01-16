@@ -91,7 +91,14 @@ declare module 'stylelint' {
 		returnValue?: StylelintStandaloneReturnValue,
 	) => string;
 
-	export type FormatterIdentifier = 'compact' | 'json' | 'string' | 'unix' | 'verbose' | Formatter;
+	export type FormatterIdentifier =
+		| 'compact'
+		| 'json'
+		| 'string'
+		| 'tap'
+		| 'unix'
+		| 'verbose'
+		| Formatter;
 
 	export type CustomSyntax = string | Syntax;
 
