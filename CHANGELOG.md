@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 13.9.0
 
 - Added: TAP formatter ([#5062](https://github.com/stylelint/stylelint/pull/5062)).
 - Fixed: incorrect exit code when using `--report` options ([#5079](https://github.com/stylelint/stylelint/pull/5079)).
