@@ -169,7 +169,7 @@
     "@types/global-modules": "^2.0.0",
     "@types/globjoin": "^0.1.0",
     "@types/imurmurhash": "^0.1.1",
-    "@types/lodash": "^4.14.167",
+    "@types/lodash": "^4.14.168",
     "@types/micromatch": "^4.0.1",
     "@types/postcss-less": "^3.1.1",
     "@types/postcss-safe-parser": "^4.0.0",
