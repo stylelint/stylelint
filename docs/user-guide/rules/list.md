@@ -141,6 +141,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 ### Custom property
 
 - [`custom-property-pattern`](../../../lib/rules/custom-property-pattern/README.md): Specify a pattern for custom properties.
+- [`declaration-block-no-duplicate-custom-properties`](../../../lib/rules/declaration-block-no-duplicate-custom-properties/README.md): Specify a pattern for custom properties.
 
 ### Property
 
