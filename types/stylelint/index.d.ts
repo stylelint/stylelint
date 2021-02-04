@@ -26,6 +26,10 @@ declare module 'stylelint' {
 		resultProcessors?: Array<Function>;
 		quiet?: boolean;
 		defaultSeverity?: string;
+		ignoreDisables?: boolean;
+		reportNeedlessDisables?: boolean;
+		reportInvalidScopeDisables?: boolean;
+		reportDescriptionlessDisables?: boolean;
 	};
 
 	export type CosmiconfigResult = { config: StylelintConfig; filepath: string };
@@ -53,9 +57,6 @@ declare module 'stylelint' {
 		disabledRanges: DisabledRangeObject;
 		disabledWarnings?: DisabledWarning[];
 		ignored?: boolean;
-		ignoreDisables?: boolean;
-		reportNeedlessDisables?: boolean;
-		reportDescriptionlessDisables?: boolean;
 		stylelintError?: boolean;
 		disableWritingFix?: boolean;
 		config?: StylelintConfig;
@@ -106,7 +107,7 @@ declare module 'stylelint' {
 		config?: StylelintConfig;
 		configFile?: string;
 		configBasedir?: string;
-		configOverrides?: Object;
+		configOverrides?: StylelintConfig;
 		ignoreDisables?: boolean;
 		ignorePath?: string;
 		reportInvalidScopeDisables?: boolean;
@@ -170,7 +171,7 @@ declare module 'stylelint' {
 		config?: StylelintConfig;
 		configFile?: string;
 		configBasedir?: string;
-		configOverrides?: Object;
+		configOverrides?: StylelintConfig;
 		printConfig?: string;
 		ignoreDisables?: boolean;
 		ignorePath?: string;
