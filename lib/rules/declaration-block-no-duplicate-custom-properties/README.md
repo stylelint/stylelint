@@ -1,4 +1,4 @@
-# declaration-block-no-duplicate-properties
+# declaration-block-no-duplicate-custom-properties
 
 Disallow duplicate custom properties within declaration blocks.
 
@@ -38,7 +38,3 @@ a { --custom-property: pink; }
 ```css
 a { --custom-property: pink; --cUstOm-prOpErtY: orange; }
 ```
-
-## Optional secondary options
-
-None
