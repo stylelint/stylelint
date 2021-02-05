@@ -170,7 +170,7 @@ You can set the default severity level for all rules that do not have a severity
 
 ## `ignoreDisables`
 
-Ignore `styleline-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
+Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
 
 For example:
 
@@ -182,8 +182,7 @@ For example:
 
 ## `reportNeedlessDisables`
 
-Emit errors for `stylelint-disable` comments that don't include actually match
-any lints that need to be disabled.
+Emit errors for `stylelint-disable` comments that don't actually match any lints that need to be disabled.
 
 For example:
 
@@ -195,8 +194,7 @@ For example:
 
 ## `reportInvalidScopeDisables`
 
-Emit errors for `stylelint-disable` comments that don't match rules that are
-specified in the configuration object.
+Emit errors for `stylelint-disable` comments that don't match rules that are specified in the configuration object.
 
 For example:
 
