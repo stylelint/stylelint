@@ -168,6 +168,82 @@ You can set the default severity level for all rules that do not have a severity
 }
 ```
 
+## `ignoreDisables`
+
+Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
+
+For example:
+
+```json
+{
+  "ignoreDisables": true
+}
+```
+
+## `reportNeedlessDisables`
+
+Emit errors for `stylelint-disable` comments that don't actually match any lints that need to be disabled.
+
+For example:
+
+```json
+{
+  "reportNeedlessDisables": true
+}
+```
+
+## `reportInvalidScopeDisables`
+
+Emit errors for `stylelint-disable` comments that don't match rules that are specified in the configuration object.
+
+For example:
+
+```json
+{
+  "reportInvalidScopeDisables": true
+}
+```
+
+## `reportDescriptionlessDisables`
+
+Emit errors for `stylelint-disable` comments without a description.
+
+For example, when the configuration `{ block-no-empty: true }` is given, the following patterns are reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable */
+a {}
+```
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable-next-line block-no-empty */
+a {}
+```
+
+But, the following patterns (`stylelint-disable -- <description>`) are _not_ reported:
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable -- This violation is ignorable. */
+a {}
+```
+
+<!-- prettier-ignore -->
+```css
+/* stylelint-disable-next-line block-no-empty -- This violation is ignorable. */
+a {}
+```
+
+For example:
+
+```json
+{
+  "reportDescriptionlessDisables": true
+}
+```
+
 ## `extends`
 
 You can _extend_ an existing configuration (whether your own or a third-party one).
