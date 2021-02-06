@@ -41,6 +41,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 ### Declaration block
 
+- [`declaration-block-no-duplicate-custom-properties`](../../../lib/rules/declaration-block-no-duplicate-custom-properties/README.md): Disallow duplicate custom properties within declaration blocks.
 - [`declaration-block-no-duplicate-properties`](../../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks.
 - [`declaration-block-no-shorthand-property-overrides`](../../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
 
