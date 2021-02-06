@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Added: `ignoreDisables`, `reportNeedlessDisables`, `reportInvalidScopeDisables` and `reportDescriptionlessDisables` configuration object properties ([#5126](https://github.com/stylelint/stylelint/pull/5126)).
+- Added: `declaration-block-no-duplicate-custom-properties` rule ([#5125](https://github.com/stylelint/stylelint/pull/5125)).
 
 ## 13.9.0
 
