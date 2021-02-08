@@ -189,7 +189,7 @@
     "jest-preset-stylelint": "^3.0.0",
     "jest-watch-typeahead": "^0.6.1",
     "lint-staged": "^10.5.3",
-    "np": "^7.2.0",
+    "np": "^7.3.0",
     "npm-run-all": "^4.1.5",
     "postcss-import": "^12.0.1",
     "prettier": "^2.2.1",
