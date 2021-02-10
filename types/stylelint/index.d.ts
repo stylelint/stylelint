@@ -6,9 +6,14 @@ declare module 'stylelint' {
 	export type StylelintConfigProcessor = string | [string, Object];
 	export type StylelintConfigProcessors = string | Array<StylelintConfigProcessor>;
 	export type StylelintConfigIgnoreFiles = string | Array<string>;
-	export type StylelintConfigRuleSettings = any | [any, Object];
+	export type StylelintConfigRuleSettings<T, O extends Object> =
+		| null
+		| undefined
+		| NonNullable<T>
+		| [NonNullable<T>]
+		| [NonNullable<T>, O];
 	export type StylelintConfigRules = {
-		[ruleName: string]: StylelintConfigRuleSettings;
+		[ruleName: string]: StylelintConfigRuleSettings<any, Object>;
 	};
 
 	export type StylelintConfig = {
