@@ -1,6 +1,8 @@
 declare module 'stylelint' {
 	import { Comment, Result, ResultMessage, Root, Syntax, WarningOptions, Warning } from 'postcss';
 
+	export type Severity = 'warning' | 'error';
+
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
 	export type StylelintConfigProcessor = string | [string, Object];
@@ -30,7 +32,7 @@ declare module 'stylelint' {
 		codeProcessors?: Array<Function>;
 		resultProcessors?: Array<Function>;
 		quiet?: boolean;
-		defaultSeverity?: string;
+		defaultSeverity?: Severity;
 		ignoreDisables?: boolean;
 		reportNeedlessDisables?: boolean;
 		reportInvalidScopeDisables?: boolean;
@@ -56,7 +58,7 @@ declare module 'stylelint' {
 	export type DisabledWarning = { line: number; rule: string };
 
 	export type StylelintPostcssResult = {
-		ruleSeverities: { [k: string]: any };
+		ruleSeverities: { [k: string]: Severity };
 		customMessages: { [k: string]: any };
 		quiet?: boolean;
 		disabledRanges: DisabledRangeObject;
@@ -83,7 +85,7 @@ declare module 'stylelint' {
 
 	export type StylelintWarningOptions = WarningOptions & {
 		stylelintType?: string;
-		severity?: string;
+		severity?: Severity;
 		rule?: string;
 	};
 
@@ -213,7 +215,7 @@ declare module 'stylelint' {
 		line: number;
 		column: number;
 		rule: string;
-		severity: string;
+		severity: Severity;
 		text: string;
 		stylelintType?: string;
 	};
