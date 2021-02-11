@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "13.9.0",
+  "version": "13.10.0",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css-in-js",
@@ -23,7 +23,9 @@
   "license": "MIT",
   "author": "stylelint",
   "main": "lib/index.js",
-  "bin": "bin/stylelint.js",
+  "bin": {
+    "stylelint": "bin/stylelint.js"
+  },
   "files": [
     "bin",
     "CONTRIBUTING.md",
