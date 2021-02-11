@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file.
 
 - Added: `ignoreDisables`, `reportNeedlessDisables`, `reportInvalidScopeDisables` and `reportDescriptionlessDisables` configuration object properties ([#5126](https://github.com/stylelint/stylelint/pull/5126)).
 - Added: `declaration-block-no-duplicate-custom-properties` rule ([#5125](https://github.com/stylelint/stylelint/pull/5125)).
+- Fixed: `alpha-value-notation` false negatives for CSS Variables ([#5130](https://github.com/stylelint/stylelint/pull/5130)).
 
 ## 13.9.0
 
