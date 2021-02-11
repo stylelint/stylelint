@@ -217,100 +217,100 @@ All notable changes to this project are documented in this file.
 - Fixed: `*-max-empty-lines` to only report one violation per function, selector, value list ([#4260](https://github.com/stylelint/stylelint/pull/4260)).
 - Fixed: `block-no-empty` crash for `@import` statements ([#4110](https://github.com/stylelint/stylelint/pull/4110)).
 - Fixed: `indentation` false positives for `<style>` tag with multiline attributes ([#4177](https://github.com/stylelint/stylelint/pull/4177)).
-- Fixed: `length-zero-no-unit` false positives for inside calc function ([#4175](;tagwithmultilineattributes#4177httpshttps://github.com/stylelint/stylelint/pull/4175)).
-- Fixed: `max-line-length` false positives for multi-line `url()` ([#4169](;https://github.com/stylelint/stylelint/pull/4169)).
-- Fixed: `no-duplicate-selectors` false positives for selectors in the same selector list ([#4173](;https://github.com/stylelint/stylelint/pull/4173)).
-- Fixed: `no-unit-unknown` false positives for at-variables (Less) starting with numbers ([#4163](;https://github.com/stylelint/stylelint/pull/4163)).
-- Fixed: `property-no-unknown` for `overflowX` for CSS-in-JS ([#4184](;https://github.com/stylelint/stylelint/pull/4184)).
+- Fixed: `length-zero-no-unit` false positives for inside calc function ([#4175](https://github.com/stylelint/stylelint/pull/4175)).
+- Fixed: `max-line-length` false positives for multi-line `url()` ([#4169](https://github.com/stylelint/stylelint/pull/4169)).
+- Fixed: `no-duplicate-selectors` false positives for selectors in the same selector list ([#4173](https://github.com/stylelint/stylelint/pull/4173)).
+- Fixed: `no-unit-unknown` false positives for at-variables (Less) starting with numbers ([#4163](https://github.com/stylelint/stylelint/pull/4163)).
+- Fixed: `property-no-unknown` for `overflowX` for CSS-in-JS ([#4184](https://github.com/stylelint/stylelint/pull/4184)).
 
 ## 10.1.0
 
-- Added: `selector-max-empty-lines` autofix ([#3717](;https://github.com/stylelint/stylelint/pull/3717)).
-- Added: rule names for `--report-needless-disables` output ([#4071](;https://github.com/stylelint/stylelint/pull/4071)).
-- Added: `--output-file` CLI flag ([#4085](;https://github.com/stylelint/stylelint/pull/4085)).
-- Fixed: `function-calc-no-invalid` false positives for interpolation ([#4046](;https://github.com/stylelint/stylelint/pull/4046)).
-- Fixed: `declaration-block-semicolon-space-before` autofix with `!important` annotations ([#4016](;https://github.com/stylelint/stylelint/issues/4016)).
-- Fixed: `no-eol-whitespace` autofix for within comments ([#4224](;https://github.com/stylelint/stylelint/pull/4224)).
-- Fixed: `no-eol-whitespace` false negatives for last line without trailing EOL ([#4224](;https://github.com/stylelint/stylelint/pull/4224)).
-- Fixed: `selector-pseudo-class-no-unknown` false positives for `defined` ([#4081](;https://github.com/stylelint/stylelint/pull/4081)).
+- Added: `selector-max-empty-lines` autofix ([#3717](https://github.com/stylelint/stylelint/pull/3717)).
+- Added: rule names for `--report-needless-disables` output ([#4071](https://github.com/stylelint/stylelint/pull/4071)).
+- Added: `--output-file` CLI flag ([#4085](https://github.com/stylelint/stylelint/pull/4085)).
+- Fixed: `function-calc-no-invalid` false positives for interpolation ([#4046](https://github.com/stylelint/stylelint/pull/4046)).
+- Fixed: `declaration-block-semicolon-space-before` autofix with `!important` annotations ([#4016](https://github.com/stylelint/stylelint/issues/4016)).
+- Fixed: `no-eol-whitespace` autofix for within comments ([#4224](https://github.com/stylelint/stylelint/pull/4224)).
+- Fixed: `no-eol-whitespace` false negatives for last line without trailing EOL ([#4224](https://github.com/stylelint/stylelint/pull/4224)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `defined` ([#4081](https://github.com/stylelint/stylelint/pull/4081)).
 
 ## 10.0.1
 
-- Fixed: minimum Node.js engine reduced to 8.7.0 ([#4032](;https://github.com/stylelint/stylelint/pull/4032)).
-- Fixed: `--allow-empty-input` CLI flag ([#4029](;https://github.com/stylelint/stylelint/pull/4029)).
-- Fixed: `color-no-invalid-hex` false positives for hashes in URLs ([#4035](;https://github.com/stylelint/stylelint/pull/4035)).
-- Fixed: `function-linear-gradient-no-nonstandard-direction` false positives for dollar variables ([#4027](;https://github.com/stylelint/stylelint/pull/4027)).
+- Fixed: minimum Node.js engine reduced to 8.7.0 ([#4032](https://github.com/stylelint/stylelint/pull/4032)).
+- Fixed: `--allow-empty-input` CLI flag ([#4029](https://github.com/stylelint/stylelint/pull/4029)).
+- Fixed: `color-no-invalid-hex` false positives for hashes in URLs ([#4035](https://github.com/stylelint/stylelint/pull/4035)).
+- Fixed: `function-linear-gradient-no-nonstandard-direction` false positives for dollar variables ([#4027](https://github.com/stylelint/stylelint/pull/4027)).
 
 ## 10.0.0
 
-- Removed: Node.js 6.x support. Node.js 8.15.1 or greater is now required ([#4006](;https://github.com/stylelint/stylelint/pull/4006)).
-- Removed: `styled` and `jsx` syntax options that were replaced with `css-in-js` in v9.10.0 ([#4007](;https://github.com/stylelint/stylelint/pull/4007)).
-- Changed: throws error if glob matches no files, use the `--allow-empty-input` flag for the old behaviour ([#3965](;https://github.com/stylelint/stylelint/pull/3965)).
-- Changed: rules are now applied in the order defined in `lib/rules/index.js` ([#3923](;https://github.com/stylelint/stylelint/pull/3923)).
-- Added: `at-rule-property-requirelist` rule ([#3997](;https://github.com/stylelint/stylelint/pull/3997)).
-- Added: `disallowInList` to `no-duplicate-selectors` ([#3936](;https://github.com/stylelint/stylelint/pull/3936)).
-- Added: `ignore: ["comments"]` to `block-no-empty` ([#4008](;https://github.com/stylelint/stylelint/pull/4008)).
-- Fixed: false negatives in declaration-based rules for CSS-in-JS ([#3933](;https://github.com/stylelint/stylelint/pull/3933)).
-- Fixed: `color-no-invalid-hex` false negatives for CSS-in-JS ([#3957](;https://github.com/stylelint/stylelint/pull/3957)).
-- Fixed: `feature-name-no-unknown` false positives for `prefers-color-scheme` ([#3951](;https://github.com/stylelint/stylelint/pull/3951)).
-- Fixed: `function-calc-no-invalid` false positives for negative numbers ([#3921](;https://github.com/stylelint/stylelint/pull/3921)).
-- Fixed: `no-descending-specificity` false positives for vendor prefixed pseudo-elements ([#3929](;https://github.com/stylelint/stylelint/issues/3929)).
-- Fixed: `selector-max-*` false negatives for nested at-rules ([#3959](;https://github.com/stylelint/stylelint/pull/3959)).
-- Fixed: Logical combinations pseudo-classes in `selector-max-universal` are now evaluated separately ([#4263](;https://github.com/stylelint/stylelint/pull/4263)).
-- Fixed: `value-keyword-case` autofix for single-line comments within maps ([#4019](;https://github.com/stylelint/stylelint/pull/4019)).
+- Removed: Node.js 6.x support. Node.js 8.15.1 or greater is now required ([#4006](https://github.com/stylelint/stylelint/pull/4006)).
+- Removed: `styled` and `jsx` syntax options that were replaced with `css-in-js` in v9.10.0 ([#4007](https://github.com/stylelint/stylelint/pull/4007)).
+- Changed: throws error if glob matches no files, use the `--allow-empty-input` flag for the old behaviour ([#3965](https://github.com/stylelint/stylelint/pull/3965)).
+- Changed: rules are now applied in the order defined in `lib/rules/index.js` ([#3923](https://github.com/stylelint/stylelint/pull/3923)).
+- Added: `at-rule-property-requirelist` rule ([#3997](https://github.com/stylelint/stylelint/pull/3997)).
+- Added: `disallowInList` to `no-duplicate-selectors` ([#3936](https://github.com/stylelint/stylelint/pull/3936)).
+- Added: `ignore: ["comments"]` to `block-no-empty` ([#4008](https://github.com/stylelint/stylelint/pull/4008)).
+- Fixed: false negatives in declaration-based rules for CSS-in-JS ([#3933](https://github.com/stylelint/stylelint/pull/3933)).
+- Fixed: `color-no-invalid-hex` false negatives for CSS-in-JS ([#3957](https://github.com/stylelint/stylelint/pull/3957)).
+- Fixed: `feature-name-no-unknown` false positives for `prefers-color-scheme` ([#3951](https://github.com/stylelint/stylelint/pull/3951)).
+- Fixed: `function-calc-no-invalid` false positives for negative numbers ([#3921](https://github.com/stylelint/stylelint/pull/3921)).
+- Fixed: `no-descending-specificity` false positives for vendor prefixed pseudo-elements ([#3929](https://github.com/stylelint/stylelint/issues/3929)).
+- Fixed: `selector-max-*` false negatives for nested at-rules ([#3959](https://github.com/stylelint/stylelint/pull/3959)).
+- Fixed: Logical combinations pseudo-classes in `selector-max-universal` are now evaluated separately ([#4263](https://github.com/stylelint/stylelint/pull/4263)).
+- Fixed: `value-keyword-case` autofix for single-line comments within maps ([#4019](https://github.com/stylelint/stylelint/pull/4019)).
 
 ## 9.10.1
 
-- Fixed: "fatal: Not a git repository" error ([#3915](;https://github.com/stylelint/stylelint/pull/3915)).
-- Fixed: unintended increase in package size ([#3915](;https://github.com/stylelint/stylelint/pull/3915)).
+- Fixed: "fatal: Not a git repository" error ([#3915](https://github.com/stylelint/stylelint/pull/3915)).
+- Fixed: unintended increase in package size ([#3915](https://github.com/stylelint/stylelint/pull/3915)).
 
 ## 9.10.0
 
-- Added: support for ordinary regular expressions anywhere a regex string is accepted in rule config ([#3799](;https://github.com/stylelint/stylelint/pull/3799)).
-- Added: `css-in-js` syntax option that will replace the existing `styled` and `jsx` ones ([#3872](;https://github.com/stylelint/stylelint/pull/3872)).
-- Added: `function-calc-no-invalid` rule ([#3833](;https://github.com/stylelint/stylelint/pull/3833)).
-- Added: `ignore: ["next-sibling"]` to `selector-max-type` ([#3832](;https://github.com/stylelint/stylelint/pull/3832)).
-- Added: `declaration-block-semicolon-space-after` autofix ([#3865](;https://github.com/stylelint/stylelint/pull/3865)).
-- Fixed: autofix is now disabled when a stylelint processors is used ([#3873](;https://github.com/stylelint/stylelint/pull/3873)).
-- Fixed: `CssSyntaxError` for functions in template literals ([#3869](;https://github.com/stylelint/stylelint/pull/3869)).
-- Fixed: `no-descending-specificity` false positives for styled-components ([#3875](;https://github.com/stylelint/stylelint/pull/3875)).
-- Fixed: `no-duplicate-selectors` false positives for styled-components ([#3875](;https://github.com/stylelint/stylelint/pull/3875)).
-- Fixed: `selector-pseudo-class-no-unknown` false positives for `focus-visible` ([#3887](;https://github.com/stylelint/stylelint/pull/3887)).
-- Fixed: `selector-max-universal` false positives for flush comments containing a comma ([#3817](;https://github.com/stylelint/stylelint/pull/3817)).
-- Fixed: `shorthand-property-redundant-values` false positives for negative values ([#3888](;https://github.com/stylelint/stylelint/pull/3888)).
+- Added: support for ordinary regular expressions anywhere a regex string is accepted in rule config ([#3799](https://github.com/stylelint/stylelint/pull/3799)).
+- Added: `css-in-js` syntax option that will replace the existing `styled` and `jsx` ones ([#3872](https://github.com/stylelint/stylelint/pull/3872)).
+- Added: `function-calc-no-invalid` rule ([#3833](https://github.com/stylelint/stylelint/pull/3833)).
+- Added: `ignore: ["next-sibling"]` to `selector-max-type` ([#3832](https://github.com/stylelint/stylelint/pull/3832)).
+- Added: `declaration-block-semicolon-space-after` autofix ([#3865](https://github.com/stylelint/stylelint/pull/3865)).
+- Fixed: autofix is now disabled when a stylelint processors is used ([#3873](https://github.com/stylelint/stylelint/pull/3873)).
+- Fixed: `CssSyntaxError` for functions in template literals ([#3869](https://github.com/stylelint/stylelint/pull/3869)).
+- Fixed: `no-descending-specificity` false positives for styled-components ([#3875](https://github.com/stylelint/stylelint/pull/3875)).
+- Fixed: `no-duplicate-selectors` false positives for styled-components ([#3875](https://github.com/stylelint/stylelint/pull/3875)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `focus-visible` ([#3887](https://github.com/stylelint/stylelint/pull/3887)).
+- Fixed: `selector-max-universal` false positives for flush comments containing a comma ([#3817](https://github.com/stylelint/stylelint/pull/3817)).
+- Fixed: `shorthand-property-redundant-values` false positives for negative values ([#3888](https://github.com/stylelint/stylelint/pull/3888)).
 
 ## 9.9.0
 
-- Added: `selector-list-comma-newline-after` autofix ([#3815](;https://github.com/stylelint/stylelint/pull/3815)).
-- Added: `value-list-max-empty-lines` autofix ([#3814](;https://github.com/stylelint/stylelint/pull/3814)).
-- Added: `ignoreSelectors: []` to `selector-no-vendor-prefix` ([#3748](;https://github.com/stylelint/stylelint/pull/3748)).
-- Fixed: ignored files are no longer parsed ([#3801](;https://github.com/stylelint/stylelint/pull/3801)).
-- Fixed: ignore `&:extend` for Less syntax ([#3824](;https://github.com/stylelint/stylelint/pull/3824)).
-- Fixed: `--report-needless-disables` CLI flag ([#3819](;https://github.com/stylelint/stylelint/pull/3819)).
-- Fixed: `font-family-no-missing-generic-family-keyword` false positives for system fonts ([#3794](;https://github.com/stylelint/stylelint/pull/3794)).
+- Added: `selector-list-comma-newline-after` autofix ([#3815](https://github.com/stylelint/stylelint/pull/3815)).
+- Added: `value-list-max-empty-lines` autofix ([#3814](https://github.com/stylelint/stylelint/pull/3814)).
+- Added: `ignoreSelectors: []` to `selector-no-vendor-prefix` ([#3748](https://github.com/stylelint/stylelint/pull/3748)).
+- Fixed: ignored files are no longer parsed ([#3801](https://github.com/stylelint/stylelint/pull/3801)).
+- Fixed: ignore `&:extend` for Less syntax ([#3824](https://github.com/stylelint/stylelint/pull/3824)).
+- Fixed: `--report-needless-disables` CLI flag ([#3819](https://github.com/stylelint/stylelint/pull/3819)).
+- Fixed: `font-family-no-missing-generic-family-keyword` false positives for system fonts ([#3794](https://github.com/stylelint/stylelint/pull/3794)).
 
 ## 9.8.0
 
-- Added: `value-keyword-case` autofix ([#3775](;https://github.com/stylelint/stylelint/pull/3775)).
-- Added: `ignore: ["pseudo-classes"]` to `max-nesting-depth` ([#3724](;https://github.com/stylelint/stylelint/pull/3724)).
-- Added: `ignoreTypes:[]` to `selector-type-case` ([#3758](;https://github.com/stylelint/stylelint/pull/3758)).
-- Added: `ignoreFunctions:[]` to `unit-no-unkown` ([#3736](;https://github.com/stylelint/stylelint/pull/3736)).
-- Fixed: error for single-line Sass comments ([#3772](;https://github.com/stylelint/stylelint/pull/3772)).
-- Fixed: `at-rule-*` false positives for Less variables and mixins ([#3767](;https://github.com/stylelint/stylelint/pull/3767)).
-- Fixed: `max-empty-lines` false positives for final newlines ([#3785](;https://github.com/stylelint/stylelint/pull/3785)).
+- Added: `value-keyword-case` autofix ([#3775](https://github.com/stylelint/stylelint/pull/3775)).
+- Added: `ignore: ["pseudo-classes"]` to `max-nesting-depth` ([#3724](https://github.com/stylelint/stylelint/pull/3724)).
+- Added: `ignoreTypes:[]` to `selector-type-case` ([#3758](https://github.com/stylelint/stylelint/pull/3758)).
+- Added: `ignoreFunctions:[]` to `unit-no-unkown` ([#3736](https://github.com/stylelint/stylelint/pull/3736)).
+- Fixed: error for single-line Sass comments ([#3772](https://github.com/stylelint/stylelint/pull/3772)).
+- Fixed: `at-rule-*` false positives for Less variables and mixins ([#3767](https://github.com/stylelint/stylelint/pull/3767)).
+- Fixed: `max-empty-lines` false positives for final newlines ([#3785](https://github.com/stylelint/stylelint/pull/3785)).
 
 ## 9.7.1
 
-- Fixed: `at-rule-*` false positives for Less variables and mixins ([#3759](;https://github.com/stylelint/stylelint/pull/3759)).
+- Fixed: `at-rule-*` false positives for Less variables and mixins ([#3759](https://github.com/stylelint/stylelint/pull/3759)).
 
 ## 9.7.0
 
-- Added: allow globally installed configuration ([#3642](;https://github.com/stylelint/stylelint/pull/3642)).
-- Added: `media-feature-parentheses-space-inside` autofix ([#3720](;https://github.com/stylelint/stylelint/pull/3720)).
-- Added: `selector-descendant-combinator-no-non-space` autofix ([#3565](;https://github.com/stylelint/stylelint/pull/3565)).
-- Added: `unit-case` autofix ([#3725](;https://github.com/stylelint/stylelint/pull/3725)).
-- Fixed: false negatives for Less at-imports ([#3687](;https://github.com/stylelint/stylelint/pull/3687)).
-- Fixed: SyntaxError when an empty string is used for a rule's custom message ([#3743](;https://github.com/stylelint/stylelint/pull/3743)).
+- Added: allow globally installed configuration ([#3642](https://github.com/stylelint/stylelint/pull/3642)).
+- Added: `media-feature-parentheses-space-inside` autofix ([#3720](https://github.com/stylelint/stylelint/pull/3720)).
+- Added: `selector-descendant-combinator-no-non-space` autofix ([#3565](https://github.com/stylelint/stylelint/pull/3565)).
+- Added: `unit-case` autofix ([#3725](https://github.com/stylelint/stylelint/pull/3725)).
+- Fixed: false negatives for Less at-imports ([#3687](https://github.com/stylelint/stylelint/pull/3687)).
+- Fixed: SyntaxError when an empty string is used for a rule's custom message ([#3743](https://github.com/stylelint/stylelint/pull/3743)).
 - Fixed: `max-empty-lines` false positives for empty lines before `</style>` ([#3708](https://github.com/stylelint/stylelint/pull/3708)).
 - Fixed: `selector-max-specificity` false positives for functional psuedo-classes ([#3711](https://github.com/stylelint/stylelint/pull/3711)).
 
@@ -399,142 +399,142 @@ All notable changes to this project are documented in this file.
 ## 9.3.0
 
 - Added: support for `<style>` tags and `style=""` attributes in XML and XSLT files ([#3386](https://github.com/stylelint/stylelint/pull/3386)).
-- Added: `globbyOptions` option ([#3339](;tagsand`style=attributesinXMLandXSLTfiles#3386httpshttps://github.com/stylelint/stylelint/pull/3339)).
-- Added: `keyframes-name-pattern` rule ([#3321](;https://github.com/stylelint/stylelint/pull/3321)).
-- Added: `media-feature-name-value-whitelist` rule ([#3320](;https://github.com/stylelint/stylelint/pull/3320)).
-- Added: `selector-pseudo-element-colon-notation` autofix ([#3345](;https://github.com/stylelint/stylelint/pull/3345)).
-- Fixed: `.vue` files throwing errors for `<style lang="stylus">` and `<style lang="postcss">` ([#3331](;https://github.com/stylelint/stylelint/pull/3331)).
-- Fixed: `declaration-block-no-*` false positives for non-standard syntax ([#3381](;https://github.com/stylelint/stylelint/pull/3381)).
-- Fixed: `function-whitespace-after` false positives for "/" ([#3132](;https://github.com/stylelint/stylelint/pull/3132)).
-- Fixed: `length-zero-no-unit` incorrect autofix for at-includes ([#3347](;https://github.com/stylelint/stylelint/pull/3347)).
-- Fixed: `max-nesting-depth` false positives for nested properties ([#3349](;https://github.com/stylelint/stylelint/pull/3349)).
-- Fixed: `no-empty-source` false positives on vue external sources `<style src="*">` tag ([#3331](;https://github.com/stylelint/stylelint/pull/3331)).
-- Fixed: `max-line-length` false positives for non-CSS blocks ([#3367](;https://github.com/stylelint/stylelint/pull/3367)).
-- Fixed: `no-eol-whitespace` false positives for non-CSS blocks ([#3367](;https://github.com/stylelint/stylelint/pull/3367)).
-- Fixed: `no-extra-semicolons` false positives for non-CSS blocks ([#3367](;https://github.com/stylelint/stylelint/pull/3367)).
-- Fixed: `no-missing-end-of-source-newline` false positives for non-CSS blocks ([#3367](;https://github.com/stylelint/stylelint/pull/3367)).
+- Added: `globbyOptions` option ([#3339](https://github.com/stylelint/stylelint/pull/3339)).
+- Added: `keyframes-name-pattern` rule ([#3321](https://github.com/stylelint/stylelint/pull/3321)).
+- Added: `media-feature-name-value-whitelist` rule ([#3320](https://github.com/stylelint/stylelint/pull/3320)).
+- Added: `selector-pseudo-element-colon-notation` autofix ([#3345](https://github.com/stylelint/stylelint/pull/3345)).
+- Fixed: `.vue` files throwing errors for `<style lang="stylus">` and `<style lang="postcss">` ([#3331](https://github.com/stylelint/stylelint/pull/3331)).
+- Fixed: `declaration-block-no-*` false positives for non-standard syntax ([#3381](https://github.com/stylelint/stylelint/pull/3381)).
+- Fixed: `function-whitespace-after` false positives for "/" ([#3132](https://github.com/stylelint/stylelint/pull/3132)).
+- Fixed: `length-zero-no-unit` incorrect autofix for at-includes ([#3347](https://github.com/stylelint/stylelint/pull/3347)).
+- Fixed: `max-nesting-depth` false positives for nested properties ([#3349](https://github.com/stylelint/stylelint/pull/3349)).
+- Fixed: `no-empty-source` false positives on vue external sources `<style src="*">` tag ([#3331](https://github.com/stylelint/stylelint/pull/3331)).
+- Fixed: `max-line-length` false positives for non-CSS blocks ([#3367](https://github.com/stylelint/stylelint/pull/3367)).
+- Fixed: `no-eol-whitespace` false positives for non-CSS blocks ([#3367](https://github.com/stylelint/stylelint/pull/3367)).
+- Fixed: `no-extra-semicolons` false positives for non-CSS blocks ([#3367](https://github.com/stylelint/stylelint/pull/3367)).
+- Fixed: `no-missing-end-of-source-newline` false positives for non-CSS blocks ([#3367](https://github.com/stylelint/stylelint/pull/3367)).
 
 ## 9.2.1
 
-- Fixed: `cache` option hiding CssSyntaxError outputs ([#3258](;https://github.com/stylelint/stylelint/pull/3258)).
-- Fixed: regression with processors (e.g. styled-components) ([#3261](;https://github.com/stylelint/stylelint/pull/3261)).
-- Fixed: `no-descending-specificity` false positives for Sass nested properties ([#3283](;https://github.com/stylelint/stylelint/pull/3283)).
-- Fixed: `selector-pseudo-class-no-unknown` false positives proprietary webkit pseudo classes when applied to a simple selector ([#3271](;https://github.com/stylelint/stylelint/pull/3271)).
+- Fixed: `cache` option hiding CssSyntaxError outputs ([#3258](https://github.com/stylelint/stylelint/pull/3258)).
+- Fixed: regression with processors (e.g. styled-components) ([#3261](https://github.com/stylelint/stylelint/pull/3261)).
+- Fixed: `no-descending-specificity` false positives for Sass nested properties ([#3283](https://github.com/stylelint/stylelint/pull/3283)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives proprietary webkit pseudo classes when applied to a simple selector ([#3271](https://github.com/stylelint/stylelint/pull/3271)).
 
 ## 9.2.0
 
-- Added: `selector-max-pseudo-class` rule ([#3195](;https://github.com/stylelint/stylelint/pull/3195)).
-- Fixed: slow `require('stylelint')` time ([#3242](;https://github.com/stylelint/stylelint/pull/3242)).
-- Fixed: autofix erroneously writing to unchanged files ([#3241](;https://github.com/stylelint/stylelint/pull/3241)).
-- Fixed: false negatives for template literals within script tags by updating postcss-html dependency ([#3238](;https://github.com/stylelint/stylelint/pull/3238)).
-- Fixed: `indentation` false positives for at-root ([#3225](;https://github.com/stylelint/stylelint/pull/3225)).
-- Fixed: `max-empty-lines` false positives for non-CSS blocks ([#3229](;https://github.com/stylelint/stylelint/pull/3229)).
-- Fixed: `no-empty-source` false positives for non-CSS blocks ([#3240](;https://github.com/stylelint/stylelint/pull/3240)).
-- Fixed: `string-no-newline` false positives for non-CSS blocks ([#3228](;https://github.com/stylelint/stylelint/pull/3228)).
+- Added: `selector-max-pseudo-class` rule ([#3195](https://github.com/stylelint/stylelint/pull/3195)).
+- Fixed: slow `require('stylelint')` time ([#3242](https://github.com/stylelint/stylelint/pull/3242)).
+- Fixed: autofix erroneously writing to unchanged files ([#3241](https://github.com/stylelint/stylelint/pull/3241)).
+- Fixed: false negatives for template literals within script tags by updating postcss-html dependency ([#3238](https://github.com/stylelint/stylelint/pull/3238)).
+- Fixed: `indentation` false positives for at-root ([#3225](https://github.com/stylelint/stylelint/pull/3225)).
+- Fixed: `max-empty-lines` false positives for non-CSS blocks ([#3229](https://github.com/stylelint/stylelint/pull/3229)).
+- Fixed: `no-empty-source` false positives for non-CSS blocks ([#3240](https://github.com/stylelint/stylelint/pull/3240)).
+- Fixed: `string-no-newline` false positives for non-CSS blocks ([#3228](https://github.com/stylelint/stylelint/pull/3228)).
 
 ## 9.1.3
 
-- Fixed: invalid HTML causing CssSyntaxError by updating postcss-html dependency ([#3214](;https://github.com/stylelint/stylelint/pull/3214)).
-- Fixed: empty markdown block causing CssSyntaxError by updating postcss-html dependency ([#3214](;https://github.com/stylelint/stylelint/pull/3214)).
+- Fixed: invalid HTML causing CssSyntaxError by updating postcss-html dependency ([#3214](https://github.com/stylelint/stylelint/pull/3214)).
+- Fixed: empty markdown block causing CssSyntaxError by updating postcss-html dependency ([#3214](https://github.com/stylelint/stylelint/pull/3214)).
 
 ## 9.1.2
 
-- Fixed: parsing of markdown files by updating postcss-html dependency ([#3207](;https://github.com/stylelint/stylelint/pull/3207)).
+- Fixed: parsing of markdown files by updating postcss-html dependency ([#3207](https://github.com/stylelint/stylelint/pull/3207)).
 
 ## 9.1.1
 
-- Fixed: missing `signal-exit` dependency ([#3186](;https://github.com/stylelint/stylelint/pull/3186)).
+- Fixed: missing `signal-exit` dependency ([#3186](https://github.com/stylelint/stylelint/pull/3186)).
 
 ## 9.1.0
 
-- Added: `ignore: ["first-nested"]` to `at-rule-empty-line-before` ([#3179](;https://github.com/stylelint/stylelint/pull/3179)).
-- Added: `ignore: ["first-nested"]` to `rule-empty-line-before` ([#3179](;https://github.com/stylelint/stylelint/pull/3179)).
-- Fixed: unnecessary Open Collective postinstall message ([#3180](;https://github.com/stylelint/stylelint/pull/3180)).
+- Added: `ignore: ["first-nested"]` to `at-rule-empty-line-before` ([#3179](https://github.com/stylelint/stylelint/pull/3179)).
+- Added: `ignore: ["first-nested"]` to `rule-empty-line-before` ([#3179](https://github.com/stylelint/stylelint/pull/3179)).
+- Fixed: unnecessary Open Collective postinstall message ([#3180](https://github.com/stylelint/stylelint/pull/3180)).
 
 ## 9.0.0
 
-- Removed: Node.js 4.x support. Node.js 6.x or greater is now required ([#3075](;https://github.com/stylelint/stylelint/pull/3087)).
-- Added: (experimental) support for [SASS](http://sass-lang.com/) syntax ([#2503](;https://github.com/stylelint/stylelint/pull/2503)).
-- Added: allow processors to handle PostCSS errors ([#3063](;https://github.com/stylelint/stylelint/pull/3063)).
-- Added: `--max-warnings` CLI flag ([#2942](;https://github.com/stylelint/stylelint/pull/2942)).
-- Added: `selector-combinator-*list` rules ([#3088](;https://github.com/stylelint/stylelint/pull/3088)).
-- Added: `selector-pseudo-element-*list` rules ([#3104](;https://github.com/stylelint/stylelint/pull/3087)).
-- Added: `ignore: ["first-nested"]` to `custom-property-empty-line-before` ([#3104](;https://github.com/stylelint/stylelint/pull/3104)).
-- Added: `ignore: ["first-nested"]` to `declaration-empty-line-before` ([#3103](;https://github.com/stylelint/stylelint/pull/3103)).
-- Added: `ignoreProperties: []` to `property-no-vendor-prefix` ([#3089](;https://github.com/stylelint/stylelint/pull/3089)).
-- Fixed: `font-family-name-quotes` unicode range increased ([#2974](;https://github.com/stylelint/stylelint/pull/2974)).
-- Fixed: `selector-max-id` in nested at-statements ([#3113](;https://github.com/stylelint/stylelint/pull/3113)).
+- Removed: Node.js 4.x support. Node.js 6.x or greater is now required ([#3075](https://github.com/stylelint/stylelint/pull/3087)).
+- Added: (experimental) support for [SASS](http://sass-lang.com/) syntax ([#2503](https://github.com/stylelint/stylelint/pull/2503)).
+- Added: allow processors to handle PostCSS errors ([#3063](https://github.com/stylelint/stylelint/pull/3063)).
+- Added: `--max-warnings` CLI flag ([#2942](https://github.com/stylelint/stylelint/pull/2942)).
+- Added: `selector-combinator-*list` rules ([#3088](https://github.com/stylelint/stylelint/pull/3088)).
+- Added: `selector-pseudo-element-*list` rules ([#3104](https://github.com/stylelint/stylelint/pull/3087)).
+- Added: `ignore: ["first-nested"]` to `custom-property-empty-line-before` ([#3104](https://github.com/stylelint/stylelint/pull/3104)).
+- Added: `ignore: ["first-nested"]` to `declaration-empty-line-before` ([#3103](https://github.com/stylelint/stylelint/pull/3103)).
+- Added: `ignoreProperties: []` to `property-no-vendor-prefix` ([#3089](https://github.com/stylelint/stylelint/pull/3089)).
+- Fixed: `font-family-name-quotes` unicode range increased ([#2974](https://github.com/stylelint/stylelint/pull/2974)).
+- Fixed: `selector-max-id` in nested at-statements ([#3113](https://github.com/stylelint/stylelint/pull/3113)).
 
 ## 8.4.0
 
-- Added: `except: ["after-closing-brace"]` to `block-closing-brace-empty-line-before` ([#3011](;https://github.com/stylelint/stylelint/pull/3011)).
-- Fixed: unmet peer dependency warning for `postcss-sass` ([#3040](;https://github.com/stylelint/stylelint/pull/3040)).
-- Fixed: false positives for CSS within comments in `*.pcss` files ([#3064](;https://github.com/stylelint/stylelint/pull/3064)).
-- Fixed: `font-family-no-missing-generic-family-keyword` configuration ([#3039](;https://github.com/stylelint/stylelint/pull/3039)).
-- Fixed: `indentation` autofix for HTML ([#3044](;https://github.com/stylelint/stylelint/pull/3044)).
+- Added: `except: ["after-closing-brace"]` to `block-closing-brace-empty-line-before` ([#3011](https://github.com/stylelint/stylelint/pull/3011)).
+- Fixed: unmet peer dependency warning for `postcss-sass` ([#3040](https://github.com/stylelint/stylelint/pull/3040)).
+- Fixed: false positives for CSS within comments in `*.pcss` files ([#3064](https://github.com/stylelint/stylelint/pull/3064)).
+- Fixed: `font-family-no-missing-generic-family-keyword` configuration ([#3039](https://github.com/stylelint/stylelint/pull/3039)).
+- Fixed: `indentation` autofix for HTML ([#3044](https://github.com/stylelint/stylelint/pull/3044)).
 
 ## 8.3.1
 
-- Fixed: `font-family-no-missing-generic-family-keyword` false positives for at-font-face ([#3034](;https://github.com/stylelint/stylelint/issues/3034)).
+- Fixed: `font-family-no-missing-generic-family-keyword` false positives for at-font-face ([#3034](https://github.com/stylelint/stylelint/issues/3034)).
 
 ## 8.3.0
 
-- Added: autofix support for stdin input ([#2787](;https://github.com/stylelint/stylelint/pull/2787)).
-- Added: support for `<style>` tags and markdown fences in `.vue` and `.html` files ([#2975](;https://github.com/stylelint/stylelint/pull/2975)).
-- Added: `font-family-no-missing-generic-family-keyword` rule ([#2930](;https://github.com/stylelint/stylelint/pull/2930)).
-- Added: `no-duplicate-at-import-rules` rule ([#2963](;https://github.com/stylelint/stylelint/pull/2963)).
-- Added: `number-leading-zero` autofix ([#2921](;https://github.com/stylelint/stylelint/issues/2921)).
-- Added: `number-no-trailing-zeros` autofix ([#2947](;https://github.com/stylelint/stylelint/issues/2947)).
-- Added: `shorthand-property-no-redundant-values` autofix ([#2956](;https://github.com/stylelint/stylelint/issues/2956)).
-- Added: `string-quotes` autofix ([#2959](;https://github.com/stylelint/stylelint/pull/2959)).
-- Added: `ignore: ["custom-properties"]` option to `length-zero-no-unit` ([#2967](;https://github.com/stylelint/stylelint/pull/2967)).
-- Added: `except: ["inside-block"]` option to `rule-empty-line-before` ([#2982](;https://github.com/stylelint/stylelint/pull/2982)).
-- Added: `ignoreValues` to `value-no-vendor-prefix` ([#3015](;https://github.com/stylelint/stylelint/pull/3015)).
-- Added: `ignoreMediaFeatureNames` to `unit-blacklist` ([#3027](;https://github.com/stylelint/stylelint/pull/3027)).
-- Fixed: `comment-empty-line-before` false positives for shared-line comments ([#2986](;https://github.com/stylelint/stylelint/issues/2986)).
-- Fixed: `unit-*` false positives for spaceless multiplication ([#2948](;https://github.com/stylelint/stylelint/issues/2948)).
+- Added: autofix support for stdin input ([#2787](https://github.com/stylelint/stylelint/pull/2787)).
+- Added: support for `<style>` tags and markdown fences in `.vue` and `.html` files ([#2975](https://github.com/stylelint/stylelint/pull/2975)).
+- Added: `font-family-no-missing-generic-family-keyword` rule ([#2930](https://github.com/stylelint/stylelint/pull/2930)).
+- Added: `no-duplicate-at-import-rules` rule ([#2963](https://github.com/stylelint/stylelint/pull/2963)).
+- Added: `number-leading-zero` autofix ([#2921](https://github.com/stylelint/stylelint/issues/2921)).
+- Added: `number-no-trailing-zeros` autofix ([#2947](https://github.com/stylelint/stylelint/issues/2947)).
+- Added: `shorthand-property-no-redundant-values` autofix ([#2956](https://github.com/stylelint/stylelint/issues/2956)).
+- Added: `string-quotes` autofix ([#2959](https://github.com/stylelint/stylelint/pull/2959)).
+- Added: `ignore: ["custom-properties"]` option to `length-zero-no-unit` ([#2967](https://github.com/stylelint/stylelint/pull/2967)).
+- Added: `except: ["inside-block"]` option to `rule-empty-line-before` ([#2982](https://github.com/stylelint/stylelint/pull/2982)).
+- Added: `ignoreValues` to `value-no-vendor-prefix` ([#3015](https://github.com/stylelint/stylelint/pull/3015)).
+- Added: `ignoreMediaFeatureNames` to `unit-blacklist` ([#3027](https://github.com/stylelint/stylelint/pull/3027)).
+- Fixed: `comment-empty-line-before` false positives for shared-line comments ([#2986](https://github.com/stylelint/stylelint/issues/2986)).
+- Fixed: `unit-*` false positives for spaceless multiplication ([#2948](https://github.com/stylelint/stylelint/issues/2948)).
 
 ## 8.2.0
 
-- Added: autofix of syntax errors in standard CSS e.g. unclosed braces and brackets ([#2886](;https://github.com/stylelint/stylelint/issues/2886)).
-- Added: `length-zero-no-unit` autofix ([#2861](;https://github.com/stylelint/stylelint/issues/2861)).
-- Added: `selector-max-specificity` support for level 4 evaluation context pseudo-classes ([#2857](;https://github.com/stylelint/stylelint/issues/2857)).
-- Added: `ignoreUnits` option to `number-max-precision` ([#2941](;https://github.com/stylelint/stylelint/pull/2941)).
-- Added: `ignoreSelectors` option to `selector-max-specificity` ([#2857](;https://github.com/stylelint/stylelint/pull/2857)).
-- Added: `ignoreProperties` option to `value-keyword-case` ([#2937](;https://github.com/stylelint/stylelint/pull/2937)).
-- Fixed: `*-empty-line-before` false negatives and positives when two or more `except: [*]` options were triggered ([#2920](;https://github.com/stylelint/stylelint/issues/2920)).
-- Fixed: `*-empty-line-before` false positives for CSS in HTML ([#2854](;https://github.com/stylelint/stylelint/issues/2854)).
-- Fixed: `rule-empty-line-before` false positives for `ignore: ["inside-block"]` and CSS in HTML ([#2894](;https://github.com/stylelint/stylelint/issues/2894)).
-- Fixed: `rule-empty-line-before` false positives for `except: ["after-single-line-comment"]` and preceding shared-line comments ([#2920](;https://github.com/stylelint/stylelint/issues/2920)).
-- Fixed: `selector-list-comma-newline-after` false positives for shared-line comments separated by more than once space ([#2915](;https://github.com/stylelint/stylelint/issues/2915)).
-- Fixed: `selector-pseudo-class-no-unknown` false positives when using chained pseudo-classes ([#2810](;https://github.com/stylelint/stylelint/issues/2810)).
-- Fixed: `string-quotes` false positives for `@charset` and single quotes ([#2902](;https://github.com/stylelint/stylelint/issues/2902)).
-- Fixed: `unit-no-unknown` false positives for spaceless multiplication and division in `calc()` functions ([#2848](;https://github.com/stylelint/stylelint/issues/2848)).
+- Added: autofix of syntax errors in standard CSS e.g. unclosed braces and brackets ([#2886](https://github.com/stylelint/stylelint/issues/2886)).
+- Added: `length-zero-no-unit` autofix ([#2861](https://github.com/stylelint/stylelint/issues/2861)).
+- Added: `selector-max-specificity` support for level 4 evaluation context pseudo-classes ([#2857](https://github.com/stylelint/stylelint/issues/2857)).
+- Added: `ignoreUnits` option to `number-max-precision` ([#2941](https://github.com/stylelint/stylelint/pull/2941)).
+- Added: `ignoreSelectors` option to `selector-max-specificity` ([#2857](https://github.com/stylelint/stylelint/pull/2857)).
+- Added: `ignoreProperties` option to `value-keyword-case` ([#2937](https://github.com/stylelint/stylelint/pull/2937)).
+- Fixed: `*-empty-line-before` false negatives and positives when two or more `except: [*]` options were triggered ([#2920](https://github.com/stylelint/stylelint/issues/2920)).
+- Fixed: `*-empty-line-before` false positives for CSS in HTML ([#2854](https://github.com/stylelint/stylelint/issues/2854)).
+- Fixed: `rule-empty-line-before` false positives for `ignore: ["inside-block"]` and CSS in HTML ([#2894](https://github.com/stylelint/stylelint/issues/2894)).
+- Fixed: `rule-empty-line-before` false positives for `except: ["after-single-line-comment"]` and preceding shared-line comments ([#2920](https://github.com/stylelint/stylelint/issues/2920)).
+- Fixed: `selector-list-comma-newline-after` false positives for shared-line comments separated by more than once space ([#2915](https://github.com/stylelint/stylelint/issues/2915)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives when using chained pseudo-classes ([#2810](https://github.com/stylelint/stylelint/issues/2810)).
+- Fixed: `string-quotes` false positives for `@charset` and single quotes ([#2902](https://github.com/stylelint/stylelint/issues/2902)).
+- Fixed: `unit-no-unknown` false positives for spaceless multiplication and division in `calc()` functions ([#2848](https://github.com/stylelint/stylelint/issues/2848)).
 
 ## 8.1.1
 
-- Fixed: `--ignore-pattern` in CLI ([#2851](;https://github.com/stylelint/stylelint/issues/2851)).
+- Fixed: `--ignore-pattern` in CLI ([#2851](https://github.com/stylelint/stylelint/issues/2851)).
 
 ## 8.1.0
 
-- Added: Allow specifying `codeFilename` to `createStylelintResult` for raw code linting standalone API ([#2450](;https://github.com/stylelint/stylelint/issues/2450)).
-- Added: `ignorePattern` option (`--ignore-pattern` in CLI), to allow patterns of files to ignored ([#2834](;https://github.com/stylelint/stylelint/issues/2834)).
+- Added: Allow specifying `codeFilename` to `createStylelintResult` for raw code linting standalone API ([#2450](https://github.com/stylelint/stylelint/issues/2450)).
+- Added: `ignorePattern` option (`--ignore-pattern` in CLI), to allow patterns of files to ignored ([#2834](https://github.com/stylelint/stylelint/issues/2834)).
 - Added: More rules now support experimental autofixing. Use `--fix` CLI parameter or `fix: true` Node.js API options property. Newly supported rules:
-  - `color-hex-length` ([#2781](;https://github.com/stylelint/stylelint/pull/2781)).
-  - `no-missing-end-of-source-newline` ([#2772](;https://github.com/stylelint/stylelint/pull/2772)).
-- Fixed: `*-empty-line-before` false positives shared-line comments and `"first-nested"` option ([#2827](;https://github.com/stylelint/stylelint/issues/2827)).
-- Fixed: `color-hex-length` false positives for ID references in `url` functions ([#2806](;https://github.com/stylelint/stylelint/issues/2806)).
-- Fixed: `indentation` false positives for Less parametric mixins with rule block/snippet ([#2744](;https://github.com/stylelint/stylelint/pull/2744)).
-- Fixed: `no-empty-source` compatability with `postcss-html` custom syntax ([#2798](;https://github.com/stylelint/stylelint/issues/2798)).
-- Fixed: `no-extra-semicolons` false negatives where instances were not detected when followed by multiple comments ([#2678](;https://github.com/stylelint/stylelint/issues/2678)).
-- Fixed: `selector-max-specificity` cannot parse selector violation for Less mixins ([#2677](;https://github.com/stylelint/stylelint/pull/2677)).
+  - `color-hex-length` ([#2781](https://github.com/stylelint/stylelint/pull/2781)).
+  - `no-missing-end-of-source-newline` ([#2772](https://github.com/stylelint/stylelint/pull/2772)).
+- Fixed: `*-empty-line-before` false positives shared-line comments and `"first-nested"` option ([#2827](https://github.com/stylelint/stylelint/issues/2827)).
+- Fixed: `color-hex-length` false positives for ID references in `url` functions ([#2806](https://github.com/stylelint/stylelint/issues/2806)).
+- Fixed: `indentation` false positives for Less parametric mixins with rule block/snippet ([#2744](https://github.com/stylelint/stylelint/pull/2744)).
+- Fixed: `no-empty-source` compatability with `postcss-html` custom syntax ([#2798](https://github.com/stylelint/stylelint/issues/2798)).
+- Fixed: `no-extra-semicolons` false negatives where instances were not detected when followed by multiple comments ([#2678](https://github.com/stylelint/stylelint/issues/2678)).
+- Fixed: `selector-max-specificity` cannot parse selector violation for Less mixins ([#2677](https://github.com/stylelint/stylelint/pull/2677)).
 
 ## 8.0.0
 
 This release is accompanied by:
 
-- A new [semantic version policy](docs/about/semantic-versioning.md). The use of the tilde (`~`) in `package.json` is now recommended, e.g. `"stylelint": "~8.0.0"`, to guarantee the results of your builds ([#1865](;https://github.com/stylelint/stylelint/issues/1865)).
-- A new [VISION document](docs/about/vision.md), complemented by ([#2704](;https://github.com/stylelint/stylelint/pull/2704)):
+- A new [semantic version policy](docs/about/semantic-versioning.md). The use of the tilde (`~`) in `package.json` is now recommended, e.g. `"stylelint": "~8.0.0"`, to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
+- A new [VISION document](docs/about/vision.md), complemented by ([#2704](https://github.com/stylelint/stylelint/pull/2704)):
   - The restructuring of the [list of rules](docs/user-guide/rules/list.md) into three groups:
     - [Possible errors](docs/user-guide/rules/list.md#possible-errors).
     - [Limit language features](docs/user-guide/rules/list.md#limit-language-features).
@@ -543,7 +543,7 @@ This release is accompanied by:
 
 Changes:
 
-- Removed: the 21 rules deprecated in [`7.8.0`](#780) & [`7.12.0`](#7120) ([#2422](;https://github.com/stylelint/stylelint/issues/2422) & [#2693](;https://github.com/stylelint/stylelint/issues/2693)).
+- Removed: the 21 rules deprecated in [`7.8.0`](#780) & [`7.12.0`](#7120) ([#2422](https://github.com/stylelint/stylelint/issues/2422) & [#2693](https://github.com/stylelint/stylelint/issues/2693)).
   - `block-no-single-line`.
   - `custom-property-no-outside-root`
   - `declaration-block-no-ignored-properties`.
@@ -565,59 +565,59 @@ Changes:
   - `selector-root-no-composition`.
   - `stylelint-disable-reason`.
   - `time-no-imperceptible`.
-- Removed: the 4 options deprecated in [`7.8.0`](#780) ([#2433](;https://github.com/stylelint/stylelint/issues/2433)).
+- Removed: the 4 options deprecated in [`7.8.0`](#780) ([#2433](https://github.com/stylelint/stylelint/issues/2433)).
   - `"all-nested"` option for `at-rule-empty-line-before`.
   - `"blockless-group"` option for `at-rule-empty-line-before`.
   - `"between-comments"` option for `comment-empty-line-before`.
   - `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`.
-- Changed: compatibility with `postcss` from `@5` to `@6` ([#2561](;https://github.com/stylelint/stylelint/issues/2561)).
-- Changed: parse errors now trigger exit with non-zero code ([#2713](;https://github.com/stylelint/stylelint/issues/2713)).
-- Changed: `report-needless-disables` now exits with non-zero code ([#2341](;https://github.com/stylelint/stylelint/issues/2341)).
-- Changed: `*-blacklist` and `*-whitelist` (and `ignore* []` secondary options) are now case sensitive. Use regular expressions with the `i` flag for case insensitivity ([#2709](;https://github.com/stylelint/stylelint/issues/2709)).
-- Changed: `*-empty-line-before` now correctly handle shared-line comments ([#2262](;https://github.com/stylelint/stylelint/issues/2262)).
-- Changed: `*-empty-line-before` now consider line as empty if it contains whitespace only ([#2440](;https://github.com/stylelint/stylelint/pull/2440)).
-- Changed: `function-linear-gradient-no-nonstandard-direction` now checks all linear-gradients in a value list ([#2496](;https://github.com/stylelint/stylelint/pull/2496)).
-- Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](;https://github.com/stylelint/stylelint/issues/2350)).
-- Added: `disableDefaultIgnores` option (`--disable-default-ignores` in CLI), to allow linting of `node_modules` and `bower_components` directories ([#2464](;https://github.com/stylelint/stylelint/pull/2464)).
-- Added: more efficient file ignoring with `.stylelintignore` ([#2464](;https://github.com/stylelint/stylelint/pull/2464)).
-- Added: `ignore: ["child"]` option to `selector-max-type` ([#2701](;https://github.com/stylelint/stylelint/pull/2701)).
-- Fixed: `declaration-block-no-redundant-longhand-properties` and `declaration-block-no-shorthand-property-overrides` understand more shorthand properties ([#2354](;https://github.com/stylelint/stylelint/pull/2354)).
-- Fixed: `selector-max-type` no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with `ignore: ["descendant"]` ([#2701](;https://github.com/stylelint/stylelint/pull/2701)).
+- Changed: compatibility with `postcss` from `@5` to `@6` ([#2561](https://github.com/stylelint/stylelint/issues/2561)).
+- Changed: parse errors now trigger exit with non-zero code ([#2713](https://github.com/stylelint/stylelint/issues/2713)).
+- Changed: `report-needless-disables` now exits with non-zero code ([#2341](https://github.com/stylelint/stylelint/issues/2341)).
+- Changed: `*-blacklist` and `*-whitelist` (and `ignore* []` secondary options) are now case sensitive. Use regular expressions with the `i` flag for case insensitivity ([#2709](https://github.com/stylelint/stylelint/issues/2709)).
+- Changed: `*-empty-line-before` now correctly handle shared-line comments ([#2262](https://github.com/stylelint/stylelint/issues/2262)).
+- Changed: `*-empty-line-before` now consider line as empty if it contains whitespace only ([#2440](https://github.com/stylelint/stylelint/pull/2440)).
+- Changed: `function-linear-gradient-no-nonstandard-direction` now checks all linear-gradients in a value list ([#2496](https://github.com/stylelint/stylelint/pull/2496)).
+- Changed: `selector-max-compound-selectors` now checks all resolved selectors, rather than just the deepest ([#2350](https://github.com/stylelint/stylelint/issues/2350)).
+- Added: `disableDefaultIgnores` option (`--disable-default-ignores` in CLI), to allow linting of `node_modules` and `bower_components` directories ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
+- Added: more efficient file ignoring with `.stylelintignore` ([#2464](https://github.com/stylelint/stylelint/pull/2464)).
+- Added: `ignore: ["child"]` option to `selector-max-type` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` and `declaration-block-no-shorthand-property-overrides` understand more shorthand properties ([#2354](https://github.com/stylelint/stylelint/pull/2354)).
+- Fixed: `selector-max-type` no longer produces false negatives for when child, next-sibling and following-sibling combinators are used with `ignore: ["descendant"]` ([#2701](https://github.com/stylelint/stylelint/pull/2701)).
 
 ## 7.13.0
 
-- Added: `ignoreAttributes` option to `selector-max-attribute` ([#2722](;https://github.com/stylelint/stylelint/pull/2722)).
-- Fixed: `selector-combinator-space-*` false positives for CSS namespaced type selectors ([#2715](;https://github.com/stylelint/stylelint/pull/2715)).
-- Fixed: `selector-max-specificity` now ignores nested non-standard selectors ([#2685](;https://github.com/stylelint/stylelint/pull/2685)).
+- Added: `ignoreAttributes` option to `selector-max-attribute` ([#2722](https://github.com/stylelint/stylelint/pull/2722)).
+- Fixed: `selector-combinator-space-*` false positives for CSS namespaced type selectors ([#2715](https://github.com/stylelint/stylelint/pull/2715)).
+- Fixed: `selector-max-specificity` now ignores nested non-standard selectors ([#2685](https://github.com/stylelint/stylelint/pull/2685)).
 
 ## 7.12.0
 
-- Deprecated: 6 rules, each has been replaced by a more configurable alternative ([#2679](;https://github.com/stylelint/stylelint/pull/2679)).
+- Deprecated: 6 rules, each has been replaced by a more configurable alternative ([#2679](https://github.com/stylelint/stylelint/pull/2679)).
   - `function-url-data-uris` rule. Use either `function-url-scheme-blacklist` or `function-url-scheme-whitelist`.
   - `selector-no-attribute` rule. Use `selector-max-attribute` with `0` as its primary option.
   - `selector-no-combinator` rule. Use `selector-max-combinators` with `0` as its primary option.
   - `selector-no-id` rule. Use `selector-max-id` with `0` as its primary option.
   - `selector-no-type` rule. Use `selector-max-type` with `0` as its primary option.
   - `selector-no-universal` rule. Use `selector-max-universal` with `0` as its primary option.
-- Added: `function-url-scheme-blacklist` rule ([#2626](;https://github.com/stylelint/stylelint/pull/2626)).
-- Added: `function-url-scheme-whitelist` regex support ([#2662](;https://github.com/stylelint/stylelint/pull/2662)).
-- Added: `selector-max-attribute` rule ([#2628](;https://github.com/stylelint/stylelint/pull/2628)).
-- Added: `selector-max-combinators` rule ([#2658](;https://github.com/stylelint/stylelint/pull/2658)).
-- Added: `selector-max-id` rule ([#2654](;https://github.com/stylelint/stylelint/pull/2654)).
-- Added: `selector-max-type` rule ([#2665](;https://github.com/stylelint/stylelint/pull/2665)).
-- Added: `selector-max-universal` rule ([#2653](;https://github.com/stylelint/stylelint/pull/2653)).
-- Fixed: `--fix` no longer crashes when used with ignored files ([#2652](;https://github.com/stylelint/stylelint/pull/2652)).
-- Fixed: `max-*` rules now use singular and plural nouns in their messages ([#2663](;https://github.com/stylelint/stylelint/pull/2663)).
+- Added: `function-url-scheme-blacklist` rule ([#2626](https://github.com/stylelint/stylelint/pull/2626)).
+- Added: `function-url-scheme-whitelist` regex support ([#2662](https://github.com/stylelint/stylelint/pull/2662)).
+- Added: `selector-max-attribute` rule ([#2628](https://github.com/stylelint/stylelint/pull/2628)).
+- Added: `selector-max-combinators` rule ([#2658](https://github.com/stylelint/stylelint/pull/2658)).
+- Added: `selector-max-id` rule ([#2654](https://github.com/stylelint/stylelint/pull/2654)).
+- Added: `selector-max-type` rule ([#2665](https://github.com/stylelint/stylelint/pull/2665)).
+- Added: `selector-max-universal` rule ([#2653](https://github.com/stylelint/stylelint/pull/2653)).
+- Fixed: `--fix` no longer crashes when used with ignored files ([#2652](https://github.com/stylelint/stylelint/pull/2652)).
+- Fixed: `max-*` rules now use singular and plural nouns in their messages ([#2663](https://github.com/stylelint/stylelint/pull/2663)).
 
 ## 7.11.1
 
-- Fixed: `media-feature-name-*list` now accept arrays for their primary options ([#2632](;https://github.com/stylelint/stylelint/pull/2632)).
-- Fixed: `selector-*` now ignore custom property sets ([#2634](;https://github.com/stylelint/stylelint/pull/2634)).
-- Fixed: `selector-pseudo-class-no-unknown` now ignores Less `:extend` ([#2625](;https://github.com/stylelint/stylelint/pull/2625)).
+- Fixed: `media-feature-name-*list` now accept arrays for their primary options ([#2632](https://github.com/stylelint/stylelint/pull/2632)).
+- Fixed: `selector-*` now ignore custom property sets ([#2634](https://github.com/stylelint/stylelint/pull/2634)).
+- Fixed: `selector-pseudo-class-no-unknown` now ignores Less `:extend` ([#2625](https://github.com/stylelint/stylelint/pull/2625)).
 
 ## 7.11.0
 
-- Added: experimental autofixing ([#2467](;https://github.com/stylelint/stylelint/pull/2467), [#2500](;https://github.com/stylelint/stylelint/pull/2500), [#2529](;https://github.com/stylelint/stylelint/pull/2529) and [#2577](;https://github.com/stylelint/stylelint/pull/2577)). Use `--fix` CLI parameter or `fix: true` Node.js API options property. Supported rules:
+- Added: experimental autofixing ([#2467](https://github.com/stylelint/stylelint/pull/2467), [#2500](https://github.com/stylelint/stylelint/pull/2500), [#2529](https://github.com/stylelint/stylelint/pull/2529) and [#2577](https://github.com/stylelint/stylelint/pull/2577)). Use `--fix` CLI parameter or `fix: true` Node.js API options property. Supported rules:
   - `at-rule-empty-line-before`
   - `at-rule-name-case`
   - `color-hex-case`
@@ -627,35 +627,35 @@ Changes:
   - `indentation`
   - `rule-empty-line-before`
 - Added: `selector-max-class` rule.
-- Added: `ignore: ["custom-elements"]` option to `selector-type-no-unknown` ([#2366](;https://github.com/stylelint/stylelint/pull/2366)).
-- Fixed: "Cannot find module 'pify'" regression in node@4 with npm@2 ([#2614](;https://github.com/stylelint/stylelint/pull/2614)).
-- Fixed: no error is thrown when linting a string with `cache` enabled ([#2494](;https://github.com/stylelint/stylelint/pull/2494)).
-- Fixed: Less `:extend` is now ignored ([#2571](;https://github.com/stylelint/stylelint/pull/2571)).
-- Fixed: `function-parentheses-space-inside` now ignores functions without parameters ([#2587](;https://github.com/stylelint/stylelint/pull/2587)).
-- Fixed: `length-zero-no-unit` now correctly handles newlines and no spaces after colon ([#2477](;https://github.com/stylelint/stylelint/pull/2477)).
-- Fixed: `selector-descendant-combinator-no-non-space` and `selector-combinator-space-before/after` now understand and check `>>>` shadow-piercing combinator ([#2509](;https://github.com/stylelint/stylelint/pull/2509)).
-- Fixed: `selector-descendant-combinator-no-non-space` now ignores Less guards ([#2557](;https://github.com/stylelint/stylelint/pull/2557)).
-- Fixed: `selector-pseudo-class-no-unknown` now checks `@page` at-rules and supports `@page` pseudo-classes ([#2445](;https://github.com/stylelint/stylelint/pull/2445)).
-- Fixed: `selector-pseudo-class-no-unknown` now considers `focus-ring`, `playing` and `paused` to be known ([#2507](;https://github.com/stylelint/stylelint/pull/2507)).
-- Fixed: `selector-type-no-unknown` now ignores MathML tags ([#2478](;https://github.com/stylelint/stylelint/pull/2478)).
-- Fixed: `selector-type-no-unknown` now ignores the `/deep/` shadow-piercing combinator ([#2508](;https://github.com/stylelint/stylelint/pull/2508)).
-- Fixed: `value-keyword-case` now ignores variables with signs ([#2558](;https://github.com/stylelint/stylelint/pull/2558)).
+- Added: `ignore: ["custom-elements"]` option to `selector-type-no-unknown` ([#2366](https://github.com/stylelint/stylelint/pull/2366)).
+- Fixed: "Cannot find module 'pify'" regression in node@4 with npm@2 ([#2614](https://github.com/stylelint/stylelint/pull/2614)).
+- Fixed: no error is thrown when linting a string with `cache` enabled ([#2494](https://github.com/stylelint/stylelint/pull/2494)).
+- Fixed: Less `:extend` is now ignored ([#2571](https://github.com/stylelint/stylelint/pull/2571)).
+- Fixed: `function-parentheses-space-inside` now ignores functions without parameters ([#2587](https://github.com/stylelint/stylelint/pull/2587)).
+- Fixed: `length-zero-no-unit` now correctly handles newlines and no spaces after colon ([#2477](https://github.com/stylelint/stylelint/pull/2477)).
+- Fixed: `selector-descendant-combinator-no-non-space` and `selector-combinator-space-before/after` now understand and check `>>>` shadow-piercing combinator ([#2509](https://github.com/stylelint/stylelint/pull/2509)).
+- Fixed: `selector-descendant-combinator-no-non-space` now ignores Less guards ([#2557](https://github.com/stylelint/stylelint/pull/2557)).
+- Fixed: `selector-pseudo-class-no-unknown` now checks `@page` at-rules and supports `@page` pseudo-classes ([#2445](https://github.com/stylelint/stylelint/pull/2445)).
+- Fixed: `selector-pseudo-class-no-unknown` now considers `focus-ring`, `playing` and `paused` to be known ([#2507](https://github.com/stylelint/stylelint/pull/2507)).
+- Fixed: `selector-type-no-unknown` now ignores MathML tags ([#2478](https://github.com/stylelint/stylelint/pull/2478)).
+- Fixed: `selector-type-no-unknown` now ignores the `/deep/` shadow-piercing combinator ([#2508](https://github.com/stylelint/stylelint/pull/2508)).
+- Fixed: `value-keyword-case` now ignores variables with signs ([#2558](https://github.com/stylelint/stylelint/pull/2558)).
 
 ## 7.10.1
 
-- Fixed: scope is kept when using `schema.preceedingPlugins` ([#2455](;https://github.com/stylelint/stylelint/pull/2455)).
+- Fixed: scope is kept when using `schema.preceedingPlugins` ([#2455](https://github.com/stylelint/stylelint/pull/2455)).
 
 ## 7.10.0
 
-- Added: support for asynchronous plugin rules ([#2351](;https://github.com/stylelint/stylelint/pull/2351)).
-- Added: `cache` option to store the info about processed files in order to only operate on the changed ones the next time you run stylelint ([#2293](;https://github.com/stylelint/stylelint/pull/2293)).
-- Added: `at-rule-semicolon-space-before` rule ([#2388](;https://github.com/stylelint/stylelint/pull/2388)).
-- Added: `ignore: ["comments"]` to `max-empty-lines` ([#2401](;https://github.com/stylelint/stylelint/pull/2401)).
-- Added: `ignore: ["default-namespace"]` to `selector-type-no-unknown` ([#2461](;https://github.com/stylelint/stylelint/pull/2461)).
-- Added: `ignoreDefaultNamespaces` option to `selector-type-no-unknown` ([#2461](;https://github.com/stylelint/stylelint/pull/2461)).
-- Fixed: more helpful messages when file globs do not match any files ([#2328](;https://github.com/stylelint/stylelint/pull/2328)).
-- Fixed: `decl/` folder of Flow types is shipped with the package, for consumers that use Flow ([#2322](;https://github.com/stylelint/stylelint/issues/2322)).
-- Fixed: `function-url-scheme-whitelist` was working incorrectly if more than one URL scheme were specified ([#2447](;https://github.com/stylelint/stylelint/pull/2447)).
+- Added: support for asynchronous plugin rules ([#2351](https://github.com/stylelint/stylelint/pull/2351)).
+- Added: `cache` option to store the info about processed files in order to only operate on the changed ones the next time you run stylelint ([#2293](https://github.com/stylelint/stylelint/pull/2293)).
+- Added: `at-rule-semicolon-space-before` rule ([#2388](https://github.com/stylelint/stylelint/pull/2388)).
+- Added: `ignore: ["comments"]` to `max-empty-lines` ([#2401](https://github.com/stylelint/stylelint/pull/2401)).
+- Added: `ignore: ["default-namespace"]` to `selector-type-no-unknown` ([#2461](https://github.com/stylelint/stylelint/pull/2461)).
+- Added: `ignoreDefaultNamespaces` option to `selector-type-no-unknown` ([#2461](https://github.com/stylelint/stylelint/pull/2461)).
+- Fixed: more helpful messages when file globs do not match any files ([#2328](https://github.com/stylelint/stylelint/pull/2328)).
+- Fixed: `decl/` folder of Flow types is shipped with the package, for consumers that use Flow ([#2322](https://github.com/stylelint/stylelint/issues/2322)).
+- Fixed: `function-url-scheme-whitelist` was working incorrectly if more than one URL scheme were specified ([#2447](https://github.com/stylelint/stylelint/pull/2447)).
 - Fixed: `no-duplicate-selector` now includes the duplicate selector's first usage line in message ([#2415](https://github.com/stylelint/stylelint/pull/2415)).
 - Fixed: `no-extra-semicolons` false positives for comments after custom property sets ([#2396](https://github.com/stylelint/stylelint/pull/2396)).
 - Fixed: `value-keyword-case` false positives for `attr`, `counter`, `counters` functions and `counter-reset` property ([#2407](https://github.com/stylelint/stylelint/pull/2407)).
@@ -692,34 +692,34 @@ Changes:
   - The following rules did not work well.
     - `stylelint-disable-reason` could not enforce providing a reason.
     - `declaration-block-no-ignored-properties` could not reliably account for _replaced elements_.
-- Deprecated: 4 options ([#2213](;https://github.com/stylelint/stylelint/pull/2213)).
+- Deprecated: 4 options ([#2213](https://github.com/stylelint/stylelint/pull/2213)).
   - `"all-nested"` option for `at-rule-empty-line-before`. Use the `"inside-block"` option instead.
   - `"blockless-group"` option for `at-rule-empty-line-before`. Use the `"blockless-after-blockless"` option instead.
   - `"between-comments"` option for `comment-empty-line-before`. Use the `"after-comment"` option instead.
   - `"at-rules-without-declaration-blocks"` option for `max-nesting-depth`. Use the `"blockless-at-rules"` option instead.
-- Added: `time-min-milliseconds` rule, to replace `time-no-imperceptible` ([#2289](;https://github.com/stylelint/stylelint/pull/2289)).
-- Added: `except: ["after-same-name"]` option to `at-rule-empty-line-before` ([#2225](;https://github.com/stylelint/stylelint/pull/2225)).
-- Fixed: `configOverrides` now work with `extends` ([#2295](;https://github.com/stylelint/stylelint/pull/2295)).
-- Fixed: `max-line-length` no longer reports incorrect column positions for lines with `url()` or `import` ([#2287](;https://github.com/stylelint/stylelint/pull/2287)).
-- Fixed: `selector-pseudo-class-no-unknown` no longer warns for proprietary webkit pseudo-classes ([#2264](;https://github.com/stylelint/stylelint/pull/2264)).
-- Fixed: `unit-no-unknown` accepts `fr` units ([#2308](;https://github.com/stylelint/stylelint/pull/2308)).
+- Added: `time-min-milliseconds` rule, to replace `time-no-imperceptible` ([#2289](https://github.com/stylelint/stylelint/pull/2289)).
+- Added: `except: ["after-same-name"]` option to `at-rule-empty-line-before` ([#2225](https://github.com/stylelint/stylelint/pull/2225)).
+- Fixed: `configOverrides` now work with `extends` ([#2295](https://github.com/stylelint/stylelint/pull/2295)).
+- Fixed: `max-line-length` no longer reports incorrect column positions for lines with `url()` or `import` ([#2287](https://github.com/stylelint/stylelint/pull/2287)).
+- Fixed: `selector-pseudo-class-no-unknown` no longer warns for proprietary webkit pseudo-classes ([#2264](https://github.com/stylelint/stylelint/pull/2264)).
+- Fixed: `unit-no-unknown` accepts `fr` units ([#2308](https://github.com/stylelint/stylelint/pull/2308)).
 
 ## 7.7.1
 
-- Fixed: ensure only absolute filepaths are passed to processors ([#2207](;https://github.com/stylelint/stylelint/pull/2207)).
+- Fixed: ensure only absolute filepaths are passed to processors ([#2207](https://github.com/stylelint/stylelint/pull/2207)).
 
 ## 7.7.0
 
-- Added: `stylelint.formatters` exposed in public Node.js API ([#2190](;https://github.com/stylelint/stylelint/pull/2190)).
-- Added: `stylelint.utils.checkAgainstRule` for checking CSS against a standard stylelint rule _within your own rule_ ([#2173](;https://github.com/stylelint/stylelint/pull/2173)).
-- Added: `allow-empty-input` flag to CLI ([#2117](;https://github.com/stylelint/stylelint/pull/2117)).
-- Added: `except: ["after-rule"]` option to `rule-nested-empty-line-before` ([#2188](;https://github.com/stylelint/stylelint/pull/2188)).
-- Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node.js API to error if a non-existent filename is provided ([#2128](;https://github.com/stylelint/stylelint/pull/2128)).
-- Fixed: a boolean CLI flag (e.g. `--quiet`) placed before an input glob no longer causes the input to be ignored ([#2186](;https://github.com/stylelint/stylelint/pull/2186)).
-- Fixed: the `node_modules` and `bower_components` directories are correctly ignored by default when stylelint is used as a PostCSS plugin ([#2171](;https://github.com/stylelint/stylelint/pull/2171)).
-- Fixed: bug where some Node.js errors in special cases did not cause the CLI to exit with a non-zero code ([#2140](;https://github.com/stylelint/stylelint/pull/2140))
-- Fixed: false positives related to LESS detached rulesets ([#2089](;https://github.com/stylelint/stylelint/pull/2089)).
-- Fixed: `color-named` now ignores SCSS maps, so map property names can be color names ([#2182](;https://github.com/stylelint/stylelint/pull/2182)).
+- Added: `stylelint.formatters` exposed in public Node.js API ([#2190](https://github.com/stylelint/stylelint/pull/2190)).
+- Added: `stylelint.utils.checkAgainstRule` for checking CSS against a standard stylelint rule _within your own rule_ ([#2173](https://github.com/stylelint/stylelint/pull/2173)).
+- Added: `allow-empty-input` flag to CLI ([#2117](https://github.com/stylelint/stylelint/pull/2117)).
+- Added: `except: ["after-rule"]` option to `rule-nested-empty-line-before` ([#2188](https://github.com/stylelint/stylelint/pull/2188)).
+- Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node.js API to error if a non-existent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128)).
+- Fixed: a boolean CLI flag (e.g. `--quiet`) placed before an input glob no longer causes the input to be ignored ([#2186](https://github.com/stylelint/stylelint/pull/2186)).
+- Fixed: the `node_modules` and `bower_components` directories are correctly ignored by default when stylelint is used as a PostCSS plugin ([#2171](https://github.com/stylelint/stylelint/pull/2171)).
+- Fixed: bug where some Node.js errors in special cases did not cause the CLI to exit with a non-zero code ([#2140](https://github.com/stylelint/stylelint/pull/2140))
+- Fixed: false positives related to LESS detached rulesets ([#2089](https://github.com/stylelint/stylelint/pull/2089)).
+- Fixed: `color-named` now ignores SCSS maps, so map property names can be color names ([#2182](https://github.com/stylelint/stylelint/pull/2182)).
 - Fixed: `comment-whitespace-inside` no longer complains about `/*!` comments with non-space whitespace (e.g. newlines) ([#2121](https://github.com/stylelint/stylelint/pull/2121)).
 - Fixed: `media-feature-name-no-vendor-prefix` no longer throws syntax errors on unknown unprefixed variants ([#2152](https://github.com/stylelint/stylelint/pull/2152)).
 - Fixed: `selector-max-compound-selectors` ignores SCSS nested declarations ([#2102](https://github.com/stylelint/stylelint/pull/2102)).
@@ -926,23 +926,22 @@ Changes:
 - Added: `ignoreFunctions: []` option for `function-name-case`.
 - Fixed: rules using `findFontFamily` util correctly interpret `<font-size>/<line-height>` values with unitless line-heights.
 - Fixed: `indentation` better understands nested parentheticals that aren't just Sass maps and lists.
-  -;whenthe`verbose`formatterisused,ignoredfilesareincludedinthefilelist.Changed Fixed: `no-unsupported-browser-features` message now clearly states that only _fully_ supported features are allowed.
-  -; Fixed: `selector-max-specificity` no longer reports that a selector with 11 elements or more has a higher specificity than a selector with a single classname.
-  -; Fixed: `selector-type-no-unknown` no longer warns for complex keyframe selectors.
+- Fixed: `no-unsupported-browser-features` message now clearly states that only _fully_ supported features are allowed.
+- Fixed: `selector-max-specificity` no longer reports that a selector with 11 elements or more has a higher specificity than a selector with a single classname.
+- Fixed: `selector-type-no-unknown` no longer warns for complex keyframe selectors.
 
 ## 6.6.0
 
--; Deprecated: `number-zero-length-no-unit`. Use `length-zero-no-unit` instead.
--; Deprecated: `property-*-blacklist` and `property-*-whitelist`. Use `declaration-property-*-blacklist` and `declaration-property-*-whitelist` instead.
--; Deprecated: `-v` and `--verbose` CLI flags. Use `-f verbose` or `--formatter verbose` instead.
--; Deprecated: `stylelint.util.styleSearch()`. Use the external module [style-search](https://github.com/davidtheclark/style-search) instead.
--; Added: option `ignorePath` (for JS) and `--ignore-path` (for CLI).
--; Added: `-h` alias for `--help` CLI flag.
--; Added: `at-rule-blacklist` rule.
--; Added: `at-rule-name-newline-after` rule.
--; Added: `at-rule-whitelist` rule.
--; Added: `ignore: "blockless-group"` option for `at-rule-empty-line-before`.
-
+- Deprecated: `number-zero-length-no-unit`. Use `length-zero-no-unit` instead.
+- Deprecated: `property-*-blacklist` and `property-*-whitelist`. Use `declaration-property-*-blacklist` and `declaration-property-*-whitelist` instead.
+- Deprecated: `-v` and `--verbose` CLI flags. Use `-f verbose` or `--formatter verbose` instead.
+- Deprecated: `stylelint.util.styleSearch()`. Use the external module [style-search](https://github.com/davidtheclark/style-search) instead.
+- Added: option `ignorePath` (for JS) and `--ignore-path` (for CLI).
+- Added: `-h` alias for `--help` CLI flag.
+- Added: `at-rule-blacklist` rule.
+- Added: `at-rule-name-newline-after` rule.
+- Added: `at-rule-whitelist` rule.
+- Added: `ignore: "blockless-group"` option for `at-rule-empty-line-before`.
 - Added: `ignoreAtRules: []` option for `at-rule-empty-line-before`.
 - Added: `function-blacklist` now accepts regular expressions.
 - Added: `function-whitelist` now accepts regular expressions.
@@ -968,7 +967,7 @@ Changes:
 - Fixed: `selector-list-comma-*` rules now ignore Less mixins.
 - Fixed: `selector-max-compound-selectors` no longer errors on Less mixins.
 - Fixed: `selector-type-no-unknown` now ignores all _An+B notation_ and linguistic pseudo-classes.
-- Fixed: `selector-type-no-unknown` now ignores obsolete HTML tags and <hgroup>`.
+- Fixed: `selector-type-no-unknown` now ignores obsolete HTML tags and `<hgroup>`.
 
 ## 6.5.0
 
