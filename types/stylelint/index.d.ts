@@ -18,6 +18,12 @@ declare module 'stylelint' {
 		[ruleName: string]: StylelintConfigRuleSettings<any, Object>;
 	};
 
+	export type DisableOptions = {
+		except?: Array<string | RegExp>;
+		severity?: Severity;
+	};
+	export type DisableSettings = StylelintConfigRuleSettings<boolean, DisableOptions>;
+
 	export type StylelintConfig = {
 		extends?: StylelintConfigExtends;
 		plugins?: StylelintConfigPlugins;
@@ -33,11 +39,18 @@ declare module 'stylelint' {
 		resultProcessors?: Array<Function>;
 		quiet?: boolean;
 		defaultSeverity?: Severity;
-		ignoreDisables?: boolean;
-		reportNeedlessDisables?: boolean;
-		reportInvalidScopeDisables?: boolean;
-		reportDescriptionlessDisables?: boolean;
+		ignoreDisables?: DisableSettings;
+		reportNeedlessDisables?: DisableSettings;
+		reportInvalidScopeDisables?: DisableSettings;
+		reportDescriptionlessDisables?: DisableSettings;
 	};
+
+	// A meta-type that returns a union over all properties of `T` whose values
+	// have type `U`.
+	type PropertyNamesOfType<T, U> = {
+		[K in keyof T]-?: T[K] extends U ? K : never;
+	}[keyof T];
+	export type DisablePropertyName = PropertyNamesOfType<StylelintConfig, DisableSettings>;
 
 	export type CosmiconfigResult = { config: StylelintConfig; filepath: string };
 
