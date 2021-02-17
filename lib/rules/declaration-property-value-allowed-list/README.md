@@ -62,11 +62,6 @@ The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-a { color: pink; }
-```
-
-<!-- prettier-ignore -->
-```css
 a { whitespace: nowrap; }
 ```
 
@@ -88,9 +83,4 @@ a { color: green; }
 <!-- prettier-ignore -->
 ```css
 a { background-color: green; }
-```
-
-<!-- prettier-ignore -->
-```css
-a { background: pink; }
 ```
