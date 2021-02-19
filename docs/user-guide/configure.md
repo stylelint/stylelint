@@ -158,29 +158,44 @@ For example:
 
 The report is considered to be a lint error.
 
-## `defaultSeverity`
+## Disable Errors
 
-You can set the default severity level for all rules that do not have a severity specified in their secondary options. For example, you can set the default severity to `"warning"`:
+These configurations provide extra validation for `stylelint-disable` comments. This can be helpful for enforcing useful and well-documented disables.
+
+They are configured like rules. They can have one of three values:
+
+- `null` (to turn the configuration off)
+- `true` or `false` (the primary option)
+- an array with two values (`[primary option, secondary options]`)
+
+The following secondary options are available:
+
+- `"except"` takes an array of rule names for which the primary option should be inverted.
+- `"severity"` adjusts the level of error emitted for the rule, [as above](#severity).
+
+For example, this produces errors for needless disables of all rules except `selector-max-type`:
 
 ```json
 {
-  "defaultSeverity": "warning"
+  "reportNeedlessDisables": [true, { "except": ["selector-max-type"] }]
 }
 ```
 
-## `ignoreDisables`
-
-Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
-
-For example:
+And this emits warnings for disables of `color-hex-case` that don't have a description:
 
 ```json
 {
-  "ignoreDisables": true
+  "reportDescriptionlessDisables": [
+    false,
+    {
+      "except": ["color-hex-case"],
+      "severity": "warning"
+    }
+  ]
 }
 ```
 
-## `reportNeedlessDisables`
+### `reportNeedlessDisables`
 
 Emit errors for `stylelint-disable` comments that don't actually match any lints that need to be disabled.
 
@@ -192,7 +207,7 @@ For example:
 }
 ```
 
-## `reportInvalidScopeDisables`
+### `reportInvalidScopeDisables`
 
 Emit errors for `stylelint-disable` comments that don't match rules that are specified in the configuration object.
 
@@ -204,7 +219,7 @@ For example:
 }
 ```
 
-## `reportDescriptionlessDisables`
+### `reportDescriptionlessDisables`
 
 Emit errors for `stylelint-disable` comments without a description.
 
@@ -241,6 +256,28 @@ For example:
 ```json
 {
   "reportDescriptionlessDisables": true
+}
+```
+
+## `defaultSeverity`
+
+You can set the default severity level for all rules that do not have a severity specified in their secondary options. For example, you can set the default severity to `"warning"`:
+
+```json
+{
+  "defaultSeverity": "warning"
+}
+```
+
+## `ignoreDisables`
+
+Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
+
+For example:
+
+```json
+{
+  "ignoreDisables": true
 }
 ```
 

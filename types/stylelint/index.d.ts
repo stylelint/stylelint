@@ -1,15 +1,28 @@
 declare module 'stylelint' {
 	import { Comment, Result, ResultMessage, Root, Syntax, WarningOptions, Warning } from 'postcss';
 
+	export type Severity = 'warning' | 'error';
+
 	export type StylelintConfigExtends = string | Array<string>;
 	export type StylelintConfigPlugins = string | Array<string>;
 	export type StylelintConfigProcessor = string | [string, Object];
 	export type StylelintConfigProcessors = string | Array<StylelintConfigProcessor>;
 	export type StylelintConfigIgnoreFiles = string | Array<string>;
-	export type StylelintConfigRuleSettings = any | [any, Object];
+	export type StylelintConfigRuleSettings<T, O extends Object> =
+		| null
+		| undefined
+		| NonNullable<T>
+		| [NonNullable<T>]
+		| [NonNullable<T>, O];
 	export type StylelintConfigRules = {
-		[ruleName: string]: StylelintConfigRuleSettings;
+		[ruleName: string]: StylelintConfigRuleSettings<any, Object>;
 	};
+
+	export type DisableOptions = {
+		except?: Array<string | RegExp>;
+		severity?: Severity;
+	};
+	export type DisableSettings = StylelintConfigRuleSettings<boolean, DisableOptions>;
 
 	export type StylelintConfig = {
 		extends?: StylelintConfigExtends;
@@ -25,12 +38,19 @@ declare module 'stylelint' {
 		codeProcessors?: Array<Function>;
 		resultProcessors?: Array<Function>;
 		quiet?: boolean;
-		defaultSeverity?: string;
-		ignoreDisables?: boolean;
-		reportNeedlessDisables?: boolean;
-		reportInvalidScopeDisables?: boolean;
-		reportDescriptionlessDisables?: boolean;
+		defaultSeverity?: Severity;
+		ignoreDisables?: DisableSettings;
+		reportNeedlessDisables?: DisableSettings;
+		reportInvalidScopeDisables?: DisableSettings;
+		reportDescriptionlessDisables?: DisableSettings;
 	};
+
+	// A meta-type that returns a union over all properties of `T` whose values
+	// have type `U`.
+	type PropertyNamesOfType<T, U> = {
+		[K in keyof T]-?: T[K] extends U ? K : never;
+	}[keyof T];
+	export type DisablePropertyName = PropertyNamesOfType<StylelintConfig, DisableSettings>;
 
 	export type CosmiconfigResult = { config: StylelintConfig; filepath: string };
 
@@ -51,7 +71,7 @@ declare module 'stylelint' {
 	export type DisabledWarning = { line: number; rule: string };
 
 	export type StylelintPostcssResult = {
-		ruleSeverities: { [k: string]: any };
+		ruleSeverities: { [k: string]: Severity };
 		customMessages: { [k: string]: any };
 		quiet?: boolean;
 		disabledRanges: DisabledRangeObject;
@@ -78,7 +98,7 @@ declare module 'stylelint' {
 
 	export type StylelintWarningOptions = WarningOptions & {
 		stylelintType?: string;
-		severity?: string;
+		severity?: Severity;
 		rule?: string;
 	};
 
@@ -208,7 +228,7 @@ declare module 'stylelint' {
 		line: number;
 		column: number;
 		rule: string;
-		severity: string;
+		severity: Severity;
 		text: string;
 		stylelintType?: string;
 	};
