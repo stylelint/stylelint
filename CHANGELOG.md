@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 13.11.0
 
 - Added: exceptions and severity options to `report*` configuration object properties ([#5143](https://github.com/stylelint/stylelint/pull/5143)).
 
