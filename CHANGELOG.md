@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Added: exceptions and severity options to `report*` configuration object properties ([#5143](https://github.com/stylelint/stylelint/pull/5143)).
+
 ## 13.10.0
 
 - Added: `ignoreDisables`, `reportNeedlessDisables`, `reportInvalidScopeDisables` and `reportDescriptionlessDisables` configuration object properties ([#5126](https://github.com/stylelint/stylelint/pull/5126)).
