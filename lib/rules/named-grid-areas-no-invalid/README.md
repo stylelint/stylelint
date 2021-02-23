@@ -4,10 +4,11 @@ Disallow invalid named grid areas.
 
 <!-- prettier-ignore -->
 ```css
-a { color: pink; }···
-/**               ↑
- *  This whitespace */
-```
+a { grid-template-areas: 
+      "a a a"
+      "b b b"; }
+/**   ↑
+ *  This named grid area */
 
 ## Options
 
