@@ -31,7 +31,7 @@ All strings must define at least one cell token
 grid-template-areas: ""
 ```
 
-If a named grid area spans multiple grid cells, but those cells do not form a single filled-in rectangle, the declaration is invalid.
+All named grid areas that spans multiple grid cells must form a single filled-in rectangle.
 
 <!-- prettier-ignore -->
 ```css
