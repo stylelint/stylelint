@@ -1,6 +1,6 @@
 # named-grid-areas-no-invalid
 
-Disallow invalid named grid areas in `grid-template-areas`
+Disallow invalid named grid areas.
 
 <!-- prettier-ignore -->
 ```css
