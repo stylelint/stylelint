@@ -20,39 +20,39 @@ All strings must define the same number of cell tokens.
 
 <!-- prettier-ignore -->
 ```css
-grid-template-areas: "a a a"
-                     "b b b b";
+a { grid-template-areas: "a a a"
+                         "b b b b"; }
 ```
 
-All strings must define at least one cell token
+All strings must define at least one cell token.
 
 <!-- prettier-ignore -->
 ```css
-grid-template-areas: ""
+a { grid-template-areas: "" }
 ```
 
 All named grid areas that spans multiple grid cells must form a single filled-in rectangle.
 
 <!-- prettier-ignore -->
 ```css
-grid-template-areas: "a a a"
-                     "b b a";
+a { grid-template-areas: "a a a"
+                         "b b a"; }
 ```
 
 The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-grid-template-areas: "a a a"
-                     "b b b";
+a { grid-template-areas: "a a a"
+                         "b b b"; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-grid-template-areas: "a a a" "b b b";
+a { grid-template-areas: "a a a" "b b b"; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-grid-template-areas: none;
+a { grid-template-areas: none; }
 ```
