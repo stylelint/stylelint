@@ -15,7 +15,7 @@ a { color: pink; }···
 
 The following patterns are considered violations:
 
-All strings must define the same number of cell tokens
+All strings must define the same number of cell tokens.
 
 <!-- prettier-ignore -->
 ```css
