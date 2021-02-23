@@ -48,5 +48,10 @@ grid-template-areas: "a a a"
 
 <!-- prettier-ignore -->
 ```css
+grid-template-areas: "a a a" "b b b";
+```
+
+<!-- prettier-ignore -->
+```css
 grid-template-areas: none;
 ```
