@@ -93,33 +93,16 @@ a { background: orange; color: pink }
 
 ### `ignore: ["single-declaration"]`
 
-#### `"single-declaration"`
+Ignore declaration blocks that contain a single declaration.
 
 The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-foo { property: value }
+a { color: pink }
 ```
 
 <!-- prettier-ignore -->
 ```css
-foo { property: value; }
-```
-
-<!-- prettier-ignore -->
-```css
-@keyframes name { from { property: 0 } to { property: 1; } }
-```
-
-With `"always"`:
-
-The following pattern is _still_ considered a violation:
-
-<!-- prettier-ignore -->
-```css
-foo {
-  property: value;
-  bar: qux
-}
+a { color: pink; }
 ```
