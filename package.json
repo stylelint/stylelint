@@ -197,7 +197,7 @@
     "lint-staged": "^10.5.4",
     "np": "^7.4.0",
     "npm-run-all": "^4.1.5",
-    "pinst": "^2.1.4",
+    "pinst": "^2.1.6",
     "postcss-import": "^12.0.1",
     "prettier": "^2.2.1",
     "remark-cli": "^9.0.0",
