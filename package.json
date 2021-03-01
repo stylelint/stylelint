@@ -155,7 +155,7 @@
     "resolve-from": "^5.0.0",
     "slash": "^3.0.0",
     "specificity": "^0.4.1",
-    "string-width": "^4.2.0",
+    "string-width": "^4.2.2",
     "strip-ansi": "^6.0.0",
     "style-search": "^0.1.0",
     "sugarss": "^2.0.0",
