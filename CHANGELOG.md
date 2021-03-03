@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Fixed: `*-no-unknown` false positives ([#5158](https://github.com/stylelint/stylelint/pull/5158)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives for `:autofill` ([#5171](https://github.com/stylelint/stylelint/pull/5171)).
 
 ## 13.11.0
 
