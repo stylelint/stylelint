@@ -9,6 +9,7 @@ a { grid-template-areas:
       "b b b"; }
 /**   ↑
  *  This named grid area */
+```
 
 ## Options
 
