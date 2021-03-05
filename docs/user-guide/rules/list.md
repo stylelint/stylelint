@@ -17,6 +17,10 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 - [`font-family-no-duplicate-names`](../../../lib/rules/font-family-no-duplicate-names/README.md): Disallow duplicate font family names.
 - [`font-family-no-missing-generic-family-keyword`](../../../lib/rules/font-family-no-missing-generic-family-keyword/README.md): Disallow missing generic families in lists of font family names.
 
+### Named grid areas
+
+- [`named-grid-areas-no-invalid`](../../../lib/rules/named-grid-areas-no-invalid/README.md): Disallow invalid named grid areas.
+
 ### Function
 
 - [`function-calc-no-invalid`](../../../lib/rules/function-calc-no-invalid/README.md): Disallow an invalid expression within `calc` functions.
