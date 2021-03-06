@@ -88,3 +88,21 @@ a { color: pink }
 ```css
 a { background: orange; color: pink }
 ```
+
+## Optional secondary options
+
+### `ignore: ["single-declaration"]`
+
+Ignore declaration blocks that contain a single declaration.
+
+The following patterns are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+a { color: pink }
+```
+
+<!-- prettier-ignore -->
+```css
+a { color: pink; }
+```
