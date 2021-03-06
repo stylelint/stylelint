@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 13.12.0
 
 - Added: `named-grid-areas-no-invalid` rule ([#5167](https://github.com/stylelint/stylelint/pull/5167)).
 - Added: `ignore: ["single-declaration"]` to `declaration-block-trailing-semicolon` ([#5165](https://github.com/stylelint/stylelint/pull/5165)).
