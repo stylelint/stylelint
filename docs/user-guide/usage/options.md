@@ -52,7 +52,7 @@ Options are:
 - `unix`
 - `verbose`
 
-The `formatter` Node.js API option can also accept a function, whereas the `--custom-formatter` CLI flag accepts a path to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../../developer-guide/formatters.md).
+The `formatter` Node.js API option can also accept a function, whereas the `--custom-formatter` CLI flag accepts a path to a JS file or dependency exporting one. The function in both cases must fit the signature described in the [Developer Guide](../../developer-guide/formatters.md).
 
 ## `cache`
 
