@@ -41,7 +41,7 @@ a { grid-template-areas: "a a a"
                          "b b a"; }
 ```
 
-The following patterns is _not_ considered a violation:
+The following pattern is _not_ considered a violation:
 
 <!-- prettier-ignore -->
 ```css
