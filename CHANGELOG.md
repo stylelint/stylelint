@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `color-no-hex` false positives for CSS-in-JS objection notation ([#5186](https://github.com/stylelint/stylelint/pull/5186)).
+
 ## 13.12.0
 
 - Added: `named-grid-areas-no-invalid` rule ([#5167](https://github.com/stylelint/stylelint/pull/5167)).
