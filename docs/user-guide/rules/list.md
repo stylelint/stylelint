@@ -79,6 +79,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 - [`no-empty-source`](../../../lib/rules/no-empty-source/README.md): Disallow empty sources.
 - [`no-extra-semicolons`](../../../lib/rules/no-extra-semicolons/README.md): Disallow extra semicolons (Autofixable).
 - [`no-invalid-double-slash-comments`](../../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
+- [`no-invalid-position-at-import-rule`](../../../lib/rules/no-invalid-position-at-import-rule/README.md): Disallow invalid position @import rules within a stylesheet.
 
 ## Limit language features
 
