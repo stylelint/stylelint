@@ -8,6 +8,7 @@ a {}
 @import 'foo.css';
 /** ↑
   * This @import */
+```
 
 ## Options
 
