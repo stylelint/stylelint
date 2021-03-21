@@ -6,9 +6,8 @@ Disallow invalid position `@import` rules within a stylesheet.
 ```css
 a {}
 @import 'foo.css';
-/**   ↑
-  * Invalid position */
-```
+/** ↑
+  * This @import */
 
 ## Options
 
