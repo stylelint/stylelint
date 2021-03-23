@@ -10,7 +10,7 @@ a {}
   * This @import */
 ```
 
-Any `@import` rules must precede all other valid at-rules and style rules in a style sheet (ignoring `@charset`), or else the `@import` rule is invalid.
+Any `@import` rules must precede all other valid at-rules and style rules in a stylesheet (ignoring `@charset`), or else the `@import` rule is invalid.
 
 ## Options
 
