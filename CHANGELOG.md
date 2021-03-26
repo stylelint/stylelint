@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Fixed: `color-no-hex` false positives for CSS-in-JS objection notation ([#5186](https://github.com/stylelint/stylelint/pull/5186)).
+- Fixed: `length-zero-no-unit` false positives for level 4 math functions ([#5203](https://github.com/stylelint/stylelint/pull/5203)).
 
 ## 13.12.0
 
