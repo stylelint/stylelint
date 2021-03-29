@@ -177,7 +177,7 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
     "del": "^6.0.0",
-    "eslint": "^7.22.0",
+    "eslint": "^7.23.0",
     "eslint-config-stylelint": "^13.1.0",
     "got": "^11.8.2",
     "husky": "^5.2.0",
