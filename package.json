@@ -121,7 +121,7 @@
     "file-entry-cache": "^6.0.1",
     "get-stdin": "^8.0.0",
     "global-modules": "^2.0.0",
-    "globby": "^11.0.2",
+    "globby": "^11.0.3",
     "globjoin": "^0.1.4",
     "html-tags": "^3.1.0",
     "ignore": "^5.1.8",
