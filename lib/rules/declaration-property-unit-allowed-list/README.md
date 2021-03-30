@@ -94,23 +94,26 @@ For example, given:
 
 ```
 {
-  '/^border/': ['px'],
-  '/^background/': ['%'],
-}
+  "/^border/": ["px"],
+  "/^background/": ["%"],
+},
+{
+  ignore: ["inside-function"],
+},
 ```
 
 The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-button {
-  button { border: 1px solid hsla(162deg, 51%, 35%, 0.8); }
+a {
+  border: 1px solid hsla(162deg, 51%, 35%, 0.8);
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
-button {
+a {
   background-image: linear-gradient(hsla(162deg, 51%, 35%, 0.8), hsla(62deg, 51%, 35%, 0.8));
 }
 ```
