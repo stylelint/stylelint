@@ -4,55 +4,30 @@ Disallow `!important` within keyframe declarations.
 
 <!-- prettier-ignore -->
 ```css
-@keyframes important2 {
-  from { margin: 10px }
-  to { margin: 20px !important }
-}                /* ↑ */
-/**                 ↑
-*     This !important */
+@keyframes foo {
+  from { opacity: 0 }
+  to { opacity: 1 !important }
+}              /* ↑ */
+/**               ↑
+*   This !important */
 ```
 
-Using `!important` within keyframes declarations is completely ignored in some browsers:
-[MDN - !important in a keyframe](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes#!important_in_a_keyframe)
+Using `!important` within keyframes declarations is [completely ignored in some browsers](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes#!important_in_a_keyframe).
 
 ## Options
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns is considered a violation:
 
 <!-- prettier-ignore -->
 ```css
-@keyframes important1 {
+@keyframes foo {
   from {
-    margin-top: 50px;
+    opacity: 0;
   }
   to {
-    margin-top: 100px !important;
-  }
-}
-```
-
-<!-- prettier-ignore -->
-```css
-@keyframes important1 {
-  from {
-    margin-top: 50px;
-  }
-  to {
-    margin-top: 100px!important;
-  }
-}
-```
-
-<!-- prettier-ignore -->
-```css
-@keyframes important1 {
-  from {
-    margin-top: 50px;
-  }
-  to {
-    margin-top: 100px ! important;
+    opacity: 1 !important;
   }
 }
 ```
@@ -61,17 +36,17 @@ The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-a { color: pink !important; }
+@keyframes foo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 ```
 
 <!-- prettier-ignore -->
 ```css
-@keyframes important1 {
-  from {
-    margin-top: 50px;
-  }
-  to {
-    margin-top: 100px;
-  }
-}
+a { color: pink !important; }
 ```
