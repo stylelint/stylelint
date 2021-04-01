@@ -98,7 +98,7 @@ For example, given:
   "/^background/": ["%"],
 },
 {
-  ignore: ["inside-function"],
+  "ignore": ["inside-function"],
 },
 ```
 
