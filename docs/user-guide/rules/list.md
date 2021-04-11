@@ -185,6 +185,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 - [`selector-combinator-blacklist`](../../../lib/rules/selector-combinator-blacklist/README.md): Specify a list of disallowed combinators. **(deprecated)**
 - [`selector-combinator-disallowed-list`](../../../lib/rules/selector-combinator-disallowed-list/README.md): Specify a list of disallowed combinators.
 - [`selector-combinator-whitelist`](../../../lib/rules/selector-combinator-whitelist/README.md): Specify a list of allowed combinators. **(deprecated)**
+- [`selector-disallowed-list`](../../../lib/rules/selector-disallowed-list/README.md): Specify a list of disallowed selectors
 - [`selector-id-pattern`](../../../lib/rules/selector-id-pattern/README.md): Specify a pattern for ID selectors.
 - [`selector-max-attribute`](../../../lib/rules/selector-max-attribute/README.md): Limit the number of attribute selectors in a selector.
 - [`selector-max-class`](../../../lib/rules/selector-max-class/README.md): Limit the number of classes in a selector.
