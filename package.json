@@ -111,7 +111,7 @@
     "@stylelint/postcss-css-in-js": "^0.37.2",
     "@stylelint/postcss-markdown": "^0.36.2",
     "autoprefixer": "^9.8.6",
-    "balanced-match": "^1.0.0",
+    "balanced-match": "^2.0.0",
     "chalk": "^4.1.0",
     "cosmiconfig": "^7.0.0",
     "debug": "^4.3.1",
