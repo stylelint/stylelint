@@ -1,6 +1,6 @@
 # selector-disallowed-list
 
-Specify a list of disallowed selectors
+Specify a list of disallowed selectors.
 
 <!-- prettier-ignore -->
 ```css
