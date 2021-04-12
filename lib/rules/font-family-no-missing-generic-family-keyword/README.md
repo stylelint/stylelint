@@ -54,6 +54,16 @@ a { font: inherit; }
 a { font: caption; }
 ```
 
+<!-- prettier-ignore -->
+```css
+a { font-family: var(--font-family-common); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { font-family: Helvetica, var(--font-family-common); }
+```
+
 ## Optional secondary options
 
 ### `ignoreFontFamilies: ["/regex/", /regex/, "string"]`
