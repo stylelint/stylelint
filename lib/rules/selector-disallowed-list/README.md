@@ -15,7 +15,7 @@ Specify a list of disallowed selectors.
 
 If a string is surrounded with `"/"` (e.g. `"/\.foo/"`), it is interpreted as a regular expression.
 
-### Given:
+Given:
 
 ```
 ["a > .foo", /\[data-.+]/]
