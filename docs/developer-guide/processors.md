@@ -2,7 +2,7 @@
 
 Processors are functions that hook into stylelint's pipeline, modifying code on its way into stylelint and modifying results on their way out.
 
-**Their use is discouraged favor of [PostCSS syntaxes](../about/syntaxes.md).**
+**Their use is discouraged in favor of [PostCSS syntaxes](../about/syntaxes.md).**
 
 Processor modules are functions that accept an options object and return an object with the following the functions, which hook into the processing of each file:
 
