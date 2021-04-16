@@ -61,9 +61,14 @@ a { top: 1.001vh }
 
 Ignore units for zero length in custom properties.
 
-The following pattern is _not_ considered a violation:
+The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
 a { --x: 0px; }
+```
+
+<!-- prettier-ignore -->
+```css
+div { width: calc(var(--x, 0px) + 10px); }
 ```
