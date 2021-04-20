@@ -395,3 +395,4 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 - [`no-missing-end-of-source-newline`](../../../lib/rules/no-missing-end-of-source-newline/README.md): Disallow missing end-of-source newlines (Autofixable).
 - [`no-empty-first-line`](../../../lib/rules/no-empty-first-line/README.md): Disallow empty first lines (Autofixable).
 - [`unicode-bom`](../../../lib/rules/unicode-bom/README.md): Require or disallow Unicode BOM.
+- [`no-irregular-whitespace`](../../../lib/rules/no-irregular-whitespace/README.md): Disallow irregular whitespace.
