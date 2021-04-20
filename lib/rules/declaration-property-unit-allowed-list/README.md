@@ -83,3 +83,37 @@ a { animation-duration: 5s; }
 ```css
 a { line-height: 1; }
 ```
+
+## Optional secondary options
+
+### `ignore: ["inside-function"]`
+
+Ignore units that are inside a function.
+
+For example, given:
+
+```
+{
+  "/^border/": ["px"],
+  "/^background/": ["%"],
+},
+{
+  "ignore": ["inside-function"],
+},
+```
+
+The following patterns are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+a {
+  border: 1px solid hsla(162deg, 51%, 35%, 0.8);
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  background-image: linear-gradient(hsla(162deg, 51%, 35%, 0.8), hsla(62deg, 51%, 35%, 0.8));
+}
+```
