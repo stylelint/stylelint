@@ -11,6 +11,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `color-no-hex` false positives for CSS-in-JS objection notation ([#5186](https://github.com/stylelint/stylelint/pull/5186)).
 - Fixed: `font-family-no-missing-generic-family-keyword` false positives for variables ([#5240](https://github.com/stylelint/stylelint/pull/5240)).
 - Fixed: `length-zero-no-unit` false positives for level 4 math functions ([#5203](https://github.com/stylelint/stylelint/pull/5203)).
+- Fixed: `length-zero-no-unit` false positives for functions inside of math functions ([#5245](https://github.com/stylelint/stylelint/pull/5245)).
 
 ## 13.12.0
 
