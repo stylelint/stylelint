@@ -7,6 +7,7 @@ All notable changes to this project are documented in this file.
 - Added: `no-invalid-position-at-import-rule` rule ([#5202](https://github.com/stylelint/stylelint/pull/5202)).
 - Added: `no-irregular-whitespace` rule ([#5209](https://github.com/stylelint/stylelint/pull/5209)).
 - Added: `selector-disallowed-list` rule ([#5239](https://github.com/stylelint/stylelint/pull/5239)).
+- Added: `selector-attribute-quotes` autofix ([#5248](https://github.com/stylelint/stylelint/pull/5248)).
 - Added: `ignore: ["inside-function"]` to `declaration-property-unit-allowed-list` ([#5194](https://github.com/stylelint/stylelint/pull/5194)).
 - Fixed: `color-no-hex` false positives for CSS-in-JS objection notation ([#5186](https://github.com/stylelint/stylelint/pull/5186)).
 - Fixed: `font-family-no-missing-generic-family-keyword` false positives for variables ([#5240](https://github.com/stylelint/stylelint/pull/5240)).
