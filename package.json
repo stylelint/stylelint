@@ -149,7 +149,7 @@
     "slash": "^3.0.0",
     "specificity": "^0.4.1",
     "string-width": "^4.2.2",
-    "strip-ansi": "^6.0.0",
+    "strip-ansi": "^7.0.0",
     "style-search": "^0.1.0",
     "sugarss": "^2.0.0",
     "svg-tags": "^1.0.0",
