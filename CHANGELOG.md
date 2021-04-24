@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 13.13.0
 
 - Added: `no-invalid-position-at-import-rule` rule ([#5202](https://github.com/stylelint/stylelint/pull/5202)).
 - Added: `no-irregular-whitespace` rule ([#5209](https://github.com/stylelint/stylelint/pull/5209)).
