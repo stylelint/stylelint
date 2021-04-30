@@ -175,7 +175,6 @@
     "@types/write-file-atomic": "^3.0.1",
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.0",
-    "del": "^6.0.0",
     "eslint": "^7.25.0",
     "eslint-config-stylelint": "^13.1.0",
     "got": "^11.8.2",
