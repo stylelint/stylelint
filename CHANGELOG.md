@@ -2,6 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: invalid JSON for `max-warnings` option ([#5267](https://github.com/stylelint/stylelint/pull/5267)).
+- Fixed: `no-invalid-position-at-import-rule` false positives for dollar variables ([#5264](https://github.com/stylelint/stylelint/pull/5264)).
+
 ## 13.13.0
 
 - Added: `no-invalid-position-at-import-rule` rule ([#5202](https://github.com/stylelint/stylelint/pull/5202)).
