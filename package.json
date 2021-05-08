@@ -140,7 +140,7 @@
     "postcss-media-query-parser": "^0.2.3",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^4.0.2",
-    "postcss-sass": "^0.4.4",
+    "postcss-sass": "^0.5.0",
     "postcss-scss": "^2.1.1",
     "postcss-selector-parser": "^6.0.5",
     "postcss-syntax": "^0.36.2",
