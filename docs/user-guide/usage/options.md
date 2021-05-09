@@ -49,7 +49,7 @@ Options are:
 - `json` (default for Node API)
 - `string` (default for CLI)
 - `tap`
-- `unix`
+- `unix` (generates messages like a C compiler, so that tools like Emacs' _Compilation mode_ can automatically recognise and hyperlink them)
 - `verbose`
 
 The `formatter` Node.js API option can also accept a function, whereas the `--custom-formatter` CLI flag accepts a path to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../../developer-guide/formatters.md).
