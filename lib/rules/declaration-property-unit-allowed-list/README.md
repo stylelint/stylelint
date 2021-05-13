@@ -17,7 +17,7 @@ If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is inter
 
 Given:
 
-```
+```json
 {
   "font-size": ["em", "px"],
   "/^animation/": ["s"],
@@ -92,14 +92,16 @@ Ignore units that are inside a function.
 
 For example, given:
 
-```
-{
-  "/^border/": ["px"],
-  "/^background/": ["%"],
-},
-{
-  "ignore": ["inside-function"],
-},
+```json
+[
+  {
+    "/^border/": ["px"],
+    "/^background/": ["%"]
+  },
+  {
+    "ignore": ["inside-function"]
+  }
+]
 ```
 
 The following patterns are _not_ considered violations:

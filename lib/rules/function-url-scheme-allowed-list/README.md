@@ -22,7 +22,7 @@ This rule ignores:
 
 Given:
 
-```
+```json
 ["data", "/^http/"]
 ```
 

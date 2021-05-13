@@ -29,7 +29,7 @@ as a regular expression. For example, `/width$/` will match `max-width` and
 
 Given:
 
-```
+```json
 {
   "min-width": ["768px", "1024px"],
   "/resolution/": ["/dpcm$/"]

@@ -17,7 +17,7 @@ Specify a list of required properties for an at-rule.
 
 Given:
 
-```
+```json
 {
   "font-face": ["font-display", "font-family", "font-style"]
 }

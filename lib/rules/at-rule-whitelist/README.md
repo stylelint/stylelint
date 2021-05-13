@@ -17,7 +17,7 @@ Specify a list of allowed at-rules.
 
 Given:
 
-```
+```json
 ["extend", "keyframes"]
 ```
 

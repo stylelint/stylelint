@@ -21,7 +21,7 @@ If a string is surrounded with `"/"` (e.g. `"/^nth-/"`), it is interpreted as a 
 
 Given:
 
-```
+```json
 ["hover", "/^nth-/"]
 ```
 

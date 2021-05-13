@@ -19,7 +19,7 @@ If a string is surrounded with `"/"` (e.g. `"/^rgb/"`), it is interpreted as a r
 
 Given:
 
-```
+```json
 ["scale", "rgba", "linear-gradient"]
 ```
 

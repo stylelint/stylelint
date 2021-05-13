@@ -24,7 +24,7 @@ This rule ignores:
 
 Given:
 
-```
+```json
 ["ftp", "/^http/"]
 ```
 

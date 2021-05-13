@@ -62,7 +62,7 @@ input:-moz-placeholder {}
 
 Given:
 
-```
+```json
 ["/^my-/", "pseudo-class"]
 ```
 

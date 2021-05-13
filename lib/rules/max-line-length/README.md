@@ -126,7 +126,7 @@ Ignore any line that matches the given regex pattern, regardless of whether it i
 
 Given:
 
-```
+```json
 "/^@import\\s+/"
 ```
 

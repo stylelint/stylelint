@@ -49,7 +49,7 @@ Ignore vendor prefixes for selectors.
 
 Given:
 
-```
+```json
 ["::-webkit-input-placeholder", "/-moz-.*/"]
 ```
 

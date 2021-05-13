@@ -173,7 +173,7 @@ For example, with `"always"` or `"always-multi-line"`.
 
 Given:
 
-```
+```json
 ["if", "else"]
 ```
 
