@@ -2,6 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Removed: rules deprecated in 13.7.0 ([#5295](https://github.com/stylelint/stylelint/pull/5295)).
+- Removed: `function-calc-no-invalid` ([#5296](https://github.com/stylelint/stylelint/pull/5296)).
+
 ## 13.13.1
 
 - Fixed: invalid JSON for `max-warnings` option ([#5267](https://github.com/stylelint/stylelint/pull/5267)).
