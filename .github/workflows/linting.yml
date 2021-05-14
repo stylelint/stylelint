@@ -9,9 +9,6 @@ on:
     branches:
       - '**'
 
-env:
-  CI: true
-
 jobs:
   lint:
     name: Lint on Node.js ${{ matrix.node }} and ${{ matrix.os }}

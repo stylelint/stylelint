@@ -9,9 +9,6 @@ on:
     branches:
       - '**'
 
-env:
-  CI: true
-
 jobs:
   test:
     name: Test on Node.js ${{ matrix.node }} and ${{ matrix.os }}
@@ -21,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [10, 12, 14, 16]
+        node: [12, 14, 16]
         os: [ubuntu-latest, windows-latest, macos-latest]
         exclude:
           - os: ubuntu-latest
