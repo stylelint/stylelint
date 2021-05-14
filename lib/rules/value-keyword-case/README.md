@@ -123,7 +123,7 @@ For example, with `"lower"`.
 
 Given:
 
-```
+```json
 ["Block", "/^(f|F)lex$/"]
 ```
 

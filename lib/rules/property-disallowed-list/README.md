@@ -17,7 +17,7 @@ If a string is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted
 
 Given:
 
-```
+```json
 ["text-rendering", "animation", "/^background/"]
 ```
 

@@ -53,7 +53,7 @@ a { -webkit-touch-callout: none; }
 
 Given:
 
-```
+```json
 ["transform", "columns"]
 ```
 

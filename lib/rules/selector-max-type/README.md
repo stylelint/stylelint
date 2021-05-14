@@ -155,7 +155,7 @@ div a + span {}
 
 Given:
 
-```
+```json
 ["/^my-/", "custom"]
 ```
 

@@ -57,7 +57,7 @@ a { background: linear-gradient(bottom, #000, #fff); }
 
 Given:
 
-```
+```json
 ["grab", "max-content"]
 ```
 

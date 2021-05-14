@@ -81,7 +81,7 @@ a {
 
 Given:
 
-```
+```json
 ["/^my-/", "custom"]
 ```
 
@@ -114,7 +114,7 @@ Skips checking properties of the given selectors against this rule.
 
 Given:
 
-```
+```json
 [":root"]
 ```
 
@@ -133,7 +133,7 @@ Ignores properties nested within specified at-rules.
 
 Given:
 
-```
+```json
 ["supports"]
 ```
 

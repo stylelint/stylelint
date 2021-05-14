@@ -21,7 +21,7 @@ Be careful with regex matching not to accidentally consider quoted string values
 
 Given:
 
-```
+```json
 {
   "transform": ["/scale3d/", "/rotate3d/", "/translate3d/"],
   "position": ["fixed"],
