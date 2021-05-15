@@ -87,36 +87,17 @@ If the number of warnings exceeds this value, the:
 - CLI process exits with code `2`
 - Node.js API adds a [`maxWarningsExceeded`](node-api.md#maxwarningsexceeded) property to the returned data
 
-## `syntax`
-
-CLI flags: `--syntax, -s`
-
-Specify a syntax. Options:
-
-- `css`
-- `css-in-js`
-- `html`
-- `less`
-- `markdown`
-- `sass`
-- `scss`
-- `sugarss`
-
-If you do not specify a syntax, stylelint will automatically infer the syntaxes.
-
-Only use this option if you want to force a specific syntax.
-
 ## `customSyntax`
 
 CLI flag: `--custom-syntax`
 
-Specify a custom syntax to use on your code. Use this option if you want to force a specific syntax that's not already built into stylelint.
+Specify a custom syntax to use on your code.
 
 This option should be a string that resolves to a JS module that exports a [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). The string can be a module name (like `my-module`) or a path to a JS file (like `path/to/my-module.js`).
 
 Using the Node.js API, the `customSyntax` option can also accept a [Syntax object](https://github.com/postcss/postcss/blob/abfaa7122a0f480bc5be0905df3c24a6a51a82d9/lib/postcss.d.ts#L223-L232). Stylelint treats the `parse` property as a required value.
 
-Note that stylelint can provide no guarantee that core rules work with syntaxes other than the defaults listed for the `syntax` option above.
+Note that stylelint can provide no guarantee that core rules work with syntaxes.
 
 ## `disableDefaultIgnores`
 
