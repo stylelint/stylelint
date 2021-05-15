@@ -4,6 +4,7 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Removed: `syntax` option ([#5297](https://github.com/stylelint/stylelint/pull/5297)).
 - Removed: rules deprecated in 13.7.0 ([#5295](https://github.com/stylelint/stylelint/pull/5295)).
 - Removed: `function-calc-no-invalid` ([#5296](https://github.com/stylelint/stylelint/pull/5296)).
 - Removed: Drop Node 10 support ([#5303](https://github.com/stylelint/stylelint/pull/5303)).
