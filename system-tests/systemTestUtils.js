@@ -3,7 +3,7 @@
 const _ = require('lodash');
 const os = require('os');
 const path = require('path');
-const { promises: fs } = require('fs'); // eslint-disable-line node/no-unsupported-features/node-builtins
+const { promises: fs } = require('fs');
 
 const replaceBackslashes = require('../lib/testUtils/replaceBackslashes');
 
