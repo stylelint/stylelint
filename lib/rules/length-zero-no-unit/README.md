@@ -11,7 +11,7 @@ a { top: 0px; }
 
 _Lengths_ refer to distance measurements. A length is a _dimension_, which is a _number_ immediately followed by a _unit identifier_. However, for zero lengths the unit identifier is optional. The length units are: `em`, `ex`, `ch`, `vw`, `vh`, `cm`, `mm`, `in`, `pt`, `pc`, `px`, `rem`, `vmin`, and `vmax`.
 
-This rule ignores lengths within math functions (e.g. `calc`) in favor of the [`function-calc-no-invalid`](../function-calc-no-invalid/README.md) rule.
+This rule ignores lengths within math functions (e.g. `calc`).
 
 The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 

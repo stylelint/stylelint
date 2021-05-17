@@ -19,7 +19,7 @@ If a string is surrounded with `"/"` (e.g. `"/^TODO:/"`), it is interpreted as a
 
 Given:
 
-```
+```json
 ["/^TODO:/", "badword"]
 ```
 

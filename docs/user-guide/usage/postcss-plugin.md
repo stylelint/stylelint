@@ -6,7 +6,7 @@ _However, if a dedicated stylelint task runner plugin [is available](../integrat
 
 ## Options
 
-The PostCSS plugin uses the [standard options](options.md), _except the `syntax` and `customSyntax` options_. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.
+The PostCSS plugin uses the [standard options](options.md), _except the `customSyntax` option_. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.
 
 ## Usage examples
 

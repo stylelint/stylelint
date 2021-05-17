@@ -3,7 +3,7 @@
 Editor integrations built and maintained by the community.
 
 - [Ale](https://github.com/dense-analysis/ale) - Vim plugin that supports stylelint.
-- [Flycheck](https://github.com/flycheck/flycheck) - Emacs extension that supports stylelint.
+- [Flycheck](https://github.com/flycheck/flycheck) - Emacs extension that supports stylelint. Alternatively, if you use CLI option `--formatter=unix`, Emacs' _Compilation mode_ will automatically hyperlink the lint messages.
 - [linter-stylelint](https://github.com/AtomLinter/linter-stylelint) - Atom plugin for stylelint.
 - [SublimeLinter-stylelint](https://github.com/SublimeLinter/SublimeLinter-stylelint) - Sublime Text plugin for stylelint.
 - [SublimeLinter-contrib-stylelint_d](https://github.com/jo-sm/SublimeLinter-contrib-stylelint_d) - Sublime Text plugin for stylelint that run's on daemon.

@@ -100,10 +100,6 @@ A filename to assign the input. More info about this option in [standard options
 
 Accept stdin input even if it is empty.
 
-### `--syntax, -s`
-
-Specify a syntax. More info about this option in [standard options](options.md#syntax).
-
 ### `--version, -v`
 
 Show the currently installed version of stylelint.

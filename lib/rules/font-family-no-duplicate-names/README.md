@@ -59,7 +59,7 @@ a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif; }
 
 Given:
 
-```
+```json
 ["/^My Font /", "monospace"]
 ```
 

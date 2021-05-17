@@ -19,7 +19,7 @@ The selector value _after `#`_ will be checked. No need to include `#` in your p
 
 Given the string:
 
-```
+```json
 "foo-[a-z]+"
 ```
 
