@@ -107,7 +107,6 @@
     ]
   },
   "dependencies": {
-    "autoprefixer": "^9.8.6",
     "balanced-match": "^2.0.0",
     "chalk": "^4.1.1",
     "cosmiconfig": "^7.0.0",
