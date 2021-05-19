@@ -67,3 +67,23 @@ The following pattern is _not_ considered a violation:
 ```css
 a { --x: 0px; }
 ```
+
+### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+
+Given:
+
+```json
+["var", "/^--/"]
+```
+
+The following patterns are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+a { top: var(--foo, 0px); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { top: --bar(0px); }
+```
