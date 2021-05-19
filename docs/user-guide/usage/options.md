@@ -45,14 +45,12 @@ Specify the formatter to format your results.
 
 Options are:
 
-- `compact`
-- `json` (default for Node API)
-- `string` (default for CLI)
-- `tap`
-- `unix`
-- `verbose`
-
-The `string` formatter generates human-readable strings. The `verbose` formatter builds on the `string` one to include a list of checked files and a tally for each rule. The `tap` formatter generates [Test Anything Protocol](http://testanything.org/) output. The `json` formatter outputs [JSON](https://www.json.org) to be consumed by another tool. The `unix` formatter generates messages like a C compiler, so that tools like Emacs' _Compilation mode_ can automatically recognise and hyperlink them.
+- `compact` - generates output similar to ESLint's compact formatter
+- `json` (default for Node API) - generates [JSON](https://www.json.org) that can be consumed by another tool
+- `string` (default for CLI) - generates human-readable strings
+- `tap` - generates [Test Anything Protocol](http://testanything.org/) output
+- `unix` - generates messages like a C compiler, so that tools like Emacs' _Compilation mode_ can hyperlink them
+- `verbose` - extends `string` to include a list of checked files and a tally for each rule
 
 The `formatter` Node.js API option can also accept a function, whereas the `--custom-formatter` CLI flag accepts a path to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../../developer-guide/formatters.md).
 
