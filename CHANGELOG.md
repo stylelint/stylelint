@@ -9,6 +9,7 @@ All notable changes to this project are documented in this file.
 - Removed: `function-calc-no-invalid` ([#5296](https://github.com/stylelint/stylelint/pull/5296)).
 - Removed: Drop Node 10 support ([#5303](https://github.com/stylelint/stylelint/pull/5303)).
 - Added: `function-calc-no-unspaced-operator` autofix ([#5273](https://github.com/stylelint/stylelint/pull/5273)).
+- Fixed: `length-zero-no-unit` false positives for `flex` property ([#5315](https://github.com/stylelint/stylelint/pull/5315)).
 
 ## 13.13.1
 
