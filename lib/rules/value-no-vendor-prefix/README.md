@@ -9,7 +9,7 @@ a { display: -webkit-flex; }
  *  These prefixes */
 ```
 
-This rule will only complain for prefixed _standard_ values, and not for prefixed _proprietary_ or _unknown_ ones.
+This rule ignores non-standard vendor-prefixed values that aren't handled by [Autoprefixer](https://github.com/postcss/autoprefixer).
 
 The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
