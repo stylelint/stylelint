@@ -4,7 +4,7 @@ Require or disallow alpha channel for hex colors.
 
 <!-- prettier-ignore -->
 ```css
-a { color: #ffff }
+a { color: #fffa }
 /**            ↑
  * This alpha channel */
 ```
