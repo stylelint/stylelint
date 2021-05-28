@@ -1,5 +1,6 @@
 declare module 'stylelint' {
 	import { Comment, Result, ResultMessage, Root, Syntax, WarningOptions, Warning } from 'postcss';
+	import { GlobbyOptions } from 'globby';
 
 	export type Severity = 'warning' | 'error';
 
@@ -140,11 +141,13 @@ declare module 'stylelint' {
 
 	export type StylelintPluginContext = { fix?: boolean; newline?: string };
 
-	export type StylelintRule = (
+	export type StylelintRule = ((
 		primaryOption: any,
 		secondaryOptions: object,
 		context: StylelintPluginContext,
-	) => (root: Root, result: PostcssResult) => Promise<void> | void;
+	) => (root: Root, result: PostcssResult) => Promise<void> | void) & {
+		primaryOptionArray?: boolean;
+	};
 
 	export type GetPostcssOptions = {
 		code?: string;
@@ -183,7 +186,7 @@ declare module 'stylelint' {
 
 	export type StylelintStandaloneOptions = {
 		files?: string | Array<string>;
-		globbyOptions?: Object;
+		globbyOptions?: GlobbyOptions;
 		cache?: boolean;
 		cacheLocation?: string;
 		code?: string;
