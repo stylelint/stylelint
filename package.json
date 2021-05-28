@@ -169,7 +169,7 @@
     "got": "^11.8.2",
     "husky": "^6.0.0",
     "jest": "^27.0.1",
-    "jest-preset-stylelint": "github:stylelint/jest-preset-stylelint#jest-27",
+    "jest-preset-stylelint": "^4.1.1",
     "jest-watch-typeahead": "^0.6.4",
     "lint-staged": "^10.5.4",
     "np": "^7.5.0",
