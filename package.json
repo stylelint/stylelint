@@ -101,7 +101,6 @@
     ],
     "testEnvironment": "node",
     "testRegex": ".*\\.test\\.js$|rules/.*/__tests__/.*\\.js$",
-    "testRunner": "jest-circus/runner",
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
@@ -171,10 +170,9 @@
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.12.0",
     "got": "^11.8.2",
     "husky": "^6.0.0",
-    "jest": "^26.6.3",
-    "jest-circus": "^26.6.3",
-    "jest-preset-stylelint": "^4.1.0",
-    "jest-watch-typeahead": "^0.6.3",
+    "jest": "^27.0.1",
+    "jest-preset-stylelint": "^4.1.1",
+    "jest-watch-typeahead": "^0.6.4",
     "lint-staged": "^10.5.4",
     "np": "^7.5.0",
     "npm-run-all": "^4.1.5",
