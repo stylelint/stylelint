@@ -34,6 +34,10 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 - [`unit-no-unknown`](../../../lib/rules/unit-no-unknown/README.md): Disallow unknown units.
 
+### Custom property
+
+- [`custom-property-no-missing-var-function`](../../../lib/rules/custom-property-no-missing-var-function/README.md): Disallow missing `var` function for custom properties.
+
 ### Property
 
 - [`property-no-unknown`](../../../lib/rules/property-no-unknown/README.md): Disallow unknown properties.
