@@ -33,15 +33,19 @@ Without the contributions from [all these fantastic people](https://github.com/s
 
 ## Backers
 
-<a href="https://opencollective.com/stylelint#backers" target="_blank"><img src="https://opencollective.com/stylelint/backers.svg?width=890"></a>
+<a href="https://opencollective.com/stylelint#backers" target="_blank"><img src="https://opencollective.com/stylelint/backers.svg?width=890" /></a>
 
 Thank you to all our backers! [Become a backer](https://opencollective.com/stylelint#backer).
 
 ## Sponsors
 
-<a href="https://opencollective.com/stylelint/sponsor/0/website" target="_blank"><img src="https://opencollective.com/stylelint/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/stylelint/sponsor/0/website" target="_blank"><img src="https://opencollective.com/stylelint/sponsor/0/avatar.svg" /></a>
 
 Support this project to show your logo here with a link to your website. [Become a sponsor](https://opencollective.com/stylelint#sponsor).
+
+## Website hosting
+
+<a href="https://www.netlify.com"><img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" /></a>
 
 ## License
 
