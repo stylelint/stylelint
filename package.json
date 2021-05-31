@@ -28,6 +28,7 @@
   },
   "files": [
     "bin",
+    "CHANGELOG.md",
     "CONTRIBUTING.md",
     "SECURITY.md",
     "docs",
