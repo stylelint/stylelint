@@ -100,7 +100,7 @@ exports[`CLI --help 1`] = `
 
     --custom-formatter
 
-      Path to a JS file exporting a custom formatting function.
+      Path to a JS file or dependency exporting a custom formatting function.
 
     --quiet, -q
 
