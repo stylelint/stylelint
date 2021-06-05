@@ -129,7 +129,7 @@
     "meow": "^9.0.0",
     "micromatch": "^4.0.4",
     "normalize-selector": "^0.2.0",
-    "postcss": "^8.2.15",
+    "postcss": "^8.3.0",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^5.0.2",
