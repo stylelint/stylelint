@@ -34,6 +34,10 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 - [`unit-no-unknown`](../../../lib/rules/unit-no-unknown/README.md): Disallow unknown units.
 
+### Custom property
+
+- [`custom-property-no-missing-var-function`](../../../lib/rules/custom-property-no-missing-var-function/README.md): Disallow missing `var` function for custom properties.
+
 ### Property
 
 - [`property-no-unknown`](../../../lib/rules/property-no-unknown/README.md): Disallow unknown properties.
@@ -93,6 +97,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 ### Color
 
 - [`color-function-notation`](../../../lib/rules/color-function-notation/README.md): Specify modern or legacy notation for applicable color-functions (Autofixable).
+- [`color-hex-alpha`](../../../lib/rules/color-hex-alpha/README.md): Require or disallow alpha channel for hex colors.
 - [`color-named`](../../../lib/rules/color-named/README.md): Require (where possible) or disallow named colors.
 - [`color-no-hex`](../../../lib/rules/color-no-hex/README.md): Disallow hex colors.
 
