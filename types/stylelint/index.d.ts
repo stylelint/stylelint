@@ -302,4 +302,8 @@ declare module 'stylelint' {
 	};
 
 	export type StylelintDisableOptionsReport = Array<StylelintDisableReportEntry>;
+
+	export type PostcssPluginOptions =
+		| Omit<StylelintStandaloneOptions, 'syntax' | 'customSyntax'>
+		| StylelintConfig;
 }
