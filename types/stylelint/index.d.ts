@@ -256,11 +256,6 @@ declare module 'stylelint' {
 		rule: string;
 		start: number;
 		end?: number;
-
-		// This is for backwards-compatibility with formatters that were written
-		// when this name was used instead of `rule`. It should be avoided for new
-		// formatters.
-		unusedRule: string;
 	};
 
 	export type RangeType = DisabledRange & { used?: boolean };

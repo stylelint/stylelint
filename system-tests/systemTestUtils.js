@@ -1,11 +1,11 @@
 'use strict';
 
-const _ = require('lodash');
 const os = require('os');
 const path = require('path');
 const { promises: fs } = require('fs');
 
 const replaceBackslashes = require('../lib/testUtils/replaceBackslashes');
+const uniqueId = require('../lib/testUtils/uniqueId');
 
 function caseFilePath(caseNumber, fileName = 'stylesheet') {
 	return replaceBackslashes(path.join(__dirname, caseNumber, fileName));
@@ -28,7 +28,7 @@ async function caseCode(caseNumber, ext = 'css') {
 }
 
 async function caseFilesForFix(caseNumber, ext = 'css') {
-	const tempPath = replaceBackslashes(path.join(os.tmpdir(), `stylesheet-${_.uniqueId()}.${ext}`));
+	const tempPath = replaceBackslashes(path.join(os.tmpdir(), `stylesheet-${uniqueId()}.${ext}`));
 
 	await fs.copyFile(path.join(__dirname, caseNumber, `stylesheet.${ext}`), tempPath);
 

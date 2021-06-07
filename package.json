@@ -123,6 +123,7 @@
     "ignore": "^5.1.8",
     "import-lazy": "^4.0.0",
     "imurmurhash": "^0.1.4",
+    "is-plain-object": "^5.0.0",
     "known-css-properties": "^0.21.0",
     "lodash": "^4.17.21",
     "log-symbols": "^4.1.0",
