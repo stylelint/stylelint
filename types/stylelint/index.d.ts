@@ -1,5 +1,5 @@
 declare module 'stylelint' {
-	import { Comment, Result, ResultMessage, Root, Syntax, WarningOptions, Warning } from 'postcss';
+	import { Comment, Result, Message, Root, Syntax, WarningOptions, Warning } from 'postcss';
 	import { GlobbyOptions } from 'globby';
 
 	export type Severity = 'warning' | 'error';
@@ -93,7 +93,7 @@ declare module 'stylelint' {
 				};
 			};
 		};
-		messages: ResultMessage[];
+		messages: Message[];
 		opts: undefined;
 	};
 
@@ -297,4 +297,8 @@ declare module 'stylelint' {
 	};
 
 	export type StylelintDisableOptionsReport = Array<StylelintDisableReportEntry>;
+
+	export type PostcssPluginOptions =
+		| Omit<StylelintStandaloneOptions, 'syntax' | 'customSyntax'>
+		| StylelintConfig;
 }
