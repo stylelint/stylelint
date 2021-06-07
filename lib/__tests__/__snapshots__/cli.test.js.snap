@@ -72,7 +72,7 @@ exports[`CLI --help 1`] = `
 
     --ignore-disables, --id
 
-      Ignore styleline-disable comments.
+      Ignore stylelint-disable comments.
 
     --disable-default-ignores, --di
 

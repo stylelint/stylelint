@@ -134,7 +134,7 @@ A path to a file containing patterns describing files to ignore. The path can be
 
 CLI flags: `--ignore-disables, --id`
 
-Ignore `styleline-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
+Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
 
 You can use this option to see what your linting results would be like without those exceptions.
 

@@ -54,7 +54,7 @@ Specify the formatter to format your results. More info about this option in [st
 
 ### `--ignore-disables, --id`
 
-Ignore `styleline-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments. More info about this option in [standard options](options.md#ignoreDisables).
+Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments. More info about this option in [standard options](options.md#ignoreDisables).
 
 ### `--ignore-path, -i`
 
