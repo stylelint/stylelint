@@ -23,14 +23,14 @@ describe('no-fs - errored state for reportNeedlessDisables', () => {
 			await stylelint.lint({
 				code,
 				config,
-				fix: true,
+				reportNeedlessDisables: true,
 			}),
 		);
 		coreResult = prepForSnapshot(
 			await core.lint({
 				code,
 				config,
-				fix: true,
+				reportNeedlessDisables: true,
 			}),
 		);
 	});
