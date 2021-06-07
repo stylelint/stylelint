@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`no-fs - invalid twbs buttons and their config 1`] = `
+exports[`no-fs - invalid twbs buttons and their config standalone 1`] = `
 Object {
   "errored": true,
   "output": Array [

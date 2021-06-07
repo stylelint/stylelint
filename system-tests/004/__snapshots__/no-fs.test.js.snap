@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`no-fs - errored state for reportNeedlessDisables 1`] = `
+exports[`no-fs - errored state for reportNeedlessDisables standalone 1`] = `
 Object {
   "errored": true,
   "output": Array [
@@ -42,7 +42,7 @@ Object {
 }
 `;
 
-exports[`no-fs - no errored state 1`] = `
+exports[`no-fs - no errored state standalone 1`] = `
 Object {
   "errored": false,
   "output": Array [
