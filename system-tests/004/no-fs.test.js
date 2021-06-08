@@ -6,68 +6,63 @@ const { caseConfig, caseCode, prepForSnapshot } = require('../systemTestUtils');
 
 const CASE_NUMBER = '004';
 
-let code;
-let config;
-
-beforeAll(async () => {
-	code = await caseCode(CASE_NUMBER);
-	config = await caseConfig(CASE_NUMBER);
-});
-
-describe('no-fs - errored state for reportNeedlessDisables', () => {
-	let coreResult;
-	let stylelintResult;
-
-	beforeAll(async () => {
-		stylelintResult = prepForSnapshot(
+it('no-fs - errored state for reportNeedlessDisables', async () => {
+	expect(
+		prepForSnapshot(
 			await stylelint.lint({
-				code,
-				config,
+				code: await caseCode(CASE_NUMBER),
+				config: await caseConfig(CASE_NUMBER),
 				reportNeedlessDisables: true,
 			}),
-		);
-		coreResult = prepForSnapshot(
-			await core.lint({
-				code,
-				config,
+		),
+	).toMatchSnapshot();
+}, 10000);
+
+it('no-fs - errored state standalone and core return equal results', async () => {
+	expect(
+		prepForSnapshot(
+			await stylelint.lint({
+				code: await caseCode(CASE_NUMBER),
+				config: await caseConfig(CASE_NUMBER),
 				reportNeedlessDisables: true,
 			}),
-		);
-	});
-
-	it('standalone', () => {
-		expect(stylelintResult).toMatchSnapshot();
-	});
-
-	it('standalone and core return equal results', () => {
-		expect(coreResult).toStrictEqual(stylelintResult);
-	});
+		),
+	).toStrictEqual(
+		prepForSnapshot(
+			await core.lint({
+				code: await caseCode(CASE_NUMBER),
+				// manually merge options into the config for core
+				config: { ...(await caseConfig(CASE_NUMBER)), reportNeedlessDisables: true },
+			}),
+		),
+	);
 });
 
-describe('no-fs - no errored state', () => {
-	let coreResult;
-	let stylelintResult;
-
-	beforeAll(async () => {
-		stylelintResult = prepForSnapshot(
+it('no-fs - no errored state', async () => {
+	expect(
+		prepForSnapshot(
 			await stylelint.lint({
-				code,
-				config,
+				code: await caseCode(CASE_NUMBER),
+				config: await caseConfig(CASE_NUMBER),
 			}),
-		);
-		coreResult = prepForSnapshot(
+		),
+	).toMatchSnapshot();
+}, 10000);
+
+it('no-fs - no errored state standalone and core return equal results', async () => {
+	expect(
+		prepForSnapshot(
+			await stylelint.lint({
+				code: await caseCode(CASE_NUMBER),
+				config: await caseConfig(CASE_NUMBER),
+			}),
+		),
+	).toStrictEqual(
+		prepForSnapshot(
 			await core.lint({
-				code,
-				config,
+				code: await caseCode(CASE_NUMBER),
+				config: await caseConfig(CASE_NUMBER),
 			}),
-		);
-	});
-
-	it('standalone', () => {
-		expect(stylelintResult).toMatchSnapshot();
-	});
-
-	it('standalone and core return equal results', () => {
-		expect(coreResult).toStrictEqual(stylelintResult);
-	});
+		),
+	);
 });
