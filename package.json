@@ -111,6 +111,7 @@
     "chalk": "^4.1.1",
     "cosmiconfig": "^7.0.0",
     "debug": "^4.3.1",
+    "deepmerge": "^4.2.2",
     "execall": "^2.0.0",
     "fast-glob": "^3.2.5",
     "fastest-levenshtein": "^1.0.12",
