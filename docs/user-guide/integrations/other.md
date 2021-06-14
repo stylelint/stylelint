@@ -11,7 +11,13 @@ Other integrations built and maintained by the community.
 
 ## Version Control
 
-- [Pre-commit](https://github.com/awebdeveloper/pre-commit-stylelint) - Git pre-commit hook for stylelint
+- [pre-commit](https://pre-commit.com/) - by adding this to `.pre-commit-config.yaml`:
+```yaml
+-   repo: https://github.com/stylelint/stylelint
+    rev: ''  # Use the sha / tag you want to point at
+    hooks:
+    -   id: stylelint
+```
 
 ## Command Line Tools
 
