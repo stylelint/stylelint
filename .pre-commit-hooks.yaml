@@ -1,0 +1,6 @@
+- id: stylelint
+  name: stylelint
+  entry: stylelint
+  language: node
+  types: [css]
+  require_serial: false
