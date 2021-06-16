@@ -135,7 +135,7 @@
     "meow": "^9.0.0",
     "micromatch": "^4.0.4",
     "normalize-selector": "^0.2.0",
-    "postcss": "^7.0.35",
+    "postcss": "^7.0.36",
     "postcss-html": "^0.36.0",
     "postcss-less": "^3.1.4",
     "postcss-media-query-parser": "^0.2.3",
