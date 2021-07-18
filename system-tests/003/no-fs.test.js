@@ -1,18 +1,40 @@
 'use strict';
 
+const core = require('../../lib/coreEntrypoint');
 const stylelint = require('../../lib');
 const { caseConfig, caseCode, prepForSnapshot } = require('../systemTestUtils');
 
 const CASE_NUMBER = '003';
 
-it('no-fs - zen garden CSS with standard config', async () => {
-	expect(
-		prepForSnapshot(
+describe('no-fs - zen garden CSS with standard config', () => {
+	let coreResult;
+	let stylelintResult;
+
+	beforeAll(async () => {
+		const code = await caseCode(CASE_NUMBER);
+		const config = await caseConfig(CASE_NUMBER);
+
+		stylelintResult = prepForSnapshot(
 			await stylelint.lint({
-				code: await caseCode(CASE_NUMBER),
-				config: await caseConfig(CASE_NUMBER),
+				code,
+				config,
 				fix: true,
 			}),
-		),
-	).toMatchSnapshot();
-}, 10000);
+		);
+		coreResult = prepForSnapshot(
+			await core.lint({
+				code,
+				config,
+				fix: true,
+			}),
+		);
+	});
+
+	it('standalone', () => {
+		expect(stylelintResult).toMatchSnapshot();
+	});
+
+	it('standalone and core return equal results', () => {
+		expect(coreResult).toStrictEqual(stylelintResult);
+	});
+});
