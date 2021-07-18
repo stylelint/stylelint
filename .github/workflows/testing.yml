@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - 'dependabot/**'
+      - v14 # TODO: Remove when releasing v14.
   pull_request:
     branches:
       - '**'
