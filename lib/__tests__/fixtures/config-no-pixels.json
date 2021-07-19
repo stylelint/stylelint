@@ -1,5 +1,0 @@
-{
-	"rules": {
-		"unit-disallowed-list": ["px"]
-	}
-}

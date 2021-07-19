@@ -1,3 +1,0 @@
-# Ignore file patterns are always relative to process.cwd()
-
-**/ignored-file.css

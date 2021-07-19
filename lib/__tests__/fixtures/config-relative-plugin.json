@@ -1,6 +1,0 @@
-{
-	"plugins": ["./plugin-warn-about-foo"],
-	"rules": {
-		"plugin/warn-about-foo": "always"
-	}
-}

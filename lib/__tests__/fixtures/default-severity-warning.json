@@ -1,6 +1,0 @@
-{
-	"defaultSeverity": "warning",
-	"rules": {
-		"block-no-empty": true
-	}
-}

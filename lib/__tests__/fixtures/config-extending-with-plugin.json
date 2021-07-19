@@ -1,3 +1,0 @@
-{
-	"extends": ["./config-extending-two", "./config-relative-plugin"]
-}

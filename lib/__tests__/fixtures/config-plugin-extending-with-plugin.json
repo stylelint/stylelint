@@ -1,7 +1,0 @@
-{
-	"extends": ["./config-relative-plugin"],
-	"plugins": ["./plugin-warn-about-bar"],
-	"rules": {
-		"plugin/warn-about-bar": "always"
-	}
-}
