@@ -1,8 +1,0 @@
-{
-	"rules": {
-		"color-no-invalid-hex": true,
-		"unit-disallowed-list": ["px"],
-		"function-comma-space-after": ["always-single-line"],
-		"selector-max-specificity": ["0,1,0", { "severity": "warning" }]
-	}
-}

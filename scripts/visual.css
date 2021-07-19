@@ -1,9 +1,0 @@
-/* stylelint-disable foo */
-.baz {
-    color: #4f;
-}
-.foo.bar {}
-.foo {
-    margin: 0px;
-    color: rgb(0,0, 0);
-}
