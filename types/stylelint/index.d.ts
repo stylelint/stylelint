@@ -139,13 +139,20 @@ declare module 'stylelint' {
 		fix?: boolean;
 	};
 
-	export type StylelintPluginContext = { fix?: boolean; newline?: string };
+	export type StylelintPluginContext = {
+		fix?: boolean | undefined;
+		newline?: string | undefined;
+	};
+
+	export type StylelintRuleMessages = Record<string, string | ((...args: any[]) => string)>;
 
 	export type StylelintRule = ((
 		primaryOption: any,
-		secondaryOptions: object,
+		secondaryOptions: Record<string, any>,
 		context: StylelintPluginContext,
 	) => (root: Root, result: PostcssResult) => Promise<void> | void) & {
+		ruleName: string;
+		messages: StylelintRuleMessages;
 		primaryOptionArray?: boolean;
 	};
 
