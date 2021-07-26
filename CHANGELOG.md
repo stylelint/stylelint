@@ -15,6 +15,7 @@ All notable changes to this project are documented in this file.
 - Fixed: "No files matching the pattern" when using backslash paths on Windows ([#5386](https://github.com/stylelint/stylelint/pull/5386)).
 - Fixed: `length-zero-no-unit` false positives for `flex` property ([#5315](https://github.com/stylelint/stylelint/pull/5315)).
 - Fixed: `property-no-unknown` false positives for Less maps ([#5381](https://github.com/stylelint/stylelint/pull/5381)).
+- Fixed: `selector-class-pattern` false positives for Less parametric mixins ([#5378](https://github.com/stylelint/stylelint/pull/5378)).
 
 ## 13.13.1
 
