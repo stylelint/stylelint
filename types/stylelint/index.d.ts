@@ -1,5 +1,6 @@
 declare module 'stylelint' {
-	import { Comment, Result, ResultMessage, Root, Syntax, WarningOptions, Warning } from 'postcss';
+	import { Comment, Result, Message, Root, Syntax, WarningOptions, Warning } from 'postcss';
+	import { GlobbyOptions } from 'globby';
 
 	export type Severity = 'warning' | 'error';
 
@@ -92,7 +93,7 @@ declare module 'stylelint' {
 				};
 			};
 		};
-		messages: ResultMessage[];
+		messages: Message[];
 		opts: undefined;
 	};
 
@@ -138,13 +139,22 @@ declare module 'stylelint' {
 		fix?: boolean;
 	};
 
-	export type StylelintPluginContext = { fix?: boolean; newline?: string };
+	export type StylelintPluginContext = {
+		fix?: boolean | undefined;
+		newline?: string | undefined;
+	};
 
-	export type StylelintRule = (
+	export type StylelintRuleMessages = Record<string, string | ((...args: any[]) => string)>;
+
+	export type StylelintRule = ((
 		primaryOption: any,
-		secondaryOptions: object,
+		secondaryOptions: Record<string, any>,
 		context: StylelintPluginContext,
-	) => (root: Root, result: PostcssResult) => Promise<void> | void;
+	) => (root: Root, result: PostcssResult) => Promise<void> | void) & {
+		ruleName: string;
+		messages: StylelintRuleMessages;
+		primaryOptionArray?: boolean;
+	};
 
 	export type GetPostcssOptions = {
 		code?: string;
@@ -183,7 +193,7 @@ declare module 'stylelint' {
 
 	export type StylelintStandaloneOptions = {
 		files?: string | Array<string>;
-		globbyOptions?: Object;
+		globbyOptions?: GlobbyOptions;
 		cache?: boolean;
 		cacheLocation?: string;
 		code?: string;
@@ -253,11 +263,6 @@ declare module 'stylelint' {
 		rule: string;
 		start: number;
 		end?: number;
-
-		// This is for backwards-compatibility with formatters that were written
-		// when this name was used instead of `rule`. It should be avoided for new
-		// formatters.
-		unusedRule: string;
 	};
 
 	export type RangeType = DisabledRange & { used?: boolean };
@@ -299,4 +304,8 @@ declare module 'stylelint' {
 	};
 
 	export type StylelintDisableOptionsReport = Array<StylelintDisableReportEntry>;
+
+	export type PostcssPluginOptions =
+		| Omit<StylelintStandaloneOptions, 'syntax' | 'customSyntax'>
+		| StylelintConfig;
 }

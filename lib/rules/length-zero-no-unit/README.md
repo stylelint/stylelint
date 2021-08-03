@@ -11,7 +11,7 @@ a { top: 0px; }
 
 _Lengths_ refer to distance measurements. A length is a _dimension_, which is a _number_ immediately followed by a _unit identifier_. However, for zero lengths the unit identifier is optional. The length units are: `em`, `ex`, `ch`, `vw`, `vh`, `cm`, `mm`, `in`, `pt`, `pc`, `px`, `rem`, `vmin`, and `vmax`.
 
-This rule ignores lengths within math functions (e.g. `calc`) in favor of the [`function-calc-no-invalid`](../function-calc-no-invalid/README.md) rule.
+This rule ignores lengths within math functions (e.g. `calc`).
 
 The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
@@ -66,4 +66,24 @@ The following pattern is _not_ considered a violation:
 <!-- prettier-ignore -->
 ```css
 a { --x: 0px; }
+```
+
+### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+
+Given:
+
+```json
+["var", "/^--/"]
+```
+
+The following patterns are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+a { top: var(--foo, 0px); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { top: --bar(0px); }
 ```

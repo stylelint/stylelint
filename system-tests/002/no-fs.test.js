@@ -1,5 +1,7 @@
 'use strict';
 
+const postcssScss = require('postcss-scss');
+
 const stylelint = require('../../lib');
 const { caseConfig, caseCode, prepForSnapshot } = require('../systemTestUtils');
 
@@ -11,7 +13,7 @@ it('no-fs - invalid twbs buttons and their config', async () => {
 			await stylelint.lint({
 				code: await caseCode(CASE_NUMBER, 'scss'),
 				config: await caseConfig(CASE_NUMBER),
-				syntax: 'scss',
+				customSyntax: postcssScss,
 			}),
 		),
 	).toMatchSnapshot();

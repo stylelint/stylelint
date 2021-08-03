@@ -5,12 +5,10 @@ on:
     branches:
       - master
       - 'dependabot/**'
+      - v14 # TODO: Remove when releasing v14.
   pull_request:
     branches:
       - '**'
-
-env:
-  CI: true
 
 jobs:
   test:
@@ -21,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [10, 12, 14, 16]
+        node: [12, 14, 16]
         os: [ubuntu-latest, windows-latest, macos-latest]
         exclude:
           - os: ubuntu-latest

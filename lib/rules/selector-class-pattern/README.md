@@ -77,7 +77,7 @@ For example, with `true`.
 
 Given the string:
 
-```
+```json
 "^[A-Z]+$"
 ```
 

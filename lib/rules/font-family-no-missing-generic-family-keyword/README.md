@@ -70,7 +70,7 @@ a { font-family: Helvetica, var(--font-family-common); }
 
 Given:
 
-```
+```json
 ["custom-font"]
 ```
 

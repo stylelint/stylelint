@@ -78,7 +78,7 @@ For example, with `2`.
 
 Given:
 
-```
+```json
 ["/^my-/", "%"]
 ```
 

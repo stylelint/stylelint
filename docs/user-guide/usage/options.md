@@ -45,12 +45,12 @@ Specify the formatter to format your results.
 
 Options are:
 
-- `compact`
-- `json` (default for Node API)
-- `string` (default for CLI)
-- `tap`
-- `unix`
-- `verbose`
+- `compact` - generates output similar to ESLint's compact formatter
+- `json` (default for Node API) - generates [JSON](https://www.json.org) that can be consumed by another tool
+- `string` (default for CLI) - generates human-readable strings
+- `tap` - generates [Test Anything Protocol](http://testanything.org/) output
+- `unix` - generates messages like a C compiler, so that tools like Emacs' _Compilation mode_ can hyperlink them
+- `verbose` - extends `string` to include a list of checked files and a tally for each rule
 
 The `formatter` Node.js API option can also accept a function, whereas the `--custom-formatter` CLI flag accepts a path to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../../developer-guide/formatters.md).
 
@@ -87,36 +87,17 @@ If the number of warnings exceeds this value, the:
 - CLI process exits with code `2`
 - Node.js API adds a [`maxWarningsExceeded`](node-api.md#maxwarningsexceeded) property to the returned data
 
-## `syntax`
-
-CLI flags: `--syntax, -s`
-
-Specify a syntax. Options:
-
-- `css`
-- `css-in-js`
-- `html`
-- `less`
-- `markdown`
-- `sass`
-- `scss`
-- `sugarss`
-
-If you do not specify a syntax, stylelint will automatically infer the syntaxes.
-
-Only use this option if you want to force a specific syntax.
-
 ## `customSyntax`
 
 CLI flag: `--custom-syntax`
 
-Specify a custom syntax to use on your code. Use this option if you want to force a specific syntax that's not already built into stylelint.
+Specify a custom syntax to use on your code.
 
 This option should be a string that resolves to a JS module that exports a [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). The string can be a module name (like `my-module`) or a path to a JS file (like `path/to/my-module.js`).
 
 Using the Node.js API, the `customSyntax` option can also accept a [Syntax object](https://github.com/postcss/postcss/blob/abfaa7122a0f480bc5be0905df3c24a6a51a82d9/lib/postcss.d.ts#L223-L232). Stylelint treats the `parse` property as a required value.
 
-Note that stylelint can provide no guarantee that core rules work with syntaxes other than the defaults listed for the `syntax` option above.
+Note that stylelint can provide no guarantee that core rules work with syntaxes.
 
 ## `disableDefaultIgnores`
 
@@ -134,7 +115,7 @@ A path to a file containing patterns describing files to ignore. The path can be
 
 CLI flags: `--ignore-disables, --id`
 
-Ignore `styleline-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
+Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
 
 You can use this option to see what your linting results would be like without those exceptions.
 

@@ -17,7 +17,7 @@ A string will be translated into a RegExp like so `new RegExp(yourString)` — 
 
 Given the string:
 
-```
+```json
 "foo .+"
 ```
 
