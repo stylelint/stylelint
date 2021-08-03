@@ -46,6 +46,30 @@ a { top: 3.24px; }
 
 ## Optional secondary options
 
+### `ignoreProperties: ["/regex/", /regex/, "string"]`
+
+Ignore the precision of numbers for the specified properties.
+
+Given:
+
+```
+["transition"]
+```
+
+The following patterns are considered violations:
+
+<!-- prettier-ignore -->
+```css
+a { -o-transition: all 4.5s ease; }
+```
+
+The following patterns are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+a { transition: all 4.5s ease; }
+```
+
 ### `ignoreUnits: ["/regex/", /regex/, "string"]`
 
 Ignore the precision of numbers for values with the specified units.
