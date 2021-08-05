@@ -50,6 +50,8 @@ a { top: 3.24px; }
 
 Ignore the precision of numbers for the specified properties.
 
+For example, with `0`.
+
 Given:
 
 ```
@@ -60,7 +62,7 @@ The following patterns are considered violations:
 
 <!-- prettier-ignore -->
 ```css
-a { -o-transition: all 4.5s ease; }
+a { top: 10.5px; }
 ```
 
 The following patterns are _not_ considered violations:
