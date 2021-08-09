@@ -54,7 +54,7 @@ For example, with `0`.
 
 Given:
 
-```
+```json
 ["transition"]
 ```
 
