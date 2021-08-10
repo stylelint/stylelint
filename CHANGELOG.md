@@ -12,6 +12,7 @@ All notable changes to this project are documented in this file.
 - Added: `custom-property-no-missing-var-function` rule ([#5317](https://github.com/stylelint/stylelint/pull/5317)).
 - Added: `function-calc-no-unspaced-operator` autofix ([#5273](https://github.com/stylelint/stylelint/pull/5273)).
 - Added: `ignoreFunctions: []` to `length-zero-no-unit` ([#5314](https://github.com/stylelint/stylelint/pull/5314)).
+- Added: `ignoreProperties: []` to `number-max-precision` ([#5421](https://github.com/stylelint/stylelint/pull/5421)).
 - Fixed: "No files matching the pattern" when using backslash paths on Windows ([#5386](https://github.com/stylelint/stylelint/pull/5386)).
 - Fixed: `length-zero-no-unit` false positives for `flex` property ([#5315](https://github.com/stylelint/stylelint/pull/5315)).
 - Fixed: `media-feature-name-no-unknown` false positives for `prefers-contrast` ([#5428](https://github.com/stylelint/stylelint/pull/5428)).
