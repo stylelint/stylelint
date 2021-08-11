@@ -113,7 +113,7 @@
     "@stylelint/postcss-markdown": "^0.36.2",
     "autoprefixer": "^9.8.6",
     "balanced-match": "^2.0.0",
-    "chalk": "^4.1.1",
+    "chalk": "^4.1.2",
     "cosmiconfig": "^7.0.0",
     "debug": "^4.3.1",
     "execall": "^2.0.0",
