@@ -8,3 +8,4 @@ updates:
     labels:
       - 'pr: dependencies'
     versioning-strategy: increase
+    target-branch: 'v14' # TODO: Remove when releasing v14.
