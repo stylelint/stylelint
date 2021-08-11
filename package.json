@@ -170,7 +170,7 @@
     "@types/lodash": "^4.14.168",
     "@types/micromatch": "^4.0.1",
     "@types/postcss-less": "^3.1.1",
-    "@types/postcss-safe-parser": "^4.0.0",
+    "@types/postcss-safe-parser": "^5.0.0",
     "@types/style-search": "^0.1.1",
     "@types/svg-tags": "^1.0.0",
     "@types/write-file-atomic": "^3.0.1",
