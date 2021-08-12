@@ -25,7 +25,6 @@ Given the string:
 
 ```js
 "foo-[a-z]+";
-
 ```
 
 The following patterns are considered violations:
