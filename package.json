@@ -170,7 +170,7 @@
     "eslint": "^7.32.0",
     "eslint-config-stylelint": "^13.1.1",
     "got": "^11.8.2",
-    "husky": "^6.0.0",
+    "husky": "^7.0.1",
     "jest": "^27.0.1",
     "jest-preset-stylelint": "^4.1.1",
     "jest-watch-typeahead": "^0.6.4",
