@@ -4,7 +4,8 @@ updates:
     directory: '/'
     schedule:
       interval: weekly
-    open-pull-requests-limit: 0 # TODO: Disable on the default branch during `v14` in progress.
+    open-pull-requests-limit: 5
     labels:
       - 'pr: dependencies'
     versioning-strategy: increase
+    target-branch: 'v14' # TODO: Remove when releasing v14.
