@@ -158,7 +158,7 @@
     "@types/global-modules": "^2.0.0",
     "@types/globjoin": "^0.1.0",
     "@types/imurmurhash": "^0.1.1",
-    "@types/micromatch": "^4.0.1",
+    "@types/micromatch": "^4.0.2",
     "@types/normalize-path": "^3.0.0",
     "@types/postcss-less": "^4.0.1",
     "@types/postcss-safe-parser": "^5.0.0",
