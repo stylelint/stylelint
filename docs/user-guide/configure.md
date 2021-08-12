@@ -158,6 +158,28 @@ For example:
 
 The report is considered to be a lint error.
 
+### `disableFix`
+
+You can set the `disableFix` secondary option to disable autofix _on a per rule basis_.
+
+For example:
+
+```json
+{
+  "rules": {
+    "indentation": [
+      2,
+      {
+        "except": ["value"],
+        "disableFix": true
+      }
+    ]
+  }
+}
+```
+
+The error in the report will not be automatically fixed, we can decide whether to fix it manually.
+
 ## Disable Errors
 
 These configurations provide extra validation for `stylelint-disable` comments. This can be helpful for enforcing useful and well-documented disables.
