@@ -125,7 +125,7 @@
     "import-lazy": "^4.0.0",
     "imurmurhash": "^0.1.4",
     "is-plain-object": "^5.0.0",
-    "known-css-properties": "^0.21.0",
+    "known-css-properties": "^0.23.0",
     "log-symbols": "^4.1.0",
     "mathml-tag-names": "^2.1.3",
     "meow": "^9.0.0",
