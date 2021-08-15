@@ -151,7 +151,7 @@
   },
   "devDependencies": {
     "@stylelint/prettier-config": "^2.0.0",
-    "@stylelint/remark-preset": "^2.0.0",
+    "@stylelint/remark-preset": "^3.0.0",
     "@types/balanced-match": "^1.0.1",
     "@types/debug": "^4.1.7",
     "@types/file-entry-cache": "^5.0.2",
