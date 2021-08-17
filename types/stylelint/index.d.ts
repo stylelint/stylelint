@@ -81,6 +81,7 @@ declare module 'stylelint' {
 		stylelintError?: boolean;
 		disableWritingFix?: boolean;
 		config?: StylelintConfig;
+		ruleDisableFix?: boolean;
 	};
 
 	type EmptyResult = {
