@@ -146,9 +146,9 @@ declare module 'stylelint' {
 
 	export type StylelintRuleMessages = Record<string, string | ((...args: any[]) => string)>;
 
-	export type StylelintRule = ((
-		primaryOption: any,
-		secondaryOptions: Record<string, any>,
+	export type StylelintRule<P = any, S = any> = ((
+		primaryOption: P,
+		secondaryOptions: Record<string, S>,
 		context: StylelintPluginContext,
 	) => (root: Root, result: PostcssResult) => Promise<void> | void) & {
 		ruleName: string;
