@@ -194,6 +194,10 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 - [`selector-pseudo-element-colon-notation`](../../../lib/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-elements (Autofixable).
 - [`selector-pseudo-element-disallowed-list`](../../../lib/rules/selector-pseudo-element-disallowed-list/README.md): Specify a list of disallowed pseudo-element selectors.
 
+### Rules
+
+- [`rule-selector-property-disallowed-list`](../../../lib/rules/rule-selector-property-disallowed-list/README.md): Specify a list of disallowed properties for selectors within rules.
+
 ### Media feature
 
 - [`media-feature-name-allowed-list`](../../../lib/rules/media-feature-name-allowed-list/README.md): Specify a list of allowed media feature names.
