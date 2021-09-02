@@ -15,7 +15,6 @@ Object {
 
 /* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
 
-
 /* basic elements */
 html {
   margin: 0;
@@ -65,7 +64,6 @@ a:active {
 abbr {
   border-bottom: none;
 }
-
 
 /* specific divs */
 .page-wrapper {
