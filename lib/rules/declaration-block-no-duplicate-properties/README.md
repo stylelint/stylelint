@@ -114,7 +114,7 @@ Ignore duplicates of specific properties.
 
 Given:
 
-```
+```json
 ["color", "/background-/"]
 ```
 

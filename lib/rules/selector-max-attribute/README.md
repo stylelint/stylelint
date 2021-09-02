@@ -94,7 +94,7 @@ The following patterns are _not_ considered violations:
 
 Given:
 
-```
+```json
 ["/^my-/", "dir"]
 ```
 

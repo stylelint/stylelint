@@ -15,7 +15,7 @@ Specify a list of allowed media feature names.
 
 Given:
 
-```
+```json
 ["max-width", "/^my-/"]
 ```
 

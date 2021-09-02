@@ -15,7 +15,7 @@ Specify a list of disallowed attribute names.
 
 Given:
 
-```
+```json
 ["class", "id", "/^data-/"]
 ```
 

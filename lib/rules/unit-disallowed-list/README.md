@@ -15,7 +15,7 @@ a { width: 100px; }
 
 Given:
 
-```
+```json
 ["px", "em", "deg"]
 ```
 
@@ -68,10 +68,10 @@ For example, with `["px", "vmin"]`.
 
 Given:
 
-```
+```json
 {
-  "px": [ "font-size", "/^border/" ],
-  "vmin": [ "width" ]
+  "px": ["font-size", "/^border/"],
+  "vmin": ["width"]
 }
 ```
 
@@ -117,10 +117,10 @@ For example, with `["px", "dpi"]`.
 
 Given:
 
-```
+```json
 {
-  "px": [ "min-width", "/height$/" ],
-  "dpi": [ "resolution" ]
+  "px": ["min-width", "/height$/"],
+  "dpi": ["resolution"]
 }
 ```
 

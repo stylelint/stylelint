@@ -17,8 +17,8 @@ If a string is surrounded with `"/"` (e.g. `"/\.foo/"`), it is interpreted as a 
 
 Given:
 
-```
-["a > .foo", /\[data-.+]/]
+```json
+["a > .foo", "/\\[data-.+]/"]
 ```
 
 The following patterns are considered violations:

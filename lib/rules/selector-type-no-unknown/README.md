@@ -93,7 +93,7 @@ unknown {}
 
 Given:
 
-```
+```json
 ["/^my-/", "custom-namespace"]
 ```
 
@@ -118,7 +118,7 @@ my-other-namespace|unknown {}
 
 Given:
 
-```
+```json
 ["/^my-/", "custom-type"]
 ```
 

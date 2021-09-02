@@ -23,7 +23,7 @@ Be careful with regex matching not to accidentally consider quoted string values
 
 Given:
 
-```
+```json
 {
   "transform": ["/scale/"],
   "whitespace": ["nowrap"],

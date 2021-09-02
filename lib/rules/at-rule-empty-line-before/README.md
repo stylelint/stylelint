@@ -408,7 +408,7 @@ For example, with `"always"`.
 
 Given:
 
-```
+```json
 ["import"]
 ```
 

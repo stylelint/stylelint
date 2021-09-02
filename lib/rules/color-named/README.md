@@ -148,7 +148,7 @@ For example with `"never"`.
 
 Given:
 
-```
+```json
 ["/^my-/", "composes"]
 ```
 

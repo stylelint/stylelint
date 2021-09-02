@@ -94,11 +94,11 @@ div {}
 
 Given:
 
-```
+```json
 [
   "0,2,0",
   {
-    ignoreSelectors: [":global", ":local", "/my-/"]
+    "ignoreSelectors": [":global", ":local", "/my-/"]
   }
 ]
 ```

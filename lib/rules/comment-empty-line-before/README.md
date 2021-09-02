@@ -172,8 +172,8 @@ Ignore comments matching the given regular expressions or strings.
 
 For example, with `"always"` and given:
 
-```
-[/^ignore/, "string-ignore"]
+```json
+["/^ignore/", "string-ignore"]
 ```
 
 The following comments are _not_ considered violations:

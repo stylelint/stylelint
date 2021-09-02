@@ -151,7 +151,7 @@ a {
 
 Given:
 
-```
+```json
 ["padding", "/border/"]
 ```
 

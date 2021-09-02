@@ -5,12 +5,10 @@ on:
     branches:
       - master
       - 'dependabot/**'
+      - v14 # TODO: Remove when releasing v14.
   pull_request:
     branches:
       - '**'
-
-env:
-  CI: true
 
 jobs:
   lint:
@@ -27,9 +25,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
+          cache: npm
 
       - name: Install latest npm
         run: npm install --global npm@latest

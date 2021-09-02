@@ -47,13 +47,6 @@ exports[`CLI --help 1`] = `
 
       Pattern of files to ignore (in addition to those in .stylelintignore)
 
-    --syntax, -s
-
-      Specify a syntax. Options: \\"css\\", \\"css-in-js\\", \\"html\\", \\"less\\",
-      \\"markdown\\", \\"sass\\", \\"scss\\", \\"sugarss\\". If you do not specify a syntax,
-      syntaxes will be automatically inferred by the file extensions
-      and file content.
-
     --fix
 
       Automatically fix violations of certain rules.
@@ -72,7 +65,7 @@ exports[`CLI --help 1`] = `
 
     --ignore-disables, --id
 
-      Ignore styleline-disable comments.
+      Ignore stylelint-disable comments.
 
     --disable-default-ignores, --di
 

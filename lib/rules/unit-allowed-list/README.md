@@ -15,7 +15,7 @@ a { width: 100px; }
 
 Given:
 
-```
+```json
 ["px", "em", "deg"]
 ```
 
@@ -73,10 +73,10 @@ For example, with `["px", "em"]`.
 
 Given:
 
-```
+```json
 {
-  "rem": [ "line-height", "/^border/" ],
-  "%": [ "width" ]
+  "rem": ["line-height", "/^border/"],
+  "%": ["width"]
 }
 ```
 

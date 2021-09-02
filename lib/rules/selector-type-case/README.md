@@ -73,7 +73,7 @@ LI {}
 
 Given:
 
-```
+```json
 ["$childClass", "/(p|P)arent.*/"]
 ```
 

@@ -284,7 +284,7 @@ Ignore the specified at-rules.
 
 For example, with `1` and given:
 
-```
+```json
 ["/^my-/", "media"]
 ```
 

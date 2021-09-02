@@ -5,10 +5,12 @@ on:
     branches:
       - master
       - '!dependabot/**'
+      - v14 # TODO: Remove when releasing v14.
   pull_request:
     # The branches below must be a subset of the branches above
     branches:
       - master
+      - v14 # TODO: Remove when releasing v14.
   schedule:
     - cron: '0 7 * * 1'
 

@@ -81,7 +81,7 @@ For example with `"percentage"`.
 
 Given:
 
-```
+```json
 ["opacity"]
 ```
 

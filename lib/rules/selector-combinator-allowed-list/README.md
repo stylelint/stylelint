@@ -19,7 +19,7 @@ This rule ignores [reference combinators](https://www.w3.org/TR/selectors4/#idre
 
 Given:
 
-```
+```json
 [">", " "]
 ```
 

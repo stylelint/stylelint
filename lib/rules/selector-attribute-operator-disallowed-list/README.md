@@ -15,7 +15,7 @@ Specify a list of disallowed attribute operators.
 
 Given:
 
-```
+```json
 ["*="]
 ```
 

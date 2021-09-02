@@ -15,7 +15,7 @@ Specify a list of allowed attribute operators.
 
 Given:
 
-```
+```json
 ["=", "|="]
 ```
 

@@ -67,7 +67,7 @@ a {
 
 Given:
 
-```
+```json
 ["/^my-/", "custom"]
 ```
 
@@ -98,7 +98,7 @@ a {
 
 Given:
 
-```
+```json
 ["image-set", "/^my-/", "/^YOUR-/i"]
 ```
 

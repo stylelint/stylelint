@@ -17,7 +17,7 @@ If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is inter
 
 Given:
 
-```
+```json
 {
   "font-size": ["em", "px"],
   "/^animation/": ["s"]

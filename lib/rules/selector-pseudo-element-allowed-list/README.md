@@ -20,7 +20,7 @@ This rule ignores:
 
 Given:
 
-```
+```json
 ["before", "/^my-/i"]
 ```
 
