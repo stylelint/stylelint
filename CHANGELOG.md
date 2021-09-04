@@ -20,6 +20,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `property-no-unknown` false positives for Less maps ([#5381](https://github.com/stylelint/stylelint/pull/5381)).
 - Fixed: `selector-class-pattern` false positives for Less parametric mixins ([#5378](https://github.com/stylelint/stylelint/pull/5378)).
 - Fixed: `max-empty-lines` autofix for Less comments ([#5507](https://github.com/stylelint/stylelint/pull/5507)).
+- Fixed: `unit-no-unknown` false positives for nested property declarations ([#5500](https://github.com/stylelint/stylelint/pull/5500)).
 
 ## 13.13.1
 
