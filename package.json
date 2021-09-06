@@ -58,7 +58,8 @@
   "prettier": "@stylelint/prettier-config",
   "eslintConfig": {
     "extends": [
-      "stylelint"
+      "stylelint",
+      "plugin:regexp/recommended"
     ],
     "globals": {
       "testRule": true
@@ -169,6 +170,7 @@
     "common-tags": "^1.8.0",
     "eslint": "^7.32.0",
     "eslint-config-stylelint": "^13.1.1",
+    "eslint-plugin-regexp": "^1.1.0",
     "got": "^11.8.2",
     "husky": "^7.0.2",
     "jest": "^27.1.0",
