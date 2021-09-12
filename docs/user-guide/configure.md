@@ -421,7 +421,7 @@ _Note that this is not an efficient method for ignoring lots of files._ If you w
 
 ## `overrides`
 
-Sometimes a more fine-controlled configuration is necessary, for example, if the configuration for files within the same directory has to be different. Therefore you can provide configurations under the `overrides` key that will only apply to files that match specific glob patterns, using the same format you would pass on the command line (e.g., `app/**/*.test.css`).
+You can provide configurations under the `overrides` key that will only apply to files that match specific glob patterns, using the same format you would pass on the command line (e.g., `app/**/*.test.css`).
 
 It is possible to override settings based on file glob patterns in your configuration by using the `overrides` key. An example of using the `overrides` key is as follows:
 
@@ -430,14 +430,14 @@ In your `.stylelintrc.json`:
 ```json
 {
   "rules": {
-    "quotes": ["warn", "double"]
+    "string-quotes": "double"
   },
 
   "overrides": [
     {
       "files": ["components/**/*.css", "pages/**/*.css"],
       "rules": {
-        "quotes": ["warn", "single"]
+        "string-quotes": "single"
       }
     }
   ]
