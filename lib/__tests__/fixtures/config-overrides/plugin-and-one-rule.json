@@ -1,0 +1,14 @@
+{
+	"plugins": ["../plugin-warn-about-foo"],
+	"rules": {
+		"plugin/warn-about-foo": "always"
+	},
+	"overrides": [
+		{
+			"files": ["*.css"],
+			"rules": {
+				"color-named": "never"
+			}
+		}
+	]
+}
