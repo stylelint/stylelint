@@ -1,3 +1,5 @@
+> This is the README for the [upcoming major release](CHANGELOG.md#Head). If you have time, please consider [contributing](CONTRIBUTING.md) to the [outstanding tasks](https://github.com/stylelint/stylelint/issues/5205). 
+
 # stylelint
 
 [![NPM version](https://img.shields.io/npm/v/stylelint.svg)](https://www.npmjs.org/package/stylelint) [![Build Status](https://github.com/stylelint/stylelint/workflows/CI/badge.svg)](https://github.com/stylelint/stylelint/actions) [![NPM Downloads](https://img.shields.io/npm/dm/stylelint.svg)](https://npmcharts.com/compare/stylelint?minimal=true)
