@@ -140,7 +140,6 @@ declare module 'stylelint' {
 		config?: StylelintConfig;
 		configFile?: string;
 		configBasedir?: string;
-		configOverrides?: StylelintConfig;
 		ignoreDisables?: boolean;
 		ignorePath?: string;
 		reportInvalidScopeDisables?: boolean;
@@ -212,7 +211,6 @@ declare module 'stylelint' {
 		config?: StylelintConfig;
 		configFile?: string;
 		configBasedir?: string;
-		configOverrides?: StylelintConfig;
 		printConfig?: string;
 		ignoreDisables?: boolean;
 		ignorePath?: string;
@@ -227,6 +225,7 @@ declare module 'stylelint' {
 		disableDefaultIgnores?: boolean;
 		fix?: boolean;
 		allowEmptyInput?: boolean;
+		quiet?: boolean;
 	};
 
 	export type StylelintCssSyntaxError = {
