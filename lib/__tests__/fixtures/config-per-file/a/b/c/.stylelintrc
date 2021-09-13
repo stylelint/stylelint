@@ -1,5 +1,5 @@
 {
-  "rules": {
-    "block-no-empty": null
-  }
+	"rules": {
+		"block-no-empty": null
+	}
 }
