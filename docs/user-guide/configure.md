@@ -418,3 +418,35 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
 
 _Note that this is not an efficient method for ignoring lots of files._ If you want to ignore a lot of files efficiently, use [`.stylelintignore`](ignore-code.md) or adjust your files globs.
+
+## `overrides`
+
+You can provide configurations under the `overrides` key that will only apply to files that match specific glob patterns, using the same format you would pass on the command line (e.g., `app/**/*.test.css`).
+
+It is possible to override settings based on file glob patterns in your configuration by using the `overrides` key. An example of using the `overrides` key is as follows:
+
+In your `.stylelintrc.json`:
+
+```json
+{
+  "rules": {
+    "string-quotes": "double"
+  },
+
+  "overrides": [
+    {
+      "files": ["components/**/*.css", "pages/**/*.css"],
+      "rules": {
+        "string-quotes": "single"
+      }
+    }
+  ]
+}
+```
+
+Here is how overrides work in a configuration file:
+
+- The patterns are applied against the file path relative to the directory of the config file. For example, if your config file has the path `/Users/person/workspace/any-project/.stylelintrc.js` and the file you want to lint has the path `/Users/person/workspace/any-project/components/card.css`, then the pattern provided in `.stylelintrc.js` will be executed against the relative path `components/card.css`.
+- Glob pattern overrides have higher precedence than the regular configuration in the same config file. Multiple overrides within the same config are applied in order. That is, the last override block in a config file always has the highest precedence.
+- A glob specific configuration works almost the same as any other stylelint config. Override blocks can contain any configuration options that are valid in a regular config.
+- Multiple glob patterns can be provided within a single override block. A file must match at least one of the supplied patterns for the configuration to apply.

@@ -18,6 +18,17 @@ declare module 'stylelint' {
 	export type StylelintConfigRules = {
 		[ruleName: string]: StylelintConfigRuleSettings<any, Object>;
 	};
+	export type StylelintConfigOverride = Pick<
+		StylelintConfig,
+		| 'plugins'
+		| 'pluginFunctions'
+		| 'processors'
+		| 'processorFunctions'
+		| 'rules'
+		| 'defaultSeverity'
+	> & {
+		files: string | string[];
+	};
 
 	export type DisableOptions = {
 		except?: Array<string | RegExp>;
@@ -44,6 +55,7 @@ declare module 'stylelint' {
 		reportNeedlessDisables?: DisableSettings;
 		reportInvalidScopeDisables?: DisableSettings;
 		reportDescriptionlessDisables?: DisableSettings;
+		overrides?: StylelintConfigOverride[];
 	};
 
 	// A meta-type that returns a union over all properties of `T` whose values
@@ -173,10 +185,6 @@ declare module 'stylelint' {
 			search: (s: string) => Promise<null | CosmiconfigResult>;
 			load: (s: string) => Promise<null | CosmiconfigResult>;
 		};
-		_fullExplorer: {
-			search: (s: string) => Promise<null | CosmiconfigResult>;
-			load: (s: string) => Promise<null | CosmiconfigResult>;
-		};
 		_configCache: Map<string, Object>;
 		_specifiedConfigCache: Map<StylelintConfig, Object>;
 		_postcssResultCache: Map<string, Result>;
@@ -186,7 +194,10 @@ declare module 'stylelint' {
 		_createStylelintResult: Function;
 		_createEmptyPostcssResult?: Function;
 
-		getConfigForFile: (s?: string) => Promise<{ config: StylelintConfig; filepath: string } | null>;
+		getConfigForFile: (
+			searchPath?: string,
+			filePath?: string,
+		) => Promise<{ config: StylelintConfig; filepath: string } | null>;
 		isPathIgnored: (s?: string) => Promise<boolean>;
 		lintSource: Function;
 	};
