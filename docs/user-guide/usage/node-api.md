@@ -18,10 +18,6 @@ A [configuration object](../configure.md).
 
 stylelint does not bother looking for a `.stylelintrc` file if you use this option.
 
-### `configOverrides`
-
-A partial stylelint configuration object whose properties override the existing config object, whether stylelint loads the config via the `config` option or a `.stylelintrc` file.
-
 ### `code`
 
 A string to lint.
