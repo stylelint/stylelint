@@ -64,8 +64,8 @@ The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-@my-at-rule "x.css";
-@import "styles.css";
+@my-at-rule "bar.css";
+@import "foo.css";
 ```
 
 <!-- prettier-ignore -->
@@ -76,6 +76,6 @@ The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-@custom "import.css";
-@import "styles.css"
+@custom "bar.css";
+@import "foo.css"
 ```
