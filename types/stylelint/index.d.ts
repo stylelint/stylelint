@@ -56,6 +56,7 @@ declare module 'stylelint' {
 		reportInvalidScopeDisables?: DisableSettings;
 		reportDescriptionlessDisables?: DisableSettings;
 		overrides?: StylelintConfigOverride[];
+		customSyntax?: CustomSyntax;
 	};
 
 	// A meta-type that returns a union over all properties of `T` whose values
