@@ -61,6 +61,9 @@
       "stylelint"
     ],
     "globals": {
+      "__dirname": true,
+      "module": true,
+      "require": true,
       "testRule": true
     },
     "root": true
