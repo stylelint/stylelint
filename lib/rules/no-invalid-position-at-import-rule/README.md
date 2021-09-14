@@ -71,7 +71,7 @@ The following patterns are _not_ considered violations:
 <!-- prettier-ignore -->
 ```css
 @my-other-at-rule {}
-@import "styles.css";
+@import "foo.css";
 ```
 
 <!-- prettier-ignore -->
