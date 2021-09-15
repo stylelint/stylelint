@@ -4,6 +4,7 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Security: addressed ReDoS issue with regex in `indentation` ([#5539](https://github.com/stylelint/stylelint/pull/5539)).
 - Removed: `configOverrides` option ([#5530](https://github.com/stylelint/stylelint/pull/5530)).
 - Removed: `syntax` option ([#5297](https://github.com/stylelint/stylelint/pull/5297)).
 - Removed: rules deprecated in 13.7.0 ([#5295](https://github.com/stylelint/stylelint/pull/5295)).
