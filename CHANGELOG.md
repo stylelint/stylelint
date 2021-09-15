@@ -11,6 +11,7 @@ All notable changes to this project are documented in this file.
 - Removed: `function-calc-no-invalid` ([#5296](https://github.com/stylelint/stylelint/pull/5296)).
 - Removed: Drop Node 10 support ([#5303](https://github.com/stylelint/stylelint/pull/5303)).
 - Added: `overrides` property to configuration object ([#5521](https://github.com/stylelint/stylelint/pull/5521)).
+- Added: `customSyntax` option as a property in the configuration object ([#5538](https://github.com/stylelint/stylelint/pull/5538)).
 - Added: `color-hex-alpha` rule ([#5316](https://github.com/stylelint/stylelint/pull/5316)).
 - Added: `custom-property-no-missing-var-function` rule ([#5317](https://github.com/stylelint/stylelint/pull/5317)).
 - Added: `function-calc-no-unspaced-operator` autofix ([#5273](https://github.com/stylelint/stylelint/pull/5273)).
