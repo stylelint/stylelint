@@ -49,3 +49,33 @@ a {}
 @charset 'utf-8';
 @import 'foo.css';
 ```
+
+## Optional secondary options
+
+### `ignoreAtRules: ["/regex/", /regex/, "string"]`
+
+Given:
+
+```json
+["/^my-/", "custom"]
+```
+
+The following patterns are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+@my-at-rule "bar.css";
+@import "foo.css";
+```
+
+<!-- prettier-ignore -->
+```css
+@my-other-at-rule {}
+@import "foo.css";
+```
+
+<!-- prettier-ignore -->
+```css
+@custom "bar.css";
+@import "foo.css"
+```
