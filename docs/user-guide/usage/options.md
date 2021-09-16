@@ -187,3 +187,9 @@ CLI flag: `--stdin-filename`
 A filename to assign the input.
 
 If using `code` or `stdin` to pass a source string directly, you can use `codeFilename` to associate that code with a particular filename.
+
+## `quiet`
+
+CLI flag: `--quiet`
+
+Only register violations for rules with an "error"-level severity (ignore "warning"-level).
