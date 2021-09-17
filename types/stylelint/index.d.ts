@@ -213,7 +213,6 @@ declare module 'stylelint' {
 		config?: StylelintConfig;
 		configFile?: string;
 		configBasedir?: string;
-		printConfig?: string;
 		ignoreDisables?: boolean;
 		ignorePath?: string;
 		ignorePattern?: string[];
@@ -221,6 +220,7 @@ declare module 'stylelint' {
 		reportNeedlessDisables?: boolean;
 		reportInvalidScopeDisables?: boolean;
 		maxWarnings?: number;
+		/** @deprecated Use `customSyntax` instead. */
 		syntax?: string;
 		customSyntax?: CustomSyntax;
 		formatter?: FormatterIdentifier;
