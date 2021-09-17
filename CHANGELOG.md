@@ -11,6 +11,7 @@ All notable changes to this project are documented in this file.
 - Removed: `function-calc-no-invalid` ([#5296](https://github.com/stylelint/stylelint/pull/5296)).
 - Removed: Drop Node 10 support ([#5303](https://github.com/stylelint/stylelint/pull/5303)).
 - Added: `overrides` property to configuration object ([#5521](https://github.com/stylelint/stylelint/pull/5521)).
+- Added: `quiet` option to Node.js API ([#5542](https://github.com/stylelint/stylelint/pull/5542)).
 - Added: `customSyntax` option as a property in the configuration object ([#5538](https://github.com/stylelint/stylelint/pull/5538)).
 - Added: `disableFix` as secondary option to rules property in the configuration object ([#5460](https://github.com/stylelint/stylelint/pull/5460)).
 - Added: `color-hex-alpha` rule ([#5316](https://github.com/stylelint/stylelint/pull/5316)).
