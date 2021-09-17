@@ -24,7 +24,7 @@ async function caseConfig(caseNumber) {
 }
 
 async function caseCode(caseNumber, ext = 'css') {
-	return await fs.readFile(`${caseFilePath(caseNumber)}.${ext}`, 'utf8');
+	return fs.readFile(`${caseFilePath(caseNumber)}.${ext}`, 'utf8');
 }
 
 async function caseFilesForFix(caseNumber, ext = 'css') {
