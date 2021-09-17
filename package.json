@@ -40,7 +40,7 @@
     "benchmark-rule": "node scripts/benchmark-rule.js",
     "format": "prettier . --write",
     "jest": "jest",
-    "lint": "npm-run-all --parallel lint:*",
+    "lint": "npm-run-all --parallel --continue-on-error lint:*",
     "lint:formatting": "prettier . --check",
     "lint:js": "eslint . --cache --max-warnings=0",
     "lint:md": "remark . --quiet --frail",
