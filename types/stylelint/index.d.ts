@@ -1,6 +1,7 @@
 declare module 'stylelint' {
 	import { Comment, Result, Message, Root, Syntax, WarningOptions, Warning } from 'postcss';
 	import { GlobbyOptions } from 'globby';
+	import { CosmiconfigResult } from 'cosmiconfig/dist/types';
 
 	export type Severity = 'warning' | 'error';
 
@@ -66,7 +67,7 @@ declare module 'stylelint' {
 	}[keyof T];
 	export type DisablePropertyName = PropertyNamesOfType<StylelintConfig, DisableSettings>;
 
-	export type CosmiconfigResult = { config: StylelintConfig; filepath: string };
+	export type StylelintCosmiconfigResult = (CosmiconfigResult & { config: StylelintConfig }) | null;
 
 	export type DisabledRange = {
 		comment: Comment;
@@ -183,8 +184,8 @@ declare module 'stylelint' {
 	export type StylelintInternalApi = {
 		_options: StylelintStandaloneOptions;
 		_extendExplorer: {
-			search: (s: string) => Promise<null | CosmiconfigResult>;
-			load: (s: string) => Promise<null | CosmiconfigResult>;
+			search: (s: string) => Promise<StylelintCosmiconfigResult>;
+			load: (s: string) => Promise<StylelintCosmiconfigResult>;
 		};
 		_configCache: Map<string, Object>;
 		_specifiedConfigCache: Map<StylelintConfig, Object>;
