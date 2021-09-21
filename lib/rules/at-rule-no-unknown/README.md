@@ -53,22 +53,22 @@ The following patterns are _not_ considered violations:
 Given:
 
 ```json
-["/^my-/", "custom"]
+["/^--my-/", "--custom"]
 ```
 
 The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-@my-at-rule "x.css";
+@--my-at-rule "x.css";
 ```
 
 <!-- prettier-ignore -->
 ```css
-@my-other-at-rule {}
+@--my-other-at-rule {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-@custom {}
+@--custom {}
 ```
