@@ -285,7 +285,7 @@ Ignore the specified at-rules.
 For example, with `1` and given:
 
 ```json
-["/^my-/", "media"]
+["/^--my-/", "media"]
 ```
 
 The following patterns are _not_ considered violations:
@@ -315,7 +315,7 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
-  @my-at-rule print {  /* 1 */
+  @--my-at-rule print {  /* 1 */
     b {                /* 2 */
       c { top: 0; }    /* 3 */
     }
@@ -326,7 +326,7 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
-  @my-other-at-rule print {  /* 1 */
+  @--my-other-at-rule print {  /* 1 */
     b {                      /* 2 */
       c { top: 0; }          /* 3 */
     }
@@ -348,7 +348,7 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
-  @not-my-at-rule print {   /* 1 */
+  @--not-my-at-rule print {   /* 1 */
     b { top: 0; }       /* 2 */
   }
 }
