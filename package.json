@@ -111,7 +111,6 @@
   },
   "dependencies": {
     "balanced-match": "^2.0.0",
-    "chalk": "^4.1.2",
     "cosmiconfig": "^7.0.1",
     "debug": "^4.3.2",
     "execall": "^2.0.0",
@@ -132,6 +131,7 @@
     "mathml-tag-names": "^2.1.3",
     "meow": "^9.0.0",
     "micromatch": "^4.0.4",
+    "nanocolors": "^0.2.1",
     "normalize-path": "^3.0.0",
     "normalize-selector": "^0.2.0",
     "postcss": "^8.3.6",
