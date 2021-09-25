@@ -1,7 +1,7 @@
 declare module 'stylelint' {
 	import { Comment, Result, Message, Root, Syntax, WarningOptions, Warning } from 'postcss';
 	import { GlobbyOptions } from 'globby';
-	import { CosmiconfigResult } from 'cosmiconfig/dist/types';
+	import { cosmiconfig } from 'cosmiconfig';
 
 	export type Severity = 'warning' | 'error';
 
@@ -67,7 +67,12 @@ declare module 'stylelint' {
 	}[keyof T];
 	export type DisablePropertyName = PropertyNamesOfType<StylelintConfig, DisableSettings>;
 
-	export type StylelintCosmiconfigResult = (CosmiconfigResult & { config: StylelintConfig }) | null;
+	// This type has the same properties as `CosmiconfigResult` from `cosmiconfig`.
+	export type StylelintCosmiconfigResult = {
+		config: StylelintConfig;
+		filepath: string;
+		isEmpty?: boolean;
+	} | null;
 
 	export type DisabledRange = {
 		comment: Comment;
@@ -183,25 +188,22 @@ declare module 'stylelint' {
 
 	export type StylelintInternalApi = {
 		_options: StylelintStandaloneOptions;
-		_extendExplorer: {
-			search: (s: string) => Promise<StylelintCosmiconfigResult>;
-			load: (s: string) => Promise<StylelintCosmiconfigResult>;
-		};
-		_configCache: Map<string, Object>;
-		_specifiedConfigCache: Map<StylelintConfig, Object>;
+		_extendExplorer: ReturnType<typeof cosmiconfig>;
+		_specifiedConfigCache: Map<StylelintConfig, Promise<StylelintCosmiconfigResult>>;
 		_postcssResultCache: Map<string, Result>;
 
 		_getPostcssResult: (options?: GetPostcssOptions) => Promise<Result>;
 		_lintSource: (options: GetLintSourceOptions) => Promise<PostcssResult>;
-		_createStylelintResult: Function;
-		_createEmptyPostcssResult?: Function;
+		_createStylelintResult: (
+			postcssResult: PostcssResult,
+			filePath?: string,
+		) => Promise<StylelintResult>;
 
 		getConfigForFile: (
 			searchPath?: string,
 			filePath?: string,
-		) => Promise<{ config: StylelintConfig; filepath: string } | null>;
+		) => Promise<StylelintCosmiconfigResult>;
 		isPathIgnored: (s?: string) => Promise<boolean>;
-		lintSource: Function;
 	};
 
 	export type StylelintStandaloneOptions = {
