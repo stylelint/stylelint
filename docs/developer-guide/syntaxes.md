@@ -15,16 +15,15 @@ We recommend creating a shared-config that:
 - bundles your custom syntax
 - turns off any incompatible built-in rules
 
-For example:
+For example, if you're creating a syntax for a CSS-in-JS library called "foo" then we recommended creating a shared-config called "stylelint-config-standard-foo" with the following content:
 
-```js
-// stylelint-config-standard-my-syntax
-module.exports = {
-  extends: ["stylelint-config-recommended"],
-  customSyntax: "postcss-your-syntax",
-  rules: {
+```json
+{
+  "extends": ["stylelint-config-standard"],
+  "customSyntax": "postcss-foo",
+  "rules": {
     "at-rule-no-unknown": null,
     ..
   }
-};
+}
 ```
