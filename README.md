@@ -10,17 +10,17 @@ It's mighty as it:
 
 - understands **modern** CSS syntax and features
 - has over **170 built-in rules** to catch errors and enforce conventions
+- supports **plugins** so you can create your own rules
 - automatically **fixes** the majority of stylistic violations
 - is **well tested** with over 15000 unit tests
 - supports **shareable configs** that you can extend or create
 - is **unopinionated** so that you can customize it to your exact needs
 - has a **growing community** and is used by Google, GitHub and WordPress
 
-It can be extended to:
+And can be extended to:
 
 - parse **CSS-like syntaxes** like SCSS, Sass, Less and SugarSS
 - extract **embedded styles** from HTML, Markdown and CSS-in-JS object & template literals
-- lint your own custom rules as **plugins**
 
 ## Example output
 
