@@ -32,6 +32,5 @@
   - [Releases](maintainer-guide/releases.md)
 - About
   - [Linting](about/linting.md)
-  - [Syntaxes](about/syntaxes.md)
   - [Semantic versioning](about/semantic-versioning.md)
   - [Vision](about/vision.md)

@@ -37,6 +37,31 @@ If a source contains a:
 
 This limitation in being tracked in [issue #2643](https://github.com/stylelint/stylelint/issues/2643).
 
+## `customSyntax`
+
+CLI flag: `--custom-syntax`
+
+Specify a custom syntax to use on your code.
+
+There are many styling languages, ranging from CSS language extensions like SCSS to entirely different notations, e.g. CSS-in-JS objects.
+
+These styling languages can be embedded within other languages too. For example:
+
+- HTML `<style>` tags
+- markdown fences
+- JavaScript template literals
+
+This option allows stylelint to transform these into something that resembles CSS, which is the language that:
+
+- underpins all the other styling languages
+- is best understood by rules built into stylelint
+
+This option should be a string that resolves to a JS module that exports a [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). The string can be a module name (like `my-module`) or a path to a JS file (like `path/to/my-module.js`).
+
+Using the Node.js API, the `customSyntax` option can also accept a [Syntax object](https://github.com/postcss/postcss/blob/abfaa7122a0f480bc5be0905df3c24a6a51a82d9/lib/postcss.d.ts#L223-L232). Stylelint treats the `parse` property as a required value.
+
+Note that stylelint can provide no guarantee that core rules work with custom syntaxes.
+
 ## `formatter`
 
 CLI flags: `--formatter, -f` | `--custom-formatter`
@@ -87,18 +112,6 @@ If the number of warnings exceeds this value, the:
 - CLI process exits with code `2`
 - Node.js API adds a [`maxWarningsExceeded`](node-api.md#maxwarningsexceeded) property to the returned data
 
-## `customSyntax`
-
-CLI flag: `--custom-syntax`
-
-Specify a custom syntax to use on your code.
-
-This option should be a string that resolves to a JS module that exports a [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). The string can be a module name (like `my-module`) or a path to a JS file (like `path/to/my-module.js`).
-
-Using the Node.js API, the `customSyntax` option can also accept a [Syntax object](https://github.com/postcss/postcss/blob/abfaa7122a0f480bc5be0905df3c24a6a51a82d9/lib/postcss.d.ts#L223-L232). Stylelint treats the `parse` property as a required value.
-
-Note that stylelint can provide no guarantee that core rules work with syntaxes.
-
 ## `disableDefaultIgnores`
 
 CLI flags: `--disable-default-ignores, --di`
@@ -119,35 +132,13 @@ Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comme
 
 You can use this option to see what your linting results would be like without those exceptions.
 
-## `reportNeedlessDisables`
-
-CLI flags: `--report-needless-disables, --rd`
-
-Produce a report to clean up your codebase, keeping only the `stylelint-disable` comments that serve a purpose.
-
-If needless disables are found, the:
-
-- CLI process exits with code `2`
-- Node.js API adds errors to the returned data
-
-## `reportInvalidScopeDisables`
-
-CLI flags: `--report-invalid-scope-disables, --risd`
-
-Produce a report of the `stylelint-disable` comments that used for rules that don't exist within the configuration object.
-
-If invalid scope disables are found, the:
-
-- CLI process exits with code `2`
-- Node.js API adds errors to the returned data
-
 ## `reportDescriptionlessDisables`
 
 CLI flags: `--report-descriptionless-disables, --rdd`
 
-Produce a report of the `stylelint-disable` comments without a description.
+Report `stylelint-disable` comments without a description.
 
-For example, when the configuration `{ block-no-empty: true }` is given, the following patterns are reported:
+The following patterns are reported:
 
 <!-- prettier-ignore -->
 ```css
@@ -175,10 +166,17 @@ a {}
 a {}
 ```
 
-If descriptionless disables are found, the:
+## `reportInvalidScopeDisables`
 
-- CLI process exits with code `2`
-- Node.js API adds errors to the returned data
+CLI flags: `--report-invalid-scope-disables, --risd`
+
+Report `stylelint-disable` comments that don't match rules that are specified in the configuration object.
+
+## `reportNeedlessDisables`
+
+CLI flags: `--report-needless-disables, --rd`
+
+Report `stylelint-disable` comments that don't actually match any lints that need to be disabled.
 
 ## `codeFilename`
 
