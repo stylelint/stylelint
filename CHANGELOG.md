@@ -55,7 +55,7 @@ Then, update your configuration object to use it:
 Other [PostCSS syntaxes](https://github.com/postcss/postcss#syntaxes) known to be compatible with stylelint include:
 
 - [postcss-scss](https://github.com/postcss/postcss-scss)
-- [postcss-less](https://github.com/webschik/postcss-less)
+- [postcss-less](https://github.com/shellscape/postcss-less)
 - [postcss-sass](https://github.com/AleshaOleg/postcss-sass)
 
 If a PostCSS syntax doesn't exist for your choice of language or CSS-in-JS lribary, please consider creating it and sharing it with the community. It'll need to be compatible with version 8 of PostCSS.
