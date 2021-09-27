@@ -79,7 +79,7 @@ npm install --save-dev stylelint sugarss
 PostCSS syntaxes known to be compatible with stylelint include:
 
 - [postcss-scss](https://github.com/postcss/postcss-scss)
-- [postcss-less](https://github.com/webschik/postcss-less)
+- [postcss-less](https://github.com/shellscape/postcss-less)
 - [postcss-sass](https://github.com/AleshaOleg/postcss-sass)
 - [sugarss](https://github.com/postcss/sugarss)
 
