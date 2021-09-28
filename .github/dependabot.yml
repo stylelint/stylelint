@@ -9,3 +9,11 @@ updates:
       - 'pr: dependencies'
     versioning-strategy: increase
     target-branch: 'v14' # TODO: Remove when releasing v14.
+
+  - package-ecosystem: github-actions
+    directory: '/'
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    labels:
+      - 'pr: dependencies'
