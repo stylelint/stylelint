@@ -145,7 +145,7 @@
     "strip-ansi": "^6.0.0",
     "style-search": "^0.1.0",
     "svg-tags": "^1.0.0",
-    "table": "^6.7.1",
+    "table": "^6.7.2",
     "v8-compile-cache": "^2.3.0",
     "write-file-atomic": "^3.0.3"
   },
