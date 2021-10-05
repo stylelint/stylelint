@@ -6,7 +6,7 @@ const got = require('got');
 const normalizeRuleSettings = require('../lib/normalizeRuleSettings');
 const postcss = require('postcss');
 const rules = require('../lib/rules');
-const { bold, yellow } = require('nanocolors');
+const { bold, yellow } = require('picocolors');
 
 const ruleName = process.argv[2];
 const ruleOptions = process.argv[3];
