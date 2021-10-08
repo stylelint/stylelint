@@ -4,7 +4,7 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
-[Migrating to `14.0.0` guide](./docs/migration-guide/to-14.md).
+[Migrating to `14.0.0` guide](docs/migration-guide/to-14.md).
 
 - Security: addressed ReDoS issue with regex in `indentation` ([#5539](https://github.com/stylelint/stylelint/pull/5539)).
 - Removed: `configOverrides` option ([#5530](https://github.com/stylelint/stylelint/pull/5530)).
