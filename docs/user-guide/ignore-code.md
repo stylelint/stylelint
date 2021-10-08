@@ -77,7 +77,6 @@ You may also include a description at the end of the comment, after two hyphens:
 You can use a `.stylelintignore` file to ignore specific files. For example:
 
 ```
-**/*.js
 vendor/**/*.css
 ```
 

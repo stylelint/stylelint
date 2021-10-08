@@ -1,6 +1,6 @@
 # Task runner integrations
 
-Task runner integrations built and maintained by the community.
+Task runner integrations built and maintained by the community:
 
 - [broccoli-stylelint](https://github.com/billybonks/broccoli-stylelint) - Broccoli plugin for stylelint.
 - [ember-cli-stylelint](https://github.com/billybonks/ember-cli-stylelint) - Ember CLI plugin for stylelint.

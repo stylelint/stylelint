@@ -10,7 +10,7 @@ Use `npx stylelint --help` to print the CLI documentation.
 
 ## Options
 
-In addition to the [standard options](options.md), the CLI accepts:
+The CLI accepts:
 
 ### `--allow-empty-input, --aei`
 
@@ -18,11 +18,11 @@ The process exits without throwing an error when glob pattern matches no files.
 
 ### `--cache-location`
 
-Path to a file or directory for the cache location. More info about this option in [standard options](options.md#cacheLocation).
+Path to a file or directory for the cache location. [More info](options.md#cacheLocation).
 
 ### `--cache`
 
-Store the results of processed files so that stylelint only operates on the changed ones. By default, the cache is stored in `./.stylelintcache` in `process.cwd()`. More info about this option in [standard options](options.md#cache).
+Store the results of processed files so that stylelint only operates on the changed ones. By default, the cache is stored in `./.stylelintcache` in `process.cwd()`. [More info](options.md#cache).
 
 ### `--color, --no-color`
 
@@ -30,35 +30,35 @@ Force enabling/disabling of color.
 
 ### `--config-basedir`
 
-Absolute path to the directory that relative paths defining "extends" and "plugins" are _relative to_. Only necessary if these values are relative paths. More info about this option in [standard options](options.md#configBasedir).
+Absolute path to the directory that relative paths defining "extends" and "plugins" are _relative to_. Only necessary if these values are relative paths. [More info](options.md#configBasedir).
 
 ### `--config`
 
-Path to a JSON, YAML, or JS file that contains your [configuration object](../configure.md). More info about this option in [standard options](options.md#configFile).
+Path to a JSON, YAML, or JS file that contains your [configuration object](../configure.md). [More info](options.md#configFile).
 
 ### `--custom-syntax`
 
-Specify a custom syntax to use on your code. Use this option if you want to force a specific syntax that's not already built into stylelint. More info about this option in [standard options](options.md#customSyntax).
+Specify a custom syntax to use on your code. [More info](options.md#customSyntax).
 
 ### `--disable-default-ignores, --di`
 
-Disable the default ignores. stylelint will not automatically ignore the contents of `node_modules`. More info about this option in [standard options](options.md#disableDefaultIgnores).
+Disable the default ignores. stylelint will not automatically ignore the contents of `node_modules`. [More info](options.md#disableDefaultIgnores).
 
 ### `--fix`
 
-Automatically fix, where possible, violations reported by rules. More info about this option in [standard options](options.md#fix).
+Automatically fix, where possible, violations reported by rules. [More info](options.md#fix).
 
 ### `--formatter, -f` | `--custom-formatter`
 
-Specify the formatter to format your results. More info about this option in [standard options](options.md#formatter).
+Specify the formatter to format your results. [More info](options.md#formatter).
 
 ### `--ignore-disables, --id`
 
-Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments. More info about this option in [standard options](options.md#ignoreDisables).
+Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments. [More info](options.md#ignoreDisables).
 
 ### `--ignore-path, -i`
 
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. More info about this option in [standard options](options.md#ignorePath).
+A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. [More info](options.md#ignorePath).
 
 ### `--ignore-pattern, --ip`
 
@@ -66,7 +66,7 @@ Pattern of files to ignore (in addition to those in `.stylelintignore`).
 
 ### `--max-warnings, --mw`
 
-Set a limit to the number of warnings accepted. More info about this option in [standard options](options.md#maxWarnings).
+Set a limit to the number of warnings accepted. [More info](options.md#maxWarnings).
 
 ### `--output-file, -o`
 
@@ -78,23 +78,23 @@ Print the configuration for the given path. stylelint outputs the configuration 
 
 ### `--quiet, -q`
 
-Only register violations for rules with an "error"-level severity (ignore "warning"-level).
+Only register violations for rules with an "error"-level severity (ignore "warning"-level). [More info](options.md#quiet).
 
 ### `--report-descriptionless-disables, --rdd`
 
-Produce a report of the `stylelint-disable` comments without a description. More info about this option in [standard options](options.md#reportDescriptionlessDisables).
+Produce a report of the `stylelint-disable` comments without a description. [More info](options.md#reportDescriptionlessDisables).
 
 ### `--report-invalid-scope-disables, --risd`
 
-Produce a report of the `stylelint-disable` comments that used for rules that don't exist within the configuration object. More info about this option in [standard options](options.md#reportInvalidScopeDisables).
+Produce a report of the `stylelint-disable` comments that used for rules that don't exist within the configuration object. [More info](options.md#reportInvalidScopeDisables).
 
 ### `--report-needless-disables, --rd`
 
-Produce a report to clean up your codebase, keeping only the `stylelint-disable` comments that serve a purpose. More info about this option in [standard options](options.md#reportNeedlessDisables).
+Produce a report to clean up your codebase, keeping only the `stylelint-disable` comments that serve a purpose. [More info](options.md#reportNeedlessDisables).
 
 ### `--stdin-filename`
 
-A filename to assign the input. More info about this option in [standard options](options.md#codeFilename).
+A filename to assign the input. [More info](options.md#codeFilename).
 
 ### `--stdin`
 

@@ -8,16 +8,19 @@ A mighty, modern linter that helps you avoid errors and enforce conventions in y
 
 It's mighty as it:
 
-- understands the **latest CSS syntax** including custom properties and level 4 selectors
-- extracts **embedded styles** from HTML, markdown and CSS-in-JS object & template literals
-- parses **CSS-like syntaxes** like SCSS, Sass, Less and SugarSS
-- has over **170 built-in rules** to catch errors, apply limits and enforce stylistic conventions
-- supports **plugins** so you can create your own rules or make use of plugins written by the community
+- understands **modern** CSS syntax and features
+- has over **170 built-in rules** to catch errors and enforce conventions
+- supports **plugins** so you can create your own rules
 - automatically **fixes** the majority of stylistic violations
 - is **well tested** with over 15000 unit tests
 - supports **shareable configs** that you can extend or create
 - is **unopinionated** so that you can customize it to your exact needs
-- has a **growing community** and is used by [Facebook](https://code.facebook.com/posts/879890885467584/improving-css-quality-at-facebook-and-beyond/), [GitHub](https://github.com/primer/stylelint-config-primer) and [WordPress](https://github.com/WordPress-Coding-Standards/stylelint-config-wordpress)
+- has a **growing community** and is used by Google, GitHub and WordPress
+
+And can be extended to:
+
+- parse **CSS-like syntaxes** like SCSS, Sass, Less and SugarSS
+- extract **embedded styles** from HTML, Markdown and CSS-in-JS object & template literals
 
 ## Example output
 

@@ -11,9 +11,9 @@ There are two approaches to enforcing stylistic conventions:
 - a machine algorithmically pretty prints the code (usually based on a maximum line length)
 - a human initially formats the code, and a machine fixes-up/warns-about any mistakes
 
-The former is handled by pretty printers, like [prettier](https://github.com/prettier/prettier), whereas the latter is catered for by the built-in [stylistic rules](../user-guide/rules/list.md#stylistic-issues). If you use a pretty printer, you'll want to use [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended), which only turns on [possible error](../user-guide/rules/list.md#possible-errors) rules.
+The former is handled by pretty printers, like [Prettier](https://github.com/prettier/prettier), whereas the latter is catered for by the built-in [stylistic rules](../user-guide/rules/list.md#stylistic-issues). If you use a pretty printer, you'll want to use [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) and [`stylelint-config-prettier`](https://github.com/prettier/stylelint-config-prettier), which turns off any imcompatible rules.
 
-Additionally, the built-in stylistic rules and plugins are configurable to support a diverse range of stylistic conventions. For example, ordering properties within declaration blocks is a divisive topic, where there isn't a dominant convention. The [`stylelint-order`](https://www.npmjs.com/package/stylelint-order) plugin can be configured to lint and fix a diverse range of ordering conventions.
+The built-in stylistic rules and plugins are configurable to support a diverse range of stylistic conventions. For example, ordering properties within declaration blocks is a divisive topic, where there isn't a dominant convention. The [`stylelint-order`](https://www.npmjs.com/package/stylelint-order) plugin can be configured to lint and fix a diverse range of ordering conventions.
 
 Another example is the use of single-line rules for sets of _related_ rules, e.g.
 
@@ -29,6 +29,6 @@ You can configure the built-in stylistic rules to allow both multi-line and sing
 
 ## Validators
 
-Validators like [csstree](https://github.com/csstree/csstree) identify invalid code such as misformed hex colors and unknown language features.
+Validators like [csstree](https://github.com/csstree/csstree) identify invalid code such as misformed hex colors, unknown language features or invalid property and value pairs.
 
-However, as a stop-gap, while these tools mature stylelint provides rules for the simplest of cases.
+However, as a stop-gap, stylelint provides rules for the simplest of cases while these tools mature.
