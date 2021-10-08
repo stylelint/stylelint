@@ -61,7 +61,7 @@ If you lint more than one styling language, then you can use the [`overrides`](c
 
 ```json
 {
-  "customSyntax": "scss",
+  "customSyntax": "postcss-scss",
   "extends": ["stylelint-config-standard"],
   "overrides": [
     {
