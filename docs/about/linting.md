@@ -29,6 +29,6 @@ You can configure the built-in stylistic rules to allow both multi-line and sing
 
 ## Validators
 
-Validators like [csstree](https://github.com/csstree/csstree) identify invalid code such as misformed hex colors, unknown language features or invalid property and value pairs.
+Validators like [CSSTree](https://github.com/csstree/csstree) identify invalid code such as misformed hex colors, unknown language features or invalid property and value pairs.
 
 However, as a stop-gap, stylelint provides rules for the simplest of cases while these tools mature.
