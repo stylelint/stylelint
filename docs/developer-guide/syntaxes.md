@@ -15,7 +15,7 @@ We recommend creating a shared-config that:
 - bundles your custom syntax
 - turns off any incompatible built-in rules
 
-For example, if you're creating a syntax for a CSS-in-JS library called "foo" then we recommended creating a shared-config called "stylelint-config-standard-foo" with the following content:
+For example, if you're creating a syntax for a CSS-in-JS library called "foo" then we recommend creating a shared-config called "stylelint-config-standard-foo" with the following content:
 
 ```json
 {
