@@ -26,6 +26,7 @@
   "bin": {
     "stylelint": "bin/stylelint.js"
   },
+  "types": "types/stylelint/index.d.ts",
   "files": [
     "bin",
     "CHANGELOG.md",
@@ -34,7 +35,8 @@
     "docs",
     "lib",
     "!**/__tests__",
-    "!lib/testUtils"
+    "!lib/testUtils",
+    "types/stylelint/index.d.ts"
   ],
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
@@ -158,6 +160,7 @@
     "@types/global-modules": "^2.0.0",
     "@types/globjoin": "^0.1.0",
     "@types/imurmurhash": "^0.1.1",
+    "@types/jest": "^27.0.2",
     "@types/micromatch": "^4.0.2",
     "@types/normalize-path": "^3.0.0",
     "@types/postcss-less": "^4.0.1",

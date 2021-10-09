@@ -1,326 +1,385 @@
 declare module 'stylelint' {
-	import { Comment, Result, Message, Root, Syntax, WarningOptions, Warning } from 'postcss';
-	import { GlobbyOptions } from 'globby';
-	import { cosmiconfig } from 'cosmiconfig';
+	import type * as PostCSS from 'postcss';
+	import type { GlobbyOptions } from 'globby';
+	import type { cosmiconfig } from 'cosmiconfig';
 
-	export type Severity = 'warning' | 'error';
+	namespace stylelint {
+		export type Severity = 'warning' | 'error';
 
-	export type StylelintConfigExtends = string | Array<string>;
-	export type StylelintConfigPlugins = string | Array<string>;
-	export type StylelintConfigProcessor = string | [string, Object];
-	export type StylelintConfigProcessors = string | Array<StylelintConfigProcessor>;
-	export type StylelintConfigIgnoreFiles = string | Array<string>;
-	export type StylelintConfigRuleSettings<T, O extends Object> =
-		| null
-		| undefined
-		| NonNullable<T>
-		| [NonNullable<T>]
-		| [NonNullable<T>, O];
-	export type StylelintConfigRules = {
-		[ruleName: string]: StylelintConfigRuleSettings<any, Object>;
-	};
-	export type StylelintConfigOverride = Pick<
-		StylelintConfig,
-		| 'plugins'
-		| 'pluginFunctions'
-		| 'processors'
-		| 'processorFunctions'
-		| 'rules'
-		| 'defaultSeverity'
-	> & {
-		files: string | string[];
-	};
-
-	export type DisableOptions = {
-		except?: Array<string | RegExp>;
-		severity?: Severity;
-	};
-	export type DisableSettings = StylelintConfigRuleSettings<boolean, DisableOptions>;
-
-	export type StylelintConfig = {
-		extends?: StylelintConfigExtends;
-		plugins?: StylelintConfigPlugins;
-		pluginFunctions?: {
-			[pluginName: string]: Function;
+		export type ConfigExtends = string | string[];
+		export type ConfigPlugins = string | string[];
+		export type ConfigProcessor = string | [string, Object];
+		export type ConfigProcessors = string | ConfigProcessor[];
+		export type ConfigIgnoreFiles = string | string[];
+		export type ConfigRuleSettings<T, O extends Object> =
+			| null
+			| undefined
+			| NonNullable<T>
+			| [NonNullable<T>]
+			| [NonNullable<T>, O];
+		export type ConfigRules = {
+			[ruleName: string]: ConfigRuleSettings<any, Object>;
 		};
-		processors?: StylelintConfigProcessors;
-		processorFunctions?: Array<Function>;
-		ignoreFiles?: StylelintConfigIgnoreFiles;
-		ignorePatterns?: string;
-		rules?: StylelintConfigRules;
-		codeProcessors?: Array<Function>;
-		resultProcessors?: Array<Function>;
-		quiet?: boolean;
-		defaultSeverity?: Severity;
-		ignoreDisables?: DisableSettings;
-		reportNeedlessDisables?: DisableSettings;
-		reportInvalidScopeDisables?: DisableSettings;
-		reportDescriptionlessDisables?: DisableSettings;
-		overrides?: StylelintConfigOverride[];
-		customSyntax?: CustomSyntax;
-	};
+		export type ConfigOverride = Omit<Config, 'overrides'> & {
+			files: string | string[];
+		};
 
-	// A meta-type that returns a union over all properties of `T` whose values
-	// have type `U`.
-	type PropertyNamesOfType<T, U> = {
-		[K in keyof T]-?: T[K] extends U ? K : never;
-	}[keyof T];
-	export type DisablePropertyName = PropertyNamesOfType<StylelintConfig, DisableSettings>;
+		export type DisableOptions = {
+			except?: (string | RegExp)[];
+			severity?: Severity;
+		};
+		export type DisableSettings = ConfigRuleSettings<boolean, DisableOptions>;
 
-	// This type has the same properties as `CosmiconfigResult` from `cosmiconfig`.
-	export type StylelintCosmiconfigResult = {
-		config: StylelintConfig;
-		filepath: string;
-		isEmpty?: boolean;
-	} | null;
+		export type Config = {
+			extends?: ConfigExtends;
+			plugins?: ConfigPlugins;
+			pluginFunctions?: {
+				[pluginName: string]: Function;
+			};
+			processors?: ConfigProcessors;
+			processorFunctions?: Function[];
+			ignoreFiles?: ConfigIgnoreFiles;
+			ignorePatterns?: string;
+			rules?: ConfigRules;
+			codeProcessors?: Function[];
+			resultProcessors?: Function[];
+			quiet?: boolean;
+			defaultSeverity?: Severity;
+			ignoreDisables?: DisableSettings;
+			reportNeedlessDisables?: DisableSettings;
+			reportInvalidScopeDisables?: DisableSettings;
+			reportDescriptionlessDisables?: DisableSettings;
+			overrides?: ConfigOverride[];
+			customSyntax?: CustomSyntax;
+		};
 
-	export type DisabledRange = {
-		comment: Comment;
-		start: number;
-		strictStart: boolean;
-		end?: number;
-		strictEnd?: boolean;
-		rules?: string[];
-		description?: string;
-	};
+		// A meta-type that returns a union over all properties of `T` whose values
+		// have type `U`.
+		type PropertyNamesOfType<T, U> = {
+			[K in keyof T]-?: T[K] extends U ? K : never;
+		}[keyof T];
+		export type DisablePropertyName = PropertyNamesOfType<Config, DisableSettings>;
 
-	export type DisabledRangeObject = {
-		[ruleName: string]: Array<DisabledRange>;
-	};
+		// This type has the same properties as `CosmiconfigResult` from `cosmiconfig`.
+		export type CosmiconfigResult = {
+			config: Config;
+			filepath: string;
+			isEmpty?: boolean;
+		} | null;
 
-	export type DisabledWarning = { line: number; rule: string };
+		export type DisabledRange = {
+			comment: PostCSS.Comment;
+			start: number;
+			strictStart: boolean;
+			end?: number;
+			strictEnd?: boolean;
+			rules?: string[];
+			description?: string;
+		};
 
-	export type StylelintPostcssResult = {
-		ruleSeverities: { [k: string]: Severity };
-		customMessages: { [k: string]: any };
-		quiet?: boolean;
-		disabledRanges: DisabledRangeObject;
-		disabledWarnings?: DisabledWarning[];
-		ignored?: boolean;
-		stylelintError?: boolean;
-		disableWritingFix?: boolean;
-		config?: StylelintConfig;
-		ruleDisableFix?: boolean;
-	};
+		export type DisabledRangeObject = {
+			[ruleName: string]: DisabledRange[];
+		};
 
-	type EmptyResult = {
-		root: {
-			nodes?: undefined;
-			source: {
-				lang?: undefined;
-				input: {
-					file?: string;
+		export type DisabledWarning = { line: number; rule: string };
+
+		export type StylelintPostcssResult = {
+			ruleSeverities: { [k: string]: Severity };
+			customMessages: { [k: string]: any };
+			quiet?: boolean;
+			disabledRanges: DisabledRangeObject;
+			disabledWarnings?: DisabledWarning[];
+			ignored?: boolean;
+			stylelintError?: boolean;
+			disableWritingFix?: boolean;
+			config?: Config;
+			ruleDisableFix?: boolean;
+		};
+
+		type EmptyResult = {
+			root: {
+				nodes?: undefined;
+				source: {
+					lang?: undefined;
+					input: {
+						file?: string;
+					};
 				};
 			};
+			messages: PostCSS.Message[];
+			opts: undefined;
 		};
-		messages: Message[];
-		opts: undefined;
-	};
 
-	export type StylelintWarningOptions = WarningOptions & {
-		stylelintType?: string;
-		severity?: Severity;
-		rule?: string;
-	};
+		export type WarningOptions = PostCSS.WarningOptions & {
+			stylelintType?: string;
+			severity?: Severity;
+			rule?: string;
+		};
 
-	export type PostcssResult = (Result | EmptyResult) & {
-		stylelint: StylelintPostcssResult;
-		warn(message: string, options?: StylelintWarningOptions): void;
-	};
+		export type PostcssResult = (PostCSS.Result | EmptyResult) & {
+			stylelint: StylelintPostcssResult;
+			warn(message: string, options?: WarningOptions): void;
+		};
 
-	export type Formatter = (
-		results: Array<StylelintResult>,
-		returnValue?: StylelintStandaloneReturnValue,
-	) => string;
+		export type Formatter = (results: LintResult[], returnValue?: LinterResult) => string;
 
-	export type FormatterIdentifier =
-		| 'compact'
-		| 'json'
-		| 'string'
-		| 'tap'
-		| 'unix'
-		| 'verbose'
-		| Formatter;
+		export type FormatterType = 'compact' | 'json' | 'string' | 'tap' | 'unix' | 'verbose';
 
-	export type CustomSyntax = string | Syntax;
+		export type CustomSyntax = string | PostCSS.Syntax;
 
-	export type StylelintOptions = {
-		config?: StylelintConfig;
-		configFile?: string;
-		configBasedir?: string;
-		ignoreDisables?: boolean;
-		ignorePath?: string;
-		reportInvalidScopeDisables?: boolean;
-		reportNeedlessDisables?: boolean;
-		reportDescriptionlessDisables?: boolean;
-		syntax?: string;
-		customSyntax?: CustomSyntax;
-		fix?: boolean;
-	};
+		export type PluginContext = {
+			fix?: boolean | undefined;
+			newline?: string | undefined;
+		};
 
-	export type StylelintPluginContext = {
-		fix?: boolean | undefined;
-		newline?: string | undefined;
-	};
+		export type RuleMessages = { [message: string]: string | ((...args: any[]) => string) };
 
-	export type StylelintRuleMessages = Record<string, string | ((...args: any[]) => string)>;
+		export type RuleOptionsPossibleFunc = (value: unknown) => boolean;
 
-	export type StylelintRule<P = any, S = any> = ((
-		primaryOption: P,
-		secondaryOptions: Record<string, S>,
-		context: StylelintPluginContext,
-	) => (root: Root, result: PostcssResult) => Promise<void> | void) & {
-		ruleName: string;
-		messages: StylelintRuleMessages;
-		primaryOptionArray?: boolean;
-	};
+		export type RuleOptionsPossible = boolean | number | string | RuleOptionsPossibleFunc;
 
-	export type GetPostcssOptions = {
-		code?: string;
-		codeFilename?: string;
-		filePath?: string;
-		codeProcessors?: Array<Function>;
-		syntax?: string;
-		customSyntax?: CustomSyntax;
-	};
+		export type RuleOptions = {
+			actual: unknown;
+			possible?:
+				| RuleOptionsPossibleFunc
+				| RuleOptionsPossible[]
+				| Record<string, RuleOptionsPossible[]>;
+			optional?: boolean;
+		};
 
-	export type GetLintSourceOptions = GetPostcssOptions & { existingPostcssResult?: Result };
+		export type RuleBase<P = any, S = any> = (
+			primaryOption: P,
+			secondaryOptions: Record<string, S>,
+			context: PluginContext,
+		) => (root: PostCSS.Root, result: PostcssResult) => Promise<void> | void;
 
-	export type StylelintInternalApi = {
-		_options: StylelintStandaloneOptions;
-		_extendExplorer: ReturnType<typeof cosmiconfig>;
-		_specifiedConfigCache: Map<StylelintConfig, Promise<StylelintCosmiconfigResult>>;
-		_postcssResultCache: Map<string, Result>;
+		export type Rule<P = any, S = any> = RuleBase<P, S> & {
+			ruleName: string;
+			messages: RuleMessages;
+			primaryOptionArray?: boolean;
+		};
 
-		_getPostcssResult: (options?: GetPostcssOptions) => Promise<Result>;
-		_lintSource: (options: GetLintSourceOptions) => Promise<PostcssResult>;
-		_createStylelintResult: (
-			postcssResult: PostcssResult,
-			filePath?: string,
-		) => Promise<StylelintResult>;
+		export type Plugin<P = any, S = any> = RuleBase<P, S>;
 
-		getConfigForFile: (
-			searchPath?: string,
-			filePath?: string,
-		) => Promise<StylelintCosmiconfigResult>;
-		isPathIgnored: (s?: string) => Promise<boolean>;
-	};
+		export type GetPostcssOptions = {
+			code?: string;
+			codeFilename?: string;
+			filePath?: string;
+			codeProcessors?: Function[];
+			syntax?: string;
+			customSyntax?: CustomSyntax;
+		};
 
-	export type StylelintStandaloneOptions = {
-		files?: string | Array<string>;
-		globbyOptions?: GlobbyOptions;
-		cache?: boolean;
-		cacheLocation?: string;
-		code?: string;
-		codeFilename?: string;
-		config?: StylelintConfig;
-		configFile?: string;
-		configBasedir?: string;
-		ignoreDisables?: boolean;
-		ignorePath?: string;
-		ignorePattern?: string[];
-		reportDescriptionlessDisables?: boolean;
-		reportNeedlessDisables?: boolean;
-		reportInvalidScopeDisables?: boolean;
-		maxWarnings?: number;
-		/** @deprecated Use `customSyntax` instead. */
-		syntax?: string;
-		customSyntax?: CustomSyntax;
-		formatter?: FormatterIdentifier;
-		disableDefaultIgnores?: boolean;
-		fix?: boolean;
-		allowEmptyInput?: boolean;
-		quiet?: boolean;
-	};
+		export type GetLintSourceOptions = GetPostcssOptions & {
+			existingPostcssResult?: PostCSS.Result;
+		};
 
-	export type StylelintCssSyntaxError = {
-		column: number;
-		file?: string;
-		input: {
+		export type LinterOptions = {
+			files?: string | string[];
+			globbyOptions?: GlobbyOptions;
+			cache?: boolean;
+			cacheLocation?: string;
+			code?: string;
+			codeFilename?: string;
+			config?: Config;
+			configFile?: string;
+			configBasedir?: string;
+			ignoreDisables?: boolean;
+			ignorePath?: string;
+			ignorePattern?: string[];
+			reportDescriptionlessDisables?: boolean;
+			reportNeedlessDisables?: boolean;
+			reportInvalidScopeDisables?: boolean;
+			maxWarnings?: number;
+			/** @deprecated Use `customSyntax` instead. Using this option will result in an error. */
+			syntax?: string;
+			customSyntax?: CustomSyntax;
+			formatter?: FormatterType | Formatter;
+			disableDefaultIgnores?: boolean;
+			fix?: boolean;
+			allowEmptyInput?: boolean;
+			quiet?: boolean;
+		};
+
+		export type CssSyntaxError = {
 			column: number;
 			file?: string;
+			input: {
+				column: number;
+				file?: string;
+				line: number;
+				source: string;
+			};
 			line: number;
+			message: string;
+			name: string;
+			reason: string;
 			source: string;
 		};
-		line: number;
-		message: string;
-		name: string;
-		reason: string;
-		source: string;
-	};
 
-	export type StylelintWarning = {
-		line: number;
-		column: number;
-		rule: string;
-		severity: Severity;
-		text: string;
-		stylelintType?: string;
-	};
-
-	export type StylelintResult = {
-		source?: string;
-		deprecations: Array<{
+		export type Warning = {
+			line: number;
+			column: number;
+			rule: string;
+			severity: Severity;
 			text: string;
-			reference: string;
-		}>;
-		invalidOptionWarnings: Array<{
-			text: string;
-		}>;
-		parseErrors: Array<Warning & { stylelintType: string }>;
-		errored?: boolean;
-		warnings: Array<StylelintWarning>;
-		ignored?: boolean;
-		_postcssResult?: PostcssResult;
-	};
-
-	export type DisableReportRange = {
-		rule: string;
-		start: number;
-		end?: number;
-	};
-
-	export type RangeType = DisabledRange & { used?: boolean };
-
-	export type StylelintDisableReportEntry = {
-		source?: string;
-		ranges: Array<DisableReportRange>;
-	};
-
-	export type StylelintStandaloneReturnValue = {
-		results: Array<StylelintResult>;
-		errored: boolean;
-		output: any;
-		maxWarningsExceeded?: {
-			maxWarnings: number;
-			foundWarnings: number;
+			stylelintType?: string;
 		};
-		reportedDisables: StylelintDisableOptionsReport;
-		descriptionlessDisables?: StylelintDisableOptionsReport;
-		needlessDisables?: StylelintDisableOptionsReport;
-		invalidScopeDisables?: StylelintDisableOptionsReport;
-	};
 
-	export type StylelintPublicAPI = {
-		lint: Function;
-		rules: { [k: string]: StylelintRule };
-		formatters: { [k: string]: Formatter };
-		createPlugin: (
-			ruleName: string,
-			rule: StylelintRule,
-		) => { ruleName: string; rule: StylelintRule };
-		createLinter: Function;
-		utils: {
-			report: Function;
-			ruleMessages: Function;
-			validateOptions: Function;
-			checkAgainstRule: Function;
+		export type LintResult = {
+			source?: string;
+			deprecations: {
+				text: string;
+				reference: string;
+			}[];
+			invalidOptionWarnings: {
+				text: string;
+			}[];
+			parseErrors: (PostCSS.Warning & { stylelintType: string })[];
+			errored?: boolean;
+			warnings: Warning[];
+			ignored?: boolean;
+			/**
+			 * Internal use only. Do not use or rely on this property. It may
+			 * change at any time.
+			 * @internal
+			 */
+			_postcssResult?: PostcssResult;
 		};
-	};
 
-	export type StylelintDisableOptionsReport = Array<StylelintDisableReportEntry>;
+		export type DisableReportRange = {
+			rule: string;
+			start: number;
+			end?: number;
+		};
 
-	export type PostcssPluginOptions =
-		| Omit<StylelintStandaloneOptions, 'syntax' | 'customSyntax'>
-		| StylelintConfig;
+		export type RangeType = DisabledRange & { used?: boolean };
+
+		export type DisableReportEntry = {
+			source?: string;
+			ranges: DisableReportRange[];
+		};
+
+		export type LinterResult = {
+			results: LintResult[];
+			errored: boolean;
+			output: any;
+			maxWarningsExceeded?: {
+				maxWarnings: number;
+				foundWarnings: number;
+			};
+			reportedDisables: DisableOptionsReport;
+			descriptionlessDisables?: DisableOptionsReport;
+			needlessDisables?: DisableOptionsReport;
+			invalidScopeDisables?: DisableOptionsReport;
+		};
+
+		export type Violation = {
+			ruleName: string;
+			result: PostcssResult;
+			message: string;
+			node: PostCSS.Node;
+			index?: number;
+			word?: string;
+			line?: number;
+		};
+
+		export type PublicApi = PostCSS.PluginCreator<PostcssPluginOptions> & {
+			/**
+			 * Runs stylelint with the given options and returns a Promise that
+			 * resolves to the results.
+			 */
+			lint: (options: LinterOptions) => Promise<LinterResult>;
+			/**
+			 * Available rules.
+			 */
+			rules: { [k: string]: Rule };
+			/**
+			 * Result report formatters by name.
+			 */
+			formatters: { [k: string]: Formatter };
+			/**
+			 * Creates a Stylelint plugin.
+			 */
+			createPlugin: (ruleName: string, plugin: Plugin) => { ruleName: string; rule: Rule };
+			/**
+			 * Internal use only. Do not use or rely on this method. It may
+			 * change at any time.
+			 * @internal
+			 */
+			createLinter: (options: LinterOptions) => InternalApi;
+			utils: {
+				/**
+				 * Report a violation.
+				 *
+				 * This function accounts for `disabledRanges` attached to the result.
+				 * That is, if the reported violation is within a disabledRange,
+				 * it is ignored. Otherwise, it is attached to the result as a
+				 * postcss warning.
+				 *
+				 * It also accounts for the rule's severity.
+				 *
+				 * You *must* pass *either* a node or a line number.
+				 */
+				report: (violation: Violation) => void;
+				/**
+				 * Given an object of violation messages, return another
+				 * that provides the same messages postfixed with the rule
+				 * that has been violated.
+				 */
+				ruleMessages: <T extends RuleMessages, R extends { [K in keyof T]: T[K] }>(
+					ruleName: string,
+					messages: T,
+				) => R;
+				/**
+				 * Validate a rule's options.
+				 *
+				 * See existing rules for examples.
+				 */
+				validateOptions: (
+					result: PostcssResult,
+					ruleName: string,
+					...optionDescriptions: RuleOptions[]
+				) => boolean;
+				/**
+				 * Useful for third-party code (e.g. plugins) to run a PostCSS Root
+				 * against a specific rule and do something with the warnings
+				 */
+				checkAgainstRule: <T, O extends Object>(
+					options: { ruleName: string; ruleSettings: ConfigRuleSettings<T, O>; root: PostCSS.Root },
+					callback: (warning: PostCSS.Warning) => void,
+				) => void;
+			};
+		};
+
+		/**
+		 * Internal use only. Do not use or rely on this type. It may change at
+		 * any time.
+		 * @internal
+		 */
+		export type InternalApi = {
+			_options: LinterOptions;
+			_extendExplorer: ReturnType<typeof cosmiconfig>;
+			_specifiedConfigCache: Map<Config, Promise<CosmiconfigResult>>;
+			_postcssResultCache: Map<string, PostCSS.Result>;
+
+			_getPostcssResult: (options?: GetPostcssOptions) => Promise<PostCSS.Result>;
+			_lintSource: (options: GetLintSourceOptions) => Promise<PostcssResult>;
+			_createStylelintResult: (
+				postcssResult: PostcssResult,
+				filePath?: string,
+			) => Promise<LintResult>;
+
+			getConfigForFile: (searchPath?: string, filePath?: string) => Promise<CosmiconfigResult>;
+			isPathIgnored: (s?: string) => Promise<boolean>;
+		};
+
+		export type DisableOptionsReport = DisableReportEntry[];
+
+		export type PostcssPluginOptions = Omit<LinterOptions, 'syntax' | 'customSyntax'> | Config;
+	}
+
+	const stylelint: stylelint.PublicApi;
+
+	export = stylelint;
 }
