@@ -1,10 +1,10 @@
 # Getting started
 
-stylelint is geared towards linting CSS. However, you can extend it to lint other styling languages like SCSS.
+Stylelint is geared towards linting CSS. However, you can extend it to lint other styling languages like SCSS.
 
 ## Linting CSS
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install stylelint and its [`standard configuration`](https://github.com/stylelint/stylelint-config-standard):
+1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and its [`standard configuration`](https://github.com/stylelint/stylelint-config-standard):
 
 ```shell
 npm install --save-dev stylelint stylelint-config-standard
@@ -18,7 +18,7 @@ npm install --save-dev stylelint stylelint-config-standard
 }
 ```
 
-3\. Run stylelint on all the CSS files in your project:
+3\. Run Stylelint on all the CSS files in your project:
 
 ```shell
 npx stylelint "**/*.css"
@@ -26,14 +26,14 @@ npx stylelint "**/*.css"
 
 ## Linting other styling languages or libraries
 
-stylelint can be extended, using the [`customSyntax` option](usage/options.md#customSyntax), to:
+Stylelint can be extended, using the [`customSyntax` option](usage/options.md#customSyntax), to:
 
 - parse CSS-like syntaxes like SCSS, Sass, Less and SugarSS
 - extract embedded styles from HTML, Markdown and CSS-in-JS object & template literals
 
 For example, to lint SCSS:
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install stylelint and the postcss-scss syntax:
+1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and the postcss-scss syntax:
 
 ```console
 npm install --save-dev stylelint postcss-scss
@@ -48,7 +48,7 @@ npm install --save-dev stylelint postcss-scss
 }
 ```
 
-PostCSS syntaxes known to be compatible with stylelint include:
+PostCSS syntaxes known to be compatible with Stylelint include:
 
 - [postcss-scss](https://github.com/postcss/postcss-scss)
 - [postcss-less](https://github.com/shellscape/postcss-less)
@@ -87,7 +87,7 @@ If you lint more than one styling language, then you can use the [`overrides`](c
 
 Which will extend the [offical standard config](https://github.com/stylelint/stylelint-config-standard), then use the `overrides` property to change the custom-syntax and turn off the rules that check braces and semicolons for SugarSS files.
 
-You can then use stylelint to lint both SCSS and SugarSS files:
+You can then use Stylelint to lint both SCSS and SugarSS files:
 
 ```console
 npx stylelint "**/*.{scss,sss}"
@@ -97,11 +97,11 @@ More [configs](https://github.com/stylelint/awesome-stylelint#configs) are liste
 
 ## Customize
 
-Whether you're linting CSS or another styling language, you can further customize stylelint to your specific needs.
+Whether you're linting CSS or another styling language, you can further customize Stylelint to your specific needs.
 
 ### Your configuration
 
-To further customize your stylelint configuration, you can adapt your:
+To further customize your Stylelint configuration, you can adapt your:
 
 - [rules](configure.md#rules)
 - [plugins](configure.md#plugins)

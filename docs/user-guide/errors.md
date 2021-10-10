@@ -1,6 +1,6 @@
 # Errors & warnings
 
-In addition to rule violations, stylelint surfaces the following errors and warnings:
+In addition to rule violations, Stylelint surfaces the following errors and warnings:
 
 ## CSS syntax error
 

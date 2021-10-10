@@ -12,7 +12,7 @@ CLI flag: `--config`
 
 Path to a JSON, YAML, or JS file that contains your [configuration object](../configure.md).
 
-Use this option if you don't want stylelint to search for a configuration file.
+Use this option if you don't want Stylelint to search for a configuration file.
 
 The path should be either absolute or relative to the directory that your process is running from (`process.cwd()`).
 
@@ -28,7 +28,7 @@ CLI flag: `--fix`
 
 Automatically fix, where possible, violations reported by rules.
 
-For CSS with standard syntax, stylelint uses [postcss-safe-parser](https://github.com/postcss/postcss-safe-parser) to fix syntax errors.
+For CSS with standard syntax, Stylelint uses [postcss-safe-parser](https://github.com/postcss/postcss-safe-parser) to fix syntax errors.
 
 If a source contains a:
 
@@ -51,7 +51,7 @@ These styling languages can be embedded within other languages too. For example:
 - markdown fences
 - JavaScript template literals
 
-This option allows stylelint to transform these into something that resembles CSS, which is the language that:
+This option allows Stylelint to transform these into something that resembles CSS, which is the language that:
 
 - underpins all the other styling languages
 - is best understood by rules built into stylelint
@@ -60,7 +60,7 @@ This option should be a string that resolves to a JS module that exports a [Post
 
 Using the Node.js API, the `customSyntax` option can also accept a [Syntax object](https://github.com/postcss/postcss/blob/abfaa7122a0f480bc5be0905df3c24a6a51a82d9/lib/postcss.d.ts#L223-L232). Stylelint treats the `parse` property as a required value.
 
-Note that stylelint can provide no guarantee that core rules work with custom syntaxes.
+Note that Stylelint can provide no guarantee that core rules work with custom syntaxes.
 
 ## `formatter`
 
@@ -83,11 +83,11 @@ The `formatter` Node.js API option can also accept a function, whereas the `--cu
 
 CLI flag: `--cache`
 
-Store the results of processed files so that stylelint only operates on the changed ones. By default, the cache is stored in `./.stylelintcache` in `process.cwd()`.
+Store the results of processed files so that Stylelint only operates on the changed ones. By default, the cache is stored in `./.stylelintcache` in `process.cwd()`.
 
-Enabling this option can dramatically improve stylelint's speed because only changed files are linted.
+Enabling this option can dramatically improve Stylelint's speed because only changed files are linted.
 
-_If you run stylelint with `cache` and then run stylelint without `cache`, stylelint deletes the `.stylelintcache` because we have to assume that that second command invalidated `.stylelintcache`._
+_If you run Stylelint with `cache` and then run Stylelint without `cache`, Stylelint deletes the `.stylelintcache` because we have to assume that that second command invalidated `.stylelintcache`._
 
 ## `cacheLocation`
 
@@ -95,9 +95,9 @@ CLI flag: `--cache-location`
 
 Path to a file or directory for the cache location.
 
-If a directory is specified, stylelint creates a cache file inside the specified folder. The name of the file is based on the hash of `process.cwd()` (e.g. `.cache_hashOfCWD`) so that stylelint can reuse a single location for a variety of caches from different projects.
+If a directory is specified, Stylelint creates a cache file inside the specified folder. The name of the file is based on the hash of `process.cwd()` (e.g. `.cache_hashOfCWD`) so that Stylelint can reuse a single location for a variety of caches from different projects.
 
-_If the directory of `cacheLocation` does not exist, make sure you add a trailing `/` on \*nix systems or `\` on Windows. Otherwise, stylelint assumes the path to be a file._
+_If the directory of `cacheLocation` does not exist, make sure you add a trailing `/` on \*nix systems or `\` on Windows. Otherwise, Stylelint assumes the path to be a file._
 
 ## `maxWarnings`
 
@@ -116,13 +116,13 @@ If the number of warnings exceeds this value, the:
 
 CLI flags: `--disable-default-ignores, --di`
 
-Disable the default ignores. stylelint will not automatically ignore the contents of `node_modules`.
+Disable the default ignores. Stylelint will not automatically ignore the contents of `node_modules`.
 
 ## `ignorePath`
 
 CLI flags: `--ignore-path, -i`
 
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`.
+A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, Stylelint looks for `.stylelintignore` in `process.cwd()`.
 
 ## `ignoreDisables`
 

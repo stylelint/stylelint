@@ -1,6 +1,6 @@
 # Node.js API
 
-The stylelint module includes a `lint()` function that provides the Node.js API.
+The Stylelint module includes a `lint()` function that provides the Node.js API.
 
 ```js
 stylelint.lint(options).then(function (resultObject) {
@@ -16,7 +16,7 @@ In addition to the [standard options](options.md), the Node API accepts:
 
 A [configuration object](../configure.md).
 
-stylelint does not bother looking for a `.stylelintrc` file if you use this option.
+Stylelint does not bother looking for a `.stylelintrc` file if you use this option.
 
 ### `code`
 
@@ -56,7 +56,7 @@ An array containing all the accumulated [PostCSS LazyResults](https://api.postcs
 
 ### `results`
 
-An array containing all the stylelint result objects (the objects that formatters consume).
+An array containing all the Stylelint result objects (the objects that formatters consume).
 
 ### `maxWarningsExceeded`
 

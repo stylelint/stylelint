@@ -188,7 +188,7 @@ To allow single-line blocks but enforce newlines with multi-line blocks, use the
 
 These rules work together to control where empty lines are allowed.
 
-Each _thing_ is responsible for pushing itself away from the _preceding thing_, rather than pushing the _subsequent thing_ away. This consistency is to avoid conflicts and is why there aren't any `*-empty-line-after` rules in stylelint.
+Each _thing_ is responsible for pushing itself away from the _preceding thing_, rather than pushing the _subsequent thing_ away. This consistency is to avoid conflicts and is why there aren't any `*-empty-line-after` rules in Stylelint.
 
 Say you want to enforce the following:
 

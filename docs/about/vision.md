@@ -44,7 +44,7 @@ Provide multiple points of extensions, including:
 
 - [plugins](../developer-guide/plugins.md) - build community rules to support methodologies, toolsets, non-standard CSS features, or very specific use cases
 - [extendable configs](../user-guide/configure.md#extends) - extend and share configurations
-- [formatters](../developer-guide/formatters.md) - format stylelint result objects
+- [formatters](../developer-guide/formatters.md) - format Stylelint result objects
 - [custom syntax](../user-guide/usage/options.md#customSyntax) - use any PostCSS-compatible syntax module
 
 ## Robust

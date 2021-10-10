@@ -1,4 +1,4 @@
-# stylelint
+# Stylelint
 
 [![NPM version](https://img.shields.io/npm/v/stylelint.svg)](https://www.npmjs.org/package/stylelint) [![Build Status](https://github.com/stylelint/stylelint/workflows/CI/badge.svg)](https://github.com/stylelint/stylelint/actions) [![NPM Downloads](https://img.shields.io/npm/dm/stylelint.svg)](https://npmcharts.com/compare/stylelint?minimal=true)
 
@@ -67,7 +67,7 @@ And can be extended to:
 
 ## Contributors
 
-Without the contributions from [all these fantastic people](https://github.com/stylelint/stylelint/graphs/contributors), stylelint would not exist. [Become a contributor](CONTRIBUTING.md).
+Without the contributions from [all these fantastic people](https://github.com/stylelint/stylelint/graphs/contributors), Stylelint would not exist. [Become a contributor](CONTRIBUTING.md).
 
 ## Backers
 
