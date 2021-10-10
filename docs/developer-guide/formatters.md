@@ -1,4 +1,4 @@
-# Writing formatters
+# Writing custom formatters
 
 A formatter is a function with the following signature:
 

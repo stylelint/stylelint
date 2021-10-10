@@ -5,7 +5,7 @@ Thank you for wanting to contribute.
 To help out, you can:
 
 - get involved in any open [issue](https://github.com/stylelint/stylelint/issues) or [pull request](https://github.com/stylelint/stylelint/pulls)
-- improve our [support for non-standard syntaxes](docs/about/syntaxes.md)
+- maintain [community custom syntaxes](docs/developer-guide/syntaxes.md)
 - create, enhance and debug rules using [our guide](docs/developer-guide/rules.md)
 - improve the [documentation](docs/)
 - add [new tests](https://github.com/stylelint/stylelint/issues?q=is%3Aopen+is%3Aissue+label%3A%22type%3A+tests%22) to _absolutely anything_
