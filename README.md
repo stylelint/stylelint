@@ -71,16 +71,16 @@ Stylelint is maintained by volunteers. Without the code contributions from [all 
 
 ### Sponsors
 
-<object data="https://opencollective.com/stylelint/sponsors.svg?width=890" type="image/svg+xml">
-  <img src="https://opencollective.com/stylelint/sponsors.svg?width=890&button=false">
+<object data="https://opencollective.com/stylelint/sponsors.svg?width=840" type="image/svg+xml">
+  <img src="https://opencollective.com/stylelint/sponsors.svg?width=840&&avatarHeight=64&button=false">
 </object>
 
-Thank you to our sponsors. Support this project to show your logo (with a link to your website on our website). [Become a sponsor](https://opencollective.com/stylelint#sponsor).
+Thank you to all our sponsors! [Become a sponsor](https://opencollective.com/stylelint#sponsor).
 
 ### Backers
 
-<object data="https://opencollective.com/stylelint/backers.svg?width=890" type="image/svg+xml">
-  <img src="https://opencollective.com/stylelint/backers.svg?width=890&button=false">
+<object data="https://opencollective.com/stylelint/backers.svg?width=840" type="image/svg+xml">
+  <img src="https://opencollective.com/stylelint/backers.svg?width=840&avatarHeight=48&button=false">
 </object>
 
 Thank you to all our backers! [Become a backer](https://opencollective.com/stylelint#backer).
