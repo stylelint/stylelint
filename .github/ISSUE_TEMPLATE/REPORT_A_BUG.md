@@ -23,7 +23,7 @@ a {
 }
 ```
 
-> What stylelint configuration is needed to reproduce the bug?
+> What Stylelint configuration is needed to reproduce the bug?
 
 e.g.
 
@@ -35,7 +35,7 @@ e.g.
 }
 ```
 
-> Which version of stylelint are you using?
+> Which version of Stylelint are you using?
 
 e.g. `9.2.0`
 

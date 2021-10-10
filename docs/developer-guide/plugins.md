@@ -2,7 +2,7 @@
 
 Plugins are rules and sets of rules built by the community.
 
-We recommend your plugin adheres to [stylelint's conventions](rules.md) for:
+We recommend your plugin adheres to [Stylelint's conventions](rules.md) for:
 
 - names
 - options
@@ -151,7 +151,7 @@ testRule({
 });
 ```
 
-However, if your plugin involves more than just checking syntax you can use stylelint directly.
+However, if your plugin involves more than just checking syntax you can use Stylelint directly.
 
 For example:
 
@@ -202,17 +202,17 @@ Alternatively, if you don't want to use Jest you'll find more tools in [awesome 
 
 ## `stylelint.utils`
 
-stylelint exposes some useful utilities.
+Stylelint exposes some useful utilities.
 
 ### `stylelint.utils.report`
 
-Adds violations from your plugin to the list of violations that stylelint will report to the user.
+Adds violations from your plugin to the list of violations that Stylelint will report to the user.
 
 Use `stylelint.utils.report` to ensure your plugin respects disabled ranges and other possible future features of stylelint. _Do not use PostCSS's `node.warn()` method directly._
 
 ### `stylelint.utils.ruleMessages`
 
-Tailors your messages to the format of standard stylelint rules.
+Tailors your messages to the format of standard Stylelint rules.
 
 ### `stylelint.utils.validateOptions`
 
@@ -220,7 +220,7 @@ Validates the options for your rule.
 
 ### `stylelint.utils.checkAgainstRule`
 
-Checks CSS against a standard stylelint rule _within your own rule_. This function provides power and flexibility for plugins authors who wish to modify, constrain, or extend the functionality of existing stylelint rules.
+Checks CSS against a standard Stylelint rule _within your own rule_. This function provides power and flexibility for plugins authors who wish to modify, constrain, or extend the functionality of existing Stylelint rules.
 
 It accepts an options object and a callback that is invoked with warnings from the specified rule. The options are:
 
@@ -294,18 +294,18 @@ If your plugin can accept an array as its primary option, you must designate thi
 
 ## External helper modules
 
-In addition to the standard parsers mentioned in the ["Working on rules"](rules.md) doc, there are other external modules used within stylelint that we recommend using. These include:
+In addition to the standard parsers mentioned in the ["Working on rules"](rules.md) doc, there are other external modules used within Stylelint that we recommend using. These include:
 
 - [normalize-selector](https://github.com/getify/normalize-selector): normalize CSS selectors.
 - [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector): given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
 
-Have a look through [stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into an external module.
+Have a look through [Stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into an external module.
 
 ## Peer dependencies
 
-You should express, within the `peerDependencies` key (and **not** within the `dependencies` key) of your plugin's `package.json`, what version(s) of stylelint your plugin can be used with. This is to ensure that different versions of stylelint are not unexpectedly installed.
+You should express, within the `peerDependencies` key (and **not** within the `dependencies` key) of your plugin's `package.json`, what version(s) of Stylelint your plugin can be used with. This is to ensure that different versions of Stylelint are not unexpectedly installed.
 
-For example, to express that your plugin can be used with stylelint versions 7 and 8:
+For example, to express that your plugin can be used with Stylelint versions 7 and 8:
 
 ```json
 {

@@ -1,6 +1,6 @@
 # Command Line Interface (CLI)
 
-You can use stylelint on the command line. For example:
+You can use Stylelint on the command line. For example:
 
 ```shell
 npx stylelint "**/*.css"
@@ -22,7 +22,7 @@ Path to a file or directory for the cache location. [More info](options.md#cache
 
 ### `--cache`
 
-Store the results of processed files so that stylelint only operates on the changed ones. By default, the cache is stored in `./.stylelintcache` in `process.cwd()`. [More info](options.md#cache).
+Store the results of processed files so that Stylelint only operates on the changed ones. By default, the cache is stored in `./.stylelintcache` in `process.cwd()`. [More info](options.md#cache).
 
 ### `--color, --no-color`
 
@@ -42,7 +42,7 @@ Specify a custom syntax to use on your code. [More info](options.md#customSyntax
 
 ### `--disable-default-ignores, --di`
 
-Disable the default ignores. stylelint will not automatically ignore the contents of `node_modules`. [More info](options.md#disableDefaultIgnores).
+Disable the default ignores. Stylelint will not automatically ignore the contents of `node_modules`. [More info](options.md#disableDefaultIgnores).
 
 ### `--fix`
 
@@ -58,7 +58,7 @@ Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comme
 
 ### `--ignore-path, -i`
 
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, stylelint looks for `.stylelintignore` in `process.cwd()`. [More info](options.md#ignorePath).
+A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, Stylelint looks for `.stylelintignore` in `process.cwd()`. [More info](options.md#ignorePath).
 
 ### `--ignore-pattern, --ip`
 
@@ -70,11 +70,11 @@ Set a limit to the number of warnings accepted. [More info](options.md#maxWarnin
 
 ### `--output-file, -o`
 
-Path of file to write a report. stylelint outputs the report to the specified `filename` in addition to the standard output.
+Path of file to write a report. Stylelint outputs the report to the specified `filename` in addition to the standard output.
 
 ### `--print-config`
 
-Print the configuration for the given path. stylelint outputs the configuration used for the file passed.
+Print the configuration for the given path. Stylelint outputs the configuration used for the file passed.
 
 ### `--quiet, -q`
 
@@ -102,7 +102,7 @@ Accept stdin input even if it is empty.
 
 ### `--version, -v`
 
-Show the currently installed version of stylelint.
+Show the currently installed version of Stylelint.
 
 ## Usage examples
 

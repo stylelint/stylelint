@@ -1,15 +1,15 @@
 # Configuration
 
-stylelint _expects a configuration object_.
+Stylelint _expects a configuration object_.
 
-stylelint uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) to find and load your configuration object. Starting from the current working directory, it looks for the following possible sources:
+Stylelint uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) to find and load your configuration object. Starting from the current working directory, it looks for the following possible sources:
 
 - a `stylelint` property in `package.json`
 - a `.stylelintrc` file
 - a `stylelint.config.js` file exporting a JS object
-- a `stylelint.config.cjs` file exporting a JS object. When running stylelint in JavaScript packages that specify `"type":"module"` in their `package.json`
+- a `stylelint.config.cjs` file exporting a JS object. When running Stylelint in JavaScript packages that specify `"type":"module"` in their `package.json`
 
-The search stops when one of these is found, and stylelint uses that object. You can use the [`--config` or `configFile` option](usage/options.md#configfile) to short-circuit the search.
+The search stops when one of these is found, and Stylelint uses that object. You can use the [`--config` or `configFile` option](usage/options.md#configfile) to short-circuit the search.
 
 The `.stylelintrc` file (without extension) can be in JSON or YAML format. You can add a filename extension to help your text editor provide syntax checking and highlighting:
 
@@ -21,7 +21,7 @@ The configuration object has the following properties:
 
 ## `rules`
 
-Rules determine what the linter looks for and complains about. There are [over 170 rules](rules/list.md) built into stylelint.
+Rules determine what the linter looks for and complains about. There are [over 170 rules](rules/list.md) built into Stylelint.
 
 _No rules are turned on by default and there are no default values. You must explicitly configure each rule to turn it on._
 
@@ -296,7 +296,7 @@ Here is how overrides work in a configuration file:
 
 - The patterns are applied against the file path relative to the directory of the config file. For example, if your config file has the path `/Users/person/workspace/any-project/.stylelintrc.js` and the file you want to lint has the path `/Users/person/workspace/any-project/components/card.css`, then the pattern provided in `.stylelintrc.js` will be executed against the relative path `components/card.css`.
 - Glob pattern overrides have higher precedence than the regular configuration in the same config file. Multiple overrides within the same config are applied in order. That is, the last override block in a config file always has the highest precedence.
-- A glob specific configuration works almost the same as any other stylelint config. Override blocks can contain any configuration options that are valid in a regular config.
+- A glob specific configuration works almost the same as any other Stylelint config. Override blocks can contain any configuration options that are valid in a regular config.
 - Multiple glob patterns can be provided within a single override block. A file must match at least one of the supplied patterns for the configuration to apply.
 
 ## `defaultSeverity`
@@ -377,12 +377,12 @@ For example, you can ignore all JavaScript files:
 }
 ```
 
-stylelint ignores the `node_modules` directory by default. However, this is overridden if `ignoreFiles` is set.
+Stylelint ignores the `node_modules` directory by default. However, this is overridden if `ignoreFiles` is set.
 
 If the globs are absolute paths, they are used as is. If they are relative, they are analyzed relative to
 
 - `configBasedir`, if it's provided;
-- the config's filepath, if the config is a file that stylelint found a loaded;
+- the config's filepath, if the config is a file that Stylelint found a loaded;
 - or `process.cwd()`.
 
 The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
@@ -391,7 +391,7 @@ _Note that this is not an efficient method for ignoring lots of files._ If you w
 
 ## `processors`
 
-Processors are functions built by the community that hook into stylelint's pipeline, modifying code on its way into stylelint and modifying results on their way out.
+Processors are functions built by the community that hook into Stylelint's pipeline, modifying code on its way into Stylelint and modifying results on their way out.
 
 **We discourage their use in favor of using the [`customSyntax` option](#customSyntax) as processors are incompatible with the [autofix feature](usage/options.md#fix).**
 
