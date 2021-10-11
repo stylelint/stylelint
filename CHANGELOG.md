@@ -20,6 +20,7 @@ All notable changes to this project are documented in this file.
 - Added: `ignoreFunctions: []` to `length-zero-no-unit` ([#5314](https://github.com/stylelint/stylelint/pull/5314)).
 - Added: `ignoreAtRules: []` to `no-invalid-position-at-import` ([#5520](https://github.com/stylelint/stylelint/pull/5520)).
 - Added: `ignoreProperties: []` to `number-max-precision` ([#5421](https://github.com/stylelint/stylelint/pull/5421)).
+- Added: Typescript type definitions ([#5582](https://github.com/stylelint/stylelint/pull/5582)).
 - Fixed: "No files matching the pattern" when using backslash paths on Windows ([#5386](https://github.com/stylelint/stylelint/pull/5386)).
 - Fixed: `function-url-quotes` violation messages to be consistent with other `*-quotes` rules ([#5488](https://github.com/stylelint/stylelint/pull/5488)).
 - Fixed: `length-zero-no-unit` false positives for `flex` property ([#5315](https://github.com/stylelint/stylelint/pull/5315)).
