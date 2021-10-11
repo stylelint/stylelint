@@ -150,7 +150,7 @@ The following patterns are considered violations:
 ```css
 a {
   background: pink;
-  /* not a stylelint command */
+  /* not a Stylelint command */
   color: #eee;
 }
 ```

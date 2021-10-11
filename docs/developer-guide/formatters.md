@@ -1,4 +1,4 @@
-# Writing formatters
+# Writing custom formatters
 
 A formatter is a function with the following signature:
 
@@ -11,10 +11,10 @@ function formatter(results, returnValue) {
 }
 ```
 
-Where the first argument (`results`) is an array of stylelint result objects (type `Array<StylelintResult>`) in the form:
+Where the first argument (`results`) is an array of Stylelint result objects (type `Array<StylelintResult>`) in the form:
 
 ```js
-// A stylelint result object
+// A Stylelint result object
 {
   "source": "path/to/file.css", // The filepath or PostCSS identifier like <input css 1>
   "errored": true, // This is `true` if at least one rule with an "error"-level severity triggered a warning
@@ -51,7 +51,7 @@ And the second argument (`returnValue`) is an object (type `LinterResult`) with 
 {
   "errored": false, // `true` if there were any warnings with "error" severity
   "maxWarningsExceeded": {
-    // Present if stylelint was configured with a `maxWarnings` count
+    // Present if Stylelint was configured with a `maxWarnings` count
     "maxWarnings": 10,
     "foundWarnings": 15
   }
@@ -74,4 +74,4 @@ stylelint -f json "*.css" | my-program-that-reads-JSON --option
 
 ## `stylelint.formatters`
 
-stylelint's internal formatters are exposed publicly in `stylelint.formatters`.
+Stylelint's internal formatters are exposed publicly in `stylelint.formatters`.
