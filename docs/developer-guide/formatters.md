@@ -45,7 +45,7 @@ Where the first argument (`results`) is an array of Stylelint result objects (ty
 }
 ```
 
-And the second argument (`returnValue`) is an object (type `StylelintStandaloneReturnValue`) with one or more of the following keys:
+And the second argument (`returnValue`) is an object (type `LinterResult`) with one or more of the following keys:
 
 ```js
 {
