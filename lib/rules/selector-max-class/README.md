@@ -20,7 +20,7 @@ The `:not()` pseudo-class is also evaluated separately. The rule processes the a
 
 For example, with `2`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -34,7 +34,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

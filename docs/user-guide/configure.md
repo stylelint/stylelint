@@ -176,7 +176,7 @@ For example:
 }
 ```
 
-Reporters may use these severity levels to display violations or exit the process differently.
+Reporters may use these severity levels to display problems or exit the process differently.
 
 ## `extends`
 

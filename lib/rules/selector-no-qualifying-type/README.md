@@ -15,7 +15,7 @@ A type selector is "qualifying" when it is compounded with (chained to) another 
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -38,7 +38,7 @@ input[type='button'] {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -69,7 +69,7 @@ input {
 
 Allow attribute selectors qualified by type.
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -82,7 +82,7 @@ input[type='button'] {
 
 Allow class selectors qualified by type.
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -95,7 +95,7 @@ a.foo {
 
 Allow ID selectors qualified by type.
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

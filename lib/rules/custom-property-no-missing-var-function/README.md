@@ -16,7 +16,7 @@ This rule only reports custom properties that are defined within the same source
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -30,7 +30,7 @@ a { color: --foo; }
 a { color: --foo; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

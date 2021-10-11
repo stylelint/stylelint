@@ -274,7 +274,7 @@ declare module 'stylelint' {
 			invalidScopeDisables?: DisableOptionsReport;
 		};
 
-		export type Violation = {
+		export type Problem = {
 			ruleName: string;
 			result: PostcssResult;
 			message: string;
@@ -310,10 +310,10 @@ declare module 'stylelint' {
 			createLinter: (options: LinterOptions) => InternalApi;
 			utils: {
 				/**
-				 * Report a violation.
+				 * Report a problem.
 				 *
 				 * This function accounts for `disabledRanges` attached to the result.
-				 * That is, if the reported violation is within a disabledRange,
+				 * That is, if the reported problem is within a disabledRange,
 				 * it is ignored. Otherwise, it is attached to the result as a
 				 * postcss warning.
 				 *
@@ -321,9 +321,9 @@ declare module 'stylelint' {
 				 *
 				 * You *must* pass *either* a node or a line number.
 				 */
-				report: (violation: Violation) => void;
+				report: (problem: Problem) => void;
 				/**
-				 * Given an object of violation messages, return another
+				 * Given an object of problem messages, return another
 				 * that provides the same messages postfixed with the rule
 				 * that has been violated.
 				 */

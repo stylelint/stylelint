@@ -77,7 +77,7 @@ There is one caveat here: If your rule accepts a primary option array, it cannot
 
 ### Add autofix
 
-Depending on the rule, it might be possible to automatically fix the rule's violations by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](http://api.postcss.org/).
+Depending on the rule, it might be possible to automatically fix the rule's problems by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](http://api.postcss.org/).
 
 Add `context` variable to rule parameters:
 
@@ -109,8 +109,8 @@ report(/* .. */);
 
 Each rule must have tests that cover all patterns that:
 
-- are considered violations
-- should _not_ be considered violations
+- are considered problems
+- should _not_ be considered problems
 
 Write as many as you can stand to.
 

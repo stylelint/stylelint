@@ -53,7 +53,7 @@ This rule integrates into Stylelint's core the functionality of the (now depreca
 
 For example, with `2`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -77,7 +77,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -109,7 +109,7 @@ Ignore at-rules that only wrap other rules, and do not themselves have declarati
 
 For example, with `1`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 As the at-rules have a declarations blocks.
 
@@ -131,7 +131,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 As all of the following `.foo` rules would have a nesting depth of just 1.
 
@@ -166,7 +166,7 @@ Ignore rules where the first selector in each selector list item is a pseudo-cla
 
 For example, with `1`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -214,7 +214,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 As all of the following pseudoclasses rules would have a nesting depth of just 1.
 
@@ -288,7 +288,7 @@ For example, with `1` and given:
 ["/^--my-/", "media"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -334,7 +334,7 @@ a {
 }
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css

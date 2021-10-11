@@ -184,8 +184,8 @@ Each rule is accompanied by a README in the following format:
 3. Prototypical code example.
 4. Expanded description (if necessary).
 5. Options.
-6. Example patterns that are considered violations (for each option value).
-7. Example patterns that are _not_ considered violations (for each option value).
+6. Example patterns that are considered problems (for each option value).
+7. Example patterns that are _not_ considered problems (for each option value).
 8. Optional options (if applicable).
 
 The single-line description is in the form of:
@@ -195,9 +195,9 @@ The single-line description is in the form of:
 - "Require ..." for rules that accept `"always"` and `"never"` options
 - "Specify ..." for everything else
 
-## Violation messages
+## Problem messages
 
-Each rule produces violation messages in these forms:
+Each rule produces problem messages in these forms:
 
 - "Expected \[something\] \[in some context\]"
 - "Unexpected \[something\] \[in some context\]"

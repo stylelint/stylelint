@@ -23,7 +23,7 @@ Given:
 ["hover", "/^nth-/"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -35,7 +35,7 @@ a:focus {}
 a:first-of-type {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

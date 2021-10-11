@@ -26,13 +26,13 @@ Absolute path to the directory that relative paths defining "extends" and "plugi
 
 CLI flag: `--fix`
 
-Automatically fix, where possible, violations reported by rules.
+Automatically fix, where possible, problems reported by rules.
 
 For CSS with standard syntax, Stylelint uses [postcss-safe-parser](https://github.com/postcss/postcss-safe-parser) to fix syntax errors.
 
 If a source contains a:
 
-- scoped disable comment, e.g. `/* stylelint-disable indentation */`, any violations reported by the scoped rules will not be automatically fixed anywhere in the source
+- scoped disable comment, e.g. `/* stylelint-disable indentation */`, any problems reported by the scoped rules will not be automatically fixed anywhere in the source
 - unscoped disable comment, i.e. `/* stylelint-disable */`, the entirety of source will not be automatically fixed
 
 This limitation in being tracked in [issue #2643](https://github.com/stylelint/stylelint/issues/2643).
@@ -156,13 +156,13 @@ But, the following patterns (`stylelint-disable -- <description>`) are _not_ rep
 
 <!-- prettier-ignore -->
 ```css
-/* stylelint-disable -- This violation is ignorable. */
+/* stylelint-disable -- This problem is ignorable. */
 a {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-/* stylelint-disable-next-line block-no-empty -- This violation is ignorable. */
+/* stylelint-disable-next-line block-no-empty -- This problem is ignorable. */
 a {}
 ```
 
@@ -190,4 +190,4 @@ If using `code` or `stdin` to pass a source string directly, you can use `codeFi
 
 CLI flag: `--quiet`
 
-Only register violations for rules with an "error"-level severity (ignore "warning"-level).
+Only register problems for rules with an "error"-level severity (ignore "warning"-level).

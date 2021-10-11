@@ -11,7 +11,7 @@ It's mighty as it:
 - understands **modern** CSS syntax and features
 - has over **170 built-in rules** to catch errors and enforce conventions
 - supports **plugins** so you can create your own rules
-- automatically **fixes** the majority of stylistic violations
+- automatically **fixes** the majority of stylistic problems
 - is **well tested** with over 15000 unit tests
 - supports **shareable configs** that you can extend or create
 - is **unopinionated** so that you can customize it to your exact needs

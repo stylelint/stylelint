@@ -44,11 +44,11 @@ For more detail usage, see [Globby Guide](https://github.com/sindresorhus/globby
 
 ### `errored`
 
-Boolean. If `true`, at least one rule with an "error"-level severity registered a violation.
+Boolean. If `true`, at least one rule with an "error"-level severity registered a problem.
 
 ### `output`
 
-A string displaying the formatted violations (using the default formatter or whichever you passed).
+A string displaying the formatted problems (using the default formatter or whichever you passed).
 
 ### `postcssResults`
 

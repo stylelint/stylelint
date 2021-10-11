@@ -20,13 +20,13 @@ The same selector _is_ allowed to repeat in the following circumstances:
 - The duplicates are determined to originate in different stylesheets, e.g. you have concatenated or compiled files in a way that produces sourcemaps for PostCSS to read, e.g. postcss-import.
 - The duplicates are in rules with different parent nodes, e.g. inside and outside of a media query.
 
-This rule resolves nested selectors. So `a b {} a { & b {} }` counts as a violation, because the resolved selectors end up with a duplicate.
+This rule resolves nested selectors. So `a b {} a { & b {} }` counts as a problem, because the resolved selectors end up with a duplicate.
 
 ## Options
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -79,7 +79,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -121,7 +121,7 @@ This option will also disallow duplicate selectors within selector lists.
 
 For example, with `true`.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css

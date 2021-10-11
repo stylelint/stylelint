@@ -15,7 +15,7 @@ a { color: #fffa }
 
 ### `"always"`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -27,7 +27,7 @@ a { color: #fff; }
 a { color: #ffffff; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -41,7 +41,7 @@ a { color: #ffffffaa; }
 
 ### `"never"`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -53,7 +53,7 @@ a { color: #fffa; }
 a { color: #ffffffaa; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

@@ -46,7 +46,7 @@ Disable the default ignores. Stylelint will not automatically ignore the content
 
 ### `--fix`
 
-Automatically fix, where possible, violations reported by rules. [More info](options.md#fix).
+Automatically fix, where possible, problems reported by rules. [More info](options.md#fix).
 
 ### `--formatter, -f` | `--custom-formatter`
 
@@ -78,7 +78,7 @@ Print the configuration for the given path. Stylelint outputs the configuration 
 
 ### `--quiet, -q`
 
-Only register violations for rules with an "error"-level severity (ignore "warning"-level). [More info](options.md#quiet).
+Only register problems for rules with an "error"-level severity (ignore "warning"-level). [More info](options.md#quiet).
 
 ### `--report-descriptionless-disables, --rdd`
 
@@ -187,5 +187,5 @@ stylelint -f verbose "foo/**/*.css"
 The CLI can exit the process with the following exit codes:
 
 - `1` - something unknown went wrong
-- `2` - there was at least one rule violation or CLI flag error
+- `2` - there was at least one rule problem or CLI flag error
 - `78` - there was some problem with the configuration file

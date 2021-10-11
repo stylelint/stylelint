@@ -122,4 +122,4 @@ You don't have to use the [Command Line Interface](usage/cli.md); you can also u
 - [Node API](usage/node-api.md)
 - [PostCSS plugin](usage/postcss-plugin.md)
 
-There are also integrations for [editors](integrations/editor.md), [task-runners](integrations/task-runner.md) and [others](integrations/other.md) too. Our [offical extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) is a popular choice that lets you see violations inline in your editor.
+There are also integrations for [editors](integrations/editor.md), [task-runners](integrations/task-runner.md) and [others](integrations/other.md) too. Our [offical extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) is a popular choice that lets you see problems inline in your editor.

@@ -28,7 +28,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 There _must always_ be an empty line before comments.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -36,7 +36,7 @@ a {}
 /* comment */
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -54,7 +54,7 @@ a {} /* comment */
 
 There _must never_ be an empty line before comments.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -63,7 +63,7 @@ a {}
 /* comment */
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -84,7 +84,7 @@ Reverse the primary option for comments that are nested and the first child of t
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -95,7 +95,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -113,7 +113,7 @@ Ignore comments that follow another comment.
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -144,7 +144,7 @@ Ignore comments that deliver commands to stylelint, e.g. `/* stylelint-disable c
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -155,7 +155,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -176,7 +176,7 @@ For example, with `"always"` and given:
 ["/^ignore/", "string-ignore"]
 ```
 
-The following comments are _not_ considered violations:
+The following comments are _not_ considered problems:
 
 ```css
 :root {

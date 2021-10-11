@@ -19,7 +19,7 @@ Where the first argument (`results`) is an array of Stylelint result objects (ty
   "source": "path/to/file.css", // The filepath or PostCSS identifier like <input css 1>
   "errored": true, // This is `true` if at least one rule with an "error"-level severity triggered a warning
   "warnings": [
-    // Array of rule violation warning objects, each like the following ...
+    // Array of rule problem warning objects, each like the following ...
     {
       "line": 3,
       "column": 12,

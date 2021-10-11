@@ -54,7 +54,7 @@ It may be possible to restructure your CSS to remove the error, otherwise it is 
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -90,7 +90,7 @@ b {}
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -146,7 +146,7 @@ a {}
 
 Ignores selectors within list of selectors.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -157,7 +157,7 @@ h3 {}
 a {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
