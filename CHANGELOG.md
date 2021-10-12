@@ -27,6 +27,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `function-url-quotes` violation messages to be consistent with other `*-quotes` rules ([#5488](https://github.com/stylelint/stylelint/pull/5488)).
 - Fixed: `length-zero-no-unit` false positives for `flex` property ([#5315](https://github.com/stylelint/stylelint/pull/5315)).
 - Fixed: `media-feature-name-no-unknown` false positives for `prefers-contrast` ([#5428](https://github.com/stylelint/stylelint/pull/5428)).
+- Fixed: `media-feature-name-value-allowed-list` TypeError for spaceless condition ([#5581](https://github.com/stylelint/stylelint/pull/5581)).
 - Fixed: `property-no-unknown` false positives for Less maps ([#5381](https://github.com/stylelint/stylelint/pull/5381)).
 - Fixed: `selector-class-pattern` false positives for Less parametric mixins ([#5378](https://github.com/stylelint/stylelint/pull/5378)).
 - Fixed: `max-empty-lines` autofix for Less comments ([#5507](https://github.com/stylelint/stylelint/pull/5507)).
