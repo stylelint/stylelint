@@ -12,10 +12,10 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 Linebreaks _must always_ be LF (`\n`).
 
-Lines with CRLF linebreaks are considered violations.
+Lines with CRLF linebreaks are considered problems.
 
 ### `"windows"`
 
 Linebreaks _must always_ be CRLF (`\r\n`).
 
-Lines with LF linebreaks are considered violations.
+Lines with LF linebreaks are considered problems.

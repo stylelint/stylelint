@@ -21,7 +21,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 For example, with `0`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -61,7 +61,7 @@ b {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

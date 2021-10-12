@@ -24,7 +24,7 @@ Given:
 }
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -46,7 +46,7 @@ a { -webkit-animation: animation-name 5s ease; }
 a { animation-duration: 5s; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

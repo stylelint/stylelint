@@ -16,7 +16,7 @@ Any `@import` rules must precede all other valid at-rules and style rules in a s
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -30,7 +30,7 @@ a {}
 @import 'foo.css';
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -60,7 +60,7 @@ Given:
 ["/^--my-/", "--custom"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

@@ -23,7 +23,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 Applicable pseudo-elements _must always_ use the single colon notation.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -45,7 +45,7 @@ a::first-letter { color: pink; }
 a::first-line { color: pink; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -81,7 +81,7 @@ li::marker { font-variant-numeric: tabular-nums; }
 
 Applicable pseudo-elements _must always_ use the double colon notation.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -103,7 +103,7 @@ a:first-letter { color: pink; }
 a:first-line { color: pink; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

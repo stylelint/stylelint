@@ -17,7 +17,7 @@ If you are using a preprocessor that allows `//` single-line comments (e.g. Sass
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -39,7 +39,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

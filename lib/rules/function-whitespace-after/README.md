@@ -21,14 +21,14 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 There _must always_ be whitespace after the function.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1)scale(3); }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -65,14 +65,14 @@ a { padding: calc(1 * 2px), calc(2 * 5px); }
 
 There _must never_ be whitespace after the function.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 a { transform: translate(1, 1) scale(3); }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

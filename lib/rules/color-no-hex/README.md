@@ -13,7 +13,7 @@ a { color: #333 }
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -30,7 +30,7 @@ a { color: #fff1aa; }
 a { color: #123456aa; }
 ```
 
-Hex values that are not valid also cause violations:
+Hex values that are not valid also cause problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -42,7 +42,7 @@ a { color: #foobar; }
 a { color: #0000000000000000; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

@@ -20,7 +20,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 There _must always_ be a newline after the commas.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -33,7 +33,7 @@ a { background-size: 0
       , 0; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -45,7 +45,7 @@ a { background-size: 0,
 
 There _must always_ be a newline after the commas in multi-line value lists.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -53,7 +53,7 @@ a { background-size: 0
     , 0; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -75,7 +75,7 @@ a { background-size: 0,
 
 There _must never_ be whitespace after the commas in multi-line value lists.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -83,7 +83,7 @@ a { background-size: 0
       , 0; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

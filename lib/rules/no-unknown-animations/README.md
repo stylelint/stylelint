@@ -19,7 +19,7 @@ This rule considers the identifiers of `@keyframes` rules defined within the sam
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -49,7 +49,7 @@ a { animation-name: jump; }
 @keyframes fancy-slide {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

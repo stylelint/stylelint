@@ -39,7 +39,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 There _must always_ be a newline after the semicolon.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -55,7 +55,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -77,7 +77,7 @@ a {
 
 There _must always_ be a newline after the semicolon in multi-line rules.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -86,7 +86,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -110,7 +110,7 @@ a {
 
 There _must never_ be whitespace after the semicolon in multi-line rules.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -120,7 +120,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

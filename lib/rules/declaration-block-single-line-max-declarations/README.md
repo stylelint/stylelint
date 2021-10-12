@@ -15,7 +15,7 @@ a { color: pink; top: 0; }
 
 For example, with `1`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -28,7 +28,7 @@ a,
 b { color: pink; top: 3px; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

@@ -19,7 +19,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 There _must always_ be a single space after the range operator.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -31,7 +31,7 @@ The following patterns are considered violations:
 @media (width >=600px) {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -47,7 +47,7 @@ The following patterns are _not_ considered violations:
 
 There _must never_ be whitespace after the range operator.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -59,7 +59,7 @@ The following patterns are considered violations:
 @media (width >= 600px) {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

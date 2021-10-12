@@ -22,7 +22,7 @@ And all named grid areas that spans multiple grid cells must form a single fille
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -41,7 +41,7 @@ a { grid-template-areas: "a a a"
                          "b b a"; }
 ```
 
-The following pattern is _not_ considered a violation:
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css

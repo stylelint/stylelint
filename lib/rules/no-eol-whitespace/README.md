@@ -15,7 +15,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -27,7 +27,7 @@ a { color: pink; }·
 a { color: pink; }····
 ```
 
-Comment strings are also checked -- so the following is a violation:
+Comment strings are also checked -- so the following is a problem:
 
 <!-- prettier-ignore -->
 ```css
@@ -35,7 +35,7 @@ Comment strings are also checked -- so the following is a violation:
  * something else */
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -56,7 +56,7 @@ a { color: pink; }
 
 Allow end-of-line whitespace for lines that are only whitespace, "empty" lines.
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

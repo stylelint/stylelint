@@ -19,7 +19,7 @@ Given:
 ["px", "em", "deg"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -36,7 +36,7 @@ a { font-size: 10rem; }
 a { animation: animation-name 5s ease; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -80,7 +80,7 @@ Given:
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -97,7 +97,7 @@ a { border-bottom-width: 6rem; }
 a { width: 100%; }
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css

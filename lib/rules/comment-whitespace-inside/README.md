@@ -23,7 +23,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 There _must always_ be whitespace inside the markers.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -40,7 +40,7 @@ The following patterns are considered violations:
 /** comment**/
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -69,7 +69,7 @@ The following patterns are _not_ considered violations:
 
 There _must never_ be whitespace on the inside the markers.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -86,7 +86,7 @@ The following patterns are considered violations:
 /** comment**/
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

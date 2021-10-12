@@ -21,7 +21,7 @@ Colors _must always_, where possible, be named.
 
 This will complain if a hex (3, 4, 6 and 8 digit), `rgb()`, `rgba()`, `hsl()`, `hsla()`, `hwb()` or `gray()` color can be represented as a named color.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -68,7 +68,7 @@ a { color: hwb(0, 0%, 100%); }
 a { color: gray(0); }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -89,7 +89,7 @@ a { color: rgb(0, 0, 0, 0.5); }
 
 Colors _must never_ be named.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -101,7 +101,7 @@ a { color: black; }
 a { color: white; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -126,7 +126,7 @@ Ignore colors that are inside a function.
 
 For example, with `"never"`.
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -152,7 +152,7 @@ Given:
 ["/^my-/", "composes"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

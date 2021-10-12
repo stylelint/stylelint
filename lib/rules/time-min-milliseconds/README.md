@@ -17,7 +17,7 @@ This rule checks positive numbers in `transition-duration`, `transition-delay`, 
 
 For example, with `100`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -39,7 +39,7 @@ a { transition: background-color 6ms linear; }
 a { animation-delay: 0.01s; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -69,7 +69,7 @@ Ignore time values for an animation or transition delay.
 
 For example, with a minimum of `200` milliseconds.
 
-The following is _not_ considered a violation:
+The following is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css

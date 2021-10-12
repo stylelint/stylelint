@@ -206,7 +206,7 @@ Stylelint exposes some useful utilities.
 
 ### `stylelint.utils.report`
 
-Adds violations from your plugin to the list of violations that Stylelint will report to the user.
+Adds problems from your plugin to the list of problems that Stylelint will report to the user.
 
 Use `stylelint.utils.report` to ensure your plugin respects disabled ranges and other possible future features of stylelint. _Do not use PostCSS's `node.warn()` method directly._
 

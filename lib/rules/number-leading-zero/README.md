@@ -21,7 +21,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 There _must always_ be a leading zero.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -33,7 +33,7 @@ a { line-height: .5; }
 a { transform: translate(2px, .4px); }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -49,7 +49,7 @@ a { transform: translate(2px, 0.4px); }
 
 There _must never_ be a leading zero.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -61,7 +61,7 @@ a { line-height: 0.5; }
 a { transform: translate(2px, 0.4px); }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
