@@ -7,7 +7,7 @@ declare module 'postcss-media-query-parser' {
 		after: string;
 		before: string;
 		sourceIndex: number;
-		nodes: Child[];
+		nodes?: Child[];
 		walk: Walker;
 	};
 
