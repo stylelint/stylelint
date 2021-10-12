@@ -75,7 +75,7 @@ Stylelint is maintained by volunteers. Without the code contributions from [all 
   <img src="https://opencollective.com/stylelint/sponsors.svg?width=840&button=false" />
 </object>
 
-Thank you to all our sponsors! [Become a sponsor](https://opencollective.com/stylelint#sponsor).
+Thank you to all our sponsors! [Become a sponsor](https://opencollective.com/stylelint).
 
 ### Backers
 
@@ -83,7 +83,7 @@ Thank you to all our sponsors! [Become a sponsor](https://opencollective.com/sty
   <img src="https://opencollective.com/stylelint/backers.svg?width=840&avatarHeight=48&button=false" />
 </object>
 
-Thank you to all our backers! [Become a backer](https://opencollective.com/stylelint#backer).
+Thank you to all our backers! [Become a backer](https://opencollective.com/stylelint).
 
 ### Website hosting
 
