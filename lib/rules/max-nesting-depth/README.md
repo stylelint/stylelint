@@ -367,7 +367,7 @@ For example, with `1` and given:
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
-```scss
+```css
 .a {
   &:hover {   /* ignored */
     .b {      /* 1 */
@@ -378,7 +378,7 @@ The following patterns are _not_ considered problems:
 ```
 
 <!-- prettier-ignore -->
-```scss
+```css
 .a {
   &:hover, &:active { /* ignored */
     .b {              /* 1 */
@@ -391,7 +391,7 @@ The following patterns are _not_ considered problems:
 The following patterns are considered problems:
 
 <!-- prettier-ignore -->
-```scss
+```css
 .a {
   &:visited { /* 1 */
     .b {      /* 2 */
@@ -402,7 +402,7 @@ The following patterns are considered problems:
 ```
 
 <!-- prettier-ignore -->
-```scss
+```css
 .a {
   &:hover, &:visited { /* 1 */
     .b {               /* 2 */
