@@ -67,21 +67,25 @@ And can be extended to:
 
 ## Contributors
 
-Without the contributions from [all these fantastic people](https://github.com/stylelint/stylelint/graphs/contributors), Stylelint would not exist. [Become a contributor](CONTRIBUTING.md).
+Stylelint is maintained by volunteers. Without the code contributions from [all these fantastic people](https://github.com/stylelint/stylelint/graphs/contributors), Stylelint would not exist. [Become a contributor](CONTRIBUTING.md).
 
-## Backers
+### Sponsors
 
-<a href="https://opencollective.com/stylelint#backers" target="_blank"><img src="https://opencollective.com/stylelint/backers.svg?width=890" /></a>
+<object data="https://opencollective.com/stylelint/sponsors.svg?width=420&button=false" type="image/svg+xml">
+  <img src="https://opencollective.com/stylelint/sponsors.svg?width=840&button=false" />
+</object>
 
-Thank you to all our backers! [Become a backer](https://opencollective.com/stylelint#backer).
+Thank you to all our sponsors! [Become a sponsor](https://opencollective.com/stylelint).
 
-## Sponsors
+### Backers
 
-<a href="https://opencollective.com/stylelint/sponsor/0/website" target="_blank"><img src="https://opencollective.com/stylelint/sponsor/0/avatar.svg" /></a>
+<object data="https://opencollective.com/stylelint/backers.svg?width=420&avatarHeight=48&button=false" type="image/svg+xml">
+  <img src="https://opencollective.com/stylelint/backers.svg?width=840&avatarHeight=48&button=false" />
+</object>
 
-Support this project to show your logo here with a link to your website. [Become a sponsor](https://opencollective.com/stylelint#sponsor).
+Thank you to all our backers! [Become a backer](https://opencollective.com/stylelint).
 
-## Website hosting
+### Website hosting
 
 <a href="https://www.netlify.com"><img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" /></a>
 
