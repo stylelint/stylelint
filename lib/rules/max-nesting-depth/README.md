@@ -353,3 +353,61 @@ a {
   }
 }
 ```
+
+### `ignorePseudoClasses: ["string"]`
+
+Ignore the specified pseudo classes.
+
+For example, with `1` and given:
+
+```json
+["hover", "active"]
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```scss
+.a {
+  &:hover {   /* ignored */
+    .b {      /* 1 */
+      top: 0;
+    }
+  }
+}
+```
+
+<!-- prettier-ignore -->
+```scss
+.a {
+  &:hover, &:active { /* ignored */
+    .b {              /* 1 */
+      top: 0;
+    }
+  }
+}
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```scss
+.a {
+  &:visited { /* 1 */
+    .b {      /* 2 */
+      top: 0;
+    }
+  }
+}
+```
+
+<!-- prettier-ignore -->
+```scss
+.a {
+  &:hover, &:visited { /* 1 */
+    .b {               /* 2 */
+      top: 0;
+    }
+  }
+}
+```
