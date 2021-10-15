@@ -20,7 +20,7 @@ This rule checks the `font` and `font-family` properties.
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -32,7 +32,7 @@ a { font-family: Helvetica, Arial, Verdana, Tahoma; }
 a { font: 1em/1.3 Times; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -74,14 +74,14 @@ Given:
 ["custom-font"]
 ```
 
-The following pattern is _not_ considered a violation:
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css
 a { font-family: custom-font; }
 ```
 
-The following pattern is considered a violation:
+The following pattern is considered a problem:
 
 <!-- prettier-ignore -->
 ```css

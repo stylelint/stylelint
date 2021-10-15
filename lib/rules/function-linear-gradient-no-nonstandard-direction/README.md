@@ -21,7 +21,7 @@ A common mistake (matching outdated non-standard syntax) is to use just a side-o
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -48,7 +48,7 @@ The following patterns are considered violations:
 .foo { background: linear-gradient(to top top, #fff, #000); }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

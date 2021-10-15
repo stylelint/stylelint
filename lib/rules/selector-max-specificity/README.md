@@ -23,7 +23,7 @@ Format is `"id,class,type"`, as laid out in the [W3C selector spec](https://draf
 
 For example, with `"0,2,0"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -52,7 +52,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -103,7 +103,7 @@ Given:
 ]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -120,7 +120,7 @@ The following patterns are _not_ considered violations:
 :local(.foo, :global(.bar).baz)
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css

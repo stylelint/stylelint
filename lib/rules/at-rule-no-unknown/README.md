@@ -15,14 +15,14 @@ This rule considers at-rules defined in the CSS Specifications, up to and includ
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 @unknown {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -53,22 +53,22 @@ The following patterns are _not_ considered violations:
 Given:
 
 ```json
-["/^my-/", "custom"]
+["/^--my-/", "--custom"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@my-at-rule "x.css";
-```
-
-<!-- prettier-ignore -->
-```css
-@my-other-at-rule {}
+@--my-at-rule "x.css";
 ```
 
 <!-- prettier-ignore -->
 ```css
-@custom {}
+@--my-other-at-rule {}
+```
+
+<!-- prettier-ignore -->
+```css
+@--custom {}
 ```

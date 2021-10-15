@@ -15,7 +15,7 @@ This rule is case-sensitive.
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -27,7 +27,7 @@ a { --custom-property: pink; --custom-property: orange; }
 a { --custom-property: pink; background: orange; --custom-property: orange }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

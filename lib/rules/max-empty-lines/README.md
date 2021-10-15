@@ -20,7 +20,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 For example, with `2`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -31,7 +31,7 @@ a {}
 b {}
 ```
 
-Comment strings are also checked -- so the following is a violation:
+Comment strings are also checked -- so the following is a problem:
 
 <!-- prettier-ignore -->
 ```css
@@ -44,7 +44,7 @@ Comment strings are also checked -- so the following is a violation:
  */
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -75,7 +75,7 @@ Only enforce the adjacent empty lines limit for lines that are not comments.
 
 For example, with `2` adjacent empty lines:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -87,7 +87,7 @@ a {}
 b {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

@@ -15,7 +15,7 @@ Longhand hex colors can be either 6 or 8 (with alpha channel) hexadecimal charac
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -32,7 +32,7 @@ a { color: #fff1az; }
 a { color: #12345aa; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

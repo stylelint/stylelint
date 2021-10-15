@@ -19,7 +19,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 Attribute values _must always_ be quoted.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -31,7 +31,7 @@ The following patterns are considered violations:
 [class^=top] {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -62,7 +62,7 @@ The following patterns are _not_ considered violations:
 
 Attribute values _must never_ be quoted.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -84,7 +84,7 @@ The following patterns are considered violations:
 [data-attribute='component'] {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

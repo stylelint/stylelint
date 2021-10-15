@@ -23,7 +23,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 Applicable color-functions _must always_ use modern notation.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -45,7 +45,7 @@ a { color: hsla(270, 60%, 50%, 15%) }
 a { color: hsl(.75turn, 60%, 70%) }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -71,7 +71,7 @@ a { color: hsl(.75turn 60% 70%) }
 
 Applicable color-functions _must always_ use the legacy notation.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -93,7 +93,7 @@ a { color: hsl(270 60% 50% / 15%) }
 a { color: hsl(.75turn 60% 70%) }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
