@@ -31,7 +31,7 @@ The following patterns are considered violations:
 
 <!-- prettier-ignore -->
 ```css
-a { background-color: red; }
+a { color: red; }
 ```
 
 <!-- prettier-ignore -->
