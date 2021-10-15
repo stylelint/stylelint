@@ -57,5 +57,5 @@ a { padding-top: 0px; }
 
 <!-- prettier-ignore -->
 ```css
-html[data-test] { background-color: red; }
+html[data-foo] { color: red; }
 ```
