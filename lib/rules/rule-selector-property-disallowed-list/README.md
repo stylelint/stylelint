@@ -47,7 +47,7 @@ The following patterns are _not_ considered violations:
 
 <!-- prettier-ignore -->
 ```css
-a { background: red; color: red; }
+a { background: red; }
 ```
 
 <!-- prettier-ignore -->
