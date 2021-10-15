@@ -4,8 +4,8 @@ Specify a list of disallowed properties for selectors within rules.
 
 <!-- prettier-ignore -->
 ```css
-    html.custom { background-color: red; }
-/** ↑             ↑
+    a { color: red; }
+/** ↑          ↑
  * Selector and property name */
 ```
 
