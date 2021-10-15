@@ -52,7 +52,7 @@ a { background: red; }
 
 <!-- prettier-ignore -->
 ```css
-a[href="#"] { background-color: red; }
+a { padding-top: 0px; }
 ```
 
 <!-- prettier-ignore -->
