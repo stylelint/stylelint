@@ -35,7 +35,7 @@ a { color: red; }
 
 <!-- prettier-ignore -->
 ```css
-html { background-color: red; }
+a { margin-top: 0px; }
 ```
 
 <!-- prettier-ignore -->
