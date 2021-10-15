@@ -21,9 +21,8 @@ Given:
 
 ```json
 {
-  "a": ["background-color"],
-  "html": ["/color/"],
-  "/test/": ["/size/"]
+  "a": ["color", "/margin/"],
+  "/foo/": ["/size/"]
 }
 ```
 
