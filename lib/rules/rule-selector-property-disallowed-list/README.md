@@ -40,7 +40,7 @@ a { margin-top: 0px; }
 
 <!-- prettier-ignore -->
 ```css
-html[data-test] { font-size: 1px; }
+html[data-foo] { font-size: 1px; }
 ```
 
 The following patterns are _not_ considered violations:
