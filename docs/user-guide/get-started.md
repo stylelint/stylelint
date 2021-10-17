@@ -1,10 +1,15 @@
 # Getting started
 
-Stylelint is geared towards linting CSS. However, you can extend it to lint other styling languages like SCSS.
+Stylelint is designed for CSS.
+
+However, it can be extended to:
+
+- parse CSS-like syntaxes like SCSS, Less and SugarSS
+- extract styles from HTML, JavaScript and Markdown
 
 ## Linting CSS
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and its [`standard configuration`](https://github.com/stylelint/stylelint-config-standard):
+1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and its [standard configuration](https://github.com/stylelint/stylelint-config-standard):
 
 ```shell
 npm install --save-dev stylelint stylelint-config-standard
@@ -24,44 +29,62 @@ npm install --save-dev stylelint stylelint-config-standard
 npx stylelint "**/*.css"
 ```
 
-## Linting other styling languages or libraries
+## Linting everything else
 
-Stylelint can be extended, using the [`customSyntax` option](usage/options.md#customSyntax), to:
+We recommend using a shared config [that extends](https://stylelint.io/user-guide/configure#extends) Stylelint to make it compatible with the language or library. For example, you can extend the [stylelint-config-standard-scss shared config](https://www.npmjs.com/package/stylelint-config-standard-scss) to lint SCSS.
 
-- parse CSS-like syntaxes like SCSS, Sass, Less and SugarSS
-- extract embedded styles from HTML, Markdown and CSS-in-JS object & template literals
-
-For example, to lint SCSS:
-
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and the postcss-scss syntax:
+1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and the shared config:
 
 ```console
-npm install --save-dev stylelint postcss-scss
+npm install --save-dev stylelint stylelint-config-standard-scss
 ```
 
 2\. Create a `.stylelintrc.json` configuration file in the root of your project with the following content:
 
 ```json
 {
-  "customSyntax": "postcss-scss",
-  "extends": "stylelint-config-standard"
+  "extends": "stylelint-config-standard-scss"
 }
 ```
 
-PostCSS syntaxes known to be compatible with Stylelint include:
+3\. Run Stylelint on all the SCSS files in your project:
 
-- [postcss-scss](https://github.com/postcss/postcss-scss)
-- [postcss-less](https://github.com/shellscape/postcss-less)
-- [postcss-sass](https://github.com/AleshaOleg/postcss-sass)
-- [sugarss](https://github.com/postcss/sugarss)
+```shell
+npx stylelint "**/*.scss"
+```
 
-If a PostCSS syntax doesn't exist for your choice of language or CSS-in-JS lribary, please consider creating it and sharing it with the community. It'll need to be compatible with version 8 of PostCSS.
+This config configures the [built-in rules](../user-guide/rules/list.md) for SCSS, and includes the [postcss-scss syntax](https://github.com/postcss/postcss-scss) and [stylelint-scss plugin](https://github.com/kristerkari/stylelint-scss) (a collection of rules specific to SCSS).
 
-If you lint more than one styling language, then you can use the [`overrides`](configure.md#overrides) property. For example, to lint both SCSS and [SugarSS](https://github.com/postcss/sugarss) you can update your configuration object to include:
+If a shared config isn't available for your preferred language or library, then you can install the appropriate [PostCSS syntax](https://github.com/postcss/postcss#syntaxes) yourself and use the [`customSyntax` option](../user-guide/usage/options.md#customSyntax) to configure it.
+
+For example, to lint [SugarSS](https://github.com/postcss/sugarss).
+
+1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint, its [standard configuration](https://github.com/stylelint/stylelint-config-standard) and the [sugarss syntax](https://www.npmjs.com/package/sugarss):
+
+```shell
+npm install --save-dev stylelint stylelint-config-standard sugarss
+```
+
+2\. Create a `.stylelintrc.json` configuration file in the root of your project with the following content:
 
 ```json
 {
-  "customSyntax": "postcss-scss",
+  "extends": "stylelint-config-standard",
+  "customSyntax": "sugarss"
+}
+```
+
+Other PostCSS syntaxes known to be compatible with Stylelint include:
+
+- [postcss-html](https://www.npmjs.com/package/postcss-html)
+- [postcss-less](https://www.npmjs.com/package/postcss-less)
+- [postcss-sass](https://www.npmjs.com/package/postcss-sass)
+- [sugarss](https://www.npmjs.com/package/sugarss)
+
+If you lint more than one styling language, then you can use the [`overrides`](configure.md#overrides) property. For example, to lint both CSS and [SugarSS](https://github.com/postcss/sugarss) you can update your configuration object to include:
+
+```json
+{
   "extends": ["stylelint-config-standard"],
   "overrides": [
     {
@@ -87,21 +110,21 @@ If you lint more than one styling language, then you can use the [`overrides`](c
 
 Which will extend the [offical standard config](https://github.com/stylelint/stylelint-config-standard), then use the `overrides` property to change the custom-syntax and turn off the rules that check braces and semicolons for SugarSS files.
 
-You can then use Stylelint to lint both SCSS and SugarSS files:
+You can then use Stylelint to lint both CSS and SugarSS files:
 
 ```console
-npx stylelint "**/*.{scss,sss}"
+npx stylelint "**/*.{css,sss}"
 ```
 
 More [configs](https://github.com/stylelint/awesome-stylelint#configs) are listed in [awesome stylelint](https://github.com/stylelint/awesome-stylelint).
 
 ## Customize
 
-Whether you're linting CSS or another styling language, you can further customize Stylelint to your specific needs.
+You can further customize Stylelint to your specific needs.
 
 ### Your configuration
 
-To further customize your Stylelint configuration, you can adapt your:
+You can adapt your:
 
 - [rules](configure.md#rules)
 - [plugins](configure.md#plugins)
@@ -110,8 +133,8 @@ We recommend you add [rules that limit language features](rules/list.md#limit-la
 
 You can add plugins written by the community to lint more things. For example, you may want to use:
 
-- [stylelint-order plugin](https://github.com/hudochenkov/stylelint-order) if you want to order things like properties
-- [stylelint-csstree-validator plugin](https://github.com/csstree/stylelint-validator) if you want to validate property and value pairs
+- [stylelint-order plugin](https://github.com/hudochenkov/stylelint-order) to order things like properties
+- [stylelint-csstree-validator plugin](https://github.com/csstree/stylelint-validator) to validate property and value pairs
 
 You'll find more [plugins](https://github.com/stylelint/awesome-stylelint#plugins) listed in [awesome stylelint](https://github.com/stylelint/awesome-stylelint).
 
