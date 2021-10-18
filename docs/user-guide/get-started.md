@@ -31,7 +31,7 @@ npx stylelint "**/*.css"
 
 ## Linting everything else
 
-We recommend using a shared config [that extends](https://stylelint.io/user-guide/configure#extends) Stylelint to make it compatible with the language or library. For example, you can extend the [stylelint-config-standard-scss shared config](https://www.npmjs.com/package/stylelint-config-standard-scss) to lint SCSS.
+We recommend using a shared config [that extends](../user-guide/configure.md#extends) Stylelint to make it compatible with the language or library. For example, you can extend the [stylelint-config-standard-scss shared config](https://www.npmjs.com/package/stylelint-config-standard-scss) to lint SCSS.
 
 1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and the shared config:
 
