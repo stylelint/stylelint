@@ -53,7 +53,7 @@ npm install --save-dev stylelint stylelint-config-standard-scss
 npx stylelint "**/*.scss"
 ```
 
-This config configures the [built-in rules](../user-guide/rules/list.md) for SCSS, and includes the [postcss-scss syntax](https://github.com/postcss/postcss-scss) and [stylelint-scss plugin](https://github.com/kristerkari/stylelint-scss) (a collection of rules specific to SCSS).
+This config configures the [built-in rules](../user-guide/rules/list.md) for SCSS, and includes the [postcss-scss syntax](https://github.com/postcss/postcss-scss) and [stylelint-scss plugin](https://www.npmjs.com/package/stylelint-scss) (a collection of rules specific to SCSS).
 
 If a shared config isn't available for your preferred language or library, then you can install the appropriate [PostCSS syntax](https://github.com/postcss/postcss#syntaxes) yourself and use the [`customSyntax` option](../user-guide/usage/options.md#customSyntax) to configure it.
 
