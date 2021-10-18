@@ -2,9 +2,9 @@
 
 Stylelint is designed for CSS.
 
-However, it can be extended to:
+However, it can used with [PostCSS syntaxes](https://github.com/postcss/postcss#syntaxes) that:
 
-- parse CSS-like syntaxes like SCSS, Less and SugarSS
+- parse CSS-like languages like SCSS, Less and SugarSS
 - extract styles from HTML, JavaScript and Markdown
 
 ## Linting CSS
@@ -31,7 +31,7 @@ npx stylelint "**/*.css"
 
 ## Linting everything else
 
-We recommend using a shared config [that extends](../user-guide/configure.md#extends) Stylelint to make it compatible with the language or library. For example, you can extend the [stylelint-config-standard-scss shared config](https://www.npmjs.com/package/stylelint-config-standard-scss) to lint SCSS.
+You'll need to use a [PostCSS syntax](https://github.com/postcss/postcss#syntaxes). We recommend [extending](../user-guide/configure.md#extends) a shared config that includes the appropriate syntax for your preferred language or library. For example, you can extend the [stylelint-config-standard-scss shared config](https://www.npmjs.com/package/stylelint-config-standard-scss) to lint SCSS.
 
 1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and the shared config:
 
@@ -53,7 +53,7 @@ npm install --save-dev stylelint stylelint-config-standard-scss
 npx stylelint "**/*.scss"
 ```
 
-This config configures the [built-in rules](../user-guide/rules/list.md) for SCSS, and includes the [postcss-scss syntax](https://github.com/postcss/postcss-scss) and [stylelint-scss plugin](https://www.npmjs.com/package/stylelint-scss) (a collection of rules specific to SCSS).
+This config includes the [postcss-scss syntax](https://github.com/postcss/postcss-scss), configures the [built-in rules](../user-guide/rules/list.md) for SCSS, and includes the [stylelint-scss plugin](https://www.npmjs.com/package/stylelint-scss) (a collection of rules specific to SCSS).
 
 If a shared config isn't available for your preferred language or library, then you can install the appropriate [PostCSS syntax](https://github.com/postcss/postcss#syntaxes) yourself and use the [`customSyntax` option](../user-guide/usage/options.md#customSyntax) to configure it.
 
