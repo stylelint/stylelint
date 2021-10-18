@@ -12,6 +12,7 @@ All notable changes to this project are documented in this file.
 - Removed: rules deprecated in 13.7.0 ([#5295](https://github.com/stylelint/stylelint/pull/5295)).
 - Removed: `function-calc-no-invalid` ([#5296](https://github.com/stylelint/stylelint/pull/5296)).
 - Removed: Drop Node 10 support ([#5303](https://github.com/stylelint/stylelint/pull/5303)).
+- Changed: `ignoreFiles` to be extendable ([#5596](https://github.com/stylelint/stylelint/pull/5596)).
 - Added: `overrides` property to configuration object ([#5521](https://github.com/stylelint/stylelint/pull/5521)).
 - Added: `quiet` option to Node.js API ([#5542](https://github.com/stylelint/stylelint/pull/5542)).
 - Added: `customSyntax` option as a property in the configuration object ([#5538](https://github.com/stylelint/stylelint/pull/5538)).
