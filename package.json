@@ -134,7 +134,7 @@
     "micromatch": "^4.0.4",
     "normalize-path": "^3.0.0",
     "normalize-selector": "^0.2.0",
-    "picocolors": "^0.2.1",
+    "picocolors": "^1.0.0",
     "postcss": "^8.3.6",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-resolve-nested-selector": "^0.1.1",
