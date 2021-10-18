@@ -2,7 +2,7 @@
 
 Stylelint is designed for CSS.
 
-However, it can used with [PostCSS syntaxes](https://github.com/postcss/postcss#syntaxes) that:
+However, it can be used with [PostCSS syntaxes](https://github.com/postcss/postcss#syntaxes) that:
 
 - parse CSS-like languages like SCSS, Less and SugarSS
 - extract styles from HTML, JavaScript and Markdown
