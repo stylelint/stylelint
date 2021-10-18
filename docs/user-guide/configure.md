@@ -385,8 +385,6 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 - the config's filepath, if the config is a file that Stylelint found a loaded;
 - or `process.cwd()`.
 
-The `ignoreFiles` property is stripped from extended configs: only the root-level config can ignore files.
-
 _Note that this is not an efficient method for ignoring lots of files._ If you want to ignore a lot of files efficiently, use [`.stylelintignore`](ignore-code.md) or adjust your files globs.
 
 ## `processors`
