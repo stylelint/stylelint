@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.0.0
 
 [Migrating to `14.0.0` guide](docs/migration-guide/to-14.md).
 
