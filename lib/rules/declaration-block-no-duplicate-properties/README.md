@@ -108,6 +108,43 @@ p {
 }
 ```
 
+### `ignore: ["consecutive-duplicates-with-same-prefixless-values"]`
+
+Ignore consecutive duplicated properties with identical values, when ignoring their prefix.
+
+This option is useful to deal with draft CSS values while still being future proof. E.g. using `fit-content` and `-moz-fit-content`.
+
+The following patterns are considered violations:
+
+<!-- prettier-ignore -->
+```css
+/* nonconsecutive duplicates */
+p {
+  width: fit-content;
+  height: 32px;
+  width: -moz-fit-content;
+}
+```
+
+<!-- prettier-ignore -->
+```css
+/* properties with different prefixless values */
+p {
+  width: -moz-fit-content;
+  width: 100%;
+}
+```
+
+The following patterns are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+p {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+```
+
 ### `ignoreProperties: ["/regex/", "non-regex"]`
 
 Ignore duplicates of specific properties.
