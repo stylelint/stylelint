@@ -24,7 +24,7 @@ And can be extended to:
 
 ## Example output
 
-![Example](https://github.com/stylelint/stylelint/raw/master/example.png?raw=true)
+![Example](https://github.com/stylelint/stylelint/raw/main/example.png?raw=true)
 
 ## Guides
 
@@ -91,4 +91,4 @@ Thank you to all our backers! [Become a backer](https://opencollective.com/style
 
 ## License
 
-[The MIT License](https://raw.githubusercontent.com/stylelint/stylelint/master/LICENSE).
+[The MIT License](https://raw.githubusercontent.com/stylelint/stylelint/main/LICENSE).
