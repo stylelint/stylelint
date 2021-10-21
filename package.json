@@ -143,7 +143,7 @@
     "postcss-value-parser": "^4.1.0",
     "resolve-from": "^5.0.0",
     "specificity": "^0.4.1",
-    "string-width": "^4.2.2",
+    "string-width": "^5.0.1",
     "strip-ansi": "^6.0.0",
     "style-search": "^0.1.0",
     "svg-tags": "^1.0.0",
