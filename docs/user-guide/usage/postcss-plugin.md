@@ -1,12 +1,12 @@
 # PostCSS plugin
 
-As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use stylelint's PostCSS plugin either with a [PostCSS runner](https://github.com/postcss/postcss#runners) or with the PostCSS JS API directly.
+As with any other [PostCSS plugin](https://github.com/postcss/postcss#plugins), you can use Stylelint's PostCSS plugin either with a [PostCSS runner](https://github.com/postcss/postcss#runners) or with the PostCSS JS API directly.
 
-_However, if a dedicated stylelint task runner plugin [is available](../integrations/task-runner.md) (e.g. [gulp-stylelint](https://github.com/olegskl/gulp-stylelint)) we recommend you use that rather than this plugin, as they provide better reporting._
+_However, if a dedicated Stylelint task runner plugin [is available](../integrations/task-runner.md) (e.g. [gulp-stylelint](https://github.com/olegskl/gulp-stylelint)) we recommend you use that rather than this plugin, as they provide better reporting._
 
 ## Options
 
-The PostCSS plugin uses the [standard options](options.md), _except the `syntax` and `customSyntax` options_. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.
+The PostCSS plugin uses the [standard options](options.md), _except the `customSyntax` option_. Instead, the syntax must be set within the [PostCSS options](https://github.com/postcss/postcss#options) as there can only be one parser/syntax in a pipeline.
 
 ## Usage examples
 
@@ -14,9 +14,9 @@ We recommend you lint your CSS before applying any transformations. You can do t
 
 - creating a separate lint task that is independent of your build one.
 - using the [`plugins` option](https://github.com/postcss/postcss-import#plugins) of [`postcss-import`](https://github.com/postcss/postcss-import) or [`postcss-easy-import`](https://github.com/TrySound/postcss-easy-import) to lint your files before any transformations.
-- placing stylelint at the beginning of your plugin pipeline.
+- placing Stylelint at the beginning of your plugin pipeline.
 
-You'll also need to use a reporter. _The stylelint plugin registers warnings via PostCSS_. Therefore, you'll want to use it with a PostCSS runner that prints warnings or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
+You'll also need to use a reporter. _The Stylelint plugin registers warnings via PostCSS_. Therefore, you'll want to use it with a PostCSS runner that prints warnings or another PostCSS plugin whose purpose is to format and print warnings (e.g. [`postcss-reporter`](https://github.com/postcss/postcss-reporter)).
 
 ### Example A
 

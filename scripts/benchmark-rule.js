@@ -2,11 +2,11 @@
 
 /* eslint-disable no-console */
 const Benchmark = require('benchmark');
-const chalk = require('chalk');
 const got = require('got');
 const normalizeRuleSettings = require('../lib/normalizeRuleSettings');
 const postcss = require('postcss');
 const rules = require('../lib/rules');
+const { bold, yellow } = require('picocolors');
 
 const ruleName = process.argv[2];
 const ruleOptions = process.argv[3];
@@ -55,8 +55,8 @@ got(CSS_URL)
 		});
 
 		bench.on('complete', () => {
-			console.log(`${chalk.bold('Mean')}: ${bench.stats.mean * 1000} ms`);
-			console.log(`${chalk.bold('Deviation')}: ${bench.stats.deviation * 1000} ms`);
+			console.log(`${bold('Mean')}: ${bench.stats.mean * 1000} ms`);
+			console.log(`${bold('Deviation')}: ${bench.stats.deviation * 1000} ms`);
 		});
 
 		bench.run();
@@ -74,9 +74,9 @@ function benchFn(css, done) {
 				result.messages
 					.filter((m) => m.stylelintType === 'invalidOption')
 					.forEach((m) => {
-						console.log(chalk.bold.yellow(`>> ${m.text}`));
+						console.log(bold(yellow(`>> ${m.text}`)));
 					});
-				console.log(`${chalk.bold('Warnings')}: ${result.warnings().length}`);
+				console.log(`${bold('Warnings')}: ${result.warnings().length}`);
 			}
 
 			done();

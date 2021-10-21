@@ -21,7 +21,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 Degree hues _must always_ use angle notation.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -33,7 +33,7 @@ a { color: hsl(198 28% 50%) }
 a { color: lch(56.29% 19.86 10 / 15%) }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -49,7 +49,7 @@ a { color: lch(56.29% 19.86 10deg / 15%) }
 
 Degree hues _must always_ use the number notation.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -61,7 +61,7 @@ a { color: hsl(198deg 28% 50%) }
 a { color: lch(56.29% 19.86 10deg / 15%) }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

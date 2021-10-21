@@ -18,7 +18,7 @@ Using `!important` within keyframes declarations is [completely ignored in some 
 
 ### `true`
 
-The following patterns is considered a violation:
+The following patterns is considered a problem:
 
 <!-- prettier-ignore -->
 ```css
@@ -32,7 +32,7 @@ The following patterns is considered a violation:
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

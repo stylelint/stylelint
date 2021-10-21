@@ -32,7 +32,7 @@ For more on these subtleties, read ["Unquoted font family names in CSS"](https:/
 
 Expect quotes around every font family name that is not a keyword.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -49,7 +49,7 @@ a { font-family: Times New Roman, Times, serif; }
 a { font: 1em Arial, sans-serif; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -70,7 +70,7 @@ a { font: 1em 'Arial', sans-serif; }
 
 Expect quotes only when quotes are _required_ according to the criteria above, and disallow quotes in all other cases.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -87,7 +87,7 @@ a { font-family: 'Times New Roman', Times, serif; }
 a { font: 1em "Arial", sans-serif; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -118,7 +118,7 @@ a { font: 1em Arial, sans-serif; }
 
 Expect quotes only when quotes are _recommended_ according to the criteria above, and disallow quotes in all other cases. (This includes all cases where quotes are _required_, as well.)
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -140,7 +140,7 @@ a { font-family: 'Arial', sans-serif; }
 a { font: 1em Times New Roman, Times, serif; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

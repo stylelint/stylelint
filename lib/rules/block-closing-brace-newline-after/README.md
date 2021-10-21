@@ -42,7 +42,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 There _must always_ be a newline after the closing brace.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -55,7 +55,7 @@ a { color: pink;
 } b { color: red; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -67,14 +67,14 @@ b { color: red; }
 
 There _must always_ be a newline after the closing brace in single-line blocks.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 a { color: pink; } b { color: red; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -92,14 +92,14 @@ b { color: red; }
 
 There _must never_ be whitespace after the closing brace in single-line blocks.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 a { color: pink; } b { color: red; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -116,7 +116,7 @@ a { color: pink;
 
 There _must always_ be a newline after the closing brace in multi-line blocks.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -124,7 +124,7 @@ a { color: pink;
 }b { color: red; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -142,7 +142,7 @@ b { color: red; }
 
 There _must never_ be whitespace after the closing brace in multi-line blocks.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -150,7 +150,7 @@ a { color: pink;
 } b { color: red; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -173,11 +173,11 @@ For example, with `"always"` or `"always-multi-line"`.
 
 Given:
 
-```
+```json
 ["if", "else"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

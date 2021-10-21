@@ -1,14 +1,14 @@
 # Errors & warnings
 
-In addition to rule violations, stylelint surfaces the following errors and warnings:
+In addition to rule problems, Stylelint surfaces the following errors and warnings:
 
 ## CSS syntax error
 
-The chosen [PostCSS syntax](../about/syntaxes.md) was unable to parse the source.
+The chosen [PostCSS syntax](usage/options.md#customSyntax) was unable to parse the source.
 
 ## Parse error
 
-The chosen [PostCSS syntax](../about/syntaxes.md) successfully parsed, but one of the construct-specific parsers failed to parse either a media query, selector or value within that source.
+The chosen [PostCSS syntax](usage/options.md#customSyntax) successfully parsed, but one of the construct-specific parsers failed to parse either a media query, selector or value within that source.
 
 The construct-specific parsers are:
 

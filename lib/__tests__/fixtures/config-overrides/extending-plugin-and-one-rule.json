@@ -1,0 +1,15 @@
+{
+	"extends": "./plugin-and-one-rule.json",
+	"plugins": ["../plugin-warn-about-bar"],
+	"rules": {
+		"plugin/warn-about-bar": "always"
+	},
+	"overrides": [
+		{
+			"files": ["*.css"],
+			"rules": {
+				"block-no-empty": true
+			}
+		}
+	]
+}

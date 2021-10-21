@@ -19,7 +19,7 @@ This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntax
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -36,7 +36,7 @@ a { font: 1em "Arial", 'Arial', sans-serif; }
 a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif, sans-serif; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -59,11 +59,11 @@ a { font: normal 14px/32px -apple-system, BlinkMacSystemFont, sans-serif; }
 
 Given:
 
-```
+```json
 ["/^My Font /", "monospace"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

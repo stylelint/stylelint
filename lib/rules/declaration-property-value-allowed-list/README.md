@@ -23,7 +23,7 @@ Be careful with regex matching not to accidentally consider quoted string values
 
 Given:
 
-```
+```json
 {
   "transform": ["/scale/"],
   "whitespace": ["nowrap"],
@@ -31,7 +31,7 @@ Given:
 }
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -58,7 +58,7 @@ a { color: pink; }
 a { background-color: pink; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

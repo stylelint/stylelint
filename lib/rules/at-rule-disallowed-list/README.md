@@ -15,11 +15,11 @@ Specify a list of disallowed at-rules.
 
 Given:
 
-```
+```json
 ["extend", "keyframes"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -42,7 +42,7 @@ a { @extend placeholder; }
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

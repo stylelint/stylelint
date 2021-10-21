@@ -11,7 +11,7 @@ a { color: red }
 
 Lines that exceed the maximum length but contain no whitespace (other than at the beginning of the line) are ignored.
 
-When evaluating the line length, the arguments of any `url(...)` functions are excluded from the calculation, because typically you have no control over the length of these arguments. This means that long `url()` functions should not contribute to violations.
+When evaluating the line length, the arguments of any `url(...)` functions are excluded from the calculation, because typically you have no control over the length of these arguments. This means that long `url()` functions should not contribute to problems.
 
 ## Options
 
@@ -19,7 +19,7 @@ When evaluating the line length, the arguments of any `url(...)` functions are e
 
 For example, with `20`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -33,7 +33,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -60,9 +60,9 @@ This does not apply to comments that are stuck in between other stuff, only to l
 
 For example, with a maximum length of `30`.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
-Each have only one violation.
+Each have only one problem.
 
 <!-- prettier-ignore -->
 ```css
@@ -90,7 +90,7 @@ This also applies to comments that are between code on the same line.
 
 For example, with a maximum length of `30`.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -102,7 +102,7 @@ a { color: pink; } /* comment that is too long */
 a { /* this comment is too long for the max length */ }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -126,11 +126,11 @@ Ignore any line that matches the given regex pattern, regardless of whether it i
 
 Given:
 
-```
+```json
 "/^@import\\s+/"
 ```
 
-The following pattern is _not_ considered a violation:
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css
@@ -143,7 +143,7 @@ Given the following, with a maximum length of `20`.
 ["/https?://[0-9,a-z]*.*/"];
 ```
 
-The following pattern is _not_ considered a violation:
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css

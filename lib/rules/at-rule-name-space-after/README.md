@@ -19,7 +19,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 There _must always_ be a single space after at-rule names.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -42,7 +42,7 @@ The following patterns are considered violations:
 (min-width: 700px) {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -63,7 +63,7 @@ The following patterns are _not_ considered violations:
 
 There _must always_ be a single space after at-rule names in single-line declaration blocks.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -80,7 +80,7 @@ The following patterns are considered violations:
 @media  (min-width: 700px) {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

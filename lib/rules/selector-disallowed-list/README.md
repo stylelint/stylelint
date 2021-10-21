@@ -17,11 +17,11 @@ If a string is surrounded with `"/"` (e.g. `"/\.foo/"`), it is interpreted as a 
 
 Given:
 
-```
-["a > .foo", /\[data-.+]/]
+```json
+["a > .foo", "/\\[data-.+]/"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -38,7 +38,7 @@ a[data-auto="1"] {}
 .foo, [data-auto="1"] {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

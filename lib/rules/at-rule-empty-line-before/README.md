@@ -26,7 +26,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 There _must always_ be an empty line before at-rules.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -39,7 +39,7 @@ a {}
 @media {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -52,7 +52,7 @@ a {}
 
 There _must never_ be an empty line before at-rules.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -61,7 +61,7 @@ a {}
 @media {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -86,7 +86,7 @@ This means that you can group your at-rules by name.
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -117,7 +117,7 @@ Reverse the primary option for at-rules that are inside a block.
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -134,7 +134,7 @@ b {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -159,7 +159,7 @@ Shared-line comments do not affect this option.
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -197,7 +197,7 @@ Shared-line comments do not affect this option.
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -208,7 +208,7 @@ The following patterns are considered violations:
 @media print {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -232,7 +232,7 @@ Reverse the primary option for at-rules that are nested and the first child of t
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -248,7 +248,7 @@ b {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -272,7 +272,7 @@ Ignore at-rules that follow a comment.
 
 Shared-line comments do not trigger this option.
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -300,7 +300,7 @@ Ignore at-rules that are nested and the first child of their parent node.
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -317,7 +317,7 @@ Ignore at-rules that are inside a block.
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -352,7 +352,7 @@ This means that you can group your blockless at-rules by name.
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -381,7 +381,7 @@ Ignore blockless at-rules that follow another blockless at-rule.
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -408,11 +408,11 @@ For example, with `"always"`.
 
 Given:
 
-```
+```json
 ["import"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

@@ -17,11 +17,11 @@ If a string is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted
 
 Given:
 
-```
+```json
 ["text-rendering", "animation", "/^background/"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -51,7 +51,7 @@ a { background: pink; }
 a { background-size: cover; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

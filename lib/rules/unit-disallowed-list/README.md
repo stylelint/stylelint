@@ -15,11 +15,11 @@ a { width: 100px; }
 
 Given:
 
-```
+```json
 ["px", "em", "deg"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -36,7 +36,7 @@ a { font-size: 10em; }
 a { transform: rotate(30deg); }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -68,14 +68,14 @@ For example, with `["px", "vmin"]`.
 
 Given:
 
-```
+```json
 {
-  "px": [ "font-size", "/^border/" ],
-  "vmin": [ "width" ]
+  "px": ["font-size", "/^border/"],
+  "vmin": ["width"]
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -92,7 +92,7 @@ a { border-bottom-width: 6px; }
 a { width: 100vmin; }
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -117,14 +117,14 @@ For example, with `["px", "dpi"]`.
 
 Given:
 
-```
+```json
 {
-  "px": [ "min-width", "/height$/" ],
-  "dpi": [ "resolution" ]
+  "px": ["min-width", "/height$/"],
+  "dpi": ["resolution"]
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -141,7 +141,7 @@ The following patterns are _not_ considered violations:
 @media not (resolution: 300dpi) {}
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css

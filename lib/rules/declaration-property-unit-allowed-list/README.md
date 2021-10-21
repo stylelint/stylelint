@@ -17,7 +17,7 @@ If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is inter
 
 Given:
 
-```
+```json
 {
   "font-size": ["em", "px"],
   "/^animation/": ["s"],
@@ -25,7 +25,7 @@ Given:
 }
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -52,7 +52,7 @@ a { animation-duration: 500ms; }
 a { line-height: 13px; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -92,17 +92,19 @@ Ignore units that are inside a function.
 
 For example, given:
 
-```
-{
-  "/^border/": ["px"],
-  "/^background/": ["%"],
-},
-{
-  "ignore": ["inside-function"],
-},
+```json
+[
+  {
+    "/^border/": ["px"],
+    "/^background/": ["%"]
+  },
+  {
+    "ignore": ["inside-function"]
+  }
+]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

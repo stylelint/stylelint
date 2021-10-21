@@ -27,7 +27,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 There _must always_ be a trailing semicolon.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -44,7 +44,7 @@ a { background: orange; color: pink }
 a { @include foo }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -65,7 +65,7 @@ a { @include foo; }
 
 There _must never_ be a trailing semicolon.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -77,7 +77,7 @@ a { color: pink; }
 a { background: orange; color: pink; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -95,7 +95,7 @@ a { background: orange; color: pink }
 
 Ignore declaration blocks that contain a single declaration.
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

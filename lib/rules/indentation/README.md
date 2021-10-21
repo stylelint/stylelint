@@ -24,7 +24,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 Always indent at-rules, rules, comments, declarations, inside parentheses and multi-line values by 2 spaces.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -95,7 +95,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -211,7 +211,7 @@ If `true`, the closing brace of a block (rule or at-rule) will be expected at th
 
 For example, with `indentClosingBrace: true`.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -229,7 +229,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -253,7 +253,7 @@ Do _not_ indent for these things.
 
 For example, with `2`.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -267,7 +267,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -289,7 +289,7 @@ Ignore the indentation inside parentheses.
 
 For example, with `2`.
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -309,7 +309,7 @@ Ignore the indentation of at-rule params.
 
 For example, with `2`.
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -325,7 +325,7 @@ Ignore the indentation of values.
 
 For example, with `2`.
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

@@ -1,0 +1,14 @@
+{
+	"extends": "./simple-rule",
+	"rules": {
+		"block-no-empty": true
+	},
+	"overrides": [
+		{
+			"files": ["*.css"],
+			"rules": {
+				"color-named": "never"
+			}
+		}
+	]
+}

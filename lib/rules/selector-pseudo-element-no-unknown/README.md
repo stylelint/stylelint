@@ -17,7 +17,7 @@ This rule ignores vendor-prefixed pseudo-element selectors.
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -34,7 +34,7 @@ a::PSEUDO {}
 a::element {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -62,11 +62,11 @@ input::-moz-placeholder {}
 
 Given:
 
-```
+```json
 ["/^my-/", "pseudo-element"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

@@ -25,10 +25,9 @@ Given the string:
 
 ```js
 "foo-[a-z]+";
-
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -45,7 +44,7 @@ The following patterns are considered violations:
 div > #zing + .foo-BAR {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -77,11 +76,11 @@ For example, with `true`.
 
 Given the string:
 
-```
+```json
 "^[A-Z]+$"
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -90,7 +89,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

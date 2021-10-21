@@ -19,7 +19,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 Alpha-values _must always_ use the number notation.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -31,7 +31,7 @@ a { opacity: 50% }
 a { color: rgb(0 0 0 / 50%) }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -47,7 +47,7 @@ a { color: rgb(0 0 0 / 0.5) }
 
 Alpha-values _must always_ use percentage notation.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -59,7 +59,7 @@ a { opacity: 0.5 }
 a { color: rgb(0 0 0 / 0.5) }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -81,11 +81,11 @@ For example with `"percentage"`.
 
 Given:
 
-```
+```json
 ["opacity"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -97,7 +97,7 @@ a { opacity: 50% }
 a { color: rgb(0 0 0 / 0.5) }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

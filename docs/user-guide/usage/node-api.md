@@ -1,6 +1,6 @@
 # Node.js API
 
-The stylelint module includes a `lint()` function that provides the Node.js API.
+The Stylelint module includes a `lint()` function that provides the Node.js API.
 
 ```js
 stylelint.lint(options).then(function (resultObject) {
@@ -16,11 +16,7 @@ In addition to the [standard options](options.md), the Node API accepts:
 
 A [configuration object](../configure.md).
 
-stylelint does not bother looking for a `.stylelintrc` file if you use this option.
-
-### `configOverrides`
-
-A partial stylelint configuration object whose properties override the existing config object, whether stylelint loads the config via the `config` option or a `.stylelintrc` file.
+Stylelint does not bother looking for a `.stylelintrc` file if you use this option.
 
 ### `code`
 
@@ -48,11 +44,11 @@ For more detail usage, see [Globby Guide](https://github.com/sindresorhus/globby
 
 ### `errored`
 
-Boolean. If `true`, at least one rule with an "error"-level severity registered a violation.
+Boolean. If `true`, at least one rule with an "error"-level severity registered a problem.
 
 ### `output`
 
-A string displaying the formatted violations (using the default formatter or whichever you passed).
+A string displaying the formatted problems (using the default formatter or whichever you passed).
 
 ### `postcssResults`
 
@@ -60,7 +56,7 @@ An array containing all the accumulated [PostCSS LazyResults](https://api.postcs
 
 ### `results`
 
-An array containing all the stylelint result objects (the objects that formatters consume).
+An array containing all the Stylelint result objects (the objects that formatters consume).
 
 ### `maxWarningsExceeded`
 
@@ -166,4 +162,4 @@ stylelint
   });
 ```
 
-Note that the customSyntax option also accepts a string. [Refer to the options documentation for details](./options.md).
+Note that the customSyntax option also accepts a string. [Refer to the options documentation for details](./options.md#customsyntax).

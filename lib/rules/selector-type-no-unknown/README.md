@@ -15,7 +15,7 @@ This rule considers tags defined in the HTML, SVG, and MathML specifications to 
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -27,7 +27,7 @@ unknown {}
 tag {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -52,7 +52,7 @@ li > a {}
 
 Allow custom elements.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -64,7 +64,7 @@ unknown {}
 x-Foo {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -75,14 +75,14 @@ x-foo {}
 
 Allow unknown type selectors if they belong to the default namespace.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 namespace|unknown {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -93,11 +93,11 @@ unknown {}
 
 Given:
 
-```
+```json
 ["/^my-/", "custom-namespace"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -118,11 +118,11 @@ my-other-namespace|unknown {}
 
 Given:
 
-```
+```json
 ["/^my-/", "custom-type"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

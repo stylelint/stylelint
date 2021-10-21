@@ -19,11 +19,11 @@ If a string is surrounded with `"/"` (e.g. `"/^nth-/"`), it is interpreted as a 
 
 Given:
 
-```
+```json
 ["hover", "/^nth-/"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -40,7 +40,7 @@ a:nth-of-type(5) {}
 a:nth-child(2) {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

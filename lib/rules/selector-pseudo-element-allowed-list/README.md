@@ -20,11 +20,11 @@ This rule ignores:
 
 Given:
 
-```
+```json
 ["before", "/^my-/i"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -36,7 +36,7 @@ a::after {}
 a::not-my-pseudo-element {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
