@@ -354,7 +354,7 @@ a {
 }
 ```
 
-### `ignorePseudoClasses: ["string"]`
+### `ignorePseudoClasses: ["/regex/", /regex/, "string"]`
 
 Ignore the specified pseudo classes.
 
