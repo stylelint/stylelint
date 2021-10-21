@@ -2,31 +2,33 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.0.0
 
 [Migrating to `14.0.0` guide](docs/migration-guide/to-14.md).
 
-- Security: addressed ReDoS issue with regex in `indentation` ([#5539](https://github.com/stylelint/stylelint/pull/5539)).
-- Removed: `configOverrides` option ([#5530](https://github.com/stylelint/stylelint/pull/5530)).
+- Removed: Node.js 10 support ([#5303](https://github.com/stylelint/stylelint/pull/5303)).
 - Removed: `syntax` option ([#5297](https://github.com/stylelint/stylelint/pull/5297)).
+- Removed: `configOverrides` option ([#5530](https://github.com/stylelint/stylelint/pull/5530)).
 - Removed: rules deprecated in 13.7.0 ([#5295](https://github.com/stylelint/stylelint/pull/5295)).
-- Removed: `function-calc-no-invalid` ([#5296](https://github.com/stylelint/stylelint/pull/5296)).
-- Removed: Drop Node 10 support ([#5303](https://github.com/stylelint/stylelint/pull/5303)).
-- Added: `overrides` property to configuration object ([#5521](https://github.com/stylelint/stylelint/pull/5521)).
-- Added: `quiet` option to Node.js API ([#5542](https://github.com/stylelint/stylelint/pull/5542)).
+- Removed: `function-calc-no-invalid` rule ([#5296](https://github.com/stylelint/stylelint/pull/5296)).
+- Changed: `ignoreFiles` to be extendable ([#5596](https://github.com/stylelint/stylelint/pull/5596)).
+- Security: addressed ReDoS issue with regex in `indentation` ([#5539](https://github.com/stylelint/stylelint/pull/5539)).
+- Added: TypeScript type definitions ([#5582](https://github.com/stylelint/stylelint/pull/5582)).
 - Added: `customSyntax` option as a property in the configuration object ([#5538](https://github.com/stylelint/stylelint/pull/5538)).
+- Added: `overrides` property to configuration object ([#5521](https://github.com/stylelint/stylelint/pull/5521)).
 - Added: `disableFix` as secondary option to rules property in the configuration object ([#5460](https://github.com/stylelint/stylelint/pull/5460)).
+- Added: `quiet` option to Node.js API ([#5542](https://github.com/stylelint/stylelint/pull/5542)).
 - Added: `color-hex-alpha` rule ([#5316](https://github.com/stylelint/stylelint/pull/5316)).
 - Added: `custom-property-no-missing-var-function` rule ([#5317](https://github.com/stylelint/stylelint/pull/5317)).
 - Added: `function-calc-no-unspaced-operator` autofix ([#5273](https://github.com/stylelint/stylelint/pull/5273)).
 - Added: `ignoreFunctions: []` to `length-zero-no-unit` ([#5314](https://github.com/stylelint/stylelint/pull/5314)).
 - Added: `ignoreAtRules: []` to `no-invalid-position-at-import` ([#5520](https://github.com/stylelint/stylelint/pull/5520)).
 - Added: `ignoreProperties: []` to `number-max-precision` ([#5421](https://github.com/stylelint/stylelint/pull/5421)).
-- Added: TypeScript type definitions ([#5582](https://github.com/stylelint/stylelint/pull/5582)).
 - Fixed: "No files matching the pattern" when using backslash paths on Windows ([#5386](https://github.com/stylelint/stylelint/pull/5386)).
 - Fixed: `function-url-quotes` problem messages to be consistent with other `*-quotes` rules ([#5488](https://github.com/stylelint/stylelint/pull/5488)).
 - Fixed: `length-zero-no-unit` false positives for `flex` property ([#5315](https://github.com/stylelint/stylelint/pull/5315)).
 - Fixed: `media-feature-name-no-unknown` false positives for `prefers-contrast` ([#5428](https://github.com/stylelint/stylelint/pull/5428)).
+- Fixed: `media-feature-name-no-unknown` false positives for `dynamic-range` & `video-dynamic-range` ([#5613](https://github.com/stylelint/stylelint/pull/5613)).
 - Fixed: `media-feature-name-value-allowed-list` TypeError for spaceless condition ([#5581](https://github.com/stylelint/stylelint/pull/5581)).
 - Fixed: `property-no-unknown` false positives for Less maps ([#5381](https://github.com/stylelint/stylelint/pull/5381)).
 - Fixed: `selector-class-pattern` false positives for Less parametric mixins ([#5378](https://github.com/stylelint/stylelint/pull/5378)).
