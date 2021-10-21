@@ -3,7 +3,7 @@ name: Linting
 on:
   push:
     branches:
-      - master
+      - main
       - 'dependabot/**'
   pull_request:
     branches:
