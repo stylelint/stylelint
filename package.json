@@ -115,7 +115,7 @@
     "balanced-match": "^2.0.0",
     "cosmiconfig": "^7.0.1",
     "debug": "^4.3.2",
-    "execall": "^2.0.0",
+    "execall": "^3.0.0",
     "fast-glob": "^3.2.7",
     "fastest-levenshtein": "^1.0.12",
     "file-entry-cache": "^6.0.1",
