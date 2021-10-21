@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "13.13.1",
+  "version": "14.0.0-0",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css-in-js",
@@ -134,8 +134,8 @@
     "micromatch": "^4.0.4",
     "normalize-path": "^3.0.0",
     "normalize-selector": "^0.2.0",
-    "picocolors": "^0.2.1",
-    "postcss": "^8.3.6",
+    "picocolors": "^1.0.0",
+    "postcss": "^8.3.11",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^6.0.0",
@@ -174,8 +174,8 @@
     "eslint": "^7.32.0",
     "eslint-config-stylelint": "^14.0.0",
     "got": "^11.8.2",
-    "husky": "^7.0.2",
-    "jest": "^27.2.5",
+    "husky": "^7.0.4",
+    "jest": "^27.3.1",
     "jest-preset-stylelint": "^4.1.1",
     "jest-watch-typeahead": "^1.0.0",
     "lint-staged": "^11.2.3",
@@ -188,7 +188,7 @@
     "prettier": "2.4.1",
     "remark-cli": "^10.0.0",
     "sugarss": "^4.0.1",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.4"
   },
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
