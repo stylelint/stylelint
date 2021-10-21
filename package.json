@@ -144,7 +144,7 @@
     "resolve-from": "^5.0.0",
     "specificity": "^0.4.1",
     "string-width": "^4.2.2",
-    "strip-ansi": "^6.0.0",
+    "strip-ansi": "^7.0.1",
     "style-search": "^0.1.0",
     "svg-tags": "^1.0.0",
     "table": "^6.7.2",
