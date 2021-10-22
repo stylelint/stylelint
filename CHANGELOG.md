@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## HEAD
+
+- Fixed: `overrides` property ignoring dot directories ([#5629](https://github.com/stylelint/stylelint/pull/5629)).
+
 ## 14.0.0
 
 [Migrating to `14.0.0` guide](docs/migration-guide/to-14.md).
