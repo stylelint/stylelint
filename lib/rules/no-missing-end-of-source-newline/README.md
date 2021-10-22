@@ -10,7 +10,7 @@ Disallow missing end-of-source newlines.
  * This newline */
 ```
 
-Completely empty files are not considered violations.
+Completely empty files are not considered problems.
 
 The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
@@ -18,14 +18,14 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 a { color: pink; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

@@ -9,7 +9,7 @@ Disallow vendor prefixes for media feature names.
  * This prefixe */
 ```
 
-Right now this rule simply checks for prefixed _resolutions_.
+This rule ignores non-standard vendor-prefixed media feature names that aren't handled by [Autoprefixer](https://github.com/postcss/autoprefixer).
 
 The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
@@ -17,7 +17,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -34,7 +34,7 @@ The following patterns are considered violations:
 @media (-o-max-device-pixel-ratio: 1/1) {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

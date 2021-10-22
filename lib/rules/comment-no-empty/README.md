@@ -17,7 +17,7 @@ This rule ignores SCSS-like comments.
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -36,7 +36,7 @@ The following patterns are considered violations:
  */
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

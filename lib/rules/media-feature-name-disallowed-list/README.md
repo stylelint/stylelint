@@ -15,11 +15,11 @@ Specify a list of disallowed media feature names.
 
 Given:
 
-```
+```json
 ["max-width", "/^my-/"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -41,7 +41,7 @@ The following patterns are considered violations:
 @media (10em < my-height < 50em) {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

@@ -17,7 +17,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"short"`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -29,7 +29,7 @@ a { color: #ffffff; }
 a { color: #ffffffaa; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -48,7 +48,7 @@ a { color: #a4a4a4; }
 
 ### `"long"`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -60,7 +60,7 @@ a { color: #fff; }
 a { color: #fffa; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

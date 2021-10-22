@@ -17,18 +17,18 @@ A string will be translated into a RegExp like so `new RegExp(yourString)` — 
 
 Given the string:
 
-```
+```json
 "foo-.+"
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 @custom-media --bar (min-width: 30em);
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

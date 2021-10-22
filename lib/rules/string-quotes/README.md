@@ -35,7 +35,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 Strings _must always_ be wrapped with single quotes.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -47,7 +47,7 @@ a { content: "x"; }
 a[id="foo"] {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -68,7 +68,7 @@ a { content: "x'y'z"; }
 
 Strings _must always_ be wrapped with double quotes.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -80,7 +80,7 @@ a { content: 'x'; }
 a[id='foo'] {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -105,7 +105,7 @@ Allows strings to use single-quotes or double-quotes so long as the string conta
 
 For example, with `"single", { "avoidEscape" : false }`.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -117,7 +117,7 @@ a { content: "x'y'z"; }
 a[id="foo'bar'baz"] {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

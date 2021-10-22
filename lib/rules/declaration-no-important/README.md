@@ -15,7 +15,7 @@ If you always want `!important` in your declarations, e.g. if you're writing [us
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -32,7 +32,7 @@ a { color: pink ! important; }
 a { color: pink!important; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

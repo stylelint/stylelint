@@ -15,13 +15,13 @@ Specify a list of required properties for an at-rule.
 
 Given:
 
-```
+```json
 {
   "font-face": ["font-display", "font-family", "font-style"]
 }
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -40,7 +40,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

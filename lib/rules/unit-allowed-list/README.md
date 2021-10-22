@@ -15,11 +15,11 @@ a { width: 100px; }
 
 Given:
 
-```
+```json
 ["px", "em", "deg"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -36,7 +36,7 @@ a { font-size: 10rem; }
 a { animation: animation-name 5s ease; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -73,14 +73,14 @@ For example, with `["px", "em"]`.
 
 Given:
 
-```
+```json
 {
-  "rem": [ "line-height", "/^border/" ],
-  "%": [ "width" ]
+  "rem": ["line-height", "/^border/"],
+  "%": ["width"]
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -97,7 +97,7 @@ a { border-bottom-width: 6rem; }
 a { width: 100%; }
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css

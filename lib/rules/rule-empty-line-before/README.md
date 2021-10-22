@@ -23,7 +23,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 There _must always_ be an empty line before rules.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -36,7 +36,7 @@ a {}
 b {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -49,7 +49,7 @@ b {}
 
 There _must never_ be an empty line before rules.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -58,7 +58,7 @@ a {}
 b {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -75,7 +75,7 @@ b {}
 
 There _must always_ be an empty line before multi-line rules.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -87,7 +87,7 @@ b {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -104,7 +104,7 @@ b {
 
 There _must never_ be an empty line before multi-line rules.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -117,7 +117,7 @@ b {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -139,7 +139,7 @@ Reverse the primary option for rules that follow another rule.
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -148,7 +148,7 @@ a {}
 b {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -162,7 +162,7 @@ Reverse the primary option for rules that follow a single-line comment.
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -171,7 +171,7 @@ The following patterns are considered violations:
 a {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -185,7 +185,7 @@ Reverse the primary option for rules that are inside a block and follow another 
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -197,7 +197,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -214,7 +214,7 @@ Reverse the primary option for rules that are inside a block.
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -228,7 +228,7 @@ a {
 
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -246,7 +246,7 @@ Reverse the primary option for rules that are nested and the first child of thei
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -258,7 +258,7 @@ The following patterns are considered violations:
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -277,7 +277,7 @@ Ignore rules that follow a comment.
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -291,7 +291,7 @@ Ignore rules that are nested and the first child of their parent node.
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -308,7 +308,7 @@ Ignore rules that are inside a block.
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

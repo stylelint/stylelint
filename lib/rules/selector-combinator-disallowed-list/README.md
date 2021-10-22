@@ -19,11 +19,11 @@ This rule ignores [reference combinators](https://www.w3.org/TR/selectors4/#idre
 
 Given:
 
-```
+```json
 [">", " "]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -41,7 +41,7 @@ a
 b {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

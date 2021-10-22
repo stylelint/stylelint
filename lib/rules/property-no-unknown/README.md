@@ -22,7 +22,7 @@ Use option `checkPrefixed` described below to turn on checking of vendor-prefixe
 
 ### `true`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -38,7 +38,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -81,11 +81,11 @@ a {
 
 Given:
 
-```
+```json
 ["/^my-/", "custom"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -114,11 +114,11 @@ Skips checking properties of the given selectors against this rule.
 
 Given:
 
-```
+```json
 [":root"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -133,11 +133,11 @@ Ignores properties nested within specified at-rules.
 
 Given:
 
-```
+```json
 ["supports"]
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -154,7 +154,7 @@ If `true`, this rule will check vendor-prefixed properties.
 
 For example with `true`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -170,7 +170,7 @@ a {
 }
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css

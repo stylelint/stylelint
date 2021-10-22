@@ -3,12 +3,12 @@ name: 'Code Scanning'
 on:
   push:
     branches:
-      - master
+      - main
       - '!dependabot/**'
   pull_request:
     # The branches below must be a subset of the branches above
     branches:
-      - master
+      - main
   schedule:
     - cron: '0 7 * * 1'
 

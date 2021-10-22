@@ -30,7 +30,7 @@ This rule allows a trailing semicolon after the closing brace of a block. For ex
 
 There _must always_ be a single space after the closing brace.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -43,7 +43,7 @@ a { color: pink; }
 b { color: red; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -54,7 +54,7 @@ a { color: pink; } b { color: red; }
 
 There _must never_ be whitespace after the closing brace.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -67,7 +67,7 @@ a { color: pink; }
 b { color: red; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -84,14 +84,14 @@ a { color: pink;
 
 There _must always_ be a single space after the closing brace in single-line blocks.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 a { color: pink; }b { color: red; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -108,14 +108,14 @@ a { color: pink;
 
 There _must never_ be whitespace after the closing brace in single-line blocks.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
 a { color: pink; } b { color: red; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -132,7 +132,7 @@ a { color: pink;
 
 There _must always_ be a single space after the closing brace in multi-line blocks.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -140,7 +140,7 @@ a { color: pink;
 }b { color: red; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -157,7 +157,7 @@ a { color: pink;
 
 There _must never_ be whitespace after the closing brace in multi-line blocks.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -165,7 +165,7 @@ a { color: pink;
 } b { color: red; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

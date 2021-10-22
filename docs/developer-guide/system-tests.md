@@ -1,6 +1,6 @@
 # Writing system tests
 
-System tests verify that stylelint works as expected. They are another line of defense against regressions, after the unit tests and integration tests.
+System tests verify that Stylelint works as expected. They are another line of defense against regressions, after the unit tests and integration tests.
 
 Each of these system tests asserts that we end up with some expected output, given a configuration and a stylesheet.
 

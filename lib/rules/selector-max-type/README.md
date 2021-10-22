@@ -19,7 +19,7 @@ The `:not()` pseudo-class is also evaluated separately. The rule processes the a
 
 For example, with `2`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -40,7 +40,7 @@ div a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -85,7 +85,7 @@ Discount child type selectors.
 
 For example, with `2`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -103,7 +103,7 @@ Discount compounded type selectors -- i.e. type selectors chained with other sel
 
 For example, with `2`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -121,7 +121,7 @@ Discount descendant type selectors.
 
 For example, with `2`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -139,7 +139,7 @@ Discount next-sibling type selectors.
 
 For example, with `2`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -155,13 +155,13 @@ div a + span {}
 
 Given:
 
-```
+```json
 ["/^my-/", "custom"]
 ```
 
 For example, with `2`.
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

@@ -27,14 +27,14 @@ as a regular expression. For example, `/width$/` will match `max-width` and
 
 Given:
 
-```
+```json
 {
   "min-width": ["768px", "1024px"],
   "/resolution/": ["/dpcm$/"]
 }
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -51,7 +51,7 @@ The following patterns are considered violations:
 @media screen and (min-width > 1000px) {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

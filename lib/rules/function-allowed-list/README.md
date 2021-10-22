@@ -17,11 +17,11 @@ If a string is surrounded with `"/"` (e.g. `"/^rgb/"`), it is interpreted as a r
 
 Given:
 
-```
+```json
 ["scale", "rgba", "linear-gradient"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -44,7 +44,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

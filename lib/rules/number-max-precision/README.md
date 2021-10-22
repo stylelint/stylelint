@@ -15,7 +15,7 @@ a { top: 3.245634px; }
 
 For example, with `2`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -32,7 +32,7 @@ a { top: 3.245634px; }
 @media (min-width: 3.234em) {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -46,6 +46,32 @@ a { top: 3.24px; }
 
 ## Optional secondary options
 
+### `ignoreProperties: ["/regex/", /regex/, "string"]`
+
+Ignore the precision of numbers for the specified properties.
+
+For example, with `0`.
+
+Given:
+
+```json
+["transition"]
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { top: 10.5px; }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { transition: all 4.5s ease; }
+```
+
 ### `ignoreUnits: ["/regex/", /regex/, "string"]`
 
 Ignore the precision of numbers for values with the specified units.
@@ -54,11 +80,11 @@ For example, with `2`.
 
 Given:
 
-```
+```json
 ["/^my-/", "%"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -75,7 +101,7 @@ a { top: 3.245634px; }
 @media (min-width: 3.234em) {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

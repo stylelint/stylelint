@@ -21,7 +21,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ### `"always"`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -32,7 +32,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -47,7 +47,7 @@ a {
 
 ### `"never"`
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -69,7 +69,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -100,7 +100,7 @@ Shared-line comments do not trigger this option.
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -122,7 +122,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -152,7 +152,7 @@ Shared-line comments do not affect this option.
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -174,7 +174,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -200,7 +200,7 @@ Reverse the primary option for custom properties that are nested and the first c
 
 For example, with `"always"`:
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -212,7 +212,7 @@ a {
 }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -231,7 +231,7 @@ Ignore custom properties that follow a comment.
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -247,7 +247,7 @@ Ignore custom properties that are nested and the first child of their parent nod
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -264,7 +264,7 @@ Ignore custom properties that are inside single-line blocks.
 
 For example, with `"always"`:
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

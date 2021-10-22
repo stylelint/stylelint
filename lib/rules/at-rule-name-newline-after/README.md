@@ -18,7 +18,7 @@ Require a newline after at-rule names.
 
 There _must always_ be a newline after at-rule names.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -31,7 +31,7 @@ The following patterns are considered violations:
   (orientation: landscape) {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -63,7 +63,7 @@ The following patterns are _not_ considered violations:
 
 There _must always_ be a newline after at-rule names in at-rules with multi-line parameters.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -77,7 +77,7 @@ The following patterns are considered violations:
  (orientation: landscape) {}
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

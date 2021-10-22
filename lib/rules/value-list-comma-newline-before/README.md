@@ -18,7 +18,7 @@ Require a newline or disallow whitespace before the commas of value lists.
 
 There _must always_ be a newline before the commas.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -31,7 +31,7 @@ a { background-size: 0,
       0; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -43,7 +43,7 @@ a { background-size: 0
 
 There _must always_ be a newline before the commas in multi-line value lists.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -51,7 +51,7 @@ a { background-size: 0,
       0; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -73,7 +73,7 @@ a { background-size: 0
 
 There _must never_ be whitespace before the commas in multi-line value lists.
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -81,7 +81,7 @@ a { background-size: 0
       , 0; }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css

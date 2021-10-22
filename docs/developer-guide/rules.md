@@ -48,7 +48,7 @@ There are significant benefits to using these parsers instead of regular express
 
 #### Utility functions
 
-stylelint has [utility functions](https://github.com/stylelint/stylelint/tree/master/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!).
+Stylelint has [utility functions](https://github.com/stylelint/stylelint/tree/master/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!).
 
 Use the:
 
@@ -77,7 +77,7 @@ There is one caveat here: If your rule accepts a primary option array, it cannot
 
 ### Add autofix
 
-Depending on the rule, it might be possible to automatically fix the rule's violations by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](http://api.postcss.org/).
+Depending on the rule, it might be possible to automatically fix the rule's problems by mutating the PostCSS AST (Abstract Syntax Tree) using the [PostCSS API](http://api.postcss.org/).
 
 Add `context` variable to rule parameters:
 
@@ -109,8 +109,8 @@ report(/* .. */);
 
 Each rule must have tests that cover all patterns that:
 
-- are considered violations
-- should _not_ be considered violations
+- are considered problems
+- should _not_ be considered problems
 
 Write as many as you can stand to.
 
@@ -237,7 +237,7 @@ Deviation: 16.63969674310928 ms
 
 When writing new rules or refactoring existing rules, use these measurements to determine the efficiency of your code.
 
-A stylelint rule can repeat its core logic many, many times (e.g. checking every value node of every declaration in a vast CSS codebase). So it's worth paying attention to performance and doing what we can to improve it!
+A Stylelint rule can repeat its core logic many, many times (e.g. checking every value node of every declaration in a vast CSS codebase). So it's worth paying attention to performance and doing what we can to improve it!
 
 **Improving the performance of a rule is a great way to contribute if you want a quick little project.** Try picking a rule and seeing if there's anything you can do to speed it up.
 

@@ -22,11 +22,11 @@ This rule ignores:
 
 Given:
 
-```
+```json
 ["ftp", "/^http/"]
 ```
 
-The following patterns are considered violations:
+The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
@@ -43,7 +43,7 @@ a { background-image: url('http://www.example.com/file.jpg'); }
 a { background-image: url('https://www.example.com/file.jpg'); }
 ```
 
-The following patterns are _not_ considered violations:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
