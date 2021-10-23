@@ -22,7 +22,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         exclude:
           - os: ubuntu-latest
-            node: 14
+            node: 16
 
     steps:
       - uses: actions/checkout@v2
@@ -49,7 +49,7 @@ jobs:
 
     strategy:
       matrix:
-        node: [14]
+        node: [16]
         os: [ubuntu-latest]
 
     steps:
