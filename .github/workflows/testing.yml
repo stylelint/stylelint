@@ -33,9 +33,6 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: npm
 
-      - name: Install latest npm
-        run: npm install --global npm@latest
-
       - name: Install dependencies
         run: npm ci
 
