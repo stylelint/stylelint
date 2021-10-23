@@ -28,14 +28,10 @@
     "stylelint": "bin/stylelint.js"
   },
   "files": [
-    "bin",
-    "CHANGELOG.md",
-    "CONTRIBUTING.md",
-    "SECURITY.md",
-    "docs",
-    "lib",
-    "!**/__tests__",
-    "!lib/testUtils",
+    "bin/**/*.js",
+    "lib/**/*.js",
+    "!**/__tests__/**",
+    "!lib/testUtils/**",
     "types/stylelint/index.d.ts"
   ],
   "scripts": {
