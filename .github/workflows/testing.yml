@@ -74,7 +74,8 @@ jobs:
         run: npm run jest -- --coverage
 
       - name: Run Coveralls
-        uses: coverallsapp/github-action@master
+        # TODO: if they start releasing a v1 etc tag switch to it
+        uses: coverallsapp/github-action@1.1.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: ./.coverage/lcov.info
