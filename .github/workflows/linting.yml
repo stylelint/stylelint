@@ -9,6 +9,9 @@ on:
     branches:
       - '**'
 
+env:
+  FORCE_COLOR: 2
+
 jobs:
   lint:
     name: Lint on Node.js ${{ matrix.node }} and ${{ matrix.os }}
