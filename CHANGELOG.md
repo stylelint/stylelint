@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file.
 
 - Fixed: `overrides` property ignoring dot directories ([#5629](https://github.com/stylelint/stylelint/pull/5629)).
 - Fixed: custom syntax require error handling ([#5635](https://github.com/stylelint/stylelint/pull/5635)).
+- Fixed: `function-calc-no-unspaced-operator` false positives for hyphenated functions ([#5636](https://github.com/stylelint/stylelint/pull/5636)).
 
 ## 14.0.0
 
