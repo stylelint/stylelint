@@ -362,7 +362,7 @@ All notable changes to this project are documented in this file.
 - Added: `value-keyword-case` autofix ([#3775](https://github.com/stylelint/stylelint/pull/3775)).
 - Added: `ignore: ["pseudo-classes"]` to `max-nesting-depth` ([#3724](https://github.com/stylelint/stylelint/pull/3724)).
 - Added: `ignoreTypes:[]` to `selector-type-case` ([#3758](https://github.com/stylelint/stylelint/pull/3758)).
-- Added: `ignoreFunctions:[]` to `unit-no-unkown` ([#3736](https://github.com/stylelint/stylelint/pull/3736)).
+- Added: `ignoreFunctions:[]` to `unit-no-unknown` ([#3736](https://github.com/stylelint/stylelint/pull/3736)).
 - Fixed: error for single-line Sass comments ([#3772](https://github.com/stylelint/stylelint/pull/3772)).
 - Fixed: `at-rule-*` false positives for Less variables and mixins ([#3767](https://github.com/stylelint/stylelint/pull/3767)).
 - Fixed: `max-empty-lines` false positives for final newlines ([#3785](https://github.com/stylelint/stylelint/pull/3785)).
@@ -380,7 +380,7 @@ All notable changes to this project are documented in this file.
 - Fixed: false negatives for Less at-imports ([#3687](https://github.com/stylelint/stylelint/pull/3687)).
 - Fixed: SyntaxError when an empty string is used for a rule's custom message ([#3743](https://github.com/stylelint/stylelint/pull/3743)).
 - Fixed: `max-empty-lines` false positives for empty lines before `</style>` ([#3708](https://github.com/stylelint/stylelint/pull/3708)).
-- Fixed: `selector-max-specificity` false positives for functional psuedo-classes ([#3711](https://github.com/stylelint/stylelint/pull/3711)).
+- Fixed: `selector-max-specificity` false positives for functional pseudo-classes ([#3711](https://github.com/stylelint/stylelint/pull/3711)).
 
 ## 9.6.0
 
@@ -593,7 +593,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `*-empty-line-before` false positives shared-line comments and `"first-nested"` option ([#2827](https://github.com/stylelint/stylelint/issues/2827)).
 - Fixed: `color-hex-length` false positives for ID references in `url` functions ([#2806](https://github.com/stylelint/stylelint/issues/2806)).
 - Fixed: `indentation` false positives for Less parametric mixins with rule block/snippet ([#2744](https://github.com/stylelint/stylelint/pull/2744)).
-- Fixed: `no-empty-source` compatability with `postcss-html` custom syntax ([#2798](https://github.com/stylelint/stylelint/issues/2798)).
+- Fixed: `no-empty-source` compatibility with `postcss-html` custom syntax ([#2798](https://github.com/stylelint/stylelint/issues/2798)).
 - Fixed: `no-extra-semicolons` false negatives where instances were not detected when followed by multiple comments ([#2678](https://github.com/stylelint/stylelint/issues/2678)).
 - Fixed: `selector-max-specificity` cannot parse selector problem for Less mixins ([#2677](https://github.com/stylelint/stylelint/pull/2677)).
 

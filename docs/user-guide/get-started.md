@@ -108,7 +108,7 @@ If you lint more than one styling language, then you can use the [`overrides`](c
 }
 ```
 
-Which will extend the [offical standard config](https://github.com/stylelint/stylelint-config-standard), then use the `overrides` property to change the custom-syntax and turn off the rules that check braces and semicolons for SugarSS files.
+Which will extend the [official standard config](https://github.com/stylelint/stylelint-config-standard), then use the `overrides` property to change the custom-syntax and turn off the rules that check braces and semicolons for SugarSS files.
 
 You can then use Stylelint to lint both CSS and SugarSS files:
 
@@ -145,4 +145,4 @@ You don't have to use the [Command Line Interface](usage/cli.md); you can also u
 - [Node API](usage/node-api.md)
 - [PostCSS plugin](usage/postcss-plugin.md)
 
-There are also integrations for [editors](integrations/editor.md), [task-runners](integrations/task-runner.md) and [others](integrations/other.md) too. Our [offical extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) is a popular choice that lets you see problems inline in your editor.
+There are also integrations for [editors](integrations/editor.md), [task-runners](integrations/task-runner.md) and [others](integrations/other.md) too. Our [official extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) is a popular choice that lets you see problems inline in your editor.
