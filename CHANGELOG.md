@@ -105,7 +105,7 @@ All notable changes to this project are documented in this file.
 
 ## 13.7.0
 
-- Deprecated: `*-blacklist`, `*-requirelist` and `*-whitelist` rules in favour of the new `*-disallowed-list`, `*-required-list` and `*-allowed-list` ones ([#4845](https://github.com/stylelint/stylelint/pull/4845)):
+- Deprecated: `*-blacklist`, `*-requirelist` and `*-whitelist` rules in favor of the new `*-disallowed-list`, `*-required-list` and `*-allowed-list` ones ([#4845](https://github.com/stylelint/stylelint/pull/4845)):
   - `at-rule-blacklist`. Use `at-rule-disallowed-list` instead.
   - `at-rule-property-requirelist`. Use `at-rule-property-required-list` instead.
   - `at-rule-whitelist`. Use `at-rule-allowed-list` instead.
@@ -270,7 +270,7 @@ All notable changes to this project are documented in this file.
 ## 11.0.0
 
 - Changed: `--report-needless-disables` CLI flag now reports needless disables and runs linting ([#4151](https://github.com/stylelint/stylelint/pull/4151)).
-- Changed: display a problem at 1:1 for each file instead of throwing an error on unrecognised rules ([#4237](https://github.com/stylelint/stylelint/pull/4237)).
+- Changed: display a problem at 1:1 for each file instead of throwing an error on unrecognized rules ([#4237](https://github.com/stylelint/stylelint/pull/4237)).
 - Changed: always return `stylelintError` as a boolean ([#4174](https://github.com/stylelint/stylelint/pull/4174)).
 - Deprecated: `createRuleTester` API ([#4279](https://github.com/stylelint/stylelint/pull/4279)).
 - Added: `--reportInvalidScopeDisables` CLI flag ([#4181](https://github.com/stylelint/stylelint/pull/4181)).
@@ -313,7 +313,7 @@ All notable changes to this project are documented in this file.
 
 - Removed: Node.js 6.x support. Node.js 8.15.1 or greater is now required ([#4006](https://github.com/stylelint/stylelint/pull/4006)).
 - Removed: `styled` and `jsx` syntax options that were replaced with `css-in-js` in v9.10.0 ([#4007](https://github.com/stylelint/stylelint/pull/4007)).
-- Changed: throws error if glob matches no files, use the `--allow-empty-input` flag for the old behaviour ([#3965](https://github.com/stylelint/stylelint/pull/3965)).
+- Changed: throws error if glob matches no files, use the `--allow-empty-input` flag for the old behavior ([#3965](https://github.com/stylelint/stylelint/pull/3965)).
 - Changed: rules are now applied in the order defined in `lib/rules/index.js` ([#3923](https://github.com/stylelint/stylelint/pull/3923)).
 - Added: `at-rule-property-requirelist` rule ([#3997](https://github.com/stylelint/stylelint/pull/3997)).
 - Added: `disallowInList` to `no-duplicate-selectors` ([#3936](https://github.com/stylelint/stylelint/pull/3936)).
@@ -1099,7 +1099,7 @@ Changes:
 - Added: `selector-max-empty-lines` rule.
 - Added: `selector-pseudo-element-no-unknown` rule.
 - Added: flexible support for end-of-line comments in `at-rule-semicolon-newline-after`, `block-opening-brace-newline-after`, and `declaration-block-semicolon-newline-after`.
-- Fixed: string and verbose formatters no longer use an ambiguous colour schemes.
+- Fixed: string and verbose formatters no longer use an ambiguous color schemes.
 - Fixed: string formatter no longer outputs an empty line if there are no problems.
 - Fixed: all rules now handle case insensitive CSS identifiers.
 - Fixed: `function-comma-newline-after` now allows end-of-line comments.

@@ -131,7 +131,7 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 a {
-  color: map-get($colour, blue);
+  color: map-get($color, blue);
 }
 ```
 
