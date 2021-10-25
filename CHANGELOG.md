@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## HEAD
 
 - Fixed: `overrides` property ignoring dot directories ([#5629](https://github.com/stylelint/stylelint/pull/5629)).
+- Fixed: custom syntax require error handling ([#5635](https://github.com/stylelint/stylelint/pull/5635)).
 
 ## 14.0.0
 
