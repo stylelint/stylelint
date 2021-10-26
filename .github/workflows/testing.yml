@@ -11,7 +11,6 @@ on:
 
 env:
   FORCE_COLOR: 2
-  NODE_COV: 16 # The Node.js version to run coverage on
 
 jobs:
   test:
@@ -23,6 +22,9 @@ jobs:
       matrix:
         node: [12, 14, 16]
         os: [ubuntu-latest, windows-latest, macos-latest]
+        exclude:
+          - os: ubuntu-latest
+            node: 'lts/*'
 
     steps:
       - uses: actions/checkout@v2
@@ -33,21 +35,40 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: npm
 
+      - name: Install latest npm
+        run: npm install --global npm@latest
+
       - name: Install dependencies
         run: npm ci
 
       - name: Test
         run: npm run jest
-        if: "!(startsWith(matrix.os, 'ubuntu') && matrix.node == env.NODE_COV)"
+
+  coverage:
+    name: Coverage on LTS
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use LTS Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+          cache: npm
+
+      - name: Install latest npm
+        run: npm install --global npm@latest
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Test with coverage
         run: npm run jest -- --coverage
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == env.NODE_COV
 
       - name: Run Coveralls
-        # TODO: if they start releasing a v1 etc tag switch to it
         uses: coverallsapp/github-action@1.1.3
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == env.NODE_COV
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: ./.coverage/lcov.info

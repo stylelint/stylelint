@@ -11,7 +11,6 @@ on:
 
 env:
   FORCE_COLOR: 2
-  NODE: 16
 
 jobs:
   lint:
@@ -21,11 +20,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Use LTS Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE }}
+          node-version: 'lts/*'
           cache: npm
+
+      - name: Install latest npm
+        run: npm install --global npm@latest
 
       - name: Install dependencies
         run: npm ci
