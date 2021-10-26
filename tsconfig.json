@@ -7,8 +7,8 @@
 		"checkJs": true,
 		"noEmit": true,
 		"strict": true,
-		"noImplicitThis": true,
-		"alwaysStrict": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedParameters": true,
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
 		"typeRoots": ["./types", "./node_modules/@types"]
