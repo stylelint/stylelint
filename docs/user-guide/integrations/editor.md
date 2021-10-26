@@ -1,6 +1,6 @@
 # Editor integrations
 
-We recommend the [offical VS Code extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint).
+We recommend the [official VS Code extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint).
 
 Editor integrations built and maintained by the community:
 

@@ -106,7 +106,7 @@ All notable changes to this project are documented in this file.
 
 ## 13.7.0
 
-- Deprecated: `*-blacklist`, `*-requirelist` and `*-whitelist` rules in favour of the new `*-disallowed-list`, `*-required-list` and `*-allowed-list` ones ([#4845](https://github.com/stylelint/stylelint/pull/4845)):
+- Deprecated: `*-blacklist`, `*-requirelist` and `*-whitelist` rules in favor of the new `*-disallowed-list`, `*-required-list` and `*-allowed-list` ones ([#4845](https://github.com/stylelint/stylelint/pull/4845)):
   - `at-rule-blacklist`. Use `at-rule-disallowed-list` instead.
   - `at-rule-property-requirelist`. Use `at-rule-property-required-list` instead.
   - `at-rule-whitelist`. Use `at-rule-allowed-list` instead.
@@ -271,7 +271,7 @@ All notable changes to this project are documented in this file.
 ## 11.0.0
 
 - Changed: `--report-needless-disables` CLI flag now reports needless disables and runs linting ([#4151](https://github.com/stylelint/stylelint/pull/4151)).
-- Changed: display a problem at 1:1 for each file instead of throwing an error on unrecognised rules ([#4237](https://github.com/stylelint/stylelint/pull/4237)).
+- Changed: display a problem at 1:1 for each file instead of throwing an error on unrecognized rules ([#4237](https://github.com/stylelint/stylelint/pull/4237)).
 - Changed: always return `stylelintError` as a boolean ([#4174](https://github.com/stylelint/stylelint/pull/4174)).
 - Deprecated: `createRuleTester` API ([#4279](https://github.com/stylelint/stylelint/pull/4279)).
 - Added: `--reportInvalidScopeDisables` CLI flag ([#4181](https://github.com/stylelint/stylelint/pull/4181)).
@@ -314,7 +314,7 @@ All notable changes to this project are documented in this file.
 
 - Removed: Node.js 6.x support. Node.js 8.15.1 or greater is now required ([#4006](https://github.com/stylelint/stylelint/pull/4006)).
 - Removed: `styled` and `jsx` syntax options that were replaced with `css-in-js` in v9.10.0 ([#4007](https://github.com/stylelint/stylelint/pull/4007)).
-- Changed: throws error if glob matches no files, use the `--allow-empty-input` flag for the old behaviour ([#3965](https://github.com/stylelint/stylelint/pull/3965)).
+- Changed: throws error if glob matches no files, use the `--allow-empty-input` flag for the old behavior ([#3965](https://github.com/stylelint/stylelint/pull/3965)).
 - Changed: rules are now applied in the order defined in `lib/rules/index.js` ([#3923](https://github.com/stylelint/stylelint/pull/3923)).
 - Added: `at-rule-property-requirelist` rule ([#3997](https://github.com/stylelint/stylelint/pull/3997)).
 - Added: `disallowInList` to `no-duplicate-selectors` ([#3936](https://github.com/stylelint/stylelint/pull/3936)).
@@ -363,7 +363,7 @@ All notable changes to this project are documented in this file.
 - Added: `value-keyword-case` autofix ([#3775](https://github.com/stylelint/stylelint/pull/3775)).
 - Added: `ignore: ["pseudo-classes"]` to `max-nesting-depth` ([#3724](https://github.com/stylelint/stylelint/pull/3724)).
 - Added: `ignoreTypes:[]` to `selector-type-case` ([#3758](https://github.com/stylelint/stylelint/pull/3758)).
-- Added: `ignoreFunctions:[]` to `unit-no-unkown` ([#3736](https://github.com/stylelint/stylelint/pull/3736)).
+- Added: `ignoreFunctions:[]` to `unit-no-unknown` ([#3736](https://github.com/stylelint/stylelint/pull/3736)).
 - Fixed: error for single-line Sass comments ([#3772](https://github.com/stylelint/stylelint/pull/3772)).
 - Fixed: `at-rule-*` false positives for Less variables and mixins ([#3767](https://github.com/stylelint/stylelint/pull/3767)).
 - Fixed: `max-empty-lines` false positives for final newlines ([#3785](https://github.com/stylelint/stylelint/pull/3785)).
@@ -381,7 +381,7 @@ All notable changes to this project are documented in this file.
 - Fixed: false negatives for Less at-imports ([#3687](https://github.com/stylelint/stylelint/pull/3687)).
 - Fixed: SyntaxError when an empty string is used for a rule's custom message ([#3743](https://github.com/stylelint/stylelint/pull/3743)).
 - Fixed: `max-empty-lines` false positives for empty lines before `</style>` ([#3708](https://github.com/stylelint/stylelint/pull/3708)).
-- Fixed: `selector-max-specificity` false positives for functional psuedo-classes ([#3711](https://github.com/stylelint/stylelint/pull/3711)).
+- Fixed: `selector-max-specificity` false positives for functional pseudo-classes ([#3711](https://github.com/stylelint/stylelint/pull/3711)).
 
 ## 9.6.0
 
@@ -594,7 +594,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `*-empty-line-before` false positives shared-line comments and `"first-nested"` option ([#2827](https://github.com/stylelint/stylelint/issues/2827)).
 - Fixed: `color-hex-length` false positives for ID references in `url` functions ([#2806](https://github.com/stylelint/stylelint/issues/2806)).
 - Fixed: `indentation` false positives for Less parametric mixins with rule block/snippet ([#2744](https://github.com/stylelint/stylelint/pull/2744)).
-- Fixed: `no-empty-source` compatability with `postcss-html` custom syntax ([#2798](https://github.com/stylelint/stylelint/issues/2798)).
+- Fixed: `no-empty-source` compatibility with `postcss-html` custom syntax ([#2798](https://github.com/stylelint/stylelint/issues/2798)).
 - Fixed: `no-extra-semicolons` false negatives where instances were not detected when followed by multiple comments ([#2678](https://github.com/stylelint/stylelint/issues/2678)).
 - Fixed: `selector-max-specificity` cannot parse selector problem for Less mixins ([#2677](https://github.com/stylelint/stylelint/pull/2677)).
 
@@ -1100,7 +1100,7 @@ Changes:
 - Added: `selector-max-empty-lines` rule.
 - Added: `selector-pseudo-element-no-unknown` rule.
 - Added: flexible support for end-of-line comments in `at-rule-semicolon-newline-after`, `block-opening-brace-newline-after`, and `declaration-block-semicolon-newline-after`.
-- Fixed: string and verbose formatters no longer use an ambiguous colour schemes.
+- Fixed: string and verbose formatters no longer use an ambiguous color schemes.
 - Fixed: string formatter no longer outputs an empty line if there are no problems.
 - Fixed: all rules now handle case insensitive CSS identifiers.
 - Fixed: `function-comma-newline-after` now allows end-of-line comments.

@@ -343,7 +343,7 @@ Or, if you're taking a disallow approach:
 }
 ```
 
-This approach scales to when language extensions (that use the two built-in extendable syntactic constructs of at-rules and functions) are used. For example, say you want to disallow all standard color presentations in favour of using a custom color representation function, e.g. `my-color(red with a dash of green / 5%)`. You can do that with:
+This approach scales to when language extensions (that use the two built-in extendable syntactic constructs of at-rules and functions) are used. For example, say you want to disallow all standard color presentations in favor of using a custom color representation function, e.g. `my-color(red with a dash of green / 5%)`. You can do that with:
 
 ```json
 {
