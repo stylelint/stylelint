@@ -28,11 +28,9 @@
     "stylelint": "bin/stylelint.js"
   },
   "files": [
-    "bin/**/*.js",
-    "lib/**/*.js",
-    "!**/__tests__/**",
-    "!lib/testUtils/**",
-    "types/stylelint/index.d.ts"
+    "{bin,lib}/**/*.js",
+    "types/stylelint/index.d.ts",
+    "!**/{__tests__,testUtils}/**"
   ],
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.js",
