@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## HEAD
+## 14.0.1
 
 - Fixed: package size by excluding docs ([#5643](https://github.com/stylelint/stylelint/pull/5643)).
 - Fixed: `overrides` property ignoring dot directories ([#5629](https://github.com/stylelint/stylelint/pull/5629)).
