@@ -361,7 +361,7 @@ Ignore the specified pseudo-classes.
 For example, with `1` and given:
 
 ```json
-["hover", "active"]
+["hover", "^focus-"]
 ```
 
 The following patterns are _not_ considered problems:
