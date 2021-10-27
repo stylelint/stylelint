@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Added: `ignorePseudoClasses: []` to `max-nesting-depth` ([#5620](https://github.com/stylelint/stylelint/pull/5620)).
+
 ## 14.0.1
 
 - Fixed: package size by excluding docs ([#5643](https://github.com/stylelint/stylelint/pull/5643)).
