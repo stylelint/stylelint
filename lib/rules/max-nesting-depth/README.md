@@ -17,7 +17,7 @@ a {
   & b { /* nesting depth 1 */
     & .foo { /* nesting depth 2 */
       @media print { /* nesting depth 3 */
-        & baz { /* nesting depth 4 */
+        & .baz { /* nesting depth 4 */
           color: pink;
         }
       }
@@ -60,7 +60,7 @@ The following patterns are considered problems:
 a {
   & .foo { /* 1 */
     &__foo { /* 2 */
-      & > bar {} /* 3 */
+      & > .bar {} /* 3 */
     }
   }
 }
@@ -71,7 +71,7 @@ a {
 a {
   @media print { /* 1 */
     & .foo { /* 2 */
-      & bar {} /* 3 */
+      & .bar {} /* 3 */
     }
   }
 }
@@ -87,7 +87,7 @@ a {
   }
 }
 
-a .foo__foo bar baz {}
+a .foo__foo .bar .baz {}
 ```
 
 <!-- prettier-ignore -->
