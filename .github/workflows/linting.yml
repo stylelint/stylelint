@@ -9,24 +9,21 @@ on:
     branches:
       - '**'
 
+env:
+  FORCE_COLOR: 2
+
 jobs:
   lint:
-    name: Lint on Node.js ${{ matrix.node }} and ${{ matrix.os }}
-
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        node: [14]
-        os: [ubuntu-latest]
+    name: Lint
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node }}
+      - name: Use LTS Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 'lts/*'
           cache: npm
 
       - name: Install latest npm
