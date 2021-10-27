@@ -170,8 +170,8 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-.a {
-  .b { /* 1 */
+a {
+  b { /* 1 */
     .c { /* 2 */
       top: 0;
     }
@@ -181,9 +181,9 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-.a {
+a {
   &:hover { /* ignored */
-    .b { /* 1 */
+    b { /* 1 */
       .c { /* 2 */
         top: 0;
       }
@@ -194,8 +194,8 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-.a {
-  .b { /* 1 */
+a {
+  b { /* 1 */
     &::selection { /* 2 */
       color: #64FFDA;
     }
@@ -205,8 +205,8 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-.a {
-  .b { /* 1 */
+a {
+  b { /* 1 */
     &:hover, .c { /* 2 */
       top: 0;
     }
@@ -216,12 +216,12 @@ The following patterns are considered problems:
 
 The following patterns are _not_ considered problems:
 
-As all of the following pseudoclasses rules would have a nesting depth of just 1.
+As all of the following pseudo-classes rules would have a nesting depth of just 1.
 
 <!-- prettier-ignore -->
 ```css
-.a {
-  .b { /* 1 */
+a {
+  b { /* 1 */
     &:hover { /* ignored */
       top: 0;
     }
@@ -231,8 +231,8 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
 
 <!-- prettier-ignore -->
 ```css
-.a {
-  .b { /* 1 */
+a {
+  b { /* 1 */
     &:nest {
       &:nest-lvl2 {  /* ignored */
         top: 0;
@@ -244,9 +244,9 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
 
 <!-- prettier-ignore -->
 ```css
-.a {
+a {
   &:hover {  /* ignored */
-    .b { /* 1 */
+    b { /* 1 */
       top: 0;
     }
   }
@@ -255,11 +255,11 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
 
 <!-- prettier-ignore -->
 ```css
-.a {
+a {
   &:nest {  /* ignored */
     &:nest-lvl2 {  /* ignored */
       top: 0;
-      .b { /* 1 */
+      b { /* 1 */
         bottom: 0;
       }
     }
@@ -269,8 +269,8 @@ As all of the following pseudoclasses rules would have a nesting depth of just 1
 
 <!-- prettier-ignore -->
 ```css
-.a {
-  .b { /* 1 */
+a {
+  b { /* 1 */
     &:hover, &:focus {  /* ignored */
       top: 0;
     }
@@ -350,6 +350,64 @@ a {
 a {
   @--not-my-at-rule print {   /* 1 */
     b { top: 0; }       /* 2 */
+  }
+}
+```
+
+### `ignorePseudoClasses: ["/regex/", /regex/, "string"]`
+
+Ignore the specified pseudo-classes.
+
+For example, with `1` and given:
+
+```json
+["hover", "^focus-"]
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  &:hover {   /* ignored */
+    b {      /* 1 */
+      top: 0;
+    }
+  }
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  &:hover, &:active { /* ignored */
+    b {              /* 1 */
+      top: 0;
+    }
+  }
+}
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  &:visited { /* 1 */
+    b {      /* 2 */
+      top: 0;
+    }
+  }
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  &:hover, &:visited { /* 1 */
+    b {               /* 2 */
+      top: 0;
+    }
   }
 }
 ```
