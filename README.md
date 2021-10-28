@@ -24,7 +24,7 @@ And can be extended to:
 
 ## Example output
 
-![Example](https://raw.githubusercontent.com/stylelint/stylelint/main/example.png)
+![Example](example.png)
 
 ## Guides
 
