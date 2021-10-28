@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Added: `ignorePseudoClasses: []` to `max-nesting-depth` ([#5620](https://github.com/stylelint/stylelint/pull/5620)).
+- Fixed: `color-function-notation` false positives for hex colours ([#5650](https://github.com/stylelint/stylelint/pull/5650)).
 
 ## 14.0.1
 
