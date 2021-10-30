@@ -31,6 +31,7 @@ body:
     id: stylelint-configuration
     attributes:
       label: 'What Stylelint configuration is needed to reproduce the bug?'
+      description: 'Provide the smallest reproducible example.'
       placeholder: |
         e.g.
 
