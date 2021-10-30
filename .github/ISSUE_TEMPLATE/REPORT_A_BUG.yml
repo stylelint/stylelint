@@ -58,7 +58,7 @@ body:
     attributes:
       label: 'What did you expect to happen?'
       placeholder: |
-        e.g. "No warnings to be flagged."
+        e.g. "No problems to be reported."
     validations:
       required: true
   - type: textarea
