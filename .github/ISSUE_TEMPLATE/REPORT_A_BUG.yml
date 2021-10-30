@@ -54,7 +54,8 @@ body:
   - type: input
     id: non-standard-syntax
     attributes:
-      label: 'Does the bug relate to non-standard syntax (e.g. SCSS, Less etc.)?'
+      label: 'Does the bug relate to non-standard syntax?'
+      description: 'For example, a construct from SCSS, Less or CSS-in-JS.'
       placeholder: |
         e.g. "Yes, it's related to SCSS nested properties."
     validations:
