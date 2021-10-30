@@ -18,8 +18,6 @@ body:
     id: reproduce-bug
     attributes:
       label: 'What steps are needed to reproduce the bug?'
-      placeholder: |
-        e.g. "CLI with `stylelint '**/*.css' --config myconfig.json`"
     validations:
       required: true
   - type: input
