@@ -6,6 +6,14 @@ body:
     attributes:
       value: |
         Thanks for taking the time to file a bug report!
+
+        Before posting, please check that the bug hasn't already been:
+        * fixed in the next release (https://github.com/stylelint/stylelint/blob/main/CHANGELOG.md)
+        * discussed previously (https://github.com/stylelint/stylelint/search)
+
+        You can help us fix the bug more quickly by:
+        1. Figuring out what needs doing and proposing it.
+        2. Writing the code and submitting a PR once the bug is confirmed.
   - type: textarea
     id: reproduce-bug
     attributes:
