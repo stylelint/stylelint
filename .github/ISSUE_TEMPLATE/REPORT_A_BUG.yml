@@ -20,13 +20,6 @@ body:
       label: 'What steps are needed to reproduce the bug?'
     validations:
       required: true
-  - type: input
-    id: stylelint-rule
-    attributes:
-      label: 'Which rule, if any, is the bug related to?'
-      placeholder: 'e.g. `number-leading-zero`'
-    validations:
-      required: false
   - type: textarea
     id: stylelint-configuration
     attributes:
