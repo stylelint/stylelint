@@ -1,0 +1,83 @@
+name: '🐛 Report a bug'
+description: 'Is something not working as you expect?'
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report!
+  - type: textarea
+    id: reproduce-bug
+    attributes:
+      label: 'What steps are needed to reproduce the bug?'
+      placeholder: |
+        e.g. "CLI with `stylelint '**/*.css' --config myconfig.json`"
+    validations:
+      required: true
+  - type: input
+    id: stylelint-rule
+    attributes:
+      label: 'Which rule, if any, is the bug related to?'
+      placeholder: 'e.g. `number-leading-zero`'
+    validations:
+      required: false
+  - type: input
+    id: stylelint-configuration
+    attributes:
+      label: 'What Stylelint configuration is needed to reproduce the bug?'
+      placeholder: |
+        e.g.
+
+        ```json
+        {
+          "rules": {
+            "number-leading-zero": "always"
+          }
+        }
+        ```
+    validations:
+      required: false
+  - type: input
+    id: stylelint-version
+    attributes:
+      label: 'Which version of Stylelint are you using?'
+      placeholder: 'e.g. `14.0.0`'
+    validations:
+      required: false
+  - type: input
+    id: non-standard-syntax
+    attributes:
+      label: 'Does the bug relate to non-standard syntax (e.g. SCSS, Less etc.)?'
+      placeholder: |
+        e.g. "Yes, it's related to SCSS nested properties."
+    validations:
+      required: false
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: 'What did you expect to happen?'
+      placeholder: |
+        e.g. "No warnings to be flagged."
+    validations:
+      required: true
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: 'What actually happened?'
+      description: 'For example, what warnings or errors did you get?'
+      placeholder: |
+        e.g. "The following warnings were flagged:"
+
+        ```
+        test.css
+        2:4    Expected a leading zero (number-leading-zero)
+        ```
+    validations:
+      required: true
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: 'What actually happened?'
+      description: 'For example, what warnings or errors did you get?'
+    validations:
+      required: true
