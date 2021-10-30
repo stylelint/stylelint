@@ -21,7 +21,7 @@ body:
       placeholder: 'e.g. `number-leading-zero`'
     validations:
       required: false
-  - type: input
+  - type: textarea
     id: stylelint-configuration
     attributes:
       label: 'What Stylelint configuration is needed to reproduce the bug?'
