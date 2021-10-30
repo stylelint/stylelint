@@ -67,7 +67,7 @@ body:
       label: 'What actually happened?'
       description: 'For example, what warnings or errors did you get?'
       placeholder: |
-        e.g. "The following warnings were flagged:"
+        e.g. "The following problems were reported:"
 
         ```
         test.css
