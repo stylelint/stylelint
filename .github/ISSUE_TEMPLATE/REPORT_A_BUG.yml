@@ -45,6 +45,15 @@ body:
     validations:
       required: false
   - type: input
+    id: stylelint-run
+    attributes:
+      label: 'How do you run Stylelint?'
+      description: 'For example, CLI, Node,js API or PostCSS plugin.'
+      placeholder: |
+        e.g. "CLI with `stylelint "**/*.css" --config myconfig.json`"
+    validations:
+      required: false
+  - type: input
     id: stylelint-version
     attributes:
       label: 'Which version of Stylelint are you using?'
