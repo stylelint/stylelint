@@ -74,10 +74,3 @@ body:
         ```
     validations:
       required: true
-  - type: textarea
-    id: actual-behavior
-    attributes:
-      label: 'What actually happened?'
-      description: 'For example, what warnings or errors did you get?'
-    validations:
-      required: true
