@@ -51,15 +51,6 @@ body:
       placeholder: 'e.g. `14.0.0`'
     validations:
       required: false
-  - type: input
-    id: non-standard-syntax
-    attributes:
-      label: 'Does the bug relate to non-standard syntax?'
-      description: 'For example, a construct from SCSS, Less or CSS-in-JS.'
-      placeholder: |
-        e.g. "Yes, it's related to SCSS nested properties."
-    validations:
-      required: false
   - type: textarea
     id: expected-behavior
     attributes:
@@ -82,3 +73,12 @@ body:
         ```
     validations:
       required: true
+  - type: input
+    id: non-standard-syntax
+    attributes:
+      label: 'Does the bug relate to non-standard syntax?'
+      description: 'For example, a construct from SCSS, Less or CSS-in-JS.'
+      placeholder: |
+        e.g. "Yes, it's related to SCSS nested properties."
+    validations:
+      required: false
