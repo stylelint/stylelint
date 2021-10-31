@@ -5,15 +5,15 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to file a bug report!
+        Thank you for taking the time to file a bug report!
 
         Before posting, please check that the bug hasn't already been:
-        * fixed in the next release (https://github.com/stylelint/stylelint/blob/main/CHANGELOG.md)
-        * discussed previously (https://github.com/stylelint/stylelint/search)
+        * [fixed in the next release](https://github.com/stylelint/stylelint/blob/main/CHANGELOG.md)
+        * [discussed previously](https://github.com/stylelint/stylelint/search)
 
         You can help us fix the bug more quickly by:
-        1. Figuring out what needs doing and proposing it.
-        2. Writing the code and submitting a PR once the bug is confirmed.
+        1. Figuring out what needs doing and proposing it in the issue.
+        2. After the bug is confirmed, [contributing](https://github.com/stylelint/stylelint/blob/main/CONTRIBUTING.md) a pull request.
   - type: textarea
     id: reproduce-bug
     attributes:
@@ -36,29 +36,29 @@ body:
         }
         ```
     validations:
-      required: false
+      required: true
   - type: input
     id: stylelint-run
     attributes:
-      label: 'How do you run Stylelint?'
+      label: 'How did you run Stylelint?'
       description: 'For example, CLI, Node,js API or PostCSS plugin.'
       placeholder: |
-        e.g. "CLI with `stylelint "**/*.css" --config myconfig.json`"
+        CLI with `stylelint "**/*.css" --config myconfig.json`
     validations:
-      required: false
+      required: true
   - type: input
     id: stylelint-version
     attributes:
       label: 'Which version of Stylelint are you using?'
-      placeholder: 'e.g. `14.0.0`'
+      placeholder: '`14.0.0`'
     validations:
-      required: false
+      required: true
   - type: textarea
     id: expected-behavior
     attributes:
       label: 'What did you expect to happen?'
       placeholder: |
-        e.g. "No problems to be reported."
+        No problems to be reported.
     validations:
       required: true
   - type: textarea
@@ -67,7 +67,7 @@ body:
       label: 'What actually happened?'
       description: 'For example, what warnings or errors did you get?'
       placeholder: |
-        e.g. "The following problems were reported:"
+        The following problems were reported:
 
         ```
         test.css
@@ -81,6 +81,6 @@ body:
       label: 'Does the bug relate to non-standard syntax?'
       description: 'For example, a construct from SCSS, Less or CSS-in-JS.'
       placeholder: |
-        e.g. "Yes, it's related to SCSS nested properties."
+        Yes, it's related to SCSS nested properties.
     validations:
       required: false
