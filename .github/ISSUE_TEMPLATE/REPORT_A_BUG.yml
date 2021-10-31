@@ -82,3 +82,10 @@ body:
         Yes, it's related to SCSS nested properties.
     validations:
       required: false
+  - type: textarea
+    id: proposal-bugfix
+    attributes:
+      label: 'Proposal to fix the bug'
+      description: 'If you know what needs doing, please propose it below.'
+    validations:
+      required: false
