@@ -9,7 +9,7 @@ body:
 
         Before posting, please check that the bug hasn't already been:
         * [fixed in the next release](https://github.com/stylelint/stylelint/blob/main/CHANGELOG.md)
-        * [discussed previously](https://github.com/stylelint/stylelint/search)
+        * [discussed previously](https://github.com/search/advanced?r=stylelint%2Fstylelint&type=Issues)
 
         You can help us fix the bug more quickly by:
         1. Figuring out what needs doing and proposing it in the issue.
