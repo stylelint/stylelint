@@ -9,7 +9,7 @@ body:
   - type: textarea
     id: what-problem
     attributes:
-      label: 'What is the problem you're trying to solve?'
+      label: "What is the problem you're trying to solve?"
     validations:
       required: true
   - type: textarea
