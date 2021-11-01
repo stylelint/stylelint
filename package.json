@@ -173,7 +173,7 @@
     "jest": "^27.3.1",
     "jest-preset-stylelint": "^4.1.1",
     "jest-watch-typeahead": "^1.0.0",
-    "lint-staged": "^11.2.4",
+    "lint-staged": "^11.2.6",
     "np": "^7.5.0",
     "npm-run-all": "^4.1.5",
     "postcss-import": "^14.0.2",
