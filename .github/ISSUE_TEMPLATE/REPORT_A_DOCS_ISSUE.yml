@@ -1,0 +1,20 @@
+name: '📝 Report a docs issue'
+description: 'Is something wrong, confusing or missing in the docs?'
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to file a docs issue!
+  - type: textarea
+    id: describe-issue
+    attributes:
+      label: 'Describe the documentation issue'
+    validations:
+      required: true
+  - type: textarea
+    id: what-solution
+    attributes:
+      label: 'What solution would you like to see?'
+    validations:
+      required: true
