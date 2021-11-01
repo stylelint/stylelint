@@ -179,7 +179,7 @@
     "postcss-import": "^14.0.2",
     "postcss-less": "^5.0.0",
     "postcss-sass": "^0.5.0",
-    "postcss-scss": "^4.0.1",
+    "postcss-scss": "^4.0.2",
     "prettier": "2.4.1",
     "remark-cli": "^10.0.0",
     "sugarss": "^4.0.1",
