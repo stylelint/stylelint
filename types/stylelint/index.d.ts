@@ -69,6 +69,8 @@ declare module 'stylelint' {
 			isEmpty?: boolean;
 		} | null;
 
+		export type ConfigurationError = Error & { code: 78 };
+
 		export type DisabledRange = {
 			comment: PostCSS.Comment;
 			start: number;
