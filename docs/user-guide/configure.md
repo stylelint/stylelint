@@ -265,7 +265,7 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 
 ## `customSyntax`
 
-Specify a custom syntax to use on your code. [More info](usage/options.md#customSyntax).
+Specify a custom syntax to use on your code. [More info](usage/options.md#customsyntax).
 
 ## `overrides`
 
@@ -391,7 +391,7 @@ _Note that this is not an efficient method for ignoring lots of files._ If you w
 
 Processors are functions built by the community that hook into Stylelint's pipeline, modifying code on its way into Stylelint and modifying results on their way out.
 
-**We discourage their use in favor of using the [`customSyntax` option](#customSyntax) as processors are incompatible with the [autofix feature](usage/options.md#fix).**
+**We discourage their use in favor of using the [`customSyntax` option](#customsyntax) as processors are incompatible with the [autofix feature](usage/options.md#fix).**
 
 To use one, add a `"processors"` array to your config, containing "locaters" identifying the processors you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
 
