@@ -12,6 +12,7 @@ All notable changes to this project are documented in this file.
 - Fixed: extending rules within overrides ([#5683](https://github.com/stylelint/stylelint/pull/5683)).
 - Fixed: `color-function-notation` false positives for hex colours ([#5650](https://github.com/stylelint/stylelint/pull/5650)).
 - Fixed: `declaration-empty-line-before` false positives for values wrapped in parentheses ([#5680](https://github.com/stylelint/stylelint/pull/5680)).
+- Fixed: `property-no-unknown` false positives for maps ([#5690](https://github.com/stylelint/stylelint/pull/5690)).
 
 ## 14.0.1
 
