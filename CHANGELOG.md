@@ -2,13 +2,13 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.1.0
 
 - Added: support for directory creation to `--output-file` flag ([#5672](https://github.com/stylelint/stylelint/pull/5672)).
+- Added: `ConfigurationError` type ([#5696](https://github.com/stylelint/stylelint/pull/5696)).
 - Added: `rule-selector-property-disallowed-list` rule ([#5679](https://github.com/stylelint/stylelint/pull/5679)).
 - Added: `ignore: ["consecutive-duplicates-with-same-prefixless-values"]` to `declaration-block-no-duplicate-properties` ([#5609](https://github.com/stylelint/stylelint/pull/5609)).
 - Added: `ignorePseudoClasses: []` to `max-nesting-depth` ([#5620](https://github.com/stylelint/stylelint/pull/5620)).
-- Added: `ConfigurationError` type ([#5696](https://github.com/stylelint/stylelint/pull/5696)).
 - Fixed: extending rules within overrides ([#5683](https://github.com/stylelint/stylelint/pull/5683)).
 - Fixed: `color-function-notation` false positives for hex colours ([#5650](https://github.com/stylelint/stylelint/pull/5650)).
 - Fixed: `declaration-empty-line-before` false positives for values wrapped in parentheses ([#5680](https://github.com/stylelint/stylelint/pull/5680)).
