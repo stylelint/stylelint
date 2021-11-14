@@ -14,6 +14,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `declaration-empty-line-before` false positives for values wrapped in parentheses ([#5680](https://github.com/stylelint/stylelint/pull/5680)).
 - Fixed: `indentation` TypeError for `baseIndentLevel: 1` option for Vue files ([#5657](https://github.com/stylelint/stylelint/pull/5657)).
 - Fixed: `property-no-unknown` false positives for maps ([#5690](https://github.com/stylelint/stylelint/pull/5690)).
+- Fixed: `selector-type-case` false positives for SVG type selectors ([#5717](https://github.com/stylelint/stylelint/pull/5717)).
 
 ## 14.0.1
 
