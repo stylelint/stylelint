@@ -2,6 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `color-named` false positives for hex with alpha-channel and false negatives for modern syntax ([#5718](https://github.com/stylelint/stylelint/pull/5718)).
+- Fixed: `declaration-empty-line-before` support for HTML files ([#5689](https://github.com/stylelint/stylelint/pull/5689)).
+
 ## 14.1.0
 
 - Added: support for directory creation to `--output-file` flag ([#5672](https://github.com/stylelint/stylelint/pull/5672)).
