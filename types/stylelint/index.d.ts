@@ -190,6 +190,11 @@ declare module 'stylelint' {
 			config?: Config;
 			configFile?: string;
 			configBasedir?: string;
+			/**
+			 * The working directory to resolve files from. Defaults to the
+			 * current working directory.
+			 */
+			cwd?: string;
 			ignoreDisables?: boolean;
 			ignorePath?: string;
 			ignorePattern?: string[];
@@ -267,6 +272,11 @@ declare module 'stylelint' {
 		};
 
 		export type LinterResult = {
+			/**
+			 * The working directory from which the linter was run when the
+			 * results were generated.
+			 */
+			cwd: string;
 			results: LintResult[];
 			errored: boolean;
 			output: any;

@@ -2,6 +2,7 @@
 
 exports[`no-fs - zen garden CSS with standard config 1`] = `
 Object {
+  "cwd": "",
   "errored": true,
   "output": "/* css Zen Garden default style v1.02 */
 

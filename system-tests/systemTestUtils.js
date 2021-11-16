@@ -35,7 +35,7 @@ async function caseFilesForFix(caseNumber, ext = 'css') {
 	return tempPath;
 }
 
-function prepForSnapshot({ results, output, ...rest }) {
+function prepForSnapshot({ results, cwd, output, ...rest }) {
 	// If output isn't fixed code
 	if (output.startsWith('[')) {
 		// The `source` of each file varies between platforms or if a tmp file is used
@@ -47,6 +47,7 @@ function prepForSnapshot({ results, output, ...rest }) {
 	}
 
 	return {
+		cwd: path.relative(process.cwd(), cwd),
 		// The _postcssResult object is not part of our API and is huge
 		results: results.map((result) => {
 			delete result.source;

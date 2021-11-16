@@ -2,6 +2,7 @@
 
 exports[`fs - invalid twbs buttons and their config 1`] = `
 Object {
+  "cwd": "",
   "errored": true,
   "output": Array [
     Object {
