@@ -374,7 +374,7 @@ declare module 'stylelint' {
 		 * @internal
 		 */
 		export type InternalApi = {
-			_options: LinterOptions;
+			_options: LinterOptions & { cwd: string };
 			_extendExplorer: ReturnType<typeof cosmiconfig>;
 			_specifiedConfigCache: Map<Config, Promise<CosmiconfigResult>>;
 			_postcssResultCache: Map<string, PostCSS.Result>;
