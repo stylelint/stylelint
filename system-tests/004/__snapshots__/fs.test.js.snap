@@ -12,6 +12,8 @@ Object {
       "warnings": Array [
         Object {
           "column": 1,
+          "endColumn": 38,
+          "endLine": 1,
           "line": 1,
           "rule": "--report-needless-disables",
           "severity": "error",
@@ -31,6 +33,8 @@ Object {
       "warnings": Array [
         Object {
           "column": 1,
+          "endColumn": 38,
+          "endLine": 1,
           "line": 1,
           "rule": "--report-needless-disables",
           "severity": "error",

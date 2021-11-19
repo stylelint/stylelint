@@ -208,7 +208,6 @@ declare module 'stylelint' {
 		};
 
 		export type CssSyntaxError = {
-			column: number;
 			file?: string;
 			input: {
 				column: number;
@@ -216,7 +215,22 @@ declare module 'stylelint' {
 				line: number;
 				source: string;
 			};
+			/**
+			 * The line of the inclusive start position of the error.
+			 */
 			line: number;
+			/**
+			 * The column of the inclusive start position of the error.
+			 */
+			column: number;
+			/**
+			 * The line of the exclusive end position of the error.
+			 */
+			endLine?: number;
+			/**
+			 * The column of the exclusive end position of the error.
+			 */
+			endColumn?: number;
 			message: string;
 			name: string;
 			reason: string;
@@ -224,8 +238,22 @@ declare module 'stylelint' {
 		};
 
 		export type Warning = {
+			/**
+			 * The line of the inclusive start position of the warning.
+			 */
 			line: number;
+			/**
+			 * The column of the inclusive start position of the warning.
+			 */
 			column: number;
+			/**
+			 * The line of the exclusive end position of the warning.
+			 */
+			endLine?: number;
+			/**
+			 * The column of the exclusive end position of the warning.
+			 */
+			endColumn?: number;
 			rule: string;
 			severity: Severity;
 			text: string;
@@ -285,7 +313,16 @@ declare module 'stylelint' {
 			result: PostcssResult;
 			message: string;
 			node: PostCSS.Node;
+			/**
+			 * The inclusive start index of the problem, relative to the node's
+			 * source text.
+			 */
 			index?: number;
+			/**
+			 * The exclusive end index of the problem, relative to the node's
+			 * source text.
+			 */
+			endIndex?: number;
 			word?: string;
 			line?: number;
 		};
