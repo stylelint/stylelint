@@ -165,7 +165,7 @@
     "@types/svg-tags": "^1.0.0",
     "@types/write-file-atomic": "^3.0.2",
     "benchmark": "^2.1.4",
-    "common-tags": "^1.8.1",
+    "common-tags": "^1.8.2",
     "deepmerge": "^4.2.2",
     "eslint": "^8.3.0",
     "eslint-config-stylelint": "^15.0.0",
