@@ -24,7 +24,7 @@ module.exports = {
     "customSyntax": require("postcss-foo"),
     "rules": {
       "at-rule-no-unknown": null,
-      ..
+      // ..
     }
   }
 }
