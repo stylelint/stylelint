@@ -323,6 +323,24 @@ declare module 'stylelint' {
 			 * source text.
 			 */
 			endIndex?: number;
+			/**
+			 * The inclusive start position of the problem, relative to the
+			 * node's source text. If provided, this will be used instead of
+			 * `index`.
+			 */
+			start?: {
+				line: number;
+				column: number;
+			};
+			/**
+			 * The exclusive end position of the problem, relative to the
+			 * node's source text. If provided, this will be used instead of
+			 * `endIndex`.
+			 */
+			end?: {
+				line: number;
+				column: number;
+			};
 			word?: string;
 			line?: number;
 		};
