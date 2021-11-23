@@ -327,13 +327,13 @@ declare module 'stylelint' {
 			/**
 			 * Resolves the effective configuation for a given file. Resolves to
 			 * `null` if no config is found.
-			 * @param filePath The path to the file to get the config for.
-			 * @param options The options to use when creating the Stylelint instance.
+			 * @param filePath - The path to the file to get the config for.
+			 * @param options - The options to use when creating the Stylelint instance.
 			 */
 			resolveConfig: (
 				filePath: string,
-				options: Pick<LinterOptions, 'cwd' | 'config' | 'configBasedir' | 'configFile'>,
-			) => Promise<stylelint.Config | null>;
+				options?: Pick<LinterOptions, 'cwd' | 'config' | 'configBasedir' | 'configFile'>,
+			) => Promise<stylelint.Config | undefined>;
 			utils: {
 				/**
 				 * Report a problem.
