@@ -194,7 +194,7 @@ const config = await stylelint.resolveConfig(filePath);
 // }
 ```
 
-If a configuration cannot be found for a file, `resolveConfig()` will return a Promise that resolves to `null`.
+If a configuration cannot be found for a file, `resolveConfig()` will return a Promise that resolves to `undefined`.
 
 You can also pass the following subset of the [options that you would normally pass to `lint()`](#options):
 

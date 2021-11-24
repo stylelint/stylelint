@@ -326,7 +326,7 @@ declare module 'stylelint' {
 			createLinter: (options: LinterOptions) => InternalApi;
 			/**
 			 * Resolves the effective configuation for a given file. Resolves to
-			 * `null` if no config is found.
+			 * `undefined` if no config is found.
 			 * @param filePath - The path to the file to get the config for.
 			 * @param options - The options to use when creating the Stylelint instance.
 			 */
