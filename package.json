@@ -108,6 +108,7 @@
     ]
   },
   "dependencies": {
+    "@flatten-js/interval-tree": "^1.0.15",
     "balanced-match": "^2.0.0",
     "colord": "^2.9.1",
     "cosmiconfig": "^7.0.1",
