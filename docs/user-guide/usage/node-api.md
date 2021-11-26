@@ -171,3 +171,34 @@ stylelint
 ```
 
 Note that the customSyntax option also accepts a string. [Refer to the options documentation for details](./options.md#customsyntax).
+
+## Resolving the effective config for a file
+
+If you want to find out what exact configuration will be used for a file without actually linting it, you can use the `resolveConfig()` function. Given a file path, it will return a Promise that resolves with the effective configuration object:
+
+```js
+const config = await stylelint.resolveConfig(filePath);
+
+// config => {
+//   rules: {
+//     'color-no-invalid-hex': true
+//   },
+//   extends: [
+//     'stylelint-config-standard',
+//     'stylelint-config-css-modules'
+//   ],
+//   plugins: [
+//     'stylelint-scss'
+//   ],
+//   …
+// }
+```
+
+If a configuration cannot be found for a file, `resolveConfig()` will return a Promise that resolves to `undefined`.
+
+You can also pass the following subset of the [options that you would normally pass to `lint()`](#options):
+
+- `cwd`
+- `config`
+- `configBasedir`
+- `customSyntax`
