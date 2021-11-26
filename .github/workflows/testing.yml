@@ -43,7 +43,7 @@ jobs:
         if: "!(startsWith(matrix.os, 'ubuntu') && matrix.node == 16)"
 
       - name: Test with coverage
-        uses: artaiomtr/jest-coverage-report-action@v2.0-rc.6
+        uses: ArtiomTr/jest-coverage-report-action@v2.0-rc.6
         if: startsWith(matrix.os, 'ubuntu') && matrix.node == 16
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
