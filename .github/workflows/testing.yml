@@ -43,13 +43,8 @@ jobs:
         if: "!(startsWith(matrix.os, 'ubuntu') && matrix.node == 16)"
 
       - name: Test with coverage
-        run: npm run jest -- --coverage
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 16
-
-      - name: Run Coveralls
-        # TODO: use version tag when available
-        uses: coverallsapp/github-action@1.1.3
+        uses: artaiomtr/jest-coverage-report-action@v2.0-rc.6x
         if: startsWith(matrix.os, 'ubuntu') && matrix.node == 16
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./.coverage/lcov.info
+          skip-step: install
