@@ -76,7 +76,7 @@
     "collectCoverage": false,
     "collectCoverageFrom": [
       "lib/**/*.js",
-      "!lib/vendor/**/*.js"
+      "!lib/**/{__tests__,testUtils}/**/*.js"
     ],
     "coverageDirectory": "./.coverage/",
     "coverageReporters": [
