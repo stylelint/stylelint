@@ -2,6 +2,7 @@
 
 exports[`fs - zen garden CSS with standard config 1`] = `
 Object {
+  "cwd": "",
   "errored": true,
   "output": Array [
     Object {

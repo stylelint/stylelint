@@ -22,6 +22,10 @@ Stylelint does not bother looking for a `.stylelintrc` file if you use this opti
 
 A string to lint.
 
+### `cwd`
+
+The directory from which Stylelint will look for files. Defaults to the current working directory returned by `process.cwd()`.
+
 ### `files`
 
 A file glob, or array of [file globs](https://github.com/sindresorhus/globby).
@@ -34,13 +38,17 @@ Though both `files` and `code` are "optional", you _must_ have one and _cannot_ 
 
 The options that are passed with `files`.
 
-For example, you can set a specific `cwd` manually. Relative globs in `files` are considered relative to this path. And by default, `cwd` will be set by `process.cwd()`.
+For example, you can set a specific `cwd` to use when globbing paths. Relative globs in `files` are considered relative to this path. By default, `globbyOptions.cwd` will be set by `cwd`.
 
 For more detail usage, see [Globby Guide](https://github.com/sindresorhus/globby#options).
 
 ## The returned promise
 
 `stylelint.lint()` returns a Promise that resolves with an object containing the following properties:
+
+### `cwd`
+
+The directory used as the working directory for the linting operation.
 
 ### `errored`
 
@@ -163,3 +171,34 @@ stylelint
 ```
 
 Note that the customSyntax option also accepts a string. [Refer to the options documentation for details](./options.md#customsyntax).
+
+## Resolving the effective config for a file
+
+If you want to find out what exact configuration will be used for a file without actually linting it, you can use the `resolveConfig()` function. Given a file path, it will return a Promise that resolves with the effective configuration object:
+
+```js
+const config = await stylelint.resolveConfig(filePath);
+
+// config => {
+//   rules: {
+//     'color-no-invalid-hex': true
+//   },
+//   extends: [
+//     'stylelint-config-standard',
+//     'stylelint-config-css-modules'
+//   ],
+//   plugins: [
+//     'stylelint-scss'
+//   ],
+//   …
+// }
+```
+
+If a configuration cannot be found for a file, `resolveConfig()` will return a Promise that resolves to `undefined`.
+
+You can also pass the following subset of the [options that you would normally pass to `lint()`](#options):
+
+- `cwd`
+- `config`
+- `configBasedir`
+- `customSyntax`

@@ -17,13 +17,17 @@ We recommend creating a shared-config that:
 
 For example, if you're creating a syntax for a CSS-in-JS library called "foo" then we recommend creating a shared-config called "stylelint-config-standard-foo" with the following content:
 
-```json
-{
-  "extends": ["stylelint-config-standard"],
-  "customSyntax": "postcss-foo",
-  "rules": {
-    "at-rule-no-unknown": null,
-    ..
+```js
+module.exports = {
+  {
+    "extends": ["stylelint-config-standard"],
+    "customSyntax": require("postcss-foo"),
+    "rules": {
+      "at-rule-no-unknown": null,
+      // ..
+    }
   }
 }
 ```
+
+We recommended requiring the custom syntax until PostCSS@7 is no longer in circulation.

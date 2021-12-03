@@ -2,6 +2,7 @@
 
 exports[`no-fs - errored state for reportNeedlessDisables 1`] = `
 Object {
+  "cwd": "",
   "errored": true,
   "output": Array [
     Object {
@@ -48,6 +49,7 @@ Object {
 
 exports[`no-fs - no errored state 1`] = `
 Object {
+  "cwd": "",
   "errored": false,
   "output": Array [
     Object {

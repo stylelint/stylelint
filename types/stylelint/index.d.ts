@@ -190,6 +190,11 @@ declare module 'stylelint' {
 			config?: Config;
 			configFile?: string;
 			configBasedir?: string;
+			/**
+			 * The working directory to resolve files from. Defaults to the
+			 * current working directory.
+			 */
+			cwd?: string;
 			ignoreDisables?: boolean;
 			ignorePath?: string;
 			ignorePattern?: string[];
@@ -295,6 +300,11 @@ declare module 'stylelint' {
 		};
 
 		export type LinterResult = {
+			/**
+			 * The working directory from which the linter was run when the
+			 * results were generated.
+			 */
+			cwd: string;
 			results: LintResult[];
 			errored: boolean;
 			output: any;
@@ -369,6 +379,16 @@ declare module 'stylelint' {
 			 * @internal
 			 */
 			createLinter: (options: LinterOptions) => InternalApi;
+			/**
+			 * Resolves the effective configuation for a given file. Resolves to
+			 * `undefined` if no config is found.
+			 * @param filePath - The path to the file to get the config for.
+			 * @param options - The options to use when creating the Stylelint instance.
+			 */
+			resolveConfig: (
+				filePath: string,
+				options?: Pick<LinterOptions, 'cwd' | 'config' | 'configBasedir' | 'configFile'>,
+			) => Promise<stylelint.Config | undefined>;
 			utils: {
 				/**
 				 * Report a problem.
@@ -419,7 +439,7 @@ declare module 'stylelint' {
 		 * @internal
 		 */
 		export type InternalApi = {
-			_options: LinterOptions;
+			_options: LinterOptions & { cwd: string };
 			_extendExplorer: ReturnType<typeof cosmiconfig>;
 			_specifiedConfigCache: Map<Config, Promise<CosmiconfigResult>>;
 			_postcssResultCache: Map<string, PostCSS.Result>;
