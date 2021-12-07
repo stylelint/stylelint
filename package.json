@@ -76,7 +76,7 @@
     "collectCoverage": false,
     "collectCoverageFrom": [
       "lib/**/*.js",
-      "!lib/vendor/**/*.js"
+      "!lib/**/{__tests__,testUtils}/**/*.js"
     ],
     "coverageDirectory": "./.coverage/",
     "coverageReporters": [
@@ -111,7 +111,7 @@
     "balanced-match": "^2.0.0",
     "colord": "^2.9.1",
     "cosmiconfig": "^7.0.1",
-    "debug": "^4.3.2",
+    "debug": "^4.3.3",
     "execall": "^2.0.0",
     "fast-glob": "^3.2.7",
     "fastest-levenshtein": "^1.0.12",
@@ -144,7 +144,7 @@
     "strip-ansi": "^6.0.1",
     "style-search": "^0.1.0",
     "svg-tags": "^1.0.0",
-    "table": "^6.7.3",
+    "table": "^6.7.5",
     "v8-compile-cache": "^2.3.0",
     "write-file-atomic": "^3.0.3"
   },
@@ -167,12 +167,12 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.2.2",
-    "eslint": "^8.3.0",
+    "eslint": "^8.4.0",
     "eslint-config-stylelint": "^15.0.0",
-    "eslint-plugin-jest": "^25.2.4",
+    "eslint-plugin-jest": "^25.3.0",
     "got": "^11.8.3",
     "husky": "^7.0.4",
-    "jest": "^27.3.1",
+    "jest": "^27.4.3",
     "jest-preset-stylelint": "^4.2.0",
     "jest-watch-typeahead": "^1.0.0",
     "lint-staged": "^12.1.2",
@@ -183,7 +183,7 @@
     "postcss-less": "^5.0.0",
     "postcss-sass": "^0.5.0",
     "postcss-scss": "^4.0.2",
-    "prettier": "2.4.1",
+    "prettier": "2.5.1",
     "remark-cli": "^10.0.1",
     "sugarss": "^4.0.1",
     "typescript": "^4.5.2"

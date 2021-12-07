@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Added: `cwd` option ([#5721](https://github.com/stylelint/stylelint/pull/5721)).
+- Added: `resolveConfig` to Node.js API ([#5734](https://github.com/stylelint/stylelint/pull/5734)).
 - Fixed: `color-named` false positives for hex with alpha-channel and false negatives for modern syntax ([#5718](https://github.com/stylelint/stylelint/pull/5718)).
 - Fixed: `declaration-empty-line-before` support for HTML files ([#5689](https://github.com/stylelint/stylelint/pull/5689)).
 

@@ -46,10 +46,8 @@ jobs:
         run: npm run jest -- --coverage
         if: startsWith(matrix.os, 'ubuntu') && matrix.node == 16
 
-      - name: Run Coveralls
-        # TODO: use version tag when available
-        uses: coverallsapp/github-action@1.1.3
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
         if: startsWith(matrix.os, 'ubuntu') && matrix.node == 16
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./.coverage/lcov.info
+          files: ./.coverage/lcov.info
