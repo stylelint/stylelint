@@ -8,7 +8,7 @@ All notable changes to this project are documented in this file.
 - Added: `resolveConfig` to Node.js API ([#5734](https://github.com/stylelint/stylelint/pull/5734)).
 - Fixed: `color-named` false positives for hex with alpha-channel and false negatives for modern syntax ([#5718](https://github.com/stylelint/stylelint/pull/5718)).
 - Fixed: `declaration-empty-line-before` support for HTML files ([#5689](https://github.com/stylelint/stylelint/pull/5689)).
-- Fixed: Showing of incorrect missing package in `customSyntax` require handling ([#5763](https://github.com/stylelint/stylelint/pull/5763)).
+- Fixed: showing of incorrect missing package in `customSyntax` require handling ([#5763](https://github.com/stylelint/stylelint/pull/5763)).
 
 ## 14.1.0
 
