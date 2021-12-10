@@ -71,23 +71,19 @@ Stylelint is maintained by volunteers. Without the code contributions from [all 
 
 ### Sponsors
 
-<object data="https://opencollective.com/stylelint/sponsors.svg?width=420&button=false" type="image/svg+xml">
-  <img src="https://opencollective.com/stylelint/sponsors.svg?width=840&button=false" />
-</object>
+[![Stylelint Sponsors](https://opencollective.com/stylelint/sponsors.svg?width=420&button=false)](https://opencollective.com/stylelint/sponsors.svg?width=420&button=false)
 
 Thank you to all our sponsors! [Become a sponsor](https://opencollective.com/stylelint).
 
 ### Backers
 
-<object data="https://opencollective.com/stylelint/backers.svg?width=420&avatarHeight=48&button=false" type="image/svg+xml">
-  <img src="https://opencollective.com/stylelint/backers.svg?width=840&avatarHeight=48&button=false" />
-</object>
+[![Stylelint Backers](https://opencollective.com/stylelint/backers.svg?width=420&avatarHeight=48&button=false)](https://opencollective.com/stylelint/backers.svg?width=420&avatarHeight=48&button=false)
 
 Thank you to all our backers! [Become a backer](https://opencollective.com/stylelint).
 
 ### Website hosting
 
-<a href="https://www.netlify.com"><img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" /></a>
+[![Deploys by Netlify](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)](https://www.netlify.com)
 
 ## License
 
