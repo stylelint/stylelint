@@ -35,7 +35,7 @@
     "types/stylelint/index.d.ts"
   ],
   "scripts": {
-    "benchmark-rule": "node --experimental-specifier-resolution=node scripts/benchmark-rule.mjs",
+    "benchmark-rule": "node scripts/benchmark-rule.mjs",
     "format": "prettier . --write",
     "jest": "jest",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
