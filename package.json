@@ -136,7 +136,7 @@
     "postcss-media-query-parser": "^0.2.3",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^6.0.0",
-    "postcss-selector-parser": "^6.0.6",
+    "postcss-selector-parser": "^6.0.7",
     "postcss-value-parser": "^4.1.0",
     "resolve-from": "^5.0.0",
     "specificity": "^0.4.1",
