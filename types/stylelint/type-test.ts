@@ -52,6 +52,29 @@ stylelint.lint(options).then((x: LinterResult) => {
 	}
 });
 
+stylelint.resolveConfig('path').then((config) => stylelint.lint({ config }));
+
+stylelint.resolveConfig('path', { config: options }).then((config) => stylelint.lint({ config }));
+
+stylelint
+	.resolveConfig('path', { configBasedir: 'path' })
+	.then((config) => stylelint.lint({ config }));
+
+stylelint
+	.resolveConfig('path', { configFile: 'path' })
+	.then((config) => stylelint.lint({ config }));
+
+stylelint.resolveConfig('path', { cwd: 'path' }).then((config) => stylelint.lint({ config }));
+
+stylelint
+	.resolveConfig('path', {
+		config: options,
+		configBasedir: 'path',
+		configFile: 'path',
+		cwd: 'path',
+	})
+	.then((config) => stylelint.lint({ config }));
+
 const formatter: FormatterType = 'json';
 
 const ruleName = 'sample-rule';

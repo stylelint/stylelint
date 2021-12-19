@@ -2,6 +2,7 @@
 
 exports[`fs - valid sanitize.css and their config 1`] = `
 Object {
+  "cwd": "",
   "errored": false,
   "output": Array [
     Object {

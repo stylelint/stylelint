@@ -87,7 +87,7 @@ Thank you to all our backers! [Become a backer](https://opencollective.com/style
 
 ### Website hosting
 
-<a href="https://www.netlify.com"><img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" /></a>
+[![Deploys by Netlify](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)](https://www.netlify.com)
 
 ## License
 

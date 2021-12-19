@@ -4,14 +4,25 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Added: `cwd` option ([#5721](https://github.com/stylelint/stylelint/pull/5721)).
+- Added: `resolveConfig` to Node.js API ([#5734](https://github.com/stylelint/stylelint/pull/5734)).
+- Fixed: `color-named` false positives for hex with alpha-channel and false negatives for modern syntax ([#5718](https://github.com/stylelint/stylelint/pull/5718)).
+- Fixed: `declaration-empty-line-before` support for HTML files ([#5689](https://github.com/stylelint/stylelint/pull/5689)).
+- Fixed: showing of incorrect missing package in `customSyntax` require handling ([#5763](https://github.com/stylelint/stylelint/pull/5763)).
+
+## 14.1.0
+
 - Added: support for directory creation to `--output-file` flag ([#5672](https://github.com/stylelint/stylelint/pull/5672)).
+- Added: `ConfigurationError` type ([#5696](https://github.com/stylelint/stylelint/pull/5696)).
 - Added: `rule-selector-property-disallowed-list` rule ([#5679](https://github.com/stylelint/stylelint/pull/5679)).
 - Added: `ignore: ["consecutive-duplicates-with-same-prefixless-values"]` to `declaration-block-no-duplicate-properties` ([#5609](https://github.com/stylelint/stylelint/pull/5609)).
 - Added: `ignorePseudoClasses: []` to `max-nesting-depth` ([#5620](https://github.com/stylelint/stylelint/pull/5620)).
-- Added: `ConfigurationError` type ([#5696](https://github.com/stylelint/stylelint/pull/5696)).
 - Fixed: extending rules within overrides ([#5683](https://github.com/stylelint/stylelint/pull/5683)).
 - Fixed: `color-function-notation` false positives for hex colours ([#5650](https://github.com/stylelint/stylelint/pull/5650)).
 - Fixed: `declaration-empty-line-before` false positives for values wrapped in parentheses ([#5680](https://github.com/stylelint/stylelint/pull/5680)).
+- Fixed: `indentation` TypeError for `baseIndentLevel: 1` option for Vue files ([#5657](https://github.com/stylelint/stylelint/pull/5657)).
+- Fixed: `property-no-unknown` false positives for maps ([#5690](https://github.com/stylelint/stylelint/pull/5690)).
+- Fixed: `selector-type-case` false positives for SVG type selectors ([#5717](https://github.com/stylelint/stylelint/pull/5717)).
 
 ## 14.0.1
 
