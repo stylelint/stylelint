@@ -28,7 +28,7 @@ For example, this is the complete set of `value-list-comma-*` rules and their op
 
 - `value-list-comma-space-after`: `"always"|"never"|"always-single-line"|"never-single-line"`
 - `value-list-comma-space-before`: `"always"|"never"|"always-single-line"|"never-single-line"`
-- `value-list-comma-newline-after`: `"always"|"always-multi-line|"never-multi-line"`
+- `value-list-comma-newline-after`: `"always"|"always-multi-line"|"never-multi-line"`
 - `value-list-comma-newline-before`: `"always"|"always-multi-line"|"never-multi-line"`
 
 Where `*-multi-line` and `*-single-line` are in reference to the value list (the _thing_). For example, given:

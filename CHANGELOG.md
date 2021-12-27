@@ -2,13 +2,15 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.2.0
 
-- Added: `cwd` option ([#5721](https://github.com/stylelint/stylelint/pull/5721)).
-- Added: `resolveConfig` to Node.js API ([#5734](https://github.com/stylelint/stylelint/pull/5734)).
+- Added: `cwd` option to Node.js API ([#5721](https://github.com/stylelint/stylelint/pull/5721)).
+- Added: `resolveConfig` option to Node.js API ([#5734](https://github.com/stylelint/stylelint/pull/5734)).
+- Fixed: showing of incorrect missing package in `customSyntax` require handling ([#5763](https://github.com/stylelint/stylelint/pull/5763)).
+- Fixed: `color-function-notation` false positives for variables and color functions ([#5793](https://github.com/stylelint/stylelint/pull/5793))
 - Fixed: `color-named` false positives for hex with alpha-channel and false negatives for modern syntax ([#5718](https://github.com/stylelint/stylelint/pull/5718)).
 - Fixed: `declaration-empty-line-before` support for HTML files ([#5689](https://github.com/stylelint/stylelint/pull/5689)).
-- Fixed: showing of incorrect missing package in `customSyntax` require handling ([#5763](https://github.com/stylelint/stylelint/pull/5763)).
+- Fixed: `indentation` TypeError for syntaxes that use Document node type ([#5771](https://github.com/stylelint/stylelint/pull/5771)).
 
 ## 14.1.0
 
