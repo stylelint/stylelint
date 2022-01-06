@@ -96,11 +96,6 @@ a { font-family: Arial, sans-serif; }
 
 <!-- prettier-ignore -->
 ```css
-a { font-family: Arial, sans-serif; }
-```
-
-<!-- prettier-ignore -->
-```css
 a { font-family: Times New Roman, Times, serif; }
 ```
 
