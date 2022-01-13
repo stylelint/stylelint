@@ -6,8 +6,8 @@ To write one, familiarize yourself with PostCSS's [how to write custom syntax](h
 
 Existing syntaxes that you can use for reference include:
 
-- [postcss-scss](https://github.com/postcss/postcss-scss)
-- [postcss-less](https://github.com/shellscape/postcss-less)
+- [postcss-scss](https://www.npmjs.com/package/postcss-scss)
+- [postcss-less](https://www.npmjs.com/package/postcss-less)
 - [postcss-html](https://www.npmjs.com/package/postcss-html)
 - [postcss-lit](https://www.npmjs.com/package/postcss-lit)
 
