@@ -272,14 +272,15 @@ A typical use-case is to build in more complex conditionals that the rule's opti
 
 All rules share a common signature. They are a function that accepts two arguments: a primary option and a secondary options object. And that functions returns a function that has the signature of a PostCSS plugin, expecting a PostCSS root and result as its arguments.
 
-Here's an example of a plugin that runs `color-hex-case` only if there is a special directive `@@check-color-hex-case` somewhere in the stylesheet:
+Here's an example of a plugin that runs `declaration-no-important` only if there is a special directive `@@check-declaration-no-important` somewhere in the stylesheet:
 
 ```js
 module.exports = stylelint.createPlugin(ruleName, function (expectation) {
-  const runColorHexCase = stylelint.rules["color-hex-case"](expectation);
+  const runColorHexCase =
+    stylelint.rules["declaration-no-important"](expectation);
 
   return (root, result) => {
-    if (root.toString().indexOf("@@check-color-hex-case") === -1) {
+    if (root.toString().indexOf("@@check-declaration-no-important") === -1) {
       return;
     }
 

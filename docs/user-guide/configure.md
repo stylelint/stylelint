@@ -61,21 +61,15 @@ Many rules provide secondary options for further customization. To set secondary
 You can add any number of keys in the object. For example, you can:
 
 - turn off `block-no-empty`
-- turn on `comment-empty-line-before` with a primary and secondary option
-- turn on `max-empty-lines` and `unit-allowed-list` with primary options
+- turn on `unit-allowed-list` with a primary option
+- turn on `alpha-value-notation` with a primary and secondary option
 
 ```json
 {
   "rules": {
     "block-no-empty": null,
-    "comment-empty-line-before": [
-      "always",
-      {
-        "ignore": ["stylelint-commands", "after-comment"]
-      }
-    ],
-    "max-empty-lines": 2,
-    "unit-allowed-list": ["em", "rem", "%", "s"]
+    "unit-allowed-list": ["em", "rem", "%", "s"],
+    "alpha-value-notation": ["percentage", { "exceptProperties": ["opacity"] }]
   }
 }
 ```
@@ -89,13 +83,7 @@ For example:
 ```json
 {
   "rules": {
-    "indentation": [
-      2,
-      {
-        "except": ["value"],
-        "disableFix": true
-      }
-    ]
+    "color-function-notation": ["modern", { "disableFix": true }]
   }
 }
 ```
@@ -109,18 +97,10 @@ For example, the following rule configuration would substitute in custom message
 ```json
 {
   "rules": {
-    "color-hex-case": [
-      "lower",
+    "custom-property-pattern": [
+      "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
       {
-        "message": "Lowercase letters are easier to distinguish from numbers"
-      }
-    ],
-    "indentation": [
-      2,
-      {
-        "except": ["block"],
-        "message": "Please use 2 spaces for indentation.",
-        "severity": "warning"
+        "message": "Expected custom property name to be kebab-case"
       }
     ]
   }
@@ -138,13 +118,7 @@ For example:
 ```json
 {
   "rules": {
-    "indentation": [
-      2,
-      {
-        "except": ["value"],
-        "reportDisables": true
-      }
-    ]
+    "color-no-invalid-hex": [true, { "reportDisables": true }]
   }
 }
 ```
@@ -165,10 +139,10 @@ For example:
 ```json
 {
   "rules": {
-    "indentation": [
+    "number-max-precision": [
       2,
       {
-        "except": ["value"],
+        "ignoreUnits": ["em"],
         "severity": "warning"
       }
     ]
@@ -184,34 +158,34 @@ You can _extend_ an existing configuration (whether your own or a third-party on
 
 Popular configurations include:
 
-- [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended) - turns on just [possible error rules](rules/list.md#possible-errors)
-- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) - extends recommended one by turning on 60 [stylistic rules](rules/list.md#stylistic-issues)
+- [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended) - turns on just the rules that [avoid errors](rules/list.md#avoid-errors)
+- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) - extends recommended one by turning on rules that [enforce conventions](rules/list.md#enforce-conventions)
 
 You'll find more in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#configs).
 
 When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
 
-For example, you can extend the [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) and then change the indentation to tabs and turn off the `number-leading-zero` rule:
+For example, you can extend the [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) and then change the alpha values to be numbers and turn off the `selector-class-pattern` rule:
 
 ```json
 {
   "extends": "stylelint-config-standard",
   "rules": {
-    "indentation": "tab",
-    "number-leading-zero": null
+    "alpha-value-notation": "number",
+    "selector-class-pattern": null
   }
 }
 ```
 
 You can extend an array of existing configurations, with each item in the array taking precedence over the previous item (so the second item overrides rules in the first, the third item overrides rules in the first and the second, and so on, the last item overrides everything else).
 
-For example, with `stylelint-config-standard`, then layer `myExtendableConfig` on top of that, and then override the indentation rule:
+For example, with `stylelint-config-standard`, then layer `myExtendableConfig` on top of that, and then override the `alpha-value-notation` rule:
 
 ```json
 {
   "extends": ["stylelint-config-standard", "./myExtendableConfig"],
   "rules": {
-    "indentation": "tab"
+    "alpha-value-notation": "number"
   }
 }
 ```
@@ -226,10 +200,7 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 
 Plugins are rules or sets of rules built by the community that support methodologies, toolsets, _non-standard_ CSS features, or very specific use cases.
 
-Popular plugin packs include:
-
-- [stylelint-order](https://github.com/hudochenkov/stylelint-order) - specify the ordering of things, e.g. properties within declaration blocks
-- [stylelint-scss](https://github.com/kristerkari/stylelint-scss) - enforce a wide variety of linting rules for SCSS-like syntax
+For example, [stylelint-scss](https://github.com/kristerkari/stylelint-scss) is a popular plugin pack that enforces a wide variety of linting rules for SCSS-like syntax.
 
 You'll find more in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#plugins).
 
@@ -278,14 +249,13 @@ In your `.stylelintrc.json`:
 ```json
 {
   "rules": {
-    "string-quotes": "double"
+    "alpha-value-notation": "number"
   },
-
   "overrides": [
     {
       "files": ["components/**/*.css", "pages/**/*.css"],
       "rules": {
-        "string-quotes": "single"
+        "alpha-value-notation": "percentage"
       }
     }
   ]
@@ -445,14 +415,14 @@ For example, this produces errors for needless disables of all rules except `sel
 }
 ```
 
-And this emits warnings for disables of `color-hex-case` that don't have a description:
+And this emits warnings for disables of `unit-allowed-list` that don't have a description:
 
 ```json
 {
   "reportDescriptionlessDisables": [
     false,
     {
-      "except": ["color-hex-case"],
+      "except": ["unit-allowed-list"],
       "severity": "warning"
     }
   ]

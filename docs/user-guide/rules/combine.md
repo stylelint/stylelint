@@ -2,7 +2,180 @@
 
 You can combine rules to enforce strict conventions.
 
+## `*-allowed-list`, `*-disallowed-list`, `color-named` and applicable `*-no-*` rules
+
+These rules work together to (dis)allow language features and constructs.
+
+There are `*-allowed-list` and `*-disallowed-list` rules that target the constructs of the CSS language: at-rules, functions, declarations (i.e. property-value pairs), properties and units. These rules (dis)allow any language features that make use of these constructs (e.g. `@media`, `rgb()`). However, there are features not caught by these `*-allowed-list` and `*-disallowed-list` rules (or are, but would require complex regex to configure). There are individual rules, usually a `*-no-*` rule (e.g. `color-no-hex` and `selector-no-id`), to disallow each of these features.
+
+Say you want to disallow the `@debug` language extension. You can do that using either the `at-rule-disallowed-list` or `at-rule-allowed-list` rules because the `@debug` language extension uses the at-rule construct e.g.
+
+```json
+{
+  "at-rule-disallowed-list": ["debug"]
+}
+```
+
+Say you want to, for whatever reason, disallow the whole at-rule construct. You can do that using:
+
+```json
+{
+  "at-rule-allowed-list": []
+}
+```
+
+Say you want to disallow the value `none` for the `border` properties. You can do that using either the `declaration-property-value-disallowed-list` or `declaration-property-value-allowed-list` e.g.
+
+```json
+{
+  "declaration-property-value-disallowed-list": [
+    {
+      "/^border/": ["none"]
+    }
+  ]
+}
+```
+
+## `color-*` and `function-*` rules
+
+Most `<color>` values are _functions_. As such, they can be (dis)allowed using either the `function-allowed-list` or `function-disallowed-list` rules. Two other color representations aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
+
+Say you want to enforce using a named color _if one exists for your chosen color_ and use `hwb` color if one does not, e.g.:
+
+<!-- prettier-ignore -->
+```css
+a {
+  background: hwb(235, 0%, 0%); /* there is no named color equivalent for this color */
+  color: black;
+}
+```
+
+If you're taking an allow approach, you can do that with:
+
+```json
+{
+  "color-named": "always-where-possible",
+  "color-no-hex": true,
+  "function-allowed-list": ["hwb"]
+}
+```
+
+Or, if you're taking a disallow approach:
+
+```json
+{
+  "color-named": "always-where-possible",
+  "color-no-hex": true,
+  "function-disallowed-list": ["/^rgb/", "/^hsl/", "gray"]
+}
+```
+
+This approach scales to when language extensions (that use the two built-in extendable syntactic constructs of at-rules and functions) are used. For example, say you want to disallow all standard color presentations in favor of using a custom color representation function, e.g. `my-color(red with a dash of green / 5%)`. You can do that with:
+
+```json
+{
+  "color-named": "never",
+  "color-no-hex": true,
+  "function-allowed-list": ["my-color"]
+}
+```
+
+## `*-empty-line-before` and `*-max-empty-lines` rules
+
+_These rules have been frozen in favour of using a pretty printer (like Prettier) alongside Stylelint._
+
+These rules work together to control where empty lines are allowed.
+
+Each _thing_ is responsible for pushing itself away from the _preceding thing_, rather than pushing the _subsequent thing_ away. This consistency is to avoid conflicts and is why there aren't any `*-empty-line-after` rules in Stylelint.
+
+Say you want to enforce the following:
+
+<!-- prettier-ignore -->
+```css
+a {
+  background: green;
+  color: red;
+
+  @media (min-width: 30em) {
+    color: blue;
+  }
+}
+
+b {
+  --custom-property: green;
+
+  background: pink;
+  color: red;
+}
+```
+
+You can do that with:
+
+```json
+{
+  "at-rule-empty-line-before": [
+    "always",
+    {
+      "except": ["first-nested"]
+    }
+  ],
+  "custom-property-empty-line-before": [
+    "always",
+    {
+      "except": ["after-custom-property", "first-nested"]
+    }
+  ],
+  "declaration-empty-line-before": [
+    "always",
+    {
+      "except": ["after-declaration", "first-nested"]
+    }
+  ],
+  "block-closing-brace-empty-line-before": "never",
+  "rule-empty-line-before": ["always-multi-line"]
+}
+```
+
+We recommend that you set your primary option (e.g. `"always"` or `"never"`) to whatever is your most common occurrence and define your exceptions with the `except` optional secondary options. There are many values for the `except` option e.g. `first-nested`, `after-comment` etc.
+
+The `*-empty-line-before` rules control whether there must never be an empty line or whether there must be _one or more_ empty lines before a _thing_. The `*-max-empty-lines` rules complement this by controlling _the number_ of empty lines within _things_. The `max-empty-lines` rule sets a limit across the entire source. A _stricter_ limit can then be set within _things_ using the likes of `function-max-empty-lines`, `selector-max-empty-lines` and `value-list-max-empty-lines`.
+
+For example, say you want to enforce the following:
+
+<!-- prettier-ignore -->
+```css
+a,
+b {
+  box-shadow:
+    inset 0 2px 0 #dcffa6,
+    0 2px 5px #000;
+}
+
+c {
+  transform:
+    translate(
+      1,
+      1
+    );
+}
+```
+
+i.e. a maximum of 1 empty line within the whole source, but no empty lines within functions, selector lists and value lists.
+
+You can do that with:
+
+```json
+{
+  "function-max-empty-lines": 0,
+  "max-empty-lines": 1,
+  "selector-list-max-empty-lines": 0,
+  "value-list-max-empty-lines": 0
+}
+```
+
 ## `*-newline/space-before` and `*-newline/space-after` rules
+
+_These rules have been frozen in favour of using a pretty printer (like Prettier) alongside Stylelint._
 
 Say you want to enforce no space before and a single space after the colon in every declaration:
 
@@ -183,175 +356,6 @@ a { color: red; }
 ```
 
 To allow single-line blocks but enforce newlines with multi-line blocks, use the `"always-multi-line"` option for both rules.
-
-## `*-empty-line-before` and `*-max-empty-lines` rules
-
-These rules work together to control where empty lines are allowed.
-
-Each _thing_ is responsible for pushing itself away from the _preceding thing_, rather than pushing the _subsequent thing_ away. This consistency is to avoid conflicts and is why there aren't any `*-empty-line-after` rules in Stylelint.
-
-Say you want to enforce the following:
-
-<!-- prettier-ignore -->
-```css
-a {
-  background: green;
-  color: red;
-
-  @media (min-width: 30em) {
-    color: blue;
-  }
-}
-
-b {
-  --custom-property: green;
-
-  background: pink;
-  color: red;
-}
-```
-
-You can do that with:
-
-```json
-{
-  "at-rule-empty-line-before": [
-    "always",
-    {
-      "except": ["first-nested"]
-    }
-  ],
-  "custom-property-empty-line-before": [
-    "always",
-    {
-      "except": ["after-custom-property", "first-nested"]
-    }
-  ],
-  "declaration-empty-line-before": [
-    "always",
-    {
-      "except": ["after-declaration", "first-nested"]
-    }
-  ],
-  "block-closing-brace-empty-line-before": "never",
-  "rule-empty-line-before": ["always-multi-line"]
-}
-```
-
-We recommend that you set your primary option (e.g. `"always"` or `"never"`) to whatever is your most common occurrence and define your exceptions with the `except` optional secondary options. There are many values for the `except` option e.g. `first-nested`, `after-comment` etc.
-
-The `*-empty-line-before` rules control whether there must never be an empty line or whether there must be _one or more_ empty lines before a _thing_. The `*-max-empty-lines` rules complement this by controlling _the number_ of empty lines within _things_. The `max-empty-lines` rule sets a limit across the entire source. A _stricter_ limit can then be set within _things_ using the likes of `function-max-empty-lines`, `selector-max-empty-lines` and `value-list-max-empty-lines`.
-
-For example, say you want to enforce the following:
-
-<!-- prettier-ignore -->
-```css
-a,
-b {
-  box-shadow:
-    inset 0 2px 0 #dcffa6,
-    0 2px 5px #000;
-}
-
-c {
-  transform:
-    translate(
-      1,
-      1
-    );
-}
-```
-
-i.e. a maximum of 1 empty line within the whole source, but no empty lines within functions, selector lists and value lists.
-
-You can do that with:
-
-```json
-{
-  "function-max-empty-lines": 0,
-  "max-empty-lines": 1,
-  "selector-list-max-empty-lines": 0,
-  "value-list-max-empty-lines": 0
-}
-```
-
-## `*-allowed-list`, `*-disallowed-list`, `color-named` and applicable `*-no-*` rules
-
-These rules work together to (dis)allow language features and constructs.
-
-There are `*-allowed-list` and `*-disallowed-list` rules that target the constructs of the CSS language: at-rules, functions, declarations (i.e. property-value pairs), properties and units. These rules (dis)allow any language features that make use of these constructs (e.g. `@media`, `rgb()`). However, there are features not caught by these `*-allowed-list` and `*-disallowed-list` rules (or are, but would require complex regex to configure). There are individual rules, usually a `*-no-*` rule (e.g. `color-no-hex` and `selector-no-id`), to disallow each of these features.
-
-Say you want to disallow the `@debug` language extension. You can do that using either the `at-rule-disallowed-list` or `at-rule-allowed-list` rules because the `@debug` language extension uses the at-rule construct e.g.
-
-```json
-{
-  "at-rule-disallowed-list": ["debug"]
-}
-```
-
-Say you want to, for whatever reason, disallow the whole at-rule construct. You can do that using:
-
-```json
-{
-  "at-rule-allowed-list": []
-}
-```
-
-Say you want to disallow the value `none` for the `border` properties. You can do that using either the `declaration-property-value-disallowed-list` or `declaration-property-value-allowed-list` e.g.
-
-```json
-{
-  "declaration-property-value-disallowed-list": [
-    {
-      "/^border/": ["none"]
-    }
-  ]
-}
-```
-
-## `color-*` and `function-*` rules
-
-Most `<color>` values are _functions_. As such, they can be (dis)allowed using either the `function-allowed-list` or `function-disallowed-list` rules. Two other color representations aren't functions: named colors and hex colors. There are two specific rules that (dis)allow these: `color-named` and `color-no-hex`, respectively.
-
-Say you want to enforce using a named color _if one exists for your chosen color_ and use `hwb` color if one does not, e.g.:
-
-<!-- prettier-ignore -->
-```css
-a {
-  background: hwb(235, 0%, 0%); /* there is no named color equivalent for this color */
-  color: black;
-}
-```
-
-If you're taking an allow approach, you can do that with:
-
-```json
-{
-  "color-named": "always-where-possible",
-  "color-no-hex": true,
-  "function-allowed-list": ["hwb"]
-}
-```
-
-Or, if you're taking a disallow approach:
-
-```json
-{
-  "color-named": "always-where-possible",
-  "color-no-hex": true,
-  "function-disallowed-list": ["/^rgb/", "/^hsl/", "gray"]
-}
-```
-
-This approach scales to when language extensions (that use the two built-in extendable syntactic constructs of at-rules and functions) are used. For example, say you want to disallow all standard color presentations in favor of using a custom color representation function, e.g. `my-color(red with a dash of green / 5%)`. You can do that with:
-
-```json
-{
-  "color-named": "never",
-  "color-no-hex": true,
-  "function-allowed-list": ["my-color"]
-}
-```
 
 ## Manage conflicts
 
