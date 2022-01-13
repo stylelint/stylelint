@@ -69,7 +69,6 @@ If you use Prettier alongside Stylelint, you should also their [SCSS shared conf
 {
   "extends": [
     "stylelint-config-standard-scss",
-    "stylelint-config-prettier",
     "stylelint-config-prettier-scss"
   ]
 }
