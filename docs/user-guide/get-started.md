@@ -63,7 +63,7 @@ npx stylelint "**/*.scss"
 
 This config includes the [postcss-scss syntax](https://github.com/postcss/postcss-scss), configures the [built-in rules](../user-guide/rules/list.md) for SCSS, and includes the [stylelint-scss plugin](https://www.npmjs.com/package/stylelint-scss) (a collection of rules specific to SCSS).
 
-If you use Prettier alongside Stylelint, you should also their [SCSS shared config](https://github.com/prettier/stylelint-config-prettier-scss):
+If you use Prettier alongside Stylelint, you should use their [SCSS shared config](https://github.com/prettier/stylelint-config-prettier-scss):
 
 ```json
 {
