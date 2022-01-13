@@ -83,7 +83,7 @@ _Rules are named to encourage explicit, rather than implicit, options._ For exam
 
 Most rules require _or_ disallow something.
 
-For example, whether numbers _must_ or _must not_ have a leading zero:
+For example, whether colors _must_ or _must not_ be named:
 
 - `color-named`: `string - "always-where-possible"|"never"`
   - `"always"` - there _must always (where possible)_ be named colors
