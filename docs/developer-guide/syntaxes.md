@@ -1,6 +1,6 @@
 # Writing custom syntaxes
 
-Custom syntaxes are [PostCSS syntaxes](https://github.com/postcss/postcss#syntaxes) written by the community to support other styling languages and CSS-in-JS libraries using the [`customSyntax` option](../user-guide/usage/options.md#customSyntax)
+Custom syntaxes are [PostCSS syntaxes](https://github.com/postcss/postcss#syntaxes) written by the community to support other styling languages and CSS-in-JS libraries using the [`customSyntax` option](../user-guide/usage/options.md#customSyntax).
 
 To write one, familiarize yourself with PostCSS's [how to write custom syntax](https://github.com/postcss/postcss/blob/main/docs/syntax.md) guide.
 
