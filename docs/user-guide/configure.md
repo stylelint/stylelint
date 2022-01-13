@@ -200,7 +200,7 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 
 Plugins are rules or sets of rules built by the community that support methodologies, toolsets, _non-standard_ CSS features, or very specific use cases.
 
-For example, [stylelint-scss](https://github.com/kristerkari/stylelint-scss) is a popular plugin pack that enforces a wide variety of linting rules for SCSS-like syntax.
+For example, [stylelint-scss](https://github.com/stylelint-scss/stylelint-scss) is a popular plugin pack that enforces a wide variety of linting rules for SCSS-like syntax.
 
 You'll find more in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#plugins).
 
