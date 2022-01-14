@@ -11,6 +11,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `color-named` false positives for hex with alpha-channel and false negatives for modern syntax ([#5718](https://github.com/stylelint/stylelint/pull/5718)).
 - Fixed: `declaration-empty-line-before` support for HTML files ([#5689](https://github.com/stylelint/stylelint/pull/5689)).
 - Fixed: `indentation` TypeError for syntaxes that use Document node type ([#5771](https://github.com/stylelint/stylelint/pull/5771)).
+- Fixed: `no-descending-specificity` false positives for the `::-moz-focus-inner` pseudo-element ([#5831](https://github.com/stylelint/stylelint/pull/5831)).
 
 ## 14.1.0
 
