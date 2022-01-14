@@ -173,19 +173,18 @@ a {color: pink;
 }
 ```
 
-# Optional secondary options
+## Optional secondary options
 
 ### `ignore: ["at-rules"]`
 
-Require a single space after rules, but allow new line after at-rules. This is usefull in single-line formatting.
+Ignore the opening brace of at-rules.
 
-For example :
+For example, with `"always"`:
 
-The following patterns are _not_ considered problems:
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css
 @media print {
   a { color: pink; } 
 }
-```
