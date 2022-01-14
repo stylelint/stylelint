@@ -123,3 +123,25 @@ a { color: pink; }
 a {color: pink;
 }
 ```
+
+# Optional secondary options
+
+### `ignore: ["rules"]`
+
+Require a new line for at-rules, but allow single line for rules. This is usefull in single-line formatting.
+
+For example :
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { color: pink; }
+```
+
+<!-- prettier-ignore -->
+```css
+@media print {
+  a { color: pink; } 
+}
+```
