@@ -186,5 +186,6 @@ The following pattern is _not_ considered a problem:
 <!-- prettier-ignore -->
 ```css
 @media print {
-  a { color: pink; } 
+  a { color: pink; }
 }
+```
