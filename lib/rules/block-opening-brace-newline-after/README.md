@@ -137,3 +137,4 @@ The following pattern is _not_ considered a problem:
 <!-- prettier-ignore -->
 ```css
 a { color: pink; }
+```
