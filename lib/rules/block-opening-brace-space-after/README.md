@@ -172,3 +172,20 @@ a { color: pink; }
 a {color: pink;
 }
 ```
+
+## Optional secondary options
+
+### `ignore: ["at-rules"]`
+
+Ignore the opening brace of at-rules.
+
+For example, with `"always"`:
+
+The following pattern is _not_ considered a problem:
+
+<!-- prettier-ignore -->
+```css
+@media print {
+  a { color: pink; }
+}
+```
