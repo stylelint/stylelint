@@ -169,7 +169,7 @@
     "deepmerge": "^4.2.2",
     "eslint": "^8.6.0",
     "eslint-config-stylelint": "^15.0.0",
-    "eslint-plugin-jest": "^25.3.4",
+    "eslint-plugin-jest": "^25.7.0",
     "husky": "^7.0.4",
     "jest": "^27.4.7",
     "jest-preset-stylelint": "^4.2.0",
