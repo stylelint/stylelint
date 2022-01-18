@@ -83,7 +83,6 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 - [`no-duplicate-at-import-rules`](../../../lib/rules/no-duplicate-at-import-rules/README.md): Disallow duplicate `@import` rules within a stylesheet.
 - [`no-duplicate-selectors`](../../../lib/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors within a stylesheet.
 - [`no-empty-source`](../../../lib/rules/no-empty-source/README.md): Disallow empty sources.
-- [`no-extra-semicolons`](../../../lib/rules/no-extra-semicolons/README.md): Disallow extra semicolons (Autofixable).
 - [`no-invalid-double-slash-comments`](../../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
 - [`no-invalid-position-at-import-rule`](../../../lib/rules/no-invalid-position-at-import-rule/README.md): Disallow invalid position `@import` rules within a stylesheet.
 
@@ -396,3 +395,4 @@ We have frozen these rules, and we will deprecate then remove them in future rel
 - [`no-eol-whitespace`](../../../lib/rules/no-eol-whitespace/README.md): Disallow end-of-line whitespace (Autofixable).
 - [`no-missing-end-of-source-newline`](../../../lib/rules/no-missing-end-of-source-newline/README.md): Disallow missing end-of-source newlines (Autofixable).
 - [`no-empty-first-line`](../../../lib/rules/no-empty-first-line/README.md): Disallow empty first lines (Autofixable).
+- [`no-extra-semicolons`](../../../lib/rules/no-extra-semicolons/README.md): Disallow extra semicolons (Autofixable).
