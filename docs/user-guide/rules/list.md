@@ -239,7 +239,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 ## Stylistic issues
 
-We have frozen these rules, and we will deprecate then remove them in future releases. We recommend you use a pretty printer (like Prettier) alongside Stylelint rather than these rules. If you prefer to use Stylelint to enforce stylistic consistency, you can [migrate the rules you need to a plugin](../../developer-guide/plugins.md).
+We have frozen these rules — we won't fix bugs nor add options, and we will deprecate then remove them in future releases. We recommend you use a pretty printer (like Prettier) alongside Stylelint rather than these rules. If you prefer to use Stylelint to enforce stylistic consistency, you can [migrate the rules you need to a plugin](../../developer-guide/plugins.md).
 
 ### Not handled by pretty printers
 
