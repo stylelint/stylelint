@@ -123,3 +123,18 @@ a { color: pink; }
 a {color: pink;
 }
 ```
+
+## Optional secondary options
+
+### `ignore: ["rules"]`
+
+Ignore the opening brace of rules.
+
+For example, with `"always"`:
+
+The following pattern is _not_ considered a problem:
+
+<!-- prettier-ignore -->
+```css
+a { color: pink; }
+```

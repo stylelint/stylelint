@@ -19,15 +19,15 @@ Each rule accepts a primary and an optional secondary option.
 
 Every rule _must have_ a primary option. For example, in:
 
-- `"color-hex-case": "upper"`, the primary option is `"upper"`
-- `"indentation": [2, { "except": ["block"] }]`, the primary option is `2`
+- `"font-weight-notation": "numeric"`, the primary option is `"numeric"`
+- `"selector-max-type": [2, { "ignoreTypes": ["custom"] }]`, the primary option is `2`
 
 ### Secondary
 
 Some rules require extra flexibility to address edge cases. These can use an optional secondary options object. For example, in:
 
-- `"color-hex-case": "upper"` there is no secondary options object
-- `"indentation": [2, { "except": ["block"] }]`, the secondary options object is `{ "except": ["block"] }`
+- `"font-weight-notation": "numeric"` there is no secondary options object
+- `"selector-max-type": [2, { "ignore": ["descendant] }]`, the secondary options object is `{ "ignore": ["descendant] }`
 
 The most typical secondary options are `"ignore": []` and `"except": []`.
 
@@ -61,9 +61,9 @@ The first part describes what [_thing_](http://apps.workflower.fi/vocabs/css/en)
 For example:
 
 ```
-"number-leading-zero"
-// ↑          ↑
-// the thing  what the rule is checking
+"shorthand-property-no-redundant-values"
+ ↑                  ↑
+ the thing          what the rule is checking
 ```
 
 There is no first part when the rule applies to the whole stylesheet.
@@ -71,29 +71,29 @@ There is no first part when the rule applies to the whole stylesheet.
 For example:
 
 ```
-"no-eol-whitespace"
-"indentation"
-//    ↑
-// what the rules are checking
+"no-duplicate-selectors"
+"max-nesting-depth"
+ ↑
+ what the rules are checking
 ```
 
-_Rules are named to encourage explicit, rather than implicit, options._ For example, `color-hex-case: "upper"|"lower"` rather than `color-hex-uppercase: "always"|"never"`. As `color-hex-uppercase: "never"` _implies_ always lowercase, whereas `color-hex-case: "lower"` makes it _explicit_.
+_Rules are named to encourage explicit, rather than implicit, options._ For example, `font-weight-notation: "numeric"|"named-where-possible"` rather than `font-weight-numeric: "always"|"never"`. As `font-weight-named: "never"` _implies_ always numeric, whereas `font-weight-notation: "numeric"` makes it _explicit_.
 
 ### No rules
 
 Most rules require _or_ disallow something.
 
-For example, whether numbers _must_ or _must not_ have a leading zero:
+For example, whether colors _must_ or _must not_ be named:
 
-- `number-leading-zero`: `string - "always"|"never"`
-  - `"always"` - there _must always_ be a leading zero
-  - `"never"` - there _must never_ be a leading zero
+- `color-named`: `string - "always-where-possible"|"never"`
+  - `"always-where-possible"` - colors _must always (where possible)_ be named
+  - `"never"` - colors _must never_ be named
 
 <!-- prettier-ignore -->
 ```css
-a { line-height: 0.5; }
-/**              ↑
- * This leading zero */
+a { color: red; }
+/**        ↑
+ * This named color */
 ```
 
 However, some rules _just disallow_ something. These rules include `*-no-*` in their name.
@@ -127,6 +127,8 @@ a { font-size: 1.333em; }
 ```
 
 ### Whitespace rules
+
+_These rules have been frozen in favour of using a pretty printer (like Prettier) alongside Stylelint._
 
 Whitespace rules allow you to enforce an empty line, a single space, a newline or no space in some specific part of the stylesheet.
 

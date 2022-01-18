@@ -13,39 +13,17 @@ A linter for CSS and CSS-like languages that is:
 
 Provide built-in rules for standard CSS syntax that:
 
-- [detect possible errors](../user-guide/rules/list.md#possible-errors)
-- [limit language features](../user-guide/rules/list.md#limit-language-features)
-- [enforce stylistic conventions](../user-guide/rules/list.md#stylistic-issues)
-
-### Possible errors
-
-Provide rules to catch code that is valid but likely has unintended consequences, e.g. duplicates and overrides.
-
-### Limit language features
-
-Provide rules to limit what language features can be used to enforce:
-
-- a maximum specificity by limiting the overall specificity or the occurrence of different selector types, e.g. class, ID and attribute
-- best practice _at the configuration level_, e.g. disallowing the `all` keyword for transitions
-- the use of a subset of features to improve consistency across a codebase, e.g. limiting what units are allowed
-- specific patterns for selectors and names, e.g. those of custom properties
-
-### Stylistic issues
-
-Provide rules to enforce a diverse range of stylistic conventions, including:
-
-- whitespace
-- case
-- quotes
+- [avoid errors](../user-guide/rules/list.md#avoid-errors)
+- [enforce conventions](../user-guide/rules/list.md#enforce-conventions)
 
 ## Extensible
 
 Provide multiple points of extensions, including:
 
-- [plugins](../developer-guide/plugins.md) - build community rules to support methodologies, toolsets, non-standard CSS features, or very specific use cases
+- [custom syntaxes](../developer-guide/syntaxes.md) - use any PostCSS-compatible syntax to support other CSS-like languages and containers
 - [extendable configs](../user-guide/configure.md#extends) - extend and share configurations
 - [formatters](../developer-guide/formatters.md) - format Stylelint result objects
-- [custom syntax](../user-guide/usage/options.md#customSyntax) - use any PostCSS-compatible syntax module
+- [plugins](../developer-guide/plugins.md) - build community rules to support methodologies, toolsets, non-standard CSS features, other languages (like SCSS) or very specific use cases
 
 ## Robust
 
