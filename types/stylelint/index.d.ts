@@ -160,6 +160,7 @@ declare module 'stylelint' {
 		export type Rule<P = any, S = any> = RuleBase<P, S> & {
 			ruleName: string;
 			messages: RuleMessages;
+			meta: { url: string; deprecated?: boolean };
 			primaryOptionArray?: boolean;
 		};
 
