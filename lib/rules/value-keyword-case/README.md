@@ -318,3 +318,27 @@ a {
   color: Foo(--camelCase);
 }
 ```
+
+### `camelCaseSvgKeywords: true | false` (default: `false`)
+
+If `true`, this rule will not check the camel case keyword.
+
+For example with `true`:
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  color: currentcolor;
+}
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  color: currentColor;
+}
+```
