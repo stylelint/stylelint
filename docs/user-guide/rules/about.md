@@ -100,7 +100,7 @@ Most rules require _or_ disallow something.
 
 For example, whether colors _must_ or _must not_ be named:
 
-- `color-named`: `string - "always-where-possible"|"never"`
+- `color-named`: `string` - `"always-where-possible"|"never"`
   - `"always-where-possible"` - colors _must always (where possible)_ be named
   - `"never"` - colors _must never_ be named
 
