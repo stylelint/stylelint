@@ -114,7 +114,7 @@ a { -moz-border-radius-topright: 20rem; }
 a { height: 100%; }
 ```
 
-### `ignore: ["inside-function"]`
+### `ignoreFunctions: ["/regex/", /regex/, "string"]`
 
 Ignore units that are inside a function.
 
@@ -124,7 +124,7 @@ Given:
 
 ```json
 {
-  "ignore": ["inside-function"]
+  "ignoreFunctions": ["/^hsl/", "calc"]
 }
 ```
 
@@ -133,7 +133,7 @@ The following patterns are _not_ considered violations:
 <!-- prettier-ignore -->
 ```css
 a {
-  border: 1px solid hsla(162deg, 51%, 35%, 0.8);
+  border: 1px solid hsl(162deg, 51%, 35%, 0.8);
 }
 ```
 
