@@ -334,7 +334,7 @@ a {
 }
 ```
 
-The following patterns are considered problems:
+The following pattern is considered a problem:
 
 <!-- prettier-ignore -->
 ```css
