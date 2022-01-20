@@ -321,7 +321,7 @@ a {
 
 ### `camelCaseSvgKeywords: true | false` (default: `false`)
 
-If `true`, this rule will not check the camel case keyword.
+If `true`, this rule expects SVG keywords to be camel case regardless of the primary option.
 
 For example with `true`:
 
