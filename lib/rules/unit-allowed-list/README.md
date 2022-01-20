@@ -113,3 +113,40 @@ a { -moz-border-radius-topright: 20rem; }
 ```css
 a { height: 100%; }
 ```
+
+### `ignore: ["inside-function"]`
+
+Ignore units that are inside a function.
+
+For example, with `["px", "em"]`.
+
+Given:
+
+```json
+{
+  "ignore": ["inside-function"]
+}
+```
+
+The following patterns are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+a {
+  border: 1px solid hsla(162deg, 51%, 35%, 0.8);
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  background-image: linear-gradient(hsla(162deg, 51%, 35%, 0.8), hsla(62deg, 51%, 35%, 0.8));
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  width: width: calc(100% - 10px);
+}
+```
