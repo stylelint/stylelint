@@ -325,7 +325,7 @@ If `true`, this rule will not check the camel case keyword.
 
 For example with `true`:
 
-The following patterns are _not_ considered problems:
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css
