@@ -339,6 +339,6 @@ The following pattern is considered a problem:
 <!-- prettier-ignore -->
 ```css
 a {
-  color: currentColor;
+  color: currentcolor;
 }
 ```
