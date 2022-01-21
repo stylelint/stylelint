@@ -116,7 +116,7 @@ a { height: 100%; }
 
 ### `ignoreFunctions: ["/regex/", /regex/, "string"]`
 
-Ignore units that are inside a function.
+Ignore units that are inside of the specified functions.
 
 For example, with `["px", "em"]`.
 
@@ -147,6 +147,6 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
-  width: width: calc(100% - 10px);
+  width: calc(100% - 10px);
 }
 ```
