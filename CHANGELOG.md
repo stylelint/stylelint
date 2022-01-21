@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Added: `ignore: ["rules"] / ["at-rules"]` to `block-opening-brace-*-after` ([#5830](https://github.com/stylelint/stylelint/pull/5830)).
+- Fixed: `font-family-no-missing-generic-family-keyword` false positives for `revert` and `revert-layer` ([#5852](https://github.com/stylelint/stylelint/pull/5852)).
+- Fixed: `no-descending-specificity` false positives for the `::-moz-focus-inner` pseudo-element ([#5831](https://github.com/stylelint/stylelint/pull/5831)).
+
 ## 14.2.0
 
 - Added: `cwd` option to Node.js API ([#5721](https://github.com/stylelint/stylelint/pull/5721)).
@@ -630,10 +636,10 @@ This release is accompanied by:
 - A new [semantic version policy](docs/about/semantic-versioning.md). The use of the tilde (`~`) in `package.json` is now recommended, e.g. `"stylelint": "~8.0.0"`, to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
 - A new [VISION document](docs/about/vision.md), complemented by ([#2704](https://github.com/stylelint/stylelint/pull/2704)):
   - The restructuring of the [list of rules](docs/user-guide/rules/list.md) into three groups:
-    - [Possible errors](docs/user-guide/rules/list.md#possible-errors).
-    - [Limit language features](docs/user-guide/rules/list.md#limit-language-features).
-    - [Stylistic issues](docs/user-guide/rules/list.md#stylistic-issues).
-  - The release of a new sharable config, [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). This config only turns on the [possible error](docs/user-guide/rules/list.md#possible-errors) rules. [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) now builds on top of the recommended config by turning on over 60 additional [stylistic rules](docs/user-guide/rules/list.md#stylistic-issues).
+    - Possible errors
+    - Limit language features
+    - Stylistic issues
+  - The release of a new sharable config, [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). This config only turns on the possible error rules. [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) now builds on top of the recommended config by turning on over 60 additional stylistic rules.
 
 Changes:
 
