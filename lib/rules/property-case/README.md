@@ -166,3 +166,27 @@ a {
   WIDTH: 500px;
 }
 ```
+
+## Optional secondary options
+
+### `ignoreSelectors: ["/regex/", /regex/, "string"]`
+
+Given:
+
+```json
+[
+  "lower",
+  {
+    "ignoreSelectors": [":export"]
+  }
+]
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+:export {
+  camelCase: value;
+}
+```
