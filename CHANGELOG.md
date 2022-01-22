@@ -4,6 +4,7 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Added: hyperlinks to terminate output ([#5835](https://github.com/stylelint/stylelint/pull/5835)).
 - Added: `ignore: ["rules"] / ["at-rules"]` to `block-opening-brace-*-after` ([#5830](https://github.com/stylelint/stylelint/pull/5830)).
 - Added: `ignoreSelectors: []` to `property-case` ([#5822](https://github.com/stylelint/stylelint/pull/5822)).
 - Added: `ignoreFunctions: []` to `unit-allowed-list` ([#5857](https://github.com/stylelint/stylelint/pull/5857)).
