@@ -161,6 +161,7 @@ declare module 'stylelint' {
 			ruleName: string;
 			messages: RuleMessages;
 			primaryOptionArray?: boolean;
+			meta?: { url: string; deprecated?: boolean };
 		};
 
 		export type Plugin<P = any, S = any> = RuleBase<P, S>;
