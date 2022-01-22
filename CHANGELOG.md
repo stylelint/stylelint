@@ -7,8 +7,10 @@ All notable changes to this project are documented in this file.
 - Added: `ignore: ["rules"] / ["at-rules"]` to `block-opening-brace-*-after` ([#5830](https://github.com/stylelint/stylelint/pull/5830)).
 - Added: `ignoreSelectors: []` to `property-case` ([#5822](https://github.com/stylelint/stylelint/pull/5822)).
 - Added: `ignoreFunctions: []` to `unit-allowed-list` ([#5857](https://github.com/stylelint/stylelint/pull/5857)).
+- Added: `camelCaseSvgKeywords` to `value-keyword-case` - use this option if you want legacy camel case SVG keywords like `currentColor` ([#5849](https://github.com/stylelint/stylelint/pull/5849)).
 - Fixed: `font-family-no-missing-generic-family-keyword` false positives for `revert` and `revert-layer` ([#5852](https://github.com/stylelint/stylelint/pull/5852)).
 - Fixed: `no-descending-specificity` false positives for the `::-moz-focus-inner` pseudo-element ([#5831](https://github.com/stylelint/stylelint/pull/5831)).
+- Fixed: `value-keyword-case` false negatives for SVG keywords like `currentcolor` ([#5849](https://github.com/stylelint/stylelint/pull/5849)).
 
 ## 14.2.0
 
