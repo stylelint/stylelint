@@ -79,13 +79,28 @@ For example:
 
 _Rules are named to encourage explicit, rather than implicit, options._ For example, `font-weight-notation: "numeric"|"named-where-possible"` rather than `font-weight-numeric: "always"|"never"`. As `font-weight-named: "never"` _implies_ always numeric, whereas `font-weight-notation: "numeric"` makes it _explicit_.
 
+### Notation rules
+
+`*-notation` rules _set a preference_ for a notation.
+
+For example, specifying whether alpha values should be percentages or numbers:
+
+- `alpha-value-notation`: `string` - `"percentage"|"number"`
+
+<!-- prettier-ignore -->
+```css
+a { color: rgb(0 0 0 / 10%) }
+/**                    ↑
+ * The notation of this alpha value */
+```
+
 ### No rules
 
 Most rules require _or_ disallow something.
 
 For example, whether colors _must_ or _must not_ be named:
 
-- `color-named`: `string - "always-where-possible"|"never"`
+- `color-named`: `string` - `"always-where-possible"|"never"`
   - `"always-where-possible"` - colors _must always (where possible)_ be named
   - `"never"` - colors _must never_ be named
 
