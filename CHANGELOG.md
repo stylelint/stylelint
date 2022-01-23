@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.3.0
 
 - Added: support for `meta.url` to rules and plugins ([#5845](https://github.com/stylelint/stylelint/pull/5845)).
 - Added: hyperlinks for rules to terminal output ([#5835](https://github.com/stylelint/stylelint/pull/5835)).
