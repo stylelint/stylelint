@@ -111,6 +111,7 @@
     "balanced-match": "^2.0.0",
     "colord": "^2.9.2",
     "cosmiconfig": "^7.0.1",
+    "css-functions-list": "^2.0.0",
     "debug": "^4.3.3",
     "execall": "^2.0.0",
     "fast-glob": "^3.2.11",
