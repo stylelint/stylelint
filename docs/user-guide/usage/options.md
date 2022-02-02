@@ -58,6 +58,8 @@ This option allows Stylelint to transform these into something that resembles CS
 
 This option should be a string that resolves to a JS module that exports a [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). The string can be a module name (like `my-module`) or a path to a JS file (like `path/to/my-module.js`).
 
+If you want to lint two or more different languages, you can combine `customSyntax` with the [`overrides`](../configure.md#overrides) configuration property.
+
 Using the Node.js API, the `customSyntax` option can also accept a [Syntax object](https://github.com/postcss/postcss/blob/abfaa7122a0f480bc5be0905df3c24a6a51a82d9/lib/postcss.d.ts#L223-L232). Stylelint treats the `parse` property as a required value.
 
 Note that Stylelint can provide no guarantee that core rules work with custom syntaxes.
