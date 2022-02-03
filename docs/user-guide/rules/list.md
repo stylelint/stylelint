@@ -28,6 +28,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 - [`function-calc-no-unspaced-operator`](../../../lib/rules/function-calc-no-unspaced-operator/README.md): Disallow an unspaced operator within `calc` functions.
 - [`function-linear-gradient-no-nonstandard-direction`](../../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow direction values in `linear-gradient()` calls that are not valid according to the [standard syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#Syntax).
+- [`function-no-unknown`](../../../lib/rules/function-no-unknown/README.md): Disallow unknown functions.
 
 ### String
 
@@ -120,7 +121,6 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 - [`function-allowed-list`](../../../lib/rules/function-allowed-list/README.md): Specify a list of allowed functions.
 - [`function-disallowed-list`](../../../lib/rules/function-disallowed-list/README.md): Specify a list of disallowed functions.
-- [`function-no-unknown`](../../../lib/rules/function-no-unknown/README.md): Disallow unknown functions.
 - [`function-url-no-scheme-relative`](../../../lib/rules/function-url-no-scheme-relative/README.md): Disallow scheme-relative urls.
 - [`function-url-quotes`](../../../lib/rules/function-url-quotes/README.md): Require or disallow quotes for urls.
 - [`function-url-scheme-allowed-list`](../../../lib/rules/function-url-scheme-allowed-list/README.md): Specify a list of allowed URL schemes.
