@@ -235,7 +235,7 @@ Grouped first by the following categories and then by the [_thing_](http://apps.
 
 ### Font family
 
-- [`font-family-name-quotes`](../../../lib/rules/font-family-name-quotes/README.md): Specify whether or not quotation marks should be used around font family names.
+- [`font-family-name-quotes`](../../../lib/rules/font-family-name-quotes/README.md): Specify whether or not quotation marks should be used around font family names (Autofixable).
 
 ### Function
 
