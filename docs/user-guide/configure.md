@@ -253,6 +253,10 @@ In your `.stylelintrc.json`:
   },
   "overrides": [
     {
+      "files": ["*.scss", "**/*.scss"],
+      "customSyntax": "postcss-scss"
+    },
+    {
       "files": ["components/**/*.css", "pages/**/*.css"],
       "rules": {
         "alpha-value-notation": "percentage"
