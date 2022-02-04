@@ -1,15 +1,17 @@
 declare module 'postcss-media-query-parser' {
-	export type Walker = (filter: RegExp, callback: (node: Child) => boolean | void) => void;
+	type WalkerCallback = (node: Child, index: number, nodes: Child[]) => boolean | void;
 
-	export type Node = {
+	export class Node {
 		type: string;
 		value: string;
 		after: string;
 		before: string;
 		sourceIndex: number;
 		nodes?: Child[];
-		walk: Walker;
-	};
+
+		walk(filter: string | RegExp, callback: WalkerCallback): void;
+		walk(callback: WalkerCallback): void;
+	}
 
 	export type Child = Node & {
 		type:
