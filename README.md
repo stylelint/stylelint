@@ -1,6 +1,8 @@
 # Stylelint
 
-[![npm version](https://img.shields.io/npm/v/stylelint)](https://www.npmjs.com/package/stylelint) [![Build Status](https://img.shields.io/github/workflow/status/stylelint/stylelint/Testing/main?label=CI&logo=github)](https://github.com/stylelint/stylelint/actions/workflows/testing.yml?query=branch%3Amain) [![npm downloads](https://img.shields.io/npm/dm/stylelint)](https://npmcharts.com/compare/stylelint?minimal=true)
+[![npm version](https://img.shields.io/npm/v/stylelint)](https://www.npmjs.com/package/stylelint)
+[![Build Status](https://github.com/stylelint/stylelint/workflows/Testing/badge.svg)](https://github.com/stylelint/stylelint/actions/workflows/testing.yml?query=branch%3Amain)
+[![npm downloads](https://img.shields.io/npm/dm/stylelint)](https://npmcharts.com/compare/stylelint?minimal=true)
 
 A mighty, modern linter that helps you avoid errors and enforce conventions in your styles.
 
@@ -8,19 +10,35 @@ A mighty, modern linter that helps you avoid errors and enforce conventions in y
 
 It's mighty as it:
 
-- understands **modern** CSS syntax and features
-- has over **170 built-in rules** to catch errors and enforce conventions
+- has over **170 built-in rules** for modern CSS syntax and features
 - supports **plugins** so you can create your own rules
-- automatically **fixes** the majority of stylistic problems
+- automatically **fixes problems** where possible
 - is **well tested** with over 15000 unit tests
 - supports **shareable configs** that you can extend or create
 - is **unopinionated** so that you can customize it to your exact needs
+- **complements pretty printers** like Prettier
 - has a **growing community** and is used by Google, GitHub and WordPress
 
 And can be extended to:
 
 - parse **CSS-like syntaxes** like SCSS, Sass, Less and SugarSS
 - extract **embedded styles** from HTML, Markdown and CSS-in-JS object & template literals
+
+## How it'll help you
+
+It'll help you **avoid errors**, for example styles that are:
+
+- invalid, e.g. malformed hex colors and named grid areas
+- valid but with unintended consequences, e.g. duplicated selectors and overridden properties
+
+And **enforce conventions**, for example:
+
+- what units, functions, at-rules etc are allowed
+- consistent patterns for selector names, at-rule names, custom properties etc
+- maximum specificity or maximum quantity of each selector type
+- your perferred notation for color functions, font weight etc
+
+There are also rules for enforcing stylistic consistency, but we now recommend you use Stylelint alongside a pretty printer like Prettier. Linters and pretty printers are complementary tools that work together.
 
 ## Example output
 

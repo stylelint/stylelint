@@ -20,11 +20,11 @@ Or you can turn off individual rules:
 
 <!-- prettier-ignore -->
 ```css
-/* stylelint-disable selector-no-id, declaration-no-important */
+/* stylelint-disable selector-max-id, declaration-no-important */
 #id {
   color: pink !important;
 }
-/* stylelint-enable selector-no-id, declaration-no-important */
+/* stylelint-enable selector-max-id, declaration-no-important */
 ```
 
 You can turn off rules for individual lines with a `/* stylelint-disable-line */` comment, after which you do not need to explicitly re-enable them:

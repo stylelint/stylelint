@@ -1,8 +1,13 @@
 {
 	"rules": {
 		"color-no-invalid-hex": true,
+		"selector-max-class": 1,
 		"unit-disallowed-list": ["px"],
-		"function-comma-space-after": ["always-single-line"],
-		"selector-max-specificity": ["0,1,0", { "severity": "warning" }]
+		"custom-property-pattern": [
+			"^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+			{
+				"message": "Expected custom property name to be kebab-case"
+			}
+		]
 	}
 }
