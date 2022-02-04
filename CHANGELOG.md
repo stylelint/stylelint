@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+# Head
+
+- Added: `font-family-name-quotes` autofix ([#5806](https://github.com/stylelint/stylelint/pull/5806)).
+
 ## 14.3.0
 
 - Added: support for `meta.url` to rules and plugins ([#5845](https://github.com/stylelint/stylelint/pull/5845)).
