@@ -110,7 +110,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 ### Font family
 
-- [`font-family-name-quotes`](../../../lib/rules/font-family-name-quotes/README.md): Specify whether or not quotation marks should be used around font family names.
+- [`font-family-name-quotes`](../../../lib/rules/font-family-name-quotes/README.md): Specify whether or not quotation marks should be used around font family names (Autofixable).
 
 ### Font weight
 
