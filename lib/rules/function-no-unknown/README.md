@@ -1,6 +1,15 @@
 # function-no-unknown
 
-This rule considers functions defined in the CSS Specificationsto be known.
+Disallow unknown functions.
+
+<!-- prettier-ignore -->
+```css
+a { transform: unknown(1); }
+/**            ↑
+ * Functions like this */
+```
+
+This rule considers functions defined in the CSS Specifications to be known.
 
 This rule ignores double-dashed custom functions, e.g. --custom-function().
 
@@ -12,7 +21,7 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { transform: doesntexist(1); }
+a { transform: unknown(1); }
 ```
 
 The following patterns are _not_ considered problems:
