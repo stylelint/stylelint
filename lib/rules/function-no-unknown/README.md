@@ -11,7 +11,7 @@ a { transform: unknown(1); }
 
 This rule considers functions defined in the CSS Specifications to be known.
 
-This rule ignores double-dashed custom functions, e.g. --custom-function().
+This rule ignores double-dashed custom functions, e.g. `--custom-function()`.
 
 ## Options
 
