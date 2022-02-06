@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 # Head
 
 - Added: `font-family-name-quotes` autofix ([#5806](https://github.com/stylelint/stylelint/pull/5806)).
+- Fixed: `selector-pseudo-element-colon-notation` false positives for escaped colons ([#5879](https://github.com/stylelint/stylelint/pull/5879)).
 
 ## 14.3.0
 
