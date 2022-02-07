@@ -12,10 +12,6 @@ stylelint.lint(options).then(function (resultObject) {
 
 In addition to the [standard options](options.md), the Node API accepts:
 
-### `allowEmptyInput`
-
-Stylelint does not throw an error when glob pattern matches no files.
-
 ### `config`
 
 A [configuration object](../configure.md).
