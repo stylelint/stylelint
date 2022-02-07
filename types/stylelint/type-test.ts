@@ -80,10 +80,10 @@ const formatter: FormatterType = 'json';
 const ruleName = 'sample-rule';
 const messages = stylelint.utils.ruleMessages(ruleName, {
 	problem: 'This a rule problem message',
-	warning: (reason: string) => `This is not allowed because ${reason}`,
+	warning: (reason) => `This is not allowed because ${reason}`,
 });
 const problemMessage: string = messages.problem;
-const problemFunc: (reason: string) => string = messages.warning;
+const problemFunc: (...reason: string[]) => string = messages.warning;
 
 const testPlugin: Plugin = (options) => {
 	return (root, result) => {
