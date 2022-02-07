@@ -28,6 +28,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 - [`function-calc-no-unspaced-operator`](../../../lib/rules/function-calc-no-unspaced-operator/README.md): Disallow an unspaced operator within `calc` functions.
 - [`function-linear-gradient-no-nonstandard-direction`](../../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow direction values in `linear-gradient()` calls that are not valid according to the [standard syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#Syntax).
+- [`function-no-unknown`](../../../lib/rules/function-no-unknown/README.md): Disallow unknown functions.
 
 ### String
 
