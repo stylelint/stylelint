@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file.
 
 - Added: `function-no-unknown` rule ([#5865](https://github.com/stylelint/stylelint/pull/5865)).
 - Added: `font-family-name-quotes` autofix ([#5806](https://github.com/stylelint/stylelint/pull/5806)).
+- Fixed: `custom-property-pattern` false negatives for custom properties within `var()` ([#5867](https://github.com/stylelint/stylelint/pull/5867)).
 - Fixed: `selector-pseudo-element-colon-notation` false positives for escaped colons ([#5879](https://github.com/stylelint/stylelint/pull/5879)).
 
 ## 14.3.0
