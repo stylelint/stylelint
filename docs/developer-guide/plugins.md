@@ -286,7 +286,7 @@ Here's an example of a plugin that runs `declaration-no-important` only if there
 
 ```js
 module.exports = stylelint.createPlugin(ruleName, function (expectation) {
-  const runColorHexCase =
+  const runDeclarationNoImportant =
     stylelint.rules["declaration-no-important"](expectation);
 
   return (root, result) => {
@@ -294,7 +294,7 @@ module.exports = stylelint.createPlugin(ruleName, function (expectation) {
       return;
     }
 
-    runColorHexCase(root, result);
+    runDeclarationNoImportant(root, result);
   };
 });
 ```
