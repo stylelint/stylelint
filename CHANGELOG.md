@@ -8,6 +8,7 @@ All notable changes to this project are documented in this file.
 - Added: `font-family-name-quotes` autofix ([#5806](https://github.com/stylelint/stylelint/pull/5806)).
 - Fixed: throwing more informative error when all input files are ignored ([#5709](https://github.com/stylelint/stylelint/pull/5709)).
 - Fixed: `custom-property-pattern` false negatives for custom properties within `var()` ([#5867](https://github.com/stylelint/stylelint/pull/5867)).
+- Fixed: `no-descending-specificity` parseError for double-slash comments within selector lists ([#5891](https://github.com/stylelint/stylelint/pull/5891)).
 - Fixed: `selector-pseudo-element-colon-notation` false positives for escaped colons ([#5879](https://github.com/stylelint/stylelint/pull/5879)).
 
 ## 14.3.0
