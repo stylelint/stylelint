@@ -87,7 +87,7 @@ Other shared configs include:
 
 ### Using a custom syntax directly
 
-If a shared config isn't available for your preferred language or library, then you can install the appropriate custom syntax yourself and use the [`customSyntax` option](../user-guide/usage/options.md#customSyntax) to configure it.
+If a shared config isn't available for your preferred language or library, then you can install the appropriate custom syntax yourself and use the [`customSyntax` option](../user-guide/usage/options.md#customsyntax) to configure it.
 
 For example, to lint the CSS inside of [Lit elements](https://lit.dev/).
 
