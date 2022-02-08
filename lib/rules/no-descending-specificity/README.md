@@ -15,6 +15,8 @@ The clashes of these two mechanisms for prioritization, source order and specifi
 
 This rule enforces that practice _as best it can_, reporting fewer errors than it should. It cannot catch every _actual_ overriding selector, but it can catch certain common mistakes.
 
+We recommend turning this rule off if you use a lot of nesting.
+
 ## How it works
 
 **This rule looks at the last _compound selector_ in every full selector, and then compares it with other selectors in the stylesheet that end in the same way.**
