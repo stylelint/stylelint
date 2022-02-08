@@ -6,6 +6,12 @@ Options shared by the:
 - [Node.js API](node-api.md)
 - [PostCSS plugin](postcss-plugin.md)
 
+## `allowEmptyInput`
+
+CLI flag: `--allow-empty-input, --aei`
+
+Stylelint does not throw an error when glob pattern matches no files.
+
 ## `configFile`
 
 CLI flag: `--config`

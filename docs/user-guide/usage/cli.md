@@ -14,7 +14,7 @@ The CLI accepts:
 
 ### `--allow-empty-input, --aei`
 
-The process exits without throwing an error when glob pattern matches no files.
+The process exits without throwing an error when glob pattern matches no files. [More info](options.md#allowEmptyInput).
 
 ### `--cache-location`
 
