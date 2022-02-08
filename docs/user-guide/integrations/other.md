@@ -11,7 +11,7 @@ Other integrations built and maintained by the community.
 
 ## Version Control
 
-- [Pre-commit](https://github.com/awebdeveloper/pre-commit-stylelint) - Git pre-commit hook for Stylelint
+- [pre-commit-stylelint](https://github.com/thibaudcolas/pre-commit-stylelint) - Mirrors all releases for the [pre-commit](https://pre-commit.com/) hooks framework
 
 ## Command Line Tools
 
