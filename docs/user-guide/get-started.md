@@ -7,7 +7,7 @@ You can lint:
 
 ## Linting CSS files
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and its [standard configuration](https://github.com/stylelint/stylelint-config-standard):
+1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint and its [standard configuration](https://www.npmjs.com/package/stylelint-config-standard):
 
 ```shell
 npm install --save-dev stylelint stylelint-config-standard
@@ -27,7 +27,7 @@ npm install --save-dev stylelint stylelint-config-standard
 npx stylelint "**/*.css"
 ```
 
-If you use a pretty printer alongside Stylelint, you should turn off any conflicting rules. For example, you can use [Prettier's shared config](https://github.com/prettier/stylelint-config-prettier) to do that:
+If you use a pretty printer alongside Stylelint, you should turn off any conflicting rules. For example, you can use [Prettier's shared config](https://www.npmjs.com/package/stylelint-config-prettier) to do that:
 
 ```shell
 npm install --save-dev stylelint-config-prettier
@@ -67,9 +67,9 @@ npm install --save-dev stylelint stylelint-config-standard-scss
 npx stylelint "**/*.scss"
 ```
 
-This config includes the [postcss-scss syntax](https://github.com/postcss/postcss-scss), configures the [built-in rules](../user-guide/rules/list.md) for SCSS, and includes the [stylelint-scss plugin](https://www.npmjs.com/package/stylelint-scss) (a collection of rules specific to SCSS).
+This config includes the [postcss-scss syntax](https://www.npmjs.com/package/postcss-scss), configures the [built-in rules](../user-guide/rules/list.md) for SCSS, and includes the [stylelint-scss plugin](https://www.npmjs.com/package/stylelint-scss) (a collection of rules specific to SCSS).
 
-If you use Prettier alongside Stylelint, you should use their [shared config for SCSS](https://github.com/prettier/stylelint-config-prettier-scss):
+If you use Prettier alongside Stylelint, you should use their [shared config for SCSS](https://www.npmjs.com/package/stylelint-config-prettier-scss):
 
 ```json
 {
@@ -87,11 +87,11 @@ Other shared configs include:
 
 ### Using a custom syntax directly
 
-If a shared config isn't available for your preferred language or library, then you can install the appropriate [PostCSS syntax](https://github.com/postcss/postcss#syntaxes) yourself and use the [`customSyntax` option](../user-guide/usage/options.md#customSyntax) to configure it.
+If a shared config isn't available for your preferred language or library, then you can install the appropriate custom syntax yourself and use the [`customSyntax` option](../user-guide/usage/options.md#customSyntax) to configure it.
 
 For example, to lint the CSS inside of [Lit elements](https://lit.dev/).
 
-1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint, its [standard configuration](https://github.com/stylelint/stylelint-config-standard) and the [postcss-lit](https://www.npmjs.com/package/postcss-lit):
+1\. Use [npm](https://docs.npmjs.com/about-npm/) to install Stylelint, its [standard configuration](https://www.npmjs.com/package/stylelint-config-standard) and the [postcss-lit](https://www.npmjs.com/package/postcss-lit):
 
 ```shell
 npm install --save-dev stylelint stylelint-config-standard postcss-lit
@@ -150,7 +150,7 @@ You can adapt your:
 
 We recommend you add [more of the rules that enforce conventions](rules/list.md#enforce-conventions) to your configuration, e.g. [`unit-allowed-list`](../../lib/rules/unit-allowed-list/README.md) and [`selector-max-id`](../../lib/rules/selector-max-id/README.md). These are powerful rules that you can use to enforce non-stylistic consistency in your code.
 
-You can add plugins written by the community to lint more things. For example, you may want to use the [stylelint-csstree-validator plugin](https://github.com/csstree/stylelint-validator) to validate property and value pairs.
+You can add plugins written by the community to lint more things. For example, you may want to use the [stylelint-csstree-validator plugin](https://www.npmjs.com/package/stylelint-csstree-validator) to validate property and value pairs.
 
 You'll find more [plugins](https://github.com/stylelint/awesome-stylelint#plugins) listed in [awesome stylelint](https://github.com/stylelint/awesome-stylelint).
 
