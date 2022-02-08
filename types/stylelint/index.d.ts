@@ -137,7 +137,9 @@ declare module 'stylelint' {
 			newline?: string | undefined;
 		};
 
-		export type RuleMessages = { [message: string]: string | ((...args: any[]) => string) };
+		export type RuleMessageFunc = (...args: (string | number | boolean | RegExp)[]) => string;
+
+		export type RuleMessages = { [message: string]: string | RuleMessageFunc };
 
 		export type RuleOptionsPossibleFunc = (value: unknown) => boolean;
 
