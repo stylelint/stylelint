@@ -60,7 +60,7 @@ These styling languages can be embedded within other languages too. For example:
 This option allows Stylelint to transform these into something that resembles CSS, which is the language that:
 
 - underpins all the other styling languages
-- is best understood by rules built into stylelint
+- is best understood by rules built into Stylelint
 
 This option should be a string that resolves to a JS module that exports a [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). The string can be a module name (like `my-module`) or a path to a JS file (like `path/to/my-module.js`).
 
