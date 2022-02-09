@@ -35,3 +35,46 @@ a { transform: scale(1); }
 ```css
 a { transform: --custom-function(1); }
 ```
+
+## Optional secondary options
+
+### `ignoreFunctions: ["/regex/", /regex/, "non-regex"]`
+
+Ignore the specified functions.
+
+For example, with `true`.
+
+Given:
+
+```json
+["theme", "/^foo-/"]
+```
+
+The following patterns are considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { transform: unknown(1); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { transform: THEME(1); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { transform: foo(1); }
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a { transform: theme(1); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { transform: foo-func(1); }
+```
