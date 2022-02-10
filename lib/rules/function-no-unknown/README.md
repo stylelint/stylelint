@@ -50,23 +50,6 @@ Given:
 ["theme", "/^foo-/"]
 ```
 
-The following patterns are considered problems:
-
-<!-- prettier-ignore -->
-```css
-a { transform: unknown(1); }
-```
-
-<!-- prettier-ignore -->
-```css
-a { transform: THEME(1); }
-```
-
-<!-- prettier-ignore -->
-```css
-a { transform: foo(1); }
-```
-
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
