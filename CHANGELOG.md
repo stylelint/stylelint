@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Added: `ignoreFunctions: []` to `function-no-unknown` ([#5901](https://github.com/stylelint/stylelint/pull/5901)).
+
 ## 14.4.0
 
 - Added: `function-no-unknown` rule ([#5865](https://github.com/stylelint/stylelint/pull/5865)).
