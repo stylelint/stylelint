@@ -88,8 +88,9 @@ declare module 'stylelint' {
 		export type DisabledWarning = { line: number; rule: string };
 
 		export type StylelintPostcssResult = {
-			ruleSeverities: { [k: string]: Severity };
-			customMessages: { [k: string]: any };
+			ruleSeverities: { [ruleName: string]: Severity };
+			customMessages: { [ruleName: string]: any };
+			ruleMetadata: { [ruleName: string]: RuleMeta | {} };
 			quiet?: boolean;
 			disabledRanges: DisabledRangeObject;
 			disabledWarnings?: DisabledWarning[];
@@ -136,7 +137,9 @@ declare module 'stylelint' {
 			newline?: string | undefined;
 		};
 
-		export type RuleMessages = { [message: string]: string | ((...args: any[]) => string) };
+		export type RuleMessageFunc = (...args: (string | number | boolean | RegExp)[]) => string;
+
+		export type RuleMessages = { [message: string]: string | RuleMessageFunc };
 
 		export type RuleOptionsPossibleFunc = (value: unknown) => boolean;
 
@@ -157,10 +160,16 @@ declare module 'stylelint' {
 			context: PluginContext,
 		) => (root: PostCSS.Root, result: PostcssResult) => Promise<void> | void;
 
+		export type RuleMeta = {
+			url: string;
+			deprecated?: boolean;
+		};
+
 		export type Rule<P = any, S = any> = RuleBase<P, S> & {
 			ruleName: string;
 			messages: RuleMessages;
 			primaryOptionArray?: boolean;
+			meta?: RuleMeta;
 		};
 
 		export type Plugin<P = any, S = any> = RuleBase<P, S>;

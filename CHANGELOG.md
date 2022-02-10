@@ -2,12 +2,37 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.4.0
 
-- Added: `cwd` option ([#5721](https://github.com/stylelint/stylelint/pull/5721)).
-- Added: `resolveConfig` to Node.js API ([#5734](https://github.com/stylelint/stylelint/pull/5734)).
+- Added: `function-no-unknown` rule ([#5865](https://github.com/stylelint/stylelint/pull/5865)).
+- Added: `font-family-name-quotes` autofix ([#5806](https://github.com/stylelint/stylelint/pull/5806)).
+- Fixed: throwing more informative error when all input files are ignored ([#5709](https://github.com/stylelint/stylelint/pull/5709)).
+- Fixed: `custom-property-pattern` false negatives for custom properties within `var()` ([#5867](https://github.com/stylelint/stylelint/pull/5867)).
+- Fixed: `no-descending-specificity` parseError for double-slash comments within selector lists ([#5891](https://github.com/stylelint/stylelint/pull/5891)).
+- Fixed: `selector-pseudo-element-colon-notation` false positives for escaped colons ([#5879](https://github.com/stylelint/stylelint/pull/5879)).
+
+## 14.3.0
+
+- Added: support for `meta.url` to rules and plugins ([#5845](https://github.com/stylelint/stylelint/pull/5845)).
+- Added: hyperlinks for rules to terminal output ([#5835](https://github.com/stylelint/stylelint/pull/5835)).
+- Added: hyperlinks for plugins to terminal output ([#5859](https://github.com/stylelint/stylelint/pull/5859)).
+- Added: `ignore: ["rules"] / ["at-rules"]` to `block-opening-brace-*-after` ([#5830](https://github.com/stylelint/stylelint/pull/5830)).
+- Added: `ignoreSelectors: []` to `property-case` ([#5822](https://github.com/stylelint/stylelint/pull/5822)).
+- Added: `ignoreFunctions: []` to `unit-allowed-list` ([#5857](https://github.com/stylelint/stylelint/pull/5857)).
+- Added: `camelCaseSvgKeywords` to `value-keyword-case` - use this option if you want legacy camel case SVG keywords like `currentColor` ([#5849](https://github.com/stylelint/stylelint/pull/5849)).
+- Fixed: `font-family-no-missing-generic-family-keyword` false positives for `revert` and `revert-layer` ([#5852](https://github.com/stylelint/stylelint/pull/5852)).
+- Fixed: `no-descending-specificity` false positives for the `::-moz-focus-inner` pseudo-element ([#5831](https://github.com/stylelint/stylelint/pull/5831)).
+- Fixed: `value-keyword-case` false negatives for SVG keywords like `currentcolor` ([#5849](https://github.com/stylelint/stylelint/pull/5849)).
+
+## 14.2.0
+
+- Added: `cwd` option to Node.js API ([#5721](https://github.com/stylelint/stylelint/pull/5721)).
+- Added: `resolveConfig` option to Node.js API ([#5734](https://github.com/stylelint/stylelint/pull/5734)).
+- Fixed: showing of incorrect missing package in `customSyntax` require handling ([#5763](https://github.com/stylelint/stylelint/pull/5763)).
+- Fixed: `color-function-notation` false positives for variables and color functions ([#5793](https://github.com/stylelint/stylelint/pull/5793))
 - Fixed: `color-named` false positives for hex with alpha-channel and false negatives for modern syntax ([#5718](https://github.com/stylelint/stylelint/pull/5718)).
 - Fixed: `declaration-empty-line-before` support for HTML files ([#5689](https://github.com/stylelint/stylelint/pull/5689)).
+- Fixed: `indentation` TypeError for syntaxes that use Document node type ([#5771](https://github.com/stylelint/stylelint/pull/5771)).
 
 ## 14.1.0
 
@@ -627,10 +652,10 @@ This release is accompanied by:
 - A new [semantic version policy](docs/about/semantic-versioning.md). The use of the tilde (`~`) in `package.json` is now recommended, e.g. `"stylelint": "~8.0.0"`, to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
 - A new [VISION document](docs/about/vision.md), complemented by ([#2704](https://github.com/stylelint/stylelint/pull/2704)):
   - The restructuring of the [list of rules](docs/user-guide/rules/list.md) into three groups:
-    - [Possible errors](docs/user-guide/rules/list.md#possible-errors).
-    - [Limit language features](docs/user-guide/rules/list.md#limit-language-features).
-    - [Stylistic issues](docs/user-guide/rules/list.md#stylistic-issues).
-  - The release of a new sharable config, [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). This config only turns on the [possible error](docs/user-guide/rules/list.md#possible-errors) rules. [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) now builds on top of the recommended config by turning on over 60 additional [stylistic rules](docs/user-guide/rules/list.md#stylistic-issues).
+    - Possible errors
+    - Limit language features
+    - Stylistic issues
+  - The release of a new sharable config, [`stylelint-config-recommended`](https://github.com/stylelint/stylelint-config-recommended). This config only turns on the possible error rules. [`stylelint-config-standard`](https://github.com/stylelint/stylelint-config-standard) now builds on top of the recommended config by turning on over 60 additional stylistic rules.
 
 Changes:
 

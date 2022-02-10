@@ -13,6 +13,8 @@ This rule checks the `font` and `font-family` properties.
 
 This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.
 
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix most of the problems reported by this rule.
+
 ## Options
 
 `string`: `"always-where-required"|"always-where-recommended"|"always-unless-keyword"`
@@ -88,11 +90,6 @@ a { font: 1em "Arial", sans-serif; }
 ```
 
 The following patterns are _not_ considered problems:
-
-<!-- prettier-ignore -->
-```css
-a { font-family: Arial, sans-serif; }
-```
 
 <!-- prettier-ignore -->
 ```css

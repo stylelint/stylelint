@@ -1,12 +1,13 @@
 'use strict';
 
 /* eslint-disable no-console */
-const Benchmark = require('benchmark');
-const got = require('got');
-const normalizeRuleSettings = require('../lib/normalizeRuleSettings');
-const postcss = require('postcss');
-const rules = require('../lib/rules');
-const { bold, yellow } = require('picocolors');
+import Benchmark from 'benchmark';
+import fetch from 'node-fetch';
+import normalizeRuleSettings from '../lib/normalizeRuleSettings.js';
+import picocolors from 'picocolors';
+import postcss from 'postcss';
+import rules from '../lib/rules/index.js';
+const { bold, yellow } = picocolors;
 
 const ruleName = process.argv[2];
 const ruleOptions = process.argv[3];
@@ -47,11 +48,12 @@ const rule = ruleFunc(primary, secondary, context);
 
 const processor = postcss().use(rule);
 
-got(CSS_URL)
+fetch(CSS_URL)
+	.then((response) => response.text())
 	.then((response) => {
 		const bench = new Benchmark('rule test', {
 			defer: true,
-			fn: (deferred) => benchFn(response.body, () => deferred.resolve()),
+			fn: (deferred) => benchFn(response, () => deferred.resolve()),
 		});
 
 		bench.on('complete', () => {

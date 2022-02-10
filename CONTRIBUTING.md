@@ -33,11 +33,11 @@ Next, you'll want to run the tests using `npm test`.
 
 However, this runs all 25,000+ unit tests and also linting.
 
-You can use the interactive testing prompt to run tests for just a chosen set of files (which you'll want to do during development). For example, to run the tests for just the `color-hex-case` and `color-hex-length` rules:
+You can use the interactive testing prompt to run tests for just a chosen set of files (which you'll want to do during development). For example, to run the tests for just the `unit-allowed-list` and `unit-disallowed-list` rules:
 
 1. Run `npm run watch` to start the interactive testing prompt.
 2. Press `p` to filter by a filename regex pattern.
-3. Enter `color-hex-case|color-hex-length`, i.e. each rule name separated by the pipe symbol (`|`).
+3. Enter `unit-allowed-list|unit-disallowed-list`, i.e. each rule name separated by the pipe symbol (`|`).
 
 You can find more information about testing on the [Jest website](https://jestjs.io/).
 

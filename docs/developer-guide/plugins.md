@@ -9,6 +9,7 @@ We recommend your plugin adheres to [Stylelint's conventions](rules.md) for:
 - messages
 - tests
 - docs
+- metadata
 
 ## The anatomy of a plugin
 
@@ -20,6 +21,10 @@ const ruleName = "plugin/foo-bar";
 const messages = stylelint.utils.ruleMessages(ruleName, {
   expected: "Expected ..."
 });
+const meta = {
+  url: "https://github.com/foo-org/stylelint-foo/blob/main/src/rules/foo-bar/README.md"
+  // deprecated: true,
+};
 
 module.exports = stylelint.createPlugin(
   ruleName,
@@ -47,6 +52,7 @@ module.exports = stylelint.createPlugin(
 
 module.exports.ruleName = ruleName;
 module.exports.messages = messages;
+module.exports.meta = meta;
 ```
 
 Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`, to ensure it never clashes with the built-in rules. If your plugin provides only a single rule or you can't think of a good namespace, you can use `plugin/my-rule`. _You should document your plugin's rule name (and namespace) because users need to use them in their config._
@@ -79,6 +85,9 @@ const ruleName = "plugin/foo-bar-async";
 const messages = stylelint.utils.ruleMessages(ruleName, {
   expected: "Expected ..."
 });
+const meta = {
+  /* .. */
+};
 
 module.exports = stylelint.createPlugin(
   ruleName,
@@ -112,6 +121,7 @@ module.exports = stylelint.createPlugin(
 
 module.exports.ruleName = ruleName;
 module.exports.messages = messages;
+module.exports.meta = meta;
 ```
 
 ## Testing
@@ -272,18 +282,19 @@ A typical use-case is to build in more complex conditionals that the rule's opti
 
 All rules share a common signature. They are a function that accepts two arguments: a primary option and a secondary options object. And that functions returns a function that has the signature of a PostCSS plugin, expecting a PostCSS root and result as its arguments.
 
-Here's an example of a plugin that runs `color-hex-case` only if there is a special directive `@@check-color-hex-case` somewhere in the stylesheet:
+Here's an example of a plugin that runs `declaration-no-important` only if there is a special directive `@@check-declaration-no-important` somewhere in the stylesheet:
 
 ```js
 module.exports = stylelint.createPlugin(ruleName, function (expectation) {
-  const runColorHexCase = stylelint.rules["color-hex-case"](expectation);
+  const runDeclarationNoImportant =
+    stylelint.rules["declaration-no-important"](expectation);
 
   return (root, result) => {
-    if (root.toString().indexOf("@@check-color-hex-case") === -1) {
+    if (root.toString().indexOf("@@check-declaration-no-important") === -1) {
       return;
     }
 
-    runColorHexCase(root, result);
+    runDeclarationNoImportant(root, result);
   };
 });
 ```

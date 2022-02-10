@@ -195,7 +195,7 @@ You should:
 Deprecating rules doesn't happen very often. When you do, you must:
 
 1. Point the `stylelintReference` link to the specific version of the rule README on the GitHub website, so that it is always accessible.
-2. Add the appropriate meta data to mark the rule as deprecated.
+2. Add the appropriate metadata to mark the rule as deprecated like `rule.meta = { deprecated: true }`.
 
 ## Improve the performance of a rule
 

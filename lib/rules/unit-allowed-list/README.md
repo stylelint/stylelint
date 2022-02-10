@@ -113,3 +113,40 @@ a { -moz-border-radius-topright: 20rem; }
 ```css
 a { height: 100%; }
 ```
+
+### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+
+Ignore units that are inside of the specified functions.
+
+For example, with `["px", "em"]`.
+
+Given:
+
+```json
+{
+  "ignoreFunctions": ["/^hsl/", "calc"]
+}
+```
+
+The following patterns are _not_ considered violations:
+
+<!-- prettier-ignore -->
+```css
+a {
+  border: 1px solid hsl(162deg, 51%, 35%, 0.8);
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  background-image: linear-gradient(hsla(162deg, 51%, 35%, 0.8), hsla(62deg, 51%, 35%, 0.8));
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  width: calc(100% - 10px);
+}
+```
