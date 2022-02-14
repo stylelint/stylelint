@@ -148,7 +148,7 @@
     "svg-tags": "^1.0.0",
     "table": "^6.8.0",
     "v8-compile-cache": "^2.3.0",
-    "write-file-atomic": "^4.0.0"
+    "write-file-atomic": "^4.0.1"
   },
   "devDependencies": {
     "@stylelint/prettier-config": "^2.0.0",
