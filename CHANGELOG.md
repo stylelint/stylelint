@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Fixed: `function-no-unknown` ENOENT and TypeErrors ([#5916](https://github.com/stylelint/stylelint/pull/5916)).
+- Fixed: `function-no-unknown` false positives for interpolation ([#5914](https://github.com/stylelint/stylelint/pull/5914)).
 
 ## 14.5.0
 
