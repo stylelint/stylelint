@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: clarity of invalid option warning message for objects ([#5923](https://github.com/stylelint/stylelint/pull/5923)).
+
 ## 14.5.1
 
 - Fixed: `function-no-unknown` ENOENT and TypeErrors ([#5916](https://github.com/stylelint/stylelint/pull/5916)).
