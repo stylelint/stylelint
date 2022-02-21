@@ -4,7 +4,7 @@ Limit the number of values for a list of properties within declarations.
 
 ## Options
 
-`object - { "unprefixed-property-name": int }`
+`object`: `{ "unprefixed-property-name": int }`
 
 If a property name is surrounded with `"/"` (e.g. `"/^margin/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^margin/` will match `margin`, `margin-top`, `margin-inline`, etc.
 
