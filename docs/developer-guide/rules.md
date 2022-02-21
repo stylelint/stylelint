@@ -142,7 +142,7 @@ You should ask yourself how does your rule handle:
 You should:
 
 - pick examples from the tests
-- except only use standard CSS syntax in examples and options
+- only use standard CSS syntax in examples and options
 - add the fewest examples possible to communicate the intent of the rule, rather than show edge cases
 - use `<!-- prettier-ignore -->` before `css` code fences
 - use "this rule" to refer to the rule, e.g. "This rule ignores ..."
