@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file.
 
 - Fixed: clarity of invalid option warning message for objects ([#5923](https://github.com/stylelint/stylelint/pull/5923)).
 - Fixed: false negatives for invalid options in `*-list` ([#5924](https://github.com/stylelint/stylelint/pull/5924)).
+- Fixed: column position for `declaration-property-value-*-list` ([#5926](https://github.com/stylelint/stylelint/pull/5926)).
 
 ## 14.5.1
 
