@@ -112,19 +112,22 @@ Each rule must have tests that cover all patterns that:
 - are considered problems
 - should _not_ be considered problems
 
-Write as many as you can stand to.
+You should test errors in multiple positions, not the same place every time and use:
 
-You should:
-
-- test errors in multiple positions, not the same place every time
-- use realistic (if simple) CSS, and avoid the use of ellipses
-- use standard CSS syntax by default, and only swap parsers when testing a specific piece of non-standard syntax
+- realistic CSS, and avoid the use of ellipses
+- the minimum amount of code possible, e.g. if the rule targets selectors then use an empty rule, e.g. `{}`
+- separate `testRule`s when testing non-standard syntax and set the `customSyntax` property
+- `{}` for empty rules, rather than `{ }`
+- the `a` type selector by default
+- the `@media` at-rules by default
+- the `color` property by default
+- _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
 
 #### Commonly overlooked edge-cases
 
 You should ask yourself how does your rule handle:
 
-- variables (`$sass`, `@less` or `var(--custom-property)`)?
+- variables (e.g. `var(--custom-property)`)?
 - CSS strings (e.g. `content: "anything goes";`)?
 - CSS comments (e.g. `/* anything goes */`)?
 - `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
@@ -138,7 +141,9 @@ You should ask yourself how does your rule handle:
 
 You should:
 
-- only use standard CSS syntax in example code and options
+- pick examples from the tests
+- except only use standard CSS syntax in examples and options
+- add the fewest examples possible to communicate the intent of the rule, rather than show edge cases
 - use `<!-- prettier-ignore -->` before `css` code fences
 - use "this rule" to refer to the rule, e.g. "This rule ignores ..."
 - align the arrows within the prototypical code example with the beginning of the highlighted construct
@@ -152,16 +157,6 @@ For example:
 /**                 ↑          ↑
   *       These names and values */
 ```
-
-When writing examples, you should use:
-
-- complete CSS patterns i.e. avoid ellipses (`...`)
-- the minimum amount of code possible to communicate the pattern, e.g. if the rule targets selectors then use an empty rule, e.g. `{}`
-- `{}`, rather than `{ }` for empty rules
-- the `a` type selector by default
-- the `@media` at-rules by default
-- the `color` property by default
-- _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
 
 Look at the READMEs of other rules to glean more conventional patterns.
 
