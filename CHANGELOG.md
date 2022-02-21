@@ -2,6 +2,20 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: clarity of invalid option warning message for objects ([#5923](https://github.com/stylelint/stylelint/pull/5923)).
+- Fixed: false negatives for invalid options in `*-list` ([#5924](https://github.com/stylelint/stylelint/pull/5924)).
+
+## 14.5.1
+
+- Fixed: `function-no-unknown` ENOENT and TypeErrors ([#5916](https://github.com/stylelint/stylelint/pull/5916)).
+- Fixed: `function-no-unknown` false positives for interpolation ([#5914](https://github.com/stylelint/stylelint/pull/5914)).
+
+## 14.5.0
+
+- Added: `ignoreFunctions: []` to `function-no-unknown` ([#5901](https://github.com/stylelint/stylelint/pull/5901)).
+
 ## 14.4.0
 
 - Added: `function-no-unknown` rule ([#5865](https://github.com/stylelint/stylelint/pull/5865)).
@@ -103,7 +117,7 @@ All notable changes to this project are documented in this file.
 - Added: `ignore: ["inside-function"]` to `declaration-property-unit-allowed-list` ([#5194](https://github.com/stylelint/stylelint/pull/5194)).
 - Fixed: `color-no-hex` false positives for CSS-in-JS objection notation ([#5186](https://github.com/stylelint/stylelint/pull/5186)).
 - Fixed: `font-family-no-missing-generic-family-keyword` false positives for variables ([#5240](https://github.com/stylelint/stylelint/pull/5240)).
-- Fixed: `length-zero-no-unit` autofix removing trailing zeroes ([#5256](https://github.com/stylelint/stylelint/pull/5256)).
+- Fixed: `length-zero-no-unit` autofix removing trailing zeroes and comments ([#5256](https://github.com/stylelint/stylelint/pull/5256)).
 - Fixed: `length-zero-no-unit` false positives for level 4 math functions ([#5203](https://github.com/stylelint/stylelint/pull/5203)).
 - Fixed: `length-zero-no-unit` false positives for functions inside of math functions ([#5245](https://github.com/stylelint/stylelint/pull/5245)).
 
