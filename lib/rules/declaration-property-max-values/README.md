@@ -21,17 +21,17 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
+a { border: 1px solid blue; }
+```
+
+<!-- prettier-ignore -->
+```css
 a { margin: 1px 2px 3px; }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a { margin: 1px 2px 3px 4px; }
-```
-
-<!-- prettier-ignore -->
-```css
-a { border: 1px solid blue; }
 ```
 
 The following patterns are _not_ considered problems:
