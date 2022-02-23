@@ -11,7 +11,7 @@ a { text-transform: uppercase; }
 
 ## Options
 
-`object`: `{ "unprefixed-property-name": ["array", "of", "values"], "unprefixed-property-name": ["/regex/", "non-regex", /regex/] }`
+`object`: `{ "unprefixed-property-name": ["array", "of", "values", "/regex/", /regex/]|"value"|"/regex/"|/regex/ }`
 
 If a property name is surrounded with `"/"` (e.g. `"/^animation/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^animation/` will match `animation`, `animation-duration`, `animation-timing-function`, etc.
 
@@ -24,7 +24,7 @@ Given:
 ```json
 {
   "transform": ["/scale3d/", "/rotate3d/", "/translate3d/"],
-  "position": ["fixed"],
+  "position": "fixed",
   "color": ["/^green/"],
   "/^animation/": ["/ease/"]
 }
