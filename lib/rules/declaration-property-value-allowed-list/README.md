@@ -11,7 +11,7 @@ a { text-transform: uppercase; }
 
 ## Options
 
-`object`: `{ "unprefixed-property-name": ["array", "of", "values"], "unprefixed-property-name": ["/regex/", "non-regex", /regex/] }`
+`object`: `{ "unprefixed-property-name": ["array", "of", "values", "/regex/", /regex/]|"value"|"/regex/"|/regex/ }`
 
 If a property name is found in the object, only the listed property values are allowed. This rule complains about all non-matching values. (If the property name is not included in the object, anything goes.)
 
@@ -26,7 +26,7 @@ Given:
 ```json
 {
   "transform": ["/scale/"],
-  "whitespace": ["nowrap"],
+  "whitespace": "nowrap",
   "/color/": ["/^green/"]
 }
 ```
