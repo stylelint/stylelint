@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.5.3
 
 - Fixed: `*-list` invalid option warnings for strings ([#5934](https://github.com/stylelint/stylelint/pull/5934)).
 
