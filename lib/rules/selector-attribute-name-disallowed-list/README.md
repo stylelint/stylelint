@@ -11,7 +11,7 @@ Specify a list of disallowed attribute names.
 
 ## Options
 
-`array|string|regex`: `["array", "of", /names/ or "regex"]|"name"|/regex/`
+`array|string|regex`: `["array", "of", /names/, "regex"]|"name"|"/regex/"|/regex/`
 
 Given:
 
