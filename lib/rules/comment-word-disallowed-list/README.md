@@ -13,7 +13,7 @@ Specify a list of disallowed words within comments.
 
 ## Options
 
-`array|string|regexp`: `["array", "of", "words", /or/, "/regex/"]|"word"|"/regex/"`
+`array|string|regexp`: `["array", "of", "words", /or/, "/regex/"]|"word"|"/regex/"|/regex/`
 
 If a string is surrounded with `"/"` (e.g. `"/^TODO:/"`), it is interpreted as a regular expression.
 

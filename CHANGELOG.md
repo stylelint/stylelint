@@ -2,7 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.5.3
+
+- Fixed: `*-list` invalid option warnings for strings ([#5934](https://github.com/stylelint/stylelint/pull/5934)).
+
+## 14.5.2
 
 - Fixed: clarity of invalid option warning message for objects ([#5923](https://github.com/stylelint/stylelint/pull/5923)).
 - Fixed: `*-list` false negatives for invalid options ([#5924](https://github.com/stylelint/stylelint/pull/5924)).

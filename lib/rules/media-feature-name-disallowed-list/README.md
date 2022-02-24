@@ -11,7 +11,7 @@ Specify a list of disallowed media feature names.
 
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", /media-features/ or "regex"]|"media-feature"|/regex/`
+`array|string|regex`: `["array", "of", "unprefixed", /media-features/, "regex"]|"media-feature"|"/regex/"|/regex/`
 
 Given:
 

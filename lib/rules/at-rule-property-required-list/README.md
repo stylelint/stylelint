@@ -11,7 +11,7 @@ Specify a list of required properties for an at-rule.
 
 ## Options
 
-`object`: `{ "at-rule-name": ["array", "of", "properties"] }`
+`object`: `{ "at-rule-name": ["array", "of", "properties"]|"property" }`
 
 Given:
 
