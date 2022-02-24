@@ -226,6 +226,8 @@ footer a:visited {
       "warnings": Array [
         Object {
           "column": 25,
+          "endColumn": 32,
+          "endLine": 102,
           "line": 102,
           "rule": "font-family-no-missing-generic-family-keyword",
           "severity": "error",
