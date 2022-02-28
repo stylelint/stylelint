@@ -11,7 +11,7 @@ a { text-rendering: optimizeLegibility; }
 
 ## Options
 
-`array|string`: `["array", "of", "unprefixed", /properties/ or "regex"]|"property"|"/regex/"`|/regex/
+`array|string|regex`: `["array", "of", "unprefixed", /properties/, "regex"]|"property"|"/regex/"|/regex/`
 
 If a string is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^background/` will match `background`, `background-size`, `background-color`, etc.
 

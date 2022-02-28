@@ -14,5 +14,5 @@
 		"typeRoots": ["./types", "./node_modules/@types"]
 	},
 	"include": ["lib", "types", "package.json"],
-	"exclude": ["lib/testUtils", "**/*.test.js", "**/__tests__"]
+	"exclude": ["**/*.test.js", "**/__tests__/"]
 }

@@ -11,7 +11,7 @@ Specify a list of disallowed selectors.
 
 ## Options
 
-`array|string|regexp`: `["array", "of", "selectors", /or/, "/regex/"]|"selector"|"/regex/"`
+`array|string|regexp`: `["array", "of", "selectors", /or/, "/regex/"]|"selector"|"/regex/"|/regex/`
 
 If a string is surrounded with `"/"` (e.g. `"/\.foo/"`), it is interpreted as a regular expression.
 

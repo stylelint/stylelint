@@ -2,7 +2,18 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.5.3
+
+- Fixed: `*-list` invalid option warnings for strings ([#5934](https://github.com/stylelint/stylelint/pull/5934)).
+
+## 14.5.2
+
+- Fixed: clarity of invalid option warning message for objects ([#5923](https://github.com/stylelint/stylelint/pull/5923)).
+- Fixed: `*-list` false negatives for invalid options ([#5924](https://github.com/stylelint/stylelint/pull/5924)).
+- Fixed: `custom-property-pattern` false positives for interpolation inside `var()` ([#5925](https://github.com/stylelint/stylelint/pull/5925)).
+- Fixed: `declaration-property-value-*-list` column position ([#5926](https://github.com/stylelint/stylelint/pull/5926)).
+
+## 14.5.1
 
 - Fixed: `function-no-unknown` ENOENT and TypeErrors ([#5916](https://github.com/stylelint/stylelint/pull/5916)).
 - Fixed: `function-no-unknown` false positives for interpolation ([#5914](https://github.com/stylelint/stylelint/pull/5914)).

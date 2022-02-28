@@ -65,7 +65,7 @@ a { transform: rotate(30deg); }
 
 ## Optional secondary options
 
-### `ignoreProperties: { unit: ["property", "/regex/", /regex/] }`
+### `ignoreProperties: { "unit": ["property", "/regex/", /regex/]|"property"|"/regex/"|/regex/ }`
 
 Ignore units in the values of declarations with the specified properties.
 
@@ -114,7 +114,7 @@ a { -moz-border-radius-topright: 20rem; }
 a { height: 100%; }
 ```
 
-### `ignoreFunctions: ["/regex/", /regex/, "string"]`
+### `ignoreFunctions: ["function", "/regex/", /regex/]|"function"|"/regex/"|/regex/`
 
 Ignore units that are inside of the specified functions.
 
