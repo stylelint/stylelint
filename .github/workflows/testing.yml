@@ -32,10 +32,14 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: npm
 
-      - name: Install latest npm
+      # https://github.com/npm/cli/issues/4341
+      # https://github.com/actions/setup-node/issues/411
+      - name: Workaround for npm installation on Windows
+        if: ${{ matrix.os == 'windows-latest' }}
         run: npm install --global npm@8.3
-        # TODO: npm@8.4 is broken on Windows. See https://github.com/npm/cli/issues/4341
-        # run: npm install --global npm@latest
+
+      - name: Install latest npm
+        run: npm install --global npm@latest
 
       - name: Install dependencies
         run: npm ci
