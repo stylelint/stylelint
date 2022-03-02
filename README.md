@@ -36,7 +36,7 @@ And **enforce conventions**, for example:
 - what units, functions, at-rules etc are allowed
 - consistent patterns for selector names, at-rule names, custom properties etc
 - maximum specificity or maximum quantity of each selector type
-- your perferred notation for color functions, font weight etc
+- your preferred notation for color functions, font weight etc
 
 There are also rules for enforcing stylistic consistency, but we now recommend you use Stylelint alongside a pretty printer like Prettier. Linters and pretty printers are complementary tools that work together.
 
