@@ -12,8 +12,8 @@ Given:
 
 ```json
 {
-  "border": 1,
-  "/^margin/": 2,
+  "border": 2,
+  "/^margin/": 1,
 },
 ```
 
@@ -26,27 +26,27 @@ a { border: 1px solid blue; }
 
 <!-- prettier-ignore -->
 ```css
-a { margin: 1px 2px 3px; }
+a { margin: 1px 2px; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { margin: 1px 2px 3px 4px; }
+a { margin-inline: 1px 2px; }
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a { border: 1px; }
+a { border: 1px solid; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { margin: 0; }
+a { margin: 1px; }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a { margin-inline: 1px 2px; }
+a { margin-inline: 1px; }
 ```
