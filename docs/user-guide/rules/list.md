@@ -163,8 +163,8 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 ### Declaration
 
-- [`declaration-block-no-redundant-longhand-properties`](../../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow longhand properties that can be combined into one shorthand property.
 - [`declaration-no-important`](../../../lib/rules/declaration-no-important/README.md): Disallow `!important` within declarations.
+- [`declaration-property-max-values`](../../../lib/rules/declaration-property-max-values/README.md): Limit the number of values for a list of properties within declarations.
 - [`declaration-property-unit-allowed-list`](../../../lib/rules/declaration-property-unit-allowed-list/README.md): Specify a list of allowed property and unit pairs within declarations.
 - [`declaration-property-unit-disallowed-list`](../../../lib/rules/declaration-property-unit-disallowed-list/README.md): Specify a list of disallowed property and unit pairs within declarations.
 - [`declaration-property-value-allowed-list`](../../../lib/rules/declaration-property-value-allowed-list/README.md): Specify a list of allowed property and value pairs within declarations.
@@ -172,6 +172,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 ### Declaration block
 
+- [`declaration-block-no-redundant-longhand-properties`](../../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow longhand properties that can be combined into one shorthand property.
 - [`declaration-block-single-line-max-declarations`](../../../lib/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declarations within a single-line declaration block.
 
 ### Selector
