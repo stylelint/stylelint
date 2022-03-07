@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `custom-property-pattern` false positives for interpolation in property name ([#5949](https://github.com/stylelint/stylelint/pull/5949)).
+
 ## 14.5.3
 
 - Fixed: `*-list` invalid option warnings for strings ([#5934](https://github.com/stylelint/stylelint/pull/5934)).
