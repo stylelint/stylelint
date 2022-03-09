@@ -5,9 +5,10 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Added: `declaration-property-max-values` rule ([#5920](https://github.com/stylelint/stylelint/pull/5920)).
+- Fixed: `*-no-important` column position ([#5957](https://github.com/stylelint/stylelint/pull/5957)).
 - Fixed: `custom-property-pattern` false positives for interpolation in property name ([#5949](https://github.com/stylelint/stylelint/pull/5949)).
 - Fixed: `font-family-name-quotes` column position ([#5955](https://github.com/stylelint/stylelint/pull/5955)).
-- Fixed: `*-no-important` column position ([#5957](https://github.com/stylelint/stylelint/pull/5957)).
+- Fixed: `selector-pseudo-class-no-unknown` false positives and negatives ([#5956](https://github.com/stylelint/stylelint/pull/5956)).
 
 ## 14.5.3
 
