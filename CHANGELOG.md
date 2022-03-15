@@ -8,6 +8,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `*-no-important` column position ([#5957](https://github.com/stylelint/stylelint/pull/5957)).
 - Fixed: `custom-property-pattern` false positives for interpolation in property name ([#5949](https://github.com/stylelint/stylelint/pull/5949)).
 - Fixed: `font-family-name-quotes` column position ([#5955](https://github.com/stylelint/stylelint/pull/5955)).
+- Fixed: `selector-pseudo-*-no-unknown` false positives and negatives ([#5959](https://github.com/stylelint/stylelint/pull/5959)).
 - Fixed: `selector-pseudo-class-no-unknown` false positives and negatives ([#5956](https://github.com/stylelint/stylelint/pull/5956)).
 
 ## 14.5.3
