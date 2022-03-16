@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.6.0
 
 - Added: `declaration-property-max-values` rule ([#5920](https://github.com/stylelint/stylelint/pull/5920)).
 - Fixed: `*-no-important` column position ([#5957](https://github.com/stylelint/stylelint/pull/5957)).
