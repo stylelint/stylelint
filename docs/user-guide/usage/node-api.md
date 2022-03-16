@@ -22,6 +22,10 @@ Stylelint does not bother looking for a `.stylelintrc` file if you use this opti
 
 A string to lint.
 
+### `fix`
+
+Boolean. If `true`, the autofixed code is available as the value of the output property in the returned object.
+
 ### `cwd`
 
 The directory from which Stylelint will look for files. Defaults to the current working directory returned by `process.cwd()`.
@@ -57,6 +61,8 @@ Boolean. If `true`, at least one rule with an "error"-level severity registered 
 ### `output`
 
 A string displaying the formatted problems (using the default formatter or whichever you passed).
+
+If the `fix` option is set to `true`, a string displaying the autofixed code.
 
 ### `postcssResults`
 
