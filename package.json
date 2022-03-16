@@ -133,7 +133,7 @@
     "normalize-path": "^3.0.0",
     "normalize-selector": "^0.2.0",
     "picocolors": "^1.0.0",
-    "postcss": "^8.4.8",
+    "postcss": "^8.4.11",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^6.0.0",
