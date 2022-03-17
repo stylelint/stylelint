@@ -175,6 +175,24 @@ stylelint
 
 Note that the customSyntax option also accepts a string. [Refer to the options documentation for details](./options.md#customsyntax).
 
+### Example F
+
+Using a string and the fix option:
+
+```js
+stylelint
+  .lint({
+    code: "a { color: pink; }",
+    config: { rules: { "hue-degree-notation": "angle" } },
+    fix: true
+  })
+  .then(function () {
+    /* .. */
+  });
+```
+
+The autofixed code will be available as the value of the output property in the returned object.
+
 ## Resolving the effective config for a file
 
 If you want to find out what exact configuration will be used for a file without actually linting it, you can use the `resolveConfig()` function. Given a file path, it will return a Promise that resolves with the effective configuration object:
