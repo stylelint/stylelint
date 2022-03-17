@@ -22,10 +22,6 @@ Stylelint does not bother looking for a `.stylelintrc` file if you use this opti
 
 A string to lint.
 
-### `fix`
-
-Boolean. If `true`, the autofixed code is available as the value of the output property in the returned object.
-
 ### `cwd`
 
 The directory from which Stylelint will look for files. Defaults to the current working directory returned by `process.cwd()`.
