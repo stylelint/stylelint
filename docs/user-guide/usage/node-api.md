@@ -56,7 +56,10 @@ Boolean. If `true`, at least one rule with an "error"-level severity registered 
 
 ### `output`
 
-A string displaying the formatted problems (using the default formatter or whichever you passed).
+A string that contains either the:
+
+- formatted problems (using the default formatter or whichever you passed)
+- or the autofixed code, if the `fix` option is set to `true`
 
 ### `postcssResults`
 
@@ -171,6 +174,24 @@ stylelint
 ```
 
 Note that the customSyntax option also accepts a string. [Refer to the options documentation for details](./options.md#customsyntax).
+
+### Example F
+
+Using a string and the `fix` option:
+
+```js
+stylelint
+  .lint({
+    code: "a { color: pink; }",
+    config: { rules: { "hue-degree-notation": "angle" } },
+    fix: true
+  })
+  .then(function () {
+    /* .. */
+  });
+```
+
+The autofixed code will be available as the value of the `output` property in the returned object.
 
 ## Resolving the effective config for a file
 
