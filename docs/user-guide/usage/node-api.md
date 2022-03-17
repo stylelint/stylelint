@@ -177,7 +177,7 @@ Note that the customSyntax option also accepts a string. [Refer to the options d
 
 ### Example F
 
-Using a string and the fix option:
+Using a string and the `fix` option:
 
 ```js
 stylelint
