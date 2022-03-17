@@ -191,7 +191,7 @@ stylelint
   });
 ```
 
-The autofixed code will be available as the value of the output property in the returned object.
+The autofixed code will be available as the value of the `output` property in the returned object.
 
 ## Resolving the effective config for a file
 
