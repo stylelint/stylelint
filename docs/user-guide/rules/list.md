@@ -198,6 +198,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 - [`selector-nested-pattern`](../../../lib/rules/selector-nested-pattern/README.md): Specify a pattern for the selectors of rules nested within rules.
 - [`selector-no-qualifying-type`](../../../lib/rules/selector-no-qualifying-type/README.md): Disallow qualifying a selector by type.
 - [`selector-no-vendor-prefix`](../../../lib/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors (Autofixable).
+- [`selector-not-notation`](../../../lib/rules/selector-not-notation/README.md): Specify simple or complex notation for `:not()` pseudo-classes (Autofixable).
 - [`selector-pseudo-class-allowed-list`](../../../lib/rules/selector-pseudo-class-allowed-list/README.md): Specify a list of allowed pseudo-class selectors.
 - [`selector-pseudo-class-disallowed-list`](../../../lib/rules/selector-pseudo-class-disallowed-list/README.md): Specify a list of disallowed pseudo-class selectors.
 - [`selector-pseudo-element-allowed-list`](../../../lib/rules/selector-pseudo-element-allowed-list/README.md): Specify a list of allowed pseudo-element selectors.
