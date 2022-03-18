@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `unit-no-unknown` false positives for large/small/dynamic viewport units ([#5970](https://github.com/stylelint/stylelint/pull/5970)).
+
 ## 14.6.0
 
 - Added: `declaration-property-max-values` rule ([#5920](https://github.com/stylelint/stylelint/pull/5920)).
