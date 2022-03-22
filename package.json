@@ -112,7 +112,7 @@
     "colord": "^2.9.2",
     "cosmiconfig": "^7.0.1",
     "css-functions-list": "^3.0.1",
-    "debug": "^4.3.3",
+    "debug": "^4.3.4",
     "execall": "^2.0.0",
     "fast-glob": "^3.2.11",
     "fastest-levenshtein": "^1.0.12",
