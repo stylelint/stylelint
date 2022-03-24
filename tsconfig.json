@@ -9,6 +9,7 @@
 		"strict": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUnusedParameters": true,
+		"noUncheckedIndexedAccess": true,
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
 		"typeRoots": ["./types", "./node_modules/@types"]
