@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.6.1
 
 - Fixed: `custom-property-pattern` TypeError for "Cannot destructure property..." ([#5982](https://github.com/stylelint/stylelint/pull/5982)).
 - Fixed: `selector-type-case` false positives for SVG elements ([#5973](https://github.com/stylelint/stylelint/pull/5973)).
