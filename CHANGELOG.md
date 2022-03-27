@@ -4,10 +4,21 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Added: `selector-not-notation` rule ([#5975](https://github.com/stylelint/stylelint/pull/5975)).
+
+## 14.6.1
+
+- Fixed: `custom-property-pattern` TypeError for "Cannot destructure property..." ([#5982](https://github.com/stylelint/stylelint/pull/5982)).
+- Fixed: `selector-type-case` false positives for SVG elements ([#5973](https://github.com/stylelint/stylelint/pull/5973)).
+- Fixed: `unit-no-unknown` false positives for large/small/dynamic viewport units ([#5970](https://github.com/stylelint/stylelint/pull/5970)).
+
+## 14.6.0
+
 - Added: `declaration-property-max-values` rule ([#5920](https://github.com/stylelint/stylelint/pull/5920)).
 - Fixed: `*-no-important` column position ([#5957](https://github.com/stylelint/stylelint/pull/5957)).
 - Fixed: `custom-property-pattern` false positives for interpolation in property name ([#5949](https://github.com/stylelint/stylelint/pull/5949)).
 - Fixed: `font-family-name-quotes` column position ([#5955](https://github.com/stylelint/stylelint/pull/5955)).
+- Fixed: `selector-pseudo-*-no-unknown` false positives and negatives ([#5959](https://github.com/stylelint/stylelint/pull/5959)).
 - Fixed: `selector-pseudo-class-no-unknown` false positives and negatives ([#5956](https://github.com/stylelint/stylelint/pull/5956)).
 
 ## 14.5.3
