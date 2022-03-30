@@ -129,7 +129,7 @@
     "known-css-properties": "^0.24.0",
     "mathml-tag-names": "^2.1.3",
     "meow": "^9.0.0",
-    "micromatch": "^4.0.4",
+    "micromatch": "^4.0.5",
     "normalize-path": "^3.0.0",
     "normalize-selector": "^0.2.0",
     "picocolors": "^1.0.0",
