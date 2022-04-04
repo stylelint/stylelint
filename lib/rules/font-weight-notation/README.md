@@ -4,13 +4,17 @@ Require numeric or named (where possible) `font-weight` values. Also, when named
 
 <!-- prettier-ignore -->
 ```css
-a { font-weight: bold }
+a { font-weight: bold; }
 /**              ↑
- *   This notation */
+ *               This notation */
 
 a { font: italic small-caps 600 16px/3 cursive; }
 /**                         ↑
-*      And this notation, too */
+ *                          And this notation, too */
+
+@font-face { font-weight: normal bold; }
+/**                       ↑
+ *                        Multiple notations are available in @font-face */
 ```
 
 Valid font-weight names are `normal`, `bold`, `bolder`, and `lighter`.
@@ -37,6 +41,11 @@ a { font-weight: bold; }
 a { font: italic normal 20px sans-serif; }
 ```
 
+<!-- prettier-ignore -->
+```css
+@font-face { font-weight: normal bold; }
+```
+
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
@@ -47,6 +56,11 @@ a { font-weight: 700; }
 <!-- prettier-ignore -->
 ```css
 a { font: italic 400 20px; }
+```
+
+<!-- prettier-ignore -->
+```css
+@font-face { font-weight: 400 700; }
 ```
 
 ### `"named-where-possible"`
