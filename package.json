@@ -169,7 +169,7 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.2.2",
-    "eslint": "^8.12.0",
+    "eslint": "^8.13.0",
     "eslint-config-stylelint": "^15.0.0",
     "eslint-plugin-jest": "^26.1.3",
     "husky": "^7.0.4",
