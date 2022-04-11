@@ -53,7 +53,7 @@ jobs:
         if: startsWith(matrix.os, 'ubuntu') && matrix.node == 16
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         if: startsWith(matrix.os, 'ubuntu') && matrix.node == 16
         with:
           files: ./.coverage/lcov.info
