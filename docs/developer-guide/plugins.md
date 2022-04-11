@@ -155,7 +155,9 @@ testRule({
       fixed: ".my-class {}",
       message: messages.expected(),
       line: 1,
-      column: 1
+      column: 1,
+      endLine: 1,
+      endColumn: 9
     }
   ]
 });
@@ -266,7 +268,9 @@ function myPluginRule(primaryOption, secondaryOptionObject) {
           result: postcssResult,
           node: warning.node,
           line: warning.line,
-          column: warning.column
+          column: warning.column,
+          endLine: warning.endLine,
+          endColumn: warning.endColumn
         });
       }
     );
