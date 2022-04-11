@@ -12,6 +12,9 @@ on:
 env:
   FORCE_COLOR: 2
 
+permissions:
+  contents: read
+
 jobs:
   test:
     name: Test on Node.js ${{ matrix.node }} and ${{ matrix.os }}
