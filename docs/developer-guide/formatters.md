@@ -23,6 +23,8 @@ Where the first argument (`results`) is an array of Stylelint result objects (ty
     {
       "line": 3,
       "column": 12,
+      "endLine": 4,
+      "endColumn": 15,
       "rule": "block-no-empty",
       "severity": "error",
       "text": "You should not have an empty block (block-no-empty)"
