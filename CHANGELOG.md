@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: a regression for `/* stylelint-disable */` comments ([#6018](https://github.com/stylelint/stylelint/pull/6018)).
+
 ## 14.7.0
 
 - Added: ranges for warnings that can be used by formatters and integrations ([#5725](https://github.com/stylelint/stylelint/pull/5725)).
