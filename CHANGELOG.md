@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.7.1
 
 - Fixed: a regression for `/* stylelint-disable */` comments ([#6018](https://github.com/stylelint/stylelint/pull/6018)).
 - Fixed: `font-family-name-quotes` false positives for `ui-*` generic system font keywords ([#6017](https://github.com/stylelint/stylelint/pull/6017)).
