@@ -130,6 +130,7 @@ You should ask yourself how does your rule handle:
 - variables (e.g. `var(--custom-property)`)?
 - CSS strings (e.g. `content: "anything goes";`)?
 - CSS comments (e.g. `/* anything goes */`)?
+- empty functions (e.g. `var()`)?
 - `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
 - vendor prefixes (e.g. `@-webkit-keyframes name {}`)?
 - case sensitivity (e.g. `@KEYFRAMES name {}`)?
