@@ -2,6 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
+## 14.7.1
+
+- Fixed: a regression for `/* stylelint-disable */` comments ([#6018](https://github.com/stylelint/stylelint/pull/6018)).
+- Fixed: `font-family-name-quotes` false positives for `ui-*` generic system font keywords ([#6017](https://github.com/stylelint/stylelint/pull/6017)).
+
 ## 14.7.0
 
 - Added: ranges for warnings that can be used by formatters and integrations ([#5725](https://github.com/stylelint/stylelint/pull/5725)).
