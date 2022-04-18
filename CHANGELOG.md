@@ -2,10 +2,15 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.7.1
 
-- Added: `selector-not-notation` rule ([#5975](https://github.com/stylelint/stylelint/pull/5975)).
+- Fixed: a regression for `/* stylelint-disable */` comments ([#6018](https://github.com/stylelint/stylelint/pull/6018)).
+- Fixed: `font-family-name-quotes` false positives for `ui-*` generic system font keywords ([#6017](https://github.com/stylelint/stylelint/pull/6017)).
+
+## 14.7.0
+
 - Added: ranges for warnings that can be used by formatters and integrations ([#5725](https://github.com/stylelint/stylelint/pull/5725)).
+- Added: `selector-not-notation` rule ([#5975](https://github.com/stylelint/stylelint/pull/5975)).
 - Fixed: `font-weight-notation` false positives for Sass functions and column position ([#6005](https://github.com/stylelint/stylelint/pull/6005)).
 
 ## 14.6.1

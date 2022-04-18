@@ -1,1 +1,1 @@
-declare var testRule: typeof import('jest-preset-stylelint').testRule;
+declare var testRule: import('jest-preset-stylelint').TestRule;
