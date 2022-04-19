@@ -47,8 +47,9 @@ stylelint.lint(options).then((x: LinterResult) => {
 	const err: boolean = x.errored;
 	const output: string = x.output;
 	const results: LintResult[] = x.results;
-	if (results.length > 0) {
-		const warnings: Warning[] = results[0].warnings;
+	const firstResult: LintResult | undefined = results[0];
+	if (firstResult) {
+		const warnings: Warning[] = firstResult.warnings;
 	}
 });
 

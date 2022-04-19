@@ -36,7 +36,7 @@ declare module 'stylelint' {
 			extends?: ConfigExtends;
 			plugins?: ConfigPlugins;
 			pluginFunctions?: {
-				[pluginName: string]: Function;
+				[pluginName: string]: Rule;
 			};
 			processors?: ConfigProcessors;
 			processorFunctions?: Function[];
