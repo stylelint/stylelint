@@ -4,11 +4,9 @@ Disallow duplicate selectors within keyframe blocks.
 
 <!-- prettier-ignore -->
 ```css
-@keyframes foo {
-  0% {}
-  0% {}  /* This duplicated selector */
-  100% {}
-}
+@keyframes foo { 0% {} 0% {} }
+/**                    ↑
+ *                     This duplicate selector */
 ```
 
 ## Options
@@ -19,12 +17,12 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@keyframes foo { 0% {} 0% {} 100% {} }
+@keyframes foo { 0% {} 0% {} }
 ```
 
 <!-- prettier-ignore -->
 ```css
-@keyframes foo { 0% {} 0%, 100% {} }
+@keyframes foo { from {} from {} }
 ```
 
 The following patterns are _not_ considered problems:
