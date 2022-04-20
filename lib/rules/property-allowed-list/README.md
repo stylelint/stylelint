@@ -13,7 +13,7 @@ This rule ignores variables (`$sass`, `@less`, `--custom-property`).
 
 ## Options
 
-`array|string|regex`: `["array", "of", "unprefixed", /properties/, "regex"]|"property"|"/regex/"|/regex/`
+`array|string|regex`: `["array", "of", /properties/, "regex"]|"property"|"/regex/"|/regex/`
 
 If a string is surrounded with `"/"` (e.g. `"/^background/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/^background/` will match `background`, `background-size`, `background-color`, etc.
 
