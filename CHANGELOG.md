@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Added: `property-*-list` support for vendor prefixes ([#6025](https://github.com/stylelint/stylelint/pull/6025)).
+
 ## 14.7.1
 
 - Fixed: a regression for `/* stylelint-disable */` comments ([#6018](https://github.com/stylelint/stylelint/pull/6018)).
