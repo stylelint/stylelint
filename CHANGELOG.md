@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Added: `property-*-list` support for vendor prefixes ([#6025](https://github.com/stylelint/stylelint/pull/6025)).
+- Fixed: `at-rule-no-unknown` end positions ([#6026](https://github.com/stylelint/stylelint/pull/6026)).
 
 ## 14.7.1
 
