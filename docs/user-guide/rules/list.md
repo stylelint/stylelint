@@ -50,7 +50,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 - [`keyframe-declaration-no-important`](../../../lib/rules/keyframe-declaration-no-important/README.md): Disallow `!important` within keyframe declarations.
 
-### Keyframe blocks
+### Keyframe block
 
 - [`keyframe-block-no-duplicate-selectors`](../../../lib/rules/keyframe-block-no-duplicate-selectors/README.md): Disallow duplicate selectors within keyframe blocks.
 
