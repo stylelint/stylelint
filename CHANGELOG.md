@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file.
 
 - Added: `keyframe-block-no-duplicate-selectors` rule ([#6024](https://github.com/stylelint/stylelint/pull/6024)).
 - Added: `property-*-list` support for vendor prefixes ([#6025](https://github.com/stylelint/stylelint/pull/6025)).
+- Fixed: `at-rule-*-list` end positions ([#6032](https://github.com/stylelint/stylelint/pull/6032)).
 - Fixed: `at-rule-no-unknown` end positions ([#6026](https://github.com/stylelint/stylelint/pull/6026)).
 - Fixed: `function-linear-gradient-no-nonstandard-direction` false negative about `-ms-linear-gradient` ([#6031](https://github.com/stylelint/stylelint/pull/6031)).
 
