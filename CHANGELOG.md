@@ -8,6 +8,8 @@ All notable changes to this project are documented in this file.
 - Added: `property-*-list` support for vendor prefixes ([#6025](https://github.com/stylelint/stylelint/pull/6025)).
 - Fixed: `at-rule-*-list` end positions ([#6032](https://github.com/stylelint/stylelint/pull/6032)).
 - Fixed: `at-rule-no-unknown` end positions ([#6026](https://github.com/stylelint/stylelint/pull/6026)).
+- Fixed: `function-no-unknown` end positions ([#6038](https://github.com/stylelint/stylelint/pull/6038)).
+- Fixed: `property-no-unknown` end positions ([#6039](https://github.com/stylelint/stylelint/pull/6039)).
 - Fixed: `function-linear-gradient-no-nonstandard-direction` false negative about `-ms-linear-gradient` ([#6031](https://github.com/stylelint/stylelint/pull/6031)).
 
 ## 14.7.1
