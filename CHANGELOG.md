@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.8.0
 
 - Added: `keyframe-block-no-duplicate-selectors` rule ([#6024](https://github.com/stylelint/stylelint/pull/6024)).
 - Added: `property-*-list` support for vendor prefixes ([#6025](https://github.com/stylelint/stylelint/pull/6025)).
