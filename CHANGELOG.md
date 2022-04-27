@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `declaration-block-no-*` end positions that avoid errors ([#6040](https://github.com/stylelint/stylelint/pull/6040)).
+
 ## 14.8.0
 
 - Added: `keyframe-block-no-duplicate-selectors` rule ([#6024](https://github.com/stylelint/stylelint/pull/6024)).
