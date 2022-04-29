@@ -6,6 +6,7 @@ All notable changes to this project are documented in this file.
 
 - Fixed: `declaration-block-no-*` end positions that avoid errors ([#6040](https://github.com/stylelint/stylelint/pull/6040)).
 - Fixed: `named-grid-areas-no-invalid` false positives for arealess templates ([#6042](https://github.com/stylelint/stylelint/pull/6042)).
+- Fixed: `function-calc-no-unspaced-operator` false positives and memory leak ([#6045](https://github.com/stylelint/stylelint/pull/6045)).
 
 ## 14.8.0
 
