@@ -11,6 +11,8 @@ a { top: calc(1px + 2px); }
 
 Before the operator, there must be a single whitespace or a newline plus indentation. After the operator, there must be a single whitespace or a newline.
 
+Note: The `*` and `/` operators do not require whitespace (but it is usually recommened for consistency).
+
 The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
@@ -39,6 +41,11 @@ a { top: calc(1px + 2px); }
 <!-- prettier-ignore -->
 ```css
 a { top: calc(calc(1em * 2) / 3); }
+```
+
+<!-- prettier-ignore -->
+```css
+a { top: calc(calc(1em*2)/3); }
 ```
 
 <!-- prettier-ignore -->
