@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.8.1
 
 - Fixed: `declaration-block-no-*` end positions that avoid errors ([#6040](https://github.com/stylelint/stylelint/pull/6040)).
 - Fixed: `named-grid-areas-no-invalid` false positives for arealess templates ([#6042](https://github.com/stylelint/stylelint/pull/6042)).
