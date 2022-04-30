@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `selector-*-no-unknown` end positions ([#6046](https://github.com/stylelint/stylelint/pull/6046)).
+
 ## 14.8.1
 
 - Fixed: `declaration-block-no-*` end positions that avoid errors ([#6040](https://github.com/stylelint/stylelint/pull/6040)).
