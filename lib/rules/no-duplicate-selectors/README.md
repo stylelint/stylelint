@@ -5,7 +5,7 @@ Disallow duplicate selectors within a stylesheet.
 <!-- prettier-ignore -->
 ```css
     .foo {} .bar {} .foo {}
-/** ↑              ↑
+/** ↑               ↑
  * These duplicates */
 ```
 
