@@ -175,7 +175,7 @@
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "jest-preset-stylelint": "^5.0.3",
-    "jest-watch-typeahead": "^1.0.0",
+    "jest-watch-typeahead": "^1.1.0",
     "lint-staged": "^12.4.0",
     "node-fetch": "^3.2.3",
     "np": "^7.6.1",
