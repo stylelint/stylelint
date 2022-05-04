@@ -16,6 +16,9 @@ permissions:
   contents: read
 
 jobs:
+  lint:
+    uses: stylelint/.github/.github/workflows/lint.yml@reusable-workflow # TODO: Change to `@main`
+
   test:
     name: Test on Node.js ${{ matrix.node }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
