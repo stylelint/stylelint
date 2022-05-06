@@ -311,7 +311,6 @@ If your plugin can accept an array as its primary option, you must designate thi
 
 In addition to the standard parsers mentioned in the ["Working on rules"](rules.md) doc, there are other external modules used within Stylelint that we recommend using. These include:
 
-- [normalize-selector](https://github.com/getify/normalize-selector): normalize CSS selectors.
 - [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector): given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
 
 Have a look through [Stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into an external module.
