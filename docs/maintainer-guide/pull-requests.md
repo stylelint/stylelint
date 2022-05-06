@@ -24,7 +24,7 @@ When merging a PR, you should:
 1. ["Squash and merge"](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#squash-and-merge-your-pull-request-commits) commits and ensure the resulting commit message is:
    - descriptive
    - sentence case
-2. Update the [changelog](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md) directly via the [GitHub website](https://github.com/stylelint/stylelint/edit/master/CHANGELOG.md) for everything except refactoring and documentation changes:
+2. Update the [changelog](https://github.com/stylelint/stylelint/blob/main/CHANGELOG.md) directly via the [GitHub website](https://github.com/stylelint/stylelint/edit/main/CHANGELOG.md) for everything except refactoring and documentation changes:
    1. Create a `## Head` heading if one does not exist already.
    2. Prefix the item with either: "Removed", "Changed", "Deprecated", "Added", or "Fixed".
    3. Order the item within the group by the widest-reaching first to the smallest, and then alphabetically by rule name.
