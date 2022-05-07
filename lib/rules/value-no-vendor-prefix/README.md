@@ -5,8 +5,8 @@ Disallow vendor prefixes for values.
 <!-- prettier-ignore -->
 ```css
 a { display: -webkit-flex; }
-/**          ↑
- *  These prefixes */
+/**           ↑
+ *  This prefix */
 ```
 
 This rule ignores non-standard vendor-prefixed values that aren't handled by [Autoprefixer](https://github.com/postcss/autoprefixer).

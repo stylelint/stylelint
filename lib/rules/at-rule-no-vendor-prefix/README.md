@@ -5,7 +5,7 @@ Disallow vendor prefixes for at-rules.
 <!-- prettier-ignore -->
 ```css
     @-webkit-keyframes { 0% { top: 0; } }
-/**  ↑
+/**   ↑
  * This prefix */
 ```
 

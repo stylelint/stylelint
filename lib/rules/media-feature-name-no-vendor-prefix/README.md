@@ -6,7 +6,7 @@ Disallow vendor prefixes for media feature names.
 ```css
 @media (-webkit-min-device-pixel-ratio: 1) {}
 /**      ↑
- * This prefixe */
+ * This prefix */
 ```
 
 This rule ignores non-standard vendor-prefixed media feature names that aren't handled by [Autoprefixer](https://github.com/postcss/autoprefixer).
