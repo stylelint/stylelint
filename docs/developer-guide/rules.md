@@ -48,7 +48,7 @@ There are significant benefits to using these parsers instead of regular express
 
 #### Utility functions
 
-Stylelint has [utility functions](https://github.com/stylelint/stylelint/tree/master/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!).
+Stylelint has [utility functions](https://github.com/stylelint/stylelint/tree/main/lib/utils) that are used in existing rules and might prove useful to you, as well. Please look through those so that you know what's available. (And if you have a new function that you think might prove generally helpful, let's add it to the list!).
 
 Use the:
 
