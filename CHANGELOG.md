@@ -8,6 +8,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `no-duplicate-*` end positions ([#6047](https://github.com/stylelint/stylelint/pull/6047)).
 - Fixed: `no-descending-specificity` end positions ([#6049](https://github.com/stylelint/stylelint/pull/6049)).
 - Fixed: `media-feature-name-no-unknown` false positives for `display-mode` ([#6073](https://github.com/stylelint/stylelint/pull/6073)).
+- Fixed: dependency on `normalize-selector` removed ([#6068](https://github.com/stylelint/stylelint/pull/6068)).
 
 ## 14.8.2
 
