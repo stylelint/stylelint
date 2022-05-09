@@ -131,7 +131,6 @@
     "meow": "^9.0.0",
     "micromatch": "^4.0.5",
     "normalize-path": "^3.0.0",
-    "normalize-selector": "^0.2.0",
     "picocolors": "^1.0.0",
     "postcss": "^8.4.13",
     "postcss-media-query-parser": "^0.2.3",
