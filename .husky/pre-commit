@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env sh
 [ -n "$CI" ] && exit 0
 
-. "$(dirname "$0")/_/husky.sh"
+. "$(dirname -- "$0")/_/husky.sh"
 
 npx --no-install lint-staged

@@ -313,7 +313,7 @@ In addition to the standard parsers mentioned in the ["Working on rules"](rules.
 
 - [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector): given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
 
-Have a look through [Stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into an external module.
+Have a look through [Stylelint's internal utils](https://github.com/stylelint/stylelint/tree/main/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into an external module.
 
 ## Peer dependencies
 
