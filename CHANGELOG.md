@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Fixed: `no-invalid-*` end positions ([#6072](https://github.com/stylelint/stylelint/pull/6072)).
+- Fixed: `no-duplicate-*` end positions ([#6047](https://github.com/stylelint/stylelint/pull/6047)).
 - Fixed: `no-descending-specificity` end positions ([#6049](https://github.com/stylelint/stylelint/pull/6049)).
 - Fixed: `media-feature-name-no-unknown` false positives for `display-mode` ([#6073](https://github.com/stylelint/stylelint/pull/6073)).
 
