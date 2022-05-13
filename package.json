@@ -108,7 +108,7 @@
     ]
   },
   "dependencies": {
-    "@bramus/specificity": "^2.1.0",
+    "@bramus/specificity": "github:bramus/specificity",
     "balanced-match": "^2.0.0",
     "colord": "^2.9.2",
     "cosmiconfig": "^7.0.1",
