@@ -144,6 +144,8 @@ a {}
 }
 ```
 
+## Optional secondary options
+
 ### `ignore: ["selectors-within-list"]`
 
 Ignores selectors within list of selectors.
