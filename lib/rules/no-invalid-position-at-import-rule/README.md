@@ -50,6 +50,12 @@ a {}
 @import 'foo.css';
 ```
 
+<!-- prettier-ignore -->
+```css
+@layer default;
+@import url(theme.css) layer(theme);
+```
+
 ## Optional secondary options
 
 ### `ignoreAtRules: ["/regex/", /regex/, "string"]`
