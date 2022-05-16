@@ -10,6 +10,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `media-feature-name-no-unknown` false positives for `display-mode` ([#6073](https://github.com/stylelint/stylelint/pull/6073)).
 - Fixed: dependency on `normalize-selector` removed ([#6068](https://github.com/stylelint/stylelint/pull/6068)).
 - Fixed: `at-rule-no-unknown` false positives for `@layer` ([#6093](https://github.com/stylelint/stylelint/pull/6093)).
+- Fixed: `no-invalid-position-at-import-rule` false positives for `@layer` ([#6094](https://github.com/stylelint/stylelint/pull/6094)).
 
 ## 14.8.2
 
