@@ -171,7 +171,7 @@
     "eslint": "^8.15.0",
     "eslint-config-stylelint": "^15.1.0",
     "eslint-plugin-jest": "^26.2.2",
-    "husky": "^8.0.0",
+    "husky": "^8.0.1",
     "jest": "^28.1.0",
     "jest-preset-stylelint": "^5.0.3",
     "jest-watch-typeahead": "^1.1.0",
