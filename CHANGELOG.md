@@ -11,6 +11,7 @@ All notable changes to this project are documented in this file.
 - Fixed: dependency on `normalize-selector` removed ([#6068](https://github.com/stylelint/stylelint/pull/6068)).
 - Fixed: `at-rule-no-unknown` false positives for `@layer` ([#6093](https://github.com/stylelint/stylelint/pull/6093)).
 - Fixed: `no-invalid-position-at-import-rule` false positives for `@layer` ([#6094](https://github.com/stylelint/stylelint/pull/6094)).
+- Fixed: `length-zero-no-unit` autofix for `.0` values ([#6098](https://github.com/stylelint/stylelint/pull/6098)).
 
 ## 14.8.2
 
