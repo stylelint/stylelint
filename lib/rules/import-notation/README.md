@@ -5,14 +5,14 @@ Specify string or url notation for imports.
 <!-- prettier-ignore -->
 ```css
 @import url("x.jpg");
-/**      ↑
+/**     ↑
  *      Url */
 ```
 
 <!-- prettier-ignore -->
 ```css
 @import "x.jpg";
-/**        ↑
+/**     ↑
  *      String */
 ```
 
