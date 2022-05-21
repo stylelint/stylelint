@@ -132,7 +132,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 ### Imports
 
-- [`import-notation`](../../../lib/rules/import-notation/README.md): Specify string or url notation for imports.
+- [`import-notation`](../../../lib/rules/import-notation/README.md): Specify string or url notation for imports (Autofixable).
 
 ### Keyframes
 

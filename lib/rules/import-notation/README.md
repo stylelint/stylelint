@@ -60,7 +60,7 @@ The following patterns are _not_ considered problems:
 
 ### `"url"`
 
-Imports _must_ use _url_ function.
+Imports _must_ use the `url` function.
 
 The following patterns are considered problems:
 
