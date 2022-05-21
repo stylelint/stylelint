@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.8.3
 
 - Fixed: `no-invalid-*` end positions ([#6072](https://github.com/stylelint/stylelint/pull/6072)).
 - Fixed: `no-duplicate-*` end positions ([#6047](https://github.com/stylelint/stylelint/pull/6047)).
