@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.8.4
 
 - Fixed: `no-duplicate-selectors` error with non-standard selectors ([#6106](https://github.com/stylelint/stylelint/pull/6106)).
 
