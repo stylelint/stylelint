@@ -43,5 +43,5 @@
 - [ ] stylelint.io update
 - [ ] tweet
 
-cc @stylelint/core
+cc @stylelint/owners
 ```
