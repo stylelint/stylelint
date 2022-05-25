@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.8.5
 
 - Fixed: `no-duplicate-selectors` false positives with Less syntax ([#6111](https://github.com/stylelint/stylelint/pull/6111)).
 
