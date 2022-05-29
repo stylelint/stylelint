@@ -47,7 +47,8 @@
     "release": "np",
     "pretest": "npm run lint",
     "test": "jest --coverage",
-    "watch": "jest --watch"
+    "watch": "jest --watch",
+    "postinstall": "cd node_modules/cosmiconfig && npm ci && npm run build && rm -rf node_modules"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
@@ -110,7 +111,7 @@
   "dependencies": {
     "balanced-match": "^2.0.0",
     "colord": "^2.9.2",
-    "cosmiconfig": "^7.0.1",
+    "cosmiconfig": "https://github.com/davidtheclark/cosmiconfig/tarball/prepare-v8",
     "css-functions-list": "^3.0.1",
     "debug": "^4.3.4",
     "execall": "^2.0.0",
