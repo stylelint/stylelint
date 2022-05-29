@@ -75,6 +75,8 @@ The following patterns are _not_ considered problems:
 #foo #bar:not(#baz) {}
 ```
 
+## Optional secondary options
+
 ### `ignoreContextFunctionalPseudoClasses: ["/regex/", /regex/, "non-regex"]`
 
 Ignore selectors inside of specified [functional pseudo-classes](https://drafts.csswg.org/selectors-4/#pseudo-classes) that provide [evaluation contexts](https://drafts.csswg.org/selectors-4/#specificity-rules).
