@@ -4,6 +4,29 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Fixed: `no-duplicate-selectors` false positives for SCSS/Less nested interpolations ([#6118](https://github.com/stylelint/stylelint/pull/6118)).
+
+## 14.8.5
+
+- Fixed: `no-duplicate-selectors` false positives with Less syntax ([#6111](https://github.com/stylelint/stylelint/pull/6111)).
+
+## 14.8.4
+
+- Fixed: `no-duplicate-selectors` error with non-standard selectors ([#6106](https://github.com/stylelint/stylelint/pull/6106)).
+
+## 14.8.3
+
+- Fixed: `no-invalid-*` end positions ([#6072](https://github.com/stylelint/stylelint/pull/6072)).
+- Fixed: `no-duplicate-*` end positions ([#6047](https://github.com/stylelint/stylelint/pull/6047)).
+- Fixed: `no-descending-specificity` end positions ([#6049](https://github.com/stylelint/stylelint/pull/6049)).
+- Fixed: `media-feature-name-no-unknown` false positives for `display-mode` ([#6073](https://github.com/stylelint/stylelint/pull/6073)).
+- Fixed: dependency on `normalize-selector` removed ([#6068](https://github.com/stylelint/stylelint/pull/6068)).
+- Fixed: `at-rule-no-unknown` false positives for `@layer` ([#6093](https://github.com/stylelint/stylelint/pull/6093)).
+- Fixed: `no-invalid-position-at-import-rule` false positives for `@layer` ([#6094](https://github.com/stylelint/stylelint/pull/6094)).
+- Fixed: `length-zero-no-unit` autofix for `.0` values ([#6098](https://github.com/stylelint/stylelint/pull/6098)).
+
+## 14.8.2
+
 - Fixed: `selector-*-no-unknown` end positions ([#6046](https://github.com/stylelint/stylelint/pull/6046)).
 - Fixed: `function-calc-no-unspaced-operator` false positives for non-standard variables ([#6053](https://github.com/stylelint/stylelint/pull/6053)).
 

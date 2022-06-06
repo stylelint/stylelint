@@ -176,7 +176,7 @@ For example, with `"always"` and given:
 ["/^ignore/", "string-ignore"]
 ```
 
-The following comments are _not_ considered problems:
+The following patterns are _not_ considered problems:
 
 ```css
 :root {

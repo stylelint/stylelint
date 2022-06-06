@@ -11,7 +11,7 @@ a { -webkit-transform: scale(1); }
 
 This rule ignores non-standard vendor-prefixed properties that aren't handled by [Autoprefixer](https://github.com/postcss/autoprefixer).
 
-The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule. However, it will not remove duplicate properties produced when the prefixes are removed. You can use [Autoprefixer](https://github.com/postcss/autoprefixer) itself, with the [`add` option off and the `remove` option on](https://github.com/postcss/autoprefixer#options), in these situations.
 
 ## Options
 

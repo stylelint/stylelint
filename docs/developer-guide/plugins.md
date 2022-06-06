@@ -28,8 +28,8 @@ const meta = {
 
 module.exports = stylelint.createPlugin(
   ruleName,
-  function (primaryOption, secondaryOptionObject) {
-    return function (postcssRoot, postcssResult) {
+  (primaryOption, secondaryOptionObject) => {
+    return (postcssRoot, postcssResult) => {
       const validOptions = stylelint.utils.validateOptions(
         postcssResult,
         ruleName,
@@ -91,8 +91,8 @@ const meta = {
 
 module.exports = stylelint.createPlugin(
   ruleName,
-  function (primaryOption, secondaryOptionObject) {
-    return function (postcssRoot, postcssResult) {
+  (primaryOption, secondaryOptionObject) => {
+    return (postcssRoot, postcssResult) => {
       const validOptions = stylelint.utils.validateOptions(
         postcssResult,
         ruleName,
@@ -105,9 +105,9 @@ module.exports = stylelint.createPlugin(
         return;
       }
 
-      return new Promise(function (resolve) {
+      return new Promise((resolve) => {
         // some async operation
-        setTimeout(function () {
+        setTimeout(() => {
           // ... some logic ...
           stylelint.utils.report({
             /* .. */
@@ -250,7 +250,7 @@ const allowableAtRules = [
 ];
 
 function myPluginRule(primaryOption, secondaryOptionObject) {
-  return function (postcssRoot, postcssResult) {
+  return (postcssRoot, postcssResult) => {
     const defaultedOptions = Object.assign({}, secondaryOptionObject, {
       ignoreAtRules: allowableAtRules.concat(options.ignoreAtRules || [])
     });
@@ -289,7 +289,7 @@ All rules share a common signature. They are a function that accepts two argumen
 Here's an example of a plugin that runs `declaration-no-important` only if there is a special directive `@@check-declaration-no-important` somewhere in the stylesheet:
 
 ```js
-module.exports = stylelint.createPlugin(ruleName, function (expectation) {
+module.exports = stylelint.createPlugin(ruleName, (expectation) => {
   const runDeclarationNoImportant =
     stylelint.rules["declaration-no-important"](expectation);
 
@@ -311,10 +311,9 @@ If your plugin can accept an array as its primary option, you must designate thi
 
 In addition to the standard parsers mentioned in the ["Working on rules"](rules.md) doc, there are other external modules used within Stylelint that we recommend using. These include:
 
-- [normalize-selector](https://github.com/getify/normalize-selector): normalize CSS selectors.
 - [postcss-resolve-nested-selector](https://github.com/davidtheclark/postcss-resolve-nested-selector): given a (nested) selector in a PostCSS AST, return an array of resolved selectors.
 
-Have a look through [Stylelint's internal utils](https://github.com/stylelint/stylelint/tree/master/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into an external module.
+Have a look through [Stylelint's internal utils](https://github.com/stylelint/stylelint/tree/main/lib/utils) and if you come across one that you need in your plugin, then please consider helping us extract it out into an external module.
 
 ## Peer dependencies
 
