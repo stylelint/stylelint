@@ -173,7 +173,7 @@
     "eslint-plugin-jest": "^26.5.3",
     "husky": "^8.0.1",
     "jest": "^28.1.0",
-    "jest-preset-stylelint": "^5.0.3",
+    "jest-preset-stylelint": "^5.0.4",
     "jest-watch-typeahead": "^1.1.0",
     "lint-staged": "^13.0.0",
     "node-fetch": "^3.2.5",
