@@ -10,7 +10,7 @@ a {}
   * This @import */
 ```
 
-Any `@import` rules must precede all other valid at-rules and style rules in a stylesheet (ignoring `@charset`), or else the `@import` rule is invalid.
+Any `@import` rules must precede all other valid at-rules and style rules in a stylesheet (ignoring `@charset` and `@layer`), or else the `@import` rule is invalid.
 
 ## Options
 
@@ -48,6 +48,12 @@ a {}
 ```css
 @charset 'utf-8';
 @import 'foo.css';
+```
+
+<!-- prettier-ignore -->
+```css
+@layer default;
+@import url(theme.css) layer(theme);
 ```
 
 ## Optional secondary options
