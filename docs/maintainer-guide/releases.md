@@ -42,6 +42,4 @@
 - [ ] stylelint-demo update
 - [ ] stylelint.io update
 - [ ] tweet
-
-cc @stylelint/owners
 ```
