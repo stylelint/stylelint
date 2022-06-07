@@ -4,7 +4,9 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Added: `import-notation` rule ([#6102](https://github.com/stylelint/stylelint/pull/6102)).
 - Fixed: `no-duplicate-selectors` false positives for SCSS/Less nested interpolations ([#6118](https://github.com/stylelint/stylelint/pull/6118)).
+- Fixed: `no-descending-specificity` and `selector-max-specificity` false positives for `:is()` and `:where()` ([#6131](https://github.com/stylelint/stylelint/pull/6131)).
 
 ## 14.8.5
 
