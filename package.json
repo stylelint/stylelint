@@ -140,7 +140,6 @@
     "postcss-selector-parser": "^6.0.10",
     "postcss-value-parser": "^4.2.0",
     "resolve-from": "^5.0.0",
-    "specificity": "^0.4.1",
     "string-width": "^4.2.3",
     "strip-ansi": "^6.0.1",
     "style-search": "^0.1.0",
