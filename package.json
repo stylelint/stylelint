@@ -1,6 +1,6 @@
 {
   "name": "stylelint",
-  "version": "14.8.2",
+  "version": "14.8.5",
   "description": "A mighty, modern CSS linter.",
   "keywords": [
     "css-in-js",
@@ -111,7 +111,7 @@
     "balanced-match": "^2.0.0",
     "colord": "^2.9.2",
     "cosmiconfig": "^7.0.1",
-    "css-functions-list": "^3.0.1",
+    "css-functions-list": "^3.1.0",
     "debug": "^4.3.4",
     "execall": "^2.0.0",
     "fast-glob": "^3.2.11",
@@ -132,7 +132,7 @@
     "micromatch": "^4.0.5",
     "normalize-path": "^3.0.0",
     "picocolors": "^1.0.0",
-    "postcss": "^8.4.13",
+    "postcss": "^8.4.14",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^6.0.0",
@@ -168,15 +168,15 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.2.2",
-    "eslint": "^8.15.0",
+    "eslint": "^8.17.0",
     "eslint-config-stylelint": "^15.1.0",
-    "eslint-plugin-jest": "^26.2.2",
+    "eslint-plugin-jest": "^26.5.3",
     "husky": "^8.0.1",
     "jest": "^28.1.0",
-    "jest-preset-stylelint": "^5.0.3",
+    "jest-preset-stylelint": "^5.0.4",
     "jest-watch-typeahead": "^1.1.0",
-    "lint-staged": "^12.4.1",
-    "node-fetch": "^3.2.4",
+    "lint-staged": "^13.0.0",
+    "node-fetch": "^3.2.5",
     "np": "^7.6.1",
     "npm-run-all": "^4.1.5",
     "postcss-html": "^1.4.1",
@@ -187,7 +187,7 @@
     "prettier": "2.6.2",
     "remark-cli": "^10.0.1",
     "sugarss": "^4.0.1",
-    "typescript": "^4.6.4"
+    "typescript": "^4.7.3"
   },
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
