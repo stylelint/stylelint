@@ -130,6 +130,10 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 - [`function-url-scheme-allowed-list`](../../../lib/rules/function-url-scheme-allowed-list/README.md): Specify a list of allowed URL schemes.
 - [`function-url-scheme-disallowed-list`](../../../lib/rules/function-url-scheme-disallowed-list/README.md): Specify a list of disallowed URL schemes.
 
+### Imports
+
+- [`import-notation`](../../../lib/rules/import-notation/README.md): Specify string or URL notation for `@import` rules (Autofixable).
+
 ### Keyframes
 
 - [`keyframes-name-pattern`](../../../lib/rules/keyframes-name-pattern/README.md): Specify a pattern for keyframe names.
