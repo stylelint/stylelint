@@ -1,19 +1,12 @@
 # import-notation
 
-Specify string or url notation for imports.
+Specify string or URL notation for `@import` rules.
 
 <!-- prettier-ignore -->
 ```css
 @import url("x.jpg");
 /**     ↑
- *      Url */
-```
-
-<!-- prettier-ignore -->
-```css
-@import "x.jpg";
-/**     ↑
- *      String */
+ *      This notation */
 ```
 
 ## Options
@@ -22,7 +15,7 @@ Specify string or url notation for imports.
 
 ### `"string"`
 
-Imports _must_ be a _string_.
+`@import` rules _must always_ use string notation.
 
 The following patterns are considered problems:
 
@@ -45,11 +38,6 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@import foo.css;
-```
-
-<!-- prettier-ignore -->
-```css
 @import 'foo.css';
 ```
 
@@ -60,14 +48,9 @@ The following patterns are _not_ considered problems:
 
 ### `"url"`
 
-Imports _must_ use the `url` function.
+`@import` rules _must always_ use URL notation.
 
 The following patterns are considered problems:
-
-<!-- prettier-ignore -->
-```css
-@import foo.css;
-```
 
 <!-- prettier-ignore -->
 ```css
