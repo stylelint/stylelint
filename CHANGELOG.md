@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.9.0
 
 - Added: `import-notation` rule ([#6102](https://github.com/stylelint/stylelint/pull/6102)).
 - Fixed: `no-duplicate-selectors` false positives for SCSS/Less nested interpolations ([#6118](https://github.com/stylelint/stylelint/pull/6118)).
@@ -18,25 +18,24 @@ All notable changes to this project are documented in this file.
 
 ## 14.8.3
 
-- Fixed: `no-invalid-*` end positions ([#6072](https://github.com/stylelint/stylelint/pull/6072)).
-- Fixed: `no-duplicate-*` end positions ([#6047](https://github.com/stylelint/stylelint/pull/6047)).
-- Fixed: `no-descending-specificity` end positions ([#6049](https://github.com/stylelint/stylelint/pull/6049)).
-- Fixed: `media-feature-name-no-unknown` false positives for `display-mode` ([#6073](https://github.com/stylelint/stylelint/pull/6073)).
-- Fixed: dependency on `normalize-selector` removed ([#6068](https://github.com/stylelint/stylelint/pull/6068)).
 - Fixed: `at-rule-no-unknown` false positives for `@layer` ([#6093](https://github.com/stylelint/stylelint/pull/6093)).
-- Fixed: `no-invalid-position-at-import-rule` false positives for `@layer` ([#6094](https://github.com/stylelint/stylelint/pull/6094)).
 - Fixed: `length-zero-no-unit` autofix for `.0` values ([#6098](https://github.com/stylelint/stylelint/pull/6098)).
+- Fixed: `media-feature-name-no-unknown` false positives for `display-mode` ([#6073](https://github.com/stylelint/stylelint/pull/6073)).
+- Fixed: `no-descending-specificity` end positions ([#6049](https://github.com/stylelint/stylelint/pull/6049)).
+- Fixed: `no-duplicate-*` end positions ([#6047](https://github.com/stylelint/stylelint/pull/6047)).
+- Fixed: `no-invalid-*` end positions ([#6072](https://github.com/stylelint/stylelint/pull/6072)).
+- Fixed: `no-invalid-position-at-import-rule` false positives for `@layer` ([#6094](https://github.com/stylelint/stylelint/pull/6094)).
 
 ## 14.8.2
 
-- Fixed: `selector-*-no-unknown` end positions ([#6046](https://github.com/stylelint/stylelint/pull/6046)).
 - Fixed: `function-calc-no-unspaced-operator` false positives for non-standard variables ([#6053](https://github.com/stylelint/stylelint/pull/6053)).
+- Fixed: `selector-*-no-unknown` end positions ([#6046](https://github.com/stylelint/stylelint/pull/6046)).
 
 ## 14.8.1
 
 - Fixed: `declaration-block-no-*` end positions that avoid errors ([#6040](https://github.com/stylelint/stylelint/pull/6040)).
-- Fixed: `named-grid-areas-no-invalid` false positives for arealess templates ([#6042](https://github.com/stylelint/stylelint/pull/6042)).
 - Fixed: `function-calc-no-unspaced-operator` false positives and memory leak ([#6045](https://github.com/stylelint/stylelint/pull/6045)).
+- Fixed: `named-grid-areas-no-invalid` false positives for arealess templates ([#6042](https://github.com/stylelint/stylelint/pull/6042)).
 
 ## 14.8.0
 
@@ -44,9 +43,9 @@ All notable changes to this project are documented in this file.
 - Added: `property-*-list` support for vendor prefixes ([#6025](https://github.com/stylelint/stylelint/pull/6025)).
 - Fixed: `at-rule-*-list` end positions ([#6032](https://github.com/stylelint/stylelint/pull/6032)).
 - Fixed: `at-rule-no-unknown` end positions ([#6026](https://github.com/stylelint/stylelint/pull/6026)).
+- Fixed: `function-linear-gradient-no-nonstandard-direction` false negative about `-ms-linear-gradient` ([#6031](https://github.com/stylelint/stylelint/pull/6031)).
 - Fixed: `function-no-unknown` end positions ([#6038](https://github.com/stylelint/stylelint/pull/6038)).
 - Fixed: `property-no-unknown` end positions ([#6039](https://github.com/stylelint/stylelint/pull/6039)).
-- Fixed: `function-linear-gradient-no-nonstandard-direction` false negative about `-ms-linear-gradient` ([#6031](https://github.com/stylelint/stylelint/pull/6031)).
 
 ## 14.7.1
 
