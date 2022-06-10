@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `selector-max-specificity` false positives for `:nth-child` ([#6140](https://github.com/stylelint/stylelint/pull/6140)).
+
 ## 14.9.0
 
 - Added: `import-notation` rule ([#6102](https://github.com/stylelint/stylelint/pull/6102)).
