@@ -128,7 +128,14 @@ declare module 'stylelint' {
 
 		export type Formatter = (results: LintResult[], returnValue?: LinterResult) => string;
 
-		export type FormatterType = 'compact' | 'json' | 'string' | 'tap' | 'unix' | 'verbose';
+		export type FormatterType =
+			| 'compact'
+			| 'github'
+			| 'json'
+			| 'string'
+			| 'tap'
+			| 'unix'
+			| 'verbose';
 
 		export type CustomSyntax = string | PostCSS.Syntax;
 
