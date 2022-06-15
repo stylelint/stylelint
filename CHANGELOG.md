@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## 14.10.0
+
+- Added: `reference` export, which contains reference data from the CSS spec that may be useful for custom lints.
+
 ## 14.9.1
 
 - Fixed: `selector-max-specificity` false positives for `:nth-child` ([#6140](https://github.com/stylelint/stylelint/pull/6140)).

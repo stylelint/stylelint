@@ -364,6 +364,77 @@ declare module 'stylelint' {
 			line?: number;
 		};
 
+		export type KeywordSets = {
+			nonLengthUnits: Set<string>;
+			lengthUnits: Set<string>;
+			units: Set<string>;
+			camelCaseFunctionNames: Set<string>;
+			basicKeywords: Set<string>;
+			systemFontValues: Set<string>;
+			fontFamilyKeywords: Set<string>;
+			fontWeightAbsoluteKeywords: Set<string>;
+			fontWeightNumericKeywords: Set<string>;
+			fontWeightKeywords: Set<string>;
+			animationNameKeywords: Set<string>;
+			animationTimingFunctionKeywords: Set<string>;
+			animationIterationCountKeywords: Set<string>;
+			animationDirectionKeywords: Set<string>;
+			animationFillModeKeywords: Set<string>;
+			animationPlayStateKeywords: Set<string>;
+			animationShorthandKeywords: Set<string>;
+			levelOneAndTwoPseudoElements: Set<string>;
+			levelThreeAndUpPseudoElements: Set<string>;
+			shadowTreePseudoElements: Set<string>;
+			webkitScrollbarPseudoElements: Set<string>;
+			vendorSpecificPseudoElements: Set<string>;
+			pseudoElements: Set<string>;
+			aNPlusBNotationPseudoClasses: Set<string>;
+			linguisticPseudoClasses: Set<string>;
+			atRulePagePseudoClasses: Set<string>;
+			logicalCombinationsPseudoClasses: Set<string>;
+			aNPlusBOfSNotationPseudoClasses: Set<string>;
+			otherPseudoClasses: Set<string>;
+			vendorSpecificPseudoClasses: Set<string>;
+			webkitScrollbarPseudoClasses: Set<string>;
+			pseudoClasses: Set<string>;
+			shorthandTimeProperties: Set<string>;
+			longhandTimeProperties: Set<string>;
+			timeProperties: Set<string>;
+			camelCaseKeywords: Set<string>;
+			counterIncrementKeywords: Set<string>;
+			counterResetKeywords: Set<string>;
+			gridRowKeywords: Set<string>;
+			gridColumnKeywords: Set<string>;
+			gridAreaKeywords: Set<string>;
+			listStyleTypeKeywords: Set<string>;
+			listStylePositionKeywords: Set<string>;
+			listStyleImageKeywords: Set<string>;
+			fontStyleKeywords: Set<string>;
+			fontVariantKeywords: Set<string>;
+			fontStretchKeywords: Set<string>;
+			fontSizeKeywords: Set<string>;
+			lineHeightKeywords: Set<string>;
+			fontShorthandKeywords: Set<string>;
+			keyframeSelectorKeywords: Set<string>;
+			pageMarginAtRules: Set<string>;
+			atRules: Set<string>;
+			deprecatedMediaFeatureNames: Set<string>;
+			mediaFeatureNames: Set<string>;
+			systemColors: Set<string>;
+			standardHtmlTags: Set<string>;
+			nonStandardHtmlTags: Set<string>;
+			validMixedCaseSvgElements: Set<string>;
+		};
+
+		export type PropertySets = {
+			acceptCustomIdents: Set<string>;
+		};
+
+		export type PunctuationSets = {
+			mediaFeaturePunctuation: Set<string>;
+			nonSpaceCombinators: Set<string>;
+		};
+
 		export type PublicApi = PostCSS.PluginCreator<PostcssPluginOptions> & {
 			/**
 			 * Runs stylelint with the given options and returns a Promise that
@@ -398,6 +469,13 @@ declare module 'stylelint' {
 				filePath: string,
 				options?: Pick<LinterOptions, 'cwd' | 'config' | 'configBasedir' | 'configFile'>,
 			) => Promise<stylelint.Config | undefined>;
+			reference: {
+				keywordSets: KeywordSets;
+				mathFunctions: string[];
+				propertySets: PropertySets;
+				punctuationSets: PunctuationSets;
+				shorthandData: Record<string, string[]>;
+			};
 			utils: {
 				/**
 				 * Report a problem.
