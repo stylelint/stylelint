@@ -91,6 +91,10 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 - [`no-invalid-double-slash-comments`](../../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
 - [`no-invalid-position-at-import-rule`](../../../lib/rules/no-invalid-position-at-import-rule/README.md): Disallow invalid position `@import` rules within a stylesheet.
 
+### Annotation
+
+- [`annotation-no-unknown`](../../../lib/rules/annotation-no-unknown/README.md): Disallow unknown annotations.
+
 ## Enforce conventions
 
 ### Alpha-value
