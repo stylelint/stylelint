@@ -33,20 +33,6 @@ a {
 }
 ```
 
-<!-- prettier-ignore -->
-```css
-a {
-  color: green !IMPORTANT;
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  color: green !ImPoRtAnT;
-}
-```
-
 ## Optional secondary options
 
 ### `ignoreAnnotations: ["/regex/", /regex/, "string"]`
