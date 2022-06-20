@@ -15,7 +15,7 @@ This rule considers annotations defined in the CSS Specifications, up to and inc
 
 ### `true`
 
-The following patterns is considered a problem:
+The following pattern is considered a problem:
 
 <!-- prettier-ignore -->
 ```css
