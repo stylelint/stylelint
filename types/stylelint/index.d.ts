@@ -128,7 +128,14 @@ declare module 'stylelint' {
 
 		export type Formatter = (results: LintResult[], returnValue?: LinterResult) => string;
 
-		export type FormatterType = 'compact' | 'json' | 'string' | 'tap' | 'unix' | 'verbose';
+		export type FormatterType =
+			| 'compact'
+			| 'github'
+			| 'json'
+			| 'string'
+			| 'tap'
+			| 'unix'
+			| 'verbose';
 
 		export type CustomSyntax = string | PostCSS.Syntax;
 
@@ -137,7 +144,15 @@ declare module 'stylelint' {
 			newline?: string | undefined;
 		};
 
-		export type RuleMessageFunc = (...args: (string | number | boolean | RegExp)[]) => string;
+		// Note: With strict function types enabled, function signatures are checked contravariantly.
+		// This means that it would not be possible for rule authors to narrow the message function
+		// parameters to e.g. just `string`. Declaring the type for rule message functions through
+		// method declarations tricks TypeScript into bivariant signature checking. More details can
+		// be found here: https://stackoverflow.com/questions/52667959/what-is-the-purpose-of-bivariancehack-in-typescript-types.
+		// and in the original discussion: https://github.com/stylelint/stylelint/pull/6147#issuecomment-1155337016.
+		export type RuleMessageFunc = {
+			bivariance(...args: (string | number | boolean | RegExp)[]): string;
+		}['bivariance'];
 
 		export type RuleMessages = { [message: string]: string | RuleMessageFunc };
 

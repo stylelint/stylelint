@@ -82,6 +82,7 @@ const ruleName = 'sample-rule';
 const messages = stylelint.utils.ruleMessages(ruleName, {
 	problem: 'This a rule problem message',
 	warning: (reason) => `This is not allowed because ${reason}`,
+	withNarrowedParam: (mixinName: string) => `Mixin not allowed: ${mixinName}`,
 });
 const problemMessage: string = messages.problem;
 const problemFunc: (...reason: string[]) => string = messages.warning;
@@ -115,3 +116,18 @@ const testPlugin: Plugin = (options) => {
 };
 
 stylelint.createPlugin(ruleName, testPlugin);
+
+messages.withNarrowedParam('should work');
+
+// @ts-expect-error Boolean should not be allowed here.
+messages.withNarrowedParam(true);
+// @ts-expect-error Expected a required parameter.
+messages.withNarrowedParam();
+
+// For non-explicit parameters, boolean, strings etc. are always allowed.
+// Not `null` for example though.
+messages.warning(true);
+messages.warning('some string');
+
+// @ts-expect-error Null is not allowed in `RuleMessageFunc` parameters.
+messages.warning(null);

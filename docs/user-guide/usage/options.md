@@ -81,6 +81,7 @@ Specify the formatter to format your results.
 Options are:
 
 - `compact` - generates output similar to ESLint's compact formatter
+- `github` - generates messages via [workflow commands for GitHub Actions](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions)
 - `json` (default for Node API) - generates [JSON](https://www.json.org) that can be consumed by another tool
 - `string` (default for CLI) - generates human-readable strings
 - `tap` - generates [Test Anything Protocol](http://testanything.org/) output
