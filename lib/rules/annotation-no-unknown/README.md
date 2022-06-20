@@ -9,7 +9,7 @@ a { color: green !imprtant; }
  * This annotation */
 ```
 
-This rule considers solely the `!important` annotation per the [CSS Cascading and Inheritance spec](https://www.w3.org/TR/css-cascade-3/#importance).
+This rule considers annotations defined in the CSS Specifications, up to and including Editor's Drafts, to be known.
 
 ## Options
 
