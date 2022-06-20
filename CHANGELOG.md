@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: rule message function type to not require users to handle all kind of arguments ([#6147](https://github.com/stylelint/stylelint/pull/6147)).
+
 ## 14.9.1
 
 - Fixed: `selector-max-specificity` false positives for `:nth-child` ([#6140](https://github.com/stylelint/stylelint/pull/6140)).
