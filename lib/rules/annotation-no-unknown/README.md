@@ -40,7 +40,7 @@ a {
 Given:
 
 ```json
-["/^!my-/", "!custom"]
+["/^--foo-/", "--bar"]
 ```
 
 The following patterns are _not_ considered problems:
@@ -48,13 +48,13 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 a {
-  color: green !custom;
+  color: green !--foo--bar;
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a {
-  color: green !my-custom-annotation;
+  color: green !--bar;
 }
 ```
