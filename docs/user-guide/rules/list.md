@@ -11,6 +11,10 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 ## Avoid errors
 
+### Annotation
+
+- [`annotation-no-unknown`](../../../lib/rules/annotation-no-unknown/README.md): Disallow unknown annotations.
+
 ### Color
 
 - [`color-no-invalid-hex`](../../../lib/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
@@ -90,10 +94,6 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 - [`no-empty-source`](../../../lib/rules/no-empty-source/README.md): Disallow empty sources.
 - [`no-invalid-double-slash-comments`](../../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow double-slash comments (`//...`) which are not supported by CSS.
 - [`no-invalid-position-at-import-rule`](../../../lib/rules/no-invalid-position-at-import-rule/README.md): Disallow invalid position `@import` rules within a stylesheet.
-
-### Annotation
-
-- [`annotation-no-unknown`](../../../lib/rules/annotation-no-unknown/README.md): Disallow unknown annotations.
 
 ## Enforce conventions
 
