@@ -36,10 +36,10 @@
   ],
   "scripts": {
     "benchmark-rule": "node scripts/benchmark-rule.mjs",
-    "format": "prettier . --write",
+    "format": "prettier . --write --cache",
     "jest": "jest",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
-    "lint:formatting": "prettier . --check",
+    "lint:formatting": "prettier . --check --cache",
     "lint:js": "eslint . --cache --max-warnings=0",
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc",
