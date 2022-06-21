@@ -11,6 +11,10 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 ## Avoid errors
 
+### Annotation
+
+- [`annotation-no-unknown`](../../../lib/rules/annotation-no-unknown/README.md): Disallow unknown annotations.
+
 ### Color
 
 - [`color-no-invalid-hex`](../../../lib/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
