@@ -50,5 +50,5 @@ The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css
-@keyframes foo { 0 {} 100% {} }
+@keyframes foo { 0% {} 100% {} }
 ```
