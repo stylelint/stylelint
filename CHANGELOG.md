@@ -8,6 +8,7 @@ All notable changes to this project are documented in this file.
 - Added: `github` formatter ([#6150](https://github.com/stylelint/stylelint/pull/6150)).
 - Added: tally to `string` and `verbose` formatters ([#6153](https://github.com/stylelint/stylelint/pull/6153)).
 - Fixed: rule message function type to not require users to handle all kind of arguments ([#6147](https://github.com/stylelint/stylelint/pull/6147)).
+- Fixed: `at-rule-*` end positions ([#6163](https://github.com/stylelint/stylelint/pull/6163)).
 
 ## 14.9.1
 
