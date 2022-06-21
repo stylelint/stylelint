@@ -68,7 +68,7 @@ a {
 Given:
 
 ```json
-["/^my-/", "custom"]
+["/^--foo-/", "--bar"]
 ```
 
 The following patterns are _not_ considered problems:
@@ -83,14 +83,14 @@ a {
 <!-- prettier-ignore -->
 ```css
 a {
-  width: 10my-unit;
+  width: 10--foo--baz;
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a {
-  width: 10my-other-unit;
+  width: 10--bar;
 }
 ```
 
