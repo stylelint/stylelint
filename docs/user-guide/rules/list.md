@@ -134,7 +134,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 - [`import-notation`](../../../lib/rules/import-notation/README.md): Specify string or URL notation for `@import` rules (Autofixable).
 
-### Keyframe selectors
+### Keyframe selector
 
 - [`keyframe-selector-notation`](../../../lib/rules/keyframe-selector-notation/README.md): Specify keyword or percentage notation for keyframe selectors.
 

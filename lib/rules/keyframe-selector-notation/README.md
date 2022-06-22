@@ -1,6 +1,6 @@
 # keyframe-selector-notation
 
-Specify keyword or percentage notation for keyframe selectors. This rule only enforces the convention for `from`, `to`, `0%` and `100%`.
+Specify keyword or percentage notation for keyframe selectors.
 
 <!-- prettier-ignore -->
 ```css
