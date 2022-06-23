@@ -131,3 +131,5 @@ messages.warning('some string');
 
 // @ts-expect-error Null is not allowed in `RuleMessageFunc` parameters.
 messages.warning(null);
+
+const shorthandSubProps: Set<string> = stylelint.reference.shorthandData['border-color'];

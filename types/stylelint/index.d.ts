@@ -379,6 +379,44 @@ declare module 'stylelint' {
 			line?: number;
 		};
 
+		export type ShorthandData = {
+			margin: Set<string>;
+			padding: Set<string>;
+			background: Set<string>;
+			font: Set<string>;
+			border: Set<string>;
+			'border-top': Set<string>;
+			'border-bottom': Set<string>;
+			'border-left': Set<string>;
+			'border-right': Set<string>;
+			'border-width': Set<string>;
+			'border-style': Set<string>;
+			'border-color': Set<string>;
+			'list-style': Set<string>;
+			'border-radius': Set<string>;
+			transition: Set<string>;
+			animation: Set<string>;
+			'border-block-end': Set<string>;
+			'border-block-start': Set<string>;
+			'border-image': Set<string>;
+			'border-inline-end': Set<string>;
+			'border-inline-start': Set<string>;
+			'column-rule': Set<string>;
+			columns: Set<string>;
+			flex: Set<string>;
+			'flex-flow': Set<string>;
+			grid: Set<string>;
+			'grid-area': Set<string>;
+			'grid-column': Set<string>;
+			'grid-gap': Set<string>;
+			'grid-row': Set<string>;
+			'grid-template': Set<string>;
+			outline: Set<string>;
+			'text-decoration': Set<string>;
+			'text-emphasis': Set<string>;
+			mask: Set<string>;
+		};
+
 		export type PublicApi = PostCSS.PluginCreator<PostcssPluginOptions> & {
 			/**
 			 * Runs stylelint with the given options and returns a Promise that
@@ -454,6 +492,12 @@ declare module 'stylelint' {
 					options: { ruleName: string; ruleSettings: ConfigRuleSettings<T, O>; root: PostCSS.Root },
 					callback: (warning: PostCSS.Warning) => void,
 				) => void;
+			};
+			reference: {
+				/**
+				 * Shorthand properties having longhand sub-properties.
+				 */
+				shorthandData: ShorthandData;
 			};
 		};
 
