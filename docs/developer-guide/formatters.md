@@ -56,6 +56,12 @@ And the second argument (`returnValue`) is an object (type `LinterResult`) with 
     // Present if Stylelint was configured with a `maxWarnings` count
     "maxWarnings": 10,
     "foundWarnings": 15
+  },
+  "ruleMetadata": {
+    "block-no-empty": {
+      "url": "https://stylelint.io/user-guide/rules/list/block-no-empty"
+    },
+    // other rules...
   }
 }
 ```

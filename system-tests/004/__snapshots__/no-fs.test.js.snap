@@ -44,6 +44,11 @@ Object {
       ],
     },
   ],
+  "ruleMetadata": Object {
+    "block-no-empty": Object {
+      "url": "https://stylelint.io/user-guide/rules/list/block-no-empty",
+    },
+  },
 }
 `;
 
@@ -71,5 +76,10 @@ Object {
       "warnings": Array [],
     },
   ],
+  "ruleMetadata": Object {
+    "block-no-empty": Object {
+      "url": "https://stylelint.io/user-guide/rules/list/block-no-empty",
+    },
+  },
 }
 `;
