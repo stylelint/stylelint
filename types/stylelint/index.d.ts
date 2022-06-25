@@ -379,7 +379,7 @@ declare module 'stylelint' {
 			line?: number;
 		};
 
-		export type ShorthandData = {
+		export type LonghandSubPropertiesOfShorthandProperties = {
 			animation: Set<string>;
 			background: Set<string>;
 			border: Set<string>;
@@ -494,10 +494,7 @@ declare module 'stylelint' {
 				) => void;
 			};
 			reference: {
-				/**
-				 * Shorthand properties having longhand sub-properties.
-				 */
-				shorthandData: ShorthandData;
+				longhandSubPropertiesOfShorthandProperties: LonghandSubPropertiesOfShorthandProperties;
 			};
 		};
 
