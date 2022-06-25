@@ -383,43 +383,44 @@ declare module 'stylelint' {
 			line?: number;
 		};
 
-		export type LonghandSubPropertiesOfShorthandProperties = {
-			animation: Set<string>;
-			background: Set<string>;
-			border: Set<string>;
-			'border-block-end': Set<string>;
-			'border-block-start': Set<string>;
-			'border-bottom': Set<string>;
-			'border-color': Set<string>;
-			'border-image': Set<string>;
-			'border-inline-end': Set<string>;
-			'border-inline-start': Set<string>;
-			'border-left': Set<string>;
-			'border-radius': Set<string>;
-			'border-right': Set<string>;
-			'border-style': Set<string>;
-			'border-top': Set<string>;
-			'border-width': Set<string>;
-			'column-rule': Set<string>;
-			columns: Set<string>;
-			flex: Set<string>;
-			'flex-flow': Set<string>;
-			font: Set<string>;
-			grid: Set<string>;
-			'grid-area': Set<string>;
-			'grid-column': Set<string>;
-			'grid-gap': Set<string>;
-			'grid-row': Set<string>;
-			'grid-template': Set<string>;
-			'list-style': Set<string>;
-			margin: Set<string>;
-			mask: Set<string>;
-			outline: Set<string>;
-			padding: Set<string>;
-			'text-decoration': Set<string>;
-			'text-emphasis': Set<string>;
-			transition: Set<string>;
-		};
+		export type LonghandSubPropertiesOfShorthandProperties = Record<
+			| 'animation'
+			| 'background'
+			| 'border'
+			| 'border-block-end'
+			| 'border-block-start'
+			| 'border-bottom'
+			| 'border-color'
+			| 'border-image'
+			| 'border-inline-end'
+			| 'border-inline-start'
+			| 'border-left'
+			| 'border-radius'
+			| 'border-right'
+			| 'border-style'
+			| 'border-top'
+			| 'border-width'
+			| 'column-rule'
+			| 'columns'
+			| 'flex'
+			| 'flex-flow'
+			| 'font'
+			| 'grid'
+			| 'grid-area'
+			| 'grid-column'
+			| 'grid-gap'
+			| 'grid-row'
+			| 'grid-template'
+			| 'list-style'
+			| 'margin'
+			| 'mask'
+			| 'outline'
+			| 'padding'
+			| 'text-decoration'
+			| 'text-emphasis'
+			| 'transition',
+			Set<string>
+		>;
 
 		export type PublicApi = PostCSS.PluginCreator<PostcssPluginOptions> & {
 			/**
