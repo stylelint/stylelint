@@ -90,7 +90,7 @@ declare module 'stylelint' {
 		export type StylelintPostcssResult = {
 			ruleSeverities: { [ruleName: string]: Severity };
 			customMessages: { [ruleName: string]: any };
-			ruleMetadata: { [ruleName: string]: RuleMeta | {} };
+			ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 			quiet?: boolean;
 			disabledRanges: DisabledRangeObject;
 			disabledWarnings?: DisabledWarning[];
@@ -126,7 +126,7 @@ declare module 'stylelint' {
 			warn(message: string, options?: WarningOptions): void;
 		};
 
-		export type Formatter = (results: LintResult[], returnValue?: LinterResult) => string;
+		export type Formatter = (results: LintResult[], returnValue: LinterResult) => string;
 
 		export type FormatterType =
 			| 'compact'
@@ -340,6 +340,10 @@ declare module 'stylelint' {
 			descriptionlessDisables?: DisableOptionsReport;
 			needlessDisables?: DisableOptionsReport;
 			invalidScopeDisables?: DisableOptionsReport;
+			/**
+			 * Each rule metadata by name.
+			 */
+			ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 		};
 
 		export type Problem = {
