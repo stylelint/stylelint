@@ -383,6 +383,45 @@ declare module 'stylelint' {
 			line?: number;
 		};
 
+		export type LonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
+			| 'animation'
+			| 'background'
+			| 'border'
+			| 'border-block-end'
+			| 'border-block-start'
+			| 'border-bottom'
+			| 'border-color'
+			| 'border-image'
+			| 'border-inline-end'
+			| 'border-inline-start'
+			| 'border-left'
+			| 'border-radius'
+			| 'border-right'
+			| 'border-style'
+			| 'border-top'
+			| 'border-width'
+			| 'column-rule'
+			| 'columns'
+			| 'flex'
+			| 'flex-flow'
+			| 'font'
+			| 'grid'
+			| 'grid-area'
+			| 'grid-column'
+			| 'grid-gap'
+			| 'grid-row'
+			| 'grid-template'
+			| 'list-style'
+			| 'margin'
+			| 'mask'
+			| 'outline'
+			| 'padding'
+			| 'text-decoration'
+			| 'text-emphasis'
+			| 'transition',
+			ReadonlySet<string>
+		>;
+
 		export type PublicApi = PostCSS.PluginCreator<PostcssPluginOptions> & {
 			/**
 			 * Runs stylelint with the given options and returns a Promise that
@@ -458,6 +497,9 @@ declare module 'stylelint' {
 					options: { ruleName: string; ruleSettings: ConfigRuleSettings<T, O>; root: PostCSS.Root },
 					callback: (warning: PostCSS.Warning) => void,
 				) => void;
+			};
+			reference: {
+				longhandSubPropertiesOfShorthandProperties: LonghandSubPropertiesOfShorthandProperties;
 			};
 		};
 
