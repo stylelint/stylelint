@@ -8,9 +8,13 @@ All notable changes to this project are documented in this file.
 - Added: `keyframe-selector-notation` rule ([#6164](https://github.com/stylelint/stylelint/pull/6164)).
 - Added: `github` formatter ([#6150](https://github.com/stylelint/stylelint/pull/6150)).
 - Added: tally to `string` and `verbose` formatters ([#6153](https://github.com/stylelint/stylelint/pull/6153)).
+- Added: longhand sub-properties of shorthand properties reference data to public API ([#6168](https://github.com/stylelint/stylelint/pull/6168)).
 - Added: rule metadata to public `LinterResult` API ([#6166](https://github.com/stylelint/stylelint/pull/6166)).
+- Fixed: exit code when nothing is passed to stylelint command ([#6175](https://github.com/stylelint/stylelint/pull/6175)).
 - Fixed: rule message function type to not require users to handle all kind of arguments ([#6147](https://github.com/stylelint/stylelint/pull/6147)).
 - Fixed: `at-rule-*` end positions ([#6163](https://github.com/stylelint/stylelint/pull/6163)).
+- Fixed: `property-*` end positions ([#6174](https://github.com/stylelint/stylelint/pull/6174)).
+- Fixed: `value-no-vendor-prefix` end positions ([#6173](https://github.com/stylelint/stylelint/pull/6173)).
 
 ## 14.9.1
 
