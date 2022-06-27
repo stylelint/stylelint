@@ -419,7 +419,7 @@ declare module 'stylelint' {
 			| 'text-decoration'
 			| 'text-emphasis'
 			| 'transition',
-			Set<string>
+			ReadonlySet<string>
 		>;
 
 		export type PublicApi = PostCSS.PluginCreator<PostcssPluginOptions> & {
