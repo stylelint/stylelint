@@ -383,7 +383,7 @@ declare module 'stylelint' {
 			line?: number;
 		};
 
-		export type LonghandSubPropertiesOfShorthandProperties = Record<
+		export type LonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
 			| 'animation'
 			| 'background'
 			| 'border'

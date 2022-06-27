@@ -132,5 +132,7 @@ messages.warning('some string');
 // @ts-expect-error Null is not allowed in `RuleMessageFunc` parameters.
 messages.warning(null);
 
-const shorthandSubProps: Set<string> =
-	stylelint.reference.longhandSubPropertiesOfShorthandProperties['border-color'];
+const shorthandSubProps: Set<string> | undefined =
+	stylelint.reference.longhandSubPropertiesOfShorthandProperties.get('border-color');
+// @ts-expect-error -- Modification is not allowed due to readonly.
+stylelint.reference.longhandSubPropertiesOfShorthandProperties.delete('border-color');
