@@ -178,6 +178,7 @@ declare module 'stylelint' {
 		export type RuleMeta = {
 			url: string;
 			deprecated?: boolean;
+			fixable?: boolean;
 		};
 
 		export type Rule<P = any, S = any> = RuleBase<P, S> & {

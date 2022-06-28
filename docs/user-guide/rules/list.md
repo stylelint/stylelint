@@ -30,7 +30,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 ### Function
 
-- [`function-calc-no-unspaced-operator`](../../../lib/rules/function-calc-no-unspaced-operator/README.md): Disallow an unspaced operator within `calc` functions.
+- [`function-calc-no-unspaced-operator`](../../../lib/rules/function-calc-no-unspaced-operator/README.md): Disallow an unspaced operator within `calc` functions (Autofixable).
 - [`function-linear-gradient-no-nonstandard-direction`](../../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow direction values in `linear-gradient()` calls that are not valid according to the [standard syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#Syntax).
 - [`function-no-unknown`](../../../lib/rules/function-no-unknown/README.md): Disallow unknown functions.
 
@@ -140,7 +140,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 ### Keyframe selector
 
-- [`keyframe-selector-notation`](../../../lib/rules/keyframe-selector-notation/README.md): Specify keyword or percentage notation for keyframe selectors.
+- [`keyframe-selector-notation`](../../../lib/rules/keyframe-selector-notation/README.md): Specify keyword or percentage notation for keyframe selectors (Autofixable).
 
 ### Keyframes
 
@@ -196,7 +196,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 - [`selector-attribute-name-disallowed-list`](../../../lib/rules/selector-attribute-name-disallowed-list/README.md): Specify a list of disallowed attribute names.
 - [`selector-attribute-operator-allowed-list`](../../../lib/rules/selector-attribute-operator-allowed-list/README.md): Specify a list of allowed attribute operators.
 - [`selector-attribute-operator-disallowed-list`](../../../lib/rules/selector-attribute-operator-disallowed-list/README.md): Specify a list of disallowed attribute operators.
-- [`selector-attribute-quotes`](../../../lib/rules/selector-attribute-quotes/README.md): Require or disallow quotes for attribute values.
+- [`selector-attribute-quotes`](../../../lib/rules/selector-attribute-quotes/README.md): Require or disallow quotes for attribute values (Autofixable).
 - [`selector-class-pattern`](../../../lib/rules/selector-class-pattern/README.md): Specify a pattern for class selectors.
 - [`selector-combinator-allowed-list`](../../../lib/rules/selector-combinator-allowed-list/README.md): Specify a list of allowed combinators.
 - [`selector-combinator-disallowed-list`](../../../lib/rules/selector-combinator-disallowed-list/README.md): Specify a list of disallowed combinators.
