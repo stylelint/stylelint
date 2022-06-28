@@ -82,9 +82,11 @@ Object {
   ],
   "ruleMetadata": Object {
     "at-rule-name-space-after": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/at-rule-name-space-after",
     },
     "at-rule-no-vendor-prefix": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/at-rule-no-vendor-prefix",
     },
     "at-rule-semicolon-space-before": Object {
@@ -100,6 +102,7 @@ Object {
       "url": "https://stylelint.io/user-guide/rules/list/declaration-no-important",
     },
     "font-family-name-quotes": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/font-family-name-quotes",
     },
     "font-weight-notation": Object {
@@ -112,30 +115,38 @@ Object {
       "url": "https://stylelint.io/user-guide/rules/list/function-url-quotes",
     },
     "max-empty-lines": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/max-empty-lines",
     },
     "media-feature-name-no-vendor-prefix": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/media-feature-name-no-vendor-prefix",
     },
     "number-leading-zero": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/number-leading-zero",
     },
     "property-no-vendor-prefix": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/property-no-vendor-prefix",
     },
     "selector-attribute-quotes": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/selector-attribute-quotes",
     },
     "selector-class-pattern": Object {
       "url": "https://stylelint.io/user-guide/rules/list/selector-class-pattern",
     },
     "selector-list-comma-newline-before": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/selector-list-comma-newline-before",
     },
     "selector-list-comma-space-after": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/selector-list-comma-space-after",
     },
     "selector-list-comma-space-before": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/selector-list-comma-space-before",
     },
     "selector-max-attribute": Object {
@@ -163,27 +174,33 @@ Object {
       "url": "https://stylelint.io/user-guide/rules/list/selector-no-qualifying-type",
     },
     "selector-no-vendor-prefix": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/selector-no-vendor-prefix",
     },
     "shorthand-property-no-redundant-values": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/shorthand-property-no-redundant-values",
     },
     "string-quotes": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/string-quotes",
     },
     "unicode-bom": Object {
       "url": "https://stylelint.io/user-guide/rules/list/unicode-bom",
     },
     "value-list-comma-newline-after": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/value-list-comma-newline-after",
     },
     "value-list-comma-newline-before": Object {
       "url": "https://stylelint.io/user-guide/rules/list/value-list-comma-newline-before",
     },
     "value-list-comma-space-after": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/value-list-comma-space-after",
     },
     "value-no-vendor-prefix": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/value-no-vendor-prefix",
     },
   },
