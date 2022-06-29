@@ -14,8 +14,10 @@ All notable changes to this project are documented in this file.
 - Fixed: exit code when nothing is passed to stylelint command ([#6175](https://github.com/stylelint/stylelint/pull/6175)).
 - Fixed: rule message function type to not require users to handle all kind of arguments ([#6147](https://github.com/stylelint/stylelint/pull/6147)).
 - Fixed: `at-rule-*` end positions ([#6163](https://github.com/stylelint/stylelint/pull/6163)).
+- Fixed: `number-max-precision` end positions ([#6184](https://github.com/stylelint/stylelint/pull/6184)).
 - Fixed: `property-*` end positions ([#6174](https://github.com/stylelint/stylelint/pull/6174)).
 - Fixed: `value-no-vendor-prefix` end positions ([#6173](https://github.com/stylelint/stylelint/pull/6173)).
+- Fixed: `unit-*` start and end positions ([#6169](https://github.com/stylelint/stylelint/pull/6169)).
 
 ## 14.9.1
 
