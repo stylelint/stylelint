@@ -9,6 +9,7 @@
 				"message": "Expected custom property name to be kebab-case",
 				"severity": "warning"
 			}
-		]
+		],
+		"import-notation": "string"
 	}
 }
