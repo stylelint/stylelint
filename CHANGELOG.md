@@ -17,6 +17,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `at-rule-*` end positions ([#6163](https://github.com/stylelint/stylelint/pull/6163)).
 - Fixed: `declaration-property-value-allowed-list` false positives for multiple match ([#6190](https://github.com/stylelint/stylelint/pull/6190)).
 - Fixed: `declaration-property-value-disallowed-list` false negatives for multiple match ([#6188](https://github.com/stylelint/stylelint/pull/6188)).
+- Fixed: `no-unknown-animations` false positives for SCSS interpolation ([#6185](https://github.com/stylelint/stylelint/pull/6185)).
 - Fixed: `number-max-precision` end positions ([#6184](https://github.com/stylelint/stylelint/pull/6184)).
 - Fixed: `property-*` end positions ([#6174](https://github.com/stylelint/stylelint/pull/6174)).
 - Fixed: `value-no-vendor-prefix` end positions ([#6173](https://github.com/stylelint/stylelint/pull/6173)).
