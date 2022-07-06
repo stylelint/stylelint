@@ -15,7 +15,7 @@ The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatica
 
 ## Options
 
-`string`: `"keyword"|"percentage"`
+`string`: `"keyword"|"percentage"|"percentage-unless-within-keyword-only-block"`
 
 ### `"keyword"`
 
@@ -51,4 +51,27 @@ The following pattern is _not_ considered a problem:
 <!-- prettier-ignore -->
 ```css
 @keyframes foo { 0% {} 100% {} }
+```
+
+### `"percentage-unless-within-keyword-only-block"`
+
+Keyframe selectors _must_ use the percentage notation unless within a keyword-only block.
+
+The following pattern is considered a problem:
+
+<!-- prettier-ignore -->
+```css
+@keyframes foo { from {} 100% {} }
+```
+
+The following pattern are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+@keyframes foo { 0% {} 100% {} }
+```
+
+<!-- prettier-ignore -->
+```css
+@keyframes foo { from {} to {} }
 ```
