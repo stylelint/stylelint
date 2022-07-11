@@ -108,7 +108,7 @@
     ]
   },
   "dependencies": {
-    "@csstools/selector-specificity": "^2.0.1",
+    "@csstools/selector-specificity": "^2.0.2",
     "balanced-match": "^2.0.0",
     "colord": "^2.9.2",
     "cosmiconfig": "^7.0.1",
