@@ -29,6 +29,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `selector-attribute-name-disallowed-list` end positions ([#6223](https://github.com/stylelint/stylelint/pull/6223)).
 - Fixed: `selector-attribute-operator-allowed-list` end positions ([#6224](https://github.com/stylelint/stylelint/pull/6224)).
 - Fixed: `selector-attribute-operator-disallowed-list` end positions ([#6225](https://github.com/stylelint/stylelint/pull/6225)).
+- Fixed: `selector-attribute-quotes` end positions ([#6226](https://github.com/stylelint/stylelint/pull/6226)).
 - Fixed: `selector-not-notation` end positions ([#6201](https://github.com/stylelint/stylelint/pull/6201)).
 - Fixed: `unit-*` start and end positions ([#6169](https://github.com/stylelint/stylelint/pull/6169)).
 - Fixed: `value-no-vendor-prefix` end positions ([#6173](https://github.com/stylelint/stylelint/pull/6173)).
