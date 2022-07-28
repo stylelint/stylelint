@@ -94,7 +94,7 @@ exports[`CLI --help 1`] = `
     --custom-formatter
 
       Path to a JS file exporting a custom formatting function.
-      The file can either be a filesystem path, or a file to load from a dependency.
+      The file can either be a filesystem path, a module name, or a file to load from a dependency.
 
     --quiet, -q
 
