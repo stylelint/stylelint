@@ -88,7 +88,7 @@ Options are:
 - `unix` - generates messages like a C compiler, so that tools like Emacs' _Compilation mode_ can hyperlink them
 - `verbose` - extends `string` to include a list of checked files and a tally for each rule
 
-The `formatter` Node.js API option can also accept a function, whereas the `--custom-formatter` CLI flag accepts a path to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../../developer-guide/formatters.md).
+The `formatter` Node.js API option can also accept a function, whereas the `--custom-formatter` CLI flag accepts a path (either a filesystem path or a dependency) to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../../developer-guide/formatters.md).
 
 ## `cache`
 
