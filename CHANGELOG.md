@@ -16,6 +16,7 @@ All notable changes to this project are documented in this file.
 - Fixed: exit code when nothing is passed to stylelint command ([#6175](https://github.com/stylelint/stylelint/pull/6175)).
 - Fixed: rule message function type to not require users to handle all kind of arguments ([#6147](https://github.com/stylelint/stylelint/pull/6147)).
 - Fixed: `at-rule-*` end positions ([#6163](https://github.com/stylelint/stylelint/pull/6163)).
+- Fixed: `declaration-block-no-redundant-longhand-properties` end positions ([#6219](https://github.com/stylelint/stylelint/pull/6219)).
 - Fixed: `declaration-property-value-allowed-list` false positives for multiple match ([#6190](https://github.com/stylelint/stylelint/pull/6190)).
 - Fixed: `declaration-property-value-disallowed-list` false negatives for multiple match ([#6188](https://github.com/stylelint/stylelint/pull/6188)).
 - Fixed: `named-grid-areas-no-invalid` end positions ([#6205](https://github.com/stylelint/stylelint/pull/6205)).
