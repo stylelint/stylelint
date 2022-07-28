@@ -26,6 +26,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `number-max-precision` end positions ([#6184](https://github.com/stylelint/stylelint/pull/6184)).
 - Fixed: `property-*` end positions ([#6174](https://github.com/stylelint/stylelint/pull/6174)).
 - Fixed: `rule-selector-property-disallowed-list` end positions ([#6222](https://github.com/stylelint/stylelint/pull/6222)).
+- Fixed: `selector-attribute-name-disallowed-list` end positions ([#6223](https://github.com/stylelint/stylelint/pull/6223)).
 - Fixed: `selector-not-notation` end positions ([#6201](https://github.com/stylelint/stylelint/pull/6201)).
 - Fixed: `unit-*` start and end positions ([#6169](https://github.com/stylelint/stylelint/pull/6169)).
 - Fixed: `value-no-vendor-prefix` end positions ([#6173](https://github.com/stylelint/stylelint/pull/6173)).
