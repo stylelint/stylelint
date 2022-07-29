@@ -32,6 +32,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `selector-attribute-operator-disallowed-list` end positions ([#6225](https://github.com/stylelint/stylelint/pull/6225)).
 - Fixed: `selector-attribute-quotes` end positions ([#6226](https://github.com/stylelint/stylelint/pull/6226)).
 - Fixed: `selector-class-pattern` end positions ([#6227](https://github.com/stylelint/stylelint/pull/6227)).
+- Fixed: `selector-combinator-allowed-list` and `selector-combinator-disallowed-list` end positions ([#6229](https://github.com/stylelint/stylelint/pull/6229)).
 - Fixed: `selector-disallowed-list` end positions ([#6230](https://github.com/stylelint/stylelint/pull/6230)).
 - Fixed: `selector-not-notation` end positions ([#6201](https://github.com/stylelint/stylelint/pull/6201)).
 - Fixed: `selector-pseudo-element-colon-notation` end positions ([#6235](https://github.com/stylelint/stylelint/pull/6235)).
