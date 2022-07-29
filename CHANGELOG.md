@@ -13,6 +13,7 @@ All notable changes to this project are documented in this file.
 - Added: `meta.fixable` property to each rule ([#6181](https://github.com/stylelint/stylelint/pull/6181)).
 - Added: fixable status to `verbose` and `github` formatters ([#6183](https://github.com/stylelint/stylelint/pull/6183)).
 - Added: `percentage-unless-within-keyword-only-block` primary option to `keyframe-selector-notation` ([#6194](https://github.com/stylelint/stylelint/pull/6194)).
+- Added: support for loading custom formatter from package ([#6228](https://github.com/stylelint/stylelint/pull/6228)).
 - Fixed: exit code when nothing is passed to stylelint command ([#6175](https://github.com/stylelint/stylelint/pull/6175)).
 - Fixed: rule message function type to not require users to handle all kind of arguments ([#6147](https://github.com/stylelint/stylelint/pull/6147)).
 - Fixed: `at-rule-*` end positions ([#6163](https://github.com/stylelint/stylelint/pull/6163)).
