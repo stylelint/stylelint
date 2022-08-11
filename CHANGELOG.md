@@ -14,6 +14,7 @@ All notable changes to this project are documented in this file.
 - Added: `github` formatter ([#6150](https://github.com/stylelint/stylelint/pull/6150)).
 - Added: tally to `string` and `verbose` formatters ([#6153](https://github.com/stylelint/stylelint/pull/6153)).
 - Added: fixable status to `verbose` and `github` formatters ([#6183](https://github.com/stylelint/stylelint/pull/6183)).
+- Added: invalid rule primary option message for `false` ([#6250](https://github.com/stylelint/stylelint/pull/6250)).
 - Fixed: exit code when nothing is passed to stylelint command ([#6175](https://github.com/stylelint/stylelint/pull/6175)).
 - Fixed: rule message function type to not require users to handle all kind of arguments ([#6147](https://github.com/stylelint/stylelint/pull/6147)).
 - Fixed: `at-rule-*` end positions ([#6163](https://github.com/stylelint/stylelint/pull/6163)).
