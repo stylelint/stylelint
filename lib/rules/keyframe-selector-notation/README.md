@@ -64,7 +64,7 @@ The following pattern is considered a problem:
 @keyframes foo { from {} 100% {} }
 ```
 
-The following pattern are _not_ considered problems:
+The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
