@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## Head
+## 14.10.0
 
 - Added: rule metadata to public `LinterResult` API ([#6166](https://github.com/stylelint/stylelint/pull/6166)).
 - Added: longhand sub-properties of shorthand properties reference data to public API ([#6168](https://github.com/stylelint/stylelint/pull/6168)).
