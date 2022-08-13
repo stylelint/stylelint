@@ -12,6 +12,8 @@ import type {
 	LintResult,
 	LinterResult,
 	Plugin,
+	Rule,
+	RuleMeta,
 	Warning,
 } from 'stylelint';
 import stylelint from 'stylelint';
@@ -84,6 +86,7 @@ const messages = stylelint.utils.ruleMessages(ruleName, {
 	warning: (reason) => `This is not allowed because ${reason}`,
 	withNarrowedParam: (mixinName: string) => `Mixin not allowed: ${mixinName}`,
 });
+const meta: RuleMeta = { url: '...' };
 const problemMessage: string = messages.problem;
 const problemFunc: (...reason: string[]) => string = messages.warning;
 
@@ -115,7 +118,12 @@ const testPlugin: Plugin = (options) => {
 	};
 };
 
-stylelint.createPlugin(ruleName, testPlugin);
+(testPlugin as Rule).ruleName = ruleName;
+(testPlugin as Rule).messages = messages;
+(testPlugin as Rule).primaryOptionArray = true;
+(testPlugin as Rule).meta = meta;
+
+stylelint.createPlugin(ruleName, testPlugin as Rule);
 
 messages.withNarrowedParam('should work');
 
