@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## Head
+
+- Fixed: `selector-nested-pattern` end positions ([#6259](https://github.com/stylelint/stylelint/pull/6259)).
+
 ## 14.10.0
 
 - Added: rule metadata to public `LinterResult` API ([#6166](https://github.com/stylelint/stylelint/pull/6166)).
