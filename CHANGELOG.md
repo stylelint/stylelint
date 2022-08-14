@@ -5,6 +5,7 @@ All notable changes to this project are documented in this file.
 ## Head
 
 - Fixed: `selector-nested-pattern` end positions ([#6259](https://github.com/stylelint/stylelint/pull/6259)).
+- Fixed: `selector-no-vendor-prefix` end positions ([#6261](https://github.com/stylelint/stylelint/pull/6261)).
 
 ## 14.10.0
 
