@@ -21,6 +21,16 @@ This rule checks if the color is in sRGB space. If it's not, you should wrap it 
 }
 ```
 
+Please note that conditional imports are not checked, e.g.:
+
+```html
+<link href="p3-custom-props.css" rel="stylesheet" media="(color-gamut: p3)" />
+```
+
+```css
+@import url("p3-custom-props.css") (color-gamut: p3);
+```
+
 ## Options
 
 ### `true`
