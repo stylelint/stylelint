@@ -188,7 +188,7 @@ declare module 'stylelint' {
 			meta?: RuleMeta;
 		};
 
-		export type Plugin<P = any, S = any> = RuleBase<P, S>;
+		export type Plugin = RuleBase;
 
 		export type CodeProcessor = (code: string, file: string | undefined) => string;
 
@@ -440,7 +440,7 @@ declare module 'stylelint' {
 			/**
 			 * Creates a Stylelint plugin.
 			 */
-			createPlugin: (ruleName: string, plugin: Plugin) => { ruleName: string; rule: Rule };
+			createPlugin: (ruleName: string, rule: Rule) => { ruleName: string; rule: Rule };
 			/**
 			 * Internal use only. Do not use or rely on this method. It may
 			 * change at any time.

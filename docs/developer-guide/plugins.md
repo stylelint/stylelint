@@ -26,33 +26,32 @@ const meta = {
   // deprecated: true,
 };
 
-module.exports = stylelint.createPlugin(
-  ruleName,
-  (primaryOption, secondaryOptionObject) => {
-    return (postcssRoot, postcssResult) => {
-      const validOptions = stylelint.utils.validateOptions(
-        postcssResult,
-        ruleName,
-        {
-          /* .. */
-        }
-      );
-
-      if (!validOptions) {
-        return;
-      }
-
-      // ... some logic ...
-      stylelint.utils.report({
+const ruleFunction = (primaryOption, secondaryOptionObject) => {
+  return (postcssRoot, postcssResult) => {
+    const validOptions = stylelint.utils.validateOptions(
+      postcssResult,
+      ruleName,
+      {
         /* .. */
-      });
-    };
-  }
-);
+      }
+    );
 
-module.exports.ruleName = ruleName;
-module.exports.messages = messages;
-module.exports.meta = meta;
+    if (!validOptions) {
+      return;
+    }
+
+    // ... some logic ...
+    stylelint.utils.report({
+      /* .. */
+    });
+  };
+};
+
+ruleFunction.ruleName = ruleName;
+ruleFunction.messages = messages;
+ruleFunction.meta = meta;
+
+module.exports = stylelint.createPlugin(ruleName, ruleFunction);
 ```
 
 Your plugin's rule name must be namespaced, e.g. `your-namespace/your-rule-name`, to ensure it never clashes with the built-in rules. If your plugin provides only a single rule or you can't think of a good namespace, you can use `plugin/my-rule`. _You should document your plugin's rule name (and namespace) because users need to use them in their config._
@@ -89,39 +88,38 @@ const meta = {
   /* .. */
 };
 
-module.exports = stylelint.createPlugin(
-  ruleName,
-  (primaryOption, secondaryOptionObject) => {
-    return (postcssRoot, postcssResult) => {
-      const validOptions = stylelint.utils.validateOptions(
-        postcssResult,
-        ruleName,
-        {
-          /* .. */
-        }
-      );
-
-      if (!validOptions) {
-        return;
+const ruleFunction = (primaryOption, secondaryOptionObject) => {
+  return (postcssRoot, postcssResult) => {
+    const validOptions = stylelint.utils.validateOptions(
+      postcssResult,
+      ruleName,
+      {
+        /* .. */
       }
+    );
 
-      return new Promise((resolve) => {
-        // some async operation
-        setTimeout(() => {
-          // ... some logic ...
-          stylelint.utils.report({
-            /* .. */
-          });
-          resolve();
-        }, 1);
-      });
-    };
-  }
-);
+    if (!validOptions) {
+      return;
+    }
 
-module.exports.ruleName = ruleName;
-module.exports.messages = messages;
-module.exports.meta = meta;
+    return new Promise((resolve) => {
+      // some async operation
+      setTimeout(() => {
+        // ... some logic ...
+        stylelint.utils.report({
+          /* .. */
+        });
+        resolve();
+      }, 1);
+    });
+  };
+};
+
+ruleFunction.ruleName = ruleName;
+ruleFunction.messages = messages;
+ruleFunction.meta = meta;
+
+module.exports = stylelint.createPlugin(ruleName, ruleFunction);
 ```
 
 ## Testing
@@ -132,7 +130,9 @@ For example:
 
 ```js
 // index.test.js
-const { messages, ruleName } = require(".");
+const {
+  rule: { ruleName, messages }
+} = require(".");
 
 testRule({
   plugins: ["./index.js"],
@@ -153,7 +153,7 @@ testRule({
     {
       code: ".myClass {}",
       fixed: ".my-class {}",
-      message: messages.expected(),
+      message: messages.expected,
       line: 1,
       column: 1,
       endLine: 1,
