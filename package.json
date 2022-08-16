@@ -110,7 +110,7 @@
   "dependencies": {
     "@csstools/selector-specificity": "^2.0.2",
     "balanced-match": "^2.0.0",
-    "colord": "^2.9.2",
+    "colord": "^2.9.3",
     "cosmiconfig": "^7.0.1",
     "css-functions-list": "^3.1.0",
     "debug": "^4.3.4",
