@@ -77,15 +77,14 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `ignoreAfterCombinators: [">", "+", "~"]`
+### `ignoreAfterCombinators: ["array "of "combinators"]`
 
 Ignore universal selector if it's preceded by specified after combinators.
 
 Given:
 
 ```json
-[1] // maximum universal selectors allowed
-[">", "+"]
+[1, [">", "+"]]
 ```
 
 The following patterns are considered problems:
@@ -95,7 +94,7 @@ The following patterns are considered problems:
 *.foo * {}
 ```
 
-While the following patters are _not_ considered problems:
+The following patters are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
