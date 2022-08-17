@@ -148,8 +148,8 @@
     "write-file-atomic": "^4.0.1"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.6",
     "@changesets/cli": "^2.24.3",
+    "@changesets/get-github-info": "^0.5.1",
     "@stylelint/prettier-config": "^2.0.0",
     "@stylelint/remark-preset": "^3.0.0",
     "@types/balanced-match": "^1.0.2",
