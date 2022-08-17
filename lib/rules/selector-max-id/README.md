@@ -94,7 +94,7 @@ The following patterns are considered problems:
 a:matches(#foo) {}
 ```
 
-While the following patters are _not_ considered problems:
+The following patters are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
