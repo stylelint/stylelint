@@ -30,11 +30,10 @@ jobs:
       - name: Install dependencies 
         run: npm ci 
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: Create release pull request
         uses: changesets/action@v1
         with:
-          # No `publish` here because we're still publishing manually
-          commit: 'chore: release stylelint'
-          title: 'chore: release stylelint'
+          commit: 'Prepare release'
+          title: 'Prepare release'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
