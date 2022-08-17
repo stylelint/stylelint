@@ -13,6 +13,7 @@ All notable changes to this project are documented in this file.
 - Fixed: `selector-pseudo-class-disallowed-list` end positions and message ([#6263](https://github.com/stylelint/stylelint/pull/6263)).
 - Fixed: `selector-pseudo-element-allowed-list` end positions and message ([#6270](https://github.com/stylelint/stylelint/pull/6270)).
 - Fixed: `selector-pseudo-element-disallowed-list` end positions and message ([#6270](https://github.com/stylelint/stylelint/pull/6270)).
+- Fixed: `shorthand-property-no-redundant-values` message ([#6272](https://github.com/stylelint/stylelint/pull/6272)).
 
 ## 14.10.0
 
