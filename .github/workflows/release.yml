@@ -24,8 +24,11 @@ jobs:
           node-version: 'lts/*'
           cache: npm
 
-      - name: Install Dependencies
-        run: npm i
+      - name: Install latest npm 
+        run: npm install --global npm@latest 
+  
+      - name: Install dependencies 
+        run: npm ci 
 
       - name: Create Release Pull Request or Publish to npm
         uses: changesets/action@v1
