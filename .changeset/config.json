@@ -1,0 +1,15 @@
+{
+	"$schema": "https://unpkg.com/@changesets/config/schema.json",
+	"changelog": [
+		"./changelog-stylelint",
+		{
+			"repo": "stylelint/stylelint"
+		}
+	],
+	"commit": false,
+	"linked": [],
+	"access": "public",
+	"baseBranch": "main",
+	"updateInternalDependencies": "patch",
+	"ignore": []
+}

@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
+
+      - name: Set up Node.js LTS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+          cache: npm
+
+      - name: Install latest npm
+        run: npm install --global npm@latest
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create release pull request
+        uses: changesets/action@v1
+        with:
+          commit: 'Prepare release'
+          title: 'Prepare release'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
