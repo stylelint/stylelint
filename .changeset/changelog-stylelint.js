@@ -82,13 +82,11 @@ const changelogFunctions = {
 			: links.user;
 
 		const suffix = [
-			links.pull === null ? '' : ` ${links.pull}`,
-			users === null ? '' : ` Thanks ${users}!`,
+			links.pull === null ? '' : ` (${links.pull})`,
+			users === null ? '' : ` (${users})`,
 		].join('');
 
-		return `\n\n- ${firstLine}${futureLines.map((l) => `  ${l}`).join('\n')}${
-			suffix ? ' (' + suffix + ')' : ''
-		}.\n`;
+		return `\n\n- ${firstLine}${futureLines.map((l) => `  ${l}`).join('\n')}${suffix}.\n`;
 	},
 	async getDependencyReleaseLine() {
 		return '';
