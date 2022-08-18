@@ -1,6 +1,6 @@
 # Performing releases
 
-1. Create a [new issue](https://github.com/stylelint/stylelint/issues/new) announcing the planned release, e.g. `Release 8.11.1` and include the [template checklist](#new-release-issue-template).
+1. Create a [new issue](https://github.com/stylelint/stylelint/issues/new?title=Release+%7Bversion%7D&labels=status%3A+needs+discussion) announcing the planned release, e.g. `Release 8.11.1` and include the [template checklist](#new-release-issue-template).
 2. Locally test `main` in the `stylelint-config-*` shareable config repositories. Install the current `main` branch (`npm install stylelint/stylelint#main --save-dev`) and run tests.
 3. Locally test `main` in the [stylelint/stylelint-demo](https://github.com/stylelint/stylelint-demo) repository.
 4. Locally test `main` in the [stylelint/stylelint.io](https://github.com/stylelint/stylelint.io) repository.
