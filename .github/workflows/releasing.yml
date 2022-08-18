@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
