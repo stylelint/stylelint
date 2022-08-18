@@ -79,29 +79,19 @@ The following patterns are _not_ considered problems:
 
 ### `ignoreAfterCombinators: ["array", "of", "combinators"]`
 
-Ignore universal selector if it's preceded by specified after combinators.
+Ignore universal selectors that come after one of the specified combinators.
 
 Given:
 
 ```json
-[1, [">", "+"]]
+[">", "+"]
 ```
 
-The following patterns are considered problems:
+For example, with `2`.
+
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css
-*.foo * {}
-```
-
-The following patters are _not_ considered problems:
-
-<!-- prettier-ignore -->
-```css
-*.foo + * {}
-```
-
-<!-- prettier-ignore -->
-```css
-*.foo > * {}
+* * > * {}
 ```
