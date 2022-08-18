@@ -74,3 +74,24 @@ The following patterns are _not_ considered problems:
 /* `*` is inside `:not()`, so it is evaluated separately */
 * > * .foo:not(*) {}
 ```
+
+## Optional secondary options
+
+### `ignoreAfterCombinators: ["array", "of", "combinators"]`
+
+Ignore universal selectors that come after one of the specified combinators.
+
+Given:
+
+```json
+[">", "+"]
+```
+
+For example, with `2`.
+
+The following pattern is _not_ considered a problem:
+
+<!-- prettier-ignore -->
+```css
+* * > * {}
+```
