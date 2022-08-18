@@ -4,6 +4,7 @@ All notable changes to this project are documented in this file.
 
 ## Head
 
+- Added: `ignoreAfterCombinators: []` to `selector-max-universal` ([#6275](https://github.com/stylelint/stylelint/pull/6275)).
 - Fixed: `createPlugin` type definition ([#6264](https://github.com/stylelint/stylelint/pull/6264)).
 - Fixed: `keyframes-name-pattern` false positives for interpolation ([#6265](https://github.com/stylelint/stylelint/pull/6265)).
 - Fixed: `selector-nested-pattern` end positions ([#6259](https://github.com/stylelint/stylelint/pull/6259)).
