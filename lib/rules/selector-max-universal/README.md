@@ -77,7 +77,7 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `ignoreAfterCombinators: [" ", ">", "*", "~"]`
+### `ignoreAfterCombinators: ["array", "of", "combinators"]`
 
 Ignore universal selectors that come after one of the specified combinators.
 
