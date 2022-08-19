@@ -1,5 +1,35 @@
 # Changelog
 
+## 14.11.0
+
+### Minor Changes
+
+- Added: `ignoreAfterCombinators: []` to `selector-max-universal` ([#6275](https://github.com/stylelint/stylelint/pull/6275)) ([#6274](https://github.com/stylelint/stylelint/pull/6274)) ([@JounQin](https://github.com/JounQin)).
+
+### Patch Changes
+
+- Fixed: `selector-pseudo-class-allowed-list` end positions and message ([#6262](https://github.com/stylelint/stylelint/pull/6262)) ([#6274](https://github.com/stylelint/stylelint/pull/6274)) ([@JounQin](https://github.com/JounQin)).
+
+* Fixed: `selector-no-vendor-prefix` end positions ([#6261](https://github.com/stylelint/stylelint/pull/6261)) ([#6274](https://github.com/stylelint/stylelint/pull/6274)) ([@JounQin](https://github.com/JounQin)).
+
+- Fixed: `shorthand-property-no-redundant-values` message ([#6272](https://github.com/stylelint/stylelint/pull/6272)) ([#6274](https://github.com/stylelint/stylelint/pull/6274)) ([@JounQin](https://github.com/JounQin)).
+
+* Fixed: `selector-pseudo-element-disallowed-list` end positions and message ([#6270](https://github.com/stylelint/stylelint/pull/6270)) ([#6274](https://github.com/stylelint/stylelint/pull/6274)) ([@JounQin](https://github.com/JounQin)).
+
+- Fixed: `selector-pseudo-element-allowed-list` end positions and message ([#6270](https://github.com/stylelint/stylelint/pull/6270)) ([#6274](https://github.com/stylelint/stylelint/pull/6274)) ([@JounQin](https://github.com/JounQin)).
+
+* Fixed: `time-min-milliseconds` end positions ([#6273](https://github.com/stylelint/stylelint/pull/6273)) ([#6274](https://github.com/stylelint/stylelint/pull/6274)) ([@JounQin](https://github.com/JounQin)).
+
+- Fixed: `keyframes-name-pattern` false positives for interpolation ([#6265](https://github.com/stylelint/stylelint/pull/6265)) ([#6274](https://github.com/stylelint/stylelint/pull/6274)) ([@JounQin](https://github.com/JounQin)).
+
+* Fixed: `selector-nested-pattern` end positions ([#6259](https://github.com/stylelint/stylelint/pull/6259)) ([#6274](https://github.com/stylelint/stylelint/pull/6274)) ([@JounQin](https://github.com/JounQin)).
+
+- Fixed: `selector-no-qualifying-type` message, positions, and false positives ([#6260](https://github.com/stylelint/stylelint/pull/6260)) ([#6274](https://github.com/stylelint/stylelint/pull/6274)) ([@JounQin](https://github.com/JounQin)).
+
+* Fixed: `createPlugin` type definition ([#6264](https://github.com/stylelint/stylelint/pull/6264)) ([#6274](https://github.com/stylelint/stylelint/pull/6274)) ([@JounQin](https://github.com/JounQin)).
+
+- Fixed: `selector-pseudo-class-disallowed-list` end positions and message ([#6263](https://github.com/stylelint/stylelint/pull/6263)) ([#6274](https://github.com/stylelint/stylelint/pull/6274)) ([@JounQin](https://github.com/JounQin)).
+
 ## 14.10.0
 
 - Added: rule metadata to public `LinterResult` API ([#6166](https://github.com/stylelint/stylelint/pull/6166)).
