@@ -7,7 +7,7 @@ body:
       value: |
         Thank you for taking the time to report a bug!
 
-        Please [search our issues](https://github.com/search/advanced?r=stylelint%2Fstylelint&type=Issues) to check that the bug hasn't already been reported.
+        Please [search our issues](https://github.com/search?q=repo%3Astylelint%2Fstylelint&type=issues) to check that the bug hasn't already been reported.
 
         You can help us fix the bug more quickly by:
         1. Figuring out what needs doing and proposing it in the issue.
