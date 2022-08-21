@@ -4,7 +4,7 @@
 
 - Added: `ignoreAfterCombinators: []` to `selector-max-universal` ([#6275](https://github.com/stylelint/stylelint/pull/6275)).
 - Fixed: `createPlugin` type definition ([#6264](https://github.com/stylelint/stylelint/pull/6264)).
-- Fixed: `alpha-value-notation` false negatives for SVG properties ([#6284](https://github.com/stylelint/stylelint/pull/6284)). 
+- Fixed: `alpha-value-notation` false negatives for SVG properties ([#6284](https://github.com/stylelint/stylelint/pull/6284)).
 - Fixed: `keyframes-name-pattern` false positives for interpolation ([#6265](https://github.com/stylelint/stylelint/pull/6265)).
 - Fixed: `selector-nested-pattern` end positions ([#6259](https://github.com/stylelint/stylelint/pull/6259)).
 - Fixed: `selector-no-qualifying-type` message, positions, and false positives ([#6260](https://github.com/stylelint/stylelint/pull/6260)).
