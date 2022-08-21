@@ -145,7 +145,7 @@
     "svg-tags": "^1.0.0",
     "table": "^6.8.0",
     "v8-compile-cache": "^2.3.0",
-    "write-file-atomic": "^4.0.1"
+    "write-file-atomic": "^4.0.2"
   },
   "devDependencies": {
     "@changesets/cli": "^2.24.3",
