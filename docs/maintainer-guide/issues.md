@@ -8,13 +8,13 @@ Use [labels](https://github.com/stylelint/stylelint/labels).
 
 When you first triage an issue, you should:
 
-- add one of the `status: needs *` labels, e.g. `status: need discussion`
+- add one of the `status: needs *` labels, e.g. `status: needs discussion`
 - don't add any other label
 
 After triage, you should add:
 
 - _one_ of the non-need `status: *` labels, e.g. `status: ready to implement`
-- _zero or one_ of the `type: *` labels, e.g. `status: new rule`
+- _zero or one_ of the `type: *` labels, e.g. `type: new rule`
 - _zero, one or more_ of the `syntax: *` labels, e.g. `syntax: scss`
 - optionally, the `good first issue`, `help wanted`, `priority: high` and `upstream` labels
 
