@@ -1,5 +1,20 @@
 # Changelog
 
+## Head
+
+- Added: `ignoreAfterCombinators: []` to `selector-max-universal` ([#6275](https://github.com/stylelint/stylelint/pull/6275)).
+- Fixed: `createPlugin` type definition ([#6264](https://github.com/stylelint/stylelint/pull/6264)).
+- Fixed: `keyframes-name-pattern` false positives for interpolation ([#6265](https://github.com/stylelint/stylelint/pull/6265)).
+- Fixed: `selector-nested-pattern` end positions ([#6259](https://github.com/stylelint/stylelint/pull/6259)).
+- Fixed: `selector-no-qualifying-type` message, positions, and false positives ([#6260](https://github.com/stylelint/stylelint/pull/6260)).
+- Fixed: `selector-no-vendor-prefix` end positions ([#6261](https://github.com/stylelint/stylelint/pull/6261)).
+- Fixed: `selector-pseudo-class-allowed-list` end positions and message ([#6262](https://github.com/stylelint/stylelint/pull/6262)).
+- Fixed: `selector-pseudo-class-disallowed-list` end positions and message ([#6263](https://github.com/stylelint/stylelint/pull/6263)).
+- Fixed: `selector-pseudo-element-allowed-list` end positions and message ([#6270](https://github.com/stylelint/stylelint/pull/6270)).
+- Fixed: `selector-pseudo-element-disallowed-list` end positions and message ([#6270](https://github.com/stylelint/stylelint/pull/6270)).
+- Fixed: `shorthand-property-no-redundant-values` message ([#6272](https://github.com/stylelint/stylelint/pull/6272)).
+- Fixed: `time-min-milliseconds` end positions ([#6273](https://github.com/stylelint/stylelint/pull/6273)).
+
 ## 14.10.0
 
 - Added: rule metadata to public `LinterResult` API ([#6166](https://github.com/stylelint/stylelint/pull/6166)).
