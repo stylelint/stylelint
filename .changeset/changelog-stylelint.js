@@ -5,9 +5,28 @@
 const { getInfo, getInfoFromPullRequest } = require('@changesets/get-github-info');
 
 /**
- * @type {import('@changesets/types').ChangelogFunctions}
+ * @typedef { 'major' | 'minor' | 'patch' } ReleaseType
+ * @typedef { Record<ReleaseType, Array<Promise<string>>> } ReleaseLines
+ * @typedef { Record<ReleaseType, string[]> } ResolvedReleaseLines
+ * @type {import('@changesets/types').ChangelogFunctions & { reorderReleaseLines(releaseLines: ReleaseLines): Promise<ResolvedReleaseLines> }}
  */
 const changelogFunctions = {
+	async reorderReleaseLines(releaseLines) {
+		const resolved = {
+			major: await Promise.all(releaseLines.major),
+			minor: await Promise.all(releaseLines.minor),
+			patch: await Promise.all(releaseLines.patch),
+		};
+
+		return Object.entries(resolved).reduce(
+			(acc, [type, lines]) =>
+				Object.assign(acc, {
+					// TODO: implement https://stylelint.io/maintainer-guide/pull-requests/#merging
+					[type]: lines,
+				}),
+			/**  @type {ResolvedReleaseLines} */ ({}),
+		);
+	},
 	async getReleaseLine(changeset, _type, options) {
 		if (!options || !options.repo) {
 			throw new Error(

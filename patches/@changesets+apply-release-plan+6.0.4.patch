@@ -1,0 +1,25 @@
+diff --git a/node_modules/@changesets/apply-release-plan/dist/apply-release-plan.cjs.dev.js b/node_modules/@changesets/apply-release-plan/dist/apply-release-plan.cjs.dev.js
+index 4c476cb..aefa7d4 100644
+--- a/node_modules/@changesets/apply-release-plan/dist/apply-release-plan.cjs.dev.js
++++ b/node_modules/@changesets/apply-release-plan/dist/apply-release-plan.cjs.dev.js
+@@ -199,7 +199,7 @@ async function getChangelogEntry(release, releases, changesets, changelogFuncs,
+   onlyUpdatePeerDependentsWhenOutOfRange
+ }) {
+   if (release.type === "none") return null;
+-  const changelogLines = {
++  let changelogLines = {
+     major: [],
+     minor: [],
+     patch: []
+@@ -240,6 +240,11 @@ async function getChangelogEntry(release, releases, changesets, changelogFuncs,
+   });
+   let relevantChangesets = changesets.filter(cs => relevantChangesetIds.has(cs.id));
+   changelogLines.patch.push(changelogFuncs.getDependencyReleaseLine(relevantChangesets, dependentReleases, changelogOpts));
++
++	if (typeof changelogFuncs.reorderReleaseLines === 'function') {
++		changelogLines = await changelogFuncs.reorderReleaseLines(changelogLines)
++	}
++
+   return [`## ${release.newVersion}`, await generateChangesForVersionTypeMarkdown(changelogLines, "major"), await generateChangesForVersionTypeMarkdown(changelogLines, "minor"), await generateChangesForVersionTypeMarkdown(changelogLines, "patch")].filter(line => line).join("\n");
+ }
+ 
