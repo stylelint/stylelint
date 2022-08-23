@@ -110,6 +110,7 @@ Object {
       "url": "https://stylelint.io/user-guide/rules/list/declaration-bang-space-before",
     },
     "declaration-block-no-duplicate-properties": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/declaration-block-no-duplicate-properties",
     },
     "declaration-block-no-shorthand-property-overrides": Object {

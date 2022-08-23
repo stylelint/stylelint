@@ -61,7 +61,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 ### Declaration block
 
 - [`declaration-block-no-duplicate-custom-properties`](../../../lib/rules/declaration-block-no-duplicate-custom-properties/README.md): Disallow duplicate custom properties within declaration blocks.
-- [`declaration-block-no-duplicate-properties`](../../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks.
+- [`declaration-block-no-duplicate-properties`](../../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks (Autofixable).
 - [`declaration-block-no-shorthand-property-overrides`](../../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
 
 ### Block
