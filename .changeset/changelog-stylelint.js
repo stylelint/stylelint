@@ -5,6 +5,13 @@
 const { getInfo, getInfoFromPullRequest } = require('@changesets/get-github-info');
 
 /**
+ * @type {Array<string | undefined>}
+ */
+const CHANGESET_SECTIONS = 'Deprecated|Removed|Changed|Added|Fixed'.split('|');
+
+const changesetSectionReg = new RegExp(`^(${CHANGESET_SECTIONS.join('|')}): `);
+
+/**
  * @typedef { 'major' | 'minor' | 'patch' } ReleaseType
  * @typedef { Record<ReleaseType, Array<Promise<string>>> } ReleaseLines
  * @typedef { Record<ReleaseType, string[]> } ResolvedReleaseLines
@@ -21,8 +28,15 @@ const changelogFunctions = {
 		return Object.entries(resolved).reduce(
 			(acc, [type, lines]) =>
 				Object.assign(acc, {
-					// TODO: implement https://stylelint.io/maintainer-guide/pull-requests/#merging
-					[type]: lines,
+					[type]: lines
+						.map((line) => line.trim())
+						.sort((a, b) => {
+							const aSection = changesetSectionReg.exec(a)?.[0];
+							const bSection = changesetSectionReg.exec(b)?.[0];
+							return aSection === bSection
+								? a.localeCompare(b)
+								: CHANGESET_SECTIONS.indexOf(aSection) - CHANGESET_SECTIONS.indexOf(bSection);
+						}),
 				}),
 			/**  @type {ResolvedReleaseLines} */ ({}),
 		);
