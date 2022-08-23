@@ -47,6 +47,8 @@
     "release": "np",
     "pretest": "npm run lint",
     "test": "jest --coverage",
+    "version": "changeset version",
+    "postversion": "git restore package.json",
     "watch": "jest --watch"
   },
   "lint-staged": {
