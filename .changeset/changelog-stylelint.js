@@ -14,7 +14,7 @@ const changesetSectionReg = new RegExp(`^(${CHANGESET_SECTIONS.join('|')}): `);
 /**
  * @typedef { 'major' | 'minor' | 'patch' } ReleaseType
  * @typedef { Record<ReleaseType, Array<Promise<string>>> } ReleaseLines
- * @typedef { Record<ReleaseType, string[]> } ResolvedReleaseLines
+ * @typedef { Record<ReleaseType, string[]> | string[] } ResolvedReleaseLines
  * @type {import('@changesets/types').ChangelogFunctions & { reorderReleaseLines(releaseLines: ReleaseLines): Promise<ResolvedReleaseLines> }}
  */
 const changelogFunctions = {
@@ -25,21 +25,22 @@ const changelogFunctions = {
 			patch: await Promise.all(releaseLines.patch),
 		};
 
-		return Object.entries(resolved).reduce(
-			(acc, [type, lines]) =>
-				Object.assign(acc, {
-					[type]: lines
-						.map((line) => line.trim())
-						.sort((a, b) => {
-							const aSection = changesetSectionReg.exec(a)?.[0];
-							const bSection = changesetSectionReg.exec(b)?.[0];
-							return aSection === bSection
-								? a.localeCompare(b)
-								: CHANGESET_SECTIONS.indexOf(aSection) - CHANGESET_SECTIONS.indexOf(bSection);
-						}),
-				}),
-			/**  @type {ResolvedReleaseLines} */ ({}),
-		);
+		return Object.entries(resolved)
+			.reduce((acc, [_type, lines]) => {
+				const type = /**  @type {ReleaseType} */ (_type);
+				lines.forEach((line) => {
+					line = line.trim();
+					acc.push(`${line} - ${type}${type === 'major' ? ' (BREAKING)' : ''}`);
+				});
+				return acc;
+			}, /**  @type {string[]} */ ([]))
+			.sort((a, b) => {
+				const aSection = changesetSectionReg.exec(a)?.[0];
+				const bSection = changesetSectionReg.exec(b)?.[0];
+				return aSection === bSection
+					? a.localeCompare(b)
+					: CHANGESET_SECTIONS.indexOf(aSection) - CHANGESET_SECTIONS.indexOf(bSection);
+			});
 	},
 	async getReleaseLine(changeset, _type, options) {
 		if (!options || !options.repo) {
