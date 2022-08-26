@@ -29,8 +29,9 @@ const changelogFunctions = {
 			.reduce((acc, [_type, lines]) => {
 				const type = /**  @type {ReleaseType} */ (_type);
 				lines.forEach((line) => {
-					line = line.trim();
-					acc.push(`${line} - ${type}${type === 'major' ? ' (BREAKING)' : ''}`);
+					if (line) {
+						acc.push(`${line} - ${type}${type === 'major' ? ' (BREAKING)' : ''}`);
+					}
 				});
 				return acc;
 			}, /**  @type {string[]} */ ([]))
@@ -38,8 +39,8 @@ const changelogFunctions = {
 				const aSection = changesetSectionReg.exec(a)?.[0];
 				const bSection = changesetSectionReg.exec(b)?.[0];
 				return aSection === bSection
-					? a.localeCompare(b)
-					: CHANGESET_SECTIONS.indexOf(aSection) - CHANGESET_SECTIONS.indexOf(bSection);
+					? b.localeCompare(a)
+					: CHANGESET_SECTIONS.indexOf(bSection) - CHANGESET_SECTIONS.indexOf(aSection);
 			});
 	},
 	async getReleaseLine(changeset, _type, options) {
@@ -120,7 +121,9 @@ const changelogFunctions = {
 			users === null ? '' : ` (${users})`,
 		].join('');
 
-		return `\n\n- ${firstLine}${futureLines.map((l) => `  ${l}`).join('\n')}${suffix}.\n`;
+		const line = `${firstLine}${futureLines.map((l) => `  ${l}`).join('\n')}${suffix}`;
+
+		return line ? `- ${line}.` : '';
 	},
 	async getDependencyReleaseLine() {
 		return '';
