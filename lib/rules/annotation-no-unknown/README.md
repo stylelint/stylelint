@@ -24,7 +24,7 @@ a {
 }
 ```
 
-The following pattern is _not_ considered problem:
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css
