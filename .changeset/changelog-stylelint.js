@@ -9,7 +9,7 @@ const { getInfo, getInfoFromPullRequest } = require('@changesets/get-github-info
  */
 const CHANGESET_SECTIONS = ['Removed', 'Changed', 'Deprecated', 'Added', 'Fixed'];
 
-const changesetSectionReg = new RegExp(`^(${CHANGESET_SECTIONS.join('|')}): `);
+const changesetSectionReg = new RegExp(`^- (${CHANGESET_SECTIONS.join('|')}): `);
 
 /**
  * @typedef { 'major' | 'minor' | 'patch' } ReleaseType
