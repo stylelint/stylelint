@@ -36,8 +36,8 @@ const changelogFunctions = {
 				return acc;
 			}, /**  @type {string[]} */ ([]))
 			.sort((a, b) => {
-				const aSection = changesetSectionReg.exec(a)?.[0];
-				const bSection = changesetSectionReg.exec(b)?.[0];
+				const aSection = changesetSectionReg.exec(a)?.[1];
+				const bSection = changesetSectionReg.exec(b)?.[1];
 				return aSection === bSection
 					? b.localeCompare(a)
 					: CHANGESET_SECTIONS.indexOf(bSection) - CHANGESET_SECTIONS.indexOf(aSection);
