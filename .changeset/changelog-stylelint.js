@@ -39,8 +39,8 @@ const changelogFunctions = {
 				const aSection = changesetSectionReg.exec(a)?.[1];
 				const bSection = changesetSectionReg.exec(b)?.[1];
 				return aSection === bSection
-					? b.localeCompare(a)
-					: CHANGESET_SECTIONS.indexOf(bSection) - CHANGESET_SECTIONS.indexOf(aSection);
+					? a.localeCompare(b)
+					: CHANGESET_SECTIONS.indexOf(aSection) - CHANGESET_SECTIONS.indexOf(bSection);
 			});
 	},
 	async getReleaseLine(changeset, _type, options) {
