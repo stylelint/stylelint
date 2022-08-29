@@ -7,7 +7,7 @@ const { getInfo, getInfoFromPullRequest } = require('@changesets/get-github-info
 /**
  * @type {Array<string | undefined>}
  */
-const CHANGESET_SECTIONS = ['Deprecated', 'Removed', 'Changed', 'Added', 'Fixed'];
+const CHANGESET_SECTIONS = ['Removed', 'Changed', 'Deprecated', 'Added', 'Fixed'];
 
 const changesetSectionReg = new RegExp(`^(${CHANGESET_SECTIONS.join('|')}): `);
 
