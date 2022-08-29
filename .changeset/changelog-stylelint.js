@@ -30,7 +30,7 @@ const changelogFunctions = {
 				const type = /**  @type {ReleaseType} */ (_type);
 				lines.forEach((line) => {
 					if (line) {
-						acc.push(`${line} - ${type}${type === 'major' ? ' (BREAKING)' : ''}`);
+						acc.push(`${line}${type === 'major' ? ' (BREAKING)' : ''}`);
 					}
 				});
 				return acc;
