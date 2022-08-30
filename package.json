@@ -150,7 +150,7 @@
     "write-file-atomic": "^4.0.2"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.24.3",
+    "@changesets/cli": "^2.24.4",
     "@changesets/get-github-info": "^0.5.1",
     "@stylelint/prettier-config": "^2.0.0",
     "@stylelint/remark-preset": "^3.0.0",
@@ -193,8 +193,5 @@
   },
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
-  },
-  "overrides": {
-    "prettier": "^2.7.1"
   }
 }
