@@ -89,7 +89,7 @@ declare module 'stylelint' {
 
 		export type StylelintPostcssResult = {
 			ruleSeverities: { [ruleName: string]: Severity };
-			customMessages: { [ruleName: string]: any };
+			customMessages: { [ruleName: string]: RuleMessage };
 			ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 			quiet?: boolean;
 			disabledRanges: DisabledRangeObject;
@@ -154,7 +154,9 @@ declare module 'stylelint' {
 			bivariance(...args: (string | number | boolean | RegExp)[]): string;
 		}['bivariance'];
 
-		export type RuleMessages = { [message: string]: string | RuleMessageFunc };
+		export type RuleMessage = string | RuleMessageFunc;
+
+		export type RuleMessages = { [message: string]: RuleMessage };
 
 		export type RuleOptionsPossibleFunc = (value: unknown) => boolean;
 
@@ -350,7 +352,8 @@ declare module 'stylelint' {
 		export type Problem = {
 			ruleName: string;
 			result: PostcssResult;
-			message: string;
+			message: RuleMessage;
+			messageArgs?: Parameters<RuleMessage> | undefined;
 			node: PostCSS.Node;
 			/**
 			 * The inclusive start index of the problem, relative to the node's
