@@ -43,10 +43,12 @@
     "lint:js": "eslint . --cache --max-warnings=0",
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc",
-    "prepare": "husky install",
+    "prepare": "husky install && patch-package",
     "release": "np",
     "pretest": "npm run lint",
     "test": "jest --coverage",
+    "version": "changeset version",
+    "postversion": "git restore package.json",
     "watch": "jest --watch"
   },
   "lint-staged": {
@@ -148,7 +150,7 @@
     "write-file-atomic": "^4.0.2"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.24.3",
+    "@changesets/cli": "^2.24.4",
     "@changesets/get-github-info": "^0.5.1",
     "@stylelint/prettier-config": "^2.0.0",
     "@stylelint/remark-preset": "^3.0.0",
@@ -179,12 +181,12 @@
     "node-fetch": "^3.2.10",
     "np": "^7.6.2",
     "npm-run-all": "^4.1.5",
+    "patch-package": "^6.4.7",
     "postcss-html": "^1.5.0",
     "postcss-import": "^14.1.0",
     "postcss-less": "^6.0.0",
     "postcss-sass": "^0.5.0",
     "postcss-scss": "^4.0.4",
-    "prettier": "2.7.1",
     "remark-cli": "^11.0.0",
     "sugarss": "^4.0.1",
     "typescript": "^4.7.4"
