@@ -5,9 +5,44 @@
 const { getInfo, getInfoFromPullRequest } = require('@changesets/get-github-info');
 
 /**
- * @type {import('@changesets/types').ChangelogFunctions}
+ * @type {Array<string | undefined>}
+ */
+const CHANGESET_SECTIONS = ['Removed', 'Changed', 'Deprecated', 'Added', 'Fixed'];
+
+const changesetSectionReg = new RegExp(`^- (${CHANGESET_SECTIONS.join('|')}): `);
+
+/**
+ * @typedef { 'major' | 'minor' | 'patch' } ReleaseType
+ * @typedef { Record<ReleaseType, Array<Promise<string>>> } ReleaseLines
+ * @typedef { Record<ReleaseType, string[]> | string[] } ResolvedReleaseLines
+ * @type {import('@changesets/types').ChangelogFunctions & { reorderReleaseLines(releaseLines: ReleaseLines): Promise<ResolvedReleaseLines> }}
  */
 const changelogFunctions = {
+	async reorderReleaseLines(releaseLines) {
+		const resolved = {
+			major: await Promise.all(releaseLines.major),
+			minor: await Promise.all(releaseLines.minor),
+			patch: await Promise.all(releaseLines.patch),
+		};
+
+		return Object.entries(resolved)
+			.reduce((acc, [_type, lines]) => {
+				const type = /**  @type {ReleaseType} */ (_type);
+				lines.forEach((line) => {
+					if (line) {
+						acc.push(`${line}${type === 'major' ? ' (BREAKING)' : ''}`);
+					}
+				});
+				return acc;
+			}, /**  @type {string[]} */ ([]))
+			.sort((a, b) => {
+				const aSection = changesetSectionReg.exec(a)?.[1];
+				const bSection = changesetSectionReg.exec(b)?.[1];
+				return aSection === bSection
+					? a.localeCompare(b)
+					: CHANGESET_SECTIONS.indexOf(aSection) - CHANGESET_SECTIONS.indexOf(bSection);
+			});
+	},
 	async getReleaseLine(changeset, _type, options) {
 		if (!options || !options.repo) {
 			throw new Error(
@@ -86,7 +121,9 @@ const changelogFunctions = {
 			users === null ? '' : ` (${users})`,
 		].join('');
 
-		return `\n\n- ${firstLine}${futureLines.map((l) => `  ${l}`).join('\n')}${suffix}.\n`;
+		const line = `${firstLine}${futureLines.map((l) => `  ${l}`).join('\n')}${suffix}`;
+
+		return line ? `- ${line}.` : '';
 	},
 	async getDependencyReleaseLine() {
 		return '';
