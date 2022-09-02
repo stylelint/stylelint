@@ -115,7 +115,7 @@ a {
 
 ## Optional secondary options
 
-### `ignoreFunctions: ["/regex-as-string/", /regex/, "non-regex"]`
+### `ignoreFunctions: ["/regex/", /regex/, "non-regex"]`
 
 Ignore case of function names.
 
@@ -124,7 +124,7 @@ For example, with `"lower"`.
 Given:
 
 ```json
-["some-function", "/^get.*$/"]
+["--some-function", "/^--get.*$/"]
 ```
 
 The following patterns are considered problems:
@@ -132,28 +132,21 @@ The following patterns are considered problems:
 <!-- prettier-ignore -->
 ```css
 a {
-  color: sOmE-FuNcTiOn();
+  color: --sOmE-FuNcTiOn();
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a {
-  color: some-other-function();
+  color: --GetColor();
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a {
-  color: GetColor();
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  color: GET_COLOR();
+  color: --GET_COLOR();
 }
 ```
 
@@ -162,20 +155,20 @@ The following patterns are _not_ considered problems:
 <!-- prettier-ignore -->
 ```css
 a {
-  display: some-function();
+  display: --some-function();
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a {
-  display: getColor();
+  display: --getColor();
 }
 ```
 
 <!-- prettier-ignore -->
 ```css
 a {
-  display: get_color();
+  display: --get_color();
 }
 ```
