@@ -153,7 +153,7 @@
     "@changesets/cli": "^2.24.4",
     "@changesets/get-github-info": "^0.5.1",
     "@stylelint/prettier-config": "^2.0.0",
-    "@stylelint/remark-preset": "^3.0.0",
+    "@stylelint/remark-preset": "^4.0.0",
     "@types/balanced-match": "^1.0.2",
     "@types/debug": "^4.1.7",
     "@types/file-entry-cache": "^5.0.2",
