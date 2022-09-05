@@ -58,27 +58,27 @@ input::-moz-placeholder {}
 
 ## Optional secondary options
 
-### `ignorePseudoElements: ["/regex/", "string"]`
+### `ignorePseudoElements: ["/regex/", /regex/, "non-regex"]`
 
 Given:
 
 ```json
-["/^my-/", "pseudo-element"]
+["/^--my-/", "--pseudo-element"]
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a::pseudo-element {}
+a::--my-pseudo {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-a::my-pseudo {}
+a::--my-other-pseudo {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-a::my-other-pseudo {}
+a::--pseudo-element {}
 ```
