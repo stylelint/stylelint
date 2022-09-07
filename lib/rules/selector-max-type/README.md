@@ -151,7 +151,7 @@ div a + span {}
 #bar + div + span + a + span {}
 ```
 
-### `ignoreTypes: ["/regex/", /regex/, "string"]`
+### `ignoreTypes: ["/regex/", /regex/, "non-regex"]`
 
 Given:
 

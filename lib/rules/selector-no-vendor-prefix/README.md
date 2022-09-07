@@ -43,7 +43,7 @@ input::placeholder {}
 
 ## Optional secondary options
 
-### `ignoreSelectors: ["/regex/", "non-regex"]`
+### `ignoreSelectors: ["/regex/", /regex/, "non-regex"]`
 
 Ignore vendor prefixes for selectors.
 

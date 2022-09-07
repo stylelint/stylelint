@@ -13,7 +13,7 @@ Specify a pattern for ID selectors.
 
 `regex|string`
 
-A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
+A string will be translated into a RegExp like so `new RegExp(yourString)` — so be sure to escape properly.
 
 The selector value _after `#`_ will be checked. No need to include `#` in your pattern.
 

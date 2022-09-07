@@ -90,12 +90,12 @@ The following patterns are _not_ considered problems:
 
 ## Optional secondary options
 
-### `ignoreAttributes: ["/regex/", /regex/, "string"]`
+### `ignoreAttributes: ["/regex/", /regex/, "non-regex"]`
 
 Given:
 
 ```json
-["/^my-/", "dir"]
+["/^data-my-/", "dir"]
 ```
 
 For example, with `0`.
@@ -104,10 +104,10 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-[dir] [my-attr] {}
+[dir] [data-my-attr] {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-[dir] [my-other-attr] {}
+[dir] [data-my-other-attr] {}
 ```
