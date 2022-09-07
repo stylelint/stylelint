@@ -90,7 +90,7 @@ div {}
 
 ## Optional secondary options
 
-### `ignoreSelectors: ["/regex/", /regex/, "string"]`
+### `ignoreSelectors: ["/regex/", /regex/, "non-regex"]`
 
 Given:
 

@@ -128,9 +128,7 @@ The following patterns are considered problems:
 input, textarea {
   border: 2px;
 }
-
 textarea {
   border: 1px;
 }
-
 ```

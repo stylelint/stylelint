@@ -21,7 +21,7 @@ This rule ignores:
 Given:
 
 ```json
-["before", "/^my-/i"]
+["before", "/^--my-/i"]
 ```
 
 The following patterns are considered problems:
@@ -33,7 +33,7 @@ a::after {}
 
 <!-- prettier-ignore -->
 ```css
-a::not-my-pseudo-element {}
+a::--not-my-pseudo-element {}
 ```
 
 The following patterns are _not_ considered problems:
@@ -45,10 +45,10 @@ a::before {}
 
 <!-- prettier-ignore -->
 ```css
-a::my-pseudo-element {}
+a::--my-pseudo-element {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-a::MY-OTHER-pseudo-element {}
+a::--MY-OTHER-pseudo-element {}
 ```
