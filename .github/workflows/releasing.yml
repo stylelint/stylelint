@@ -14,6 +14,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
+    if: github.repository == 'stylelint/stylelint'
     name: Release
     runs-on: ubuntu-latest
     steps:
