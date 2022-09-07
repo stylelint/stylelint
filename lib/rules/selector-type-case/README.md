@@ -69,7 +69,7 @@ LI {}
 
 ## Optional secondary options
 
-### `ignoreTypes: ["/regex/", "non-regex"]`
+### `ignoreTypes: ["/regex/", /regex/, "non-regex"]`
 
 Given:
 
