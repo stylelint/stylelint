@@ -14,7 +14,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
-    if: github.repository == 'stylelint/stylelint'
+    if: github.repository == 'stylelint/stylelint' # Workaround. See https://github.com/changesets/action/issues/4
     name: Release
     runs-on: ubuntu-latest
     steps:
