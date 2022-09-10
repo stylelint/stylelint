@@ -69,7 +69,7 @@ a[href] {}
 
 ## Optional secondary options
 
-### `iterateThroughSelectorList: true | false` (default: `false`)
+### `iterateThroughList: true | false` (default: `false`)
 
 Iterate through each individual selector in a selector list.
 
