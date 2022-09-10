@@ -71,53 +71,44 @@ a[href] {}
 
 ### `iterateThroughSelectorList: true | false` (default: `false`)
 
-This option will apply your configuration to each individual selector in a selector list where each selector is seperated by a comma separated value. ','
+Iterate through each individual selector in a selector list.
 
-For example, with 'true'.
+For example, with `true`.
 
-Given the string:
+Given:
 
 ```json
-.foo
+[".foo"]
 ```
 
-The following patterns are considered problems:
+The following pattern is considered a problem:
 
 <!-- prettier-ignore -->
 ```css
-.bar, .foo { }
+.bar, .foo {}
 ```
 
-The following patterns are _not_ considered problems:
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css
-.bar .foo { }
+.bar .foo {}
 
 ###  `ignore: ["inside-block"]`
 
-Excludes any selectors that are inside a block. Use this if you only want to target selectors at the root level.
+Ignore selectors that are inside a block. 
 
-Given the string:
+Given:
 
 ```json
-.foo
+[".foo"]
 ```
 
-The following patterns are considered problems:
-
-<!-- prettier-ignore -->
-```css
-.foo { }
-```
-
-The following patterns are _not_ considered problems:
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css
 .bar {
-    .foo {
-
-    }
+  .foo {}
 }
 ```
