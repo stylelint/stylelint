@@ -6,7 +6,7 @@
 		"custom-property-pattern": [
 			"^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
 			{
-				"message": "Expected custom property name to be kebab-case; pattern=/%s/",
+				"message": "Expected custom property name to be kebab-case",
 				"severity": "warning"
 			}
 		],
