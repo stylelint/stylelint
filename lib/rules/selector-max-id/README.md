@@ -91,7 +91,7 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a:matches(#foo) {}
+a:is(#foo) {}
 ```
 
 The following patters are _not_ considered problems:
