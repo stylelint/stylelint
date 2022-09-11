@@ -109,6 +109,29 @@ For example, the following rule configuration would substitute in custom message
 
 Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
 
+Experimental feature: some rules support message arguments. For example, when configuring the `color-no-hex` rule the hex color can be used in message string:
+
+`.stylelintrc.js`:
+
+```js
+{
+  'color-no-hex': [true, {
+    message: (hex) => `Don't use hex colors like "${hex}"`,
+  }]
+}
+```
+
+`.stylelintrc.json`:
+
+<!-- prettier-ignore -->
+```json
+{
+  "color-no-hex": [true, {
+    "message": "Don't use hex colors like \"%s\""
+  }]
+}
+```
+
 ### `reportDisables`
 
 You can set the `reportDisables` secondary option to report any `stylelint-disable` comments for this rule, effectively disallowing authors to opt out of it.
