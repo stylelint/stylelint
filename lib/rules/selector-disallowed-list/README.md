@@ -69,7 +69,7 @@ a[href] {}
 
 ## Optional secondary options
 
-### `iterateThroughList: true | false` (default: `false`)
+### `splitList: true | false` (default: `false`)
 
 Iterate through each individual selector in a selector list.
 
@@ -94,7 +94,7 @@ The following pattern is _not_ considered a problem:
 ```css
 .bar .foo {}
 
-###  `ignore: ["inside-block"]`
+### `ignore: ["inside-block"]`
 
 Ignore selectors that are inside a block. 
 
