@@ -109,7 +109,7 @@ For example, the following rule configuration would substitute in custom message
 
 Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
 
-Experimental feature: some rules support message arguments. For example, when configuring the `color-no-hex` rule the hex color can be used in message string:
+Experimental feature: some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
 
 `.stylelintrc.js`:
 
@@ -132,7 +132,7 @@ Experimental feature: some rules support message arguments. For example, when co
 }
 ```
 
-With formats that don't support a function like JSON, you can use a `printf`-like format (e.g., `%s`).
+With formats that don't support a function like JSON, you can use a `printf`-like format (e.g., `%s`). On the other hand, with JS format, you can use both a `printf`-like format and a function.
 
 ### `reportDisables`
 
