@@ -132,6 +132,8 @@ Experimental feature: some rules support message arguments. For example, when co
 }
 ```
 
+With formats that don't support a function like JSON, you can use a `printf`-like format (e.g., `%s`).
+
 ### `reportDisables`
 
 You can set the `reportDisables` secondary option to report any `stylelint-disable` comments for this rule, effectively disallowing authors to opt out of it.
