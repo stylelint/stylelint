@@ -40,8 +40,9 @@ exports[`CLI --help 1`] = `
     --ignore-path, -i
 
       Path to a file containing patterns that describe files to ignore. The
-      path can be absolute or relative to process.cwd(). By default, stylelint
-      looks for .stylelintignore in process.cwd().
+      path can be absolute or relative to process.cwd(). You can repeat the
+      option to provide multiple paths. By default, Stylelint looks for
+      .stylelintignore in process.cwd().
 
     --ignore-pattern, --ip
 
