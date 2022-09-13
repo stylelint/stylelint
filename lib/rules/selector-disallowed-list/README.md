@@ -71,7 +71,7 @@ a[href] {}
 
 ### `splitList: true | false` (default: `false`)
 
-Iterate through each individual selector in a selector list.
+Split selector lists into individual selectors.
 
 For example, with `true`.
 
