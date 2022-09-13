@@ -97,7 +97,7 @@ The following pattern is _not_ considered a problem:
 
 ### `ignore: ["inside-block"]`
 
-Ignore selectors that are inside a block. 
+Ignore selectors that are inside a block.
 
 Given:
 
