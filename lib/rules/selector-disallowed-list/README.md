@@ -66,3 +66,50 @@ a
 ```css
 a[href] {}
 ```
+
+## Optional secondary options
+
+### `splitList: true | false` (default: `false`)
+
+Split selector lists into individual selectors.
+
+For example, with `true`.
+
+Given:
+
+```json
+[".foo"]
+```
+
+The following pattern is considered a problem:
+
+<!-- prettier-ignore -->
+```css
+.bar, .foo {}
+```
+
+The following pattern is _not_ considered a problem:
+
+<!-- prettier-ignore -->
+```css
+.bar .foo {}
+```
+
+### `ignore: ["inside-block"]`
+
+Ignore selectors that are inside a block.
+
+Given:
+
+```json
+[".foo"]
+```
+
+The following pattern is _not_ considered a problem:
+
+<!-- prettier-ignore -->
+```css
+.bar {
+  .foo {}
+}
+```
