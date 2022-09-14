@@ -223,7 +223,7 @@ declare module 'stylelint' {
 			 */
 			cwd?: string;
 			ignoreDisables?: boolean;
-			ignorePath?: string;
+			ignorePath?: string | string[];
 			ignorePattern?: string[];
 			reportDescriptionlessDisables?: boolean;
 			reportNeedlessDisables?: boolean;

@@ -1,0 +1,3 @@
+# Ignore file patterns are always relative to process.cwd()
+
+fixtures/empty-block-with-disables.css

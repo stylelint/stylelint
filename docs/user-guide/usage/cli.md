@@ -58,7 +58,7 @@ Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comme
 
 ### `--ignore-path, -i`
 
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, Stylelint looks for `.stylelintignore` in `process.cwd()`. [More info](options.md#ignorePath).
+Path to a file containing patterns that describe files to ignore. The path can be absolute or relative to `process.cwd()`. You can repeat the option to provide multiple paths. By default, Stylelint looks for `.stylelintignore` in `process.cwd()`. [More info](options.md#ignorePath).
 
 ### `--ignore-pattern, --ip`
 
