@@ -123,7 +123,7 @@ Within each cateogory, the rules are grouped by the [_thing_](http://apps.workfl
 
 ### Font weight
 
-- [`font-weight-notation`](../../../lib/rules/font-weight-notation/README.md): Require numeric or named (where possible) `font-weight` values. Also, when named values are expected, require only valid names.
+- [`font-weight-notation`](../../../lib/rules/font-weight-notation/README.md): Require numeric or named (where possible) `font-weight` values. Also, when named values are expected, require only valid names (Autofixable).
 
 ### Function
 

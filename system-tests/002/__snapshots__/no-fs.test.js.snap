@@ -106,6 +106,7 @@ Object {
       "url": "https://stylelint.io/user-guide/rules/list/font-family-name-quotes",
     },
     "font-weight-notation": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/list/font-weight-notation",
     },
     "function-url-no-scheme-relative": Object {

@@ -21,6 +21,8 @@ Valid font-weight names are `normal`, `bold`, `bolder`, and `lighter`.
 
 This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.
 
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
+
 ## Options
 
 `string`: `"numeric"|"named-where-possible"`
