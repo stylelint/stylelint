@@ -2,15 +2,15 @@
 
 ## 14.12.0
 
+- Added: support for multiple `--ignore-path` flags ([#6345](https://github.com/stylelint/stylelint/pull/6345)) ([@kimulaco](https://github.com/kimulaco)).
+- Added: experimental support for custom message arguments ([#6312](https://github.com/stylelint/stylelint/pull/6312)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: `declaration-block-no-duplicate-properties` autofix ([#6296](https://github.com/stylelint/stylelint/pull/6296)) ([@fpetrakov](https://github.com/fpetrakov)).
 - Added: `font-weight-notation` autofix ([#6347](https://github.com/stylelint/stylelint/pull/6347)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: `ignore: ["inside-block"]` and `splitList` to `selector-disallowed-list` ([#6334](https://github.com/stylelint/stylelint/pull/6334)) ([@mattmanuel90](https://github.com/mattmanuel90)).
-- Added: experimental support for custom message arguments ([#6312](https://github.com/stylelint/stylelint/pull/6312)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: regex support for `ignorePseudoClasses` option of `selector-pseudo-class-no-unknown` ([#6316](https://github.com/stylelint/stylelint/pull/6316)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: regex support for `ignorePseudoElements` option of `selector-pseudo-element-no-unknown` ([#6317](https://github.com/stylelint/stylelint/pull/6317)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: regex support for `ignoreSelectors` option of `selector-no-vendor-prefix` ([#6327](https://github.com/stylelint/stylelint/pull/6327)) ([@ybiquitous](https://github.com/ybiquitous)).
 - Added: regex support for `ignoreTypes` option of `selector-type-case` ([#6326](https://github.com/stylelint/stylelint/pull/6326)) ([@ybiquitous](https://github.com/ybiquitous)).
-- Added: support for multiple `--ignore-path` flags ([#6345](https://github.com/stylelint/stylelint/pull/6345)) ([@kimulaco](https://github.com/kimulaco)).
 - Fixed: `*-no-unknown` false positives for container queries ([#6318](https://github.com/stylelint/stylelint/pull/6318)) ([@fpetrakov](https://github.com/fpetrakov)).
 - Fixed: `font-family-name-quotes` false positives for interpolation and shorthand ([#6335](https://github.com/stylelint/stylelint/pull/6335)) ([@kimulaco](https://github.com/kimulaco)).
 - Fixed: `time-min-milliseconds` incorrect location for matching violating times ([#6319](https://github.com/stylelint/stylelint/pull/6319)) ([@kawaguchi1102](https://github.com/kawaguchi1102)).
