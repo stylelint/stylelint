@@ -320,7 +320,7 @@ For example:
 }
 ```
 
-[More info](usage/options.md#reportDescriptionlessDisables).
+[More info](usage/options.md#reportdescriptionlessdisables).
 
 ## `reportInvalidScopeDisables`
 
@@ -334,7 +334,7 @@ For example:
 }
 ```
 
-[More info](usage/options.md#reportInvalidScopeDisables).
+[More info](usage/options.md#reportinvalidscopedisables).
 
 ## `reportNeedlessDisables`
 
@@ -348,7 +348,7 @@ For example:
 }
 ```
 
-[More info](usage/options.md#reportNeedlessDisables).
+[More info](usage/options.md#reportneedlessdisables).
 
 ## `ignoreDisables`
 
@@ -362,7 +362,7 @@ For example:
 }
 ```
 
-[More info](usage/options.md#ignoreDisables).
+[More info](usage/options.md#ignoredisables).
 
 ## `ignoreFiles`
 
@@ -421,9 +421,9 @@ These properties provide extra validation for `stylelint-disable` comments. This
 
 The available reports are:
 
-- [`reportDescriptionlessDisables`](#reportDescriptionlessDisables)
-- [`reportInvalidScopeDisables`](#reportInvalidScopeDisables)
-- [`reportNeedlessDisables`](#reportNeedlessDisables)
+- [`reportDescriptionlessDisables`](#reportdescriptionlessdisables)
+- [`reportInvalidScopeDisables`](#reportinvalidscopedisables)
+- [`reportNeedlessDisables`](#reportneedlessdisables)
 
 They are configured like rules. They can have one of three values:
 

@@ -14,11 +14,11 @@ The CLI accepts:
 
 ### `--allow-empty-input, --aei`
 
-The process exits without throwing an error when glob pattern matches no files. [More info](options.md#allowEmptyInput).
+The process exits without throwing an error when glob pattern matches no files. [More info](options.md#allowemptyinput).
 
 ### `--cache-location`
 
-Path to a file or directory for the cache location. [More info](options.md#cacheLocation).
+Path to a file or directory for the cache location. [More info](options.md#cachelocation).
 
 ### `--cache`
 
@@ -30,19 +30,19 @@ Force enabling/disabling of color.
 
 ### `--config-basedir`
 
-Absolute path to the directory that relative paths defining "extends" and "plugins" are _relative to_. Only necessary if these values are relative paths. [More info](options.md#configBasedir).
+Absolute path to the directory that relative paths defining "extends" and "plugins" are _relative to_. Only necessary if these values are relative paths. [More info](options.md#configbasedir).
 
 ### `--config`
 
-Path to a JSON, YAML, or JS file that contains your [configuration object](../configure.md). [More info](options.md#configFile).
+Path to a JSON, YAML, or JS file that contains your [configuration object](../configure.md). [More info](options.md#configfile).
 
 ### `--custom-syntax`
 
-Specify a custom syntax to use on your code. [More info](options.md#customSyntax).
+Specify a custom syntax to use on your code. [More info](options.md#customsyntax).
 
 ### `--disable-default-ignores, --di`
 
-Disable the default ignores. Stylelint will not automatically ignore the contents of `node_modules`. [More info](options.md#disableDefaultIgnores).
+Disable the default ignores. Stylelint will not automatically ignore the contents of `node_modules`. [More info](options.md#disabledefaultignores).
 
 ### `--fix`
 
@@ -54,11 +54,11 @@ Specify the formatter to format your results. [More info](options.md#formatter).
 
 ### `--ignore-disables, --id`
 
-Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments. [More info](options.md#ignoreDisables).
+Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments. [More info](options.md#ignoredisables).
 
 ### `--ignore-path, -i`
 
-Path to a file containing patterns that describe files to ignore. The path can be absolute or relative to `process.cwd()`. You can repeat the option to provide multiple paths. By default, Stylelint looks for `.stylelintignore` in `process.cwd()`. [More info](options.md#ignorePath).
+Path to a file containing patterns that describe files to ignore. The path can be absolute or relative to `process.cwd()`. You can repeat the option to provide multiple paths. By default, Stylelint looks for `.stylelintignore` in `process.cwd()`. [More info](options.md#ignorepath).
 
 ### `--ignore-pattern, --ip`
 
@@ -66,7 +66,7 @@ Pattern of files to ignore (in addition to those in `.stylelintignore`).
 
 ### `--max-warnings, --mw`
 
-Set a limit to the number of warnings accepted. [More info](options.md#maxWarnings).
+Set a limit to the number of warnings accepted. [More info](options.md#maxwarnings).
 
 ### `--output-file, -o`
 
@@ -82,19 +82,19 @@ Only register problems for rules with an "error"-level severity (ignore "warning
 
 ### `--report-descriptionless-disables, --rdd`
 
-Produce a report of the `stylelint-disable` comments without a description. [More info](options.md#reportDescriptionlessDisables).
+Produce a report of the `stylelint-disable` comments without a description. [More info](options.md#reportdescriptionlessdisables).
 
 ### `--report-invalid-scope-disables, --risd`
 
-Produce a report of the `stylelint-disable` comments that used for rules that don't exist within the configuration object. [More info](options.md#reportInvalidScopeDisables).
+Produce a report of the `stylelint-disable` comments that used for rules that don't exist within the configuration object. [More info](options.md#reportinvalidscopedisables).
 
 ### `--report-needless-disables, --rd`
 
-Produce a report to clean up your codebase, keeping only the `stylelint-disable` comments that serve a purpose. [More info](options.md#reportNeedlessDisables).
+Produce a report to clean up your codebase, keeping only the `stylelint-disable` comments that serve a purpose. [More info](options.md#reportneedlessdisables).
 
 ### `--stdin-filename`
 
-A filename to assign the input. [More info](options.md#codeFilename).
+A filename to assign the input. [More info](options.md#codefilename).
 
 ### `--stdin`
 
