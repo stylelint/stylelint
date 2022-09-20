@@ -99,6 +99,7 @@ declare module 'stylelint' {
 			disableWritingFix?: boolean;
 			config?: Config;
 			ruleDisableFix?: boolean;
+			fileCache?: FileCache;
 		};
 
 		type EmptyResult = {
@@ -205,6 +206,8 @@ declare module 'stylelint' {
 
 		export type GetLintSourceOptions = GetPostcssOptions & {
 			existingPostcssResult?: PostCSS.Result;
+			cache?: boolean;
+			fileCache?: FileCache;
 		};
 
 		export type LinterOptions = {
