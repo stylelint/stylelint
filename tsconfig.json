@@ -15,7 +15,7 @@
 		"noUncheckedIndexedAccess": true,
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
-		"skipLibCheck": true,
+		"skipLibCheck": false,
 		"typeRoots": ["./types", "./node_modules/@types"]
 	},
 	"include": ["lib", "types", "package.json"],
