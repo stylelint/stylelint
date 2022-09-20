@@ -1,5 +1,10 @@
 # Changelog
 
+## 14.12.1
+
+- Fixed: `font-weight-notation` messages ([#6350](https://github.com/stylelint/stylelint/pull/6350)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: type declarations for custom message arguments ([#6354](https://github.com/stylelint/stylelint/pull/6354)) ([@stof](https://github.com/stof)).
+
 ## 14.12.0
 
 - Added: support for multiple `--ignore-path` flags ([#6345](https://github.com/stylelint/stylelint/pull/6345)) ([@kimulaco](https://github.com/kimulaco)).
