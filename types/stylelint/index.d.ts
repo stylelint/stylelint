@@ -356,7 +356,7 @@ declare module 'stylelint' {
 			ruleName: string;
 			result: PostcssResult;
 			message: RuleMessage;
-			messageArgs?: Parameters<RuleMessage> | undefined;
+			messageArgs?: Parameters<RuleMessageFunc> | undefined;
 			node: PostCSS.Node;
 			/**
 			 * The inclusive start index of the problem, relative to the node's
