@@ -2,7 +2,6 @@ declare module 'stylelint' {
 	import type * as PostCSS from 'postcss';
 	import type { GlobbyOptions } from 'globby';
 	import type { cosmiconfig } from 'cosmiconfig';
-	import * as FileCache from '../../lib/utils/FileCache';
 
 	namespace stylelint {
 		export type Severity = 'warning' | 'error';
@@ -100,7 +99,7 @@ declare module 'stylelint' {
 			disableWritingFix?: boolean;
 			config?: Config;
 			ruleDisableFix?: boolean;
-			fileCache?: InstanceType<typeof FileCache>;
+			fileCache?: FileCache;
 		};
 
 		type EmptyResult = {
@@ -208,7 +207,7 @@ declare module 'stylelint' {
 		export type GetLintSourceOptions = GetPostcssOptions & {
 			existingPostcssResult?: PostCSS.Result;
 			cache?: boolean;
-			fileCache?: InstanceType<typeof FileCache>;
+			fileCache?: FileCache;
 		};
 
 		export type LinterOptions = {
