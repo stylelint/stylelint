@@ -2,6 +2,7 @@ declare module 'stylelint' {
 	import type * as PostCSS from 'postcss';
 	import type { GlobbyOptions } from 'globby';
 	import type { cosmiconfig } from 'cosmiconfig';
+	import type * as fileEntryCache from 'file-entry-cache';
 
 	namespace stylelint {
 		export type Severity = 'warning' | 'error';
@@ -86,6 +87,16 @@ declare module 'stylelint' {
 		};
 
 		export type DisabledWarning = { line: number; rule: string };
+
+		type FileCache = {
+			_fileCache: fileEntryCache.FileEntryCache;
+			_hashOfConfig: string;
+			hashOfConfig: string;
+			hasFileChanged: (absoluteFilepath: string) => boolean;
+			reconcile: () => void;
+			destroy: () => void;
+			removeEntry: (absoluteFilepath: string) => void;
+		};
 
 		export type StylelintPostcssResult = {
 			ruleSeverities: { [ruleName: string]: Severity };
