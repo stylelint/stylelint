@@ -212,6 +212,7 @@ declare module 'stylelint' {
 			globbyOptions?: GlobbyOptions;
 			cache?: boolean;
 			cacheLocation?: string;
+			cacheStrategy?: string;
 			code?: string;
 			codeFilename?: string;
 			config?: Config;
