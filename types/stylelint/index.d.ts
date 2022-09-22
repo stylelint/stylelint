@@ -91,7 +91,7 @@ declare module 'stylelint' {
 		type FileCache = {
 			_fileCache: fileEntryCache.FileEntryCache;
 			_hashOfConfig: string;
-			hashOfConfig: string;
+			calcHashOfConfig: (config: Config) => void;
 			hasFileChanged: (absoluteFilepath: string) => boolean;
 			reconcile: () => void;
 			destroy: () => void;
@@ -110,7 +110,6 @@ declare module 'stylelint' {
 			disableWritingFix?: boolean;
 			config?: Config;
 			ruleDisableFix?: boolean;
-			fileCache?: FileCache;
 		};
 
 		type EmptyResult = {
@@ -218,7 +217,6 @@ declare module 'stylelint' {
 		export type GetLintSourceOptions = GetPostcssOptions & {
 			existingPostcssResult?: PostCSS.Result;
 			cache?: boolean;
-			fileCache?: FileCache;
 		};
 
 		export type LinterOptions = {
@@ -531,6 +529,7 @@ declare module 'stylelint' {
 			_extendExplorer: ReturnType<typeof cosmiconfig>;
 			_specifiedConfigCache: Map<Config, Promise<CosmiconfigResult>>;
 			_postcssResultCache: Map<string, PostCSS.Result>;
+			_fileCache: FileCache;
 
 			_getPostcssResult: (options?: GetPostcssOptions) => Promise<PostCSS.Result>;
 			_lintSource: (options: GetLintSourceOptions) => Promise<PostcssResult>;
