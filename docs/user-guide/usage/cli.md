@@ -20,6 +20,10 @@ The process exits without throwing an error when glob pattern matches no files. 
 
 Path to a file or directory for the cache location. [More info](options.md#cachelocation).
 
+### `--cache-strategy`
+
+Strategy for the cache to use for detecting changed files. Can be either "metadata" or "content". [More info](options.md#cachestrategy)
+
 ### `--cache`
 
 Store the results of processed files so that Stylelint only operates on the changed ones. By default, the cache is stored in `./.stylelintcache` in `process.cwd()`. [More info](options.md#cache).

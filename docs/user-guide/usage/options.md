@@ -110,6 +110,14 @@ If a directory is specified, Stylelint creates a cache file inside the specified
 
 _If the directory of `cacheLocation` does not exist, make sure you add a trailing `/` on \*nix systems or `\` on Windows. Otherwise, Stylelint assumes the path to be a file._
 
+## `cacheStrategy`
+
+CLI flag: `--cache-strategy`
+
+Strategy for the cache to use for detecting changed files. Can be either "metadata" or "content".
+
+The "content" strategy can be useful in cases where the modification time of your files change even if their contents have not. For example, this can happen during git operations like "git clone" because git does not track file modification time.
+
 ## `maxWarnings`
 
 CLI flags: `--max-warnings, --mw`
