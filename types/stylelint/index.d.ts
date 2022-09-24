@@ -89,8 +89,6 @@ declare module 'stylelint' {
 		export type DisabledWarning = { line: number; rule: string };
 
 		type FileCache = {
-			_fileCache: fileEntryCache.FileEntryCache;
-			_hashOfConfig: string;
 			calcHashOfConfig: (config: Config) => void;
 			hasFileChanged: (absoluteFilepath: string) => boolean;
 			reconcile: () => void;
