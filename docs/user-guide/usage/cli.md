@@ -22,7 +22,7 @@ Path to a file or directory for the cache location. [More info](options.md#cache
 
 ### `--cache-strategy`
 
-Strategy for the cache to use for detecting changed files. Can be either "metadata" or "content". [More info](options.md#cachestrategy)
+Strategy for the cache to use for detecting changed files. Can be either "metadata" or "content". [More info](options.md#cachestrategy).
 
 ### `--cache`
 
