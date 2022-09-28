@@ -1,5 +1,11 @@
 # Changelog
 
+## 14.13.0
+
+- Added: `cacheStrategy` option ([#6357](https://github.com/stylelint/stylelint/pull/6357)) ([@kaorun343](https://github.com/kaorun343)).
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::highlight` pseudo-element ([#6367](https://github.com/stylelint/stylelint/pull/6367)) ([@jathak](https://github.com/jathak)).
+- Fixed: cache refresh when config is changed ([#6356](https://github.com/stylelint/stylelint/pull/6356)) ([@kimulaco](https://github.com/kimulaco)).
+
 ## 14.12.1
 
 - Fixed: `font-weight-notation` messages ([#6350](https://github.com/stylelint/stylelint/pull/6350)) ([@ybiquitous](https://github.com/ybiquitous)).
