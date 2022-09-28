@@ -40,7 +40,7 @@
     "jest": "jest",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
     "lint:formatting": "prettier . --check --cache",
-    "lint:js": "eslint . --cache --max-warnings=0",
+    "lint:js": "eslint . --cache --max-warnings=0 --ext .js,.mjs",
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc",
     "prepare": "husky install && patch-package",
@@ -52,8 +52,8 @@
     "watch": "jest --watch"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,json,md,ts,yml}": "prettier --write"
+    "*.{js,mjs}": "eslint --cache --fix",
+    "*.{js,json,md,mjs,ts,yml}": "prettier --write"
   },
   "prettier": "@stylelint/prettier-config",
   "eslintConfig": {
