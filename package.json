@@ -44,12 +44,13 @@
     "lint:md": "remark . --quiet --frail",
     "lint:types": "tsc",
     "prepare": "husky install && patch-package",
-    "release": "np",
+    "release": "np --no-release-draft",
     "pretest": "npm run lint",
     "test": "jest --coverage",
     "version": "changeset version",
     "postversion": "git restore package.json",
-    "watch": "jest --watch"
+    "watch": "jest --watch",
+    "changelog-to-github-release": "remark --quiet --use ./scripts/remark-changelog-to-github-release.mjs CHANGELOG.md"
   },
   "lint-staged": {
     "*.{js,mjs}": "eslint --cache --fix",
