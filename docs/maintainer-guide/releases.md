@@ -13,9 +13,8 @@
    3. Open a terminal window in the `stylelint` repository.
    4. Run `npm run release`.
    5. Select the version from the [`np`](https://github.com/sindresorhus/np) prompt that matches the one in the changelog.
-   6. Copy and paste the latest changelog entries from [changelog](../../CHANGELOG.md) into the GitHub release page when it opens.
-   7. Confirm the publishing of the package to [www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint).
-   8. Confirm the creation of the release at [github.com/stylelint/stylelint/releases](https://github.com/stylelint/stylelint/releases).
+   6. Confirm the publishing of the package to [www.npmjs.com/package/stylelint](https://www.npmjs.com/package/stylelint).
+   7. Confirm the creation of the release at [github.com/stylelint/stylelint/releases](https://github.com/stylelint/stylelint/releases).
 4. If necessary, release `stylelint-config-*`:
    1. Change to the `stylelint-config-*` repository.
    2. Repeat steps 5 to 8 above for that repository.
