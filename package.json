@@ -61,6 +61,12 @@
     "extends": [
       "stylelint"
     ],
+    "rules": {
+      "func-names": [
+        "error",
+        "as-needed"
+      ]
+    },
     "globals": {
       "__dirname": true,
       "module": true,
