@@ -38,8 +38,7 @@ a { transform: scale(1); }
 
 <!-- prettier-ignore -->
 ```css
-a {
-columns: 2; }
+a { columns: 2; }
 ```
 
 <!-- prettier-ignore -->
