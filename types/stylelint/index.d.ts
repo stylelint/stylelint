@@ -94,6 +94,8 @@ declare module 'stylelint' {
 			reconcile: () => void;
 			destroy: () => void;
 			removeEntry: (absoluteFilepath: string) => void;
+			setPostcssResult: (absoluteFilepath: string, result: PostcssResult) => void;
+			getPostcssResult: (absoluteFilepath: string) => PostcssResult | undefined;
 		};
 
 		export type StylelintPostcssResult = {
