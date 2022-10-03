@@ -1,6 +1,6 @@
 # font-family-name-quotes
 
-Require or disallow quotes for font family names
+Require or disallow quotes for font family names.
 
 <!-- prettier-ignore -->
 ```css
