@@ -36,7 +36,7 @@ You can avoid errors with these `no-*` rules.
 
 ### Duplicate
 
-Disallow duplicates with these `*-no-duplicate` rules.
+Disallow duplicates with these `no-duplicate` rules.
 
 - [`declaration-block-no-duplicate-custom-properties`](../../lib/rules/declaration-block-no-duplicate-custom-properties/README.md): Disallow duplicate custom properties within declaration blocks.
 - [`declaration-block-no-duplicate-properties`](../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks (Autofixable).
