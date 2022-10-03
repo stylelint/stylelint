@@ -24,6 +24,12 @@ Unless it applies to the whole source, then there is no first part.
 
 You can avoid errors with these `no` rules.
 
+### Descending
+
+Disallow descending things with these `no-descending` rules.
+
+- [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
+
 ### Duplicate
 
 Disallow duplicates with these `no-duplicate` rules.
@@ -35,12 +41,6 @@ Disallow duplicates with these `no-duplicate` rules.
 - [`no-duplicate-at-import-rules`](../../lib/rules/no-duplicate-at-import-rules/README.md): Disallow duplicate `@import` rules.
 - [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
 
-### Descending
-
-Disallow descending things with these `no-descending` rules.
-
-- [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
-
 ### Empty
 
 Disallow empty things with these `no-empty` rules.
@@ -48,12 +48,6 @@ Disallow empty things with these `no-empty` rules.
 - [`block-no-empty`](../../lib/rules/block-no-empty/README.md): Disallow empty blocks.
 - [`comment-no-empty`](../../lib/rules/comment-no-empty/README.md): Disallow empty comments.
 - [`no-empty-source`](../../lib/rules/no-empty-source/README.md): Disallow empty sources.
-
-### Irregular
-
-Disallow irregular things with these `no-irregular` rules.
-
-- [`no-irregular-whitespace`](../../lib/rules/no-irregular-whitespace/README.md): Disallow irregular whitespace.
 
 ### Invalid
 
@@ -66,6 +60,12 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 - [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow invalid double-slash comments.
 - [`no-invalid-position-at-import-rule`](../../lib/rules/no-invalid-position-at-import-rule/README.md): Disallow invalid position `@import` rules.
 - [`string-no-newline`](../../lib/rules/string-no-newline/README.md): Disallow invalid newlines within strings.
+
+### Irregular
+
+Disallow irregular things with these `no-irregular` rules.
+
+- [`no-irregular-whitespace`](../../lib/rules/no-irregular-whitespace/README.md): Disallow irregular whitespace.
 
 ### Missing
 
