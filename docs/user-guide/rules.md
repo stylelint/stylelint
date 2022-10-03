@@ -84,9 +84,9 @@ Disallow missing things with these `*-no-missing` rules.
 - [`custom-property-no-missing-var-function`](../../lib/rules/custom-property-no-missing-var-function/README.md): Disallow missing `var` function for custom properties.
 - [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md): Disallow missing generic family keyword within font families.
 
-### Nonstandard
+### Non-standard
 
-Disallow nonstandard things with these `*-no-nonstandard` rules.
+Disallow non-standard things with these `*-no-nonstandard` rules.
 
 - [`function-linear-gradient-no-nonstandard-direction`](../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow non-standard direction values for linerar gradient functions.
 
