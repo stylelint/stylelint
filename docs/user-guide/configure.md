@@ -417,7 +417,7 @@ Processors can also only be used with the CLI and the Node.js API, not with the 
 
 ## `report*`
 
-These properties provide extra validation for `stylelint-disable` comments. This can be helpful for enforcing useful and well-documented disables.
+These `report*` properties provide extra validation for `stylelint-disable` comments. This can be helpful for enforcing useful and well-documented disables.
 
 The available reports are:
 
