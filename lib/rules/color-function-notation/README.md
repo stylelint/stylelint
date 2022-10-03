@@ -1,6 +1,6 @@
 # color-function-notation
 
-Specify modern or legacy notation for applicable color-functions.
+Specify modern or legacy notation for color-functions.
 
 <!-- prettier-ignore -->
 ```css

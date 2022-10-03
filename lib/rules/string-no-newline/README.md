@@ -1,6 +1,6 @@
 # string-no-newline
 
-Disallow (unescaped) newlines in strings.
+Disallow invalid newlines within strings.
 
 <!-- prettier-ignore -->
 ```css

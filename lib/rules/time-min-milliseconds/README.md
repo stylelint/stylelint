@@ -1,6 +1,6 @@
 # time-min-milliseconds
 
-Specify the minimum number of milliseconds for time values.
+Limit the minimum number of milliseconds for time values.
 
 <!-- prettier-ignore -->
 ```css

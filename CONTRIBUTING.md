@@ -17,10 +17,10 @@ Not only will you help Stylelint thrive, but you may learn a thing or two — ab
 
 ## Code contributions
 
-To start coding, you'll need:
+To start coding, you'll need the:
 
-- a minimum of [Node.js](https://nodejs.org/en/) v10, though we do recommend using the latest LTS release
-- the latest [npm](https://www.npmjs.com/)
+- LTS release of [Node.js](https://nodejs.org/en/)
+- latest [npm](https://www.npmjs.com/)
 
 Then:
 

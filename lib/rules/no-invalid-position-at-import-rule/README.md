@@ -1,6 +1,6 @@
 # no-invalid-position-at-import-rule
 
-Disallow invalid position `@import` rules within a stylesheet.
+Disallow invalid position `@import` rules.
 
 <!-- prettier-ignore -->
 ```css

@@ -4,8 +4,8 @@ One of our frequently visited documentation sections might answer your query:
 
 - [Turning off rules](docs/user-guide/configure.md#rules)
 - [Ignoring code](docs/user-guide/ignore-code.md)
-- [Using regexes to configure rules](docs/user-guide/rules/regex.md)
-- [Combining rules to enforce your code style](docs/user-guide/rules/combine.md)
+- [Using regexes to configure rules](docs/user-guide/regex.md)
+- [Combining rules to enforce your code style](docs/user-guide/combine.md)
 
 If they don't, then post your query on [Stack Overflow](https://stackoverflow.com/questions/tagged/stylelint).
 
