@@ -65,7 +65,7 @@ Every rule _must have_ a primary option. For example, in:
 - `"font-weight-notation": "numeric"`, the primary option is `"numeric"`
 - `"selector-max-type": [2, { "ignoreTypes": ["custom"] }]`, the primary option is `2`
 
-Rules are named to encourage explici primary options. For example, `font-weight-notation: "numeric"|"named-where-possible"` rather than `font-weight-numeric: "always"|"never"`. As `font-weight-named: "never"` _implies_ always numeric, whereas `font-weight-notation: "numeric"` makes it _explicit_.
+Rules are named to encourage explicit primary options. For example, `font-weight-notation: "numeric"|"named-where-possible"` rather than `font-weight-numeric: "always"|"never"`. As `font-weight-named: "never"` _implies_ always numeric, whereas `font-weight-notation: "numeric"` makes it _explicit_.
 
 #### Secondary
 
