@@ -1,6 +1,6 @@
 # font-family-no-duplicate-names
 
-Disallow duplicate font family names.
+Disallow duplicate names within font families
 
 <!-- prettier-ignore -->
 ```css

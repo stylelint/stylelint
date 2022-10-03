@@ -1,6 +1,6 @@
 # function-calc-no-unspaced-operator
 
-Disallow an unspaced operator within `calc` functions.
+Disallow invalid unspaced operator within `calc` functions.
 
 <!-- prettier-ignore -->
 ```css

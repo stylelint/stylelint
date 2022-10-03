@@ -1,6 +1,6 @@
 # font-family-name-quotes
 
-Specify whether or not quotation marks should be used around font family names.
+Require or disallow quotes for font family names
 
 <!-- prettier-ignore -->
 ```css
