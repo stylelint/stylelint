@@ -134,7 +134,7 @@
     "micromatch": "^4.0.5",
     "normalize-path": "^3.0.0",
     "picocolors": "^1.0.0",
-    "postcss": "^8.4.16",
+    "postcss": "^8.4.17",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^6.0.0",
@@ -151,7 +151,7 @@
     "write-file-atomic": "^4.0.2"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.24.4",
+    "@changesets/cli": "^2.25.0",
     "@changesets/get-github-info": "^0.5.1",
     "@stylelint/prettier-config": "^2.0.0",
     "@stylelint/remark-preset": "^4.0.0",
@@ -189,7 +189,7 @@
     "postcss-scss": "^4.0.5",
     "remark-cli": "^11.0.0",
     "sugarss": "^4.0.1",
-    "typescript": "^4.8.3"
+    "typescript": "^4.8.4"
   },
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
