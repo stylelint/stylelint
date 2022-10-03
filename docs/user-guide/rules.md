@@ -22,7 +22,7 @@ Unless it applies to the whole source, then there is no first part.
 
 ## Avoid errors
 
-You can avoid errors with these `no-*` rules.
+You can avoid errors with these `no` rules.
 
 ### Duplicate
 
@@ -37,13 +37,13 @@ Disallow duplicates with these `no-duplicate` rules.
 
 ### Descending
 
-Disallow descending things with these `*-no-descending` rules.
+Disallow descending things with these `no-descending` rules.
 
 - [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
 
 ### Empty
 
-Disallow empty things with these `*-no-empty` rules.
+Disallow empty things with these `no-empty` rules.
 
 - [`block-no-empty`](../../lib/rules/block-no-empty/README.md): Disallow empty blocks.
 - [`comment-no-empty`](../../lib/rules/comment-no-empty/README.md): Disallow empty comments.
@@ -51,7 +51,7 @@ Disallow empty things with these `*-no-empty` rules.
 
 ### Irregular
 
-Disallow irregular things with these `*-no-irregular` rules.
+Disallow irregular things with these `no-irregular` rules.
 
 - [`no-irregular-whitespace`](../../lib/rules/no-irregular-whitespace/README.md): Disallow irregular whitespace.
 
@@ -69,26 +69,26 @@ Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 
 ### Missing
 
-Disallow missing things with these `*-no-missing` rules.
+Disallow missing things with these `no-missing` rules.
 
 - [`custom-property-no-missing-var-function`](../../lib/rules/custom-property-no-missing-var-function/README.md): Disallow missing `var` function for custom properties.
 - [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md): Disallow missing generic family keyword within font families.
 
 ### Non-standard
 
-Disallow non-standard things with these `*-no-nonstandard` rules.
+Disallow non-standard things with these `no-nonstandard` rules.
 
 - [`function-linear-gradient-no-nonstandard-direction`](../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow non-standard direction values for linerar gradient functions.
 
 ### Overrides
 
-Disallow overrides with these `*-no-overrides` rules.
+Disallow overrides with these `no-overrides` rules.
 
 - [`declaration-block-no-shorthand-property-overrides`](../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
 
 ### Unknown
 
-Disallow unknown things with these `*-no-unknown` rules.
+Disallow unknown things with these `no-unknown` rules.
 
 - [`annotation-no-unknown`](../../lib/rules/annotation-no-unknown/README.md): Disallow unknown annotations.
 - [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md): Disallow unknown at-rules.
@@ -103,11 +103,11 @@ Disallow unknown things with these `*-no-unknown` rules.
 
 ## Enforce non-stylistic conventions
 
-You can enforce non-stylistic conventions with these `no-*` and `*-list` rules. They are powerful rules for making your CSS consistent. You'll need to configure most of them to suit your needs.
+You can enforce non-stylistic conventions with these `no` and `list` rules. They are powerful rules for making your CSS consistent. You'll need to configure most of them to suit your needs.
 
 ### Allowed, disallowed & required
 
-Allow, disallow or require things with these `*-allowed-list`, `*-disallowed-list`, `*-required-list` and `no-*` rules.
+Allow, disallow or require things with these `allowed-list`, `disallowed-list`, `required-list` and `no` rules.
 
 #### At-rule
 
@@ -189,7 +189,7 @@ Allow, disallow or require things with these `*-allowed-list`, `*-disallowed-lis
 
 ### Max & min
 
-Apply limits with these `max-*` and `min-*` rules.
+Apply limits with these `max` and `min` rules.
 
 - [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declarations within a single-line declaration block.
 - [`declaration-property-max-values`](../../lib/rules/declaration-property-max-values/README.md): Limit the number of values for a list of properties within declarations.
@@ -208,7 +208,7 @@ Apply limits with these `max-*` and `min-*` rules.
 
 ### Notation
 
-Enforce one representation of things that have multiple with these `*-notation` (sometimes implicit) rules.
+Enforce one representation of things that have multiple with these `notation` (sometimes implicit) rules.
 
 - [`alpha-value-notation`](../../lib/rules/alpha-value-notation/README.md): Specify percentage or number notation for alpha-values (Autofixable).
 - [`color-function-notation`](../../lib/rules/color-function-notation/README.md): Specify modern or legacy notation for color-functions (Autofixable).
@@ -222,7 +222,7 @@ Enforce one representation of things that have multiple with these `*-notation` 
 
 ### Pattern
 
-Enforce naming conventions with these `*-pattern` rules.
+Enforce naming conventions with these `pattern` rules.
 
 - [`comment-pattern`](../../lib/rules/comment-pattern/README.md): Specify a pattern for comments.
 - [`custom-media-pattern`](../../lib/rules/custom-media-pattern/README.md): Specify a pattern for custom media query names.
@@ -234,7 +234,7 @@ Enforce naming conventions with these `*-pattern` rules.
 
 ### Quotes
 
-Require or disallow quotes with these `*-quotes` rules.
+Require or disallow quotes with these `quotes` rules.
 
 - [`font-family-name-quotes`](../../lib/rules/font-family-name-quotes/README.md): Require or disallow quotes for font family names (Autofixable).
 - [`function-url-quotes`](../../lib/rules/function-url-quotes/README.md): Require or disallow quotes for urls.
@@ -242,7 +242,7 @@ Require or disallow quotes with these `*-quotes` rules.
 
 ### Redundant
 
-Disallow redundancy with these `no-redundant-*` rules.
+Disallow redundancy with these `no-redundant` rules.
 
 - [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow redundant longhand properties within declaration-block.
 - [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values within shorthand properties (Autofixable).
