@@ -4,10 +4,7 @@ Please help us create, enhance, and debug our rules!
 
 ## Add a rule
 
-You should:
-
-1. Get yourself ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
-2. Familiarize yourself with the [conventions and patterns](../user-guide/rules/about.md) for rules.
+You should get yourself ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
 
 ### Write the rule
 
@@ -57,7 +54,45 @@ Use the:
 
 ### Add options
 
+Each rule can accept a primary and an optional secondary option.
+
 Only add an option to a rule if it addresses a _requested_ use case to avoid polluting the tool with unused features.
+
+#### Primary
+
+Every rule _must have_ a primary option. For example, in:
+
+- `"font-weight-notation": "numeric"`, the primary option is `"numeric"`
+- `"selector-max-type": [2, { "ignoreTypes": ["custom"] }]`, the primary option is `2`
+
+Rules are named to encourage explicit primary options. For example, `font-weight-notation: "numeric"|"named-where-possible"` rather than `font-weight-numeric: "always"|"never"`. As `font-weight-named: "never"` _implies_ always numeric, whereas `font-weight-notation: "numeric"` makes it _explicit_.
+
+#### Secondary
+
+Some rules require extra flexibility to address edge cases. These can use an optional secondary options object. For example, in:
+
+- `"font-weight-notation": "numeric"` there is no secondary options object
+- `"selector-max-type": [2, { "ignore": ["descendant] }]`, the secondary options object is `{ "ignore": ["descendant] }`
+
+The most typical secondary options are `"ignore": []` and `"except": []`.
+
+##### Keyword `"ignore"` and `"except"`
+
+The `"ignore"` and `"except"` options accept an array of predefined keyword options, e.g. `["relative", "first-nested", "descendant"]`:
+
+- `"ignore"` skips-over a particular pattern
+- `"except"` inverts the primary option for a particular pattern
+
+##### User-defined `"ignore*"`
+
+Some rules accept a _user-defined_ list of things to ignore. This takes the form of `"ignore<Things>": []`, e.g. `"ignoreAtRules": []`.
+
+The `ignore*` options let users ignore non-standard syntax at the _configuration level_. For example, the:
+
+- `:global` and `:local` pseudo-classes introduced in CSS Modules
+- `@debug` and `@extend` at-rules introduced in SCSS
+
+Methodologies and language extensions come and go quickly, and this approach ensures our codebase does not become littered with code for obsolete things.
 
 If your rule can accept an array as its primary option, you must designate this by setting the property `primaryOptionArray = true` on your rule function. For example:
 
@@ -74,6 +109,18 @@ module.exports = rule;
 ```
 
 There is one caveat here: If your rule accepts a primary option array, it cannot also accept a primary option object. Whenever possible, if you want your rule to accept a primary option array, you should make an array the only possibility, instead of allowing for various data structures.
+
+### Add problem messages
+
+Add problem messages in form of:
+
+- "Expected \[something\] \[in some context\]"
+- "Unexpected \[something\] \[in some context\]"
+
+If the rule has autofix use:
+
+- 'Expected "\[unfixed\]" to be "\[fixed\]"' for short strings
+- 'Expected "\[primary\]" ... notation' for long strings
 
 ### Add autofix
 
@@ -121,6 +168,7 @@ You should test errors in multiple positions, not the same place every time and 
 - the `a` type selector by default
 - the `@media` at-rules by default
 - the `color` property by default
+- the `red` value by default
 - _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
 
 #### Commonly overlooked edge-cases
@@ -139,6 +187,24 @@ You should ask yourself how does your rule handle:
 - whitespace and punctuation (e.g. comparing `rgb(0,0,0)` with `rgb(0, 0, 0)`)?
 
 ### Write the README
+
+Each rule is accompanied by a README in the following format:
+
+1. Rule name.
+2. Single-line description.
+3. Prototypical code example.
+4. Expanded description (if necessary).
+5. Options.
+6. Example patterns that are considered problems (for each option value).
+7. Example patterns that are _not_ considered problems (for each option value).
+8. Optional options (if applicable).
+
+The single-line description is in the form of:
+
+- "Disallow ..." for `no` rules
+- "Limit ..." for `max` rules
+- "Require ..." for rules that accept `"always"` and `"never"` options
+- "Specify ..." for everything else
 
 You should:
 
@@ -166,7 +232,7 @@ Look at the READMEs of other rules to glean more conventional patterns.
 The final step is to add references to the new rule in the following places:
 
 - [The rules `index.js` file](../../lib/rules/index.js)
-- [The list of rules](../user-guide/rules/list.md)
+- [The list of rules](../user-guide/rules.md)
 
 ## Add an option to a rule
 

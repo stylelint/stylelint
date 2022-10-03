@@ -21,7 +21,7 @@ The configuration object has the following properties:
 
 ## `rules`
 
-Rules determine what the linter looks for and complains about. There are [over 170 rules](rules/list.md) built into Stylelint.
+Rules determine what the linter looks for and complains about. There are [over 170 rules](rules.md) built into Stylelint.
 
 _No rules are turned on by default and there are no default values. You must explicitly configure each rule to turn it on._
 
@@ -183,8 +183,8 @@ You can _extend_ an existing configuration (whether your own or a third-party on
 
 Popular configurations include:
 
-- [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended) - turns on just the rules that [avoid errors](rules/list.md#avoid-errors)
-- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) - extends recommended one by turning on rules that [enforce conventions](rules/list.md#enforce-conventions)
+- [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended) - turns on just the rules that [avoid errors](rules.md#avoid-errors)
+- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) - extends recommended one by turning on rules that [enforce conventions](rules.md#enforce-non-stylistic-conventions)
 
 You'll find more in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#configs).
 
@@ -310,7 +310,7 @@ You can set the default severity level for all rules that do not have a severity
 
 ## `reportDescriptionlessDisables`
 
-Report `stylelint-disable` comments without a description. A [`report*` property](#report-properties) property.
+Report `stylelint-disable` comments without a description. A [`report*`](#report) property.
 
 For example:
 
@@ -324,7 +324,7 @@ For example:
 
 ## `reportInvalidScopeDisables`
 
-Report `stylelint-disable` comments that don't match rules that are specified in the configuration object. A [`report*` property](#report-properties) property.
+Report `stylelint-disable` comments that don't match rules that are specified in the configuration object. A [`report*`](#report) property.
 
 For example:
 
@@ -338,7 +338,7 @@ For example:
 
 ## `reportNeedlessDisables`
 
-Report `stylelint-disable` comments that don't actually match any lints that need to be disabled. A [`report*` property](#report-properties) property.
+Report `stylelint-disable` comments that don't actually match any lints that need to be disabled. A [`report*`](#report) property.
 
 For example:
 
@@ -415,9 +415,9 @@ If your processor has options, make that item an array whose first item is the "
 
 Processors can also only be used with the CLI and the Node.js API, not with the PostCSS plugin. (The PostCSS plugin ignores them.)
 
-## `report*` properties
+## `report*`
 
-These properties provide extra validation for `stylelint-disable` comments. This can be helpful for enforcing useful and well-documented disables.
+These `report*` properties provide extra validation for `stylelint-disable` comments. This can be helpful for enforcing useful and well-documented disables.
 
 The available reports are:
 

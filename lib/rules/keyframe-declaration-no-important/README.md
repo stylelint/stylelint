@@ -1,6 +1,6 @@
 # keyframe-declaration-no-important
 
-Disallow `!important` within keyframe declarations.
+Disallow invalid `!important` within keyframe declarations.
 
 <!-- prettier-ignore -->
 ```css

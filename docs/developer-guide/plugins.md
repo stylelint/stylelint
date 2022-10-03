@@ -1,6 +1,6 @@
 # Writing plugins
 
-Plugins are rules and sets of rules built by the community.
+Plugins are rules and sets of rules built by the community. They might support a particular methodology or toolset, or apply to non-standard constructs and features, or be for specific use cases.
 
 We recommend your plugin adheres to [Stylelint's conventions](rules.md) for:
 

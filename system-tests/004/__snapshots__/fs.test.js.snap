@@ -46,7 +46,7 @@ Object {
   ],
   "ruleMetadata": Object {
     "block-no-empty": Object {
-      "url": "https://stylelint.io/user-guide/rules/list/block-no-empty",
+      "url": "https://stylelint.io/user-guide/rules/block-no-empty",
     },
   },
 }
@@ -78,7 +78,7 @@ Object {
   ],
   "ruleMetadata": Object {
     "block-no-empty": Object {
-      "url": "https://stylelint.io/user-guide/rules/list/block-no-empty",
+      "url": "https://stylelint.io/user-guide/rules/block-no-empty",
     },
   },
 }
