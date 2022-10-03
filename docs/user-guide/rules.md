@@ -1,34 +1,24 @@
 # Rules
 
-The built-in rules:
-
-- apply to standard CSS syntax only
-- are generally useful; not tied to idiosyncratic patterns
-- have a clear and unambiguous finished state
-- have a singular purpose; don't overlap with other rules
-
-They help you:
+There are over 170 rules that help you:
 
 - [avoid errors](#avoid-errors)
 - [enforce non-stylistic conventions](#enforce-non-stylistic-conventions)
 - [enforce stylistic conventions](#enforce-stylistic-conventions) (frozen)
 
-We split rule names into two parts:
+The rules:
 
-- the [_thing_](http://apps.workflower.fi/vocabs/css/en) the rule applies to
-- what the rule is checking
+- are for standard CSS syntax only
+- are generally useful; not tied to idiosyncratic patterns
+- have a clear and unambiguous finished state
+- have a singular purpose; don't overlap with other rules
 
-If there is no first part, then the rule applies to the whole source.
+A rule's name is split into two parts:
 
-```
-shorthand-property-no-redundant-values
-↑                  ↑
-the thing          what the rule is checking
+- the [_thing_](http://apps.workflower.fi/vocabs/css/en) the rule applies to, e.g. `at-rule`
+- what the rule is checking, e.g. `disallowed-list`
 
-no-duplicate-selectors
-↑
-what the rule is checking (no first part)
-```
+Unless it applies to the whole source, then there is no first part.
 
 ## Avoid errors
 
@@ -280,7 +270,7 @@ a {}
               ↑
 /**           ↑
  * This empty line  */
-```
+````
 
 Additionally, some whitespace rules use an additional set of keywords:
 
