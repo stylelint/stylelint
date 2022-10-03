@@ -148,7 +148,7 @@ Allow, disallow or require things with these `*-allowed-list`, `*-disallowed-lis
 
 - [`function-allowed-list`](../../lib/rules/function-allowed-list/README.md): Specify a list of allowed functions.
 - [`function-disallowed-list`](../../lib/rules/function-disallowed-list/README.md): Specify a list of disallowed functions.
-- [`function-url-no-scheme-relative`](../../lib/rules/function-url-no-scheme-relative/README.md): Disallow scheme-relative urls.
+- [`function-url-no-scheme-relative`](../../lib/rules/function-url-no-scheme-relative/README.md): Disallow scheme-relative URLs.
 - [`function-url-scheme-allowed-list`](../../lib/rules/function-url-scheme-allowed-list/README.md): Specify a list of allowed URL schemes.
 - [`function-url-scheme-disallowed-list`](../../lib/rules/function-url-scheme-disallowed-list/README.md): Specify a list of disallowed URL schemes.
 
