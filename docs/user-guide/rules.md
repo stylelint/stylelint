@@ -72,7 +72,7 @@ Disallow irregular things with these `no-irregular` rules.
 Disallow missing things with these `no-missing` rules.
 
 - [`custom-property-no-missing-var-function`](../../lib/rules/custom-property-no-missing-var-function/README.md): Disallow missing `var` function for custom properties.
-- [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md): Disallow missing generic family keyword within font families.
+- [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md): Disallow a missing generic family keyword within font families.
 
 ### Non-standard
 

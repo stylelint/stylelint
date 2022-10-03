@@ -1,6 +1,6 @@
 # font-family-no-missing-generic-family-keyword
 
-Disallow missing generic family keyword within font families.
+Disallow a missing generic family keyword within font families.
 
 <!-- prettier-ignore -->
 ```css
