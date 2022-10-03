@@ -1,6 +1,6 @@
 # shorthand-property-no-redundant-values
 
-Disallow redundant values within shorthand properties
+Disallow redundant values within shorthand properties.
 
 <!-- prettier-ignore -->
 ```css
