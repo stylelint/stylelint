@@ -297,6 +297,8 @@ Here is how overrides work in a configuration file:
 - Glob pattern overrides have higher precedence than the regular configuration in the same config file. Multiple overrides within the same config are applied in order. That is, the last override block in a config file always has the highest precedence.
 - A glob specific configuration works almost the same as any other Stylelint config. Override blocks can contain any configuration options that are valid in a regular config.
 - Multiple glob patterns can be provided within a single override block. A file must match at least one of the supplied patterns for the configuration to apply.
+- Singular config values like `defaultSeverity` and `customSyntax` will be replaced by overrides.
+- Complex config values like `plugins`, `extends`, `rules`, etc. will be appended.
 
 ## `defaultSeverity`
 
