@@ -1,6 +1,6 @@
 # declaration-block-no-redundant-longhand-properties
 
-Disallow longhand properties that can be combined into one shorthand property.
+Disallow redundant longhand properties within declaration-block.
 
 <!-- prettier-ignore -->
 ```css

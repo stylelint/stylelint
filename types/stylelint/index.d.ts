@@ -2,7 +2,6 @@ declare module 'stylelint' {
 	import type * as PostCSS from 'postcss';
 	import type { GlobbyOptions } from 'globby';
 	import type { cosmiconfig } from 'cosmiconfig';
-	import type * as fileEntryCache from 'file-entry-cache';
 
 	namespace stylelint {
 		export type Severity = 'warning' | 'error';

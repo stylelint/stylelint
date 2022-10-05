@@ -1,6 +1,6 @@
 # selector-not-notation
 
-Specify simple or complex notation for `:not()` pseudo-classes.
+Specify simple or complex notation for `:not()` pseudo-class selectors.
 
 <!-- prettier-ignore -->
 ```css

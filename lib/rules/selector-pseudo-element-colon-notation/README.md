@@ -1,6 +1,6 @@
 # selector-pseudo-element-colon-notation
 
-Specify single or double colon notation for applicable pseudo-elements.
+Specify single or double colon notation for applicable pseudo-element selectors.
 
 <!-- prettier-ignore -->
 ```css
