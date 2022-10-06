@@ -104,6 +104,7 @@ declare module 'stylelint' {
 			disabledWarnings?: DisabledWarning[];
 			ignored?: boolean;
 			stylelintError?: boolean;
+			stylelintWarning?: boolean;
 			disableWritingFix?: boolean;
 			config?: Config;
 			ruleDisableFix?: boolean;
