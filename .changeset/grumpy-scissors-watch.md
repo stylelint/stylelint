@@ -1,5 +1,5 @@
 ---
-"stylelint": patch
+"stylelint": major
 ---
 
-Fixed: `extends` in `overrides` to be consistent with `plugins` behaviour
+Change: `extends` in `overrides` to be consistent with `plugins` behaviour
