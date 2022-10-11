@@ -6,6 +6,18 @@ You can use Stylelint on the command line. For example:
 npx stylelint "**/*.css"
 ```
 
+_You should include quotation marks around file globs._
+
+If you are using [npm scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts), you'll need to escape the quotes:
+
+```json
+{
+  "scripts": {
+    "lint": "stylelint \"**/*.css\""
+  }
+}
+```
+
 Use `npx stylelint --help` to print the CLI documentation.
 
 ## Options
@@ -112,7 +124,7 @@ Show the currently installed version of Stylelint.
 
 The CLI expects input as either a [file glob](https://github.com/sindresorhus/globby) or `process.stdin`. It outputs formatted results into `process.stdout`.
 
-_Be sure to include quotation marks around file globs._
+_You should include quotation marks around file globs._
 
 ### Example A - recursive
 

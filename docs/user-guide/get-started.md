@@ -27,6 +27,8 @@ npm install --save-dev stylelint stylelint-config-standard
 npx stylelint "**/*.css"
 ```
 
+_You should include quotation marks around file globs._
+
 If you use a pretty printer alongside Stylelint, you should turn off any conflicting rules. For example, you can use [Prettier's shared config](https://www.npmjs.com/package/stylelint-config-prettier) to do that:
 
 ```shell
@@ -66,6 +68,8 @@ npm install --save-dev stylelint stylelint-config-standard-scss
 ```shell
 npx stylelint "**/*.scss"
 ```
+
+_You should include quotation marks around file globs._
 
 This config includes the [postcss-scss syntax](https://www.npmjs.com/package/postcss-scss), configures the [built-in rules](../user-guide/rules.md) for SCSS, and includes the [stylelint-scss plugin](https://www.npmjs.com/package/stylelint-scss) (a collection of rules specific to SCSS).
 
