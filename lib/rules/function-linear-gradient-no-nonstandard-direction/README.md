@@ -1,6 +1,6 @@
 # function-linear-gradient-no-nonstandard-direction
 
-Disallow non-standard direction values for linerar gradient functions.
+Disallow non-standard direction values for linear gradient functions.
 
 <!-- prettier-ignore -->
 ```css

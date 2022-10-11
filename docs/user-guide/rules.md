@@ -78,7 +78,7 @@ Disallow missing things with these `no-missing` rules.
 
 Disallow non-standard things with these `no-nonstandard` rules.
 
-- [`function-linear-gradient-no-nonstandard-direction`](../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow non-standard direction values for linerar gradient functions.
+- [`function-linear-gradient-no-nonstandard-direction`](../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow non-standard direction values for linear gradient functions.
 
 ### Overrides
 

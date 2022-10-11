@@ -1005,7 +1005,7 @@ Changes:
 - Added: `stylelint.utils.checkAgainstRule` for checking CSS against a standard Stylelint rule _within your own rule_ ([#2173](https://github.com/stylelint/stylelint/pull/2173)).
 - Added: `allow-empty-input` flag to CLI ([#2117](https://github.com/stylelint/stylelint/pull/2117)).
 - Added: `except: ["after-rule"]` option to `rule-nested-empty-line-before` ([#2188](https://github.com/stylelint/stylelint/pull/2188)).
-- Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node.js API to error if a non-existent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128)).
+- Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node.js API to error if a nonexistent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128)).
 - Fixed: a boolean CLI flag (e.g. `--quiet`) placed before an input glob no longer causes the input to be ignored ([#2186](https://github.com/stylelint/stylelint/pull/2186)).
 - Fixed: the `node_modules` and `bower_components` directories are correctly ignored by default when Stylelint is used as a PostCSS plugin ([#2171](https://github.com/stylelint/stylelint/pull/2171)).
 - Fixed: bug where some Node.js errors in special cases did not cause the CLI to exit with a non-zero code ([#2140](https://github.com/stylelint/stylelint/pull/2140))
@@ -1140,7 +1140,7 @@ Changes:
 
 ## 7.0.0
 
-- Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configure.md#processors) processors.
+- Removed: `--extract` and `extractStyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configure.md#processors) processors.
 - Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. (If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`.)
 - Removed: `--verbose` CLI flag. Use `--formatter verbose` instead.
 - Removed: NodeJS `0.12.x` support. `4.2.1 LTS` or greater is now required.

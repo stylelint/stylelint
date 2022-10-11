@@ -98,7 +98,7 @@ Store the results of processed files so that Stylelint only operates on the chan
 
 Enabling this option can dramatically improve Stylelint's speed because only changed files are linted.
 
-_If you run Stylelint with `cache` and then run Stylelint without `cache`, Stylelint deletes the `.stylelintcache` because we have to assume that that second command invalidated `.stylelintcache`._
+_If you run Stylelint with `cache` and then run Stylelint without `cache`, Stylelint deletes the `.stylelintcache` because we have to assume that the second command invalidated `.stylelintcache`._
 
 ## `cacheLocation`
 
