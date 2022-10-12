@@ -6,7 +6,7 @@ Options shared by the:
 - [Node.js API](node-api.md)
 - [PostCSS plugin](postcss-plugin.md)
 
-You can use a subset of these options in the [configuration object](../configure.md).
+You can use some of these options in the [configuration object](../configure.md).
 
 ## `allowEmptyInput`
 
