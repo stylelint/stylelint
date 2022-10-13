@@ -13,3 +13,5 @@
 scripts/**/*.css
 system-tests/**/*.css
 system-tests/**/*.scss
+# This unit test required a parent directory stucture and therefore is not inside /fixtures/globs
+**/standalone-glob-parent-test/**/*.css
