@@ -1,5 +1,14 @@
 # Changelog
 
+## 14.14.0
+
+- Added: `*-pattern` custom message formatting ([#6391](https://github.com/stylelint/stylelint/pull/6391)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `block-no-empty` false positives for `reportNeedlessDisables` ([#6381](https://github.com/stylelint/stylelint/pull/6381)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `printf`-like formatting for custom messages ([#6389](https://github.com/stylelint/stylelint/pull/6389)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `unit-no-unknown` false positives for font-relative length units ([#6374](https://github.com/stylelint/stylelint/pull/6374)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: false negatives on second run for cache and `severity` option ([#6384](https://github.com/stylelint/stylelint/pull/6384)) ([@kimulaco](https://github.com/kimulaco)).
+- Fixed: TS compilation error due to needless `file-entry-cache` import ([#6393](https://github.com/stylelint/stylelint/pull/6393)) ([@adidahiya](https://github.com/adidahiya)).
+
 ## 14.13.0
 
 - Added: `cacheStrategy` option ([#6357](https://github.com/stylelint/stylelint/pull/6357)) ([@kaorun343](https://github.com/kaorun343)).
