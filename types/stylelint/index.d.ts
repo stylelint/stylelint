@@ -529,16 +529,6 @@ declare module 'stylelint' {
 			_specifiedConfigCache: Map<Config, Promise<CosmiconfigResult>>;
 			_postcssResultCache: Map<string, PostCSS.Result>;
 			_fileCache: FileCache;
-
-			_getPostcssResult: (options?: GetPostcssOptions) => Promise<PostCSS.Result>;
-			_lintSource: (options: GetLintSourceOptions) => Promise<PostcssResult>;
-			_createStylelintResult: (
-				postcssResult: PostcssResult,
-				filePath?: string,
-			) => Promise<LintResult>;
-
-			getConfigForFile: (searchPath?: string, filePath?: string) => Promise<CosmiconfigResult>;
-			isPathIgnored: (s?: string) => Promise<boolean>;
 		};
 
 		export type DisableOptionsReport = DisableReportEntry[];
