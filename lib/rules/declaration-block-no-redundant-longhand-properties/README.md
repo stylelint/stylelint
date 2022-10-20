@@ -145,6 +145,18 @@ a {
 }
 ```
 
+You should use a longhand property to have only the specific value inherited. So, the following patterns are also not considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  margin-top: 1px;
+  margin-right: 2px;
+  margin-bottom: 3px;
+  margin-left: inherit;
+}
+```
+
 ## Optional secondary options
 
 ### `ignoreShorthands: ["/regex/", /regex/, "string"]`
