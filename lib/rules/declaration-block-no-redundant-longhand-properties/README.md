@@ -22,7 +22,7 @@ a {
 }
 ```
 
-This rule will only complain if you've used the longhand equivalent of _all_ the properties that the shorthand will set.
+This rule will only complain if you've used the longhand equivalent of _all_ the properties that the shorthand will set and if their values are not `inherit`.
 
 This rule complains when the following shorthand properties can be used:
 
