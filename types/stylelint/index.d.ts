@@ -240,8 +240,6 @@ declare module 'stylelint' {
 			reportNeedlessDisables?: boolean;
 			reportInvalidScopeDisables?: boolean;
 			maxWarnings?: number;
-			/** @deprecated Use `customSyntax` instead. Using this option will result in an error. */
-			syntax?: string;
 			customSyntax?: CustomSyntax;
 			formatter?: FormatterType | Formatter;
 			disableDefaultIgnores?: boolean;
