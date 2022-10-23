@@ -34,7 +34,6 @@ const options: Partial<LinterOptions> = {
 	reportNeedlessDisables: true,
 	ignorePath: ['foo'],
 	customSyntax: 'postcss-scss',
-	syntax: 'scss', // Removed but still accepted in type definition
 	config: {
 		overrides: [
 			{
