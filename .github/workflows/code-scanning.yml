@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - '!dependabot/**'
+      - v15 # TODO: We can remove this line after shipping v15.
   pull_request:
     # The branches below must be a subset of the branches above
     branches:
