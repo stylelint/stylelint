@@ -208,7 +208,6 @@ declare module 'stylelint' {
 			codeFilename?: string;
 			filePath?: string;
 			codeProcessors?: CodeProcessor[];
-			syntax?: string;
 			customSyntax?: CustomSyntax;
 		};
 
@@ -531,7 +530,7 @@ declare module 'stylelint' {
 
 		export type DisableOptionsReport = DisableReportEntry[];
 
-		export type PostcssPluginOptions = Omit<LinterOptions, 'syntax' | 'customSyntax'> | Config;
+		export type PostcssPluginOptions = Omit<LinterOptions, 'customSyntax'> | Config;
 	}
 
 	const stylelint: stylelint.PublicApi;
