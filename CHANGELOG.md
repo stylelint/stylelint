@@ -1,5 +1,40 @@
 # Changelog
 
+## 14.14.0
+
+- Added: `*-pattern` custom message formatting ([#6391](https://github.com/stylelint/stylelint/pull/6391)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `block-no-empty` false positives for `reportNeedlessDisables` ([#6381](https://github.com/stylelint/stylelint/pull/6381)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `printf`-like formatting for custom messages ([#6389](https://github.com/stylelint/stylelint/pull/6389)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `unit-no-unknown` false positives for font-relative length units ([#6374](https://github.com/stylelint/stylelint/pull/6374)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: false negatives on second run for cache and `severity` option ([#6384](https://github.com/stylelint/stylelint/pull/6384)) ([@kimulaco](https://github.com/kimulaco)).
+- Fixed: TS compilation error due to needless `file-entry-cache` import ([#6393](https://github.com/stylelint/stylelint/pull/6393)) ([@adidahiya](https://github.com/adidahiya)).
+
+## 14.13.0
+
+- Added: `cacheStrategy` option ([#6357](https://github.com/stylelint/stylelint/pull/6357)) ([@kaorun343](https://github.com/kaorun343)).
+- Fixed: cache refresh when config is changed ([#6356](https://github.com/stylelint/stylelint/pull/6356)) ([@kimulaco](https://github.com/kimulaco)).
+- Fixed: `selector-pseudo-element-no-unknown` false positives for `::highlight` pseudo-element ([#6367](https://github.com/stylelint/stylelint/pull/6367)) ([@jathak](https://github.com/jathak)).
+
+## 14.12.1
+
+- Fixed: `font-weight-notation` messages ([#6350](https://github.com/stylelint/stylelint/pull/6350)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: type declarations for custom message arguments ([#6354](https://github.com/stylelint/stylelint/pull/6354)) ([@stof](https://github.com/stof)).
+
+## 14.12.0
+
+- Added: support for multiple `--ignore-path` flags ([#6345](https://github.com/stylelint/stylelint/pull/6345)) ([@kimulaco](https://github.com/kimulaco)).
+- Added: experimental support for custom message arguments ([#6312](https://github.com/stylelint/stylelint/pull/6312)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: `declaration-block-no-duplicate-properties` autofix ([#6296](https://github.com/stylelint/stylelint/pull/6296)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Added: `font-weight-notation` autofix ([#6347](https://github.com/stylelint/stylelint/pull/6347)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: `ignore: ["inside-block"]` and `splitList` to `selector-disallowed-list` ([#6334](https://github.com/stylelint/stylelint/pull/6334)) ([@mattmanuel90](https://github.com/mattmanuel90)).
+- Added: regex support for `ignorePseudoClasses` option of `selector-pseudo-class-no-unknown` ([#6316](https://github.com/stylelint/stylelint/pull/6316)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: regex support for `ignorePseudoElements` option of `selector-pseudo-element-no-unknown` ([#6317](https://github.com/stylelint/stylelint/pull/6317)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: regex support for `ignoreSelectors` option of `selector-no-vendor-prefix` ([#6327](https://github.com/stylelint/stylelint/pull/6327)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Added: regex support for `ignoreTypes` option of `selector-type-case` ([#6326](https://github.com/stylelint/stylelint/pull/6326)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: `*-no-unknown` false positives for container queries ([#6318](https://github.com/stylelint/stylelint/pull/6318)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Fixed: `font-family-name-quotes` false positives for interpolation and shorthand ([#6335](https://github.com/stylelint/stylelint/pull/6335)) ([@kimulaco](https://github.com/kimulaco)).
+- Fixed: `time-min-milliseconds` incorrect location for matching violating times ([#6319](https://github.com/stylelint/stylelint/pull/6319)) ([@kawaguchi1102](https://github.com/kawaguchi1102)).
+
 ## 14.11.0
 
 - Added: `ignoreAfterCombinators: []` to `selector-max-universal` ([#6275](https://github.com/stylelint/stylelint/pull/6275)).
@@ -800,7 +835,7 @@ This release is accompanied by:
 
 - A new [semantic version policy](docs/about/semantic-versioning.md). The use of the tilde (`~`) in `package.json` is now recommended, e.g. `"stylelint": "~8.0.0"`, to guarantee the results of your builds ([#1865](https://github.com/stylelint/stylelint/issues/1865)).
 - A new [VISION document](docs/about/vision.md), complemented by ([#2704](https://github.com/stylelint/stylelint/pull/2704)):
-  - The restructuring of the [list of rules](docs/user-guide/rules/list.md) into three groups:
+  - The restructuring of the [list of rules](docs/user-guide/rules.md) into three groups:
     - Possible errors
     - Limit language features
     - Stylistic issues
@@ -979,7 +1014,7 @@ Changes:
 - Added: `stylelint.utils.checkAgainstRule` for checking CSS against a standard Stylelint rule _within your own rule_ ([#2173](https://github.com/stylelint/stylelint/pull/2173)).
 - Added: `allow-empty-input` flag to CLI ([#2117](https://github.com/stylelint/stylelint/pull/2117)).
 - Added: `except: ["after-rule"]` option to `rule-nested-empty-line-before` ([#2188](https://github.com/stylelint/stylelint/pull/2188)).
-- Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node.js API to error if a non-existent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128)).
+- Fixed: regression causing `--stdin-filename` in CLI and `codeFilename` in Node.js API to error if a nonexistent filename is provided ([#2128](https://github.com/stylelint/stylelint/pull/2128)).
 - Fixed: a boolean CLI flag (e.g. `--quiet`) placed before an input glob no longer causes the input to be ignored ([#2186](https://github.com/stylelint/stylelint/pull/2186)).
 - Fixed: the `node_modules` and `bower_components` directories are correctly ignored by default when Stylelint is used as a PostCSS plugin ([#2171](https://github.com/stylelint/stylelint/pull/2171)).
 - Fixed: bug where some Node.js errors in special cases did not cause the CLI to exit with a non-zero code ([#2140](https://github.com/stylelint/stylelint/pull/2140))
@@ -1114,7 +1149,7 @@ Changes:
 
 ## 7.0.0
 
-- Removed: `--extract` and `extractSyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configure.md#processors) processors.
+- Removed: `--extract` and `extractStyleTagsFromHtml` options. Instead, [build](/docs/developer-guide/processors.md) and [use](/docs/user-guide/configure.md#processors) processors.
 - Removed: support for plugin rule names that aren't namespaced, i.e. only `your-namespace/your-rule-name` rule names are supported. (If your plugin provides only a single rule or you can't think of a good namespace, you can simply use `plugin/my-rule`.)
 - Removed: `--verbose` CLI flag. Use `--formatter verbose` instead.
 - Removed: NodeJS `0.12.x` support. `4.2.1 LTS` or greater is now required.

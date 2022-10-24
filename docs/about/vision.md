@@ -1,6 +1,6 @@
 # Vision
 
-A linter for CSS and CSS-like languages that is:
+A linter and validator for CSS that is:
 
 - complete - coverage of all standard CSS syntax
 - extensible - multiple points of extension
@@ -13,8 +13,8 @@ A linter for CSS and CSS-like languages that is:
 
 Provide built-in rules for standard CSS syntax that:
 
-- [avoid errors](../user-guide/rules/list.md#avoid-errors)
-- [enforce conventions](../user-guide/rules/list.md#enforce-conventions)
+- [avoid errors](../user-guide/rules.md#avoid-errors)
+- [enforce non-stylistic conventions](../user-guide/rules.md#enforce-non-stylistic-conventions)
 
 ## Extensible
 
@@ -34,7 +34,7 @@ Provide a robust tool with a [comprehensive test suite](../developer-guide/rules
 
 ## Consistent
 
-Provide consistency throughout, including consistent [rules](../user-guide/rules/about.md).
+Provide consistency throughout, including consistent conventions for our rules and options.
 
 ## Performant
 

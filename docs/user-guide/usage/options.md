@@ -6,6 +6,8 @@ Options shared by the:
 - [Node.js API](node-api.md)
 - [PostCSS plugin](postcss-plugin.md)
 
+You can use some of these options in the [configuration object](../configure.md).
+
 ## `allowEmptyInput`
 
 CLI flag: `--allow-empty-input, --aei`
@@ -98,7 +100,7 @@ Store the results of processed files so that Stylelint only operates on the chan
 
 Enabling this option can dramatically improve Stylelint's speed because only changed files are linted.
 
-_If you run Stylelint with `cache` and then run Stylelint without `cache`, Stylelint deletes the `.stylelintcache` because we have to assume that that second command invalidated `.stylelintcache`._
+_If you run Stylelint with `cache` and then run Stylelint without `cache`, Stylelint deletes the `.stylelintcache` because we have to assume that the second command invalidated `.stylelintcache`._
 
 ## `cacheLocation`
 
@@ -109,6 +111,14 @@ Path to a file or directory for the cache location.
 If a directory is specified, Stylelint creates a cache file inside the specified folder. The name of the file is based on the hash of `process.cwd()` (e.g. `.cache_hashOfCWD`) so that Stylelint can reuse a single location for a variety of caches from different projects.
 
 _If the directory of `cacheLocation` does not exist, make sure you add a trailing `/` on \*nix systems or `\` on Windows. Otherwise, Stylelint assumes the path to be a file._
+
+## `cacheStrategy`
+
+CLI flag: `--cache-strategy`
+
+Strategy for the cache to use for detecting changed files. Can be either "metadata" or "content".
+
+The "content" strategy can be useful in cases where the modification time of your files changes even if their contents have not. For example, this can happen during git operations like "git clone" because git does not track file modification time.
 
 ## `maxWarnings`
 
@@ -133,7 +143,7 @@ Disable the default ignores. Stylelint will not automatically ignore the content
 
 CLI flags: `--ignore-path, -i`
 
-A path to a file containing patterns describing files to ignore. The path can be absolute or relative to `process.cwd()`. By default, Stylelint looks for `.stylelintignore` in `process.cwd()`.
+Path to a file containing patterns that describe files to ignore. The path can be absolute or relative to `process.cwd()`. You can repeat the option to provide multiple paths. By default, Stylelint looks for `.stylelintignore` in `process.cwd()`.
 
 ## `ignoreDisables`
 

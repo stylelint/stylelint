@@ -26,19 +26,20 @@ And can be extended to:
 
 ## How it'll help you
 
-It'll help you **avoid errors**, for example styles that are:
+It'll help you **avoid errors**, for example:
 
-- invalid, e.g. malformed hex colors and named grid areas
-- valid but with unintended consequences, e.g. duplicated selectors and overridden properties
+- invalid things, e.g. malformed hex colors and named grid areas
+- unknown things, e.g. units and functions that aren't in the CSS specs
+- valid things that are problematic, e.g. duplicated selectors and overridden properties
 
-And **enforce conventions**, for example:
+And **enforce non-stylistic conventions**, for example:
 
 - what units, functions, at-rules etc are allowed
 - consistent patterns for selector names, at-rule names, custom properties etc
 - maximum specificity or maximum quantity of each selector type
 - your preferred notation for color functions, font weight etc
 
-There are also rules for enforcing stylistic consistency, but we now recommend you use Stylelint alongside a pretty printer like Prettier. Linters and pretty printers are complementary tools that work together.
+There are also rules for enforcing stylistic conventions, but we now recommend you use Stylelint alongside a pretty printer like Prettier. Linters and pretty printers are complementary tools that work together.
 
 ## Example output
 
@@ -49,21 +50,19 @@ There are also rules for enforcing stylistic consistency, but we now recommend y
 - User guide
   - [Getting started](docs/user-guide/get-started.md)
   - [Configuration](docs/user-guide/configure.md)
-  - Rules
-    - [List of rules](docs/user-guide/rules/list.md)
-    - [About rules](docs/user-guide/rules/about.md)
-    - [Combining rules](docs/user-guide/rules/combine.md)
-    - [Using regex in rules](docs/user-guide/rules/regex.md)
+  - [Rules](docs/user-guide/rules.md)
   - Usage
     - [CLI](docs/user-guide/usage/cli.md)
     - [Node.js API](docs/user-guide/usage/node-api.md)
     - [PostCSS plugin](docs/user-guide/usage/postcss-plugin.md)
-    - [Shared options](docs/user-guide/usage/options.md)
+    - [Options](docs/user-guide/usage/options.md)
   - Integrations
     - [Editor integrations](docs/user-guide/integrations/editor.md)
     - [Task runner integrations](docs/user-guide/integrations/task-runner.md)
     - [Other integrations](docs/user-guide/integrations/other.md)
   - [Ignoring code](docs/user-guide/ignore-code.md)
+  - [Combining rules](docs/user-guide/combine.md)
+  - [Using regex](docs/user-guide/regex.md)
   - [Errors & warnings](docs/user-guide/errors.md)
 - Developer guide
   - [Working on rules](docs/developer-guide/rules.md)
@@ -80,7 +79,6 @@ There are also rules for enforcing stylistic consistency, but we now recommend y
   - [Performing releases](docs/maintainer-guide/releases.md)
 - About
   - [Vision](docs/about/vision.md)
-  - [Linting](docs/about/linting.md)
   - [Semantic versioning](docs/about/semantic-versioning.md)
 
 ## Contributors

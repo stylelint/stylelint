@@ -1,7 +1,6 @@
 # function-linear-gradient-no-nonstandard-direction
 
-Disallow direction values in `linear-gradient()` calls that are not valid according to the
-[standard syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient#Syntax).
+Disallow non-standard direction values for linear gradient functions.
 
 <!-- prettier-ignore -->
 ```css

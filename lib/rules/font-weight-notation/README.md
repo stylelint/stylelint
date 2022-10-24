@@ -1,6 +1,6 @@
 # font-weight-notation
 
-Require numeric or named (where possible) `font-weight` values. Also, when named values are expected, require only valid names.
+Require numeric or named (where possible) `font-weight` values.
 
 <!-- prettier-ignore -->
 ```css
@@ -17,9 +17,9 @@ a { font: italic small-caps 600 16px/3 cursive; }
  *                        Multiple notations are available in @font-face */
 ```
 
-Valid font-weight names are `normal`, `bold`, `bolder`, and `lighter`.
-
 This rule ignores `$sass`, `@less`, and `var(--custom-property)` variable syntaxes.
+
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

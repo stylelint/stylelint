@@ -21,7 +21,7 @@ The configuration object has the following properties:
 
 ## `rules`
 
-Rules determine what the linter looks for and complains about. There are [over 170 rules](rules/list.md) built into Stylelint.
+Rules determine what the linter looks for and complains about. There are [over 170 rules](rules.md) built into Stylelint.
 
 _No rules are turned on by default and there are no default values. You must explicitly configure each rule to turn it on._
 
@@ -109,6 +109,31 @@ For example, the following rule configuration would substitute in custom message
 
 Alternately, you can write a [custom formatter](../developer-guide/formatters.md) for maximum control if you need serious customization.
 
+Experimental feature: some rules support message arguments. For example, when configuring the `color-no-hex` rule, the hex color can be used in the message string:
+
+`.stylelintrc.js`:
+
+```js
+{
+  'color-no-hex': [true, {
+    message: (hex) => `Don't use hex colors like "${hex}"`,
+  }]
+}
+```
+
+`.stylelintrc.json`:
+
+<!-- prettier-ignore -->
+```json
+{
+  "color-no-hex": [true, {
+    "message": "Don't use hex colors like \"%s\""
+  }]
+}
+```
+
+With formats that don't support a function like JSON, you can use a `printf`-like format (e.g., `%s`). On the other hand, with JS format, you can use both a `printf`-like format and a function.
+
 ### `reportDisables`
 
 You can set the `reportDisables` secondary option to report any `stylelint-disable` comments for this rule, effectively disallowing authors to opt out of it.
@@ -158,8 +183,8 @@ You can _extend_ an existing configuration (whether your own or a third-party on
 
 Popular configurations include:
 
-- [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended) - turns on just the rules that [avoid errors](rules/list.md#avoid-errors)
-- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) - extends recommended one by turning on rules that [enforce conventions](rules/list.md#enforce-conventions)
+- [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended) - turns on just the rules that [avoid errors](rules.md#avoid-errors)
+- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) - extends recommended one by turning on rules that [enforce conventions](rules.md#enforce-non-stylistic-conventions)
 
 You'll find more in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#configs).
 
@@ -285,7 +310,7 @@ You can set the default severity level for all rules that do not have a severity
 
 ## `reportDescriptionlessDisables`
 
-Report `stylelint-disable` comments without a description. A [`report*` property](#report-properties) property.
+Report `stylelint-disable` comments without a description. A [`report*`](#report) property.
 
 For example:
 
@@ -295,11 +320,11 @@ For example:
 }
 ```
 
-[More info](usage/options.md#reportDescriptionlessDisables).
+[More info](usage/options.md#reportdescriptionlessdisables).
 
 ## `reportInvalidScopeDisables`
 
-Report `stylelint-disable` comments that don't match rules that are specified in the configuration object. A [`report*` property](#report-properties) property.
+Report `stylelint-disable` comments that don't match rules that are specified in the configuration object. A [`report*`](#report) property.
 
 For example:
 
@@ -309,11 +334,11 @@ For example:
 }
 ```
 
-[More info](usage/options.md#reportInvalidScopeDisables).
+[More info](usage/options.md#reportinvalidscopedisables).
 
 ## `reportNeedlessDisables`
 
-Report `stylelint-disable` comments that don't actually match any lints that need to be disabled. A [`report*` property](#report-properties) property.
+Report `stylelint-disable` comments that don't actually match any lints that need to be disabled. A [`report*`](#report) property.
 
 For example:
 
@@ -323,7 +348,7 @@ For example:
 }
 ```
 
-[More info](usage/options.md#reportNeedlessDisables).
+[More info](usage/options.md#reportneedlessdisables).
 
 ## `ignoreDisables`
 
@@ -337,7 +362,7 @@ For example:
 }
 ```
 
-[More info](usage/options.md#ignoreDisables).
+[More info](usage/options.md#ignoredisables).
 
 ## `ignoreFiles`
 
@@ -390,15 +415,15 @@ If your processor has options, make that item an array whose first item is the "
 
 Processors can also only be used with the CLI and the Node.js API, not with the PostCSS plugin. (The PostCSS plugin ignores them.)
 
-## `report*` properties
+## `report*`
 
-These properties provide extra validation for `stylelint-disable` comments. This can be helpful for enforcing useful and well-documented disables.
+These `report*` properties provide extra validation for `stylelint-disable` comments. This can be helpful for enforcing useful and well-documented disables.
 
 The available reports are:
 
-- [`reportDescriptionlessDisables`](#reportDescriptionlessDisables)
-- [`reportInvalidScopeDisables`](#reportInvalidScopeDisables)
-- [`reportNeedlessDisables`](#reportNeedlessDisables)
+- [`reportDescriptionlessDisables`](#reportdescriptionlessdisables)
+- [`reportInvalidScopeDisables`](#reportinvalidscopedisables)
+- [`reportNeedlessDisables`](#reportneedlessdisables)
 
 They are configured like rules. They can have one of three values:
 

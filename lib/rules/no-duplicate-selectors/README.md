@@ -1,6 +1,6 @@
 # no-duplicate-selectors
 
-Disallow duplicate selectors within a stylesheet.
+Disallow duplicate selectors.
 
 <!-- prettier-ignore -->
 ```css

@@ -1,6 +1,6 @@
 # no-duplicate-at-import-rules
 
-Disallow duplicate `@import` rules within a stylesheet.
+Disallow duplicate `@import` rules.
 
 <!-- prettier-ignore -->
 ```css

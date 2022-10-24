@@ -1,12 +1,10 @@
-# Using regex in rules
+# Using regex
 
-The following classes of rules support regex:
+You can use regex in the `ignore*` secondary options and following classes of rules:
 
 - `*-allowed-list`
 - `*-disallowed-list`
 - `*-pattern`
-
-As does the `ignore*` secondary options.
 
 ## Enforce a case
 

@@ -87,15 +87,24 @@ declare module 'stylelint' {
 
 		export type DisabledWarning = { line: number; rule: string };
 
+		type FileCache = {
+			calcHashOfConfig: (config: Config) => void;
+			hasFileChanged: (absoluteFilepath: string) => boolean;
+			reconcile: () => void;
+			destroy: () => void;
+			removeEntry: (absoluteFilepath: string) => void;
+		};
+
 		export type StylelintPostcssResult = {
 			ruleSeverities: { [ruleName: string]: Severity };
-			customMessages: { [ruleName: string]: any };
+			customMessages: { [ruleName: string]: RuleMessage };
 			ruleMetadata: { [ruleName: string]: Partial<RuleMeta> };
 			quiet?: boolean;
 			disabledRanges: DisabledRangeObject;
 			disabledWarnings?: DisabledWarning[];
 			ignored?: boolean;
 			stylelintError?: boolean;
+			stylelintWarning?: boolean;
 			disableWritingFix?: boolean;
 			config?: Config;
 			ruleDisableFix?: boolean;
@@ -154,7 +163,9 @@ declare module 'stylelint' {
 			bivariance(...args: (string | number | boolean | RegExp)[]): string;
 		}['bivariance'];
 
-		export type RuleMessages = { [message: string]: string | RuleMessageFunc };
+		export type RuleMessage = string | RuleMessageFunc;
+
+		export type RuleMessages = { [message: string]: RuleMessage };
 
 		export type RuleOptionsPossibleFunc = (value: unknown) => boolean;
 
@@ -203,6 +214,7 @@ declare module 'stylelint' {
 
 		export type GetLintSourceOptions = GetPostcssOptions & {
 			existingPostcssResult?: PostCSS.Result;
+			cache?: boolean;
 		};
 
 		export type LinterOptions = {
@@ -210,6 +222,7 @@ declare module 'stylelint' {
 			globbyOptions?: GlobbyOptions;
 			cache?: boolean;
 			cacheLocation?: string;
+			cacheStrategy?: string;
 			code?: string;
 			codeFilename?: string;
 			config?: Config;
@@ -221,7 +234,7 @@ declare module 'stylelint' {
 			 */
 			cwd?: string;
 			ignoreDisables?: boolean;
-			ignorePath?: string;
+			ignorePath?: string | string[];
 			ignorePattern?: string[];
 			reportDescriptionlessDisables?: boolean;
 			reportNeedlessDisables?: boolean;
@@ -350,7 +363,8 @@ declare module 'stylelint' {
 		export type Problem = {
 			ruleName: string;
 			result: PostcssResult;
-			message: string;
+			message: RuleMessage;
+			messageArgs?: Parameters<RuleMessageFunc> | undefined;
 			node: PostCSS.Node;
 			/**
 			 * The inclusive start index of the problem, relative to the node's
@@ -448,7 +462,7 @@ declare module 'stylelint' {
 			 */
 			createLinter: (options: LinterOptions) => InternalApi;
 			/**
-			 * Resolves the effective configuation for a given file. Resolves to
+			 * Resolves the effective configuration for a given file. Resolves to
 			 * `undefined` if no config is found.
 			 * @param filePath - The path to the file to get the config for.
 			 * @param options - The options to use when creating the Stylelint instance.
@@ -514,16 +528,7 @@ declare module 'stylelint' {
 			_extendExplorer: ReturnType<typeof cosmiconfig>;
 			_specifiedConfigCache: Map<Config, Promise<CosmiconfigResult>>;
 			_postcssResultCache: Map<string, PostCSS.Result>;
-
-			_getPostcssResult: (options?: GetPostcssOptions) => Promise<PostCSS.Result>;
-			_lintSource: (options: GetLintSourceOptions) => Promise<PostcssResult>;
-			_createStylelintResult: (
-				postcssResult: PostcssResult,
-				filePath?: string,
-			) => Promise<LintResult>;
-
-			getConfigForFile: (searchPath?: string, filePath?: string) => Promise<CosmiconfigResult>;
-			isPathIgnored: (s?: string) => Promise<boolean>;
+			_fileCache: FileCache;
 		};
 
 		export type DisableOptionsReport = DisableReportEntry[];
