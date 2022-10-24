@@ -1,206 +1,206 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`no-fs - invalid twbs buttons and their config 1`] = `
-Object {
+{
   "cwd": "",
   "errored": true,
-  "output": Array [
-    Object {
-      "deprecations": Array [],
+  "output": [
+    {
+      "deprecations": [],
       "errored": true,
-      "invalidOptionWarnings": Array [],
-      "parseErrors": Array [],
-      "warnings": Array [
-        Object {
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "warnings": [
+        {
           "column": 10,
           "endColumn": 15,
           "endLine": 79,
           "line": 79,
           "rule": "color-named",
           "severity": "error",
-          "text": "Unexpected named color \\"white\\" (color-named)",
+          "text": "Unexpected named color "white" (color-named)",
         },
-        Object {
+        {
           "column": 1,
           "endColumn": 12,
           "endLine": 118,
           "line": 118,
           "rule": "selector-no-qualifying-type",
           "severity": "error",
-          "text": "Unexpected qualifying type selector \\"a.btn-block\\" (selector-no-qualifying-type)",
+          "text": "Unexpected qualifying type selector "a.btn-block" (selector-no-qualifying-type)",
         },
-        Object {
+        {
           "column": 3,
           "endColumn": 4,
           "endLine": 125,
           "line": 123,
           "rule": "selector-no-qualifying-type",
           "severity": "error",
-          "text": "Unexpected qualifying type selector \\"a.btn-block\\" (selector-no-qualifying-type)",
+          "text": "Unexpected qualifying type selector "a.btn-block" (selector-no-qualifying-type)",
         },
       ],
     },
   ],
-  "reportedDisables": Array [],
-  "results": Array [
-    Object {
-      "deprecations": Array [],
+  "reportedDisables": [],
+  "results": [
+    {
+      "deprecations": [],
       "errored": true,
       "ignored": undefined,
-      "invalidOptionWarnings": Array [],
-      "parseErrors": Array [],
-      "warnings": Array [
-        Object {
+      "invalidOptionWarnings": [],
+      "parseErrors": [],
+      "warnings": [
+        {
           "column": 10,
           "endColumn": 15,
           "endLine": 79,
           "line": 79,
           "rule": "color-named",
           "severity": "error",
-          "text": "Unexpected named color \\"white\\" (color-named)",
+          "text": "Unexpected named color "white" (color-named)",
         },
-        Object {
+        {
           "column": 1,
           "endColumn": 12,
           "endLine": 118,
           "line": 118,
           "rule": "selector-no-qualifying-type",
           "severity": "error",
-          "text": "Unexpected qualifying type selector \\"a.btn-block\\" (selector-no-qualifying-type)",
+          "text": "Unexpected qualifying type selector "a.btn-block" (selector-no-qualifying-type)",
         },
-        Object {
+        {
           "column": 3,
           "endColumn": 4,
           "endLine": 125,
           "line": 123,
           "rule": "selector-no-qualifying-type",
           "severity": "error",
-          "text": "Unexpected qualifying type selector \\"a.btn-block\\" (selector-no-qualifying-type)",
+          "text": "Unexpected qualifying type selector "a.btn-block" (selector-no-qualifying-type)",
         },
       ],
     },
   ],
-  "ruleMetadata": Object {
-    "at-rule-name-space-after": Object {
+  "ruleMetadata": {
+    "at-rule-name-space-after": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-name-space-after",
     },
-    "at-rule-no-vendor-prefix": Object {
+    "at-rule-no-vendor-prefix": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-no-vendor-prefix",
     },
-    "at-rule-semicolon-space-before": Object {
+    "at-rule-semicolon-space-before": {
       "url": "https://stylelint.io/user-guide/rules/at-rule-semicolon-space-before",
     },
-    "color-named": Object {
+    "color-named": {
       "url": "https://stylelint.io/user-guide/rules/color-named",
     },
-    "declaration-block-semicolon-newline-before": Object {
+    "declaration-block-semicolon-newline-before": {
       "url": "https://stylelint.io/user-guide/rules/declaration-block-semicolon-newline-before",
     },
-    "declaration-no-important": Object {
+    "declaration-no-important": {
       "url": "https://stylelint.io/user-guide/rules/declaration-no-important",
     },
-    "font-family-name-quotes": Object {
+    "font-family-name-quotes": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/font-family-name-quotes",
     },
-    "font-weight-notation": Object {
+    "font-weight-notation": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/font-weight-notation",
     },
-    "function-url-no-scheme-relative": Object {
+    "function-url-no-scheme-relative": {
       "url": "https://stylelint.io/user-guide/rules/function-url-no-scheme-relative",
     },
-    "function-url-quotes": Object {
+    "function-url-quotes": {
       "url": "https://stylelint.io/user-guide/rules/function-url-quotes",
     },
-    "max-empty-lines": Object {
+    "max-empty-lines": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/max-empty-lines",
     },
-    "media-feature-name-no-vendor-prefix": Object {
+    "media-feature-name-no-vendor-prefix": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-name-no-vendor-prefix",
     },
-    "number-leading-zero": Object {
+    "number-leading-zero": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/number-leading-zero",
     },
-    "property-no-vendor-prefix": Object {
+    "property-no-vendor-prefix": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/property-no-vendor-prefix",
     },
-    "selector-attribute-quotes": Object {
+    "selector-attribute-quotes": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-attribute-quotes",
     },
-    "selector-class-pattern": Object {
+    "selector-class-pattern": {
       "url": "https://stylelint.io/user-guide/rules/selector-class-pattern",
     },
-    "selector-list-comma-newline-before": Object {
+    "selector-list-comma-newline-before": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-list-comma-newline-before",
     },
-    "selector-list-comma-space-after": Object {
+    "selector-list-comma-space-after": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-list-comma-space-after",
     },
-    "selector-list-comma-space-before": Object {
+    "selector-list-comma-space-before": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-list-comma-space-before",
     },
-    "selector-max-attribute": Object {
+    "selector-max-attribute": {
       "url": "https://stylelint.io/user-guide/rules/selector-max-attribute",
     },
-    "selector-max-class": Object {
+    "selector-max-class": {
       "url": "https://stylelint.io/user-guide/rules/selector-max-class",
     },
-    "selector-max-combinators": Object {
+    "selector-max-combinators": {
       "url": "https://stylelint.io/user-guide/rules/selector-max-combinators",
     },
-    "selector-max-compound-selectors": Object {
+    "selector-max-compound-selectors": {
       "url": "https://stylelint.io/user-guide/rules/selector-max-compound-selectors",
     },
-    "selector-max-id": Object {
+    "selector-max-id": {
       "url": "https://stylelint.io/user-guide/rules/selector-max-id",
     },
-    "selector-max-type": Object {
+    "selector-max-type": {
       "url": "https://stylelint.io/user-guide/rules/selector-max-type",
     },
-    "selector-max-universal": Object {
+    "selector-max-universal": {
       "url": "https://stylelint.io/user-guide/rules/selector-max-universal",
     },
-    "selector-no-qualifying-type": Object {
+    "selector-no-qualifying-type": {
       "url": "https://stylelint.io/user-guide/rules/selector-no-qualifying-type",
     },
-    "selector-no-vendor-prefix": Object {
+    "selector-no-vendor-prefix": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-no-vendor-prefix",
     },
-    "shorthand-property-no-redundant-values": Object {
+    "shorthand-property-no-redundant-values": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/shorthand-property-no-redundant-values",
     },
-    "string-quotes": Object {
+    "string-quotes": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/string-quotes",
     },
-    "unicode-bom": Object {
+    "unicode-bom": {
       "url": "https://stylelint.io/user-guide/rules/unicode-bom",
     },
-    "value-list-comma-newline-after": Object {
+    "value-list-comma-newline-after": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-comma-newline-after",
     },
-    "value-list-comma-newline-before": Object {
+    "value-list-comma-newline-before": {
       "url": "https://stylelint.io/user-guide/rules/value-list-comma-newline-before",
     },
-    "value-list-comma-space-after": Object {
+    "value-list-comma-space-after": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-comma-space-after",
     },
-    "value-no-vendor-prefix": Object {
+    "value-no-vendor-prefix": {
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-no-vendor-prefix",
     },
