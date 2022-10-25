@@ -43,9 +43,9 @@ For example:
 
 You should:
 
-- hyphenate your _properties_
-- separate your _property and value pairs_ with _colons_
-- separate your _declarations_ with _semicolons_
+- hyphenate _properties_
+- separate _property and value pairs_ with _colons_
+- separate _declarations_ with _semicolons_
 - pair _selectors_ with _declaration blocks_ in _rules_
 
 For example:
