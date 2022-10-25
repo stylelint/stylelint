@@ -208,7 +208,6 @@ declare module 'stylelint' {
 			codeFilename?: string;
 			filePath?: string;
 			codeProcessors?: CodeProcessor[];
-			syntax?: string;
 			customSyntax?: CustomSyntax;
 		};
 
@@ -240,8 +239,6 @@ declare module 'stylelint' {
 			reportNeedlessDisables?: boolean;
 			reportInvalidScopeDisables?: boolean;
 			maxWarnings?: number;
-			/** @deprecated Use `customSyntax` instead. Using this option will result in an error. */
-			syntax?: string;
 			customSyntax?: CustomSyntax;
 			formatter?: FormatterType | Formatter;
 			disableDefaultIgnores?: boolean;
@@ -533,7 +530,7 @@ declare module 'stylelint' {
 
 		export type DisableOptionsReport = DisableReportEntry[];
 
-		export type PostcssPluginOptions = Omit<LinterOptions, 'syntax' | 'customSyntax'> | Config;
+		export type PostcssPluginOptions = Omit<LinterOptions, 'customSyntax'> | Config;
 	}
 
 	const stylelint: stylelint.PublicApi;
