@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/stylelint)](https://www.npmjs.com/package/stylelint)
 [![Build Status](https://github.com/stylelint/stylelint/workflows/Testing/badge.svg)](https://github.com/stylelint/stylelint/actions/workflows/testing.yml?query=branch%3Amain)
+[![codecov](https://codecov.io/gh/stylelint/stylelint/branch/main/graph/badge.svg)](https://codecov.io/gh/stylelint/stylelint)
 [![npm downloads](https://img.shields.io/npm/dm/stylelint)](https://npmcharts.com/compare/stylelint?minimal=true)
 
 A mighty, modern linter that helps you avoid errors and enforce conventions in your styles.
