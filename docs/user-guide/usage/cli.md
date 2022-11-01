@@ -68,6 +68,12 @@ Automatically fix, where possible, problems reported by rules. [More info](optio
 
 Specify the formatter to format your results. [More info](options.md#formatter).
 
+## `globbyOptions`
+
+CLI flags: `--globby-options, --go`
+
+CLI option to traverse dotfiles i.e Hidden folders/files will not be ignored. [More info](options.md#globbyOptions).
+
 ### `--ignore-disables, --id`
 
 Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments. [More info](options.md#ignoredisables).
