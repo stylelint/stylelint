@@ -151,7 +151,7 @@
     "write-file-atomic": "^4.0.2"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.25.1",
+    "@changesets/cli": "^2.25.2",
     "@changesets/get-github-info": "^0.5.1",
     "@stylelint/prettier-config": "^2.0.0",
     "@stylelint/remark-preset": "^4.0.0",
