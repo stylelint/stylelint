@@ -139,6 +139,29 @@ CLI flags: `--disable-default-ignores, --di`
 
 Disable the default ignores. Stylelint will not automatically ignore the contents of `node_modules`.
 
+## `globbyOptions`
+
+CLI flags: `--globby-options, --go`
+
+CLI option to traverse dotfiles i.e Hidden folders/files will not be ignored(e.g. stylelint --fix '\*_/_.css)
+
+$ tree .foo
+.foo/
+├── .bar/
+│   └── a.css
+└── a.css
+
+1 directory, 2 files
+
+$ npx stylelint '.foo/\*_/_.css'
+
+.foo/a.css
+1:12 ✖ Unexpected unit length-zero-no-unit
+
+stylelint '\*_/_.css' --globby-options "dot: false"
+
+# should match `.foo/a.css` and `.foo/.bar/a.css`
+
 ## `ignorePath`
 
 CLI flags: `--ignore-path, -i`
