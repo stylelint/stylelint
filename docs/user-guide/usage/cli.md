@@ -68,11 +68,11 @@ Automatically fix, where possible, problems reported by rules. [More info](optio
 
 Specify the formatter to format your results. [More info](options.md#formatter).
 
-## `globbyOptions`
+## `--globbyOptions, --go`
 
 CLI flags: `--globby-options, --go`
 
-CLI option to traverse dotfiles i.e Hidden folders/files will not be ignored. [More info](options.md#globbyOptions).
+CLI option to traverse dotfiles i.e Hidden folders/files will not be ignored. [More info](options.md#globbyoptions).
 
 ### `--ignore-disables, --id`
 
