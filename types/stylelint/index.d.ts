@@ -396,6 +396,10 @@ declare module 'stylelint' {
 			};
 			word?: string;
 			line?: number;
+			/**
+			 * Optional severity override for the problem.
+			 */
+			severity?: Severity;
 		};
 
 		export type LonghandSubPropertiesOfShorthandProperties = ReadonlyMap<
