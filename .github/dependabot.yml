@@ -8,6 +8,7 @@ updates:
     labels:
       - 'pr: dependencies'
     versioning-strategy: increase
+    target-branch: v15 # TODO: We should remove this line after shipping v15.
 
   - package-ecosystem: github-actions
     directory: '/'
