@@ -1,5 +1,11 @@
 # Changelog
 
+## 14.14.1
+
+- Fixed: `declaration-block-no-redundant-longhand-properties` false positives for `inherit` keyword ([#6419](https://github.com/stylelint/stylelint/pull/6419)) ([@kimulaco](https://github.com/kimulaco)).
+- Fixed: `shorthand-property-no-redundant-values` message to be consistent ([#6417](https://github.com/stylelint/stylelint/pull/6417)) ([@fpetrakov](https://github.com/fpetrakov)).
+- Fixed: `unit-no-unknown` false positives for `*vi` & `*vb` viewport units ([#6428](https://github.com/stylelint/stylelint/pull/6428)) ([@sidverma32](https://github.com/sidverma32)).
+
 ## 14.14.0
 
 - Added: `*-pattern` custom message formatting ([#6391](https://github.com/stylelint/stylelint/pull/6391)) ([@ybiquitous](https://github.com/ybiquitous)).
