@@ -44,16 +44,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Enable test coverage
+        id: coverage
+        if: startsWith(matrix.os, 'ubuntu') && matrix.node == '18' # Node.js LTS
+        run: echo "enabled=true" >> "${GITHUB_OUTPUT}"
+
       - name: Test
         run: npm run jest
-        if: "!(startsWith(matrix.os, 'ubuntu') && matrix.node == 16)"
+        if: steps.coverage.outputs.enabled != 'true'
 
       - name: Test with coverage
         run: npm run jest -- --coverage
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 16
+        if: steps.coverage.outputs.enabled == 'true'
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
-        if: startsWith(matrix.os, 'ubuntu') && matrix.node == 16
+        if: steps.coverage.outputs.enabled == 'true'
         with:
           files: ./.coverage/lcov.info
