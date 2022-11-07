@@ -70,9 +70,7 @@ Specify the formatter to format your results. [More info](options.md#formatter).
 
 ## `--globbyOptions, --go`
 
-CLI flags: `--globby-options, --go`
-
-CLI option to traverse dotfiles i.e Hidden folders/files will not be ignored. [More info](options.md#globbyoptions).
+Options in JSON format passed to [globby](https://github.com/sindresorhus/globby). [More info](options.md#globbyoptions).
 
 ### `--ignore-disables, --id`
 
