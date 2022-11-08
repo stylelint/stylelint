@@ -1,0 +1,14 @@
+diff --git a/node_modules/import-lazy/index.d.ts b/node_modules/import-lazy/index.d.ts
+index b842b41..4fc7073 100644
+--- a/node_modules/import-lazy/index.d.ts
++++ b/node_modules/import-lazy/index.d.ts
+@@ -20,7 +20,7 @@ console.log(stuff.PHI); // => 1.618033
+ ```
+ */
+ declare function importLazy<T = unknown>(
+-	importFn: (moduleId: string) => T
+-): (moduleId: string) => T;
++	importFn: (moduleId?: string) => T
++): (moduleId?: string) => T;
+ 
+ export = importLazy;
