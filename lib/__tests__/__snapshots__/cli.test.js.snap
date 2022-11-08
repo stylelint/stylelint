@@ -150,8 +150,8 @@ exports[`CLI --help 1`] = `
 
         When glob pattern matches no files, the process will exit without throwing an error.
 
-      --globby-options, --go 
+   --globby-options, --go 
 
-        Options in JSON format passed to globby.
+  Options in JSON format passed to globby.
 "
 `;
