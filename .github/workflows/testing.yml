@@ -39,7 +39,8 @@ jobs:
           cache: npm
 
       - name: Install latest npm
-        run: npm install --global npm@latest
+        # TODO: npm@9 is the latest, but it doesn't work on Node.js v12 and v14 with windows.
+        run: npm install --global npm@8
 
       - name: Install dependencies
         run: npm ci
