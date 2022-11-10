@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: to `checkAgainstRule` with custom rules
+Added: support to `checkAgainstRule` with custom rules
