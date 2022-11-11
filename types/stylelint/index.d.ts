@@ -148,11 +148,6 @@ declare module 'stylelint' {
 
 		export type CustomSyntax = string | PostCSS.Syntax;
 
-		export type PluginContext = {
-			fix?: boolean | undefined;
-			newline?: string | undefined;
-		};
-
 		// Note: With strict function types enabled, function signatures are checked contravariantly.
 		// This means that it would not be possible for rule authors to narrow the message function
 		// parameters to e.g. just `string`. Declaring the type for rule message functions through
@@ -180,10 +175,20 @@ declare module 'stylelint' {
 			optional?: boolean;
 		};
 
+		export type RuleContext = {
+			fix?: boolean | undefined;
+			newline?: string | undefined;
+		};
+
+		/**
+		 * @deprecated Use `RuleContext` instead.
+		 */
+		export type PluginContext = RuleContext;
+
 		export type RuleBase<P = any, S = any> = (
 			primaryOption: P,
 			secondaryOptions: Record<string, S>,
-			context: PluginContext,
+			context: RuleContext,
 		) => (root: PostCSS.Root, result: PostcssResult) => Promise<void> | void;
 
 		export type RuleMeta = {
@@ -518,6 +523,7 @@ declare module 'stylelint' {
 						ruleSettings: ConfigRuleSettings<T, O>;
 						root: PostCSS.Root;
 						result?: PostcssResult;
+						context?: RuleContext;
 					},
 					callback: (warning: PostCSS.Warning) => void,
 				) => void;
