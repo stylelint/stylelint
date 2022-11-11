@@ -240,7 +240,7 @@ It accepts an options object and a callback that is invoked with warnings from t
 - `ruleSettings`: settings for the rule you are invoking
 - `root`: the root node to run this rule against
 - `result?`: the PostCSS result for resolving and invoking custom rules
-- `context?`: the PluginContext for the rule you are invoking
+- `context?`: the [context](rules.md#add-autofix) for the rule you are invoking
 
 Use the warning to create a _new_ warning _from your plugin rule_ that you report with `stylelint.utils.report`.
 
