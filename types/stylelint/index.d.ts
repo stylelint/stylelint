@@ -513,7 +513,12 @@ declare module 'stylelint' {
 				 * against a specific rule and do something with the warnings
 				 */
 				checkAgainstRule: <T, O extends Object>(
-					options: { ruleName: string; ruleSettings: ConfigRuleSettings<T, O>; root: PostCSS.Root },
+					options: {
+						ruleName: string;
+						ruleSettings: ConfigRuleSettings<T, O>;
+						root: PostCSS.Root;
+						result?: PostcssResult;
+					},
 					callback: (warning: PostCSS.Warning) => void,
 				) => void;
 			};
