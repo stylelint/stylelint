@@ -251,7 +251,7 @@ const allowableAtRules = [
   /* .. */
 ];
 
-function myPluginRule(primaryOption, secondaryOptionObject, pluginContext) {
+function myPluginRule(primaryOption, secondaryOptionObject, ruleContext) {
   return (postcssRoot, postcssResult) => {
     const defaultedOptions = Object.assign({}, secondaryOptionObject, {
       ignoreAtRules: allowableAtRules.concat(options.ignoreAtRules || [])
