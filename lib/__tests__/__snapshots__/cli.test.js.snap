@@ -149,5 +149,9 @@ exports[`CLI --help 1`] = `
     --allow-empty-input, --aei
 
       When glob pattern matches no files, the process will exit without throwing an error.
+
+    --globby-options, --go
+
+      Options in JSON format passed to globby.
 "
 `;
