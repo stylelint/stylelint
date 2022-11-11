@@ -251,7 +251,7 @@ const allowableAtRules = [
   /* .. */
 ];
 
-function myPluginRule(primaryOption, secondaryOptionObject, context) {
+function myPluginRule(primaryOption, secondaryOptionObject, pluginContext) {
   return (postcssRoot, postcssResult) => {
     const defaultedOptions = Object.assign({}, secondaryOptionObject, {
       ignoreAtRules: allowableAtRules.concat(options.ignoreAtRules || [])
@@ -263,7 +263,7 @@ function myPluginRule(primaryOption, secondaryOptionObject, context) {
         ruleSettings: [primaryOption, defaultedOptions],
         root: postcssRoot,
         result: postcssResult,
-        context
+        context: pluginContext
       },
       (warning) => {
         stylelint.utils.report({
