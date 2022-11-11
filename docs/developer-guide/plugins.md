@@ -263,7 +263,7 @@ function myPluginRule(primaryOption, secondaryOptionObject, ruleContext) {
         ruleSettings: [primaryOption, defaultedOptions],
         root: postcssRoot,
         result: postcssResult,
-        context: pluginContext
+        context: ruleContext
       },
       (warning) => {
         stylelint.utils.report({
