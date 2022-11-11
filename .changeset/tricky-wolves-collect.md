@@ -2,4 +2,4 @@
 "stylelint": minor
 ---
 
-Added: support to use `--fix` with `checkAgainstRule`
+Added: support autofix with `checkAgainstRule`
