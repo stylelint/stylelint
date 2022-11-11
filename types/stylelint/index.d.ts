@@ -518,6 +518,7 @@ declare module 'stylelint' {
 						ruleSettings: ConfigRuleSettings<T, O>;
 						root: PostCSS.Root;
 						result?: PostcssResult;
+						context?: PluginContext;
 					},
 					callback: (warning: PostCSS.Warning) => void,
 				) => void;
