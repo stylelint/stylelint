@@ -1,5 +1,15 @@
 # Changelog
 
+## 14.15.0
+
+- Added: `--globby-options` flag ([#6437](https://github.com/stylelint/stylelint/pull/6437)) ([@sidverma32](https://github.com/sidverma32)).
+- Added: custom message formatting for `at-rule-disallowed-list`, `declaration-property-unit-disallowed-list`, `declaration-property-value-disallowed-list`, `function-disallowed-list`, and `property-disallowed-list` ([#6463](https://github.com/stylelint/stylelint/pull/6463)) ([@chloerice](https://github.com/chloerice)).
+- Added: support autofix with `checkAgainstRule` ([#6466](https://github.com/stylelint/stylelint/pull/6466)) ([@aaronccasanova](https://github.com/aaronccasanova)).
+- Added: support for reporting with custom severity ([#6444](https://github.com/stylelint/stylelint/pull/6444)) ([@aaronccasanova](https://github.com/aaronccasanova)).
+- Added: support to `checkAgainstRule` with custom rules ([#6460](https://github.com/stylelint/stylelint/pull/6460)) ([@aaronccasanova](https://github.com/aaronccasanova)).
+- Fixed: tally output of `string` formatter colorized ([#6443](https://github.com/stylelint/stylelint/pull/6443)) ([@ybiquitous](https://github.com/ybiquitous)).
+- Fixed: usage of the `import-lazy` package to fit bundlers ([#6449](https://github.com/stylelint/stylelint/pull/6449)) ([@phoenisx](https://github.com/phoenisx)).
+
 ## 14.14.1
 
 - Fixed: `declaration-block-no-redundant-longhand-properties` false positives for `inherit` keyword ([#6419](https://github.com/stylelint/stylelint/pull/6419)) ([@kimulaco](https://github.com/kimulaco)).
