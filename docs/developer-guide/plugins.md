@@ -232,13 +232,15 @@ Validates the options for your rule.
 
 ### `stylelint.utils.checkAgainstRule`
 
-Checks CSS against a standard Stylelint rule _within your own rule_. This function provides power and flexibility for plugins authors who wish to modify, constrain, or extend the functionality of existing Stylelint rules.
+Checks CSS against a standard or custom Stylelint rule _within your own rule_. This function provides power and flexibility for plugins authors who wish to modify, constrain, or extend the functionality of existing Stylelint rules.
 
 It accepts an options object and a callback that is invoked with warnings from the specified rule. The options are:
 
 - `ruleName`: the name of the rule you are invoking
 - `ruleSettings`: settings for the rule you are invoking
 - `root`: the root node to run this rule against
+- `result?`: the PostCSS result for resolving and invoking custom rules
+- `context?`: the [context](rules.md#add-autofix) for the rule you are invoking
 
 Use the warning to create a _new_ warning _from your plugin rule_ that you report with `stylelint.utils.report`.
 
@@ -249,7 +251,7 @@ const allowableAtRules = [
   /* .. */
 ];
 
-function myPluginRule(primaryOption, secondaryOptionObject) {
+function myPluginRule(primaryOption, secondaryOptionObject, ruleContext) {
   return (postcssRoot, postcssResult) => {
     const defaultedOptions = Object.assign({}, secondaryOptionObject, {
       ignoreAtRules: allowableAtRules.concat(options.ignoreAtRules || [])
@@ -259,7 +261,9 @@ function myPluginRule(primaryOption, secondaryOptionObject) {
       {
         ruleName: "at-rule-no-unknown",
         ruleSettings: [primaryOption, defaultedOptions],
-        root: postcssRoot
+        root: postcssRoot,
+        result: postcssResult,
+        context: ruleContext
       },
       (warning) => {
         stylelint.utils.report({

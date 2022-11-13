@@ -9,6 +9,8 @@ a { text-transform: uppercase; }
  * These properties and these values */
 ```
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 `object`: `{ "unprefixed-property-name": ["array", "of", "values", "/regex/", /regex/]|"value"|"/regex/"|/regex/ }`

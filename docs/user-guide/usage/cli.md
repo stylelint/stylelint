@@ -68,6 +68,10 @@ Automatically fix, where possible, problems reported by rules. [More info](optio
 
 Specify the formatter to format your results. [More info](options.md#formatter).
 
+## `--globbyOptions, --go`
+
+Options in JSON format passed to [globby](https://github.com/sindresorhus/globby). [More info](options.md#globbyoptions).
+
 ### `--ignore-disables, --id`
 
 Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments. [More info](options.md#ignoredisables).
