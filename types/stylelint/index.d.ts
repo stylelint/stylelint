@@ -180,11 +180,6 @@ declare module 'stylelint' {
 			newline?: string | undefined;
 		};
 
-		/**
-		 * @deprecated Use `RuleContext` instead.
-		 */
-		export type PluginContext = RuleContext;
-
 		export type RuleBase<P = any, S = any> = (
 			primaryOption: P,
 			secondaryOptions: Record<string, S>,
