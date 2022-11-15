@@ -8,8 +8,6 @@ declare module 'stylelint' {
 
 		export type ConfigExtends = string | string[];
 		export type ConfigPlugins = string | string[];
-		export type ConfigProcessor = string | [string, Object];
-		export type ConfigProcessors = string | ConfigProcessor[];
 		export type ConfigIgnoreFiles = string | string[];
 		export type ConfigRuleSettings<T, O extends Object> =
 			| null
@@ -30,21 +28,15 @@ declare module 'stylelint' {
 		};
 		export type DisableSettings = ConfigRuleSettings<boolean, DisableOptions>;
 
-		export type ResultProcessor = (result: LintResult, file: string | undefined) => LintResult;
-
 		export type Config = {
 			extends?: ConfigExtends;
 			plugins?: ConfigPlugins;
 			pluginFunctions?: {
 				[pluginName: string]: Rule;
 			};
-			processors?: ConfigProcessors;
-			processorFunctions?: Function[];
 			ignoreFiles?: ConfigIgnoreFiles;
 			ignorePatterns?: string;
 			rules?: ConfigRules;
-			codeProcessors?: CodeProcessor[];
-			resultProcessors?: ResultProcessor[];
 			quiet?: boolean;
 			defaultSeverity?: Severity;
 			ignoreDisables?: DisableSettings;
@@ -206,13 +198,10 @@ declare module 'stylelint' {
 
 		export type Plugin = RuleBase;
 
-		export type CodeProcessor = (code: string, file: string | undefined) => string;
-
 		export type GetPostcssOptions = {
 			code?: string;
 			codeFilename?: string;
 			filePath?: string;
-			codeProcessors?: CodeProcessor[];
 			customSyntax?: CustomSyntax;
 		};
 
