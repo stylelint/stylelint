@@ -7,7 +7,10 @@ declare module 'stylelint' {
 		export type Severity = 'warning' | 'error';
 
 		export type ConfigExtends = string | string[];
-		export type ConfigPlugins = string | string[];
+		export type PluginImportType =
+			| { default?: { ruleName: string; rule: Rule } }
+			| { ruleName: string; rule: Rule };
+		export type ConfigPlugins = string | string[] | PluginImportType | PluginImportType[];
 		export type ConfigProcessor = string | [string, Object];
 		export type ConfigProcessors = string | ConfigProcessor[];
 		export type ConfigIgnoreFiles = string | string[];
