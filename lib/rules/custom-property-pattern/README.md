@@ -9,6 +9,8 @@ a { --foo-: 1px; }
  * The pattern of this */
 ```
 
+The [`message` secondary option](../../../docs/user-guide/configure.md#message) can accept the arguments of this rule.
+
 ## Options
 
 `regex|string`
