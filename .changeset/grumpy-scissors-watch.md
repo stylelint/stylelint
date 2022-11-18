@@ -2,4 +2,4 @@
 "stylelint": major
 ---
 
-Change: `extends` in `overrides` to merge to be consistent with `plugins` behaviour
+Changed: `extends` in `overrides` to merge to be consistent with `plugins` behaviour
