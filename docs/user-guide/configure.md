@@ -388,35 +388,6 @@ If the globs are absolute paths, they are used as is. If they are relative, they
 
 _Note that this is not an efficient method for ignoring lots of files._ If you want to ignore a lot of files efficiently, use [`.stylelintignore`](ignore-code.md) or adjust your files globs.
 
-## `processors`
-
-Processors are functions built by the community that hook into Stylelint's pipeline, modifying code on its way into Stylelint and modifying results on their way out.
-
-**We discourage their use in favor of using the [`customSyntax` option](#customsyntax) as processors are incompatible with the [autofix feature](usage/options.md#fix).**
-
-To use one, add a `"processors"` array to your config, containing "locaters" identifying the processors you want to use. As with `extends`, above, a "locater" can be either an npm module name, an absolute path, or a path relative to the invoking configuration file.
-
-```json
-{
-  "processors": ["stylelint-my-processor"],
-  "rules": {}
-}
-```
-
-If your processor has options, make that item an array whose first item is the "locator" and second item is the options object.
-
-```json
-{
-  "processors": [
-    "stylelint-my-processor",
-    ["some-other-processor", { "optionOne": true, "optionTwo": false }]
-  ],
-  "rules": {}
-}
-```
-
-Processors can also only be used with the CLI and the Node.js API, not with the PostCSS plugin. (The PostCSS plugin ignores them.)
-
 ## `report*`
 
 These `report*` properties provide extra validation for `stylelint-disable` comments. This can be helpful for enforcing useful and well-documented disables.
