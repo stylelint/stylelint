@@ -234,6 +234,16 @@ To use one, add a `"plugins"` array to your config, containing "locaters" identi
 - npm module name
 - absolute path
 - path relative to the invoking configuration file
+- stylelint plugin object of format
+
+```js
+{
+  ruleName: "plugin-name",
+  rule: function plugin(opts) { /* Plugin Code */ }
+}
+```
+
+> Read more about writing [Stylint Plugins here](../developer-guide/plugins.md).
 
 Once the plugin is declared, within your `"rules"` object _you'll need to add options_ for the plugin's rule(s), just like any standard rule. Look at the plugin's documentation to know what the rule name should be.
 
