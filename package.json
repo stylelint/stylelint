@@ -58,6 +58,9 @@
   },
   "prettier": "@stylelint/prettier-config",
   "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
     "extends": [
       "stylelint"
     ],
