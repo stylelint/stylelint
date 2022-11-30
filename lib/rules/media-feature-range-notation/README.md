@@ -58,7 +58,7 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@media (1px <= width >= 2px) {}
+@media (1px <= width <= 2px) {}
 ```
 
 The following patterns are _not_ considered problems:
