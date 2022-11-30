@@ -28,16 +28,19 @@ const changelogFunctions = {
 		return Object.entries(resolved)
 			.reduce((acc, [_type, lines]) => {
 				const type = /**  @type {ReleaseType} */ (_type);
+
 				lines.forEach((line) => {
 					if (line) {
 						acc.push(`${line}${type === 'major' ? ' (BREAKING)' : ''}`);
 					}
 				});
+
 				return acc;
 			}, /**  @type {string[]} */ ([]))
 			.sort((a, b) => {
 				const aSection = changesetSectionReg.exec(a)?.[1];
 				const bSection = changesetSectionReg.exec(b)?.[1];
+
 				return aSection === bSection
 					? a.localeCompare(b)
 					: CHANGESET_SECTIONS.indexOf(aSection) - CHANGESET_SECTIONS.indexOf(bSection);
@@ -66,15 +69,19 @@ const changelogFunctions = {
 		const replacedChangelog = changeset.summary
 			.replace(/^\s*(?:pr|pull|pull\s+request):\s*#?(\d+)/im, (_, pr) => {
 				let num = Number(pr);
+
 				if (!isNaN(num)) prFromSummary = num;
+
 				return '';
 			})
-			.replace(/^\s*commit:\s*([^\s]+)/im, (_, commit) => {
+			.replace(/^\s*commit:\s*(\S+)/im, (_, commit) => {
 				commitFromSummary = commit;
+
 				return '';
 			})
-			.replace(/^\s*(?:author|user):\s*@?([^\s]+)/gim, (_, user) => {
+			.replace(/^\s*(?:author|user):\s*@?(\S+)/gim, (_, user) => {
 				usersFromSummary.push(user);
+
 				return '';
 			})
 			.trim();
@@ -83,26 +90,32 @@ const changelogFunctions = {
 
 		const links = await (async () => {
 			if (prFromSummary !== undefined) {
-				let { links } = await getInfoFromPullRequest({
+				let { links: resultLinks } = await getInfoFromPullRequest({
 					repo: options.repo,
 					pull: prFromSummary,
 				});
+
 				if (commitFromSummary) {
-					links = {
-						...links,
+					resultLinks = {
+						...resultLinks,
 						commit: `[\`${commitFromSummary}\`](https://github.com/${options.repo}/commit/${commitFromSummary})`,
 					};
 				}
-				return links;
+
+				return resultLinks;
 			}
+
 			const commitToFetchFrom = commitFromSummary || changeset.commit;
+
 			if (commitToFetchFrom) {
-				let { links } = await getInfo({
+				let { links: resultLinks } = await getInfo({
 					repo: options.repo,
 					commit: commitToFetchFrom,
 				});
-				return links;
+
+				return resultLinks;
 			}
+
 			return {
 				commit: null,
 				pull: null,

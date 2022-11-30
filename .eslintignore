@@ -3,3 +3,6 @@ lib/vendor
 
 # Unignore config files like .prettierrc.js, because they're ignored by default
 !.*rc.js
+
+# Unignore dot-folders
+!/.changeset
