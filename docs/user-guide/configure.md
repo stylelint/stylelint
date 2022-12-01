@@ -229,7 +229,7 @@ For example, [stylelint-scss](https://github.com/stylelint-scss/stylelint-scss) 
 
 You'll find more in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#plugins).
 
-To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either a:
+To use one, add a `"plugins"` array to your config, containing either [plugin objects](../developer-guide/plugins.md) or "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either a:
 
 - npm module name
 - absolute path
