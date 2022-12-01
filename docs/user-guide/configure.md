@@ -229,21 +229,11 @@ For example, [stylelint-scss](https://github.com/stylelint-scss/stylelint-scss) 
 
 You'll find more in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#plugins).
 
-To use one, add a `"plugins"` array to your config, containing "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either a:
+To use one, add a `"plugins"` array to your config, containing either [plugin objects](../developer-guide/plugins.md) or "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either a:
 
 - npm module name
 - absolute path
 - path relative to the invoking configuration file
-- stylelint plugin object of format
-
-```js
-{
-  ruleName: "plugin-name",
-  rule: function plugin(opts) { /* Plugin Code */ }
-}
-```
-
-> Read more about writing [Stylint Plugins here](../developer-guide/plugins.md).
 
 Once the plugin is declared, within your `"rules"` object _you'll need to add options_ for the plugin's rule(s), just like any standard rule. Look at the plugin's documentation to know what the rule name should be.
 
