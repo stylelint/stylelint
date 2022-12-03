@@ -121,7 +121,7 @@
     "fastest-levenshtein": "^1.0.16",
     "file-entry-cache": "^6.0.1",
     "global-modules": "^2.0.0",
-    "globby": "^11.1.0",
+    "globby": "^13.1.2",
     "globjoin": "^0.1.4",
     "html-tags": "^3.2.0",
     "ignore": "^5.2.1",
