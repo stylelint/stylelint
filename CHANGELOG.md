@@ -1,5 +1,11 @@
 # Changelog
 
+## 14.16.0
+
+- Added: `media-feature-range-notation` rule ([#6497](https://github.com/stylelint/stylelint/pull/6497)) ([@jeddy3](https://github.com/jeddy3)).
+- Added: support for plugin objects as config values ([#6481](https://github.com/stylelint/stylelint/pull/6481)) ([@phoenisx](https://github.com/phoenisx)).
+- Fixed: incorrect output by all formatters except for `json` ([#6480](https://github.com/stylelint/stylelint/pull/6480)) ([@ybiquitous](https://github.com/ybiquitous)).
+
 ## 14.15.0
 
 - Added: `--globby-options` flag ([#6437](https://github.com/stylelint/stylelint/pull/6437)) ([@sidverma32](https://github.com/sidverma32)).
