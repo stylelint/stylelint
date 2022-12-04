@@ -1,5 +1,8 @@
 # selector-list-comma-newline-before
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Require a newline or disallow whitespace before the commas of selector lists.
 
 <!-- prettier-ignore -->

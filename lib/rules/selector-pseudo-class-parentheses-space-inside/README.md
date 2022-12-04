@@ -1,5 +1,8 @@
 # selector-pseudo-class-parentheses-space-inside
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors.
 
 <!-- prettier-ignore -->

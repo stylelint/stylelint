@@ -1,5 +1,8 @@
 # declaration-block-trailing-semicolon
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Require or disallow a trailing semicolon within declaration blocks.
 
 <!-- prettier-ignore -->

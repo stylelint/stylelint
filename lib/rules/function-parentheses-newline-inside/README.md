@@ -1,5 +1,8 @@
 # function-parentheses-newline-inside
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Require a newline or disallow whitespace on the inside of the parentheses of functions.
 
 <!-- prettier-ignore -->

@@ -1,5 +1,8 @@
 # selector-max-empty-lines
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Limit the number of adjacent empty lines within selectors.
 
 <!-- prettier-ignore -->

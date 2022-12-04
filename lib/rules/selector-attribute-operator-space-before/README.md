@@ -1,5 +1,8 @@
 # selector-attribute-operator-space-before
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Require a single space or disallow whitespace before operators within attribute selectors.
 
 <!-- prettier-ignore -->

@@ -1,5 +1,8 @@
 # value-list-comma-newline-after
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Require a newline or disallow whitespace after the commas of value lists.
 
 <!-- prettier-ignore -->

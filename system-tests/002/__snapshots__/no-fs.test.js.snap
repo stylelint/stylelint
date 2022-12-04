@@ -82,6 +82,7 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
   ],
   "ruleMetadata": {
     "at-rule-name-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-name-space-after",
     },
@@ -90,12 +91,14 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
       "url": "https://stylelint.io/user-guide/rules/at-rule-no-vendor-prefix",
     },
     "at-rule-semicolon-space-before": {
+      "deprecated": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-semicolon-space-before",
     },
     "color-named": {
       "url": "https://stylelint.io/user-guide/rules/color-named",
     },
     "declaration-block-semicolon-newline-before": {
+      "deprecated": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-block-semicolon-newline-before",
     },
     "declaration-no-important": {
@@ -116,6 +119,7 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
       "url": "https://stylelint.io/user-guide/rules/function-url-quotes",
     },
     "max-empty-lines": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/max-empty-lines",
     },
@@ -124,6 +128,7 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
       "url": "https://stylelint.io/user-guide/rules/media-feature-name-no-vendor-prefix",
     },
     "number-leading-zero": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/number-leading-zero",
     },
@@ -139,14 +144,17 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
       "url": "https://stylelint.io/user-guide/rules/selector-class-pattern",
     },
     "selector-list-comma-newline-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-list-comma-newline-before",
     },
     "selector-list-comma-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-list-comma-space-after",
     },
     "selector-list-comma-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-list-comma-space-before",
     },
@@ -183,20 +191,25 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
       "url": "https://stylelint.io/user-guide/rules/shorthand-property-no-redundant-values",
     },
     "string-quotes": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/string-quotes",
     },
     "unicode-bom": {
+      "deprecated": true,
       "url": "https://stylelint.io/user-guide/rules/unicode-bom",
     },
     "value-list-comma-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-comma-newline-after",
     },
     "value-list-comma-newline-before": {
+      "deprecated": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-comma-newline-before",
     },
     "value-list-comma-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-comma-space-after",
     },

@@ -1,5 +1,8 @@
 # media-feature-colon-space-before
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Require a single space or disallow whitespace before the colon in media features.
 
 <!-- prettier-ignore -->

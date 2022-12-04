@@ -1,5 +1,8 @@
 # indentation
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Specify indentation.
 
 <!-- prettier-ignore -->

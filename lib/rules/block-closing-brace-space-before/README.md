@@ -1,5 +1,8 @@
 # block-closing-brace-space-before
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Require a single space or disallow whitespace before the closing brace of blocks.
 
 <!-- prettier-ignore -->

@@ -1,5 +1,8 @@
 # selector-pseudo-class-case
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Specify lowercase or uppercase for pseudo-class selectors.
 
 <!-- prettier-ignore -->

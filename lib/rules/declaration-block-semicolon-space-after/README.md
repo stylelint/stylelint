@@ -1,5 +1,8 @@
 # declaration-block-semicolon-space-after
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Require a single space or disallow whitespace after the semicolons of declaration blocks.
 
 <!-- prettier-ignore -->

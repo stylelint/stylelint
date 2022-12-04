@@ -1,5 +1,8 @@
 # function-whitespace-after
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Require or disallow whitespace after functions.
 
 <!-- prettier-ignore -->

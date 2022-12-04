@@ -1,5 +1,8 @@
 # at-rule-name-space-after
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Require a single space after at-rule names.
 
 <!-- prettier-ignore -->

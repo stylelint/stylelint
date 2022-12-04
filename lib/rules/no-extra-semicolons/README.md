@@ -1,5 +1,8 @@
 # no-extra-semicolons
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Disallow extra semicolons.
 
 <!-- prettier-ignore -->

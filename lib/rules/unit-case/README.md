@@ -1,5 +1,8 @@
 # unit-case
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Specify lowercase or uppercase for units.
 
 <!-- prettier-ignore -->

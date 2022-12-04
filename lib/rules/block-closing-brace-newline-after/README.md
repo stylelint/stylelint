@@ -1,5 +1,8 @@
 # block-closing-brace-newline-after
 
+> **Warning**
+> This rule is deprecated and will be removed in the future.
+
 Require a newline or disallow whitespace after the closing brace of blocks.
 
 <!-- prettier-ignore -->
