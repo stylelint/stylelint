@@ -190,7 +190,6 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 ### Case
 
 Specify lowercase or uppercase for words.
-o
 
 - [`function-name-case`](../../lib/rules/function-name-case/README.md): Specify lowercase or uppercase for function names (Autofixable).
 - [`selector-type-case`](../../lib/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selectors (Autofixable).
@@ -272,7 +271,7 @@ Require or disallow whitespace on the inside.
 
 ## Deprecated
 
-We have deprecated these rules — we won't fix bugs nor add options, and we will deprecate then remove them in future releases. We recommend you use a pretty printer (like Prettier) alongside Stylelint rather than these rules. If you prefer to use Stylelint to enforce stylistic consistency, you can [migrate the rules you need to a plugin](../developer-guide/plugins.md).
+We have deprecated these rules — we won't fix bugs nor add options, and we will remove them in future releases. We recommend you use a pretty printer (like Prettier) alongside Stylelint rather than these rules. If you prefer to use Stylelint to enforce stylistic consistency, you can [migrate the rules you need to a plugin](../developer-guide/plugins.md).
 
 The whitespace rules allow you to enforce an empty line, a single space, a newline or no space in some specific part of the stylesheet.
 
