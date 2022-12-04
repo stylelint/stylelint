@@ -1,7 +1,6 @@
 # value-list-comma-space-before
 
-> **Warning**
-> This rule is deprecated and will be removed in the future.
+> **Warning** This rule is deprecated and will be removed in the future.
 
 Require a single space or disallow whitespace before the commas of value lists.
 

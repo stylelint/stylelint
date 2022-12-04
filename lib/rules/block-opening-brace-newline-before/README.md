@@ -1,7 +1,6 @@
 # block-opening-brace-newline-before
 
-> **Warning**
-> This rule is deprecated and will be removed in the future.
+> **Warning** This rule is deprecated and will be removed in the future.
 
 Require a newline or disallow whitespace before the opening brace of blocks.
 

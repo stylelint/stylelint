@@ -1,7 +1,6 @@
 # number-leading-zero
 
-> **Warning**
-> This rule is deprecated and will be removed in the future.
+> **Warning** This rule is deprecated and will be removed in the future.
 
 Require or disallow a leading zero for fractional numbers less than 1.
 

@@ -1,7 +1,6 @@
 # no-missing-end-of-source-newline
 
-> **Warning**
-> This rule is deprecated and will be removed in the future.
+> **Warning** This rule is deprecated and will be removed in the future.
 
 Disallow missing end-of-source newlines.
 

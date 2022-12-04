@@ -1,7 +1,6 @@
 # block-closing-brace-empty-line-before
 
-> **Warning**
-> This rule is deprecated and will be removed in the future.
+> **Warning** This rule is deprecated and will be removed in the future.
 
 Require or disallow an empty line before the closing brace of blocks.
 

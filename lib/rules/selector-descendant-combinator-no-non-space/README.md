@@ -1,7 +1,6 @@
 # selector-descendant-combinator-no-non-space
 
-> **Warning**
-> This rule is deprecated and will be removed in the future.
+> **Warning** This rule is deprecated and will be removed in the future.
 
 Disallow non-space characters for descendant combinators of selectors.
 

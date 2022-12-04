@@ -1,7 +1,6 @@
 # linebreaks
 
-> **Warning**
-> This rule is deprecated and will be removed in the future.
+> **Warning** This rule is deprecated and will be removed in the future.
 
 Specify unix or windows linebreaks.
 
