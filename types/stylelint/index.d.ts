@@ -7,10 +7,10 @@ declare module 'stylelint' {
 		export type Severity = 'warning' | 'error';
 
 		export type ConfigExtends = string | string[];
-		export type PluginType =
+		export type Plugin =
 			| { default?: { ruleName: string; rule: Rule } }
 			| { ruleName: string; rule: Rule };
-		export type ConfigPlugins = string | PluginType | (string | PluginType)[];
+		export type ConfigPlugins = string | Plugin | (string | Plugin)[];
 		export type ConfigProcessor = string | [string, Object];
 		export type ConfigProcessors = string | ConfigProcessor[];
 		export type ConfigIgnoreFiles = string | string[];
@@ -195,8 +195,6 @@ declare module 'stylelint' {
 			primaryOptionArray?: boolean;
 			meta?: RuleMeta;
 		};
-
-		export type Plugin = RuleBase;
 
 		export type GetPostcssOptions = {
 			code?: string;
@@ -449,7 +447,7 @@ declare module 'stylelint' {
 			/**
 			 * Creates a Stylelint plugin.
 			 */
-			createPlugin: (ruleName: string, rule: Rule) => { ruleName: string; rule: Rule };
+			createPlugin: (ruleName: string, rule: Rule) => Plugin;
 			/**
 			 * Internal use only. Do not use or rely on this method. It may
 			 * change at any time.
