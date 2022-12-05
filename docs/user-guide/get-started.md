@@ -29,18 +29,6 @@ npx stylelint "**/*.css"
 
 _You should include quotation marks around file globs._
 
-If you use a pretty printer alongside Stylelint, you should turn off any conflicting rules. For example, you can use [Prettier's shared config](https://www.npmjs.com/package/stylelint-config-prettier) to do that:
-
-```shell
-npm install --save-dev stylelint-config-prettier
-```
-
-```json
-{
-  "extends": ["stylelint-config-standard", "stylelint-config-prettier"]
-}
-```
-
 ## Linting everything else
 
 You'll need to use a [custom syntax](usage/options.md#customsyntax) written by the community.

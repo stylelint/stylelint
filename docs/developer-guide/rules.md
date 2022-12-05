@@ -6,6 +6,25 @@ Please help us create, enhance, and debug our rules!
 
 You should get yourself ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
 
+### Define the rule
+
+A rule must be:
+
+- for standard CSS syntax only
+- generally useful; not tied to idiosyncratic patterns
+
+And have a:
+
+- clear and unambiguous finished state
+- singular purpose; don't overlap with other rules
+
+It's name is split into two parts:
+
+- the [_thing_](http://apps.workflower.fi/vocabs/css/en) the rule applies to, e.g. `at-rule`
+- what the rule is checking, e.g. `disallowed-list`
+
+Unless it applies to the whole source, then there is no first part.
+
 ### Write the rule
 
 When writing the rule, you should:

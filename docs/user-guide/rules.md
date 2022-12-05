@@ -1,24 +1,9 @@
 # Rules
 
-There are over 170 rules that help you:
+There are over 100 rules for modern CSS that help you:
 
 - [avoid errors](#avoid-errors)
 - [enforce conventions](#enforce-conventions)
-- [deprecated](#deprecated)
-
-The rules:
-
-- are for standard CSS syntax only
-- are generally useful; not tied to idiosyncratic patterns
-- have a clear and unambiguous finished state
-- have a singular purpose; don't overlap with other rules
-
-A rule's name is split into two parts:
-
-- the [_thing_](http://apps.workflower.fi/vocabs/css/en) the rule applies to, e.g. `at-rule`
-- what the rule is checking, e.g. `disallowed-list`
-
-Unless it applies to the whole source, then there is no first part.
 
 ## Avoid errors
 
@@ -103,7 +88,7 @@ Disallow unknown things with these `no-unknown` rules.
 
 ## Enforce conventions
 
-You can enforce non-stylistic conventions with these `no` and `list` rules. They are powerful rules for making your CSS consistent. You'll need to configure most of them to suit your needs.
+You can enforce conventions with these `no` and `list` rules. They are powerful rules for making your code consistent. You'll need to configure most of them to suit your needs.
 
 ### Allowed, disallowed & required
 
@@ -271,54 +256,7 @@ Require or disallow whitespace on the inside.
 
 ## Deprecated
 
-We have deprecated these rules — we won't fix bugs nor add options, and we will remove them in future releases. We recommend you use a pretty printer (like Prettier) alongside Stylelint rather than these rules. If you prefer to use Stylelint to enforce stylistic consistency, you can [migrate the rules you need to a plugin](../developer-guide/plugins.md).
-
-The whitespace rules allow you to enforce an empty line, a single space, a newline or no space in some specific part of the stylesheet.
-
-The whitespace rules combine two sets of keywords:
-
-- `before`, `after` and `inside` to specify where the whitespace (if any) is expected
-- `empty-line`, `space` and `newline` to specify whether a single empty line, a single space, a single newline or no space is expected there
-
-For example, specifying if a single empty line or no space must come before all the comments in a stylesheet:
-
-- `comment-empty-line-before`: `string` - `"always"|"never"`
-
-<!-- prettier-ignore -->
-```css
-a {}
-              ←
-/* comment */ ↑
-              ↑
-/**           ↑
- * This empty line  */
-````
-
-Additionally, some whitespace rules use an additional set of keywords:
-
-- `comma`, `colon`, `semicolon`, `opening-brace`, `closing-brace`, `opening-parenthesis`, `closing-parenthesis`, `operator` or `range-operator` are used if a specific piece of punctuation in the _thing_ is being targeted
-
-For example, specifying if a single space or no space must follow a comma in a function:
-
-- `function-comma-space-after`: `string` - `"always"|"never"`
-
-<!-- prettier-ignore -->
-```css
-a { transform: translate(1, 1) }
-/**                       ↑
- * The space after this commas */
-```
-
-The plural of the punctuation is used for `inside` rules. For example, specifying if a single space or no space must be inside the parentheses of a function:
-
-- `function-parentheses-space-inside`: `string` - `"always"|"never"`
-
-<!-- prettier-ignore -->
-```css
-a { transform: translate( 1, 1 ); }
-/**                     ↑      ↑
- * The space inside these two parentheses */
-```
+We have deprecated these rules — we won't fix bugs nor add options, and we will remove them in future releases. We recommend you use a pretty printer (like Prettier) alongside Stylelint rather than these rules.
 
 ### Color
 

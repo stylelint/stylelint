@@ -1,6 +1,6 @@
 # declaration-block-trailing-semicolon
 
-> **Warning** This rule is deprecated and will be removed in the future.
+> **Warning** This rule is deprecated and will be removed in the future. See [the migration guide](../../../docs/migration-guide/to-15.md).
 
 Require or disallow a trailing semicolon within declaration blocks.
 

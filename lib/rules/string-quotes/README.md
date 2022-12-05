@@ -1,6 +1,6 @@
 # string-quotes
 
-> **Warning** This rule is deprecated and will be removed in the future.
+> **Warning** This rule is deprecated and will be removed in the future. See [the migration guide](../../../docs/migration-guide/to-15.md).
 
 Specify single or double quotes around strings.
 
