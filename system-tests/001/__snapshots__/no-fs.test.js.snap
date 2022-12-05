@@ -168,7 +168,6 @@ exports[`no-fs - valid sanitize.css and their config 1`] = `
       "url": "https://stylelint.io/user-guide/rules/declaration-colon-space-before",
     },
     "declaration-empty-line-before": {
-      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-empty-line-before",
     },
