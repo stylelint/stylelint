@@ -185,6 +185,7 @@ Specify lowercase or uppercase for words.
 - [`at-rule-empty-line-before`](../../lib/rules/at-rule-empty-line-before/README.md): Require or disallow an empty line before at-rules (Autofixable).
 - [`comment-empty-line-before`](../../lib/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments (Autofixable).
 - [`custom-property-empty-line-before`](../../lib/rules/custom-property-empty-line-before/README.md): Require or disallow an empty line before custom properties (Autofixable).
+- [`declaration-empty-line-before`](../../lib/rules/declaration-empty-line-before/README.md): Require or disallow an empty line before declarations (Autofixable).
 - [`rule-empty-line-before`](../../lib/rules/rule-empty-line-before/README.md): Require or disallow an empty line before rules (Autofixable).
 
 ### Max & min
@@ -305,7 +306,6 @@ We have deprecated these rules — we won't fix bugs nor add options, and we wil
 - [`declaration-colon-newline-after`](../../lib/rules/declaration-colon-newline-after/README.md): Require a newline or disallow whitespace after the colon of declarations (Autofixable).
 - [`declaration-colon-space-after`](../../lib/rules/declaration-colon-space-after/README.md): Require a single space or disallow whitespace after the colon of declarations (Autofixable).
 - [`declaration-colon-space-before`](../../lib/rules/declaration-colon-space-before/README.md): Require a single space or disallow whitespace before the colon of declarations (Autofixable).
-- [`declaration-empty-line-before`](../../lib/rules/declaration-empty-line-before/README.md): Require or disallow an empty line before declarations (Autofixable).
 
 ### Declaration block
 
