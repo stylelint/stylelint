@@ -464,6 +464,9 @@ declare module 'stylelint' {
 		ReadonlySet<string>
 	>;
 
+	/**
+	 * Utility functions.
+	 */
 	export type Utils = {
 		/**
 		 * Report a problem.
