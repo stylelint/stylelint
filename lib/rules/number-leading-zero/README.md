@@ -1,5 +1,7 @@
 # number-leading-zero
 
+> **Warning** This rule is deprecated and will be removed in the future. See [the migration guide](../../../docs/migration-guide/to-15.md).
+
 Require or disallow a leading zero for fractional numbers less than 1.
 
 <!-- prettier-ignore -->

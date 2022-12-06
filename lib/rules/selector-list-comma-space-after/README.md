@@ -1,5 +1,7 @@
 # selector-list-comma-space-after
 
+> **Warning** This rule is deprecated and will be removed in the future. See [the migration guide](../../../docs/migration-guide/to-15.md).
+
 Require a single space or disallow whitespace after the commas of selector lists.
 
 <!-- prettier-ignore -->

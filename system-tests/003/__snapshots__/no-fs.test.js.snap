@@ -242,10 +242,12 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/at-rule-empty-line-before",
     },
     "at-rule-name-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-name-case",
     },
     "at-rule-name-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-name-space-after",
     },
@@ -253,22 +255,27 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/at-rule-no-unknown",
     },
     "at-rule-semicolon-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/at-rule-semicolon-newline-after",
     },
     "block-closing-brace-empty-line-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-closing-brace-empty-line-before",
     },
     "block-closing-brace-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-closing-brace-newline-after",
     },
     "block-closing-brace-newline-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-closing-brace-newline-before",
     },
     "block-closing-brace-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-closing-brace-space-before",
     },
@@ -276,18 +283,22 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/block-no-empty",
     },
     "block-opening-brace-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-opening-brace-newline-after",
     },
     "block-opening-brace-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-opening-brace-space-after",
     },
     "block-opening-brace-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/block-opening-brace-space-before",
     },
     "color-hex-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/color-hex-case",
     },
@@ -314,10 +325,12 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/custom-property-empty-line-before",
     },
     "declaration-bang-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-bang-space-after",
     },
     "declaration-bang-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-bang-space-before",
     },
@@ -329,14 +342,17 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/declaration-block-no-shorthand-property-overrides",
     },
     "declaration-block-semicolon-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-block-semicolon-newline-after",
     },
     "declaration-block-semicolon-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-block-semicolon-space-after",
     },
     "declaration-block-semicolon-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-block-semicolon-space-before",
     },
@@ -344,18 +360,22 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/declaration-block-single-line-max-declarations",
     },
     "declaration-block-trailing-semicolon": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-block-trailing-semicolon",
     },
     "declaration-colon-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-colon-newline-after",
     },
     "declaration-colon-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-colon-space-after",
     },
     "declaration-colon-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/declaration-colon-space-before",
     },
@@ -374,14 +394,17 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/function-calc-no-unspaced-operator",
     },
     "function-comma-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-comma-newline-after",
     },
     "function-comma-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-comma-space-after",
     },
     "function-comma-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-comma-space-before",
     },
@@ -389,6 +412,7 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
     },
     "function-max-empty-lines": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-max-empty-lines",
     },
@@ -397,18 +421,22 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/function-name-case",
     },
     "function-parentheses-newline-inside": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-parentheses-newline-inside",
     },
     "function-parentheses-space-inside": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-parentheses-space-inside",
     },
     "function-whitespace-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-whitespace-after",
     },
     "indentation": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/indentation",
     },
@@ -420,18 +448,22 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/length-zero-no-unit",
     },
     "max-empty-lines": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/max-empty-lines",
     },
     "media-feature-colon-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-colon-space-after",
     },
     "media-feature-colon-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-colon-space-before",
     },
     "media-feature-name-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-name-case",
     },
@@ -439,26 +471,32 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/media-feature-name-no-unknown",
     },
     "media-feature-parentheses-space-inside": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-parentheses-space-inside",
     },
     "media-feature-range-operator-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-range-operator-space-after",
     },
     "media-feature-range-operator-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-feature-range-operator-space-before",
     },
     "media-query-list-comma-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-query-list-comma-newline-after",
     },
     "media-query-list-comma-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-query-list-comma-space-after",
     },
     "media-query-list-comma-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/media-query-list-comma-space-before",
     },
@@ -475,10 +513,12 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/no-empty-source",
     },
     "no-eol-whitespace": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/no-eol-whitespace",
     },
     "no-extra-semicolons": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/no-extra-semicolons",
     },
@@ -486,18 +526,22 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/no-invalid-double-slash-comments",
     },
     "no-missing-end-of-source-newline": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/no-missing-end-of-source-newline",
     },
     "number-leading-zero": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/number-leading-zero",
     },
     "number-no-trailing-zeros": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/number-no-trailing-zeros",
     },
     "property-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/property-case",
     },
@@ -509,42 +553,52 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/rule-empty-line-before",
     },
     "selector-attribute-brackets-space-inside": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-attribute-brackets-space-inside",
     },
     "selector-attribute-operator-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-attribute-operator-space-after",
     },
     "selector-attribute-operator-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-attribute-operator-space-before",
     },
     "selector-combinator-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-combinator-space-after",
     },
     "selector-combinator-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-combinator-space-before",
     },
     "selector-descendant-combinator-no-non-space": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-descendant-combinator-no-non-space",
     },
     "selector-list-comma-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-list-comma-newline-after",
     },
     "selector-list-comma-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-list-comma-space-before",
     },
     "selector-max-empty-lines": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-max-empty-lines",
     },
     "selector-pseudo-class-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-pseudo-class-case",
     },
@@ -552,10 +606,12 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown",
     },
     "selector-pseudo-class-parentheses-space-inside": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-pseudo-class-parentheses-space-inside",
     },
     "selector-pseudo-element-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/selector-pseudo-element-case",
     },
@@ -577,6 +633,7 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/string-no-newline",
     },
     "unit-case": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/unit-case",
     },
@@ -588,18 +645,22 @@ footer a:visited {
       "url": "https://stylelint.io/user-guide/rules/value-keyword-case",
     },
     "value-list-comma-newline-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-comma-newline-after",
     },
     "value-list-comma-space-after": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-comma-space-after",
     },
     "value-list-comma-space-before": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-comma-space-before",
     },
     "value-list-max-empty-lines": {
+      "deprecated": true,
       "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/value-list-max-empty-lines",
     },

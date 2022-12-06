@@ -1,5 +1,7 @@
 # no-eol-whitespace
 
+> **Warning** This rule is deprecated and will be removed in the future. See [the migration guide](../../../docs/migration-guide/to-15.md).
+
 Disallow end-of-line whitespace.
 
 <!-- prettier-ignore -->

@@ -10,7 +10,7 @@ A mighty, modern linter that helps you avoid errors and enforce conventions in y
 
 It's mighty as it:
 
-- has over **170 built-in rules** for modern CSS syntax and features
+- has over **100 built-in rules** for modern CSS syntax and features
 - supports **plugins** so you can create your own rules
 - automatically **fixes problems** where possible
 - is **well tested** with over 15000 unit tests
@@ -32,14 +32,15 @@ It'll help you **avoid errors**, for example:
 - unknown things, e.g. units and functions that aren't in the CSS specs
 - valid things that are problematic, e.g. duplicated selectors and overridden properties
 
-And **enforce non-stylistic conventions**, for example:
+And **enforce conventions**, for example:
 
 - what units, functions, at-rules etc are allowed
 - consistent patterns for selector names, at-rule names, custom properties etc
 - maximum specificity or maximum quantity of each selector type
 - your preferred notation for color functions, font weight etc
+- consistent empty lines before constructs
 
-There are also rules for enforcing stylistic conventions, but we now recommend you use Stylelint alongside a pretty printer like Prettier. Linters and pretty printers are complementary tools that work together.
+We recommend using Stylelint alongside a pretty printer like Prettier. Linters and pretty printers are complementary tools that work together to help you write consistent and error-free code that is well-formatted.
 
 ## Example output
 

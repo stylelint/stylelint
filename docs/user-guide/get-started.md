@@ -29,18 +29,6 @@ npx stylelint "**/*.css"
 
 _You should include quotation marks around file globs._
 
-If you use a pretty printer alongside Stylelint, you should turn off any conflicting rules. For example, you can use [Prettier's shared config](https://www.npmjs.com/package/stylelint-config-prettier) to do that:
-
-```shell
-npm install --save-dev stylelint-config-prettier
-```
-
-```json
-{
-  "extends": ["stylelint-config-standard", "stylelint-config-prettier"]
-}
-```
-
 ## Linting everything else
 
 You'll need to use a [custom syntax](usage/options.md#customsyntax) written by the community.
@@ -152,7 +140,7 @@ You can adapt your:
 - [rules](configure.md#rules)
 - [plugins](configure.md#plugins)
 
-We recommend you add [more of the rules that enforce conventions](rules.md#enforce-non-stylistic-conventions) to your configuration, e.g. [`unit-allowed-list`](../../lib/rules/unit-allowed-list/README.md) and [`selector-max-id`](../../lib/rules/selector-max-id/README.md). These are powerful rules that you can use to enforce non-stylistic consistency in your code.
+We recommend you add [more of the rules that enforce conventions](rules.md#enforce-conventions) to your configuration, e.g. [`unit-allowed-list`](../../lib/rules/unit-allowed-list/README.md) and [`selector-max-id`](../../lib/rules/selector-max-id/README.md). These are powerful rules that you can use to enforce non-stylistic consistency in your code.
 
 You can add plugins written by the community to lint more things. For example, you may want to use the [stylelint-csstree-validator plugin](https://www.npmjs.com/package/stylelint-csstree-validator) to validate property and value pairs.
 

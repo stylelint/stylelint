@@ -184,7 +184,7 @@ You can _extend_ an existing configuration (whether your own or a third-party on
 Popular configurations include:
 
 - [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended) - turns on just the rules that [avoid errors](rules.md#avoid-errors)
-- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) - extends recommended one by turning on rules that [enforce conventions](rules.md#enforce-non-stylistic-conventions)
+- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) - extends recommended one by turning on rules that [enforce conventions](rules.md#enforce-conventions)
 
 You'll find more in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#configs).
 

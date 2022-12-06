@@ -14,7 +14,7 @@ A linter and validator for CSS that is:
 Provide built-in rules for standard CSS syntax that:
 
 - [avoid errors](../user-guide/rules.md#avoid-errors)
-- [enforce non-stylistic conventions](../user-guide/rules.md#enforce-non-stylistic-conventions)
+- [enforce conventions](../user-guide/rules.md#enforce-conventions)
 
 ## Extensible
 
