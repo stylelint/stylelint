@@ -77,6 +77,7 @@ Disallow unknown things with these `no-unknown` rules.
 
 - [`annotation-no-unknown`](../../lib/rules/annotation-no-unknown/README.md): Disallow unknown annotations.
 - [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md): Disallow unknown at-rules.
+- [`declaration-property-value-no-unknown`](../../lib/rules/declaration-property-value-no-unknown/README.md): Disallow unknown values for property within declarations.
 - [`function-no-unknown`](../../lib/rules/function-no-unknown/README.md): Disallow unknown functions.
 - [`media-feature-name-no-unknown`](../../lib/rules/media-feature-name-no-unknown/README.md): Disallow unknown media feature names.
 - [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
