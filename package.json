@@ -134,7 +134,7 @@
     "micromatch": "^4.0.5",
     "normalize-path": "^3.0.0",
     "picocolors": "^1.0.0",
-    "postcss": "^8.4.19",
+    "postcss": "^8.4.20",
     "postcss-media-query-parser": "^0.2.3",
     "postcss-resolve-nested-selector": "^0.1.1",
     "postcss-safe-parser": "^6.0.0",
@@ -183,13 +183,13 @@
     "npm-run-all": "^4.1.5",
     "patch-package": "^6.5.0",
     "postcss-html": "^1.5.0",
-    "postcss-import": "^15.0.1",
+    "postcss-import": "^15.1.0",
     "postcss-less": "^6.0.0",
     "postcss-sass": "^0.5.0",
     "postcss-scss": "^4.0.6",
     "remark-cli": "^11.0.0",
     "sugarss": "^4.0.1",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.4"
   },
   "engines": {
     "node": "^14.13.1 || >=16.0.0"
