@@ -10,8 +10,9 @@ Existing syntaxes that you can use for reference include:
 - [postcss-less](https://www.npmjs.com/package/postcss-less)
 - [postcss-html](https://www.npmjs.com/package/postcss-html)
 - [postcss-lit](https://www.npmjs.com/package/postcss-lit)
+- [@linaria/postcss-linaria](https://www.npmjs.com/package/@linaria/postcss-linaria)
 
-The latter two use `Document` nodes, [introduced in PostCSS 8.3](https://github.com/postcss/postcss/releases/tag/8.3.0) to support files with multiple roots.
+The latter three use `Document` nodes, [introduced in PostCSS 8.3](https://github.com/postcss/postcss/releases/tag/8.3.0) to support files with multiple roots.
 
 After publishing your custom syntax, we recommend creating a shared-config that:
 

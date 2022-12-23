@@ -104,6 +104,7 @@ Other PostCSS syntaxes known to be compatible with Stylelint include:
 - [postcss-less](https://www.npmjs.com/package/postcss-less)
 - [postcss-sass](https://www.npmjs.com/package/postcss-sass)
 - [sugarss](https://www.npmjs.com/package/sugarss)
+- [@linaria/postcss-linaria](https://www.npmjs.com/package/@linaria/postcss-linaria)
 
 ### Using more than one custom syntax
 
