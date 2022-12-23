@@ -151,8 +151,8 @@
     "write-file-atomic": "^5.0.0"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.25.2",
-    "@changesets/get-github-info": "^0.5.1",
+    "@changesets/cli": "^2.26.0",
+    "@changesets/get-github-info": "^0.5.2",
     "@stylelint/prettier-config": "^2.0.0",
     "@stylelint/remark-preset": "^4.0.0",
     "@types/balanced-match": "^1.0.2",
@@ -171,7 +171,7 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.2.2",
-    "eslint": "^8.29.0",
+    "eslint": "^8.30.0",
     "eslint-config-stylelint": "^17.1.0",
     "husky": "^8.0.2",
     "jest": "^29.3.1",
