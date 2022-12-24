@@ -46,7 +46,7 @@ Force enabling/disabling of color.
 
 ### `--config-basedir`
 
-Absolute path to the directory that relative paths defining "extends" and "plugins" are _relative to_. Only necessary if these values are relative paths. [More info](options.md#configbasedir).
+Absolute path to the directory that relative paths defining "extends", "plugins", and "customSyntax" are _relative to_. Only necessary if these values are relative paths. [More info](options.md#configbasedir).
 
 ### `--config`
 
