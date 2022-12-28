@@ -110,7 +110,6 @@ declare module 'stylelint' {
 			stylelintWarning?: boolean;
 			disableWritingFix?: boolean;
 			config?: Config;
-			ruleDisableFix?: boolean;
 		};
 
 		type EmptyResult = {
