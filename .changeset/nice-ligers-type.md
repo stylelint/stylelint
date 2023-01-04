@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixes `at-rule-no-unknown` false positives for `@scroll-timeline`
+Fixed: `at-rule-no-unknown` false positives for `@scroll-timeline`
