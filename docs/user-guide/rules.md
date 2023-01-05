@@ -136,6 +136,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 - [`media-feature-name-allowed-list`](../../lib/rules/media-feature-name-allowed-list/README.md): Specify a list of allowed media feature names.
 - [`media-feature-name-disallowed-list`](../../lib/rules/media-feature-name-disallowed-list/README.md): Specify a list of disallowed media feature names.
 - [`media-feature-name-no-vendor-prefix`](../../lib/rules/media-feature-name-no-vendor-prefix/README.md): Disallow vendor prefixes for media feature names (Autofixable).
+- [`media-feature-name-unit-allowed-list`](../../lib/rules/media-feature-name-unit-allowed-list/README.md): Specify a list of allowed name and unit pairs within media features.
 - [`media-feature-name-value-allowed-list`](../../lib/rules/media-feature-name-value-allowed-list/README.md): Specify a list of allowed media feature name and value pairs.
 
 #### Property
