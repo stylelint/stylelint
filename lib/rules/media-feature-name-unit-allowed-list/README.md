@@ -4,7 +4,7 @@ Specify a list of allowed name and unit pairs within media features.
 
 <!-- prettier-ignore -->
 ```css
-@media (width : 50em) {}
+@media (width: 50em) {}
 /**     ↑         ↑
  * This media feature name and these units */
 ```
@@ -13,7 +13,7 @@ Specify a list of allowed name and unit pairs within media features.
 
 `object`: `{ "name": ["array", "of", "units"]|"unit" }`
 
-If a property name is surrounded with `"/"` (e.g. `"/height/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/height/` will match `height`, `min-height`, `max-height`, etc.
+If a feature name is surrounded with `"/"` (e.g. `"/height/"`), it is interpreted as a regular expression. This allows, for example, easy targeting of shorthands: `/height/` will match `height`, `min-height`, `max-height`, etc.
 
 Given:
 
@@ -33,17 +33,17 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@media (height: 1000px) { }
+@media (height: 1000px) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-@media (min-height: 1000px) { }
+@media (min-height: 1000px) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
-@media (max-height: 1000px) { }
+@media (max-height: 1000px) {}
 ```
 
 The following patterns are _not_ considered problems:
