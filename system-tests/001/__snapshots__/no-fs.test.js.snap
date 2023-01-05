@@ -6,7 +6,191 @@ exports[`no-fs - valid sanitize.css and their config 1`] = `
   "errored": false,
   "output": [
     {
-      "deprecations": [],
+      "deprecations": [
+        {
+          "text": "The "at-rule-name-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "at-rule-name-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "at-rule-semicolon-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "block-closing-brace-empty-line-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "block-closing-brace-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "block-closing-brace-newline-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "block-closing-brace-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "block-opening-brace-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "block-opening-brace-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "block-opening-brace-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "color-hex-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "declaration-bang-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "declaration-bang-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "declaration-block-semicolon-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "declaration-block-semicolon-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "declaration-block-semicolon-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "declaration-block-trailing-semicolon" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "declaration-colon-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "declaration-colon-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "declaration-colon-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "function-comma-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "function-comma-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "function-comma-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "function-max-empty-lines" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "function-parentheses-newline-inside" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "function-parentheses-space-inside" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "function-whitespace-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "max-empty-lines" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "media-feature-colon-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "media-feature-colon-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "media-feature-name-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "media-feature-parentheses-space-inside" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "media-feature-range-operator-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "media-feature-range-operator-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "media-query-list-comma-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "media-query-list-comma-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "media-query-list-comma-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "no-eol-whitespace" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "no-extra-semicolons" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "no-missing-end-of-source-newline" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "number-leading-zero" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "number-no-trailing-zeros" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "property-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "selector-attribute-brackets-space-inside" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "selector-attribute-operator-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "selector-attribute-operator-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "selector-combinator-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "selector-combinator-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "selector-descendant-combinator-no-non-space" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "selector-list-comma-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "selector-list-comma-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "selector-max-empty-lines" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "selector-pseudo-class-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "selector-pseudo-class-parentheses-space-inside" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "selector-pseudo-element-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "unit-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "value-list-comma-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "value-list-comma-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "value-list-comma-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "value-list-max-empty-lines" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "text": "The "indentation" rule is deprecated and will be removed in the next major release.",
+        },
+      ],
       "errored": false,
       "invalidOptionWarnings": [],
       "parseErrors": [],
@@ -16,7 +200,252 @@ exports[`no-fs - valid sanitize.css and their config 1`] = `
   "reportedDisables": [],
   "results": [
     {
-      "deprecations": [],
+      "deprecations": [
+        {
+          "reference": undefined,
+          "text": "The "at-rule-name-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "at-rule-name-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "at-rule-semicolon-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-closing-brace-empty-line-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-closing-brace-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-closing-brace-newline-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-closing-brace-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-opening-brace-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-opening-brace-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "block-opening-brace-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "color-hex-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-bang-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-bang-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-block-semicolon-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-block-semicolon-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-block-semicolon-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-block-trailing-semicolon" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-colon-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-colon-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-colon-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-comma-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-comma-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-comma-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-max-empty-lines" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-parentheses-newline-inside" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-parentheses-space-inside" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "function-whitespace-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "max-empty-lines" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-feature-colon-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-feature-colon-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-feature-name-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-feature-parentheses-space-inside" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-feature-range-operator-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-feature-range-operator-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-query-list-comma-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-query-list-comma-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "media-query-list-comma-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "no-eol-whitespace" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "no-extra-semicolons" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "no-missing-end-of-source-newline" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "number-leading-zero" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "number-no-trailing-zeros" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "property-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-attribute-brackets-space-inside" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-attribute-operator-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-attribute-operator-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-combinator-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-combinator-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-descendant-combinator-no-non-space" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-list-comma-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-list-comma-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-max-empty-lines" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-pseudo-class-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-pseudo-class-parentheses-space-inside" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-pseudo-element-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "unit-case" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "value-list-comma-newline-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "value-list-comma-space-after" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "value-list-comma-space-before" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "value-list-max-empty-lines" rule is deprecated and will be removed in the next major release.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "indentation" rule is deprecated and will be removed in the next major release.",
+        },
+      ],
       "errored": false,
       "ignored": undefined,
       "invalidOptionWarnings": [],
