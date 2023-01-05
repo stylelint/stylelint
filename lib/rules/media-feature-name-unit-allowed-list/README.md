@@ -43,7 +43,7 @@ The following patterns are considered problems:
 
 <!-- prettier-ignore -->
 ```css
-@media (max-height: 1000px) {}
+@media (height <= 1000px) {}
 ```
 
 The following patterns are _not_ considered problems:
@@ -55,15 +55,15 @@ The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
+@media (width <= 50em) {}
+```
+
+<!-- prettier-ignore -->
+```css
 @media (height: 50em) {}
 ```
 
 <!-- prettier-ignore -->
 ```css
 @media (min-height: 50rem) {}
-```
-
-<!-- prettier-ignore -->
-```css
-@media (max-width: 1000px) {}
 ```
