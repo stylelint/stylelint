@@ -190,7 +190,7 @@
     "postcss-less": "^6.0.0",
     "postcss-sass": "^0.5.0",
     "postcss-scss": "^4.0.6",
-    "postcss-styled-syntax": "^0.2.0",
+    "postcss-styled-syntax": "^0.3.0",
     "remark-cli": "^11.0.0",
     "sugarss": "^4.0.1",
     "typescript": "^4.9.4"
