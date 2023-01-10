@@ -1,4 +1,4 @@
-# Working on rules
+# Writing rules
 
 Please help us create, enhance, and debug our rules!
 
@@ -15,15 +15,49 @@ A rule must be:
 
 And have a:
 
-- clear and unambiguous finished state
-- singular purpose; don't overlap with other rules
+- unambiguous finished state
+- singular purpose that doesn't overlap with other rules
 
-It's name is split into two parts:
+Its name is split into two parts:
 
 - the [_thing_](http://apps.workflower.fi/vocabs/css/en) the rule applies to, e.g. `at-rule`
 - what the rule is checking, e.g. `disallowed-list`
 
 Unless it applies to the whole source, then there is no first part.
+
+### Write tests
+
+Each rule must have tests that cover all patterns that:
+
+- are considered problems
+- should _not_ be considered problems
+
+You should test errors in multiple positions, not the same place every time and use:
+
+- realistic CSS, and avoid the use of ellipses
+- the minimum amount of code possible, e.g. if the rule targets selectors then use an empty rule, e.g. `{}`
+- separate `testRule`s when testing non-standard syntax and set the `customSyntax` property
+- `{}` for empty rules, rather than `{ }`
+- the `a` type selector by default
+- the `@media` at-rules by default
+- the `color` property by default
+- the `red` value by default
+- _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
+
+#### Commonly overlooked edge-cases
+
+You should ask yourself how does your rule handle:
+
+- variables (e.g. `var(--custom-property)`)?
+- CSS strings (e.g. `content: "anything goes";`)?
+- CSS comments (e.g. `/* anything goes */`)?
+- empty functions (e.g. `var()`)?
+- `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
+- vendor prefixes (e.g. `@-webkit-keyframes name {}`)?
+- case sensitivity (e.g. `@KEYFRAMES name {}`)?
+- a pseudo-class _combined_ with a pseudo-element (e.g. `a:hover::before`)?
+- nesting (e.g. do you resolve `& a {}`, or check it as is?)?
+- whitespace and punctuation (e.g. comparing `rgb(0,0,0)` with `rgb(0, 0, 0)`)?
 
 ### Write the rule
 
@@ -31,7 +65,7 @@ When writing the rule, you should:
 
 - make the rule strict by default
 - add secondary `ignore` options to make the rule more permissive
-- not include code specific to language extensions, e.g. SCSS
+- not include code specific to language extensions like SCSS
 
 You should make use of the:
 
@@ -171,40 +205,6 @@ if (context.fix) {
 report(/* .. */);
 ```
 
-### Write tests
-
-Each rule must have tests that cover all patterns that:
-
-- are considered problems
-- should _not_ be considered problems
-
-You should test errors in multiple positions, not the same place every time and use:
-
-- realistic CSS, and avoid the use of ellipses
-- the minimum amount of code possible, e.g. if the rule targets selectors then use an empty rule, e.g. `{}`
-- separate `testRule`s when testing non-standard syntax and set the `customSyntax` property
-- `{}` for empty rules, rather than `{ }`
-- the `a` type selector by default
-- the `@media` at-rules by default
-- the `color` property by default
-- the `red` value by default
-- _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
-
-#### Commonly overlooked edge-cases
-
-You should ask yourself how does your rule handle:
-
-- variables (e.g. `var(--custom-property)`)?
-- CSS strings (e.g. `content: "anything goes";`)?
-- CSS comments (e.g. `/* anything goes */`)?
-- empty functions (e.g. `var()`)?
-- `url()` functions, including data URIs (e.g. `url(anything/goes.jpg)`)?
-- vendor prefixes (e.g. `@-webkit-keyframes name {}`)?
-- case sensitivity (e.g. `@KEYFRAMES name {}`)?
-- a pseudo-class _combined_ with a pseudo-element (e.g. `a:hover::before`)?
-- nesting (e.g. do you resolve `& a {}`, or check it as is?)?
-- whitespace and punctuation (e.g. comparing `rgb(0,0,0)` with `rgb(0, 0, 0)`)?
-
 ### Write the README
 
 Each rule is accompanied by a README in the following format:
@@ -258,8 +258,8 @@ The final step is to add references to the new rule in the following places:
 You should:
 
 1. Get ready to [contribute code](../../CONTRIBUTING.md#code-contributions).
-2. Change the rule's validation to allow for the new option.
-3. Add new unit tests to test the option.
+2. Add new unit tests to test the option.
+3. Change the rule's validation to allow for the new option.
 4. Add (as little as possible) logic to the rule to make the tests pass.
 5. Add documentation about the new option.
 

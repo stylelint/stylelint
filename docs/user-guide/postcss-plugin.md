@@ -48,7 +48,7 @@ The same pattern can be used to lint Less, SCSS or [SugarSS](https://github.com/
 
 ### Example B
 
-A combined lint and build task where the plugin is used via the PostCSS JS API, but within [`postcss-import`](https://github.com/postcss/postcss-import) (using the its `plugins` option) so that the source files are linted before any transformations.
+A combined lint and build task where the plugin is used via the PostCSS JS API, but within [`postcss-import`](https://github.com/postcss/postcss-import) (using its `plugins` option) so that the source files are linted before any transformations.
 
 ```js
 const fs = require("fs");
