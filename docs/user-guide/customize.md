@@ -107,7 +107,7 @@ Each of these properties is configurable if you need to add exceptions to them.
 
 You can use our [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint), or one of the other integrations listed in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint/#readme), to get instant feedback in your code editor. This is the quickest way to see and resolve problems.
 
-You don't have to use the [CLI](usage/cli.md) either; we also provide a [Node.js API](./node-api.md), or you can use one of the other integrations or task runners listed in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint/#readme).
+You don't have to use the [CLI](./cli.md) either; we also provide a [Node.js API](./node-api.md), or you can use one of the other integrations or task runners listed in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint/#readme).
 
 Whichever you choose, there are [many options](./options.md) in Stylelint that you can use to customize how Stylelint works. For example, you'll likely want to use the [`--fix` option](options.md#fix) to automatically fix as many problems as possible:
 

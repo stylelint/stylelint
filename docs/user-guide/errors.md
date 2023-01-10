@@ -4,7 +4,7 @@ In addition to rule problems, Stylelint surfaces the following errors and warnin
 
 ## CSS syntax error
 
-The CSS parser built into Stylelint, or the chosen [custom syntax](usage/options.md#customsyntax), could not parse your code.
+The CSS parser built into Stylelint, or the chosen [custom syntax](options.md#customsyntax), could not parse your code.
 
 ### Unclosed block
 
@@ -61,7 +61,7 @@ a {
 
 ## Parse error
 
-The CSS parser built into Stylelint (or the chosen [custom syntax](usage/options.md#customsyntax)) successfully parsed your code, but one of the construct-specific parsers failed to parse either a media query, selector or value within that source.
+The CSS parser built into Stylelint (or the chosen [custom syntax](options.md#customsyntax)) successfully parsed your code, but one of the construct-specific parsers failed to parse either a media query, selector or value within that source.
 
 The construct-specific parsers are:
 

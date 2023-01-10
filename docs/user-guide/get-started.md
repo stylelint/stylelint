@@ -66,7 +66,7 @@ You'll find more community configs in [Awesome Stylelint](https://github.com/sty
 
 ### Using a custom syntax directly
 
-If a shared config isn't available for your preferred language or container, you can install the appropriate custom syntax and use the [`customSyntax` option](../user-guide/usage/options.md#customsyntax) yourself.
+If a shared config isn't available for your preferred language or container, you can install the appropriate custom syntax and use the [`customSyntax` option](../user-guide/options.md#customsyntax) yourself.
 
 For example, to lint CSS inside of [Lit elements](https://lit.dev/).
 

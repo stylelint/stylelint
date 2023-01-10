@@ -14,7 +14,7 @@ Require a newline or disallow whitespace before the opening brace of blocks.
 
 Refer to [combining rules](../../../docs/user-guide/combine.md) for more information on using this rule with [`block-opening-brace-newline-after`](../block-opening-brace-newline-after/README.md) to disallow single-line rules.
 
-The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

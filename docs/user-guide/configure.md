@@ -6,7 +6,7 @@ Stylelint expects a configuration object, and looks for one in a:
 - `.stylelintrc{.js,.json,.yaml,.yml}` file
 - `stylelint.config.{cjs,js}` file exporting a JS object
 
-Starting from the current working directory, Stylelint stops searching when one of these is found. Alternatively, you can use the [`--config` or `configFile` option](usage/options.md#configfile) to short-circuit the search.
+Starting from the current working directory, Stylelint stops searching when one of these is found. Alternatively, you can use the [`--config` or `configFile` option](options.md#configfile) to short-circuit the search.
 
 The `.stylelintrc` file (without extension) can be in JSON or YAML format. We recommend adding an extension to help your editor provide syntax checking and highlighting.
 
@@ -260,7 +260,7 @@ You'll find more plugins in [awesome-stylelint](https://github.com/stylelint/awe
 
 ## `customSyntax`
 
-Specify a custom syntax to use on your code. [More info](usage/options.md#customsyntax).
+Specify a custom syntax to use on your code. [More info](options.md#customsyntax).
 
 ## `overrides`
 
@@ -367,7 +367,7 @@ For example:
 }
 ```
 
-[More info](usage/options.md#reportdescriptionlessdisables).
+[More info](options.md#reportdescriptionlessdisables).
 
 ### `reportInvalidScopeDisables`
 
@@ -381,7 +381,7 @@ For example:
 }
 ```
 
-[More info](usage/options.md#reportinvalidscopedisables).
+[More info](options.md#reportinvalidscopedisables).
 
 ### `reportNeedlessDisables`
 
@@ -395,7 +395,7 @@ For example:
 }
 ```
 
-[More info](usage/options.md#reportneedlessdisables).
+[More info](options.md#reportneedlessdisables).
 
 ## `ignoreDisables`
 
@@ -409,7 +409,7 @@ For example:
 }
 ```
 
-[More info](usage/options.md#ignoredisables).
+[More info](options.md#ignoredisables).
 
 ## `ignoreFiles`
 
