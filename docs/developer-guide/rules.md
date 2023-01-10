@@ -205,6 +205,12 @@ You should ask yourself how does your rule handle:
 - nesting (e.g. do you resolve `& a {}`, or check it as is?)?
 - whitespace and punctuation (e.g. comparing `rgb(0,0,0)` with `rgb(0, 0, 0)`)?
 
+#### Avoid overtesting non-standard syntaxes
+
+`isStandardSyntax*` utilities handle problems specific to non-standard syntaxes. Therefore, a rule can delegate tests for such syntaxes to those utilities in most cases.
+
+Depending on too many third-party modules leads to unhealthy in our project and will be difficult to maintain. Please take care of increasing unnecessary tests for non-standard syntaxes.
+
 ### Write the README
 
 Each rule is accompanied by a README in the following format:
