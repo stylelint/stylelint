@@ -207,9 +207,9 @@ You should ask yourself how does your rule handle:
 
 #### Avoid overtesting non-standard syntaxes
 
-`isStandardSyntax*` utilities handle problems specific to non-standard syntaxes. Therefore, a rule can delegate tests for such syntaxes to those utilities in most cases.
+Depending on too many third-party modules makes it harder to maintain the project. Please do not add unnecessary tests.
 
-Depending on too many third-party modules leads to unhealthy in our project and will be difficult to maintain. Please take care of increasing unnecessary tests for non-standard syntaxes.
+`isStandardSyntax*` utilities handle problems specific to non-standard syntaxes. Therefore, tests for those syntaxes could be delegated to those utilities in most cases.
 
 ### Write the README
 
