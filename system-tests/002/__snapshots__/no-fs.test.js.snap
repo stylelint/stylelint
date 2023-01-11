@@ -113,6 +113,7 @@ Object {
       "url": "https://stylelint.io/user-guide/rules/function-url-no-scheme-relative",
     },
     "function-url-quotes": Object {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-url-quotes",
     },
     "max-empty-lines": Object {

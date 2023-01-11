@@ -238,7 +238,7 @@ Enforce naming conventions with these `pattern` rules.
 Require or disallow quotes with these `quotes` rules.
 
 - [`font-family-name-quotes`](../../lib/rules/font-family-name-quotes/README.md): Require or disallow quotes for font family names (Autofixable).
-- [`function-url-quotes`](../../lib/rules/function-url-quotes/README.md): Require or disallow quotes for urls.
+- [`function-url-quotes`](../../lib/rules/function-url-quotes/README.md): Require or disallow quotes for urls (Autofixable).
 - [`selector-attribute-quotes`](../../lib/rules/selector-attribute-quotes/README.md): Require or disallow quotes for attribute values (Autofixable).
 
 ### Redundant
