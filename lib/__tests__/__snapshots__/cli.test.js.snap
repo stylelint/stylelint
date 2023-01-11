@@ -2,7 +2,7 @@
 
 exports[`CLI --help 1`] = `
 "
-  A mighty, modern CSS linter.
+  A mighty CSS linter that helps you avoid errors and enforce conventions.
 
   Usage: stylelint [input] [options]
 
