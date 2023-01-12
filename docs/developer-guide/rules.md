@@ -27,22 +27,27 @@ Unless it applies to the whole source, then there is no first part.
 
 ### Write tests
 
-Each rule must have tests that cover all patterns that:
+You should add test cases for all patterns that are:
 
-- are considered problems
-- should _not_ be considered problems
+- considered problems
+- _not_ considered problems
 
-You should test errors in multiple positions, not the same place every time and use:
+You should use:
 
-- realistic CSS, and avoid the use of ellipses
-- the minimum amount of code possible, e.g. if the rule targets selectors then use an empty rule, e.g. `{}`
-- separate `testRule`s when testing non-standard syntax and set the `customSyntax` property
+- realistic CSS, avoiding the use of ellipses
+- the minimum amount of code possible, e.g. use an empty rule if targetting selectors
 - `{}` for empty rules, rather than `{ }`
 - the `a` type selector by default
 - the `@media` at-rules by default
 - the `color` property by default
 - the `red` value by default
+- the `(min-)width` media feature by default
 - _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
+
+You should test:
+
+- in multiple positions, not the same place every time
+- non-standard syntax in the `isStandardSyntax*` utilities, not in the rule itself
 
 #### Commonly overlooked edge-cases
 
