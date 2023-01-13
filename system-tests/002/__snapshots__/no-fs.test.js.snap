@@ -8,43 +8,43 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
     {
       "deprecations": [
         {
-          "text": "The "at-rule-semicolon-space-before" rule is deprecated and will be removed in the next major release.",
+          "text": "The "at-rule-semicolon-space-before" rule is deprecated.",
         },
         {
-          "text": "The "at-rule-name-space-after" rule is deprecated and will be removed in the next major release.",
+          "text": "The "at-rule-name-space-after" rule is deprecated.",
         },
         {
-          "text": "The "declaration-block-semicolon-newline-before" rule is deprecated and will be removed in the next major release.",
+          "text": "The "declaration-block-semicolon-newline-before" rule is deprecated.",
         },
         {
-          "text": "The "max-empty-lines" rule is deprecated and will be removed in the next major release.",
+          "text": "The "max-empty-lines" rule is deprecated.",
         },
         {
-          "text": "The "number-leading-zero" rule is deprecated and will be removed in the next major release.",
+          "text": "The "number-leading-zero" rule is deprecated.",
         },
         {
-          "text": "The "selector-list-comma-newline-before" rule is deprecated and will be removed in the next major release.",
+          "text": "The "selector-list-comma-newline-before" rule is deprecated.",
         },
         {
-          "text": "The "selector-list-comma-space-after" rule is deprecated and will be removed in the next major release.",
+          "text": "The "selector-list-comma-space-after" rule is deprecated.",
         },
         {
-          "text": "The "selector-list-comma-space-before" rule is deprecated and will be removed in the next major release.",
+          "text": "The "selector-list-comma-space-before" rule is deprecated.",
         },
         {
-          "text": "The "string-quotes" rule is deprecated and will be removed in the next major release.",
+          "text": "The "string-quotes" rule is deprecated.",
         },
         {
-          "text": "The "unicode-bom" rule is deprecated and will be removed in the next major release.",
+          "text": "The "unicode-bom" rule is deprecated.",
         },
         {
-          "text": "The "value-list-comma-newline-after" rule is deprecated and will be removed in the next major release.",
+          "text": "The "value-list-comma-newline-after" rule is deprecated.",
         },
         {
-          "text": "The "value-list-comma-newline-before" rule is deprecated and will be removed in the next major release.",
+          "text": "The "value-list-comma-newline-before" rule is deprecated.",
         },
         {
-          "text": "The "value-list-comma-space-after" rule is deprecated and will be removed in the next major release.",
+          "text": "The "value-list-comma-space-after" rule is deprecated.",
         },
       ],
       "errored": true,
@@ -87,55 +87,55 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
       "deprecations": [
         {
           "reference": undefined,
-          "text": "The "at-rule-semicolon-space-before" rule is deprecated and will be removed in the next major release.",
+          "text": "The "at-rule-semicolon-space-before" rule is deprecated.",
         },
         {
           "reference": undefined,
-          "text": "The "at-rule-name-space-after" rule is deprecated and will be removed in the next major release.",
+          "text": "The "at-rule-name-space-after" rule is deprecated.",
         },
         {
           "reference": undefined,
-          "text": "The "declaration-block-semicolon-newline-before" rule is deprecated and will be removed in the next major release.",
+          "text": "The "declaration-block-semicolon-newline-before" rule is deprecated.",
         },
         {
           "reference": undefined,
-          "text": "The "max-empty-lines" rule is deprecated and will be removed in the next major release.",
+          "text": "The "max-empty-lines" rule is deprecated.",
         },
         {
           "reference": undefined,
-          "text": "The "number-leading-zero" rule is deprecated and will be removed in the next major release.",
+          "text": "The "number-leading-zero" rule is deprecated.",
         },
         {
           "reference": undefined,
-          "text": "The "selector-list-comma-newline-before" rule is deprecated and will be removed in the next major release.",
+          "text": "The "selector-list-comma-newline-before" rule is deprecated.",
         },
         {
           "reference": undefined,
-          "text": "The "selector-list-comma-space-after" rule is deprecated and will be removed in the next major release.",
+          "text": "The "selector-list-comma-space-after" rule is deprecated.",
         },
         {
           "reference": undefined,
-          "text": "The "selector-list-comma-space-before" rule is deprecated and will be removed in the next major release.",
+          "text": "The "selector-list-comma-space-before" rule is deprecated.",
         },
         {
           "reference": undefined,
-          "text": "The "string-quotes" rule is deprecated and will be removed in the next major release.",
+          "text": "The "string-quotes" rule is deprecated.",
         },
         {
           "reference": undefined,
-          "text": "The "unicode-bom" rule is deprecated and will be removed in the next major release.",
+          "text": "The "unicode-bom" rule is deprecated.",
         },
         {
           "reference": undefined,
-          "text": "The "value-list-comma-newline-after" rule is deprecated and will be removed in the next major release.",
+          "text": "The "value-list-comma-newline-after" rule is deprecated.",
         },
         {
           "reference": undefined,
-          "text": "The "value-list-comma-newline-before" rule is deprecated and will be removed in the next major release.",
+          "text": "The "value-list-comma-newline-before" rule is deprecated.",
         },
         {
           "reference": undefined,
-          "text": "The "value-list-comma-space-after" rule is deprecated and will be removed in the next major release.",
+          "text": "The "value-list-comma-space-after" rule is deprecated.",
         },
       ],
       "errored": true,
