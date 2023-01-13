@@ -209,6 +209,7 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
       "url": "https://stylelint.io/user-guide/rules/function-url-no-scheme-relative",
     },
     "function-url-quotes": {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-url-quotes",
     },
     "max-empty-lines": {
