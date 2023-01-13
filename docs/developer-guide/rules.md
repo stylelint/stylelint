@@ -44,10 +44,11 @@ You should use:
 - the `(min-)width` media feature by default
 - _foo_, _bar_ and _baz_ for names, e.g. `.foo`, `#bar`, `--baz`
 
-You should test:
+You should:
 
-- in multiple positions, not the same place every time
-- non-standard syntax in the `isStandardSyntax*` utilities, not in the rule itself
+- vary column and line positions across your tests
+- include at least one test that has 2 warnings
+- test non-standard syntax in the `isStandardSyntax*` utilities, not in the rule itself.
 
 #### Commonly overlooked edge-cases
 
