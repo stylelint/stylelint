@@ -323,7 +323,7 @@ declare module 'stylelint' {
 		source?: string;
 		deprecations: {
 			text: string;
-			reference: string | undefined;
+			reference?: string;
 		}[];
 		invalidOptionWarnings: {
 			text: string;
