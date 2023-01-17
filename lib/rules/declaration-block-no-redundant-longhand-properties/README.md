@@ -66,6 +66,8 @@ This rule complains when the following shorthand properties can be used:
 
 Flexbox-related properties can be ignored using `ignoreShorthands: ["/flex/"]` (see below).
 
+The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix most of the problems reported by this rule.
+
 ## Options
 
 ### `true`

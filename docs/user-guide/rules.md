@@ -245,7 +245,7 @@ Require or disallow quotes with these `quotes` rules.
 
 Disallow redundancy with these `no-redundant` rules.
 
-- [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow redundant longhand properties within declaration-block.
+- [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow redundant longhand properties within declaration-block (Autofixable).
 - [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values within shorthand properties (Autofixable).
 
 ## Enforce stylistic conventions
