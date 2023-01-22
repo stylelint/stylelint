@@ -257,7 +257,7 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 }
 ```
 
-You'll find more plugins in [awesome-stylelint](https://github.com/stylelint/awesome-stylelint#plugins).
+You'll find more plugins in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#plugins).
 
 ## `customSyntax`
 
