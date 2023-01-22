@@ -12,7 +12,7 @@ These conventions are typically specific to you and your project.
 There's a lot you can do. For example, if you only want to allow:
 
 - `%`, `deg`, `px`, `rem`, `ms` units generally
-- `px` units for borders
+- `px` for borders
 - `rem` for paddings and gaps
 
 You can use the [`unit-allowed-list`](../../lib/rules/unit-allowed-list) and [`declaration-property-unit-allowed-list`](../../lib/rules/declaration-property-unit-allowed-list) rules:
