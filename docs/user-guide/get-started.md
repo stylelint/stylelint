@@ -91,7 +91,7 @@ npm install --save-dev stylelint stylelint-config-standard postcss-lit
 npx stylelint "**/*.js"
 ```
 
-You'll find more custom syntaxes in [awesome-stylelint](https://github.com/stylelint/awesome-stylelint#custom-syntaxes).
+You'll find more custom syntaxes in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#custom-syntaxes).
 
 #### Using more than one custom syntax
 
