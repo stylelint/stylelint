@@ -323,7 +323,7 @@ Have a look through [Stylelint's internal utils](https://github.com/stylelint/st
 
 You should express, within the `peerDependencies` key (and **not** within the `dependencies` key) of your plugin's `package.json`, what version(s) of Stylelint your plugin can be used with. This is to ensure that different versions of Stylelint are not unexpectedly installed.
 
-For example, to express that your plugin can be used with Stylelint versions 7 and 8:
+For example, to express that your plugin can be used with Stylelint versions 14 and 15:
 
 ```json
 {
