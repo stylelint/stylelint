@@ -104,7 +104,7 @@ For example, to lint CSS files and the CSS within Lit Elements you can update yo
   "extends": ["stylelint-config-standard"],
   "overrides": [
     {
-      "files": ["**/*.{js}"],
+      "files": ["*.js"],
       "customSyntax": "postcss-lit"
     }
   ]
