@@ -68,6 +68,7 @@ You can add any number of keys to the object. For example, you can:
 
 Some rules and options accept regex. You can enforce these common cases:
 
+<!-- prettier-ignore -->
 - kebab-case: `^([a-z][a-z0-9]*)(-[a-z0-9]+)*$`
 - lowerCamelCase: `^[a-z][a-zA-Z0-9]+$`
 - snake\_case: `^([a-z][a-z0-9]*)(_[a-z0-9]+)*$`
