@@ -4,8 +4,8 @@ A linter and validator for CSS that is:
 
 - complete - coverage of all standard CSS syntax
 - extensible - multiple points of extension
-- configurable - no defaults and options to tailor the linter
-- robust - comprehensive test coverage and a wide range of fixtures
+- configurable - options to tailor the linter
+- robust - comprehensive test coverage
 - consistent - conventions for behavior, naming and documentation
 - performant - tools to test and improve performance
 
@@ -23,7 +23,7 @@ Provide multiple points of extensions, including:
 - [custom syntaxes](../developer-guide/syntaxes.md) - use any PostCSS-compatible syntax to support other CSS-like languages and containers
 - [extendable configs](../user-guide/configure.md#extends) - extend and share configurations
 - [formatters](../developer-guide/formatters.md) - format Stylelint result objects
-- [plugins](../developer-guide/plugins.md) - build community rules to support methodologies, toolsets, non-standard CSS features, other languages (like SCSS) or very specific use cases
+- [plugins](../developer-guide/plugins.md) - build custom rules to support methodologies, toolsets, non-standard CSS features, other languages (like SCSS) or very specific use cases
 
 ## Robust
 

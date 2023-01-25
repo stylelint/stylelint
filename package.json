@@ -1,7 +1,7 @@
 {
   "name": "stylelint",
   "version": "14.16.1",
-  "description": "A mighty, modern CSS linter.",
+  "description": "A mighty CSS linter that helps you avoid errors and enforce conventions.",
   "keywords": [
     "css-in-js",
     "css",

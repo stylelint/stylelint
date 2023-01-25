@@ -13,7 +13,7 @@ _Lengths_ refer to distance measurements. A length is a _dimension_, which is a 
 
 This rule ignores lengths within math functions (e.g. `calc`).
 
-The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

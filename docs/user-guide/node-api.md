@@ -14,7 +14,7 @@ In addition to the [standard options](options.md), the Node API accepts:
 
 ### `config`
 
-A [configuration object](../configure.md).
+A [configuration object](./configure.md).
 
 Stylelint does not bother looking for a `.stylelintrc` file if you use this option.
 
