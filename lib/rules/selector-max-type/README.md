@@ -121,7 +121,7 @@ Discount custom elements.
 
 For example, with `2`:
 
-The following patterns is _not_ considered a problem:
+The following pattern is _not_ considered a problem:
 
 <!-- prettier-ignore -->
 ```css
