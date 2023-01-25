@@ -157,3 +157,40 @@ The following patterns are considered problems:
 ```css
 @media print and (max-resolution: 100dpi) {}
 ```
+
+### `ignoreFunctions: ["function", "/regex/", /regex/]|"function"|"/regex/"|/regex/`
+
+Ignore units that are inside of the specified functions.
+
+For example, with `["px"]`.
+
+Given:
+
+```json
+{
+  "ignoreFunctions": ["calc", "/^translate/"]
+}
+```
+
+The following patterns are _not_ considered problems:
+
+<!-- prettier-ignore -->
+```css
+a {
+  margin: calc(50% - 100px)
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  translateX: calc(50% - 100px)
+}
+```
+
+<!-- prettier-ignore -->
+```css
+a {
+  translateY: calc(50% - 100px)
+}
+```
