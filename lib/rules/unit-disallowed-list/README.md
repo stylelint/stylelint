@@ -167,30 +167,17 @@ For example, with `["px"]`.
 Given:
 
 ```json
-{
-  "ignoreFunctions": ["calc", "/^translate/"]
-}
+"ignoreFunctions": ["calc", "/^translate/"]
 ```
 
 The following patterns are _not_ considered problems:
 
 <!-- prettier-ignore -->
 ```css
-a {
-  margin: calc(50% - 100px)
-}
+a { margin: calc(50% - 100px) }
 ```
 
 <!-- prettier-ignore -->
 ```css
-a {
-  translateX: calc(50% - 100px)
-}
-```
-
-<!-- prettier-ignore -->
-```css
-a {
-  translateY: calc(50% - 100px)
-}
+a { transform: translateX(50% - 100px) }
 ```
