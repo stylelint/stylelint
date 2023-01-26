@@ -14,7 +14,7 @@ Disallow missing end-of-source newlines.
 
 Completely empty files are not considered problems.
 
-The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

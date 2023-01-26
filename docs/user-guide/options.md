@@ -6,7 +6,7 @@ Options shared by the:
 - [Node.js API](node-api.md)
 - [PostCSS plugin](postcss-plugin.md)
 
-You can use some of these options in the [configuration object](../configure.md).
+You can use some of these options in the [configuration object](./configure.md).
 
 ## `allowEmptyInput`
 
@@ -18,7 +18,7 @@ Stylelint does not throw an error when glob pattern matches no files.
 
 CLI flag: `--config`
 
-Path to a JSON, YAML, or JS file that contains your [configuration object](../configure.md).
+Path to a JSON, YAML, or JS file that contains your [configuration object](./configure.md).
 
 Use this option if you don't want Stylelint to search for a configuration file.
 
@@ -68,7 +68,7 @@ This option allows Stylelint to transform these into something that resembles CS
 
 This option should be a string that resolves to a JS module that exports a [PostCSS-compatible syntax](https://github.com/postcss/postcss#syntaxes). The string can be a module name (like `my-module`) or a path to a JS file (like `path/to/my-module.js`).
 
-If you want to lint two or more different languages, you can combine `customSyntax` with the [`overrides`](../configure.md#overrides) configuration property.
+If you want to lint two or more different languages, you can combine `customSyntax` with the [`overrides`](./configure.md#overrides) configuration property.
 
 Using the Node.js API, the `customSyntax` option can also accept a [Syntax object](https://github.com/postcss/postcss/blob/abfaa7122a0f480bc5be0905df3c24a6a51a82d9/lib/postcss.d.ts#L223-L232). Stylelint treats the `parse` property as a required value.
 
@@ -90,7 +90,7 @@ Options are:
 - `unix` - generates messages like a C compiler, so that tools like Emacs' _Compilation mode_ can hyperlink them
 - `verbose` - extends `string` to include a list of checked files and a tally for each rule
 
-The `formatter` Node.js API option can also accept a function, whereas the `--custom-formatter` CLI flag accepts a path (either a filesystem path or a dependency) to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../../developer-guide/formatters.md).
+The `formatter` Node.js API option can also accept a function, whereas the `--custom-formatter` CLI flag accepts a path (either a filesystem path or a dependency) to a JS file exporting one. The function in both cases must fit the signature described in the [Developer Guide](../developer-guide/formatters.md).
 
 ## `cache`
 
@@ -126,7 +126,7 @@ CLI flags: `--max-warnings, --mw`
 
 Set a limit to the number of warnings accepted.
 
-It is useful when setting [`defaultSeverity`](../configure.md#defaultseverity) to `"warning"` and expecting the process to fail on warnings (e.g. CI build).
+It is useful when setting [`defaultSeverity`](./configure.md#defaultseverity) to `"warning"` and expecting the process to fail on warnings (e.g. CI build).
 
 If the number of warnings exceeds this value, the:
 

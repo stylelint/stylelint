@@ -1,9 +1,11 @@
 # Rules
 
-There are over 100 rules for modern CSS that help you:
+There are over one hundred built-in rules to help you:
 
 - [avoid errors](#avoid-errors)
 - [enforce conventions](#enforce-conventions)
+
+Many of them are turned on in our [recommended](https://www.npmjs.com/package/stylelint-config-recommended) (Ⓡ) and [standard](https://www.npmjs.com/package/stylelint-config-standard) (Ⓢ) configs.
 
 ## Avoid errors
 
@@ -13,78 +15,78 @@ You can avoid errors with these `no` rules.
 
 Disallow descending things with these `no-descending` rules.
 
-- [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
+- [`no-descending-specificity`](../../lib/rules/no-descending-specificity/README.md): Disallow selectors of lower specificity from coming after overriding selectors of higher specificity (Ⓡ & Ⓢ).
 
 ### Duplicate
 
 Disallow duplicates with these `no-duplicate` rules.
 
-- [`declaration-block-no-duplicate-custom-properties`](../../lib/rules/declaration-block-no-duplicate-custom-properties/README.md): Disallow duplicate custom properties within declaration blocks.
-- [`declaration-block-no-duplicate-properties`](../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks (Autofixable).
-- [`font-family-no-duplicate-names`](../../lib/rules/font-family-no-duplicate-names/README.md): Disallow duplicate names within font families.
-- [`keyframe-block-no-duplicate-selectors`](../../lib/rules/keyframe-block-no-duplicate-selectors/README.md): Disallow duplicate selectors within keyframe blocks.
-- [`no-duplicate-at-import-rules`](../../lib/rules/no-duplicate-at-import-rules/README.md): Disallow duplicate `@import` rules.
-- [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors.
+- [`declaration-block-no-duplicate-custom-properties`](../../lib/rules/declaration-block-no-duplicate-custom-properties/README.md): Disallow duplicate custom properties within declaration blocks (Ⓡ & Ⓢ).
+- [`declaration-block-no-duplicate-properties`](../../lib/rules/declaration-block-no-duplicate-properties/README.md): Disallow duplicate properties within declaration blocks (Autofixable) (Ⓡ & Ⓢ).
+- [`font-family-no-duplicate-names`](../../lib/rules/font-family-no-duplicate-names/README.md): Disallow duplicate names within font families (Ⓡ & Ⓢ).
+- [`keyframe-block-no-duplicate-selectors`](../../lib/rules/keyframe-block-no-duplicate-selectors/README.md): Disallow duplicate selectors within keyframe blocks (Ⓡ & Ⓢ).
+- [`no-duplicate-at-import-rules`](../../lib/rules/no-duplicate-at-import-rules/README.md): Disallow duplicate `@import` rules (Ⓡ & Ⓢ).
+- [`no-duplicate-selectors`](../../lib/rules/no-duplicate-selectors/README.md): Disallow duplicate selectors (Ⓡ & Ⓢ).
 
 ### Empty
 
 Disallow empty things with these `no-empty` rules.
 
-- [`block-no-empty`](../../lib/rules/block-no-empty/README.md): Disallow empty blocks.
-- [`comment-no-empty`](../../lib/rules/comment-no-empty/README.md): Disallow empty comments.
-- [`no-empty-source`](../../lib/rules/no-empty-source/README.md): Disallow empty sources.
+- [`block-no-empty`](../../lib/rules/block-no-empty/README.md): Disallow empty blocks (Ⓡ & Ⓢ).
+- [`comment-no-empty`](../../lib/rules/comment-no-empty/README.md): Disallow empty comments (Ⓡ & Ⓢ).
+- [`no-empty-source`](../../lib/rules/no-empty-source/README.md): Disallow empty sources (Ⓡ & Ⓢ).
 
 ### Invalid
 
 Disallow invalid syntax with these (sometimes implicit) `no-invalid` rules.
 
-- [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors.
-- [`function-calc-no-unspaced-operator`](../../lib/rules/function-calc-no-unspaced-operator/README.md): Disallow invalid unspaced operator within `calc` functions (Autofixable).
-- [`keyframe-declaration-no-important`](../../lib/rules/keyframe-declaration-no-important/README.md): Disallow invalid `!important` within keyframe declarations.
-- [`named-grid-areas-no-invalid`](../../lib/rules/named-grid-areas-no-invalid/README.md): Disallow invalid named grid areas.
-- [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow invalid double-slash comments.
-- [`no-invalid-position-at-import-rule`](../../lib/rules/no-invalid-position-at-import-rule/README.md): Disallow invalid position `@import` rules.
-- [`string-no-newline`](../../lib/rules/string-no-newline/README.md): Disallow invalid newlines within strings.
+- [`color-no-invalid-hex`](../../lib/rules/color-no-invalid-hex/README.md): Disallow invalid hex colors (Ⓡ & Ⓢ).
+- [`function-calc-no-unspaced-operator`](../../lib/rules/function-calc-no-unspaced-operator/README.md): Disallow invalid unspaced operator within `calc` functions (Autofixable) (Ⓡ & Ⓢ).
+- [`keyframe-declaration-no-important`](../../lib/rules/keyframe-declaration-no-important/README.md): Disallow invalid `!important` within keyframe declarations (Ⓡ & Ⓢ).
+- [`named-grid-areas-no-invalid`](../../lib/rules/named-grid-areas-no-invalid/README.md): Disallow invalid named grid areas (Ⓡ & Ⓢ).
+- [`no-invalid-double-slash-comments`](../../lib/rules/no-invalid-double-slash-comments/README.md): Disallow invalid double-slash comments (Ⓡ & Ⓢ).
+- [`no-invalid-position-at-import-rule`](../../lib/rules/no-invalid-position-at-import-rule/README.md): Disallow invalid position `@import` rules (Ⓡ & Ⓢ).
+- [`string-no-newline`](../../lib/rules/string-no-newline/README.md): Disallow invalid newlines within strings (Ⓡ & Ⓢ).
 
 ### Irregular
 
 Disallow irregular things with these `no-irregular` rules.
 
-- [`no-irregular-whitespace`](../../lib/rules/no-irregular-whitespace/README.md): Disallow irregular whitespace.
+- [`no-irregular-whitespace`](../../lib/rules/no-irregular-whitespace/README.md): Disallow irregular whitespace (Ⓡ & Ⓢ).
 
 ### Missing
 
 Disallow missing things with these `no-missing` rules.
 
-- [`custom-property-no-missing-var-function`](../../lib/rules/custom-property-no-missing-var-function/README.md): Disallow missing `var` function for custom properties.
-- [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md): Disallow a missing generic family keyword within font families.
+- [`custom-property-no-missing-var-function`](../../lib/rules/custom-property-no-missing-var-function/README.md): Disallow missing `var` function for custom properties (Ⓡ & Ⓢ).
+- [`font-family-no-missing-generic-family-keyword`](../../lib/rules/font-family-no-missing-generic-family-keyword/README.md): Disallow a missing generic family keyword within font families (Ⓡ & Ⓢ).
 
 ### Non-standard
 
 Disallow non-standard things with these `no-nonstandard` rules.
 
-- [`function-linear-gradient-no-nonstandard-direction`](../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow non-standard direction values for linear gradient functions.
+- [`function-linear-gradient-no-nonstandard-direction`](../../lib/rules/function-linear-gradient-no-nonstandard-direction/README.md): Disallow non-standard direction values for linear gradient functions (Ⓡ & Ⓢ).
 
 ### Overrides
 
 Disallow overrides with these `no-overrides` rules.
 
-- [`declaration-block-no-shorthand-property-overrides`](../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties.
+- [`declaration-block-no-shorthand-property-overrides`](../../lib/rules/declaration-block-no-shorthand-property-overrides/README.md): Disallow shorthand properties that override related longhand properties (Ⓡ & Ⓢ).
 
 ### Unknown
 
 Disallow unknown things with these `no-unknown` rules.
 
-- [`annotation-no-unknown`](../../lib/rules/annotation-no-unknown/README.md): Disallow unknown annotations.
-- [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md): Disallow unknown at-rules.
-- [`function-no-unknown`](../../lib/rules/function-no-unknown/README.md): Disallow unknown functions.
-- [`media-feature-name-no-unknown`](../../lib/rules/media-feature-name-no-unknown/README.md): Disallow unknown media feature names.
+- [`annotation-no-unknown`](../../lib/rules/annotation-no-unknown/README.md): Disallow unknown annotations (Ⓡ & Ⓢ).
+- [`at-rule-no-unknown`](../../lib/rules/at-rule-no-unknown/README.md): Disallow unknown at-rules (Ⓡ & Ⓢ).
+- [`function-no-unknown`](../../lib/rules/function-no-unknown/README.md): Disallow unknown functions (Ⓡ & Ⓢ).
+- [`media-feature-name-no-unknown`](../../lib/rules/media-feature-name-no-unknown/README.md): Disallow unknown media feature names (Ⓡ & Ⓢ).
 - [`no-unknown-animations`](../../lib/rules/no-unknown-animations/README.md): Disallow unknown animations.
-- [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md): Disallow unknown properties.
-- [`selector-pseudo-class-no-unknown`](../../lib/rules/selector-pseudo-class-no-unknown/README.md): Disallow unknown pseudo-class selectors.
-- [`selector-pseudo-element-no-unknown`](../../lib/rules/selector-pseudo-element-no-unknown/README.md): Disallow unknown pseudo-element selectors.
-- [`selector-type-no-unknown`](../../lib/rules/selector-type-no-unknown/README.md): Disallow unknown type selectors.
-- [`unit-no-unknown`](../../lib/rules/unit-no-unknown/README.md): Disallow unknown units.
+- [`property-no-unknown`](../../lib/rules/property-no-unknown/README.md): Disallow unknown properties (Ⓡ & Ⓢ).
+- [`selector-pseudo-class-no-unknown`](../../lib/rules/selector-pseudo-class-no-unknown/README.md): Disallow unknown pseudo-class selectors (Ⓡ & Ⓢ).
+- [`selector-pseudo-element-no-unknown`](../../lib/rules/selector-pseudo-element-no-unknown/README.md): Disallow unknown pseudo-element selectors (Ⓡ & Ⓢ).
+- [`selector-type-no-unknown`](../../lib/rules/selector-type-no-unknown/README.md): Disallow unknown type selectors (Ⓡ & Ⓢ).
+- [`unit-no-unknown`](../../lib/rules/unit-no-unknown/README.md): Disallow unknown units (Ⓡ & Ⓢ).
 
 ## Enforce conventions
 
@@ -98,7 +100,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 - [`at-rule-allowed-list`](../../lib/rules/at-rule-allowed-list/README.md): Specify a list of allowed at-rules.
 - [`at-rule-disallowed-list`](../../lib/rules/at-rule-disallowed-list/README.md): Specify a list of disallowed at-rules.
-- [`at-rule-no-vendor-prefix`](../../lib/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for at-rules (Autofixable).
+- [`at-rule-no-vendor-prefix`](../../lib/rules/at-rule-no-vendor-prefix/README.md): Disallow vendor prefixes for at-rules (Autofixable) (Ⓢ).
 - [`at-rule-property-required-list`](../../lib/rules/at-rule-property-required-list/README.md): Specify a list of required properties for an at-rule.
 
 #### Color
@@ -129,7 +131,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 #### Length
 
-- [`length-zero-no-unit`](../../lib/rules/length-zero-no-unit/README.md): Disallow units for zero lengths (Autofixable).
+- [`length-zero-no-unit`](../../lib/rules/length-zero-no-unit/README.md): Disallow units for zero lengths (Autofixable) (Ⓢ).
 
 #### Media feature
 
@@ -143,7 +145,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 - [`property-allowed-list`](../../lib/rules/property-allowed-list/README.md): Specify a list of allowed properties.
 - [`property-disallowed-list`](../../lib/rules/property-disallowed-list/README.md): Specify a list of disallowed properties.
-- [`property-no-vendor-prefix`](../../lib/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties (Autofixable).
+- [`property-no-vendor-prefix`](../../lib/rules/property-no-vendor-prefix/README.md): Disallow vendor prefixes for properties (Autofixable) (Ⓢ).
 
 #### Rule
 
@@ -158,7 +160,7 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 - [`selector-combinator-disallowed-list`](../../lib/rules/selector-combinator-disallowed-list/README.md): Specify a list of disallowed combinators.
 - [`selector-disallowed-list`](../../lib/rules/selector-disallowed-list/README.md): Specify a list of disallowed selectors.
 - [`selector-no-qualifying-type`](../../lib/rules/selector-no-qualifying-type/README.md): Disallow qualifying a selector by type.
-- [`selector-no-vendor-prefix`](../../lib/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors (Autofixable).
+- [`selector-no-vendor-prefix`](../../lib/rules/selector-no-vendor-prefix/README.md): Disallow vendor prefixes for selectors (Autofixable) (Ⓢ).
 - [`selector-pseudo-class-allowed-list`](../../lib/rules/selector-pseudo-class-allowed-list/README.md): Specify a list of allowed pseudo-class selectors.
 - [`selector-pseudo-class-disallowed-list`](../../lib/rules/selector-pseudo-class-disallowed-list/README.md): Specify a list of disallowed pseudo-class selectors.
 - [`selector-pseudo-element-allowed-list`](../../lib/rules/selector-pseudo-element-allowed-list/README.md): Specify a list of allowed pseudo-element selectors.
@@ -171,23 +173,23 @@ Allow, disallow or require things with these `allowed-list`, `disallowed-list`, 
 
 #### Value
 
-- [`value-no-vendor-prefix`](../../lib/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values (Autofixable).
+- [`value-no-vendor-prefix`](../../lib/rules/value-no-vendor-prefix/README.md): Disallow vendor prefixes for values (Autofixable) (Ⓢ).
 
 ### Case
 
 Specify lowercase or uppercase for words.
 
-- [`function-name-case`](../../lib/rules/function-name-case/README.md): Specify lowercase or uppercase for function names (Autofixable).
-- [`selector-type-case`](../../lib/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selectors (Autofixable).
-- [`value-keyword-case`](../../lib/rules/value-keyword-case/README.md): Specify lowercase or uppercase for keywords values (Autofixable).
+- [`function-name-case`](../../lib/rules/function-name-case/README.md): Specify lowercase or uppercase for function names (Autofixable) (Ⓢ).
+- [`selector-type-case`](../../lib/rules/selector-type-case/README.md): Specify lowercase or uppercase for type selectors (Autofixable) (Ⓢ).
+- [`value-keyword-case`](../../lib/rules/value-keyword-case/README.md): Specify lowercase or uppercase for keywords values (Autofixable) (Ⓢ).
 
 ### Empty lines
 
-- [`at-rule-empty-line-before`](../../lib/rules/at-rule-empty-line-before/README.md): Require or disallow an empty line before at-rules (Autofixable).
-- [`comment-empty-line-before`](../../lib/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments (Autofixable).
-- [`custom-property-empty-line-before`](../../lib/rules/custom-property-empty-line-before/README.md): Require or disallow an empty line before custom properties (Autofixable).
-- [`declaration-empty-line-before`](../../lib/rules/declaration-empty-line-before/README.md): Require or disallow an empty line before declarations (Autofixable).
-- [`rule-empty-line-before`](../../lib/rules/rule-empty-line-before/README.md): Require or disallow an empty line before rules (Autofixable).
+- [`at-rule-empty-line-before`](../../lib/rules/at-rule-empty-line-before/README.md): Require or disallow an empty line before at-rules (Autofixable) (Ⓢ).
+- [`comment-empty-line-before`](../../lib/rules/comment-empty-line-before/README.md): Require or disallow an empty line before comments (Autofixable) (Ⓢ).
+- [`custom-property-empty-line-before`](../../lib/rules/custom-property-empty-line-before/README.md): Require or disallow an empty line before custom properties (Autofixable) (Ⓢ).
+- [`declaration-empty-line-before`](../../lib/rules/declaration-empty-line-before/README.md): Require or disallow an empty line before declarations (Autofixable) (Ⓢ).
+- [`rule-empty-line-before`](../../lib/rules/rule-empty-line-before/README.md): Require or disallow an empty line before rules (Autofixable) (Ⓢ).
 
 ### Max & min
 
@@ -196,7 +198,7 @@ Apply limits with these `max` and `min` rules.
 - [`declaration-block-single-line-max-declarations`](../../lib/rules/declaration-block-single-line-max-declarations/README.md): Limit the number of declarations within a single-line declaration block.
 - [`declaration-property-max-values`](../../lib/rules/declaration-property-max-values/README.md): Limit the number of values for a list of properties within declarations.
 - [`max-nesting-depth`](../../lib/rules/max-nesting-depth/README.md): Limit the depth of nesting.
-- [`number-max-precision`](../../lib/rules/number-max-precision/README.md): Limit the number of decimal places allowed in numbers.
+- [`number-max-precision`](../../lib/rules/number-max-precision/README.md): Limit the number of decimal places allowed in numbers (Ⓢ).
 - [`selector-max-attribute`](../../lib/rules/selector-max-attribute/README.md): Limit the number of attribute selectors in a selector.
 - [`selector-max-class`](../../lib/rules/selector-max-class/README.md): Limit the number of classes in a selector.
 - [`selector-max-combinators`](../../lib/rules/selector-max-combinators/README.md): Limit the number of combinators in a selector.
@@ -212,53 +214,53 @@ Apply limits with these `max` and `min` rules.
 
 Enforce one representation of things that have multiple with these `notation` (sometimes implicit) rules.
 
-- [`alpha-value-notation`](../../lib/rules/alpha-value-notation/README.md): Specify percentage or number notation for alpha-values (Autofixable).
-- [`color-function-notation`](../../lib/rules/color-function-notation/README.md): Specify modern or legacy notation for color-functions (Autofixable).
-- [`color-hex-length`](../../lib/rules/color-hex-length/README.md): Specify short or long notation for hex colors (Autofixable).
+- [`alpha-value-notation`](../../lib/rules/alpha-value-notation/README.md): Specify percentage or number notation for alpha-values (Autofixable) (Ⓢ).
+- [`color-function-notation`](../../lib/rules/color-function-notation/README.md): Specify modern or legacy notation for color-functions (Autofixable) (Ⓢ).
+- [`color-hex-length`](../../lib/rules/color-hex-length/README.md): Specify short or long notation for hex colors (Autofixable) (Ⓢ).
 - [`font-weight-notation`](../../lib/rules/font-weight-notation/README.md): Specify numeric or named notation for font weights (Autofixable).
-- [`hue-degree-notation`](../../lib/rules/hue-degree-notation/README.md): Specify number or angle notation for degree hues (Autofixable).
-- [`import-notation`](../../lib/rules/import-notation/README.md): Specify string or URL notation for `@import` rules (Autofixable).
-- [`keyframe-selector-notation`](../../lib/rules/keyframe-selector-notation/README.md): Specify keyword or percentage notation for keyframe selectors (Autofixable).
+- [`hue-degree-notation`](../../lib/rules/hue-degree-notation/README.md): Specify number or angle notation for degree hues (Autofixable) (Ⓢ).
+- [`import-notation`](../../lib/rules/import-notation/README.md): Specify string or URL notation for `@import` rules (Autofixable) (Ⓢ).
+- [`keyframe-selector-notation`](../../lib/rules/keyframe-selector-notation/README.md): Specify keyword or percentage notation for keyframe selectors (Autofixable) (Ⓢ).
 - [`media-feature-range-notation`](../../lib/rules/media-feature-range-notation/README.md): Specify context or prefix notation for media feature ranges.
-- [`selector-not-notation`](../../lib/rules/selector-not-notation/README.md): Specify simple or complex notation for `:not()` pseudo-class selectors (Autofixable).
-- [`selector-pseudo-element-colon-notation`](../../lib/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-element selectors (Autofixable).
+- [`selector-not-notation`](../../lib/rules/selector-not-notation/README.md): Specify simple or complex notation for `:not()` pseudo-class selectors (Autofixable) (Ⓢ).
+- [`selector-pseudo-element-colon-notation`](../../lib/rules/selector-pseudo-element-colon-notation/README.md): Specify single or double colon notation for applicable pseudo-element selectors (Autofixable) (Ⓢ).
 
 ### Pattern
 
 Enforce naming conventions with these `pattern` rules.
 
 - [`comment-pattern`](../../lib/rules/comment-pattern/README.md): Specify a pattern for comments.
-- [`custom-media-pattern`](../../lib/rules/custom-media-pattern/README.md): Specify a pattern for custom media query names.
-- [`custom-property-pattern`](../../lib/rules/custom-property-pattern/README.md): Specify a pattern for custom properties.
-- [`keyframes-name-pattern`](../../lib/rules/keyframes-name-pattern/README.md): Specify a pattern for keyframe names.
-- [`selector-class-pattern`](../../lib/rules/selector-class-pattern/README.md): Specify a pattern for class selectors.
-- [`selector-id-pattern`](../../lib/rules/selector-id-pattern/README.md): Specify a pattern for ID selectors.
+- [`custom-media-pattern`](../../lib/rules/custom-media-pattern/README.md): Specify a pattern for custom media query names (Ⓢ).
+- [`custom-property-pattern`](../../lib/rules/custom-property-pattern/README.md): Specify a pattern for custom properties (Ⓢ).
+- [`keyframes-name-pattern`](../../lib/rules/keyframes-name-pattern/README.md): Specify a pattern for keyframe names (Ⓢ).
+- [`selector-class-pattern`](../../lib/rules/selector-class-pattern/README.md): Specify a pattern for class selectors (Ⓢ).
+- [`selector-id-pattern`](../../lib/rules/selector-id-pattern/README.md): Specify a pattern for ID selectors (Ⓢ).
 - [`selector-nested-pattern`](../../lib/rules/selector-nested-pattern/README.md): Specify a pattern for the selectors of rules nested within rules.
 
 ### Quotes
 
 Require or disallow quotes with these `quotes` rules.
 
-- [`font-family-name-quotes`](../../lib/rules/font-family-name-quotes/README.md): Require or disallow quotes for font family names (Autofixable).
-- [`function-url-quotes`](../../lib/rules/function-url-quotes/README.md): Require or disallow quotes for urls (Autofixable).
-- [`selector-attribute-quotes`](../../lib/rules/selector-attribute-quotes/README.md): Require or disallow quotes for attribute values (Autofixable).
+- [`font-family-name-quotes`](../../lib/rules/font-family-name-quotes/README.md): Require or disallow quotes for font family names (Autofixable) (Ⓢ).
+- [`function-url-quotes`](../../lib/rules/function-url-quotes/README.md): Require or disallow quotes for urls (Autofixable) (Ⓢ).
+- [`selector-attribute-quotes`](../../lib/rules/selector-attribute-quotes/README.md): Require or disallow quotes for attribute values (Autofixable) (Ⓢ).
 
 ### Redundant
 
 Disallow redundancy with these `no-redundant` rules.
 
-- [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow redundant longhand properties within declaration-block.
+- [`declaration-block-no-redundant-longhand-properties`](../../lib/rules/declaration-block-no-redundant-longhand-properties/README.md): Disallow redundant longhand properties within declaration-block (Ⓢ).
 - [`shorthand-property-no-redundant-values`](../../lib/rules/shorthand-property-no-redundant-values/README.md): Disallow redundant values within shorthand properties (Autofixable).
 
 ### Whitespace inside
 
 Require or disallow whitespace on the inside.
 
-- [`comment-whitespace-inside`](../../lib/rules/comment-whitespace-inside/README.md): Require or disallow whitespace on the inside of comment markers (Autofixable).
+- [`comment-whitespace-inside`](../../lib/rules/comment-whitespace-inside/README.md): Require or disallow whitespace on the inside of comment markers (Autofixable) (Ⓢ).
 
 ## Deprecated
 
-We have deprecated these rules — we won't fix bugs nor add options, and we will remove them in future releases. We recommend you use a pretty printer (like Prettier) alongside Stylelint rather than these rules.
+These rules are deprecated — we won't fix bugs nor add options, and we will remove them in the next major release. We recommend you use a pretty printer (like Prettier) alongside Stylelint rather than these rules.
 
 ### Color
 

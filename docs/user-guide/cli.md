@@ -50,7 +50,7 @@ Absolute path to the directory that relative paths defining "extends", "plugins"
 
 ### `--config`
 
-Path to a JSON, YAML, or JS file that contains your [configuration object](../configure.md). [More info](options.md#configfile).
+Path to a JSON, YAML, or JS file that contains your [configuration object](./configure.md). [More info](options.md#configfile).
 
 ### `--custom-syntax`
 

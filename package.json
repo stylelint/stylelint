@@ -1,7 +1,7 @@
 {
   "name": "stylelint",
   "version": "14.16.1",
-  "description": "A mighty, modern CSS linter.",
+  "description": "A mighty CSS linter that helps you avoid errors and enforce conventions.",
   "keywords": [
     "css-in-js",
     "css",
@@ -111,10 +111,10 @@
     ]
   },
   "dependencies": {
-    "@csstools/css-parser-algorithms": "^1.0.0",
-    "@csstools/css-tokenizer": "^1.0.0",
-    "@csstools/media-query-list-parser": "^1.0.0",
-    "@csstools/selector-specificity": "^2.0.2",
+    "@csstools/css-parser-algorithms": "^2.0.0",
+    "@csstools/css-tokenizer": "^2.0.0",
+    "@csstools/media-query-list-parser": "^2.0.0",
+    "@csstools/selector-specificity": "^2.1.0",
     "balanced-match": "^2.0.0",
     "colord": "^2.9.3",
     "cosmiconfig": "^8.0.0",
@@ -174,7 +174,7 @@
     "benchmark": "^2.1.4",
     "common-tags": "^1.8.2",
     "deepmerge": "^4.2.2",
-    "eslint": "^8.31.0",
+    "eslint": "^8.32.0",
     "eslint-config-stylelint": "^17.1.0",
     "husky": "^8.0.3",
     "jest": "^29.3.1",
