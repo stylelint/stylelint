@@ -2,4 +2,4 @@
 "stylelint": patch
 ---
 
-Fixed: false positives for "never" in `selector-attribute-quotes`
+Fixed: `selector-attribute-quotes` false positives for "never"
