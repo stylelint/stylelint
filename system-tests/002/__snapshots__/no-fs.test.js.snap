@@ -6,7 +6,47 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
   "errored": true,
   "output": [
     {
-      "deprecations": [],
+      "deprecations": [
+        {
+          "text": "The "at-rule-semicolon-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "at-rule-name-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "declaration-block-semicolon-newline-before" rule is deprecated.",
+        },
+        {
+          "text": "The "max-empty-lines" rule is deprecated.",
+        },
+        {
+          "text": "The "number-leading-zero" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-list-comma-newline-before" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-list-comma-space-after" rule is deprecated.",
+        },
+        {
+          "text": "The "selector-list-comma-space-before" rule is deprecated.",
+        },
+        {
+          "text": "The "string-quotes" rule is deprecated.",
+        },
+        {
+          "text": "The "unicode-bom" rule is deprecated.",
+        },
+        {
+          "text": "The "value-list-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "text": "The "value-list-comma-newline-before" rule is deprecated.",
+        },
+        {
+          "text": "The "value-list-comma-space-after" rule is deprecated.",
+        },
+      ],
       "errored": true,
       "invalidOptionWarnings": [],
       "parseErrors": [],
@@ -44,7 +84,60 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
   "reportedDisables": [],
   "results": [
     {
-      "deprecations": [],
+      "deprecations": [
+        {
+          "reference": undefined,
+          "text": "The "at-rule-semicolon-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "at-rule-name-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "declaration-block-semicolon-newline-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "max-empty-lines" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "number-leading-zero" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-list-comma-newline-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-list-comma-space-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "selector-list-comma-space-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "string-quotes" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "unicode-bom" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "value-list-comma-newline-after" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "value-list-comma-newline-before" rule is deprecated.",
+        },
+        {
+          "reference": undefined,
+          "text": "The "value-list-comma-space-after" rule is deprecated.",
+        },
+      ],
       "errored": true,
       "ignored": undefined,
       "invalidOptionWarnings": [],
@@ -116,6 +209,7 @@ exports[`no-fs - invalid twbs buttons and their config 1`] = `
       "url": "https://stylelint.io/user-guide/rules/function-url-no-scheme-relative",
     },
     "function-url-quotes": {
+      "fixable": true,
       "url": "https://stylelint.io/user-guide/rules/function-url-quotes",
     },
     "max-empty-lines": {

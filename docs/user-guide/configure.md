@@ -1,29 +1,21 @@
-# Configuration
+# Configuring
 
-Stylelint _expects a configuration object_.
+Stylelint expects a configuration object, and looks for one in a:
 
-Stylelint uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) to find and load your configuration object. Starting from the current working directory, it looks for the following possible sources:
+- `stylelint` property in `package.json`
+- `.stylelintrc` file
+- `.stylelintrc.{cjs,js,json,yaml,yml}` file
+- `stylelint.config.{cjs,js}` file exporting a JS object
 
-- a `stylelint` property in `package.json`
-- a `.stylelintrc` file
-- a `stylelint.config.js` file exporting a JS object
-- a `stylelint.config.cjs` file exporting a JS object. When running Stylelint in JavaScript packages that specify `"type":"module"` in their `package.json`
+Starting from the current working directory, Stylelint stops searching when one of these is found. Alternatively, you can use the [`--config` or `configFile` option](options.md#configfile) to short-circuit the search.
 
-The search stops when one of these is found, and Stylelint uses that object. You can use the [`--config` or `configFile` option](usage/options.md#configfile) to short-circuit the search.
-
-The `.stylelintrc` file (without extension) can be in JSON or YAML format. You can add a filename extension to help your text editor provide syntax checking and highlighting:
-
-- `.stylelintrc.json`
-- `.stylelintrc.yaml` / `.stylelintrc.yml`
-- `.stylelintrc.js`
+The `.stylelintrc` file (without extension) can be in JSON or YAML format. We recommend adding an extension to help your editor provide syntax checking and highlighting.
 
 The configuration object has the following properties:
 
 ## `rules`
 
-Rules determine what the linter looks for and complains about. There are [over 170 rules](rules.md) built into Stylelint.
-
-_No rules are turned on by default and there are no default values. You must explicitly configure each rule to turn it on._
+Rules determine what the linter looks for and complains about. There are [over 100 rules](rules.md) built into Stylelint. _No rules are turned on by default._
 
 The `rules` property is _an object whose keys are rule names and values are rule configurations_. For example:
 
@@ -58,7 +50,7 @@ Many rules provide secondary options for further customization. To set secondary
 }
 ```
 
-You can add any number of keys in the object. For example, you can:
+You can add any number of keys to the object. For example, you can:
 
 - turn off `block-no-empty`
 - turn on `unit-allowed-list` with a primary option
@@ -74,9 +66,19 @@ You can add any number of keys in the object. For example, you can:
 }
 ```
 
+Some rules and options accept regex. You can enforce these common cases:
+
+<!-- prettier-ignore -->
+- kebab-case: `^([a-z][a-z0-9]*)(-[a-z0-9]+)*$`
+- lowerCamelCase: `^[a-z][a-zA-Z0-9]+$`
+- snake\_case: `^([a-z][a-z0-9]*)(_[a-z0-9]+)*$`
+- UpperCamelCase: `^[A-Z][a-zA-Z0-9]+$`
+
+Or enforce a prefix using a positive lookbehind regex. For example, `(?<=foo-)` to prefix with `foo-`.
+
 ### `disableFix`
 
-You can set the `disableFix` secondary option to disable autofix _on a per rule basis_.
+You can set the `disableFix` secondary option to disable autofix _on a per-rule basis_.
 
 For example:
 
@@ -136,7 +138,7 @@ With formats that don't support a function like JSON, you can use a `printf`-lik
 
 ### `reportDisables`
 
-You can set the `reportDisables` secondary option to report any `stylelint-disable` comments for this rule, effectively disallowing authors to opt out of it.
+You can set the `reportDisables` secondary option to report any `stylelint-disable` comments for this rule, effectively disallowing authors to opt-out of it.
 
 For example:
 
@@ -179,18 +181,13 @@ Reporters may use these severity levels to display problems or exit the process 
 
 ## `extends`
 
-You can _extend_ an existing configuration (whether your own or a third-party one).
+You can extend an existing configuration (whether your own or a third-party one). Configurations can bundle plugins, custom syntaxes, options, and configure rules. They can also extend other configurations.
 
-Popular configurations include:
+For example, [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) is one of our official configs that you can extend.
 
-- [stylelint-config-recommended](https://github.com/stylelint/stylelint-config-recommended) - turns on just the rules that [avoid errors](rules.md#avoid-errors)
-- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) - extends recommended one by turning on rules that [enforce conventions](rules.md#enforce-conventions)
+When one configuration extends another, it starts with the other's properties and then adds to and overrides what's there.
 
-You'll find more in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#configs).
-
-When one configuration extends another, it starts with the other's properties then adds to and overrides what's there.
-
-For example, you can extend the [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) and then change the alpha values to be numbers and turn off the `selector-class-pattern` rule:
+For example, to extend the [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) and then change the alpha values to numbers and turn off the `selector-class-pattern` rule:
 
 ```json
 {
@@ -221,15 +218,17 @@ The value of `"extends"` is a "locater" (or an array of "locaters") that is ulti
 - an absolute path to a file (which makes sense if you're creating a JS object in a Node.js context and passing it in) with a `.js` or `.json` extension.
 - a relative path to a file with a `.js` or `.json` extension, relative to the referencing configuration (e.g. if configA has `extends: "../configB"`, we'll look for `configB` relative to configA).
 
+You'll find more configs in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#readme).
+
 ## `plugins`
 
-Plugins are rules or sets of rules built by the community that support methodologies, toolsets, _non-standard_ CSS features, or very specific use cases.
+Plugins are custom rules or sets of custom rules built to support methodologies, toolsets, _non-standard_ CSS features, or very specific use cases.
 
-For example, [stylelint-scss](https://github.com/stylelint-scss/stylelint-scss) is a popular plugin pack that enforces a wide variety of linting rules for SCSS-like syntax.
+For example, [stylelint-order](https://www.npmjs.com/package/stylelint-order) is a popular plugin pack to order things like properties within declaration blocks.
 
-You'll find more in [awesome stylelint](https://github.com/stylelint/awesome-stylelint#plugins).
+Plugins are often included within shared configs [that you can extend](#extends). For example, the [stylelint-config-standard-scss](https://www.npmjs.com/package/stylelint-config-standard-scss) config includes the [stylelint-scss](https://www.npmjs.com/package/stylelint-scss) plugin.
 
-To use one, add a `"plugins"` array to your config, containing either [plugin objects](../developer-guide/plugins.md) or "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either a:
+To use a plugin directly, add a `"plugins"` array to your config, containing either [plugin objects](../developer-guide/plugins.md) or "locaters" identifying the plugins you want to use. As with `extends`, above, a "locater" can be either a:
 
 - npm module name
 - absolute path
@@ -259,17 +258,20 @@ A "plugin" can provide a single rule or a set of rules. If the plugin you use pr
 }
 ```
 
+You'll find more plugins in [Awesome Stylelint](https://github.com/stylelint/awesome-stylelint#plugins).
+
 ## `customSyntax`
 
-Specify a custom syntax to use on your code. [More info](usage/options.md#customsyntax).
+Specify a custom syntax to use on your code. [More info](options.md#customsyntax).
 
 ## `overrides`
 
-You can provide configurations under the `overrides` key that will only apply to files that match specific glob patterns, using the same format you would pass on the command line (e.g., `app/**/*.test.css`).
+Using the `overrides` property, you can specify what subset of files to apply a configuration to.
 
-It is possible to override settings based on file glob patterns in your configuration by using the `overrides` key. An example of using the `overrides` key is as follows:
+For example, to use the:
 
-In your `.stylelintrc.json`:
+- `postcss-scss` syntax for all `.scss` files
+- `percentage` notation for all alpha values in all `.css` files in the `components` and `pages` directories
 
 ```json
 {
@@ -291,14 +293,16 @@ In your `.stylelintrc.json`:
 }
 ```
 
-Here is how overrides work in a configuration file:
+The value of the `overrides` property is an array of objects. Each object:
 
-- The patterns are applied against the file path relative to the directory of the config file. For example, if your config file has the path `/Users/person/workspace/any-project/.stylelintrc.js` and the file you want to lint has the path `/Users/person/workspace/any-project/components/card.css`, then the pattern provided in `.stylelintrc.js` will be executed against the relative path `components/card.css`.
-- Glob pattern overrides have higher precedence than the regular configuration in the same config file. Multiple overrides within the same config are applied in order. That is, the last override block in a config file always has the highest precedence.
-- A glob specific configuration works almost the same as any other Stylelint config. Override blocks can contain any configuration options that are valid in a regular config.
-- Multiple glob patterns can be provided within a single override block. A file must match at least one of the supplied patterns for the configuration to apply.
-- `customSyntax` will be replaced by overrides.
-- `plugins`, `extends`, `rules`, etc. will be appended.
+- must contain a `files` property, which is an array of glob patterns that specify which files the configuration should be applied to
+- should contain at least one other regular configuration property, such as `customSyntax`, `rules`, `extends`, etc.
+
+The `customSyntax` property will be replaced, whereas `plugins`, `extends`, `rules`, etc. will be appended.
+
+Patterns are applied against the file path relative to the directory of the config file. For example, if your config file has the path `/project-foo/.stylelintrc.js` and the file you want to lint has the path `/project-foo/components/bar.css`, then the pattern provided in `.stylelintrc.js` will be executed against the relative path `components/bar.css`.
+
+Overrides have higher precedence than regular configurations. Multiple overrides within the same config are applied in order. That is, the last override block in a config file always has the highest precedence.
 
 ## `defaultSeverity`
 
@@ -310,87 +314,9 @@ You can set the default severity level for all rules that do not have a severity
 }
 ```
 
-## `reportDescriptionlessDisables`
-
-Report `stylelint-disable` comments without a description. A [`report*`](#report) property.
-
-For example:
-
-```json
-{
-  "reportDescriptionlessDisables": true
-}
-```
-
-[More info](usage/options.md#reportdescriptionlessdisables).
-
-## `reportInvalidScopeDisables`
-
-Report `stylelint-disable` comments that don't match rules that are specified in the configuration object. A [`report*`](#report) property.
-
-For example:
-
-```json
-{
-  "reportInvalidScopeDisables": true
-}
-```
-
-[More info](usage/options.md#reportinvalidscopedisables).
-
-## `reportNeedlessDisables`
-
-Report `stylelint-disable` comments that don't actually match any lints that need to be disabled. A [`report*`](#report) property.
-
-For example:
-
-```json
-{
-  "reportNeedlessDisables": true
-}
-```
-
-[More info](usage/options.md#reportneedlessdisables).
-
-## `ignoreDisables`
-
-Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
-
-For example:
-
-```json
-{
-  "ignoreDisables": true
-}
-```
-
-[More info](usage/options.md#ignoredisables).
-
-## `ignoreFiles`
-
-You can provide a glob or array of globs to ignore specific files.
-
-For example, you can ignore all JavaScript files:
-
-```json
-{
-  "ignoreFiles": ["**/*.js"]
-}
-```
-
-Stylelint ignores the `node_modules` directory by default. However, this is overridden if `ignoreFiles` is set.
-
-If the globs are absolute paths, they are used as is. If they are relative, they are analyzed relative to
-
-- `configBasedir`, if it's provided;
-- the config's filepath, if the config is a file that Stylelint found a loaded;
-- or `process.cwd()`.
-
-_Note that this is not an efficient method for ignoring lots of files._ If you want to ignore a lot of files efficiently, use [`.stylelintignore`](ignore-code.md) or adjust your files globs.
-
 ## `report*`
 
-These `report*` properties provide extra validation for `stylelint-disable` comments. This can be helpful for enforcing useful and well-documented disables.
+These `report*` properties provide extra validation for `stylelint-disable` comments. This can help enforce useful and well-documented disables.
 
 The available reports are:
 
@@ -430,3 +356,81 @@ And this emits warnings for disables of `unit-allowed-list` that don't have a de
   ]
 }
 ```
+
+### `reportDescriptionlessDisables`
+
+Report `stylelint-disable` comments without a description. A [`report*`](#report) property.
+
+For example:
+
+```json
+{
+  "reportDescriptionlessDisables": true
+}
+```
+
+[More info](options.md#reportdescriptionlessdisables).
+
+### `reportInvalidScopeDisables`
+
+Report `stylelint-disable` comments that don't match rules that are specified in the configuration object. A [`report*`](#report) property.
+
+For example:
+
+```json
+{
+  "reportInvalidScopeDisables": true
+}
+```
+
+[More info](options.md#reportinvalidscopedisables).
+
+### `reportNeedlessDisables`
+
+Report `stylelint-disable` comments that don't match any lints that need to be disabled. A [`report*`](#report) property.
+
+For example:
+
+```json
+{
+  "reportNeedlessDisables": true
+}
+```
+
+[More info](options.md#reportneedlessdisables).
+
+## `ignoreDisables`
+
+Ignore `stylelint-disable` (e.g. `/* stylelint-disable block-no-empty */`) comments.
+
+For example:
+
+```json
+{
+  "ignoreDisables": true
+}
+```
+
+[More info](options.md#ignoredisables).
+
+## `ignoreFiles`
+
+You can provide a glob or array of globs to ignore specific files.
+
+For example, you can ignore all JavaScript files:
+
+```json
+{
+  "ignoreFiles": ["**/*.js"]
+}
+```
+
+Stylelint ignores the `node_modules` directory by default. However, this is overridden if `ignoreFiles` is set.
+
+If the globs are absolute paths, they are used as is. If they are relative, they are analyzed relative to
+
+- `configBasedir`, if it's provided;
+- the config's filepath, if the config is a file that Stylelint found and loaded;
+- or `process.cwd()`.
+
+_Note that this is not an efficient method for ignoring lots of files._ If you want to ignore a lot of files efficiently, use [`.stylelintignore`](ignore-code.md) or adjust your files globs.

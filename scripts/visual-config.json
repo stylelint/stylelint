@@ -10,6 +10,8 @@
 				"severity": "warning"
 			}
 		],
-		"import-notation": "string"
+		"import-notation": "string",
+		"unit-case": null,
+		"string-quotes": "single"
 	}
 }

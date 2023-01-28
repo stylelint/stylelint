@@ -11,7 +11,7 @@ Require a single space or disallow whitespace after the range operator in media 
  * The space after this operator */
 ```
 
-The [`fix` option](../../../docs/user-guide/usage/options.md#fix) can automatically fix all of the problems reported by this rule.
+The [`fix` option](../../../docs/user-guide/options.md#fix) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

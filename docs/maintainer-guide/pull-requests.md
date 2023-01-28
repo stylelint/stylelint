@@ -16,7 +16,7 @@ You should not use any:
 
 When merging a PR, you should:
 
-1. Use your judgement for the number of approvals needed:
+1. Use your judgment for the number of approvals needed:
    - one approval is usually fine for simple fixes
    - two approvals are often useful for bigger changes
 2. If applicable, add a [changeset](https://github.com/changesets/changesets) using the GitHub interface:

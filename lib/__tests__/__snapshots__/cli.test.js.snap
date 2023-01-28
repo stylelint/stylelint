@@ -2,7 +2,7 @@
 
 exports[`CLI --help 1`] = `
 "
-  A mighty, modern CSS linter.
+  A mighty CSS linter that helps you avoid errors and enforce conventions.
 
   Usage: stylelint [input] [options]
 
@@ -29,9 +29,9 @@ exports[`CLI --help 1`] = `
 
     --config-basedir
 
-      An absolute path to the directory that relative paths defining "extends"
-      and "plugins" are *relative to*. Only necessary if these values are
-      relative paths.
+      An absolute path to the directory that relative paths defining "extends",
+      "plugins", and "customSyntax" are *relative to*. Only necessary if these
+      values are relative paths.
 
     --print-config
 
