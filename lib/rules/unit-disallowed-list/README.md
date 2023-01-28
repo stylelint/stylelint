@@ -167,7 +167,7 @@ For example, with `["px"]`.
 Given:
 
 ```json
-"ignoreFunctions": ["calc", "/^translate/"]
+["calc", "/^translate/"]
 ```
 
 The following patterns are _not_ considered problems:
@@ -179,5 +179,5 @@ a { margin: calc(50% - 100px) }
 
 <!-- prettier-ignore -->
 ```css
-a { transform: translateX(50% - 100px) }
+a { transform: translateX(100px) }
 ```
